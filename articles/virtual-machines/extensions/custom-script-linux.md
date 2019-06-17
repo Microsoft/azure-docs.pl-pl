@@ -113,11 +113,11 @@ Tych elementów powinien być traktowane jako poufne dane i określony w konfigu
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
-| fileUris (np.) | https://github.com/MyProject/Archive/MyPythonScript.py | tablica |
+| fileUris (np.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (np.) | python MyPythonScript.py \<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
-| skipDos2Unix (np.) | false | wartość logiczna |
-| Sygnatura czasowa (np.) | 123456789 | 32-bitowa liczba całkowita |
+| skipDos2Unix (np.) | false | boolean |
+| timestamp (np.) | 123456789 | 32-bitowa liczba całkowita |
 | storageAccountName (np.) | examplestorageacct | string |
 | storageAccountKey (np.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
