@@ -80,11 +80,11 @@ Usługa Azure Disk Encryption wymaga łączności z Internetem, aby uzyskać dos
 | Name (Nazwa) | Wartość / przykład | Typ danych |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| Wydawcy | Microsoft.Azure.Security | string |
+| publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForWindows| string |
 | typeHandlerVersion | 1.0, 1.1, 2.2 (ZESTAWU SKALOWANIA MASZYN WIRTUALNYCH) | int |
 | (opcjonalnie) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Identyfikator GUID | 
-| (optional) AADClientSecret | password | string |
+| (opcjonalnie) AADClientSecret | password | string |
 | (opcjonalnie) AADClientCertificate | thumbprint | string |
 | EncryptionOperation | EnableEncryption | string | 
 | KeyEncryptionAlgorithm | RSA OAEP, RSA1_5 | string |
@@ -92,8 +92,9 @@ Usługa Azure Disk Encryption wymaga łączności z Internetem, aby uzyskać dos
 | KeyVaultResourceId | Identyfikator uri zasobu | string |
 | KekVaultResourceId | Identyfikator uri zasobu | string |
 | KeyVaultURL | url | string |
+| (opcjonalnie) Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
-| VolumeType | Systemu operacyjnego, danych, wszystkie | string |
+| VolumeType | OS, Data, All | string |
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
 Na przykład wdrożenie szablonu zobacz [ Tworzenie nowej maszyny Wirtualnej Windows zaszyfrowane na podstawie obrazu z galerii](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).
