@@ -39,8 +39,8 @@ To rozszerzenie obsługuje następujący dystrybucje systemu operacyjnego, w zal
 | Dystrybucja | Version |
 |---|---|
 | W systemie Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
-| W systemie Linux: Red Hat Enterprise Linux | 7,3, 7,4, 7,5, 7,6 |
-| W systemie Linux: CentOS | 7,3, 7,4, 7,5, 7,6 |
+| W systemie Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
+| W systemie Linux: CentOS | 7.3, 7.4, 7.5, 7.6 |
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 
@@ -75,8 +75,8 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
 | Name | Wartość / przykład | Typ danych |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft. HpcCompute | string |
-| type | NvidiaGpuDriverLinux | ciąg |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Ustawienia
@@ -86,7 +86,7 @@ Wszystkie ustawienia są opcjonalne. Domyślnym zachowaniem jest nieaktualizowan
 | Name | Opis | Default Value | Prawidłowe wartości | Typ danych |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Aktualizowanie jądra nawet wtedy, gdy nie jest to wymagane na potrzeby instalacji sterownika | false | true, false | boolean |
-| driverVersion | MAGAZYN Wersja sterownika siatki<br> NC/ND: Wersja zestawu narzędzi CUDA. Najnowsze sterowniki dla wybranych CUDA są instalowane automatycznie. | najnowsza | SIATKI "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA "10.0.130", "9.2.88", "9.1.85" | ciąg |
+| driverVersion | MAGAZYN Wersja sterownika siatki<br> NC/ND: Wersja zestawu narzędzi CUDA. Najnowsze sterowniki dla wybranych CUDA są instalowane automatycznie. | latest | SIATKI "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Zainstaluj zestaw narzędzi CUDA. Dotyczy tylko maszyn wirtualnych z serii NC/ND. | true | true, false | boolean |
 
 
