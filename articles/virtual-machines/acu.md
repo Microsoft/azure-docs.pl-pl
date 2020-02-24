@@ -51,7 +51,7 @@ Koncepcja jednostki obliczeniowej platformy Azure (ACU) zapewnia sposób porówn
 | [GS1 — GS5](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [H](h-series.md) |290 - 300* | 1:1 |
 | [HB](hb-series.md) |199 – 216 * * | 1:1 |
-| [WĘGLOWODOR](hc-series.md) |297 – 315 * | 1:1 |
+| [HC](hc-series.md) |297 – 315 * | 1:1 |
 | [L4s — L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 — L80s_v2](lsv2-series.md) |150 – 175 * * | 2:1 |
 | [M](m-series.md) | 160 – 180 | 2:1\*\*\* |
