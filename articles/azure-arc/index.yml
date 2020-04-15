@@ -10,12 +10,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/04/2019
   ms.author: robreed
-  ms.openlocfilehash: 2ff0b9a194faf4d5a6b9e5181c52dc135208bdee
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: e80cdec365a14caee5c74900e1c21f7349165e66
+  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73508554"
+  ms.lasthandoff: 04/13/2020
+  ms.locfileid: "81261282"
 landingContent:
 - title: Omówienie usługi Azure Arc
   linkLists:
@@ -31,7 +31,9 @@ landingContent:
       url: ./servers/overview.md
   - linkListType: quickstart
     links:
-    - text: Łączenie komputerów z platformą Azure przy użyciu usługi Azure Arc dla serwerów — portal
-      url: ./servers/quickstart-onboard-portal.md
-    - text: Łączenie komputerów z platformą Azure przy użyciu usługi Azure Arc dla serwerów — PowerShell
-      url: ./servers/quickstart-onboard-portal.md
+    - text: Łączenie maszyn z usługą Azure Arc z poziomu witryny Azure Portal
+      url: ./servers/onboard-portal.md
+    - text: Łączenie maszyn na dużą skalę przy użyciu jednostki usługi
+      url: ./servers/onboard-service-principal.md
+    - text: Łączenie maszyn z platformą Azure przy użyciu rozszerzenia DSC programu PowerShell
+      url: ./servers/onboard-dsc.md

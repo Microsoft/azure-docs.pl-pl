@@ -20,6 +20,9 @@
     - name: Wdrażanie przy użyciu grup adresów IP
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
+    - name: Wdrażanie przy użyciu wielu adresów
+      displayName: Resource Manager
+      href: quick-create-multiple-ip-template.md
 - name: Samples
   items:
     - name: Azure PowerShell

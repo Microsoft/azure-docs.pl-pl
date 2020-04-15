@@ -10,7 +10,9 @@
       href: quickstart-host-portal.md
 - name: Pojęcia
   items:
-    - name: Praca zdalna
+    - name: Obsługa pracy zdalnej
+      href: ../networking/working-remotely-support.md?toc=%2fazure%2fbastion%2ftoc.json
+    - name: Korzystanie z usługi Bastion do pracy zdalnej
       href: work-remotely-support.md
 - name: Przewodniki z instrukcjami
   items:

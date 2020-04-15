@@ -114,12 +114,6 @@
               href: index-add-language-analyzers.md
             - name: Dodawanie niestandardowego analizatora
               href: index-add-custom-analyzers.md
-        - name: Typeahead
-          items:
-            - name: Tworzenie sugestora
-              href: index-add-suggesters.md
-            - name: Dodawanie sugestii lub autouzupełniania
-              href: search-autocomplete-tutorial.md
         - name: Synonimy
           items:
             - name: Dodawanie synonimów
@@ -204,6 +198,8 @@
               href: cognitive-search-custom-skill-python.md
             - name: Przykład — Azure Functions
               href: cognitive-search-create-custom-skill-example.md
+            - name: Przykład — rozpoznawanie formularzy na platformie Azure
+              href: cognitive-search-custom-skill-form.md
             - name: Przykład — Containers
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Wskazówki dotyczące projektowania
@@ -230,6 +226,14 @@
           href: search-query-lucene-examples.md
         - name: Terminy częściowe i znaki specjalne
           href: search-query-partial-matching.md
+        - name: Wyszukiwanie rozmyte
+          href: search-query-fuzzy.md
+        - name: Autouzupełnianie „wyszukiwanie podczas pisania”
+          items:
+            - name: Tworzenie sugestora
+              href: index-add-suggesters.md
+            - name: Dodawanie sugestii lub autouzupełniania
+              href: search-autocomplete-tutorial.md
         - name: Wykonywanie zapytań z poziomu usługi Power Apps
           href: search-howto-powerapps.md
         - name: Dokumentacja składni

@@ -21,7 +21,7 @@
           href: tutorial-bulk-invite.md
         - name: Wymuszanie uwierzytelniania wieloskładnikowego
           href: b2b-tutorial-require-mfa.md
-    - name: Przykłady
+    - name: Samples
       items:
         - name: Przykłady kodu i programu Azure PowerShell
           href: code-samples.md
@@ -63,6 +63,8 @@
               href: add-users-administrator.md
             - name: Pracownicy przetwarzający informacje dodający użytkowników B2B
               href: add-users-information-worker.md
+            - name: Zapraszanie użytkowników wewnętrznych do B2B
+              href: invite-internal-users.md
             - name: Federacja z firmą Google
               href: google-federation.md
             - name: Uwierzytelnianie za pomocą jednorazowego kodu dostępu
@@ -115,7 +117,7 @@
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
         - name: Forum MSDN
           href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-        - name: Ceny
+        - name: Cennik
           href: 'https://azure.microsoft.com/pricing/details/active-directory/'
         - name: Kalkulator cen
           href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -1,11 +1,11 @@
-- name: Dokumentacja witryny Azure Marketplace i usługi AppSource
+- name: Dokumentacja komercyjnej platformy handlowej
   href: index.yml
   items:
-    - name: Harmonogram działania dla usług Azure Marketplace i AppSource
+    - name: Harmonogram działania dla komercyjnej platformy handlowej
       href: ./marketplace-roadmap.md
-    - name: Zasady i warunki usługi Azure Marketplace
+    - name: Zasady i warunki komercyjnej platformy handlowej
       href: ./policies-terms.md
-    - name: Przegląd witryny Azure Marketplace i usługi AppSource oraz ich zalety
+    - name: Omówienie i korzyści komercyjnej platformy handlowej
       href: ./marketplace-publishers-guide.md
       items:
         - name: 'Jedna platforma handlowa, dwa sklepy'
@@ -15,7 +15,7 @@
           items:
             - name: Zarządzanie potencjalnymi klientami
               href: ./lead-management-for-cloud-marketplace.md
-            - name: Przeprowadzanie transakcji w witrynie Azure Marketplace
+            - name: Transakcje na komercyjnej platformie handlowej
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
             - name: Oferty prywatne
               href: ./private-offers.md
@@ -66,7 +66,7 @@
               href: ./preferred-solutions.md
             - name: Zintegrowane rozwiązania
               href: ./integrated-solutions.md
-        - name: Pomoc techniczna dla witryny Azure Marketplace i usługi AppSource
+        - name: Pomoc techniczna dla komercyjnej platformy handlowej
           href: ./support-azure-marketplace.md
           items:
             - name: Witryna Marketplace — często zadawane pytania
@@ -78,6 +78,8 @@
   items:
     - name: Migracja z witryny Cloud Partner Portal do Centrum partnerskiego
       href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
+    - name: Często zadawane pytania dotyczące migracji
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
     - name: Przewodnik po portalu
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -427,12 +429,10 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Uzyskiwanie pomocy technicznej
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-- name: Portal witryny Marketplace dla zastosowań komercyjnych w Centrum partnerskim
+- name: Komercyjna platforma handlowa w Centrum partnerskim
   items:
-    - name: Omówienie
-      items:
-        - name: Co to jest witryna Marketplace dla zastosowań komercyjnych?
-          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: Omówienie komercyjnej platformy handlowej
+      href: ./partner-center-portal/commercial-marketplace-overview.md
     - name: Zarządzanie kontami
       items:
         - name: Tworzenie nowego konta w Centrum partnerskim
@@ -453,6 +453,30 @@
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: Interfejs API do dołączania
               href: ./partner-center-portal/azure-app-apis.md
+        - name: Oferty kontenerów platformy Azure
+          items:
+            - name: Przygotowywanie zasobów technicznych
+              href: ./partner-center-portal/create-azure-container-technical-assets.md
+            - name: Tworzenie oferty kontenera platformy Azure
+              href: ./partner-center-portal/create-azure-container-offer.md
+        - name: Oferta maszyny wirtualnej
+          items:
+            - name: Tworzenie oferty maszyny wirtualnej platformy Azure
+              href: ./partner-center-portal/azure-vm-create-offer.md
+            - name: Tworzenie zasobu technicznego maszyny wirtualnej platformy Azure
+              items:
+                - name: Tworzenie zasobu technicznego maszyny wirtualnej platformy Azure
+                  href: ./partner-center-portal/create-azure-vm-technical-asset.md
+                - name: Często zadawane pytania na temat zasobów technicznych maszyny wirtualnej platformy Azure
+                  href: ./partner-center-portal/common-issues-during-vhd-creation.md
+                - name: Certyfikowanie obrazu maszyny wirtualnej platformy Azure
+                  href: ./partner-center-portal/azure-vm-image-certification.md
+                - name: Identyfikator URI sygnatury dostępu współdzielonego
+                  items:
+                    - name: Uzyskiwanie identyfikatora URI sygnatury dostępu współdzielonego
+                      href: ./partner-center-portal/get-sas-uri.md
+                    - name: Często zadawane pytania na temat identyfikatora URI sygnatury dostępu współdzielonego
+                      href: ./partner-center-portal/common-sas-uri-issues.md
         - name: Usługi konsultingowe
           items:
             - name: Wymagania wstępne
@@ -539,7 +563,7 @@
       href: ./partner-center-portal/support.md
     - name: Analiza w Centrum partnerskim
       items:
-        - name: Analiza na komercyjnej platformie handlowej
+        - name: Analiza dla komercyjnej platformy handlowej
           href: ./partner-center-portal/analytics.md
         - name: Pulpit nawigacyjny Podsumowanie
           href: ./partner-center-portal/summary-dashboard.md
