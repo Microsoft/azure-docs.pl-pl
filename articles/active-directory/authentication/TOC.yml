@@ -42,17 +42,13 @@
       items:
         - name: Jak działa uwierzytelnianie wieloskładnikowe
           href: concept-mfa-howitworks.md
-        - name: Licencjonowanie użytkowników
-          href: concept-mfa-licensing.md
-        - name: Zarządzanie dostawcą uwierzytelniania
-          href: concept-mfa-authprovider.md
-        - name: Wskazówki dotyczące bezpieczeństwa
-          href: multi-factor-authentication-security-best-practices.md
         - name: Rezydencja danych
           href: concept-mfa-data-residency.md
+        - name: Licencje
+          href: concept-mfa-licensing.md
         - name: Uwierzytelnianie wieloskładnikowe dla usługi Office 365
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
-        - name: Uwierzytelnianie wieloskładnikowe — często zadawane pytania
+        - name: Często zadawane pytania
           href: multi-factor-authentication-faq.md
     - name: Ochrona haseł w usłudze Azure AD
       items:
@@ -72,16 +68,18 @@
           href: howto-sspr-authenticationdata.md
         - name: Samoobsługowe resetowanie hasła dla klientów systemu Windows
           href: howto-sspr-windows.md
-    - name: Uwierzytelnianie wieloskładnikowe oparte na chmurze
+    - name: Azure Multi-Factor Authentication
       items:
         - name: Podręcznik wdrażania
           href: howto-mfa-getstarted.md
-        - name: Uwierzytelnianie wieloskładnikowe dla poszczególnych użytkowników
-          href: howto-mfa-userstates.md
-        - name: Ustawienia użytkownika i urządzenia
-          href: howto-mfa-userdevicesettings.md
         - name: Konfigurowanie ustawień
           href: howto-mfa-mfasettings.md
+        - name: Konfigurowanie użytkowników
+          href: howto-mfa-userdevicesettings.md
+        - name: Włączanie uwierzytelnianie wieloskładnikowego dla poszczególnych użytkowników
+          href: howto-mfa-userstates.md
+        - name: Konfigurowanie dostawców uwierzytelniania
+          href: concept-mfa-authprovider.md
         - name: Federacja katalogów
           items:
             - name: Windows Server 2016 — adapter usług AD FS
@@ -140,7 +138,9 @@
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello dla firm
           href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
-    - name: Uwierzytelnianie oparte na certyfikatach
+    - name: Korzystanie z uwierzytelniania opartego na wiadomościach SMS (wersja zapoznawcza)
+      href: howto-authentication-sms-signin.md
+    - name: Uwierzytelnianie oparte na certyfikacie
       items:
         - name: Wprowadzenie do uwierzytelniania certyfikatów
           href: active-directory-certificate-based-authentication-get-started.md
@@ -225,7 +225,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Aktualizacje usług
       href: ../fundamentals/whats-new.md

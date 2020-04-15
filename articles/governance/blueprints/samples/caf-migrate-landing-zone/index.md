@@ -1,14 +1,14 @@
 ---
 title: Omówienie przykładu strategii strefy docelowej migracji w przewodniku CAF
 description: Omówienie i architektura strategii Cloud Adoption Framework (CAF) dla strefy docelowej usługi Azure Migration z przykładem.
-ms.date: 08/20/2019
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 08171a39c83ea6822243d7239882a19b053f213e
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: d0328a590d86677e098504a7498a696697fc38c8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "74545493"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383542"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Omówienie przykładowej strategii strefy docelowej w przewodniku Microsoft Cloud Adoption Framework dla migracji na platformę Azure
 
@@ -20,7 +20,7 @@ Przykład strategii [CAF Foundation](../caf-foundation/index.md) stanowi rozszer
 
 Przykład strategii strefy docelowej migracji w przewodniku CAF służy do wdrażania na platformie Azure podstawowych zasobów infrastruktury, które mogą być używane przez organizacje do przygotowywania subskrypcji do migrowania do nich maszyn wirtualnych. Pomaga on również we wdrożeniu kontroli ładu niezbędnych do zarządzania ich zasobami w chmurze. Ten przykład służy do wdrażania i wymuszania zasobów, zasad i szablonów, dzięki którym organizacja będzie mogła zacząć korzystać z platformy Azure w zaufany sposób.
 
-![Strefa docelowa migracji w przewodniku CAF — obraz przedstawia, jakie elementy są instalowane w ramach wytycznych przewodnika CAF w początkowej strefie docelowej ](../../media/caf-blueprints/caf-migration-landing-zone-architecture.png)
+:::image type="content" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Strefa docelowa migracji w przewodniku CAF — obraz przedstawia, jakie elementy są instalowane w ramach wytycznych przewodnika CAF w początkowej strefie docelowej" border="false":::
 
 To środowisko składa się z kilku usług platformy Azure, które udostępniają bezpieczny, w pełni monitorowany ład możliwy do zastosowania w przedsiębiorstwach. To środowisko zawiera następujące składniki:
 

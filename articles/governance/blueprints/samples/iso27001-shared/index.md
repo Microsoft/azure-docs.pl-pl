@@ -1,14 +1,14 @@
 ---
 title: Omówienie przykładu strategii usług udostępnionych ISO 27001
 description: Omówienie i architektura przykładu strategii usług udostępnionych ISO 27001. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli ISO 27001.
-ms.date: 01/13/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 0b6a250ebac2744adca813219225388841f1776f
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75922543"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381572"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Omówienie przykładu strategii usług udostępnionych ISO 27001.
 
@@ -21,7 +21,7 @@ Przykład strategii [obciążenia środowiska App Service Environment/bazy danyc
 Przykład strategii usług udostępnionych ISO 27001 wdraża na platformie Azure podstawową infrastrukturę, która umożliwia organizacjom hostowanie wielu obciążeń zgodnie z metodą wirtualnego centrum danych.
 Wirtualne centrum danych to zestaw sprawdzonych architektur referencyjnych, narzędzi automatyzacji i modeli zaangażowania używanych przez firmę Microsoft u jej największych klientów korporacyjnych. Przykład strategii usług udostępnionych jest oparty na w pełni natywnym środowisku wirtualnego centrum danych platformy Azure, które pokazano poniżej.
 
-![Przykładowy projekt strategii usług udostępnionych ISO 27001](../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png" alt-text="Przykładowy projekt strategii usług udostępnionych ISO 27001" border="false":::
 
 To środowisko składa się z kilku usług platformy Azure, które udostępniają bezpieczną, w pełni monitorowaną infrastrukturę usług udostępnionych z obsługą przedsiębiorstw zgodną ze standardami ISO 27001. To środowisko zawiera następujące składniki:
 

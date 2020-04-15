@@ -336,6 +336,8 @@
       href: reference-connect-faq.md
     - name: Azure AD Connect Health — często zadawane pytania
       href: reference-connect-health-faq.md
+    - name: Zagadnienia dotyczące tożsamości hybrydowej dla usługi Azure Government
+      href: reference-connect-government-cloud.md
     - name: Prywatność użytkowników w programie Azure AD Connect
       href: reference-connect-user-privacy.md
     - name: Prywatność użytkowników w programie Azure AD Connect Health
