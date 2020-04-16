@@ -11,14 +11,16 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 1c2db107302e4851641ef430db61ec9b29ee151f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c85a652cde840336c51e1a5b5459f9dc591e0be
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77187479"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414684"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Rozwiązywanie problemów z wykonywaniem pakietów w czasie wykonywania integracji SSIS
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Ten artykuł zawiera najczęstsze błędy, które mogą wystąpić podczas wykonywania pakietów usług integracyjnych programu SQL Server (SSIS) w czasie wykonywania integracji SSIS. Opisano w nim potencjalne przyczyny i działania mające na celu rozwiązanie błędów.
 
@@ -144,7 +146,7 @@ Upewnij się, że środowisko uruchomieniowe integracji hostowane samodzielnie j
 
 Upewnij się, że odpowiedni dostawca używany przez łączniki OLE DB w pakiecie są poprawnie zainstalowane na komputerze uruchomieniowym integracji hostowanego samodzielnie. Więcej szczegółów można znaleźć na stronie [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
-### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Komunikat o błędzie: "Błąd zadania przemieszczania: ErrorCode: 2906, ErrorMessage: Wykonanie pakietu nie powiodło się., Wyjście: {"OperationErrorMessages": "Błąd: System.IO.FileLoadException: Nie można załadować pliku lub zestawu 'Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35' lub jedna z jego zależności. Definicja manifestu znajdującego się zestawu nie jest zgodna z odniesieniem do złożenia." ..."
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Komunikat o błędzie: "Błąd zadania przemieszczania: Kod błędu: 2906, ErrorMessage: Wykonanie pakietu nie powiodło się., Dane wyjściowe: {"OperationErrorMessages": "Error: System.IO.FileLoadException: Nie można załadować pliku lub zestawu 'Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35' lub jednej z jego zależności. Definicja manifestu znajdującego się zestawu nie jest zgodna z odniesieniem do złożenia." ..."
 
 Jedną z potencjalnych przyczyn jest środowisko uruchomieniowe integracji self-hosted nie jest poprawnie zainstalowany lub uaktualniony. Zasugeruj pobranie i ponowne zainstalowanie najnowszego środowiska wykonawczego integracji hostowanego samodzielnie. Więcej szczegółów można znaleźć na stronie [Tworzenie i konfigurowanie środowiska wykonawczego integracji hostowanego samodzielnie](create-self-hosted-integration-runtime.md#installation-best-practices)
 

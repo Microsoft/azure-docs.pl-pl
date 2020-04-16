@@ -5,16 +5,16 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 872f0e60943a674e5febf269dcb5b09fd08d77c9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681157"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409870"
 ---
-# <a name="interact-with-unity-game-objects-and-components"></a>Interakcja z obiektami i komponentami gry Unity
+# <a name="interact-with-unity-game-objects-and-components"></a>Interakcja ze składnikami i obiektami gier środowiska Unity
 
-Renderowanie zdalne platformy Azure (ARR) jest zoptymalizowane pod kątem ogromnej liczby obiektów (patrz [Limity).](../../reference/limits.md) Chociaż można zarządzać dużymi i złożonymi hierarchiami na hoście, replikowanie ich wszystkich w unity na urządzeniach o niskim pozycjnym jest niewykonalne.
+Renderowanie zdalne platformy Azure (ARR) jest zoptymalizowane pod kątem ogromnej liczby obiektów (patrz [Ograniczenia).](../../reference/limits.md) Chociaż można zarządzać dużymi i złożonymi hierarchiami na hoście, replikowanie ich wszystkich w unity na urządzeniach o niskim pozycjnym jest niewykonalne.
 
 W związku z tym gdy model jest ładowany na hoście, azure remote rendering dubluje informacje o strukturze modelu na urządzeniu klienckim (który spowoduje ruch sieciowy), ale nie replikuje obiektów i składników w Unity. Zamiast tego oczekuje się, że można zażądać potrzebnych obiektów gry Unity i składników ręcznie, tak, że można ograniczyć obciążenie do tego, co jest rzeczywiście potrzebne. W ten sposób masz większą kontrolę nad wydajnością po stronie klienta.
 
@@ -121,5 +121,5 @@ if (cutplane != null)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie renderowania zdalnego dla jedności](unity-setup.md)
+* [Konfigurowanie usługi Remote Rendering dla środowiska Unity](unity-setup.md)
 * [Samouczek: Praca z jednostkami zdalnymi w unity](../../tutorials/unity/working-with-remote-entities.md)

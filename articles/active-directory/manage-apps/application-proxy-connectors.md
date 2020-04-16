@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b097ce3781a77a8c5e8a94b9c2bf0977f3efcfd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f1b8b9af8f90629d087246edf0cb3426bd9b66c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481334"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406827"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Opis łączników serwera proxy aplikacji usługi Azure AD
 
@@ -153,12 +153,17 @@ Aby zapewnić bezpieczną usługę, łączniki muszą uwierzytelnić się w kier
 
 Używane certyfikaty są specyficzne dla usługi Proxy aplikacji. Są one tworzone podczas wstępnej rejestracji i są automatycznie odnawiane przez łączniki co kilka miesięcy.
 
+Po pierwszym pomyślnym odnowieniu certyfikatu usługa łącznika serwera proxy aplikacji usługi Azure AD (Usługa sieciowa) nie ma uprawnień do usuwania starego certyfikatu z lokalnego magazynu maszyn. Jeśli certyfikat wygasł lub nie będzie już używany przez usługę, można go bezpiecznie usunąć.
+
+Aby uniknąć problemów z odnawianiem certyfikatu, upewnij się, że komunikacja sieciowa z łącznika do [udokumentowanych miejsc docelowych](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) jest włączona.
+
 Jeśli łącznik nie jest podłączony do usługi przez kilka miesięcy, jego certyfikaty mogą być nieaktualne. W takim przypadku odinstaluj i zainstaluj ponownie łącznik, aby wyzwolić rejestrację. Można uruchomić następujące polecenia programu PowerShell:
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
+Aby dowiedzieć się więcej o tym, jak zweryfikować certyfikat i rozwiązać problemy, zobacz [Weryfikowanie obsługi składników komputera i wewnętrznej bazy danych certyfikatu zaufania serwera proxy aplikacji](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## <a name="under-the-hood"></a>Kulisy
 

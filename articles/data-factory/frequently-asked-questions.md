@@ -9,14 +9,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 34972e70039fef17161bdef66f64278cbabf908f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d0b49b73ef6b67653fbf32db1174880a51d432d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130799"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81412945"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory — często zadawane pytania
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Data Factory.  
 
 ## <a name="what-is-azure-data-factory"></a>Czym jest usługa Azure Data Factory? 
@@ -147,7 +150,7 @@ Aby uzyskać więcej informacji o pojęciach związanych z usługą Data Factory
 
 - [Dataset and linked services (Zestaw danych i połączone usługi)](concepts-datasets-linked-services.md)
 - [Potoki i działania](concepts-pipelines-activities.md)
-- [Integration Runtime (Produkt Integration Runtime)](concepts-integration-runtime.md)
+- [Integration Runtime](concepts-integration-runtime.md)
 
 ## <a name="what-is-the-pricing-model-for-data-factory"></a>Jaki jest model cenowy usługi Data Factory?
 Aby uzyskać szczegółowe informacje o cenach usługi Azure Data Factory, zobacz [Szczegóły cen usługi Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).

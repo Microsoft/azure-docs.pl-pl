@@ -11,14 +11,15 @@ ms.author: abnarain
 author: nabhishek
 manager: shwang
 ms.date: 03/15/2018
-ms.openlocfilehash: 20858069b745beeaf64951c4ef23c2eb85251985
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b010000a674e351051c664dd5eeacd40e802439
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929113"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414607"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Przekształcanie danych przez uruchamianie działania jar w usłudze Azure Databricks
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Działanie usługi Azure Databricks Jar w [potoku fabryki danych](concepts-pipelines-activities.md) uruchamia jar platformy Spark w klastrze usługi Azure Databricks. W tym artykule opiera się na [działaniach](transform-data.md) transformacji danych, który przedstawia ogólny przegląd transformacji danych i obsługiwanych działań transformacji.Usługa Azure Databricks to zarządzana platforma do uruchamiania platformy Apache Spark.
 

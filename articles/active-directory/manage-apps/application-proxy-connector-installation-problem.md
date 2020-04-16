@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466e1ce0efbdec3f5475634f3857d02554d93d98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d773e6302edf0b799e6dfccc702750a9cc74f60
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049132"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406699"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem z instalacją łącznika agenta serwera proxy aplikacji
 
@@ -50,20 +50,69 @@ Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zwykle j
 
 3.  Otwórz przeglądarkę (oddzielną kartę) i przejdź `https://login.microsoftonline.com`do następującej strony internetowej: , upewnij się, że możesz zalogować się do tej strony.
 
-## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Weryfikowanie obsługi składników komputera i zaplecza dla certyfikatu zaufania serwera proxy aplikacji
+## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-certificate"></a>Weryfikowanie obsługi składników komputera i zaplecza dla certyfikatu zaufania serwera proxy aplikacji
 
-**Cel:** Sprawdź, czy komputer łącznika, serwer proxy wewnętrznej bazy danych i zapora mogą obsługiwać certyfikat utworzony przez łącznik dla przyszłego zaufania.
+**Cel:** Sprawdź, czy komputer łącznika, serwer proxy wewnętrznej bazy danych i zapora mogą obsługiwać certyfikat utworzony przez łącznik dla przyszłego zaufania i czy certyfikat jest prawidłowy.
 
 >[!NOTE]
 >Łącznik próbuje utworzyć certyfikat SHA512, który jest obsługiwany przez TLS1.2. Jeśli komputer lub zapora wewnętrznej bazy danych i serwer proxy nie obsługuje protokołu TLS1.2, instalacja nie powiedzie się.
 >
 >
 
-**Aby rozwiązać ten problem:**
+**Zapoznaj się z wymaganymi wymaganiami wstępnymi:**
 
 1.  Sprawdź, czy urządzenie obsługuje protokół TLS1.2 — wszystkie wersje systemu Windows po 2012 R2 powinny obsługiwać protokół TLS 1.2. Jeśli urządzenie złącza pochodzi z wersji 2012 R2 lub wcześniejszej, upewnij się, że na urządzeniu są zainstalowane następujące kb:<https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Skontaktuj się z administratorem sieci i poproś o sprawdzenie, czy serwer proxy i zapora wewnętrznej bazy danych nie blokują sha512 dla ruchu wychodzącego.
+
+**Aby zweryfikować certyfikat klienta:**
+
+Sprawdź odcisk palca bieżącego certyfikatu klienta. Magazyn certyfikatów można znaleźć w pliku %ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<ConnectorTrustSettingsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CloudProxyTrust>
+    <Thumbprint>4905CC64B2D81BBED60962ECC5DCF63F643CCD55</Thumbprint>
+    <IsInUserStore>false</IsInUserStore>
+  </CloudProxyTrust>
+</ConnectorTrustSettingsFile>
+```
+
+Oto możliwe wartości i znaczenia **IsInUserStore:**
+
+- **false** — certyfikat klienta został utworzony podczas instalacji lub rejestracji zainicjowanej przez polecenie Register-AppProxyConnector. Jest on przechowywany w osobistym pojemniku w magazynie certyfikatów komputera lokalnego. 
+
+Wykonaj czynności, aby zweryfikować certyfikat:
+
+1. Uruchom **plik certlm.msc**
+2. W konsoli zarządzania rozwiń kontener osobisty i kliknij certyfikaty
+3. Znajdź certyfikat wystawiony przez **connectorregistrationca.msappproxy.net**
+
+- **true** — automatycznie odnowiony certyfikat jest przechowywany w kontenerze osobistym w magazynie certyfikatów użytkownika usługi sieciowej. 
+
+Wykonaj czynności, aby zweryfikować certyfikat:
+
+1. Pobierz [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
+2. Wyodrębnij [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) z pakietu i uruchom **psexec -i -u "nt authority\network service" cmd.exe** z wiersza polecenia z podwyższonym poziomem uprawnień.
+3. Uruchom **plik certmgr.msc** w nowo wyświetlonym wierszu polecenia
+2. W konsoli zarządzania rozwiń kontener osobisty i kliknij certyfikaty
+3. Znajdź certyfikat wystawiony przez **connectorregistrationca.msappproxy.ne
+
+**Aby odnowić certyfikat klienta:**
+
+Jeśli łącznik nie jest podłączony do usługi przez kilka miesięcy, jego certyfikaty mogą być nieaktualne. Niepowodzenie odnowienia certyfikatu prowadzi do wygasłego certyfikatu. Dzięki temu usługa łącznika przestaje działać. Zdarzenie 1000 jest rejestrowane w dzienniku administratora łącznika:
+
+"Ponowna rejestracja łącznika nie powiodła się: certyfikat zaufania łącznika wygasł. Uruchom polecenie cmdlet Register-AppProxyConnector programu PowerShell na komputerze, na którym jest uruchomiony łącznik, aby ponownie zarejestrować łącznik."
+
+W takim przypadku odinstaluj i zainstaluj ponownie łącznik, aby wyzwolić rejestrację lub można uruchomić następujące polecenia programu PowerShell:
+
+```
+Import-module AppProxyPSModule
+Register-AppProxyConnector
+```
+
+Aby dowiedzieć się więcej o poleceniu Register-AppProxyConnector, zobacz [Tworzenie skryptu instalacji nienadzorowanego dla łącznika serwera proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Sprawdź, czy administrator jest używany do zainstalowania łącznika
 

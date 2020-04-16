@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 243fea8fae071368a91bf482190442f15c372fc1
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271305"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390376"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Rozwiązywanie problemów z błędami replikacji maszyny wirtualnej platformy Azure do platformy Azure
 
@@ -404,21 +404,20 @@ Aby włączyć replikację na maszynie Wirtualnej, jej stan inicjowania obsługi
 
 ### <a name="issue-1-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Problem 1: Maszyna wirtualna jest dołączona do sieci, która jest już zamapowana do sieci docelowej
 
-Jeśli źródłowa maszyna wirtualna jest częścią sieci wirtualnej, a inna maszyna wirtualna z tej samej sieci wirtualnej jest już mapowana za pomocą sieci w docelowej grupie zasobów, pole listy rozwijanej wyboru sieci jest domyślnie niedostępne (jest wyszarzone).
+Podczas konfiguracji odzyskiwania po awarii, jeśli źródłowa maszyna wirtualna jest częścią sieci wirtualnej, a inna maszyna wirtualna z tej samej sieci wirtualnej jest już mapowana za pomocą sieci w docelowej grupie zasobów, pole listy rozwijanej wyboru sieci jest domyślnie niedostępne (jest wyszarzone).
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Lista wyboru sieci jest niedostępna.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problem 2: Poprzednio chroniłeś maszynę wirtualną, a następnie wyłączono replikację
 
-Wyłączenie replikacji maszyny Wirtualnej nie powoduje usunięcia mapowania sieci. Mapowanie musi zostać usunięte z magazynu usług odzyskiwania, w którym maszyna wirtualna była chroniona. Przejdź do **mapowania** > **sieci infrastruktury** > odzyskiwania magazynu usług odzyskiwania usług odzyskiwania **.**
+Wyłączenie replikacji maszyny Wirtualnej nie powoduje usunięcia mapowania sieci. Mapowanie musi zostać usunięte z magazynu usług odzyskiwania, w którym maszyna wirtualna była chroniona. Wybierz **magazyn usług odzyskiwania** i przejdź do **zarządzania** > **infrastrukturą** > odzyskiwania witryn**dla maszyn wirtualnych** > platformy Azure**Mapowanie sieci**.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Usuwanie mapowania sieci.":::
 
-Sieć docelowa skonfigurowana podczas konfiguracji odzyskiwania po awarii może zostać zmieniona po wstępnej instalacji i po zabezpieczeniu maszyny wirtualnej:
+Sieć docelowa skonfigurowana podczas konfiguracji odzyskiwania po awarii może zostać zmieniona po wstępnej konfiguracji i po zabezpieczeniu maszyny wirtualnej. Aby **zmodyfikować mapowanie sieci,** wybierz nazwę sieci:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Modyfikowanie mapowania sieci.":::
 
-Zmiana mapowania sieci wpływa na wszystkie chronione maszyny wirtualne, które używają tego samego mapowania sieci.
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ lub VSS (kod błędu 151025)
 

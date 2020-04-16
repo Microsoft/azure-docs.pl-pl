@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9fa9d414b89c7229b0577faad778f6cc8b87fa99
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 8aa49b044abcbd65a67a854a9da85cbc1471cda6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80244822"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404425"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Szybki start: korzystanie z modelu domeny w funkcji przetwarzania obrazów przy użyciu interfejsu API REST i języka Python
 
-W tym przewodniku Szybki start użyjesz modelu domeny do identyfikowania punktów orientacyjnych lub, opcjonalnie, gwiazd w zdalnie przechowywanym obrazie przy użyciu interfejsu API REST przetwarzania wizji komputerowej. Metoda [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) umożliwia zastosowanie modelu specyficznego dla domeny do rozpoznawania zawartości w ramach obrazu.
+W tym przewodniku Szybki start użyjesz modelu domeny do identyfikowania punktów orientacyjnych lub opcjonalnie gwiazd w zdalnie przechowywanym obrazie przy użyciu interfejsu API REST przetwarzania wizji komputerowej. Metoda [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) umożliwia zastosowanie modelu specyficznego dla domeny do rozpoznawania zawartości w ramach obrazu.
 
 Możesz pracować z tym przewodnikiem Szybki start krok po kroku, korzystając z aplikacji Jupyter Notebook w usłudze [MyBinder](https://mybinder.org). Aby uruchomić usługę Binder, wybierz poniższy przycisk:
 
@@ -203,7 +203,9 @@ Gdy pliki obu przykładów nie będą już potrzebne, usuń je.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z aplikacją w języku Python, w której zastosowano interfejs API przetwarzania obrazów do optycznego rozpoznawania znaków (OCR), inteligentnego przycinania miniatur oraz wykrywania, kategoryzowania, tagowania i opisywania elementów wizualnych, w tym twarzy, na obrazie. Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Następnie zapoznaj się z aplikacją Python, która używa wizji komputerowej do wykonywania optycznego rozpoznawania znaków (OCR); tworzenie miniatur przyciętych inteligentnie; i wykrywać, kategoryzować, oznaczać i opisywać funkcje wizualne na obrazach.
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial (Samouczek dla języka Python dotyczący interfejsu API przetwarzania obrazów)](../Tutorials/PythonTutorial.md)
+
+* Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

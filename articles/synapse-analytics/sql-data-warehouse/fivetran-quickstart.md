@@ -11,12 +11,12 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b4742f48ee9ad0db60e21dd53c5c0f447c1ded67
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348921"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414268"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Szybki start: Fivetran z magazynem danych 
 
@@ -26,7 +26,7 @@ W tym przewodniku Szybki start opisano sposób konfigurowania nowego użytkownik
 
 1. Znajdź w pełni kwalifikowaną nazwę serwera i nazwę bazy danych, których używasz do łączenia się z magazynem danych.
     
-    Jeśli potrzebujesz pomocy w znalezieniu tych informacji, zobacz [Łączenie się z magazynem danych](sql-data-warehouse-connect-overview.md).
+    Jeśli potrzebujesz pomocy w znalezieniu tych informacji, zobacz [Łączenie się z magazynem danych](../sql/connect-overview.md).
 
 2. W kreatorze instalacji wybierz, czy baza danych ma być łączona bezpośrednio, czy za pomocą tunelu SSH.
 
@@ -75,9 +75,9 @@ W tym przewodniku Szybki start opisano sposób konfigurowania nowego użytkownik
     Aby uzyskać więcej informacji, przeczytaj o [limitach pamięci i współbieżności](memory-concurrency-limits.md) oraz [klasach zasobów](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
-## <a name="sign-in-to-fivetran"></a>Zaloguj się do Fivetran
+## <a name="connect-from-fivetran"></a>Połącz się z Fivetran
 
-Aby zalogować się do fivetran, wprowadź poświadczenia używane do uzyskiwania dostępu do magazynu danych: 
+Aby połączyć się z magazynem danych z konta Fivetran, wprowadź poświadczenia używane do uzyskiwania dostępu do magazynu danych: 
 
 * Host (nazwa serwera).
 * Portu.

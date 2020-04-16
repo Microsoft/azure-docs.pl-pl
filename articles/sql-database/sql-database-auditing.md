@@ -1,5 +1,5 @@
 ---
-title: Inspekcja SQL platformy Azure
+title: Inspekcja usługi Azure SQL
 description: Inspekcja bazy danych SQL usługi Azure umożliwia śledzenie zdarzeń bazy danych w dzienniku inspekcji.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,14 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 682735e1189333c2455863b8fde8e57d815111ba
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387703"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411860"
 ---
-# <a name="azure-sql-auditing"></a>Inspekcja SQL platformy Azure
+# <a name="azure-sql-auditing"></a>Inspekcja usługi Azure SQL
 
 Inspekcja dla usługi Azure [SQL Database](sql-database-technical-overview.md) i usługi [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) śledzi zdarzenia bazy danych i zapisuje je w dzienniku inspekcji na koncie magazynu platformy Azure, obszarze roboczym usługi Log Analytics lub centrach zdarzeń. 
 
@@ -81,7 +81,7 @@ W poniższej sekcji opisano konfigurację inspekcji przy użyciu witryny Azure p
 2. Przejdź do **pozycji Inspekcja** w nagłówku Zabezpieczenia w okienku baza danych/serwer SQL.
 3. Jeśli wolisz skonfigurować zasady inspekcji serwera, możesz wybrać łącze **Wyświetl ustawienia serwera** na stronie inspekcji bazy danych. Następnie można wyświetlić lub zmodyfikować ustawienia inspekcji serwera. Zasady inspekcji serwera mają zastosowanie do wszystkich istniejących i nowo utworzonych baz danych na tym serwerze.
 
-    ![Okienko nawigacji][2]
+    ![Okienko nawigacji](./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png)
 
 4. Jeśli wolisz włączyć inspekcję na poziomie bazy danych, przełącz **inspekcję** **na ON**. Jeśli inspekcja serwera jest włączona, inspekcja skonfigurowana do bazy danych będzie istnieć obok inspekcji serwera.
 
@@ -94,7 +94,7 @@ W poniższej sekcji opisano konfigurację inspekcji przy użyciu witryny Azure p
 Aby skonfigurować zapisywanie dzienników inspekcji na koncie magazynu, wybierz pozycję **Magazyn** i otwórz **szczegóły magazynu**. Wybierz konto magazynu platformy Azure, na którym będą zapisywane dzienniki, a następnie wybierz okres przechowywania. Następnie kliknij przycisk **OK**. Dzienniki starsze niż okres przechowywania są usuwane.
 
 - Wartość domyślna dla okresu przechowywania wynosi 0 (nieograniczona retencja). Tę wartość można zmienić, przenosząc suwak **Przechowywanie (Dni)** w **ustawieniach magazynu** podczas konfigurowania konta magazynu do inspekcji.
-  - Jeśli zmienisz okres przechowywania z 0 (nieograniczone przechowywanie) na dowolną inną wartość, należy pamiętać, że przechowywanie będzie miało zastosowanie tylko do dzienników zapisanych po zmianie wartości przechowywania (dzienniki zapisane w okresie, gdy przechowywanie zostało ustawione na nieograniczone, są zachowywane, nawet po retencji).
+  - Jeśli zmienisz okres przechowywania z 0 (nieograniczone przechowywanie) na dowolną inną wartość, pamiętaj, że przechowywanie będzie miało zastosowanie tylko do dzienników zapisanych po zmianie wartości przechowywania (dzienniki zapisane w okresie, gdy przechowywanie zostało ustawione na nieograniczone, są zachowywane, nawet po włączeniu przechowywania).
 
   ![konto magazynu](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
@@ -164,7 +164,7 @@ Jeśli zdecydujesz się napisać dzienniki inspekcji na koncie magazynu platform
 
 - Użyj [portalu Azure](https://portal.azure.com).  Otwórz odpowiednią bazę danych. U góry strony **Inspekcja** bazy danych kliknij pozycję **Wyświetl dzienniki inspekcji**.
 
-    ![Okienko nawigacji][7]
+    ![Okienko nawigacji](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
 
     Zostanie otwarty **rekord inspekcji,** z którego będzie można wyświetlać dzienniki.
 
@@ -172,14 +172,14 @@ Jeśli zdecydujesz się napisać dzienniki inspekcji na koncie magazynu platform
   - Można przełączać się między rekordami inspekcji utworzonymi przez *zasady inspekcji serwera* a *zasadami inspekcji bazy danych,* przełączając **źródło inspekcji**.
   - Można wyświetlić tylko rekordy inspekcji związane z iniekcją SQL, zaznaczając pole wyboru **Pokaż tylko rekordy inspekcji dla iniekcji SQL.**
 
-       ![Okienko nawigacji][8]
+       ![Okienko nawigacji]( ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png)
 
 - Użyj funkcji systemu **sys.fn_get_audit_file** (T-SQL), aby zwrócić dane dziennika inspekcji w formacie tabelarycznym. Aby uzyskać więcej informacji na temat korzystania z tej funkcji, zobacz [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Użyj **plików inspekcji korespondencji seryjnej** w programie SQL Server Management Studio (począwszy od usługi SSMS 17):
     1. Z menu SSMS wybierz polecenie **File** > **Open** > **Merge Audit Files**.
 
-        ![Okienko nawigacji][9]
+        ![Okienko nawigacji](./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png)
     2. Zostanie otwarte okno dialogowe **Dodawanie plików inspekcji.** Wybierz jedną z opcji **Dodaj,** aby wybrać, czy pliki inspekcji mają być scalane z dysku lokalnego, czy importowanie ich z usługi Azure Storage. Musisz podać szczegóły usługi Azure Storage i klucz konta.
 
     3. Po dodaniu wszystkich plików do scalenia kliknij przycisk **OK,** aby zakończyć operację scalania.
@@ -220,10 +220,10 @@ W produkcji jest prawdopodobne, aby okresowo odświeżyć klucze magazynu. Podcz
 
 1. Otwórz **szczegóły magazynu**. W polu **Klucz dostępu do magazynu** wybierz pozycję **Pomocniczy**i kliknij przycisk **OK**. Następnie kliknij przycisk **Zapisz** u góry strony konfiguracji inspekcji.
 
-    ![Okienko nawigacji][5]
+    ![Okienko nawigacji](./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png)
 2. Przejdź do strony konfiguracji magazynu i ponownie wygeneruj podstawowy klucz dostępu.
 
-    ![Okienko nawigacji][6]
+    ![Okienko nawigacji](./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png)
 3. Wróć do strony konfiguracji inspekcji, przełącz klucz dostępu magazynu z pomocniczego na podstawowy, a następnie kliknij przycisk **OK**. Następnie kliknij przycisk **Zapisz** u góry strony konfiguracji inspekcji.
 4. Wróć do strony konfiguracji magazynu i ponownie wygeneruj pomocniczy klucz dostępu (w ramach przygotowań do cyklu odświeżania następnego klucza).
 
@@ -268,15 +268,3 @@ Inspekcję bazy danych SQL platformy Azure można zarządzać przy użyciu szabl
 
 > [!NOTE]
 > Połączone próbki znajdują się w zewnętrznym publicznym repozytorium i są dostarczane "tak jak jest", bez gwarancji i nie są obsługiwane w ramach żadnego programu pomocy technicznej firmy Microsoft/usługi.
-
-<!--Image references-->
-[1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
-[2]: ./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png
-[3]: ./media/sql-database-auditing-get-started/3_auditing_get_started_turn_on.png
-[4]: ./media/sql-database-auditing-get-started/4_auditing_get_started_storage_details.png
-[5]: ./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png
-[6]: ./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png
-[7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png
-[8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
-[9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
-[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png 

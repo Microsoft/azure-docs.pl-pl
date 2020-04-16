@@ -10,13 +10,12 @@ ms.subservice: ''
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 64490bbd44066389186a59e851045b6becbe7acc
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632464"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408040"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Tabele tymczasowe w puli SQL Synapse
 Ten artykuł zawiera podstawowe wskazówki dotyczące korzystania z tabel tymczasowych i podkreśla zasady tabel tymczasowych na poziomie sesji. 
@@ -30,7 +29,14 @@ Tabele tymczasowe są widoczne tylko dla sesji, w której zostały utworzone i s
 
 Tabele tymczasowe oferują korzyści wydajności, ponieważ ich wyniki są zapisywane do magazynu lokalnego, a nie zdalnego.
 
-## <a name="create-a-temporary-table"></a>Tworzenie tabeli tymczasowej
+Tabele tymczasowe są przydatne podczas przetwarzania danych, szczególnie podczas transformacji, gdzie wyniki pośrednie są przejściowe. W usłudze SQL Analytics tabele tymczasowe istnieją na poziomie sesji.  Są one widoczne tylko dla sesji, w której zostały utworzone. W związku z tym są one automatycznie usuwane po wylogowaniu się tej sesji. 
+
+## <a name="temporary-tables-in-sql-pool"></a>Tabele tymczasowe w puli SQL
+
+W zasobie puli SQL tabele tymczasowe oferują korzyści z wydajności, ponieważ ich wyniki są zapisywane w magazynie lokalnym, a nie zdalnym.
+
+### <a name="create-a-temporary-table"></a>Tworzenie tabeli tymczasowej
+
 Tabele tymczasowe są tworzone przez prefiks nazwy tabeli z `#`.  Przykład:
 
 ```sql
@@ -89,7 +95,7 @@ GROUP BY
 ,        st.[has_filter]
 )
 ;
-``` 
+```
 
 > [!NOTE]
 > `CTAS`jest potężnym poleceniem i ma dodatkową zaletę, że jest wydajny w korzystaniu z miejsca dziennika transakcji. 
@@ -226,5 +232,6 @@ Pula SQL nakłada kilka ograniczeń podczas implementowania tabel tymczasowych. 
 Ponadto widoki nie mogą być tworzone w tabelach tymczasowych.  Tabele tymczasowe można tworzyć tylko z dystrybucją mieszania lub okrężnego.  Replikowana tymczasowa dystrybucja tabeli nie jest obsługiwana. 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o tworzeniu tabel, zobacz [Omówienie tabel .](sql-data-warehouse-tables-overview.md)
+
+Aby dowiedzieć się więcej na temat tworzenia tabel, zobacz [projektowanie tabel przy użyciu zasobów usługi SQL Analytics.](sql-data-warehouse-tables-overview.md)
 

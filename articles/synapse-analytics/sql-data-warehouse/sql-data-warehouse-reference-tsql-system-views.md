@@ -11,12 +11,12 @@ ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 104b377d9a1318a7320ea382580aaeedf9ac25f9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d673c5afcaece9b1cfe50d800ea9eeca96532ae8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745139"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411621"
 ---
 # <a name="system-views-supported-in-synapse-sql-pool"></a>Widoki systemowe obsługiwane w puli programu Synapse SQL
 
@@ -150,16 +150,16 @@ Następujące dmv mają zastosowanie do puli Synapse SQL, ale muszą być wykony
 * [Sys.types](/sql/relational-databases/system-catalog-views/sys-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [Sys.views](/sql/relational-databases/system-catalog-views/sys-views-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-available-in-synapse-sql-pool"></a>DmVs programu SQL Server dostępne w puli Synapse SQL
+## <a name="sql-server-dmvs-available-in-sql-pool"></a>Dmv programu SQL Server dostępne w puli SQL
 
-Puli SQL Synapse udostępnia wiele widoków zarządzania dynamicznego programu SQL Server (DMV). Te widoki, gdy kwerendy w puli SQL Synapse, zgłaszają stan baz danych SQL uruchomionych w dystrybucjach.
+Pula SQL udostępnia wiele widoków zarządzania dynamicznego programu SQL Server (DMV). Te widoki, gdy kwerendy w puli SQL, zgłaszają stan baz danych SQL uruchomionych w dystrybucjach.
 
 Pula SQL synapse i równoległy magazyn danych (PDW) używają tych samych widoków systemowych. Każdy DMV ma kolumnę o nazwie pdw_node_id, który jest identyfikatorem węzła Compute.
 
 > [!NOTE]
 > Aby użyć tych widoków, wstaw nazwę "pdw_nodes_", jak pokazano w poniższej tabeli:
 
-| Nazwa DMV w puli SQL Synapse | Sql Server Transact-SQL artykuł|
+| Nazwa DMV w puli SQL | Sql Server Transact-SQL artykuł|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
@@ -221,9 +221,9 @@ Pula SQL synapse i równoległy magazyn danych (PDW) używają tych samych widok
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-top-version-generators-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-synapse-sql-pool"></a>Moduły DMV polybase programu SQL Server 2016 dostępne w puli synapse SQL
+## <a name="sql-server-2016-polybase-dmvs-available-in-sql-pool"></a>Moduły DMV polybase programu SQL Server 2016 dostępne w puli SQL
 
-Następujące dmv mają zastosowanie do puli Synapse SQL, ale muszą być wykonywane przez połączenie z **główną** bazą danych.
+Następujące dmvs mają zastosowanie do puli SQL, ale muszą być wykonywane przez połączenie z **główną** bazą danych.
 
 * [sys.dm_exec_compute_node_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-errors-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_exec_compute_node_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-status-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

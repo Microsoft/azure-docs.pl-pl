@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, openshift, az aro, czerwony kapelusz, cli
-ms.openlocfilehash: 9488ef593cf4ec8600dcb42ea4a2cefa4fcb1446
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: f909c5870be6e394e457ad8f44ea5a253054ffe6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998797"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398889"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Tworzenie klastra usługi Azure Red Hat OpenShift 4.3, uzyskiwanie do nich dostępu i zarządzanie nim
 
@@ -68,7 +68,19 @@ Rozszerzenie `az aro` umożliwia tworzenie, dostęp i usuwanie klastrów Azure R
    aro                                0.3.0
    ...
    ```
-  
+
+### <a name="get-a-red-hat-pull-secret-optional"></a>Uzyskaj sekret ciągnięcia Czerwonego Kapelusza (opcjonalnie)
+
+Tajny klucz ściągania Red Hat umożliwia klastrowi dostęp do rejestrów kontenerów Red Hat i dodatkowej zawartości. Użycie klucza tajnego ściągania jest opcjonalne, ale zalecane.
+
+Aby uzyskać sekret ciągnięcia:
+
+1. Przejdź do pozycji https://cloud.redhat.com/openshift/install/azure/aro-provisioned (Plik > Nowy > Inny).
+1. Zaloguj się na swoje konto Red Hat lub utwórz nowe konto Red Hat za pomocą firmowego adresu e-mail; zaakceptować warunki.
+1. Wybierz **pobierz klucz tajny**.
+
+Zapisz plik *pull-secret.txt* w bezpiecznym miejscu; będzie używany plik przy każdym utworzeniu klastra.
+
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Tworzenie sieci wirtualnej zawierającej dwie puste podsieci
 
 Wykonaj następujące kroki, aby utworzyć sieć wirtualną zawierającą dwie puste podsieci.
@@ -79,15 +91,7 @@ Wykonaj następujące kroki, aby utworzyć sieć wirtualną zawierającą dwie p
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
-   PULL_SECRET="<optional-pull-secret>"
    ```
-   >[!NOTE]
-   > Opcjonalny klucz tajny ściągania umożliwia klastrowi dostęp do rejestrów kontenerów Red Hat wraz z dodatkową zawartością.
-   >
-   > Uzyskaj dostęp do tajemnicy https://cloud.redhat.com/openshift/install/azure/installer-provisioned przyciągania, przechodząc do i klikając *przycisk Kopiuj pociągnij za pomocą klucza tajnego*.
-   >
-   > Musisz zalogować się na swoje konto Red Hat lub utworzyć nowe konto Red Hat za pomocą firmowego adresu e-mail i zaakceptować warunki.
- 
 
 2. Utwórz grupę zasobów dla klastra.
 
@@ -143,7 +147,7 @@ az aro create \
   --worker-subnet "$CLUSTER-worker" \
   --cluster-resource-group "aro-$CLUSTER" \
   --domain "$CLUSTER" \
-  --pull-secret "$PULL_SECRET"
+  --pull-secret @pull-secret.txt
 ```
 
 >[!NOTE]

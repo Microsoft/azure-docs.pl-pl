@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64919118"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407016"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Troubleshoot object synchronization with Azure AD Connect sync (Rozwiązywanie problemów z synchronizacją obiektów w programie Azure AD Connect)
 Ten artykuł zawiera kroki rozwiązywania problemów z synchronizacją obiektów przy użyciu zadania rozwiązywania problemów. Aby zobaczyć, jak działa rozwiązywanie problemów w usłudze Azure Active Directory (Azure AD) Connect, obejrzyj [ten krótki klip wideo](https://aka.ms/AADCTSVideo).
@@ -61,11 +61,6 @@ W pozostałej części tej sekcji opisano konkretne wyniki, które są zwracane 
 Gdy sufiks identyfikatora logowania użytkownika (UPN)/alternatywnego identyfikatora logowania nie jest weryfikowany za pomocą dzierżawy usługi Azure AD, usługa Azure Active Directory zastępuje sufiksy nazwy UPN domyślną nazwą domeny "onmicrosoft.com".
 
 ![Usługa Azure AD zastępuje usługę UPN](media/tshoot-connect-objectsync/objsynch2.png)
-
-### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Zmiana sufiksu UPN z jednej domeny federacyjnej na inną domenę federacyjnej
-Usługa Azure Active Directory nie zezwala na synchronizację userPrincipalName (UPN)/alternate login id sufiks z jednej domeny federacyjnej do innej domeny federacyjnej. Dotyczy to domen, które są weryfikowane za pomocą dzierżawy usługi Azure AD i mają typ uwierzytelniania jako federowany.
-
-![Brak synchronizacji nazwy UPN z jednej domeny federacyjnej do drugiej](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>Funkcja dirsync dzierżawy usługi Azure AD "SynchronizeUpnForManagedUsers" jest wyłączona
 Gdy funkcja dirsync dzierżawy usługi Azure AD "SynchronizeUpnForManagedUsers" jest wyłączona, usługa Azure Active Directory nie zezwala na aktualizacje synchronizacji identyfikatora userPrincipalName/Alternate Login ID dla licencjonowanych kont użytkowników z uwierzytelnianiem zarządzanym.

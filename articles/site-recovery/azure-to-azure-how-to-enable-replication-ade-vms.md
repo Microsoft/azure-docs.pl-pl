@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772231"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408633"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikowanie maszyn wirtualnych z obsługą szyfrowania dysków platformy Azure do innego regionu platformy Azure
 
 W tym artykule opisano sposób replikowania maszyn wirtualnych platformy Azure z włączoną funkcją szyfrowania dysków Azure (ADE), z jednego regionu platformy Azure do drugiego.
 
 >[!NOTE]
-> Usługa Site Recovery obsługuje obecnie usługę ADE, z usługą Azure Active Directory (AAD) i bez niej dla maszyn wirtualnych z systemami operacyjnymi Windows i Linux.  W przypadku komputerów z systemem ADE 1.1 (bez usługi AAD) maszyny wirtualne muszą używać dysków zarządzanych. Maszyny wirtualne z dyskami niezarządzanymi nie są obsługiwane. W przypadku przełączenia z usługi ADE 0.1 (z aad) na 1.1 należy wyłączyć replikację i włączyć replikację maszyny Wirtualnej po włączeniu wersji 1.1.
+> Usługa Site Recovery obsługuje obecnie usługę ADE, z usługą Azure Active Directory (AAD) i bez niej dla maszyn wirtualnych z systemami operacyjnymi Windows. W przypadku systemów operacyjnych Linux obsługujemy tylko ADE bez AAD. Ponadto w przypadku komputerów z systemem ADE 1.1 (bez usługi AAD) maszyny wirtualne muszą używać dysków zarządzanych. Maszyny wirtualne z dyskami niezarządzanymi nie są obsługiwane. W przypadku przełączenia z usługi ADE 0.1 (z aad) na 1.1 należy wyłączyć replikację i włączyć replikację maszyny Wirtualnej po włączeniu wersji 1.1.
 
 
 ## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Wymagane uprawnienia użytkownika

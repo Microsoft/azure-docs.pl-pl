@@ -5,16 +5,20 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Znajdź odpowiedzi na niektóre z często zadawanych pytań dotyczących usługi Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Usługa Azure Kubernetes, kontenery, Helm, siatka usług, routing siatki usług, kubectl, k8s '
-ms.openlocfilehash: 1fd176084cd0737a290e037ed19af510fcab3e78
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: b5a380f20640b9bc328aa30289ff7f915cc0b73c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381994"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414310"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Często zadawane pytania dotyczące usługi Azure Dev Spaces
 
 Dotyczy to często zadawanych pytań dotyczących usługi Azure Dev Spaces.
+
+## <a name="what-versions-of-kubernetes-are-supported-for-azure-dev-spaces"></a>Jakie wersje usługi Kubernetes są obsługiwane dla usługi Azure Dev Spaces?
+
+Usługa Azure Dev Spaces obsługuje wszystkie [obecnie obsługiwane wersje usługi Kubernetes w wersji ogólnej dostępności (GA) w usłudze AKS.][aks-supported-k8s]
 
 ## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>Które regiony platformy Azure obecnie zapewniają usługi Azure Dev Spaces?
 
@@ -89,6 +93,10 @@ W programie Visual Studio Code można [otworzyć oddzielne projekty w jednym obs
 
 W programie Visual Studio można skonfigurować rozwiązania .NET Core do debugowania za pośrednictwem usługi Azure Dev Spaces.
 
+## <a name="can-i-use-azure-dev-spaces-with-a-service-mesh"></a>Czy mogę używać usługi Azure Dev Spaces z siatką usług?
+
+Obecnie nie można używać usługi Azure Dev Spaces z siatkami usług, takimi jak [Istio][istio] lub [Linkerd.][linkerd] Usługi Azure Dev Spaces i siatki usług można uruchomić w tym samym klastrze usługi AKS, ale nie można włączyć zarówno usługi Azure Dev Spaces, jak i siatki usług w tym samym obszarze nazw.
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
@@ -97,6 +105,7 @@ W programie Visual Studio można skonfigurować rozwiązania .NET Core do debugo
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
+[aks-supported-k8s]: ../aks/supported-kubernetes-versions.md#list-currently-supported-versions
 [bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
@@ -105,6 +114,8 @@ W programie Visual Studio można skonfigurować rozwiązania .NET Core do debugo
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-nginx]: how-to/ingress-https-nginx.md#configure-the-nginx-ingress-controller-to-use-https
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
+[istio]: https://istio.io/
+[linkerd]: https://linkerd.io/
 [quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces

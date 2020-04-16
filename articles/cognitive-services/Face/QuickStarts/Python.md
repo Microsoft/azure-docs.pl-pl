@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c4d136eaf0f6c4ac64093f417f144e422e2da52f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c88a60fdc6d064fba91f4b6d79e1637f45bf2716
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74977917"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403216"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST rozpoznawania twarzy i języka Python
 
-W tym przewodniku Szybki start użyjesz interfejsu API REST rozpoznawania twarzy platformy Azure i języka Python do wykrywania twarzy na obrazie. Skrypt narysuje ramki wokół twarzy i nałoży informacje o płci i wieku na obraz.
+W tym przewodniku Szybki start użyjesz interfejsu API rest usługi Azure Face z pythonem do wykrywania ludzkich twarzy na obrazie. Skrypt narysuje ramki wokół twarzy i nałoży informacje o płci i wieku na obraz.
 
 ![Mężczyzna i kobieta, każde z prostokątem narysowanym wokół twarzy oraz informacjami o wieku i płci wyświetlonymi na obrazie](../images/labelled-faces-python.png)
 

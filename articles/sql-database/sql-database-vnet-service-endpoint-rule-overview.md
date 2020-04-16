@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4faead13c10171c31e76fe2dd59be32a93a12f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124744"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414391"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Używanie punktów końcowych usługi sieci wirtualnej i reguł dla serwerów baz danych
 
@@ -64,6 +64,7 @@ Masz możliwość korzystania z [kontroli dostępu opartej na rolach (RBAC) na][
 
 > [!NOTE]
 > W niektórych przypadkach usługa Azure SQL Database i podsieć sieci wirtualnej znajdują się w różnych subskrypcjach. W takich przypadkach należy upewnić się, że następujące konfiguracje:
+>
 > - Obie subskrypcje muszą znajdować się w tej samej dzierżawie usługi Azure Active Directory.
 > - Użytkownik ma wymagane uprawnienia do inicjowania operacji, takich jak włączanie punktów końcowych usługi i dodawanie podsieci sieci wirtualnej do danego serwera.
 > - Obie subskrypcje muszą mieć zarejestrowanego dostawcę microsoft.sql.
@@ -134,7 +135,7 @@ PolyBase jest często używany do ładowania danych do usługi Azure SQL Data Wa
    > [!NOTE]
    > - Jeśli masz ogólne przeznaczenie v1 lub konta magazynu obiektów blob, należy **najpierw uaktualnić do wersji 2** za pomocą tego [przewodnika](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Aby uzyskać informacje na temat znanych problemów z usługą Azure Data Lake Storage Gen2, zapoznaj się z tym [przewodnikiem.](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)
-    
+
 1. W obszarze konta magazynu przejdź do **pozycji Kontrola dostępu (IAM)** i kliknij pozycję **Dodaj przypisanie roli**. Przypisz rolę RBAC **współautora danych obiektów do magazynowania magazynu magazynu** magazynu do serwera SQL, który hostuje magazyn danych SQL Azure, który został zarejestrowany w usłudze Azure Active Directory (AAD) zgodnie z krokiem #1.
 
    > [!NOTE]
@@ -235,7 +236,7 @@ Musisz już mieć podsieć, która jest oznaczona określoną *nazwą punktu* ko
 
 ## <a name="azure-portal-steps"></a>Kroki portalu platformy Azure
 
-1. Zaloguj się do [Portalu Azure][http-azure-portal-link-ref-477t].
+1. Zaloguj się w witrynie [Azure Portal][http-azure-portal-link-ref-477t].
 
 2. Wyszukaj i wybierz **serwery SQL**, a następnie wybierz serwer. W obszarze **Zabezpieczenia**wybierz pozycję **Zapory i sieci wirtualne**.
 
@@ -264,6 +265,7 @@ Musisz już mieć podsieć, która jest oznaczona określoną *nazwą punktu* ko
 
 > [!NOTE]
 > Do reguły mają zastosowanie następujące stany lub stany:
+>
 > - **Gotowy:** Wskazuje, że zainicjowana operacja powiodła się.
 > - **Nie powiodło się:** Wskazuje, że zainicjowana operacja nie powiodła się.
 > - **Skasowano:** Dotyczy tylko operacji Delete i wskazuje, że reguła została usunięta i nie ma już zastosowania.

@@ -8,26 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 15c84b0c4cd4311300b951c3bf86b2bd62d48bfd
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: aaaa382d41990b801d1c451b2bf416493a7ba7c6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77566135"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404929"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-java"></a>Szybki start: wyodrębnianie drukowanego i odręcznego tekstu za pomocą interfejsu API Computer Vision 2.0 i 2.1 REST i Java
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Szybki start: wyodrębnianie drukowanego i odręcznego tekstu za pomocą interfejsu API REST i oprogramowania Java
 
-W tym przewodniku Szybki start można wyodrębnić wydrukowany i/lub odręczny tekst z obrazu za pomocą interfejsu API REST wizji komputerowej. Dzięki metodom Wynik operacji odczytu i [odczytu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) [wsadowego](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) można wykryć tekst na obrazie i wyodrębnić rozpoznane znaki do strumienia znaków czytelnego maszynowo. Interfejs API określi, który model rozpoznawania ma być używany dla każdego wiersza tekstu, dzięki czemu obsługuje obrazy z tekstem drukowanym i odręcznym.
+W tym przewodniku Szybki start można wyodrębnić wydrukowany i/lub odręczny tekst z obrazu przy użyciu interfejsu API REST wizji komputerowej. Dzięki metodom Wynik operacji odczytu i [odczytu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) [wsadowego](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) można wykryć tekst na obrazie i wyodrębnić rozpoznane znaki do strumienia znaków czytelnego maszynowo. Usługa określi, który model rozpoznawania ma być używany dla każdego wiersza tekstu, dzięki czemu obsługuje obrazy z tekstem drukowanym i odręcznym.
 
-W porównaniu z programem Computer Vision 2.0 i 2.1, funkcja Publicznego Podglądu 3.0 zapewnia:
+Ta funkcja jest dostępna zarówno w interfejsie API w wersji 2.1, jak i w publicznej wersji zapoznawczej w wersji 3.0. W porównaniu do wersji 2.1 interfejs API 3.0 ma:
 
-* jeszcze większa dokładność
-* zmieniony format wyjściowy
-* ocena zaufania dla słów
-* obsługa zarówno języka hiszpańskiego, jak i angielskiego z dodatkowym parametrem językowym
+* Zwiększona dokładność
+* Wyniki zaufania dla słów
+* Obsługa języka hiszpańskiego i `language` angielskiego z dodatkowym parametrem
+* Inny format wyjściowy
+
+Wybierz poniższą kartę dla używanej wersji.
 
 #### <a name="version-2"></a>[Wersja 2](#tab/version-2)
 
@@ -765,13 +767,11 @@ Text recognition result response:
 
 ---
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-
-Gdy projekt języka Java nie będzie już potrzebny, usuń go wraz ze skompilowaną klasą i zaimportowanymi bibliotekami.
-
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z aplikacją w języku Java Swing, w której zastosowano interfejs API przetwarzania obrazów do optycznego rozpoznawania znaków (OCR), inteligentnego przycinania miniatur oraz wykrywania, kategoryzowania, tagowania i opisywania elementów wizualnych, w tym twarzy, na obrazie. Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Następnie zapoznaj się z aplikacją Java Swing, która używa wizji komputerowej do optycznego rozpoznawania znaków (OCR); tworzenie miniatur przyciętych inteligentnie; i wykrywać, kategoryzować, oznaczać i opisywać funkcje wizualne na obrazach.
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Java Tutorial (Samouczek dla języka JavaScript dotyczący interfejsu API przetwarzania obrazów)](../Tutorials/java-tutorial.md)
+
+* Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

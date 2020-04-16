@@ -1,38 +1,36 @@
 ---
 title: Kontrola zabezpieczeń platformy Azure — testy penetracyjne i ćwiczenia zespołu red
-description: Testy penetracji kontroli bezpieczeństwa i ćwiczenia czerwonego zespołu
+description: Testy penetracji kontroli zabezpieczeń platformy Azure i ćwiczenia zespołu red
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/14/2020
 ms.author: mbaldwin
-ms.custom: security-recommendations
-ms.openlocfilehash: 952103d517e03230cdfa4e7531e27bb2d5f53a07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: security-benchmark
+ms.openlocfilehash: fe9c672e53ea0f46328320daf75f65fd77f5db29
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934319"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408294"
 ---
 # <a name="security-control-penetration-tests-and-red-team-exercises"></a>Kontrola bezpieczeństwa: Testy penetracyjne i ćwiczenia czerwonej drużyny
 
 Przetestuj ogólną siłę obrony organizacji (technologii, procesów i ludzi), symulując cele i działania atakującego.
 
-## <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Przeprowadzaj regularne testy penetracyjne zasobów platformy Azure i zapewnij korygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń w ciągu 60 dni
+## <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Przeprowadzaj regularne testy penetracyjne zasobów platformy Azure i zapewnij korygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
 
 | Identyfikator platformy Azure | Identyfikatory SIC | Odpowiedzialność |
 |--|--|--|
-| 11.1 | 20.1-20.8 | Udostępnione |
+| 11.1 | 20.1, 20.2, 20.3, 20.4, 20.5, 20.6, 20.7, 20.8 | Udostępnione |
 
-Postępuj zgodnie z regułami zaangażowania firmy Microsoft, aby upewnić się, że testy penetracyjne nie naruszają zasad firmy Microsoft:
+Postępuj zgodnie z regułami zaangażowania firmy Microsoft, aby upewnić się, że testy penetracyjne nie naruszają zasad firmy Microsoft. Użyj strategii firmy Microsoft i wykonywania red teaming i testów penetracji lokacji na żywo przeciwko infrastrukturze, usługom i aplikacjom chmury zarządzanej przez firmę Microsoft.
 
-https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+- [Zasady testowania penetracji zaangażowania](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-Więcej informacji na temat strategii firmy Microsoft i wykonywania testów red teaming i testów penetracji witryn na żywo w infrastrukturze, usługach i aplikacjach zarządzanych przez firmę Microsoft można znaleźć tutaj:
+- [Tworzenie zespołu w chmurze Microsoft Red](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [kontrolach zabezpieczeń platformy Azure](overview.md)
+- Powrót do [usługi Azure Security Benchmark — omówienie](overview.md)

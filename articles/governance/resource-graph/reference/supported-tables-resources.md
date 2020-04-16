@@ -1,14 +1,14 @@
 ---
 title: Obsługiwane typy zasobów Menedżera zasobów
 description: Podaj listę typów zasobów Menedżera zasobów obsługiwanych przez usługę Azure Resource Graph i historia zmian.
-ms.date: 04/06/2020
+ms.date: 04/15/2020
 ms.topic: reference
-ms.openlocfilehash: 85cab92981568f5ea3770e1102c3480ae4f3e638
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 99cb2176e4b0642be1fc31d49528ebf915ea440a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677054"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415138"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela i odwołanie do typu zasobu azure
 
@@ -392,7 +392,6 @@ Usługa Azure Resource Graph obsługuje następujące **typy zasobów** [usługi
 - microsoft.storagesyncint/storagesyncservices
 - microsoft.storsimple/managers
 - microsoft.streamanalytics/streamingjobs microsoft.streamanalytics/streamingjobs microsoft.streamanalytics/streamingjobs microsoft.
-- microsoft.support/supporttickets
 - microsoft.synapse/obszary robocze
 - microsoft.synapse/workspaces/bigdatapools
 - microsoft.synapse/workspaces/sqlpools

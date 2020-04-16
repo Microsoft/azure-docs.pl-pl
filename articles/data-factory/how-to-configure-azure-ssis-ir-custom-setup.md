@@ -11,15 +11,17 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: d6252b7a0ecce553bc3a1519055375fd4cd034f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 3aabf68b6763e5815a03021cb02683d509c26190
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336208"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415054"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Dostosowywanie konfiguracji środowiska wykonawczego integracji usługi Azure-SSIS
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Niestandardowa konfiguracja środowiska uruchomieniowego integracji usług integracji usługi azure-SQL Server (Azure-SSIS IR) zapewnia interfejs do dodawania własnych kroków podczas konfigurowania lub ponownej konfiguracji usługi Azure-SSIS IR. 
 
@@ -32,7 +34,7 @@ Niestandardowe konfiguracje można wykonać na platformie Azure-SSIS IR na dwa s
 Można zainstalować zarówno bezpłatne, nielicencjonowane składniki, jak i płatne, licencjonowane komponenty z konfiguracją ekspresową i standardową. Jeśli jesteś niezależnym dostawcą oprogramowania (ISV), zobacz [Opracowywanie płatnych lub licencjonowanych składników dla usługi Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
-> Ponieważ węzły serii v2 usługi Azure-SSIS IR nie są odpowiednie dla konfiguracji niestandardowej, zamiast tego należy użyć węzłów z serii v3. Jeśli używasz już węzłów z serii v2, przełącz się do węzłów serii v3 tak szybko, jak to możliwe.
+> Aby korzystać z przyszłych ulepszeń, zaleca się używanie serii węzłów w wersji 3 lub nowszej dla usługi Azure-SSIS IR z konfiguracją niestandardową.
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
@@ -72,7 +74,7 @@ Aby dostosować identyfikator Azure-SSIS IR, potrzebujesz następujących elemen
 
    a. W obszarze **(lokalne i dołączone)** kliknij prawym przyciskiem myszy **pozycję Konta magazynu,** a następnie wybierz pozycję **Połącz z magazynem platformy Azure**.
 
-      ![Łączenie się z usługą Azure Storage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
+      ![Łączenie z usługą Azure Storage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
    b. Wybierz **pozycję Użyj nazwy i klucza konta magazynu,** a następnie wybierz pozycję **Dalej**.
 

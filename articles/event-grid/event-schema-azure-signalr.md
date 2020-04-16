@@ -1,25 +1,26 @@
 ---
-title: Schemat zdarzenia usługi Azure Event Azure SignalR
+title: Azure SingnalR jako źródło siatki zdarzeń
 description: W tym artykule opisano właściwości, które są dostarczane dla zdarzeń usługi Azure SignalR z usługą Azure Event Grid
 services: event-grid
-author: chenyl
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 06/11/2019
-ms.author: chenyl
-ms.openlocfilehash: 3b072ff2b680ad6d144c7441190ab2df9870f5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: 730d1a7a053ab636c45313dd0c35a537434eb782
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67789074"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393389"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Schemat zdarzenia usługi SignalR usługi Usługi SignalR usługi usługi Azure Event Grid
 
-Ten artykuł zawiera właściwości i schemat zdarzeń usługi SignalR.Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md).
+Ten artykuł zawiera właściwości i schemat zdarzeń usługi SignalR.Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md). Zawiera również listę szybkich uruchomień i samouczków do korzystania z usługi Azure SignalR jako źródła zdarzeń.
 
+## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
 
-## <a name="available-event-types"></a>Dostępne typy zdarzeń
+### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
 SignalR Service emituje następujące typy zdarzeń:
 
@@ -28,7 +29,7 @@ SignalR Service emituje następujące typy zdarzeń:
 | Połączenie z usługą Microsoft.SignalRService.ClientConnection | Wywoływane, gdy połączenie klienta jest połączone. |
 | Microsoft.SignalRService.ClientConnectionZrozłączenie | Wywoływane po rozłączeniu połączenia klienta. |
 
-## <a name="example-event"></a>Przykładowe zdarzenie
+### <a name="example-event"></a>Przykładowe zdarzenie
 
 Poniższy przykład przedstawia schemat zdarzenia połączonego połączenia klienta: 
 
@@ -71,7 +72,7 @@ Schemat zdarzenia rozłączone połączenie klienta jest podobny:
 }]
 ```
 
-## <a name="event-properties"></a>Właściwości zdarzenia
+### <a name="event-properties"></a>Właściwości zdarzenia
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
@@ -95,6 +96,12 @@ Obiekt danych ma następujące właściwości:
 | Connectionid | ciąg | Unikatowy identyfikator połączenia klienta. |
 | userId | ciąg | Identyfikator użytkownika zdefiniowany w oświadczeń. |
 | Errormessage | ciąg | Błąd, który powoduje rozłączenie połączenia. |
+
+## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
+|Tytuł | Opis |
+|---------|---------|
+| [Reagowanie na zdarzenia usługi Azure SignalR przy użyciu siatki zdarzeń](../azure-signalr/signalr-concept-event-grid-integration.md) | Omówienie integracji usługi Azure SignalR z usługą Event Grid. |
+| [Jak wysyłać zdarzenia usługi Azure SignalR do siatki zdarzeń](../azure-signalr/signalr-howto-event-grid-integration.md) | Pokazuje, jak wysyłać zdarzenia usługi Azure SignalR do aplikacji za pośrednictwem usługi Event Grid. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,16 +4,16 @@ description: Automatyzuj zadania monitoruj, tworzą, zarządzają, wysyłają i 
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/7/2020
+ms.date: 04/13/2020
 tags: connectors
-ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128411"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393636"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorowanie, tworzenie i zarządzanie plikami SFTP przy użyciu aplikacji SSH i Azure Logic Apps
 
@@ -147,6 +147,16 @@ Jeśli twój klucz prywatny jest w formacie PuTTY, który używa rozszerzenia na
 
 1. Zapisz plik klucza `.pem` prywatnego z rozszerzeniem nazwy pliku.
 
+## <a name="considerations"></a>Zagadnienia do rozważenia
+
+W tej sekcji opisano zagadnienia do przejrzenia dla wyzwalaczy tego łącznika i akcji.
+
+<a name="create-file"></a>
+
+### <a name="create-file"></a>Utwórz plik
+
+Aby utworzyć plik na serwerze SFTP, można użyć akcji SFTP-SSH **Create file.** Gdy ta akcja tworzy plik, usługa Logic Apps również automatycznie wywołuje serwer SFTP, aby uzyskać metadane pliku. Jeśli jednak nowo utworzony plik zostanie przesunięta, zanim usługa Aplikacje `404` logiki `'A reference was made to a file or folder which does not exist'`może nawiązać połączenie w celu uzyskania metadanych, zostanie wyświetlony komunikat o błędzie . Aby pominąć czytanie metadanych pliku po utworzeniu pliku, wykonaj kroki, aby [dodać i ustawić właściwość Pobierz wszystkie **metadane pliku** na **Nie**](#file-does-not-exist).
+
 <a name="connect"></a>
 
 ## <a name="connect-to-sftp-with-ssh"></a>Łączenie się z SFTP za pomocą SSH
@@ -211,9 +221,27 @@ Ten wyzwalacz uruchamia przepływ pracy aplikacji logiki po dodaniu lub zmianie 
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - Akcja SSH: Pobierz zawartość przy użyciu ścieżki
+### <a name="sftp---ssh-action-get-file-content-using-path"></a>SFTP - SSH akcja: Pobierz zawartość pliku przy użyciu ścieżki
 
-Ta akcja pobiera zawartość z pliku na serwerze SFTP. Na przykład można dodać wyzwalacz z poprzedniego przykładu i warunek, który musi spełniać zawartość pliku. Jeśli warunek jest spełniony, można uruchomić akcję, która pobiera zawartość.
+Ta akcja pobiera zawartość z pliku na serwerze SFTP, określając ścieżkę pliku. Na przykład można dodać wyzwalacz z poprzedniego przykładu i warunek, który musi spełniać zawartość pliku. Jeśli warunek jest spełniony, można uruchomić akcję, która pobiera zawartość.
+
+<a name="troubleshooting-errors"></a>
+
+## <a name="troubleshoot-errors"></a>Rozwiązywanie problemów
+
+W tej sekcji opisano możliwe rozwiązania typowych błędów lub problemów.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>Błąd 404: "Dokonano odwołania do pliku lub folderu, który nie istnieje"
+
+Ten błąd może się zdarzyć, gdy aplikacja logiki tworzy nowy plik na serwerze SFTP za pośrednictwem akcji SFTP-SSH **Utwórz plik,** ale nowo utworzony plik jest następnie natychmiast przenoszony, zanim usługa Logic Apps może uzyskać metadane pliku. Gdy aplikacja logiki uruchamia akcję **Utwórz plik,** usługa Aplikacje logiki również automatycznie wywołuje serwer SFTP, aby uzyskać metadane pliku. Jeśli jednak plik zostanie przeniesiony, usługa Aplikacje logiki nie może `404` już znaleźć pliku, więc zostanie wyświetlony komunikat o błędzie.
+
+Jeśli nie możesz uniknąć lub opóźnić przenoszenia pliku, możesz pominąć odczytanie metadanych pliku po utworzeniu pliku, wykonując następujące kroki:
+
+1. W akcji **Utwórz plik** otwórz listę **Dodaj nowy parametr,** wybierz właściwość Pobierz wszystkie **metadane pliku** i ustaw wartość **Nie**.
+
+1. Jeśli potrzebujesz tych metadanych pliku później, możesz użyć akcji **Pobierz metadane pliku.**
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 

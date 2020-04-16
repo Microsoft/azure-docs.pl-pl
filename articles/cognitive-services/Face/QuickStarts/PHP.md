@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0f76ec4ce1072b247be7f46610d37190cd282a22
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f2584892bb349d126b73c3f8df211f745a362bd8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76169742"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403364"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST i języka PHP
 
-W tym przewodniku Szybki start użyjesz interfejsu API REST rozpoznawania twarzy platformy Azure i języka PHP do wykrywania ludzkich twarzy na obrazie.
+W tym przewodniku Szybki start użyjesz interfejsu API azure face rest z PHP do wykrywania ludzkich twarzy na obrazie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

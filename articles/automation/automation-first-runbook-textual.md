@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/24/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5a1cad3179063f75a5d9a19567624180b5793a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b103437ab30c05ddab88b7a8a723cd2b4b1d5f6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367265"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405888"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mój pierwszy element Runbook przepływu pracy programu PowerShell
 
 > [!div class="op_single_selector"]
 > * [Element graficzny](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Przepływ pracy programu PowerShell](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 
@@ -79,7 +79,7 @@ Przed opublikowaniem likemi, aby udostępnić go w produkcji, należy przetestow
 1. Kliknij **przycisk Start,** aby rozpocząć test, z testowaniem jedynej włączonej opcji.
 1. Należy zauważyć, że [zadanie runbook](automation-runbook-execution.md) jest tworzony i jego stan jest wyświetlany w okienku.
 
-   Stan zadania rozpoczyna `Queued`się jako , wskazując, że zadanie oczekuje na pracownika przewodniczącego w chmurze, aby stać się dostępne. Stan zmienia `Starting` się, gdy pracownik żąda zadania. Na koniec stan `Running` staje się, gdy runbook faktycznie zaczyna działać.
+   Stan zadania rozpoczyna się jako w kolejce, co oznacza, że zadanie oczekuje na udostępnienie pracownika przewodniczącego w chmurze. Stan zmienia się na Rozpoczęcie, gdy pracownik żąda zadania. Na koniec stan staje się uruchomiony, gdy runbook faktycznie zaczyna działać.
 
 1. Po zakończeniu zadania runbook okienko Test wyświetla jego dane wyjściowe. W takim przypadku `Hello World`widzisz .
 
@@ -107,7 +107,7 @@ Utworzony projekt runbook jest nadal w trybie roboczym. Należy go opublikować,
 
    ![Podsumowanie zadania](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
-1. Po wyświetleniu stanu `Completed`liksu lik-owego kliknij pozycję **Wyjście**. Zostanie otwarta strona Wyjście, na `Hello World` której można wyświetlić wiadomość.
+1. Gdy stan liksu eksletu zostanie wyświetlony, kliknij pozycję **Wyjście**. Zostanie otwarta strona Wyjście, na `Hello World` której można wyświetlić wiadomość.
 
    ![Podsumowanie zadania](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
@@ -117,7 +117,7 @@ Utworzony projekt runbook jest nadal w trybie roboczym. Należy go opublikować,
 
    ![Podsumowanie zadania](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-1. Zamknij okienko Strumienie i okienko zadania, aby powrócić do strony **MyFirstRunbook.**
+1. Zamknij okienko Strumienie i okienko zadania, aby powrócić do strony MyFirstRunbook.
 1. Kliknij **pozycję Zadania** w obszarze **Zasoby,** aby otworzyć stronę Zadania dla tego liku. Ta strona zawiera listę wszystkich zadań utworzonych przez system runbook. Na liście powinna być wyświetlana tylko jedno zadanie, ponieważ zadanie zostało uruchomione tylko raz.
 
    ![Stanowiska](media/automation-first-runbook-textual/runbook-control-job-tile.png)
@@ -126,12 +126,12 @@ Utworzony projekt runbook jest nadal w trybie roboczym. Należy go opublikować,
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Krok 5. Dodawanie uwierzytelniania w celu zarządzania zasobami platformy Azure
 
-Element runbook został przetestowany i opublikowany, ale jak do tej pory nie wykonuje on żadnych użytecznych czynności. Powinien zarządzać zasobami platformy Azure. Nie można tego zrobić, chyba że uwierzytelnia się przy użyciu poświadczeń dla subskrypcji. Uwierzytelnianie używa `Connect-AzAccount` polecenia cmdlet.
+Element runbook został przetestowany i opublikowany, ale jak do tej pory nie wykonuje on żadnych użytecznych czynności. Powinien zarządzać zasobami platformy Azure. Nie można tego zrobić, chyba że uwierzytelnia się przy użyciu poświadczeń dla subskrypcji. Uwierzytelnianie używa polecenia cmdlet [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0)
 
 >[!NOTE]
 >Dla uruchomieniu programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są `Connect-AzAccount`aliasy dla . Można użyć tych poleceń cmdlet lub można [zaktualizować moduły](automation-update-azure-modules.md) na koncie automatyzacji do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli właśnie utworzono nowe konto automatyzacji.
 
-1. Przejdź do strony **MyFirstRunbook-Workflow** i otwórz edytor tekstu, klikając przycisk **Edytuj**.
+1. Przejdź do strony MyFirstRunbook-Workflow i otwórz edytor tekstu, klikając przycisk **Edytuj**.
 2. Usuń `Write-Output` wiersz.
 3. Umieść kursor w pustym wierszu między nawiasami klamrowymi.
 4. Wpisz lub skopiuj i wklej następujący kod, który obsługuje uwierzytelnianie za pomocą konta Automation Run As.
@@ -213,6 +213,8 @@ Twój program runbook aktualnie uruchamia maszynę wirtualną, która została z
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać więcej informacji na temat programu PowerShell, w tym odwoływania się do języka i modułów szkoleniowych, zobacz [Dokumenty programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Aby uzyskać odwołanie do polecenia polecenia cmdlet programu PowerShell, zobacz [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 * Aby rozpocząć korzystanie z graficznych śmięty, zobacz [Mój pierwszy graficzny element runbook](automation-first-runbook-graphical.md).
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
 * Aby dowiedzieć się więcej o typach elementów runbook oraz ich zaletach i ograniczeniach, zobacz [Typy elementów runbook usługi Azure Automation](automation-runbook-types.md).

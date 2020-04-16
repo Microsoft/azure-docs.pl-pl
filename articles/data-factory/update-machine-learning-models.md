@@ -11,14 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 3313c9c362a9b82cf7ed8db63479aaa5cf0c777e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4488c174ba5ff35ec2709d7c1b9f3093b4ee90a3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73683245"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409069"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aktualizowanie modeli usługi Azure Machine Learning za pomocą działania aktualizacji zasobów
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Ten artykuł stanowi uzupełnienie głównego artykułu integracji usługi Azure Data Factory — Azure Machine Learning: [Tworzenie potoków predykcyjnych przy użyciu usługi Azure Machine Learning i usługi Azure Data Factory.](transform-data-using-machine-learning.md) Jeśli jeszcze tego nie zrobiłeś, zapoznaj się z głównym artykułem przed przeczytaniem tego artykułu.
 
 ## <a name="overview"></a>Omówienie

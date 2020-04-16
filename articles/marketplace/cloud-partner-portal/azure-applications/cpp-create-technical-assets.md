@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dsindona
-ms.openlocfilehash: 041b2133ed63a906d3fea3ab67890a0057151b9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59f9fecb3d949d9cdf48719e6329b066d9eb3fc5
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285269"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393534"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Przygotowywanie zasobów technicznych aplikacji platformy Azure
 
@@ -32,7 +32,7 @@ Zapoznaj się z następującą dokumentacją aplikacji platformy Azure, która z
 
   - [Szablony szybki start platformy Azure](https://azure.microsoft.com/documentation/templates/)
   - [Szablony przewodnika Szybki start platformy GitHub](https://github.com/azure/azure-quickstart-templates)
-  - [Publikowanie definicji aplikacji](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+  - [Publikowanie definicji aplikacji](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Wdrażanie aplikacji katalogu usług](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
   
@@ -41,7 +41,7 @@ Zapoznaj się z następującą dokumentacją aplikacji platformy Azure, która z
   - [Tworzenie plików definicji](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Publish marketplace application (Publikowanie aplikacji w witrynie Marketplace)](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
-  - Przykłady:
+  - Próbki:
 
     - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)

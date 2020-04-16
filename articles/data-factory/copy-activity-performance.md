@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 231b0d77dc441e70dc0ec8de313291bb6b4f9292
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aedb3df69821d1436b03b2eb1f12873b624d426e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79261400"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414177"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Przewodnik po wydajności i skalowalności działania kopiowania
 
@@ -25,7 +25,9 @@ ms.locfileid: "79261400"
 > * [Wersja 1](v1/data-factory-copy-activity-performance.md)
 > * [Bieżąca wersja](copy-activity-performance.md)
 
-Niezależnie od tego, czy chcesz przeprowadzić migrację danych na dużą skalę z usługi Data Lake lub enterprise data warehouse (EDW) na platformę Azure, czy chcesz pozyskiwać dane na dużą skalę z różnych źródeł na platformie Azure w celu analizy dużych zbiorów danych, kluczowe znaczenie ma osiągnięcie optymalnej wydajności i Skalowalność.  Usługa Azure Data Factory zapewnia wydajny, odporny i ekonomiczny mechanizm pozyskiwania danych na dużą skalę, dzięki czemu doskonale nadaje się dla inżynierów danych, którzy chcą tworzyć wysoce wydajne i skalowalne potoki pozyskiwania danych.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Niezależnie od tego, czy chcesz przeprowadzić migrację danych na dużą skalę z usługi Data Lake lub enterprise data warehouse (EDW) na platformę Azure, czy chcesz pozyskiwać dane na dużą skalę z różnych źródeł na platformie Azure w celu analizy dużych zbiorów danych, ważne jest osiągnięcie optymalnej wydajności i skalowalności.  Usługa Azure Data Factory zapewnia wydajny, odporny i ekonomiczny mechanizm pozyskiwania danych na dużą skalę, dzięki czemu doskonale nadaje się dla inżynierów danych, którzy chcą tworzyć wysoce wydajne i skalowalne potoki pozyskiwania danych.
 
 Po przeczytaniu tego artykułu, będziesz w stanie odpowiedzieć na następujące pytania:
 

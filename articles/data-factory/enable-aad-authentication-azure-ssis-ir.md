@@ -11,14 +11,16 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 5/14/2019
-ms.openlocfilehash: 70367a38fbf7b59486e2eaaf6c05634aa7575869
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2359b378b1f54cf6e03218f819b3a7c5740ba596
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260711"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416402"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime (Włączanie uwierzytelniania usługi Azure Active Directory dla środowiska Azure-SSIS Integration Runtime)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym artykule pokazano, jak włączyć uwierzytelnianie usługi Azure Active Directory (Azure AD) przy użyciu tożsamości zarządzanej dla usługi Azure Data Factory (ADF) i używać go zamiast konwencjonalnych metod uwierzytelniania (takich jak uwierzytelnianie SQL) do:
 
@@ -26,7 +28,7 @@ W tym artykule pokazano, jak włączyć uwierzytelnianie usługi Azure Active Di
 
 - Połącz się z różnymi zasobami platformy Azure podczas uruchamiania pakietów SSIS na platformie Azure-SSIS IR.
 
-Aby uzyskać więcej informacji na temat tożsamości zarządzanej podajnika ADF, zobacz [Zarządzane identyfikatory dla fabryki danych](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+Aby uzyskać więcej informacji na temat tożsamości zarządzanej podajnika ADF, zobacz [Tożsamość zarządzana dla fabryki danych](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 >-  W tym scenariuszu uwierzytelnianie usługi Azure AD z tożsamością zarządzaną dla usługi ADF jest używane tylko w tworzeniu i kolejnych operacjach uruchamiania usługi SSIS IR, które z kolei będą aprowizować i łączyć się z usługą SSISDB. W przypadku wykonywania pakietów SSIS usługa SSIS IR będzie nadal łączyć się z usługą SSISDB przy użyciu uwierzytelniania SQL przy użyciu w pełni zarządzanych kont utworzonych podczas inicjowania obsługi administracyjnej usługi SSISDB.
@@ -63,7 +65,7 @@ Można użyć istniejącej grupy usługi Azure AD lub utworzyć nową przy użyc
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Dodaj do grupy tożsamość zarządzaną podajnika ADF. Możesz korzystać z artykułu [Zarządzana identiy for Data Factory,](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) aby uzyskać główny identyfikator obiektu tożsamości zarządzanej (np. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, ale nie używaj w tym celu identyfikatora aplikacji tożsamości zarządzanej).
+3.  Dodaj do grupy tożsamość zarządzaną podajnika ADF. Możesz korzystać z artykułu [Tożsamość zarządzana dla fabryki danych,](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) aby uzyskać identyfikator obiektu tożsamości zarządzanej (np. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, ale nie używaj w tym celu identyfikatora aplikacji tożsamości zarządzanej).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

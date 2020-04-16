@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9dadc107c6907f1ccb28a876270e577f10395
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d60f1101fc858e9dcaa22162be97417544e13693
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74977305"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405041"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Szybki start: generowanie miniatury za pomocą interfejsu API REST i cURL
 
@@ -28,23 +28,6 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 - Musisz mieć bibliotekę [cURL](https://curl.haxx.se/windows).
 - Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz próbny z [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Możesz też postępować zgodnie z instrukcjami w aplikacji [Utwórz konto usług Cognitive Services,](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) aby zasubskrybować usługę Computer Vision i uzyskać klucz.
-
-## <a name="get-thumbnail-request"></a>Żądanie Get Thumbnail
-
-Za pomocą [metody Pobierz miniaturę](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)można wygenerować miniaturę obrazu.
-
-Aby uruchomić przykład, wykonaj następujące kroki:
-
-1. Skopiuj następujący kod do edytora.
-1. Zastąp wartość `<Subscription Key>` prawidłowym kluczem subskrypcji.
-1. Zastąp ciąg `<File>` ścieżką i nazwę pliku, aby zapisać miniaturę.
-1. Zmień adres URL żądania (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`), aby użyć lokalizacji, w której uzyskano klucze subskrypcji, jeśli jest to konieczne.
-1. Opcjonalnie możesz zmienić obraz (`{\"url\":\"...`) do analizy.
-1. Otwórz okno polecenia na komputerze z zainstalowanym programem cURL.
-1. Wklej kod w oknie, a następnie uruchom polecenie.
-
->[!NOTE]
->Lokalizacja użyta w wywołaniu REST i lokalizacja użyta do otrzymania kluczy subskrypcji muszą być takie same. Jeśli na przykład uzyskano klucze subskrypcji z lokalizacji westus, zastąp ciąg „westcentralus” w poniższym adresie URL ciągiem „westus”.
 
 ## <a name="create-and-run-the-sample-command"></a>Tworzenie i uruchamianie przykładowego polecenia
 

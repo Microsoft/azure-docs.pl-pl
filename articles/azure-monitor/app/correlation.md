@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 6ceace1ee93fab8c0a46ed4a67850fc87a5cdad2
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 2e862410e2bf12e09e1a6388bbb6f7105b5b2edf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991232"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405265"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Korelacja telemetrii w usłudze Application Insights
 
@@ -314,7 +314,7 @@ Wraz z czasem .NET zdefiniował kilka sposobów skorelowania dzienników telemet
 
 Ale te metody nie umożliwiają automatyczną obsługę śledzenia rozproszonego. `DiagnosticSource`obsługuje automatyczną korelację między maszynami. Biblioteki .NET `DiagnosticSource` obsługują i umożliwiają automatyczne propagowanie między komputerami kontekstu korelacji za pośrednictwem transportu, takich jak HTTP.
 
-Podręcznik [użytkownika](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) aktywności `DiagnosticSource` w artykule wyjaśniono podstawy działań związanych ze śledzeniem.
+Podręcznik [użytkownika](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) aktywności `DiagnosticSource` w artykule wyjaśniono podstawy działań związanych ze śledzeniem.
 
 ASP.NET Core 2.0 obsługuje wyodrębnianie nagłówków HTTP i uruchamianie nowych działań.
 

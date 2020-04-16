@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 933a175213afd81c81eb237a2b2dd4c3e24e3315
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 12f91633834ee98582eaad886b48eb8619378265
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633152"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411670"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Projektowaniaj decyzji i technik kodowania puli SQL Synapse w usłudze Azure Synapse Analytics 
  W tym artykule znajdziesz dodatkowe zasoby, które pomogą Ci lepiej zrozumieć kluczowe decyzje projektowe, zalecenia i techniki kodowania dla puli SQL w usłudze Azure Synapse.
@@ -23,7 +23,7 @@ ms.locfileid: "80633152"
 ## <a name="key-design-decisions"></a>Kluczowe decyzje projektowe
 W poniższych artykułach przedstawiono pojęcia i decyzje projektowe dotyczące tworzenia rozproszonego magazynu danych przy użyciu możliwości puli SQL w usłudze Azure Synapse:
 
-* [Połączenia](sql-data-warehouse-connect-overview.md)
+* [Połączenia](../sql/connect-overview.md)
 * [Współbieżności](resource-classes-for-workload-management.md)
 * [Transakcji](sql-data-warehouse-develop-transactions.md)
 * [schematy zdefiniowane przez użytkownika](sql-data-warehouse-develop-user-defined-schemas.md)

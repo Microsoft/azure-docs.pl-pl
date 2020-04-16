@@ -11,15 +11,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: 9a1923057bc318869f491791520aacb4d0d17591
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/15/2020
+ms.openlocfilehash: ecfdf2a11f31c18064be9a607f2bb3938d26e661
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346632"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414898"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Konfigurowanie samodzielnie hostowanego podczerwona jako serwera proxy dla usługi Azure-SSIS IR w usłudze Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym artykule opisano sposób uruchamiania pakietów usług integracji programu SQL Server (SSIS) w czasie wykonywania integracji platformy Azure-SSIS (Azure-SSIS IR) w usłudze Azure Data Factory przy samodzielnym uruchomieniu integracji (samodzielne środowisko IR) skonfigurowanym jako serwer proxy. 
 
@@ -52,7 +54,7 @@ Na koniec można pobrać i zainstalować najnowszą wersję samodzielnego środo
 
 Jeśli jeszcze tego nie zrobiono, utwórz usługę połączone z magazynem obiektów Blob platformy Azure w tej samej fabryce danych, w której skonfigurowana jest usługa Azure-SSIS IR. Aby to zrobić, zobacz [Tworzenie usługi połączonej z danymi platformy Azure](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service). Pamiętaj, aby wykonać następujące czynności:
 - W przypadku **magazynu danych**wybierz pozycję **Azure Blob Storage**.  
-- W przypadku **łączenia za pośrednictwem środowiska uruchomieniowego integracji**wybierz **autoresolveIntegrationRuntime** (nie twój identyfikator Azure-SSIS IR ani własny hostowany identyfikator IR), ponieważ używamy domyślnego środowiska IR platformy Azure do pobierania poświadczeń dostępu do usługi Azure Blob Storage  
+- W przypadku **połączenia za pośrednictwem środowiska wykonawczego integracji**wybierz **autoresolveintegrationruntime** (nie azure-SSIS IR ani samodzielnie hostowane IR), ponieważ używamy domyślnego środowiska Azure IR do pobierania poświadczeń dostępu do usługi Azure Blob Storage.
 - W przypadku **metody uwierzytelniania**wybierz **pozycję Klucz konta,** **IDENTYFIKATOR URI sygnatury dostępu**Współdzielonego lub **Główny podmiot usługi**.  
 
     >[!TIP]
@@ -171,7 +173,7 @@ Jeśli chcesz użyć silnego protokołu kryptograficznego/bezpieczniejszego prot
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
-- Obecnie obsługiwane są tylko zadania przepływu danych ze źródłami łączności otwartej bazy danych (ODBC)/OLEDB/Flat File. 
+- Obecnie obsługiwane są tylko zadania przepływu danych z otwartymi źródłami łączności bazy danych (ODBC)/OLEDB/Flat File lub OLEDB. 
 - Obecnie obsługiwane są tylko usługi połączone z magazynem obiektów Blob platformy Azure, które są skonfigurowane przy użyciu *klucza konta*, *identyfikatora URI (Shared Access Signature)* lub *Service Principal* authentication.
 - *ParameterMapping* w źródle OLEDB nie jest jeszcze obsługiwany. Aby obejść ten problem, użyj *polecenia SQL From Variable* jako *accessmode* i użyj *wyrażenia,* aby wstawić zmienne/parametry w poleceniu SQL. Na ilustracji zobacz *pakiet ParameterMappingSample.dtsx,* który można znaleźć w folderze *SelfHostedIRProxy/Limitations* naszego publicznego kontenera podglądu. Korzystając z Eksploratora usługi Azure Storage, możesz połączyć się z naszym publicznym kontenerem w wersji zapoznawczej, wprowadzając powyższy identyfikator URI sygnatury dostępu Współdzielonego.
 

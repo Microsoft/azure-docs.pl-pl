@@ -8,14 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: d6885e9b30cc71bda822a29574c4d574f2b020a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d629a9031f032a77efc953311a45b55996568191
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72387047"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414370"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Przetwarzanie plików tekstowych o stałej długości przy użyciu przepływów danych mapowania fabryki danych
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Za pomocą mapowania przepływów danych w usłudze Microsoft Azure Data Factory można przekształcać dane z plików tekstowych o stałej szerokości. W poniższym zadaniu zdefiniujemy zestaw danych dla pliku tekstowego bez ogranicznika, a następnie skonfigurujemy podziały podciągów na podstawie położenia porządkowego.
 

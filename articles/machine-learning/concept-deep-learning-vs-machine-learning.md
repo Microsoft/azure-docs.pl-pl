@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: a83f47942e986e882d99528be3f03f616c2a7e04
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b024010583ba1c6e0ffdf663f7335011ce212bf1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257062"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414580"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Uczenie głębokie a uczenie maszynowe
 
@@ -120,4 +120,4 @@ Poniższe artykuły pokazują, jak korzystać z technologii uczenia głębokiego
 
 - [Klasyfikowanie cyfr odręcznych przy użyciu modelu chainera](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
 
-Ponadto użyj [arkusza ściągawki algorytmu uczenia maszynowego,](../synapse-analytics/sql-data-warehouse/cheat-sheet.md) aby wybrać algorytmy dla swojego modelu.
+Ponadto użyj [arkusza ściągawki algorytmu uczenia maszynowego,](algorithm-cheat-sheet.md) aby wybrać algorytmy dla swojego modelu.

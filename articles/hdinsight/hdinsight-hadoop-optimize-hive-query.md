@@ -5,29 +5,29 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 144d51d08a61526ec0f183a63e1fdf5658136293
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 4955df718dcc8f169232052979ccf4a636c3be80
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272333"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390292"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optymalizowanie zapytań technologii Apache Hive w usłudze Azure HDInsight
 
-W usłudze Azure HDInsight istnieje kilka typów klastrów i technologii, które można uruchamiać apache hive kwerend. Podczas tworzenia klastra HDInsight wybierz odpowiedni typ klastra, aby zoptymalizować wydajność do potrzeb obciążenia.
+W usłudze Azure HDInsight istnieje kilka typów klastrów i technologii, które można uruchamiać apache hive kwerend. Wybierz odpowiedni typ klastra, aby zoptymalizować wydajność pod kątem potrzeb związanych z obciążeniem.
 
-Na przykład wybierz typ klastra **kwerendinterakcyjnych,** aby zoptymalizować kwerendy interakcyjne ad hoc. Wybierz apache **Hadoop** typu klastra, aby zoptymalizować dla zapytań hive używane jako proces wsadowy. **Spark** i **HBase** typy klastra można również uruchamiać zapytania hive. Aby uzyskać więcej informacji na temat uruchamiania zapytań hive w różnych typach klastrów USŁUGI HDInsight, zobacz [Co to jest Gałąź Apache i HiveQL w usłudze Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+Na przykład wybierz typ klastra **kwerendinterakcyjnych,** aby zoptymalizować kwerendy `ad hoc`interaktywne. Wybierz apache **Hadoop** typu klastra, aby zoptymalizować dla zapytań hive używane jako proces wsadowy. **Spark** i **HBase** typy klastra można również uruchamiać zapytania hive. Aby uzyskać więcej informacji na temat uruchamiania zapytań hive w różnych typach klastrów USŁUGI HDInsight, zobacz [Co to jest Gałąź Apache i HiveQL w usłudze Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 Klastry HDInsight typu klastra Hadoop nie są domyślnie zoptymalizowane pod kątem wydajności. W tym artykule opisano niektóre z najbardziej typowych metod optymalizacji wydajności gałęzi, które można zastosować do zapytań.
 
 ## <a name="scale-out-worker-nodes"></a>Skalowanie w poziomie węzłów procesu roboczego
 
-Zwiększenie liczby węzłów procesu roboczego w klastrze HDInsight umożliwia pracę, aby wykorzystać więcej maperów i reduktorów, które mają być uruchamiane równolegle. W umiań HDInsight można zwiększyć skalę w poziomie:
+Zwiększenie liczby węzłów procesu roboczego w klastrze HDInsight umożliwia pracę przy użyciu większej liczby maperów i reduktorów, które mają być uruchamiane równolegle. W umiań HDInsight można zwiększyć skalę w poziomie:
 
-* W czasie tworzenia klastra można określić liczbę węzłów procesu roboczego przy użyciu witryny Azure portal, programu Azure PowerShell lub interfejsu wiersza polecenia.  Więcej informacji można znaleźć w artykule [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Tworzenie klastrów usługi HDInsight). Poniższy zrzut ekranu przedstawia konfigurację węzła procesu roboczego w witrynie Azure portal:
+* Podczas tworzenia klastra można określić liczbę węzłów procesu roboczego przy użyciu witryny Azure portal, usługi Azure PowerShell lub interfejsu wiersza polecenia.  Więcej informacji można znaleźć w artykule [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Tworzenie klastrów usługi HDInsight). Poniższy zrzut ekranu przedstawia konfigurację węzła procesu roboczego w witrynie Azure portal:
   
     ![Węzły rozmiaru klastra portalu Azure](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
 
@@ -45,10 +45,10 @@ Aby uzyskać więcej informacji na temat skalowania usługi HDInsight, zobacz [S
 
 Tez jest szybszy bo:
 
-* **Wykonaj ukierunkowany wykres acykliczny (DAG) jako jedno zadanie w silniku MapReduce**. DAG wymaga, aby każdy zestaw maperów był następujący od jednego zestawu reduktorów. Powoduje to, że wiele mapreduce zadań, które mają być wydzielone dla każdej kwerendy hive. Tez nie ma takiego ograniczenia i może przetwarzać złożone DAG jako jedno zadanie, minimalizując w ten sposób obciążenie związane z uruchamianiem zadania.
+* **Wykonaj ukierunkowany wykres acykliczny (DAG) jako jedno zadanie w silniku MapReduce**. DAG wymaga, aby każdy zestaw maperów był następujący od jednego zestawu reduktorów. To wymaganie powoduje, że wiele zadań MapReduce zostać wydzielone dla każdej kwerendy hive. Tez nie ma takiego ograniczenia i może przetwarzać złożone DAG jako jedno zadanie minimalizujące obciążenie związane z uruchamianiem zadania.
 * **Pozwala uniknąć niepotrzebnych zapisów**. Wiele zadań są używane do przetwarzania tej samej kwerendy hive w silniku MapReduce. Dane wyjściowe każdego zadania MapReduce są zapisywane w usad HDFS dla danych pośrednich. Ponieważ Tez minimalizuje liczbę zadań dla każdej kwerendy hive, jest w stanie uniknąć niepotrzebnych zapisów.
 * **Minimalizuje opóźnienia rozruchu**. Tez jest w stanie lepiej zminimalizować opóźnienie rozruchu, zmniejszając liczbę maperów, które musi uruchomić, a także poprawiając optymalizację w całym.
-* **Ponownie używa kontenerów**. W miarę możliwości Tez jest w stanie ponownie użyć kontenerów, aby zapewnić zmniejszenie opóźnienia z powodu uruchamiania kontenerów.
+* **Ponownie używa kontenerów**. W miarę możliwości Tez będzie ponownie używać kontenerów, aby upewnić się, że opóźnienie uruchamiania kontenerów jest zmniejszona.
 * **Techniki ciągłej optymalizacji**. Tradycyjnie optymalizacja została wykonana podczas fazy kompilacji. Jednak więcej informacji na temat danych wejściowych jest dostępna, które umożliwiają lepszą optymalizację w czasie wykonywania. Tez używa technik ciągłej optymalizacji, które pozwalają zoptymalizować plan dalej w fazie wykonawczej.
 
 Aby uzyskać więcej informacji na temat tych pojęć, zobacz [Apache TEZ](https://tez.apache.org/).
@@ -69,8 +69,8 @@ Partycjonowanie gałęzi jest implementowane przez reorganizowanie nieprzetworzo
 
 Niektóre zagadnienia partycjonowania:
 
-* **Nie pod partycje** - partycjonowanie na kolumnach z tylko kilka wartości może spowodować kilka partycji. Na przykład partycjonowanie na płeć tworzy tylko dwie partycje do utworzenia (mężczyzna i kobieta), zmniejszając w ten sposób tylko opóźnienie o maksymalnie połowę.
-* **Nie za pośrednictwem partycji** — z drugiej strony tworzenie partycji w kolumnie o unikatowej wartości (na przykład userid) powoduje wiele partycji. Ponad partycji powoduje wiele stresu na nazwę klastra, ponieważ ma do obsługi dużej liczby katalogów.
+* **Nie pod partycje** — partycjonowanie na kolumnach z tylko kilka wartości może spowodować kilka partycji. Na przykład partycjonowanie na płeć tworzy tylko dwie partycje do utworzenia (mężczyzna i kobieta), więc zmniejszyć opóźnienie o maksymalnie połowę.
+* **Nie przejmuj partycji** — z drugiej strony tworzenie partycji w kolumnie o unikatowej wartości (na przykład userid) powoduje wiele partycji. Ponad partycji powoduje wiele stresu na nazwę klastra, ponieważ ma do obsługi dużej liczby katalogów.
 * **Unikaj pochylania danych** — wybierz klucz partycjonowania mądrze, aby wszystkie partycje były równe rozmiar. Na przykład partycjonowanie w kolumnie *Stan* może wypaczyć dystrybucji danych. Ponieważ stan Kalifornia ma populację prawie 30x, że Vermont, rozmiar partycji jest potencjalnie wypaczone i wydajność może się znacznie różnić.
 
 Aby utworzyć tabelę partycji, należy użyć klauzuli *Partitioned By:*
@@ -198,5 +198,5 @@ Istnieje więcej metod optymalizacji, które można wziąć pod uwagę, na przyk
 W tym artykule poznaliście kilka typowych metod optymalizacji zapytań hive. Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
 * [Użyj ula Apache w funkcji HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analizowanie danych opóźnienia lotu przy użyciu interaktywnej kwerendy w programie HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Analizowanie danych opóźnienia lotu przy użyciu interaktywnej kwerendy w programie HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analizowanie danych Twittera przy użyciu ula Apache w hdinsight](hdinsight-analyze-twitter-data-linux.md)

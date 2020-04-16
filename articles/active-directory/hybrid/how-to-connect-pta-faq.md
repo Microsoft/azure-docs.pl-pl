@@ -16,12 +16,12 @@ ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59bf7ae5914f5cc886d95f25b36abccfdf09c4a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331281"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406876"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Uwierzytelnianie przekazywania usługi Azure Active Directory: często zadawane pytania
 
@@ -121,7 +121,7 @@ W przypadku migracji z usług AD FS (lub innych technologii federacyjnej) do uwi
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Czy można używać uwierzytelniania przekazywanego w wielolesowym środowisku usługi Active Directory?
 
-Tak. Środowiska wielu lasów są obsługiwane, jeśli między lasami usługi Active Directory istnieją relacje zaufania lasu i jeśli routing sufiksu nazw jest poprawnie skonfigurowany.
+Tak. Środowiska wielu lasów są obsługiwane, jeśli między lasami usługi Active Directory istnieją relacje zaufania lasu (dwukierunkowe) i jeśli routing sufiksu nazw jest poprawnie skonfigurowany.
 
 ## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>Czy uwierzytelnianie przekazywane zapewnia równoważenie obciążenia przez wielu agentów uwierzytelniania?
 

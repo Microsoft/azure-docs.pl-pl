@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256941"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409769"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurowanie odzyskiwania po awarii na dużą skalę dla maszyn wirtualnych VMware/serwerów fizycznych
 
@@ -210,7 +210,7 @@ Możesz przygotować się z wyprzedzeniem do pracy awaryjnej w następujący spo
 Aby uruchomić tryb failover na dużą skalę, zaleca się następujące czynności:
 
 1. Tworzenie planów odzyskiwania dla pracy awaryjnej obciążenia.
-    - Każdy plan odzyskiwania może wywołać przewijalnie w stan failover maksymalnie 50 maszyn.
+    - Każdy plan odzyskiwania może wywołać przewijalnie w stan failover maksymalnie 100 maszyn.
     - [Dowiedz się więcej](recovery-plan-overview.md) o planach odzyskiwania.
 2. Dodaj skrypty runbook usługi Azure Automation do planów odzyskiwania, aby zautomatyzować wszelkie zadania ręczne na platformie Azure. Typowe zadania obejmują konfigurowanie modułów równoważenia obciążenia, aktualizowanie DNS itp. [Dowiedz się więcej](site-recovery-runbook-automation.md)
 2. Przed przełączeniem awaryjnym przygotuj maszyny z systemem Windows, aby były zgodne ze środowiskiem platformy Azure. [Limity pracy awaryjnej](#plan-azure-subscriptions-and-quotas) są wyższe dla maszyn, które są zgodne. [Dowiedz się więcej](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) o uruchomieniu kamieczkach.

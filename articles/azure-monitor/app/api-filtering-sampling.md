@@ -3,12 +3,12 @@ title: Filtrowanie i przetwarzanie wstępne w sdk usługi Azure Application Insi
 description: Zapisz procesory telemetryczne i inicjatory telemetrii dla SDK, aby filtrować lub dodawać właściwości do danych przed wysłaniem danych telemetrycznych do portalu usługi Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: 8f2064f73821a017046cbb552a8dcf592ce13267
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8b81849726ad546a24ce1bb56a139b384eb54c42
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983762"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405364"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrowanie i wstępne przetwarzanie danych telemetrycznych w sedku usługi Application Insights
 
@@ -227,7 +227,7 @@ Jeśli podasz inicjatora telemetrii, jest wywoływana za każdym razem, gdy wywo
 
 **Zdefiniuj inicjatora**
 
-*C#*
+*C #*
 
 ```csharp
 using System;
@@ -488,9 +488,37 @@ Poniższy przykładowy inicjator ustawia nazwę roli chmury dla każdej śledzon
 ```csharp
 public void Initialize(ITelemetry telemetry)
 {
-    if(string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+    if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
     {
         telemetry.Context.Cloud.RoleName = "MyCloudRoleName";
+    }
+}
+```
+
+#### <a name="add-information-from-httpcontext"></a>Dodawanie informacji z protokołu HttpContext
+
+Poniższy przykładowy inicjator odczytuje dane z [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) i `RequestTelemetry` dołącza go do wystąpienia. Jest `IHttpContextAccessor` automatycznie dostarczany za pośrednictwem iniekcji zależności konstruktora.
+
+```csharp
+public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
+{
+    private readonly IHttpContextAccessor httpContextAccessor;
+
+    public HttpContextRequestTelemetryInitializer(IHttpContextAccessor httpContextAccessor)
+    {
+        this.httpContextAccessor =
+            httpContextAccessor ??
+            throw new ArgumentNullException(nameof(httpContextAccessor));
+    }
+
+    public void Initialize(ITelemetry telemetry)
+    {
+        var requestTelemetry = telemetry as RequestTelemetry;
+        if (requestTelemetry == null) return;
+
+        var claims = this.httpContextAccessor.HttpContext.User.Claims;
+        Claim oidClaim = claims.FirstOrDefault(claim => claim.Type == "oid");
+        requestTelemetry.Properties.Add("UserOid", oidClaim?.Value);
     }
 }
 ```

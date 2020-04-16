@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e918fe01426202746f0225d25304b9c1b26cb74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927326"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414772"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrowanie danych z usługi Amazon S3 do usługi Azure Data Lake Storage Gen2
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Szablony można migrować petabajtami danych składających się z setek milionów plików z amazon s3 do usługi Azure Data Lake Storage Gen2. 
 
@@ -71,7 +73,7 @@ Szablon zawiera dwa parametry:
 
     > [!NOTE]
     > Nazwa tabeli jest s3_partition_control_table.
-    > Schemat tabeli sterowania jest PartitionPrefix i SuccessOrFailure, gdzie PartitionPrefix jest ustawieniem prefiksu w S3 do filtrowania folderów i plików w Amazon S3 według nazwy, a SuccessOrFailure jest stan kopiowania każdej partycji: 0 oznacza, że ta partycja ma nie został skopiowany na platformę Azure, a 1 oznacza, że ta partycja została pomyślnie skopiowana na platformę Azure.
+    > Schemat tabeli sterowania jest PartitionPrefix i SuccessOrFailure, gdzie PartitionPrefix jest ustawienie prefiksu w S3 do filtrowania folderów i plików w Amazon S3 według nazwy i SuccessOrFailure jest stan kopiowania każdej partycji: 0 oznacza, że ta partycja nie została skopiowana na platformę Azure i 1 oznacza, że ta partycja została pomyślnie skopiowana do platformy Azure.
     > Istnieje 5 partycji zdefiniowanych w tabeli sterowania i domyślny stan kopiowania każdej partycji jest 0.
 
     ```sql
@@ -132,7 +134,7 @@ Szablon zawiera dwa parametry:
 
     > [!NOTE]
     > Nazwa tabeli jest s3_partition_delta_control_table.
-    > Schemat tabeli sterowania jest PartitionPrefix, JobRunTime i SuccessOrFailure, gdzie PartitionPrefix jest ustawieniem prefiksu w S3 do filtrowania folderów i plików w Amazon S3 według nazwy, JobRunTime jest wartością datetime po uruchomieniu zadań kopiowania, a SuccessOrFailure jest stan kopiowania każdej partycji: 0 oznacza, że ta partycja nie została skopiowana na platformę Azure, a 1 oznacza, że ta partycja została pomyślnie skopiowana na platformę Azure.
+    > Schemat tabeli sterowania jest PartitionPrefix, JobRunTime i SuccessOrFailure, gdzie PartitionPrefix jest ustawieniem prefiksu w S3 do filtrowania folderów i plików w Amazon S3 według nazwy, JobRunTime jest datetime wartość po uruchomieniu zadań kopiowania i SuccessOrFailure jest stan kopiowania każdej partycji: 0 oznacza, że ta partycja nie została skopiowana na platformę Azure i 1 oznacza, że ta partycja została pomyślnie skopiowana do platformy Azure.
     > W tabeli sterowania zdefiniowano 5 partycji. Domyślną wartością jobruntime może być czas, kiedy rozpoczyna się jednorazowa migracja danych historycznych. ADF skopiuje pliki na AWS S3, które zostały ostatnio zmodyfikowane po tym czasie. Domyślny stan kopiowania każdej partycji wynosi 1.
 
     ```sql

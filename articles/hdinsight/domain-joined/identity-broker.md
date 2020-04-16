@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: f14cbef2ab568962601b3a407fa979e8f982598d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 508eac08284f91821223a78cafdfee7b4c9c540b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75483013"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410880"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Używanie brokera identyfikatorów (wersja zapoznawcza) do zarządzania poświadczeniami
 
@@ -38,7 +38,7 @@ ID Broker umożliwia logowanie się do klastrów ESP przy użyciu uwierzytelnian
 
 Aby utworzyć klaster ESP z włączoną funkcją ID Broker, należy wykonać następujące kroki:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wykonaj podstawowe kroki tworzenia klastra ESP. Aby uzyskać więcej informacji, zobacz [Tworzenie klastra HDInsight za pomocą esp](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 1. Wybierz **włącz brokera identyfikatorów HDInsight**.
 
@@ -55,6 +55,14 @@ Wtyczka HDInsight [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/ap
 Po włączeniu brokera identyfikatorów nadal będziesz potrzebować skrótu hasła przechowywanego w usługach AD DS dla scenariuszy SSH z kontami domeny. Aby SSH do maszyny wirtualnej przyłączone `kinit` do domeny lub uruchomić polecenie, należy podać hasło. 
 
 Uwierzytelnianie SSH wymaga skrótu, który ma być dostępny w usługach Azure AD DS. Jeśli chcesz używać SSH tylko dla scenariuszy administracyjnych, można utworzyć jedno konto tylko w chmurze i użyć go do SSH do klastra. Inni użytkownicy mogą nadal korzystać z narzędzi Ambari lub HDInsight (takich jak wtyczka IntelliJ) bez konieczności używania skrótu hasła w usługach Azure AD DS.
+
+## <a name="clinets-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Clinets za pomocą OAuth do łączenia się z bramą HDInsight z konfiguracją ID Broker
+
+W konfiguracji brokera identyfikatorów niestandardowe aplikacje i klienci łączący się z bramą mogą być aktualizowane w celu uzyskania wymaganego tokenu OAuth pierwszy. Można wykonać kroki opisane w tym [dokumencie,](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) aby uzyskać token z następującymi informacjami:
+
+*   Uri zasobów OAuth:https://hib.azurehdinsight.net 
+* Identyfikator aplikacji: 7865c1d2-f040-46cc-875f-831a1ef6a28a
+*   Uprawnienie: (nazwa: Cluster.ReadWrite, id:8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 ## <a name="next-steps"></a>Następne kroki
 

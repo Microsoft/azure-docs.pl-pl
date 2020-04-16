@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3a42d7da21cfb2e3066fbdd81b27c82155d8456f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6d634d9a32ae1728e1122d863ddabd94f73ee27
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440036"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414843"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Kopiowanie zbiorcze z bazy danych z tabelą kontrolną
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Aby skopiować dane z magazynu danych w oracle server, Netezza, Teradata lub SQL Server do usługi Azure SQL Data Warehouse, należy załadować ogromne ilości danych z wielu tabel. Zazwyczaj dane muszą być podzielone na partycje w każdej tabeli, dzięki czemu można załadować wiersze z wieloma wątkami równolegle z jednej tabeli. W tym artykule opisano szablon do użycia w tych scenariuszach.
 

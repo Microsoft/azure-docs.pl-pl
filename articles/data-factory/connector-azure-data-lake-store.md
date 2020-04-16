@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: a8ba8b212a504a8f8e4e29fbd50126189998e81a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61bb8fe950de8cd9be91bc76bd24aa0151f3fb79
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065469"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415414"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Kopiowanie danych do lub z usługi Azure Data Lake Storage Gen1 przy użyciu usługi Azure Data Factory
 
 > [!div class="op_single_selector" title1="Wybierz wersję usługi Azure Data Factory, której używasz:"]
 > * [Wersja 1](v1/data-factory-azure-datalake-connector.md)
 > * [Bieżąca wersja](connector-azure-data-lake-store.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób kopiowania danych do i z usługi Azure Data Lake Storage Gen1. Aby dowiedzieć się więcej o usłudze Azure Data Factory, przeczytaj [artykuł wprowadzający](introduction.md).
 
@@ -45,7 +47,7 @@ W szczególności za pomocą tego złącza można:
 > [!IMPORTANT]
 > Jeśli kopiujesz dane przy użyciu środowiska uruchomieniowego integracji hostowanego samodzielnie, `<ADLS account name>.azuredatalakestore.net` `login.microsoftonline.com/<tenant>/oauth2/token` skonfiguruj zaporę firmową, aby zezwalała na ruch wychodzący do i na porcie 443. Ten ostatni jest usługa tokenu zabezpieczeń platformy Azure, że środowisko wykonawcze integracji musi komunikować się z, aby uzyskać token dostępu.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 > [!TIP]
 > Aby zapoznać się z instrukcjami dotyczącymi używania łącznika usługi Azure Data Lake Store, zobacz [Ładowanie danych do usługi Azure Data Lake Store.](load-azure-data-lake-store.md)

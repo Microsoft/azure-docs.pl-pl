@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9ecd0ffd76650efff3a4c9f877522cba6f28d080
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271118"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405386"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Zarządzanie użyciem i kosztami usługi Application Insights
 
@@ -28,7 +28,7 @@ Cennik [usługi Azure Application Insights][start] to model płatności zgodnie 
 
 [Wieloetapowe testy internetowe](../../azure-monitor/app/availability-multistep.md) pobierają dodatkową opłatę. Wieloetapowe testy sieci web są testy sieci web, które wykonują sekwencję akcji. Nie ma osobnej opłaty za *testy pingu* na jednej stronie. Dane telemetryczne z testów ping i testów wieloetapowych są ładowane tak samo jak inne dane telemetryczne z aplikacji.
 
-Usługa Application Insights opcja [Włącz alerty dotyczące niestandardowych wymiarów metryki](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) może również generować dodatkowe koszty, ponieważ może to spowodować utworzenie dodatkowych metryk wstępnej agregacji. [Dowiedz się więcej] o metrykach opartych na dziennikach i wstępnie zagregowanych w usłudze Application Insights oraz o [cenach](https://azure.microsoft.com/pricing/details/monitor/) metryk niestandardowych usługi Azure Monitor.
+Usługa Application Insights opcja [Włącz alerty dotyczące niestandardowych wymiarów metryki](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) może również generować dodatkowe koszty, ponieważ może to spowodować utworzenie dodatkowych metryk wstępnej agregacji. [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) o metrykach opartych na dziennikach i wstępnie zagregowanych w usłudze Application Insights oraz o [cenach](https://azure.microsoft.com/pricing/details/monitor/) metryk niestandardowych usługi Azure Monitor.
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Szacowanie kosztów zarządzania aplikacją
 
@@ -218,7 +218,9 @@ Aby zmienić przechowywanie, z zasobu usługi Application Insights przejdź do s
 
 ![Dostosowywanie dziennego limitu głośności telemetrii](./media/pricing/pricing-005.png)
 
-Retencji można również [ustawić programowo przy użyciu programu PowerShell](powershell.md#set-the-data-retention) przy użyciu parametru. `retentionInDays` Po obniżeniu retencji istnieje kilkudniowy okres prolongaty przed usunięciem najstarszych danych. Jeśli ustawisz przechowywanie danych na 30 dni, można wyzwolić `immediatePurgeDataOn30Days` natychmiastowe przeczyszczanie starszych danych przy użyciu parametru, co może być przydatne w scenariuszach związanych ze zgodnością. Ta funkcja przeczyszczanie jest dostępna tylko za pośrednictwem usługi Azure Resource Manager i powinna być używana ze szczególną ostrożnością. Dzienny czas resetowania limitu woluminu danych można skonfigurować przy `dailyQuotaResetTime` użyciu usługi Azure Resource Manager, aby ustawić parametr.
+Po obniżeniu retencji istnieje kilkudniowy okres prolongaty przed usunięciem najstarszych danych.
+
+Retencji można również [ustawić programowo przy użyciu programu PowerShell](powershell.md#set-the-data-retention) przy użyciu parametru. `retentionInDays` Jeśli ustawisz przechowywanie danych na 30 dni, można wyzwolić `immediatePurgeDataOn30Days` natychmiastowe przeczyszczanie starszych danych przy użyciu parametru, co może być przydatne w scenariuszach związanych ze zgodnością. Ta funkcja przeczyszczanie jest dostępna tylko za pośrednictwem usługi Azure Resource Manager i powinna być używana ze szczególną ostrożnością. Dzienny czas resetowania limitu woluminu danych można skonfigurować przy `dailyQuotaResetTime` użyciu usługi Azure Resource Manager, aby ustawić parametr.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Opłaty za transfer danych przy użyciu usługi Application Insights
 

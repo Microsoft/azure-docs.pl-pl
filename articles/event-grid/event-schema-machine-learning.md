@@ -1,26 +1,26 @@
 ---
-title: Schemat zdarzenia usługi Azure Event Machine Learning
+title: Usługa Azure Machine Learning jako źródło siatki zdarzeń
 description: W tym artykule opisano właściwości, które są dostarczane dla zdarzeń workspace usługi Machine Learning z usługą Azure Event Grid
 services: event-grid
-author: jenns
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/18/2019
-ms.author: jenns
-ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: 7d9af420c7e2b47d2aeb4a8bf42ee138a605b305
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79202148"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393273"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Schemat zdarzeń usługi Azure Event Grid dla usługi Azure Machine Learning
+# <a name="azure-machine-learning-as-an-event-grid-source"></a>Usługa Azure Machine Learning jako źródło siatki zdarzeń
 
 Ten artykuł zawiera właściwości i schemat dla zdarzeń obszaru roboczego uczenia maszynowego. Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md).
 
-Aby uzyskać listę przykładowych skryptów i samouczków, zobacz [źródło zdarzeń usługi AzureML](event-sources.md#azure-machine-learning).
+## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
 
-## <a name="available-event-types"></a>Dostępne typy zdarzeń
+### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
 Usługa Azure Machine Learning emituje następujące typy zdarzeń:
 
@@ -32,7 +32,7 @@ Usługa Azure Machine Learning emituje następujące typy zdarzeń:
 | Microsoft.MachineLearningServices.DatasetDriftDetected | Wywoływane, gdy monitor dryfu zestawu danych wykrywa dryf. |
 | Microsoft.MachineLearningServices.RunStatusZmienił się | Wywoływane, gdy stan uruchomienia zmienia się na "nie powiodło się". |
 
-## <a name="the-contents-of-an-event-response"></a>Zawartość odpowiedzi na zdarzenie
+### <a name="the-contents-of-an-event-response"></a>Zawartość odpowiedzi na zdarzenie
 
 Po wyzwoleniu zdarzenia usługa Event Grid wysyła dane o tym zdarzeniu do subskrybowania punktu końcowego.
 
@@ -186,10 +186,7 @@ Ta sekcja zawiera przykład tego, jak te dane będą wyglądać dla każdego zda
 }]
 ```
 
-
-
-
-## <a name="event-properties"></a>Właściwości zdarzenia
+### <a name="event-properties"></a>Właściwości zdarzenia
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
@@ -260,6 +257,11 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 | RunTags (RunTags) | obiekt | Tagi ukończonego przebiegu. |
 | Właściwości RunProperties | obiekt | Właściwości ukończonego przebiegu. |
 | Stan uruchomienia | ciąg | Stan Uruchom. |
+
+## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
+| Tytuł | Opis |
+| ----- | ----- |
+| [Korzystanie ze zdarzeń usługi Azure Machine Learning](../machine-learning/concept-event-grid-integration.md) | Omówienie integracji usługi Azure Machine Learning z usługą Event Grid. |
 
 ## <a name="next-steps"></a>Następne kroki
 

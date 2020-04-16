@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 971871c28bd1b38b134c04b0334fbe99d1d655c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440159"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415837"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych z magazynu SAP Business przy użyciu usługi Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule pokazano, jak używać usługi Azure Data Factory do kopiowania danych z magazynu biznesowego SAP (BW) za pośrednictwem usługi Open Hub do usługi Azure Data Lake Storage Gen2. Podobny proces można użyć do skopiowania danych do innych [obsługiwanych magazynów danych ujścia.](copy-activity-overview.md#supported-data-stores-and-formats)
 
@@ -68,7 +69,7 @@ W witrynie Azure Portal przejdź do swojej fabryki danych. Wybierz **pozycję Mo
 
    3. Wybierz **opcję Testuj połączenie,** aby sprawdzić poprawność ustawień, a następnie wybierz pozycję **Zakończ**.
 
-   4. Zostanie utworzone nowe połączenie. Wybierz **pozycję Dalej**.
+   4. Zostanie utworzone nowe połączenie. Wybierz opcję **Dalej**.
 
 5. Na stronie **Wybierz miejsca docelowe otwartego centrum** przejrzyj miejsca docelowe open hub, które są dostępne w systemie SAP BW. Wybierz OHD do skopiowania danych, a następnie wybierz **przycisk Dalej**.
 
@@ -191,7 +192,7 @@ Na stronie **fabryka danych Rozpocznijmy** pracę wybierz pozycję **Utwórz pot
 
       3. Dodaj akcję **Utwórz obiekt blob.** W polu **Ścieżka folderu** i **nazwa obiektu Blob**należy używać tych samych wartości, które zostały wcześniej skonfigurowane w *programie HighWatermarkBlobContainer+HighWatermarkBlobDirectory* i *HighWatermarkBlobName*.
 
-      4. Wybierz **pozycję Zapisz**. Następnie skopiuj wartość **adresu URL HTTP POST** do użycia w potoku Fabryka danych.
+      4. Wybierz pozycję **Zapisz**. Następnie skopiuj wartość **adresu URL HTTP POST** do użycia w potoku Fabryka danych.
 
 4. Po podasz parametry potoku fabryki danych wybierz polecenie > **Debugowanie Zakończ,** aby wywołać uruchomienie w celu sprawdzenia poprawności konfiguracji. **Debug** Możesz też wybrać **pozycję Publikuj,** aby opublikować wszystkie zmiany, a następnie wybierz pozycję **Dodaj wyzwalacz,** aby wykonać przebieg.
 

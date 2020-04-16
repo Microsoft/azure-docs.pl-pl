@@ -3,12 +3,12 @@ title: Zmienianie ustawień klastra sieci szkieletowej usług Azure
 description: W tym artykule opisano ustawienia sieci szkieletowej i zasady uaktualniania sieci szkieletowej, które można dostosować.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 3eb558c7d0745ada43696fd4189a7ac663867849
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: c2e280af814a3e10ad84c5ba07fc376868fcd851
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80753980"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416241"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Dostosowywanie ustawień klastra usługi Service Fabric
 W tym artykule opisano różne ustawienia sieci szkieletowej klastra sieci szkieletowej usług, które można dostosować. W przypadku klastrów hostowanych na platformie Azure można dostosować ustawienia za pośrednictwem [witryny Azure portal](https://portal.azure.com) lub przy użyciu szablonu usługi Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [Uaktualnianie konfiguracji klastra platformy Azure](service-fabric-cluster-config-upgrade-azure.md). W przypadku klastrów autonomicznych można dostosować ustawienia, aktualizując plik *ClusterConfig.json* i wykonując uaktualnienie konfiguracji w klastrze. Aby uzyskać więcej informacji, zobacz [Uaktualnianie konfiguracji autonomicznego klastra](service-fabric-cluster-config-upgrade-windows-server.md).

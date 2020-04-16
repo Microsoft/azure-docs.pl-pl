@@ -1,24 +1,26 @@
 ---
-title: Schemat zdarzenia usługi Azure Maps w usłudze Azure
+title: Usługa Azure Maps jako źródło siatki zdarzeń
 description: Zawiera opis właściwości i schematu dla zdarzeń usługi Azure Maps za pomocą usługi Azure Event Grid
 services: event-grid
-author: femila
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 02/08/2019
-ms.author: femila
-ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: e879ec3442f2e7912acb450a97079d80d7d95a01
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77486363"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393418"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-maps"></a>Schemat zdarzeń usługi Azure Event Grid dla usługi Azure Maps
+# <a name="azure-maps-as-an-event-grid-source"></a>Usługa Azure Maps jako źródło siatki zdarzeń
 
-Ten artykuł zawiera właściwości i schemat zdarzeń usługi Azure Maps. Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema).
+Ten artykuł zawiera właściwości i schemat zdarzeń usługi Azure Maps. Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema). Zawiera również listę szybkich uruchomień i samouczków do korzystania z usługi Azure Maps jako źródła zdarzeń.
 
-## <a name="available-event-types"></a>Dostępne typy zdarzeń
+## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
+
+### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
 Konto usługi Azure Maps emituje następujące typy zdarzeń:
 
@@ -28,7 +30,7 @@ Konto usługi Azure Maps emituje następujące typy zdarzeń:
 | Microsoft.Maps.GeofenceNieoczesło | Wywoływane, gdy współrzędne zostały przeniesione z danej geofence na zewnątrz |
 | Microsoft.Maps.GeofenceResult | Wywoływana za każdym razem, gdy kwerenda geofencingowa zwraca wynik, niezależnie od stanu |
 
-## <a name="event-examples"></a>Przykłady zdarzeń
+### <a name="event-examples"></a>Przykłady zdarzeń
 
 W poniższym przykładzie przedstawiono schemat zdarzenia **GeofenceEntered**
 
@@ -98,7 +100,7 @@ W poniższym przykładzie pokazano schemat **geofenceResult**
 }
 ```
 
-## <a name="event-properties"></a>Właściwości zdarzenia
+### <a name="event-properties"></a>Właściwości zdarzenia
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
@@ -162,6 +164,12 @@ Obiekt danych ma następujące właściwości:
 | Geometrii | geometrie[] |Wyświetla listę geometrii ogrodzenia, które zawierają położenie współrzędnych lub nakładają się na wyszukiwanieBuffer wokół pozycji. |
 | invalidPeriodGeofenceGeometryId | ciąg[]  | Wyświetla listę identyfikatora geometrii geograficznego, który jest w nieprawidłowym okresie w stosunku do czasu użytkownika w żądaniu. |
 | isEventPublikowane | wartość logiczna | Wartość true, jeśli co najmniej jedno zdarzenie jest publikowane do subskrybenta zdarzeń usługi Azure Maps, false, jeśli żadne zdarzenie nie jest publikowane do subskrybenta zdarzeń usługi Azure Maps. |
+
+## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
+|Tytuł  |Opis  |
+|---------|---------|
+| [Reagowanie na zdarzenia usługi Azure Maps przy użyciu siatki zdarzeń](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Omówienie integracji usługi Azure Maps z siatką zdarzeń. |
+| [Samouczek: Konfigurowanie geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Ten samouczek przeprowadzi Cię przez podstawowe kroki konfigurowania geofencingu przy użyciu usługi Azure Maps. Usługa Azure Event Grid służy do przesyłania strumieniowego wyników geofence i konfigurowania powiadomienia na podstawie wyników geofence. |
 
 ## <a name="next-steps"></a>Następne kroki
 

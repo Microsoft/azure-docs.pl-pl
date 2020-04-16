@@ -11,15 +11,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4bd667a2302136b5e12d2e4e548c9e8863715621
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440438"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415275"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Wykonywanie działania potoku w fabryce danych platformy Azure
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Działanie Execute Pipeline umożliwia potokowi usługi Data Factory wywoływanie innego potoku.
+
+
 
 ## <a name="syntax"></a>Składnia
 
@@ -67,7 +72,7 @@ Rurociągu | Odwołanie potoku do potoku zależnego, który wywołuje ten potok.
 parameters | Parametry, które mają być przekazywane do wywoływatego potoku | Obiekt JSON, który mapuje nazwy parametrów do wartości argumentów | Nie
 waitOnCompletion (Nieumiejeniem) | Określa, czy wykonanie działania czeka na wykonanie potoku zależnego, aby zakończyć. Wartość domyślna to false. | Wartość logiczna | Nie
 
-## <a name="sample"></a>Sample
+## <a name="sample"></a>Przykład
 W tym scenariuszu ma dwa potoki:
 
 - **Potok główny** — ten potok ma jedno wykonanie działania potoku, które wywołuje wywoływany potok. Potok główny przyjmuje dwa `masterSourceBlobContainer` `masterSinkBlobContainer`parametry: , .
@@ -255,6 +260,6 @@ Potok główny przekazuje te wartości do wywoływatego potoku, jak pokazano w p
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
 - [Dla każdego działania](control-flow-for-each-activity.md)
-- [Uzyskaj aktywność metadanych](control-flow-get-metadata-activity.md)
-- [Działanie Lookup](control-flow-lookup-activity.md)
+- [Działanie pobierania metadanych](control-flow-get-metadata-activity.md)
+- [Działanie wyszukiwania](control-flow-lookup-activity.md)
 - [Działanie internetowe](control-flow-web-activity.md)

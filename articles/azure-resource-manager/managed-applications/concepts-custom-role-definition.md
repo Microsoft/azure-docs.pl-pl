@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
-ms.openlocfilehash: 88e42fd9626276f6c77b46b33c138407f91d06ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650762"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391825"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Artefakt definicji roli niestandardowej w aplikacjach zarządzanych platformy Azure
 
@@ -20,7 +20,7 @@ Ten artykuł zawiera omówienie artefaktu definicji roli niestandardowej i jego 
 
 ## <a name="custom-role-definition-artifact"></a>Artefakt definicji roli niestandardowej
 
-Należy nadać nazwę niestandardowej definicji roli artefakturoledefinition.json. Umieść go na tym samym poziomie co createUiDefinition.json i mainTemplate.json w pakiecie .zip, który tworzy definicję aplikacji zarządzanej. Aby dowiedzieć się, jak utworzyć pakiet zip i opublikować definicję aplikacji zarządzanej, zobacz [Publikowanie definicji aplikacji zarządzanej.](publish-managed-app-definition-quickstart.md)
+Należy nadać nazwę niestandardowej definicji roli artefakturoledefinition.json. Umieść go na tym samym poziomie co createUiDefinition.json i mainTemplate.json w pakiecie .zip, który tworzy definicję aplikacji zarządzanej. Aby dowiedzieć się, jak utworzyć pakiet zip i opublikować definicję aplikacji zarządzanej, zobacz [Publikowanie definicji aplikacji zarządzanej.](publish-service-catalog-app.md)
 
 ## <a name="custom-role-definition-schema"></a>Schemat niestandardowej definicji roli
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d5eb330cd6e5d02432298a5b58e84ae7d24ee7e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e8ddcaf6a5c9ab51147e540e2426ef8c4a1fdd3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383319"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392369"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Wyzwalanie uruchomieniu księgi runbook usługi Azure Automation za pomocą alertu
 
@@ -35,8 +35,8 @@ Gdy alert wywołuje element runbook, rzeczywiste wywołanie jest żądaniem HTTP
 |Alerty  |Opis|Schemat ładunku  |
 |---------|---------|---------|
 |[Wspólny alert](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Wspólny schemat alertów, który standaryzuje środowisko zużycia powiadomień alertów na platformie Azure już dziś.|Schemat wspólnego ładunku alertów|
-|[Alert dziennika aktywności](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Wysyła powiadomienie, gdy każde nowe zdarzenie w dzienniku aktywności platformy Azure spełnia określone warunki. Na przykład, `Delete VM` gdy operacja występuje w **myProductionResourceGroup** lub gdy pojawi się nowe zdarzenie usługi Azure Service Health ze stanem **Active.**| [Schemat ładunku alertu dziennika aktywności](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Alert metryki w czasie zbliżonym do rzeczywistego](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Wysyła powiadomienie szybciej niż alerty metryki, gdy co najmniej jedna metryka na poziomie platformy spełnia określone warunki. Na przykład, gdy wartość **% procesora CPU** na maszynie Wirtualnej jest większa niż **90**, a wartość **w sieci** jest większa niż **500 MB** w ciągu ostatnich 5 minut.| [Schemat ładunku alertów alertów w czasie zbliżonym do czasu rzeczywistego](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[Alert dziennika aktywności](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Wysyła powiadomienie, gdy każde nowe zdarzenie w dzienniku aktywności platformy Azure spełnia określone warunki. Na przykład, `Delete VM` gdy operacja występuje w **myProductionResourceGroup** lub gdy pojawi się nowe zdarzenie usługi Azure Service Health ze stanem Active.| [Schemat ładunku alertu dziennika aktywności](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[Alert metryki w czasie zbliżonym do rzeczywistego](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Wysyła powiadomienie szybciej niż alerty metryki, gdy co najmniej jedna metryka na poziomie platformy spełnia określone warunki. Na przykład, gdy wartość **% procesora CPU** na maszynie Wirtualnej jest większa niż 90, a wartość **w sieci** jest większa niż 500 MB w ciągu ostatnich 5 minut.| [Schemat ładunku alertów alertów w czasie zbliżonym do czasu rzeczywistego](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 Ponieważ dane, które są dostarczane przez każdy typ alertu jest inny, każdy typ alertu jest obsługiwany inaczej. W następnej sekcji dowiesz się, jak utworzyć projekt runbook do obsługi różnych typów alertów.
 
@@ -44,11 +44,11 @@ Ponieważ dane, które są dostarczane przez każdy typ alertu jest inny, każdy
 
 Aby użyć automatyzacji z alertami, potrzebujesz systemu runbook, który ma logikę, która zarządza ładunkiem alertu JSON, który jest przekazywany do żyłaczki uruchomieniu. ścieliczkowych. Poniższy przykładowy element runbook musi być wywołany z alertu platformy Azure.
 
-Zgodnie z opisem w poprzedniej sekcji każdy typ alertu ma inny schemat. Skrypt pobiera dane elementu webhook `WebhookData` w parametrze wejściowym elementu runbook z alertu. Następnie skrypt ocenia ładunek JSON, aby określić, który typ alertu został użyty.
+Zgodnie z opisem w poprzedniej sekcji każdy typ alertu ma inny schemat. Skrypt pobiera dane elementu webhook z `WebhookData` alertu w parametrze wejściowym elementu runbook. Następnie skrypt ocenia ładunek JSON, aby określić, który typ alertu jest używany.
 
-W tym przykładzie użyto alertu z maszyny Wirtualnej. Pobiera dane maszyny Wirtualnej z ładunku, a następnie używa tych informacji, aby zatrzymać maszynę wirtualną. Połączenie musi być skonfigurowane na koncie automatyzacji, na którym jest uruchamiany system runbook. Podczas korzystania z alertów do wyzwalania śmięków runbook, ważne jest, aby sprawdzić stan alertu w uruchomieniu. amiń. Projekt runbook zostanie uruchomiony za każdym razem, gdy stan alertu zmieni stan. Alerty mają wiele stanów, dwa `Activated` najczęstsze stany są i `Resolved`. Sprawdź ten stan w logice uruchomieniu, aby upewnić się, że projekt runbook nie jest uruchamiany więcej niż jeden raz. W przykładzie w tym artykule pokazano, jak szukać tylko `Activated` alertów.
+W tym przykładzie użyto alertu z maszyny Wirtualnej. Pobiera dane maszyny Wirtualnej z ładunku, a następnie używa tych informacji, aby zatrzymać maszynę wirtualną. Połączenie musi być skonfigurowane na koncie automatyzacji, na którym jest uruchamiany system runbook. Podczas korzystania z alertów do wyzwalania śmięków runbook, ważne jest, aby sprawdzić stan alertu w uruchomieniu. ysu. Runbook wyzwala za każdym razem, gdy alert zmienia stan. Alerty mają wiele stanów, z dwoma najczęściej aktywowane i rozwiązane. Sprawdź stan w logice uruchomieniu, aby upewnić się, że projekt runbook nie jest uruchamiany więcej niż jeden raz. W przykładzie w tym artykule pokazano, jak szukać alertów ze stanem tylko aktywowane.
 
-Podręcznik używa `AzureRunAsConnection` [uruchom jako konto](automation-create-runas-account.md) do uwierzytelniania za pomocą platformy Azure do wykonywania akcji zarządzania przeciwko maszynie Wirtualnej.
+Grupa runbook używa `AzureRunAsConnection` [konta uruchom](automation-create-runas-account.md) jako konto połączenia do uwierzytelniania za pomocą platformy Azure w celu wykonania akcji zarządzania względem maszyny Wirtualnej.
 
 W tym przykładzie można utworzyć projekt runbook o nazwie **Stop-AzureVmInResponsetoVMAlert**. Można zmodyfikować skrypt programu PowerShell i używać go z wieloma różnymi zasobami.
 

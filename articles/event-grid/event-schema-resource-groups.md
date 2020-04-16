@@ -1,20 +1,20 @@
 ---
-title: Schemat zdarzenia usługi Azure Event Grid w grupie zasobów
+title: Grupa zasobów platformy Azure jako źródło siatki zdarzeń
 description: Zawiera opis właściwości udostępnianych dla zdarzeń grupy zasobów za pomocą usługi Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/12/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 6cbfc06f380d7c4818ca82e858c23bb18849fb7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb52b54eb32a119a463b59e4d4f2ab30096886fa
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561697"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393263"
 ---
-# <a name="azure-event-grid-event-schema-for-resource-groups"></a>Schemat zdarzeń usługi Azure Event Grid dla grup zasobów
+# <a name="azure-resource-group-as-an-event-grid-source"></a>Grupa zasobów platformy Azure jako źródło siatki zdarzeń
 
 Ten artykuł zawiera właściwości i schemat zdarzeń grupy zasobów.Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md).
 
@@ -28,9 +28,10 @@ Aby programowo obsługiwać zdarzenia, można sortować `operationName` zdarzeni
 
 Temat zdarzenia jest identyfikatorem zasobu, który jest celem operacji. Aby filtrować zdarzenia dla zasobu, podaj identyfikator zasobu podczas tworzenia subskrypcji zdarzenia.  Aby filtrować według typu zasobu, użyj wartości w następującym formacie:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
-Aby uzyskać listę przykładowych skryptów i samouczków, zobacz [Źródło zdarzeń grupy zasobów](event-sources.md#resource-groups).
 
-## <a name="available-event-types"></a>Dostępne typy zdarzeń
+## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
+
+### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
 Grupy zasobów emitują zdarzenia zarządzania z usługi Azure Resource Manager, takie jak podczas tworzenia maszyny wirtualnej lub usuwania konta magazynu.
 
@@ -46,7 +47,7 @@ Grupy zasobów emitują zdarzenia zarządzania z usługi Azure Resource Manager,
 | Microsoft.Resources.ResourceWriteFailure | Wywoływane, gdy operacja tworzenia lub aktualizacji kończy się niepowodzeniem. |
 | Microsoft.Resources.ResourceWriteSuccess | Wywoływane po pomyślnym utworzeniu lub aktualizacji operacji. |
 
-## <a name="example-event"></a>Przykładowe zdarzenie
+### <a name="example-event"></a>Przykładowe zdarzenie
 
 W poniższym przykładzie przedstawiono schemat zdarzenia **ResourceWriteSuccess.** Ten sam schemat jest używany dla **zdarzeń ResourceWriteFailure** i **ResourceWriteCancel** o różnych wartościach dla `eventType`.
 
@@ -230,7 +231,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **ResourceActionSucces
 }]
 ```
 
-## <a name="event-properties"></a>Właściwości zdarzenia
+### <a name="event-properties"></a>Właściwości zdarzenia
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
@@ -259,6 +260,16 @@ Obiekt danych ma następujące właściwości:
 | status | ciąg | Stan operacji. |
 | subscriptionId | ciąg | Identyfikator subskrypcji zasobu. |
 | identyfikator dzierżawy | ciąg | Identyfikator dzierżawy zasobu. |
+
+## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
+|Tytuł  |Opis  |
+|---------|---------|
+| [Samouczek: monitorowanie zmian na maszynach wirtualnych za pomocą usługi Azure Event Grid i aplikacji logiki](monitor-virtual-machine-changes-event-grid-logic-app.md) | Aplikacja logiki monitoruje zmiany na maszynie wirtualnej i wysyła wiadomości e-mail o tych zmianach. |
+| [Interfejsu wiersza polecenia platformy Azure: subskrybowanie zdarzeń dla grupy zasobów](./scripts/event-grid-cli-resource-group.md)| Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów. Wysyła zdarzenia do elementu WebHook. |
+| [Interfejsu wiersza polecenia platformy Azure: subskrybowanie zdarzeń dla grupy zasobów i filtrowanie zasobu](./scripts/event-grid-cli-resource-group-filter.md) | Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów i filtruje zdarzenia dla jednego zasobu. |
+| [Program PowerShell: subskrybowanie zdarzeń dla grupy zasobów](./scripts/event-grid-powershell-resource-group.md) | Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów. Wysyła zdarzenia do elementu WebHook. |
+| [Program PowerShell: subskrybowanie zdarzeń dla grupy zasobów i filtrowanie zasobu](./scripts/event-grid-powershell-resource-group-filter.md) | Przykładowy skrypt, który subskrybuje zdarzenia dla grupy zasobów i filtruje zdarzenia dla jednego zasobu. |
+| [Szablon Menedżera zasobów: subskrypcja zasobów](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Subskrybuje zdarzenia dla subskrypcji platformy Azure lub grupy zasobów. Wysyła zdarzenia do elementu WebHook. |
 
 ## <a name="next-steps"></a>Następne kroki
 

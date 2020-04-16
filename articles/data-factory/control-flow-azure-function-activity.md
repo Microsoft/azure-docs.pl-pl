@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: ffb610634399594788afcb9b600ba00c6803dfdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77207029"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415304"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Działanie funkcji platformy Azure w fabryce danych platformy Azure
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 Działanie funkcji platformy Azure umożliwia [uruchamianie funkcji platformy Azure](../azure-functions/functions-overview.md) w potoku fabryki danych. Aby uruchomić funkcję platformy Azure, należy utworzyć połączenie połączonej usługi i działanie, które określa funkcję platformy Azure, którą zamierzasz wykonać.
 
 Aby zapoznać się z ośmiominutowym wprowadzeniem i prezentacją tej funkcji, obejrzyj następujący film:
@@ -65,7 +65,7 @@ Upłynie czas po upływie 230 sekund, niezależnie od `functionTimeout` ustawien
 Dowiedz się więcej o funkcjach trwałych w [tym artykule](../azure-functions/durable/durable-functions-overview.md). Można skonfigurować działanie funkcji platformy Azure, aby wywołać funkcję trwałą, która zwróci odpowiedź z innym identyfikatorem URI, na [przykład.](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery) Ponieważ `statusQueryGetUri` zwraca stan HTTP 202, gdy funkcja jest uruchomiona, można sondować stan funkcji za pomocą aktywności w sieci Web. Wystarczy skonfigurować aktywność `url` w sieci `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`Web z polem ustawionym na . Po zakończeniu funkcji trwałe, dane wyjściowe funkcji będzie dane wyjściowe działania sieci Web.
 
 
-## <a name="sample"></a>Sample
+## <a name="sample"></a>Przykład
 
 W tym miejscu można znaleźć przykład fabryki danych, która używa funkcji platformy Azure do wyodrębniania zawartości [pliku](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)tar.
 

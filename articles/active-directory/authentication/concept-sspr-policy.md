@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba4dae66b5adcea6cc33e61d8cf88946e29546e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f5987bee82dc22d3742cb5d87040930e5d2c52d
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051175"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393030"
 ---
 # <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Zasady i ograniczenia samoobsługowego resetowania haseł w usłudze Azure Active Directory
 
@@ -160,16 +160,6 @@ Aby rozpocząć, [pobierz i zainstaluj moduł programu Azure AD PowerShell](http
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następujące artykuły zawierają dodatkowe informacje dotyczące resetowania hasła za pośrednictwem usługi Azure AD:
+Aby rozpocząć korzystanie z samoobsługowego resetowania haseł, zobacz [Samouczek: Umożliwianie użytkownikom odblokowywania konta lub resetowania haseł przy użyciu samoobsługowego resetowania hasła usługi Azure Active Directory](tutorial-enable-sspr.md).
 
-* [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](howto-sspr-deployment.md)
-* [Resetowanie lub zmienianie hasła](../user-help/active-directory-passwords-update-your-own-password.md).
-* [Zarejestruj się, aby samodzielnie zresetować hasło](../user-help/active-directory-passwords-reset-register.md).
-* [Czy masz pytanie dotyczące licencjonowania?](concept-sspr-licensing.md)
-* [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](howto-sspr-authenticationdata.md)
-* [Jakie metody uwierzytelniania są dostępne dla użytkowników?](concept-sspr-howitworks.md#authentication-methods)
-* [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](howto-sspr-writeback.md)
-* [Jak zgłosić działanie funkcji samoobsługowego resetowania haseł?](howto-sspr-reporting.md)
-* [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](concept-sspr-howitworks.md)
-* [Myślę, że coś jest zepsute. Jak rozwiązać problem z łatem SSPR?](active-directory-passwords-troubleshoot.md)
-* [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)
+Jeśli ty lub użytkownicy mają problemy z samoobsługowym łazem samoobsługowym, zobacz Rozwiązywanie problemów z [samoobsługowym resetowaniem hasła](active-directory-passwords-troubleshoot.md)

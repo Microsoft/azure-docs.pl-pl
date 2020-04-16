@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62cf1f369cbde372e82e7c3ffe26473f09668bc7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: db282bae92ec14c1cb4f6a61b61d435814b0f13c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742543"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408063"
 ---
 # <a name="data-warehouse-units-dwus"></a>Jednostki magazynu danych (DWU)
 
@@ -32,7 +32,7 @@ Zmiana poziomu usług zmienia liczbę jednostek DU dostępnych dla systemu, co z
 
 Aby uzyskać wyższą wydajność, można zwiększyć liczbę jednostek magazynu danych. Aby zmniejszyć wydajność, zmniejsz jednostki magazynu danych. Koszty magazynu i mocy obliczeniowej są rozliczane osobno, więc zmiana liczby jednostek magazynu danych nie ma wpływu na koszty magazynu.
 
-Wydajność jednostek magazynu danych jest oparta na tych metrykach obciążenia:
+Wydajność jednostek magazynu danych jest oparta na tych metrykach obciążenia magazynu danych:
 
 - Jak szybko standardowe zapytanie puli SQL można skanować dużą liczbę wierszy, a następnie wykonać agregację złożoną. Ta operacja jest intensywnie we/wy i procesora CPU.
 - Jak szybko pula SQL może pozyskiwania danych z obiektów blob usługi Azure Storage lub usługi Azure Data Lake. Ta operacja jest intensywnie sieciowa i obciążana procesorem.
@@ -46,21 +46,37 @@ Zwiększenie DWUs:
 
 ## <a name="service-level-objective"></a>Cel poziomu usług
 
+Cel poziomu usług (SLO) to ustawienie skalowalności, które określa poziom kosztów i wydajności magazynu danych. Poziomy usług dla Gen2 są mierzone w jednostkach magazynu danych obliczeniowych (cDWU), na przykład DW2000c. Poziomy usług Gen1 są mierzone w jednostkach DW, na przykład DW2000.
+
 Cel poziomu usług (SLO) to ustawienie skalowalności, które określa poziom kosztów i wydajności puli SQL. Poziomy usług dla puli SQL Gen2 są mierzone w jednostkach magazynu danych (DWU), na przykład DW2000c.
 
-W języku T-SQL ustawienie SERVICE_OBJECTIVE określa poziom usługi dla puli SQL.
+> [!NOTE]
+> Usługa Azure SQL Data Warehouse Gen2 niedawno dodała dodatkowe możliwości skalowania do obsługi warstw obliczeniowych już od 100 cDWU. Istniejące magazyny danych obecnie w gen1, które wymagają niższych warstw obliczeniowych można teraz uaktualnić do Gen2 w regionach, które są obecnie dostępne bez dodatkowych kosztów.  Jeśli region nie jest jeszcze obsługiwany, nadal można uaktualnić do obsługiwanego regionu. Aby uzyskać więcej informacji, zobacz [Uaktualnienie do gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+
+W języku T-SQL ustawienie SERVICE_OBJECTIVE określa poziom usługi i warstwę wydajności dla puli SQL.
 
 ```sql
 CREATE DATABASE mySQLDW
-( EDITION = 'Datawarehouse'
+(Edition = 'Datawarehouse'
  ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```
 
-## <a name="capacity-limits"></a>Limity pojemności
+## <a name="performance-tiers-and-data-warehouse-units"></a>Warstwy wydajności i jednostki hurtowni danych
+
+Każda warstwa wydajności używa nieco innej jednostki miary dla swoich jednostek magazynu danych. Różnica ta jest odzwierciedlona na fakturze, ponieważ jednostka skali bezpośrednio przekłada się na rozliczenia.
+
+- Magazyny danych gen1 są mierzone w jednostkach hurtowni danych (DWU).
+- Magazyny danych Gen2 są mierzone w jednostkach hurtowni danych obliczeniowych (cDWU).
+
+Zarówno jednostki DWU, jak i jednostki cDWU obsługują skalowanie obliczeń w górę lub w dół oraz wstrzymywanie obliczeń, gdy nie trzeba używać magazynu danych. Wszystkie te operacje są na żądanie. Gen2 używa lokalnej pamięci podręcznej opartej na dysku w węzłach obliczeniowych w celu zwiększenia wydajności. Podczas skalowania lub wstrzymywania systemu pamięć podręczna jest unieważniona, a zatem okres ocieplenia pamięci podręcznej jest wymagany przed osiągnięciem optymalnej wydajności.  
 
 Każdy serwer SQL (na przykład myserver.database.windows.net) ma przydział [jednostki DTU (Database Transaction Unit),](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) który umożliwia określoną liczbę jednostek magazynu danych. Aby uzyskać więcej informacji, zobacz [limity pojemności zarządzania obciążeniem](sql-data-warehouse-service-capacity-limits.md#workload-management).
+
+## <a name="capacity-limits"></a>Limity pojemności
+
+Każdy serwer SQL (na przykład myserver.database.windows.net) ma przydział [jednostki DTU (Database Transaction Unit),](../../sql-database/sql-database-what-is-a-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) który umożliwia określoną liczbę jednostek magazynu danych. Aby uzyskać więcej informacji, zobacz [limity pojemności zarządzania obciążeniem](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Ile jednostek magazynu danych potrzebuję
 
@@ -113,23 +129,23 @@ Aby zmienić jednostki DWU:
 
 2. W obszarze **Skala**przesuń suwak w lewo lub w prawo, aby zmienić ustawienie DWU.
 
-3. Kliknij przycisk **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij pozycję **tak**, aby potwierdzić, lub **nie**, aby anulować.
+3. Kliknij pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij pozycję **tak**, aby potwierdzić, lub **nie**, aby anulować.
 
-### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Aby zmienić jednostki dwu, należy użyć polecenia cmdlet programu PowerShell [Set-AzSqlDatabase.](/powershell/module/az.sql/set-azsqldatabase) W poniższym przykładzie ustawia cel poziomu usług na DW1000c dla bazy danych MySQLDW, która jest hostowana na serwerze MyServer.
+Aby zmienić jednostki dwu, należy użyć polecenia cmdlet programu PowerShell [Set-AzSqlDatabase.](/powershell/module/az.sql/set-azsqldatabase) W poniższym przykładzie ustawia cel poziomu usług na DW1000 dla bazy danych MySQLDW, która jest hostowana na serwerze MyServer.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-Aby uzyskać więcej informacji, zobacz [polecenia cmdlet programu PowerShell dla magazynu danych SQL](sql-data-warehouse-reference-powershell-cmdlets.md)
+Aby uzyskać więcej informacji, zobacz [polecenia cmdlet programu PowerShell dla magazynu danych SQL](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ### <a name="t-sql"></a>T-SQL
 
-Za pomocą T-SQL można wyświetlać bieżące ustawienia DWU, zmieniać ustawienia i sprawdzać postęp.
+Za pomocą języka T-SQL można wyświetlać bieżące urządzenia DWUsettings, zmieniać ustawienia i sprawdzać postęp.
 
 Aby zmienić jednostki DWU:
 
@@ -152,12 +168,12 @@ Content-Type: application/json; charset=UTF-8
 
 {
     "properties": {
-        "requestedServiceObjectiveName": DW1000c
+        "requestedServiceObjectiveName": DW1000
     }
 }
 ```
 
-Aby uzyskać więcej przykładów interfejsu API REST, zobacz [interfejsy API REST dla usługi SQL Data Warehouse](sql-data-warehouse-manage-compute-rest-api.md).
+Aby uzyskać więcej przykładów interfejsu API REST, zobacz [interfejsy API REST dla usługi SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="check-status-of-dwu-changes"></a>Sprawdź stan zmian DWU
 
@@ -170,14 +186,13 @@ Nie można sprawdzić stanu bazy danych dla operacji skalowania w poziomie za po
 Aby sprawdzić stan zmian DWU:
 
 1. Połącz się z główną bazą danych skojarzoną z serwerem logicznej bazy danych SQL.
+2. Prześlij następującą kwerendę, aby sprawdzić stan bazy danych.
 
-1. Prześlij następującą kwerendę, aby sprawdzić stan bazy danych.
-
-    ```sql
-    SELECT    *
-    FROM      sys.databases
-    ;
-    ```
+```sql
+SELECT    *
+FROM      sys.databases
+;
+```
 
 1. Prześlij następującą kwerendę, aby sprawdzić stan operacji
 

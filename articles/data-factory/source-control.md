@@ -11,14 +11,15 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 6645c2672e15c562216b4347f779ef3634a2f124
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2108f2f9098fe6da8ee4666b30605bed14164484
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130868"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414717"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Kontrola źródła w fabryce danych platformy Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Środowisko interfejsu użytkownika usługi Azure Data Factory (UX) ma dwa środowiska dostępne do tworzenia wizualnego:
 
@@ -231,7 +232,7 @@ Otworzy się okienko boczne, w którym potwierdzisz, że gałąź publikowania i
 Zazwyczaj nie chcesz, aby każdy członek zespołu miał uprawnienia do aktualizacji fabryki. Zalecane są następujące ustawienia uprawnień:
 
 *   Wszyscy członkowie zespołu powinni mieć uprawnienia do odczytu do fabryki danych.
-*   Tylko wybrane zestaw osób powinno mieć możliwość publikowania w fabryce. Aby to zrobić, muszą mieć rolę **współautora fabryki danych** w fabryce. Aby uzyskać więcej informacji na temat uprawnień, zobacz [Role i uprawnienia dla usługi Azure Data Factory](concepts-roles-permissions.md).
+*   Tylko wybrane zestaw osób powinno mieć możliwość publikowania w fabryce. Aby to zrobić, muszą mieć rolę **współautora fabryki danych** w grupie zasobów, w których znajduje się fabryka. Aby uzyskać więcej informacji na temat uprawnień, zobacz [Role i uprawnienia dla usługi Azure Data Factory](concepts-roles-permissions.md).
    
 Zaleca się, aby nie zezwalać na bezpośrednie meldowanie się w gałęzi współpracy. To ograniczenie może pomóc w zapobieganiu błędom, ponieważ każde zameldowanie przejdzie przez proces przeglądu żądania ściągnięcia opisany w temacie [Tworzenie gałęzi funkcji.](source-control.md#creating-feature-branches)
 

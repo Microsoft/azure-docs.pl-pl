@@ -9,14 +9,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 03/16/2020
-ms.openlocfilehash: 115cb3e499117457629e130b6432a1cbc2224edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32088dd712cd0c70fc01de48add17a0b6a828dc8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79463054"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415327"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Działanie przepływu danych w fabryce danych platformy Azure
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Działanie Przepływ danych umożliwia przekształcanie i przenoszenie danych za pomocą przepływów danych mapowania. Jeśli jesteś nowym użytkownikem przepływów danych, zobacz [Omówienie mapowania przepływu danych](concepts-data-flow-overview.md)
 
@@ -160,9 +162,9 @@ Aby uzyskać liczbę wierszy odczytanych ze źródła o nazwie "source1", który
 Zobacz działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
 - [Działanie If Condition](control-flow-if-condition-activity.md)
-- [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)
+- [Działanie wykonywania potoku](control-flow-execute-pipeline-activity.md)
 - [Dla każdego działania](control-flow-for-each-activity.md)
-- [Uzyskaj aktywność metadanych](control-flow-get-metadata-activity.md)
-- [Działanie Lookup](control-flow-lookup-activity.md)
+- [Działanie pobierania metadanych](control-flow-get-metadata-activity.md)
+- [Działanie wyszukiwania](control-flow-lookup-activity.md)
 - [Działanie internetowe](control-flow-web-activity.md)
 - [Działanie Until](control-flow-until-activity.md)

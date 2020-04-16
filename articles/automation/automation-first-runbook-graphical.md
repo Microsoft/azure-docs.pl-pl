@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6bd360b2075c337e3ed3d69d84368d16571a9335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcef0574e16e0b4d28755716c32670b00c65af14
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536058"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406103"
 ---
 # <a name="my-first-graphical-runbook"></a>Mój pierwszy graficzny element Runbook
 
 > [!div class="op_single_selector"]
 > * [Element graficzny](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Przepływ pracy programu PowerShell](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
@@ -100,7 +100,7 @@ Utworzony projekt runbook jest nadal w trybie roboczym. Aby można było go uruc
 1. Kliknij pozycję **Wszystkie dzienniki**, aby otworzyć okienko strumieni dla zadania elementu Runbook. Powinien być `Hello World` widoczny tylko w strumieniu wyjściowym. 
 
     Należy zauważyć, że okienko Strumienie można wyświetlić inne strumienie dla zadania przewodniczącego, takich jak pełne i strumienie błędów, jeśli runbook zapisuje do nich.
-1. Zamknij okienko Strumienie i okienko zadania, aby powrócić do strony **MyFirstRunbook-Graphical.**
+1. Zamknij okienko Strumienie i okienko zadania, aby powrócić do strony MyFirstRunbook-Graphical.
 1. Aby wyświetlić wszystkie zadania dla wiązki uruchomieniu, wybierz pozycję **Zadania** w obszarze **Zasoby**. Strona Zadania zawiera listę wszystkich zadań utworzonych przez projekt runbook. Na liście powinna być wyświetlana tylko jedno zadanie, ponieważ zadanie zostało uruchomione tylko raz.
 1. Kliknij nazwę zadania, aby otworzyć to samo okienko zadania, które zostało wyświetlone podczas uruchamiania likwidu. To okienko służy do wyświetlania szczegółów każdego zadania utworzonego dla egonatu.
 
@@ -126,7 +126,7 @@ Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, można sk
 >[!NOTE]
 >Dla uruchomieniu programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są `Connect-AzAccount`aliasy dla . Należy pamiętać, że te aliasy nie są dostępne dla cząstek graficznych. Graficzny element runbook może `Connect-AzAccount`używać tylko siebie.
 
-1. Przejdź do egobratu i wybierz **pozycję Edytuj** na stronie **MyFirstRunbook-Graphical.**
+1. Przejdź do egobratu i wybierz **pozycję Edytuj** na stronie MyFirstRunbook-Graphical.
 1. Nie potrzebujesz już `Write Hello World to output` wpisu. Wystarczy kliknąć wielokropek i wybrać **Usuń**.
 1. W formancie Biblioteka rozwiń węzeł **ZASOBY**, a następnie **pozycję Połączenia**. Dodaj `AzureRunAsConnection` do kanwy, wybierając pozycję **Dodaj do kanwy**.
 1. Zmień `AzureRunAsConnection` nazwę `Get Run As Connection`na .
@@ -185,7 +185,7 @@ Teraz należy dodać `Start-AzVM` działanie, aby uruchomić maszynę wirtualną
 
 Twój rekord runbook aktualnie uruchamia maszynę wirtualną w `Start-AzVM` grupie zasobów określonej dla polecenia cmdlet. System runbook będzie bardziej przydatny, jeśli określisz zarówno nazwę, jak i grupę zasobów podczas uruchamiania egobratu. Dodajmy parametry wejściowe do zestawu runbook, aby zapewnić tę funkcjonalność.
 
-1. Otwórz edytor graficzny, klikając pozycję **Edytuj** w okienku **MyFirstRunbook-Graphical.**
+1. Otwórz edytor graficzny, klikając przycisk **Edytuj** na stronie MyFirstRunbook-Graphical.
 1. Wybierz **pozycję Dane wejściowe i wyjściowe,** a następnie **dodaj dane wejściowe,** aby otworzyć okienko Parametr wejściowy księgi chyłka.
 1. W podanych polach należy wprowadzić następujące ustawienia, a następnie kliknąć przycisk **OK**.
    * **Nazwa** -- `VMName`określ .
@@ -243,7 +243,7 @@ Teraz można zmodyfikować runbook tak, aby tylko próby uruchomienia maszyny Wi
 1. W przypadku `Write-Output` pierwszego formantu kliknij pozycję **Parametry** i zmień wartość **Etykieta** na **Powiadom maszynę wirtualną uruchomiona**.
 1. W przypadku **inputobject**zmień **źródło danych** na wyrażenie programu `$VMName successfully started.` **PowerShell**i wpisz wyrażenie .
 1. W drugim `Write-Output` formancie kliknij pozycję **Parametry** i zmień wartość **Etykieta** na **Powiadomienie o uruchomieniu maszyny Wirtualnej nie powiodło się**.
-1. W przypadku **inputobject**zmień **źródło danych** na wyrażenie programu `$VMName could not start.` **PowerShell**i wpisz wyrażenie .
+1. W przypadku **inputobject**zmień **źródło danych** na wyrażenie programu `$VMName could not start` **PowerShell**i wpisz wyrażenie .
 1. Tworzenie łączy `Start-AzVM` `Notify VM Started` z `Notify VM Start Failed`do i .
 1. Zaznacz łącze do `Notify VM Started` i zmień Zastosuj **warunek** do true.
 1. W przypadku **wyrażenia** `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`Warunek wpisz . Ten `Write-Output` formant jest teraz uruchamiany tylko wtedy, gdy maszyna wirtualna zostanie pomyślnie uruchomiony.
@@ -259,3 +259,5 @@ Teraz można zmodyfikować runbook tak, aby tylko próby uruchomienia maszyny Wi
 * Aby dowiedzieć się więcej o tworzenie grafiki, zobacz [Tworzenie graficzne w usłudze Azure Automation](automation-graphical-authoring-intro.md).
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
 * Aby rozpocząć pracę z uruchomieniu przepływem pracy programu PowerShell, zobacz [Mój pierwszy program PowerShell .](automation-first-runbook-textual.md)
+* Aby uzyskać odwołanie do polecenia polecenia cmdlet programu PowerShell, zobacz [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

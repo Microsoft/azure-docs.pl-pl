@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 40a16d559a96c88a864ef809d40d798b99746230
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: efb450f4da58c73c134d9f6b6aad6193f786912d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992100"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415004"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Kopiowanie danych z Marketo przy użyciu usługi Azure Data Factory (wersja zapoznawcza)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z Marketo. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykuł, który przedstawia ogólny przegląd działania kopiowania.
 

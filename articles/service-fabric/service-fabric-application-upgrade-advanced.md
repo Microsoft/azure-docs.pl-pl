@@ -2,13 +2,13 @@
 title: Zaawansowane tematy uaktualniania aplikacji
 description: W tym artykule omówiono niektóre zaawansowane tematy dotyczące uaktualniania aplikacji sieci szkieletowej usług.
 ms.topic: conceptual
-ms.date: 1/28/2020
-ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.date: 03/11/2020
+ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422809"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414502"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Uaktualnianie aplikacji sieci szkieletowej usług: zaawansowane tematy
 
@@ -18,7 +18,7 @@ Jeśli nowy typ usługi zostanie dodany do opublikowanej aplikacji w ramach uakt
 
 Podobnie typy usług można usunąć z aplikacji w ramach uaktualnienia. Jednak wszystkie wystąpienia usługi typu usługi do usunięcia muszą zostać usunięte przed przystąpieniem do uaktualnienia (zobacz [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
-## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Uniknąć spadków połączeń podczas planowanego przestoju usługi bezstanowej (wersja zapoznawcza)
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Unikanie spadków połączeń podczas planowanych przestojów usługi bezstanowej
 
 W przypadku planowanych przestojów wystąpienia bezstanowego, takich jak uaktualnienie aplikacji/klastra lub dezaktywacja węzłów, połączenia mogą zostać przerwane z powodu dziennego punktu końcowego jest usuwany po wystąpieniu ulegnie upadkowi, co powoduje wymuszone zamknięcie połączenia.
 

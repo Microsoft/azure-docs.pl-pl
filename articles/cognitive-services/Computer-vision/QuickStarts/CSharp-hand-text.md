@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b47c0a87f2b7e4f3fea2d5ed088372cabce2a994
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b5bb1e80ac7a2a7fca053365b1062df61b2acc03
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77566101"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405153"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-c"></a>Szybki start: wyodrębnianie drukowanego i odręcznego tekstu za pomocą interfejsu API Computer Vision 2.0 i 2.1 REST i C #
 
-W tym przewodniku Szybki start można wyodrębnić wydrukowany i/lub odręczny tekst z obrazu za pomocą interfejsu API REST wizji komputerowej. Dzięki metodom Wynik operacji odczytu i [odczytu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) [wsadowego](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) można wykryć tekst na obrazie i wyodrębnić rozpoznane znaki do strumienia znaków czytelnego maszynowo. Interfejs API określi, który model rozpoznawania ma być używany dla każdego wiersza tekstu, dzięki czemu obsługuje obrazy z tekstem drukowanym i odręcznym.
+W tym przewodniku Szybki start można wyodrębnić wydrukowany i/lub odręczny tekst z obrazu przy użyciu interfejsu API REST wizji komputerowej. Dzięki metodom Wynik operacji odczytu i [odczytu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) [wsadowego](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) można wykryć tekst na obrazie i wyodrębnić rozpoznane znaki do strumienia znaków czytelnego maszynowo. Interfejs API określi, który model rozpoznawania ma być używany dla każdego wiersza tekstu, dzięki czemu obsługuje obrazy z tekstem drukowanym i odręcznym.
 
 W porównaniu z programem Computer Vision 2.0 i 2.1, funkcja Publicznego Podglądu 3.0 zapewnia:
 

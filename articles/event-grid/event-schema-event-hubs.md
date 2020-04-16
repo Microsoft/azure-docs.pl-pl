@@ -1,30 +1,30 @@
 ---
-title: Schemat zdarzenia centrum zdarzeń usługi Azure Event Grid
+title: Usługi Azure Event Hubs jako źródło siatki zdarzeń
 description: Zawiera opis właściwości, które są dostarczane dla zdarzeń centrum zdarzeń za pomocą usługi Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561832"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393335"
 ---
-# <a name="azure-event-grid-event-schema-for-event-hubs"></a>Schemat zdarzeń usługi Azure Event Grid dla centrów zdarzeń
+# <a name="azure-event-hubs-as-an-event-grid-source"></a>Usługi Azure Event Hubs jako źródło siatki zdarzeń
 
 Ten artykuł zawiera właściwości i schemat zdarzeń centrów zdarzeń.Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md).
 
-Aby uzyskać listę przykładowych skryptów i samouczków, zobacz [Źródło zdarzeń Centrum zdarzeń](event-sources.md#event-hubs).
+## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
 
 ### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
 Centrum zdarzeń emituje typ zdarzenia **Microsoft.EventHub.CaptureFileCreated** podczas tworzenia pliku przechwytywania.
 
-## <a name="example-event"></a>Przykładowe zdarzenie
+### <a name="example-event"></a>Przykładowe zdarzenie
 
 To przykładowe zdarzenie pokazuje schemat zdarzenia centrum zdarzeń wywoływane, gdy funkcja przechwytywania przechowuje plik: 
 
@@ -53,7 +53,7 @@ To przykładowe zdarzenie pokazuje schemat zdarzenia centrum zdarzeń wywoływan
 ]
 ```
 
-## <a name="event-properties"></a>Właściwości zdarzenia
+### <a name="event-properties"></a>Właściwości zdarzenia
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
@@ -81,6 +81,12 @@ Obiekt danych ma następujące właściwości:
 | lastSequenceNumber | liczba całkowita | Ostatni numer sekwencyjny z kolejki. |
 | firstEnqueueTime | ciąg | Pierwszy raz z kolejki. |
 | lastEnqueueTime | ciąg | Ostatni raz z kolejki. |
+
+## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
+
+|Tytuł  |Opis  |
+|---------|---------|
+| [Samouczek: przesyłanie strumieniowe dużych zbiorów danych do magazynu danych](event-grid-event-hubs-integration.md) | Gdy Centra zdarzeń tworzy plik przechwytywania, usługa Event Grid wysyła zdarzenie do aplikacji funkcji. Aplikacja pobiera plik Przechwytywania i migruje dane do magazynu danych. |
 
 ## <a name="next-steps"></a>Następne kroki
 

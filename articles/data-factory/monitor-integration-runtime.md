@@ -10,17 +10,20 @@ ms.date: 07/25/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 2399849b87e44c5cb70d2db987ae18d8d2d9c552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d2ea5c0b7354867086fc0cce43732f2d73c53ab
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79261140"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398963"
 ---
-# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor an integration runtime in Azure Data Factory (Monitorowanie środowiska Integration Runtime w usłudze Azure Data Factory)  
+# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor an integration runtime in Azure Data Factory (Monitorowanie środowiska Integration Runtime w usłudze Azure Data Factory)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+  
 **Środowisko wykonawcze integracji** to infrastruktura obliczeniowa używana przez usługę Azure Data Factory w celu zapewnienia różnych możliwości integracji danych w różnych środowiskach sieciowych. Istnieją trzy typy uruchomień integracji oferowanych przez fabrykę danych:
 
-- Azure Integration Runtime
+- Środowisko uruchomieniowe integracji Azure
 - Infrastruktura Integration Runtime (Self-hosted)
 - Azure SSIS Integration Runtime
 
@@ -34,7 +37,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGr
 
 Polecenie cmdlet zwraca różne informacje dla różnych typów środowiska wykonawczego integracji. W tym artykule opisano właściwości i stany dla każdego typu środowiska wykonawczego integracji.  
 
-## <a name="azure-integration-runtime"></a>Azure Integration Runtime
+## <a name="azure-integration-runtime"></a>Środowisko uruchomieniowe integracji Azure
 Zasób obliczeniowy dla środowiska wykonawczego integracji platformy Azure jest w pełni zarządzany elastycznie na platformie Azure. Poniższa tabela zawiera opisy właściwości zwracanych przez polecenie **Get-AzDataFactoryV2IntegrationRuntime:**
 
 ### <a name="properties"></a>Właściwości

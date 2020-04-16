@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cd2b530375beb3e8fa1f79e004f4f1ac7fd4d0bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443904"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415811"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Ładowanie danych z usługi Office 365 przy użyciu usługi Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym artykule pokazano, jak używać danych ładowania danych z _usługi Office 365 do magazynu obiektów Blob platformy Azure._ Możesz wykonać podobne kroki, aby skopiować dane do usługi Azure Data Lake Gen1 lub Gen2. Zapoznaj się z [artykułem łącznika usługi Office 365](connector-office-365.md) na temat kopiowania danych z usługi Office 365 w ogóle.
 
@@ -38,7 +40,7 @@ W tym artykule pokazano, jak używać danych ładowania danych z _usługi Office
     * **Wersja**: Wybierz **V2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych, które są używane przez fabrykę danych może znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują usługi Azure Data Lake Store, Usługa Azure Storage, usługa Azure SQL Database i tak dalej.
 
-3. Wybierz **pozycję Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **usługi Data Factory,** jak pokazano na poniższej ilustracji:
    
    ![Strona główna fabryki danych](./media/load-office-365-data/data-factory-home-page.png)
@@ -97,7 +99,7 @@ W tym artykule pokazano, jak używać danych ładowania danych z _usługi Office
 
 5. Przejdź do **karty Połączenie** w oknie Właściwości. Kliknij pozycję + Nowy obok pola tekstowego **Połączona usługa**.
 
-6. W oknie Nowa usługa połączona wpisz "AzureStorageLinkedService" jako nazwę, wybierz "Service Principal" z listy rozwijanej metod uwierzytelniania, wypełnij punkt końcowy usługi, dzierżawę, identyfikator jednostki usługi i klucz główny usługi, a następnie wybierz pozycję Zapisz, aby wdrożyć usługę połączaną.  Zapoznaj się [tutaj,](connector-azure-blob-storage.md#service-principal-authentication) aby dowiedzieć się, jak skonfigurować uwierzytelnianie jednostkowe usługi dla usługi Azure Blob Storage.
+6. W oknie Nowa usługa połączona wprowadź "AzureStorageLinkedService" jako nazwę, wybierz "Service Principal" z listy rozwijanej metod uwierzytelniania, wypełnij punkt końcowy usługi, dzierżawę, identyfikator jednostki usługi i klucz główny usługi, a następnie wybierz pozycję Zapisz, aby wdrożyć usługę połączone.  Zapoznaj się [tutaj,](connector-azure-blob-storage.md#service-principal-authentication) aby dowiedzieć się, jak skonfigurować uwierzytelnianie jednostkowe usługi dla usługi Azure Blob Storage.
 
     ![Nowa usługa połączona obiektu Blob](./media/load-office-365-data/configure-blob-linked-service.png)
 

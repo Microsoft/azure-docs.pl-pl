@@ -3,20 +3,20 @@ title: 'Szybki start: rozpoznawanie mowy z pliku audio — usługa mowy'
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku Szybki start użyjesz SDK mowy do rozpoznawania mowy z pliku audio.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: da6094cd654652625a2ebab303c72fb16fb49b6b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 0480177bd504052804c9aa833f18d827f688f661
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77119476"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400547"
 ---
 # <a name="quickstart-recognize-speech-from-an-audio-file"></a>Szybki start: rozpoznawanie mowy z pliku audio
 

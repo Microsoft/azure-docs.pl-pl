@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 4a489993f982993d5703a9b46d42fffaa6134038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259060"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414509"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Zarządzanie zaszyfrowanymi wpisami tajnymi w aplikacjach sieci szkieletowej usług
 W tym przewodniku przeprowadzi Cię przez kroki zarządzania wpisami tajnymi w aplikacji sieci szkieletowej usług. Wpisy tajne mogą być wszelkie poufne informacje, takie jak parametry połączenia magazynu, hasła lub inne wartości, które nie powinny być obsługiwane w postaci zwykłego tekstu.
@@ -57,6 +57,11 @@ Wpisy tajne powinny być również uwzględnione w aplikacji sieci szkieletowej 
   </Certificates>
 </ApplicationManifest>
 ```
+> [!NOTE]
+> Po aktywowaniu aplikacji, która określa SecretsCertificate, service fabric znajdzie pasujący certyfikat i udzieli tożsamości, którą aplikacja jest uruchomiona pod pełnymi uprawnieniami do klucza prywatnego certyfikatu. Sieci szkieletowej usług będzie również monitorować certyfikat dla zmian i ponownie zastosować uprawnienia odpowiednio. Aby wykryć zmiany dla certyfikatów zadeklarowanych przez wspólną nazwę, sieci szkieletowej usług uruchamia okresowe zadanie, które znajduje wszystkie pasujące certyfikaty i porównuje je z buforowaną listą odcisków palców. Po wykryciu nowego odcisku palca oznacza to, że certyfikat tego podmiotu został odnowiony. Zadanie jest uruchamiane raz na minutę w każdym węźle klastra.
+>
+> Chociaż SecretsCertificate zezwala na deklaracje oparte na tematu, należy pamiętać, że zaszyfrowane ustawienia są powiązane z parą kluczy, która została użyta do zaszyfrowania ustawienia na kliencie. Należy upewnić się, że oryginalny certyfikat szyfrowania (lub równoważny) pasuje do deklaracji opartej na tematu i że jest zainstalowany, łącznie z odpowiadającym mu kluczem prywatnym, w każdym węźle klastra, który może obsługiwać aplikację. Wszystkie certyfikaty ważne w czasie pasujące do deklaracji opartej na temacie i zbudowane z tej samej pary kluczy co oryginalny certyfikat szyfrowania są uważane za równoważne.
+>
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Wstrzyknąć wpisy tajne aplikacji do wystąpień aplikacji
 W idealnym przypadku wdrożenie w różnych środowiskach powinno być tak zautomatyzowane, jak to możliwe. Można to osiągnąć, wykonując tajne szyfrowanie w środowisku kompilacji i zapewniając zaszyfrowane wpisy tajne jako parametry podczas tworzenia wystąpień aplikacji.

@@ -11,25 +11,16 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8aaca40961b1294336b236305ecdffcc92c5a4d9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742580"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408210"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Rozwiązywanie problemów z łącznością
 
 W tym artykule wymieniono typowe techniki rozwiązywania problemów związane z łączeniem się z bazą danych usługi SQL Analytics.
-
-- [Sprawdź dostępność usługi](sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [Sprawdzanie istnienia wstrzymania lub operacji skalowania](sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
-- [Sprawdzanie ustawień zapory](sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [Sprawdzanie ustawień sieci wirtualnej/punktu końcowego usługi](sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [Sprawdzanie, czy są zainstalowane najnowsze sterowniki](sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
-- [Sprawdzanie parametrów połączenia](sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
-- [Sporadyczne problemy z połączeniami](sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
-- [Typowe komunikaty o błędach](sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
 
 ## <a name="check-service-availability"></a>Sprawdź dostępność usługi
 

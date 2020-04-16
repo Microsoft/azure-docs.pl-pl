@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f35a5da15ca1a672046844282626a6cb7b8ecbdf
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: fbdf0fda51ae35fac4f3f8ae45bfcd788fc406ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583529"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414002"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limity pojemności usługi Azure Synapse Analytics (dawniej SQL DW)
 
@@ -42,7 +42,7 @@ Maksymalne wartości dozwolone dla różnych składników platformy Azure Synaps
 | Tabela |Maksymalny rozmiar |Nieograniczony rozmiar tabel w magazynie kolumn. <br>60 TB dla tabel rowstore skompresowanych na dysku. |
 | Tabela |Tabele na bazę danych | 100 000 |
 | Tabela |Kolumny na tabelę |1024 kolumny |
-| Tabela |Bajty na kolumnę |W zależności od [typu danych](sql-data-warehouse-tables-data-types.md)kolumny . W przypadku typów danych znaków limit MAX może przechowywać do 2 GB magazynu poza stroną (przepełnienie wiersza).  Znaki inne niż Unicode, takie jak limit char lub varchar wynosi 8000 na stronie danych, znaki Unicode, takie jak nchar lub limit nvarchar, wynosi 4000 na stronie danych.  Użyj rozmiarów magazynu stron danych, aby zwiększyć wydajność. |
+| Tabela |Bajty na kolumnę |W zależności od [typu danych](sql-data-warehouse-tables-data-types.md)kolumny . Limit wynosi 8000 dla typów danych char, 4000 dla nvarchar lub 2 GB dla typów danych MAX. |
 | Tabela |Bajty w wierszu, zdefiniowany rozmiar |8060 bajtów<br/><br/>Liczba bajtów w wierszu jest obliczana w taki sam sposób, jak w przypadku programu SQL Server z kompresją strony. Podobnie jak SQL Server, magazyn przepełnienia wierszy jest obsługiwany, co umożliwia **odsunięcie kolumn o zmiennej długości** poza wiersz. Gdy wiersze o zmiennej długości są wypychane poza wiersz, tylko 24-bajtowy katalog główny jest przechowywany w rekordzie głównym. Aby uzyskać więcej informacji, zobacz [Dane przepełnienia wierszy przekraczające 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabela |Partycje na tabelę |15 000<br/><br/>Aby uzyskać wysoką wydajność, zalecamy zminimalizowanie liczby partycji, których potrzebujesz, a jednocześnie obsługuje wymagania biznesowe. Wraz ze wzrostem liczby partycji zwiększa się obciążenie dla operacji języka DDL (Data Definition Language) i Data Manipulation Language (DML) i powoduje mniejszą wydajność. |
 | Tabela |Znaki na wartość granicy partycji. |4000 |

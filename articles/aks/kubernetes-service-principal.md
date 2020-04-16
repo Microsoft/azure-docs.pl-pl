@@ -3,17 +3,17 @@ title: Jednostki usługi dla usługi Azure Kubernetes Service (AKS)
 description: Tworzenie jednostki usługi Azure Active Directory dla klastra w usłudze Azure Kubernetes Service (AKS) i zarządzanie nią
 services: container-service
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: 523f08ddbf22e175af5b0604b04d4a2460ffd634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259424"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392739"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Jednostki usługi w usłudze Azure Kubernetes Service (AKS)
 
-Do współpracy z interfejsami API platformy Azure klaster usługi AKS wymaga [jednostki usługi Azure Active Directory][aad-service-principal]. Jednostka usługi jest potrzebna do dynamicznego tworzenia innych zasobów platformy Azure, takich jak usługa Azure Load Balancer lub usługa Azure Container Registry i zarządzania nimi.
+Aby wchodzić w interakcje z interfejsami API platformy Azure, klaster usługi AKS wymaga [jednostki usługi Azure Active Directory (AD)][aad-service-principal] lub [tożsamości zarządzanej.](use-managed-identity.md) Podmiot zabezpieczeń usługi lub tożsamość zarządzana jest potrzebna do dynamicznego tworzenia innych zasobów platformy Azure i zarządzania nimi, takich jak moduł równoważenia obciążenia platformy Azure lub rejestr kontenerów (ACR).
 
 W tym artykule przedstawiono sposób tworzenia jednostki usługi dla klastra usługi AKS i zarządzania nią.
 
@@ -95,7 +95,7 @@ W poniższych sekcjach opisano typowe delegacje, które należy wykonać.
 
 Jeśli używasz usługi Azure Container Registry (ACR) jako magazynu obrazów kontenera, należy udzielić uprawnień do jednostki usługi dla klastra AKS do odczytu i ściągania obrazów. Obecnie zalecana konfiguracja jest użycie [az aks create][az-aks-create] lub [az aks update][az-aks-update] polecenia integracji z rejestrem i przypisać odpowiednią rolę dla jednostki usługi. Aby uzyskać szczegółowe kroki, zobacz [Uwierzytelnij za pomocą usługi Azure Container Registry z usługi Azure Kubernetes][aks-to-acr].
 
-### <a name="networking"></a>Obsługa sieci
+### <a name="networking"></a>Networking
 
 Możesz użyć zaawansowanych funkcji sieciowych, w przypadku których sieć wirtualna i podsieć lub publiczne adresy IP znajdują się w innej grupie zasobów. Przypisz jeden z następujących zestawów uprawnień ról:
 

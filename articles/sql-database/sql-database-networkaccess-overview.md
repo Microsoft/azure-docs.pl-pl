@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945391"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414413"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Kontrolki dostępu do bazy danych i magazynu danych usługi Azure SQL
 
@@ -29,7 +29,7 @@ ms.locfileid: "78945391"
 
 Podczas tworzenia nowego programu Azure SQL Server z [witryny Azure portal,](sql-database-single-database-get-started.md)wynik jest publiczny punkt końcowy w formacie, *yourservername.database.windows.net*.
 
-Za pomocą następujących formantów dostępu do sieci można selektywnie zezwolić na dostęp do bazy danych SQl za pośrednictwem publicznego punktu końcowego:
+Za pomocą następujących formantów dostępu do sieci można selektywnie zezwolić na dostęp do bazy danych SQL za pośrednictwem publicznego punktu końcowego:
 - Zezwalaj na usługi platformy Azure: po ustawieniu na on inne zasoby w granicach platformy Azure, na przykład maszyna wirtualna platformy Azure, mogą uzyskiwać dostęp do bazy danych SQL
 
 - Reguły zapory IP: Ta funkcja umożliwia jawne zezwalanie na połączenia z określonego adresu IP, na przykład z komputerów lokalnych
@@ -59,10 +59,10 @@ Po ustawieniu **na platformie** Azure SQL Server umożliwia komunikację ze wszy
 W wielu przypadkach ustawienie **ON** jest bardziej dopuszczalne niż to, czego chce większość klientów. Mogą chcieć ustawić to ustawienie **na OFF** i zastąpić je bardziej restrykcyjnymi regułami zapory IP lub regułami zapory sieci wirtualnej. W ten sposób wpływa na następujące funkcje, które są uruchamiane na maszynach wirtualnych na platformie Azure, które nie są częścią sieci wirtualnej, a tym samym łączą się z bazą danych SQL za pośrednictwem adresu IP platformy Azure.
 
 ### <a name="import-export-service"></a>Importuj usługę eksportu
-Importuj usługę eksportu nie działa Zezwalaj na dostęp do serwera z systemem **OFF dla usług platformy Azure.** Jednak można obejść ten [problem, ręcznie uruchamiając sqlpackage.exe z maszyny wirtualnej platformy Azure lub wykonywania eksportu](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
+Importuj usługę eksportu nie działa, gdy **zezwalaj na dostęp do usług platformy Azure** jest **ustawiona**na OFF . Jednak można obejść ten [problem, ręcznie uruchamiając sqlpackage.exe z maszyny wirtualnej platformy Azure lub wykonywania eksportu](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
 
 ### <a name="data-sync"></a>Synchronizacja danych
-Aby użyć funkcji synchronizacji danych z **usługami Zezwalaj na korzystanie z usługi Platformy Azure, aby uzyskać dostęp do serwera ustawionego** na OFF, należy utworzyć indywidualne wpisy reguł zapory, aby [dodać adresy IP](sql-database-server-level-firewall-rule.md) z **tagu usługi Sql** dla regionu obsługującego bazę danych **centrum.**
+Aby użyć funkcji synchronizacji danych z **zezwoleniem na dostęp do usług platformy Azure** ustawionym na **OFF,** należy utworzyć indywidualne wpisy reguł zapory, aby [dodać adresy IP](sql-database-server-level-firewall-rule.md) z **tagu usługi Sql** dla regionu obsługującego bazę danych **centrum.**
 Dodaj te reguły zapory na poziomie serwera do serwerów logicznych obsługujących bazy danych **Centrum** i **Członków** (które mogą znajdować się w różnych regionach)
 
 Użyj następującego skryptu programu PowerShell do wygenerowania adresów IP odpowiadających tagowi usługi Sql dla regionu Zachodnie stany USA

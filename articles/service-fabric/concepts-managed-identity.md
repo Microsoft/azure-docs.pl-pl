@@ -4,14 +4,14 @@ description: Dowiedz się więcej o używaniu tożsamości zarządzanych dla pla
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6f3736bed4d3d59bce08d4df3ee0aa164a0a764
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76986754"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415111"
 ---
-# <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Korzystanie z tożsamości zarządzanych dla platformy Azure z siecią szkieletową usług (wersja zapoznawcza)
+# <a name="using-managed-identities-for-azure-with-service-fabric"></a>Używanie tożsamości zarządzanych dla platformy Azure z siecią szkieletową usług
 
 Typowym wyzwaniem podczas tworzenia aplikacji w chmurze jest sposób bezpiecznego zarządzania poświadczeniami w kodzie do uwierzytelniania w różnych usługach bez zapisywania ich lokalnie na stacji roboczej dewelopera lub w kontroli źródła. *Tożsamości zarządzane dla platformy Azure* rozwiązać ten problem dla wszystkich zasobów w usłudze Azure Active Directory (Azure AD), zapewniając im automatycznie zarządzanych tożsamości w usłudze Azure AD. Tożsamości usługi można użyć do uwierzytelniania do dowolnej usługi, która obsługuje uwierzytelnianie usługi Azure AD, w tym Usługi Key Vault, bez żadnych poświadczeń przechowywanych w kodzie.
 
@@ -47,7 +47,7 @@ Tożsamości zarządzane dla sieci szkieletowej usług są obsługiwane tylko w 
 
 Tożsamości przypisane przez system aplikacji jest unikatowa dla tej aplikacji; tożsamość przypisana przez użytkownika jest zasobem autonomicznym, który może być przypisany do wielu aplikacji. W ramach aplikacji pojedynczą tożsamość (przypisaną do systemu lub przypisaną przez użytkownika) można przypisać do wielu usług aplikacji, ale każdej pojedynczej usłudze można przypisać tylko jedną tożsamość. Wreszcie usługi należy przypisać tożsamość jawnie mieć dostęp do tej funkcji. W efekcie mapowanie tożsamości aplikacji do jej usług składowych umożliwia izolację w aplikacji — usługa może używać tylko tożsamości mapowane do niego.  
 
-Obecnie dla tej funkcji w wersji zapoznawczej obsługiwane są następujące scenariusze:
+Obecnie dla tej funkcji obsługiwane są następujące scenariusze:
 
 - Wdrażanie nowej aplikacji z jedną lub kilkoma usługami i co najmniej jedną przypisaną tożsamością
 
@@ -57,12 +57,7 @@ Następujące scenariusze nie są obsługiwane lub nie są zalecane; Należy pam
 
 - Usuwanie lub zmienianie tożsamości przypisanych do aplikacji; Jeśli musisz wprowadzić zmiany, prześlij oddzielne wdrożenia, aby najpierw dodać nowe przypisanie tożsamości, a następnie usunąć wcześniej przypisane. Usunięcie tożsamości z istniejącej aplikacji może mieć niepożądane skutki, w tym pozostawienie aplikacji w stanie, który nie można uaktualnić. Bezpieczne jest całkowite usunięcie aplikacji, jeśli konieczne jest usunięcie tożsamości; Należy pamiętać, że spowoduje to usunięcie tożsamości przypisanej przez system (jeśli jest to zdefiniowane) skojarzonej z aplikacją i spowoduje usunięcie wszelkich skojarzeń z tożsamościami przypisanymi przez użytkownika przypisanymi do aplikacji.
 
-- Obsługa sieci szkieletowej usług dla tożsamości zarządzanych nie jest obecnie zintegrowana z [platformą AzureServiceTokenProvider;](../key-vault/service-to-service-authentication.md) integracja zostanie osiągnięta do końca okresu podglądu dla funkcji tożsamości zarządzanej.
-
->
-> [!NOTE]
->
-> Ta funkcja jest dostępna w wersji zapoznawczej. Może podlegać częstym zmianom i nie nadaje się do wdrożeń produkcyjnych.
+- Obsługa sieci szkieletowej usług dla tożsamości zarządzanych nie jest obecnie zintegrowana z [platformą AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: cb1444261a2ba4810f4fddb3d7aa3bc172f09654
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e4470ce5ac69390cf8d361577b9ebf0013e4e51
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278872"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405786"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatyzuj zasoby w centrum danych lub w chmurze przy użyciu hybrydowego środowiska roboczego żyli
 
@@ -22,21 +22,21 @@ Na poniższej ilustracji przedstawiono tę funkcję:
 
 Każdy hybrydowy proces roboczy elementu runbook jest członkiem grupy hybrydowego elementu roboczego elementu runbook, który określisz podczas instalowania agenta. Grupa może zawierać jednego agenta, ale można zainstalować wielu agentów w grupie dla wysokiej dostępności. Każdy komputer może obsługiwać jeden hybrydowy proces roboczy raportowania do jednego konta automatyzacji.
 
-Po uruchomieniu śmiętu w hybrydowym uzyciu roboczym niuszka należy określić grupę, na której działa. Każdy pracownik w grupie sonduje usługę Azure Automation, aby sprawdzić, czy są dostępne zadania. Jeśli zadanie jest dostępne, pierwszy pracownik, który otrzymuje zadanie, przyjmuje go. Czas przetwarzania kolejki zadań zależy od profilu sprzętu i obciążenia sprzętu procesu hybrydowego. Nie można określić określonego pracownika. Hybrydowe procesy pracy y uruchomieniu nie mają wielu ograniczeń, które mają piaskownice platformy Azure. Nie mają tych samych limitów miejsca na dysku, pamięci lub gniazd sieciowych. Hybrydowe procesy robocze uruchomieniu są ograniczone tylko przez zasoby w samym udziale procesu roboczego hybrydowego. Ponadto hybrydowe procesy owe workers nie współużytkują 180-minutowego limitu czasu [udziału w programie,](automation-runbook-execution.md#fair-share) który wykonują piaskownice platformy Azure. Aby dowiedzieć się więcej o limitach usług dla skrzynek izolowania platformy Azure i hybrydowych workers y uruchomieniu, zobacz stronę [limitów](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) zadań.
+Po uruchomieniu śmiętu w hybrydowym uzyciu roboczym niuszka należy określić grupę, na której działa. Każdy pracownik w grupie sonduje usługę Azure Automation, aby sprawdzić, czy są dostępne zadania. Jeśli zadanie jest dostępne, pierwszy pracownik, który otrzymuje zadanie, przyjmuje go. Czas przetwarzania kolejki zadań zależy od profilu sprzętu i obciążenia sprzętu procesu hybrydowego. Nie można określić określonego pracownika. Hybrydowe procesy pracy y uruchomieniu nie mają wielu ograniczeń, które mają piaskownice platformy Azure. Nie mają tych samych limitów miejsca na dysku, pamięci lub gniazd sieciowych. Hybrydowe procesy robocze uruchomieniu są ograniczone tylko przez zasoby w samym udziale procesu roboczego hybrydowego. Ponadto hybrydowe procesy pracy uruchomieniu nie współużytkują 180-minutowy limit czasu [udziału w programie sprawiedliwym,](automation-runbook-execution.md#fair-share) który mają piaskownice platformy Azure. Aby dowiedzieć się więcej o limitach usług dla skrzynek izolowania platformy Azure i hybrydowych workers y uruchomieniu, zobacz [limity](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)zadań .
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Instalowanie hybrydowego procesu roboczego uruchomieniu
 
-Proces instalowania hybrydowego procesu roboczego uruchomieniu zależy od systemu operacyjnego. Poniższa tabela zawiera łącza do metod, których można użyć do instalacji.
-
-Aby zainstalować i skonfigurować hybrydowy proces roboczy systemu Windows, można użyć dwóch metod. Zalecaną metodą jest użycie systemu runbook automatyzacji, aby całkowicie zautomatyzować proces konfigurowania komputera z systemem Windows. Druga metoda jest po procedurze krok po kroku, aby ręcznie zainstalować i skonfigurować rolę. W przypadku komputerów z systemem Linux uruchom skrypt Języka Python, aby zainstalować agenta na komputerze.
+Proces instalowania hybrydowego procesu roboczego systemu runbook zależy od systemu operacyjnego. Poniższa tabela definiuje typy wdrożeń.
 
 |System operacyjny  |Typy wdrożeniów  |
 |---------|---------|
-|Windows     | [Powershell](automation-windows-hrw-install.md#automated-deployment)<br>[Ręcznie](automation-windows-hrw-install.md#manual-deployment)        |
+|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Ręcznie](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
+Zalecaną metodą instalacji jest użycie systemu runbook automatyzacji w celu całkowitego zautomatyzowania procesu konfigurowania komputera z systemem Windows. Drugą metodą jest wykonać procedurę krok po kroku, aby ręcznie zainstalować i skonfigurować rolę. W przypadku komputerów z systemem Linux uruchom skrypt Języka Python, aby zainstalować agenta na komputerze.
+
 > [!NOTE]
-> Aby zarządzać konfiguracją serwerów obsługujących rolę hybrydowego procesu roboczego systemu runbook z konfiguracją żądanego stanu (DSC), należy dodać je jako węzły DSC. Aby uzyskać więcej informacji na temat dołączania ich do zarządzania za pomocą dsc, zobacz [Maszyny dołączania do zarządzania przez usługę Azure Automation DSC](automation-dsc-onboarding.md).
+> Aby zarządzać konfiguracją serwerów obsługujących rolę hybrydowego procesu roboczego systemu runbook z konfiguracją żądanego stanu (DSC), należy dodać serwery jako węzły DSC. Aby uzyskać więcej informacji na temat dołączania ich do zarządzania za pomocą dsc, zobacz [Maszyny dołączania do zarządzania przez usługę Azure Automation DSC](automation-dsc-onboarding.md).
 >
 >Jeśli [włączysz rozwiązanie do zarządzania aktualizacjami,](automation-update-management.md)każdy komputer połączony z obszarem roboczym usługi Azure Log Analytics zostanie automatycznie skonfigurowany jako hybrydowy proces roboczy do obsługi śmięty umnień zawartych w tym rozwiązaniu. Jednak komputer nie jest zarejestrowany w żadnych grupach hybrydowych procesów roboczych zdefiniowanych już na koncie automatyzacji. Komputer można dodać do grupy hybrydowego pracownika żyła na koncie automatyzacji, aby obsługiwać elementy runbook automatyzacji, o ile używasz tego samego konta zarówno dla rozwiązania, jak i członkostwa w grupie hybrydowego systemu runbook. Ta funkcja została dodana do wersji 7.2.12024.0 hybrydowego procesu roboczego uruchomieniu. .
 
@@ -44,44 +44,38 @@ Przejrzyj [informacje dotyczące planowania sieci](#network-planning) przed rozp
 
 Komputer można dodać do grupy hybrydowego pracownika żyła na koncie automatyzacji, aby obsługiwać elementy runbook automatyzacji, o ile używasz tego samego konta zarówno dla rozwiązania, jak i członkostwa w grupie hybrydowego systemu runbook. Ta funkcjonalność została dodana do wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.
 
-## <a name="remove-a-hybrid-runbook-worker"></a>Usuwanie hybrydowego procesu roboczego kreślić
+## <a name="a-nameremove-a-hybrid-runbook-workerremove-a-hybrid-runbook-worker-from-an-on-premises-computer"></a><a name="remove-a-hybrid-runbook-worker">Usuwanie hybrydowego procesu roboczego umniejszania z komputera lokalnego
 
-Można usunąć jeden lub więcej hybrydowych pracowników uruchomieniu z grupy lub usunąć grupę, w zależności od wymagań. Aby usunąć hybrydowy proces roboczy żyłajnika z komputera lokalnego, należy wykonać następujące czynności:
+Proces roboczy hybrydowego systemu runbook można usunąć z komputera lokalnego zgodnie z opisem w tej sekcji dla systemów Windows i Linux.
+
+### <a name="remove-the-worker-on-windows"></a>Usuwanie pracownika w systemie Windows
 
 1. W witrynie Azure portal przejdź do konta automatyzacji.
-2. W obszarze **Ustawienia konta**wybierz pozycję **Klucze** i zanotuj wartości **adresu URL** i **podstawowego klucza dostępu**. Te informacje są potrzebne do następnego kroku.
+2. W obszarze **Ustawienia konta**wybierz pozycję **Klucze** i zanotuj wartości **adresu URL** i **podstawowego klucza dostępu**.
 
-### <a name="windows"></a>Windows
-
-Otwórz sesję programu PowerShell w trybie administratora i uruchom następujące polecenie. Użyj przełącznika **-Verbose** do szczegółowego dziennika procesu usuwania.
-
-```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
-```
-
-Aby usunąć przestarzałe maszyny z `machineName` grupy hybrydowy proces roboczy, należy użyć parametru opcjonalnego.
+3. Otwórz sesję programu PowerShell w trybie administratora i uruchom następujące polecenie z adresem URL i podstawowymi wartościami klucza dostępu. Użyj `Verbose` parametru do szczegółowego dziennika procesu usuwania. Aby usunąć przestarzałe maszyny z `machineName` grupy hybrydowy proces roboczy, należy użyć parametru opcjonalnego.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
 ```
 
-### <a name="linux"></a>Linux
+### <a name="remove-the-worker-on-linux"></a>Usuń pracownika na Linuksie
 
-Można użyć polecenia `ls /var/opt/microsoft/omsagent` w hybrydowym roboczym roboczej roboczej, aby uzyskać workspaceid. W katalogu znajduje się folder, w którym nazwa folderu jest identyfikatorem obszaru roboczego.
+Można użyć polecenia `ls /var/opt/microsoft/omsagent` w hybrydowym uzywce procesu roboczego żyli, aby uzyskać identyfikator obszaru roboczego. Tworzony jest folder o nazwie o identyfikatorze obszaru roboczego.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
 ```
 
 > [!NOTE]
-> Ten kod nie usuwa agenta monitorowania firmy Microsoft z komputera, tylko funkcjonalność i konfigurację roli hybrydowego procesu roboczego niuszka.
+> Ten kod nie usuwa agenta monitorowania firmy Microsoft z komputera. Usuwa tylko funkcje i konfigurację roli Hybrydowy proces roboczy podręcznika.
 
 ## <a name="remove-a-hybrid-worker-group"></a>Remove a Hybrid Worker group (Usuwanie grupy hybrydowego procesu roboczego)
 
-Aby usunąć grupę, należy najpierw usunąć hybrydowy proces roboczy elementu runbook z każdego komputera, który jest członkiem grupy przy użyciu procedury pokazanej wcześniej. Następnie należy wykonać następujące czynności, aby usunąć grupę:
+Aby usunąć grupę hybrydowego elementu roboczego elementu runbook, należy najpierw usunąć hybrydowy proces roboczy elementu runbook z każdego komputera, który jest członkiem grupy. Następnie usuń grupę, należy wykonać następujące czynności:
 
 1. Otwórz konto automatyzacji w witrynie Azure portal.
-2. W obszarze **Automatyzacja procesów**wybierz pozycję **Hybrydowe grupy robocze**. Zaznacz grupę, którą chcesz usunąć. Zostanie wyświetlona strona właściwości dla tej grupy.
+2. Wybierz **hybrydowe grupy robocze** w obszarze **Automatyzacja procesów**. Zaznacz grupę, którą chcesz usunąć. Zostanie wyświetlona strona właściwości dla tej grupy.
 
    ![Strona właściwości](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
@@ -152,5 +146,4 @@ Oprócz standardowych adresów i portów wymaganych przez hybrydowy proces roboc
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się, jak skonfigurować programy runbook do automatyzacji procesów w lokalnym centrum danych lub innym środowisku chmury, zobacz [Runbooks w hybrydowym usłudze Runbook Worker](automation-hrw-run-runbooks.md).
-* Aby dowiedzieć się, jak rozwiązywać problemy z hybrydowymi pracownikami wiązki uruchomieniu, zobacz [Rozwiązywanie problemów z hybrydowymi pracownikami wiązki uruchomieniu](troubleshoot/hybrid-runbook-worker.md#general)
-
+* Aby dowiedzieć się, jak rozwiązywać problemy z hybrydowymi pracownikami wiązki [uruchomieniu, zobacz Rozwiązywanie problemów z hybrydowymi pracownikami wiązki uruchomieniu](troubleshoot/hybrid-runbook-worker.md#general). .

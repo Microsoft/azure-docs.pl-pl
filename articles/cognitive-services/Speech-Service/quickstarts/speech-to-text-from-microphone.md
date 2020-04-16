@@ -3,20 +3,20 @@ title: 'Szybki start: rozpoznawanie mowy z mikrofonu — usługa mowy'
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku Szybki start użyjesz zestawu SDK mowy do interaktywnego rozpoznawania mowy z danych audio przechwyconych z mikrofonu.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: eb02f273e66266b1e445df73aea61610640e9868
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3c0d648d48bc39949071f39f5b49959a92576769
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77119524"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400732"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Szybki start: rozpoznawanie mowy z mikrofonu
 

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
-ms.openlocfilehash: 524ae203a311d538431205bf8c6498de45aeb4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d64c8460f5653f28b96396025f29ea13af15c8c3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280307"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416320"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Konfigurowanie zarządzania potencjalnymi klientami dla programu Dynamics CRM w trybie online
 
@@ -63,7 +63,7 @@ Aby skonfigurować usługę Azure Active Directory for Dynamics CRM, należy wyk
 4.  Wpisz nazwę aplikacji.
 5.  W obszarze Tekst wybierz pozycję **Aplikacja sieci Web / INTERFEJS API**.
 6.  Podaj adres URL. To pole nie jest potrzebne dla potencjalnych klientów, ale jest wymagane do utworzenia aplikacji.
-7. Wybierz **pozycję Utwórz**.
+7. Wybierz pozycję **Utwórz**.
 8.  Teraz, gdy aplikacja jest zarejestrowana, wybierz **właściwości,** a następnie wybierz **skopiuj identyfikator aplikacji**. Te informacje o połączeniu będą używane w portalu cloud partnerów.
 9.  W obszarze Właściwości ustaw aplikację jako Wielodostępną, a następnie wybierz pozycję **Zapisz**.
 
@@ -142,4 +142,4 @@ Ostatnim krokiem jest umożliwienie użytkownikowi utworzonego do pisania potenc
 Zakończ konfigurowanie programu Dynamics CRM do zarządzania potencjalnymi klientami, dodając wygenerowane informacje o koncie do portalu cloud partnerów. Przykład:
 
 -   **Identyfikator aplikacji** usługi **Azure Active Directory** - (przykład: *23456052-aaaa-bbbb-8662-1234df56788f),* **identyfikator katalogu** (przykład: *12345678-8af1-4 (przykład:* *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*). **Application Key**
--   **Adres URL** usługi **Office 365** - (przykład: *https://contoso.crm4.dynamics.com*), **Nazwa użytkownika** (przykład: *\@contoso contoso.onmicrosoft.com)* i **Hasło** (np. *\@*
+-   **Adres URL** usługi **Office 365** - (przykład: **`https://contoso.crm4.dynamics.com`**), **Nazwa użytkownika** (przykład: **`contoso\@contoso.onmicrosoft.com`**) i **Hasło** (przykład: *P\@ssw0rd*).

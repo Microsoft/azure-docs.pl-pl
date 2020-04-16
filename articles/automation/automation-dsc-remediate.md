@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: dfe62c54bfb10d70f1dbf19daec90eec68e66431
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: cc5884e1f70bdccee4e7a113e6e3ee2d6604b50a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383151"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406081"
 ---
 # <a name="remediate-noncompliant-dsc-servers"></a>Korygowanie niezgodnych serwerów DSC
 
@@ -37,7 +37,8 @@ Update-DscConfiguration -Wait -Verbose
 
 Podobna funkcjonalność nie jest obecnie dostępna dla serwerów Linuksa.
 Jedyną opcją jest powtórzenie procesu rejestracji.
-W przypadku węzłów platformy Azure można poprawić dryf z witryny Azure portal lub przy użyciu poleceń cmdlet modułu Az. Szczegółowe informacje na temat tego procesu są dokumentowane w [komputerach dołączania do zarządzania przez konfigurację stanu automatyzacji platformy Azure](automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal).
+
+W przypadku węzłów platformy Azure można poprawić dryf z witryny Azure portal lub przy użyciu poleceń cmdlet modułu Az. Szczegółowe informacje na temat tego procesu są dokumentowane w [komputerach dołączania do zarządzania przez konfigurację stanu automatyzacji platformy Azure](automation-dsc-onboarding.md#onboard-vms-by-using-the-azure-portal).
 W przypadku węzłów hybrydowych można poprawić dryf przy użyciu dołączonych skryptów Języka Python.
 Zobacz [PowerShell DSC dla repozytorium Linuksa](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 

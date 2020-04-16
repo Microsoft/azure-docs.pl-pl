@@ -11,19 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b36eb2615e98ee8ea7751c836fd43e81a5a0f4e2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74941942"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414748"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Przenoszenie plików za pomocą usługi Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano szablon rozwiązania, za pomocą którego można przenosić pliki z jednego folderu do drugiego między magazynami opartymi na plikach. Jeden z typowych scenariuszy korzystania z tego szablonu: Pliki są stale upuszczane do folderu docelowego magazynu źródłowego. Tworząc wyzwalacz harmonogramu, potok ADF może okresowo przenosić te pliki ze źródła do magazynu docelowego.  Sposób, w jaki potok ADF osiąga "ruchome pliki", polega na wyjęciem plików z folderu docelowego, skopiowaniu każdego z nich do innego folderu w magazynie docelowym, a następnie usunięciu tych samych plików z folderu docelowego w magazynie źródłowym.
 
 > [!NOTE]
-> Należy pamiętać, że ten szablon jest przeznaczony do przenoszenia plików, a nie przenoszenia folderów.  Jeśli chcesz przenieść folder, zmieniając zestaw danych, aby zawierał tylko ścieżkę folderu, a następnie używając działania kopiowania i usuwania w odniesieniu do tego samego zestawu danych reprezentującego folder, należy zachować szczególną ostrożność. To dlatego, że trzeba upewnić się, że nie będzie nowych plików przybywających do folderu między kopiowania operacji i usuwania operacji. Jeśli do folderu przychodzą nowe pliki w momencie, gdy działanie kopiowania zostało właśnie wykonane, ale działanie Usuń nie zostało werzone, możliwe jest, że działanie Usuń usunie ten nowy przychodzący plik, który NIE został skopiowany do miejsce docelowe, usuwając cały folder.
+> Należy pamiętać, że ten szablon jest przeznaczony do przenoszenia plików, a nie przenoszenia folderów.  Jeśli chcesz przenieść folder, zmieniając zestaw danych, aby zawierał tylko ścieżkę folderu, a następnie używając działania kopiowania i usuwania w odniesieniu do tego samego zestawu danych reprezentującego folder, należy zachować szczególną ostrożność. To dlatego, że trzeba upewnić się, że nie będzie nowych plików przybywających do folderu między kopiowania operacji i usuwania operacji. Jeśli do folderu pojawiają się nowe pliki w momencie, gdy działanie kopiowania zostało właśnie wykonane, ale działanie Usuń nie zostało werione, możliwe jest, że działanie Usuń usunie ten nowy plik przychodzący, który NIE został skopiowany do miejsca docelowego, usuwając cały folder.
 
 ## <a name="about-this-solution-template"></a>Informacje o tym szablonie rozwiązania
 

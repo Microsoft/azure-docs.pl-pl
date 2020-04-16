@@ -5,12 +5,12 @@ description: Dowiedz się, jak zabezpieczyć ruch, który przepływa do i z zaso
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 01ba9e7353b6783d1b4fd1649291a64405fd9382
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886708"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392608"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Bezpieczny ruch między zasobnikami przy użyciu zasad sieciowych w usłudze Azure Kubernetes (AKS)
 
@@ -82,6 +82,8 @@ Następujący przykładowy skrypt:
 * Przypisuje uprawnienia *współautora* dla jednostki usługi klastrowania AKS w sieci wirtualnej.
 * Tworzy klaster AKS w zdefiniowanej sieci wirtualnej i włącza zasady sieciowe.
     * Używana jest opcja zasad sieci *azure.* Aby użyć calico jako opcji zasad sieciowych, należy użyć parametru. `--network-policy calico` Uwaga: Calico może być `--network-plugin azure` używany `--network-plugin kubenet`z jednym lub .
+
+Należy zauważyć, że zamiast używać jednostki usługi, można użyć tożsamości zarządzanej dla uprawnień. Aby uzyskać więcej informacji, zobacz [Używanie tożsamości zarządzanych](use-managed-identity.md).
 
 Zapewnij własne bezpieczne *SP_PASSWORD*. Można zastąpić zmienne *RESOURCE_GROUP_NAME* i *CLUSTER_NAME:*
 

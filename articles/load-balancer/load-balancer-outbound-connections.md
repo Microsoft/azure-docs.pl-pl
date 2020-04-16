@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f8f21405a79a6fcf70adef9815ba06a229d6954d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886980"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393104"
 ---
 # <a name="outbound-connections-in-azure"></a>Połączenia wychodzące na platformie Azure
 
@@ -168,7 +168,7 @@ W poniższej tabeli przedstawiono wstępne alokacje portów SNAT dla warstw rozm
 | 801-1,000 | 32 |
 
 >[!NOTE]
-> W przypadku korzystania ze standardowego modułu równoważenia obciążenia z [wieloma frontonami](load-balancer-multivip-overview.md)każdy adres IP wewnętrznej bazy danych mnoży liczbę dostępnych portów SNAT w poprzedniej tabeli. Na przykład pula wewnętrznej bazy danych 50 maszyn wirtualnych z 2 regułami równoważenia obciążenia, każda z oddzielnym adresem IP wewnętrznej bazy danych, użyje portów SNAT 2048 (2x 1024) na konfigurację IP. Zobacz szczegóły dotyczące [wielu frontendów](#multife).
+> W przypadku korzystania ze standardowego modułu równoważenia obciążenia z [wieloma frontonami](load-balancer-multivip-overview.md)każdy adres IP wewnętrznej bazy danych mnoży liczbę dostępnych portów SNAT w poprzedniej tabeli. Na przykład pula wewnętrznej bazy danych 50 maszyn wirtualnych z 2 regułami równoważenia obciążenia, każda z oddzielnym adresem IP wewnętrznej bazy danych, użyje portów SNAT 2048 (2x 1024) na regułę. Zobacz szczegóły dotyczące [wielu frontendów](#multife).
 
 Należy pamiętać, że liczba dostępnych portów SNAT nie przekłada się bezpośrednio na liczbę przepływów. Jeden port SNAT może być ponownie odtwarzany w wielu unikatowych miejscach docelowych. Porty są używane tylko wtedy, gdy jest to konieczne, aby przepływy unikatowe. Aby uzyskać wskazówki dotyczące projektowania i łagodzenia, zapoznaj się z sekcją dotyczącą [zarządzania tym zasobem wyczerpującym](#snatexhaust) oraz sekcją opisującą [PAT](#pat).
 

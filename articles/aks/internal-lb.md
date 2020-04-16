@@ -5,12 +5,12 @@ description: Dowiedz się, jak utworzyć i używać wewnętrznego modułu równo
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 4decd66a558b031f1aaaf9c64556dae545ed05d3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 9c2966215d07c4ddf052d30a5757a2deee2e0b5c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668407"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392788"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Użyj wewnętrznego modułu równoważenia obciążenia z usługą Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli p
 
 Potrzebne są również zainstalowane i skonfigurowane i skonfigurowane narzędzia Azure CLI w wersji 2.0.59 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
-Podmiot zabezpieczeń usługi klastrowania usługi AKS wymaga uprawnień do zarządzania zasobami sieciowymi, jeśli używasz istniejącej podsieci lub grupy zasobów. Ogólnie rzecz biorąc przypisz rolę *współautora sieci* do jednostki usługi na delegowanych zasobów. Aby uzyskać więcej informacji na temat uprawnień, zobacz [Delegowanie dostępu AKS do innych zasobów platformy Azure][aks-sp].
+Podmiot zabezpieczeń usługi klastrowania usługi AKS wymaga uprawnień do zarządzania zasobami sieciowymi, jeśli używasz istniejącej podsieci lub grupy zasobów. Ogólnie rzecz biorąc przypisz rolę *współautora sieci* do jednostki usługi na delegowanych zasobów. Zamiast jednostki usługi można użyć systemu przypisanego tożsamości zarządzanej dla uprawnień. Aby uzyskać więcej informacji, zobacz [Używanie tożsamości zarządzanych](use-managed-identity.md). Aby uzyskać więcej informacji na temat uprawnień, zobacz [Delegowanie dostępu AKS do innych zasobów platformy Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Utwórz wewnętrzny moduł równoważenia obciążenia.
 

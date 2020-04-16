@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: b4b13f8b21cfdedde93145a8e437bc2301bee460
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71b1b57cb2a9fa442dc3cef3bf34077040cff58e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927101"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410921"
 ---
 # <a name="azure-data-factory-whitepapers"></a>Białe dokumenty usługi Azure Data Factory 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Białe dokumenty umożliwiają eksplorowanie usługi Azure Data Factory na głębszym poziomie. W tym artykule przedstawiono listę dostępnych oficjalnych artykułów dla usługi Azure Data Factory.
 

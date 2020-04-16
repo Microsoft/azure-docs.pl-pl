@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 81f8577592f1d53627bc09a2f9ace8c060ad4660
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668848"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415820"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Kopiowanie danych z usługi Azure Data Lake Storage Gen1 do gen2 za pomocą usługi Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Usługa Azure Data Lake Storage Gen2 to zestaw funkcji dedykowanych do analizy dużych zbiorów danych wbudowanych w [magazyn obiektów Blob platformy Azure.](../storage/blobs/storage-blobs-introduction.md) Można go używać do interfejsu z danymi przy użyciu zarówno systemu plików, jak i paradygmatów przechowywania obiektów.
 
@@ -53,7 +55,7 @@ W tym artykule pokazano, jak używać narzędzia do kopiowania danych w fabryce 
     * **Wersja**: Wybierz **V2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych, które są używane przez fabrykę danych, mogą znajdować się w innych lokalizacjach i regionach. 
 
-3. Wybierz **pozycję Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **usługi Data Factory,** jak pokazano na poniższej ilustracji: 
    
    ![Strona główna fabryki danych](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
@@ -65,7 +67,7 @@ W tym artykule pokazano, jak używać narzędzia do kopiowania danych w fabryce 
 1. Na stronie **Wprowadzenie** wybierz kafelek **Kopiuj dane,** aby uruchomić narzędzie kopiowania danych. 
 
    ![Kopiowanie kafelka narzędzia danych](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
-2. Na stronie **Właściwości** określ **polecenie CopyFromADLSGen1ToGen2** dla pola **Nazwa zadania.** Wybierz **pozycję Dalej**.
+2. Na stronie **Właściwości** określ **polecenie CopyFromADLSGen1ToGen2** dla pola **Nazwa zadania.** Wybierz opcję **Dalej**.
 
     ![Strona właściwości](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)
 3. Na stronie **Magazyn danych źródłowych** wybierz pozycję **+ Utwórz nowe połączenie**.
@@ -82,7 +84,7 @@ W tym artykule pokazano, jak używać narzędzia do kopiowania danych w fabryce 
   
    b. Wybierz **opcję Testuj połączenie,** aby sprawdzić poprawność ustawień. Następnie wybierz pozycję **Zakończ**.
   
-   d. Widać, że utworzono nowe połączenie. Wybierz **pozycję Dalej**.
+   d. Widać, że utworzono nowe połączenie. Wybierz opcję **Dalej**.
    
    > [!IMPORTANT]
    > W tym przejściu, użyj tożsamości zarządzanej dla zasobów platformy Azure do uwierzytelniania usługi Azure Data Lake Storage Gen1. Aby udzielić tożsamości zarządzanej odpowiednich uprawnień w usłudze Azure Data Lake Storage Gen1, wykonaj te [instrukcje.](connector-azure-data-lake-store.md#managed-identity)
@@ -93,7 +95,7 @@ W tym artykule pokazano, jak używać narzędzia do kopiowania danych w fabryce 
 
     ![Wybieranie pliku lub folderu wejściowego](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
 
-7. Określ zachowanie kopiowania, wybierając opcje **kopiowania plików cyklicznie** i **Binarne.** Wybierz **pozycję Dalej**.
+7. Określ zachowanie kopiowania, wybierając opcje **kopiowania plików cyklicznie** i **Binarne.** Wybierz opcję **Dalej**.
 
     ![Określ folder wyjściowy](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     

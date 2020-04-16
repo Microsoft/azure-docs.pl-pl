@@ -1,74 +1,61 @@
 ---
 title: Samoobsługowe resetowanie hasła licencji — usługa Azure Active Directory
-description: Wymagania licencjonowania samoobsługowego resetowania haseł usługi Azure AD
+description: Dowiedz się więcej o różnicach wymagań licencjonowania samoobsługowego resetowania haseł usługi Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 04/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 598f3bd8500a59cd41cc4126915e6cccbd4fb2f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45ca11af061e37cf4f804ce2d7ceed72a9448294
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848565"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393075"
 ---
-# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Wymagania dotyczące licencjonowania samoobsługowego resetowania hasła usługi Azure AD
+# <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Wymagania dotyczące licencjonowania samoobsługowego resetowania hasła usługi Azure Active Directory
 
-Usługa Azure Active Directory (Azure AD) jest dostępna w kilku wersjach: Bezpłatna, Premium P1 i Premium P2. Istnieje kilka różnych funkcji, które tworzą samoobsługowe resetowanie hasła, w tym zmiany, resetowania, odblokowywania i zapisywania zwrotnego, które są dostępne w różnych wersjach usługi Azure AD. W tym artykule próbuje wyjaśnić różnice. Więcej szczegółów na temat funkcji zawartych w każdej wersji usługi Azure AD można znaleźć na [stronie cennika usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Aby zmniejszyć liczbę wywołań pomocy technicznej i utratę produktywności, gdy użytkownik nie może zalogować się na urządzeniu lub aplikacji, konta użytkowników w usłudze Azure Active Directory (Azure AD) można włączyć w celu samoobsługowego resetowania haseł (SSPR). Funkcje, które składają się na samookapowanie haseł obejmują zmianę hasła, resetowanie, odblokowywanie i zapisywanie zwrotne w katalogu lokalnym. Podstawowe funkcje sspr są dostępne dla usługi Office 365 i wszystkich użytkowników usługi Azure AD bez żadnych kosztów.
+
+W tym artykule opisano różne sposoby samoobsługowego resetowania hasła, które mogą być licencjonowane i używane. Szczegółowe informacje na temat cen i rozliczeń można znaleźć na [stronie cennika usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Porównywanie wersji i funkcji
 
-Samoobsługowe resetowanie hasła usługi Azure AD jest licencjonowane na użytkownika, aby utrzymać zgodność organizacje są zobowiązane do przypisania odpowiedniej licencji do swoich użytkowników.
+SSPR jest licencjonowany na użytkownika. Aby zachować zgodność, organizacje muszą przypisać odpowiednią licencję swoim użytkownikom.
 
-* Samoobsługowa zmiana hasła dla użytkowników chmury
-   * Jestem **użytkownikiem tylko** w chmurze i znam swoje hasło.
-      * Chciałbym **zmienić** hasło na coś nowego.
-   * Ta funkcja jest uwzględniona we wszystkich wersjach usługi Azure AD.
+W poniższej tabeli przedstawiono różne scenariusze samookapła dotyczące zmiany hasła, resetowania lub lokalnego stornowania i które jednostki SKU udostępniają tę funkcję.
 
-* Samoobsługowe resetowanie hasła dla użytkowników chmury
-   * Jestem **użytkownikiem tylko** w chmurze i zapomniałem hasła.
-      * Chciałbym **zresetować** hasło do czegoś, co wiem.
-   * Ta funkcja jest uwzględniona w usłudze Azure AD Premium P1 lub P2, usłudze Microsoft 365 Business lub usłudze Office 365.
-
-* Samoobsługowe resetowanie/zmienianie/odblokowywanie hasła **za pomocą lokalnego stornowania**
-   * Jestem **użytkownikiem hybrydowym,** moje lokalne konto użytkownika usługi Active Directory jest synchronizowane z moim kontem usługi Azure AD przy użyciu usługi Azure AD Connect. Chciałbym zmienić hasło, zapomnieć hasła lub został zablokowany.
-      * Chciałbym zmienić hasło lub zresetować go do czegoś, co znam, lub odblokować konto **i** zsynchronizować tę zmianę z powrotem do lokalnej usługi Active Directory.
-   * Ta funkcja jest uwzględniona w usłudze Azure AD Premium P1 lub P2 lub Microsoft 365 Business.
+| Funkcja | Usługa Azure AD — warstwa Bezpłatna | Office 365 Business Premium | Microsoft 365 Business | Usługa Azure AD Premium P1 lub P2 |
+| --- |:---:|:---:|:---:|:---:|
+| **Zmiana hasła użytkownika tylko w chmurze**<br />Gdy użytkownik w usłudze Azure AD zna swoje hasło i chce zmienić go na coś nowego. | ● | ● | ● | ● |
+| **Resetowanie hasła tylko w chmurze**<br />Gdy użytkownik usługi Azure AD zapomniał hasła i musi go zresetować. | | ● | ● | ● |
+| **Hybrydowa zmiana hasła użytkownika lub zresetowanie z zapisem na prem**<br />Gdy użytkownik w usłudze Azure AD, który jest synchronizowany z katalogu lokalnego przy użyciu usługi Azure AD Connect chce zmienić lub zresetować swoje hasło, a także zapisać nowe hasło z powrotem do on-prem. | | | ● | ● |
 
 > [!WARNING]
-> Autonomiczne plany licencjonowania usługi Office 365 *nie obsługują samoobsługowego resetowania/zmieniania/odblokowywania hasła lokalnego za pomocą lokalnego stornowania"* i wymagają planu obejmującego usługę Azure AD Premium P1, Premium P2 lub Microsoft 365 Business, aby ta funkcja działała.
->
+> Autonomiczne plany licencjonowania usługi Office 365 nie obsługują samowzruszonego rozwiązania SSPR z lokalnym odpisem zwrotnym. Te plany licencjonowania usługi Office 365 wymagają usługi Azure AD Premium P1, Premium P2 lub Microsoft 365 Business, aby ta funkcja działała.
 
-Dodatkowe informacje dotyczące licencjonowania, w tym koszty, można znaleźć na następujących stronach:
+Dodatkowe informacje o licencjonowaniu, w tym koszty, można znaleźć na następujących stronach:
 
-* [Witryna cenowa usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Cennik usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Funkcje i możliwości usługi Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
-* [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
+* [Mobilność w przedsiębiorstwie + bezpieczeństwo](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
-* [Opis usługi firmy microsoft 365](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
+* [Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Włączanie licencjonowania grupowego lub opartego na użytkownikach
 
-Usługa Azure AD obsługuje teraz licencjonowanie oparte na grupach. Administratorzy mogą zbiorczo przypisywać licencje do grupy użytkowników, zamiast przypisywać je po kolei. Aby uzyskać więcej informacji, zobacz [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Usługa Azure AD obsługuje licencjonowanie oparte na grupach. Administratorzy mogą zbiorczo przypisywać licencje do grupy użytkowników, zamiast przypisywać je po kolei. Aby uzyskać więcej informacji, zobacz [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby licencja mogła być przypisana do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** użytkownika. Przypisywanie licencji można wykonać w sekcji**Ustawienia** **profilu** >  **użytkownika** > w witrynie Azure portal. *Podczas korzystania z przypisania licencji grupy, każdy użytkownik bez lokalizacji użycia określony dziedziczy lokalizację katalogu.*
+Niektóre usługi firmy Microsoft nie są dostępne we wszystkich lokalizacjach. Aby licencja mogła być przypisana do użytkownika, administrator musi określić właściwość **Lokalizacja użycia** użytkownika. Przypisywanie licencji można wykonać w sekcji**Ustawienia** **profilu** >  **użytkownika** > w witrynie Azure portal. *Podczas korzystania z przypisania licencji grupy, każdy użytkownik bez lokalizacji użycia określony dziedziczy lokalizację katalogu.*
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](howto-sspr-deployment.md)
-* [Resetowanie lub zmienianie hasła](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](../user-help/active-directory-passwords-reset-register.md)
-* [Jakie dane są używane przez funkcję samoobsługowego resetowania haseł i jakie dane powinny zostać wypełnione dla użytkowników?](howto-sspr-authenticationdata.md)
-* [Jakie metody uwierzytelniania są dostępne dla użytkowników?](concept-sspr-howitworks.md#authentication-methods)
-* [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](concept-sspr-policy.md)
-* [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](howto-sspr-writeback.md)
-* [Jak zgłosić działanie funkcji samoobsługowego resetowania haseł?](howto-sspr-reporting.md)
-* [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](concept-sspr-howitworks.md)
-* [Myślę, że coś jest zepsute. Jak rozwiązać problem z łatem SSPR?](active-directory-passwords-troubleshoot.md)
-* [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)
+Aby rozpocząć korzystanie z sspr, wykonaj następujący samouczek:
+
+> [!div class="nextstepaction"]
+> [Samouczek: Włączanie samoobsługowego resetowania hasła (SSPR)](tutorial-enable-sspr.md)

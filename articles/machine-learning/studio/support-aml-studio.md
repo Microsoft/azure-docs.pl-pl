@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019
-ms.openlocfilehash: 5529d09d71eb9f4ef1d9b4d8185cafb11f644bc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d330235815b746a5bbdc7682622c0e238a3ab0ea
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501308"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411896"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Uzyskaj pomoc techniczną i szkolenia dla usługi Azure Machine Learning Studio (klasyczna)
 
@@ -27,7 +27,6 @@ Ten artykuł zawiera informacje na temat dowiedzenia się więcej o usłudze Azu
 Zobacz nasze zasoby edukacyjne:
 + [Samouczki i artykuły instruktażowe](../studio/index.yml) 
 + [Filmy do nauki o danych dla początkujących](../studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) 
-+ [Arkusze oszukiwania algorytmów](../../synapse-analytics/sql-data-warehouse/cheat-sheet.md) 
 
 ## <a name="submit-doc-feedback"></a>Prześlij opinię doc
 

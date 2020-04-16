@@ -1,29 +1,30 @@
 ---
-title: Schemat zdarzenia magazynu obiektów blob usługi Azure Event Grid
+title: Usługa Azure Blob Storage jako źródło siatki zdarzeń
 description: W tym artykule opisano właściwości, które są dostarczane dla zdarzeń magazynu obiektów blob z usługą Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 71aa937536f35c9af44adb5822ce7a2bb8f3a9eb
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: cfc6e4790b67137b423cc90d93874d4914f81251
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756003"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393372"
 ---
-# <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schemat zdarzenia usługi Azure Event Grid dla magazynu obiektów Blob
+# <a name="azure-blob-storage-as-an-event-grid-source"></a>Usługa Azure Blob Storage jako źródło siatki zdarzeń
 
-Ten artykuł zawiera właściwości i schemat zdarzeń magazynu obiektów blob.Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md).
+Ten artykuł zawiera właściwości i schemat zdarzeń magazynu obiektów blob.Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md). Zawiera również listę szybkich uruchomień i samouczków do korzystania z usługi Azure Blob Storage jako źródła zdarzeń.
 
-Aby uzyskać listę przykładowych skryptów i samouczków, zobacz [Źródło zdarzenia Magazynu](event-sources.md#storage).
 
 >[!NOTE]
 > Tylko konta magazynu typu **StorageV2 (ogólnego przeznaczenia v2),** **BlockBlobStorage**i **BlobStorage** obsługują integrację zdarzeń. **Magazyn (genral purpose v1)** *nie* obsługuje integracji z siatką zdarzeń.
 
-## <a name="list-of-events-for-blob-rest-apis"></a>Lista zdarzeń dla interfejsów API REST obiektów blob
+## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
+
+### <a name="list-of-events-for-blob-rest-apis"></a>Lista zdarzeń dla interfejsów API REST obiektów blob
 
 Te zdarzenia są wyzwalane, gdy klient tworzy, zastępuje lub usuwa obiekt blob, wywołując interfejsy API SPOCZYNK obiektów blob.
 
@@ -35,7 +36,7 @@ Te zdarzenia są wyzwalane, gdy klient tworzy, zastępuje lub usuwa obiekt blob,
 > [!NOTE]
 > Jeśli chcesz upewnić się, że **zdarzenie Microsoft.Storage.BlobCreated** jest wyzwalane tylko wtedy, gdy `CopyBlob`blok `PutBlob`blob jest całkowicie zatwierdzony, filtruj zdarzenie dla wywołań interfejsu API , i `PutBlockList` REST. Te wywołania interfejsu API wyzwalają zdarzenie **Microsoft.Storage.BlobCreated** tylko wtedy, gdy dane są w pełni zaangażowane w blokowy obiekt blob. Aby dowiedzieć się, jak utworzyć filtr, zobacz [Filtrowanie zdarzeń dla siatki zdarzeń](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
-## <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Lista zdarzeń dla interfejsów API REST usługi Azure Data Storage Gen 2
+### <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Lista zdarzeń dla interfejsów API REST usługi Azure Data Storage Gen 2
 
 Te zdarzenia są wyzwalane po włączeniu hierarchicznego obszaru nazw na koncie magazynu, a klienci będą wywoływać interfejsy API REST usługi Azure Data Lake Storage Gen2. Aby uzyskać więcej informacji na temat usługi Azure Data Lake Storage Gen2, zobacz [Wprowadzenie do usługi Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
@@ -53,7 +54,7 @@ Te zdarzenia są wyzwalane po włączeniu hierarchicznego obszaru nazw na koncie
 
 <a id="example-event" />
 
-## <a name="the-contents-of-an-event-response"></a>Zawartość odpowiedzi na zdarzenie
+### <a name="the-contents-of-an-event-response"></a>Zawartość odpowiedzi na zdarzenie
 
 Po wyzwoleniu zdarzenia usługa Event Grid wysyła dane o tym zdarzeniu do subskrybowania punktu końcowego.
 
@@ -288,7 +289,7 @@ Jeśli konto magazynu obiektów blob ma hierarchiczny obszar nazw, dane wygląda
 }]
 ```
 
-## <a name="event-properties"></a>Właściwości zdarzenia
+### <a name="event-properties"></a>Właściwości zdarzenia
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
@@ -321,6 +322,17 @@ Obiekt danych ma następujące właściwości:
 | Cykliczne | ciąg | `True`, aby wykonać operację we wszystkich katalogach podrzędnych; w `False`przeciwnym razie . <br>Pojawia się tylko dla zdarzeń wyzwalanych na kontach magazynu obiektów blob, które mają hierarchiczną przestrzeń nazw. |
 | Sekwenser | ciąg | Wartość nieprzezroczystego ciągu reprezentująca logiczną sekwencję zdarzeń dla określonej nazwy obiektu blob.  Użytkownicy mogą używać standardowego porównania ciągów, aby zrozumieć względną sekwencję dwóch zdarzeń o tej samej nazwie obiektu blob. |
 | storageDiagnostics | obiekt | Dane diagnostyczne od czasu do czasu zawarte przez usługę Azure Storage. Gdy obecny, powinny być ignorowane przez konsumentów zdarzeń. |
+
+## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
+|Tytuł  |Opis  |
+|---------|---------|
+| [Szybki start: kierowanie zdarzeń magazynu obiektów Blob do niestandardowego punktu końcowego sieci Web za pomocą interfejsu wiersza polecenia platformy Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Pokazuje, jak używać interfejsu wiersza polecenia platformy Azure do wysyłania zdarzeń magazynu obiektów blob do elementu WebHook. |
+| [Szybki start: kierowanie zdarzeń magazynu obiektów Blob do niestandardowego punktu końcowego sieci Web za pomocą programu PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Pokazuje, jak używać programu Azure PowerShell do wysyłania zdarzeń magazynu obiektów blob do elementu WebHook. |
+| [Szybki start: tworzenie i rozsyłanie zdarzeń magazynu obiektów Blob za pomocą witryny Azure portal](blob-event-quickstart-portal.md) | Pokazuje, jak używać portalu do wysyłania zdarzeń magazynu obiektów blob do elementu WebHook. |
+| [Interfejsu wiersza polecenia platformy Azure: subskrybowanie zdarzeń dla konta magazynu obiektów Blob](./scripts/event-grid-cli-blob.md) | Przykładowy skrypt, który subskrybuje zdarzenie dla konta magazynu obiektów Blob. Wysyła zdarzenie do elementu WebHook. |
+| [Program PowerShell: subskrybowanie zdarzeń dla konta magazynu obiektów Blob](./scripts/event-grid-powershell-blob.md) | Przykładowy skrypt, który subskrybuje zdarzenie dla konta magazynu obiektów Blob. Wysyła zdarzenie do elementu WebHook. |
+| [Szablon Menedżera zasobów: tworzenie magazynu i subskrypcji obiektów Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Wdraża konto magazynu obiektów Blob platformy Azure i subskrybuje zdarzenia dla tego konta magazynu. Wysyła zdarzenia do elementu WebHook. |
+| [Omówienie: reagowanie na zdarzenia magazynu obiektów Blob](../storage/blobs/storage-blob-event-overview.md) | Omówienie integrowania magazynu obiektów Blob z siatką zdarzeń. |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,25 +1,27 @@
 ---
-title: Schemat zdarzenia rejestru kontenerów usługi Azure Event Grid
+title: Usługa Azure Container Registry jako źródło siatki zdarzeń
 description: W tym artykule opisano właściwości, które są dostarczane dla zdarzeń rejestru kontenerów za pomocą usługi Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
-ms.topic: reference
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60345468"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393358"
 ---
-# <a name="azure-event-grid-event-schema-for-container-registry"></a>Schemat zdarzenia usługi Azure Event Grid dla rejestru kontenerów
+# <a name="azure-container-registry-as-an-event-grid-source"></a>Usługa Azure Container Registry jako źródło siatki zdarzeń
 
 Ten artykuł zawiera właściwości i schemat zdarzeń rejestru kontenerów.Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md).
 
-## <a name="available-event-types"></a>Dostępne typy zdarzeń
+## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
+
+### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
 Usługa Azure Container Registry emituje następujące typy zdarzeń:
 
@@ -30,7 +32,7 @@ Usługa Azure Container Registry emituje następujące typy zdarzeń:
 | Plik Microsoft.ContainerRegistry.ChartPushed | Wywoływane po naciśnięciu wykresu helm. |
 | Plik Microsoft.ContainerRegistry.ChartDeleted | Wywoływane po usunięciu wykresu Helm. |
 
-## <a name="example-event"></a>Przykładowe zdarzenie
+### <a name="example-event"></a>Przykładowe zdarzenie
 
 W poniższym przykładzie przedstawiono schemat zdarzenia wypchniętego obrazu: 
 
@@ -151,7 +153,7 @@ Schemat zdarzenia usuniętego wykresu jest podobny do schematu dla zdarzenia usu
 }]
 ```
 
-## <a name="event-properties"></a>Właściwości zdarzenia
+### <a name="event-properties"></a>Właściwości zdarzenia
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
@@ -198,6 +200,12 @@ Obiekt żądania ma następujące właściwości:
 | host | ciąg | Zewnętrznie dostępna nazwa hosta wystąpienia rejestru, określona przez nagłówek hosta http w żądaniach przychodzących. |
 | method | ciąg | Metoda żądania, która wygenerowała zdarzenie. |
 | Useragent | ciąg | Nagłówek agenta użytkownika żądania. |
+
+## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
+|Tytuł |Opis  |
+|---------|---------|
+| [Szybki start: wysyłanie zdarzeń rejestru kontenerów](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Pokazuje, jak używać interfejsu wiersza polecenia platformy Azure do wysyłania zdarzeń rejestru kontenerów. |
+
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,16 +1,16 @@
 ---
-title: Tworzenie graficzne w usłudze Azure Automation
+title: Tworzenie grafiki w usłudze Azure Automation
 description: Tworzenie graficzne umożliwia tworzenie śmiób dla usługi Azure Automation bez pracy z kodem. Ten artykuł zawiera wprowadzenie do tworzenia grafiki i wszystkich szczegółów potrzebnych do rozpoczęcia tworzenia graficznego wiązka ś.a.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 09afca7eaf385795baf9c4a3c94232622527e357
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf8ced05066923c94e80628651d8983560601d69
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500946"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406046"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Tworzenie grafiki w usłudze Azure Automation
 
@@ -395,7 +395,7 @@ Następne działanie `Connect-AzAccount`, dodaje uwierzytelnione uruchom jako ko
 >[!NOTE]
 >Dla uruchomieniu programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są `Connect-AzAccount`aliasy dla . Należy pamiętać, że te aliasy nie są dostępne dla cząstek graficznych. Graficzny element runbook może `Connect-AzAccount` używać tylko siebie.
 
-Dla pól parametrów **APPLICATIONID**, **CERTIFICATETHUMBPRINT**i **TENANTID**, należy określić nazwę właściwości dla ścieżki Field, ponieważ działanie wyprowadza obiekt z wieloma właściwościami. W przeciwnym razie podczas wykonywania śmięcia nie powiedzie się podczas próby uwierzytelnienia. Jest to, czego potrzebujesz co najmniej do uwierzytelnienia ego runbook z uruchom jako konto.
+Dla pól parametrów **APPLICATIONID**, **CERTIFICATETHUMBPRINT**i **TENANTID**, należy określić nazwę właściwości ścieżki pola, ponieważ działanie wyprowadza obiekt z wieloma właściwościami. W przeciwnym razie podczas wykonywania śmięcia nie powiedzie się podczas próby uwierzytelnienia. Jest to, czego potrzebujesz co najmniej do uwierzytelnienia ego runbook z uruchom jako konto.
 
 Niektórzy subskrybenci tworzą konto automatyzacji przy użyciu [konta użytkownika usługi Azure AD](automation-create-aduser-account.md) do zarządzania klasycznym wdrożeniem platformy Azure lub zasobami usługi Azure Resource Manager. Aby zachować zgodność z powrotem dla tych subskrybentów, mechanizm `Add-AzureAccount` uwierzytelniania używany w liczebiu jest poleceniem cmdlet z [zasobem poświadczeń](automation-credentials.md). Zasób reprezentuje użytkownika usługi Active Directory z dostępem do konta platformy Azure.
 
@@ -441,3 +441,5 @@ Można przywrócić opublikowaną wersję ślikmy likemi. Ta operacja odrzuca ws
 * Aby rozpocząć korzystanie z graficznych śmięty, zobacz [Mój pierwszy graficzny element runbook](automation-first-runbook-graphical.md).
 * Aby dowiedzieć się więcej o typach elementów runbook oraz ich zaletach i ograniczeniach, zobacz [Typy elementów runbook usługi Azure Automation](automation-runbook-types.md).
 * Aby dowiedzieć się, jak uwierzytelnić się przy użyciu konta Uruchamianie automatyzacji jako, zobacz [Konfigurowanie usługi Azure Run As Account](automation-sec-configure-azure-runas-account.md).
+* Aby uzyskać odwołanie do polecenia polecenia cmdlet programu PowerShell, zobacz [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

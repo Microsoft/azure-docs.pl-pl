@@ -3,14 +3,14 @@ title: Wdrażanie aplikacji sieci szkieletowej usług z przypisanym do systemu m
 description: W tym artykule pokazano, jak przypisać tożsamość zarządzaną przypisaną do systemu do aplikacji sieci szkieletowej usług Azure
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614829"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415655"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Wdrażanie aplikacji sieci szkieletowej usług z tożsamością zarządzaną przypisaną do systemu (wersja zapoznawcza)
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Wdrażanie aplikacji sieci szkieletowej usług z tożsamością zarządzaną przypisaną do systemu
 
 Aby uzyskać dostęp do funkcji tożsamości zarządzanej dla aplikacji sieci szkieletowej usług Azure, należy najpierw włączyć usługę tokenu tożsamości zarządzanej w klastrze. Ta usługa jest odpowiedzialna za uwierzytelnianie aplikacji sieci szkieletowej usług przy użyciu ich tożsamości zarządzanych i uzyskiwanie tokenów dostępu w ich imieniu. Po włączeniu usługi można ją wyświetlić w Eksploratorze sieci szkieletowej usług w sekcji **System** w lewym okienku, działającej pod nazwą **sieci szkieletowej:/System/ManagedIdentityTokenService** obok innych usług systemowych.
 

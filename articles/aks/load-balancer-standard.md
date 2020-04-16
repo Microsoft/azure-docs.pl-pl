@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 17e474de9c221126d67cc2982ba11c6ff75e7aa3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c1d2c0e48394fbde1b595ae4b405d84f437dc5e4
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668491"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392808"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Użyj standardowego modułu równoważenia obciążenia usługi Azure Kubernetes (AKS)
 
@@ -32,7 +32,7 @@ Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia lo
 
 W tym artykule założono, że masz klaster AKS ze *standardowym* modułem równoważenia obciążenia usługi Azure SKU. Jeśli potrzebujesz klastra AKS, zobacz szybki start usługi AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub za pomocą portalu [Azure.][aks-quickstart-portal]
 
-Podmiot zabezpieczeń usługi klastrowania usługi AKS wymaga również uprawnień do zarządzania zasobami sieciowymi, jeśli używasz istniejącej podsieci lub grupy zasobów. Ogólnie rzecz biorąc przypisz rolę *współautora sieci* do jednostki usługi na delegowanych zasobów. Aby uzyskać więcej informacji na temat uprawnień, zobacz [Delegowanie dostępu AKS do innych zasobów platformy Azure][aks-sp].
+Podmiot zabezpieczeń usługi klastrowania usługi AKS wymaga również uprawnień do zarządzania zasobami sieciowymi, jeśli używasz istniejącej podsieci lub grupy zasobów. Ogólnie rzecz biorąc przypisz rolę *współautora sieci* do jednostki usługi na delegowanych zasobów. Zamiast jednostki usługi można również użyć systemu przypisanego tożsamości zarządzanej dla uprawnień. Aby uzyskać więcej informacji, zobacz [Używanie tożsamości zarządzanych](use-managed-identity.md). Aby uzyskać więcej informacji na temat uprawnień, zobacz [Delegowanie dostępu AKS do innych zasobów platformy Azure][aks-sp].
 
 ### <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>Przejście z podstawowego modułu równoważenia obciążenia jednostki SKU do standardowej jednostki SKU
 

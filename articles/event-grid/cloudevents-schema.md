@@ -7,15 +7,14 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 0efccd2851885dad209d5548a76737c25777b891
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 404052984cb99e37f7404a47f3ac374088d32d6c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372450"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393476"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Używanie schematu CloudEvents w wersji 1.0 z siatką zdarzeń
-
 Oprócz [domyślnego schematu zdarzeń usługa](event-schema.md)Azure Event Grid obsługuje zdarzenia w [implementacji JSON powiązania protokołu CloudEvents w wersji 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) i [http.](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md) [CloudEvents](https://cloudevents.io/) to [otwarta specyfikacja](https://github.com/cloudevents/spec/blob/v1.0/spec.md) opisująca dane zdarzeń.
 
 CloudEvents upraszcza współdziałanie, udostępniając wspólny schemat zdarzeń do publikowania i likwale zdarzeń opartych na chmurze. Ten schemat umożliwia jednolite narzędzia, standardowe sposoby routingu & obsługi zdarzeń i uniwersalne sposoby deserializacji schematu zdarzeń zewnętrznych. Za pomocą wspólnego schematu można łatwiej zintegrować pracę na różnych platformach.

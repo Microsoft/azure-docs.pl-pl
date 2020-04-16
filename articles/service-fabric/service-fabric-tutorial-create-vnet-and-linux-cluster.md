@@ -4,12 +4,12 @@ description: Dowiedz się, jak wdrożyć klaster usługi Service Fabric systemu 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: f5788f07dd4a4f03a95efaea4b741cd64c930ac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78251783"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411006"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>wdrażanie klastra usługi Service Fabric systemu Linux w sieci wirtualnej platformy Azure
 
@@ -31,8 +31,17 @@ Następujące procedury umożliwiają utworzenie klastra usługi Service Fabric 
 
 Pobierz poniższe pliki szablonu usługi Resource Manager:
 
+Dla Ubuntu 16.04 LTS:
+
 * [Usługa AzureDeploy.json][template]
 * [Usługa AzureDeploy.Parameters.json][parameters]
+
+Dla Ubuntu 18.04 LTS:
+
+* [Usługa AzureDeploy.json][template2]
+* [Usługa AzureDeploy.Parameters.json][parameters2]
+
+Różnica między dwoma szablonami jest **vmImageSku** atrybut jest ustawiony na "18.04-LTS" i każdego węzła **typeHandlerVersion** jest ustawiona na 1.1.
 
 Ten szablon wdraża bezpieczny klaster siedmiu maszyn wirtualnych i trzech typów węzłów w sieci wirtualnej.  Inne przykładowe szablony można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [AzureDeploy.json][template] wdraża wiele zasobów, w tym następujące.
 
@@ -42,7 +51,7 @@ W zasobie **Microsoft.ServiceFabric/clusters** został wdrożony klaster systemu
 
 * Trzy typy węzła
 * pięć węzłów w typie węzła podstawowego (konfigurowalne w parametrach szablonu), jeden węzeł w każdym z pozostałych typów węzłów
-* system operacyjny Ubuntu 16.04 LTS (z możliwością konfiguracji w parametrach szablonu)
+* System operacyjny: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (konfigurowalny w parametrach szablonu)
 * Zabezpieczenie przy użyciu certyfikatu (z możliwością konfiguracji za pomocą parametrów szablonu)
 * [Usługa DNS](service-fabric-dnsservice.md) jest włączona
 * [Poziom trwałości](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster): Brązowy (z możliwością konfiguracji za pomocą parametrów szablonu)
@@ -70,7 +79,7 @@ Jeśli będą potrzebne dowolne inne porty aplikacji, będzie trzeba dostosować
 
 ## <a name="set-template-parameters"></a>Ustawianie parametrów szablonu
 
-Plik parametrów [AzureDeploy.Parameters][parameters] deklaruje wiele wartości służących do wdrażania klastra i skojarzonych zasobów. Niektóre parametry, które być może będzie trzeba zmodyfikować na potrzeby danego wdrożenia:
+**Plik AzureDeploy.Parameters** deklaruje wiele wartości używanych do wdrażania klastra i skojarzonych zasobów. Niektóre parametry, które być może będzie trzeba zmodyfikować na potrzeby danego wdrożenia:
 
 |Parametr|Przykładowa wartość|Uwagi|
 |---|---||
@@ -86,7 +95,7 @@ Plik parametrów [AzureDeploy.Parameters][parameters] deklaruje wiele wartości 
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Wdrażanie sieci wirtualnej i klastra
 
-Następnym etapem jest skonfigurowanie topologii sieci i wdrożenie klastra usługi Service Fabric. Plik [AzureDeploy.json][template] szablonu usługi Resource Manager tworzy sieć wirtualną (VNET) i podsieć dla usługi Service Fabric. Szablon pozwala również wdrożyć klaster z włączonymi zabezpieczeniami opartymi na certyfikacie.  W przypadku klastrów produkcyjnych jako certyfikatu klastra należy używać certyfikatu z urzędu certyfikacji. Do zabezpieczenia klastrów testowych może służyć certyfikat z podpisem własnym.
+Następnym etapem jest skonfigurowanie topologii sieci i wdrożenie klastra usługi Service Fabric. Plik **AzureDeploy.json** szablonu usługi Resource Manager tworzy sieć wirtualną (VNET) i podsieć dla usługi Service Fabric. Szablon pozwala również wdrożyć klaster z włączonymi zabezpieczeniami opartymi na certyfikacie.  W przypadku klastrów produkcyjnych jako certyfikatu klastra należy używać certyfikatu z urzędu certyfikacji. Do zabezpieczenia klastrów testowych może służyć certyfikat z podpisem własnym.
 
 Szablon w tym artykule wdraża klaster, który używa odcisku palca certyfikatu do identyfikowania certyfikatu klastra.  Żadne dwa certyfikaty nie mogą mieć tego samego odcisku palca, co sprawia, że zarządzanie certyfikatami jest trudniejsze. Przełączenie wdrożonego klastra z używania odcisków palca certyfikatu na używanie nazw pospolitych certyfikatów sprawia, że zarządzanie certyfikatami jest znacznie prostsze.  Aby dowiedzieć się, jak zaktualizować klaster pod kątem używania nazw pospolitych certyfikatów do zarządzania certyfikatami, przeczytaj artykuł [Modyfikacja klastra pod kątem zarządzania certyfikatami za pomocą nazw pospolitych](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
@@ -163,3 +172,5 @@ Szablon w tym artykule wdraża klaster, który używa odcisku palca certyfikatu 
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.json
+[parameters2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.Parameters.json

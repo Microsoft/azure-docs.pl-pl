@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3145c7db064432e443aae5dcd503905b865ffe46
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f7558745442ac26fc33a063ff66fe170d08487ac
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383248"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392084"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilowanie konfiguracji DSC w konfiguracji stanu automatyzacji platformy Azure
 
@@ -130,12 +130,12 @@ Funkcja **Zasoby złożone** umożliwia używanie konfiguracji DSC jako zagnież
 
 ### <a name="manage-configurationdata-when-compiling-configurations-in-azure-automation"></a>Zarządzanie danymi ConfigurationData podczas kompilowania konfiguracji w usłudze Azure Automation
 
-**ConfigurationData** umożliwia oddzielenie konfiguracji strukturalnej od dowolnej konfiguracji specyficznej dla środowiska podczas korzystania z usługi PowerShell DSC. Aby uzyskać więcej informacji, zobacz [Oddzielanie "Co" od "Gdzie" w programie PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
+`ConfigurationData`jest wbudowanym parametrem DSC, który umożliwia oddzielenie konfiguracji strukturalnej od dowolnej konfiguracji specyficznej dla środowiska podczas korzystania z programu PowerShell DSC. Aby uzyskać więcej informacji, zobacz [Oddzielanie "Co" od "Gdzie" w programie PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
 
 > [!NOTE]
-> Podczas kompilowania w konfiguracji stanu automatyzacji platformy Azure można użyć **ConfigurationData** w programie Azure PowerShell, ale nie w witrynie Azure portal.
+> Podczas kompilowania w konfiguracji stanu `ConfigurationData` automatyzacji platformy Azure można używać w programie Azure PowerShell, ale nie w witrynie Azure portal.
 
-Poniższa przykładowa konfiguracja DSC używa `$ConfigurationData` `$AllNodes` **ConfigurationData** za pośrednictwem i słów kluczowych. W tym przykładzie potrzebny jest również [moduł administrowa xWebAdministration.](https://www.powershellgallery.com/packages/xWebAdministration/)
+Poniższa przykładowa konfiguracja `ConfigurationData` DSC używa za pośrednictwem `$ConfigurationData` i `$AllNodes` słów kluczowych. W tym przykładzie potrzebny jest również [moduł administrowa xWebAdministration.](https://www.powershellgallery.com/packages/xWebAdministration/)
 
 ```powershell
 Configuration ConfigurationDataSample
@@ -198,7 +198,7 @@ Konfiguracje DSC w usłudze Azure Automation `Get-AutomationPSCredential` mogą 
 
 Utrzymywanie bezpieczeństwa poświadczeń w konfiguracjach węzłów (dokumenty konfiguracyjne MOF) wymaga szyfrowania poświadczeń w pliku MOF konfiguracji węzła. Obecnie należy przyznać uprawnienie DSC programu PowerShell do danych wyjściowych poświadczeń w postaci zwykłego tekstu podczas generowania MOF konfiguracji węzła. Program PowerShell DSC nie jest świadomy, że usługa Azure Automation szyfruje cały plik MOF po jego generowaniu za pomocą zadania kompilacji.
 
-Można powiedzieć, że program PowerShell DSC, że jest w porządku dla poświadczeń, które mają być wyprowadzane w postaci zwykłego tekstu w konfiguracji generowanego węzła MOF przy użyciu danych konfiguracyjnych. Należy przekazać `PSDscAllowPlainTextPassword = $true` za pośrednictwem ConfigurationData dla każdej nazwy bloku **węzła,** który pojawia się w konfiguracji DSC i używa poświadczeń.
+Można powiedzieć, że program PowerShell DSC, że jest w porządku dla poświadczeń, które mają być wyprowadzane w postaci zwykłego tekstu w konfiguracji generowanego węzła MOF przy użyciu danych konfiguracyjnych. Należy przekazać `PSDscAllowPlainTextPassword = $true` `ConfigurationData` za pośrednictwem dla każdej nazwy bloku węzła, który pojawia się w konfiguracji DSC i używa poświadczeń.
 
 W poniższym przykładzie przedstawiono konfigurację DSC, która używa zasobu poświadczeń automatyzacji.
 
@@ -264,7 +264,7 @@ Ten proces można wykonać z dewelopera stacji roboczej lub w ramach usługi kom
 
 1. Na koncie automatyzacji kliknij pozycję **Konfiguracja stanu (DSC)** w obszarze **Zarządzanie konfiguracją**.
 1. Na stronie Konfiguracja stanu (DSC) kliknij kartę **Konfiguracje,** a następnie kliknij pozycję **Dodaj**.
-1. Na stronie Importowanie kliknij ikonę folderu obok pola tekstowego **Plik konfiguracji węzła,** aby wyszukać plik konfiguracyjny węzła (MOF) na komputerze lokalnym.
+1. Na stronie Importowanie kliknij ikonę folderu obok pola **Plik konfiguracji węzła,** aby wyszukać plik MOF konfiguracji węzła na komputerze lokalnym.
 
    ![Przeglądanie pliku lokalnego](./media/automation-dsc-compile/import-browse.png)
 

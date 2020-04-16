@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272151"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390221"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architektura sieci wirtualnej usługi Azure HDInsight
 
@@ -30,11 +30,11 @@ Klastry usługi Azure HDInsight mają różne typy maszyn wirtualnych lub węzł
 | Węzeł krawędzi serwera R | Węzeł brzegowy serwera R reprezentuje węzeł, który można ssh do i wykonywania aplikacji, które są następnie koordynowane do uruchamiania zasobów klastra. Węzeł brzegowy nie uczestniczy w analizie danych w klastrze. Ten węzeł obsługuje również serwer R Studio, umożliwiając uruchamianie aplikacji Języka R za pomocą przeglądarki. |
 | Węzeł regionu | Dla typu klastra HBase węzeł regionu (nazywany również węzłem danych) uruchamia serwer regionu. Serwery regionu obsługują część danych zarządzanych przez firmę HBase i zarządzają nimi. Węzły regionu można dodawać lub usuwać z klastra, aby skalować możliwości obliczeniowe i zarządzać kosztami.|
 | Węzeł Nimbus | Dla typu klastra Burza węzeł Nimbus zapewnia funkcje podobne do węzła Głównego. Węzeł Nimbus przypisuje zadania do innych węzłów w klastrze za pośrednictwem zookeeper, który koordynuje uruchamianie topologii storm. |
-| Węzeł przełożonego | Dla typu klastra Storm węzeł nadzorcy wykonuje instrukcje dostarczone przez węzeł Nimbus do wykonywania żądanego przetwarzania. |
+| Węzeł przełożonego | Dla typu klastra Storm węzeł nadzorcy wykonuje instrukcje dostarczone przez węzeł Nimbus do przetwarzania. |
 
 ## <a name="resource-naming-conventions"></a>Konwencje nazewnictwa zasobów
 
-Podczas adresowania węzłów w klastrze należy używać w pełni kwalifikowanych nazw domen (FQDN). Nazwy FQDN dla różnych typów węzłów w klastrze można uzyskać za pomocą [interfejsu API Ambari.](hdinsight-hadoop-manage-ambari-rest-api.md) 
+Podczas adresowania węzłów w klastrze należy używać w pełni kwalifikowanych nazw domen (FQDN). Nazwy FQDN dla różnych typów węzłów w klastrze można uzyskać za pomocą [interfejsu API Ambari.](hdinsight-hadoop-manage-ambari-rest-api.md)
 
 Te FQDN będą w `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`formie .
 
@@ -48,9 +48,9 @@ Na poniższym diagramie przedstawiono rozmieszczenie węzłów usługi HDInsight
 
 ![Diagram jednostek usługi HDInsight utworzonych w niestandardowej sieci wirtualnej platformy Azure](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
-Domyślne zasoby obecne, gdy usługa HDInsight jest wdrażana w sieci wirtualnej platformy Azure, obejmują typy węzłów klastra wymienione w poprzedniej tabeli, a także urządzenia sieciowe obsługujące komunikację między siecią wirtualną a sieciami zewnętrznymi.
+Domyślne zasoby w sieci wirtualnej platformy Azure obejmują typy węzłów klastra wymienione w poprzedniej tabeli. I urządzeń sieciowych, które obsługują komunikację między siecią wirtualną i sieciami zewnętrznymi.
 
-W poniższej tabeli podsumowano dziewięć węzłów klastra, które są tworzone podczas wdrażania usługi HDInsight w niestandardowej sieci wirtualnej platformy Azure.
+W poniższej tabeli podsumowano dziewięć węzłów klastra utworzonych podczas wdrażania usługi HDInsight w niestandardowej sieci wirtualnej platformy Azure.
 
 | Typ zasobu | Liczba obecnych | Szczegóły |
 | --- | --- | --- |
@@ -64,7 +64,7 @@ Następujące obecne zasoby sieciowe są tworzone automatycznie wewnątrz sieci 
 | Zasób sieciowy | Liczba obecnych | Szczegóły |
 | --- | --- | --- |
 |Moduł równoważenia obciążenia | trzy | |
-|Interfejsy sieciowe | Dziewięć | Ta wartość jest oparta na normalnym klastrze, w którym każdy węzeł ma swój własny interfejs sieciowy. Dziewięć interfejsów dotyczy dwóch węzłów głównego, trzech węzłów zookeeper, dwóch węzłów procesu roboczego i dwóch węzłów bramy wymienionych w poprzedniej tabeli. |
+|Interfejsy sieciowe | Dziewięć | Ta wartość jest oparta na normalnym klastrze, w którym każdy węzeł ma swój własny interfejs sieciowy. Dziewięć interfejsów jest przeznaczonych dla: dwóch węzłów głównego, trzech węzłów zookeeper, dwóch węzłów procesu roboczego i dwóch węzłów bramy wymienionych w poprzedniej tabeli. |
 |Publiczne adresy IP | dwa |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>Punkty końcowe do łączenia się z hdinsight
@@ -73,7 +73,7 @@ Dostęp do klastra HDInsight można uzyskać na trzy sposoby:
 
 - Punkt końcowy HTTPS poza siecią `CLUSTERNAME.azurehdinsight.net`wirtualną pod adresem .
 - Punkt końcowy SSH do bezpośredniego podłączenia do `CLUSTERNAME-ssh.azurehdinsight.net`headnode w .
-- Punkt końcowy HTTPS w `CLUSTERNAME-int.azurehdinsight.net`sieci wirtualnej . Zwróć uwagę na "-int" w tym adresie URL. Ten punkt końcowy rozwiąże problem prywatnego adresu IP w tej sieci wirtualnej i nie jest dostępny z publicznego Internetu.
+- Punkt końcowy HTTPS w `CLUSTERNAME-int.azurehdinsight.net`sieci wirtualnej . Zwróć uwagę`-int`na " " w tym adresie URL. Ten punkt końcowy rozwiąże problem prywatnego adresu IP w tej sieci wirtualnej i nie jest dostępny z publicznego Internetu.
 
 Te trzy punkty końcowe są przypisane moduł równoważenia obciążenia.
 

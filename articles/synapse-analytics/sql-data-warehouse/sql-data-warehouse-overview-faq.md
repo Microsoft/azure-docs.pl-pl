@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: dcefe6a6144c9a8f9c6ab7daf5b34b2d81a73c3f
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 260086d186f7e2b2d6f76c437057f5fbc8af39b5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743004"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416072"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Usługa Azure Synapse Analytics (dawniej SQL DW) Często zadawane pytania
 
@@ -92,7 +92,7 @@ A. Tak. Większość funkcji REST, które mogą być używane z bazy danych SQL 
 
 PYTANIE: Jakie sterowniki klienta obsługujesz?
 
-A. Obsługę sterowników puli Synapse SQL można znaleźć na stronie [Parametry połączenia](sql-data-warehouse-connection-strings.md)
+A. Obsługę sterowników puli Synapse SQL można znaleźć na stronie [Parametry połączenia](../sql/connection-strings.md)
 
 Pyt.: Jakie formaty plików są obsługiwane przez PolyBase?
 

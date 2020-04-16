@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/09/2020
-ms.openlocfilehash: d37b4648c0a37f16fe5c9d8794bd78417c5780ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd7844340553809e1429097a9dda70f6bdb3e075
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257890"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414192"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Kopiowanie funkcji optymalizacji wydajności działania
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule przedstawiono funkcje optymalizacji wydajności działania kopiowania, które można wykorzystać w usłudze Azure Data Factory.
 
@@ -134,7 +136,7 @@ Po uaktywnieniu funkcji przemieszczania, najpierw dane są kopiowane z magazynu 
 
 ![Kopia etapowa](media/copy-activity-performance/staged-copy.png)
 
-Podczas włączania przenoszenia danych przy użyciu magazynu przemieszczania można określić, czy dane mają być kompresowane przed przeniesieniem danych z magazynu danych źródłowych do tymczasowego lub przemieszczania magazynu danych, a następnie zdekompresowanym przed przeniesieniem danych z tymczasowego lub przejściowego magazynu danych do magazynu danych ujścia.
+Po uaktywnieniu przenoszenia danych przy użyciu magazynu przemieszczania można określić, czy dane mają być kompresowane przed przeniesieniem danych z magazynu danych źródłowych do tymczasowego lub przemieszczania magazynu danych, a następnie zdekompresować przed przeniesieniem danych z tymczasowego lub przemieszczania magazynu danych do magazynu danych ujścia.
 
 Obecnie nie można kopiować danych między dwoma magazynami danych, które są połączone za pośrednictwem różnych samodzielnie hostowanych adresów IRs, ani z kopią etapową, ani bez niej. W takim scenariuszu można skonfigurować dwa jawnie połączone działania kopiowania do kopiowania ze źródła do przemieszczania następnie z przemieszczania do ujścia.
 

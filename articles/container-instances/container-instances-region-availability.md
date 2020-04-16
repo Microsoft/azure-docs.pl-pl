@@ -4,12 +4,12 @@ description: Dostępność zasobów obliczeniowych i pamięci dla usługi Wystą
 ms.topic: article
 ms.date: 02/19/2020
 ms.author: danlep
-ms.openlocfilehash: f429a165fe26cc9fc7aa973231f5a77163feef4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c84ab7833f7c90d5d4b3c340c268fd9f75e20da9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247139"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399399"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Dostępność zasobów dla wystąpień kontenerów platformy Azure w regionach platformy Azure
 
@@ -18,7 +18,7 @@ W tym artykule opisano dostępność zasobów obliczeniowych, pamięci i magazyn
 Przedstawione wartości to maksymalne zasoby dostępne na wdrożenie [grupy kontenerów](container-instances-container-groups.md). Wartości są aktualne w momencie publikacji. 
 
 > [!NOTE]
-> Grupy kontenerów utworzone w ramach tych limitów zasobów są zależne od dostępności w regionie wdrażania. Gdy region jest mocno obciążony, wdrażanie wystąpień może zakończyć się niepowodzeniem. Aby zmniejszyć awarię takiego wdrożenia, spróbuj wdrożyć wystąpienia z niższymi ustawieniami zasobów lub spróbuj wdrożyć w późniejszym czasie.
+> Grupy kontenerów utworzone w ramach tych limitów zasobów są zależne od dostępności w regionie wdrażania. Gdy region jest mocno obciążony, wdrażanie wystąpień może zakończyć się niepowodzeniem. Aby ograniczyć taki błąd wdrażania, spróbuj wdrożyć wystąpienia z niższymi ustawieniami zasobów lub spróbuj wdrożyć w późniejszym czasie lub w innym regionie z dostępnymi zasobami.
 
 Aby uzyskać informacje o przydziałach i innych limitach we wdrożeniach, zobacz [Przydziały i limity dla wystąpień kontenerów platformy Azure](container-instances-quotas.md).
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 570d55c8523e1c1deca3242a8841b0cc34322786
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f28f2bcf5d04c9a6354b8135bd39546b9d8b9bf3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053871"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404299"
 ---
 # <a name="what-is-azure-content-moderator"></a>Czym jest usługa Azure Content Moderator?
 
@@ -38,7 +38,7 @@ Poniżej przedstawiono kilka scenariuszy, w których deweloper lub zespół ds. 
 
 ## <a name="what-it-includes"></a>Co zawiera
 
-Usługa Content Moderator składa się z kilku interfejsów API usług internetowych dostępnych za pośrednictwem wywołań REST i zestawu .NET SDK. Obejmuje również narzędzie przeglądu przez ludzi, dzięki któremu recenzenci mogą pomóc usłudze i ulepszyć lub dostosować jej funkcję moderowania.
+Usługa Content Moderator składa się z kilku interfejsów API usług internetowych dostępnych za pośrednictwem wywołań REST i zestawu .NET SDK. Zawiera również narzędzie Review, które pozwala recenzentom ludzkim na pomoc w usłudze i poprawienie lub dostosowanie jej funkcji moderacji.
 
 ## <a name="moderation-apis"></a>Interfejsy API moderowania
 
@@ -58,18 +58,18 @@ W poniższej tabeli opisano różne typy interfejsów API moderowania.
 
 ## <a name="review-apis"></a>Przegląd interfejsów API
 
-Interfejsy API przeglądu umożliwiają integrowanie potoku moderowania z ludzkimi recenzentami. Operacje [Zadania,](review-api.md#jobs) [Recenzje](review-api.md#reviews)i [Przepływ pracy umożliwia](review-api.md#workflows) tworzenie i automatyzowania przepływów pracy typu human-in-the-loop za pomocą narzędzia [Recenzja](#the-review-tool) (poniżej).
+Interfejsy API przeglądu umożliwiają integrowanie potoku moderowania z ludzkimi recenzentami. Operacje [Zadania,](review-api.md#jobs) [Recenzje](review-api.md#reviews)i [Przepływ pracy umożliwia](review-api.md#workflows) tworzenie i automatyzowania przepływów pracy typu human-in-the-loop za pomocą narzędzia [Recenzja](#review-tool) (poniżej).
 
 > [!NOTE]
 > Interfejs API przepływu pracy nie jest jeszcze dostępny w pliku .NET SDK, ale może być używany z punktem końcowym REST.
 
 ![diagram blokowy dla interfejsów API przeglądu moderatora zawartości](images/content-moderator-rev-api.png)
 
-## <a name="the-review-tool"></a>Narzędzie Recenzja
+## <a name="review-tool"></a>Narzędzie do przeglądu
 
 Usługa Content Moderator zawiera również internetowe [narzędzie do recenzji,](Review-Tool-User-Guide/human-in-the-loop.md)które obsługuje opinie o zawartości, które mogą być przetwarzane przez moderatorów. Dane wejściowe człowieka nie szkoli usługi, ale połączona praca zespołów przeglądu usługi i człowieka pozwala deweloperom znaleźć właściwą równowagę między wydajnością i dokładnością. Narzędzie Recenzja zapewnia również przyjazny dla użytkownika front-end dla kilku zasobów moderatora zawartości.
 
-![Strona główna narzędzia do przeglądu przez ludzi usługi Content Moderator](images/homepage.PNG)
+![Strona główna narzędzia Recenzja moderatora zawartości](images/homepage.PNG)
 
 ## <a name="data-privacy-and-security"></a>Prywatność i zabezpieczenia danych
 

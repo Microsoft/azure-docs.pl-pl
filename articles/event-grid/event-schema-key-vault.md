@@ -1,24 +1,26 @@
 ---
-title: Schemat zdarzeń usługi Azure Event Grid dla usługi Azure Key Vault
+title: Usługa Azure Key Vault jako źródło siatki zdarzeń
 description: Zawiera opis właściwości i schematu dla zdarzeń usługi Azure Key Vault za pomocą usługi Azure Event Grid
 services: event-grid
-author: msmbaldwin
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/25/2019
-ms.author: mbaldwin
-ms.openlocfilehash: fe186e2ba8f3cafeb4d186066ba65ae036302f70
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: 36b7b81a18c8725929ab5676b844e1ee319e287f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010515"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393315"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-key-vault-preview"></a>Schemat zdarzeń usługi Azure Event Grid dla usługi Azure Key Vault (wersja zapoznawcza)
+# <a name="azure-key-vault-as-event-grid-source"></a>Usługa Azure Key Vault jako źródło siatki zdarzeń
 
 Ten artykuł zawiera właściwości i schemat zdarzeń w [usłudze Azure Key Vault](../key-vault/index.yml), obecnie w wersji zapoznawczej. Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md).
 
-## <a name="available-event-types"></a>Dostępne typy zdarzeń
+## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
+
+### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
 Konto usługi Azure Key Vault generuje następujące typy zdarzeń:
 
@@ -34,7 +36,7 @@ Konto usługi Azure Key Vault generuje następujące typy zdarzeń:
 | Microsoft.KeyVault.SecretNearExpiry | Sekret bliski wygaśnięcia | Wyzwalane, gdy bieżąca wersja klucza tajnego wkrótce wygaśnie. (Zdarzenie jest wyzwalane 30 dni przed datą wygaśnięcia). |
 | Microsoft.KeyVault.SecretExpired | Tajemnica wygasła | Wyzwalane po wygaśnięciu klucza tajnego. |
 
-## <a name="event-examples"></a>Przykłady zdarzeń
+### <a name="event-examples"></a>Przykłady zdarzeń
 
 Poniższy przykład pokazuje schemat dla **microsoft.keyvault.SecretNewVersionCreated**:
 
@@ -61,7 +63,7 @@ Poniższy przykład pokazuje schemat dla **microsoft.keyvault.SecretNewVersionCr
 ]
 ```
 
-## <a name="event-properties"></a>Właściwości zdarzenia
+### <a name="event-properties"></a>Właściwości zdarzenia
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
@@ -74,6 +76,12 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 | version | ciąg | Wersja obiektu, który wyzwolił to zdarzenie |
 | Nbf | numer | Data niedoprzednia w sekundach od 1970-01-01T00:00:00Z obiektu, który wyzwolił to zdarzenie |
 | exp | numer | Data ważności w sekundach od 1970-01-01T00:00:00Z obiektu, który wyzwolił to zdarzenie |
+
+## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
+|Tytuł  |Opis  |
+|---------|---------|
+| [Monitorowanie zdarzeń magazynu kluczy za pomocą usługi Azure Event Grid](../key-vault/event-grid-overview.md) | Omówienie integracji magazynu kluczy z siatką zdarzeń. |
+| [Samouczek: Tworzenie i monitorowanie zdarzeń magazynu kluczy za pomocą siatki zdarzeń](../key-vault/event-grid-tutorial.md) | Dowiedz się, jak skonfigurować powiadomienia o siatce zdarzeń dla usługi Key Vault. |
 
 
 ## <a name="next-steps"></a>Następne kroki

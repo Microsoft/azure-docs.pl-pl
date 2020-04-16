@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: b24d7db679bb9cb9dacd5e1db8e6410b883548cc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652188"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415705"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Usługi Azure Cosmos DB
 
@@ -27,9 +27,9 @@ Po utworzeniu konta usługi Azure Cosmos w ramach subskrypcji można zarządzać
 | Maksymalna liczba procesorów RUs na bazę danych[(tryb aprowizacji przepływociądziowej udostępnionej)](databases-containers-items.md#azure-cosmos-containers) | domyślnie 1 000 000. Możesz go zwiększyć, [składając bilet pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maksymalna liczba procesorów na (logiczny) klucz partycji | 10 000 |
 | Maksymalna ilość miejsca do magazynowania wszystkich elementów na (logiczny) klucz partycji| 20 GB |
-| Maksymalna liczba odrębnych (logicznych) kluczy partycji | Unlimited (nieograniczony) |
-| Maksymalna ilość miejsca przechowywania na kontener | Unlimited (nieograniczony) |
-| Maksymalna ilość miejsca na bazę danych | Unlimited (nieograniczony) |
+| Maksymalna liczba odrębnych (logicznych) kluczy partycji | Nieograniczona liczba |
+| Maksymalna ilość miejsca przechowywania na kontener | Nieograniczona liczba |
+| Maksymalna ilość miejsca na bazę danych | Nieograniczona liczba |
 | Maksymalny rozmiar załącznika na konto (funkcja załącznika jest amortyzowana) | 2 GB |
 | Minimalna ilość procesorów r./ wymagana na 1 GB | 10 ru/s |
 
@@ -70,13 +70,13 @@ Konto [usługi Azure Cosmos można aprowizować i zarządzać nim](how-to-manage
 > [!NOTE]
 > Regionalne tryb failovers dotyczą tylko kont zapisu w jednym regionie. Konta zapisu w wielu regionach nie wymagają ani nie mają żadnych ograniczeń dotyczących zmiany regionu zapisu.
 
-Usługa Cosmos DB automatycznie wykonuje kopie zapasowe danych w regularnych odstępach czasu. Aby uzyskać szczegółowe informacje na temat interwałów przechowywania kopii zapasowych i okien, zobacz [Tworzenie kopii zapasowych w trybie online i przywracanie danych na żądanie w usłudze Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Usługa Cosmos DB automatycznie wykonuje kopie zapasowe danych w regularnych odstępach czasu. Aby uzyskać szczegółowe informacje na temat interwałów przechowywania kopii zapasowych i okien, zobacz [Tworzenie kopii zapasowych w trybie online i przywracanie danych na żądanie w usłudze Azure Cosmos DB](online-backup-and-restore.md).
 
 ## <a name="per-account-limits"></a>Limity na konto
 
 | Zasób | Limit domyślny |
 | --- | --- |
-| Maksymalna liczba baz danych | Unlimited (nieograniczony) |
+| Maksymalna liczba baz danych | Nieograniczona liczba |
 | Maksymalna liczba kontenerów na bazę danych z współdzieloną przepływnością |25 |
 | Maksymalna liczba kontenerów na bazę danych lub konto z dedykowaną przepustowością  |bez ograniczeń |
 | Maksymalna liczba regionów | Brak limitu (wszystkie regiony platformy Azure) |

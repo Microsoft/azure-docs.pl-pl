@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: 8379b7f48e7e494370f3fdba81676d34821d7b6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffa98e511053edc75fd0e6f25f7b0e21ee9ddda0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75563381"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414533"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Porównanie kolejek magazynu i kolejek usługi Service Bus
 W tym artykule przeanalizowane różnice i podobieństwa między dwoma typami kolejek oferowanych przez platformę Microsoft Azure dzisiaj: kolejki usługi Storage i kolejek usługi Service Bus. Korzystając z tych informacji, można porównać i porównać odpowiednie technologie i być w stanie podjąć bardziej świadomą decyzję o tym, które rozwiązanie najlepiej odpowiada Twoim potrzebom.
@@ -57,7 +57,7 @@ Jako architekt/deweloper rozwiązań **należy rozważyć użycie kolejek usług
     - [Uwierzytelnianie przy użyciu aplikacji](authenticate-application.md)
 * Rozmiar kolejki nie przekroczy 80 GB.
 * Chcesz użyć protokołu komunikacji opartej na standardach AMQP 1.0. Aby uzyskać więcej informacji na temat usługi AMQP, zobacz [Omówienie usługi AMQP magistrali usług](service-bus-amqp-overview.md).
-* Można wyobrazić sobie ewentualną migrację z komunikacji punkt-punkt opartej na kolejkach do wzorca wymiany wiadomości, który umożliwia bezproblemową integrację dodatkowych odbiorników (subskrybentów), z których każdy otrzymuje niezależne kopie niektórych lub wszystkich wiadomości wysyłanych do kolejki. Ten ostatni odnosi się do możliwości publikowania/subskrybowania natywnie świadczonych przez usługę Service Bus.
+* Można wyobrazić sobie ewentualną migrację z komunikacji punkt-punkt opartej na kolejce do wzorca wymiany komunikatów, który umożliwia bezproblemową integrację dodatkowych odbiorników (subskrybentów), z których każdy otrzymuje niezależne kopie niektórych lub wszystkich wiadomości wysłanych do kolejki. Ten ostatni odnosi się do możliwości publikowania/subskrybowania natywnie świadczonych przez usługę Service Bus.
 * Rozwiązanie do obsługi wiadomości musi być w stanie obsługiwać gwarancję dostarczania "At-Most-Once" bez konieczności tworzenia dodatkowych składników infrastruktury.
 * Chcesz mieć możliwość publikowania i używania partii komunikatów.
 
@@ -73,7 +73,7 @@ W tej sekcji porównano niektóre podstawowe możliwości kolejkowania zapewnian
 | Gwarancja dostawy |**Co najmniej raz** |**At-Least-Once** (za pomocą trybu odbioru PeekLock - jest to domyślne) <br/><br/>**At-Most-Once** (przy użyciu receiveAndDelete tryb odbioru) <br/> <br/> Dowiedz się więcej o różnych [trybach odbioru](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Obsługa operacji atomowych |**Nie** |**Tak**<br/><br/> |
 | Odbieranie zachowania |**Nieblokujące**<br/><br/>(kończy się natychmiast, jeśli nie znaleziono nowej wiadomości) |**Blokowanie z/bez limitu czasu**<br/><br/>(oferuje długie sondowanie lub ["Technika Komety")](https://go.microsoft.com/fwlink/?LinkId=613759)<br/><br/>**Nieblokujące**<br/><br/>(tylko za pomocą zarządzanego interfejsu API platformy .NET) |
-| Interfejs API w stylu wypychaniem |**Nie** |**Tak**<br/><br/>[Sesje OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) i **OnMessage** .NET API. |
+| Interfejs API w stylu wypychaniem |**Nie** |**Tak**<br/><br/>[QueueClient.OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) i [MessageSessionHandler.OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagesessionhandler.onmessage#Microsoft_ServiceBus_Messaging_MessageSessionHandler_OnMessage_Microsoft_ServiceBus_Messaging_MessageSession_Microsoft_ServiceBus_Messaging_BrokeredMessage__) sesji .NET API. |
 | Tryb odbierania |**Zajrzeć & dzierżawy** |**Zajrzeć & lock**<br/><br/>**Odbierz & usuń** |
 | Tryb wyłącznego dostępu |**Oparte na dzierżawie** |**Oparte na blokadzie** |
 | Czas trwania dzierżawy/blokady |**30 sekund (domyślnie)**<br/><br/>**7 dni (maksymalnie)** (można odnowić lub zwolnić dzierżawę wiadomości za pomocą interfejsu API [UpdateMessage).](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) |**60 sekund (domyślnie)**<br/><br/>Blokadę wiadomości można odnowić za pomocą interfejsu API [RenewLock.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) |
@@ -85,7 +85,7 @@ W tej sekcji porównano niektóre podstawowe możliwości kolejkowania zapewnian
 * Wiadomości w kolejkach magazynu są zazwyczaj first-in-first-out, ale czasami mogą być nie w porządku; na przykład po wygaśnięciu limitu czasu widoczności wiadomości (na przykład w wyniku awarii aplikacji klienckiej podczas przetwarzania). Po upływie limitu czasu widoczności wiadomość staje się ponownie widoczna w kolejce dla innego pracownika, aby go przekierować. W tym momencie nowo widoczna wiadomość może zostać umieszczona w kolejce (do ponownego usunięcia z kolejki) po wiadomości, która została pierwotnie ujmowana w kolejce po niej.
 * Gwarantowany wzorzec FIFO w kolejkach usługi Service Bus wymaga użycia sesji obsługi wiadomości. W przypadku awarii aplikacji podczas przetwarzania wiadomości odebranej w trybie **blokady wglądu &** następnym razem, gdy odbiorca kolejki zaakceptuje sesję obsługi wiadomości, rozpocznie się od komunikatu, który nie powiększy się po upływie okresu wygaśnięcia.In the moment that the application crashes while processing a message received in the Peek & Lock mode, the next time a queue receiver accepts a messaging session, it will start with the failed message after its time-to-live (TTL) period expires.
 * Kolejki magazynu są przeznaczone do obsługi standardowych scenariuszy kolejkowania, takich jak oddzielenie składników aplikacji w celu zwiększenia skalowalności i tolerancji dla awarii, bilansowania obciążenia i tworzenia przepływów pracy procesu.
-* Niespójności w odniesieniu do obsługi wiadomości w kontekście sesji usługi Service Bus można uniknąć za pomocą stanu sesji do przechowywania stanu aplikacji w stosunku do postępu obsługi sekwencji komunikatów sesji i przy użyciu transakcji wokół rozliczania odebranych wiadomości i aktualizowania stanu sesji. Ten rodzaj funkcji spójności jest czasami oznaczony *dokładnie raz przetwarzania* w produktach innych dostawców, ale błędy transakcji będzie oczywiście powodować wiadomości do ponownego dostarczenia i dlatego termin nie jest dokładnie odpowiednie.
+* Niespójności w odniesieniu do obsługi wiadomości w kontekście sesji usługi Service Bus można uniknąć za pomocą stanu sesji do przechowywania stanu aplikacji w stosunku do postępu obsługi sekwencji komunikatów sesji i przy użyciu transakcji wokół rozliczania odebranych wiadomości i aktualizowanie stanu sesji. Ten rodzaj funkcji spójności jest czasami oznaczony *dokładnie raz przetwarzania* w produktach innych dostawców, ale błędy transakcji będzie oczywiście powodować wiadomości do ponownego dostarczenia i dlatego termin nie jest dokładnie odpowiednie.
 * Kolejki magazynu zapewniają jednolity i spójny model programowania w kolejkach, tabelach i bloków BLOB — zarówno dla deweloperów, jak i dla zespołów operacyjnych.
 * Kolejki usługi Service Bus zapewniają obsługę transakcji lokalnych w kontekście jednej kolejki.
 * Tryb **odbierania i usuwania** obsługiwany przez usługę Service Bus umożliwia zmniejszenie liczby operacji obsługi wiadomości (i związanego z nimi kosztu) w zamian za obniżoną gwarancję dostarczenia.
@@ -135,8 +135,8 @@ W tej sekcji porównuje kolejki magazynu i kolejek usługi Service Bus z punktu 
 | Maksymalny rozmiar kolejki |**500 TB**<br/><br/>(ograniczona do [pojemności jednego konta magazynu)](../storage/common/storage-introduction.md#queue-storage) |**Od 1 GB do 80 GB**<br/><br/>(zdefiniowane po utworzeniu kolejki i [włączaniu partycjonowania](service-bus-partitioning.md) – zobacz sekcję "Informacje dodatkowe") |
 | Maksymalny rozmiar wiadomości |**64 KB**<br/><br/>(48 KB podczas korzystania z kodowania **Base64)**<br/><br/>Platforma Azure obsługuje duże wiadomości, łącząc kolejki i obiekty BLOB — w tym momencie można wyliczyć w kolejce do 200 GB dla pojedynczego elementu. |**256 KB** lub **1 MB**<br/><br/>(w tym zarówno nagłówek, jak i treść, maksymalny rozmiar nagłówka: 64 KB).<br/><br/>Zależy od [warstwy usług](service-bus-premium-messaging.md). |
 | Maksymalny czas wygaśnięcia wiadomości |**Infinite** (od wersji api 2017-07-27) |**Czasspan.Max** |
-| Maksymalna liczba kolejek |**Unlimited (nieograniczony)** |**10 000**<br/><br/>(na obszar nazw usługi) |
-| Maksymalna liczba równoczesnych klientów |**Unlimited (nieograniczony)** |**Unlimited (nieograniczony)**<br/><br/>(100 równoczesnych połączeń ma zastosowanie tylko do komunikacji opartej na protokole TCP) |
+| Maksymalna liczba kolejek |**Nieograniczona liczba** |**10 000**<br/><br/>(na obszar nazw usługi) |
+| Maksymalna liczba równoczesnych klientów |**Nieograniczona liczba** |**Nieograniczona liczba**<br/><br/>(100 równoczesnych połączeń ma zastosowanie tylko do komunikacji opartej na protokole TCP) |
 
 ### <a name="additional-information"></a>Dodatkowe informacje
 * Usługa Service Bus wymusza limity rozmiaru kolejki. Maksymalny rozmiar kolejki jest określony podczas tworzenia kolejki i może mieć wartość od 1 do 80 GB. Jeśli zostanie osiągnięta wartość rozmiaru kolejki ustawiona podczas tworzenia kolejki, dodatkowe wiadomości przychodzące zostaną odrzucone, a kod wywołujący zostanie odebrany przez kod wywołujący. Aby uzyskać więcej informacji na temat przydziałów w usłudze Service Bus, zobacz [Przydziały magistrali usług](service-bus-quotas.md).
@@ -175,7 +175,7 @@ W tej sekcji omówiono funkcje uwierzytelniania i autoryzacji obsługiwane przez
 
 | Kryteria porównania | Kolejki magazynu | Kolejki usługi Service Bus |
 | --- | --- | --- |
-| Uwierzytelnianie |**Klucz symetryczny** |**Klucz symetryczny** |
+| Authentication |**Klucz symetryczny** |**Klucz symetryczny** |
 | Model zabezpieczeń |Delegowany dostęp za pośrednictwem tokenów sygnatury dostępu Współdzielonego. |Sas |
 | Federacja dostawców tożsamości |**Nie** |**Tak** |
 

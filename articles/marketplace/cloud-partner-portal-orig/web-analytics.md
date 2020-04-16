@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
-ms.openlocfilehash: 446e579a7205f0e785d7e940c1dbdd36cff8f370
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd6d6375b19689c582c0f129378c76936e624e04
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285337"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416280"
 ---
 <a name="web-analytics"></a>Analityka internetowa
 =============
@@ -40,7 +40,7 @@ Istnieją dwa sposoby generowania własnej kampanii.
 
 1. Dodaj do adresu URL parametr zapytania **mktcmpid,** który opisuje, czym jest kampania i z jakiej strony/zdarzenia pochodzą ci klienci.
 
-Na przykład można użyć:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
+Na przykład można użyć:```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign```
 
 1. (Zaawansowane): użyj jednego z naszych obsługiwanych, ogólnych identyfikatorów kampanii w adresie URL. Chcemy być przychylne z dodatkowych tagów ref, które należy użyć, więc obsługujemy konwencji, aby automatycznie rozpoznawać te dodatkowe tagi:
     
@@ -49,14 +49,14 @@ Na przykład można użyć:<https://appsource.microsoft.com/product/dynamics-365
     3. **ref**
     4. **src**
 
-Na przykład można użyć:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
+Na przykład można użyć:```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign```
 
 Możesz wybrać kombinację wielu tych identyfikatorów kampanii, aby dokładniej zidentyfikować wiele źródeł napędzania ruchu w kampanii, takich jak miejsce, z którego pochodzi klient (poczta e-mail, blog, źródło mediów społecznościowych itp.).
 
 Przykład:
 
-1. Odsyłacz do newslettera:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
-2. LinkedIn odsyłający:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
+1. Odsyłacz do newslettera:```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter```
+2. LinkedIn odsyłający:```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn```
 
 ### <a name="ensuring-campaigns-pass-through-all-your-pages"></a>**Zapewnienie, że kampanie przechodzą przez wszystkie twoje strony**
 
@@ -64,13 +64,13 @@ Może istnieć scenariusz, w którym twoje kampanie mają stronę pośrednią, d
 
 Oto przykład:
 
-1. Pracownik marketingu kupuje reklamy od Google, aby <https://contoso.com>zwiększyć ruch na stronie docelowej firmy.\' Ta strona docelowa \"zawiera\" link do <https://appsource.com>wypróbowania produktu, który przechodzi do .
+1. Pracownik marketingu kupuje reklamy od Google, aby ```https://contoso.com```zwiększyć ruch na stronie docelowej firmy.\' Ta strona docelowa \"zawiera\" link do ```https://appsource.com```wypróbowania produktu, który przechodzi do .
 2. Użytkownik klika reklamę i ląduje na stronie docelowej swojej firmy.\'
     1.  Adres URL odwołania = google.com
-    2.  Adres URL strony docelowej =<https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
+    2.  Adres URL strony docelowej =```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
 3. Użytkownik kliknie \"link\" wypróbuj mój produkt i przejdzie do źródła aplikacji.
-    1. Adres URL odwołania =<https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. Adres URL strony docelowej **(Upewnij\_się,\_że ten adres URL ma utm kampanii i źródło utm dodane do tego adresu URL)**= [ https://appsource.microsoft.com/product/dynamics-365/contoso.offername?\_utm campaign=MyCampaignAdName&utm\_source=MySourceAdName](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    1. Adres URL odwołania =```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
+    2. Adres URL strony docelowej (**Upewnij się, że ten adres URL ma utm\_kampanii i źródło\_utm dodane do tego adresu URL**) =```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**```
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Jak ocenić sukces kampanii
 -----------------------------------------

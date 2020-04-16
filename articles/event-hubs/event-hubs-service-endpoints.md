@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: abd7940551f7a8182364475b0cf50b60afb5e1b7
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 91b08d6130da640adc28a3b7d85bd33f0e876caf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313793"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390281"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Korzystanie z punktów końcowych usługi sieci wirtualnej w centrach zdarzeń platformy Azure
 
@@ -32,6 +32,7 @@ Wynikiem jest prywatna i izolowana relacja między obciążeniami powiązanymi z
 > Zaufane usługi firmy Microsoft nie są obsługiwane podczas implementacji sieci wirtualnych.
 >
 > Typowe scenariusze platformy Azure, które nie działają z sieciami wirtualnymi (należy pamiętać, że lista **nie** jest wyczerpująca) -
+> - Azure Monitor (ustawienie diagnostyczne)
 > - Usługa Azure Stream Analytics
 > - Integracja z usługą Azure Event Grid
 > - Trasy usługi Azure IoT Hub

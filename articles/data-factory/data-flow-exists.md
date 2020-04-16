@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: efcc45dcf3565b70305323701810c49c4a720394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 512d9a688d7f808056a91b5bc0484c378af33948
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930406"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413813"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Istnieje transformacja w przepływie danych mapowania
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Transformacja istnieje jest transformacja filtrowania wiersza, który sprawdza, czy dane istnieją w innym źródle lub strumieniu. Strumień wyjściowy zawiera wszystkie wiersze w lewym strumieniu, które istnieją lub nie istnieją w prawym strumieniu. Transformacja istnieje jest ```SQL WHERE EXISTS``` podobna do i ```SQL WHERE NOT EXISTS```.
 

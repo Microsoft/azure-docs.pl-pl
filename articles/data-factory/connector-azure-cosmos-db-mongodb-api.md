@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: 9b13920252b3a5626fd192c6e899154efd31a3de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b23f46a418f2663531cc121f00b83d00d84e48d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75893238"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415445"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Kopiowanie danych do lub z interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB za pomocą usługi Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób używania działania kopiowania w usłudze Azure Data Factory do kopiowania danych z i do interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB. Artykuł opiera się na [copy activity w usłudze Azure Data Factory](copy-activity-overview.md), który przedstawia ogólne omówienie działania kopiowania.
 
@@ -35,7 +37,7 @@ Za pomocą interfejsu API usługi Azure Cosmos DB dla łącznika MongoDB można 
 - Zapisuj do usługi Azure Cosmos DB jako **wstawianie** lub **upsert**.
 - Importowanie i eksportowanie dokumentów JSON w stanie stanu istnieje lub kopiowanie danych z lub do tabelaryczny zestaw danych. Przykłady obejmują bazę danych SQL i plik CSV. Aby skopiować dokumenty w stanie— do lub z plików JSON lub do lub z innej kolekcji usługi Azure Cosmos DB, zobacz Importowanie lub eksportowanie dokumentów JSON.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ce2fe66888893d82debcc412bb16752914d8a190
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: d38c0df45da3a751a456846813543a4ce5de98eb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011110"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416211"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorowanie wykorzystania zasobów i aktywności zapytań w usłudze Azure Synapse Analytics
 
@@ -56,14 +56,14 @@ Co należy wziąć pod uwagę podczas wyświetlania danych i ustawiania alertów
 
 Aby uzyskać środowisko programowe podczas monitorowania analizy SQL za pośrednictwem protokołu T-SQL, usługa udostępnia zestaw dynamicznych widoków zarządzania (DMV). Widoki te są przydatne, gdy aktywnie rozwiązywania problemów i identyfikowanie wąskich gardeł wydajności z obciążeniem.
 
-Aby wyświetlić listę dmvs, które sql analytics zapewnia, zapoznaj się z tą [dokumentacją](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs).
+Aby wyświetlić listę dmvs, które mają zastosowanie do Synapse SQL, zapoznaj się z tą [dokumentacją](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
 
-## <a name="metrics-and-diagnostics-logging"></a>Rejestrowanie metryk i informacji diagnostycznych
+## <a name="metrics-and-diagnostics-logging"></a>Rejestrowanie metryk i informacji diagnostycznych 
 
 Zarówno metryki, jak i dzienniki mogą być eksportowane do usługi Azure Monitor, w szczególności składnik [dzienników usługi Azure Monitor](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i mogą być programowo dostępne za pomocą [zapytań dziennika.](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Opóźnienie dziennika dla usługi SQL Analytics wynosi około 10-15 minut. Aby uzyskać więcej informacji na temat czynników wpływających na opóźnienie, odwiedź następującą dokumentację.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W poniższych przewodnikach opisano typowe scenariusze i przypadki użycia podczas monitorowania magazynu danych i zarządzania nim:
+W poniższym przewodniku opisano typowe scenariusze i przypadki użycia podczas monitorowania magazynu danych i zarządzania nim:
 
 - [Monitorowanie obciążenia magazynu danych za pomocą rejestratorów DMV](sql-data-warehouse-manage-monitor.md)

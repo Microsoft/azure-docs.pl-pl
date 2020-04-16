@@ -11,20 +11,20 @@ ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e986515a911cf1bbd88dfc73c56efcc6e81826d6
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 174ee07e389e598fed6ed8487e60303fbce81f77
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351403"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416047"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Łączenie się z usługą Azure Synapse Analytics za pomocą programu Visual Studio i SSDT
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Uczenie maszynowe platformy Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
-> * [Ssms](sql-data-warehouse-query-ssms.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [Sqlcmd](../sql/get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -35,7 +35,7 @@ Aby użyć tego samouczka, potrzebne są następujące elementy:
 
 * Istniejąca pula SQL. Aby go utworzyć, zobacz [Tworzenie puli SQL](create-data-warehouse-portal.md).
 * Rozszerzenie SSDT dla programu Visual Studio. Jeśli masz visual studio, prawdopodobnie masz już SSDT dla programu Visual Studio. Aby uzyskać instrukcje instalacji i informacje na temat dostępnych opcji, zobacz artykuł [Instalowanie programu Visual Studio i narzędzi SSDT](sql-data-warehouse-install-visual-studio.md).
-* W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć te informacje, zobacz [Łączenie z pulą SQL](sql-data-warehouse-connect-overview.md).
+* W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć te informacje, zobacz [Łączenie z pulą SQL](../sql/connect-overview.md).
 
 ## <a name="1-connect-to-your-sql-pool"></a>1. Połącz się z pulą SQL
 1. Otwórz program Visual Studio 2019.

@@ -11,14 +11,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: e94eef3072b9636c8022a5949b05519c1554cb9e
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: cf13dbe17738ca1ae658c73bb0092a219b4823d1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585791"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415902"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Dołączanie środowiska Azure SSIS Integration Runtime do sieci wirtualnej
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Korzystając z usług SQL Server Integration Services (SSIS) w usłudze Azure Data Factory, należy dołączyć środowisko uruchomieniowe integracji platformy Azure-SSIS (IR) do sieci wirtualnej platformy Azure w następujących scenariuszach:
 
@@ -336,7 +338,7 @@ Użyj portalu, aby skonfigurować sieć wirtualną usługi Azure Resource Manage
 
 1. Uruchom przeglądarkę Microsoft Edge lub Google Chrome. Obecnie tylko te przeglądarki internetowe obsługują interfejs użytkownika fabryki danych. 
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
 1. Wybierz **pozycję Więcej usług**. Filtruj i wybierz **pozycję Sieci wirtualne**. 
 
@@ -366,7 +368,7 @@ Użyj portalu, aby skonfigurować klasyczną sieć wirtualną przed podjęciem p
 
 1. Uruchom przeglądarkę Microsoft Edge lub Google Chrome. Obecnie tylko te przeglądarki internetowe obsługują interfejs użytkownika fabryki danych. 
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
 1. Wybierz **pozycję Więcej usług**. Filtruj i wybierz **sieci wirtualne (klasyczne).** 
 

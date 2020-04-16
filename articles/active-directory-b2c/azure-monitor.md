@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: acba378badb41324b2124b84833407da920a0e00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78190062"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392892"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitoruj usługę Azure AD B2C za pomocą usługi Azure Monitor
 
@@ -84,8 +84,8 @@ Aby dołączać dzierżawę usługi Azure AD **(klienta),** utwórz [szablon us�
 
 Pobierz szablon i pliki parametrów usługi Azure Resource Manager:
 
-- [rgDelegatedResourceManagement.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement.parameters.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
 Następnie zaktualizuj plik parametrów o wartości zarejestrowane wcześniej. Poniższy fragment kodu JSON zawiera przykład pliku parametrów szablonu usługi Azure Resource Manager. Dla `authorizations.value.roleDefinitionId`, użyj [wbudowanej](../role-based-access-control/built-in-roles.md) wartości roli dla `b24988ac-6180-42a0-ab88-20f7382dd24c`roli *Współautor*, .
 
@@ -223,7 +223,7 @@ Możesz utworzyć [ustawienia diagnostyczne](../active-directory/reports-monitor
 
 Aby skonfigurować ustawienia monitorowania dzienników aktywności usługi Azure AD B2C:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Wybierz ikonę **Katalog + Subskrypcja** na pasku narzędzi portalu, a następnie wybierz katalog zawierający dzierżawę usługi Azure AD B2C.
 1. Wybieranie **usługi Azure Active Directory**
 1. W obszarze **Monitorowanie** wybierz pozycję **Ustawienia diagnostyczne**.
@@ -241,7 +241,7 @@ Aby skonfigurować ustawienia monitorowania dzienników aktywności usługi Azur
     | Wysyłanie do usługi Log Analytics | Nazwa obszaru roboczego. |
 
 1. Wybierz **pozycję AuditLogs** i **SignInLogs**.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

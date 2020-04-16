@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4840b135587ae776cfb80258ce513a48a79efa43
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 7a6fc2bd5cb6f5c7ae5bef9e9741fae92518d885
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383334"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392392"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Zasoby połączeń w usłudze Azure Automation
 
@@ -89,7 +89,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-Skrypt można użyć do utworzenia zasobu połączenia, ponieważ podczas tworzenia konta automatyzacji automatycznie zawiera kilka modułów globalnych domyślnie wraz z typem `AzureServicePrincipal` połączenia, aby utworzyć zasób `AzureRunAsConnection` połączenia. Jest to ważne, aby pamiętać, ponieważ w przypadku próby utworzenia nowego zasobu połączenia, aby połączyć się z usługą lub aplikacją przy użyciu innej metody uwierzytelniania, zakończy się niepowodzeniem, ponieważ typ połączenia nie jest jeszcze zdefiniowany na koncie automatyzacji. Aby uzyskać więcej informacji na temat tworzenia własnego typu połączenia dla niestandardowego lub modułu z [Galerii programu PowerShell,](https://www.powershellgallery.com)zobacz [Moduły integracji](automation-integration-modules.md)
+Skrypt można użyć do utworzenia zasobu połączenia, ponieważ podczas tworzenia konta automatyzacji automatycznie zawiera kilka modułów globalnych domyślnie wraz z typem `AzureServicePrincipal` połączenia, aby utworzyć zasób `AzureRunAsConnection` połączenia. Jest to ważne, aby pamiętać, ponieważ w przypadku próby utworzenia nowego zasobu połączenia, aby połączyć się z usługą lub aplikacją przy użyciu innej metody uwierzytelniania, zakończy się niepowodzeniem, ponieważ typ połączenia nie jest jeszcze zdefiniowany na koncie automatyzacji. Aby uzyskać więcej informacji na temat tworzenia własnego typu połączenia dla niestandardowego lub modułu z [Galerii programu PowerShell,](https://www.powershellgallery.com)zobacz [Moduły integracji](automation-integration-modules.md).
 
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Korzystanie z połączenia w konfiguracji systemu runbook lub DSC
 
@@ -113,7 +113,7 @@ Działanie można dodać do graficznego podręcznika runbooka, klikając prawym 
 
 ![dodaj do kanwy](media/automation-connections/connection-add-canvas.png)
 
-Na poniższej ilustracji przedstawiono przykład użycia połączenia w graficznym uruchomieniu wiązku. Jest to ten sam przykład pokazany powyżej do uwierzytelniania przy użyciu konta Uruchom jako z tekstowym plikiem runbook. W tym przykładzie `Constant value` użyto `Get RunAs Connection` zestawu danych dla działania, które używa obiektu połączenia do uwierzytelniania. [Łącze potoku](automation-graphical-authoring-intro.md#links-and-workflow) jest `ServicePrincipalCertificate` w tym miejscu używane, ponieważ zestaw parametrów oczekuje pojedynczego obiektu.
+Na poniższej ilustracji przedstawiono przykład użycia połączenia w graficznym uruchomieniu wiązku. Jest to ten sam przykład, jak pokazano powyżej do uwierzytelniania przy użyciu uruchom jako konto z tekstowego podstawowego podstawowego. W tym przykładzie `Constant value` użyto `Get RunAs Connection` zestawu danych dla działania, które używa obiektu połączenia do uwierzytelniania. [Łącze potoku](automation-graphical-authoring-intro.md#links-and-workflow) jest `ServicePrincipalCertificate` w tym miejscu używane, ponieważ zestaw parametrów oczekuje pojedynczego obiektu.
 
 ![uzyskać połączenia](media/automation-connections/automation-get-connection-object.png)
 

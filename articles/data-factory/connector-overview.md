@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 7b01e9936189a40fcf1400d3e6ee948032786d3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 623ee15c5071fdc7a36677481e98872b8c2bd562
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444180"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410413"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Omówienie łącznika usługi Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Usługa Azure Data Factory obsługuje następujące magazyny danych i formaty za pośrednictwem działań kopiowania, przepływu danych, wyszukiwania, pobierz metadane i usuń. Kliknij każdy magazyn danych, aby dowiedzieć się, jakie są obsługiwane funkcje i odpowiednie konfiguracje w szczegółach.
 
@@ -32,6 +33,6 @@ Usługa Azure Data Factory obsługuje następujące magazyny danych i formaty za
 
 - [Działanie kopiowania](copy-activity-overview.md)
 - [Mapowanie przepływu danych](concepts-data-flow-overview.md)
-- [Działanie Lookup](control-flow-lookup-activity.md)
-- [Uzyskaj aktywność metadanych](control-flow-get-metadata-activity.md)
+- [Działanie wyszukiwania](control-flow-lookup-activity.md)
+- [Działanie pobierania metadanych](control-flow-get-metadata-activity.md)
 - [Usuń działanie](delete-activity.md)

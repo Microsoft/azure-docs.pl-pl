@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: d0c60f5738bf634f9d43d6d4f0d78c1239b7ff3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650697"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391692"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Wyświetlanie artefaktu definicji w aplikacjach zarządzanych platformy Azure
 
@@ -20,7 +20,7 @@ Ten artykuł zawiera omówienie artefaktu definicji widoku i jego możliwości.
 
 ## <a name="view-definition-artifact"></a>Wyświetlanie artefaktu definicji
 
-Artefakt definicji widoku musi być nazwany **viewDefinition.json** i umieszczony na tym samym poziomie co **createUiDefinition.json** i **mainTemplate.json** w pakiecie zip, który tworzy definicję aplikacji zarządzanej. Aby dowiedzieć się, jak utworzyć pakiet zip i opublikować definicję aplikacji [zarządzanej, zobacz Publikowanie definicji aplikacji zarządzanej platformy Azure](publish-managed-app-definition-quickstart.md)
+Artefakt definicji widoku musi być nazwany **viewDefinition.json** i umieszczony na tym samym poziomie co **createUiDefinition.json** i **mainTemplate.json** w pakiecie zip, który tworzy definicję aplikacji zarządzanej. Aby dowiedzieć się, jak utworzyć pakiet zip i opublikować definicję aplikacji [zarządzanej, zobacz Publikowanie definicji aplikacji zarządzanej platformy Azure](publish-service-catalog-app.md)
 
 ## <a name="view-definition-schema"></a>Wyświetlanie schematu definicji
 

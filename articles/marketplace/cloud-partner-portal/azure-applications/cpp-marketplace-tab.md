@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 94bbfb16a967a97b1ee6f6d51a5f55bc8ba13227
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6113759cc68d07af4c22edf03b3274d92dcbe780
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281769"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416294"
 ---
 # <a name="azure-application-marketplace-tab"></a>Karta Witryna portalu Azure w portalu Marketplace aplikacji
 
@@ -32,7 +32,7 @@ W poniższej tabeli opisano ustawienia używane do tworzenia witryny sklepowej d
 | **Podsumowanie\***      | Krótkie podsumowanie oferty. Maksymalna długość wynosi 100 znaków.           |
 | **Długie podsumowanie\*** | Dłuższe podsumowanie oferty (choć może być takie samo jak podsumowanie). Maksymalna długość wynosi 256 znaków.           |
 | **Opis\***  | Opis oferty. Maksymalna długość wynosi 3000 znaków. Dozwolone jest proste formatowanie &lt;HTML, w tym&gt; &lt;p&gt;&gt; &lt;,&gt; &lt;em&gt;, &lt;ul , li , ol i tagi nagłówka.  |
-| **Identyfikator marketingowy\*** | Unikatowy adres URL do skojarzenia z tą ofertą, zazwyczaj obejmuje nazwę organizacji i rozwiązania, maksymalną długość 50 znaków. Wybierz krótki, przyjazny identyfikator marketingowy dla swojej usługi. Będzie to używane w adresach URL marketplace dla tej oferty. Jeśli na przykład identyfikator wydawcy to "contoso", a identyfikator marketingowy to "sampleApp", adres URL oferty w portalu Azure Marketplace zostaniehttps://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Identyfikator marketingowy\*** | Unikatowy adres URL do skojarzenia z tą ofertą, zazwyczaj obejmuje nazwę organizacji i rozwiązania, maksymalną długość 50 znaków. Wybierz krótki, przyjazny identyfikator marketingowy dla swojej usługi. Będzie to używane w adresach URL marketplace dla tej oferty. Jeśli na przykład identyfikator wydawcy to "contoso", a identyfikator marketingowy to "sampleApp", adres URL oferty w portalu Azure Marketplace zostanie`https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  
 | **Identyfikatory subskrypcji w wersji zapoznawczej\*** | Dodaj od jednego do 100 identyfikatorów subskrypcji podglądu. Te subskrypcje z białą listą będą miały dostęp do Twojej oferty, gdy będzie ona dostępna w wersji zapoznawczej po jej opublikowaniu, zanim zostanie udostępniona.          |
 | **Przydatne linki**    | Opcjonalnie można podać łącza do różnych zasobów dla użytkowników oferty, takich jak pomoc techniczna, dokumentacja, fora itp.  Zaleca się dodanie co najmniej jednego łącza do dokumentacji.            |
 | **Sugerowane kategorie (maksymalnie 5)\*** | Wybierz jedną do pięciu kategorii. Wybrane kategorie są używane do mapowania oferty na kategorie produktów dostępne w witrynie Azure Marketplace i witrynie Azure Portal. Będą one wyświetlane na stronach przeglądania oraz na stronie szczegółów produktu. |
@@ -50,7 +50,7 @@ W poniższej tabeli opisano artefakty marketingowe.
 |      Pole         |    Opis    |
 |  ---------------   |  ---------------  |
 | **Small\***        | Małe logo: 40x40 pikseli w formacie PNG     |
-| **Średni\***       | Średnie logo: 90x90 pikseli w formacie PNG    |
+| **Medium\***       | Średnie logo: 90x90 pikseli w formacie PNG    |
 | **Large\***        | Duże logo: 115x115 pikseli w formacie PNG   |
 | **Szeroki\***         | Szerokie logo: 255x115 pikseli w formacie PNG    |
 | **Bohater**           | Opcjonalne logo bohatera: 815x290 pikseli w formacie PNG. **Uwaga:** Ikony bohatera nie można usunąć po przesłaniu. |

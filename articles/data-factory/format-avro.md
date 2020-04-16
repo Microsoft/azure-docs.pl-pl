@@ -9,14 +9,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 1717969aeb24a153f986c70ef60db1aac5c840fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 931287fa2a4104069b101236bec9f76bb7193e8d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78267787"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416350"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Format Avro w fabryce danych platformy Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Postępuj zgodnie z tym artykułem, jeśli chcesz **przeanalizować pliki Avro lub zapisać dane w formacie Avro**. 
 

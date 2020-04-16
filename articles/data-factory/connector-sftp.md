@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/02/2020
-ms.openlocfilehash: 06428d4a9c4a4178212d16d42b8b3adffb5c9718
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6d29f73716b04699e0cd250396df7f7d744d4c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250284"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415245"
 ---
 # <a name="copy-data-from-and-to-sftp-server-using-azure-data-factory"></a>Kopiowanie danych z i do serwera SFTP przy użyciu usługi Azure Data Factory
 
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-sftp-connector.md)
-> * [Bieżąca wersja](connector-sftp.md)
+> * [Aktualna wersja](connector-sftp.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób kopiowania danych z i do serwera SFTP. Aby dowiedzieć się więcej o usłudze Azure Data Factory, przeczytaj [artykuł wprowadzający](introduction.md).
 
@@ -45,7 +46,7 @@ W szczególności to złącze SFTP obsługuje:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -287,7 +288,7 @@ Następujące właściwości są obsługiwane dla SFTP w ustawieniach `storeSett
 | type                     | Właściwość typu `storeSettings` w obszarze musi być ustawiona na **SftpWriteSettings**. | Tak      |
 | copyBehavior             | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartych na plikach.<br/><br/>Dozwolone wartości to:<br/><b>- PreserveHierarchy (domyślnie):</b>Zachowuje hierarchię plików w folderze docelowym. Względna ścieżka pliku źródłowego do folderu źródłowego jest identyczna ze ścieżką względną pliku docelowego do folderu docelowego.<br/><b>- FlattenHierarchy:</b>Wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>- MergeFiles:</b>Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku jest określona, scalona nazwa pliku jest określoną nazwą. W przeciwnym razie jest to nazwa pliku z automatycznym generacją. | Nie       |
 | maxConcurrentConnections (Połączenie maksymalne) | Liczba połączeń do łączenia się z magazynem danych jednocześnie. Określ tylko wtedy, gdy chcesz ograniczyć jednoczesne połączenie z magazynem danych. | Nie       |
-| useTempFileRename | Określ, czy należy przekazać do plików tymczasowych i zmienić jego nazwę, czy też bezpośrednio zapisać do docelowej lokalizacji folderu/pliku. Domyślnie ADF najpierw zapisuj do plików tymczasowych, a następnie zmieniaj nazwę pliku po zakończeniu przekazywania, aby uniknąć konfliktu zapisu powodującego uszkodzenie pliku, jeśli masz inny proces zapisu do tego samego pliku, a 2) upewnij się, że oryginalna wersja pliku istnieje podczas całego transferu. Jeśli serwer SFTP nie obsługuje operacji zmiany nazwy, wyłącz tę opcję i upewnij się, że nie masz równoczesnego zapisu w pliku docelowym. Zobacz poradę dotyczącą rozwiązywania problemów poniżej tej tabeli. | Nie. Wartość domyślna jest true. |
+| useTempFileRename | Określ, czy należy przekazać do plików tymczasowych i zmienić jego nazwę, czy też bezpośrednio zapisać do docelowej lokalizacji folderu/pliku. Domyślnie ADF najpierw zapisuj do plików tymczasowych, a następnie do zmiany nazwy pliku po zakończeniu przekazywania, aby uniknąć konfliktu zapisu powodującego uszkodzenie pliku, jeśli masz inny proces zapisu do tego samego pliku, a 2) upewnij się, że oryginalna wersja pliku istnieje podczas całego transferu. Jeśli serwer SFTP nie obsługuje operacji zmiany nazwy, wyłącz tę opcję i upewnij się, że nie masz równoczesnego zapisu w pliku docelowym. Zobacz poradę dotyczącą rozwiązywania problemów poniżej tej tabeli. | Nie. Wartość domyślna jest true. |
 | operacjaCzas | Czas oczekiwania przed każdym żądaniem zapisu do serwera SFTP limit czasu. Wartość domyślna to 60 min (01:00:00).|Nie |
 
 >[!TIP]

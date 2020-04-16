@@ -5,18 +5,20 @@ description: Dowiedz się, jak zaktualizować lub zresetować dane uwierzytelnia
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 0203321af32bcc2ae70b726737b85870d08be86f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 8420771e32aa792aa79a07fdf4362ad0d9b45d48
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886759"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392629"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Aktualizowanie lub obracanie poświadczeń usługi Azure Kubernetes Service (AKS)
 
 Domyślnie klastry AKS są tworzone z jednostką usługi, która ma jeden rok czasu wygaśnięcia. W pobliżu daty wygaśnięcia można zresetować poświadczenia, aby przedłużyć jednostkę usługi na dodatkowy okres czasu. Można również zaktualizować lub obrócić poświadczenia jako część zdefiniowanych zasad zabezpieczeń. W tym artykule opisano sposób aktualizowania tych poświadczeń dla klastra AKS.
 
-Być może masz również [zintegrowany klaster AKS z usługą Azure Active Directory][aad-integration]i użyj go jako dostawcy uwierzytelniania dla klastra. W takim przypadku będziesz mieć 2 więcej tożsamości utworzonych dla klastra, aplikacji serwera AAD i aplikacji klienta usługi AAD, można również zresetować te poświadczenia. 
+Być może masz również [zintegrowany klaster AKS z usługą Azure Active Directory][aad-integration]i użyj go jako dostawcy uwierzytelniania dla klastra. W takim przypadku będziesz mieć 2 więcej tożsamości utworzonych dla klastra, aplikacji serwera AAD i aplikacji klienta usługi AAD, można również zresetować te poświadczenia.
+
+Alternatywnie można użyć tożsamości zarządzanej dla uprawnień zamiast jednostki usługi. Tożsamości zarządzane są łatwiejsze do zarządzania niż jednostki usługi i nie wymagają aktualizacji ani rotacji. Aby uzyskać więcej informacji, zobacz [Używanie tożsamości zarządzanych](use-managed-identity.md).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 114c632d43dbb254222def2437fbffc22ec84688
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 4c76bcbf945c63588f8471c10deca0b5982d3562
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672458"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414245"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące różnych interfejsów API w usłudze Azure Cosmos DB
 
@@ -404,7 +404,7 @@ Można dodać dowolną liczbę regionów dla konta i kontrolować, gdzie można 
 
 ### <a name="is-the-table-api-enabled-for-backups"></a>Czy interfejs API tabeli jest włączony dla kopii zapasowych?
 
-Tak, interfejs API tabel wykorzystuje platformę usługi Azure Cosmos DB do tworzenia kopii zapasowych. Kopie zapasowe są automatycznie. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych i przywracanie w trybie online za pomocą usługi Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Tak, interfejs API tabel wykorzystuje platformę usługi Azure Cosmos DB do tworzenia kopii zapasowych. Kopie zapasowe są automatycznie. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych i przywracanie w trybie online za pomocą usługi Azure Cosmos DB](online-backup-and-restore.md).
 
 ### <a name="does-the-table-api-index-all-attributes-of-an-entity-by-default"></a>Czy interfejs API tabeli domyślnie indeksuje wszystkie atrybuty encji?
 
@@ -761,7 +761,7 @@ Obecnie usługa Azure Cosmos DB ma zoptymalizowane środowisko dla środowiska w
 ### <a name="does-cassandra-api-provide-full-backups"></a>Czy api Cassandra zapewnia pełne kopie zapasowe?
 
 Usługa Azure Cosmos DB udostępnia dwie bezpłatne pełne kopie zapasowe wykonane w odstępie czterech godzin w dzisiejszych interfejsach API. Dzięki temu nie trzeba konfigurowania harmonogramu tworzenia kopii zapasowych i innych rzeczy.
-Jeśli chcesz zmodyfikować przechowywanie i częstotliwość, [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) wyślij wiadomość e-mail do lub zgłosić sprawę pomocy technicznej. Informacje o możliwości tworzenia kopii zapasowych znajdują się w [artykule Automatyczna kopia zapasowa i przywracanie online za pomocą usługi Azure Cosmos DB.](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)
+Jeśli chcesz zmodyfikować przechowywanie i częstotliwość, [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) wyślij wiadomość e-mail do lub zgłosić sprawę pomocy technicznej. Informacje o możliwości tworzenia kopii zapasowych znajdują się w [artykule Automatyczna kopia zapasowa i przywracanie online za pomocą usługi Azure Cosmos DB.](online-backup-and-restore.md)
 
 ### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>Jak konto interfejsu API Cassandra obsługuje przebłaganie w przypadku awarii regionu?
 

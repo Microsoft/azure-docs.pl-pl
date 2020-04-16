@@ -3,14 +3,14 @@ title: Wdrażanie aplikacji z tożsamością zarządzaną przypisaną przez uży
 description: W tym artykule pokazano, jak wdrożyć aplikację sieci szkieletowej usług z tożsamością zarządzaną przypisaną przez użytkownika
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: a5eeaf0d6420fa36c0a78f7553ddfd82197d8ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610339"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415641"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Wdrażanie aplikacji sieci szkieletowej usług z przypisaną przez użytkownika tożsamości zarządzanej (wersja zapoznawcza)
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Wdrażanie aplikacji sieci szkieletowej usług z przypisaną przez użytkownika tożsamością zarządzaną
 
 Aby wdrożyć aplikację sieci szkieletowej usług z tożsamością zarządzaną, należy ją wdrożyć za pośrednictwem usługi Azure Resource Manager, zazwyczaj z szablonem usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat wdrażania aplikacji sieci szkieletowej usług za pośrednictwem usługi Azure Resource Manager, zobacz [Zarządzanie aplikacjami i usługami jako zasobami usługi Azure Resource Manager](service-fabric-application-arm-resource.md).
 

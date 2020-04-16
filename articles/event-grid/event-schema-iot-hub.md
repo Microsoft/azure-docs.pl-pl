@@ -1,29 +1,27 @@
 ---
-title: Schemat usługi Azure Event Grid dla usługi IoT Hub | Dokumenty firmy Microsoft
+title: Usługa Azure IoT Hub jako źródło siatki zdarzeń
 description: Ten artykuł zawiera właściwości i schemat zdarzeń usługi Azure IoT Hub. Wyświetla listę dostępnych typów zdarzeń, przykładowe zdarzenie i właściwości zdarzenia.
 services: iot-hub
 documentationcenter: ''
-author: kgremban
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/21/2020
-ms.author: kgremban
-ms.openlocfilehash: cfbd46ad961bd1dc914bae98e761cd83d445ff88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513035"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393325"
 ---
-# <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schemat zdarzenia usługi Azure Event Grid dla usługi IoT Hub
-
+# <a name="azure-iot-hub-as-an-event-grid-source"></a>Usługa Azure IoT Hub jako źródło siatki zdarzeń
 Ten artykuł zawiera właściwości i schemat zdarzeń usługi Azure IoT Hub. Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md). 
 
-Aby uzyskać listę przykładowych skryptów i samouczków, zobacz [Źródło zdarzeń usługi IoT Hub](event-sources.md#iot-hub).
+## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
 
-## <a name="available-event-types"></a>Dostępne typy zdarzeń
+### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
 Usługa Azure IoT Hub emituje następujące typy zdarzeń:
 
@@ -37,7 +35,7 @@ Usługa Azure IoT Hub emituje następujące typy zdarzeń:
 
 Wszystkie zdarzenia urządzenia z wyjątkiem zdarzeń telemetrycznych urządzenia są ogólnie dostępne we wszystkich regionach obsługiwanych przez siatkę zdarzeń. Zdarzenie telemetryczne urządzenia jest w publicznej wersji zapoznawczej i jest dostępne we wszystkich regionach z wyjątkiem wschodnich stanów USA, zachodnich stanów USA, Europy Zachodniej, [platformy Azure Government,](../azure-government/documentation-government-welcome.md) [Azure China 21Vianet](/azure/china/china-welcome)i [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
-## <a name="example-event"></a>Przykładowe zdarzenie
+### <a name="example-event"></a>Przykładowe zdarzenie
 
 Schemat zdarzeń DeviceConnected i DeviceDisconnected ma tę samą strukturę. To przykładowe zdarzenie pokazuje schemat zdarzenia wywoływanego, gdy urządzenie jest połączone z centrum IoT hub:
 
@@ -205,6 +203,13 @@ W przypadku zdarzeń Usługi IoT usługi **Device Created** i **Device Deleted**
 | Żądaną | obiekt | Część właściwości, które mogą być zapisywane tylko przez zaplecze aplikacji i odczytywane przez urządzenie. | 
 | Zgłoszone | obiekt | Część właściwości, które mogą być zapisywane tylko przez urządzenie i odczytywane przez zaplecze aplikacji. |
 | lastUpdated | ciąg | Sygnatura czasowa ISO8601 ostatniej aktualizacji właściwości bliźniaczej reprezentacji urządzenia. | 
+
+## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
+|Tytuł  |Opis  |
+|---------|---------|
+| [Wysyłanie powiadomień e-mail o zdarzeniach usługi Azure IoT Hub przy użyciu usługi Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Aplikacja logiki wysyła wiadomość e-mail z powiadomieniem za każdym razem, gdy urządzenie jest dodawane do centrum IoT Hub. |
+| [Reagowanie na zdarzenia usługi IoT Hub za pomocą siatki zdarzeń do wyzwalania akcji](../iot-hub/iot-hub-event-grid.md) | Omówienie integracji Usługi IoT Hub z siatką zdarzeń. |
+| [Zamów podłączone urządzenie i zdarzenia odłączone od urządzenia](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Pokazuje, jak zamówić zdarzenia stanu połączenia urządzenia. |
 
 ## <a name="next-steps"></a>Następne kroki
 

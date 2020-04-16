@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: c3b06289ba6ce98d4307a8255981ecdba069fdfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 021ac5fccf4d694895ab9941bd46dd2388f49af9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76905398"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407454"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Dodawanie źródła zdarzeń centrum zdarzeń do środowiska usługi Time Series Insights
 
@@ -50,11 +50,11 @@ Aby dodać nową grupę odbiorców w centrum zdarzeń:
 
 1. Na stronie **Grupy odbiorców** wprowadź nową unikatową wartość **name**.  Tej samej nazwy należy używać podczas tworzenia nowego źródła zdarzeń w środowisku usługi Time Series Insights.
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="add-a-new-event-source"></a>Dodawanie nowego źródła zdarzeń
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Znajdź istniejące środowisko usługi Time Series Insights. W menu po lewej stronie wybierz pozycję **Wszystkie zasoby**, a następnie wybierz środowisko usługi Time Series Insights.
 
@@ -107,7 +107,7 @@ Aby dodać nową grupę odbiorców w centrum zdarzeń:
 
 1. Dodaj dedykowaną nazwę grupy odbiorców usługi Time Series Insights, która została dodana do centrum zdarzeń.
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
    Po utworzeniu źródła zdarzeń usługa Time Series Insights automatycznie rozpoczyna przesyłanie strumieniowe danych do środowiska.
 

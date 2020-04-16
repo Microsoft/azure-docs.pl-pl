@@ -11,12 +11,12 @@ ms.date: 04/08/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: aeaa95090dc40c6e161f0c336c43032a50e5aad0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9713d73ee132f743ceea98cbaca6a83f36fd3a45
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983572"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416113"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Ładowanie danych z usługi Azure Data Lake Storage for SQL Analytics
 
@@ -93,7 +93,7 @@ WITH
 
 ## <a name="create-the-external-data-source"></a>Tworzenie zewnętrznego źródła danych
 
-Użyj tego polecenia [UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH,](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) ABY zapisać lokalizację danych. Jeśli uwierzytelniasz się za pomocą przekazywania AAD, parametr CREDENTIAL nie jest wymagany. Jeśli uwierzytelniasz się przy użyciu tożsamości zarządzanej dla punktów końcowych usługi, postępuj zgodnie z tą [dokumentacją,](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#azure-sql-data-warehouse-polybase) aby skonfigurować zewnętrzne źródło danych. 
+Użyj tego polecenia [UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH,](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) ABY zapisać lokalizację danych. Jeśli uwierzytelniasz się za pomocą przekazywania AAD, parametr CREDENTIAL nie jest wymagany. Jeśli uwierzytelniasz się przy użyciu tożsamości zarządzanej dla punktów końcowych usługi, postępuj zgodnie z tą [dokumentacją,](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-sql-data-warehouse-polybase) aby skonfigurować zewnętrzne źródło danych.
 
 ```sql
 -- C (for Gen1): Create an external data source

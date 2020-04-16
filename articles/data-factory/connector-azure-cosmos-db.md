@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 7096b429145a54b5a09fe38eb8099c4ff24ac452
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f0aa70333454b327a0ca76beef2985062ce56715
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243616"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415380"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopiowanie i przekształcanie danych w usłudze Azure Cosmos DB (SQL API) przy użyciu usługi Azure Data Factory
 
@@ -24,7 +24,11 @@ ms.locfileid: "79243616"
 > * [Wersja 1](v1/data-factory-azure-documentdb-connector.md)
 > * [Bieżąca wersja](connector-azure-cosmos-db.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 W tym artykule opisano sposób używania działania kopiowania w usłudze Azure Data Factory do kopiowania danych z i do bazy danych Azure Cosmos DB (interfejs API SQL) oraz używania przepływu danych do przekształcania danych w bazie danych Azure Cosmos DB (interfejs API SQL). Aby dowiedzieć się więcej o usłudze Azure Data Factory, przeczytaj [artykuł wprowadzający](introduction.md).
+
+
 
 >[!NOTE]
 >Ten łącznik obsługuje tylko interfejs API SQL usługi Cosmos DB. W przypadku interfejsu API mongodb należy zapoznać się [z łącznika dla interfejsu API usługi Azure Cosmos DB dla usługi MongoDB](connector-azure-cosmos-db-mongodb-api.md). Inne typy interfejsu API nie są teraz obsługiwane.
@@ -48,7 +52,7 @@ Usługa Data Factory integruje się z [biblioteką zbiorczą executora usługi A
 > [!TIP]
 > Klip [wideo migracji danych](https://youtu.be/5-SRNiC_qOU) przeprowadzi Cię przez kroki kopiowania danych z magazynu obiektów Blob platformy Azure do usługi Azure Cosmos DB. W klipie wideo opisano również zagadnienia dotyczące dostrajania wydajności do pozyskiwania danych do usługi Azure Cosmos DB w ogóle.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

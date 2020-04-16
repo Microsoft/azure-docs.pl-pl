@@ -5,12 +5,12 @@ description: Poznaj najważniejsze wskazówki dotyczące obsługi zasobów i ł�
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: c8aee9967e09d2ae8bec3ee170756d8d22de0fe4
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 1eed6f1f82a8a91b2335760e99ea6b895d15547e
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668206"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392712"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące łączności sieciowej i zabezpieczeń w usłudze Azure Kubernetes Service
 
@@ -43,7 +43,7 @@ Korzystając z sieci CNI platformy Azure, zasób sieci wirtualnej znajduje się 
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-Aby uzyskać więcej informacji na temat delegowania jednostki usługi AKS, zobacz [Delegowanie dostępu do innych zasobów platformy Azure][sp-delegation].
+Aby uzyskać więcej informacji na temat delegowania jednostki usługi AKS, zobacz [Delegowanie dostępu do innych zasobów platformy Azure][sp-delegation]. Zamiast jednostki usługi można również użyć systemu przypisanego tożsamości zarządzanej dla uprawnień. Aby uzyskać więcej informacji, zobacz [Używanie tożsamości zarządzanych](use-managed-identity.md).
 
 Ponieważ każdy węzeł i zasobnik otrzymują własny adres IP, zaplanuj zakresy adresów dla podsieci AKS. Podsieć musi być wystarczająco duża, aby zapewnić adresy IP dla każdego węzła, zasobników i zasobów sieciowych, które wdrażasz. Każdy klaster AKS musi być umieszczony we własnej podsieci. Aby zezwolić na łączność z sieciami lokalnymi lub równorzędnych na platformie Azure, nie należy używać zakresów adresów IP, które nakładają się na istniejące zasoby sieciowe. Istnieją domyślne limity liczby zasobników, które każdy węzeł jest uruchamiany za pomocą sieci kubenet i azure CNI. Aby obsłużyć zdarzenia skalowania w poziomie lub uaktualnienia klastra, potrzebne są również dodatkowe adresy IP dostępne do użycia w przypisanej podsieci. Ta dodatkowa przestrzeń adresowa jest szczególnie ważna w przypadku korzystania z kontenerów systemu Windows Server (obecnie w wersji zapoznawczej w usłudze AKS), ponieważ te pule węzłów wymagają uaktualnienia w celu zastosowania najnowszych poprawek zabezpieczeń. Aby uzyskać więcej informacji o węzłach systemu Windows Server, zobacz [Uaktualnianie puli węzłów w systemie AKS][nodepool-upgrade].
 

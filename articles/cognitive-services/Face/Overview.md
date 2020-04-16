@@ -7,22 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c433d99fd96e99d418fd5500c1075e68dfb1742c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6714a0c4b967d80ad683ef023b5811423bdcb022
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053596"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403467"
 ---
 # <a name="what-is-the-azure-face-service"></a>Co to jest usługa Azure Face?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Usługa Azure Cognitive Services Face udostępnia algorytmy, które są używane do wykrywania, rozpoznawania i analizowania ludzkich twarzy na obrazach. Możliwość przetwarzania informacji o ludzkiej twarzy jest ważna w wielu różnych scenariuszach oprogramowania. Przykładowe scenariusze to zabezpieczenia, naturalny interfejs użytkownika, analiza zawartości obrazu i zarządzanie nimi, aplikacje mobilne i robotyka.
+Usługa Azure Cognitive Services Face udostępnia algorytmy, które wykrywają, rozpoznają i analizują ludzkie twarze na obrazach. Możliwość przetwarzania informacji o ludzkiej twarzy jest ważna w wielu różnych scenariuszach oprogramowania. Przykładowe scenariusze obejmują zabezpieczenia, naturalny interfejs użytkownika, analizę zawartości obrazu i zarządzanie nimi, aplikacje mobilne i robotykę.
 
-Usługa Face udostępnia kilka różnych funkcji. Każda funkcja jest opisana w poniższych sekcjach. Czytaj dalej, aby dowiedzieć się więcej o nich.
+Usługa Face udostępnia kilka różnych funkcji, z których każda przedstawiona jest w poniższych sekcjach.
 
 ## <a name="face-detection"></a>Wykrywanie twarzy
 
@@ -69,7 +69,7 @@ Po utworzeniu i przeszkoleniu bazy danych można wykonać identyfikację grupy z
 
 Aby uzyskać więcej informacji na temat identyfikacji osoby, zobacz przewodnik pojęć [rozpoznawania twarzy](concepts/face-recognition.md) lub dokumentację referencyjną [identyfikowanie interfejsu API.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
 
-## <a name="use-containers"></a>Korzystanie z kontenerów
+## <a name="containers"></a>Containers
 
 [Użyj kontenera Twarz,](face-how-to-install-containers.md) aby wykrywać, rozpoznawać i identyfikować twarze, instalując standardowy kontener platformy Docker bliżej danych.
 

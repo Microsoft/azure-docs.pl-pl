@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 2a634c81273c26722d53610a13e362e5e453f7e9
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 97c8f8a5bb2111264e9459a7d2128c1ab7c2503d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380110"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414427"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Tworzenie wyzwalacza uruchamiającego potok w oknie wirowania
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 W tym artykule przedstawiono kroki tworzenia, uruchamiania i monitorowania wyzwalacza okna brzusznego. Aby uzyskać ogólne informacje na temat wyzwalaczy i obsługiwanych typów, zobacz [Wykonywanie potoku i wyzwalacze](concepts-pipeline-execution-triggers.md).
 
 Wyzwalacze okna wirowania to rodzaj wyzwalaczy uruchamianych w określonych odstępach czasu od wskazanego czasu rozpoczęcia przy zachowaniu stanu. Okna wirowania to ciągłe, nienakładające się na siebie serie odstępów czasu o stałych rozmiarach. Wyzwalacz okna tumbling ma relację jeden do jednego z potoku i może odwoływać się tylko do potoku pojedynczej.
@@ -229,5 +231,5 @@ Aby monitorować przebiegi wyzwalaczy i przebiegi potoku w portalu Azure, zobacz
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać szczegółowe informacje na temat wyzwalaczy, zobacz [Wykonywanie potoku i wyzwalacze](concepts-pipeline-execution-triggers.md#triggers).
+* Aby uzyskać szczegółowe informacje na temat wyzwalaczy, zobacz [Wykonywanie potoku i wyzwalacze](concepts-pipeline-execution-triggers.md#trigger-execution).
 * [Tworzenie zależności wyzwalacza okna wirowania](tumbling-window-trigger-dependency.md)

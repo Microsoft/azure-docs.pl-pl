@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f66347727ad3c1b8eaf1f0e023abe1f2eeefcacb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74978036"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403719"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Samouczek: Raportowanie stanów wizualnych za pomocą funkcji Niestandardowych wizji z urządzeniem IoT
 
-Ta przykładowa aplikacja ilustruje, jak używać funkcji Custom Vision do szkolenia urządzenia z kamerą w celu wykrywania stanów wizualnych. Ten scenariusz wykrywania można uruchomić na urządzeniu IoT przy użyciu modelu ONNX wyeksportowanego z usługi Custom Vision.
+Ta przykładowa aplikacja ilustruje, jak używać funkcji Custom Vision do szkolenia urządzenia z kamerą w celu wykrywania stanów wizualnych. Ten scenariusz wykrywania można uruchomić na urządzeniu IoT przy użyciu eksportowanego modelu ONNX.
 
-Stan wizualny opisuje zawartość obrazu: pusty pokój lub pokój z ludźmi, pusty podjazd lub podjazd z ciężarówką i tak dalej. Na poniższej ilustracji możesz zobaczyć, jak aplikacja wykrywa, kiedy banan lub jabłko jest umieszczone przed kamerą.
+Stan wizualny opisuje zawartość obrazu: pusty pokój lub pokój z ludźmi, pusty podjazd z ciężarówką i tak dalej. Na poniższej ilustracji możesz zobaczyć, jak aplikacja wykrywa, kiedy banan lub jabłko jest umieszczone przed kamerą.
 
 ![Animacja interfejsu użytkownika oznaczającego owoce przed kamerą](./media/iot-visual-alerts-tutorial/scoring.gif)
 
@@ -41,7 +41,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 * Należy również utworzyć [zasób Usługi IoT Hub](https://ms.portal.azure.com/#create/Microsoft.IotHub) na platformie Azure.
 * [Visual Studio 2015 lub nowsze](https://www.visualstudio.com/downloads/)
 * Opcjonalnie urządzenie IoT z systemem Windows 10 IoT Core w wersji 17763 lub nowszej. Aplikację można również uruchomić bezpośrednio z komputera.
-   * W przypadku Raspberry Pi 2 i 3 system Windows 10 można skonfigurować bezpośrednio z aplikacji Pulpit nawigacyjny IoT. W przypadku innych urządzeń, takich jak DrangonBoard, musisz go flashować za pomocą [metody eMMC.](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices) Jeśli potrzebujesz pomocy przy konfigurowaniu nowego urządzenia, zobacz [Konfigurowanie urządzenia](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) w dokumentacji IoT systemu Windows.
+   * W przypadku Raspberry Pi 2 i 3 system Windows 10 można skonfigurować bezpośrednio z aplikacji Pulpit nawigacyjny IoT. W przypadku innych urządzeń, takich jak DrangonBoard, musisz go flashować za pomocą [metody eMMC.](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices) Jeśli potrzebujesz pomocy dotyczącej konfigurowania nowego urządzenia, zobacz [Konfigurowanie urządzenia](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) w dokumentacji IoT systemu Windows.
 
 ## <a name="about-the-visual-alerts-app"></a>Informacje o aplikacji Alerty wizualne
 
@@ -92,7 +92,7 @@ Aby skonfigurować model, należy umieścić aplikację w stanie **Przechwytywan
 * Jeśli korzystasz z aplikacji na komputerze, użyj przycisku w prawym górnym rogu interfejsu użytkownika.
 * Jeśli korzystasz z aplikacji na urządzeniu IoT, `EnterLearningMode` wywołaj metodę na urządzeniu za pośrednictwem centrum IoT Hub. Można to wywołać za pomocą wpisu urządzenia w menu Centrum IoT w witrynie Azure portal lub za pomocą narzędzia, takiego jak [Eksplorator urządzeń usługi IoT Hub.](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
  
-Gdy aplikacja wejdzie w stan **Przechwytywanie obrazów szkoleniowych,** przechwytuje około dwóch obrazów co sekundę, dopóki nie osiągnie docelowej liczby obrazów. Domyślnie jest to 30 obrazów, ale można ustawić ten parametr, przekazując żądaną liczbę jako argument do metody `EnterLearningMode` Centrum IoT. 
+Gdy aplikacja wejdzie w stan **Przechwytywanie obrazów szkoleniowych,** przechwytuje około dwóch obrazów co sekundę, dopóki nie osiągnie docelowej liczby obrazów. Domyślnie obiekt docelowy to 30 obrazów, ale można ustawić ten parametr, `EnterLearningMode` przekazując żądaną liczbę jako argument do metody Centrum IoT. 
 
 Podczas gdy aplikacja rejestruje obrazy, musisz narazić aparat na typy stanów wizualnych, które chcesz wykryć (na przykład pusty pokój, pokój z ludźmi, puste biurko, biurko z wózkiem ścieliczy i tak dalej).
 

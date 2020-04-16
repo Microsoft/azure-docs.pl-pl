@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9a69296ddfc93fd7e8a6650df91876829631f5d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce58fc69496f54c078b0a0a55a8a3c7cad82a051
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473068"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391707"
 ---
 # <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Szybki start: wdrażanie aplikacji katalogu usług za pośrednictwem witryny Azure Portal
 
-W [poprzednim przewodniku Szybki start](publish-managed-app-definition-quickstart.md)opublikowano definicję aplikacji zarządzanej. W tym przewodniku Szybki start utworzysz aplikację katalogu usług z tej definicji.
+W [poprzednim przewodniku Szybki start](publish-service-catalog-app.md)opublikowano definicję aplikacji zarządzanej. W tym przewodniku Szybki start utworzysz aplikację katalogu usług z tej definicji.
 
 ## <a name="create-service-catalog-app"></a>Tworzenie aplikacji katalogu usług
 
@@ -28,11 +28,11 @@ W witrynie Azure portal należy wykonać następujące czynności:
 
    ![Wyszukiwanie aplikacji katalogu usług](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
 
-1. Zostanie wyświetlony opis usługi aplikacji zarządzanej. Wybierz **pozycję Utwórz**.
+1. Zostanie wyświetlony opis usługi aplikacji zarządzanej. Wybierz pozycję **Utwórz**.
 
    ![Wybieranie pozycji Utwórz](./media/deploy-service-catalog-quickstart/create-service-catalog.png)
 
-1. Portal zawiera definicje zarządzanych aplikacji, do których masz dostęp. Z dostępnych definicji wybierz tę, którą chcesz wdrożyć. W tym przewodniku Szybki start użyj definicji **zarządzanego konta magazynu** utworzonego w poprzednim przewodniku Szybki start. Wybierz **pozycję Utwórz**.
+1. Portal zawiera definicje zarządzanych aplikacji, do których masz dostęp. Z dostępnych definicji wybierz tę, którą chcesz wdrożyć. W tym przewodniku Szybki start użyj definicji **zarządzanego konta magazynu** utworzonego w poprzednim przewodniku Szybki start. Wybierz pozycję **Utwórz**.
 
    ![Wybierz definicję do wdrożenia](./media/deploy-service-catalog-quickstart/select-definition.png)
 

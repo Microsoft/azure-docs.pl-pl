@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: f2f6be1022a7100a23f49534f2c18fc951d56284
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c803d489b70cda6910865f6096d21c2021c4ae3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255511"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393705"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum
 
@@ -141,7 +141,7 @@ W tej sekcji przedstawiono następujące scenariusze przy użyciu witryny Azure 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Zmienianie domyślnej warstwy dostępu konta GPv2 lub usługi Blob Storage
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W witrynie Azure portal wyszukaj i wybierz pozycję **Wszystkie zasoby**.
 
@@ -155,7 +155,7 @@ W tej sekcji przedstawiono następujące scenariusze przy użyciu witryny Azure 
 
 ![Zmienianie warstwy konta magazynu](media/storage-tiers/account-tier.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 Następujący skrypt programu PowerShell może służyć do zmiany warstwy konta. Zmienna `$rgName` musi zostać zainicjowana z nazwą grupy zasobów. Zmienna `$accountName` musi zostać zainicjowana z nazwą konta magazynu. 
 ```powershell
 #Initialize the following with your resource group and storage account names
@@ -169,7 +169,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Zmienianie warstwy obiektu blob na koncie magazynu GPv2 lub obiektów blob
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W witrynie Azure portal wyszukaj i wybierz pozycję **Wszystkie zasoby**.
 
@@ -185,7 +185,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ![Zmienianie warstwy konta magazynu](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 Następujący skrypt programu PowerShell może służyć do zmiany warstwy obiektów blob. Zmienna `$rgName` musi zostać zainicjowana z nazwą grupy zasobów. Zmienna `$accountName` musi zostać zainicjowana z nazwą konta magazynu. Zmienna `$containerName` musi zostać zainicjowana z nazwą kontenera. Zmienna `$blobName` musi zostać zainicjowana z nazwą obiektu blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
@@ -199,7 +199,7 @@ $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountN
 $ctx = $storageAccount.Context
 
 #Select the blob from a container
-$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+$blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 
 #Change the blob’s access tier to archive
 $blob.ICloudBlob.SetStandardBlobTier("Archive")
@@ -220,7 +220,7 @@ Wszystkie konta magazynu używają modelu cenowego dla magazynu bloków obiektó
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat cen obiektów blob bloku, zobacz stronę [cennika usługi Azure Storage.](https://azure.microsoft.com/pricing/details/storage/blobs/) Więcej informacji dotyczących opłat za transfer danych wychodzących można znaleźć na stronie [Szczegóły cennika transferów danych](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Czy należy używać magazynu obiektów Blob lub kont GPv2, jeśli chcę warstwy moich danych?**
 
@@ -234,7 +234,7 @@ Tak. Atrybut **warstwy dostępu** ustawiony na poziomie konta jest domyślną wa
 
 **Czy mogę zmienić domyślną warstwę dostępu mojego konta magazynu obiektu Blob lub GPv2?**
 
-Tak, możesz zmienić domyślną warstwę konta, ustawiając atrybut **warstwy dostęp** na koncie magazynu. Zmiana warstwy konta dotyczy wszystkich obiektów przechowywanych na koncie, które nie mają jawnego zestawu warstw (na przykład **Hot (wywnioskowane)** lub **Cool (wywnioskowane).** Przełączanie warstwy konta od gorącej do chłodnej wiąże się z operacjami zapisu (na 10 000) dla wszystkich obiektów blob bez określonej warstwy tylko na kontach GPv2 i przełączanie od chłodnych do gorących wiąże się zarówno z operacjami odczytu (na 10 000) i pobieraniem danych (na GB) opłatami za wszystkie obiekty blob w magazynie obiektów Blob i kont GPv2.
+Tak, możesz zmienić domyślną warstwę konta, ustawiając atrybut **warstwy dostęp** na koncie magazynu. Zmiana warstwy konta dotyczy wszystkich obiektów przechowywanych na koncie, które nie mają jawnego zestawu warstw (na przykład **Hot (wywnioskowane)** lub **Cool (wywnioskowane).** Przełączanie warstwy konta od gorącej do chłodnej wiąże się z operacjami zapisu (na 10 000) dla wszystkich obiektów blob bez warstwy zestawu tylko na kontach GPv2 i przełączaniem od chłodnych do gorących, co wiąże się zarówno z operacjami odczytu (na 10 000) i pobieraniem danych (na GB) opłatami za wszystkie obiekty blob w magazynie obiektów Blob i kontach GPv2.
 
 **Czy mogę ustawić domyślną warstwę dostępu do konta na Archiwum?**
 

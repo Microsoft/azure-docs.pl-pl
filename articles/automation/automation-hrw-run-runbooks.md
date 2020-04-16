@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 902734ddc7195d643c3aedb4054f57723d1a51c2
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: b65c72e0c65cf9aa84cb614478fbdf78258f3054
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632138"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405823"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Uruchamianie obrażeń runbook w hybrydowym uzywce procesowej
 
@@ -27,7 +27,7 @@ Ponieważ uzyskują dostęp do zasobów innych niż platforma Azure, zestawy run
 
 ### <a name="runbook-authentication"></a>Uwierzytelnianie uruchomieniu
 
-Domyślnie programy runbook są uruchamiane na komputerze lokalnym. W przypadku systemu Windows są one uruchamiane w kontekście lokalnego konta systemowego. W przypadku linuksa działają one w kontekście specjalnego konta użytkownika **nxautomation**. W obu scenariuszach runbooks musi zapewnić własne uwierzytelnianie zasobów, do których uzyskują dostęp.
+Domyślnie programy runbook są uruchamiane na komputerze lokalnym. W przypadku systemu Windows są one uruchamiane w kontekście lokalnego konta **systemowego.** W przypadku linuksa działają one w kontekście specjalnego konta użytkownika **nxautomation**. W obu scenariuszach runbooks musi zapewnić własne uwierzytelnianie zasobów, do których uzyskują dostęp.
 
 Zasobów [poświadczeń](automation-credentials.md) i [certyfikatów](automation-certificates.md) w bieście runbooka z poleceniami cmdlet, które umożliwiają określenie poświadczeń, aby identyfikator runbook mógł uwierzytelniać się w różnych zasobach. W poniższym przykładzie przedstawiono część elementów runbook, która uruchamia ponownie komputer. Pobiera poświadczenia z zasobu poświadczeń i nazwę komputera z zasobu zmiennej, a następnie używa tych wartości z poleceniem `Restart-Computer` cmdlet.
 
@@ -84,7 +84,7 @@ Wykonaj następne kroki, aby użyć tożsamości zarządzanej dla zasobów platf
 ```
 
 > [!NOTE]
-> `Connect-AzAccount -Identity`działa dla hybrydowego procesu roboczego życiówek przy użyciu tożsamości przypisanej przez system i tożsamości przypisanej przez jednego użytkownika. Jeśli w hybrydowym uliczeniu procesu roboczego systemu runbook jest używanych wiele `Connect-AzAccount` tożsamości przypisanych przez użytkownika, należy określić parametr *AccountId,* aby wybrać określoną tożsamość przypisaną użytkownikowi.
+> `Connect-AzAccount -Identity`działa dla hybrydowego procesu roboczego życiówek przy użyciu tożsamości przypisanej przez system i tożsamości przypisanej przez jednego użytkownika. Jeśli w hybrydowym uzytce procesu roboczego systemu runbook jest `AccountId` używanych wiele tożsamości przypisanych przez użytkownika, należy określić `Connect-AzAccount` parametr, aby wybrać określoną tożsamość przypisaną użytkownikowi.
 
 ### <a name="automation-run-as-account"></a><a name="runas-script"></a>Automatyzacja uruchom jako konto
 
@@ -166,7 +166,7 @@ Aby zakończyć przygotowywanie konta Uruchom jako:
 
 1. Zapisz **runbook Export-RunAsCertificateToHybridWorker** na komputerze z rozszerzeniem **.ps1.**
 2. Zaimportuj go do konta automatyzacji.
-3. Edytuj runbook, zmieniając wartość `Password` zmiennej o własne hasło. 
+3. Edytuj runbook, zmieniając wartość `Password` zmiennej na własne hasło. 
 4. Opublikuj program runbook.
 5. Uruchom grupę runbook, kierując grupę Hybrydowy proces roboczy żyjącego, który uruchamia i uwierzytelnia programy runbook przy użyciu konta Uruchom jako. 
 6. Sprawdź strumień zadań, aby zobaczyć, że raportuje próbę zaimportowania certyfikatu do lokalnego magazynu maszyn i następuje z wieloma wierszami. To zachowanie zależy od liczby kont automatyzacji zdefiniowanych w ramach subskrypcji i stopnia powodzenia uwierzytelniania.
@@ -185,14 +185,14 @@ Należy pamiętać, że zadania dla hybrydowych procesów workers y żyła są u
 
 Po uruchomieniu uruchomieniu w witrynie Azure portal, zostanie wyświetlony z **uruchom na** opcji, dla której można wybrać **azure** lub **hybrydowy proces roboczy.** W przypadku wybrania opcji **Proces hybrydowy**można wybrać grupę Hybrydowy proces roboczy z listy rozwijanej.
 
-Użyj `RunOn` parametru `Start-AzureAutomationRunbook` z poleceniem cmdlet. W poniższym przykładzie użyto programu Windows PowerShell do uruchomienia elementów runbook o nazwie **Test-Runbook** w grupie hybrydowego procesu roboczego życigożnicy o nazwie MyHybridGroup.
+Użyj `RunOn` parametru z poleceniem cmdlet [Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) W poniższym przykładzie użyto programu Windows PowerShell do uruchomienia elementów runbook o nazwie **Test-Runbook** w grupie hybrydowego procesu roboczego życigożnicy o nazwie MyHybridGroup.
 
 ```azurepowershell-interactive
-Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
+Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 > [!NOTE]
-> Parametr `RunOn` został dodany `Start-AzureAutomationRunbook` do w wersji 0.9.1 programu Microsoft Azure PowerShell. Należy [pobrać najnowszą wersję,](https://azure.microsoft.com/downloads/) jeśli masz wcześniej zainstalowany. Zainstaluj tę wersję tylko na stacji roboczej, na której uruchamiasz program Runbook z programu PowerShell. Nie trzeba go instalować na komputerze hybrydowego roboczego systemu runbook, chyba że zamierzasz uruchomić programy runbook z tego komputera.
+> Należy [pobrać najnowszą wersję programu PowerShell,](https://azure.microsoft.com/downloads/) jeśli masz wcześniej zainstalowaną. Zainstaluj tę wersję tylko na stacji roboczej, na której uruchamiasz program Runbook z programu PowerShell. Nie trzeba go instalować na komputerze hybrydowego roboczego systemu runbook, chyba że zamierzasz uruchomić programy runbook z tego komputera.
 
 ## <a name="working-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Praca z podpisanymi systemami runbook w usłudze Windows Hybrid Runbook Worker
 
@@ -307,7 +307,7 @@ Po skonfigurowaniu sprawdzania poprawności podpisu użyj następującego polece
 gpg –-clear-sign <runbook name>
 ```
 
-Podpisany projekt runbook `<runbook name>.asc`jest nazywany .
+Podpisany projekt runbook nosi nazwę ** <runbook name>.asc**.
 
 Teraz można przekazać podpisany projekt runbook do usługi Azure Automation i wykonać go jak zwykły projekt runbook.
 
@@ -317,3 +317,5 @@ Teraz można przekazać podpisany projekt runbook do usługi Azure Automation i 
 * Aby dowiedzieć się, jak używać edytora tekstu do pracy z systemami runbook programu PowerShell w usłudze Azure Automation, zobacz [Edytowanie życiówek w usłudze Azure Automation.](automation-edit-textual-runbook.md)
 * Jeśli programy runbook nie kończą się pomyślnie, zapoznaj się z przewodnikiem rozwiązywania problemów z [błędami wykonania wiązki.](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)
 * Aby uzyskać więcej informacji na temat programu PowerShell, w tym odwoływania się do języka i modułów szkoleniowych, zobacz [Dokumenty programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Aby uzyskać odwołanie do polecenia polecenia cmdlet programu PowerShell, zobacz [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

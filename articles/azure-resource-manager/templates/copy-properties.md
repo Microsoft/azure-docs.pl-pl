@@ -2,13 +2,13 @@
 title: Definiowanie wielu wystąpień właściwości
 description: Użyj operacji kopiowania w szablonie usługi Azure Resource Manager, aby iterować wiele razy podczas tworzenia właściwości na zasobie.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: e86d38b0e5d2e39d54b3c419b6eebdcda74022db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258111"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391337"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteracja właściwości w szablonach ARM
 
@@ -30,7 +30,9 @@ Element kopiowania ma następujący ogólny format:
 ]
 ```
 
-Dla **name**, podaj nazwę właściwości zasobu, który chcesz utworzyć. Właściwość **count** określa liczbę iteracji, które mają dla właściwości.
+Dla **name**, podaj nazwę właściwości zasobu, który chcesz utworzyć.
+
+Właściwość **count** określa liczbę iteracji, które mają dla właściwości.
 
 Właściwość **input** określa właściwości, które mają zostać powtórzone. Można utworzyć tablicę elementów zbudowanych na podstawie wartości we właściwości **wejściowej.**
 
@@ -78,11 +80,7 @@ W poniższym przykładzie `copy` pokazano, jak zastosować do dataDisks właści
 }
 ```
 
-Należy zauważyć, `copyIndex` że podczas korzystania z iteracji właściwości, należy podać nazwę iteracji.
-
-> [!NOTE]
-> Iteracja właściwości obsługuje również argument przesunięcia. Przesunięcie musi pochodzić po nazwie iteracji, takich jak copyIndex('dataDisks', 1).
->
+Należy zauważyć, `copyIndex` że podczas korzystania z iteracji właściwości, należy podać nazwę iteracji. Iteracja właściwości obsługuje również argument przesunięcia. Przesunięcie musi pochodzić po nazwie iteracji, takich jak copyIndex('dataDisks', 1).
 
 Menedżer zasobów rozszerza `copy` tablicę podczas wdrażania. Nazwa tablicy staje się nazwą właściwości. Wartości wejściowe stają się właściwościami obiektu. Wdrożony szablon staje się:
 
@@ -111,6 +109,66 @@ Menedżer zasobów rozszerza `copy` tablicę podczas wdrażania. Nazwa tablicy s
         }
       ],
       ...
+```
+
+Operacja kopiowania jest przydatna podczas pracy z tablicami, ponieważ można iterować za pośrednictwem każdego elementu w tablicy. Użyj `length` funkcji w tablicy, aby określić liczbę `copyIndex` iteracji i pobrać bieżący indeks w tablicy.
+
+Poniższy przykładowy szablon tworzy grupę trybu failover dla baz danych, które są przekazywane jako tablica.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "primaryServerName": {
+            "type": "string"
+        },
+        "secondaryServerName": {
+            "type": "string"
+        },
+        "databaseNames": {
+            "type": "array",
+            "defaultValue": [
+                "mydb1",
+                "mydb2",
+                "mydb3"
+            ]
+        }
+    },
+    "variables": {
+        "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers/failoverGroups",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[variables('failoverName')]",
+            "properties": {
+                "readWriteEndpoint": {
+                    "failoverPolicy": "Automatic",
+                    "failoverWithDataLossGracePeriodMinutes": 60
+                },
+                "readOnlyEndpoint": {
+                    "failoverPolicy": "Disabled"
+                },
+                "partnerServers": [
+                    {
+                        "id": "[resourceId('Microsoft.Sql/servers', parameters('secondaryServerName'))]"
+                    }
+                ],
+                "copy": [
+                    {
+                        "name": "databases",
+                        "count": "[length(parameters('databaseNames'))]",
+                        "input": "[resourceId('Microsoft.Sql/servers/databases', parameters('primaryServerName'), parameters('databaseNames')[copyIndex('databases')])]"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
 ```
 
 Element kopiowania jest tablicą, dzięki czemu można określić więcej niż jedną właściwość dla zasobu.

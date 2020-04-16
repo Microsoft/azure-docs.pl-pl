@@ -3,12 +3,12 @@ title: odwołanie host.json dla usługi Azure Functions 2.x
 description: Dokumentacja referencyjna dla pliku host.json usługi Azure functions ze środowiska wykonawczego w wersji 2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a861d500f0b8cc31b8312d6c955916ab741b649
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 7b3c9d15fc8cf3a1651c44a5656f731a7820e344
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878254"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405486"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>odwołanie host.json dla usługi Azure Functions 2.x i nowszych 
 
@@ -141,7 +141,7 @@ Steruje opcjami wglądu w aplikacje, w tym [opcjami próbkowania](./functions-mo
 Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład pliku host.json](#sample-hostjson-file).
 
 > [!NOTE]
-> Próbkowanie dziennika może spowodować, że niektóre wykonania nie są wyświetlane w bloku monitora usługi Application Insights. Aby uniknąć próbkowania dziennika, dodaj `samplingExcludedTypes: "Request"` do `applicationInsights` wartości.
+> Próbkowanie dziennika może spowodować, że niektóre wykonania nie są wyświetlane w bloku monitora usługi Application Insights. Aby uniknąć próbkowania dziennika, dodaj `excludedTypes: "Request"` do `samplingSettings` wartości.
 
 | Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
@@ -166,8 +166,8 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład pliku host
 | minSamplingPercentage | 0.1 | Ponieważ wartość procentowa próbkowania jest różna, ta właściwość określa minimalną dozwoloną wartość procentową próbkowania. |
 | maxSamplingPercentage | 0.1 | Ponieważ wartość procentowa próbkowania jest różna, ta właściwość określa maksymalną dozwoloną wartość procentową próbkowania. |
 | przeprowadzkaAverageRatio | 1.0 | Przy obliczaniu średniej ruchomej waga przypisana do najnowszej wartości. Użyj wartości równej lub mniejszej niż 1. Mniejsze wartości sprawiają, że algorytm jest mniej reaktywny na nagłe zmiany. |
-| wykluczone typy | wartość null | Średnik rozdzielona lista typów, które nie mają być próbkowane. Rozpoznane typy to: Zależność, Zdarzenie, Wyjątek, PageView, Żądanie, Śledzenie. Wszystkie wystąpienia określonych typów są przesyłane; typy, które nie są określone są próbkowania. |
-| includedTypes (includedTypes) | wartość null | Średnik rozdzielona lista typów, które mają być próbkowane; pusta lista oznacza wszystkie typy. Wpisz wymienione `excludedTypes` w typach zastępowania wymienionych w tym miejscu. Rozpoznane typy to: Zależność, Zdarzenie, Wyjątek, PageView, Żądanie, Śledzenie. Wszystkie wystąpienia określonych typów są przesyłane; typy, które nie są określone są próbkowania. |
+| wykluczone typy | wartość null | Średnik rozdzielona lista typów, które nie mają być próbkowane. Rozpoznane typy `Event` `Exception`to: `Request` `Dependency`, `Trace`, `PageView`, , i . Wszystkie wystąpienia określonych typów są przesyłane; typy, które nie są określone są próbkowania. |
+| includedTypes (includedTypes) | wartość null | Średnik rozdzielona lista typów, które mają być próbkowane; pusta lista oznacza wszystkie typy. Wpisz wymienione `excludedTypes` w typach zastępowania wymienionych w tym miejscu. Rozpoznane typy `Event` `Exception`to: `Request` `Dependency`, `Trace`, `PageView`, , i . Przykłady określonych typów są próbkowania; typy, które nie są określone lub dorozumiane są przesyłane bez pobierania próbek. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 

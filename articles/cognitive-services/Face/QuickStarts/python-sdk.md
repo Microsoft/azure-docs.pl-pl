@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7ac1b85ee44627990931cfc7b3a65f6f7a661b3f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5ac36e47efd2e121126cd740dba0818feb39f5fb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165817"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402884"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Szybki start: biblioteka klienta twarzy dla języka Python
 
@@ -40,12 +40,9 @@ Użyj biblioteki klienta twarzy dla języka Python, aby:
 
 ### <a name="create-a-face-azure-resource"></a>Tworzenie zasobu platformy Face Azure
 
-Usługi Azure Cognitive Services są reprezentowane przez zasoby platformy Azure, które subskrybujesz. Utwórz zasób dla twarzy przy użyciu [witryny Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na komputerze lokalnym. Możesz również wykonać następujące czynności:
+Usługi Azure Cognitive Services są reprezentowane przez zasoby platformy Azure, które subskrybujesz. Utwórz zasób dla twarzy przy użyciu [witryny Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na komputerze lokalnym. Możesz również otrzymać [klucz testowy](https://azure.microsoft.com/try/cognitive-services/#decision) ważny przez siedem dni za darmo. Po zarejestrowaniu się będzie on dostępny w [witrynie sieci Web platformy Azure.](https://azure.microsoft.com/try/cognitive-services/my-apis/)  
 
-* Pobierz [klucz wersji próbnej](https://azure.microsoft.com/try/cognitive-services/#decision) ważny przez siedem dni za darmo. Po zarejestrowaniu się będzie on dostępny w [witrynie sieci Web platformy Azure.](https://azure.microsoft.com/try/cognitive-services/my-apis/)  
-* Wyświetlanie zasobu w [witrynie Azure portal](https://portal.azure.com/)
-
-Po dostaniu klucza z subskrypcji próbnej lub zasobu `FACE_SUBSCRIPTION_KEY` [utwórz zmienną środowiskową](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza o nazwie .
+Po otrzymasz klucz z subskrypcji próbnej lub zasobu, [utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza i punktu końcowego, odpowiednio i `FACE_SUBSCRIPTION_KEY` `FACE_ENDPOINT`,.
  
 ### <a name="create-a-new-python-application"></a>Tworzenie nowej aplikacji w języku Python
 
@@ -53,7 +50,7 @@ Utwórz nowy&mdash;skrypt Języka Python*quickstart-file.py*, na przykład. Nast
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
 
-Następnie utwórz zmienne dla punktu końcowego i klucza platformy Azure zasobu. Może być konieczna zmiana pierwszej części`westus`punktu końcowego ( ) w celu dopasowania subskrypcji.
+Następnie utwórz zmienne dla punktu końcowego i klucza platformy Azure zasobu.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_subvars)]
 

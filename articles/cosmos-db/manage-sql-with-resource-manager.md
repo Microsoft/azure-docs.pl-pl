@@ -1,17 +1,17 @@
 ---
 title: Tworzenie usługi Azure Cosmos DB i zarządzanie nią za pomocą szablonów Usługi Resource Manager
 description: Tworzenie i konfigurowanie usługi Azure Cosmos DB dla interfejsu API SQL (Core) za pomocą szablonów usługi Azure Resource Manager
-author: TheovanKraay
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.author: thvankra
-ms.openlocfilehash: 72a87c3b23e0eed6cfbf1614388702443f4e99d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.author: mjbrown
+ms.openlocfilehash: 3514b3e77781010fd56b43229f87854ea2d591e8
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79251845"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390887"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Zarządzanie zasobami interfejsu API usługi Azure Cosmos DB SQL (Core) za pomocą szablonów usługi Azure Resource Manager
 

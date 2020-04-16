@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 5a9917010b7301bf70c3bebf68c35d82f4839e0f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 074a28af8c80c109dbe97306900e8f00618e435a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409044"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411698"
 ---
 # <a name="hyperscale-service-tier"></a>Warstwa usługi Hiperskala
 
@@ -41,7 +41,7 @@ Warstwa usługi hiperskali w usłudze Azure SQL Database zapewnia następujące 
 - Szybkie przywracanie bazy danych (na podstawie migawek plików) w minutach, a nie godzinach lub dniach (nie jest to rozmiar operacji danych)
 - Wyższa ogólna wydajność dzięki wyższej przepływności dziennika i krótszym czasom zatwierdzania transakcji niezależnie od ilości danych
 - Szybkie skalowanie w poziomie — można aprowizować jeden lub więcej węzłów tylko do odczytu w celu odciążenia obciążenia odczytu i użycia jako hot-standbys
-- Szybkie skalowanie w górę — w stałym czasie można skalować zasoby obliczeniowe w górę, aby pomieścić duże obciążenia w razie potrzeby, a następnie skalować zasoby obliczeniowe z powrotem w dół, gdy nie są potrzebne.
+- Szybkie skalowanie w górę — w stałym czasie można skalować zasoby obliczeniowe w górę, aby w razie potrzeby dostosować do dużych obciążeń, a następnie skalować zasoby obliczeniowe z powrotem w dół, gdy nie są potrzebne.
 
 Warstwa usług hiperskali usuwa wiele praktycznych limitów tradycyjnie widocznych w bazach danych w chmurze. W przypadku, gdy większość innych baz danych są ograniczone przez zasoby dostępne w jednym węźle, bazy danych w warstwie usługi hiperskali nie mają takich limitów. Dzięki elastycznej architekturze pamięci masowej pamięć masowa rośnie w razie potrzeby. W rzeczywistości bazy danych hiperskali nie są tworzone przy zdefiniowanym maksymalnym rozmiarze. Baza danych na dużą skalę rośnie w razie potrzeby — i są rozliczane tylko dla pojemności, której używasz. W przypadku obciążeń intensywnie korzystających z odczytu warstwa usługi hiperskali zapewnia szybkie skalowanie w poziomie przez inicjowanie obsługi administracyjnej dodatkowych replik odczytu w razie potrzeby do odciążania obciążeń odczytu.
 
@@ -72,7 +72,7 @@ Warstwa usług hyperscale jest dostępna tylko w [modelu vCore](sql-database-ser
 
 - **Przechowywanie**:
 
-  Podczas konfigurowania bazy danych w skali hiperskali nie trzeba określać maksymalnego rozmiaru danych. W warstwie hiperskali są naliczane opłaty za magazyn bazy danych na podstawie rzeczywistej alokacji. Magazyn jest automatycznie przydzielany od 40 GB do 100 TB, w 10 GB przyrosty 10 GB. Wiele plików danych może rosnąć w tym samym czasie, jeśli to konieczne. Baza danych w skali hiperskali jest tworzona z rozmiarem początkowym 10 GB i zaczyna rosnąć o 10 GB co 10 minut, aż osiągnie rozmiar 40 GB.
+  Podczas konfigurowania bazy danych w skali hiperskali nie trzeba określać maksymalnego rozmiaru danych. W warstwie hiperskali są naliczane opłaty za magazyn bazy danych na podstawie rzeczywistej alokacji. Magazyn jest automatycznie przydzielany od 40 GB do 100 TB, w odstępach co 10 GB. Wiele plików danych może rosnąć w tym samym czasie, jeśli to konieczne. Baza danych w skali hiperskali jest tworzona z rozmiarem początkowym 10 GB i zaczyna rosnąć o 10 GB co 10 minut, aż osiągnie rozmiar 40 GB.
 
 Aby uzyskać więcej informacji na temat cen hiperskali, zobacz [Cennik bazy danych SQL azure](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -156,7 +156,7 @@ W przypadku umowy SLA w hiperskali zobacz [SLA dla usługi Azure SQL Database](h
 
 ### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Przywracanie bazy danych w hiperskali do innej lokalizacji geograficznej
 Jeśli chcesz przywrócić usługę Azure SQL Database Hyperscale DB do regionu innego niż ten, w jakim jest obecnie hostowany, w ramach operacji odzyskiwania po awarii lub drążenia, przenoszenia lub innego powodu, podstawową metodą jest wykonać przywracanie geograficzne bazy danych.  Obejmuje to dokładnie te same kroki, co służy do przywracania innych usług Azure SQL DB do innego regionu:
-1. Utwórz serwer bazy danych SQL w regionie docelowym, jeśli nie masz jeszcze odpowiedniego serwera.  Ten serwer powinien być własnością tej samej subskrypcji co oryginalny serwer (źródłowy).
+1. Utwórz serwer bazy danych SQL azure w regionie docelowym, jeśli nie masz jeszcze odpowiedniego serwera.  Ten serwer powinien być własnością tej samej subskrypcji co oryginalny serwer (źródłowy).
 2. Postępuj zgodnie z instrukcjami w temacie [przywracania geograficznego](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) strony na przywracanie bazy danych SQL azure z automatycznych kopii zapasowych.
 
 > [!NOTE]
@@ -204,14 +204,13 @@ Są to bieżące ograniczenia warstwy usług hiperskali w ga.  Aktywnie pracujem
 
 | Problem | Opis |
 | :---- | :--------- |
-| Okienko Zarządzanie kopiami zapasowymi dla serwera logicznego nie powoduje, że bazy danych hiperskali będą filtrowane z serwera SQL  | Hiperskala ma oddzielną metodę zarządzania kopiami zapasowymi i jako takie ustawienia przechowywania długoterminowego przechowywania i przechowywania kopii zapasowej w czasie nie mają zastosowania / są unieważnione. W związku z tym bazy danych hiperskali nie są wyświetlane w okienku Zarządzanie zapasem. |
+| Okienko Zarządzanie kopiami zapasowymi dla serwera logicznego nie pokazuje baz danych hiperskali, zostaną one odfiltrowane z widoku  | Hiperskala ma oddzielną metodę zarządzania kopiami zapasowymi i jako takie ustawienia przechowywania długoterminowego przechowywania i przechowywania kopii zapasowej w czasie nie mają zastosowania / są unieważnione. W związku z tym bazy danych hiperskali nie są wyświetlane w okienku Zarządzanie zapasem. |
 | Przywracanie do określonego momentu | Bazy danych na dużą skalę można przywrócić do bazy danych nie hiperskalowej w okresie przechowywania bazy danych innych niż hiperskali. Nie można przywrócić bazy danych nie hiperskalowej do bazy danych na dużą skalę.|
 | Jeśli baza danych ma jeden lub więcej plików danych większych niż 1 TB, migracja nie powiedzie się | W niektórych przypadkach może być możliwe obejść ten problem, zmniejszając dużych plików, aby być mniej niż 1 TB. W przypadku migracji bazy danych używanej podczas procesu migracji upewnij się, że żaden plik nie jest większy niż 1 TB. Użyj następującej kwerendy, aby określić rozmiar plików bazy danych. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Wystąpienie zarządzane | Wystąpienie zarządzanej bazy danych SQL usługi Azure nie jest obecnie obsługiwane w bazach danych w hiperskali. |
 | Pule elastyczne |  Pule elastyczne nie są obecnie obsługiwane z hiperskali bazy danych SQL.|
 | Migracja do hiperskali jest obecnie operacją jednokierunkową | Po migracji bazy danych do hiperskali nie można jej przeprowadzić do warstwy usług innych niż hiperskali. Obecnie jedynym sposobem migracji bazy danych z hiperskali do nieprzebudowy jest eksportowanie/importowanie przy użyciu pliku BACPAC lub innych technologii przenoszenia danych (kopiowanie zbiorcze, fabryka danych azure, azure databricks, SSIS itp.)|
 | Migracja baz danych z trwałymi obiektami w pamięci | Hiperskala obsługuje tylko nietrwałe obiekty w pamięci (typy tabel, natywne pliki IP i funkcje).  Trwałe tabele w pamięci i inne obiekty muszą zostać usunięte i odtworzone jako obiekty inne niż w pamięci przed migracją bazy danych do warstwy usług hiperskali.|
-| Śledzenie zmian | Śledzenie zmian jest obecnie w publicznej wersji zapoznawczej i można włączyć w nowych lub istniejących bazach danych hyperscale. |
 | Replikacja geograficzna  | Nie można jeszcze skonfigurować replikacji geograficznej dla hiperskali bazy danych SQL azure. |
 | Kopiowanie bazy danych | Nie można jeszcze użyć kopii bazy danych do utworzenia nowej bazy danych w programie Azure SQL Hyperscale. |
 | Integracja TDE/AKV | Szyfrowanie przezroczystej bazy danych przy użyciu usługi Azure Key Vault (powszechnie określane jako Bring-Your-Own-Key lub BYOK) nie jest jeszcze obsługiwane dla usługi Azure SQL Database Hyperscale, jednak TDE z kluczami zarządzanymi usługi jest w pełni obsługiwane. |

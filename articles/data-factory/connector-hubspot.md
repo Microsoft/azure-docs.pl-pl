@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: cb0e20a96bebec22dff99d89c6be0a6d294c80a1
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 2d60a1b03da6fdf4af6b0d0378456c08d927f451
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992151"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415207"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Kopiowanie danych z usługi HubSpot przy użyciu usługi Azure Data Factory (wersja zapoznawcza)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z usługi HubSpot. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykuł, który przedstawia ogólny przegląd działania kopiowania.
 

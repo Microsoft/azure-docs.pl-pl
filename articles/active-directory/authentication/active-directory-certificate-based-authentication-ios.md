@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a042897ecbe35935c1832a53f523eb0597ebafc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6fd8a0c3688e5056c7941d334da8caee9f21ba82
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654240"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407263"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Uwierzytelnianie oparte na certyfikatach usługi Azure Active Directory w usłudze iOS
 
@@ -27,7 +27,7 @@ Urządzenia z systemem iOS mogą używać uwierzytelniania opartego na certyfika
 
 Skonfigurowanie tej funkcji eliminuje konieczność wprowadzania kombinacji nazwy użytkownika i hasła do niektórych aplikacji poczty i pakietu Microsoft Office na urządzeniu przenośnym.
 
-W tym temacie przedstawiono wymagania i obsługiwane scenariusze konfigurowania analizy administracyjnej na urządzeniu z systemem iOS(Android) dla użytkowników dzierżawców w planach usługi Office 365 Enterprise, Business, Education, US Government, China i Germany.
+W tym temacie przedstawiono wymagania i obsługiwane scenariusze konfigurowania analizy APO na urządzeniu z systemem iOS dla użytkowników dzierżawców w planach usługi Office 365 Enterprise, Business, Education, US Government, China i Germany.
 
 Ta funkcja jest dostępna w wersji zapoznawczej w planach obrony i planów federalnych usługi Office 365 dla instytucji rządowych i federalnych.
 

@@ -1,5 +1,5 @@
 ---
-title: Arkusz kodu algorytmu uczenia maszynowego
+title: Machine Learning Algorithm Cheat Sheet - projektant
 titleSuffix: Azure Machine Learning
 description: Arkusz cheat sheet algorytmu uczenia maszynowego do druku pomaga wybrać odpowiedni algorytm dla modelu predykcyjnego w projektancie usługi Azure Machine Learning.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: 85fbb1c1d26f71903adab2eb96b0c1dd3bf74c33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: accc4766f25f5d58ba2f31c153fe1c5d23413170
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78328624"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399080"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Arkusz cheatów algorytmu uczenia maszynowego dla projektanta usługi Azure Machine Learning
 
-**Arkusz ściągawki algorytmu usługi Azure Machine Learning** pomaga wybrać odpowiedni algorytm dla modelu analizy predykcyjnej.
+**Arkusz ściągawki algorytmu usługi Azure Machine Learning** pomaga wybrać odpowiedni algorytm od projektanta dla modelu analizy predykcyjnej.
 
 Usługa Azure Machine Learning ma dużą bibliotekę algorytmów z ***rodzin klasyfikacji,*** ***systemów polecających,*** ***klastrowania,*** ***wykrywania anomalii,*** ***regresji***i ***analiz tekstu.*** Każdy z nich jest przeznaczony do rozwiązania problemu uczenia maszynowego innego typu.
 
@@ -38,7 +38,7 @@ Sugestie oferowane w tym arkuszu ściągawki algorytmu są przybliżone zasady-o
 
 Każdy algorytm uczenia maszynowego ma swój własny styl lub indukcyjne odchylenie. W przypadku określonego problemu kilka algorytmów może być odpowiednie, a jeden algorytm może być lepiej dopasowany niż inne. Ale nie zawsze jest możliwe, aby wiedzieć wcześniej, który jest najlepszy pasuje. W takich przypadkach kilka algorytmów są wymienione razem w ściągawce. Odpowiednią strategią byłoby wypróbowanie jednego algorytmu, a jeśli wyniki nie są jeszcze zadowalające, spróbuj innych. 
 
-Aby dowiedzieć się więcej o algorytmach w usłudze Azure Machine Learning, przejdź do [algorytmu i odwołania do modułu.](algorithm-module-reference/module-reference.md)
+Aby dowiedzieć się więcej o algorytmach w projektancie usługi Azure Machine Learning, przejdź do [odwołania algorytm i moduł](algorithm-module-reference/module-reference.md).
 
 ## <a name="kinds-of-machine-learning"></a>Rodzaje uczenia maszynowego
 

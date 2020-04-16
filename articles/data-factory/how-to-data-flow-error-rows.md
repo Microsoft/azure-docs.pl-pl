@@ -8,14 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: makromer
-ms.openlocfilehash: 3fe3403ad06d82ba5ccd33d2718bf0e5eff64490
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f65421a6457d4bf4d438ce9d035d46476829da2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73166540"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414353"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Obsługa wierszy błędów obcinania SQL w przepływach danych mapowania usługi Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Typowym scenariuszem w fabryce danych podczas korzystania z przepływów danych mapowania jest zapisanie przekształconych danych w bazie danych SQL platformy Azure. W tym scenariuszu typowym warunkiem błędu, który należy zapobiec jest możliwe obcinania kolumny. Wykonaj następujące kroki, aby zapewnić rejestrowanie kolumn, które nie będą pasować do kolumny docelowego ciągu, umożliwiając przepływ danych, aby kontynuować w tych scenariuszach.
 

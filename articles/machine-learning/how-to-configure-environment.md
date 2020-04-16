@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5f46f5af723e1245afbc6bca90d25ae9036d646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472430"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399007"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurowanie środowiska programistycznego dla usługi Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -201,7 +201,7 @@ Podczas korzystania z komputera lokalnego (który może być również zdalną m
     pip install <new package>
     ```
 
-### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Zeszyty Jupyter
+### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Notesy programu Jupyter
 
 Zeszyty Jupyter są częścią [projektu Jupyter](https://jupyter.org/). Zapewniają one interaktywne środowisko kodowania, w którym tworzysz dokumenty, które łączą kod na żywo z tekstem narracji i grafiką. Notesy Jupyter to również świetny sposób na udostępnianie wyników innym osobom, ponieważ można zapisać dane wyjściowe sekcji kodu w dokumencie. Notebooki Jupyter można zainstalować na różnych platformach.
 
@@ -243,7 +243,7 @@ Aby włączyć te składniki w środowisku notebooka Jupyter:
 
 1. Aby skonfigurować notes Jupyter do korzystania z obszaru roboczego usługi Azure Machine Learning, przejdź do sekcji [Tworzenie pliku konfiguracji obszaru roboczego.](#workspace)
 
-### <a name="visual-studio-code"></a><a id="vscode"></a>Kod programu Visual Studio
+### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
 Visual Studio Code to bardzo popularny edytor kodów między platformami, który obsługuje obszerny zestaw języków programowania i narzędzi za pośrednictwem rozszerzeń dostępnych w [portalu Visual Studio marketplace.](https://marketplace.visualstudio.com/vscode) [Rozszerzenie usługi Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) instaluje rozszerzenie języka [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) do kodowania we wszystkich typach środowisk języka Python (wirtualny, Anaconda itp.). Ponadto zapewnia funkcje wygody do pracy z zasobami usługi Azure Machine Learning i uruchamiania eksperymentów usługi Azure Machine Learning bez opuszczania kodu programu Visual Studio.
 
@@ -288,7 +288,7 @@ Użyj następujących ustawień:
 | Ustawienie |Informacje zawarte w tym artykule dotyczą| Wartość |
 |----|---|---|
 | Nazwa klastra |zawsze| twojazasomername |
-| Środowisko uruchomieniowe usługi Databricks |zawsze|Czas działania 6.0 (scala 2.11, iskra 2.4.3) |
+| Środowisko uruchomieniowe usługi Databricks |zawsze|Czas działania 6.5 (scala 2.11, iskra 2.4.3) |
 | Wersja języka Python |zawsze| 3 |
 | Pracowników |zawsze| 2 lub wyższe |
 | Typy maszyn wirtualnych węzła procesu roboczego <br>(określa maksymalny numer równoczesnych iteracji) |Zautomatyzowane uczenie maszynowe<br>Tylko| Preferowana maszyna wirtualna zoptymalizowana pod kątem pamięci |
@@ -365,7 +365,7 @@ Plik konfiguracyjny można utworzyć na trzy sposoby:
 
 * **Pobierz plik**: W [witrynie Azure portal](https://ms.portal.azure.com)wybierz pozycję Pobierz plik **config.json** z sekcji **Przegląd** obszaru roboczego.
 
-     ![Portal Azure](./media/how-to-configure-environment/configure.png)
+     ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
 * **Programowo utwórz plik**: We widniech kodu połącz się z obszarem roboczym, podając identyfikator subskrypcji, grupę zasobów i nazwę obszaru roboczego. Następnie zapisuje konfigurację obszaru roboczego w pliku:
 

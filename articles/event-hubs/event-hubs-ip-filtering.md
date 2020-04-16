@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: e0116c1cfe61b49f2d5aff46fab9cadc0e423ecc
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 18212726f0ab921a05a3b640a32754c62958d047
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310177"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393141"
 ---
 # <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Konfigurowanie reguł zapory IP dla obszaru nazw usługi Azure Event Hubs
 Domyślnie przestrzenie nazw centrum zdarzeń są dostępne z Internetu, o ile żądanie jest zawiera prawidłowe uwierzytelnianie i autoryzację. Zaporą IP można ją ograniczyć do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -29,6 +29,7 @@ Ta funkcja jest przydatna w scenariuszach, w których usługi Azure Event Hubs p
 > Zaufane usługi firmy Microsoft nie są obsługiwane podczas implementacji sieci wirtualnych.
 >
 > Typowe scenariusze platformy Azure, które nie działają z sieciami wirtualnymi (należy pamiętać, że lista **nie** jest wyczerpująca) -
+> - Azure Monitor (ustawienie diagnostyczne)
 > - Usługa Azure Stream Analytics
 > - Integracja z usługą Azure Event Grid
 > - Trasy usługi Azure IoT Hub

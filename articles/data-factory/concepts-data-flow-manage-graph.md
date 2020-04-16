@@ -7,14 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/04/2019
-ms.openlocfilehash: da180bfb1aec29fa15b070fd73ba84d708ada927
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1618011dc3c281cb2ef06ef80cfc7c8e69c4e091
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928305"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415506"
 ---
 # <a name="mapping-data-flow-graphs"></a>Mapowanie wykresów przepływu danych
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Powierzchnia projektowa przepływów danych mapowania jest powierzchnią "konstrukcyjną", na której przepływy danych są budowane od góry do do do góry, od lewej do prawej. Do każdego przekształcenia dołączony jest przybornik z symbolem plus (+). Skoncentruj się na logice biznesowej zamiast łączenia węzłów za pomocą krawędzi w środowisku DAG o swobodnej formie.
 

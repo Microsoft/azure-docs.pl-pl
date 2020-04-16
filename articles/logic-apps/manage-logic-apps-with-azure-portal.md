@@ -8,13 +8,13 @@ ms.author: ladolan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/06/2020
-ms.openlocfilehash: a35f34ed27299077dca78630511ea3c291caff60
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.date: 04/13/2020
+ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804977"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415968"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Zarządzanie aplikacjami logiki w witrynie Azure portal
 
@@ -177,6 +177,46 @@ Usunięcie aplikacji logiki wpływa na wystąpienia przepływu pracy w następuj
    ![Potwierdź, aby usunąć aplikacje logiki](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 
    Portal platformy Azure zawiera powiadomienie na głównym pasku narzędzi platformy Azure, które potwierdza, czy operacja zakończyła się pomyślnie lub nie powiodło się.
+
+<a name="manage-logic-app-versions"></a>
+
+## <a name="manage-logic-app-versions"></a>Zarządzanie wersjami aplikacji logiki
+
+Można użyć witryny Azure portal do kontroli wersji aplikacji logiki. Możesz znaleźć historię wersji aplikacji logiki i promować poprzednie wersje.
+
+<a name="find-version-history"></a>
+
+### <a name="find-and-view-previous-versions"></a>Znajdowanie i wyświetlanie poprzednich wersji
+
+1. W witrynie Azure portal [znajdź aplikację logiki, którą chcesz zarządzać](#find-logic-app).
+
+1. W menu aplikacji logiki w obszarze **Narzędzia programistyczne**wybierz pozycję **Wersje**.
+
+   ![W menu aplikacji logiki wybierz "Wersje" w obszarze "Narzędzia programistyczne"](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+
+1. Wybierz **wersję** aplikacji logiki do zarządzania z listy. Identyfikator **wersji** można wprowadzić na pasku wyszukiwania, aby filtrować listę.
+
+1. Na stronie **Wersja historii** zobaczysz szczegóły poprzedniej wersji w trybie tylko do odczytu. Można wybrać między trybami **widoku Projektant** aplikacji logiki i **Widok kodu.**
+
+   ![Strona wersji historii dla aplikacji logiki z widokiem kodu i widokiem projektanta aplikacji logiki](./media/manage-logic-apps-with-azure-portal/history-version.png)
+
+<a name="promote-previous-versions"></a>
+
+### <a name="promote-previous-versions"></a>Podwyższyj poprzednie wersje
+
+1. W historii wersji aplikacji logiki [znajdź i wybierz wersję, którą chcesz promować](#find-version-history).
+
+1. Na stronie **Wersja historii** wybierz pozycję **Promuj**.
+
+   ![Przycisk Promuj w historii wersji aplikacji logiki](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+
+1. Na stronie **Projektant aplikacji logiki,** która zostanie otwarta, edytuj wersję, którą promujesz w razie potrzeby. Można przełączać się między trybami widoku **projektanta** i **kodu.** Można również aktualizować **parametry,** **szablony**i **łączniki**.
+
+   ![Strona Projektanta aplikacji logiki do promowania poprzedniej wersji](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+
+1. Aby zapisać aktualizacje i zakończyć promowanie poprzedniej wersji, wybierz pozycję **Zapisz**. (Lub, aby anulować zmiany, wybierz **opcję Odrzuć).** 
+
+   Po [ponownym wyświetleniu historii wersji aplikacji logiki promowana](#find-version-history) wersja pojawia się u góry listy i ma nowy identyfikator.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 21d8659e13506777f6045272f68c69dd63f09cf5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 68a6504668b9f180a421fe20c2c89d73b87bcc35
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80244685"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404344"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Szybki start: generowanie miniatury przy użyciu interfejsu API REST i języka Python
 
@@ -93,7 +93,9 @@ Opcjonalnie możesz pracować z tym przewodnikiem Szybki start krok po kroku, ko
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnie zapoznaj się z bardziej szczegółowymi informacjami o funkcji generowania miniatur.
+Następnie zapoznaj się z aplikacją Python, która używa wizji komputerowej do wykonywania optycznego rozpoznawania znaków (OCR); tworzenie miniatur przyciętych inteligentnie; i wykrywać, kategoryzować, oznaczać i opisywać funkcje wizualne na obrazach.
 
 > [!div class="nextstepaction"]
-> [Generowanie miniatur](../concept-generating-thumbnails.md)
+> [Computer Vision API Python Tutorial (Samouczek dla języka Python dotyczący interfejsu API przetwarzania obrazów)](../Tutorials/PythonTutorial.md)
+
+* Aby szybko zacząć eksperymentować z interfejsem API przetwarzania obrazów, wypróbuj [konsolę testowania interfejsu Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

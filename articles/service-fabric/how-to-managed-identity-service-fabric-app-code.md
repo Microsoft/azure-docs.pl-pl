@@ -1,16 +1,16 @@
 ---
 title: Używanie tożsamości zarządzanej za pomocą aplikacji
-description: Jak używać zarządzanych tożsamości w kodzie aplikacji usługi Azure Service Fabric, aby uzyskać dostęp do usług platformy Azure. Ta funkcja jest dostępna w publicznej wersji zapoznawczej.
+description: Jak używać zarządzanych tożsamości w kodzie aplikacji usługi Azure Service Fabric, aby uzyskać dostęp do usług platformy Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbdb1190ec3238a6accd34db3025e08c194d60b8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610322"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415616"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Jak wykorzystać tożsamość zarządzaną aplikacji sieci szkieletowej usług, aby uzyskać dostęp do usług platformy Azure (wersja zapoznawcza)
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Jak wykorzystać tożsamość zarządzaną aplikacji sieci szkieletowej usług w celu uzyskania dostępu do usług platformy Azure
 
 Aplikacje sieci szkieletowej usług mogą korzystać z zarządzanych tożsamości, aby uzyskać dostęp do innych zasobów platformy Azure, które obsługują uwierzytelnianie oparte na usłudze Azure Active Directory. Aplikacja może uzyskać [token dostępu reprezentujący](../active-directory/develop/developer-glossary.md#access-token) jego tożsamość, który może być przypisany do systemu lub przypisany przez użytkownika, i używać go jako tokenu "nośnika" do uwierzytelniania się w innej usłudze — znanej również jako [serwer chronionych zasobów](../active-directory/develop/developer-glossary.md#resource-server). Token reprezentuje tożsamość przypisaną do aplikacji sieci szkieletowej usług i zostanie wystawiony tylko do zasobów platformy Azure (w tym aplikacji SF), które współużytkują tę tożsamość. Szczegółowe opis tożsamości zarządzanych można znaleźć w dokumentacji [przeglądu tożsamości zarządzanej,](../active-directory/managed-identities-azure-resources/overview.md) a także w rozróżnieniu między tożsamościami przypisanymi przez system i tożsamościami przypisanymi przez użytkownika. Będziemy odwoływać się do aplikacji sieci szkieletowej usługi z obsługą tożsamości zarządzanej jako [aplikacji klienckiej](../active-directory/develop/developer-glossary.md#client-application) w tym artykule.
 
@@ -24,19 +24,18 @@ Aplikacje sieci szkieletowej usług mogą korzystać z zarządzanych tożsamośc
 W klastrach włączonych dla tożsamości zarządzanej środowisko uruchomieniowe sieci szkieletowej sieci szkieletowej udostępnia punkt końcowy localhost, którego aplikacje mogą używać do uzyskiwania tokenów dostępu. Punkt końcowy jest dostępny w każdym węźle klastra i jest dostępny dla wszystkich jednostek w tym węźle. Autoryzowani wywoływanie mogą uzyskać tokeny dostępu, wywołując ten punkt końcowy i przedstawiając kod uwierzytelniania; kod jest generowany przez środowisko uruchomieniowe sieci szkieletowej usług dla każdej aktywacji pakietu kodu usługi i jest powiązany z okresem istnienia procesu hostingu tego pakietu kodu usługi.
 
 W szczególności środowisko usługi sieci szkieletowej usług z obsługą tożsamości zarządzanej zostanie rozstawione z następującymi zmiennymi:
-- "MSI_ENDPOINT": punkt końcowy localhost wraz ze ścieżką, wersją interfejsu API i parametrami odpowiadającymi tożsamości zarządzanej tej usługi
-- "MSI_SECRET": kod uwierzytelniania, który jest nieprzezroczystym ciągiem i jednoznacznie reprezentuje usługę w bieżącym węźle
-
-> [!NOTE]
-> Nazwy "MSI_ENDPOINT" i "MSI_SECRET" odnoszą się do poprzedniego oznaczenia tożsamości zarządzanych ("Tożsamość usługi zarządzanej"),a która jest obecnie przestarzała. Nazwy są również zgodne z równoważnymi nazwami zmiennych środowiskowych używanymi przez inne usługi platformy Azure, które obsługują tożsamości zarządzane.
+- "IDENTITY_ENDPOINT": punkt końcowy localhost odpowiadający tożsamości zarządzanej usługi
+- "IDENTITY_HEADER": unikatowy kod uwierzytelniania reprezentujący usługę w bieżącym węźle
+- "IDENTITY_SERVER_THUMBPRINT": Odcisk palca serwera tożsamości zarządzanej przez sieci szkieletowe usług
 
 > [!IMPORTANT]
-> Kod aplikacji powinien uwzględniać wartość zmiennej środowiskowej "MSI_SECRET" jako dane wrażliwe - nie powinna być rejestrowana ani w inny sposób rozpowszechniana. Kod uwierzytelniania nie ma żadnej wartości poza węzłem lokalnym lub po zakończeniu procesu hostingu usługi, ale reprezentuje tożsamość usługi sieci szkieletowej usług, a więc powinien być traktowany z tymi samymi środkami ostrożności, co sam token dostępu.
+> Kod aplikacji powinien uwzględniać wartość zmiennej środowiskowej "IDENTITY_HEADER" jako dane wrażliwe - nie powinna być rejestrowana ani w inny sposób rozpowszechniana. Kod uwierzytelniania nie ma żadnej wartości poza węzłem lokalnym lub po zakończeniu procesu hostingu usługi, ale reprezentuje tożsamość usługi sieci szkieletowej usług, a więc powinien być traktowany z tymi samymi środkami ostrożności, co sam token dostępu.
 
 Aby uzyskać token, klient wykonuje następujące kroki:
-- tworzy identyfikator URI przez łączenie zarządzanego punktu końcowego tożsamości (MSI_ENDPOINT wartość) z wersją interfejsu API i zasobem (odbiorcami) wymaganym dla tokenu
-- tworzy żądanie GET http dla określonego identyfikatora URI
-- dodaje kod uwierzytelniania (wartość MSI_SECRET) jako nagłówek do żądania
+- tworzy identyfikator URI przez łączenie zarządzanego punktu końcowego tożsamości (IDENTITY_ENDPOINT wartość) z wersją interfejsu API i zasobem (odbiorcami) wymaganym dla tokenu
+- tworzy żądanie GET http(s) dla określonego identyfikatora URI
+- dodaje odpowiednią logikę sprawdzania poprawności certyfikatu serwera
+- dodaje kod uwierzytelniania (IDENTITY_HEADER wartość) jako nagłówek do żądania
 - składa wniosek
 
 Pomyślna odpowiedź będzie zawierać ładunek JSON reprezentujący wynikowy token dostępu, a także metadane opisujące go. Odpowiedź nie powiodła się będzie również zawierać wyjaśnienie błędu. Poniżej znajdziesz dodatkowe informacje na temat obsługi błędów.
@@ -44,19 +43,22 @@ Pomyślna odpowiedź będzie zawierać ładunek JSON reprezentujący wynikowy to
 Tokeny dostępu będą buforowane przez sieci szkieletowej usług na różnych poziomach (węzeł, klaster, usługa dostawcy zasobów), więc pomyślna odpowiedź nie musi oznaczać, że token został wystawiony bezpośrednio w odpowiedzi na żądanie aplikacji użytkownika. Tokeny będą buforowane przez mniej niż ich okres istnienia, a więc aplikacja jest gwarantowana, aby otrzymać prawidłowy token. Zaleca się, że kod aplikacji buforuje się wszelkie tokeny dostępu, które uzyskuje; klucz buforowania powinien obejmować (wyprowadzenie) odbiorców. 
 
 
+> [!NOTE]
+> Jedyna zaakceptowana wersja interfejsu `2019-07-01-preview`API jest obecnie i może ulec zmianie.
+
 Przykładowe żądanie:
 ```http
-GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://keyvault.azure.com/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
+GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://vault.azure.net/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
 gdzie:
 
 | Element | Opis |
 | ------- | ----------- |
 | `GET` | Zlecenie HTTP, wskazując, że chcesz pobrać dane z punktu końcowego. W takim przypadku token dostępu OAuth. | 
-| `http://localhost:2377/metadata/identity/oauth2/token` | Punkt końcowy tożsamości zarządzanej dla aplikacji sieci szkieletowej usług, pod warunkiem za pośrednictwem zmiennej środowiskowej MSI_ENDPOINT. |
+| `https://localhost:2377/metadata/identity/oauth2/token` | Punkt końcowy tożsamości zarządzanej dla aplikacji sieci szkieletowej usług, pod warunkiem za pośrednictwem zmiennej środowiskowej IDENTITY_ENDPOINT. |
 | `api-version` | Parametr ciągu kwerendy, określający wersję interfejsu API usługi tokenu tożsamości zarządzanej; obecnie jedyną akceptowaną `2019-07-01-preview`wartością jest i może ulec zmianie. |
-| `resource` | Parametr ciągu kwerendy wskazujący identyfikator URI identyfikatora aplikacji zasobu docelowego. Zostanie to odzwierciedlone jako `aud` (odbiorcy) roszczenie wydanego tokenu. W tym przykładzie żąda tokenu dostępu do usługi Azure Key\/Vault, którego identyfikator URI identyfikatora aplikacji jest https: /keyvault.azure.com/. |
-| `Secret` | Pole nagłówka żądania HTTP, wymagane przez usługę tokenu tożsamości zarządzanej sieci szkieletowej usług sieci szkieletowej usług dla sieci szkieletowej usług do uwierzytelniania wywołującego. Ta wartość jest dostarczana przez środowisko uruchomieniowe SF za pośrednictwem zmiennej środowiskowej MSI_SECRET. |
+| `resource` | Parametr ciągu kwerendy wskazujący identyfikator URI identyfikatora aplikacji zasobu docelowego. Zostanie to odzwierciedlone jako `aud` (odbiorcy) roszczenie wydanego tokenu. W tym przykładzie żąda tokenu dostępu do usługi Azure Key\/Vault, którego identyfikator URI identyfikatora aplikacji jest https: /vault.azure.net/. |
+| `Secret` | Pole nagłówka żądania HTTP, wymagane przez usługę tokenu tożsamości zarządzanej sieci szkieletowej usług sieci szkieletowej usług dla sieci szkieletowej usług do uwierzytelniania wywołującego. Ta wartość jest dostarczana przez środowisko uruchomieniowe SF za pośrednictwem zmiennej środowiskowej IDENTITY_HEADER. |
 
 
 Przykładowa odpowiedź:
@@ -67,7 +69,7 @@ Content-Type: application/json
     "token_type":  "Bearer",
     "access_token":  "eyJ0eXAiO...",
     "expires_on":  1565244611,
-    "resource":  "https://keyvault.azure.com/"
+    "resource":  "https://vault.azure.net/"
 }
 ```
 gdzie:
@@ -124,20 +126,33 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
         /// <returns>Access token</returns>
         public static async Task<string> AcquireAccessTokenAsync()
         {
-            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("MSI_ENDPOINT");
-            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("MSI_SECRET");
+            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT");
+            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("IDENTITY_HEADER");
+            var managedIdentityServerThumbprint = Environment.GetEnvironmentVariable("IDENTITY_SERVER_THUMBPRINT");
+            // Latest api version, 2019-07-01-preview is still supported.
+            var managedIdentityApiVersion = Environment.GetEnvironmentVariable("IDENTITY_API_VERSION");
             var managedIdentityAuthenticationHeader = "secret";
-            var managedIdentityApiVersion = "2019-07-01-preview";
             var resource = "https://management.azure.com/";
 
             var requestUri = $"{managedIdentityEndpoint}?api-version={managedIdentityApiVersion}&resource={HttpUtility.UrlEncode(resource)}";
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
             requestMessage.Headers.Add(managedIdentityAuthenticationHeader, managedIdentityAuthenticationCode);
+            
+            var handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, certChain, policyErrors) =>
+            {
+                // Do any additional validation here
+                if (policyErrors == SslPolicyErrors.None)
+                {
+                    return true;
+                }
+                return 0 == string.Compare(cert.GetCertHashString(), managedIdentityServerThumbprint, StringComparison.OrdinalIgnoreCase);
+            };
 
             try
             {
-                var response = await new HttpClient().SendAsync(requestMessage)
+                var response = await new HttpClient(handler).SendAsync(requestMessage)
                     .ConfigureAwait(false);
 
                 response.EnsureSuccessStatusCode();

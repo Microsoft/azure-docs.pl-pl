@@ -2,13 +2,13 @@
 title: Praca z elementami Reliable Collections
 description: Poznaj najlepsze rozwiązania dotyczące pracy z niezawodnymi kolekcjami w aplikacji sieci szkieletowej usług Azure.
 ms.topic: conceptual
-ms.date: 02/22/2019
-ms.openlocfilehash: 4a1f48d9523e5d753c222f0526e210a30e1927e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/10/2020
+ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645977"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409803"
 ---
 # <a name="working-with-reliable-collections"></a>Praca z elementami Reliable Collections
 Sieć szkieletowa usług oferuje modelu programowania stanowego dostępne dla deweloperów platformy .NET za pośrednictwem niezawodnych kolekcji. W szczególności sieci szkieletowej usług zapewnia niezawodny słownik i niezawodne klasy kolejki. Podczas korzystania z tych klas, stan jest podzielony na partycje (dla skalowalności), replikowane (dla dostępności) i transakcje w ramach partycji (dla semantyki ACID). Przyjrzyjmy się typowe użycie niezawodnego obiektu słownika i zobaczmy, co faktycznie robi.
@@ -50,6 +50,19 @@ W powyższym kodzie wywołanie CommitAsync zatwierdza wszystkie operacje transak
 
 Jeśli CommitAsync nie jest wywoływana (zwykle z powodu wyjątku są generowane), a następnie ITransaction obiekt zostanie usunięty. Podczas usuwania niezatwierdzonego obiektu ITransaction sieć szkieletowa usług dołącza informacje o przerwaniu do pliku dziennika węzła lokalnego i nic nie musi być wysyłane do żadnej z replik pomocniczych. A następnie wszystkie blokady skojarzone z kluczami, które zostały zmanipulowane za pośrednictwem transakcji są zwalniane.
 
+## <a name="volatile-reliable-collections"></a>Niestabilne niezawodne kolekcje 
+W niektórych obciążeniach, takich jak replikowanej pamięci podręcznej, na przykład sporadyczne utraty danych mogą być tolerowane. Unikanie trwałości danych na dysku może umożliwić lepsze opóźnienia i przepływności podczas zapisywania do słowników niezawodne. Kompromisem dla braku trwałości jest to, że jeśli wystąpi utrata kworum, nastąpi pełna utrata danych. Ponieważ utrata kworum jest rzadkim zjawiskiem, zwiększona wydajność może być warta rzadkiej możliwości utraty danych dla tych obciążeń.
+
+Obecnie obsługa volatile jest dostępna tylko dla niezawodnych słowników i niezawodnych kolejek, a nie ReliableConcurrentQueues. Zobacz listę [zastrzeżeń,](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) aby poinformować o decyzji, czy używać kolekcji lotnych.
+
+Aby włączyć nietrwałą obsługę ```HasPersistedState``` w usłudze, ```false```ustaw flagę w deklaracji typu usługi na tak:
+```xml
+<StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
+```
+
+>[!NOTE]
+>Istniejące usługi utrwalone nie mogą być niestabilne i odwrotnie. Jeśli chcesz to zrobić, należy usunąć istniejącą usługę, a następnie wdrożyć usługę ze zaktualizowaną flagą. Oznacza to, że musisz być skłonny do poniesienia pełnej utraty danych, jeśli chcesz zmienić flagę. ```HasPersistedState``` 
+
 ## <a name="common-pitfalls-and-how-to-avoid-them"></a>Typowe pułapki i jak ich uniknąć
 Teraz, gdy zrozumiesz, jak niezawodne kolekcje działają wewnętrznie, przyjrzyjmy się niektórym typowym nadużyciom. Zobacz poniższy kod:
 
@@ -60,7 +73,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
 
-   // The line below updates the property’s value in memory only; the
+   // The line below updates the property's value in memory only; the
    // new value is NOT serialized, logged, & sent to secondary replicas.
    user.LastLogin = DateTime.UtcNow;  // Corruption!
 
@@ -87,13 +100,13 @@ Oto kolejny przykład pokazujący typowy błąd:
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> user = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
    if (user.HasValue)
    {
-      // The line below updates the property’s value in memory only; the
+      // The line below updates the property's value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
       await tx.CommitAsync();
@@ -110,7 +123,7 @@ Poniższy kod pokazuje poprawny sposób, aby zaktualizować wartość w niezawod
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> currentUser = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
@@ -124,7 +137,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
       // In the new object, modify any properties you desire
       updatedUser.LastLogin = DateTime.UtcNow;
 
-      // Update the key’s value to the updateUser info
+      // Update the key's value to the updateUser info
       await m_dic.SetValue(tx, name, updatedUser);
       await tx.CommitAsync();
    }
@@ -138,7 +151,7 @@ Typ UserInfo poniżej pokazuje, jak zdefiniować typ niezmienne przy wykorzystan
 
 ```csharp
 [DataContract]
-// If you don’t seal, you must ensure that any derived classes are also immutable
+// If you don't seal, you must ensure that any derived classes are also immutable
 public sealed class UserInfo
 {
    private static readonly IEnumerable<ItemId> NoBids = ImmutableList<ItemId>.Empty;

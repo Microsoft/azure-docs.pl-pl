@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: 84b935d1646ea4f13d5926fc68797fd8efd03dea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3460c789909c6acd0537ef89a9ec8509bf6e135d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930353"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413731"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Transformacja filtru w przepływie danych mapowania
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Filtr przekształca umożliwia filtrowanie wierszy na podstawie warunku. Strumień danych wyjściowych zawiera wszystkie wiersze pasujące do warunku filtrowania. Transformacja filtru jest podobna do klauzuli WHERE w języku SQL.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 09569be88daa6295834e58da6b51656d0438bed4
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2171bbaea065ce1ab3a8d90f32e6ea6dc1f1e821
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270931"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404225"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Samouczek: Moderowanie wideo i transkrypcji
 
@@ -227,7 +227,7 @@ Transkrypcja dźwięku z wideo jest generowana również wtedy, gdy została ust
 
 ## <a name="create-a-human-review"></a>Tworzenie ludzkiej recenzji
 
-Proces moderowania zwraca listę ramek kluczy z wideo oraz transkrypcję ścieżek audio. Następnym krokiem jest utworzenie przeglądu za pomocą narzędzia do generowania przeglądu w usłudze Content Moderator dla ludzi będących moderatorami. Po cofnięciu do metody `ProcessVideo()` w pliku `Program.cs` widoczne jest wywołanie metody `CreateVideoReviewInContentModerator()`. Ta metoda jest częścią klasy `videoReviewApi`, która znajduje się w pliku `VideoReviewAPI.cs` i została przedstawiona tutaj.
+Proces moderowania zwraca listę ramek kluczy z wideo oraz transkrypcję ścieżek audio. Następnym krokiem jest utworzenie recenzji w narzędziu Content Moderator Review dla moderatorów ludzkich. Po cofnięciu do metody `ProcessVideo()` w pliku `Program.cs` widoczne jest wywołanie metody `CreateVideoReviewInContentModerator()`. Ta metoda jest częścią klasy `videoReviewApi`, która znajduje się w pliku `VideoReviewAPI.cs` i została przedstawiona tutaj.
 
 [!code-csharp[CreateVideoReviewInContentModerator](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=42-69)]
 
@@ -299,7 +299,7 @@ Najpierw należy zainicjować wszystkie zmienne i kolekcje.
 
 ### <a name="parse-the-transcript-for-captions"></a>Analizowanie transkrypcji do napisów
 
-Następnie należy przeanalizować transkrypcję w formacie VTT na potrzeby napisów i znaczników czasu. Narzędzie do przeglądu wyświetla te napisy na karcie transkrypcji na ekranie przeglądu wideo. Znaczniki czasu są używane do synchronizacji napisów z odpowiednimi ramkami wideo.
+Następnie należy przeanalizować transkrypcję w formacie VTT na potrzeby napisów i znaczników czasu. Narzędzie Recenzja wyświetla te podpisy na karcie Transkrypcja na ekranie recenzji wideo. Znaczniki czasu są używane do synchronizacji napisów z odpowiednimi ramkami wideo.
 
 [!code-csharp[TextScreen2](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=528-567)]
 

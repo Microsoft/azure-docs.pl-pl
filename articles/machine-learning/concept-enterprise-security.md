@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 4fbb3e83692ec058c03b22654e82d4093fe3541d
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756570"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414626"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla usługi Azure Machine Learning
 
@@ -243,9 +243,9 @@ Usługa Azure Databricks może być używana w potokach usługi Azure Machine Le
 
 ### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
 
-Za pomocą protokołu TLS można zabezpieczyć komunikację wewnętrzną między mikrousługami usługi Azure Machine Learning i zabezpieczyć wywołania zewnętrzne do punktu końcowego oceniania. Dostęp do usługi Azure Storage odbywa się również za pomocą bezpiecznego kanału.
+Usługa Azure Machine Learning używa protokołu TLS do zabezpieczania komunikacji wewnętrznej między różnymi mikrousługami usługi Azure Machine Learning. Dostęp do usługi Azure Storage odbywa się również za pomocą bezpiecznego kanału.
 
-Aby uzyskać więcej informacji, zobacz [Zabezpieczanie usługi sieci web za pośrednictwem usługi Azure Machine Learning za pomocą protokołu TLS.](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)
+Aby zabezpieczyć wywołania zewnętrzne do punktu końcowego oceniania usługi Azure Machine Learning używa protokołu TLS. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie usługi sieci web za pośrednictwem usługi Azure Machine Learning za pomocą protokołu TLS.](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)
 
 ### <a name="using-azure-key-vault"></a>Korzystanie z usługi Azure Key Vault
 

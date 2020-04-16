@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 0af322d589efd48cc224c69cef8e96fb887d9868
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c9edbbf54696a817d0495f6890e0d796e482231f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384222"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393714"
 ---
 # <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Zarządzanie długotrwałym przechowywaniem kopii zapasowych w przypadku wystąpienia zarządzanego przez usługę Azure SQL Database (PowerShell)
 
-W wystąpieniu zarządzanym usługi Azure SQL Database można skonfigurować długoterminowe zasady [przechowywania kopii zapasowych](sql-database-long-term-retention.md#managed-instance-support) (LTR) jako ograniczoną publiczną funkcję w wersji zapoznawczej. Dzięki temu można automatycznie przechowywać kopie zapasowe bazy danych w oddzielnych kontenerach magazynu obiektów Blob platformy Azure przez okres do 10 lat. Następnie można odzyskać bazę danych przy użyciu tych kopii zapasowych przy użyciu programu PowerShell.
+W wystąpieniu zarządzanym usługi Azure SQL Database można skonfigurować długoterminowe zasady [przechowywania kopii zapasowych](sql-database-long-term-retention.md#managed-instance-support) (LTR) jako ograniczoną publiczną funkcję w wersji zapoznawczej. Dzięki temu można automatycznie przechowywać kopie zapasowe bazy danych w oddzielnych kontenerach magazynu obiektów Blob platformy Azure przez okres do 10 lat. Następnie można odzyskać bazę danych przy użyciu tych kopii zapasowych za pomocą programu PowerShell.
 
    > [!IMPORTANT]
    > LTR dla wystąpień zarządzanych jest obecnie w ograniczonej wersji zapoznawczej i dostępne dla subskrypcji EA i CSP w zależności od przypadku. Aby zażądać rejestracji, utwórz [bilet pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/) w temacie Pomocy technicznej Kopia **zapasowa, Przywracanie i ciągłość działania/Długoterminowe przechowywanie kopii zapasowych.** 
@@ -34,7 +34,7 @@ W poniższych sekcjach pokazano, jak używać programu PowerShell do konfigurowa
 Dla **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** i **Restore-AzSqlInstanceDatabase**, trzeba będzie mieć jedną z następujących ról:
 
 - Rola właściciela subskrypcji lub
-- Rola współautora wystąpienia smanaged lub
+- Rola współautora wystąpienia zarządzanego lub
 - Rola niestandardowa z następującymi uprawnieniami:
 
    ```Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read``` ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read```

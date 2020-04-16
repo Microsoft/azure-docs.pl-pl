@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 6e2a90b8f81b9b945905ee98beb1686c54a62e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 733a85e492185e7e83922a3cc91d53c848b939a1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063757"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411145"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurowanie kluczy zarządzanych przez klienta dla konta usługi Azure Cosmos za pomocą usługi Azure Key Vault
 
@@ -231,7 +231,7 @@ Obecnie nie jest brane pod uwagę klucze na poziomie kontenera.
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Jak klucze zarządzane przez klienta wpływają na kopię zapasową?
 
-Usługa Azure Cosmos DB wykonuje [regularne i automatyczne kopie zapasowe](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) danych przechowywanych na koncie. Ta operacja powoduje utworzenie kopii zapasowej zaszyfrowanych danych. Aby użyć przywróconej kopii zapasowej, wymagany jest klucz szyfrowania używany w czasie wykonywania kopii zapasowej. Oznacza to, że nie dokonano odwołania, a wersja klucza, który był używany w czasie tworzenia kopii zapasowej, będzie nadal włączona.
+Usługa Azure Cosmos DB wykonuje [regularne i automatyczne kopie zapasowe](./online-backup-and-restore.md) danych przechowywanych na koncie. Ta operacja powoduje utworzenie kopii zapasowej zaszyfrowanych danych. Aby użyć przywróconej kopii zapasowej, wymagany jest klucz szyfrowania używany w czasie wykonywania kopii zapasowej. Oznacza to, że nie dokonano odwołania, a wersja klucza, który był używany w czasie tworzenia kopii zapasowej, będzie nadal włączona.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>Jak odwołać klucz szyfrowania?
 

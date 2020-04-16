@@ -4,14 +4,14 @@ description: Poniżej opisano, jak włączyć obsługę tożsamości zarządzany
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 0e35d2192fdcdb294b349105f3f0158564cec86b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76930460"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415666"
 ---
-# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster-preview"></a>Konfigurowanie obsługi tożsamości zarządzanej dla nowego klastra sieci szkieletowej usług (wersja zapoznawcza)
+# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Konfigurowanie obsługi tożsamości zarządzanej dla nowego klastra sieci szkieletowej usług
 
 Aby użyć [tożsamości zarządzanych dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) w aplikacjach sieci szkieletowej usług, należy najpierw włączyć usługę *tokenu tożsamości zarządzanej* w klastrze. Ta usługa jest odpowiedzialna za uwierzytelnianie aplikacji sieci szkieletowej usług przy użyciu ich tożsamości zarządzanych i uzyskiwanie tokenów dostępu w ich imieniu. Po włączeniu usługi można ją wyświetlić w Eksploratorze sieci szkieletowej usług w sekcji **System** w lewym okienku, działającej pod nazwą **sieci szkieletowej:/System/ManagedIdentityTokenService** obok innych usług systemowych.
 

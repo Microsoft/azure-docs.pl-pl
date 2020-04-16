@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać witryny Azure Portal do tworzenia klastr
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 7b9127c016fff78a8867dcecbe3260becdf02c65
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 62d8fec4c5c3ff35fb46826cb7118946f66948b2
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259123"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392578"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Tworzenie i konfigurowanie klastra usług Kubernetes platformy Azure (AKS) do używania węzłów wirtualnych w witrynie Azure portal
 
@@ -89,7 +89,7 @@ Na stronie **Skalowanie** wybierz pozycję *Włączone* w obszarze **Węzły wir
 
 ![Tworzenie klastra AKS i włączanie węzłów wirtualnych](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
-Domyślnie tworzony jest podmiot usługi Azure Active Directory. Ten podmiot zabezpieczeń usługi jest używany do komunikacji klastra i integracji z innymi usługami platformy Azure.
+Domyślnie tworzony jest podmiot usługi Azure Active Directory. Ten podmiot zabezpieczeń usługi jest używany do komunikacji klastra i integracji z innymi usługami platformy Azure. Alternatywnie można użyć tożsamości zarządzanej dla uprawnień zamiast jednostki usługi. Aby uzyskać więcej informacji, zobacz [Używanie tożsamości zarządzanych](use-managed-identity.md).
 
 Klaster jest również skonfigurowany do zaawansowanej sieci. Węzły wirtualne są skonfigurowane do używania własnej podsieci sieci wirtualnej platformy Azure. Ta podsieć ma delegowane uprawnienia do łączenia zasobów platformy Azure między klastrem AKS. Jeśli nie masz jeszcze delegowanej podsieci, portal Azure tworzy i konfiguruje sieć wirtualną platformy Azure i podsieć do użytku z węzłami wirtualnymi.
 

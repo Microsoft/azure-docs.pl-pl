@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dc87628d8b47435012c3d20ec2e72ac186983555
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 856bd6c2a3546a438293e89a0b576e1392d9c6a5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189331"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407292"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Wprowadzenie do niestandardowych zasad w usłudze Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ ms.locfileid: "78189331"
 
 ## <a name="add-signing-and-encryption-keys"></a>Dodawanie kluczy podpisywania i szyfrowania
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz ikonę **Katalog + Subskrypcja** na pasku narzędzi portalu, a następnie wybierz katalog zawierający dzierżawę usługi Azure AD B2C.
 1. W witrynie Azure portal wyszukaj i wybierz **pozycję Azure AD B2C**.
 1. Na stronie przegląd w obszarze **Zasady**wybierz pozycję **Identity Experience Framework**.
@@ -44,7 +44,7 @@ ms.locfileid: "78189331"
 1. W **nazwie** `TokenSigningKeyContainer`wprowadź . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W przypadku **typu klucz wybierz** **RSA**.
 1. Aby uzyskać **opcję Użycie klucza,** wybierz **pozycję Podpis**.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-the-encryption-key"></a>Tworzenie klucza szyfrowania
 
@@ -53,7 +53,7 @@ ms.locfileid: "78189331"
 1. W **nazwie** `TokenEncryptionKeyContainer`wprowadź . Prefiks `B2C_1A`_ może zostać dodany automatycznie.
 1. W przypadku **typu klucz wybierz** **RSA**.
 1. Aby uzyskać **użycie klucza,** wybierz **opcję Szyfrowanie**.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-the-facebook-key"></a>Tworzenie klucza Facebooka
 
@@ -64,7 +64,7 @@ Dodaj klucz [tajnego aplikacji](identity-provider-facebook.md) Facebooka jako kl
 1. W **yjmij nazwę**, wprowadź `FacebookSecret`. Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W **tajemnicy**wpisz sekret *aplikacji* Facebooka z developers.facebook.com. Ta wartość jest kluczem tajnym, a nie identyfikatorem aplikacji.
 1. Aby uzyskać **opcję Użycie klucza,** wybierz **pozycję Podpis**.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="register-identity-experience-framework-applications"></a>Rejestrowanie aplikacji struktury środowiska tożsamości
 
@@ -78,14 +78,14 @@ Aby zarejestrować aplikację w dzierżawie usługi Azure AD B2C, można użyć 
 
 #### <a name="applications"></a>[Aplikacje](#tab/applications/)
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W witrynie Azure portal wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W menu przegląd usługi **Azure Active Directory** w obszarze **Zarządzanie**wybierz pozycję **Rejestracje aplikacji (Starsza wersja)**.
 1. Wybierz pozycję **Rejestrowanie nowej aplikacji**.
 1. W **yjmij nazwę**, wprowadź `IdentityExperienceFramework`.
 1. W przypadku **typu aplikacji**wybierz pozycję **Aplikacja/interfejs API w sieci Web**.
 1. W przypadku **adresu URL logowania**wprowadź , `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`gdzie `your-tenant-name` jest twoja nazwa domeny dzierżawy usługi Azure AD B2C. Wszystkie adresy URL powinny teraz używać [b2clogin.com](b2clogin.md).
-1. Wybierz **pozycję Utwórz**. Po jego utworzeniu skopiuj identyfikator aplikacji i zapisz go do późniejszego użycia.
+1. Wybierz pozycję **Utwórz**. Po jego utworzeniu skopiuj identyfikator aplikacji i zapisz go do późniejszego użycia.
 
 #### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
 
@@ -116,8 +116,8 @@ Następnie udostępnij interfejs API, dodając zakres:
 1. W **obszarze Rejestracje aplikacji (Legacy)** wybierz pozycję **Nowa rejestracja aplikacji**.
 1. W **yjmij nazwę**, wprowadź `ProxyIdentityExperienceFramework`.
 1. W przypadku **typu aplikacji**wybierz opcję **Natywna**.
-1. W przypadku **funkcji Przekierowanie identyfikatora URI**wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, gdzie znajduje się `your-tenant-name` dzierżawa usługi Azure AD B2C.
-1. Wybierz **pozycję Utwórz**. Po jego utworzeniu skopiuj identyfikator aplikacji i zapisz go do późniejszego użycia.
+1. W polu **Przekieruj identyfikator URI**wprowadź `myapp://auth`.
+1. Wybierz pozycję **Utwórz**. Po jego utworzeniu skopiuj identyfikator aplikacji i zapisz go do późniejszego użycia.
 1. Wybierz **pozycję Ustawienia**, a następnie wybierz pozycję Wymagane **uprawnienia**, a następnie wybierz pozycję **Dodaj**.
 1. Wybierz **pozycję Wybierz interfejs API**, wyszukaj i wybierz **identityExperienceFramework**, a następnie kliknij przycisk **Wybierz**.
 1. Zaznacz pole wyboru obok pozycji **Access IdentityExperienceFramework**, kliknij pozycję **Zaznacz**, a następnie kliknij przycisk **Gotowe**.
@@ -129,7 +129,7 @@ Następnie udostępnij interfejs API, dodając zakres:
 1. W **yjmij nazwę**, wprowadź `ProxyIdentityExperienceFramework`.
 1. W obszarze **Obsługiwane typy kont**wybierz pozycję **Konta tylko w tym katalogu organizacyjnym**.
 1. W obszarze **Przekierowanie identyfikatora URI**użyj listy rozwijanej, aby wybrać **opcję Klient publiczny/natywny (mobilny & pulpit)**.
-1. W przypadku **funkcji Przekierowanie identyfikatora URI**wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, gdzie znajduje się `your-tenant-name` dzierżawa usługi Azure AD B2C.
+1. W polu **Przekieruj identyfikator URI**wprowadź `myapp://auth`.
 1. W obszarze **Uprawnienia**zaznacz pole wyboru *Udzielaj zgody administratora na otwieranie i offline_access uprawnienia.*
 1. Wybierz pozycję **Zarejestruj**.
 1. Zarejestruj **identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
@@ -139,7 +139,7 @@ Następnie należy określić, że aplikacja powinna być traktowana jako klient
 1. W obszarze **Zarządzanie**wybierz pozycję **Uwierzytelnianie**.
 1. Wybierz **wypróbuj nowe środowisko** (jeśli jest to pokazane).
 1. W obszarze **Ustawienia zaawansowane**włącz **opcję Traktuj aplikację jako klienta publicznego** (wybierz **tak**).
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 Teraz udziel uprawnień do zakresu interfejsu API, który został ujawniony wcześniej w rejestracji *IdentityExperienceFramework:*
 

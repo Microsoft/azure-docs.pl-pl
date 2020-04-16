@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 40a7406ea91c95daad2f180b9d0f4620cdbbf454
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 87a962709638391887eaa275f059bf4ceae9218b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875932"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406969"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów uwierzytelniania i autoryzacji usługi Azure AD
 
@@ -27,6 +27,49 @@ Szukasz informacji na temat kodów błędów AADSTS, które są zwracane z usłu
 > Niniejsze informacje mają charakter wstępny i mogą ulec zmianom. Masz pytanie lub nie możesz znaleźć tego, czego szukasz? Utwórz problem z githubem lub zobacz [Opcje pomocy technicznej i pomocy dla deweloperów,](active-directory-develop-help-support.md) aby dowiedzieć się więcej o innych sposobach uzyskania pomocy i pomocy technicznej.
 >
 > Ta dokumentacja jest dostarczana dla wskazówki dla deweloperów i administratorów, ale nigdy nie powinny być używane przez samego klienta. Kody błędów mogą ulec zmianie w dowolnym momencie, aby zapewnić bardziej szczegółowe komunikaty o błędach, które mają pomóc deweloperowi podczas tworzenia aplikacji. Aplikacje, które biorą zależność od numerów kodu tekstu lub błędu zostaną przerwane w czasie.
+
+## <a name="handling-error-codes-in-your-application"></a>Obsługa kodów błędów w aplikacji
+
+[Specyfikacja OAuth2.0](https://tools.ietf.org/html/rfc6749#section-5.2) zawiera wskazówki dotyczące obsługi błędów podczas uwierzytelniania przy użyciu `error` części odpowiedzi na błąd. 
+
+Oto przykładowa odpowiedź na błąd:
+
+```json
+{
+  "error": "invalid_scope",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://example.contoso.com/activity.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_codes": [
+    70011
+  ],
+  "timestamp": "2016-01-09 02:02:12Z",
+  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
+  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7", 
+  "error_uri":"https://login.microsoftonline.com/error?code=70011"
+}
+```
+
+| Parametr         | Opis    |
+|-------------------|----------------|
+| `error`       | Ciąg kodu błędu, który może służyć do klasyfikowania typów błędów, które występują i powinny być używane do reagowania na błędy. |
+| `error_description` | Określony komunikat o błędzie, który może pomóc deweloperowi zidentyfikować główną przyczynę błędu uwierzytelniania. Nigdy nie używaj tego pola do reagowania na błąd w kodzie. |
+| `error_codes` | Lista kodów błędów specyficznych dla STS, które mogą pomóc w diagnostyce.  |
+| `timestamp`   | Czas, w którym wystąpił błąd. |
+| `trace_id`    | Unikatowy identyfikator żądania, który może pomóc w diagnostyce. |
+| `correlation_id` | Unikatowy identyfikator żądania, który może pomóc w diagnostyce między składnikami. |
+| `error_uri` |  Łącze do strony wyszukiwania błędów z dodatkowymi informacjami o błędzie.  Jest to tylko do użycia przez dewelopera, nie należy przedstawiać go użytkownikom.  Obecny tylko wtedy, gdy system wyszukiwania błędów ma dodatkowe informacje o błędzie — nie wszystkie błędy mają dodatkowe informacje.|
+
+Pole `error` zawiera kilka możliwych wartości — przejrzyj łącza do dokumentacji protokołu i specyfikacje OAuth `authorization_pending` 2.0, aby dowiedzieć się więcej o konkretnych błędach (na przykład w [przepływie kodu urządzenia)](v2-oauth2-device-code.md)i o tym, jak na nie reagować.  Niektóre typowe są wymienione tutaj:
+
+| Kod błędu         | Opis        | Akcja klienta    |
+|--------------------|--------------------|------------------|
+| `invalid_request`  | Błąd protokołu, taki jak brak wymaganego parametru. | Napraw i ponownie prześlij żądanie.|
+| `invalid_grant`    | Niektóre materiały uwierzytelniania (kod uwierzytelniania, token odświeżania, token dostępu, wyzwanie PKCE) były nieprawidłowe, niepardzielalne, brakujące lub w inny sposób nieużywalne | Spróbuj nowego żądania `/authorize` do punktu końcowego, aby uzyskać nowy kod autoryzacji.  Należy wziąć pod uwagę przeglądanie i sprawdzanie poprawności użycia protokołów przez tę aplikację. |
+| `unauthorized_client` | Uwierzytelniony klient nie jest upoważniony do używania tego typu dotacji autoryzacji. | Zwykle dzieje się tak, gdy aplikacja kliencka nie jest zarejestrowana w usłudze Azure AD lub nie jest dodawana do dzierżawy usługi Azure AD użytkownika. Aplikacja może monitować użytkownika o instrukcje dotyczące instalowania aplikacji i dodawania jej do usługi Azure AD. |
+| `invalid_client` | Uwierzytelnianie klienta nie powiodło się.  | Poświadczenia klienta są nieprawidłowe. Aby naprawić, administrator aplikacji aktualizuje poświadczenia.   |
+| `unsupported_grant_type` | Serwer autoryzacji nie obsługuje typu udzielania autoryzacji. | Zmień typ dotacji w żądaniu. Ten typ błędu powinien występować tylko podczas opracowywania i być wykryty podczas wstępnego testowania. |
+| `invalid_resource` | Zasób docelowy jest nieprawidłowy, ponieważ nie istnieje, usługa Azure AD nie może go znaleźć lub nie jest poprawnie skonfigurowany. | Oznacza to, że zasób, jeśli istnieje, nie został skonfigurowany w dzierżawie. Aplikacja może monitować użytkownika o instrukcje dotyczące instalowania aplikacji i dodawania jej do usługi Azure AD.  Podczas tworzenia zwykle wskazuje niepoprawnie konfiguracji dzierżawy testu lub literówki w nazwie żądanego zakresu. |
+| `interaction_required` | Żądanie wymaga interakcji z użytkownikiem. Na przykład wymagany jest dodatkowy krok uwierzytelniania. | Ponów próbę żądania z tego samego zasobu, interactievly, tak aby użytkownik może wykonać wszelkie wyzwania wymagane.  |
+| `temporarily_unavailable` | Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądanie. | Ponów próbę żądania. Aplikacja kliencka może wyjaśnić użytkownikowi, że jego odpowiedź jest opóźniona z powodu stanu tymczasowego. |
 
 ## <a name="lookup-current-error-code-information"></a>Wyszukiwanie bieżących informacji o kodzie błędu
 Kody błędów i komunikaty mogą ulec zmianie.  Aby uzyskać najbardziej aktualne informacje, `https://login.microsoftonline.com/error` zapoznaj się ze stroną, aby znaleźć opisy błędów AADSTS, poprawki i sugerowane obejścia.  

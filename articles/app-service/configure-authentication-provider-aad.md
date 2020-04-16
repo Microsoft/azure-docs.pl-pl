@@ -3,14 +3,14 @@ title: Konfigurowanie uwierzytelniania w usłudze Azure AD
 description: Dowiedz się, jak skonfigurować uwierzytelnianie usługi Azure Active Directory jako dostawcę tożsamości dla usługi app service lub aplikacji Usługi Azure Functions.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: dbbe58df4f1cfe93555b494e525fad18f5b02664
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632566"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392562"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Konfigurowanie usługi aplikacji lub aplikacji Usługi Azure Functions do używania logowania usługi Azure AD
 
@@ -19,8 +19,7 @@ ms.locfileid: "80632566"
 W tym artykule pokazano, jak skonfigurować usługę Azure App Service lub usługi Azure Functions do używania usługi Azure Active Directory (Azure AD) jako dostawcy uwierzytelniania.
 
 > [!NOTE]
-> W tej chwili [usługa Azure Active Directory w wersji 2.0](../active-directory/develop/v2-overview.md) (w tym [MSAL)](../active-directory/develop/msal-overview.md)nie jest obsługiwana dla usługi Azure App Service i usługi Azure Functions. Sprawdź aktualizacje.
->
+> Przepływ ustawień ekspresowych konfiguruje rejestrację aplikacji AAD V1. Jeśli chcesz korzystać z [usługi Azure Active Directory w wersji 2.0](../active-directory/develop/v2-overview.md) (w tym [MSAL),](../active-directory/develop/msal-overview.md)postępuj zgodnie z [instrukcjami konfiguracji zaawansowanej.](#advanced)
 
 Podczas konfigurowania aplikacji i uwierzytelniania należy postępować zgodnie z tymi najlepszymi rozwiązaniami:
 
@@ -50,7 +49,7 @@ Podczas konfigurowania aplikacji i uwierzytelniania należy postępować zgodnie
 
     > [!CAUTION]
     > Ograniczenie dostępu w ten sposób ma zastosowanie do wszystkich wywołań aplikacji, co może nie być pożądane w przypadku aplikacji, które mają publicznie dostępną stronę główną, jak w wielu aplikacjach jednostronicowych. W przypadku takich aplikacji może być preferowane **zezwalanie na żądania anonimowe (brak akcji),** a aplikacja ręcznie uruchamia samo logowanie. Aby uzyskać więcej informacji, zobacz [Przepływ uwierzytelniania](overview-authentication-authorization.md#authentication-flow).
-5. Wybierz **pozycję Zapisz**.
+5. Wybierz pozycję **Zapisz**.
 
 ## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>Konfigurowanie z ustawieniami zaawansowanymi
 
@@ -74,7 +73,7 @@ Wykonaj poniższe czynności:
 1. Wybierz**rejestracje** > aplikacji **usługi Azure Active Directory** > Nowa**rejestracja**.
 1. Na stronie **Zarejestruj aplikację** wprowadź **nazwę** rejestracji aplikacji.
 1. W **obszarze Przekierowanie identyfikatora URI**wybierz pozycję **Web** i wpisz . `<app-url>/.auth/login/aad/callback` Na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Po utworzeniu rejestracji aplikacji skopiuj **identyfikator aplikacji (klienta)** i **identyfikator katalogu (dzierżawy)** na później.
 1. Wybierz pozycję **Uwierzytelnianie**. W obszarze **Niejawne przyznanie**włącz **tokeny identyfikatorów,** aby zezwolić na logowanie użytkowników OpenID Connect z usługi App Service.
 1. (Opcjonalnie) Wybierz **opcję Znakowanie**. W **polu URL strony głównej**wprowadź adres URL aplikacji App Service i wybierz pozycję **Zapisz**.
@@ -101,7 +100,7 @@ Wykonaj poniższe czynności:
     |Pole|Opis|
     |-|-|
     |Identyfikator klienta| Użyj identyfikatora **aplikacji (klienta)** rejestracji aplikacji. |
-    |Adres URL wystawcy| Użyj `https://login.microsoftonline.com/<tenant-id>`i zastąp * \<identyfikator dzierżawy>* **identyfikatorem katalogu (dzierżawy)** rejestracji aplikacji. Ta wartość jest używana do przekierowywania użytkowników do poprawnej dzierżawy usługi Azure AD, a także do pobierania odpowiednich metadanych w celu określenia odpowiednich kluczy podpisywania tokenu i wartości oświadczenia wystawcy tokenu na przykład. |
+    |Adres URL wystawcy| Użyj `https://login.microsoftonline.com/<tenant-id>/v2.0`i zastąp * \<identyfikator dzierżawy>* **identyfikatorem katalogu (dzierżawy)** rejestracji aplikacji. Ta wartość jest używana do przekierowywania użytkowników do poprawnej dzierżawy usługi Azure AD, a także do pobierania odpowiednich metadanych w celu określenia odpowiednich kluczy podpisywania tokenu i wartości oświadczenia wystawcy tokenu na przykład. Sekcja `/v2.0` może zostać pominięta dla aplikacji korzystających z usługi AAD w wersji 1. |
     |Klucz tajny klienta (opcjonalnie)| Użyj klucza tajnego klienta wygenerowanego podczas rejestracji aplikacji.|
     |Dozwolone grupy odbiorców tokenów| Jeśli jest to aplikacja w chmurze lub serwera i chcesz zezwolić tokeny uwierzytelniania z aplikacji sieci web, dodaj **identyfikator URI identyfikatora aplikacji** w aplikacji sieci web tutaj. Skonfigurowany **identyfikator klienta** jest *zawsze* niejawnie uważany za dozwoloną grupę odbiorców. |
 
@@ -119,7 +118,7 @@ Można zarejestrować klientów natywnych, aby zezwolić na uwierzytelnianie w i
 
     > [!NOTE]
     > W przypadku aplikacji ze sklepu Microsoft Store należy użyć [identyfikatora SID pakietu](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) jako identyfikatora URI.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Po utworzeniu rejestracji aplikacji skopiuj wartość **identyfikatora aplikacji (klienta).**
 1. Wybierz **uprawnienia** > interfejsu API**Dodaj uprawnienie** > **Moje interfejsy API**.
 1. Wybierz rejestrację aplikacji utworzoną wcześniej dla aplikacji usługi App Service. Jeśli nie widzisz rejestracji aplikacji, upewnij się, że dodano zakres **user_impersonation** w [obszarze Tworzenie rejestracji aplikacji w usłudze Azure AD dla aplikacji usługi App Service.](#register)

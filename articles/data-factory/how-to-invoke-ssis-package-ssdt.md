@@ -12,14 +12,17 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/31/2019
-ms.openlocfilehash: 5f21623af9b89bbb020063dfb72f7b60e65a6ebe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11e76fea87c60ae2b56cc15d5827be6e1b2b5a01
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927721"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399427"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Wykonywanie pakietów SSIS na platformie Azure z narzędzia SSDT
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 W tym artykule opisano funkcję projektów usług integracji programu SQL Server (SSIS) obsługujących platformę Azure w narzędziach SQL Server Data Tools (SSDT), która umożliwia uruchamianie pakietów w czasie wykonywania integracji platformy Azure-SSIS (IR) w usłudze Azure Data Factory (ADF).  Za pomocą tej funkcji można przetestować istniejące pakiety SSIS przed podniesieniem & ich zmiany/migracji na platformę Azure lub w celu opracowania nowych pakietów SSIS do uruchomienia na platformie Azure.
 
 Za pomocą tej funkcji można utworzyć nową usługę Azure-SSIS IR lub dołączyć istniejącą do projektów SSIS, a następnie wykonać na niej pakiety.  Obsługujemy uruchomione pakiety, które mają zostać wdrożone w katalogu SSIS (SSISDB) w modelu wdrażania projektu i te, które mają zostać wdrożone w systemach plików/udziałach plików/plikach Azure w modelu wdrażania pakietów. 

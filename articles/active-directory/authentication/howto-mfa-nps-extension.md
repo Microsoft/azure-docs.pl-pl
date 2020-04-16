@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f884f4c0ea3a610f28a8fdbb34b081f0b0a64d08
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 2c8606f0b7ab47d624ec66c8cda539e571cec6ce
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666944"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393051"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury NPS z usługą Azure Multi-Factor Authentication
 
@@ -64,7 +64,7 @@ Biblioteki te są instalowane automatycznie z rozszerzeniem.
 
 Moduł usługi Microsoft Azure Active Directory dla programu Windows PowerShell jest zainstalowany, jeśli nie jest jeszcze obecny, za pomocą skryptu konfiguracji uruchomionego w ramach procesu instalacji. Nie ma potrzeby instalowania tego modułu z wyprzedzeniem, jeśli nie jest jeszcze zainstalowany.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Wszystkie osoby korzystające z rozszerzenia serwera NPS muszą być synchronizowane z usługą Azure Active Directory przy użyciu usługi Azure AD Connect i muszą być zarejestrowane dla usługi MFA.
 
@@ -282,7 +282,7 @@ Następujące polecenie utworzy plik o nazwie "npscertificate" na dysku "C:" w f
 ``` PowerShell
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer
 ```
 
 Po uruchomieniu tego polecenia przejdź do dysku C, znajdź plik i kliknij go dwukrotnie. Przejdź do szczegółów i przewiń w dół do "odcisk palca", porównaj odcisk palca certyfikatu zainstalowanego na serwerze z tym. Odciski palców certyfikatu powinny być zgodne.

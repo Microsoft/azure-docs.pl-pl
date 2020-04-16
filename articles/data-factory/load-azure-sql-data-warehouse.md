@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/22/2018
-ms.openlocfilehash: dc6d8c9da749e7ee60713f4357dc6d46051d89f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1943c16c678d0783b99a0f16c25fa72137defc8a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131271"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415891"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Load data into Azure SQL Data Warehouse by using Azure Data Factory (Ładowanie danych do usługi Azure SQL Data Warehouse przy użyciu usługi Azure Data Factory)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [Usługa Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) to oparta na chmurze, skalowawska baza danych, która może przetwarzać ogromne ilości danych, zarówno relacyjnych, jak i nierelacyjnych. Usługa SQL Data Warehouse jest oparta na architekturze przetwarzania równoległego (MPP), która jest zoptymalizowana pod kątem obciążeń magazynu danych przedsiębiorstwa. Oferuje elastyczność chmury z elastycznością skalowania pamięci masowej i obliczania niezależnie.
 
@@ -59,7 +61,7 @@ W tym artykule pokazano, jak korzystać z narzędzia Data kopiowania danych z fa
     * **Wersja**: Wybierz **V2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych, które są używane przez fabrykę danych może znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują usługi Azure Data Lake Store, Usługa Azure Storage, usługa Azure SQL Database i tak dalej.
 
-3. Wybierz **pozycję Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **usługi Data Factory,** jak pokazano na poniższej ilustracji:
 
    ![Strona główna fabryki danych](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)

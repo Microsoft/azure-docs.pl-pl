@@ -5,18 +5,18 @@ services: container-service
 author: saudas
 manager: saudas
 ms.topic: article
-ms.date: 03/10/2019
+ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 85efc6d9d203ca06c5f7566376993b4c13950788
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a150e2f197f24db5da331195290d11ad925c47e
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369965"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392651"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Używanie tożsamości zarządzanych w usłudze Azure Kubernetes
 
-Obecnie klaster usługi Azure Kubernetes Service (AKS) (w szczególności dostawca chmury Kubernetes) wymaga *jednostki usługi* do tworzenia dodatkowych zasobów, takich jak moduły równoważenia obciążenia i dyski zarządzane na platformie Azure. Musisz podać jednostkę usługi lub AKS tworzy jeden w Twoim imieniu. Jednostki usługi zazwyczaj mają datę wygaśnięcia. Klastry po pewnym czasie osiągną stan, w którym podmiot zabezpieczeń usługi musi zostać odnowiony, aby klaster działał. Zarządzanie jednostkami usługi zwiększa złożoność.
+Obecnie klaster usługi Azure Kubernetes Service (AKS) (w szczególności dostawca chmury Kubernetes) wymaga i tożsamości do tworzenia dodatkowych zasobów, takich jak moduły równoważenia obciążenia i dyski zarządzane na platformie Azure, ta tożsamość może być *tożsamością zarządzaną* lub *jednostką usługi.* Jeśli używasz [jednostki usługi,](kubernetes-service-principal.md)należy podać jeden lub AKS tworzy jeden w Twoim imieniu. Jeśli używasz tożsamości zarządzanej, zostanie ona utworzona przez AKS automatycznie. Klastry przy użyciu jednostki usługi po pewnym czasie osiągnąć stan, w którym jednostki usługi muszą być odnawiane, aby utrzymać klastra pracy. Zarządzanie jednostkami usługi zwiększa złożoność, dlatego jest łatwiejsze do korzystania z zarządzanych tożsamości zamiast. Te same wymagania dotyczące uprawnień dotyczą zarówno podmiotów usługi, jak i tożsamości zarządzanych.
 
 *Tożsamości zarządzane* są zasadniczo otoki wokół podmiotów usługi i uczynić ich zarządzanie prostsze. Aby dowiedzieć się więcej, przeczytaj o [tożsamościach zarządzanych dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 

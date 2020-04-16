@@ -1,21 +1,21 @@
 ---
-title: Samouczek — przygotowanie aplikacji Java Spring do wdrożenia w chmurze Azure Spring Cloud
-description: W tym samouczku należy przygotować aplikację Java Spring do wdrożenia w usłudze Azure Spring Cloud.
+title: Instrukcje — przygotowanie aplikacji Java Spring do wdrożenia w chmurze Azure Spring Cloud
+description: W tym temacie należy przygotować aplikację Java Spring do wdrożenia w usłudze Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 49ebfec131c8b9fa7b8535163c03eb7cb692790d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 025dbc56fb46ef5b6225d35564b8e4ac3c82e6e3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78200026"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414463"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Przygotowanie aplikacji Java Spring do wdrożenia w chmurze Azure Spring Cloud
 
-Ten przewodnik Szybki start pokazuje, jak przygotować istniejącą aplikację Java Spring do wdrożenia w usłudze Azure Spring Cloud. Jeśli usługa Azure Spring Cloud jest poprawnie skonfigurowana, zapewnia niezawodne usługi monitorowania, skalowania i aktualizowania aplikacji Java Spring Cloud.
+W tym temacie pokazano, jak przygotować istniejącą aplikację Java Spring do wdrożenia w usłudze Azure Spring Cloud. Jeśli usługa Azure Spring Cloud jest poprawnie skonfigurowana, zapewnia niezawodne usługi monitorowania, skalowania i aktualizowania aplikacji Java Spring Cloud.
 
 Inne przykłady wyjaśniają, jak wdrożyć aplikację w usłudze Azure Spring Cloud, gdy plik POM jest skonfigurowany. 
 * [Uruchamianie aplikacji za pomocą portalu Azure](spring-cloud-quickstart-launch-app-portal.md)
@@ -225,7 +225,7 @@ Uwzględnij `spring-cloud-starter-sleuth` następujące `spring-cloud-starter-zi
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak skonfigurować aplikację Java Spring do wdrożenia w usłudze Azure Spring Cloud. Aby dowiedzieć się, jak skonfigurować wystąpienie serwera config, przejdź do następnego samouczka.
+W tym temacie dowiesz się, jak skonfigurować aplikację Java Spring do wdrożenia w usłudze Azure Spring Cloud. Aby dowiedzieć się, jak skonfigurować wystąpienie serwera config, zobacz następujący artykuł.
 
 > [!div class="nextstepaction"]
 > [Dowiedz się, jak skonfigurować wystąpienie serwera config](spring-cloud-tutorial-config-server.md)

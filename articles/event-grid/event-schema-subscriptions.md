@@ -1,20 +1,20 @@
 ---
-title: Schemat zdarzenia usługi Azure Event Grid
+title: Subskrypcja platformy Azure jako źródło usługi Event Grid
 description: W tym artykule opisano właściwości, które są dostarczane dla zdarzeń subskrypcji za pomocą usługi Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/12/2019
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561680"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393226"
 ---
-# <a name="azure-event-grid-event-schema-for-subscriptions"></a>Schemat zdarzeń usługi Azure Event Grid dla subskrypcji
+# <a name="azure-subscription-as-an-event-grid-source"></a>Subskrypcja platformy Azure jako źródło usługi Event Grid
 
 Ten artykuł zawiera właściwości i schemat zdarzeń subskrypcji platformy Azure.Aby zapoznać się ze schematem zdarzeń, zobacz [Schemat zdarzeń usługi Azure Event Grid](event-schema.md).
 
@@ -28,9 +28,10 @@ Aby programowo obsługiwać zdarzenia, można sortować `operationName` zdarzeni
 
 Temat zdarzenia jest identyfikatorem zasobu, który jest celem operacji. Aby filtrować zdarzenia dla zasobu, podaj identyfikator zasobu podczas tworzenia subskrypcji zdarzenia. Aby filtrować według typu zasobu, użyj wartości w następującym formacie:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
-Aby uzyskać listę przykładowych skryptów i samouczków, zobacz [źródło zdarzeń subskrypcji platformy Azure](event-sources.md#azure-subscriptions).
 
-## <a name="available-event-types"></a>Dostępne typy zdarzeń
+## <a name="event-grid-event-schema"></a>Schemat zdarzenia w siatce zdarzeń
+
+### <a name="available-event-types"></a>Dostępne typy zdarzeń
 
 Subskrypcje platformy Azure emitują zdarzenia zarządzania z usługi Azure Resource Manager, takie jak podczas tworzenia maszyny wirtualnej lub usuwania konta magazynu.
 
@@ -46,7 +47,7 @@ Subskrypcje platformy Azure emitują zdarzenia zarządzania z usługi Azure Reso
 | Microsoft.Resources.ResourceWriteFailure | Wywoływane, gdy operacja tworzenia lub aktualizacji kończy się niepowodzeniem. |
 | Microsoft.Resources.ResourceWriteSuccess | Wywoływane po pomyślnym utworzeniu lub aktualizacji operacji. |
 
-## <a name="example-event"></a>Przykładowe zdarzenie
+### <a name="example-event"></a>Przykładowe zdarzenie
 
 W poniższym przykładzie przedstawiono schemat zdarzenia **ResourceWriteSuccess.** Ten sam schemat jest używany dla **zdarzeń ResourceWriteFailure** i **ResourceWriteCancel** o różnych wartościach dla `eventType`.
 
@@ -230,7 +231,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **ResourceActionSucces
 }]
 ```
 
-## <a name="event-properties"></a>Właściwości zdarzenia
+### <a name="event-properties"></a>Właściwości zdarzenia
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
@@ -259,6 +260,14 @@ Obiekt danych ma następujące właściwości:
 | status | ciąg | Stan operacji. |
 | subscriptionId | ciąg | Identyfikator subskrypcji zasobu. |
 | identyfikator dzierżawy | ciąg | Identyfikator dzierżawy zasobu. |
+
+## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
+|Tytuł |Opis  |
+|---------|---------|
+| [Samouczek: Automatyzacja platformy Azure z siatką zdarzeń i zespołami Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Utwórz maszynę wirtualną, która wysyła zdarzenie. Zdarzenie wyzwala element runbook automatyzacji, który oznacza maszynę wirtualną i wyzwala komunikat, który jest wysyłany do kanału usługi Microsoft Teams. |
+| [Jak: subskrybować wydarzenia za pośrednictwem portalu](subscribe-through-portal.md) | Użyj portalu, aby subskrybować zdarzenia dla subskrypcji platformy Azure. |
+| [Interfejsu wiersza polecenia platformy Azure: subskrybowanie zdarzeń w ramach subskrypcji platformy Azure](./scripts/event-grid-cli-azure-subscription.md) |Przykładowy skrypt, który tworzy subskrypcję usługi Event Grid do subskrypcji platformy Azure i wysyła zdarzenia do elementu WebHook. |
+| [Program PowerShell: subskrybowanie zdarzeń w ramach subskrypcji platformy Azure](./scripts/event-grid-powershell-azure-subscription.md)| Przykładowy skrypt, który tworzy subskrypcję usługi Event Grid do subskrypcji platformy Azure i wysyła zdarzenia do elementu WebHook. |
 
 ## <a name="next-steps"></a>Następne kroki
 

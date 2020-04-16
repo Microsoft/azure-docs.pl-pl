@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 6e0c98cffef06fb6d6345fc2b23bbc22715909b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3432f981df3f666d6276eee4564ef33000faa6b1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370189"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410892"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurowanie wychodzącego ruchu sieciowego dla klastrów usługi Azure HDInsight przy użyciu zapory
 
@@ -221,7 +221,7 @@ Poprzednie instrukcje ułatwiają konfigurowanie Zapory platformy Azure w celu o
 #### <a name="fqdn-httphttps-dependencies"></a>Zależności HTTP/HTTPS usługi FQDN
 
 > [!Important]
-> Poniższa lista zawiera tylko kilka najważniejszych FQDN. Pełną listę sieci FQDN można uzyskać do skonfigurowania urządzenia WUS [w tym pliku](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
+> Poniższa lista zawiera tylko kilka najważniejszych FQDN. Do skonfigurowania urządzenia WUS [w tym pliku](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json)można uzyskać dodatkowe nazwy FQDN (głównie usługi Azure Storage i usługi Azure Service Bus).
 
 | **Punktu końcowego**                                                          |
 |---|

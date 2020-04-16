@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a75b71d43b072d366ef2fcb15bf4c901680d48fb
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: badd8ba676ef25c33a5034bb04d616faeb4ef1b0
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383215"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392094"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Przesyłanie dalej danych raportowania konfiguracji stanu usługi Azure Automation do dzienników usługi Azure Monitor
 
@@ -87,6 +87,7 @@ Zostanie otwarte okienko wyszukiwania dzienników z regionem kwerendy o zakresie
 | where OperationName contains 'DSCNodeStatusData'
 | where ResultType != 'Compliant'
 ```
+
 Szczegóły filtrowania:
 
 * Filtruj, `DscNodeStatusData` aby zwrócić operacje dla każdego węzła konfiguracji stanu.
@@ -104,7 +105,7 @@ Aby utworzyć regułę alertu, należy rozpocząć od utworzenia wyszukiwania dz
 1. Na stronie Omówienie obszaru roboczego usługi Log Analytics kliknij pozycję **Dzienniki**.
 1. Utwórz zapytanie wyszukiwania dziennika dla alertu, wpisując następujące wyszukiwanie w polu kwerendy:`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   Jeśli skonfigurowano dzienniki z więcej niż jednego konta automatyzacji lub subskrypcji do obszaru roboczego, można pogrupować alerty według subskrypcji i konta automatyzacji. Wykreśl nazwę konta `Resource` automatyzacji z pola w wyszukiwaniu rekordów **DscNodeStatusData.**
+   Jeśli skonfigurowano dzienniki z więcej niż jednego konta automatyzacji lub subskrypcji do obszaru roboczego, można pogrupować alerty według subskrypcji i konta automatyzacji. Wykierowuj `Resource` nazwę konta automatyzacji `DscNodeStatusData` z pola w wyszukiwaniu rekordów.
 1. Aby otworzyć ekran **Reguła tworzenia,** kliknij pozycję **Nowa reguła alertu** u góry strony. 
 
 Aby uzyskać więcej informacji na temat opcji konfigurowania alertu, zobacz [Tworzenie reguły alertu](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
@@ -128,46 +129,46 @@ Ta kwerenda wyświetla wykres stanu węzła w czasie.
 
 Diagnostyka usługi Azure Automation tworzy dwie kategorie rekordów w dziennikach usługi Azure Monitor:
 
-* Dane o stanie węzła (**DscNodeStatusData**)
-* Dane o stanie zasobu (**DscResourceStatusData**)
+* Dane o`DscNodeStatusData`stanie węzła ( )
+* Dane o`DscResourceStatusData`stanie zasobu ( )
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
 | Właściwość | Opis |
 | --- | --- |
 | TimeGenerated |Data i godzina, kiedy uruchomiono kontrolę zgodności. |
-| OperationName |DscNodeStatusData. |
-| Resulttype |Czy węzeł jest zgodny. |
+| OperationName |`DscNodeStatusData`. |
+| Resulttype |Wartość, która wskazuje, czy węzeł jest zgodny. |
 | NodeName_s |Nazwa węzła zarządzanego. |
-| NodeComplianceStatus_s |Czy węzeł jest zgodny. |
-| DscReportStatus (Stan dscreport) |Czy sprawdzanie zgodności przebiega pomyślnie. |
-| Tryb konfiguracji | Jak konfiguracja jest stosowana do węzła. Możliwe wartości: <ul><li>`ApplyOnly`: DSC stosuje konfigurację i nie robi nic dalej, chyba że nowa konfiguracja jest wypychany do węzła docelowego lub gdy nowa konfiguracja jest pobierana z serwera. Po początkowym zastosowaniu nowej konfiguracji DSC nie sprawdza, czy nie ma dryfu z wcześniej skonfigurowanego stanu. DSC próbuje zastosować konfigurację, dopóki `ApplyOnly` nie zakończy się pomyślnie, zanim wartość zacznie obowiązywać. </li><li>`ApplyAndMonitor`: Jest to wartość domyślna. LCM stosuje wszystkie nowe konfiguracje. Po początkowym zastosowaniu nowej konfiguracji, jeśli węzeł docelowy dryfuje od żądanego stanu, DSC zgłasza rozbieżności w dziennikach. DSC próbuje zastosować konfigurację, dopóki `ApplyAndMonitor` nie zakończy się pomyślnie, zanim wartość zacznie obowiązywać.</li><li>`ApplyAndAutoCorrect`: DSC stosuje wszystkie nowe konfiguracje. Po początkowym zastosowaniu nowej konfiguracji, jeśli węzeł docelowy odpędnie się od żądanego stanu, DSC zgłasza rozbieżność w dziennikach, a następnie ponownie wykorzystuje bieżącą konfigurację.</li></ul> |
+| NodeComplianceStatus_s |Wartość stanu określająca, czy węzeł jest zgodny. |
+| DscReportStatus (Stan dscreport) |Wartość stanu wskazująca, czy sprawdzanie zgodności przebiega pomyślnie. |
+| Tryb konfiguracji | Tryb używany do stosowania konfiguracji do węzła. Możliwe wartości: <ul><li>`ApplyOnly`: DSC stosuje konfigurację i nie robi nic dalej, chyba że nowa konfiguracja jest wypychany do węzła docelowego lub gdy nowa konfiguracja jest pobierana z serwera. Po początkowym zastosowaniu nowej konfiguracji DSC nie sprawdza, czy nie ma dryfu z wcześniej skonfigurowanego stanu. DSC próbuje zastosować konfigurację, dopóki `ApplyOnly` nie zakończy się pomyślnie, zanim wartość zacznie obowiązywać. </li><li>`ApplyAndMonitor`: Jest to wartość domyślna. LCM stosuje wszystkie nowe konfiguracje. Po początkowym zastosowaniu nowej konfiguracji, jeśli węzeł docelowy dryfuje od żądanego stanu, DSC zgłasza rozbieżności w dziennikach. DSC próbuje zastosować konfigurację, dopóki `ApplyAndMonitor` nie zakończy się pomyślnie, zanim wartość zacznie obowiązywać.</li><li>`ApplyAndAutoCorrect`: DSC stosuje wszystkie nowe konfiguracje. Po początkowym zastosowaniu nowej konfiguracji, jeśli węzeł docelowy odpędnie się od żądanego stanu, DSC zgłasza rozbieżność w dziennikach, a następnie ponownie wykorzystuje bieżącą konfigurację.</li></ul> |
 | HostName_s | Nazwa węzła zarządzanego. |
 | IPAddress | Adres IPv4 węzła zarządzanego. |
-| Kategoria | DscNodeStatus. |
+| Kategoria | `DscNodeStatus`. |
 | Zasób | Nazwa konta usługi Azure Automation. |
 | Tenant_g | Identyfikator GUID, który identyfikuje dzierżawy dla wywołującego. |
-| NodeId_g |Identyfikator GUID identyfikujący węzeł zarządzany. |
-| DscReportId_g |Identyfikator GUID identyfikujący raport. |
-| LastSeenTime_t |Data i godzina ostatniego wyświetlenia raportu. |
-| ReportStartTime_t |Data i godzina rozpoczęcia raportu. |
-| ReportEndTime_t |Data i godzina zakończenia raportu. |
-| NumberOfResources_d |Liczba zasobów DSC wywoływanych w konfiguracji zastosowanej do węzła. |
-| SourceSystem | Jak dzienniki usługi Azure Monitor zebrane dane. Zawsze "Azure" dla diagnostyki platformy Azure. |
-| ResourceId |Identyfikator konta usługi Azure Automation. |
-| Opis wyników | Opis tej operacji. |
+| NodeId_g | Identyfikator GUID identyfikujący węzeł zarządzany. |
+| DscReportId_g | Identyfikator GUID identyfikujący raport. |
+| LastSeenTime_t | Data i godzina ostatniego wyświetlenia raportu. |
+| ReportStartTime_t | Data i godzina rozpoczęcia raportu. |
+| ReportEndTime_t | Data i godzina zakończenia raportu. |
+| NumberOfResources_d | Liczba zasobów DSC wywoływanych w konfiguracji zastosowanej do węzła. |
+| SourceSystem | System źródłowy identyfikujący sposób dzienników usługi Azure Monitor zebrał dane. Zawsze `Azure` dla diagnostyki platformy Azure. |
+| ResourceId |Identyfikator zasobu konta usługi Azure Automation. |
+| Opis wyników | Opis zasobu dla tej operacji. |
 | SubscriptionId | Identyfikator subskrypcji platformy Azure (GUID) dla konta automatyzacji. |
 | ResourceGroup | Nazwa grupy zasobów dla konta automatyzacji. |
 | ResourceProvider | Microsoft. Automatyzacji. |
 | ResourceType | AUTOMATIONACCOUNTS. |
-| CorrelationId |Identyfikator GUID, który jest identyfikatorem korelacji raportu zgodności. |
+| CorrelationId | Identyfikator GUID, który jest identyfikatorem korelacji raportu zgodności. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
 | Właściwość | Opis |
 | --- | --- |
 | TimeGenerated |Data i godzina, kiedy uruchomiono kontrolę zgodności. |
-| OperationName |DscResourceStatusData.|
+| OperationName |`DscResourceStatusData`.|
 | Resulttype |Czy zasób jest zgodny. |
 | NodeName_s |Nazwa węzła zarządzanego. |
 | Kategoria | DscNodeStatus. |
@@ -185,7 +186,7 @@ Diagnostyka usługi Azure Automation tworzy dwie kategorie rekordów w dziennika
 | ErrorMessage_s |Komunikat o błędzie, jeśli zasób nie powiódł się. |
 | DscResourceDuration_d |Czas w sekundach, który uruchomiono zasób DSC. |
 | SourceSystem | Jak dzienniki usługi Azure Monitor zebrane dane. Zawsze `Azure` dla diagnostyki platformy Azure. |
-| ResourceId |Określa konto usługi Azure Automation. |
+| ResourceId |Identyfikator konta usługi Azure Automation. |
 | Opis wyników | Opis tej operacji. |
 | SubscriptionId | Identyfikator subskrypcji platformy Azure (GUID) dla konta automatyzacji. |
 | ResourceGroup | Nazwa grupy zasobów dla konta automatyzacji. |

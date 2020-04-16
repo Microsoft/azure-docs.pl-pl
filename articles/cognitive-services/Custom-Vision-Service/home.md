@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: a48c553f1c96b8777e0a591f428dca3f15d7d30e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: bdb2b31ee3abb30e6e7339f641b778ff5dc522b0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053636"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403807"
 ---
 # <a name="what-is-custom-vision"></a>Co to jest usługa Custom Vision?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Usługa Custom Vision to usługa poznawcza umożliwiająca tworzenie, wdrażanie i ulepszanie własnych klasyfikatorów obrazów. Klasyfikator obrazu to usługa AI, która stosuje etykiety (które reprezentują _klasy)_ do obrazów, zgodnie z ich cechami wizualnymi. W odróżnieniu od usługi [przetwarzania obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) usługa Custom Vision umożliwia określenie etykiet do stosowania.
+Usługa Azure Custom Vision to usługa poznawcza umożliwiająca tworzenie, wdrażanie i ulepszanie własnych klasyfikatorów obrazów. Klasyfikator obrazu to usługa AI, która stosuje etykiety (które reprezentują _klasy)_ do obrazów, zgodnie z ich cechami wizualnymi. W przeciwieństwie do usługi [Przetwarzania Obrazów,](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) Usługa Custom Vision umożliwia określenie etykiet do zastosowania.
 
 ## <a name="what-it-does"></a>Wyniki działania
 

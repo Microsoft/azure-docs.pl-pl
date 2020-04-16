@@ -4,15 +4,15 @@ description: W tym artykule opisano, jak używać interfejsu API REST usług Azu
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273717"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406282"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Odświeżanie asynchroniczne za pomocą interfejsu API REST
 
@@ -56,7 +56,7 @@ Na przykład można użyć zlecenia POST w kolekcji Odświeża, aby wykonać ope
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Wszystkie wywołania muszą być uwierzytelnione przy użyciu prawidłowego tokenu usługi Azure Active Directory (OAuth 2) w nagłówku autoryzacji i muszą spełniać następujące wymagania:
 
@@ -208,8 +208,8 @@ Oto przykład kodu C#, aby rozpocząć, [RestApiSample na GitHub](https://github
 
 ### <a name="to-use-the-code-sample"></a>Aby użyć przykładu kodu
 
-1.  Klonuj lub pobieraj repozytorium. Otwórz rozwiązanie RestApiSample.
-2.  Znajdź **klienta linii. BaseAddress = ...** i podaj [podstawowy adres URL](#base-url).
+1.    Klonuj lub pobieraj repozytorium. Otwórz rozwiązanie RestApiSample.
+2.    Znajdź **klienta linii. BaseAddress = ...** i podaj [podstawowy adres URL](#base-url).
 
 Przykładowy kod używa uwierzytelniania [jednostkowego usługi.](#service-principal)
 
@@ -217,14 +217,14 @@ Przykładowy kod używa uwierzytelniania [jednostkowego usługi.](#service-princ
 
 Zobacz [Tworzenie jednostki usługi — witryna Azure portal](../active-directory/develop/howto-create-service-principal-portal.md) i dodawanie [jednostki usługi do roli administratora serwera,](analysis-services-addservprinc-admins.md) aby uzyskać więcej informacji na temat konfigurowania jednostki usługi i przypisywania niezbędnych uprawnień w usłudze Azure AS. Po wykonaniu tych czynności wykonaj następujące czynności:
 
-1.  W przykładzie kodu znajdź **urząd ciąg = ...**, zastąpić **wspólne** z identyfikatorem dzierżawy organizacji.
-2.  Komentarz/uncomment więc ClientCredential klasy jest używany do tworzenia wystąpienia obiektu cred. Upewnij \<się, że> \<identyfikatora aplikacji i> wartości klucza aplikacji są dostępne w bezpieczny sposób lub użyj uwierzytelniania opartego na certyfikatach dla podmiotów korzystających z usługi.
-3.  Uruchom przykład.
+1.    W przykładzie kodu znajdź **urząd ciąg = ...**, zastąpić **wspólne** z identyfikatorem dzierżawy organizacji.
+2.    Komentarz/uncomment więc ClientCredential klasy jest używany do tworzenia wystąpienia obiektu cred. Upewnij \<się, że> \<identyfikatora aplikacji i> wartości klucza aplikacji są dostępne w bezpieczny sposób lub użyj uwierzytelniania opartego na certyfikatach dla podmiotów korzystających z usługi.
+3.    Uruchom przykład.
 
 
 ## <a name="see-also"></a>Zobacz też
 
 [Próbki](analysis-services-samples.md)   
-[INTERFEJS API ODPOCZYNKU](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[Interfejs API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

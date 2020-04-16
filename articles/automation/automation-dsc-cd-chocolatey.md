@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 706ab128af4379a56223ff65fb12f29d37b524f7
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 0c61a431b985e494148500ed0a7aeb106534ed2c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383275"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392116"
 ---
 # <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Zapewnienie ciągłego wdrażania maszyn wirtualnych przy użyciu konfiguracji stanu automatyzacji i chocolatey
 
@@ -95,7 +95,7 @@ Przejdź do odpowiedniego zasobu i kliknij przycisk "Wdrażanie w usłudze Azure
 
 Inna technika niedawno dodana do witryny Azure portal umożliwia ściąganie nowych modułów lub aktualizowanie istniejących modułów. Kliknij zasób konta automatyzacji, kafelek Zasoby i na koniec kafelek Moduły. Ikona Galeria przeglądania umożliwia wyświetlenie listy modułów w galerii, przechodzenie do szczegółów i ostateczne importowanie ich do konta automatyzacji. Jest to świetny sposób, aby od czasu do czasu aktualizować moduły. Funkcja importu sprawdza zależności z innymi modułami, aby upewnić się, że nic nie zostanie zsynchronizowane.
 
-Istnieje też podejście ręczne. Takie podejście jest używane tylko raz na zasób, chyba że chcesz uaktualnić go później. Aby uzyskać więcej informacji na temat tworzenia modułów integracji programu PowerShell, zobacz [Tworzenie modułów integracji dla usługi Azure Automation.](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
+Istnieje również ręczne podejście, używane tylko raz na zasób, chyba że chcesz uaktualnić go później. Aby uzyskać więcej informacji na temat tworzenia modułów integracji programu PowerShell, zobacz [Tworzenie modułów integracji dla usługi Azure Automation.](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 >[!NOTE]
 >Struktura folderów modułu integracji programu PowerShell dla komputera z systemem Windows różni się nieco od struktury folderów oczekiwanej przez usługę Azure Automation. 
@@ -121,7 +121,7 @@ Istnieje też podejście ręczne. Takie podejście jest używane tylko raz na za
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 W uwzględniony przykład implementuje te kroki dla cChoco i xNetworking. 
@@ -196,18 +196,18 @@ Te kroki powodują, że nowa konfiguracja węzła o nazwie **ISVBoxConfig.isvbox
 
 ## <a name="step-5-create-and-maintain-package-metadata"></a>Krok 5: Tworzenie i obsługa metadanych pakietu
 
-Dla każdego pakietu, który można umieścić w repozytorium pakietów, należy nuspec, który opisuje go.
-Ten nuspec musi być skompilowany i przechowywany na serwerze NuGet. Proces ten opisano [tutaj](https://docs.nuget.org/create/creating-and-publishing-a-package). MyGet.org można używać jako serwera NuGet. Sprzedają tę usługę, ale mają starter SKU, który jest bezpłatny. W NuGet.org znajdziesz instrukcje dotyczące instalowania własnego serwera NuGet dla pakietów prywatnych.
+Dla każdego pakietu, który można umieścić w repozytorium pakietów, należy Nuspec, który opisuje go. Musi być skompilowany i przechowywany na serwerze NuGet. Proces ten opisano [tutaj](https://docs.nuget.org/create/creating-and-publishing-a-package). 
+
+MyGet.org można **używać** jako serwera NuGet. Możesz kupić tę usługę, ale to jest bezpłatna jednostka SKU startowa. W [NuGet](https://www.nuget.org/)znajdziesz instrukcje dotyczące instalowania własnego serwera NuGet dla pakietów prywatnych.
 
 ## <a name="step-6-tie-it-all-together"></a>Krok 6: Związać to wszystko razem
 
-Za każdym razem, gdy wersja przechodzi qa i jest zatwierdzony do wdrożenia, pakiet jest tworzony, a nuspec i nupkg są aktualizowane i wdrażane na serwerze NuGet. Konfiguracja (krok 4 powyżej) musi również zostać zaktualizowana, aby uzgodnić nowy numer wersji. Następnie musi zostać wysłany do serwera ściągania i skompilowany.
+Za każdym razem, gdy wersja przechodzi qa i jest zatwierdzony do wdrożenia, pakiet jest tworzony, a nuspec i nupkg są aktualizowane i wdrażane na serwerze NuGet. Konfiguracja (krok 4) musi również zostać zaktualizowana, aby uzgodnić nowy numer wersji. Następnie musi zostać wysłany do serwera ściągania i skompilowany.
 
 Od tego momentu to do maszyn wirtualnych, które zależą od tej konfiguracji, aby wyciągnąć aktualizację i zainstalować go. Każda z tych aktualizacji jest prosta — tylko wiersz lub dwie programu PowerShell. W przypadku usługi Azure DevOps niektóre z nich są hermetyzowane w zadaniach kompilacji, które można połączyć w połączeniu w kompilacji. Ten [artykuł](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) zawiera więcej szczegółów. To [repozytorium GitHub](https://github.com/Microsoft/vso-agent-tasks) zawiera szczegółowe informacje o dostępnych zadaniach kompilacji.
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
 * [Omówienie usługi Azure Automation DSC](automation-dsc-overview.md)
-* [Polecenia cmdlet usługi Azure Automation DSC](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
 * [Maszyny dołączające do zarządzania przez usługę Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>Następne kroki

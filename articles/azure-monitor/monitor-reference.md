@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: e0e98b87cf3612bf01f90f806ea64ef06d08c60a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 27503defa23b2a35e767156139228aa2e177652f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255332"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405176"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Co jest monitorowane przez usługę Azure Monitor?
 W tym artykule opisano różne aplikacje i usługi, które są monitorowane przez usługę Azure Monitor. 
@@ -205,7 +205,6 @@ Inne rozwiązania są dostępne do monitorowania różnych aplikacji i usług, a
 | [Oceny na żądanie](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Oceń i zoptymalizuj dostępność, zabezpieczenia i wydajność lokalnych, hybrydowych i chmurowych środowisk technologicznych firmy Microsoft. |
 | [Sprawdzanie kondycji SQL](insights/sql-assessment.md) | Oceń ryzyko i kondycję środowisk programu SQL Server.  |
 | [Dane o komunikacji sieciowej](insights/wire-data.md) | Skonsolidowane dane dotyczące sieci i wydajności zebrane z komputerów podłączonych do systemu Windows i z systemem Linux za pomocą agenta usługi Log Analytics. |
-
 
 ## <a name="third-party-integration"></a>Integracja z osobami trzecimi
 

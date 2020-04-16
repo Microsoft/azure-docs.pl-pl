@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 7ea00d663264e902c1818f7a4684e90eccd97b28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73118823aec9b8d4bd872986b13f19496240c0b9
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265053"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393438"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Programy obsługi zdarzeń w usłudze Azure Event Grid
 
@@ -42,7 +42,7 @@ W przypadku używania usługi Azure Functions jako procedury obsługi należy ko
 | [Samouczek: przesyłanie strumieniowe dużych zbiorów danych do magazynu danych](event-grid-event-hubs-integration.md) | Gdy Centra zdarzeń tworzy plik przechwytywania, usługa Event Grid wysyła zdarzenie do aplikacji funkcji. Aplikacja pobiera plik Przechwytywania i migruje dane do magazynu danych. |
 | [Samouczek: przykłady integracji usługi Azure Service Bus to Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Usługa Event Grid wysyła wiadomości z tematu usługi Service Bus do aplikacji funkcji i aplikacji logiki. |
 
-## <a name="event-hubs"></a>Usługa Event Hubs
+## <a name="event-hubs"></a>Event Hubs
 
 Użyj Centrum zdarzeń, gdy rozwiązanie pobiera zdarzenia szybciej niż może przetwarzać zdarzenia. Aplikacja przetwarza zdarzenia z Centrów zdarzeń w swoim własnym harmonogramie. Można skalować przetwarzania zdarzeń do obsługi zdarzeń przychodzących.
 
@@ -52,8 +52,6 @@ Centra zdarzeń może działać jako źródło zdarzeń lub program obsługi zda
 |---------|---------|
 | [Szybki start: kierowanie zdarzeń niestandardowych do centrów zdarzeń platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure i siatki zdarzeń](custom-event-to-eventhub.md) | Wysyła zdarzenie niestandardowe do centrum zdarzeń do przetwarzania przez aplikację. |
 | [Szablon Menedżera zasobów: temat niestandardowy i punkt końcowy centrów zdarzeń](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Szablon Menedżera zasobów, który tworzy subskrypcję dla tematu niestandardowego. Wysyła zdarzenia do usługi Azure Event Hubs. |
-
-Aby zapoznać się z przykładami centrów zdarzeń jako źródła, zobacz [źródło centrum zdarzeń](event-sources.md#event-hubs).
 
 ## <a name="hybrid-connections"></a>Połączenia hybrydowe
 

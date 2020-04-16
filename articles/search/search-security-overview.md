@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 6de6f23fe9564b28a5d436ac00999dbb3e9183e1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.openlocfilehash: fe7d076fab6a70736843fc644cd56bef44a55df2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548960"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415123"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Bezpieczeństwo i prywatność danych w usłudze Azure Cognitive Search
 
@@ -31,7 +31,6 @@ Usługa Azure Cognitive Search posiada certyfikaty dla następujących standard�
 + [GxP (21 CFR Część 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST (HITRUST)](https://en.wikipedia.org/wiki/HITRUST)
 + [PCI DSS poziom 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
-+ [Australia IRAP Niesklasyfikowany DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 Zgodność ze standardami ma zastosowanie do ogólnie dostępnych funkcji. Funkcje w wersji zapoznawczej są certyfikowane po przejściu do ogólnej dostępności i nie mogą być używane w rozwiązaniach spełniających surowe wymagania norm. Certyfikacja zgodności jest udokumentowana w [przeglądarce zgodności platformy Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) i Centrum [zaufania.](https://www.microsoft.com/en-us/trustcenter) 
 
