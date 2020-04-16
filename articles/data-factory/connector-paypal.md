@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 2bf3452e3489c8b4c9664b2ffb58e4a001f8846b
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c93425fe2e5210a3a8cc577b6e74e281c88121c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991811"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416785"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Kopiowanie danych z systemu PayPal przy użyciu usługi Azure Data Factory (wersja zapoznawcza)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z systemu PayPal. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykuł, który przedstawia ogólny przegląd działania kopiowania.
 

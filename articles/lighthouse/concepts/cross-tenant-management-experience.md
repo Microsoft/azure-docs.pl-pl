@@ -3,12 +3,12 @@ title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi platformy Azure umożliwia środowisko zarządzania między dzierżawami.
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ac5d62fbf6b6ee418cd4b2f2b00dfc12e05f809
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754135"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418522"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -25,11 +25,7 @@ Zazwyczaj w celu zarządzania zasobami platformy Azure dla klienta dostawcy usł
 
 W przypadku zarządzania zasobami delegowanymi platformy Azure proces dołączania określa użytkowników w dzierżawie dostawcy usług, którzy będą mogli uzyskiwać dostęp do subskrypcji, grup zasobów i zasobów w dzierżawie klienta oraz zarządzać nimi. Ci użytkownicy mogą następnie zalogować się do witryny Azure portal przy użyciu własnych poświadczeń. W witrynie Azure portal mogą zarządzać zasobami należącymi do wszystkich klientów, do których mają dostęp. Można to zrobić, odwiedzając [stronę Moi klienci](../how-to/view-manage-customers.md) w witrynie Azure portal lub pracując bezpośrednio w kontekście subskrypcji tego klienta, w witrynie Azure portal lub za pośrednictwem interfejsów API.
 
-Zarządzanie zasobami delegowanymi platformy Azure umożliwia większą elastyczność zarządzania zasobami dla wielu klientów bez konieczności logowania się do różnych kont w różnych dzierżawach. Na przykład dostawca usług może mieć trzech klientów, z różnymi obowiązkami i poziomami dostępu, jak pokazano poniżej:
-
-![Trzech najemców klientów przedstawiających obowiązki usługodawców](../media/azure-delegated-resource-management-customer-tenants.jpg)
-
-Korzystając z zarządzania zasobami delegowanymi platformy Azure, autoryzowani użytkownicy mogą logować się do dzierżawy dostawcy usług, aby uzyskać dostęp do tych zasobów, jak pokazano poniżej:
+Zarządzanie zasobami delegowanymi platformy Azure umożliwia większą elastyczność zarządzania zasobami dla wielu klientów bez konieczności logowania się do różnych kont w różnych dzierżawach. Na przykład dostawca usług może mieć dwóch klientów o różnych obowiązkach i poziomach dostępu. Korzystając z zarządzania zasobami delegowanymi platformy Azure, autoryzowani użytkownicy mogą logować się do dzierżawy dostawcy usług, aby uzyskać dostęp do tych zasobów.
 
 ![Zasoby klienta zarządzane za pośrednictwem jednego dzierżawcy dostawcy usług](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 

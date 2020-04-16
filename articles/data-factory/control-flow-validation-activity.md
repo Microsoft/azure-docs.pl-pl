@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: f63c78c59d7d6be3c66ea0785389eff73e3bff60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764b41d1823e8edce134c5099e066486f4f08acc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73678369"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417933"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Działanie sprawdzania poprawności w fabryce danych platformy Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Można użyć sprawdzania poprawności w potoku, aby upewnić się, że potok kontynuuje wykonywanie tylko po zatwierdzeniu dołączone odwołanie do dołączonego zestawu danych istnieje, że spełnia określone kryteria lub limit czasu został osiągnięty.
 
 
@@ -73,9 +75,9 @@ Minimumsize | Minimalny rozmiar pliku w bajtach. Jeśli żadna wartość nie zos
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych:
 
 - [Działanie If Condition](control-flow-if-condition-activity.md)
-- [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)
+- [Działanie wykonywania potoku](control-flow-execute-pipeline-activity.md)
 - [Dla każdego działania](control-flow-for-each-activity.md)
-- [Uzyskaj aktywność metadanych](control-flow-get-metadata-activity.md)
-- [Działanie Lookup](control-flow-lookup-activity.md)
+- [Działanie pobierania metadanych](control-flow-get-metadata-activity.md)
+- [Działanie wyszukiwania](control-flow-lookup-activity.md)
 - [Działanie internetowe](control-flow-web-activity.md)
 - [Działanie Until](control-flow-until-activity.md)

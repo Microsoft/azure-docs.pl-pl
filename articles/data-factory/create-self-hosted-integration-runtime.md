@@ -11,14 +11,16 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 3fe5a58046776d00ce68189cf724a995380869eb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 6bc0f002c6927cfd9a314797663e1dabbac392b6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887310"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416638"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Środowisko wykonawcze integracji (IR) to infrastruktura obliczeniowa używana przez usługę Azure Data Factory w celu zapewnienia możliwości integracji danych w różnych środowiskach sieciowych. Aby uzyskać szczegółowe informacje na temat środowiska IR, zobacz [Omówienie środowiska uruchomieniowego integracji](concepts-integration-runtime.md).
 
@@ -360,7 +362,7 @@ Po zarejestrowaniu środowiska wykonawczego integracji hostowanego samodzielnie,
 1. Otwórz **program Microsoft Integration Runtime Configuration Manager**.
 1. Wybierz kartę **Ustawienia**.
 1. W obszarze **Serwer proxy HTTP**wybierz łącze **Zmień,** aby otworzyć okno dialogowe **Ustawianie serwera proxy HTTP.**
-1. Wybierz **pozycję Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o uprawnienia do zapisania ustawienia serwera proxy i ponownego uruchomienia usługi hosta środowiska wykonawczego integracji.
+1. Wybierz opcję **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o uprawnienia do zapisania ustawienia serwera proxy i ponownego uruchomienia usługi hosta środowiska wykonawczego integracji.
 
 Za pomocą narzędzia menedżera konfiguracji można wyświetlać i aktualizować serwer proxy HTTP.
 

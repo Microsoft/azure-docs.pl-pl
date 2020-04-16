@@ -8,14 +8,15 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: e284060893e00ed7459edd0d1a03075c813dc5b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9a1ac831c4300c0523717fddc1fa53417068b89
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065391"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416573"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Rozwiązywanie problemów z fabryką danych platformy Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano typowe metody rozwiązywania problemów z zewnętrznymi działaniami kontroli w usłudze Azure Data Factory.
 

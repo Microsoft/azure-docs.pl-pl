@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440367"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417950"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Do momentu aktywności w fabryce danych platformy Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Działanie Until udostępnia te same funkcje, co struktura pętli do-until w językach programowania. Służy do wykonywania zestawu działań w pętli do momentu, gdy warunek skojarzony z działaniem zostanie obliczony na wartość true. W usłudze Data Factory można określić wartość limitu czasu działania Until. 
 
 ## <a name="syntax"></a>Składnia
@@ -289,8 +291,8 @@ while ($True) {
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
 - [Działanie If Condition](control-flow-if-condition-activity.md)
-- [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)
+- [Działanie wykonywania potoku](control-flow-execute-pipeline-activity.md)
 - [Dla każdego działania](control-flow-for-each-activity.md)
-- [Uzyskaj aktywność metadanych](control-flow-get-metadata-activity.md)
-- [Działanie Lookup](control-flow-lookup-activity.md)
+- [Działanie pobierania metadanych](control-flow-get-metadata-activity.md)
+- [Działanie wyszukiwania](control-flow-lookup-activity.md)
 - [Działanie internetowe](control-flow-web-activity.md)

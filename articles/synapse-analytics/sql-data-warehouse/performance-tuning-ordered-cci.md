@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 2113e5ac3563a22c5f2c6b755230b05fb9a2cb35
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 088a0d10b96a30ef830b4e8a8dc12c19127141db
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583872"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417040"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Strojenie wydajności za pomocą uporządkowanego klastrowanego indeksu magazynu kolumn  
 
@@ -28,7 +28,7 @@ Domyślnie dla każdej tabeli utworzonej bez opcji indeksu wewnętrzny składnik
 
 Podczas tworzenia uporządkowanej łącze CCI aparat Synapse SQL sortuje istniejące dane w pamięci według klucza(-ów) kolejności, zanim konstruktor indeksów kompresuje je do segmentów indeksu.  W przypadku posortowanych danych zmniejsza się nakładanie się segmentów, co pozwala kwerendom na bardziej wydajną eliminację segmentów, a tym samym na większą wydajność, ponieważ liczba segmentów do odczytu z dysku jest mniejsza.  Jeśli wszystkie dane można sortować w pamięci naraz, można uniknąć nakładania się segmentów.  Ze względu na duże tabele w magazynach danych ten scenariusz nie zdarza się często.  
 
-Aby sprawdzić zakresy segmentów dla kolumny, uruchom to polecenie z nazwą tabeli i nazwą kolumny:
+Aby sprawdzić zakresy segmentów dla kolumny, uruchom następujące polecenie z nazwą tabeli i nazwą kolumny:
 
 ```sql
 SELECT o.name, pnp.index_id, 

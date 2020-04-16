@@ -10,14 +10,17 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 15aac35a7ebc505e76ddfd0c538c4fddb7b2d9ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca88e42438c7cb48b062aa67d82053afbb9244bf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930543"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418290"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurowanie środowiska wykonawczego integracji azure-SSIS w celu uzyskania wysokiej wydajności
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 W tym artykule opisano sposób konfigurowania środowiska wykonawczego integracji platformy Azure-SSIS (IR) pod kątem wysokiej wydajności. Usługa Azure-SSIS IR umożliwia wdrażanie i uruchamianie pakietów usług integracji programu SQL Server (SSIS) na platformie Azure. Aby uzyskać więcej informacji na temat usługi Azure-SSIS IR, zobacz artykuł [środowiska wykonawczego integracji.](concepts-integration-runtime.md#azure-ssis-integration-runtime) Aby uzyskać informacje na temat wdrażania i uruchamiania pakietów SSIS na platformie Azure, zobacz [Podnoszenie i przenoszenie obciążeń usług SQL Server Integration Services do chmury.](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)
 

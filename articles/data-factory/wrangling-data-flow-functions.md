@@ -7,14 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7235e95e5b33fb931411a51796a8dbec96c46355
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74287028"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417661"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funkcje przekształcania w przepływie danych
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Wrangling przepływu danych w usłudze Azure Data Factory umożliwia bezkodowe przygotowanie danych agile i wrangling w skali chmury. Wrangling przepływ danych integruje się z [usługą Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) i sprawia, że funkcje dodatku Power Query M dostępne dla danych wrangling poprzez wykonanie iskier. 
 

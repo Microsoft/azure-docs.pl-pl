@@ -10,14 +10,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 09051ad3633ddc720cb34d3d145ccf649fa9cb08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77200116"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417074"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Używanie wpisów tajnych usługi Azure Key Vault w działaniach potoku
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Poświadczenia lub wartości tajne można przechowywać w magazynie azure key vault i używać ich podczas wykonywania potoku, aby przekazać do swoich działań.
 
@@ -52,7 +54,7 @@ Ta funkcja opiera się na tożsamości zarządzanej fabrycznie danych.  Dowiedz 
     |Bezpieczne wyjście     |True         |
     |Adres URL     |[Tajna wartość identyfikatora URI]?api-version=7.0         |
     |Metoda     |GET         |
-    |Uwierzytelnianie     |Tożsamość usługi zarządzanej         |
+    |Authentication     |Tożsamość usługi zarządzanej         |
     |Zasób        |https://vault.azure.net       |
 
     ![Aktywność w sieci Web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)

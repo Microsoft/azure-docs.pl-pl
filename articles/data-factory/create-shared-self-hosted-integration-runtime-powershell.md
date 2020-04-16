@@ -11,14 +11,16 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
-ms.openlocfilehash: a2f24d8203ac5fb9724370cbdf4309bdc43c166a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cabdb45467f71749184c5f9a6a112242a82d618b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444095"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416603"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Tworzenie udostępnionego środowiska wykonawczego integracji hostowanego samodzielnie w usłudze Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym przewodniku pokazano, jak utworzyć udostępnione środowisko uruchomieniowe integracji hostowanego samodzielnie w usłudze Azure Data Factory. Następnie można użyć udostępnionego środowiska wykonawczego integracji hostowanego samodzielnie w innej fabryce danych.
 

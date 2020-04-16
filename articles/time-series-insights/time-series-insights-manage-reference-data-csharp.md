@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: cf5f89197798f95dced5bfd8817f1df050297048
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f0ce0f7d90540274d24a7e0248e6f197b74033a1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76962003"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416983"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Zarządzanie danymi referencyjnymi ga dla środowiska usługi Azure Time Series Insights przy użyciu języka C #
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33b257e9d344fc31df072509f105d2e8fd1bd29b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb9d697c11427c7ebbf811f9cc05740347c74452
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72245177"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417550"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Szyfrowanie dysków platformy Azure za pomocą usługi Azure AD (poprzednia wersja)
 
@@ -27,7 +27,7 @@ W tym artykule [uzupełnia szyfrowanie dysków platformy Azure dla maszyn wirtua
   - Aby zapisać klucze szyfrowania w magazynie kluczy, maszyna wirtualna IaaS musi mieć możliwość nawiązania połączenia z punktem końcowym magazynu kluczy.
   - Maszyna wirtualna IaaS musi mieć możliwość nawiązania połączenia z punktem końcowym magazynu platformy Azure, który obsługuje repozytorium rozszerzenia platformy Azure i konto magazynu platformy Azure, które obsługuje pliki VHD.
   -  Jeśli zasady zabezpieczeń ograniczają dostęp z maszyn wirtualnych platformy Azure do Internetu, można rozpoznać poprzedni identyfikator URI i skonfigurować określoną regułę, aby umożliwić łączność wychodzącą z adresami IP. Aby uzyskać więcej informacji, zobacz [Usługa Azure Key Vault za zaporą](../../key-vault/key-vault-access-behind-firewall.md).
-  - W systemie Windows, jeśli TLS 1.0 został jawnie wyłączony, a wersja .NET nie została zaktualizowana do wersji 4.6 lub nowszej, następująca zmiana rejestru umożliwi ADE wybranie nowszej wersji protokołu TLS:
+  - Maszyna wirtualna do zaszyfrowania musi być skonfigurowana do używania protokołu TLS 1.2 jako protokołu domyślnego. Jeśli TLS 1.0 został jawnie wyłączony, a wersja .NET nie została zaktualizowana do wersji 4.6 lub nowszej, następująca zmiana rejestru umożliwi ADE wybranie nowszej wersji protokołu TLS:
     
         [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
         "SystemDefaultTlsVersions"=dword:00000001

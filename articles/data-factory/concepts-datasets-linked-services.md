@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
-ms.openlocfilehash: 878ad98b118fa02a6659584ac60e3343a948cd20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33b2ca8db75acff1ce423aa50087961cce6092b2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246268"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418409"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Zestawy danych w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-create-datasets.md)
 > * [Bieżąca wersja](concepts-datasets-linked-services.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 W tym artykule opisano, jakie są zestawy danych, jak są definiowane w formacie JSON i jak są używane w potokach usługi Azure Data Factory.
 

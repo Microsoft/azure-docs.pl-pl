@@ -10,16 +10,17 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 344ad8e106c119c1de59570d1ec4e3df5e1cc8af
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250273"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417121"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Pobierz aktywność metadanych w fabryce danych platformy Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Za pomocą działania Pobierz metadane można pobrać metadane dowolnych danych w usłudze Azure Data Factory. Tego działania można użyć w następujących scenariuszach:
 
@@ -46,7 +47,7 @@ Działanie Pobierz metadane przyjmuje zestaw danych jako dane wejściowe i zwrac
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Magazyn obiektów Blob platformy Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Usługa Azure Data Lake Storage 2. generacji](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Pliki platformy Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -54,6 +55,7 @@ Działanie Pobierz metadane przyjmuje zestaw danych jako dane wejściowe i zwrac
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
+- Korzystając z działania Pobierz metadane względem folderu, upewnij się, że masz uprawnienie LIST/EXECUTE do danego folderu.
 - W przypadku Amazon S3 `lastModified` i Google Cloud Storage dotyczy zasobnika i klucza, ale nie do folderu wirtualnego i `exists` dotyczy zasobnika i klucza, ale nie do prefiksu lub folderu wirtualnego.
 - W przypadku magazynu `lastModified` obiektów Blob platformy Azure dotyczy kontenera i obiektu blob, ale nie do folderu wirtualnego.
 - `lastModified`filtr ma obecnie zastosowanie do filtrowania elementów podrzędnych, ale nie samego określonego folderu/pliku.

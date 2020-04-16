@@ -11,17 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 4d729a0117c7c409d1a3e0c3fd440aed96153203
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243590"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418256"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon Redshift przy użyciu usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Bieżąca wersja](connector-amazon-redshift.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
 W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z usługi Amazon Redshift. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykuł, który przedstawia ogólny przegląd działania kopiowania.
@@ -164,7 +166,7 @@ Dowiedz się więcej o tym, jak efektywnie kopiować dane z usługi Amazon Redsh
 
 **Przykład: kopiowanie danych z usługi Amazon Redshift do usługi Azure SQL Data Warehouse przy użyciu funkcji UNLOAD, kopia etapowa i PolyBase**
 
-W tym przykładowym przypadku użycia sykopuj działanie zwalnia dane z Amazon Redshift do Amazon S3 skonfigurowane w "redshiftUnloadSettings", a następnie skopiuj dane z Amazon S3 do usługi Azure Blob, jak określono w "stagingSettings", wreszcie użyj PolyBase do załadowania danych do sql data Magazynu. Cały format tymczasowy jest obsługiwany przez działanie kopiowania poprawnie.
+W tym przykładowym przypadku użycia sieka dane z amazon redshift do Amazon S3 skonfigurowane w "redshiftUnloadSettings", a następnie skopiować dane z Amazon S3 do azure blob, jak określono w "stagingSettings", wreszcie użyj PolyBase załadować dane do magazynu danych SQL. Cały format tymczasowy jest obsługiwany przez działanie kopiowania poprawnie.
 
 ![Przesunięcie zwięzłe do przepływu pracy kopiowania SQL DW](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 

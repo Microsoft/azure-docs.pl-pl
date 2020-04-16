@@ -3,19 +3,23 @@ title: Określanie punktów końcowych usługi sieci szkieletowej usług
 description: Jak opisać zasoby punktu końcowego w manifeście usługi, w tym jak skonfigurować punkty końcowe HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282161"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417591"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Określanie zasobów w manifeście usługi
 ## <a name="overview"></a>Omówienie
-Manifest usługi umożliwia zasoby, które są używane przez usługę, które mają być zadeklarowane/zmienione bez zmiany skompilowanego kodu. Usługa Azure Service Fabric obsługuje konfigurację zasobów punktu końcowego dla usługi. Dostęp do zasobów, które są określone w manifeście usługi mogą być kontrolowane za pośrednictwem SecurityGroup w manifeście aplikacji. Deklaracja zasobów umożliwia te zasoby, które mają być zmieniane w czasie wdrażania, co oznacza, że usługa nie musi wprowadzać nowy mechanizm konfiguracji. Definicja schematu pliku ServiceManifest.xml jest instalowana z zestawem SDK sieci szkieletowej usług i narzędziami do *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Manifest usługi umożliwia zasoby, które są używane przez usługę, które mają być zadeklarowane lub zmienione, bez zmiany skompilowanego kodu. Usługa Sieci szkieletowej obsługuje konfigurację zasobów punktu końcowego dla usługi. Dostęp do zasobów, które są określone w manifeście usługi mogą być kontrolowane za pośrednictwem SecurityGroup w manifeście aplikacji. Deklaracja zasobów umożliwia te zasoby, które mają być zmieniane w czasie wdrażania, co oznacza, że usługa nie musi wprowadzać nowy mechanizm konfiguracji. Definicja schematu pliku ServiceManifest.xml jest instalowana z zestawem SDK sieci szkieletowej usług i narzędziami do *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Punkty końcowe
 Gdy zasób punktu końcowego jest zdefiniowany w manifeście usługi, usługa Sieci szkieletowej przypisuje porty z zakresu portów aplikacji zastrzeżonych, gdy port nie jest jawnie określony. Na przykład spójrz na punkt końcowy *ServiceEndpoint1* określony w fragmentie manifestu podanym po tym akapicie. Ponadto usługi można również zażądać określonego portu w zasobie. Replikom usługi uruchomionym w różnych węzłach klastra można przypisać różne numery portów, podczas gdy repliki usługi uruchomionej w tym samym węźle współużytkują port. Repliki usługi można następnie użyć tych portów, zgodnie z potrzebami do replikacji i nasłuchiwania żądań klientów.
+
+Po aktywowaniu usługi, która określa punkt końcowy https, sieć szkieletowa usług ustawi wpis kontroli dostępu dla portu, powiąże określony certyfikat serwera z portem, a także udzieli tożsamości, że usługa jest uruchomiona jako uprawnienia do klucza prywatnego certyfikatu. Przepływ aktywacji jest wywoływany przy każdym uruchomieniu sieci szkieletowej usług lub gdy deklaracja certyfikatu aplikacji jest zmieniana za pomocą uaktualnienia. Certyfikat punktu końcowego będzie również monitorowany pod kątem zmian/odnowień, a uprawnienia będą okresowo ponownie stosowane w razie potrzeby.
+
+Po zakończeniu usługi sieci szkieletowej usług czyści wpis kontroli dostępu punktu końcowego i usunie powiązanie certyfikatu. Jednak wszelkie uprawnienia zastosowane do klucza prywatnego certyfikatu nie zostaną wyczyszczone.
 
 > [!WARNING] 
 > Zgodnie z projektem porty statyczne nie powinny pokrywać się z zakresem portów aplikacji określonym w ClusterManifest. Jeśli określisz port statyczny, przypisz go poza zakresem portów aplikacji, w przeciwnym razie spowoduje to konflikty portów. Wraz z wersją 6.5CU2 wydamy **ostrzeżenie zdrowotne,** gdy wykryjemy taki konflikt, ale pozwolimy, aby wdrożenie było kontynuowane z zachowaniem wysłanego 6.5. Możemy jednak uniemożliwić wdrożenie aplikacji z następnych głównych wersji.
@@ -85,6 +89,7 @@ Punkty końcowe HTTP są automatycznie ACL'd przez sieci szkieletowej usług.
       <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
       <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
       <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+      <Endpoint Name="ServiceEndpoint4" Protocol="https" Port="14023"/>
 
       <!-- This endpoint is used by the replicator for replicating the state of your service.
            This endpoint is configured through the ReplicatorSettings config section in the Settings.xml
@@ -106,7 +111,7 @@ Protokół HTTPS zapewnia uwierzytelnianie serwera i jest również używany do 
 > Korzystając z protokołu HTTPS, nie należy używać tego samego portu i certyfikatu dla różnych wystąpień usługi (niezależnie od aplikacji) wdrożonych w tym samym węźle. Uaktualnienie dwóch różnych usług przy użyciu tego samego portu w różnych wystąpieniach aplikacji spowoduje niepowodzenie uaktualnienia. Aby uzyskać więcej informacji, zobacz [Uaktualnianie wielu aplikacji za pomocą punktów końcowych HTTPS ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 >
 
-Oto przykład ApplicationManifest, który należy ustawić dla https. Odcisk palca certyfikatu musi być dostarczony. EndpointRef jest odwołaniem do endpointResource w ServiceManifest, dla którego ustawiono protokół HTTPS. Można dodać więcej niż jeden certyfikat endpointcertificate.  
+Oto przykład ApplicationManifest demonstrujące konfigurację wymaganą dla punktu końcowego HTTPS. Certyfikat serwera/punktu końcowego może być zadeklarowany przez odcisk palca lub nazwę pospolitą podmiotu i należy podać wartość. EndpointRef jest odwołaniem do endpointResource w ServiceManifest, którego protokół musi być ustawiony na protokół "https". Można dodać więcej niż jeden certyfikat endpointcertificate.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -127,7 +132,8 @@ Oto przykład ApplicationManifest, który należy ustawić dla https. Odcisk pal
     <ServiceManifestRef ServiceManifestName="Stateful1Pkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
     <Policies>
-      <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint3"/>
+      <EndpointBindingPolicy CertificateRef="SslCertByTP" EndpointRef="ServiceEndpoint3"/>
+      <EndpointBindingPolicy CertificateRef="SslCertByCN" EndpointRef="ServiceEndpoint4"/>
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
@@ -143,7 +149,8 @@ Oto przykład ApplicationManifest, który należy ustawić dla https. Odcisk pal
     </Service>
   </DefaultServices>
   <Certificates>
-    <EndpointCertificate Name="TestCert1" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0" X509StoreName="MY" />  
+    <EndpointCertificate Name="SslCertByTP" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0" X509StoreName="MY" />  
+    <EndpointCertificate Name="SslCertByCN" X509FindType="FindBySubjectName" X509FindValue="ServiceFabric-EndpointCertificateBinding-Test" X509StoreName="MY" />  
   </Certificates>
 </ApplicationManifest>
 ```
@@ -170,7 +177,7 @@ W servicemanifestImport sekcji dodaj nową sekcję "ResourceOverrides".
       </Endpoints>
     </ResourceOverrides>
         <Policies>
-           <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint"/>
+           <EndpointBindingPolicy CertificateRef="SslCertByTP" EndpointRef="ServiceEndpoint"/>
         </Policies>
   </ServiceManifestImport>
 ```

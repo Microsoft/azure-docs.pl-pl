@@ -10,18 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260581"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418953"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-use-custom-activities.md)
-> * [Bieżąca wersja](transform-data-using-dotnet-custom-activity.md)
+> * [Aktualna wersja](transform-data-using-dotnet-custom-activity.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Istnieją dwa typy działań, których można użyć w potoku usługi Azure Data Factory.
 
@@ -115,7 +116,7 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 &#42; Właściwości `resourceLinkedService` i `folderPath` muszą być określone zarówno lub oba zostaną pominięte.
 
 > [!NOTE]
-> Jeśli przekazujesz połączone usługi jako odwołanieObykawki w działaniu niestandardowym, dobrą praktyką zabezpieczeń jest przekazanie połączonej usługi usługi Azure Key Vault (ponieważ nie zawiera żadnych bezpiecznych ciągów) i pobranie poświadczeń przy użyciu nazwy tajnej bezpośrednio z klucza Vault z kodu. Można znaleźć przykład [tutaj,](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) który odwołuje się do usługi połączonej z włączoną funkcją AKV, pobiera poświadczenia z usługi Key Vault, a następnie uzyskuje dostęp do magazynu w kodzie.
+> Jeśli przekazujesz połączone usługi jako referenceObjects w usłudze Niestandardowej, jest dobrą praktyką zabezpieczeń, aby przekazać usługę linked z włączoną usługą Azure Key Vault (ponieważ nie zawiera żadnych bezpiecznych ciągów) i pobrać poświadczenia przy użyciu tajnej nazwy bezpośrednio z usługi Key Vault z kodu. Można znaleźć przykład [tutaj,](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) który odwołuje się do usługi połączonej z włączoną funkcją AKV, pobiera poświadczenia z usługi Key Vault, a następnie uzyskuje dostęp do magazynu w kodzie.
 
 ## <a name="custom-activity-permissions"></a>Niestandardowe uprawnienia działania
 

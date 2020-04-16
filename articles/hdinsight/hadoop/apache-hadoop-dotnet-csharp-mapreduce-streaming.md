@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/22/2019
-ms.openlocfilehash: 025b5c5c1e3b8543111e112202906ef6f1fdb482
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 7a299ce16f6e9c7292cebf198c9c3077f8e05fcb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74561800"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417605"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Użyj języka C# z mapreduce przesyłania strumieniowego na Apache Hadoop w HDInsight
 
 Dowiedz się, jak użyć języka C# do utworzenia rozwiązania MapReduce w programie HDInsight.
 
-Apache Hadoop streaming to narzędzie, które pozwala na uruchamianie zadań MapReduce za pomocą skryptu lub pliku wykonywalnego. W tym przykładzie .NET jest używany do implementowania mapera i reduktora dla rozwiązania liczby wyrazów.
+Apache Hadoop streaming pozwala na uruchamianie MapReduce zadań przy użyciu skryptu lub pliku wykonywalnego. W tym miejscu .NET jest używany do implementowania mapera i reduktora dla rozwiązania liczby wyrazów.
 
 ## <a name="net-on-hdinsight"></a>.NET na HDInsight
 
@@ -49,12 +49,9 @@ Aby uzyskać więcej informacji na temat przesyłania strumieniowego, zobacz [Ha
 
 * Jeśli korzystasz z programu PowerShell, potrzebny jest [moduł Az](https://docs.microsoft.com/powershell/azure/overview).
 
-* Klient SSH (opcjonalnie). Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
 * Klaster Apache Hadoop w programie HDInsight. Zobacz [Wprowadzenie do HDInsight w systemie Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* [Schemat identyfikatorów URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) dla magazynu podstawowego klastrów. Dotyczy to `wasb://` usługi Azure `abfs://` Storage, usługi Azure `adl://` Data Lake Storage Gen2 lub usługi Azure Data Lake Storage Gen1. Jeśli bezpieczny transfer jest włączony dla usługi Azure Storage lub Data `wasbs://` `abfss://`Lake Storage Gen2, identyfikator URI będzie lub , odpowiednio, Zobacz też, [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
-
+* [Schemat identyfikatorów URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) dla magazynu podstawowego klastrów. Ten schemat `wasb://` będzie dla `abfs://` usługi Azure Storage, dla `adl://` usługi Azure Data Lake Storage Gen2 lub dla usługi Azure Data Lake Storage Gen1. Jeśli bezpieczny transfer jest włączony dla usługi Azure Storage lub Data `wasbs://` `abfss://`Lake Storage Gen2, identyfikator URI będzie lub , odpowiednio, Zobacz też, [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="create-the-mapper"></a>Tworzenie mapera
 
@@ -152,7 +149,7 @@ Następnie należy przesłać aplikacje *mapera* i *reduktora* do pamięci HDIns
 
 1. W programie Visual Studio wybierz pozycję **Wyświetl** > **Eksploratora serwera**.
 
-1. Kliknij prawym przyciskiem myszy **pozycję Azure**, wybierz pozycję **Połącz z subskrypcją platformy Microsoft Azure...** i zakończ proces logowania.
+1. Kliknij prawym przyciskiem myszy **pozycję Azure**, wybierz pozycję **Połącz z subskrypcją platformy Microsoft Azure...** i ukończ proces logowania.
 
 1. Rozwiń klaster HDInsight, do którego chcesz wdrożyć tę aplikację. Na liście znajduje się wpis z **tekstem (Domyślne konto magazynu).**
 
@@ -221,14 +218,16 @@ W poniższej procedurze opisano sposób uruchamiania zadania MapReduce przy uży
 
    Na poniższej liście opisano, co reprezentuje każdy parametr i opcja:
 
-   * *hadoop-streaming.jar*: Określa plik jar, który zawiera funkcję mapreduce przesyłania strumieniowego.
-   * `-files`: Określa pliki *mapper.exe* i *reducer.exe* dla tego zadania. `wasbs:///`Deklaracja `adl:///`, `abfs:///` lub protokołu przed każdym plikiem jest ścieżką do katalogu głównego domyślnego magazynu dla klastra.
-   * `-mapper`: Określa plik, który implementuje mapera.
-   * `-reducer`: Określa plik, który implementuje reduktor.
-   * `-input`: Określa dane wejściowe.
-   * `-output`: Określa katalog wyjściowy.
+   |Parametr | Opis |
+   |---|---|
+   |hadoop-streaming.jar|Określa plik jar, który zawiera funkcję map mapreduce przesyłania strumieniowego.|
+   |-pliki|Określa pliki *mapper.exe* i *reducer.exe* dla tego zadania. `wasbs:///`Deklaracja `adl:///`, `abfs:///` lub protokołu przed każdym plikiem jest ścieżką do katalogu głównego domyślnego magazynu dla klastra.|
+   |-mapper|Określa plik, który implementuje mapera.|
+   |-reduktor|Określa plik, który implementuje reduktor.|
+   |-danych wejściowych|Określa dane wejściowe.|
+   |-wyjście|Określa katalog wyjściowy.|
 
-3. Po zakończeniu zadania MapReduce użyj następującego polecenia, aby wyświetlić wyniki:
+1. Po zakończeniu zadania MapReduce użyj następującego polecenia, aby wyświetlić wyniki:
 
    ```bash
    hdfs dfs -text /example/wordcountout/part-00000

@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 38010e3aaa2d0544dfbfe19135d25250d2b021a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e35e4eb750aa2244df920111b201d886599eaf6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929779"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419055"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>Migracja SSIS z wystąpieniem zarządzanym usługi Azure SQL Database jako miejscem docelowym obciążenia bazy danych
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Podczas migracji obciążeń bazy danych z programu SQL Server lokalnie do wystąpienia zarządzanego usługi Azure SQL Database należy zapoznać się z [usługą Azure Data Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)(DMS) i [topologią sieci dla migracji zarządzanych wystąpień usługi Azure SQL Database przy użyciu usługi DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies).
 
@@ -34,9 +36,9 @@ Wystąpienie zarządzanej usługi Azure SQL Database ma natywny harmonogram pier
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [Fabryka danych platformy Azure](https://docs.microsoft.com/azure/data-factory/introduction)
-- [Środowisko uruchomieniowe integracji platformy Azure-SSIS](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
-- [Usługa migracji bazy danych platformy Azure](https://docs.microsoft.com/azure/dms/dms-overview)
+- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
+- [Infrastruktura Azure SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
+- [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)
 - [Topologie sieci dla migracji wystąpień zarządzanych usługi Azure SQL Database przy użyciu dms](https://docs.microsoft.com/azure/dms/resource-network-topologies)
 - [Migrowanie pakietów usług SSIS do wystąpienia zarządzanego usługi Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
 

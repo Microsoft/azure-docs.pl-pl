@@ -12,14 +12,15 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: 9bbd2e3376f1da3fdf5b10d654a331ce258be5cf
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: c891cb4eca2c286b3ac636e5995714accd591772
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422103"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417357"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiowanie danych z i do dynamics 365 (common data service) lub dynamics CRM przy użyciu usługi Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano, jak kopiować dane z i do programu Microsoft Dynamics 365 lub Microsoft Dynamics CRM za pomocą funkcji Kopiowanie w usłudze Azure Data Factory. Opiera się na [omówienie działania kopiowania,](copy-activity-overview.md) który przedstawia ogólne omówienie działania kopiowania.
 

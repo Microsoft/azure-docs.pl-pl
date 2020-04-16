@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 1e1d7cc4bb7762d3ebd29e349467f3e33c0887f9
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421222"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418035"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiowanie danych z programu Teradata Vantage przy użyciu usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 >
 > * [Wersja 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Bieżąca wersja](connector-teradata.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z programu Teradata Vantage. Opiera się na [przeglądzie działania kopiowania](copy-activity-overview.md).
 
@@ -256,7 +258,7 @@ Zaleca się włączenie kopiowania równoległego z partycjonowanie danych, zwł
 
 | Scenariusz                                                     | Sugerowane ustawienia                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Pełne obciążenie z dużego stołu.                                   | **Opcja partycji**: Skrót. <br><br/>Podczas wykonywania usługa Data Factory automatycznie wykrywa kolumnę PK, stosuje skrót względem niej i kopiuje dane według partycji. |
+| Pełne obciążenie z dużego stołu.                                   | **Opcja partycji**: Skrót. <br><br/>Podczas wykonywania usługa Data Factory automatycznie wykrywa kolumnę indeksu podstawowego, stosuje względem niej skrót i kopiuje dane według partycji. |
 | Załaduj dużą ilość danych przy użyciu kwerendy niestandardowej.                 | **Opcja partycji**: Skrót.<br>**Zapytanie**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Kolumna partycji**: Określ kolumnę używaną do stosowania partycji mieszania. Jeśli nie zostanie określony, usługa Data Factory automatycznie wykrywa kolumnę PK tabeli określonej w zestawie danych Teradata.<br><br>Podczas wykonywania usługa Data `?AdfHashPartitionCondition` Factory zastępuje logikę partycji mieszania i wysyła do Teradata. |
 | Załaduj dużą ilość danych przy użyciu kwerendy niestandardowej, mając kolumnę całkowitą o równomiernie rozłożonej wartości do partycjonowania zakresu. | **Opcje partycji**: Partycja zakresu dynamicznego.<br>**Zapytanie**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Kolumna partycji**: Określ kolumnę używaną do partycjonowania danych. Można podzielić na kolumnę z typem danych liczby całkowitej.<br>**Górna granica partycji** i **dolna granica partycji**: Określ, czy chcesz filtrować względem kolumny partycji, aby pobierać dane tylko między dolnym i górnym zakresem.<br><br>Podczas wykonywania usługa Data `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound`Factory `?AdfRangePartitionLowbound` zastępuje , a rzeczywista nazwa kolumny i zakresy wartości dla każdej partycji i wysyła do Teradata. <br>Na przykład jeśli kolumna partycji "ID" ustawiona z dolną granicą jako 1 i górną granicą jako 80, z kopią równoległą ustawioną jako 4, usługa Data Factory pobiera dane przez 4 partycje. Ich identyfikatory znajdują się odpowiednio między [1,20], [21, 40], [41, 60] i [61, 80]. |
 
@@ -300,7 +302,7 @@ Podczas kopiowania danych z Teradata stosuje się następujące mapowania. Aby d
 | BajtInt |Int16 |
 | Char |Ciąg |
 | Clob |Ciąg |
-| Data |DateTime |
+| Date |DateTime |
 | Wartość dziesiętna |Wartość dziesiętna |
 | Double |Double |
 | Graficzny |Bez pomocy technicznej. Stosowanie jawnego rzutu w kwerendzie źródłej. |

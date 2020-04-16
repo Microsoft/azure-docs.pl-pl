@@ -11,14 +11,16 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 11f4005e802e2a584b21903bfead2c6b9701f065
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe803c918cbf60b8f0af76d8c9a94d022153acbb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238753"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417501"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Kopiowanie danych do i z wystąpienia zarządzanego usługi Azure SQL Database przy użyciu usługi Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych do i z wystąpienia zarządzanego usługi Azure SQL Database. Opiera się na [kopiowanie działania omówienie](copy-activity-overview.md) artykułu, który przedstawia ogólne omówienie działania kopiowania.
 
@@ -47,7 +49,7 @@ Aby uzyskać dostęp do [publicznego punktu końcowego wystąpienia](../sql-data
 
 Aby uzyskać dostęp do prywatnego punktu końcowego wystąpienia zarządzanego bazy danych SQL azure, [skonfiguruj środowisko uruchomieniowe integracji hostowanego samodzielnie,](create-self-hosted-integration-runtime.md) które może uzyskać dostęp do bazy danych. Jeśli aprowizujesz środowisko uruchomieniowe integracji hostowanego samodzielnie w tej samej sieci wirtualnej co wystąpienie zarządzane, upewnij się, że komputer środowiska wykonawczego integracji znajduje się w innej podsieci niż wystąpienie zarządzane. Jeśli aprowizujesz środowisko uruchomieniowe integracji hostowanego samodzielnie w innej sieci wirtualnej niż wystąpienie zarządzane, możesz użyć komunikacji równorzędnej sieci wirtualnej lub sieci wirtualnej do połączenia z siecią wirtualną. Aby uzyskać więcej informacji, zobacz [Łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL Database](../sql-database/sql-database-managed-instance-connect-app.md).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

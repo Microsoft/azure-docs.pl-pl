@@ -11,17 +11,19 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: 4a0709b4eaa8742069eecb4c39712e384645304b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57bf653aa3f421ae8897c4be661ceef589fcdc06
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74926659"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418817"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania procedury przechowywanej programu SQL Server w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-stored-proc-activity.md)
 > * [Bieżąca wersja](transform-data-using-stored-procedure.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Działania przekształcania danych w [potoku](concepts-pipelines-activities.md) fabryki danych służy do przekształcania i przetwarzania nieprzetworzonych danych do prognoz i szczegółowych informacji. Działanie procedury składowanej jest jednym z działań transformacji, które obsługuje usługa Data Factory. W tym artykule opiera się na artykule [transform danych,](transform-data.md) który przedstawia ogólne omówienie transformacji danych i obsługiwanych działań transformacji w fabryce danych.
 

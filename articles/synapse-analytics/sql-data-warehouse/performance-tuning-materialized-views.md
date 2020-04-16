@@ -10,19 +10,18 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 6e942130d9acf803665e52498ef6a4976cc9ade7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6a3235d5edc5249bbbdc2e79dac8575ad26fd5e1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743173"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417025"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Strojenie wydajności za pomocą zmaterializowanych widoków
 
 Zmaterializowane widoki w puli SQL Synapse zapewniają metodę niskiej konserwacji dla złożonych zapytań analitycznych, aby uzyskać szybką wydajność bez zmiany zapytania. W tym artykule omówiono ogólne wskazówki dotyczące korzystania ze zmaterializowanych widoków.
 
-Zmaterializowane widoki w usłudze Azure SQL Data Warehouse zapewniają metodę niskiej konserwacji dla złożonych zapytań analitycznych, aby uzyskać szybką wydajność bez żadnych zmian zapytań. W tym artykule omówiono ogólne wskazówki dotyczące korzystania ze zmaterializowanych widoków.
+Zmaterializowane widoki w puli SQL zapewniają metodę niskiej konserwacji dla złożonych zapytań analitycznych, aby uzyskać szybką wydajność bez żadnych zmian kwerend. W tym artykule omówiono ogólne wskazówki dotyczące korzystania ze zmaterializowanych widoków.
 
 ## <a name="materialized-views-vs-standard-views"></a>Widoki zmaterializowane a widoki standardowe
 
@@ -45,7 +44,7 @@ Większość wymagań dotyczących widoku standardowego nadal ma zastosowanie do
 
 ## <a name="benefits-of-using-materialized-views"></a>Korzyści z używania zmaterializowanych widoków
 
-Prawidłowo zaprojektowany zmaterializowany widok może zapewnić następujące korzyści:
+Prawidłowo zaprojektowany zmaterializowany widok zapewnia następujące korzyści:
 
 - Skróć czas wykonywania złożonych zapytań za pomocą funkcji JOIN i agregacji. Im bardziej złożona kwerenda, tym wyższy potencjał oszczędzania czasu wykonywania. Największa korzyść uzyskuje się, gdy koszt obliczeń kwerendy jest wysoki, a wynikowy zestaw danych jest mały.  
 - Optymalizator w puli SQL może automatycznie używać wdrożonych zmaterializowanych widoków w celu poprawy planów wykonywania kwerend.  Ten proces jest przejrzysty dla użytkowników zapewniających szybszą wydajność zapytań i nie wymaga od kwerend bezpośredniego odwoływania się do zmaterializowanych widoków.
@@ -118,7 +117,7 @@ Opcje zmniejszania liczby zmaterializowanych widoków:
 
 - Upuść zmaterializowane widoki, które mają niskie użycie lub nie są już potrzebne.  Wyłączony widok materialized nie jest zachowywany, ale nadal ponosi koszty magazynu.  
 
-- Łączenie zmaterializowanych widoków utworzonych w tych samych lub podobnych tabelach bazowych, nawet jeśli ich dane nie nakładają się na siebie.  Przeczesywalnie zmaterializowanych widoków może spowodować większy rozmiar niż suma oddzielnych widoków, jednak koszt konserwacji widoku powinien zostać zmniejszony.  Przykład:
+- Łączenie zmaterializowanych widoków utworzonych w tych samych lub podobnych tabelach bazowych, nawet jeśli ich dane nie nakładają się na siebie.  Połączenie zmaterializowanych widoków może spowodować większy rozmiar niż suma oddzielnych widoków, jednak koszt konserwacji widoku powinien zostać zmniejszony.  Przykład:
 
 ```sql
 

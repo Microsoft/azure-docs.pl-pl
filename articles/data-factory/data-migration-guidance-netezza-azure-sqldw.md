@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: 80c9929f37b4890387a7625f04db6ce3e37f0cdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74922119"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416457"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Użyj usługi Azure Data Factory do migracji danych z lokalnego serwera Netezza na platformę Azure 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Usługa Azure Data Factory zapewnia wydajny, niezawodny i ekonomiczny mechanizm migracji danych na dużą skalę z lokalnego serwera Netezza do konta magazynu platformy Azure lub bazy danych usługi Azure SQL Data Warehouse. 
 
@@ -139,7 +141,7 @@ Każda tabela może używać innej kolumny znaku wodnego do identyfikowania jej 
 
 ### <a name="configure-a-self-hosted-integration-runtime"></a>Konfigurowanie środowiska wykonawczego integracji hostowanego samodzielnie
 
-W przypadku migracji danych z serwera Netezza na platformę Azure, niezależnie od tego, czy serwer znajduje się lokalnie za zaporą korporacyjną, czy w środowisku sieci wirtualnej, musisz zainstalować samodzielnie hostowane środowisko IR na komputerze z systemem Windows lub maszynie wirtualnej, czyli silniku, który jest używany do przenoszenia danych. Podczas instalowania samodzielnego podczerwony, zaleca się następujące podejście:
+Jeśli przeprowadzasz migrację danych z serwera Netezza na platformę Azure, niezależnie od tego, czy serwer znajduje się lokalnie za zaporą firmy, czy w środowisku sieci wirtualnej, musisz zainstalować samodzielnie hostowane środowisko IR na komputerze z systemem Windows lub maszynie wirtualnej, czyli aparat, który jest używany do przenoszenia danych. Podczas instalowania samodzielnego podczerwony, zaleca się następujące podejście:
 
 - Dla każdego komputera lub maszyny wirtualnej z systemem Windows rozpocznij konfigurację 32 procesorów wirtualnych i 128 GB pamięci. Podczas migracji danych można monitorować użycie procesora CPU i pamięci komputera podczerwego, aby sprawdzić, czy należy dalej skalować komputer w celu uzyskania lepszej wydajności lub zmniejszyć poziom pracy komputera w celu zaoszczędzenia kosztów.
 
@@ -151,7 +153,7 @@ Najlepszym rozwiązaniem jest przeprowadzenie weryfikacji wydajności koncepcji 
 
 Aby skopiować tabelę, zacznij od pojedynczego działania kopiowania z jednym, samodzielnym urządzeniem podczerwonym. Stopniowo zwiększaj `parallelCopies` ustawienie na podstawie liczby partycji plasterka danych w tabeli. Sprawdź, czy cała tabela może zostać załadowana na platformę Azure w ciągu dwóch godzin, zgodnie z przepływnością, która wynika z zadania kopiowania. 
 
-Jeśli nie można go załadować na platformę Azure w ciągu dwóch godzin, a pojemność samodzielnego węzła podczerwony i magazynu danych nie jest w pełni używana, stopniowo zwiększaj liczbę równoczesnych działań kopiowania, aż do osiągnięcia limitu sieci lub limitu przepustowości danych Sklepy. 
+Jeśli nie można załadować na platformę Azure w ciągu dwóch godzin, a pojemność samodzielnie hostowanego węzła podczerwony i magazynu danych nie są w pełni używane, stopniowo zwiększaj liczbę równoczesnych działań kopiowania, aż do osiągnięcia limitu sieci lub limitu przepustowości magazynów danych. 
 
 Monitoruj użycie procesora CPU i pamięci na samodzielnym komputerze podczerwieni i bądź gotowy do skalowania w górę komputera lub skalowania w poziomie na wiele komputerów, gdy zobaczysz, że procesor i pamięć są w pełni używane. 
 

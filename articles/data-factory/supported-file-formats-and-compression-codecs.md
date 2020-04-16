@@ -9,14 +9,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 6855eea5939419c9a0a867de4e0621b4d4ae02b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dbcfad3dd3db9f5c9431e07d85d77a77a10283c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439571"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419038"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Obsługiwane formaty plików i kodeki kompresji w usłudze Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 *Ten artykuł dotyczy następujących łączników: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), System [plików](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)i [SFTP](connector-sftp.md).*
 
@@ -37,4 +38,4 @@ Ponadto można również analizować lub generować pliki o danym formacie. Na p
 Zobacz inne artykuły dotyczące działania kopiowania:
 
 - [Omówienie działania kopiowania](copy-activity-overview.md)
-- [Kopiowanie wydajności działania](copy-activity-performance.md)
+- [Wydajność działania kopiowania](copy-activity-performance.md)

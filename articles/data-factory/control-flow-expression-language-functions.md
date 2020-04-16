@@ -10,18 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 9ef4b569fd8413d2825374c963fb272dd450cf0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c456e486217886510a1fd2ef1aeabae47d35b53c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533138"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417206"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Wyrażenia i funkcje w usłudze Azure Data Factory
 
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-functions-variables.md)
-> * [Bieżąca wersja](control-flow-expression-language-functions.md)
+> * [Aktualna wersja](control-flow-expression-language-functions.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Ten artykuł zawiera szczegółowe informacje na temat wyrażeń i funkcji obsługiwanych przez usługę Azure Data Factory. 
 
@@ -176,7 +177,7 @@ Aby pracować z kolekcji, zazwyczaj tablice, ciągi i czasami słowniki, można 
 | [Pusty](control-flow-expression-language-functions.md#empty) | Sprawdź, czy kolekcja jest pusta. |
 | [Pierwszym](control-flow-expression-language-functions.md#first) | Zwraca pierwszy element z kolekcji. |
 | [Przecięcia](control-flow-expression-language-functions.md#intersection) | Zwraca kolekcję, która ma *tylko* wspólne elementy w określonych kolekcjach. |
-| [join](control-flow-expression-language-functions.md#join) | Zwraca ciąg, który ma *wszystkie* elementy z tablicy, oddzielone określonym znakiem. |
+| [Dołączyć](control-flow-expression-language-functions.md#join) | Zwraca ciąg, który ma *wszystkie* elementy z tablicy, oddzielone określonym znakiem. |
 | [Ostatnio](control-flow-expression-language-functions.md#last) | Zwróć ostatni element z kolekcji. |
 | [Długość](control-flow-expression-language-functions.md#length) | Zwraca liczbę elementów w ciągu lub tablicy. |
 | [Pominąć](control-flow-expression-language-functions.md#skip) | Usuń elementy z przodu kolekcji i zwróć *wszystkie pozostałe* elementy. |

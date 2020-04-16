@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 71528385563b29ce70edf396434be0174beac105
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804847"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417176"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach działania w usłudze Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 ForEach Działania definiuje powtarzający się przepływ sterowania w potoku. To działanie służy do wykonywania iteracji po kolekcji i wykonuje określone działania w pętli. Implementacja pętli tego działania przypomina strukturę pętli Foreach w językach programowania.
 
 ## <a name="syntax"></a>Składnia
@@ -490,7 +492,7 @@ Oto kilka ograniczeń forEach działania i sugerowane obejścia.
 ## <a name="next-steps"></a>Następne kroki
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
-- [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)
-- [Uzyskaj aktywność metadanych](control-flow-get-metadata-activity.md)
-- [Działanie Lookup](control-flow-lookup-activity.md)
+- [Działanie wykonywania potoku](control-flow-execute-pipeline-activity.md)
+- [Działanie pobierania metadanych](control-flow-get-metadata-activity.md)
+- [Działanie wyszukiwania](control-flow-lookup-activity.md)
 - [Działanie internetowe](control-flow-web-activity.md)

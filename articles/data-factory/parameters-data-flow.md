@@ -7,14 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: c717d9ab44493d15589030073cd2ab260ef52e1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82660cdb4ab6523bae7608fe3b071f20cb3603f8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760219"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419174"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametryzacja przepływów mapowania danych
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
 Mapowanie przepływów danych w usłudze Azure Data Factory obsługuje użycie parametrów. Można zdefiniować parametry wewnątrz definicji przepływu danych, które można następnie używać w wyrażeniach. Wartości parametrów można ustawić za pomocą potoku wywołującego za pośrednictwem działania Wykonaj przepływ danych. Dostępne są trzy opcje ustawiania wartości w wyrażeniach aktywności przepływu danych:
 

@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
-ms.openlocfilehash: 42c637839172dab09a8721a93a67785a748afd2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 766520fe44047eee76029adf8ee1683c7b8008a1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75708906"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417865"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Odporność na uszkodzenia w działaniu kopiowania w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Bieżąca wersja](copy-activity-fault-tolerance.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Działanie kopiowania w usłudze Azure Data Factory oferuje dwa sposoby obsługi niezgodnych wierszy podczas kopiowania danych między magazynami danych źródłowych i magazynów danych ujścia:
 
@@ -108,6 +110,6 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 Zobacz inne artykuły dotyczące działania kopiowania:
 
 - [Omówienie działania kopiowania](copy-activity-overview.md)
-- [Kopiowanie wydajności działania](copy-activity-performance.md)
+- [Wydajność działania kopiowania](copy-activity-performance.md)
 
 

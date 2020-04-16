@@ -11,18 +11,20 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
-ms.openlocfilehash: 4064d62a6dc826b23ff1f51e9f61e48d362ae695
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73ce8c670940a31af6a88f98bfd5880ede259e01
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912936"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418902"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu aktywności świni Hadoop w fabryce danych platformy Azure
 
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-pig-activity.md)
 > * [Bieżąca wersja](transform-data-using-hadoop-pig.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Działania HDInsight Pig w [potoku](concepts-pipelines-activities.md) fabryki danych wykonuje zapytania Pig na [własną](compute-linked-services.md#azure-hdinsight-linked-service) lub [na żądanie](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) klastra HDInsight. W tym artykule opiera się na [działaniach transformacji danych,](transform-data.md) który przedstawia ogólny przegląd transformacji danych i obsługiwanych działań transformacji.
 

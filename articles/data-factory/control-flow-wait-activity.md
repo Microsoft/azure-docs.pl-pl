@@ -11,15 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: f9dd53fded06eec169219d00993620a0f2aa2bf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6158938d01b6e5da74ed046d2a74e0dfd827f47
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73678241"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417916"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Wykonywanie działania oczekiwania w usłudze Azure Data Factory
 Gdy używasz działania Wait w potoku, potok czeka przez określony okres z kontynuowaniem wykonywania kolejnych działań. 
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 ## <a name="syntax"></a>Składnia
 
@@ -102,9 +105,9 @@ W tym przykładzie potok ma dwa działania: **Until** i **Wait**. Działanie ocz
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
 - [Działanie If Condition](control-flow-if-condition-activity.md)
-- [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)
+- [Działanie wykonywania potoku](control-flow-execute-pipeline-activity.md)
 - [Dla każdego działania](control-flow-for-each-activity.md)
-- [Uzyskaj aktywność metadanych](control-flow-get-metadata-activity.md)
-- [Działanie Lookup](control-flow-lookup-activity.md)
+- [Działanie pobierania metadanych](control-flow-get-metadata-activity.md)
+- [Działanie wyszukiwania](control-flow-lookup-activity.md)
 - [Działanie internetowe](control-flow-web-activity.md)
 - [Działanie Until](control-flow-until-activity.md)

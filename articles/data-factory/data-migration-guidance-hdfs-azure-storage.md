@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: afccbdbbfd5b8ddeefa621448d6170d937b518f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63b657e77172282225a9bc890b2f185b0f4d42a1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931447"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417133"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Użyj usługi Azure Data Factory do migracji danych z lokalnego klastra Hadoop do usługi Azure Storage 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Usługa Azure Data Factory zapewnia wydajny, niezawodny i ekonomiczny mechanizm migracji danych na dużą skalę z lokalnego systemu plików HDFS do magazynu obiektów Blob platformy Azure lub usługi Azure Data Lake Storage Gen2. 
 

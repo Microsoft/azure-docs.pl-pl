@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 90573f77c77d614923f882053145d2f84598953d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96674f059e9cbc21c5c8c64eff8c94c810c4aa32
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440232"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417780"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Ładowanie danych do usługi Azure Data Lake Storage Gen2 za pomocą usługi Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Usługa Azure Data Lake Storage Gen2 to zestaw funkcji dedykowanych do analizy dużych zbiorów danych wbudowanych w [magazyn obiektów Blob platformy Azure.](../storage/blobs/storage-blobs-introduction.md) Umożliwia interfejs danych przy użyciu zarówno systemu plików, jak i paradygmatów przechowywania obiektów.
 
@@ -54,7 +56,7 @@ W tym artykule pokazano, jak korzystać z narzędzia Data Factory Copy Data do �
     * **Wersja**: Wybierz **V2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych, które są używane przez fabrykę danych może znajdować się w innych lokalizacjach i regionach. 
 
-3. Wybierz **pozycję Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **usługi Data Factory,** jak pokazano na poniższej ilustracji: 
    
    ![Strona główna fabryki danych](./media/load-azure-data-lake-storage-gen2/data-factory-home-page.png)
@@ -82,7 +84,7 @@ W tym artykule pokazano, jak korzystać z narzędzia Data Factory Copy Data do �
    1. Określ wartość **identyfikatora klucza dostępu.**
    2. Określ wartość **klucza tajnego dostępu.**
    3. Kliknij przycisk **Testuj połączenie**, aby zweryfikować ustawienia, a następnie wybierz pozycję **Zakończ**.
-   4. Zostanie wyświetleni nowe połączenie zostanie utworzone. Wybierz **pozycję Dalej**.
+   4. Zostanie wyświetleni nowe połączenie zostanie utworzone. Wybierz opcję **Dalej**.
    
       ![Określ konto Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
       

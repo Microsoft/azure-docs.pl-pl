@@ -1,5 +1,5 @@
 ---
-title: Zagadnienia dotyczące bezpieczeństwa
+title: Zagadnienia związane z zabezpieczeniami
 description: W tym artykule opisano podstawową infrastrukturę zabezpieczeń, której używają usługi przenoszenia danych w usłudze Azure Data Factory w celu zabezpieczenia danych.
 services: data-factory
 ms.author: abnarain
@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: bee627ade4f66206cd5254fc32bc7aa9973c7bee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131311"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416463"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Zagadnienia dotyczące zabezpieczeń dotyczące przenoszenia danych w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 >
 > * [Wersja 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Bieżąca wersja](data-movement-security-considerations.md)
+
+ [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym artykule opisano podstawową infrastrukturę zabezpieczeń, której usługi przenoszenia danych w usłudze Azure Data Factory używają w celu zabezpieczenia danych. Zasoby do zarządzania fabryką danych są oparte na infrastrukturze zabezpieczeń platformy Azure i wykorzystują wszystkie możliwe środki bezpieczeństwa oferowane przez platformę Azure.
 
@@ -143,7 +145,7 @@ W poniższej tabeli podsumowano zalecenia konfiguracji środowiska wykonawczego 
 
 Na poniższych obrazach przedstawiono użycie środowiska wykonawczego integracji hostowanej przez własny host do przenoszenia danych między lokalną bazą danych a usługami platformy Azure przy użyciu usługi ExpressRoute i IPSec VPN (z usługą Azure Virtual Network):
 
-**Expressroute**
+**ExpressRoute**
 
 ![Używanie usługi ExpressRoute z bramą](media/data-movement-security-considerations/express-route-for-gateway.png) 
 

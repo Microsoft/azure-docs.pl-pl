@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 93d92286fa9eecbc64229059274cc8f9ed99e21e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b06000d6b3cd7a429b7ad0fc9c453595f21bd893
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928280"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418477"
 ---
 # <a name="monitor-data-flows"></a>Monitorowanie przepływów danych
 
-
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Po zakończeniu tworzenia i debugowania przepływu danych, należy zaplanować przepływ danych do wykonania zgodnie z harmonogramem w kontekście potoku. Potoku można zaplanować z usługi Azure Data Factory przy użyciu wyzwalaczy. Lub można użyć trigger now opcji z usługi Azure Data Factory Pipeline Builder do wykonania jednoestrunia do testowania przepływu danych w kontekście potoku.
 

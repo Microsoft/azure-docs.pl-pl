@@ -11,14 +11,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 18555fbffbc48594793163894c010998094b3b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c3f58d42b6f311e4e238dcffe7da42afd8a5306
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336230"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416727"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Tworzenie środowiska wykonawczego integracji platformy Azure-SSIS w usłudze Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Ten artykuł zawiera kroki inicjowania obsługi administracyjnej środowiska wykonawczego integracji usługi Azure-SQL Server (SSIS) w usłudze Azure Data Factory. Azure-SSIS IR obsługuje:
 
@@ -78,7 +80,7 @@ W poniższej tabeli porównano niektóre funkcje serwera usługi Azure SQL Datab
 | Funkcja | Pojedyncza baza danych/pula elastyczna| Wystąpienie zarządzane |
 |---------|--------------|------------------|
 | **Planowanie** | Agent programu SQL Server jest niedostępny.<br/><br/>Zobacz [Planowanie wykonania pakietu w potoku fabryki danych](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Dostępny jest agent wystąpienia zarządzanego. |
-| **Uwierzytelnianie** | Można utworzyć wystąpienie SSISDB z użytkownikiem zawartej bazy danych, który reprezentuje dowolną grupę usługi Azure AD z zarządzaną tożsamością fabryki danych jako element członkowski w **roli db_owner.**<br/><br/>Zobacz [Włącz uwierzytelnianie usługi Azure AD, aby utworzyć wystąpienie bazy danych SSISDB na serwerze bazy danych SQL platformy Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Można utworzyć wystąpienie SSISDB z użytkownikiem zawartej bazy danych, który reprezentuje zarządzaną tożsamość fabryki danych. <br/><br/>Zobacz [Włącz uwierzytelnianie usługi Azure AD, aby utworzyć wystąpienie SSISDB w wystąpieniu zarządzanym usługi Azure SQL Database.](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance) |
+| **Authentication** | Można utworzyć wystąpienie SSISDB z użytkownikiem zawartej bazy danych, który reprezentuje dowolną grupę usługi Azure AD z zarządzaną tożsamością fabryki danych jako element członkowski w **roli db_owner.**<br/><br/>Zobacz [Włącz uwierzytelnianie usługi Azure AD, aby utworzyć wystąpienie bazy danych SSISDB na serwerze bazy danych SQL platformy Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Można utworzyć wystąpienie SSISDB z użytkownikiem zawartej bazy danych, który reprezentuje zarządzaną tożsamość fabryki danych. <br/><br/>Zobacz [Włącz uwierzytelnianie usługi Azure AD, aby utworzyć wystąpienie SSISDB w wystąpieniu zarządzanym usługi Azure SQL Database.](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance) |
 | **Warstwa usług** | Podczas tworzenia usługi Azure-SSIS IR z serwerem bazy danych SQL azure, można wybrać warstwę usług dla SSISDB. Istnieje wiele warstw usług. | Podczas tworzenia usługi Azure-SSIS IR z wystąpieniem zarządzanym nie można wybrać warstwy usługi dla usługi SSISDB. Wszystkie bazy danych w wystąpieniu zarządzanym współużytkują ten sam zasób przydzielony do tego wystąpienia. |
 | **Sieć wirtualna** | Urządzenie Azure-SSIS IR może dołączyć do sieci wirtualnej usługi Azure Resource Manager, jeśli używasz serwera bazy danych SQL azure z regułami zapory IP/punktami końcowymi usługi sieci wirtualnej. | Urządzenie Azure-SSIS IR może dołączyć do sieci wirtualnej usługi Azure Resource Manager, jeśli używasz wystąpienia zarządzanego z prywatnym punktem końcowym. Sieć wirtualna jest wymagana, gdy nie włączysz publicznego punktu końcowego dla wystąpienia zarządzanego.<br/><br/>Jeśli dołączysz do usługi Azure-SSIS IR do tej samej sieci wirtualnej co wystąpienie zarządzane, upewnij się, że usługa Azure-SSIS IR znajduje się w innej podsieci niż wystąpienie zarządzane. Jeśli dołączysz do usługi Azure-SSIS IR do innej sieci wirtualnej niż wystąpienie zarządzane, zalecamy komunikację równorzędną sieci wirtualnej lub połączenie między sieciami. Zobacz [Łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL Database](../sql-database/sql-database-managed-instance-connect-app.md). |
 | **Transakcje rozproszone** | Ta funkcja jest obsługiwana za pomocą transakcji elastycznych. Transakcje koordynatora transakcji rozproszonych firmy Microsoft (MSDTC) nie są obsługiwane. Jeśli pakiety SSIS używają usługi MSDTC do koordynowania transakcji rozproszonych, należy rozważyć migrację do transakcji elastycznych dla usługi Azure SQL Database. Aby uzyskać więcej informacji, zobacz [Transakcje rozproszone w bazach danych w chmurze](../sql-database/sql-database-elastic-transactions-overview.md). | Bez pomocy technicznej. |
@@ -118,7 +120,7 @@ Po utworzeniu fabryki danych otwórz jej stronę przeglądu w witrynie Azure por
 
    1. Aby **zaoszczędzić pieniądze,** wybierz opcję Korzyści hybrydowe platformy Azure dla środowiska wykonawczego integracji: **Tak** lub **Nie**. Wybierz **opcję Tak,** jeśli chcesz wprowadzić własną licencję programu SQL Server z pakietem Software Assurance, aby skorzystać z oszczędności kosztów podczas używania hybrydowego.
 
-   1. Wybierz **pozycję Dalej**.
+   1. Wybierz opcję **Dalej**.
 
 1. W sekcji **Ustawienia SQL** wykonaj następujące kroki.
 

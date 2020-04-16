@@ -9,14 +9,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 81bbd476cea0472647ca183fb188fc13725d1469
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 223b1b996b82acaa753eb55723e251dc5901bbec
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597630"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417712"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Format parkietu w usłudze Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule należy wykonać następujące informacje, aby **przeanalizować pliki parkietu lub zapisać dane w formacie Parkiet**. 
 

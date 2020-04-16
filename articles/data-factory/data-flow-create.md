@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 2eb455ba6fa40538bfa03018be47232066036c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd1342ae5912a9a91f1bd8d1bdacecdb5a2bbdb0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930424"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416524"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Tworzenie przepływu danych usługi Azure Data Factory
 
-
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Mapowanie przepływów danych w ujmiju ADF umożliwiają przekształcanie danych na dużą skalę bez konieczności kodowania. Zadanie przekształcania danych można zaprojektować w projektancie przepływu danych, konstruując serię przekształceń. Zacznij od dowolnej liczby przekształceń źródłowych, a następnie kroków przekształcania danych. Następnie należy ukończyć przepływ danych z zlewu do lądowania wyniki w miejscu docelowym.
 

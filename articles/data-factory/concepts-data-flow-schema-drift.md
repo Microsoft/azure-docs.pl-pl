@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2019
-ms.openlocfilehash: 9daf7973a2e48f866a8d0b93a682851d31dc3af7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6b3b1d11242434088c138460d968f39d5273e4f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928552"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418426"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Dryft schematu w przepływie danych mapowania
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Dryf schematu jest w przypadku, gdy źródła często zmieniają metadane. Pola, kolumny i typy mogą być dodawane, usuwane lub zmieniane na bieżąco. Bez obsługi dla dryfu schematu przepływu danych staje się narażony na zmiany źródła danych nadrzędnych. Typowe wzorce ETL nie po awarii, gdy przychodzące kolumny i pola zmieniają się, ponieważ są one zwykle powiązane z tymi nazwami źródłowymi.
 

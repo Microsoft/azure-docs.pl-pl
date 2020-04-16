@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c8ada22b4492bef0239b6f811d5a7bd58e58510
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73679856"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417221"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filtrowanie aktywności w fabryce danych platformy Azure
 Za pomocą działania filtru w potoku można zastosować wyrażenie filtru do tablicy wejściowej. 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="syntax"></a>Składnia
 
@@ -115,9 +116,9 @@ W tym przykładzie potok ma dwa działania: **Filter** i **ForEach**. Działanie
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
 - [Działanie If Condition](control-flow-if-condition-activity.md)
-- [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)
+- [Działanie wykonywania potoku](control-flow-execute-pipeline-activity.md)
 - [Dla każdego działania](control-flow-for-each-activity.md)
-- [Uzyskaj aktywność metadanych](control-flow-get-metadata-activity.md)
-- [Działanie Lookup](control-flow-lookup-activity.md)
+- [Działanie pobierania metadanych](control-flow-get-metadata-activity.md)
+- [Działanie wyszukiwania](control-flow-lookup-activity.md)
 - [Działanie internetowe](control-flow-web-activity.md)
 - [Działanie Until](control-flow-until-activity.md)

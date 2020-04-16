@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 02/04/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9dfe499a7d6084a23fd71ab98db472befe71fc04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024368"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416991"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Udostępnianie widoku niestandardowego przy użyciu sparametryzowanego adresu URL
 
@@ -29,7 +29,7 @@ Explorer usługi Time Series Insights obsługuje parametry zapytania URL, aby ok
 
 ## <a name="environment-id"></a>Identyfikator środowiska
 
-Parametr `environmentId=<guid>` określa identyfikator środowiska docelowego. Jest składnikiem fqdn dostępu do danych i można go znaleźć w prawym górnym rogu środowiska omówienie w witrynie Azure portal. Jest to cała część poprzedzająca ciąg `env.timeseries.azure.com`.
+Parametr `environmentId=<guid>` określa identyfikator środowiska docelowego. Jest składnikiem fqdn dostępu do danych i można go znaleźć w prawym górnym rogu środowiska omówienie w witrynie Azure portal. To wszystko, co `env.timeseries.azure.com`poprzedza .
 
 Przykładowy parametr identyfikatora środowiska to `?environmentId=10000000-0000-0000-0000-100000000108`.
 

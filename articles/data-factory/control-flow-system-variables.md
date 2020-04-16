@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 0a5237336530d30c3801b13b910171e236e87a23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2690ded0ac45719cb1082c85ab535c91ad491172
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73679287"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417967"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Zmienne systemowe obsługiwane przez usługę Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 W tym artykule opisano zmienne systemowe obsługiwane przez usługę Azure Data Factory. Tych zmiennych można używać w wyrażeniach podczas definiowania jednostek usługi Data Factory.
 
 ## <a name="pipeline-scope"></a>Zakres rurociągu

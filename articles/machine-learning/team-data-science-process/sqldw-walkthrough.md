@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 96d0a5b2fb59e4612107d8ccbf7285fff7576585
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128389"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418545"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Proces nauki o danych zespołu w działaniu: korzystanie z usługi Azure Synapse Analytics
 W tym samouczku prowadzimy użytkownika przez tworzenie i wdrażanie modelu uczenia maszynowego przy użyciu usługi Azure Synapse Analytics dla publicznie dostępnego zestawu danych — zestawu danych [NYC Taxi Trips.](https://www.andresmh.com/nyctaxitrips/) Skonstruowany model klasyfikacji binarnej przewiduje, czy wskazówka jest płatna za podróż.  Modele obejmują klasyfikację wieloklasową (niezależnie od tego, czy jest wskazówka) i regresję (rozkład dla zapłaconych kwot napiwków).
@@ -84,7 +84,7 @@ Postępuj zgodnie z dokumentacją [w tworzenie i kwerendy usługi Azure SQL Data
 
 **Zainstaluj narzędzia do pobierania danych w programie Visual Studio i SQL Server.** Aby uzyskać instrukcje, zobacz [Wprowadzenie do programu Visual Studio 2019 dla magazynu danych SQL.](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md)
 
-**Połącz się z usługą Azure Synapse Analytics za pomocą programu Visual Studio.** Aby uzyskać instrukcje, zobacz kroki 1 & 2 w [połącz z usługą Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Połącz się z usługą Azure Synapse Analytics za pomocą programu Visual Studio.** Aby uzyskać instrukcje, zobacz kroki 1 & 2 w [połącz się z usługą SQL Analytics w usłudze Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 
 > [!NOTE]
 > Uruchom następującą kwerendę SQL w bazie danych utworzonej w usłudze Azure Synapse Analytics (zamiast kwerendy podanej w kroku 3 tematu połączenia), aby **utworzyć klucz główny**.
@@ -126,7 +126,7 @@ W *programie -DestDir*wykonaj następujący skrypt programu PowerShell w trybie 
 Gdy skrypt programu PowerShell jest uruchamiany po raz pierwszy, zostaniesz poproszony o wprowadzenie informacji z usługi Azure Synapse Analytics i konta magazynu obiektów blob platformy Azure. Po zakończeniu pracy tego skryptu programu PowerShell wprowadzone poświadczenia zostaną zapisane w pliku konfiguracyjnym SQLDW.conf w obecnym katalogu roboczym. Przyszłe uruchomienie tego pliku skryptu programu PowerShell ma możliwość odczytu wszystkich potrzebnych parametrów z tego pliku konfiguracyjnego. Jeśli chcesz zmienić niektóre parametry, możesz wprowadzić parametry na ekranie po wierszu monitu, usuwając ten plik konfiguracyjny i wprowadzając wartości parametrów jako monit lub aby zmienić wartości parametrów, edytując plik SQLDW.conf w katalogu *-DestDir.*
 
 > [!NOTE]
-> Aby uniknąć konfliktów nazw schematów z tymi, które już istnieją w usłudze Azure Azure Synapse Analytics, podczas odczytywania parametrów bezpośrednio z pliku SQLDW.conf, 3-cyfrowy numer losowy jest dodawany do nazwy schematu z pliku SQLDW.conf jako domyślny schemat dla każdego biegu. Skrypt programu PowerShell może monitować o nazwę schematu: nazwa może być określona według uznania użytkownika.
+> Aby uniknąć konfliktów nazwy schematu z tymi, które już istnieją w usłudze Azure Azure Synapse Analytics, podczas odczytywania parametrów bezpośrednio z pliku SQLDW.conf, 3-cyfrowy numer losowy jest dodawany do nazwy schematu z pliku SQLDW.conf jako domyślna nazwa schematu dla każdego uruchomienia. Skrypt programu PowerShell może monitować o nazwę schematu: nazwa może być określona według uznania użytkownika.
 >
 >
 
@@ -310,7 +310,7 @@ Ten plik **skryptu programu PowerShell** wykona następujące zadania:
 Lokalizacja geograficzna kont magazynu wpływa na czasy ładowania.
 
 > [!NOTE]
-> W zależności od lokalizacji geograficznej konta prywatnego magazynu obiektów blob proces kopiowania danych z publicznego obiektu blob na konto prywatnego magazynu może potrwać około 15 minut, a nawet dłużej, a proces ładowania danych z konta magazynu na platformę Azure Usługa Azure Synapse Analytics może potrwać 20 minut lub dłużej.
+> W zależności od lokalizacji geograficznej konta magazynu obiektów blob proces kopiowania danych z publicznego obiektu blob do konta magazynu prywatnego może potrwać około 15 minut, a nawet dłużej, a proces ładowania danych z konta magazynu do usługi Azure Synapse Analytics może potrwać 20 minut lub dłużej.
 >
 >
 
@@ -330,7 +330,7 @@ Możesz użyć własnych danych. Jeśli dane są na komputerze lokalnym w aplika
 >
 >
 
-Ten skrypt programu PowerShell podłącza również informacje usługi Azure Synapse Analytics do przykładowych plików eksploracji danych SQLDW_Explorations.sql, SQLDW_Explorations.ipynb i SQLDW_Explorations_Scripts.py, aby te trzy pliki były gotowe do wypróbowania natychmiast po zakończeniu skryptu programu PowerShell.
+Ten skrypt programu PowerShell również podłącza informacje usługi Azure Synapse Analytics do przykładowych plików eksploracji danych SQLDW_Explorations.sql, SQLDW_Explorations.ipynb i SQLDW_Explorations_Scripts.py, dzięki czemu te trzy pliki są gotowe do wypróbowania natychmiast po zakończeniu skryptu programu PowerShell.
 
 Po pomyślnym wykonaniu, zobaczysz ekran jak poniżej:
 
@@ -427,7 +427,7 @@ W tym przykładzie oblicza rozkład zakresów końcówek w danym okresie czasu (
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-**Dane wyjściowe:**
+**Wyjście:**
 
 | tip_class | tip_freq |
 | --- | --- |
@@ -839,7 +839,7 @@ W tym ćwiczeniu zbadaliśmy już i zaprojektowaliśmy dane w usłudze Azure Syn
 5. Wprowadź *nazwę użytkownika SQL* w **nazwie konta użytkownika serwera**oraz *hasło* w **haśle konta użytkownika serwera**.
 7. W obszarze edycji tekstu **kwerendy bazy danych** wklej kwerendę, która wyodrębnia niezbędne pola bazy danych (w tym wszystkie obliczone pola, takie jak etykiety) i w dół próbkuje dane do żądanego rozmiaru próbki.
 
-Przykład eksperymentu klasyfikacyjnego binarnego odczytu danych bezpośrednio z bazy danych usługi Azure Synapse Analytics znajduje się na poniższym rysunku (pamiętaj, aby zastąpić nazwy tabel nyctaxi_trip i nyctaxi_fare przez nazwę schematu i nazwy tabel używane w w instruktażu). Podobne eksperymenty mogą być konstruowane dla wieloklasowych problemów klasyfikacji i regresji.
+Przykład eksperymentu klasyfikacji binarnej odczytu danych bezpośrednio z bazy danych usługi Azure Synapse Analytics znajduje się na rysunku poniżej (należy pamiętać, aby zastąpić nazwy tabel nyctaxi_trip i nyctaxi_fare przez nazwę schematu i nazwy tabel używane w instruktażu). Podobne eksperymenty mogą być konstruowane dla wieloklasowych problemów klasyfikacji i regresji.
 
 ![Pociąg usługi Azure ML][10]
 
@@ -875,7 +875,7 @@ Przykładowy eksperyment oceniania znajduje się na poniższym rysunku. Gdy będ
 ![Publikowanie usługi Azure ML][11]
 
 ## <a name="summary"></a>Podsumowanie
-Aby podsumować to, co zrobiliśmy w tym samouczku, utworzono środowisko do nauki o danych platformy Azure, pracowałeś z dużym publicznym zestawem danych, przechodząc przez proces nauki o danych zespołu, od pozyskiwania danych do szkolenia modelu, a następnie do wdrażania usługi sieci web usługi Azure Machine Learning.
+Aby podsumować, co zrobiliśmy w tym samouczku, utworzono środowisko nauki o danych platformy Azure, pracował z dużym publicznym zestawem danych, biorąc go za pośrednictwem procesu nauki o danych zespołu, aż do pozyskiwania danych do szkolenia modelu, a następnie do wdrożenia usługi sieci web usługi Azure Machine Learning.
 
 ### <a name="license-information"></a>Informacje o licencji
 Ten przykładowy instruktaż i towarzyszące mu skrypty i notesy IPython są udostępniane przez firmę Microsoft na licencji MIT. Sprawdź plik LICENSE.txt w katalogu przykładowego kodu w usłudze GitHub, aby uzyskać więcej informacji.

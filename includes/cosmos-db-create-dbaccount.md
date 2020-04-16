@@ -6,20 +6,27 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/08/2019
+ms.date: 04/10/2020
 ms.custom: include file
-ms.openlocfilehash: 9c6ce482a4f6464008f4be0ecd94455f0239ede2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4c6e45eaa816499c7e5969e302a036368bea0937
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81275065"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81421915"
 ---
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com/), aby utworzyć konto usługi Azure Cosmos DB. Wyszukaj i wybierz usługę **Azure Cosmos DB**.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com/), aby utworzyć konto usługi Azure Cosmos DB. Na stronie głównej wybierz pozycję **Utwórz zasób** z panelu **Usługi platformy Azure.**
 
-   ![Okienko Bazy danych w witrynie Azure Portal](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+   ![Tworzenie zasobu](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-resource-1.png)
 
-1. Wybierz pozycję **Dodaj**.
+1. Wyszukaj i wybierz usługę **Azure Cosmos DB**.
+
+   ![Rozwijanie zasobów witryny Azure portal](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-updated-1.png)
+
+1. Wybierz pozycję **Utwórz**.
+
+   ![Tworzenie zasobu usługi Azure Cosmos DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-account-1.png)
+
 1. Na stronie **Tworzenie konta usługi Azure Cosmos DB** wprowadź podstawowe ustawienia nowego konta usługi Azure Cosmos. 
 
     |Ustawienie|Wartość|Opis |
@@ -31,6 +38,7 @@ ms.locfileid: "81275065"
     |Zastosuj rabat bezpłatny poziom|Zastosuj lub nie stosuj|Dzięki bezpłatnej warstwie usługi Azure Cosmos DB otrzymasz pierwsze 400 ru/s i 5 GB miejsca na koncie. Dowiedz się więcej o [warstwie bezpłatnej](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Lokalizacja|Region najbliżej Twoich użytkowników|Wybierz lokalizację geograficzną, w której będzie hostowane konto usługi Azure Cosmos DB. Użyj lokalizacji znajdującej się najbliżej Twoich użytkowników, aby zapewnić im najszybszy dostęp do danych.|
     |Typ konta|Produkcja lub nieprodukcja|Wybierz **opcję Produkcja,** jeśli konto będzie używane dla obciążenia produkcyjnego. Wybierz **opcję Nieprodukcja,** jeśli konto będzie używane do nieprodukcji, np. Jest to ustawienie tagu zasobów platformy Azure, które umożliwia dostrojenie środowiska portalu, ale nie wpływa na podstawowe konto usługi Azure Cosmos DB. Tę wartość można zmienić w dowolnym momencie.|
+
 
     > [!NOTE]
     > Możesz mieć maksymalnie jedno bezpłatne konto usługi Azure Cosmos DB na subskrypcję platformy Azure i musisz wyrazić zgodę podczas tworzenia konta. Jeśli nie widzisz opcji zastosowania rabatu warstwy bezpłatnej, oznacza to, że inne konto w subskrypcji zostało już włączone z warstwą bezpłatną.

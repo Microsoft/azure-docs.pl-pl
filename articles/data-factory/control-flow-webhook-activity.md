@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: ced2279878ee2eb361ec7338647418658e411513
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79213003"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417882"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Aktywność elementu Webhook w fabryce danych platformy Azure
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Działanie elementu webhook można kontrolować wykonywanie potoków za pośrednictwem kodu niestandardowego. Dzięki aktywności elementu webhook kod klientów może wywołać punkt końcowy i przekazać mu adres URL wywołania zwrotnego. Uruchomienie potoku czeka na wywołanie zwrotne, zanim przejdzie do następnego działania.
 
@@ -63,7 +65,7 @@ Właściwość | Opis | Dozwolone wartości | Wymagany
 **timeout** | Jak długo działanie czeka na wywołanie zwrotne określone przez **callBackUri** do wywołania. Wartość domyślna to 10 minut ("00:10:00"). Wartości mają format TimeSpan *d*. *hh*:*mm*:*ss*. | Ciąg | Nie |
 **Raport stanu wywołania zwrotnego** | Umożliwia użytkownikowi zgłaszanie stanu niepowodzenia działania elementu webhook. | Wartość logiczna | Nie |
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Działanie elementu webhook obsługuje następujące typy uwierzytelniania.
 
@@ -71,7 +73,7 @@ Działanie elementu webhook obsługuje następujące typy uwierzytelniania.
 
 Jeśli uwierzytelnianie nie jest wymagane, nie należy dołączać właściwości **uwierzytelniania.**
 
-### <a name="basic"></a>Podstawowa (Basic)
+### <a name="basic"></a>Podstawowy
 
 Określ nazwę użytkownika i hasło do użycia z uwierzytelnianiem podstawowym.
 
@@ -143,9 +145,9 @@ Korzystając z **raportu stanu na wywołanie zwrotnym** właściwości, należy 
 Zobacz następujące działania przepływu sterowania obsługiwane przez fabrykę danych:
 
 - [Działanie If Condition](control-flow-if-condition-activity.md)
-- [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)
+- [Działanie wykonywania potoku](control-flow-execute-pipeline-activity.md)
 - [Dla każdego działania](control-flow-for-each-activity.md)
-- [Uzyskaj aktywność metadanych](control-flow-get-metadata-activity.md)
-- [Działanie Lookup](control-flow-lookup-activity.md)
+- [Działanie pobierania metadanych](control-flow-get-metadata-activity.md)
+- [Działanie wyszukiwania](control-flow-lookup-activity.md)
 - [Działanie internetowe](control-flow-web-activity.md)
 - [Działanie Until](control-flow-until-activity.md)

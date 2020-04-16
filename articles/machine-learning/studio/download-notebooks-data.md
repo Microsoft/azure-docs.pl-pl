@@ -7,17 +7,17 @@ ms.subservice: studio
 ms.topic: how-to
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 03/12/2020
-ms.openlocfilehash: 9c4215d2c2e811b4c6369ee3773fb811695da4fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: a342ef86817f4f66a6e74b72b4d167fa548b6345
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204362"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419191"
 ---
 # <a name="download-notebookspreview-data"></a>Pobieranie danych notesów (podglądu)
 
-Funkcja Notes (wersja zapoznawcza) zostanie usunięta *13 kwietnia 2020 r.* Po tej dacie karta Notesy (podgląd) zniknie i nie można przywrócić danych notesów. Pobierz dane notesów przed 13 kwietnia 2020 r.
+Funkcja Notes (wersja zapoznawcza) została usunięta *13 kwietnia 2020*r. Usunięcie karty Notesy (podgląd) i plików notesu użytkownika jest obecnie wdrażany w regionach platformy Azure na całym świecie.
 
 Ten artykuł zawiera instrukcje krok po kroku dotyczące pobierania danych notesów (wersji zapoznawczej).
 

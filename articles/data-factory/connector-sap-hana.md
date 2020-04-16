@@ -11,17 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/17/2020
-ms.openlocfilehash: e1a3ff32956e8a8530684ba7f300f06d0c032227
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 74462b68bea38e4d84219adeedb7c3bb0893bbb4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421127"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417241"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiowanie danych z systemu SAP HANA przy użyciu usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-sap-hana-connector.md)
-> * [Bieżąca wersja](connector-sap-hana.md)
+> * [Aktualna wersja](connector-sap-hana.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z bazy danych SAP HANA. Opiera się na [omówienie działania kopiowania](copy-activity-overview.md) artykuł, który przedstawia ogólny przegląd działania kopiowania.
 

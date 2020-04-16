@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: 3215f5952daef053c94432bc8fdef15e1775047a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73171099"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421961"
 ---
 Umieszczanie maszyn wirtualnych w jednym regionie zmniejsza fizyczną odległość między wystąpieniami. Umieszczenie ich w jednej strefie dostępności również zbliży je fizycznie do siebie. Jednak wraz ze wzrostem śladu platformy Azure pojedyncza strefa dostępności może obejmować wiele fizycznych centrów danych, co może spowodować opóźnienie sieciowe wpływające na aplikację. 
 
@@ -39,6 +39,13 @@ Istniejący zasób można również przenieść do grupy miejsc docelowych zbli�
 W przypadku zestawów dostępności i zestawów skalowania maszyny wirtualnej należy ustawić grupę miejsc docelowych zbliżeniowych na poziomie zasobu, a nie na poszczególnych maszynach wirtualnych. 
 
 Grupa miejsc docelowych zbliżeniowych jest ograniczeniem kolokacji, a nie mechanizmem przypinania. Jest przypięty do określonego centrum danych z wdrożeniem pierwszego zasobu, aby go użyć. Po zatrzymaniu lub usunięciu wszystkich zasobów korzystających z grupy miejsc docelowych w pobliżu nie zostaną ony przypięte. W związku z tym podczas korzystania z grupy miejsc docelowych zbliżeniami z wielu serii maszyn wirtualnych, ważne jest, aby określić wszystkie wymagane typy z góry w szablonie, gdy jest to możliwe lub wykonaj sekwencję wdrażania, które zwiększą swoje szanse na pomyślne wdrożenie. Jeśli wdrożenie nie powiedzie się, uruchom ponownie wdrożenie z rozmiarem maszyny Wirtualnej, który nie powiódł się jako pierwszy rozmiar do wdrożenia.
+
+## <a name="what-to-expect-when-using-proximity-placement-groups"></a>Czego można się spodziewać podczas korzystania z grup miejsc docelowych zbliżeniowych 
+Grupy miejsc docelowych zbliżeniowych oferują kolokowanie w tym samym centrum danych. Jednak ponieważ grupy miejsc docelowych zbliżeniowych stanowią dodatkowe ograniczenie wdrażania, mogą wystąpić błędy alokacji. Istnieje kilka przypadków użycia, w których podczas korzystania z grup miejsc docelowych zbliżeniowych mogą wystąpić błędy alokacji:
+
+- Gdy poprosisz o pierwszą maszynę wirtualną w grupie miejsc docelowych zbliżeniowych, centrum danych jest automatycznie wybierane. W niektórych przypadkach drugie żądanie dla innej jednostki SKU maszyny wirtualnej może zakończyć się niepowodzeniem, jeśli nie istnieje w tym centrum danych. W takim przypadku zwracany jest błąd **OverconstrainedAllocationRequest.** Aby tego uniknąć, spróbuj zmienić kolejność wdrażania jednostek SKU lub wdrożyć oba zasoby przy użyciu jednego szablonu ARM.
+-   W przypadku obciążeń elastycznych, gdzie można dodać i usunąć wystąpienia maszyn wirtualnych, o ograniczenia grupy umieszczania w pobliżu na wdrożenie może spowodować niepowodzenie spełnienia żądania powodujące błąd **AlokacjaFailure.** 
+- Zatrzymanie (cofnięta alokacja) i uruchomienie maszyn wirtualnych w razie potrzeby to inny sposób na osiągnięcie elastyczności. Ponieważ pojemność nie jest zachowywana po zatrzymaniu (cofnięto alokację) maszyny Wirtualnej, uruchomienie go ponownie może spowodować błąd **AllocationFailure.**
 
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania 

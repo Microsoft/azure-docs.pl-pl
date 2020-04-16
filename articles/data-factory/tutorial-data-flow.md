@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: e6ca8007a96cc63b51b4f79b69029cbf0799e71c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 917a8d6edf04d8a160c3a6a5ac59949623dfee5c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979194"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418681"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Przekształcanie danych przy użyciu przepływów danych mapowania
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
 
@@ -60,7 +62,7 @@ W tym kroku należy utworzyć fabrykę danych i otworzyć środowisko UX fabryki
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
 6. W obszarze **Wersja** wybierz pozycję **V2**.
 7. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (na przykład usługa Azure Storage i baza danych SQL) i obliczeń (na przykład usługi Azure HDInsight) używanych przez fabrykę danych mogą znajdować się w innych regionach.
-8. Wybierz **pozycję Utwórz**.
+8. Wybierz pozycję **Utwórz**.
 9. Po zakończeniu tworzenia zostanie wyświetlone powiadomienie w Centrum powiadomień. Wybierz **pozycję Przejdź do zasobu,** aby przejść do strony Fabryka danych.
 10. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 

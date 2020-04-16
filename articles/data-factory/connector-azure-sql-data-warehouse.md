@@ -11,18 +11,27 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
-ms.openlocfilehash: 822a981b84919670aa476567625cdf914206eaa8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7fb1560fb9be809d816dde7dd69f1ec8afe5649f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422181"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417577"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie i przekształcanie danych w usłudze Azure Synapse Analytics (dawniej Usługa Azure SQL Data Warehouse) przy użyciu usługi Azure Data Factory 
 
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Bieżąca wersja](connector-azure-sql-data-warehouse.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z i do usługi Azure Synapse Analytics oraz do przekształcania danych w usłudze Azure Data Lake Storage Gen2. Aby dowiedzieć się więcej o usłudze Azure Data Factory, przeczytaj [artykuł wprowadzający](introduction.md).
+
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z i do usługi Azure SQL Data Warehouse oraz do przekształcania danych w usłudze Azure Data Lake Storage Gen2. Aby dowiedzieć się więcej o usłudze Azure Data Factory, przeczytaj [artykuł wprowadzający](introduction.md).
 
 W tym artykule opisano, jak używać działania kopiowania w usłudze Azure Data Factory do kopiowania danych z i do usługi Azure Synapse Analytics oraz do przekształcania danych w usłudze Azure Data Lake Storage Gen2. Aby dowiedzieć się więcej o usłudze Azure Data Factory, przeczytaj [artykuł wprowadzający](introduction.md).
 
@@ -531,7 +540,7 @@ Aby użyć tej funkcji, utwórz [usługę połączona usługi Azure Blob Storage
 
 ### <a name="best-practices-for-using-polybase"></a>Najważniejsze wskazówki dotyczące korzystania z bazy PolyBase
 
-W poniższych sekcjach przedstawiono najlepsze rozwiązania oprócz tych wymienionych w [najlepszych rozwiązaniach dotyczących usługi Azure Synapse Analytics.](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md)
+W poniższych sekcjach przedstawiono najlepsze rozwiązania oprócz tych wymienionych w [najlepszych rozwiązaniach dotyczących usługi Azure Synapse Analytics.](../synapse-analytics/sql/best-practices-sql-pool.md)
 
 #### <a name="required-database-permission"></a>Wymagane uprawnienie do bazy danych
 
@@ -740,7 +749,7 @@ Ustawienia specyficzne dla usługi Azure Synapse Analytics są dostępne na karc
 Podczas kopiowania danych z lub do usługi Azure Synapse Analytics następujące mapowania są używane z typów danych usługi Azure Synapse Analytics do tymczasowych typów danych usługi Azure Data Factory. Zobacz [mapowania schematu i typu danych,](copy-activity-schema-and-type-mapping.md) aby dowiedzieć się, jak działanie kopiowania mapuje schemat źródłowy i typ danych do ujścia.
 
 >[!TIP]
->Zapoznaj się [z tabeli typów danych w usłudze Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) artykuł na temat sql dw obsługiwanych typów danych i obejścia dla nieobsługiwanych.
+>Zapoznaj się [z tabeli typów danych w usłudze Azure Synapse Analytics](../synapse-analytics/sql/develop-tables-data-types.md) artykuł na temat sql dw obsługiwanych typów danych i obejścia dla nieobsługiwanych.
 
 | Typ danych usługi Azure Synapse Analytics    | Tymczasowy typ danych data factory |
 | :------------------------------------ | :----------------------------- |

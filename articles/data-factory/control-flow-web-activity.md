@@ -11,14 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5cdb24a80dcbd95e4ccc59dd55f4acb9ae18060
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260867"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417899"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Aktywność w sieci Web w fabryce danych platformy Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+
 Działanie WebActivity może być używane do wywoływania niestandardowego punktu końcowego REST z potoku usługi Data Factory. Można przekazywać zestawy danych i połączone usługi do zużycia i dostępu przez działanie.
 
 > [!NOTE]
@@ -88,7 +91,7 @@ W poniższej tabeli przedstawiono wymagania dotyczące zawartości JSON:
 | Typ nienawiązywać się do JSON | Nieobsługiwane | Nieobsługiwane |
 ||||
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Poniżej znajdują się obsługiwane typy uwierzytelniania w aktywności sieci web.
 
@@ -96,7 +99,7 @@ Poniżej znajdują się obsługiwane typy uwierzytelniania w aktywności sieci w
 
 Jeśli uwierzytelnianie nie jest wymagane, nie należy dołączać właściwości "uwierzytelnianie".
 
-### <a name="basic"></a>Podstawowa (Basic)
+### <a name="basic"></a>Podstawowy
 
 Określ nazwę użytkownika i hasło do użycia z uwierzytelnianiem podstawowym.
 
@@ -254,7 +257,7 @@ public HttpResponseMessage Execute(JObject payload)
 ## <a name="next-steps"></a>Następne kroki
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych:
 
-- [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)
+- [Działanie wykonywania potoku](control-flow-execute-pipeline-activity.md)
 - [Dla każdego działania](control-flow-for-each-activity.md)
-- [Uzyskaj aktywność metadanych](control-flow-get-metadata-activity.md)
-- [Działanie Lookup](control-flow-lookup-activity.md)
+- [Działanie pobierania metadanych](control-flow-get-metadata-activity.md)
+- [Działanie wyszukiwania](control-flow-lookup-activity.md)

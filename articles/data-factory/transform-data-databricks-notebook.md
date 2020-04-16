@@ -11,14 +11,15 @@ manager: shwang
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: c7a2aec35511ef066033c3d6462143ac31660e76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d3c9f0df0d834ffe75d0b56e3c80a432c27ea38
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74923057"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419021"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Przekształcanie danych przez uruchamianie notesu databricks
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Aktywność notesu usługi Azure Databricks w [potoku usługi Data Factory](concepts-pipelines-activities.md) uruchamia notes Databricks w obszarze roboczym usługi Azure Databricks. W tym artykule opiera się na [działaniach](transform-data.md) transformacji danych, który przedstawia ogólny przegląd transformacji danych i obsługiwanych działań transformacji.Usługa Azure Databricks to zarządzana platforma do uruchamiania platformy Apache Spark.
 

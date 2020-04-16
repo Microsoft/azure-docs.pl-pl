@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 065610a9de4898d012cef8a16849c09a81f0774c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7470af23059ccd07e48050e6dc34521e299a986f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76841101"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418613"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Konfigurowanie środowiska uruchomieniowego integracji usług integracyjnych usługi Azure-SQL Server (SSIS) (IR) w celu dołączenia do sieci wirtualnej
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Ten samouczek zawiera podstawowe kroki dotyczące korzystania z witryny Azure Portal w celu skonfigurowania środowiska uruchomieniowego integracji usługi Azure-SQL Server Integration Services (IR) w celu dołączenia do sieci wirtualnej.
 
@@ -70,7 +72,7 @@ Użyj witryny Azure Portal, aby skonfigurować sieć wirtualną przed podjęciem
 
 1. Uruchom przeglądarkę Microsoft Edge lub Google Chrome. Obecnie tylko te przeglądarki internetowe obsługują interfejs użytkownika fabryki danych.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Wybierz **pozycję Więcej usług**. Filtruj i wybierz **pozycję Sieci wirtualne**.
 
