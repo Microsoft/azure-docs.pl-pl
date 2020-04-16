@@ -83,10 +83,12 @@
           href: logic-apps-author-definitions.md
         - name: Obsługa typów zawartości
           href: logic-apps-content-type.md
-        - name: Obsługa błędów i wyjątków
+        - name: Obsługa wyjątków
           href: logic-apps-exception-handling.md
         - name: Obsługa dużych komunikatów
           href: logic-apps-handle-large-messages.md
+        - name: Obsługa problemów z ograniczeniem przepustowości lub błędów 429
+          href: handle-throttling-problems-429-errors.md
         - name: Bezpieczeństwo
           items:
             - name: Ulepszanie zabezpieczeń dla aplikacji logiki

@@ -1,58 +1,55 @@
 ---
 title: Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika w zasadach niestandardowych
 titleSuffix: Azure AD B2C
-description: Dowiedz się, jak dostosować dane wejściowe użytkownika i dodać oświadczenia do podróży rejestracji lub logowania w usłudze Azure Active Directory B2C.
+description: Dowiedz się, jak dostosować dane wejściowe użytkownika i dodać oświadczenia do kursu rejestracji lub logowania w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85f2ab6f8c3e5edda027e44eeda13a3279a88321
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.openlocfilehash: 56a3478f1c0dbc05eba07a5109f5bb6ba89b79d0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473680"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079888"
 ---
-#  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w usłudze Azure Active Directory B2C
+#  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-W tym artykule można zebrać nowy atrybut podczas podróży rejestracji w usłudze Azure Active Directory B2C (Azure AD B2C). Otrzymasz miasto użytkowników, skonfigurujesz je jako rozwijane i określisz, czy jest to wymagane.
+W tym artykule zebrano nowy atrybut podczas podróży podczas rejestracji w Azure Active Directory B2C (Azure AD B2C). Otrzymasz miasto użytkowników, skonfigurujesz je jako listę rozwijaną i określisz, czy jest wymagane.
 
-> [!NOTE]
-> W tym przykładzie użyto wbudowanego oświadczenia "miasto". Zamiast tego można wybrać jeden z obsługiwanych [atrybutów wbudowanych usługi Azure AD B2C](user-profile-attributes.md) lub atrybut niestandardowy. Aby użyć atrybutu niestandardowego, [włącz atrybuty niestandardowe w zasadach](custom-policy-custom-attributes.md). Aby użyć innego atrybutu wbudowanego lub niestandardowego, zastąp "miasto" wybranym atrybutem, na przykład wbudowanym atrybutem *jobTitle* lub atrybutem niestandardowym, takim jak *extension_loyaltyId*.  
+Możesz zbierać dane początkowe od użytkowników przy użyciu podróży lub logowania użytkownika. Dodatkowe oświadczenia można zbierać później za pomocą profilu Edytuj podróż użytkownika. W każdej chwili Azure AD B2C gromadzić informacje bezpośrednio od użytkownika, a platforma obsługi tożsamości używa swojego własnego [profilu technicznego](self-asserted-technical-profile.md). W tym przykładzie:
 
-Możesz zbierać dane początkowe od użytkowników, korzystając z podróży użytkownika rejestracji lub logowania. Dodatkowe oświadczenia można zebrać później za pomocą podróży użytkownika edycji profilu. Za każdym razem, gdy usługa Azure AD B2C gromadzi informacje bezpośrednio od użytkownika interaktywnie, struktura środowiska tożsamości używa [swojego profilu technicznego.](self-asserted-technical-profile.md) W tym przykładzie:
-
-1. Zdefiniuj roszczenie "miasto". 
-1. Zapytaj użytkownika o swoje miasto.
-1. Utrwalić miasto do profilu użytkownika w katalogu usługi Azure AD B2C.
-1. Przeczytaj oświadczenie o mieście z katalogu usługi Azure AD B2C przy każdym logacji.
-1. Po zalogowaniu się lub zarejestrowaniu miasto należy zwrócić miasto do aplikacji strony uzależniającej.  
+1. Zdefiniuj "miasto".
+1. Poproszenie użytkownika o ich miasto.
+1. Utrwalaj miasto w profilu użytkownika w katalogu Azure AD B2C.
+1. Przeczytaj wierzytelność z katalogu Azure AD B2C przy każdym logowaniu.
+1. Zwróć miasto do aplikacji jednostki uzależnionej po zalogowaniu się lub zarejestrowaniu.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wykonaj kroki opisane w [wprowadzenie do zasad niestandardowych](custom-policy-get-started.md). Musisz mieć działające zasady niestandardowe dotyczące rejestracji i logowania się za pomocą kont społecznościowych i lokalnych.
+Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych](custom-policy-get-started.md). Należy mieć działającą niestandardową zasadę do rejestracji i logowania przy użyciu kont społecznościowych i lokalnych.
 
-## <a name="define-a-claim"></a>Definiowanie oświadczenia
+## <a name="define-a-claim"></a>Definiowanie odszkodowania
 
-Oświadczenie zapewnia tymczasowe przechowywanie danych podczas wykonywania zasad usługi Azure AD B2C. [Schemat oświadczeń](claimsschema.md) jest miejscem, w którym deklarujesz swoje oświadczenia. Do zdefiniowania oświadczenia używane są następujące elementy:
+W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazyn danych. [Schemat oświadczeń](claimsschema.md) jest miejscem, w którym deklarujesz oświadczenia. Następujące elementy są używane do definiowania roszczeń:
 
-- **DisplayName** — ciąg definiujący etykietę skierowaną do użytkownika.
-- [DataType](claimsschema.md#datatype) — typ oświadczenia.
+- **DisplayName** — ciąg definiujący etykietę dodaną do użytkownika.
+- [DataType](claimsschema.md#datatype) — typ żądania.
 - **UserHelpText** — pomaga użytkownikowi zrozumieć, co jest wymagane.
-- [UserInputType](claimsschema.md#userinputtype) — typ formantu wejściowego, taki jak pole tekstowe, wybór radia, lista rozwijana lub wiele zaznaczeń.
+- [UserInputType](claimsschema.md#userinputtype) — typ kontrolki wprowadzania, taki jak pole tekstowe, wybór radiowy, lista rozwijana lub wiele zaznaczeń.
 
-Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
+Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
-1. Wyszukaj [element BuildingBlocks.](buildingblocks.md) Jeśli element nie istnieje, dodaj go.
-1. Znajdź [ClaimsSchema](claimsschema.md) element. Jeśli element nie istnieje, dodaj go.
-1. Dodaj oświadczenie miasta do **elementu ClaimsSchema.**  
+1. Wyszukaj element [BuildingBlocks](buildingblocks.md) . Jeśli element nie istnieje, Dodaj go.
+1. Znajdź element [ClaimsSchema](claimsschema.md) . Jeśli element nie istnieje, Dodaj go.
+1. Dodaj wierzytelność do elementu **ClaimsSchema** .  
 
 ```xml
 <ClaimType Id="city">
@@ -67,15 +64,15 @@ Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em
 </ClaimType>
 ```
 
-## <a name="add-a-claim-to-the-user-interface"></a>Dodawanie oświadczenia do interfejsu użytkownika
+## <a name="add-a-claim-to-the-user-interface"></a>Dodawanie roszczeń do interfejsu użytkownika
 
-Następujące profile techniczne są [samodzielnie potwierdzone, wywoływane,](self-asserted-technical-profile.md)gdy użytkownik ma dostarczyć danych wejściowych:
+Następujące profile techniczne są [samodzielne](self-asserted-technical-profile.md), wywoływane, gdy użytkownik oczekuje na wprowadzenie:
 
-- **LocalAccountSignUpWithLogonEmail** — przepływ rejestracji konta lokalnego.
-- **SelfAsserted-Social** — konto federacyjne po raz pierwszy logowania użytkownika.
-- **SelfAsserted-ProfileUpdate** — edytuj przepływ profilu.
+- **LocalAccountSignUpWithLogonEmail** — przepływ rejestracji w ramach konta lokalnego.
+- Logowanie za pierwszym razem z kontem **SelfAsserted-Social** -Federation User.
+- **SelfAsserted-ProfileUpdate** — Edytuj przepływ profilu.
 
-Aby odebrać reklamację miasta podczas rejestracji, należy je dodać `LocalAccountSignUpWithLogonEmail` jako oświadczenie wyjściowe do profilu technicznego. Zastąp ten profil techniczny w pliku rozszerzenia. Określ całą listę oświadczeń danych wyjściowych, aby kontrolować kolejność, w jakiej oświadczenia są prezentowane na ekranie. Znajdź **ClaimsProviders** element. Dodaj nowe ClaimsProviders w następujący sposób:
+Aby zebrać wierzytelność podczas tworzenia konta, należy dodać jako zgłoszenie wyjściowe do profilu technicznego `LocalAccountSignUpWithLogonEmail`. Zastąp ten profil techniczny w pliku rozszerzenia. Określ całą listę oświadczeń danych wyjściowych do kontrolowania kolejności, w której oświadczenia są prezentowane na ekranie. Znajdź element **ClaimsProviders** . Dodaj nową ClaimsProviders w następujący sposób:
 
 ```xml
 <ClaimsProvider>
@@ -98,7 +95,7 @@ Aby odebrać reklamację miasta podczas rejestracji, należy je dodać `LocalAcc
 <ClaimsProvider>
 ```
 
-Aby odebrać roszczenie miasta po pierwszym zalogowaniu się za pomocą konta federacyjnego, należy je dodać jako oświadczenie wyjściowe do profilu `SelfAsserted-Social` technicznego. Aby użytkownicy kont lokalnych i federowanych mogli później edytować dane `SelfAsserted-ProfileUpdate` profilu, dodaj oświadczenie wyjściowe do profilu technicznego. Zastąp te profile techniczne w pliku rozszerzenia. Określ całą listę oświadczeń danych wyjściowych, aby kontrolować kolejność, w jakiej oświadczenia są prezentowane na ekranie. Znajdź **ClaimsProviders** element. Dodaj nowe ClaimsProviders w następujący sposób:
+Aby zebrać wierzytelność po początkowym logowaniu przy użyciu konta federacyjnego, należy dodać je jako zgłoszenie wyjściowe do profilu technicznego `SelfAsserted-Social`. Aby użytkownicy konta lokalnego i federacyjnego mogli edytować swoje dane profilu później, należy dodać zgłoszenie danych wyjściowych do profilu technicznego `SelfAsserted-ProfileUpdate`. Zastąp te profile techniczne w pliku rozszerzenia. Określ całą listę oświadczeń danych wyjściowych do kontrolowania kolejności, w której oświadczenia są prezentowane na ekranie. Znajdź element **ClaimsProviders** . Dodaj nową ClaimsProviders w następujący sposób:
 
 ```xml
   <DisplayName>Self Asserted</DisplayName>
@@ -125,12 +122,12 @@ Aby odebrać roszczenie miasta po pierwszym zalogowaniu się za pomocą konta fe
 </ClaimsProvider>
 ```
 
-## <a name="read-and-write-a-claim"></a>Odczytywanie i pisanie oświadczenia
+## <a name="read-and-write-a-claim"></a>Odczytuj i zapisuj roszczeń
 
-Następujące profile techniczne to [profile techniczne usługi Active Directory,](active-directory-technical-profile.md)które odczytują i zapisują dane w usłudze Azure Active Directory.  
-Służy `PersistedClaims` do zapisywania danych `OutputClaims` w profilu użytkownika i odczytywania danych z profilu użytkownika w odpowiednich profilach technicznych usługi Active Directory.
+Następujące profile techniczne są [Active Directory profile techniczne](active-directory-technical-profile.md), które odczytują i zapisują dane do Azure Active Directory.  
+Użyj `PersistedClaims`, aby zapisać dane w profilu użytkownika i `OutputClaims` do odczytu danych z profilu użytkownika w ramach odpowiednich Active Directory profilów technicznych.
 
-Zastąp te profile techniczne w pliku rozszerzenia. Znajdź **ClaimsProviders** element.  Dodaj nowe ClaimsProviders w następujący sposób:
+Zastąp te profile techniczne w pliku rozszerzenia. Znajdź element **ClaimsProviders** .  Dodaj nową ClaimsProviders w następujący sposób:
 
 ```xml
 <ClaimsProvider>
@@ -170,9 +167,9 @@ Zastąp te profile techniczne w pliku rozszerzenia. Znajdź **ClaimsProviders** 
 </ClaimsProvider>
 ```
 
-## <a name="include-a-claim-in-the-token"></a>Dołącz roszczenie do tokenu 
+## <a name="include-a-claim-in-the-token"></a>Uwzględnianie roszczeń w tokenie 
 
-Aby przywrócić roszczenie miasta do aplikacji jednostki uzależniającej, <em> `SocialAndLocalAccounts/` </em> dodaj do pliku oświadczenie wyjściowe. Oświadczenie danych wyjściowych zostanie dodane do tokenu po pomyślnej podróży użytkownika i zostanie wysłane do aplikacji. Zmodyfikuj element profilu technicznego w sekcji jednostki uzależniona, aby dodać miasto jako oświadczenie wyjściowe.
+Aby zwrócić miasto z powrotem do aplikacji jednostki uzależnionej, należy dodać zgłoszenie wyjściowe do pliku <em>**`SignUpOrSignIn.xml`**`SocialAndLocalAccounts/`</em>. Zgłoszenie danych wyjściowych zostanie dodane do tokenu po pomyślnym przejściu użytkownika i zostanie wysłane do aplikacji. Zmodyfikuj element profil techniczny w sekcji jednostki uzależnionej, aby dodać miasto jako zgłoszenie wyjściowe.
  
 ```xml
 <RelyingParty>
@@ -198,18 +195,18 @@ Aby przywrócić roszczenie miasta do aplikacji jednostki uzależniającej, <em>
 ## <a name="test-the-custom-policy"></a>Testowanie zasad niestandardowych
 
 1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-2. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD, wybierając filtr **subskrypcja Katalog +** w górnym menu i wybierając katalog zawierający dzierżawę usługi Azure AD.
-3. Wybierz **pozycję Wszystkie usługi** w lewym górnym rogu witryny Azure portal, a następnie wyszukaj i wybierz pozycję **Rejestracje aplikacji.**
-4. Wybierz **platformę środowiska tożsamości**.
-5. Wybierz **pozycję Przekaż zasady niestandardowe**, a następnie przekaż dwa zmienione pliki zasad.
-2. Wybierz przekazane zasady rejestracji lub logowania, a następnie kliknij przycisk **Uruchom teraz.**
-3. Powinieneś być w stanie zarejestrować się przy użyciu adresu e-mail.
+2. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD, wybierając filtr **katalog + subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawę usługi Azure AD.
+3. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **rejestracje aplikacji**.
+4. Wybierz pozycję **platforma obsługi tożsamości**.
+5. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż dwa zmienione pliki zasad.
+2. Wybierz przekazane zasady rejestracji lub logowania, a następnie kliknij przycisk **Uruchom teraz** .
+3. Należy mieć możliwość rejestrowania się przy użyciu adresu e-mail.
 
-Ekran rejestracji powinien wyglądać podobnie do następującego zrzutu ekranu:
+Ekran rejestracji powinien wyglądać podobnie do poniższego zrzutu ekranu:
 
-![Zrzut ekranu przedstawiający zmodyfikowaną opcję rejestracji](./media/custom-policy-configure-user-input/signup-with-city-claim-dropdown-example.png)
+![Zrzut ekranu przedstawiający zmodyfikowaną opcję tworzenia konta](./media/custom-policy-configure-user-input/signup-with-city-claim-dropdown-example.png)
 
-Token wysłany z powrotem `city` do aplikacji zawiera oświadczenie.
+Token wysłany z powrotem do aplikacji zawiera `city`ą.
 
 ```json
 {
@@ -237,5 +234,5 @@ Token wysłany z powrotem `city` do aplikacji zawiera oświadczenie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [ClaimsSchema](claimsschema.md) elementu w odwołaniu IEF.
-- Dowiedz się, jak [używać atrybutów niestandardowych w zasadach edycji profilu niestandardowego](custom-policy-custom-attributes.md).
+- Dowiedz się więcej o elemencie [ClaimsSchema](claimsschema.md) w odwołaniu IEF.
+- Dowiedz się [, jak używać atrybutów niestandardowych w niestandardowych zasadach edytowania profilu](custom-policy-custom-attributes.md).

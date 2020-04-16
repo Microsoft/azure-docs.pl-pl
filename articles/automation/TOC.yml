@@ -18,11 +18,11 @@
     - name: Zarządzanie kontrolą dostępu opartą na rolach
       href: automation-role-based-access-control.md
       displayName: RBAC
-    - name: Użycie usługi Azure AD w usłudze Azure Automation do uwierzytelniania na platformie Azure
+    - name: Uwierzytelnianie na platformie Azure za pomocą usługi Azure AD
       href: automation-use-azure-ad.md
-    - name: Zarządzanie usługami pakietu Office 365 przy użyciu usługi Azure Automation
+    - name: Zarządzanie usługami Office 365
       href: manage-office-365.md
-    - name: Konfigurowanie uwierzytelniania za pomocą usług AWS
+    - name: Uwierzytelnianie elementów runbook usługi Azure Automation za pomocą usługi Amazon Web Services
       href: automation-config-aws-account.md
     - name: Szyfrowanie zabezpieczonych zasobów w usłudze Azure Automation
       href: automation-secure-asset-encryption.md
@@ -42,6 +42,9 @@
           displayName: troubleshoot
 - name: Automatyzacja procesów
   items:
+    - name: Wykonywanie elementu runbook w usłudze Azure Automation
+      href: automation-runbook-execution.md
+      displayName: 'fair share, activity log'
     - name: Omówienie hybrydowego procesu roboczego elementu Runbook
       href: automation-hybrid-runbook-worker.md
     - name: Galeria elementów Runbook
@@ -111,9 +114,6 @@
             - name: Wynik uruchomienia elementu Runbook
               href: automation-runbook-output-and-messages.md
               displayName: 'message streams, progress records, preference'
-            - name: Śledzenie zadania elementu Runbook
-              href: automation-runbook-execution.md
-              displayName: 'fair share, activity log'
             - name: Obsługa błędów w graficznych elementach runbook
               href: automation-runbook-graphical-error-handling.md
         - name: Hybrydowy proces roboczy elementu Runbook
@@ -262,7 +262,7 @@
           href: /powershell/scripting/dsc/overview/overview
     - name: Przewodniki Szybki start
       items:
-        - name: Getting Started
+        - name: Rozpoczęcie pracy
           href: automation-dsc-getting-started.md
           displayName: DSC
         - name: Zarządzanie konfiguracją maszyny
@@ -278,9 +278,6 @@
         - name: Konfigurowanie żądanego stanu serwerów i zarządzanie odejściem od tego stanu za pomocą konfiguracji stanu
           href: tutorial-configure-servers-desired-state.md
           displayName: 'DSC, compliance'
-        - name: Dołączanie maszyn w celu zarządzania
-          href: automation-dsc-onboarding.md
-          displayName: 'DSC, state configuration'
         - name: Kompilowanie konfiguracji DSC
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
@@ -289,7 +286,7 @@
           displayName: 'state configuration, DSC, remediate'
         - name: Tworzenie konfiguracji DSC przy użyciu zasobów złożonych
           href: compose-configurationwithcompositeresources.md
-        - name: Ciągłe wdrażanie za pomocą narzędzia Chocolatey
+        - name: Dostarczanie ciągłego wdrażania za pomocą narzędzia Chocolatey
           href: automation-dsc-cd-chocolatey.md
           displayName: 'dsc, state configuration'
         - name: Przekazywanie danych raportowania konfiguracji stanu do dzienników usługi Azure Monitor
@@ -297,12 +294,12 @@
           displayName: DSC
     - name: Rozwiązywanie problemów
       items:
-        - name: Dołączanie
+        - name: Rozwiązywanie problemów z dołączaniem
           href: troubleshoot/onboarding.md
           displayName: troubleshoot
         - name: Rozwiązywanie problemów z usługą State Configuration (DSC)
           href: troubleshoot/desired-state-configuration.md
-          displayName: 'Desired State Configuration, troubleshoot'
+          displayName: 'state configuration, DSC, troubleshoot'
     - name: Dokumentacja
       items:
         - name: Rozwiązania społeczności
