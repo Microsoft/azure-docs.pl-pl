@@ -13,18 +13,20 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 682c35e1510834d8958b2ed6765d6fe530432ebd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: ad757e3d65d3094ca6883d747404906a871ed850
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262149"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419344"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Szybki start: tworzenie fabryki danych platformy Azure przy użyciu programu PowerShell
 
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Bieżąca wersja](quickstart-create-data-factory-powershell.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Ten samouczek szybki start opisuje sposób używania programu PowerShell w celu utworzenia usługi Azure Data Factory. Potok utworzony w tej fabryce danych **kopiuje** dane z jednego folderu do innego folderu w magazynie obiektów blob platformy Azure. Aby zapoznać się z samouczkiem na temat **przekształcania** danych przy użyciu usługi Azure Data Factory, zobacz [Samouczek: Przekształcanie danych przy użyciu platformy Spark](transform-data-using-spark.md).
 

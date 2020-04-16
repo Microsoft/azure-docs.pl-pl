@@ -13,18 +13,20 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 3b8edd249b19a61f8c80eb5b8c9df25754d4f070
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 85b61e03f1545b8a0e8263b799ac7a5b347be181
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78399511"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419140"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Szybki start: tworzenie fabryki danych i potoku przy użyciu języka Python
 
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Bieżąca wersja](quickstart-create-data-factory-python.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym przewodniku Szybki start utworzysz fabrykę danych przy użyciu języka Python. Potok w tej fabryce danych kopiuje dane z jednego folderu do innego folderu w magazynie obiektów Blob platformy Azure.
 

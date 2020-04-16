@@ -10,18 +10,20 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5ea45346de5ea841867dd13dd4c9a0ed26647448
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240744"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419123"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Samouczek: tworzenie fabryki danych na platformie Azure przy użyciu szablonu usługi Azure Resource Manager
 
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Bieżąca wersja](quickstart-create-data-factory-resource-manager-template.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym przewodniku Szybki start wyjaśniono, jak skorzystać z szablonu usługi Azure Resource Manager w celu utworzenia fabryki danych na platformie Azure. Potok utworzony w tej fabryce danych **kopiuje** dane z jednego folderu do innego folderu w magazynie obiektów blob platformy Azure. Aby zapoznać się z samouczkiem na temat **przekształcania** danych przy użyciu usługi Azure Data Factory, zobacz [Samouczek: Przekształcanie danych przy użyciu platformy Spark](transform-data-using-spark.md).
 
@@ -636,7 +638,7 @@ Definiujesz potok, który kopiuje dane z jednego binarnego zestawu danych do inn
 
 #### <a name="trigger"></a>Wyzwalacz
 
-Należy zdefiniować wyzwalacz, który uruchamia potok co godzinę. Wdrożony wyzwalacz jest w stanie zatrzymanym. Uruchom wyzwalacz przy użyciu polecenia cmdlet **Start-AzDataFactoryV2Trigger.** Aby uzyskać więcej informacji na temat wyzwalaczy, zobacz [wykonanie potoku i wyzwalaczy](concepts-pipeline-execution-triggers.md#triggers) artykułu.
+Należy zdefiniować wyzwalacz, który uruchamia potok co godzinę. Wdrożony wyzwalacz jest w stanie zatrzymanym. Uruchom wyzwalacz przy użyciu polecenia cmdlet **Start-AzDataFactoryV2Trigger.** Aby uzyskać więcej informacji na temat wyzwalaczy, zobacz [wykonanie potoku i wyzwalaczy](concepts-pipeline-execution-triggers.md#trigger-execution) artykułu.
 
 ```json
 {  

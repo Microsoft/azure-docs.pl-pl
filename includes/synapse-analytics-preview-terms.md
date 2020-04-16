@@ -1,0 +1,23 @@
+---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
+author: JulieMSFT
+ms.service: synapse-analytics
+services: synapse-analytics
+ms.topic: include
+ms.date: 01/21/2020
+ms.author: jrasnick
+ms.custom: include file
+ms.openlocfilehash: a7b112824cb7c12bf72ada6b12d499314757a780
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81424139"
+---
+> [!IMPORTANT]
+> Usługa Azure Synapse Analytics (obszary robocze) jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+

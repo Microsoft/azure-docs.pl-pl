@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 29101d0277ff0fb392917f722bcaec3b7e5983b5
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 824244c0c3247e5a218c1551dd95de6e1d6e1007
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478253"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419225"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Używanie języka Java do wysyłania zdarzeń do centrów zdarzeń platformy Azure lub odbierania ich z usługi Azure Event Hubs (azure-messaging-eventhubs)
 Ten przewodnik Szybki start pokazuje, jak wysyłać zdarzenia i odbierać zdarzenia z centrum zdarzeń przy użyciu pakietu Java **azure-messaging-eventhubs.**
@@ -48,7 +48,7 @@ Biblioteka klienta Java dla centrów zdarzeń jest dostępna w [repozytorium Cen
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Pisanie kodu w celu wysyłania komunikatów do centrum zdarzeń
 
-Na potrzeby poniższego przykładu należy w ulubionym środowisku programowania Java utworzyć nowy projekt Maven dla aplikacji konsoli lub powłoki. Dodaj klasę `SimpleSend`o nazwie i dodaj do klasy następujący kod:
+Na potrzeby poniższego przykładu należy w ulubionym środowisku programowania Java utworzyć nowy projekt Maven dla aplikacji konsoli lub powłoki. Dodaj klasę `Sender`o nazwie i dodaj do klasy następujący kod:
 
 ```java
 import com.azure.messaging.eventhubs.*;

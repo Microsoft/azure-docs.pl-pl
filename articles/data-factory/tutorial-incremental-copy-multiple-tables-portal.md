@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: 2c89b53d66b93ff38a7cff07b2889faf8eda24ce
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 290ddf9a99d421bbf6303675fd544e81b637d070
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75439293"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419276"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Przyrostowe ładowanie danych z wielu tabel w programie SQL Server do bazy danych Azure SQL Database
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym samouczku utworzysz fabrykę danych Azure Data Factory z potokiem służącym do ładowania danych różnicowych z wielu tabel na lokalnym serwerze SQL Server do bazy danych Azure SQL Database.    
 
@@ -177,7 +179,7 @@ Uruchom następującą kwerendę, aby utworzyć dwie procedury przechowywane i d
 
 Aby ułatwić podróż, używamy bezpośrednio tych procedur przechowywanych przekazując dane delta za pośrednictwem zmiennej tabeli, a następnie scalając je do magazynu docelowego. Należy zachować ostrożność, że nie oczekuje "dużą" liczbę wierszy delta (więcej niż 100) do przechowywania w zmiennej tabeli.  
 
-Jeśli musisz scalić dużą liczbę wierszy delta do magazynu docelowego, zalecamy użycie działania kopiowania, aby skopiować wszystkie dane różnicowe do tymczasowej tabeli "przejściowej" w magazynie docelowym, a następnie skonstytuować własną procedurę składowaną bez użycia tabeli aby scalić je z tabeli "przejściowej" do tabeli "final". 
+Jeśli trzeba scalić dużą liczbę wierszy delta do magazynu docelowego, sugerujemy użycie działania kopiowania, aby skopiować wszystkie dane delta do tymczasowej tabeli "przejściowe" w magazynie docelowym, a następnie skonsformować własną procedurę składowaną bez użycia zmiennej tabeli, aby scalić je z tabeli "przejściowe" do tabeli "final". 
 
 
 ```sql
@@ -513,12 +515,12 @@ Potok przyjmuje listę nazw tabel jako parametr. Działanie ForEach służy do p
 ## <a name="review-the-results"></a>Sprawdzanie wyników
 W programu SQL Server Management Studio uruchom następujące zapytania względem docelowej bazy danych Azure SQL Database, aby sprawdzić, czy dane zostały skopiowane z tabel źródłowych do tabel docelowych: 
 
-**Kwerendy** 
+**Zapytanie** 
 ```sql
 select * from customer_table
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -530,13 +532,13 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Kwerendy**
+**Zapytanie**
 
 ```sql
 select * from project_table
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 
 ```
 ===================================
@@ -547,13 +549,13 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Kwerendy**
+**Zapytanie**
 
 ```sql
 select * from watermarktable
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 
 ```
 ======================================
@@ -610,12 +612,12 @@ VALUES
 ## <a name="review-the-final-results"></a>Przegląd wyników końcowych
 W programie SQL Server Management Studio uruchom następujące kwerendy względem docelowej bazy danych SQL, aby sprawdzić, czy zaktualizowane/nowe dane zostały skopiowane z tabel źródłowych do tabel docelowych. 
 
-**Kwerendy** 
+**Zapytanie** 
 ```sql
 select * from customer_table
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -629,13 +631,13 @@ PersonID    Name    LastModifytime
 
 Zwróć uwagę na nowe wartości właściwości **Name** i **LastModifytime** dla identyfikatora **PersonID** numeru 3. 
 
-**Kwerendy**
+**Zapytanie**
 
 ```sql
 select * from project_table
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 
 ```
 ===================================
@@ -649,13 +651,13 @@ NewProject  2017-10-01 00:00:00.000
 
 Zwróć uwagę, że do tabeli project_table dodano pozycję **NewProject**. 
 
-**Kwerendy**
+**Zapytanie**
 
 ```sql
 select * from watermarktable
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 
 ```
 ======================================
