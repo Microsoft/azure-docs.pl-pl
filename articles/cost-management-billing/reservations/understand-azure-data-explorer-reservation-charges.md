@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: ab107a0afe8be1d95de8dafb21f239e6da733271
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a418841d91ab6b8fe5457f3fd64d91306fe08dfe
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199334"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383123"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Omówienie stosowania rabatu za rezerwację do usługi Azure Data Explorer
 
@@ -65,7 +65,7 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 
 Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
 
-* [Opłacanie zasobów obliczeniowych usługi Azure Data Explorer z góry przy użyciu pojemności zarezerwowanej usługi Azure Data Explorer](../../data-explorer/pricing-reserved-capacity.md)  
+* [Opłacanie zasobów obliczeniowych usługi Azure Data Explorer z góry przy użyciu pojemności zarezerwowanej usługi Azure Data Explorer](/azure/data-explorer/pricing-reserved-capacity)  
 * [Co to są rezerwacje platformy Azure](save-compute-costs-reservations.md)  
 * [Zarządzanie rezerwacjami platformy Azure](manage-reserved-vm-instance.md)  
 * [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](understand-reserved-instance-usage.md)

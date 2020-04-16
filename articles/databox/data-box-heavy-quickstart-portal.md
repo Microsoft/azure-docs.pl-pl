@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 70d5481c37777150927914042133286a77f53b89
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 15140ef392d8108b59bf50c396e529dc15951232
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76514412"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410912"
 ---
 ::: zone target = "docs"
 
@@ -39,11 +39,7 @@ Przed rozpoczęciem upewnij się, że:
 
 ### <a name="for-service"></a>Na potrzeby usługi
 
-Przed rozpoczęciem upewnij się, że:
-
-- Masz konto magazynu platformy Microsoft Azure z poświadczeniami dostępu.
-- Usługa Data Box wymaga subskrypcji [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview), lub [Dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
-- Masz dostęp na poziomie właściciela lub współautora do subskrypcji, aby móc utworzyć zamówienie urządzenia Data Box Heavy.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>Na potrzeby urządzenia
 
@@ -57,7 +53,6 @@ Przed rozpoczęciem upewnij się, że:
     - W przypadku kabla o przepustowości 40 Gb/s po stronie urządzenia musi on być zgodny ze standardem QSFP+.
     - W przypadku kabla o przepustowości 10 Gb/s potrzebny jest kabel SFP+ zakończony z jednej strony wtyczką umożliwiającą podłączenie do przełącznika 10-G, a ze strony podłączanej do urządzenia zakończony adapterem QSFP+ do SFP+ (lub adapterem QSA).
 - Kable zasilające znajdują się w zasobniku z tyłu urządzenia.
-
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
