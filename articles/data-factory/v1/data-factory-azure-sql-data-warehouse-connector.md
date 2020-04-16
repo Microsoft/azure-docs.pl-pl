@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2df49e65603573e4a3adcdda0635982252e70b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4335763269f4a39b4893d9022f4789296b178e92
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130815"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419327"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure SQL Data Warehouse przy użyciu usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
@@ -227,7 +227,7 @@ Jeśli wymagania nie są spełnione, usługa Azure Data Factory sprawdza ustawie
 Jeśli dane źródłowe nie spełniają kryteriów wprowadzonych w poprzedniej sekcji, można włączyć kopiowanie danych za pośrednictwem tymczasowej tymczasowej usługi Azure Blob Storage (nie może być magazynem w wersji Premium). W takim przypadku usługa Azure Data Factory automatycznie wykonuje przekształcenia danych w celu spełnienia wymagań dotyczących formatu danych polybase, a następnie użyj PolyBase do załadowania danych do magazynu SQL Data, a w końcu czyści dane tymczasowe z magazynu obiektów Blob. Zobacz [kopia etapowa, aby](data-factory-copy-activity-performance.md#staged-copy) uzyskać szczegółowe informacje na temat kopiowania danych za pośrednictwem przemieszczania usługi Azure Blob działa w ogóle.
 
 > [!NOTE]
-> Podczas kopiowania danych z lokalnego magazynu danych do usługi Azure SQL Data Warehouse przy użyciu bazy danych i przemieszczania, jeśli wersja bramy zarządzania danymi jest niższa niż 2.4, środowisko JRE (Java Runtime Environment) jest wymagane na komputerze bramy, który jest używany do przekształcania źródła danych w odpowiednim formacie. Zasugeruj uaktualnienie bramy do najnowszej, aby uniknąć takiej zależności.
+> Podczas kopiowania danych z lokalnego magazynu danych do usługi Azure SQL Data Warehouse przy użyciu polybase i przemieszczania, jeśli wersja bramy zarządzania danymi jest poniżej 2.4, środowisko JRE (Java Runtime Environment) jest wymagane na komputerze bramy, który jest używany do przekształcania danych źródłowych do odpowiedniego formatu. Zasugeruj uaktualnienie bramy do najnowszej, aby uniknąć takiej zależności.
 >
 
 Aby użyć tej funkcji, należy utworzyć [usługę połączone usługi Azure Storage,](data-factory-azure-blob-connector.md#azure-storage-linked-service) która odwołuje `enableStaging` się `stagingSettings` do konta usługi Azure Storage, która ma tymczasowy magazyn obiektów blob, a następnie określ właściwości i właściwości działania kopiowania, jak pokazano w poniższym kodzie:
@@ -295,7 +295,7 @@ All columns of the table must be specified in the INSERT BULK statement.
 Wartość NULL jest specjalną formą wartości domyślnej. Jeśli kolumna jest nullable, dane wejściowe (w obiekcie blob) dla tej kolumny może być pusty (nie można zabraknąć w zestawie danych wejściowych). PolyBase wstawia null dla nich w usłudze Azure SQL Data Warehouse.
 
 ## <a name="auto-table-creation"></a>Automatyczne tworzenie tabeli
-Jeśli używasz Kreatora kopiowania do kopiowania danych z programu SQL Server lub usługi Azure SQL Database do usługi Azure SQL Data Warehouse, a tabela odpowiadająca tabeli źródłowej nie istnieje w magazynie docelowym, usługa Data Factory może automatycznie utworzyć tabelę w magazynie danych przez przy użyciu schematu tabeli źródłowej.
+Jeśli używasz Kreatora kopiowania do kopiowania danych z programu SQL Server lub usługi Azure SQL Database do usługi Azure SQL Data Warehouse, a tabela odpowiadająca tabeli źródłowej nie istnieje w magazynie docelowym, usługa Data Factory może automatycznie utworzyć tabelę w magazynie danych przy użyciu schematu tabeli źródłowej.
 
 Usługa Data Factory tworzy tabelę w magazynie docelowym o tej samej nazwie tabeli w źródłowym magazynie danych. Typy danych dla kolumn są wybierane na podstawie następującego mapowania typów. W razie potrzeby wykonuje konwersje typu, aby naprawić wszelkie niezgodności między magazynami źródłowymi i docelowymi. Używa również dystrybucji tabeli okrężnych.
 
@@ -314,7 +314,7 @@ Usługa Data Factory tworzy tabelę w magazynie docelowym o tej samej nazwie tab
 | Smallmoney | Smallmoney |
 | plików binarnych | plików binarnych |
 | Varbinary | Varbinary (do 8000) |
-| Data | Data |
+| Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Time | Time |

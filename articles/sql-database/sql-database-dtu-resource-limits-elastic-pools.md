@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 7b7ef3b6f2d400dafb28cfb7a15cf95cbbe2c457
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 76085dc29d40944cf704dbc5efc578b3314f499a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351005"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419242"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limity zasobów dla pul elastycznych przy użyciu modelu zakupu usługi DTU
 
@@ -32,6 +32,9 @@ W przypadku pul elastycznych bazy danych SQL w poniższych tabelach przedstawion
 > Aby uzyskać wskazówki i zagadnienia dotyczące [skalowania, zobacz Skalowanie puli elastycznej](sql-database-elastic-pool-scale.md)
 > [!NOTE]
 > Limity zasobów poszczególnych baz danych w pulach elastycznych są zazwyczaj takie same, jak dla pojedynczych baz danych poza pulami opartymi na jednostkach DTU i warstwie usług. Na przykład maksymalna liczba równoczesnych pracowników dla bazy danych S2 wynosi 120 pracowników. Tak więc maksymalna liczba równoczesnych pracowników bazy danych w puli standardowej jest również 120 pracowników, jeśli maksymalna wartość DTU na bazę danych w puli wynosi 50 DTU (co jest równoważne S2).
+
+> [!NOTE]
+> Limit zasobów magazynu na pulę w każdej z poniższych tabel nie obejmuje magazynu tempdb i dziennika.
 
 ### <a name="basic-elastic-pool-limits"></a>Limity podstawowych pul elastycznych
 

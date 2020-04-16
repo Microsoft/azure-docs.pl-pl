@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2028aac9c01aedc4baa568d370c9f7d21c920647
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256421"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419267"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architektura łączności usługi Azure SQL
 > [!NOTE]
@@ -45,7 +45,7 @@ W poniższych krokach opisano sposób nawiązywać połączenie z bazą danych S
 Usługa Azure SQL Database obsługuje następujące trzy opcje dla ustawienia zasad połączenia serwera bazy danych SQL:
 
 - **Przekierowanie (zalecane):** Klienci nawiązują połączenia bezpośrednio do węzła obsługującego bazę danych, co prowadzi do zmniejszenia opóźnienia i ulepszonej przepływności. Aby połączenia korzystały z tego trybu, klienci muszą:
-   - Zezwalaj na komunikację wychodzącą od klienta do wszystkich adresów IP platformy Azure w regionie na portach w zakresie 11000 11999. Użyj tagów usługi dla sql, aby ułatwić zarządzanie tym.  
+   - Zezwalaj na komunikację wychodzącą z klienta na wszystkie adresy IP SQL platformy Azure w regionie na portach w zakresie 11000 11999. Użyj tagów usługi dla sql, aby ułatwić zarządzanie tym.  
    - Zezwalaj na komunikację wychodzącą z klienta do adresów IP bramy usługi Azure SQL Database na porcie 1433.
 
 - **Serwer proxy:** W tym trybie wszystkie połączenia są proxied za pośrednictwem bramy bazy danych SQL azure, co prowadzi do zwiększenia opóźnienia i zmniejszonej przepływności. Aby połączenia korzystały z tego trybu, klienci muszą zezwolić na komunikację wychodzącą z klienta do adresów IP bramy usługi Azure SQL Database na porcie 1433.

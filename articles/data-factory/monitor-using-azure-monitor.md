@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 8325b4ef6b89a76eeec418386cec4922cb5916b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5753336eeef115038de4eb0b5ade0651b1fa293e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979147"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419463"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Alerty i monitorowanie fabryk danych przy użyciu usługi Azure Monitor
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Aplikacje w chmurze są złożone i mają wiele ruchomych części. Monitory dostarczają danych, aby zapewnić, że aplikacje pozostają w stanie dobrej kondycji. Monitory pomagają również uniknąć potencjalnych problemów i rozwiązywać problemy z przeszłościami.
 
@@ -117,7 +119,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | **dyskKontokonto** |Ciąg | Identyfikator zasobu konta magazynu, do którego chcesz wysłać dzienniki diagnostyczne. |
 | **usługaBusRuleId** |Ciąg | Identyfikator reguły magistrali usługowej obszaru nazw magistrali usług, w którym mają być utworzone centra zdarzeń dla dzienników diagnostycznych przesyłania strumieniowego. Identyfikator reguły ma `{service bus resource ID}/authorizationrules/{key name}`format .|
 | **workspaceId** | Typ złożony | Tablica ziaren czasu metryki i ich zasad przechowywania. Wartość tej właściwości jest pusta. |
-|**metrics**| Wartości parametrów przebiegu potoku, który ma zostać przekazany do wywoływanego potoku| Obiekt JSON, który mapuje nazwy parametrów do wartości argumentów. |
+|**Metryki**| Wartości parametrów przebiegu potoku, który ma zostać przekazany do wywoływanego potoku| Obiekt JSON, który mapuje nazwy parametrów do wartości argumentów. |
 | **Dzienniki**| Typ złożony| Nazwa kategorii dziennika diagnostycznego dla typu zasobu. Aby uzyskać listę kategorii dziennika diagnostycznego dla zasobu, wykonaj operację get diagnostyki ustawień. |
 | **Kategorii**| Ciąg| Tablica kategorii dziennika i ich zasad przechowywania. |
 | **timeGrain** | Ciąg | Ziarnistość metryk, które są przechwytywane w formacie czasu trwania ISO 8601. Wartość właściwości musi `PT1M`być , która określa jedną minutę. |
@@ -467,7 +469,7 @@ Tworzenie lub dodawanie ustawień diagnostycznych dla fabryki danych.
 
     ![Nadawanie nazw ustawieniom i wybieranie obszaru roboczego analizy dzienników](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 Po kilku chwilach nowe ustawienie pojawi się na liście ustawień tej fabryki danych. Dzienniki diagnostyczne są przesyłane strumieniowo do tego obszaru roboczego, gdy tylko zostaną wygenerowane nowe dane zdarzeń. Może ugięć się do 15 minut między emitowaniem zdarzenia a jego wyświetleniem w usłudze Log Analytics.
 

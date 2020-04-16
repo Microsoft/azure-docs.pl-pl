@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 079d29c241cfbbdcc991f024c07b07b378670c10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130890"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419310"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Ładowanie 1 TB do usługi Azure SQL Data Warehouse w ciągu 15 minut za pomocą fabryki danych
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "80130890"
 
 [Usługa Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) to oparta na chmurze, skalowawska baza danych umożliwiająca przetwarzanie ogromnych ilości danych, zarówno relacyjnych, jak i nierelacyjnych.  Zbudowany na architekturze przetwarzania równoległego (MPP), usługa SQL Data Warehouse jest zoptymalizowana pod kątem obciążeń magazynu danych przedsiębiorstwa.  Oferuje elastyczność chmury z elastycznością skalowania pamięci masowej i obliczania niezależnie.
 
-Wprowadzenie do usługi Azure SQL Data Warehouse jest teraz łatwiejsze niż kiedykolwiek przy użyciu **usługi Azure Data Factory.**  Usługa Azure Data Factory to w pełni zarządzana usługa integracji danych w chmurze, która może służyć do wypełniania magazynu danych SQL danymi z istniejącego systemu i pozwala zaoszczędzić cenny czas podczas oceny usługi SQL Data Warehouse i tworzenia analizy Rozwiązania. Oto najważniejsze zalety ładowania danych do usługi Azure SQL Data Warehouse przy użyciu usługi Azure Data Factory:
+Wprowadzenie do usługi Azure SQL Data Warehouse jest teraz łatwiejsze niż kiedykolwiek przy użyciu **usługi Azure Data Factory.**  Usługa Azure Data Factory to w pełni zarządzana usługa integracji danych w chmurze, która może służyć do wypełniania magazynu danych SQL danymi z istniejącego systemu i oszczędzając cenny czas podczas oceny usługi SQL Data Warehouse i tworzenia rozwiązań analitycznych. Oto najważniejsze zalety ładowania danych do usługi Azure SQL Data Warehouse przy użyciu usługi Azure Data Factory:
 
 * **Łatwy w konfiguracji:** 5-stopniowy intuicyjny kreator bez konieczności tworzenia skryptów.
 * **Obsługa magazynu danych:** wbudowana obsługa bogatego zestawu lokalnych i chmurowych magazynów danych.
@@ -141,7 +141,7 @@ Na stronie **Właściwości**:
 
 1. Wprowadź **copyfromblobToAzureSqlDataWarehouse** for **Nazwa zadania**
 2. Wybierz opcję **Uruchom teraz raz.**   
-3. Kliknij przycisk **alej**.  
+3. Kliknij przycisk **Dalej**.  
 
     ![Kreator kopiowania — strona Właściwości](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -183,7 +183,7 @@ W tej sekcji pokazano, jak `lineitem` skonfigurować tabelę docelową: w bazie 
 
 ## <a name="step-4-performance-settings"></a>Krok 4: Ustawienia wydajności
 
-**Zezwalaj na polibazę** jest zaznaczona domyślnie.  Kliknij przycisk **alej**.
+**Zezwalaj na polibazę** jest zaznaczona domyślnie.  Kliknij przycisk **Dalej**.
 
 ![Kreator kopiowania — strona mapowania schematu](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
