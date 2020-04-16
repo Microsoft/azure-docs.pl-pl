@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: e41653e4644b09cc357510223e5ee86c3806ae2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d48f09fe5d5c736f65b6a76211dd3fec85479ea
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74806117"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402193"
 ---
 # <a name="deploy-a-custom-model"></a>Wdrażanie modelu niestandardowego
 
@@ -42,12 +42,12 @@ Dane rejestrowania są dostępne do pobrania w obszarze **Endpoint > Details**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Używanie niestandardowego punktu końcowego z [sdk mowy](speech-sdk.md)
+* Dowiedz się, jak korzystać z modelu niestandardowego [tutaj](how-to-specify-source-language.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Przygotowanie i przetestowanie danych](how-to-custom-speech-test-data.md)
 * [Sprawdź swoje dane](how-to-custom-speech-inspect-data.md)
 * [Oceń swoje dane](how-to-custom-speech-evaluate-data.md)
-* [Trenowanie modelu](how-to-custom-speech-train-model.md)
+* [Uczenie modelu](how-to-custom-speech-train-model.md)
 * [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)

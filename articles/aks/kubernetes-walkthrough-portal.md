@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: e91e5e2701b02ab4c705cd80117dfc7689c7d054
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: e4ac5a953b5d88d0074c3cfb7f1bd45331577238
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668451"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392802"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Szybki start: wdrażanie klastra usługi Azure Kubernetes (AKS) przy użyciu witryny Azure portal
 
@@ -25,7 +25,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-an-aks-cluster"></a>Tworzenie klastra AKS
 
@@ -52,6 +52,8 @@ Aby utworzyć klaster usługi AKS, wykonaj następujące czynności:
 5. Na stronie **Uwierzytelnianie** skonfiguruj następujące opcje:
     - Utwórz nową jednostkę usługi, pozostawiając pole **Główny serwis** z **(nową) domyślną jednostką usługi.** Można też wybrać *opcję Konfiguruj jednostkę usługi,* aby użyć istniejącej jednostki. Jeśli używasz istniejącego, należy podać identyfikator klienta SPN i klucz tajny.
     - Włącz opcję dla funkcji kontroli dostępu opartej na rolach (RBAC) w rozwiązaniu Kubernetes. Zapewni to bardziej szczegółową kontrolę nad dostępem do zasobów kubernetes wdrożonych w klastrze AKS.
+
+    Alternatywnie można użyć tożsamości zarządzanej zamiast jednostki usługi. Aby uzyskać więcej [informacji, zobacz używanie tożsamości zarządzanych.](use-managed-identity.md)
 
 Domyślnie używana jest sieć *Podstawowa* i włączona jest usługa Azure Monitor dla kontenerów. Kliknij **pozycję Recenzja + utwórz,** a następnie **utwórz** po zakończeniu sprawdzania poprawności.
 
@@ -250,7 +252,7 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 > [!NOTE]
-> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete].
+> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete]. Jeśli użyto tożsamości zarządzanej, tożsamość jest zarządzana przez platformę i nie wymaga usuwania.
 
 ## <a name="get-the-code"></a>Uzyskiwanie kodu
 

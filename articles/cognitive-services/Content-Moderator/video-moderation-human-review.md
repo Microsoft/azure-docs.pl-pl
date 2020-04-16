@@ -1,25 +1,25 @@
 ---
 title: Moderowanie wideo z ludzką recenzją - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Użyj wspomaganego maszynowo moderacji wideo i narzędzi do przeglądu ludzkiego, aby moderować nieodpowiednie treści
+description: Użyj moderowania wideo wspomaganego maszynowo i narzędzia Recenzja, aby moderować nieodpowiednie treści
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: a4e7b079367a4b4dec1d2b3d6c0afde1d8276766
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "72754168"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404249"
 ---
 # <a name="video-moderation-with-human-review"></a>Umiar wideo z ludzką recenzją
 
-Użyj narzędzia moderatora wideo wspomaganego [maszynowo](video-moderation-api.md) i narzędzia do [przeglądania danych przez człowieka,](Review-Tool-User-Guide/human-in-the-loop.md) aby moderować filmy i transkrypcje dla treści dla dorosłych (jawnych) i rasistowskich (sugestywnych), aby uzyskać najlepsze wyniki dla Twojej firmy.
+Użyj narzędzia moderatora wideo wspomaganego [maszynowo](video-moderation-api.md) i [narzędzia do przeglądania,](Review-Tool-User-Guide/human-in-the-loop.md) aby moderować filmy i transkrypcje dla treści dla dorosłych (jawnych) i rasistowskich (sugestywnych), aby uzyskać najlepsze wyniki dla Twojej firmy.
 
 ## <a name="video-trained-classifier-preview"></a>Klasyfikator wyszkolony w trybie wideo (wersja zapoznawcza)
 

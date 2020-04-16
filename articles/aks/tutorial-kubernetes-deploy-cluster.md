@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 72d7d3b8a4dc2831f397326d54560358c19b9b92
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 609ac66ca27d5cad7dd2fb295c3a2a721a1cda16
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616807"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392691"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Samouczek: wdrażanie klastra usługi Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.5
 
 Klastry usługi AKS mogą używać kontroli dostępu opartej na rolach (RBAC) rozwiązania Kubernetes. Te kontrolki umożliwiają zdefiniowanie dostępu do zasobów na podstawie ról przypisanych użytkownikom. Uprawnienia są łączone, jeśli użytkownikowi przypisano wiele ról, a zakres uprawnień można ograniczyć do jednej przestrzeni nazw lub do całego klastra. Domyślnie interfejs wiersza polecenia platformy Azure automatycznie włącza kontrolę dostępu opartą na rolach podczas tworzenia klastra usługi AKS.
 
-Utwórz klaster usługi AKS za pomocą polecenia [az aks create][]. W poniższym przykładzie tworzony jest klaster o nazwie *myAKSCluster* w grupie zasobów o nazwie *myResourceGroup*. Ta grupa zasobów została utworzona w ramach [poprzedniego samouczka][aks-tutorial-prepare-acr]. Aby zezwolić klastrowi AKS na interakcję z innymi zasobami platformy Azure, jest tworzony automatycznie podmiot usługi Azure Active Directory, ponieważ nie określono jednego. W tym miejscu ten podmiot usługi ma [prawo do ściągania obrazów][container-registry-integration] z wystąpienia usługi Azure Container Registry (ACR), które zostało utworzone w poprzednim samouczku.
+Utwórz klaster usługi AKS za pomocą polecenia [az aks create][]. W poniższym przykładzie tworzony jest klaster o nazwie *myAKSCluster* w grupie zasobów o nazwie *myResourceGroup*. Ta grupa zasobów została utworzona w ramach [poprzedniego samouczka][aks-tutorial-prepare-acr]. Aby zezwolić klastrowi AKS na interakcję z innymi zasobami platformy Azure, jest tworzony automatycznie podmiot usługi Azure Active Directory, ponieważ nie określono jednego. W tym miejscu ten podmiot usługi ma [prawo do ściągania obrazów][container-registry-integration] z wystąpienia usługi Azure Container Registry (ACR), które zostało utworzone w poprzednim samouczku. Należy zauważyć, że można użyć [tożsamości zarządzanej](use-managed-identity.md) zamiast jednostki usługi dla łatwiejszego zarządzania.
 
 ```azurecli
 az aks create \

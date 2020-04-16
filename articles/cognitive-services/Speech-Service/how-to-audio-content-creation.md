@@ -3,19 +3,19 @@ title: Tworzenie zawartości audio — usługa mowy
 titleSuffix: Azure Cognitive Services
 description: Tworzenie zawartości audio to narzędzie online, które pozwala dostosować i dostosować dane wyjściowe tekstu na mowę firmy Microsoft dla aplikacji i produktów.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.author: dapine
-ms.openlocfilehash: 8184d30471b4d9171a23c8d03e17b2a54dca2ece
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.author: trbye
+ms.openlocfilehash: a263e7e17cda64a8519bab215f97fdf26e88d9d2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397819"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402238"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Poprawa syntezy dzięki tworzeniu zawartości audio
 

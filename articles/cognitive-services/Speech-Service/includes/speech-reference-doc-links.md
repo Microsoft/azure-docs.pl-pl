@@ -2,19 +2,19 @@
 title: Usługa rozpoznawania mowy
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
-ms.author: dapine
-ms.openlocfilehash: b24918f377e0d0744331974993cbb94f963e521e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 50dd7ddb636658ec6d29c2669d02320c73167fde
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75379962"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399694"
 ---
 ## <a name="reference-docs"></a>Dokumenty referencyjne
 
@@ -27,7 +27,7 @@ Aby znaleźć odpowiednie dokumenty odwołania do sdk mowy, użyj poniższej lis
 - <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C# SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">K.P.C.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Python SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Zestaw SDK dla języka Python<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">Zestaw SDK dla języka JavaScript<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Objective-C SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 

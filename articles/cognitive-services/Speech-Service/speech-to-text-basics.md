@@ -3,20 +3,20 @@ title: Podstawy rozpoznawania mowy - Usługa mowy
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak za pomocą SDK mowy do konwersji mowy na tekst. W tym artykule dowiesz się o konstrukcji obiektów, obsługiwanych formatach wejściowych audio i opcjach konfiguracji rozpoznawania mowy.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-sixteen
-ms.openlocfilehash: e78ef272e9e95e8015059d53dfe10b9c496473bd
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: bdf8db4a7c946a50698d35aada5950ded671afb7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314194"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399738"
 ---
 # <a name="learn-the-basics-of-speech-recognition"></a>Poznaj podstawy rozpoznawania mowy
 

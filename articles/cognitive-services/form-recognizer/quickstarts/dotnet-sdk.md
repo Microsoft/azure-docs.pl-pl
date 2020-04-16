@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 8d05f5ad07f9b3affba9442d6caa6e63162b813c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118351"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399421"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Szybki start: biblioteka klienta aparatu rozpoznawania formularzy dla platformy .NET
 
@@ -42,7 +42,7 @@ Użyj biblioteki klienta aparatu rozpoznawania formularzy dla platformy .NET, ab
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-Po otrzymasz klucz z subskrypcji próbnej lub zasobu, [utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza i punktu końcowego, odpowiednio i `FORM_RECOGNIZER_KEY` `FORM_RECOGNIZER_ENDPOINT`,.
+Po otrzymasz klucz i punkt końcowy, [należy utworzyć zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza i punktu końcowego, nazwanych `FORM_RECOGNIZER_KEY` i `FORM_RECOGNIZER_ENDPOINT`, odpowiednio.
 
 ### <a name="create-a-new-c-application"></a>Tworzenie nowej aplikacji języka C#
 
@@ -99,12 +99,6 @@ Następujące klasy obsługują główne funkcje SDK aparatu rozpoznawania formu
 |[Wyodrębniona strona](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| Ta klasa reprezentuje wszystkie dane wyodrębnione z jednego dokumentu formularza.|
 
 ## <a name="code-examples"></a>Przykłady kodu
-
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
 
 Te fragmenty kodu pokazują, jak wykonać następujące zadania za pomocą biblioteki klienta rozpoznawania formularzy dla platformy .NET:
 
@@ -193,7 +187,7 @@ Ponadto jeśli przeszkolono model niestandardowy, który chcesz usunąć z konta
 W tym przewodniku Szybki start użyto biblioteki klienta programu .NET aparatu rozpoznawania formularzy do wytrenowania modelu niestandardowego i analizowania formularzy. Następnie zapoznaj się ze wskazówkami, jak utworzyć lepszy zestaw danych szkoleniowych i stworzyć dokładniejsze modele.
 
 > [!div class="nextstepaction"]
->[Tworzenie zestawu danych szkoleniowych](../build-training-data-set.md)
+> [Tworzenie zestawu danych szkoleniowych](../build-training-data-set.md)
 
 * [Co to jest rozpoznawanie formularzy?](../overview.md)
 * Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).

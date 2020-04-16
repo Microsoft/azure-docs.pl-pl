@@ -1,26 +1,25 @@
 ---
 title: Samouczek — używanie bazy danych Apache HBase w usłudze Azure HDInsight
 description: Postępuj zgodnie z tym apache HBase samouczek, aby rozpocząć korzystanie hadoop na HDInsight. Utwórz tabele z poziomu powłoki HBase i wykonuj zapytania przy użyciu aplikacji Hive.
-keywords: hbasecommand,przykład hbase
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
-ms.date: 06/25/2019
-ms.author: hrasheed
-ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 04/14/2020
+ms.openlocfilehash: a601d54ebda074a25a988ac2a115f6418dd5c7ee
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71077153"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390260"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Samouczek: Korzystanie z bazy danych Apache HBase w usłudze Azure HDInsight
 
 W tym samouczku pokazano, jak utworzyć klaster Apache HBase w usłudze Azure HDInsight, utworzyć tabele HBase i tabele zapytań przy użyciu bazy danych Apache.  Aby uzyskać ogólne informacje o bazie danych HBase, zobacz [Omówienie bazy danych HBase w usłudze HDInsight](./apache-hbase-overview.md).
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie klastra Apache HBase
@@ -33,17 +32,17 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 * Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Bash. Przykłady w tym artykule używają powłoki Bash w systemie Windows 10 dla poleceń curl. Aby uzyskać instrukcje instalacji, zobacz [Podręcznik instalacji systemu Windows dla systemu Linux dla systemu Windows 10.](https://docs.microsoft.com/windows/wsl/install-win10)  Inne [powłoki Unix](https://www.gnu.org/software/bash/) będzie działać, jak również.  Przykłady zwijania, z niewielkimi modyfikacjami, mogą działać w wierszu polecenia systemu Windows.  Alternatywnie można użyć polecenia cmdlet [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod)systemu Windows PowerShell .
+* Bash. Przykłady w tym artykule używają powłoki Bash w systemie Windows 10 dla poleceń curl. Aby uzyskać instrukcje instalacji, zobacz [Podręcznik instalacji systemu Windows dla systemu Linux dla systemu Windows 10.](https://docs.microsoft.com/windows/wsl/install-win10)  Inne [powłoki Unix](https://www.gnu.org/software/bash/) będzie działać, jak również.  Przykłady zwijania, z niewielkimi modyfikacjami, mogą działać w wierszu polecenia systemu Windows.  Można też użyć polecenia cmdlet [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod)systemu Windows PowerShell .
 
 ## <a name="create-apache-hbase-cluster"></a>Tworzenie klastra Apache HBase
 
-Poniższa procedura używa szablonu usługi Azure Resource Manager do utworzenia klastra HBase i zależnego domyślnego konta usługi Azure Storage. Aby zapoznać się z parametrami używanymi w tej procedurze oraz innymi metodami tworzenia klastra, zobacz temat [Tworzenie opartych na systemie Linux klastrów Hadoop w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+Poniższa procedura używa szablonu usługi Azure Resource Manager do utworzenia klastra HBase. Szablon tworzy również zależne domyślne konto usługi Azure Storage. Aby zapoznać się z parametrami używanymi w tej procedurze oraz innymi metodami tworzenia klastra, zobacz temat [Tworzenie opartych na systemie Linux klastrów Hadoop w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Wybierz następujący obraz, aby otworzyć szablon w witrynie Azure portal. Szablon znajduje się w [szablonach szybki start platformy Azure](https://azure.microsoft.com/resources/templates/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. W bloku **Wdrożenie niestandardowe** wprowadź następujące wartości:
+2. W oknie dialogowym **wdrażania niestandardowego** wprowadź następujące wartości:
 
     |Właściwość |Opis |
     |---|---|
@@ -56,7 +55,7 @@ Poniższa procedura używa szablonu usługi Azure Resource Manager do utworzenia
 
     Inne parametry są opcjonalne.  
 
-    Każdy klaster zależy od konta usługi Azure Storage. Po usunięciu klastra dane pozostają zachowane na koncie magazynu. Domyślna nazwa konta magazynu klastra to nazwa klastra z dołączonym ciągiem „store”. Jest ona umieszczona w kodzie w sekcji zmiennych szablonu.
+    Każdy klaster zależy od konta usługi Azure Storage. Po usunięciu klastra dane pozostają na koncie magazynu. Domyślna nazwa konta magazynu klastra to nazwa klastra z dołączonym ciągiem „store”. Jest hardcoded w sekcji zmiennych szablonu.
 
 3. Zaznacz pozycję **Wyrażam zgodę na powyższe warunki i postanowienia**, a następnie kliknij przycisk **Kup**. Utworzenie klastra trwa około 20 minut.
 
@@ -180,7 +179,7 @@ Dane można wysyłać do danych w tabelach bazy danych HBase za pomocą [funkcji
 
     Aby uzyskać więcej informacji o usłudze Beeline, zobacz [Używanie technologii Hive z usługą Hadoop w usłudze HDInsight z usługą Beeline](../hadoop/apache-hadoop-use-hive-beeline.md).
 
-1. Uruchom następujący skrypt [HiveQL,](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) aby utworzyć tabelę hive, która jest mapowana do tabeli HBase. Upewnij się, że utworzono przykładową tabelę, do której odwołuje się wcześniej w tym artykule, przy użyciu powłoki HBase przed uruchomieniem tej instrukcji.
+1. Uruchom następujący skrypt [HiveQL,](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) aby utworzyć tabelę hive, która jest mapowana do tabeli HBase. Przed uruchomieniem tej instrukcji upewnij się, że utworzono przykładową tabelę, do której odwołuje się wcześniej w tym artykule, przy użyciu powłoki HBase.
 
     ```hiveql
     CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -203,7 +202,7 @@ Dane można wysyłać do danych w tabelach bazy danych HBase za pomocą [funkcji
 
 Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego](https://en.wikipedia.org/wiki/Basic_access_authentication). Należy zawsze tworzyć żądania przy użyciu protokołu HTTPS (HTTP Secure), aby mieć pewność, że poświadczenia są bezpiecznie wysyłane do serwera.
 
-1. Inicjuj zmienną środowiskową dla ułatwienia użytkowania. Edytuj poniższe polecenia, `MYPASSWORD` zastępując hasłem logowania klastra. Zamień `MYCLUSTERNAME` na nazwę klastra HBase. Następnie wprowadź polecenia.
+1. Ustaw zmienną środowiskową dla ułatwienia użytkowania. Edytuj poniższe polecenia, `MYPASSWORD` zastępując hasłem logowania klastra. Zamień `MYCLUSTERNAME` na nazwę klastra HBase. Następnie wprowadź polecenia.
 
     ```bash
     export password='MYPASSWORD'
@@ -240,10 +239,10 @@ Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego]
     -v
     ```
 
-    Należy zakodować wartości określone w przełączniku -d w formacie base64. W przykładzie:
+    Base64 zakoduje wartości określone w przełączniku -d. W przykładzie:
 
    * MTAwMA==: 1000
-   * UGVyc29uYWw6TmFtZQ==: Personal:Name
+   * UGVyc29uYWw6TmFtZQ==: Personal: Imię i nazwisko
    * Sm9obiBEb2xl: John Dole
 
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) umożliwia wstawianie wielu wartości (w partiach).
@@ -298,7 +297,7 @@ Baza danych HBase w usłudze HDInsight jest dostarczana z interfejsem użytkowni
 
 Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunięciem klastra. Można użyć polecenia `disable 'Contacts'`HBase . Jeśli nie zamierzasz nadal korzystać z tej aplikacji, usuń utworzony klaster bazy danych HBase, wykonując następujące czynności:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. W polu **Wyszukaj** w górnej części wpisz **HDInsight**.
 1. Wybierz pozycję **Klastry usługi HDInsight** w obszarze **Usługi**.
 1. Na wyświetlonej liście klastrów usługi HDInsight kliknij symbol **...** obok klastra utworzonego na potrzeby tego samouczka.
@@ -306,7 +305,7 @@ Aby uniknąć niespójności, zaleca się wyłączenie tabel HBase przed usunię
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak utworzyć klaster Apache HBase i jak tworzyć tabele i wyświetlać dane w tych tabelach z powłoki HBase. Przedstawiono również sposób wykonywania zapytań programu Hive względem danych w tabelach HBase oraz korzystania z interfejsów API REST HBase w języku C# w celu tworzenia tabel HBase i pobierania danych z tabeli. Aby dowiedzieć się więcej, zobacz:
+W tym samouczku dowiesz się, jak utworzyć klaster Apache HBase. I jak tworzyć tabele i wyświetlać dane w tych tabelach z powłoki HBase. Dowiesz się również, jak używać kwerendy hive na danych w tabelach HBase. I jak używać interfejsów API odzyskiwania danych HBase C# REST do tworzenia tabeli HBase i pobierania danych z tabeli. Aby dowiedzieć się więcej, zobacz:
 
 > [!div class="nextstepaction"]
 > [Omówienie bazy danych HDInsight HBase](./apache-hbase-overview.md)

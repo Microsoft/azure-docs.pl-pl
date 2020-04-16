@@ -2,23 +2,21 @@
 title: Publikowanie aplikacji zarządzanej katalogu usług
 description: Przedstawia sposób tworzenia aplikacji zarządzanej platformy Azure przeznaczonej dla członków Twojej organizacji.
 author: tfitzmac
-ms.topic: tutorial
-ms.date: 10/04/2018
+ms.topic: quickstart
+ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 13c45bc6e67d9d3d06a70b7cf3326cc112cd7829
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 48aaca64949aafecff27c76ad7572b3c2fa44732
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79473017"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391508"
 ---
-# <a name="tutorial-create-and-publish-a-managed-application-definition"></a>Samouczek: Tworzenie i publikowanie definicji aplikacji zarządzanej
+# <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Szybki start: tworzenie i publikowanie definicji aplikacji zarządzanej
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Ten przewodnik Szybki start zawiera wprowadzenie do pracy z [aplikacjami zarządzanymi platformy Azure.](overview.md) Można utworzyć i opublikować aplikację zarządzaną, która jest przeznaczona dla członków instytucji.
 
-Możesz tworzyć i publikować [aplikacje zarządzane](overview.md) na platformie Azure, przeznaczone dla członków Twojej organizacji. Na przykład dział IT może publikować aplikacje zarządzane zapewniające zgodność z normami obowiązującymi w organizacji. Takie aplikacje zarządzane są dostępne w katalogu usług, a nie w witrynie Azure Marketplace.
-
-Aby opublikować aplikację zarządzaną w wykazie usługi Azure Service Catalog, należy:
+Aby opublikować zarządzaną aplikację w katalogu usług, należy:
 
 * Utwórz szablon określający zasoby wdrażane wraz z aplikacją zarządzaną.
 * Zdefiniuj elementy interfejsu użytkownika portalu, stosowane podczas wdrażania aplikacji zarządzanej.
@@ -26,13 +24,9 @@ Aby opublikować aplikację zarządzaną w wykazie usługi Azure Service Catalog
 * Wybierz użytkowników, grupy lub aplikacje, dla których jest wymagany dostęp do grupy zasobów w ramach subskrypcji użytkownika.
 * Utwórz definicję aplikacji zarządzanej, wskazującą pakiet zip i zawierającą żądanie dostępu dla określonej tożsamości.
 
-W tym artykule opisano aplikację zarządzaną, która zawiera tylko konto magazynu. Celem artykułu jest przedstawienie kroków publikowania aplikacji zarządzanej. Kompletne przykłady znajdziesz w temacie [Sample projects for Azure managed applications](sample-projects.md) (Przykładowe projekty aplikacji zarządzanych platformy Azure).
+## <a name="create-the-arm-template"></a>Tworzenie szablonu ARM
 
-Przykłady w języku PowerShell w tym artykule wymagają programu Azure PowerShell w wersji 6.2 lub nowszej. W razie potrzeby [zaktualizuj swoją wersję](/powershell/azure/install-Az-ps).
-
-## <a name="create-the-resource-template"></a>Tworzenie szablonu zasobów
-
-Każda definicja aplikacji zarządzanej zawiera plik o nazwie **mainTemplate.json**. W tym pliku należy zdefiniować zasoby platformy Azure, które zostaną wdrożone. Szablon nie różni się niczym od zwykłego szablonu usługi Resource Manager.
+Każda definicja aplikacji zarządzanej zawiera plik o nazwie **mainTemplate.json**. W tym pliku należy zdefiniować zasoby platformy Azure, które zostaną wdrożone. Szablon nie różni się od zwykłego szablonu usługi Azure Resource Manager (ARM).
 
 Utwórz plik o nazwie **mainTemplate.json**. W nazwie jest rozróżniana wielkość liter.
 
@@ -60,20 +54,20 @@ Dodaj do tego pliku następujący kod JSON. Definiuje on parametry wymagane podc
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
             "name": "[variables('storageAccountName')]",
-            "apiVersion": "2016-01-01",
             "location": "[parameters('location')]",
             "sku": {
                 "name": "[parameters('storageAccountType')]"
             },
-            "kind": "Storage",
+            "kind": "StorageV2",
             "properties": {}
         }
     ],
     "outputs": {
         "storageEndpoint": {
             "type": "string",
-            "value": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
+            "value": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
         }
     }
 }
@@ -81,9 +75,9 @@ Dodaj do tego pliku następujący kod JSON. Definiuje on parametry wymagane podc
 
 Zapisz plik mainTemplate.json.
 
-## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Definiowanie środowiska tworzenia przy użyciu pliku CreateUiDefinition.json
+## <a name="define-your-create-experience"></a>Zdefiniuj środowisko tworzenia
 
-Jako wydawca definiujesz środowisko tworzenia przy użyciu pliku **createUiDefinition.json,** który generuje interfejs dla użytkowników tworzących aplikacje zarządzane. Można zdefiniować sposób, w jaki użytkownicy dostarczają dane wejściowe dla każdego parametru przy użyciu [elementów sterujących,](create-uidefinition-elements.md) w tym rozwijanych, pól tekstowych i pól haseł.
+Jako wydawca definiujesz środowisko portalu do tworzenia aplikacji zarządzanej. Plik **createUiDefinition.json** generuje interfejs portalu. Można zdefiniować sposób, w jaki użytkownicy dostarczają dane wejściowe dla każdego parametru przy użyciu [elementów sterujących,](create-uidefinition-elements.md) w tym rozwijanych, pól tekstowych i pól haseł.
 
 Tworzenie pliku o nazwie **createUiDefinition.json** (Ta nazwa jest rozróżniana wielkość liter)
 
@@ -142,59 +136,123 @@ Aby dowiedzieć się więcej, zobacz [Wprowadzenie do tworzeniadefinicji nawij.]
 
 ## <a name="package-the-files"></a>Pakowanie plików
 
-Dodaj oba pliki do pliku zip o nazwie app.zip. Oba pliki muszą znajdować się na poziomie głównym pliku zip. Jeśli zostaną umieszczone w folderze, podczas tworzenia definicji aplikacji zarządzanej otrzymasz komunikat o błędzie, informujący o braku wymaganych plików. 
+Dodaj oba pliki do pliku zip o nazwie app.zip. Oba pliki muszą znajdować się na poziomie głównym pliku zip. Jeśli zostaną umieszczone w folderze, podczas tworzenia definicji aplikacji zarządzanej otrzymasz komunikat o błędzie, informujący o braku wymaganych plików.
 
-Przekaż pakiet do dostępnej lokalizacji, w której może być używany. 
+Przekaż pakiet do dostępnej lokalizacji, w której może być używany. Musisz podać unikatową nazwę konta magazynu.
 
-```powershell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
 New-AzResourceGroup -Name storageGroup -Location eastus
-$storageAccount = New-AzStorageAccount -ResourceGroupName storageGroup `
+
+$storageAccount = New-AzStorageAccount `
+  -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage
+  -Kind StorageV2
 
 $ctx = $storageAccount.Context
 
 New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
 
-Set-AzStorageBlobContent -File "D:\myapplications\app.zip" `
+Set-AzStorageBlobContent `
+  -File "D:\myapplications\app.zip" `
   -Container appcontainer `
   -Blob "app.zip" `
   -Context $ctx 
 ```
 
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az group create --name storageGroup --location eastus
+
+az storage account create \
+    --name mystorageaccount \
+    --resource-group storageGroup \
+    --location eastus \
+    --sku Standard_LRS \
+    --kind StorageV2
+
+az storage container create \
+    --account-name mystorageaccount \
+    --name appcontainer \
+    --public-access blob
+
+az storage blob upload \
+    --account-name mystorageaccount \
+    --container-name appcontainer \
+    --name "app.zip" \
+    --file "D:\myapplications\app.zip"
+
+```
+
+---
+
 ## <a name="create-the-managed-application-definition"></a>Tworzenie definicji aplikacji zarządzanej
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Tworzenie grupy użytkowników aplikacji usługi Azure Active Directory
 
-Następnym krokiem jest wybranie grupy użytkowników lub aplikacji, która będzie zarządzać zasobami w imieniu klienta. Ta grupa użytkowników lub aplikacja ma uprawnienia w zarządzanej grupie zasobów zgodne z przypisaną rolą. Może to być dowolna wbudowana rola w ramach kontroli dostępu opartej na rolach (RBAC), na przykład Właściciel lub Współautor. Możesz także przydzielić uprawnienia do zarządzania zasobami wybranemu użytkownikowi, ale zwykle przydziela się je grupie użytkowników. Jeśli chcesz utworzyć nową grupę użytkowników usługi Active Directory, zobacz [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) (Tworzenie grupy i dodawanie do niej członków w usłudze Azure Active Directory).
+Następnym krokiem jest wybranie grupy użytkowników, użytkownika lub aplikacji do zarządzania zasobami dla klienta. Ta tożsamość ma uprawnienia w zarządzanej grupie zasobów zgodne z przypisaną rolą. Może to być dowolna wbudowana rola w ramach kontroli dostępu opartej na rolach (RBAC), na przykład Właściciel lub Współautor. Jeśli chcesz utworzyć nową grupę użytkowników usługi Active Directory, zobacz [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) (Tworzenie grupy i dodawanie do niej członków w usłudze Azure Active Directory).
 
 Aby umożliwić zarządzanie zasobami, potrzebujesz identyfikatora obiektu grupy użytkowników. 
 
-```powershell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
 $groupID=(Get-AzADGroup -DisplayName mygroup).Id
 ```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli-interactive
+groupid=$(az ad group show --group mygroup --query objectId --output tsv)
+```
+
+---
 
 ### <a name="get-the-role-definition-id"></a>Uzyskiwanie identyfikatora definicji roli
 
 Następnie potrzebny będzie identyfikator definicji roli wbudowanej RBAC, do której chcesz udzielić dostępu użytkownikowi, grupie użytkowników lub aplikacji. Najczęściej używana jest rola Właściciel, Współautor lub Czytelnik. W następującym poleceniu przedstawiono sposób uzyskiwania identyfikatora definicji dla roli Właściciel:
 
-```powershell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
 $ownerID=(Get-AzRoleDefinition -Name Owner).Id
 ```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli-interactive
+ownerid=$(az role definition list --name Owner --query [].name --output tsv)
+```
+
+---
 
 ### <a name="create-the-managed-application-definition"></a>Tworzenie definicji aplikacji zarządzanej
 
 Jeśli nie istnieje jeszcze grupa zasobów do przechowywania definicji aplikacji zarządzanej, utwórz ją:
 
-```powershell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
 New-AzResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az group create --name appDefinitionGroup --location westcentralus
+```
+
+---
+
 Teraz utwórz zasób definicji aplikacji zarządzanej.
 
-```powershell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
 $blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
 
 New-AzManagedApplicationDefinition `
@@ -208,25 +266,55 @@ New-AzManagedApplicationDefinition `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli-interactive
+blob=$(az storage blob url --account-name mystorageaccount --container-name appcontainer --name app.zip --output tsv)
+
+az managedapp definition create \
+  --name "ManagedStorage" \
+  --location "westcentralus" \
+  --resource-group appDefinitionGroup \
+  --lock-level ReadOnly \
+  --display-name "Managed Storage Account" \
+  --description "Managed Azure Storage Account" \
+  --authorizations "$groupid:$ownerid" \
+  --package-file-uri "$blob"
+```
+
+---
+
+Gdy wykonywanie polecenia zakończy się, będziesz mieć w swojej grupie zasobów definicję aplikacji zarządzanej.
+
+Niektóre z parametrów użytych w powyższym przykładzie to:
+
+* **grupa zasobów**: Nazwa grupy zasobów, w której tworzona jest definicja aplikacji zarządzanej.
+* **poziom blokady:** Typ blokady umieszczony w zarządzanej grupie zasobów. Uniemożliwia klientowi wykonywanie niepożądanych operacji na tej grupie zasobów. Obecnie jedynym obsługiwanym poziomem blokady jest ReadOnly. Gdy zostanie określony poziom ReadOnly, klient może jedynie odczytywać zasoby obecne w zarządzanej grupie zasobów. Tożsamości wydawcy, które mają dostęp do zarządzanej grupy zasobów, są wykluczone z blokady.
+* **authorizations**: opisuje identyfikator podmiotu zabezpieczeń i identyfikator definicji roli, przy użyciu których udzielany jest dostęp do zarządzanej grupy zasobów. Określa się go w formacie `<principalId>:<roleDefinitionId>`. Jeśli wymagana jest więcej niż jedna wartość, należy podać wartości w formacie `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Wartości rozdziela się spacją.
+* **pakiet pliku URI**: Lokalizacja pakietu .zip, który zawiera wymagane pliki.
+
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Przynieś własny magazyn dla definicji aplikacji zarządzanej
-Możesz zapisać definicję aplikacji zarządzanej na koncie magazynu dostarczonym przez użytkownika podczas tworzenia, aby jego lokalizacja i dostęp mogły być w pełni zarządzane przez Użytkownika zgodnie z twoimi potrzebami regulacyjnymi.
+
+Możesz zapisać definicję aplikacji zarządzanej na koncie magazynu dostarczonym przez użytkownika podczas tworzenia, aby jej lokalizacja i dostęp mogły być w pełni zarządzane przez użytkownika zgodnie z twoimi potrzebami regulacyjnymi.
 
 > [!NOTE]
 > Przynieś własny magazyn jest obsługiwany tylko za pomocą wdrożeń interfejsu API ARM Template lub REST definicji aplikacji zarządzanych.
 
 ### <a name="select-your-storage-account"></a>Wybierz swoje konto magazynu
+
 Należy [utworzyć konto magazynu,](../../storage/common/storage-account-create.md) aby zawierało definicję aplikacji zarządzanej do użycia z wykazem usług.
 
 Skopiuj identyfikator zasobu konta magazynu. Będzie on używany później podczas wdrażania definicji.
 
 ### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Ustawianie przypisania roli dla "Dostawcy zasobów urządzenia" na koncie magazynu
+
 Aby definicja aplikacji zarządzanej można wdrożyć na koncie magazynu, należy przyznać uprawnienia współautora do **dostawcy zasobów urządzenia** roli dostawcy zasobów, aby można było zapisać pliki definicji do kontenera konta magazynu.
 
 1. W [witrynie Azure portal](https://portal.azure.com)przejdź do konta magazynu.
 1. Wybierz **formant dostępu (IAM),** aby wyświetlić ustawienia kontroli dostępu dla konta magazynu. Wybierz kartę **Przypisania ról,** aby wyświetlić listę przypisań ról.
 1. W oknie **Dodawanie przypisania roli** wybierz rolę **Współautor.** 
 1. Z pola **Przypisz dostęp do** wybierz **pozycję Użytkownik, grupa lub podmiot usługi Azure AD**.
-1. W obszarze **Wybierz** wyszukaj rolę **Dostawcy zasobów urządzenia** i wybierz ją.
+1. W obszarze **Wybierz**wyszukaj rolę **Dostawcy zasobów urządzenia** i wybierz ją.
 1. Zapisz przypisanie roli.
 
 ### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Wdrażanie definicji aplikacji zarządzanej za pomocą szablonu ARM 
@@ -310,11 +398,13 @@ Można sprawdzić, czy pliki definicji aplikacji są zapisywane na podanym konci
 > [!NOTE]
 > Aby zwiększyć bezpieczeństwo, można utworzyć definicję zarządzanych aplikacji przechowywać ją w [obiekcie blob konta magazynu platformy Azure, gdzie szyfrowanie jest włączone](../../storage/common/storage-service-encryption.md). Zawartość definicji jest szyfrowana za pomocą opcji szyfrowania konta magazynu. Tylko użytkownicy z uprawnieniami do pliku mogą zobaczyć definicję w wykazie usług.
 
-### <a name="make-sure-users-can-see-your-definition"></a>Upewnij się, że użytkownicy będą mogli zobaczyć definicję
+## <a name="make-sure-users-can-see-your-definition"></a>Upewnij się, że użytkownicy będą mogli zobaczyć definicję
 
 Masz dostęp do definicji aplikacji zarządzanej, ale chcesz mieć pewność, że inni użytkownicy w Twojej organizacji również mają do niej dostęp. Z definicji przyznaj im co najmniej rolę czytelnika. Użytkownicy mogą odziedziczyć ten poziom dostępu z subskrypcji lub grupy zasobów. Aby sprawdzić, kto ma dostęp do definicji, i dodać użytkowników lub grupy, zobacz [Używanie kontroli dostępu opartej na rolach do zarządzania dostępem do zasobów subskrypcji platformy Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby opublikować aplikację zarządzaną w witrynie Azure Marketplace, zobacz [Aplikacje zarządzane platformy Azure w witrynie Marketplace](publish-marketplace-app.md).
-* Aby wdrożyć wystąpienie aplikacji zarządzanej, zobacz [Deploy service catalog app through Azure portal (Wdrażanie aplikacji wykazu usług przy użyciu witryny Azure Portal)](deploy-service-catalog-quickstart.md).
+Opublikowano definicję aplikacji zarządzanej. Teraz możesz dowiedzieć się, jak wdrożyć wystąpienie tej definicji.
+
+> [!div class="nextstepaction"]
+> [Quickstart: Deploy service catalog app (Szybki start: wdrażanie aplikacji katalogu usług)](deploy-service-catalog-quickstart.md)

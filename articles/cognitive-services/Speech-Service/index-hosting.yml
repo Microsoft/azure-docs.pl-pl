@@ -5,28 +5,28 @@ metadata:
   title: Dokumentacja hostingu — samouczki, informacje o interfejsie API — usługi Azure Cognitive Services | Dokumenty firmy Microsoft
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/23/2020
-  ms.author: dapine
-  ms.openlocfilehash: c342b797dfe21fe4ffbd1bb9bc112e9726cdec42
-  ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+  ms.author: trbye
+  ms.openlocfilehash: 640c1b8e9c51059bc4c296ef93a4e6dd54ea7a42
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/01/2020
-  ms.locfileid: "80529474"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401512"
 landingContent:
 - title: O hostingu
   linkLists:
   - linkListType: concept
     links:
-    - text: Instalowanie i uruchamianie kontenerów mowy
+    - text: Instalowanie i uruchamianie kontenerów usługi Mowa
       url: speech-container-howto.md
-    - text: Kontenery mowy z kubernetami i helmem
+    - text: Kontenery usługi Mowa z usługami Kubernetes i Helm
       url: speech-container-howto-on-premises.md
-    - text: Kontenery mowy w wystąpieniach kontenera platformy Azure
+    - text: Kontenery usługi Mowa w wystąpieniach kontenerów na platformie Azure
       url: deploy-speech-on-container-instances.md
 - title: Tworzenie i konfigurowanie
   linkLists:
@@ -34,9 +34,9 @@ landingContent:
     links:
     - text: Tworzenie zasobu mowy platformy Azure
       url: get-started.md#new-resource
-    - text: Konfigurowanie kontenerów mowy
+    - text: Konfigurowanie kontenerów usługi Mowa
       url: speech-container-configuration.md
-- title: Tematy pomocy
+- title: Dokumentacja
   linkLists:
   - linkListType: reference
     links:
@@ -44,5 +44,5 @@ landingContent:
       url: regions.md
     - text: Suwerenne chmury
       url: sovereign-clouds.md
-    - text: Kontenery często zadawane pytania
+    - text: Kontenery — często zadawane pytania
       url: speech-container-faq.md

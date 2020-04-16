@@ -740,6 +740,8 @@
           href: insights/containers.md
     - name: Monitorowanie innych zasobów
       items:
+        - name: Usługa Key Vault
+          href: insights/key-vault-insights-overview.md
         - name: Magazyn
           items:
             - name: Usługa Azure Monitor dla magazynu

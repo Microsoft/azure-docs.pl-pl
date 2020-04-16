@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c1626542aba71f971ad96fe9f187ce9f1c1a99f3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7b27f10567816884b14a0a2c69e3bd8e85cb7a76
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70012938"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398700"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Samouczek: Zamów dysk skrzynki danych platformy Azure
 
@@ -33,12 +33,7 @@ Przed wdrożeniem należy spełnić następujące wymagania wstępne dotyczące 
 
 ### <a name="for-service"></a>Na potrzeby usługi
 
-Przed rozpoczęciem upewnij się, że:
-- Masz konto magazynu platformy Microsoft Azure z poświadczeniami dostępu.
-- Sprawdź, czy subskrypcja, której używasz na potrzeby usługi Data Box, to subskrypcja jednego z następujących typów:
-    - Microsoft Enterprise Agreement (EA). Dowiedz się więcej na temat [subskrypcji umowy EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Cloud Solution Provider (CSP). Dowiedz się więcej o [programie Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-- Sprawdź, czy masz dostęp na poziomie właściciela lub współautora do subskrypcji, aby móc utworzyć zamówienie urządzenia Data Box.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>Na potrzeby urządzenia
 
@@ -103,7 +98,7 @@ Aby zamówić dysk pola danych, należy wykonać następujące kroki.
 
     Konto magazynu określone dla dysków zarządzanych jest używane jako przejściowe konto magazynu. Usługa Data Box przekazuje dyski VHD do przemieszczania konta magazynu, a następnie konwertuje je na dyski zarządzane i przenosi do grup zasobów. Aby uzyskać więcej informacji, zobacz [Weryfikowanie przekazania danych na platformę Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
 
-13. Kliknij przycisk **alej**.
+13. Kliknij przycisk **Dalej**.
 
     ![Podawanie szczegółów zamówienia](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 

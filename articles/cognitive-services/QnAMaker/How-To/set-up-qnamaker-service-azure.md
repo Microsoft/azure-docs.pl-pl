@@ -3,12 +3,12 @@ title: Konfigurowanie usługi QnA Maker - QnA Maker
 description: Przed utworzeniem dowolnej bazy wiedzy programu QnA Maker należy najpierw skonfigurować usługę QnA Maker na platformie Azure. Każdy, kto ma autoryzację do tworzenia nowych zasobów w ramach subskrypcji, może skonfigurować usługę QnA Maker.
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 8ec57f441ba58227e45398c35c7931dc75fa658f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131695"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402987"
 ---
 # <a name="manage-qna-maker-resources"></a>Zarządzanie zasobami programu QnA Maker
 
@@ -89,7 +89,7 @@ Kluczami punktu końcowego można zarządzać za pomocą [portalu QnA Maker](htt
     >[!NOTE]
     >Odśwież klucze, jeśli uważasz, że zostały naruszone. Może to wymagać odpowiednich zmian w aplikacji klienckiej lub kod bota.
 
-### <a name="upgrade-qna-maker-sku"></a>Uaktualnienie SKU programu QnA Maker
+## <a name="upgrade-qna-maker-sku"></a>Uaktualnienie SKU programu QnA Maker
 
 Jeśli chcesz mieć więcej pytań i odpowiedzi w bazie wiedzy, poza bieżącą warstwą, uaktualnij warstwę cenową usług QnA Maker.
 
@@ -103,7 +103,7 @@ Aby uaktualnić jednostkę SKU do zarządzania QnA Maker:
 
     ![Ceny QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-### <a name="upgrade-app-service"></a>Uaktualnianie usługi aplikacji
+## <a name="upgrade-app-service"></a>Uaktualnianie usługi aplikacji
 
  Gdy baza wiedzy musi obsługiwać więcej żądań z aplikacji klienckiej, uaktualnij warstwę cenową usługi App Service.
 
@@ -113,7 +113,7 @@ Przejdź do zasobu usługi app service w witrynie Azure portal i wybierz opcję 
 
 ![Skala usługi aplikacji QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### <a name="upgrade-the-azure-cognitive-search-service"></a>Uaktualnianie usługi Azure Cognitive Search
+## <a name="upgrade-the-azure-cognitive-search-service"></a>Uaktualnianie usługi Azure Cognitive Search
 
 Jeśli planujesz mieć wiele baz wiedzy, uaktualnij warstwę cenową usługi Azure Cognitive Search.
 
@@ -197,7 +197,7 @@ Usługa aplikacji, która służy qnA maker przewidywanie środowiska uruchomien
 
 Aby zachować ładowane aplikacji punktu końcowego przewidywania nawet wtedy, gdy nie ma ruchu, należy ustawić bezczynnie zawsze włączone.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wyszukaj i wybierz usługę aplikacji zasobu QnA Maker. Będzie miał taką samą nazwę jak zasób QnA Maker, ale będzie miał inny **typ** usługi app service.
 1. Znajdź **ustawienia,** a następnie wybierz **pozycję Konfiguracja**.
 1. W okienku Konfiguracja wybierz pozycję **Ustawienia ogólne**, a następnie znajdź pozycję **Zawsze włączony**i jako wartość wybierz pozycję **Włącz.**

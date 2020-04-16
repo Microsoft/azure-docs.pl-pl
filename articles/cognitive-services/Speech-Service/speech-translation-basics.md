@@ -3,20 +3,20 @@ title: Podstawowe informacje o tłumaczeniu mowy - Usługa mowy
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak używać sdk mowy do tłumaczenia mowy. W tym artykule dowiesz się o konstrukcji obiektów, obsługiwanych formatach wejściowych audio i opcjach konfiguracji do tłumaczenia mowy.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 966407a1e88856c041ae453cfa1bf0ecf55da9d1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 04ece5ccf91056af02bd450eb760534b82de5959
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266593"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399612"
 ---
 # <a name="learn-the-basics-of-speech-translation"></a>Poznaj podstawy tłumaczenia mowy
 

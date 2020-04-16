@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 09/06/2019
-  ms.openlocfilehash: bd834bdebad486f1f5975bbbc93809a06a69ebf8
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 095d94b09ad7cfd6e47e7322401db0bbf6ff8a03
+  ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74666192"
+  ms.lasthandoff: 04/15/2020
+  ms.locfileid: "81393200"
 landingContent:
 - title: Event Grid — informacje
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
     - text: Event Grid — pojęcia
       url: concepts.md
     - text: Źródła zdarzeń
-      url: event-sources.md
+      url: overview.md#event-sources
     - text: Procedury obsługi zdarzeń
       url: event-handlers.md
     - text: Filtry zdarzeń

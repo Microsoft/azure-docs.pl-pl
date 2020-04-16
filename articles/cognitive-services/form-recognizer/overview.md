@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6b19dc11438274ecf6218d5c0bd8c9ef3dafbf01
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6919849d28573ad7388a7f2e317d2b8433f35559
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80052429"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399447"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -53,7 +53,7 @@ Rozpoznawanie formularzy zawiera również model do czytania angielskich wpływ�
 
 Aparat rozpoznawania formularzy może również wyodrębniać strukturę tekstu i tabeli (numery wierszy i kolumn skojarzone z tekstem) za pomocą optycznego rozpoznawania znaków o wysokiej rozdzielczości (OCR).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Postępuj zgodnie z przewodnikiem Szybki start, aby rozpocząć wyodrębnianie danych z formularzy. Zalecamy korzystanie z bezpłatnej usługi podczas nauki technologii. Pamiętaj, że liczba darmowych stron jest ograniczona do 500 miesięcznie.
 

@@ -3,21 +3,21 @@ title: Przygotowywanie danych do mowy niestandardowej — usługa mowy
 titleSuffix: Azure Cognitive Services
 description: Podczas testowania dokładności rozpoznawania mowy firmy Microsoft lub szkolenia modeli niestandardowych, trzeba dane audio i tekstowe. Na tej stronie omówimy typy danych, jak z nich korzystać i nimi zarządzać.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.author: dapine
-ms.openlocfilehash: d6e377ca4f33c0160267b23daaaaef5e07c271bb
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.author: trbye
+ms.openlocfilehash: 78857709447f99895c36f23d8760f44f8468ba7c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398690"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402144"
 ---
-# <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych do mowy niestandardowej
+# <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych dla usługi Custom Speech
 
 Podczas testowania dokładności rozpoznawania mowy firmy Microsoft lub szkolenia modeli niestandardowych, trzeba dane audio i tekstowe. Na tej stronie omówimy typy danych, jak z nich korzystać i nimi zarządzać.
 
@@ -182,5 +182,5 @@ Poniższa tabela umożliwia upewnienie się, że powiązany plik danych dla wymo
 
 * [Sprawdź swoje dane](how-to-custom-speech-inspect-data.md)
 * [Oceń swoje dane](how-to-custom-speech-evaluate-data.md)
-* [Trenowanie modelu](how-to-custom-speech-train-model.md)
+* [Uczenie modelu](how-to-custom-speech-train-model.md)
 * [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)

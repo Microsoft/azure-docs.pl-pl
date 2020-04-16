@@ -4,15 +4,15 @@ description: Dowiedz się, jak skonfigurować role administratora i użytkownik�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: fa3a6fefce808e51c2ad1d9d18bf4766cdf689c3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78273682"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406241"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Samouczek: konfigurowanie ról administratora i użytkowników serwera
 
@@ -67,7 +67,7 @@ W pozostałych zadaniach użyjesz programu SSMS, aby połączyć się z serwerem
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Dodawanie konta użytkownika do roli administratora serwera
 
-W tym zadaniu dodasz konto użytkownika lub konto grupowe z usługi Azure AD do roli administratora serwera. W przypadku dodawania grupy zabezpieczeń musi ona mieć właściwość `MailEnabled` ustawioną na wartość `True`.
+W tym zadaniu dodasz konto użytkownika lub konto grupowe z usługi Azure AD do roli administratora serwera. W przypadku dodawania grupy zabezpieczeń musi ona mieć właściwość `MailEnabled` ustawioną na wartość `True`. Podczas określania grupy według `obj:groupid@tenantid`adresu e-mail użyj .
 
 1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy nazwę serwera, a następnie kliknij pozycję **Właściwości**. 
 2. W oknie **Właściwości serwera programu Analysis Server** kliknij kolejno pozycje **Zabezpieczenia** > **Dodaj**.

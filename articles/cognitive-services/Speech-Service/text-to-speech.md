@@ -3,19 +3,19 @@ title: Zamiana tekstu na mowę — usługa mowy
 titleSuffix: Azure Cognitive Services
 description: Funkcja zamiany tekstu na mowę w usłudze Mowa umożliwia aplikacjom, narzędziom lub urządzeniom konwertowanie tekstu na naturalną syntezowaną mowę podobną do człowieka. Wybierz zaprogramowane głosy lub utwórz własny niestandardowy głos.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7c7574ee4e9f75b9b650ff63a10666c5e379fca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131563"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399502"
 ---
 # <a name="what-is-text-to-speech"></a>Co to jest zamiana tekstu na mowę?
 
@@ -39,7 +39,7 @@ Zamiana tekstu na mowę z usługi Mowa umożliwia aplikacjom, narzędziom lub ur
 
 * Język znaczników syntezy mowy (SSML) — język znaczników oparty na języku XML używany do dostosowywania wyjść zamiany mowy na tekst. Za pomocą protokołu SSML można regulować wysokość, dodawać pauzy, poprawiać wymowę, przyspieszać lub spowalniać mówienia, zwiększać lub zmniejszać głośność oraz przypisywać wiele głosów do jednego dokumentu. Zobacz [SSML](speech-synthesis-markup.md).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Usługa zamiany tekstu na mowę jest dostępna za pośrednictwem [sdk mowy.](speech-sdk.md) Istnieje kilka typowych scenariuszy dostępnych jako przewodniki Szybki start w różnych językach i platformach:
 

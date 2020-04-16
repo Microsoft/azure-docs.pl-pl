@@ -5,18 +5,18 @@ metadata:
   title: Dokumentacja rozpoznawania intencji — samouczki, informacje o interfejsie API — usługi Azure Cognitive Services | Dokumenty firmy Microsoft
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: dapine
-  ms.openlocfilehash: 87e698c2a9b09b54c6015293b5be26ea2006a786
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.author: trbye
+  ms.openlocfilehash: 65b3f2322c4683eedef8cdfbc328664d4597df58
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79415176"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401486"
 landingContent:
 - title: Rozpoznawanie intencji — informacje
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
     links:
     - text: Rozpoznawanie intencji mowy przy użyciu usługi LUIS i języka C#
       url: how-to-recognize-intents-from-speech-csharp.md
-- title: Tematy pomocy
+- title: Dokumentacja
   linkLists:
   - linkListType: reference
     links:

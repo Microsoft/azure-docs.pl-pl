@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/02/2020
-ms.author: dapine
-ms.openlocfilehash: 3125b6203f04b4cabd8cd0822a97317185cbf194
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.author: trbye
+ms.openlocfilehash: fdcb5bb57afe145b57cb1223242d4d5625a2dfb7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80638129"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400764"
 ---
 Klucz subskrypcji zasobów mowy i region są wymagane do utworzenia obiektu konfiguracji mowy. Obiekt konfiguracji jest potrzebny do wystąpienia obiektu rozpoznawania mowy.
 

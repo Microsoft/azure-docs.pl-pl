@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: e8117eb1b521dc2e3fa9eaca1316e0b9c14f0e98
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c5ea54a33ee027de0b11c59c53085b9d20ca6a3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80129457"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392833"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Szybki start: wdrażanie klastra usługi Kubernetes platformy Azure (AKS) przy użyciu szablonu usługi Azure Resource Manager
 
@@ -30,7 +30,7 @@ Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia lo
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby utworzyć klaster AKS przy użyciu szablonu Menedżera zasobów, należy podać klucz publiczny SSH i jednostkę usługi Azure Active Directory. Jeśli potrzebujesz jednego z tych zasobów, zobacz następującą sekcję; w przeciwnym razie przejdź do sekcji [Tworzenie klastra AKS.](#create-an-aks-cluster)
+Aby utworzyć klaster AKS przy użyciu szablonu Menedżera zasobów, należy podać klucz publiczny SSH i jednostkę usługi Azure Active Directory.  Alternatywnie można użyć [tożsamości zarządzanej](use-managed-identity.md) zamiast jednostki usługi dla uprawnień. Jeśli potrzebujesz jednego z tych zasobów, zobacz następującą sekcję; w przeciwnym razie przejdź do sekcji [Tworzenie klastra AKS.](#create-an-aks-cluster)
 
 ### <a name="create-an-ssh-key-pair"></a>Tworzenie pary kluczy SSH
 
@@ -48,7 +48,7 @@ Aby uzyskać więcej informacji na temat tworzenia kluczy SSH, zobacz [Tworzenie
 
 ### <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Jednostka usługi Azure Active Directory zezwala klastrowi usługi AKS na interakcje z innymi zasobami platformy Azure. Utwórz jednostkę usługi za pomocą polecenia [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Parametr `--skip-assignment` umożliwia ograniczenie przypisywania dodatkowych uprawnień. Domyślnie ta jednostka usługi jest ważna przez rok.
+Jednostka usługi Azure Active Directory zezwala klastrowi usługi AKS na interakcje z innymi zasobami platformy Azure. Utwórz jednostkę usługi za pomocą polecenia [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Parametr `--skip-assignment` umożliwia ograniczenie przypisywania dodatkowych uprawnień. Domyślnie ta jednostka usługi jest ważna przez rok. Należy zauważyć, że można użyć tożsamości zarządzanej zamiast jednostki usługi. Aby uzyskać więcej informacji, zobacz [Używanie tożsamości zarządzanych](use-managed-identity.md).
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -281,7 +281,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete].
+> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete]. Jeśli użyto tożsamości zarządzanej, tożsamość jest zarządzana przez platformę i nie wymaga usuwania.
 
 ## <a name="get-the-code"></a>Uzyskiwanie kodu
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73044099"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404261"
 ---
 # <a name="learn-image-moderation-concepts"></a>Poznaj pojęcia dotyczące moderowania obrazu
 
@@ -139,9 +139,9 @@ Przykładowy wyciąg:
     ....
     }
 
-## <a name="human-review-tool"></a>Narzędzie do przeglądu przez ludzi
+## <a name="review-tool"></a>Narzędzie do przeglądu
 
-W przypadku bardziej zniuansowanych przypadków użyj narzędzia do [przeglądu](Review-Tool-User-Guide/human-in-the-loop.md) moderatora zawartości i jego interfejsu API, aby wyeksliwać wyniki moderacji i zawartość w recenzji dla moderatorów ludzkich. Przeglądają tagi przypisane maszynie i potwierdzają swoje ostateczne decyzje.
+W przypadku bardziej zniuansowanych przypadków użyj [narzędzia Content](Review-Tool-User-Guide/human-in-the-loop.md) Moderator Review i jego interfejsu API, aby wyeksliwać wyniki moderacji i zawartość w recenzji dla moderatorów ludzkich. Przeglądają tagi przypisane maszynie i potwierdzają swoje ostateczne decyzje.
 
 ![Przeglądanie obrazu przez moderatorów-ludzi](images/moderation-reviews-quickstart-dotnet.PNG)
 

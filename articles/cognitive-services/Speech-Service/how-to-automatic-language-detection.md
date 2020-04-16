@@ -3,20 +3,20 @@ title: Jak używać automatycznego wykrywania języka mowy na tekst
 titleSuffix: Azure Cognitive Services
 description: Zestaw SDK mowy obsługuje automatyczne wykrywanie języka mowy na tekst. Podczas korzystania z tej funkcji, audio pod warunkiem, jest porównywany z podanej listy języków i najbardziej prawdopodobne dopasowanie jest określana. Zwrócona wartość może następnie służyć do wybierania modelu języka używanego do mowy na tekst.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 5592fc3e50db892c6abb09fc2516b8e1c03f0f03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fefbe793fa4a6b90ba9bf8d468d42dcbd315759c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239602"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402212"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Automatyczne wykrywanie języka mowy na tekst
 

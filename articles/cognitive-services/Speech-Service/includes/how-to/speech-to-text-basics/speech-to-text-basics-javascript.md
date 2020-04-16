@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/14/2020
-ms.author: dapine
-ms.openlocfilehash: 668cf9e831191a5d649f7dd82af03eb637bb0d3a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.date: 04/15/2020
+ms.author: trbye
+ms.openlocfilehash: b11194640c4d049c90f85974022908dce6b4fd79
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314207"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399783"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,7 +28,15 @@ Ponadto w zależności od środowiska docelowego należy użyć jednej z następ
 # <a name="import"></a>[Importu](#tab/import)
 
 ```javascript
-import * as sdk from "microsoft-cognitiveservices-speech-sdk";
+import {
+    AudioConfig,
+    CancellationDetails,
+    CancellationReason,
+    PhraseListGrammar,
+    ResultReason,
+    SpeechConfig,
+    SpeechRecognizer
+} from "microsoft-cognitiveservices-speech-sdk";
 ```
 
 Aby uzyskać `import`więcej informacji na temat , zobacz <a href="https://javascript.info/import-export" target="_blank">eksport i importowanie <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
@@ -44,14 +52,14 @@ Aby uzyskać `require`więcej informacji na temat , <a href="https://nodejs.org/
 
 # <a name="script"></a>[Skrypt](#tab/script)
 
-Pobierz i wyodrębnij plik <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> SDK javascript speech</a> *microsoft.cognitiveservices.speech.sdk.bundle.js* i umieść go w folderze dostępnym dla pliku HTML.
+Pobierz i wyodrębnij plik <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">SDK <span class="docon docon-navigate-external x-hidden-focus"></span> javascript speech</a> *microsoft.cognitiveservices.speech.bundle.js* i umieść go w folderze dostępnym dla pliku HTML.
 
 ```html
-<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
+<script src="microsoft.cognitiveservices.speech.bundle.js"></script>;
 ```
 
 > [!TIP]
-> Jeśli kierujesz reklamy na przeglądarkę `<script>` internetową i używasz tagu; prefiks nie `sdk` jest potrzebny. Prefiks jest aliasem, którego `import` `require` używamy do nazwania naszego lub modułu. `sdk`
+> Jeśli kierujesz reklamy na przeglądarkę `<script>` internetową i używasz tagu; prefiks nie `sdk` jest potrzebny. `sdk` Prefiks jest aliasem używanym do nadawanie nazwy modułowi. `require`
 
 ---
 
@@ -72,7 +80,7 @@ Istnieje kilka sposobów, które można [`SpeechConfig`](https://docs.microsoft.
 Przyjrzyjmy się, [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) jak jest tworzony przy użyciu klucza i regionu. Zobacz stronę [pomocy technicznej regionu,](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) aby znaleźć identyfikator regionu.
 
 ```javascript
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
 ## <a name="initialize-a-recognizer"></a>Inicjowanie aparatu rozpoznawania
@@ -82,7 +90,7 @@ Po utworzeniu przycisku [`SpeechConfig`](https://docs.microsoft.com/javascript/a
 Jeśli rozpoznajesz mowę przy użyciu domyślnego mikrofonu urządzenia, oto jak [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) powinno wyglądać:
 
 ```javascript
-const recognizer = new sdk.SpeechRecognizer(speechConfig);
+const recognizer = new SpeechRecognizer(speechConfig);
 ```
 
 Jeśli chcesz określić urządzenie wejściowe audio, musisz utworzyć [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) i `audioConfig` podać parametr podczas [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)inicjowania pliku .
@@ -93,15 +101,15 @@ Jeśli chcesz określić urządzenie wejściowe audio, musisz utworzyć [`AudioC
 Odwołaj `AudioConfig` się do obiektu w następujący sposób:
 
 ```javascript
-const audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
-const speechConfig = sdk.SpeechConfig.fromSubscription(speechConfig, audioConfig);
+const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
+const speechConfig = SpeechConfig.fromSubscription(speechConfig, audioConfig);
 ```
 
 Jeśli chcesz podać plik audio zamiast mikrofonu, nadal musisz podać plik `audioConfig`. Można to jednak zrobić tylko podczas kierowania **na node.js** i podczas tworzenia [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest), zamiast wywoływania, `fromDefaultMicrophoneInput`wywołasz `fromWavFileOutput` i przekażesz `filename` parametr.
 
 ```javascript
-const audioConfig = sdk.AudioConfig.fromWavFileInput("YourAudioFile.wav");
-const speechConfig = sdk.SpeechConfig.fromSubscription(speechConfig, audioConfig);
+const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
+const speechConfig = SpeechConfig.fromSubscription(speechConfig, audioConfig);
 ```
 
 ## <a name="recognize-speech"></a>Rozpoznawanie mowy
@@ -132,20 +140,20 @@ Musisz napisać kod do obsługi wyniku. W tym przykładzie [`result.reason`](htt
 
 ```javascript
 switch (result.reason) {
-    case sdk.ResultReason.RecognizedSpeech:
-        console.log(`RECOGNIZED: Text=${result.Text}`);
+    case ResultReason.RecognizedSpeech:
+        console.log(`RECOGNIZED: Text=${result.text}`);
         console.log("    Intent not recognized.");
         break;
-    case sdk.ResultReason.NoMatch:
+    case ResultReason.NoMatch:
         console.log("NOMATCH: Speech could not be recognized.");
         break;
-    case sdk.ResultReason.Canceled:
-        const cancellation = sdk.CancellationDetails.fromResult(result);
-        console.log(`CANCELED: Reason=${cancellation.Reason}`);
+    case ResultReason.Canceled:
+        const cancellation = CancellationDetails.fromResult(result);
+        console.log(`CANCELED: Reason=${cancellation.reason}`);
 
-        if (cancellation.Reason == sdk.CancellationReason.Error) {
+        if (cancellation.reason == CancellationReason.Error) {
             console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
-            console.log(`CANCELED: ErrorDetails=${cancellation.ErrorDetails}`);
+            console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
             console.log("CANCELED: Did you update the subscription info?");
         }
         break;
@@ -160,7 +168,7 @@ Ciągłe rozpoznawanie jest nieco bardziej zaangażowane niż rozpoznawanie poje
 Zacznijmy od zdefiniowania danych wejściowych [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)i zainicjowania:
 
 ```javascript
-const recognizer = new sdk.SpeechRecognizer(speechConfig);
+const recognizer = new SpeechRecognizer(speechConfig);
 ```
 
 Zapiszemy się do wydarzeń wysłanych z . [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)
@@ -171,32 +179,32 @@ Zapiszemy się do wydarzeń wysłanych z . [`SpeechRecognizer`](https://docs.mic
 * [`canceled`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#canceled): Sygnał dla zdarzeń zawierających anulowane wyniki rozpoznawania (wskazujący próbę rozpoznania, która została anulowana w wyniku lub bezpośrednie żądanie anulowania lub, alternatywnie, błąd transportu lub protokołu).
 
 ```javascript
-recognizer.Recognizing = (s, e) => {
-    console.log(`RECOGNIZING: Text=${e.Result.Text}`);
+recognizer.recognizing = (s, e) => {
+    console.log(`RECOGNIZING: Text=${e.result.text}`);
 };
 
 recognizer.recognized = (s, e) => {
-    if (e.Result.Reason == sdk.ResultReason.RecognizedSpeech) {
-        console.log(`RECOGNIZED: Text=${e.Result.Text}`);
+    if (e.result.reason == ResultReason.RecognizedSpeech) {
+        console.log(`RECOGNIZED: Text=${e.result.text}`);
     }
-    else if (e.Result.Reason == sdk.ResultReason.NoMatch) {
+    else if (e.result.reason == ResultReason.NoMatch) {
         console.log("NOMATCH: Speech could not be recognized.");
     }
 };
 
-recognizer.Canceled = (s, e) => {
-    console.log(`CANCELED: Reason=${e.Reason}`);
+recognizer.canceled = (s, e) => {
+    console.log(`CANCELED: Reason=${e.reason}`);
 
-    if (e.Reason == sdk.CancellationReason.Error) {
-        console.log(`"CANCELED: ErrorCode=${e.ErrorCode}`);
-        console.log(`"CANCELED: ErrorDetails=${e.ErrorDetails}`);
+    if (e.reason == CancellationReason.Error) {
+        console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
+        console.log(`"CANCELED: ErrorDetails=${e.errorDetails}`);
         console.log("CANCELED: Did you update the subscription info?");
     }
 
     recognizer.stopContinuousRecognitionAsync();
 };
 
-recognizer.SessionStopped = (s, e) => {
+recognizer.sessionStopped = (s, e) => {
     console.log("\n    Session stopped event.");
     recognizer.stopContinuousRecognitionAsync();
 };
@@ -234,7 +242,7 @@ Właściwość [`speechRecognitionLanguage`](https://docs.microsoft.com/javascri
 
 ## <a name="improve-recognition-accuracy"></a>Większa dokładność rozpoznawania
 
-Istnieje kilka sposobów, aby zwiększyć dokładność rozpoznawania za pomocą SDK mowy. Przyjrzyjmy się listom fraz. Listy fraz służą do identyfikowania znanych fraz w danych audio, takich jak imię i nazwisko osoby lub określona lokalizacja. Pojedyncze słowa lub pełne frazy można dodać do listy fraz. Podczas rozpoznawania wpis na liście fraz jest używany, jeśli dokładne dopasowanie dla całej frazy jest zawarte w audio. Jeśli dokładne dopasowanie do frazy nie zostanie znalezione, rozpoznawanie nie jest wspomagane.
+Istnieje kilka sposobów, aby poprawić dokładność rozpoznawania z mowy Ramiąć spojrzeć na listy fraz. Listy fraz służą do identyfikowania znanych fraz w danych audio, takich jak imię i nazwisko osoby lub określona lokalizacja. Pojedyncze słowa lub pełne frazy można dodać do listy fraz. Podczas rozpoznawania wpis na liście fraz jest używany, jeśli dokładne dopasowanie dla całej frazy jest zawarte w audio. Jeśli dokładne dopasowanie do frazy nie zostanie znalezione, rozpoznawanie nie jest wspomagane.
 
 > [!IMPORTANT]
 > Funkcja Lista fraz jest dostępna tylko w języku angielskim.
@@ -244,7 +252,7 @@ Aby użyć listy fraz, [`PhraseListGrammar`](https://docs.microsoft.com/javascri
 Wszelkie zmiany, które [`PhraseListGrammar`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar?view=azure-node-latest) mają obowiązywać przy następnym rozpoznawaniu lub po ponownym połączeniu z usługą mowy.
 
 ```javascript
-const phraseList = sdk.PhraseListGrammar.fromRecognizer(recognizer);
+const phraseList = PhraseListGrammar.fromRecognizer(recognizer);
 phraseList.addPhrase("Supercalifragilisticexpialidocious");
 ```
 

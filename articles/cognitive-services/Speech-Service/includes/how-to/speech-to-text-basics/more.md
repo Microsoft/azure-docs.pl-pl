@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/13/2020
-ms.author: dapine
-ms.openlocfilehash: 12ab3afed0d1232f126e11d1c227c4c9b50e8ac3
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.author: trbye
+ms.openlocfilehash: e475a58c56a16e984d15f2cc8d06f73268868852
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79372809"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399531"
 ---
 ## <a name="additional-language-and-platform-support"></a>Dodatkowa obsługa języka i platformy
 

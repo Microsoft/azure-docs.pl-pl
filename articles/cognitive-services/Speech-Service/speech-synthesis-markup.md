@@ -3,19 +3,19 @@ title: Język znaczników syntezy mowy (SSML) — usługa mowy
 titleSuffix: Azure Cognitive Services
 description: Korzystanie z języka znaczników syntezy mowy do kontrolowania wymowy i prozydyjno-reklamowej w zamian za tekst.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7d5dd79399b15ade90173a55aeb71dacbc61fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: dc11d26c73c52b5e6c4d8e05cc27dd6ebce0c5d8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80365813"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399818"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Poprawa syntezy za pomocą języka znaczników syntezy mowy (SSML)
 
@@ -145,7 +145,7 @@ speech_config.set_property_by_name(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Aby uzyskać więcej <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>informacji, zobacz .
 
@@ -154,7 +154,7 @@ speechConfig.setProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="objective-c"></a>[Cel C](#tab/objectivec)
+# <a name="objective-c"></a>[Obiektowy C](#tab/objectivec)
 
 Aby uzyskać więcej <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>informacji, zobacz .
 
@@ -196,7 +196,6 @@ Domyślnie usługa zamiany tekstu na mowę syntetyzuje tekst przy użyciu neutra
 Obecnie korekty stylu mówienia są obsługiwane dla tych głosów neuronowych:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
-* `pt-BR-FranciscaNeural`
 
 Zmiany są stosowane na poziomie zdania, a styl różni się w zależności od głosu. Jeśli styl nie jest obsługiwany, usługa zwróci mowę w domyślnym neutralnym stylu mówienia.
 
@@ -214,18 +213,17 @@ Zmiany są stosowane na poziomie zdania, a styl różni się w zależności od g
 
 Ta tabela służy do określenia, które style mówienia są obsługiwane dla każdego głosu neuronowego.
 
-| Połączenia głosowe | Styl | Opis |
-|-------|------|-------------|
-| `en-US-AriaNeural` | `style="newscast"` | Wyraża formalny i profesjonalny ton opowiadania wiadomości |
-| | `style="customerservice"` | Wyraża przyjazny i pomocny ton dla obsługi klienta |
-| | `style="chat"` | Wyraża swobodny i zrelaksowany ton |
-| | `style="cheerful"` | Wyraża pozytywny i szczęśliwy ton |
-| | `style="empathetic"` | Wyraża poczucie troski i zrozumienia |
-| `zh-CN-XiaoxiaoNeural` | `style="newscast"` | Wyraża formalny i profesjonalny ton opowiadania wiadomości |
-| | `style="customerservice"` | Wyraża przyjazny i pomocny ton dla obsługi klienta |
-| | `style="assistant"` | Wyraża ciepły i zrelaksowany ton dla cyfrowych asystentów  |
-| | `style="lyrical"` | Wyraża emocje w sposób melodyjny i sentymentalny |
-| `pt-BR-FranciscaNeural` | `style="cheerful"` | Wyraża pozytywny i szczęśliwy ton |
+| Połączenia głosowe                   | Styl                     | Opis                                                 |
+|-------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-AriaNeural`      | `style="newscast"`        | Wyraża formalny i profesjonalny ton opowiadania wiadomości |
+|                         | `style="customerservice"` | Wyraża przyjazny i pomocny ton dla obsługi klienta  |
+|                         | `style="chat"`            | Wyraża swobodny i zrelaksowany ton                         |
+|                         | `style="cheerful"`        | Wyraża pozytywny i szczęśliwy ton                         |
+|                         | `style="empathetic"`      | Wyraża poczucie troski i zrozumienia               |
+| `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Wyraża formalny i profesjonalny ton opowiadania wiadomości |
+|                         | `style="customerservice"` | Wyraża przyjazny i pomocny ton dla obsługi klienta  |
+|                         | `style="assistant"`       | Wyraża ciepły i zrelaksowany ton dla cyfrowych asystentów    |
+|                         | `style="lyrical"`         | Wyraża emocje w sposób melodyjny i sentymentalny         |
 
 **Przykład**
 
@@ -263,15 +261,14 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
 | `strength` | Określa względny czas trwania pauzy przy użyciu jednej z następujących wartości:<ul><li>brak</li><li>x-słaby</li><li>Słabe</li><li>medium (domyślnie)</li><li>Silne</li><li>x-silny</li></ul> | Optional (Opcjonalność) |
 | `time` | Określa bezwzględny czas trwania pauzy w sekundach lub milisekundach. Przykładami prawidłowych `2s` wartości są i`500` | Optional (Opcjonalność) |
 
-| Siły | Opis |
-|----------|-------------|
-| Brak lub jeśli nie podano żadnej wartości | 0 ms |
-| x-słaby | 250 ms |
-| Słabe | 500 ms |
-| średni | 750 ms |
-| Silne | 1000 ms |
-| x-silny | 1250 ms. |
-
+| Siły                      | Opis |
+|-------------------------------|-------------|
+| Brak lub jeśli nie podano żadnej wartości | 0 ms        |
+| x-słaby                        | 250 ms      |
+| Słabe                          | 500 ms      |
+| średni                        | 750 ms      |
+| Silne                        | 1000 ms     |
+| x-silny                      | 1250 ms.     |
 
 **Przykład**
 
@@ -372,9 +369,9 @@ Czasami TTS nie może dokładnie wymówić słowa, na przykład firmy lub zagran
 
 **Atrybuty**
 
-| Atrybut | Opis | Wymagane / opcjonalnie |
-|-----------|-------------|---------------------|
-| `uri` | Adres zewnętrznego dokumentu PLS. | Wymagany. |
+| Atrybut | Opis                               | Wymagane / opcjonalnie |
+|-----------|-------------------------------------------|---------------------|
+| `uri`     | Adres zewnętrznego dokumentu PLS. | Wymagany.           |
 
 **Użycia**
 
@@ -614,9 +611,9 @@ Każdy dźwięk zawarty w dokumencie SSML musi spełniać następujące wymagani
 
 **Atrybuty**
 
-| Atrybut | Opis | Wymagane / opcjonalnie |
-|-----------|-------------|---------------------|
-| `src` | Określa lokalizację/adres URL pliku audio. | Wymagane, jeśli używasz elementu audio w dokumencie SSML. |
+| Atrybut | Opis                                   | Wymagane / opcjonalnie                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+| `src`     | Określa lokalizację/adres URL pliku audio. | Wymagane, jeśli używasz elementu audio w dokumencie SSML. |
 
 **Przykład**
 

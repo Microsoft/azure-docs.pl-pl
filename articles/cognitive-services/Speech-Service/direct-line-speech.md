@@ -3,19 +3,19 @@ title: Direct Line Speech - Usługa mowy
 titleSuffix: Azure Cognitive Services
 description: Omówienie funkcji, możliwości i ograniczeń dla asystentów głosowych korzystających z direct line speech z zestawem SDK (Speech Software Development Kit).
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: dapine
-ms.openlocfilehash: 714cdefa7100160a510d1922a2547ae53692d76c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367809"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402391"
 ---
 # <a name="what-is-direct-line-speech"></a>Co to jest mowa Direct Line?
 
@@ -35,7 +35,7 @@ Aby uzyskać kompletny, krok po kroku przewodnik dotyczący tworzenia prostego a
 
 Oferujemy również przewodniki Szybki start zaprojektowany, aby szybko uruchomić kod i szybko nauczyć się interfejsów API. Ta tabela zawiera listę przewodników Szybki start asystenta głosowego uporządkowanych według języka i platformy.
 
-| Szybki start | Platforma | Odwołanie API |
+| Szybki start | Platforma | Dokumentacja interfejsu API |
 |------------|----------|---------------|
 | C#, UWP | Windows | [Przeglądaj](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Przeglądaj](https://aka.ms/csspeech/javaref) |
@@ -60,7 +60,7 @@ Direct Line Speech i związane z nią funkcje dla asystentów głosowych są ide
 ## <a name="reference-docs"></a>Dokumenty referencyjne
 
 * [Zestaw SDK rozpoznawania mowy](speech-sdk-reference.md)
-* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Usługa Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Następne kroki
 

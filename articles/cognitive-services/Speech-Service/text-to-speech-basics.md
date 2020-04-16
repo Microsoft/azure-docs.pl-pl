@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/06/2020
+ms.date: 04/14/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b95b55588c51c4e202d7a02c6c158b26cdcd7ac7
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+zone_pivot_groups: programming-languages-set-sixteen
+ms.openlocfilehash: 74f762dd0004bf72b703d0f611a16762b1ff028d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986233"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399544"
 ---
 # <a name="learn-the-basics-of-speech-synthesis"></a>Poznaj podstawy syntezy mowy
 
@@ -41,6 +41,10 @@ W tym artykule nauczysz się typowych wzorców projektowych do wykonywania synte
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

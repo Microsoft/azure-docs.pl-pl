@@ -10,19 +10,25 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 6f8f892e7ca81881b0cc00e1708e3f05052c573c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a72e5055a3b0f858a732ec28eeab511b09dd450c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76264207"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400145"
 ---
 # <a name="scenario-availability"></a>Dostępność scenariusza
 
 Pakiet SDK mowy zawiera wiele scenariuszy w różnych językach programowania i środowiskach. Nie wszystkie scenariusze są dostępne we wszystkich językach programowania lub wszystkich środowiskach jeszcze. Poniżej wymieniono dostępność każdego scenariusza.
 
 - **Rozpoznawanie mowy (SR), lista fraz, intencja, tłumaczenie i kontenery lokalne**
-  - Wszystkie języki programowania/środowiska, w których znajduje się łącze ze strzałką <img src="media/index/link.jpg" height="15" width="15"></img> w tabeli szybki start [tutaj](https://aka.ms/csspeech).
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & & platformy uniwersalnej systemu Windows Unity & platformy Xamarin & Linux & macOS
+  - Java (Jre i Android)
+  - JavaScript (Brower i NodeJS)
+  - Python
+  - Swift
+  - Obiektowy C  
 - **Zamiana tekstu na mowę (TTS)**
   - C++/Windows & Linux
   - C#/Windows & & jedność & platformy uniwersalnej systemu windows

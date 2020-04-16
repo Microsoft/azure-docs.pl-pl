@@ -3,19 +3,19 @@ title: Wprowadzenie do usługi Mowy niestandardowej — mowa
 titleSuffix: Azure Cognitive Services
 description: Mowa niestandardowa to zestaw narzędzi online, które umożliwiają ocenę i poprawę dokładności mowy do tekstu w aplikacjach, narzędziach i produktach. Wszystko, czego potrzeba, aby rozpocząć, to kilka testowych plików audio. Skorzystaj z poniższych łączy, aby rozpocząć tworzenie niestandardowego środowiska zamiany mowy na tekst.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: dapine
-ms.openlocfilehash: e30587ed4d09ba792516ebc7b16529a6ee5ac57c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: a52735ee62f564a5dc536fd2b7d3539406388341
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918958"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402063"
 ---
 # <a name="what-is-custom-speech"></a>Co to jest mowa niestandardowa?
 
@@ -69,5 +69,5 @@ Aby utworzyć pierwszy projekt, zaznacz **mowę zamiany tekstu/mowę niestandard
 * [Przygotowanie i przetestowanie danych](how-to-custom-speech-test-data.md)
 * [Sprawdź swoje dane](how-to-custom-speech-inspect-data.md)
 * [Oceń swoje dane](how-to-custom-speech-evaluate-data.md)
-* [Trenowanie modelu](how-to-custom-speech-train-model.md)
+* [Uczenie modelu](how-to-custom-speech-train-model.md)
 * [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)

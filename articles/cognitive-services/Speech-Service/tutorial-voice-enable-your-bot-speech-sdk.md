@@ -3,19 +3,19 @@ title: 'Samouczek: Głosy włączą bota za pomocą zestawu Speech SDK - Usługa
 titleSuffix: Azure Cognitive Services
 description: W tym samouczku utworzysz Echo Bot przy użyciu microsoft bot-framework, wdrożyć go na platformie Azure i zarejestrować go za pomocą kanału mowy direct line bot framework. Następnie skonfigurujesz przykładową aplikację kliencką dla systemu Windows, która pozwala rozmawiać z botem i słyszeć, jak reaguje z powrotem na Ciebie.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: dapine
-ms.openlocfilehash: 3c2d74eb7e46d9909d87a7ccadadd6129a3d48d8
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.author: trbye
+ms.openlocfilehash: b2c119f6552773bce7bb93a503c22324278ac0bc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397896"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399472"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Samouczek: Voice-włącz bota za pomocą zestawu SDK mowy
 
@@ -56,7 +56,7 @@ Oto, czego potrzebujesz, aby ukończyć ten samouczek:
 
 - Komputer z systemem Windows 10 z działającym mikrofonem i głośnikami (lub słuchawkami)
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) lub nowsze
-- [.NET Core SDK](https://dotnet.microsoft.com/download) w wersji 2.1 lub nowszej
+- [Środowisko uruchomieniowe programu .NET Framework 4.6.1](https://dotnet.microsoft.com/download) lub nowszego
 - Konto platformy Azure. [Zarejestruj się za darmo](https://azure.microsoft.com/free/ai/).
 - Konto [GitHub](https://github.com/)
 - [Git dla systemu Windows](https://git-scm.com/download/win)
@@ -221,7 +221,7 @@ Należy wprowadzić małą zmianę konfiguracji, aby bot mógł komunikować si�
 2. W obszarze Nawigacja **usług platformy Azure** w obszarze **Ustawienia**kliknij pozycję **Konfiguracja**.
 3. Wybierz kartę **Ustawienia ogólne.**
 4. Znajdź przełącznik dla **gniazd sieci Web** i ustaw go na **Włączone**.
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 > [!TIP]
 > Można użyć formantów w górnej części strony usługi Azure App Service, aby zatrzymać lub ponownie uruchomić usługę. Może się to przydać podczas rozwiązywania problemów.
@@ -267,28 +267,32 @@ Teraz nadszedł czas, aby zarejestrować bota za pomocą kanału Direct Line Spe
    * **Poszukaj więcej kanałów**, znajdź i kliknij **direct line speech**.
    * Przejrzyj tekst na stronie zatytułowanej **Konfigurowanie mowy linii bezpośredniej,** a następnie rozwiń menu rozwijane z etykietą "Konto usługi kognitywnej".
    * Wybierz zasób mowy utworzony wcześniej (np. **SpeechEchoBotTutorial-Speech)** z menu, aby skojarzyć bota z kluczem subskrypcji mowy.
-   * Kliknij przycisk **Zapisz**.
+   * Kliknij pozycję **Zapisz**.
 
 1. W nawigacji **zarządzania botami** kliknij pozycję **Ustawienia**.
    * Zaznacz pole wyboru **Włącz punkt końcowy przesyłania strumieniowego**. Jest to konieczne, aby włączyć protokół komunikacyjny zbudowany na gniazdach internetowych między botem a kanałem Direct Line Speech.
-   * Kliknij przycisk **Zapisz**.
+   * Kliknij pozycję **Zapisz**.
 
 > [!TIP]
 > Jeśli chcesz dowiedzieć się więcej, zobacz [Łączenie bota z bezpośrednią mową liniową](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Ta strona zawiera dodatkowe informacje i znane problemy.
 
-## <a name="build-the-windows-voice-assistant-client"></a>Tworzenie klienta Asystenta głosowego systemu Windows
+## <a name="run-the-windows-voice-assistant-client"></a>Uruchamianie klienta Asystenta głosowego systemu Windows
 
-W tym kroku masz zamiar utworzyć klienta Asystenta głosowego systemu Windows. Klient jest windows presentation foundation (WPF) aplikacja w języku C#, który używa [speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) do zarządzania komunikacją z botem przy użyciu kanału Direct Line Speech. Użyj go do interakcji z botem i przetestowania go przed napisaniem niestandardowej aplikacji klienckiej.
+W tym kroku uruchomisz klienta Asystenta głosowego systemu Windows. Klient jest windows presentation foundation (WPF) aplikacja w języku C#, który używa [speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) do zarządzania komunikacją z botem przy użyciu kanału Direct Line Speech. Użyj go do interakcji z botem i przetestowania go przed napisaniem niestandardowej aplikacji klienckiej. Jest open source, więc możesz pobrać plik wykonywalny i uruchomić go lub zbudować samodzielnie.
 
 Klient Asystenta głosowego systemu Windows ma prosty interfejs użytkownika, który umożliwia skonfigurowanie połączenia z botem, wyświetlanie konwersacji tekstowej, wyświetlanie działań bot-framework w formacie JSON i wyświetlanie kart adaptacyjnych. Obsługuje również użycie niestandardowych słów kluczowych. Użyjesz tego klienta, aby porozmawiać z botem i otrzymać odpowiedź głosową.
 
 Zanim przejdziemy dalej, upewnij się, że mikrofon i głośniki są włączone i działają.
 
 1. Przejdź do repozytorium GitHub dla [klienta Asystenta głosowego systemu Windows](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/README.md).
-2. Postępuj zgodnie z instrukcjami dostarczonymi, aby sklonować repozytorium, utworzyć projekt, skonfigurować klienta i uruchomić klienta.
-3. Kliknij **przycisk Połącz ponownie** i upewnij się, że jest wyświetlany komunikat Naciśnij przycisk **mikrofonu lub wpisz, aby rozpocząć rozmowę z botem**.
-4. Przetestujmy to. Kliknij przycisk mikrofonu i mów kilka słów w języku angielskim. Rozpoznany tekst pojawi się podczas mówienia. Po zakończeniu mówienia bot odpowie własnym głosem, mówiąc "echo", a następnie rozpoznane słowa.
-5. Można również użyć tekstu do komunikowania się z botem. Wystarczy wpisać tekst na dolnym pasku. 
+1. Postępuj zgodnie z instrukcjami podanymi w tym miejscu, aby
+   * pobrać pakiet ZIP zawierający plik wykonywalny do uruchomienia, lub
+   * samodzielnie zbudować plik wykonywalny, klonując repozytorium i budując projekt.
+
+1. Uruchom aplikację kliencką i skonfiguruj ją.
+1. Kliknij **przycisk Połącz ponownie** i upewnij się, że jest wyświetlany komunikat Naciśnij przycisk **mikrofonu lub wpisz, aby rozpocząć rozmowę z botem**.
+1. Przetestujmy to. Kliknij przycisk mikrofonu i mów kilka słów w języku angielskim. Rozpoznany tekst pojawi się podczas mówienia. Po zakończeniu mówienia bot odpowie własnym głosem, mówiąc "echo", a następnie rozpoznane słowa.
+1. Można również użyć tekstu do komunikowania się z botem. Wystarczy wpisać tekst na dolnym pasku. 
 
 ### <a name="troubleshooting-errors-in-windows-voice-assistant-client"></a>Rozwiązywanie problemów z błędami w kliencie Asystenta głosowego systemu Windows
 
@@ -425,7 +429,7 @@ Teraz, gdy dokonano niezbędnych zmian w bot, następnym krokiem jest ponowne op
 2. Poprzednia konfiguracja wdrożenia została już załadowana jako domyślna. Po prostu kliknij **przycisk Publikuj** obok **EchoBot20190805125647 - Web Deploy**.
 3. Komunikat **Opublikuj pomyślnie** pojawi się w oknie danych wyjściowych programu Visual Studio, a strona sieci web zostanie uruchomiona z komunikatem "Twój bot jest gotowy!".
 4. Otwórz aplikację Klienta Asystenta głosowego systemu Windows, kliknij przycisk ustawień (ikona `de-de` koła zębatego w prawym górnym rogu) i upewnij się, że nadal masz w polu Język.
-5. Postępuj zgodnie z instrukcjami w [Tworzenie klienta Asystenta głosowego systemu Windows,](#build-the-windows-voice-assistant-client) aby ponownie połączyć się z nowo wdrożonym botem, mówić w nowym języku i słyszeć odpowiedź bota w tym języku za pomocą nowego głosu.
+5. Postępuj zgodnie z instrukcjami w [Uruchom klienta Asystenta głosowego systemu Windows,](#run-the-windows-voice-assistant-client) aby ponownie połączyć się z nowo wdrożonym botem, mówić w nowym języku i słyszeć odpowiedź bota w tym języku za pomocą nowego głosu.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
