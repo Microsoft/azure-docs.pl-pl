@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4e9077d06341ce5ecf6b2238374ce1ac8e13dca3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70241404"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415159"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Samouczek: Zamawianie urządzenia Azure Data Box Heavy
 
@@ -41,17 +41,9 @@ Przed rozpoczęciem upewnij się, że:
 - Jeśli urządzenie ma zostać zainstalowane na innym piętrze budynku niż parter, musisz mieć możliwość przetransportowania urządzenia za pomocą windy lub rampy. Urządzenie ma masę około 227 kg (500 funtów).
 - Upewnij się, że masz dostęp do płaskiej powierzchni w centrum danych znajdującej się blisko dostępnego połączenia sieciowego, gdzie umieścisz urządzenie.
 
-
 ### <a name="for-service"></a>Na potrzeby usługi
 
-Przed rozpoczęciem upewnij się, że:
-- Masz konto magazynu platformy Microsoft Azure z poświadczeniami dostępu.
-- Sprawdź, czy subskrypcja, której używasz na potrzeby usługi Data Box, to subskrypcja jednego z następujących typów:
-    - Microsoft Enterprise Agreement (EA). Dowiedz się więcej na temat [subskrypcji umowy EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Cloud Solution Provider (CSP). Dowiedz się więcej o [programie Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Dostęp sponsorowany Microsoft Azure. Dowiedz się więcej o [programie dostępu sponsorowanego Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
-
-- Sprawdź, czy masz dostęp na poziomie właściciela lub współautora do subskrypcji, aby móc utworzyć zamówienie urządzenia Data Box Heavy.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>Na potrzeby urządzenia
 
