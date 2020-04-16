@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/27/2020
-ms.openlocfilehash: 5108335c0b5d0a51559653d51bfe6154237731f3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 04469fa1bd0473710d9fa0bf0190c6459f1f8a07
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78162658"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418783"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Zbiorcze kopiowanie wielu tabel przy użyciu usługi Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym samouczku pokazano **kopiowanie wielu tabel z usługi Azure SQL Database do usługi Azure Synapse Analytics (dawniej SQL DW).** Tego samego wzorca można użyć także w innych scenariuszach kopiowania. Na przykład kopiowanie tabel z programu SQL Server/Oracle do usługi Azure SQL Database/Azure Synapse Analytics (dawniej SQL DW)/Azure Blob, kopiowanie różnych ścieżek z obiektu Blob do tabel bazy danych SQL azure.
 
@@ -79,7 +81,7 @@ Aby zweryfikować i włączyć to ustawienie, przejdź do serwera SQL platformy 
  
    Nazwa fabryki danych platformy Azure musi być **unikatowa globalnie.** Jeśli dla pola nazwy wystąpi poniższy błąd, zmień nazwę fabryki danych (np. twojanazwaADFTutorialBulkCopyDF). Artykuł [Data Factory — Naming Rules (Usługa Data Factory — reguły nazewnictwa)](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
   
-       `Data factory name “ADFTutorialBulkCopyDF” is not available`
+       `Data factory name "ADFTutorialBulkCopyDF" is not available`
 1. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych. 
 1. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
      

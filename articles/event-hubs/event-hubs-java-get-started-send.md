@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 5a34ac2d1b7401d31ae518334aedc15c626b66a3
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 379739533e15e60bc47bfc883a67037d4a58d0e0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529492"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417619"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Używanie języka Java do wysyłania zdarzeń do usługi Azure Event Hubs lub odbierania ich z usługi Azure Event Hubs (azure-eventhubs)
 
@@ -314,7 +314,8 @@ W przypadku różnych typów środowisk kompilacji można jawnie uzyskać najnow
         
            System.out.println("End of sample");
        }
-    ```
+   }
+   ```
 3. Utwórz jeszcze `EventProcessor`jedną klasę o nazwie , używając następującego kodu:
    
     ```java

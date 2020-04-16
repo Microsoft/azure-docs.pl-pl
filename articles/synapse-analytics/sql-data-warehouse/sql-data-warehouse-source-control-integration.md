@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0ffa33811957af95fc10396ffecef0b3de7959fe
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 3ec52c5274891619cf7976e99b5241bfc67a4076
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633021"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415098"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Integracja kontroli źródła dla puli SQL
 
@@ -81,4 +81,4 @@ W tym samouczku opisano, jak zintegrować projekt bazy danych narzędzi danych p
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie dla puli SQL](sql-data-warehouse-overview-develop.md)
+- [Tworzenie dla tworzenia dla puli SQL](sql-data-warehouse-overview-develop.md)

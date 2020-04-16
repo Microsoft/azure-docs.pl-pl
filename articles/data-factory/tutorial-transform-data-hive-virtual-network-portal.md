@@ -10,14 +10,16 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: dd0de5415dc001f107221add7ea223450290b3f4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 23accddcc468eb841eb7c217ec17a893db214cb6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75439265"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409466"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Przekształcanie danych w usłudze Azure Virtual Network przy użyciu działania programu Hive w usłudze Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym samouczku witryna Azure Portal umożliwia tworzenie potoku usługi Data Factory przekształcającego dane przy użyciu działania programu Hive w klastrze usługi HDInsight, który znajduje się w usłudze Azure Virtual Network (VNet). Ten samouczek obejmuje następujące procedury:
 
@@ -166,7 +168,7 @@ W tej sekcji zredagujesz i wdrożysz dwie połączone usługi:
     2. Wybierz pozycję **MySelfHostedIR** w polu **Połącz za pośrednictwem środowiska Integration Runtime**.
     3. Wybierz swoje konto magazynu platformy Azure dla **nazwy konta usługi Storage**. 
     4. Aby przetestować połączenie z kontem magazynu, kliknij pozycję **Testuj połączenie**.
-    5. Kliknij przycisk **Zapisz**.
+    5. Kliknij pozycję **Zapisz**.
    
         ![Określanie konta usługi Azure Blob Storage](./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-storage-account.png)
 

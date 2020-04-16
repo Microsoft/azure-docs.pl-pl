@@ -12,18 +12,20 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: 52ed43277eef84de826d2f4fa41ba860211a1531
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: be9395b908461b54b607fff32747ca0d9f20f45c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78969868"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418664"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiowanie danych z magazynu obiektów Blob platformy Azure do bazy danych SQL przy użyciu narzędzia Kopiuj dane
 
 > [!div class="op_single_selector" title1="Wybierz wersję używanej usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Bieżąca wersja](tutorial-copy-data-tool.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym samouczku utworzysz fabrykę danych za pomocą witryny Azure Portal. Następnie użyj narzędzia Kopiuj dane, aby utworzyć potok, który kopiuje dane z magazynu obiektów blob platformy Azure do bazy danych SQL.
 
@@ -99,7 +101,7 @@ Przygotuj magazyn obiektów Blob i bazę danych SQL dla samouczka, wykonując te
 
 1. W obszarze **Wersja** wybierz wersję **V2**.
 1. W obszarze **Lokalizacja**wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez Twoją fabrykę danych mogą mieścić się w innych lokalizacjach i regionach.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Po zakończeniu tworzenia zostanie wyświetlona strona główna usługi **Data Factory**.
 
@@ -132,7 +134,7 @@ Przygotuj magazyn obiektów Blob i bazę danych SQL dla samouczka, wykonując te
 
     b. Kliknij przycisk **Dalej**, aby przejść do następnego kroku.
 
-1. Na stronie **Ustawienia formatu pliku** włącz pole wyboru *Pierwszy wiersz jako nagłówek*. Należy zauważyć, że narzędzie automatycznie wykrywa ograniczniki kolumn i wierszy. Wybierz **pozycję Dalej**. Można również wyświetlić podgląd danych i wyświetlić schemat danych wejściowych na tej stronie.
+1. Na stronie **Ustawienia formatu pliku** włącz pole wyboru *Pierwszy wiersz jako nagłówek*. Należy zauważyć, że narzędzie automatycznie wykrywa ograniczniki kolumn i wierszy. Wybierz opcję **Dalej**. Można również wyświetlić podgląd danych i wyświetlić schemat danych wejściowych na tej stronie.
 
     ![Ustawienia formatu pliku](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. Na stronie **Docelowy magazyn danych** wykonaj następujące czynności:

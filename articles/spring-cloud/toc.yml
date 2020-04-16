@@ -18,8 +18,6 @@
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: Samouczki
   items:
-    - name: Przygotowywanie aplikacji Java Spring do wdrożenia
-      href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: Konfigurowanie serwera konfiguracji
       href: spring-cloud-tutorial-config-server.md
     - name: Manualne skalowanie aplikacji
@@ -44,6 +42,8 @@
       href: disaster-recovery.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Przygotowywanie aplikacji Java Spring do wdrożenia
+      href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: 'Jak uruchomić, zatrzymać i usunąć aplikację Azure Spring Cloud'
       href: spring-cloud-howto-start-stop-delete.md
     - name: Jak skonfigurować środowisko przejściowe

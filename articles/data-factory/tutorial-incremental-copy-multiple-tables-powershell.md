@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: 5654e1f8b8a55c705798368df70ce300241c9dff
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aa4dbfbaff620c25042d2603dab543661ec2cd14
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76989091"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410006"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Przyrostowe ładowanie danych z wielu tabel w programie SQL Server do bazy danych SQL Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym samouczku utworzysz fabrykę danych platformy Azure z potokiem, który ładuje dane różnicowe z wielu tabel w lokalnym programie SQL Server do bazy danych SQL Azure.    
 
@@ -810,7 +812,7 @@ Potok przyjmuje listę nazw tabel jako parametr. **ForEach działania** iteruje 
 
 ## <a name="monitor-the-pipeline"></a>Monitorowanie potoku
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Wybierz pozycję **Wszystkie usługi**, przeprowadź wyszukiwanie za pomocą słowa kluczowego *Fabryki danych*, a następnie wybierz pozycję **Fabryki danych**. 
 
@@ -837,7 +839,7 @@ W programu SQL Server Management Studio uruchom następujące zapytania względe
 select * from customer_table
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -855,7 +857,7 @@ PersonID    Name    LastModifytime
 select * from project_table
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 
 ```
 ===================================
@@ -872,7 +874,7 @@ project3    2017-03-04 05:16:00.000
 select * from watermarktable
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 
 ```
 ======================================
@@ -920,7 +922,7 @@ W programu SQL Server Management Studio uruchom następujące zapytania względe
 select * from customer_table
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -940,7 +942,7 @@ Zwróć uwagę na nowe wartości właściwości **Name** i **LastModifytime** dl
 select * from project_table
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 
 ```
 ===================================
@@ -960,7 +962,7 @@ Zwróć uwagę, że do tabeli project_table dodano pozycję **NewProject**.
 select * from watermarktable
 ```
 
-**Wyjście**
+**Dane wyjściowe**
 
 ```
 ======================================

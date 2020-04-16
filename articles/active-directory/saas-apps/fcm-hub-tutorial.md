@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/25/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee1ea7d2623d6315007257218ddfc4e6ce445e65
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 5abc1e093dc7d4e8da823227dc3e3caa556e37e4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668909"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406847"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fcm-hub"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z fcm hub
 
@@ -92,7 +92,16 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azu
     > [!NOTE]
     > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z menedżerem konta, który jest przypisany do Ciebie lub skontaktuj się z [zespołem pomocy technicznej klienta FCM HUB,](mailto:fcmssoadmin@us.fcm.travel) aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Kliknij przycisk **Zapisz**.
+1. Wybierz pozycję **Zapisz**.
+
+1. Na stronie **Zarządzanie oświadczeniami** w sekcji **Atrybuty & oświadczenia użytkownika** dodaj te atrybuty niestandardowe:
+   - **Nazwa**: PortalID
+   - **Źródło**: Atrybut
+   - **Atrybut źródła**: PortalID, wartość dostarczona przez FCM
+
+1. W sekcji **Saml Podpisywanie certyfikatu** użyj opcji edycji, aby wybrać lub wprowadzić następujące ustawienia, a następnie wybierz pozycję **Zapisz:**
+   - **Opcja podpisywania**: Podpisz odpowiedź SAML
+   - **Algorytm podpisywania**: SHA-256
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** w sekcji **Saml Podpisywanie certyfikatów** znajdź **certyfikat (Base64)** i wybierz **pozycję Pobierz,** aby pobrać certyfikat i zapisać go na komputerze.
 

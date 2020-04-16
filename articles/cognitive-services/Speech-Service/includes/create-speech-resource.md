@@ -2,18 +2,18 @@
 title: Obsługa kontenerów
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/5/2019
-ms.author: dapine
-ms.openlocfilehash: 3c42bf2b2acc2472741bd603ea9d653a314ecc40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 8abd520a7bb80f1f9a2d8ebcbe46b90fe59a96ec
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73523528"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421724"
 ---
 ## <a name="create-a-speech-resource"></a>Tworzenie zasobu Mowy
 
@@ -34,5 +34,5 @@ ms.locfileid: "73523528"
 
     |Karta Zasoby w portalu|Ustawienie|Wartość|
     |--|--|--|
-    |**Przegląd**|Endpoint|Skopiuj punkt końcowy. Wygląda podobnie do`https://speech.cognitiveservices.azure.com/sts/v1.0/issuetoken`|
+    |**Omówienie**|Endpoint|Skopiuj punkt końcowy. Wygląda podobnie do`https://speech.cognitiveservices.azure.com/sts/v1.0/issuetoken`|
     |**Klucze**|Klucz interfejsu API|Skopiuj 1 z dwóch klawiszy. Jest to ciąg 32 znaków alfanumerycznej bez spacji lub kresek, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|

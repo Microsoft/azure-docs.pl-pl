@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: e23268d21b01435aa71d4f471afc6d37ee9e9c1d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 327aadbc2996e91ef0f7639da86a647ddd42247c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73672706"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410939"
 ---
 # <a name="what-is-azure-data-factory"></a>Czym jest usługa Azure Data Factory?
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W świecie danych big data dane nieprzetworzone i niezorganizowane często są przechowywane w relacyjnych, nierelacyjnych i innych systemach magazynowania. Jednak same nieprzetworzone dane nie mają prawidłowego kontekstu ani znaczenia umożliwiającego zapewnienie istotnych informacji analitykom, specjalistom z zakresu danych i osobom podejmującym decyzje biznesowe. 
 
@@ -109,13 +111,13 @@ Oto ważne dokumenty następnego kroku do zbadania:
 
 - [Dataset and linked services (Zestaw danych i połączone usługi)](concepts-datasets-linked-services.md)
 - [Potoki i działania](concepts-pipelines-activities.md)
-- [Integration Runtime (Produkt Integration Runtime)](concepts-integration-runtime.md)
+- [Integration Runtime](concepts-integration-runtime.md)
 - [Przepływy danych mapowania](concepts-data-flow-overview.md)
 - [Interfejs użytkownika usługi Data Factory w witrynie Azure Portal](quickstart-create-data-factory-portal.md)
 - [Narzędzie do kopiowania danych w witrynie Azure Portal](quickstart-create-data-factory-copy-data-tool.md)
-- [Powershell](quickstart-create-data-factory-powershell.md)
+- [PowerShell](quickstart-create-data-factory-powershell.md)
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)
-- [Reszta](quickstart-create-data-factory-rest-api.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
 - [Szablon usługi Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md)
  

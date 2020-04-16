@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a9b49f75ad377a9377a2311ed16c17ca3d749e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2bb5dd845b03bd94f0a94db50c01b804cf6f55c2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092576"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407100"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Samouczek: Integracja usługi Azure Active Directory z usługą RStudio Connect
 
@@ -158,9 +158,9 @@ IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
 ```
 
-Przechowuj **adres serwera** `Server.Address` w wartości, a **adres URL metadanych federacji aplikacji** w `SAML.IdPMetaData` wartości.
+Przechowuj **adres serwera** `Server.Address` w wartości, a **adres URL metadanych federacji aplikacji** w `SAML.IdPMetaData` wartości. Należy zauważyć, że ta przykładowa konfiguracja używa niezaszyfrowanego połączenia HTTP, podczas gdy usługa Azure AD wymaga użycia szyfrowanego połączenia HTTPS. Można użyć [odwrotnego serwera proxy](https://docs.rstudio.com/connect/admin/proxy/) przed RStudio Connect lub skonfigurować RStudio Connect do [bezpośredniego korzystania z protokołu HTTPS](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS). 
 
-Jeśli masz problemy z konfiguracją, możesz przeczytać [przewodnik administracyjny RStudio Connect](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) lub wysłać wiadomość e-mail do [zespołu pomocy technicznej RStudio,](mailto:support@rstudio.com) aby uzyskać pomoc.
+Jeśli masz problemy z konfiguracją, możesz przeczytać [przewodnik administracyjny RStudio Connect](https://docs.rstudio.com/connect/admin/authentication/saml/) lub wysłać wiadomość e-mail do [zespołu pomocy technicznej RStudio,](mailto:support@rstudio.com) aby uzyskać pomoc.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 

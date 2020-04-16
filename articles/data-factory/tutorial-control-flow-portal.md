@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 3fe4dc76e8ece0d525f307626b1772a3239805db
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ff9e5ff099bba7af9cac9862103ef63aa0169545
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977512"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418753"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Rozgałęzianie działań i tworzenie łańcuchów działań w potoku usługi Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym samouczku pokazano, jak utworzyć potok usługi Data Factory przedstawiający niektóre funkcje przepływu sterowania. Ten potok tworzy prostą kopię z kontenera w usłudze Azure Blob Storage w innym kontenerze na tym samym koncie magazynu. Jeśli działanie kopiowania zakończy się powodzeniem, potok wysyła szczegóły zakończonej pomyślnie operacji kopiowania (takie jak ilość zapisanych danych) w wiadomości e-mail z informacją o powodzeniu. W przypadku niepowodzenia działania kopiowania potok wysyła szczegóły błędu kopiowania (np. komunikat o błędzie) w wiadomości e-mail z informacją o niepowodzeniu. W samouczku pokazano, jak przekazać parametry.
 
@@ -195,7 +197,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
 
     1. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa**.
     2. Wybierz swoje konto usługi Azure Storage w polu **Nazwa konta magazynu**.
-    3. Kliknij przycisk **Zapisz**.
+    3. Kliknij pozycję **Zapisz**.
 
    ![Nowa połączona usługa Azure Storage](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Wprowadź wartość `@pipeline().parameters.sourceBlobContainer` jako folder oraz `emp.txt` jako nazwę pliku. Parametr potoku sourceBlobContainer umożliwia ustawienie ścieżki folderu dla zestawu danych.

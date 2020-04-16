@@ -7,16 +7,20 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c501205812ac72da8cd970b61b71e493888cef1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d453b2724c308e48366d653a51d9e6aa8e82c96
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76156730"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415922"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integracja danych przy użyciu usługi Azure Data Factory i azure data share
 
-W miarę jak klienci rozpoczynają swoje nowoczesne projekty w zakresie hurtowni danych i analiz, wymagają one nie tylko większej ilości danych, ale także większego wglądu w ich dane w całym dziale danych. W tym warsztacie opisano, w jaki sposób ulepszenia usługi Azure Data Factory i usługi Azure Data Share upraszczają integrację danych i zarządzanie nimi na platformie Azure. Od włączenia bez kodu ETL/ELT do tworzenia kompleksowego widoku danych, ulepszenia usługi Azure Data Factory umożliwią inżynierom danych pewne wnoszenie większej ilości danych, a tym samym większej wartości do przedsiębiorstwa. Usługa Azure Data Share umożliwia prowadzenie działalności w celu udostępniania biznesowego w sposób regulowany.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+W miarę jak klienci rozpoczynają swoje nowoczesne projekty w zakresie hurtowni danych i analiz, wymagają one nie tylko większej ilości danych, ale także większego wglądu w ich dane w całym dziale danych. W tym warsztacie opisano, w jaki sposób ulepszenia usługi Azure Data Factory i usługi Azure Data Share upraszczają integrację danych i zarządzanie nimi na platformie Azure. 
+
+Od włączenia bez kodu ETL/ELT do tworzenia kompleksowego widoku danych, ulepszenia usługi Azure Data Factory umożliwią inżynierom danych pewne wnoszenie większej ilości danych, a tym samym większej wartości do przedsiębiorstwa. Usługa Azure Data Share umożliwia prowadzenie działalności w celu udostępniania biznesowego w sposób regulowany.
 
 W tym warsztacie użyjesz usługi Azure Data Factory (ADF) do pozyskiwania danych z bazy danych SQL (SQL DB) platformy Azure data lake w gen2 (ADLS gen2). Po wylądowaniu danych w jeziorze, można przekształcić go za pomocą przepływu danych mapowania, natywnej usługi transformacji fabryki danych i zatopić go w usłudze Azure Synapse Analytics (dawniej SQL DW). Następnie udostępnisz tabelę z przekształconymi danymi wraz z dodatkowymi danymi przy użyciu usługi Azure Data Share. 
 
@@ -368,7 +372,7 @@ Po utworzeniu udziału danych, będziesz następnie przełączyć kapelusze i st
 
     ![Dodaj zestaw danych](media/lab-data-flow-data-share/add-dataset-adls.png)
 
-1. Wybierz pozycję **Dalej**
+1. Wybierz **przycisk Dalej**
 
 1. Rozwiń *wwtaxidata*. Rozwiń *Dane Boston Taxi*. Należy zauważyć, że można udostępnić w dół do poziomu pliku. 
 
@@ -392,7 +396,7 @@ Po utworzeniu udziału danych, będziesz następnie przełączyć kapelusze i st
 
 1. Sprawdź **harmonogram migawki** i skonfiguruj cogodzinne odświeżanie danych przy użyciu listy rozwijanej *Cykl.*  
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     Masz teraz aktywny udział danych. Umożliwia sprawdzenie, co można zobaczyć jako dostawca danych podczas tworzenia udziału danych. 
 

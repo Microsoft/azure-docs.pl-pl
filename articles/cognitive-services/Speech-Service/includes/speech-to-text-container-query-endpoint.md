@@ -1,17 +1,17 @@
 ---
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: c029165a4994e5e3f73399fb00a1775b67128e44
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 1773e22a54cc86e7736c91e4be757caa0250cbf7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879030"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422063"
 ---
 ### <a name="speech-to-text-or-custom-speech-to-text"></a>Zamiana mowy na tekst lub niestandardowa zamiana mowy na tekst
 
@@ -22,7 +22,7 @@ Kontener udostępnia interfejsy API punktu końcowego programu query oparte na w
 
 Zobacz poniższe przykłady.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Zmień z przy użyciu tego wywołania inicjowania chmury platformy Azure:
 

@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 397eb6fbfea88b0eab0648275fc59764505f7d42
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: a9506d45350a567e3643b6edd6afc7668662f6e5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633106"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416029"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Co to jest usługa Azure Synapse Analytics (dawniej SQL DW)?
 
-Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie danych przedsiębiorstwa z analizą danych big data. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali. Usługa Azure Synapse łączy te dwa światy z ujednoliconym doświadczeniem w zakresie pozyskiwania, przygotowywania, zarządzania i obsługi danych na potrzeby natychmiastowej analizy biznesowej i uczenia maszynowego
+Azure Synapse to usługa analityczna, która łączy w sobie hurtownię danych w przedsiębiorstwie i analizę dużych zbiorów danych. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali. Usługa Azure Synapse łączy te dwa światy z ujednoliconym doświadczeniem w zakresie pozyskiwania, przygotowywania, zarządzania i obsługi danych na potrzeby natychmiastowej analizy biznesowej i uczenia maszynowego.
 
 Usługa Azure Synapse ma cztery składniki:
 
@@ -27,11 +27,13 @@ Usługa Azure Synapse ma cztery składniki:
   - Pula SQL (płatność za dwu aprowizowana)
   - SQL na żądanie (płatność za TB przetwarzane) - (Wersja zapoznawcza)
 - Iskra: Głęboko zintegrowana platforma Apache Spark (wersja zapoznawcza)
-- Integracja danych: hybrydowa integracja danych (wersja zapoznawcza)
+- Potoki Synapse: hybrydowa integracja danych (wersja zapoznawcza)
 - Studio: Ujednolicone środowisko użytkownika.  (Wersja zapoznawcza)
 
 > [!NOTE]
 > Aby uzyskać dostęp do funkcji w wersji zapoznawczej platformy Azure Synapse, poproś o dostęp [tutaj](https://aka.ms/synapsepreview). Firma Microsoft będzie klasyfikować wszystkie żądania i odpowiadać tak szybko, jak to możliwe.
+>
+> Wyświetl [dokumentację podglądu usługi Azure Synapse](../overview-what-is.md).
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Pula SQL synapse w usłudze Azure Synapse
 

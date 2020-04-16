@@ -1,16 +1,16 @@
 ---
-title: Wdrażanie przykładu Unity na pulpicie
+title: Wdrażanie przykładu środowiska Unity na komputerze stacjonarnym
 description: Przewodnik Szybki start, który pokazuje, jak pobrać przykład Unity na komputer stacjonarny
 author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 93ec25123f60083d4b31cf54592b1a1c0dacab69
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 95993a54d321c9581d35f12b56d60e4ea052e505
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679758"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415718"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Szybki start: wdrażanie próbki Unity na pulpicie
 
@@ -58,6 +58,9 @@ Tylko płaskie aplikacje klasyczne są obecnie obsługiwane na pulpicie, więc o
 1. Przełącz tryb debugera na **komputer lokalny**.
   ![Konfiguracja rozwiązania](./media/unity-deploy-config-pc.png)
 1. Zbuduj rozwiązanie (F7).
+
+> [!WARNING]
+> Upewnij się, że wybierz **x86**. **x64** nie jest obecnie obsługiwany, patrz [ograniczenia platformy](../reference/limits.md#platform-limitations).
 
 ## <a name="launch-the-sample-project"></a>Uruchamianie przykładowego projektu
 

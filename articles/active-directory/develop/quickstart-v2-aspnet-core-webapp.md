@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1a73894e2003ae742f329adcda51cf21ceeacb31
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
+ms.openlocfilehash: ac53a6cf6953255f51a6b586703147c5ce2338b6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991164"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407151"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Szybki start: dodawanie logowania za pomocą firmy Microsoft do aplikacji sieci Web ASP.NET Core
 W tym przewodniku Szybki start można użyć przykładu kodu, aby dowiedzieć się, jak aplikacja sieci web ASP.NET Core może logować się na kontach osobistych (hotmail.com, outlook.com, inne) oraz kontach służbowych i szkolnych z dowolnego wystąpienia usługi Azure Active Directory (Azure AD). (Zobacz [Jak działa przykład](#how-the-sample-works) dla ilustracji).
@@ -48,7 +48,7 @@ W tym przewodniku Szybki start można użyć przykładu kodu, aby dowiedzieć si
 >    - W **obszarze Przekierowanie identyfikatorów URI**dodaj `https://localhost:44321/signin-oidc`i wybierz pozycję **Zapisz**.
 >    - W sekcji **Ustawienia zaawansowane** ustaw pole **Adres URL wylogowywania** na wartość `https://localhost:44321/signout-oidc`.
 >    - W obszarze **Niejawne przyznanie** zaznacz pole wyboru **Tokeny Identyfikatorów**.
->    - Wybierz **pozycję Zapisz**.
+>    - Wybierz pozycję **Zapisz**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal

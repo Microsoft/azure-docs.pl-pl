@@ -14,14 +14,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: c41efc1cbccf546d803e1131405907bf37dcf00c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 91962b578f9620384af86d25a33ba35830abb285
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75496576"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418630"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Aprowizuj środowisko uruchomieniowe integracji platformy Azure-SSIS w usłudze Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Ten samouczek zawiera kroki dotyczące korzystania z witryny Azure portal w celu aprowizowania środowiska uruchomieniowego integracji usługi Azure-SQL Server Integration Services (IR) w usłudze Azure Data Factory. Azure-SSIS IR obsługuje:
 
@@ -117,7 +119,7 @@ Po utworzeniu fabryki danych otwórz jej stronę przeglądu w witrynie Azure por
 
    1. Aby **zaoszczędzić pieniądze,** wybierz opcję Korzyści hybrydowe platformy Azure dla środowiska wykonawczego integracji: **Tak** lub **Nie**. Wybierz **opcję Tak,** jeśli chcesz wprowadzić własną licencję programu SQL Server z pakietem Software Assurance, aby skorzystać z oszczędności kosztów podczas używania hybrydowego. 
 
-   1. Wybierz **pozycję Dalej**. 
+   1. Wybierz opcję **Dalej**. 
 
 1. W sekcji **Ustawienia SQL** wykonaj następujące kroki. 
 

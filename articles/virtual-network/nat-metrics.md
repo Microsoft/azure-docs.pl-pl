@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 4f1760c32117b34d4d453964473cba3c7d07f725
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1c3a73cba6a2ece0c9c7459b3515f053a648d683
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79202182"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408608"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Metryki TRANSLATORA SIECI WIRTUALNEJ platformy Azure
 
-Zasoby bramy translatora adresów sieci wirtualnej platformy Azure zapewniają metryki wielowymiarowe. Za pomocą tych wskaźników można obserwować operację i [rozwiązywać problemy](nat-metrics.md).  Alerty można skonfigurować pod kątem krytycznych problemów, takich jak wyczerpanie SNAT.
+Zasoby bramy translatora adresów sieci wirtualnej platformy Azure zapewniają metryki wielowymiarowe. Za pomocą tych wskaźników można obserwować operację i [rozwiązywać problemy](troubleshoot-nat.md).  Alerty można skonfigurować pod kątem krytycznych problemów, takich jak wyczerpanie SNAT.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT dla wychodzących do Internetu">

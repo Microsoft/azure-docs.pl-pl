@@ -10,14 +10,17 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: e964be548a2f82ecc268a147dd20817b232f51a6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ea625fbe28dad08ec2c3e2a64bada96460a04225
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74924807"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415569"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Porównanie bieżącej wersji usługi Azure Data Factory z wersją 1 usługi Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Ten artykuł zawiera porównanie bieżącej wersji usługi Data Factory z wersją 1 usługi Data Factory. Aby zapoznać się z wprowadzeniem do bieżącej wersji usługi Data Factory, zobacz [Wprowadzenie do usługi Data Factory](introduction.md). Aby zapoznać się z wprowadzeniem do wersji 1 usługi Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](v1/data-factory-introduction.md). 
 
 ## <a name="feature-comparison"></a>Porównanie funkcji
@@ -25,7 +28,7 @@ Poniższa tabela zawiera porównanie funkcji bieżącej wersji usługi Data Fact
 
 | Funkcja | Wersja 1 | Bieżąca wersja | 
 | ------- | --------- | --------- | 
-| Zestawy danych | Nazwany widok danych odwołujący się do danych, które mają być używane w działaniach jako dane wejściowe lub wyjściowe. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure określa kontener obiektów blob i folder w usłudze Azure Blob Storage, z których działanie ma odczytywać dane.<br/><br/>**Dostępność** definiuje model tworzenia wycinków okien przetwarzania dla zestawu danych (na przykład co godzinę, codziennie itd.). | Zestawy danych są takie same w bieżącej wersji. Nie trzeba jednak definiować harmonogramów **dostępności** dla zestawów danych. Można zdefiniować zasób wyzwalający, który może planować potoki z paradygmatu harmonogramu zegarowego. Aby uzyskać więcej informacji, zobacz [Triggers](concepts-pipeline-execution-triggers.md#triggers) (Wyzwalacze) i [Datasets](concepts-datasets-linked-services.md) (Zestawy danych). | 
+| Zestawy danych | Nazwany widok danych odwołujący się do danych, które mają być używane w działaniach jako dane wejściowe lub wyjściowe. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure określa kontener obiektów blob i folder w usłudze Azure Blob Storage, z których działanie ma odczytywać dane.<br/><br/>**Dostępność** definiuje model tworzenia wycinków okien przetwarzania dla zestawu danych (na przykład co godzinę, codziennie itd.). | Zestawy danych są takie same w bieżącej wersji. Nie trzeba jednak definiować harmonogramów **dostępności** dla zestawów danych. Można zdefiniować zasób wyzwalający, który może planować potoki z paradygmatu harmonogramu zegarowego. Aby uzyskać więcej informacji, zobacz [Triggers](concepts-pipeline-execution-triggers.md#trigger-execution) (Wyzwalacze) i [Datasets](concepts-datasets-linked-services.md) (Zestawy danych). | 
 | Połączone usługi | Połączone usługi działają podobnie do parametrów połączenia, umożliwiając definiowanie informacji dla usługi Data Factory, które są niezbędne do nawiązywania połączeń z zasobami zewnętrznymi. | Połączone usługi są takie same jak w usłudze Data Factory w wersji 1, ale z nową właściwością **connectVia** do korzystania ze środowiska obliczeniowego Integration Runtime bieżącej wersji usługi Data Factory. Aby uzyskać więcej informacji, zobacz [Infrastruktura Integration Runtime w usłudze Azure Data Factory](concepts-integration-runtime.md) i [Linked service properties for Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) (Właściwości usługi połączonej dla usługi Azure Blob Storage). |
 | Potoki | Fabryka danych może obejmować jeden lub wiele potoków. Potoki to logiczne grupy działań, które wspólnie wykonują zadanie. Do planowania i uruchamiania potoków są używane parametry startTime, endTime i isPaused. | Potoki są grupami działań wykonywanych na danych. Jednak planowanie działań w potoku zostało rozdzielone na nowe zasoby wyzwalające. Potoki w bieżącej wersji usługi Data Factory można traktować raczej jako „jednostki przepływu pracy”, które są planowane oddzielnie za pośrednictwem wyzwalaczy. <br/><br/>W bieżącej wersji usługi Data Factory potoki nie mają „okien” czasu wykonywania. Koncepcje startTime, endTime i isPaused z wersji 1 usługi Data Factory nie są już dostępne w bieżącej wersji usługi Data Factory. Aby uzyskać więcej informacji, zobacz [Wyzwalacze i wykonywanie potoku](concepts-pipeline-execution-triggers.md) oraz [Potoki i działania](concepts-pipelines-activities.md). |
 | Działania | Działania definiują akcje do wykonania na danych w potoku. Obsługiwane są działania przenoszenia danych (działanie kopiowania) i przekształcania danych (takie jak Hive, Pig i MapReduce). | W bieżącej wersji usługi Data Factory działania nadal są zdefiniowane akcje w potoku. Bieżąca wersja usługi Data Factory wprowadza nowe [działania związane z przepływem sterowania](concepts-pipelines-activities.md#control-flow-activities). Te działania są używane w przepływie sterowania (zapętlanie i rozgałęzianie). Działania przenoszenia i przekształcania danych, które były obsługiwane w wersji 1, są obsługiwane w bieżącej wersji. W bieżącej wersji można zdefiniować działania przekształcania bez używania zestawów danych. |
@@ -76,7 +79,7 @@ Działanie sterowania | Opis
 [Działanie ForEach](control-flow-for-each-activity.md) | Definiuje powtarzający się przepływ sterowania w potoku. To działanie służy do wykonywania iteracji po kolekcji i uruchamia określone działania w pętli. Implementacja pętli tego działania przypomina strukturę pętli Foreach w językach programowania.
 [Aktywność w sieci Web](control-flow-web-activity.md) | Wywołuje niestandardowy punkt końcowy REST z potoku usługi Data Factory. Można przekazywać zestawy danych i połączone usługi do zużycia i dostępu przez działanie. 
 [Działanie odnośnika](control-flow-lookup-activity.md) | Odczytuje lub wyszukuje wartość nazwy rekordu lub tabeli z dowolnego źródła zewnętrznego. Do tych danych wyjściowych mogą także odwoływać się kolejne działania. 
-[Działanie GetMetadata](control-flow-get-metadata-activity.md) | Pobiera metadane dowolnych danych z usługi Azure Data Factory. 
+[Uzyskaj aktywność metadanych](control-flow-get-metadata-activity.md) | Pobiera metadane dowolnych danych z usługi Azure Data Factory. 
 [Aktywność oczekiwania](control-flow-wait-activity.md) | Wstrzymuje potok na określony przedział czasu.
 
 ## <a name="deploy-ssis-packages-to-azure"></a>Wdrażanie pakietów usług SSIS na platformie Azure 
@@ -129,7 +132,7 @@ Zestawy SDK, które zostały zaktualizowane w bieżącej wersji, nie są zgodne 
 
 | &nbsp; | Wersja 2 | Wersja 1 |
 | ------ | -- | -- | 
-| Portal Azure | [Tak](quickstart-create-data-factory-portal.md) | Nie |
+| Azure Portal | [Tak](quickstart-create-data-factory-portal.md) | Nie |
 | Azure PowerShell | [Tak](quickstart-create-data-factory-powershell.md) | [Tak](data-factory-build-your-first-pipeline-using-powershell.md) |
 | Zestaw SDK .NET | [Tak](quickstart-create-data-factory-dot-net.md) | [Tak](data-factory-build-your-first-pipeline-using-vs.md) |
 | Interfejs API REST | [Tak](quickstart-create-data-factory-rest-api.md) | [Tak](data-factory-build-your-first-pipeline-using-rest-api.md) |
