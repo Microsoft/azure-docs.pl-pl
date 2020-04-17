@@ -3,12 +3,12 @@ title: Używanie tożsamości zarządzanej za pomocą aplikacji
 description: Jak używać zarządzanych tożsamości w kodzie aplikacji usługi Azure Service Fabric, aby uzyskać dostęp do usług platformy Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: cbdb1190ec3238a6accd34db3025e08c194d60b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415616"
+ms.locfileid: "81461569"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Jak wykorzystać tożsamość zarządzaną aplikacji sieci szkieletowej usług w celu uzyskania dostępu do usług platformy Azure
 
@@ -41,10 +41,6 @@ Aby uzyskać token, klient wykonuje następujące kroki:
 Pomyślna odpowiedź będzie zawierać ładunek JSON reprezentujący wynikowy token dostępu, a także metadane opisujące go. Odpowiedź nie powiodła się będzie również zawierać wyjaśnienie błędu. Poniżej znajdziesz dodatkowe informacje na temat obsługi błędów.
 
 Tokeny dostępu będą buforowane przez sieci szkieletowej usług na różnych poziomach (węzeł, klaster, usługa dostawcy zasobów), więc pomyślna odpowiedź nie musi oznaczać, że token został wystawiony bezpośrednio w odpowiedzi na żądanie aplikacji użytkownika. Tokeny będą buforowane przez mniej niż ich okres istnienia, a więc aplikacja jest gwarantowana, aby otrzymać prawidłowy token. Zaleca się, że kod aplikacji buforuje się wszelkie tokeny dostępu, które uzyskuje; klucz buforowania powinien obejmować (wyprowadzenie) odbiorców. 
-
-
-> [!NOTE]
-> Jedyna zaakceptowana wersja interfejsu `2019-07-01-preview`API jest obecnie i może ulec zmianie.
 
 Przykładowe żądanie:
 ```http

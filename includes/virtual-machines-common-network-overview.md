@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b5d46caa80f3f0aaeeb18bd919dafccf628c5faf
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4559a49a64688545e519f6172798997c2d695672
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384925"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461885"
 ---
 Utworzenie maszyny wirtualnej (VM) platformy Azure wymaga utworzenia [sieci wirtualnej](../articles/virtual-network/virtual-networks-overview.md) (VNet) lub użycia istniejącej sieci wirtualnej. Należy także określić sposób dostępu do maszyn wirtualnych w sieci wirtualnej. Ważne jest [zaplanowanie tworzenia zasobów](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) i dokładne zapoznanie się z [limitami zasobów sieciowych](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
@@ -148,24 +148,7 @@ Poniższa tabela zawiera listę metod, których można użyć do utworzenia wewn
 
 ### <a name="virtual-machine-scale-sets"></a>Zestawy skalowania maszyn wirtualnych
 
-Podczas pracy z zestawami skalowania maszyny wirtualnej i modułem równoważenia obciążenia należy wziąć pod uwagę następujące kwestie:
-
-* **Wiele zestawów skalowania maszyny wirtualnej nie może używać tego samego modułu równoważenia obciążenia.**
-* **Reguły przekazywania portów i przychodzącej kontroli nawigacyjnej:**
-  * Każdy zestaw skalowania maszyny wirtualnej musi mieć regułę przychodzącego translatora adresów sieciowych.
-  * W przypadku korzystania ze skalowania maszyny wirtualnej ustawionej w puli wewnętrznej bazy danych modułu równoważenia obciążenia domyślne przychodzące reguły NAT są tworzone automatycznie, jest to zgodne z projektem.
-* **Zasady równoważenia obciążenia:**
-  * W przypadku korzystania ze skalowania maszyny wirtualnej ustawionej w puli wewnętrznej bazy danych modułu równoważenia obciążenia domyślna reguła równoważenia obciążenia jest tworzona automatycznie, jest to zgodne z projektem.
-* **Reguły ruchu wychodzącego:**
-  *  Aby utworzyć regułę wychodzącą dla puli wewnętrznej bazy danych, do której odwołuje się już reguła równoważenia obciążenia, należy najpierw oznaczyć **"Utwórz niejawne reguły wychodzące"** jako **nie** w portalu podczas tworzenia reguły równoważenia obciążenia przychodzącego.
-
-  :::image type="content" source="./media/virtual-machines-common-network-overview/vmsslb.png" alt-text="Tworzenie reguł równoważenia obciążenia" border="true":::
-
-Następujące metody mogą służyć do wdrażania zestawu skalowania maszyny wirtualnej z istniejącym modułem równoważenia obciążenia platformy Azure.
-
-* [Skonfiguruj zestaw skalowania maszyny wirtualnej przy użyciu istniejącego modułu równoważenia obciążenia platformy Azure przy użyciu portalu Azure.](../articles/load-balancer/configure-vm-scale-set-portal.md)
-* [Skonfiguruj zestaw skalowania maszyny wirtualnej przy użyciu istniejącego modułu równoważenia obciążenia platformy Azure przy użyciu programu Azure PowerShell](../articles/load-balancer/configure-vm-scale-set-powershell.md).
-* [Skonfiguruj zestaw skalowania maszyny wirtualnej przy użyciu istniejącego modułu równoważenia obciążenia platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.](../articles/load-balancer/configure-vm-scale-set-cli.md)
+Aby uzyskać więcej informacji na temat zestawów skalowania modułu równoważenia obciążenia i maszyny wirtualnej, zobacz [Zestawy skalowania maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking)dla sieci dla platformy Azure.
 
 ## <a name="vms"></a>Maszyny wirtualne
 

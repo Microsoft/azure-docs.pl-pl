@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 757367e2b9773908b81ad35615a23b1b5c67aa3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c822e8af076f74e1bccc46b7a71717d9631de0a1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80117004"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461830"
 ---
 ### <a name="azure-regions-within-a-geopolitical-region"></a>Regiony platformy Azure w regionie geopolitycznym
 
@@ -42,5 +42,5 @@ ms.locfileid: "80117004"
 |Region geopolityczny | Regiony świadczenia usługi Azure|
 |---|---|
 | Chmura administracji USA | US Gov Arizona, US Gov Iowa, US Gov Teksas, US Gov Wirginia, US DoD (region środkowy), US DoD (region wschodni) |
-| Chiny Wschodnie | Chiny Wschodnie, Chiny Wschodnie 2|
-| Chiny Północne | Chiny Północne, Chiny Północne 2 |
+| Chiny Wschodnie | Chiny Wschodnie2|
+| Chiny Północne | Chiny Północna2 |

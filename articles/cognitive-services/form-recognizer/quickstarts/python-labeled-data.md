@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 36ded3bd85cd7acdffbfe46b9e931a811994fa30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482307"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531104"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Trenuj model aparatu rozpoznawania formularzy z etykietami przy użyciu interfejsu API REST i języka Python
 
@@ -40,7 +40,7 @@ Upewnij się, że wszystkie dokumenty szkoleniowe są w tym samym formacie. Jeś
 
 Aby wyszkolić model przy użyciu danych oznaczonych etykietą, potrzebne są następujące pliki jako dane wejściowe w podfolderze. Dowiesz się, jak utworzyć ten plik poniżej.
 
-* **Formularze źródłowe** — formularze do wyodrębniania danych. Obsługiwane typy to JPEG, PNG, BMP, PDF lub TIFF.
+* **Formularze źródłowe** — formularze do wyodrębniania danych. Obsługiwane typy to JPEG, PNG, PDF lub TIFF.
 * **Pliki układu OCR** - pliki JSON, które opisują rozmiary i pozycje wszystkich czytelnych tekstu w każdym formularzu źródłowym. Do wygenerowania tych danych użyjesz interfejsu API układu aparatu rozpoznawania formularzy. 
 * **Pliki etykiet** — pliki JSON opisujące etykiety danych wprowadzone ręcznie przez użytkownika.
 
@@ -219,7 +219,7 @@ headers = {
     'Ocp-Apim-Subscription-Key': '<subsription key>',
 }
 
-body =  {
+body =     {
     "source": source,
     "sourceFilter": {
         "prefix": prefix,
@@ -455,7 +455,7 @@ Po zakończeniu procesu otrzymasz odpowiedź `202 (Success)` z zawartością JSO
                     "#/readResults/0/lines/8/words/1"
                   ]
                 },
-                ...     
+                ...        
               ]
             }
           ]

@@ -2,13 +2,13 @@
 title: Pytania dotyczące analizy odnajdywania, oceny i zależności w obszarze Migracja platformy Azure
 description: Uzyskaj odpowiedzi na typowe pytania dotyczące odnajdywania, oceny i analizy zależności w usłudze Azure Migrate.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 7a63271811053ee2da79f134ac117559e31b0fed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 700e5318b66cdf4993a17b1dae85fb43f75ab035
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460810"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529777"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Analiza odnajdowania, oceny i zależności — często zadawane pytania
 
@@ -19,9 +19,16 @@ Ten artykuł zawiera odpowiedzi na typowe pytania dotyczące analizy odnajdywani
 - Pytania dotyczące [migracji serwera](common-questions-server-migration.md)
 - Odpowiedzi na pytania na [forum migracji platformy Azure](https://aka.ms/AzureMigrateForum)
 
+
+## <a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>Jakie lokalizacje geograficzne są obsługiwane do odnajdowania i oceny za pomocą usługi Azure Migrate?
+
+Przejrzyj obsługiwane obszary geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
+
+
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Ile maszyn wirtualnych można odkryć za pomocą urządzenia?
 
 Za pomocą jednego urządzenia można wykryć do 10 000 maszyn wirtualnych VMware, do 5000 maszyn wirtualnych funkcji Hyper V i do 250 serwerów fizycznych. Jeśli masz więcej maszyn, przeczytaj o [skalowaniu oceny funkcji Hyper-V,](scale-hyper-v-assessment.md) [skalowaniu oceny VMware](scale-vmware-assessment.md)lub [skalowaniu oceny serwera fizycznego.](scale-physical-assessment.md)
+
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>Rozmiar mojej maszyny Wirtualnej uległ zmianie. Czy mogę ponownie przeprowadzić ocenę?
 

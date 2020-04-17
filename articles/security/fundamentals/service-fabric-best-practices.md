@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: befe8945468d220a04ec7f0b515f22159cb72b0f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549245"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461654"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Service Fabric
 Wdrażanie aplikacji na platformie Azure jest szybkie, łatwe i ekonomiczne. Przed wdrożeniem aplikacji w chmurze w procesach produkcyjnych zapoznaj się z naszą listą najważniejszych i zalecanych najlepszych rozwiązań dotyczących implementowania bezpiecznych klastrów w aplikacji.
@@ -155,7 +155,7 @@ Sieci szkieletowej usług używa certyfikatów do zapewnienia uwierzytelniania i
 
 Usługa Service Fabric używa certyfikatów X.509 do zabezpieczenia klastra i zapewnienia funkcji zabezpieczeń aplikacji. Usługa Azure Key Vault służy do [zarządzania certyfikatami](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) dla klastrów sieci szkieletowej usług na platformie Azure. Dostawca zasobów platformy Azure, który tworzy klastry pobiera certyfikaty z magazynu kluczy. Dostawca następnie instaluje certyfikaty na maszynach wirtualnych, gdy klaster jest wdrażany na platformie Azure.
 
-Istnieje relacja certyfikatów między [usługą Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md), klastrem sieci szkieletowej usług a dostawcą zasobów, który używa certyfikatów. Podczas tworzenia klastra informacje o relacji certyfikatów są przechowywane w magazynie kluczy.
+Istnieje relacja certyfikatów między [usługą Azure Key Vault](../../key-vault/general/secure-your-key-vault.md), klastrem sieci szkieletowej usług a dostawcą zasobów, który używa certyfikatów. Podczas tworzenia klastra informacje o relacji certyfikatów są przechowywane w magazynie kluczy.
 
 Istnieją dwa podstawowe kroki konfigurowania magazynu kluczy:
 1. Utwórz grupę zasobów specjalnie dla magazynu kluczy.
@@ -166,7 +166,7 @@ Istnieją dwa podstawowe kroki konfigurowania magazynu kluczy:
 
     Magazyn kluczy musi być włączony do wdrożenia. Dostawca zasobów obliczeniowych może następnie uzyskać certyfikaty z magazynu i zainstalować je w wystąpieniach maszyny Wirtualnej.
 
-Aby dowiedzieć się więcej o konfigurowaniu magazynu kluczy, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Aby dowiedzieć się więcej o konfigurowaniu magazynu kluczy, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md).
 
 ## <a name="assign-users-to-roles"></a>Przypisywanie użytkowników do ról
 Po utworzeniu aplikacji do reprezentowania klastra, przypisać użytkowników do ról, które są obsługiwane przez sieci szkieletowej usług: tylko do odczytu i administratora. Te role można przypisać przy użyciu witryny Azure portal.

@@ -3,12 +3,12 @@ title: Monitorowanie zmian delegowania w dzierżawie zarządzającej
 description: Dowiedz się, jak monitorować aktywność delegowania od dzierżawców klientów do dzierżawy zarządzającej.
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 322580cc3d0246f7a34e28cdae94da57fda070b5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985154"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458815"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorowanie zmian delegowania w dzierżawie zarządzającej
 
@@ -44,7 +44,7 @@ Ponieważ jest to szeroki poziom dostępu, zaleca się przypisanie tej roli do k
 
 - [Utwórz nowe konto głównej usługi,](../../active-directory/develop/howto-create-service-principal-portal.md) które ma być używane tylko dla tej funkcji, zamiast przypisywać tę rolę do istniejącej jednostki usługi używanej do innych automatyzacji.
 - Upewnij się, że ten podmiot zabezpieczeń usługi nie ma dostępu do żadnych delegowanych zasobów klienta.
-- [Użyj certyfikatu, aby uwierzytelnić](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) go i [bezpiecznie przechowywać w usłudze Azure Key Vault](../../key-vault/key-vault-best-practices.md).
+- [Użyj certyfikatu, aby uwierzytelnić](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) go i [bezpiecznie przechowywać w usłudze Azure Key Vault](../../key-vault/general/best-practices.md).
 - Ogranicz użytkowników, którzy mają dostęp do działania w imieniu jednostki usługi.
 
 Użyj jednej z następujących metod, aby dokonać przypisania zakresu głównego.

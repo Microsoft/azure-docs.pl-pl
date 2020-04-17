@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 29a4d20390575778ccdecde390c257ccf6a48eb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ca36a7081aaf70ee2045ee7586184c89591df16
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720932"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461518"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Przechowywanie wpisów tajnych w magazynie kluczy w laboratorium devtest azure
 Może być konieczne wprowadzenie złożonego klucza tajnego podczas korzystania z usługi Azure DevTest Labs: hasło dla maszyny Wirtualnej systemu Windows, publiczny klucz SSH dla maszyny Wirtualnej systemu Linux lub token dostępu osobistego w celu sklonowania repozytorium Git za pośrednictwem artefaktu. Sekrety są zwykle długie i mają losowe postacie. Dlatego wprowadzanie ich może być trudne i niewygodne, zwłaszcza jeśli używasz tego samego tajnego wiele razy.
 
-Aby rozwiązać ten problem, a także zachować swoje wpisy tajne w bezpiecznym miejscu, DevTest Labs obsługuje przechowywanie wpisów tajnych w [magazynie kluczy platformy Azure.](../key-vault/key-vault-overview.md) Gdy użytkownik zapisuje klucz tajny po raz pierwszy, usługa DevTest Labs automatycznie tworzy magazyn kluczy w tej samej grupie zasobów, która zawiera laboratorium i przechowuje klucz tajny w magazynie kluczy. DevTest Labs tworzy oddzielny magazyn kluczy dla każdego użytkownika. 
+Aby rozwiązać ten problem, a także zachować swoje wpisy tajne w bezpiecznym miejscu, DevTest Labs obsługuje przechowywanie wpisów tajnych w [magazynie kluczy platformy Azure.](../key-vault/general/overview.md) Gdy użytkownik zapisuje klucz tajny po raz pierwszy, usługa DevTest Labs automatycznie tworzy magazyn kluczy w tej samej grupie zasobów, która zawiera laboratorium i przechowuje klucz tajny w magazynie kluczy. DevTest Labs tworzy oddzielny magazyn kluczy dla każdego użytkownika. 
 
 Należy pamiętać, że użytkownik laboratorium będzie musiał najpierw utworzyć maszynę wirtualną laboratorium, zanim będzie mógł utworzyć klucz tajny w magazynie kluczy. Dzieje się tak, ponieważ usługa DevTest Lab musi skojarzyć użytkownika laboratorium z prawidłowym dokumentem użytkownika, zanim będą mogli tworzyć i przechowywać wpisy tajne w magazynie kluczy. 
 

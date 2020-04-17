@@ -4,12 +4,12 @@ description: Dowiedz się więcej o używaniu tożsamości zarządzanych dla pla
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: f6f3736bed4d3d59bce08d4df3ee0aa164a0a764
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415111"
+ms.locfileid: "81461450"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Używanie tożsamości zarządzanych dla platformy Azure z siecią szkieletową usług
 
@@ -57,7 +57,7 @@ Następujące scenariusze nie są obsługiwane lub nie są zalecane; Należy pam
 
 - Usuwanie lub zmienianie tożsamości przypisanych do aplikacji; Jeśli musisz wprowadzić zmiany, prześlij oddzielne wdrożenia, aby najpierw dodać nowe przypisanie tożsamości, a następnie usunąć wcześniej przypisane. Usunięcie tożsamości z istniejącej aplikacji może mieć niepożądane skutki, w tym pozostawienie aplikacji w stanie, który nie można uaktualnić. Bezpieczne jest całkowite usunięcie aplikacji, jeśli konieczne jest usunięcie tożsamości; Należy pamiętać, że spowoduje to usunięcie tożsamości przypisanej przez system (jeśli jest to zdefiniowane) skojarzonej z aplikacją i spowoduje usunięcie wszelkich skojarzeń z tożsamościami przypisanymi przez użytkownika przypisanymi do aplikacji.
 
-- Obsługa sieci szkieletowej usług dla tożsamości zarządzanych nie jest obecnie zintegrowana z [platformą AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md).
+- Obsługa sieci szkieletowej usług dla tożsamości zarządzanych nie jest obecnie zintegrowana z [platformą AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

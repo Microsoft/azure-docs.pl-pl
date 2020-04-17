@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: d9413a37be221adc375836719dc1f467a5571fa0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d563b338169ab26649b42c73f5fb7ed2fe8c0312
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610186"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460192"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Konfigurowanie certyfikatu szyfrowania i szyfrowanie wpisów tajnych w klastrach systemu Windows
 W tym artykule pokazano, jak skonfigurować certyfikat szyfrowania i używać go do szyfrowania wpisów tajnych w klastrach systemu Windows. W przypadku klastrów systemu Linux zobacz [Konfigurowanie certyfikatu szyfrowania i szyfrowanie wpisów tajnych w klastrach systemu Linux.][secret-management-linux-specific-link]
@@ -46,7 +46,7 @@ Wynikowy ciąg zakodowany base-64 zawiera zarówno tajny szyfr, jak i informacje
 Dowiedz się, jak [określić zaszyfrowane wpisy tajne w aplikacji.][secret-management-specify-encrypted-secrets-link]
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-overview.md
+[key-vault-get-started]:../key-vault/general/overview.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
 [environment-variables-link]: service-fabric-how-to-specify-environment-variables.md

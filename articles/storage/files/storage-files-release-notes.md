@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: c6455930f88d02e11cb0c45d29594ae40eaad9e3
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 82d8c8ca94f3d0f4289902ae40928ff507e2d1ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113293"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460668"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Informacje o wersji agenta usługi Azure File Sync
 Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Instalacje systemów Windows Server są przekształcane w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -63,9 +63,6 @@ Poniższe informacje o wersji są dla wersji 10.0.0.0 agenta usługi Azure File 
 - Obsługa przenoszenia usługi synchronizacji magazynu i/lub konta magazynu do innej dzierżawy usługi Azure Active Directory (AAD)
     - Usługa Azure File Sync obsługuje teraz przenoszenie konta usługi synchronizacji magazynu i/lub magazynu do innej grupy zasobów, subskrypcji lub dzierżawy usługi Azure AD.
     
-- Narzędzie do oceny identyfikuje teraz pliki lub katalogi, które kończą się kropką
-    - [Narzędzie Ocena](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) zostało zaktualizowane w celu zidentyfikowania plików lub katalogów, które kończą się kropką. Pliki lub katalogi, które kończą się kropką, nie są obecnie obsługiwane przez usługę Azure File Sync. Aby użyć zaktualizowanej wersji [narzędzia Ewaluacja,](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)zainstaluj najnowszą wersję [modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
- 
 - Różne ulepszenia wydajności i niezawodności
     - Wykrywanie zmian w udziale plików platformy Azure może zakończyć się niepowodzeniem, jeśli reguły sieci wirtualnej (VNET) i zapory są skonfigurowane na koncie magazynu.
     - Mniejsze zużycie pamięci związane z wycofaniem. 

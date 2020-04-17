@@ -2,13 +2,13 @@
 title: Często zadawane pytania dotyczące urządzenia migracji platformy Azure
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące urządzenia migracji platformy Azure.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: a08423637f255b973f52616f53172ef6e48d0804
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 529ead1baa769ee3e71f6fcf77ef7e020ed196a6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437610"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529692"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Urządzenie migracji platformy Azure: typowe pytania
 
@@ -31,6 +31,15 @@ Oto więcej informacji na temat urządzenia migracji platformy Azure:
 
 [Dowiedz się więcej](migrate-appliance.md) o urządzeniu.
 
+## <a name="how-can-i-deploy-the-appliance"></a>Jak mogę wdrożyć urządzenie?
+
+Urządzenie można wdrożyć w następujący sposób:
+
+- Używanie szablonu dla maszyn wirtualnych VMware i maszyn wirtualnych funkcji Hyper-V (szablon OVA dla oprogramowania VMware lub VHD dla funkcji Hyper-V).
+- Jeśli nie chcesz używać szablonu lub korzystasz z platformy Azure dla instytucji rządowych, możesz wdrożyć urządzenie dla VMware lub Hyper-V przy użyciu skryptu programu PowerShell.
+- W przypadku serwerów fizycznych urządzenie jest zawsze wdrażane przy użyciu skryptu.
+
+
 ## <a name="how-does-the-appliance-connect-to-azure"></a>W jaki sposób urządzenie łączy się z platformą Azure?
 
 Urządzenie można połączyć przez Internet lub przy użyciu usługi Azure ExpressRoute z komunikacji równorzędnej publicznych/Microsoft.
@@ -45,11 +54,8 @@ Korzystając z pobranego szablonu do utworzenia maszyny Wirtualnej urządzenia, 
 
 ## <a name="what-network-connectivity-is-required"></a>Jaka jest łączność sieciowa?
 
-Zobacz następujące artykuły, aby uzyskać informacje na temat wymagań dotyczących łączności sieciowej dla urządzenia migracji platformy Azure:
 
-- **Ocena VMware**: [dostęp do adresów URL](migrate-appliance.md#url-access) i dostęp do [portów](migrate-support-matrix-vmware.md#port-access)
-- **Migracja bez agenta VMware:** [dostęp do adresów URL](migrate-appliance.md#url-access) i dostęp do [portów](migrate-support-matrix-vmware-migration.md#agentless-ports)
-- **Ocena funkcji Hyper-V**: [dostęp do adresów URL](migrate-appliance.md#url-access) i dostęp do [portów](migrate-support-matrix-hyper-v.md#port-access)
+Urządzenie potrzebuje dostępu do adresów URL platformy Azure. [Przejrzyj](migrate-appliance.md#url-access) listę adresów URL.
 
 ## <a name="what-data-does-the-appliance-collect"></a>Jakie dane gromadzi urządzenie?
 

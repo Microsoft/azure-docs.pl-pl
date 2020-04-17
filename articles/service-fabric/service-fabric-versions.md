@@ -3,12 +3,12 @@ title: Obsługiwane wersje klastra w sieci szkieletowej usług Azure
 description: Dowiedz się więcej o wersjach klastra w sieci szkieletowej usługi Azure, w tym łącze do najnowszych wersji z bloga zespołu sieci szkieletowej usług.
 ms.topic: troubleshooting
 ms.date: 03/02/2020
-ms.openlocfilehash: 1158266857f0864ed2f442edb100032c70063719
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: b76e498926492ce7acaa696dfe9a0299fb5573e0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385048"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460532"
 ---
 # <a name="supported-service-fabric-versions"></a>Obsługiwane wersje sieci szkieletowej usług
 
@@ -37,10 +37,10 @@ W poniższej tabeli wymieniono wersje sieci szkieletowej usług i daty zakończe
 | 6.3.* | 6.1.480.* |Wersja mniejsza lub równa wersji 3.2 |31 marca 2019 r.  |
 | 6.4.* | 6.2.301.* |Wersja mniejsza lub równa wersji 3.3 |15 września 2019 r. |
 | 6.5.* | 6.4.617.* |Wersja mniejsza lub równa wersji 3.4 |1 sierpnia 2020 r. |
-| 7.0.466.* | 6.4.664.* |Mniej niż lub równa wersji 4.0|Bieżąca wersja, więc nie ma daty zakończenia |
-| 7.0.466.* | 6.5.* |Mniej niż lub równa wersji 4.0|Bieżąca wersja, więc nie ma daty zakończenia |
-| 7.0.470.* | 7.0.466.* |Mniej niż lub równa wersji 4.0 |Bieżąca wersja, więc nie ma daty zakończenia |
-
+| 7.0.466.* | 6.4.664.* |Mniej niż lub równa wersji 4.0|1 sierpnia 2020 r.  |
+| 7.0.466.* | 6.5.* |Mniej niż lub równa wersji 4.0|1 sierpnia 2020 r. |
+| 7.0.470.* | 7.0.466.* |Mniej niż lub równa wersji 4.0 |1 sierpnia 2020 r.  |
+| 7.1.409.* | 7.0.466.* |Mniej niż lub równa wersji 4.0 |Bieżąca wersja, więc nie ma daty zakończenia |
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
 W poniższej tabeli wymieniono obsługiwane systemy operacyjne dla obsługiwanych wersji sieci szkieletowej usług.

@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 795d21e05ade652b52c06d597ca4c5fef85e7245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ddb4b2cd465b5e9542d777d33b9bd8cb952becd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80152851"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531341"
 ---
-# <a name="deploy-the-sample-labeling-tool"></a>Wdrażanie przykładowego narzędzia do etykietowania
+# <a name="deploy-the-sample-labeling-tool"></a>Wdrażanie przykładowego narzędzia do oznaczania etykietami
 
 Narzędzie do etykietowania przykładowego aparatu rozpoznawania formularzy to aplikacja, która zapewnia prosty interfejs użytkownika (UI), którego można używać do ręcznego etykietowania formularzy (dokumentów) w celu nadzorowanego uczenia się. W tym artykule udostępnimy linki i instrukcje, które nauczą Cię, jak:
 
@@ -34,14 +34,14 @@ Najszybszym sposobem rozpoczęcia etykietowania danych jest lokalne uruchomienie
 
 Zanim zaczniemy, należy pamiętać, że istnieją dwa sposoby wdrażania przykładowego narzędzia do etykietowania w wystąpieniu kontenera platformy Azure (ACI). Obie opcje są używane do uruchamiania przykładowego narzędzia do etykietowania za pomocą ACI: 
 
-* [Korzystanie z witryny Azure portal](#azure-portal)
+* [Korzystanie z witryny Azure Portal](#azure-portal)
 * [Korzystanie z interfejsu wiersza polecenia platformy Azure](#azure-cli)
 
-### <a name="azure-portal"></a>Portal Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu witryny Azure portal: 
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/signin/index/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/signin/index/).
 2. Wybierz pozycję **Utwórz zasób**. 
 3. Następnie wybierz pozycję **Aplikacja sieci Web**. 
 
@@ -76,6 +76,7 @@ Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu witryny Azur
    * Nazwa użytkownika (opcjonalnie) — tworzenie nazwy użytkownika. 
    * Hasło (opcjonalnie) — utwórz bezpieczne hasło, które zapamiętasz.
    * Obraz i znacznik — ustaw na to`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Ciągłe wdrażanie — ustaw to **na Włączone,** jeśli chcesz otrzymywać automatyczne aktualizacje, gdy zespół programistów wprowadza zmiany w przykładowym narzędziu etykietowania.
    * Polecenie Uruchamianie — ustaw na to`./run.sh eula=accept`
 
    > [!div class="mx-imgBorder"]

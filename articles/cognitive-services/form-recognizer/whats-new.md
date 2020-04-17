@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7f20244906581dd2869bbc7fcd997d5245540eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f8c66db491b93278fedf1378d3df86e7ce5fdbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155175"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531086"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -25,48 +25,46 @@ Usługa rozpoznawania formularzy jest aktualizowana na bieżąco. Ten artykuł u
 
 ## <a name="march-2020"></a>Marzec 2020 r. 
 
+### <a name="new-features"></a>Nowe funkcje
+
+* **Typy wartości do etykietowania** Teraz można określić typy wartości, które oznaczasz, za pomocą narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy. Następujące typy wartości i odmiany są obecnie obsługiwane:
+  * `string`
+    * domyślnie, `no-whitespaces`,`alphanumeric`
+  * `number`
+    * Domyślny`currency`
+  * `date` 
+    * `dmy`domyślnie, `mdy`,`ymd`
+  * `time`
+  * `integer`
+
+  Zobacz przykładowy przewodnik po narzędziach do [etykietowania,](./quickstarts/label-tool.md#specify-tag-value-types) aby dowiedzieć się, jak korzystać z tej funkcji.
+
+
+* **Wizualizacja tabeli** Narzędzie do etykietowania przykładowego wyświetla teraz tabele, które zostały rozpoznane w dokumencie. Dzięki temu można wyświetlić tabele, które zostały rozpoznane i wyodrębnione z dokumentu, przed etykietowaniem i analizą. Tę funkcję można włączać/wyłączać za pomocą opcji warstw.
+
+  Jest to przykład sposobu rozpoznawanie i wyodrębnianie tabel:
+
+  > [!div class="mx-imgBorder"]
+  > ![Wizualizacja tabeli przy użyciu przykładowego narzędzia do etykietowania](./media/whats-new/formre-table-viz.png)
+
+    Wyodrębnione tabele są dostępne w `"pageResults"`danych wyjściowych JSON w obszarze .
+
+  > [!IMPORTANT]
+  > Tabele etykietowania nie są obsługiwane. Jeśli tabele nie są rozpoznawane i ekstrakowane automatycznie, można je oznaczyć tylko jako pary klucz/wartość. Podczas etykietowania tabel jako par klucz/wartość oznaczaj każdą komórkę jako unikatową wartość.
+
 ### <a name="extraction-enhancements"></a>Ulepszenia ekstrakcji
 
 Ta wersja zawiera ulepszenia ekstrakcji i ulepszenia dokładności, w szczególności możliwość etykietowania i wyodrębniania wielu par klucz/wartość w tym samym wierszu tekstu. 
  
-### <a name="form-recognizer-sample-labeling-tool-is-now-open-source"></a>Narzędzie do oznaczania przykładowego aparatu formularza jest teraz open source
+### <a name="sample-labeling-tool-is-now-open-source"></a>Przykładowe narzędzie do etykietowania jest teraz open-source
 
-Narzędzie do oznaczania przykładowego aparatu rozpoznawania formularzy jest teraz dostępne jako projekt typu open source. Możesz zintegrować go ze swoimi rozwiązaniami i wprowadzić zmiany specyficzne dla klienta, aby spełnić Twoje potrzeby.
+Narzędzie do etykietowania przykładowego aparatu rozpoznawania formularzy jest teraz dostępne jako projekt typu open source. Możesz zintegrować go ze swoimi rozwiązaniami i wprowadzić zmiany specyficzne dla klienta, aby spełnić Twoje potrzeby.
 
 Aby uzyskać więcej informacji na temat narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy, zapoznaj się z dokumentacją dostępną w [usłudze GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
-### <a name="labeling-value-types"></a>Typy wartości etykietowania
-
-Typy wartości są teraz dostępne do użycia za pomocą narzędzia do oznaczania przykładowego aparatu formularza. Te typy wartości są obecnie obsługiwane: 
-
-* Ciąg
-* Liczba 
-* Liczba całkowita
-* Data 
-* Time
-
-Ten obraz przedstawia, jak wygląda wybór typu wartości w narzędziu do etykietowania przykładowego aparatu rozpoznawania formularzy:
-
-> [!div class="mx-imgBorder"]
-> ![Wybór typu wartości za pomocą przykładowego narzędzia do etykietowania](./media/whats-new/formre-value-type.png)
-
-Wyodrębniona tabela jest dostępna w `pageResults`danych wyjściowych JSON w pliku .
-
-### <a name="table-visualization"></a>Wizualizacja tabeli 
-
-Narzędzie do oznaczania aparatów rozpoznawania formularzy wyświetla teraz tabele, które zostały rozpoznane w dokumencie. Dzięki temu można wyświetlić tabele, które zostały rozpoznane i wyodrębnione z dokumentu, przed etykietowaniem i analizą za pomocą narzędzia do etykietowania przykładowego aparatu formularza. Tę funkcję można włączać/wyłączać za pomocą opcji warstw. 
-
-Jest to przykład sposobu rozpoznawanie i wyodrębnianie tabel:
-
-> [!div class="mx-imgBorder"]
-> ![Wizualizacja tabeli przy użyciu przykładowego narzędzia do etykietowania](./media/whats-new/formre-table-viz.png)
-
-> [!IMPORTANT]
-> Tabele etykietowania nie są obsługiwane. Jeśli tabele nie są rozpoznawane i ekstrakowane automatycznie, można je oznaczyć tylko jako pary klucz/wartość. Podczas etykietowania tabel jako par klucz/wartość, należy oznaczyć każdą komórkę jako wartość.
-
 ### <a name="tls-12-enforcement"></a>Wymuszanie protokołu TLS 1.2
 
-* Protokół TLS 1.2 jest teraz wymuszany dla wszystkich żądań HTTP do tej usługi. Aby uzyskać więcej informacji, zobacz [zabezpieczenia usług Azure Cognitive Services](../cognitive-services-security.md).
+Protokół TLS 1.2 jest teraz wymuszany dla wszystkich żądań HTTP do tej usługi. Aby uzyskać więcej informacji, zobacz [zabezpieczenia usług Azure Cognitive Services](../cognitive-services-security.md).
 
 ## <a name="january-2020"></a>Styczeń 2020 r.
 

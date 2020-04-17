@@ -7,12 +7,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mimckitt
-ms.openlocfilehash: ee6a25ac5a4cc7de8b8340afb186d170cc147a38
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 70810b21def1672758683abd49f92b86776c9d7b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393786"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458985"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Skalowanie maszyny wirtualnej platformy Azure ustawia automatyczne uaktualnienia obrazów systemu operacyjnego
 
@@ -158,7 +158,7 @@ az provider register --namespace Microsoft.Compute
 - Nowa wersja obrazu nie powinna być wykluczona z najnowszej wersji dla tego obrazu galerii. Wersje obrazów wykluczone z najnowszej wersji obrazu galerii nie są wprowadzane do skalowania ustawionego przez automatyczne uaktualnianie obrazu systemu operacyjnego.
 
 > [!NOTE]
->Może upłynąć do 2 godzin dla zestawu skalowania, aby uzyskać pierwszy obraz rollout po skonfigurowaniu zestawu skalowania dla automatycznych uaktualnień systemu operacyjnego. Jest to opóźnienie jednorazowe na zestaw skalowania. Kolejne wdrożenia obrazów są stosowane do zestawu skalowania bez tej zwłoki.
+>Może upłynąć do 3 godzin dla skalowania zestaw do wyzwolenia pierwszego wdrożenia uaktualnienia obrazu po skonfigurowaniu zestawu skalowania dla automatycznych uaktualnień systemu operacyjnego. Jest to opóźnienie jednorazowe na zestaw skalowania. Kolejne wdrożenia obrazów są wyzwalane w zestawie skalowania w ciągu 30 minut.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Konfigurowanie automatycznego uaktualniania obrazu systemu operacyjnego

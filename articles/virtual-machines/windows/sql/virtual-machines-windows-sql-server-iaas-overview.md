@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7d8d1505a268976161636abd0ed2d24398978284
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4186a4ed369eb289360b74c0758e5ce3f7eca929
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75374312"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482159"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Co to jest program SQL Server na maszynach wirtualnych platformy Azure? (Windows)
 
@@ -38,6 +38,9 @@ Maszyny wirtualne platformy Azure z programem SQL Server umożliwiają korzystan
 ## <a name="automated-backups"></a>Automatyczne kopie zapasowe
 
 Maszyny wirtualne Azure z programem SQL Server umożliwiają korzystanie z funkcji [Automatyczne kopie zapasowe](virtual-machines-windows-sql-automated-backup-v2.md), która regularnie tworzy kopie zapasowe bazy danych w usłudze Blob Storage. Tej techniki można również używać ręcznie. Aby uzyskać więcej informacji, zobacz [Use Azure Storage for SQL Server Backup and Restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md) (Używanie usługi Azure Storage do tworzenia kopii zapasowych programu SQL Server i ich przywracania).
+
+Platforma Azure oferuje również rozwiązanie do tworzenia kopii zapasowych klasy korporacyjnej dla programu SQL Server działającego na maszynach wirtualnych platformy Azure. W pełni zarządzane rozwiązanie do tworzenia kopii zapasowych obsługuje grupy dostępności zawsze włączone, długoterminowe przechowywanie, odzyskiwanie w czasie oraz centralne zarządzanie i monitorowanie. Aby uzyskać więcej informacji, zobacz [Usługa Azure Backup for SQL Server w usłudze Azure VM](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+  
 
 ## <a name="high-availability"></a>Wysoka dostępność
 
@@ -138,7 +141,7 @@ Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on
 ### <a name="storage"></a>Magazyn
 * [Wprowadzenie do usługi Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
-### <a name="networking"></a>Obsługa sieci
+### <a name="networking"></a>Networking
 * [Omówienie sieci wirtualnej](../../../virtual-network/virtual-networks-overview.md)
 * [Adresy IP na platformie Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Tworzenie w pełni kwalifikowanej nazwy domeny w witrynie Azure Portal](../portal-create-fqdn.md)

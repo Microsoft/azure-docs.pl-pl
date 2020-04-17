@@ -10,12 +10,12 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8fe95a471df6ea86aad90f387088824c3c92bd3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32691e0ddcee3f5410b12f07a2fb80806345bc26
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75460450"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460515"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Szyfrowanie po stronie klienta i usługa Azure Key Vault z oprogramowaniem Java dla usługi Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -103,7 +103,7 @@ W operacjach wsadowych ten sam KEK będzie używany we wszystkich wierszach w te
 > Aby wykonać operacje kwerendy, należy określić program rozpoznawania kluczy, który jest w stanie rozpoznać wszystkie klucze w zestawie wyników. Jeśli jednostka zawarta w wyniku kwerendy nie może zostać rozpoznana dla dostawcy, biblioteka klienta zrzuci błąd. W przypadku każdej kwerendy wykonującej rzuty po stronie serwera biblioteka klienta domyślnie doda do wybranych kolumn specjalne właściwości metadanych szyfrowania (_ClientEncryptionMetadata1 i _ClientEncryptionMetadata2).
 
 ## <a name="azure-key-vault"></a>W usłudze Azure Key Vault
-Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Korzystając z usługi Azure Key Vault, użytkownicy mogą szyfrować klucze i wpisy tajne (takie jak klucze uwierzytelniania, klucze kont magazynu, klucze szyfrowania danych, . PFX i hasła) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (HSM). Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Korzystając z usługi Azure Key Vault, użytkownicy mogą szyfrować klucze i wpisy tajne (takie jak klucze uwierzytelniania, klucze kont magazynu, klucze szyfrowania danych, . PFX i hasła) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (HSM). Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md).
 
 Biblioteka klienta magazynu używa biblioteki podstawowej usługi Key Vault w celu zapewnienia wspólnej struktury na platformie Azure do zarządzania kluczami. Użytkownicy otrzymują również dodatkowe korzyści wynikające z korzystania z biblioteki rozszerzeń usługi Key Vault. Biblioteka rozszerzeń zapewnia przydatne funkcje wokół prostych i bezproblemowych dostawców kluczy lokalnych i bezpieczeństwa RSA, a także agregacji i buforowania.
 
@@ -256,4 +256,4 @@ Należy zauważyć, że szyfrowanie danych magazynu powoduje dodatkowe obciąże
 * Pobierz pakiety Azure Key Vault Maven Library for Java Maven:
   * [Pakiet podstawowy](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
   * Pakiet [klienta](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
-* Odwiedź [dokumentację usługi Azure Key Vault](../../key-vault/key-vault-overview.md)
+* Odwiedź [dokumentację usługi Azure Key Vault](../../key-vault/general/overview.md)

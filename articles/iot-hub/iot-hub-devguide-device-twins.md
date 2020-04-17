@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
-ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 251c9c9717bae1728bffa48827a45d4535d66c15
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79285242"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482072"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Opis bliźniaczych urządzeń i używanie ich w Centrum IoT
 
@@ -58,7 +58,7 @@ Bliźniacza reprezentacja urządzenia to dokument JSON, który zawiera:
 
 * **Zgłoszone właściwości**. Używane wraz z żądanymi właściwościami do synchronizowania konfiguracji urządzenia lub warunków. Aplikacja urządzenia można ustawić zgłaszane właściwości, a zaplecze rozwiązania można je odczytać i zbadać je.
 
-* **Właściwości tożsamości urządzenia**. Katalog główny dokumentu JSON bliźniaczej reprezentacji urządzenia zawiera właściwości tylko do odczytu z odpowiedniej tożsamości urządzenia przechowywane w [rejestrze tożsamości](iot-hub-devguide-identity-registry.md).
+* **Właściwości tożsamości urządzenia**. Katalog główny dokumentu JSON bliźniaczej reprezentacji urządzenia zawiera właściwości tylko do odczytu z odpowiedniej tożsamości urządzenia przechowywane w [rejestrze tożsamości](iot-hub-devguide-identity-registry.md). Właściwości `connectionStateUpdatedTime` i `generationId` nie będą uwzględniane.
 
 ![Zrzut ekranu przedstawiający właściwości bliźniaczej reprezentacji urządzenia](./media/iot-hub-devguide-device-twins/twin.png)
 

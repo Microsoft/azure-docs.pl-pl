@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 790e2a148385f9da54df82f597c2ca52124dc2be
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397991"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529874"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Szkolenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu przykładowego narzędzia do etykietowania
 
@@ -49,7 +49,7 @@ Aparat platformy Docker użyjesz do uruchomienia przykładowego narzędzia do et
 
    Zainstaluj platformę Docker na komputerze, postępując zgodnie z odpowiednimi instrukcjami dotyczącymi systemu operacyjnego: 
    * [Windows](https://docs.docker.com/docker-for-windows/)
-   * [Macos](https://docs.docker.com/docker-for-mac/)
+   * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
 1. Pobierz przykładowy kontener narzędzi `docker pull` do etykietowania za pomocą polecenia.
@@ -104,7 +104,7 @@ Wypełnij pola następującymi wartościami:
 W przykładowym narzędziu do etykietowania projekty przechowują konfiguracje i ustawienia. Utwórz nowy projekt i wypełnij pola następującymi wartościami:
 
 * **Nazwa wyświetlana** - nazwa wyświetlana projektu
-* **Token zabezpieczający** — niektóre ustawienia projektu mogą zawierać poufne wartości, takie jak klucze interfejsu API lub inne udostępnione wpisy tajne. Każdy projekt wygeneruje token zabezpieczający, który może służyć do szyfrowania/odszyfrowywania poufnych ustawień projektu. Tokeny zabezpieczające można znaleźć w ustawieniach aplikacji, klikając ikonę koła zębatego w dolnym rogu lewego paska nawigacyjnego.
+* **Token zabezpieczający** — niektóre ustawienia projektu mogą zawierać poufne wartości, takie jak klucze interfejsu API lub inne udostępnione wpisy tajne. Każdy projekt wygeneruje token zabezpieczający, który może służyć do szyfrowania/odszyfrowywania poufnych ustawień projektu. Tokeny zabezpieczające można znaleźć w ustawieniach aplikacji, klikając ikonę koła zębatego u dołu lewego paska nawigacyjnego.
 * **Źródło połączenia** — połączenie usługi Azure Blob Storage utworzone w poprzednim kroku, który chcesz użyć dla tego projektu.
 * **Ścieżka folderu** — opcjonalnie — jeśli formularze źródłowe znajdują się w folderze w kontenerze obiektów blob, określ tutaj nazwę folderu
 * **Identyfikator rozpoznawania formularzy Uri** — adres URL punktu końcowego rozpoznawania formularzy.
@@ -130,9 +130,9 @@ Kliknij **pozycję Uruchom ocr we wszystkich plikach** w lewym okienku, aby uzys
 Następnie utworzysz znaczniki (etykiety) i zastosujesz je do elementów tekstowych, które mają rozpoznawać model.
 
 1. Najpierw użyj okienka edytora tagów, aby utworzyć znaczniki, które chcesz zidentyfikować.
-  1. Kliknij, **+** aby utworzyć nowy znacznik.
-  1. Wprowadź nazwę znacznika.
-  1. Naciśnij klawisz Enter, aby zapisać znacznik.
+   1. Kliknij, **+** aby utworzyć nowy znacznik.
+   1. Wprowadź nazwę znacznika.
+   1. Naciśnij klawisz Enter, aby zapisać znacznik.
 1. W edytorze głównym kliknij i przeciągnij, aby zaznaczyć jeden lub wiele wyrazów z wyróżnionych elementów tekstowych.
 1. Kliknij znacznik, który chcesz zastosować, lub naciśnij odpowiedni klawisz klawiatury. Klawisze numeryczne są przypisywane jako skróty klawiszowe dla pierwszych 10 tagów. Możesz zamiecą kolejność znaczników za pomocą ikon strzałek w górę i w dół w okienku edytora tagów.
     > [!Tip]
@@ -144,15 +144,30 @@ Następnie utworzysz znaczniki (etykiety) i zastosujesz je do elementów tekstow
     > * Nie dołączaj kluczy do&mdash;oznaczonych pól tylko wartości.
     > * Dane tabeli powinny być wykrywane automatycznie i będą dostępne w wyjściowym pliku JSON. Jeśli jednak model nie wykryje wszystkich danych tabeli, można również ręcznie oznaczyć te pola. Oznacz każdą komórkę w tabeli inną etykietą. Jeśli formularze mają tabele z różna liczba wierszy, upewnij się, że tag co najmniej jeden formularz z największą możliwą tabelę.
 
-
-Wykonaj powyższe kroki, aby oznaczyć pięć formularzy, a następnie przejdź do następnego kroku.
-
 ![Okno edytora głównego przykładowego narzędzia do etykietowania](../media/label-tool/main-editor.png)
 
+Wykonaj powyższe czynności, aby oznaczyć co najmniej pięć formularzy.
+
+### <a name="specify-tag-value-types"></a>Określanie typów wartości znacznika
+
+Opcjonalnie można ustawić typ oczekiwanych danych dla każdego tagu. Otwórz menu kontekstowe po prawej stronie znacznika i wybierz typ z menu. Ta funkcja umożliwia algorytmowi wykrywania, aby pewne założenia, które poprawią dokładność wykrywania tekstu. Zapewnia również, że wykryte wartości zostaną zwrócone w znormalizowanym formacie w ostatecznym wyjściu JSON. 
+
+> [!div class="mx-imgBorder"]
+> ![Wybór typu wartości za pomocą przykładowego narzędzia do etykietowania](../media/whats-new/formre-value-type.png)
+
+Następujące typy wartości i odmiany są obecnie obsługiwane:
+* `string`
+    * domyślnie, `no-whitespaces`,`alphanumeric`
+* `number`
+    * Domyślny`currency`
+* `date` 
+    * `dmy`domyślnie, `mdy`,`ymd`
+* `time`
+* `integer`
 
 ## <a name="train-a-custom-model"></a>Trenowanie modelu niestandardowego
 
-Kliknij ikonę Pociąg (wagon pociągu) w lewym okienku, aby otworzyć stronę Szkolenia. Następnie kliknij przycisk **Pociąg,** aby rozpocząć szkolenie modelu. Po zakończeniu procesu szkolenia zobaczysz następujące informacje:
+Kliknij ikonę Pociąg w lewym okienku, aby otworzyć stronę Szkolenie. Następnie kliknij przycisk **Pociąg,** aby rozpocząć szkolenie modelu. Po zakończeniu procesu szkolenia zobaczysz następujące informacje:
 
 * **Identyfikator modelu** — identyfikator modelu, który został utworzony i przeszkolony. Każde wywołanie szkolenia tworzy nowy model z własnym identyfikatorem. Skopiuj ten ciąg do bezpiecznej lokalizacji; będziesz go potrzebować, jeśli chcesz zrobić przewidywanie wywołania za pośrednictwem interfejsu API REST.
 * **Średnia dokładność** — średnia dokładność modelu. Można poprawić dokładność modelu, etykietując dodatkowe formularze i ponownie trenując, aby utworzyć nowy model. Zalecamy rozpoczęcie od etykietowania pięciu formularzy i dodanie większej liczby formularzy w razie potrzeby.
@@ -167,7 +182,7 @@ Po zakończeniu szkolenia sprawdź wartość **średnia dokładność.** Jeśli 
 
 ## <a name="analyze-a-form"></a>Analizowanie formularza
 
-Kliknij ikonę Predict (prostokąty) po lewej stronie, aby przetestować model. Przekaż dokument formularza, który nie był używany w procesie szkolenia. Następnie kliknij przycisk **Predict** po prawej stronie, aby uzyskać prognozy klucz/wartość dla formularza. Narzędzie zastosuje znaczniki w obwiedniach i zgłosi zaufanie każdego tagu.
+Kliknij ikonę Predict (żarówka) po lewej stronie, aby przetestować model. Przekaż dokument formularza, który nie był używany w procesie szkolenia. Następnie kliknij przycisk **Predict** po prawej stronie, aby uzyskać prognozy klucz/wartość dla formularza. Narzędzie zastosuje znaczniki w obwiedniach i zgłosi zaufanie każdego tagu.
 
 > [!TIP]
 > Można również uruchomić analizowanie interfejsu API za pomocą wywołania REST. Aby dowiedzieć się, jak to zrobić, zobacz [Trenuj z etykietami przy użyciu języka Python](./python-labeled-data.md).

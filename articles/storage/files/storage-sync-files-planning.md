@@ -7,21 +7,31 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8666f51b88d2a70a2cb27e3606f24010771c8017
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255121"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460713"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
-[Usługi Azure Files](storage-files-introduction.md) można wdrożyć na dwa główne sposoby: bezpośrednio montując bezserwerowe udziały plików platformy Azure lub buforując udziały plików platformy Azure lokalnie przy użyciu usługi Azure File Sync. Wybrana opcja wdrażania zmienia rzeczy, które należy wziąć pod uwagę podczas planowania wdrożenia. 
+
+:::row:::
+    :::column:::
+        [![Wywiad i demo wprowadzenie Azure File Sync - kliknij, aby grać!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
+    :::column-end:::
+    :::column:::
+        Usługa Azure File Sync to usługa umożliwiająca buforowanie wielu udziałów plików platformy Azure na lokalnej maszynie wirtualnej systemu Windows Server lub cloud. 
+        
+        W tym artykule przedstawiono pojęcia i funkcje usługi Azure File Sync. Po zapoznaniu się z synchronizacji plików platformy Azure, należy rozważyć następujące [przewodnik wdrażania usługi Azure File Sync,](storage-sync-files-deployment-guide.md) aby wypróbować tę usługę.        
+    :::column-end:::
+:::row-end:::
+
+Pliki będą przechowywane w chmurze w [udziałach plików platformy Azure](storage-files-introduction.md). Udziały plików platformy Azure mogą być używane na dwa sposoby: przez bezpośrednie instalowanie tych bezserwerowych udziałów plików platformy Azure (SMB) lub przez buforowanie udziałów plików platformy Azure lokalnie przy użyciu usługi Azure File Sync. Wybrana opcja wdrażania zmienia aspekty, które należy wziąć pod uwagę podczas planowania wdrożenia. 
 
 - **Bezpośrednie instalowanie udziału plików platformy Azure:** Ponieważ usługa Azure Files zapewnia dostęp do SMB, można zainstalować udziały plików platformy Azure lokalnie lub w chmurze przy użyciu standardowego klienta SMB dostępnego w systemach Windows, macOS i Linux. Ponieważ udziały plików platformy Azure są bezserwerowe, wdrażanie w scenariuszach produkcyjnych nie wymaga zarządzania serwerem plików ani urządzeniem NAS. Oznacza to, że nie trzeba stosować poprawek oprogramowania ani wymieniać dysków fizycznych. 
 
 - **Buforuj udział plików platformy Azure lokalnie za pomocą usługi Azure File Sync:** Usługa Azure File Sync umożliwia scentralizowanie udziałów plików organizacji w plikach azure, przy jednoczesnym zachowaniu elastyczności, wydajności i zgodności lokalnego serwera plików. Usługa Azure File Sync przekształca lokalny (lub chmurowy) system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. 
-
-Ten artykuł dotyczy przede wszystkim zagadnień dotyczących wdrażania usługi Azure File Sync. Aby zaplanować wdrożenie udziałów plików platformy Azure, które mają być bezpośrednio montowane przez klienta lokalnego lub w chmurze, zobacz [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md).
 
 ## <a name="management-concepts"></a>Koncepcje zarządzania
 Wdrożenie usługi Azure File Sync ma trzy podstawowe obiekty zarządzania:
@@ -234,7 +244,7 @@ Mimo że zmiany wprowadzone bezpośrednio do udziału plików platformy Azure po
 > [!Important]  
 > Do pomyślnego wdrożenia usługi Azure File Sync nie jest wymagane dołączanie konta magazynu do usługi Active Directory. Jest to ściśle opcjonalny krok, który umożliwia udział plików platformy Azure do wymuszania lokalnych list ACL, gdy użytkownicy montują udział plików platformy Azure bezpośrednio.
 
-## <a name="networking"></a>Obsługa sieci
+## <a name="networking"></a>Networking
 Agent synchronizacji plików platformy Azure komunikuje się z usługą synchronizacji magazynu i udziałem plików platformy Azure przy użyciu protokołu REST synchronizacji plików azure i protokołu FileREST, z których oba zawsze używają protokołu HTTPS przez port 443. SMB nigdy nie jest używany do przekazywania lub pobierania danych między systemem Windows Server i udziału plików platformy Azure. Ponieważ większość organizacji zezwala na ruch HTTPS przez port 443, jako wymóg odwiedzania większości witryn sieci Web, specjalna konfiguracja sieci zwykle nie jest wymagana do wdrożenia usługi Azure File Sync.
 
 Na podstawie zasad organizacji lub unikatowych wymagań regulacyjnych może wymagać bardziej restrykcyjnej komunikacji z platformą Azure, a zatem usługa Azure File Sync zapewnia kilka mechanizmów konfigurowania sieci. W zależności od wymagań możesz:
@@ -354,7 +364,7 @@ Rozwiązania antywirusowe firmy Microsoft, Windows Defender i System Center Endp
 > [!Note]  
 > Dostawcy oprogramowania antywirusowego mogą sprawdzać zgodność między swoim produktem a synchronizacją plików platformy Azure za pomocą [pakietu testów zgodności antywirusowej synchronizacji plików azure,](https://www.microsoft.com/download/details.aspx?id=58322)który jest dostępny do pobrania w Centrum pobierania Firmy Microsoft.
 
-## <a name="backup"></a>Tworzenie kopii zapasowych 
+## <a name="backup"></a>Backup 
 Podobnie jak rozwiązania antywirusowe, rozwiązania do tworzenia kopii zapasowych mogą powodować wycofywanie plików warstwowych. Zalecamy użycie rozwiązania do tworzenia kopii zapasowych w chmurze do tworzenia kopii zapasowych udziału plików platformy Azure zamiast lokalnego produktu do tworzenia kopii zapasowych.
 
 Jeśli używasz lokalnego rozwiązania do tworzenia kopii zapasowych, kopie zapasowe powinny być wykonywane na serwerze w grupie synchronizacji, która ma warstwy chmurowe wyłączone. Podczas przywracania należy użyć opcji przywracania na poziomie woluminu lub pliku. Pliki przywrócone przy użyciu opcji przywracania na poziomie pliku zostaną zsynchronizowane ze wszystkimi punktami końcowymi w grupie synchronizacji, a istniejące pliki zostaną zastąpione wersją przywróconą z kopii zapasowej.  Przywracanie na poziomie woluminu nie zastąpi nowszych wersji plików w udziale plików platformy Azure lub innych punktach końcowych serwera.
@@ -370,7 +380,7 @@ Jeśli używasz lokalnego rozwiązania do tworzenia kopii zapasowych, kopie zapa
 
 ## <a name="next-steps"></a>Następne kroki
 * [Rozważ ustawienia zapory i serwera proxy](storage-sync-files-firewall-and-proxy.md)
-* [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
+* [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
 * [Wdrażanie usługi Pliki Azure](storage-files-deployment-guide.md)
 * [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)

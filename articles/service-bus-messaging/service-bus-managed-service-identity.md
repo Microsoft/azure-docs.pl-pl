@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 89de6bf80d14ec77fe6b1f98b6e1d15c6e573fbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46a1db94d576174b837a40c646fcf9e082e339c8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756287"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461620"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Uwierzytelnij tożsamość zarządzaną za pomocą usługi Azure Active Directory w celu uzyskania dostępu do zasobów usługi Azure Service Bus
 [Tożsamości zarządzane dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) to funkcja między platformami Azure, która umożliwia utworzenie bezpiecznej tożsamości skojarzonej z wdrożeniem, w ramach którego uruchamia się kod aplikacji. Następnie można skojarzyć tę tożsamość z rolami kontroli dostępu, które udzielają uprawnień niestandardowych dostępu do określonych zasobów platformy Azure, których potrzebuje aplikacja.
@@ -75,7 +75,7 @@ Aby uzyskać więcej informacji na temat definiowania ról wbudowanych, zobacz [
 ## <a name="enable-managed-identities-on-a-vm"></a>Włączanie tożsamości zarządzanych na maszynie Wirtualnej
 Aby można było używać tożsamości zarządzanych dla zasobów platformy Azure do autoryzowania zasobów usługi Service Bus z maszyny Wirtualnej, należy najpierw włączyć tożsamości zarządzane dla zasobów platformy Azure na maszynie Wirtualnej. Aby dowiedzieć się, jak włączyć tożsamości zarządzane dla zasobów platformy Azure, zobacz jeden z następujących artykułów:
 
-- [Portal Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Szablon usługi Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -118,7 +118,7 @@ Aby przypisać rolę do obszaru nazw usługi Service Bus, przejdź do obszaru na
 4.  Na stronie **Dodawanie przypisania roli** wybierz role usługi Azure Service Bus, które chcesz przypisać. Następnie wyszukaj, aby zlokalizować zarejestrowaną tożsamość usługi, aby przypisać rolę.
     
     ![Dodawanie strony przypisania roli](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
-5.  Wybierz **pozycję Zapisz**. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji pokazano, że tożsamość usługi ma właściciela usługi Azure Service Bus Data.
+5.  Wybierz pozycję **Zapisz**. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji pokazano, że tożsamość usługi ma właściciela usługi Azure Service Bus Data.
     
     ![Tożsamość przypisana do roli](./media/service-bus-managed-service-identity/role-assigned.png)
 
@@ -140,7 +140,7 @@ Aby wysyłać lub odbierać wiadomości, wprowadź nazwę obszaru nazw i nazwę 
 
 
 > [!NOTE]
-> - Tożsamość zarządzana działa tylko w środowisku platformy Azure, w usługach aplikacji, maszynach wirtualnych platformy Azure i zestawach skalowania. W przypadku aplikacji platformy .NET biblioteka microsoft.Azure.Services.AppAuthentication, która jest używana przez pakiet NuGet usługi Service Bus, zapewnia abstrakcję za pomocą tego protokołu i obsługuje środowisko rozwoju lokalnego. Ta biblioteka umożliwia również testowanie kodu lokalnie na komputerze deweloperskim przy użyciu konta użytkownika z programu Visual Studio, interfejsu wiersza polecenia 2.0 platformy Azure lub zintegrowanego uwierzytelniania usługi Active Directory. Aby uzyskać więcej informacji na temat lokalnych opcji rozwoju za pomocą tej biblioteki, zobacz [Uwierzytelnianie usługi do usługi w usłudze Azure Key Vault przy użyciu platformy .NET](../key-vault/service-to-service-authentication.md).  
+> - Tożsamość zarządzana działa tylko w środowisku platformy Azure, w usługach aplikacji, maszynach wirtualnych platformy Azure i zestawach skalowania. W przypadku aplikacji platformy .NET biblioteka microsoft.Azure.Services.AppAuthentication, która jest używana przez pakiet NuGet usługi Service Bus, zapewnia abstrakcję za pomocą tego protokołu i obsługuje środowisko rozwoju lokalnego. Ta biblioteka umożliwia również testowanie kodu lokalnie na komputerze deweloperskim przy użyciu konta użytkownika z programu Visual Studio, interfejsu wiersza polecenia 2.0 platformy Azure lub zintegrowanego uwierzytelniania usługi Active Directory. Aby uzyskać więcej informacji na temat lokalnych opcji rozwoju za pomocą tej biblioteki, zobacz [Uwierzytelnianie usługi do usługi w usłudze Azure Key Vault przy użyciu platformy .NET](../key-vault/general/service-to-service-authentication.md).  
 > 
 > - Obecnie tożsamości zarządzane nie działają z gniazdami wdrażania usługi App Service.
 

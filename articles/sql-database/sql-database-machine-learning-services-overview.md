@@ -12,23 +12,19 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
-ms.openlocfilehash: 2a2cd4bfc3d393543b41eea776f02723d94054b1
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: 46ca4661d06b52c861431a680a69297575ac99b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345826"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461416"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Usługi azure SQL Database Machine Learning services z r (wersja zapoznawcza)
 
 Usługi uczenia maszynowego to funkcja usługi Azure SQL Database, używana do wykonywania skryptów R w bazie danych. Ta funkcja zawiera pakiety Microsoft R dla wysokowydajnych analiz predykcyjnych i uczenia maszynowego. Dane relacyjne mogą być używane w skryptach języka R za pośrednictwem procedur przechowywanych, skryptu T-SQL zawierającego instrukcje R lub kodu Języka R zawierającego T-SQL.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
-> [!NOTE]
-> Wersja zapoznawcza jest dostępna dla pojedynczych baz danych i pul elastycznych przy użyciu modelu zakupów opartego na językach wirtualnych w **warstwach** usług ogólnego przeznaczenia i **krytycznych dla firmy.** W tej początkowej wersji zapoznawczej warstwa usługi **hiperskali** i opcja wdrażania **wystąpienia zarządzanego** nie są obsługiwane. Obecnie język R jest jedynym obsługiwanym językiem. W tej chwili język Python nie jest obsługiwany.
->
-> Wersja zapoznawcza jest obecnie dostępna w następujących regionach: Europa Zachodnia, Europa Północna, Zachodnie stany USA 2, Wschodnie stany USA, Południowo-środkowe stany USA, Północno-środkowe stany USA, Kanada Środkowa, Azja Południowo-Wschodnia, Indie Południowe i Australia Południowo-Wschodnia.
 
 ## <a name="what-you-can-do-with-r"></a>Co można zrobić z R
 

@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 4219bb471b92e7ddae72c50403f635498c90080d
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: f390aececdbf9a20f191279892c1856332f2aa8e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251694"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482098"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurowanie zaawansowanej ochrony przed zagrożeniami dla usługi Azure Storage
 
@@ -27,9 +27,7 @@ Usługa pozyskiwania dzienników diagnostycznych odczytu, zapisu i usuwania żą
 
 ## <a name="availability"></a>Dostępność
 
-Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage jest obecnie dostępna tylko dla [magazynu obiektów Blob.](https://azure.microsoft.com/services/storage/blobs/) 
-
-Ta usługa jest dostępna we wszystkich chmurach publicznych i chmurach instytucji rządowych usa, ale nie ma innych suwerennych lub chmur rządowych platformy Azure.
+Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage jest obecnie dostępna tylko dla [magazynu obiektów Blob.](https://azure.microsoft.com/services/storage/blobs/) Typy kont obsługujące zaawansowaną ochronę przed zagrożeniami obejmują konta ogólnego przeznaczenia w wersji 2, bloku i magazynu obiektów Blob. Zaawansowana ochrona przed zagrożeniami jest dostępna we wszystkich chmurach publicznych i chmurach instytucji rządowych usa, ale nie w innych suwerennych lub platformach rządowych w chmurach.
 
 Szczegółowe informacje o cenach, w tym bezpłatna 30-dniowa wersja próbna, zobacz [stronę z cennikiem usługi Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -62,7 +60,7 @@ Po zasubskrybowaniu warstwy Standardowa w usłudze Azure Security Center zaawans
 1. W sekcji **Wybierz warstwę cenową według typu zasobu** w **wierszu Konta magazynu** kliknij pozycję **Włączone** lub **Wyłączone**.
 
     ![Włączanie narzędzia ATP w Centrum zabezpieczeń](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ### <a name="template"></a>[Szablon](#tab/template)
 

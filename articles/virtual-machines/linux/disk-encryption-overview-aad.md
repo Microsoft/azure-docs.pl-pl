@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38fd7c8e14f58052912f68a277f194fd3866f2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 029743dbb44ab0ebb6ab8f695c0c966137c45107
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970579"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459801"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Szyfrowanie dysków platformy Azure za pomocą usługi Azure AD (poprzednia wersja)
 
@@ -35,7 +35,7 @@ Aby włączyć funkcję szyfrowania dysków platformy Azure przy użyciu starsze
   - Aby uzyskać token do łączenia się z magazynem kluczy, maszyna wirtualna IaaS musi mieć możliwość nawiązania połączenia z punktem końcowym usługi Azure AD, \[login.microsoftonline.com\].
   - Aby zapisać klucze szyfrowania w magazynie kluczy, maszyna wirtualna IaaS musi mieć możliwość nawiązania połączenia z punktem końcowym magazynu kluczy.
   - Maszyna wirtualna IaaS musi mieć możliwość nawiązania połączenia z punktem końcowym magazynu platformy Azure, który obsługuje repozytorium rozszerzenia platformy Azure i konto magazynu platformy Azure, które obsługuje pliki VHD.
-  -  Jeśli zasady zabezpieczeń ograniczają dostęp z maszyn wirtualnych platformy Azure do Internetu, można rozpoznać poprzedni identyfikator URI i skonfigurować określoną regułę, aby umożliwić łączność wychodzącą z adresami IP. Aby uzyskać więcej informacji, zobacz [Usługa Azure Key Vault za zaporą](../../key-vault/key-vault-access-behind-firewall.md).
+  -  Jeśli zasady zabezpieczeń ograniczają dostęp z maszyn wirtualnych platformy Azure do Internetu, można rozpoznać poprzedni identyfikator URI i skonfigurować określoną regułę, aby umożliwić łączność wychodzącą z adresami IP. Aby uzyskać więcej informacji, zobacz [Usługa Azure Key Vault za zaporą](../../key-vault/general/access-behind-firewall.md).
   - W systemie Windows jeśli usługa TLS 1.0 jest jawnie wyłączona, a wersja .NET nie jest aktualizowana do wersji 4.6 lub nowszej, następująca zmiana rejestru umożliwia szyfrowaniu dysków platformy Azure wybranie nowszej wersji protokołu TLS:
     
             [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]

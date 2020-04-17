@@ -4,18 +4,18 @@ description: Dowiedz się więcej o szyfrowaniu w pozostałej części rejestru 
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: fe0736f83db2ba5b872d50bcf1262ca423de9f09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d5561998cf0b19698c8059a861a4014a171a7e7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498952"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461756"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Szyfrowanie przy użyciu kluczy zarządzanych przez klienta
 
 Podczas przechowywania obrazów i innych artefaktów w rejestrze kontenerów platformy Azure automatycznie szyfruje zawartość rejestru w pozostałej części za pomocą [kluczy zarządzanych przez usługę.](../security/fundamentals/encryption-atrest.md#data-encryption-models) Szyfrowanie domyślne można uzupełnić dodatkową warstwą szyfrowania przy użyciu klucza, który można utworzyć i zarządzać w usłudze Azure Key Vault. W tym artykule otrzymasz od kroków przy użyciu interfejsu wiersza polecenia platformy Azure i witryny Azure portal.
 
-Szyfrowanie po stronie serwera za pomocą kluczy zarządzanych przez klienta jest obsługiwane przez integrację z [usługą Azure Key Vault](../key-vault/key-vault-overview.md). Można utworzyć własne klucze szyfrowania i przechowywać je w magazynie kluczy lub można użyć interfejsów API usługi Azure Key Vault do generowania kluczy szyfrowania. Za pomocą usługi Azure Key Vault można również przeprowadzić inspekcję użycia kluczy.
+Szyfrowanie po stronie serwera za pomocą kluczy zarządzanych przez klienta jest obsługiwane przez integrację z [usługą Azure Key Vault](../key-vault/general/overview.md). Można utworzyć własne klucze szyfrowania i przechowywać je w magazynie kluczy lub można użyć interfejsów API usługi Azure Key Vault do generowania kluczy szyfrowania. Za pomocą usługi Azure Key Vault można również przeprowadzić inspekcję użycia kluczy.
 
 Ta funkcja jest dostępna w warstwie usługi rejestru kontenerów **premium.** Aby uzyskać informacje na temat warstw i limitów usług rejestru, zobacz [Jednostki SKU rejestru kontenerów platformy Azure](container-registry-skus.md).
 
@@ -176,7 +176,7 @@ Zanotuj **nazwę zasobu** tożsamości zarządzanej. Ta nazwa jest potrzebna w p
 
 ### <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
 
-Aby uzyskać kroki tworzenia magazynu kluczy, zobacz [Szybki start: Ustawianie i pobieranie klucza tajnego z usługi Azure Key Vault przy użyciu portalu Azure.](../key-vault/quick-create-portal.md)
+Aby uzyskać kroki tworzenia magazynu kluczy, zobacz [Szybki start: Ustawianie i pobieranie klucza tajnego z usługi Azure Key Vault przy użyciu portalu Azure.](../key-vault/secrets/quick-create-portal.md)
 
 Podczas tworzenia magazynu kluczy dla klucza zarządzanego przez klienta na karcie **Podstawy** należy włączyć następujące ustawienia ochrony: **Usuwanie nietrwałe** i **Ochrona przed przeczyszczaniem**. Te ustawienia pomagają zapobiegać utracie danych spowodowanej przypadkowymi usunięciemi kluczy lub magazynu kluczy.
 
@@ -392,7 +392,7 @@ Odwoływanie klucza skutecznie blokuje dostęp do wszystkich danych rejestru, po
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [szyfrowaniu w spoczynku na platformie Azure](../security/fundamentals/encryption-atrest.md).
-* Dowiedz się więcej o zasadach dostępu i [zabezpieczaniu dostępu do magazynu kluczy.](../key-vault/key-vault-secure-your-key-vault.md)
+* Dowiedz się więcej o zasadach dostępu i [zabezpieczaniu dostępu do magazynu kluczy.](../key-vault/general/secure-your-key-vault.md)
 * Aby przekazać opinię na temat kluczy zarządzanych przez klienta dla rejestru kontenerów platformy Azure, odwiedź [witrynę ACR GitHub](https://aka.ms/acr/issues).
 
 

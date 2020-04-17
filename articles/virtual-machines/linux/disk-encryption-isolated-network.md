@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa0dc204a017e2d40eb3952a9ede0755127f8de2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970660"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460124"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Szyfrowanie dysków platformy Azure w sieci izolowanej
 
@@ -43,7 +43,7 @@ Wszystkie zastosowane ustawienia sieciowej grupy zabezpieczeń muszą nadal zezw
 
 W przypadku korzystania [z usługi Azure Disk Encryption z usługą Azure AD (poprzednia wersja)](disk-encryption-overview-aad.md) [biblioteka usługi Azure Active Directory](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) musi zostać zainstalowana ręcznie dla wszystkich dystrybucji (oprócz pakietów odpowiednich dla dystrybucji, jak [wymieniono powyżej).](#package-management)
 
-Gdy szyfrowanie jest włączone przy użyciu [poświadczeń usługi Azure AD,](disk-encryption-linux-aad.md)docelowa maszyna wirtualna musi zezwalać na łączność z punktami końcowymi usługi Azure Active Directory i punktami końcowymi usługi Key Vault. Bieżące punkty końcowe uwierzytelniania usługi Azure Active Directory są obsługiwane w sekcjach 56 i 59 z dokumentacji [adresów URL i zakresów adresów IP usługi Office 365.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) Instrukcje usługi Key Vault znajdują się w dokumentacji dotyczącej sposobu uzyskiwania dostępu do [usługi Azure Key Vault za zaporą.](../../key-vault/key-vault-access-behind-firewall.md)
+Gdy szyfrowanie jest włączone przy użyciu [poświadczeń usługi Azure AD,](disk-encryption-linux-aad.md)docelowa maszyna wirtualna musi zezwalać na łączność z punktami końcowymi usługi Azure Active Directory i punktami końcowymi usługi Key Vault. Bieżące punkty końcowe uwierzytelniania usługi Azure Active Directory są obsługiwane w sekcjach 56 i 59 z dokumentacji [adresów URL i zakresów adresów IP usługi Office 365.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) Instrukcje usługi Key Vault znajdują się w dokumentacji dotyczącej sposobu uzyskiwania dostępu do [usługi Azure Key Vault za zaporą.](../../key-vault/general/access-behind-firewall.md)
 
 ### <a name="azure-instance-metadata-service"></a>Usługa metadanych wystąpienia platformy Azure 
 

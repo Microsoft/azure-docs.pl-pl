@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: ce9919a0b0f614e427c12ee3e3fbda0be46470ea
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9ed17ed0825e0011d1402efc45155755a1ecbadf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273311"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459172"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji usługi Azure Machine Learning
 
@@ -721,10 +721,10 @@ Usługa Azure Machine Learning jest teraz dostawcą zasobów dla usługi Event G
       + Przy wprowadzeniu określonych start_time i/lub end_time zostaną zwrócone tylko wyniki zaplanowanych przebiegów;
       + Parametr "daily_latest_only" jest przestarzały.
     + Obsługa pobierania danych opartych na danych drift wyjść.
-  + **[azureml-explain-model](https://docs.microsoft.com/python/api/azureml-explain-model)**
+  + **azureml-explain-model**
     + Zmienia nazwę pakietu AzureML-explain-model na azureml-interpret, zachowując stary pakiet dla zgodności z powrotem na razie.
     + Naprawiono błąd AutoML z surowymi objaśnieniami ustawionymi na zadanie klasyfikacji zamiast regresji domyślnie przy pobieraniu z ExplanationClient.
-    + Dodaj obsługę [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) do utworzenia bezpośrednio za pomocą [MimicWrapper](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic_wrapper.mimicwrapper)
+    + Dodaj obsługę [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) do utworzenia bezpośrednio za pomocą MimicWrapper
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + Poprawiono wydajność tworzenia dużych potoków.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
@@ -798,7 +798,7 @@ Karta Eksperyment w [nowym portalu obszaru roboczego](https://ml.azure.com) zost
     + Dodano dodatkowe pola rozmiaru maszyny Wirtualnej (dysk systemu operacyjnego, liczba procesorów graficznych) do funkcji [supported_vmsizes()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
     + Dodano dodatkowe pola do funkcji [list_nodes(),](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#list-nodes--) aby pokazać bieg, prywatny i publiczny adres IP, port itp.
     + Możliwość określenia nowego pola podczas [inicjowania obsługi administracyjnej](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--) `--remotelogin_port_public_access` klastra, które można ustawić na włączone lub wyłączone w zależności od tego, czy chcesz pozostawić port SSH otwarty lub zamknięty w momencie tworzenia klastra. Jeśli nie określisz, usługa będzie inteligentnie otworzyć lub zamknąć port w zależności od tego, czy wdrażasz klaster wewnątrz sieci wirtualnej.
-  + **[azureml-explain-model](https://docs.microsoft.com/python/api/azureml-explain-model)**
+  + **azureml-explain-model**
     + Ulepszona dokumentacja dla wyników objaśnień w scenariuszu klasyfikacji.
     + Dodano możliwość przesyłania przewidywanych wartości y w objaśnieniu przykładów oceny. Odblokowuje bardziej przydatne wizualizacje.
     + Dodano właściwość explainer do MimicWrapper, aby umożliwić uzyskanie podstawowej MimicExplainer.

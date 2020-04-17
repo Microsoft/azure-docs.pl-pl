@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ba7863d15ac0dfbebe6f14ef0d6f0daa93160b58
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 84d7be64e7157c35639fec19cb28fe787fe29b19
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380037"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533891"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Samouczek: Zaloguj się do użytkowników i zadzwoń do interfejsu API programu Microsoft Graph z aplikacji jednostronicowej angular
 
@@ -39,7 +39,7 @@ W tym samouczku pokazano, jak kątowa aplikacja jednostronicowa (SPA) może:
 <!--start-collapse-->
 ### <a name="more-information"></a>Więcej informacji
 
-Przykładowa aplikacja utworzona w tym samouczku umożliwia angular SPA do kwerendy microsoft Graph API lub interfejsu API sieci Web, który akceptuje tokeny z punktu końcowego platformy tożsamości firmy Microsoft. Biblioteka MSAL dla kątów jest otoką podstawowej biblioteki MSAL.js. Umożliwia aplikacjom Angular (6+) uwierzytelnienie użytkowników korporacyjnych przy użyciu usługi Microsoft Azure Active Directory, użytkowników kont Microsoft i użytkowników tożsamości społecznościowych (takich jak Facebook, Google i LinkedIn). Biblioteka umożliwia również aplikacjom uzyskanie dostępu do usług w chmurze firmy Microsoft lub programu Microsoft Graph.
+Przykładowa aplikacja utworzona w tym samouczku umożliwia angular SPA do kwerendy microsoft Graph API lub interfejsu API sieci web, który akceptuje tokeny z punktu końcowego platformy tożsamości firmy Microsoft. Biblioteka MSAL dla kątów jest otoką podstawowej biblioteki MSAL.js. Umożliwia aplikacjom Angular (6+) uwierzytelnienie użytkowników korporacyjnych przy użyciu usługi Microsoft Azure Active Directory, użytkowników kont Microsoft i użytkowników tożsamości społecznościowych (takich jak Facebook, Google i LinkedIn). Biblioteka umożliwia również aplikacjom uzyskanie dostępu do usług w chmurze firmy Microsoft lub programu Microsoft Graph.
 
 W tym scenariuszu po zalogowaniu się użytkownika token dostępu jest wymagany i dodawany do żądań HTTP za pośrednictwem nagłówka autoryzacji. Pozyskiwanie i odnawianie tokenów są obsługiwane przez msal.
 

@@ -5,37 +5,37 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 6fd23e3d41dda15b1ec439c1e8b02073722b8871
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/16/2020
+ms.openlocfilehash: 0c7791d43ffbbc13ab151362c5c3026ebbdb0d34
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272541"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531020"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Tworzenie sieci wirtualnych dla klastrów usługi Azure HDInsight
 
-Ten artykuł zawiera przykłady i przykłady kodu do tworzenia i konfigurowania [sieci wirtualnych platformy Azure](../virtual-network/virtual-networks-overview.md) do użytku z klastrami usługi Azure HDInsight. Przedstawiono szczegółowe przykłady tworzenia sieciowych grup zabezpieczeń (NSG) i konfigurowania systemu DNS. 
+W tym artykule przedstawiono przykłady i przykłady kodu do tworzenia i konfigurowania [sieci wirtualnych platformy Azure.](../virtual-network/virtual-networks-overview.md) Do użycia z klastrami usługi Azure HDInsight. Przedstawiono szczegółowe przykłady tworzenia sieciowych grup zabezpieczeń (NSG) i konfigurowania systemu DNS.
 
 Aby uzyskać podstawowe informacje na temat korzystania z sieci wirtualnych za pomocą usługi Azure HDInsight, zobacz [Planowanie sieci wirtualnej dla usługi Azure HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>Wymagania wstępne dotyczące przykładów kodu i przykładów
 
-Przed wykonaniem któregokolwiek z przykładów kodu w tym artykule, ou powinien mieć zrozumienie sieci TCP/IP. Jeśli nie znasz sieci TCP/IP, skonsultuj się z osobą, która jest przed wprowadzeniem zmian w sieciach produkcyjnych.
+Przed wykonaniem któregokolwiek z przykładów kodu w tym artykule, mieć zrozumienie sieci TCP/IP. Jeśli nie znasz sieci TCP/IP, skonsultuj się z kimś przed wprowadzeniem zmian w sieciach produkcyjnych.
 
-Inne wymagania wstępne dla przykładów w tym artykule są następujące:
+Inne wymagania wstępne dla przykładów w tym artykule obejmują następujące elementy:
 
-* Jeśli używasz programu PowerShell, należy zainstalować [moduł AZ](https://docs.microsoft.com/powershell/azure/overview).
-* Jeśli chcesz używać interfejsu wiersza polecenia platformy Azure i jeszcze go nie zainstalowano, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Jeśli używasz programu PowerShell, musisz zainstalować [moduł AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Jeśli chcesz używać interfejsu wiersza polecenia platformy Azure i jeszcze go nie zainstalowałeś, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
 > Jeśli szukasz wskazówek krok po kroku na temat łączenia usługi HDInsight z siecią lokalną przy użyciu sieci wirtualnej platformy Azure, zobacz [Connect HDInsight do lokalnego dokumentu sieciowego.](connect-on-premises-network.md)
 
 ## <a name="example-network-security-groups-with-hdinsight"></a><a id="hdinsight-nsg"></a>Przykład: sieciowe grupy zabezpieczeń z funkcją HDInsight
 
-Przykłady w tej sekcji pokazują, jak utworzyć reguły sieciowej grupy zabezpieczeń, które umożliwiają usługi HDInsight komunikowanie się z usługami zarządzania platformy Azure. Przed użyciem przykładów dostosuj adresy IP, aby były zgodne z adresami używanymi w regionie platformy Azure. Informacje te można znaleźć w [adresach IP zarządzania hdinsight](hdinsight-management-ip-addresses.md).
+Przykłady w tej sekcji pokazują, jak utworzyć reguły sieciowej grupy zabezpieczeń. Reguły umożliwiają usługi HDInsight komunikowania się z usługami zarządzania platformy Azure. Przed użyciem przykładów dostosuj adresy IP, aby były zgodne z adresami używanymi w regionie platformy Azure. Informacje te można znaleźć w [adresach IP zarządzania hdinsight](hdinsight-management-ip-addresses.md).
 
 ### <a name="azure-resource-management-template"></a>Szablon zarządzania zasobami platformy Azure
 
@@ -202,7 +202,6 @@ Poniższe kroki umożliwiają utworzenie sieci wirtualnej, która ogranicza ruch
 
     Po zakończeniu tego polecenia można zainstalować usługę HDInsight w sieci wirtualnej.
 
-
 Te kroki tylko otwarty dostęp do usługi kondycji i zarządzania HDInsight w chmurze platformy Azure. Każdy inny dostęp do klastra HDInsight spoza sieci wirtualnej jest zablokowany. Aby włączyć dostęp spoza sieci wirtualnej, należy dodać dodatkowe reguły sieciowej grupy zabezpieczeń.
 
 Poniższy kod pokazuje, jak włączyć dostęp SSH z Internetu:
@@ -238,7 +237,7 @@ Na niestandardowym serwerze DNS w sieci wirtualnej:
     az network nic list --resource-group RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. Na niestandardowym serwerze DNS sieci wirtualnej użyj następującego `/etc/bind/named.conf.local` tekstu jako zawartości pliku:
+1. Na niestandardowym serwerze DNS sieci wirtualnej użyj następującego `/etc/bind/named.conf.local` tekstu jako zawartości pliku:
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver
@@ -252,7 +251,7 @@ Na niestandardowym serwerze DNS w sieci wirtualnej:
 
     Ta konfiguracja kieruje wszystkie żądania DNS dla sufiksu DNS sieci wirtualnej do cyklicznego programu rozpoznawania nazw platformy Azure.
 
-2. Na niestandardowym serwerze DNS sieci wirtualnej użyj następującego `/etc/bind/named.conf.options` tekstu jako zawartości pliku:
+1. Na niestandardowym serwerze DNS sieci wirtualnej użyj następującego `/etc/bind/named.conf.options` tekstu jako zawartości pliku:
 
     ```
     // Clients to accept requests from
@@ -288,9 +287,9 @@ Na niestandardowym serwerze DNS w sieci wirtualnej:
     
     * Zastąp wartość `192.168.0.1` adresem IP lokalnego serwera DNS. Ten wpis kieruje wszystkie inne żądania DNS do lokalnego serwera DNS.
 
-3. Aby użyć konfiguracji, uruchom ponownie bind. Na przykład `sudo service bind9 restart`.
+1. Aby użyć konfiguracji, uruchom ponownie bind. Na przykład `sudo service bind9 restart`.
 
-4. Dodaj usługę przesyłania dalej warunkowej do lokalnego serwera DNS. Skonfiguruj usługę przesyłania dalej warunkowej do wysyłania żądań sufiksu DNS z kroku 1 do niestandardowego serwera DNS.
+1. Dodaj usługę przesyłania dalej warunkowej do lokalnego serwera DNS. Skonfiguruj usługę przesyłania dalej warunkowej do wysyłania żądań sufiksu DNS z kroku 1 do niestandardowego serwera DNS.
 
     > [!NOTE]  
     > Szczegółowe informacje na temat dodawania usługi przesyłania dalej warunkowej można znaleźć w dokumentacji oprogramowania DNS.
@@ -351,7 +350,7 @@ W tym przykładzie przedstawiono następujące założenia:
             allow-query { goodclients; };
 
             forwarders {
-            168.63.129.16;   # Azure recursive resolver         
+            168.63.129.16;   # Azure recursive resolver
             };
 
             dnssec-validation auto;
@@ -360,10 +359,10 @@ W tym przykładzie przedstawiono następujące założenia:
             listen-on { any; };
     };
     ```
-    
+
    Zastąp `10.0.0.0/16` i `10.1.0.0/16` wartości zakresami adresów IP sieci wirtualnych. Ten wpis umożliwia zasobom w każdej sieci żądania serwerów DNS.
 
-    Wszelkie żądania, które nie są dla sufiksów DNS sieci wirtualnych (na przykład microsoft.com) jest obsługiwany przez cykliczny program rozpoznawania nazw platformy Azure.
+    Wszystkie żądania, które nie są dla sufiksów DNS sieci wirtualnych (na przykład microsoft.com) jest obsługiwany przez cykliczny program rozpoznawania nazw platformy Azure.
 
 4. Aby użyć konfiguracji, uruchom ponownie bind. Na przykład `sudo service bind9 restart` na obu serwerach DNS.
 
@@ -371,7 +370,7 @@ Po wykonaniu tych kroków można połączyć się z zasobami w sieci wirtualnej 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać kompleksowy przykład konfigurowania usługi HDInsight do łączenia się z siecią lokalną, zobacz [Łączenie usługi HDInsight z siecią lokalną](./connect-on-premises-network.md).
+* Aby uzyskać pełny przykład konfigurowania usługi HDInsight do łączenia się z siecią lokalną, zobacz [Łączenie usługi HDInsight z siecią lokalną](./connect-on-premises-network.md).
 * Aby skonfigurować klastry Apache HBase w sieciach wirtualnych platformy Azure, zobacz [Tworzenie klastrów Apache HBase w usłudze HDInsight w sieci wirtualnej platformy Azure](hbase/apache-hbase-provision-vnet.md).
 * Aby skonfigurować replikację geograficzną Apache HBase, zobacz [Konfigurowanie replikacji klastra Apache HBase w sieciach wirtualnych platformy Azure](hbase/apache-hbase-replication.md).
 * Aby uzyskać więcej informacji na temat sieci wirtualnych platformy Azure, zobacz [omówienie usługi Azure Virtual Network](../virtual-network/virtual-networks-overview.md).

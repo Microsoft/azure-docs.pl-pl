@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
 ms.service: virtual-machines-linux
@@ -15,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: bc90a409dd2695ce16f8c7d5909f8e2d7867673c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62855d943dae2e03cefff64710ce23ff0e0a0567
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060257"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458713"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Przekazywanie i tworzenie maszyny Wirtualnej z systemem Linux z dysku niestandardowego za pomocą interfejsu wiersza polecenia platformy Azure
 

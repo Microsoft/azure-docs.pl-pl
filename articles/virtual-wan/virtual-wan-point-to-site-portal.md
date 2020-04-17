@@ -5,20 +5,20 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 04/16/2020
 ms.author: alzam
-ms.openlocfilehash: fd415e1da00f52a9a3b55c946a07a30cf841cf4a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 11007bc39cb1112799c89afaf0ca670aa6760de6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80060309"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482128"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Samouczek: Tworzenie połączenia sieci VPN użytkownika przy użyciu wirtualnej sieci WAN platformy Azure
 
 W tym samouczku pokazano, w jaki sposób przy użyciu usługi Azure Virtual WAN utworzyć połączenie z zasobami na platformie Azure za pośrednictwem połączenia sieci VPN protokołu IPsec/IKE (IKEv2) lub OpenVPN. Ten typ połączenia wymaga skonfigurowania klienta na komputerze klienckim. Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz [omówienie wirtualnej sieci WAN](virtual-wan-about.md)
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci WAN
@@ -110,6 +110,32 @@ Konfiguracja P2S definiuje parametry służące do łączenia z klientami zdalny
 4. Zaznacz pole wyboru **Dołącz bramę typu punkt-lokacja** i wybierz **odpowiednią jednostkę skalowania bramy.**
 
    ![nowa lokacja](media/virtual-wan-point-to-site-portal/p2s2.jpg)
+
+W poniższej tabeli przedstawiono szczegółowe informacje na temat dostępnych **jednostek skalowania**
+
+| **Jednostka skalowania** | **Przepływność** | **Połączenia P2S** |
+| --- | --- | --- |
+| 1| 500 Mb/s | 500 |
+| 2| 1 Gb/s | 500 |
+| 3| 1,5 Gb/s | 500 |
+| 4| 2 Gb/s | 1000 |
+| 5| 2,5 Gb/s | 1000 |
+| 6| 3 Gb/s | 1000 |
+| 7| 3,5 Gb/s | 5000 |
+| 8| 4 Gb/s | 5000 |
+| 9| 4,5 Gb/s | 5000 |
+| 10| 5 Gb/s | 5000 |
+| 11| 5,5 Gb/s | 5000 |
+| 12| 6 Gb/s | 5000 |
+| 13| 6,5 Gb/s | 10 000 |
+| 14| 7 Gb/s | 10 000 |
+| 15| 7,5 Gb/s | 10 000 |
+| 16| 8 Gb/s | 10 000 |
+| 17| 8,5 Gb/s | 10 000 |
+| 18| 9 Gb/s | 10 000 |
+| 19| 9,5 Gb/s | 10 000 |
+| 20| 10 Gb/s | 10 000 |
+
 5. Wprowadź **pulę adresów,** z której klientom sieci VPN będą przypisywane adresy IP.
 6. Kliknij **przycisk Potwierdź**
 7. Operacja może potrwać do 30 minut.

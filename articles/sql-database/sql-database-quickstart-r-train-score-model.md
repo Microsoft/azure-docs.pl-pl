@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: a54d418f668d8c7292c8332c1b14c4df45e59308
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c88bdf141e7784837a89c8104574d97c93296dc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768463"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460158"
 ---
 # <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Szybki start: tworzenie i szkolenie modelu predykcyjnego w języku R za pomocą usług Azure SQL Database Machine Learning Services (wersja zapoznawcza)
 
@@ -30,11 +31,8 @@ W tym przewodniku Szybki start można utworzyć i wyszkolić model predykcyjny p
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Baza danych SQL platformy Azure](sql-database-single-database-get-started.md) z [regułą zapory na poziomie serwera](sql-database-server-level-firewall-rule.md)
-- [Usługi uczenia maszynowego](sql-database-machine-learning-services-overview.md) z włączoną funkcją języka R. [Zarejestruj się w wersji zapoznawczej](sql-database-machine-learning-services-overview.md#signup).
-- Program [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
-
-> [!NOTE]
-> W okresie publicznej wersji zapoznawczej firma Microsoft dołączy Cię i włączy usługę Machine Learning dla Twojej istniejącej lub nowej bazy danych.
+- [Usługi uczenia maszynowego](sql-database-machine-learning-services-overview.md) z włączoną funkcją języka R.
+- [Sql Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 W tym przykładzie użyto prostego modelu regresji do przewidywania drogi hamowania samochodu na podstawie prędkości przy użyciu zestawu danych **samochodów** dołączonego do języka R.
 
@@ -169,7 +167,7 @@ VALUES (
     )
 ```
 
-**Results**
+**Wyniki**
 
 ![Przeszkolony model z dodatkowymi danymi wyjściowymi](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
@@ -237,7 +235,7 @@ Zwróć uwagę, że oryginalne dane szkoleniowe zatrzymują się na prędkości 
                 ));
    ```
 
-   **Results**
+   **Wyniki**
 
    ![Zestaw wyników dla przewidywania drogi zatrzymania](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 

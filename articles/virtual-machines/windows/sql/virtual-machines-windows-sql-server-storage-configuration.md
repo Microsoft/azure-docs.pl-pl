@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93f01b3c23e08e7f432841d8a77cbe3602bff1c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243200"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482151"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfiguracja usługi Storage dla maszyn wirtualnych programu SQL Server
 
@@ -40,7 +40,7 @@ Aby użyć ustawień konfiguracji magazynu automatycznego, maszyna wirtualna wym
 
 W poniższych sekcjach opisano sposób konfigurowania magazynu dla nowych maszyn wirtualnych programu SQL Server.
 
-### <a name="azure-portal"></a>Portal Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Podczas inicjowania obsługi administracyjnej maszyny Wirtualnej platformy Azure przy użyciu obrazu galerii programu SQL Server wybierz pozycję **Zmień konfigurację** na karcie **Ustawienia programu SQL Server,** aby otworzyć stronę Konfiguracja zoptymalizowanego pod kątem wydajności magazynu. Można pozostawić wartości domyślnie lub zmodyfikować typ konfiguracji dysku, który najlepiej odpowiada Twoim potrzebom w zależności od obciążenia. 
 
@@ -56,7 +56,7 @@ Ponadto masz możliwość ustawiania buforowania dysków. Maszyny wirtualne plat
 
 Buforowanie dysków dla dysków SSD premium można *odczytać tylko*, *ReadWrite* lub *None*. 
 
-- *ReadOnly* buforowanie jest bardzo korzystne dla plików danych programu SQL Server, które są przechowywane w magazynie w jakości. *Odczyt tylko* buforowanie przynosi małe opóźnienie odczytu, wysoki odczyt We/Wy i przepływność jako odczyty są wykonywane z pamięci podręcznej, który os w pamięci maszyny Wirtualnej i lokalnego SSD. Te odczyty są znacznie szybsze niż odczyty z dysku danych, który jest z magazynu obiektów blob platformy Azure. Magazyn w warstwie Premium nie zlicza odczytów obsługiwanych z pamięci podręcznej w kierunku iOPS dysku i przepływności. W związku z tym odpowiednie jest w stanie osiągnąć wyższą całkowitą przepustowość iOPS ant. 
+- *ReadOnly* buforowanie jest bardzo korzystne dla plików danych programu SQL Server, które są przechowywane w magazynie w jakości. *Odczyt tylko* buforowanie przynosi małe opóźnienie odczytu, wysoki odczyt We/Wy i przepływność jako odczyty są wykonywane z pamięci podręcznej, która znajduje się w pamięci maszyny Wirtualnej i lokalnego SSD. Te odczyty są znacznie szybsze niż odczyty z dysku danych, który jest z magazynu obiektów blob platformy Azure. Magazyn w warstwie Premium nie zlicza odczytów obsługiwanych z pamięci podręcznej w kierunku iOPS dysku i przepływności. W związku z tym odpowiednie jest w stanie osiągnąć wyższą całkowitą liczbę we/wy i przepływność. 
 - *Żadna* konfiguracja pamięci podręcznej nie powinna być używana dla dysków hostujących plik dziennika programu SQL Server, ponieważ plik dziennika jest zapisywany sekwencyjnie i nie korzysta z buforowania *tylko* do odczytu. 
 - *Buforowanie ReadWrite* nie powinno być używane do hostowania plików programu SQL Server, ponieważ program SQL Server nie obsługuje spójności danych z pamięcią podręczną *ReadWrite.* Zapisuje pojemność odpadów pamięci podręcznej obiektów blob *tylko do odczytu* i opóźnienia nieznacznie zwiększyć, jeśli zapisy przejść przez *ReadOnly* warstw pamięci podręcznej obiektów blob. 
 

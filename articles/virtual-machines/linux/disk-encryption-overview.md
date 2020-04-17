@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548431"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459784"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Szyfrowanie dysków platformy Azure dla maszyn wirtualnych z systemem Linux 
 
@@ -105,7 +105,7 @@ Aby włączyć funkcję szyfrowania dysków platformy Azure, maszyny wirtualne z
   - Aby uzyskać token do łączenia się z magazynem kluczy, maszyna wirtualna z \[systemem Linux\]musi mieć możliwość nawiązania połączenia z punktem końcowym usługi Azure Active Directory, login.microsoftonline.com .
   - Aby zapisać klucze szyfrowania w magazynie kluczy, maszyna wirtualna z systemem Linux musi mieć możliwość nawiązania połączenia z punktem końcowym magazynu kluczy.
   - Maszyna wirtualna z systemem Linux musi mieć możliwość nawiązania połączenia z punktem końcowym magazynu platformy Azure, który obsługuje repozytorium rozszerzenia platformy Azure i konto magazynu platformy Azure, które obsługuje pliki VHD.
-  -  Jeśli zasady zabezpieczeń ograniczają dostęp z maszyn wirtualnych platformy Azure do Internetu, można rozpoznać poprzedni identyfikator URI i skonfigurować określoną regułę, aby umożliwić łączność wychodzącą z adresami IP. Aby uzyskać więcej informacji, zobacz [Usługa Azure Key Vault za zaporą](../../key-vault/key-vault-access-behind-firewall.md).  
+  -  Jeśli zasady zabezpieczeń ograniczają dostęp z maszyn wirtualnych platformy Azure do Internetu, można rozpoznać poprzedni identyfikator URI i skonfigurować określoną regułę, aby umożliwić łączność wychodzącą z adresami IP. Aby uzyskać więcej informacji, zobacz [Usługa Azure Key Vault za zaporą](../../key-vault/general/access-behind-firewall.md).  
 
 ## <a name="encryption-key-storage-requirements"></a>Wymagania dotyczące przechowywania kluczy szyfrowania  
 

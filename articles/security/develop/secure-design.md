@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299418"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461722"
 ---
 # <a name="design-secure-applications-on-azure"></a>Projektowanie bezpiecznych aplikacji na platformie Azure
 W tym artykule przedstawiamy działania zabezpieczeń i kontrolki, które należy wziąć pod uwagę podczas projektowania aplikacji dla chmury. Zasoby szkoleniowe wraz z pytaniami dotyczącymi zabezpieczeń i pojęciami, które należy wziąć pod uwagę podczas wymagań i etapów projektowania cyklu życia programu Microsoft [Security Development (SDL).](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) Celem jest pomoc w definiowaniu działań i usług platformy Azure, których można użyć do projektowania bezpieczniejszej aplikacji.
@@ -153,7 +153,7 @@ Modelowanie projektu aplikacji i wyliczanie zagrożeń [STRIDE](https://docs.goo
 
 | Zagrożenie | Właściwość zabezpieczeń | Potencjalne ograniczenie platformy Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Fałszowanie zawartości               | Uwierzytelnianie        | [Wymagaj połączeń HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Fałszowanie zawartości               | Authentication        | [Wymagaj połączeń HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manipulowanie              | Integralność             | Sprawdzanie poprawności certyfikatów SSL/TLS. Aplikacje korzystające z protokołu SSL/TLS muszą w pełni zweryfikować certyfikaty X.509 jednostek, z którymi się łączą. Użyj certyfikatów usługi Azure Key Vault do [zarządzania certyfikatami x509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Odrzucenie            | Brak odrzucenia       | Włącz [monitorowanie i diagnostykę](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)platformy Azure .|
 | Ujawnianie informacji | Poufność       | Szyfruj poufne dane [w spoczynku](../fundamentals/encryption-atrest.md) i [podczas przesyłania](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
@@ -242,7 +242,7 @@ Najlepszym sposobem obrony przed tego rodzaju atakiem jest zwrócenie się do u�
 
 Utrata kluczy i poświadczeń jest częstym problemem. Jedyną rzeczą gorszą niż utrata kluczy i poświadczeń jest posiadanie nieautoryzowanej strony uzyskać dostęp do nich. Osoby atakujące mogą korzystać z technik automatycznych i ręcznych, aby znaleźć klucze i wpisy tajne, które są przechowywane w repozytoriach kodu, takich jak GitHub. Nie umieszczaj kluczy i wpisów tajnych w tych publicznych repozytoriach kodu ani na żadnym innym serwerze.
 
-Zawsze umieszczaj klucze, certyfikaty, wpisy tajne i parametry połączenia w rozwiązaniu do zarządzania kluczami. Można użyć scentralizowanego rozwiązania, w którym klucze i wpisy tajne są przechowywane w sprzętowych modułach zabezpieczeń (HSM). Platforma Azure zapewnia moduł HSM w chmurze dzięki [usłudze Azure Key Vault.](../../key-vault/key-vault-overview.md)
+Zawsze umieszczaj klucze, certyfikaty, wpisy tajne i parametry połączenia w rozwiązaniu do zarządzania kluczami. Można użyć scentralizowanego rozwiązania, w którym klucze i wpisy tajne są przechowywane w sprzętowych modułach zabezpieczeń (HSM). Platforma Azure zapewnia moduł HSM w chmurze dzięki [usłudze Azure Key Vault.](../../key-vault/general/overview.md)
 
 Key Vault to *tajny magazyn:* jest to scentralizowana usługa w chmurze do przechowywania wpisów tajnych aplikacji. Usługa Key Vault chroni poufne dane, przechowując wpisy tajne aplikacji w jednej, centralnej lokalizacji i zapewniając bezpieczny dostęp, kontrolę uprawnień i rejestrowanie dostępu.
 
@@ -273,11 +273,11 @@ Jeśli dane są przechowywane w bazie danych lub jeśli porusza się tam iz powr
 
 Niektóre rzeczy nigdy nie powinny być zakodowane na komputerze w oprogramowaniu. Niektóre przykłady to nazwy hostów lub adresy IP, adresy URL, adresy e-mail, nazwy użytkowników, hasła, klucze kont magazynu i inne klucze kryptograficzne. Należy wziąć pod uwagę implementowanie wymagań dotyczących tego, co może lub nie może być zakodowane na komputerze w kodzie, w tym w sekcjach komentarzy kodu.
 
-Po umieszczeniu komentarzy w kodzie upewnij się, że nie zapisujesz żadnych poufnych informacji. Obejmuje to adres e-mail, hasła, parametry połączenia, informacje o aplikacji, które będą znane tylko przez kogoś w organizacji, oraz wszelkie inne, które mogą dać osobie atakującej przewagę w atakowaniu aplikacji lub organizacji .
+Po umieszczeniu komentarzy w kodzie upewnij się, że nie zapisujesz żadnych poufnych informacji. Obejmuje to adres e-mail, hasła, parametry połączenia, informacje o aplikacji, które będą znane tylko przez kogoś w organizacji, oraz wszelkie inne, które mogą dać osobie atakującej przewagę w atakowaniu aplikacji lub organizacji.
 
 Zasadniczo załóżmy, że wszystko w projekcie dewelopera będzie wiadomo publiczną po jego wdrożeniu. Unikaj umieszczania w projekcie poufnych danych dowolnego rodzaju.
 
-Wcześniej omówiliśmy [usługę Azure Key Vault](../../key-vault/key-vault-overview.md). Za pomocą usługi Key Vault można przechowywać wpisy tajne, takie jak klucze i hasła, zamiast ich kodowania na twardo. Korzystając z usługi Key Vault w połączeniu z tożsamościami zarządzanymi dla zasobów platformy Azure, twoja aplikacja sieci Web platformy Azure może łatwo i bezpiecznie uzyskiwać dostęp do tajnych wartości konfiguracji bez przechowywania żadnych wpisów tajnych w formancie źródłowym lub konfiguracji. Aby dowiedzieć się więcej, zobacz [Zarządzanie wpisami tajnymi w aplikacjach serwera za pomocą usługi Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+Wcześniej omówiliśmy [usługę Azure Key Vault](../../key-vault/general/overview.md). Za pomocą usługi Key Vault można przechowywać wpisy tajne, takie jak klucze i hasła, zamiast ich kodowania na twardo. Korzystając z usługi Key Vault w połączeniu z tożsamościami zarządzanymi dla zasobów platformy Azure, twoja aplikacja sieci Web platformy Azure może łatwo i bezpiecznie uzyskiwać dostęp do tajnych wartości konfiguracji bez przechowywania żadnych wpisów tajnych w formancie źródłowym lub konfiguracji. Aby dowiedzieć się więcej, zobacz [Zarządzanie wpisami tajnymi w aplikacjach serwera za pomocą usługi Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### <a name="implement-fail-safe-measures"></a>Wdrażanie środków bezpieczeństwa awaryjnego
 

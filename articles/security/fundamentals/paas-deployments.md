@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811478"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461705"
 ---
 # <a name="securing-paas-deployments"></a>Zabezpieczanie wdrożeń typu PaaS
 
@@ -74,7 +74,7 @@ Zasady i wzorce dla obwodu sieci są dostępne od dziesięcioleci. W przeciwień
 Poniżej przedstawiono najlepsze rozwiązania dotyczące zarządzania obwodem tożsamości.
 
 **Najlepsze rozwiązanie:** Zabezpiecz klucze i poświadczenia, aby zabezpieczyć wdrożenie PaaS.   
-**Szczegóły:** Utrata kluczy i poświadczeń jest częstym problemem. Można użyć scentralizowanego rozwiązania, w którym klucze i wpisy tajne mogą być przechowywane w sprzętowych modułach zabezpieczeń (HSM). [Usługa Azure Key Vault](../../key-vault/key-vault-overview.md) chroni klucze i wpisy tajne, szyfrując klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych, pliki .pfx i hasła przy użyciu kluczy chronionych przez moduły HSM.
+**Szczegóły:** Utrata kluczy i poświadczeń jest częstym problemem. Można użyć scentralizowanego rozwiązania, w którym klucze i wpisy tajne mogą być przechowywane w sprzętowych modułach zabezpieczeń (HSM). [Usługa Azure Key Vault](../../key-vault/general/overview.md) chroni klucze i wpisy tajne, szyfrując klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych, pliki .pfx i hasła przy użyciu kluczy chronionych przez moduły HSM.
 
 **Najlepsze rozwiązanie:** Nie umieszczaj poświadczeń i innych wpisów tajnych w kodzie źródłowym lub usłudze GitHub.   
 **Szczegóły:** Jedyną rzeczą gorszą niż utrata kluczy i poświadczeń jest uzyskanie dostępu do nich przez nieautoryzowaną stronę. Osoby atakujące mogą korzystać z technologii botów, aby znaleźć klucze i wpisy tajne przechowywane w repozytoriach kodu, takich jak GitHub. Nie należy umieszczać kluczy i wpisów tajnych w tych publicznych repozytoriach kodu.

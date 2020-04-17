@@ -1,11 +1,11 @@
 ---
-title: Zbiorcze usuwanie użytkowników (wersja zapoznawcza) w portalu usługi Azure Active Directory | Dokumenty firmy Microsoft
+title: Zbiorcze usuwanie użytkowników w portalu usługi Azure Active Directory | Dokumenty firmy Microsoft
 description: Zbiorcze usuwanie użytkowników w centrum administracyjnym platformy Azure w usłudze Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/15/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7c47887c12c8bf9be7a0c5b11dfb3f099965cb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: beb8b4f35dc5f02e59cced05a6bcfc235d42f996
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174385"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532825"
 ---
-# <a name="bulk-delete-users-preview-in-azure-active-directory"></a>Zbiorcze usuwanie użytkowników (wersja zapoznawcza) w usłudze Azure Active Directory
+# <a name="bulk-delete-users-in-azure-active-directory"></a>Zbiorcze usuwanie użytkowników w usłudze Azure Active Directory
 
 Korzystając z portalu usługi Azure Active Directory (Azure AD), można usunąć dużą liczbę członków do grupy za pomocą pliku csv (usytuowanych przecinkami) do zbiorczego usuwania użytkowników.
 
@@ -36,7 +36,7 @@ Korzystając z portalu usługi Azure Active Directory (Azure AD), można usuną�
 
    ![Plik CSV zawiera nazwy i identyfikatory użytkowników do usunięcia](./media/users-bulk-delete/delete-csv-file.png)
 
-1. Na stronie **Usuwanie zbiorcze (Podgląd)** w obszarze **Przekazywanie pliku csv**przejdź do pliku. Po wybraniu pliku i kliknięciu przycisku Prześlij rozpocznie się sprawdzanie poprawności pliku CSV.
+1. Na stronie **Zbiorczo usuwaj plik użytkownika** w obszarze **Prześlij plik csv**przejdź do pliku. Po wybraniu pliku i kliknięciu przycisku Prześlij rozpocznie się sprawdzanie poprawności pliku CSV.
 1. Po sprawdzeniu poprawności zawartości pliku zostanie **wyświetlony folder Plik przekazany pomyślnie**. Jeśli występują błędy, należy je naprawić, zanim będzie można przesłać zadanie.
 1. Gdy plik przechodzi weryfikacji, wybierz **prześlij,** aby rozpocząć operację zbiorczą platformy Azure, która usuwa użytkowników.
 1. Po zakończeniu operacji usuwania zostanie wyświetlone powiadomienie, że operacja zbiorcza powiodła się.
@@ -45,9 +45,9 @@ Jeśli występują błędy, można pobrać i wyświetlić plik wyników na stron
 
 ## <a name="check-status"></a>Sprawdzanie stanu
 
-Stan wszystkich oczekujących żądań zbiorczych można zobaczyć na stronie **Wyniki operacji zbiorczej (wersja zapoznawcza).**
+Stan wszystkich oczekujących żądań zbiorczych można zobaczyć na stronie **Wyniki operacji zbiorczej.**
 
-   ![Sprawdź stan przekazywania na stronie Wyniki operacji zbiorczych](./media/users-bulk-delete/bulk-center.png)
+   [![](media/users-bulk-delete/bulk-center.png "Check delete status in the Bulk Operations Results page")](media/users-bulk-delete/bulk-center.png#lightbox)
 
 Następnie można sprawdzić, czy usunięto użytkowników istnieje w organizacji usługi Azure AD albo w witrynie Azure portal lub przy użyciu programu PowerShell.
 

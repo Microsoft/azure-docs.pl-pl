@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73838699"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459036"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Przenoszenie konta usługi Azure Storage do innego regionu
 
@@ -51,7 +51,7 @@ Ten szablon zawiera ustawienia opisujące twoje konto magazynu.
 
 Aby wyeksportować szablon przy użyciu witryny Azure portal:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Wybierz **pozycję Wszystkie zasoby,** a następnie wybierz konto magazynu.
 
@@ -63,7 +63,7 @@ Aby wyeksportować szablon przy użyciu witryny Azure portal:
 
    Ten plik zip zawiera pliki .json, które składają się na szablon i skrypty do wdrożenia szablonu.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby wyeksportować szablon przy użyciu programu PowerShell:
 
@@ -109,7 +109,7 @@ Aby wdrożyć szablon przy użyciu witryny Azure portal:
 
     ![Biblioteka szablonów usługi Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Wybierz **pozycję Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
 5. Wybierz pozycję **Utwórz własny szablon w edytorze**.
 
@@ -139,7 +139,7 @@ Aby wdrożyć szablon przy użyciu witryny Azure portal:
     ```
     Aby uzyskać kody lokalizacji regionu, zobacz [Lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod dla regionu to nazwa regionu bez spacji, **Central US** = **centralus**.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby wdrożyć szablon przy użyciu programu PowerShell:
 
@@ -194,7 +194,7 @@ Wdrożenie szablonu w celu utworzenia nowego konta magazynu w regionie docelowym
 
 3. Kliknij pole **wyboru Zgadzam się z warunkami podanymi powyżej,** a następnie kliknij przycisk Wybierz **zakup.**
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Uzyskaj identyfikator subskrypcji, w którym chcesz wdrożyć docelowy publiczny adres IP za pomocą [get-AzSubscription:](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0)
 
@@ -274,9 +274,9 @@ Aby usunąć konto magazynu przy użyciu witryny Azure portal:
 
 3. Wybierz **pozycję Usuń**i potwierdź.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Aby usunąć grupę zasobów i skojarzone z nią zasoby, w tym nowe konto magazynu, użyj polecenia [Usuń konto AzStorageAccount:](/powershell/module/az.resources/remove-azstorageaccount)
+Aby usunąć grupę zasobów i skojarzone z nią zasoby, w tym nowe konto magazynu, użyj polecenia [Usuń konto AzStorageAccount:](/powershell/module/az.storage/remove-azstorageaccount)
 
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount

@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: genlin
 manager: dcscontentpm
-editor: tysonn
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: cce248e2906f4a36737388e8cc7124b1bb19fbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09c911838d34a083de8450145ce849fc966eb0e8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71058674"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459155"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Wyświetlanie i modyfikowanie nazwy hostów
 Aby zezwolić na odwoływanie się do wystąpień roli za pomocą nazwy hosta, należy ustawić wartość nazwy hosta w pliku konfiguracji usługi dla każdej roli. Można to zrobić, dodając żądaną nazwę hosta do atrybutu **vmName** elementu **Role.** Wartość atrybutu **vmName** jest używana jako podstawa dla nazwy hosta każdego wystąpienia roli. Na przykład, jeśli **vmName** jest *webrole* i istnieją trzy wystąpienia tej roli, nazwy hostów wystąpień będzie *webrole0*, *webrole1*i *webrole2*. Nie trzeba określać nazwy hosta dla maszyn wirtualnych w pliku konfiguracji, ponieważ nazwa hosta maszyny wirtualnej jest wypełniana na podstawie nazwy maszyny wirtualnej. Aby uzyskać więcej informacji na temat konfigurowania usługi Microsoft Azure, zobacz [Schemat konfiguracji usługi Azure (plik cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)

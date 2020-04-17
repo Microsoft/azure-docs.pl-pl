@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: c3f3c7fbaa043a03b70ab770c06e493716c70daf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49b51a5f14f305afa915ec1d0fae42ca9ded6b1e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500279"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461671"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Najważniejsze wskazówki dotyczące zabezpieczania aplikacji sieci Web i aplikacji mobilnych PaaS przy użyciu usługi Azure App Service
 
@@ -36,7 +36,7 @@ Usługa app service zapewnia usługę OAuth 2.0 dla dostawcy tożsamości. OAuth
 Ograniczenie dostępu jest konieczne dla organizacji, które chcą wymusić zasady zabezpieczeń dostępu do danych. Za pomocą kontroli dostępu opartej na rolach (RBAC) można przypisać uprawnienia użytkownikom, grupom i aplikacjom w określonym zakresie, na przykład zasadami zabezpieczeń o konieczności poznania i najmniejszych uprawnień. Aby dowiedzieć się więcej o przyznawaniu użytkownikom dostępu do aplikacji, zobacz [Co to jest kontrola dostępu oparta na rolach](/azure/role-based-access-control/overview).
 
 ## <a name="protect-your-keys"></a>Chroń swoje klucze
-Nie ma znaczenia, jak dobre jest twoje bezpieczeństwo, jeśli utracisz klucze subskrypcji. Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Za pomocą usługi Key Vault można szyfrować klucze i wpisy tajne (takie jak klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych, . PFX i hasła) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (HSM). W celu zapewnienia dodatkowego bezpieczeństwa możesz zaimportować lub wygenerować klucze w modułach HSM. Za pomocą usługi Key Vault można również zarządzać certyfikatami TLS za pomocą automatycznego odnawiania. Zobacz [Co to jest usługa Azure Key Vault,](../../key-vault/key-vault-overview.md) aby dowiedzieć się więcej.
+Nie ma znaczenia, jak dobre jest twoje bezpieczeństwo, jeśli utracisz klucze subskrypcji. Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Za pomocą usługi Key Vault można szyfrować klucze i wpisy tajne (takie jak klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych, . PFX i hasła) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (HSM). W celu zapewnienia dodatkowego bezpieczeństwa możesz zaimportować lub wygenerować klucze w modułach HSM. Za pomocą usługi Key Vault można również zarządzać certyfikatami TLS za pomocą automatycznego odnawiania. Zobacz [Co to jest usługa Azure Key Vault,](../../key-vault/general/overview.md) aby dowiedzieć się więcej.
 
 ## <a name="restrict-incoming-source-ip-addresses"></a>Ograniczanie przychodzących źródłowych adresów IP
 [Środowiska usługi app service](../../app-service/environment/intro.md) ma funkcję integracji sieci wirtualnej, która pomaga ograniczyć przychodzące źródłowe adresy IP za pośrednictwem sieciowych grup zabezpieczeń (NSG). Jeśli nie znasz sieci wirtualnych platformy Azure (VNETs), jest to funkcja, która umożliwia umieszczenie wielu zasobów platformy Azure w sieci niekonkingowej, routable, do której można kontrolować dostęp. Aby dowiedzieć się więcej, zobacz [Integrowanie aplikacji z siecią wirtualną platformy Azure](../../app-service/web-sites-integrate-with-vnet.md).

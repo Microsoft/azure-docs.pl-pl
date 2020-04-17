@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544337"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460651"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array best practices (Najlepsze rozwiązania dotyczące macierzy wirtualnej StorSimple)
 
@@ -199,7 +199,7 @@ Podczas konfigurowania analiz ARS dla woluminów StorSimple należy stosować na
 ### <a name="data-security-and-encryption"></a>Bezpieczeństwo i szyfrowanie danych
 Twoja tablica wirtualna StorSimple ma funkcje zabezpieczeń i szyfrowania danych, które zapewniają poufność i integralność danych. Podczas korzystania z tych funkcji zaleca się przestrzeganie następujących najlepszych rozwiązań: 
 
-* Zdefiniuj klucz szyfrowania magazynu w chmurze, aby wygenerować szyfrowanie AES-256 przed wysłaniem danych z macierzy wirtualnej do chmury. Ten klucz nie jest wymagany, jeśli dane są szyfrowane na początek. Klucz może być generowany i przechowywany w bezpiecznym miejscu przy użyciu systemu zarządzania kluczami, takiego jak [magazyn kluczy platformy Azure.](../key-vault/key-vault-overview.md)
+* Zdefiniuj klucz szyfrowania magazynu w chmurze, aby wygenerować szyfrowanie AES-256 przed wysłaniem danych z macierzy wirtualnej do chmury. Ten klucz nie jest wymagany, jeśli dane są szyfrowane na początek. Klucz może być generowany i przechowywany w bezpiecznym miejscu przy użyciu systemu zarządzania kluczami, takiego jak [magazyn kluczy platformy Azure.](../key-vault/general/overview.md)
 * Podczas konfigurowania konta magazynu za pośrednictwem usługi StorSimple Manager, upewnij się, że tryb TLS, aby utworzyć bezpieczny kanał komunikacji sieciowej między urządzeniem StorSimple i chmury.
 * Okresowo ponownie wygeneruj klucze dla kont magazynu (uzyskując dostęp do usługi Azure Storage), aby uwzględnić wszelkie zmiany dostępu na podstawie zmienionej listy administratorów.
 * Dane w macierzy wirtualnej są kompresowane i deduplikowane przed wysłaniem ich na platformę Azure. Nie zaleca się korzystania z usługi roli Deduplikacja danych na hoście systemu Windows Server.

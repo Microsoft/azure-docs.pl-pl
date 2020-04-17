@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e00fee8841a2d5a817a00b942bfe0733a80b2cfc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b2fe7e4fbe4830567533053580880315ceface5d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546323"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458883"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Szyfrowanie dysków platformy Azure dla maszyn wirtualnych z systemem Windows 
 
@@ -54,7 +54,7 @@ Aby włączyć szyfrowanie dysków platformy Azure, maszyny wirtualne muszą spe
   - Aby uzyskać token do łączenia się z magazynem kluczy, maszyna wirtualna systemu \[Windows musi\]mieć możliwość nawiązania połączenia z punktem końcowym usługi Azure Active Directory login.microsoftonline.com .
   - Aby zapisać klucze szyfrowania w magazynie kluczy, maszyna wirtualna systemu Windows musi mieć możliwość nawiązania połączenia z punktem końcowym magazynu kluczy.
   - Maszyna wirtualna systemu Windows musi mieć możliwość nawiązania połączenia z punktem końcowym magazynu platformy Azure, który obsługuje repozytorium rozszerzenia platformy Azure i kontem magazynu platformy Azure, które obsługuje pliki VHD.
-  -  Jeśli zasady zabezpieczeń ograniczają dostęp z maszyn wirtualnych platformy Azure do Internetu, można rozpoznać poprzedni identyfikator URI i skonfigurować określoną regułę, aby umożliwić łączność wychodzącą z adresami IP. Aby uzyskać więcej informacji, zobacz [Usługa Azure Key Vault za zaporą](../../key-vault/key-vault-access-behind-firewall.md).    
+  -  Jeśli zasady zabezpieczeń ograniczają dostęp z maszyn wirtualnych platformy Azure do Internetu, można rozpoznać poprzedni identyfikator URI i skonfigurować określoną regułę, aby umożliwić łączność wychodzącą z adresami IP. Aby uzyskać więcej informacji, zobacz [Usługa Azure Key Vault za zaporą](../../key-vault/general/access-behind-firewall.md).    
 
 
 ## <a name="group-policy-requirements"></a>Wymagania dotyczące zasad grupy

@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 1961797f37a760fe3a31dc8aa3830889965b69b5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 78f7c935e64276e7f4862dad966b99bff6bd246d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81379939"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481939"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -160,7 +160,7 @@ W poniższej tabeli przedstawiono, jak trwałe i dostępne dane są w danym scen
 
 <sup>2</sup> Aby uzyskać informacje dotyczące typów kont magazynu, zobacz [Omówienie konta magazynu](storage-account-overview.md).
 
-Wszystkie dane dla wszystkich typów kont magazynu są kopiowane zgodnie z opcją nadmiarowości dla konta magazynu. Obiekty, w tym blokowe obiekty blob, dołączanie obiektów blob, stronicowych obiektów blob, kolejek, tabel i plików są kopiowane.
+Wszystkie dane dla wszystkich typów kont magazynu i [wszystkich warstw (w tym archiwum)](../blobs/storage-blob-storage-tiers.md) są kopiowane zgodnie z opcją nadmiarowości dla konta magazynu. Obiekty, w tym blokowe obiekty blob, dołączanie obiektów blob, stronicowych obiektów blob, kolejek, tabel i plików są kopiowane.
 
 Aby uzyskać informacje o cenach dla każdej opcji nadmiarowości, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 

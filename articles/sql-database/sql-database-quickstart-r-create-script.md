@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 5b2f8231952d25f5858f8e06a957f1056ecc3651
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: bb6cb6d86933166d2427788d697d9cd38cf04bf0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768490"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460175"
 ---
 # <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Szybki start: tworzenie i uruchamianie prostych skryptów języka R w usługach azure SQL Database Machine Learning Services (wersja zapoznawcza)
 
@@ -30,11 +31,8 @@ W tym przewodniku Szybki start utworzysz i uruchomisz zestaw skryptów języka R
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Baza danych SQL platformy Azure](sql-database-single-database-get-started.md) z [regułą zapory na poziomie serwera](sql-database-server-level-firewall-rule.md)
-- [Usługi uczenia maszynowego](sql-database-machine-learning-services-overview.md) z włączoną funkcją języka R. [Zarejestruj się w wersji zapoznawczej](sql-database-machine-learning-services-overview.md#signup).
-- Program [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
-
-> [!NOTE]
-> W okresie publicznej wersji zapoznawczej firma Microsoft dołączy Cię i włączy usługę Machine Learning dla Twojej istniejącej lub nowej bazy danych.
+- [Usługi uczenia maszynowego](sql-database-machine-learning-services-overview.md) z włączoną funkcją języka R.
+- [Sql Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 W tym przykładzie użyto procedury składowanej [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) do zawijania poprawnie sformułowanego skryptu języka R.
 
@@ -81,7 +79,7 @@ print(c(c, d))
 
    To powinno wyglądać mniej więcej tak.
 
-    **Results**
+    **Wyniki**
 
     ```text
     STDOUT message(s) from external script:
@@ -144,7 +142,7 @@ Na razie użyjmy domyślnych zmiennych wejściowych i wyjściowych [sp_execute_e
     FROM RTestData
     ```
 
-    **Results**
+    **Wyniki**
 
     ![Zawartość tabeli RTestData](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
@@ -157,7 +155,7 @@ Na razie użyjmy domyślnych zmiennych wejściowych i wyjściowych [sp_execute_e
     WITH RESULT SETS(([NewColName] INT NOT NULL));
     ```
 
-    **Results**
+    **Wyniki**
 
     ![Dane wyjściowe skryptu języka R, który zwraca dane z tabeli](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
 
@@ -191,7 +189,7 @@ Na razie użyjmy domyślnych zmiennych wejściowych i wyjściowych [sp_execute_e
     WITH RESULT SETS(([Col1] CHAR(20) NOT NULL));
     ```
 
-    **Results**
+    **Wyniki**
 
     ![Wyniki zapytania używającego @script jako danych wejściowych](./media/sql-database-quickstart-r-create-script/r-data-generated-output.png)
 
@@ -207,7 +205,7 @@ GO
 
 Funkcja `print` języka R zwraca wersję do okna **Komunikaty**. W poniższym przykładzie danych wyjściowych widać, że baza danych SQL w tym przypadku ma zainstalowaną wersję języka R 3.4.4.
 
-**Results**
+**Wyniki**
 
 ```text
 STDOUT message(s) from external script:
@@ -249,7 +247,7 @@ WITH result sets((
 
 Dane wyjściowe `installed.packages()` pochodzi z w R i jest zwracany jako zestaw wyników.
 
-**Results**
+**Wyniki**
 
 ![Zainstalowane pakiety w języku R](./media/sql-database-quickstart-r-create-script/r-installed-packages.png)
 

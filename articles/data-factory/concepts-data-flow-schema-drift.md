@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/12/2019
-ms.openlocfilehash: a6b3b1d11242434088c138460d968f39d5273e4f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/15/2020
+ms.openlocfilehash: 4c510cae7ba5a952e6dc7f7cb7ae7591fe801560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418426"
+ms.locfileid: "81461297"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Dryft schematu w przepływie danych mapowania
 
@@ -30,6 +30,10 @@ Aby chronić przed dryftem schematu, ważne jest, aby mieć obiekty w narzędziu
 Usługa Azure Data Factory natywnie obsługuje elastyczne schematy, które zmieniają się z wykonywania na wykonanie, dzięki czemu można tworzyć logikę transformacji danych ogólnych bez konieczności ponownego kompilacji przepływów danych.
 
 Należy podjąć decyzję architektury w przepływie danych, aby zaakceptować dryf schematu w całym przepływie. Po wykonaniu tej tej pracy można chronić przed zmianami schematu ze źródeł. Jednak utracisz wczesne powiązanie kolumn i typów w całym przepływie danych. Usługa Azure Data Factory traktuje przepływy dryfów schematu jako przepływy późnego wiązania, więc podczas tworzenia przekształceń, nazwy kolumn dryfował nie będą dostępne w widokach schematu w całym przepływie.
+
+Ten klip wideo zawiera wprowadzenie do niektórych złożonych rozwiązań, które można łatwo zbudować w ujmiju ADF z funkcją dryfu schematu przepływu danych. W tym przykładzie tworzymy wzorce wielokrotnego wykorzystania na podstawie elastycznych schematów bazy danych:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
 
 ## <a name="schema-drift-in-source"></a>Dryf schematu w źródle
 

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 14ff86bc47ab6de55d840c4b986c99caf2d4e99c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545640"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482024"
 ---
 # <a name="azure-built-in-roles"></a>Wbudowane role platformy Azure
 
@@ -41,7 +41,7 @@ Poniższa tabela zawiera krótki opis i unikatowy identyfikator każdej wbudowan
 > | [Właściciel](#owner) | Umożliwia zarządzanie wszystkim, w tym dostępem do zasobów. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [Czytelnik](#reader) | Umożliwia wyświetlanie wszystkiego, ale nie wprowadzać żadnych zmian. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | [Administrator dostępu użytkowników](#user-access-administrator) | Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
-> | **Obliczanie** |  |  |
+> | **Wystąpienia obliczeniowe** |  |  |
 > | [Klasyczny współautor maszyny wirtualnej](#classic-virtual-machine-contributor) | Umożliwia zarządzanie klasycznymi maszynami wirtualnymi, ale nie ma do nich dostępu, a nie z kontem sieci wirtualnej lub magazynu, z którymi są połączone. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | [Logowanie administratora maszyny wirtualnej](#virtual-machine-administrator-login) | Wyświetlanie maszyn wirtualnych w portalu i logowanie się jako administrator | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | [Współautor maszyny wirtualnej](#virtual-machine-contributor) | Umożliwia zarządzanie maszynami wirtualnymi, ale nie ma do nich dostępu, a nie z kontem sieci wirtualnej lub magazynu, z którymi są połączone. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
@@ -55,7 +55,7 @@ Poniższa tabela zawiera krótki opis i unikatowy identyfikator każdej wbudowan
 > | [Współautor strefy DNS](#dns-zone-contributor) | Umożliwia zarządzanie strefami DNS i zestawami rekordów w usłudze Azure DNS, ale nie pozwala kontrolować, kto ma do nich dostęp. | befefa01-2a29-4197-83a8-272ff33ce314 |
 > | [Współautor sieci](#network-contributor) | Umożliwia zarządzanie sieciami, ale nie ma do nich dostępu. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | [Współautor menedżera ruchu](#traffic-manager-contributor) | Umożliwia zarządzanie profilami usługi Traffic Manager, ale nie pozwala kontrolować, kto ma do nich dostęp. | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
-> | **Magazyn** |  |  |
+> | **Storage** |  |  |
 > | [Współpracownik Avere](#avere-contributor) | Może tworzyć klaster vFXT avere i zarządzać nim. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | [Avere Operator](#avere-operator) | Używany przez klaster VFXT Avere do zarządzania klastrem | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
 > | [Współautor kopii zapasowej](#backup-contributor) | Umożliwia zarządzanie usługą tworzenia kopii zapasowych, ale nie można tworzyć magazynów i udzielać dostępu innym osobom | 5e467623-bb1f-42f4-a55d-6e525e11384b |
@@ -2071,6 +2071,7 @@ Odczytu, zapisu i usuwania kontenerów i obiektów blob usługi Azure Storage. A
 > | **DataAkcje** |  |
 > | Magazynowanie/magazynowanie MicrosoftKonserwacje/blobSługi/kontenery/obiekty blob/delete | Usuwanie obiektu blob. |
 > | Magazynowanie/magazynowanie MicrosoftKonserwacje/blobSługi/kontenery/obiekty blob/odczyt | Zwraca obiekt blob lub listę obiektów blob. |
+> | Magazynowanie/magazynowanie Kont/blobUsługi/kontenery/obiekty blobs/move/action | Przenosi obiekt blob z jednej ścieżki do drugiej |
 > | Magazynowanie/magazynowanie MicrosoftKonserwacje/blobSługi/kontenery/obiekty blob/zapis | Zapis do obiektu blob. |
 > | **NotDataACtions (NotDataActions)** |  |
 > | *brak* |  |
@@ -2095,6 +2096,7 @@ Odczytu, zapisu i usuwania kontenerów i obiektów blob usługi Azure Storage. A
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
       ],
       "notDataActions": []
@@ -4099,6 +4101,7 @@ Współautor usługi Log Analytics może odczytywać wszystkie dane monitorowani
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageKonta/listKeys/akcja | Wyświetla listę kluczy dostępu dla kont magazynu. |
 > | Microsoft.Compute/virtualMachines/extensions/* |  |
+> | Microsoft.HybridCompute/maszyny/rozszerzenia/zapis | Instalowanie lub aktualizowanie rozszerzeń łuku platformy Azure |
 > | Microsoft.Insights/alertRules/* | Tworzenie reguł alertów aplikacji Insights i zarządzanie nimi |
 > | Microsoft.Insights/diagnosticSettings/* | Tworzy, aktualizuje lub odczytuje ustawienie diagnostyczne dla analysis server |
 > | Microsoft.OperationalInsights/* |  |
@@ -4130,6 +4133,7 @@ Współautor usługi Log Analytics może odczytywać wszystkie dane monitorowani
         "Microsoft.ClassicCompute/virtualMachines/extensions/*",
         "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
         "Microsoft.Compute/virtualMachines/extensions/*",
+        "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Insights/diagnosticSettings/*",
         "Microsoft.OperationalInsights/*",
@@ -5515,6 +5519,7 @@ Czytnik wartownika platformy Azure
 > | --- | --- |
 > | **Akcje** |  |
 > | Microsoft.SecurityInsights/*/odczyt |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Sprawdzanie autoryzacji i licencji użytkownika |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Szukaj za pomocą nowego silnika. |
 > | Microsoft.OperationalInsights/workspaces/*/read | Wyświetlanie danych analizy dzienników |
 > | Microsoft.OperationalInsights/workspaces/LinkedServices/read | Uzyskaj połączone usługi w danym obszarze roboczym. |
@@ -5548,6 +5553,7 @@ Czytnik wartownika platformy Azure
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
@@ -5583,6 +5589,7 @@ Obiekt odpowiadający usługi Azure Sentinel
 > | --- | --- |
 > | **Akcje** |  |
 > | Microsoft.SecurityInsights/*/odczyt |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Sprawdzanie autoryzacji i licencji użytkownika |
 > | Microsoft.SecurityInsights/cases/* |  |
 > | Microsoft.SecurityInsights/incidents/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Szukaj za pomocą nowego silnika. |
@@ -5618,6 +5625,7 @@ Obiekt odpowiadający usługi Azure Sentinel
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",

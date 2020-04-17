@@ -1,11 +1,11 @@
 ---
-title: Pobieranie listy użytkowników (wersja zapoznawcza) w portalu usługi Azure Active Directory | Dokumenty firmy Microsoft
+title: Pobieranie listy użytkowników w portalu usługi Azure Active Directory | Dokumenty firmy Microsoft
 description: Pobieranie rekordów użytkowników zbiorczo w centrum administracyjnym platformy Azure w usłudze Azure Active Directory.
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 02/06/2020
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b35163387ed4ce71f7a2019835a1d9fdbff3051
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063836"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532655"
 ---
-# <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Pobieranie listy użytkowników (wersja zapoznawcza) w portalu usługi Azure Active Directory
+# <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Pobieranie listy użytkowników w portalu usługi Azure Active Directory
 
 Usługa Azure Active Directory (Azure AD) obsługuje operacje importowania (tworzenia) użytkowników zbiorczych.
 
 ## <a name="required-permissions"></a>Wymagane uprawnienia
 
-Aby pobrać listę użytkowników z centrum administracyjnego usługi Azure AD, musisz zalogować się z użytkownikiem przypisanym do jednej lub kilku ról administratora na poziomie organizacji w usłudze Azure AD. Zaproszony i deweloper aplikacji nie są uznawane za role administratora.
+Aby pobrać listę użytkowników z centrum administracyjnego usługi Azure AD, musisz zalogować się z użytkownikiem przypisanym do jednej lub więcej ról administratora na poziomie organizacji w usłudze Azure AD (Administrator użytkownika jest minimalną wymaganą rolą). Zaproszony i deweloper aplikacji nie są uznawane za role administratora.
 
 ## <a name="to-download-a-list-of-users"></a>Aby pobrać listę użytkowników
 
@@ -70,9 +70,9 @@ Aby pobrać listę użytkowników z centrum administracyjnego usługi Azure AD, 
 
 ## <a name="check-status"></a>Sprawdzanie stanu
 
-Stan oczekujących żądań zbiorczych można zobaczyć na stronie **Wyniki operacji zbiorczej (wersja zapoznawcza).**
+Stan oczekujących żądań zbiorczych można zobaczyć na stronie **Wyniki operacji zbiorczej.**
 
-   ![Sprawdź stan przekazywania na stronie Wyniki operacji zbiorczych](./media/users-bulk-download/bulk-center.png)
+[![](media/users-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Limity usług pobierania zbiorczego
 

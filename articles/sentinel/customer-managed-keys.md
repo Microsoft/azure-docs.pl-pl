@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: yelevin
-ms.openlocfilehash: bc2fa02925e7f5c671085eb87ca0431d3fca7691
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5eed208ed79aeab4e46ed90dd4d340a8b445be96
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587961"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461637"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Konfigurowanie klucza zarządzanego przez klienta usługi Azure Sentinel
 
@@ -60,11 +60,11 @@ Aby aprowizować cmk, wykonaj następujące kroki: 
     > [!NOTE]
     >  Usługa Azure Key Vault musi być skonfigurowana jako możliwe do odzyskania, aby chronić klucz i dostęp.
 
-1.  [Włącz opcje odzyskiwania:](../key-vault/key-vault-best-practices.md#turn-on-recovery-options)
+1.  [Włącz opcje odzyskiwania:](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   Upewnij się, że [opcja Usuwanie nietrwałe](../key-vault/key-vault-ovw-soft-delete.md) jest włączona.
+    -   Upewnij się, że [opcja Usuwanie nietrwałe](../key-vault/general/overview-soft-delete.md) jest włączona.
 
-    -   Włącz [ochronę przed przeczyszczaniem,](../key-vault/key-vault-ovw-soft-delete.md#purge-protection) aby chronić przed wymuszonym usunięciem klucza tajnego/przechowalni nawet po usunięciu nietrwałym.
+    -   Włącz [ochronę przed przeczyszczaniem,](../key-vault/general/overview-soft-delete.md#purge-protection) aby chronić przed wymuszonym usunięciem klucza tajnego/przechowalni nawet po usunięciu nietrwałym.
 
 ### <a name="step-2-enable-cmk-on-your-log-analytics-workspace"></a>KROK 2: Włącz cmk w obszarze roboczym usługi Log Analytics
 

@@ -4,12 +4,12 @@ description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotycz�
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 235eba7f80778b8a60ba880616cf80f2c14ccba1
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 59d9b1f21e1936b7d03293ec3d338677380a7c99
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382183"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530270"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące rozumienia języka
 
@@ -322,7 +322,7 @@ Na konferencji Build 2019 zostały wydane następujące funkcje:
 * [Przewodnik po migracji interfejsu API w wersji Zapoznawczej systemu V3](luis-migration-api-v3.md)
 * [Ulepszony pulpit nawigacyjny analizy](luis-how-to-use-dashboard.md)
 * [Ulepszone wstępnie utworzone domeny](luis-reference-prebuilt-domains.md)
-* [Encje listy dynamicznej](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [Encje listy dynamicznej](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [Podmioty zewnętrzne](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Filmy wideo:

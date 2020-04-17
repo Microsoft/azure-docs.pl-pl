@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a3b738d95b5b777f1cf0329fb3c1bc3e2860421e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a7957c7cbcfa511ea441d8c7bd4371f56ab87560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545970"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461688"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 ## <a name="overview"></a>Omówienie
@@ -295,7 +295,7 @@ Sekcja zawiera dodatkowe informacje dotyczące kluczowych funkcji w tym obszarze
 Za pomocą usługi Azure IaaS można używać oprogramowania chroniącego przed złośliwym oprogramowaniem od dostawców zabezpieczeń, takich jak Microsoft, Symantec, Trend Micro, McAfee i Kaspersky, aby chronić maszyny wirtualne przed złośliwymi plikami, adware i innymi zagrożeniami. [Ochrona przed złośliwym oprogramowaniem](antimalware.md) firmy Microsoft dla usług w chmurze i maszyn wirtualnych platformy Azure to funkcja ochrony, która pomaga identyfikować i usuwać wirusy, programy szpiegujące i inne złośliwe oprogramowanie. Ochrona przed złośliwym oprogramowaniem firmy Microsoft udostępnia konfigurowalne alerty, gdy znane złośliwe lub niechciane oprogramowanie próbuje zainstalować się lub uruchomić w systemach platformy Azure. Microsoft Antimalware można również wdrożyć za pomocą usługi Azure Security Center
 
 ### <a name="hardware-security-module"></a>Sprzętowy moduł zabezpieczeń
-Szyfrowanie i uwierzytelnianie nie zwiększają bezpieczeństwa, chyba że same klucze są chronione. Możesz uprościć zarządzanie krytycznymi wpisami tajnymi i kluczami i zabezpieczeniami, przechowując je w [usłudze Azure Key Vault.](../../key-vault/key-vault-overview.md) Usługa Key Vault umożliwia przechowywanie kluczy w sprzętowych modułach zabezpieczeń (HSM) certyfikowanych zgodnie ze standardami FIPS 140-2 Poziomu 2. Klucze szyfrowania programu SQL Server do szyfrowania kopii zapasowych lub [przezroczystych danych](https://msdn.microsoft.com/library/bb934049.aspx) mogą być przechowywane w ucho. Uprawnienia i dostęp do tych elementów chronionych są zarządzane za pośrednictwem [usługi Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Szyfrowanie i uwierzytelnianie nie zwiększają bezpieczeństwa, chyba że same klucze są chronione. Możesz uprościć zarządzanie krytycznymi wpisami tajnymi i kluczami i zabezpieczeniami, przechowując je w [usłudze Azure Key Vault.](../../key-vault/general/overview.md) Usługa Key Vault umożliwia przechowywanie kluczy w sprzętowych modułach zabezpieczeń (HSM) certyfikowanych zgodnie ze standardami FIPS 140-2 Poziomu 2. Klucze szyfrowania programu SQL Server do szyfrowania kopii zapasowych lub [przezroczystych danych](https://msdn.microsoft.com/library/bb934049.aspx) mogą być przechowywane w ucho. Uprawnienia i dostęp do tych elementów chronionych są zarządzane za pośrednictwem [usługi Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ### <a name="virtual-machine-backup"></a>Kopia zapasowa maszyny wirtualnej
 [Usługa Azure Backup](../../backup/backup-overview.md) to rozwiązanie, które chroni dane aplikacji przy zerowym kapitale i minimalnych kosztach operacyjnych. Błędy aplikacji mogą uszkodzić dane, a błędy ludzkie mogą powodować błędy w aplikacjach, które mogą prowadzić do problemów z zabezpieczeniami. Dzięki usłudze Azure Backup maszyny wirtualne z systemem Windows i Linux są chronione.

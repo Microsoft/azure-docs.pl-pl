@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e7c34e42d0ab68a5dab9718075f02a85322ce6c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650570"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458832"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Wymiana komunikatów AS2 na integrację przedsiębiorstwa B2B w usłudze Azure Logic Apps z pakietem integracji dla przedsiębiorstw
 
@@ -61,7 +61,7 @@ W tym artykule pokazano, jak dodać akcje kodowania i dekodowania AS2 do istniej
 
 * Przed użyciem łącznika AS2 należy utworzyć [umowę](../logic-apps/logic-apps-enterprise-integration-agreements.md) AS2 między partnerami handlowymi i przechowywać tę umowę na koncie integracyjnym.
 
-* Jeśli używasz [usługi Azure Key Vault](../key-vault/key-vault-overview.md) do zarządzania certyfikatami, sprawdź, czy klucze magazynu zezwalają na operacje **szyfrowania** i **odszyfrowywania.** W przeciwnym razie akcje kodowania i dekodowania nie powiodą się.
+* Jeśli używasz [usługi Azure Key Vault](../key-vault/general/overview.md) do zarządzania certyfikatami, sprawdź, czy klucze magazynu zezwalają na operacje **szyfrowania** i **odszyfrowywania.** W przeciwnym razie akcje kodowania i dekodowania nie powiodą się.
 
   W witrynie Azure portal przejdź do klucza w magazynie kluczy, przejrzyj **dozwolone operacje**klucza i potwierdź, że są wybrane operacje **szyfrowania** i **odszyfrowywania,** na przykład:
 
@@ -113,7 +113,7 @@ W tym artykule pokazano, jak dodać akcje kodowania i dekodowania AS2 do istniej
 
    ![Wybierz treść i nagłówki z wyjść żądania](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png)
 
-## <a name="sample"></a>Sample
+## <a name="sample"></a>Przykład
 
 Aby spróbować wdrożyć w pełni operacyjną aplikację logiki i przykładowy scenariusz AS2, zobacz [szablon i scenariusz aplikacji logiki AS2.](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/)
 

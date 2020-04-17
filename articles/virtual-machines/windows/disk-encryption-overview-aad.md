@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb9d697c11427c7ebbf811f9cc05740347c74452
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9cd668fcac3751715fbe91c9aeff98583c9d03d5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417550"
+ms.locfileid: "81458917"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Szyfrowanie dysków platformy Azure za pomocą usługi Azure AD (poprzednia wersja)
 
@@ -28,15 +28,16 @@ W tym artykule [uzupełnia szyfrowanie dysków platformy Azure dla maszyn wirtua
   - Maszyna wirtualna IaaS musi mieć możliwość nawiązania połączenia z punktem końcowym magazynu platformy Azure, który obsługuje repozytorium rozszerzenia platformy Azure i konto magazynu platformy Azure, które obsługuje pliki VHD.
   -  Jeśli zasady zabezpieczeń ograniczają dostęp z maszyn wirtualnych platformy Azure do Internetu, można rozpoznać poprzedni identyfikator URI i skonfigurować określoną regułę, aby umożliwić łączność wychodzącą z adresami IP. Aby uzyskać więcej informacji, zobacz [Usługa Azure Key Vault za zaporą](../../key-vault/key-vault-access-behind-firewall.md).
   - Maszyna wirtualna do zaszyfrowania musi być skonfigurowana do używania protokołu TLS 1.2 jako protokołu domyślnego. Jeśli TLS 1.0 został jawnie wyłączony, a wersja .NET nie została zaktualizowana do wersji 4.6 lub nowszej, następująca zmiana rejestru umożliwi ADE wybranie nowszej wersji protokołu TLS:
-    
-        [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
-        "SystemDefaultTlsVersions"=dword:00000001
-        "SchUseStrongCrypto"=dword:00000001
 
-        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-        "SystemDefaultTlsVersions"=dword:00000001
-        "SchUseStrongCrypto"=dword:00000001` 
-     
+```console
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001` 
+```
 
 **Zasady grupy:**
  - Rozwiązanie szyfrowania dysków platformy Azure używa funkcji Ochrony kluczy zewnętrznych funkcji BitLocker dla maszyn wirtualnych IaaS systemu Windows. W przypadku maszyn wirtualnych przyłączonych do domeny nie wypychaj żadnych zasad grupy wymuszanych przez ochronę modułu TPM. Aby uzyskać informacje na temat zasad grupy dla opcji "Zezwalaj na funkcje BitLocker bez zgodnego modułu TPM", zobacz [Odwołanie do zasad grupy funkcji BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).

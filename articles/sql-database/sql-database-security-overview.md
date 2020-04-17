@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 2a4c6dd3dd6f1bb2f15e31226086c73fb8e63521
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124826"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461399"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Omówienie funkcji zabezpieczeń usługi Azure SQL Database
 
@@ -46,7 +46,7 @@ Reguły zapory IP udzielają dostępu do baz danych na podstawie źródłowego a
 > [!IMPORTANT]
 > Zarządzanie bazami danych i serwerami baz danych na platformie Azure jest kontrolowane przez przypisania ról konta użytkownika portalu. Aby uzyskać więcej informacji na temat tego artykułu, zobacz [kontrola dostępu oparta na rolach w witrynie Azure portal](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Uwierzytelnianie jest procesem udowodnienia, że użytkownik jest tym, za kogo się podają. Usługa Azure SQL Database obsługuje dwa typy uwierzytelniania:
 
@@ -112,11 +112,11 @@ Na przykład podczas korzystania ze sterownika ADO.NET jest to realizowane za po
 
 [Transparent Data Encryption (TDE) for Azure SQL Database](transparent-data-encryption-azure-sql.md) dodaje warstwę zabezpieczeń, aby chronić dane w stanie spoczynku przed nieautoryzowanym lub offline dostęp do plików raw lub kopii zapasowych. Typowe scenariusze obejmują kradzież centrum danych lub niezabezpieczoną utylizację sprzętu lub nośników, takich jak dyski i taśmy kopii zapasowych.TDE szyfruje całą bazę danych przy użyciu algorytmu szyfrowania AES, który nie wymaga od deweloperów aplikacji wprowadzania jakichkolwiek zmian w istniejących aplikacjach.
 
-Na platformie Azure wszystkie nowo utworzone bazy danych SQL są domyślnie szyfrowane, a klucz szyfrowania bazy danych jest chroniony przez wbudowany certyfikat serwera.  Konserwacja i rotacja certyfikatów są zarządzane przez usługę i nie wymagają żadnych danych wejściowych od użytkownika. Klienci, którzy wolą przejąć kontrolę nad kluczami szyfrowania, mogą zarządzać kluczami w [usłudze Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md).
+Na platformie Azure wszystkie nowo utworzone bazy danych SQL są domyślnie szyfrowane, a klucz szyfrowania bazy danych jest chroniony przez wbudowany certyfikat serwera.  Konserwacja i rotacja certyfikatów są zarządzane przez usługę i nie wymagają żadnych danych wejściowych od użytkownika. Klienci, którzy wolą przejąć kontrolę nad kluczami szyfrowania, mogą zarządzać kluczami w [usłudze Azure Key Vault](../key-vault/general/secure-your-key-vault.md).
 
 ### <a name="key-management-with-azure-key-vault"></a>Zarządzanie kluczami za pomocą usługi Azure Key Vault
 
-Obsługa [narzędzia Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) (BYOK) dla [przejrzystego szyfrowania danych](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) umożliwia klientom przejęcie odpowiedzialności za zarządzanie kluczami i rotację za pomocą usługi Azure Key [Vault](../key-vault/key-vault-secure-your-key-vault.md)— opartego na chmurze systemu zarządzania kluczami zewnętrznymi platformy Azure. Jeśli dostęp bazy danych do magazynu kluczy zostanie odwołany, nie można odszyfrować bazy danych i odczytać jej do pamięci. Usługa Azure Key Vault zapewnia centralną platformę zarządzania kluczami, wykorzystuje ściśle monitorowane sprzętowe moduły zabezpieczeń (HSM) i umożliwia rozdzielenie obowiązków między zarządzaniem kluczami a danymi w celu spełnienia wymagań dotyczących zgodności z zabezpieczeniami.
+Obsługa [narzędzia Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md) (BYOK) dla [przejrzystego szyfrowania danych](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) umożliwia klientom przejęcie odpowiedzialności za zarządzanie kluczami i rotację za pomocą usługi Azure Key [Vault](../key-vault/general/secure-your-key-vault.md)— opartego na chmurze systemu zarządzania kluczami zewnętrznymi platformy Azure. Jeśli dostęp bazy danych do magazynu kluczy zostanie odwołany, nie można odszyfrować bazy danych i odczytać jej do pamięci. Usługa Azure Key Vault zapewnia centralną platformę zarządzania kluczami, wykorzystuje ściśle monitorowane sprzętowe moduły zabezpieczeń (HSM) i umożliwia rozdzielenie obowiązków między zarządzaniem kluczami a danymi w celu spełnienia wymagań dotyczących zgodności z zabezpieczeniami.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Zawsze szyfrowane (szyfrowanie w użyciu)
 

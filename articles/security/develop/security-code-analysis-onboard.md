@@ -1,10 +1,10 @@
 ---
 title: Przewodnik dołączania do analizy kodu zabezpieczeń firmy Microsoft
 description: Ten artykuł zawiera opis instalowania rozszerzenia Analizy kodu zabezpieczeń firmy Microsoft
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 04/14/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6132aab98cc8145cb99cf153c64f20fbac00131c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ef111817b6351277f975b9b7e454f9a89982451
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78197009"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460209"
 ---
 # <a name="onboarding-and-installing"></a>Dołączanie i instalowanie
 
@@ -49,6 +49,7 @@ Skontaktuj się z partnerem z poniższej listy i poproś o zakup rozszerzenia An
 >**Partnerów:**
 
 - Strefy - Dane kontaktowe:cloudsupport@zones.com
+- Wortell – Dane kontaktowe:info@wortell.nl
 
 ### <a name="become-a-partner"></a>Zostań partnerem
 

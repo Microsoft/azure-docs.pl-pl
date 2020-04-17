@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: a4d7030f7a58a6252c6e596fc2c248163694a1e8
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 0fb80b8a3fe9dd642b1574b35ff48b30272ce848
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80880877"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533721"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Samouczek: Tworzenie demona wielodostępnego, który używa punktu końcowego platformy tożsamości firmy Microsoft
 
@@ -30,7 +30,7 @@ W tym samouczku dowiesz się, jak korzystać z platformy tożsamości firmy Micr
 
 Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
 
-Aplikacja jest zbudowana jako aplikacja ASP.NET MVC. Używa oprogramowania pośredniczącego OWIN OpenID Connect do logowania użytkowników.  
+Aplikacja jest zbudowana jako aplikacja ASP.NET MVC. Używa oprogramowania pośredniczącego OWIN OpenID Connect do logowania użytkowników.
 
 Składnik "demon" w tym przykładzie jest `SyncController.cs`kontrolerem interfejsu API, . Gdy kontroler jest wywoływany, pobiera listę użytkowników w dzierżawie usługi Azure Active Directory (Azure AD) klienta z programu Microsoft Graph. `SyncController.cs`jest wyzwalany przez wywołanie AJAX w aplikacji sieci web. Używa [biblioteki uwierzytelniania firmy Microsoft (MSAL) dla platformy .NET](msal-overview.md) do uzyskania tokenu dostępu dla programu Microsoft Graph.
 
@@ -109,19 +109,19 @@ Jeśli nie chcesz używać automatyzacji, należy wykonać kroki opisane w poni�
    - W sekcji **Przekierowanie identyfikatora URI (opcjonalnie)** wybierz pozycję **Web** w polu kombi i wprowadź następujące identyfikatory URI przekierowania:
        - **https://localhost:44316/**
        - **https://localhost:44316/Account/GrantPermissions**
-          
+
      Jeśli istnieje więcej niż dwa identyfikatory URI przekierowania, należy dodać je z karty **Uwierzytelnianie** później, po pomyślnym utworzeniu aplikacji.
 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 1. Na stronie **Przegląd** aplikacji znajdź wartość **identyfikatora aplikacji (klienta)** i zarejestruj ją na później. Będzie potrzebny do skonfigurowania pliku konfiguracji programu Visual Studio dla tego projektu.
 1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**. Następnie:
    - W sekcji **Ustawienia zaawansowane** ustaw adres **URL wylogowywać** na **https://localhost:44316/Account/EndSession**.
    - W sekcji**Niejawne przyznanie** **ustawień** > zaawansowanych wybierz pozycję **Tokeny dostępu** i **tokeny identyfikatorów**. Ten przykład wymaga [niejawnego przepływu dotacji,](v2-oauth2-implicit-grant-flow.md) aby włączyć logowanie użytkownika i wywoływanie interfejsu API.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 1. Na stronie **Certyfikaty & wpisy tajne** w sekcji **Wpisy tajne klienta** wybierz pozycję Nowy klucz tajny **klienta**. Następnie:
 
    1. Wprowadź opis klucza (na przykład **klucz tajny aplikacji),**
    1. Wybierz kluczowy czas trwania **w ciągu 1 roku**, W ciągu **2 lat**lub Nigdy nie **wygasa**.
-   1. Wybierz przycisk **Add** (Dodaj). 
+   1. Wybierz przycisk **Add** (Dodaj).
    1. Gdy pojawi się wartość klucza, skopiuj ją i zapisz w bezpiecznym miejscu. Ten klucz będzie potrzebny później, aby skonfigurować projekt w programie Visual Studio. Nie będzie wyświetlany ponownie ani pobierany w żaden inny sposób.
 1. Na liście stron aplikacji wybierz pozycję **Uprawnienia interfejsu API**. Następnie:
    1. Wybierz przycisk **Dodaj uprawnienia**.
@@ -174,21 +174,21 @@ Odpowiedni kod dla tego przykładu znajduje się w następujących plikach:
 
 ## <a name="re-create-the-sample-app"></a>Ponowne tworzenie przykładowej aplikacji
 
-1. W programie Visual Studio utwórz nowy projekt ASP.NET aplikacji sieci Web programu **Visual** **C#(.NET Framework).** 
+1. W programie Visual Studio utwórz nowy projekt ASP.NET aplikacji sieci Web programu **Visual** **C#(.NET Framework).**
 1. Na następnym ekranie wybierz szablon projektu **MVC.** Dodaj również odwołania do folderów i rdzeni dla **interfejsu API sieci Web,** ponieważ później dodasz kontroler interfejsu API sieci Web. Pozostaw wybrany tryb uwierzytelniania projektu jako domyślny: **Brak uwierzytelniania**.
-1. Wybierz projekt w oknie **Eksploratora rozwiązań** i wybierz klucz **F4.** 
+1. Wybierz projekt w oknie **Eksploratora rozwiązań** i wybierz klucz **F4.**
 1. We właściwościach projektu ustaw ustawienie **SSL włączone** jako **True**. Zanotuj informacje w **adresie URL SSL**. Będzie on potrzebny podczas konfigurowania rejestracji tej aplikacji w witrynie Azure portal.
-1. Dodaj następujące pakiety ASP.NET oprogramowania pośredniczącego OWIN nuget: 
+1. Dodaj następujące pakiety ASP.NET oprogramowania pośredniczącego OWIN nuget:
    - Microsoft.Owin.Security.ActiveDirectory
    - Microsoft.Owin.Security.Cookies
    - Microsoft.Owin.Host.SystemWeb
    - Microsoft.IdentityModel.Protocol.Extensions
    - Microsoft.Owin.Security.OpenIdConnect
-   - Microsoft.Identity.Client 
+   - Microsoft.Identity.Client
 1. W folderze **App_Start:**
-   1. Utwórz klasę o nazwie **Startup.Auth.cs**. 
-   1. Usuń **plik . App_Start** od nazwy obszaru nazw. 
-   1. Zastąp kod dla **Startup** klasy z kodem z tego samego pliku przykładowej aplikacji.       
+   1. Utwórz klasę o nazwie **Startup.Auth.cs**.
+   1. Usuń **plik . App_Start** od nazwy obszaru nazw.
+   1. Zastąp kod dla **Startup** klasy z kodem z tego samego pliku przykładowej aplikacji.
    Pamiętaj, aby wziąć całą definicję klasy. Definicja zmienia się z **uruchamiania klasy publicznej** na **publiczną klasę częściową Uruchamianie.**
 1. W **Startup.Auth.cs**, rozwiąż brakujące odwołania, dodając **instrukcje** zgodnie z sugestią programu Visual Studio IntelliSense.
 1. Kliknij prawym przyciskiem myszy projekt, wybierz polecenie **Dodaj**, a następnie wybierz polecenie **Klasa**.
@@ -220,13 +220,13 @@ Ten projekt ma projekty aplikacji sieci web i interfejsu API sieci Web. Aby wdro
 1. Po utworzeniu witryny sieci Web znajdź ją na **pulpicie nawigacyjnym** i wybierz ją, aby otworzyć ekran **Przegląd** usługi aplikacji.
 1. Na karcie **Przegląd** usługi aplikacji pobierz profil publikowania, wybierając łącze **Pobierz profil publikowania** i zapisz go. Można użyć innych mechanizmów wdrażania, takich jak wdrażanie z kontroli źródła.
 1. Przełącz się do programu Visual Studio, a następnie:
-   1. Przejdź do projektu **dotnet-web-daemon-v2.** 
+   1. Przejdź do projektu **dotnet-web-daemon-v2.**
    1. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań, a następnie wybierz polecenie **Publikuj**.
    1. Wybierz **pozycję Zaimportuj profil** na dolnym pasku i zaimportuj wcześniej pobrany profil publikowania.
 1. Wybierz pozycję **Konfiguruj**.
-1. Na karcie **Połączenie** zaktualizuj docelowy adres URL, aby używał "https". Na przykład [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net)użyj pliku . Wybierz **pozycję Dalej**.
-1. Na karcie **Ustawienia** upewnij się, że **opcja Włącz uwierzytelnianie organizacyjne** jest wyczyszczona.  
-1. Wybierz **pozycję Zapisz**. Wybierz **pozycję Publikuj** na ekranie głównym.
+1. Na karcie **Połączenie** zaktualizuj docelowy adres URL, aby używał "https". Na przykład [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net)użyj pliku . Wybierz opcję **Dalej**.
+1. Na karcie **Ustawienia** upewnij się, że **opcja Włącz uwierzytelnianie organizacyjne** jest wyczyszczona.
+1. Wybierz pozycję **Zapisz**. Wybierz **pozycję Publikuj** na ekranie głównym.
 
 Visual Studio opublikuje projekt i automatycznie otworzy przeglądarkę do adresu URL projektu. Jeśli zostanie wyświetlonych domyślna strona internetowa projektu, publikacja zakończyła się pomyślnie.
 

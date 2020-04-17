@@ -4,12 +4,12 @@ description: Zawiera omówienie strategii migracji i scenariuszy używanych prze
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: raynew
-ms.openlocfilehash: d37bee589eb7ee2e6e30c8dcea2531dd1f063481
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1805d2c7568d3104ce499c67c516c0bf94b2db7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78939189"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460260"
 ---
 # <a name="contoso-migration-series"></a>Seria dotycząca migracji w firmie Contoso
 
@@ -38,9 +38,8 @@ Artykuły z serii są podsumowane w poniższej tabeli.
 [Artykuł 9: Refaktoryzator aplikacji w aplikacji sieci Web platformy Azure i bazie danych SQL usługi Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) | Contoso migruje swoją aplikację SmartHotel360 do aplikacji sieci Web platformy Azure i migruje bazę danych aplikacji do wystąpienia programu Azure SQL Server za pomocą Asystenta migracji bazy danych.     
 [Artykuł 10: Refaktoryzuj aplikację systemu Linux w aplikacji sieci Web platformy Azure i w bazie danych platformy Azure dla mysql](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql) | Contoso migruje swoją aplikację osTicket systemu Linux do aplikacji sieci Web platformy Azure w wielu regionach platformy Azure przy użyciu usługi Azure Traffic Manager, zintegrowanej z usługą GitHub w celu ciągłego dostarczania. Contoso migruje bazę danych aplikacji do usługi Azure Database dla wystąpienia MySQL. 
 [Artykuł 11: Serwer regeneracji team foundation w usługach Azure DevOps](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts) | Contoso migruje swoje lokalne wdrożenie programu Team Foundation Server do usług Azure DevOps na platformie Azure.
-[Artykuł 12: Rearchitect aplikacji w kontenerach platformy Azure i usługi Azure SQL Database](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql) | Contoso migruje swoją aplikację SmartHotel na platformę Azure. Następnie rearchitects warstwy sieci web aplikacji jako kontener systemu Windows uruchomiony w usłudze Azure Service Fabric i bazy danych z usługi Azure SQL Database.
-[Artykuł 13: Odbuduj aplikację na platformie Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso odbudowuje swoją aplikację SmartHotel przy użyciu szeregu możliwości i usług platformy Azure, w tym usługi Azure App Service, usługi Azure Kubernetes Service (AKS), usługi Azure Functions, usługi Azure Cognitive Services i usługi Azure Cosmos DB.
-[Artykuł 14: Skalowanie migracji na platformę Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Po wypróbowaniu kombinacji migracji contoso przygotowuje się do skalowania do pełnej migracji na platformę Azure.
+[Artykuł 12: Odbuduj aplikację na platformie Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso odbudowuje swoją aplikację SmartHotel przy użyciu szeregu możliwości i usług platformy Azure, w tym usługi Azure App Service, usługi Azure Kubernetes Service (AKS), usługi Azure Functions, usługi Azure Cognitive Services i usługi Azure Cosmos DB.
+[Artykuł 13: Skalowanie migracji na platformę Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Po wypróbowaniu kombinacji migracji contoso przygotowuje się do skalowania do pełnej migracji na platformę Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

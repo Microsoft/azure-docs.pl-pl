@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 09/11/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b08e807e179270b63ca81d3777c230c3e129c3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59983678c1b14d6aa87a7b500605e3abeb6a9b85
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72517138"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533546"
 ---
-# <a name="bulk-download-a-list-of-groups-preview-in-azure-active-directory"></a>Pobieranie zbiorcze listy grup (wersja zapoznawcza) w usłudze Azure Active Directory
+# <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Pobieranie zbiorcze listy grup w usłudze Azure Active Directory
 
 Korzystając z portalu usługi Azure Active Directory (Azure AD), można zbiorczo pobrać listę wszystkich grup w organizacji do pliku wartości oddzielonych przecinkami (CSV).
 
@@ -34,9 +34,9 @@ Korzystając z portalu usługi Azure Active Directory (Azure AD), można zbiorcz
 
 ## <a name="check-download-status"></a>Sprawdź stan pobierania
 
-Stan wszystkich oczekujących żądań zbiorczych można zobaczyć na stronie **Wyniki operacji zbiorczej (wersja zapoznawcza).**
+Stan wszystkich oczekujących żądań zbiorczych można zobaczyć na stronie **Wyniki operacji zbiorczej.**
 
-   ![Strona Wyniki operacji zbiorczych pokazuje stan żądania zbiorczego](./media/groups-bulk-download/bulk-center.png)
+[![](media/groups-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Limity usług pobierania zbiorczego
 

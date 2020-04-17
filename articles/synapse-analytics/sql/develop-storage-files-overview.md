@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 48e2ec7f853ce94263f4e843b529609d5376ed5b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8e6fd4955d6d68764895619efd968a957bcb5184
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424041"
+ms.locfileid: "81460600"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Pliki magazynu zapytań przy użyciu zasobów SQL on-demand (preview) w synapse SQL
 
@@ -141,7 +141,7 @@ Aby uzyskać dodatkowe informacje, przeczytaj sekcję Ścieżka plików w artyku
 
 ### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Praca ze złożonymi typami i zagnieżdżonymi lub powtarzającymi się strukturami danych
 
-Aby umożliwić płynne działanie podczas pracy z danymi przechowywanymi w zagnieżdżonych lub powtarzających się typach danych, takich jak pliki [parkietu,](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) Starlight dodał rozszerzenia poniżej.
+Aby włączyć płynne środowisko podczas pracy z danymi przechowywanymi w zagnieżdżonych lub powtarzających się typach danych, takich jak pliki [parkietu,](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) sql na żądanie dodał rozszerzenia poniżej.
 
 #### <a name="project-nested-or-repeated-data"></a>Zagnieżdżone lub powtarzane dane projektu
 

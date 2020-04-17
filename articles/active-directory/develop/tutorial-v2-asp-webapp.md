@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 94d3993c6a0c62a68ea77a888d3351c8fea1d935
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 29f5a48feaaafee64a20745b3cdf09726a6372ac
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990994"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533841"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Dodawanie logowania do firmy Microsoft do ASP.NET aplikacji sieci Web
 
@@ -117,7 +117,7 @@ Poniższe kroki są używane do tworzenia klasy uruchamiania oprogramowania poś
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
-        /// Configure OWIN to use OpenIdConnect 
+        /// Configure OWIN to use OpenIdConnect
         /// </summary>
         /// <param name="app"></param>
         public void Configuration(IAppBuilder app)
@@ -208,7 +208,7 @@ Aby utworzyć nowy kontroler, aby udostępnić metody logowania i wylogowania, w
                 OpenIdConnectAuthenticationDefaults.AuthenticationType);
         }
     }
-    
+
     /// <summary>
     /// Send an OpenID Connect sign-out request.
     /// </summary>
@@ -291,19 +291,19 @@ Ten kontroler pokazuje wykorzystanie atrybutu `[Authorize]` do ochrony kontroler
         public ActionResult Index()
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
-    
+
             //You get the user’s first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
-    
+
             // The 'preferred_username' claim can be used for showing the username
             ViewBag.Username = userClaims?.FindFirst("preferred_username")?.Value;
-    
+
             // The subject/ NameIdentifier claim can be used to uniquely identify the user across the web
             ViewBag.Subject = userClaims?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-    
+
             // TenantId is the unique Tenant Id - which represents an organization in Azure AD
             ViewBag.TenantId = userClaims?.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid")?.Value;
-    
+
             return View();
         }
     }
@@ -311,7 +311,7 @@ Ten kontroler pokazuje wykorzystanie atrybutu `[Authorize]` do ochrony kontroler
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Więcej informacji
-> Ze względu na `[Authorize]` użycie atrybutu wszystkie metody tego kontrolera mogą być wykonywane tylko wtedy, gdy użytkownik jest uwierzytelniony. Jeśli użytkownik nie jest uwierzytelniony i próbuje uzyskać dostęp do kontrolera, OWIN inicjuje wyzwanie uwierzytelniania i wymusza na użytkowniku uwierzytelnienie. Poprzedni kod analizuje listę oświadczeń dla określonych atrybutów użytkownika zawartych w tokenie identyfikatora użytkownika. Te atrybuty obejmują imię i nazwisko użytkownika oraz nazwę użytkownika, a także podmiot globalnego identyfikatora. Zawiera on także *identyfikator dzierżawy*, który reprezentuje identyfikator organizacji użytkownika. 
+> Ze względu na `[Authorize]` użycie atrybutu wszystkie metody tego kontrolera mogą być wykonywane tylko wtedy, gdy użytkownik jest uwierzytelniony. Jeśli użytkownik nie jest uwierzytelniony i próbuje uzyskać dostęp do kontrolera, OWIN inicjuje wyzwanie uwierzytelniania i wymusza na użytkowniku uwierzytelnienie. Poprzedni kod analizuje listę oświadczeń dla określonych atrybutów użytkownika zawartych w tokenie identyfikatora użytkownika. Te atrybuty obejmują imię i nazwisko użytkownika oraz nazwę użytkownika, a także podmiot globalnego identyfikatora. Zawiera on także *identyfikator dzierżawy*, który reprezentuje identyfikator organizacji użytkownika.
 <!--end-collapse-->
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>tworzenie widoku w celu wyświetlenia oświadczeń użytkownika
@@ -487,7 +487,7 @@ Dowiedz się, jak aplikacje sieci Web mogą wywoływać internetowe interfejsy A
 Dowiedz się więcej o aplikacjach sieci Web wywołujących internetowe interfejsy API za pomocą platformy tożsamości firmy Microsoft:
 
 > [!div class="nextstepaction"]
-> [Aplikacje sieci Web wywołujące interfejsy API sieci Web](scenario-web-app-sign-user-overview.md)
+> [Aplikacje sieci Web wywołujące internetowe interfejsy API](scenario-web-app-sign-user-overview.md)
 
 Dowiedz się, jak tworzyć aplikacje sieci Web wywołujące program Microsoft Graph:
 

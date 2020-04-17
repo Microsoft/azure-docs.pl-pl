@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 16fa33999a38b21fd2016c986dd2db81f7d84051
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 274e85a914ebec31a03f1149bc4467ea142e7255
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383747"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482103"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operacje dostawcy zasobów usługi Azure Resource Manager
 
@@ -2198,6 +2198,10 @@ Usługa platformy Azure: [maszyny wirtualne,](../virtual-machines/index.yml) [ze
 > | Akcja | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Tworzenie dzienników, aby wyświetlić agregaty żądań przepustowanych pogrupowanych według Nazwy Zasobów, OperationName lub zastosowanej zasady przepustnicy. |
 > |  | **lokalizacje/operacje** |  |
 > | Akcja | Microsoft.Compute/locations/operations/read | Pobiera stan operacji asynchroniiowej |
+> |  | **lokalizacje/privateEndpointConnectionProxyAzureAsyncOperacja** |  |
+> | Akcja | Microsoft.Compute/locations/privateEndpointConnectionProxyAzureAsyncOperacja/odczyt | Uzyskaj stan asynchronii prywatnej operacji serwera proxy połączenia prywatnego punktu końcowego |
+> |  | **lokalizacje/privateEndpointConnectionProxyOperationResults** |  |
+> | Akcja | Microsoft.Compute/locations/privateEndpointConnectionProxyOperationResults/read | Uzyskaj wyniki operacji prywatnego serwera proxy połączenia punktu końcowego |
 > |  | **lokalizacje/wydawcy** |  |
 > | Akcja | Microsoft.Compute/locations/publishers/read | Uzyskaj właściwości wydawcy |
 > |  | **lokalizacje/wydawcy/rodzaje artefaktów/oferty** |  |
@@ -2233,6 +2237,14 @@ Usługa platformy Azure: [maszyny wirtualne,](../virtual-machines/index.yml) [ze
 > | Akcja | Microsoft.Compute/restorePointCollections/restorePoints/write | Tworzy nowy punkt przywracania |
 > | Akcja | Microsoft.Compute/restorePointCollections/restorePoints/delete | Usuwa punkt przywracania |
 > | Akcja | Microsoft.Compute/restorePointCollections/restorePoints/retrieveSasUris/action | Pobierz właściwości punktu przywracania wraz z identyfikatorami URI sygnatury dostępu współdzielonego obiektów blob |
+> |  | **sharedVMWysekcje** |  |
+> | Akcja | Microsoft.Compute/sharedVMWysekcje/odczyt | Pobiera właściwości rozszerzenia udostępnionej maszyny Wirtualnej |
+> | Akcja | Microsoft.Compute/sharedVMWysekcje/zapis | Tworzy nowe rozszerzenie udostępnionej maszyny wirtualnej lub aktualizuje istniejące rozszerzenie |
+> | Akcja | Microsoft.Compute/sharedVMExtensions/delete Microsoft.Compute/sharedVMExtensions/delete Microsoft.Compute/sharedVMExtensions/delete Microsoft. | Usuwa rozszerzenie udostępnionej maszyny Wirtualnej |
+> |  | **sharedVMExtensions/versions sharedVMExtensions/versions sharedVMExtensions/versions sharedV** |  |
+> | Akcja | Microsoft.Compute/sharedVMExtensions/versions/read | Pobiera właściwości udostępnionej wersji rozszerzenia maszyny Wirtualnej |
+> | Akcja | Microsoft.Compute/sharedVMExtensions/versions/write | Tworzy nową wersję rozszerzenia udostępnionej maszyny Wirtualnej lub aktualizuje istniejącą wersję |
+> | Akcja | Microsoft.Compute/sharedVMExtensions/versions/delete Microsoft.Compute/sharedVMExtensions/versions/delete Microsoft.Compute/sharedVMExtensions/versions/delete Microsoft. | Usuwa wersję rozszerzenia udostępnionej maszyny Wirtualnej |
 > |  | **sharedVMImages** |  |
 > | Akcja | Microsoft.Compute/sharedVMImages/read | Pobierz właściwości sharedVMImage |
 > | Akcja | Microsoft.Compute/sharedVMImages/write | Tworzy nowy SharedVMImage lub aktualizuje istniejący |
@@ -2250,6 +2262,10 @@ Usługa platformy Azure: [maszyny wirtualne,](../virtual-machines/index.yml) [ze
 > | Akcja | Microsoft.Compute/snapshots/delete | Usuwanie migawki |
 > | Akcja | Microsoft.Compute/snapshots/beginGetAccess/action | Pobierz identyfikator URI sygnatury dostępu współdzielonego migawki dla dostępu obiektów blob |
 > | Akcja | Microsoft.Compute/snapshots/endGetAccess/action | Odwoływanie identyfikatora URI sygnatury dostępu Współdzielonego migawki |
+> |  | **sshPublicKeys (Klucze publiczne)** |  |
+> | Akcja | Microsoft.Compute/sshPublicKeys/odczyt | Pobierz właściwości klucza publicznego SSH |
+> | Akcja | Microsoft.Compute/sshPublicKeys/write | Tworzy nowy klucz publiczny SSH lub aktualizuje istniejący klucz publiczny SSH |
+> | Akcja | Microsoft.Compute/sshPublicKeys/delete | Usuwa klucz publiczny SSH |
 > |  | **wirtualnematyny** |  |
 > | Akcja | Microsoft.Compute/virtualMachines/read | Pobierz właściwości maszyny wirtualnej |
 > | Akcja | Microsoft.Compute/virtualMachines/write | Tworzy nową maszynę wirtualną lub aktualizuje istniejącą maszynę wirtualną |
@@ -3934,6 +3950,83 @@ Usługa platformy Azure: [usługa Azure Cosmos DB](../cosmos-db/index.yml)
 > | Akcja | Microsoft.DocumentDB/databaseKonta/getBackupPolicy/akcja | Pobierz zasady tworzenia kopii zapasowych konta bazy danych |
 > | Akcja | Microsoft.DocumentDB/databaseKonta/przywracanie/akcja | Prześlij żądanie przywrócenia |
 > | Akcja | Microsoft.DocumentDB/databaseKonta/kopia zapasowa/akcja | Prześlij żądanie skonfigurowania kopii zapasowej |
+> |  | **databaseKonta/apis/bazy danych** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/) Utwórz bazę danych. Dotyczy tylko typów API: 'sql', 'mongodb', 'gremlin'. |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/) Przeczytaj bazę danych lub wystaw wszystkie bazy danych. Dotyczy tylko typów API: 'sql', 'mongodb', 'gremlin'. |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/delete | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/') Usuń bazę danych. Dotyczy tylko typów API: 'sql', 'mongodb', 'gremlin'. |
+> |  | **databaseKonta/apis/databases/collections** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/collections/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Utwórz lub zaktualizuj kolekcję. Dotyczy tylko typów API: 'mongodb'. |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/collections/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Przeczytaj kolekcję lub wystaw wszystkie kolekcje. Dotyczy tylko typów API: 'mongodb'. |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/collections/delete | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Usuń kolekcję. Dotyczy tylko typów API: 'mongodb'. |
+> |  | **databaseAccounts/apis/databases/collections/operationResults** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/collections/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów API: 'mongodb'. |
+> |  | **databaseKonta/apis/bazy danych/kolekcje/ustawienia** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/collections/settings/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Zaktualizuj przepływność kolekcji. Dotyczy tylko typów API: 'mongodb'. Dotyczy tylko typów ustawień: "przepływność". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/collections/settings/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczytu przepływności kolekcji. Dotyczy tylko typów API: 'mongodb'. Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseAccounts/apis/databases/collections/settings/operationResults** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/collections/settings/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów API: 'mongodb'. Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseKonta/apis/databases/kontenery** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/containers/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Utwórz lub zaktualizuj kontener. Dotyczy tylko typów interfejsu API: 'sql'. |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/containers/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Przeczytaj kontener lub wystaw wszystkie kontenery. Dotyczy tylko typów interfejsu API: 'sql'. |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/containers/delete | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Usuń kontener. Dotyczy tylko typów interfejsu API: 'sql'. |
+> |  | **databaseAccounts/apis/databases/containers/operationResults** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/containers/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów interfejsu API: 'sql'. |
+> |  | **databaseKonta/apis/bazy danych/kontenery/ustawienia** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/containers/settings/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Zaktualizuj przepływność kontenera. Dotyczy tylko typów interfejsu API: 'sql'. Dotyczy tylko typów ustawień: "przepływność". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/containers/settings/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczytu przepływności kontenera. Dotyczy tylko typów interfejsu API: 'sql'. Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseAccounts/apis/databases/containers/settings/operationResults** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/containers/settings/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów interfejsu API: 'sql'. Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseKonta/apis/bazy danych/wykresy** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/graphs/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/') Utwórz lub zaktualizuj wykres. Dotyczy tylko typów API: "gremlin". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/graphs/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/') Przeczytaj wykres lub wystaw wszystkie wykresy. Dotyczy tylko typów API: "gremlin". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/graphs/delete | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/') Usuń wykres. Dotyczy tylko typów API: "gremlin". |
+> |  | **databaseAccounts/apis/databases/graphs/operationResults** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/graphs/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów API: "gremlin". |
+> |  | **databaseKonta/apis/bazy danych/wykresy/ustawienia** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/graphs/settings/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/) Zaktualizuj przepustowość wykresu. Dotyczy tylko typów API: "gremlin". Dotyczy tylko typów ustawień: "przepływność". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/graphs/settings/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/) Odczytu przepływności wykresu. Dotyczy tylko typów API: "gremlin". Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseAccounts/apis/databases/graphs/settings/operationResults** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/graphs/settings/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów API: "gremlin". Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseAccounts/apis/databases/operationResults** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów API: 'sql', 'mongodb', 'gremlin'. |
+> |  | **databaseKonta/apis/bazy danych/ustawienia** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/settings/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Zaktualizuj przepływność bazy danych. Dotyczy tylko typów API: 'sql', 'mongodb', 'gremlin'. Dotyczy tylko typów ustawień: "przepływność". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/settings/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczytu przepływności bazy danych. Dotyczy tylko typów API: 'sql', 'mongodb', 'gremlin'. Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseAccounts/apis/databases/settings/operationResults** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/databases/settings/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów API: 'sql', 'mongodb', 'gremlin'. Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseKonta/apis/przestrzenie kluczy** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/') Utwórz przestrzeń kluczy. Dotyczy tylko typów API: "cassandra". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/przestrzenie kluczy/odczyt | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/) Przeczytaj przestrzeń kluczy lub wystaw wszystkie przestrzenie kluczowe. Dotyczy tylko typów API: "cassandra". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/delete | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/') Usuń przestrzeń kluczy. Dotyczy tylko typów API: "cassandra". |
+> |  | **databaseKonta/apis/przestrzenie kluczy/operacjaWyniki** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów API: "cassandra". |
+> |  | **databaseKonta/apis/przestrzenie kluczy/ustawienia** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/settings/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Zaktualizuj przepływność przestrzeni kluczy. Dotyczy tylko typów API: "cassandra". Dotyczy tylko typów ustawień: "przepływność". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/settings/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/) Odczytu przepływności przestrzeni kluczy. Dotyczy tylko typów API: "cassandra". Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseAccounts/apis/keyspaces/settings/operationResults** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/settings/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów API: "cassandra". Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseKonta/apis/przestrzenie kluczy/tabele** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/tables/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/') Utwórz lub zaktualizuj tabelę. Dotyczy tylko typów API: "cassandra". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/przestrzenie kluczy/tabele/odczyt | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/) Przeczytaj tabelę lub wystaw wszystkie tabele. Dotyczy tylko typów API: "cassandra". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/tables/delete | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/') Usuń tabelę. Dotyczy tylko typów API: "cassandra". |
+> |  | **databaseKonta/apis/przestrzenie kluczy/tabele/operacjaWyniki** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/tables/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów API: "cassandra". |
+> |  | **databaseKonta/apis/przestrzenie kluczy/tabele/ustawienia** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/tables/settings/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Zaktualizuj przepływność tabeli. Dotyczy tylko typów API: "cassandra". Dotyczy tylko typów ustawień: "przepływność". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/tables/settings/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/) Odczytu przepływności tabeli. Dotyczy tylko typów API: "cassandra". Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseAccounts/apis/keyspaces/tables/settings/operationResults** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/keyspaces/tables/settings/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów API: "cassandra". Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseKonta/apis/tabele** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/tables/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/') Utwórz lub zaktualizuj tabelę. Dotyczy tylko typów INTERFEJSU API: "table". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/tables/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/) Przeczytaj tabelę lub wystaw wszystkie tabele. Dotyczy tylko typów INTERFEJSU API: "table". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/tables/delete | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/') Usuń tabelę. Dotyczy tylko typów INTERFEJSU API: "table". |
+> |  | **databaseKonta/apis/tabele/operacjaWyniki** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/tables/operationWyniki/odczyt | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów INTERFEJSU API: "table". |
+> |  | **databaseKonta/apis/tabele/ustawienia** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/tables/settings/write | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Zaktualizuj przepływność tabeli. Dotyczy tylko typów INTERFEJSU API: "table". Dotyczy tylko typów ustawień: "przepływność". |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/tables/settings/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu '/apis/) Odczytu przepływności tabeli. Dotyczy tylko typów INTERFEJSU API: "table". Dotyczy tylko typów ustawień: "przepływność". |
+> |  | **databaseAccounts/apis/tables/settings/operationResults** |  |
+> | Akcja | Microsoft.DocumentDB/databaseKonta/apis/tables/settings/operationResults/read | (Przestarzałe. Użyj ścieżek zasobów bez segmentu "/apis/") Odczyt stanu operacji asynchronicznej. Dotyczy tylko typów INTERFEJSU API: "table". Dotyczy tylko typów ustawień: "przepływność". |
 > |  | **databaseKonta/cassandraKeyspaces** |  |
 > | Akcja | Microsoft.DocumentDB/databaseKonta/cassandraKeyspaces/write | Utwórz przestrzeń kluczy Cassandra. |
 > | Akcja | Microsoft.DocumentDB/databaseKonta/cassandraKeyspaces/read | Przeczytaj przestrzeń kluczy Cassandra lub wyświetl wszystkie przestrzenie klawiszowe Cassandra. |
@@ -5532,7 +5625,7 @@ Usługa platformy Azure: [usługa uczenia maszynowego](../machine-learning/index
 > | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/zapis | Tworzy lub aktualizuje obszar roboczy usług uczenia maszynowego |
 > | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/usuń | Usuwa obszary robocze usług uczenia maszynowego |
 > | Akcja | Microsoft.MachineLearningServices/workspaces/listKeys/action | Lista wpisów tajnych obszaru roboczego usług uczenia maszynowego |
-> | Akcja | Microsoft.MachineLearningServices/workspaces/PrivateEndpointConnectionsApproval/action | Zatwierdzanie lub odrzucanie połączenia z zasobem prywatnego punktu końcowego dostawcy sieci Microsoft.Network |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionsApproval/action | Zatwierdzanie lub odrzucanie połączenia z zasobem prywatnego punktu końcowego dostawcy sieci Microsoft.Network |
 > |  | **obszary robocze/obliczenia** |  |
 > | Akcja | Microsoft.MachineLearningServices/workspaces/computes/read | Pobiera zasoby obliczeniowe w obszarze roboczym usług uczenia maszynowego |
 > | Akcja | Microsoft.MachineLearningServices/workspaces/computes/write | Tworzy lub aktualizuje zasoby obliczeniowe w obszarze roboczym usług uczenia maszynowego |
@@ -5542,10 +5635,90 @@ Usługa platformy Azure: [usługa uczenia maszynowego](../machine-learning/index
 > | Akcja | Microsoft.MachineLearningServices/workspaces/computes/start/action | Uruchamianie zasobu obliczeniowego w obszarze roboczym usług uczenia maszynowego |
 > | Akcja | Microsoft.MachineLearningServices/workspaces/computes/stop/action | Zatrzymywanie zasobów obliczeniowych w obszarze roboczym usług uczenia maszynowego |
 > | Akcja | Microsoft.MachineLearningServices/workspaces/computes/restart/action | Ponowne uruchamianie zasobu obliczeniowego w obszarze roboczym usług uczenia maszynowego |
+> |  | **przestrzenie robocze/rejestratory danych** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/read | Pobiera czujniki dryfu danych w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/write | Tworzy lub aktualizuje czujniki dryfu danych w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/delete | Usuwa czujniki dryfu danych w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/zestawy danych/zarejestrowane** |  |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/zestawy danych/zarejestrowane/odczytowe | Pobiera zarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/registered/write | Tworzy lub aktualizuje zarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/registered/delete Microsoft.MachineLearningServices/workspaces/datasets/registered/delete Microsoft.MachineLearningServices/workspaces/datasets/registered/delete Microsoft. | Usuwa zarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/zestawy danych/zarejestrowane/podgląd** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read | Pobiera podgląd zestawu danych dla zarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/zestawy danych/zarejestrowane/profile** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read | Pobiera profile zestawów danych dla zarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/write | Tworzy lub aktualizuje profile zestawów danych dla zarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/zestawy danych/zarejestrowane/schemat** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read | Pobiera schemat zestawu danych dla zarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/zestawy danych/niezarejestrowane** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/read | Pobiera niezarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write | Tworzy lub aktualizuje niezarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete Microsoft. | Usuwa niezarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/zestawy danych/niezarejestrowane/podgląd** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read | Pobiera podgląd zestawu danych dla niezarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/zestawy danych/niezarejestrowane/profile** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read | Pobiera profile zestawów danych dla niezarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/write | Tworzy lub aktualizuje profile zestawów danych dla niezarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/zestawy danych/niezarejestrowane/schemat** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read | Pobiera schemat zestawu danych dla niezarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/magazyny danych** |  |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/magazyny danych/odczyt | Pobiera magazyny danych w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/magazyny danych/zapis | Tworzy lub aktualizuje magazyny danych w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/datastores/delete | Usuwa magazyny danych w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/punkty końcowe/potoki** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read | Pobiera opublikowane potoki i punkty końcowe potoku w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write | Tworzy lub aktualizuje opublikowane potoki i punkty końcowe potoku w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary/środowiska robocze** |  |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/środowiska/odczyt | Pobiera środowiska w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/environments/readSecrets/action | Pobiera środowiska z wpisami tajnymi w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/środowiska/zapis | Tworzy lub aktualizuje środowiska w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/environments/build/action | Tworzy środowiska w obszarze roboczym usług uczenia maszynowego |
 > |  | **obszary robocze/eventGridFilters** |  |
 > | Akcja | Microsoft.MachineLearningServices/workspaces/eventGridFilters/read | Pobierz filtr siatki zdarzeń dla określonego obszaru roboczego |
-> |  | **obszary robocze/funkcje** |  |
-> | Akcja | Microsoft.MachineLearningServices/workspaces/features/read | Pobiera wszystkie włączone funkcje dla obszaru roboczego usług uczenia maszynowego |
+> |  | **przestrzenie robocze/eksperymenty** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/experiments/read | Pobiera eksperymenty w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/experiments/write | Tworzy lub aktualizuje eksperymenty w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/experiments/delete | Usuwa eksperymenty w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/eksperymenty/przebiegi** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action | Tworzy lub aktualizuje skrypt działa w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/experiments/runs/read | Pobiera przebiegi w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/experiments/runs/write | Tworzy lub aktualizuje działa w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/etykietowanie** |  |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/etykietowanie/eksportowanie/akcja | Eksportowanie etykiet projektów etykietowania w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/etykietowanie/etykiety** |  |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/etykietowanie/etykiety/odczyt | Pobiera etykiety projektów etykietowania w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/labeling/labels/write | Tworzy etykiety projektów etykietowania w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action | Odrzucanie etykiet projektów etykietowania w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/etykietowanie/projekty** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/labeling/projects/read | Pobiera projekt etykietowania w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/labeling/projects/write | Tworzy lub aktualizuje projekt etykietowania w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/labeling/projects/delete | Usuwa projekt etykietowania w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/etykietowanie/projekty/podsumowanie** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read | Pobiera podsumowanie projektu etykietowania w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/metadane/artefakty** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read | Pobiera artefakty w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write | Tworzy lub aktualizuje artefakty w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/delete | Usuwa artefakty w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/metadane/wpisy tajne** |  |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/metadane/wpisy tajne/odczyt | Pobiera wpisy tajne w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/metadata/secrets/write | Tworzy lub aktualizuje wpisy tajne w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/metadata/secrets/delete | Usuwa wpisy tajne w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/metadane/migawki** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read | Pobiera migawki w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write | Tworzy lub aktualizuje migawki w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/delete | Usuwa migawki w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/modele** |  |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/modele/odczyt | Pobiera modele w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/modele/zapis | Tworzy lub aktualizuje modele w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/models/delete | Usuwa modele w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/models/package/action | Modele pakietów w obszarze roboczym usług uczenia maszynowego |
+> |  | **przestrzenie robocze/moduły** |  |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/moduły/odczyt | Pobiera moduły w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/moduły/zapis | Tworzy lub aktualizuje moduł w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/potoki** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/read | Pobiera wersje robocze potoku w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write | Tworzy lub aktualizuje wersje robocze potoku w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/delete | Usuwa wersje robocze potoku w obszarze roboczym usług uczenia maszynowego |
 > |  | **obszary robocze/privateEndpointConnectionProxies** |  |
 > | Akcja | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/read | Wyświetlanie stanu serwera proxy połączenia z zasobem prywatnego punktu końcowego dostawcy sieci Microsoft.Network |
 > | Akcja | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/write | Zmienianie stanu serwera proxy połączenia na prywatny zasób punktu końcowego dostawcy sieci Microsoft.Network |
@@ -5557,104 +5730,17 @@ Usługa platformy Azure: [usługa uczenia maszynowego](../machine-learning/index
 > | Akcja | Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/delete | Usuwanie połączenia z prywatnym zasobem punktu końcowego dostawcy sieci Microsoft.Network |
 > |  | **obszary robocze/privateLinkResources** |  |
 > | Akcja | Microsoft.MachineLearningServices/workspaces/privateLinkResources/read | Pobiera dostępne zasoby łączy prywatnych dla określonego wystąpienia obszaru roboczego usług uczenia maszynowego |
-> |  | **przestrzenie robocze/rejestratory danych** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/read | Pobiera czujniki dryfu danych w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/write | Tworzy lub aktualizuje czujniki dryfu danych w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/zestawy danych/zarejestrowane** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/zestawy danych/zarejestrowane/odczytowe | Pobiera zarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/registered/write | Tworzy lub aktualizuje zarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/registered/delete Microsoft.MachineLearningServices/workspaces/datasets/registered/delete Microsoft.MachineLearningServices/workspaces/datasets/registered/delete Microsoft. | Usuwa zarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/zestawy danych/zarejestrowane/podgląd** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read | Pobiera podgląd zestawu danych dla zarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/zestawy danych/zarejestrowane/profile** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read | Pobiera profile zestawów danych dla zarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/write | Tworzy lub aktualizuje profile zestawów danych dla zarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/zestawy danych/zarejestrowane/schemat** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read | Pobiera schemat zestawu danych dla zarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/zestawy danych/niezarejestrowane** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/read | Pobiera niezarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write | Tworzy lub aktualizuje niezarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete Microsoft. | Usuwa niezarejestrowane zestawy danych w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/zestawy danych/niezarejestrowane/podgląd** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read | Pobiera podgląd zestawu danych dla niezarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/zestawy danych/niezarejestrowane/profile** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read | Pobiera profile zestawów danych dla niezarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/write | Tworzy lub aktualizuje profile zestawów danych dla niezarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/zestawy danych/niezarejestrowane/schemat** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read | Pobiera schemat zestawu danych dla niezarejestrowanych zestawów danych w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/magazyny danych** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/magazyny danych/odczyt | Pobiera magazyny danych w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/magazyny danych/zapis | Tworzy lub aktualizuje magazyny danych w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/datastores/delete | Usuwa magazyny danych w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/punkty końcowe/potoki** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read | Pobiera opublikowane potoki i punkty końcowe potoku w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write | Tworzy lub aktualizuje opublikowane potoki i punkty końcowe potoku w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary/środowiska robocze** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/środowiska/odczyt | Pobiera środowiska w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/environments/readSecrets/action | Pobiera środowiska z wpisami tajnymi w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/środowiska/zapis | Tworzy lub aktualizuje środowiska w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/environments/build/action | Tworzy środowiska w obszarze roboczym usług uczenia maszynowego |
-> |  | **przestrzenie robocze/eksperymenty** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/experiments/read | Pobiera eksperymenty w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/experiments/write | Tworzy lub aktualizuje eksperymenty w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/experiments/delete | Usuwa eksperymenty w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/eksperymenty/przebiegi** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/experiments/runs/read | Pobiera przebiegi w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/experiments/runs/write | Tworzy lub aktualizuje działa w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/eksperymenty/przebiegi/scriptRun** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/experiments/runs/scriptRun/submit/action | Tworzy lub aktualizuje skrypt działa w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/etykietowanie** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/etykietowanie/eksportowanie/akcja | Eksportowanie etykiet projektów etykietowania w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/etykietowanie/etykiety** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/etykietowanie/etykiety/odczyt | Pobiera etykiety projektów etykietowania w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/labeling/labels/write | Tworzy etykiety projektów etykietowania w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action | Odrzucanie etykiet projektów etykietowania w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/etykietowanie/projekty** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/labeling/projects/read | Pobiera projekt etykietowania w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/labeling/projects/write | Tworzy lub aktualizuje projekt etykietowania w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/labeling/projects/delete | Usuwa projekt etykietowania w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/etykietowanie/projekty/podsumowanie** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read | Pobiera podsumowanie projektu etykietowania w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/metadane/artefakty** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read | Pobiera artefakty w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write | Tworzy lub aktualizuje artefakty w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/metadata/artifacts/delete | Usuwa artefakty w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/metadane/wpisy tajne** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/metadane/wpisy tajne/odczyt | Pobiera wpisy tajne w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/metadata/secrets/write | Tworzy lub aktualizuje wpisy tajne w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/metadata/secrets/delete | Usuwa wpisy tajne w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/metadane/migawki** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read | Pobiera migawki w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write | Tworzy lub aktualizuje migawki w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/delete | Usuwa migawki w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/modele** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/modele/odczyt | Pobiera modele w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/modele/zapis | Tworzy lub aktualizuje modele w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/models/delete | Usuwa modele w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/models/package/action | Modele pakietów w obszarze roboczym usług uczenia maszynowego |
-> |  | **przestrzenie robocze/moduły** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/moduły/odczyt | Pobiera moduły w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/moduły/zapis | Tworzy lub aktualizuje moduł w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/potoki** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/read | Pobiera wersje robocze potoku w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write | Tworzy lub aktualizuje wersje robocze potoku w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/delete | Usuwa wersje robocze potoku w obszarze roboczym usług uczenia maszynowego |
 > |  | **obszary robocze/usługi** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningUsługi/obszary robocze/usługi/odczyt | Pobiera usługi w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningUsługi/obszary robocze/usługi/odczyt | Pobiera usługi w obszarze roboczym usług uczenia maszynowego |
 > |  | **przestrzenie robocze/usługi/aci** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/services/aci/write | Tworzy lub aktualizuje usługi ACI w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/services/aci/listkeys/action | Wyświetla listę kluczy dla usług ACI w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/services/aci/delete | Usuwa usługi ACI w obszarze roboczym usług uczenia maszynowego |
-> |  | **obszary robocze/usługi/aks/devtest** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/write | Tworzy lub aktualizuje usługi AKS test w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/listkeys/action | Wyświetla listę kluczy dla usług AKS testów deweloperskich w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/delete | Usuwa usługi AKS testów deweloperskich w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/score/action | Wyniki devtest usług AKS w obszarze roboczym usług uczenia maszynowego |
-> |  | **przestrzenie robocze/usługi/aks/prod** |  |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/services/aks/prod/write | Tworzy lub aktualizuje usługi prod AKS w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/services/aks/prod/listkeys/action | Wyświetla listę kluczy dla usług prod AKS w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/services/aks/prod/delete | Usuwa usługi prod AKS w obszarze roboczym usług uczenia maszynowego |
-> | DataAction (akcją danych) | Microsoft.MachineLearningServices/workspaces/services/aks/prod/score/action | Wyniki prod AKS w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/services/aci/write | Tworzy lub aktualizuje usługi ACI w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/services/aci/listkeys/action | Wyświetla listę kluczy dla usług ACI w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/services/aci/delete | Usuwa usługi ACI w obszarze roboczym usług uczenia maszynowego |
+> |  | **obszary robocze/usługi/aks** |  |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/services/aks/write | Tworzy lub aktualizuje usługi AKS w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/services/aks/listkeys/action | Wyświetla listę kluczy dla usług AKS w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/services/aks/delete | Usuwa usługi AKS w obszarze roboczym usług uczenia maszynowego |
+> | Akcja | Microsoft.MachineLearningServices/workspaces/services/aks/score/action | Wyniki usług AKS w obszarze roboczym usług uczenia maszynowego |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -5740,6 +5826,10 @@ Usługa platformy Azure: [usługi Azure Maps](../azure-maps/index.yml)
 > | Akcja | Microsoft.Maps/accounts/eventGridFilters/delete Microsoft.Maps/accounts/eventGridFilters/delete Microsoft.Maps/accounts/eventGridFilters/delete Microsoft. | Usuwanie filtru siatki zdarzeń |
 > | Akcja | Microsoft.Maps/accounts/eventGridFilters/read | Pobierz filtr siatki zdarzeń |
 > | Akcja | Microsoft.Maps/accounts/eventGridFilters/write | Tworzenie lub aktualizowanie filtru siatki zdarzeń |
+> |  | **konta/privateAtlases** |  |
+> | Akcja | Microsoft.Maps/accounts/privateAtlases/delete Microsoft.Maps/accounts/privateAtlases/delete Microsoft.Maps/accounts/privateAtlases/delete Microsoft. | Usuwanie prywatnego atlasu |
+> | Akcja | Microsoft.Maps/accounts/privateAtlases/read | Zdobądź prywatny atlas |
+> | Akcja | Microsoft.Maps/accounts/privateAtlases/write | Tworzenie lub aktualizowanie atlasu prywatnego |
 > |  | **Operacji** |  |
 > | Akcja | Microsoft.Maps/operations/read | Przeczytaj operacje dostawcy |
 > |  | **kont/danych** |  |
@@ -5998,6 +6088,10 @@ Usługa platformy Azure: [kotwice przestrzenne platformy Azure](../spatial-ancho
 > | Akcja | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Tworzy lub aktualizuje ustawienie diagnostyczne dla kont Microsoft.MixedReality/spatialAnchorsAccounts |
 > |  | **przestrzenneAniekonta/dostawcy/Microsoft.Insights/metryDefinitions** |  |
 > | Akcja | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/metricDefinitions/read | Pobiera dostępne metryki dla Microsoft.MixedReality/spatialAnchorsAccounts |
+> |  | **ObiektUnderstandingKontakony** |  |
+> | DataAction (akcją danych) | Microsoft.MixedReality/ObjectUnderstandingKonsum/ingest/akcja | Tworzenie zadania pozyskiwania modelu |
+> |  | **ObiektUnderstandingKonta/ingest** |  |
+> | DataAction (akcją danych) | Microsoft.MixedReality/ObjectUnderstandingKonsum/ingest/read | Uzyskaj stan zadania pozyskiwania modelu |
 > |  | **Konta zdalnego wywoływania** |  |
 > | DataAction (akcją danych) | Microsoft.MixedReality/RemoteRenderingKonta/konwertowanie/akcja | Rozpocznij konwersję zasobów |
 > | DataAction (akcją danych) | Microsoft.MixedReality/RemoteRenderingKonta/zarządzanie/akcja | Rozpocznij sesje |
@@ -6069,6 +6163,10 @@ Usługa platformy Azure: [pliki NetApp platformy Azure](../azure-netapp-files/in
 > | Akcja | Microsoft.NetApp/netAppKonta/pojemnośćPuly/woluminy/kopie zapasowe/odczyt | Odczytuje zasób kopii zapasowej. |
 > | Akcja | Microsoft.NetApp/netAppKonta/pojemnośćPuly/woluminy/kopie zapasowe/zapis | Zapisuje zasób kopii zapasowej. |
 > | Akcja | Microsoft.NetApp/netAppKonta/pojemnośćPuly/woluminy/kopie zapasowe/usuń | Usuwa zasób kopii zapasowej. |
+> |  | **netAppAccounts/capacityPools/volumes/MountTargets** |  |
+> | Akcja | Microsoft.NetApp/netAppKonta/pojemnośćPuly/woluminy/MountTargets/read | Odczytuje zasób docelowy instalacji. |
+> |  | **netAppAccounts/capacityPools/volumes/ReplicationStatus netAppAccounts/capacityPools/volumes/ReplicationStatus netAppAccounts/capacityPools/volumes/ReplicationStatus netApp** |  |
+> | Akcja | Microsoft.NetApp/netAppKonta/pojemnośćPulamy/woluminy/ReplicationStatus/read | Odczytuje stany replikacji woluminów. |
 > |  | **netAppAccounts/capacityPools/volumes/snapshots** |  |
 > | Akcja | Microsoft.NetApp/netAppKonta/pojemnośćPuly/woluminy/migawki/odczyt | Odczytuje zasób migawki. |
 > | Akcja | Microsoft.NetApp/netAppKonta/pojemnośćPuly/woluminy/migawki/zapis | Zapisuje zasób migawki. |
@@ -6341,6 +6439,8 @@ Usługa Azure: [sieć wirtualna](../virtual-network/index.yml), [moduł równowa
 > | Akcja | Microsoft.Network/loadBalancers/delete | Usuwa moduł równoważenia obciążenia |
 > |  | **loadBalancers/backendPulady adresowe** |  |
 > | Akcja | Microsoft.Network/loadBalancers/backendAddressPools/read | Pobiera definicję puli adresów wewnętrznej bazy danych modułu równoważenia obciążenia |
+> | Akcja | Microsoft.Network/loadBalancers/backendAddressPools/write | Tworzy pulę adresów wewnętrznej bazy danych modułu równoważenia obciążenia lub aktualizuje istniejącą pulę adresów wewnętrznej bazy danych modułu równoważenia obciążenia |
+> | Akcja | Microsoft.Network/loadBalancers/backendAddressPools/delete | Usuwa pulę adresów wewnętrznej bazy danych modułu równoważenia obciążenia |
 > | Akcja | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Łączy pulę adresów wewnętrznej bazy danych modułu równoważenia obciążenia. Nie czujny. |
 > |  | **loadBalancers/frontendIPKonfiguracje** |  |
 > | Akcja | Microsoft.Network/loadBalancers/frontendIPKonfiguracje/odczyt | Pobiera definicję konfiguracji IP modułu równoważenia obciążenia |
@@ -6565,6 +6665,7 @@ Usługa Azure: [sieć wirtualna](../virtual-network/index.yml), [moduł równowa
 > | Akcja | Microsoft.Network/privateEndpointRedirectMaps/read | Pobiera mapę przekierowania prywatnego punktu końcowego |
 > | Akcja | Microsoft.Network/privateEndpointRedirectMaps/write | Tworzy mapę przekierowania prywatnego punktu końcowego lub aktualizuje istniejącą mapę przekierowania prywatnego punktu końcowego |
 > |  | **privateEndpoints** |  |
+> | Akcja | Microsoft.Network/privateEndpoints/pushPropertiesToResource/action | Operacja wypychania aktualizacji właściwości prywatnego punktu końcowego z klienta KPR |
 > | Akcja | Microsoft.Network/privateEndpoints/read | Pobiera zasób prywatnego punktu końcowego. |
 > | Akcja | Microsoft.Network/privateEndpoints/write | Tworzy nowy prywatny punkt końcowy lub aktualizuje istniejący prywatny punkt końcowy. |
 > | Akcja | Microsoft.Network/privateEndpoints/delete | Usuwa prywatny zasób punktu końcowego. |
@@ -6606,6 +6707,13 @@ Usługa Azure: [sieć wirtualna](../virtual-network/index.yml), [moduł równowa
 > | Akcja | Microsoft.Network/routeTables/routes/read | Pobiera definicję trasy |
 > | Akcja | Microsoft.Network/routeTables/routes/write | Tworzy trasę lub Aktualizuje istniejącą trasę |
 > | Akcja | Microsoft.Network/routeTables/routes/delete | Usuwa definicję trasy |
+> |  | **bezpieczeństwaPartnerProviders** |  |
+> | Akcja | Microsoft.Network/securityPartnerProviders/read | Pobiera SecurityPartnerProvider |
+> | Akcja | Microsoft.Network/securityPartnerProviders/write | Tworzy SecurityPartnerProvider lub aktualizuje istniejący securityPartnerProvider |
+> | Akcja | Microsoft.Network/securityPartnerProviders/validate/action | Sprawdza poprawność securityPartnerProvider |
+> | Akcja | Microsoft.Network/securityPartnerProviders/updateReferences/action | Aktualizowanie odwołań w usłudze SecurityPartnerProvider |
+> | Akcja | Microsoft.Network/securityPartnerProviders/join/action | Dołącza do SecurityPartnerProvider. Nie czujny. |
+> | Akcja | Microsoft.Network/securityPartnerProviders/delete Microsoft.Network/securityPartnerProviders/delete Microsoft.Network/securityPartnerProviders/delete Microsoft. | Usuwa securityPartnerProvider |
 > |  | **serviceEndpointPolicies** |  |
 > | Akcja | Microsoft.Network/serviceEndpointPolicies/read | Pobiera opis zasad punktu końcowego usługi |
 > | Akcja | Microsoft.Network/serviceEndpointPolicies/write | Tworzy zasady punktu końcowego usługi lub aktualizuje istniejące zasady punktu końcowego usługi |
@@ -6678,6 +6786,7 @@ Usługa Azure: [sieć wirtualna](../virtual-network/index.yml), [moduł równowa
 > | Akcja | Microsoft.Network/virtualNetworks/read | Uzyskaj definicję sieci wirtualnej |
 > | Akcja | Microsoft.Network/virtualNetworks/write | Tworzy sieć wirtualną lub aktualizuje istniejącą sieć wirtualną |
 > | Akcja | Microsoft.Network/virtualNetworks/delete | Usuwa sieć wirtualną |
+> | Akcja | Microsoft.Network/virtualNetworks/joinLoadBalancer/action | Przyłącza moduł równoważenia obciążenia do sieci wirtualnych |
 > | Akcja | Microsoft.Network/virtualNetworks/peer/action | Równorzędne sieci wirtualnej z inną siecią wirtualną |
 > | Akcja | Microsoft.Network/virtualNetworks/join/action | Dołącza do sieci wirtualnej. Nie czujny. |
 > | Akcja | Microsoft.Network/virtualNetworks/BastionHosts/action | Pobiera odwołania hosta bastionu w sieci wirtualnej. |
@@ -7225,6 +7334,8 @@ Usługa platformy Azure: [Usługa Azure Monitor](../azure-monitor/index.yml)
 > | Akcja | Microsoft.OperationalInsights/workspaces/query/AppDependencies/read | Odczytywanie danych z tabeli AppDependencies |
 > |  | **obszary robocze/zapytania/AppEvents** |  |
 > | Akcja | Microsoft.OperationalInsights/workspaces/query/AppEvents/read | Odczytywanie danych z tabeli AppEvents |
+> |  | **obszary robocze/kwerenda/AppExceptions** |  |
+> | Akcja | Microsoft.OperationalInsights/workspaces/query/AppExceptions/read | Odczytywanie danych z tabeli AppExceptions |
 > |  | **obszary robocze/kwerenda/Celowniki aplikacji** |  |
 > | Akcja | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | Odczytywanie danych z tabeli ApplicationInsights |
 > |  | **obszary robocze/kwerenda/AppMetrics** |  |
@@ -7693,6 +7804,18 @@ Usługa platformy Azure: [Usługa Azure Monitor](../azure-monitor/index.yml)
 > | Akcja | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | Odczytywanie danych z tabeli WUDOAggregatedStatus |
 > |  | **obszary robocze/kwerenda/WUDOStatus** |  |
 > | Akcja | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | Odczytywanie danych z tabeli WUDOStatus |
+> |  | **obszary robocze/kwerenda/WVDCheckpoints** |  |
+> | Akcja | Microsoft.OperationalInsights/workspaces/query/WVDCheckpoints/read | Odczytywanie danych z tabeli WVDCheckpoints |
+> |  | **obszary robocze/kwerenda/WVDConnections** |  |
+> | Akcja | Microsoft.OperationalInsights/workspaces/query/WVDConnections/read | Odczytywanie danych z tabeli WVDConnections |
+> |  | **obszary robocze/kwerenda/WVDErrors** |  |
+> | Akcja | Microsoft.OperationalInsights/workspaces/query/WVDErrors/read | Odczytywanie danych z tabeli WVDErrors |
+> |  | **obszary robocze/kwerenda/WVDFeeds** |  |
+> | Akcja | Microsoft.OperationalInsights/workspaces/query/WVDFeeds/read | Odczytywanie danych z tabeli WVDFeeds |
+> |  | **obszary robocze/kwerenda/WVDHostRegistrations** |  |
+> | Akcja | Microsoft.OperationalInsights/workspaces/query/WVDHostRegistrations/read | Odczytywanie danych z tabeli WVDHostRegistrations |
+> |  | **obszary robocze/kwerenda/WVDManagement** |  |
+> | Akcja | Microsoft.OperationalInsights/workspaces/query/WVDManagement/read | Odczytywanie danych z tabeli WVDManagement |
 > |  | **obszary robocze/reguły** |  |
 > | Akcja | microsoft.operationalinsights/workspaces/rules/read | Pobierz wszystkie reguły alertów. |
 > |  | **obszary robocze/savedSearches** |  |
@@ -8492,6 +8615,7 @@ Usługa platformy Azure: [usługa Azure Sentinel](../sentinel/index.yml)
 > | --- | --- | --- |
 > | Akcja | Microsoft.SecurityInsights/register/action | Rejestruje subskrypcję usługi Azure Sentinel |
 > | Akcja | Microsoft.SecurityInsights/wyrejestrować/działać | Wyrejestrowywnie subskrypcji z usługi Azure Sentinel |
+> | Akcja | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Sprawdzanie autoryzacji i licencji użytkownika |
 > |  | **Agregacje** |  |
 > | Akcja | Microsoft.SecurityInsights/Agregacje/odczyt | Pobiera zagregowane informacje |
 > |  | **alertRules (alertRules)** |  |
@@ -8785,7 +8909,7 @@ Usługa platformy Azure: [aplikacje zarządzane platformy Azure](../azure-resour
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
-Usługa Platformy Azure: [usługa Azure SQL Database](../sql-database/index.yml), magazyn danych [SQL](../synapse-analytics/sql-data-warehouse/index.yml)
+Usługa Platformy Azure: [usługa Azure SQL Database](../sql-database/index.yml), magazyn danych [SQL](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Typ akcji | Operacja | Opis |
@@ -9980,21 +10104,21 @@ Usługa platformy Azure: podstawowa
 > | Akcja | Microsoft.Support/register/action | Rejestruje dostawcę zasobów pomocy technicznej |
 > | Akcja | Microsoft.Support/checkNameDostępność/akcja | Sprawdza, czy nazwa jest prawidłowa i nie jest używana dla typu zasobu |
 > |  | **wyniki operacyjne** |  |
-> | Akcja | Microsoft.Support/operationresults/read | Uzyskaj wynik operacji |
+> | Akcja | Microsoft.Support/operationresults/read | Pobiera wynik operacji asynchroniiowej |
 > |  | **Operacji** |  |
-> | Akcja | Pomoc techniczna/operacje/odczyt firmy Microsoft | Wyświetla listę operacji dostępnych w usłudze Microsoft.Support resource provider |
+> | Akcja | Pomoc techniczna/operacje/odczyt firmy Microsoft | Wyświetla listę wszystkich operacji dostępnych w usłudze Microsoft.Support resource provider |
 > |  | **stan operacyjny** |  |
-> | Akcja | Microsoft.Support/operationsstatus/read | Uzyskiwanie stanu operacji |
+> | Akcja | Microsoft.Support/operationsstatus/read | Pobiera stan operacji asynchroniiowej |
 > |  | **Usług** |  |
-> | Akcja | Pomoc techniczna/usługi/odczyt | Pobiera listę usług platformy Azure dostępnych dla pomocy technicznej |
+> | Akcja | Pomoc techniczna/usługi/odczyt | Wyświetla jedną lub wszystkie usługi platformy Azure dostępne do pomocy technicznej |
 > |  | **usługi/problemKlasyfikacje** |  |
-> | Akcja | Microsoft.Support/services/problemKlasyfikacje/odczyt | Pobiera listę klasyfikacji problemów dostępnych dla usługi Platformy Azure |
+> | Akcja | Microsoft.Support/services/problemKlasyfikacje/odczyt | Wyświetla jedną lub wszystkie klasyfikacje problemów dla usługi Platformy Azure |
 > |  | **supportBilkets** |  |
-> | Akcja | Microsoft.Support/supportTickets/read | Pobiera listę biletów pomocy technicznej. |
-> | Akcja | Microsoft.Support/supportTickets/write | Tworzy bilet pomocy technicznej asynchronicznie lub aktualizuje go. Można utworzyć bilet pomocy technicznej dotyczący problemów technicznych, rozliczeń, limitów przydziału lub problemów związanych z zarządzaniem subskrypcją. Można zaktualizować ważność i dane kontaktowe dla istniejących biletów pomocy technicznej. |
+> | Akcja | Microsoft.Support/supportTickets/read | Wyświetla jeden lub wszystkie bilety pomocy technicznej |
+> | Akcja | Microsoft.Support/supportTickets/write | Umożliwia tworzenie i aktualizowanie biletu pomocy technicznej |
 > |  | **wsparcieTytyty/komunikacja** |  |
-> | Akcja | Microsoft.Support/supportTickets/communications/read | Pobiera listę pomocy technicznej ticket communications |
-> | Akcja | Microsoft.Support/supportTickets/communications/write | Tworzy komunikację biletów pomocy technicznej |
+> | Akcja | Microsoft.Support/supportTickets/communications/read | Wyświetla jedną lub wszystkie komunikaty o biletach pomocy technicznej |
+> | Akcja | Microsoft.Support/supportTickets/communications/write | Dodaje nową komunikację do biletu pomocy technicznej |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 

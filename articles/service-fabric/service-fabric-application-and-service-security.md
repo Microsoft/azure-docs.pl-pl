@@ -3,12 +3,12 @@ title: Dowiedz się więcej o zabezpieczeniach aplikacji usługi Azure Service F
 description: Omówienie sposobu bezpiecznego uruchamiania aplikacji mikrousług w sieci szkieletowej usług. Dowiedz się, jak uruchamiać usługi i skrypt startowy na różnych kontach zabezpieczeń, uwierzytelniać i autoryzować użytkowników, zarządzać wpisami tajnymi aplikacji, bezpieczną komunikacją usługi, używać bramy interfejsu API i zabezpieczać dane aplikacji w spoczynku.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: e9b4a1209838bdd5eee401b0defb01839b5cf684
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756241"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461433"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Zabezpieczenia aplikacji i usług sieci szkieletowej usług
 Architektura mikrousług może przynieść [wiele korzyści.](service-fabric-overview-microservices.md) Zarządzanie zabezpieczeniami mikrousług jest jednak wyzwaniem i różni się od zarządzania zabezpieczeniami tradycyjnych aplikacji monolitycznych. 
@@ -99,7 +99,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 * [Dowiedz się więcej o zabezpieczeniach klastra](service-fabric-cluster-security.md)
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-overview.md
+[key-vault-get-started]:../key-vault/general/overview.md
 [config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 

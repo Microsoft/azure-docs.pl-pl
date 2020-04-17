@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: mmccrory
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
 ms.service: virtual-machines-linux
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: 3dd46f0c1c1e36e0373311ce6dcbf5d2f155dacc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd4a93f4c0b2f052fe5c9890bee01e5da0dcead2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616275"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460957"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Jak oznaczyć maszynę wirtualną systemu Linux na platformie Azure
 W tym artykule opisano różne sposoby tagowania maszyny wirtualnej systemu Linux na platformie Azure za pośrednictwem modelu wdrażania usługi Resource Manager. Tagi są parami kluczy/wartości zdefiniowanych przez użytkownika, które można umieścić bezpośrednio w zasobie lub grupie zasobów. Platforma Azure obsługuje obecnie do 50 tagów na grupę zasobów i zasobów. Tagi mogą być umieszczane w zasobie w momencie tworzenia lub dodawane do istniejącego zasobu. Należy pamiętać, że tagi są obsługiwane dla zasobów utworzonych tylko za pośrednictwem modelu wdrażania Menedżera zasobów.

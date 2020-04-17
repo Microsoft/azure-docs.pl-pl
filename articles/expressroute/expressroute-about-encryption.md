@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7dd9106539b6756d74629ac663241a5b5562cefb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75437042"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461467"
 ---
 # <a name="expressroute-encryption"></a>Szyfrowanie usługi ExpressRoute
  
 Usługa ExpressRoute obsługuje kilka technologii szyfrowania, aby zapewnić poufność i integralność danych przesyłanych przez sieć między siecią a siecią firmy Microsoft.
 
 ## <a name="point-to-point-encryption-by-macsec-faq"></a>Szyfrowanie typu "punkt-punkt" przez macsec — często zadawane pytania
-MACsec jest [standardem IEEE](https://1.ieee802.org/security/802-1ae/). Szyfruje dane na poziomie kontroli dostępu do multimediów (MAC) lub warstwy sieciowej 2. Za pomocą protokołu MACsec można szyfrować fizyczne łącza między urządzeniami sieciowymi a urządzeniami sieciowymi firmy Microsoft podczas łączenia się z firmą Microsoft za pośrednictwem [usługi ExpressRoute Direct.](expressroute-erdirect-about.md) MaCsec jest domyślnie wyłączona w portach Direct usługi ExpressRoute. Możesz przynieść własny klucz MACsec do szyfrowania i przechowywać go w [usłudze Azure Key Vault](../key-vault/key-vault-overview.md). Ty decydujesz, kiedy obrócić klucz. Zobacz inne często zadawane pytania poniżej.
+MACsec jest [standardem IEEE](https://1.ieee802.org/security/802-1ae/). Szyfruje dane na poziomie kontroli dostępu do multimediów (MAC) lub warstwy sieciowej 2. Za pomocą protokołu MACsec można szyfrować fizyczne łącza między urządzeniami sieciowymi a urządzeniami sieciowymi firmy Microsoft podczas łączenia się z firmą Microsoft za pośrednictwem [usługi ExpressRoute Direct.](expressroute-erdirect-about.md) MaCsec jest domyślnie wyłączona w portach Direct usługi ExpressRoute. Możesz przynieść własny klucz MACsec do szyfrowania i przechowywać go w [usłudze Azure Key Vault](../key-vault/general/overview.md). Ty decydujesz, kiedy obrócić klucz. Zobacz inne często zadawane pytania poniżej.
 ### <a name="can-i-enable-macsec-on-my-expressroute-circuit-provisioned-by-an-expressroute-provider"></a>Czy mogę włączyć macsec w obwodzie usługi ExpressRoute aprowizowanego przez dostawcę usługi ExpressRoute?
 Nie. MACsec szyfruje cały ruch na fizycznym łączu z kluczem należącym do jednej jednostki (tj. klienta). W związku z tym jest dostępny tylko w użyczyenie usługi ExpressRoute Direct.
 ### <a name="can-i-encrypt-some-of-the-expressroute-circuits-on-my-expressroute-direct-ports-and-leave-other-circuits-on-the-same-ports-unencrypted"></a>Czy mogę zaszyfrować niektóre obwody usługi ExpressRoute na moich portach Direct usługi ExpressRoute i pozostawić inne obwody na tych samych portach w postaci niezaszyfrowanej? 

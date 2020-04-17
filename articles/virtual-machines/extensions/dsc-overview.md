@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: c61ba0840b75bff10af1d802a9b90c922ef1f12f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: adb36e14bb7b772d3e28361bdc48d248bd84f41f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415868"
+ms.locfileid: "81458968"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Wprowadzenie do procedury obsługi rozszerzenia Azure Desired State Configuration
 
@@ -73,7 +73,7 @@ Podczas korzystania z rozszerzenia DSC zarejestrować węzeł z usługą konfigu
 - RegistrationKey - udostępniony klucz tajny używany do rejestrowania węzłów w usłudze
 - NodeConfigurationName - nazwa konfiguracji węzła (MOF) do wyciągnięcia z usługi w celu skonfigurowania roli serwera
 
-Te informacje można zobaczyć w witrynie [Azure portal](../../automation/automation-dsc-onboarding.md#onboard-vms-by-using-the-azure-portal) lub można użyć programu PowerShell.
+Te informacje można zobaczyć w witrynie Azure portal lub można użyć programu PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint

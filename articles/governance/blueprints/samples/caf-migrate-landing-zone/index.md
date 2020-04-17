@@ -3,12 +3,12 @@ title: Omówienie przykładu strategii strefy docelowej migracji w przewodniku C
 description: Omówienie i architektura strategii Cloud Adoption Framework (CAF) dla strefy docelowej usługi Azure Migration z przykładem.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: d0328a590d86677e098504a7498a696697fc38c8
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c4720ec3e94ee928553cd62017831e5158ac9b97
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383542"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459869"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Omówienie przykładowej strategii strefy docelowej w przewodniku Microsoft Cloud Adoption Framework dla migracji na platformę Azure
 
@@ -24,7 +24,7 @@ Przykład strategii strefy docelowej migracji w przewodniku CAF służy do wdra�
 
 To środowisko składa się z kilku usług platformy Azure, które udostępniają bezpieczny, w pełni monitorowany ład możliwy do zastosowania w przedsiębiorstwach. To środowisko zawiera następujące składniki:
 
-- Wystąpienie usługi [Azure Key Vault](../../../../key-vault/key-vault-overview.md) umożliwiające hostowanie wpisów tajnych używanych na potrzeby certyfikatów, kluczy i wpisów tajnych wdrożonych w środowisku usług udostępnionych
+- Wystąpienie usługi [Azure Key Vault](../../../../key-vault/general/overview.md) umożliwiające hostowanie wpisów tajnych używanych na potrzeby certyfikatów, kluczy i wpisów tajnych wdrożonych w środowisku usług udostępnionych
 - Usługa [Log Analytics](../../../../azure-monitor/overview.md) jest wdrażana, aby upewnić się, że wszystkie akcje i usługi są rejestrowane w centralnej lokalizacji od chwili uruchomienia migracji
 - Wdrożenie usługi [Azure Security Center](../../../../security-center/security-center-intro.md) (wersja standardowa) zapewnia ochronę przed zagrożeniami dla zmigrowanych obciążeń.
 - Wdrożenie usługi [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) dostarcza izolowaną sieć i podsieci dla Twojej maszyny wirtualnej.

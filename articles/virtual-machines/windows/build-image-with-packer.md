@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: b2ff9869b0de7a0285644bea462101cd1dc80b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb81cbb12605a9d4b8870aab4bb461c8af079cf5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74039234"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460753"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Jak używać programu Packer do tworzenia obrazów maszyn wirtualnych systemu Windows na platformie Azure
 Każda maszyna wirtualna (VM) na platformie Azure jest tworzona na podstawie obrazu definiujące dystrybucję systemu Windows i wersję systemu operacyjnego. Obrazy mogą zawierać wstępnie zainstalowane aplikacje i konfiguracje. Portal Azure Marketplace udostępnia wiele obrazów pierwszej i innej firmy dla większości typowych środowisk systemu operacyjnego i aplikacji lub można tworzyć własne obrazy niestandardowe dostosowane do twoich potrzeb. W tym artykule opisano, jak używać narzędzia typu open source [Packer](https://www.packer.io/) do definiowania i tworzenia obrazów niestandardowych na platformie Azure.

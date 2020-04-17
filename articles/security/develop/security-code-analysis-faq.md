@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb04a8e5a6d8c982a35cb5c448e4b6d93825bf73
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74851523"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460226"
 ---
 # <a name="frequently-asked-questions"></a>Często zadawane pytania
 Masz pytania? Aby uzyskać więcej informacji, zapoznaj się z poniższym często zadawanymi pytaniami.
@@ -159,7 +159,7 @@ Następujące zasoby ułatwiają bezpieczne zarządzanie wpisami tajnymi i uzysk
  - [Tożsamość usługi Azure AD Managed Service (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Tożsamości zarządzane dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Tożsamości zarządzane w usłudze Azure App Service i usłudze Azure Functions](../../app-service/overview-managed-identity.md)
- - [Biblioteka appauthentication](../../key-vault/service-to-service-authentication.md)
+ - [Biblioteka appauthentication](../../key-vault/general/service-to-service-authentication.md)
 
 
 Aby uzyskać więcej informacji, zobacz wpis w blogu [Zarządzanie wpisami secrets bezpiecznie w chmurze](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).

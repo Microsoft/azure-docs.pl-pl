@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: gbowerman
 manager: gwallace
-editor: tysonn
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
 ms.service: virtual-machines-linux
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: guybo
-ms.openlocfilehash: cc2fedcd4816b55aaed3573ce2593919770a4152
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aebb31c825725e8b748fe52bfdf74a79074d6a52
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062642"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460498"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Zatwierdzone dystrybucje linuksa na platformie Azure
 Partnerzy udostępniają obrazy systemu Linux w portalu Azure Marketplace. Współpracujemy z różnymi społecznościami Linuksa, aby dodać jeszcze więcej smaków do listy zatwierdzonych dystrybucji. W międzyczasie, dla dystrybucji, które nie są dostępne w Marketplace, zawsze można przynieść własny Linuks, postępują zgodnie z wytycznymi w [Tworzenie i przesłać wirtualny dysk twardy, który zawiera system operacyjny Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -35,7 +34,7 @@ Agent systemu Azure Linux jest już wstępnie zainstalowany na obrazach portalu 
 | Dystrybucja | Wersja | Sterowniki | Agent |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3+, 7.0+, 8.0+ |CentOS 6.3: [LIS pobierz](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: W jądrze |Pakiet: W [repozytorium](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) pod "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| [CoreOS (własno)](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |W jądrze |Kod źródłowy: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
+| [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |W jądrze |Kod źródłowy: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7.9+, 8.2+, 9, 10 |W jądrze |Pakiet: W repozytorium pod "waagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |W jądrze |Pakiet: W repozytorium pod "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7+, 7.1+, 8.0+ |W jądrze |Pakiet: W repozytorium pod "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |

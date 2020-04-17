@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: d3e267eab056589ed38c436620dd0db185291da1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77425905"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481834"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplikacje wielodostępne na platformie Azure
 Aplikacja wielodostępna jest zasobem udostępnionym, który umożliwia "użytkownikom w oddzielnych dzierżawach" wyświetlanie aplikacji tak, jakby była ich własna. Typowy scenariusz, który nadaje się do aplikacji wielodostępnej jest taki, w którym wszyscy użytkownicy aplikacji z różnych dzierżaw może chcieć dostosować środowisko użytkownika, ale w przeciwnym razie mają te same podstawowe wymagania biznesowe. Przykładami dużych aplikacji wielodostępnych są usługi Office 365, Outlook.com i visualstudio.com.
@@ -48,20 +48,20 @@ Platforma Azure udostępnia wiele funkcji, które umożliwiają rozwiązanie klu
 
 **Izolacja**
 
-* Segmentuj dzierżawców witryny według nagłówków hostów z komunikacją SSL lub bez niej
+* Segmentuj dzierżawce witryny według nagłówków hostów z komunikacją TLS lub bez niej
 * Segment dzierżawy witryny sieci Web według parametrów kwerendy
 * Usługi sieci Web w rolach procesu roboczego
   * Role procesu roboczego, które zazwyczaj przetwarzają dane w wewnętrznej yskładie aplikacji.
   * Role sieci Web, które zazwyczaj działają jako frontend dla aplikacji.
 
-**Magazyn**
+**Storage**
 
-Zarządzanie danymi, takie jak usługa Azure SQL Database lub usługi Azure Storage, takie jak usługa Tabela, która zapewnia usługi przechowywania dużych ilości danych nieustrukturyzowanych i usługi obiektów Blob, która świadczy usługi przechowywania dużych ilości tekstu nieustrukturyzowanego lub danych binarnych, takich jak wideo, audio i obrazy.
+Zarządzanie danymi, takie jak usługa Azure SQL Database lub usługi Azure Storage, takie jak usługa Tabela, która zapewnia usługi przechowywania dużych ilości danych nieustrukturyzowanych i usługi obiektów Blob, która zapewnia usługi do przechowywania dużych ilości nieustrukturyzowanego tekstu lub danych binarnych, takich jak wideo, audio i obrazy.
 
 * Zabezpieczanie danych wielodostępnych w bazie danych SQL na dzierżawcę identyfikatorów SQL Server.
 * Za pomocą tabel platformy Azure dla zasobów aplikacji, określając zasady dostępu na poziomie kontenera, można mieć możliwość dostosowania uprawnień bez konieczności wystawiania nowych adresów URL dla zasobów chronionych za pomocą podpisów dostępu współdzielonego.
 * Kolejki platformy Azure dla zasobów aplikacji kolejki platformy Azure są często używane do przetwarzania dysku w imieniu dzierżawców, ale mogą być również używane do dystrybucji pracy wymaganej do inicjowania obsługi administracyjnej lub zarządzania.
-* Kolejki magistrali usług dla zasobów aplikacji, które wypychają pracę do udostępnionej usługi, można użyć jednej kolejki, w której każdy nadawca dzierżawy ma tylko uprawnienia (wynikające z oświadczeń wystawionych przez usługę ACS) do wypychania do tej kolejki, podczas gdy tylko odbiorcy z usługi mają uprawnienie do pobierania z kolejki danych pochodzących z wielu dzierżaw.
+* Kolejki magistrali usług dla zasobów aplikacji, która wypycha pracę do udostępnionej usługi, można użyć jednej kolejki, w której każdy nadawca dzierżawy ma tylko uprawnienia (wynikające z oświadczeń wystawionych przez usługę ACS) do wypychania do tej kolejki, podczas gdy tylko odbiorcy z usługi mają uprawnienia do pobierania z kolejki danych pochodzących z wielu dzierżawców.
 
 **Usługi połączeń i zabezpieczeń**
 
@@ -74,13 +74,13 @@ Platforma Azure oferuje kilka usług sieciowych, które obsługują uwierzytelni
 * Usługa Azure Virtual Network umożliwia aprowizwiązanie wirtualnych sieci prywatnych (VPN) na platformie Azure i zarządzanie nimi oraz bezpieczne łączenie ich z lokalną infrastrukturą IT.
 * Menedżer ruchu w sieci wirtualnej umożliwia równoważenie obciążenia ruchu przychodzącego w wielu hostowanych usługach platformy Azure, niezależnie od tego, czy są one uruchomione w tym samym centrum danych, czy w różnych centrach danych na całym świecie.
 * Usługa Azure Active Directory (Azure AD) to nowoczesna usługa oparta na rest, która zapewnia zarządzanie tożsamościami i możliwości kontroli dostępu dla aplikacji w chmurze. Korzystanie z usługi Azure AD dla zasobów aplikacji zapewnia łatwy sposób uwierzytelniania i autoryzowania użytkowników, aby uzyskać dostęp do aplikacji sieci web i usług, umożliwiając jednocześnie funkcje uwierzytelniania i autoryzacji, które mają być uwzględniane z kodu.
-* Usługa Azure Service Bus zapewnia bezpieczną obsługę wiadomości i możliwości przepływu danych dla aplikacji rozproszonych i hybrydowych, takich jak komunikacja między aplikacjami hostowanymi platformy Azure oraz lokalnymi aplikacjami i usługami, bez konieczności konieczności skomplikowanej zapory i zabezpieczeń Infrastruktury. Korzystanie z usługi Service Bus Relay for Application Resources w celu uzyskania dostępu do usług, które są udostępniane jako punkty końcowe, może należeć do dzierżawy (na przykład hostowane poza systemem, na przykład lokalnie) lub mogą być usługami aprowizowanymi specjalnie dla dzierżawcy (ponieważ poufnych, specyficznych dla najemcy danych przemieszcza się przez nie).
+* Usługa Azure Service Bus zapewnia bezpieczną obsługę wiadomości i możliwości przepływu danych dla aplikacji rozproszonych i hybrydowych, takich jak komunikacja między aplikacjami hostowanymi platformy Azure a lokalnymi aplikacjami i usługami, bez konieczności tworzenia złożonych infrastruktury zapory i zabezpieczeń. Za pomocą usługi Service Bus Relay for Application Resources, aby uzyskać dostęp do usług, które są udostępniane jako punkty końcowe może należeć do dzierżawy (na przykład hostowane poza systemem, takich jak lokalnie), lub mogą być usługi aprowizowane specjalnie dla dzierżawy (ponieważ poufne, specyficzne dla dzierżawy dane przesuń przez nich).
 
 **Zasoby inicjowania obsługi administracyjnej**
 
 Platforma Azure udostępnia wiele sposobów aprowizowania nowych dzierżaw dla aplikacji. W przypadku aplikacji wielodostępnych z dużą liczbą dzierżawców zwykle konieczne jest zautomatyzowanie tego procesu, włączając samoobsługowe inicjowanie obsługi administracyjnej.
 
-* Role procesu roboczego umożliwiają aprowizowanie i anulowanie obsługi administracyjnej dla zasobów dzierżawy (na przykład podczas rejestrowania lub anulowania nowych dzierżawców), zbieranie danych dotyczących użycia pomiarów i zarządzanie skalą zgodnie z określonym harmonogramem lub w odpowiedzi na przekroczenie progów wydajności klucza Wskaźniki. Ta sama rola może również służyć do wypychania aktualizacji i uaktualnień do rozwiązania.
+* Role procesu roboczego umożliwiają aprowizowanie i anulowanie obsługi administracyjnej dla zasobów dzierżawy (na przykład gdy nowa dzierżawa rejestruje się lub anuluje), zbieranie metryk do użycia pomiarów i zarządzanie skalą zgodnie z określonym harmonogramem lub w odpowiedzi na przekroczenie progów kluczowych wskaźników wydajności. Ta sama rola może również służyć do wypychania aktualizacji i uaktualnień do rozwiązania.
 * Obiekty BLOB platformy Azure mogą służyć do inicjowania obsługi administracyjnej zasobów obliczeniowych lub wstępnie zainicjowanych zasobów magazynu dla nowych dzierżaw, zapewniając jednocześnie zasady dostępu na poziomie kontenera w celu ochrony pakietów usługi obliczeniowej, obrazów VHD i innych zasobów.
 * Opcje inicjowania obsługi administracyjnej zasobów bazy danych SQL dla dzierżawy obejmują:
   

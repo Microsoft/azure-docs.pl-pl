@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 2a30222902fd8797908202562a04018209842af2
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 9e6b451901da00243c458c06d51ba19fb64c0fdc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115059"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530457"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Ocenianie serwerów przy użyciu importowanych danych
 
@@ -32,7 +32,7 @@ Należy pamiętać o następujących punktach:
 - Informacje o serwerze można przesyłać do oceny serwera wiele razy za pomocą pliku CSV.
 - Zbieranie informacji o aplikacji jest przydatne w ocenie środowiska lokalnego do migracji. Jednak ocena serwera nie wykonuje obecnie oceny na poziomie aplikacji ani nie bierze pod uwagę aplikacji podczas tworzenia oceny.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Konfigurowanie projektu migracji platformy Azure.
 > * Wypełnij plik CSV informacjami o serwerze.
@@ -68,12 +68,12 @@ Aby skonfigurować nowy projekt migracji platformy Azure:
 5. W obszarze **Projekt migracji**wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.
 6. W **programie PROJECT DETAILS**określ nazwę projektu i lokalizację geograficzną, w której chcesz utworzyć projekt. Więcej informacji:
 
-    - Przejrzyj [obsługiwane obszary geograficzne](migrate-support-matrix.md#supported-geographies). Lokalizacja geograficzna projektu jest używana wyłącznie do przechowywania metadanych zebranych z lokalnych maszyn wirtualnych.
+    - Przejrzyj obsługiwane obszary geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
     - Podczas przeprowadzania migracji można wybrać dowolny region docelowy.
 
     ![Tworzenie projektu migracji platformy Azure](./media/tutorial-assess-import/migrate-project.png)
 
-7. Wybierz **pozycję Dalej**.
+7. Wybierz opcję **Dalej**.
 8. W **narzędziu do oceny Wybierz**wybierz pozycję Azure **Migrate: Server Assessment** > **Next**.
 
     ![Tworzenie oceny migracji platformy Azure](./media/tutorial-assess-import/assessment-tool.png)

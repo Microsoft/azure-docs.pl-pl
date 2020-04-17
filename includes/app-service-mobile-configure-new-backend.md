@@ -5,15 +5,15 @@ services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 04/15/2020
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5b6389491fd91b716a05e7c57c98addb6352bd9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67440216"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461928"
 ---
 1. Pobierz szybki start sdk klienta dla następujących platform:
     
@@ -69,23 +69,13 @@ ms.locfileid: "67440216"
    - **Zaplecze node.js**
     
      Jeśli zamierzasz korzystać z aplikacji Szybki start Node.js, postępuj zgodnie z poniższymi instrukcjami.
-
-     1. W witrynie Azure portal przejdź do **funkcji Łatwe tabele**, zobaczysz ten ekran.
-      
-        ![Tabele ułatwiają węzeł](./media/app-service-mobile-configure-new-backend/node-easy-tables.png)
-
-     2. Upewnij się, że ciąg połączenia SQL jest już dodany na karcie **Konfiguracja.** Następnie zaznacz pole **potwierdzam, że spowoduje to zastąpienie całej zawartości witryny** i kliknij przycisk **Utwórz tabelę TodoItem.**
      
-        ![Konfiguracja łatwych tabel węzłów](./media/app-service-mobile-configure-new-backend/node-easy-tables-configuration.png)
-
-     3. W **aplikacji Łatwe tabele**kliknij przycisk **+ Dodaj.**
-    
-        ![Przycisk dodawania tabel węzłów](./media/app-service-mobile-configure-new-backend/node-easy-tables-add.png)
-
-     4. Utwórz `TodoItem` tabelę z dostępem anonimowym.
-      
-        ![Dodawanie tabeli w tabeli z łatwymi do węzłami](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
-
+        1. Utwórz nowy interfejs API — można wprowadzić zmiany bezpośrednio w witrynie Azure portal lub zmodyfikować kod lokalnie w środowisku deweloperskim, a następnie opublikować na platformie Azure. Kliknij menu `App Service Editor (Preview)` `Development Tools` w obszarze, które zapewnia sposób edycji w przeglądarce dla kodu aplikacji.
+        
+        2. Kliknij `Go` i po otwarciu Edytora usługi app service masz pełną kontrolę nad kodem źródłowym. Zakładając, że masz już zainstalowany pakiet express i azure-mobile-apps z poleceniem npm install, kliknij folder interfejsu API w obszarze WWWROOT, aby utworzyć lub edytować niestandardowy interfejs API. Wprowadzać zmiany w pliku kodu, a zmiany są zapisywane automatycznie.
+        
+        3. Masz pełną kontrolę nad usługą Azure SQL Database używane do przechowywania danych aplikacji. Można łatwo utworzyć nowe tabele w bazie danych.
+ 
    - **Zaplecze .NET**
     
         Jeśli zamierzasz korzystać z aplikacji Szybki start .NET, postępuj zgodnie z poniższymi instrukcjami.

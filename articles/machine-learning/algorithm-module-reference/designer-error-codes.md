@@ -8,23 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 12/03/2019
-ms.openlocfilehash: cda499b81a61a5b78ca86a96372640e368f90357
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.date: 04/16/2020
+ms.openlocfilehash: cc04d11475568af92ba6a617a1eb6b2b51accb45
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80364200"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481670"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Wyjątki i kody błędów dla projektanta (wersja zapoznawcza)
 
 W tym artykule opisano komunikaty o błędach i kody wyjątków w projektancie usługi Azure Machine Learning (wersja zapoznawcza), aby ułatwić rozwiązywanie problemów z potokami uczenia maszynowego.
 
-Istnieją dwa sposoby, aby uzyskać pełny tekst komunikatu o błędzie w projektancie:  
+Komunikat o błędzie można znaleźć w projektancie, wykonując następujące kroki:  
 
-- Kliknij łącze **Wyświetl dziennik wyjścia**w prawym okienku i przewiń w dół. Szczegółowy komunikat o błędzie jest wyświetlany w ostatnich dwóch wierszach okna.  
-  
-- Wybierz moduł, który ma błąd, i kliknij czerwony znak X. Wyświetlany jest tylko odpowiedni tekst błędu.
+- Wybierz moduł nie powiodło się, przejdź do **dane wyjściowe + dzienniki** kartę, można znaleźć szczegółowy dziennik w pliku **70_driver_log.txt** w kategorii **azureml-logs.**
+
+- Aby uzyskać szczegółowy błąd modułu, można sprawdzić go w error_info.json w kategorii **module_statistics.**
+
+Poniżej znajdują się kody błędów modułów w projektancie.
 
 ## <a name="error-0001"></a>Błąd 0001  
  Wyjątek występuje, jeśli nie można odnaleźć jednej lub więcej określonych kolumn zestawu danych.  
@@ -326,7 +328,7 @@ W przypadku kolumn, które mają być używane do grupowania lub kategoryzacji, 
 ## <a name="error-0017"></a>Błąd 0017  
  Wyjątek występuje, jeśli wybrana kolumna używa typu danych, który nie jest obsługiwany przez bieżący moduł.  
 
- Na przykład ten błąd może wystąpić w usłudze Azure Machine Learning, jeśli wybór kolumny zawiera kolumnę z typem danych, który nie może być przetwarzany przez moduł, na przykład kolumnę ciągu dla operacji matematycznej lub kolumnę wyników, w której znajduje się kolumna funkcji kategorii. Wymagane.  
+ Na przykład ten błąd może pojawić się w usłudze Azure Machine Learning, jeśli wybór kolumny zawiera kolumnę z typem danych, który nie może być przetwarzany przez moduł, na przykład kolumnę ciągu dla operacji matematycznej lub kolumnę wyników, w której wymagana jest kolumna funkcji kategorii.  
 
 **Rozdzielczość:**
  1. Zidentyfikuj kolumnę, która jest problemem.
@@ -656,7 +658,7 @@ Może się również zdarzyć, że kolumna etykiety jest obecny w zestawie danyc
 
 Polecający matchbox ma pewne wymagania, które muszą być spełnione podczas korzystania z funkcji elementu lub funkcji użytkownika.  Ten błąd wskazuje, że wektor funkcji brakuje dla użytkownika lub elementu, który został podany jako dane wejściowe. Upewnij się, że wektor funkcji jest dostępny w danych dla każdego użytkownika lub elementu.  
 
- Jeśli na przykład przeszkoliłeś model rekomendacji przy użyciu funkcji, takich jak wiek, lokalizacja lub dochód użytkownika, ale teraz chcesz utworzyć wyniki dla nowych użytkowników, którzy nie byli widoczni podczas szkolenia, musisz podać równoważny zestaw funkcji (a mianowicie wiek, lokalizację i wartości dochodów) dla nowych użytkowników w celu dokonania odpowiednich prognoz dla nich. 
+ Na przykład jeśli przeszkoliłeś model rekomendacji przy użyciu funkcji, takich jak wiek, lokalizacja lub dochód użytkownika, ale teraz chcesz utworzyć wyniki dla nowych użytkowników, którzy nie byli widoczni podczas szkolenia, musisz podać równoważny zestaw funkcji (a mianowicie wiek, lokalizację i wartości dochodów) dla nowych użytkowników, aby zapewnić odpowiednie prognozy dla nich. 
 
  Jeśli nie masz żadnych funkcji dla tych użytkowników, należy wziąć pod uwagę inżynierii funkcji do generowania odpowiednich funkcji.  Na przykład jeśli nie masz indywidualnych wartości wieku lub dochodu użytkownika, możesz wygenerować przybliżone wartości do użycia dla grupy użytkowników. 
 
@@ -1072,7 +1074,7 @@ Komunikat o błędzie z gałęzi jest zwykle zgłaszane z powrotem w dzienniku b
 + Sprawdź, czy kwerenda działa poprawnie poza usługą Azure Machine Learning, logując się do konsoli gałęzi klastra Hadoop i uruchamiając kwerendę.  
 + Spróbuj umieścić komentarze w skrypcie hive w osobnym wierszu, w przeciwieństwie do mieszania instrukcji wykonywalnych i komentarzy w jednym wierszu.  
 
-### <a name="resources"></a>Resources
+### <a name="resources"></a>Zasoby
 
 Zobacz następujące artykuły, aby uzyskać pomoc dotyczącą zapytań hive dotyczących uczenia maszynowego:
 

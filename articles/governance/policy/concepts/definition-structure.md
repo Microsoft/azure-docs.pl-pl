@@ -3,12 +3,12 @@ title: Szczegóły struktury definicji zasad
 description: W tym artykule opisano, jak definicje zasad są używane do ustanawiania konwencji dla zasobów platformy Azure w organizacji.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 017878c4c47a5645ea8815580d2176c7a2ff5d66
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 0a7c4e05270ff242fa97b253b27a5de92895368a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314013"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461008"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -89,7 +89,7 @@ Następujące tryby dostawcy zasobów są obecnie obsługiwane podczas wersji za
 - `Microsoft.ContainerService.Data`do zarządzania regułami kontrolera przyjęć w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md). Zasady korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceRegoPolicy.](./effects.md#enforceregopolicy)
 - `Microsoft.Kubernetes.Data`do zarządzania samodzielnie zarządzanymi klastrami Kubernetes aparatu AKS na platformie Azure.
   Zasady korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceOPAConstraint.](./effects.md#enforceopaconstraint)
-- `Microsoft.KeyVault.Data`do zarządzania magazynami i certyfikatami w [usłudze Azure Key Vault](../../../key-vault/key-vault-overview.md).
+- `Microsoft.KeyVault.Data`do zarządzania magazynami i certyfikatami w [usłudze Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Tryby dostawcy zasobów obsługują tylko wbudowane definicje zasad i nie obsługują inicjatyw w wersji zapoznawczej.

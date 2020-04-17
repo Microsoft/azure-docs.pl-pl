@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: eac195babebf300aa9770d35b7b98eba29c234cf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529420"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460991"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurowanie laboratorium w laboratoriach devtest platformy Azure do korzystania z bramy pulpitu zdalnego
 W laboratoriach DevTest Azure można skonfigurować bramę pulpitu zdalnego dla laboratorium, aby zapewnić bezpieczny dostęp do maszyn wirtualnych laboratorium bez konieczności udostępniania portu RDP. Laboratorium zapewnia centralne miejsce dla użytkowników laboratorium, aby wyświetlić i połączyć się ze wszystkimi maszynami wirtualnymi, do których mają dostęp. Przycisk **Połącz** na stronie **Maszyna wirtualna** tworzy plik RDP specyficzny dla komputera, który można otworzyć, aby połączyć się z urządzeniem. Połączenie RDP można dodatkowo dostosować i zabezpieczyć, łącząc laboratorium z bramą pulpitu zdalnego. 
@@ -64,7 +64,7 @@ Funkcja platformy Azure obsługuje `https://{function-app-uri}/app/host/{lab-mac
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Konfigurowanie laboratorium do używania uwierzytelniania tokenów 
 W tej sekcji pokazano, jak skonfigurować laboratorium do używania komputera bramy pulpitu zdalnego, który obsługuje uwierzytelnianie tokenu. W tej sekcji nie opisano sposobu konfigurowania farmy bramy pulpitu zdalnego. Aby uzyskać te informacje, zobacz [przykład, aby utworzyć bramę pulpitu zdalnego](#sample-to-create-a-remote-desktop-gateway) sekcji na końcu tego artykułu. 
 
-Przed zaktualizowaniem ustawień laboratorium należy zapisać klucz potrzebny do pomyślnego wykonania funkcji w celu zwrócenia tokenu uwierzytelniania w magazynie kluczy w laboratorium. Wartość klucza funkcji można uzyskać na stronie **Zarządzanie** dla funkcji w witrynie Azure portal. Aby uzyskać więcej informacji na temat zapisywania klucza tajnego w magazynie kluczy, zobacz [Dodawanie klucza tajnego do magazynu kluczy](../key-vault/quick-create-portal.md#add-a-secret-to-key-vault). Zapisz nazwę klucza tajnego do późniejszego użycia.
+Przed zaktualizowaniem ustawień laboratorium należy zapisać klucz potrzebny do pomyślnego wykonania funkcji w celu zwrócenia tokenu uwierzytelniania w magazynie kluczy w laboratorium. Wartość klucza funkcji można uzyskać na stronie **Zarządzanie** dla funkcji w witrynie Azure portal. Aby uzyskać więcej informacji na temat zapisywania klucza tajnego w magazynie kluczy, zobacz [Dodawanie klucza tajnego do magazynu kluczy](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault). Zapisz nazwę klucza tajnego do późniejszego użycia.
 
 Aby znaleźć identyfikator magazynu kluczy laboratorium, uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure: 
 
@@ -74,7 +74,7 @@ az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' -
 
 Skonfiguruj laboratorium do używania uwierzytelniania tokenu, wykonując następujące kroki:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz **pozycję Wszystkie usługi**, a następnie wybierz z listy pozycję **DevTest Labs.**
 1. Z listy laboratoriów wybierz **laboratorium**.
 1. Na stronie laboratorium wybierz **pozycję Konfiguracja i zasady**.

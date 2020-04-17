@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6919849d28573ad7388a7f2e317d2b8433f35559
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5b7a060aa2313902e4644fdd15068e06816e3f58
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399447"
+ms.locfileid: "81529896"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -53,7 +53,7 @@ Rozpoznawanie formularzy zawiera również model do czytania angielskich wpływ�
 
 Aparat rozpoznawania formularzy może również wyodrębniać strukturę tekstu i tabeli (numery wierszy i kolumn skojarzone z tekstem) za pomocą optycznego rozpoznawania znaków o wysokiej rozdzielczości (OCR).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Postępuj zgodnie z przewodnikiem Szybki start, aby rozpocząć wyodrębnianie danych z formularzy. Zalecamy korzystanie z bezpłatnej usługi podczas nauki technologii. Pamiętaj, że liczba darmowych stron jest ograniczona do 500 miesięcznie.
 
@@ -92,7 +92,7 @@ Zapoznaj się z [dokumentacją referencyjną interfejsu API REST,](https://westu
 
 Wymagania wejściowe dla modelu przyjęcia są nieco inne.
 
-* Format musi być JPEG, PNG, BMP, PDF (tekst lub skanowane) lub TIFF.
+* Format musi być JPEG, PNG, PDF (tekst lub skanowane) lub TIFF.
 * Rozmiar pliku musi być mniejszy niż 20 MB.
 * Wymiary obrazu muszą wynosić od 50 x 50 pikseli do 10000 x 10000 pikseli.
 * Wymiary PDF muszą mieć wymiary co najwyżej 17 x 17 cali, co odpowiada rozmiarom papieru Legal lub A3 i mniejszym.

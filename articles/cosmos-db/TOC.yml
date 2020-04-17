@@ -759,14 +759,6 @@
           items:
             - name: 1 — Wykonywanie zapytania o dane
               href: tutorial-query-graph.md
-        - name: Dokumentacja
-          items:
-            - name: Nagłówki odpowiedzi
-              href: gremlin-headers.md
-            - name: Limity
-              href: gremlin-limits.md
-            - name: Zgodność
-              href: gremlin-compatibility.md
         - name: Przewodniki z instrukcjami
           items:
             - name: Modelowanie danych grafu
@@ -794,6 +786,14 @@
               href: powershell-samples-gremlin.md
             - name: Zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
               href: cli-samples-gremlin.md
+        - name: Dokumentacja
+          items:
+            - name: Nagłówki odpowiedzi
+              href: gremlin-headers.md
+            - name: Limity
+              href: gremlin-limits.md
+            - name: Zgodność
+              href: gremlin-compatibility.md
     - name: Interfejs API tabel
       items:
         - name: Omówienie

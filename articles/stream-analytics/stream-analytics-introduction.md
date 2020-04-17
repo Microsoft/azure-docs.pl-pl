@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: f15a4605d28beaf97e877f337051a2ec13148a41
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 673c6e2ed0aedcc186baf8c7e1884dd537f9567d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80235776"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459852"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Co to jest usługa Azure Stream Analytics?
 
@@ -49,9 +49,9 @@ Usługa Stream Analytics została zaprojektowana tak, aby była łatwa w użyciu
 
 ## <a name="ease-of-getting-started"></a>Łatwość rozpoczynania pracy
 
-Usługa Azure Stream Analytics jest łatwa do uruchomienia. Wystarczy kilka kliknięć, aby połączyć się z wieloma źródłami i pochłaniaczami, tworząc potok end-to-end. Usługa Stream Analytics może łączyć się z [usługą Azure Event Hubs](/azure/event-hubs/) i [centrum Azure IoT Hub](/azure/iot-hub/) w celu przesyłania strumieniowego pozyskiwania danych, a także magazynu obiektów [Blob platformy Azure](/azure/storage/storage-introduction) w celu pozyskiwania danych historycznych. Wprowadzanie zadań może również zawierać statyczne lub wolno zmieniające się dane referencyjne z magazynu obiektów Blob platformy Azure lub [bazy danych SQL,](stream-analytics-use-reference-data.md#azure-sql-database) które można dołączyć do przesyłania strumieniowego danych w celu wykonania operacji odnośnych.
+Usługa Azure Stream Analytics jest łatwa do uruchomienia. Wystarczy kilka kliknięć, aby połączyć się z wieloma źródłami i pochłaniaczami, tworząc potok end-to-end. Usługa Stream Analytics może łączyć się z [usługą Azure Event Hubs](/azure/event-hubs/) i [centrum Azure IoT Hub](/azure/iot-hub/) w celu przesyłania strumieniowego pozyskiwania danych, a także magazynu obiektów [Blob platformy Azure](/azure/storage/common/storage-introduction) w celu pozyskiwania danych historycznych. Wprowadzanie zadań może również zawierać statyczne lub wolno zmieniające się dane referencyjne z magazynu obiektów Blob platformy Azure lub [bazy danych SQL,](stream-analytics-use-reference-data.md#azure-sql-database) które można dołączyć do przesyłania strumieniowego danych w celu wykonania operacji odnośnych.
 
-Usługa Stream Analytics może kierować dane wyjściowe zadań do wielu systemów magazynowania, takich jak [Magazyn obiektów Blob azure,](/azure/storage/storage-introduction) [usługa Azure SQL Database,](/azure/sql-database/) [Azure Data Lake Store](/azure/data-lake-store/)i [Azure CosmosDB](/azure/cosmos-db/introduction). Można uruchomić analizę wsadową na przechowywanych danych wyjściowych za pomocą usługi Azure HDInsight lub można wysłać dane wyjściowe do innej usługi, takich jak Usługi Event Hubs do zużycia lub [Usługi Power BI](https://docs.microsoft.com/power-bi/) do wizualizacji w czasie rzeczywistym.
+Usługa Stream Analytics może kierować dane wyjściowe zadań do wielu systemów magazynowania, takich jak [Magazyn obiektów Blob azure,](/azure/storage/common/storage-introduction) [usługa Azure SQL Database,](/azure/sql-database/) [Azure Data Lake Store](/azure/data-lake-store/)i [Azure CosmosDB](/azure/cosmos-db/introduction). Można uruchomić analizę wsadową na przechowywanych danych wyjściowych za pomocą usługi Azure HDInsight lub można wysłać dane wyjściowe do innej usługi, takich jak Usługi Event Hubs do zużycia lub [Usługi Power BI](https://docs.microsoft.com/power-bi/) do wizualizacji w czasie rzeczywistym.
 
 Aby uzyskać całą listę wyjść usługi Stream Analytics, zobacz [Opis wyników z usługi Azure Stream Analytics.](stream-analytics-define-outputs.md)
 

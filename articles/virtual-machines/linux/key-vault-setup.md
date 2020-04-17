@@ -8,16 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: 59b11d22f054a98fe176e4393843606bd01cc872
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 9ae486ee522982b116af58cfb7cbfbca66a7ef4a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879483"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458747"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Jak skonfigurować magazyn kluczy dla maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
 
-W stosie Usługi Azure Resource Manager wpisy tajne/certyfikaty są modelowane jako zasoby dostarczane przez usługę Key Vault. Aby dowiedzieć się więcej o usłudze Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/key-vault-overview.md) Aby usługa Key Vault była używana z maszynami wirtualnymi usługi Azure Resource Manager, właściwość *EnabledForDeployment* w magazynie kluczy musi być ustawiona na true. W tym artykule pokazano, jak skonfigurować magazyn kluczy do użytku z maszynami wirtualnymi platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. 
+W stosie Usługi Azure Resource Manager wpisy tajne/certyfikaty są modelowane jako zasoby dostarczane przez usługę Key Vault. Aby dowiedzieć się więcej o usłudze Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md) Aby usługa Key Vault była używana z maszynami wirtualnymi usługi Azure Resource Manager, właściwość *EnabledForDeployment* w magazynie kluczy musi być ustawiona na true. W tym artykule pokazano, jak skonfigurować magazyn kluczy do użytku z maszynami wirtualnymi platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. 
 
 Aby wykonać te kroki, potrzebujesz najnowszego interfejsu [wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) zainstalowanego i zalogowanego do konta platformy Azure przy użyciu [logowania az.](/cli/azure/reference-index)
 

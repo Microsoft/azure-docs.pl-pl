@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: quickstart
@@ -14,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bc1dd56cd024ee65e29f227f4ec11cde436e388d
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 7642257ef9b66889c7fb2ef585f63b02d30a425e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80294776"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459002"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Linux w witrynie Azure Portal
 
@@ -34,7 +33,7 @@ Do wykonania kroków tego przewodnika Szybki start konieczne jest posiadanie par
 Otwórz powłokę Bash i użyj polecenia [ssh-keygen](https://www.ssh.com/ssh/keygen/), aby utworzyć parę kluczy SSH. Jeśli nie masz powłoki Bash na swoim komputerze lokalnym, możesz użyć usługi [Azure Cloud Shell](https://shell.azure.com/bash).
 
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W menu u góry strony wybierz `>_` ikonę, aby otworzyć powłokę cloud shell.
 1. Upewnij się, że CloudShell mówi **Bash** w lewym górnym rogu. Jeśli jest używany program PowerShell, użyj listy rozwijanej, aby wybrać **bash** i wybierz **pozycję Potwierdź,** aby zmienić na powłokę Bash.
 1. Wpisz, `ssh-keygen -t rsa -b 2048` aby utworzyć klucz ssh. 
