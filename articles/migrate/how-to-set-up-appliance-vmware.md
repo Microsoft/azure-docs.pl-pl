@@ -2,21 +2,26 @@
 title: Konfigurowanie urządzenia migracji platformy Azure dla oprogramowania VMware
 description: Dowiedz się, jak skonfigurować urządzenie migracji platformy Azure do oceny i migracji maszyn wirtualnych VMware.
 ms.topic: article
-ms.date: 03/23/2020
-ms.openlocfilehash: 7a7d0007d2824abc781411f9529f9fa4ac89e55c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336790"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538260"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurowanie urządzenia dla maszyn wirtualnych VMware
 
-W tym artykule opisano sposób konfigurowania urządzenia migracji platformy Azure do oceny za pomocą narzędzia [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) oraz migracji bez agenta przy użyciu narzędzia [Azure Migrate:Server Migration.](migrate-services-overview.md#azure-migrate-server-migration-tool)
+W tym artykule należy skonfigurować urządzenie migracji platformy Azure do oceny za pomocą narzędzia [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) oraz migracji bez agenta przy użyciu narzędzia [Azure Migrate:Server Migration.](migrate-services-overview.md#azure-migrate-server-migration-tool)
 
 [Urządzenie usługi Azure Migrate](migrate-appliance.md) to lekkie urządzenie używane przez usługę Azure Migrate:Server Assessment and Server Migration do odnajdowania lokalnych maszyn wirtualnych VMware, wysyłania metadanych/danych dotyczących wydajności maszyn wirtualnych na platformę Azure oraz replikacji maszyn wirtualnych maszyn wirtualnych podczas migracji bez agenta.
 
-Urządzenie migracji platformy Azure do oceny maszyn wirtualnych VMware można skonfigurować przy użyciu pobranego szablonu ova lub przy użyciu skryptu instalacyjnego programu PowerShell. W tym artykule opisano sposób konfigurowania urządzenia przy użyciu szablonu ova. Jeśli chcesz skonfigurować urządzenie za pomocą skryptu, postępuj zgodnie z instrukcjami w [tym artykule](deploy-appliance-script.md).
+Urządzenie można wdrożyć przy użyciu kilku metod:
+
+- Skonfiguruj na maszynie wirtualnej VMware przy użyciu pobranego szablonu OVA. Jest to metoda opisana w tym artykule.
+- Skonfiguruj na maszynie wirtualnej VMware lub na komputerze fizycznym za pomocą skryptu instalatora programu PowerShell. [Ta metoda](deploy-appliance-script.md) powinna być używana, jeśli nie można skonfigurować maszyny Wirtualnej przy użyciu szablonu OVA lub jeśli jesteś w usłudze Azure government.
+
+Po utworzeniu urządzenia można sprawdzić, czy można połączyć się z oceną migracji:serwera platformy Azure, skonfigurować go po raz pierwszy i zarejestrować go w projekcie migracji platformy Azure.
 
 
 ## <a name="appliance-deployment-ova"></a>Wdrażanie urządzeń (OVA)
@@ -62,9 +67,9 @@ Zaimportuj pobrany plik i utwórz maszynę wirtualną.
 9. Sprawdź poprawność ustawień, a następnie kliknij pozycję **Finish** (Zakończ).
 
 
-### <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
+## <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
 
-Upewnij się, że maszyna wirtualna urządzenia może łączyć się z [adresami URL platformy Azure](migrate-appliance.md#url-access).
+Upewnij się, że maszyna wirtualna urządzenia może łączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i [rządowych.](migrate-appliance.md#government-cloud-urls)
 
 
 ## <a name="configure-the-appliance"></a>Konfigurowanie urządzenia
@@ -119,7 +124,7 @@ W przypadku odnajdowania aplikacji, ról i funkcji oraz wizualizacji zależnośc
 2. Wybierz **system operacyjny**.
 3. Podaj przyjazną nazwę poświadczeń.
 4. W **obszarze Nazwa użytkownika** i **hasło**określ konto, które ma co najmniej dostęp gościa na maszynach wirtualnych.
-5. Kliknij przycisk **Dodaj**.
+5. Kliknij pozycję **Add** (Dodaj).
 
 Po określeniu poświadczeń serwera vCenter i maszyny Wirtualnej (opcjonalnie) kliknij przycisk **Zapisz i rozpocznij odnajdowanie,** aby rozpocząć odnajdowanie środowiska lokalnego.
 

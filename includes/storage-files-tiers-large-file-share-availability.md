@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 625b7fc8d49c91a9f2b1c09e1add72993e828d43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27e3f0ef7539f3fb875c087ff7d1351916877d19
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597876"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536497"
 ---
-Standardowe udziały plików z limitem pojemności 100 TiB są dostępne globalnie we wszystkich regionach platformy Azure, z wyjątkiem:
+Standardowe udziały plików o pojemności 100 TiB mają pewne ograniczenia.
 
-- Magazyny lokalne: wszystkie regiony, z wyjątkiem Republiki Południowej Afryki Północnej, Południowej Afryki Zachodniej, Niemiec Zachodnio-Środkowych i Niemiec Północnych.
-- Magazyn strefowy nadmiarowy: obsługiwane dla wszystkich regionów, w których obsługiwane jest magazynowanie strefowe, z wyjątkiem Japonii Wschodniej, Europy Północnej, Republiki Południowej Afryki Północnej.
-- Magazyn nadmiarowy geograficznie/GeoZone: nie jest obsługiwany.
+- Obecnie obsługiwane są tylko konta magazynu nadmiarowego lokalnie (LRS) i magazynu strefowego (ZRS).
+- Po włączeniu dużych udziałów plików nie można konwertować kont magazynu na konta magazynu geograficznie nadmiarowego (GRS) lub magazynu geograficzno-nadmiarowego (GZRS).
+- Po włączeniu dużych udziałów plików nie można go wyłączyć.

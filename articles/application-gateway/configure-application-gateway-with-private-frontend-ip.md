@@ -6,14 +6,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: 809274aba35e9607aeacf7c6483ec3d10f899667
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: df21a2c40dd532ac1ff321638099ceee8a2b3e53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312367"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535608"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Konfigurowanie bramy aplikacji przy za pomocą wewnętrznego punktu końcowego równoważenia obciążenia (ILB)
 
@@ -95,8 +95,8 @@ Aby to zrobić, możesz:
    - wybierz *myResourceGroupAG* dla **grupy zasobów**.
    - *myVM* - dla **nazwy maszyny wirtualnej**.
    - Wybierz **pozycję Centrum danych systemu Windows Server 2019** dla **obrazu**.
-   - *azureadmin* - dla **nazwy użytkownika**.
-   - *Azure123456!* dla **hasła**.
+   - prawidłową **nazwę użytkownika**.
+   - prawidłowe **hasło**.
 5. Zaakceptuj pozostałe wartości domyślne i wybierz **pozycję Dalej : Dyski**.
 6. Zaakceptuj ustawienia domyślne i wybierz **pozycję Dalej : Sieć**.
 7. Upewnij się, że wybrano sieć wirtualną **myVNet** i podsieć **myBackendSubnet**.

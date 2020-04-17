@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 4eb203915c8fedbef6af0e5a3bc14eff1835a92b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21074ae6bc4959da031bc7065cd7d0639ec2a14f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75982154"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537274"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>Używanie wielu pamięci podręcznych do regionalnego odzyskiwania trybu failover
 
@@ -58,4 +58,3 @@ Wszyscy klienci będą musieli zainstalować nową pamięć podręczną, nawet j
 ## <a name="learn-more"></a>Dowiedz się więcej
 
 Przewodnik architektury aplikacji platformy Azure zawiera więcej informacji na temat [odzyskiwania po zakłóceniu usługi w całym regionie.](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>)
-<!-- this should be an internal link instead of a URL but I can't find the tree  -->

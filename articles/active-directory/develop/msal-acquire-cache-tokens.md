@@ -13,16 +13,16 @@ ms.date: 11/07/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c1f1cbf85b96aade745cc4248aed4bc89e41b450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 647dff9e6401322371ef795a25ca5ced2b517e9c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085155"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534588"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Pozyskiwanie i buforowanie tokenów przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
-[Tokeny dostępu](access-tokens.md) umożliwiają klientom bezpieczne wywoływanie internetowych interfejsów API chronionych przez platformę Azure. Istnieje wiele sposobów uzyskania tokenu przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL). Niektóre sposoby wymagają interakcji użytkownika za pośrednictwem przeglądarki internetowej. Niektóre z nich nie wymagają żadnych interakcji z użytkownikiem. Ogólnie rzecz biorąc sposób uzyskania tokenu zależy od tego, czy aplikacja jest publiczna aplikacja kliencka (aplikacja kliencka lub klasyczna) lub poufne aplikacji klienckiej (aplikacji sieci Web, interfejsu API sieci Web lub aplikacji demona, takich jak usługa systemu Windows).
+[Tokeny dostępu](access-tokens.md) umożliwiają klientom bezpieczne wywoływanie internetowych interfejsów API chronionych przez platformę Azure. Istnieje wiele sposobów uzyskania tokenu przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL). Niektóre sposoby wymagają interakcji użytkownika za pośrednictwem przeglądarki internetowej. Niektóre z nich nie wymagają żadnych interakcji z użytkownikiem. Ogólnie rzecz biorąc sposób uzyskania tokenu zależy od tego, czy aplikacja jest publiczna aplikacja kliencka (aplikacja kliencka lub przenośna) lub poufne aplikacji klienckiej (aplikacji sieci web, interfejsu API sieci web lub aplikacji demona, takich jak usługa systemu Windows).
 
 MSAL buforuje token po jego nabyciu.  Kod aplikacji należy spróbować uzyskać token dyskretnie (z pamięci podręcznej), najpierw przed uzyskaniem tokenu za pomocą innych środków.
 
@@ -63,18 +63,18 @@ MSAL przechowuje pamięć podręczną tokenu (lub dwie pamięci podręczne dla p
 
 ### <a name="recommended-call-pattern-for-public-client-applications"></a>Zalecany wzorzec połączeń dla publicznych aplikacji klienckich
 
-Kod aplikacji należy najpierw spróbować uzyskać token (z pamięci podręcznej).  Jeśli wywołanie metody zwraca błąd lub wyjątek "Wymagane interfejsu użytkownika", spróbuj pozyskać token za pomocą innych środków. 
+Kod aplikacji należy najpierw spróbować uzyskać token (z pamięci podręcznej).  Jeśli wywołanie metody zwraca błąd lub wyjątek "Wymagane interfejsu użytkownika", spróbuj pozyskać token za pomocą innych środków.
 
 Istnieją jednak dwa przepływy, przed którymi **nie należy** podejmować prób dyskretnego nabycia tokenu:
 
 - [przepływ poświadczeń klienta](msal-authentication-flows.md#client-credentials), który nie używa pamięci podręcznej tokenu użytkownika, ale pamięci podręcznej tokenu aplikacji. Ta metoda zajmuje się sprawdzanie tej pamięci podręcznej tokenu aplikacji przed wysłaniem żądania do STS.
-- [przepływ kodu autoryzacji](msal-authentication-flows.md#authorization-code) w aplikacjach sieci Web, ponieważ realizuje kod, który aplikacja uzyskała, logując się do użytkownika i wyrażając zgodę na więcej zakresów. Ponieważ kod jest przekazywany jako parametr, a nie konto, metoda nie może wyglądać w pamięci podręcznej przed realizacją kodu, który wymaga, mimo to, wywołania usługi.
+- [przepływ kodu autoryzacji](msal-authentication-flows.md#authorization-code) w aplikacjach sieci web, ponieważ realizuje kod, który aplikacja uzyskała, logując się do użytkownika i wyrażając zgodę na więcej zakresów. Ponieważ kod jest przekazywany jako parametr, a nie konto, metoda nie może wyglądać w pamięci podręcznej przed realizacją kodu, który wymaga, mimo to, wywołania usługi.
 
 ### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Zalecany wzorzec połączeń w aplikacjach sieci Web przy użyciu przepływu kodu autoryzacji
 
 W przypadku aplikacji sieci Web korzystających z [przepływu kodu autoryzacji OpenID Connect](v2-protocols-oidc.md)zalecany wzorzec w kontrolerach ma na celu:
 
-- Tworzenie wystąpienia poufnej aplikacji klienckiej z pamięcią podręczną tokenu z niestandardową serializacją. 
+- Tworzenie wystąpienia poufnej aplikacji klienckiej z pamięcią podręczną tokenu z niestandardową serializacją.
 - Uzyskaj token przy użyciu przepływu kodu autoryzacji
 
 ## <a name="acquiring-tokens"></a>Pobieranie tokenów
@@ -91,8 +91,8 @@ W przypadku publicznych aplikacji klienckich (na komputery lub aplikacje mobilne
 
 ### <a name="confidential-client-applications"></a>Poufne aplikacje klienckie
 
-W przypadku poufnych aplikacji klienckich (aplikacji Web App, Web API lub aplikacji demona, takich jak usługa systemu Windows), należy:
-- Uzyskaj tokeny **dla samej aplikacji,** a nie dla użytkownika, przy użyciu [przepływu poświadczeń klienta](msal-authentication-flows.md#client-credentials). Może to służyć do synchronizacji narzędzi lub narzędzi, które przetwarzają użytkowników w ogóle, a nie określonego użytkownika. 
+W przypadku poufnych aplikacji klienckich (aplikacji sieci Web, interfejsu API sieci Web lub aplikacji demona, takich jak usługa windowsowa), użytkownik:
+- Uzyskaj tokeny **dla samej aplikacji,** a nie dla użytkownika, przy użyciu [przepływu poświadczeń klienta](msal-authentication-flows.md#client-credentials). Może to służyć do synchronizacji narzędzi lub narzędzi, które przetwarzają użytkowników w ogóle, a nie określonego użytkownika.
 - Użyj [przepływu w imieniu](msal-authentication-flows.md#on-behalf-of) dla internetowego interfejsu API do wywoływania interfejsu API w imieniu użytkownika. Aplikacja jest identyfikowana za pomocą poświadczeń klienta w celu uzyskania tokenu na podstawie potwierdzenia użytkownika (saml na przykład lub token JWT). Ten przepływ jest używany przez aplikacje, które muszą uzyskać dostęp do zasobów określonego użytkownika w wywołaniach usługi do usługi.
 - Uzyskaj tokeny przy użyciu [przepływu kodu autoryzacji](msal-authentication-flows.md#authorization-code) w aplikacjach sieci web po zalogowaniu się użytkownika za pośrednictwem adresu URL żądania autoryzacji. Aplikacja OpenID Connect zazwyczaj używa tego mechanizmu, który umożliwia użytkownikowi logowanie się przy użyciu open id connect, a następnie dostęp do internetowych interfejsów API w imieniu użytkownika.
 

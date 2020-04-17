@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 621b429f5dc3a6b6620e4d41ad46763e1d4fa226
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f33f829b6cb86cb01c848e5fc48e1618a3e00a2c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299534"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537036"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Wbudowane rozwiązania zarządzania aktualizacjami, śledzenia zmian i zapasów z maszyny wirtualnej platformy Azure
 
@@ -24,38 +24,38 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 Najpierw włącz jedno lub wszystkie trzy rozwiązania na maszynie Wirtualnej:
 
-1. W [witrynie Azure portal](https://portal.azure.com)— z lewego okienka wybierz **maszyny wirtualne** lub wyszukaj i wybierz **maszyny wirtualne** ze strony **głównej.**
+1. W [portalu Azure](https://portal.azure.com)wybierz **maszyny wirtualne** lub wyszukaj i wybierz **maszyny wirtualne** ze strony głównej.
 2. Wybierz maszynę wirtualną, dla której chcesz włączyć rozwiązanie.
-3. Na stronie Maszyny Wirtualnej w obszarze **Operacje**wybierz pozycję **Zarządzanie aktualizacjami,** **Zapasy**lub **Śledzenie zmian**. Maszyna wirtualna może istnieć w dowolnym regionie, niezależnie od lokalizacji konta automatyzacji. Podczas dołączania rozwiązania z maszyny Wirtualnej, należy `Microsoft.OperationalInsights/workspaces/read` mieć uprawnienia do określenia, czy maszyna wirtualna jest dołączana do obszaru roboczego. Aby dowiedzieć się więcej o dodatkowych uprawnieniach, które są wymagane, zobacz [uprawnienia potrzebne do komputerów wbudowanych](automation-role-based-access-control.md#onboarding).
+3. Na stronie Maszyny Wirtualnej w obszarze **Operacje**wybierz pozycję **Zarządzanie aktualizacjami,** **Zapasy**lub **Śledzenie zmian**. Maszyna wirtualna może istnieć w dowolnym regionie, bez względu na lokalizację konta automatyzacji. Podczas dołączania rozwiązania z maszyny Wirtualnej, należy `Microsoft.OperationalInsights/workspaces/read` mieć uprawnienia do określenia, czy maszyna wirtualna jest dołączana do obszaru roboczego. Aby dowiedzieć się więcej o dodatkowych uprawnieniach, które są wymagane, zobacz [uprawnienia potrzebne do komputerów wbudowanych](automation-role-based-access-control.md#onboarding-permissions). Aby dowiedzieć się, jak dołączać wiele komputerów jednocześnie, zobacz [Wbudowane rozwiązania zarządzania aktualizacjami, śledzenia zmian i zapasów.](automation-onboard-solutions-from-automation-account.md)
 
-Aby dowiedzieć się, jak dołączać wiele komputerów jednocześnie, zobacz [Wbudowane rozwiązania zarządzania aktualizacjami, śledzenia zmian i zapasów.](automation-onboard-solutions-from-automation-account.md)
-
-Wybierz obszar roboczy usługi Azure Log Analytics i konto automatyzacji, a następnie wybierz pozycję **Włącz,** aby włączyć rozwiązanie. Włączanie rozwiązania może trwać do 15 minut.
+4. Wybierz obszar roboczy usługi Azure Log Analytics i konto automatyzacji, a następnie kliknij przycisk **Włącz,** aby włączyć rozwiązanie. Włączanie rozwiązania może trwać do 15 minut.
 
 ![Dołączanie rozwiązania do zarządzania aktualizacjami](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-Przejdź do innych rozwiązań, a następnie wybierz pozycję **Włącz**. Obszar roboczy usługi Log Analytics i listy rozwijane kont automatyzacji są wyłączone, ponieważ te rozwiązania używają tego samego obszaru roboczego i konta automatyzacji, co wcześniej włączone rozwiązanie.
+5. Przejdź do innych rozwiązań, a następnie wybierz pozycję **Włącz**. Obszar roboczy usługi Log Analytics i listy rozwijane kont automatyzacji są wyłączone, ponieważ te rozwiązania używają tego samego obszaru roboczego i konta automatyzacji, co wcześniej włączone rozwiązanie.
 
 > [!NOTE]
-> **Śledzenie zmian** i **zapasów** używają tego samego rozwiązania. Gdy jedno z tych rozwiązań jest włączone, drugie jest również włączone.
+> Śledzenie zmian i zapasów używają tego samego rozwiązania. Gdy jedno z tych rozwiązań jest włączone, drugie jest również włączone.
 
 ## <a name="scope-configuration"></a>Konfiguracja zakresu
 
-Każde rozwiązanie używa konfiguracji zakresu w obszarze roboczym do kierowania na komputery, które otrzymują rozwiązanie. Konfiguracja zakresu to grupa jednego lub więcej zapisanych wyszukiwań, które są używane do ograniczenia zakresu rozwiązania do określonych komputerów. Aby uzyskać dostęp do konfiguracji zakresu, na koncie automatyzacji w obszarze **Zasoby pokrewne**wybierz pozycję **Obszar roboczy**. W obszarze roboczym w obszarze **Źródła danych obszaru roboczego**wybierz pozycję **Konfiguracje zakresu**.
+Każde rozwiązanie używa konfiguracji zakresu w obszarze roboczym do kierowania na komputery, które otrzymują rozwiązanie. Konfiguracja zakresu to grupa jednego lub więcej zapisanych wyszukiwań, które są używane do ograniczenia zakresu rozwiązania do określonych komputerów. Aby uzyskać dostęp do konfiguracji zakresu:
 
-Jeśli wybrany obszar roboczy nie ma jeszcze rozwiązań Zarządzanie aktualizacjami lub Śledzenie zmian, tworzone są następujące konfiguracje zakresu:
+1. Na koncie automatyzacji w obszarze **Powiązane zasoby**wybierz pozycję **Obszar roboczy**. 
+2. W obszarze roboczym w obszarze **Źródła danych obszaru roboczego**wybierz pozycję **Konfiguracje zakresu**.
+3. Jeśli wybrany obszar roboczy nie ma jeszcze rozwiązania Zarządzanie aktualizacjami lub Śledzenie zmian, tworzone są następujące konfiguracje zakresu:
 
-* **Śledzenie microsoftdefaultscopeconfig-changetracking**
+    * `MicrosoftDefaultScopeConfig-ChangeTracking`
+    * `MicrosoftDefaultScopeConfig-Updates`
 
-* **Aktualizacje microsoftdefaultscopeconfig**
+    Jeśli wybrany obszar roboczy ma już rozwiązanie, rozwiązanie nie jest ponownie rozmieszczane i konfiguracja zakresu nie jest dodawana.
 
-Jeśli wybrany obszar roboczy ma już rozwiązanie, rozwiązanie nie jest ponownie rozmieszczane i konfiguracja zakresu nie jest dodawana.
-
-Wybierz elipsy (**...**) w dowolnej konfiguracji, a następnie wybierz pozycję **Edytuj**. W okienku **konfiguracji Edytowanie zakresu** wybierz pozycję **Wybierz grupy komputerów**. Okienko **Grupy komputerów** zawiera zapisane wyszukiwania używane do tworzenia konfiguracji zakresu.
+4. Zaznacz elipsy (**...**) w dowolnej konfiguracji, a następnie kliknij przycisk **Edytuj**. 
+5. W okienku **konfiguracji Edytowanie zakresu** wybierz pozycję **Wybierz grupy komputerów**. Okienko **Grupy komputerów** zawiera zapisane wyszukiwania używane do tworzenia konfiguracji zakresu.
 
 ## <a name="saved-searches"></a>Zapisane wyszukiwania
 
-Po dodaniu komputera do rozwiązań Zarządzanie aktualizacjami, Śledzenie zmian lub Spis, komputer jest dodawany do jednego z dwóch zapisanych wyszukiwań w obszarze roboczym. Zapisane wyszukiwania to zapytania zawierające komputery, które są przeznaczone dla tych rozwiązań.
+Po dodaniu komputera do rozwiązania Zarządzanie aktualizacjami, Śledzenie zmian lub Spis, komputer jest dodawany do jednego z dwóch zapisanych wyszukiwań w obszarze roboczym. Zapisane wyszukiwania to zapytania zawierające komputery, które są przeznaczone dla tych rozwiązań.
 
 Przejdź do swojego obszaru roboczego. W obszarze **Ogólne**wybierz pozycję **Zapisane wyszukiwania**. Dwa zapisane wyszukiwania używane przez te rozwiązania są pokazane w poniższej tabeli:
 
@@ -83,7 +83,7 @@ Po usunięciu tych rozwiązań można wykonać następujące kroki, aby odłącz
 > [!NOTE]
 > Niektóre rozwiązania, w tym wcześniejsze wersje rozwiązania do monitorowania SQL platformy Azure, mogły utworzyć zasoby automatyzacji i mogą również wymagać usunięcia przed odłączeniem obszaru roboczego.
 
-1. W witrynie Azure portal otwórz konto automatyzacji, a na stronie konta automatyzacji wybierz **pozycję Połączony obszar roboczy** w sekcji **Powiązane zasoby** po lewej stronie.
+1. W witrynie Azure portal otwórz konto automatyzacji i wybierz **połączony obszar roboczy** w sekcji **Powiązane zasoby** po lewej stronie.
 
 2. Na stronie Odłącz obszar roboczy kliknij pozycję **Odłącz obszar roboczy**.
 
@@ -112,7 +112,7 @@ Alternatywnie można również odłączyć obszar roboczy od konta automatyzacji
 Aby usunąć maszynę wirtualną z zarządzania aktualizacjami:
 
 * W obszarze roboczym usługi Log Analytics usuń maszynę wirtualną z zapisanego wyszukiwania konfiguracji `MicrosoftDefaultScopeConfig-Updates`zakresu . Zapisane wyszukiwania można znaleźć w obszarze **Ogólne** w obszarze roboczym.
-* Usuń [agenta monitorowania firmy Microsoft](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) lub [agenta analizy dzienników dla systemu Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Usuń [agenta analizy dzienników dla systemu Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) lub [agenta analizy dzienników dla systemu Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Następne kroki
 

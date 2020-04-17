@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: 3b8c2f6ec33965317d2aaa23a36b6becff11a54a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75725730"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535404"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Rozwiązywanie problemów z projektami usługi Azure Migrate
 
@@ -32,7 +32,7 @@ Znajdowanie istniejącego projektu migracji platformy Azure zależy od tego, czy
 
 ## <a name="cant-find-a-geography"></a>Nie można znaleźć geografii
 
-Projekt migracji platformy Azure można utworzyć w [obsługiwanych regionach geograficznych.](migrate-support-matrix.md#supported-geographies) Należy zauważyć, że geografia projektu jest używana do przechowywania odnalezionych metadanych maszyny. Można również ocenić lub przeprowadzić migrację maszyn w innych lokalizacjach.
+Można utworzyć projekt migracji platformy Azure w obsługiwanych regionach geograficznych dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## <a name="what-are-vm-limits"></a>Co to są limity maszyn wirtualnych?
 

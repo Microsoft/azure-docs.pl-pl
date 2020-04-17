@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: feb1fa82653a0db7b3041a4f745d0563c220bd31
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 362f6d1f4e50e1cc78c8897499b9f6593096162b
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991096"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536016"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Szybki start: wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji platformy UWP
 
@@ -49,7 +49,7 @@ Ten przewodnik Szybki start zawiera przykładowy kod, który pokazuje, jak aplik
 >      - Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 > 1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**.
 > 1. W sekcji **Redirect URIs** | **Suggested Redirect Redirect URI dla klientów publicznych (mobilnych, stacjonarnych)** zaznacz pole wyboru **https://login.microsoftonline.com/common/oauth2/nativeclient**.
-> 1. Wybierz **pozycję Zapisz**.
+> 1. Wybierz pozycję **Zapisz**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Krok 1. Konfigurowanie aplikacji
@@ -72,7 +72,7 @@ Ten przewodnik Szybki start zawiera przykładowy kod, który pokazuje, jak aplik
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3: Aplikacja jest skonfigurowana i gotowa do uruchomienia
-> Skonfigurowaliśmy projekt z wartościami właściwości aplikacji i jest on gotowy do uruchomienia. 
+> Skonfigurowaliśmy projekt z wartościami właściwości aplikacji i jest on gotowy do uruchomienia.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -80,7 +80,7 @@ Ten przewodnik Szybki start zawiera przykładowy kod, który pokazuje, jak aplik
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Krok 3. Konfigurowanie projektu programu Visual Studio
-> 
+>
 > 1. Wyodrębnij plik zip do folderu lokalnego blisko folderu głównego dysku, na przykład **C:\Azure-Samples**.
 > 1. Otwórz projekt w programie Visual Studio. Może zostać wyświetlony monit o zainstalowanie pakietu SDK platformy uniwersalnej systemu Windows. W takim przypadku zaakceptuj.
 > 1. Edytuj **MainPage.Xaml.cs** i zastąp `ClientId` wartości pola:
@@ -157,7 +157,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 > |Gdzie:||
 > |---------|---------|
-> | `scopes` | Zawiera żądane zakresy, takie jak `{ "user.read" }` dla programu Microsoft Graph lub `{ "api://<Application ID>/access_as_user" }` dla niestandardowych interfejsów internetowych API. |
+> | `scopes` | Zawiera żądane zakresy, takie `{ "user.read" }` jak program `{ "api://<Application ID>/access_as_user" }` Microsoft Graph lub niestandardowe interfejsy API sieci Web. |
 
 #### <a name="get-a-user-token-silently"></a>Dyskretne pobieranie tokenu użytkownika
 
@@ -172,7 +172,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 
 > |Gdzie: ||
 > |---------|---------|
-> | `scopes` | Zawiera żądane zakresy, takie jak `{ "user.read" }` dla programu Microsoft Graph lub `{ "api://<Application ID>/access_as_user" }` dla niestandardowych interfejsów internetowych API |
+> | `scopes` | Zawiera żądane zakresy, takie `{ "user.read" }` jak program `{ "api://<Application ID>/access_as_user" }` Microsoft Graph lub niestandardowe interfejsy API sieci Web |
 > | `firstAccount` | Określa pierwsze konto użytkownika w pamięci podręcznej (msal obsługuje wielu użytkowników w jednej aplikacji) |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

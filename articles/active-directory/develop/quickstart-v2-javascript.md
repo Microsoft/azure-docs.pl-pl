@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: ac134dce5ad739d1d81ef0c62a6bfb04468cafff
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 1d22f66ad5f7adf5bb8196c3e72a2a343f4558b0
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991113"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536101"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Szybki start: logowanie użytkowników i uzyskiwanie tokenu dostępu w javascript SPA
 
@@ -39,7 +39,7 @@ W tym przewodniku Szybki start można użyć przykładu kodu, aby dowiedzieć si
 > 1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
 > 1. Jeśli twoje konto daje dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na dzierżawę usługi Azure Active Directory (Azure AD), której chcesz użyć.
 > 1. Przejdź do nowego okienka [Azure portal — rejestracje aplikacji.](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs)
-> 1. Wprowadź nazwę aplikacji. 
+> 1. Wprowadź nazwę aplikacji.
 > 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 > 1. Wybierz pozycję **Zarejestruj**.
 > 1. Postępuj zgodnie z instrukcjami, aby pobrać i automatycznie skonfigurować nową aplikację.
@@ -99,7 +99,7 @@ W tym przewodniku Szybki start można użyć przykładu kodu, aby dowiedzieć si
 >      cacheLocation: "sessionStorage", // This configures where your cache will be stored
 >      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
 >    }
->  };  
+>  };
 >
 >```
 
@@ -122,10 +122,10 @@ W tym przewodniku Szybki start można użyć przykładu kodu, aby dowiedzieć si
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3: Aplikacja jest skonfigurowana i gotowa do uruchomienia
-> Skonfigurowaliśmy projekt z wartościami właściwości aplikacji. 
+> Skonfigurowaliśmy projekt z wartościami właściwości aplikacji.
 
 > [!div renderon="docs"]
-> 
+>
 > Następnie, nadal w tym samym folderze, edytuj plik *graphConfig.js,* aby ustawić `graphMeEndpoint` i `graphMeEndpoint` dla `apiConfig` obiektu.
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -199,7 +199,7 @@ Kod przewodnika Szybki start pokazuje również, jak zainicjować bibliotekę MS
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     }
-  };  
+  };
 
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
@@ -234,7 +234,7 @@ myMSALObj.loginPopup(loginRequest)
 
 > |Lokalizacja  |  |
 > |---------|---------|
-> | `scopes`   | (Opcjonalnie) Zawiera zakresy, które są wymagane do zgody użytkownika w czasie logowania. Na przykład zakres `[ "user.read" ]` dla programu Microsoft Graph lub zakres `[ "<Application ID URL>/scope" ]` dla niestandardowych interfejsów internetowych API (czyli `api://<Application ID>/access_as_user`). |
+> | `scopes`   | (Opcjonalnie) Zawiera zakresy, które są wymagane do zgody użytkownika w czasie logowania. Na przykład `[ "user.read" ]` dla programu `[ "<Application ID URL>/scope" ]` Microsoft Graph lub niestandardowych `api://<Application ID>/access_as_user`interfejsów API sieci Web (tj. ). |
 
 > [!TIP]
 > Alternatywnie można użyć `loginRedirect` metody, aby przekierować bieżącą stronę do strony logowania zamiast okna podręcznego.
@@ -264,7 +264,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 > |Lokalizacja  |  |
 > |---------|---------|
-> | `scopes`   | Zawiera zakresy żądane na potrzeby zwracania w tokenie dostępu dla interfejsu API. Na przykład zakres `[ "mail.read" ]` dla programu Microsoft Graph lub zakres `[ "<Application ID URL>/scope" ]` dla niestandardowych interfejsów internetowych API (czyli `api://<Application ID>/access_as_user`).|
+> | `scopes`   | Zawiera zakresy żądane na potrzeby zwracania w tokenie dostępu dla interfejsu API. Na przykład `[ "mail.read" ]` dla programu `[ "<Application ID URL>/scope" ]` Microsoft Graph lub niestandardowych `api://<Application ID>/access_as_user`interfejsów API sieci Web (tj. ).|
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 

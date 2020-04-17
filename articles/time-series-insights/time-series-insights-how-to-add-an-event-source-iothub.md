@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3ea73e2ca20faea30294bc5d5e1788415095c39f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0a2f703d9224b8b9dd77c80b2b6a7faee70f5bb
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76905371"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538107"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Dodawanie źródła zdarzeń centrum IoT do środowiska usługi Time Series Insights
 
@@ -46,11 +46,11 @@ Aby dodać nową grupę odbiorców do centrum IoT hub:
 
 1. W obszarze **Grupy odbiorców**wprowadź unikatową nazwę grupy odbiorców. Tej samej nazwy należy używać w środowisku usługi Time Series Insights podczas tworzenia nowego źródła zdarzeń.
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="add-a-new-event-source"></a>Dodawanie nowego źródła zdarzeń
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W menu po lewej stronie wybierz pozycję **Wszystkie zasoby**. Wybierz środowisko usługi Time Series Insights.
 
@@ -102,7 +102,7 @@ Aby dodać nową grupę odbiorców do centrum IoT hub:
 
 1. Dodaj dedykowaną nazwę grupy odbiorców usługi Time Series Insights, która została dodana do centrum IoT Hub.
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Po utworzeniu źródła zdarzeń usługa Time Series Insights automatycznie rozpoczyna przesyłanie strumieniowe danych do środowiska.
 

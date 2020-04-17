@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fe029cdec5bca8885a78267c45bace51e7b3c141
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 018e7f9bc389e3d148ff6860dae9fef88991e5c4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882373"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537172"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>Chroniony interfejs API sieci Web: weryfikowanie zakresów i ról aplikacji
 
@@ -29,8 +29,8 @@ W tym artykule opisano, jak można dodać autoryzację do internetowego interfej
 > [!NOTE]
 > Fragmenty kodu z tego artykułu są wyodrębniane z następujących przykładów, które są w pełni funkcjonalne:
 >
-> - [ASP.NET Core Web API przyrostowy samouczek](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37) na GitHub
-> - [Przykład ASP.NET interfejsu API sieci Web](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/dfd0115533d5a230baff6a3259c76cf117568bd9/TodoListService/Controllers/TodoListController.cs#L48)
+> - [ASP.NET Core web API przyrostowy samouczek](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37) na GitHub
+> - [ASP.NET przykładowy internetowy interfejs API](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/dfd0115533d5a230baff6a3259c76cf117568bd9/TodoListService/Controllers/TodoListController.cs#L48)
 
 Aby chronić ASP.NET lub ASP.NET core interfejsu API sieci `[Authorize]` web, należy dodać atrybut do jednego z następujących elementów:
 
@@ -89,7 +89,7 @@ Metoda `VerifyUserHasAnyAcceptedScope` wykonuje podobne kroki:
     /// method throws an HTTP Unauthorized error with a message noting which scopes are expected in the token.
     /// </summary>
     /// <param name="acceptedScopes">Scopes accepted by this API</param>
-    /// <exception cref="HttpRequestException"/> with a <see cref="HttpResponse.StatusCode"/> set to 
+    /// <exception cref="HttpRequestException"/> with a <see cref="HttpResponse.StatusCode"/> set to
     /// <see cref="HttpStatusCode.Unauthorized"/>
     public static void VerifyUserHasAnyAcceptedScope(this HttpContext context,
                                                      params string[] acceptedScopes)

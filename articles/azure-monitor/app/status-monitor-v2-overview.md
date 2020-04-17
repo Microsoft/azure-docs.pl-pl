@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 4a240bc62816a46bc37108777a8b081b74047738
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4042fc05f278915fe72bf8fc4e6afd69a5bbb4b9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275713"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537427"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Wdrażanie agenta usługi Azure Monitor Application Insights dla serwerów lokalnych
 
@@ -50,7 +50,7 @@ Usługa Application Insights Agent https://www.powershellgallery.com/packages/Az
 - [Znane problemy](status-monitor-v2-troubleshoot.md#known-issues)
 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 - Czy agent usługi Application Insights obsługuje instalacje proxy?
 
@@ -76,7 +76,7 @@ Każda z tych opcji jest opisana w [szczegółowych instrukcjach](status-monitor
 
 Wyświetlanie telemetrii:
 
-* [Eksploruj metryki,](../../azure-monitor/app/metrics-explorer.md) aby monitorować wydajność i użycie.
+* [Eksploruj metryki,](../../azure-monitor/platform/metrics-charts.md) aby monitorować wydajność i użycie.
 * [Szukaj zdarzeń i dzienników](../../azure-monitor/app/diagnostic-search.md) w celu zdiagnozowania problemów.
 * [Korzystaj z analizy](../../azure-monitor/app/analytics.md) w przypadku bardziej zaawansowanych zapytań.
 * [Tworzenie pulpitów nawigacyjnych](../../azure-monitor/app/overview-dashboard.md).

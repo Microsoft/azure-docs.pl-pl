@@ -3,12 +3,12 @@ title: Eksportowanie przy użyciu usługi Stream Analytics z usługi Azure Appli
 description: Usługa Stream Analytics może stale przekształcać, filtrować i kierować dane eksportowane z usługi Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: b93bc49d005e3e54f1e5db84e6ff1adc49e25a65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 15d1efa3a632024429d41f27fc23c569cd85bec2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77664018"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536883"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Przetwarzanie eksportowanych danych z usługi Application Insights za pomocą usługi Stream Analytics
 [Usługa Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) to idealne narzędzie do przetwarzania danych [eksportowanych z usługi Application Insights.](export-telemetry.md) Usługa Stream Analytics może pobierać dane z różnych źródeł. Można przekształcić i filtrować dane, a następnie kierować je do różnych pochłaniacze.
@@ -55,7 +55,7 @@ Ciągły eksport zawsze wyprowadza dane do konta usługi Azure Storage, więc mu
 
     ![Wybieranie typów zdarzeń](./media/export-stream-analytics/080.png)
 
-1. Niech niektóre dane gromadzą się. Usiądź wygodnie i pozwól ludziom korzystać z aplikacji na chwilę. Dane telemetryczne pojawią się, a zobaczysz wykresy statystyczne w [Eksploratorze metryk](../../azure-monitor/app/metrics-explorer.md) i poszczególnych zdarzeniach w [wyszukiwaniu diagnostycznym.](../../azure-monitor/app/diagnostic-search.md) 
+1. Niech niektóre dane gromadzą się. Usiądź wygodnie i pozwól ludziom korzystać z aplikacji na chwilę. Dane telemetryczne pojawią się, a zobaczysz wykresy statystyczne w [Eksploratorze metryk](../../azure-monitor/platform/metrics-charts.md) i poszczególnych zdarzeniach w [wyszukiwaniu diagnostycznym.](../../azure-monitor/app/diagnostic-search.md) 
    
     A także dane zostaną wyeksportowane do magazynu. 
 2. Sprawdź wyeksportowane dane. W programie Visual Studio wybierz pozycję **Wyświetl / Cloud Explorer**i otwórz platformę Azure / Storage. (Jeśli nie masz tej opcji menu, musisz zainstalować zestaw SDK platformy Azure: Otwórz okno dialogowe Nowy projekt i otwórz visual c# / chmurę / Pobierz zestaw Microsoft Azure SDK dla platformy .NET.)

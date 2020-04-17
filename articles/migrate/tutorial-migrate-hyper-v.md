@@ -2,16 +2,16 @@
 title: Migrowanie maszyn wirtualnych funkcji Hyper V na platformę Azure za pomocą migracji serwera migracji usługi Azure
 description: Dowiedz się, jak przeprowadzić migrację lokalnych maszyn wirtualnych z funkcji Hyper V na platformę Azure za pomocą migracji serwera migracji usługi Azure
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 04/15/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: b5d37da7ea0c53a7e8cbb5b579d529dd4a799fed
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6b9732aab9e3fe0d26b4c572efe87c3a9d3e29f6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422693"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535353"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrowanie maszyn wirtualnych funkcji Hyper-V na platformę Azure 
 
@@ -19,12 +19,12 @@ W tym artykule pokazano, jak przeprowadzić migrację lokalnych maszyn wirtualny
 
 [Usługa Azure Migrate](migrate-services-overview.md) udostępnia centralne centrum do śledzenia odnajdowania, oceny i migracji lokalnych aplikacji i obciążeń oraz maszyn wirtualnych chmury prywatnej/publicznej na platformę Azure. Centrum udostępnia narzędzia migracji platformy Azure do oceny i migracji, a także oferty niezależnych dostawców oprogramowania innych firm (ISV).
 
-Ten samouczek jest trzecim z serii, który pokazuje, jak ocenić i migrować funkcji Hyper-V na platformę Azure przy użyciu oceny i migracji serwera migracji usługi Azure. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest trzecim z serii, który pokazuje, jak ocenić i migrować funkcji Hyper-V na platformę Azure przy użyciu usługi Azure Migrate Server Assessment i migracji serwera. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 
 > [!div class="checklist"]
 > * Przygotowywanie platformy Azure i lokalnego środowiska funkcji Hyper-V
-> * Skonfiguruj środowisko źródłowe i wdrażaj urządzenie replikacji.
+> * Konfigurowanie środowiska źródłowego.
 > * Skonfiguruj środowisko docelowe.
 > * Włącz replikację.
 > * Uruchom migrację testową, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami.
@@ -38,23 +38,28 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 Przed rozpoczęciem tego samouczka należy:
 
 1. [Przejrzyj](hyper-v-migration-architecture.md) architekturę migracji funkcji Hyper-V.
-2. [Ukończ pierwszy samouczek](tutorial-prepare-hyper-v.md) z tej serii, aby skonfigurować platformę Azure i funkcji Hyper-V do migracji. W pierwszym samouczku:
-    - [Przygotuj platformę Azure](tutorial-prepare-hyper-v.md#prepare-azure) do migracji.
-    - [Przygotuj środowisko lokalne](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-migration) do migracji.
-3. Zaleca się, aby spróbować oceny funkcji Hyper-VMs przy użyciu usługi Azure Migrate: Server Assessment, przed migracją ich do platformy Azure. Aby to zrobić, [wykonaj drugi samouczek](tutorial-assess-hyper-v.md) z tej serii. Mimo że zaleca się wypróbowanie oceny, nie trzeba uruchamiać oceny przed migracją maszyn wirtualnych.
-4. Upewnij się, że twojemu kontu platformy Azure jest przypisana rola współautora maszyny wirtualnej, aby mieć uprawnienia do:
+2. [Weryfikacja](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Wymagania dotyczące hosta funkcji Hyper-V oraz adresy URL platformy Azure, do których muszą uzyskiwać dostęp hosty funkcji Hyper-V.
+3. [Przejrzyj](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) wymagania dotyczące maszyn wirtualnych funkcji Hyper-V, które chcesz przeprowadzić migrację. Maszyny wirtualne funkcji Hyper-V muszą być zgodne z [wymaganiami dotyczącymi maszyn wirtualnych platformy Azure.](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements)
+2. Zaleca się ukończenie poprzednich samouczków z tej serii. [Pierwszy samouczek](tutorial-prepare-hyper-v.md) pokazuje, jak skonfigurować platformę Azure i funkcji Hyper-V do migracji. Drugi samouczek pokazuje, jak [ocenić maszyny wirtualne funkcji Hyper-V](tutorial-assess-hyper-v.md przed migracją przy użyciu usługi Azure Migrate:Server Assessment. 
+    > [!NOTE]
+    > Mimo że zaleca się wypróbowanie oceny, nie trzeba uruchamiać oceny przed migracją maszyn wirtualnych.
+    > W przypadku migracji maszyn wirtualnych funkcji Hyper-V usługa Azure Migrate:Server Migration uruchamia agentów oprogramowania (dostawca usług Microsoft Azure Site Recovery i agent usługi odzyskiwania platformy Microsoft Azure) na hostach funkcji Hyper-V lub węzłach klastra w celu organizowania i replikowania danych do programu Azure Migrate. [Urządzenie migracji platformy Azure](migrate-appliance.md) nie jest używane do migracji funkcji Hyper-V.
+
+3. Upewnij się, że twojemu kontu platformy Azure jest przypisana rola współautora maszyny wirtualnej, aby mieć uprawnienia do:
 
     - Tworzenie maszyny wirtualnej w wybranej grupie zasobów.
     - Tworzenie maszyny wirtualnej w wybranej sieci wirtualnej.
     - Zapis na dysku zarządzanym platformy Azure.
-5. [Konfigurowanie sieci platformy Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Podczas migracji na platformę Azure utworzone maszyny wirtualne platformy Azure są dołączane do sieci platformy Azure, którą określisz podczas konfigurowania migracji.
+4. [Konfigurowanie sieci platformy Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Podczas migracji na platformę Azure utworzone maszyny wirtualne platformy Azure są dołączane do sieci platformy Azure, którą określisz podczas konfigurowania migracji.
 
+## <a name="add-the-azure-migrateserver-migration-tool"></a>Dodawanie narzędzia Migracji:Migracja serwera platformy Azure
 
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Dodawanie narzędzia migracji serwera migracji platformy Azure
+Dodaj narzędzie Migracji platformy Azure:Migracja serwera.
 
-Jeśli nie po drugim samouczku do oceny maszyn wirtualnych funkcji Hyper-V, należy [wykonać te instrukcje,](how-to-add-tool-first-time.md) aby skonfigurować projekt migracji platformy Azure i dodać narzędzie oceny migracji serwera azure do projektu.
+- Jeśli po drugim samouczku do [oceny maszyn wirtualnych VMware](/tutorial-assess-hyper-v.md), masz już skonfigurować projekt migracji platformy Azure i można iść dalej i dodać narzędzie teraz.
+- Jeśli nie po drugim[samouczku, postępuj zgodnie z tymi instrukcjami,](how-to-add-tool-first-time.md) aby skonfigurować projekt migracji platformy Azure. Podczas tworzenia projektu dodajesz narzędzie Migracji azure:Migracja serwera.
 
-Jeśli po drugim samouczku i masz już projekt migracji platformy Azure, dodaj narzędzie Migracji platformy Azure: Migracja serwera w następujący sposób:
+Jeśli masz skonfigurowany projekt, dodaj narzędzie w następujący sposób:
 
 1. W projekcie migracji platformy Azure kliknij pozycję **Przegląd**. 
 2. W **przypadku serwerów Discover oceniaj i migruj**kliknij pozycję **Oceń i migruj serwery**.
@@ -66,25 +71,8 @@ Jeśli po drugim samouczku i masz już projekt migracji platformy Azure, dodaj n
 
     ![Narzędzie do migracji serwera](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
-
-## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurowanie urządzenia migracji platformy Azure
-
-Migracja serwera migracji usługi Azure migruje uruchamia agenta oprogramowania na hostach funkcji Hyper-V lub węzłach klastra w celu organizowania i replikowania danych do programu Azure Migrate i nie wymaga dedykowanego urządzenia do migracji.
-
-- Urządzenie do przeprowadzania migracji platformy Azure: Server Assessment przeprowadza odnajdowanie maszyn wirtualnych i wysyła metadane maszyny wirtualnej i dane o wydajności do migracji serwera migracji serwera usługi Azure.
-- Aranżacja migracji i replikacja danych jest obsługiwana przez dostawcę odzyskiwania witryny platformy Microsoft Azure i agenta usługi odzyskiwania platformy Microsoft Azure.
-
-Aby skonfigurować urządzenie:
-- Jeśli po drugim samouczku do oceny maszyn wirtualnych funkcji Hyper-V, już skonfigurować urządzenie podczas tego samouczka i nie trzeba tego robić ponownie.
-- Jeśli nie po tym samouczku, musisz skonfigurować urządzenie teraz. Aby to zrobić, możesz: 
-
-    - Pobierz skompresowany dysk VHD funkcji Hyper-V z witryny Azure portal.
-    - Utwórz urządzenie i sprawdź, czy można połączyć się z oceną serwera migracji platformy Azure. 
-    - Skonfiguruj urządzenie po raz pierwszy i zarejestruj go w projekcie migracji platformy Azure.
-
-    Postępuj zgodnie ze szczegółowymi instrukcjami w [tym artykule,](how-to-set-up-appliance-hyper-v.md) aby skonfigurować urządzenie.
-
 ## <a name="prepare-hyper-v-hosts"></a>Przygotowywanie hostów funkcji Hyper-V
+
 
 1. W projekcie migracji platformy Azure > **serwery**w **programie Azure Migrate: Migracja serwera**kliknij przycisk **Odkryj**.
 2. W **discover maszyny** > **Czy twoje maszyny są zwirtualizowane?**, wybierz **Tak, z Hyper-V**.
@@ -111,21 +99,6 @@ Może upłynąć do 15 minut po zakończeniu rejestracji, dopóki nie zostaną w
 
 ![Odnalezione serwery](./media/tutorial-migrate-hyper-v/discovered-servers.png)
 
-### <a name="register-hyper-v-hosts"></a>Rejestrowanie hostów funkcji Hyper-V
-
-Zainstaluj pobrany plik instalacyjny (AzureSiteRecoveryProvider.exe) na każdym odpowiednim hoście funkcji Hyper-V.
-
-1. Uruchom plik konfiguracji dostawcy na każdym hoście lub węźle klastra.
-2. W Kreatorze instalacji dostawcy > **microsoft update,** wybierz opcję korzystania z witryny Microsoft Update w celu sprawdzenia dostępności aktualizacji dostawcy.
-3. W **obszarze Instalacja**zaakceptuj domyślną lokalizację instalacji dostawcy i agenta, a następnie wybierz pozycję **Zainstaluj**.
-4. Po instalacji w Kreatorze rejestracji > **ustawieniach przechowalni**wybierz pozycję **Przeglądaj**, a następnie w **polu Plik klucza**wybierz pobrany plik klucza przechowalni.
-5. W **ustawieniach serwera proxy**określ, w jaki sposób dostawca działający na hoście łączy się z Internetem.
-    - Jeśli urządzenie znajduje się za serwerem proxy, należy określić ustawienia serwera proxy.
-    - Określ nazwę **http://ip-address**serwera **http://FQDN**proxy jako , lub . Serwery proxy HTTPS nie są obsługiwane.
-   
-
-6. Upewnij się, że dostawca może dotrzeć do [wymaganych adresów URL](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts).
-7. W **2014**r. w 2015 r. po **zarejestrowaniu**hosta kliknij przycisk Zakończ .
 
 ## <a name="replicate-hyper-v-vms"></a>Replikowanie maszyn wirtualnych funkcji Hyper V
 

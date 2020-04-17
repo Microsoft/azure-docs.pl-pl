@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 6a127510b454244b32ad481cdb32c5d2e8faf9a0
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 47485d8d9007a6cf6432b7bf401c7c1c34a9863a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991181"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536135"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Szybki start: logowanie użytkowników i wywoływanie interfejsu API programu Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
@@ -30,7 +30,7 @@ Ten przewodnik Szybki start dotyczy zarówno aplikacji dla systemu iOS, jak i ma
 > [!NOTE]
 > **Wymagania wstępne**
 > * Kod XCode 10+
-> * iOS 10+ 
+> * iOS 10+
 > * macOS 10.12+
 
 > [!div renderon="docs"]
@@ -83,7 +83,7 @@ W oknie terminala przejdź do folderu z próbką pobranego kodu i uruchom, `pod 
 #### <a name="step-4-configure-your-project"></a>Krok 4: Konfigurowanie projektu
 
 > [!div renderon="docs"]
-> Jeśli wybrano opcję 1 powyżej, możesz pominąć te kroki. 
+> Jeśli wybrano opcję 1 powyżej, możesz pominąć te kroki.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Wyodrębnij plik zip i otwórz projekt w programie XCode.
@@ -149,9 +149,9 @@ W oknie terminala przejdź do folderu z próbką pobranego kodu i uruchom, `pod 
 >          </array>
 >       </dict>
 >    </array>
-> 
+>
 >    ```
-> 1. Zbuduj & uruchom aplikację! 
+> 1. Zbuduj & uruchom aplikację!
 
 ## <a name="more-information"></a>Więcej informacji
 
@@ -192,7 +192,7 @@ Następnie zainicjuj bibliotekę MSAL, używając następującego kodu:
 
 ```swift
 let authority = try MSALAADAuthority(url: URL(string: kAuthority)!)
-            
+
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
@@ -209,7 +209,7 @@ Aplikacja musi mieć również następujące `AppDelegate`elementy w pliku . Dzi
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
+
         return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
     }
 
@@ -221,21 +221,21 @@ Aplikacja musi mieć również następujące `AppDelegate`elementy w pliku . Dzi
 
  ```swift
  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        
+
         guard let urlContext = URLContexts.first else {
             return
         }
-        
+
         let url = urlContext.url
         let sourceApp = urlContext.options.sourceApplication
-        
+
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
  ```
 
-Wreszcie, aplikacja musi `LSApplicationQueriesSchemes` mieć wpis w ***Info.plist*** obok `CFBundleURLTypes`. Próbka pochodzi z tym zawarte. 
+Wreszcie, aplikacja musi `LSApplicationQueriesSchemes` mieć wpis w ***Info.plist*** obok `CFBundleURLTypes`. Próbka pochodzi z tym zawarte.
 
-   ```xml 
+   ```xml
    <key>LSApplicationQueriesSchemes</key>
    <array>
       <string>msauthv2</string>
@@ -249,10 +249,10 @@ Biblioteka MSAL oferuje dwie metody uzyskiwania tokenów: `acquireToken` i `acqu
 
 #### <a name="acquiretoken-get-a-token-interactively"></a>acquireToken: Uzyskaj token interaktywnie
 
-Niektóre sytuacje wymagają od użytkowników interakcji z platformą tożsamości firmy Microsoft. W takich przypadkach użytkownik końcowy może być zobowiązany do wybrania swojego konta, wprowadzenia poświadczeń lub wyrażenia zgody na uprawnienia aplikacji. Na przykład: 
+Niektóre sytuacje wymagają od użytkowników interakcji z platformą tożsamości firmy Microsoft. W takich przypadkach użytkownik końcowy może być zobowiązany do wybrania swojego konta, wprowadzenia poświadczeń lub wyrażenia zgody na uprawnienia aplikacji. Na przykład:
 
 * Gdy nowi użytkownicy logują się do aplikacji po raz pierwszy.
-* Jeśli użytkownik zresetuje swoje hasło, musi wprowadzić swoje poświadczenia 
+* Jeśli użytkownik zresetuje swoje hasło, musi wprowadzić swoje poświadczenia
 * Gdy aplikacja żąda dostępu do zasobu po raz pierwszy
 * Gdy wymagane są zasady usługi mfa lub inne zasady dostępu warunkowego
 
@@ -267,15 +267,15 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 
 #### <a name="acquiretokensilent-get-an-access-token-silently"></a>acquireTokenSilent: Po cichu uzyskaj token dostępu
 
-Aplikacje nie powinny wymagać od użytkowników logowania się za każdym razem, gdy żądają tokenu. Jeśli użytkownik już się zalogował, ta metoda umożliwia aplikacjom dyskretne żądanie tokenów. 
+Aplikacje nie powinny wymagać od użytkowników logowania się za każdym razem, gdy żądają tokenu. Jeśli użytkownik już się zalogował, ta metoda umożliwia aplikacjom dyskretne żądanie tokenów.
 
 ```swift
 self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previousAccount, error) in
-            
+
    guard let account = currentAccount else {
       return
    }
-            
+
    let silentParams = MSALSilentTokenParameters(scopes: self.kScopes, account: account)
    self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
 }

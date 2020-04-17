@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3de1edc8560cfc85f52293c095fa824b364d2058
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 3cb51a57baa87849e97f7b05762dc4d6eba787a6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881642"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537115"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplikacja sieci Web, która loguje się do użytkowników: Konfiguracja kodu
 
@@ -24,7 +24,7 @@ Dowiedz się, jak skonfigurować kod aplikacji sieci Web, który loguje się do 
 
 ## <a name="libraries-for-protecting-web-apps"></a>Biblioteki do ochrony aplikacji internetowych
 
-<!-- This section can be in an include for Web App and Web APIs -->
+<!-- This section can be in an include for web app and web APIs -->
 Biblioteki, które są używane do ochrony aplikacji sieci web (i interfejsu API sieci web) są:
 
 | Platforma | Biblioteka | Opis |

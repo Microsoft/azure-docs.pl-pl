@@ -12,12 +12,12 @@ ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f3585cfa7ea6f0d8afc61e899f9641d415a2e354
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0a38eb03df3d1da64172842fb6eca3cd762f9cd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77161192"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537240"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Podpisywanie narzutu kluczy w usłudze Azure Active Directory
 W tym artykule omówiono, co należy wiedzieć o kluczach publicznych, które są używane w usłudze Azure Active Directory (Azure AD) do podpisywania tokenów zabezpieczających. Ważne jest, aby pamiętać, że klucze te przewracają się okresowo i w nagłych wypadkach mogą być natychmiast przerzucone. Wszystkie aplikacje korzystające z usługi Azure AD powinny mieć możliwość programowego obsługi procesu przerzucenia klucza lub ustanowienia okresowego procesu ręcznego przerzucenia. Kontynuuj czytanie, aby zrozumieć, jak działają klucze, jak ocenić wpływ przerzucenia na aplikację i jak zaktualizować aplikację lub ustanowić okresowy proces ręcznego przerzucenia do obsługi przerzucenia klucza, jeśli to konieczne.
@@ -146,7 +146,7 @@ Poniższe kroki pomogą Ci sprawdzić, czy logika działa poprawnie w aplikacji.
 ### <a name="web-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>Internetowe interfejsy API chroniące zasoby i utworzone za pomocą programu Visual Studio 2013
 Jeśli w programie Visual Studio 2013 utworzono aplikację interfejsu API sieci Web przy użyciu szablonu interfejsu API sieci Web, a następnie wybrano **konta organizacyjne** z menu **Zmień uwierzytelnianie,** w aplikacji jest już niezbędna logika.
 
-Jeśli uwierzytelnianie jest konfigurowane ręcznie, postępuj zgodnie z poniższymi instrukcjami, aby dowiedzieć się, jak skonfigurować interfejs API sieci Web do automatycznego aktualizowania jego kluczowych informacji.
+Jeśli uwierzytelnianie jest konfigurowane ręcznie, postępuj zgodnie z poniższymi instrukcjami, aby dowiedzieć się, jak skonfigurować internetowy interfejs API do automatycznego aktualizowania jego kluczowych informacji.
 
 Poniższy fragment kodu pokazuje, jak uzyskać najnowsze klucze z dokumentu metadanych federacji, a następnie użyć [programu obsługi tokenów JWT](https://msdn.microsoft.com/library/dn205065.aspx) do sprawdzania poprawności tokenu. Fragment kodu przyjęto założenie, że użyjesz własnego mechanizmu buforowania do utrwalania klucza, aby sprawdzić poprawność przyszłych tokenów z usługi Azure AD, niezależnie od tego, czy jest on w bazie danych, pliku konfiguracyjnym, czy w innym miejscu.
 
@@ -239,7 +239,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Aplikacje sieci Web chroniące zasoby i utworzone za pomocą programu Visual Studio 2012
-Jeśli aplikacja została zbudowana w programie Visual Studio 2012, prawdopodobnie użyto narzędzia tożsamości i dostępu do skonfigurowania aplikacji. Jest również prawdopodobne, że używasz [rejestru sprawdzania poprawności nazwy wystawcy (VINR).](https://msdn.microsoft.com/library/dn205067.aspx) Vinr jest odpowiedzialny za przechowywanie informacji o zaufanych dostawców tożsamości (Azure AD) i klucze używane do sprawdzania poprawności tokenów wystawionych przez nich. Vinr ułatwia również automatyczną aktualizację kluczowych informacji przechowywanych w pliku Web.config, pobierając najnowszy dokument metadanych federacji skojarzony z katalogiem, sprawdzając, czy konfiguracja jest nieaktualna z najnowszym dokumentem, oraz aktualizacji aplikacji w celu użycia nowego klucza w razie potrzeby.
+Jeśli aplikacja została zbudowana w programie Visual Studio 2012, prawdopodobnie użyto narzędzia tożsamości i dostępu do skonfigurowania aplikacji. Jest również prawdopodobne, że używasz [rejestru sprawdzania poprawności nazwy wystawcy (VINR).](https://msdn.microsoft.com/library/dn205067.aspx) Vinr jest odpowiedzialny za przechowywanie informacji o zaufanych dostawców tożsamości (Azure AD) i klucze używane do sprawdzania poprawności tokenów wystawionych przez nich. Vinr ułatwia również automatyczną aktualizację kluczowych informacji przechowywanych w pliku Web.config, pobierając najnowszy dokument metadanych federacji skojarzony z katalogiem, sprawdzając, czy konfiguracja jest nieaktualna z najnowszym dokumentem, i aktualizując aplikację, aby w razie potrzeby użyć nowego klucza.
 
 Jeśli aplikacja została utworzona przy użyciu dowolnego przykładów kodu lub dokumentacji instruktażowej dostarczonej przez firmę Microsoft, logika przerzucenia klucza jest już uwzględniona w projekcie. Można zauważyć, że poniższy kod już istnieje w projekcie. Jeśli aplikacja nie ma jeszcze tej logiki, wykonaj poniższe czynności, aby ją dodać i sprawdzić, czy działa poprawnie.
 
@@ -299,7 +299,7 @@ Instrukcje dotyczące korzystania z FedUtil w celu zaktualizowania konfiguracji:
 4. Kliknij **przycisk Zakończ,** aby zakończyć proces aktualizacji.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Aplikacje sieci Web / interfejsy API chroniące zasoby przy użyciu innych bibliotek lub ręcznie implementujące którykolwiek z obsługiwanych protokołów
-Jeśli używasz innej biblioteki lub ręcznie zaimplementowano dowolny z obsługiwanych protokołów, musisz przejrzeć bibliotekę lub implementację, aby upewnić się, że klucz jest pobierany z dokumentu odnajdywania OpenID Connect lub metadanych federacji. Dokumentu. Jednym ze sposobów, aby sprawdzić to jest do wyszukiwania w kodzie lub kod biblioteki dla wszelkich wywołań do dokumentu odnajdywania OpenID lub dokumentu metadanych federacji.
+Jeśli używasz innej biblioteki lub ręcznie zaimplementowano dowolny z obsługiwanych protokołów, musisz przejrzeć bibliotekę lub implementację, aby upewnić się, że klucz jest pobierany z dokumentu odnajdywania OpenID Connect lub dokumentu metadanych federacji. Jednym ze sposobów, aby sprawdzić to jest do wyszukiwania w kodzie lub kod biblioteki dla wszelkich wywołań do dokumentu odnajdywania OpenID lub dokumentu metadanych federacji.
 
 Jeśli klucz jest przechowywany gdzieś lub zakodowane na stałe w aplikacji, można ręcznie pobrać klucz i zaktualizować go odpowiednio, wykonując ręczne najazd zgodnie z instrukcjami na końcu tego dokumentu. **Zdecydowanie zaleca się, aby ulepszyć aplikację do obsługi automatycznego przerzucania** przy użyciu dowolnego z podejść z konspektu w tym artykule, aby uniknąć przyszłych zakłóceń i narzutów, jeśli usługa Azure AD zwiększa jego rytm przerzucania lub ma awaryjne przerzucanie poza pasmem.
 
@@ -308,4 +308,3 @@ Można sprawdzić, czy aplikacja obsługuje automatyczne przerzucanie kluczy, po
 
 ## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Jak wykonać ręczne najazd, jeśli aplikacja nie obsługuje automatycznego narzucenia
 Jeśli aplikacja **nie** obsługuje automatycznego przerzucenia, należy ustanowić proces, który okresowo monitoruje klucze podpisywania usługi Azure AD i wykonuje ręczne przerzucie odpowiednio. [To repozytorium GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) zawiera skrypty i instrukcje, jak to zrobić.
-

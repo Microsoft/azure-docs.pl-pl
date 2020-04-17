@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd21a78d0271f91d334bba5aba748f3770ad38cf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271878"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537937"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Przenoszenie danych do magazynu obiektów blob platformy Azure
 
@@ -21,7 +21,7 @@ W tym artykule opisano najlepsze sposoby przenoszenia danych do magazynu obiekt�
 
 Należy pamiętać o tych faktach:
 
-* Pamięć podręczna HPC usługi Azure używa specjalistycznego formatu magazynu do organizowania danych w magazynie obiektów Blob. Dlatego miejsce docelowe magazynu obiektów Blob musi być nowym, pustym kontenerem lub kontenerem obiektów Blob, który był wcześniej używany dla danych usługi Azure HPC Cache. <!--([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)-->
+* Pamięć podręczna HPC usługi Azure używa specjalistycznego formatu magazynu do organizowania danych w magazynie obiektów Blob. Dlatego miejsce docelowe magazynu obiektów Blob musi być nowym, pustym kontenerem lub kontenerem obiektów Blob, który był wcześniej używany dla danych usługi Azure HPC Cache.
 
 * Kopiowanie danych za pośrednictwem pamięci podręcznej HPC platformy Azure do miejsca docelowego magazynu zaplecza jest bardziej wydajne, gdy używasz wielu klientów i operacji równoległych. Proste polecenie kopiowania z jednego klienta będzie powoli przenosić dane.
 
@@ -31,13 +31,13 @@ Jeśli nie chcesz korzystać z narzędzia ładowania lub jeśli chcesz dodać za
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Wstępne ładowanie danych w magazynie obiektów Blob za pomocą programu CLFSLoad
 
-Można użyć <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Narzędzie Avere CLFSLoad do kopiowania danych do nowego kontenera magazynu obiektów Blob przed dodaniem go jako miejsca docelowego magazynu. To narzędzie działa na jednym systemie Linux i zapisuje dane w zastrzeżonym formacie potrzebnym do pracy w pamięci podręcznej HPC platformy Azure. CLFSLoad jest najbardziej efektywnym sposobem wypełniania kontenera magazynu obiektów Blob do użycia z pamięcią podręczną.
+Narzędzie Avere CLFSLoad służy do kopiowania danych do nowego kontenera magazynu obiektów Blob przed dodaniem go jako miejsca docelowego magazynu. To narzędzie działa na jednym systemie Linux i zapisuje dane w zastrzeżonym formacie potrzebnym do pracy w pamięci podręcznej HPC platformy Azure. CLFSLoad jest najbardziej efektywnym sposobem wypełniania kontenera magazynu obiektów Blob do użycia z pamięcią podręczną.
 
 Narzędzie Avere CLFSLoad jest dostępne na żądanie zespołu pamięci podręcznej HPC platformy Azure. Poproś o kontakt z zespołem lub otwórz [bilet pomocy technicznej,](hpc-cache-support-ticket.md) aby poprosić o pomoc.
 
 Ta opcja działa tylko z nowymi, pustymi kontenerami. Utwórz kontener przed użyciem Avere CLFSLoad.
 
-Szczegółowe informacje znajdują się w dystrybucji Avere CLFSLoad, która jest dostępna na żądanie zespołu pamięci podręcznej HPC platformy Azure. <!-- [Avere CLFSLoad readme](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). --><!-- caution literal link -->
+Szczegółowe informacje znajdują się w dystrybucji Avere CLFSLoad, która jest dostępna na żądanie zespołu pamięci podręcznej HPC platformy Azure.
 
 Ogólny przegląd procesu:
 
@@ -51,8 +51,6 @@ Narzędzie Avere CLFSLoad wymaga następujących informacji:
 * Nazwa pustego kontenera magazynu obiektów Blob
 * Token sygnatury dostępu współdzielonego (SAS), który umożliwia narzędziu zapisywanie w kontenerze
 * Ścieżka lokalna do źródła danych — katalog lokalny zawierający dane do skopiowania lub ścieżka lokalna do zamontowanego systemu zdalnego z danymi
-
-<!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 
 ## <a name="copy-data-through-the-azure-hpc-cache"></a>Kopiowanie danych za pośrednictwem pamięci podręcznej HPC platformy Azure
 

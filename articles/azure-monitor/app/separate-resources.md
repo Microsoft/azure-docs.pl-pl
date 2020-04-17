@@ -3,12 +3,12 @@ title: Oddzielanie danych telemetrycznych w usłudze Azure Application Insights
 description: Bezpośrednie dane telemetryczne do różnych zasobów dla znaczników rozwoju, testowania i produkcji.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 3580d162f4b3955a04ffcd0f13933221bfef3b65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 565d51751ad50479f4e227b6855ac63b80bd949e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671464"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536781"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Oddzielanie danych telemetrycznych od programowania, testowania i produkcji
 
@@ -34,7 +34,7 @@ Aby ułatwić zmianę ikey jak kod przenosi się między etapami produkcji, nale
 
 Ustaw klucz w metodzie inicjowania, takiej jak global.aspx.cs w usłudze ASP.NET:
 
-*C #*
+*C#*
 
     protected void Application_Start()
     {
@@ -69,7 +69,7 @@ W [portal.azure.com](https://portal.azure.com)dodaj zasób usługi Application I
 
 ![Kliknij kolejno polecenia Nowy, Application Insights](./media/separate-resources/01-new.png)
 
-* **Typ aplikacji** wpływa na to, co widać na bloku przeglądu i właściwości dostępne w [Eksploratorze metryk](../../azure-monitor/app/metrics-explorer.md). Jeśli nie widzisz swojego typu aplikacji, wybierz jeden z typów stron internetowych.
+* **Typ aplikacji** wpływa na to, co widać na bloku przeglądu i właściwości dostępne w [Eksploratorze metryk](../../azure-monitor/platform/metrics-charts.md). Jeśli nie widzisz swojego typu aplikacji, wybierz jeden z typów stron internetowych.
 * **Grupa zasobów** jest wygodą zarządzania właściwościami, takimi jak [kontrola dostępu.](../../azure-monitor/app/resources-roles-access-control.md) Można użyć oddzielnych grup zasobów do programowania, testowania i produkcji.
 * **Subskrypcja** to Twoje konto płatnicze na platformie Azure.
 * Lokalizacja to **miejsce,** w którym przechowujemy Twoje dane. Obecnie nie można go zmienić. 
@@ -89,7 +89,7 @@ Potrzebne są klucze instrumentacji wszystkich zasobów, do których aplikacja b
 ## <a name="filter-on-build-number"></a>Filtrowanie numeru kompilacji
 Podczas publikowania nowej wersji aplikacji, należy mieć możliwość oddzielenia danych telemetrycznych z różnych kompilacji.
 
-Można ustawić właściwość Wersja aplikacji, aby można było [filtrować](../../azure-monitor/app/diagnostic-search.md) wyniki wyszukiwania i [eksploratora metryk.](../../azure-monitor/app/metrics-explorer.md)
+Można ustawić właściwość Wersja aplikacji, aby można było [filtrować](../../azure-monitor/app/diagnostic-search.md) wyniki wyszukiwania i [eksploratora metryk.](../../azure-monitor/platform/metrics-charts.md)
 
 ![Filtrowanie we właściwości](./media/separate-resources/050-filter.png)
 
@@ -139,7 +139,7 @@ Aby śledzić wersje aplikacji, upewnij się, że plik `buildinfo.config` jest g
     </PropertyGroup>
 ```
 
-Jeśli plik zawiera informację o kompilacji, moduł sieci Web usługi Application Insights automatycznie dodaje **wersję aplikacji** jako właściwość do każdego elementu telemetrii. Pozwala to na filtrowanie według wersji podczas przeprowadzania [wyszukiwania diagnostycznego](../../azure-monitor/app/diagnostic-search.md) lub [eksplorowania metryk](../../azure-monitor/app/metrics-explorer.md).
+Jeśli plik zawiera informację o kompilacji, moduł sieci Web usługi Application Insights automatycznie dodaje **wersję aplikacji** jako właściwość do każdego elementu telemetrii. Pozwala to na filtrowanie według wersji podczas przeprowadzania [wyszukiwania diagnostycznego](../../azure-monitor/app/diagnostic-search.md) lub [eksplorowania metryk](../../azure-monitor/platform/metrics-charts.md).
 
 Należy jednak zauważyć, że numer wersji kompilacji jest generowany tylko przez aparat kompilacji firmy Microsoft, a nie przez kompilację dewelopera z programu Visual Studio.
 

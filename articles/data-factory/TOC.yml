@@ -581,6 +581,8 @@
       items:
         - name: Uruchamianie pakietów SSIS na platformie Azure z narzędzi SSDT
           href: how-to-invoke-ssis-package-ssdt.md
+        - name: Uruchamianie pakietów SSIS za pomocą agenta wystąpienia zarządzanego Azure SQL
+          href: how-to-invoke-ssis-package-managed-instance-agent.md
         - name: Uruchamianie pakietów SSIS za pomocą elementu dtexec obsługującego platformę Azure
           href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
         - name: Uruchamiania pakietów SSIS za pomocą działania wykonywania pakietów SSIS

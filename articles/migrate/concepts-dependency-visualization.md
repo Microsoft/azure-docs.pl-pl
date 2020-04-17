@@ -2,13 +2,13 @@
 title: Analiza zależności w ocenie serwera migracji platformy Azure
 description: W tym artykule opisano sposób używania analizy zależności do oceny przy użyciu oceny serwera migracji platformy Azure.
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f96496b66d6bcfd397fb0a7303d3dbfb4fd6f6b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: b11796f2c5d7c1d87f383e6780444e572352eff5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455642"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537750"
 ---
 # <a name="dependency-analysis"></a>Analiza zależności
 
@@ -30,7 +30,7 @@ Istnieją dwie opcje wdrażania analizy zależności
 - **Bez agenta:** Dzięki analizie bez agenta nie trzeba instalować agentów na komputerach, które chcesz sprawdzić krzyżowo. Ta opcja jest obecnie w wersji zapoznawczej i jest dostępna tylko dla maszyn wirtualnych VMware.
 
 > [!NOTE]
-> Analiza zależności nie jest dostępna w usłudze Azure Government.
+> Analiza zależności oparta na agentach nie jest dostępna w usłudze Azure Government. Można użyć analizy zależności bez agenta.
 
 ## <a name="agentless-analysis"></a>Analiza bez agenta
 

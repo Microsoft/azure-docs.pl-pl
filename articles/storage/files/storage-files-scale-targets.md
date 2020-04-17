@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255134"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536448"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Cele dotyczące skalowalności i wydajności usługi Azure Files
 
@@ -51,8 +51,7 @@ Zobacz sekcję [cele skalowania konta magazynu platformy Azure](#azure-storage-a
 ### <a name="file-share-and-file-scale-targets"></a>Obiekty docelowe udziału plików i skali plików
 
 > [!NOTE]
-> Standardowe udziały plików większe niż 5 TiB mają pewne ograniczenia i ograniczenia regionalne.
-> Aby uzyskać listę ograniczeń, informacje regionalne i instrukcje umożliwiające włączenie tych większych rozmiarów udziału plików, zobacz [sekcję Dołączanie do większych udziałów plików](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) w przewodniku planowania.
+> Standardowe udziały plików większe niż 5 TiB mają pewne ograniczenia. Aby uzyskać listę ograniczeń i instrukcji umożliwiających włączenie większych rozmiarów udziałów plików, zobacz [sekcję Włączanie większych udziałów plików w standardowych udziałach plików](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) w przewodniku planowania.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -66,7 +65,7 @@ Usługa Azure File Sync została zaprojektowana z myślą o nieograniczonym uży
 
 ### <a name="azure-file-sync-performance-metrics"></a>Metryki wydajności usługi Azure File Sync
 
-Ponieważ agent synchronizacji plików platformy Azure działa na komputerze z systemem Windows Server, który łączy się z udziałami plików platformy Azure, wydajność efektywnej synchronizacji zależy od wielu czynników w infrastrukturze: Windows Server i podstawowej konfiguracji dysku, przepustowości sieci między serwerem a magazynem platformy Azure, rozmiar pliku, całkowity rozmiar zestawu danych i działanie w zestawie danych. Ponieważ usługa Azure File Sync działa na poziomie pliku, charakterystyka wydajności rozwiązania opartego na synchronizacji plików platformy Azure jest lepiej mierzona w liczbie obiektów (plików i katalogów) przetwarzanych na sekundę.
+Ponieważ agent synchronizacji plików platformy Azure działa na komputerze z systemem Windows Server, który łączy się z udziałami plików platformy Azure, wydajność efektywnej synchronizacji zależy od wielu czynników w infrastrukturze: Windows Server i podstawowej konfiguracji dysku, przepustowości sieci między serwerem a magazynem platformy Azure, rozmiaru pliku, całkowitego rozmiaru zestawu danych i aktywności w zestawie danych. Ponieważ usługa Azure File Sync działa na poziomie pliku, charakterystyka wydajności rozwiązania opartego na synchronizacji plików platformy Azure jest lepiej mierzona w liczbie obiektów (plików i katalogów) przetwarzanych na sekundę.
 
 W przypadku usługi Azure File Sync wydajność ma kluczowe znaczenie w dwóch etapach:
 
@@ -80,7 +79,7 @@ Aby ułatwić planowanie wdrożenia dla każdego z etapów, poniżej znajdują s
 | Procesor CPU | 64 rdzenie wirtualne z pamięcią podręczną 64 MiB L3 |
 | Memory (Pamięć) | 128 GiB |
 | Dysk | Dyski SAS z macierzem RAID 10 z pamięcią podręczną z baterią |
-| Network (Sieć) | Sieć 1 Gb/s |
+| Sieć | Sieć 1 Gb/s |
 | Obciążenie | Serwer plików ogólnego przeznaczenia|
 
 | Początkowe jednorazowe inicjowanie obsługi administracyjnej  |  |
@@ -113,5 +112,5 @@ Jako ogólny przewodnik dla wdrożenia, należy pamiętać o kilku rzeczach:
 
 ## <a name="see-also"></a>Zobacz też
 
-- [Planowanie wdrożenia usługi Azure Files](storage-files-planning.md)
+- [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)

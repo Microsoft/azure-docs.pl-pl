@@ -1,0 +1,64 @@
+### YamlMime:Landing
+title: Dokumentacja dotyczące kluczy
+summary: Usługa Azure Key Vault umożliwia aplikacjom i użytkownikom platformy Microsoft Azure przechowywanie i używanie kluczy. Obsługuje ona wiele typów kluczy i algorytmów oraz umożliwia korzystanie ze sprzętowych modułów zabezpieczeń (HSM) dla kluczy o wysokiej wartości.
+metadata:
+  title: Klucze
+  description: Usługa Azure Key Vault umożliwia aplikacjom i użytkownikom platformy Microsoft Azure przechowywanie i używanie kluczy. Obsługuje ona wiele typów kluczy i algorytmów oraz umożliwia korzystanie ze sprzętowych modułów zabezpieczeń (HSM) dla kluczy o wysokiej wartości.
+  services: key-vault
+  ms.service: key-vault
+  ms.subservice: keys
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 04/07/2020
+  ms.openlocfilehash: d5394200164d4f254ceca7a18035df95cc401747
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81423364"
+landingContent:
+- title: Klucze
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to są klucze usługi Key Vault?
+      url: about-keys.md
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Interfejs wiersza polecenia platformy Azure
+      url: quick-create-cli.md
+    - text: Azure PowerShell
+      url: quick-create-powershell.md
+    - text: Portal
+      url: quick-create-portal.md
+    - text: Python
+      url: quick-create-python.md
+- title: Samouczki
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Importowanie kluczy chronionych przez moduł HSM do usługi Key Vault
+      url: hsm-protected-keys.md
+    - text: Importowanie niezależnych od dostawcy kluczy chronionych przez moduł HSM
+      url: hsm-protected-keys-vendor-agnostic-byok.md
+- title: Więcej informacji o usłudze Key Vault
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Omówienie usługi Key Vault
+      url: ../general/overview.md
+    - text: Podstawowe pojęcia
+      url: ../general/basic-concepts.md
+    - text: Omówienie usuwania nietrwałego
+      url: ../general/overview-soft-delete.md
+    - text: Omówienie zabezpieczeń
+      url: ../general/overview-security.md
+- title: Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Zarządzanie wpisami tajnymi w aplikacjach serwerowych przy użyciu usługi Azure Key Vault
+      url: /learn/modules/manage-secrets-with-azure-key-vault/

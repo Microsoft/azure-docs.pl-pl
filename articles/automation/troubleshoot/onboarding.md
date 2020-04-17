@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae359e5210a9a11c33dd3ff9b474e28aa2548c57
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75889329"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536968"
 ---
 # <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Rozwiązywanie problemów z błędami podczas dołączania do zarządzania aktualizacjami, śledzenia zmian i zapasów
 
@@ -72,7 +72,7 @@ Ten błąd jest spowodowany przez nieprawidłowe lub brakujące uprawnienia na m
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Upewnij się, że masz poprawne uprawnienia do dołączania maszyny wirtualnej. Przejrzyj [uprawnienia potrzebne do komputerów pokładowych](../automation-role-based-access-control.md#onboarding) i spróbuj ponownie przydzielić rozwiązanie. Jeśli zostanie wyświetlony `The solution cannot be enabled on this VM because the permission to read the workspace is missing`błąd, upewnij `Microsoft.OperationalInsights/workspaces/read` się, że masz uprawnienia, aby móc znaleźć, czy maszyna wirtualna jest przywdziewiona do obszaru roboczego.
+Upewnij się, że masz poprawne uprawnienia do dołączania maszyny wirtualnej. Przejrzyj [uprawnienia potrzebne do komputerów pokładowych](../automation-role-based-access-control.md#onboarding-permissions) i spróbuj ponownie przydzielić rozwiązanie. Jeśli zostanie wyświetlony `The solution cannot be enabled on this VM because the permission to read the workspace is missing`błąd, upewnij `Microsoft.OperationalInsights/workspaces/read` się, że masz uprawnienia, aby móc znaleźć, czy maszyna wirtualna jest przywdziewiona do obszaru roboczego.
 
 ### <a name="scenario-onboarding-fails-with-the-message---failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenariusz: Dołączanie kończy się niepowodzeniem z komunikatem — nie można skonfigurować konta automatyzacji do rejestrowania diagnostycznego
 
@@ -162,7 +162,7 @@ Po usunięciu rozwiązań można odłączyć obszar roboczy. Ważne jest, aby oc
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Podczas wdrażania rozwiązania są wdrażane różne powiązane zasoby. Jednym z tych zasobów jest rozszerzenie agenta monitorowania firmy Microsoft lub agent analizy dzienników dla systemu Linux. Są to rozszerzenia maszyny wirtualnej zainstalowane przez agenta gościa maszyny wirtualnej, który jest odpowiedzialny za komunikację ze skonfigurowanym obszarem roboczym usługi Log Analytics w celu późniejszej koordynacji pobierania plików binarnych i innych plików, które rozwiązanie, od którego jesteś onboarding, zależy od jego rozpoczęcia wykonywania.
+Podczas wdrażania rozwiązania są wdrażane różne powiązane zasoby. Jednym z tych zasobów jest rozszerzenie agenta monitorowania firmy Microsoft lub agent analizy dzienników dla systemu Linux. Są to rozszerzenia maszyny wirtualnej zainstalowane przez agenta gościa maszyny wirtualnej, który jest odpowiedzialny za komunikowanie się ze skonfigurowanym obszarem roboczym usługi Log Analytics w celu późniejszej koordynacji pobierania plików binarnych i innych plików, od których zależy rozwiązanie, od którego jest onboarding, gdy rozpocznie się wykonywanie.
 Zazwyczaj najpierw dowiedzieć się o MMA lub agenta usługi Log Analytics dla awarii instalacji systemu Linux z powiadomienia pojawiającego się w Centrum powiadomień. Kliknięcie tego powiadomienia zawiera dalsze informacje o konkretnym niepowodzeniu. Nawigacja do zasobu Grupy zasobów, a następnie do wdrożenia element w nim również zawiera szczegółowe informacje na temat błędów wdrażania, które wystąpiły.
 Instalacja agenta MMA lub usługi Log Analytics dla systemu Linux może zakończyć się niepowodzeniem z różnych powodów, a kroki, które należy podjąć w celu rozwiązania tych błędów, różnią się w zależności od problemu. Należy wykonać szczegółowe kroki rozwiązywania problemów.
 

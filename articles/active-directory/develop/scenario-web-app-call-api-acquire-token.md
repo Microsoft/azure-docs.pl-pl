@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 196d941c5c3b18b737f7a11c25ebbb9eab91be1e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 1069b4288f8253ccb9a7774b3144d10d85dcdd36
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885042"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537121"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Aplikacja internetowa, która wywołuje internetowe interfejsy API: uzyskaj token dla aplikacji
 
@@ -63,7 +63,7 @@ public async Task<IActionResult> Profile()
 }
 ```
 
-Aby lepiej zrozumieć kod wymagany w tym scenariuszu, zobacz fazę 2[(2-1-Web App Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) krok [ms-identity-aspnetcore-webapp-tutorial.](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)
+Aby lepiej zrozumieć kod wymagany w tym scenariuszu, zobacz fazę 2[(2-1-Aplikacja sieci Web wywołuje microsoft graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) krok [ms-identity-aspnetcore-webapp-tutorial.](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)
 
 Istnieją inne złożone odmiany, takie jak:
 

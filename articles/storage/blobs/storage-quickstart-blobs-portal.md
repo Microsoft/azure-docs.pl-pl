@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 12/04/2019
+ms.date: 04/16/2020
 ms.author: tamram
-ms.openlocfilehash: 3ceeb878121782ea3664e1ed62d5d632b606f08e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061391"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535177"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Szybki start: przekazywanie, pobieranie i wyświetlanie listy obiektów blob za pomocą witryny Azure Portal
 
@@ -39,27 +39,25 @@ Aby utworzyć kontener w witrynie Azure Portal, wykonaj następujące kroki:
 
 ## <a name="upload-a-block-blob"></a>Przekazywanie blokowego obiektu blob
 
-Blokowe obiekty blob składają się z bloków danych złożonych w celu utworzenia obiektu blob. W większości scenariuszy dotyczących użycia usługi Blob Storage używane są blokowe obiekty blob. Blokowe obiekty blob idealnie nadają się do przechowywania tekstu i danych binarnych w chmurze, takich jak pliki, obrazy lub filmy wideo. W tym przewodniku Szybki start przedstawiono sposób pracy z blokowymi obiektami blob. 
+Blokowe obiekty blob składają się z bloków danych złożonych w celu utworzenia obiektu blob. W większości scenariuszy dotyczących użycia usługi Blob Storage używane są blokowe obiekty blob. Blokowe obiekty blob idealnie nadają się do przechowywania tekstu i danych binarnych w chmurze, takich jak pliki, obrazy lub filmy wideo. W tym przewodniku Szybki start przedstawiono sposób pracy z blokowymi obiektami blob.
 
 Aby przekazać blokowy obiekt blob do nowego kontenera w witrynie Azure Portal, wykonaj następujące kroki:
 
 1. W witrynie Azure Portal przejdź do kontenera utworzonego w poprzedniej sekcji.
-2. Wybierz kontener, aby wyświetlić listę obiektów blob, które zawiera. Ponieważ ten kontener jest nowy, nie będzie jeszcze zawierał żadnych obiektów blob.
-3. Wybierz przycisk **Przekaż,** aby otworzyć ostrze przesyłania
-4. Przeglądanie lokalnego systemu plików w celu znalezienia pliku do przesłania jako blokowego obiektu blob
-     
+1. Wybierz kontener, aby wyświetlić listę obiektów blob, które zawiera. Ten kontener jest nowy, więc nie będzie jeszcze zawierać żadnych obiektów blob.
+1. Wybierz przycisk **Przekaż,** aby otworzyć blok przekazywania i przejrzyj lokalny system plików, aby znaleźć plik do przekazania jako blokowy obiekt blob. Opcjonalnie można rozwinąć sekcję zaawansowaną, aby skonfigurować inne ustawienia dla operacji przekazywania.
+
     ![Zrzut ekranu pokazujący sposób przekazywania obiektu blob z dysku lokalnego](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. Opcjonalnie rozwiń sekcję zaawansowaną, aby zdefiniować inne ustawienia, takie jak typ uwierzytelniania, warstwa dostępu lub ścieżka folderu wirtualnego.
-6. Wybierz przycisk **Przekaż,** aby zatwierdzić przekazywanie
-7. Przekaż w ten sposób dowolną liczbę obiektów blob. Nowe obiekty blob zostaną wyświetlone w kontenerze.
+1. Wybierz przycisk **Przekaż,** aby przekazać obiekt blob.
+1. Przekaż w ten sposób dowolną liczbę obiektów blob. Nowe obiekty blob zostaną wyświetlone w kontenerze.
 
 ## <a name="download-a-block-blob"></a>Pobieranie blokowego obiektu blob
 
 Blokowy obiekt blob możesz pobrać, aby wyświetlić go w przeglądarce lub zapisać w lokalnym systemie plików. Aby pobrać blokowy obiekt blob, wykonaj następujące kroki:
 
-1. Przejdź do listy obiektów blob przekazanych w poprzedniej sekcji. 
-2. Kliknij prawym przyciskiem myszy obiekt blob, który chcesz pobrać, a następnie wybierz pozycję **Pobierz**. 
+1. Przejdź do listy obiektów blob przekazanych w poprzedniej sekcji.
+1. Kliknij prawym przyciskiem myszy obiekt blob, który chcesz pobrać, a następnie wybierz pozycję **Pobierz**.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -68,9 +66,9 @@ Aby usunąć zasoby utworzone w tym przewodniku Szybki start, możesz usunąć k
 Aby usunąć kontener:
 
 1. W witrynie Azure Portal przejdź do listy kontenerów w ramach swojego konta magazynu.
-2. Wybierz kontener do usunięcia.
-3. Wybierz przycisk **Więcej** (**... **), a następnie wybierz pozycję **Usuń**.
-4. Potwierdź, że chcesz usunąć kontener.
+1. Wybierz kontener do usunięcia.
+1. Wybierz przycisk **Więcej** (**... **), a następnie wybierz pozycję **Usuń**.
+1. Potwierdź, że chcesz usunąć kontener.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -78,4 +76,3 @@ W tym przewodniku Szybki start przedstawiono metodę transferowania plików mię
 
 > [!div class="nextstepaction"]
 > [Instrukcje: Operacje wykonywane w usłudze Blob Storage](storage-dotnet-how-to-use-blobs.md)
-

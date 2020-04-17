@@ -3,12 +3,12 @@ title: Monitorowanie działającej aplikacji internetowej platformy ASP.NET za p
 description: Monitorowanie wydajności witryny sieci Web bez jej ponownego wdrażania. Współpracuje ze ASP.NET aplikacjami internetowymi hostowanymi lokalnie lub na maszynach wirtualnych.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670053"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536832"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument aplikacji internetowych w czasie wykonywania z aplikacji Insights Codeless Attach
 
@@ -314,7 +314,7 @@ W przypadku aplikacji już instrumentowanych w czasie kompilacji:
 
 Wyświetlanie telemetrii:
 
-* [Eksplorowanie metryk](../../azure-monitor/app/metrics-explorer.md) w celu monitorowania wydajności i użycia
+* [Eksplorowanie metryk](../../azure-monitor/platform/metrics-charts.md) w celu monitorowania wydajności i użycia
 * [Wyszukiwanie zdarzeń i dzienników][diagnostic] w celu diagnozowania problemów
 * [Analiza](../../azure-monitor/app/analytics.md) dla bardziej zaawansowanych zapytań
 

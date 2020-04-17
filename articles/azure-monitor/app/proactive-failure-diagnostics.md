@@ -4,12 +4,12 @@ description: Ostrzega o nietypowych zmianach w szybkości żądań nie powiodło
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1bce3ab86748d8247a72da3bd70e0f2e8155dbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671753"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536815"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Inteligentne wykrywanie — anomalie błędów
 [Usługa Application Insights](../../azure-monitor/app/app-insights-overview.md) automatycznie ostrzega użytkownika w czasie zbliżonym do rzeczywistego, jeśli aplikacja sieci web doświadcza nieprawidłowego wzrostu liczby żądań, które nie powiodły się. Wykrywa nietypowy wzrost liczby żądań HTTP lub wywołań zależności, które są zgłaszane jako nieudane. W przypadku żądań żądania nie powiodły się zwykle mają kody odpowiedzi 400 lub wyższe. Aby ułatwić klasyfikowanie i diagnozowanie problemu, w szczegółach alertu znajduje się analiza cech błędów i powiązanych danych aplikacji. Istnieją również łącza do portalu usługi Application Insights w celu dalszej diagnostyki. Funkcja nie wymaga konfiguracji ani konfiguracji, ponieważ używa algorytmów uczenia maszynowego do przewidywania normalnego współczynnika awarii.
@@ -353,7 +353,7 @@ Inteligentne wykrywanie anomalii awarii uzupełnia inne podobne, ale odrębne fu
 ## <a name="next-steps"></a>Następne kroki
 Te narzędzia diagnostyczne ułatwiają sprawdzanie danych z aplikacji:
 
-* [Eksplorator metryki](../../azure-monitor/app/metrics-explorer.md)
+* [Eksplorator metryki](../../azure-monitor/platform/metrics-charts.md)
 * [Eksplorator wyszukiwania](../../azure-monitor/app/diagnostic-search.md)
 * [Analytics - potężny język zapytań](../../azure-monitor/log-query/get-started-portal.md)
 

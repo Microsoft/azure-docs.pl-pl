@@ -13,12 +13,12 @@ ms.date: 11/13/2019
 ms.author: rayluo
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2593cc856afb98cf5186c4e33032c5e9151614f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c6edd0b3cfd6620f04553f9f6dfe89f1c7b7024
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76704395"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536203"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>Niestandardowa serializacja pamięci podręcznej tokenów w języku MSAL dla języka Python
 
@@ -26,7 +26,7 @@ W języku MSAL Python, pamięć podręczna tokenów w pamięci, która utrzymuje
 
 Serializacja pamięci podręcznej tokenu, tak aby różne sesje aplikacji mogą uzyskać do niej dostęp, nie jest dostępna "po wyjęciu z pudełka". To dlatego, że MSAL Python może być używany w typach aplikacji, które nie mają dostępu do systemu plików — takich jak aplikacje sieci Web. Aby mieć trwałą pamięć podręczną tokenu w aplikacji MSAL Python, należy podać niestandardową serializację pamięci podręcznej tokenów.
 
-Strategie serializacji pamięci podręcznej tokenu różnią się w zależności od tego, czy piszesz publiczną aplikację kliencką (pulpit), czy poufną aplikację kliencką (aplikacja sieci Web, interfejs API sieci Web lub aplikacja Demon).
+Strategie serializacji pamięci podręcznej tokenu różnią się w zależności od tego, czy piszesz publiczną aplikację kliencką (pulpit), czy poufną aplikację kliencką (aplikacja internetowa, internetowy interfejs API lub aplikacja demona).
 
 ## <a name="token-cache-for-a-public-client-application"></a>Pamięć podręczna tokenu dla publicznej aplikacji klienckiej
 
@@ -34,7 +34,7 @@ Publiczne aplikacje klienckie są uruchamiane na urządzeniu użytkownika i zarz
 
 ## <a name="token-cache-for-a-web-app-confidential-client-application"></a>Pamięć podręczna tokenu dla aplikacji sieci Web (poufna aplikacja kliencka)
 
-W przypadku aplikacji sieci Web lub interfejsów API sieci Web można użyć sesji, pamięci podręcznej Redis lub bazy danych do przechowywania pamięci podręcznej tokenów. Powinna istnieć jedna pamięć podręczna tokenu na użytkownika (na konto), więc upewnij się, że serializujesz pamięć podręczną tokenu na konto.
+W przypadku aplikacji sieci web lub interfejsów API sieci Web można użyć sesji, pamięci podręcznej Redis lub bazy danych do przechowywania pamięci podręcznej tokenu. Powinna istnieć jedna pamięć podręczna tokenu na użytkownika (na konto), więc upewnij się, że serializujesz pamięć podręczną tokenu na konto.
 
 ## <a name="next-steps"></a>Następne kroki
 

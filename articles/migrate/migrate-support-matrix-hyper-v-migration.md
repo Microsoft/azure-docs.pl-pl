@@ -2,13 +2,13 @@
 title: Obsługa migracji funkcji Hyper-V w programie Azure Migrate
 description: Dowiedz się więcej o obsłudze migracji funkcji Hyper-V za pomocą usługi Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: 1eab96df7ee58a8170f75b41c5a2a06f033ced19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 8ec0b72cac75518ac938faa202b28d055409e8dc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245826"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538192"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Macierz obsługi migracji funkcji Hyper-V
 
@@ -23,18 +23,44 @@ Do replikacji można wybrać maksymalnie 10 maszyn wirtualnych jednocześnie. Je
 
 | **Pomoc techniczna**                | **Szczegóły**               
 | :-------------------       | :------------------- |
-| **wdrażania**       | Host funkcji Hyper-V może być autonomiczny lub wdrożony w klastrze. <br/>Oprogramowanie do replikacji migracji platformy Azure (dostawca replikacji funkcji Hyper-V) musi być zainstalowane na hostach funkcji Hyper-V.|
+| **Wdrożenie**       | Host funkcji Hyper-V może być autonomiczny lub wdrożony w klastrze. <br/>Oprogramowanie do replikacji migracji platformy Azure (dostawca replikacji funkcji Hyper-V) jest zainstalowane na hostach funkcji Hyper-V.|
 | **Uprawnienia**           | Potrzebne są uprawnienia administratora do hosta funkcji Hyper-V. |
 | **System operacyjny hosta** | Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2. |
-| **Dostęp do adresu URL** | Oprogramowanie dostawcy replikacji na hostach funkcji Hyper-V będzie potrzebowało dostępu do następujących adresów URL:<br/><br/> - login.microsoftonline.com: Kontrola dostępu i zarządzanie tożsamościami przy użyciu usługi Active Directory.<br/><br/> - *.backup.windowsazure.com: Transfer danych replikacji i koordynacja. Migrowanie adresów URL usług.<br/><br/> - *.blob.core.windows.net: Przesyłaj dane na konta magazynu.<br/><br/> - dc.services.visualstudio.com: Przesyłaj dzienniki aplikacji używane do monitorowania wewnętrznego.<br/><br/> - time.windows.com: Weryfikuje synchronizację czasu między czasem systemowym a globalnym.
 | **Dostęp do portu** |  Połączenia wychodzące na porcie HTTPS 443 do wysyłania danych replikacji maszyny Wirtualnej.
+
+### <a name="url-access-public-cloud"></a>Dostęp do adresów URL (chmura publiczna)
+
+Oprogramowanie dostawcy replikacji na hostach funkcji Hyper-V będzie potrzebowało dostępu do tych adresów URL.
+
+**Adres URL** | **Szczegóły**
+--- | ---
+login.microsoftonline.com | Kontrola dostępu i zarządzanie tożsamościami przy użyciu usługi Active Directory.
+backup.windowsazure.com | Transfer danych replikacji i koordynacja.
+*.hypervrecoverymanager.windowsazure.com | Używany do migracji.
+*.blob.core.windows.net | Przekazywanie danych do kont magazynu. 
+dc.services.visualstudio.com | Przekaż dzienniki aplikacji używane do monitorowania wewnętrznego.
+time.windows.com | Weryfikuje synchronizację czasu między czasem systemowym a globalnym.
+
+### <a name="url-access-azure-government"></a>Dostęp do adresów URL (Azure Government)
+
+Oprogramowanie dostawcy replikacji na hostach funkcji Hyper-V będzie potrzebowało dostępu do tych adresów URL.
+
+**Adres URL** | **Szczegóły**
+--- | ---
+login.microsoftonline.us | Kontrola dostępu i zarządzanie tożsamościami przy użyciu usługi Active Directory.
+backup.windowsazure.us | Transfer danych replikacji i koordynacja.
+*.hypervrecoverymanager.windowsazure.us | Używany do migracji.
+*.blob.core.usgovcloudapi.net | Przekazywanie danych do kont magazynu.
+dc.services.visualstudio.com | Przekaż dzienniki aplikacji używane do monitorowania wewnętrznego.
+time.nist.gov | Weryfikuje synchronizację czasu między czasem systemowym a globalnym.
+
 
 ## <a name="hyper-v-vms"></a>Maszyny wirtualne funkcji Hyper-V
 
 | **Pomoc techniczna**                  | **Szczegóły**               
 | :----------------------------- | :------------------- |
 | **System operacyjny** | Wszystkie systemy operacyjne [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) i [Linux,](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) które są obsługiwane przez platformę Azure. |
-| **Wymagane zmiany na platformie Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, dzięki czemu można je uruchomić na platformie Azure. Przed migracją należy ręcznie wprowadzić zmiany. Odpowiednie artykuły zawierają instrukcje dotyczące tego, jak to zrobić. |
+| **Wymagane zmiany na platformie Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, dzięki czemu można je uruchomić na platformie Azure. Przed migracją należy ręcznie wprowadzać zmiany. Odpowiednie artykuły zawierają instrukcje dotyczące tego, jak to zrobić. |
 | **Rozruch linuksa**                 | Jeśli /boot znajduje się na partycji dedykowanej, powinien znajdować się na dysku systemu operacyjnego i nie być rozłożony na wiele dysków.<br/> Jeśli /boot jest częścią głównej partycji (/), partycja '/' powinna znajdować się na dysku systemu operacyjnego, a nie obejmować inne dyski. |
 | **Rozruch UEFI**                  | Zmigrowana maszyna wirtualna na platformie Azure zostanie automatycznie przekonwertowana na maszynę wirtualną rozruchową systemu BIOS. Maszyna wirtualna powinna być uruchomiona tylko w systemie Windows Server 2012 i nowszych. Dysk systemu operacyjnego powinien mieć maksymalnie pięć partycji lub mniej, a rozmiar dysku systemu operacyjnego powinien być mniejszy niż 300 GB.
   |
@@ -48,7 +74,7 @@ Do replikacji można wybrać maksymalnie 10 maszyn wirtualnych jednocześnie. Je
 | **Dysk docelowy**                | Można przeprowadzić migrację do maszyn wirtualnych platformy Azure tylko z dyskami zarządzanymi. |
 | **Protokół IPv6** | Bez pomocy technicznej.
 | **Tworzenie zespołu sieciowej** | Bez pomocy technicznej.
-| **Odzyskiwanie witryny platformy Azure** | Nie można replikować przy użyciu migracji serwera migracji usługi Azure, jeśli maszyna wirtualna jest włączona do replikacji za pomocą usługi Azure Site Recovery.
+| **Azure Site Recovery** | Nie można replikować przy użyciu migracji serwera migracji usługi Azure, jeśli maszyna wirtualna jest włączona do replikacji za pomocą usługi Azure Site Recovery.
 | **Porty** | Połączenia wychodzące na porcie HTTPS 443 do wysyłania danych replikacji maszyny Wirtualnej.
 
 ## <a name="azure-vm-requirements"></a>Wymagania dotyczące maszyny wirtualnej platformy Azure

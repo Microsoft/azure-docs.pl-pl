@@ -2,21 +2,21 @@
 title: Ocena serwerów fizycznych pod kątem migracji na platformę Azure za pomocą oceny serwera migracji platformy Azure
 description: W tym artykule opisano sposób oceny lokalnych serwerów fizycznych do migracji na platformę Azure przy użyciu oceny serwera migracji platformy Azure.
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.openlocfilehash: c89c731712a625e5f3b7a1a7e9306f6a7480b96b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/15/2020
+ms.openlocfilehash: b36cba18bd154cd5d14e16a9f8bf85cda6bf87a8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76990304"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535438"
 ---
-# <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Ocena serwerów fizycznych za pomocą programu Azure Migrate: Ocena serwera
+# <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Ocena serwerów fizycznych za pomocą programu Azure Migrate:Server Assessment
 
-W tym artykule pokazano, jak ocenić lokalne serwery fizyczne przy użyciu narzędzia Azure Migrate: Server Assessment.
+W tym artykule pokazano, jak ocenić lokalne serwery fizyczne przy użyciu narzędzia Azure Migrate:Server Assessment.
 
 [Usługa Azure Migrate](migrate-services-overview.md) udostępnia centrum narzędzi ułatwiających odnajdywanie, ocenę i migrację aplikacji, infrastruktury i obciążeń na platformę Microsoft Azure. Centrum zawiera narzędzia migracji platformy Azure i oferty niezależnych dostawców oprogramowania innych firm (ISV).
 
-Ten samouczek jest drugim z serii, który pokazuje, jak ocenić i migrować serwery fizyczne na platformę Azure. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest drugim z serii, który pokazuje, jak ocenić i migrować serwery fizyczne na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Konfigurowanie projektu migracji platformy Azure.
 > * Skonfiguruj urządzenie migracji platformy Azure, które działa lokalnie w celu oceny serwerów fizycznych.
@@ -34,8 +34,10 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 - [Ukończ](tutorial-prepare-physical.md) pierwszy samouczek z tej serii. Jeśli nie, instrukcje w tym samouczku nie będzie działać.
 - Oto, co powinieneś zrobić w pierwszym samouczku:
-    - [Konfigurowanie uprawnień platformy Azure](tutorial-prepare-physical.md#prepare-azure) dla migracji platformy Azure.
+    - [Konfigurowanie uprawnień platformy Azure](tutorial-prepare-physical.md) dla migracji platformy Azure.
     - [Przygotuj serwery fizyczne](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) do oceny. Należy zweryfikować wymagania dotyczące urządzeń. Należy również skonfigurować konto do odnajdowania serwera fizycznego. Wymagane porty powinny być dostępne i należy pamiętać o adresach URL potrzebnych do uzyskania dostępu do platformy Azure.
+
+
 
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurowanie projektu migracji platformy Azure
@@ -49,8 +51,8 @@ Skonfiguruj nowy projekt usługi Azure Migrate w następujący sposób.
     ![Odkrywanie i ocenianie serwerów](./media/tutorial-assess-physical/assess-migrate.png)
 
 4. W obszarze **Wprowadzenie** kliknij pozycję **Dodaj narzędzia**.
-5. W obszarze **Projekt migracji**wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.     
-6. W **obszarze Szczegóły projektu**określ nazwę projektu i lokalizację geograficzną, w której chcesz utworzyć projekt. Wsparcie w Azji, Europie, Wielkiej Brytanii i Stanach Zjednoczonych.
+5. W obszarze **Projekt migracji**wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.  
+6. W **obszarze Szczegóły projektu**określ nazwę projektu i lokalizację geograficzną, w której chcesz utworzyć projekt. Przejrzyj obsługiwane obszary geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - Geografia projektu jest używana tylko do przechowywania metadanych zebranych z serwerów lokalnych.
     - Podczas przeprowadzania migracji można wybrać dowolny region docelowy.
@@ -58,7 +60,7 @@ Skonfiguruj nowy projekt usługi Azure Migrate w następujący sposób.
     ![Tworzenie projektu migracji platformy Azure](./media/tutorial-assess-physical/migrate-project.png)
 
 
-7. Kliknij przycisk **alej**.
+7. Kliknij przycisk **Dalej**.
 8. W **narzędziu do oceny Wybierz**wybierz pozycję Azure **Migrate: Server Assessment** > **Next**.
 
     ![Tworzenie projektu migracji platformy Azure](./media/tutorial-assess-physical/assessment-tool.png)
@@ -96,16 +98,24 @@ Pobierz spakowany plik urządzenia.
 Przed wdrożeniem pliku jest bezpieczny, zanim go wdrożysz.
 
 1. Na maszynie, na którą pobrano plik, otwórz okno wiersza polecenia administratora.
-2. Uruchom następujące polecenie, aby wygenerować skrót dla spakowany plik
+2. Uruchom następujące polecenie, aby wygenerować skrót dla spakowany plik:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Przykład użycia: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Przykład użycia w chmurze publicznej:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Przykład użycia chmury rządów:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+3.  Sprawdź wartości skrótu:
+ 
+    - Dla chmury publicznej (dla najnowszej wersji urządzenia):
 
-3.  W przypadku najnowszej wersji urządzenia wygenerowany skrót powinien być zgodny z tymi ustawieniami.
+        **Algorytm** | **Wartość skrótu**
+          --- | ---
+          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-  **Algorytm** | **Wartość skrótu**
-  --- | ---
-  MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-  SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    - Dla platformy Azure dla instytucji rządowych (dla najnowszej wersji urządzenia):
+
+        **Algorytm** | **Wartość skrótu**
+          --- | ---
+          MD5 | f81c155fc4a1409901caea948713913f
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Uruchamianie skryptu instalatora migracji platformy Azure
 
@@ -116,28 +126,26 @@ Skrypt instalatora wykonuje następujące czynności:
 - Pobierz i zainstaluje moduł wielokrotnego zapisu usługi IIS. [Dowiedz się więcej](https://www.microsoft.com/download/details.aspx?id=7435).
 - Aktualizuje klucz rejestru (HKLM) ze szczegółami ustawień trwałych dla migracji platformy Azure.
 - Tworzy następujące pliki pod ścieżką:
-    - **Pliki konfiguracyjne:**%ProgramData%\Microsoft Azure\Config
-    - **Pliki dziennika:**%ProgramData%\Microsoft Azure\Logs
+    - **Pliki konfiguracyjne:**%Programdata%\Microsoft Azure\Config
+    - **Pliki dziennika:**%Programdata%\Microsoft Azure\Logs
 
 Uruchom skrypt w następujący sposób:
 
-1. Wyodrębnij spakowany plik do folderu na serwerze, w który będzie obsługiwał urządzenie.
+1. Wyodrębnij spakowany plik do folderu na serwerze, w który będzie obsługiwał urządzenie.  Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu migracji platformy Azure.
 2. Uruchom program PowerShell na powyższym serwerze z uprawnieniami administracyjnymi (podwyższonymi).
 3. Zmień katalog programu PowerShell na folder, w którym zawartość została wyodrębniona z pobranego pliku spakowanym.
 4. Uruchom skrypt o nazwie **AzureMigrateInstaller.ps1,** uruchamiając następujące polecenie:
-    ```
-    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
-    ```
-Skrypt uruchomi aplikację internetową urządzenia po pomyślnym zakończeniu.
 
-W przypadku jakichkolwiek problemów można uzyskać dostęp do dzienników skryptów w witrynie C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log w celu rozwiązania problemu.
+    - Dla chmury publicznej:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - Dla platformy Azure dla instytucji rządowych:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
-> [!NOTE]
-> Proszę nie wykonywać skryptu instalatora migracji platformy Azure na istniejącym urządzeniu migracji platformy Azure.
+    Skrypt uruchomi aplikację internetową urządzenia po pomyślnym zakończeniu.
+
+Jeśli natkniesz się na jakiekolwiek problemy, możesz uzyskać dostęp do dzienników skryptów w witrynie C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log w celu rozwiązania problemu.
 
 ### <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
 
-Upewnij się, że urządzenie może łączyć się z [adresami URL platformy Azure](migrate-appliance.md#url-access).
+Upewnij się, że urządzenie może łączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i [rządowych.](migrate-appliance.md#government-cloud-urls)
 
 
 ### <a name="configure-the-appliance"></a>Konfigurowanie urządzenia
@@ -161,7 +169,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 1. Kliknij **pozycję Zaloguj**się . Jeśli nie jest wyświetlany, upewnij się, że wyłączono blokowanie wyskakujących wyskakujących w przeglądarce.
 2. Na nowej karcie zaloguj się przy użyciu poświadczeń platformy Azure.
     - Zaloguj się przy użyciu swojej nazwy użytkownika i hasła.
-    - Logowanie za pomocą numeru PIN nie jest obsługiwane.
+    - Logowanie się przy pomocy numeru PIN nie jest obsługiwane.
 3. Po pomyślnym zalogowaniu wróć do aplikacji sieci web.
 4. Wybierz subskrypcję, w której został utworzony projekt migracji platformy Azure. Następnie wybierz projekt.
 5. Określ nazwę urządzenia. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
@@ -173,7 +181,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 Teraz połącz się z urządzenia do serwerów fizycznych, które mają zostać wykryte, i rozpocznij odnajdowanie.
 
 1. Kliknij **przycisk Dodaj poświadczenia,** aby określić poświadczenia konta używane przez urządzenie do odnajdywać serwery.  
-2. Określ **system operacyjny**, przyjazną nazwę poświadczeń, nazwę **użytkownika** i **hasło** oraz kliknij przycisk **Dodaj**.
+2. Określ **system operacyjny**, przyjazną nazwę poświadczeń oraz nazwę użytkownika i hasło. Następnie kliknij przycisk **Dodaj**.
 Można dodać jeden zestaw poświadczeń dla serwerów Windows i Linux.
 4. Kliknij **przycisk Dodaj serwer**i określ szczegóły serwera — adres FQDN/IP i przyjazną nazwę poświadczeń (jeden wpis na wiersz), aby połączyć się z serwerem.
 3. Kliknij pozycję **Validate** (Waliduj). Po weryfikacji zostanie wyświetlona lista serwerów, które można odnajdować.

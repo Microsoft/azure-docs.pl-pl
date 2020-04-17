@@ -1,19 +1,15 @@
 ---
 title: Przygotowywanie serwerów fizycznych do oceny/migracji za pomocą usługi Azure Migrate
 description: Dowiedz się, jak przygotować się do oceny/migracji serwerów fizycznych za pomocą usługi Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
-ms.author: raynew
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5f9048b08b3e77a0c8d5ae9a9d10c614a4e0af61
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 539e25f8b6cc92674fef567de6e6de16d0a9394a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336683"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535285"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Przygotowanie do oceny i migracji serwerów fizycznych na platformę Azure
 
@@ -21,7 +17,7 @@ W tym artykule opisano sposób przygotowania do oceny lokalnych serwerów fizycz
 
 [Usługa Azure Migrate](migrate-overview.md) udostępnia centrum narzędzi ułatwiających odnajdywanie, ocenę i migrację aplikacji, infrastruktury i obciążeń na platformę Microsoft Azure. Centrum zawiera narzędzia migracji platformy Azure i oferty niezależnych dostawców oprogramowania innych firm (ISV). 
 
-Ten samouczek jest pierwszym z serii, który pokazuje, jak ocenić serwery fizyczne za pomocą usługi Azure Migrate. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest pierwszym z serii, który pokazuje, jak ocenić serwery fizyczne za pomocą usługi Azure Migrate. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Przygotuj platformę Azure. Skonfiguruj uprawnienia do konta platformy Azure i zasoby do pracy z programem Azure Migrate.
@@ -35,21 +31,18 @@ Ten samouczek jest pierwszym z serii, który pokazuje, jak ocenić serwery fizyc
 Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) przed rozpoczęciem.
 
 
-## <a name="prepare-azure"></a>Przygotowywanie platformy Azure
+## <a name="prepare-azure-for-server-assessment"></a>Przygotowanie platformy Azure do oceny serwera
 
-### <a name="azure-permissions"></a>Uprawnienia platformy Azure
-
-Należy skonfigurować uprawnienia do wdrażania migracji platformy Azure.
+Konfigurowanie platformy Azure do pracy z programem Azure Migrate. 
 
 **Zadanie** | **Szczegóły** 
 --- | --- 
-**Tworzenie projektu migracji platformy Azure** | Twoje konto platformy Azure wymaga uprawnień programu Contributer lub Owner do utworzenia projektu. | 
-**Rejestrowanie dostawców zasobów** | Usługa Azure Migrate używa lekkiego urządzenia migracji platformy Azure do odnajdywania i oceny maszyn wirtualnych funkcji Hyper-V za pomocą oceny serwera migracji platformy Azure.<br/><br/> Podczas rejestracji urządzenia dostawcy zasobów są rejestrowani w subskrypcji wybranej w urządzeniu. [Dowiedz się więcej](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Aby zarejestrować dostawców zasobów, potrzebujesz roli współautora lub właściciela w ramach subskrypcji.
-**Tworzenie aplikacji usługi Azure AD** | Podczas rejestrowania urządzenia usługa Azure Migrate tworzy aplikację usługi Azure Active Directory (Azure AD), która jest używana do komunikacji między agentami działającymi na urządzeniu z odpowiednimi usługami uruchomionymi na platformie Azure. [Dowiedz się więcej](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Potrzebne są uprawnienia do tworzenia aplikacji usługi Azure AD (dostępnych w roli dewelopera aplikacji).
+**Tworzenie projektu migracji platformy Azure** | Twoje konto platformy Azure wymaga uprawnień współautora lub właściciela, aby utworzyć projekt. 
+**Rejestrowanie dostawców zasobów (tylko ocena)** | Usługa Azure Migrate używa lekkiego urządzenia migracji platformy Azure do odnajdywania i oceniania maszyn za pomocą usługi Azure Migrate:Server Assessment.<br/><br/> Podczas rejestracji urządzenia dostawcy zasobów są rejestrowani w subskrypcji wybranej w urządzeniu. [Dowiedz się więcej](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Aby zarejestrować dostawców zasobów, potrzebujesz roli współautora lub właściciela w ramach subskrypcji.
+**Tworzenie aplikacji usługi Azure AD (tylko ocena)** | Podczas rejestrowania urządzenia usługa Azure Migrate tworzy aplikację usługi Azure Active Directory (Azure AD), która jest używana do komunikacji między agentami działającymi na urządzeniu z odpowiednimi usługami uruchomionymi na platformie Azure. [Dowiedz się więcej](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Potrzebne są uprawnienia do tworzenia aplikacji usługi Azure AD (dostępnych w roli dewelopera aplikacji).
 
 
-
-### <a name="assign-permissions-to-create-project"></a>Przypisywanie uprawnień do tworzenia projektu
+### <a name="assign-permissions-to-create-project"></a>Przypisywanie uprawnień do tworzenia projektu 
 
 Sprawdź, czy masz uprawnienia do tworzenia projektu migracji platformy Azure.
 
@@ -60,7 +53,7 @@ Sprawdź, czy masz uprawnienia do tworzenia projektu migracji platformy Azure.
     - Jeśli nie jesteś właścicielem subskrypcji, współpracuj z właścicielem, aby przypisać tę rolę.
 
 
-### <a name="assign-permissions-to-register-the-appliance"></a>Przypisywanie uprawnień do rejestrowania urządzenia
+### <a name="assign-permissions-to-register-the-appliance"></a>Przypisywanie uprawnień do rejestrowania urządzenia 
 
 Można przypisać uprawnienia do migracji platformy Azure, aby utworzyć aplikację usługi Azure AD podczas rejestracji urządzenia, przy użyciu jednej z następujących metod:
 
@@ -89,6 +82,39 @@ Dzierżawca/administrator globalny może udzielić uprawnień w następujący sp
 Dzierżawca/administrator globalny można przypisać rolę dewelopera aplikacji do konta. [Dowiedz się więcej](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
+## <a name="prepare-azure-for-physical-server-migration"></a>Przygotowanie platformy Azure do migracji serwera fizycznego
+
+Przygotowanie platformy Azure do migracji serwerów fizycznych przy użyciu migracji serwera.
+
+**Zadanie** | **Szczegóły**
+--- | ---
+**Tworzenie projektu migracji platformy Azure** | Twoje konto platformy Azure wymaga uprawnień programu Contributer lub Owner do utworzenia projektu.
+**Weryfikowanie uprawnień dla konta platformy Azure** | Twoje konto platformy Azure potrzebuje uprawnień do tworzenia maszyny Wirtualnej i zapisu na dysku zarządzanym platformy Azure.
+**Tworzenie sieci platformy Azure** | Konfigurowanie sieci na platformie Azure.
+
+
+### <a name="assign-permissions-to-create-project"></a>Przypisywanie uprawnień do tworzenia projektu
+
+1. W witrynie Azure portal otwórz subskrypcję i wybierz **pozycję Kontrola dostępu (IAM)**.
+2. W **obszarze Sprawdź dostęp**znajdź odpowiednie konto i kliknij je, aby wyświetlić uprawnienia.
+3. Powinieneś mieć uprawnienia **współautora** lub **właściciela.**
+    - Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicielem subskrypcji.
+    - Jeśli nie jesteś właścicielem subskrypcji, współpracuj z właścicielem, aby przypisać tę rolę.
+
+
+### <a name="assign-azure-account-permissions"></a>Przypisywanie uprawnień konta platformy Azure
+
+Przypisz rolę współautora maszyny wirtualnej do konta platformy Azure. Zapewnia to uprawnienia do:
+
+    - Tworzenie maszyny wirtualnej w wybranej grupie zasobów.
+    - Tworzenie maszyny wirtualnej w wybranej sieci wirtualnej.
+    - Zapis na dysku zarządzanym platformy Azure. 
+
+### <a name="create-an-azure-network"></a>Tworzenie sieci platformy Azure
+
+[Konfigurowanie](../virtual-network/manage-virtual-network.md#create-a-virtual-network) sieci wirtualnej platformy Azure (sieci wirtualnej). Podczas replikowania na platformie Azure maszyny wirtualne platformy Azure są tworzone i dołączane do sieci wirtualnej platformy Azure, które określisz podczas konfigurowania migracji.
+
+
 ## <a name="prepare-for-physical-server-assessment"></a>Przygotowanie do fizycznej oceny serwera
 
 Aby przygotować się do oceny serwera fizycznego, należy zweryfikować ustawienia serwera fizycznego i zweryfikować ustawienia wdrożenia urządzenia:
@@ -104,7 +130,7 @@ Aby przygotować się do oceny serwera fizycznego, należy zweryfikować ustawie
 Przed skonfigurowaniem urządzenia migracji platformy Azure i rozpoczęciem oceny w następnym samouczku przygotuj się do wdrożenia urządzenia.
 
 1. [Sprawdź](migrate-appliance.md#appliance---physical) wymagania dotyczące urządzeń dla serwerów fizycznych.
-2. [Przejrzyj](migrate-appliance.md#url-access) adresy URL platformy Azure, do których urządzenie będzie musiało uzyskać dostęp.
+2. Przejrzyj adresy URL platformy Azure, do których urządzenie musi uzyskać dostęp w [chmurach publicznych](migrate-appliance.md#public-cloud-urls) i [rządowych.](migrate-appliance.md#government-cloud-urls)
 3. [Sprawdź,](migrate-appliance.md#collected-data---vmware) czy urządzenie będzie zbierać podczas wykrywania i oceny.
 4. [Uwaga](migrate-support-matrix-physical.md#port-access) wymagania dotyczące dostępu do portu fizycznej oceny serwera.
 
@@ -120,10 +146,16 @@ Usługa Azure Migrate potrzebuje uprawnień do odnajdywanie serwerów lokalnych.
 
 Przejrzyj wymagania dotyczące migracji serwerów fizycznych.
 
+> [!NOTE]
+> Podczas migracji komputerów fizycznych usługa Azure Migrate:Server Migration używa tej samej architektury replikacji co odzyskiwanie po awarii oparte na agentach w usłudze Azure Site Recovery, a niektóre składniki mają tę samą bazę kodu. Niektóre treści mogą zawierać łącze do dokumentacji odzyskiwania witryny.
+
 - [Przejrzyj](migrate-support-matrix-physical-migration.md#physical-server-requirements) wymagania serwera fizycznego dotyczące migracji.
-- Migracja platformy Azure: Migracja serwera używa serwera replikacji do migracji serwera fizycznego:
+- Migracja usługi Azure:Migracja serwera używa serwera replikacji do migracji serwera fizycznego:
     - [Przejrzyj](migrate-replication-appliance.md#appliance-requirements) wymagania dotyczące wdrażania urządzenia replikacji i [opcje](migrate-replication-appliance.md#mysql-installation) instalacji MySQL na urządzeniu.
-    - Przejrzyj wymagania dotyczące dostępu [do adresu URL](migrate-replication-appliance.md#url-access) i [port] (migrate-replication-appliance.md#port-access) dla urządzenia replikacji.
+    - Przejrzyj [adresy URL platformy Azure](migrate-appliance.md#url-access) wymagane dla urządzenia replikacji, aby uzyskać dostęp do chmur publicznych i rządowych.
+    - Przejrzyj wymagania dotyczące dostępu [port] (migrate-replication-appliance.md#port-access) dla urządzenia replikacji.
+
+
 
 
 ## <a name="next-steps"></a>Następne kroki

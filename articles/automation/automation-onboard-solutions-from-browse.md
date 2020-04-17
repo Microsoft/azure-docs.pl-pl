@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979472"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537019"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Włączanie rozwiązań do zarządzania aktualizacjami, śledzenia zmian i zapasów na wielu maszynach wirtualnych
 
@@ -33,7 +33,7 @@ Korzystając z pól wyboru, wybierz maszyny wirtualne, które chcesz mieć na po
 Na pasku poleceń kliknij pozycję **Usługi** i wybierz pozycję **Zmień śledzenie,** **Zapasy**lub **Zarządzanie aktualizacjami**.
 
 > [!NOTE]
-> **Śledzenie zmian** i **zapasów** używają tego samego rozwiązania, gdy jedno jest włączone, inne jest również włączone.
+> Śledzenie zmian i zapasy używają tego samego rozwiązania. Gdy jeden jest włączony, drugi jest włączony, jak również.
 
 Poniższa ilustracja dotyczy zarządzania aktualizacjami. Śledzenie zmian i zasoby reklamowe mają ten sam układ i zachowanie.
 
@@ -107,7 +107,7 @@ Alternatywnie można również odłączyć obszar roboczy od konta automatyzacji
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Podczas dołączania wielu maszyn mogą istnieć maszyny, które są wyświetlane jako **nie można włączyć**. Istnieją różne powody, dla których niektóre maszyny mogą nie być włączone. W poniższych sekcjach przedstawiono możliwe przyczyny **nie można włączyć** stan na maszynie Wirtualnej podczas próby wbudowanego.
+Podczas dołączania do wielu maszyn mogą istnieć maszyny, które są wyświetlane jako `Cannot enable`. Istnieją różne powody, dla których niektóre maszyny mogą nie być włączone. W poniższych sekcjach przedstawiono możliwe przyczyny `Cannot enable` stanu na maszynie Wirtualnej podczas próby wbudowanego.
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Maszyna wirtualna zgłasza się do\<innego obszaru\>roboczego: ' workspaceName '.  Zmienianie konfiguracji w celu jej używania w celu włączenia
 
@@ -148,7 +148,7 @@ Podczas dołączania wielu maszyn mogą istnieć maszyny, które są wyświetlan
 Aby usunąć maszynę wirtualną z zarządzania aktualizacjami:
 
 * W obszarze roboczym usługi Log Analytics usuń maszynę wirtualną z zapisanego wyszukiwania konfiguracji `MicrosoftDefaultScopeConfig-Updates`zakresu . Zapisane wyszukiwania można znaleźć w obszarze **Ogólne** w obszarze roboczym.
-* Usuń [agenta monitorowania firmy Microsoft](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) lub [agenta analizy dzienników dla systemu Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Usuń [agenta analizy dzienników dla systemu Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) lub [agenta analizy dzienników dla systemu Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,12 +3,12 @@ title: Eksportowanie do języka SQL z usługi Azure Application Insights | Dokum
 description: Ciągłe eksportowanie danych usługi Application Insights do programu SQL przy użyciu usługi Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e67365038b9a481bc0cacf079e5d197cc3139a5f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663695"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536917"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Przewodnik: eksportowanie do programu SQL z usługi Application Insights przy użyciu usługi Stream Analytics
 W tym artykule pokazano, jak przenieść dane telemetryczne z [usługi Azure Application Insights][start] do bazy danych SQL platformy Azure przy użyciu [ciągłego eksportu][export] i usługi Azure Stream [Analytics.](https://azure.microsoft.com/services/stream-analytics/) 
@@ -61,7 +61,7 @@ Ciągły eksport zawsze wyprowadza dane do konta usługi Azure Storage, więc mu
     ![Wybieranie typów zdarzeń](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Niech niektóre dane gromadzą się. Usiądź wygodnie i pozwól ludziom korzystać z aplikacji na chwilę. Dane telemetryczne pojawią się, a zobaczysz wykresy statystyczne w [Eksploratorze metryk](../../azure-monitor/app/metrics-explorer.md) i poszczególnych zdarzeniach w [wyszukiwaniu diagnostycznym.](../../azure-monitor/app/diagnostic-search.md) 
+1. Niech niektóre dane gromadzą się. Usiądź wygodnie i pozwól ludziom korzystać z aplikacji na chwilę. Dane telemetryczne pojawią się, a zobaczysz wykresy statystyczne w [Eksploratorze metryk](../../azure-monitor/platform/metrics-charts.md) i poszczególnych zdarzeniach w [wyszukiwaniu diagnostycznym.](../../azure-monitor/app/diagnostic-search.md) 
    
     A także dane zostaną wyeksportowane do magazynu. 
 2. Sprawdź wyeksportowane dane w portalu — wybierz pozycję **Przeglądaj**, wybierz konto magazynu, a następnie **kontenery** — lub w programie Visual Studio. W programie Visual Studio wybierz pozycję **Wyświetl / Cloud Explorer**i otwórz platformę Azure / Storage. (Jeśli nie masz tej opcji menu, musisz zainstalować zestaw SDK platformy Azure: Otwórz okno dialogowe Nowy projekt i otwórz visual c# / chmurę / Pobierz zestaw Microsoft Azure SDK dla platformy .NET.)
@@ -240,7 +240,7 @@ Po kilku minutach wróć do narzędzia zarządzania programem SQL Server i obser
 
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
-* [Eksportowanie do usługi PowerBI przy użyciu usługi Stream Analytics](../../azure-monitor/app/export-power-bi.md )
+* [Eksportowanie do usługi Power BI przy użyciu usługi Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 * [Szczegółowe odwołanie do modelu danych dla typów właściwości i wartości.](../../azure-monitor/app/export-data-model.md)
 * [Ciągły eksport w usłudze Application Insights](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -249,7 +249,7 @@ Po kilku minutach wróć do narzędzia zarządzania programem SQL Server i obser
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
 

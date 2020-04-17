@@ -1,0 +1,68 @@
+### YamlMime:Landing
+title: Dokumentacja usługi Azure Key Vault
+summary: Dowiedz się, jak za pomocą usługi Key Vault tworzyć i obsługiwać klucze, które umożliwiają uzyskiwanie dostępu do zasobów, aplikacji i rozwiązań przechowywanych w chmurze oraz ich szyfrowanie. Samouczki, dokumentacja interfejsu API i inne materiały.
+metadata:
+  title: Dokumentacja usługi Azure Key Vault
+  description: Dowiedz się, jak za pomocą usługi Key Vault tworzyć i obsługiwać klucze, które umożliwiają uzyskiwanie dostępu do zasobów, aplikacji i rozwiązań przechowywanych w chmurze oraz ich szyfrowanie. Samouczki, dokumentacja interfejsu API i inne materiały.
+  services: key-vault
+  ms.service: key-vault
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 09/19/2019
+  ms.openlocfilehash: 5be853f9e1f9778eb767aa93497c546cb35fa0df
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81422408"
+landingContent:
+- title: Informacje o usłudze Azure Key Vault
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest usługa Azure Key Vault?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Podstawowe pojęcia
+      url: basic-concepts.md
+    - text: Usuwanie nietrwałe
+      url: overview-soft-delete.md
+    - text: Ograniczanie przepływności
+      url: overview-throttling.md
+- title: Samouczki
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Usługa Key Vault z poziomu aplikacji internetowej
+      url: tutorial-net-create-vault-azure-web-app.md
+    - text: Usługa Key Vault z maszyną wirtualną Azure z systemem Windows
+      url: tutorial-net-windows-virtual-machine.md
+    - text: Usługa Key Vault z językiem Python — Windows
+      url: tutorial-python-windows-virtual-machine.md
+- title: Zabezpieczenia
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Zabezpieczanie magazynu kluczy
+      url: secure-your-key-vault.md
+    - text: Zalecenia dotyczące zabezpieczeń
+      url: security-recommendations.md
+    - text: Punkt odniesienia zabezpieczeń
+      url: security-baseline.md
+  - linkListType: tutorial
+    links:
+    - text: Używanie linku prywatnego
+      url: private-link-service.md
+    - text: Korzystanie z tożsamości zarządzanej
+      url: managed-identity.md
+    - text: Używanie zasad dostępu
+      url: group-permissions-for-apps.md
+- title: Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Zarządzanie wpisami tajnymi w aplikacjach serwerowych przy użyciu usługi Azure Key Vault
+      url: /learn/modules/manage-secrets-with-azure-key-vault/

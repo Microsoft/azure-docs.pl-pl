@@ -2,21 +2,21 @@
 title: Ocena maszyn wirtualnych funkcji Hyper V pod kątem migracji na platformę Azure za pomocą usługi Azure Migrate | Dokumenty firmy Microsoft
 description: W tym artykule opisano sposób oceny lokalnych maszyn wirtualnych funkcji Hyper V do migracji na platformę Azure przy użyciu oceny serwera migracji usługi Azure.
 ms.topic: tutorial
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: cb3c29e01b7917a6d639b6b2a53fc2842efc2172
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336773"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535455"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Ocena maszyn wirtualnych funkcji Hyper V za pomocą oceny serwera migracji platformy Azure
 
 W tym artykule pokazano, jak ocenić lokalne maszyny wirtualne z programem Hyper V przy użyciu narzędzia [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
 
-Ten samouczek jest drugim z serii, który pokazuje, jak oceniać i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest drugim z serii, który pokazuje, jak oceniać i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie projektu migracji platformy Azure.
@@ -49,14 +49,14 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 4. W obszarze **Wprowadzenie** kliknij pozycję **Dodaj narzędzia**.
 5. Na karcie **Migruj projekt** wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.
-6. W **obszarze Szczegóły projektu**określ nazwę projektu i region, w którym chcesz utworzyć projekt. [Przejrzyj](migrate-support-matrix.md#supported-geographies) regiony, w których można utworzyć projekt migracji platformy Azure.
+6. W **obszarze Szczegóły projektu**określ nazwę projektu i region, w którym chcesz utworzyć projekt. Przejrzyj obsługiwane obszary geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - Region projektu jest używany tylko do przechowywania metadanych zebranych z lokalnych maszyn wirtualnych.
     - Podczas migracji maszyn wirtualnych można wybrać inny region docelowy platformy Azure. Wszystkie regiony platformy Azure są obsługiwane dla docelowego migracji.
 
     ![Tworzenie projektu migracji platformy Azure](./media/tutorial-assess-hyper-v/migrate-project.png)
 
-7. Kliknij przycisk **alej**.
+7. Kliknij przycisk **Dalej**.
 8. W **narzędziu do oceny Wybierz**wybierz pozycję Azure **Migrate: Server Assessment** > **Next**.
 
     ![Tworzenie projektu migracji platformy Azure](./media/tutorial-assess-hyper-v/assessment-tool.png)
@@ -67,9 +67,11 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurowanie urządzenia migracji platformy Azure
 
-Usługa Azure Migrate:server Assessment używa lekkiego urządzenia migracji platformy Azure. Urządzenie wykonuje odnajdowanie maszyn wirtualnych i wysyła metadane maszyny Wirtualnej i dane o wydajności do usługi Azure Migrate.
-- Urządzenie można skonfigurować na maszynie wirtualnej funkcji Hyper-V przy użyciu pobranego dysku V V V. Alternatywnie można skonfigurować urządzenie na maszynie Wirtualnej lub na komputerze fizycznym za pomocą skryptu instalatora programu PowerShell.
-- Ten samouczek używa dysku VHD. Zapoznaj się z [tym artykułem,](deploy-appliance-script.md) jeśli chcesz skonfigurować urządzenie przy użyciu skryptu.
+
+Usługa Azure Migrate:Server Assessment używa lekkiego urządzenia migracji platformy Azure. Urządzenie wykonuje odnajdowanie maszyn wirtualnych i wysyła metadane maszyny Wirtualnej i dane o wydajności do usługi Azure Migrate. Urządzenie można skonfigurować na wiele sposobów.
+
+- Skonfiguruj na maszynie wirtualnej funkcji Hyper-V przy użyciu pobranego dysku VHD z programem Hyper-V. Jest to metoda używana w tym samouczku.
+- Skonfiguruj na maszynie wirtualnej funkcji Hyper-V lub na komputerze fizycznym za pomocą skryptu instalatora programu PowerShell. [Ta metoda](deploy-appliance-script.md) powinna być używana, jeśli nie można skonfigurować maszyny Wirtualnej przy użyciu dysku wirtualnego lub jeśli jesteś w usłudze Azure Government.
 
 Po utworzeniu urządzenia można sprawdzić, czy można połączyć się z oceną migracji:serwera platformy Azure, skonfigurować go po raz pierwszy i zarejestrować go w projekcie migracji platformy Azure.
 
@@ -118,16 +120,16 @@ Zaimportuj pobrany plik i utwórz maszynę wirtualną.
 3. W **obszarze Znajdź folder**wybierz folder Maszyny **wirtualne.** Następnie kliknij przycisk **Dalej**.
 1. W **obszarze Wybierz maszynę wirtualną**kliknij przycisk **Dalej**.
 2. W **2014 r. kliknij**pozycję **Kopiuj maszynę wirtualną (utwórz nowy unikatowy identyfikator).** Następnie kliknij przycisk **Dalej**.
-3. W **obszarze Wybierz miejsce docelowe**pozostaw ustawienie domyślne. Kliknij przycisk **alej**.
-4. W **folderach magazynu**pozostaw ustawienie domyślne. Kliknij przycisk **alej**.
+3. W **obszarze Wybierz miejsce docelowe**pozostaw ustawienie domyślne. Kliknij przycisk **Dalej**.
+4. W **folderach magazynu**pozostaw ustawienie domyślne. Kliknij przycisk **Dalej**.
 5. W **obszarze Wybierz sieć**określ przełącznik wirtualny, którego będzie używać maszyna wirtualna. Przełącznik wymaga łączności z Internetem, aby wysłać dane na platformę Azure. [Dowiedz się więcej](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) o tworzeniu przełącznika wirtualnego.
 6. W **podsumowaniu**przejrzyj ustawienia. Następnie kliknij przycisk **Zakończ**.
 7. W Menedżerze funkcji Hyper-V > **maszyn wirtualnych**uruchom maszynę wirtualną.
 
 
-### <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
+## <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
 
-Upewnij się, że maszyna wirtualna urządzenia może łączyć się z [adresami URL platformy Azure](migrate-appliance.md#url-access).
+Upewnij się, że maszyna wirtualna urządzenia może łączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i [rządowych.](migrate-appliance.md#government-cloud-urls)
 
 ### <a name="configure-the-appliance"></a>Konfigurowanie urządzenia
 

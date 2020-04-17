@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 9f592c345b7cfcf5f21d816fde1fae6b8e6b98c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d920fb7815e5a9fe30d8f3b4e40f36133d83222
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823383"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538090"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL Database
 
@@ -132,6 +132,8 @@ Aby rozwiązać problemy z łącznością, zapoznaj się z następującymi probl
    ```
 
 - Jeśli korzystasz z komunikacji równorzędnej sieci wirtualnej, upewnij się, że użytkownik postępował zgodnie z instrukcjami ustawiania zezwalania na [przesyłanie bramy i używanie bram zdalnych](#connect-from-on-premises-with-vnet-peering).
+
+- Jeśli do łączenia aplikacji hostowanych usługi Azure App Service jest używanie komunikacji równorzędnej sieci wirtualnej, a sieć wirtualna wystąpienia zarządzanego ma zakres publicznego adresu IP, upewnij się, że hostowane ustawienia aplikacji zezwalają na kierowanie ruchu wychodzącego do publicznych sieci IP. Postępuj zgodnie z instrukcjami w [regionalnej integracji sieci wirtualnej](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Wymagane wersje sterowników i narzędzi
 

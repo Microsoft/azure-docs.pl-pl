@@ -3,12 +3,12 @@ title: Ustawianie kolejności wdrażania zasobów
 description: W tym artykule opisano sposób ustawiania jednego zasobu jako zależnego od innego zasobu podczas wdrażania, aby upewnić się, że zasoby są wdrażane w odpowiedniej kolejności.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: f11f79df875492a568a76f494dfffb4a163f64cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153288"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535472"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definiowanie kolejności wdrażania zasobów w szablonach ARM
 
@@ -18,7 +18,7 @@ Usługa Resource Manager ocenia zależności pomiędzy zasobami i wdraża je w k
 
 ## <a name="dependson"></a>dependsOn
 
-W szablonie dependsOn element umożliwia zdefiniowanie jednego zasobu jako zależne od jednego lub więcej zasobów. Jego wartość jest oddzieloną przecinkami listą nazw zasobów. Lista może zawierać zasoby, które są [warunkowo wdrożone](conditional-resource-deployment.md). Gdy zasób warunkowy nie jest wdrażany, usługa Azure Resource Manager automatycznie usuwa go z wymaganych zależności.
+W szablonie dependsOn element umożliwia zdefiniowanie jednego zasobu jako zależne od jednego lub więcej zasobów. Jego wartość jest tablica JSON ciągów, z których każdy jest nazwą zasobu. Tablica może zawierać zasoby, które są [warunkowo wdrożone](conditional-resource-deployment.md). Gdy zasób warunkowy nie jest wdrażany, usługa Azure Resource Manager automatycznie usuwa go z wymaganych zależności.
 
 W poniższym przykładzie przedstawiono zestaw skalowania maszyny wirtualnej, który zależy od modułu równoważenia obciążenia, sieci wirtualnej i pętli, która tworzy wiele kont magazynu. Te inne zasoby nie są wyświetlane w poniższym przykładzie, ale muszą istnieć w innym miejscu w szablonie.
 

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4aa0cce83f9adc8c648656899ec6dc12d498e26b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1ff92b8a9477800477ebb2d79145ddaa78831f30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77160452"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536067"
 ---
-# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Szybki start: dodawanie logowania przy użyciu funkcji OpenID Connect do aplikacji Node.js Web App
+# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Szybki start: dodawanie logowania przy użyciu funkcji OpenID Connect do aplikacji sieci Web Node.js
 
 W tym przewodniku Szybki start dowiesz się, jak skonfigurować uwierzytelnianie OpenID Connect w aplikacji sieci web utworzonej przy użyciu pliku Node.js w aplikacji Express. Próbka jest przeznaczona do uruchamiania na dowolnej platformie.
 
@@ -30,7 +30,7 @@ Aby uruchomić ten przykład, należy:
 
 * [Konto Microsoft](https://www.outlook.com) lub [program deweloperski usługi Office 365](/office/developer-program/office-365-developer-program)
 
-## <a name="register-your-application"></a>Rejestrowanie aplikacji 
+## <a name="register-your-application"></a>Rejestrowanie aplikacji
 1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/) przy użyciu konta służbowego lub konta firmy Microsoft.
 1. Jeśli Twoje konto znajduje się w więcej niż jednej dzierżawie usługi Azure AD:
     - Wybierz swój profil z menu w prawym górnym rogu strony, a następnie **przełącz katalog**.
@@ -55,7 +55,7 @@ Aby uruchomić ten przykład, należy:
     - W sekcji **Ustawienia zaawansowane** ustaw pole **Adres URL wylogowywania** na wartość `http://localhost:3000`.
     - W **ustawieniach zaawansowanych > niejawnych dotacji** sekcji, sprawdź **tokeny identyfikatora,** ponieważ w tym przykładzie wymaga [niejawnego przepływu dotacji,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) aby włączyć logowanie użytkownika.
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 1. Na stronie **Certyfikaty & wpisy tajne** w sekcji **Wpisy tajne klienta** wybierz pozycję Nowy klucz tajny **klienta**.
     - Wprowadź opis klucza (na przykład klucz tajny aplikacji).
@@ -78,7 +78,7 @@ lub
 
 Z katalogu głównego projektu uruchom polecenie:
 
-`$ npm install`  
+`$ npm install`
 
 ## <a name="configure-the-application"></a>Konfigurowanie aplikacji
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a6ab13dea1a1db96cbb2f2ac70b9779eca60591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5310c999cc44f0cf35f129751da7472031e6c57a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885391"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Samouczek: Integracja usługi Azure Active Directory z usługami Amazon Web Services (AWS) (starszy samouczek)
 
@@ -37,7 +37,7 @@ Jeśli chcesz dowiedzieć się więcej szczegółów na temat integracji aplikac
 ![Usługi Amazon Web Services (AWS) na liście wyników](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Należy pamiętać, łącząc jedną aplikację AWS do wszystkich kont AWS nie jest naszym zalecanym podejściem. Zamiast tego zaleca się użycie [tej](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metody do skonfigurowania wielu wystąpień konta AWS do wielu wystąpień aplikacji AWS w usłudze Azure AD. Tego [podejścia](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) należy używać tylko wtedy, gdy jest w nim bardzo mniejsza liczba kont AWS i ról. [ten](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) model nie jest skalowalny w miarę wzrostu liczby kont AWS i ról wewnątrz tych kont. Również [takie](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) podejście nie używa funkcji importowania roli AWS przy użyciu inicjowania obsługi administracyjnej użytkowników usługi Azure AD i dlatego należy ręcznie dodać/zaktualizować/usunąć role. Aby uzyskać inne ograniczenia dotyczące [tego](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) podejścia, zapoznaj się z poniższymi szczegółami.
+> Należy pamiętać, łącząc jedną aplikację AWS do wszystkich kont AWS nie jest naszym zalecanym podejściem. Zamiast tego zaleca się użycie [tej](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metody do skonfigurowania wielu wystąpień konta AWS do wielu wystąpień aplikacji AWS w usłudze Azure AD. Tego podejścia należy używać tylko wtedy, gdy masz bardzo mniejszą liczbę kont AWS i ról w nim, ten model nie jest skalowalny, jak konta AWS i role wewnątrz tych kont rośnie. Również takie podejście nie używa funkcji importowania roli AWS przy użyciu inicjowania obsługi administracyjnej użytkowników usługi Azure AD i dlatego należy ręcznie dodać/zaktualizować/usunąć role. Aby uzyskać inne ograniczenia dotyczące tego podejścia, zapoznaj się z poniższymi szczegółami.
 
 **Należy pamiętać, że nie zaleca się stosowania tego podejścia z następujących powodów:**
 
@@ -148,7 +148,7 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
     f. Kliknij przycisk **OK**.
 
-    g. Kliknij przycisk **Zapisz**.
+    g. Kliknij pozycję **Zapisz**.
 
 7. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** w sekcji **Certyfikat podpisywania SAML** kliknij pozycję **Pobierz,** aby pobrać **kod XML metadanych federacji** i zapisać go na komputerze.
 

@@ -1,16 +1,16 @@
 ---
 title: Zabezpieczenia
 description: Dowiedz się, jak usługa App Service pomaga zabezpieczyć aplikację i jak dodatkowo zablokować aplikację przed zagrożeniami.
-keywords: usługa aplikacji azure, aplikacja internetowa, aplikacja mobilna, aplikacja API, aplikacja funkcji, bezpieczeństwo, bezpieczne, zabezpieczone, zgodność, zgodny, certyfikat, certyfikaty, https, ftps, tls, zaufanie, szyfrowanie, szyfrowanie, zaszyfrowane, ograniczenie IP, uwierzytelnianie, autoryzacja, authn, autho, msi, tożsamość usługi zarządzanej, tożsamość zarządzana, tajne, tajne, łatanie, łatanie, poprawki, wersja, izolacja, izolacja sieci, ddos, mitm
+keywords: usługa aplikacji azure, aplikacja internetowa, aplikacja mobilna, aplikacja API, aplikacja funkcji, bezpieczeństwo, bezpieczne, zabezpieczone, zgodność, zgodny, certyfikat, certyfikaty, https, ftps, tls, zaufanie, szyfrowanie, szyfrowanie, szyfrowane, ograniczenie IP, uwierzytelnianie, autoryzacja, authn, autho, msi, tożsamość usługi zarządzanej, tożsamość zarządzana, tajne, łatanie, łatanie, łata, wersja, izolacja, izolacja sieci, ddos, mitm
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: e28935f73511e5ad973929517658cc626b5a6ea2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a098b1924bf7c2866f6afd7452b8dd3b93f3109
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475378"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535659"
 ---
 # <a name="security-in-azure-app-service"></a>Zabezpieczenia w usłudze aplikacji platformy Azure
 
@@ -31,14 +31,14 @@ W poniższych sekcjach pokazano, jak dalej chronić aplikację usługi App Servi
 
 ## <a name="https-and-certificates"></a>HTTPS i certyfikaty
 
-Usługa App Service umożliwia zabezpieczenie aplikacji za pomocą [protokołu HTTPS](https://wikipedia.org/wiki/HTTPS). Po utworzeniu aplikacji jej domyślna\<nazwa domeny ( app_name>.azurewebsites.net) jest już dostępna przy użyciu protokołu HTTPS. Jeśli [skonfigurujesz domenę niestandardową dla aplikacji,](app-service-web-tutorial-custom-domain.md)należy ją również [zabezpieczyć certyfikatem SSL,](configure-ssl-bindings.md) aby przeglądarki klienckie mogły nawiązywać zabezpieczone połączenia HTTPS z domeną niestandardową. Usługa App Service obsługuje kilka typów certyfikatów:
+Usługa App Service umożliwia zabezpieczenie aplikacji za pomocą [protokołu HTTPS](https://wikipedia.org/wiki/HTTPS). Po utworzeniu aplikacji jej domyślna\<nazwa domeny ( app_name>.azurewebsites.net) jest już dostępna przy użyciu protokołu HTTPS. Jeśli [skonfigurujesz domenę niestandardową dla aplikacji,](app-service-web-tutorial-custom-domain.md)należy ją również [zabezpieczyć certyfikatem TLS/SSL,](configure-ssl-bindings.md) aby przeglądarki klienckie mogły nawiązywać zabezpieczone połączenia HTTPS z domeną niestandardową. Usługa App Service obsługuje kilka typów certyfikatów:
 
 - Bezpłatny certyfikat zarządzany usługi app service
 - Certyfikat usługi app service
 - Certyfikat innej firmy
 - Certyfikat zaimportowany z usługi Azure Key Vault
 
-Aby uzyskać więcej informacji, zobacz [Dodawanie certyfikatu SSL w usłudze Azure App Service](configure-ssl-certificate.md).
+Aby uzyskać więcej informacji, zobacz [Dodawanie certyfikatu TLS/SSL w usłudze Azure App Service](configure-ssl-certificate.md).
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Protokoły niezabezpieczone (HTTP, TLS 1.0, FTP)
 
@@ -103,7 +103,7 @@ Nie przechowuj wpisów tajnych aplikacji, takich jak poświadczenia bazy danych,
 
 Alternatywnie można zintegrować aplikację usługi App Service z [usługą Azure Key Vault](/azure/key-vault/) w celu zaawansowanego zarządzania wpisami tajnymi. Uzyskując [dostęp do usługi Key Vault za pomocą tożsamości zarządzanej,](../key-vault/tutorial-web-application-keyvault.md)aplikacja usługi App Service może bezpiecznie uzyskiwać dostęp do potrzebnych wpisów tajnych.
 
-## <a name="network-isolation"></a>Izolacja sieci
+## <a name="network-isolation"></a>Izolacja sieciowa
 
 Z wyjątkiem warstwy cenowej **Izolowane** wszystkie warstwy uruchamiają aplikacje w udostępnionej infrastrukturze sieciowej w usłudze App Service. Na przykład publiczne adresy IP i moduły równoważenia obciążenia frontonu są współużytkowane innym dzierżawcom. Warstwa **Izolowane** zapewnia pełną izolację sieci, uruchamiając aplikacje w dedykowanym [środowisku usługi aplikacji.](environment/intro.md) Środowisko usługi aplikacji działa we własnym wystąpieniu [usługi Azure Virtual Network](/azure/virtual-network/). To pozwala: 
 

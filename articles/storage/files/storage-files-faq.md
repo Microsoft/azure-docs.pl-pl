@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 82c516eeac6d3e88ca7b6ac1c97ebb638ba27979
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383912"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537699"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Usługa Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu Bloku Komunikatów serwera (SMB).](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) Udziały plików platformy Azure można zainstalować jednocześnie w chmurze lub lokalnie we wdrożeniach systemów Windows, Linux i macOS. Można również buforować udziały plików platformy Azure na komputerach z systemem Windows Server przy użyciu usługi Azure File Sync dla szybkiego dostępu w pobliżu miejsca, w którym dane są używane.
@@ -164,7 +164,7 @@ W tym artykule odniewany jest odpowiedzi na często zadawane pytania dotyczące 
 * <a id="ad-support"></a>
 **Czy uwierzytelnianie oparte na tożsamości i kontrola dostępu są obsługiwane przez usługi Azure Files?**  
     
-    Tak, usługa Azure Files obsługuje uwierzytelnianie oparte na tożsamościach i kontrolę dostępu. Można wybrać jeden z dwóch sposobów korzystania z kontroli dostępu opartej na tożsamości: Active Directory (AD) (wersja zapoznawcza) lub Usługi domenowe Usługi domenowe Usługi Active Directory azure (Azure AD DS) (GA). Usługa AD obsługuje uwierzytelnianie przy użyciu maszyn przyłączonych do domeny usługi AD, lokalnie lub na platformie Azure, w celu uzyskania dostępu do udziałów plików platformy Azure za pośrednictwem kontrolera SMB. Uwierzytelnianie usług Azure AD DS za pośrednictwem kontrolera SMB dla usług Azure Files umożliwia maszynom wirtualnym systemu Windows przyłączonych do domeny usług Azure AD DS dostęp do udziałów, katalogów i plików przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Omówienie obsługi uwierzytelniania opartego na tożsamości usługi Azure Files dla dostępu do SMB](storage-files-active-directory-overview.md). 
+    Tak, usługa Azure Files obsługuje uwierzytelnianie oparte na tożsamościach i kontrolę dostępu. Można wybrać jeden z dwóch sposobów korzystania z kontroli dostępu opartej na tożsamości: lokalne Usługi domenowe Active Directory (wersja zapoznawcza) lub Usługi domenowe Usługi domenowe Active Directory platformy Azure (Usługi Usługi Azure AD DS). Lokalne usługi domenowe Active Directory (AD DS) obsługują uwierzytelnianie przy użyciu maszyn przyłączonych do domeny usług AD DS, lokalnie lub na platformie Azure, w celu uzyskania dostępu do udziałów plików platformy Azure za pośrednictwem kontrolera SMB. Uwierzytelnianie usług Azure AD DS za pośrednictwem kontrolera SMB dla usług Azure Files umożliwia maszynom wirtualnym systemu Windows przyłączonych do domeny usług Azure AD DS dostęp do udziałów, katalogów i plików przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Omówienie obsługi uwierzytelniania opartego na tożsamości usługi Azure Files dla dostępu do SMB](storage-files-active-directory-overview.md). 
 
     Usługa Azure Files oferuje dwa dodatkowe sposoby zarządzania kontrolą dostępu:
 
@@ -185,30 +185,30 @@ W tym artykule odniewany jest odpowiedzi na często zadawane pytania dotyczące 
     Tak, obsługujemy interfejsy API REST, które otrzymują, ustawiają lub kopiują listy ACL NTFS dla katalogów lub plików podczas korzystania z interfejsu API REST 2019-07-07.Yes, we supporty REST API that get, set, or copy NTFS ACL for directories or files when using the [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (or noce) REST API.
 
 * <a id="ad-vm-subscription"></a>
-**Czy mogę uzyskać dostęp do plików platformy Azure przy użyciu poświadczeń usługi Azure AD z maszyny Wirtualnej w ramach innej subskrypcji?**
+**Czy mogę uzyskać dostęp do udziałów plików platformy Azure przy użyciu poświadczeń usługi Azure AD z maszyny Wirtualnej w ramach innej subskrypcji?**
 
-    Jeśli subskrypcja, w ramach której jest wdrażany udział plików jest skojarzony z tej samej dzierżawy usługi Azure AD jako wdrożenia usług domenowych usługi azure AD, do którego maszyna wirtualna jest przyłączona do domeny, a następnie można uzyskać dostęp do usługi Azure Files przy użyciu tych samych poświadczeń usługi Azure AD. Ograniczenie jest nakładane nie na subskrypcję, ale na skojarzoną dzierżawę usługi Azure AD.
+    Jeśli subskrypcja, w ramach której jest wdrażany udział plików jest skojarzony z tej samej dzierżawy usługi Azure AD jako wdrożenia usług Ad DS, do którego maszyna wirtualna jest przyłączona do domeny, można następnie uzyskać dostęp do udziałów plików platformy Azure przy użyciu tych samych poświadczeń usługi Azure AD. Ograniczenie jest nakładane nie na subskrypcję, ale na skojarzoną dzierżawę usługi Azure AD.
     
 * <a id="ad-support-subscription"></a>
-**Czy mogę włączyć uwierzytelnianie usługi Azure Files AD DS lub AD za pomocą dzierżawy usługi Azure AD, która różni się od dzierżawy podstawowej, z którą jest skojarzony udział plików?**
+**Czy mogę włączyć usługi Azure AD DS lub lokalne uwierzytelnianie usług AD DS dla udziałów plików platformy Azure przy użyciu dzierżawy usługi Azure AD, która różni się od głównej dzierżawy udziału plików platformy Azure?**
 
-    Nie, usługa Azure Files obsługuje tylko integrację usług Azure AD DS lub AD z dzierżawą usługi Azure AD, która znajduje się w tej samej subskrypcji co udział plików. Tylko jedna subskrypcja może być skojarzona z dzierżawą usługi Azure AD. To ograniczenie dotyczy zarówno metod uwierzytelniania usług Azure AD DS, jak i ad. Podczas korzystania z usługi AD do uwierzytelniania poświadczenia usługi AD muszą być synchronizowane z usługą Azure AD, z którą jest skojarzone konto magazynu.
+    Nie, usługa Azure Files obsługuje tylko integrację usług Azure AD DS lub lokalnych usług AD DS z dzierżawą usługi Azure AD, która znajduje się w tej samej subskrypcji co udział plików. Tylko jedna subskrypcja może być skojarzona z dzierżawą usługi Azure AD. To ograniczenie dotyczy zarówno usług Azure AD DS, jak i lokalnych metod uwierzytelniania usług AD DS. Podczas korzystania z lokalnych usług AD DS do uwierzytelniania poświadczenia usług AD DS muszą być synchronizowane z [usługą Azure AD,](../../active-directory/hybrid/how-to-connect-install-roadmap.md) z którą jest skojarzone konto magazynu.
 
 * <a id="ad-linux-vms"></a>
-**Czy usługi Azure Files Azure AD DS lub ad uwierzytelniania obsługuje maszyn wirtualnych systemu Linux?**
+**Czy uwierzytelnianie usług AD DS lub lokalne usługi AD DS dla udziałów plików platformy Azure obsługuje maszyny wirtualne z systemem Linux?**
 
     Nie, uwierzytelnianie z maszyn wirtualnych z systemem Linux nie jest obsługiwane.
 
 * <a id="ad-aad-smb-afs"></a>
-**Czy mogę korzystać z uwierzytelniania usług Azure AD DS usługi Azure lub uwierzytelniania usługi Active Directory (AD) (w wersji zapoznawczej) w udziałach plików zarządzanych przez usługę Azure File Sync?**
+**Czy udziały plików zarządzane przez usługę Azure File Sync obsługują usługi Azure AD DS lub lokalne uwierzytelnianie usług AD DS (w wersji zapoznawczej)?**
 
-    Tak, można włączyć uwierzytelnianie usług Azure AD DS lub AD w udziale plików zarządzanym przez synchronizację plików platformy Azure. Zmiany w listach ACL NTFS katalogu/pliku na lokalnych serwerach plików będą warstwowe w warstwie usługi Azure Files i odwrotnie.
+    Tak, można włączyć usługi Azure AD DS lub lokalne uwierzytelnianie usług AD DS w udziale plików zarządzanym przez usługę Azure File Sync. Zmiany w listach ACL NTFS katalogu/pliku na lokalnych serwerach plików będą warstwowe w warstwie usługi Azure Files i odwrotnie.
 
 * <a id="ad-aad-smb-files"></a>
-**Jak sprawdzić, czy włączono uwierzytelnianie usługi AD na moim koncie magazynu i informacje o domenie usługi AD?**
+**Jak sprawdzić, czy włączono uwierzytelnianie usług AD DS na moim koncie magazynu i pobrać informacje o domenie?**
 
-    Można zapoznać się z instrukcjami podanymi [w tym miejscu,](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account) aby sprawdzić, czy uwierzytelnianie usługi Azure Files AD jest włączone na koncie magazynu i pobrać informacje o domenie usługi AD.
-
+    Aby uzyskać instrukcje, zobacz [tutaj](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
+    
 * <a id="encryption-at-rest"></a>
 **Jak mogę się upewnić, że mój udział plików platformy Azure jest szyfrowany w spoczynku?**  
 
@@ -241,15 +241,15 @@ W tym artykule odniewany jest odpowiedzi na często zadawane pytania dotyczące 
     Nie, uwierzytelnianie z maszyn wirtualnych z systemem Linux nie jest obsługiwane.
 
 * <a id="ad-multiple-forest"></a>
-**Czy uwierzytelnianie usługi Azure Files AD obsługuje integrację ze środowiskiem usługi AD przy użyciu wielu lasów?**    
+**Czy lokalne uwierzytelnianie usług AD DS dla udziałów plików platformy Azure obsługuje integrację ze środowiskiem usług AD DS przy użyciu wielu lasów?**    
 
-    Uwierzytelnianie usługi Azure Files AD integruje się tylko z lasem usługi domeny usługi AD, do których jest zarejestrowane konto magazynu. Aby obsługa uwierzytelniania z innego lasu usługi AD, środowisko musi mieć poprawnie skonfigurowane zaufanie do lasu. Sposób rejestrowania usług Azure Files w usłudze domeny usługi AD jest w większości taki sam jak zwykły serwer plików, gdzie tworzy tożsamość (konto logowania komputera lub usługi) w usłudze AD do uwierzytelniania. Jedyną różnicą jest to, że zarejestrowana nazwa SPN konta magazynu kończy się na "file.core.windows.net", który nie jest zgodny z sufiksem domeny. Skonsultuj się z administratorem domeny, aby sprawdzić, czy aktualizacja zasad routingu DNS jest wymagana do włączenia wielokrotnego uwierzytelniania lasu z powodu innego sufiksu domeny.
+    Lokalne uwierzytelnianie usług AD DS usługi Azure Files integruje się tylko z lasem usługi domeny, do których jest zarejestrowane konto magazynu. Aby obsługa uwierzytelniania z innego lasu, środowisko musi mieć zaufanie lasu poprawnie skonfigurowane. Sposób, w jaki usługa Azure Files rejestruje się w usługach AD DS prawie tak samo jak zwykły serwer plików, gdzie tworzy tożsamość (konto logowania komputera lub usługi) w usługach AD DS w celu uwierzytelniania. Jedyną różnicą jest to, że zarejestrowana nazwa SPN konta magazynu kończy się na "file.core.windows.net", który nie jest zgodny z sufiksem domeny. Skonsultuj się z administratorem domeny, aby sprawdzić, czy aktualizacja zasad routingu DNS jest wymagana do włączenia wielokrotnego uwierzytelniania lasu z powodu innego sufiksu domeny.
 
 * <a id=""></a>
-**Jakie regiony są dostępne dla uwierzytelniania usługi Azure Files AD (w wersji zapoznawczej)?**
+**Jakie regiony są dostępne dla uwierzytelniania usług AD DS usługi Azure Files (w wersji zapoznawczej)?**
 
-    Szczegółowe informacje można znaleźć w [regionalnej dostępności usługi AD.](storage-files-identity-auth-active-directory-enable.md#regional-availability)
-
+    Szczegółowe informacje można znaleźć w [regionalnej dostępności usług AD DS.](storage-files-identity-auth-active-directory-enable.md#regional-availability)
+    
 * <a id="ad-aad-smb-afs"></a>
 **Czy mogę korzystać z uwierzytelniania (wersji zapoznawczej) usługi Azure Files Active Directory (preview) w udziałach plików zarządzanych przez usługę Azure File Sync?**
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 1226b3e10adf786ed3335844a5d3f4e530911705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c47b9b5f297fa62c474e6c29737d6d11b887130d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671243"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537478"
 ---
 # <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>Interfejs API agenta usługi Application Insights: Set-ApplicationInsightsMonitoringConfig
 
@@ -54,10 +54,10 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 ## <a name="parameters"></a>Parametry
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
-**Wymagane.** Ten parametr służy do poniesienia pojedynczego klucza instrumentacji do użycia przez wszystkie aplikacje na komputerze docelowym.
+**Wymagany.** Ten parametr służy do poniesienia pojedynczego klucza instrumentacji do użycia przez wszystkie aplikacje na komputerze docelowym.
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**Wymagane.** Ten parametr służy do dostarczania wielu kluczy instrumentacji i mapowania kluczy instrumentacji używanych przez każdą aplikację.
+**Wymagany.** Ten parametr służy do dostarczania wielu kluczy instrumentacji i mapowania kluczy instrumentacji używanych przez każdą aplikację.
 Można utworzyć pojedynczy skrypt instalacyjny `MachineFilter`dla kilku komputerów, ustawiając plik .
 
 > [!IMPORTANT]
@@ -113,7 +113,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 ## <a name="next-steps"></a>Następne kroki
 
   Wyświetlanie telemetrii:
- - [Eksploruj metryki,](../../azure-monitor/app/metrics-explorer.md) aby monitorować wydajność i użycie.
+ - [Eksploruj metryki,](../../azure-monitor/platform/metrics-charts.md) aby monitorować wydajność i użycie.
 - [Szukaj zdarzeń i dzienników](../../azure-monitor/app/diagnostic-search.md) w celu zdiagnozowania problemów.
 - [Korzystaj z analizy](../../azure-monitor/app/analytics.md) w przypadku bardziej zaawansowanych zapytań.
 - [Tworzenie pulpitów nawigacyjnych](../../azure-monitor/app/overview-dashboard.md).

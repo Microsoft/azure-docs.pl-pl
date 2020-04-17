@@ -12,12 +12,12 @@ ms.date: 12/17/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c6113490cf7d754a9e45638e4a0bfa588f1942ca
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 6021348160b338bc3a153764968f6c846a644cd1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309429"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535863"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Platforma tożsamości firmy Microsoft i przepływ poświadczeń klienta OAuth 2.0
 
@@ -70,7 +70,7 @@ Aby korzystać z uprawnień aplikacji w aplikacji, wykonaj kroki omówione w nas
 
 
 > [!NOTE]
-> Podczas uwierzytelniania jako aplikacji, w przeciwieństwie do użytkownika, nie można użyć "delegowane uprawnienia" (zakresy, które są przyznawane przez użytkownika).  Należy użyć "uprawnienia aplikacji", znany również jako "role", które są przyznawane przez administratora dla aplikacji (lub za pośrednictwem pre-autoryzacji przez interfejs API sieci web).    
+> Podczas uwierzytelniania jako aplikacji, w przeciwieństwie do użytkownika, nie można użyć "delegowane uprawnienia" (zakresy, które są przyznawane przez użytkownika).  Należy użyć "uprawnienia aplikacji", znany również jako "role", które są przyznawane przez administratora dla aplikacji (lub za pośrednictwem pre-autoryzacji przez interfejs API sieci web).
 
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Żądanie uprawnień w portalu rejestracji aplikacji
@@ -169,7 +169,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ```
 
 ```
-// Replace {tenant} with your tenant! 
+// Replace {tenant} with your tenant!
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
@@ -220,7 +220,7 @@ Odpowiedź oznaczająca powodzenie wygląda następująco:
 
 | Parametr | Opis |
 | --- | --- |
-| `access_token` | Żądany token dostępu. Aplikacja może używać tego tokenu do uwierzytelniania do zabezpieczonego zasobu, na przykład do interfejsu API sieci Web. |
+| `access_token` | Żądany token dostępu. Aplikacja może używać tego tokenu do uwierzytelniania do zabezpieczonego zasobu, na przykład do internetowego interfejsu API. |
 | `token_type` | Wskazuje wartość typu tokenu. Jedynym typem, który obsługuje `bearer`platforma tożsamości firmy Microsoft, jest . |
 | `expires_in` | Czas, przez który token dostępu jest prawidłowy (w sekundach). |
 

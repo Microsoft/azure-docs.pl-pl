@@ -2,14 +2,14 @@
 title: Informacje o usłudze Azure Migrate
 description: Dowiedz się więcej o usłudze Migracji platformy Azure.
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: a9723f15d496393d27bdd227ec1121a7878b37e0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: aa999b874b6e8b0075ab905a72ff04f03cb39ac7
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80127746"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537903"
 ---
 # <a name="about-azure-migrate"></a>Informacje o usłudze Azure Migrate
 
@@ -40,6 +40,9 @@ Centrum migracji platformy Azure zawiera te narzędzia.
 **Movere** | Ocena serwerów. | [Dowiedz się więcej](#movere) o Movere.
 **Asystent migracji aplikacji sieci Web** | Oceniaj i migruj lokalne aplikacje sieci Web na platformę Azure. |  Asystent migracji usługi Azure App Service służy do oceny lokalnych witryn sieci Web w celu migracji do usługi Azure App Service.<br/><br/> Użyj Asystenta do migracji aplikacji sieci web .NET i PHP na platformę Azure. [Dowiedz się więcej](https://appmigration.microsoft.com/) o Asystencie migracji usługi Azure App Service.
 **Azure Data Box** | Migracja danych w trybie offline. | Użyj produktów usługi Azure Data Box, aby przenieść duże ilości danych w tryb offline na platformę Azure. [Dowiedz się więcej](https://docs.microsoft.com/azure/databox/).
+
+> [!NOTE]
+> Jeśli korzystasz z platformy Azure dla instytucji rządowych, zewnętrzne zintegrowane narzędzia i oferty sieci web nie mogą wysyłać danych do projektów migracji platformy Azure. Narzędzia można używać niezależnie.
 
 ## <a name="isv-integration"></a>Integracja z isv
 
@@ -94,7 +97,7 @@ W centrum migracji platformy Azure wybierz narzędzie, którego chcesz użyć do
 
 Movere to platforma SaaS, która zwiększa analitykę biznesową poprzez dokładne zaprezentowanie całych środowisk IT w ciągu jednego dnia. W miarę rozwoju, zmiany i optymalizacji cyfrowej, rozwiązanie zapewnia przedsiębiorstwom pewność, której potrzebują, aby mieć wgląd i kontrolę nad swoimi środowiskami, niezależnie od platformy, aplikacji lub lokalizacji geograficznej. Movere został [przejęty](https://azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools/) przez Microsoft i nie jest już sprzedawany jako samodzielna oferta.  Movere jest dostępny za pośrednictwem programów Microsoft Solution Assessment and Cloud Economics. [Dowiedz się więcej](https://www.movere.io) o Movere. 
 
-Zachęcamy również do zapoznania się z usługą Azure Migrate, naszą wbudowaną usługą migracji. Usługa Azure Migrate zapewnia centralne centrum, aby uprościć migrację do chmury. Centrum oferuje kompleksową obsługę różnych obciążeń, w tym serwerów fizycznych i wirtualnych, baz danych i aplikacji. Widoczność end-to-end ułatwia śledzenie postępu w trakcie odnajdywania, oceny i migracji. Dzięki wbudowanym narzędziom niezależnego dostępu do sieci Web platformy Azure i partnerów usługa Azure Migrate oferuje również szeroką gamę funkcji, w tym odnajdowanie serwerów wirtualnych i fizycznych, rozmiary praw opartych na wydajności, planowanie kosztów, oceny oparte na imporcie i aplikacje bez agenta analizy zależności. Jeśli szukasz fachowej pomocy na rozpoczęcie pracy, firma Microsoft ma wykwalifikowanego [dostawcę usług zarządzanych azure expert,](https://azure.microsoft.com/partners) który poprowadzi Cię w trakcie podróży. Zapoznaj się z [witryną sieci Web usługi Azure Migrate](https://azure.microsoft.com/services/azure-migrate/). 
+Zachęcamy również do zapoznania się z usługą Azure Migrate, naszą wbudowaną usługą migracji. Usługa Azure Migrate zapewnia centralne centrum, aby uprościć migrację do chmury. Centrum oferuje kompleksową obsługę różnych obciążeń, w tym serwerów fizycznych i wirtualnych, baz danych i aplikacji. Widoczność end-to-end ułatwia śledzenie postępu w trakcie odnajdywania, oceny i migracji. Dzięki wbudowanym narzędziom niezależnego dostępu do sieci Web platformy Azure i partnerów usługa Azure Migrate oferuje również szeroki zakres funkcji, w tym odnajdowanie serwerów wirtualnych i fizycznych, rozmiary praw opartych na wydajności, planowanie kosztów, oceny oparte na imporcie i analizę zależności aplikacji bez agenta. Jeśli szukasz fachowej pomocy na rozpoczęcie pracy, firma Microsoft ma wykwalifikowanego [dostawcę usług zarządzanych azure expert,](https://azure.microsoft.com/partners) który poprowadzi Cię w trakcie podróży. Zapoznaj się z [witryną sieci Web usługi Azure Migrate](https://azure.microsoft.com/services/azure-migrate/). 
  
 
 ## <a name="azure-migrate-versions"></a>Wersje migracji platformy Azure

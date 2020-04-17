@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
+title: Azure Synapse Analytics
 summary: Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie danych przedsiębiorstwa z analizą danych big data. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali.
 metadata:
   title: Azure Synapse Analytics
@@ -11,28 +11,40 @@ metadata:
   ms.collection: collection
   author: julieMSFT
   ms.author: jrasnick
-  ms.date: 10/03/2019
-  ms.openlocfilehash: 16855697c61bb4b919d4f7dcaa752d3a17f6dbef
-  ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+  ms.date: 04/15/2020
+  ms.openlocfilehash: ea895ce94ed3b1fde574a1753981ac58adcb72b3
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/09/2020
-  ms.locfileid: "80998826"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81414261"
 landingContent:
-- title: Informacje o usłudze Azure Synapse Analytics
+- title: Informacje o usłudze Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
   linkLists:
   - linkListType: overview
     links:
-    - text: Co to jest usługa Azure Synapse?
+    - text: Co to jest usługa Azure Synapse? (dawniej Azure SQL Data Warehouse)
       url: sql-data-warehouse-overview-what-is.md
+    - text: Wskazówki i najlepsze rozwiązania
+      url: cheat-sheet.md
   - linkListType: architecture
     links:
     - text: Architektura usługi Azure Synapse
       url: massively-parallel-processing-mpp-architecture.md
-    - text: Wskazówki i najlepsze rozwiązania
-      url: cheat-sheet.md
     - text: Architektura referencyjna
       url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+- title: Informacje o usłudze Azure Synapse Analytics (wersja zapoznawcza obszaru roboczego)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest usługa Azure Synapse (wersja zapoznawcza obszaru roboczego)
+      url: ../overview-what-is.md
+    - text: Wskazówki i najlepsze rozwiązania
+      url: ../overview-cheat-sheet.md
+    - text: Często zadawane pytania
+      url: ../overview-faq.md
+    - text: Informacje o wersji
+      url: ../release-notes.md
 - title: Wprowadzenie
   linkLists:
   - linkListType: deploy
@@ -63,12 +75,8 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Najlepsze rozwiązania
-      url: sql-data-warehouse-best-practices.md
     - text: Dostosowywanie uporządkowanego klastrowanego indeksu magazynu kolumn
       url: performance-tuning-ordered-cci.md
-    - text: Używanie zmaterializowanego widoku na potrzeby dostosowywania obciążenia
-      url: performance-tuning-materialized-views.md
   - linkListType: how-to-guide
     links:
     - text: Analizowanie obciążenia
@@ -99,5 +107,5 @@ landingContent:
   linkLists:
   - linkListType: video
     links:
-    - text: Oglądanie najnowszych wideo dotyczących magazynu danych
+    - text: Obejrzyj najnowsze wideo dotyczące usługi Synapse SQL
       url: sql-data-warehouse-videos.md

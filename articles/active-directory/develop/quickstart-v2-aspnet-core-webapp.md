@@ -1,6 +1,6 @@
 ---
 title: Dodawanie logowania za pomocą firmy Microsoft do ASP.NET podstawowych aplikacji sieci Web — platforma tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak zaimplementować logowanie firmy Microsoft w aplikacji internetowej ASP.NET Core za pomocą protokołu OpenID Connect.
+description: Dowiedz się, jak zaimplementować logowanie microsoftu w aplikacji sieci Web ASP.NET Core przy użyciu funkcji OpenID Connect
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: ac53a6cf6953255f51a6b586703147c5ce2338b6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a34264870ce812da5d7e7c790a1482d90b33d06a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81407151"
+ms.locfileid: "81536169"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Szybki start: dodawanie logowania za pomocą firmy Microsoft do aplikacji sieci Web ASP.NET Core
 W tym przewodniku Szybki start można użyć przykładu kodu, aby dowiedzieć się, jak aplikacja sieci web ASP.NET Core może logować się na kontach osobistych (hotmail.com, outlook.com, inne) oraz kontach służbowych i szkolnych z dowolnego wystąpienia usługi Azure Active Directory (Azure AD). (Zobacz [Jak działa przykład](#how-the-sample-works) dla ilustracji).
@@ -71,15 +71,15 @@ W tym przewodniku Szybki start można użyć przykładu kodu, aby dowiedzieć si
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3: Aplikacja jest skonfigurowana i gotowa do uruchomienia
-> Skonfigurowaliśmy projekt z wartościami właściwości aplikacji i jest on gotowy do uruchomienia. 
+> Skonfigurowaliśmy projekt z wartościami właściwości aplikacji i jest on gotowy do uruchomienia.
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>Krok 3: Uruchamianie projektu programu Visual Studio
 > 1. Wyodrębnij plik zip do folderu lokalnego w ramach folderu głównego, na przykład **C:\Azure-Samples**.
-> 1. Otwieranie rozwiązania w programie Visual Studio 
-> 1. Edytuj plik **appsettings.json**. Znajdź `ClientId` i zaktualizuj wartość za pomocą `ClientId` wartości **identyfikatora aplikacji (klienta)** zarejestrowanej aplikacji. 
+> 1. Otwieranie rozwiązania w programie Visual Studio
+> 1. Edytuj plik **appsettings.json**. Znajdź `ClientId` i zaktualizuj wartość za pomocą `ClientId` wartości **identyfikatora aplikacji (klienta)** zarejestrowanej aplikacji.
 >
 >    ```json
 >    "ClientId": "Enter_the_Application_Id_here"
@@ -141,7 +141,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Metoda `AddAuthentication` konfiguruje usługę, aby dodać uwierzytelnianie oparte na plikach cookie, które jest używane w scenariuszach przeglądarki i ustawić wyzwanie OpenID Connect. 
+Metoda `AddAuthentication` konfiguruje usługę, aby dodać uwierzytelnianie oparte na plikach cookie, które jest używane w scenariuszach przeglądarki i ustawić wyzwanie OpenID Connect.
 
 Wiersz zawierający `.AddAzureAd` dodaje uwierzytelnianie platformy tożsamości firmy Microsoft do aplikacji. Następnie jest skonfigurowany do logowania się przy użyciu punktu końcowego platformy tożsamości firmy Microsoft.
 
@@ -167,4 +167,4 @@ Kontroler lub jego metody można chronić za pomocą atrybutu `[Authorize]`. Ten
 Zapoznaj się z repozytorium GitHub dla tego samouczka ASP.NET Core, aby uzyskać więcej informacji, w tym instrukcje dotyczące dodawania uwierzytelniania do zupełnie nowej aplikacji sieci Web ASP.NET, jak wywoływać microsoft graph i inne interfejsy API firmy Microsoft, jak dzwonić do własnych interfejsów API, jak dodawać autoryzację, jak logować się do użytkowników w chmurach krajowych lub z tożsamościami społecznościowymi i innymi :
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core Web App samouczek](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
+> [ASP.NET Core aplikacji sieci web samouczek](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

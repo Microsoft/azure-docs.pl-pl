@@ -3,12 +3,12 @@ title: Tabela obsługi usługi Azure Backup
 description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878956"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537325"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz pomocy technicznej dla usługi Azure Backup
 
@@ -90,7 +90,7 @@ Usługa Azure Backup nie obsługuje automatycznego dostosowywania zegara dla cza
 
 Obsługa deduplikacji dysku jest następująca:
 
-- Deduplikacja dysku jest obsługiwana lokalnie, gdy do utworzenia kopii zapasowej maszyn wirtualnych z systemem Windows jest używany program DPM lub MABs. System Windows Server wykonuje deduplikację danych (na poziomie hosta) na wirtualnych dyskach twardych (VHD), które są podłączone do maszyny Wirtualnej jako magazyn kopii zapasowych.
+- Deduplikacja dysku jest obsługiwana lokalnie, gdy program DPM lub MABS jest używany do 300 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000 System Windows Server wykonuje deduplikację danych (na poziomie hosta) na wirtualnych dyskach twardych (VHD), które są podłączone do maszyny Wirtualnej jako magazyn kopii zapasowych.
 - Funkcja deduplikacji nie jest obsługiwana na platformie Azure dla żadnego składnika usługi Backup. Gdy program DPM i MABS są wdrażane na platformie Azure, dysków magazynu dołączonych do maszyny Wirtualnej nie można deduplikować.
 
 ## <a name="security-and-encryption-support"></a>Obsługa zabezpieczeń i szyfrowania

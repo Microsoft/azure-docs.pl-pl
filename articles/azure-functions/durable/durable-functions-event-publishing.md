@@ -3,12 +3,12 @@ title: Funkcje trwałe publikowania w usłudze Azure Event Grid (wersja zapoznaw
 description: Dowiedz się, jak skonfigurować automatyczne publikowanie w usłudze Azure Event Grid dla funkcji trwałych.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 52ffcd4eb81936ffcfa61580288c60bd59ffb744
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 671f7bd5221a936ea9dad0f0cece895bdbe9512f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78249757"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535489"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Funkcje trwałe publikowania w usłudze Azure Event Grid (wersja zapoznawcza)
 
@@ -68,14 +68,36 @@ Teraz możesz wysyłać wydarzenia do tematu.
 
 W projekcie funkcje trwałe `host.json` znajdź plik.
 
+### <a name="durable-functions-1x"></a>Funkcje trwałe 1.x
+
 Dodaj `eventGridTopicEndpoint` `eventGridKeySettingName` i `durableTask` we właściwości.
 
 ```json
 {
+  "durableTask": {
+    "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+    "eventGridKeySettingName": "EventGridKey"
+  }
+}
+```
+
+### <a name="durable-functions-2x"></a>Funkcje trwałe 2.x
+
+Dodaj `notifications` sekcję `durableTask` do właściwości pliku, `<topic_name>` zastępując wybraną nazwą. Jeśli `durableTask` właściwości `extensions` lub nie istnieją, utwórz je w tym przykładzie:
+
+```json
+{
+  "version": "2.0",
+  "extensions": {
     "durableTask": {
-        "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
-        "eventGridKeySettingName": "EventGridKey"
+      "notifications": {
+        "eventGrid": {
+          "topicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+          "keySettingName": "EventGridKey"
+        }
+      }
     }
+  }
 }
 ```
 
@@ -132,7 +154,7 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = async function(context, eventGridEvent) {

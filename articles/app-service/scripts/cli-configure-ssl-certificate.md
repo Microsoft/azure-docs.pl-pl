@@ -1,25 +1,25 @@
 ---
-title: 'CLI: Przekazywanie i wiązyanie certyfikatu SSL z aplikacją'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak powiązać niestandardowy certyfikat SSL z aplikacją.
+title: 'CLI: Przekazywanie i powiązywać certyfikat TLS/SSL do aplikacji'
+description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak powiązać niestandardowy certyfikat TLS/SSL z aplikacją.
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d519ae31359890430c3e0f690e51d95acfacf1ef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d1775f3af390bb71b6895dc6d43c5ae574371aef
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80058755"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537665"
 ---
-# <a name="bind-a-custom-ssl-certificate-to-an-app-service-app-using-cli"></a>Tworzenie powiązania niestandardowego certyfikatu SSL z aplikacją usługi App Service przy użyciu interfejsu wiersza polecenia
+# <a name="bind-a-custom-tlsssl-certificate-to-an-app-service-app-using-cli"></a>Powiąż niestandardowy certyfikat TLS/SSL z aplikacją usługi App Service przy użyciu interfejsu wiersza polecenia
 
-Ten przykładowy skrypt tworzy aplikację w usłudze App Service z powiązanymi zasobami, a następnie tworzy powiązanie certyfikatu SSL nazwy domeny niestandardowej z tą aplikacją. Do pracy z tym przykładem potrzebne są:
+Ten przykładowy skrypt tworzy aplikację w usłudze App Service z powiązanymi zasobami, a następnie wiąże z nią certyfikat TLS/SSL o niestandardowej nazwie domeny. Do pracy z tym przykładem potrzebne są:
 
 * Dostęp do strony konfiguracji serwera DNS rejestratora domen.
-* Prawidłowy plik PFX i jego hasło na potrzeby certyfikatu SSL, który ma zostać przekazany i powiązany.
+* Prawidłowe . PFX i jego hasło do certyfikatu TLS/SSL, który chcesz przekazać i powiązać.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to an app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -43,8 +43,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Tworzy plan usługi App Service. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Tworzy aplikację usługi App Service. |
 | [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Mapuje domenę niestandardową na aplikację usługi App Service. |
-| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Przekazuje certyfikat SSL do aplikacji usługi App Service. |
-| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Tworzy powiązanie przekazanego certyfikatu SSL z aplikacją usługi App Service. |
+| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Przesyła certyfikat TLS/SSL do aplikacji usługi App Service. |
+| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Wiąże przekazany certyfikat TLS/SSL z aplikacją usługi App Service. |
 
 ## <a name="next-steps"></a>Następne kroki
 

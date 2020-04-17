@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b812ae10b3462dbeff05c8a67e7ebb725281e7e8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259333"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535761"
 ---
 # <a name="back-up-your-app-in-azure"></a>Tworzenie kopii zapasowej aplikacji na platformie Azure
 Funkcja tworzenia kopii zapasowych i przywracania w [usłudze Azure App Service](overview.md) umożliwia łatwe tworzenie kopii zapasowych aplikacji ręcznie lub zgodnie z harmonogramem. Można skonfigurować kopie zapasowe, które mają być przechowywane do nieokreślonej ilości czasu. Możesz przywrócić aplikację do migawki poprzedniego stanu, zastępując istniejącą aplikację lub przywracając ją do innej aplikacji.
@@ -28,7 +28,7 @@ Usługa App Service można wyw kopii zapasowej następujących informacji do kon
 
 Następujące rozwiązania bazy danych są obsługiwane z funkcją tworzenia kopii zapasowych: 
 
-- [Baza danych SQL](https://azure.microsoft.com/services/sql-database/)
+- [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
 - [MySQL w aplikacji](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/)
@@ -44,8 +44,8 @@ Następujące rozwiązania bazy danych są obsługiwane z funkcją tworzenia kop
 * Funkcja tworzenia kopii zapasowych i przywracania wymaga, aby plan usługi aplikacji był w warstwie **Standardowa** lub **Warstwa Premium.** Aby uzyskać więcej informacji na temat skalowania planu usługi App Service w celu użycia wyższej warstwy, zobacz [Skalowanie w górę aplikacji na platformie Azure](manage-scale-up.md). **Warstwa Premium** umożliwia większą liczbę dziennych kopii zapasowych niż **warstwa standardowa.**
 * Potrzebujesz konta magazynu platformy Azure i kontenera w tej samej subskrypcji co aplikacja, której chcesz wykonać. Aby uzyskać więcej informacji na temat kont magazynu platformy Azure, zobacz [omówienie konta magazynu platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Kopie zapasowe mogą mieć do 10 GB zawartości aplikacji i bazy danych. Jeśli rozmiar kopii zapasowej przekracza ten limit, zostanie wyświetlony błąd.
-* Kopie zapasowe usługi Azure Database z włączoną funkcją SSL dla mysql nie są obsługiwane. Jeśli kopia zapasowa jest skonfigurowana, otrzymasz nieudane kopie zapasowe.
-* Kopie zapasowe usługi Azure Database z włączoną funkcją SSL dla postgreSQL nie są obsługiwane. Jeśli kopia zapasowa jest skonfigurowana, otrzymasz nieudane kopie zapasowe.
+* Kopie zapasowe usługi Azure Database z włączoną usługą Azure Database dla mysql nie są obsługiwane. Jeśli kopia zapasowa jest skonfigurowana, otrzymasz nieudane kopie zapasowe.
+* Kopie zapasowe usługi Azure Database z włączoną usługą TLS dla postgreSQL nie są obsługiwane. Jeśli kopia zapasowa jest skonfigurowana, otrzymasz nieudane kopie zapasowe.
 * W aplikacji bazy danych MySQL są automatycznie archiwizowane bez żadnej konfiguracji. Jeśli ręcznie ustawienia baz danych MySQL w aplikacji, takie jak dodawanie ciągów połączeń, kopie zapasowe mogą nie działać poprawnie.
 * Użycie konta magazynu z włączoną zaporą jako miejsca docelowego kopii zapasowych nie jest obsługiwane. Jeśli kopia zapasowa jest skonfigurowana, otrzymasz nieudane kopie zapasowe.
 

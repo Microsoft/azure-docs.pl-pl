@@ -24,6 +24,10 @@
       href: active-directory-passwords-reset-register.md
     - name: Resetowanie hasła
       href: active-directory-passwords-update-your-own-password.md
+- name: Mój personel — pomoc w portalu
+  items:
+    - name: Mój personel — zarządzanie użytkownikami
+      href: my-staff-team-manager.md
 - name: Pomoc dotycząca aplikacji Microsoft Authenticator
   items:
     - name: Czym jest aplikacja Microsoft Authenticator?

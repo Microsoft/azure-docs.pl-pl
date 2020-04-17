@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: 1fac524af4b69f8e35934840643c6d3ad99fe1cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74174605"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536628"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrowanie zasad zapory aplikacji sieci Web przy użyciu programu Azure PowerShell
 
@@ -28,6 +28,13 @@ Aby uruchomić skrypt migracji, użyj następujących kroków:
 2. Skopiuj skrypt do okna powłoki chmury i uruchom go.
 3. Skrypt prosi o identyfikator subskrypcji, nazwę grupy zasobów, nazwę bramy aplikacji, z którą jest skojarzony config WAF, oraz nazwę nowej zasady WAF, która ma być tworzona. Po wprowadzeniu tych danych wejściowych skrypt uruchamia się i tworzy nowe zasady WAF
 4. Skojarz nowe zasady WAF z bramą aplikacji. Przejdź do zasad WAF w portalu i wybierz kartę **Skojarzone bramy aplikacji.** Wybierz pozycję **Skojarz bramę aplikacji,** a następnie wybierz bramę aplikacji, z nią chcesz skojarzyć zasady WAF.
+
+> [!NOTE]
+> Skrypt nie kończy migracji, jeśli istnieją następujące warunki:
+> - Cała reguła jest wyłączona. Aby ukończyć migrację, upewnij się, że cała grupa reguł nie jest wyłączona.
+> - Wpis(-y) wykluczenia z *operatorem Equals.* Aby zakończyć migrację, upewnij się, że wpisy wykluczeń z *operatorem Equals Any* nie są obecne.
+>
+> Aby uzyskać więcej informacji, zobacz *ValidateInput* funkcji w skrypcie.
 
 ```azurepowershell-interactive
 <#PSScriptInfo

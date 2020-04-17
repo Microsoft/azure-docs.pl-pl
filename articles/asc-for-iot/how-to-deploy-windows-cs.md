@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: d667dd09c2276936e10cea0581e4c8d2810b2ccb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81311094"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537614"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Wdrażanie agenta zabezpieczeń usługi Azure Security Center dla IoT opartego na języku C# dla systemu Windows
 
@@ -135,9 +135,9 @@ Aby włączyć rejestrowanie:
      sc.exe start "ASC IoT Agent"
      ```
 
-1. Przejrzyj plik dziennika, aby uzyskać więcej informacji na temat błędu.
+1. Przejrzyj plik dziennika, aby uzyskać więcej informacji na temat błędu. Plik dziennika będzie obecny w katalogu roboczym, w którym uruchamiamy skrypt. 
 
-   Lokalizacja pliku dziennika:`%WinDir%/System32/IoTAgentLog.log`
+   Lokalizacja pliku dziennika:`.\IoTAgentLog.log`
 
 ## <a name="next-steps"></a>Następne kroki
 

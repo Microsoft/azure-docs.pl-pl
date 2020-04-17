@@ -4,14 +4,14 @@ description: W tym artykule opisano usługę Azure HPC Cache , rozwiązanie akce
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/15/2020
+ms.author: v-erkel
+ms.openlocfilehash: 084c33874b474fc1789df93e088d3cec4263eac9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241192"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536645"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Co to jest usługa Azure HPC Cache?
 
@@ -49,22 +49,20 @@ Wdrożenie pamięci podręcznej HPC platformy Azure może pomóc przyspieszyć o
 
 Pamięć podręczna HPC usługi Azure jest dostępna w następujących regionach platformy Azure:
 
+| Ameryka Północna      | Europa         | Azja            | Australia      |
+|--------------------|----------------|-----------------|----------------|
+| Wschodnie stany USA            | Europa Północna   | Korea Środkowa   | Australia Wschodnia |
+| Wschodnie stany USA 2          | Europa Zachodnia    | Azja Południowo-Wschodnia  |               |
+| Południowo-środkowe stany USA | | | |
+| Zachodnie stany USA 2        | | | |
+
+[Funkcja kluczy zarządzanych przez klienta](customer-keys.md) jest obsługiwana tylko w następujących regionach:
+
 * Wschodnie stany USA
-* Wschodnie stany USA 2
-* Europa Północna
-* Europa Zachodnia
-* Azja Południowo-Wschodnia
-* Sydney
+* Południowo-środkowe stany USA
 * Zachodnie stany USA 2
-* Korea Środkowa
 
 Sprawdź [stronę produktu Usługi Azure HPC Cache,](https://azure.microsoft.com/services/hpc-cache) aby uzyskać najnowsze informacje o dostępności.
-
-## <a name="service-availability"></a>Dostępność usług
-
-Musisz zażądać dostępu dla każdej subskrypcji, która będzie używana z pamięcią podręczną HPC Azure. To ograniczenie pomaga zapewnić jakość usług w pierwszych miesiącach ogólnej dostępności.
-
-Poproś o dostęp, wypełniając [ten formularz](https://aka.ms/onboard-hpc-cache). Po dodaniu subskrypcji do listy dostępu można utworzyć pamięci podręczne.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,12 +13,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: e8c890a6daf2411b09162ab0072aed594820b936
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: aae1b8aa27363e8f1d3c72d3934146c47b0cf2c9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886351"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535897"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Wskazówki dla deweloperów dotyczące dostępu warunkowego usługi Azure Active Directory
 
@@ -59,12 +59,12 @@ W zależności od scenariusza klient przedsiębiorstwa może zastosować i usun�
 
 Niektóre scenariusze wymagają zmian kodu do obsługi dostępu warunkowego, podczas gdy inne działają tak, jak jest. Oto kilka scenariuszy przy użyciu dostępu warunkowego do uwierzytelniania wieloskładnikowego, który daje pewien wgląd w różnicę.
 
-* Budujesz aplikację dla systemu iOS z jedną dzierżawą i zastosuj zasady dostępu warunkowego. Aplikacja loguje się do użytkownika i nie żąda dostępu do interfejsu API. Gdy użytkownik się zaloguje, zasady są wywoływane automatycznie, a użytkownik musi wykonać uwierzytelnianie wieloskładnikowe (MFA). 
+* Budujesz aplikację dla systemu iOS z jedną dzierżawą i zastosuj zasady dostępu warunkowego. Aplikacja loguje się do użytkownika i nie żąda dostępu do interfejsu API. Gdy użytkownik się zaloguje, zasady są wywoływane automatycznie, a użytkownik musi wykonać uwierzytelnianie wieloskładnikowe (MFA).
 * Budujesz aplikację macierzystą, która używa usługi warstwy środkowej, aby uzyskać dostęp do interfejsu API podrzędnego. Klient przedsiębiorstwa w firmie korzystającej z tej aplikacji stosuje zasady do interfejsu API podrzędnego. Gdy użytkownik końcowy loguje się, natywna aplikacja żąda dostępu do warstwy środkowej i wysyła token. Warstwa środkowa wykonuje w imieniu przepływu, aby zażądać dostępu do interfejsu API podrzędnego. W tym momencie roszczenia "wyzwanie" jest przedstawiony do warstwy środkowej. Warstwa środkowa wysyła wyzwanie z powrotem do aplikacji macierzystej, która musi być zgodna z zasadami dostępu warunkowego.
 
 #### <a name="microsoft-graph"></a>Microsoft Graph
 
-Program Microsoft Graph ma szczególne uwagi podczas tworzenia aplikacji w środowiskach dostępu warunkowego. Ogólnie rzecz biorąc mechanika dostępu warunkowego zachowują się tak samo, ale zasady, które użytkownicy zobaczą będą oparte na danych źródłowych aplikacji żąda z wykresu. 
+Program Microsoft Graph ma szczególne uwagi podczas tworzenia aplikacji w środowiskach dostępu warunkowego. Ogólnie rzecz biorąc mechanika dostępu warunkowego zachowują się tak samo, ale zasady, które użytkownicy zobaczą będą oparte na danych źródłowych aplikacji żąda z wykresu.
 
 W szczególności wszystkie zakresy programu Microsoft Graph reprezentują niektóre zestawy danych, które mogą indywidualnie mieć stosowane zasady. Ponieważ zasady dostępu warunkowego są przypisywane określonych zestawów danych, usługa Azure AD będzie wymuszać zasady dostępu warunkowego na podstawie danych za wykres — zamiast samego wykresu.
 
@@ -74,13 +74,13 @@ Jeśli na przykład aplikacja zażąda następujących zakresów programu Micros
 scopes="Bookings.Read.All Mail.Read"
 ```
 
-Aplikacja może oczekiwać, że użytkownicy będą spełniać wszystkie zasady ustawione na Bookings and Exchange. Niektóre zakresy mogą być mapowane na wiele zestawów danych, jeśli udziela dostępu. 
+Aplikacja może oczekiwać, że użytkownicy będą spełniać wszystkie zasady ustawione na Bookings and Exchange. Niektóre zakresy mogą być mapowane na wiele zestawów danych, jeśli udziela dostępu.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Przestrzeganie zasad dostępu warunkowego
 
 W przypadku kilku różnych topologii aplikacji zasady dostępu warunkowego są oceniane po ustanowieniu sesji. Ponieważ zasady dostępu warunkowego działa na szczegółowości aplikacji i usług, punkt, w którym jest wywoływana zależy w dużej mierze od scenariusza, który próbujesz wykonać.
 
-Gdy aplikacja próbuje uzyskać dostęp do usługi z zasadami dostępu warunkowego, może wystąpić wyzwanie dostępu warunkowego. To wyzwanie jest zakodowane w parametrze, `claims` który jest w odpowiedzi z usługi Azure AD. Oto przykład tego parametru wyzwania: 
+Gdy aplikacja próbuje uzyskać dostęp do usługi z zasadami dostępu warunkowego, może wystąpić wyzwanie dostępu warunkowego. To wyzwanie jest zakodowane w parametrze, `claims` który jest w odpowiedzi z usługi Azure AD. Oto przykład tego parametru wyzwania:
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -106,7 +106,7 @@ W poniższych sekcjach omówiono typowe scenariusze, które są bardziej złożo
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenariusz: aplikacja wykonująca przepływ w imieniu
 
-W tym scenariuszu przechodzimy przez przypadek, w którym natywna aplikacja wywołuje usługę sieci web/interfejs API. Z kolei ta usługa wykonuje przepływ "w imieniu" do wywołania usługi podrzędnej. W naszym przypadku zastosowaliśmy nasze zasady dostępu warunkowego do usługi podrzędnej (interfejs API sieci Web 2) i używamy aplikacji natywnej, a nie aplikacji serwera/demona. 
+W tym scenariuszu przechodzimy przez przypadek, w którym natywna aplikacja wywołuje usługę sieci web/interfejs API. Z kolei ta usługa wykonuje przepływ "w imieniu" do wywołania usługi podrzędnej. W naszym przypadku zastosowaliśmy nasze zasady dostępu warunkowego do usługi podrzędnej (interfejs API sieci Web 2) i używamy aplikacji natywnej, a nie aplikacji serwera/demona.
 
 ![Aplikacja wykonująca diagram przepływu w imieniu](./media/v2-conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -159,7 +159,7 @@ W pliku MSAL.js istnieje kilka funkcji, `loginPopup()`które `acquireTokenSilent
 * `acquireTokenSilent(…)`następnie można użyć do cichego uzyskania tokenu dostępu, co oznacza, że nie pokazuje interfejsu użytkownika w żadnych okolicznościach.
 * `acquireTokenPopup(…)`i `acquireTokenRedirect(…)` są używane do interaktywnego żądania tokenu dla zasobu, co oznacza, że zawsze pokazują logowania w interfejsie użytkownika.
 
-Gdy aplikacja potrzebuje tokenu dostępu do wywołania `acquireTokenSilent(…)`interfejsu API sieci Web, próbuje . Jeśli sesja tokenu wygasła lub musimy przestrzegać zasad dostępu warunkowego, funkcja *acquireToken* kończy `acquireTokenPopup()` `acquireTokenRedirect()`się niepowodzeniem, a aplikacja używa lub .
+Gdy aplikacja potrzebuje tokenu dostępu do wywołania `acquireTokenSilent(…)`internetowego interfejsu API, próbuje . Jeśli sesja tokenu wygasła lub musimy przestrzegać zasad dostępu warunkowego, funkcja *acquireToken* kończy `acquireTokenPopup()` `acquireTokenRedirect()`się niepowodzeniem, a aplikacja używa lub .
 
 ![Aplikacja jednostronicowa przy użyciu diagramu przepływu MSAL](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
 
@@ -175,7 +175,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Nasza aplikacja musi `error=interaction_required`złapać . Aplikacja może następnie użyć `acquireTokenPopup()` `acquireTokenRedirect()` jednego lub na tym samym zasobie. Użytkownik jest zmuszony do uwierzytelniania wieloskładnikowego. Po zakończeniu uwierzytelniania wieloskładnikowego użytkownik otrzymuje nowy token dostępu dla żądanego zasobu.
 
-Aby wypróbować ten scenariusz, zobacz nasz [przykład kodu JS SPA w imieniu.](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access) Ten przykładowy kod używa zasad dostępu warunkowego i interfejsu API sieci web, który został zarejestrowany wcześniej w JS SPA, aby zademonstrować ten scenariusz. Pokazuje, jak prawidłowo obsługiwać wyzwanie oświadczeń i uzyskać token dostępu, który może służyć do interfejsu API sieci Web. Alternatywnie, wyewidencjonuj [ogólny przykład kodu Angular.js,](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) aby uzyskać wskazówki dotyczące angular SPA
+Aby wypróbować ten scenariusz, zobacz nasz [przykład kodu JS SPA w imieniu.](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access) Ten przykładowy kod używa zasad dostępu warunkowego i interfejsu API sieci web, który został zarejestrowany wcześniej w JS SPA, aby zademonstrować ten scenariusz. Pokazuje, jak prawidłowo obsługiwać wyzwanie oświadczeń i uzyskać token dostępu, który może służyć do interfejsu API sieci web. Alternatywnie, wyewidencjonuj [ogólny przykład kodu Angular.js,](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) aby uzyskać wskazówki dotyczące angular SPA
 
 ## <a name="see-also"></a>Zobacz też
 

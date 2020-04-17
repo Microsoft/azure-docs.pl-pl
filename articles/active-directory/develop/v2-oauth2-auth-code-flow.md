@@ -12,12 +12,12 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5241089ff3cc7826216fcadd6fd94116ee4a2c89
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: ac630c4901c126ed883adbdc7efb03f36372e6ff
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309438"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535880"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Platforma tożsamości firmy Microsoft i przepływ kodu autoryzacji OAuth 2.0
 
@@ -219,7 +219,7 @@ Odpowiedzi na błędy będą wyglądać następująco:
 
 ## <a name="use-the-access-token"></a>Korzystanie z tokenu dostępu
 
-Teraz, po pomyślnym `access_token`nabyciu programu , można użyć tokenu w żądaniach do interfejsów API sieci Web, dołączając go do nagłówka: `Authorization`
+Teraz, po pomyślnym `access_token`nabyciu , można użyć tokenu w żądaniach `Authorization` do interfejsów API sieci web, dołączając go do nagłówka:
 
 > [!TIP]
 > Wykonaj to żądanie w postman! (Najpierw `Authorization` zastąp nagłówek) [Spróbuj uruchomić to żądanie w postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
@@ -232,11 +232,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## <a name="refresh-the-access-token"></a>Odświeżanie tokenu dostępu
 
-Access_tokens są krótkotrwałe i należy je odświeżyć po ich wygaśnięciu, aby kontynuować dostęp do zasobów. Można to zrobić, przesyłając `POST` kolejne `/token` żądanie do punktu `refresh_token` końcowego, `code`tym razem zapewniając zamiast .  Tokeny odświeżania są prawidłowe dla wszystkich uprawnień, na które klient otrzymał już `scope=mail.read` zgodę — w związku z `scope=api://contoso.com/api/UseResource`tym token odświeżania wystawiony na żądanie może zostać użyty do żądania nowego tokenu dostępu dla .  
+Access_tokens są krótkotrwałe i należy je odświeżyć po ich wygaśnięciu, aby kontynuować dostęp do zasobów. Można to zrobić, przesyłając `POST` kolejne `/token` żądanie do punktu `refresh_token` końcowego, `code`tym razem zapewniając zamiast .  Tokeny odświeżania są prawidłowe dla wszystkich uprawnień, na które klient otrzymał już `scope=mail.read` zgodę — w związku z `scope=api://contoso.com/api/UseResource`tym token odświeżania wystawiony na żądanie może zostać użyty do żądania nowego tokenu dostępu dla .
 
-Tokeny odświeżania nie mają określonych okresów istnienia. Zazwyczaj okresy istnienia tokenów odświeżania są stosunkowo długie. Jednak w niektórych przypadkach tokeny odświeżania wygasają, są odwoływane lub nie mają wystarczających uprawnień do żądanej akcji. Aplikacja musi oczekiwać i obsługiwać [błędy zwracane przez punkt końcowy wystawienia tokenu](#error-codes-for-token-endpoint-errors) poprawnie. 
+Tokeny odświeżania nie mają określonych okresów istnienia. Zazwyczaj okresy istnienia tokenów odświeżania są stosunkowo długie. Jednak w niektórych przypadkach tokeny odświeżania wygasają, są odwoływane lub nie mają wystarczających uprawnień do żądanej akcji. Aplikacja musi oczekiwać i obsługiwać [błędy zwracane przez punkt końcowy wystawienia tokenu](#error-codes-for-token-endpoint-errors) poprawnie.
 
-Chociaż tokeny odświeżania nie są odwoływane, gdy są używane do uzyskiwania nowych tokenów dostępu, oczekuje się, aby odrzucić stary token odświeżania. [Specyfikacja OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) mówi: "Serwer autoryzacji może wydać nowy token odświeżania, w którym to przypadku klient musi odrzucić stary token odświeżania i zastąpić go nowym tokenem odświeżania. Serwer autoryzacji może odwołać stary token odświeżania po wydaniu nowego tokenu odświeżania do klienta."  
+Chociaż tokeny odświeżania nie są odwoływane, gdy są używane do uzyskiwania nowych tokenów dostępu, oczekuje się, aby odrzucić stary token odświeżania. [Specyfikacja OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) mówi: "Serwer autoryzacji może wydać nowy token odświeżania, w którym to przypadku klient musi odrzucić stary token odświeżania i zastąpić go nowym tokenem odświeżania. Serwer autoryzacji może odwołać stary token odświeżania po wydaniu nowego tokenu odświeżania do klienta."
 
 ```
 // Line breaks for legibility only
@@ -254,7 +254,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Spróbuj wykonać to żądanie w Postman! (Nie zapomnij wymienić `refresh_token`) [Spróbuj uruchomić to żądanie w postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-> 
+>
 
 | Parametr     |                | Opis        |
 |---------------|----------------|--------------------|

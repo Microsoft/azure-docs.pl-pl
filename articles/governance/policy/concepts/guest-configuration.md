@@ -3,12 +3,12 @@ title: Dowiedz się, jak przeprowadzać inspekcje zawartości maszyn wirtualnych
 description: Dowiedz się, jak usługa Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4a2989badc099a199bf21f7e020ca8e6256ddaf0
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: e4899f6b3108cabb4e9cdd36e4b2bc5cd2f1cbd4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113440"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538039"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa zasad platformy Azure
 
@@ -59,7 +59,7 @@ W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych n
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Klient systemu Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7, 7.8|
 |Suse|SLES|12 SP3|
 
 ### <a name="unsupported-client-types"></a>Nieobsługiwały typy klientów

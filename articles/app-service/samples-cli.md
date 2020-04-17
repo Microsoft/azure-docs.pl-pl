@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 0b3acb1b421962cde7d90398f42bdfeefda578e3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 499bf25f06030ae9fc5c1f8381ef4cd6ff6873dc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74971506"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535625"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Przykłady interfejsu wiersza polecenia dla usługi Azure App Service
 
@@ -28,7 +28,7 @@ Poniższa tabela zawiera linki do skryptów bash utworzonych za pomocą interfej
 | [Tworzenie aplikacji ASP.NET Core w kontenerze platformy Docker](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service w systemie Linux, a następnie ładuje obraz platformy Docker z usługi Docker Hub. |
 |**Konfigurowanie aplikacji**||
 | [Mapowanie domeny niestandardowej na aplikację](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service i mapuje na nią nazwę domeny niestandardowej. |
-| [Tworzenie powiązania niestandardowego certyfikatu SSL z aplikacją](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service, a następnie tworzy powiązanie certyfikatu SSL nazwy domeny niestandardowej z tą aplikacją. |
+| [Powiąż niestandardowy certyfikat TLS/SSL z aplikacją](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service i wiąże certyfikat TLS/SSL niestandardowej nazwy domeny z nią. |
 |**Skalowanie aplikacji**||
 | [Ręczne skalowanie aplikacji](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację usługi App Service i skaluje ją na 2 wystąpienia. |
 | [Skalowanie aplikacji na całym świecie przy użyciu architektury wysokiej dostępności](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy dwie aplikacje usługi App Service w dwóch różnych regionach geograficznych i udostępnia je za pośrednictwem pojedynczego punktu końcowego przy użyciu usługi Azure Traffic Manager. |

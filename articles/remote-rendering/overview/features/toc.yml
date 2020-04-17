@@ -1,5 +1,7 @@
 - name: Wycięte płaszczyzny
   href: cut-planes.md
+- name: Debugowanie renderowania
+  href: debug-rendering.md
 - name: Hierarchiczne zastępowanie stanu
   href: override-hierarchical-state.md
 - name: Reprojekcja na późnym etapie

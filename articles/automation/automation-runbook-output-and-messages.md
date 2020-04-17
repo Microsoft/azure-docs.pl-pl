@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 457b2d2211ea1ba5fa36cec4b7e9a214f5bcad77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92b6378b00e12f618d07798b5ce789cbd9971544
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367095"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535540"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Dane wyjściowe i komunikaty w usłudze Azure Automation
 
@@ -240,7 +240,7 @@ Jednak jeśli nie są wymagane te informacje do śledzenia postępu wiązki uruc
 **Aby włączyć śledzenie na poziomie działania:**
 
 1. W witrynie Azure Portal otwórz konto usługi Automation.
-2. Wybierz **pozycję Runbooks** w sekcji **Automatyzacja procesów,** aby otworzyć listę śmięty.
+2. Wybierz **pozycję Elementy runbook w** obszarze **Automatyzacja procesów,** aby otworzyć listę śmięty.
 3. Na stronie Runbooks wybierz graficzny element runbook z listy ekscesów.
 4. W obszarze **Ustawienia**kliknij pozycję **Rejestrowanie i śledzenie**.
 5. Na stronie Rejestrowanie i śledzenie w obszarze **Logowanie pełne rekordy**kliknij przycisk **Włącz,** aby włączyć pełne rejestrowanie.
@@ -253,7 +253,7 @@ Jednak jeśli nie są wymagane te informacje do śledzenia postępu wiązki uruc
 Usługa Azure Automation może wysyłać stan zadania i strumienie zadań do obszaru roboczego usługi Log Analytics. Usługa Azure Monitor obsługuje dzienniki, które umożliwiają:
 
 * Uzyskaj wgląd w swoje zadania automatyzacji.
-* Wyzwalanie wiadomości e-mail lub alertu na podstawie stanu zadania egoisty runbook, na przykład nie powiodło się lub zawieszone.
+* Wyzwalanie wiadomości e-mail lub alertu na podstawie stanu zadania egoisty, na przykład Niepowodzenie lub Zawieszenie.
 * Pisanie zaawansowanych zapytań w strumieniach zadań.
 * Skorelowanie zadań między kontami automatyzacji.
 * Wizualizuj historię zadań.

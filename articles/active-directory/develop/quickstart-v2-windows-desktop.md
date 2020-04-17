@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1c66779dc726c3c6366bc03282d5d3c2bdc8134a
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: a464bb8a942c449e0b17751fbea7a810711cb48d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991045"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535999"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Szybki start: uzyskiwanie tokenu i wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji klasycznej w systemie Windows
 
@@ -48,7 +48,7 @@ W tym przewodniku Szybki start dowiesz się, jak napisać aplikację klasyczną 
 >      - Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 > 1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**.
 > 1. W sekcji **Redirect URIs** | **Suggested Redirect Redirect URI dla klientów publicznych (mobilnych, stacjonarnych)** użyj pliku **https://login.microsoftonline.com/common/oauth2/nativeclient**.
-> 1. Wybierz **pozycję Zapisz**.
+> 1. Wybierz pozycję **Zapisz**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
@@ -62,7 +62,7 @@ W tym przewodniku Szybki start dowiesz się, jak napisać aplikację klasyczną 
 #### <a name="step-2-download-your-visual-studio-project"></a>Krok 2. Pobieranie projektu programu Visual Studio
 
 > [!div renderon="docs"]
-> [Pobierz projekt programu Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)  
+> [Pobierz projekt programu Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Uruchom projekt przy użyciu programu Visual Studio 2019.
@@ -71,7 +71,7 @@ W tym przewodniku Szybki start dowiesz się, jak napisać aplikację klasyczną 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3: Aplikacja jest skonfigurowana i gotowa do uruchomienia
-> Skonfigurowaliśmy projekt z wartościami właściwości aplikacji i jest on gotowy do uruchomienia. 
+> Skonfigurowaliśmy projekt z wartościami właściwości aplikacji i jest on gotowy do uruchomienia.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -87,7 +87,7 @@ W tym przewodniku Szybki start dowiesz się, jak napisać aplikację klasyczną 
 >    private static string ClientId = "Enter_the_Application_Id_here";
 >    private static string Tenant = "Enter_the_Tenant_Info_Here";
 >    ```
-> 
+>
 > Gdzie:
 > - `Enter_the_Application_Id_here` jest **identyfikatorem aplikacji (klienta)** dla zarejestrowanej aplikacji.
 > - `Enter_the_Tenant_Info_Here` to wartość ustawiana na jedną z następujących opcji:
@@ -152,7 +152,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 > |Gdzie:||
 > |---------|---------|
-> | `_scopes` | Zawiera żądane zakresy, takie jak `{ "user.read" }` dla programu Microsoft Graph lub `{ "api://<Application ID>/access_as_user" }` dla niestandardowych interfejsów internetowych API. |
+> | `_scopes` | Zawiera żądane zakresy, takie `{ "user.read" }` jak program `{ "api://<Application ID>/access_as_user" }` Microsoft Graph lub niestandardowe interfejsy API sieci Web. |
 
 #### <a name="get-a-user-token-silently"></a>Dyskretne pobieranie tokenu użytkownika
 
@@ -167,7 +167,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 
 > |Gdzie: ||
 > |---------|---------|
-> | `scopes` | Zawiera żądane zakresy, takie jak `{ "user.read" }` dla programu Microsoft Graph lub `{ "api://<Application ID>/access_as_user" }` dla niestandardowych interfejsów internetowych API. |
+> | `scopes` | Zawiera żądane zakresy, takie `{ "user.read" }` jak program `{ "api://<Application ID>/access_as_user" }` Microsoft Graph lub niestandardowe interfejsy API sieci Web. |
 > | `firstAccount` | Określa pierwszego użytkownika w pamięci podręcznej (biblioteka MSAL obsługuje wielu użytkowników w jednej aplikacji). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76a96d36387f55889b65f16ea1ca6ec07359c377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5bf3a6df9d7292c18a93737fb7dea5d8c91f984
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502434"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536499"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Usługi Azure Files](storage-files-introduction.md) można wdrożyć na dwa główne sposoby: bezpośrednio montując bezserwerowe udziały plików platformy Azure lub buforując udziały plików platformy Azure lokalnie przy użyciu usługi Azure File Sync. Wybrana opcja wdrażania zmienia rzeczy, które należy wziąć pod uwagę podczas planowania wdrożenia. 
@@ -28,7 +28,7 @@ Ten artykuł dotyczy przede wszystkim zagadnień dotyczących wdrażania udział
 
 Podczas wdrażania udziałów plików platformy Azure na kontach magazynu zaleca się:
 
-- Wdrażanie udziałów plików platformy Azure tylko na kontach magazynu z innymi udziałami plików platformy Azure. Chociaż konta magazynu GPv2 umożliwiają korzystanie z kont magazynu o mieszanym celu, ponieważ zasoby magazynu, takie jak udziały plików platformy Azure i kontenery obiektów blob, współużytkują limity konta magazynu, łączenie zasobów może utrudnić rozwiązywanie problemów problemów z wydajnością w późniejszym terminie. 
+- Wdrażanie udziałów plików platformy Azure tylko na kontach magazynu z innymi udziałami plików platformy Azure. Chociaż konta magazynu GPv2 umożliwiają korzystanie z kont magazynu o mieszanym celu, ponieważ zasoby magazynu, takie jak udziały plików platformy Azure i kontenery obiektów blob, współużytkują limity konta magazynu, mieszanie zasobów może utrudnić późniejsze rozwiązywanie problemów z wydajnością. 
 
 - Zwracanie uwagi na ograniczenia kont IOPS konta magazynu podczas wdrażania udziałów plików platformy Azure. W idealnym przypadku należy mapować udziały plików 1:1 z kontami magazynu, jednak nie zawsze może to być możliwe ze względu na różne ograniczenia i ograniczenia, zarówno w organizacji, jak i z platformy Azure. Jeśli nie jest możliwe wdrożenie tylko jednego udziału plików na jednym koncie magazynu, należy wziąć pod uwagę, które udziały będą bardzo aktywne, a które udziały będą mniej aktywne, aby upewnić się, że najgorętsze udziały plików nie zostaną umieszczone na tym samym koncie magazynu razem.
 
@@ -36,20 +36,20 @@ Podczas wdrażania udziałów plików platformy Azure na kontach magazynu zaleca
 
 ## <a name="identity"></a>Tożsamość
 Aby uzyskać dostęp do udziału plików platformy Azure, użytkownik udziału plików musi być uwierzytelniony i mieć autoryzację dostępu do udziału. Odbywa się to na podstawie tożsamości użytkownika uzyskującego dostęp do udziału plików. Usługa Azure Files integruje się z trzema głównymi dostawcami tożsamości:
-- **Należąca do klienta usługa Active Directory** (wersja zapoznawcza): konta magazynu platformy Azure mogą być dołączane do należącej do klienta usługi Windows Server Active Directory, podobnie jak serwer plików systemu Windows Server lub urządzenie NAS. Kontroler domeny usługi Active Directory można wdrożyć lokalnie, na maszynie wirtualnej platformy Azure lub nawet jako maszyna wirtualna w innym dostawcy chmury; Usługa Azure Files jest niezależna od miejsca, w którym znajduje się kontroler domeny. Po dołączeniu do domeny konta magazynu użytkownik końcowy może zainstalować udział plików za pomocą konta użytkownika, za pomocą których zalogowano się do komputera. Uwierzytelnianie oparte na utok, korzystając z protokołu uwierzytelniania Kerberos, używa protokołu uwierzytelniania Kerberos.
-- **Usługi domenowe usługi Active Directory platformy Azure (Usługi Azure AD DS):** Usługi Azure AD DS udostępnia kontroler domeny usługi Active Directory zarządzane przez firmę Microsoft, który może być używany dla zasobów platformy Azure. Przyłączanie konta magazynu do usługi Azure AD DS zapewnia podobne korzyści dla domeny łączącej ją z należącą do klienta usługą Active Directory. Ta opcja wdrażania jest najbardziej przydatna w scenariuszach podnoszenia i zmiany aplikacji, które wymagają uprawnień opartych na urzeczyw. Ponieważ usługa Azure AD DS zapewnia uwierzytelnianie oparte na usłudze AD, ta opcja używa również protokołu uwierzytelniania Kerberos.
+- **Lokalne Usługi domenowe Active Directory (AD DS) lub lokalne usługi AD DS** (wersja zapoznawcza): konta magazynu platformy Azure mogą być przyłączane do należących do klienta Usług domenowych Active Directory, podobnie jak serwer plików systemu Windows Server lub urządzenie NAS. Kontrolera domeny można wdrożyć lokalnie, na maszynie Wirtualnej platformy Azure lub nawet jako maszyna wirtualna w innym dostawcy chmury; Usługa Azure Files jest niezależna od miejsca, w którym znajduje się kontroler domeny. Gdy konto magazynu zostanie przyłączone do domeny, użytkownik końcowy może zainstalować udział plików przy tym konto użytkownika, za pomocą których zalogowano się do komputera. Uwierzytelnianie oparte na utok, korzystając z protokołu uwierzytelniania Kerberos, używa protokołu uwierzytelniania Kerberos.
+- **Usługi domenowe Usługi domenowe Active Directory platformy Azure (Usługi Azure AD DS):** Usługi Azure AD DS udostępnia kontroler domeny zarządzane przez firmę Microsoft, który może być używany dla zasobów platformy Azure. Przyłączanie konta magazynu do usługi Azure AD DS zapewnia podobne korzyści dla domeny łączącej ją z należącą do klienta usługą Active Directory. Ta opcja wdrażania jest najbardziej przydatna w scenariuszach podnoszenia i zmiany aplikacji, które wymagają uprawnień opartych na urzeczyw. Ponieważ usługa Azure AD DS zapewnia uwierzytelnianie oparte na usłudze AD, ta opcja używa również protokołu uwierzytelniania Kerberos.
 - **Klucz konta usługi Azure storage:** udziały plików platformy Azure mogą być również instalowane przy kluczu konta magazynu platformy Azure. Aby zainstalować udział plików w ten sposób, nazwa konta magazynu jest używana jako nazwa użytkownika, a klucz konta magazynu jest używany jako hasło. Za pomocą klucza konta magazynu do zainstalowania udziału plików platformy Azure jest skutecznie operacji administratora, ponieważ zainstalowany udział plików będzie miał pełne uprawnienia do wszystkich plików i folderów w udziale, nawet jeśli mają listy ACL. Podczas korzystania z klucza konta magazynu do zainstalowania za pośrednictwem protokołu SMB używany jest protokół uwierzytelniania NTLMv2.
 
 W przypadku klientów migrujących z lokalnych serwerów plików lub tworzących nowe udziały plików w usłudze Azure Files, które mają zachowywać się jak serwery plików systemu Windows lub urządzenia NAS, zalecana jest domena łącząca konto magazynu z należącą do **klienta usługą Active Directory.** Aby dowiedzieć się więcej o dołączaniu konta magazynu do należącej do klienta usługi Active Directory, zobacz [Omówienie usługi Azure Files Active Directory](storage-files-active-directory-overview.md).
 
 Jeśli zamierzasz użyć klucza konta magazynu, aby uzyskać dostęp do udziałów plików platformy Azure, zaleca się używanie punktów końcowych usługi, jak opisano w sekcji [Sieci.](#networking)
 
-## <a name="networking"></a>Obsługa sieci
+## <a name="networking"></a>Networking
 Udziały plików platformy Azure są dostępne z dowolnego miejsca za pośrednictwem publicznego punktu końcowego konta magazynu. Oznacza to, że uwierzytelnione żądania, takie jak żądania autoryzowane przez tożsamość logowania użytkownika, mogą pochodzić bezpiecznie z platformy Azure lub poza nią. W wielu środowiskach klientów początkowe instalowanie udziału plików platformy Azure na lokalnej stacji roboczej zakończy się niepowodzeniem, nawet jeśli instalacje z maszyn wirtualnych platformy Azure powiodą się. Powodem tego jest to, że wiele organizacji i dostawców usług internetowych (ISP) blokuje port używany przez SMB do komunikacji, port 445. Aby zobaczyć podsumowanie usługodawców internetowych, którzy nie zezwalają na dostęp z portu 445, przejdź do witryny [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 Aby odblokować dostęp do udziału plików platformy Azure, dostępne są dwie główne opcje:
 
-- Odblokuj port 445 dla sieci lokalnej organizacji. Udziały plików platformy Azure mogą być dostępne tylko zewnętrznie za pośrednictwem publicznego punktu końcowego przy użyciu protokołów bezpiecznych w Internecie, takich jak SMB 3.0 i FileREST API. Jest to najprostszy sposób uzyskiwania dostępu do udziału plików platformy Azure z lokalnego, ponieważ nie wymaga zaawansowanej konfiguracji sieci poza zmianą reguł portów wychodzących organizacji, jednak zalecamy usunięcie starszych i przestarzałych wersji protokołu SMB protokołu SMB 1.0. Aby dowiedzieć się, jak to zrobić, zobacz [Zabezpieczanie systemu Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) i [zabezpieczanie systemu Linux](storage-how-to-use-files-linux.md#securing-linux).
+- Odblokuj port 445 dla sieci lokalnej organizacji. Udziały plików platformy Azure mogą być dostępne tylko zewnętrznie za pośrednictwem publicznego punktu końcowego przy użyciu protokołów bezpiecznych w Internecie, takich jak SMB 3.0 i FileREST API. Jest to najprostszy sposób dostępu do udziału plików platformy Azure z lokalnego, ponieważ nie wymaga zaawansowanej konfiguracji sieciowej poza zmianą reguł portów wychodzących organizacji, jednak zaleca się usunięcie starszych i przestarzałych wersji protokołu SMB, a mianowicie SMB 1.0. Aby dowiedzieć się, jak to zrobić, zobacz [Zabezpieczanie systemu Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) i [zabezpieczanie systemu Linux](storage-how-to-use-files-linux.md#securing-linux).
 
 - Uzyskaj dostęp do udziałów plików platformy Azure za pośrednictwem połączenia Usługi ExpressRoute lub VPN. Podczas uzyskiwania dostępu do udziału plików platformy Azure za pośrednictwem tunelu sieciowego można zainstalować udział plików platformy Azure, taki jak lokalny udział plików, ponieważ ruch SMB nie przekracza granic organizacji.   
 
@@ -153,7 +153,7 @@ Nowe udziały plików zaczynają się od pełnej liczby kredytów w wiadrze burs
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Włącz standardowe udziały plików do 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
-#### <a name="regional-availability"></a>Dostępność regionalna
+#### <a name="limitations"></a>Ograniczenia
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="redundancy"></a>Nadmiarowość

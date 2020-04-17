@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych VMware za pomocą serwera k
 description: W tym artykule dowiesz się, jak używać usługi Azure Backup Server do tworzenia kopii zapasowych maszyn wirtualnych VMware uruchomionych na serwerze VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 951016d393b095b0329ff18861421402e0e18a1a
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 92846f9bb9259e55a2c957716676ff42c032b2b5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529508"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537410"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych VMware za pomocą serwera kopii zapasowych platformy Azure
 
@@ -96,11 +96,11 @@ Jeśli masz bezpieczne granice w organizacji i nie chcesz używać protokołu HT
 
 1. Skopiuj i wklej następujący tekst do pliku txt.
 
-```text
-Windows Registry Editor Version 5.00
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-"IgnoreCertificateValidation"=dword:00000001
-```
+    ```text
+    Windows Registry Editor Version 5.00
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+    "IgnoreCertificateValidation"=dword:00000001
+    ```
 
 2. Zapisz plik na komputerze z serwerem kopii zapasowych platformy Azure o nazwie **DisableSecureAuthentication.reg**.
 
@@ -130,27 +130,49 @@ Serwer kopii zapasowej platformy Azure potrzebuje konta użytkownika z uprawnien
 
 ### <a name="role-permissions"></a>Uprawnienia roli
 
-| **Uprawnienia dla konta użytkownika vCenter 6.7**              | **Uprawnienia dla konta użytkownika vCenter 6.5**             |
-| --------------------------------------------------------- | -------------------------------------------------------- |
-| Datastore.Allocate Space                                  | Datastore.Allocate Space                                 |
-| Zdarzenie Global.Log                                          | Zdarzenie Global.Log                                         |
-| Global.Manage atrybuty niestandardowe                           | Global.Manage atrybuty niestandardowe                          |
-| Sieć.Przypisywanie                                            | Sieć.Przypisywanie                                           |
-| Zasobów. Przypisywanie maszyny wirtualnej do puli zasobów        | Zasobów. Przypisywanie maszyny wirtualnej do puli zasobów       |
-| VirtualMachine.Configuration.AddNewDisk                   | VirtualMachine.Configuration.AddNewDisk                  |
-| VirtualMachine.Configuration. Dodawanie lub usuwanie urządzenia       | VirtualMachine.Configuration. Dodawanie lub usuwanie urządzenia      |
-| VirtualMachine.Configuration.Advanced                     | VirtualMachine.Configuration.Advanced                    |
-| VirtualMachine.Configuration.Toggle Śledzenie zmian dysku | VirtualMachine.Configuration.Disk Śledzenie zmian       |
-| VirtualMachine.Configuration.Configure Host USB Device   | Urządzenie USB VirtualMachine.Configuration.Host            |
-| VirtualMachine.Configuration.Query Nieuwłaczone pliki         | VirtualMachine.Configuration.Query Nieuwłaczone pliki        |
-| VirtualMachine.Configuration.Change Miejsce pliku swapfile   | Umieszczenie pliku VirtualMachine.Configuration.Swape         |
-| VirtualMachine.Interaction.Power Off                      | VirtualMachine.Interaction.Power Off                     |
-| VirtualMachine.Inventory.Create New                       | VirtualMachine.Inventory.Create New                      |
-| VirtualMachine.Provisioning.Allow Disk Access            | VirtualMachine.Provisioning.Allow Disk Access           |
-| VirtualMachine.Provisioning.Allow Dostęp do pliku            | VirtualMachine.Provisioning.Allow Dostęp do pliku           |
-| VirtualMachine.Provisioning.Allow Dostęp do dysku tylko do odczytu  | VirtualMachine.Provisioning.Allow Dostęp do dysku tylko do odczytu |
-| VirtualMachine.Snapshot Management.Create Migawka       | VirtualMachine.Snapshot Management.Create Migawka      |
-| VirtualMachine.Snapshot Management.Remove Migawka       | VirtualMachine.Snapshot Management.Remove Migawka      |
+| Uprawnienia dla konta użytkownika vCenter 6.7                     | Uprawnienia dla konta użytkownika vCenter 6.5                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Klaster magazynu danych. Konfigurowanie klastra magazynu danych            | Klaster magazynu danych. Konfigurowanie klastra magazynu danych            |
+| Datastore.AllocateSpace                                      | Datastore.AllocateSpace                                      |
+| Datastore.Browse magazyn danych                                   | Datastore.Browse magazyn danych                                   |
+| Datastore.Operacje na plikach niskiego poziomu                          | Datastore.Operacje na plikach niskiego poziomu                          |
+| Global.Disable metody                                       | Global.Disable metody                                       |
+| Global.Enable metody                                        | Global.Enable metody                                        |
+| Global.Licenses                                              | Global.Licenses                                              |
+| Zdarzenie Global.Log                                             | Zdarzenie Global.Log                                             |
+| Global.Manage atrybuty niestandardowe                              | Global.Manage atrybuty niestandardowe                              |
+| Atrybut niestandardowy Global.Set                                  | Atrybut niestandardowy Global.Set                                  |
+| Host.Local operacji. Tworzenie maszyny wirtualnej                | Host.Local operacji. Tworzenie maszyny wirtualnej                |
+| Sieć.Przypisywanie sieci                                       | Sieć.Przypisywanie sieci                                       |
+| Zasobów. Przypisywanie maszyny wirtualnej do puli zasobów           | Zasobów. Przypisywanie maszyny wirtualnej do puli zasobów           |
+| vApp.Dodaj maszynę wirtualną                                     | vApp.Dodaj maszynę wirtualną                                     |
+| vApp.Assign puli zasobów                                    | vApp.Assign puli zasobów                                    |
+| vApp.Wyrejestrowanie                                              | vApp.Wyrejestrowanie                                              |
+| VirtualMachine.Configuration. Dodawanie lub usuwanie urządzenia          | VirtualMachine.Configuration. Dodawanie lub usuwanie urządzenia          |
+| Maszyna wirtualna. Configuration.Acquire dzierżawa dysku            | Maszyna wirtualna. Configuration.Disk lease                     |
+| Maszyna wirtualna. Configuration.Add new disk Configuration.Add new disk Configuration.Add new disk                   | Maszyna wirtualna. Configuration.Add new disk Configuration.Add new disk Configuration.Add new disk                   |
+| Maszyna wirtualna. Konfiguracja.Konfiguracja zaawansowana        | Maszyna wirtualna. Konfiguracja.Zaawansowane                       |
+| Maszyna wirtualna. Configuration.Toggle śledzenie zmian dysku   | Maszyna wirtualna. Śledzenie zmian w konfiguracji.Dysk          |
+| Maszyna wirtualna. Configuration.Configure Host USB device Configuration.Configure Host USB device Configuration.Configure     | Maszyna wirtualna. Configuration.Host urządzenie USB               |
+| Maszyna wirtualna. Configuration.Extend virtual disk Configuration.Extend virtual disk Configuration.Extend virtual disk Configuration.           | Maszyna wirtualna. Configuration.Extend virtual disk Configuration.Extend virtual disk Configuration.Extend virtual disk Configuration.           |
+| Maszyna wirtualna. Configuration.Query nieuwzdzonych plików           | Maszyna wirtualna. Configuration.Query nieuwzdzonych plików           |
+| Maszyna wirtualna. Miejsce umieszczania pliku swap.Change     | Maszyna wirtualna. Configuration.Swapfile umiejscowienie            |
+| Maszyna wirtualna. Wykonanie programu operacji gość.gość | Maszyna wirtualna. Wykonanie programu operacji gość.gość |
+| Maszyna wirtualna. Modyfikacje operacji gościa.gość | Maszyna wirtualna. Modyfikacje operacji gościa.gość |
+| Maszyna wirtualna. Zapytania operacji gościa.gość    | Maszyna wirtualna. Zapytania operacji gościa.gość    |
+| Maszyna wirtualna . Interakcji. Połączenie urządzenia             | Maszyna wirtualna . Interakcji. Połączenie urządzenia             |
+| Maszyna wirtualna . Interakcji. Zarządzanie systemem operacyjnym dla gości przez VIX API | Maszyna wirtualna . Interakcji. Zarządzanie systemem operacyjnym dla gości przez VIX API |
+| Maszyna wirtualna . Interakcji. Wyłącz zasilanie                      | Maszyna wirtualna . Interakcji. Wyłącz zasilanie                      |
+| Maszyna wirtualna . Zapasy.Tworzenie nowych                        | Maszyna wirtualna . Zapasy.Tworzenie nowych                        |
+| Maszyna wirtualna . Zapasy.Usuń                            | Maszyna wirtualna . Zapasy.Usuń                            |
+| Maszyna wirtualna . Inventory.Register                          | Maszyna wirtualna . Inventory.Register                          |
+| Maszyna wirtualna . Inicjowanie obsługi administracyjnej.Zezwalaj na dostęp do dysku             | Maszyna wirtualna . Inicjowanie obsługi administracyjnej.Zezwalaj na dostęp do dysku             |
+| Maszyna wirtualna . Inicjowanie obsługi administracyjnej.Zezwalaj na dostęp do plików             | Maszyna wirtualna . Inicjowanie obsługi administracyjnej.Zezwalaj na dostęp do plików             |
+| Maszyna wirtualna . Inicjowanie obsługi administracyjnej.Zezwalaj na dostęp do dysku tylko do odczytu   | Maszyna wirtualna . Inicjowanie obsługi administracyjnej.Zezwalaj na dostęp do dysku tylko do odczytu   |
+| Maszyna wirtualna . Inicjowanie obsługi administracyjnej.Zezwalaj na pobieranie maszyny wirtualnej | Maszyna wirtualna . Inicjowanie obsługi administracyjnej.Zezwalaj na pobieranie maszyny wirtualnej |
+| Maszyna wirtualna . Zarządzanie migawkami.  Tworzenie migawki       | Maszyna wirtualna . Zarządzanie migawkami.  Tworzenie migawki       |
+| Maszyna wirtualna . Zarządzanie migawkami. Usuń migawkę        | Maszyna wirtualna . Zarządzanie migawkami. Usuń migawkę        |
+| Maszyna wirtualna . Zarządzanie migawkami. Powrót do migawki     | Maszyna wirtualna . Zarządzanie migawkami. Powrót do migawki     |
 
 <br>
 
@@ -174,8 +196,6 @@ Serwer kopii zapasowej platformy Azure potrzebuje konta użytkownika z uprawnien
 | Maszyna wirtualna. Inicjowania obsługi. Zezwalaj na dostęp do dysku tylko do odczytu |                                             |
 | Maszyna wirtualna. Zarządzanie migawkami. Tworzenie migawki       |                                             |
 | Maszyna wirtualna. Zarządzanie migawkami. Usuń migawkę       |                                             |
-
-
 
 ## <a name="create-a-vmware-account"></a>Tworzenie konta VMware
 

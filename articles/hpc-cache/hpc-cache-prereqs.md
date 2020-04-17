@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ab342dba5c8be2ff3793c0eb36926969b3e364e5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655661"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537291"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Wymagania wstępne dotyczące pamięci podręcznej HPC usługi Azure
 
@@ -20,9 +20,6 @@ Przed użyciem witryny Azure Portal do utworzenia nowej pamięci podręcznej HPC
 ## <a name="azure-subscription"></a>Subskrypcja platformy Azure
 
 Zalecana jest płatna subskrypcja.
-
-> [!NOTE]
-> W ciągu pierwszych kilku miesięcy wydania ga zespół pamięci podręcznej HPC musi dodać subskrypcję do listy dostępu, zanim będzie można użyć do utworzenia wystąpienia pamięci podręcznej. Ta procedura pomaga zapewnić, że każdy klient otrzymuje wysokiej jakości responsywność z ich pamięci podręcznej. Wypełnij [ten formularz,](https://aka.ms/onboard-hpc-cache) aby poprosić o dostęp.
 
 ## <a name="network-infrastructure"></a>Infrastruktura sieciowa
 
@@ -84,11 +81,11 @@ Aby utworzyć zgodne konto magazynu, użyj następujących ustawień:
 * Warstwa dostępu (domyślnie): **Gorąca**
 
 Dobrą praktyką jest używanie konta magazynu w tej samej lokalizacji co pamięć podręczna.
-<!-- clarify location - same region or same resource group or same virtual network? -->
 
 Należy również dać aplikacji pamięci podręcznej dostęp do konta usługi Azure storage, jak wspomniano w [uprawnienia powyżej.](#permissions) Wykonaj procedurę w [Dodaj obiekty docelowe magazynu,](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) aby nadać pamięci podręcznej wymagane role dostępu. Jeśli nie jesteś właścicielem konta magazynu, niech właściciel wykonaj ten krok.
 
 ### <a name="nfs-storage-requirements"></a>Wymagania dotyczące pamięci masowej nfs
+<!-- linked from configuration.md -->
 
 Jeśli używasz systemu pamięci masowej NFS (na przykład lokalnego sprzętowego systemu NAS), upewnij się, że spełnia te wymagania. W celu zweryfikowania tych ustawień może być konieczna współpraca z administratorami sieci lub menedżerami zapór dla systemu pamięci masowej (lub centrum danych).
 

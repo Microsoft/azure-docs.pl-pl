@@ -2,14 +2,14 @@
 title: Przygotowywanie maszyn wirtualnych VMware do oceny/migracji za pomocą usługi Azure Migrate
 description: Dowiedz się, jak przygotować się do oceny/migracji maszyn wirtualnych VMware za pomocą usługi Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 2e8aa72300c840832168138015e0a01ab054f954
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 9f0729a3ddb2d8196a855557a6b8587940563984
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619425"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535268"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Przygotowywanie maszyny wirtualnej środowiska VMware do oceny i migracji na platformę Azure
 
@@ -17,7 +17,7 @@ Ten artykuł ułatwia przygotowanie do oceny i/lub migracji lokalnych maszyn wir
 
 
 
-Ten samouczek jest pierwszym z serii, który pokazuje, jak oceniać i migrować maszyny wirtualne VMware. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest pierwszym z serii, który pokazuje, jak oceniać i migrować maszyny wirtualne VMware. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Przygotuj platformę Azure do pracy z programem Azure Migrate.
@@ -39,7 +39,7 @@ Te uprawnienia są potrzebne do tych zadań na platformie Azure, zanim będzie m
 **Tworzenie projektu migracji platformy Azure** | Twoje konto platformy Azure wymaga uprawnień współautora lub właściciela, aby utworzyć projekt. 
 **Rejestrowanie dostawców zasobów** | Usługa Azure Migrate używa lekkiego urządzenia migracji platformy Azure do odnajdywania i oceny maszyn wirtualnych vmware oraz do migracji ich na platformę Azure za pomocą usługi Azure Migrate:Server Assessment.<br/><br/> Podczas rejestracji urządzenia dostawcy zasobów są rejestrowani w subskrypcji wybranej w urządzeniu. [Dowiedz się więcej](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Aby zarejestrować dostawców zasobów, potrzebujesz roli współautora lub właściciela w ramach subskrypcji.
 **Tworzenie aplikacji usługi Azure AD** | Podczas rejestrowania urządzenia usługa Azure Migrate tworzy aplikacje usługi Azure Active Directory (Azure AD). <br/><br/> — pierwsza aplikacja jest używana do komunikacji między agentami działającymi na urządzeniu a ich odpowiednimi usługami uruchomionymi na platformie Azure.<br/><br/> - Druga aplikacja jest używana wyłącznie do dostępu KeyVault utworzone w subskrypcji użytkownika dla bezagentowej migracji VMware VM. [Dowiedz się więcej](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Potrzebne są uprawnienia do tworzenia aplikacji usługi Azure AD (dostępnych w roli dewelopera aplikacji).
-**Tworzenie przechowalni kluczy** | Aby przeprowadzić migrację maszyn wirtualnych VMware przy użyciu migracji bez agenta, usługa Azure Migrate tworzy magazyn kluczy do zarządzania kluczami dostępu do konta magazynu replikacji w ramach subskrypcji.<br/><br/> Aby utworzyć magazyn, potrzebujesz uprawnień przypisania ról do grupy zasobów, w której znajduje się projekt migracji platformy Azure.
+**Tworzenie magazynu kluczy** | Aby przeprowadzić migrację maszyn wirtualnych VMware przy użyciu migracji bez agenta, usługa Azure Migrate tworzy magazyn kluczy do zarządzania kluczami dostępu do konta magazynu replikacji w ramach subskrypcji.<br/><br/> Aby utworzyć magazyn, potrzebujesz uprawnień przypisania ról do grupy zasobów, w której znajduje się projekt migracji platformy Azure.
 
 
 
@@ -123,7 +123,7 @@ Usługa Azure Migrate musi uzyskać dostęp do serwera vCenter, aby odnajdować 
 Przed skonfigurowaniem urządzenia migracji platformy Azure i rozpoczęciem oceny w następnym samouczku przygotuj się do wdrożenia urządzenia.
 
 1. [Weryfikacja](migrate-appliance.md#appliance---vmware) Wymagania dotyczące urządzenia migracji platformy Azure.
-2. [Przejrzyj](migrate-appliance.md#url-access) adresy URL platformy Azure, do których urządzenie będzie musiało uzyskać dostęp. Jeśli używasz zapory lub serwera proxy opartego na adresach URL, upewnij się, że umożliwia dostęp do wymaganych adresów URL.
+2. Przejrzyj adresy URL platformy Azure, do których urządzenie będzie musiało uzyskać dostęp w chmurach [publicznych](migrate-appliance.md#public-cloud-urls) i [rządowych.](migrate-appliance.md#government-cloud-urls)
 3. [Przejrzyj dane,](migrate-appliance.md#collected-data---vmware) które urządzenie zbiera podczas odnajdowania i oceny.
 4. [Uwaga](migrate-support-matrix-vmware.md#port-access) wymagania dostępu do portu dla urządzenia.
 
@@ -138,7 +138,8 @@ Przejrzyj wymagania dotyczące [bezagentowej migracji](server-migrate-overview.m
 2. [Przejrzyj uprawnienia,](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) które usługa Azure Migrate musi uzyskać dostęp do serwera vCenter Server.
 3. [Weryfikacja](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) Wymagania dotyczące maszyn wirtualnych VMware.
 4. [Przejrzyj](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) wymagania dotyczące urządzenia migracji platformy Azure.
-5. Zanotuj wymagania dotyczące [dostępu do adresu URL](migrate-appliance.md#url-access) i dostępu do [portów.](migrate-support-matrix-vmware-migration.md#agentless-ports)
+5. Zwróć uwagę na dostęp do adresów URL wymaganych dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i [rządowych.](migrate-appliance.md#government-cloud-urls)
+6. Przejrzyj wymagania dotyczące [dostępu do portów.](migrate-support-matrix-vmware-migration.md#agentless-ports)
 
 ## <a name="prepare-for-agent-based-vmware-migration"></a>Przygotowanie do migracji VMware opartej na agentach
 
@@ -150,7 +151,8 @@ Przejrzyj wymagania dotyczące migracji maszyn wirtualnych [opartych na agentach
 3. Migracja oparta na agentach używa urządzenia replikacji:
     - [Przejrzyj](migrate-replication-appliance.md#appliance-requirements) wymagania dotyczące wdrażania urządzenia replikacji.
     - [Przejrzyj opcje](migrate-replication-appliance.md#mysql-installation) instalacji MySQL na urządzeniu.
-    - Przejrzyj wymagania dotyczące dostępu [do adresu URL](migrate-replication-appliance.md#url-access) i [portu](migrate-replication-appliance.md#port-access) dla urządzenia replikacji.
+    - Zanotuj [wymagany](migrate-replication-appliance.md#url-access)dostęp do adresu URL .
+    - Przejrzyj wymagania [dotyczące dostępu do portów](migrate-replication-appliance.md#port-access) dla urządzenia replikacji.
     
 ## <a name="next-steps"></a>Następne kroki
 

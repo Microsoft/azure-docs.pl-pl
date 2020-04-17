@@ -3,12 +3,12 @@ title: Interfejs API usługi Application Insights dla zdarzeń niestandardowych 
 description: Wstaw kilka wierszy kodu w urządzeniu lub aplikacji klasycznej, na stronie sieci Web lub w usłudze, aby śledzić użycie i diagnozować problemy.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 06bd8bd0958afd26e1256a010b08c908c59aaf7d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d6cb2f5ab418e8d3b5935fef535565ccf55a3906
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585876"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536951"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Interfejs API usługi Application Insights dla niestandardowych zdarzeń i metryk
 
@@ -107,13 +107,13 @@ W projektach Node.js `new applicationInsights.TelemetryClient(instrumentationKey
 
 ## <a name="trackevent"></a>TrackEvent (wychocie)
 
-W usłudze Application Insights *zdarzenie niestandardowe* jest punktem danych, który można wyświetlić w [Eksploratorze metryk](../../azure-monitor/app/metrics-explorer.md) jako zagregowana liczba, a w [wyszukiwaniu diagnostycznym](../../azure-monitor/app/diagnostic-search.md) jako pojedyncze wystąpienia. (Nie jest to związane z MVC lub innych framework "wydarzenia.")
+W usłudze Application Insights *zdarzenie niestandardowe* jest punktem danych, który można wyświetlić w [Eksploratorze metryk](../../azure-monitor/platform/metrics-charts.md) jako zagregowana liczba, a w [wyszukiwaniu diagnostycznym](../../azure-monitor/app/diagnostic-search.md) jako pojedyncze wystąpienia. (Nie jest to związane z MVC lub innych framework "wydarzenia.")
 
 Wstaw `TrackEvent` wywołania w kodzie, aby zliczyć różne zdarzenia. Jak często użytkownicy wybierają konkretną funkcję, jak często osiągają określone cele, a może jak często popełniają określone rodzaje błędów.
 
 Na przykład w aplikacji do gier wysyłaj zdarzenie za każdym razem, gdy użytkownik wygra grę:
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.trackEvent({name:"WinGame"});
@@ -257,7 +257,7 @@ Aby wysłać metryki do usługi Application `TrackMetric(..)` Insights, można u
 
 Aby wysłać pojedynczą wartość metryki:
 
-*Javascript*
+*JavaScript*
 
  ```javascript
 appInsights.trackMetric("queueLength", 42.0);
@@ -299,7 +299,7 @@ Dane użytkownika i sesji są wysyłane jako właściwości wraz z widokami stro
 
 ### <a name="custom-page-views"></a>Niestandardowe widoki stron
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.trackPageView("tab1");
@@ -338,7 +338,7 @@ Zamiast tego możesz:
 * Ustaw jawny czas trwania w `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);` [wywołaniu trackPageView:](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/API.md#trackpageview) .
 * Użyj wywołań `startTrackPage` chronometrażu widoku strony i `stopTrackPage`.
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 // To start timing a page:
@@ -443,7 +443,7 @@ requests
 
 Wysyłaj wyjątki do usługi Application Insights:
 
-* Aby [je policzyć](../../azure-monitor/app/metrics-explorer.md), jako wskazanie częstotliwości problemu.
+* Aby [je policzyć](../../azure-monitor/platform/metrics-charts.md), jako wskazanie częstotliwości problemu.
 * Aby [zbadać poszczególne zdarzenia](../../azure-monitor/app/diagnostic-search.md).
 
 Raporty zawierają ślady stosu.
@@ -471,7 +471,7 @@ try {
 }
 ```
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 try
@@ -738,7 +738,7 @@ W aplikacji internetowej użytkownicy są (domyślnie) identyfikowani za pomocą
 
 Jeśli użytkownicy logują się do aplikacji, możesz uzyskać dokładniejszą liczbę, ustawiając uwierzytelniony identyfikator użytkownika w kodzie przeglądarki:
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 // Called when my app has identified the user.
@@ -774,7 +774,7 @@ Jeśli aplikacja grupuje użytkowników na konta, możesz również przekazać i
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-W [Eksploratorze metryk](../../azure-monitor/app/metrics-explorer.md)można utworzyć wykres zlicza **konta Użytkowników, Uwierzytelnionych**i **Użytkowników.**
+W [Eksploratorze metryk](../../azure-monitor/platform/metrics-charts.md)można utworzyć wykres zlicza **konta Użytkowników, Uwierzytelnionych**i **Użytkowników.**
 
 Można również [wyszukiwać](../../azure-monitor/app/diagnostic-search.md) punkty danych klienta z określonymi nazwami użytkowników i kontami.
 
@@ -792,7 +792,7 @@ Aby wartości metryki były poprawnie wyświetlane, powinny być większe lub r�
 
 Istnieją pewne [ograniczenia dotyczące liczby właściwości, wartości właściwości i metryki,](#limits) których można użyć.
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.trackEvent
@@ -1114,7 +1114,7 @@ protected void Application_Start()
 }
 ```
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.config.instrumentationKey = myKey;

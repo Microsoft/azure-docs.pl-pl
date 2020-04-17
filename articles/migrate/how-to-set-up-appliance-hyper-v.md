@@ -3,21 +3,25 @@ title: Konfigurowanie urządzenia migracji platformy Azure dla funkcji Hyper-V
 description: Dowiedz się, jak skonfigurować urządzenie migracji platformy Azure do oceny i migracji maszyn wirtualnych funkcji Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 80db2c1d4f5482604ca1507174b127c150f76044
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336815"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538294"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurowanie urządzenia dla maszyn wirtualnych funkcji Hyper-V
 
-W tym artykule opisano sposób konfigurowania urządzenia migracji platformy Azure do oceny maszyn wirtualnych funkcji Hyper-V za pomocą narzędzia [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
+W tym artykule należy skonfigurować urządzenie migracji platformy Azure do oceny maszyn wirtualnych funkcji Hyper-V za pomocą narzędzia [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
 Urządzenie migracji platformy Azure to [lekkie](migrate-appliance.md) urządzenie używane przez usługę Azure Migrate:Server Assessment/Migration do odnajdywania lokalnych maszyn wirtualnych z programem Hyper V i wysyłania metadanych/danych dotyczących wydajności maszyn wirtualnych na platformę Azure.
 
-Urządzenie migracji platformy Azure do oceny maszyn wirtualnych funkcji Hyper-V można skonfigurować przy użyciu pobranego szablonu dysku VHD lub skryptu instalacyjnego programu PowerShell. W tym artykule opisano sposób konfigurowania urządzenia przy użyciu szablonu VHD. Jeśli chcesz skonfigurować urządzenie za pomocą skryptu, postępuj zgodnie z instrukcjami w [tym artykule](deploy-appliance-script.md).
+Urządzenie można wdrożyć przy użyciu kilku metod:
 
+- Skonfiguruj na maszynie wirtualnej funkcji Hyper-V przy użyciu pobranego dysku VHD. Jest to metoda opisana w tym artykule.
+- Skonfiguruj na maszynie wirtualnej funkcji Hyper-V lub na komputerze fizycznym za pomocą skryptu instalatora programu PowerShell. [Ta metoda](deploy-appliance-script.md) powinna być używana, jeśli nie można skonfigurować maszyny Wirtualnej przy użyciu dysku wirtualnego lub jeśli jesteś w usłudze Azure Government.
+
+Po utworzeniu urządzenia można sprawdzić, czy można połączyć się z oceną migracji:serwera platformy Azure, skonfigurować go po raz pierwszy i zarejestrować go w projekcie migracji platformy Azure.
 
 ## <a name="appliance-deployment-vhd"></a>Wdrażanie urządzeń (VHD)
 
@@ -64,8 +68,8 @@ Zaimportuj pobrany plik i utwórz maszynę wirtualną.
 3. W **obszarze Znajdź folder**określ folder zawierający wyodrębniony dysk VHD. Następnie kliknij przycisk **Dalej**.
 1. W **obszarze Wybierz maszynę wirtualną**kliknij przycisk **Dalej**.
 2. W **2014 r. kliknij**pozycję **Kopiuj maszynę wirtualną (utwórz nowy unikatowy identyfikator).** Następnie kliknij przycisk **Dalej**.
-3. W **obszarze Wybierz miejsce docelowe**pozostaw ustawienie domyślne. Kliknij przycisk **alej**.
-4. W **folderach magazynu**pozostaw ustawienie domyślne. Kliknij przycisk **alej**.
+3. W **obszarze Wybierz miejsce docelowe**pozostaw ustawienie domyślne. Kliknij przycisk **Dalej**.
+4. W **folderach magazynu**pozostaw ustawienie domyślne. Kliknij przycisk **Dalej**.
 5. W **obszarze Wybierz sieć**określ przełącznik wirtualny, którego będzie używać maszyna wirtualna. Przełącznik wymaga łączności z Internetem, aby wysłać dane na platformę Azure.
 6. W **podsumowaniu**przejrzyj ustawienia. Następnie kliknij przycisk **Zakończ**.
 7. W Menedżerze funkcji Hyper-V > **maszyn wirtualnych**uruchom maszynę wirtualną.
@@ -73,7 +77,7 @@ Zaimportuj pobrany plik i utwórz maszynę wirtualną.
 
 ### <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
 
-Upewnij się, że maszyna wirtualna urządzenia może łączyć się z [adresami URL platformy Azure](migrate-appliance.md#url-access).
+Upewnij się, że maszyna wirtualna urządzenia może łączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i [rządowych.](migrate-appliance.md#government-cloud-urls)
 
 ## <a name="configure-the-appliance"></a>Konfigurowanie urządzenia
 

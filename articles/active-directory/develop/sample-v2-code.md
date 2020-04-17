@@ -12,12 +12,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5596f5f40e293a7bd11ac6a5f900e05c0b8d3b0e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 15578b6adc19eb3513e0d7e1d3d2c400c9170250
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883138"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535982"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Przykłady kodu platformy tożsamości firmy Microsoft (punkt końcowy w wersji 2.0)
 
@@ -53,7 +53,7 @@ Poniższe przykłady ilustrują aplikacje sieci web, które logują się do uży
 
 | Platforma | Tylko logowanie użytkowników | Loguje się do użytkowników i wywołuje program Microsoft Graph |
 | -------- | ------------------- | --------------------------------- |
-| ![Na tym zdjęciu widać logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | [ASP.NET Core WebApp loguje użytkowników samouczek](https://aka.ms/aspnetcore-webapp-sign-in) | Ten sam przykład w ASP.NET Core Web App wywołuje fazę [programu Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) |
+| ![Na tym zdjęciu widać logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | [ASP.NET Core WebApp loguje użytkowników samouczek](https://aka.ms/aspnetcore-webapp-sign-in) | Ten sam przykład w ASP.NET Core aplikacji sieci web wywołuje fazę [Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) |
 | ![Ten obraz ekspozycjowy przedstawia logo ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET Szybki start](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Ten obraz eksploruje logo Java](media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![Ten obraz eksploruje logo Pythona](media/sample-v2-code/logo_python.png)  |                   | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
@@ -103,7 +103,7 @@ W poniższym przykładzie przedstawiono publiczną aplikację kliencką działaj
 
 Poniższe przykłady pokazują, jak chronić internetowy interfejs API za pomocą punktu końcowego platformy tożsamości firmy Microsoft i jak wywołać interfejs API podrzędnego z internetowego interfejsu API.
 
-| Platforma | Sample |
+| Platforma | Przykład |
 | -------- | ------------------- |
 | ![Na tym zdjęciu widać logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API (usługa) [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![Ten obraz ekspozycjowy przedstawia logo ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API (usługa) [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
@@ -115,7 +115,7 @@ Poniższe przykłady pokazują, jak chronić internetowy interfejs API za pomoc�
 
 Poniższe przykłady pokazują, jak chronić funkcję platformy Azure przy użyciu protokołu HttpTrigger i uwidacznianie internetowego interfejsu API za pomocą punktu końcowego platformy tożsamości firmy Microsoft oraz jak wywołać interfejs API podrzędnego z internetowego interfejsu API.
 
-| Platforma | Sample |
+| Platforma | Przykład |
 | -------- | ------------------- |
 | ![Na tym zdjęciu widać logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API (usługa) Funkcja platformy Azure [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
 | ![Na tym obrazie jest wyświetlane logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Web API (usługa) [nodejs i passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |

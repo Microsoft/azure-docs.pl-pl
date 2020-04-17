@@ -30,6 +30,11 @@
     - name: Indeks
       displayName: 'list, examples'
       href: ./samples/index.md
+    - name: Test porównawczy zabezpieczeń platformy Azure
+      items:
+        - name: Mapowanie kontrolek
+          displayName: 'standards, azure, benchmark'
+          href: ./samples/azure-security-benchmark/control-mapping.md
     - name: Canada Federal PBMM
       items:
         - name: Omówienie

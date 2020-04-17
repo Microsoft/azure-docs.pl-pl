@@ -2,18 +2,20 @@
 title: Co nowego w usłudze Azure Migrate
 description: Dowiedz się więcej o nowościach i najnowszych aktualizacjach w usłudze Migracji platformy Azure.
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 04/16/2020
 ms.custom: mvc
-ms.openlocfilehash: 9767f3ea31b57d23c8a6772ff5eb6500f7550802
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1b0221f497ae7bbf84f163eef1ddb862d8de2951
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80127587"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535251"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Co nowego w usłudze Azure Migrate
 
 [Usługa Azure Migrate](migrate-services-overview.md) ułatwia odnajdywanie, ocenę i migrację lokalnych serwerów, aplikacji i danych do chmury platformy Microsoft Azure. W tym artykule podsumowano nowe wersje i funkcje w usłudze Azure Migrate.
+
+
 
 ## <a name="update-march-2020"></a>Aktualizacja (marzec 2020 r.)
 
@@ -58,7 +60,7 @@ Bieżąca wersja usługi Azure Migrate (wydana w lipcu 2019 r.) zawiera szereg n
 
 ## <a name="azure-migrate-previous-version"></a>Migracja usługi Azure do poprzedniej wersji
 
-Jeśli używasz poprzedniej wersji usługi Azure Migrate (obsługiwana była tylko ocena lokalnych maszyn wirtualnych VMware), należy teraz użyć bieżącej wersji. W poprzedniej wersji nie można już tworzyć nowych projektów migracji platformy Azure ani wykonywać nowych odnajdek. Nadal można uzyskać dostęp do istniejących projektów. Aby to zrobić w witrynie Azure portal > **wszystkie usługi,** wyszukaj **usługę Azure Migrate**. W powiadomieniach migracji platformy Azure istnieje łącze umożliwiające dostęp do starych projektów migracji platformy Azure.
+Jeśli używasz poprzedniej wersji usługi Azure Migrate (obsługiwano tylko ocenę lokalnych maszyn wirtualnych VMware), należy teraz użyć bieżącej wersji. W poprzedniej wersji nie można już tworzyć nowych projektów migracji platformy Azure ani wykonywać nowych odnajdek. Nadal można uzyskać dostęp do istniejących projektów. Aby to zrobić w witrynie Azure portal > **wszystkie usługi,** wyszukaj **usługę Azure Migrate**. W powiadomieniach migracji platformy Azure istnieje łącze umożliwiające dostęp do starych projektów migracji platformy Azure.
 
 
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: b3f298ac31cc584cd16553186359c87f69f27aad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70102395b94c89d4ce0edfddeda1df0be0e2f216
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671361"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536764"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>Interfejs API agenta usługi Application Insights: Enable-InstrumentationEngine
 
@@ -62,7 +62,7 @@ Configuring registry for instrumentation engine...
 ## <a name="next-steps"></a>Następne kroki
 
   Wyświetlanie telemetrii:
- - [Eksploruj metryki,](../../azure-monitor/app/metrics-explorer.md) aby monitorować wydajność i użycie.
+ - [Eksploruj metryki,](../../azure-monitor/platform/metrics-charts.md) aby monitorować wydajność i użycie.
 - [Szukaj zdarzeń i dzienników](../../azure-monitor/app/diagnostic-search.md) w celu zdiagnozowania problemów.
 - Użyj [analizy](../../azure-monitor/app/analytics.md) dla bardziej zaawansowanych zapytań.
 - [Tworzenie pulpitów nawigacyjnych](../../azure-monitor/app/overview-dashboard.md).

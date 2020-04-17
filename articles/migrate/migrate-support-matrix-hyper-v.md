@@ -2,13 +2,13 @@
 title: Obsługa oceny funkcji Hyper-V w programie Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny funkcji Hyper-V za pomocą oceny serwera migracji usługi Azure
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: e8a698b110f19dff593a93a41e9d6f20eb80cdb0
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 04/15/2020
+ms.openlocfilehash: 990d5026d9621c144c31635fabac4416eb9d20e6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389005"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538175"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Macierz wsparcia dla oceny funkcji Hyper-V
 
@@ -53,7 +53,8 @@ Aby skonfigurować ocenę maszyny wirtualnej funkcji Hyper-V, należy utworzyć 
 Usługa Azure Migrate używa [urządzenia migracji platformy Azure](migrate-appliance.md) do odnajdowania i oceny. Urządzenie można wdrożyć przy użyciu skompresowanego dysku VHD funkcji Hyper-V pobranego z portalu lub przy użyciu [skryptu programu PowerShell.](deploy-appliance-script.md)
 
 - Dowiedz się więcej o [wymaganiach dotyczących urządzeń](migrate-appliance.md#appliance---hyper-v) dla funkcji Hyper-V.
-- Dowiedz się więcej o [adresach URL,](migrate-appliance.md#url-access) do które urządzenie musi uzyskać dostęp.
+- Dowiedz się więcej o adresach URL, do których urządzenie musi mieć dostęp w chmurach [publicznych](migrate-appliance.md#public-cloud-urls) i [rządowych.](migrate-appliance.md#government-cloud-urls)
+- W usłudze Azure Government należy wdrożyć urządzenie przy użyciu skryptu.
 
 ## <a name="port-access"></a>Dostęp do portu
 
@@ -72,12 +73,13 @@ W poniższej tabeli podsumowano wymagania dotyczące portów do oceny.
 --- | --- 
 **Przed wdrożeniem** | Powinieneś mieć projekt migracji platformy Azure w miejscu, z narzędzia oceny serwera dodane do projektu.<br/><br/>  Wizualizacja zależności jest wdrażana po skonfigurowaniu urządzenia migracji platformy Azure w celu odnajdowania komputerów lokalnych<br/><br/> [Dowiedz się, jak](create-manage-projects.md) utworzyć projekt po raz pierwszy.<br/> [Dowiedz się, jak](how-to-assess.md) dodać narzędzie do oceny do istniejącego projektu.<br/> Dowiedz się, jak skonfigurować urządzenie migracji platformy Azure do oceny [maszyn wirtualnych funkcji Hyper-V.](how-to-set-up-appliance-hyper-v.md)
 **Azure Government** | Wizualizacja zależności nie jest dostępna w usłudze Azure Dla Instytucji.
-**Analiza dzienników** | Usługa Azure Migrate używa rozwiązania [mapy usług](../operations-management-suite/operations-management-suite-service-map.md) w [dziennikach usługi Azure Monitor](../log-analytics/log-analytics-overview.md) do wizualizacji zależności.<br/><br/> Nowy lub istniejący obszar roboczy usługi Log Analytics jest skojarzony z projektem migracji platformy Azure. Obszaru roboczego dla projektu migracji platformy Azure nie można zmodyfikować po jego dodaniu. <br/><br/> Obszar roboczy musi być w tej samej subskrypcji co projekt migracji platformy Azure.<br/><br/> Obszar roboczy musi znajdować się w regionach Wschodnich Stanów Zjednoczonych, Azji Południowo-Wschodniej lub Europy Zachodniej. Obszarów roboczych w innych regionach nie można skojarzyć z projektem.<br/><br/> Obszar roboczy musi znajdować się w regionie, w którym [jest obsługiwana mapa usługi](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).<br/><br/> W usłudze Log Analytics obszar roboczy skojarzony z programem Azure Migrate jest oznaczony kluczem projektu migracji i nazwą projektu.
+**Log Analytics** | Usługa Azure Migrate używa rozwiązania [mapy usług](../operations-management-suite/operations-management-suite-service-map.md) w [dziennikach usługi Azure Monitor](../log-analytics/log-analytics-overview.md) do wizualizacji zależności.<br/><br/> Nowy lub istniejący obszar roboczy usługi Log Analytics jest skojarzony z projektem migracji platformy Azure. Obszaru roboczego dla projektu migracji platformy Azure nie można zmodyfikować po jego dodaniu. <br/><br/> Obszar roboczy musi być w tej samej subskrypcji co projekt migracji platformy Azure.<br/><br/> Obszar roboczy musi znajdować się w regionach Wschodnich Stanów Zjednoczonych, Azji Południowo-Wschodniej lub Europy Zachodniej. Obszarów roboczych w innych regionach nie można skojarzyć z projektem.<br/><br/> Obszar roboczy musi znajdować się w regionie, w którym [jest obsługiwana mapa usługi](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).<br/><br/> W usłudze Log Analytics obszar roboczy skojarzony z programem Azure Migrate jest oznaczony kluczem projektu migracji i nazwą projektu.
 **Wymaganych agentów** | Na każdym komputerze, który chcesz przeanalizować, zainstaluj następujące środki:<br/><br/> [Agent monitorowania firmy Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).<br/> [Agent zależności](../azure-monitor/platform/agents-overview.md#dependency-agent).<br/><br/> Jeśli komputery lokalne nie są połączone z Internetem, należy pobrać i zainstalować na nich bramę usługi Log Analytics.<br/><br/> Dowiedz się więcej o instalowaniu [agenta zależności](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) i [programu MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
 **Obszar roboczy usługi Log Analytics** | Obszar roboczy musi być w tej samej subskrypcji co projekt migracji platformy Azure.<br/><br/> Usługa Azure Migrate obsługuje obszary robocze zamieszkałe w regionach wschodnich stanów USA, Azji Południowo-Wschodniej i Europy Zachodniej.<br/><br/>  Obszar roboczy musi znajdować się w regionie, w którym [jest obsługiwana mapa usługi](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> Obszaru roboczego dla projektu migracji platformy Azure nie można zmodyfikować po jego dodaniu.
 **Koszty** | Rozwiązanie mapy usług nie ponosi żadnych opłat przez pierwsze 180 dni (od dnia skojarzenia obszaru roboczego usługi Log Analytics z projektem migracji platformy Azure)/<br/><br/> Po upływie 180 dni będą naliczane standardowe opłaty za korzystanie z usługi Log Analytics.<br/><br/> Przy użyciu dowolnego rozwiązania innego niż Mapa usługi w skojarzonym obszarze roboczym usługi Log Analytics poniesie [standardowe opłaty](https://azure.microsoft.com/pricing/details/log-analytics/) za usługę Log Analytics.<br/><br/> Po usunięciu projektu migracji platformy Azure obszar roboczy nie jest usuwany wraz z nim. Po usunięciu projektu użycie mapy usługi nie jest bezpłatne, a każdy węzeł zostanie obciążony zgodnie z płatną warstwą obszaru roboczego usługi Log Analytics/<br/><br/>Jeśli masz projekty utworzone przed migracją platformy Azure ogólnej dostępności (GA- 28 lutego 2018), być może ponieśli dodatkowe opłaty mapy usługi. Aby zapewnić płatność tylko po 180 dniach, zaleca się utworzenie nowego projektu, ponieważ istniejące obszary robocze przed ga są nadal obciążalne.
 **Zarządzanie** | Podczas rejestrowania agentów w obszarze roboczym, należy użyć identyfikatora i klucza dostarczonego przez projekt migracji platformy Azure.<br/><br/> Można użyć obszaru roboczego usługi Log Analytics poza programem Azure Migrate.<br/><br/> Jeśli usuniesz skojarzony projekt migracji platformy Azure, obszar roboczy nie zostanie automatycznie usunięty. [Usuń go ręcznie](../azure-monitor/platform/manage-access.md).<br/><br/> Nie usuwaj obszaru roboczego utworzonego przez usługę Azure Migrate, chyba że usuniesz projekt migracji platformy Azure. Jeśli to zrobisz, funkcja wizualizacji zależności nie będzie działać zgodnie z oczekiwaniami.
 **Łączność z Internetem** | Jeśli komputery nie są połączone z Internetem, należy zainstalować na nich bramę usługi Log Analytics.
+**Azure Government** | Analiza zależności oparta na agentach nie jest obsługiwana.
 
 ## <a name="next-steps"></a>Następne kroki
 

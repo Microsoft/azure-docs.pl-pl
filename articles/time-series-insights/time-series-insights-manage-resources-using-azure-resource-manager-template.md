@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 04/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1caa80469504d52d3103fb2776fb3e7210971690
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a670e32058794daeaa233464ba7d054f45ef25e3
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024402"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536322"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Tworzenie zasobów usługi Time Series Insights przy użyciu szablonów usługi Azure Resource Manager
 
@@ -43,7 +43,7 @@ Szablon szybkiego startu [201-timeseriesinsights-environment-with-eventhub](http
 
 ## <a name="specify-deployment-template-and-parameters"></a>Określanie szablonu wdrożenia i parametrów
 
-W poniższej procedurze opisano sposób używania programu PowerShell do wdrażania szablonu usługi Azure Resource Manager, który tworzy środowisko usługi Time Series Insights, podrzędne źródło zdarzeń skonfigurowane do używania zdarzeń z Centrum zdarzeń i zasady dostępu, które udzielają dostępu do danych środowiska. Jeśli istniejące Centrum zdarzeń nie zostanie określony, jeden zostanie utworzony z wdrożeniem.
+W poniższej procedurze opisano sposób używania programu PowerShell do wdrażania szablonu usługi Azure Resource Manager, który tworzy środowisko usługi Time Series Insights, podrzędne źródło zdarzeń skonfigurowane do korzystania ze zdarzeń z Centrum zdarzeń i zasady dostępu, które udzielają dostępu do danych środowiska. Jeśli istniejące Centrum zdarzeń nie zostanie określony, jeden zostanie utworzony z wdrożeniem.
 
 1. Zainstaluj program Azure PowerShell, postępując zgodnie z instrukcjami w [programie Wprowadzenie do programu Azure PowerShell.](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 

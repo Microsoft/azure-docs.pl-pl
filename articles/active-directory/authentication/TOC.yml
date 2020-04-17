@@ -22,22 +22,16 @@
   items:
     - name: Metody uwierzytelniania
       href: concept-authentication-methods.md
-    - name: Uwierzytelnianie bez hasła
-      href: concept-authentication-passwordless.md
-    - name: Rejestracja informacji zabezpieczających
-      href: concept-registration-mfa-sspr-combined.md
-    - name: Resetowanie hasła
+    - name: Samoobsługowe resetowanie haseł
       items:
         - name: Jak działa resetowanie hasła
           href: concept-sspr-howitworks.md
-        - name: Opcje resetowania hasła
-          href: concept-sspr-customization.md
-        - name: Zasady resetowania hasła
-          href: concept-sspr-policy.md
-        - name: Jaka licencja jest potrzebna?
-          href: concept-sspr-licensing.md
         - name: Integracja lokalna
           href: concept-sspr-writeback.md
+        - name: Zasady
+          href: concept-sspr-policy.md
+        - name: Licencje
+          href: concept-sspr-licensing.md
     - name: Multi-Factor Authentication
       items:
         - name: Jak działa uwierzytelnianie wieloskładnikowe
@@ -50,12 +44,16 @@
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
         - name: Często zadawane pytania
           href: multi-factor-authentication-faq.md
-    - name: Ochrona haseł w usłudze Azure AD
+    - name: Uwierzytelnianie bez hasła
+      href: concept-authentication-passwordless.md
+    - name: Ochrona hasłem
       items:
         - name: Eliminowanie słabych haseł w chmurze
           href: concept-password-ban-bad.md
         - name: Eliminowanie słabych haseł w środowisku lokalnym
           href: concept-password-ban-bad-on-premises.md
+    - name: Rejestracja informacji zabezpieczających
+      href: concept-registration-mfa-sspr-combined.md
     - name: Funkcje kontroli dostępu odporne na błędy
       href: concept-resilient-controls.md
 - name: Przewodniki z instrukcjami
@@ -64,6 +62,8 @@
       items:
         - name: Podręcznik wdrażania
           href: howto-sspr-deployment.md
+        - name: Opcje dostosowywania użytkowników
+          href: howto-sspr-customization.md
         - name: Wstępne rejestrowanie danych uwierzytelniania
           href: howto-sspr-authenticationdata.md
         - name: Samoobsługowe resetowanie hasła dla klientów systemu Windows
@@ -100,28 +100,6 @@
               href: howto-mfa-nps-extension-rdg.md
             - name: Sieć VPN
               href: howto-mfa-nps-extension-vpn.md
-    - name: Rejestracja informacji zabezpieczających
-      items:
-        - name: Włączanie rejestracji łączonej
-          href: howto-registration-mfa-sspr-combined.md
-        - name: Rozwiązywanie problemów z rejestracją łączoną
-          href: howto-registration-mfa-sspr-combined-troubleshoot.md
-    - name: Ochrona haseł w usłudze Azure AD
-      items:
-        - name: Planowanie i wdrażanie w środowisku lokalnym
-          href: howto-password-ban-bad-on-premises-deploy.md
-        - name: Włączanie i konfigurowanie w środowisku lokalnym
-          href: howto-password-ban-bad-on-premises-operations.md
-        - name: Monitorowanie wdrożeń w środowisku lokalnym
-          href: howto-password-ban-bad-on-premises-monitor.md
-        - name: Rozwiązywanie problemów z wdrożeniami lokalnymi
-          href: howto-password-ban-bad-on-premises-troubleshoot.md
-        - name: Środowisko lokalne — często zadawane pytania
-          href: howto-password-ban-bad-on-premises-faq.md
-        - name: Historia wersji agenta lokalnego
-          href: howto-password-ban-bad-on-premises-agent-versions.md
-    - name: Inteligentna blokada w usłudze Azure AD
-      href: howto-password-smart-lockout.md
     - name: Logowanie bez hasła
       items:
         - name: Wdrażanie bez haseł
@@ -138,16 +116,38 @@
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello dla firm
           href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
+    - name: Rejestracja informacji zabezpieczających
+      items:
+        - name: Włączanie rejestracji łączonej
+          href: howto-registration-mfa-sspr-combined.md
+        - name: Rozwiązywanie problemów z rejestracją łączoną
+          href: howto-registration-mfa-sspr-combined-troubleshoot.md
+    - name: Lokalna ochrona hasła
+      items:
+        - name: Planowanie i wdrażanie
+          href: howto-password-ban-bad-on-premises-deploy.md
+        - name: Włączanie i konfigurowanie
+          href: howto-password-ban-bad-on-premises-operations.md
+        - name: Monitorowanie
+          href: howto-password-ban-bad-on-premises-monitor.md
+        - name: Rozwiązywanie problemów
+          href: howto-password-ban-bad-on-premises-troubleshoot.md
+        - name: Często zadawane pytania
+          href: howto-password-ban-bad-on-premises-faq.md
+        - name: Historia wersji agenta
+          href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Korzystanie z uwierzytelniania opartego na wiadomościach SMS (wersja zapoznawcza)
       href: howto-authentication-sms-signin.md
+    - name: Inteligentna blokada w usłudze Azure AD
+      href: howto-password-smart-lockout.md
     - name: Uwierzytelnianie oparte na certyfikacie
       items:
         - name: Wprowadzenie do uwierzytelniania certyfikatów
           href: active-directory-certificate-based-authentication-get-started.md
           items:
-            - name: Uwierzytelnianie oparte na certyfikacie na urządzeniach z systemem Android
+            - name: Używanie na urządzeniach z systemem Android
               href: active-directory-certificate-based-authentication-android.md
-            - name: Uwierzytelnianie oparte na certyfikacie na urządzeniach z systemem iOS
+            - name: Używanie na urządzeniach z systemem iOS
               href: active-directory-certificate-based-authentication-ios.md
     - name: Raportowanie
       items:

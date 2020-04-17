@@ -3,12 +3,12 @@ title: Konfigurowanie analizy aplikacji internetowej w technologii ASP.NET za po
 description: Skonfiguruj narzędzia do analizy wydajności, dostępności i zachowania użytkowników dla witryny sieci Web ASP.NET, hostowanych lokalnie lub na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdd5b1131a0d2d3e2f53840d21cedce1577fde03
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665922"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536900"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurowanie usługi Application Insights dla witryny sieci Web ASP.NET.
 
@@ -56,7 +56,7 @@ Jeśli chcesz ustawić grupę zasobów lub lokalizację, w której dane są prze
 > [!NOTE]
 > Jeśli nie chcesz wysłać danych telemetrii do portalu podczas debugowania, wystarczy, że dodasz zestaw SDK usługi Application Insights do aplikacji, ale nie konfiguruj zasobu w portalu. Dane telemetryczne możesz wyświetlać w programie Visual Studio podczas debugowania. Później możesz powrócić do tej strony konfiguracji lub po wdrożeniu aplikacji [włączyć telemetrię w czasie wykonywania](../../azure-monitor/app/monitor-performance-live-website-now.md).
 
-## <a name="step-2-run-your-app"></a><a name="run"></a> Krok 2. Uruchamianie aplikacji
+## <a name="step-2-run-your-app"></a><a name="run"></a>Krok 2: Uruchamianie aplikacji
 Uruchom aplikację, naciskając klawisz F5. Otwórz różne strony w celu wygenerowania telemetrii.
 
 W programie Visual Studio zobaczysz liczbę zarejestrowanych zdarzeń.
@@ -93,7 +93,7 @@ W portalu zostanie otwarty widok danych telemetrycznych z Twojej aplikacji.
 W portalu kliknij dowolny kafelek lub wykres, aby wyświetlić więcej szczegółów.
 
 ## <a name="step-4-publish-your-app"></a>Krok 4. Publikowanie aplikacji
-Opublikuj aplikacje na serwerze IIS lub na platformie Azure. Obejrzyj [transmisję strumieniową metryk na żywo](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream), aby upewnić się, że wszystko działa bez problemów.
+Opublikuj aplikacje na serwerze IIS lub na platformie Azure. Obejrzyj [transmisję strumieniową metryk na żywo](../../azure-monitor/app/live-stream.md), aby upewnić się, że wszystko działa bez problemów.
 
 Dane telemetryczne są budowane w portalu usługi Application Insights, gdzie można monitorować metryki, przeszukiwać dane telemetryczne. Można również użyć zaawansowanego [języka zapytań Kusto](/azure/kusto/query/) do analizowania użycia i wydajności lub znajdowania określonych zdarzeń.
 

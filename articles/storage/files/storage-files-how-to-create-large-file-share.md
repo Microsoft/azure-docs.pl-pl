@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c683e9847864de4e3409fb6dbd533497a5ae3cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060995"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537682"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Włączanie i tworzenie dużych udziałów plików
 
@@ -33,7 +33,7 @@ Włączanie dużych udziałów plików na koncie jest procesem nieodwracalnym. P
 
 ### <a name="portal"></a>Portal
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W witrynie Azure portal wybierz pozycję **Wszystkie usługi**. 
 1. Na liście zasobów wprowadź **wpisać konta magazynu**. Podczas pisania lista filtruje się na podstawie danych wejściowych. Wybierz pozycję **Konta magazynu**.
 1. W wyświetlonym oknie **Konta magazynu** wybierz pozycję **Dodaj**.
@@ -43,7 +43,7 @@ Włączanie dużych udziałów plików na koncie jest procesem nieodwracalnym. P
     ![Zrzut ekranu przedstawiający sposób tworzenia grupy zasobów w portalu](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Następnie wprowadź nazwę konta magazynu. Nazwa musi być unikatowa na platformie Azure. Nazwa musi mieć również długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery.
-1. Wybierz lokalizację dla swojego konta magazynu i upewnij się, że jest to [jedna z obsługiwanych replikacji dla dużych udziałów plików](storage-files-planning.md#regional-availability).
+1. Wybierz lokalizację dla swojego konta magazynu.
 1. Ustaw replikację na **magazyn lokalnie nadmiarowy** lub **Magazyn strefowy**.
 1. Pozostaw te pola przy wartościach domyślnych:
 
@@ -59,7 +59,7 @@ Włączanie dużych udziałów plików na koncie jest procesem nieodwracalnym. P
 
     ![Zrzut ekranu z przyciskiem opcji "włączono" na nowym koncie magazynu w witrynie Azure portal](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="cli"></a>Interfejs wiersza polecenia
 

@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672374"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535693"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrowanie aktywnej nazwy DNS do usługi Azure App Service
 
@@ -129,7 +129,7 @@ Jednostkę wdrażania aplikacji można znaleźć, patrząc na nazwę domeny adre
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak powiązać niestandardowy certyfikat SSL z usługą App Service.
+Dowiedz się, jak powiązać niestandardowy certyfikat TLS/SSL z usługą App Service.
 
 > [!div class="nextstepaction"]
-> [Powiąż certyfikat SSL z usługą Azure App Service](configure-ssl-bindings.md)
+> [Zabezpiecz niestandardową nazwę DNS za pomocą powiązania TLS w usłudze Azure App Service](configure-ssl-bindings.md)

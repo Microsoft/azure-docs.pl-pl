@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: dfca2b1311f1b55f19d5709f7c9ca7c3e366769c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76695742"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533993"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Używanie usługi MSAL w środowisku chmury krajowej
 
@@ -62,16 +62,16 @@ MSAL.NET można używać do logowania użytkowników, uzyskiwania tokenów i wyw
 Poniższe samouczki pokazują, jak utworzyć aplikację sieci Web .NET Core 2.2 MVC. Aplikacja używa OpenID Connect do logowania użytkowników za pomocą konta służbowego w organizacji należącej do chmury krajowej.
 
 - Aby zalogować się do użytkowników i uzyskać tokeny, wykonaj ten samouczek: [Tworzenie ASP.NET core aplikacji sieci Web logujących się użytkowników w suwerennych chmurach za pomocą platformy tożsamości firmy Microsoft](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
-- Aby wywołać interfejs API programu Microsoft Graph, wykonaj ten samouczek: [Używanie platformy tożsamości firmy Microsoft do wywoływania interfejsu API programu Microsoft Graph z aplikacji An ASP.NET Core 2.x Web App w imieniu użytkownika logującego się przy użyciu konta służbowego i szkolnego w chmurze głównej firmy Microsoft](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
+- Aby wywołać interfejs API programu Microsoft Graph, wykonaj ten samouczek: [Używanie platformy tożsamości firmy Microsoft do wywoływania interfejsu API programu Microsoft Graph z aplikacji sieci Web ASP.NET Core 2.x w imieniu użytkownika logującego się przy użyciu konta służbowego i szkolnego w chmurze głównej firmy Microsoft](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
 
-## <a name="javascript"></a>[Javascript](#tab/javascript)
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Aby włączyć aplikację MSAL.js dla suwerennych chmur:
 
 ### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.us/).
-    
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.us/).
+
    Aby znaleźć punkty końcowe witryny Azure portal dla innych chmur krajowych, zobacz [Punkty końcowe rejestracji aplikacji](authentication-national-cloud.md#app-registration-endpoints).
 
 1. Jeśli twoje konto daje dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu i ustaw sesję portalu na żądaną dzierżawę usługi Azure AD.
@@ -83,7 +83,7 @@ Aby włączyć aplikację MSAL.js dla suwerennych chmur:
 1. Na stronie **Przegląd** aplikacji zanotuj wartość **Identyfikator aplikacji (klienta)**.
 1. Ten samouczek wymaga włączenia [niejawnego przepływu dotacji](v2-oauth2-implicit-grant-flow.md). W lewym okienku zarejestrowanej aplikacji wybierz pozycję **Uwierzytelnianie**.
 1. W **obszarze Ustawienia zaawansowane**w obszarze **Niejawne przyznawanie wybierz**pola wyboru **Tokeny identyfikatorów** i **Tokeny dostępu.** Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja musi zalogować się do użytkowników i wywołać interfejs API.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Krok 2: Konfigurowanie serwera www lub projektu
 
@@ -126,12 +126,12 @@ W tym kodzie:
 - `Enter_the_Tenant_Info_Here`jest ustawiona na jedną z następujących opcji:
     - Jeśli aplikacja obsługuje **konta w tym katalogu organizacyjnym,** zastąp tę wartość identyfikatorem dzierżawy lub nazwą dzierżawy (na przykład contoso.microsoft.com).
     - Jeśli aplikacja obsługuje **konta w dowolnym katalogu organizacyjnym,** zastąp `organizations`tę wartość .
-    
+
     Aby znaleźć punkty końcowe uwierzytelniania dla wszystkich chmur krajowych, zobacz [Punkty końcowe uwierzytelniania usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 
     > [!NOTE]
     > Osobiste konta Microsoft nie są obsługiwane w chmurach krajowych.
-  
+
 - `graphEndpoint`to punkt końcowy programu Microsoft Graph dla chmury microsoft dla instytucji rządowych w Stanach Zjednoczonych.
 
    Aby znaleźć punkty końcowe programu Microsoft Graph dla wszystkich chmur krajowych, zobacz [Punkty końcowe programu Microsoft Graph w chmurach krajowych](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
@@ -149,16 +149,16 @@ Aby włączyć aplikację MSAL Python dla suwerennych chmur:
     ```json
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
-    
+
 - Aby wywołać wykres firmy Microsoft wymaga określonego adresu URL punktu końcowego wykresu, który zależy od chmury, której używasz. Aby znaleźć punkty końcowe programu Microsoft Graph dla wszystkich chmur krajowych, zobacz [główne punkty końcowe usługi Microsoft Graph i Graph Explorer](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
     Oto przykład punktu końcowego wykresu z zakresem:
-    
+
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
     "scope": "User.Read"
     ```
-    
+
 ## <a name="java"></a>[Java](#tab/java)
 
 Aby włączyć aplikację MSAL dla języka Java dla suwerennych chmur:
@@ -182,7 +182,7 @@ Oto przykład punktu końcowego wykresu z zakresem:
 "scope": "User.Read"
 ```
 
-## <a name="objective-c"></a>[Cel C](#tab/objc)
+## <a name="objective-c"></a>[Obiektowy C](#tab/objc)
 
 MsAL dla systemu iOS i macOS może służyć do pozyskiwania tokenów w `MSALPublicClientApplication`chmurach krajowych, ale wymaga dodatkowej konfiguracji podczas tworzenia .
 
@@ -194,12 +194,12 @@ MSALAADAuthority *aadAuthority =
                                                    audienceType:MSALAzureADMultipleOrgsAudience
                                                       rawTenant:nil
                                                           error:nil];
-                                                          
+
 MSALPublicClientApplicationConfig *config =
                 [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
                                                                 redirectUri:@"<your-redirect-uri-here>"
                                                                   authority:aadAuthority];
-                                                                  
+
 NSError *applicationError = nil;
 MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
@@ -213,7 +213,7 @@ Na przykład, jeśli chcesz, aby aplikacja była aplikacją wielodostępną w ch
 
 ```swift
 let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
-        
+
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```

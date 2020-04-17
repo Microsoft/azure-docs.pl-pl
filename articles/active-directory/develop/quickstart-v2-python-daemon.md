@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
-ms.openlocfilehash: ecbed58eabd2e835d8fa202916829d1da91210e7
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 3c6cb6303734b5336b3e9a7646e5eb3310d0f236
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991062"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536050"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Szybki start: uzyskiwanie tokenu i wywoływanie interfejsu API programu Microsoft Graph z aplikacji konsoli Języka Python przy użyciu tożsamości aplikacji
 
@@ -55,7 +55,7 @@ Aby uruchomić ten przykład, potrzebujesz:
 > 1. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
 > 1. Przejdź do platformy tożsamości firmy Microsoft dla deweloperów [Rejestracje aplikacji.](https://go.microsoft.com/fwlink/?linkid=2083908)
 > 1. Wybierz **pozycję Nowa rejestracja**.
-> 1. Po **wyświetleniu** strony Zarejestruj zgłoszenie wprowadź informacje rejestracyjne aplikacji. 
+> 1. Po **wyświetleniu** strony Zarejestruj zgłoszenie wprowadź informacje rejestracyjne aplikacji.
 > 1. W sekcji **Nazwa** podaj zrozumiałą nazwę aplikacji, która będzie widoczna dla użytkowników, na przykład `Daemon-console`, a następnie wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 > 1. Po jej zarejestrowaniu wybierz menu **Certyfikaty i klucze tajne**.
 > 1. W obszarze **Klucze tajne klienta** wybierz pozycję **+ Nowy klucz tajny klienta**. Nadaj kluczowi nazwę i wybierz pozycję **Dodaj**. Skopiuj klucz tajny do bezpiecznej lokalizacji. Będzie on używany w kodzie.
@@ -65,7 +65,7 @@ Aby uruchomić ten przykład, potrzebujesz:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Pobieranie i konfigurowanie aplikacji Szybki Start
-> 
+>
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
 > Aby działał przykładowy kod z tego przewodnika Szybki start, musisz utworzyć klucz tajny klienta i dodać uprawnienie aplikacji **User.Read.All** interfejsu API programu Graph.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -89,7 +89,7 @@ Aby uruchomić ten przykład, potrzebujesz:
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-python-project"></a>Krok 3: Konfigurowanie projektu Języka Python
-> 
+>
 > 1. Wyodrębnij plik zip do folderu lokalnego blisko folderu głównego dysku, na przykład **C:\Azure-Samples**.
 > 1. Przejdź do podfolderu **1-Call-MsGraph-WithSecret"**.
 > 1. Edytuj **plik parameters.json** i zastąp wartości pól `authority`i `client_id` `secret` następującym fragmentem kodu:
@@ -106,7 +106,7 @@ Aby uruchomić ten przykład, potrzebujesz:
 >
 > > [!TIP]
 > > Aby znaleźć wartości **Identyfikator aplikacji (klienta)**, **Identyfikator katalogu (dzierżawy)**, przejdź do strony **Przegląd** aplikacji w witrynie Azure Portal. Aby wygenerować nowy klucz, przejdź do strony **Certyfikaty i klucze tajne**.
-    
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Krok 3: Zgoda administratora
 
@@ -212,7 +212,7 @@ if not result:
 
 > |Gdzie:| |
 > |---------|---------|
-> | `config["scope"]` | Zawiera żądane zakresy. W przypadku klientów poufnych format powinien być podobny do `{Application ID URI}/.default`, aby wskazać, że żądane zakresy są zdefiniowane statycznie w obiekcie aplikacji ustawionym w witrynie Azure Portal (w przypadku programu Microsoft Graph element `{Application ID URI}` wskazuje na adres `https://graph.microsoft.com`). W przypadku niestandardowych internetowych interfejsów API element `{Application ID URI}` jest zdefiniowany w sekcji **Uwidocznij interfejs API** w obszarze rejestracji aplikacji (w wersji zapoznawczej) witryny Azure Portal. |
+> | `config["scope"]` | Zawiera żądane zakresy. W przypadku klientów poufnych format powinien być podobny do `{Application ID URI}/.default`, aby wskazać, że żądane zakresy są zdefiniowane statycznie w obiekcie aplikacji ustawionym w witrynie Azure Portal (w przypadku programu Microsoft Graph element `{Application ID URI}` wskazuje na adres `https://graph.microsoft.com`). W przypadku niestandardowych `{Application ID URI}` interfejsów API sieci Web jest zdefiniowany w obszarze **Uwłaidanie** sekcji interfejsu API w rejestracji aplikacji usługi Azure Portal (w wersji zapoznawczej). |
 
 Więcej informacji można znaleźć w [dokumentacji dotyczącej metody `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client)
 

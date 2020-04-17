@@ -1,17 +1,15 @@
 ---
 title: Konfigurowanie urządzenia migracji platformy Azure dla serwerów fizycznych
 description: Dowiedz się, jak skonfigurować urządzenie migracji platformy Azure do oceny serwera fizycznego.
-author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: ddc70ee9430d3a767ce01191824c150a4dbd5e6f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598174"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538277"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurowanie urządzenia dla serwerów fizycznych
 
@@ -49,11 +47,24 @@ Pobierz spakowany plik urządzenia.
 Przed wdrożeniem pliku jest bezpieczny, zanim go wdrożysz.
 
 1. Na maszynie, na którą pobrano plik, otwórz okno wiersza polecenia administratora.
-2. Uruchom następujące polecenie, aby wygenerować skrót dla dysku VHD
+2. Uruchom następujące polecenie, aby wygenerować skrót dla spakowany plik:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Przykład użycia: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  W przypadku najnowszej wersji urządzenia wygenerowany skrót powinien być zgodny z tymi [ustawieniami](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
+    - Przykład użycia w chmurze publicznej:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Przykład użycia chmury rządów:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+3.  Sprawdź wartości skrótu:
+ 
+    - Dla chmury publicznej (dla najnowszej wersji urządzenia):
 
+        **Algorytm** | **Wartość skrótu**
+          --- | ---
+          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+
+    - Dla platformy Azure dla instytucji rządowych (dla najnowszej wersji urządzenia):
+
+        **Algorytm** | **Wartość skrótu**
+          --- | ---
+          MD5 | f81c155fc4a1409901caea948713913f
 
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Uruchamianie skryptu instalatora migracji platformy Azure
@@ -69,23 +80,23 @@ Skrypt instalatora wykonuje następujące czynności:
 
 Uruchom skrypt w następujący sposób:
 
-1. Wyodrębnij spakowany plik do folderu na serwerze, w który będzie obsługiwał urządzenie.
+1. Wyodrębnij spakowany plik do folderu na serwerze, w który będzie obsługiwał urządzenie.  Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu migracji platformy Azure.
 2. Uruchom program PowerShell na powyższym serwerze z uprawnieniami administracyjnymi (podwyższonymi).
 3. Zmień katalog programu PowerShell na folder, w którym zawartość została wyodrębniona z pobranego pliku spakowanym.
 4. Uruchom skrypt o nazwie **AzureMigrateInstaller.ps1,** uruchamiając następujące polecenie:
-    ```
-    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
-    ```
-Skrypt uruchomi aplikację internetową urządzenia po pomyślnym zakończeniu.
 
-W przypadku jakichkolwiek problemów można uzyskać dostęp do dzienników skryptów w witrynie C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log w celu rozwiązania problemu.
+    - Dla chmury publicznej:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - Dla platformy Azure dla instytucji rządowych:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
-> [!NOTE]
-> Proszę nie wykonywać skryptu instalatora migracji platformy Azure na istniejącym urządzeniu migracji platformy Azure.
+    Skrypt uruchomi aplikację internetową urządzenia po pomyślnym zakończeniu.
+
+Jeśli natkniesz się na jakiekolwiek problemy, możesz uzyskać dostęp do dzienników skryptów w witrynie C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log w celu rozwiązania problemu.
+
+
 
 ### <a name="verify-appliance-access-to-azure"></a>Weryfikowanie dostępu urządzenia do platformy Azure
 
-Upewnij się, że maszyna wirtualna urządzenia może łączyć się z wymaganymi [adresami URL platformy Azure](migrate-appliance.md#url-access).
+Upewnij się, że maszyna wirtualna urządzenia może łączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i [rządowych.](migrate-appliance.md#government-cloud-urls)
 
 ## <a name="configure-the-appliance"></a>Konfigurowanie urządzenia
 
@@ -120,7 +131,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 Połącz się z urządzenia z serwerami fizycznymi i rozpocznij odnajdowanie.
 
 1. Kliknij **przycisk Dodaj poświadczenia,** aby określić poświadczenia konta używane przez urządzenie do odnajdywać serwery.  
-2. Określ **system operacyjny**, przyjazną nazwę poświadczeń, nazwę **użytkownika** i **hasło** oraz kliknij przycisk **Dodaj**.
+2. Określ **system operacyjny**, przyjazną nazwę poświadczeń oraz nazwę użytkownika i hasło. Następnie kliknij przycisk **Dodaj**.
 Można dodać jeden zestaw poświadczeń dla serwerów Windows i Linux.
 4. Kliknij **przycisk Dodaj serwer**i określ szczegóły serwera — adres FQDN/IP i przyjazną nazwę poświadczeń (jeden wpis na wiersz), aby połączyć się z serwerem.
 3. Kliknij pozycję **Validate** (Waliduj). Po weryfikacji zostanie wyświetlona lista serwerów, które można odnajdować.

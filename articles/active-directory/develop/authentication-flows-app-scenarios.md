@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: e73da5e7b440a216841fffd65ca2e1b95de7a609
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf47a352542be0ad4467ed420cc38f62da0d47dc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480933"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534886"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Przepływy uwierzytelniania i scenariusze aplikacji
 
@@ -172,13 +172,13 @@ Aby uzyskać więcej informacji, zobacz [Aplikacja mobilna, która wywołuje int
 
 Punktu końcowego platformy tożsamości firmy Microsoft można używać do zabezpieczania usług sieci web, takich jak interfejs API sieci Web restful aplikacji. Chroniony interfejs API sieci web jest wywoływany przy użyciu tokenu dostępu. Token zabezpiecza dane interfejsu API i uwierzytelnia przychodzące żądania. Wywołujący internetowy interfejs API dołącza token dostępu w nagłówku autoryzacji żądania HTTP.
 
-Jeśli chcesz chronić ASP.NET lub ASP.NET core web API, musisz sprawdzić poprawność tokenu dostępu. W tym przypadku należy użyć ASP.NET oprogramowania pośredniczącego JWT. Sprawdzanie poprawności odbywa się przez [rozszerzenia IdentityModel dla](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) biblioteki .NET, a nie przez MSAL.NET.
+Jeśli chcesz chronić ASP.NET lub ASP.NET core interfejsu API sieci web, należy sprawdzić poprawność tokenu dostępu. W tym przypadku należy użyć ASP.NET oprogramowania pośredniczącego JWT. Sprawdzanie poprawności odbywa się przez [rozszerzenia IdentityModel dla](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) biblioteki .NET, a nie przez MSAL.NET.
 
 Aby uzyskać więcej informacji, zobacz [Chroniony interfejs API sieci Web](scenario-protected-web-api-overview.md).
 
 ### <a name="a-web-api-calling-another-web-api-on-behalf-of-a-user"></a>Internetowy interfejs API wywołujący inny internetowy interfejs API w imieniu użytkownika
 
-Aby interfejs API sieci Web chroniony ASP.NET lub ASP.NET Core wywoływał inny internetowy interfejs API w imieniu użytkownika, aplikacja musi uzyskać token dla podrzędnego interfejsu API sieci web. Aby uzyskać token, aplikacja wywołuje **ConfidentialClientApplication** klasy [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) metody. Takie wywołania są również nazywane *wywołania usługi do usług.* Interfejsy API sieci Web, które wywołują inne internetowe interfejsy API, muszą zapewniać niestandardową serializację pamięci podręcznej.
+Aby interfejs API sieci web chroniony ASP.NET lub ASP.NET Core wywoływał inny internetowy interfejs API w imieniu użytkownika, aplikacja musi uzyskać token dla podrzędnego interfejsu API sieci web. Aby uzyskać token, aplikacja wywołuje **ConfidentialClientApplication** klasy [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) metody. Takie wywołania są również nazywane *wywołania usługi do usług.* Interfejsy API sieci Web, które wywołują inne internetowe interfejsy API, muszą zapewniać niestandardową serializację pamięci podręcznej.
 
   ![Internetowy interfejs API wywołujący inny internetowy interfejs API](media/scenarios/web-api.svg)
 
@@ -211,14 +211,14 @@ Scenariusze, które obejmują pobieranie tokenów również mapować do przepły
  </tr>
 
   <tr>
-   <td><a href="scenario-web-app-sign-user-overview.md"><img alt="Web App that signs in users" src="media/scenarios/scenario-webapp-signs-in-users.svg"></a></td>
+   <td><a href="scenario-web-app-sign-user-overview.md"><img alt="Web app that signs in users" src="media/scenarios/scenario-webapp-signs-in-users.svg"></a></td>
    <td><a href="scenario-web-app-sign-user-overview.md">Aplikacja internetowa, która loguje się do użytkowników</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">Kod autoryzacji</a></td>
    <td>Konta służbowe, konta osobiste i usługa Azure AD B2C</td>
  </tr>
 
   <tr>
-   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web App that signs in users" src="media/scenarios/web-app.svg"></a></td>
+   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web app that signs in users" src="media/scenarios/web-app.svg"></a></td>
    <td><a href="scenario-web-app-call-api-overview.md">Aplikacja internetowa, która wywołuje internetowe interfejsy API</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">Kod autoryzacji</a></td>
    <td>Konta służbowe, konta osobiste i usługa Azure AD B2C</td>
@@ -302,12 +302,12 @@ W kolumnie systemu Windows w poniższej tabeli za każdym razem .NET Core jest r
 |Scenariusz  | Windows | Linux | Mac | iOS | Android
 |--|--|--|--|--|--|--|
 | [Aplikacja jednostronicowa](scenario-spa-overview.md) <br/>[![Aplikacja jednostronicowa](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
-| [Aplikacja sieci Web, która loguje się do użytkowników](scenario-web-app-sign-user-overview.md) <br/>[![Aplikacja sieci Web, która loguje się do użytkowników](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
-| [Aplikacja sieci Web, która wywołuje internetowe interfejsy API](scenario-web-app-call-api-overview.md) <br/> <br/>[![Aplikacja sieci Web, która wywołuje internetowe interfejsy API](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>Kolba + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>Kolba + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>Kolba + MSAL Python
+| [Aplikacja internetowa z możliwością logowania użytkowników](scenario-web-app-sign-user-overview.md) <br/>[![Aplikacja sieci Web, która loguje się do użytkowników](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
+| [Aplikacja internetowa wywołująca internetowe interfejsy API](scenario-web-app-call-api-overview.md) <br/> <br/>[![Aplikacja internetowa wywołująca internetowe interfejsy API](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>Kolba + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>Kolba + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>Kolba + MSAL Python
 | [Aplikacja klasyczna wywołująca internetowe interfejsy API](scenario-desktop-overview.md) <br/> <br/>Aplikacja klasyczna, która wywołuje przepływ kodu urządzenia ![interfejsów API sieci [ ![Web](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md)](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL <br/> ![iOS / Cel C lub swift](media/sample-v2-code/small_logo_iOS.png) MSAL.objc |
 | [Aplikacja mobilna wywołująca internetowe interfejsy API](scenario-mobile-overview.md) <br/> [![Aplikacja mobilna wywołująca internetowe interfejsy API](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![Platforma UWP](media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS / Cel C lub swift](media/sample-v2-code/small_logo_iOS.png) MSAL.objc | ![Android](media/sample-v2-code/small_logo_Android.png) MSAL. Android
 | [Aplikacja demona](scenario-daemon-overview.md) <br/> [![Aplikacja demona](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL
-| [Internetowy interfejs API wywołujący internetowe interfejsy API](scenario-web-api-call-api-overview.md) <br/><br/> [![Internetowy interfejs API, który wywołuje internetowe interfejsy API](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL
+| [Internetowy interfejs API wywołujący internetowe interfejsy API](scenario-web-api-call-api-overview.md) <br/><br/> [![Internetowy interfejs API wywołujący internetowe interfejsy API](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET rdzeń + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MĘTÓW MSAL](media/sample-v2-code/small_logo_python.png)<br/>MĘTÓW MSAL
 
 Aby uzyskać więcej informacji, zobacz [Biblioteki obsługiwane przez firmę Microsoft według systemu operacyjnego / języka](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
 

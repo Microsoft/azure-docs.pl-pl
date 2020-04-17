@@ -4,12 +4,12 @@ description: Dowiedz się, jak przychodzące i wychodzące adresy IP są używan
 ms.topic: article
 ms.date: 06/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: aebce04fe2f1b055a4d498021dcd25144cd122a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bcd80fde95e467513590f3ed09b1dadd2646aee
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279210"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537631"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Przychodzące i wychodzące adresy IP w usłudze Azure App Service
 
@@ -23,7 +23,7 @@ Niezależnie od liczby wystąpień skalowane w poziomie każda aplikacja ma jede
 
 - Usuń aplikację i ponownie stwórz ją w innej grupie zasobów.
 - Usuń ostatnią aplikację w kombinacji grupy _zasobów i_ regionu i ponownie ją utworzyć.
-- Usuwanie istniejącego powiązania SSL, na przykład podczas odnawiania certyfikatu (zobacz [Odnawianie certyfikatu).](configure-ssl-certificate.md#renew-certificate)
+- Usuwanie istniejącego powiązania TLS, na przykład podczas odnawiania certyfikatu (patrz [Odnawianie certyfikatu).](configure-ssl-certificate.md#renew-certificate)
 
 ## <a name="find-the-inbound-ip"></a>Znajdowanie przychodzącego adresu IP
 
@@ -35,7 +35,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## <a name="get-a-static-inbound-ip"></a>Uzyskaj statyczny przychodzący adres IP
 
-Czasami możesz chcieć dedykowanego, statycznego adresu IP dla aplikacji. Aby uzyskać statyczny przychodzący adres IP, należy skonfigurować [powiązanie SSL oparte na protoke.](configure-ssl-bindings.md#secure-a-custom-domain) Jeśli faktycznie nie potrzebujesz funkcji SSL do zabezpieczenia aplikacji, możesz nawet przekazać certyfikat z podpisem własnym dla tego powiązania. W powiązaniu SSL opartym na protoke ip certyfikat jest powiązany z samym adresem IP, więc usługa App Service udostępnia statyczny adres IP, aby to się stało. 
+Czasami możesz chcieć dedykowanego, statycznego adresu IP dla aplikacji. Aby uzyskać statyczny przychodzący adres IP, musisz [zabezpieczyć domenę niestandardową](configure-ssl-bindings.md#secure-a-custom-domain). Jeśli faktycznie nie potrzebujesz funkcji TLS do zabezpieczenia aplikacji, możesz nawet przekazać certyfikat z podpisem własnym dla tego powiązania. W powiązaniu TLS opartym na protoke IP certyfikat jest powiązany z samym adresem IP, więc usługa App Service udostępnia statyczny adres IP, aby to się stało. 
 
 ## <a name="when-outbound-ips-change"></a>Gdy wychodzące ip zmiany
 

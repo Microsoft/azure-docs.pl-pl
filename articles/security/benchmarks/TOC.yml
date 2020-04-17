@@ -40,6 +40,8 @@
       href: ../../container-registry/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Cosmos DB
       href: ../../cosmos-db/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń eksploratora danych
+      href: /azure/data-explorer/security-baseline
     - name: Punkt odniesienia usługi Event Hubs
       href: ../../event-hubs/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi HDInsight

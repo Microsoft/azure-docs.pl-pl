@@ -1,6 +1,6 @@
 ---
 title: Dodawanie logowania za pomocą firmy Microsoft do aplikacji sieci Web Python platformy tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak zaimplementować logowanie microsoftu w aplikacji Python Web App przy użyciu usługi OAuth2
+description: Dowiedz się, jak zaimplementować logowanie microsoftu w aplikacji sieci Web języka Python przy użyciu usługi OAuth2
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 0affae56ef6998efe4bb370287ff3688f83f3878
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: c0220a226b2095a4ec54bc3469abee08b8b29f4c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873960"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536033"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Szybki start: dodawanie logowania za pomocą firmy Microsoft do aplikacji sieci Web języka Python
 
@@ -62,7 +62,7 @@ Aby uruchomić ten przykład, należy:
 >      - Na stronie **Przegląd** aplikacji zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 > 1. Wybierz **uwierzytelnianie** z menu, a następnie dodaj następujące informacje:
 >    - Dodaj konfigurację platformy **sieci Web.** Dodaj `http://localhost:5000/getAToken` jako **przekierowanie identyfikatorów URI**.
->    - Wybierz **pozycję Zapisz**.
+>    - Wybierz pozycję **Zapisz**.
 > 1. W menu po lewej stronie wybierz **certyfikaty & wpisy tajne** i kliknij **nowy klucz tajny klienta** w sekcji **Tajemnice klienta:**
 >
 >      - Wpisz opis klucza (klucz tajny aplikacji instancji).

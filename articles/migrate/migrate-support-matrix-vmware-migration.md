@@ -2,13 +2,13 @@
 title: Obsługa migracji VMware w usłudze Azure Migrate
 description: Dowiedz się więcej o obsłudze migracji maszyn wirtualnych VMware w usłudze Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: bf9cc471eef31edd513358a97d2ece17015ba781
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.date: 04/15/2020
+ms.openlocfilehash: eee16b244ae4f9d517bdd42a0b7f37b1494ac480
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313994"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538141"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Macierz wsparcia dla migracji VMware
 
@@ -64,10 +64,12 @@ Przejrzyj [ten artykuł,](server-migrate-overview.md) aby dowiedzieć się, któ
 
 
 ## <a name="agentless-azure-migrate-appliance"></a>Urządzenie migracji bez agenta-Azure 
-Migracja bez agenta używa urządzenia migracji platformy Azure, wdrożonego na maszynie wirtualnej VMware.
+
+Migracja bezgentowa korzysta z [urządzenia migracji platformy Azure](migrate-appliance.md). Urządzenie można wdrożyć jako maszynę wirtualną VMWare przy użyciu szablonu OVA, zaimportowanego do serwera vCenter Server lub [skryptu programu PowerShell](deploy-appliance-script.md).
 
 - Dowiedz się więcej o [wymaganiach dotyczących urządzeń](migrate-appliance.md#appliance---vmware) dla VMware.
-- Dowiedz się więcej o [adresach URL,](migrate-appliance.md#url-access) do które urządzenie musi uzyskać dostęp.
+- Dowiedz się więcej o adresach URL, do których urządzenie musi mieć dostęp w chmurach [publicznych](migrate-appliance.md#public-cloud-urls) i [rządowych.](migrate-appliance.md#government-cloud-urls)
+- W usłudze Azure Government należy wdrożyć urządzenie przy użyciu skryptu.
 
 ## <a name="agentless-ports"></a>Porty bez agenta
 
@@ -123,7 +125,8 @@ Podczas konfigurowania urządzenia replikacji przy użyciu szablonu ova dostępn
 
 - Dowiedz się więcej o [wymaganiach urządzeń replikacji](migrate-replication-appliance.md#appliance-requirements) dla VMware.
 - MySQL musi być zainstalowany na urządzeniu. Dowiedz się więcej o [opcjach instalacji](migrate-replication-appliance.md#mysql-installation).
-- Dowiedz się więcej o [adresach URL](migrate-replication-appliance.md#url-access) i [portach,](migrate-replication-appliance.md#port-access) do które urządzenie replikacji musi uzyskać dostęp.
+- Dowiedz się więcej o adresach URL, do których urządzenie replikacji musi uzyskać dostęp w chmurach [publicznych](migrate-replication-appliance.md#url-access) i [rządowych.](migrate-replication-appliance.md#azure-government-url-access)
+- Przejrzyj [porty,](migrate-replication-appliance.md#port-access) do które urządzenie replikacji musi uzyskać dostęp.
 
 ## <a name="agent-based-ports"></a>Porty oparte na agentach
 

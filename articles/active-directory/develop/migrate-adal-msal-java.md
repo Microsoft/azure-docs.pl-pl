@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: 2929b94a2cb624b96649292714fe93dea09a2085
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7ba845e79074313f0ccf2c066ba016bd72d46efe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886504"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534571"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Przewodnik po migracji ADAL do MSAL dla języka Java
 
@@ -82,7 +82,7 @@ Jeśli używasz `https://login.microsoftonline.com/common` urzędu w wersji 2.0,
 
 Punkt końcowy w wersji 1.0 (używany przez ADAL) emituje tylko tokeny w wersji 1.0.
 
-Punkt końcowy w wersji 2.0 (używany przez MSAL) może emitować tokeny w wersji 1.0 i v2.0. Właściwość manifestu aplikacji interfejsu API sieci Web umożliwia deweloperom wybrać, która wersja tokenu jest akceptowana. Zobacz `accessTokenAcceptedVersion` w dokumentacji referencyjnej [manifestu aplikacji.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+Punkt końcowy w wersji 2.0 (używany przez MSAL) może emitować tokeny w wersji 1.0 i v2.0. Właściwość manifestu aplikacji interfejsu API sieci web umożliwia deweloperom wybrać, która wersja tokenu jest akceptowana. Zobacz `accessTokenAcceptedVersion` w dokumentacji referencyjnej [manifestu aplikacji.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 
 Aby uzyskać więcej informacji na temat tokenów w wersji 1.0 i wersji 2.0, zobacz [tokeny dostępu usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
 
@@ -109,7 +109,8 @@ PublicClientApplication app = PublicClientApplication.builder(CLIENT_ID) // Clie
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
 
-Zwraca `IAuthenticationResult` token dostępu i token identyfikatora, podczas gdy nowy token odświeżania jest przechowywany w pamięci podręcznej. Aplikacja będzie również zawierać konto IAccount:
+Zwraca `IAuthenticationResult` token dostępu i token identyfikatora, podczas gdy nowy token odświeżania jest przechowywany w pamięci podręcznej.
+Aplikacja będzie również zawierać konto IAccount:
 
 ```java
 Set<IAccount> accounts =  app.getAccounts().join();
@@ -118,6 +119,6 @@ Set<IAccount> accounts =  app.getAccounts().join();
 Aby użyć tokenów, które są teraz w pamięci podręcznej, wywołaj:
 
 ```java
-SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build(); 
+SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build();
 IAuthenticationResult result = app.acquireToken(parameters);
 ```

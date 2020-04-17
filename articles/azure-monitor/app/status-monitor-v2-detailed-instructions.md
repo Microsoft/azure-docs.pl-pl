@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: cd5ca5039b537859d5b31c901ed1f93877ecb629
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a0eb83b4b056230e8e7ef103f220b216fceb9e9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275726"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537461"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Agent usługi Application Insights (dawniej Monitor stanu w wersji 2): szczegółowe instrukcje
 
@@ -227,7 +227,7 @@ Szczegółowe opis sposobu używania tego polecenia cmdlet można znaleźć w [o
 
  Wyświetlanie telemetrii:
 
-- [Eksploruj metryki,](../../azure-monitor/app/metrics-explorer.md) aby monitorować wydajność i użycie.
+- [Eksploruj metryki,](../../azure-monitor/platform/metrics-charts.md) aby monitorować wydajność i użycie.
 - [Szukaj zdarzeń i dzienników](../../azure-monitor/app/diagnostic-search.md) w celu zdiagnozowania problemów.
 - [Korzystaj z analizy](../../azure-monitor/app/analytics.md) w przypadku bardziej zaawansowanych zapytań.
 - [Tworzenie pulpitów nawigacyjnych](../../azure-monitor/app/overview-dashboard.md).

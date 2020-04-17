@@ -3,12 +3,12 @@ title: Urządzenie replikacji w usłudze Azure Migrate
 description: Dowiedz się więcej o urządzeniu replikacji migracji platformy Azure do migracji VMWare opartej na agentach.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245865"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535217"
 ---
 # <a name="replication-appliance"></a>Urządzenie replikacji
 
@@ -28,8 +28,11 @@ Urządzenie replikacji jest wdrażane podczas konfigurowania migracji maszyn wir
 
 **Używana do** | **Szczegóły**
 --- |  ---
-Migracja oparta na maszynach VMware na podstawie agenta | Pobierz szablon ova z centrum migracji platformy Azure i zaimportuj do serwera vCenter Server, aby utworzyć maszynę wirtualną urządzenia.
-Migracja oparta na agentach komputera fizycznego | Jeśli nie masz infrastruktury VMware lub nie możesz utworzyć maszyny wirtualnej VMware przy użyciu szablonu ova, pobierz instalator oprogramowania z centrum migracji platformy Azure i uruchom go w celu skonfigurowania komputera urządzenia.
+**Migracja oparta na maszynach VMware na podstawie agenta** | Pobierz szablon ova z centrum migracji platformy Azure i zaimportuj do serwera vCenter Server, aby utworzyć maszynę wirtualną urządzenia.
+**Migracja oparta na agentach komputera fizycznego** | Jeśli nie masz infrastruktury VMware lub nie możesz utworzyć maszyny wirtualnej VMware przy użyciu szablonu ova, pobierz instalator oprogramowania z centrum migracji platformy Azure i uruchom go w celu skonfigurowania komputera urządzenia.
+
+> [!NOTE]
+> Jeśli wdrażasz w usłudze Azure Government, użyj pliku instalacyjnego, aby wdrożyć urządzenie replikacji.
 
 ## <a name="appliance-requirements"></a>Wymagania dotyczące urządzeń
 
@@ -74,7 +77,7 @@ Pobieranie i instalowanie w usłudze Azure Migrate | Po zainstalowaniu urządzen
 
 ## <a name="url-access"></a>Dostęp do adresu URL
 
-Urządzenie replikacji potrzebuje dostępu do tych adresów URL.
+Urządzenie replikacji potrzebuje dostępu do tych adresów URL w chmurze publicznej platformy Azure.
 
 **Adres URL** | **Szczegóły**
 --- | ---
@@ -84,10 +87,26 @@ Urządzenie replikacji potrzebuje dostępu do tych adresów URL.
 \*.hypervrecoverymanager.windowsazure.com | Używane do operacji zarządzania replikacją i koordynacji
 https:\//management.azure.com | Używane do operacji zarządzania replikacją i koordynacji
 *.services.visualstudio.com | Używany do celów telemetrycznych (jest opcjonalny)
-time.nist.gov | Służą do sprawdzania synchronizacji czasu między systemem i czasem globalnym.
 time.windows.com | Służą do sprawdzania synchronizacji czasu między systemem i czasem globalnym.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Konfiguracja OVF potrzebuje dostępu do tych adresów URL. Są one używane do kontroli dostępu i zarządzania tożsamościami przez usługę Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Aby zakończyć pobieranie MySQL
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Konfiguracja urządzenia wymaga dostępu do tych adresów URL. Są one używane do kontroli dostępu i zarządzania tożsamościami przez usługę Azure Active Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Aby zakończyć pobieranie MySQL. W kilku regionach pobieranie może zostać przekierowane do adresu URL sieci CDN. Upewnij się, że adres URL sieci CDN jest również dozwolony w razie potrzeby.
+
+
+## <a name="azure-government-url-access"></a>Dostęp do adresu URL platformy Azure dla instytucji rządowych
+
+Urządzenie replikacji potrzebuje dostępu do tych adresów URL w usłudze Azure Government.
+
+**Adres URL** | **Szczegóły**
+--- | ---
+\*backup.windowsazure.us .backup.windowsazure.us | Służy do replikowanego transferu i koordynacji danych
+\*.store.core.windows.net | Służy do replikowanego transferu i koordynacji danych
+\*.blob.core.windows.net | Służy do uzyskiwania dostępu do konta magazynu, które przechowuje replikowane dane
+\*hypervrecoverymanager.windowsazure.us . | Używane do operacji zarządzania replikacją i koordynacji
+https:\//management.usgovcloudapi.net | Używane do operacji zarządzania replikacją i koordynacji
+*.services.visualstudio.com | Używany do celów telemetrycznych (jest opcjonalny)
+time.nist.gov | Służą do sprawdzania synchronizacji czasu między systemem i czasem globalnym.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Konfiguracja urządzenia z urządzeniem typu OVA wymaga dostępu do tych adresów URL. Są one używane do kontroli dostępu i zarządzania tożsamościami przez usługę Azure Active Directory.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Aby zakończyć pobieranie MySQL. W kilku regionach pobieranie może zostać przekierowane do adresu URL sieci CDN. Upewnij się, że adres URL sieci CDN jest również dozwolony w razie potrzeby.
 
 ## <a name="port-access"></a>Dostęp do portu
 

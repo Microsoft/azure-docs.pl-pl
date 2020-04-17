@@ -6,15 +6,15 @@ keywords: kodowanie;kodery;nośniki
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 5e16f1fb948ddb435c5002c16125b36fa61d50a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbd2929e245fa5fc01245e7bd02e537db8d5ef36
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336243"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536339"
 ---
 # <a name="tested-on-premises-live-streaming-encoders"></a>Przetestowane lokalne kodery strumieniowe na żywo
 
@@ -58,7 +58,6 @@ Podczas przesyłania strumieniowego za pośrednictwem protokołu RTMPS sprawdź 
 - Telestream Wirecast S (obsługiwany jest tylko RTMP)
 - Teradek Slice 756
 - TriCaster 8000
-- Tricaster Mini HD-4
 - VMIX
 - xStream
 - [Ffmpeg](https://www.ffmpeg.org)

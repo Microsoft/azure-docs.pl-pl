@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043e0f3a0ff2c1c642c63a387c571b575f77cf7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0645807aa40557c163643f1393c310668518f9be
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050837"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535143"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Realizacja zaproszenia do współpracy usługi Azure Active Directory B2B
 
@@ -52,6 +52,36 @@ Istnieją przypadki, w których wiadomość e-mail z zaproszeniem jest zalecana 
  - Czasami obiekt zaproszonego użytkownika może nie mieć adresu e-mail z powodu konfliktu z obiektem kontaktu (na przykład obiektem kontaktu programu Outlook). W takim przypadku użytkownik musi kliknąć adres URL realizacji w wiadomości e-mail z zaproszeniem.
  - Użytkownik może zalogować się przy za pomocą aliasu adresu e-mail, który został zaproszony. (Alias to dodatkowy adres e-mail skojarzony z kontem e-mail). W takim przypadku użytkownik musi kliknąć adres URL realizacji w wiadomości e-mail z zaproszeniem.
 
+## <a name="invitation-redemption-flow"></a>Przepływ wykupu zaproszenia
+
+Gdy użytkownik kliknie łącze **Zaakceptuj zaproszenie** w [wiadomości e-mail z zaproszeniem,](invitation-email-elements.md)usługa Azure AD automatycznie realizuje zaproszenie na podstawie przepływu realizacji, jak pokazano poniżej:
+
+![Zrzut ekranu przedstawiający diagram przepływu realizacji](media/redemption-experience/invitation-redemption-flow.png)
+
+1. Proces realizacji sprawdza, czy użytkownik ma istniejące osobiste [konto Microsoft (MSA).](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create)
+
+2. Jeśli administrator włączył [bezpośrednią federację,](direct-federation.md)usługa Azure AD sprawdza, czy sufiks domeny użytkownika jest zgodny z domeną skonfigurowanego dostawcy tożsamości SAML/WS-Fed i przekierowuje użytkownika do wstępnie skonfigurowanego dostawcy tożsamości.
+
+3. Jeśli administrator włączył [federację Google,](google-federation.md)usługa Azure AD sprawdza, czy sufiks domeny użytkownika jest gmail.com lub googlemail.com i przekierowuje użytkownika do Google.
+
+4. Usługa Azure AD wykonuje odnajdowanie oparte na u użytkownika, aby ustalić, czy użytkownik istnieje w [istniejącej dzierżawie usługi Azure AD.](what-is-b2b.md#easily-add-guest-users-in-the-azure-ad-portal)
+
+5. Po zidentyfikowaniu **katalogu macierzystego** użytkownika użytkownik jest wysyłany do odpowiedniego dostawcy tożsamości w celu zalogowania się.  
+
+6. Jeśli kroki od 1 do 4 nie można znaleźć katalogu macierzystego dla zaproszonego użytkownika, usługa Azure AD określa, czy zapraszająca dzierżawa włączyła funkcję [jednorazowego kodu dostępu poczty e-mail (OTP)](one-time-passcode.md) dla gości.
+
+7. Jeśli [włączona jest jednorazowa wiadomość e-mail dla gości,](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode)kod dostępu jest wysyłany do użytkownika za pośrednictwem zaproszonej wiadomości e-mail. Użytkownik pobierze i wprowadzi ten kod dostępu na stronie logowania usługi Azure AD.
+
+8. Jeśli jednorazowy kod dostępu dla gości jest wyłączony, usługa Azure AD sprawdza sufiks domeny względem listy domen konsumenta obsługiwanej przez firmę Microsoft. Jeśli domena jest zgodna z dowolną domeną na liście domen konsumenta, zostanie wyświetlony monit o utworzenie osobistego konta Microsoft. Jeśli nie, użytkownik jest monitowany o utworzenie [konta samoobsługowego usługi Azure AD](../users-groups-roles/directory-self-service-signup.md) (konto wirusowe).
+
+9. Usługa Azure AD próbuje utworzyć konto samoobsługowe usługi Azure AD (konto wirusowe), weryfikując dostęp do poczty e-mail. Weryfikowanie konta odbywa się przez wysłanie kodu do wiadomości e-mail i o użytkownik pobrać i przesłać go do usługi Azure AD. Jednak jeśli dzierżawa zaproszonego użytkownika jest federacyjne lub jeśli AllowEmailVerifiedUsers pole jest ustawiona na false w dzierżawie zaproszonego użytkownika, użytkownik nie może zakończyć realizacji i przepływ powoduje błąd. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów ze współpracą usługi Azure Active Directory B2B](troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+
+10. Użytkownik jest monitowany o utworzenie osobistego konta Microsoft (MSA).
+
+11. Po uwierzytelnieniu do odpowiedniego dostawcy tożsamości użytkownik jest przekierowywał do usługi Azure AD, aby zakończyć [środowisko zgody.](redemption-experience.md#consent-experience-for-the-guest)  
+
+W przypadku wykupów just-in-time (JIT), gdzie wykup odbywa się za pośrednictwem łącza aplikacji dzierżawionej, kroki od 8 do 10 nie są dostępne. Jeśli użytkownik osiągnie krok 6, a funkcja jednorazowego kodu e-mail nie jest włączona, użytkownik otrzyma komunikat o błędzie i nie może zrealizować zaproszenia. Aby temu zapobiec, administratorzy powinni [włączyć jednorazowy kod dostępu do poczty e-mail](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) lub upewnić się, że użytkownik kliknie łącze z zaproszeniem.
+
 ## <a name="consent-experience-for-the-guest"></a>Zgoda dla gościa
 
 Gdy gość loguje się, aby uzyskać dostęp do zasobów w organizacji partnerskiej po raz pierwszy, jest prowadzony przez następujące strony. 
@@ -67,8 +97,7 @@ Gdy gość loguje się, aby uzyskać dostęp do zasobów w organizacji partnersk
 
    ![Zrzut ekranu przedstawiający nowe warunki użytkowania](media/redemption-experience/terms-of-use-accept.png) 
 
-   > [!NOTE]
-   > W obszarze **Zarządzanie** > **relacjami organizacyjnymi** > **można**skonfigurować warunki [użytkowania](../governance/active-directory-tou.md) .
+   W obszarze **Zarządzanie** > **relacjami organizacyjnymi** > **można**skonfigurować warunki [użytkowania](../governance/active-directory-tou.md) .
 
 3. O ile nie określono inaczej, gość jest przekierowywał do panelu dostęp do aplikacji, który zawiera listę aplikacji, do których gość może uzyskać dostęp.
 

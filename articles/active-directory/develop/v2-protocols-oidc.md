@@ -12,12 +12,12 @@ ms.date: 04/12/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d83e336c73d9288b97a0564472caa497ab64b4b1
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: fa42bf65ea5f4469f714dda4331d3cb66156d187
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309240"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535806"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Platforma tożsamości firmy Microsoft i protokół OpenID Connect
 
@@ -26,7 +26,7 @@ OpenID Connect to protokół uwierzytelniania zbudowany na OAuth 2.0, którego m
 > [!NOTE]
 > Punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje wszystkich scenariuszy i funkcji usługi Azure Active Directory (Azure AD). Aby ustalić, czy należy używać punktu końcowego platformy tożsamości firmy Microsoft, przeczytaj o [ograniczeniach platformy tożsamości firmy Microsoft](active-directory-v2-limitations.md).
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) rozszerza protokół *autoryzacji* OAuth 2.0 do użycia jako protokół *uwierzytelniania,* dzięki czemu można zrobić logowanie jednokrotne przy użyciu OAuth. OpenID Connect wprowadza pojęcie *tokenu identyfikatora*, który jest tokenem zabezpieczającym, który umożliwia klientowi weryfikowanie tożsamości użytkownika. Token identyfikatora pobiera również podstawowe informacje o profilu użytkownika. Ponieważ OpenID Connect rozszerza OAuth 2.0, aplikacje mogą bezpiecznie uzyskać *tokeny dostępu,* które mogą być używane do uzyskiwania dostępu do zasobów zabezpieczonych przez [serwer autoryzacji.](active-directory-v2-protocols.md#the-basics) Punkt końcowy platformy tożsamości firmy Microsoft umożliwia również aplikacjom innych firm, które są zarejestrowane w usłudze Azure AD, wystawianie tokenów dostępu dla zabezpieczonych zasobów, takich jak interfejsy API sieci Web. Aby uzyskać więcej informacji na temat konfigurowania aplikacji do wystawiania tokenów dostępu, zobacz [Jak zarejestrować aplikację w punkcie końcowym platformy tożsamości firmy Microsoft](quickstart-register-app.md). Zaleca się używanie OpenID Connect, jeśli budujesz [aplikację sieci web,](v2-app-types.md#web-apps) która jest hostowana na serwerze i uzyskiwać dostęp za pośrednictwem przeglądarki.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) rozszerza protokół *autoryzacji* OAuth 2.0 do użycia jako protokół *uwierzytelniania,* dzięki czemu można zrobić logowanie jednokrotne przy użyciu OAuth. OpenID Connect wprowadza pojęcie *tokenu identyfikatora*, który jest tokenem zabezpieczającym, który umożliwia klientowi weryfikowanie tożsamości użytkownika. Token identyfikatora pobiera również podstawowe informacje o profilu użytkownika. Ponieważ OpenID Connect rozszerza OAuth 2.0, aplikacje mogą bezpiecznie uzyskać *tokeny dostępu,* które mogą być używane do uzyskiwania dostępu do zasobów zabezpieczonych przez [serwer autoryzacji.](active-directory-v2-protocols.md#the-basics) Punkt końcowy platformy tożsamości firmy Microsoft umożliwia również aplikacjom innych firm, które są zarejestrowane w usłudze Azure AD, wystawianie tokenów dostępu dla zabezpieczonych zasobów, takich jak internetowe interfejsy API. Aby uzyskać więcej informacji na temat konfigurowania aplikacji do wystawiania tokenów dostępu, zobacz [Jak zarejestrować aplikację w punkcie końcowym platformy tożsamości firmy Microsoft](quickstart-register-app.md). Zaleca się używanie OpenID Connect, jeśli budujesz [aplikację sieci web,](v2-app-types.md#web-apps) która jest hostowana na serwerze i uzyskiwać dostęp za pośrednictwem przeglądarki.
 
 ## <a name="protocol-diagram-sign-in"></a>Diagram protokołu: Logowanie
 
@@ -222,8 +222,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 &response_type=id_token%20code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered redirect URI, URL encoded
 &response_mode=form_post                              // 'form_post' or 'fragment'
-&scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
-offline_access%20                                         
+&scope=openid%20                                      // Include both 'openid' and scopes that your app needs
+offline_access%20
 https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &state=12345                                          // Any value, provided by your app
 &nonce=678910                                         // Any value, provided by your app

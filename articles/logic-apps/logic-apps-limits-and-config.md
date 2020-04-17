@@ -3,15 +3,15 @@ title: Limity i konfiguracja
 description: Limity usług, takie jak czas trwania, przepływność i pojemność, a także wartości konfiguracji, takie jak adresy IP, aby zezwolić na usługi Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 4359c5581d14f4a918a49cf2b91ac58561ea93d3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/17/2020
+ms.openlocfilehash: 40950be2e5caeb17d20086720a7b65c15147c2f5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257457"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535115"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -112,7 +112,7 @@ Oto limity dla pojedynczej definicji aplikacji logiki:
 
 ### <a name="integration-service-environment-ise"></a>Środowisko usług integracji (ISE)
 
-Oto limity przepływności dla jednostki SKU Premium:
+Oto limity przepływności dla jednostki [SKU Premium ISE:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
 
 | Nazwa | Limit | Uwagi |
 |------|-------|-------|
@@ -124,8 +124,7 @@ Oto limity przepływności dla jednostki SKU Premium:
 Aby przekroczyć te limity w normalnym przetwarzaniu lub uruchomić testowanie obciążenia, które mogą przekroczyć te limity, skontaktuj się z [zespołem aplikacji logiki,](mailto://logicappsemail@microsoft.com) aby uzyskać pomoc dotyczącą wymagań.
 
 > [!NOTE]
-> Jednostka [SKU dewelopera](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) nie ma opublikowanych limitów, ponieważ ta jednostka SKU nie ma żadnej umowy dotyczącej poziomu usług (SLA) ani możliwości skalowania w górę.
-> Tej jednostki SKU należy używać tylko do eksperymentowania, tworzenia i testowania, a nie testowania produkcji lub wydajności.
+> Jednostka [SKU dewelopera ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) nie ma opublikowanych limitów, żadnych możliwości skalowania w górę i nie ma umowy dotyczącej poziomu usług (SLA). Tej jednostki SKU należy używać tylko do eksperymentowania, tworzenia i testowania, a nie testowania produkcji lub wydajności.
 
 <a name="gateway-limits"></a>
 
@@ -281,12 +280,9 @@ Oto limity rozmiaru wiadomości, które mają zastosowanie do protokołów B2B:
 
 ## <a name="disabling-or-deleting-logic-apps"></a>Wyłączanie lub usuwanie aplikacji logiki
 
-Po wyłączeniu aplikacji logiki nie zostaną utworzyć żadnych nowych uruchomień.
-Wszystkie przebiegi w toku i oczekujące są kontynuowane do czasu ich zakończenia, co może zająć trochę czasu.
+Po wyłączeniu aplikacji logiki nie zostaną utworzyć żadnych nowych uruchomień. Wszystkie przebiegi w toku i oczekujące są kontynuowane do czasu ich zakończenia, co może zająć trochę czasu.
 
-Po usunięciu aplikacji logiki nie są tworzone wystąpienia nowych przebiegów.
-Wszystkie trwające i oczekujące przebiegi zostają anulowane.
-Anulowanie kilku tysięcy przebiegów może zająć dużo czasu.
+Po usunięciu aplikacji logiki nie są tworzone wystąpienia nowych przebiegów. Wszystkie trwające i oczekujące przebiegi zostają anulowane. Anulowanie kilku tysięcy przebiegów może zająć dużo czasu.
 
 <a name="configuration"></a>
 
@@ -300,17 +296,17 @@ Adresy IP używane przez usługę Azure Logic Apps dla wywołań przychodzących
 > * **LogicAppsManagement:** Reprezentuje przychodzące prefiksy adresów IP dla usługi Aplikacje logiki.
 > * **LogicApps:** Reprezentuje wychodzące prefiksy adresów IP dla usługi Aplikacje logiki.
 
+* W przypadku [platformy Azure China 21Vianet](https://docs.microsoft.com/azure/china/)stałe lub zastrzeżone adresy IP są niedostępne dla [łączników niestandardowych](../logic-apps/custom-connector-overview.md) i [łączników zarządzanych](../connectors/apis-list.md#managed-api-connectors), na przykład usługi Azure Storage, SQL Server, Office 365 Outlook i tak dalej.
+
 * Aby obsługiwać wywołania, które aplikacje logiki bezpośrednio nawiązują za pomocą [protokołu HTTP,](../connectors/connectors-native-http.md) [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)i innych żądań HTTP, skonfiguruj zaporę z [wszystkimi przychodzącymi](#inbound) *i* [wychodzącymi](#outbound) adresami IP używanymi przez usługę Logic Apps, w zależności od regionów, w których istnieją aplikacje logiki. Adresy te są wyświetlane w nagłówkach **przychodzących** i **wychodzących** w tej sekcji i są sortowane według regionu.
 
-* Aby obsługiwać wywołania, które tworzą [łączniki zarządzane przez firmę Microsoft,](../connectors/apis-list.md) skonfiguruj zaporę z *wszystkimi* [wychodzącymi](#outbound) adresami IP używanymi przez te łączniki na podstawie regionów, w których istnieją aplikacje logiki. Adresy te są wyświetlane w nagłówku **Wychodzącym** w tej sekcji i są sortowane według regionu.
+* Aby obsługiwać wywołania, które tworzą [łączniki zarządzane,](../connectors/apis-list.md#managed-api-connectors) skonfiguruj zaporę ze *wszystkimi* [wychodzącymi](#outbound) adresami IP używanymi przez te łączniki na podstawie regionów, w których istnieją aplikacje logiki. Adresy te są wyświetlane w nagłówku **Wychodzącym** w tej sekcji i są sortowane według regionu.
 
 * Aby włączyć komunikację dla aplikacji logiki, które działają w środowisku usługi integracji (ISE), upewnij się, że [te porty są otwarte.](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise)
 
 * Jeśli aplikacje logiki mają problemy z dostępem do kont magazynu platformy Azure, które używają [zapór i reguł zapory,](../storage/common/storage-network-security.md)masz [różne opcje, aby włączyć dostęp](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   Na przykład aplikacje logiki nie mogą bezpośrednio uzyskiwać dostępu do kont magazynu, które używają reguł zapory i istnieją w tym samym regionie. Jeśli jednak zezwolisz [na wychodzące adresy IP dla łączników zarządzanych w twoim regionie,](../logic-apps/logic-apps-limits-and-config.md#outbound)aplikacje logiki mogą uzyskiwać dostęp do kont magazynu, które znajdują się w innym regionie, z wyjątkiem przypadków, gdy używasz łączników usługi Azure Table Storage lub Azure Queue Storage. Aby uzyskać dostęp do magazynu tabel lub magazynu kolejek, można użyć wyzwalacza HTTP i akcji. Aby uzyskać inne opcje, zobacz [Konta magazynu programu Access za zaporami](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
-
-* W przypadku łączników niestandardowych usługi [Azure Government](../azure-government/documentation-government-overview.md)i [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)stałe lub zastrzeżone adresy IP nie są dostępne.
 
 <a name="inbound"></a>
 

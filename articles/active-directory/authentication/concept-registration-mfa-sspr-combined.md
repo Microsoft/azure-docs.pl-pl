@@ -1,26 +1,31 @@
 ---
 title: Rejestracja łączona na potrzeby samoobsługowego resetowania hasła i usługi MFA — Azure Active Directory
-description: Uwierzytelnianie wieloskładnikowe usługi Azure AD i samoobsługowa rejestracja resetowania haseł (wersja zapoznawcza)
+description: Uwierzytelnianie wieloskładnikowe usługi Azure AD i samoobsługowa rejestracja resetowania haseł
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26656b6dafd91d47c05c2d1f923e53f4ba790cf8
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 48350bf8f0ffb8681d95f6f42f9aa93256395f9a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309911"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534690"
 ---
-# <a name="combined-security-information-registration-preview"></a>Rejestracja informacji o zabezpieczeniach (wersja zapoznawcza)
+# <a name="combined-security-information-registration-overview"></a>Przegląd rejestracji informacji o zabezpieczeniach połączonej
 
 Przed rejestracją połączoną użytkownicy zarejestrowali metody uwierzytelniania azure wieloskładnikowego i samoobsługowego resetowania haseł (SSPR) oddzielnie. Ludzie byli zdezorientowani, że podobne metody były używane do uwierzytelniania wieloskładnikowego i samooczyżania SSPR, ale musieli zarejestrować się dla obu funkcji. Teraz, dzięki połączonej rejestracji, użytkownicy mogą zarejestrować się raz i uzyskać korzyści zarówno z uwierzytelniania wieloskładnikowego, jak i samookreślenia.
+
+W tym artykule opisano, czym jest połączona rejestracja zabezpieczeń. Aby rozpocząć korzystanie z połączonej rejestracji zabezpieczeń, zobacz następujący artykuł:
+
+> [!div class="nextstepaction"]
+> [Włączanie połączonej rejestracji zabezpieczeń](howto-registration-mfa-sspr-combined.md)
 
 ![Mój profil z zarejestrowanymi informacjami zabezpieczającymi dla użytkownika](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
@@ -28,16 +33,10 @@ Przed włączeniem nowego środowiska zapoznaj się z dokumentacją skoncentrowa
 
 Rejestracja połączonych informacji o zabezpieczeniach usługi Azure AD nie jest obecnie dostępna dla chmur krajowych, takich jak Azure US GOVERNMENT, Azure Germany lub Azure China 21Vianet.
 
-|     |
-| --- |
-| Połączone rejestracje informacji o zabezpieczeniach dla uwierzytelniania wieloskładnikowego i samoobsługowego resetowania hasła usługi Azure Active Directory (Azure AD) to publiczna funkcja w wersji zapoznawczej usługi Azure AD. Aby uzyskać więcej informacji na temat wersji zapoznawców, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
 > [!IMPORTANT]
 > Użytkownicy, którzy są włączeni zarówno dla oryginalnego podglądu, jak i ulepszonego środowiska połączonej rejestracji, zobaczą nowe zachowanie. Użytkownicy, którzy są włączeni dla obu środowisk zobaczą tylko nowe środowisko Mój profil. Nowy mój profil jest zgodny z wyglądem połączonej rejestracji i zapewnia użytkownikom bezproblemowe działanie. Użytkownicy mogą zobaczyć mój [https://myprofile.microsoft.com](https://myprofile.microsoft.com)profil, przechodząc do .
-
-> [!NOTE] 
-> Podczas próby uzyskania dostępu do opcji Informacje zabezpieczające może wystąpić komunikat o błędzie. Na przykład "Przepraszamy, nie możemy Cię zalogować". W takim przypadku upewnij się, że nie masz żadnego obiektu zasad konfiguracji lub grupy, który blokuje pliki cookie innych firm w przeglądarce internetowej. 
+>
+> Podczas próby uzyskania dostępu do opcji Informacje zabezpieczające może wystąpić komunikat o błędzie. Na przykład "Przepraszamy, nie możemy Cię zalogować". W takim przypadku upewnij się, że nie masz żadnego obiektu zasad konfiguracji lub grupy, który blokuje pliki cookie innych firm w przeglądarce internetowej.
 
 Strony mojego profilu są zlokalizowane na podstawie ustawień językowych komputera uzyskującego dostęp do strony. Firma Microsoft przechowuje najnowszy język używany w pamięci podręcznej przeglądarki, więc kolejne próby uzyskania dostępu do stron będą nadal renderowane w ostatnim używanym języku. Jeśli wyczyścisz pamięć podręczną, strony zostaną ponownie renderowane. Jeśli chcesz wymusić określony język, `?lng=<language>` możesz dodać na końcu `<language>` adresu URL, gdzie znajduje się kod języka, który chcesz renderować.
 
@@ -77,7 +76,6 @@ W miarę jak będziemy nadal dodawać więcej metod uwierzytelniania do usługi 
 Istnieją dwa tryby połączonej rejestracji: przerwanie i zarządzanie.
 
 - **Tryb przerwania** to środowisko podobne do kreatora, prezentowane użytkownikom podczas rejestrowania lub odświeżania informacji zabezpieczających podczas logowania.
-
 - **Tryb zarządzania** jest częścią profilu użytkownika i umożliwia użytkownikom zarządzanie informacjami zabezpieczającymi.
 
 W przypadku obu trybów użytkownicy, którzy wcześniej zarejestrowali metodę, która może być używana do uwierzytelniania wieloskładnikowego, będą musieli wykonać uwierzytelnianie wieloskładnikowe, zanim będą mogli uzyskać dostęp do swoich informacji zabezpieczających.
@@ -139,14 +137,8 @@ Użytkownik, który wcześniej skonfigurował co najmniej jedną metodę, która
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wymuszanie na użytkownikach ponownych rejestracji metod uwierzytelniania](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
+Aby rozpocząć, zapoznaj się z samouczkami, aby [włączyć samoobsługowe resetowanie hasła](tutorial-enable-sspr.md) i [włączyć uwierzytelnianie wieloskładnikowe platformy Azure](tutorial-enable-azure-mfa.md).
 
-[Włącz rejestrację połączoną w dzierżawie](howto-registration-mfa-sspr-combined.md)
+Dowiedz się, jak [włączyć rejestrację połączoną w dzierżawie](howto-registration-mfa-sspr-combined.md) lub [zmusić użytkowników do ponownego zarejestrowania metod uwierzytelniania.](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
 
-[Raportowanie użycia i analiz dotyczących użycia i analiz sspr i usługi MFA](howto-authentication-methods-usage-insights.md)
-
-[Dostępne metody uwierzytelniania wieloskładnikowego i samookapła](concept-authentication-methods.md)
-
-[Konfigurowanie samoobsługowego resetowania hasła](howto-sspr-deployment.md)
-
-[Konfigurowanie usługi Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+Można również przejrzeć [dostępne metody uwierzytelniania wieloskładnikowego platformy Azure i samookadowania.](concept-authentication-methods.md)

@@ -2,21 +2,21 @@
 title: Przygotowywanie maszyn wirtualnych funkcji Hyper V do oceny/migracji za pomocą usługi Azure Migrate
 description: Dowiedz się, jak przygotować się do oceny/migracji maszyn wirtualnych funkcji Hyper-V za pomocą usługi Azure Migrate.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: d14ae4282afb610d025d08419a69c6d10c2f1d08
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: e86e634812e9f2782a003a11b48cfecf91d95359
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436227"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535302"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Przygotowanie do oceny i migracji maszyn wirtualnych z programem Hyper-V na platformę Azure
 
 W tym artykule opisano sposób przygotowania do oceny lokalnych maszyn wirtualnych funkcji Hyper-V za pomocą narzędzia Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool) oraz migracji maszyn wirtualnych z funkcji Hyper-V za pomocą [usługi Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
-Ten samouczek jest pierwszym z serii, który pokazuje, jak ocenić i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest pierwszym z serii, który pokazuje, jak ocenić i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Przygotuj platformę Azure. Skonfiguruj uprawnienia do konta platformy Azure i zasoby do pracy z programem Azure Migrate.
@@ -214,9 +214,11 @@ Po skonfigurowaniu urządzenia można zakończyć konfigurowanie programu CredSS
 Przed skonfigurowaniem urządzenia migracji platformy Azure i rozpoczęciem oceny w następnym samouczku przygotuj się do wdrożenia urządzenia.
 
 1. [Sprawdź](migrate-appliance.md#appliance---hyper-v) wymagania urządzenia.
-2. [Przejrzyj](migrate-appliance.md#url-access) adresy URL platformy Azure, do których urządzenie będzie musiało uzyskać dostęp.
+2. Przejrzyj adresy URL platformy Azure, do których urządzenie będzie musiało uzyskać dostęp w chmurach [publicznych](migrate-appliance.md#public-cloud-urls) i [rządowych.](migrate-appliance.md#government-cloud-urls) Jeśli używasz zapory lub serwera proxy opartego na adresach URL, upewnij się, że umożliwia dostęp do wymaganych adresów URL.
 3. Przejrzyj dane, które urządzenie będzie zbierać podczas odnajdowania i oceny.
-4. [Uwaga](migrate-appliance.md#collected-data---hyper-v) wymagania dostępu do portu dla urządzenia.
+4. [Przejrzyj](migrate-appliance.md#collected-data---hyper-v) wymagania dotyczące dostępu do portu dla urządzenia.
+
+
 
 
 ## <a name="prepare-for-hyper-v-migration"></a>Przygotowanie do migracji funkcji Hyper-V

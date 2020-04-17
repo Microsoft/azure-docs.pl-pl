@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: e78f822a88b093992f065a509c2250e6a5c0dec2
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5252fdbbaf425662fc9725e618f8fc450b435722
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885569"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534656"
 ---
 # <a name="authentication-basics"></a>Podstawowe informacje o uwierzytelnianiu
 
@@ -33,7 +33,7 @@ Zamiast tworzyć aplikacje, które przechowują własne informacje o nazwie uży
 
 Usługa Azure Active Directory (Azure AD) jest scentralizowanym dostawcą tożsamości w chmurze. Delegowanie uwierzytelniania i autoryzacji do niego umożliwia scenariusze, takie jak zasady dostępu warunkowego, które wymagają, aby użytkownik był w określonej lokalizacji, korzystanie z uwierzytelniania wieloskładnikowego, a także umożliwiając użytkownikowi zalogowanie się raz, a następnie automatycznie zalogowany do wszystkich aplikacji sieci web, które współużytkują ten sam scentralizowany katalog. Ta funkcja jest określana jako logowanie jednokrotne(Logowanie jednokrotne).
 
-Scentralizowany dostawca tożsamości jest jeszcze ważniejszy dla aplikacji, które mają użytkowników znajdujących się na całym świecie, którzy niekoniecznie logują się z sieci przedsiębiorstwa. Usługa Azure AD uwierzytelnia użytkowników i udostępnia tokeny dostępu. [Token dostępu](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#access-token) jest tokenem zabezpieczającym wystawionym przez serwer autoryzacji. Zawiera informacje o użytkowniku i aplikacji, dla której token jest przeznaczony; które mogą być używane do uzyskiwania dostępu do interfejsów API sieci Web i innych chronionych zasobów.
+Scentralizowany dostawca tożsamości jest jeszcze ważniejszy dla aplikacji, które mają użytkowników znajdujących się na całym świecie, którzy niekoniecznie logują się z sieci przedsiębiorstwa. Usługa Azure AD uwierzytelnia użytkowników i udostępnia tokeny dostępu. [Token dostępu](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#access-token) jest tokenem zabezpieczającym wystawionym przez serwer autoryzacji. Zawiera informacje o użytkowniku i aplikacji, dla której token jest przeznaczony; które mogą być używane do uzyskiwania dostępu do interfejsów API sieci web i innych chronionych zasobów.
 
 Platforma tożsamości firmy Microsoft upraszcza uwierzytelnianie dla deweloperów aplikacji, zapewniając tożsamość jako usługę, obsługując protokoły standardowe branżowe, takie jak [OAuth 2.0](https://oauth.net/2/) i [OpenID Connect,](https://openid.net/connect/)a także biblioteki typu open source dla różnych platform, które ułatwią szybkie rozpoczęcie kodowania. Umożliwia deweloperom tworzenie aplikacji, które logują się we wszystkich tożsamościach firmy Microsoft, pobierz tokeny do wywołania [programu Microsoft Graph,](https://developer.microsoft.com/graph/)innych interfejsów API firmy Microsoft lub interfejsów API utworzonych przez deweloperów. Aby uzyskać więcej informacji, zobacz [Ewolucja platformy tożsamości firmy Microsoft](about-microsoft-identity-platform.md).
 
@@ -70,26 +70,26 @@ Oświadczenie składa się z par klucz-wartość, które zawierają informacje, 
 
 Aby uzyskać bardziej szczegółowe informacje o roszczeniach, zobacz [tokeny dostępu](access-tokens.md) i [tokeny identyfikatorów](id-tokens.md).
 
-To do aplikacji, dla której token został wygenerowany, aplikacji sieci web, która zalogowała się użytkownika lub interfejsu API sieci Web wywoływane, aby sprawdzić poprawność tokenu. Token jest podpisywane przez serwer tokenów zabezpieczających (STS) za pomocą klucza prywatnego. STS publikuje odpowiedni klucz publiczny. Aby sprawdzić poprawność tokenu, aplikacja weryfikuje podpis przy użyciu klucza publicznego STS, aby sprawdzić, czy podpis został utworzony przy użyciu klucza prywatnego.
+To zależy od aplikacji, dla której został wygenerowany token, aplikacji sieci web, która zalogowała się użytkownika lub wywoływanych w sieci Web interfejsu API, aby sprawdzić poprawność tokenu. Token jest podpisywane przez serwer tokenów zabezpieczających (STS) za pomocą klucza prywatnego. STS publikuje odpowiedni klucz publiczny. Aby sprawdzić poprawność tokenu, aplikacja weryfikuje podpis przy użyciu klucza publicznego STS, aby sprawdzić, czy podpis został utworzony przy użyciu klucza prywatnego.
 
 Tokeny są ważne tylko przez ograniczony czas. Zazwyczaj STS udostępnia parę tokenów: token dostępu, aby uzyskać dostęp do aplikacji lub chronionego zasobu i token odświeżania używany do odświeżania tokenu dostępu, gdy token dostępu jest bliski wygaśnięcia.
 
-Tokeny dostępu są przekazywane do interfejsu API sieci `Authorization` Web jako token nośnika w nagłówku. Aplikacja może zapewnić token odświeżania do STS, a jeśli dostęp użytkownika do aplikacji nie został odwołany, zostanie ono odzyskać nowy token dostępu i nowy token odświeżania. W ten sposób obsługiwany jest scenariusz, w jaki osoba opuszczająca przedsiębiorstwo jest obsługiwana. Gdy STS odbiera token odświeżania, nie wystawi innego prawidłowego tokenu dostępu, jeśli użytkownik nie jest już autoryzowany.
+Tokeny dostępu są przekazywane do internetowego interfejsu `Authorization` API jako token nośnika w nagłówku. Aplikacja może zapewnić token odświeżania do STS, a jeśli dostęp użytkownika do aplikacji nie został odwołany, zostanie ono odzyskać nowy token dostępu i nowy token odświeżania. W ten sposób obsługiwany jest scenariusz, w jaki osoba opuszczająca przedsiębiorstwo jest obsługiwana. Gdy STS odbiera token odświeżania, nie wystawi innego prawidłowego tokenu dostępu, jeśli użytkownik nie jest już autoryzowany.
 
 ### <a name="how-each-flow-emits-tokens-and-codes"></a>Jak każdy przepływ emituje tokeny i kody
 
 W zależności od sposobu zbudowanego klienta można użyć jednego (lub kilku) przepływów uwierzytelniania obsługiwanych przez usługę Azure AD. Przepływy te mogą tworzyć różne tokeny (id_tokens, odświeżanie tokenów, tokeny dostępu), a także kody autoryzacji i wymagają różnych tokenów, aby je działały. Ten wykres zawiera omówienie:
 
-|Ruch | Wymaga | id_token | token dostępu | token odświeżania | kod autoryzacyjny | 
+|Ruch | Wymaga | id_token | token dostępu | token odświeżania | kod autoryzacyjny |
 |-----|----------|----------|--------------|---------------|--------------------|
-|[Przepływ kodu autoryzacji](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Przepływ kodu autoryzacji](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
 |[Niejawny przepływ](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Hybrydowy przepływ OIDC](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
 |[Odświeżanie wykorzystania tokenu](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | token odświeżania | x | x | x| |
 |[Przepływ „w imieniu”](v2-oauth2-on-behalf-of-flow.md) | token dostępu| x| x| x| |
 |[Poświadczenia klienta](v2-oauth2-client-creds-grant-flow.md) | | | x (tylko aplikacja)| | |
 
-Tokeny wystawione w trybie niejawnym mają ograniczenie długości ze względu na `response_mode` `query` przekazywanie z powrotem do przeglądarki za pośrednictwem adresu URL (gdzie jest lub `fragment`).  Niektóre przeglądarki mają limit rozmiaru adresu URL, który można umieścić na pasku przeglądarki i zakończyć się niepowodzeniem, gdy jest zbyt długi.  W związku z tym `groups` tokeny te nie mają lub `wids` roszczeń. 
+Tokeny wystawione w trybie niejawnym mają ograniczenie długości ze względu na `response_mode` `query` przekazywanie z powrotem do przeglądarki za pośrednictwem adresu URL (gdzie jest lub `fragment`).  Niektóre przeglądarki mają limit rozmiaru adresu URL, który można umieścić na pasku przeglądarki i zakończyć się niepowodzeniem, gdy jest zbyt długi.  W związku z tym `groups` tokeny te nie mają lub `wids` roszczeń.
 
 Teraz, gdy masz omówienie podstaw, przeczytaj dalej, aby zrozumieć model aplikacji tożsamości i interfejs API, dowiedz się, jak działa inicjowanie obsługi administracyjnej w usłudze Azure AD i uzyskaj łącza do szczegółowych informacji na temat typowych scenariuszy, które obsługuje usługa Azure AD.
 
@@ -102,7 +102,7 @@ Aby dostawca tożsamości wiedział, że użytkownik ma dostęp do określonej a
 * Dostosuj znakowanie aplikacji w oknie dialogowym logowania. Jest to ważne, ponieważ jest to pierwsze środowisko, które użytkownik będzie miał z aplikacją.
 * Zdecyduj, czy chcesz umożliwić użytkownikom logowanie się tylko wtedy, gdy należą do Twojej organizacji. Jest to aplikacja pojedynczej dzierżawy. Możesz też zezwolić użytkownikom na logowanie się przy użyciu dowolnego konta służbowego. Jest to aplikacja wielodostępna. Możesz też zezwolić na osobiste konta Microsoft lub konto społecznościowe z LinkedIn, Google itd.
 * Żądania uprawnień zakresu. Na przykład można zażądać zakresu "user.read", który udziela uprawnień do odczytu profilu zalogowanego użytkownika.
-* Zdefiniuj zakresy definiujące dostęp do interfejsu API sieci Web. Zazwyczaj, gdy aplikacja chce uzyskać dostęp do interfejsu API, będzie musiał poprosić o uprawnienia do zakresów, które definiujesz.
+* Zdefiniuj zakresy definiujące dostęp do internetowego interfejsu API. Zazwyczaj, gdy aplikacja chce uzyskać dostęp do interfejsu API, będzie musiał poprosić o uprawnienia do zakresów, które definiujesz.
 * Udostępnij klucz tajny za pomocą usługi Azure AD, który potwierdza tożsamość aplikacji w usłudze Azure AD.  Jest to istotne w przypadku, gdy aplikacja jest poufną aplikacją kliencką. Aplikacja klienta poufne jest aplikacją, która może przechowywać poświadczenia bezpiecznie. Wymagają one zaufanego serwera wewnętrznej bazy danych do przechowywania poświadczeń.
 
 Po zarejestrowaniu aplikacja otrzyma unikatowy identyfikator, który aplikacja udostępnia usłudze Azure AD, gdy żąda tokenów. Jeśli aplikacja jest [aplikacją klienta poufnego,](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application)będzie również udostępniać klucz tajny lub klucz publiczny*-w zależności od tego, czy użyto certyfikatów lub wpisów tajnych.
@@ -126,7 +126,7 @@ Zgoda to proces uzyskiwania przez właściciela zasobu autoryzacji dla aplikacji
 
 Na platformie tożsamości firmy Microsoft [obiekt aplikacji](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-object) opisuje aplikację. W czasie wdrażania platforma tożsamości firmy Microsoft używa obiektu aplikacji jako planu do utworzenia [jednostki usługi,](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#service-principal-object)która reprezentuje konkretne wystąpienie aplikacji w katalogu lub dzierżawie. Podmiot usługi definiuje, co aplikacja może faktycznie zrobić w określonym katalogu docelowym, kto może go używać, jakie zasoby ma dostęp do i tak dalej. Platforma tożsamości firmy Microsoft tworzy jednostkę usługi z obiektu aplikacji **za**zgodą.
 
-Na poniższym diagramie przedstawiono uproszczony przepływ inicjowania obsługi administracyjnej platformy tożsamości firmy Microsoft, oparty na zgodzie. Pokazuje dwóch dzierżawców: A i B. Dzierżawca A jest właścicielem aplikacji. Dzierżawa B jest tworzenie wystąpienia aplikacji za pośrednictwem jednostki usługi.  
+Na poniższym diagramie przedstawiono uproszczony przepływ inicjowania obsługi administracyjnej platformy tożsamości firmy Microsoft, oparty na zgodzie. Pokazuje dwóch dzierżawców: A i B. Dzierżawca A jest właścicielem aplikacji. Dzierżawa B jest tworzenie wystąpienia aplikacji za pośrednictwem jednostki usługi.
 
 ![Uproszczony przepływ aprowizowania sterowany poprzez wyrażenie zgody](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
@@ -160,7 +160,7 @@ Poniższy diagram sekwencji podsumowuje tę interakcję:
 
 ### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>Jak aplikacja internetowa określa, czy użytkownik jest uwierzytelniony
 
-Deweloperzy aplikacji sieci Web mogą wskazać, czy wszystkie lub tylko niektóre strony wymagają uwierzytelniania. Na przykład w ASP.NET/ASP.NET Core odbywa się to `[Authorize]` przez dodanie atrybutu do akcji kontrolera. 
+Deweloperzy aplikacji sieci Web mogą wskazać, czy wszystkie lub tylko niektóre strony wymagają uwierzytelniania. Na przykład w ASP.NET/ASP.NET Core odbywa się to `[Authorize]` przez dodanie atrybutu do akcji kontrolera.
 
 Ten atrybut powoduje, ASP.NET, aby sprawdzić obecność pliku cookie sesji zawierającego tożsamość użytkownika. Jeśli plik cookie nie jest obecny, ASP.NET przekierowuje uwierzytelnianie do określonego dostawcy tożsamości. Jeśli dostawcą tożsamości jest usługa Azure AD, `https://login.microsoftonline.com`aplikacja sieci web przekierowuje uwierzytelnianie do , który wyświetla okno dialogowe logowania.
 

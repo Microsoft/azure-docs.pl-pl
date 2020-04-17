@@ -3,12 +3,12 @@ title: Oceny w ocenie serwera migracji platformy Azure
 description: Dowiedz się więcej o ocenach w ocenie serwera migracji platformy Azure
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: ae55686f0152d9c2b170ae1b34d7493ed7ac8d94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1f32eea0ec6a8a4877fd1dc134344cfe68dcaba
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127773"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537767"
 ---
 # <a name="assessments-in-azure-migrateserver-assessment"></a>Oceny w usłudze Azure Migrate:Ocena serwera
 
@@ -17,6 +17,9 @@ Ten artykuł zawiera omówienie ocen w narzędziu [oceny migracji:serwer usłudz
 ## <a name="whats-an-assessment"></a>Co to jest ocena?
 
 Ocena za pomocą narzędzia Ocena serwera mierzy gotowość i szacuje wpływ migracji serwerów lokalnych na platformę Azure.
+
+> [!NOTE]
+> W usłudze Azure dla instytucji rządowych przejrzyj obsługiwane lokalizacje oceny [docelowej.](migrate-support-matrix.md#supported-geographies-azure-government) Należy zauważyć, że zalecenia dotyczące rozmiaru maszyny Wirtualnej w ocenach będą używać serii maszyn wirtualnych specjalnie dla regionów chmury rządowej. [Dowiedz się więcej](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) o typach maszyn wirtualnych.
 
 ## <a name="types-of-assessments"></a>Rodzaje ocen
 
@@ -77,7 +80,7 @@ Jeśli urządzenie jest używane do odnajdowania, dane dotyczące wydajności dl
     - 95-ta percentyl wartość upewnia się, że można zignorować wszelkie wartości odstające, które mogą być uwzględnione, jeśli wybierzesz 99 percentyl.
     - Jeśli chcesz wybrać szczytowe użycie dla okresu i nie chcesz przegapić żadnych wartości odstania, należy wybrać 99 percentyl dla wykorzystania percentyla.
 
-5. Wartość ta jest mnożona przez współczynnik komfortu, aby uzyskać efektywne dane dotyczące wykorzystania wydajności dla każdej metryki (wykorzystanie procesora, wykorzystanie pamięci, we/wyśpiewania dysku (odczyt i zapis), przepustowość dysku (odczyt i zapis) oraz przepustowość sieci (w i na zewnątrz), że urządzenie zbiera.
+5. Ta wartość jest mnożona przez współczynnik komfortu, aby uzyskać efektywne dane wykorzystania wydajności dla każdej metryki (wykorzystanie procesora CPU, wykorzystanie pamięci, we/wy iOPS dysku (odczyt i zapis), przepływność dysku (odczyt i zapis) i przepustowość sieci (w i obecnie), które urządzenie zbiera.
 
 
 
@@ -98,7 +101,7 @@ Oto, co znalazło się w ocenie serwera.
 
 **Właściwość** | **Szczegóły**
 --- | ---
-**Lokalizacja docelowa** | Lokalizacja, do której chcesz przeprowadzić migrację. Ocena serwera obsługuje obecnie te docelowe regiony platformy Azure:<br/><br/> Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada Środkowa, Kanada Wschodnia, Środkowe Indie, Środkowe STANY USA, Chiny Wschodnie, Chiny Północne, Azja Wschodnia, Wschodnie STANY USA, Wschodnie US2, Niemcy Środkowe, Niemcy Północno-Wschodnie, Japonia Wschodnia, Japonia Zachodnia, Korea Środkowa, Korea Południowa, Północna Środkowe stany USA, Europa Północna, Południowo-Środkowe Stany Zjednoczone, Azja Południowo-Wschodnia, Indie Południowe, Wielka Brytania Zachodnia, Us Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, Europa Zachodnia, Indie Zachodnie, Zachodnie stany USA i Zachodnie STANY USA2.
+**Lokalizacja docelowa** | Lokalizacja, do której chcesz przeprowadzić migrację. Ocena serwera obsługuje obecnie te docelowe regiony platformy Azure:<br/><br/> Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada Środkowa, Kanada Wschodnia, Środkowe Indie, Środkowe STANY USA, Chiny Wschodnie, Wschodnia Azja, Wschodnie STANY USA, Wschodnie STANY USA2, Niemcy Środkowe, Niemcy Północno-Wschodnie, Japonia Wschodnia, Japonia Zachodnia, Korea Południowa, Północno-Środkowe STANY USA, Europa Północna, Południowo-Środkowe STANY USA, Azja Południowo-Wschodnia, Indie Południowe, Wielka Brytania Południowa, Wielka Brytania Zachodnia, US Gov Arizona, US Gov Texas, US Gov Virginia , Zachodnio-środkowe stany USA, Europa Zachodnia, Indie Zachodnie, Zachodnie stany USA i Zachodnie stany USA2.
 *Docelowy dysk magazynu (w rozmiarze)** | Typ dysków do użycia w magazynie na platformie Azure. <br/><br/> Określ docelowy dysk pamięci masowej jako zarządzany w wersji premium, standardowy dysk SSD zarządzany lub zarządzany standardowy dysk twardy.
 **Docelowy dysk pamięci masowej (rozmiar oparty na wydajności)** | Określ typ docelowego dysku magazynu jako automatyczny, zarządzany w wersji premium, zarządzany standardowy dysk twardy lub standardowy dysk SSD zarządzany.<br/><br/> **Automatyczne**: Zalecenie dysku opiera się na danych wydajności dysków (operacje wejścia/wyjścia na sekundę (IOPS) i przepływność).<br/><br/>**Premium/standard**: Ocena zaleca jednostkę SKU dysku w wybranym typie magazynu.<br/><br/> Jeśli chcesz osiągnąć umowy SLA maszyny Wirtualnej pojedynczego wystąpienia 99,9%, biorąc pod uwagę użycie dysków zarządzanych w wersji premium. Gwarantuje to, że wszystkie dyski w ocenie są zalecane jako dyski zarządzane w wersji premium.<br/><br/> Usługa Azure Migrate obsługuje tylko dyski zarządzane na potrzeby oceny migracji.
 **Wystąpienia zarezerwowane (RIs)** | Określ [wystąpienia zarezerwowane na](https://azure.microsoft.com/pricing/reserved-vm-instances/) platformie Azure, tak aby szacunki kosztów w ocenie uwzględniać rabaty RI.<br/><br/> Programy RI są obecnie obsługiwane tylko w przypadku ofert płatności zgodnie z rzeczywistymu w usłudze Azure Migrate.
@@ -136,7 +139,7 @@ Ocena serwera przegląda następujące właściwości lokalnej maszyny Wirtualne
 **Rdzenie** | Liczba rdzeni na komputerach musi być równa lub mniejsza niż maksymalna liczba rdzeni (128) obsługiwanych dla maszyny Wirtualnej platformy Azure.<br/><br/> Jeśli historia wydajności jest dostępna, usługa Azure Migrate uwzględnia używane rdzenie do porównania. Jeśli w ustawieniach oceny określono współczynnik komfortu, liczba wykorzystanych rdzeni jest mnożona przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii wydajności, usługa Azure Migrate używa przydzielonych rdzeni bez stosowania współczynnika komfortu. | Gotowy, jeśli jest mniejszy lub równy limitom.
 **Pamięci** | Rozmiar pamięci komputera musi być równy lub mniejszy niż maksymalna pamięć (3892 gigabajty&nbsp;[GB] w serii M platformy Azure Standard_M128m<sup>2</sup>) dozwolona dla maszyny Wirtualnej platformy Azure. [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Jeśli historia wydajności jest dostępna, usługa Azure Migrate uwzględnia wykorzystaną pamięć do porównania. Jeśli określono współczynnik komfortu, wykorzystana pamięć jest mnożona przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii, przydzielona pamięć jest używana bez stosowania współczynnika komfortu.<br/><br/> | Gotowy, jeśli w granicach.
 **Dysk magazynu** | Przydzielony rozmiar dysku musi wynosić 32 TB lub mniej. Mimo że platforma Azure obsługuje dyski o pojemności 64 TB z dyskami Ultra SSD, usługa Azure Migrate: Server Assessment sprawdza obecnie 32 TB jako limity rozmiaru dysku, ponieważ nie obsługuje jeszcze ultra ssd. <br/><br/> Liczba dysków podłączonych do urządzenia musi wynosić 65 lub mniej, łącznie z dyskiem systemu operacyjnego. | Gotowy, jeśli w granicach.
-**Obsługa sieci** | Maszyna musi mieć 32 lub mniej interfejsów sieciowych (NIC) podłączonych do niego. | Gotowy, jeśli w granicach.
+**Networking** | Maszyna musi mieć 32 lub mniej interfejsów sieciowych (NIC) podłączonych do niego. | Gotowy, jeśli w granicach.
 
 ### <a name="guest-operating-system"></a>System operacyjny gościa
 Wraz z właściwości maszyny wirtualnej oceny serwera analizuje system operacyjny gościa maszyn, aby ustalić, czy można go uruchomić na platformie Azure.
@@ -182,7 +185,7 @@ Po oznaczeniu komputera jako gotowe do platformy Azure, ocena serwera sprawia, �
 W przypadku korzystania z rozmiaru opartego na wydajności, ocena serwera, która przedstawia zalecenia dotyczące zmiany rozmiaru w następujący sposób:
 
 - Ocena serwera uwzględnia historię wydajności komputera w celu zidentyfikowania rozmiaru maszyny wirtualnej i typu dysku na platformie Azure.
-- Jeśli serwery zostały zaimportowane przy użyciu pliku CSV, używane są określone wartości. Ta metoda jest szczególnie przydatna, jeśli masz nadmiernie przydzielone komputera lokalnego, wykorzystanie jest rzeczywiście niska i chcesz prawo rozmiar maszyny wirtualnej na platformie Azure, aby zaoszczędzić koszty. 
+- Jeśli serwery zostały zaimportowane przy użyciu pliku CSV, używane są określone wartości. Ta metoda jest szczególnie przydatna, jeśli masz nadmiernie przydzielone komputera lokalnego, wykorzystanie jest niska i chcesz prawo rozmiar maszyny wirtualnej na platformie Azure, aby zaoszczędzić koszty. 
 - Jeśli nie chcesz używać danych o wydajności, zresetuj kryteria zmiany rozmiaru do stanu lokalnego, zgodnie z opisem w poprzedniej sekcji.
 
 #### <a name="calculate-storage-sizing"></a>Obliczanie rozmiaru magazynu

@@ -2,14 +2,14 @@
 title: Migracja bezagentowej migracji serwera azure na maszyny Wirtualne VMware
 description: Dowiedz się, jak uruchomić bezagentową migrację maszyn wirtualnych VMware za pomocą usługi Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 825d6ff16a1f51fa476541ee10fea5f8a1c2972e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4612c9b0ea2ef8d53b0c04f47628f3789705d833
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78304212"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535319"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (bez agenta)
 
@@ -17,7 +17,7 @@ W tym artykule pokazano, jak migrować lokalne maszyny wirtualne VMware na platf
 
 [Usługa Azure Migrate](migrate-services-overview.md) udostępnia centralne centrum do śledzenia odnajdowania, oceny i migracji lokalnych aplikacji i obciążeń oraz wystąpień maszyn wirtualnych AWS/GCP na platformie Azure. Centrum udostępnia narzędzia migracji platformy Azure do oceny i migracji, a także oferty niezależnych dostawców oprogramowania innych firm (ISV).
 
-Ten samouczek jest trzecim z serii, który pokazuje, jak oceniać i migrować maszyny wirtualne VMware na platformę Azure przy użyciu oceny i migracji serwera migracji usługi Azure. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest trzecim z serii, który pokazuje, jak oceniać i migrować maszyny wirtualne VMware na platformę Azure przy użyciu oceny i migracji serwera migracji usługi Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Przygotowanie maszyn wirtualnych do migracji.
@@ -55,9 +55,12 @@ Przed rozpoczęciem tego samouczka należy:
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Dodawanie narzędzia migracji serwera migracji platformy Azure
 
-Jeśli nie po drugim samouczku oceny maszyn wirtualnych VMware, należy [wykonać te instrukcje](how-to-add-tool-first-time.md) skonfigurować projekt migracji platformy Azure i wybrać narzędzie migracji serwera migracji platformy Azure. 
+Dodaj narzędzie Migracji platformy Azure:Migracja serwera.
 
-Jeśli po drugim samouczku skonfigurowałeś już projekt migracji platformy Azure, dodaj narzędzie migracji serwera migracji usługi Azure w następujący sposób:
+- Jeśli po drugim samouczku do [oceny maszyn wirtualnych VMware](/tutorial-assess-vmware.md), można śmiało i dodać narzędzie.
+- Jeśli nie po drugim samouczku, [postępuj zgodnie z tymi instrukcjami,](how-to-add-tool-first-time.md) aby skonfigurować projekt migracji platformy Azure.  Podczas tworzenia projektu dodajesz narzędzie Migracji azure:Migracja serwera.
+
+Jeśli masz skonfigurowany projekt, dodaj narzędzie w następujący sposób:
 
 1. W projekcie migracji platformy Azure kliknij pozycję **Przegląd**. 
 2. W **przypadku serwerów Discover oceniaj i migruj**kliknij pozycję **Oceń i migruj serwery**.
@@ -70,19 +73,18 @@ Jeśli po drugim samouczku skonfigurowałeś już projekt migracji platformy Azu
 
 4. Na liście narzędzi wybierz narzędzie **Azure Migrate: Server Migration** > **Add tool**
 
-    ![Narzędzie Do migracji serwera](./media/tutorial-migrate-vmware/server-migration-tool.png)
+    ![Narzędzie do migracji serwera](./media/tutorial-migrate-vmware/server-migration-tool.png)
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurowanie urządzenia migracji platformy Azure
 
-Migracja serwera migracji usługi Azure uruchamia lekkie urządzenie VMware VM. Urządzenie wykonuje odnajdowanie maszyn wirtualnych i wysyła metadane maszyny Wirtualnej i dane wydajności do migracji serwera migracji serwera migracji usługi Azure. To samo urządzenie jest również używane przez narzędzie oceny serwera migracji migracji platformy Azure.
+Migracja serwera migracji usługi Azure uruchamia lekkie urządzenie VMware VM. Urządzenie wykonuje odnajdowanie maszyn wirtualnych i wysyła metadane maszyny Wirtualnej i dane o wydajności do migracji usługi Azure Migrate:Server. To samo urządzenie jest również używane przez narzędzie Azure Migrate:Server Assessment do wykonywania bezagentowej migracji maszyn wirtualnych VMware.
 
-Jeśli po drugim samouczku do oceny maszyn wirtualnych VMware, już skonfigurować urządzenie podczas tego samouczka. Jeśli nie po tym samouczku, musisz skonfigurować urządzenie teraz. Aby to zrobić, możesz: 
+- Jeśli po [tutorialu do oceny maszyn wirtualnych VMware](tutorial-assess-vmware.md), już skonfigurować urządzenie podczas tego samouczka.
+- Jeśli nie po tym samouczku, można skonfigurować urządzenie teraz, przy użyciu jednej z następujących metod:
+    - [Skonfiguruj](how-to-set-up-appliance-vmware.md) na maszynie wirtualnej VMware przy użyciu pobranego szablonu OVA.
+    - Skonfiguruj na maszynie wirtualnej VMware lub na komputerze fizycznym za pomocą skryptu instalatora programu PowerShell. [Ta metoda](deploy-appliance-script.md) powinna być używana, jeśli nie można skonfigurować maszyny Wirtualnej przy użyciu szablonu OVA lub jeśli jesteś w usłudze Azure government.
 
-- Pobierz plik szablonu OVA i zaimportuj go do serwera vCenter Server.
-- Utwórz urządzenie i sprawdź, czy można połączyć się z oceną serwera migracji platformy Azure. 
-- Skonfiguruj urządzenie po raz pierwszy i zarejestruj go w projekcie migracji platformy Azure.
-
-Postępuj zgodnie z instrukcjami w [tym artykule,](how-to-set-up-appliance-vmware.md) aby skonfigurować urządzenie.
+Po utworzeniu urządzenia można sprawdzić, czy można połączyć się z oceną migracji:serwera platformy Azure, skonfigurować go po raz pierwszy i zarejestrować go w projekcie migracji platformy Azure.
 
 
 ## <a name="prepare-vms-for-migration"></a>Przygotowanie maszyn wirtualnych do migracji

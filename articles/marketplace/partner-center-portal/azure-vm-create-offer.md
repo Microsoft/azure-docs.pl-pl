@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 12dd17045715a24d1e5151b30a5e7706b0e58717
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 161fd9276427db0d0d7d56da1bfc0bb8ccf52a52
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383800"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536662"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Tworzenie oferty maszyn wirtualnych platformy Azure
 
@@ -296,7 +296,7 @@ Wybierz **pozycję Zapisz pochyłość** przed przejściem do następnej sekcji 
 
 ## <a name="plan-overview"></a>Omówienie planu
 
-W Centrum partnerskim można podać różne opcje planu w ramach tej samej oferty. Plany te były wcześniej określane jako jednostki SKU. Oferta wymaga co najmniej jednego planu, który może się różnić pod względem odbiorców monetyzacji, chmur platformy Azure, funkcji lub obrazów maszyn wirtualnych.
+W Centrum partnerskim można podać różne opcje planu w ramach tej samej oferty. Plany te były wcześniej określane jako jednostki SKU. Oferta wymaga co najmniej jednego planu, który może się różnić pod względem odbiorców monetyzacji, regionów platformy Azure, funkcji lub obrazów maszyn wirtualnych.
 
 Po utworzeniu planów na karcie **Przegląd planu** jest wyświetlany:
 
@@ -322,11 +322,11 @@ W polu **Identyfikator planu** utwórz unikatowy identyfikator planu dla każdeg
 
 W polu **Nazwa planu** wprowadź nazwę tego planu. Klienci widzą tę nazwę przy podejmowaniu decyzji, który plan wybrać w ramach oferty. Utwórz unikatową nazwę, która wyraźnie wskazuje różnice każdego planu. Na przykład można użyć **systemu Windows Server** z planami Płatności zgodnie z rzeczywistym **użyciem**, **BYOL**, **Zaawansowane**i **Przedsiębiorstwo**.
 
-Wybierz **pozycję Utwórz**.
+Wybierz pozycję **Utwórz**.
 
 ### <a name="plan-setup"></a>Konfiguracja planu
 
-Ustaw konfigurację wysokiego poziomu dla typu planu, czy ponownie używa konfiguracji technicznej z innego planu i w jakich chmurach plan powinien być dostępny. Wybrane w tym miejscu określają, które pola są wyświetlane na innych kartach dla tego samego planu.
+Ustaw konfigurację wysokiego poziomu dla typu planu, czy ponownie używa konfiguracji technicznej z innego planu i w których regionach platformy Azure plan powinien być dostępny. Wybrane w tym miejscu określają, które pola są wyświetlane na innych kartach dla tego samego planu.
 
 #### <a name="reuse-technical-configuration"></a>Ponowne wykorzystanie konfiguracji technicznej
 
@@ -335,24 +335,24 @@ Jeśli masz więcej niż jeden plan tego samego typu, a pakiety są identyczne m
 > [!NOTE]
 > Po ponownym użyć konfiguracji technicznej z innego planu, cała karta **konfiguracji technicznej** znika z tego planu. Szczegóły konfiguracji technicznej z innego planu, w tym wszelkie aktualizacje, które zostaną zainstalowane w przyszłości, będą również używane dla tego planu. Tego ustawienia nie można zmienić po opublikowaniu tego planu.
 
-#### <a name="cloud-availability"></a>Dostępność chmury
+#### <a name="azure-regions"></a>Regiony świadczenia usługi Azure
 
-Plan musi być dostępny w co najmniej jednej chmurze.
+Plan musi być udostępniony w co najmniej jednym regionie platformy Azure.
 
-Wybierz opcję **Azure Global,** aby udostępnić swój plan klientom we wszystkich publicznych regionach platformy Azure, które mają integrację z komercyjnym rynkiem. Aby uzyskać szczegółowe informacje, zobacz [Dostępność geograficzna i obsługa walut](https://aka.ms/AzureGovCurrencies).
+Wybierz opcję **Azure Global,** aby udostępnić swój plan klientom we wszystkich publicznych regionach platformy Azure, które mają integrację z komercyjnym rynkiem. Aby uzyskać szczegółowe informacje, zobacz [Dostępność geograficzna i obsługa walut](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Wybierz opcję **Azure Government Cloud,** aby udostępnić swój plan w [chmurze azure dla instytucji rządowych.](https://aka.ms/WhatIsAzureGovernment) jest to chmura rządowa ze społecznością kontrolowaną dla klientów z amerykańskich agencji federalnych, stanowych, lokalnych lub plemiennych, a także partnerów uprawnionych do obsługi tych podmiotów. Jako wydawca jesteś odpowiedzialny za wszelkie kontrole zgodności, środki zabezpieczeń i najlepsze rozwiązania służące tej społeczności w chmurze. Platforma Azure Government używa fizycznie odizolowanych centrów danych i sieci (zlokalizowanych tylko w Stanach Zjednoczonych).
+Wybierz opcję **Azure Dla Instytucji Rządowych,** aby udostępnić swój plan w regionie [azure dla instytucji rządowych.](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) Region ten zapewnia kontrolowany dostęp dla klientów z amerykańskich podmiotów federalnych, stanowych, lokalnych lub plemiennych, a także partnerów uprawnionych do ich obsługi. Użytkownik, jako wydawca, jest odpowiedzialny za wszelkie mechanizmy kontroli zgodności, środki bezpieczeństwa i najlepsze rozwiązania. Platforma Azure Government używa fizycznie odizolowanych centrów danych i sieci (zlokalizowanych tylko w Stanach Zjednoczonych).
 
-Przed opublikowaniem w [usłudze Azure Government](https://aka.ms/azuregovpublish)należy przetestować i zweryfikować plan w środowisku, ponieważ niektóre punkty końcowe mogą się różnić. Aby skonfigurować i przetestować plan, poproś o konto próbne z [wersji próbnej platformy Microsoft Azure dla instytucji rządowych](https://aka.ms/AzureGovernmentTrial).
+Przed opublikowaniem w [usłudze Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)należy przetestować i zweryfikować plan w środowisku, ponieważ niektóre punkty końcowe mogą się różnić. Aby skonfigurować i przetestować plan, poproś o konto próbne z [wersji próbnej platformy Microsoft Azure dla instytucji rządowych](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> Po opublikowaniu planu i udostępnieniu go w określonej chmurze nie można usunąć tej chmury.
+> Po opublikowaniu planu i udostępnienie go w określonym regionie platformy Azure nie można usunąć tego regionu.
 
-#### <a name="azure-government-cloud-certifications"></a>Certyfikaty azure dla instytucji rządowych w chmurze
+#### <a name="azure-government-certifications"></a>Certyfikaty platformy Azure dla instytucji rządowych
 
-Ta opcja jest widoczna tylko wtedy, gdy w obszarze **Dostępność chmury wybrano**usługę **Azure Government Cloud** .
+Ta opcja jest widoczna tylko wtedy, gdy w obszarze **Regiony platformy Azure**wybierzesz **opcję Azure Government** .
 
-Usługi azure dla instytucji rządowych obsługują dane podlegające określonym przepisom i wymaganiom rządowym. Na przykład FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 i CJIS. Aby zwiększyć świadomość certyfikatów dla tych programów, możesz podać do 100 linków, które je opisują. Mogą to być linki do twojej aukcji w programie bezpośrednio lub linki do opisów zgodności z nimi na własnych stronach internetowych. Te łącza widoczne tylko dla klientów usługi Azure Government Cloud.
+Usługi azure dla instytucji rządowych obsługują dane podlegające określonym przepisom i wymaganiom rządowym. Na przykład FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 i CJIS. Aby zwiększyć świadomość certyfikatów dla tych programów, możesz podać do 100 linków, które je opisują. Mogą to być linki do twojej aukcji w programie bezpośrednio lub linki do opisów zgodności z nimi na własnych stronach internetowych. Te łącza widoczne tylko dla klientów platformy Azure dla instytucji rządowych.
 
 Wybierz **pozycję Zapisz pochyłość** przed kontynuowaniem.
 
@@ -384,7 +384,7 @@ Na tej karcie skonfigurujesz następujące elementy:
 
 #### <a name="markets"></a>Rynków
 
-Każdy plan musi być dostępny na co najmniej jednym rynku. Zaznacz pole wyboru dla każdej lokalizacji rynku, gdzie ten plan powinien być dostępny do zakupu (użytkownicy na tych rynkach nadal mogą wdrażać ofertę we wszystkich regionach platformy Azure dla wybranych chmur). Przycisk **Umorzenie podatku** pokazuje kraje, w których firma Microsoft przekazuje podatek od sprzedaży i korzystać z niego w twoim imieniu. Publikowanie w Chinach jest ograniczone do planów, które są **bezpłatne** lub **przynieś własną licencję** (BYOL).
+Każdy plan musi być dostępny na co najmniej jednym rynku. Zaznacz pole wyboru dla każdej lokalizacji rynku, w której plan ten powinien być dostępny do zakupu (użytkownicy na tych rynkach nadal mogą wdrażać ofertę we wszystkich regionach platformy Azure wybranych w **[konfiguracji planu).](#plan-setup)** Przycisk **Umorzenie podatku** pokazuje kraje, w których firma Microsoft przekazuje podatek od sprzedaży i korzystać z niego w twoim imieniu. Publikowanie w Chinach jest ograniczone do planów, które są **bezpłatne** lub **przynieś własną licencję** (BYOL).
 
 Jeśli masz już ustawione ceny planu w dolarach amerykańskich (USD) i dodasz inną lokalizację rynkową, cena nowego rynku zostanie obliczona zgodnie z aktualnymi kursami wymiany. Zawsze sprawdzaj cenę dla każdego rynku przed opublikowaniem. Przejrzyj ceny za pomocą linku **Ceny eksportowe (xlsx)** po zapisaniu zmian.
 

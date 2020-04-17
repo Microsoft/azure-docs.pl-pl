@@ -3,12 +3,12 @@ title: Tworzenie nowego zasobu usługi Azure Application Insights | Dokumenty fi
 description: Ręcznie skonfiguruj monitorowanie usługi Application Insights dla nowej aplikacji aktywnej.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: c1b3a6920723ad59b714cce4bd69e1b95fe1995f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c8b9ccaa70a2fd1bf46c6f4537f54d702ecc48f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132421"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537580"
 ---
 # <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
@@ -153,12 +153,12 @@ Aby uzyskać pełną dokumentację interfejsu wiersza polecenia platformy Azure 
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wyszukiwanie diagnostyczne](../../azure-monitor/app/diagnostic-search.md)
-* [Eksplorowanie metryk](../../azure-monitor/app/metrics-explorer.md)
+* [Eksplorowanie metryk](../../azure-monitor/platform/metrics-charts.md)
 * [Pisanie zapytań analitycznych](../../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

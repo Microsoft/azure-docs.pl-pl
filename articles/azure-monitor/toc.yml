@@ -318,8 +318,6 @@
               href: app/pre-aggregated-metrics-log-metrics.md
             - name: Definicje metryk dziennika
               href: platform/app-insights-metrics.md
-            - name: Klasyczny Eksplorator metryk
-              href: app/metrics-explorer.md
         - name: Wyszukiwanie
           href: app/diagnostic-search.md
         - name: Profiler

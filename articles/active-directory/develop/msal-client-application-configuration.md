@@ -13,12 +13,12 @@ ms.date: 09/27/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262895"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534469"
 ---
 # <a name="application-configuration-options"></a>Opcje konfiguracji aplikacji
 
@@ -106,11 +106,11 @@ Identyfikator URI przekierowania jest identyfikatorem URI, do który dostawca to
 ### <a name="redirect-uri-for-public-client-apps"></a>Przekierowywanie identyfikatora URI dla publicznych aplikacji klienckich
 
 Jeśli jesteś deweloperem aplikacji klienckiej, który korzysta z usługi MSAL:
-- Chcesz używać `.WithDefaultRedirectUri()` w aplikacjach komputerowych lub platformach uniwersalnych systemu Windows (MSAL.NET 4.1+). Ta metoda ustawi właściwość przekierowania uri aplikacji klienta publicznego do domyślnego zalecanego przekierowania uri dla publicznych aplikacji klienckich. 
+- Chcesz używać `.WithDefaultRedirectUri()` w aplikacjach komputerowych lub platformach uniwersalnych systemu Windows (MSAL.NET 4.1+). Ta metoda ustawi właściwość przekierowania uri aplikacji klienta publicznego do domyślnego zalecanego przekierowania uri dla publicznych aplikacji klienckich.
 
-  Platforma  | Identyfikator URI przekierowania  
+  Platforma  | Identyfikator URI przekierowania
   ---------  | --------------
-  Aplikacja komputerowa (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  Aplikacja komputerowa (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
   Platforma UWP | wartości `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Umożliwia to SSO z przeglądarką, ustawiając wartość na wynik WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), które należy zarejestrować
   .NET Core | `https://localhost`. Dzięki temu użytkownik może używać przeglądarki systemowej do uwierzytelniania interaktywnego, ponieważ program .NET Core nie ma obecnie interfejsu użytkownika dla osadzonego widoku sieci Web.
 
@@ -130,7 +130,7 @@ Aby uzyskać dodatkowe informacje na temat [Androida, zobacz Brokered auth w Sys
 
 ### <a name="redirect-uri-for-confidential-client-apps"></a>Przekierowywanie identyfikatora URI dla poufnych aplikacji klienckich
 
-W przypadku aplikacji sieci web identyfikator URI (lub identyfikator URI odpowiedzi) jest identyfikatorem URI używanym przez usługę Azure AD do wysyłania tokenu z powrotem do aplikacji. Ten identyfikator URI może być adresem URL aplikacji sieci Web/interfejsu API sieci Web, jeśli aplikacja poufna jest jedną z nich. Identyfikator URI przekierowania musi być zarejestrowany w rejestracji aplikacji. Ta rejestracja jest szczególnie ważna podczas wdrażania aplikacji, która została początkowo przetestowana lokalnie. Następnie należy dodać adres URL odpowiedzi wdrożonej aplikacji w portalu rejestracji aplikacji.
+W przypadku aplikacji sieci web identyfikator URI (lub identyfikator URI odpowiedzi) jest identyfikatorem URI używanym przez usługę Azure AD do wysyłania tokenu z powrotem do aplikacji. Ten identyfikator URI może być adresem URL interfejsu API aplikacji sieci web/sieci Web, jeśli jedną z nich jest aplikacja poufna. Identyfikator URI przekierowania musi być zarejestrowany w rejestracji aplikacji. Ta rejestracja jest szczególnie ważna podczas wdrażania aplikacji, która została początkowo przetestowana lokalnie. Następnie należy dodać adres URL odpowiedzi wdrożonej aplikacji w portalu rejestracji aplikacji.
 
 W przypadku aplikacji demonów nie trzeba określać identyfikatora URI przekierowania.
 

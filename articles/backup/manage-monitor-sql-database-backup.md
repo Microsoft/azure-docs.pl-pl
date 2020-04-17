@@ -3,12 +3,12 @@ title: Zarządzanie i monitorowanie obiektów DBs serwera SQL na maszynie Wirtua
 description: W tym artykule opisano sposób zarządzania i monitorowania baz danych programu SQL Server, które są uruchomione na maszynie Wirtualnej platformy Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 4daf068e97a08d1a611ef64cb64569cacd5d7420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172156"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537308"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Zarządzanie kopiami zapasowymi baz danych programu SQL Server i ich monitorowanie
 
@@ -38,7 +38,7 @@ Ponieważ kopie zapasowe dziennika występują co 15 minut, monitorowanie zadań
 
 Aby monitorować alerty kopii zapasowej bazy danych:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Na pulpicie nawigacyjnym przechowalni wybierz pozycję **Alerty i zdarzenia**.
 
@@ -59,7 +59,7 @@ Jeśli zdecydujesz się pozostawić punkty odzyskiwania, pamiętaj o tych szczeg
 
 - Wszystkie punkty odzyskiwania pozostaną nienaruszone na zawsze, wszystkie przycinanie zatrzymuje się na ochronie przystanku z zachowaniem danych.
 - Zostanie naliczona opłata za chronione wystąpienie i zużyte miejsce do magazynowania. Aby uzyskać więcej informacji, zobacz [Ceny usługi Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
-- Jeśli usuniesz źródło danych bez zatrzymywania kopii zapasowych, nowe kopie zapasowe nie powiodą się.
+- Jeśli usuniesz źródło danych bez zatrzymywania kopii zapasowych, nowe kopie zapasowe nie powiodą się. Stare punkty odzyskiwania wygasną zgodnie z zasadami, ale jeden ostatni punkt odzyskiwania będzie zawsze przechowywany, dopóki nie zatrzymasz kopii zapasowych i nie usuniesz danych.
 
 Aby zatrzymać ochronę bazy danych:
 

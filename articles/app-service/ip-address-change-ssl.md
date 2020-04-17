@@ -4,12 +4,12 @@ description: Jeśli twój adres IP SSL zostanie zmieniony, dowiedz się, co zrob
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
-ms.openlocfilehash: 34f35eb67cada6066e35227fcd6a0eaf425ac007
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcfe11bcab25f6267a557de5faf7befab467bc29
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672401"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535727"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Jak przygotować się do zmiany adresu IP SSL
 
@@ -25,7 +25,7 @@ Jeśli otrzymałeś powiadomienie, że zmienia się adres IP protokołu SSL apli
 
 4.  W nagłówku **Ustawienia** kliknij pozycję **Ustawienia SSL** w lewej nawigacji.
 
-1. W sekcji powiązania SSL wybierz rekord nazwy hosta. W otwieranym edytorze wybierz polecenie **SNI SSL** w menu rozwijanym **Typ SSL** i kliknij przycisk **Dodaj powiązanie**. Po wyświetleniu komunikatu o powodzenie operacji, istniejący adres IP został zwolniony.
+1. W sekcji powiązania TLS/SSL wybierz rekord nazwy hosta. W otwieranym edytorze wybierz polecenie **SNI SSL** w menu rozwijanym **Typ SSL** i kliknij przycisk **Dodaj powiązanie**. Po wyświetleniu komunikatu o powodzenie operacji, istniejący adres IP został zwolniony.
 
 6.  W sekcji **powiązania SSL** ponownie wybierz ten sam rekord nazwy hosta z certyfikatem. W otwieranym edytorze tym razem wybierz pozycję **SSL opartą na protoke ip** w menu rozwijanym **Typ SSL** i kliknij przycisk **Dodaj powiązanie**. Po wyświetleniu komunikatu o powodzenie operacji, zakupiono nowy adres IP.
 
@@ -45,4 +45,4 @@ Jeśli otrzymałeś powiadomienie, że zmienia się adres IP protokołu SSL apli
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule wyjaśniono, jak przygotować się do zmiany adresu IP, który został zainicjowany przez platformę Azure. Aby uzyskać więcej informacji na temat adresów IP w usłudze Azure App Service, zobacz [adresy IP SSL i SSL w usłudze Azure App Service](overview-inbound-outbound-ips.md).
+W tym artykule wyjaśniono, jak przygotować się do zmiany adresu IP, który został zainicjowany przez platformę Azure. Aby uzyskać więcej informacji na temat adresów IP w usłudze Azure App Service, zobacz [Przychodzące i wychodzące adresy IP w usłudze Azure App Service](overview-inbound-outbound-ips.md).

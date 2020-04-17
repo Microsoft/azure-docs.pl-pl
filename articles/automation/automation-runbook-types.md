@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4e8a5d2d168b8f60b7a32a8af358c6097003de60
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1ac6347bd8e723f356da4803da54a6ea45a4a71a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261299"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535523"
 ---
 # <a name="azure-automation-runbook-types"></a>Typy elementów runbook usługi Azure Automation
 
@@ -28,6 +28,9 @@ Należy wziąć pod uwagę następujące kwestie przy określaniu, który typ ma
 
 * Nie można konwertować tekstów runbook z tekstu graficznego na tekst ani na odwrót.
 * Istnieją ograniczenia podczas używania elementów runbook różnych typów jako elementów runbook podrzędnych. Aby uzyskać więcej informacji, zobacz [Podrzędne elementy runbook w usłudze Azure Automation](automation-child-runbooks.md).
+
+>[!NOTE]
+>Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Aby uzyskać instrukcje instalacji modułu Az w hybrydowym usłudze Runbook Worker, zobacz [Instalowanie modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Dla konta automatyzacji można zaktualizować moduły do najnowszej wersji przy użyciu [jak zaktualizować moduły programu Azure PowerShell w usłudze Azure Automation.](automation-update-azure-modules.md)
 
 ## <a name="graphical-runbooks"></a>Graficzne programy runbook
 

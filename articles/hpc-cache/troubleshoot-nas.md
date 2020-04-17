@@ -4,14 +4,14 @@ description: Wskazówki dotyczące unikania i rozwiązywania błędów konfigura
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: c88ffb9e87bc0688cc87b816efaa8e101e23407c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a24530810a448a713c01efbc8933b9f22d15b3b
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77652089"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536373"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Rozwiązywanie problemów z konfiguracją serwera NAS i docelowymi pamięcią masową systemu plików NFS
 
@@ -63,6 +63,9 @@ Różne systemy pamięci masowej używają różnych metod, aby umożliwić ten 
 
 Jeśli używasz reguł eksportu, należy pamiętać, że pamięć podręczna może używać wielu różnych adresów IP z podsieci pamięci podręcznej. Zezwalaj na dostęp z pełnego zakresu możliwych adresów IP podsieci.
 
+> [!NOTE]
+> Domyślnie pamięć podręczna HPC usługi Azure zmniejsza dostęp do roota. Przeczytaj [pozycję Konfigurowanie dodatkowych ustawień pamięci podręcznej,](configuration.md#configure-root-squash) aby uzyskać szczegółowe informacje.
+
 Współpracuj z dostawcą pamięci masowej NAS, aby włączyć odpowiedni poziom dostępu do pamięci podręcznej.
 
 ### <a name="allow-root-access-on-directory-paths"></a>Zezwalaj na dostęp do katalogu na ścieżkach katalogów
@@ -100,7 +103,7 @@ Użyj klienta systemu Linux z tej samej sieci wirtualnej co pamięć podręczna,
 Jeśli to polecenie nie zawiera listy eksportu, pamięć podręczna będzie miała problemy z połączeniem się z systemem magazynu. Współpracuj z dostawcą serwera NAS, aby włączyć listę eksportu.
 
 ## <a name="adjust-vpn-packet-size-restrictions"></a>Dostosowywanie ograniczeń rozmiaru pakietów sieci VPN
-<!-- link in prereqs article -->
+<!-- link in prereqs article and configuration article -->
 
 Jeśli masz sieć VPN między pamięcią podręczną a urządzeniem NAS, sieć VPN może blokować pełnowymiarowe pakiety Ethernet o rozmiarze 1500 bajtów. Ten problem może być taki problem, jeśli duża wymiana między serwerem NAS a wystąpieniem pamięci podręcznej HPC platformy Azure nie zostanie ukończona, ale mniejsze aktualizacje działają zgodnie z oczekiwaniami.
 
@@ -128,7 +131,11 @@ Nie ma prostego sposobu, aby stwierdzić, czy twój system ma ten problem, chyba
   1480 bytes from 10.54.54.11: icmp_seq=1 ttl=64 time=2.06 ms
   ```
 
-  Jeśli polecenie ping nie powiedzie się z 1472 bajtami, może być konieczne skonfigurowanie mocowania MSS w sieci VPN, aby system zdalny prawidłowo wykrył maksymalny rozmiar klatki. Przeczytaj [dokumentację parametrów IPsec/IKE bramy sieci VPN,](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) aby dowiedzieć się więcej.
+  Jeśli ping nie powiedzie się z 1472 bajtów, prawdopodobnie istnieje problem z rozmiarem pakietu.
+
+Aby rozwiązać ten problem, może być konieczne skonfigurowanie mocowania MSS w sieci VPN, aby system zdalny prawidłowo wykrył maksymalny rozmiar klatki. Przeczytaj [dokumentację parametrów IPsec/IKE bramy sieci VPN,](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) aby dowiedzieć się więcej.
+
+W niektórych przypadkach może pomóc zmiana ustawienia jednostki MTU dla pamięci podręcznej HPC platformy Azure na 1400. Jeśli jednak ograniczysz jednostkę MTU w pamięci podręcznej, należy również ograniczyć ustawienia jednostki MTU dla klientów i systemów magazynu zaplecza, które współdziałają z pamięcią podręczną. Przeczytaj [pozycję Konfigurowanie dodatkowych ustawień pamięci podręcznej HPC platformy Azure,](configuration.md#adjust-mtu-value) aby uzyskać szczegółowe informacje.
 
 ## <a name="check-for-acl-security-style"></a>Sprawdzanie stylu zabezpieczeń listy ACL
 

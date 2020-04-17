@@ -4,21 +4,19 @@ description: Dowiedz się, jak uruchomić migrację maszyn wirtualnych VMware op
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6855c3e81aece0358146608b6cf179fb923c54c8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238440"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535336"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (oparte na agentach)
 
 W tym artykule pokazano, jak migrować lokalne maszyny wirtualne VMware na platformę Azure przy użyciu migracji opartej na agentach za pomocą narzędzia migracji serwera migracji usługi Azure Migrate Server.
 
-[Usługa Azure Migrate](migrate-services-overview.md) udostępnia centralne centrum do śledzenia odnajdowania, oceny i migracji lokalnych aplikacji i obciążeń oraz wystąpień maszyn wirtualnych AWS/GCP na platformie Azure. Centrum udostępnia narzędzia migracji platformy Azure do oceny i migracji, a także oferty niezależnych dostawców oprogramowania innych firm (ISV).
 
-
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Skonfiguruj środowisko źródłowe i wdrażaj urządzenie replikacji migracji platformy Azure do migracji opartej na agentach.
 > * Skonfiguruj środowisko docelowe dla migracji.
@@ -78,7 +76,7 @@ Jeśli ocena została już przeprowadzona za pomocą usługi Azure Migrate Serve
 Jeśli nie uruchomisz oceny, musisz skonfigurować uprawnienia platformy Azure przed migracją za pomocą migracji serwera migracji usługi Azure Migrate Server.
 
 - **Tworzenie projektu:** Twoje konto platformy Azure wymaga uprawnień do tworzenia projektu migracji platformy Azure. 
-- **Zarejestruj urządzenie replikacji usługi Azure Migrate:** Urządzenie replikacji tworzy i rejestruje aplikację usługi Azure Active Directory na koncie platformy Azure. Należy delegować uprawnienia do tego.
+- **Zarejestruj urządzenie replikacji usługi Azure Migrate:** Urządzenie replikacji tworzy i rejestruje aplikację usługi Azure Active Directory na koncie platformy Azure. Delegować uprawnienia do tego.
 - **Tworzenie magazynu kluczy:** Aby przeprowadzić migrację maszyn wirtualnych VMware przy użyciu migracji serwera migracji usługi Azure, usługa Azure Migrate tworzy magazyn kluczy w grupie zasobów, aby zarządzać kluczami dostępu do konta magazynu replikacji w ramach subskrypcji. Aby utworzyć magazyn, potrzebujesz uprawnień przypisania ról do grupy zasobów, w której znajduje się projekt migracji platformy Azure. 
 
 
@@ -148,7 +146,7 @@ Utwórz konto w następujący sposób:
 **Zadanie** | **Rola/uprawnienia** | **Szczegóły**
 --- | --- | ---
 **Odnajdowanie maszyn wirtualnych** | Co najmniej użytkownik tylko do odczytu<br/><br/> Obiekt centrum danych –> propagacja do obiektu podrzędnego, rola = tylko do odczytu | Użytkownik przypisany na poziomie centrum danych, mający dostęp do wszystkich obiektów w centrum danych.<br/><br/> Aby ograniczyć dostęp, przypisz rolę **Brak dostępu** z **propagate do** obiektu podrzędnego, do obiektów podrzędnych (hosty vSphere, magazyny danych, maszyny wirtualne i sieci).
-**Pełna replikacja, tryb failover i powrót po awarii** |  Utwórz rolę (Azure_Site_Recovery) z wymaganymi uprawnieniami, a następnie przypisz ją użytkownikowi lub grupie VMware<br/><br/> Obiekt centrum danych –> propagacja do obiektu podrzędnego, rola = Azure_Site_Recovery<br/><br/> Magazyn danych -> przydzielanie miejsca, przegląd magazynu danych, operacje na plikach niskiego poziomu, usuwanie pliku, aktualizowanie plików maszyn wirtualnych<br/><br/> Sieć -> przypisywanie sieci<br/><br/> Zasób -> przypisywanie maszyny wirtualnej do puli zasobów, migracja wyłączonej maszyny wirtualnej, migracja włączonej maszyny wirtualnej<br/><br/> Zadania -> tworzenie zadania, aktualizowanie zadania<br/><br/> Maszyna wirtualna -> konfiguracja<br/><br/> Maszyna wirtualna -> interakcja -> odpowiadanie na pytanie, połączenie z urządzeniem, konfigurowanie nośnika CD, konfigurowanie dyskietki, wyłączanie, włączanie, instalowanie narzędzi VMware<br/><br/> Maszyna wirtualna -> spis -> tworzenie, rejestrowanie, wyrejestrowywanie<br/><br/> Maszyna wirtualna -> aprowizowanie -> zezwalanie na pobieranie maszyny wirtualnej, zezwalanie na przekazywanie plików maszyny wirtualnej<br/><br/> Maszyna wirtualna -> migawki -> usuwanie migawek | Użytkownik przypisany na poziomie centrum danych, mający dostęp do wszystkich obiektów w centrum danych.<br/><br/> Aby ograniczyć dostęp, przypisz rolę **Brak dostępu** z **propagate do** obiektu podrzędnego, do obiektów podrzędnych (hosty vSphere, magazyny danych, maszyny wirtualne i sieci).
+**Pełna replikacja, tryb failover i powrót po awarii** |  Utwórz rolę (Azure_Site_Recovery) z wymaganymi uprawnieniami, a następnie przypisz ją użytkownikowi lub grupie VMware<br/><br/> Obiekt centrum danych –> propagacja do obiektu podrzędnego, rola = Azure_Site_Recovery<br/><br/> Magazyn danych -> przydzielanie miejsca, przegląd magazynu danych, operacje na plikach niskiego poziomu, usuwanie pliku, aktualizowanie plików maszyn wirtualnych<br/><br/> Sieć -> przypisywanie sieci<br/><br/> Zasób -> przypisywanie maszyny wirtualnej do puli zasobów, migracja wyłączonej maszyny wirtualnej, migracja włączonej maszyny wirtualnej<br/><br/> Zadania -> tworzenie zadania, aktualizowanie zadania<br/><br/> Maszyna wirtualna -> konfiguracja<br/><br/> Maszyna wirtualna -> interakcja -> odpowiadanie na pytanie, połączenie z urządzeniem, konfigurowanie nośnika CD, konfigurowanie dyskietki, wyłączanie, włączanie, instalowanie narzędzi VMware<br/><br/> Maszyna wirtualna -> spis -> tworzenie, rejestrowanie, wyrejestrowywanie<br/><br/> Maszyna wirtualna -> aprowizowanie -> zezwalanie na pobieranie maszyny wirtualnej, zezwalanie na przekazywanie plików maszyny wirtualnej<br/><br/> Maszyna wirtualna -> migawki -> usuwanie migawek | Użytkownik przypisany na poziomie centrum danych, mający dostęp do wszystkich obiektów w centrum danych.<br/><br/> Aby ograniczyć dostęp, przypisz rolę **Brak dostępu** z **propagate do** obiektu podrzędnego, do obiektów podrzędnych (hosty vSphere, magazyny danych, VMsa, sieci nd).
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>Przygotowywanie konta do instalacji usługi Mobility
 
@@ -191,26 +189,18 @@ Jeśli nie po samouczku oceny maszyn wirtualnych VMware, skonfiguruj projekt mig
 3. W obszarze **Przegląd** kliknij pozycję **Ocena i migracja serwerów**.
 4. W obszarze **Odnajdowanie oceniaj i migruj serwery**kliknij pozycję **Oceń i migruj serwery**.
 
-    ![Odkrywanie i ocenianie serwerów](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
+    ! [Odkryj i oceń serwery] (./media/tutorial-migrate-vmware-agent/assess-migrate.png
 
 1. W obszarze **Odnajdywanie, ocena i migracja serwerów** kliknij pozycję **Dodaj narzędzia**.
 2. W obszarze **Projekt migracji**wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.
-3. W **obszarze Szczegóły projektu**określ nazwę projektu i lokalizację geograficzną, w której chcesz utworzyć projekt, a następnie kliknij przycisk **Dalej**
+3. W obszarze **Szczegóły projektu** określ nazwę projektu i lokalizację geograficzną, w której chcesz utworzyć projekt, a następnie kliknij przycisk **Dalej**. Przejrzyj obsługiwane obszary geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Tworzenie projektu migracji platformy Azure](./media/tutorial-migrate-vmware-agent/migrate-project.png)
 
-    Można utworzyć projekt migracji platformy Azure w dowolnym z tych obszarów geograficznych.
 
-    **Geografia** | **Region**
-    --- | ---
-    Azja | Azja Południowo-Wschodnia
-    Europa | Europa Północna lub Europa Zachodnia
-    Stany Zjednoczone | Wschodnie stany USA lub Zachodnio-środkowe stany USA
-
-    Geografia projektu jest używana wyłącznie do przechowywania metadanych zebranych z lokalnych maszyn wirtualnych. Można wybrać dowolny region docelowy dla rzeczywistej migracji.
 4. W **obszarze Wybierz narzędzie oceny**wybierz pozycję **Pomiń dodanie narzędzia oceny na razie** > **Dalej**.
 5. W **narzędziu Wybierz migrację**wybierz pozycję **Migracja platformy Azure: Migracja** > serwera**dalej**.
-6. W **sekcji Recenzja + dodawanie narzędzi**przejrzyj ustawienia i kliknij pozycję Dodaj **narzędzia**
+6. W obszarze **Przegląd i dodawanie narzędzi** przejrzyj ustawienia, a następnie kliknij pozycję **Dodaj narzędzia**
 7. Po dodaniu narzędzia pojawia się w projekcie migracji platformy Azure >**narzędzia migracji** **serwerów** > .
 
 ## <a name="set-up-the-replication-appliance"></a>Konfigurowanie urządzenia replikacji
@@ -221,7 +211,10 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia replikacji. Urządze
 - **Serwer przetwarzania:** Serwer przetwarzania działa jako brama replikacji. Odbiera dane replikacji; optymalizuje go za pomocą buforowania, kompresji i szyfrowania i wysyła go do konta magazynu pamięci podręcznej na platformie Azure. Serwer procesów instaluje również agenta usługi mobilności na maszynach wirtualnych, które chcesz replikować, i wykonuje automatyczne odnajdowanie lokalnych maszyn wirtualnych VMware.
 
 
-Aby skonfigurować urządzenie replikacji, należy pobrać przygotowany szablon OVA (Open Virtualization Application). Szablon należy zaimportować do urządzenia VMware i utworzyć maszynę wirtualną urządzenia replikacji. 
+Urządzenie replikacji można skonfigurować na kilka sposobów.
+
+- Skonfiguruj za pomocą pobranego szablonu Otwartej aplikacji wirtualizacji (OVA). Szablon należy zaimportować do urządzenia VMware i utworzyć maszynę wirtualną urządzenia replikacji. Jest to metoda używana w tym samouczku.
+- Skonfiguruj za pomocą skryptu.
 
 ### <a name="download-the-replication-appliance-template"></a>Pobieranie szablonu urządzenia replikacji
 

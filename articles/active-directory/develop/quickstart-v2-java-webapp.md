@@ -1,6 +1,6 @@
 ---
 title: Szybki start aplikacji java dla użytkowników platformy tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak zaimplementować logowanie microsoftu w aplikacji Java Web App przy użyciu funkcji OpenID Connect
+description: Dowiedz się, jak zaimplementować logowanie microsoftu w aplikacji sieci Web Java przy użyciu funkcji OpenID Connect
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: f3ede3ef0557c5ca425901e7404746b4e85aefcb
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: ed105ce6bd1d7d8980799049649b8d5b95dcb761
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991131"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536118"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Szybki start: dodawanie logowania za pomocą firmy Microsoft do aplikacji sieci Web Java
 
@@ -57,7 +57,7 @@ Aby uruchomić ten przykład, potrzebujesz:
 > 1. Na **stronie Przegląd** znajdź **identyfikator aplikacji (klienta)** i wartości **identyfikatora katalogu (dzierżawy)** aplikacji. Skopiuj te wartości na później.
 > 1. Wybierz **uwierzytelnianie** z menu, a następnie dodaj następujące informacje:
 >    - Dodaj konfigurację platformy **sieci Web.**  Dodaj `https://localhost:8080/msal4jsample/secure/aad` te `https://localhost:8080/msal4jsample/graph/me` i jako **Przekierowanie identyfikatorów URI**..
->    - Wybierz **pozycję Zapisz**.
+>    - Wybierz pozycję **Zapisz**.
 > 1. Wybierz **certyfikaty & wpisy tajne** z menu i w sekcji **Wpisy tajne klienta,** kliknij **nowy klucz tajny klienta:**
 >
 >    - Wpisz opis klucza (na przykład klucz tajny aplikacji).
@@ -91,9 +91,9 @@ Aby uruchomić ten przykład, potrzebujesz:
 >   Example:
 >   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
 >
->   server.ssl.key-store-type=PKCS12  
->   server.ssl.key-store=classpath:keystore.p12  
->   server.ssl.key-store-password=password  
+>   server.ssl.key-store-type=PKCS12
+>   server.ssl.key-store=classpath:keystore.p12
+>   server.ssl.key-store-password=password
 >   server.ssl.key-alias=testCert
 >   ```
 >   Umieść wygenerowany plik magazynu kluczy w folderze "zasoby".
@@ -130,9 +130,9 @@ Aby uruchomić ten przykład, potrzebujesz:
 >   Example:
 >   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
 >
->   server.ssl.key-store-type=PKCS12  
->   server.ssl.key-store=classpath:keystore.p12  
->   server.ssl.key-store-password=password  
+>   server.ssl.key-store-type=PKCS12
+>   server.ssl.key-store=classpath:keystore.p12
+>   server.ssl.key-store-password=password
 >   server.ssl.key-alias=testCert
 >   ```
 >   Umieść wygenerowany plik magazynu kluczy w folderze "zasoby".

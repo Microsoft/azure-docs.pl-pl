@@ -12,18 +12,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a6c9ccb3dc29865c790e5d8cc9cfc35e68f5561d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b0114bb5d545755fe59c49605d6def341d2275
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886147"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535778"
 ---
 # <a name="supported-account-types"></a>Obsługiwane typy konta
 
 Z tego artykułu dowiesz się, jakie typy kont (czasami nazywane grupy odbiorców) są obsługiwane w aplikacjach.
 
-<!-- This section can be in an include for many of the scenarios (SPA, Web App signing-in users, protecting a Web API, Desktop (depending on the flows), Mobile -->
+<!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 
 ## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Obsługiwane typy kont w aplikacjach platformy Microsoft Identity
 
@@ -44,7 +44,7 @@ W chmurze publicznej platformy Microsoft Azure większość typów aplikacji mo�
 
 Niektórych typów kont nie można używać z niektórymi przepływami uwierzytelniania. Na przykład w aplikacjach komputerowych, platformach uniwersalnych systemu Windows lub demonach:
 
-- Aplikacje demonów mogą być używane tylko w organizacjach usługi Azure Active Directory. Nie ma sensu próbować używać aplikacji demonów do manipulowania kontami osobistymi firmy Microsoft (nigdy nie zostanie udzielona zgoda administratora).  
+- Aplikacje demonów mogą być używane tylko w organizacjach usługi Azure Active Directory. Nie ma sensu próbować używać aplikacji demonów do manipulowania kontami osobistymi firmy Microsoft (nigdy nie zostanie udzielona zgoda administratora).
 - Przepływ zintegrowanego uwierzytelniania systemu Windows można używać tylko z kontami służbowymi lub szkolnymi (w organizacji lub dowolnej organizacji). W rzeczywistości zintegrowane uwierzytelnianie systemu Windows działa z kontami domeny i wymaga, aby maszyny były przyłączone do domeny lub przyłączona do usługi Azure AD. Ten przepływ nie ma sensu w przypadku osobistych kont Microsoft.
 - [Grant hasła właściciela zasobu](./v2-oauth-ropc.md) (nazwa użytkownika/hasło) nie może być używany z osobistymi kontami Microsoft. W rzeczywistości osobiste konta Microsoft wymagają, aby użytkownik wyraził zgodę na dostęp do zasobów osobistych podczas każdej sesji logowania. Dlatego to zachowanie nie jest zgodne z przepływami nieinterakcyjnymi.
 - Przepływ kodu urządzenia nie działa jeszcze z osobistymi kontami Microsoft.

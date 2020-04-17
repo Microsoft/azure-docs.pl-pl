@@ -12,12 +12,12 @@ ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 143a2ec0bfbcc6997eb6d8b2599b848a509ee773
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: bdbda8bed38819ca2b4d2fb1ef3d9bf591269890
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309494"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535914"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Typy aplikacji dla platformy tożsamości firmy Microsoft
 
@@ -84,7 +84,7 @@ Oprócz prostego logowania aplikacja serwera sieci web może wymagać dostępu d
 
 ## <a name="web-apis"></a>Interfejsy API sieci Web
 
-Punktu końcowego platformy tożsamości firmy Microsoft można używać do zabezpieczania usług sieci web, takich jak interfejs API sieci Web RESTful aplikacji. Interfejsy API sieci Web można zaimplementować na wielu platformach i językach. Można je również zaimplementować przy użyciu wyzwalaczy HTTP w usłudze Azure Functions. Zamiast tokenów identyfikatorów i plików cookie sesji interfejs API sieci Web używa tokenu dostępu OAuth 2.0 do zabezpieczania swoich danych i uwierzytelniania żądań przychodzących. Wywołujący interfejs API sieci Web dołącza token dostępu w nagłówku autoryzacji żądania HTTP, w ten sposób:
+Punktu końcowego platformy tożsamości firmy Microsoft można używać do zabezpieczania usług sieci web, takich jak interfejs API sieci Web restful aplikacji. Interfejsy API sieci Web można zaimplementować na wielu platformach i językach. Można je również zaimplementować przy użyciu wyzwalaczy HTTP w usłudze Azure Functions. Zamiast tokenów identyfikatorów i plików cookie sesji internetowy interfejs API używa tokenu dostępu OAuth 2.0 do zabezpieczania swoich danych i uwierzytelniania żądań przychodzących. Wywołujący internetowy interfejs API dołącza token dostępu w nagłówku autoryzacji żądania HTTP, w ten sposób:
 
 ```HTTP
 GET /api/items HTTP/1.1
@@ -94,29 +94,29 @@ Accept: application/json
 ...
 ```
 
-Interfejs API sieci Web używa tokenu dostępu do weryfikacji tożsamości obiektu wywołującego interfejsu API i wyodrębniania informacji o wywołującym z oświadczeń zakodowanych w tokenie dostępu. Dalsze szczegóły dotyczące różnych typów tokenów używanych w punkcie końcowym platformy tożsamości firmy Microsoft są dostępne w odwołaniu do [tokenu dostępu](access-tokens.md) i [id_token](id-tokens.md) odwołania.
+Internetowy interfejs API używa tokenu dostępu do weryfikacji tożsamości obiektu wywołującego interfejsu API i wyodrębniania informacji o wywołującym z oświadczeń zakodowanych w tokenie dostępu. Dalsze szczegóły dotyczące różnych typów tokenów używanych w punkcie końcowym platformy tożsamości firmy Microsoft są dostępne w odwołaniu do [tokenu dostępu](access-tokens.md) i [id_token](id-tokens.md) odwołania.
 
-Interfejs API sieci Web może dać użytkownikom możliwość wyrażenia zgody na określoną funkcjonalność lub dane lub rezygnację z nich, udostępniając uprawnienia, znane również jako [zakresy.](v2-permissions-and-consent.md) Aby aplikacja wywołująca uzyskała uprawnienia do zakresu, użytkownik musi wyrazić zgodę na zakres podczas przepływu. Punkt końcowy platformy tożsamości firmy Microsoft prosi użytkownika o uprawnienia, a następnie rejestruje uprawnienia we wszystkich tokenach dostępu odbieranych przez interfejs API sieci Web. Interfejs API sieci Web sprawdza poprawność tokenów dostępu, które otrzymuje przy każdym wywołaniu, i przeprowadza kontrole autoryzacji.
+Internetowy interfejs API może dać użytkownikom możliwość wyrażenia zgody na określoną funkcjonalność lub dane lub rezygnację z nich, ujawniając uprawnienia, znane również jako [zakresy.](v2-permissions-and-consent.md) Aby aplikacja wywołująca uzyskała uprawnienia do zakresu, użytkownik musi wyrazić zgodę na zakres podczas przepływu. Punkt końcowy platformy tożsamości firmy Microsoft prosi użytkownika o uprawnienia, a następnie rejestruje uprawnienia we wszystkich tokenach dostępu odbieranych przez internetowy interfejs API. Internetowy interfejs API sprawdza poprawność tokenów dostępu, które otrzymuje przy każdym wywołaniu i przeprowadza kontrole autoryzacji.
 
-Interfejs API sieci Web może odbierać tokeny dostępu ze wszystkich typów aplikacji, w tym aplikacji serwera sieci Web, aplikacji klasycznych i mobilnych, aplikacji jednostronicowych, demonów po stronie serwera, a nawet innych interfejsów API sieci Web. Przepływ wysokiego poziomu dla interfejsu API sieci Web wygląda następująco:
+Internetowy interfejs API może odbierać tokeny dostępu ze wszystkich typów aplikacji, w tym aplikacji serwera sieci Web, aplikacji komputerowych i mobilnych, aplikacji jednostronicowych, demonów po stronie serwera, a nawet innych interfejsów API sieci Web. Przepływ wysokiego poziomu dla internetowego interfejsu API wygląda następująco:
 
 ![Pokazuje przepływ uwierzytelniania interfejsu API w sieci Web](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Aby dowiedzieć się, jak zabezpieczyć interfejs API sieci Web przy użyciu tokenów dostępu OAuth2, zapoznaj się z przykładami kodu interfejsu API sieci Web w sekcji [Wprowadzenie do platformy tożsamości firmy Microsoft.](v2-overview.md#getting-started)
+Aby dowiedzieć się, jak zabezpieczyć internetowy interfejs API przy użyciu tokenów dostępu OAuth2, zapoznaj się z przykładami kodu internetowego interfejsu API w sekcji [Wprowadzenie do platformy tożsamości firmy Microsoft.](v2-overview.md#getting-started)
 
 W wielu przypadkach interfejsy API sieci web muszą również wywrzeć żądania wychodzące do innych podrzędnych interfejsów API sieci web zabezpieczonych przez platformę tożsamości firmy Microsoft. W tym celu interfejsy API sieci web mogą korzystać z przepływu **w imieniu,** który umożliwia interfejsowi API sieci web do wymiany tokenu dostępu przychodzącego dla innego tokenu dostępu, który ma być używany w żądaniach wychodzących. Aby uzyskać więcej informacji, zobacz [Microsoft identity platform i OAuth 2.0 On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>Aplikacje mobilne i natywne
 
-Aplikacje zainstalowane na urządzeniu, takie jak aplikacje mobilne i klasyczne, często wymagają dostępu do usług zaplecza lub interfejsów API sieci Web, które przechowują dane i wykonują funkcje w imieniu użytkownika. Te aplikacje mogą dodawać logowanie i autoryzację do usług zaplecza przy użyciu [przepływu kodu autoryzacji OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Aplikacje zainstalowane na urządzeniu, takie jak aplikacje mobilne i klasyczne, często wymagają dostępu do usług zaplecza lub internetowych interfejsów API, które przechowują dane i wykonują funkcje w imieniu użytkownika. Te aplikacje mogą dodawać logowanie i autoryzację do usług zaplecza przy użyciu [przepływu kodu autoryzacji OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
-W tym przepływie aplikacja otrzymuje kod autoryzacji z punktu końcowego platformy tożsamości firmy Microsoft, gdy użytkownik się zaloguje. Kod autoryzacji reprezentuje uprawnienie aplikacji do wywoływania usług zaplecza w imieniu zalogowanego użytkownika. Aplikacja może wymieniać kod autoryzacji w tle dla tokenu dostępu OAuth 2.0 i tokenu odświeżania. Aplikacja może używać tokenu dostępu do uwierzytelniania interfejsów API sieci Web w żądaniach HTTP i używać tokenu odświeżania, aby uzyskać nowe tokeny dostępu po wygaśnięciu starszych tokenów dostępu.
+W tym przepływie aplikacja otrzymuje kod autoryzacji z punktu końcowego platformy tożsamości firmy Microsoft, gdy użytkownik się zaloguje. Kod autoryzacji reprezentuje uprawnienie aplikacji do wywoływania usług zaplecza w imieniu zalogowanego użytkownika. Aplikacja może wymieniać kod autoryzacji w tle dla tokenu dostępu OAuth 2.0 i tokenu odświeżania. Aplikacja może używać tokenu dostępu do uwierzytelniania do internetowych interfejsów API w żądaniach HTTP i użyć tokenu odświeżania, aby uzyskać nowe tokeny dostępu po wygaśnięciu starszych tokenów dostępu.
 
 ![Pokazuje przepływ uwierzytelniania aplikacji natywnej](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>Demony i aplikacje po stronie serwera
 
-Aplikacje, które mają długotrwałe procesy lub działają bez interakcji z użytkownikiem, również potrzebują sposobu dostępu do zabezpieczonych zasobów, takich jak interfejsy API sieci Web. Te aplikacje mogą uwierzytelniać i pobieranie tokenów przy użyciu tożsamości aplikacji, a nie tożsamości delegowanej użytkownika, z przepływem poświadczeń klienta OAuth 2.0. Możesz udowodnić tożsamość aplikacji przy użyciu klucza tajnego klienta lub certyfikatu. Aby uzyskać więcej informacji, zobacz [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
+Aplikacje, które mają długotrwałe procesy lub działają bez interakcji z użytkownikiem, również potrzebują sposobu dostępu do zabezpieczonych zasobów, takich jak internetowe interfejsy API. Te aplikacje mogą uwierzytelniać i pobieranie tokenów przy użyciu tożsamości aplikacji, a nie tożsamości delegowanej użytkownika, z przepływem poświadczeń klienta OAuth 2.0. Możesz udowodnić tożsamość aplikacji przy użyciu klucza tajnego klienta lub certyfikatu. Aby uzyskać więcej informacji, zobacz [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
 
 W tym przepływie aplikacja współdziała `/token` bezpośrednio z punktem końcowym w celu uzyskania dostępu:
 

@@ -3,12 +3,12 @@ title: Jak mogę ... w usłudze Azure Application Insights | Dokumenty firmy Mic
 description: Często zadawane pytania w usłudze Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663861"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536866"
 ---
 # <a name="how-do-i--in-application-insights"></a>Jak mogę (...) w usłudze Application Insights?
 ## <a name="get-an-email-when-"></a>Otrzymaj wiadomość e-mail, gdy ...
@@ -45,7 +45,7 @@ Ponieważ alerty mają dwa stany, należy wysłać niską wartość, jeśli wzi�
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Utwórz wykres w [Eksploratorze metryk,](../../azure-monitor/app/metrics-explorer.md) aby wyświetlić alarm:
+Utwórz wykres w [Eksploratorze metryk,](../../azure-monitor/platform/metrics-charts.md) aby wyświetlić alarm:
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -82,7 +82,7 @@ Oto niektóre ważne kwestie:
 
 ## <a name="visualize-data"></a>Wizualizowanie danych
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Pulpit nawigacyjny z danymi z wielu aplikacji
-* W [Eksploratorze metryk](../../azure-monitor/app/metrics-explorer.md)dostosuj wykres i zapisz go jako ulubiony. Przypnij go do pulpitu nawigacyjnego platformy Azure.
+* W [Eksploratorze metryk](../../azure-monitor/platform/metrics-charts.md)dostosuj wykres i zapisz go jako ulubiony. Przypnij go do pulpitu nawigacyjnego platformy Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Pulpit nawigacyjny z danymi z innych źródeł i usługą Application Insights
 * [Eksportowanie danych telemetrycznych do usługi Power BI](../../azure-monitor/app/export-power-bi.md ).
@@ -159,5 +159,5 @@ Wśród metryk, które można wyświetlić w Eksploratorze metryk, znajduje się
 * **Instalacja serwera** - Uniksa[zbierana](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Aby wyświetlić więcej liczników wydajności
-* Najpierw [dodaj nowy wykres](../../azure-monitor/app/metrics-explorer.md) i sprawdź, czy licznik znajduje się w podstawowym zestawie, który oferujemy.
+* Najpierw [dodaj nowy wykres](../../azure-monitor/platform/metrics-charts.md) i sprawdź, czy licznik znajduje się w podstawowym zestawie, który oferujemy.
 * Jeśli nie, [dodaj licznik do zestawu zebranego przez moduł licznika wydajności](../../azure-monitor/app/performance-counters.md).

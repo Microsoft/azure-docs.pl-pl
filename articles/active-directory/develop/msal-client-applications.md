@@ -13,22 +13,22 @@ ms.date: 04/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: d59819c0ab614b0f6cc102c7ebe8c760fb851599
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77084121"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534316"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Publiczne aplikacje klientów i klientów poufnych
 Biblioteka uwierzytelniania firmy Microsoft (MSAL) definiuje dwa typy klientów: klientów publicznych i klientów poufnych. Dwa typy klientów różnią się ich zdolność do bezpiecznego uwierzytelniania z serwerem autoryzacji i zachować poufność swoich poświadczeń klienta. Z kolei biblioteka uwierzytelniania usługi Azure AD (ADAL) używa tak zwanego *kontekstu uwierzytelniania* (który jest połączeniem z usługą Azure AD).
 
-- **Poufne aplikacje klienckie** to aplikacje uruchamiane na serwerach (aplikacje sieci Web, aplikacje interfejsu API sieci Web, a nawet aplikacje usługi/demonów). Są one uważane za trudne do uzyskania dostępu i z tego powodu mogą zachować tajność aplikacji. Klienci poufni mogą przechowywać wpisy tajne w czasie konfiguracji. Każde wystąpienie klienta ma odrębną konfigurację (w tym identyfikator klienta i klucz tajny klienta). Te wartości są trudne dla użytkowników końcowych do wyodrębnienia. Aplikacja internetowa jest najczęstszym klientem poufnym. Identyfikator klienta jest narażony za pośrednictwem przeglądarki sieci web, ale klucz tajny jest przekazywany tylko w kanale wstecznym i nigdy nie jest bezpośrednio narażony.
+- **Poufne aplikacje klienckie** to aplikacje uruchamiane na serwerach (aplikacje sieci Web, internetowe aplikacje interfejsu API, a nawet aplikacje usługi/demonów). Są one uważane za trudne do uzyskania dostępu i z tego powodu mogą zachować tajność aplikacji. Klienci poufni mogą przechowywać wpisy tajne w czasie konfiguracji. Każde wystąpienie klienta ma odrębną konfigurację (w tym identyfikator klienta i klucz tajny klienta). Te wartości są trudne dla użytkowników końcowych do wyodrębnienia. Aplikacja internetowa jest najczęstszym klientem poufnym. Identyfikator klienta jest narażony za pośrednictwem przeglądarki sieci web, ale klucz tajny jest przekazywany tylko w kanale wstecznym i nigdy nie jest bezpośrednio narażony.
 
     Poufne aplikacje klienckie: <BR>
     ![Demon/usługa](media/msal-client-applications/web-api.png) ![interfejsu API sieci Web aplikacji](media/msal-client-applications/web-app.png) ![sieci Web](media/msal-client-applications/daemon-service.png)
 
-- **Publiczne aplikacje klienckie** to aplikacje uruchamiane na urządzeniach lub komputerach stacjonarnych lub w przeglądarce sieci Web. Nie są one zaufane, aby bezpiecznie zachować wpisy tajne aplikacji, więc tylko dostęp do interfejsów API sieci Web w imieniu użytkownika. (Obsługują one tylko przepływy klientów publicznych.) Klienci publiczni nie mogą przechowywać wpisów tajnych w czasie konfiguracji, więc nie mają wpisów tajnych klienta.
+- **Publiczne aplikacje klienckie** to aplikacje uruchamiane na urządzeniach lub komputerach stacjonarnych lub w przeglądarce sieci Web. Nie są one zaufane, aby bezpiecznie zachować wpisy tajne aplikacji, więc tylko dostęp do interfejsów API sieci web w imieniu użytkownika. (Obsługują one tylko przepływy klientów publicznych.) Klienci publiczni nie mogą przechowywać wpisów tajnych w czasie konfiguracji, więc nie mają wpisów tajnych klienta.
 
     Publiczne aplikacje klienckie: <BR>
     ![Aplikacja](media/msal-client-applications/desktop-app.png) ![komputerowa](media/msal-client-applications/browserless-app.png) ![Browserless API Mobile](media/msal-client-applications/mobile-app.png)

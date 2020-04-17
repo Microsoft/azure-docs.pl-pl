@@ -199,6 +199,8 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
     - name: Visual Studio Code
       items:
+        - name: Uzupełnianie kodu przy użyciu funkcji IntelliSense
+          href: vs-code-intellisense.md
         - name: Testowanie lokalne przy użyciu danych przykładowych
           href: visual-studio-code-local-run.md
         - name: Testowanie lokalne przy użyciu rzeczywistych danych

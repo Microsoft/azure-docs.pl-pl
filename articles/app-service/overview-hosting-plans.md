@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482347"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537648"
 ---
 # <a name="azure-app-service-plan-overview"></a>Plan usługi Azure App Service — omówienie
 
@@ -32,7 +32,7 @@ _Warstwa cenowa_ planu usługi app service określa, jakie funkcje usługi App S
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Każda warstwa zawiera również określony podzbiór funkcji usługi App Service. Funkcje te obejmują domeny niestandardowe i certyfikaty SSL, skalowanie automatyczne, miejsca wdrożenia, kopie zapasowe, integrację usługi Traffic Manager i inne. Im wyższa warstwa, tym więcej funkcji jest dostępnych. Aby dowiedzieć się, które funkcje są obsługiwane w każdej warstwie cenowej, zobacz [Szczegóły planu usługi App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Każda warstwa zawiera również określony podzbiór funkcji usługi App Service. Funkcje te obejmują domeny niestandardowe i certyfikaty TLS/SSL, skalowanie automatyczne, miejsca wdrożenia, kopie zapasowe, integrację usługi Traffic Manager i inne. Im wyższa warstwa, tym więcej funkcji jest dostępnych. Aby dowiedzieć się, które funkcje są obsługiwane w każdej warstwie cenowej, zobacz [Szczegóły planu usługi App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 <a name="new-pricing-tier-premiumv2"></a>
 
@@ -71,11 +71,11 @@ Z wyjątkiem warstwy **bezpłatna** plan usługi app service zawiera opłatę go
 - W dedykowanych warstwach obliczeniowych **(Podstawowe,** **Standardowe,** **Premium,** **PremiumV2)** plan usługi app service definiuje liczbę wystąpień maszyn wirtualnych, do których aplikacje są skalowane, więc _każde wystąpienie maszyny Wirtualnej_ w planie usługi aplikacji jest obciążone opłatą godzinową. Te wystąpienia maszyn wirtualnych są naliczane tak samo niezależnie od tego, ile aplikacji jest na nich uruchomionych. Aby uniknąć nieoczekiwanych opłat, zobacz [Czyszczenie planu usługi app service](app-service-plan-manage.md#delete).
 - W warstwie **Izolowane** środowisko usługi aplikacji definiuje liczbę izolowanych pracowników, którzy uruchamiają aplikacje, a _każdy pracownik_ jest naliczany co godzinę. Ponadto istnieje godzinowa opłata podstawowa za uruchamianie samego środowiska usługi app service.
 
-Nie pobierasz opłat za korzystanie z dostępnych funkcji usługi App Service (konfigurowanie domen niestandardowych, certyfikatów SSL, gniazd wdrażania, kopii zapasowych itp.). Wyjątkami są:
+Nie pobierasz opłat za korzystanie z dostępnych funkcji usługi App Service (konfigurowanie domen niestandardowych, certyfikatów TLS/SSL, gniazd wdrażania, kopii zapasowych itp.). Wyjątkami są:
 
 - Domeny usługi app service — płacisz przy zakupie na platformie Azure i odnawianiu go każdego roku.
 - Certyfikaty usługi app service — płacisz przy zakupie na platformie Azure i odnawianiu go każdego roku.
-- Połączenia SSL oparte na protoke IP — za każde połączenie SSL oparte na protoke IP pobierana jest opłata godzinowa, ale **niektóre** standardowe lub wyższe zapewniają bezpłatne jedno połączenie SSL oparte na protokoście. Połączenia SSL oparte na SNI są bezpłatne.
+- Połączenia TLS oparte na protoke IP — za każde połączenie TLS oparte na protoke IP pobierana jest opłata godzinowa, ale **niektóre** standardowe lub wyższe warstwy zapewniają bezpłatne jedno połączenie TLS oparte na protokoście. Połączenia TLS oparte na SNI są bezpłatne.
 
 > [!NOTE]
 > Jeśli zintegrujesz usługę App Service z inną usługą platformy Azure, może być konieczne rozważenie opłat od tych innych usług. Na przykład jeśli używasz usługi Azure Traffic Manager do skalowania aplikacji geograficznie, usługa Azure Traffic Manager również pobiera opłaty na podstawie użycia. Aby oszacować koszt usług krzyżowych na platformie Azure, zobacz [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/). 
@@ -86,7 +86,7 @@ Nie pobierasz opłat za korzystanie z dostępnych funkcji usługi App Service (k
 
 Plan usługi App Service można skalować w górę i w dół w dowolnym momencie. Jest to tak proste, jak zmiana warstwy cenowej planu. Na początek możesz wybrać niższą warstwę cenową i skalować ją w górę później, gdy będziesz potrzebować więcej funkcji usługi App Service.
 
-Na przykład możesz rozpocząć testowanie aplikacji sieci web w planie **bezpłatnej** usługi app service i nic nie płacić. Jeśli chcesz dodać [niestandardową nazwę DNS](app-service-web-tutorial-custom-domain.md) do aplikacji sieci web, po prostu skaluj plan do **warstwy udostępnionej.** Później, gdy chcesz [utworzyć powiązanie SSL,](configure-ssl-bindings.md)skaluj plan do **warstwy Podstawowa.** Jeśli chcesz mieć [środowiska przejściowe,](deploy-staging-slots.md)skaluj do **warstwy standardowej.** Jeśli potrzebujesz więcej rdzeni, pamięci lub magazynu, skaluj do większego rozmiaru maszyny Wirtualnej w tej samej warstwie.
+Na przykład możesz rozpocząć testowanie aplikacji sieci web w planie **bezpłatnej** usługi app service i nic nie płacić. Jeśli chcesz dodać [niestandardową nazwę DNS](app-service-web-tutorial-custom-domain.md) do aplikacji sieci web, po prostu skaluj plan do **warstwy udostępnionej.** Później, gdy chcesz [utworzyć powiązanie TLS,](configure-ssl-bindings.md)skaluj plan do warstwy **Podstawowa.** Jeśli chcesz mieć [środowiska przejściowe,](deploy-staging-slots.md)skaluj do **warstwy standardowej.** Jeśli potrzebujesz więcej rdzeni, pamięci lub magazynu, skaluj do większego rozmiaru maszyny Wirtualnej w tej samej warstwie.
 
 To samo działa na odwrocie. Jeśli czujesz, że nie potrzebujesz już możliwości lub funkcji wyższej warstwy, możesz skalować w dół do niższego poziomu, co pozwala zaoszczędzić pieniądze.
 

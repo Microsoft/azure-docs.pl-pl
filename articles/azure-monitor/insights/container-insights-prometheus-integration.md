@@ -2,13 +2,13 @@
 title: Konfigurowanie usługi Azure Monitor dla kontenerów Prometheus Integration | Dokumenty firmy Microsoft
 description: W tym artykule opisano, jak skonfigurować agenta usługi Azure Monitor dla kontenerów, aby zeskrobać metryki z programu Prometeusz za pomocą klastra usługi Kubernetes.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: b774bf042778ca9118a7bc9f051655b200d87659
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 7fcf52cceb69834f68f8e4ce7a2674972a6430fd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931421"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537376"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Konfigurowanie skrobania metryk Prometeusza za pomocą usługi Azure Monitor dla kontenerów
 
@@ -22,7 +22,6 @@ ms.locfileid: "75931421"
 Skrobanie metryk Prometeusza jest obsługiwane w klastrach kubernetes hostowanych na:
 
 - Azure Kubernetes Service (AKS)
-- Azure Container Instances
 - Usługa Azure Stack lub lokalnie
 - Azure Red Hat OpenShift
 

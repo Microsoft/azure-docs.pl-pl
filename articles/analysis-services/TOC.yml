@@ -39,6 +39,8 @@
       href: analysis-services-connect.md
     - name: Wysoka dostępność
       href: analysis-services-bcdr.md
+    - name: Długotrwałe operacje
+      href: analysis-services-long-operations.md
     - name: Obsługiwane źródła danych
       href: analysis-services-datasource.md
 - name: Porady

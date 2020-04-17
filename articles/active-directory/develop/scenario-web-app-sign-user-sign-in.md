@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 317ca55adb9f680dc93343a185395abad08889da
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 2ab5697ceff612e65174fdb7f9ef6137e2c8b9a5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881319"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537070"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplikacja sieci Web, która loguje się do użytkowników: Logowanie i wylogowywanie się
 
@@ -205,7 +205,7 @@ Po zalogowaniu się użytkownika do aplikacji należy włączyć opcję wyloguj 
 ## <a name="sign-out"></a>Wylogowywanie
 
 Wylogowywanie się z aplikacji sieci web obejmuje więcej niż usunięcie informacji o koncie logowania ze stanu aplikacji sieci web.
-Aplikacja sieci web musi również przekierować `logout` użytkownika do punktu końcowego platformy tożsamości firmy Microsoft, aby się wylogować. 
+Aplikacja sieci web musi również przekierować `logout` użytkownika do punktu końcowego platformy tożsamości firmy Microsoft, aby się wylogować.
 
 Gdy aplikacja sieci web przekierowuje użytkownika do punktu końcowego, `logout` ten punkt końcowy czyści sesję użytkownika z przeglądarki. Jeśli aplikacja nie została dojdą do punktu końcowego, `logout` użytkownik ponownie uwierzytelnić do aplikacji bez wprowadzania ich poświadczenia ponownie. Powodem jest to, że będą one miały prawidłową sesję logowania jednokrotnego z punktem końcowym platformy tożsamości firmy Microsoft.
 
@@ -306,7 +306,7 @@ W przewodniku Szybki start języka Python przycisk wylogowywania znajduje się w
     <meta charset="UTF-8">
 </head>
 <body>
-    <h1>Microsoft Identity Python Web App</h1>
+    <h1>Microsoft Identity Python web app</h1>
     Welcome {{ user.get("name") }}!
     <li><a href='/graphcall'>Call Microsoft Graph API</a></li>
     <li><a href="/logout">Logout</a></li>

@@ -4,12 +4,12 @@ description: Włącz lub wyłącz moduły zbierania danych i dodaj liczniki wyda
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 460bd79e3a37c492301f7438112fef4487618fed
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 3375c24739da8663aa6a40deeb53e02e65d1f9bf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982093"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537563"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurowanie zestawu SDK usługi Application Insights za pomocą pliku ApplicationInsights.config lub xml
 Pakiet SDK usługi Application Insights .NET składa się z wielu pakietów NuGet. [Pakiet podstawowy](https://www.nuget.org/packages/Microsoft.ApplicationInsights) udostępnia interfejs API do wysyłania danych telemetrycznych do usługi Application Insights. [Dodatkowe pakiety](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) zapewniają *moduły* telemetryczne i *inicjatory* do automatycznego śledzenia danych telemetrycznych z aplikacji i jej kontekstu. Dostosowując plik konfiguracyjny, można włączyć lub wyłączyć moduły telemetryczne i inicjatory oraz ustawić parametry dla niektórych z nich.
@@ -120,7 +120,7 @@ Standardowe inicjatory są ustawiane przez pakiety WindowsServer NuGet w sieci W
 * `OperationNameTelemetryInitializer`aktualizuje `Name` właściwość `RequestTelemetry` i `Name` właściwość `Operation` kontekstu wszystkich elementów telemetrii na podstawie metody HTTP, a także nazwy ASP.NET kontrolera MVC i akcji wywoływanej w celu przetworzenia żądania.
 * `OperationIdTelemetryInitializer`lub `OperationCorrelationTelemetryInitializer` aktualizuje `Operation.Id` właściwość kontekstu wszystkich elementów telemetrycznych śledzonych podczas obsługi żądania za pomocą automatycznie wygenerowanego `RequestTelemetry.Id`.
 * `SessionTelemetryInitializer`aktualizuje `Id` właściwość `Session` kontekstu dla wszystkich elementów telemetrii o wartości wyodrębnionej `ai_session` z pliku cookie wygenerowanego przez kod instrumentacji JavaScript ApplicationInsights uruchomiony w przeglądarce użytkownika.
-* `SyntheticTelemetryInitializer`lub `SyntheticUserAgentTelemetryInitializer` `User`aktualizuje `Session`właściwości `Operation` , i kontekstów wszystkich elementów telemetrii śledzonych podczas obsługi żądania ze źródła syntetycznego, takiego jak test dostępności lub bot wyszukiwarki. Domyślnie [Eksplorator metryk](../../azure-monitor/app/metrics-explorer.md) nie wyświetla syntetycznych danych telemetrycznych.
+* `SyntheticTelemetryInitializer`lub `SyntheticUserAgentTelemetryInitializer` `User`aktualizuje `Session`właściwości `Operation` , i kontekstów wszystkich elementów telemetrii śledzonych podczas obsługi żądania ze źródła syntetycznego, takiego jak test dostępności lub bot wyszukiwarki. Domyślnie [Eksplorator metryk](../../azure-monitor/platform/metrics-charts.md) nie wyświetla syntetycznych danych telemetrycznych.
 
     Zestaw `<Filters>` identyfikujący właściwości żądań.
 * `UserTelemetryInitializer`aktualizuje `Id` `AcquisitionDate` i właściwości `User` kontekstu dla wszystkich elementów telemetrii z wartościami wyodrębnianych z `ai_user` pliku cookie wygenerowanego przez kod instrumentacji JavaScript aplikacji działający w przeglądarce użytkownika.
