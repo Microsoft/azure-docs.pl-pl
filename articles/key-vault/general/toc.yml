@@ -1,0 +1,137 @@
+- name: Ogólne
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest usługa Azure Key Vault?
+      href: overview.md
+- name: Samouczki
+  items:
+    - name: Maszyna wirtualna platformy Azure
+      items:
+        - name: Korzystanie z usługi Azure Key Vault za pomocą maszyny wirtualnej z systemem Windows na platformie .NET
+          href: tutorial-net-windows-virtual-machine.md
+        - name: Korzystanie z usługi Azure Key Vault za pomocą maszyny wirtualnej z systemem Windows na platformie Python
+          href: tutorial-python-windows-virtual-machine.md
+    - name: Korzystanie z usługi Azure Key Vault w aplikacji internetowej platformy Azure na platformie .NET
+      href: tutorial-net-create-vault-azure-web-app.md
+- name: Pojęcia
+  items:
+    - name: Podstawowe pojęcia
+      href: basic-concepts.md
+    - name: Zabezpieczenia
+      items:
+        - name: Zabezpieczenia usługi Azure Key Vault
+          href: overview-security.md
+        - name: Najlepsze rozwiązania w zakresie korzystania z usługi Key Vault — Azure Key Vault
+          href: best-practices.md
+        - name: Środowiska zabezpieczeń usługi Azure Key Vault
+          href: overview-security-worlds.md
+        - name: Bezpieczeństwo sieci
+          href: network-security.md
+        - name: Bezpieczny dostęp do usługi Key Vault — Azure Key Vault
+          href: secure-your-key-vault.md
+        - name: Punkt odniesienia zabezpieczeń platformy Azure dla usługi Key Vault
+          href: security-baseline.md
+        - name: Zalecenia dotyczące zabezpieczeń dla usługi Azure Key Vault
+          href: security-recommendations.md
+    - name: Powiadomienia (wersja zapoznawcza)
+      items:
+        - name: Monitorowanie przy użyciu usługi Azure Event Grid (wersja zapoznawcza)
+          href: event-grid-overview.md
+    - name: Usuwanie nietrwałe
+      items:
+        - name: Azure Key Vault — usuwanie nietrwałe
+          href: overview-soft-delete.md
+    - name: 'Uwierzytelnianie, żądania i odpowiedzi'
+      href: authentication-requests-and-responses.md
+    - name: Wskazówki dotyczące ograniczania usługi Azure Key Vault
+      href: overview-throttling.md
+    - name: Punkty końcowe usługi sieci wirtualnej dla usługi Azure Key Vault — Azure Key Vault
+      href: overview-vnet-service-endpoints.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Uwierzytelnianie
+      items:
+        - name: Używanie tożsamości zarządzanej usługi App Service
+          href: managed-identity.md
+        - name: Korzystanie z zasad kontroli dostępu
+          href: group-permissions-for-apps.md
+    - name: Programowanie
+      items:
+        - name: Przewodnik dewelopera usługi Azure Key Vault
+          href: developers-guide.md
+        - name: Zapisywanie wpisów tajnych aplikacji internetowych
+          href: vs-secure-secret-appsettings.md
+        - name: Uwierzytelnianie między usługami za pomocą platformy .NET
+          href: service-to-service-authentication.md
+        - name: Korzystanie z połączonej usługi magazynu Key Vault
+          href: vs-key-vault-add-connected-service.md
+    - name: Monitorowanie i zarządzanie
+      items:
+        - name: Integrowanie usługi Azure Key Vault z usługą Azure Policy
+          href: azure-policy.md
+        - name: Funkcja rejestrowania usługi Azure Key Vault
+          href: logging.md
+        - name: Odbieranie powiadomień za pośrednictwem usług Azure Event Grid i Logic Apps
+          href: event-grid-logicapps.md
+        - name: Otrzymywanie powiadomień za pośrednictwem Azure Event Grid i Azure Automation
+          href: event-grid-tutorial.md
+    - name: Bezpieczeństwo
+      items:
+        - name: Integracja z usługą Azure Private Link
+          href: private-link-service.md
+        - name: Uzyskiwanie dostępu do usługi Azure Key Vault za zaporą — Azure Key Vault
+          href: access-behind-firewall.md
+    - name: Usuwanie nietrwałe
+      items:
+        - name: Używanie usuwania nietrwałego za pomocą interfejsu wiersza polecenia
+          href: soft-delete-cli.md
+        - name: Używanie usuwania nietrwałego za pomocą programu PowerShell
+          href: soft-delete-powershell.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Zmiana identyfikatora dzierżawy magazynu kluczy po przeniesieniu subskrypcji
+          href: subscription-move-fix.md
+- name: Dokumentacja
+  items:
+    - name: Kody błędów interfejsu API REST — Azure Key Vault
+      href: rest-error-codes.md
+    - name: Typowe parametry i nagłówki
+      href: common-parameters-and-headers.md
+    - name: Azure PowerShell
+      href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/keyvault
+    - name: .NET
+      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    - name: Java
+      href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    - name: Node.js
+      href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+    - name: Python
+      href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
+    - name: Szablon usługi Resource Manager
+      href: /azure/templates/microsoft.keyvault/allversions
+      displayName: ARM
+- name: Zasoby
+  items:
+    - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
+      href: /learn/browse/?products=azure-key-vault
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/key-vault/'
+    - name: Dostępność w danym regionie
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'
+    - name: Umowa dotycząca poziomu usług (SLA)
+      href: 'https://azure.microsoft.com/support/legal/sla/key-vault/'
+    - name: Limity usługi
+      href: ../general/service-limits.md
+    - name: Stan usługi
+      href: 'https://azure.microsoft.com/status/'
+    - name: Aktualizacje usług
+      href: 'https://azure.microsoft.com/updates/?product=key-vault'
+    - name: Blog
+      href: 'https://blogs.technet.com/b/kv/'
+    - name: Opinia dotycząca produktu
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

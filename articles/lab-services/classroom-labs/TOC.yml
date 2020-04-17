@@ -50,6 +50,8 @@
           href: class-type-jupyter-notebook.md
         - name: Tworzenie aplikacji mobilnych za pomocą programu Android Studio
           href: class-type-mobile-dev-android-studio.md
+        - name: Analiza danych big data
+          href: class-type-big-data-analytics.md
     - name: Tworzenie i konfigurowanie kont laboratoriów (właściciel konta laboratorium)
       items:
         - name: Tworzenie kont laboratoriów i zarządzanie nimi

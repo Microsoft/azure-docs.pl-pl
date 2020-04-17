@@ -18,7 +18,7 @@
       href: groups-quickstart-naming-policy.md
 - name: Samouczki
   items:
-    - name: Tworzenie grup wypełnianych dynamicznie
+    - name: Tworzenie grupy dynamicznej
       href: groups-dynamic-tutorial.md
 - name: Pojęcia
   expanded: true
@@ -40,21 +40,23 @@
       items:
         - name: Tworzenie użytkowników
           href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Zbiorcze tworzenie użytkowników (wersja zapoznawcza)
+        - name: Zbiorcze tworzenie użytkowników
           href: users-bulk-add.md
         - name: Zarządzanie profilami użytkowników
           href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Pobieranie informacji o użytkownikach (wersja zapoznawcza)
+        - name: Delegowanie mojego personelu
+          href: my-staff-configure.md
+        - name: Pobieranie informacji o użytkownikach
           href: users-bulk-download.md
         - name: Udostępnianie kont użytkowników
           href: users-sharing-accounts.md
         - name: Przypisywanie użytkowników do ról administratorów
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Zbiorcze usuwanie użytkowników (wersja zapoznawcza)
+        - name: Zbiorcze usuwanie użytkowników
           href: users-bulk-delete.md
         - name: Przywrócić usuniętego użytkownika
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Zbiorcze przywracanie użytkowników (wersja zapoznawcza)
+        - name: Zbiorcze przywracanie użytkowników
           href: users-bulk-restore.md
         - name: Zamykanie konta w katalogu niezarządzanym
           href: users-close-account.md
@@ -82,42 +84,18 @@
           href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Zarządzanie grupami
       items:
-        - name: Wyszukiwanie list grup i członków (wersja zapoznawcza)
-          href: groups-members-owners-search.md
+        - name: Zarządzanie dostępem przy użyciu grup usługi Azure AD
+          href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Tworzenie grupy (Azure Portal)
           href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Przypisywanie etykiet poufności (wersja zapoznawcza)
-          href: groups-assign-sensitivity-labels.md
         - name: Zarządzanie grupami — program PowerShell dla programu Graph (wersja 2)
           href: groups-settings-v2-cmdlets.md
-        - name: Zarządzanie grupami — moduł PowerShell MSOnline
+        - name: Zarządzanie grupami przy użyciu modułu PowerShell MSOnline
           href: groups-settings-cmdlets.md
+        - name: Wyszukiwanie list grup i członków
+          href: groups-members-owners-search.md
         - name: Dodawanie lub usuwanie członków grupy
           href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Zbiorcze dodawanie członków (wersja zapoznawcza)
-          href: groups-bulk-import-members.md
-        - name: Zbiorcze usuwanie członków (wersja zapoznawcza)
-          href: groups-bulk-remove-members.md
-        - name: Zbiorcze pobieranie listy członków (wersja zapoznawcza)
-          href: groups-bulk-download-members.md
-        - name: Zarządzenie właścicielami grup
-          href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Zbiorcze pobieranie listy grup (wersja zapoznawcza)
-          href: groups-bulk-download.md
-        - name: Zarządzanie grupami w grupach
-          href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Dodawanie dostępu grupowego do aplikacji SaaS
-          href: groups-saasapps.md
-        - name: Dokumentacja nazewnictwa grup
-          href: groups-naming-policy.md
-        - name: Dokumentacja wygasania grup
-          href: groups-lifecycle.md
-        - name: Przywracanie usuniętych grup
-          href: groups-restore-deleted.md
-        - name: Zarządzenie ustawieniami grup
-          href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Konfigurowanie samoobsługi grup
-          href: groups-self-service-management.md
         - name: Grupy dynamiczne
           items:
             - name: Tworzenie grupy dynamicznej
@@ -128,6 +106,32 @@
               href: groups-dynamic-rule-validation.md
             - name: Zmienianie typu członkostwa grupy
               href: groups-change-type.md
+        - name: Zbiorcze dodawanie członków
+          href: groups-bulk-import-members.md
+        - name: Zbiorcze usuwanie członków
+          href: groups-bulk-remove-members.md
+        - name: Zbiorcze pobieranie listy członków
+          href: groups-bulk-download-members.md
+        - name: Zbiorcze pobieranie listy grup
+          href: groups-bulk-download.md
+        - name: Przywracanie usuniętych grup
+          href: groups-restore-deleted.md
+        - name: Zarządzenie ustawieniami grup
+          href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Zarządzenie właścicielami grup
+          href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Zarządzanie grupami w grupach
+          href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Dodawanie dostępu grupowego do aplikacji SaaS
+          href: groups-saasapps.md
+        - name: Ustawianie zasad nazewnictwa grup
+          href: groups-naming-policy.md
+        - name: Ustawianie zasad wygasania grup
+          href: groups-lifecycle.md
+        - name: Konfigurowanie samoobsługi grup
+          href: groups-self-service-management.md
+        - name: Przypisywanie etykiet poufności
+          href: groups-assign-sensitivity-labels.md
     - name: Przypisywanie licencji
       items:
         - name: Przypisywanie licencji do grupy
@@ -145,14 +149,15 @@
         - name: Identyfikatory planów usług na potrzeby licencjonowania
           href: licensing-service-plan-reference.md
     - name: Role administratora usługi Azure AD
+      expanded: true
       items:
         - name: Role i uprawnienia
           href: directory-assign-admin-roles.md
         - name: Wyświetlanie i przypisywanie ról
           href: directory-manage-roles-portal.md
-        - name: Role niestandardowe (wersja zapoznawcza)
+        - name: Rola niestandardowa
           items:
-            - name: Role niestandardowe (wersja zapoznawcza)
+            - name: Rola niestandardowa
               href: roles-custom-overview.md
             - name: Tworzenie roli niestandardowej
               href: roles-create-custom.md
@@ -162,7 +167,7 @@
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
             - name: Przypisywanie ról niestandardowych w programie PowerShell
               href: roles-assign-powershell.md
-            - name: Uprawnienia roli niestandardowej (wersja zapoznawcza)
+            - name: Uprawnienia ról niestandardowych
               href: roles-custom-available-permissions.md
             - name: Delegowanie uprawnień administratora aplikacji
               href: roles-delegate-app-roles.md
@@ -176,8 +181,20 @@
               href: directory-admin-roles-secure.md
             - name: Tworzenie kont awaryjnych
               href: directory-emergency-access.md
-        - name: Jednostki administracyjne
-          href: directory-administrative-units.md
+        - name: Jednostka administracyjna
+          items:
+            - name: Omówienie jednostek administracyjnych
+              href: directory-administrative-units.md
+            - name: Dodawanie jednostek administracyjnych i zarządzanie nimi
+              href: roles-admin-units-manage.md
+            - name: Dodawanie użytkowników i zarządzanie nimi w jednostkach administracyjnych
+              href: roles-admin-units-add-manage-users.md
+            - name: Dodawanie grup i zarządzanie nimi w jednostkach administracyjnych
+              href: roles-admin-units-add-manage-groups.md
+            - name: Przypisywanie roli z zakresem jednostki administracyjnej
+              href: roles-admin-units-assign-roles.md
+            - name: Często zadawane pytania i rozwiązywanie problemów
+              href: roles-admin-units-faq-troubleshoot.md
     - name: Zarządzanie logowaniem
       items:
         - name: Dostosowywanie oznaczenia marką firmy

@@ -98,6 +98,8 @@
         - name: Funkcje
           href: luis-concept-feature.md
           displayName: 'descriptor, phrase list'
+        - name: Rozszerzanie aplikacji w czasie wykonywania
+          href: schema-change-prediction-runtime.md
     - name: Współczynnik przewidywania
       href: luis-concept-prediction-score.md
     - name: Najlepsze rozwiązania
@@ -394,7 +396,7 @@
       href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Obsługa języków i regionów
+    - name: Obsługa języków
       href: luis-language-support.md
       displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
     - name: Harmonogram działania dla platformy Azure

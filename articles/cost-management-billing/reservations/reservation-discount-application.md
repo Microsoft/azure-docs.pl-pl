@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
-ms.openlocfilehash: fb6e7e3fe3b7b45b503dca66dc5b039a9eceb689
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5781ade7b2f3cfc7514208861de025cc84944fcd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135491"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380630"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>Jak jest naliczany rabat za rezerwację
 
@@ -39,7 +39,7 @@ W przypadku zakupu rezerwacji rabat może być stosowany do innych wystąpień z
 Plany usługi:
 
 - Wystąpienia zarezerwowane maszyn wirtualnych: Po zakupieniu rezerwacji i wybraniu opcji **Zoptymalizowane pod kątem elastyczności rozmiaru wystąpienia** zastosowanie rabatu zależy od wybranego rozmiaru maszyny wirtualnej. Rezerwacja może dotyczyć rozmiarów maszyn wirtualnych w tej samej grupie serii rozmiarów. Aby uzyskać więcej informacji, zobacz artykuł [Elastyczność rozmiaru maszyny wirtualnej z zarezerwowanymi wystąpieniami maszyn wirtualnych](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- Pojemność zarezerwowana usługi Azure Storage: Możesz kupić pojemność zarezerwowaną dla kont usługi Azure Storage w warstwie Standardowa w jednostkach po 100 TiB lub 1 PiB na miesiąc. Pojemność zarezerwowana usługi Azure Storage jest dostępna we wszystkich regionach dla dowolnej warstwy dostępu (Gorąca, Chłodna lub Archiwalna) i dla dowolnej opcji replikacji (magazyn lokalnie nadmiarowy, magazyn geograficznie nadmiarowy lub magazyn strefowo nadmiarowy).
+- Pojemność zarezerwowana usługi Azure Storage: Możesz kupić pojemność zarezerwowaną dla kont usługi Azure Storage w warstwie Standardowa w jednostkach po 100 TiB lub 1 PiB na miesiąc. Aby uzyskać informacje na temat regionów obsługujących pojemność zarezerwowaną usługi Azure Storage, zobacz [Cennik blokowych obiektów blob](https://azure.microsoft.com/pricing/details/storage/blobs/). Pojemność zarezerwowana usługi Azure Storage jest dostępna dla wszystkich warstw dostępu (Gorąca, Chłodna i Archiwum) oraz dla dowolnej konfiguracji replikacji (magazyn lokalnie nadmiarowy, magazyn geograficznie nadmiarowy lub magazyn strefowo nadmiarowy).
 - Pojemność zarezerwowana usługi SQL Database: Zastosowanie rabatu zależy od wybranej warstwy wydajności. Aby uzyskać więcej informacji, zobacz [opis sposobu stosowania rabatu na rezerwację platformy Azure](understand-reservation-charges.md).
 - Pojemność zarezerwowana usługi Azure Cosmos DB: Zastosowanie rabatu zależy od alokowanej przepływności. Aby uzyskać więcej informacji, zobacz [opis sposobu stosowania rabatu na rezerwację usługi Azure Cosmos DB](understand-cosmosdb-reservation-charges.md).
 

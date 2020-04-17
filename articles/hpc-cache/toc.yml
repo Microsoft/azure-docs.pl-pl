@@ -36,6 +36,8 @@
       href: hpc-cache-mount.md
     - name: Zarządzanie pamięcią podręczną
       href: hpc-cache-manage.md
+    - name: Konfigurowanie opcjonalnych ustawień
+      href: configuration.md
 - name: Zasoby
   items:
     - name: Otwieranie biletu pomocy technicznej
@@ -46,5 +48,7 @@
       href: troubleshoot-nas.md
     - name: Odzyskiwanie sprawności po awarii regionalnej
       href: hpc-region-recovery.md
+    - name: Używanie zarządzanych przez klienta kluczy szyfrowania
+      href: customer-keys.md
     - name: Używanie usługi Azure NetApp Files z usługą Azure HPC Cache
       href: hpc-cache-netapp.md

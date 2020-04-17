@@ -62,7 +62,7 @@
               href: data-box-cable-options.md
             - name: Kontakt z pomocą techniczną
               href: data-box-disk-contact-microsoft-support.md
-            - name: Migracja
+            - name: Migrate (Migracja)
               items:
                 - name: Do usługi SharePoint Online
                   href: 'https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context'
@@ -70,6 +70,8 @@
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: Z magazynu HDFS
                   href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: Do kopii zapasowej platformy Azure
+                  href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
             - name: Rozwiązywanie problemów
               items:
                 - name: Problemy z urządzeniem Data Box
@@ -177,7 +179,7 @@
               href: data-box-how-to-set-data-tier.md
             - name: Kontakt z pomocą techniczną
               href: data-box-disk-contact-microsoft-support.md
-            - name: Migracja
+            - name: Migrate (Migracja)
               items:
                 - name: Do usługi SharePoint Online
                   href: data-box-heavy-migrate-spo.md
