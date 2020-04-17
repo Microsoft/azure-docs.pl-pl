@@ -80,7 +80,7 @@
       maintainContext: true
 - name: Zasoby
   items:
-    - name: Obsługa języków i regionów
+    - name: Obsługa języków
       href: language-support.md
     - name: Pobierz bezpłatny klucz dostępu
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
