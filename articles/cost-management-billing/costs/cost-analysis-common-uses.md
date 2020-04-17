@@ -3,16 +3,16 @@ title: Najczęstsze zastosowania analizy kosztów w usłudze Azure Cost Manageme
 description: W tym artykule wyjaśniono, jak uzyskać wyniki dla typowych zadań analizy kosztów w usłudze Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/31/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: a333cad51e6fc089e7e6994c7b89210b12686cd5
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 2e0e222e636f694328835e20fda97deca1d9986a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520876"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261508"
 ---
 # <a name="common-cost-analysis-uses"></a>Najczęstsze zastosowania analizy kosztów
 
@@ -27,6 +27,17 @@ Wyświetlanie kosztów według usługi platformy Azure może pomóc w lepszym zr
 1. Zmień widok na **Tabela**.
 
 [![Podział kosztów według usługi platformy Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
+
+## <a name="review-invoiced-charges-in-cost-analysis"></a>Przeglądanie zafakturowanych kosztów w analizie kosztów
+
+Aby wyświetlić szczegóły faktury w witrynie Azure Portal, przejdź do analizy kosztów dla zakresu skojarzonego z analizowaną fakturą. Wybierz widok **Szczegóły faktury**. Szczegóły faktury przedstawiają opłaty, które są widoczne na fakturze.
+
+[![Przykład pokazujący szczegóły faktury](./media/cost-analysis-common-uses/invoice-details.png)](./media/cost-analysis-common-uses/invoice-details.png#lightbox)
+
+Przeglądając szczegóły faktury, możesz zidentyfikować usługę z nieoczekiwanymi kosztami i określić, które zasoby są bezpośrednio skojarzone z zasobem w analizie kosztów. Jeśli na przykład chcesz przeanalizować opłaty za usługę Virtual Machines, przejdź do widoku **Skumulowany koszt**. Następnie ustaw stopień szczegółowości na **Codziennie**, ustaw filtr opłat **Nazwa usługi: Virtual Machines** i pogrupuj opłaty według wartości **Zasób**.
+
+[![Przykład przedstawiający skumulowane koszty maszyn wirtualnych](./media/cost-analysis-common-uses/virtual-machines.png)](./media/cost-analysis-common-uses/virtual-machines.png#lightbox)
+
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Wyświetlanie podziału kosztów według zasobu platformy Azure
 

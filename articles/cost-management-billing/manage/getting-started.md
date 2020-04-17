@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 3/30/2020
+ms.date: 04/10/2020
 ms.author: banders
-ms.openlocfilehash: 79af6f78e8e9bf93c49deafe79f6a421cbb77d1a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b1986a4cb59e0f276ba59eb99acfb459b48615d8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475263"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262103"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Zapobieganie nieoczekiwanym opłatom w rozliczeniach platformy Azure i zarządzanie kosztami
 
@@ -193,6 +193,17 @@ Rachunek platformy Azure agreguje miesięczne opłaty dla _poszczególnych miern
 Przefiltruj plik CSV użycia na podstawie wartości _MeterName_ znajdującej się na rachunku do analizy, aby zobaczyć wszystkie pozycje dotyczące miernika. Wartość _InstanceID_ dla pozycji odpowiada rzeczywistemu zasobowi platformy Azure, który wygenerował opłatę.
 
 Po zidentyfikowaniu zasobu można użyć funkcji analizy kosztów w usłudze Azure Cost Management, aby dalej analizować koszty związane z zasobem. Aby dowiedzieć się więcej o korzystaniu z analizy kosztów, zobacz [Rozpoczęcie analizowania kosztów](../costs/quick-acm-cost-analysis.md).
+
+### <a name="review-invoiced-charges-in-cost-analysis"></a>Przeglądanie zafakturowanych kosztów w analizie kosztów
+
+Aby wyświetlić szczegóły faktury w witrynie Azure Portal, przejdź do analizy kosztów dla zakresu skojarzonego z analizowaną fakturą. Wybierz widok **Szczegóły faktury**. Szczegóły faktury przedstawiają opłaty, które są widoczne na fakturze.
+
+[![Przykład pokazujący szczegóły faktury](./media/getting-started/invoice-details.png)](./media/getting-started/invoice-details.png#lightbox)
+
+Przeglądając szczegóły faktury, możesz zidentyfikować usługę z nieoczekiwanymi kosztami i określić, które zasoby są bezpośrednio skojarzone z zasobem w analizie kosztów. Jeśli na przykład chcesz przeanalizować opłaty za usługę Virtual Machines, przejdź do widoku **Skumulowany koszt**. Następnie ustaw stopień szczegółowości na **Codziennie**, ustaw filtr opłat **Nazwa usługi: Virtual Machines** i pogrupuj opłaty według wartości **Zasób**.
+
+[![Przykład przedstawiający skumulowane koszty maszyn wirtualnych](./media/getting-started/virtual-machines.png)](./media/getting-started/virtual-machines.png#lightbox)
+
 
 ### <a name="identify-spikes-in-cost-over-time"></a>Identyfikowanie skoków kosztów w czasie
 

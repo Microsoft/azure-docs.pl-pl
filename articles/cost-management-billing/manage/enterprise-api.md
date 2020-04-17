@@ -5,14 +5,14 @@ author: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 04/14/2020
 ms.author: banders
-ms.openlocfilehash: 10275bac8cd9363939f9b6f298c49d7ef08ab7bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aeca9aede4c1b2d8c27de749c7e07c0153000825
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202917"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383163"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Przegląd interfejsów API raportowania dla klientów korporacyjnych
 Interfejsy API raportowania umożliwiają klientom korporacyjnym platformy Azure programowe ściąganie danych użycia i rozliczeń do preferowanych narzędzi do analizy danych. Klienci korporacyjni podpisali umowę [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) na platformie Azure, na podstawie której mają wynegocjowane zobowiązania pieniężne i dostęp do niestandardowych cen zasobów platformy Azure.
@@ -51,7 +51,9 @@ W odpowiedzi na wywołania wszystkich powyższych interfejsów API zostaną zwr�
 |Kod stanu odpowiedzi|Komunikat|Opis|
 |-|-|-|
 |200| OK|Brak błędów|
+|400| Nieprawidłowe żądanie| Nieprawidłowe parametry — zakresy dat, numery EA itd.|
 |401| Brak autoryzacji| Nie znaleziono klucza interfejsu API, jest on nieprawidłowy, wygasł itd.|
 |404| Niedostępny| Nie znaleziono punktu końcowego raportu|
-|400| Nieprawidłowe żądanie| Nieprawidłowe parametry — zakresy dat, numery EA itd.|
+|429 | TooManyRequests | Żądanie zostało ograniczone. Poczekaj przez czas określony w nagłówku <code>x-ms-ratelimit-microsoft.consumption-retry-after</code> i spróbuj ponownie.|
 |500| Błąd serwera| Nieoczekiwany błąd podczas przetwarzania żądania|
+| 503 | ServiceUnavailable | Usługa jest tymczasowo niedostępna. Poczekaj przez czas określony w nagłówku <code>Retry-After</code> i spróbuj ponownie.|

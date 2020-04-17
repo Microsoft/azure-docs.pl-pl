@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: banders
-ms.openlocfilehash: 97bd03fb2aa8f5b486ef87a04f260fec43eb81bd
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 4baa06ad0011b06da50fd7a83aaa3e87db62c6ac
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396694"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417526"
 ---
 # <a name="what-are-azure-reservations"></a>Co to jest Azure Reservations?
 

@@ -133,6 +133,8 @@
           href: service-fabric-cluster-security.md
         - name: Wbudowane mechanizmy zabezpieczeń
           href: service-fabric-security-controls.md
+        - name: Uwierzytelnianie oparte na certyfikatach w usłudze Service Fabric
+          href: cluster-security-certificates.md
     - name: Terminologia
       href: service-fabric-technical-overview.md
     - name: Tworzenie aplikacji
@@ -145,6 +147,8 @@
               href: service-fabric-containers-overview.md
             - name: Docker Compose (wersja zapoznawcza)
               href: service-fabric-docker-compose.md
+            - name: Sondy
+              href: probes-codepackage.md
         - name: Reliable Services
           items:
             - name: Omówienie usług Reliable Services
@@ -264,6 +268,10 @@
               href: service-fabric-backup-restore-service-trigger-restore.md
             - name: Tworzenie kopii zapasowej partycji na żądanie
               href: service-fabric-backup-restore-service-ondemand-backup.md
+        - name: Pakiety CodePackage inicjatora
+          href: initializer-codepackages.md
+        - name: RunToCompletion
+          href: run-to-completion.md
     - name: Klastry
       items:
         - name: Omówienie klastrów
@@ -316,6 +324,8 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: Równoważenie klastra
               href: service-fabric-cluster-resource-manager-balancing.md
+            - name: Tworzenie klastrów podrzędnych
+              href: cluster-resource-manager-subclustering.md
             - name: Ograniczanie przepływności
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Przenoszenie usług
@@ -354,7 +364,7 @@
       href: service-fabric-api-management-overview.md
     - name: Model zasobów aplikacji
       href: service-fabric-concept-resource-model.md
-    - name: Tożsamość zarządzana (wersja zapoznawcza)
+    - name: Tożsamość zarządzana
       href: concepts-managed-identity.md
     - name: Konfigurowanie poświadczeń repozytorium kontenera
       href: configure-container-repository-credentials.md
@@ -751,7 +761,7 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: Rozwiązywanie problemów z klastrem lokalnym
           href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Używanie tożsamości zarządzanej w aplikacjach usługi Service Fabric (wersja zapoznawcza)
+    - name: Używanie tożsamości zarządzanej w aplikacjach usługi Service Fabric
       items:
         - name: Konfiguracja klastra
           items:
