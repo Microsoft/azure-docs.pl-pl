@@ -33,7 +33,7 @@
   items:
     - name: Tworzenie jednostronicowej aplikacji internetowej
       href: tutorial-bing-web-search-single-page-app.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Przykłady dla interfejsu REST
       href: 'https://github.com/Azure-Samples/cognitive-services-REST-api-samples'
@@ -91,11 +91,11 @@
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
     - name: Punkt końcowy funkcji wyszukiwania w Internecie Bing
       href: web-search-endpoints.md
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Obsługa języków i regionów
+    - name: Obsługa języków
       href: language-support.md
     - name: Dane analityczne na potrzeby interfejsu API wyszukiwania w Internecie Bing
       href: bing-web-stats.md

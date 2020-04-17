@@ -42,7 +42,7 @@
       href: concepts/sending-requests.md
     - name: Korzystanie z interfejsu API sprawdzania pisowni Bing
       href: concepts/using-spell-check.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Spell+Check'
@@ -72,9 +72,9 @@
     - name: Dane analityczne na potrzeby interfejsu API sprawdzania pisowni Bing
       maintainContext: true
       href: ../bing-web-search/bing-web-stats.md
-    - name: Obsługa języków i regionów
+    - name: Obsługa języków
       href: language-support.md
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

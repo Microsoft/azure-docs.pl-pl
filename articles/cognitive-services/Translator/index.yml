@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 2d6b5f07cdefe874a8c25338e5c31664fccb8055
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 47944b573cdc2a8121c525c7750aa868d4a4e696
+  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "79415729"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81529805"
 landingContent:
 - title: Translator
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
       url: translator-info-overview.md
     - text: Custom Translator
       url: translator-info-overview.md
-    - text: Ceny
+    - text: Cennik
       url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
     - text: Zgodność
       url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
@@ -64,7 +64,7 @@ landingContent:
       url: reference/v3-0-reference.md
     - text: Limity żądań
       url: request-limits.md
-    - text: Obsługa języków i regionów
+    - text: Obsługa języków
       url: language-support.md
 - title: Custom Translator
   linkLists:

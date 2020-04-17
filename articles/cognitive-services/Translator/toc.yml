@@ -48,7 +48,7 @@
           href: dynamic-dictionary.md
         - name: Tłumaczenie za zaporami
           href: firewalls.md
-    - name: Przykłady
+    - name: Samples
       items:
         - name: 'C#'
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp'
@@ -98,9 +98,9 @@
           href: 'https://aka.ms/TranslatorGitHub'
         - name: Często zadawane pytania
           href: 'https://www.microsoft.com/translator/faq.aspx'
-        - name: Obsługa języków i regionów
+        - name: Obsługa języków
           href: language-support.md
-        - name: Ceny
+        - name: Cennik
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Dostępność regionalna
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
@@ -168,7 +168,7 @@
           href: custom-translator/glossary.md
         - name: Często zadawane pytania
           href: custom-translator/faq.md
-        - name: Ceny
+        - name: Cennik
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Zgodność
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

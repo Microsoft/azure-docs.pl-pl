@@ -147,7 +147,7 @@
               href: Quickstarts/get-answer-from-knowledge-base-python.md
 - name: Dokumentacja
   items:
-    - name: Języki
+    - name: Obsługa języków
       href: Overview/language-support.md
     - name: Limity
       href: limits.md

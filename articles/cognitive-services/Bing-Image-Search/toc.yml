@@ -34,7 +34,7 @@
       href: tutorial-bing-image-search-single-page-app.md
     - name: Wyodrębnianie szczegółów obrazu
       href: tutorial-image-post.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
@@ -89,7 +89,7 @@
   items:
     - name: Często zadawane pytania
       href: bing-image-search-resource-faq.md
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
@@ -107,7 +107,7 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
     - name: Punkty końcowe funkcji wyszukiwania obrazów Bing
       href: image-search-endpoint.md
-    - name: Obsługa języków i regionów
+    - name: Obsługa języków
       href: language-support.md
     - name: Dane analityczne na potrzeby interfejsu API wyszukiwania obrazów Bing
       maintainContext: true
