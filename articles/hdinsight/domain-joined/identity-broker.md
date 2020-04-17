@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 508eac08284f91821223a78cafdfee7b4c9c540b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: fb82cec6874f8ef4f41897cc22939fe69ed02ec2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410880"
+ms.locfileid: "81457420"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Używanie brokera identyfikatorów (wersja zapoznawcza) do zarządzania poświadczeniami
 
@@ -56,7 +56,7 @@ Po włączeniu brokera identyfikatorów nadal będziesz potrzebować skrótu has
 
 Uwierzytelnianie SSH wymaga skrótu, który ma być dostępny w usługach Azure AD DS. Jeśli chcesz używać SSH tylko dla scenariuszy administracyjnych, można utworzyć jedno konto tylko w chmurze i użyć go do SSH do klastra. Inni użytkownicy mogą nadal korzystać z narzędzi Ambari lub HDInsight (takich jak wtyczka IntelliJ) bez konieczności używania skrótu hasła w usługach Azure AD DS.
 
-## <a name="clinets-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Clinets za pomocą OAuth do łączenia się z bramą HDInsight z konfiguracją ID Broker
+## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Klienci korzystający z usługi OAuth do łączenia się z bramą HDInsight z konfiguracją ID Broker
 
 W konfiguracji brokera identyfikatorów niestandardowe aplikacje i klienci łączący się z bramą mogą być aktualizowane w celu uzyskania wymaganego tokenu OAuth pierwszy. Można wykonać kroki opisane w tym [dokumencie,](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) aby uzyskać token z następującymi informacjami:
 

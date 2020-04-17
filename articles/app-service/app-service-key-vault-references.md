@@ -6,32 +6,32 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0a03ea76d517486bb9bda6d9628fb529166dd8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280341"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453731"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Korzystanie z odwołań do usługi App Service i usługi Azure
 
-W tym temacie pokazano, jak pracować z wpisami tajnymi z usługi Azure Key Vault w usłudze app service lub aplikacji Usługi Azure bez konieczności żadnych zmian kodu. [Usługa Azure Key Vault](../key-vault/key-vault-overview.md) to usługa zapewniająca scentralizowane zarządzanie wpisami tajnymi, z pełną kontrolą nad zasadami dostępu i historią inspekcji.
+W tym temacie pokazano, jak pracować z wpisami tajnymi z usługi Azure Key Vault w usłudze app service lub aplikacji Usługi Azure bez konieczności żadnych zmian kodu. [Usługa Azure Key Vault](../key-vault/general/overview.md) to usługa zapewniająca scentralizowane zarządzanie wpisami tajnymi, z pełną kontrolą nad zasadami dostępu i historią inspekcji.
 
 ## <a name="granting-your-app-access-to-key-vault"></a>Przyznawanie aplikacji dostępu do usługi Key Vault
 
 Aby odczytać wpisy tajne z usługi Key Vault, musisz utworzyć magazyn i udzielić aplikacji uprawnień dostępu do niego.
 
-1. Utwórz magazyn kluczy, śledząc [szybki start usługi Key Vault](../key-vault/quick-create-cli.md).
+1. Utwórz magazyn kluczy, śledząc [szybki start usługi Key Vault](../key-vault/secrets/quick-create-cli.md).
 
 1. Utwórz [tożsamości zarządzanej przypisanej przez system](overview-managed-identity.md) dla aplikacji.
 
    > [!NOTE] 
    > Odwołania do magazynu kluczy obsługują obecnie tylko tożsamości zarządzane przypisane przez system. Nie można używać tożsamości przypisanych przez użytkownika.
 
-1. Utwórz [zasady dostępu w magazynie kluczy](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) dla tożsamości aplikacji utworzonej wcześniej. Włącz tajne uprawnienie "Pobierz" dla tej zasady. Nie należy konfigurować "autoryzowanej `applicationId` aplikacji" ani ustawień, ponieważ nie jest to zgodne z tożsamością zarządzaną.
+1. Utwórz [zasady dostępu w magazynie kluczy](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) dla tożsamości aplikacji utworzonej wcześniej. Włącz tajne uprawnienie "Pobierz" dla tej zasady. Nie należy konfigurować "autoryzowanej `applicationId` aplikacji" ani ustawień, ponieważ nie jest to zgodne z tożsamością zarządzaną.
 
     > [!NOTE]
-    > Odwołania do magazynu kluczy nie są obecnie w stanie rozpoznać wpisów tajnych przechowywanych w magazynie kluczy z [ograniczeniami sieciowymi.](../key-vault/key-vault-overview-vnet-service-endpoints.md)
+    > Odwołania do magazynu kluczy nie są obecnie w stanie rozpoznać wpisów tajnych przechowywanych w magazynie kluczy z [ograniczeniami sieciowymi.](../key-vault/general/overview-vnet-service-endpoints.md)
 
 ## <a name="reference-syntax"></a>Składnia odwołania
 

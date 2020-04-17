@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e4c8057322b6208ea3b447b264e2bde1344540c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b275239c19584bc11472711a32972aa3ebea1ab
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278690"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457539"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Nauka kluczowych koncepcji przepływu pracy programu Windows PowerShell dla uruchomieniu książek roboczej automatyzacji
 
@@ -20,9 +20,12 @@ Przepływ pracy to sekwencja zaprogramowanych, połączonych ze sobą czynności
 
 Aby uzyskać pełne informacje na temat tematów w tym artykule, zobacz [Wprowadzenie do przepływu pracy programu Windows PowerShell](https://technet.microsoft.com/library/jj134242.aspx).
 
+>[!NOTE]
+>Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Aby uzyskać instrukcje instalacji modułu Az w hybrydowym usłudze Runbook Worker, zobacz [Instalowanie modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Dla konta automatyzacji można zaktualizować moduły do najnowszej wersji przy użyciu [jak zaktualizować moduły programu Azure PowerShell w usłudze Azure Automation.](automation-update-azure-modules.md)
+
 ## <a name="basic-structure-of-a-workflow"></a>Podstawowa struktura przepływu pracy
 
-Pierwszym krokiem do konwersji skryptu programu PowerShell do przepływu pracy programu PowerShell jest załączanie go do słowa kluczowego **Przepływ pracy.**  Przepływ pracy rozpoczyna się od słowa kluczowego **Przepływ pracy,** po którym następuje treść skryptu ujęta w nawiasy klamrowe. Nazwa przepływu pracy jest zgodna ze słowem kluczowym **Przepływ pracy,** jak pokazano w następującej składni:
+Pierwszym krokiem do konwersji skryptu programu PowerShell do przepływu pracy `Workflow` programu PowerShell jest załączanie go do słowa kluczowego.  Przepływ pracy rozpoczyna się `Workflow` od słowa kluczowego, po którym następuje treść skryptu ujęta w nawiasy klamrowe. Nazwa przepływu pracy jest `Workflow` zgodna ze słowem kluczowym, jak pokazano w następującej składni:
 
 ```powershell
 Workflow Test-Workflow
@@ -33,7 +36,7 @@ Workflow Test-Workflow
 
 Nazwa przepływu pracy musi być zgodna z nazwą uruchomieniu automatyzacji. Jeśli projekt runbook jest importowany, nazwa pliku musi być zgodna z nazwą przepływu pracy i musi kończyć się na *ps1*.
 
-Aby dodać parametry do przepływu pracy, użyj słowa kluczowego **Param,** tak jak w przypadku skryptu.
+Aby dodać parametry do przepływu `Param` pracy, użyj słowa kluczowego tak samo, jak w skrypcie.
 
 ## <a name="code-changes"></a>Zmiany kodu
 
@@ -99,7 +102,7 @@ Workflow Stop-MyService
 
 ## <a name="inlinescript"></a>InlineScript
 
-Działanie **InlineScript** jest przydatne, gdy trzeba uruchomić jedno lub więcej poleceń jako tradycyjny skrypt programu PowerShell zamiast przepływu pracy programu PowerShell.  Podczas gdy polecenia zawarte w przepływie pracy są wysyłane do przetwarzania w programie Windows Workflow Foundation, polecenia umieszczone w bloku InlineScript są przetwarzane w środowisku Windows PowerShell.
+Działanie`InlineScript` jest przydatne, gdy trzeba uruchomić jedno lub więcej poleceń jako tradycyjny skrypt programu PowerShell zamiast przepływu pracy programu PowerShell.  Podczas gdy polecenia zawarte w przepływie pracy są wysyłane do przetwarzania w programie Windows Workflow Foundation, polecenia umieszczone w bloku InlineScript są przetwarzane w środowisku Windows PowerShell.
 
 InlineScript używa następującej składni pokazanej poniżej.
 
@@ -154,7 +157,7 @@ Aby uzyskać więcej informacji na temat korzystania z języka InlineScript, zob
 
 Jedną z korzyści wynikających z używania przepływów pracy w środowisku Windows PowerShell jest możliwość wykonywania zestawów poleceń równolegle, w przeciwieństwie do wykonywania sekwencyjnego, jak w typowym skrypcie.
 
-**Za** pomocą równoległego słowa kluczowego można utworzyć blok skryptu z wieloma poleceniami, które są uruchamiane jednocześnie. Spowoduje to użycie następującej składni pokazanej poniżej. W takim przypadku Activity1 i Activity2 rozpoczyna się w tym samym czasie. Działanie3 rozpoczyna się dopiero po zakończeniu działania1 i activity2.
+Za pomocą `Parallel` słowa kluczowego można utworzyć blok skryptu z wieloma poleceniami, które są uruchamiane jednocześnie. Spowoduje to użycie następującej składni pokazanej poniżej. W takim przypadku Activity1 i Activity2 rozpoczyna się w tym samym czasie. Działanie3 rozpoczyna się dopiero po zakończeniu działania1 i activity2.
 
 ```powershell
 Parallel
@@ -189,7 +192,7 @@ Workflow Copy-Files
 }
 ```
 
-Można użyć **ForEach -Parallel** konstrukcji do przetwarzania poleceń dla każdego elementu w kolekcji jednocześnie. Elementy w kolekcji są przetwarzane współbieżnie, podczas gdy polecenia w bloku skryptu są wykonywane sekwencyjnie. Spowoduje to użycie następującej składni pokazanej poniżej. W takim przypadku Activity1 rozpoczyna się w tym samym czasie dla wszystkich elementów w kolekcji. Dla każdego elementu działanie2 rozpoczyna się po zakończeniu działania1. Działanie3 rozpoczyna się dopiero po zakończeniu działania1 i activity2 dla wszystkich elementów. Używamy parametru, `ThrottleLimit` aby ograniczyć równoległość. Zbyt wysoka `ThrottleLimit` może powodować problemy. Idealna wartość parametru `ThrottleLimit` zależy od wielu czynników w środowisku. Należy spróbować rozpocząć od niskiej wartości i spróbuj różnych wartości zwiększających, aż znajdziesz taki, który działa dla danej okoliczności.
+Konstruowanie `ForEach -Parallel` służy do przetwarzania poleceń dla każdego elementu w kolekcji jednocześnie. Elementy w kolekcji są przetwarzane współbieżnie, podczas gdy polecenia w bloku skryptu są wykonywane sekwencyjnie. Spowoduje to użycie następującej składni pokazanej poniżej. W takim przypadku Activity1 rozpoczyna się w tym samym czasie dla wszystkich elementów w kolekcji. Dla każdego elementu działanie2 rozpoczyna się po zakończeniu działania1. Działanie3 rozpoczyna się dopiero po zakończeniu działania1 i activity2 dla wszystkich elementów. Używamy parametru, `ThrottleLimit` aby ograniczyć równoległość. Zbyt wysoka `ThrottleLimit` może powodować problemy. Idealna wartość parametru `ThrottleLimit` zależy od wielu czynników w środowisku. Należy spróbować rozpocząć od niskiej wartości i spróbuj różnych wartości zwiększających, aż znajdziesz taki, który działa dla danej okoliczności.
 
 ```powershell
 ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
@@ -222,7 +225,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Punkty kontrolne
 
-Punkt *kontrolny* jest migawką bieżącego stanu przepływu pracy, który zawiera bieżącą wartość dla zmiennych i wszelkie dane wyjściowe generowane do tego punktu. Jeśli przepływ pracy kończy się błędem lub jest zawieszony, a następnie przy następnym uruchomieniu rozpocznie się od ostatniego punktu kontrolnego zamiast rozpoczęcia przepływu pracy.  Punkt kontrolny można ustawić w przepływie pracy za pomocą działania **przepływ pracy punktu kontrolnego.** Usługa Azure Automation ma funkcję o nazwie [fair share](automation-runbook-execution.md#fair-share), gdzie każdy element runbook, który działa przez 3 godziny jest zwalniany, aby umożliwić uruchamianie innych elementów runbook. Ostatecznie niechładowany projekt runbook zostanie ponownie załadowany, a gdy jest, wznowi wykonywanie z ostatniego punktu kontrolnego podjęte w życiorysie. Aby zagwarantować, że projekt runbook zostanie ostatecznie ukończony, należy dodać punkty kontrolne w odstępach czasu, które są uruchamiane przez mniej niż 3 godziny. Jeśli podczas każdego uruchomienia zostanie dodany nowy punkt kontrolny, a element runbook zostanie eksmitowany po 3 godzinach z powodu błędu, element runbook zostanie wznowiony przez czas nieokreślony.
+Punkt *kontrolny* jest migawką bieżącego stanu przepływu pracy, który zawiera bieżącą wartość dla zmiennych i wszelkie dane wyjściowe generowane do tego punktu. Jeśli przepływ pracy kończy się błędem lub jest zawieszony, a następnie przy następnym uruchomieniu rozpocznie się od ostatniego punktu kontrolnego zamiast rozpoczęcia przepływu pracy.  Można ustawić punkt kontrolny w przepływie pracy z działaniem. `Checkpoint-Workflow` Usługa Azure Automation ma funkcję o nazwie [fair share](automation-runbook-execution.md#fair-share), gdzie każdy element runbook, który działa przez 3 godziny jest zwalniany, aby umożliwić uruchamianie innych elementów runbook. Ostatecznie niechładowany projekt runbook zostanie ponownie załadowany, a gdy jest, wznowi wykonywanie z ostatniego punktu kontrolnego podjęte w życiorysie. Aby zagwarantować, że projekt runbook zostanie ostatecznie ukończony, należy dodać punkty kontrolne w odstępach czasu, które są uruchamiane przez mniej niż 3 godziny. Jeśli podczas każdego uruchomienia zostanie dodany nowy punkt kontrolny, a element runbook zostanie eksmitowany po 3 godzinach z powodu błędu, element runbook zostanie wznowiony przez czas nieokreślony.
 
 W poniższym przykładowym kodzie wyjątek występuje po Aktywność2 powodując przepływ pracy do końca. Gdy przepływ pracy jest uruchamiany ponownie, rozpoczyna się od uruchomienia Activity2, ponieważ było to tuż po ostatnim zestawie punktów kontrolnych.
 
@@ -254,36 +257,37 @@ Workflow Copy-Files
 }
 ```
 
-Ponieważ poświadczenia nazwy użytkownika nie są zachowywane po wywołaniu działania [Wstrzymaj-Przepływ pracy](https://technet.microsoft.com/library/jj733586.aspx) lub po ostatnim punkcie kontrolnym, należy ustawić poświadczenia na wartość null, a następnie pobrać je ponownie z magazynu zasobów po **wywołaniu przepływu pracy wstrzymania** lub punktu kontrolnego.  W przeciwnym razie może pojawić się następujący komunikat o błędzie: *Nie można wznowić zadania przepływu pracy, ponieważ nie można całkowicie zapisać danych trwałości lub zapisane dane trwałości zostały uszkodzone. Należy ponownie uruchomić przepływ pracy.*
+Ponieważ poświadczenia nazwy użytkownika nie są zachowywane po wywołaniu działania [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) lub po ostatnim punkcie kontrolnym, należy ustawić `Suspend-Workflow` poświadczenia na wartość null, a następnie pobrać je ponownie z magazynu zasobów po lub punkt kontrolny jest wywoływany.  W przeciwnym razie może zostać wyświetlony następujący komunikat o błędzie:`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 Poniższy ten sam kod pokazuje, jak radzić sobie z tym w elementów runbook przepływu pracy programu PowerShell.
 
 ```powershell
 workflow CreateTestVms
 {
-    $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-    $null = Connect-AzureRmAccount -Credential $Cred
+    $Cred = Get-AzAutomationCredential -Name "MyCredential"
+    $null = Connect-AzAccount -Credential $Cred
 
-    $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
+    $VmsToCreate = Get-AzAutomationVariable -Name "VmsToCreate"
 
     foreach ($VmName in $VmsToCreate)
         {
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
+        New-AzVM -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
-        $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -Credential $Cred
+        $Cred = Get-AzAutomationCredential -Name "MyCredential"
+        $null = Connect-AzAccount -Credential $Cred
         }
 }
 ```
 
-> [!IMPORTANT]
-> **Add-AzureRmAccount** jest teraz aliasem **connect-azurermaccount**. Podczas przeszukiwania elementów biblioteki, jeśli nie widzisz **Connect-AzureRMAccount**, można użyć **Add-AzureRmAccount**lub można zaktualizować moduły na koncie automatyzacji.
+> [!NOTE]
+> W przypadku niegraficzowych wiązków czągo programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` aliasów [connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Można użyć tych poleceń cmdlet lub można [zaktualizować moduły](automation-update-azure-modules.md) na koncie automatyzacji do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli właśnie utworzono nowe konto automatyzacji.
+
 
 Nie jest to wymagane, jeśli uwierzytelniasz się przy użyciu konta Uruchom jako skonfigurowanego z jednostką usługi.
 

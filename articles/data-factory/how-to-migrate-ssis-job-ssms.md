@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: ee51be1d994c3b81765266e95c48d321a2f43b14
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 6e357e98d6c5190c6dfef675dc1ab9cf30a717c1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80989446"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455091"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrowanie zadań programu SQL Server Agent do usługi ADF przy za pomocą usługi SSMS
 
@@ -35,7 +35,7 @@ Ogólnie rzecz biorąc, dla wybranych zadań agenta SQL z odpowiednimi typami kr
 |Krok zadania SSIS|Wykonywanie działania pakietu SSIS|<li> Nazwa działania będzie \<nazwą kroku>. <li> Konto serwera proxy używane w kroku zadania zostanie zmigrowane jako uwierzytelnianie tego działania przez system Windows. <li> *Opcje wykonywania* z wyjątkiem *Użyj 32-bitowego środowiska uruchomieniowego* zdefiniowanego w kroku zadania zostaną zignorowane w migracji. <li> *Weryfikacja* zdefiniowana w kroku zadania zostanie zignorowana w migracji.|
 |schedule      |wyzwalacz harmonogramu        |Nazwa wyzwalacza harmonogramu zostanie *wygenerowana dla \<nazwy harmonogramu>*. <br> <br> Poniższe opcje w harmonogramie zadań programu SQL Agent zostaną zignorowane podczas migracji: <li> Interwał drugiego poziomu. <li> *Automatyczne uruchamianie po uruchomieniu programu SQL Server Agent* <li> *Zacznij, gdy procesory staną się bezczynne* <li> *dzień powszedni* i *dzień weekendowy*<time zone> <br> Poniżej znajdują się różnice po tym, jak harmonogram zadań programu SQL Agent zostanie przeniesiony do wyzwalacza harmonogramu usługi ADF: <li> Wyzwalacz harmonogramu ADF kolejny przebieg jest niezależny od stanu wykonywania wyzwalanego przebiegu. <li> Konfiguracja cyklu wyzwalacza wyzwalacza adf różni się od dziennej częstotliwości w zadaniu agenta SQL.|
 
-- generowanie szablonów usługi Azure Resource Manager (ARM) w lokalnym folderze wyjściowym i wdrażanie w fabryce danych bezpośrednio lub później ręcznie. Aby uzyskać więcej informacji na temat szablonów Menedżera zasobów usługi ADF, zobacz [Typy zasobów Microsoft.DataFactory](https://docs.microsoft.com/azure/templates/microso.ft.datafactory/allversions).
+- generowanie szablonów usługi Azure Resource Manager (ARM) w lokalnym folderze wyjściowym i wdrażanie w fabryce danych bezpośrednio lub później ręcznie. Aby uzyskać więcej informacji na temat szablonów Menedżera zasobów usługi ADF, zobacz [Typy zasobów Microsoft.DataFactory](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

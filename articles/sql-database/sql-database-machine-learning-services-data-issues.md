@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 0bb3abc7b7102da55c9ededcadd7a301f74065ab
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: e81cca3e20d5b6c050489e80b91d013d5e934cce
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349338"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453203"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Praca z danymi języka R i SQL w usługach azure SQL Database Machine Learning Services (wersja zapoznawcza)
 
@@ -37,7 +38,7 @@ Typowe problemy, które mogą wystąpić obejmują:
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz konto](https://azure.microsoft.com/free/).
 
-- Aby uruchomić przykładowy kod w tych ćwiczeniach, musisz najpierw mieć bazę danych SQL platformy Azure z włączonymi usługami uczenia maszynowego (z włączoną funkcją R). W okresie publicznej wersji zapoznawczej firma Microsoft dołączy Cię i włączy usługę Machine Learning dla Twojej istniejącej lub nowej bazy danych. Postępuj zgodnie z instrukcjami w części [Tworzenie konta na potrzeby korzystania z wersji zapoznawczej](sql-database-machine-learning-services-overview.md#signup).
+- Aby uruchomić przykładowy kod w tych ćwiczeniach, musisz najpierw mieć [włączona usługa Azure SQL Database z włączonymi usługami uczenia maszynowego (z funkcją języka R).](sql-database-machine-learning-services-overview.md)
 
 - Upewnij się, że zainstalowano najnowsze [program SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Skrypty języka R można uruchamiać przy użyciu innych narzędzi do zarządzania bazami danych lub zapytań, ale w tym przewodniku Szybki start użyjesz programu SSMS.
 
@@ -165,7 +166,7 @@ WITH RESULT SETS((
 
 W obszarze obejmuje kolumna trzech wartości jest konwertowana na macierz jednokolumnową. Ponieważ macierz jest tylko specjalny przypadek tablicy `y` w R, tablica jest niejawnie wymuszane do macierzy jednokolumnowej, aby dwa argumenty są zgodne.
 
-**Results**
+**Wyniki**
 
 |Col1|Col2|Okręg wyborczy Col3|Okręg wyborczy Col4|
 |---|---|---|---|
@@ -188,7 +189,7 @@ WITH RESULT SETS(([Col1] INT));
 
 Teraz R zwraca pojedynczą wartość jako wynik.
 
-**Results**
+**Wyniki**
     
 |Col1|
 |---|
@@ -218,7 +219,7 @@ WITH RESULT SETS((
 
 Aby wypełnić ramkę danych, R powtarza elementy pobrane z RTestData tyle razy, ile `df1`potrzeba, aby dopasować liczbę elementów w tablicy .
 
-**Results**
+**Wyniki**
     
 |*Col2*|*Okręg wyborczy Col3*|
 |----|----|
@@ -279,7 +280,7 @@ Jeśli zostanie wyświetlony błąd, prawdopodobnie musisz wprowadzić pewne zmi
 
 Po zakończeniu kwerendy przejrzyj `str` wyniki funkcji, aby zobaczyć, jak R traktuje dane wejściowe.
 
-**Results**
+**Wyniki**
 
 ```text
 STDOUT message(s) from external script: 'data.frame':    37 obs. of  3 variables:

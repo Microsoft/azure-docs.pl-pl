@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: 0a73a2bc3fa76c945cf699133a41b38a9983a234
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: ebea6117420ee6de67025dfd4cfba71e905cb9ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345809"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453101"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Tworzenie modelu klastrowania w języku R za pomocą usług azure sql database machine learning services (wersja zapoznawcza)
 
@@ -36,8 +37,6 @@ W tym artykule dowiesz się, jak:
 W [części 1](sql-database-tutorial-clustering-model-prepare-data.md), dowiesz się, jak przygotować dane z bazy danych SQL platformy Azure do wykonywania klastrowania.
 
 W [części trzeciej](sql-database-tutorial-clustering-model-deploy.md)dowiesz się, jak utworzyć procedurę składowaną w bazie danych SQL platformy Azure, która może wykonywać klastrowanie w języku R na podstawie nowych danych.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811445"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456502"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do importowania/eksportowania usługi
 
 Usługa Azure Import/Export chroni klucze funkcji BitLocker używane do blokowania dysków za pomocą klucza szyfrowania. Domyślnie klucze funkcji BitLocker są szyfrowane za pomocą kluczy zarządzanych przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczami szyfrowania, można również udostępnić klucze zarządzane przez klienta.
 
-Klucze zarządzane przez klienta muszą być tworzone i przechowywane w magazynie kluczy platformy Azure. Aby uzyskać więcej informacji na temat usługi Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/key-vault-overview.md)
+Klucze zarządzane przez klienta muszą być tworzone i przechowywane w magazynie kluczy platformy Azure. Aby uzyskać więcej informacji na temat usługi Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md)
 
 W tym artykule pokazano, jak używać kluczy zarządzanych przez klienta z usługą importu/eksportu w [witrynie Azure portal](https://portal.azure.com/).
 
@@ -33,12 +33,12 @@ Przed rozpoczęciem upewnij się, że spełniono następujące warunki:
     - [Tworzenie zadania importu dla plików](storage-import-export-data-to-files.md).
     - [Tworzenie zadania eksportu obiektów blob](storage-import-export-data-from-blobs.md)
 
-2. Masz istniejącą usługę Azure Key Vault z kluczem, którego można użyć do ochrony klucza funkcji BitLocker. Aby dowiedzieć się, jak utworzyć magazyn kluczy za pomocą witryny Azure portal, zobacz [Szybki start: Ustawianie i pobieranie klucza tajnego z usługi Azure Key Vault przy użyciu witryny Azure portal](../../key-vault/quick-create-portal.md).
+2. Masz istniejącą usługę Azure Key Vault z kluczem, którego można użyć do ochrony klucza funkcji BitLocker. Aby dowiedzieć się, jak utworzyć magazyn kluczy za pomocą witryny Azure portal, zobacz [Szybki start: Ustawianie i pobieranie klucza tajnego z usługi Azure Key Vault przy użyciu witryny Azure portal](../../key-vault/secrets/quick-create-portal.md).
 
     - **Usuwanie nietrwałe** i **nie czyścić** są ustawione na istniejącej przechowalni kluczy. Te właściwości nie są domyślnie włączone. Aby włączyć te właściwości, zobacz sekcje **"Włączanie usuwania nietrwałego** i **włączanie ochrony przed przeczyszczaniem"** w jednym z następujących artykułów:
 
-        - [Jak używać soft-delete z programem PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
-        - [Jak używać soft-delete z CLI](../../key-vault/key-vault-soft-delete-cli.md).
+        - [Jak używać soft-delete z programem PowerShell](../../key-vault/general/soft-delete-powershell.md).
+        - [Jak używać soft-delete z CLI](../../key-vault/general/soft-delete-cli.md).
     - Istniejący magazyn kluczy powinien mieć klucz RSA o rozmiarze 2048 lub więcej. Aby uzyskać więcej informacji o kluczach, zobacz **Klucze usługi** Azure Key Vault — [informacje o kluczach, wpisach tajnych i certyfikatach usługi Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
     - Magazyn kluczy musi znajdować się w tym samym regionie co konto magazynu danych.  
     - Jeśli nie masz istniejącego usługi Azure Key Vault, możesz również utworzyć ją w linii, zgodnie z opisem w poniższej sekcji.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 7a2becf8cb43568383c324bb9f4f5b2e7b844268
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7da2fa2ddfbd9c71563dd8bd2e17b14c6dee62b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77667147"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455465"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Rozwiązanie usługi Azure Key Vault Analytics w usłudze Azure Monitor
 
@@ -94,7 +94,7 @@ Po kliknięciu kafelka **analizy usługi Key Vault Analytics** można wyświetli
     Na dowolnej stronie wyszukiwania dziennika można wyświetlać wyniki według czasu, szczegółowych wyników i historii wyszukiwania w dzienniku. Można również filtrować według aspektów, aby zawęzić wyniki.
 
 ## <a name="azure-monitor-log-records"></a>Rekordy dziennika usługi Azure Monitor
-Rozwiązanie usługi Azure Key Vault analizuje rekordy, które mają typ **keyvaults,** które są zbierane z [dzienników Inspekcjiwydarzenia](../../key-vault/key-vault-logging.md) w usłudze Azure Diagnostics.  Właściwości tych rekordów znajdują się w poniższej tabeli:  
+Rozwiązanie usługi Azure Key Vault analizuje rekordy, które mają typ **keyvaults,** które są zbierane z [dzienników Inspekcjiwydarzenia](../../key-vault/general/logging.md) w usłudze Azure Diagnostics.  Właściwości tych rekordów znajdują się w poniższej tabeli:  
 
 | Właściwość | Opis |
 |:--- |:--- |
@@ -107,7 +107,7 @@ Rozwiązanie usługi Azure Key Vault analizuje rekordy, które mają typ **keyva
 | `httpStatusCode_d` |Kod stanu HTTP zwrócony przez żądanie (na przykład *200*) |
 | `id_s` |Unikatowy identyfikator żądania |
 | `identity_claim_appid_g` | Identyfikator GUID dla identyfikatora aplikacji |
-| `OperationName` |Nazwa operacji, zgodnie z dokumentami w [rejestrowaniu usługi Azure Key Vault](../../key-vault/key-vault-logging.md) |
+| `OperationName` |Nazwa operacji, zgodnie z dokumentami w [rejestrowaniu usługi Azure Key Vault](../../key-vault/general/logging.md) |
 | `OperationVersion` |Wersja interfejsu API REST żądana przez klienta (na przykład *2015-06-01*) |
 | `requestUri_s` |Uri żądania |
 | `Resource` |Nazwa magazynu kluczy |

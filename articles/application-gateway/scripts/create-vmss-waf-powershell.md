@@ -4,7 +4,6 @@ description: Przykładowy skrypt programu Azure PowerShell — tworzenie bramy a
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: sample
@@ -13,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: fd36775e15376054bed34d9e828344c529313d3b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7232d7d3bfad23a91bf93adb679973f5a419aa76
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76273421"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457760"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>Ograniczanie ruchu internetowego przy użyciu programu Azure PowerShell
 

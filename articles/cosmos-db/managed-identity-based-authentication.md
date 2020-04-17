@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: 102efba5d028eef621f392ef1739ea9ebeca0b44
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 37e5cb817db2c54a07ab04c4dcc31b1976fdf03d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80417235"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450058"
 ---
 # <a name="how-to-use-a-system-assigned-managed-identity-to-access-azure-cosmos-db-data"></a>Jak uzyskać dostęp do danych usługi Azure Cosmos DB przy użyciu tożsamości zarządzanej przypisanej do systemu
 
@@ -112,7 +112,7 @@ namespace Monitor
 }
 ```
 
-Użyjesz biblioteki [Microsoft.Azure.Services.AppAuthentication,](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) aby uzyskać token tożsamości zarządzanej przypisany przez system. Aby dowiedzieć się, inne sposoby, `Microsoft.Azure.Service.AppAuthentication` aby uzyskać token i więcej informacji na temat biblioteki, zobacz [service to service authentication](../key-vault/service-to-service-authentication.md) artykułu.
+Użyjesz biblioteki [Microsoft.Azure.Services.AppAuthentication,](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) aby uzyskać token tożsamości zarządzanej przypisany przez system. Aby dowiedzieć się, inne sposoby, `Microsoft.Azure.Service.AppAuthentication` aby uzyskać token i więcej informacji na temat biblioteki, zobacz [service to service authentication](../key-vault/general/service-to-service-authentication.md) artykułu.
 
 ```csharp
 using System;

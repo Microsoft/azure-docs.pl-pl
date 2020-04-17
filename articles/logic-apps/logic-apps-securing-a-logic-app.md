@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657175"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457182"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Bezpieczny dostęp i dane w usłudze Azure Logic Apps
 
@@ -182,7 +182,7 @@ Aby uniemożliwić innym osobom zmianę lub usunięcie aplikacji logiki, można 
 
 Podczas uruchamiania aplikacji logiki wszystkie dane [są szyfrowane podczas przesyłania](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) przy użyciu zabezpieczeń warstwy transportowej (TLS) i w [spoczynku.](../security/fundamentals/encryption-atrest.md) Po zakończeniu działania aplikacji logiki, można wyświetlić historię dla tego uruchomienia, w tym kroki, które zostały uruchomione wraz ze stanem, czas trwania, dane wejściowe i wyjścia dla każdej akcji. Ten bogaty szczegół zapewnia wgląd w sposób uruchomiony aplikacji logiki i gdzie można rozpocząć rozwiązywanie problemów, które powstają.
 
-Podczas wyświetlania historii uruchamiania aplikacji logiki, aplikacje logiki uwierzytelnia dostęp, a następnie udostępnia łącza do danych wejściowych i wyjściowych dla żądań i odpowiedzi dla każdego uruchomienia. Jednak dla akcji, które obsługują wszelkie hasła, wpisy tajne, klucze lub inne poufne informacje, należy uniemożliwić innym osobom wyświetlanie i uzyskiwanie dostępu do tych danych. Na przykład jeśli aplikacja logiki pobiera klucz tajny z [usługi Azure Key Vault](../key-vault/key-vault-overview.md) do użycia podczas uwierzytelniania akcji HTTP, chcesz ukryć ten klucz tajny z widoku.
+Podczas wyświetlania historii uruchamiania aplikacji logiki, aplikacje logiki uwierzytelnia dostęp, a następnie udostępnia łącza do danych wejściowych i wyjściowych dla żądań i odpowiedzi dla każdego uruchomienia. Jednak dla akcji, które obsługują wszelkie hasła, wpisy tajne, klucze lub inne poufne informacje, należy uniemożliwić innym osobom wyświetlanie i uzyskiwanie dostępu do tych danych. Na przykład jeśli aplikacja logiki pobiera klucz tajny z [usługi Azure Key Vault](../key-vault/general/overview.md) do użycia podczas uwierzytelniania akcji HTTP, chcesz ukryć ten klucz tajny z widoku.
 
 Aby kontrolować dostęp do danych wejściowych i wyjściowych w historii uruchamiania aplikacji logiki, dostępne są następujące opcje:
 
@@ -370,7 +370,7 @@ Aby uzyskać więcej informacji, zobacz te sekcje w tym temacie:
 
 W przypadku [automatyzacji wdrażania dla aplikacji logiki przy użyciu szablonów Menedżera zasobów](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)można zdefiniować `securestring` `secureobject` parametry zabezpieczonego [szablonu](../azure-resource-manager/templates/template-parameters.md), które są oceniane podczas wdrażania, przy użyciu i typów. Aby zdefiniować parametry szablonu, użyj `parameters` sekcji najwyższego poziomu szablonu, która `parameters` jest oddzielona i różni się od sekcji definicji przepływu pracy. Aby podać wartości parametrów szablonu, należy użyć oddzielnego [pliku parametrów](../azure-resource-manager/templates/parameter-files.md).
 
-Na przykład jeśli używasz wpisów tajnych, można zdefiniować i używać zabezpieczonych parametrów szablonu, które pobierają te wpisy tajne z [usługi Azure Key Vault](../key-vault/key-vault-overview.md) podczas wdrażania. Następnie można odwołać się do magazynu kluczy i klucza tajnego w pliku parametrów. Więcej informacji można znaleźć w następujących tematach:
+Na przykład jeśli używasz wpisów tajnych, można zdefiniować i używać zabezpieczonych parametrów szablonu, które pobierają te wpisy tajne z [usługi Azure Key Vault](../key-vault/general/overview.md) podczas wdrażania. Następnie można odwołać się do magazynu kluczy i klucza tajnego w pliku parametrów. Więcej informacji można znaleźć w następujących tematach:
 
 * [Przekazywanie poufnych wartości podczas wdrażania przy użyciu usługi Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 * [Bezpieczne parametry w szablonach usługi Azure Resource Manager](#secure-parameters-deployment-template) w dalszej części tego tematu
@@ -425,7 +425,7 @@ Aby chronić poufne informacje w definicji przepływu pracy aplikacji logiki, na
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Bezpieczne parametry w szablonach usługi Azure Resource Manager
 
-Szablon [Menedżera zasobów](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) dla aplikacji `parameters` logiki ma wiele sekcji. Aby chronić hasła, klucze, wpisy tajne i inne poufne informacje, należy zdefiniować zabezpieczone parametry na poziomie szablonu i na poziomie definicji przepływu pracy przy użyciu `securestring` lub `secureobject` typu. Następnie można przechowywać te wartości w [usłudze Azure Key Vault](../key-vault/key-vault-overview.md) i użyć [pliku parametru,](../azure-resource-manager/templates/parameter-files.md) aby odwołać się do magazynu kluczy i klucza tajnego. Następnie szablon pobiera te informacje podczas wdrażania. Aby uzyskać więcej informacji, zobacz [Przekazywanie poufnych wartości podczas wdrażania przy użyciu usługi Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
+Szablon [Menedżera zasobów](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) dla aplikacji `parameters` logiki ma wiele sekcji. Aby chronić hasła, klucze, wpisy tajne i inne poufne informacje, należy zdefiniować zabezpieczone parametry na poziomie szablonu i na poziomie definicji przepływu pracy przy użyciu `securestring` lub `secureobject` typu. Następnie można przechowywać te wartości w [usłudze Azure Key Vault](../key-vault/general/overview.md) i użyć [pliku parametru,](../azure-resource-manager/templates/parameter-files.md) aby odwołać się do magazynu kluczy i klucza tajnego. Następnie szablon pobiera te informacje podczas wdrażania. Aby uzyskać więcej informacji, zobacz [Przekazywanie poufnych wartości podczas wdrażania przy użyciu usługi Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
 Oto więcej informacji `parameters` na temat tych sekcji:
 

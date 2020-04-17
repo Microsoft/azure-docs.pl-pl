@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57378005bd668fa9c0f2aea70c411bbf911130db
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278677"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457658"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Wbudowane rozwiązania do zarządzania aktualizacjami, śledzenia zmian i zapasów
 
@@ -18,7 +18,7 @@ Usługa Azure Automation udostępnia rozwiązania do zarządzania aktualizacjami
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do platformy Azure w witrynie https://portal.azure.com
+Zaloguj się na https://portal.azure.complatformie Azure na poziomie .
 
 ## <a name="enable-solutions"></a>Włączanie rozwiązań
 
@@ -82,7 +82,7 @@ Kliknij **+ Dodaj maszyny wirtualne platformy Azure**, wybierz jedną lub więce
 
 Maszyny niena platformy Azure muszą być dodawane ręcznie. Z konta Automatyzacja wybierz **pozycję Zapasy** lub **Śledzenie zmian** w obszarze **Zarządzanie konfiguracją**lub **Zarządzanie aktualizacjami** w obszarze **Zarządzanie aktualizacjami**.
 
-Kliknij **pozycję Dodaj komputer spoza platformy Azure**. Ta akcja otwiera nowe okno przeglądarki z [instrukcjami dotyczącymi instalowania i konfigurowania agenta monitorowania firmy Microsoft na komputerze, aby](../azure-monitor/platform/log-analytics-agent.md) urządzenie mogło rozpocząć raportowanie do rozwiązania. Jeśli dołączasz komputer, który jest obecnie zarządzany przez program System Center Operations Manager, nowy agent nie jest wymagany, informacje o obszarze roboczym są wprowadzane do istniejącego agenta.
+Kliknij **pozycję Dodaj komputer spoza platformy Azure**. Ta akcja otwiera nowe okno przeglądarki z [instrukcjami instalowania i konfigurowania agenta usługi Log Analytics dla systemu Windows, tak](../azure-monitor/platform/log-analytics-agent.md) aby urządzenie może rozpocząć raportowanie do rozwiązania. Jeśli dołączasz komputer, który jest obecnie zarządzany przez program System Center Operations Manager, nowy agent nie jest wymagany, a informacje o obszarze roboczym są wprowadzane do istniejącego agenta.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Maszyny pokładowe w obszarze roboczym
 
@@ -150,7 +150,7 @@ Alternatywnie można również odłączyć obszar roboczy od konta automatyzacji
 Aby usunąć maszynę wirtualną z zarządzania aktualizacjami:
 
 * W obszarze roboczym usługi Log Analytics usuń maszynę wirtualną z zapisanego wyszukiwania konfiguracji `MicrosoftDefaultScopeConfig-Updates`zakresu . Zapisane wyszukiwania można znaleźć w obszarze **Ogólne** w obszarze roboczym.
-* Usuń [agenta monitorowania firmy Microsoft](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) lub [agenta analizy dzienników dla systemu Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Usuń [agenta analizy dzienników dla systemu Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) lub [agenta analizy dzienników dla systemu Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Następne kroki
 

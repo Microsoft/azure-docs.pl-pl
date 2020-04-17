@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69bdd2d6825427597e9030a03aae7d219361ba25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b15b022726c09ccbaf9674775d114c8dd1916e1d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671945"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457301"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Dostęp warunkowy: aplikacje lub akcje w chmurze
 
@@ -98,7 +98,7 @@ Kluczowe aplikacje zawarte w aplikacji klienckiej usługi Office 365 (w wersji z
 
 Aplikacja Microsoft Azure Management zawiera wiele podstawowych usług. 
 
-   - Portal Azure
+   - Azure Portal
    - Dostawca usługi Azure Resource Manager
    - Klasyczne interfejsy API modelu wdrażania
    - Azure PowerShell
@@ -120,7 +120,7 @@ Oprócz aplikacji firmy Microsoft administratorzy mogą dodawać dowolną aplika
 
 ## <a name="user-actions"></a>Akcje użytkownika
 
-Akcje użytkownika to zadania, które mogą być wykonywane przez użytkownika. Jedyną aktualnie obsługiwaną akcją jest **rejestrowanie informacji zabezpieczających (wersja zapoznawcza),** która umożliwia zasadom dostępu warunkowego wymuszanie, gdy użytkownicy włączeni do połączonej próby rejestracji rejestrują swoje informacje zabezpieczające. Więcej informacji można znaleźć w [artykule, Połączone rejestracji informacji o bezpieczeństwie (wersja zapoznawcza)](../authentication/concept-registration-mfa-sspr-combined.md).
+Akcje użytkownika to zadania, które mogą być wykonywane przez użytkownika. Jedyną aktualnie obsługiwaną akcją jest **Rejestrowanie informacji o zabezpieczeniach,** która umożliwia zasadom dostępu warunkowego wymuszanie, gdy użytkownicy, którzy są włączeni do połączonej próby rejestracji, rejestrują swoje informacje zabezpieczające. Więcej informacji można znaleźć w artykule, [Połączone rejestracji informacji o bezpieczeństwie](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

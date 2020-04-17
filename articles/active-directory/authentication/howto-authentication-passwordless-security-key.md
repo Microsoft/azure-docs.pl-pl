@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653937"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450925"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Włączanie logowania bez hasła (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ Ten dokument koncentruje się na włączaniu uwierzytelniania bez hasła oparteg
 
 ## <a name="requirements"></a>Wymagania
 
-- [Uwierzytelnianie wieloskładnikowe platformy Azure](howto-mfa-getstarted.md)
+- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - [Połączona wersja zapoznawcza rejestracji informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md)
 - Kompatybilne [klucze zabezpieczeń FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
 - Sieć WebAuthN wymaga systemu Windows 10 w wersji 1809 lub nowszej**
@@ -48,11 +48,11 @@ Hybrydowe urządzenia przyłączone do usługi Azure AD muszą działać w kompi
 
 ### <a name="enable-the-combined-registration-experience"></a>Włącz połączone środowisko rejestracji
 
-Funkcje rejestracji metod uwierzytelniania bez hasła zależą od połączonej wersji zapoznawczej rejestracji. Postępuj zgodnie z instrukcjami zawartymi w artykule [Włączanie połączonej rejestracji informacji o zabezpieczeniach (wersja zapoznawcza),](howto-registration-mfa-sspr-combined.md)aby włączyć połączoną rejestrację w wersji zapoznawczej.
+Funkcje rejestracji metod uwierzytelniania bez hasła opierają się na połączonej funkcji rejestracji. Postępuj zgodnie z instrukcjami zawartymi w artykule [Włączanie połączonej rejestracji informacji o zabezpieczeniach (wersja zapoznawcza)](howto-registration-mfa-sspr-combined.md), aby włączyć rejestrację połączoną.
 
 ### <a name="enable-fido2-security-key-method"></a>Włącz metodę klucza zabezpieczeń FIDO2
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Przejdź do zasad**metody uwierzytelniania** > **zabezpieczeń** >  **usługi Azure Active Directory** > **Zasady metody uwierzytelniania (Wersja zapoznawcza)**.
 1. W obszarze metoda **KLUCZ ZABEZPIECZEŃ FIDO2**wybierz następujące opcje:
    1. **Włącz** — Tak lub Nie

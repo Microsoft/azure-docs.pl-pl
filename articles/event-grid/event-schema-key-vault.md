@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 36b7b81a18c8725929ab5676b844e1ee319e287f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 40bff9585e64163039a8847ff868c982ffb20414
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393315"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458253"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Usługa Azure Key Vault jako źródło siatki zdarzeń
 
@@ -80,18 +80,18 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 ## <a name="tutorials-and-how-tos"></a>Samouczki i poradniki
 |Tytuł  |Opis  |
 |---------|---------|
-| [Monitorowanie zdarzeń magazynu kluczy za pomocą usługi Azure Event Grid](../key-vault/event-grid-overview.md) | Omówienie integracji magazynu kluczy z siatką zdarzeń. |
-| [Samouczek: Tworzenie i monitorowanie zdarzeń magazynu kluczy za pomocą siatki zdarzeń](../key-vault/event-grid-tutorial.md) | Dowiedz się, jak skonfigurować powiadomienia o siatce zdarzeń dla usługi Key Vault. |
+| [Monitorowanie zdarzeń magazynu kluczy za pomocą usługi Azure Event Grid](../key-vault/general/event-grid-overview.md) | Omówienie integracji magazynu kluczy z siatką zdarzeń. |
+| [Samouczek: Tworzenie i monitorowanie zdarzeń magazynu kluczy za pomocą siatki zdarzeń](../key-vault/general/event-grid-tutorial.md) | Dowiedz się, jak skonfigurować powiadomienia o siatce zdarzeń dla usługi Key Vault. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać wprowadzenie do usługi Azure Event Grid, zobacz [Co to jest siatka zdarzeń?](overview.md).
 * Aby uzyskać więcej informacji na temat tworzenia subskrypcji usługi Azure Event Grid, zobacz [schemat subskrypcji usługi Event Grid](subscription-creation-schema.md).
-* Aby dowiedzieć się więcej o integracji magazynu kluczy z siatką zdarzeń, zobacz [Monitorowanie usługi Key Vault za pomocą usługi Azure Event Grid (wersja zapoznawcza)](../key-vault/event-grid-overview.md).
-* Aby zapoznać się z samouczkiem na temat integracji usługi Key Vault z siatką zdarzeń, zobacz [Odbieranie powiadomień o przechowalni kluczy i odpowiadanie na nie za pomocą usługi Azure Event Grid (wersja zapoznawcza)](../key-vault/event-grid-tutorial.md).
+* Aby dowiedzieć się więcej o integracji magazynu kluczy z siatką zdarzeń, zobacz [Monitorowanie usługi Key Vault za pomocą usługi Azure Event Grid (wersja zapoznawcza)](../key-vault/general/event-grid-overview.md).
+* Aby zapoznać się z samouczkiem na temat integracji usługi Key Vault z siatką zdarzeń, zobacz [Odbieranie powiadomień o przechowalni kluczy i odpowiadanie na nie za pomocą usługi Azure Event Grid (wersja zapoznawcza)](../key-vault/general/event-grid-tutorial.md).
 * Aby uzyskać dodatkowe wskazówki dotyczące usługi Key Vault i usługi Azure Automation, zobacz:
-    - [Co to jest usługa Azure Key Vault?](../key-vault/key-vault-overview.md)
-    - [Monitorowanie magazynu kluczy za pomocą usługi Azure Event Grid (wersja zapoznawcza)](../key-vault/event-grid-overview.md)
-    - [Odbieranie powiadomień o przechowalni kluczy i odpowiadanie na nie za pomocą usługi Azure Event Grid (wersja zapoznawcza)](../key-vault/event-grid-tutorial.md)
+    - [Co to jest usługa Azure Key Vault?](../key-vault/general/overview.md)
+    - [Monitorowanie magazynu kluczy za pomocą usługi Azure Event Grid (wersja zapoznawcza)](../key-vault/general/event-grid-overview.md)
+    - [Odbieranie powiadomień o przechowalni kluczy i odpowiadanie na nie za pomocą usługi Azure Event Grid (wersja zapoznawcza)](../key-vault/general/event-grid-tutorial.md)
     - [Omówienie usługi Azure Automation](../automation/index.yml)

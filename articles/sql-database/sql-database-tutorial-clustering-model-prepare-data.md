@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: 2241b69e36e3b17475dba115b8d2ae94fe2189a7
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: abe7d5ed1d4ba1308abde04aee32a3ea222456b8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345843"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452880"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Przygotowywanie danych do wykonywania klastrowania w języku R za pomocą usług azure sql database machine learning services (wersja zapoznawcza)
 
@@ -43,13 +44,11 @@ W [części drugiej](sql-database-tutorial-clustering-model-build.md)dowiesz si�
 
 W [części trzeciej](sql-database-tutorial-clustering-model-deploy.md)dowiesz się, jak utworzyć procedurę składowaną w bazie danych SQL platformy Azure, która może wykonywać klastrowanie w języku R na podstawie nowych danych.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — jeśli nie masz subskrypcji platformy Azure, [utwórz konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
 
-* Usługa Azure SQL Database Server z włączoną usługą uczenia maszynowego — podczas publicznej wersji zapoznawczej firma Microsoft włączy korzystanie z uczenia maszynowego dla istniejących lub nowych baz danych. Postępuj zgodnie z instrukcjami w części [Tworzenie konta na potrzeby korzystania z wersji zapoznawczej](sql-database-machine-learning-services-overview.md#signup).
+* [Usługa Azure SQL Database z włączonymi usługami uczenia maszynowego (z](sql-database-machine-learning-services-overview.md) włączoną funkcją R).
 
 * RevoScaleR pakiet — zobacz [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) dla opcji, aby zainstalować ten pakiet lokalnie.
 
@@ -59,7 +58,7 @@ W [części trzeciej](sql-database-tutorial-clustering-model-deploy.md)dowiesz s
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="import-the-sample-database"></a>Importowanie przykładowej bazy danych
 

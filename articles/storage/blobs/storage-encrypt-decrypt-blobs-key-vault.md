@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 3f4f1f5e163dfed9f356aed538d934d0e4258790
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: c1d26fda57d665cc8d83f594f4efeebebc7bf139
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618879"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456893"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Samouczek — szyfrowanie i odszyfrowywanie obiektów blob przy użyciu usługi Azure Key Vault
 
@@ -23,7 +23,7 @@ W tym samouczku opisano, jak korzystać z szyfrowania magazynu po stronie klient
 
 **Szacowany czas trwania:** 20 minut
 
-Aby uzyskać omówienie informacji o usłudze Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Aby uzyskać omówienie informacji o usłudze Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md).
 
 Aby uzyskać omówienie informacji na temat szyfrowania po stronie klienta dla usługi Azure Storage, zobacz [Szyfrowanie po stronie klienta i usługa Azure Key Vault dla usługi Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -48,7 +48,7 @@ Oto krótki opis działania szyfrowania po stronie klienta:
 
 ## <a name="set-up-your-azure-key-vault"></a>Konfigurowanie usługi Azure Key Vault
 
-Aby kontynuować ten samouczek, należy wykonać następujące kroki, które zostały opisane w samouczku [Szybki start: Ustaw i pobierz klucz tajny z usługi Azure Key Vault przy użyciu aplikacji sieci web .NET:](../../key-vault/quick-create-net.md)
+Aby kontynuować ten samouczek, należy wykonać następujące kroki, które zostały opisane w samouczku [Szybki start: Ustaw i pobierz klucz tajny z usługi Azure Key Vault przy użyciu aplikacji sieci web .NET:](../../key-vault/secrets/quick-create-net.md)
 
 * Tworzenie magazynu kluczy.
 * Dodaj klucz lub klucz tajny do magazynu kluczy.

@@ -5,24 +5,27 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 54f77f55a127cd712d43419eb6a85fd5d93a478c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: a9f4e641e60d6cf1c481c445767422e8b4df683b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652173"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457692"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Przesyłanie dalej stanu zadania i strumieni zadań z automatyzacji do dzienników usługi Azure Monitor
 
 Automatyzacja może wysyłać stan zadania i strumienie zadań do obszaru roboczego usługi Log Analytics. Ten proces nie obejmuje łączenia obszaru roboczego i jest całkowicie niezależny. Dzienniki zadań i strumienie zadań są widoczne w witrynie Azure portal lub z programem PowerShell dla poszczególnych zadań, co umożliwia wykonywanie prostych dochodzeń. Teraz za pomocą dzienników usługi Azure Monitor możesz:
 
-* Uzyskaj wgląd w swoje zadania automatyzacji.
+* Uzyskaj wgląd w stan zadań automatyzacji.
 * Wyzwalanie wiadomości e-mail lub alertu na podstawie stanu zadania egoisty (na przykład nie powiodło się lub zawieszono).
 * Pisanie zaawansowanych zapytań w strumieniach zadań.
 * Skorelowanie zadań między kontami automatyzacji.
-* Wizualizuj historię pracy w czasie.
+* Widoki niestandardowe i zapytania wyszukiwania umożliwia wizualizację wyników elementu runbook, stanu zadania elementu runbook i innych powiązanych kluczowych wskaźników lub metryk.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+>[!NOTE]
+>Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Aby uzyskać instrukcje instalacji modułu Az w hybrydowym usłudze Runbook Worker, zobacz [Instalowanie modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Dla konta automatyzacji można zaktualizować moduły do najnowszej wersji przy użyciu [jak zaktualizować moduły programu Azure PowerShell w usłudze Azure Automation.](automation-update-azure-modules.md)
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Wymagania wstępne i zagadnienia dotyczące wdrażania
 
@@ -35,7 +38,7 @@ Aby rozpocząć wysyłanie dzienników automatyzacji do dzienników usługi Azur
 Użyj następującego polecenia, aby znaleźć identyfikator zasobu dla konta usługi Azure Automation:
 
 ```powershell-interactive
-# Find the ResourceId for the Automation Account
+# Find the ResourceId for the Automation account
 Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
@@ -50,8 +53,9 @@ Jeśli w danych wyjściowych poprzednich poleceń znajduje się więcej niż jed
 
 1. W witrynie Azure portal wybierz swoje konto automatyzacji z bloku **konta automatyzacji** i wybierz pozycję **Wszystkie ustawienia**. 
 2. W bloku **Wszystkie ustawienia** w obszarze **Ustawienia konta**wybierz pozycję **Właściwości**.  
-3. W **właściwości bloku,** należy zwrócić uwagę na te wartości.<br> ![Właściwości konta](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)automatyzacji .
+3. W **właściwości bloku,** należy zwrócić uwagę na właściwości pokazane poniżej.
 
+    ![Właściwości konta automatyzacji](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
 ## <a name="azure-monitor-log-records"></a>Rekordy dziennika usługi Azure Monitor
 
@@ -104,7 +108,7 @@ Diagnostyka usługi Azure Automation tworzy dwa typy rekordów `AzureDiagnostics
 ## <a name="setting-up-integration-with-azure-monitor-logs"></a>Konfigurowanie integracji z dziennikami usługi Azure Monitor
 
 1. Na komputerze uruchom program Windows PowerShell na ekranie **startowym.**
-2. Uruchom następujące polecenia programu PowerShell i edytuj `[your resource ID]` `[resource ID of the log analytics workspace]` wartość dla i z wartościami z poprzedniej sekcji.
+2. Uruchom następujące polecenia programu PowerShell i `[your resource ID]` edytuj `[resource ID of the log analytics workspace]` wartości dla i z wartościami z poprzedniej sekcji.
 
    ```powershell-interactive
    $workspaceId = "[resource ID of the log analytics workspace]"
@@ -146,7 +150,7 @@ Aby utworzyć regułę alertu, należy rozpocząć od utworzenia wyszukiwania w 
 2. Utwórz zapytanie wyszukiwania dziennika dla alertu, wpisując następujące wyszukiwanie w polu kwerendy:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>Można również pogrupować według nazwy grupy runbook przy użyciu:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Jeśli skonfigurujesz dzienniki z więcej niż jednego konta automatyzacji lub subskrypcji do obszaru roboczego, można pogrupować alerty według subskrypcji i konta automatyzacji. Nazwa konta automatyzacji można `Resource` znaleźć w `JobLogs`polu w wyszukiwaniu .
-3. Aby otworzyć ekran **Reguła tworzenia,** kliknij przycisk **+ Nowa reguła alertu** u góry strony. Aby uzyskać więcej informacji na temat opcji konfigurowania alertu, zobacz [Dziennik alertów na platformie Azure](../azure-monitor/platform/alerts-unified-log.md).
+3. Aby otworzyć ekran **Reguła tworzenia,** kliknij pozycję **Nowa reguła alertu** u góry strony. Aby uzyskać więcej informacji na temat opcji konfigurowania alertu, zobacz [Dziennik alertów na platformie Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Znajdź wszystkie zadania, które zostały ukończone z błędami
 
@@ -178,15 +182,6 @@ $automationAccountId = "[resource ID of your Automation account]"
 
 Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
-
-## <a name="summary"></a>Podsumowanie
-
-Wysyłając stan zadania automatyzacji i przesyłaj dane strumieniowe do dzienników usługi Azure Monitor, można uzyskać lepszy wgląd w stan zadań automatyzacji, korzystając z:
-+ Konfigurowanie alertów informujących o problemie.
-+ Używanie widoków niestandardowych i zapytań wyszukiwania do wizualizacji wyników elementu runbook, stanu zadania elementu runbook i innych powiązanych kluczowych wskaźników lub metryk.
-
-Dzienniki usługi Azure Monitor zapewniają lepszą widoczność operacyjną zadań automatyzacji i mogą pomóc w szybszym rozwiązywaniu zdarzeń.
-
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać pomoc dotyczącą rozwiązywania problemów z analizą dzienników, zobacz [Rozwiązywanie problemów z tym, dlaczego usługa Log Analytics nie zbiera już danych.](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data)
@@ -194,4 +189,3 @@ Dzienniki usługi Azure Monitor zapewniają lepszą widoczność operacyjną zad
 * Aby dowiedzieć się, jak tworzyć i pobierać komunikaty wyjściowe i komunikaty o błędach z żyłaczek, zobacz [Dane wyjściowe i komunikaty runbooka](automation-runbook-output-and-messages.md).
 * Aby dowiedzieć się więcej o wykonywaniu elementów runbook, sposobie monitorowania zadań elementów runbook i innych szczegółach technicznych, zobacz [Track a runbook job](automation-runbook-execution.md) (Śledzenie zadania elementu runbook).
 * Aby dowiedzieć się więcej o dziennikach i źródłach zbierania danych usługi Azure Monitor, zobacz [Zbieranie danych magazynu platformy Azure w omówieniu dzienników usługi Azure Monitor.](../azure-monitor/platform/collect-azure-metrics-logs.md)
-

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 853e7143834a340b870b71ef1a287dab136e2783
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654051"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450976"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Włącz logowanie bez hasła za pomocą aplikacji Microsoft Authenticator (wersja zapoznawcza)
 
@@ -41,7 +41,7 @@ Zamiast monitu o podanie hasła po wprowadzeniu nazwy użytkownika, osoba, któr
 
 ### <a name="enable-the-combined-registration-experience"></a>Włącz połączone środowisko rejestracji
 
-Funkcje rejestracji metod uwierzytelniania bez hasła zależą od połączonej wersji zapoznawczej rejestracji. Postępuj zgodnie z instrukcjami zawartymi w artykule [Włączanie połączonej rejestracji informacji o zabezpieczeniach (wersja zapoznawcza),](howto-registration-mfa-sspr-combined.md)aby włączyć połączoną rejestrację w wersji zapoznawczej.
+Funkcje rejestracji metod uwierzytelniania bez hasła opierają się na połączonej funkcji rejestracji. Postępuj zgodnie z instrukcjami zawartymi w artykule [Włączanie połączonej rejestracji informacji o zabezpieczeniach](howto-registration-mfa-sspr-combined.md), aby włączyć rejestrację połączoną.
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Włączanie metod uwierzytelniania logowania do telefonu bez hasła
 

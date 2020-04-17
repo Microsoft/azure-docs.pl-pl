@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: d67f007ac91d4830557a2cae646698b130b02314
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: ef478246108d40a0c97d7dab03ecf1e5b474410b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345798"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452897"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Wdrażanie modelu klastrowania w języku R za pomocą usług azure sql database machine learning services (wersja zapoznawcza)
 
@@ -38,8 +39,6 @@ W tym artykule dowiesz się, jak:
 W [części 1](sql-database-tutorial-clustering-model-prepare-data.md), dowiesz się, jak przygotować dane z bazy danych SQL platformy Azure do wykonywania klastrowania.
 
 W [części drugiej](sql-database-tutorial-clustering-model-build.md), dowiedziałeś się, jak utworzyć i trenować K-Means model klastrowania w R.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

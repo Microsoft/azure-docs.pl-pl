@@ -4,12 +4,12 @@ description: Poznaj obsługiwane usługi i schemat zdarzeń dla dzienników zaso
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: 8abd8767d9bb7e3c4336f6600b94f6b3f4ea48f1
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 352310a6e489a96c38e85b16e9504d8eb9be38b1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380517"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457250"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Obsługiwane usługi, schematy i kategorie dzienników zasobów platformy Azure
 
@@ -66,7 +66,7 @@ Schemat dzienników diagnostycznych zasobów różni się w zależności od kate
 | ExpressRoute | Schemat jest niedostępny. |
 | Azure Firewall | Schemat jest niedostępny. |
 | Usługa IoT Hub | [Operacje w centrum IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Usługa Key Vault |[Rejestrowanie magazynu kluczy platformy Azure](../../key-vault/key-vault-logging.md) |
+| Usługa Key Vault |[Rejestrowanie magazynu kluczy platformy Azure](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Rejestrowanie kubernetes platformy Azure](../../aks/view-master-logs.md#log-event-schema) |
 | Moduł równoważenia obciążenia |[Analiza dzienników dotyczących usługi Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps — niestandardowy schemat śledzenia B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |

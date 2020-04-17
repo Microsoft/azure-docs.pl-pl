@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7ab61b6b0243abea0f5e618c9e83d770f7eaeac7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0d543abc88c1e45f2c1f5503473d8e92566fc582
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424384"
+ms.locfileid: "81457386"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Szybki start: korzystanie z języka SQL na żądanie
 
@@ -98,16 +98,14 @@ FROM OPENROWSET
   (
       BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
     , FORMAT = 'CSV'
-    , FIELDTERMINATOR =','
-    , ROWTERMINATOR = '\n'
   )
 WITH
   (
-      [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2
-    , [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2
-    , [year] smallint
-    , [population] bigint
-  ) AS [r]
+      country_code VARCHAR (5)
+    , country_name VARCHAR (100)
+    , year smallint
+    , population bigint
+  ) AS r
 WHERE
   country_name = 'Luxembourg' AND year = 2017
 ```

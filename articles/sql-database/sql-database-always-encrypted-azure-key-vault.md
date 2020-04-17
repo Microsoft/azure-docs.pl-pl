@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 006c780aeb3db813c8fdfb5da0b5c13fc4dcfebc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1d08581c5d29fc41fb33541d766af7cece88cdc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067432"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451673"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Zawsze szyfrowane: Ochrona poufnych danych i przechowywanie kluczy szyfrowania w usłudze Azure Key Vault
 
@@ -55,9 +55,9 @@ Aby uzyskać *identyfikator aplikacji* i *klucz,* wykonaj kroki opisane w [tworz
 
 Teraz, gdy aplikacja kliencka jest skonfigurowana i masz identyfikator aplikacji, nadszedł czas, aby utworzyć magazyn kluczy i skonfigurować jej zasady dostępu, dzięki czemu ty i twoja aplikacja może uzyskać dostęp do wpisów tajnych magazynu (zawsze zaszyfrowane klucze). Uprawnienia *create*, *get*, *list*, *sign*, *verify*, *wrapKey*i *unwrapKey* są wymagane do utworzenia nowego klucza głównego kolumny i konfigurowania szyfrowania za pomocą programu SQL Server Management Studio.
 
-Przechowalnia kluczy można szybko utworzyć, uruchamiając następujący skrypt. Aby uzyskać szczegółowe wyjaśnienie tych poleceń i więcej informacji na temat tworzenia i konfigurowania magazynu kluczy, zobacz [Co to jest usługa Azure Key Vault?](../key-vault/key-vault-overview.md).
+Przechowalnia kluczy można szybko utworzyć, uruchamiając następujący skrypt. Aby uzyskać szczegółowe wyjaśnienie tych poleceń i więcej informacji na temat tworzenia i konfigurowania magazynu kluczy, zobacz [Co to jest usługa Azure Key Vault?](../key-vault/general/overview.md).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > Moduł programu PowerShell Azure Resource Manager (RM) jest nadal obsługiwany przez usługę Azure SQL Database, ale wszystkie przyszłe prace rozwojowe są przeznaczone dla modułu Az.Sql. Moduł AzureRM będzie nadal otrzymywać poprawki błędów co najmniej do grudnia 2020.  Argumenty dla poleceń w module Az i w modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji na temat ich zgodności, zobacz [Przedstawianie nowego modułu Az programu Azure PowerShell.](/powershell/azure/new-azureps-module-az)
@@ -106,7 +106,7 @@ az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwr
 
 ## <a name="create-a-blank-sql-database"></a>Tworzenie pustej bazy danych SQL
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Przejdź do strony Tworzenie bazy danych SQL**bazy danych baz danych** >  **bazy** > danych bazy**danych**.
 3. Utwórz **pustą** bazę danych o nazwie **Klinika** na nowym lub istniejącym serwerze. Aby uzyskać szczegółowe wskazówki dotyczące tworzenia bazy danych w witrynie Azure portal, zobacz [Pierwszą bazę danych SQL platformy Azure.](sql-database-single-database-get-started.md)
 
@@ -172,7 +172,7 @@ Kliknij **przycisk Dalej** na stronie **Wprowadzenie,** aby otworzyć stronę **
 
 Szyfruj informacje **O 10 I** **Data urodzenia** dla każdego pacjenta. Kolumna SSN będzie używać szyfrowania deterministycznego, które obsługuje wyszukiwania równości, sprzężenia i grupowanie według. Kolumna BirthDate będzie używać szyfrowania losowego, które nie obsługuje operacji.
 
-Ustaw **typ szyfrowania** dla kolumny SSN na **Deterministyczny,** a kolumna Data urodzenia na **Randomizowaną**. Kliknij przycisk **alej**.
+Ustaw **typ szyfrowania** dla kolumny SSN na **Deterministyczny,** a kolumna Data urodzenia na **Randomizowaną**. Kliknij przycisk **Dalej**.
 
 ![Szyfruj kolumny](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
@@ -184,11 +184,11 @@ W tym samouczku pokazano, jak przechowywać klucze w usłudze Azure Key Vault.
 
 1. Wybierz **usługę Azure Key Vault**.
 2. Wybierz żądaną przechowalnię kluczy z listy rozwijanej.
-3. Kliknij przycisk **alej**.
+3. Kliknij przycisk **Dalej**.
 
 ![Konfiguracja klucza głównego](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
-### <a name="validation"></a>Sprawdzanie poprawności
+### <a name="validation"></a>Walidacja
 
 Można teraz zaszyfrować kolumny lub zapisać skrypt programu PowerShell, aby uruchomić go później. W tym samouczku wybierz pozycję **Przejdź do końca teraz** i kliknij przycisk **Dalej**.
 

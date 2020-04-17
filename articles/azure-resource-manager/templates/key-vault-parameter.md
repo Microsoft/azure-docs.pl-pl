@@ -3,16 +3,16 @@ title: Klucz tajny przechowalni z szablonem
 description: Pokazuje, jak przekazać klucz tajny z magazynu kluczy jako parametr podczas wdrażania.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 08b4042c6bad83f13ebaea0f46046ea7707fd868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460198"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458270"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Przekazywanie wartości bezpiecznego parametru za pomocą usługi Azure Key Vault podczas wdrażania
 
-Zamiast umieszczać bezpieczną wartość (np. hasło) bezpośrednio w pliku szablonu lub parametru, można pobrać wartość z [usługi Azure Key Vault](../../key-vault/key-vault-overview.md) podczas wdrażania. Można pobrać wartość, odwołując się do magazynu kluczy i klucz tajny w pliku parametrów. Wartość nigdy nie jest uwidoczniana, ponieważ używane jest tylko odwołanie do jej identyfikatora magazynu kluczy. Magazyn kluczy może istnieć w innej subskrypcji niż grupa zasobów, do której wdrażasz.
+Zamiast umieszczać bezpieczną wartość (np. hasło) bezpośrednio w pliku szablonu lub parametru, można pobrać wartość z [usługi Azure Key Vault](../../key-vault/general/overview.md) podczas wdrażania. Można pobrać wartość, odwołując się do magazynu kluczy i klucz tajny w pliku parametrów. Wartość nigdy nie jest uwidoczniana, ponieważ używane jest tylko odwołanie do jej identyfikatora magazynu kluczy. Magazyn kluczy może istnieć w innej subskrypcji niż grupa zasobów, do której wdrażasz.
 
 W tym artykule koncentruje się na scenariuszu przekazywania poufnej wartości jako parametru szablonu. Nie obejmuje scenariusza ustawiania właściwości maszyny wirtualnej na adres URL certyfikatu w magazynie kluczy. Aby uzyskać szablon przewodnika Szybki start w tym scenariuszu, zobacz [Instalowanie certyfikatu z usługi Azure Key Vault na maszynie wirtualnej](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
 
@@ -28,7 +28,7 @@ Jeśli masz już magazyn kluczy, upewnij się, że zezwala na wdrażanie szablon
 az keyvault update  --name ExampleVault --enabled-for-template-deployment true
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
@@ -50,7 +50,7 @@ az keyvault create \
 az keyvault secret set --vault-name ExampleVault --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name ExampleGroup -Location centralus
@@ -76,7 +76,7 @@ az keyvault set-policy \
   --secret-permissions set delete get list
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $userPrincipalName = "<Email Address of the deployment operator>"
@@ -91,11 +91,11 @@ Set-AzKeyVaultAccessPolicy `
 
 Aby uzyskać więcej informacji na temat tworzenia magazynów kluczy i dodawania wpisów tajnych, zobacz:
 
-- [Ustawianie i pobieranie klucza tajnego przy użyciu interfejsu wiersza polecenia](../../key-vault/quick-create-cli.md)
-- [Ustawianie i pobieranie klucza tajnego przy użyciu programu Powershell](../../key-vault/quick-create-powershell.md)
-- [Ustawianie i pobieranie klucza tajnego przy użyciu portalu](../../key-vault/quick-create-portal.md)
-- [Ustawianie i pobieranie klucza tajnego przy użyciu platformy .NET](../../key-vault/quick-create-net.md)
-- [Ustawianie i pobieranie klucza tajnego przy użyciu pliku Node.js](../../key-vault/quick-create-node.md)
+- [Ustawianie i pobieranie klucza tajnego przy użyciu interfejsu wiersza polecenia](../../key-vault/secrets/quick-create-cli.md)
+- [Ustawianie i pobieranie klucza tajnego przy użyciu programu Powershell](../../key-vault/secrets/quick-create-powershell.md)
+- [Ustawianie i pobieranie klucza tajnego przy użyciu portalu](../../key-vault/secrets/quick-create-portal.md)
+- [Ustawianie i pobieranie klucza tajnego przy użyciu platformy .NET](../../key-vault/secrets/quick-create-net.md)
+- [Ustawianie i pobieranie klucza tajnego przy użyciu pliku Node.js](../../key-vault/secrets/quick-create-node.md)
 
 ## <a name="grant-access-to-the-secrets"></a>Udziel dostępu do tajemnic
 
@@ -135,7 +135,7 @@ W poniższej procedurze pokazano, jak utworzyć rolę z minimalnym uprawnieniem 
       --resource-group ExampleGroup
     ```
 
-    # <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
     ```azurepowershell-interactive
     New-AzRoleDefinition -InputFile "<path-to-role-file>"
@@ -241,7 +241,7 @@ az deployment group create \
   --parameters <parameter-file>
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -375,5 +375,5 @@ Poniższy szablon dynamicznie tworzy identyfikator magazynu kluczy i przekazuje 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać ogólne informacje o magazynach kluczy, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/key-vault-overview.md).
+- Aby uzyskać ogólne informacje o magazynach kluczy, zobacz [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md).
 - Aby uzyskać pełne przykłady odwoływania się do kluczowych wpisów tajnych, zobacz [przykłady magazynu kluczy](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

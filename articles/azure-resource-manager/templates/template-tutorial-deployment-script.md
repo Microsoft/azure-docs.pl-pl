@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 94b351ddb18ca596f47e8ef40cff8229c838d7bd
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: f369eb54dc92a29ba122a8a645262dc085b1ed36
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239201"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80930047"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Samouczek: Tworzenie certyfikatu z podpisem własnym za pomocą skryptów wdrażania (wersja zapoznawcza)
 
@@ -48,13 +48,12 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  Użyj następującego skryptu programu PowerShell, aby uzyskać identyfikator, podając nazwę grupy zasobów i nazwę tożsamości.
+  Użyj następującego skryptu interfejsu wiersza polecenia, aby uzyskać identyfikator, podając nazwę grupy zasobów i nazwę tożsamości.
 
-  ```azurepowershell-interactive
-  $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
-  $idName = Read-Host -Prompt "Enter the name of the managed identity"
-
-  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  ```azurecli-interactive
+  echo "Enter the Resource Group name:" &&
+  read resourceGroupName &&
+  az identity list -g $resourceGroupName
   ```
 
 ## <a name="open-a-quickstart-template"></a>Otwieranie szablonu szybkiego startu
@@ -317,7 +316,7 @@ Wynik wykonania skryptu wdrażania jest przechowywany w zasobach skryptu wdraża
 
 ## <a name="debug-the-failed-script"></a>Debugowanie skryptu, który nie powiódł się
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Otwórz grupę zasobów. Jest to nazwa projektu z **rg** dołączone. Zobaczysz dwa dodatkowe zasoby w grupie zasobów. Zasoby te są określane jako *zasoby skryptu wdrażania*.
 
     ![Zasoby skryptu wdrażania szablonów Menedżera zasobów](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)

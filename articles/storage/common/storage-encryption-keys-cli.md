@@ -10,18 +10,18 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ea944d4cfa3006c33f1dee3dd8e6ee6088681aa7
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 796e3b3f46bc83b776826baf6e078c696eda543b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618644"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456775"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Konfigurowanie kluczy zarządzanych przez klienta za pomocą usługi Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-W tym artykule pokazano, jak skonfigurować usługę Azure Key Vault przy użyciu kluczy zarządzanych przez klienta przy użyciu interfejsu wiersza polecenia platformy Azure. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [Szybki start: Ustawianie i pobieranie klucza tajnego z usługi Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](../../key-vault/quick-create-cli.md).
+W tym artykule pokazano, jak skonfigurować usługę Azure Key Vault przy użyciu kluczy zarządzanych przez klienta przy użyciu interfejsu wiersza polecenia platformy Azure. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [Szybki start: Ustawianie i pobieranie klucza tajnego z usługi Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](../../key-vault/secrets/quick-create-cli.md).
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Przypisywanie tożsamości do konta magazynu
 
@@ -55,7 +55,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Aby dowiedzieć się, jak włączyć **usuwanie programów trwałych** i **nie czyścić** w istniejącym magazynie kluczy za pomocą interfejsu wiersza polecenia platformy Azure, zobacz sekcje **"Włączanie usuwania nietrwałego** i **włączanie ochrony przed przeczyszczaniem** w [sekcji Jak używać usuwania nietrwałego za pomocą interfejsu wiersza polecenia.](../../key-vault/key-vault-soft-delete-cli.md)
+Aby dowiedzieć się, jak włączyć **usuwanie programów trwałych** i **nie czyścić** w istniejącym magazynie kluczy za pomocą interfejsu wiersza polecenia platformy Azure, zobacz sekcje **"Włączanie usuwania nietrwałego** i **włączanie ochrony przed przeczyszczaniem** w [sekcji Jak używać usuwania nietrwałego za pomocą interfejsu wiersza polecenia.](../../key-vault/general/soft-delete-cli.md)
 
 ## <a name="configure-the-key-vault-access-policy"></a>Konfigurowanie zasad dostępu do magazynu kluczy
 

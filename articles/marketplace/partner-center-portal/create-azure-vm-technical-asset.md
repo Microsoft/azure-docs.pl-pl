@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: eb885d0e965579b1ab2d66395f9f96eab0845bae
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 46c59e8b4e60fbe17887ea0fc375b6da758ebf50
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266502"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457403"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
 
@@ -281,8 +281,8 @@ Poniższy proces uogólnia maszynę wirtualną z systemem Linux i ponownie wdro�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli napotkano trudności z utworzeniem nowego dysku VHD opartego na platformie Azure, zobacz [Typowe problemy podczas tworzenia dysków VHD.](https://aka.ms/AzureVM_VHDCreationFAQ)
+Jeśli napotkano trudności z utworzeniem nowego dysku VHD opartego na platformie Azure, zobacz [Typowe problemy podczas tworzenia dysków VHD.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues)
 
 W przeciwnym razie:
 
-* [Certyfikuj obraz maszyny Wirtualnej,](https://aks.ms/CertifyVMimage) wyjaśniając, jak przetestować i przesłać obraz maszyny Wirtualnej do certyfikacji usługi Azure Marketplace, w tym gdzie uzyskać *narzędzie testowe certyfikacji dla platformy Azure* certified i jak go używać do certyfikacji obrazu maszyny wirtualnej.
+* [Certyfikuj obraz maszyny Wirtualnej,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri) wyjaśniając, jak przetestować i przesłać obraz maszyny Wirtualnej do certyfikacji usługi Azure Marketplace, w tym gdzie uzyskać *narzędzie testowe certyfikacji dla platformy Azure* certified i jak go używać do certyfikacji obrazu maszyny wirtualnej.

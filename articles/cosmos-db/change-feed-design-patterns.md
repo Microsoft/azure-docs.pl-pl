@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 7e6981fb57421846b491693bb6195ecef31a3773
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 012d27b44ecfbdd460adf241742df397880f78c6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986306"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450355"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Zmienianie wzorców projektowania pliku danych w usłudze Azure Cosmos DB
 
@@ -99,7 +99,7 @@ Rozważmy na przykład aplikacji sieci sprzedaży przy użyciu wzorca projektowa
 
 1. Klient dodaje przedmiot A do koszyka
 2. Klient dodaje przedmiot B do koszyka
-3. Klient dodaje usuwa element A z koszyka
+3. Klient usuwa przedmiot A z koszyka
 4. Wyewidencjonowywania klienta i zawartość koszyka są wysyłane
 
 Zmaterializowany widok bieżącej zawartości koszyka jest zachowywany dla każdego klienta. Ta aplikacja musi upewnić się, że te zdarzenia są przetwarzane w kolejności, w jakiej występują. Jeśli na przykład wyewidencjonowanie koszyka miało zostać przetworzone przed usunięciem towaru A, jest prawdopodobne, że odbiorca miałby towar A wysłany, w przeciwieństwie do żądanego towaru B. Aby zagwarantować, że te cztery zdarzenia są przetwarzane w kolejności ich wystąpienia, powinny one mieszczą się w tej samej wartości klucza partycji. Jeśli wybierzesz **nazwę użytkownika** (każdy klient ma unikatową nazwę użytkownika) jako klucz partycji, możesz zagwarantować, że te zdarzenia są wyświetlane w zestawieniu zmian w tej samej kolejności, w jakiej są zapisywane w usłudze Azure Cosmos DB.

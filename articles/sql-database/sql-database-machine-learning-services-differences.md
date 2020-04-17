@@ -12,12 +12,13 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
-ms.openlocfilehash: 533e2b9e50a92cce1419da521d8cebc4955e4df6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ROBOTS: NOINDEX
+ms.openlocfilehash: 34ba75b6126024c9cd43d6fe474f7c1b62dd990f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74462111"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453153"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Kluczowe różnice między usługami uczenia maszynowego w bazie danych SQL Azure (wersja zapoznawcza) i sql server
 
@@ -31,7 +32,7 @@ SQL Server ma obsługę języka R i Python za pośrednictwem [struktury rozszerz
 
 - R jest jedynym obsługiwanym językiem w bazie danych SQL. W tej chwili język Python nie jest obsługiwany.
 - Wersja R to 3.4.4.
-- Nie ma potrzeby `external scripts enabled` konfigurowania `sp_configure`za pośrednictwem . Po zarejestrowaniu [się](sql-database-machine-learning-services-overview.md#signup)uczenie maszynowe jest włączone dla bazy danych SQL.
+- Nie ma potrzeby `external scripts enabled` konfigurowania `sp_configure`za pośrednictwem .
 
 ## <a name="package-management"></a>Zarządzanie pakietami
 

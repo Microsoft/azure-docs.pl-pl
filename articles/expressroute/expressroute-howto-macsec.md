@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 626302845dfb4b19deb921675601818b35ab8edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 572147ca43e9a4dea9d9601dfa1dac8ba1c97ed0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083545"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458236"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Konfigurowanie macsec na portach Direct usługi ExpressRoute
 
@@ -47,7 +47,7 @@ Aby rozpocząć konfigurację, zaloguj się do konta platformy Azure i wybierz s
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    Jeśli masz już magazyn kluczy lub grupę zasobów, możesz ich użyć ponownie. Ważne jest jednak, aby włączyć funkcję [ **usuwania nietrwałego** ](../key-vault/key-vault-ovw-soft-delete.md) w istniejącym magazynie kluczy. Jeśli usuwanie nie jest włączone, można użyć następujących poleceń, aby go włączyć:
+    Jeśli masz już magazyn kluczy lub grupę zasobów, możesz ich użyć ponownie. Ważne jest jednak, aby włączyć funkcję [ **usuwania nietrwałego** ](../key-vault/general/overview-soft-delete.md) w istniejącym magazynie kluczy. Jeśli usuwanie nie jest włączone, można użyć następujących poleceń, aby go włączyć:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"

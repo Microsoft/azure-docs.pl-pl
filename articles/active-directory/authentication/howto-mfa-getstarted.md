@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a70c6ae3ebc7f5b39550508594bd4d4907e68a67
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 845a202faccbbe0a604560ac57ae30f87344b95a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667341"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451129"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planowanie wdrożenia uwierzytelniania wieloskładnikowego platformy Azure
 
@@ -144,7 +144,7 @@ Wiadomość tekstowa zawierająca kod weryfikacyjny jest wysyłana do użytkowni
 
 ## <a name="plan-registration-policy"></a>Zasady rejestracji planu
 
-Administratorzy muszą określić, w jaki sposób użytkownicy będą rejestrować swoje metody. Organizacje powinny [włączyć nowe środowisko połączonej rejestracji](howto-registration-mfa-sspr-combined.md) usługi Azure MFA i samoobsługowego resetowania haseł (SSPR). Funkcja SSPR umożliwia użytkownikom resetowanie hasła w bezpieczny sposób przy użyciu tych samych metod, których używają do uwierzytelniania wieloskładnikowego. Zalecamy tę połączoną rejestrację, obecnie w publicznej wersji zapoznawczej, ponieważ jest to doskonałe środowisko dla użytkowników, z możliwością rejestracji raz dla obu usług. Włączenie tych samych metod dla samowoluuszu SSPR i usługi Azure MFA umożliwi użytkownikom zarejestrowanych do korzystania z obu funkcji.
+Administratorzy muszą określić, w jaki sposób użytkownicy będą rejestrować swoje metody. Organizacje powinny [włączyć nowe środowisko połączonej rejestracji](howto-registration-mfa-sspr-combined.md) usługi Azure MFA i samoobsługowego resetowania haseł (SSPR). Funkcja SSPR umożliwia użytkownikom resetowanie hasła w bezpieczny sposób przy użyciu tych samych metod, których używają do uwierzytelniania wieloskładnikowego. Zalecamy tę połączoną rejestrację, ponieważ jest to doskonałe środowisko dla użytkowników, z możliwością rejestracji raz dla obu usług. Włączenie tych samych metod dla samowoluuszu SSPR i usługi Azure MFA umożliwi użytkownikom zarejestrowanych do korzystania z obu funkcji.
 
 ### <a name="registration-with-identity-protection"></a>Rejestracja w ochronie tożsamości
 

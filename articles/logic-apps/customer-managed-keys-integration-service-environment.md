@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7314559849f0b2019820ec3cb4fb10c684d330d6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127638"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458441"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania danych w stanie spoczynku dla środowisk usług integracyjnych (ISE) w usłudze Azure Logic Apps
 
 Usługa Azure Logic Apps polega na usłudze Azure Storage do przechowywania i automatycznego [szyfrowania danych w spoczynku.](../storage/common/storage-service-encryption.md) To szyfrowanie chroni dane i pomaga spełnić zobowiązania dotyczące zabezpieczeń i zgodności z przepisami organizacji. Domyślnie usługa Azure Storage używa kluczy zarządzanych przez firmę Microsoft do szyfrowania danych. Aby uzyskać więcej informacji na temat funkcjonowania szyfrowania usługi Azure Storage, zobacz [Szyfrowanie usługi Azure Storage w celu uzyskania danych w spoczynku](../storage/common/storage-service-encryption.md) i [szyfrowanie danych platformy Azure w spoczynku.](../security/fundamentals/encryption-atrest.md)
 
-Podczas tworzenia [środowiska usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) do obsługi aplikacji logiki i chcesz mieć większą kontrolę nad kluczami szyfrowania używanymi przez usługę Azure Storage, można skonfigurować, używać i zarządzać własnym kluczem przy użyciu [usługi Azure Key Vault](../key-vault/key-vault-overview.md). Ta funkcja jest również znana jako "Bring Your Own Key" (BYOK), a klucz jest nazywany "kluczem zarządzanym przez klienta".
+Podczas tworzenia [środowiska usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) do obsługi aplikacji logiki i chcesz mieć większą kontrolę nad kluczami szyfrowania używanymi przez usługę Azure Storage, można skonfigurować, używać i zarządzać własnym kluczem przy użyciu [usługi Azure Key Vault](../key-vault/general/overview.md). Ta funkcja jest również znana jako "Bring Your Own Key" (BYOK), a klucz jest nazywany "kluczem zarządzanym przez klienta".
 
 W tym temacie pokazano, jak skonfigurować i określić własny klucz szyfrowania do użycia podczas tworzenia interfejsu ISE przy użyciu interfejsu API REST aplikacji logiki. Aby uzyskać ogólne kroki tworzenia środowiska ISE za pośrednictwem interfejsu API REST aplikacji logiki, zobacz [Tworzenie środowiska usługi integracji (ISE) przy użyciu interfejsu API REST aplikacji logiki](../logic-apps/create-integration-service-environment-rest-api.md).
 
@@ -39,7 +39,7 @@ W tym temacie pokazano, jak skonfigurować i określić własny klucz szyfrowani
 
 * Magazyn kluczy platformy Azure z włączonymi właściwościami **Usuwanie nietrwale** i **Nie przeczyszczaj**
 
-  Aby uzyskać więcej informacji na temat włączania tych właściwości, zobacz [Omówienie usuwania programów nietrwałych usługi Azure Key Vault](../key-vault/key-vault-ovw-soft-delete.md) i [konfigurowanie kluczy zarządzanych przez klienta za pomocą usługi Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Jeśli jesteś nowym użytkownikiem usługi Azure Key Vault, dowiedz się, [jak utworzyć magazyn kluczy](../key-vault/quick-create-portal.md#create-a-vault) przy użyciu witryny Azure portal lub za pomocą polecenia Azure PowerShell, [New-AzKeyVault.](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)
+  Aby uzyskać więcej informacji na temat włączania tych właściwości, zobacz [Omówienie usuwania programów nietrwałych usługi Azure Key Vault](../key-vault/general/overview-soft-delete.md) i [konfigurowanie kluczy zarządzanych przez klienta za pomocą usługi Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Jeśli jesteś nowym użytkownikiem usługi Azure Key Vault, dowiedz się, [jak utworzyć magazyn kluczy](../key-vault/secrets/quick-create-portal.md#create-a-vault) przy użyciu witryny Azure portal lub za pomocą polecenia Azure PowerShell, [New-AzKeyVault.](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault)
 
 * W magazynie kluczy klucz, który jest tworzony przy następujących wartościach właściwości:
 
@@ -225,8 +225,8 @@ W tym zadaniu można użyć polecenia Azure PowerShell [Set-AzKeyVaultAccessPoli
 
    1. Po zakończeniu pracy z okienkiem **Zasady programu Access** wybierz pozycję **Zapisz**.
 
-Aby uzyskać więcej informacji, zobacz [Zapewnianie uwierzytelniania magazynu kluczy z tożsamością zarządzaną](../key-vault/managed-identity.md#grant-your-app-access-to-key-vault).
+Aby uzyskać więcej informacji, zobacz [Zapewnianie uwierzytelniania magazynu kluczy z tożsamością zarządzaną](../key-vault/general/managed-identity.md#grant-your-app-access-to-key-vault).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [usłudze Azure Key Vault](../key-vault/key-vault-overview.md)
+* Dowiedz się więcej o [usłudze Azure Key Vault](../key-vault/general/overview.md)

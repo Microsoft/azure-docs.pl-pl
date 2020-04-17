@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d7d0baacd5f702e8f435ab440eaf0338a60f4cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a043bcc2f81214b68b166d443baead6cd230184
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500774"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457505"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Zarządzanie uruchamianiem automatyzacji platformy Azure jako kontami
 
@@ -464,7 +464,7 @@ Można zezwolić usługi Azure Automation, aby sprawdzić, czy usługa Key Vault
 * Udziel uprawnień do magazynu kluczy.
 * Ustaw zasady dostępu.
 
-Skrypt [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) można użyć w Galerii programu PowerShell, aby nadać przechowalnię konta Uruchom jako. Aby uzyskać więcej informacji na temat ustawiania uprawnień w magazynie kluczy, zobacz [Udzielanie aplikacjom dostępu do magazynu kluczy.](../key-vault/key-vault-group-permissions-for-apps.md)
+Skrypt [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) można użyć w Galerii programu PowerShell, aby nadać przechowalnię konta Uruchom jako. Aby uzyskać więcej informacji na temat ustawiania uprawnień w magazynie kluczy, zobacz [Udzielanie aplikacjom dostępu do magazynu kluczy.](../key-vault/general/group-permissions-for-apps.md)
 
 ## <a name="resolving-misconfiguration-issues-for-run-as-accounts"></a>Rozwiązywanie problemów z nieprawidłową konfiguracją dla kont Uruchom jako
 

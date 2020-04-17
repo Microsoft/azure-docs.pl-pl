@@ -1,5 +1,5 @@
 ---
-title: Szyfruj bezpieczne zasoby w usłudze Azure Automation
+title: Szyfrowanie zabezpieczonych zasobów w usłudze Azure Automation
 description: Usługa Azure Automation chroni bezpieczne zasoby przy użyciu wielu poziomów szyfrowania. Domyślnie szyfrowanie odbywa się przy użyciu kluczy zarządzanych przez firmę Microsoft. Klienci mogą skonfigurować swoje konta automatyzacji do używania kluczy zarządzanych przez klienta do szyfrowania. W tym artykule opisano szczegóły obu trybów szyfrowania i jak można przełączać się między nimi.
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a82d2b6d9521ba7dd5e7b194c26ff8fe5a100871
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547753"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457488"
 ---
-# <a name="encrypt-secure-assets-in-azure-automation"></a>Szyfruj bezpieczne zasoby w usłudze Azure Automation
+# <a name="encrypt-secure-assets-in-azure-automation"></a>Szyfrowanie zabezpieczonych zasobów w usłudze Azure Automation
 
 Bezpieczne zasoby w usłudze Azure Automation obejmują poświadczenia, certyfikaty, połączenia i zaszyfrowane zmienne. Te zasoby są chronione w usłudze Azure Automation przy użyciu wielu poziomów szyfrowania. Na podstawie klucza najwyższego poziomu używanego do szyfrowania istnieją dwa modele szyfrowania:
 -    Korzystanie z kluczy zarządzanych przez firmę Microsoft
@@ -32,7 +32,7 @@ Każdy bezpieczny zasób jest szyfrowany i przechowywany w usłudze Azure Automa
 
 Szyfrowanie bezpiecznych zasobów dla konta automatyzacji można zarządzać za pomocą własnych kluczy. Po określeniu klucza zarządzanego przez klienta na poziomie konta automatyzacji, ten klucz jest używany do ochrony i kontrolowania dostępu do klucza szyfrowania konta dla konta automatyzacji. To z kolei służy do szyfrowania i odszyfrowywania wszystkich bezpiecznych zasobów. Klucze zarządzane przez klienta oferują większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Można również przeprowadzić inspekcję kluczy szyfrowania używanych do ochrony bezpiecznych zasobów.
 
-Użyj usługi Azure Key Vault do przechowywania kluczy zarządzanych przez klienta. Można utworzyć własne klucze i przechowywać je w magazynie kluczy lub można użyć interfejsów API usługi Azure Key Vault do generowania kluczy.  Aby uzyskać więcej informacji na temat usługi Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](../key-vault/key-vault-overview.md)
+Użyj usługi Azure Key Vault do przechowywania kluczy zarządzanych przez klienta. Można utworzyć własne klucze i przechowywać je w magazynie kluczy lub można użyć interfejsów API usługi Azure Key Vault do generowania kluczy.  Aby uzyskać więcej informacji na temat usługi Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](../key-vault/general/overview.md)
 
 ## <a name="enable-customer-managed-keys-for-an-automation-account"></a>Włączanie kluczy zarządzanych przez klienta dla konta automatyzacji
 
@@ -192,7 +192,7 @@ Aby odwołać dostęp do kluczy zarządzanych przez klienta, należy użyć prog
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest usługa Azure Key Vault?](../key-vault/key-vault-overview.md)
+- [Co to jest usługa Azure Key Vault?](../key-vault/general/overview.md)
 
 - [Zasoby certyfikatów w usłudze Azure Automation](shared-resources/certificates.md)
 

@@ -3,12 +3,12 @@ title: Omówienie przykładu strategii usług udostępnionych ISO 27001
 description: Omówienie i architektura przykładu strategii usług udostępnionych ISO 27001. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli ISO 27001.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381572"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458458"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Omówienie przykładu strategii usług udostępnionych ISO 27001.
 
@@ -34,7 +34,7 @@ To środowisko składa się z kilku usług platformy Azure, które udostępniaj�
   - Host przesiadkowy lub host bastionu używany do zarządzania, który jest dostępny tylko za pośrednictwem usługi [Azure Firewall](../../../../firewall/overview.md) wdrożonej w podsieci stosu przychodzącego
   - Dwie maszyny wirtualne z uruchomionymi usługami Active Directory Domain Services (ADDS) i systemem DNS dostępne tylko za pośrednictwem serwera przesiadkowego, które można skonfigurować tylko do replikacji usługi AD za pośrednictwem sieci VPN lub połączenia usługi [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (nie są wdrażane w ramach strategii)
   - Korzystanie z usługi [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) i standardowej ochrony przed atakami DDoS
-- Wystąpienie usługi [Azure Key Vault](../../../../key-vault/key-vault-overview.md) umożliwiające hostowanie wpisów tajnych używanych na potrzeby maszyn wirtualnych wdrożonych w środowisku usług udostępnionych
+- Wystąpienie usługi [Azure Key Vault](../../../../key-vault/general/overview.md) umożliwiające hostowanie wpisów tajnych używanych na potrzeby maszyn wirtualnych wdrożonych w środowisku usług udostępnionych
 
 Wszystkie te elementy są zgodne ze sprawdzonymi rozwiązaniami opublikowanymi na stronie [Centrum architektury platformy Azure — architektury referencyjne](/azure/architecture/reference-architectures/).
 

@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: f434ad6e19c89f248fec948c0a049fabb0f7c476
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248439"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458287"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Klucz tajny magazynu kluczy dostępu podczas wdrażania aplikacji zarządzanych platformy Azure
 
-Jeśli musisz przekazać bezpieczną wartość (np. hasło) jako parametr podczas wdrażania, możesz pobrać wartość z [usługi Azure Key Vault](../../key-vault/key-vault-overview.md). Aby uzyskać dostęp do magazynu kluczy podczas wdrażania aplikacji zarządzanych, należy udzielić dostępu do jednostki usługi **dostawcy zasobów urządzenia.** Usługa Aplikacje zarządzane używa tej tożsamości do uruchamiania operacji. Aby pomyślnie pobrać wartość z magazynu kluczy podczas wdrażania, podmiot usługi musi mieć dostęp do usługi Key Vault.
+Jeśli musisz przekazać bezpieczną wartość (np. hasło) jako parametr podczas wdrażania, możesz pobrać wartość z [usługi Azure Key Vault](../../key-vault/general/overview.md). Aby uzyskać dostęp do magazynu kluczy podczas wdrażania aplikacji zarządzanych, należy udzielić dostępu do jednostki usługi **dostawcy zasobów urządzenia.** Usługa Aplikacje zarządzane używa tej tożsamości do uruchamiania operacji. Aby pomyślnie pobrać wartość z magazynu kluczy podczas wdrażania, podmiot usługi musi mieć dostęp do usługi Key Vault.
 
 W tym artykule opisano sposób konfigurowania magazynu kluczy do pracy z aplikacjami zarządzanymi.
 
@@ -48,7 +48,7 @@ W tym artykule opisano sposób konfigurowania magazynu kluczy do pracy z aplikac
 
    ![Wyszukaj dostawcę](./media/key-vault-access/search-provider.png)
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="reference-key-vault-secret"></a>Klucz tajny magazynu kluczy referencyjnych
 

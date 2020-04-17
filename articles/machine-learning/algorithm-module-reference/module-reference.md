@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: peterclu
-ms.author: peterlu
-ms.date: 02/22/2020
-ms.openlocfilehash: 7fcfc7c15f94d7b569629e53534d731126172260
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+author: likebupt
+ms.author: keli19
+ms.date: 04/13/2020
+ms.openlocfilehash: c46c21b5662b924552f850f226a12c7350b4625a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399058"
+ms.locfileid: "81458203"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Odwołanie do modułu & algorytmu dla projektanta usługi Azure Machine Learning (wersja zapoznawcza)
 
@@ -59,6 +59,10 @@ Aby uzyskać pomoc dotyczącą wyboru algorytmów, zobacz
 | Zalecenie | Tworzenie modeli rekomendacji. | [Ocena modułu poleceń](evaluate-recommender.md) <br/> [Wynik modułu poleceń SVD](score-svd-recommender.md) <br/> [Trenowanie modułu poleceń SVD](train-SVD-recommender.md) |
 | Wykrywanie anomalii | Tworzenie modeli wykrywania anomalii. | [Wykrywanie anomalii oparte na pca](pca-based-anomaly-detection.md) <br/> [Model wykrywania anomalii pociągu](train-anomaly-detection-model.md) |
 
+
+## <a name="web-service"></a>Usługa internetowa
+
+Dowiedz się więcej o [modułach usługi sieci web,](web-service-input-output.md) które są niezbędne do wnioskowania w czasie rzeczywistym w projektancie usługi Azure Machine Learning.
 
 ## <a name="error-messages"></a>Komunikaty o błędach
 

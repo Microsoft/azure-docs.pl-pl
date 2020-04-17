@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1e4470ce5ac69390cf8d361577b9ebf0013e4e51
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 861c7ffa647c8d2f37b32c359253ca991eeb314f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405786"
+ms.locfileid: "81457709"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatyzuj zasoby w centrum danych lub w chmurze przy użyciu hybrydowego środowiska roboczego żyli
 
@@ -68,7 +68,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 ```
 
 > [!NOTE]
-> Ten kod nie usuwa agenta monitorowania firmy Microsoft z komputera. Usuwa tylko funkcje i konfigurację roli Hybrydowy proces roboczy podręcznika.
+> Ten kod nie usuwa agenta usługi Log Analytics dla systemu Linux z komputera. Usuwa tylko funkcje i konfigurację roli Hybrydowy proces roboczy podręcznika.
 
 ## <a name="remove-a-hybrid-worker-group"></a>Remove a Hybrid Worker group (Usuwanie grupy hybrydowego procesu roboczego)
 
@@ -89,7 +89,7 @@ Aby usunąć grupę hybrydowego elementu roboczego elementu runbook, należy naj
 
 ### <a name="hybrid-worker-role"></a>Rola hybrydowego pracownika
 
-Aby proces roboczy hybrydowego systemu runbook mógł się połączyć z usługą Azure Automation i zarejestrować się w niej, musi mieć dostęp do numeru portu i adresów URL opisanych w tej sekcji. Ten dostęp jest na górze do [portów i adresów URL wymaganych dla programu Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) do łączenia się z dziennikami usługi Azure Monitor.
+Aby proces roboczy hybrydowego systemu runbook mógł się połączyć z usługą Azure Automation i zarejestrować się w niej, musi mieć dostęp do numeru portu i adresów URL opisanych w tej sekcji. Ten dostęp jest na górze do [portów i adresów URL wymaganych dla agenta usługi Log Analytics,](../azure-monitor/platform/agent-windows.md) aby połączyć się z dziennikami usługi Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

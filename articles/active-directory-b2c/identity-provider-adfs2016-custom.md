@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bfe39d9528927f995d14772e07e02b2a0528e5e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 000f63ef5f73e77eb22fb539fc6736b929ac6bcc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188532"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451571"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Dodawanie usługi ADFS jako dostawcy tożsamości SAML przy użyciu zasad niestandardowych w usłudze Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ W tym artykule pokazano, jak włączyć logowanie się do konta użytkownika us�
 
 Należy przechowywać certyfikat w dzierżawie usługi Azure AD B2C.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD B2C. Wybierz filtr **Katalog + subskrypcja** w górnym menu i wybierz katalog zawierający dzierżawę.
 3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 4. Na stronie Przegląd wybierz pozycję **Identity Experience Framework**.
@@ -169,7 +169,7 @@ Teraz, gdy masz przycisk w miejscu, musisz połączyć go z działaniem. Akcja, 
 Aby używać usługi ADFS jako dostawcy tożsamości w usłudze Azure AD B2C, należy utworzyć zaufanie jednostki uzależniającej usługi ADFS z metadanymi SAML usługi Azure AD B2C. W poniższym przykładzie pokazano adres URL do metadanych SAML profilu technicznego usługi Azure AD B2C:
 
 ```
-https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Zastąp następujące wartości:

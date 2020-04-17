@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f69a94e17155ff93510d09f666bce12f628274f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c8081bb8145a6654c168fb2d664e1666b32dc18
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295175"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457913"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Dostęp warunkowy: zabezpieczanie rejestracji informacji zabezpieczających
 
@@ -32,9 +32,9 @@ Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników, któ
 1. W obszarze **Przydziały**wybierz **pozycję Użytkownicy i grupy**i wybierz użytkowników i grupy, do których ma zostać zastosowane ta zasada.
 
    > [!WARNING]
-   > Użytkownicy muszą być włączeni dla [połączonej wersji zapoznawczej rejestracji](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Użytkownicy muszą być włączeni dla [połączonej rejestracji](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. W obszarze **Aplikacje lub akcje w chmurze**wybierz pozycję **Akcje użytkownika**, zaznacz pozycję **Zarejestruj informacje zabezpieczające (wersja zapoznawcza)**.
+1. W obszarze **Aplikacje lub akcje w chmurze**wybierz pozycję **Akcje użytkownika**, zaznacz pozycję **Zarejestruj informacje o zabezpieczeniach**.
 1. W **warunkach** > **Lokalizacje**.
    1. Skonfiguruj **Tak**.
    1. Uwzględnij **dowolną lokalizację**.

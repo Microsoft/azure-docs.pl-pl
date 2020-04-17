@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: af44f4a96567cc86c9f884cdfe5e28ff6b7bd8f3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 787809e4132defa101bb82659e8af1a2d9f1b9b6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897699"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453815"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Samouczek: zabezpieczanie połączenia usługi Azure SQL Database z usługi App Service za pomocą tożsamości zarządzanej
 
@@ -128,7 +128,7 @@ W *witrynie Web.config*działa od góry pliku i wprowadzaj następujące zmiany:
 - Znajdź wywołany `MyDbConnection` ciąg połączenia `connectionString` i `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`zastąp jego wartość . Zastąp _ \<nazwę serwera>_ i _ \<>nazwy db_ nazwą serwera i nazwą bazy danych.
 
 > [!NOTE]
-> SqlAuthenticationProvider właśnie zarejestrowany jest oparty na górze biblioteki AppAuthentication zainstalowanej wcześniej. Domyślnie używa tożsamości przypisanej do systemu. Aby wykorzystać tożsamość przypisaną przez użytkownika, należy podać dodatkową konfigurację. Zobacz [obsługę ciągu połączenia](../key-vault/service-to-service-authentication.md#connection-string-support) dla biblioteki AppAuthentication.
+> SqlAuthenticationProvider właśnie zarejestrowany jest oparty na górze biblioteki AppAuthentication zainstalowanej wcześniej. Domyślnie używa tożsamości przypisanej do systemu. Aby wykorzystać tożsamość przypisaną przez użytkownika, należy podać dodatkową konfigurację. Zobacz [obsługę ciągu połączenia](../key-vault/general/service-to-service-authentication.md#connection-string-support) dla biblioteki AppAuthentication.
 
 To wszystko, czego potrzebujesz, aby połączyć się z bazą danych SQL. Podczas debugowania w programie Visual Studio, kod używa użytkownika usługi Azure AD skonfigurowany w [programie Set up Visual Studio](#set-up-visual-studio). Później skonfigurujesz serwer bazy danych SQL, aby zezwolić na połączenie z tożsamości zarządzanej aplikacji usługi App Service.
 

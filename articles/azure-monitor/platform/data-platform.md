@@ -4,18 +4,17 @@ description: Monitorowanie danych zebranych przez usługę Azure Monitor jest po
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: a1b5859341237c1b177ee8deaf636a67f4824948
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666551"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457267"
 ---
 # <a name="azure-monitor-data-platform"></a>Platforma danych Usługi Azure Monitor
 
@@ -68,11 +67,11 @@ W poniższej tabeli porównano metryki i dzienniki w usłudze Azure Monitor.
 
 | Atrybut  | Metryki | Dzienniki |
 |:---|:---|:---|
-| Korzyści | Lekki i zdolny do niemal w czasie rzeczywistym scenariuszy, takich jak alerty. Idealny do szybkiego wykrywania problemów. | Analizowane z językiem zapytania. Idealny do głębokiej analizy i identyfikacji głównej przyczyny. |
+| Zalety | Lekki i zdolny do niemal w czasie rzeczywistym scenariuszy, takich jak alerty. Idealny do szybkiego wykrywania problemów. | Analizowane z językiem zapytania. Idealny do głębokiej analizy i identyfikacji głównej przyczyny. |
 | Dane | Tylko wartości liczbowe | Dane tekstowe lub liczbowe |
 | Struktura | Standardowy zestaw właściwości, w tym czas próbkowania, monitorowany zasób, wartość liczbowa. Niektóre metryki zawierają wiele wymiarów do dalszej definicji. | Unikatowy zestaw właściwości w zależności od typu dziennika. |
 | Collection | Zbierane w regularnych odstępach czasu. | Mogą być zbierane sporadycznie, gdy zdarzenia wyzwalają rekord, który ma zostać utworzony. |
-| Wyświetlanie w witrynie Azure portal | Eksplorator metryk | Log Analytics |
+| Wyświetlanie w witrynie Azure Portal | Eksplorator metryk | Log Analytics |
 | Źródła danych obejmują | Metryki platformy zebrane z zasobów platformy Azure.<br>Aplikacje monitorowane przez aplikację Insights.<br>Niestandardowe zdefiniowane przez aplikację lub interfejs API. | Dzienniki aplikacji i zasobów.<br>Rozwiązania do monitorowania.<br>Agenci i rozszerzenia maszyn wirtualnych.<br>Żądania aplikacji i wyjątki.<br>Centrum zabezpieczeń platformy Azure.<br>Interfejs API modułu zbierającego dane. |
 
 ## <a name="collect-monitoring-data"></a>Zbieranie danych z monitorowania

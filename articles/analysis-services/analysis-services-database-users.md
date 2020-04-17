@@ -4,15 +4,15 @@ description: Dowiedz się, jak zarządzać rolami bazy danych i użytkownikami n
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273697"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454207"
 ---
 # <a name="manage-database-roles-and-users"></a>Zarządzanie rolami i użytkownikami bazy danych
 
@@ -25,10 +25,9 @@ Uprawnienia do roli obejmują:
 *  **Proces** — użytkownicy mogą łączyć się z operacjami procesu i wykonywać je w bazie danych oraz analizować dane bazy danych modelu.
 *  **Odczyt** — użytkownicy mogą używać aplikacji klienckiej do łączenia się i analizowania danych bazy danych modelu.
 
-Podczas tworzenia projektu modelu tabelaryczne, można utworzyć role i dodać użytkowników lub grup do tych ról przy użyciu Menedżera ról w programie Visual Studio z analysis services projektów. Po wdrożeniu na serwerze do dodawania lub usuwania ról i członków użytkowników należy użyć polecenia cmdlet programu SQL Server Management Studio (SSMS), [Analysis Services PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)lub języka TMSL [(Tabular Model Scripting Language).](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)
+Podczas tworzenia projektu modelu tabelaryczne, można utworzyć role i dodać użytkowników lub grup do tych ról przy użyciu Menedżera ról w programie Visual Studio z analysis services projektów. Po wdrożeniu na serwerze użyj polecenia cmdlet programu SQL Server Management Studio (SSMS), [Analysis Services PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)lub [Języka skryptów modelu tabelaryjskiego](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL), aby dodać lub usunąć role i członków użytkownika.
 
-**Grupy zabezpieczeń** muszą być [włączone pocztę](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) z właściwością ustawioną na `MailEnabled` `True`. Podczas określania grupy według `obj:groupid@tenantid`adresu e-mail użyj .
-
+Podczas dodawania **grupy** `obj:groupid@tenantid`zabezpieczeń użyj .
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Aby dodać role i użytkowników w programie Visual Studio lub zarządzać nimi  
   

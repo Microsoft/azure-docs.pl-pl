@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c9933e75a39af43af9e2745d5f7732d40027b34
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582472"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451435"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planowanie wdrożenia uwierzytelniania bez hasła w usłudze Azure Active Directory
 
@@ -67,7 +67,7 @@ Przed rozpoczęciem wdrożenia bez hasła organizacje muszą spełniać następu
 
 | Wymagania wstępne | Aplikacja Authenticator | Klucze bezpieczeństwa FIDO2 |
 | --- | --- | --- |
-| [Łączona rejestracja dla uwierzytelniania wieloskładnikowego platformy Azure i samoobsługowego resetowania haseł (SSPR)](howto-registration-mfa-sspr-combined.md) jest włączona (funkcja w wersji zapoznawczej) | √ | √ |
+| [Łączona rejestracja dla uwierzytelniania wieloskładnikowego platformy Azure i samoobsługowego resetowania hasła (SSPR)](howto-registration-mfa-sspr-combined.md) jest włączona | √ | √ |
 | [Użytkownicy mogą wykonywać uwierzytelnianie wieloskładnikowe platformy Azure](howto-mfa-getstarted.md) | √ | √ |
 | [Użytkownicy zarejestrowali się w usłudze Azure Uwierzytelnianie wieloskładnikowe i wiele SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Użytkownicy zarejestrowali swoje urządzenia przenośne w usłudze Azure Active Directory](../devices/overview.md) | √ |   |

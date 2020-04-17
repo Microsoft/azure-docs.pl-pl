@@ -1,31 +1,26 @@
 ---
 title: Rozwiązywanie problemów z rejestracją skojarzoną — usługa Azure Active Directory
-description: Rozwiązywanie problemów z uwierzytelnianiem wieloskładnikowym usługi Azure AD i samoobsługową rejestracją przy resetowania hasła (wersja zapoznawcza)
+description: Rozwiązywanie problemów z uwierzytelnianiem wieloskładnikowym usługi Azure AD i samoobsługową rejestracją przy resetowania hasła
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74847392"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450942"
 ---
-# <a name="troubleshooting-combined-security-information-registration-preview"></a>Rozwiązywanie problemów z rejestracją połączonych informacji o zabezpieczeniach (wersja zapoznawcza)
+# <a name="troubleshooting-combined-security-information-registration"></a>Rozwiązywanie problemów z rejestracją połączonych informacji o zabezpieczeniach
 
 Informacje zawarte w tym artykule mają na celu poprowadzenie administratorów, którzy rozwiązują problemy zgłoszone przez użytkowników połączonego środowiska rejestracji.
-
-|     |
-| --- |
-| Połączone rejestracje informacji o zabezpieczeniach dla uwierzytelniania wieloskładnikowego platformy Azure i samoobsługowego resetowania hasła usługi Azure Active Directory (Azure AD) to publiczna funkcja w wersji zapoznawczej usługi Azure AD. Aby uzyskać więcej informacji na temat wersji zapoznawców, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
 
 ## <a name="audit-logs"></a>Dzienniki inspekcji
 
@@ -150,16 +145,16 @@ W oknie programu PowerShell uruchom następujące polecenie, podając lokalizacj
 
 `<script location> -path <user file location>`
 
-### <a name="disable-the-preview-experience"></a>Wyłączanie środowiska podglądu
+### <a name="disable-the-updated-experience"></a>Wyłączanie zaktualizowanego środowiska
 
-Aby wyłączyć środowisko podglądu dla użytkowników, wykonaj następujące kroki:
+Aby wyłączyć zaktualizowane środowisko dla użytkowników, wykonaj następujące kroki:
 
 1. Zaloguj się do witryny Azure portal jako administrator użytkownika.
 2. Przejdź do**ustawień** > użytkownika **usługi Azure Active Directory** > Zarządzanie**ustawieniami funkcji podglądu panelu dostępu**.
 3. W obszarze **Użytkownicy mogą używać funkcji podglądu do rejestrowania informacji zabezpieczających i zarządzania**nimi ustaw selektor na **Brak,** a następnie wybierz pozycję **Zapisz**.
 
-Użytkownicy nie będą już monitowani o rejestrację przy użyciu środowiska w wersji zapoznawczej.
+Użytkownicy nie będą już monitowani o rejestrację przy użyciu zaktualizowanego środowiska.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się więcej o publicznej wersji zapoznawczej połączonej rejestracji w celu samodzielnego resetowania hasła i uwierzytelniania wieloskładnikowego platformy Azure](concept-registration-mfa-sspr-combined.md)
+* [Dowiedz się więcej o połączonej rejestracji w celu samodzielnego resetowania haseł i uwierzytelniania wieloskładnikowego platformy Azure](concept-registration-mfa-sspr-combined.md)

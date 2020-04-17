@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 7ac657e6627aff4eb588506118e5eeeaef70efba
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548611"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454649"
 ---
 # <a name="azure-encryption-overview"></a>Omówienie szyfrowania platformy Azure
 
@@ -61,7 +61,7 @@ Trzy modele szyfrowania po stronie serwera oferują różne cechy zarządzania k
 
 Maszyny wirtualne systemu Windows i Linux można chronić za pomocą [szyfrowania dysków platformy Azure,](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)które wykorzystuje technologię [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) i Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do ochrony zarówno dysków systemu operacyjnego, jak i dysków danych za pomocą pełnego szyfrowania woluminów.
 
-Klucze szyfrowania i wpisy tajne są chronione w [subskrypcji usługi Azure Key Vault.](../../key-vault/key-vault-overview.md) Korzystając z usługi Azure Backup, można wykonać kopię zapasową i przywrócić zaszyfrowane maszyny wirtualne (VM), które używają konfiguracji klucza szyfrowania klucza (KEK).
+Klucze szyfrowania i wpisy tajne są chronione w [subskrypcji usługi Azure Key Vault.](../../key-vault/general/overview.md) Korzystając z usługi Azure Backup, można wykonać kopię zapasową i przywrócić zaszyfrowane maszyny wirtualne (VM), które używają konfiguracji klucza szyfrowania klucza (KEK).
 
 ### <a name="azure-storage-service-encryption"></a>Szyfrowanie usługi Azure Storage
 

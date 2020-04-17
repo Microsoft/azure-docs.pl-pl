@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 487559aaf632a30b7efcda490f92a90d4f59b8f5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 9f2ed6ea8cc75e2ee72f15c14f3de7bb8bf8cef6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883478"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450889"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifest aplikacji usługi Azure Active Directory
 
-Manifest aplikacji zawiera definicję wszystkich atrybutów obiektu aplikacji na platformie tożsamości firmy Microsoft. Służy również jako mechanizm aktualizacji obiektu aplikacji. Aby uzyskać więcej informacji na temat jednostki Aplikacji i jej schematu, zobacz [dokumentację jednostki aplikacji interfejsu API wykresu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+Manifest aplikacji zawiera definicję wszystkich atrybutów obiektu aplikacji na platformie tożsamości firmy Microsoft. Służy również jako mechanizm aktualizacji obiektu aplikacji. Aby uzyskać więcej informacji na temat jednostki Aplikacji i jej schematu, zobacz [dokumentację jednostki aplikacji interfejsu API wykresu](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
 
 Atrybuty aplikacji można skonfigurować za pośrednictwem witryny Azure Portal lub programowo przy użyciu [interfejsu API REST](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) lub programu [PowerShell.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications) Istnieją jednak scenariusze, w których należy edytować manifest aplikacji, aby skonfigurować atrybut aplikacji. Scenariusze obejmują:
 
@@ -40,6 +40,20 @@ Aby skonfigurować manifest aplikacji:
 ## <a name="manifest-reference"></a>Odwołanie do manifestu
 
 W tej sekcji opisano atrybuty znalezione w manifeście aplikacji.
+
+### <a name="id-attribute"></a>atrybut id
+
+| Klucz | Typ wartości |
+| :--- | :--- |
+| id | Ciąg |
+
+Unikatowy identyfikator aplikacji w katalogu. Ten identyfikator nie jest identyfikatorem używanym do identyfikowania aplikacji w dowolnej transakcji protokołu. Jest on używany do odwoływania się do obiektu w kwerendach katalogu.
+
+Przykład:
+
+```json
+    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
+```
 
 ### <a name="accesstokenacceptedversion-attribute"></a>atrybut accessTokenAcceptedVersion
 
@@ -230,19 +244,7 @@ Przykład:
     "optionalClaims": null,
 ```
 
-### <a name="id-attribute"></a>atrybut id
 
-| Klucz | Typ wartości |
-| :--- | :--- |
-| id | Ciąg |
-
-Unikatowy identyfikator aplikacji w katalogu. Ten identyfikator nie jest identyfikatorem używanym do identyfikowania aplikacji w dowolnej transakcji protokołu. Jest on używany do odwoływania się do obiektu w kwerendach katalogu.
-
-Przykład:
-
-```json
-    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
 
 ### <a name="identifieruris-attribute"></a>Atrybut identifierUris
 

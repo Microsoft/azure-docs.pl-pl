@@ -1,28 +1,28 @@
 ---
-title: Konfigurowanie informacji zabezpieczających (w wersji zapoznawczej) z monitu logowania — Usługa Azure AD
-description: Jak skonfigurować informacje zabezpieczające (wersja zapoznawcza) konta służbowego po wyświetleniu monitu ze strony logowania w organizacji.
+title: Konfigurowanie informacji zabezpieczających z monitu logowania — Usługa Azure AD
+description: Jak skonfigurować informacje zabezpieczające dla konta służbowego po wyświetleniu monitu ze strony logowania w organizacji.
 services: active-directory
 author: curtand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 08/05/2019
+ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: c216dbfef99422fc49fde774dc57d5cbcc9f879a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77063989"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454489"
 ---
-# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Konfigurowanie informacji zabezpieczających (podgląd) z monitu logowania
+# <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Konfigurowanie informacji zabezpieczających z monitu logowania
 
 Następujące kroki można wykonać w przypadku wyświetlenia monitu o skonfigurowanie informacji zabezpieczających natychmiast po zalogowaniu się na konto służbowe.
 
-Ten monit jest wyświetlany tylko wtedy, gdy użytkownik nie skonfigurował informacji zabezpieczających wymaganych przez organizację. Jeśli Twoje informacje zabezpieczające zostały już skonfigurowane wcześniej, ale chcesz wprowadzić zmiany, możesz wykonać kroki opisane w artykułach z instrukcjami dotyczącymi różnych metod. Aby uzyskać więcej informacji, zobacz [Dodawanie lub aktualizowanie informacji zabezpieczających — omówienie](security-info-add-update-methods-overview.md).
+Ten monit będzie widoczny tylko wtedy, gdy nie skonfigurowałeś informacji zabezpieczających wymaganych przez organizację. Jeśli Twoje informacje zabezpieczające zostały już skonfigurowane wcześniej, ale chcesz wprowadzić zmiany, możesz wykonać kroki opisane w artykułach z instrukcjami dotyczącymi różnych metod. Aby uzyskać więcej informacji, zobacz [Dodawanie lub aktualizowanie informacji zabezpieczających — omówienie](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -122,7 +122,7 @@ Wykonaj następujące kroki, aby skonfigurować informacje zabezpieczające dla 
 Niektóre aplikacje, takie jak Outlook 2010, nie obsługują weryfikacji dwuetapowej. Ten brak pomocy technicznej oznacza, że jeśli używasz weryfikacji dwuetapowej w organizacji, aplikacja nie będzie działać. Aby obejść ten problem, można utworzyć automatycznie generowane hasło do użycia z każdą aplikacją niebędącą przeglądarką, niezależnie od normalnego hasła.
 
 >[!Note]
->Jeśli ta opcja nie jest widoczna w kreatorze, oznacza to, że administrator jej nie skonfigurował. Jeśli ta funkcja nie jest skonfigurowana, ale wiesz, że musisz używać haseł aplikacji, możesz wykonać czynności opisane na [stronie Konfigurowanie haseł aplikacji na stronie Informacje zabezpieczające (wersja zapoznawcza).](security-info-app-passwords.md)
+>Jeśli ta opcja nie jest widoczna w kreatorze, oznacza to, że administrator jej nie skonfigurował. Jeśli ta funkcja nie jest skonfigurowana, ale wiesz, że musisz używać haseł aplikacji, możesz wykonać czynności opisane na [stronie Konfigurowanie haseł aplikacji na stronie Informacje o zabezpieczeniach](security-info-app-passwords.md).
 
 Podczas korzystania z haseł aplikacji należy pamiętać:
 

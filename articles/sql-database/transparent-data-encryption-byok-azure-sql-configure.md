@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 81927575b99604e71f7b0920bc3a448f7796f565
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b1c985eeec9af25ec576f4e2375c417dc376f95
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067187"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452761"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>Program PowerShell i cli: Włączanie przezroczystego szyfrowania danych za pomocą klucza zarządzanego przez klienta z usługi Azure Key Vault
 
@@ -28,19 +28,19 @@ W tym artykule opisano, jak używać klucza z usługi Azure Key Vault dla przezr
 - [Zalecane, ale opcjonalne] Mieć sprzętowy moduł zabezpieczeń (HSM) lub lokalny magazyn kluczy do tworzenia lokalnej kopii materiału klucza TDE Protector.
 - Musisz mieć zainstalowany i uruchomiony program Azure PowerShell.
 - Utwórz usługę Azure Key Vault i Key do użycia w tde.
-  - [Instrukcje dotyczące używania sprzętowego modułu zabezpieczeń (HSM) i usługi Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+  - [Instrukcje dotyczące używania sprzętowego modułu zabezpieczeń (HSM) i usługi Key Vault](../key-vault/keys/hsm-protected-keys.md)
     - Magazyn kluczy musi mieć następującą właściwość, która ma być używana dla TDE:
-  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md) i ochrona przed czyszczeniem
+  - [soft-delete](../key-vault/general/overview-soft-delete.md) i ochrona przed czyszczeniem
 - Klucz musi mieć następujące atrybuty, które mają być używane dla TDE:
    - Brak daty ważności
    - Nie wyłączono
    - Możliwość wykonywania *get*, *wrap key*, *rozpakować kluczowych* operacji
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby uzyskać instrukcje dotyczące instalacji modułu Az, zobacz [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps). Aby zapoznać się z określonymi poleceniami cmdlet, zobacz [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
-Aby uzyskać szczegółowe dane dotyczące usługi Key Vault, zobacz [Instrukcje programu PowerShell z usługi Key Vault](../key-vault/quick-create-powershell.md) i Jak używać funkcji [usuwania programów Key Vault w programie PowerShell](../key-vault/key-vault-soft-delete-powershell.md).
+Aby uzyskać szczegółowe dane dotyczące usługi Key Vault, zobacz [Instrukcje programu PowerShell z usługi Key Vault](../key-vault/secrets/quick-create-powershell.md) i Jak używać funkcji [usuwania programów Key Vault w programie PowerShell](../key-vault/general/soft-delete-powershell.md).
 
 > [!IMPORTANT]
 > Moduł programu PowerShell Azure Resource Manager (RM) jest nadal obsługiwany przez usługę Azure SQL Database, ale wszystkie przyszłe prace rozwojowe są przeznaczone dla modułu Az.Sql. Moduł AzureRM będzie nadal otrzymywać poprawki błędów co najmniej do grudnia 2020.  Argumenty dla poleceń w module Az i w modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji na temat ich zgodności, zobacz [Przedstawianie nowego modułu Az programu Azure PowerShell.](/powershell/azure/new-azureps-module-az)
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 Aby zainstalować wymagany interfejs wiersza polecenia w wersji 2.0 lub nowszej i połączyć się z subskrypcją platformy Azure, zobacz [Instalowanie i konfigurowanie interfejsu wiersza polecenia azure cross-platform 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Aby uzyskać szczegółowe dane dotyczące usługi Key Vault, zobacz [Zarządzanie magazynem kluczy przy użyciu interfejsu CLI 2.0](../key-vault/key-vault-manage-with-cli2.md) i Jak używać funkcji [usuwania nietrwałego w programie Key Vault za pomocą interfejsu WIERSZA POLECENIA](../key-vault/key-vault-soft-delete-cli.md).
+Aby uzyskać szczegółowe dane dotyczące usługi Key Vault, zobacz [Zarządzanie magazynem kluczy przy użyciu interfejsu CLI 2.0](../key-vault/general/manage-with-cli2.md) i Jak używać funkcji [usuwania nietrwałego w programie Key Vault za pomocą interfejsu WIERSZA POLECENIA](../key-vault/general/soft-delete-cli.md).
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Przypisywanie tożsamości usługi Azure AD do serwera
 
@@ -182,7 +182,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 ## <a name="useful-powershell-cmdlets"></a>Przydatne polecenia cmdlet programu PowerShell
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 - Użyj polecenia cmdlet [Set-AzSqlDatabaseTransparentDataEncryption,](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) aby wyłączyć TDE.
 
@@ -221,7 +221,7 @@ Sprawdź, czy wystąpi problem:
 
 - Jeśli nie można odnaleźć magazynu kluczy, upewnij się, że masz odpowiednią subskrypcję.
 
-   # <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell
    Get-AzSubscription -SubscriptionId <SubscriptionId>

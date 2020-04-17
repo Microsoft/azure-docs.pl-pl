@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2b09a7765cff20fb49ce6ab3d1e7bce2e15f0e9e
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 179a2120714460c955d1fd3e345ebcd963ae564d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475216"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453561"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java systemu Windows dla usługi Azure App Service
 
@@ -187,7 +187,7 @@ Postępuj zgodnie z instrukcjami w [Secure niestandardowej nazwy DNS z powiązan
 
 ### <a name="use-keyvault-references"></a>Korzystanie z odwołań do keyvault
 
-[Usługa Azure KeyVault](../key-vault/key-vault-overview.md) zapewnia scentralizowane zarządzanie tajne z zasadami dostępu i historią inspekcji. Wpisy tajne (takie jak hasła lub parametry połączenia) można przechowywać w funkcji KeyVault i uzyskiwać dostęp do tych wpisów tajnych w aplikacji za pośrednictwem zmiennych środowiskowych.
+[Usługa Azure KeyVault](../key-vault/general/overview.md) zapewnia scentralizowane zarządzanie tajne z zasadami dostępu i historią inspekcji. Wpisy tajne (takie jak hasła lub parametry połączenia) można przechowywać w funkcji KeyVault i uzyskiwać dostęp do tych wpisów tajnych w aplikacji za pośrednictwem zmiennych środowiskowych.
 
 Najpierw postępuj zgodnie z instrukcjami [dotyczącymi udzielania aplikacji dostępu do usługi Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) i [odwoływania się do klucza keyvault do klucza tajnego w ustawieniach aplikacji.](app-service-key-vault-references.md#reference-syntax) Można sprawdzić, czy odwołanie jest rozpoznawane jako klucz tajny, drukując zmienną środowiskową podczas zdalnego uzyskiwania dostępu do terminalu usługi app service.
 

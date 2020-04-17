@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 733a85e492185e7e83922a3cc91d53c848b939a1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f58887a056c8ca0cd175a44127556562338de38
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411145"
+ms.locfileid: "81450036"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurowanie kluczy zarządzanych przez klienta dla konta usługi Azure Cosmos za pomocą usługi Azure Key Vault
 
@@ -23,7 +23,7 @@ Dane przechowywane na koncie usługi Azure Cosmos są automatycznie i bezproblem
 
 ![Warstwy szyfrowania wokół danych klienta](./media/how-to-setup-cmk/cmk-intro.png)
 
-Klucze zarządzane przez klienta należy przechowywać w [usłudze Azure Key Vault](../key-vault/key-vault-overview.md) i zapewniać klucz dla każdego konta usługi Azure Cosmos, które jest włączone za pomocą kluczy zarządzanych przez klienta. Ten klucz służy do szyfrowania wszystkich danych przechowywanych na tym koncie.
+Klucze zarządzane przez klienta należy przechowywać w [usłudze Azure Key Vault](../key-vault/general/overview.md) i zapewniać klucz dla każdego konta usługi Azure Cosmos, które jest włączone za pomocą kluczy zarządzanych przez klienta. Ten klucz służy do szyfrowania wszystkich danych przechowywanych na tym koncie.
 
 > [!NOTE]
 > Obecnie klucze zarządzane przez klienta są dostępne tylko dla nowych kont usługi Azure Cosmos. Należy skonfigurować je podczas tworzenia konta.
@@ -44,8 +44,8 @@ Przy użyciu kluczy zarządzanych przez klienta z usługi Azure Cosmos DB wymaga
 
 Aby dowiedzieć się, jak włączyć te właściwości w istniejącym wystąpieniu usługi Azure Key Vault, zobacz sekcje "Włączanie usuwania nietrwałego" i "Włączanie ochrony przed przeczyszczaniem" w jednym z następujących artykułów:
 
-- [Jak używać usuwania nietrwałego w programie PowerShell](../key-vault/key-vault-soft-delete-powershell.md)
-- [Jak używać usuwania nietrwałego za pomocą interfejsu wiersza polecenia platformy Azure](../key-vault/key-vault-soft-delete-cli.md)
+- [Jak używać usuwania nietrwałego w programie PowerShell](../key-vault/general/soft-delete-powershell.md)
+- [Jak używać usuwania nietrwałego za pomocą interfejsu wiersza polecenia platformy Azure](../key-vault/general/soft-delete-cli.md)
 
 ## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Dodawanie zasad dostępu do wystąpienia usługi Azure Key Vault
 

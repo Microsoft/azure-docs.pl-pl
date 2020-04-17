@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 25b8df0d8565686737b33aac16d4bf698ce43280
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 85fc6412a12963bb01782becf639f7acfc31fbe5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757212"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452082"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Szyfrowanie po stronie serwera dysków zarządzanych platformy Azure
 
@@ -34,7 +34,7 @@ Domyślnie dyski zarządzane używają kluczy szyfrowania zarządzanych przez pl
 
 ## <a name="customer-managed-keys"></a>Klucze zarządzane przez klienta
 
-Można zarządzać szyfrowaniem na poziomie każdego dysku zarządzanego za pomocą własnych kluczy. Szyfrowanie po stronie serwera dla dysków zarządzanych za pomocą kluczy zarządzanych przez klienta oferuje zintegrowane środowisko z usługą Azure Key Vault. Klucze [RSA](../../key-vault/key-vault-hsm-protected-keys.md) można zaimportować do magazynu kluczy lub wygenerować nowe klucze RSA w usłudze Azure Key Vault. 
+Można zarządzać szyfrowaniem na poziomie każdego dysku zarządzanego za pomocą własnych kluczy. Szyfrowanie po stronie serwera dla dysków zarządzanych za pomocą kluczy zarządzanych przez klienta oferuje zintegrowane środowisko z usługą Azure Key Vault. Klucze [RSA](../../key-vault/keys/hsm-protected-keys.md) można zaimportować do magazynu kluczy lub wygenerować nowe klucze RSA w usłudze Azure Key Vault. 
 
 Dyski zarządzane platformy Azure obsługują szyfrowanie i odszyfrowywanie w pełni przejrzysty sposób przy użyciu [szyfrowania kopert.](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique) Szyfruje dane przy użyciu klucza szyfrowania danych opartego na [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 (DEK), który z kolei jest chroniony za pomocą kluczy. Usługa Storage generuje klucze szyfrowania danych i szyfruje je za pomocą kluczy zarządzanych przez klienta przy użyciu szyfrowania RSA. Szyfrowanie kopert umożliwia okresowe obracanie (zmienianie) kluczy zgodnie z zasadami zgodności bez wpływu na maszyny wirtualne. Po obróceniu kluczy usługa Storage ponownie szyfruje klucze szyfrowania danych za pomocą nowych kluczy zarządzanych przez klienta. 
 
@@ -288,7 +288,7 @@ $disk.Encryption.Type
 ## <a name="next-steps"></a>Następne kroki
 
 - [Eksplorowanie szablonów usługi Azure Resource Manager do tworzenia zaszyfrowanych dysków za pomocą kluczy zarządzanych przez klienta](https://github.com/ramankumarlive/manageddiskscmkpreview)
-- [Co to jest usługa Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [Co to jest usługa Azure Key Vault?](../../key-vault/general/overview.md)
 - [Replikowanie maszyn z dyskami z włączonymi kluczami zarządzanymi przez klienta](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Konfigurowanie odzyskiwania po awarii maszyn wirtualnych VMware na platformie Azure za pomocą programu PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych z programem Hyper-V przy użyciu programów PowerShell i usługi Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

@@ -3,17 +3,17 @@ title: Tworzenie klastra sieci szkieletowej usług Azure
 description: Dowiedz się, jak skonfigurować bezpieczny klaster sieci szkieletowej usług na platformie Azure przy użyciu usługi Azure Resource Manager.  Klaster można utworzyć przy użyciu szablonu domyślnego lub przy użyciu własnego szablonu klastra.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 8cf14230f3abd37d91f1ec369f597ee594876100
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624126"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458304"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Tworzenie klastra sieci szkieletowej usług przy użyciu usługi Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portal Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -251,7 +251,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>Używanie wskaźnika do klucza tajnego przekazanego do magazynu kluczy
 
-Aby użyć istniejącego magazynu kluczy, magazyn kluczy musi być [włączony do wdrożenia,](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) aby umożliwić dostawcy zasobów obliczeniowych uzyskanie certyfikatów z niego i zainstalowanie go w węzłach klastra.
+Aby użyć istniejącego magazynu kluczy, magazyn kluczy musi być [włączony do wdrożenia,](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) aby umożliwić dostawcy zasobów obliczeniowych uzyskanie certyfikatów z niego i zainstalowanie go w węzłach klastra.
 
 Wdrażanie klastra przy użyciu programu PowerShell:
 

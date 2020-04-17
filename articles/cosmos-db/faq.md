@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4c76bcbf945c63588f8471c10deca0b5982d3562
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e904f650c9fc11aab2dcb002ac68a9f19287940e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414245"
+ms.locfileid: "81449956"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące różnych interfejsów API w usłudze Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Usługa Azure Cosmos DB ma aparat indeksowania niezależny od schematu, który u
 
 ### <a name="can-i-use-multiple-apis-to-access-my-data"></a>Czy mogę używać wielu interfejsów API, aby uzyskać dostęp do moich danych?
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Gdzie wiele modeli oznacza, że usługa Azure Cosmos DB obsługuje wiele interfejsów API i wiele modeli danych, różne interfejsy API używają różnych formatów danych do przechowywania i protokołu przewodowego. Na przykład SQL używa JSON, MongoDB używa BSON, Tabela używa EDM, Cassandra używa CQL, Gremlin używa GraphSON. W związku z tym zaleca się używanie tego samego interfejsu API dla wszystkich dostępu do danych na danym koncie.
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Gdzie wiele modeli oznacza, że usługa Azure Cosmos DB obsługuje wiele interfejsów API i wiele modeli danych, różne interfejsy API używają różnych formatów danych do przechowywania i protokołu przewodowego. Na przykład SQL używa JSON, MongoDB używa BSON, Tabela używa EDM, Cassandra używa CQL, Gremlin używa formatu JSON. W związku z tym zaleca się używanie tego samego interfejsu API dla wszystkich dostępu do danych na danym koncie.
 
 Każdy interfejs API działa niezależnie, z wyjątkiem interfejsu API Gremlin i SQL, które są interoperacyjne.
 

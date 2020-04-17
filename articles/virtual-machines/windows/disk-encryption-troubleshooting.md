@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d4e76f4d02b0287770243bfddf995a19f90d232
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fafe4a9ef78a92595eaae942fa5d7cbeb2c07189
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73749448"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458219"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z szyfrowaniem dysków platformy Azure
 
@@ -35,7 +35,7 @@ Wszystkie zastosowane ustawienia sieciowej grupy zabezpieczeń muszą nadal zezw
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Usługa Azure Key Vault za zaporą
 
-Gdy szyfrowanie jest włączone przy użyciu [poświadczeń usługi Azure AD,](disk-encryption-windows-aad.md#)docelowa maszyna wirtualna musi zezwalać na łączność z punktami końcowymi usługi Azure Active Directory i punktami końcowymi usługi Key Vault. Bieżące punkty końcowe uwierzytelniania usługi Azure Active Directory są obsługiwane w sekcjach 56 i 59 z dokumentacji [adresów URL i zakresów adresów IP usługi Office 365.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) Instrukcje usługi Key Vault znajdują się w dokumentacji dotyczącej sposobu uzyskiwania dostępu do [usługi Azure Key Vault za zaporą.](../../key-vault/key-vault-access-behind-firewall.md)
+Gdy szyfrowanie jest włączone przy użyciu [poświadczeń usługi Azure AD,](disk-encryption-windows-aad.md#)docelowa maszyna wirtualna musi zezwalać na łączność z punktami końcowymi usługi Azure Active Directory i punktami końcowymi usługi Key Vault. Bieżące punkty końcowe uwierzytelniania usługi Azure Active Directory są obsługiwane w sekcjach 56 i 59 z dokumentacji [adresów URL i zakresów adresów IP usługi Office 365.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) Instrukcje usługi Key Vault znajdują się w dokumentacji dotyczącej sposobu uzyskiwania dostępu do [usługi Azure Key Vault za zaporą.](../../key-vault/general/access-behind-firewall.md)
 
 ### <a name="azure-instance-metadata-service"></a>Usługa metadanych wystąpienia platformy Azure 
 Maszyna wirtualna musi mieć dostęp do punktu końcowego [usługi metadanych wystąpienia platformy Azure,](../windows/instance-metadata-service.md) który używa dobrze znanego nie rutowalnej adresu IP (`169.254.169.254`), który jest dostępny tylko z poziomu maszyny Wirtualnej.  Konfiguracje serwera proxy, które zmieniają lokalny ruch HTTP na ten adres (na przykład dodawanie nagłówka X-Forwarded-For) nie są obsługiwane.

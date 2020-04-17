@@ -10,18 +10,18 @@ ms.date: 03/19/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e7878cae7bc6aabf1db58bfd63338955b9e830d3
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 192e58b101b824ca0cc0c732e02647838be6dc35
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478243"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456485"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta za pomocą usługi Azure Key Vault przy użyciu witryny Azure portal
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-W tym artykule pokazano, jak skonfigurować usługę Azure Key Vault za pomocą kluczy zarządzanych przez klienta za pomocą [witryny Azure portal](https://portal.azure.com/). Aby dowiedzieć się, jak utworzyć magazyn kluczy za pomocą witryny Azure portal, zobacz [Szybki start: Ustawianie i pobieranie klucza tajnego z usługi Azure Key Vault przy użyciu witryny Azure portal](../../key-vault/quick-create-portal.md).
+W tym artykule pokazano, jak skonfigurować usługę Azure Key Vault za pomocą kluczy zarządzanych przez klienta za pomocą [witryny Azure portal](https://portal.azure.com/). Aby dowiedzieć się, jak utworzyć magazyn kluczy za pomocą witryny Azure portal, zobacz [Szybki start: Ustawianie i pobieranie klucza tajnego z usługi Azure Key Vault przy użyciu witryny Azure portal](../../key-vault/secrets/quick-create-portal.md).
 
 ## <a name="configure-azure-key-vault"></a>Konfigurowanie usługi Azure Key Vault
 
@@ -29,8 +29,8 @@ Korzystanie z kluczy zarządzanych przez klienta za pomocą szyfrowania usługi 
 
 Aby dowiedzieć się, jak włączyć te właściwości w istniejącym magazynie kluczy, zobacz sekcje **"Włączanie usuwania nietrwale** i **włączanie ochrony przed przeczyszczaniem"** w jednym z następujących artykułów:
 
-- [Jak używać soft-delete z programem PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
-- [Jak używać soft-delete z CLI](../../key-vault/key-vault-soft-delete-cli.md).
+- [Jak używać soft-delete z programem PowerShell](../../key-vault/general/soft-delete-powershell.md).
+- [Jak używać soft-delete z CLI](../../key-vault/general/soft-delete-cli.md).
 
 Tylko 2048-bitowe klucze RSA i RSA-HSM są obsługiwane za pomocą szyfrowania usługi Azure Storage. Aby uzyskać więcej informacji o kluczach, zobacz **Klucze magazynu kluczy,** wpisy tajne i certyfikaty usługi Azure Key Vault — informacje o [kluczach, wpisach tajnych i certyfikatach](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)usługi Azure Key Vault .
 

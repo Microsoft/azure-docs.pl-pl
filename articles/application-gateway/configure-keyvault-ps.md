@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 1979f759f5a1b037adfd7b67a7be50cbba0f596f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: ffda4b41497a9fd84db5fcee36202eb1c1dca2c0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312210"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457845"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Konfigurowanie zakończenia protokołu TLS przy użyciu certyfikatów usługi Key Vault przy użyciu programu Azure PowerShell
 
-[Usługa Azure Key Vault](../key-vault/key-vault-overview.md) to tajny magazyn zarządzany przez platformę, którego można używać do ochrony wpisów tajnych, kluczy i certyfikatów TLS/SSL. Usługa Azure Application Gateway obsługuje integrację z usługą Key Vault dla certyfikatów serwera dołączonych do odbiorników obsługujących protokół HTTPS. Ta obsługa jest ograniczona do jednostki SKU bramy aplikacji w wersji 2.
+[Usługa Azure Key Vault](../key-vault/general/overview.md) to tajny magazyn zarządzany przez platformę, którego można używać do ochrony wpisów tajnych, kluczy i certyfikatów TLS/SSL. Usługa Azure Application Gateway obsługuje integrację z usługą Key Vault dla certyfikatów serwera dołączonych do odbiorników obsługujących protokół HTTPS. Ta obsługa jest ograniczona do jednostki SKU bramy aplikacji w wersji 2.
 
 Aby uzyskać więcej informacji, zobacz [Zakończenie protokołu TLS z certyfikatami Usługi Key Vault](key-vault-certs.md).
 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> Flaga -EnableSoftDelete musi być używana do poprawnego działania zakończenia protokołu TLS. Jeśli konfigurujesz [usuwanie programowe usługi Key Vault za pośrednictwem portalu,](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)okres przechowywania musi być utrzymywany na poziomie 90 dni, czyli wartością domyślną. Brama aplikacji nie obsługuje jeszcze innego okresu przechowywania. 
+> Flaga -EnableSoftDelete musi być używana do poprawnego działania zakończenia protokołu TLS. Jeśli konfigurujesz [usuwanie programowe usługi Key Vault za pośrednictwem portalu,](../key-vault/general/overview-soft-delete.md#soft-delete-behavior)okres przechowywania musi być utrzymywany na poziomie 90 dni, czyli wartością domyślną. Brama aplikacji nie obsługuje jeszcze innego okresu przechowywania. 
 
 ### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 

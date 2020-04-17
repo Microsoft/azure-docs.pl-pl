@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: c1b48ae8191e2e5313d9037c791eca73c8a55691
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191385"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450144"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Zwiększenie bezpieczeństwa komunikatów B2B przy użyciu certyfikatów
 
@@ -34,7 +34,7 @@ Tych certyfikatów można używać w aplikacjach integracyjnych dla przedsiębio
 
 Aby użyć *certyfikatu publicznego* w aplikacjach logiki, które mają możliwości B2B, należy najpierw przekazać certyfikat na konto integracji. Po zdefiniowaniu właściwości w [umowach,](logic-apps-enterprise-integration-agreements.md) które tworzysz, certyfikat jest dostępny, aby ułatwić zabezpieczenie wiadomości B2B.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). W głównym menu platformy Azure wybierz pozycję **Wszystkie zasoby**. W polu wyszukiwania wprowadź nazwę konta integracji, a następnie wybierz żądane konto integracji.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). W głównym menu platformy Azure wybierz pozycję **Wszystkie zasoby**. W polu wyszukiwania wprowadź nazwę konta integracji, a następnie wybierz żądane konto integracji.
 
    ![Znajdowanie i wybieranie konta integracyjnego](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
@@ -66,14 +66,14 @@ Po zdefiniowaniu właściwości w [umowach,](logic-apps-enterprise-integration-a
 > [!NOTE]
 > W przypadku certyfikatów prywatnych należy dodać odpowiedni certyfikat publiczny, który pojawia się w ustawieniach **wyślij i odbierz** [umowy AS2](logic-apps-enterprise-integration-as2.md) do podpisywania i szyfrowania wiadomości.
 
-1. [Dodaj klucz prywatny do usługi Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) i podaj nazwę **klucza**.
+1. [Dodaj klucz prywatny do usługi Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) i podaj nazwę **klucza**.
    
 2. Autoryzuj aplikacje azure logic do wykonywania operacji w usłudze Azure Key Vault. Aby udzielić dostępu do jednostki usługi Aplikacje logiki, należy użyć polecenia Programu PowerShell, [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), na przykład:
 
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-3. Zaloguj się do [Portalu Azure](https://portal.azure.com). W głównym menu platformy Azure wybierz pozycję **Wszystkie zasoby**. W polu wyszukiwania wprowadź nazwę konta integracji, a następnie wybierz żądane konto integracji.
+3. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). W głównym menu platformy Azure wybierz pozycję **Wszystkie zasoby**. W polu wyszukiwania wprowadź nazwę konta integracji, a następnie wybierz żądane konto integracji.
 
    ![Znajdź swoje konto integracyjne](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 

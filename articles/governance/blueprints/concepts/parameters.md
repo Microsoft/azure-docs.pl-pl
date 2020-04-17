@@ -3,12 +3,12 @@ title: Używanie parametrów do tworzenia dynamicznych planów
 description: Dowiedz się więcej o parametrach statycznych i dynamicznych oraz o tym, jak ich używać do tworzenia bezpiecznych i dynamicznych planów.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: ed596db2050ac788c2d98c63cb7314de473b5f4e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383610"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458492"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Tworzenie dynamicznych planów za pomocą parametrów
 
@@ -41,7 +41,7 @@ Jeśli przypisanie planu używa **tożsamości zarządzanej przypisanej przez u�
 > [!IMPORTANT]
 > W obu przypadkach magazyn kluczy musi mieć **włącz dostęp do usługi Azure Resource Manager dla wdrażania szablonów** skonfigurowany na stronie **zasady programu Access.** Aby uzyskać wskazówki dotyczące włączania tej funkcji, zobacz [Usługa Key Vault — włączanie wdrażania szablonów](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
-Aby uzyskać więcej informacji na temat usługi Azure Key Vault, zobacz [Omówienie usługi Key Vault](../../../key-vault/key-vault-overview.md).
+Aby uzyskać więcej informacji na temat usługi Azure Key Vault, zobacz [Omówienie usługi Key Vault](../../../key-vault/general/overview.md).
 
 ## <a name="parameter-types"></a>Typy parametrów
 
@@ -234,7 +234,7 @@ Ustawianie **parametrów dynamicznych** podczas przypisywania odbywa się bezpo�
 ## <a name="next-steps"></a>Następne kroki
 
 - Zobacz listę [funkcji planu](../reference/blueprint-functions.md).
-- Dowiedz się więcej o [cyklu życia planu](lifecycle.md).
+- Uzyskaj informacje na temat [cyklu życia strategii](lifecycle.md).
 - Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](sequencing-order.md).
 - Dowiedz się, jak używać [blokowania zasobów strategii](resource-locking.md).
 - Dowiedz się, jak [zaktualizować istniejące przypisania](../how-to/update-existing-assignments.md).

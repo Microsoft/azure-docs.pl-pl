@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 7103afc29e4021d950d9a3634b190f4439ecfe8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 23dc784586e85b8cbdc816ac5f4d54556fc1ffb7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768509"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456995"
 ---
 # <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Szybki start: używanie języka R z usługami uczenia maszynowego do wykonywania zapytań o bazę danych SQL platformy Azure (wersja zapoznawcza)
 
@@ -30,22 +31,19 @@ W tym przewodniku Szybki start używasz języka R z usługami uczenia maszynoweg
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Baza danych SQL platformy Azure](sql-database-single-database-get-started.md)
-- [Usługi uczenia maszynowego](sql-database-machine-learning-services-overview.md) z włączoną funkcją języka R. [Zarejestruj się w wersji zapoznawczej](sql-database-machine-learning-services-overview.md#signup).
-- Program [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
+- [Usługi uczenia maszynowego](sql-database-machine-learning-services-overview.md) z włączoną funkcją języka R.
+- [Sql Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 > [!IMPORTANT]
 > Skrypty w tym artykule są zapisywane w celu użycia bazy danych **Adventure Works.**
 
-> [!NOTE]
-> Podczas publicznej wersji zapoznawczej firma Microsoft włączy urządzenie do uczenia maszynowego dla istniejącej lub nowej bazy danych, jednak opcja wdrażania wystąpienia zarządzanego nie jest obecnie obsługiwana.
-
-Usługi uczenia maszynowego z języka R to funkcja bazy danych SQL platformy Azure używana do wykonywania skryptów R w bazie danych. Aby uzyskać więcej informacji, zobacz [projekt R](https://www.r-project.org/).
+Usługi uczenia maszynowego z języka R to funkcja usługi Azure SQL Database używana do wykonywania skryptów R w bazie danych. Aby uzyskać więcej informacji, zobacz [projekt R](https://www.r-project.org/).
 
 ## <a name="get-sql-server-connection-information"></a>Uzyskiwanie informacji o połączeniu z serwerem SQL
 
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Otwórz stronę **Bazy danych SQL** lub **Wystąpienia zarządzane SQL**.
 

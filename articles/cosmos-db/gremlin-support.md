@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: 564e69e3cd852c6a0f8c20278d4742b77f064298
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 59c45497ea6d9fcb216c83060a858ee6c96f1151
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75499996"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81449973"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Obsługa grafu Gremlin w usłudze Azure Cosmos DB
 Usługa Azure Cosmos DB obsługuje język przechodzenia wykresu [Apache Tinkerpop,](https://tinkerpop.apache.org) znany jako [Gremlin.](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps) Język Gremlin służy do tworzenia jednostek grafu (wierzchołków i krawędzi), modyfikacji właściwości w ramach tych elementów, wykonywania zapytań i przejść oraz usuwania elementów. 
@@ -23,7 +23,7 @@ W tym artykule udostępniamy szybki instruktaż gremlin i wyliczają funkcje Gre
 
 W poniższej tabeli przedstawiono popularne sterowniki Gremlin, których można użyć do usługi Azure Cosmos DB:
 
-| Pobierz | Element źródłowy | Wprowadzenie | Obsługiwana wersja łącznika |
+| Pobierz | Element źródłowy | Getting Started | Obsługiwana wersja łącznika |
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET w witrynie GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Tworzenie grafu przy użyciu platformy .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Tworzenie grafu przy użyciu środowiska Java](create-graph-java.md) | 3.2.0+ |
@@ -46,11 +46,9 @@ W poniższej tabeli wymieniono funkcje struktury TinkerPop wdrażane przez usłu
 | Funkcjonalności krawędzi | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Obsługuje tworzenie, modyfikowanie i usuwanie krawędzi |
 | Funkcjonalności właściwości krawędzi | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Obsługuje tworzenie, modyfikowanie i usuwanie właściwości krawędzi |
 
-## <a name="gremlin-wire-format-graphson"></a>Format połączeń Gremlin: GraphSON
+## <a name="gremlin-wire-format"></a>Format drutu Gremlin
 
-Usługa Azure Cosmos DB korzysta z [formatu GraphSON](https://tinkerpop.apache.org/docs/current/reference/#graphson) podczas zwracania wyników z operacji Gremlin. Usługa Azure Cosmos DB obsługuje obecnie wersję "GraphSONv2". GraphSON jest standardowym formatem środowiska Gremlin do przedstawiania wierzchołków, krawędzi i właściwości (jedno- i wielowartościowych) przy użyciu formatu JSON.
-
-Na przykład poniższy fragment kodu przedstawia widok w formacie GraphSON wierzchołka *zwracanego do klienta* z usługi Azure Cosmos DB. 
+Usługa Azure Cosmos DB używa formatu JSON podczas zwracania wyników z operacji Gremlin. Usługa Azure Cosmos DB obsługuje obecnie format JSON. Na przykład poniższy fragment kodu pokazuje reprezentację JSON wierzchołka *zwróconego do klienta* z usługi Azure Cosmos DB:
 
 ```json
   {
@@ -89,7 +87,7 @@ Na przykład poniższy fragment kodu przedstawia widok w formacie GraphSON wierz
   }
 ```
 
-Właściwości używane przez GraphSON dla wierzchołków są opisane poniżej:
+Właściwości używane przez format JSON dla wierzchołków są opisane poniżej:
 
 | Właściwość | Opis | 
 | --- | --- | --- |

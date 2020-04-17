@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 50c209483a12adc3545b63fb66685e386d9ad10a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252139"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453527"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Wdrażanie w wystąpieniach kontenerów platformy Azure z rejestru kontenerów platformy Azure
 
@@ -36,7 +36,7 @@ W poniższej sekcji utworzysz magazyn kluczy platformy Azure i jednostkę usług
 
 ### <a name="create-key-vault"></a>Tworzenie magazynu kluczy
 
-Jeśli nie masz jeszcze magazynu w usłudze [Azure Key Vault](../key-vault/key-vault-overview.md), utwórz go przy użyciu interfejsu wiersza polecenia platformy Azure przy użyciu poniższych poleceń.
+Jeśli nie masz jeszcze magazynu w usłudze [Azure Key Vault](../key-vault/general/overview.md), utwórz go przy użyciu interfejsu wiersza polecenia platformy Azure przy użyciu poniższych poleceń.
 
 Zaktualizuj `RES_GROUP` zmienną o nazwę istniejącej grupy zasobów, `ACR_NAME` w której ma być utworzony magazyn kluczy, oraz o nazwie rejestru kontenerów. W przypadku zwięzłości polecenia w tym artykule zakładają, że wszystkie wystąpienia rejestru, magazynu kluczy i kontenera są tworzone w tej samej grupie zasobów.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: b4e91aa59168deb18375bf86ae77f655ca3dab47
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 50c0980800bbc9b2951bf9107114c1a4d9265558
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521263"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454666"
 ---
 # <a name="manage-storage-account-access-keys"></a>Zarządzanie kluczami dostępu do konta magazynu
 
@@ -31,8 +31,8 @@ Firma Microsoft zaleca, aby używać usługi Azure Key Vault do zarządzania klu
 
 Firma Microsoft zaleca używanie usługi Azure Key Vault do zarządzania kluczami dostępu i obracania ich. Aplikacja może bezpiecznie uzyskać dostęp do kluczy w magazynie kluczy, dzięki czemu można uniknąć ich przechowywania przy kodzie aplikacji. Aby uzyskać więcej informacji na temat używania usługi Key Vault do zarządzania kluczami, zobacz następujące artykuły:
 
-- [Zarządzanie kluczami kont magazynu za pomocą usługi Azure Key Vault i programu PowerShell](../../key-vault/key-vault-overview-storage-keys-powershell.md)
-- [Zarządzanie kluczami kont magazynu za pomocą usługi Azure Key Vault i interfejsu wiersza polecenia platformy Azure](../../key-vault/key-vault-ovw-storage-keys.md)
+- [Zarządzanie kluczami kont magazynu za pomocą usługi Azure Key Vault i programu PowerShell](../../key-vault/secrets/overview-storage-keys-powershell.md)
+- [Zarządzanie kluczami kont magazynu za pomocą usługi Azure Key Vault i interfejsu wiersza polecenia platformy Azure](../../key-vault/secrets/overview-storage-keys.md)
 
 ## <a name="manually-rotate-access-keys"></a>Ręczne obracanie klawiszy dostępu
 

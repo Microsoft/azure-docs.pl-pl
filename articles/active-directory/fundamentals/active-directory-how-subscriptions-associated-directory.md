@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f44e9a1e43da2b9ce6c817898c1722fba715c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 104bf51fb03d88ab0e5efd25ebebb0e3060bc264
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262180"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457930"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub dodawanie subskrypcji
 
@@ -85,7 +85,7 @@ Zmiana katalogu subskrypcji jest operacją na poziomie usługi, więc nie ma wp�
 
 Po skojarzeniu subskrypcji z innym katalogiem może być konieczne wykonywanie następujących zadań w celu wznowienia operacji:
 
-- Jeśli masz jakieś magazyny kluczy, należy zmienić identyfikator dzierżawy magazynu kluczy. Aby uzyskać więcej informacji, zobacz [Zmienianie identyfikatora dzierżawy magazynu kluczy po przejściu subskrypcji](../../key-vault/key-vault-subscription-move-fix.md).
+- Jeśli masz jakieś magazyny kluczy, należy zmienić identyfikator dzierżawy magazynu kluczy. Aby uzyskać więcej informacji, zobacz [Zmienianie identyfikatora dzierżawy magazynu kluczy po przejściu subskrypcji](../../key-vault/general/subscription-move-fix.md).
 
 - Jeśli użyto tożsamości zarządzanych przypisanych do systemu dla zasobów, należy ponownie włączyć te tożsamości. Jeśli użyto tożsamości zarządzanych przypisanych przez użytkownika, należy ponownie utworzyć te tożsamości. Po ponownym włączeniu lub ponownym utworzeniu tożsamości zarządzanych należy ponownie ustanowić uprawnienia przypisane do tych tożsamości. Aby uzyskać więcej informacji, zobacz [Czym są tożsamości zarządzane dla zasobów platformy Azure?](../managed-identities-azure-resources/overview.md).
 

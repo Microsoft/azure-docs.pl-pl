@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 970701606811cbd61a9bfebe39ff82cdc91d5693
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4f6de807628704051cdddf74bcefbed678f8fcd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80245841"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457896"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java systemu Linux dla usługi Azure App Service
 
@@ -230,7 +230,7 @@ Postępuj zgodnie z instrukcjami w [Secure niestandardowej nazwy DNS z powiązan
 
 ### <a name="use-keyvault-references"></a>Korzystanie z odwołań do keyvault
 
-[Usługa Azure KeyVault](../../key-vault/key-vault-overview.md) zapewnia scentralizowane zarządzanie tajne z zasadami dostępu i historią inspekcji. Wpisy tajne (takie jak hasła lub parametry połączenia) można przechowywać w funkcji KeyVault i uzyskiwać dostęp do tych wpisów tajnych w aplikacji za pośrednictwem zmiennych środowiskowych.
+[Usługa Azure KeyVault](../../key-vault/general/overview.md) zapewnia scentralizowane zarządzanie tajne z zasadami dostępu i historią inspekcji. Wpisy tajne (takie jak hasła lub parametry połączenia) można przechowywać w funkcji KeyVault i uzyskiwać dostęp do tych wpisów tajnych w aplikacji za pośrednictwem zmiennych środowiskowych.
 
 Najpierw postępuj zgodnie z instrukcjami [dotyczącymi udzielania aplikacji dostępu do usługi Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) i [odwoływania się do klucza keyvault do klucza tajnego w ustawieniach aplikacji.](../app-service-key-vault-references.md#reference-syntax) Można sprawdzić, czy odwołanie jest rozpoznawane jako klucz tajny, drukując zmienną środowiskową podczas zdalnego uzyskiwania dostępu do terminalu usługi app service.
 
@@ -244,7 +244,7 @@ Dodatkowa konfiguracja może być konieczna do szyfrowania połączenia JDBC za 
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
-- [Mysql](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [Mongodb](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 

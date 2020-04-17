@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 4edf710e575bbb26fb0e247e59ff5c796f16226e
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 9f9fcc0b3d8dfe19961668e77da91bc9f14ff2d1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810593"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453901"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Dodawanie certyfikatu TLS/SSL w usłudze Azure App Service
 
@@ -94,7 +94,7 @@ W przypadku zakupu certyfikatu usługi app service z platformy Azure platforma A
 
 - Zajmuje się procesem zakupu od firmy GoDaddy.
 - Przeprowadza weryfikację domeny certyfikatu.
-- Zachowuje certyfikat w [usłudze Azure Key Vault](../key-vault/key-vault-overview.md).
+- Zachowuje certyfikat w [usłudze Azure Key Vault](../key-vault/general/overview.md).
 - Zarządza odnawianiem certyfikatów (patrz [Odnawianie certyfikatu).](#renew-certificate)
 - Automatycznie synchronizuj certyfikat z zaimportowanymi kopiami w aplikacjach usługi App Service.
 
@@ -140,8 +140,8 @@ Na stronie **Stan przechowalni kluczy** kliknij pozycję **Repozytorium magazynu
 | Grupa zasobów | Jako zalecenie wybierz tę samą grupę zasobów co certyfikat usługi App Service. |
 | Lokalizacja | Wybierz tę samą lokalizację co aplikacja usługi App Service. |
 | Warstwa cenowa | Aby uzyskać więcej informacji, zobacz [Szczegóły cen usługi Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Zasady dostępu| Definiuje aplikacje i dozwolony dostęp do zasobów magazynu. Można go skonfigurować później, wykonując czynności opisane w [udziel kilku aplikacjom dostępu do magazynu kluczy](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Dostęp do sieci wirtualnej | Ogranicz dostęp do magazynu do niektórych sieci wirtualnych platformy Azure. Można go skonfigurować później, wykonując czynności opisane w [temacie Konfigurowanie zapór usługi Azure Key Vault i sieci wirtualnych](../key-vault/key-vault-network-security.md) |
+| Zasady dostępu| Definiuje aplikacje i dozwolony dostęp do zasobów magazynu. Można go skonfigurować później, wykonując czynności opisane w [udziel kilku aplikacjom dostępu do magazynu kluczy](../key-vault/general/group-permissions-for-apps.md). |
+| Dostęp do sieci wirtualnej | Ogranicz dostęp do magazynu do niektórych sieci wirtualnych platformy Azure. Można go skonfigurować później, wykonując czynności opisane w [temacie Konfigurowanie zapór usługi Azure Key Vault i sieci wirtualnych](../key-vault/general/network-security.md) |
 
 Po wybraniu przechowalni zamknij stronę **Repozytorium magazynu kluczy.** Opcja **Krok 1: Sklep** powinien wyświetlać zielony znacznik wyboru sukcesu. Zachowaj otwartą stronę w następnym kroku.
 

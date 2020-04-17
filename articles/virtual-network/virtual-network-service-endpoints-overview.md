@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 72c2c90f7a71bd9bf251adb492168fa5d2baa60a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b75e0c1e53f1e00579de73897197cdd2f14d79af
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244786"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455414"
 ---
 # <a name="virtual-network-service-endpoints"></a>Punkty końcowe usługi dla sieci wirtualnej
 
@@ -35,7 +35,7 @@ Ta funkcja jest dostępna dla następujących usług i regionów platformy Azure
 - **[Usługa Azure Database for MySQL server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql):* Ogólnie dostępne w regionach platformy Azure, w których usługa bazy danych jest dostępna.
 - **[Usługa Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** *(Microsoft.Sql):* ogólnie dostępne w regionach platformy Azure, w których usługa bazy danych jest dostępna.
 - **[Usługa Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.AzureCosmosDB):* ogólnie dostępne we wszystkich regionach platformy Azure.
-- **[Usługa Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** *(Microsoft.KeyVault):* ogólnie dostępne we wszystkich regionach platformy Azure.
+- **[Usługa Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)** *(Microsoft.KeyVault):* ogólnie dostępne we wszystkich regionach platformy Azure.
 - **[Usługa Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.ServiceBus):* ogólnie dostępne we wszystkich regionach platformy Azure.
 - **[Usługi Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.EventHub):* ogólnie dostępne we wszystkich regionach platformy Azure.
 - **[Usługa Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.AzureActiveDirectory):* Ogólnie dostępne we wszystkich regionach platformy Azure, w których dostępna jest usługa ADLS Gen1.
@@ -145,7 +145,7 @@ Aby zapoznać się z często zadawanymi pytaniami, zobacz Często zadawane pytan
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Konfigurowanie punktów końcowych usługi sieci wirtualnej](tutorial-restrict-network-access-to-resources.md)
+- [Konfigurowanie punktów końcowych usługi dla sieci wirtualnej](tutorial-restrict-network-access-to-resources.md)
 - [Zabezpieczanie konta usługi Azure Storage w sieci wirtualnej](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Zabezpieczanie bazy danych SQL w usłudze Azure w sieci wirtualnej](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Zabezpieczanie magazynu danych SQL usługi Azure w sieci wirtualnej](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
