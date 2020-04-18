@@ -9,41 +9,33 @@
       href: whats-new.md
 - name: Przewodniki Szybki start
   items:
-    - name: Korzystanie z portalu internetowego
+    - name: Tworzenie klasyfikatora
       items:
-        - name: Tworzenie klasyfikatora
+        - name: Korzystanie z portalu internetowego
           href: getting-started-build-a-classifier.md
-        - name: Tworzenie detektora obiektu
-          href: get-started-build-detector.md
-    - name: Korzystanie z zestawu .NET SDK
-      items:
-        - name: Klasyfikacja obrazów
+        - name: Korzystanie z zestawu .NET SDK
           href: csharp-tutorial.md
-        - name: Wykrywanie obiektów
-          href: csharp-tutorial-od.md
-    - name: Używanie zestawu Python SDK
-      items:
-        - name: Klasyfikacja obrazów
+        - name: Używanie zestawu Python SDK
           href: python-tutorial.md
-        - name: Wykrywanie obiektów
-          href: python-tutorial-od.md
-    - name: Używanie zestawu Java SDK
-      items:
-        - name: Klasyfikacja obrazów
+        - name: Używanie zestawu Java SDK
           href: java-tutorial.md
-        - name: Wykrywanie obiektów
-          href: java-tutorial-od.md
-    - name: Korzystanie z zestawu Node.js SDK
-      items:
-        - name: Klasyfikacja obrazów
+        - name: Korzystanie z zestawu Node.js SDK
           href: node-tutorial.md
-        - name: Wykrywanie obiektów
-          href: node-tutorial-object-detection.md
-    - name: Korzystanie z zestawu Go SDK
-      items:
-        - name: Klasyfikacja obrazów
+        - name: Korzystanie z zestawu Go SDK
           href: go-tutorial.md
-        - name: Wykrywanie obiektów
+    - name: Tworzenie detektora obiektu
+      items:
+        - name: Korzystanie z portalu internetowego
+          href: get-started-build-detector.md
+        - name: Korzystanie z zestawu .NET SDK
+          href: csharp-tutorial-od.md
+        - name: Używanie zestawu Python SDK
+          href: python-tutorial-od.md
+        - name: Używanie zestawu Java SDK
+          href: java-tutorial-od.md
+        - name: Korzystanie z zestawu Node.js SDK
+          href: node-tutorial-object-detection.md
+        - name: Korzystanie z zestawu Go SDK
           href: go-tutorial-object-detection.md
 - name: Samouczki
   items:
@@ -99,7 +91,7 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
 - name: Zasoby
   items:
-    - name: Przykłady
+    - name: Samples
       href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=vision'
     - name: Limity przydziału i ograniczenia
       href: limits-and-quotas.md
