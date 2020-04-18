@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: b0569907537f91f7e84b8156dffa0f313461f6e1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 6210d6ee4877c6ba84178340cf0a6610e402da31
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677017"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641102"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o różnej szybkości transmisji bitów
 
@@ -31,7 +31,7 @@ ms.locfileid: "80677017"
 W usłudze Azure Media Services (AMS) **kanał** reprezentuje potok przetwarzania zawartości przesyłania strumieniowego na żywo. **Kanał** odbiera transmisje wejściowe na żywo na jeden z dwóch sposobów:
 
 * Lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do kanału, który jest włączony do wykonywania kodowania na żywo za pomocą usługi Media Services w jednym z następujących formatów: RTMP lub Płynne przesyłanie strumieniowe (Fragmentaryczny MP4). Kanał wykonuje następnie kodowanie na żywo przychodzącego strumienia o pojedynczej szybkości transmisji bitów do postaci strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów). Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
-* Lokalny koder na żywo wysyła do kanału o wielu szybkościach transmisji bitów **RTMP** lub **płynne przesyłanie strumieniowe** (Fragmented MP4), który nie jest włączony do wykonywania kodowania na żywo za pomocą usługi AMS. Pozyskane strumienie przechodzą przez **kanał**s bez dalszego przetwarzania. Ta metoda jest nazywana **pass-through**. Można użyć następujących koderów na żywo, które wyprowadzają wielosytowe płynne przesyłanie strumieniowe: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco i Elemental. Następujące kodery na żywo wyjściowe RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision, Teradek i Tricaster enkoderów.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
+* Lokalny koder na żywo wysyła do kanału o wielu szybkościach transmisji bitów **RTMP** lub **płynne przesyłanie strumieniowe** (Fragmented MP4), który nie jest włączony do wykonywania kodowania na żywo za pomocą usługi AMS. Pozyskane strumienie przechodzą przez **kanał**s bez dalszego przetwarzania. Ta metoda jest nazywana **pass-through**. Można użyć następujących koderów na żywo, które wyprowadzają wielosytowe płynne przesyłanie strumieniowe: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco i Elemental. Następujące kodery na żywo wyjście RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision, Teradek kodery.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
   > [!NOTE]
   > Korzystanie z metody pass-through jest najbardziej ekonomicznym sposobem przesyłania strumieniowego na żywo.
@@ -322,7 +322,7 @@ W poniższej tabeli przedstawiono, jak stany kanału mapują tryb rozliczeń.
 > 
 > 
 
-## <a name="considerations"></a><a id="Considerations"></a>Zagadnienia dotyczące
+## <a name="considerations"></a><a id="Considerations"></a>Zagadnienia do rozważenia
 * Gdy typ kodowania Kanał **standardowy** doświadcza utraty źródła wejściowego/źródła wkładu, kompensuje go, zastępując źródłowy obraz/audio łupkiem błędu i ciszą. Kanał będzie nadal emitować łupków, aż do wejścia /wkładu paszy zostanie wznowione. Zaleca się, aby kanał na żywo nie był pozostawiony w takim stanie dłużej niż 2 godziny. Poza tym punktem zachowanie kanału na ponowne połączenie wejściowe nie jest gwarantowana, ani jego zachowanie w odpowiedzi na reset polecenia. Będziesz musiał zatrzymać kanał, usunąć go i utworzyć nowy.
 * Nie można zmienić protokołu wejściowego, gdy kanał lub skojarzone z nim programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu wejściowego.
 * Za każdym razem, gdy ponownie skonfigurujesz koder na żywo, wywołaj metodę **Reset** na kanale. Przed zresetowaniem kanału należy zatrzymać program. Po zresetowaniu kanału uruchom ponownie program.

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33684a6292d7e51c04f6bacc7c49ee5986dbec10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3bc87b183803c0854542d6925af7429b593d2af
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502400"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605170"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architektura sieci SAP HANA (Duże wystąpienia)
 
@@ -86,7 +86,7 @@ Aby zapewnić deterministyczne opóźnienie sieci między maszynami wirtualnymi 
 Aby zmniejszyć opóźnienie, usługa ExpressRoute Fast Path została wprowadzona i wydana w maju 2019 r. dla określonej łączności dużych wystąpień HANA z sieciami wirtualnymi platformy Azure, które hostują maszyny wirtualne aplikacji SAP. Główną różnicą w rozwiązaniu wdrożonym do tej pory jest, że przepływy danych między maszynami wirtualnymi i wystąpieniami dużymi HANA nie są już kierowane za pośrednictwem bramy usługi ExpressRoute. Zamiast tego maszyny wirtualne przypisane w podsieci sieci wirtualnej platformy Azure komunikują się bezpośrednio z dedykowanym routerem brzegowym przedsiębiorstwa. 
 
 > [!IMPORTANT] 
-> Funkcja szybkiej ścieżki usługi ExpressRoute wymaga, aby podsieci z uruchomionymi maszynami wirtualnymi aplikacji SAP znajdują się w tej samej sieci wirtualnej platformy Azure, która została połączona z dużymi wystąpieniami HANA. Maszyny wirtualne znajdujące się w sieciach wirtualnych platformy Azure, które są równorzędne z siecią wirtualną platformy Azure podłączoną bezpośrednio do jednostek dużych wystąpień HANA, nie korzystają z szybkiej ścieżki usługi ExpressRoute. W rezultacie typowe projekty sieci wirtualnych koncentratora i szprychy, w których obwody usługi ExpressRoute łączą się z siecią wirtualną koncentratora, a sieci wirtualne zawierające warstwę aplikacji SAP (szprychy) są równorzędne, optymalizacja przez expressRoute Fast Ścieżka nie będzie działać. W dodatku szybka ścieżka usługi ExpressRoute nie obsługuje obecnie reguł routingu zdefiniowanych przez użytkownika (UDR). Aby uzyskać więcej informacji, zobacz [Brama sieci wirtualnej usługi ExpressRoute i FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways). 
+> Funkcja szybkiej ścieżki usługi ExpressRoute wymaga, aby podsieci z uruchomionymi maszynami wirtualnymi aplikacji SAP znajdują się w tej samej sieci wirtualnej platformy Azure, która została połączona z dużymi wystąpieniami HANA. Maszyny wirtualne znajdujące się w sieciach wirtualnych platformy Azure, które są równorzędne z siecią wirtualną platformy Azure podłączoną bezpośrednio do jednostek dużych wystąpień HANA, nie korzystają z szybkiej ścieżki usługi ExpressRoute. W rezultacie typowe projekty sieci wirtualnych koncentratora i szprychy, w których obwody usługi ExpressRoute łączą się z siecią wirtualną koncentratora, a sieci wirtualne zawierające warstwę aplikacji SAP (szprychy) są równorzędne, optymalizacja przez usługę ExpressRoute Fast Path nie będzie działać. W dodatku szybka ścieżka usługi ExpressRoute nie obsługuje obecnie reguł routingu zdefiniowanych przez użytkownika (UDR). Aby uzyskać więcej informacji, zobacz [Brama sieci wirtualnej usługi ExpressRoute i FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways). 
 
 
 Aby uzyskać więcej informacji na temat konfigurowania szybkiej ścieżki usługi ExpressRoute, przeczytaj dokument [Podłącz sieć wirtualną do wystąpień dużych HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route).    
@@ -151,7 +151,7 @@ Istnieją trzy sposoby włączania routingu przechodniego w tych scenariuszach:
 - Używanie [reguł IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) na maszynie wirtualnej systemu Linux w celu umożliwienia routingu między lokalizacjami lokalnymi i jednostkami dużych wystąpień HANA lub między jednostkami dużych wystąpień HANA w różnych regionach. Maszyny Wirtualnej z uruchomionymi tabelami IPTables należy wdrożyć w sieci wirtualnej platformy Azure, która łączy się z dużymi wystąpieniami HANA i lokalnymi. Maszyna wirtualna musi być odpowiednio dobrany, tak, że przepustowość sieci maszyny Wirtualnej jest wystarczająca dla oczekiwanego ruchu sieciowego. Aby uzyskać szczegółowe informacje na temat przepustowości sieci maszyn wirtualnych, zapoznaj się z artykułem [Rozmiary maszyn wirtualnych systemu Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)na platformie Azure .
 - [Zapora azure](https://azure.microsoft.com/services/azure-firewall/) będzie innym rozwiązaniem, aby włączyć ruch bezpośredni między jednostkami lokalnymi i HANA dużych wystąpień. 
 
-Cały ruch tych rozwiązań będzie kierowany za pośrednictwem sieci wirtualnej platformy Azure i jako taki ruch może być dodatkowo ograniczony przez używane urządzenia miękkie lub przez grupy zabezpieczeń sieciowej platformy Azure, dzięki czemu niektóre adresy IP lub adresy IP wahają się od lokalnie może być zablokowany lub jawnie dozwolone dostęp do hana dużych wystąpień. 
+Cały ruch tych rozwiązań będzie kierowany za pośrednictwem sieci wirtualnej platformy Azure i jako taki ruch może być dodatkowo ograniczony przez urządzenia miękkie używane lub przez grupy zabezpieczeń sieciowej platformy Azure, dzięki czemu niektóre adresy IP lub adresy IP mogą być blokowane lub jawnie dozwolone dostęp do dużych wystąpień HANA. 
 
 > [!NOTE]  
 > Należy pamiętać, że implementacja i obsługa rozwiązań niestandardowych obejmujących urządzenia sieciowe innych firm lub tabele IPTables nie jest dostarczana przez firmę Microsoft. Wsparcie musi być zapewnione przez dostawcę używanego składnika lub integratora. 
@@ -182,7 +182,7 @@ Aby uzyskać więcej informacji na temat włączania globalnego zasięgu usługi
 Hana Duże wystąpienie *nie* ma bezpośredniej łączności z Internetem. Na przykład to ograniczenie może ograniczyć możliwość rejestrowania obrazu systemu operacyjnego bezpośrednio u dostawcy systemu operacyjnego. Może być konieczne wykonanie pracy z lokalnym serwerem narzędzi do zarządzania subskrypcją systemu Linux Linux Enterprise Server lub menedżerem subskrypcji Red Hat Enterprise Linux.
 
 ## <a name="data-encryption-between-vms-and-hana-large-instance"></a>Szyfrowanie danych między maszynami wirtualnymi a dużym wystąpieniem HANA
-Dane przesyłane między wystąpieniem dużym HANA a maszynami wirtualnymi nie są szyfrowane. Jednak wyłącznie w przypadku wymiany między hana dbms stronie i JDBC /ODBC aplikacji opartych na, można włączyć szyfrowanie ruchu. Aby uzyskać więcej informacji, zobacz [tę dokumentację firmy SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false).
+Dane przesyłane między wystąpieniem dużym HANA a maszynami wirtualnymi nie są szyfrowane. Jednak wyłącznie w przypadku wymiany między hana dbms stronie i JDBC /ODBC aplikacji opartych na, można włączyć szyfrowanie ruchu. Aby uzyskać więcej informacji, zobacz [tę dokumentację firmy SAP](https://help.sap.com/viewer/102d9916bf77407ea3942fef93a47da8/1.0.11/en-US/dbd3d887bb571014bf05ca887f897b99.html).
 
 ## <a name="use-hana-large-instance-units-in-multiple-regions"></a>Używanie jednostek dużych wystąpień HANA w wielu regionach
 

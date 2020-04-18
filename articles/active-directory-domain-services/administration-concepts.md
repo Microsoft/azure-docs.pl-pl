@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba281ffb30801e0ae10cab10ceb95c0a3bffde2d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264234"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640021"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Pojęcia dotyczące zarządzania kontami użytkowników, hasłami i administracją w usługach domenowych Active Directory platformy Azure
 
@@ -48,7 +48,7 @@ Aby uzyskać więcej informacji na temat różnic w sposobie stosowania zasad ha
 
 Aby uwierzytelnić użytkowników w domenie zarządzanej, usługi Azure AD DS potrzebuje skrótów haseł w formacie odpowiednim dla programu NT LAN Manager (NTLM) i uwierzytelniania Kerberos. Usługa Azure AD nie generuje ani nie przechowuje skrótów haseł w formacie wymaganym do uwierzytelniania NTLM lub Kerberos, dopóki nie włączysz usług Azure AD DS dla dzierżawy. Ze względów bezpieczeństwa usługa Azure AD również nie przechowuje żadnych poświadczeń hasła w postaci zwykłego tekstu. W związku z tym usługa Azure AD nie może automatycznie wygenerować tych skrótów haseł NTLM lub Kerberos na podstawie istniejących poświadczeń użytkowników.
 
-W przypadku kont użytkowników tylko w chmurze użytkownicy muszą zmienić swoje hasła, zanim będą mogli korzystać z usług Azure AD DS. Ten proces zmiany hasła powoduje, że skróty haseł dla uwierzytelniania Kerberos i NTLM mają być generowane i przechowywane w usłudze Azure AD.
+W przypadku kont użytkowników tylko w chmurze użytkownicy muszą zmienić swoje hasła, zanim będą mogli korzystać z usług Azure AD DS. Ten proces zmiany hasła powoduje, że skróty haseł dla uwierzytelniania Kerberos i NTLM mają być generowane i przechowywane w usłudze Azure AD. Konto nie jest synchronizowane z usługi Azure AD do usług Azure AD DS, dopóki hasło nie zostanie zmienione.
 
 W przypadku użytkowników zsynchronizowanych z lokalnego środowiska usług AD DS przy użyciu usługi Azure AD Connect [należy włączyć synchronizację skrótów haseł][hybrid-phs].
 
@@ -80,9 +80,9 @@ W usłudze Azure AD DS dostępne wyniki i funkcje są oparte na jednostce SKU. P
 
 | Nazwa jednostki SKU   | Maksymalna liczba obiektów | Częstotliwość wykonywania kopii zapasowych | Maksymalna liczba wychodzących relacji zaufania lasu |
 |------------|----------------------|------------------|----|
-| Standardowa   | Unlimited (nieograniczony)            | Co 7 dni     | 0  |
-| Enterprise | Unlimited (nieograniczony)            | Co 3 dni     | 5  |
-| Premium    | Unlimited (nieograniczony)            | Dzienna            | 10 |
+| Standardowa   | Nieograniczona liczba            | Co 7 dni     | 0  |
+| Enterprise | Nieograniczona liczba            | Co 3 dni     | 5  |
+| Premium    | Nieograniczona liczba            | Dzienna            | 10 |
 
 Przed tymi jednostkami SKU usługi Azure AD DS użyto modelu rozliczeń opartego na liczbie obiektów (kont użytkowników i komputerów) w domenie zarządzanej usług Azure AD DS. Nie ma już zmiennych cen na podstawie liczby obiektów w domenie zarządzanej.
 

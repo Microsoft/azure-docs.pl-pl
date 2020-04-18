@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 76211014f96aee864412fd19686d58d0338ec5c2
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 3d58173d239e7a9249b588ff038ea46cfedb27a3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310234"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605208"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---resource-manager-template"></a>Szybki start: tworzenie zapory platformy Azure z wieloma publicznymi adresami IP — szablon Menedżera zasobów
 
@@ -56,7 +56,7 @@ Wdrażanie szablonu Usługi Resource Manager na platformie Azure:
 
 1. Wybierz **pozycję Wdrażanie na platformie Azure,** aby zalogować się na platformę Azure i otworzyć szablon. Szablon tworzy zaporę platformy Azure, infrastrukturę sieciową i dwie maszyny wirtualne.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json"><img src="./media/quick-create-multiple-ip-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
 
 2. W portalu na stronie **Tworzenie zapory platformy Azure z wieloma adresami publicznymi IP** wpisz lub wybierz następujące wartości:
    - Subskrypcja: wybierz z istniejących subskrypcji 

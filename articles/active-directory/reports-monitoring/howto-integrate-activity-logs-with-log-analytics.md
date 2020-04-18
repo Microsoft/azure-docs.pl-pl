@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d0ef55f6f5117ffa77052118155afea716125a4
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266444"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639722"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrowanie dzienników usługi Azure AD z dziennikami usługi Azure Monitor
 
@@ -60,9 +60,13 @@ Aby używać tej funkcji, potrzebujesz następujących elementów:
 * Użytkownik będący *administratorem globalnym* lub *administratorem zabezpieczeń* dla tej dzierżawy usługi Azure AD.
 * Obszar roboczy usługi Log Analytics w ramach subskrypcji platformy Azure. Dowiedz się, jak [utworzyć obszar roboczy usługi Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
+## <a name="licensing-requirements"></a>Wymagania dotyczące licencjonowania
+
+Korzystanie z tej funkcji wymaga licencji Usługi Azure AD Premium P1 lub P2. Aby znaleźć licencję odpowiednią do wymagań, zobacz [porównanie ogólnodostępnych funkcji w wersji bezpłatnej, podstawowej i premium](https://azure.microsoft.com/pricing/details/active-directory/).
+
 ## <a name="send-logs-to-azure-monitor"></a>Wysyłanie dzienników do usługi Azure Monitor
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
 2. Wybierz**ustawienia** -> diagnostyczne **usługi Azure Active Directory** > **Dodaj ustawienie diagnostyczne**. Można również wybrać **ustawienia eksportu** ze strony **Dzienniki inspekcji** lub **logowania,** aby przejść do strony konfiguracji ustawień diagnostycznych.  
     

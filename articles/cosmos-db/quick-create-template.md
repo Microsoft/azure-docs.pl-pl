@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 02/27/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 7c02cdf772b06f7070071aa7ba35c59b019187cc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f524a1e1db426b9b9dafb2fb95d77538a34b04ec
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78301730"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605465"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Szybki start: tworzenie bazy danych usługi Azure Cosmos i kontenera przy użyciu szablonu usługi Azure Resource Manager
 
@@ -53,7 +53,7 @@ Więcej przykładów szablonów usługi Azure Cosmos DB można znaleźć w [gale
 
 1. Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Szablon tworzy konto usługi Azure Cosmos, bazy danych i kontenera.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json)
 
 2. Wybierz lub wprowadź następujące wartości.
 
@@ -83,7 +83,7 @@ Witryna Azure portal służy do wdrażania szablonu. Oprócz witryny Azure porta
 
 Za pomocą witryny Azure Portal można sprawdzić konto usługi Azure Cosmos, bazę danych i kontener lub użyć następującego skryptu interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell do wyświetlenia listy utworzonego klucza tajnego.
 
-# <a name="cli"></a>[Cli](#tab/CLI)
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
 ```azurecli-interactive
 echo "Enter your Azure Cosmos account name:" &&
@@ -93,7 +93,7 @@ read resourcegroupName &&
 az cosmosdb show -g $resourcegroupName -n $cosmosAccountName
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Azure Cosmos account exists"
@@ -108,7 +108,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 Jeśli planujesz kontynuować pracę z kolejnymi i samouczkami, możesz pozostawić te zasoby na swoim miejscu.
 Gdy nie jest już potrzebne, usuń grupę zasobów, która usuwa konto usługi Azure Cosmos i powiązanych zasobów. Aby usunąć grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub programu Azure Powershell:
 
-# <a name="cli"></a>[Cli](#tab/CLI)
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -117,7 +117,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

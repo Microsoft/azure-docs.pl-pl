@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d7ba62c795e23e41a1947def77300ffe5d2cc010
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262455"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618041"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Usługa Azure Cognitive Search — często zadawane pytania (często zadawane pytania)
 
@@ -82,6 +82,14 @@ Większość zapytań z symbolami wieloznacznymi, takich jak prefiks, rozmyty i 
 Domyślnie wyniki wyszukiwania są oceniane na podstawie [właściwości statystycznych pasujących terminów](search-lucene-query-architecture.md#stage-4-scoring)i uporządkowane od najwyższego do najniższego w zestawie wyników. Jednak niektóre typy zapytań (symbol wieloznaczny, prefiks, wyrażenie regularne) zawsze przyczyniają się do stałego wyniku do ogólnego wyniku dokumentu. To zachowanie jest celowe. Usługa Azure Cognitive Search nakłada stały wynik, aby umożliwić dopasowania znalezione za pośrednictwem rozszerzenia zapytania, które mają zostać uwzględnione w wynikach, bez wpływu na ranking.
 
 Załóżmy na przykład, że wejście "tour*" w wyszukiwaniu z symbolami wieloznacznymi powoduje, że mecze są "wycieczki", "tourettes" i "tourmaline". Biorąc pod uwagę charakter tych wyników, nie ma sposobu, aby racjonalnie wywnioskować, które terminy są cenniejsze niż inne. Z tego powodu ignorujemy częstotliwości terminów podczas oceniania wyników w kwerendach typów symboli wieloznacznych, prefiksów i wyrażenia regularnego. Wyniki wyszukiwania na podstawie częściowego wprowadzania danych są podane stały wynik, aby uniknąć stronniczości w kierunku potencjalnie nieoczekiwanych dopasowań.
+
+## <a name="skillset-operations"></a>Operacje zestawów umiejętności
+
+### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>Czy są jakieś wskazówki lub wskazówki, aby zmniejszyć opłaty za usługi poznawcze po spożyciu?
+
+Zrozumiałe jest, że nie chcesz wykonywać wbudowanych umiejętności lub umiejętności niestandardowych więcej niż jest to absolutnie konieczne, zwłaszcza jeśli masz do czynienia z milionami dokumentów do przetworzenia. Mając to na uwadze, dodaliśmy możliwości "przyrostowe wzbogacanie" do wykonywania skillset. W istocie można podać lokalizację pamięci podręcznej (ciąg połączenia magazynu obiektów blob), który będzie używany do przechowywania danych wyjściowych "pośrednich" kroków wzbogacania.  Dzięki temu potok wzbogacania być inteligentne i stosować tylko wzbogacenia, które są niezbędne podczas modyfikowania zestaw umiejętności. Pozwoli to oczywiście również zaoszczędzić czas indeksowania, ponieważ potok będzie bardziej wydajny.
+
+Dowiedz się więcej o [wzbogaceniu przyrostowym](cognitive-search-incremental-indexing-conceptual.md)
 
 ## <a name="design-patterns"></a>Wzorce projektowe
 

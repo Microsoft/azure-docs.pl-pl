@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 471b26ebc4bd4aecb814ec43c7eba56e3d764fa0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16f9080487af95e7de5c5f8c91fd5c8d356b7bde
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78402497"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618064"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Korzystanie z rozszerzenia interfejsu wiersza polecenia dla usługi Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,11 +35,30 @@ Zestaw wiersza polecenia nie zastępuje zestawu SDK usługi Azure Machine Learni
 
 * Aby korzystać z interfejsu wiersza polecenia, musisz mieć subskrypcję platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję usługi Azure Machine Learning](https://aka.ms/AMLFree) już dziś.
 
-* [Interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* Aby użyć poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego,** potrzebujesz [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+    Jeśli używasz [usługi Azure Cloud Shell,](https://azure.microsoft.com//features/cloud-shell/)interfejs wiersza polecenia jest dostępny za pośrednictwem przeglądarki i mieszka w chmurze.
 
 ## <a name="full-reference-docs"></a>Pełne dokumenty referencyjne
 
 Znajdź [pełne dokumenty referencyjne dla rozszerzenia azure-cli-ml interfejsu wiersza polecenia platformy Azure.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest)
+
+## <a name="connect-the-cli-to-your-azure-subscription"></a>Łączenie interfejsu wiersza polecenia z subskrypcją platformy Azure
+
+> [!IMPORTANT]
+> Jeśli używasz usługi Azure Cloud Shell, możesz pominąć tę sekcję. Powłoka w chmurze automatycznie uwierzytelnia cię przy użyciu konta, które logujesz się do subskrypcji platformy Azure.
+
+Istnieje kilka sposobów, które można uwierzytelnić do subskrypcji platformy Azure z interfejsu wiersza polecenia. Najbardziej podstawowe jest interaktywne uwierzytelnienie za pomocą przeglądarki. Aby uwierzytelnić się interaktywnie, otwórz wiersz polecenia lub terminal i użyj następującego polecenia:
+
+```azurecli-interactive
+az login
+```
+
+Jeśli interfejs wiersza polecenia może otworzyć Twoją domyślną przeglądarkę, zrobi to i załaduje stronę logowania. W przeciwnym razie musisz otworzyć przeglądarkę i postępować zgodnie z instrukcjami w wierszu polecenia. Instrukcje obejmują przeglądanie [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadzanie kodu autoryzacyjnego.
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+
+Aby uzyskać inne metody uwierzytelniania, zobacz [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ## <a name="install-the-extension"></a>Instalowanie rozszerzenia
 

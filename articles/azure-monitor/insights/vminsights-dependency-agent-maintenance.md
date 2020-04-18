@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
-ms.openlocfilehash: c55bee9880c4134f2e304a7fc5176225477fe5f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 01dd8422658aa0c8982733e48782efd27c1bf5be
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480763"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617846"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Jak uaktualnić agenta zależności usługi Azure Monitor dla maszyn wirtualnych
 
@@ -60,7 +60,7 @@ Możesz pobrać najnowszą wersję agenta systemu Windows [tutaj](https://aka.ms
 
 Uaktualnienie z wcześniejszych wersji agenta zależności w systemie Linux jest obsługiwane i wykonywane zgodnie z tym samym poleceniem co nowa instalacja.
 
-Możesz pobrać najnowszą wersję agenta systemu Windows [tutaj](https://aka.ms/dependencyagentlinux).
+Możesz pobrać najnowszą wersję agenta Linuksa [stąd](https://aka.ms/dependencyagentlinux).
 
 1. Zaloguj się do komputera przy użyciu konta z uprawnieniami administracyjnymi.
 

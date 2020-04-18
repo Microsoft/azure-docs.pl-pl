@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: f103db1d0de7a9d538f56b8ade331dc856b26bce
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547022"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617710"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybieranie warstwy cenowej dla usługi Azure Cognitive Search
 
@@ -89,6 +89,8 @@ W przypadku [wzbogacania sztucznej inteligencji](cognitive-search-concept-intro.
 | Pękanie dokumentów, ekstrakcja obrazu | Rozliczane w zależności od liczby obrazów wyodrębnionych z dokumentów. W [konfiguracji indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) **imageAction** jest parametrem wyzwalającym wyodrębnianie obrazu. Jeśli **imageAction** jest ustawiona na "none" (domyślnie), nie zostanie naliczona opłata za wyodrębnienie obrazu. Szybkość wyodrębniania obrazu jest udokumentowana na stronie [szczegółów cennika](https://azure.microsoft.com/pricing/details/search/) usługi Azure Cognitive Search.|
 | [Wbudowane umiejętności poznawcze](cognitive-search-predefined-skills.md) | Rozliczane w takim samym tempie, jak w przypadku wykonania zadania bezpośrednio przy użyciu usług Cognitive Services. |
 | Umiejętności niestandardowe | Niestandardowa umiejętność to funkcjonalność, którą udostępniasz. Koszt używania umiejętności niestandardowej zależy wyłącznie od tego, czy kod niestandardowy wywołuje inne usługi taryfowe. |
+
+Funkcja [wzbogacenia przyrostowego (podglądu)](cognitive-search-incremental-indexing-conceptual.md) umożliwia zapewnienie pamięci podręcznej, która umożliwia indeksatorowi zwiększenie wydajności w uruchamianiu tylko umiejętności poznawczych, które są niezbędne, jeśli zmodyfikujesz swój zestaw umiejętności w przyszłości, oszczędzając czas i pieniądze.
 
 <a name="search-units"></a>
 

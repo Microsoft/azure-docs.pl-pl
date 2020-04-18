@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4538afcef85c4a6eaef4213133963ecab9987e1f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: d7a596454a48a1d6fcee77634363dd38f34a4d58
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80876221"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603350"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plany wdrażania usługi Azure Active Directory
 Szukasz kompleksowych wskazówek dotyczących wdrażania funkcji usługi Azure Active Directory (Azure AD)? Plany wdrażania usługi Azure AD prowadzą cię przez wartość biznesową, zagadnienia dotyczące planowania i procedury operacyjne potrzebne do pomyślnego wdrożenia wspólnych możliwości usługi Azure AD.
@@ -80,7 +80,7 @@ Rozszerzenie wdrożenia na większe grupy użytkowników powinno zostać przepro
 | -| -|
 | [Synchronizowanie skrótów haseł za pomocą usługi ADFS](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Dzięki synchronizacji skrótów haseł haseł użytkowników skróty są synchronizowane z lokalnej usługi Active Directory do usługi Azure AD, dzięki czemu usługa Azure AD uwierzytelnia użytkowników bez interakcji z lokalną usługą Active Directory |
 | [Uwierzytelnianie przekazywane za pomocą usługi ADFS](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| Uwierzytelnianie przekazywania usługi Azure AD ułatwia użytkownikom logowanie się do aplikacji lokalnych i opartych na chmurze przy użyciu tych samych haseł. Ta funkcja zapewnia użytkownikom lepsze środowisko — o jedno hasło mniej do zapamiętania — i zmniejsza koszty pomocy technicznej DZIAŁU IT, ponieważ użytkownicy rzadziej zapominają o tym, jak się zalogować. Gdy użytkownicy logują się za pomocą usługi Azure AD, ta funkcja weryfikuje ich hasła bezpośrednio w lokalnej usłudze Active Directory. |
-| [Serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan.md) |Obecnie pracownicy chcą pracować wydajnie w dowolnym miejscu i czasie, na dowolnym urządzeniu. Muszą uzyskać dostęp do aplikacji SaaS w chmurze i aplikacjach firmowych lokalnie. Serwer proxy aplikacji usługi Azure AD umożliwia ten niezawodny dostęp bez kosztownych i złożonych wirtualnych sieci prywatnych (VPN) lub stref zdemilitaryzowanych (DMZ). |
+| [Serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |Obecnie pracownicy chcą pracować wydajnie w dowolnym miejscu i czasie, na dowolnym urządzeniu. Muszą uzyskać dostęp do aplikacji SaaS w chmurze i aplikacjach firmowych lokalnie. Serwer proxy aplikacji usługi Azure AD umożliwia ten niezawodny dostęp bez kosztownych i złożonych wirtualnych sieci prywatnych (VPN) lub stref zdemilitaryzowanych (DMZ). |
 | [Bezproblemowe logowanie jednokrotne](../hybrid/how-to-connect-sso-quick-start.md)| Bezproblemowe logowanie jednokrotne w usłudze Azure Active Directory zapewnia automatyczne logowanie użytkowników, gdy ich urządzenia są połączone z siecią firmową. Dzięki tej funkcji użytkownicy nie będą musieli wpisywać swoich haseł, aby zalogować się do usługi Azure AD i zwykle nie będą musieli wprowadzać swoich nazw użytkowników. Ta funkcja zapewnia autoryzowanym użytkownikom łatwy dostęp do aplikacji chmurowych bez konieczności stosowania dodatkowych składników lokalnych. |
 
 ## <a name="deploy-user-provisioning"></a>Wdrażanie inicjowania obsługi administracyjnej użytkowników

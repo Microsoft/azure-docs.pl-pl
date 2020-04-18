@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c74bea8aa1a8e2f9de47b501f9afd9540cfc61b9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 79d8cb4b09ef547bf1c0b01f48872ddcb4f964ee
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422914"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616535"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Jak używać usuwania nietrwałego w usłudze Key Vault z programem PowerShell
 
-Funkcja nietrwałego usuwania usługi Azure Key Vault umożliwia odzyskiwanie usuniętych magazynów i obiektów przechowalni. W szczególności soft-delete adresy następujące scenariusze:
+Funkcja usuwania nietrwałego usługi Azure Key Vault umożliwia odzyskiwanie usuniętych magazynów i obiektów przechowalni. W szczególności soft-delete adresy następujące scenariusze:
 
 - Obsługa możliwego do odzyskania usunięcia magazynu kluczy
 - Obsługa możliwego do odzyskania usunięcia obiektów magazynu kluczy; klucze, wpisy tajne i certyfikaty
@@ -53,7 +53,7 @@ Aby uzyskać więcej informacji na temat uprawnień i kontroli dostępu, zobacz 
 Można włączyć "soft-delete", aby umożliwić odzyskiwanie usuniętego magazynu kluczy lub obiektów przechowywanych w magazynie kluczy.
 
 > [!IMPORTANT]
-> Włączenie "usuwania nietrwałego" w magazynie kluczy jest nieodwracalną akcją. Po ustawieniu właściwości usuwania nietrwałego na "true", nie można jej zmienić ani usunąć.  
+> Włączenie "soft-delete" w magazynie kluczy jest nieodwracalną akcją. Po ustawieniu właściwości usuwania nietrwałego na "true", nie można jej zmienić ani usunąć.  
 
 ### <a name="existing-key-vault"></a>Istniejący magazyn kluczy
 
@@ -269,7 +269,7 @@ Po włączeniu ochrony przed przeczyszczaniem nie można wyczyścić przechowaln
 
 Ochronę przed przeczyszczaniem można włączyć tylko wtedy, gdy jest również włączone usuwanie nietrwałe. 
 
-Aby włączyć zarówno ochronę usuwania nietrwałego, jak i oczyszczania podczas tworzenia przechowalni, użyj polecenia cmdlet [New-AzKeyVault:](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0)
+Aby włączyć ochronę usuwania nietrwałego i przeczyszczania podczas tworzenia przechowalni, użyj polecenia cmdlet [New-AzKeyVault:](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0)
 
 ```powershell
 New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection

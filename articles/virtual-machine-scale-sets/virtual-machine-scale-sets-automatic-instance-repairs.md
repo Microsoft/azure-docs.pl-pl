@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8e73ef75b3313656b45d29270d9996c3ad17c630
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538073"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603683"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatyczne naprawy wystąpień dla zestawów skalowania maszyny wirtualnej platformy Azure
 
@@ -90,6 +90,8 @@ Jeśli funkcja [powiadomienia o zakończeniu](./virtual-machine-scale-sets-termi
 ## <a name="enabling-automatic-repairs-policy-when-creating-a-new-scale-set"></a>Włączanie zasad automatycznych napraw podczas tworzenia nowego zestawu skalowania
 
 Aby włączyć zasady automatycznego napraw podczas tworzenia nowego zestawu skalowania, upewnij się, że wszystkie [wymagania dotyczące](#requirements-for-using-automatic-instance-repairs) włączenia tej funkcji są spełnione. Punkt końcowy aplikacji powinien być poprawnie skonfigurowany dla wystąpień zestawu skalowania, aby uniknąć wyzwalania niezamierzonych napraw podczas konfigurowania punktu końcowego. W przypadku nowo utworzonych zestawów skalowania wszelkie naprawy wystąpień są wykonywane tylko po odczekaniu okresu prolongaty. Aby włączyć automatyczną naprawę wystąpienia w zestawie skalowania, użyj *automatycznegoRepairsPolicy* obiektu w modelu zestawu skalowania maszyny wirtualnej.
+
+Za pomocą tego [szablonu szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automatic-repairs-slb-health-probe) można również wdrożyć zestaw skalowania maszyny wirtualnej z sondą kondycji modułu równoważenia obciążenia i automatyczną obsługą wystąpień z włączonym okresem prolongaty wynoszącym 30 minut.
 
 ### <a name="azure-portal"></a>Azure Portal
  

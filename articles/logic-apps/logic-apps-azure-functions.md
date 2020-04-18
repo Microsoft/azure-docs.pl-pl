@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29713622be90ea280bff3c002be746bf1615718f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284124"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605903"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Wywoływanie funkcji platformy Azure z aplikacji Azure Logic Apps
 
@@ -101,7 +101,9 @@ Po utworzeniu funkcji platformy Azure wykonaj czynności, jak [dodawać funkcje 
 
 ## <a name="create-functions-inside-logic-apps"></a>Tworzenie funkcji wewnątrz aplikacji logiki
 
-Przed utworzeniem funkcji platformy Azure, począwszy od wewnątrz aplikacji logiki przy użyciu projektanta aplikacji logiki, należy najpierw mieć aplikację funkcji platformy Azure, która jest kontenerem dla funkcji. Jeśli nie masz aplikacji funkcji, najpierw utwórz tę aplikację funkcji. Zobacz [Tworzenie pierwszej funkcji w witrynie Azure portal](../azure-functions/functions-create-first-azure-function.md).
+Można tworzyć funkcje platformy Azure bezpośrednio z przepływu pracy aplikacji logiki przy użyciu wbudowanej akcji usługi Azure Functions w logice App Designer, ale można użyć tej metody tylko dla funkcji platformy Azure napisanych w języku JavaScript. W przypadku innych języków można tworzyć funkcje platformy Azure za pośrednictwem usługi Azure Functions w witrynie Azure portal. Aby uzyskać więcej informacji, zobacz [Tworzenie pierwszej funkcji w witrynie Azure portal](../azure-functions/functions-create-first-azure-function.md).
+
+Jednak zanim będzie można utworzyć dowolną funkcję platformy Azure, musisz już mieć aplikację funkcji platformy Azure, która jest kontenerem dla funkcji. Jeśli nie masz aplikacji funkcji, najpierw utwórz tę aplikację funkcji. Zobacz [Tworzenie pierwszej funkcji w witrynie Azure portal](../azure-functions/functions-create-first-azure-function.md).
 
 1. W [witrynie Azure portal](https://portal.azure.com)otwórz aplikację logiki w projektancie aplikacji logiki.
 

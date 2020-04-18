@@ -1,20 +1,20 @@
 ---
-title: Plan bazowy zabezpieczeń platformy Azure dla magazynu kluczy
-description: Plan bazowy zabezpieczeń platformy Azure dla magazynu kluczy
+title: Punkt odniesienia zabezpieczeń platformy Azure dla usługi Key Vault
+description: Punkt odniesienia zabezpieczeń platformy Azure dla usługi Key Vault
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cb908c4b105324e0866d53463ecd3a8a59e7e651
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 46fa0160dd8b37e89cdd77ba8acdae294fddbefe
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81429891"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616891"
 ---
-# <a name="azure-security-baseline-for-key-vault"></a>Plan bazowy zabezpieczeń platformy Azure dla magazynu kluczy
+# <a name="azure-security-baseline-for-key-vault"></a>Punkt odniesienia zabezpieczeń platformy Azure dla usługi Key Vault
 
 Usługa Azure Security Baseline for Key Vault zawiera zalecenia, które pomogą Ci poprawić poziom zabezpieczeń wdrożenia.
 
@@ -1175,7 +1175,7 @@ Jak przywrócić klucze vault secrets:https://docs.microsoft.com/powershell/modu
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Zapewnienie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
-**Wskazówki:** Upewnij się, że nietrwałe usuwanie jest włączone dla usługi Azure Key Vault. Usuwanie nietrwałe umożliwia odzyskiwanie usuniętych magazynów kluczy i obiektów przechowalni, takich jak klucze, wpisy tajne i certyfikaty. 
+**Wskazówki:** Upewnij się, że usługa usuwania nietrwałego jest włączona dla usługi Azure Key Vault. Usuwanie programowe umożliwia odzyskiwanie usuniętych magazynów kluczy i obiektów przechowalni, takich jak klucze, wpisy tajne i certyfikaty. 
 
 Jak korzystać z nietrwałego usuwania usługi Azure Key Vault: 
 

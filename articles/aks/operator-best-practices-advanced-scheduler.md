@@ -5,12 +5,12 @@ description: Poznaj najlepsze rozwiązania operatora klastra dotyczące korzysta
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 47b2d78f7dc831c4314c4215f5e0a9e17f75f0dc
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d0d13a699d2559c6b4360c807721e0b748959382
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668358"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617533"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Najważniejsze wskazówki dotyczące zaawansowanych funkcji harmonogramu w usłudze Azure Kubernetes Service (AKS)
 
@@ -134,7 +134,7 @@ Aby uzyskać więcej informacji na temat używania selektorów węzłów, zobacz
 
 Selektor węzłów to podstawowy sposób przypisywania zasobników do danego węzła. Większa elastyczność jest dostępna przy użyciu *koligacji węzłów*. Za pomocą koligacji węzła można zdefiniować, co się stanie, jeśli zasobnik nie może być dopasowany do węzła. Można *wymagać, aby* harmonogram Kubernetes dopasowywał zasobnik z hostem oznaczonym etykietą. Możesz też *preferować* mecz, ale zezwalaj na zaplanowanie zasobnika na innym hoście, jeśli nie jest dostępny.
 
-W poniższym przykładzie ustawia koligację węzła na *wymaganąDwulingSchedUlingIgnoredDuringExecution*. Ta koligacja wymaga harmonogramu Kubernetes używać węzła z pasującą etykietą. Jeśli węzeł nie jest dostępny, zasobnik musi czekać na kontynuowanie planowania. Aby umożliwić zaplanowanie zasobnika w innym węźle, można zamiast tego ustawić wartość *na preferredDuringScheduledIgnoreDuringExecution:*
+W poniższym przykładzie ustawia koligację węzła na *wymaganąDwulingSchedUlingIgnoredDuringExecution*. Ta koligacja wymaga harmonogramu Kubernetes używać węzła z pasującą etykietą. Jeśli węzeł nie jest dostępny, zasobnik musi czekać na kontynuowanie planowania. Aby umożliwić zaplanowanie zasobnika w innym węźle, można zamiast tego ustawić wartość *preferowanąDuringSchedulingIgnoreDuringExecution*:
 
 ```yaml
 kind: Pod

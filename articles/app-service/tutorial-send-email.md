@@ -4,12 +4,12 @@ description: Dowiedz się, jak wywoływać procesy biznesowe z aplikacji usługi
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 44f2dfb83e96e1d8fa31ee1acf350193b954dbd8
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 4073b49a134356943bd7da8d54bf574f2e0d5eea
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892853"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604848"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Samouczek: Wysyłanie wiadomości e-mail i wywoływanie innych procesów biznesowych z usługi App Service
 
@@ -199,7 +199,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> Ten kod jest napisany dla uproszczenia demonstracji. W praktyce nie tworzenie wystąpienia `HttpClient` obiektu dla każdego żądania. Postępuj zgodnie ze wskazówkami dotyczącymi programu [Użyj funkcjihttps://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient IHttpClientFactory w celu zaimplementowania odpornych żądań HTTP]( -http-requests).
+> Ten kod jest napisany dla uproszczenia demonstracji. W praktyce nie tworzenie wystąpienia `HttpClient` obiektu dla każdego żądania. Postępuj zgodnie ze wskazówkami dotyczącymi [używania ihttpclientfactory do implementowania odpornych żądań HTTP](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 Jeśli testujesz ten kod w przykładowej aplikacji dla [samouczka: Tworzenie ASP.NET aplikacji Core i SQL Database w usłudze Azure App Service,](app-service-web-tutorial-dotnetcore-sqldb.md)można go użyć do wysłania potwierdzenia wiadomości e-mail w [akcji Utwórz](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)po `Todo` dodaniu elementu.
 

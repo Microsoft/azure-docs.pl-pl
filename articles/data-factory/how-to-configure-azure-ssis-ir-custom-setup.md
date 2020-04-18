@@ -12,16 +12,16 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 3aabf68b6763e5815a03021cb02683d509c26190
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ab2ba31d6b712bd3399bc8bf5b491337d462dac9
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415054"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606217"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Dostosowywanie konfiguracji środowiska wykonawczego integracji usługi Azure-SSIS
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Niestandardowa konfiguracja środowiska uruchomieniowego integracji usług integracji usługi azure-SQL Server (Azure-SSIS IR) zapewnia interfejs do dodawania własnych kroków podczas konfigurowania lub ponownej konfiguracji usługi Azure-SSIS IR. 
 

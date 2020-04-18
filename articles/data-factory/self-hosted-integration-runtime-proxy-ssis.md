@@ -12,16 +12,16 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: ecfdf2a11f31c18064be9a607f2bb3938d26e661
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4cb5b84f3889dcf4e0f28d525afb42cfeac5b54c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414898"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605492"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Konfigurowanie samodzielnie hostowanego podczerwona jako serwera proxy dla usługi Azure-SSIS IR w usłudze Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób uruchamiania pakietów usług integracji programu SQL Server (SSIS) w czasie wykonywania integracji platformy Azure-SSIS (Azure-SSIS IR) w usłudze Azure Data Factory przy samodzielnym uruchomieniu integracji (samodzielne środowisko IR) skonfigurowanym jako serwer proxy. 
 

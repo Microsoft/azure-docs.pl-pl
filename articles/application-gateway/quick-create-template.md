@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/23/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0612371605f6b216eadeef49d9adb1497ba31591
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: cce3ef20a93c6d7a24bfa312501d2f8cc8ed9273
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80135972"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604903"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Szybki start: bezpośredni ruch internetowy za pomocą bramy aplikacji platformy Azure — szablon Menedżera zasobów
 
@@ -57,7 +57,7 @@ Wdrażanie szablonu Usługi Resource Manager na platformie Azure:
 
 1. Wybierz **pozycję Wdrażanie na platformie Azure,** aby zalogować się na platformę Azure i otworzyć szablon. Szablon tworzy bramę aplikacji, infrastrukturę sieciową i dwie maszyny wirtualne w puli wewnętrznej bazy danych z uruchomionymi usługami IIS.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Wybierz lub utwórz grupę zasobów, wpisz nazwę użytkownika i hasło administratora maszyny wirtualnej.
 3. Wybierz **opcję Zgadzam się z warunkami podanymi powyżej,** a następnie wybierz opcję **Kup.** Wdrożenie może potrwać 20 minut lub dłużej.

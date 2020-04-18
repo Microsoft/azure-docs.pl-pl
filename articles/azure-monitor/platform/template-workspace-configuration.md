@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 60f85a30815bc1bace409b50af6332bb6622d7ca
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 81e46f53c0afc69c927918daa0488c4835d60805
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477985"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605016"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Zarządzanie obszarem roboczym usługi Log Analytics przy użyciu szablonów usługi Azure Resource Manager
 
@@ -153,7 +153,7 @@ W przypadku rezerwacji pojemności definiuje się wybraną rezerwację pojemnoś
    >* "name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. Edytuj szablon, aby spełnić wymagania. Należy rozważyć utworzenie [pliku parametrów Menedżera zasobów](../../azure-resource-manager/templates/parameter-files.md) zamiast przekazywania parametrów jako wartości wbudowanych. Przejrzyj odwołanie do [szablonu Microsoft.OperationalInsights/workspaces,](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) aby dowiedzieć się, jakie właściwości i wartości są obsługiwane. 
+2. Edytuj szablon, aby spełnić wymagania. Należy rozważyć utworzenie [pliku parametrów Menedżera zasobów](../../azure-resource-manager/templates/parameter-files.md) zamiast przekazywania parametrów jako wartości wbudowanych. Przejrzyj odwołanie do [szablonu Microsoft.OperationalInsights/workspaces,](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) aby dowiedzieć się, jakie właściwości i wartości są obsługiwane. 
 
 3. Zapisz ten plik jako **deploylaworkspacetemplate.json** w folderze lokalnym.
 

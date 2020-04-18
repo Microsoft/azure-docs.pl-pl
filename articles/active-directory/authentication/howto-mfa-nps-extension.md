@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c8606f0b7ab47d624ec66c8cda539e571cec6ce
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393051"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617664"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury NPS z usługą Azure Multi-Factor Authentication
 
@@ -142,6 +142,14 @@ Wykonaj następujące kroki, aby uruchomić konto testowe:
 1. Zaloguj się [https://aka.ms/mfasetup](https://aka.ms/mfasetup) przy za pomocą konta testowego.
 2. Postępuj zgodnie z instrukcjami, aby skonfigurować metodę weryfikacji.
 3. [Utwórz zasady dostępu warunkowego,](howto-mfa-getstarted.md#create-conditional-access-policy) aby wymagać uwierzytelniania wieloskładnikowego dla konta testowego.
+
+> [!IMPORTANT]
+>
+> Upewnij się, że użytkownicy pomyślnie zarejestrowali się w usłudze Azure Multi-Factor Authentication. Jeśli użytkownicy wcześniej zarejestrowali tylko do samodzielnego resetowania hasła (SSPR), *strongAuthenticationMetody* są włączone dla ich konta. Uwierzytelnianie wieloskładnikowe platformy Azure jest wymuszane, gdy *strongauthenticationMetods* jest skonfigurowany, nawet jeśli użytkownik jest zarejestrowany tylko dla samookreślenia.
+>
+> Można włączyć połączoną rejestrację zabezpieczeń, która konfiguruje jednocześnie wiele funkcji SSPR i uwierzytelnianie wieloskładnikowe platformy Azure. Aby uzyskać więcej informacji, zobacz [Włączanie połączonej rejestracji informacji o zabezpieczeniach w usłudze Azure Active Directory](howto-registration-mfa-sspr-combined.md).
+>
+> Można również [wymusić na użytkownikach ponowne rejestrowanie metod uwierzytelniania,](howto-mfa-userdevicesettings.md#manage-user-authentication-options) jeśli wcześniej włączyli tylko samookreślenie SSPR.
 
 ## <a name="install-the-nps-extension"></a>Instalowanie rozszerzenia NPS
 

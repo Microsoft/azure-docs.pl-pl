@@ -9,12 +9,12 @@ ms.date: 02/27/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: subject-armqs
-ms.openlocfilehash: 343ed57c87ea6df5db4cde0978132af31419f905
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 86dc7a4ed05ceae5c7a641ffef23bd75ec48ceea
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78303345"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605544"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Rozsyłanie zdarzeń magazynu obiektów Blob do punktu końcowego sieci Web przy użyciu szablonu usługi Azure Resource Manager
 
@@ -56,7 +56,7 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
 1. Wybierz następujące łącze, aby zalogować się na platformie Azure i otworzyć szablon. Ten szablon umożliwia utworzenie magazynu kluczy oraz wpisu tajnego.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json"><img src="./media/blob-event-quickstart-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
 2. Określ **punkt końcowy:** podaj adres `api/updates` URL aplikacji internetowej i dodaj go do adresu URL strony głównej.
 3. Wybierz **pozycję Zakup,** aby wdrożyć szablon.

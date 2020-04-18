@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1e8587562ff452373fe2ee3b98fa20309e77cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266587"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639757"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Tworzenie, wyświetlanie listy lub usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -37,6 +37,12 @@ W tym artykule dowiesz się, jak utworzyć, wyświetlić listę i usunąć tożs
     - Użyj [usługi Azure Cloud Shell](../../cloud-shell/overview.md) z witryny Azure portal (zobacz następną sekcję).
     - Użyj osadzonej usługi Azure Cloud Shell za pomocą przycisku "Wypróbuj", znajdującego się w prawym górnym rogu każdego bloku kodu.
     - Jeśli wolisz używać lokalnej konsoli interfejsu wiersza polecenia, należy [zainstalować najnowszą wersję interfejsu wiersza](https://docs.microsoft.com/cli/azure/install-azure-cli) polecenia platformy Azure (2.0.13 lub nowszym). Zaloguj się na `az login`platformie Azure przy użyciu konta skojarzonego z subskrypcją platformy Azure, w ramach której chcesz wdrożyć tożsamość zarządzaną przypisaną przez użytkownika.
+
+
+> [!NOTE]
+> Aby zmodyfikować uprawnienia użytkownika podczas korzystania z jednostki servivce aplikacji przy użyciu interfejsu wiersza polecenia, należy podać jednostki usługi dodatkowe uprawnienia w interfejsie API programu Azure AD Graph jako części interfejsu wiersza polecenia wykonywania żądań GET względem interfejsu API wykresu. W przeciwnym razie może skończyć się otrzymaniem komunikatu "Niewystarczające uprawnienia do ukończenia operacji". Aby to zrobić, musisz przejść do rejestracji aplikacji w usłudze Azure Active Directory, wybierz aplikację, kliknij uprawnienia interfejsu API, przewiń w dół i wybierz pozycję Wykres usługi Azure Active Directory. Następnie wybierz pozycję Uprawnienia aplikacji, a następnie dodaj odpowiednie uprawnienia. 
+
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

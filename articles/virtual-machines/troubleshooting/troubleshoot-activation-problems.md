@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 5c84588290ce769b556002469b6a11c6950bb878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd38f646b8dfc58839cd2645f7fadf7332693854
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476556"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605984"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Rozwiązywanie problemów z aktywacją maszyny wirtualnej z systemem Windows na platformie Azure
 
@@ -77,7 +77,7 @@ W przypadku maszyny Wirtualnej utworzonej na podstawie obrazu niestandardowego n
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Krok 2 Sprawdź łączność między maszyną wirtualną a usługą Azure KMS
 
-1. Pobierz i wyodrębnij narzędzie [PSping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) do folderu lokalnego na maszynie Wirtualnej, która nie jest aktywowana. 
+1. Pobierz i wyodrębnij narzędzie [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) do folderu lokalnego na maszynie Wirtualnej, która nie jest aktywowana. 
 
 2. Przejdź do ekranu startowego, wyszukaj w programie Windows PowerShell, kliknij prawym przyciskiem myszy pozycję Windows PowerShell, a następnie wybierz polecenie Uruchom jako administrator.
 
@@ -114,7 +114,7 @@ W przypadku maszyny Wirtualnej utworzonej na podstawie obrazu niestandardowego n
     
     **Aktywacja systemu Windows(R), ServerDatacenter edition (12345678-1234-1234-1234-12345678) ...  Produkt został pomyślnie aktywowany.**
 
-## <a name="faq"></a>Najczęściej zadawane pytania 
+## <a name="faq"></a>Często zadawane pytania 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>System Windows Server 2016 został utworzony w portalu Azure Marketplace. Czy muszę skonfigurować klucz usługi zarządzania kluczem zarządzania kluczem do aktywacji systemu Windows Server 2016? 
 

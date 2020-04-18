@@ -13,15 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 2b1b708618c60153b8dbce69b26d832fa18b25aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e97442d4104f52c1a76ba8cd1d81c99508bb242
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476607"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605183"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalowanie i konfigurowanie pulpitu zdalnego w celu łączenia się z maszyną wirtualną z systemem Linux na platformie Azure
-Maszyny wirtualne systemu Linux (VM) na platformie Azure są zwykle zarządzane z wiersza polecenia przy użyciu połączenia bezpiecznej powłoki (SSH). Gdy nowy linux lub dla szybkich scenariuszy rozwiązywania problemów, korzystanie z pulpitu zdalnego może być łatwiejsze. W tym artykule opisano sposób instalowania i konfigurowania środowiska pulpitu[(xfce)](https://www.xfce.org)i pulpitu zdalnego[(xrdp)](https://www.xrdp.org)dla maszyny Wirtualnej systemu Linux przy użyciu modelu wdrażania Menedżera zasobów.
+Maszyny wirtualne systemu Linux (VM) na platformie Azure są zwykle zarządzane z wiersza polecenia przy użyciu połączenia bezpiecznej powłoki (SSH). Gdy nowy linux lub dla szybkich scenariuszy rozwiązywania problemów, korzystanie z pulpitu zdalnego może być łatwiejsze. W tym artykule opisano sposób instalowania i konfigurowania środowiska pulpitu[(xfce)](https://www.xfce.org)i pulpitu zdalnego[(xrdp)](http://xrdp.org)dla maszyny Wirtualnej systemu Linux przy użyciu modelu wdrażania Menedżera zasobów.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne

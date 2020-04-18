@@ -4,12 +4,12 @@ description: W ramach tego samouczka dowiesz się, jak dodać punkt końcowy HTT
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: aafe2e7c89f6d4a90806378e9cf25c81f51feb60
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b88ecd8d169e7402d149481c22bae95e632efe26
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411180"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605286"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Samouczek: Dodawanie punktu końcowego HTTPS do usługi frontonu internetowego interfejsu API platformy ASP.NET Core za pomocą usługi Kestrel
 
@@ -400,7 +400,7 @@ $slb | Set-AzLoadBalancer
 
 Zapisz wszystkie pliki, przełącz z debugowania na wydanie i naciśnij klawisz F6, aby ponownie skompilować rozwiązanie.  W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Voting (Głosowanie)** i wybierz polecenie **Opublikuj**. Wybierz punkt końcowy połączenia klastra utworzonego w sekcji [Wdrażanie aplikacji w klastrze](service-fabric-tutorial-deploy-app-to-party-cluster.md) lub wybierz inny klaster.  Kliknij pozycję **Opublikuj**, aby opublikować aplikację w klastrze zdalnym.
 
-Po wdrożeniu aplikacji otwórz przeglądarkę [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) sieci Web i przejdź do (zaktualizuj adres URL za pomocą punktu końcowego połączenia dla klastra). Jeśli używasz certyfikatu z podpisem własnym, zobaczysz ostrzeżenie, że komputer nie ufa zabezpieczeniom tej witryny internetowej.  Kontynuuj przechodzenie do strony internetowej.
+Po wdrożeniu aplikacji otwórz przeglądarkę internetową i przejdź do strony `https://mycluster.region.cloudapp.azure.com:443` (zaktualizuj adres URL przy użyciu punktu końcowego połączenia dla klastra). Jeśli używasz certyfikatu z podpisem własnym, zobaczysz ostrzeżenie, że komputer nie ufa zabezpieczeniom tej witryny internetowej.  Kontynuuj przechodzenie do strony internetowej.
 
 ![Aplikacja do głosowania][image3]
 

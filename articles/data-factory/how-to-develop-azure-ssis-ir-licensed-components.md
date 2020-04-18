@@ -11,16 +11,16 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: 3a4c1f8b95c66c26944d455a2ab6163d1da72731
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b7079262dc7db4f4a00a9dc79193da1574c7153a
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414336"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605851"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalowanie płatnych lub licencjonowanych składników niestandardowych w środowisku Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano, jak niezależny niezależny numer niezależny może tworzyć i instalować płatne lub licencjonowane składniki niestandardowe dla pakietów usług integracji programu SQL Server (SSIS), które są uruchamiane na platformie Azure w czasie wykonywania integracji platformy Azure-SSIS.
 

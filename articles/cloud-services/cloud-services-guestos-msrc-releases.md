@@ -10,17 +10,55 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/3/2020
+ms.date: 04/17/2020
 ms.author: raiye
-ms.openlocfilehash: 758f0e3198ef83635ead3f9bd8565cd64f9d413c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: a271eca3c3b6e7cd364f2bc87f2e15006874fa08
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656355"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617689"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje Centrum microsoft security response center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy określona aktualizacja ma zastosowanie do używanego systemu operacyjnego gościa. Aktualizacje zawsze są przesuwające się dla konkretnej [rodziny,][family-explain] w którą zostały wprowadzone.
+
+## <a name="april-2020-guest-os"></a>Kwiecień 2020 Gość OS
+
+>[!NOTE]
+>Kwietniowy system operacyjny gościa jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze, które są skonfigurowane do aktualizacji automatycznych. Po zakończeniu wdrażania ta wersja zostanie udostępniona do ręcznych aktualizacji za pośrednictwem witryny Azure portal i plików konfiguracyjnych. Następujące poprawki są zawarte w kwietniowym pliku operacyjnym gościa. Lista ta może ulec zmianie.
+
+| Kategoria produktu | Nadrzędny artykuł KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Data pierwszego wprowadzenia |
+| --- | --- | --- | --- | --- |
+|  Rel 20-04  |  [4550965]  |  Zabezpieczenia systemu Windows  | 2.97 | 14 kwietnia 2020 r. |
+|  Rel 20-04  |  [4550905]  |  Internet Explorer  | 2.97, 3.84, 4.77 | 14 kwietnia 2020 r. |
+|  Rel 20-04  |  [4550971]  |  Zabezpieczenia systemu Windows  | 3.84 | 14 kwietnia 2020 r. |
+|  Rel 20-04  |  [4550970]  |  Zabezpieczenia systemu Windows  | 4.77 | 14 kwietnia 2020 r. |
+|  Rel 20-04  |  [4550929]  |  Najnowsza aktualizacja zbiorcza(LCU)  | 5.42 | 14 kwietnia 2020 r. |
+|  Rel 20-04  |  [4549949]  |  Najnowsza aktualizacja zbiorcza(LCU)  | 6.18 | 14 kwietnia 2020 r. |
+|  Rel 20-04  |  [4540688]  |  Miesięczny zestawienie  | 2.97 | 10 marca 2020 r. |
+|  Rel 20-04  |  [4550735]  |  Aktualizacja stosu obsługi  | 2.97 | 10 marca 2020 r. |
+|  Rel 20-04  |  [4540726]  |  Aktualizacja stosu obsługi  | 3.84 | 10 marca 2020 r. |
+|  Rel 20-04  |  [4541510]  |  Miesięczny zestawienie  | 3.84 | 10 marca 2020 r. |
+|  Rel 20-04  |  [4541509]  |  Miesięczny zestawienie  | 4.77 | 10 marca 2020 r. |
+|  Rel 20-04  |  [4540725]  |  Aktualizacja stosu obsługi  | 4.77 | 10 marca 2020 r. |
+|  Rel 20-04  |  [4540723]  |  Aktualizacja stosu obsługi  | 5.42 | 10 marca 2020 r. |
+|  Rel 20-04  |  [4539571]  |  Aktualizacja stosu obsługi  | 6.18 | 10 marca 2020 r. |
+
+[4550965]: https://support.microsoft.com/kb/4550965
+[4550905]: https://support.microsoft.com/kb/4550905
+[4550971]: https://support.microsoft.com/kb/4550971
+[4550970]: https://support.microsoft.com/kb/4550970
+[4550929]: https://support.microsoft.com/kb/4550929
+[4549949]: https://support.microsoft.com/kb/4549949
+[4540688]: https://support.microsoft.com/kb/4540688
+[4550735]: https://support.microsoft.com/kb/4550735
+[4540726]: https://support.microsoft.com/kb/4540726
+[4541510]: https://support.microsoft.com/kb/4541510
+[4541509]: https://support.microsoft.com/kb/4541509
+[4540725]: https://support.microsoft.com/kb/4540725
+[4540723]: https://support.microsoft.com/kb/4540723
+[4539571]: https://support.microsoft.com/kb/4539571
+
 
 ## <a name="march-2020-guest-os"></a>Marzec 2020 Gość OS
 

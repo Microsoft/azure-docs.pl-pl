@@ -3,18 +3,18 @@ title: Gdzie i jak używać - Personalizer
 description: Personalizer może być stosowany w każdej sytuacji, w której aplikacja może wybrać odpowiedni element, działanie lub produkt do wyświetlenia - w celu poprawy doświadczenia, osiągnięcia lepszych wyników biznesowych lub poprawy wydajności.
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219325"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617684"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Gdzie i jak korzystać z Personalizer
 
 Personalizer należy używać w każdej sytuacji, w której aplikacja musi wybrać prawidłowe działanie (zawartość) do wyświetlenia - w celu poprawy doświadczenia, osiągnięcia lepszych wyników biznesowych lub zwiększenia wydajności.
 
-Personalizer używa uczenia maszynowego, aby wybrać akcję (zawartość), aby pokazać użytkownikowi. Wybór może się znacznie różnić w zależności od ilości, jakości i dystrybucji danych wysyłanych do usługi.
+Personalizer używa uczenia wzmacniania, aby wybrać akcję (zawartość), aby pokazać użytkownikowi. Wybór może się znacznie różnić w zależności od ilości, jakości i dystrybucji danych wysyłanych do usługi.
 
 ## <a name="example-use-cases-for-personalizer"></a>Przykładowe przypadki użycia personalizatora
 
@@ -44,7 +44,7 @@ Personalizer można zastosować w sytuacjach, w których spełniasz lub można w
 |Dane dzienne|Jest wystarczająco dużo wydarzeń, aby być na szczycie optymalnej personalizacji, jeśli problem dryfuje w czasie (takich jak preferencje w wiadomościach lub modzie). Personalizer dostosuje się do ciągłych zmian w świecie rzeczywistym, ale wyniki nie będą optymalne, jeśli nie ma wystarczającej ilości zdarzeń i danych, z których można się nauczyć, aby odkryć i osiedlić się na nowych wzorcach. Należy wybrać przypadek użycia, który zdarza się wystarczająco często. Rozważ poszukanie przypadków użycia, które zdarzają się co najmniej 500 razy dziennie.|
 |Dane historyczne|Aplikacja może przechowywać dane wystarczająco długo, aby zgromadzić historię co najmniej 100 000 interakcji. Dzięki temu Personalizer do zbierania wystarczającej ilości danych do wykonywania ocen w trybie offline i optymalizacji zasad.|
 
-**Nie używaj Personalizer,** gdzie spersonalizowane zachowanie nie jest czymś, co można odkryć we wszystkich użytkownikach. Na przykład, za pomocą Personalizer zaproponować pierwsze zamówienie pizzy z listy 20 możliwych elementów menu jest przydatna, ale kontakt, aby zadzwonić z listy kontaktów użytkowników, gdy wymaga pomocy w opiece nad dziećmi (takich jak "Babcia") nie jest coś, co jest personalizacji w całej użytkowników.
+**Nie używaj Personalizer,** gdzie spersonalizowane zachowanie nie jest czymś, co można odkryć we wszystkich użytkownikach. Na przykład, za pomocą Personalizer zaproponować pierwsze zamówienie pizzy z listy 20 możliwych elementów menu jest przydatna, ale kontakt, aby zadzwonić z listy kontaktów użytkowników, gdy wymaga pomocy w opiece nad dziećmi (takich jak "Babcia") nie jest coś, co jest personalizacji w całej bazy użytkowników.
 
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>Jak korzystać z Personalizer w aplikacji internetowej
 
@@ -91,7 +91,7 @@ Typowym zastosowaniem jest podjęcie danych wyjściowych aparatu rekomendacji (n
 
 ## <a name="adding-content-safeguards-to-your-application"></a>Dodawanie zabezpieczeń zawartości do aplikacji
 
-Jeśli aplikacja pozwala na duże odchylenia w treści wyświetlanej użytkownikom, a niektóre z tych treści mogą być niebezpieczne lub nieodpowiednie dla niektórych użytkowników, należy zaplanować z wyprzedzeniem, aby upewnić się, że istnieją odpowiednie zabezpieczenia, aby uniemożliwić użytkownikom widzenie niedopuszczalności Zawartości. Najlepszym wzorcem do wdrożenia zabezpieczeń jest:
+Jeśli aplikacja pozwala na duże odchylenia w treści wyświetlane dla użytkowników, a niektóre z tych treści mogą być niebezpieczne lub nieodpowiednie dla niektórych użytkowników, należy zaplanować z wyprzedzeniem, aby upewnić się, że odpowiednie zabezpieczenia są w miejscu, aby uniemożliwić użytkownikom widzenie niedopuszczalnej zawartości. Najlepszym wzorcem do wdrożenia zabezpieczeń jest:
     * Uzyskaj listę akcji do rangi.
     * Odfiltruj te, które nie są opłacalne dla odbiorców.
     * Tylko rangi tych realnych działań.

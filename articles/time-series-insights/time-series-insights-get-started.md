@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 04/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2c946c49884ef0de6843028976d4ec00ccfbcdfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7459c6afc775aa0df43d6f9285191c4c7e1b8cb8
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934848"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81602370"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Tworzenie nowego środowiska usługi Time Series Insights w witrynie Azure Portal
 
@@ -28,7 +28,7 @@ Usługa Time Series Insights umożliwia rozpoczęcie wizualizacji i wykonywania 
 
 Wykonaj następujące kroki, aby utworzyć środowisko:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. Wybierz przycisk **+ Utwórz zasób.**
 
@@ -39,9 +39,9 @@ Wykonaj następujące kroki, aby utworzyć środowisko:
 1. Na stronie **Statystyki szeregów czasowych** wybierz pozycję **Utwórz**.
 
 1. Wypełnij wymagane parametry. W poniższej tabeli wyjaśniono każdy parametr:
-   
+
    [![Tworzenie grupy zasobów usługi Time Series Insights](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
-   
+
    Ustawienie|Sugerowana wartość|Opis
    ---|---|---
    Nazwa środowiska | Unikatowa nazwa | Ta nazwa reprezentuje środowisko w [eksploratorze szeregów czasowych](https://insights.timeseries.azure.com)
@@ -49,7 +49,7 @@ Wykonaj następujące kroki, aby utworzyć środowisko:
    Grupa zasobów | Tworzenie nowego lub używanie istniejących | Grupa zasobów jest kolekcją używanych razem zasobów platformy Azure. Można wybrać istniejącą grupę zasobów, na przykład tę, która zawiera Centrum zdarzeń lub Centrum IoT Hub. Możesz też wprowadzić nowy, jeśli ten zasób nie jest powiązany z innymi zasobami.
    Lokalizacja | Najbliższe źródło zdarzeń | Najlepiej wybrać tę samą lokalizację centrum danych, która zawiera dane źródłowe zdarzeń, aby uniknąć dodatkowych kosztów przepustowości między regionami i między strefami oraz dodatkowych opóźnień podczas przenoszenia danych poza region.
    Warstwa cenowa | S1 | Wybierz potrzebną przepustowość. Aby uzyskać najniższe koszty i pojemność rozrusznika, wybierz S1.
-   Pojemność | 1 | Pojemność to mnożnik ma zastosowanie do szybkości transferu danych przychodzących, pojemności magazynu i kosztów skojarzonych z wybraną jednostką SKU.  Wydajność środowiska można zmienić po jego utworzeniu. W przypadku najniższych kosztów wybierz pojemność 1. 
+   Pojemność | 1 | Pojemność to mnożnik ma zastosowanie do szybkości transferu danych przychodzących, pojemności magazynu i kosztów skojarzonych z wybraną jednostką SKU.  Wydajność środowiska można zmienić po jego utworzeniu. W przypadku najniższych kosztów wybierz pojemność 1.
   
 1. Wybierz **pozycję Utwórz,** aby rozpocząć proces inicjowania obsługi administracyjnej. Może to potrwać kilka minut.
 

@@ -8,16 +8,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 6185f0d84f27b6be89e797fc7cfb22940d8c6401
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: be4f124863da39cc9f6a61ebe054d451b438e8c3
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81432101"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617744"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault — omówienie usuwania nietrwałego
 
-Funkcja nietrwałego usuwania w magazynie kluczy umożliwia odzyskiwanie usuniętych przechowalni i obiektów przechowalni, znanych jako usuwanie nietrwałe. W szczególności możemy rozwiązać następujące scenariusze:
+Funkcja usuwania nietrwałego w magazynie kluczy umożliwia odzyskiwanie usuniętych przechowalni i obiektów przechowalni, znanych jako usuwanie nietrwałe. W szczególności możemy rozwiązać następujące scenariusze:
 
 - Obsługa możliwego do odzyskania usunięcia magazynu kluczy
 - Obsługa możliwego do odzyskania usunięcia obiektów magazynu kluczy (np. klucze, wpisy tajne, certyfikaty)
@@ -38,7 +38,7 @@ Usługi Azure Key Vaults są śledzone zasoby zarządzane przez usługę Azure R
 
 Po włączeniu usuwania nietrwałego zasoby oznaczone jako usunięte zasoby są zachowywane przez określony czas (domyślnie 90 dni). Usługa dodatkowo zapewnia mechanizm odzyskiwania usuniętego obiektu, zasadniczo cofając usunięcie.
 
-Podczas tworzenia nowego magazynu kluczy, soft-delete jest domyślnie włączony. Można utworzyć magazyn kluczy bez usuwania nietrwałego za pośrednictwem [interfejsu wiersza polecenia platformy Azure](soft-delete-cli.md) lub programu Azure [Powershell](soft-delete-powershell.md). Po włączeniu usuwania nietrwałego w przechowalni kluczy nie można go wyłączyć
+Podczas tworzenia nowego magazynu kluczy, soft-delete jest domyślnie włączony. Można utworzyć magazyn kluczy bez usuwania nietrwałego za pośrednictwem [interfejsu wiersza polecenia platformy Azure](soft-delete-cli.md) lub programu Azure [PowerShell](soft-delete-powershell.md). Po włączeniu usuwania nietrwałego w przechowalni kluczy nie można go wyłączyć
 
 Domyślny okres przechowywania wynosi 90 dni, ale podczas tworzenia magazynu kluczy można ustawić interwał zasad przechowywania na wartość od 7 do 90 dni za pośrednictwem witryny Azure portal. Zasady przechowywania ochrony przeczyszczania używa tego samego interwału. Po ustawieniu nie można zmienić interwału zasad przechowywania.
 
@@ -46,7 +46,7 @@ Nie można ponownie użyć nazwy magazynu kluczy, który został usunięty bez s
 
 ### <a name="purge-protection"></a>Ochrona przed oczyszczaniem 
 
-Ochrona przed przeczyszczaniem jest opcjonalnym zachowaniem magazynu kluczy i nie jest **domyślnie włączona.** Można go włączyć za pomocą [interfejsu WIERSZA LUB](soft-delete-cli.md#enabling-purge-protection) [programu Powershell.](soft-delete-powershell.md#enabling-purge-protection)
+Ochrona przed przeczyszczaniem jest opcjonalnym zachowaniem magazynu kluczy i nie jest **domyślnie włączona.** Można go włączyć za pośrednictwem [interfejsu wiersza polecenia](soft-delete-cli.md#enabling-purge-protection) lub [programu PowerShell.](soft-delete-powershell.md#enabling-purge-protection)
 
 Gdy ochrona przed przeczyszczaniem jest wł., przechowalni lub obiekt w stanie usuniętym nie można wyczyścić, dopóki nie upłynie okres przechowywania. Nietrętne usunięte magazyny i obiekty nadal można odzyskać, zapewniając, że zasady przechowywania będą przestrzegane. 
 
@@ -58,7 +58,7 @@ Trwale usuwanie, czyszczenie, magazyn kluczy jest możliwe za pomocą operacji P
 
 Wyjątek stanowią:
 - Gdy subskrypcja platformy Azure została oznaczona jako *cofalna*. W takim przypadku tylko usługa może następnie wykonać rzeczywiste usunięcie i robi to jako zaplanowany proces. 
-- Gdy flaga --enable-purge-protection jest włączona w samym przechowalni. W takim przypadku Usługa Key Vault będzie czekać 90 dni od momentu oznaczenia oryginalnego obiektu tajnego do usunięcia w celu trwałego usunięcia obiektu.
+- Gdy `--enable-purge-protection flag` jest włączona w samym przechowalni. W takim przypadku Usługa Key Vault będzie czekać 90 dni od momentu oznaczenia oryginalnego obiektu tajnego do usunięcia w celu trwałego usunięcia obiektu.
 
 ### <a name="key-vault-recovery"></a>Odzyskiwanie magazynu kluczy
 
@@ -72,7 +72,7 @@ W tym samym czasie Usługa Key Vault zaplanuje usunięcie danych bazowych odpowi
 
 ### <a name="soft-delete-retention-period"></a>Okres przechowywania usuwania nietrwałego
 
-Nietrwałe usunięte zasoby są zachowywane przez określony czas, czyli 90 dni. Podczas okresu przechowywania usuwania nietrwałego stosuje się następujące zasady:
+Nieuiszczone zasoby są zachowywane przez określony czas, czyli 90 dni. Podczas okresu przechowywania usuwania nietrwałego stosuje się następujące zasady:
 
 - Można wyświetlić listę wszystkich magazynów kluczy i obiektów magazynu kluczy w stanie usuwania nietrwałego dla subskrypcji, a także uzyskać dostęp do informacji o ich usuwaniu i usuwaniu odzyskiwania.
     - Tylko użytkownicy ze specjalnymi uprawnieniami mogą wystawiać usunięte przechowalnie. Zaleca się, aby nasi użytkownicy tworzyli rolę niestandardową z tymi specjalnymi uprawnieniami do obsługi usuniętych magazynów.

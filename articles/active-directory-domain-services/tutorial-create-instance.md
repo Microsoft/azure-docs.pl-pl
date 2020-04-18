@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 1bd5248e0a6a6c7c569c85e8c1af3e30f8b7f9e4
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 7652bacdebec19f8a5d55874cfb903e8748cef4d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474266"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639719"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Samouczek: Tworzenie i konfigurowanie wystąpienia usług domenowych active directory platformy Azure
 
@@ -22,7 +22,7 @@ Usługi domenowe Usługi Active Directory (Azure AD DS) zapewniają usługi dome
 
 Domenę zarządzaną można utworzyć przy użyciu domyślnych opcji konfiguracji sieci i synchronizacji lub [ręcznie zdefiniować te ustawienia][tutorial-create-instance-advanced]. W tym samouczku pokazano, jak używać opcji domyślnych do tworzenia i konfigurowania wystąpienia usług Azure AD DS przy użyciu witryny Azure Portal.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Opis wymagań dotyczących systemu DNS dla domeny zarządzanej
@@ -157,7 +157,7 @@ Kroki generowania i przechowywania tych skrótów haseł są różne dla kont u�
 > [!TIP]
 > Jeśli dzierżawa usługi Azure AD ma kombinację użytkowników i użytkowników tylko w chmurze z lokalnej usługi AD, należy wykonać oba zestawy kroków.
 
-W przypadku kont użytkowników tylko w chmurze użytkownicy muszą zmienić swoje hasła, zanim będą mogli korzystać z usług Azure AD DS. Ten proces zmiany hasła powoduje, że skróty haseł dla uwierzytelniania Kerberos i NTLM mają być generowane i przechowywane w usłudze Azure AD. Możesz wygasnąć hasła dla wszystkich użytkowników w dzierżawie, którzy muszą używać usług Azure AD DS, co wymusza zmianę hasła przy następnym logowaniu, lub poinstruować ich, aby ręcznie zmieniali swoje hasła. W tym samouczku zmieńmy ręcznie hasło użytkownika.
+W przypadku kont użytkowników tylko w chmurze użytkownicy muszą zmienić swoje hasła, zanim będą mogli korzystać z usług Azure AD DS. Ten proces zmiany hasła powoduje, że skróty haseł dla uwierzytelniania Kerberos i NTLM mają być generowane i przechowywane w usłudze Azure AD. Konto nie jest synchronizowane z usługi Azure AD do usług Azure AD DS, dopóki hasło nie zostanie zmienione. Wygasają hasła dla wszystkich użytkowników chmury w dzierżawie, którzy muszą używać usług Azure AD DS, co wymusza zmianę hasła przy następnym logowaniu, lub poinstruować użytkowników chmury, aby ręcznie zmienili swoje hasła. W tym samouczku zmieńmy ręcznie hasło użytkownika.
 
 Aby użytkownik mógł zresetować swoje hasło, dzierżawa usługi Azure AD musi być [skonfigurowana do samoobsługowego resetowania hasła.][configure-sspr]
 

@@ -7,16 +7,16 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 68423bee6096357add9b5d4b107c984ac67c9cab
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81412962"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606282"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Omówienie przekształcania przepływu danych mapowania
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
 Poniżej znajduje się lista przekształceń obecnie obsługiwanych w przepływie danych mapowania. Kliknij na każdej transformacji, aby dowiedzieć się o jego szczegóły konfiguracji.
 

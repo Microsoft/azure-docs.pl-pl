@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 69f8cd0f78a45c6c5e53368edc5902c4b6695701
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e610bf94dfdee4e2765e4fae4259f18a9f1036b5
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408832"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639989"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Zagadnienia dotyczące projektowania sieci wirtualnej i opcje konfiguracji usług domenowych usługi Azure AD
 
@@ -109,10 +109,11 @@ Następujące reguły sieciowej grupy zabezpieczeń są wymagane dla usług Azur
 | 443         | TCP      | Usługi AzureActiveDirectoryDomainServices | Dowolne         | Zezwalaj  | Tak      | Synchronizacja z dzierżawą usługi Azure AD. |
 | 3389        | TCP      | Piła corpNet                         | Dowolne         | Zezwalaj  | Tak      | Zarządzanie domeną. |
 | 5986        | TCP      | Usługi AzureActiveDirectoryDomainServices | Dowolne         | Zezwalaj  | Tak      | Zarządzanie domeną. |
-| 636         | TCP      | Dowolne                                | Dowolne         | Zezwalaj  | Nie       | Włączono tylko podczas konfigurowania bezpiecznego protokołu LDAP (LDAPS). |
 
 > [!WARNING]
 > Nie edytuj ręcznie tych zasobów sieciowych i konfiguracji. Po skojarzeniu nieprawidłowo skonfigurowaną grupę zabezpieczeń sieci lub tabelę tras zdefiniowaną przez użytkownika z podsiecią, w której wdrożono usługi Azure AD DS, możesz zakłócić zdolność firmy Microsoft do obsługi domeny i zarządzania nią. Synchronizacja między dzierżawą usługi Azure AD a domeną zarządzana usługą Azure AD DS również została zakłócona.
+>
+> Jeśli używasz bezpiecznego protokołu LDAP, możesz dodać wymaganą regułę portu TCP 636, aby w razie potrzeby zezwolić na ruch zewnętrzny. Dodanie tej reguły nie powoduje umieszczenia reguł sieciowej grupy zabezpieczeń w stanie nieobsługiwał. Aby uzyskać więcej informacji, zobacz [Blokowanie bezpiecznego dostępu LDAP przez Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
 > Domyślne reguły *dla AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*i *DenyAllOutBound* istnieją również dla sieciowej grupy zabezpieczeń. Nie edytuj ani nie usuwaj tych reguł domyślnych.
 >

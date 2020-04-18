@@ -5,38 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 2/11/2020
+ms.date: 04/13/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77166452"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603415"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Samouczek: zbiorcze zapraszanie użytkowników współpracy usługi Azure AD B2B (wersja zapoznawcza)
-
-|     |
-| --- |
-| W tym artykule opisano publiczną funkcję w wersji zapoznawczej usługi Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawców, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-> [!NOTE]
-> Od 22.12.2019 funkcja zbiorczego zapraszania użytkowników (wersja zapoznawcza) została tymczasowo wyłączona.
-> Obecnie nie jest znana data, kiedy ta funkcja zostanie ponownie włączona w witrynie Azure portal. Aby zbiorczo zapraszać użytkowników-gości korzystających z programu PowerShell, zobacz [samouczek zbiorczego zaproszenia B2B](bulk-invite-powershell.md) lub [przykłady kodu B2B i programu PowerShell.](code-samples.md)
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Samouczek: zbiorcze zapraszanie użytkowników współpracy w usłudze Azure AD B2B
 
 Jeśli używasz funkcji współpracy B2B w usłudze Azure Active Directory (Azure AD) do pracy z partnerami zewnętrznymi, możesz równocześnie zapraszać wielu użytkowników-gości do swojej organizacji. W tym samouczku dowiesz się, jak używać witryny Azure portal do wysyłania zbiorczych zaproszeń do użytkowników zewnętrznych. W szczególności należy wykonać następujące czynności:
 
 > [!div class="checklist"]
-> * Użyj **zbiorczego zapraszania użytkowników (Wersja zapoznawcza),** aby przygotować plik wartości oddzielony przecinkami (csv) z informacjami o użytkowniku i preferencjami zaproszeń
+> * Używanie **zbiorczego zapraszania użytkowników** do przygotowania pliku wartości rozdzielanego przecinkami (csv) z informacjami o użytkowniku i preferencjami zaproszeń
 > * Przekazywanie pliku csv do usługi Azure AD
 > * Sprawdzenie, czy użytkownicy zostali dodani do katalogu
 
-Jeśli nie masz usługi Azure Active Directory, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem. 
+Jeśli nie masz usługi Azure Active Directory, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -47,7 +38,7 @@ Potrzebujesz co najmniej dwóch testowych kont e-mail, na które będzie można 
 1. Zaloguj się do witryny Azure portal przy za pomocą konta, które jest administratorem użytkownika w organizacji.
 2. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
 3. W obszarze **Zarządzaj**wybierz pozycję **Użytkownicy** > **zaproś zbiorczo**.
-4. Na stronie **Zbiorczo zapraszaj użytkowników (Wersja zapoznawcza)** wybierz pozycję **Pobierz,** aby uzyskać prawidłowy plik csv z właściwościami zaproszenia.
+4. Na stronie **Użytkownicy zaproszenia zbiorczego** wybierz pozycję **Pobierz,** aby uzyskać prawidłowy plik csv z właściwościami zaproszenia.
 
     ![Przycisk pobierania zaproszenia zbiorczego](media/tutorial-bulk-invite/bulk-invite-button.png)
 
@@ -63,10 +54,10 @@ Potrzebujesz co najmniej dwóch testowych kont e-mail, na które będzie można 
    > Nie używaj przecinków w **wiadomości z zaproszeniem dostosowane,** ponieważ uniemożliwią one pomyślną analizę wiadomości.
 
 6. Zapisz plik.
-7. Na stronie **Zbiorczo zapraszaj użytkowników (Wersja zapoznawcza)** w obszarze **Przekazywanie pliku csv**przejdź do pliku. Po wybraniu pliku rozpocznie się sprawdzanie poprawności pliku csv. 
+7. Na stronie **Użytkownicy zaproszenia zbiorczego** w obszarze **Prześlij plik csv**przejdź do pliku. Po wybraniu pliku rozpocznie się sprawdzanie poprawności pliku csv. 
 8. Po sprawdzeniu poprawności zawartości pliku zostanie **wyświetlony folder Plik przekazany pomyślnie**. Jeśli występują błędy, należy je naprawić, zanim będzie można przesłać zadanie.
 9. Gdy plik przechodzi weryfikacji, wybierz **prześlij,** aby rozpocząć operację zbiorczą platformy Azure, która dodaje zaproszenia. 
-10. Aby wyświetlić stan zadania, wybierz pozycję **Kliknij tutaj, aby wyświetlić stan każdej operacji**. Można też wybrać **zbiorcze wyniki operacji (Podgląd)** w sekcji **Działanie.** Aby uzyskać szczegółowe informacje o każdym elemencie zamówienia w ramach operacji zbiorczej, wybierz wartości w kolumnach **# Sukces**, **# Niepowodzenie**lub Całkowita **liczba żądań.** Jeśli wystąpiły błędy, zostaną wyświetlone przyczyny awarii.
+10. Aby wyświetlić stan zadania, wybierz pozycję **Kliknij tutaj, aby wyświetlić stan każdej operacji**. Można też wybrać **zbiorcze wyniki operacji** w sekcji **Działanie.** Aby uzyskać szczegółowe informacje o każdym elemencie zamówienia w ramach operacji zbiorczej, wybierz wartości w kolumnach **# Sukces**, **# Niepowodzenie**lub Całkowita **liczba żądań.** Jeśli wystąpiły błędy, zostaną wyświetlone przyczyny awarii.
 
     ![Przykład wyników operacji zbiorczych](media/tutorial-bulk-invite/bulk-operation-results.png)
 

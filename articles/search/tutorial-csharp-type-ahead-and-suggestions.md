@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/12/2020
-ms.openlocfilehash: 4391b565b684b74258b9c71da88600d4628b5c6f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/15/2020
+ms.openlocfilehash: 6b74c3bbb811c122950fd969a8797e87f8f77f86
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259769"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641073"
 ---
 # <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>Samouczek C#: Dodawanie autouzupełniania i sugestii — Azure Cognitive Search
 
-Dowiedz się, jak zaimplementować autouzupełnianie (zapytania typu naczołgowe i sugerowane dokumenty), gdy użytkownik zacznie wpisywać wpis w polu wyszukiwania. W tym samouczku pokażemy automatycznie kompletowane zapytania i wyniki sugestii oddzielnie, a następnie pokażemy metodę łączenia ich w celu utworzenia bogatszego środowiska użytkownika. Użytkownik może mieć tylko wpisać dwa lub trzy znaki, aby zlokalizować wszystkie wyniki, które są dostępne.
+Dowiedz się, jak zaimplementować autouzupełnianie (zapytania typu naczołgowe i sugerowane dokumenty), gdy użytkownik zacznie wpisywać wpis w polu wyszukiwania. W tym samouczku pokażemy automatycznie kompletowane zapytania i wyniki sugestii oddzielnie, a następnie razem. Użytkownik może mieć tylko wpisać dwa lub trzy znaki, aby zlokalizować wszystkie wyniki, które są dostępne.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Dodawanie sugestii
 > * Dodawanie wyróżniania do sugestii
@@ -36,15 +36,13 @@ Alternatywnie, można pobrać i uruchomić rozwiązanie dla tego konkretnego [sa
 
 Zacznijmy od najprostszego przypadku oferowania alternatyw dla użytkownika: rozwijanej listy sugestii.
 
-1. W pliku index.cshtml zmień instrukcję **TextBoxFor** na następującą.
+1. W pliku index.cshtml `@id` zmień instrukcję **TextBoxFor** na **azureautosuggest**.
 
     ```cs
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-    Kluczem jest to, że ustawiliśmy identyfikator pola wyszukiwania na **azureautosuggest**.
-
-2. Po tej instrukcji, po zamknięciu ** &lt;/div,&gt;** wprowadź ten skrypt.
+2. Po tej instrukcji, po zamknięciu ** &lt;/div,&gt;** wprowadź ten skrypt. Ten skrypt wykorzystuje [widżet Autouzupełnianie](https://api.jqueryui.com/autocomplete/) z biblioteki interfejsu użytkownika jQuery typu open source, aby przedstawić listę rozwijaną sugerowanych wyników. 
 
     ```javascript
     <script>
@@ -59,13 +57,11 @@ Zacznijmy od najprostszego przypadku oferowania alternatyw dla użytkownika: roz
     </script>
     ```
 
-    Połączyliśmy ten skrypt z polem wyszukiwania za pomocą tego samego identyfikatora. Ponadto do wyzwolenia wyszukiwania potrzebne są co najmniej dwa znaki, a w tym przypadku wywołujemy akcję **Sugeruj** w kontrolerze domowym z dwoma parametrami zapytania: **podświetlenia** i **rozmyte**, oba ustawione na false.
+    Identyfikator "azureautosuggest" łączy powyższy skrypt z polem wyszukiwania. Opcja źródłowa widżetu jest ustawiona na Sugestia metoda, która wywołuje Suggest API z dwóch parametrów kwerendy: **podkreśla** i **rozmyte,** zarówno ustawione na false w tym przypadku. Ponadto do wyzwolenia wyszukiwania potrzebne są co najmniej dwa znaki.
 
-### <a name="add-references-to-jquery-scripts-to-the-view"></a>Dodawanie odwołań do skryptów jquery do widoku
+### <a name="add-references-to-jquery-scripts-to-the-view"></a>Dodawanie odwołań do skryptów jQuery do widoku
 
-Funkcja autouzupełniania wywołana w powyższym skrypcie nie jest czymś, co musimy napisać sami, ponieważ jest ona dostępna w bibliotece jquery. 
-
-1. Aby uzyskać dostęp do biblioteki &lt;&gt; jquery, zmień sekcję head pliku widoku na następujący kod.
+1. Aby uzyskać dostęp do biblioteki &lt;&gt; jQuery, zmień sekcję head pliku widoku na następujący kod:
 
     ```cs
     <head>
@@ -80,7 +76,7 @@ Funkcja autouzupełniania wywołana w powyższym skrypcie nie jest czymś, co mu
     </head>
     ```
 
-2. Musimy również usunąć lub skomentować wiersz odwołujący się do jquery w pliku _Layout.cshtml (w folderze **Widoki/Udostępnione).** Znajdź następujące wiersze i skomentuj pierwszy wiersz skryptu, jak pokazano. Ta zmiana pozwala uniknąć kolizji odniesień do jquery.
+2. Ponieważ wprowadzamy nowe odwołanie do jQuery, musimy również usunąć lub skomentować domyślne odwołanie do jQuery w pliku _Layout.cshtml (w folderze **Widoki/Udostępnione).** Znajdź następujące wiersze i skomentuj pierwszy wiersz skryptu, jak pokazano. Ta zmiana pozwala uniknąć kolizji odniesień do jQuery.
 
     ```html
     <environment include="Development">
@@ -90,7 +86,7 @@ Funkcja autouzupełniania wywołana w powyższym skrypcie nie jest czymś, co mu
     </environment>
     ```
 
-    Teraz możemy użyć wstępnie zdefiniowanych funkcji autouzupełniania jquery.
+    Teraz możemy użyć wstępnie zdefiniowanych funkcji autouzupełnianie jQuery.
 
 ### <a name="add-the-suggest-action-to-the-controller"></a>Dodaj akcję Zaproponuj do kontrolera
 
@@ -114,7 +110,8 @@ Funkcja autouzupełniania wywołana w powyższym skrypcie nie jest czymś, co mu
                 parameters.HighlightPostTag = "</b>";
             }
 
-            // Only one suggester can be specified per index. The name of the suggester is set when the suggester is specified by other API calls.
+            // Only one suggester can be specified per index. It is defined in the index schema.
+            // The name of the suggester is set when the suggester is specified by other API calls.
             // The suggester for the hotel database is called "sg", and simply searches the hotel name.
             DocumentSuggestResult<Hotel> suggestResult = await _indexClient.Documents.SuggestAsync<Hotel>(term, "sg", parameters);
 
@@ -128,7 +125,7 @@ Funkcja autouzupełniania wywołana w powyższym skrypcie nie jest czymś, co mu
 
     **Parametr Top** określa, ile wyników ma zwrócić (jeśli nieokreślone, wartość domyślna to 5). _Sugestator_ jest określony w indeksie platformy Azure, który odbywa się podczas konfigurowania danych, a nie przez aplikację kliencką, taką jak ten samouczek. W tym przypadku sugest jest nazywany "sg", i przeszukuje pole **HotelName** - nic więcej. 
 
-    Rozmyte dopasowywanie pozwala na uwzględnienie "bliskiego pominięcia" w wyjściu. Jeśli parametr **highlights** jest ustawiony na true, do danych wyjściowych dodawane są pogrubione znaczniki HTML. W następnej sekcji ustawimy te dwa parametry na true.
+    Rozmyte dopasowywanie pozwala na uwzględnienie "bliskich chybień" na wyjściu, do jednej odległości edycji. Jeśli parametr **highlights** jest ustawiony na true, do danych wyjściowych dodawane są pogrubione znaczniki HTML. W następnej sekcji ustawimy te dwa parametry na true.
 
 2. Mogą pojawić się błędy składni. Jeśli tak, dodaj następujące dwa **instrukcje przy użyciu** górnej części pliku.
 
@@ -151,7 +148,7 @@ Funkcja autouzupełniania wywołana w powyższym skrypcie nie jest czymś, co mu
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Dodawanie wyróżniania do sugestii
 
-Możemy poprawić wygląd sugestii dla użytkownika nieco, ustawiając **podkreśla** parametr true. Jednak najpierw musimy dodać kod do widoku, aby wyświetlić pogrubiony tekst.
+Możemy poprawić wygląd sugestii dla użytkownika, ustawiając parametr **highlights** na true. Jednak najpierw musimy dodać kod do widoku, aby wyświetlić pogrubiony tekst.
 
 1. W widoku (index.cshtml) dodaj następujący skrypt po **skryptie azureautosuggest,** który został wprowadzony powyżej.
 
@@ -194,11 +191,11 @@ Możemy poprawić wygląd sugestii dla użytkownika nieco, ustawiając **podkre�
 
 4. Logika używana w powyższym skrypcie wyróżniania nie jest niezawodna. Jeśli wprowadzisz termin, który pojawia się dwa razy w tej samej nazwie, pogrubione wyniki nie są takie, jakie chcesz. Spróbuj wpisać "mo".
 
-    Jednym z pytań, na które deweloper musi odpowiedzieć, jest to, kiedy skrypt działa "wystarczająco dobrze", a kiedy należy zająć się jego dziwactwami. Nie będziemy brać podświetlanie dalej w tym samouczku, ale znalezienie dokładnego algorytmu jest coś do rozważenia, jeśli biorąc podświetlanie dalej.
+    Jednym z pytań, na które deweloper musi odpowiedzieć, jest to, kiedy skrypt działa "wystarczająco dobrze", a kiedy należy zająć się jego dziwactwami. Nie będziemy brać podświetlanie dalej w tym samouczku, ale znalezienie dokładnego algorytmu jest coś do rozważenia, jeśli wyróżnianie nie jest skuteczne dla danych. Aby uzyskać więcej informacji, zobacz [Naciśnięcie podświetlania](search-pagination-page-layout.md#hit-highlighting).
 
-## <a name="add-autocompletion"></a>Dodawanie autouzupełniania
+## <a name="add-autocomplete"></a>Dodawanie autouzupełniania
 
-Inną odmianą, która nieco różni się od sugestii, jest autouzupełnianie (czasami nazywane "type-ahead"). Ponownie rozpoczniemy od najprostszej implementacji, a następnie przejdziemy do poprawy środowiska użytkownika.
+Inną odmianą, która różni się nieco od sugestii, jest autouzupełnianie (czasami nazywane "type-ahead"), które kończy termin kwerendy. Ponownie zaczniemy od najprostszej implementacji, zanim poprawimy środowisko użytkownika.
 
 1. Wprowadź następujący skrypt do widoku, zgodnie z poprzednimi skryptami.
 
@@ -246,7 +243,7 @@ Inną odmianą, która nieco różni się od sugestii, jest autouzupełnianie (c
 
     Zauważ, że używamy tej samej funkcji *sugestywny,* o nazwie "sg", w wyszukiwaniu autouzupełniania, jak zrobiliśmy dla sugestii (więc staramy się tylko autouzupełniania nazw hoteli).
 
-    Istnieje szereg ustawień **Autouzupełnianiamode,** a my używamy **OneTermWithContext**. Zapoznaj się z [autouzupełniaj](https://docs.microsoft.com/rest/api/searchservice/autocomplete) platformy Azure, aby uzyskać opis zakresu opcji w tym miejscu.
+    Istnieje szereg ustawień **Autouzupełnianiamode,** a my używamy **OneTermWithContext**. Opis dodatkowych opcji można znaleźć w [interfejsie API autouzupełniania.](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
 
 4. Uruchom aplikację. Zwróć uwagę, że zakres opcji wyświetlanych na liście rozwijanej to pojedyncze słowa. Spróbuj wpisać słowa zaczynające się od "re". Zwróć uwagę, jak zmniejsza się liczba opcji w miarę wpisywania większej liczby liter.
 
@@ -256,7 +253,7 @@ Inną odmianą, która nieco różni się od sugestii, jest autouzupełnianie (c
 
 ## <a name="combine-autocompletion-and-suggestions"></a>Łączenie autouzupełniania i sugestii
 
-Łączenie autouzupełniania i sugestii jest najbardziej złożonym z naszych opcji i prawdopodobnie zapewnia najlepsze wrażenia użytkownika. Chcemy, aby wyświetlić, w tekście, który jest wpisywany, pierwszy wybór usługi Azure Cognitive Search do automatycznego kompletowania tekstu. Ponadto chcemy szereg sugestii jako listy rozwijanej.
+Łączenie autouzupełniania i sugestii jest najbardziej złożonym z naszych opcji i prawdopodobnie zapewnia najlepsze wrażenia użytkownika. Co chcemy jest wyświetlanie, w tekście, który jest wpisywany, jest pierwszym wyborem usługi Azure Cognitive Search do automatycznego kompletowania tekstu. Ponadto chcemy szereg sugestii jako listy rozwijanej.
 
 Istnieją biblioteki, które oferują tę funkcję — często nazywane "autouzupełnianiem wbudowanym" lub podobną nazwą. Jednak zamierzamy natywnie wdrożyć tę funkcję, dzięki czemu można zobaczyć, co się dzieje. Najpierw w tym przykładzie rozpoczniemy prace nad kontrolerem.
 

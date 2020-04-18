@@ -7,16 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: 5e1c0eb1c4f1fc74e56db8f83f1bab6406ec5306
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415550"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606134"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Używanie wzorców kolumn w przepływie danych mapowania
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Kilka przekształceń przepływu danych mapowania umożliwia odwoływanie się do kolumn szablonów na podstawie wzorców zamiast zakodowanych nazw kolumn. To dopasowanie jest znane jako *wzorce kolumn*. Można zdefiniować wzorce, aby dopasować kolumny na podstawie nazwy, typu danych, strumienia lub pozycji zamiast wymagać dokładnych nazw pól. Istnieją dwa scenariusze, w których wzorce kolumn są przydatne:
 

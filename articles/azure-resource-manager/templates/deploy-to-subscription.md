@@ -3,12 +3,12 @@ title: Wdrażanie zasobów w ramach subskrypcji
 description: W tym artykule opisano sposób tworzenia grupy zasobów w szablonie usługi Azure Resource Manager. Pokazano również, jak wdrożyć zasoby w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 65cc220d32d1e1149b7026fc438f5e34262511dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131955"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605009"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Tworzenie grup zasobów i zasobów na poziomie subskrypcji
 
@@ -23,17 +23,17 @@ Na poziomie subskrypcji można wdrożyć następujące typy zasobów:
 * [Budżetów](/azure/templates/microsoft.consumption/budgets)
 * [wdrożenia](/azure/templates/microsoft.resources/deployments) — dla szablonów zagnieżdżonych, które wdrażają w grupach zasobów.
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
-* [peerAsns (równorzędny)](/azure/templates/microsoft.peering/peerasns)
+* [peerAsns (równorzędny)](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 * [zmiany zasadAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [Policydefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [zasadySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [środki zaradcze](/azure/templates/microsoft.policyinsights/remediations)
+* [środki zaradcze](/azure/templates/microsoft.policyinsights/2019-07-01/remediations)
 * [zasobyGrupy](/azure/templates/microsoft.resources/resourcegroups)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [definicje ról](/azure/templates/microsoft.authorization/roledefinitions)
 * [zakresPodpisy](/azure/templates/microsoft.managednetwork/scopeassignments)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
-* [tagów](/azure/templates/microsoft.resources/tags)
+* [Tagi](/azure/templates/microsoft.resources/tags)
 
 ### <a name="schema"></a>Schemat
 

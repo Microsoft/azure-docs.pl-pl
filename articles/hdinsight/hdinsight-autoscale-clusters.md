@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/05/2020
-ms.openlocfilehash: 68bc30d08d95fe8e3d20a8ecb7af6c9710951921
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/07/2020
+ms.openlocfilehash: 4f9b43b6f800bb47942ccc00fee0fac4536d2ec0
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399717"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640581"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
 
@@ -39,9 +39,9 @@ W poniższej tabeli opisano typy klastrów i wersje zgodne z funkcją Skalowanie
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Można wybrać skalowanie oparte na obciążeniu lub skalowanie oparte na harmonogramie dla klastra HDInsight. Skalowanie oparte na obciążeniu zmienia liczbę węzłów w klastrze w ramach ustawionego zakresu, aby zapewnić optymalne wykorzystanie procesora CPU i zminimalizować koszty eksploatacji.
+Można wybrać skalowanie oparte na obciążeniu lub skalowanie oparte na harmonogramie dla klastra HDInsight. Skalowanie oparte na obciążeniu zmienia liczbę węzłów w klastrze w ramach ustawionego zakresu, aby zapewnić optymalne użycie procesora CPU i zminimalizować koszty eksploatacji.
 
-Skalowanie oparte na harmonogramie zmienia liczbę węzłów w klastrze na podstawie warunków, które zaczynają obowiązywać w określonych godzinach. Warunki te skalują klaster do żądanej liczby węzłów.
+Skalowanie oparte na harmonogramie zmienia liczbę węzłów w klastrze na podstawie warunków, które zaczynają obowiązywać w określonych godzinach. Warunki te skalują klaster do zamierzonej liczby węzłów.
 
 ### <a name="metrics-monitoring"></a>Monitorowanie metryk
 
@@ -56,7 +56,7 @@ Skalowanie automatyczne stale monitoruje klaster i zbiera następujące metryki:
 |Używana pamięć na węzeł|Obciążenie węzła procesu roboczego. Węzeł procesu roboczego, w którym jest używane 10 GB pamięci, jest uważany za większy niż proces roboczy z 2 GB używanej pamięci.|
 |Liczba wzorców aplikacji na węzeł|Liczba kontenerów wzorca aplikacji (AM) uruchomionych w węźle procesu roboczego. Węzeł procesu roboczego, który hostuje dwa kontenery AM, jest uważany za ważniejszy niż węzeł procesu roboczego, który hostuje kontenery zero AM.|
 
-Powyższe dane są sprawdzane co 60 sekund. Skalowanie automatyczne sprawia, że skala w górę i w dół decyzje na podstawie tych metryk.
+Powyższe dane są sprawdzane co 60 sekund. Skalowanie automatyczne podejmuje decyzje na podstawie tych metryk.
 
 ### <a name="load-based-scale-conditions"></a>Warunki skalowania oparte na obciążeniu
 
@@ -67,11 +67,11 @@ Po wykryciu następujących warunków skalowanie automatyczne spowoduje wystosow
 |Całkowita oczekująca wartość procesora CPU jest większa niż całkowita ilość wolnego procesora PRZEZ ponad 3 minuty.|Całkowita liczba oczekujących procesorów CPU jest mniejsza niż całkowita ilość wolnego procesora CPU przez ponad 10 minut.|
 |Całkowita pamięć oczekująca jest większa niż całkowita ilość wolnej pamięci przez ponad 3 minuty.|Całkowita ilość pamięci oczekującej jest mniejsza niż całkowita ilość wolnej pamięci przez ponad 10 minut.|
 
-W przypadku skalowania w górę usługa HDInsight oblicza, ile nowych węzłów procesu roboczego jest potrzebnych do spełnienia bieżących wymagań dotyczących procesora i pamięci, a następnie wystawia żądanie skalowania w górę w celu dodania wymaganej liczby węzłów.
+W przypadku skalowania w górę skalowanie automatyczne wystawia żądanie skalowania w górę, aby dodać wymaganą liczbę węzłów. Skalowanie w górę opiera się na ile nowych węzłów procesu roboczego są potrzebne do spełnienia bieżących wymagań procesora CPU i pamięci.
 
-W przypadku skalowania w dół, na podstawie liczby kontenerów AM na węzeł i bieżących wymagań procesora CPU i pamięci, skalowanie automatyczne wystawia żądanie usunięcia określonej liczby węzłów. Usługa wykrywa również, które węzły są kandydatami do usunięcia na podstawie bieżącego wykonywania zadania. Operacja skalowania w dół najpierw likwiduje węzły, a następnie usuwa je z klastra.
+W przypadku skalowania w dół skalowanie automatyczne wystawia żądanie usunięcia określonej liczby węzłów. Skalowanie w dół jest oparte na liczbie kontenerów AM na węzeł. I aktualne wymagania dotyczące procesora i pamięci. Usługa wykrywa również, które węzły są kandydatami do usunięcia na podstawie bieżącego wykonywania zadania. Operacja skalowania w dół najpierw likwiduje węzły, a następnie usuwa je z klastra.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Tworzenie klastra z automatycznym skalowaniem opartym na obciążeniach
 
@@ -79,7 +79,7 @@ Aby włączyć funkcję skalowania automatycznego ze skalowaniem opartym na obci
 
 1. Na karcie **Konfiguracja + cennik** zaznacz pole wyboru **Włącz skalowanie automatyczne.**
 1. Wybierz **opcję Oparte na wyładunku** w obszarze Typ **skalowania automatycznego**.
-1. Wprowadź żądane wartości dla następujących właściwości:  
+1. Wprowadź wartości przeznaczone dla następujących właściwości:  
 
     * Początkowa **liczba węzłów** dla **węzła Worker**.
     * **Minimalna** liczba węzłów procesu roboczego.
@@ -108,11 +108,11 @@ Liczba węzłów musi zawierać się z maksymalną liczbą węzłów procesu rob
 
 ### <a name="final-creation-steps"></a>Końcowe etapy tworzenia
 
-W przypadku skalowania opartego na obciążeniach i harmonogramie wybierz typ maszyny Wirtualnej dla węzłów procesu roboczego, wybierając maszynę wirtualną z listy rozwijanej w obszarze **Rozmiar węzła**. Po wybraniu typu maszyny Wirtualnej dla każdego typu węzła można wyświetlić szacowany zakres kosztów dla całego klastra. Dostosuj typy maszyn wirtualnych do budżetu.
+Wybierz typ maszyny Wirtualnej dla węzłów procesu roboczego, wybierając maszynę wirtualną z listy rozwijanej w obszarze **Rozmiar węzła**. Po wybraniu typu maszyny Wirtualnej dla każdego typu węzła można wyświetlić szacowany zakres kosztów dla całego klastra. Dostosuj typy maszyn wirtualnych do budżetu.
 
 ![Włączanie rozmiaru węzła procesu roboczego opartego na harmonogramie](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
 
-Subskrypcja ma przydział pojemności dla każdego regionu. Całkowita liczba rdzeni węzłów głównych w połączeniu z maksymalną liczbą węzłów procesu roboczego nie może przekroczyć przydziału pojemności. Jednak ten kontyngent jest miękki limit; zawsze możesz utworzyć bilet pomocy technicznej, aby go łatwo zwiększyć.
+Subskrypcja ma przydział pojemności dla każdego regionu. Całkowita liczba rdzeni węzłów głównych i maksymalnych węzłów procesu roboczego nie może przekroczyć przydziału zdolności produkcyjnych. Jednak ten kontyngent jest miękki limit; zawsze możesz utworzyć bilet pomocy technicznej, aby go łatwo zwiększyć.
 
 > [!Note]  
 > Jeśli przekroczysz całkowity podstawowy limit przydziału, zostanie wyświetlony komunikat o błędzie "maksymalny węzeł przekroczył dostępne rdzenie w tym regionie, wybierz inny region lub skontaktuj się z pomocą techniczną, aby zwiększyć przydział".
@@ -148,8 +148,6 @@ Można utworzyć klaster HDInsight z automatycznym skalowaniem opartym na `autos
   "scriptActions": []
 }
 ```
-
-Aby uzyskać więcej informacji na temat tworzenia klastrów z szablonami Menedżera zasobów, zobacz [Tworzenie klastrów Apache Hadoop w programie HDInsight przy użyciu szablonów Menedżera zasobów](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
 
 #### <a name="schedule-based-autoscaling"></a>Skalowanie automatyczne oparte na harmonogramie
 
@@ -193,7 +191,7 @@ Aby włączyć skalowanie automatyczne w uruchomionym klastrze, wybierz opcję *
 
 #### <a name="using-the-rest-api"></a>Korzystanie z interfejsu API REST
 
-Aby włączyć lub wyłączyć skalowanie automatyczne w uruchomionym klastrze przy użyciu interfejsu API REST, należy wysłać żądanie POST do punktu końcowego skalowania automatycznego, jak pokazano we urywek kodu poniżej:
+Aby włączyć lub wyłączyć skalowanie automatyczne w uruchomionym klastrze przy użyciu interfejsu API REST, wyślij żądanie POST do punktu końcowego skalowania automatycznego:
 
 ```
 https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
@@ -207,7 +205,7 @@ Użyj odpowiednich parametrów w ładunku żądania. Ładunek json poniżej moż
 
 Zobacz poprzednią sekcję dotyczącą [włączania automatycznej skali opartej](#load-based-autoscaling) na obciążeniu, aby uzyskać pełny opis wszystkich parametrów ładunku.
 
-## <a name="best-practices"></a>Najlepsze rozwiązania
+## <a name="guidelines"></a>Wytyczne
 
 ### <a name="choosing-load-based-or-schedule-based-scaling"></a>Wybieranie skalowania opartego na obciążeniach lub harmonogramie
 
@@ -224,9 +222,9 @@ Operacja skalowania może potrwać od 10 do 20 minut. Podczas konfigurowania dos
 
 ### <a name="preparation-for-scaling-down"></a>Przygotowanie do skalowania w dół
 
-Podczas procesu skalowania klastra skalowanie automatyczne spowoduje likwidację węzłów w celu osiągnięcia rozmiaru docelowego. Jeśli w tych węzłach są uruchomione zadania, skalowanie automatyczne będzie czekać na zakończenie zadań. Ponieważ każdy węzeł procesu roboczego pełni również rolę w systemie PLIKÓW HDFS, dane tymczasowe zostaną przesunięte do pozostałych węzłów. Dlatego należy upewnić się, że jest wystarczająco dużo miejsca na pozostałe węzły do obsługi wszystkich danych tymczasowych.
+Podczas procesu skalowania klastra skalowanie automatyczne spowoduje likwidację węzłów w celu osiągnięcia rozmiaru docelowego. Jeśli zadania są uruchomione w tych węzłach, skalowanie automatyczne będzie czekać na zakończenie zadań. Ponieważ każdy węzeł procesu roboczego pełni również rolę w systemie PLIKÓW HDFS, dane tymczasowe zostaną przesunięte do pozostałych węzłów. Dlatego należy upewnić się, że jest wystarczająco dużo miejsca na pozostałe węzły do obsługi wszystkich danych tymczasowych.
 
-Uruchomione zadania będą nadal działać i kończyć. Oczekujące zadania będą czekać na zaplanowane normalnie z mniejszą liczbą dostępnych węzłów procesu roboczego.
+Uruchomione zadania będą kontynuowane. Oczekujące zadania będą czekać na planowanie z mniejszą liczbą dostępnych węzłów procesu roboczego.
 
 ### <a name="minimum-cluster-size"></a>Minimalny rozmiar klastra
 
@@ -247,10 +245,10 @@ Wszystkie komunikaty o stanie klastra, które mogą być widoczne, są wyjaśnio
 | Działanie | Klaster działa normalnie. Wszystkie poprzednie działania skalowania automatycznego zostały zakończone pomyślnie. |
 | Aktualizowanie  | Konfiguracja skalowania automatycznego klastra jest aktualizowana.  |
 | Konfiguracja usługi HDInsight  | Trwa operacja skalowania klastra w górę lub w dół.  |
-| Błąd aktualizacji  | Usługa HDInsight napotkała problemy podczas aktualizacji konfiguracji skalowania automatycznego. Klienci mogą ponowić próbę aktualizacji lub wyłączyć skalowanie automatyczne.  |
+| Błąd aktualizacji  | Usługa HDInsight wystąpiła z problemami podczas aktualizacji konfiguracji skalowania automatycznego. Klienci mogą ponowić próbę aktualizacji lub wyłączyć skalowanie automatyczne.  |
 | Błąd  | Coś jest nie tak z klastrem i nie nadaje się do użyteczności. Usuń ten klaster i utwórz nowy.  |
 
-Aby wyświetlić bieżącą liczbę węzłów w klastrze, przejdź do **tabeli rozmiarów klastra** na stronie **Przegląd** klastra lub wybierz **pozycję Rozmiar klastra** w obszarze **Ustawienia**.
+Aby wyświetlić bieżącą liczbę węzłów w klastrze, przejdź do **tabeli rozmiarów klastra** na stronie **Przegląd** klastra. Lub wybierz **rozmiar klastra** w obszarze **Ustawienia**.
 
 ### <a name="operation-history"></a>Historia operacji
 
@@ -262,4 +260,4 @@ Wybierz **metryki** w obszarze **Monitorowanie**. Następnie wybierz pozycję **
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przeczytaj o najlepszych rozwiązaniach dotyczących ręcznego skalowania klastrów w [zakresie skalowania najlepszych rozwiązań](hdinsight-scaling-best-practices.md)
+Przeczytaj wskazówki dotyczące ręcznego skalowania klastrów w [wskazówki dotyczące skalowania](hdinsight-scaling-best-practices.md)

@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
-ms.openlocfilehash: 6f0310f13ab23b5b3d4fba649d0faf0da4dad5b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413138"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606291"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Transformacja klucza zastępczego w przepływie danych mapowania 
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Transformacja klucza zastępczego służy do dodawania wartości klucza przyrostowego do każdego wiersza danych. Jest to przydatne podczas projektowania tabel wymiarów w modelu danych analitycznych schematu gwiazdy. W schemacie gwiazdy każdy element członkowski w tabelach wymiarów wymaga unikatowego klucza, który jest kluczem niebiznesowym.
 

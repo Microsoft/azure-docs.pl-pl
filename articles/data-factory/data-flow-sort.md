@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
-ms.openlocfilehash: 381c6573dff1b3f1638af9090a535d9a1e59b2b5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413168"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606334"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>Sortowanie transformacji w przepływie danych mapowania
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Transformacja sortowania umożliwia sortowanie przychodzących wierszy w bieżącym strumieniu danych. Można wybrać poszczególne kolumny i sortować je w porządku rosnącym lub malejącym.
 

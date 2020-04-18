@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: be558c3e3a68ce6c194dcf98d8f5ff92c4c14edb
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 934cf854b0c526ed994c7dc91763f65de64fd14b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457828"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617503"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Zakończenie protokołu TLS z certyfikatami Usługi Key Vault
 
@@ -47,7 +47,10 @@ Integracja bramy aplikacji z usługą Key Vault wymaga trzyetapowego procesu kon
 
 1. **Konfigurowanie magazynu kluczy**
 
-   Następnie zaimportujesz istniejący certyfikat lub utworzysz nowy w magazynie kluczy. Certyfikat będzie używany przez aplikacje uruchamiane za pośrednictwem bramy aplikacji. W tym kroku można również użyć klucza tajnego magazynu kluczy, który jest przechowywany jako bez hasła, podstawowy 64-zakodowany plik PFX. Zaleca się używanie typu certyfikatu ze względu na możliwości autorenewal, które są dostępne z obiektami typu certyfikatu w magazynie kluczy. Po utworzeniu certyfikatu lub klucza tajnego można zdefiniować zasady dostępu w magazynie kluczy, aby umożliwić tożsamości, aby *uzyskać* dostęp do klucza tajnego.
+   Następnie zaimportujesz istniejący certyfikat lub utworzysz nowy w magazynie kluczy. Certyfikat będzie używany przez aplikacje uruchamiane za pośrednictwem bramy aplikacji. W tym kroku można również użyć klucza tajnego magazynu kluczy, który jest przechowywany jako plik PFX zakodowany bez hasła, kodowany base-64. Zaleca się używanie typu certyfikatu ze względu na możliwości autorenewal, które są dostępne z obiektami typu certyfikatu w magazynie kluczy. Po utworzeniu certyfikatu lub klucza tajnego można zdefiniować zasady dostępu w magazynie kluczy, aby umożliwić tożsamości, aby *uzyskać* dostęp do klucza tajnego.
+   
+   > [!NOTE]
+   > W przypadku wdrażania bramy aplikacji za pomocą szablonu ARM przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell lub za pośrednictwem aplikacji platformy Azure wdrożonej z witryny Azure Portal certyfikat SSL przechowywany w magazynie kluczy jako podstawowy plik PFX zakodowany **musi być bez hasła.** Ponadto należy wykonać kroki w [użyj usługi Azure Key Vault, aby przekazać bezpieczną wartość parametru podczas wdrażania.](../azure-resource-manager/templates/key-vault-parameter.md) Szczególnie ważne jest ustawienie `enabledForTemplateDeployment` . `true`
 
 1. **Konfigurowanie bramy aplikacji**
 

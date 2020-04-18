@@ -1,30 +1,30 @@
 ---
-title: Wyświetlanie ocen aktualizacji usługi Azure Update Management
+title: Wyświetlanie ocen aktualizacji usługi Azure Automation Update Management
 description: W tym artykule opisano sposób wyświetlania ocen aktualizacji dla wdrożeń aktualizacji.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75762afc9ae69da81e89ce320f454d9764f82914
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278417"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617392"
 ---
-# <a name="view-azure-update-management-update-assessments"></a>Wyświetlanie ocen aktualizacji usługi Azure Update Management
+# <a name="view-azure-automation-update-management-update-assessments"></a>Wyświetlanie ocen aktualizacji usługi Azure Automation Update Management
 
 Na koncie usługi Azure Automation wybierz pozycję **Zarządzanie aktualizacjami,** aby wyświetlić stan maszyn.
 
 Ten widok zawiera informacje o komputerach, brakujących aktualizacjach, wdrożeniach aktualizacji i zaplanowanych wdrożeniach aktualizacji. W kolumnie **ZGODNOŚĆ** można zobaczyć, kiedy maszyna została oceniona po raz ostatni. W **update agent gotowości** kolumny, można zobaczyć kondycję agenta aktualizacji. Jeśli występuje problem, wybierz łącze, aby przejść do dokumentacji rozwiązywania problemów, która może pomóc w rozwiązaniu problemu.
 
-Aby uruchomić wyszukiwanie w dzienniku, które zwraca informacje o komputerze, aktualizacji lub wdrożenia, wybierz odpowiedni element na liście. Zostanie otwarte okienko **Wyszukiwanie dzienników** z zapytaniem dla wybranego elementu:
+Aby uruchomić wyszukiwanie w dzienniku, które zwraca informacje o komputerze, aktualizacji lub wdrożenia, wybierz odpowiedni element na liście. Zostanie otwarte okienko Wyszukiwanie dzienników z zapytaniem dla wybranego elementu.
 
 ![Widok domyślny zarządzania aktualizacjami](media/automation-update-management/update-management-view.png)
 
 ## <a name="view-missing-updates"></a>Wyświetlanie brakujących aktualizacji
 
-Wybierz **pozycję Brakujące aktualizacje,** aby wyświetlić listę aktualizacji, których brakuje na komputerach. Każda aktualizacja jest wyświetlana i można ją wybrać. Wyświetlane są informacje o liczbie komputerów wymagających aktualizacji, szczegółach systemu operacyjnego i łączu, aby uzyskać więcej informacji. W **okienku wyszukiwania dziennika** jest również więcej szczegółów dotyczących aktualizacji.
+Wybierz **pozycję Brakujące aktualizacje,** aby wyświetlić listę aktualizacji, których brakuje na komputerach. Każda aktualizacja jest wyświetlana i można ją wybrać. Wyświetlane są informacje o liczbie komputerów wymagających aktualizacji, szczegółach systemu operacyjnego i łączu, aby uzyskać więcej informacji. W okienku wyszukiwania dzienników jest również więcej szczegółów dotyczących aktualizacji.
 
 ![Brakujące aktualizacje](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
@@ -36,14 +36,14 @@ W poniższych tabelach przedstawiono obsługiwane klasyfikacje aktualizacji w za
 
 |Klasyfikacja  |Opis  |
 |---------|---------|
-|Aktualizacje krytyczne     | Aktualizacja określonego problemu, który rozwiązuje krytyczny błąd niezwiązany z zabezpieczeniami.        |
-|Aktualizacje zabezpieczeń     | Aktualizacja problemu związanego z zabezpieczeniami specyficznym dla produktu.        |
-|Pakiety zbiorcze aktualizacji     | Skumulowany zestaw poprawek, które są pakowane razem w celu łatwego wdrożenia.        |
+|Aktualizacje krytyczne     | Aktualizacje dla określonych problemów, które dotyczą krytycznych, niezwiązanych z zabezpieczeniami błędów.        |
+|Aktualizacje zabezpieczeń     | Aktualizacje dotyczące problemów związanych z zabezpieczeniami specyficznych dla produktu.        |
+|Pakiety zbiorcze aktualizacji     | Zestawy poprawek, które są spakowane razem w celu łatwego wdrożenia.        |
 |Pakiety funkcji     | Nowe funkcje produktu, które są dystrybuowane poza wydaniem produktu.        |
-|Dodatki Service Pack     | Skumulowany zestaw poprawek, które są stosowane do aplikacji.        |
-|Aktualizacje definicji     | Aktualizacja do wirusów lub innych plików definicji.        |
-|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
-|Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
+|Dodatki Service Pack     | Zestawy poprawek, które są stosowane do aplikacji.        |
+|Aktualizacje definicji     | Aktualizacje definicji wirusów lub innych plików definicji.        |
+|narzędzia     | Narzędzia lub funkcje ułatwiające wykonanie jednego lub większej liczby zadań.        |
+|Aktualizacje     | Aktualizacje aplikacji lub plików, które są obecnie zainstalowane.        |
 
 ### <a name="linux"></a><a name="linux-2"></a>Linux
 

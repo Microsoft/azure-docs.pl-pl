@@ -2,15 +2,15 @@
 title: Wdrażanie rozszerzeń maszyn wirtualnych z szablonem
 description: Dowiedz się, jak wdrożyć rozszerzenia maszyny wirtualnej przy użyciu szablonów usługi Azure Resource Manager
 author: mumian
-ms.date: 03/31/2020
+ms.date: 04/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7397e9387fe3354a926ed607a9132ab6ddc7e785
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 280b4a9775346c719e82d1fef4162fa6ea666798
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477592"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616874"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Samouczek: Wdrażanie rozszerzeń maszyn wirtualnych za pomocą szablonów ARM
 
@@ -23,7 +23,6 @@ Ten samouczek obejmuje następujące zadania:
 > * Otwieranie szablonu szybkiego startu
 > * Edytowanie szablonu
 > * Wdrożenie szablonu
-> * Weryfikowanie wdrożenia
 
 Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
 
@@ -42,29 +41,34 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 ## <a name="prepare-a-powershell-script"></a>Przygotowywanie skryptu programu PowerShell
 
-Skrypt programu PowerShell z następującą zawartością jest udostępniany z [gitHub:](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1)
+Wbudowanego skryptu programu PowerShell lub pliku skryptu.  W tym samouczku pokazano, jak używać pliku skryptu. Skrypt programu PowerShell z następującą zawartością jest udostępniany z [gitHub:](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1)
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-W przypadku wybrania publikowania pliku do własnej lokalizacji musisz zaktualizować element `fileUri` w szablonie w dalszej części tego samouczka.
+Jeśli zdecydujesz się opublikować plik do własnej `fileUri` lokalizacji, zaktualizuj element w szablonie w dalszej części samouczka.
 
 ## <a name="open-a-quickstart-template"></a>Otwieranie szablonu szybkiego startu
 
 Szablony szybki start platformy Azure to repozytorium szablonów ARM. Zamiast tworzyć szablon od podstaw, możesz znaleźć szablon przykładowy i zmodyfikować go. Szablon używany w tym samouczku nazywa się [Wdrożenie prostej maszyny wirtualnej z systemem Windows](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. W programie Visual Studio Code wybierz pozycję **Plik** > **otwórz plik**.
-1. W polu **Nazwa pliku** wklej następujący adres URL: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+1. W polu **Nazwa pliku** wklej następujący adres URL: 
+
+    ```url
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    ```
 
 1. Wybierz pozycję **Otwórz**, aby otworzyć plik.
     Szablon definiuje pięć zasobów:
 
-   * **Microsoft.Storage/storageAccounts**. Zobacz [dokumentację szablonu](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * **Microsoft.Network/publicIPAddresses**. Zobacz [dokumentację szablonu](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * **Microsoft.Network/virtualNetworks**. Zobacz [dokumentację szablonu](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * **Microsoft.Network/networkInterfaces**. Zobacz [dokumentację szablonu](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * **Microsoft.Compute/virtualMachines**. Zobacz [dokumentację szablonu](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageKonta .**](/azure/templates/Microsoft.Storage/storageAccounts)
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
      Warto uzyskać podstawową wiedzę na temat szablonu przed rozpoczęciem jego dostosowywania.
 
@@ -77,7 +81,7 @@ Dodaj zasób rozszerzenia maszyny wirtualnej do istniejącego szablonu o następ
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "apiVersion": "2018-06-01",
+  "apiVersion": "2019-12-01",
   "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [
@@ -105,6 +109,14 @@ Zobacz [informacje szczegółowe o rozszerzeniu](https://docs.microsoft.com/azur
 * **fileUris**: Lokalizacje, w których przechowywane są pliki skryptów. Jeśli nie chcesz używać podanej lokalizacji, musisz zaktualizować wartości.
 * **commandToExecute**: To polecenie wywołuje skrypt.
 
+Aby użyć skryptu wbudowanego, usuń **fileUris**i zaktualizuj **polecenieToWyświetlanie** do:
+
+```powershell
+powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
+```
+
+Ten wbudowany skrypt aktualizuje również zawartość iisstart.html.
+
 Należy również otworzyć port HTTP, aby mieć dostęp do serwera sieci web.
 
 1. Znajdź **securityRules** w szablonie.
@@ -130,10 +142,13 @@ Należy również otworzyć port HTTP, aby mieć dostęp do serwera sieci web.
 
 Aby zapoznać się z procedurą wdrażania, zobacz sekcję "Wdrażanie szablonu" [w samouczku: Tworzenie szablonów ARM z zasobami zależnymi](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Zalecamy użycie wygenerowanego hasła dla konta administratora maszyny wirtualnej. Zobacz sekcję [Wymagania wstępne](#prerequisites) tego artykułu.
 
-## <a name="verify-the-deployment"></a>Weryfikowanie wdrożenia
+W usłudze Cloud Shell uruchom następujące polecenie, aby pobrać publiczny adres IP maszyny Wirtualnej:
 
-1. W witrynie Azure Portal wybierz maszynę wirtualną.
-1. W omówieniu maszyny Wirtualnej skopiuj adres IP, wybierając **pozycję Kliknij, aby skopiować**, a następnie wklej go na karcie przeglądarki. Zostanie otwarta domyślna strona powitalna internetowych usług informacyjnych (IIS):
+```azurepowershell
+(Get-AzPublicIpAddress -ResourceGroupName $resourceGroupName).IpAddress
+```
+
+Wklej adres IP do przeglądarki sieci Web. Zostanie otwarta domyślna strona powitalna usług Internet Information Services (IIS):
 
 ![Strona powitalna usług Internet Information Services](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 

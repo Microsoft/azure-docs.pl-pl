@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: wesmc
-ms.openlocfilehash: 7c32ae73f065aa5cd1d0dabec421d354684fbb3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3175956e35603cc4ad3a938f3d316c0af8f2d227
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371509"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640529"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Łączenie Raspberry Pi z usługą Azure IoT Hub (node.js)
 
@@ -156,7 +156,7 @@ Po pomyślnym podłączeniu BME280 do Raspberry Pi powinno to przypominać obraz
 
 ### <a name="connect-pi-to-the-network"></a>Podłącz Pi do sieci
 
-Włącz Pi za pomocą kabla micro USB i zasilacza. Użyj kabla Ethernet, aby podłączyć Pi do sieci przewodowej lub postępuj [zgodnie z instrukcjami fundacji Raspberry Pi,](https://www.raspberrypi.org/learning/software-guide/wifi/) aby podłączyć Pi do sieci bezprzewodowej. Po pomyślnym podłączeniu Pi do sieci należy zanotować [adres IP urządzenia Pi.](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address)
+Włącz Pi za pomocą kabla micro USB i zasilacza. Użyj kabla Ethernet, aby podłączyć Pi do sieci przewodowej lub postępuj [zgodnie z instrukcjami fundacji Raspberry Pi,](https://www.raspberrypi.org/documentation/configuration/wireless/) aby podłączyć Pi do sieci bezprzewodowej. Po pomyślnym podłączeniu Pi do sieci należy zanotować [adres IP urządzenia Pi.](https://www.raspberrypi.org/documentation/remote-access/ip-address.md)
 
 ![Połączenie z siecią przewodową](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
 
@@ -223,7 +223,7 @@ Włącz Pi za pomocą kabla micro USB i zasilacza. Użyj kabla Ethernet, aby pod
    nano config.json
    ```
 
-   ![Plik konfiguracyjny](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
+   ![Plik konfiguracji](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    W tym pliku znajdują się dwa elementy, które można skonfigurować. Pierwszym z `interval`nich jest , który definiuje przedział czasu (w milisekundach) między wiadomościami wysyłanymi do chmury. Drugi to `simulatedData`, który jest wartością logiczną dla tego, czy używać symulowanych danych z czujnika, czy nie.
 

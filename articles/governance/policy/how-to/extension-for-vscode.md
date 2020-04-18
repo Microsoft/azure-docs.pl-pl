@@ -3,12 +3,12 @@ title: Rozszerzenie zasad platformy Azure dla kodu programu Visual Studio
 description: Dowiedz się, jak używać rozszerzenia zasad platformy Azure dla programu Visual Studio Code do wyszukiwania aliasów Menedżera zasobów.
 ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e31af652f2746adbf0eda386bdb178c752f5f84
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264676"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641019"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Używanie rozszerzenia zasad platformy Azure dla kodu programu Visual Studio
 
@@ -26,7 +26,7 @@ Rozszerzenie zasad platformy Azure dla programu Visual Studio Code można zainst
 Do wykonania czynności opisanych w tym artykule wymagane są następujące elementy:
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
-- [Program Visual Studio Code](https://code.visualstudio.com)
+- [Visual Studio Code](https://code.visualstudio.com).
 
 ## <a name="install-azure-policy-extension"></a>Instalowanie rozszerzenia usługi Azure Policy
 

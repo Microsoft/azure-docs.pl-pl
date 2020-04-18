@@ -13,16 +13,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 39f758b779e7c4935feab2424be16b829db8e46b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 50ff0afe13b5b098fbc8d9fbeefba295a6217192
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399513"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606071"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>How to start and stop Azure-SSIS Integration Runtime on a schedule (Jak uruchamiać i zatrzymywać środowisko Azure-SSIS Integration Runtime według harmonogramu)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób planowania uruchamiania i zatrzymywania środowiska wykonawczego integracji platformy Azure-SSIS (IR) przy użyciu usługi Azure Data Factory (ADF). Azure-SSIS IR to zasób obliczeniowy usługi ADF przeznaczony do wykonywania pakietów usług integracji programu SQL Server (SSIS). Uruchamianie usługi Azure-SSIS IR ma z nim związane koszty. W związku z tym zazwyczaj chcesz uruchomić podczerwał tylko wtedy, gdy trzeba wykonać pakiety SSIS na platformie Azure i zatrzymać podczerwenie, gdy nie są już potrzebne. Za pomocą interfejsu użytkownika usługi ADF (UI)/app lub programu Azure PowerShell można [ręcznie uruchomić lub zatrzymać podczerwony](manage-azure-ssis-integration-runtime.md)).
 

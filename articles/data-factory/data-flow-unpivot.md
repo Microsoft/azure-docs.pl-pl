@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: f42b44fdab28cb60ff903a048d9162115bf67d9c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c3e769334beb6a5739eebb8d7e8dc370533c2dc6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417763"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606243"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Transformacja unpivot fabryki danych platformy Azure
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Użyj unpivot w przepływie danych mapowania podajnika ADF jako sposób, aby przekształcić nienormalizowanego zestawu danych w bardziej znormalizowanej wersji, rozwijając wartości z wielu kolumn w jednym rekordzie do wielu rekordów o tych samych wartościach w jednej kolumnie.
 

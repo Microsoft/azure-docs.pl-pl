@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: a82d2b6d9521ba7dd5e7b194c26ff8fe5a100871
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 594bac257c2b9739f1ece276c881348b35d2f704
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457488"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604813"
 ---
 # <a name="encrypt-secure-assets-in-azure-automation"></a>Szyfrowanie zabezpieczonych zasobów w usłudze Azure Automation
 
@@ -60,7 +60,7 @@ Przed włączeniem kluczy zarządzanych przez klienta dla konta automatyzacji na
 
 Aby używać kluczy zarządzanych przez klienta z kontem automatyzacji, konto automatyzacji musi uwierzytelnić się w magazynie kluczy przechowując klucze zarządzane przez klienta. Usługa Azure Automation używa tożsamości zarządzanych przypisanych do systemu w celu uwierzytelnienia konta w usłudze Azure Key Vault. Aby uzyskać więcej informacji na temat tożsamości zarządzanych, zobacz [Co to są tożsamości zarządzane dla zasobów platformy Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-Skonfiguruj system przypisany tożsamości zarządzanej do konta automatyzacji przy użyciu następującego wywołania interfejsu API REST:
+Skonfiguruj system przypisany tożsamości zarządzanej do konta Automatyzacja przy użyciu następującego wywołania interfejsu API REST:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -133,7 +133,7 @@ Treść żądania:
 
 ### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>Zmienianie konfiguracji konta automatyzacji w celu używania klucza zarządzanego przez klienta
 
-Na koniec można przełączyć konto automatyzacji z kluczy zarządzanych przez microsft na klucze zarządzane przez klienta, przy użyciu następującego wywołania interfejsu API REST:
+Na koniec można przełączyć konto automatyzacji z kluczy zarządzanych przez firmę Microsoft do kluczy zarządzanych przez klienta, przy użyciu następującego wywołania interfejsu API REST:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -193,9 +193,6 @@ Aby odwołać dostęp do kluczy zarządzanych przez klienta, należy użyć prog
 ## <a name="next-steps"></a>Następne kroki
 
 - [Co to jest usługa Azure Key Vault?](../key-vault/general/overview.md)
-
 - [Zasoby certyfikatów w usłudze Azure Automation](shared-resources/certificates.md)
-
 - [Zasoby poświadczeń w usłudze Azure Automation](shared-resources/credentials.md)
-
 - [Zasoby zmiennych w usłudze Azure Automation](shared-resources/variables.md)

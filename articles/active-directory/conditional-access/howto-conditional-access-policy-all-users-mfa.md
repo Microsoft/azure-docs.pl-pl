@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3e7b1a656c92e37a709b57dae463f6644003e42
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 60d0ad0a1c0a1b4d13ce4d386df22406a8ab8e51
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755191"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617635"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Dostęp warunkowy: Wymagaj usługi MFA dla wszystkich użytkowników
 
@@ -41,7 +41,7 @@ Organizacje mogą mieć wiele aplikacji w chmurze w użyciu. Nie wszystkie z tyc
 
 ## <a name="create-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
-Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać od tych przypisanych ról administracyjnych do wykonywania uwierzytelniania wieloskładnikowego.
+Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać od wszystkich użytkowników wykonywania uwierzytelniania wieloskładnikowego.
 
 1. Zaloguj się do **witryny Azure portal** jako administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
 1. Przejdź do **usługi Azure Active Directory** > **Security** > **Conditional Access**.

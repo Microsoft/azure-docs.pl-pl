@@ -3,12 +3,12 @@ title: Jak utworzyć zasady konfiguracji gościa dla systemu Linux
 description: Dowiedz się, jak utworzyć zasady konfiguracji gościa zasad platformy Azure dla systemu Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f93aafc8f2c016218b1b7fea82558ea6ba4b4ff8
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 65e0082f87f05104e9a57ff0342cd3d2950b63e8
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365403"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617935"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak utworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -89,7 +89,7 @@ supports:
     - os-family: unix
 ```
 
-Zapisz ten plik w `linux-path` folderze o nazwie w katalogu projektu.
+Zapisz ten plik `inspec.yml` o nazwie `linux-path` w folderze o nazwie w katalogu projektu.
 
 Następnie utwórz plik Ruby z abstrakcją języka InSpec używaną do inspekcji komputera.
 
@@ -99,7 +99,7 @@ describe file('/tmp') do
 end
 ```
 
-Zapisz ten plik w `controls` nowym `linux-path` folderze o nazwie wewnątrz katalogu.
+Zapisz ten plik `linux-path.rb` z nazwą `controls` w `linux-path` nowym folderze o nazwie wewnątrz katalogu.
 
 Na koniec utwórz konfigurację, zaimportuj moduł `ChefInSpecResource` zasobów **GuestConfiguration** i użyj zasobu, aby ustawić nazwę profilu InSpec.
 

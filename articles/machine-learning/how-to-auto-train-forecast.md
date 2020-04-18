@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: d4e36c0d3838af85768453496a51ecd295c22b93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be3046a343e14be4a527363751081ba3f2593cd3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79081849"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605894"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatyczne szkolenie modelu prognozy szeregów czasowych
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -205,12 +205,7 @@ fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 
 Użyj najlepszej iteracji modelu do prognozowania wartości dla zestawu danych testowych.
 
-```python
-predict_labels = fitted_model.predict(test_data)
-actual_labels = test_labels.flatten()
-```
-
-Alternatywnie można użyć `forecast()` funkcji zamiast `predict()`, który pozwoli specyfikacje, kiedy należy rozpocząć prognozy. W poniższym przykładzie najpierw należy `y_pred` `NaN`zastąpić wszystkie wartości w pliku . Prognozowane pochodzenie będzie na końcu danych szkoleniowych w tym przypadku, `predict()`jak to zwykle bywa podczas korzystania . Jeśli jednak zastąpisz tylko drugą połowę `y_pred` , `NaN`funkcja pozostawi wartości liczbowe w pierwszej połowie `NaN` bez modyfikacji, ale prognozuje wartości w drugiej połowie. Funkcja zwraca zarówno prognozowane wartości, jak i wyrównane operacje.
+Funkcja `forecast()` powinna być używana `predict()`zamiast , to pozwoli na specyfikacje, kiedy prognozy powinny się rozpocząć. W poniższym przykładzie najpierw należy `y_pred` `NaN`zastąpić wszystkie wartości w pliku . Prognozowane pochodzenie będzie na końcu danych szkoleniowych w tym przypadku, `predict()`jak to zwykle bywa podczas korzystania . Jeśli jednak zastąpisz tylko drugą połowę `y_pred` , `NaN`funkcja pozostawi wartości liczbowe w pierwszej połowie `NaN` bez modyfikacji, ale prognozuje wartości w drugiej połowie. Funkcja zwraca zarówno prognozowane wartości, jak i wyrównane operacje.
 
 Można również użyć `forecast_destination` parametru `forecast()` w funkcji do prognozowania wartości do określonej daty.
 

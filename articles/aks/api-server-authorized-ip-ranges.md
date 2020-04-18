@@ -4,12 +4,12 @@ description: Dowiedz się, jak zabezpieczyć klaster przy użyciu zakresu adres�
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 593f9e0b335e6f4d62c76ce92f833ff4e9143372
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 570d842409fc019d24446e091f83402f4c288d7c
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126618"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640051"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Bezpieczny dostęp do serwera interfejsu API przy użyciu autoryzowanych zakresów adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -39,7 +39,7 @@ Aby uzyskać więcej informacji na temat serwera interfejsu API i innych składn
 Nieautoryzowane zakresy adresów IP serwera INTERFEJSU API działają tylko w przypadku nowych klastrów AKS. Utwórz klaster przy użyciu [az aks utworzyć][az-aks-create] i określić *parametr --api-server-authorized-ip-ranges,* aby zapewnić listę autoryzowanych zakresów adresów IP. Te zakresy adresów IP są zazwyczaj zakresami adresów używanymi przez sieci lokalne lub publiczne adresy IP. Po określeniu zakresu CIDR należy rozpocząć od pierwszego adresu IP w zakresie. Na przykład *137.117.106.90/29* jest prawidłowym zakresem, ale upewnij się, że określono pierwszy adres IP w zakresie, na przykład *137.117.106.88/29*.
 
 > [!IMPORTANT]
-> Domyślnie klaster używa [standardowego modułu równoważenia obciążenia jednostki SKU,][standard-sku-lb] którego można użyć do skonfigurowania bramy wychodzącej. Po włączeniu zakresów autoryzowanych adresów IP serwera interfejsu API podczas tworzenia klastra publiczny adres IP dla klastra jest również domyślnie dozwolony oprócz określanych zakresów. Jeśli określisz *""* lub brak wartości dla *--api-server-authorized-ip-ranges,* nieautoryzowane zakresy adresów IP serwera INTERFEJSU API zostaną wyłączone.
+> Domyślnie klaster używa [standardowego modułu równoważenia obciążenia jednostki SKU,][standard-sku-lb] którego można użyć do skonfigurowania bramy wychodzącej. Po włączeniu zakresów autoryzowanych adresów IP serwera interfejsu API podczas tworzenia klastra publiczny adres IP dla klastra jest również domyślnie dozwolony oprócz określanych zakresów. Jeśli określisz *""* lub brak wartości dla *--api-server-authorized-ip-ranges,* nieautoryzowane zakresy adresów IP serwera INTERFEJSU API zostaną wyłączone. Należy zauważyć, że jeśli używasz programu PowerShell, użyj *--api-server-authorized-ip-ranges=""* (ze znakiem równości), aby uniknąć problemów z analizowaniem.
 
 Poniższy przykład tworzy klaster z jednym węzłem o nazwie *myAKSCluster* w grupie zasobów o nazwie *myResourceGroup* z włączonymi zakresami adresów IP autoryzowanych serwera INTERFEJSU API. Dopuszczalne zakresy adresów IP to *73.140.245.0/24:*
 

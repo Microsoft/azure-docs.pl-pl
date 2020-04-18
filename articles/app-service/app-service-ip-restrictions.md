@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a02c099871ce9748f4c5f604900a7c4d57bb96b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473527"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639268"
 ---
-# <a name="azure-app-service-access-restrictions"></a>Ograniczenia dostępu do usługi Azure App Service #
+# <a name="azure-app-service-access-restrictions"></a>Ograniczenia dostępu usługi Azure App Service
 
 Ograniczenia dostępu umożliwiają zdefiniowanie listy priorytetów uporządkowanych zezwalania/odmawiania, która steruje dostępem sieciowym do aplikacji. Lista może zawierać adresy IP lub podsieci sieci wirtualnej platformy Azure. Gdy istnieje jeden lub więcej wpisów, istnieje następnie niejawne "odmówić wszystkich", który istnieje na końcu listy.
 
@@ -125,12 +125,12 @@ Składnia JSON dla wcześniejszego przykładu jest:
 }
 ```
 
-## <a name="azure-function-app-access-restrictions"></a>Ograniczenia dostępu do aplikacji funkcji platformy Azure
+## <a name="azure-functions-access-restrictions"></a>Ograniczenia dostępu usługi Azure Functions
 
-Ograniczenia dostępu są również dostępne dla aplikacji funkcji z taką samą funkcjonalnością jak plany usługi App Service. Włączenie ograniczeń dostępu spowoduje wyłączenie edytora kodu portalu dla niedozwolonych wiadomości IP.
+Ograniczenia dostępu są również dostępne dla aplikacji funkcyjnych z taką samą funkcjonalnością jak plany usługi App Service. Włączenie ograniczeń dostępu spowoduje wyłączenie edytora kodu portalu dla niedozwolonych wiadomości IP.
 
 ## <a name="next-steps"></a>Następne kroki
-[Ograniczenia dostępu dla aplikacji funkcji platformy Azure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+[Ograniczenia dostępu dla funkcji platformy Azure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
 [Integracja bramy aplikacji z punktami końcowymi usługi](networking/app-gateway-with-service-endpoints.md)
 

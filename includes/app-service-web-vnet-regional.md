@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: ccompy
-ms.openlocfilehash: 7f2b011b2de5af0e4ace9cbeb4399911d8e83b7f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312826"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604883"
 ---
 Korzystanie z regionalnej integracji sieci wirtualnej umożliwia dostęp aplikacji:
 
@@ -19,7 +19,7 @@ Korzystanie z regionalnej integracji sieci wirtualnej umożliwia dostęp aplikac
 * Zasoby w połączeniach usługi Azure ExpressRoute.
 * Zasoby w sieci wirtualnej, z którą jesteś zintegrowany.
 * Zasoby między połączeniami równorzędnym, które obejmują połączenia Usługi Azure ExpressRoute.
-* Prywatne punkty końcowe — uwaga: dns musi być zarządzany oddzielnie, a nie przy użyciu stref prywatnych usługi Azure DNS.
+* Prywatne punkty końcowe 
 
 Korzystając z integracji sieci wirtualnej z sieciami wirtualnymi w tym samym regionie, można użyć następujących funkcji sieci platformy Azure:
 
@@ -50,7 +50,7 @@ Istnieją pewne ograniczenia dotyczące korzystania z integracji sieci wirtualne
 * Można zintegrować tylko z sieciami wirtualnymi w tej samej subskrypcji co aplikacja.
 * Możesz mieć tylko jedną regionalną integrację sieci wirtualnej na plan usługi app service. Wiele aplikacji w tym samym planie usługi app service można użyć tej samej sieci wirtualnej.
 * Nie można zmienić subskrypcji aplikacji lub planu, gdy istnieje aplikacja, która korzysta z regionalnej integracji sieci wirtualnej.
-* Aplikacja nie może rozpoznać adresów w strefach prywatnych dns platformy Azure.
+* Aplikacja nie może rozpoznać adresów w strefach prywatnych dns platformy Azure bez zmian konfiguracji
 
 Jeden adres jest używany dla każdego wystąpienia planu. Jeśli skalujesz aplikację do pięciu wystąpień, zostanie użytych pięć adresów. Ponieważ rozmiaru podsieci nie można zmienić po przypisaniu, należy użyć podsieci, która jest wystarczająco duża, aby pomieścić dowolną skalę, do której może dotrzeć aplikacja. A /26 z 64 adresami jest zalecanym rozmiarem. /26 z 64 adresami obsługuje plan Premium z 30 wystąpieniami. Podczas skalowania planu w górę lub w dół, trzeba dwa razy więcej adresów na krótki okres czasu.
 
@@ -83,9 +83,22 @@ Jeśli chcesz rozsyłać cały ruch wychodzący lokalnie, możesz użyć tabeli 
 
 Trasy protokołu BGP (Border Gateway Protocol) również wpływają na ruch w aplikacji. Jeśli masz trasy BGP z czegoś takiego jak brama usługi ExpressRoute, ruch wychodzący aplikacji będzie miał wpływ. Domyślnie trasy BGP mają wpływ tylko na ruch docelowy RFC1918. Jeśli WEBSITE_VNET_ROUTE_ALL jest ustawiona na 1, wszystkie trasy BGP mogą mieć wpływ na cały ruch wychodzący.
 
+### <a name="azure-dns-private-zones"></a>Strefy prywatne usługi Azure DNS 
+
+Po zintegrowaniu aplikacji z siecią wirtualną używa tego samego serwera DNS, z którego jest skonfigurowana witryna wirtualna. Domyślnie aplikacja nie będzie działać z usługą Azure DNS Private Zones. Aby pracować z strefami prywatnymi usługi Azure DNS, należy dodać następujące ustawienia aplikacji:
+
+1. WEBSITE_DNS_SERVER o wartości 168.63.129.16 
+1. WEBSITE_VNET_ROUTE_ALL o wartości 1
+
+Te ustawienia będą wysyłać wszystkie wywołania wychodzące z aplikacji do sieci wirtualnej, oprócz włączania aplikacji do korzystania ze stref prywatnych usługi Azure DNS.
+
+### <a name="private-endpoints"></a>Prywatne punkty końcowe
+
+Jeśli chcesz nawiązywać połączenia z [prywatnymi punktami końcowymi,][privateendpoints]musisz zintegrować się z prywatnymi strefami DNS platformy Azure lub zarządzać prywatnym punktem końcowym na serwerze DNS używanym przez aplikację. 
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
 [VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

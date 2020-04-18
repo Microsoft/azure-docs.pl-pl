@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: fed411ea171274513308ec3efa68da80e4d25f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9e1bff3d25a978b5159d8e6ab8ab2453df77ca3
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116764"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640514"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Planowanie potoków uczenia maszynowego za pomocą zestawu SDK usługi Azure Machine Learning dla języka Python
 
@@ -98,6 +98,10 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 ### <a name="optional-arguments-when-creating-a-schedule"></a>Opcjonalne argumenty podczas tworzenia harmonogramu
 
 Oprócz argumentów omówionych wcześniej można ustawić `status` argument, `"Disabled"` aby utworzyć nieaktywny harmonogram. Na koniec `continue_on_step_failure` umożliwia przekazanie wartości logicznej, która zastąpi domyślne zachowanie błędu potoku.
+
+### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Korzystanie z usługi Azure Logic Apps w celu uzyskania bardziej złożonych przepływów pracy
+
+Usługa Azure Logic Apps obsługuje bardziej złożone przepływy pracy i jest znacznie szerzej zintegrowana niż potoki usługi Azure Machine Learning. Zobacz [wyzwalanie uruchomienia potoku uczenia maszynowego z aplikacji logiki,](how-to-trigger-published-pipeline.md) aby uzyskać więcej informacji.
 
 ## <a name="view-your-scheduled-pipelines"></a>Wyświetlanie zaplanowanych potoków
 

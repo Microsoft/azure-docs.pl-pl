@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ee4b6b4247ac1a5c988d8b455fd1d8a2bff889a9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ce311d2deaf0eec76ef0dec3ea279a387d14fd22
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80136000"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81637132"
 ---
 <a name="HOLTop"></a>
 
@@ -133,6 +133,12 @@ W klasie **Program** zapisz odwołanie do adresu URL obrazu, który chcesz przea
 Zdefiniuj nową metodę analizy obrazu. Dodaj poniższy kod, który określa funkcje wizualne, które chcesz wyodrębnić w analizie. Zobacz **[VisualFeatureTypes wyliczenia](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)** dla pełnej listy.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_visualfeatures)]
+
+Wstaw dowolny z następujących bloków kodu do **analyzeimageurl** metody, aby zaimplementować ich funkcje. Pamiętaj, aby dodać nawias zamykający na końcu.
+
+```csharp
+}
+```
 
 ### <a name="analyze"></a>Analiza
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: f2eb503b58f1679d138b6a1dd9304896be098ad6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7c1ad2581d025a9259c5cb2a84e4237f938fc892
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419267"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81637149"
 ---
 Aby utworzyć maszyny wirtualne platformy Azure (VM) i zarządzać nimi w spójny sposób na dużą skalę, zazwyczaj pożądana jest pewna forma automatyzacji. Istnieje wiele narzędzi i rozwiązań, które umożliwiają automatyzację pełnego wdrażania infrastruktury platformy Azure i cyklu życia zarządzania. W tym artykule przedstawiono niektóre narzędzia automatyzacji infrastruktury, których można używać na platformie Azure. Narzędzia te często mieszczą się w jednym z następujących podejść:
 
@@ -125,7 +125,7 @@ Dowiedz się więcej o usługach:
 
 
 ## <a name="jenkins"></a>Jenkins
-[Jenkins](https://www.jenkins.io) to serwer ciągłej integracji, który pomaga wdrażać i testować aplikacje oraz tworzyć automatyczne potoki do dostarczania kodu. Istnieją setki wtyczek, aby rozszerzyć podstawową platformę Jenkins, a także można zintegrować z wieloma innymi produktami i rozwiązaniami za pomocą webhook. Możesz ręcznie zainstalować usługę Jenkins na maszynie wirtualnej platformy Azure, uruchomić usługę Jenkins z poziomu kontenera platformy Docker lub użyć wstępnie utworzonego obrazu portalu Azure Marketplace.
+[Jenkins](https://jenkins.io) to serwer ciągłej integracji, który pomaga wdrażać i testować aplikacje oraz tworzyć automatyczne potoki do dostarczania kodu. Istnieją setki wtyczek, aby rozszerzyć podstawową platformę Jenkins, a także można zintegrować z wieloma innymi produktami i rozwiązaniami za pomocą webhook. Możesz ręcznie zainstalować usługę Jenkins na maszynie wirtualnej platformy Azure, uruchomić usługę Jenkins z poziomu kontenera platformy Docker lub użyć wstępnie utworzonego obrazu portalu Azure Marketplace.
 
 Instrukcje:
 

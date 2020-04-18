@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać skalowania automatycznego klastra do aut
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 0b94865d81afc56c24d470012c668662f003a1b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2baa64779713d0bac063e1d2c06107ba2ab291fb
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596253"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617535"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Automatyczne skalowanie klastra w celu spełnienia wymagań aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -117,6 +117,7 @@ Można również skonfigurować bardziej szczegółowe szczegóły skalowania au
 | skalowanie w dół-niezrealiza czas          | Jak długo nieuleczony węzeł powinien być niepotrzebny, zanim kwalifikuje się do skalowania w dół         | 20 minut    |
 | próg wykorzystania w dół | Poziom wykorzystania węzła, zdefiniowany jako suma żądanych zasobów podzielonych przez pojemność, poniżej którego węzeł można uwzględnić w skalowaniu w dół | 0,5 |
 | max-wdzięku-zakończenia-s     | Maksymalna liczba sekund automatycznego skalowania klastra czeka na zakończenie zasobnika podczas próby skalowania w dół węzła. | 600 sekund   |
+| grupy węzłów równowagi | Wykrywanie podobnych pul węzłów i równoważenie liczby węzłów między nimi | false |
 
 > [!IMPORTANT]
 > Profil skalowania automatycznego klastra dotyczy wszystkich pul węzłów korzystających z skalowania automatycznego klastra. Nie można ustawić profilu skalowania automatycznego dla puli węzłów.

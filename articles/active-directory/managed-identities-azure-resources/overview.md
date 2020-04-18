@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 03/25/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f599ee3303ab907c319d1f8cf3da3e427a4c4c0b
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282124"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639665"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Co to są tożsamości zarządzane dla zasobów platformy Azure?
 
@@ -51,8 +51,12 @@ Istnieją dwa typy tożsamości zarządzanych:
 - **Tożsamość zarządzana przypisana przez użytkownika** jest tworzona jako autonomiczny zasób platformy Azure. W ramach procesu tworzenia platforma Azure tworzy tożsamość w dzierżawie usługi Azure AD, której ufa używana subskrypcja. Utworzoną tożsamość można przypisać do co najmniej jednego wystąpienia usługi platformy Azure. Cykl życiowy tożsamości przypisanej przez użytkownika jest zarządzany oddzielnie od cyklu życiowego wystąpień usługi platformy Azure, do których została przypisana.
 
 Wewnętrznie tożsamości zarządzane są jednostki usługi specjalnego typu, które są zablokowane tylko do użycia z zasobami platformy Azure. Po usunięciu tożsamości zarządzanej odpowiedni podmiot usługi jest automatycznie usuwany.
+Ponadto po utworzeniu tożsamości przypisanej przez użytkownika lub tożsamości przypisanej do systemu dostawca zasobów tożsamości zarządzanej (MSRP) wystawia certyfikat wewnętrznie do tej tożsamości. 
 
-Przy użyciu tożsamości zarządzanej kod może zażądać tokenów dostępu dla usług obsługujących uwierzytelnianie usługi Azure AD. Platforma Azure zapewnia stopniową obsługę poświadczeń, które są używane przez wystąpienie usługi.
+Przy użyciu tożsamości zarządzanej kod może zażądać tokenów dostępu dla usług obsługujących uwierzytelnianie usługi Azure AD. Platforma Azure zapewnia stopniową obsługę poświadczeń, które są używane przez wystąpienie usługi. 
+
+## <a name="credential-rotation"></a>Obrót poświadczeń
+Rotacja poświadczeń jest kontrolowana przez dostawcę zasobów, który obsługuje zasób platformy Azure. Domyślny obrót poświadczeń występuje co 46 dni. Dostawca zasobów może wymagać nowych poświadczeń, więc dostawca zasobów może czekać dłużej niż 46 dni.
 
 Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współpracują z maszynami wirtualnymi platformy Azure:
 
@@ -131,7 +135,7 @@ Dowiedz się, jak używać tożsamości zarządzanej z maszyną wirtualną z sys
 
 Dowiedz się, jak używać tożsamości zarządzanej z innymi usługami platformy Azure:
 
-* [Usługa aplikacji platformy Azure](/azure/app-service/overview-managed-identity)
+* [Azure App Service](/azure/app-service/overview-managed-identity)
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Usługa Azure Container Registry Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
@@ -140,7 +144,7 @@ Dowiedz się, jak używać tożsamości zarządzanej z innymi usługami platform
 * [Azure Kubernetes Service](/azure/aks/use-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Fabryka danych platformy Azure](../../data-factory/data-factory-service-identity.md)
+* [Azure Data Factory](../../data-factory/data-factory-service-identity.md)
 
 
 ## <a name="what-azure-services-support-the-feature"></a>Jakie usługi platformy Azure obsługują funkcję?<a name="which-azure-services-support-managed-identity"></a>

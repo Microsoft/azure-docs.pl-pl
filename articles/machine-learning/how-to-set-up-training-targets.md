@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7fcfac923da1c0daee58b10d92cbc6a6ad5e7910
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 625efcce7305cd7b1dd415a286e6b1e92682cc0a
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383403"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616836"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurowanie i używanie obiektów docelowych obliczeń do szkolenia modelu 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -315,7 +315,7 @@ Wykonaj poprzednie kroki, aby wyświetlić listę celów obliczeniowych. Następ
 
 1. Wypełnij formularz. Podaj wartości dla wymaganych właściwości, zwłaszcza **rodziny maszyn wirtualnych**i **maksymalnych węzłów używanych** do rozkręcania obliczeń.  
 
-1. Wybierz __pozycję Utwórz__.
+1. Wybierz pozycję __Utwórz__.
 
 
 1. Wyświetl stan operacji tworzenia, wybierając cel obliczeniowy z listy:
@@ -425,7 +425,7 @@ Aby uzyskać więcej informacji, zobacz [ScriptRunConfig](https://docs.microsoft
 
 Za pomocą [rozszerzenia interfejsu wiersza polecenia interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) i uczenia [maszynowego](reference-azure-machine-learning-cli.md) można utworzyć konfiguracje uruchamiania i przesyłać przebiegi na różnych obiektach docelowych obliczeń. Poniższe przykłady zakładają, że masz istniejący obszar roboczy usługi `az login` Azure Machine Learning i zalogowałeś się na platformie Azure przy użyciu polecenia CLI. 
 
-[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 ### <a name="create-run-configuration"></a>Tworzenie konfiguracji uruchamiania
 

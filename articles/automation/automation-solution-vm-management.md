@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbcd4ea174d4b6a2a45495c32f178ed1bd01bbe0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 968e609772e08814a9943734d30c16bf6f5972e8
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261352"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604707"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Uruchamianie/zatrzymywania maszyn wirtualnych poza godzinami pracy w usłudze Azure Automation
 
@@ -225,11 +225,11 @@ Konto automatyzacji i obszar roboczy usługi Log Analytics nie są usuwane w ram
 
 1. Wyszukaj i wybierz **obszary robocze usługi Log Analytics**.
 
-2. Na stronie **Obszary robocze usługi Log Analytics** wybierz obszar roboczy.
+2. Na stronie Obszaru roboczego usługi Log Analytics wybierz obszar roboczy.
 
 3. Z menu na stronie ustawienia obszaru roboczego wybierz **polecenie Usuń.**
 
-4. Jeśli nie chcesz zachować składniki konta usługi Azure Automation, można ręcznie usunąć każdy z nich. Zobacz [Składniki rozwiązania](#solution-components).
+4. Jeśli nie chcesz zachować [składników rozwiązania](#solution-components)konta usługi Azure Automation, możesz ręcznie usunąć wszystkie.
 
 ## <a name="next-steps"></a>Następne kroki
 

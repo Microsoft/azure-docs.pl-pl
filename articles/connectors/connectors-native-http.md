@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c52f2df34faf441ab70b48b11bbc393ebcecb65
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297212"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617611"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub HTTPS z aplikacji logiki Azure
 
@@ -59,7 +59,7 @@ W tym artykule pokazano, jak dodać wyzwalacz lub akcję HTTP do przepływu prac
 
 Ten wbudowany wyzwalacz wywołuje http do określonego adresu URL dla punktu końcowego i zwraca odpowiedź.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Otwórz pustą aplikację logiki w logice App Designer.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Otwórz pustą aplikację logiki w logice App Designer.
 
 1. W polu wyszukiwania projektanta wybierz pozycję **Wbudowane**. W polu wyszukiwania `http` wprowadź jako filtr. Z listy **Wyzwalacze** wybierz wyzwalacz **HTTP.**
 
@@ -88,7 +88,7 @@ Ten wbudowany wyzwalacz wywołuje http do określonego adresu URL dla punktu ko�
 
 Ta wbudowana akcja wywołuje HTTP określony adres URL dla punktu końcowego i zwraca odpowiedź.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Otwórz aplikację logiki w logic app designer.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Otwórz aplikację logiki w logic app designer.
 
    W tym przykładzie użyto wyzwalacza HTTP jako pierwszego kroku.
 
@@ -140,8 +140,8 @@ Załóżmy na przykład, że masz aplikację logiki, która wysyła żądanie HT
 Oto ten sam przykład, który pokazuje definicję JSON akcji HTTP w podstawowej definicji przepływu pracy:
 
 ```json
-{
-   "HTTP_action": {
+"HTTP_action": {
+   "inputs": {
       "body": {
          "$content-type": "multipart/form-data",
          "$multipart": [

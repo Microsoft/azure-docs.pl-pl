@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94699f2153fa8d1df3ab85c184f32792c7ae0b59
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428877"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606008"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Zabezpiecz obszar roboczy Synapse (wersja zapoznawcza)
 
@@ -51,8 +51,8 @@ Tworzenie i wypełnianie trzech grup zabezpieczeń dla obszaru roboczego:
 - **WS1\_WSAdmins** – dla użytkowników, którzy potrzebują pełnej kontroli nad obszarem roboczym
 - **WS1\_SparkAdmins** – dla tych użytkowników, którzy potrzebują pełnej kontroli nad aspektami Spark obszaru roboczego
 - **WS1\_SQLAdmins** — dla użytkowników, którzy potrzebują pełnej kontroli nad aspektami SQL obszaru roboczego
-- Dodawanie **administratorów\_WS1** do **programu WS1\_SQLAdmins**
-- Dodawanie **administratorów\_WS1** do **WS1\_SparkAdmins**
+- Dodawanie **ws1\_WSAdmins** do **WS1\_SQLAdmins**
+- Dodaj **WS1\_WSAdmins** do **WS1\_SparkAdmins**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>KROK 2: Przygotuj swoje konto Data Lake Storage Gen2
 
@@ -89,7 +89,7 @@ Obszar roboczy Synapse wymaga dostępu do STG1 i CNT1, dzięki czemu może uruch
 - Otwieranie portalu platformy Azure
 - Znajdź STG1
 - Przejdź do CNT1
-- Upewnij się, że msi dla WS1 jest przypisany do roli **współautora danych obiektów Blob platformy Azure** w języku CNT1
+- Upewnij się, że msi (tożsamość usługi zarządzanej) dla WS1 jest przypisany do roli **współautora danych obiektów Blob platformy Azure** na CNT1
   - Jeśli nie widzisz przypisanego, przypisz go.
   - MSI ma taką samą nazwę jak obszar roboczy. W tym przypadku byłoby &quot;WS1&quot;.
 

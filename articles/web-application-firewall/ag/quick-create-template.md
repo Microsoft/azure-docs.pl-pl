@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 04/02/2020
 ms.author: victorh
-ms.openlocfilehash: 2a13d4ef440a75045c72f97db02d4be6f2e2b134
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6759071e73adfd3af4ac780da6db3a0e6e967ea1
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656392"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617976"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway---resource-manager-template"></a>Szybki start: tworzenie szablonu usługi Azure WAF w wersji 2 w bramie aplikacji — szablon Menedżera zasobów
 
@@ -54,7 +54,7 @@ Wdrażanie szablonu Usługi Resource Manager na platformie Azure:
 
 1. Wybierz **pozycję Wdrażanie na platformie Azure,** aby zalogować się na platformę Azure i otworzyć szablon. Szablon tworzy bramę aplikacji, infrastrukturę sieciową i dwie maszyny wirtualne w puli wewnętrznej bazy danych z uruchomionymi usługami IIS.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json"><img src="../media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
 
 2. Wybierz lub utwórz grupę zasobów.
 3. Wybierz **opcję Zgadzam się z warunkami podanymi powyżej,** a następnie wybierz opcję **Kup.** Wdrożenie może potrwać 10 minut lub dłużej.

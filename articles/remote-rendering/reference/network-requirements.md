@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: 73bbfad4c0535fa00b1aa53764eb52acb83124f8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80680377"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617881"
 ---
 # <a name="network-requirements"></a>Wymagania dotyczące sieci
 
@@ -28,6 +28,9 @@ Dokładne wymagania sieciowe zależą od konkretnego przypadku użycia, takiego 
 * Posiadanie **dobrej siły sygnału Wi-Fi** jest niezbędne. Jeśli to możliwe, trzymaj się blisko punktu dostępu Wi-Fi i unikaj przeszkód między urządzeniem klienckim a punktami dostępu.
 * Upewnij się, że zawsze łączysz się z **najbliższym centrum danych platformy Azure** dla swojego [regionu](regions.md). Im bliżej centrum danych, tym mniejsze opóźnienie sieci, co ma ogromny wpływ na stabilność hologramu.
 
+> [!NOTE]
+> Przepustowość niższego rzędu jest najczęściej zużywana przez strumień wideo, który z kolei jest podzielony między informacje o kolorze i głębi (zarówno 60 Hz, stereo.
+
 ## <a name="network-performance-tests"></a>Testy wydajności sieci
 
 Jeśli chcesz uzyskać wstępne zrozumienie, czy jakość łączności sieciowej jest wystarczająca do uruchomienia renderowania zdalnego platformy Azure, istnieją istniejące narzędzia online, których można użyć. Zdecydowanie zaleca się uruchamianie tych narzędzi online z rozsądnie wydajnego laptopa podłączonego do tej samej sieci Wi-Fi, co urządzenie, na które planujesz uruchomić aplikację klienta renderowania zdalnego platformy Azure. Wyniki uzyskane z uruchomienia testów na telefonie komórkowym lub HoloLens2 są zwykle mniej przydatne, ponieważ okazały się wykazywać znaczne różnice w urządzeniach o niskim pozycjowym punkcie końcowym. Lokalizacja, w której można umieścić komputer przenośny powinien znajdować się mniej więcej w tym samym miejscu, w którym można oczekiwać, aby użyć urządzenia, które uruchamia aplikację klienta renderowania zdalnego platformy Azure.
@@ -39,7 +42,7 @@ Wybierz serwer najbliżej Ciebie i uruchom test. Chociaż serwer nie będzie cen
    * **Minimalne wymagania dotyczące** zdalnego renderowania platformy Azure: około 40 Mb/s w dół i 5 Mb/s w górę.
    * **Zalecane** dla renderowania zdalnego platformy Azure: około 100 Mb/s w dół i 10 Mb/s w górę.
 Zalecamy wielokrotne uruchamianie testu i podejmowanie najgorszych wyników.
-1. **Użyj narzędzia, takiego jak www.azurespeed.com, które mierzy opóźnienia w centrach danych platformy Azure.** Wybierz centrum danych platformy Azure obsługiwane przez zdalne renderowanie platformy Azure, które jest najbliżej Ciebie (zobacz [obsługiwane regiony](regions.md)) i uruchom **test opóźnienia**. Jeśli istnieją różnice w liczbach, które widzisz, daj wyniki trochę czasu na stabilizację.
+1. **Użyj narzędzia, takiego jak www.azurespeed.com, które mierzy opóźnienia w centrach danych platformy Azure.** Wybierz centrum danych platformy Azure obsługiwane przez zdalne renderowanie platformy Azure, które jest najbliżej Ciebie (zobacz [obsługiwane regiony)](regions.md)i uruchom **test opóźnienia**. Jeśli istnieją różnice w liczbach, które widzisz, daj wyniki trochę czasu na stabilizację.
    * **Minimalne wymagania dotyczące** zdalnego renderowania platformy Azure: opóźnienie powinno być stale mniejsze niż 100 ms.
    * **Zalecane** dla renderowania zdalnego platformy Azure: opóźnienie powinno być stale mniejsze niż 70 ms.
 

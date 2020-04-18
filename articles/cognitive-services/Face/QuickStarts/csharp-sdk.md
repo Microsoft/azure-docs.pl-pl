@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 5e0073bd14744338ff28c9c45193f126a1bba717
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d9b10341f971c0e8177043126ff8fbd4df078b86
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403033"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604987"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Szybki start: biblioteka klienta twarzy dla platformy .NET
 
@@ -126,17 +126,19 @@ Prawdopodobnie będziesz chciał wywołać tę `Main` metodę w metodzie.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_client)]
 
-## <a name="detect-faces-in-an-image"></a>Wykrywanie twarzy na obrazie
+### <a name="declare-helper-fields"></a>Zadeklaruj pola pomocnika
 
-W katalogu głównym klasy zdefiniuj następujący ciąg adresu URL. Ten adres URL wskazuje zestaw przykładowych obrazów.
+Poniższe pola są potrzebne dla kilku operacji Ściana, które zostaną dodane później. W katalogu głównym klasy zdefiniuj następujący ciąg adresu URL. Ten adres URL wskazuje folder przykładowych obrazów.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_image_url)]
 
-Opcjonalnie można wybrać model AI, którego użyć do wyodrębniania danych z wykrytych twarzy. Zobacz [Określanie modelu rozpoznawania,](../Face-API-How-to-Topics/specify-recognition-model.md) aby uzyskać informacje na temat tych opcji.
+Zdefiniuj ciągi wskazujące różne typy modeli rozpoznawania. Później będzie można określić model rozpoznawania, którego chcesz użyć do wykrywania twarzy. Zobacz [Określanie modelu rozpoznawania,](../Face-API-How-to-Topics/specify-recognition-model.md) aby uzyskać informacje na temat tych opcji.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_models)]
 
-Ostateczna operacja wykrywania zajmie **[Obiekt FaceClient,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** adres URL obrazu i model rozpoznawania.
+## <a name="detect-faces-in-an-image"></a>Wykrywanie twarzy na obrazie
+
+Dodaj następujące wywołanie metody do **metody głównej.** Następnie zdefiniujesz metodę. Ostateczna operacja wykrywania zajmie **[Obiekt FaceClient,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** adres URL obrazu i model rozpoznawania.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_call)]
 
@@ -174,25 +176,21 @@ Następujący kod drukuje szczegóły dopasowania do konsoli:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_find_similar_print)]
 
-## <a name="create-and-train-a-person-group"></a>Tworzenie i szkolenie grupy osób
+## <a name="identify-a-face"></a>Identyfikowanie twarzy
+
+Operacja Identyfikuj pobiera obraz osoby (lub wielu osób) i wygląda, aby znaleźć tożsamość każdej twarzy na obrazie. Porównuje każdą wykrytą twarz z **grupą osób**, bazą danych różnych obiektów **osoby,** których rysy twarzy są znane. Aby wykonać operację Identyfikowanie, należy najpierw utworzyć i wyszkolić **grupę osób**
+
+### <a name="create-and-train-a-person-group"></a>Tworzenie i szkolenie grupy osób
 
 Poniższy kod tworzy **PersonGroup** z sześciu różnych **Person** obiektów. Kojarzy każdą **osobę** z zestawem przykładowych obrazów, a następnie trenuje, aby rozpoznać każdą osobę według ich cech twarzy. **Obiekty Person** i **PersonGroup** są używane w operacjach Weryfikuj, identyfikuj i Grupuj.
 
-Jeśli jeszcze tego nie zrobiono, zdefiniuj następujący ciąg adresu URL w katalogu głównym klasy. Wskazuje to na zestaw przykładowych obrazów.
-
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_image_url)]
-
-Kod w dalszej części tej sekcji określi model rozpoznawania wyodrębnić dane z twarzy, a poniższy fragment kodu tworzy odwołania do dostępnych modeli. Zobacz [Określanie modelu rozpoznawania,](../Face-API-How-to-Topics/specify-recognition-model.md) aby uzyskać informacje na temat modeli rozpoznawania.
-
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_models)]
-
-### <a name="create-persongroup"></a>Tworzenie grupy osób
+#### <a name="create-persongroup"></a>Tworzenie grupy osób
 
 Zadeklaruj zmienną ciągu w katalogu głównym klasy do reprezentowania **identyfikatora persongroup,** który utworzysz.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_declare)]
 
-W nowej metodzie dodaj następujący kod. Ten kod kojarzy nazwiska osób z ich przykładowymi obrazami.
+W nowej metodzie dodaj następujący kod. Ta metoda przeprowadzi identify operacji. Pierwszy blok kodu kojarzy nazwiska osób z ich przykładowymi obrazami.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_files)]
 
@@ -200,20 +198,13 @@ Następnie dodaj następujący kod, aby utworzyć **person** obiektu dla każdej
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_create)]
 
-### <a name="train-persongroup"></a>Grupa osób pociągu
+#### <a name="train-persongroup"></a>Grupa osób pociągu
 
 Po wyodrębnieniu danych twarzy z obrazów i posortowaniu ich w różne **obiekty Person** należy przeszkolić **grupę persongroup** w celu zidentyfikowania funkcji wizualnych skojarzonych z każdym z jej obiektów **Person.** Poniższy kod wywołuje metodę **pociągu** asynchronicznej i sonduje wyniki, drukując stan do konsoli.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_train)]
 
 Ta grupa **osoby** i skojarzone z nią obiekty **Person** są teraz gotowe do użycia w operacjach Weryfikuj, identyfikuj lub Grupuj.
-
-## <a name="identify-a-face"></a>Identyfikowanie twarzy
-
-Operacja Identyfikuj pobiera obraz osoby (lub wielu osób) i wygląda, aby znaleźć tożsamość każdej twarzy na obrazie. Porównuje każdą wykrytą twarz z **grupą osób**, bazą danych różnych obiektów **osoby,** których rysy twarzy są znane.
-
-> [!IMPORTANT]
-> Aby uruchomić ten przykład, należy najpierw uruchomić kod w [create i wyszkolić grupę osób](#create-and-train-a-person-group). Zmienne używane w&mdash;`client`tej `url`sekcji `RECOGNITION_MODEL1` &mdash;, i muszą być również dostępne tutaj.
 
 ### <a name="get-a-test-image"></a>Pobierz obraz testowy
 
@@ -225,7 +216,7 @@ Poniższy kod pobiera obraz źródłowy i tworzy listę wszystkich twarzy wykryt
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_identify_sources)]
 
-Następny fragment kodu wywołuje operację Identify i drukuje wyniki na konsoli. W tym miejscu usługa próbuje dopasować każdą twarz z obrazu źródłowego do **osoby** w danej **grupie osób**.
+Następny fragment kodu wywołuje **identifyAsync** operacji i drukuje wyniki do konsoli. W tym miejscu usługa próbuje dopasować każdą twarz z obrazu źródłowego do **osoby** w danej **grupie osób**. Spowoduje to zamknięcie metody Identify.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_identify)]
 

@@ -1,215 +1,158 @@
 ---
 title: Tworzenie szablonu — kod programu Visual Studio
 description: Program Visual Studio Code i rozszerzenie Narzędzia usługi Azure Resource Manager służą do pracy z szablonami usługi Resource Manager.
-author: mumian
-ms.date: 04/13/2020
+author: neilpeterson
+ms.date: 03/27/2019
 ms.topic: quickstart
-ms.author: jgao
-ms.openlocfilehash: 96e57146fb6bb17cbb8bb5975371e07b66f3ec8b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: nepeters
+ms.openlocfilehash: 4b1ecbf3a1f6083261e87537e20d52e755b77424
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255094"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640874"
 ---
-# <a name="quickstart-create-arm-templates-by-using-visual-studio-code"></a>Szybki start: tworzenie szablonów ARM przy użyciu programu Visual Studio Code
+# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Szybki start: tworzenie szablonów usługi Azure Resource Manager za pomocą kodu programu Visual Studio
 
-Dowiedz się, jak tworzyć i edytować szablony usługi Azure Resource Manager (ARM) za pomocą kodu programu Visual Studio i rozszerzenia Narzędzia usługi Azure Resource Manager. Szablony ARM można tworzyć w programie Visual Studio Code bez rozszerzenia, ale rozszerzenie udostępnia opcje autouzupełniania, które upraszczają tworzenie szablonów. Aby zapoznać się z pojęciami związanymi z wdrażaniem rozwiązań platformy Azure i zarządzanie nimi, zobacz [omówienie wdrażania szablonów.](overview.md)
+Narzędzia usługi Azure Resource Manager dla kodu programu Visual Studio zapewniają obsługę języka, fragmenty kodu zasobów i autouzupełnienie zasobów. Te narzędzia pomagają tworzyć i weryfikować szablony usługi Azure Resource Manager. W tym przewodniku Szybki start można użyć rozszerzenia do utworzenia szablonu usługi Azure Resource Manager od podstaw. W ten sposób występują funkcje rozszerzeń, takie jak fragmenty kodu szablonu ARM, sprawdzanie poprawności, uzupełnienia i obsługa plików parametrów.
 
-W tym przewodniku Szybki start można wdrożyć konto magazynu:
-
-![Diagram kodu programu Visual Studio przewodnika Visual Studio dla programu Szybki start dla menedżera zasobów](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
+Aby ukończyć ten szybki start, potrzebujesz [programu Visual Studio Code](https://code.visualstudio.com/), z zainstalowanym [rozszerzeniem narzędzi usługi Azure Resource Manager.](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) Należy również zainstalować i uwierzytelnić moduł [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) lub usługi Azure [PowerShell.](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.7.0)
 
 Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
 
-## <a name="prerequisites"></a>Wymagania wstępne
+## <a name="create-an-arm-template"></a>Tworzenie szablonu ARM
 
-Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
+Utwórz i otwórz za pomocą programu Visual Studio Code nowy plik o nazwie *azuredeploy.json*. Wprowadź `arm` do edytora kodu, który inicjuje fragmenty usługi Azure Resource Manager dla szkieletu szablonu ARM.
 
-- [Visual Studio Code](https://code.visualstudio.com/).
-- Rozszerzenie Narzędzia usługi Resource Manager. Aby przeprowadzić instalację, wykonaj następujące kroki:
+Wybierz, `arm!` aby utworzyć szablon o zakresie wdrożenia grupy zasobów platformy Azure.
 
-    1. Otwórz program Visual Studio Code.
-    2. Naciśnij klawisze **CTRL + SHIFT + X**, aby otworzyć okienko rozszerzenia.
-    3. Wyszukaj pozycję **Azure Resource Manager Tools**, a następnie wybierz pozycję **Install (Zainstaluj)**.
-    4. Wybierz pozycję **Reload (Załaduj ponownie)**, aby zakończyć instalację rozszerzenia.
+![Obraz przedstawiający rusztowania usługi Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
-## <a name="open-a-quickstart-template"></a>Otwieranie szablonu szybkiego startu
+Ten fragment kodu tworzy podstawowe bloki konstrukcyjne szablonu ARM.
 
-Zamiast tworzyć szablon od podstaw, otwórz szablon z obszaru [Azure Quickstart Templates (Szablony szybkiego startu platformy Azure)](https://azure.microsoft.com/resources/templates/). Szablony szybki start platformy Azure to repozytorium szablonów ARM.
+![Obraz przedstawiający w pełni szkieletowy szablon ARM](./media/quickstart-create-templates-use-visual-studio-code/2.png)
 
-Szablon używany w tym przewodniku Szybki start ma nazwę [Create a standard storage account (Tworzenie standardowego konta magazynu)](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Szablon definiuje zasób konta usługi Azure Storage.
+Należy zauważyć, że tryb języka kodu programu Visual Studio został zmieniony z *JSON* na *szablon usługi Azure Resource Manager*. Rozszerzenie zawiera serwer języka specyficzny dla szablonów ARM, który zapewnia sprawdzanie poprawności, uzupełnianie i inne usługi językowe specyficzne dla szablonu ARM.
 
-1. W programie Visual Studio Code wybierz pozycję **Plik**>**otwórz plik**.
-2. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
+![Obraz przedstawiający usługę Azure Resource Manager jako tryb języka kodu programu Visual Studio](./media/quickstart-create-templates-use-visual-studio-code/3.png)
 
-    ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
-    ```
+## <a name="add-an-azure-resource"></a>Dodawanie zasobu platformy Azure
 
-3. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
-4. Wybierz **opcję Zapisz plik,**>**Save As** aby zapisać plik jako **azuredeploy.json** na komputerze lokalnym.
+Rozszerzenie zawiera fragmenty kodu dla wielu zasobów platformy Azure. Te fragmenty kodu można użyć do łatwego dodawania zasobów do wdrożenia szablonu.
 
-## <a name="edit-the-template"></a>Edytowanie szablonu
+Umieść kursor w bloku **zasobów** szablonu, wpisz `storage`i wybierz fragment kodu magazynu *arm.*
 
-Aby dowiedzieć się, jak edytować szablon za pomocą programu Visual Studio Code, dodaj jeszcze jeden element do sekcji `outputs` zawierający identyfikator URI magazynu.
+![Obraz przedstawiający zasób dodawany do szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/4.png)
 
-1. Dodaj jeszcze jedno wyjście do wyeksportowanego szablonu:
+Ta akcja dodaje zasób magazynu do szablonu.
 
-    ```json
-    "storageUri": {
-      "type": "string",
-      "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-    }
-    ```
+![Obraz przedstawiający zasób usługi Azure Storage w szablonie ARM](./media/quickstart-create-templates-use-visual-studio-code/5.png)
 
-    Po wykonaniu wszystkich czynności sekcja danych wyjściowych będzie wyglądać następująco:
+Klucz **tabulacji** może służyć do zakładki za pomocą konfigurowalnych właściwości na koncie magazynu.
 
-    ```json
-    "outputs": {
-      "storageAccountName": {
-        "type": "string",
-        "value": "[variables('storageAccountName')]"
-      },
-      "storageUri": {
-        "type": "string",
-        "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-      }
-    }
-    ```
+![Obraz przedstawiający, jak można używać klawisza tab do poruszania się po konfiguracji zasobów](./media/quickstart-create-templates-use-visual-studio-code/6.png)
 
-    Jeśli skopiowano i wklejono kod w programie Visual Studio Code, spróbuj ponownie wpisać element **value**, aby użyć funkcji IntelliSense rozszerzenia Narzędzia usługi Resource Manager.
+## <a name="completion-and-validation"></a>Ukończenie i walidacja
 
-    ![Funkcja IntelliSense programu Visual Studio Code szablonu usługi Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+Jednym z najbardziej zaawansowanych możliwości rozszerzenia jest jego integracja ze schematami platformy Azure. Schematy platformy Azure zapewniają rozszerzenie z możliwości sprawdzania poprawności i funkcji uzupełniania z uwzględnieniem zasobów. Zmodyfikujmy konto magazynu, aby wyświetlić sprawdzanie poprawności i zakończenie w działaniu. 
 
-2. Wybierz pozycję**Zapisz** **plik,**>aby zapisać plik.
+Najpierw zaktualizuj rodzaj konta magazynu `megaStorage`do nieprawidłowej wartości, takiej jak . Należy zauważyć, że ta akcja `megaStorage` generuje ostrzeżenie wskazujące, że nie jest prawidłową wartością.
+
+![Obraz przedstawiający nieprawidłową konfigurację magazynu](./media/quickstart-create-templates-use-visual-studio-code/7.png)
+
+Aby skorzystać z możliwości `megaStorage`uzupełniania, usuń , umieść kursor wewnątrz `ctrl`  +  `space`cudzysłowów podwójnych i naciśnij . Ta akcja przedstawia listę uzupełnień prawidłowych wartości.
+
+![Obraz przedstawiający automatyczne uzupełnianie rozszerzenia](./media/quickstart-create-templates-use-visual-studio-code/8.png)
+
+## <a name="add-template-parameters"></a>Dodawanie parametrów szablonu
+
+Teraz utwórz i użyj parametru, aby określić nazwę konta magazynu.
+
+Umieść kursor w bloku parametrów, dodaj powrót `par`karetki, `arm-param-value` wpisz , a następnie wybierz fragment kodu. Ta akcja dodaje parametr ogólny do szablonu.
+
+![Obraz przedstawiający parametr dodawany do szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/9.png)
+
+Zaktualizuj nazwę `storageAccountName` parametru `Storage Account Name`i opis do .
+
+![Obraz przedstawiający ukończony parametr w szablonie ARM](./media/quickstart-create-templates-use-visual-studio-code/10.png)
+
+Nazwy kont magazynu platformy Azure mają minimalną długość 3 znaków i maksymalnie 24. Dodaj `minLength` zarówno `maxLength` i do parametru i podać odpowiednie wartości.
+
+![Obraz przedstawiający minLength i maxLength dodawanych do parametru szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/11.png)
+
+Teraz na zasobie magazynu zaktualizuj właściwość name, aby użyć parametru. Aby to zrobić, usuń bieżącą nazwę. Wprowadź podwójny cudzysłów `[`i otwierający nawias kwadratowy, który tworzy listę funkcji szablonu ARM. Wybierz *parametry* z listy. 
+
+![Obraz przedstawiający automatyczne uzupełnianie podczas korzystania z parametrów w zasobach szablonów ARM](./media/quickstart-create-templates-use-visual-studio-code/12.png)
+
+Wprowadzenie pojedynczego `'` cudzysłowu wewnątrz nawiasów okrągłych tworzy listę wszystkich parametrów zdefiniowanych w szablonie, w tym przypadku *storageAccountName*. Wybierz parametr.
+
+![Obraz przedstawiający ukończony parametr w zasobie szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/13.png)
+
+## <a name="create-a-parameter-file"></a>Tworzenie pliku parametrów
+
+Plik parametru szablonu ARM umożliwia przechowywanie wartości parametrów specyficznych dla środowiska i przekazywanie tych wartości jako grupy w czasie wdrażania. Na przykład może mieć plik parametru z wartościami specyficznymi dla środowiska testowego i inny dla środowiska produkcyjnego.
+
+Rozszerzenie ułatwia tworzenie pliku parametrów z istniejących szablonów. Aby to zrobić, kliknij prawym przyciskiem myszy `Select/Create Parameter File`szablon w edytorze kodu i wybierz opcję .
+
+![Obraz przedstawiający proces kliknięcia prawym przyciskiem myszy w celu utworzenia pliku parametrów z szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/14.png)
+
+`New`  >  Wybierz `All Parameters` > Wybierz nazwę i lokalizację pliku parametrów.
+
+![Obraz przedstawiający okno dialogowe nazwa i zapisz plik podczas tworzenia pliku parametrów z szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/15.png)
+
+Ta akcja tworzy nowy plik parametrów i mapuje go za pomocą szablonu, z którego został utworzony. Możesz zobaczyć i zmodyfikować bieżące mapowanie pliku szablonu/parametru na pasku stanu kodu programu Visual Studio, gdy szablon jest zaznaczony.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+
+Teraz, gdy plik parametrów został zamapowany na szablon, rozszerzenie sprawdza zarówno plik szablonu, jak i parametru razem. Aby wyświetlić tę walidację w praktyce, dodaj wartość dwuznakową do parametru `storageAccountName` w pliku parametru i zapisz plik.
+
+![Obraz przedstawiający unieważniony szablon z powodu problemu z plikiem parametru](./media/quickstart-create-templates-use-visual-studio-code/17.png)
+
+Przejdź z powrotem do szablonu ARM i zwróć uwagę, że został zgłoszony błąd wskazujący, że wartość nie spełnia kryteriów parametru.
+
+![Obraz przedstawiający prawidłowy szablon ARM](./media/quickstart-create-templates-use-visual-studio-code/18.png)
+
+Zaktualizuj wartość do czegoś odpowiedniego, zapisz plik i przejdź z powrotem do szablonu. Należy zauważyć, że błąd na parametr został rozwiązany.
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Istnieje wiele metod wdrażania szablonów. Usługa Azure Cloud Shell jest używana w tym przewodniku Szybki start. Powłoka w chmurze obsługuje zarówno interfejsu wiersza polecenia platformy Azure, jak i usługi Azure PowerShell. Użyj selektora kart, aby wybrać między wierszem polecenia i programem PowerShell.
+Otwórz terminal kodu zintegrowanego `ctrl`  +  ```` ` ```` programu Visual Studio przy użyciu kombinacji klawiszy i użyj modułu interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell do wdrożenia szablonu.
 
-1. Zaloguj się do [powłoki chmury azure](https://shell.azure.com)
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
-2. Wybierz preferowane środowisko, wybierając program **PowerShell** lub **Bash**(CLI) w lewym górnym rogu.  Po przełączeniu wymagane jest ponowne uruchomienie powłoki.
+```azurecli
+az group create --name arm-vscode --location eastus
 
-    # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
+az deployment group create --resource-group arm-vscode --template-file azuredeploy.json --parameters azuredeploy.parameters.json
+```
 
-    ![Narzędzie cli powłoki chmury usługi Azure portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+```azurepowershell
+New-AzResourceGroup -Name arm-vscode -Location eastus
 
-    ![Azure portal Cloud Shell PowerShell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
-
-    ---
-
-3. Wybierz pozycję **Przekaż/pobierz pliki**, a następnie wybierz pozycję **Przekaż**.
-
-    # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
-
-    ![Plik przekazywania usługi Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Plik przekazywania usługi Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
-
-    ---
-
-    Wybierz plik, który został zapisany w poprzedniej sekcji. Nazwa domyślna to **azuredeploy.json**. Plik szablonu musi być dostępny z poziomu powłoki.
-
-    Opcjonalnie możesz skorzystać z poleceń **ls** i **cat**, aby sprawdzić, czy plik został przekazany pomyślnie.
-
-    # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
-
-    ![Plik listy powłoki w chmurze portalu Azure](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Plik listy powłoki w chmurze portalu Azure](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
-
-    ---
-4. W usłudze Cloud Shell uruchom następujące polecenia. Wybierz kartę, aby wyświetlić kod programu PowerShell lub kod interfejsu wiersza polecenia. Podaj nazwę projektu, która jest używana do generowania nazwy grupy zasobów.  Nazwa grupy zasobów to nazwa projektu z **dołączenym rg.**
-
-    # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
-
-    ```azurecli
-    echo "Enter a project name that is used to generate resource group name:" &&
-    read projectName &&
-    echo "Enter the location (i.e. centralus):" &&
-    read location &&
-    resourceGroupName="${projectName}rg" &&
-    az group create --name $resourceGroupName --location "$location" &&
-    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" &&
-    echo "Press [ENTER] to continue ..."
-    ```
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ```azurepowershell
-    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $resourceGroupName = "${projectName}rg"
-
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
-    Write-Host "Press [ENTER] to continue ..."
-    ```
-
-    ---
-
-    Zaktualizuj nazwę pliku szablonu, jeśli plik zapisano pod nazwą inną niż **azuredeploy.json**.
-
-    Poniższy zrzut ekranu przedstawia przykładowe wdrożenie:
-
-    # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
-
-    ![Szablon wdrażania powłoki chmury usługi Azure portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Szablon wdrażania powłoki chmury usługi Azure portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
-
-    ---
-
-    Nazwa konta magazynu i adres URL magazynu w sekcji danych wyjściowych zostały wyróżnione na zrzucie ekranu. W następnym kroku będzie potrzebna nazwa konta magazynu.
-
-5. Uruchom następujące polecenie interfejsu wiersza polecenia lub programu PowerShell, aby wyświetlić nowo utworzone konto magazynu:
-
-    # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
-
-    ```azurecli
-    echo "Enter the Resource Group name:" &&
-    read resourceGroupName &&
-    echo "Enter the Storage Account name:" &&
-    read storageAccountName &&
-    az storage account show --resource-group $resourceGroupName --name $storageAccountName &&
-    echo "Press [ENTER] to continue ..."
-    ```
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
-    Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-    Write-Host "Press [ENTER] to continue ..."
-    ```
-
-    ---
-
-Aby dowiedzieć się więcej o korzystaniu z kont magazynu platformy Azure, zobacz przewodnik [Szybki start — przekazywanie, pobieranie i wyświetlanie listy obiektów blob za pomocą witryny Azure Portal](../../storage/blobs/storage-quickstart-blobs-portal.md).
+New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azuredeploy.json -TemplateParameterFile ./azuredeploy.parameters.json
+```
+---
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
+Gdy zasoby platformy Azure nie są już potrzebne, użyj modułu interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell, aby usunąć grupę zasobów szybki start.
 
-1. W witrynie Azure portal wybierz **grupę zasobów** z lewego menu.
-2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**.
-3. Wybierz nazwę grupy zasobów. Nazwa grupy zasobów to nazwa projektu z **dołączenym rg.** W grupie zasobów zostanie wyświetlony zasób konta magazynu.
-4. Wybierz **pozycję Usuń grupę zasobów** z górnego menu.
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
+
+```azurecli
+az group delete --name arm-vscode
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name arm-vscode
+```
+---
 
 ## <a name="next-steps"></a>Następne kroki
-
-Ten przewodnik Szybki start koncentruje się głównie na użyciu programu Visual Studio Code do edycji jednego z istniejących szablonów szybkiego startu platformy Azure. Dowiedzialiście się również, jak wdrożyć szablon przy użyciu interfejsu wiersza polecenia lub programu PowerShell z usługi Azure Cloud Shell. Szablony spośród szablonów szybkiego startu platformy Azure mogą nie zaspokajać wszystkich Twoich potrzeb. Aby dowiedzieć się więcej o tworzeniu szablonów, zobacz naszą nową serię samouczków dla początkujących:
 
 > [!div class="nextstepaction"]
 > [Samouczki dla początkujących](./template-tutorial-create-first-template.md)

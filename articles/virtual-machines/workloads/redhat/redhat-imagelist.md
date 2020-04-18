@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 40a715ea27be161f09dea59e57799b08406e8ca7
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 028c30fced14a60af9f5683e6c6e087b15591735
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393771"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605480"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Obrazy Red Hat Enterprise Linux (RHEL) dostępne na platformie Azure
 Platforma Azure oferuje wiele obrazów RHEL dla różnych przypadków użycia.
@@ -47,8 +47,12 @@ RHEL          | 6.7      | Raw    | Agent systemu Linux |
 |             | 7.6      | Raw    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS od maja 2019 r.
 |             | 76-gen2  | Raw    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS.
 |             | 7.7      | Lvm    | Agent systemu Linux | Domyślnie dołączone do repozytoriów EUS.
-|             | 8        | Lvm    | Agent systemu Linux | RHEL 8.x rodzina obrazów
-|             | 8-gen2   | Lvm    | Agent systemu Linux | Hyper-V Generation 2 - RHEL 8.x rodzina obrazów.
+|             | 8-LVM    | Lvm    | Agent systemu Linux | RHEL 8.x rodzina obrazów. Dołączone do regularnych repozytoriów.
+|             | 8-lvm-gen2| Lvm    | Agent systemu Linux | Hyper-V Generation 2 - RHEL 8.x rodzina obrazów. Dołączone do regularnych repozytoriów.
+|             | 8        | Lvm    | Agent systemu Linux | Obrazy RHEL 8.0
+|             | 8-gen2   | Lvm    | Agent systemu Linux | Obrazy Hyper-V Generacji 2 - RHEL 8.0.
+|             | 8.1      | Lvm    | Agent systemu Linux | RHEL 8.1 zdjęć. Obecnie dołączone do regularnych repozytoriów.
+|             | 81gen2   | Lvm    | Agent systemu Linux | Obrazy Hyper-V Generacji 2 - RHEL 8.1. Obecnie dołączone do regularnych repozytoriów.
 RHEL-SAP      | 7.4      | Lvm    | Agent systemu Linux | RHEL 7.4 dla SAP HANA i aplikacji biznesowych. Dołączone do repozytoriów E4S, pobiera premię za SAP i RHEL, a także podstawową opłatę obliczeniową.
 |             | 74sap-gen2| Lvm    | Agent systemu Linux | RHEL 7.4 dla SAP HANA i aplikacji biznesowych. Obraz generacji 2. Dołączone do repozytoriów E4S, pobiera premię za SAP i RHEL, a także podstawową opłatę obliczeniową.
 |             | 7,5       | Lvm    | Agent systemu Linux | RHEL 7.5 dla SAP HANA i aplikacji biznesowych. Dołączone do repozytoriów E4S, pobiera premię za SAP i RHEL, a także podstawową opłatę obliczeniową.

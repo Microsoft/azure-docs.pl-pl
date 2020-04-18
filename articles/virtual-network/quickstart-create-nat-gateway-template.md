@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 6b3dee698e63ed2b0a44f05b593b8840d1cd23ee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3850f3f22e730e46f6d278b6cef0e17d357b126d
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80066413"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618053"
 ---
 # <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Szybki start: tworzenie bramy NAT — szablon Menedżera zasobów
 
@@ -100,13 +100,13 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-**Portal Azure**
+**Azure Portal**
 
-[![Wdrażanie na platformie Azure](./media/quick-create-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Przeglądanie wdrożonych zasobów
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Wybierz **grupę zasobów** z lewego okienka.
 
@@ -135,7 +135,7 @@ Gdy nie jest już potrzebne, można użyć [polecenia Usuń-AzResourceGroup,](ht
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
-**Portal Azure**
+**Azure Portal**
 
 Gdy nie jest już potrzebna, usuń grupę zasobów, bramę NAT i wszystkie powiązane zasoby. Wybierz grupę zasobów **myResourceGroupNAT** zawierającą bramę NAT, a następnie wybierz pozycję **Usuń**.
 

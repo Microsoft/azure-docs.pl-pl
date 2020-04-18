@@ -4,15 +4,15 @@ description: Zintegruj aplikację w usłudze Azure App Service z sieciami wirtua
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 04/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cb5747c6780da134dfb2f5ab088348b848c5f04a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4866397af244ffb3c6aa9c7547b0a9413b10ccfd
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312802"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604889"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integracja aplikacji z siecią wirtualną platformy Azure
 
@@ -41,8 +41,6 @@ Usługa Azure App Service ma dwie odmiany:
     ![Wybierz klasyczną wirtualną sieci][3]
 
 Podczas integracji aplikacja zostanie ponownie uruchomiona. Po zakończeniu integracji zobaczysz szczegóły w sieci wirtualnej, z którą jesteś zintegrowany.
-
-Po zintegrowaniu aplikacji z siecią wirtualną używa tego samego serwera DNS, za pomocą którego skonfigurowano sieć wirtualną, chyba że są to prywatne strefy DNS platformy Azure. Obecnie nie można używać integracji sieci wirtualnej z strefami prywatnymi dns platformy Azure.
 
 ## <a name="regional-vnet-integration"></a>Regionalna integracja sieci wirtualnej
 
@@ -200,3 +198,4 @@ W przypadku integracji sieci wirtualnej wymaganej przez bramę można zintegrowa
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
 [VNETRouteTables]: https://docs.microsoft.com/azure/virtual-network/manage-route-table/
 [installCLI]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest/
+[privateendpoints]: networking/private-endpoint.md

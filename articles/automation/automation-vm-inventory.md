@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: spis, automatyzacja, zmiana, śledzenie
 ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0627d2daa70c276535dc43b722e22e1d73b0c8d2
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844823"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617368"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Zarządzanie maszyną wirtualną platformy Azure z wykorzystaniem zbierania spisu
 
@@ -30,7 +30,7 @@ W tym artykule założono, że masz maszynę wirtualną do skonfigurowania rozwi
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Włączanie zbierania spisu na stronie zasobów maszyny wirtualnej
 
@@ -53,9 +53,9 @@ Po zakończeniu wdrażania pasek stanu zniknie. System nadal będzie zbierać da
 
 Domyślnie na potrzeby zbierania skonfigurowane są oprogramowanie, usługi systemu Windows oraz demony systemu Linux. Aby zbierać spis dla rejestru systemu Windows i plików, skonfiguruj ustawienia zbierania spisu.
 
-1. W widoku **Zapasy** wybierz przycisk **Edytuj ustawienia** w górnej części okna.
-2. Aby dodać nowe ustawienie zbierania, przejdź do kategorii ustawienia, które chcesz dodać, wybierając karty **Rejestr systemu Windows**, **Pliki systemu Windows** oraz **Pliki systemu Linux**.
-3. Wybierz odpowiednią kategorię i kliknij przycisk **Dodaj** w górnej części okna.
+1. Na stronie Spis kliknij pozycję **Edytuj ustawienia** u góry strony.
+2. Aby dodać nowe ustawienie kolekcji, przejdź do kategorii ustawień, którą chcesz dodać, wybierając kartę **Rejestr systemu Windows**, Pliki systemu **Windows**lub Pliki **systemu Linux.**
+3. Wybierz odpowiednią kategorię i kliknij przycisk **Dodaj** u góry strony.
 
 Poniższe tabele zawierają informacje o każdej właściwości, które mogą być skonfigurowane dla różnych kategorii.
 
@@ -72,23 +72,23 @@ Poniższe tabele zawierają informacje o każdej właściwości, które mogą by
 
 |Właściwość  |Opis  |
 |---------|---------|
-|Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
-|Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
-|Grupa     | Nazwa grupy do logicznego grupowania plików        |
-|Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład: „c:\temp\mojplik.txt”
+|Enabled (Włączony)     | Wartość true, jeśli ustawienie jest stosowane, a False w inny sposób.        |
+|Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony.        |
+|Grupa     | Nazwa grupy logicznego grupowania plików.       |
+|Wprowadzanie ścieżki     | Ścieżka do sprawdzenia pliku, na przykład **c:\temp\myfile.txt**.
 
 ### <a name="linux-files"></a>Pliki Linuksa
 
 |Właściwość  |Opis  |
 |---------|---------|
-|Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
-|Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
-|Grupa     | Nazwa grupy do logicznego grupowania plików        |
-|Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład: „/etc/*.conf”       |
-|Typ ścieżki     | Typ elementu, który ma być monitorowany; możliwe wartości to Plik i Katalog        |
-|Rekursja     | Określa, czy podczas wyszukiwania elementu, który ma być śledzony, ma być używana rekursja.        |
-|Użyj polecenia Sudo     | To ustawienie określa, czy podczas sprawdzania elementu jest używane polecenie sudo.         |
-|Linki     | To ustawienie określa, w jaki sposób są obsługiwane linki symboliczne podczas przechodzenia między katalogami.<br> **Ignoruj** — ignoruje linki symboliczne i nie uwzględnia plików/katalogów, do których się odwołują<br>**Śledź** — śledzi linki symboliczne podczas rekursji i uwzględnia również pliki/katalogi, do których się odwołują<br>**Zarządzaj** — śledzi linki symboliczne i umożliwia obsługę zwracanej zawartości      |
+|Enabled (Włączony)     | Wartość true, jeśli ustawienie jest stosowane, a False w inny sposób.        |
+|Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony.        |
+|Grupa     | Nazwa grupy logicznego grupowania plików.        |
+|Wprowadzanie ścieżki     | Ścieżka do sprawdzenia pliku, na przykład **/etc/*.conf**.       |
+|Typ ścieżki     | Typ elementu, który ma być śledzony. Wartości to Plik i katalog.        |
+|Rekursja     | Wartość true if rekursion jest używany podczas poszukiwania elementu do śledzenia i False w inny sposób.        |
+|Użyj polecenia Sudo     | Prawda, jeśli sudo jest używany podczas sprawdzania elementu i False inaczej.         |
+|Linki     | Wartość wskazująca sposób postępowania z do łączami symbolicznymi podczas przechodzenia przez katalogi. Możliwe wartości: <br> Ignoruj — ignoruje linki symboliczne i nie uwzględnia plików/katalogów, do których się odwołują<br>Śledź — śledzi linki symboliczne podczas rekursji i uwzględnia również pliki/katalogi, do których się odwołują<br>Zarządzaj — śledzi linki symboliczne i umożliwia obsługę zwracanej zawartości      |
 
 ## <a name="manage-machine-groups"></a>Zarządzanie grupami maszyn
 
@@ -104,9 +104,9 @@ Wybranie grupy maszyn z listy powoduje otwarcie strony Grupy maszyn. Na tej stro
 
 ![Wyświetlanie strony grupy maszyn](./media/automation-vm-inventory/machine-group-page.png)
 
-Kliknij przycisk **+ Klonuj,** aby sklonować grupę maszyn. W tym miejscu należy nadać grupie nową nazwę i alias grupy. Definicję można zmienić w tej chwili. Po zmianie kwerendy naciśnij **klawisze Validate query,** aby wyświetlić podgląd maszyn, które zostaną wybrane. Po zadowoleniu z grupy kliknij przycisk **Utwórz,** aby utworzyć grupę maszyn
+Kliknij **przycisk + Klonuj,** aby sklonować grupę maszyn. Należy nadać grupie nową nazwę i alias dla grupy. Definicję można zmienić w tej chwili. Po zmianie kwerendy kliknij przycisk **Sprawdź poprawność kwerendy,** aby wyświetlić podgląd wybranych komputerów. Po zadowoleniu z grupy kliknij przycisk **Utwórz,** aby utworzyć grupę maszyn.
 
-Jeśli chcesz utworzyć nową grupę maszyn, wybierz opcję **+ Utwórz grupę maszyn**. Ten przycisk otwiera **stronę Utwórz grupę maszyn,** na której można zdefiniować nową grupę. Kliknij pozycję **Utwórz**, aby utworzyć grupę.
+Jeśli chcesz utworzyć nową grupę maszyn, kliknij przycisk **+ Utwórz grupę maszyn**. Ten przycisk otwiera stronę **Utwórz grupę maszyn,** na której można zdefiniować nową grupę. Kliknij pozycję **Utwórz**, aby utworzyć grupę.
 
 ![Tworzenie nowej grupy maszyn](./media/automation-vm-inventory/create-new-group.png)
 
@@ -115,18 +115,17 @@ Jeśli chcesz utworzyć nową grupę maszyn, wybierz opcję **+ Utwórz grupę m
 Aby usunąć maszynę wirtualną z zarządzania spisem:
 
 1. W okienku po lewej stronie w witrynie Azure Portal kliknij pozycję **Log Analytics**, a następnie wybierz kliknięciem obszar roboczy, który był używany podczas dołączania danej maszyny wirtualnej.
-2. W oknie **Log Analytics** w menu **Zasób** i kategorii **Źródła danych obszaru roboczego** wybierz pozycję **Maszyny wirtualne**.
-3. Z listy wybierz maszynę wirtualną, którą chcesz odłączyć. Maszyna wirtualna ma zielony znacznik wyboru obok pozycji **Ten obszar roboczy** w kolumnie **Połączenie OMS**.
+2. Na stronie Analiza dzienników otwórz menu **Zasób.**
+3. Wybierz **pozycję Maszyny wirtualne** w obszarze **Źródła danych obszaru roboczego**.
+4. Z listy wybierz maszynę wirtualną, którą chcesz odłączyć. Maszyna wirtualna ma zielony znacznik wyboru obok pozycji **Ten obszar roboczy** w kolumnie **Połączenie OMS**.
 
    >[!NOTE]
-   >Usługa OMS jest teraz określana jako dzienniki usługi Azure Monitor.
+   >Pakiet zarządzania operacjami (OMS) jest teraz nazywany dziennikami usługi Azure Monitor.
    
-4. U góry następnej strony wybierz pozycję **Rozłącz**.
-5. W oknie potwierdzenia wybierz pozycję **Tak**.
-    Ta akcja odłączy maszynę od zarządzania.
+5. U góry następnej strony kliknij pozycję **Rozłącz**.
+6. W oknie potwierdzenia kliknij przycisk **Tak,** aby odłączyć komputer od zarządzania.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się więcej o zarządzaniu zmianami w plikach i ustawieniach rejestru na maszynach wirtualnych, zobacz [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md) (Śledzenie zmian oprogramowania w środowisku za pomocą rozwiązania do śledzenia zmian).
 * Aby dowiedzieć się więcej o zarządzaniu systemem Windows i aktualizacjami pakietów na maszynach wirtualnych, zobacz [Rozwiązanie do zarządzania aktualizacjami](../operations-management-suite/oms-solution-update-management.md)na platformie Azure .
-

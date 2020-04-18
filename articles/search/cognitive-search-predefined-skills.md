@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9e1f62dcdb122726fc1c08b7bea4e4c214ce7906
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1cf1750924ab8ea8afff6ac788683565433866b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76933369"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618025"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Wbudowane umiejętności poznawcze do przetwarzania tekstu i obrazu podczas indeksowania (Azure Cognitive Search)
 
@@ -23,6 +23,8 @@ W tym artykule dowiesz się o umiejętności poznawczych dostarczonych z usługi
 > W miarę rozszerzania zakresu poprzez zwiększanie częstotliwości przetwarzania, dodawanie większej liczby dokumentów lub dodawanie kolejnych algorytmów sztucznej inteligencji należy [dołączyć rozliczany zasób usług Cognitive Services.](cognitive-search-attach-cognitive-services.md) Opłaty naliczane podczas wywoływania interfejsów API w usługach Cognitive Services i wyodrębniania obrazu w ramach etapu pękania dokumentów w usłudze Azure Cognitive Search. Nie ma żadnych opłat za wyodrębnianie tekstu z dokumentów.
 >
 > Wykonanie wbudowanych umiejętności jest naliczane według istniejącej [ceny płatności zgodnie z rzeczywistymi oczekiwaniami.](https://azure.microsoft.com/pricing/details/cognitive-services/) Ceny wyodrębniania obrazów są opisane na [stronie cennika usługi Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+>
+> Funkcja [wzbogacenia przyrostowego (podglądu)](cognitive-search-incremental-indexing-conceptual.md) umożliwia zapewnienie pamięci podręcznej, która umożliwia indeksatorowi zwiększenie wydajności w uruchamianiu tylko umiejętności poznawczych, które są niezbędne, jeśli zmodyfikujesz swój zestaw umiejętności w przyszłości, oszczędzając czas i pieniądze.
 
 
 ## <a name="built-in-skills"></a>Wbudowane umiejętności

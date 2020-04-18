@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: guybo
-ms.openlocfilehash: aebb31c825725e8b748fe52bfdf74a79074d6a52
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ed7755251feb04a5f811d6ed96b00a347fba8994
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460498"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605922"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Zatwierdzone dystrybucje linuksa na platformie Azure
 Partnerzy udostępniają obrazy systemu Linux w portalu Azure Marketplace. Współpracujemy z różnymi społecznościami Linuksa, aby dodać jeszcze więcej smaków do listy zatwierdzonych dystrybucji. W międzyczasie, dla dystrybucji, które nie są dostępne w Marketplace, zawsze można przynieść własny Linuks, postępują zgodnie z wytycznymi w [Tworzenie i przesłać wirtualny dysk twardy, który zawiera system operacyjny Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -37,7 +37,7 @@ Agent systemu Azure Linux jest już wstępnie zainstalowany na obrazach portalu 
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |W jądrze |Kod źródłowy: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7.9+, 8.2+, 9, 10 |W jądrze |Pakiet: W repozytorium pod "waagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |W jądrze |Pakiet: W repozytorium pod "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux |RHEL 6.7+, 7.1+, 8.0+ |W jądrze |Pakiet: W repozytorium pod "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Red Hat Enterprise Linux |RHEL 7.1+, 8.0+ |W jądrze |Pakiet: W repozytorium pod "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES dla SAP<br>11 SP4<br>12 sp1+<br>15|W jądrze |Pakiet:<p> dla 11 w [chmurze:Narzędzia](https://build.opensuse.org/project/show/Cloud:Tools) repo<br>dla 12 zawarte w module "Chmura publiczna" w ramach "python-azure-agent"<br/>Kod źródłowy: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE Leap 42.2+ |W jądrze |Pakiet: W [chmurze:Repozytorium narzędzi](https://build.opensuse.org/project/show/Cloud:Tools) w obszarze "python-azure-agent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04+ ** <sup>1</sup>** |W jądrze |Pakiet: W repo pod "walinuxagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |

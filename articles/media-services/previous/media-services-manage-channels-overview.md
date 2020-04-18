@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 99efe375fad142963214b09df24be70bc3bc9d99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f875b4a5c4f1322f4a992dc3738ab1ce6431149d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77131599"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641120"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Omówienie przesyłania strumieniowego na żywo przy użyciu usług multimedialnych
 
@@ -55,7 +55,7 @@ W usłudze Azure Media Services **kanały**, **programy**, i **punkty końcowe p
 
 **Kanał** reprezentuje potok przetwarzania zawartości transmisji strumieniowej na żywo. Kanał może odbierać przychodzące strumienie na żywo w następujący sposób:
 
-* Lokalny koder na żywo wysyła plik **RTMP** o różnych szybkościach transmisji bitów lub plik **Smooth Streaming** (pofragmentowany plik MP4) do kanału, który jest skonfigurowany do obsługi dostarczania zawartości w formie **przekazywania**. Dostarczanie w formie **przekazywania** występuje wtedy, gdy pozyskiwane strumienie są przekazywane przez **kanał** bez dalszego przetwarzania. Można użyć następujących koderów na żywo, które wyprowadzają wielosytowe płynne przesyłanie strumieniowe: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco i Elemental. Następujące enkodery na żywo wyjściowe RTMP: Telestream Wirecast, Haivision, Teradek i Tricaster transkoderów.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
+* Lokalny koder na żywo wysyła plik **RTMP** o różnych szybkościach transmisji bitów lub plik **Smooth Streaming** (pofragmentowany plik MP4) do kanału, który jest skonfigurowany do obsługi dostarczania zawartości w formie **przekazywania**. Dostarczanie w formie **przekazywania** występuje wtedy, gdy pozyskiwane strumienie są przekazywane przez **kanał** bez dalszego przetwarzania. Można użyć następujących koderów na żywo, które wyprowadzają wielosytowe płynne przesyłanie strumieniowe: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco i Elemental. Następujące enkodery na żywo wyjściowe RTMP: Telestream Wirecast, Haivision, Teradek transkodery.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
   > [!NOTE]
   > Metoda przekazywania to najbardziej ekonomiczne rozwiązanie transmisji strumieniowej na żywo w przypadku organizowania wielu wydarzeń w długim okresie oraz poczynionych inwestycji w kodery lokalne. Zobacz szczegółowe informacje o [cenach](https://azure.microsoft.com/pricing/details/media-services/).

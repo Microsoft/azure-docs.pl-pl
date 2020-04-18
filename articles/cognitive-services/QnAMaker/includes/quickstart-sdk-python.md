@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 03aa3919e1da982bb8a8c235bb598f5b94df1ebf
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 13dcdec4eff72f97e1af8ecb26e32c0ef5f881fd
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986695"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81637064"
 ---
 
 Użyj biblioteki klienta QnA Maker dla języka Python, aby:
@@ -40,11 +40,11 @@ pip install azure-cognitiveservices-knowledge-qnamaker
 
 ## <a name="object-model"></a>Model obiektu
 
-Utwórz [obiekt CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) za pomocą klucza i użyj go z punktem końcowym, aby utworzyć obiekt [QnAMakerClient.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-python)
+Utwórz [obiekt CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) za pomocą klucza i użyj go z punktem końcowym, aby utworzyć obiekt [QnAMakerClient.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.qn_amaker_client?view=azure-python)
 
-Po utworzeniu klienta użyj [bazy wiedzy,](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python) aby utworzyć bazę wiedzy, zarządzać nią i publikować je.
+Po utworzeniu klienta użyj [bazy wiedzy,](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations?view=azure-python) aby utworzyć bazę wiedzy, zarządzać nią i publikować je.
 
-W przypadku operacji natychmiastowych metoda zwykle zwraca obiekt JSON wskazujący stan. W przypadku długotrwałych operacji odpowiedzią jest identyfikator operacji. Zadzwoń do [klienta. Operations.getDetails](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.operations%28class%29?view=azure-python#get-details-operation-id--custom-headers-none--raw-false----operation-config-) metoda z identyfikatorem operacji w celu określenia [stanu żądania](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operationstatetype?view=azure-python).
+W przypadku operacji natychmiastowych metoda zwykle zwraca obiekt JSON wskazujący stan. W przypadku długotrwałych operacji odpowiedzią jest identyfikator operacji. Zadzwoń do [klienta. Operations.getDetails](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.operationstatetype?view=azure-python) metoda z identyfikatorem operacji w celu określenia [stanu żądania](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operationstatetype?view=azure-python).
 
 
 ## <a name="code-examples"></a>Przykłady kodu
@@ -82,15 +82,15 @@ Następnie utwórz obiekt CognitiveServicesCredentials za pomocą klucza i użyj
 
 ## <a name="create-a-knowledge-base"></a>Tworzenie bazy wiedzy
 
- Użyj obiektu klienta, aby uzyskać obiekt [operacji bazy wiedzy.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python)
+ Użyj obiektu klienta, aby uzyskać obiekt [operacji bazy wiedzy.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations?view=azure-python)
 
-Baza wiedzy przechowuje pary pytań i odpowiedzi dla obiektu [CreateKbDTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.createkbdto?view=azure-python) z trzech źródeł:
+Baza wiedzy przechowuje pary pytań i odpowiedzi dla obiektu [CreateKbDTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.create_kb_dto?view=azure-python) z trzech źródeł:
 
-* W przypadku **zawartości redakcyjnej**użyj obiektu [QnADTO.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.qnadto?view=azure-python)
-* W przypadku **plików**użyj obiektu [FileDTO.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-python)
+* W przypadku **zawartości redakcyjnej**użyj obiektu [QnADTO.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.qn_adto?view=azure-python)
+* W przypadku **plików**użyj obiektu [FileDTO.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.file_dto?view=azure-python)
 * W przypadku **adresów URL**użyj listy ciągów.
 
-Wywołanie metody [tworzenia](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#create-create-kb-payload--custom-headers-none--raw-false----operation-config-) następnie przekazać zwrócony identyfikator operacji do [Operations.getDetails](#get-status-of-an-operation) metody sondowania stanu.
+Wywołanie metody [tworzenia](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#create-create-kb-payload--custom-headers-none--raw-false----operation-config-) następnie przekazać zwrócony identyfikator operacji do [Operations.getDetails](#get-status-of-an-operation) metody sondowania stanu.
 
 [!code-python[Create a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=createkb&highlight=15)]
 
@@ -98,7 +98,7 @@ Upewnij się, [`_monitor_operation`](#get-status-of-an-operation) że funkcja do
 
 ## <a name="update-a-knowledge-base"></a>Aktualizowanie bazy wiedzy
 
-Bazę wiedzy można zaktualizować, przekazując identyfikator bazy wiedzy i [updateKbOperationDTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdto?view=azure-python) zawierającą [dodawanie,](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoadd?view=azure-python) [aktualizowanie](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtoupdate?view=azure-python)i [usuwanie](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.updatekboperationdtodelete?view=azure-python) obiektów DTO do metody [aktualizacji.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#update-kb-id--update-kb--custom-headers-none--raw-false----operation-config-) Użyj [Operation.getDetail](#get-status-of-an-operation) metody, aby ustalić, czy aktualizacja powiodła się.
+Bazę wiedzy można zaktualizować, przekazując identyfikator bazy wiedzy i [updateKbOperationDTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.update_kb_operation_dto?view=azure-python) zawierającą [dodawanie,](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.update_kb_operation_dto_add?view=azure-python) [aktualizowanie](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.update_kb_operation_dto_update?view=azure-python)i [usuwanie](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.update_kb_operation_dto_delete?view=azure-python) obiektów DTO do metody [aktualizacji.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#update-kb-id--update-kb--custom-headers-none--raw-false----operation-config-) Użyj [Operation.getDetail](#get-status-of-an-operation) metody, aby ustalić, czy aktualizacja powiodła się.
 
 [!code-python[Update a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=updatekb&highlight=2)]
 
@@ -106,25 +106,25 @@ Upewnij się, [`_monitor_operation`](#get-status-of-an-operation) że funkcja, o
 
 ## <a name="publish-a-knowledge-base"></a>Publikowanie bazy wiedzy
 
-Opublikuj bazę wiedzy przy użyciu metody [publikowania.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#publish-kb-id--custom-headers-none--raw-false----operation-config-) Spowoduje to uwzględnione bieżące zapisane i przeszkolony model, do którego odwołuje się identyfikator bazy wiedzy, i publikuje go w punkcie końcowym.
+Opublikuj bazę wiedzy przy użyciu metody [publikowania.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#publish-kb-id--custom-headers-none--raw-false----operation-config-) Spowoduje to uwzględnione bieżące zapisane i przeszkolony model, do którego odwołuje się identyfikator bazy wiedzy, i publikuje go w punkcie końcowym.
 
 [!code-python[Publish a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=publishkb&highlight=2)]
 
 ## <a name="download-a-knowledge-base"></a>Pobieranie bazy wiedzy
 
-Użyj metody [pobierania,](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#download-kb-id--environment--custom-headers-none--raw-false----operation-config-) aby pobrać bazę danych jako listę [QnADocumentsDTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.qnadocumentsdto?view=azure-python). _Nie_ jest to równoważne eksportowi portalu QnA Maker ze strony **Ustawienia,** ponieważ wynikiem tej metody nie jest plik TSV.
+Użyj metody [pobierania,](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#download-kb-id--environment--custom-headers-none--raw-false----operation-config-) aby pobrać bazę danych jako listę [QnADocumentsDTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.qn_adocuments_dto?view=azure-python). _Nie_ jest to równoważne eksportowi portalu QnA Maker ze strony **Ustawienia,** ponieważ wynikiem tej metody nie jest plik TSV.
 
 [!code-python[Download a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=downloadkb&highlight=2)]
 
 ## <a name="delete-a-knowledge-base"></a>Usuwanie bazy wiedzy
 
-Usuń bazę wiedzy przy użyciu metody [usuwania](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#delete-kb-id--custom-headers-none--raw-false----operation-config-) z parametrem identyfikatora bazy wiedzy.
+Usuń bazę wiedzy przy użyciu metody [usuwania](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#delete-kb-id--custom-headers-none--raw-false----operation-config-) z parametrem identyfikatora bazy wiedzy.
 
 [!code-python[Delete a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=deletekb&highlight=2)]
 
 ## <a name="get-status-of-an-operation"></a>Uzyskaj stan operacji
 
-Niektóre metody, takie jak tworzenie i aktualizowanie, może zająć wystarczająco dużo czasu, że zamiast czekać na zakończenie procesu, zwracana jest [operacja.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operation%28class%29?view=azure-python) Użyj identyfikatora operacji z operacji do sondowania (z logiką ponawiania próby), aby określić stan oryginalnej metody.
+Niektóre metody, takie jak tworzenie i aktualizowanie, może zająć wystarczająco dużo czasu, że zamiast czekać na zakończenie procesu, zwracana jest [operacja.](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.operation.operation?view=azure-python) Użyj identyfikatora operacji z operacji do sondowania (z logiką ponawiania próby), aby określić stan oryginalnej metody.
 
 Wywołanie _setTimeout_ w następującym bloku kodu służy do symulowania kodu asynchroniowego. Zamień to na logikę ponawiania próby.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5e888e0606b7a9bcd9a7a94c28455d705c5f1bec
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6e930b0dc610f74e1a341b2f57f4c211a85a49d3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255485"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605040"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -310,7 +310,7 @@ Domyślnie w agencie Java i SDK nie jest włączone próbkowanie. Obecnie obsłu
 
 #### <a name="configuring-java-agent"></a>Konfigurowanie agenta Java
 
-1. Pobierz [aplikacjęinsights-agent-3.0.0-PREVIEW.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.2/applicationinsights-agent-3.0.0-PREVIEW.2.jar)
+1. Pobierz [aplikacjęinsights-agent-3.0.0-PREVIEW.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
 
 1. Aby włączyć próbkowanie, `ApplicationInsights.json` dodaj do pliku następujące elementy:
 

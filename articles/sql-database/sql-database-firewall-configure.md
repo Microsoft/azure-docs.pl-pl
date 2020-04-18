@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: af88fdf3378a6290c773c658ea6dd3469d7c92cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531281"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606089"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Reguły zapory IP bazy danych SQL azure i usługi Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Gdy komputer próbuje połączyć się z serwerem bazy danych z Internetu, zapor
 
 ### <a name="connections-from-inside-azure"></a>Połączenia z wewnętrznej platformy Azure
 
-Aby umożliwić aplikacjom hostowanym na platformie Azure łączenie się z serwerem SQL, należy włączyć połączenia platformy Azure. Gdy aplikacja z platformy Azure próbuje połączyć się z serwerem bazy danych, zapora sprawdza, czy połączenia platformy Azure są dozwolone. Ustawienie zapory, które ma początkowe i końcowe adresy IP równe *0.0.0.0* wskazuje, że połączenia platformy Azure są dozwolone. Można to włączyć bezpośrednio z bloku usługi Azure Portal, ustawiając reguły zapory, a także przełączając zezwalaj na **usługi platformy Azure i zasoby, aby uzyskać dostęp do tego serwera** do **włączonego** w **ustawieniach zapory i sieci wirtualnych.** Jeśli połączenie nie jest dozwolone, żądanie nie dociera do serwera bazy danych SQL.
+Aby umożliwić aplikacjom hostowanym na platformie Azure łączenie się z serwerem SQL, należy włączyć połączenia platformy Azure. Gdy aplikacja z platformy Azure próbuje połączyć się z serwerem bazy danych, zapora sprawdza, czy połączenia platformy Azure są dozwolone. Można to włączyć bezpośrednio z bloku usługi Azure Portal, ustawiając reguły zapory, a także przełączając zezwalaj na **usługi platformy Azure i zasoby, aby uzyskać dostęp do tego serwera** do **włączonego** w **ustawieniach zapory i sieci wirtualnych.** Jeśli połączenie nie jest dozwolone, żądanie nie dociera do serwera bazy danych SQL.
 
 > [!IMPORTANT]
 > Ta opcja konfiguruje zaporę, aby zezwalać na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. Jeśli wybierzesz tę opcję, upewnij się, że twoje uprawnienia logowania i użytkownika ograniczają dostęp tylko do autoryzowanych użytkowników.

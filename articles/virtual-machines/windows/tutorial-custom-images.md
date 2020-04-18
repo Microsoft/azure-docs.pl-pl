@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7360798f2f95184145a856babf501e3080cbaaf4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 87347cfea0e45d3498c48f07578523a20d5a13e2
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76274203"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641098"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Samouczek: tworzenie niestandardowego obrazu maszyny wirtualnej na platformie Azure za pomocą programu Azure PowerShell
 
@@ -112,7 +112,7 @@ New-AzImage `
  
 ## <a name="create-vms-from-the-image"></a>Tworzenie maszyn wirtualnych z obrazu
 
-Teraz, gdy masz już obraz, możesz za jego pomocą utworzyć jedną lub więcej nowych maszyn wirtualnych. Tworzenie maszyny wirtualnej na podstawie obrazu niestandardowego jest podobne do tworzenia maszyny wirtualnej przy użyciu obrazu z witryny Marketplace. W przypadku obrazu z witryny Marketplace należy podać informacje dotyczące obrazu, dostawcy obrazu, oferty, jednostki SKU i wersji. W przypadku uproszczonego zestawu parametrów dla polecenia cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) wystarczy podać nazwę obrazu niestandardowego, o ile znajduje się on w tej samej grupie zasobów. 
+Teraz, gdy masz już obraz, możesz za jego pomocą utworzyć jedną lub więcej nowych maszyn wirtualnych. Tworzenie maszyny wirtualnej na podstawie obrazu niestandardowego jest podobne do tworzenia maszyny wirtualnej przy użyciu obrazu z witryny Marketplace. W przypadku obrazu z witryny Marketplace należy podać informacje dotyczące obrazu, dostawcy obrazu, oferty, jednostki SKU i wersji. W przypadku uproszczonego zestawu parametrów dla polecenia cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) wystarczy podać nazwę obrazu niestandardowego, o ile znajduje się on w tej samej grupie zasobów. Jeśli planujesz utworzyć maszynę wirtualną w innej grupie zasobów, podaj identyfikator zasobu obrazu dla parametru -ImageName.
 
 W tym przykładzie jest tworzona maszyna wirtualna o nazwie *myVMfromImage* za pomocą obrazu o nazwie *myImage* w grupie zasobów *myResourceGroup*.
 

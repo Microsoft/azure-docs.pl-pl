@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/18/2020
-ms.openlocfilehash: 498ce053e8a52897d9087091b92fa51a04e195a4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 71a7c812b71e67c7b729844d0672e520c88e2d08
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413252"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606345"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Wybieranie transformacji w przepływie danych mapowania
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Użyj transformacji wyboru, aby zmienić nazwę kolumn, upuścić lub zmienić kolejność. Ta transformacja nie zmienia danych wierszy, ale wybiera, które kolumny są propagowane w dół. 
 

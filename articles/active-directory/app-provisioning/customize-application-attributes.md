@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7003899b59e409a785c3a50e89aae6674e377b4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfee19e9cfd1def71ebad82c2210ffc10146c896
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264091"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639739"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Dostosowywanie mapowania atrybutów inicjowania obsługi administracyjnej użytkowników dla aplikacji SaaS w usłudze Azure Active Directory
 
@@ -143,7 +143,10 @@ SCIM RFC definiuje podstawowy schemat użytkownika i grupy, a jednocześnie umo�
    4. Wybierz **pozycję Edytuj listę atrybutów dla Aplikacji AppName**.
    5. U dołu listy atrybutów wprowadź informacje o atrybucie niestandardowym w podanych polach. Następnie wybierz pozycję **Dodaj atrybut**.
 
-W przypadku aplikacji SCIM nazwa atrybutu musi być zgodna ze wzorcem pokazanym w poniższym przykładzie. "CustomExtensionName" i "CustomAttribute" można dostosować zgodnie z wymaganiami aplikacji, na przykład: urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute lub urn:ietf:params:scim:schemas:extension: Nazwa:2.0:Nazwa:wartość CustomExtensionName:2.0:User.CustomAttributeName:value
+W przypadku aplikacji SCIM nazwa atrybutu musi być zgodna ze wzorcem pokazanym w poniższym przykładzie. "CustomExtensionName" i "CustomAttribute" można dostosować zgodnie z wymaganiami aplikacji, na przykład:  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
+ * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
 
 Te instrukcje mają zastosowanie tylko do aplikacji z obsługą SCIM. Aplikacje takie jak ServiceNow i Salesforce nie są zintegrowane z usługą Azure AD przy użyciu narzędzia SCIM i dlatego nie wymagają tego określonego obszaru nazw podczas dodawania atrybutu niestandardowego.
 
@@ -313,7 +316,7 @@ Wybranie tej opcji skutecznie wymusi ponowną synchronizację wszystkich użytko
 - Aktualizowanie mapowań atrybutów ma wpływ na wydajność cyklu synchronizacji. Aktualizacja konfiguracji mapowania atrybutów wymaga ponownej oceny wszystkich obiektów zarządzanych.
 - Zalecaną najlepszą praktyką jest utrzymanie liczby kolejnych zmian w mapowaniach atrybutów na minimalnym poziomie.
 - Dodawanie atrybutu zdjęcia do aprowizowania do aplikacji nie jest obecnie obsługiwane, ponieważ nie można określić formatu synchronizacji zdjęcia. Możesz poprosić o tę funkcję w [udź.u](https://feedback.azure.com/forums/169401-azure-active-directory)
-- Atrybut IsSoftDeleted jest często częścią mapowania domyślne dla aplikacji. IsSoftdeleted może być true w jednym z czterech scenariuszy (użytkownik jest poza zakresem ze względu na nieprzypisany z aplikacji, użytkownik jest poza zakresem ze względu na niespełnienie filtru zakresu, użytkownik został usunięty nietrwałe w usłudze Azure AD lub właściwość AccountEnabled jest ustawiona na false użytkownika). 
+- Atrybut IsSoftDeleted jest często częścią mapowania domyślne dla aplikacji. IsSoftdeleted może być true w jednym z czterech scenariuszy (użytkownik jest poza zakresem ze względu na nieprzypisane z aplikacji, użytkownik jest poza zakresem ze względu na nie spełnia filtr zakresu, użytkownik został usunięty nietrwałe w usłudze Azure AD lub właściwości AccountEnabled jest ustawiona na false na użytkownika). 
 - Usługa inicjowania obsługi administracyjnej usługi Azure AD nie obsługuje inicjowania obsługi administracyjnej wartości null
 
 ## <a name="next-steps"></a>Następne kroki

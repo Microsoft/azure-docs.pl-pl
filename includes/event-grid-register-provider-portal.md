@@ -2,18 +2,18 @@
 title: Plik dyrektywy include
 description: Plik dyrektywy include
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 07/05/2018
-ms.author: tomfitz
+ms.date: 04/16/2020
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: c3677e7897498aa06d7bd547988ad4dc0326f39b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8833bb75f5f50372deda3e71c1df90bed9a20054
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67183320"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605627"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Włączanie dostawcy zasobów usługi Event Grid
 
@@ -21,9 +21,9 @@ Jeśli usługa Event Grid nie była wcześniej używana w subskrypcji platformy 
 
 W witrynie Azure Portal:
 
-1. Wybierz pozycję **Subskrypcje**.
+1. Wybierz **subskrypcje** w menu po lewej stronie.
 1. Wybierz subskrypcję, której używasz dla usługi Event Grid.
-1. W obszarze **Ustawienia** wybierz opcję **Dostawcy zasobów**.
+1. W menu po lewej stronie w obszarze **Ustawienia**wybierz pozycję **Dostawcy zasobów**.
 1. Znajdź dostawcę **Microsoft.EventGrid**.
 1. Jeśli nie jest on zarejestrowany, wybierz pozycję **Zarejestruj**. 
 

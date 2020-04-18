@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ffb3d590aebe80994de1e7e834a2eba5777df9a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262490"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604610"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centra zadań w funkcjach trwałych (usługi Azure)
 
@@ -35,7 +35,13 @@ Wszystkie te zasoby są tworzone automatycznie na domyślnym koncie usługi Azur
 
 ## <a name="task-hub-names"></a>Nazwy centrum zadań
 
-Centra zadań są identyfikowane za pomocą nazwy zadeklarowanej w pliku *host.json,* jak pokazano w poniższym przykładzie:
+Centra zadań są identyfikowane za pomocą nazwy zgodnej z tymi regułami:
+
+* Zawiera tylko znaki alfanumeryczne
+* Zaczyna się od litery
+* Ma minimalną długość 3 znaków, maksymalną długość 45 znaków
+
+Nazwa centrum zadań jest zadeklarowana w pliku *host.json,* jak pokazano w poniższym przykładzie:
 
 ### <a name="hostjson-functions-20"></a>host.json (Funkcje 2.0)
 
@@ -121,7 +127,7 @@ public static async Task<HttpResponseMessage> Run(
 > [!NOTE]
 > Poprzedni przykład języka C# jest dla funkcji trwałych 2.x. W przypadku funkcji trwałych 1.x należy używać `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext`. Aby uzyskać więcej informacji na temat różnic między wersjami, zobacz [wersje funkcji trwałych](durable-functions-versions.md) artykułu.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Właściwość centrum zadań `function.json` w pliku jest ustawiana za pomocą ustawienia aplikacji:
 

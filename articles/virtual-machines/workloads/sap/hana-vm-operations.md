@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07c8f84f2e37abd87953d8e4cb20b37258b25fda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c4f3ec2727d06528eab788a2a24a6190fe26533
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920510"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606140"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfiguracje infrastruktury SAP HANA i operacje na platformie Azure
 Ten dokument zawiera wskazówki dotyczące konfigurowania infrastruktury platformy Azure i obsługi systemów SAP HANA, które są wdrażane na natywnych maszynach wirtualnych platformy Azure(VM). Dokument zawiera również informacje o konfiguracji dla sap HANA skalowaw w poziomie dla jednostki SKU maszyny Wirtualnej M128s. Ten dokument nie ma na celu zastąpienia standardowej dokumentacji SAP, która zawiera następującą zawartość:
 
 - [Przewodnik administracyjny SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [Przewodniki instalacji SAP](https://service.sap.com/instguides)
-- [Uwagi SAP](https://sservice.sap.com/notes)
+- [Uwagi SAP](https://service.sap.com/notes)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby skorzystać z tego przewodnika, potrzebujesz podstawowej wiedzy na temat następujących składników platformy Azure:
@@ -101,7 +101,7 @@ Artykuły [Wirtualne centrum danych platformy Azure: Perspektywa sieciowa](https
 
 
 >[!NOTE]
->Ruch przepływający między hubową siecią wirtualną i szprychową siecią wirtualną przy użyciu [komunikacji równorzędnej sieci wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) podlega dodatkowym [kosztom.](https://azure.microsoft.com/pricing/details/virtual-network/) Na podstawie tych kosztów może być konieczne rozważenie wprowadzenia kompromisów między uruchamianiem ścisłego projektowania sieci koncentratora i szprychy a uruchamianiem wielu [bram usługi Azure ExpressRoute,](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) które łączą się z "szprychami", aby ominąć komunikację równorzędną sieci wirtualnej. Jednak bramy usługi Azure ExpressRoute wprowadzają również dodatkowe [koszty.](https://azure.microsoft.com/pricing/details/vpn-gateway/) Mogą również wystąpić dodatkowe koszty oprogramowania innych firm używanego do rejestrowania ruchu sieciowego, inspekcji i monitorowania. W zależności od kosztów wymiany danych za pośrednictwem komunikacji równorzędnej sieci wirtualnej z jednej strony i kosztów utworzonych przez dodatkowe bramy usługi Azure ExpressRoute i dodatkowe licencje na oprogramowanie, możesz zdecydować się na mikrosegmentację w jednej sieci wirtualnej przy użyciu podsieci jako jednostki izolacji zamiast sieci wirtualnych.
+>Ruch przepływający między hubową siecią wirtualną i szprychową siecią wirtualną przy użyciu [komunikacji równorzędnej sieci wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) podlega dodatkowym [kosztom.](https://azure.microsoft.com/pricing/details/virtual-network/) Na podstawie tych kosztów może być konieczne rozważenie wprowadzenia kompromisów między uruchamianiem ścisłego projektowania sieci koncentratora i szprychy a uruchamianiem wielu [bram usługi Azure ExpressRoute,](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) które łączą się z "szprychami", aby ominąć komunikację równorzędną sieci wirtualnej. Jednak bramy usługi Azure ExpressRoute wprowadzają również dodatkowe [koszty.](https://azure.microsoft.com/pricing/details/vpn-gateway/) Mogą również wystąpić dodatkowe koszty oprogramowania innych firm używanego do rejestrowania ruchu sieciowego, inspekcji i monitorowania. W zależności od kosztów wymiany danych za pośrednictwem komunikacji równorzędnej sieci wirtualnej z jednej strony i kosztów utworzonych przez dodatkowe bramy usługi Azure ExpressRoute i dodatkowe licencje na oprogramowanie, można zdecydować o mikrosegmentacji w jednej sieci wirtualnej przy użyciu podsieci jako jednostki izolacji zamiast sieci wirtualnych.
 
 
 Aby uzyskać omówienie różnych metod przypisywania adresów IP, zobacz [typy adresów IP i metody alokacji na platformie Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 

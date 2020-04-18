@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
-ms.openlocfilehash: 64c2e77ffc43ec98c13ce8c0cad002cdb2053241
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a7d0b75140c50df61ff63f350e5b312a6a684c7
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296915"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617779"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla usługi Azure Machine Learning za pomocą interfejsu wiersza polecenia platformy Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ az login
 
 Jeśli interfejs wiersza polecenia może otworzyć Twoją domyślną przeglądarkę, zrobi to i załaduje stronę logowania. W przeciwnym razie musisz otworzyć przeglądarkę i postępować zgodnie z instrukcjami w wierszu polecenia. Instrukcje obejmują przeglądanie [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadzanie kodu autoryzacyjnego.
 
-[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 Aby uzyskać inne metody uwierzytelniania, zobacz [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
@@ -66,8 +66,8 @@ Obszar roboczy usługi Azure Machine Learning opiera się na następujących us�
 | **Grupa zasobów platformy Azure** | `-g <resource-group-name>`
 | **Konto usługi Azure Storage** | `--storage-account <service-id>` |
 | **Azure Application Insights** | `--application-insights <service-id>` |
-| **Azure Key Vault** | `--keyvault <service-id>` |
-| **Rejestr kontenerów platformy Azure** | `--container-registry <service-id>` |
+| **W usłudze Azure Key Vault** | `--keyvault <service-id>` |
+| **Azure Container Registry** | `--container-registry <service-id>` |
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 

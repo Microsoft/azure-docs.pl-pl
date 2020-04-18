@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 95373ab8ff78c5bcb856e6d7e6d67d8525cd3f7e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 74af841b777494744c72ed219bacd3b3835d41ac
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655136"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617557"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Dołączanie maszyny wirtualnej systemu Ubuntu z systemem Linux do domeny zarządzanej usług ad usługi Azure
 
@@ -154,6 +154,12 @@ Successfully enrolled machine in realm
 ```
 
 Jeśli maszyna wirtualna nie może pomyślnie ukończyć procesu dołączania do domeny, upewnij się, że sieciowa grupa zabezpieczeń maszyny Wirtualnej zezwala na ruch wychodzący protokołu Kerberos na porcie TCP + UDP 464 do podsieci sieci wirtualnej domeny zarządzanej usługAmi AD DS.
+
+Jeśli wystąpił błąd *Nieokreślony błąd GSS.  Kod pomocniczy może dostarczyć więcej informacji (serwer nie znaleziono w bazie danych Kerberos),* otwórz plik `[libdefaults]` */etc/krb5.conf* i dodaj następujący kod w sekcji i spróbuj ponownie:
+
+```console
+rdns=false
+```
 
 ## <a name="update-the-sssd-configuration"></a>Aktualizowanie konfiguracji SSSD
 

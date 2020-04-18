@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 888dc99162551482afc715f1a793614d2c866384
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677033"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604671"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure
 
@@ -19,7 +19,7 @@ Przy użyciu rozwiązania Update Management można zarządzać aktualizacjami i 
 
 Aby uzyskać informacje o cenach, zobacz [cennik usługi Automation dla rozwiązania Update Management](https://azure.microsoft.com/pricing/details/automation/).
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wyświetlanie oceny aktualizacji
@@ -40,13 +40,13 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="view-update-assessment"></a>Wyświetlanie oceny aktualizacji
 
-Po włączeniu zarządzania aktualizacjami zostanie otwarta strona **zarządzania aktualizacjami.** Jeśli aktualizacje są identyfikowane jako brakujące, lista brakujących aktualizacji jest wyświetlana na karcie **Brakujące aktualizacje.**
+Po włączeniu zarządzania aktualizacjami zostanie otwarta strona zarządzania aktualizacjami. Jeśli aktualizacje są identyfikowane jako brakujące, lista brakujących aktualizacji jest wyświetlana na karcie **Brakujące aktualizacje.**
 
 W obszarze **Łącze Informacje**wybierz łącze aktualizacji, aby otworzyć artykuł pomocy technicznej dla aktualizacji. Możesz dowiedzieć się ważnych informacji o aktualizacji.
 
 ![Wyświetlanie stanu aktualizacji](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Kliknij w dowolnym miejscu aktualizacji, aby otworzyć **okienko wyszukiwania dziennika** dla wybranej aktualizacji. Zapytanie dotyczące przeszukiwania dzienników jest wstępnie zdefiniowane dla tej określonej aktualizacji. Można zmodyfikować tę kwerendę lub utworzyć własną kwerendę, aby wyświetlić szczegółowe informacje o aktualizacjach wdrożonych lub brakujących w środowisku.
+Kliknij w dowolnym miejscu aktualizacji, aby otworzyć okienko wyszukiwania dziennika dla wybranej aktualizacji. Zapytanie dotyczące przeszukiwania dzienników jest wstępnie zdefiniowane dla tej określonej aktualizacji. Można zmodyfikować tę kwerendę lub utworzyć własną kwerendę, aby wyświetlić szczegółowe informacje o aktualizacjach wdrożonych lub brakujących w środowisku.
 
 ![Wyświetlanie stanu aktualizacji](./media/automation-tutorial-update-management/logsearch.png)
 
@@ -58,7 +58,7 @@ W tym kroku dowiesz się, jak skonfigurować alert powiadamiający o stanie wdro
 
 Na koncie automatyzacji przejdź do **witryny Alerty** w obszarze **Monitorowanie**, a następnie kliknij pozycję **Nowa reguła alertu**.
 
-Twoje konto automatyzacji jest już wybrane jako zasób. Jeśli chcesz go zmienić, kliknij przycisk **Wybierz**. Na stronie **Wybieranie zasobu** wybierz polecenie **Konta automatyzacji** z menu rozwijanego **Filtruj według typu zasobu.** Wybierz konto automatyzacji, a następnie kliknij przycisk **Gotowe**.
+Twoje konto automatyzacji jest już wybrane jako zasób. Jeśli chcesz go zmienić, kliknij przycisk **Wybierz**. Na stronie Wybieranie zasobu wybierz polecenie **Konta automatyzacji** z menu rozwijanego **Filtruj według typu zasobu.** Wybierz konto automatyzacji, a następnie kliknij przycisk **Gotowe**.
 
 Kliknij pozycję **Dodaj warunek**, aby wybrać odpowiedni sygnał dla wdrożenia aktualizacji. W poniższej tabeli przedstawiono szczegóły dwóch dostępnych sygnałów.
 
@@ -85,11 +85,11 @@ W polu **Nazwa grupy Akcja** wprowadź nazwę alertu i krótką nazwę. Usługa 
 
 W obszarze **Akcje**wprowadź nazwę akcji, na przykład **Powiadomienie e-mail**. W przypadku **typu akcji**wybierz **pozycję E-mail/SMS/Push/Voice**. Aby uzyskać **szczegółowe informacje,** wybierz pozycję **Edytuj szczegóły**.
 
-W okienku **E-mail/SMS/Push/Głos** wprowadź nazwę. Zaznacz pole wyboru **E-mail**, a następnie wprowadź prawidłowy adres e-mail.
+W okienku E-mail/SMS/Push/Głos wprowadź nazwę. Zaznacz pole wyboru **Poczta e-mail,** a następnie wprowadź prawidłowy adres e-mail.
 
 ![Konfigurowanie grupy akcji dla poczty e-mail](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-W okienku **Poczta e-mail/SMS/Wypychanie/Głos** kliknij przycisk **OK**. W okienku **Dodawanie grupy akcji** kliknij przycisk **OK**.
+W okienku Poczta e-mail/SMS/Wypychanie/Głos kliknij przycisk **OK**. W okienku Dodawanie grupy akcji kliknij przycisk **OK**.
 
 Aby dostosować temat wiadomości e-mail z alertem, w obszarze **Utwórz regułę**, w obszarze **Dostosowywanie akcji**wybierz pozycję **Temat wiadomości e-mail**. Po zakończeniu wybierz pozycję **Utwórz regułę alertu**. Alert informuje, kiedy wdrożenie aktualizacji zakończy się pomyślnie i które maszyny były częścią uruchomienia wdrożenia aktualizacji.
 
@@ -118,12 +118,12 @@ W obszarze **Nowe wdrożenie aktualizacji** podaj następujące informacje:
 
    |System operacyjny  |Typ  |
    |---------|---------|
-   |Windows     | Aktualizacje krytyczne</br>Aktualizacje zabezpieczeń</br>Pakiety zbiorcze aktualizacji</br>Pakiety funkcji</br>Dodatki Service Pack</br>Aktualizacje definicji</br>Narzędzia</br>Aktualizacje<br>Sterownik        |
+   |Windows     | Aktualizacje krytyczne</br>Aktualizacje zabezpieczeń</br>Pakiety zbiorcze aktualizacji</br>Pakiety funkcji</br>Dodatki Service Pack</br>Aktualizacje definicji</br>narzędzia</br>Aktualizacje<br>Sterownik        |
    |Linux     | Aktualizacje krytyczne i zabezpieczeń</br>Inne aktualizacje       |
 
    Aby uzyskać opisy typów klasyfikacji, zobacz [Aktualizowanie klasyfikacji](automation-view-update-assessments.md#update-classifications).
 
-* **Aktualizacje do uwzględnienia/wykluczenia** — otwiera stronę Dołącz/Wyklucz. Aktualizacje, które mają zostać uwzględnione lub wykluczone, znajdują się na oddzielnych kartach, określając numery identyfikatorów artykułu KB. Określając jeden lub więcej numerów identyfikatorów, należy usunąć lub odznakować wszystkie klasyfikacje za pomocą wdrożenia aktualizacji. Gwarantuje to, że żadne inne aktualizacje nie są zawarte w pakiecie aktualizacji podczas określania identyfikatorów aktualizacji.
+* **Aktualizacje do uwzględnienia/wykluczenia** — otwiera stronę Dołącz/Wyklucz. Aktualizacje, które mają zostać uwzględnione lub wykluczone, znajdują się na oddzielnych kartach, określając numery identyfikatorów artykułu KB. Określając jeden lub więcej numerów identyfikatorów, należy usunąć lub odznaczyć wszystkie klasyfikacje z wdrożeniem aktualizacji. Gwarantuje to, że żadne inne aktualizacje nie są zawarte w pakiecie aktualizacji podczas określania identyfikatorów aktualizacji.
 
 > [!NOTE]
 > Ważne jest, aby wiedzieć, że wykluczenia zastępują inkluzje. Na przykład, jeśli zdefiniujesz regułę wykluczenia `*`, Zarządzanie aktualizacjami nie instaluje żadnych poprawek ani pakietów, ponieważ wszystkie są wykluczone. Wykluczone poprawki nadal są wyświetlane jako brakujące w maszynie. W przypadku komputerów z systemem Linux jeśli zostanie dołączyć pakiet, który ma pakiet zależny, który został wykluczony, zarządzanie aktualizacjami nie instaluje pakietu głównego.
@@ -132,7 +132,7 @@ W obszarze **Nowe wdrożenie aktualizacji** podaj następujące informacje:
 > Nie można określić aktualizacje, które zostały zastąpione do włączenia z wdrożenia aktualizacji.
 >
 
-* **Ustawienia harmonogramu**: spowoduje otwarcie okienka **Ustawienia harmonogramu**. Domyślny czas rozpoczęcia to 30 minut po bieżącej godzinie. Czas rozpoczęcia można ustawić na dowolny czas od 10 minut w przyszłości.
+* **Ustawienia harmonogramu**: spowoduje otwarcie okienka Ustawienia harmonogramu. Domyślny czas rozpoczęcia to 30 minut po bieżącej godzinie. Czas rozpoczęcia można ustawić na dowolny czas od 10 minut w przyszłości.
 
    Możesz też określić, czy wdrożenie ma występować raz, czy zgodnie z ustawionym harmonogramem cyklicznym. W obszarze **Cykl** wybierz pozycję **Raz**. Pozostaw wartość domyślną jako 1 dzień i kliknij przycisk **OK**. Te wpisy konfigurują harmonogram cykliczny.
 
