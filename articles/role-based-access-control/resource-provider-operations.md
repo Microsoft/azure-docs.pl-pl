@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 274e85a914ebec31a03f1149bc4467ea142e7255
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 50a1971fed4cce49eea1922bc9b81f06667f4dd8
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482103"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640999"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operacje dostawcy zasobów usługi Azure Resource Manager
 
@@ -10859,5 +10859,5 @@ Usługa platformy Azure: [Usługa Azure Monitor](../azure-monitor/index.yml)
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dopasowywać dostawcę zasobów do usługi](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Role niestandardowe platformy Azure](custom-roles.md)
 - [Wbudowane role platformy Azure](built-in-roles.md)
+- [Struktura wdrażania chmury: zarządzanie dostępem do zasobów na platformie Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

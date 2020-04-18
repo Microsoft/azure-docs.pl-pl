@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: 100f95c20743f70bb4a9f2ac7e74853eab80f3e9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a0a01dad5ae86cf20d57ade845326838f8fd686a
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414487"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641489"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Tworzenie wyzwalacza uruchamiającego potok zgodnie z harmonogramem
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,38 +31,46 @@ W poniższych sekcjach przedstawiono kroki, aby utworzyć wyzwalacz harmonogramu
 Można utworzyć **wyzwalacz harmonogramu,** aby zaplanować okresowe uruchamianie potoku (co godzinę, codziennie itp.). 
 
 > [!NOTE]
-> Aby uzyskać pełną instruktaż tworzenia potoku i wyzwalacza harmonogramu, kojarzenia wyzwalacza z potokiem oraz uruchamiania i monitorowania potoku, zobacz [Szybki start: tworzenie fabryki danych przy użyciu interfejsu użytkownika fabryki danych](quickstart-create-data-factory-portal.md).
+> Aby uzyskać pełną instruktaż tworzenia potoku i wyzwalacza harmonogramu, który kojarzy wyzwalacz z potokiem, a także uruchamia i monitoruje potok, zobacz [Szybki start: tworzenie fabryki danych przy użyciu interfejsu użytkownika fabryki danych](quickstart-create-data-factory-portal.md).
 
-1. Przejdź do karty **Edycja**. 
+1. Przełącz się na kartę **Edycja,** wyświetlaną z symbolem ołówka. 
 
     ![Przechodzenie do karty Edycja](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
-1. Kliknij pozycję **Wyzwalacz** w menu, a następnie kliknij pozycję **Nowy/Edytuj**. 
+
+1. Wybierz **polecenie Wyzwalacz** w menu, a następnie wybierz pozycję **Nowy/Edytuj**. 
 
     ![Menu Nowy wyzwalacz](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
-2. Na stronie **Dodawanie wyzwalaczy** kliknij pozycję **Wybierz wyzwalacz... **, a następnie kliknij przycisk **Nowy**. 
+
+1. Na stronie **Dodawanie wyzwalaczy** wybierz pozycję **Wybierz wyzwalacz...**, a następnie wybierz **+Nowy**. 
 
     ![Dodawanie wyzwalaczy — nowy wyzwalacz](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
-3. Na stronie **Nowy wyzwalacz** wykonaj następujące czynności: 
+
+1. Na stronie **Nowy wyzwalacz** wykonaj następujące czynności: 
 
     1. Upewnij się, że dla **typu**jest zaznaczona opcja **Harmonogram** . 
-    2. Określ datę rozpoczęcia wyzwalacza dla **daty rozpoczęcia (UTC)**. Domyślnie jest ustawiona na bieżącą datę i godziny. 
-    3. Określ **cykl** wyzwalacza. Wybierz jedną z wartości z listy rozwijanej (Co minutę, Co minutę, Co godzinę, Codziennie, Co tydzień i Co miesiąc). Wprowadź mnożnik w polu tekstowym. Na przykład, jeśli wyzwalacz ma być uruchamiany raz na każde 15 minut, wybierz **opcję Co minutę**i wprowadź **15** w polu tekstowym. 
-    4. W polu **Koniec,** jeśli nie chcesz określać daty zakończenia dla wyzwalacza, wybierz opcję **Nie koniec**. Aby określić datę zakończenia, wybierz pozycję **Na dacie**i określ datę zakończenia, a następnie kliknij przycisk **Zastosuj**. Z każdym uruchomieniem potoku wiąże się koszt. Jeśli testujesz, możesz się upewnić, że potok jest wyzwalany tylko kilka razy. Upewnij się również, że okres między czasem publikowania i czasem zakończenia będzie wystarczający do uruchomienia potoku. Wyzwalacz zaczyna obowiązywać dopiero po opublikowaniu rozwiązania w fabryce Data Factory, a nie po zapisaniu go w interfejsie użytkownika.
+    1. Określ datę rozpoczęcia wyzwalacza dla **daty rozpoczęcia (UTC)**. Domyślnie jest ustawiona na bieżącą datę i godziny. 
+    1. Określ **cykl** wyzwalacza. Wybierz jedną z wartości z listy rozwijanej (Co minutę, Co minutę, Co godzinę, Codziennie, Co tydzień i Co miesiąc). Wprowadź mnożnik w polu tekstowym. Na przykład, jeśli wyzwalacz ma być uruchamiany raz na każde 15 minut, wybierz **opcję Co minutę**i wprowadź **15** w polu tekstowym. 
+    1. W polu **Koniec,** jeśli nie chcesz określać daty zakończenia dla wyzwalacza, wybierz opcję **Nie koniec**. Aby określić datę zakończenia, wybierz pozycję **Na dacie**i określ datę zakończenia, a następnie wybierz przycisk **OK**. Z każdym uruchomieniem potoku wiąże się koszt. Jeśli testujesz, możesz się upewnić, że potok jest wyzwalany tylko kilka razy. Upewnij się również, że okres między czasem publikowania i czasem zakończenia będzie wystarczający do uruchomienia potoku. Wyzwalacz zaczyna obowiązywać dopiero po opublikowaniu rozwiązania w fabryce Data Factory, a nie po zapisaniu go w interfejsie użytkownika.
 
         ![Ustawienia wyzwalacza](./media/how-to-create-schedule-trigger/trigger-settings.png)
-4. W oknie **Nowy wyzwalacz** zaznacz opcję **Aktywowano** i kliknij przycisk **Dalej**. To pole wyboru służy do późniejszego dezaktywacji wyzwalacza. 
+
+1. W oknie **Nowy wyzwalacz** wybierz pozycję **Tak** w opcji **Aktywowano,** a następnie wybierz przycisk **OK**. To pole wyboru służy do późniejszego dezaktywacji wyzwalacza. 
 
     ![Ustawienia wyzwalacza — przycisk Dalej](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
-5. Na stronie **Nowy wyzwalacz** zapoznaj się z komunikatem ostrzegawczym, a następnie kliknij przycisk **Zakończ**.
+
+1. W oknie **Nowy wyzwalacz** przejrzyj komunikat ostrzegawczy, a następnie wybierz przycisk **OK**.
 
     ![Ustawienia wyzwalacza — przycisk Zakończ](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
-6. Kliknij pozycję **Opublikuj**, aby opublikować zmiany w fabryce Data Factory. Dopóki nie opublikujesz zmian w fabryce danych, wyzwalacz nie uruchamia uruchomienia potoku. 
+
+1. Wybierz **pozycję Opublikuj wszystko,** aby opublikować zmiany w fabryce danych. Dopóki nie opublikujesz zmian w fabryce danych, wyzwalacz nie uruchamia uruchomienia potoku. 
 
     ![Przycisk Opublikuj](./media/how-to-create-schedule-trigger/publish-2.png)
-8. Przejdź do karty **Monitorowanie** po lewej stronie. Kliknij pozycję **Odśwież**, aby odświeżyć listę. Zostanie wyświetlony potok uruchamia wyzwalane przez zaplanowanego wyzwalacza. Zwróć uwagę na wartości w kolumnie **Wyzwolone przez**. Jeśli używasz opcji **Wyzwalaj teraz,** na liście pojawi się ręczny wyzwalacz uruchamiany. 
+
+1. Przełącz się na kartę **Potok uruchamia** po lewej stronie, a następnie wybierz pozycję **Odśwież,** aby odświeżyć listę. Zostaną wyświetlone uruchomienia potoku wyzwalane przez zaplanowany wyzwalacz. Zwróć uwagę na wartości w kolumnie **Wyzwolone przez**. Jeśli używasz opcji **Wyzwalaj teraz,** zobaczysz ręczny wyzwalacz uruchomiony na liście. 
 
     ![Monitorowanie wyzwolonych uruchomień](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
-9. Kliknij strzałkę w dół obok pozycji **Uruchomienia potoków**, aby przejść do widoku **Uruchomienia wyzwalacza**. 
+
+1. Przełącz się do widoku **Uruchomienia wyzwalacza**. 
 
     ![Monitorowanie uruchomień wyzwalacza](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -112,31 +120,31 @@ W tej sekcji pokazano, jak używać programu Azure PowerShell do tworzenia, uruc
     - Wyzwalacz jest skojarzony z potokiem **Adfv2QuickStartPipeline.** Aby skojarzyć wiele potoków z wyzwalaczem, dodaj więcej **pipelineReference** sekcje.
     - Potok w przewodniku Szybki start przyjmuje dwie wartości **parametrów:** **inputPath** i **outputPath**. W związku z tym należy przekazać wartości dla tych parametrów z wyzwalacza.
 
-2. Utwórz wyzwalacz przy użyciu polecenia cmdlet **Set-AzDataFactoryV2Trigger:**
+1. Utwórz wyzwalacz przy użyciu polecenia cmdlet **Set-AzDataFactoryV2Trigger:**
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Upewnij się, że stan wyzwalacza jest **zatrzymany** przy użyciu polecenia cmdlet **Get-AzDataFactoryV2Trigger:**
+1. Upewnij się, że stan wyzwalacza jest **zatrzymany** przy użyciu polecenia cmdlet **Get-AzDataFactoryV2Trigger:**
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Uruchom wyzwalacz przy użyciu polecenia cmdlet **Start-AzDataFactoryV2Trigger:**
+1. Uruchom wyzwalacz przy użyciu polecenia cmdlet **Start-AzDataFactoryV2Trigger:**
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Upewnij się, że stan wyzwalacza jest **uruchomiony** przy użyciu polecenia cmdlet **Get-AzDataFactoryV2Trigger:**
+1. Upewnij się, że stan wyzwalacza jest **uruchomiony** przy użyciu polecenia cmdlet **Get-AzDataFactoryV2Trigger:**
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Pobierz wyzwalacz uruchamia się w programie Azure PowerShell przy użyciu polecenia cmdlet **Get-AzDataFactoryV2TriggerRun.** Aby uzyskać informacje o uruchomieniu wyzwalacza, należy okresowo wykonywać następujące polecenie. Zaktualizuj **triggerrunstartedafter** i **TriggerRunStartedPrzed wartości,** aby dopasować wartości w definicji wyzwalacza:
+1.  Pobierz wyzwalacz uruchamia się w programie Azure PowerShell przy użyciu polecenia cmdlet **Get-AzDataFactoryV2TriggerRun.** Aby uzyskać informacje o uruchomieniu wyzwalacza, należy okresowo wykonywać następujące polecenie. Zaktualizuj **triggerrunstartedafter** i **TriggerRunStartedPrzed wartości,** aby dopasować wartości w definicji wyzwalacza:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"

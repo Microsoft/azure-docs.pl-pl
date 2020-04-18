@@ -4,18 +4,18 @@ description: Dowiedz się więcej o klauzuli SQL ORDER BY dla usługi Azure Cosm
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/17/2020
 ms.author: tisande
-ms.openlocfilehash: b88184be39a41ec42f8fb304a7511073f645f1cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188730"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641393"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Klauzula ORDER BY w usłudze Azure Cosmos DB
 
-Opcjonalna klauzula ORDER BY określa kolejność sortowania wyników zwracanych przez kwerendę.
+Klauzula `ORDER BY` opcjonalna określa kolejność sortowania wyników zwracanych przez kwerendę.
 
 ## <a name="syntax"></a>Składnia
   
@@ -31,9 +31,9 @@ ORDER BY <sort_specification>
   
    Określa właściwość lub wyrażenie, na których ma być sortowane zestaw wyników kwerendy. Kolumnę sortowania można określić jako nazwę lub alias właściwości.  
   
-   Można określić wiele właściwości. Nazwy właściwości muszą być unikatowe. Sekwencja właściwości sortowania w klauzuli ORDER BY definiuje organizację posortowanego zestawu wyników. Oznacza to, że zestaw wyników jest sortowany według pierwszej właściwości, a następnie, że uporządkowana lista jest sortowana przez drugą właściwość i tak dalej.  
+   Można określić wiele właściwości. Nazwy właściwości muszą być unikatowe. Sekwencja właściwości sortowania w `ORDER BY` klauzuli definiuje organizację posortowanego zestawu wyników. Oznacza to, że zestaw wyników jest sortowany według pierwszej właściwości, a następnie, że uporządkowana lista jest sortowana przez drugą właściwość i tak dalej.  
   
-   Nazwy właściwości, do których odwołuje się klauzula ORDER BY, muszą odpowiadać właściwości na liście select lub właściwości zdefiniowanej w kolekcji określonej w klauzuli FROM bez żadnych niejasności.  
+   Nazwy właściwości, o `ORDER BY` których mowa w klauzuli musi odpowiadać właściwości na liście select lub `FROM` właściwości zdefiniowanej w kolekcji określonej w klauzuli bez żadnych niejasności.  
   
 - `<sort_expression>`  
   
@@ -45,7 +45,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Określa, że wartości w określonej kolumnie powinny być sortowane w kolejności rosnącej lub malejącej. ASC sortuje od najniższej wartości do najwyższej wartości. DESC sortuje od najwyższej wartości do najniższej wartości. ASC jest domyślną kolejnością sortowania. Wartości null są traktowane jako najniższe możliwe wartości.  
+   Określa, że wartości w określonej kolumnie powinny być sortowane w kolejności rosnącej lub malejącej. `ASC`od najniższej do najwyższej wartości. `DESC`od najwyższej wartości do najniższej wartości. `ASC`jest domyślną kolejnością sortowania. Wartości null są traktowane jako najniższe możliwe wartości.  
   
 ## <a name="remarks"></a>Uwagi  
   
@@ -152,7 +152,7 @@ Wyniki obejmują tylko dokument, który `lastName`ma zdefiniowany:
     ]
 ```
 
-Jeśli zaktualizujemy zasady indeksowania kontenera, `lastName`aby jawnie uwzględnić ścieżkę dla , będziemy dołączać dokumenty z właściwością niezdefiniowanego sortowania w wynikach kwerendy. Należy jawnie zdefiniować ścieżkę, aby prowadzić do tej wartości skalarnej (a nie poza nią). Należy użyć `?` znaku w definicji ścieżki w zasadach indeksowania, aby `lastName` upewnić się, że jawnie indeksować właściwość i żadnych dodatkowych ścieżek zagnieżdżonych poza nim.
+Jeśli zaktualizujemy zasady indeksowania kontenera, `lastName`aby jawnie uwzględnić ścieżkę dla , będziemy dołączać dokumenty z właściwością niezdefiniowanego sortowania w wynikach kwerendy. Należy jawnie zdefiniować ścieżkę, aby prowadzić do tej wartości skalarnej (a nie poza nią). Należy użyć `?` znaku w definicji ścieżki w zasadach indeksowania, aby `lastName` upewnić się, że jawnie indeksować właściwość i żadnych dodatkowych ścieżek zagnieżdżonych poza nim. Jeśli `Order By` kwerenda używa [indeksu złożonego,](index-policy.md#composite-indexes)wyniki będą zawsze zawierać dokumenty z właściwością niezdefiniowanego sortowania w wynikach kwerendy.
 
 Oto przykładowa zasada indeksowania, która umożliwia umieszczanie w `lastName` wynikach kwerendy dokumentów z niezdefiniowanym:
 

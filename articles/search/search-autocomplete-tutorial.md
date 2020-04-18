@@ -7,82 +7,104 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.openlocfilehash: 8b64a583c11e794c30e1de12eb66941874a25462
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/15/2020
+ms.openlocfilehash: 1d8085c6056cb0d2541999c3e9c249cde3da8834
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262228"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641257"
 ---
-# <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Dodawanie sugestii lub autouzupełniania do aplikacji usługi Azure Cognitive Search
+# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Dodawanie autouzupełniania i sugestii do aplikacji klienckich
 
-W tym przykładzie pokazano pole wyszukiwania, które obsługuje zachowania typu wyszukiwania. Istnieją dwie funkcje, których można używać razem lub oddzielnie:
+Wyszukiwanie zgodnie z typem jest powszechną techniką poprawy wydajności zapytań inicjowanych przez użytkownika. W usłudze Azure Cognitive Search to środowisko jest obsługiwane przez *autouzupełnianie*, które kończy termin lub frazę na podstawie częściowego wprowadzania danych (ukończenie "mikro" z "microsoft"). Innym formularzem są *sugestie:* krótka lista pasujących dokumentów (zwracanie tytułów książek z identyfikatorem, dzięki czemu można utworzyć łącze do strony szczegółów). Zarówno autouzupełnienie, jak i sugestie są oparte na dopasowaniu w indeksie. Usługa nie będzie oferować kwerend, które zwracają zero wyników.
 
-+ *Sugestie* generują wyniki wyszukiwania podczas pisania, gdzie każda sugestia jest pojedynczym wynikiem lub dokumentem wyszukiwania z indeksu, który pasuje do tego, co do tej pory wpisałeś. 
+Aby zaimplementować te środowiska w usłudze Azure Cognitive Search, konieczne będzie:
 
-+ *Autouzupełnienie* generuje zapytania przez "wykańczanie" wyrazu lub frazy. Zamiast zwracać wyniki, kończy kwerendę, którą można następnie wykonać, aby zwrócić wyniki. Podobnie jak w sugestiach, ukończone słowo lub fraza w kwerendzie jest uzależniona od dopasowania w indeksie. Usługa nie będzie oferować kwerend, które zwracają zero wyników w indeksie.
++ *Sugest na* zapleczu.
++ *Kwerenda* określająca interfejs API autouzupełniania lub sugestie w żądaniu.
++ *Kontrolka interfejsu użytkownika* do obsługi interakcji wyszukiwania po typie w aplikacji klienckiej. Zalecamy użycie w tym celu istniejącej biblioteki JavaScript.
 
-Przykładowy kod pokazuje zarówno sugestie, jak i autouzupełnianie w wersjach języka C# i JavaScript. 
+W usłudze Azure Cognitive Search automatycznie kompletowane kwerendy i sugerowane wyniki są pobierane z indeksu wyszukiwania z wybranych pól, które zostały zarejestrowane w suggesterze. Sugestywny jest częścią indeksu i określa, które pola będą dostarczać zawartość, która kończy kwerendę, sugeruje wynik lub wykonuje oba. Gdy indeks jest tworzony i ładowany, struktury danych sugestywny jest tworzony wewnętrznie do przechowywania prefiksów używanych do dopasowywania w kwerendach częściowych. W przypadku sugestii wybór odpowiednich pól, które są unikatowe lub przynajmniej nie powtarzalne, jest niezbędny do doświadczenia. Aby uzyskać więcej informacji, zobacz [Tworzenie sugestatora](index-add-suggesters.md).
 
-Deweloperzy języka C# mogą przechodzić przez ASP.NET aplikację opartą na MVC, która używa [sdk .NET usługi Azure Cognitive Search](https://aka.ms/search-sdk). Logikę tworzenia automatycznego kompletu i sugerowanych wywołań zapytań można znaleźć w pliku HomeController.cs. 
+Poniżej dalsza część artykułu Koncentruje się na kwerendach i kodzie klienta. Używa JavaScript i C# do zilustrowania kluczowych punktów. PRZYKŁADY INTERFEJSU API REST są używane do zwięzłego prezentowania każdej operacji. Aby uzyskać łącza do przykładów kodu end-to-end, zobacz [Następne kroki](#next-steps).
 
-Deweloperzy JavaScript znajdą równoważną logikę zapytania w pliku IndexJavaScript.cshtml, która obejmuje bezpośrednie wywołania [interfejsu API REST usługi Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/). 
+## <a name="set-up-a-request"></a>Konfigurowanie żądania
 
-W obu wersjach językowych środowisko użytkownika frontonu jest oparte na bibliotekach [jQuery UI](https://jqueryui.com/autocomplete/) i [XDSoft.](https://xdsoft.net/jqplugins/autocomplete/) Używamy tych bibliotek do tworzenia pola wyszukiwania obsługującego zarówno sugestie, jak i autouzupełnianie. Dane wejściowe zebrane w polu wyszukiwania są łączone z sugestiami i akcjami autouzupełniania, takimi jak te zdefiniowane w HomeController.cs lub IndexJavaScript.cshtml.
+Elementy żądania obejmują interfejs API[(Autouzupełnienie REST](https://docs.microsoft.com/rest/api/searchservice/autocomplete) lub [sugestia REST),](https://docs.microsoft.com/rest/api/searchservice/suggestions)kwerendę częściową i sugestator.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-+ [Program Visual Studio](https://visualstudio.microsoft.com/downloads/)
-
-Usługa Azure Cognitive Search jest opcjonalna dla tego ćwiczenia, ponieważ rozwiązanie używa usługi hosta i indeksu demo NYCJobs. Jeśli chcesz utworzyć ten indeks na własną usługę wyszukiwania, zobacz [Tworzenie indeksu zadań NYC](#configure-app) dla instrukcji. W przeciwnym razie można użyć istniejącej usługi i indeksu do wycofania aplikacji klienckiej JavaScript.
-
-<!-- The sample is comprehensive, covering suggestions, autocomplete, faceted navigation, and client-side caching. Review the readme and comments for a full description of what the sample offers. -->
-
-## <a name="download-files"></a>Pobieranie plików
-
-Przykładowy kod dla deweloperów języka C# i JavaScript można znaleźć w [folderze DotNetHowToAutoComplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) repozytorium GitHub **azure-samples/search-dotnet-getting-started.**
-
-Przykład jest przeznaczony dla istniejącej usługi wyszukiwania demo i wstępnie utworzonego indeksu wypełnionego [danymi demonstracyjnymi NYCJobs.](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) Indeks NYCJobs zawiera [konstrukcję suggester](index-add-suggesters.md), która jest wymagana do korzystania z sugestii lub autouzupełniania.
-
-## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
-
-1. Otwórz **autouzupełnianieTutorial.sln** w programie Visual Studio. Rozwiązanie zawiera projekt ASP.NET MVC z połączeniem z istniejącą usługą wyszukiwania i indeksem.
-
-1. Zaktualizuj pakiety NuGet:
-
-   1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **pozycję DotNetHowHowToAutoComplete** i wybierz polecenie **Zarządzaj pakietami NuGet**.  
-   1. Wybierz kartę **Aktualizacje,** zaznacz wszystkie pakiety i kliknij pozycję **Aktualizuj**. Zaakceptuj wszelkie umowy licencyjne. Do aktualizacji wszystkich pakietów może być wymagana więcej niż jedno podanie.
-
-1. Naciśnij klawisz F5, aby uruchomić projekt i załadować stronę do przeglądarki.
-
-U góry strony zobaczysz opcję wyboru języka C# lub JavaScript. Opcja C# wywołuje HomeController z przeglądarki i używa azure cognitive search .NET SDK do pobierania wyników. 
-
-Opcja JavaScript wywołuje interfejs API REST usługi Azure Cognitive Search bezpośrednio z przeglądarki. Ta opcja ma zazwyczaj zauważalnie lepszą wydajność, ponieważ eliminuje kontroler z przepływu. Opcję można wybrać na podstawie potrzeb i preferencji językowych. Na stronie znajduje się kilka przykładów autouzupełniania, a dla każdego z nich są dostępne wskazówki. Każdy przykład ma zalecany tekst przykładowy, który możesz wypróbować.  
-
-![Przykładowa strona startowa](media/search-autocomplete-tutorial/startup-page.png "Przykładowa strona startowa w localhost")
-
-Spróbuj wpisać kilka liter w każdym polu wyszukiwania, aby zobaczyć, co się dzieje.
-
-## <a name="query-inputs"></a>Dane wejściowe kwerendy
-
-W wersjach języka C# i JavaScript implementacja pola wyszukiwania jest dokładnie taka sama. 
-
-Otwórz plik **Index.cshtml** w folderze \Views\Home, aby wyświetlić kod:
-
-```html
-<input class="searchBox" type="text" id="example1a" placeholder="search">
+```http
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+{
+  "search": "minecraf",
+  "suggesterName": "sg"
+}
 ```
 
-W tym przykładzie jest proste pole tekstowe wprowadzania z klasy do stylizacji, identyfikator, do którego odwołuje się JavaScript i tekst zastępczy.  Magia jest w osadzonym JavaScript.
+**Nazwaspozycjowa** zawiera pola obsługujące sugestę używane do wypełniania terminów lub sugestii. W szczególności w przypadku sugestii lista pól powinna składać się z tych, które oferują jasne opcje wśród pasujących wyników. W witrynie, która sprzedaje gry komputerowe, pole może być tytuł gry.
 
-Przykład języka C# używa języka JavaScript w index.cshtml do wykorzystania [biblioteki autouzupełniania interfejsu użytkownika jQuery.](https://jqueryui.com/autocomplete/) Ta biblioteka dodaje środowisko autouzupełniania do pola wyszukiwania, wykonując asynchroniczne wywołania do kontrolera MVC w celu pobrania sugestii. Wersja językowa JavaScript jest w IndexJavaScript.cshtml. Zawiera skrypt poniżej paska wyszukiwania, a także wywołania interfejsu API REST do usługi Azure Cognitive Search.
+Parametr **wyszukiwania** zawiera kwerendę częściową, w której znaki są podawane do żądania zapytania za pośrednictwem kontrolki jQuery Autouzupełnianie. W powyższym przykładzie "minecraf" jest statyczną ilustracją tego, co formant mógł przekazać.
 
-Przyjrzyjmy się kodowi JavaScript w pierwszym przykładzie, który wywołuje funkcję autouzupełniania interfejsu użytkownika jQuery, przekazując żądanie sugestii:
+Interfejsy API nie nakładają minimalnych wymagań dotyczących długości kwerendy częściowej; może to być zaledwie jeden znak. Jednak jQuery Autouzupełnianie zapewnia minimalną długość. Typowe są co najmniej dwa lub trzy znaki.
+
+Dopasowania znajdują się na początku terminu w dowolnym miejscu ciągu wejściowego. Biorąc pod uwagę "szybki brązowy lis", zarówno autouzupełnienie, jak i sugestie będą pasować do częściowych wersji "", "szybkie", "brązowe" lub "lis", ale nie na częściowych terminach infix, takich jak "rown" lub "wół". Ponadto każde dopasowanie ustawia zakres rozszerzeń podrzędnych. Częściowe zapytanie "quick br" będzie pasować do "quick brown" lub "quick bread", ale ani "brązowy" lub "chleb" sam będzie pasował, chyba że "szybkie" poprzedza je.
+
+### <a name="apis"></a>Interfejsy API
+
+Skorzystaj z tych łączy dla stron referencyjnych REST i .NET SDK:
+
++ [Sugestie REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
++ [Interfejs API REST autouzupełniania](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
++ [Sugestia z metodąHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
++ [Autouzupełnienie z metodąHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
+
+## <a name="structure-a-response"></a>Ustrukturyzuj odpowiedź
+
+Odpowiedzi na autouzupełnianie i sugestie są tym, czego można oczekiwać od wzorca: [Autouzupełnianie](https://docs.microsoft.com/rest/api/searchservice/autocomplete#response) zwraca listę [terminów, Sugestie](https://docs.microsoft.com/rest/api/searchservice/suggestions#response) zwraca terminy oraz identyfikator dokumentu, dzięki czemu można pobrać dokument (użyj interfejsu API [dokumentu odnośnika,](https://docs.microsoft.com/rest/api/searchservice/lookup-document) aby pobrać określony dokument dla strony szczegółów).
+
+Odpowiedzi są kształtowane przez parametry na żądanie. W przypadku autouzupełniania ustaw [**autouzupełnianieMode,**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) aby określić, czy uzupełnianie tekstu odbywa się na jednym lub dwóch terminach. W polu Sugestie wybrano pole określa zawartość odpowiedzi.
+
+Aby jeszcze bardziej uściślić odpowiedź, dołącz więcej parametrów na żądanie. Następujące parametry dotyczą zarówno autouzupełniania, jak i sugestii.
+
+| Parametr | Sposób użycia |
+|-----------|-------|
+| **$select** | Jeśli masz wiele **sourceFields**, użyj **$select,** aby wybrać`$select=GameTitle`pole, które współtworzy wartości ( ). |
+| **$filter** | Zastosuj kryteria dopasowania do`$filter=ActionAdventure`zestawu wyników ( ). |
+| **$top** | Ogranicz wyniki do`$top=5`określonej liczby ( ).|
+
+## <a name="add-user-interaction-code"></a>Dodawanie kodu interakcji użytkownika
+
+Automatyczne wypełnianie terminu zapytania lub upuszczanie listy pasujących łączy wymaga kodu interakcji użytkownika, zazwyczaj JavaScript, który może korzystać z żądań ze źródeł zewnętrznych, takich jak automatyczne uzupełnianie lub kwerendy sugestii względem indeksu usługi Azure Search Cognitive.
+
+Chociaż można napisać ten kod natywnie, jest o wiele łatwiejsze w użyciu funkcji z istniejącej biblioteki JavaScript. W tym artykule przedstawiono dwa, jeden dla sugestii, a drugi dla autouzupełniania. 
+
++ [Widżet Autouzupełniaj (jQuery UI)](https://jqueryui.com/autocomplete/) jest używany w przykładzie sugestia. Można utworzyć pole wyszukiwania, a następnie odwołać się do niego w funkcji JavaScript, która używa widżetu Autouzupełnianie. Właściwości w widżetu ustawiają źródło (funkcja autouzupełniania lub sugestie), minimalną długość znaków wejściowych przed podjęciem akcji i pozycjonowanie.
+
++ [XDSoft Autouzupełniania plug-in](https://xdsoft.net/jqplugins/autocomplete/) jest używany autouzupełniania przykład.
+
+Używamy tych bibliotek do tworzenia pola wyszukiwania obsługującego zarówno sugestie, jak i autouzupełnianie. Dane wejściowe zebrane w polu wyszukiwania są łączone z sugestiami i akcjami autouzupełniania.
+
+## <a name="suggestions"></a>Sugestie
+
+W tej sekcji znajdziesz implementację sugerowanych wyników, począwszy od definicji pola wyszukiwania. Pokazuje również, jak i skrypt, który wywołuje pierwszą bibliotekę autouzupełniania JavaScript, do których odwołuje się w tym artykule.
+
+### <a name="create-a-search-box"></a>Tworzenie pola wyszukiwania
+
+Zakładając, że [biblioteka autouzupełniania interfejsu użytkownika jQuery](https://jqueryui.com/autocomplete/) i projekt MVC w języku C#, można zdefiniować pole wyszukiwania przy użyciu języka JavaScript w pliku **Index.cshtml.** Biblioteka dodaje interakcji wyszukiwania po typie do pola wyszukiwania, wykonując asynchroniczne wywołania do kontrolera MVC, aby pobrać sugestie.
+
+W **pliku Index.cshtml** w folderze \Views\Home wiersz utworzenia pola wyszukiwania może być następujący:
+
+```html
+<input class="searchBox" type="text" id="searchbox1" placeholder="search">
+```
+
+W tym przykładzie jest proste pole tekstowe wprowadzania z klasy do stylizacji, identyfikator, do którego odwołuje się JavaScript i tekst zastępczy.  
+
+W tym samym pliku osadź javascript, który odwołuje się do pola wyszukiwania. Następująca funkcja wywołuje interfejs API Sugestia, który żąda sugerowanych dokumentów pasujących na podstawie częściowych danych wejściowych:
 
 ```javascript
 $(function () {
-    $("#example1a").autocomplete({
+    $("#searchbox1").autocomplete({
         source: "/home/suggest?highlights=false&fuzzy=false&",
         minLength: 3,
         position: {
@@ -93,82 +115,31 @@ $(function () {
 });
 ```
 
-Powyższy kod jest uruchamiany w przeglądarce przy wczytyniu strony w celu skonfigurowania autouzupełnienia interfejsu użytkownika jQuery dla pola wprowadzania "example1a".  Parametr `minLength: 3` zapewnia, że rekomendacje będą wyświetlane tylko po wpisaniu co najmniej trzech znaków w polu wyszukiwania.  Ważna jest wartość źródłowa:
+Informuje `source` funkcję autouzupełniania interfejsu użytkownika jQuery, gdzie można uzyskać listę elementów do wyświetlenia w polu wyszukiwania. Ponieważ ten projekt jest projekt MVC, wywołuje **Suggest** funkcji w **HomeController.cs,** który zawiera logikę zwracania sugestie kwerendy. Ta funkcja przekazuje również kilka parametrów do kontrolowania podświetleń, dopasowywania rozmytego i terminu. Interfejs API autouzupełniania języka JavaScript dodaje parametr term.
 
-```javascript
-source: "/home/suggest?highlights=false&fuzzy=false&",
-```
+Gwarantuje, `minLength: 3` że zalecenia będą wyświetlane tylko wtedy, gdy w polu wyszukiwania znajdują się co najmniej trzy znaki.
 
-Powyższy wiersz informuje funkcję autouzupełniania interfejsu użytkownika jQuery, gdzie można uzyskać listę elementów do wyświetlenia w polu wyszukiwania. Ponieważ ten projekt jest projekt MVC, wywołuje Suggest funkcji w HomeController.cs, który zawiera logikę zwracania sugestie kwerendy (więcej o Zasugeruj w następnej sekcji). Ta funkcja przekazuje również kilka parametrów do kontrolowania podświetleń, dopasowywania rozmytego i terminu. Interfejs API autouzupełniania języka JavaScript dodaje parametr term.
+### <a name="enable-fuzzy-matching"></a>Włącz dopasowywanie rozmyte
 
-### <a name="extending-the-sample-to-support-fuzzy-matching"></a>Rozszerzanie przykładu pod kątem obsługi dopasowywania rozmytego
-
-Wyszukiwanie rozmyte pozwala uzyskać wyniki na podstawie zbliżonych dopasowań nawet wtedy, gdy użytkownik błędnie napisze wyraz w polu wyszukiwania. Chociaż nie jest to wymagane, znacznie poprawia wytrzymałość doświadczenia typeahead. Wypróbujmy to przez zmianę wiersza kodu źródłowego w celu włączenia dopasowywania rozmytego.
-
-Zmień następujący wiersz z takiego:
-
-```javascript
-source: "/home/suggest?highlights=false&fuzzy=false&",
-```
-
-wprowadź następujące zmiany:
+Wyszukiwanie rozmyte pozwala uzyskać wyniki na podstawie zbliżonych dopasowań nawet wtedy, gdy użytkownik błędnie napisze wyraz w polu wyszukiwania. Odległość edycji wynosi 1, co oznacza, że może istnieć maksymalna rozbieżność jednego znaku między daneem wejściowym użytkownika a dopasowaniem. 
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=true&",
 ```
 
-Uruchom aplikację, naciskając klawisz F5.
+### <a name="enable-highlighting"></a>Włącz wyróżnianie
 
-Spróbuj wpisać tekst w rodzaju „execative” i zwróć uwagę, jak zwracane wyniki dotyczą wyrazu „executive”, mimo że nie pasują dokładnie do wpisanych liter.
-
-### <a name="jquery-autocomplete--backed-by-azure-cognitive-search-autocomplete"></a>autouzupełniania jQuery wspierane przez autouzupełnienie usługi Azure Cognitive Search
-
-Do tej pory kod UX wyszukiwania został wyśrodkowany na sugestie. Następny blok kodu pokazuje funkcję autouzupełniania interfejsu użytkownika jQuery (wiersz 91 w index.cshtml), przekazując żądanie autouzupełniania usługi Azure Cognitive Search:
+Wyróżnianie stosuje styl czcionki do znaków w wyniku, które odpowiadają dane wejściowe. Na przykład, jeśli częściowe wejście jest "mikro", wynik będzie wyświetlany jako **mikro**miękki, **mikro**zakres i tak dalej. Wyróżnianie jest oparte na highlightPreTag i HighlightPostTag parametrów, zdefiniowane w linii z funkcji sugestia.
 
 ```javascript
-$(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
-    // $.autocomplete -> $.autocompleteInline
-    $("#example2").autocompleteInline({
-        appendMethod: "replace",
-        source: [
-            function (text, add) {
-                if (!text) {
-                    return;
-                }
-
-                $.getJSON("/home/autocomplete?term=" + text, function (data) {
-                    if (data && data.length > 0) {
-                        currentSuggestion2 = data[0];
-                        add(data);
-                    }
-                });
-            }
-        ]
-    });
-
-    // complete on TAB and clear on ESC
-    $("#example2").keydown(function (evt) {
-        if (evt.keyCode === 9 /* TAB */ && currentSuggestion2) {
-            $("#example2").val(currentSuggestion2);
-            return false;
-        } else if (evt.keyCode === 27 /* ESC */) {
-            currentSuggestion2 = "";
-            $("#example2").val("");
-        }
-    });
-});
+source: "/home/suggest?highlights=true&fuzzy=true&",
 ```
 
-## <a name="c-example"></a>Przykład języka C#
+### <a name="suggest-function"></a>Zasugeruj funkcję
 
-Teraz, gdy przejrzeliśmy kod JavaScript dla strony sieci Web, przyjrzyjmy się kodowi kontrolera po stronie serwera c#, który faktycznie pobiera sugerowane dopasowania przy użyciu narzędzia Azure Cognitive Search .NET SDK.
+Jeśli używasz języka C# i aplikacji MVC, **HomeController.cs** plik w katalogu Kontrolery jest, gdzie można utworzyć klasę dla sugerowanych wyników. W .NET funkcja Sugestia jest oparta na [metodzie DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
-Otwórz plik **HomeController.cs** w katalogu Kontrolery. 
-
-Pierwszą rzeczą, którą możesz zauważyć, jest metoda `InitSearch`na górze klasy o nazwie . Ta metoda tworzy uwierzytelnionego klienta indeksu HTTP do usługi Azure Cognitive Search. Aby uzyskać więcej informacji, zobacz [Jak używać usługi Azure Cognitive Search z aplikacji .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
-
-W wierszu 41 zwróć uwagę na funkcję Sugeruj. Jest on oparty na [DocumentsOperationsExtensions.Suggest metody](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
+Metoda `InitSearch` tworzy uwierzytelnionego klienta indeksu HTTP do usługi Azure Cognitive Search. Aby uzyskać więcej informacji na temat sdk .NET, zobacz [Jak korzystać z usługi Azure Cognitive Search z aplikacji .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -202,7 +173,48 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 
 Funkcja Suggest przyjmuje dwa parametry, które określają, czy są zwracane wyróżnienia trafień oraz czy oprócz wprowadzonego terminu wyszukiwania jest stosowane dopasowywanie rozmyte. Metoda tworzy [SuggestParameters obiektu](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), który jest następnie przekazywany do Suggest API. Wynik jest następnie konwertowany na format JSON, dzięki czemu można go wyświetlić w kliencie.
 
-W wierszu 69 zwróć uwagę na funkcję Autouzupełniania. Jest on oparty na [DocumentsOperationsExtensions.Autocomplete metody](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
+## <a name="autocomplete"></a>Autouzupełnianie
+
+Do tej pory kod UX wyszukiwania został wyśrodkowany na sugestie. Następny blok kodu pokazuje autouzupełnianie, przy użyciu funkcji autouzupełniania interfejsu użytkownika XDSoft jQuery, przekazując żądanie autouzupełniania usługi Azure Cognitive Search. Podobnie jak w przypadku sugestii, w aplikacji Języka C# kod, który obsługuje interakcję użytkownika idzie w **index.cshtml**.
+
+```javascript
+$(function () {
+    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
+    // $.autocomplete -> $.autocompleteInline
+    $("#searchbox1").autocompleteInline({
+        appendMethod: "replace",
+        source: [
+            function (text, add) {
+                if (!text) {
+                    return;
+                }
+
+                $.getJSON("/home/autocomplete?term=" + text, function (data) {
+                    if (data && data.length > 0) {
+                        currentSuggestion2 = data[0];
+                        add(data);
+                    }
+                });
+            }
+        ]
+    });
+
+    // complete on TAB and clear on ESC
+    $("#searchbox1").keydown(function (evt) {
+        if (evt.keyCode === 9 /* TAB */ && currentSuggestion2) {
+            $("#searchbox1").val(currentSuggestion2);
+            return false;
+        } else if (evt.keyCode === 27 /* ESC */) {
+            currentSuggestion2 = "";
+            $("#searchbox1").val("");
+        }
+    });
+});
+```
+
+### <a name="autocomplete-function"></a>Funkcja autouzupełniania
+
+Autouzupełnianie jest oparte na [metody DocumentsOperationsExtensions.Autocomplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Podobnie jak w sugestiach, ten blok kodu trafi w pliku **HomeController.cs.**
 
 ```csharp
 public ActionResult AutoComplete(string term)
@@ -217,7 +229,7 @@ public ActionResult AutoComplete(string term)
     };
     AutocompleteResult autocompleteResult = _indexClient.Documents.Autocomplete(term, "sg", ap);
 
-    // Conver the Suggest results to a list that can be displayed in the client.
+    // Convert the Suggest results to a list that can be displayed in the client.
     List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
     return new JsonResult
     {
@@ -229,98 +241,10 @@ public ActionResult AutoComplete(string term)
 
 Funkcja Autouzupełniania pobiera dane wejściowe wyszukiwane. Metoda tworzy [obiekt Autouzupełniajparametry](https://docs.microsoft.com/rest/api/searchservice/autocomplete). Wynik jest następnie konwertowany na format JSON, dzięki czemu można go wyświetlić w kliencie.
 
-(Opcjonalnie) Dodaj punkt przerwania na początku funkcji Suggest i przejdź krokami przez kod. Zwróć uwagę na odpowiedź zwróconą przez zestaw SDK i sposób, w jaki jest konwertowany na wynik zwrócony z metody.
-
-Inne przykłady na stronie wykonaj ten sam wzorzec, aby dodać wyróżnianie trafień i aspekty do obsługi buforowania po stronie klienta wyników autouzupełniania. Przejrzyj każdy z nich, aby zrozumieć, jak działają i jak można je wykorzystać w środowisku wyszukiwania.
-
-## <a name="javascript-example"></a>Przykład języka JavaScript
-
-Implementacja języka JavaScript autouzupełniania i sugestie wywołuje interfejs API REST, przy użyciu identyfikatora URI jako źródła, aby określić indeks i operację. 
-
-Aby przejrzeć implementację javascript, otwórz **indexJavaScript.cshtml**. Należy zauważyć, że funkcja autouzupełniania interfejsu użytkownika jQuery jest również używana w polu wyszukiwania, zbierając dane wejściowe wyszukiwanych terminów i wykonując asynchroniczne wywołania usługi Azure Cognitive Search w celu pobrania sugerowanych dopasowań lub ukończonych terminów. 
-
-Przyjrzyjmy się kodowi JavaScript w pierwszym przykładzie:
-
-```javascript
-$(function () {
-    $("#example1a").autocomplete({
-        source: function (request, response) {
-        $.ajax({
-            type: "POST",
-            url: suggestUri,
-            dataType: "json",
-            headers: {
-                "api-key": searchServiceApiKey,
-                "Content-Type": "application/json"
-            },
-            data: JSON.stringify({
-                top: 5,
-                fuzzy: false,
-                suggesterName: "sg",
-                search: request.term
-            }),
-                success: function (data) {
-                    if (data.value && data.value.length > 0) {
-                        response(data.value.map(x => x["@@search.text"]));
-                    }
-                }
-            });
-        },
-        minLength: 3,
-        position: {
-            my: "left top",
-            at: "left-23 bottom+10"
-        }
-    });
-});
-```
-
-Jeśli porównasz ten przykład z powyższym przykładem, który wywołuje kontroler home, zauważysz kilka podobieństw.  Konfiguracja autouzupełniania dla elementów `minLength` i `position` jest dokładnie taka sama. 
-
-Istotna zmiana w tym przypadku to kod źródłowy. Zamiast wywoływać Suggest metody w kontrolerze domowym, żądanie REST jest tworzony w funkcji JavaScript i wykonywane przy użyciu Ajax. Odpowiedź jest następnie przetwarzana w sekcji „success” i używana jako źródło.
-
-Wywołania REST używają identyfikatorów URI, aby określić, czy jest wywoływane [autouzupełnianie](https://docs.microsoft.com/rest/api/searchservice/autocomplete) lub [sugestie](https://docs.microsoft.com/rest/api/searchservice/suggestions) interfejsu API. Następujące identyfikatory URI znajdują się odpowiednio na liniach 9 i 10.
-
-```javascript
-var suggestUri = "https://" + searchServiceName + ".search.windows.net/indexes/" + indexName + "/docs/suggest?api-version=" + apiVersion;
-var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/indexes/" + indexName + "/docs/autocomplete?api-version=" + apiVersion;
-```
-
-W wierszu 148 można znaleźć skrypt, który wywołuje `autocompleteUri`. Pierwsze wezwanie `suggestUri` znajduje się na linii 39.
-
-> [!Note]
-> Wykonywanie wywołań REST do usługi w języku JavaScript jest oferowane w tym miejscu jako wygodna demonstracja interfejsu API REST, ale nie powinny być interpretowane jako najlepsze rozwiązanie lub zalecenie. Włączenie klucza interfejsu API i punktu końcowego w skrypcie otwiera usługę do ataków typu "odmowa usługi" dla każdego, kto może odczytać te wartości poza skryptem. Podczas gdy jego bezpieczne używanie języka JavaScript do celów edukacyjnych, być może w indeksach hostowanych w bezpłatnej usłudze, zalecamy używanie języka Java lub C# do indeksowania i wykonywania zapytań w kodzie produkcyjnym. 
-
-<a name="configure-app"></a>
-
-## <a name="create-an-nycjobs-index"></a>Tworzenie indeksu NYCJobs
-
-Do tej pory używasz hostowanego indeksu demo NYCJobs. Jeśli chcesz pełny wgląd w cały kod, w tym indeksu, postępuj zgodnie z tymi instrukcjami, aby utworzyć i załadować indeks we własnej usłudze wyszukiwania.
-
-1. [Utwórz usługę Azure Cognitive Search](search-create-service-portal.md) lub znajdź [istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. W tym przykładzie można skorzystać z bezpłatnej usługi. 
-
-   > [!Note]
-   > Jeśli korzystasz z bezpłatnej usługi Azure Cognitive Search, są ograniczone do trzech indeksów. Moduł ładujący dane NYCJobs tworzy dwa indeksy. Upewnij się, że miejsce w usłudze jest wystarczające do zaakceptowania nowych indeksów.
-
-1. Pobierz przykładowy kod [NYCJobs.](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)
-
-1. W folderze DataLoader przykładowego kodu NYCJobs otwórz **plik DataLoader.sln** w programie Visual Studio.
-
-1. Dodaj informacje o połączeniu dla usługi Azure Cognitive Search. Otwórz App.config w ramach projektu DataLoader i zmień targetSearchServiceName i TargetSearchServiceApiKey appSettings, aby odzwierciedlić usługę Azure Cognitive Search i klucz interfejsu API usługi Azure Cognitive Search. Te informacje można znaleźć w witrynie Azure portal.
-
-1. Naciśnij klawisz F5, aby uruchomić aplikację, tworząc dwa indeksy i importując przykładowe dane NYCJob.
-
-1. Otwórz **autouzupełnianieTutorial.sln** i edytuj plik Web.config w projekcie **Autouzupełniania.** Zmień searchservicename i SearchServiceApiKey wartości do wartości, które są prawidłowe dla usługi wyszukiwania.
-
-1. Naciśnij klawisz F5, aby uruchomić aplikację. Przykładowa aplikacja internetowa zostanie otwarta w przeglądarce domyślnej. Środowisko jest identyczne z wersją piaskownicy, tylko indeks i dane są hostowane w usłudze.
-
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przykładzie przedstawiono podstawowe kroki tworzenia pola wyszukiwania, które obsługuje autouzupełnianie i sugestie. Widziałeś, jak można utworzyć ASP.NET aplikacji MVC i użyć interfejsu Azure Cognitive Search .NET SDK lub REST API do pobierania sugestii.
+Skorzystaj z tych łączy, aby uzyskać instrukcje end-to-end lub kod demonstrujący zarówno wyszukiwanie jako typ środowiska. Oba przykłady kodu obejmują hybrydowe implementacje sugestii i autouzupełnienie razem.
 
-Następnym krokiem jest próba zintegrowania sugestii i autouzupełniania w wyszukiwaniu. Poniższe artykuły referencyjne powinny pomóc.
-
-> [!div class="nextstepaction"]
-> [Autouzupełniaj sugestie interfejsu API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
-> REST[REST](https://docs.microsoft.com/rest/api/searchservice/suggestions)
-> [Apis atrybut indeksu w interfejsie API Create Index REST](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [Samouczek: Tworzenie pierwszej aplikacji w języku C# (lekcja 3)](tutorial-csharp-type-ahead-and-suggestions.md)
++ [Przykład kodu języka C#: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead)
++ [C# i JavaScript z przykładowym kodem REST obok siebie](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

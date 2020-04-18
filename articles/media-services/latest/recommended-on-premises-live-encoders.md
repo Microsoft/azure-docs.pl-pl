@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: bbd2929e245fa5fc01245e7bd02e537db8d5ef36
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 0676b6b183c64dcd0fb15b87de48a4afed3a0011
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536339"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641799"
 ---
 # <a name="tested-on-premises-live-streaming-encoders"></a>Przetestowane lokalne kodery strumieniowe na żywo
 
@@ -57,7 +57,6 @@ Podczas przesyłania strumieniowego za pośrednictwem protokołu RTMPS sprawdź 
 - Telestream Wirecast (wersja 13.0.2 lub nowsza ze względu na wymaganie TLS 1.2)
 - Telestream Wirecast S (obsługiwany jest tylko RTMP)
 - Teradek Slice 756
-- TriCaster 8000
 - VMIX
 - xStream
 - [Ffmpeg](https://www.ffmpeg.org)

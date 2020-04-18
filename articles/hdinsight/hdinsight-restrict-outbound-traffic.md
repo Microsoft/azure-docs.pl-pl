@@ -6,27 +6,27 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: 3432f981df3f666d6276eee4564ef33000faa6b1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/17/2020
+ms.openlocfilehash: d4bf2d1d4beeb00325d54e091a00438073509eef
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410892"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641308"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurowanie wychodzącego ruchu sieciowego dla klastrów usługi Azure HDInsight przy użyciu zapory
 
-Ten artykuł zawiera kroki, aby zabezpieczyć ruch wychodzący z klastra USŁUGI HDInsight przy użyciu zapory platformy Azure. Poniższe kroki zakładają, że konfigurujesz zaporę platformy Azure dla istniejącego klastra. Jeśli wdrażasz nowy klaster i za zaporą, najpierw utwórz klaster i podsieć HDInsight, a następnie wykonaj kroki opisane w tym przewodniku.
+Ten artykuł zawiera kroki, aby zabezpieczyć ruch wychodzący z klastra USŁUGI HDInsight przy użyciu zapory platformy Azure. Poniższe kroki zakładają, że konfigurujesz zaporę platformy Azure dla istniejącego klastra. Jeśli wdrażasz nowy klaster za zaporą, najpierw utwórz klaster i podsieć HDInsight. Następnie postępuj zgodnie z instrukcjami w tym przewodniku.
 
 ## <a name="background"></a>Tło
 
-Klastry usługi Azure HDInsight są zwykle wdrażane we własnej sieci wirtualnej. Klaster ma zależności od usług poza tą siecią wirtualną, które wymagają dostępu do sieci, aby działać poprawnie.
+Klastry HDInsight są zwykle wdrażane w sieci wirtualnej. Klaster ma zależności od usług poza tą siecią wirtualną.
 
 Istnieje kilka zależności, które wymagają ruchu przychodzącego. Przychodzącego ruchu zarządzania nie można wysyłać za pośrednictwem urządzenia zapory. Adresy źródłowe dla tego ruchu są znane i są publikowane [tutaj](hdinsight-management-ip-addresses.md). Można również utworzyć reguły sieciowej grupy zabezpieczeń (NSG) z tymi informacjami, aby zabezpieczyć ruch przychodzący do klastrów.
 
-Zależności ruchu wychodzącego HDInsight są prawie całkowicie zdefiniowane za pomocą sieci FQDN, które nie mają statycznych adresów IP za nimi. Brak adresów statycznych oznacza, że sieciowe grupy zabezpieczeń (NSG) nie mogą być używane do blokowania ruchu wychodzącego z klastra. Adresy zmieniają się na tyle często, że nie można skonfigurować reguł na podstawie bieżącej rozdzielczości nazw i użyć ich do skonfigurowania reguł sieciowej listy numerów płciowych.
+Zależności ruchu wychodzącego HDInsight są prawie całkowicie zdefiniowane za pomocą sieci FQDN. Które nie mają statycznych adresów IP za nimi. Brak adresów statycznych oznacza, że sieciowe grupy zabezpieczeń nie mogą blokować ruchu wychodzącego z klastra. Adresy zmieniają się wystarczająco często, że nie można skonfigurować reguł na podstawie bieżącego rozpoznawania nazw i użycia.
 
-Rozwiązaniem do zabezpieczania adresów wychodzących jest użycie urządzenia zapory, które może kontrolować ruch wychodzący na podstawie nazw domen. Zapora platformy Azure może ograniczać ruch HTTP i HTTPS na podstawie sieci FQDN tagów docelowych lub [FQDN.](../firewall/fqdn-tags.md)
+Zabezpiecz adresy wychodzące za pomocą zapory, która może kontrolować ruch wychodzący na podstawie nazw domen. Zapora azure ogranicza ruch wychodzący na podstawie fqdn tagów docelowych lub [FQDN](../firewall/fqdn-tags.md).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Konfigurowanie zapory platformy Azure za pomocą usługi HDInsight
 
@@ -74,7 +74,7 @@ Utwórz kolekcję reguł aplikacji, która umożliwia klastrowi wysyłanie i odb
 
     **Docelowa sekcja FQDN**
 
-    | Nazwa | Adresy źródłowe | Protokół:Port | Docelowe usługi FQDNS | Uwagi |
+    | Nazwa | Adresy źródłowe | `Protocol:Port` | Docelowe usługi FQDNS | Uwagi |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Umożliwia aktywność logowania systemu Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Umożliwia aktywność logowania systemu Windows |
@@ -106,14 +106,14 @@ Utwórz reguły sieciowe, aby poprawnie skonfigurować klaster HDInsight.
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Obsługa czasu |
     | Rule_2 | Dowolne | * | DC_IP_Address_1, DC_IP_Address_2 | * | Jeśli używasz pakietu zabezpieczeń przedsiębiorstwa (ESP), dodaj regułę sieci w sekcji Adresy IP, która umożliwia komunikację z usługą AAD-DS dla klastrów ESP. Adresy IP kontrolerów domeny można znaleźć w sekcji AAD-DS w portalu |
-    | Rule_3 | TCP | * | Adres IP twojego konta Data Lake Storage | * | Jeśli używasz usługi Azure Data Lake Storage, możesz dodać regułę sieci w sekcji Adresy IP, aby rozwiązać problem sni z usługami ADLS Gen1 i Gen2. Ta opcja spowoduje przekierowanie ruchu do zapory, co może spowodować wyższe koszty dla dużych obciążeń danych, ale ruch będzie rejestrowany i podlegać inspekcji w dziennikach zapory. Określ adres IP konta Usługi Data Lake Storage. Można użyć polecenia programu PowerShell, takiego jak `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` rozpoznanie FQDN na adres IP.|
+    | Rule_3 | TCP | * | Adres IP twojego konta Data Lake Storage | * | Jeśli używasz usługi Azure Data Lake Storage, możesz dodać regułę sieci w sekcji Adresy IP, aby rozwiązać problem sni z usługami ADLS Gen1 i Gen2. Ta opcja spowoduje skierowanie ruchu do zapory. Co może spowodować wyższe koszty dla dużych obciążeń danych, ale ruch będzie rejestrowany i podlegać inspekcji w dziennikach zapory. Określ adres IP konta Usługi Data Lake Storage. Można użyć polecenia programu PowerShell, takiego jak `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` rozpoznanie pliku FQDN na adres IP.|
     | Rule_4 | TCP | * | * | 12000 | (Opcjonalnie) Jeśli używasz usługi Log Analytics, utwórz regułę sieciową w sekcji Adresy IP, aby włączyć komunikację z obszarem roboczym usługi Log Analytics. |
 
     **Sekcja Znaczniki usług**
 
     | Nazwa | Protocol (Protokół) | Adresy źródłowe | Tagi usługi | Porty docelowe | Uwagi |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_7 | TCP | * | SQL | 1433 | Skonfiguruj regułę sieci w sekcji Znaczniki usług dla języka SQL, która umożliwia rejestrowanie i inspekcję ruchu SQL, chyba że skonfigurowano punkty końcowe usługi dla programu SQL Server w podsieci HDInsight, która ominie zaporę. |
+    | Rule_7 | TCP | * | SQL | 1433 | Skonfiguruj regułę sieci w sekcji Znaczniki usług dla języka SQL, która umożliwia rejestrowanie i inspekcję ruchu SQL. Chyba że skonfigurowano punkty końcowe usługi dla programu SQL Server w podsieci HDInsight, która ominie zaporę. |
 
    ![Tytuł: Wprowadź kolekcję reguł aplikacji](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
@@ -153,7 +153,7 @@ Ukończ konfigurację tabeli tras:
 
 1. Wybierz **+ Skojarz**.
 
-1. Na ekranie **Skojarz podsieć** wybierz sieć wirtualną, do której został utworzony klaster, oraz **podsieć** używaną dla klastra HDInsight.
+1. Na ekranie **Skojarz podsieć** wybierz sieć wirtualną, w na którą został utworzony klaster. I **podsieci** używanej dla klastra HDInsight.
 
 1. Kliknij przycisk **OK**.
 
@@ -171,13 +171,13 @@ Jeśli aplikacje mają inne zależności, należy je dodać do zapory platformy 
 
 Zapora azure może wysyłać dzienniki do kilku różnych systemów magazynu. Aby uzyskać instrukcje dotyczące konfigurowania rejestrowania zapory, wykonaj kroki opisane w [samouczku: Monitorowanie dzienników i metryk zapory platformy Azure](../firewall/tutorial-diagnostics.md).
 
-Po zakończeniu konfiguracji rejestrowania, jeśli rejestrujesz dane w usłudze Log Analytics, możesz wyświetlić zablokowany ruch za pomocą kwerendy, takiej jak:
+Po zakończeniu konfiguracji rejestrowania, jeśli używasz usługi Log Analytics, możesz wyświetlić zablokowany ruch za pomocą kwerendy, takiej jak:
 
 ```Kusto
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integracja zapory platformy Azure z dziennikami usługi Azure Monitor jest przydatna podczas pierwszego uzyskiwania aplikacji działającej, gdy nie znasz wszystkich zależności aplikacji. Więcej informacji o dziennikach usługi Azure Monitor można uzyskać na podstawie [analizy danych dziennika w usłudze Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+Integracja zapory platformy Azure z dziennikami usługi Azure Monitor jest przydatna podczas pierwszego działania aplikacji. Zwłaszcza, gdy nie są świadomi wszystkich zależności aplikacji. Więcej informacji o dziennikach usługi Azure Monitor można uzyskać na podstawie [analizy danych dziennika w usłudze Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
 Aby dowiedzieć się więcej o ograniczeniach skali Zapory platformy Azure i zwiększaniu żądań, zobacz [ten](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) dokument lub zapoznaj się z [często zadawanymi pytaniami](../firewall/firewall-faq.md).
 
@@ -185,14 +185,14 @@ Aby dowiedzieć się więcej o ograniczeniach skali Zapory platformy Azure i zwi
 
 Po pomyślnym skonfigurowaniu zapory można użyć wewnętrznego punktu końcowego (`https://CLUSTERNAME-int.azurehdinsight.net`) w celu uzyskania dostępu do Ambari z wewnątrz sieci wirtualnej.
 
-Aby użyć publicznego`https://CLUSTERNAME.azurehdinsight.net`punktu końcowego (`CLUSTERNAME-ssh.azurehdinsight.net`) lub punktu końcowego ssh ( ), upewnij się, że masz odpowiednie trasy w tabeli tras i reguły sieciowej sieciowej sieciowej, aby uniknąć wyjaśnionego [tutaj](../firewall/integrate-lb.md)problemu routingu asymetrycznego . W szczególności w tym przypadku należy zezwolić na adres IP klienta w regułach przychodzącej grupy sieciowej sieciowej, a także dodać go do tabeli routistyki zdefiniowanej przez użytkownika z następnym zestawem przeskoku jako `internet`. Jeśli ta konfiguracja nie jest poprawnie skonfigurowana, zostanie wyświetlony błąd limitu czasu.
+Aby użyć publicznego`https://CLUSTERNAME.azurehdinsight.net`punktu końcowego (`CLUSTERNAME-ssh.azurehdinsight.net`) lub punktu końcowego ssh ( ), upewnij się, że masz odpowiednie trasy w tabeli tras i reguły sieciowej sieciowej sieciowej, aby uniknąć wyjaśnionego [tutaj](../firewall/integrate-lb.md)problemu routingu asymetrycznego . W szczególności w tym przypadku należy zezwolić na adres IP klienta w regułach przychodzącej grupy sieciowej sieciowej, a także dodać go do tabeli routistyki zdefiniowanej przez użytkownika z następnym zestawem przeskoku jako `internet`. Jeśli routing nie jest poprawnie skonfigurowany, zostanie wyświetlony błąd limitu czasu.
 
 ## <a name="configure-another-network-virtual-appliance"></a>Konfigurowanie innego wirtualnego urządzenia sieciowego
 
 > [!Important]
 > Poniższe informacje są wymagane **tylko** wtedy, gdy chcesz skonfigurować wirtualne urządzenie sieciowe (NVA) inne niż Zapora azure.
 
-Poprzednie instrukcje ułatwiają konfigurowanie Zapory platformy Azure w celu ograniczenia ruchu wychodzącego z klastra usługi HDInsight. Zapora azure jest automatycznie skonfigurowana, aby umożliwić ruch dla wielu typowych ważnych scenariuszy. Jeśli chcesz użyć innego wirtualnego urządzenia sieciowego, musisz ręcznie skonfigurować szereg dodatkowych funkcji. Podczas konfigurowania sieciowego urządzenia wirtualnego należy pamiętać o następujących elementów:
+Poprzednie instrukcje ułatwiają konfigurowanie Zapory platformy Azure w celu ograniczenia ruchu wychodzącego z klastra usługi HDInsight. Zapora azure jest automatycznie skonfigurowana, aby umożliwić ruch dla wielu typowych ważnych scenariuszy. Użycie innego wirtualnego urządzenia sieciowego wymaga skonfigurowania szeregu dodatkowych funkcji. Podczas konfigurowania urządzenia wirtualnego sieci należy pamiętać o następujących czynnikach:
 
 * Usługi obsługujące punkt końcowy usługi powinny być skonfigurowane z punktami końcowymi usługi.
 * Zależności adresów IP dotyczą ruchu innego niż HTTP/S (zarówno ruchu TCP, jak i UDP).
@@ -213,7 +213,7 @@ Poprzednie instrukcje ułatwiają konfigurowanie Zapory platformy Azure w celu o
 | **Punktu końcowego** | **Szczegóły** |
 |---|---|
 | \*:123 | Sprawdzanie zegara NTP. Ruch jest sprawdzany w wielu punktach końcowych na porcie 123 |
-| Ip opublikowane [tutaj](hdinsight-management-ip-addresses.md) | Są to usługi HDInsight |
+| Ip opublikowane [tutaj](hdinsight-management-ip-addresses.md) | Te usługi IP są usługą HDInsight |
 | Prywatne adresy IP AAD-DS dla klastrów ESP |
 | \*:16800 dla aktywacji systemu Windows KMS |
 | \*12000 dla analizy dzienników |

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.openlocfilehash: d40d4cfe1b86448f1e8df307013905d69f203dcd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/14/2020
+ms.openlocfilehash: 1e2a837acef976b6b872c2d4002ee49d662ad594
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261061"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641326"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Tworzenie sugestatora w celu umożliwienia autouzupełnienia i sugerowanych wyników w kwerendzie
 
@@ -42,15 +42,15 @@ Podczas tworzenia prefiksów sugestator ma własny łańcuch analizy, podobny do
 
 ## <a name="define-a-suggester"></a>Definiowanie sugestatora
 
-Chociaż sugestator ma kilka właściwości, jest to przede wszystkim zbiór pól, dla których są włączanie wyszukiwania jako typ środowiska. Na przykład aplikacja turystyczna może chcieć włączyć autouzupełnienie miejsc docelowych, miast i atrakcji. W związku z tym wszystkie trzy pola pójdą w kolekcji pól.
+Aby utworzyć sugestator, dodaj go do [schematu indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) i [ustaw każdą właściwość](#property-reference). W indeksie, można mieć jeden suggester (w szczególności jeden suggester w kolekcji suggesters). Najlepszy czas, aby utworzyć sugest jest, gdy są również definiowania pola, które będzie go używać.
 
-Aby utworzyć sugest, dodaj go do schematu indeksu. Możesz mieć jeden sugest w indeksie (w szczególności jeden sugest w kolekcji sugestów). Sugestator przyjmuje listę pól. 
+### <a name="choose-fields"></a>Wybieranie pól
 
-+ W przypadku sugestii wybierz pola, które najlepiej reprezentują pojedynczy wynik. Nazwy, tytuły lub inne unikatowe pola, które rozróżniają dokumenty, działają najlepiej. Jeśli pola składają się z podobnych lub identycznych wartości, sugestie będą składać się z identycznych wyników, a użytkownik nie będzie wiedział, który z nich kliknie.
+Chociaż sugestator ma kilka właściwości, jest to przede wszystkim zbiór pól, dla których są włączanie wyszukiwania jako typ środowiska. W szczególności w przypadku sugestii wybierz pola, które najlepiej reprezentują pojedynczy wynik. Nazwy, tytuły lub inne unikatowe pola, które rozróżniają wiele dopasowań, działają najlepiej. Jeśli pola składają się z powtarzających się wartości, sugestie składają się z identycznych wyników, a użytkownik nie będzie wiedział, który z nich kliknie.
 
-+ Upewnij się, że każde `sourceFields` pole na liście sugestywnych używa`"analyzer": null`domyślnego standardowego analizatora `"analyzer": "en.Microsoft"`Lucene ( ) lub [analizatora języka](index-add-language-analyzers.md) (na przykład ). 
+Upewnij się, że każde pole używa analizatora, który wykonuje analizę leksykalne podczas indeksowania. Można użyć domyślnego standardowego analizatora`"analyzer": null`Lucene ( ) lub `"analyzer": "en.Microsoft"` [analizatora języka](index-add-language-analyzers.md) (na przykład ). 
 
-  Wybór analizatora określa sposób tokenizacji pól, a następnie poprecysowania. Na przykład dla ciągu dzielonego, takich jak "kontekstowe", przy użyciu analizatora języka spowoduje te kombinacje tokenów: "context", "sensitive", "context-sensitive". Gdyby użyto standardowego analizatora Lucene, ciąg dzielenia wyrazów nie istniałby.
+Wybór analizatora określa sposób tokenizacji pól, a następnie poprecysowania. Na przykład dla ciągu dzielonego, takich jak "kontekstowe", przy użyciu analizatora języka spowoduje te kombinacje tokenów: "context", "sensitive", "context-sensitive". Gdyby użyto standardowego analizatora Lucene, ciąg dzielenia wyrazów nie istniałby.
 
 > [!TIP]
 > Należy rozważyć użycie [interfejsu API analizy tekstu, aby](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) uzyskać wgląd w sposób tokenizacji terminów, a następnie poprecysowania. Po utworzeniu indeksu, można wypróbować różne analizatory na ciąg, aby wyświetlić tokeny, które emituje.
@@ -61,7 +61,7 @@ Najlepszy czas, aby utworzyć sugest jest, gdy są również tworzenie definicji
 
 Jeśli spróbujesz utworzyć sugest przy użyciu wcześniej istniejących pól, interfejs API nie zezwala na to. Prefiksy są generowane podczas indeksowania, gdy częściowe terminy w dwóch lub więcej kombinacji znaków są tokenizowane obok całych terminów. Biorąc pod uwagę, że istniejące pola są już tokenizowane, trzeba będzie odbudować indeks, jeśli chcesz dodać je do sugesty. Aby uzyskać więcej informacji, zobacz [Jak odbudować indeks usługi Azure Cognitive Search](search-howto-reindex.md).
 
-### <a name="create-using-the-rest-api"></a>Tworzenie przy użyciu interfejsu API REST
+## <a name="create-using-rest"></a>Tworzenie przy użyciu funkcji REST
 
 W interfejsie API REST dodaj sugestywne za pomocą [programu Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) lub Update [Index](https://docs.microsoft.com/rest/api/searchservice/update-index). 
 
@@ -99,7 +99,7 @@ W interfejsie API REST dodaj sugestywne za pomocą [programu Create Index](https
   }
   ```
 
-### <a name="create-using-the-net-sdk"></a>Tworzenie przy użyciu sdk .NET
+## <a name="create-using-net"></a>Tworzenie przy użyciu platformy .NET
 
 W języku C#zdefiniuj [obiekt sugestywny](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters`jest kolekcją, ale może zająć tylko jeden element. 
 
@@ -122,37 +122,40 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
-### <a name="property-reference"></a>Odwołanie do właściwości
+## <a name="property-reference"></a>Odwołanie do właściwości
 
 |Właściwość      |Opis      |
 |--------------|-----------------|
 |`name`        |Nazwa sugestatora.|
-|`searchMode`  |Strategia używana do wyszukiwania zwrotów kandydatów. Jedynym trybem obecnie obsługiwanym jest `analyzingInfixMatching`, który wykonuje elastyczne dopasowywanie fraz na początku lub w środku zdań.|
+|`searchMode`  |Strategia używana do wyszukiwania zwrotów kandydatów. Jedynym obecnie obsługiwanym trybem jest `analyzingInfixMatching`, który obecnie pasuje na początku okresu.|
 |`sourceFields`|Lista co najmniej jednego pola, które są źródłem zawartości sugestii. Pola muszą być `Edm.String` `Collection(Edm.String)`typu i . Jeśli analizator jest określony w polu, musi to być nazwany analizator z [tej listy](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (nie analizatora niestandardowego).<p/> Najlepszym rozwiązaniem jest określenie tylko tych pól, które nadają się do oczekiwanej i odpowiedniej odpowiedzi, niezależnie od tego, czy jest to ukończony ciąg na pasku wyszukiwania, czy na liście rozwijanej.<p/>Nazwa hotelu jest dobrym kandydatem, ponieważ ma precyzję. Pełne pola, takie jak opisy i komentarze, są zbyt gęste. Podobnie powtarzające się pola, takie jak kategorie i tagi, są mniej skuteczne. W przykładach i tak uwzględniamy "kategorię", aby wykazać, że można dołączyć wiele pól. |
 
 <a name="how-to-use-a-suggester"></a>
 
 ## <a name="use-a-suggester"></a>Korzystanie z sugestatora
 
-Sugestywny jest używany w kwerendzie. Po utworzeniu sugestatora wywołaj odpowiedni interfejs API w logice kwerendy, aby wywołać tę funkcję. 
+Sugestywny jest używany w kwerendzie. Po utworzeniu sugestatora należy wywołać jeden z następujących interfejsów API dla środowiska wyszukiwania zgodnie z typem:
 
 + [Sugestie REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
 + [Interfejs API REST autouzupełniania](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
 + [Sugestia z metodąHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
 + [Autouzupełnienie z metodąHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
-Użycie interfejsu API jest zilustrowane w poniższym wywołaniu do interfejsu API REST autouzupełnianie. Istnieją dwa wynos z tego przykładu. Po pierwsze, podobnie jak w przypadku wszystkich zapytań, operacja jest przeciwko kolekcji dokumentów indeksu. Po drugie, można dodać parametry kwerendy. Podczas gdy wiele parametrów kwerendy są wspólne dla obu interfejsów API, lista jest inna dla każdego z nich.
+W aplikacji wyszukiwania kod klienta należy wykorzystać biblioteki, takich jak [jQuery UI Autouzupełniania](https://jqueryui.com/autocomplete/) do zbierania kwerendy częściowej i zapewnić dopasowanie. Aby uzyskać więcej informacji na temat tego zadania, zobacz [Dodawanie autouzupełniania lub sugerowanych wyników do kodu klienta](search-autocomplete-tutorial.md).
+
+Użycie interfejsu API jest zilustrowane w poniższym wywołaniu do interfejsu API REST autouzupełnianie. Istnieją dwa wynos z tego przykładu. Po pierwsze, podobnie jak w przypadku wszystkich zapytań, operacja jest przeciwko kolekcji dokumentów indeksu i kwerendy zawiera parametr **wyszukiwania,** który w tym przypadku zapewnia kwerendę częściową. Po drugie należy dodać **suggesterName** do żądania. Jeśli sugest nie jest zdefiniowany w indeksie, wywołanie autouzupełnienia lub sugestie zakończy się niepowodzeniem.
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs/autocomplete?[query parameters]  
-api-key: [admin or query key]
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+{
+  "search": "minecraf",
+  "suggesterName": "sg"
+}
 ```
-
-Jeśli sugest nie jest zdefiniowany w indeksie, wywołanie autouzupełnienia lub sugestie zakończy się niepowodzeniem.
 
 ## <a name="sample-code"></a>Przykładowy kod
 
-+ [Tworzenie pierwszej aplikacji w](tutorial-csharp-type-ahead-and-suggestions.md) przykładzie języka C# pokazuje konstrukcję sugesty, sugerowane zapytania, autouzupełnianie i nawigacji aspektowej. Ten przykładowy kod jest uruchamiany w usłudze Azure Cognitive Search w piaskownicy i używa wstępnie załadowanego indeksu hoteli, więc wszystko, co musisz zrobić, to nacisnąć klawisz F5, aby uruchomić aplikację. Nie jest wymagana subskrypcja ani logowanie.
++ [Utwórz pierwszą aplikację w języku C# (lekcja 3 — dodaj wyszukiwanie zgodnie z typem)](tutorial-csharp-type-ahead-and-suggestions.md) przykład pokazuje konstrukcję sugestywny, sugerowane zapytania, autouzupełnianie i nawigacji aspektowej. Ten przykładowy kod jest uruchamiany w usłudze Azure Cognitive Search w piaskownicy i używa wstępnie załadowanego indeksu hoteli, więc wszystko, co musisz zrobić, to nacisnąć klawisz F5, aby uruchomić aplikację. Nie jest wymagana subskrypcja ani logowanie.
 
 + [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) jest starsza próbka zawierająca kod Języka C# i Java. Pokazuje również konstrukcję sugestywny, sugerowane zapytania, autouzupełnianie i nawigację fasetacją. Ten przykładowy kod używa hostowanych danych przykładowych [NYCJobs.](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 
 
@@ -161,4 +164,4 @@ Jeśli sugest nie jest zdefiniowany w indeksie, wywołanie autouzupełnienia lub
 Zalecamy poniższy przykład, aby zobaczyć, jak żądania są sformułowane.
 
 > [!div class="nextstepaction"]
-> [Sugestie i przykłady autouzupełniania](search-autocomplete-tutorial.md) 
+> [Dodawanie autouzupełniania i sugestii do kodu klienta](search-autocomplete-tutorial.md) 

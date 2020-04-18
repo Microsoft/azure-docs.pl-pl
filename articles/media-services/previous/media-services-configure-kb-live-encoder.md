@@ -14,17 +14,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: afc0fcb6751a08b41010fa569c67a9827e0abec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: babb5a10818c8108bae34402962fd2503dbecbdc
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77131929"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641681"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Wysyłanie pojedynczej transmisji bitów strumieniowej na żywo za pomocą embarga na żywo Haivision KB  
 > [!div class="op_single_selector"]
 > * [Okręg wyborczy Haivision](media-services-configure-kb-live-encoder.md)
-> * [Tricaster ( Tricaster )](media-services-configure-tricaster-live-encoder.md)
 > * [Narzędzie Wirecast](media-services-configure-wirecast-live-encoder.md)
 
 W tym temacie pokazano, jak skonfigurować [koder kodera na żywo Havision KB](https://www.haivision.com/products/kb-series/) do wysyłania pojedynczego strumienia szybkości transmisji bitów do kanałów usługi AMS, które są włączone do kodowania na żywo. Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami obsługującymi funkcję Live Encoding w usłudze Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).

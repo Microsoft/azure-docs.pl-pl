@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/03/2019
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137459"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641370"
 ---
-# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Zwiększ poziom dostępu do zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania
+# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Podnoszenie poziomu dostępu w celu zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania
 
 Jako administrator globalny w usłudze Azure Active Directory (Azure AD) możesz nie mieć dostępu do wszystkich subskrypcji i grup zarządzania w katalogu. W tym artykule opisano sposoby podnoszenia poziomu dostępu do wszystkich subskrypcji i grup zarządzania.
 
@@ -47,7 +47,7 @@ Należy usunąć ten podwyższony poziom dostępu po wprowadzeniu zmian, które 
 
 ![Podnoszenie poziomu dostępu](./media/elevate-access-global-admin/elevate-access.png)
 
-## <a name="azure-portal"></a>Portal Azure
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="elevate-access-for-a-global-administrator"></a>Zwiększ poziom dostępu administratora globalnego
 
@@ -55,9 +55,7 @@ Wykonaj następujące kroki, aby podnieść poziom dostępu dla administratora g
 
 1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) lub [centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com) jako administrator globalny.
 
-1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
-
-   ![Wybierz usługę Azure Active Directory — zrzut ekranu](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
+1. Otwórz **usługę Azure Active Directory**.
 
 1. W obszarze **Zarządzanie**wybierz pozycję **Właściwości**.
 
@@ -233,7 +231,7 @@ Można wyświetlić listę wszystkich przypisań odmów`/`dla użytkownika w zak
 
 ### <a name="remove-elevated-access"></a>Usuwanie podwyższonego poziomu dostępu
 
-Podczas wywoływania `elevateAccess`, należy utworzyć przypisanie roli dla siebie, więc aby odwołać te uprawnienia, które`/`należy usunąć przypisanie roli Administratora dostępu użytkownika dla siebie w zakresie głównym ( )
+Podczas wywoływania `elevateAccess`program umożliwia utworzenie przypisania roli dla siebie, więc aby odwołać te uprawnienia, należy`/`usunąć przypisanie roli Administratora dostępu użytkownika dla siebie w zakresie głównym ( ).
 
 1. Wywołanie [funkcji GETDefinitions,](/rest/api/authorization/roledefinitions/get) gdzie `roleName` jest równa Administrator dostępu użytkownika, aby określić nazwę roli administratora dostępu użytkownika.
 

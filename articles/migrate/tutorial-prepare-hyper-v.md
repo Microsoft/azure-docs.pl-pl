@@ -4,16 +4,16 @@ description: Dowiedz się, jak przygotować się do oceny/migracji maszyn wirtua
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: e86e634812e9f2782a003a11b48cfecf91d95359
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ea6290eae187ed4ead39f7307a84a54a23c19c29
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535302"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641632"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Przygotowanie do oceny i migracji maszyn wirtualnych z programem Hyper-V na platformę Azure
 
-W tym artykule opisano sposób przygotowania do oceny lokalnych maszyn wirtualnych funkcji Hyper-V za pomocą narzędzia Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool) oraz migracji maszyn wirtualnych z funkcji Hyper-V za pomocą [usługi Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
+W tym artykule opisano, jak przygotować się do oceny lokalnych maszyn wirtualnych funkcji Hyper V za pomocą [usługi Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool)i migracji maszyn wirtualnych funkcji Hyper-V za pomocą narzędzia Azure [Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 Ten samouczek jest pierwszym z serii, który pokazuje, jak ocenić i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:

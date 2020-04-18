@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 260ddccc1a1b0bd4090284025b79e20ff5ce4fdc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 44d6776a367a5cb1eeb86c955f083598d417aba6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475248"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641665"
 ---
 # <a name="azure-media-services-concepts"></a>Pojęcia dotyczące usługi Azure Media Services 
 
@@ -111,7 +111,7 @@ Aby uzyskać informacje na temat obsługiwanych koderów, zobacz [Kodery](media-
 ## <a name="live-streaming"></a>Transmisja strumieniowa na żywo
 W usłudze Azure Media Services kanał reprezentuje potok do przetwarzania zawartości przesyłania strumieniowego na żywo. Kanał odbiera transmisje wejściowe na żywo na jeden z dwóch sposobów:
 
-* Lokalny koder na żywo wysyła do kanału wiele bitów RTMP lub Płynne przesyłanie strumieniowe (Fragmented MP4). Można użyć następujących koderów na żywo, które wyprowadzają wielosytowe płynne przesyłanie strumieniowe: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco i Elemental. Następujące kodery na żywo wyjściowe RTMP: Adobe Flash Live Encoder, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, Haivision i Tricaster enkoderów. Pozyskane strumienie przechodzą przez kanały bez dalszego transkodowania i kodowania. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
+* Lokalny koder na żywo wysyła do kanału wiele bitów RTMP lub Płynne przesyłanie strumieniowe (Fragmented MP4). Można użyć następujących koderów na żywo, które wyprowadzają wielosytowe płynne przesyłanie strumieniowe: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco i Elemental. Następujące kodery na żywo wyjściowe RTMP: Adobe Flash Live Encoder, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, Haivision encoders. Pozyskane strumienie przechodzą przez kanały bez dalszego transkodowania i kodowania. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 * Pojedynczy strumień szybkości transmisji bitów (w jednym z następujących formatów: RTMP lub Smooth Streaming (Fragmented MP4)) jest wysyłany do kanału, który jest włączony do wykonywania kodowania na żywo za pomocą usługi Media Services. Kanał wykonuje następnie kodowanie na żywo przychodzącego strumienia o pojedynczej szybkości transmisji bitów do postaci strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów). Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
 ### <a name="channel"></a>Channel
@@ -160,7 +160,7 @@ Aby uzyskać więcej informacji zobacz następujące artykuły:
 - [Chroń za pomocą PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Dostarczanie
-### <a name="dynamic-packaging"></a><a id="dynamic_packaging"/>Dynamiczne pakowanie
+### <a name="dynamic-packaging"></a><a id="dynamic_packaging"/>Dynamiczne tworzenie pakietów
 Podczas pracy z usługą Media Services zaleca się zakodowanie plików z antresoli w adaptacyjny zestaw MP4 z szybkością transmisji bitów, a następnie przekonwertowanie zestawu na żądany format za pomocą [dynamicznego pakowania](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Punkt końcowy przesyłania strumieniowego

@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: e4e4ac1b0a867130dd7b9e276db52e1ca1e72976
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062145"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641377"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Opis definicji ról dla zasobów platformy Azure
 
 Jeśli próbujesz zrozumieć, jak działa rola lub jeśli tworzysz własną [rolę niestandardową dla zasobów platformy Azure,](custom-roles.md)warto zrozumieć, jak zdefiniowane są role. W tym artykule opisano szczegóły definicji ról i zawiera kilka przykładów.
 
-## <a name="role-definition-structure"></a>Struktura definicji roli
+## <a name="role-definition"></a>Definicja roli
 
-*Definicja roli* to zbiór uprawnień. Czasami jest nazywana po prostu *rolą*. Definicja roli określa dozwolone operacje, na przykład odczyt, zapis, czy usuwanie. Może ona również zawierać listę operacji, których nie można wykonywać, lub operacji związanych z danymi źródłowymi. Definicja roli ma następującą strukturę:
+*Definicja roli* to zbiór uprawnień. Czasami jest nazywana po prostu *rolą*. Definicja roli określa dozwolone operacje, na przykład odczyt, zapis, czy usuwanie. Może ona również zawierać listę operacji, których nie można wykonywać, lub operacji związanych z danymi źródłowymi. Definicja roli ma następujące właściwości:
 
 ```
 Name
@@ -41,6 +41,20 @@ DataActions []
 NotDataActions []
 AssignableScopes []
 ```
+
+| Właściwość | Opis |
+| --- | --- |
+| `Name` | Wyświetlana nazwa roli. |
+| `Id` | Unikatowy identyfikator roli. |
+| `IsCustom` | Wskazuje, czy jest to rola niestandardowa. Ustaw `true` dla ról niestandardowych. |
+| `Description` | Opis roli. |
+| `Actions` | Tablica ciągów, która określa operacje zarządzania, które rola pozwala na wykonanie. |
+| `NotActions` | Tablica ciągów określających operacje zarządzania, które są `Actions`wykluczone z dozwolonej . |
+| `DataActions` | Tablica ciągów, która określa operacje danych, które rola pozwala na wykonanie danych w tym obiekcie. |
+| `NotDataActions` | Tablica ciągów określających operacje danych, które są `DataActions`wykluczone z dozwolonej . |
+| `AssignableScopes` | Tablica ciągów, która określa zakresy, które rola jest dostępna dla przypisania. |
+
+### <a name="operations-format"></a>Format operacji
 
 Operacje są określane za pomocą ciągów, które mają następujący format:
 
@@ -55,6 +69,8 @@ Część `{action}` ciągu operacji określa typ operacji, które można wykona�
 | `write` | Włącza operacje zapisu (PUT lub PATCH). |
 | `action` | Włącza operacje niestandardowe, takie jak ponowne uruchomienie maszyn wirtualnych (POST). |
 | `delete` | Włącza operacje usuwania (DELETE). |
+
+### <a name="role-definition-example"></a>Przykład definicji roli
 
 Oto definicja roli [współautora](built-in-roles.md#contributor) w formacie JSON. Symbol wieloznaczny (`*`) w obszarze `Actions` oznacza, że podmiot zabezpieczeń przypisany do tej roli może wykonywać wszystkie akcje, czyli może zarządzać wszystkim. Dotyczy to również akcji, które zostaną zdefiniowane, gdy do platformy Azure zostaną dodane nowe typy zasobów. Operacje w obszarze `NotActions` są odejmowane od zestawu operacji w obszarze `Actions`. W przypadku roli [Współautor](built-in-roles.md#contributor) zawartość właściwości `NotActions` uniemożliwia tej roli zarządzanie dostępem do zasobów oraz przypisywanie dostępu do zasobów.
 
@@ -92,7 +108,7 @@ Dostęp do zarządzania nie jest dziedziczony do danych, pod warunkiem, że meto
 
 Wcześniej kontrola dostępu oparta na rolach nie była używana do operacji na danych. Autoryzacja dla operacji danych różniła się w zależności od dostawców zasobów. Ten sam oparty na rolach model autoryzacji kontroli dostępu, używany w operacjach zarządzania, został rozszerzony na operacje na danych.
 
-Do obsługi operacji danych dodano nowe właściwości danych do struktury definicji roli. Operacje na danych są definiowane za pomocą właściwości `DataActions` i `NotDataActions`. Dodając te właściwości danych, zachowywana jest separacja między zarządzaniem a danymi. Zapobiega to nieoczekiwanemu uzyskiwaniu dostępu do danych za pośrednictwem bieżących przypisań ról z symbolami wieloznacznymi (`*`). Poniżej przedstawiono niektóre operacje na danych, określane za pomocą właściwości `DataActions` i `NotDataActions`:
+Do obsługi operacji danych dodano nowe właściwości danych do definicji roli. Operacje na danych są definiowane za pomocą właściwości `DataActions` i `NotDataActions`. Dodając te właściwości danych, zachowywana jest separacja między zarządzaniem a danymi. Zapobiega to nieoczekiwanemu uzyskiwaniu dostępu do danych za pośrednictwem bieżących przypisań ról z symbolami wieloznacznymi (`*`). Poniżej przedstawiono niektóre operacje na danych, określane za pomocą właściwości `DataActions` i `NotDataActions`:
 
 - Odczyt listy obiektów blob w kontenerze
 - Zapis obiektu blob magazynu w kontenerze

@@ -7,16 +7,16 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 04/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8232fd4c2a1e17800c96854b4ba7298e57ed84b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63a708f80ad18309269e37c354b047c304a260d3
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76989896"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641289"
 ---
-# <a name="shape-json-to-maximize-query-performance"></a>Ukształtuj JSON, aby zmaksymalizować wydajność kwerendy 
+# <a name="shape-json-to-maximize-query-performance"></a>Ukształtuj JSON, aby zmaksymalizować wydajność kwerendy
 
 Ten artykuł zawiera wskazówki dotyczące kształtowania JSON, aby zmaksymalizować wydajność zapytań usługi Azure Time Series Insights.
 

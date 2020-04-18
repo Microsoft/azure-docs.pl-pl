@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 920d8bfbcef33464d528306113abe6223d752889
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a99038f41043b899886c7161f9b12c77c807c4c
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477752"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641827"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Omówienie: automatyzacja wdrażania aplikacji logiki platformy Azure przy użyciu szablonów usługi Azure Resource Manager
 
@@ -391,7 +391,9 @@ Ta składnia pokazuje, gdzie można zadeklarować parametry zarówno na poziomie
             },
             // Workflow definition parameter value
             "parameters": {
-               "<workflow-definition-parameter-name>": "[parameters('<template-parameter-name>')]"
+               "<workflow-definition-parameter-name>": { 
+                  "value": "[parameters('<template-parameter-name>')]"
+               }
             },
             "accessControl": {}
          },
@@ -417,7 +419,7 @@ W tym przykładowym szablonie pokazano, jak można wykonać te zadania, definiuj
 * Użyj tych wartości zarówno na poziomie definicji szablonu, jak i przepływu pracy.
 * Podaj te wartości przy użyciu pliku parametrów.
 
-**Szablonu**
+**Szablon**
 
 ```json
 {
@@ -783,7 +785,7 @@ Oto przykład, który zawiera nazwę konta i klucz dostępu dla połączenia us�
 }
 ```
 
-**Szablonu**
+**Szablon**
 
 ```json
 {

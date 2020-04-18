@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 451e83fa6ab547536a4cfd85304930e749a8247f
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998391"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641618"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak pracować z wynikami wyszukiwania w usłudze Azure Cognitive Search
 
@@ -108,10 +108,22 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
     }
 ```
 
-> [!IMPORTANT]
-> Usługi utworzone po 15 lipca 2020 r. zapewnią inne wrażenia z wyróżniania. Usługi utworzone przed tą datą nie zmienią się w ich zachowaniu wyróżniania. Dzięki tej zmianie zostaną zwrócone tylko frazy, które pasują do kwerendy pełnej frazy. Ponadto będzie można określić rozmiar fragmentu zwrócony dla podświetlenia.
->
-> Podczas pisania kodu klienta, który implementuje naciśnięcie wyróżniania, należy pamiętać o tej zmianie. Należy zauważyć, że nie będzie to miało wpływu na ciebie, chyba że utworzysz zupełnie nową usługę wyszukiwania.
+### <a name="new-behavior-starting-july-15"></a>Nowe zachowanie (od 15 lipca)
+
+Usługi utworzone po 15 lipca 2020 r. zapewnią inne wrażenia z wyróżniania. Usługi utworzone przed tą datą nie zmienią się w ich zachowaniu wyróżniania. 
+
+Z nowym zachowaniem:
+
+* Zwracane będą tylko frazy pasujące do kwerendy pełnej frazy. Zapytanie "super bowl" zwróci podkreśla tak:
+
+    ```html
+    '<em>super bowl</em> is super awesome with a bowl of chips'
+    ```
+  Należy pamiętać, że termin *miska żetonów* nie ma żadnych podświetlenia, ponieważ nie pasuje do pełnej frazy.
+  
+* Będzie można określić rozmiar fragmentu zwrócony dla podświetlenia. Rozmiar fragmentu jest określony jako liczba znaków (maksymalna wynosi 1000 znaków).
+
+Podczas pisania kodu klienta, który implementuje naciśnięcie wyróżniania, należy pamiętać o tej zmianie. Należy zauważyć, że nie będzie to miało wpływu na ciebie, chyba że utworzysz zupełnie nową usługę wyszukiwania.
 
 ## <a name="next-steps"></a>Następne kroki
 

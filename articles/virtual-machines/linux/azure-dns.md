@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 3d5ecaf67dcff182c7dace474b7bda45cdfd5c58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0910b31685aa408c319b40ea23782b11724b6237
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969319"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641717"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opcje rozpoznawania nazw DNS dla maszyn wirtualnych systemu Linux na platformie Azure
 Platforma Azure domyślnie zapewnia rozpoznawanie nazw DNS dla wszystkich maszyn wirtualnych, które znajdują się w jednej sieci wirtualnej. Można zaimplementować własne rozwiązanie rozpoznawania nazw DNS, konfigurując własne usługi DNS na maszynach wirtualnych hostów platformy Azure. Poniższe scenariusze powinny pomóc w wyborze tego, który działa w twojej sytuacji.
@@ -43,7 +43,7 @@ Wraz z rozdzielczością publicznych nazw DNS platforma Azure zapewnia wewnętrz
 * Rozpoznawanie nazw jest dostarczane między maszynami wirtualnymi w sieciach wirtualnych bez konieczności korzystania z nazwy FQDN.
 * Można użyć nazw hostów, które najlepiej opisują wdrożenia, a nie pracy z automatycznie generowanymi nazwami.
 
-**Zagadnienia do rozważenia:**
+**Zagadnienia dotyczące:**
 
 * Nie można zmodyfikować sufiksu DNS tworzonego przez platformę Azure.
 * Nie można ręcznie zarejestrować własnych rekordów.
@@ -97,7 +97,7 @@ Aby sprawdzić bieżące ustawienia na maszynie wirtualnej Systemu Linux, 'cat /
 Plik resolv.conf jest generowany automatycznie i nie powinien być edytowany. Konkretne kroki, które dodają wiersz "opcje", różnią się w zależności od rozkładu:
 
 **Ubuntu** (używa resolvconf)
-1. Dodaj wiersz opcji do '/etc/resolveconf/resolv.conf.d/head'.
+1. Dodaj linię opcji do '/etc/resolvconf/resolv.conf.d/head'.
 2. Uruchom 'resolvconf -u', aby zaktualizować.
 
 **SUSE** (używa netconf)
