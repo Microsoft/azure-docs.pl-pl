@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 0cfe651a91cc16e7d4b58af67dac29fe5106a48c
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 1414d86577e5aa17cb42762403b3767948c1e30c
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986763"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81642906"
 ---
 <a name="HOLTop"></a>
 
@@ -61,7 +61,7 @@ npm init
 Zainstaluj `@azure/ai-text-analytics` pakiety NPM:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.3
+npm install --save @azure/ai-text-analytics@1.0.0-preview.4
 ```
 
 > [!TIP]
@@ -88,7 +88,7 @@ Utwórz plik `index.js` o nazwie i dodaj następujące elementy:
 ```javascript
 "use strict";
 
-const { TextAnalyticsClient, TextAnalyticsApiKeyCredential } = require("@azure/ai-text-analytics");
+const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 ```
 
 #### <a name="version-21"></a>[Wersja 2.1](#tab/version-2)
@@ -124,7 +124,7 @@ Obiekt odpowiedzi jest listą zawierającą informacje analityczne dla każdego 
 * [Wykrywanie języka](#language-detection)
 * [Uznanie nazwanej encji](#named-entity-recognition-ner)
 * [Łączenie jednostek](#entity-linking)
-* [Wyodrębnianie fraz kluczowych](#key-phrase-extraction)
+* [Wyodrębnianie kluczowych fraz](#key-phrase-extraction)
 
 ## <a name="client-authentication"></a>Uwierzytelnianie klienta
 
@@ -133,7 +133,7 @@ Obiekt odpowiedzi jest listą zawierającą informacje analityczne dla każdego 
 Utwórz `TextAnalyticsClient` nowy obiekt z kluczem i punktem końcowym jako parametrami.
 
 ```javascript
-const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new TextAnalyticsApiKeyCredential(key));
+const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 ```
 
 #### <a name="version-21"></a>[Wersja 2.1](#tab/version-2)
@@ -266,7 +266,6 @@ Document ID: 3 , Language: Chinese_Simplified
 
 > [!NOTE]
 > W `3.0-preview`wersji :
-> * NER zawiera oddzielne metody wykrywania danych osobowych. 
 > * Łączenie jednostek jest osobnym żądaniem niż NER.
 
 Utwórz tablicę ciągów zawierających dokument, który chcesz analizować. Wywołanie `recognizeEntities()` metody klienta i `RecognizeEntitiesResult` uzyskać obiekt. Iteracja za pośrednictwem listy wyników i wydrukuj nazwę encji, typ, podtyp, przesunięcie, długość i wynik.
@@ -318,40 +317,6 @@ Document ID: 1
         Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
         Score: 0.31
-```
-
-## <a name="using-ner-to-detect-personal-information"></a>Używanie NER do wykrywania danych osobowych
-
-Utwórz tablicę ciągów zawierających dokument, który chcesz analizować. Wywołanie `recognizePiiEntities()` metody klienta i `EntitiesBatchResult` uzyskać obiekt. Iteracja za pośrednictwem listy wyników i wydrukuj nazwę encji, typ, podtyp, przesunięcie, długość i wynik.
-
-
-```javascript
-async function entityPiiRecognition(client){
-
-    const entityPiiInput = [
-        "Insurance policy for SSN on file 123-12-1234 is here by approved."
-    ];
-    const entityPiiResults = await client.recognizePiiEntities(entityPiiInput);
-
-    entityPiiResults.forEach(document => {
-        console.log(`Document ID: ${document.id}`);
-        document.entities.forEach(entity => {
-            console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tScore: ${entity.score}`);
-        });
-    });
-}
-entityPiiRecognition(textAnalyticsClient);
-```
-
-Uruchom kod `node index.js` w oknie konsoli.
-
-### <a name="output"></a>Dane wyjściowe
-
-```console
-Document ID: 0
-        Name: 123-12-1234       Category: U.S. Social Security Number (SSN)     Subcategory: N/A
-        Score: 0.85
 ```
 
 ## <a name="entity-linking"></a>Łączenie jednostek
