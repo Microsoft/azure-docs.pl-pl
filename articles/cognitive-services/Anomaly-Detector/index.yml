@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 82755c42ecc46c2d6bcc7ec3362f43a594923693
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 26632aebbd6cddd1463064b397a2f42071a5d518
+  ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "79415944"
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "81757305"
 landingContent:
 - title: Informacje o interfejsie API narzędzia do wykrywania anomalii
   linkLists:
@@ -49,9 +49,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Przy użyciu języka C#
-      url: quickstarts/detect-data-anomalies-csharp-sdk.md
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
+    - text: Korzystanie z języka JavaScript
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
     - text: Korzystanie z języka Python
-      url: quickstarts/detect-data-anomalies-python-sdk.md
+      url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
   - linkListType: tutorial
     links:
     - text: Wizualizowanie anomalii przy użyciu wykrywania wsadowego i usługi Power BI

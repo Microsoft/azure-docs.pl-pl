@@ -10,12 +10,8 @@
   items:
     - name: Biblioteka kliencka
       items:
-        - name: 'Przy użyciu języka C#'
-          href: quickstarts/detect-data-anomalies-csharp-sdk.md
-        - name: Korzystanie z języka Python
-          href: quickstarts/detect-data-anomalies-python-sdk.md
-        - name: Używanie środowiska Node.js
-          href: quickstarts/detect-data-anomalies-nodejs-sdk.md
+        - name: Biblioteki klienckie narzędzia do wykrywania anomalii
+          href: ./quickstarts/client-libraries.md
     - name: Interfejs API REST
       items:
         - name: 'Przy użyciu języka C#'

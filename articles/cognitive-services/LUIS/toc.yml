@@ -156,8 +156,6 @@
         - name: Dodawanie deskryptora
           displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
-        - name: Migrowanie do interfejsów tworzenia w wersji 3
-          href: luis-migration-authoring-entities.md
         - name: Za pomocą interfejsów API REST
           items:
             - name: Programowe tworzenie aplikacji przy użyciu środowiska Node.js
@@ -193,6 +191,8 @@
           displayName: 'import, export'
     - name: Publikowanie
       href: luis-how-to-publish-app.md
+    - name: Środowisko uruchomieniowe przewidywania zapytania
+      href: luis-get-started-get-intent-from-browser.md
     - name: Zarządzanie aplikacją
       items:
         - name: Zasoby platformy Azure
@@ -216,11 +216,10 @@
       items:
         - name: Dla deweloperów
           href: developer-reference-resource.md
-        - name: Tworzenie interfejsów API
-          href: luis-migration-api-authoring.md
-        - name: Migrowanie do interfejsu API w wersji 3
+        - name: Migrowanie do interfejsów API tworzenia w wersji 3
+          href: luis-migration-authoring-entities.md
+        - name: Migrowanie do interfejsów API przewidywania w wersji 3
           href: luis-migration-api-v3.md
-          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override'
         - name: Migrowanie do interfejsu API V2
           href: luis-migration-api-v1-to-v2.md
     - name: Korzystanie z kontenerów
