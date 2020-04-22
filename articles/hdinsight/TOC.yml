@@ -102,6 +102,8 @@
               href: hdinsight-hadoop-customize-cluster-linux.md
             - name: Opracowywanie akcji skryptu
               href: hdinsight-hadoop-script-actions-linux.md
+            - name: Pomoc techniczna dotycząca oprogramowania open-source
+              href: open-source-software.md
             - name: Dodawanie bibliotek technologii Apache Hive
               href: hdinsight-hadoop-add-hive-libraries.md
             - name: Korzystanie z rozwiązania Hue
@@ -210,6 +212,10 @@
               href: ./hdinsight-key-scenarios-to-monitor.md
             - name: Monitorowanie dostępności klastrów za pomocą dzienników usług Ambari i Azure Monitor
               href: ./hdinsight-cluster-availability.md
+        - name: Rozwiązywanie problemów
+          items:
+            - name: Rozwiązywanie problemów z akcjami skryptu
+              href: ./troubleshoot-script-action.md
     - name: Dokumentacja
       items:
         - name: Azure PowerShell
@@ -878,6 +884,8 @@
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: Architektura sieci wirtualnej usługi HDInsight
           href: ./hdinsight-virtual-network-architecture.md
+        - name: Transport Layer Security
+          href: ./transport-layer-security.md
         - name: Planowanie sieci wirtualnych dla usługi HDInsight
           href: ./hdinsight-plan-virtual-network-deployment.md
         - name: Wymagane adresy IP dla sieciowych grup zabezpieczeń i tras zdefiniowanych przez użytkownika

@@ -595,6 +595,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Włączanie uwierzytelniania usługi Azure AD dla środowiska Azure-SSIS IR
           href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Nawiązywanie połączenia z danymi przy użyciu uwierzytelniania systemu Windows
+          href: ssis-azure-connect-with-windows-auth.md
+        - name: Zapisywanie plików i nawiązywanie połączenia z udziałami plików
+          href: ssis-azure-files-file-shares.md
         - name: Aprowizowanie wersji Enterprise Edition dla środowiska Azure SSIS IR
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Dostosowywanie konfiguracji środowiska Azure SSIS IR

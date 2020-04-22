@@ -87,7 +87,7 @@
             - name: Rozwiązania oparte na formacie CEF
               href: connect-common-event-format.md
               items:
-                - name: KROK 1. Wdrażanie agenta
+                - name: KROK 1. Wdrażanie modułu przekazywania dziennika
                   href: connect-cef-agent.md
                 - name: KROK 2. Konfigurowanie rozwiązania zabezpieczeń
                   href: connect-cef-solution-config.md

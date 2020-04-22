@@ -208,6 +208,8 @@
           href: how-to-connect-pta-quick-start.md
         - name: Często zadawane pytania o uwierzytelnianie przekazywane
           href: how-to-connect-pta-faq.md
+        - name: Wyłączanie uwierzytelniania przekazywanego przy użyciu ustawienia „Nie konfiguruj” w usłudze Azure AD Connect
+          href: how-to-connect-pta-disable-do-not-configure.md
     - name: Zarządzanie usługami Federation Services
       items:
         - name: Zarządzanie federacją z programem Azure AD Connect

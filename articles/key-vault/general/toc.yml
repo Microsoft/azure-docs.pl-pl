@@ -2,8 +2,10 @@
   href: index.yml
 - name: Omówienie
   items:
-    - name: Co to jest usługa Azure Key Vault?
+    - name: Informacje o usłudze Azure Key Vault
       href: overview.md
+    - name: 'Informacje o kluczach, wpisach tajnych i certyfikatach'
+      href: about-keys-secrets-certificates.md
 - name: Samouczki
   items:
     - name: Maszyna wirtualna platformy Azure
@@ -68,6 +70,8 @@
           href: vs-key-vault-add-connected-service.md
     - name: Monitorowanie i zarządzanie
       items:
+        - name: Konfigurowanie monitorowania i alertów w usłudze Azure Key Vault
+          href: alert.md
         - name: Integrowanie usługi Azure Key Vault z usługą Azure Policy
           href: azure-policy.md
         - name: Funkcja rejestrowania usługi Azure Key Vault

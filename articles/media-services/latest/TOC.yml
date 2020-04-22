@@ -13,6 +13,9 @@
     - name: Wydarzenie na żywo za pośrednictwem portalu i programu Wirecast
       displayName: 'live, event, portal, wirecast'
       href: live-events-wirecast-quickstart.md
+    - name: Wydarzenie na żywo za pośrednictwem portalu i programu OBS
+      displayName: 'live, event, portal, obs'
+      href: live-events-obs-quickstart.md
 - name: Samouczki
   items:
     - name: Kodowanie pliku zdalnego i strumieniowe przesyłanie wideo
@@ -406,3 +409,5 @@
       href: limits-quotas-constraints.md
     - name: Chmury i regiony platformy Azure
       href: azure-clouds-regions.md
+    - name: Aktualizacje dokumentacji
+      href: docs-release-notes.md
