@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 2853b1567618127866a4e9c61d81e599d3100823
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8596b435ffa02da7daf4ef98bfe0fe7995b9270a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064266"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768198"
 ---
 # <a name="what-is-azure-load-balancer"></a>Co to jest usługa Azure Load Balancer?
 
@@ -82,6 +82,7 @@ Za użycie modułu równoważenia obciążenia w warstwie Podstawowa nie są nal
 Zobacz [SLA dla modułu równoważącego obciążenie](https://aka.ms/lbsla). Podstawowy moduł równoważenia obciążenia nie ma umowy SLA.
 
 ## <a name="next-steps"></a>Następne kroki
+Zobacz [Uaktualnianie podstawowego modułu równoważenia obciążenia,](upgrade-basic-standard.md) aby uaktualnić podstawowy moduł równoważenia obciążenia do standardowego modułu równoważenia obciążenia.
 
 Zobacz [Tworzenie publicznego standardowego modułu równoważenia obciążenia,](quickstart-load-balancer-standard-public-portal.md) aby rozpocząć korzystanie z modułu równoważenia obciążenia.
 

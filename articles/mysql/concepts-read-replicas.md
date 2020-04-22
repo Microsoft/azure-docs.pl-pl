@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.openlocfilehash: 98461928e465a103f73761afce5270234224fbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 47f686f810f62fe03a9b0217677c436f3b91782b
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76167345"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767891"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliki do odczytu w usłudze Azure Database for MySQL
 
@@ -45,7 +45,6 @@ Australia Wschodnia, Australia Południowo-Wschodnia, Środkowe Stany Zjednoczon
 
 *Zachodnie stany USA 2 są tymczasowo niedostępne jako lokalizacja repliki międzyregionami.
 
-
 ### <a name="paired-regions"></a>Sparowane regiony
 Oprócz regionów repliki uniwersalnej można utworzyć replikę odczytu w sparowanym regionie platformy Azure serwera głównego. Jeśli nie znasz pary regionu, możesz dowiedzieć się więcej z [artykułu Sparowane regiony platformy Azure](../best-practices-availability-paired-regions.md).
 
@@ -71,7 +70,7 @@ Dowiedz się, jak [utworzyć replikę odczytu w witrynie Azure portal](howto-rea
 
 ## <a name="connect-to-a-replica"></a>Łączenie się z repliką
 
-Podczas tworzenia replika dziedziczy reguły zapory lub punkt końcowy usługi sieci wirtualnej serwera głównego. Następnie te reguły są niezależne od serwera głównego.
+Podczas tworzenia replika dziedziczy reguły zapory serwera głównego. Następnie te reguły są niezależne od serwera głównego.
 
 Replika dziedziczy konto administratora z serwera głównego. Wszystkie konta użytkowników na serwerze głównym są replikowane do replik odczytu. Z repliką odczytu można łączyć się tylko przy użyciu kont użytkowników dostępnych na serwerze głównym.
 
@@ -124,7 +123,7 @@ Replika jest tworzona przy użyciu tej samej konfiguracji serwera co wzorzec. Po
 > [!IMPORTANT]
 > Przed zaktualizowaniem konfiguracji serwera głównego do nowych wartości zaktualizuj konfigurację repliki do takich samych lub wyższych wartości. Dzięki temu replika może być na bieżąco ze zmianami wprowadzonymi we wzorcu.
 
-Reguły zapory, reguły sieci wirtualnej i ustawienia parametrów są dziedziczone z serwera głównego do repliki podczas tworzenia repliki. Następnie zasady repliki są niezależne.
+Reguły zapory i ustawienia parametrów są dziedziczone z serwera głównego do repliki podczas tworzenia repliki. Następnie zasady repliki są niezależne.
 
 ### <a name="stopped-replicas"></a>Zatrzymane repliki
 

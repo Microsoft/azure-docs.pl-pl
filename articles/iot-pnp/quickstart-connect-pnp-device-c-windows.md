@@ -1,19 +1,19 @@
 ---
 title: Podłączenie przykładowego kodu urządzenia IoT Plug and Play Preview do usługi IoT Hub (Windows) | Dokumenty firmy Microsoft
 description: Tworzenie i uruchamianie przykładowego kodu urządzenia IoT Plug and Play Preview w systemie Windows, który łączy się z centrum IoT hub. Użyj narzędzia Eksploratora IoT platformy Azure, aby wyświetlić informacje wysyłane przez urządzenie do centrum.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/26/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 1c8b6a5d133d8838c2c7a23f8881092affa424dc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 080820024db1302ff5a841761428442396b90040
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75531215"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769864"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-c-windows"></a>Szybki start: łączenie przykładowej aplikacji urządzenia IoT Plug and Play Preview działającej w systemie Windows z centrum IoT Hub (C Windows)
 

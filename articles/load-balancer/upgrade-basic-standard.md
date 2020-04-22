@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: a4c8b029b199915cce9a417430e67675a03d327f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2d6f41756d87e43ac7db9e6a8670c453920c834
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659955"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770365"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Uaktualnianie publicznego modułu równoważenia obciążenia usługi Azure
 [Azure Standard Load Balancer](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysoką dostępność dzięki nadmiarowości strefowej. Aby dowiedzieć się więcej o jednostce SKU modułu równoważenia obciążenia, zobacz [tabelę porównawczą](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
@@ -21,7 +21,6 @@ Istnieją trzy etapy uaktualnienia:
 
 1. Migrowanie konfiguracji
 2. Dodawanie maszyn wirtualnych do pul zaplecza standardowego modułu równoważenia obciążenia
-3. Tworzenie reguły ruchu wychodzącego na modułu równoważenia obciążenia dla połączenia wychodzącego
 
 W tym artykule opisano migrację konfiguracji. Dodawanie maszyn wirtualnych do pul wewnętrznej bazy danych może się różnić w zależności od określonego środowiska. Jednak niektóre wysokiego szczebla, ogólne zalecenia [są dostarczane](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -31,17 +30,18 @@ Dostępny jest skrypt programu Azure PowerShell, który wykonuje następujące c
 
 * Tworzy standardowy moduł równoważenia obciążenia jednostki SKU w grupie zasobów i lokalizacji określonej przez użytkownika.
 * Bezproblemowo kopiuje konfiguracje modułu równoważenia obciążenia podstawowej jednostki SKU do nowo utworzonego standardowego modułu równoważenia obciążenia.
+* Tworzy domyślną regułę ruchu wychodzącego, która umożliwia łączność wychodzącą.
 
 ### <a name="caveatslimitations"></a>Zastrzeżenia\Ograniczenia
 
-* Skrypt obsługuje tylko uaktualnienie modułu równoważenia obciążenia publicznego. W przypadku uaktualnienia wewnętrznego podstawowego modułu równoważenia obciążenia należy utworzyć standardowy wewnętrzny moduł równoważenia obciążenia, jeśli łączność wychodząca nie jest pożądana, i utwórz standardowy moduł wyważania obciążenia wewnętrznego i standardowy moduł równoważenia obciążenia publicznego, jeśli wymagana jest łączność wychodząca.
+* Skrypt obsługuje tylko uaktualnienie modułu równoważenia obciążenia publicznego. Aby uzyskać instrukcje dotyczące aktualizacji wewnętrznego podstawowego modułu równoważenia obciążenia, zapoznaj się z [tą stroną.](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard)
 * Standardowy moduł równoważenia obciążenia ma nowy adres publiczny. Nie można bezproblemowo przenieść adresów IP skojarzonych z istniejącym podstawowym modułem równoważenia obciążenia do standardowego modułu równoważenia obciążenia, ponieważ mają one różne jednostki SKU.
 * Jeśli standardowy moduł równoważenia obciążenia jest tworzony w innym regionie, nie będzie można skojarzyć maszyn wirtualnych istniejących w starym regionie z nowo utworzonym modułem równoważenia obciążenia standardowego. Aby obejść to ograniczenie, upewnij się, że utworzysz nową maszynę wirtualną w nowym regionie.
 * Jeśli moduł równoważenia obciążenia nie ma żadnej konfiguracji ip frontendu lub puli wewnętrznej bazy danych, prawdopodobnie zostanie wyświetlony błąd z uruchomieniem skryptu. Upewnij się, że nie są puste.
 
 ## <a name="download-the-script"></a>Pobierz skrypt
 
-Pobierz skrypt migracji z [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Pobierz skrypt migracji z [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Korzystanie ze skryptu
 
 Istnieją dwie opcje w zależności od lokalnej konfiguracji środowiska programu PowerShell i preferencji:
@@ -103,7 +103,7 @@ Oto kilka scenariuszy, jak dodać maszyny wirtualne do pul zaplecza nowo utworzo
    
     1. Wybierz pulę wewnętrznej bazy danych, która odpowiada puli wewnętrznej bazy danych modułu równoważenia obciążenia podstawowego, wybierz następującą wartość: 
       - **Maszyna wirtualna:** Rozwijana i wybierz maszyny wirtualne z pasującej puli wewnętrznej bazy danych modułu równoważenia obciążenia podstawowego.
-    1. Wybierz **pozycję Zapisz**.
+    1. Wybierz pozycję **Zapisz**.
     >[!NOTE]
     >W przypadku maszyn wirtualnych, które mają publiczne adresy IP, należy najpierw utworzyć standardowe adresy IP, w przypadku gdy ten sam adres IP nie jest gwarantowany. Odłączyć maszyny wirtualne od podstawowych adresów IP i skojarzyć je z nowo utworzonych standardowych adresów IP. Następnie będzie można wykonać instrukcje, aby dodać maszyny wirtualne do puli wewnętrznej bazy danych modułu równoważenia obciążenia standardowego. 
 

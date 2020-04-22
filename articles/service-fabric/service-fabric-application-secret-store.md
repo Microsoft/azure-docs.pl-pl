@@ -3,12 +3,12 @@ title: Centralny magazyn wpisów tajnych sieci szkieletowej usługi Azure
 description: W tym artykule opisano sposób korzystania z centralnego magazynu wpisów tajnych w sieci szkieletowej usługi Azure.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: 11fb94a9fba40e6f2474ad64f5eb0c454be28ca0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4087e7ccdcb2281c4a08af155d35a10c66147a85
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77589168"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770413"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Centralny magazyn wpisów tajnych w sieci szkieletowej usług Azure 
 W tym artykule opisano sposób używania centralnego magazynu wpisów tajnych (CSS) w sieci szkieletowej usługi Azure do tworzenia wpisów tajnych w aplikacjach sieci szkieletowej usług. CSS to lokalna pamięć podręczna magazynu tajne, która przechowuje poufne dane, takie jak hasło, tokeny i klucze, zaszyfrowane w pamięci.
@@ -47,31 +47,9 @@ Dodaj następujący skrypt do konfiguracji `fabricSettings` klastra w obszarze, 
      ]
 ```
 ## <a name="declare-a-secret-resource"></a>Deklarowanie tajnego zasobu
-Tajny zasób można utworzyć przy użyciu szablonu usługi Azure Resource Manager lub interfejsu API REST.
-
-### <a name="use-resource-manager"></a>Korzystanie z Menedżera zasobów
-
-Użyj następującego szablonu, aby utworzyć tajny zasób za pomocą Menedżera zasobów. Szablon tworzy `supersecret` tajny zasób, ale nie ma jeszcze ustawionej wartości tajnego zasobu.
-
-
-```json
-   "resources": [
-      {
-        "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-          }
-        }
-      ]
-```
-
-### <a name="use-the-rest-api"></a>Używanie interfejsu API REST
+Tajny zasób można utworzyć przy użyciu interfejsu API REST.
+  > [!NOTE] 
+  > Jeśli klaster korzysta z uwierzytelniania systemu Windows, żądanie REST jest wysyłane za pośrednictwem niezabezpieczonego kanału HTTP. Zalecenie jest użycie klastra opartego na X509 z bezpiecznymi punktami końcowymi.
 
 Aby utworzyć `supersecret` tajny zasób przy użyciu interfejsu `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`API REST, należy wykonać żądanie PUT na program . Do utworzenia tajnego zasobu potrzebny jest certyfikat klastra lub certyfikat klienta administratora.
 
@@ -81,48 +59,6 @@ Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecre
 ```
 
 ## <a name="set-the-secret-value"></a>Ustawianie wartości tajnej
-
-### <a name="use-the-resource-manager-template"></a>Korzystanie z szablonu Menedżera zasobów
-
-Użyj następującego szablonu Menedżera zasobów, aby utworzyć i ustawić wartość tajną. Ten szablon ustawia wartość `supersecret` tajnego zasobu tajnego jako wersję `ver1`.
-```json
-  {
-  "parameters": {
-  "supersecret": {
-      "type": "string",
-      "metadata": {
-        "description": "supersecret value"
-      }
-   }
-  },
-  "resources": [
-    {
-      "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-        }
-    },
-    {
-      "apiVersion": "2018-07-01-preview",
-      "name": "supersecret/ver1",
-      "type": "Microsoft.ServiceFabricMesh/secrets/values",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "Microsoft.ServiceFabricMesh/secrets/supersecret"
-      ],
-      "properties": {
-        "value": "[parameters('supersecret')]"
-      }
-    }
-  ],
-  ```
-### <a name="use-the-rest-api"></a>Używanie interfejsu API REST
 
 Użyj następującego skryptu, aby ustawić wartość tajną za pomocą interfejsu API REST.
 ```powershell

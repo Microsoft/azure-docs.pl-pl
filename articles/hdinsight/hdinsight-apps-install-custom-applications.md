@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 8fe9e551a4ca7dea8f53e0f8c2975ca3d88c48f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b25e9d860f118c1b044b13e01a80aaf7a24963cf
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366261"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768236"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalowanie niestandardowych aplikacji Apache Hadoop w usłudze Azure HDInsight
 
@@ -75,9 +75,9 @@ Możesz zobaczyć stan aplikacji w witrynie Azure Portal, aby sprawdzić poprawn
 
 W przypadku **programu Hue**można wykonać następujące czynności:
 
-### <a name="azure-portal"></a>Portal Azure
+### <a name="azure-portal"></a>Azure Portal
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz klaster, w którym zainstalowano aplikację.
 1. W menu **Ustawienia** wybierz polecenie **Aplikacje**.
 1. Wybierz **odcień** z listy, aby wyświetlić właściwości.  
@@ -119,13 +119,13 @@ Jeśli instalacja aplikacji nie powiodła się, można wyświetlić komunikaty o
 
 * Apache Ambari Web UI: Jeśli przyczyną błędu był skrypt instalacyjny, użyj interfejsu użytkownika ambari web, aby sprawdzić pełne dzienniki dotyczące skryptów instalacyjnych.
 
-    Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie problemów](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+    Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z akcjami skryptu](./troubleshoot-script-action.md).
 
 ## <a name="remove-hdinsight-applications"></a>Usuwanie aplikacji usługi HDInsight
 
-### <a name="azure-portal"></a>Portal Azure
+### <a name="azure-portal"></a>Azure Portal
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz klaster, w którym zainstalowano aplikację.
 1. W menu **Ustawienia** wybierz polecenie **Aplikacje**.
 1. Kliknij prawym przyciskiem myszy aplikację, którą chcesz usunąć, a następnie wybierz polecenie **Usuń**.

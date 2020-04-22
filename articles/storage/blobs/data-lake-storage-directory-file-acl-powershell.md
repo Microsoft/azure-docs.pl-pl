@@ -1,27 +1,24 @@
 ---
-title: Program Azure Data Lake Storage Gen2 PowerShell dla plików & list ACL (wersja zapoznawcza)
+title: Program Azure Data Lake Storage Gen2 PowerShell dla plików & list ACL
 description: Polecenia cmdlet programu PowerShell umożliwiają zarządzanie katalogami oraz listami kontroli dostępu do plików i katalogów (ACL) na kontach magazynu z włączoną hierarchiczną przestrzenią nazw (HNS).
 services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: b59c68e3f2edc0fbe5eee3c3861a3e5116d4fac6
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 68ffe40f93be3d10666ebad2eaa153fc9dc9687f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262387"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768022"
 ---
-# <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Zarządzanie katalogami, plikami i listami ALs w usłudze Azure Data Lake Storage Gen2 za pomocą programu PowerShell (wersja zapoznawcza)
+# <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Zarządzanie katalogami, plikami i listami ALs w usłudze Azure Data Lake Storage Gen2 za pomocą programu PowerShell
 
 W tym artykule pokazano, jak używać programu PowerShell do tworzenia katalogów, plików i uprawnień oraz zarządzania nimi na kontach magazynu z włączoną hierarchiczną przestrzenią nazw (HNS). 
-
-> [!IMPORTANT]
-> Moduł programu PowerShell, który jest opisywany w tym artykule jest obecnie w publicznej wersji zapoznawczej.
 
 [Mapowanie](#gen1-gen2-map) | gen1 do gen2[Przekaż opinię](https://github.com/Azure/azure-powershell/issues)
 
@@ -33,7 +30,7 @@ W tym artykule pokazano, jak używać programu PowerShell do tworzenia katalogó
 > * .NET Framework jest zainstalowany w 4.7.2 lub wyższym. Zobacz [Pobieranie programu .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 > * powershell `5.1` lub nowsza.
 
-## <a name="install-powershell-modules"></a>Instalowanie modułów programu PowerShell
+## <a name="install-the-powershell-module"></a>Instalowanie modułu programu PowerShell
 
 1. Sprawdź, czy zainstalowana wersja programu `5.1` PowerShell jest lub wyższa za pomocą następującego polecenia.    
 
@@ -43,16 +40,10 @@ W tym artykule pokazano, jak używać programu PowerShell do tworzenia katalogó
     
    Aby uaktualnić wersję programu PowerShell, zobacz [Uaktualnianie istniejącego programu Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
-2. Zainstaluj najnowszy moduł **Programu PowershellGet.** Następnie zamknij i ponownie otwórz konsolę programu PowerShell.
+2. Zainstaluj moduł **Az.Storage.**
 
    ```powershell
-   Install-Module PowerShellGet –Repository PSGallery –Force 
-   ```
-
-3. Zainstaluj moduł **podglądu Az.Storage.**
-
-   ```powershell
-   Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force 
+   Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
    Aby uzyskać więcej informacji na temat instalowania modułów programu PowerShell, zobacz [Instalowanie modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)

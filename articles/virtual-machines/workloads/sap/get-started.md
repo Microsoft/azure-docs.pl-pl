@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/16/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a361f384167fa522278b9c84a7927e938c12cb8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 3ce3311fd0538109dbe9ba5ae71a17dcfd4b8abe
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81534809"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769742"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Używanie platformy Azure do hostowaniu i uruchamianiu scenariuszy obciążenia SAP
 
@@ -111,6 +111,7 @@ Aby uzyskać informacje na temat integracji usług platformy Azure ze składnika
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 21.04.2020: Dodano bazę danych SQL Azure DB jako obsługiwaną bazę danych dbms dla platformy handlowej SAP (Hybris) 1811 i nowszych w artykułach [Jakie oprogramowanie SAP jest obsługiwane dla wdrożeń platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) oraz [certyfikatów i konfiguracji SAP uruchomionych na platformie Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 - 16.04.2020: Dodano SAP HANA jako obsługiwaną platformę handlową DBMS dla SAP (Hybris) w artykułach [Jakie oprogramowanie SAP jest obsługiwane dla wdrożeń platformy Azure oraz certyfikatów](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) i konfiguracji SAP [uruchomionych na platformie Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 - 13.04.2020: Popraw do dokładnych numerów wersji SAP ASE we [wdrożeniu DBMS maszyn wirtualnych SAP ASE Azure dla obciążenia SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
 - 04/07/2020: Zmiana [w konfigurowaniu rozrusznika serca na SLES na platformie Azure w](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) celu wyjaśnienia instrukcji cloud-netconfig-azure

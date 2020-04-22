@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: a94b51e49951948974b8f42f6c89cd3c84f95d65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7a7210915920ed9ab2a5ddc47a27c2587895a57a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064276"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768254"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Składniki i ograniczenia modułu równoważenia obciążenia
 Moduł równoważenia obciążenia platformy Azure zawiera kilka kluczowych składników dla jego działania.  Te składniki można skonfigurować w ramach subskrypcji za pośrednictwem witryny Azure portal, interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell.  
@@ -95,7 +95,7 @@ Na poniższej ilustracji przedstawiono dystrybucję opartą na skrótach:
 
     - zasady równoważenia obciążenia wywnioskować, jak SNAT jest zaprogramowany. Reguły równoważenia obciążenia są specyficzne dla protokołu. SNAT jest specyficzne dla protokołu i konfiguracja powinna odzwierciedlać to, a nie tworzyć efekt uboczny.
 
-    - **Wiele frontendów** Gdy dostępnych jest wiele frontonów, używane są wszystkie frontony, a każda fronton mnoży liczbę dostępnych portów SNAT. Jeśli chcesz więcej portów SNAT, ponieważ oczekujesz lub już występują duże zapotrzebowanie na połączenia wychodzące, możesz również dodać przyrostowe zapasy portów SNAT, konfigurując dodatkowe frontendy, reguły i pule zaplecza do tej samej maszyny wirtualnej Zasobów.
+    - **Wiele frontendów** Gdy dostępnych jest wiele frontonów, używane są wszystkie frontony, a każda fronton mnoży liczbę dostępnych portów SNAT. Jeśli chcesz więcej portów SNAT, ponieważ oczekujesz lub już występują duże zapotrzebowanie na połączenia wychodzące, można również dodać przyrostowe zapasów portów SNAT, konfigurując dodatkowe frontendy, reguły i pul zaplecza do tych samych zasobów maszyny wirtualnej.
 
     - **Sterowanie, która przednia jest używana dla ruchu wychodzącego** Można wybrać i kontrolować, jeśli nie chcesz, aby określona frontend była używana dla połączeń wychodzących. Jeśli chcesz ograniczyć połączenia wychodzące tylko pochodzić z określonego adresu IP frontendu, można opcjonalnie wyłączyć wychodzących SNAT na regułę, która wyraża mapowanie wychodzące.
 
@@ -171,6 +171,8 @@ Moduł równoważenia obciążenia obsługuje zarówno jednostki SKU basic, jak 
 
 Pełna konfiguracja scenariusza może się nieznacznie różnić w zależności od jednostki SKU. Dokumentacja modułu równoważenia obciążenia wywołuje, gdy artykuł dotyczy tylko określonej jednostki SKU. Aby porównać i poznać różnice, zapoznaj się z poniższą tabelą. Aby uzyskać więcej informacji, zobacz [omówienie standardowego modułu równoważenia obciążenia platformy Azure](load-balancer-standard-overview.md).
 
+Aby uaktualnić podstawowy moduł równoważenia obciążenia do [standardu, zobacz Uaktualnianie podstawowego modułu równoważenia obciążenia](upgrade-basic-standard.md).
+
 >[!NOTE]
 > Firma Microsoft zaleca standardowy moduł równoważenia obciążenia.
 Autonomiczne maszyny wirtualne, zestawy dostępności i zestawy skalowania maszyn wirtualnych można połączyć tylko jednej jednostki SKU — nigdy do obu. Moduł równoważenia obciążenia i publiczna jednostka SKU adresu IP muszą być zgodne podczas używania ich z publicznymi adresami IP. Moduł równoważenia obciążenia i publiczne jednostki SKU IP nie są modyfikowalne.
@@ -207,6 +209,7 @@ Aby uzyskać więcej informacji, zobacz [Limity równoważenia obciążenia](htt
 
 ## <a name="next-steps"></a>Następne kroki
 
+- Zobacz [Uaktualnianie podstawowego modułu równoważenia obciążenia,](upgrade-basic-standard.md) aby uaktualnić podstawowy moduł równoważenia obciążenia do standardowego modułu równoważenia obciążenia.
 - Zobacz [Tworzenie publicznego standardowego modułu równoważenia obciążenia,](quickstart-load-balancer-standard-public-portal.md) aby rozpocząć korzystanie z modułu równoważenia obciążenia: utwórz jedną z nich, utwórz maszyny wirtualne z zainstalowanym niestandardowym rozszerzeniem usług IIS i równoważ aplikację sieci web między maszynami wirtualnymi.
 - Dowiedz się więcej o [równoważącym obciążenia platformy Azure](load-balancer-overview.md).
 - Dowiedz się więcej o [używaniu standardowego modułu równoważenia obciążenia i stref dostępności](load-balancer-standard-availability-zones.md).

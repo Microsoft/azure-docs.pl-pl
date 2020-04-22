@@ -1,18 +1,18 @@
 ---
-title: Aktualizowanie modułów platformy Azure w usłudze Azure Automation
+title: Aktualizowanie modułów programu Azure PowerShell w usłudze Azure Automation
 description: W tym artykule opisano, jak można teraz aktualizować typowe moduły programu Azure PowerShell dostarczane domyślnie w usłudze Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ba926ccbb069c8620259514e0a64c56957529a0f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: bb73b3d644e96f9596f887faaf62eb15f01956ab
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617470"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769667"
 ---
-# <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Jak zaktualizować moduły programu Azure PowerShell w usłudze Azure Automation
+# <a name="update-azure-powershell-modules-in-azure-automation"></a>Aktualizowanie modułów programu Azure PowerShell w usłudze Azure Automation
 
 Aby zaktualizować moduły platformy Azure na koncie automatyzacji, należy użyć [identyfikatora runbooka Update Azure modules](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), który jest dostępny jako open source. Aby rozpocząć korzystanie z **update-AutomationAzureModulesForAccount** runbook, aby zaktualizować moduły platformy Azure, pobierz go z [repozytorium umulatek umownych modułów platformy Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) w usłudze GitHub. Następnie można zaimportować go do konta automatyzacji lub uruchomić go jako skrypt. Aby dowiedzieć się, jak zaimportować system runbook na konto automatyzacji, zobacz [Importowanie ekwidujnika](manage-runbooks.md#importing-a-runbook).
 
@@ -37,7 +37,7 @@ Jeśli skrypty są rozwijane lokalnie, zaleca się, aby mieć te same wersje mod
 
 Poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę podczas korzystania z tego artykułu, aby zaktualizować moduły platformy Azure:
 
-* Element runbook opisany w tym artykule obsługuje domyślnie aktualizowanie modułów azure, azurerm i az. Zapoznaj się z [aktualizacją modułów platformy Azure README, aby](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) uzyskać więcej informacji na temat aktualizowania modułów Az.Automation za pomocą tego systemu runbook. Istnieją dodatkowe ważne czynniki, które należy wziąć pod uwagę podczas korzystania z modułów Az na koncie automatyzacji. Aby dowiedzieć się więcej, zobacz [Korzystanie z modułów Az na koncie automatyzacji](az-modules.md).
+* Element runbook opisany w tym artykule obsługuje domyślnie aktualizowanie modułów azure, azurerm i az. Zapoznaj się z [aktualizacją modułów platformy Azure README, aby](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) uzyskać więcej informacji na temat aktualizowania modułów Az.Automation za pomocą tego systemu runbook. Istnieją dodatkowe ważne czynniki, które należy wziąć pod uwagę podczas korzystania z modułów Az na koncie automatyzacji. Aby dowiedzieć się więcej, zobacz [Zarządzanie modułami w usłudze Azure Automation](shared-resources/modules.md).
 
 * Przed uruchomieniem tego systemu runbook upewnij się, że konto automatyzacji ma utworzone [poświadczenia konta usługi Azure Uruchom jako.](manage-runas-account.md)
 

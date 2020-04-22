@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: d9b10341f971c0e8177043126ff8fbd4df078b86
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 89ef221fce9aed3f9e2c948e89933b8650bb4b4b
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604987"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769825"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Szybki start: biblioteka klienta twarzy dla platformy .NET
 
@@ -71,11 +71,11 @@ Build succeeded.
 
 W katalogu projektu otwórz plik *Program.cs* w preferowanym edytorze lub w programie IDE. Dodaj następujące `using` dyrektywy:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_using)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_using)]
 
 W `Main` metodzie aplikacji utwórz zmienne dla punktu końcowego i klucza platformy Azure zasobu.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_mainvars)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_mainvars)]
 
 ### <a name="install-the-client-library"></a>Instalowanie biblioteki klienta
 
@@ -120,39 +120,39 @@ Poniższe fragmenty kodu pokazują, jak wykonać następujące zadania za pomoc�
 
 W nowej metodzie wystąpienia klienta z punktem końcowym i kluczem. Utwórz **[obiekt ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.apikeyserviceclientcredentials?view=azure-dotnet)** za pomocą klucza i użyj go z punktem końcowym, aby utworzyć obiekt **[FaceClient.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)**
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_auth)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_auth)]
 
 Prawdopodobnie będziesz chciał wywołać tę `Main` metodę w metodzie.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_client)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_client)]
 
 ### <a name="declare-helper-fields"></a>Zadeklaruj pola pomocnika
 
 Poniższe pola są potrzebne dla kilku operacji Ściana, które zostaną dodane później. W katalogu głównym klasy zdefiniuj następujący ciąg adresu URL. Ten adres URL wskazuje folder przykładowych obrazów.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_image_url)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_image_url)]
 
 Zdefiniuj ciągi wskazujące różne typy modeli rozpoznawania. Później będzie można określić model rozpoznawania, którego chcesz użyć do wykrywania twarzy. Zobacz [Określanie modelu rozpoznawania,](../Face-API-How-to-Topics/specify-recognition-model.md) aby uzyskać informacje na temat tych opcji.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_models)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_models)]
 
 ## <a name="detect-faces-in-an-image"></a>Wykrywanie twarzy na obrazie
 
 Dodaj następujące wywołanie metody do **metody głównej.** Następnie zdefiniujesz metodę. Ostateczna operacja wykrywania zajmie **[Obiekt FaceClient,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** adres URL obrazu i model rozpoznawania.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_call)]
 
 ### <a name="get-detected-face-objects"></a>Wykrywanie obiektów twarzy
 
 W następnym bloku kodu `DetectFaceExtract` metoda wykrywa twarze w trzech obrazów pod danym adresem URL i tworzy listę **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** obiektów w pamięci programu. Lista wartości **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** określa, które funkcje należy wyodrębnić. 
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
 
 ### <a name="display-detected-face-data"></a>Wyświetlanie danych wykrytej twarzy
 
 Reszta `DetectFaceExtract` metody analizuje i drukuje dane atrybutu dla każdej wykrytej twarzy. Każdy atrybut musi być określony oddzielnie w oryginalnym wywołaniu interfejsu API wykrywania twarzy (na liście **[FaceAttributeType).](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** Poniższy kod przetwarza każdy atrybut, ale prawdopodobnie trzeba będzie użyć tylko jednego lub kilku.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_parse)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_parse)]
 
 ## <a name="find-similar-faces"></a>Wyszukiwanie podobnych twarzy
 
@@ -162,19 +162,19 @@ Poniższy kod przyjmuje pojedynczą wykrytą twarz (źródło) i przeszukuje zes
 
 Najpierw zdefiniuj drugą metodę wykrywania twarzy. Przed ich porównaniem należy wykryć twarze na obrazach, a ta metoda wykrywania jest zoptymalizowana pod kątem operacji porównania. Nie wyodrębnia szczegółowych atrybutów twarzy, jak w powyższej sekcji i używa innego modelu rozpoznawania.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_face_detect_recognize)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_face_detect_recognize)]
 
 ### <a name="find-matches"></a>Znajdź dopasowania
 
 Poniższa metoda wykrywa twarze w zestawie obrazów docelowych i w jednym obrazie źródłowym. Następnie porównuje je i znajduje wszystkie obrazy docelowe, które są podobne do obrazu źródłowego.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_find_similar)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar)]
 
 ### <a name="print-matches"></a>Drukuj dopasowania
 
 Następujący kod drukuje szczegóły dopasowania do konsoli:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_find_similar_print)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar_print)]
 
 ## <a name="identify-a-face"></a>Identyfikowanie twarzy
 
@@ -188,21 +188,21 @@ Poniższy kod tworzy **PersonGroup** z sześciu różnych **Person** obiektów. 
 
 Zadeklaruj zmienną ciągu w katalogu głównym klasy do reprezentowania **identyfikatora persongroup,** który utworzysz.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_declare)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_declare)]
 
 W nowej metodzie dodaj następujący kod. Ta metoda przeprowadzi identify operacji. Pierwszy blok kodu kojarzy nazwiska osób z ich przykładowymi obrazami.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_files)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_files)]
 
 Następnie dodaj następujący kod, aby utworzyć **person** obiektu dla każdej osoby w słowniku i dodać dane twarzy z odpowiednich obrazów. Każdy **obiekt Person** jest skojarzony z tą samą grupą **persongroup** za pośrednictwem unikatowego ciągu identyfikatora. Pamiętaj, aby przekazać `client` `url`zmienne `RECOGNITION_MODEL1` , i do tej metody.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_create)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
 
 #### <a name="train-persongroup"></a>Grupa osób pociągu
 
 Po wyodrębnieniu danych twarzy z obrazów i posortowaniu ich w różne **obiekty Person** należy przeszkolić **grupę persongroup** w celu zidentyfikowania funkcji wizualnych skojarzonych z każdym z jej obiektów **Person.** Poniższy kod wywołuje metodę **pociągu** asynchronicznej i sonduje wyniki, drukując stan do konsoli.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_train)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
 
 Ta grupa **osoby** i skojarzone z nią obiekty **Person** są teraz gotowe do użycia w operacjach Weryfikuj, identyfikuj lub Grupuj.
 
@@ -214,11 +214,11 @@ Należy zauważyć, że kod tworzenia i szkolenia `sourceImageFileName`grupy [os
 
 Poniższy kod pobiera obraz źródłowy i tworzy listę wszystkich twarzy wykrytych na obrazie. Są to twarze, które zostaną zidentyfikowane względem **persongroup**.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_identify_sources)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify_sources)]
 
 Następny fragment kodu wywołuje **identifyAsync** operacji i drukuje wyniki do konsoli. W tym miejscu usługa próbuje dopasować każdą twarz z obrazu źródłowego do **osoby** w danej **grupie osób**. Spowoduje to zamknięcie metody Identify.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_identify)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify)]
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Tworzenie migawki do migracji danych
 
@@ -232,17 +232,17 @@ Po pierwsze musisz mieć drugą subskrypcję platformy Azure z zasobem Face; Mo�
 
 Następnie zdefiniuj następujące `Main` zmienne w metodzie programu. Musisz utworzyć nowe zmienne środowiskowe dla identyfikatora subskrypcji konta platformy Azure, a także klucz, punkt końcowy i identyfikator subskrypcji nowego konta (docelowego). 
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_vars)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
 
 W tym przykładzie zadeklarować zmienną dla identyfikatora obiektu **persongroup**&mdash;docelowego, który należy do nowej subskrypcji, do której skopiujesz dane.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_vars)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
 
 ### <a name="authenticate-target-client"></a>Uwierzytelnij klienta docelowego
 
 Następnie dodaj kod, aby uwierzytelnić dodatkową subskrypcję face.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_client)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_client)]
 
 ### <a name="use-a-snapshot"></a>Używanie migawki
 
@@ -250,23 +250,23 @@ Pozostałe operacje migawki musi odbywać się w ramach metody asynchroniczną.
 
 1. Pierwszym krokiem **jest,** aby zrobić migawkę, która zapisuje dane twarzy oryginalnej subskrypcji do tymczasowej lokalizacji w chmurze. Ta metoda zwraca identyfikator używany do wykonywania zapytań o stan operacji.
 
-    [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_take)]
+    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_take)]
 
 1. Następnie kwerendy identyfikator, dopóki operacja została zakończona.
 
-    [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_take_wait)]
+    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_take_wait)]
 
 1. Następnie użyj operacji **zastosuj,** aby zapisać dane twarzy do subskrypcji docelowej. Ta metoda zwraca również wartość identyfikatora.
 
-    [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_apply)]
+    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_apply)]
 
 1. Ponownie kwerendy nowego identyfikatora, dopóki operacja została zakończona.
 
-    [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_apply)]
+    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_apply)]
 
 1. Na koniec należy ukończyć blok try/catch i zakończyć metodę.
 
-    [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_trycatch)]
+    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_trycatch)]
 
 W tym momencie nowy **obiekt PersonGroup** powinien mieć te same dane co oryginalny i powinien być dostępny z nowej subskrypcji usługi Azure Face.
 
@@ -287,15 +287,15 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług Cognitive Services, mo�
 
 Jeśli grupa **osób** została utworzona w tym przewodniku Szybki start i chcesz ją usunąć, uruchom w programie następujący kod:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_delete)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_delete)]
 
 Zdefiniuj metodę usuwania za pomocą następującego kodu:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_deletepersongroup)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_deletepersongroup)]
 
 Ponadto w przypadku migracji danych przy użyciu funkcji Migawka w tym przewodniku Szybki start należy również usunąć **grupę persongroup** zapisaną w subskrypcji docelowej.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_target_persongroup_delete)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_target_persongroup_delete)]
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -305,4 +305,4 @@ W tym przewodniku Szybki start dowiesz się, jak używać biblioteki Twarzy dla 
 > [Odwołanie do interfejsu API rozpoznawania twarzy (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
 
 * [Co to jest usługa rozpoznawania twarzy?](../overview.md)
-* Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/Face/Program.cs).
+* Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/FaceQuickstart.cs).

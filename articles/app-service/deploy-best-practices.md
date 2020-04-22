@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75750468"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770696"
 ---
 # <a name="deployment-best-practices"></a>Najważniejsze wskazówki dotyczące wdrażania
 
@@ -37,6 +37,92 @@ Mechanizm wdrażania jest działaniem używanym do umieszczenia wbudowanej aplik
 
 Narzędzia wdrażania, takie jak potoki platformy Azure, jenkins i wtyczki edytora używają jednego z tych mechanizmów wdrażania.
 
+## <a name="use-deployment-slots"></a>Korzystanie z gniazd wdrożeniowych
+
+Jeśli to możliwe, należy używać gniazd wdrażania podczas wdrażania nowej [kompilacji](deploy-staging-slots.md) produkcyjnej. Korzystając z warstwy Standardowy plan usługi aplikacji lub lepiej, można wdrożyć aplikację w środowisku przejściowym, sprawdzić poprawność zmian i zrobić testy dymu. Gdy będziesz gotowy, możesz zamienić swoje miejsca przejściowe i produkcyjne. Operacja wymiany rozgrzewa wystąpienia niezbędne do pracy, aby dopasować je do skali produkcyjnej, eliminując w ten sposób przestoje.
+
+### <a name="continuously-deploy-code"></a>Ciągłe wdrażanie kodu
+
+Jeśli projekt ma wyznaczone gałęzie do testowania, kontroli jakości i przemieszczania, a następnie każda z tych gałęzi powinny być stale wdrażane w miejscu przejściowym. (Jest to znane jako [projekt Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) Dzięki temu interesariusze łatwo ocenić i przetestować wdrożoną gałąź. 
+
+Ciągłe wdrażanie nigdy nie powinny być włączone dla gniazda produkcyjnego. Zamiast tego gałęzi produkcji (często master) powinny być wdrożone na nieprodukcyjnym miejscu. Gdy wszystko będzie gotowe do zwolnienia gałęzi podstawowej, zamienić ją w gniazdo produkcyjne. Zamiana na produkcję — zamiast wdrażania w produkcji — zapobiega przestojom i umożliwia wycofanie zmian przez ponowną zamianę. 
+
+![Wizualne użycie gniazda](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+
+### <a name="continuously-deploy-containers"></a>Ciągłe wdrażanie kontenerów
+
+W przypadku kontenerów niestandardowych z platformy Docker lub innych rejestrów kontenerów należy wdrożyć obraz w miejscu przejściowym i zamienić się w środowiskach produkcyjnych, aby zapobiec przestojom. Automatyzacja jest bardziej złożona niż wdrożenie kodu, ponieważ należy wypchnąć obraz do rejestru kontenerów i zaktualizować znacznik obrazu w aplikacji webapp.
+
+Dla każdej gałęzi, którą chcesz wdrożyć w gnieździe, skonfiguruj automatyzację, aby wykonać następujące czynności w każdym zatwierdzeniu do gałęzi.
+
+1. **Tworzenie i oznaczanie obrazu**. W ramach potoku kompilacji otaguj obraz identyfikatorem zatwierdzenia git, sygnaturą czasową lub innymi identyfikowalnymi informacjami. Najlepiej nie używać domyślnego tagu "najnowszego". W przeciwnym razie trudno jest prześledzić, jaki kod jest obecnie wdrażany, co znacznie utrudnia debugowanie.
+1. **Naciśnij oznaczony obraz**. Gdy obraz jest zbudowany i oznakowany, potok wypycha obraz do naszego rejestru kontenerów. W następnym kroku gniazdo wdrożenia będzie pobierać oznakowany obraz z rejestru kontenerów.
+1. **Zaktualizuj gniazdo wdrożenia za pomocą nowego znacznika obrazu**. Po zaktualizowaniu tej właściwości witryna automatycznie uruchomi się ponownie i wyciągnie nowy obraz kontenera.
+
+![Wizualne użycie gniazda](media/app-service-deploy-best-practices/slot_flow_container_diagram.png)
+
+Istnieją przykłady poniżej dla typowych platform automatyzacji.
+
+### <a name="use-azure-devops"></a>Korzystanie z usługi Azure DevOps
+
+Usługa App Service ma [wbudowane ciągłe dostarczanie](deploy-continuous-deployment.md) kontenerów za pośrednictwem Centrum wdrażania. Przejdź do aplikacji w [witrynie Azure portal](https://portal.azure.com/) i wybierz **Pozycję Centrum wdrażania** w obszarze **Wdrażanie**. Postępuj zgodnie z instrukcjami, aby wybrać repozytorium i gałąź. Spowoduje to skonfigurowanie potoku kompilacji i wydania DevOps, aby automatycznie tworzyć, oznaczać i wdrażać kontener, gdy nowe zatwierdzenia są wypychane do wybranej gałęzi.
+
+### <a name="use-github-actions"></a>Korzystanie z akcji GitHub
+
+Można również zautomatyzować wdrażanie kontenera [za pomocą akcji GitHub](containers/deploy-container-github-action.md).  Poniższy plik przepływu pracy utworu będzie budować i oznaczać kontener z identyfikatorem zatwierdzenia, wypchnąć go do rejestru kontenerów i zaktualizować określone gniazdo lokacji z nowym tagiem obrazu.
+
+```yaml
+name: Build and deploy a container image to Azure Web Apps
+
+on:
+  push:
+    branches:
+    - <your-branch-name>
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@master
+
+    -name: Authenticate using a Service Principal
+      uses: azure/actions/login@v1
+      with:
+        creds: ${{ secrets.AZURE_SP }}
+
+    - uses: azure/container-actions/docker-login@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push the image tagged with the git commit hash
+      run: |
+        docker build . -t contoso/demo:${{ github.sha }}
+        docker push contoso/demo:${{ github.sha }}
+
+    - name: Update image tag on the Azure Web App
+      uses: azure/webapps-container-deploy@v1
+      with:
+        app-name: '<your-webapp-name>'
+        slot-name: '<your-slot-name>'
+        images: 'contoso/demo:${{ github.sha }}'
+```
+
+### <a name="use-other-automation-providers"></a>Korzystanie z usług innych dostawców automatyzacji
+
+Kroki wymienione wcześniej dotyczą innych narzędzi automatyzacji, takich jak CircleCI lub Travis CI. Jednak należy użyć interfejsu wiersza polecenia platformy Azure, aby zaktualizować miejsca wdrożenia za pomocą nowych tagów obrazu w ostatnim kroku. Aby użyć interfejsu wiersza polecenia platformy Azure w skrypcie automatyzacji, wygeneruj jednostkę usługi przy użyciu następującego polecenia.
+
+```shell
+az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
+   --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
+   --sdk-auth
+```
+
+W skrypcie `az login --service-principal`zaloguj się przy użyciu , podając informacje o zleceniodawcy. Następnie można `az webapp config container set` ustawić nazwę kontenera, tag, adres URL rejestru i hasło rejestru. Poniżej znajduje się kilka przydatnych linków do konstruowania procesu ci kontenera.
+
+- [Jak zalogować się do interfejsu wiersza polecenia platformy Azure w circle ci](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
+
 ## <a name="language-specific-considerations"></a>Zagadnienia specyficzne dla języka
 
 ### <a name="java"></a>Java
@@ -49,13 +135,9 @@ Domyślnie Kudu wykonuje kroki kompilacji dla`npm install`aplikacji Node ( ). Je
 
 ### <a name="net"></a>.NET 
 
-Domyślnie Kudu wykonuje kroki kompilacji dla aplikacji`dotnet build`.Net ( ). Jeśli używasz usługi kompilacji, takich jak Azure DevOps, następnie kompilacji Kudu jest niepotrzebne. Aby wyłączyć kompilację Kudu, utwórz ustawienie aplikacji, `SCM_DO_BUILD_DURING_DEPLOYMENT`o wartości . `false`
+Domyślnie Kudu wykonuje kroki kompilacji dla aplikacji`dotnet build`.NET ( ). Jeśli używasz usługi kompilacji, takich jak Azure DevOps, następnie kompilacji Kudu jest niepotrzebne. Aby wyłączyć kompilację Kudu, utwórz ustawienie aplikacji, `SCM_DO_BUILD_DURING_DEPLOYMENT`o wartości . `false`
 
 ## <a name="other-deployment-considerations"></a>Inne zagadnienia dotyczące wdrażania
-
-### <a name="use-deployment-slots"></a>Korzystanie z gniazd wdrożeniowych
-
-Jeśli to możliwe, należy używać gniazd wdrażania podczas wdrażania nowej [kompilacji](deploy-staging-slots.md) produkcyjnej. Korzystając z warstwy Standardowy plan usługi aplikacji lub lepiej, można wdrożyć aplikację w środowisku przejściowym, sprawdzić poprawność zmian i zrobić testy dymu. Gdy będziesz gotowy, możesz zamienić swoje miejsca przejściowe i produkcyjne. Operacja wymiany rozgrzewa wystąpienia niezbędne do pracy, aby dopasować je do skali produkcyjnej, eliminując w ten sposób przestoje. 
 
 ### <a name="local-cache"></a>Lokalna pamięć podręczna
 

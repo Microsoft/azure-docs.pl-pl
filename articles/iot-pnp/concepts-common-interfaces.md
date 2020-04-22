@@ -1,18 +1,18 @@
 ---
 title: Typowe interfejsy - IoT Plug and Play Preview | Dokumenty firmy Microsoft
 description: Opis wspólnych interfejsów dla deweloperów IoT Plug and Play
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c6ac90f917b9afc37b3a39d8da679fbcad091778
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5773ec2b3ea88fa9a507b7c1b0b84bb7ea305a94
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234704"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770486"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>IoT Plug and Play Preview — wspólne interfejsy
 
@@ -60,5 +60,5 @@ az iot pnp capability-model show --model {ModelID}
 Teraz, gdy dowiedziałeś się o wspólnych interfejsach, oto kilka dodatkowych zasobów:
 
 - [Cyfrowy język podwójnej definicji (DTDL)](https://aka.ms/DTDL)
-- [Zestaw SDK urządzenia dla języka C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+- [C (zestaw SDK urządzenia)](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)

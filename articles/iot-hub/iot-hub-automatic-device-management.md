@@ -1,19 +1,19 @@
 ---
 title: Automatyczne zarządzanie urządzeniami na dużą skalę dzięki usłudze Azure IoT Hub | Dokumenty firmy Microsoft
 description: Używanie konfiguracji automatycznych usługi Azure IoT Hub do zarządzania wieloma urządzeniami i modułami IoT
-author: ChrisGMsft
+author: Philmea
 manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: chrisgre
-ms.openlocfilehash: 75c6b7d89e7ae540e7428afde127281aa3f15fc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: philmea
+ms.openlocfilehash: 1de7c34d8f8cbfa139212f29ca6be5d4eca64655
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271306"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767488"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Automatyczne zarządzanie urządzeniami i modułami IoT za pomocą portalu Azure
 
@@ -211,7 +211,7 @@ Aby zmodyfikować konfigurację, należy wykonać następujące czynności:
    * Priorytet 
    * Metryki
 
-4. Wybierz **pozycję Zapisz**.
+4. Wybierz pozycję **Zapisz**.
 
 5. Wykonaj kroki opisane w [monitorze konfiguracji,](#monitor-a-configuration) aby obserwować wdrażanie zmian. 
 

@@ -1,23 +1,23 @@
 ---
 title: Warstwy cenowe — Azure Database for MariaDB
 description: Dowiedz się więcej o różnych warstwach cenowych usługi Azure Database dla bazy danych MariaDB, w tym generacjach obliczeniowych, typach magazynu, rozmiarze magazynu, języka wirtualnego, pamięci i okresach przechowywania kopii zapasowych.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 39af6850810fa471003cea27ed274972fb2ff046
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c057bebf94362b3b9e42db9d311e99f1e35c651
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528034"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770127"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Warstwy cenowe usługi Azure Database dla mariadb
 
 Można utworzyć usługę Azure Database dla serwera MariaDB w jednej z trzech różnych warstw cenowych: Podstawowe, Ogólnego przeznaczenia i Zoptymalizowane pod kątem pamięci. Warstwy cenowe są zróżnicowane przez ilość obliczeń w rach wirtualnych, które mogą być aprowizowane, pamięci na rzę wirtualną i technologii magazynu używanej do przechowywania danych. Wszystkie zasoby są aprowiedna na poziomie serwera MariaDB. Serwer może mieć jedną lub wiele baz danych.
 
-|    | **Podstawowa (Basic)** | **Cel ogólny** | **Zoptymalizowana pamięć** |
+|    | **Podstawowy** | **Cel ogólny** | **Zoptymalizowana pamięć** |
 |:---|:----------|:--------------------|:---------------------|
 | Generowanie obliczeń | Rdz. |Rdz. | Rdz. |
 | Rejy wirtualne | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -29,7 +29,7 @@ Aby wybrać warstwę cenową, użyj poniższej tabeli jako punktu wyjścia.
 
 | Warstwa cenowa | Docelowe obciążenia |
 |:-------------|:-----------------|
-| Podstawowa (Basic) | Obciążenia, które wymagają lekkich obliczeń i wydajności we/wy. Przykłady obejmują serwery używane do tworzenia lub testowania lub rzadko używanych aplikacji na małą skalę. |
+| Podstawowy | Obciążenia, które wymagają lekkich obliczeń i wydajności we/wy. Przykłady obejmują serwery używane do tworzenia lub testowania lub rzadko używanych aplikacji na małą skalę. |
 | Ogólnego przeznaczenia | Większość obciążeń biznesowych, które wymagają zrównoważonych obliczeń i pamięci o skalowalnej przepływności we/wy. Przykłady obejmują serwery do obsługi aplikacji internetowych i mobilnych oraz innych aplikacji dla przedsiębiorstw.|
 | Optymalizacja pod kątem pamięci | Obciążenia bazy danych o wysokiej wydajności, które wymagają wydajności w pamięci dla szybszego przetwarzania transakcji i wyższej współbieżności. Przykłady obejmują serwery do przetwarzania danych w czasie rzeczywistym oraz aplikacje transakcyjne lub analityczne o wysokiej wydajności.|
 
@@ -43,7 +43,7 @@ Zasoby obliczeniowe są dostarczane jako rdzenie wirtualne, które reprezentują
 
 Magazyn, który aprowizować jest ilość pojemności dostępnej dla usługi Azure Database dla serwera MariaDB. Magazyn jest używany dla plików bazy danych, plików tymczasowych, dzienników transakcji i dzienników serwera MariaDB. Całkowita ilość udostępnianego miejsca określa również pojemność we/wy dostępną dla serwera.
 
-|    | **Podstawowa (Basic)** | **Cel ogólny** | **Zoptymalizowana pamięć** |
+|    | **Podstawowy** | **Cel ogólny** | **Zoptymalizowana pamięć** |
 |:---|:----------|:--------------------|:---------------------|
 | Typ magazynu | Podstawowa pamięć masowa | Magazyn ogólnego przeznaczenia | Magazyn ogólnego przeznaczenia |
 | Rozmiar magazynu | Od 5 GB do 1 TB | Od 5 GB do 4 TB | Od 5 GB do 4 TB |
@@ -77,7 +77,7 @@ Na przykład jeśli aprowizacja 1000 GB miejsca na przestrzeni, a rzeczywiste wy
 
 Należy pamiętać, że magazyn można skalować tylko w górę, a nie w dół.
 
-## <a name="backup"></a>Tworzenie kopii zapasowych
+## <a name="backup"></a>Backup
 
 Usługa automatycznie wykonuje kopie zapasowe serwera. Można wybrać okres przechowywania z zakresu od 7 do 35 dni. Serwery ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci mogą wybrać magazyn geograficznie nadmiarowy dla kopii zapasowych. Dowiedz się więcej o kopiach zapasowych w [artykule pojęcia](concepts-backup.md).
 

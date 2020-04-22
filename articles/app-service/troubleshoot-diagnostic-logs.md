@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6f22d5b2140e42f5f4b8ef5787d22b4be399c7e8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: e945fd77c2615e6f5213a9aa4fc996f0c4d2f3dd
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272529"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770000"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostyki dla aplikacji w usłudze Azure App Service
 ## <a name="overview"></a>Omówienie
@@ -38,6 +38,9 @@ W tym artykule użyto [witryny Azure portal](https://portal.azure.com) i interfe
 >
 
 ## <a name="enable-application-logging-windows"></a>Włącz rejestrowanie aplikacji (Windows)
+
+> [!NOTE]
+> Rejestrowanie aplikacji dla magazynu obiektów blob może używać tylko kont magazynu w tym samym regionie co usługa app service
 
 Aby włączyć rejestrowanie aplikacji dla aplikacji systemu Windows w [portalu Azure,](https://portal.azure.com)przejdź do aplikacji i wybierz **dzienniki usługi App Service**.
 

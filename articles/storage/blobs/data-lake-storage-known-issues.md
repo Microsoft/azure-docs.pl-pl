@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 204b5dd4661b34aae8b76d65505a65e20f293f0f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: dfa4d65464192b90d4a6f74255faaf8b664ce118
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115327"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767963"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z usługą Azure Data Lake Storage Gen2
 
@@ -62,14 +62,11 @@ Niezarządzane dyski maszyn wirtualnych nie są obsługiwane na kontach, które 
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="file-system-support-in-sdks"></a>Obsługa systemu plików w skusie SDK
+## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Obsługa systemu plików w zestawach SDK, PowerShell i azure cli
 
-Pobierz i ustaw operacje listy ACL nie są obecnie cykliczne.
-
-## <a name="file-system-support-in-powershell-and-azure-cli"></a>Obsługa systemu plików w programach PowerShell i azure CLI
-
-- Obsługa interfejsu [wiersza polecenia programu](data-lake-storage-directory-file-acl-cli.md) [PowerShell](data-lake-storage-directory-file-acl-powershell.md) i platformy Azure są dostępne w publicznej wersji zapoznawczej.
 - Pobierz i ustaw operacje listy ACL nie są obecnie cykliczne.
+- [Obsługa interfejsu wiersza polecenia platformy Azure](data-lake-storage-directory-file-acl-cli.md) jest w publicznej wersji zapoznawczej.
+
 
 ## <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
 

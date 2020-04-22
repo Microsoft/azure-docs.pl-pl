@@ -1,5 +1,5 @@
 ---
-title: Objaśniaj modele i prognozy uczenia maszynowego
+title: Interpretuj & wyjaśnij modele ML w Pythonie
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak uzyskać wyjaśnienia dotyczące sposobu, w jaki model uczenia maszynowego określa ważność funkcji i tworzy prognozy podczas korzystania z sdk usługi Azure Machine Learning.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: c1282ed16c9e3b92e7d5ec3f9969bee6fc3d917f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 45eef976fe10bbb5acda2cd348a77b28c3ffbe02
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257207"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769804"
 ---
-# <a name="explain-machine-learning-models-and-predictions"></a>Objaśniaj modele i prognozy uczenia maszynowego
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Użyj pakietu interpretability, aby wyjaśnić modele uczenia & prognoz w języku Python
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -41,10 +41,10 @@ Aby uzyskać więcej informacji na temat obsługiwanych technik interpretowania 
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generowanie wartości ważności funkcji na komputerze osobistym 
 W poniższym przykładzie pokazano, jak używać pakietu interpretability na komputerze osobistym bez kontaktowania się z usługami platformy Azure.
 
-1. `azureml-interpret` Instalacja `azureml-interpret-contrib` i pakiety.
+1. `azureml-interpret` Instalacja `azureml-contrib-interpret` i pakiety.
     ```bash
     pip install azureml-interpret
-    pip install azureml-interpret-contrib
+    pip install azureml-contrib-interpret
     ```
 
 2. Trenuj przykładowy model w lokalnym notatniku Jupyter.

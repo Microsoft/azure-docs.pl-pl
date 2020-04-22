@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: dccd2ebb6ac2c11e19e986d39eabda5f0ab6a8fc
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: e93cfd6d44e6a59b4b3d94a49bef766fadf4381c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76774288"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770627"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>Szybki start: biblioteka klienta moderatora zawartości dla platformy .NET
 
@@ -73,11 +73,11 @@ Build succeeded.
 
 W katalogu projektu otwórz plik *Program.cs* w preferowanym edytorze lub w programie IDE. Dodaj następujące instrukcje `using`:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_using)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_using)]
 
 W **klasie Program** utwórz zmienne dla lokalizacji punktu końcowego zasobu i klucz jako zmienne środowiskowe.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_creds)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_creds)]
 
 > [!NOTE]
 > Jeśli utworzono zmienne środowiskowe po uruchomieniu aplikacji, należy zamknąć i ponownie otworzyć edytor, IDE lub powłoki z systemem go, aby uzyskać dostęp do zmiennych.
@@ -117,13 +117,13 @@ Te fragmenty kodu pokazują, jak wykonać następujące zadania za pomocą bibli
 
 W nowej metodzie wystąpienia obiektów klienta z punktu końcowego i klucza. Nie potrzebujesz innego klienta dla każdego scenariusza, ale może pomóc utrzymać porządek kodu.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_client)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_client)]
 
 ## <a name="moderate-text"></a>Moderowanie tekstu
 
 Poniższy kod używa klienta content moderatora do analizowania treści tekstu i drukowania wyników na konsoli. W katalogu głównym klasy **Program** zdefiniuj pliki wejściowe i wyjściowe:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_text_vars)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_text_vars)]
 
 Następnie w katalogu głównym projektu i dodać plik *TextFile.txt.* Dodaj własny tekst do tego pliku lub użyj następującego przykładowego tekstu:
 
@@ -134,11 +134,11 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 
 Dodaj następujące wywołanie `Main` metody do metody:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod_call)]
 
 Następnie zdefiniuj metodę moderowania tekstu gdzieś w klasie **Program:**
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod)]
 
 ## <a name="moderate-images"></a>Umiarkowane obrazy
 
@@ -151,7 +151,7 @@ Poniższy kod używa klienta moderatora zawartości, wraz z [ImageModeration](ht
 
 Zdefiniuj pliki wejściowe i wyjściowe:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_image_vars)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_image_vars)]
 
 Następnie utwórz plik wejściowy *ImageFiles.txt*w katalogu głównym projektu. W tym pliku dodasz adresy URL&mdash;obrazów, aby przeanalizować jeden adres URL w każdym wierszu. Można użyć następujących przykładowych obrazów:
 
@@ -162,13 +162,13 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 Przekaż pliki wejściowe i wyjściowe do `Main` następującego wywołania metody w metodzie. Tę metodę zdefiniujesz w późniejszym kroku.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod_call)]
 
 ### <a name="define-helper-class"></a>Definiowanie klasy pomocnika
 
 Dodaj następującą definicję klasy w klasie **Program.** Ta klasa wewnętrzna będzie obsługiwać wyniki moderowania obrazu.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_dataclass)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_dataclass)]
 
 ### <a name="define-the-image-moderation-method"></a>Definiowanie metody moderowania obrazu
 
@@ -176,17 +176,17 @@ Poniższa metoda iteruje za pośrednictwem adresów URL obrazu w pliku tekstowym
 
 #### <a name="iterate-through-image-urls"></a>Iteruje za pomocą adresów URL obrazów
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_imagemod_iterate)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_iterate)]
 
 #### <a name="analyze-content"></a>Analizowanie zawartości
 
 Aby uzyskać więcej informacji na temat atrybutów obrazu, dla których ekrany moderatora zawartości, zobacz przewodnik [pojęć moderowania obrazu.](./image-moderation-api.md)
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_imagemod_analyze)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_analyze)]
 
 #### <a name="write-moderation-results-to-file"></a>Zapisuj wyniki moderowania do pliku
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_imagemod_save)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_save)]
 
 ## <a name="create-a-review"></a>Tworzenie recenzji
 
@@ -194,53 +194,53 @@ Za pomocą zestawu Content Moderator .NET SDK można przesyłać zawartość do 
 
 Metoda w tej sekcji używa [Reviews](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) klasy do tworzenia przeglądu, pobrać jego identyfikator i sprawdzić jego szczegóły po otrzymaniu danych wejściowych człowieka za pośrednictwem portalu sieci web narzędzia przeglądu. Rejestruje wszystkie te informacje w wyjściowym pliku tekstowym. Wywołaj metodę `Main` z metody:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_call)]
 
 ### <a name="get-sample-images"></a>Pobieranie przykładowych obrazów
 
 Zadeklaruj następującą tablicę w katalogu głównym klasy **Program.** Ta zmienna odwołuje się do przykładowego obrazu do utworzenia recenzji.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_urls)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_urls)]
 
 ### <a name="get-review-credentials"></a>Uzyskaj poświadczenia recenzji
 
 Zaloguj się do [narzędzia Recenzja](https://contentmoderator.cognitive.microsoft.com) i odzyskaj nazwę swojego zespołu. Następnie przypisz go do odpowiedniej zmiennej w **klasie Program.** Opcjonalnie można skonfigurować punkt końcowy wywołania zwrotnego, aby otrzymywać aktualizacje dotyczące działania przeglądu.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_vars)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_vars)]
 
 ### <a name="define-helper-class"></a>Definiowanie klasy pomocnika
 
 Dodaj następującą definicję klasy w klasie **Program.** Ta klasa będzie używana do reprezentowania pojedynczego wystąpienia przeglądu, który jest przesyłany do narzędzia Recenzja.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_item)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_item)]
 
 ### <a name="define-helper-method"></a>Definiowanie metody pomocnika
 
 Dodaj następującą metodę do klasy **Program**. Ta metoda zapisze wyniki zapytań przeglądu do wyjściowego pliku tekstowego.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_writeline)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_writeline)]
 
 ### <a name="define-the-review-creation-method"></a>Definiowanie metody tworzenia recenzji
 
 Teraz możesz przystąpić do definiowania metody, która będzie obsługiwać tworzenie recenzji i wykonywanie zapytań. Dodaj nową metodę **CreateReviews**i zdefiniuj następujące zmienne lokalne.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_fields)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_fields)]
 
 #### <a name="post-reviews-to-the-review-tool"></a>Publikowanie recenzji w narzędziu Recenzja
 
 Następnie dodaj następujący kod do iteracji za pośrednictwem podanych przykładowych obrazów, dodaj metadane i wyślij je do narzędzia Recenzja w jednej partii. 
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_create)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_create)]
 
 Obiekt zwrócony z wywołania interfejsu API będzie zawierać unikatowe wartości identyfikatora dla każdego przesłanego obrazu. Poniższy kod analizuje te identyfikatory, a następnie używa ich do wykonywania zapytań o moderatora zawartości pod kątem stanu każdego obrazu w partii.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_ids)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_ids)]
 
 ### <a name="get-review-details"></a>Uzyskaj szczegółowe informacje o recenzji
 
 Poniższy kod powoduje, że program czekać na dane wejściowe użytkownika. Po dojściu do tego kroku w czasie wykonywania, można przejść do [narzędzia przeglądu](https://contentmoderator.cognitive.microsoft.com) samodzielnie, sprawdź, czy przykładowy obraz został przekazany i interakcji z nim. Aby uzyskać informacje na temat interakcji z recenzją, zobacz [przewodnik Ekwiastyki](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). Po zakończeniu można nacisnąć dowolny klawisz, aby kontynuować program i pobrać wyniki procesu przeglądu.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_results)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_results)]
 
 Jeśli użyto punktu końcowego wywołania zwrotnego w tym scenariuszu, powinien on otrzymać zdarzenie w tym formacie:
 
@@ -281,4 +281,4 @@ W tym przewodniku Szybki start dowiesz się, jak wykonywać zadania moderowania 
 > [Pojęcia dotyczące moderowania obrazu](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
 * [Czym jest usługa Azure Content Moderator?](./overview.md)
-* Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ContentModerator/Program.cs).
+* Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs).

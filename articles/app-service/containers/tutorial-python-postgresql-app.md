@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Aplikacja Linux Python z Postgres'
-description: Dowiedz się, jak uzyskać aplikację Języka Linux Python działającą w usłudze Azure App Service, z połączeniem z bazą danych PostgreSQL na platformie Azure. Samouczek pokazuje przy użyciu przykładowej aplikacji Django.
+title: 'Samouczek: Wdrażanie Pythona (Django) z postgresem'
+description: Dowiedz się, jak utworzyć aplikację języka Python z bazą danych PostgreSQL i wdrożyć ją w usłudze Azure App Service w systemie Linux. Samouczek używa przykładowej aplikacji Django do demonstracji.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/14/2020
@@ -9,12 +9,12 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-ms.openlocfilehash: aa30cb5b66769c0a9c89a311940e581f74636573
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2f6e21f47a021a0aab1d059da2aea2c497acb785
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392539"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770711"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Samouczek: Wdrażanie aplikacji sieci Web Języka Python (Django) z postgreSQL w usłudze Azure App Service
 
@@ -217,9 +217,8 @@ W sesji SSH uruchom następujące polecenia:
 ```bash
 cd site/wwwroot
 
-# Activate virtual environment
-python3 -m venv venv
-source venv/bin/activate
+# Activate default virtual environment in App Service container
+source /antenv/bin/activate
 # Install requirements in environment
 pip install -r requirements.txt
 # Run database migrations

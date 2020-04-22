@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/21/2019
 ms.author: spelluru
-ms.openlocfilehash: a0dbd92533703a56f1ec2478fab8944656129247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bb871119bece71c705ad9621a7c76c4b5ed0bc7
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295507"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770255"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Dodawanie repozytorium artefaktów do laboratorium w devtest labs
 DevTest Labs umożliwia określenie artefaktu, który ma zostać dodany do maszyny Wirtualnej w czasie tworzenia maszyny Wirtualnej lub po utworzeniu maszyny Wirtualnej. Ten artefakt może być narzędziem lub aplikacją, którą chcesz zainstalować na maszynie wirtualnej. Artefakty są zdefiniowane w pliku JSON załadowanym z repozytorium GitHub lub Azure DevOps Git.
@@ -52,20 +52,20 @@ Aby dodać repozytorium do laboratorium, najpierw pobierz kluczowe informacje z 
 4. Zapisz adres URL. Później użyjesz adresu URL.
 5. Aby utworzyć token dostępu osobistego, w menu rozwijanym konta użytkownika wybierz pozycję **Mój profil**.
 6. Na stronie informacji o profilu wybierz pozycję **Zabezpieczenia**.
-7. Na karcie **Zabezpieczenia** wybierz pozycję **Dodaj**.
-8. Na stronie **Tworzenie tokenu dostępu osobistego:**
-   1. Wprowadź **opis** tokenu.
-   2. Na liście **Wygasa w** wybierz **pozycję 180 dni**.
-   3. Na liście **Konta** wybierz pozycję **Wszystkie dostępne konta**.
-   4. Wybierz opcję **Wszystkie zakresy.**
-   5. Wybierz **pozycję Utwórz token**.
+7. Na karcie **Tokeny dostępu osobistego > zabezpieczeń** wybierz pozycję + Nowy **token**.
+8. Na stronie **Tworzenie nowego tokenu dostępu osobistego:**
+   1. Wprowadź **nazwę** tokenu.
+   2. Na liście **Organizacja** wybierz **pozycję Wszystkie dostępne organizacje**.
+   3. Na liście **Wygaśnięcie (UTC)** wybierz **90 dni**lub zdefiniowany na zamówienie okres wygaśnięcia.
+   4. Wybierz opcję **Pełny dostęp** dla zakresów.
+   5. Wybierz pozycję **Utwórz**.
 9. Nowy token pojawia się na liście **tokenów dostępu osobistego.** Wybierz **polecenie Kopiuj token**, a następnie zapisz wartość tokenu do późniejszego użycia.
 10. Przejdź do sekcji Połącz laboratorium z repozytorium.
 
 ## <a name="use-azure-portal"></a>Korzystanie z witryny Azure Portal
 Ta sekcja zawiera kroki, aby dodać repozytorium artefaktów do laboratorium w witrynie Azure portal.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz **pozycję Więcej usług**, a następnie wybierz **devtest labs** z listy usług.
 3. Z listy laboratoriów wybierz laboratorium.
 4. Wybierz **opcję Konfiguracja i zasady** w menu po lewej stronie.
@@ -81,7 +81,7 @@ Ta sekcja zawiera kroki, aby dodać repozytorium artefaktów do laboratorium w w
    5. **Ścieżki folderów**. Wprowadź co najmniej jedną ścieżkę folderu względem adresu URL klonowania zawierającego artefakt lub definicje szablonów Menedżera zasobów. Po określeniu podkatalogu upewnij się, że ukośnik do przodu jest dołączany do ścieżki folderu.
 
         ![Obszar repozytoriów](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
-6. Wybierz **pozycję Zapisz**.
+6. Wybierz pozycję **Zapisz**.
 
 ## <a name="use-azure-resource-manager-template"></a>Korzystanie z szablonu usługi Azure Resource Manager
 Szablony usługi Azure Resource Management (Azure Resource Manager) to pliki JSON opisujące zasoby na platformie Azure, które chcesz utworzyć. Aby uzyskać więcej informacji na temat tych szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).

@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 04/21/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 815d3afe68003f56a5748584b322b731ef5a3dc7
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 3a03a03557fbb2e71ff79ff42fd9d9c72cd5907c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81639645"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770503"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Usługa Azure AD Connect: historia wersji
 Zespół usługi Azure Active Directory (Azure AD) regularnie aktualizuje usługę Azure AD Connect o nowe funkcje i funkcje. Nie wszystkie dodatki mają zastosowanie do wszystkich odbiorców.
@@ -48,6 +48,14 @@ Nie wszystkie wersje usługi Azure AD Connect zostaną udostępnione do automaty
 >
 >Zapoznaj się z [tym artykułem,](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) aby dowiedzieć się więcej na temat uaktualniania usługi Azure AD Connect do najnowszej wersji.
 
+## <a name="15220"></a>1.5.22.0
+
+### <a name="release-status"></a>Stan wydania
+20.04.2020: Premiera do pobrania
+
+### <a name="fixed-issues"></a>Rozwiązane problemy
+Ta kompilacja poprawek rozwiązuje problem w kompilacji 1.5.20.0, jeśli sklonowałeś regułę **In from AD — Group Join** i nie sklonowałeś reguły In from AD — Group **Common.**
+
 ## <a name="15200"></a>1.5.20.0
 
 ### <a name="release-status"></a>Stan wydania
@@ -57,12 +65,13 @@ Nie wszystkie wersje usługi Azure AD Connect zostaną udostępnione do automaty
 Ta kompilacja poprawek rozwiązuje problem z kompilacją 1.5.18.0, jeśli masz włączoną funkcję filtrowania grup i używasz mS-DS-ConsistencyGuid jako kotwicy źródłowej.
 
 > [!IMPORTANT]
-> Jeśli używasz mS-DS-ConsistencyGuid jako kotwicy źródłowej, a reguła synchronizacji **In from AD — Group Join** i plan uaktualnienia, wykonaj następujące kroki w ramach uaktualnienia:
+> Jeśli sklonowałeś regułę synchronizacji **In from AD — Group Join** i nie sklonowałeś reguły synchronizacji In from AD — Group **Common** sync i planujesz uaktualnienie, wykonaj następujące czynności w ramach uaktualnienia:
 > 1. Podczas uaktualniania odznacz opcję **Rozpocznij proces synchronizacji po zakończeniu konfiguracji**.
 > 2. Edytuj regułę synchronizacji sklonowanego sprzężenia i dodaj następujące dwie przekształcenia:
 >     - Ustaw przepływ `objectGUID` `sourceAnchorBinary`bezpośredni do .
 >     - Ustaw przepływ `ConvertToBase64([objectGUID])` `sourceAnchor`wyrażenia na .     
 > 3. Włącz harmonogram za `Set-ADSyncScheduler -SyncCycleEnabled $true`pomocą programu .
+
 
 
 ## <a name="15180"></a>1.5.18.0
@@ -880,7 +889,7 @@ CBool(
     |CertFriendlyName (Nazwa)|CertThumbprint (Drukarka certThumbprint)|CertExtensionOids (Objawy certExtensionOids)|
     |CertFormat|CertNotAfter (Po|CertPublicKeyOid (Polski)|
     |Numer certSerialnumer|CertNotBefore|CertPublicKeyParametersOid|
-    |Wersja cert|CertSignatureAlgorithmOid|Wybierz pozycję|
+    |Wersja cert|CertSignatureAlgorithmOid|Wybierz|
     |CertKeyAlgorithmParams|CertHashString (CertHashString)|Lokalizacja|
     |||With|
 

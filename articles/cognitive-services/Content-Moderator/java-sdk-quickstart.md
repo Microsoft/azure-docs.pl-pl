@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 5dd1c1bb2b321e617efc430ce48745c06a827305
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f86a54b53b73da9c798564d13d659844842e6f67
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76772462"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768708"
 ---
 # <a name="quickstart-content-moderator-client-library-for-java"></a>Szybki start: biblioteka klienta moderatora zawartości dla języka Java
 
@@ -89,7 +89,7 @@ mkdir -p src/main/java
 
 Następnie utwórz plik o nazwie *ContentModeratorQuickstart.java* w nowym folderze. Otwórz plik w preferowanym edytorze lub w ucho i zaimportuj następujące biblioteki u góry:
 
-[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imports)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imports)]
 
 ## <a name="object-model"></a>Model obiektu
 
@@ -120,7 +120,7 @@ W `main` metodzie aplikacji utwórz [ContentModeratorClient](https://docs.micros
 > [!NOTE]
 > Jeśli po uruchomieniu aplikacji utworzono zmienną środowiskową, należy zamknąć i ponownie otworzyć edytor, IDE lub powłokę uruchamianą ją, aby uzyskać dostęp do zmiennej.
 
-[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_client)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_client)]
 
 ## <a name="moderate-images"></a>Umiarkowane obrazy
 
@@ -137,42 +137,42 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 Następnie w pliku *ContentModeratorQuickstart.java* dodaj następującą definicję klasy wewnątrz klasy **ContentModeratorQuickstart.** Ta klasa wewnętrzna będzie używana w dalszej części procesu moderowania obrazu.
 
-[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_evaluationdata)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_evaluationdata)]
 
 ### <a name="iterate-through-images"></a>Iteruj przez obrazy
 
 Następnie dodaj następujący kod na dole `main` metody. Możesz też dodać go do osobnej metody, `main`która jest wywoływana z pliku . Ten kod przechodzi przez każdy wiersz pliku _ImageFiles.txt._
 
-[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_iterate)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_iterate)]
 
 ### <a name="check-for-adultracy-content"></a>Sprawdź, czy treści dla dorosłych/rasy
 Ten wiersz kodu sprawdza obraz pod podanym adresem URL dla treści dla dorosłych lub rasistowskich. Zobacz przewodnik koncepcyjny moderowania obrazu, aby uzyskać informacje na temat tych terminów.
 
-[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_ar)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_ar)]
 
 ### <a name="check-for-text"></a>Sprawdzanie tekstu
 Ten wiersz kodu sprawdza obraz pod kątem widocznego tekstu.
 
-[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_text)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_text)]
 
 ### <a name="check-for-faces"></a>Sprawdź, czy twarze
 Ten wiersz kodu sprawdza obraz dla ludzkich twarzy.
 
-[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_faces)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_faces)]
 
 Na koniec należy zapisać zwrócone informacje na `EvaluationData` liście.
 
-[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_storedata)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_storedata)]
 
 ### <a name="print-results"></a>Drukowanie wyników
 
 Po `while` pętli dodaj następujący kod, który drukuje wyniki do konsoli i do pliku wyjściowego, *src/main/resources/ModerationOutput.json*.
 
-[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_printdata)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_printdata)]
 
 Zamknij instrukcję `try` i `catch` dodaj instrukcję, aby zakończyć metodę.
 
-[!code-java[](~/cognitive-services-java-sdk-samples/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_catch)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_catch)]
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
@@ -205,4 +205,4 @@ W tym przewodniku Szybki start dowiesz się, jak korzystać z biblioteki Java mo
 >[Pojęcia dotyczące moderowania obrazu](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
 * [Czym jest usługa Azure Content Moderator?](./overview.md)
-* Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/blob/master/ContentModerator/ContentModeratorQuickstart/src/main/java/ContentModeratorQuickstart.java).
+* Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java).

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: be3046a343e14be4a527363751081ba3f2593cd3
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 9f80156f61ad82e5563f1c38764c81297f5979f2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605894"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767331"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatyczne szkolenie modelu prognozy szeregów czasowych
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,9 +40,9 @@ Funkcje wyodrębnione z danych szkoleniowych odgrywają kluczową rolę. Automat
 
 
 Zautomatyzowane ml zapewnia użytkownikom zarówno natywnych szeregów czasowych i głębokiego uczenia modeli w ramach systemu rekomendacji. Wśród uczących się są:
-+ Proroka
-+ Auto-ARIMA
-+ ForecastTCN (ForecastTCN)
++ Prorok (wersja zapoznawcza)
++ Auto-ARIMA (wersja zapoznawcza)
++ ForecastTCN (wersja zapoznawcza)
 
 Zautomatyzowane uczenie głębokie ml pozwala na prognozowanie jednozmiennych i wielowymiarowych danych szeregów czasowych.
 
@@ -51,7 +51,7 @@ Modele uczenia głębokiego mają trzy wewnętrzne możliwości:
 1. Obsługują one wiele wejść i wyjść
 1. Mogą automatycznie wyodrębniać wzorce w danych wejściowych, które rozciągają się na długie sekwencje
 
-Biorąc pod uwagę większe dane, modele uczenia głębokiego, takie jak ForecastTCN firmy Microsoft, mogą poprawić wyniki wynikowego modelu. 
+Biorąc pod uwagę większe dane, modele uczenia głębokiego, takie jak ForecastTCN firmy Microsoft, mogą poprawić wyniki wynikowego modelu. Dowiedz się, jak [skonfigurować eksperyment do głębokiego uczenia się.](#configure-a-dnn-enable-forecasting-experiment)
 
 Natywne osoby uczące się szeregów czasowych są również dostarczane w ramach zautomatyzowanego uczenia maszynowego. Prorok działa najlepiej z szeregami czasowymi, które mają silne efekty sezonowe i kilka sezonów danych historycznych. Prorok jest dokładny & szybki, solidny dla odstającej, brakujące dane i dramatyczne zmiany w szeregach czasowych. 
 
@@ -181,6 +181,17 @@ Szczegółowe przykłady konfiguracji prognozowania można znaleźć w [przykła
 > Obsługa DNN prognozowania w zautomatyzowanym uczeniu maszynowym jest w wersji zapoznawczej i nie jest obsługiwana dla uruchomień lokalnych.
 
 Aby wykorzystać nazwy DNn do prognozowania, należy `enable_dnn` ustawić parametr w AutoMLConfig na true. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             enable_dnn=True,
+                             ...
+                             **time_series_settings)
+```
+Dowiedz się więcej o [automlconfig](#configure-and-run-experiment).
+
+Alternatywnie, można wybrać `Enable deep learning` opcję w studio.
+![tekst alternatywny](./media/how-to-auto-train-forecast/enable_dnn.png)
 
 Zaleca się używanie klastra obliczeniowego AML z jednostkami SKU GPU i co najmniej dwoma węzłami jako obiektem docelowym obliczeń. Aby zapewnić wystarczającą ilość czasu na ukończenie szkolenia DNN, zalecamy ustawienie limitu czasu eksperymentu na co najmniej kilka godzin.
 Aby uzyskać więcej informacji na temat rozmiarów obliczeń AML i maszyn wirtualnych, które obejmują procesory [graficzne, zobacz dokumentację obliczeń AML](how-to-set-up-training-targets.md#amlcompute) i [dokumentację zoptymalizowanych dla maszyn wirtualnych.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)

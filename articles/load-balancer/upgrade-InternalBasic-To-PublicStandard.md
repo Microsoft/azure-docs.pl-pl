@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eca498e5716ae7c0a03e5e624d618899da8dc8
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659989"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770401"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Uaktualnianie wewnętrznego modułu równoważenia obciążenia platformy Azure — wymagane połączenie wychodzące
 [Azure Standard Load Balancer](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysoką dostępność dzięki nadmiarowości strefowej. Aby dowiedzieć się więcej o jednostce SKU modułu równoważenia obciążenia, zobacz [tabelę porównawczą](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Ponieważ standardowy wewnętrzny moduł równoważenia obciążenia nie zapewnia połączenia wychodzącego, zapewniamy rozwiązanie do utworzenia standardowego publicznego modułu równoważenia obciążenia.
@@ -21,8 +21,7 @@ Istnieją cztery etapy uaktualnienia:
 
 1. Migrowanie konfiguracji do standardowego modułu równoważenia obciążenia publicznego
 2. Dodawanie maszyn wirtualnych do pul zaplecza standardowego publicznego modułu równoważenia obciążenia
-3. Tworzenie reguły ruchu wychodzącego na modułu równoważenia obciążenia dla połączenia wychodzącego
-4. Konfigurowanie reguł sieciowej sieciowej dla podsieci/maszyn wirtualnych, których należy powstrzymać od Internetu
+3. Konfigurowanie reguł sieciowej sieciowej dla podsieci/maszyn wirtualnych, których należy powstrzymać od Internetu
 
 W tym artykule opisano migrację konfiguracji. Dodawanie maszyn wirtualnych do pul wewnętrznej bazy danych może się różnić w zależności od określonego środowiska. Jednak niektóre wysokiego szczebla, ogólne zalecenia [są dostarczane](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -32,6 +31,7 @@ Dostępny jest skrypt programu Azure PowerShell, który wykonuje następujące c
 
 * Tworzy standardowy moduł równoważenia obciążenia publicznego w określonej grupie zasobów i lokalizacji.
 * Bezproblemowo kopiuje konfiguracje modułu wewnętrznego modułu równoważenia obciążenia podstawowego jednostki SKU do nowo utworzonego standardowego modułu równoważenia obciążenia publicznego.
+* Tworzy regułę ruchu wychodzącego, która umożliwia łączność wychodzącą.
 
 ### <a name="caveatslimitations"></a>Zastrzeżenia\Ograniczenia
 
@@ -42,7 +42,7 @@ Dostępny jest skrypt programu Azure PowerShell, który wykonuje następujące c
 
 ## <a name="download-the-script"></a>Pobierz skrypt
 
-Pobierz skrypt migracji z [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Pobierz skrypt migracji z [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Korzystanie ze skryptu
 
 Istnieją dwie opcje w zależności od lokalnej konfiguracji środowiska programu PowerShell i preferencji:
@@ -104,7 +104,7 @@ Oto kilka scenariuszy, jak dodać maszyny wirtualne do pul zaplecza nowo utworzo
    
     1. Wybierz pulę wewnętrznej bazy danych, która odpowiada puli wewnętrznej bazy danych modułu równoważenia obciążenia podstawowego, wybierz następującą wartość: 
       - **Maszyna wirtualna:** Rozwijana i wybierz maszyny wirtualne z pasującej puli wewnętrznej bazy danych modułu równoważenia obciążenia podstawowego.
-    1. Wybierz **pozycję Zapisz**.
+    1. Wybierz pozycję **Zapisz**.
     >[!NOTE]
     >W przypadku maszyn wirtualnych, które mają publiczne adresy IP, należy najpierw utworzyć standardowe adresy IP, w przypadku gdy ten sam adres IP nie jest gwarantowany. Odłączyć maszyny wirtualne od podstawowych adresów IP i skojarzyć je z nowo utworzonych standardowych adresów IP. Następnie będzie można wykonać instrukcje, aby dodać maszyny wirtualne do puli wewnętrznej bazy danych modułu równoważenia obciążenia standardowego. 
 

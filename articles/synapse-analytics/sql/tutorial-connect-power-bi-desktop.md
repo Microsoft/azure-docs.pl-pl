@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0df8ac495b6aca81e46dffc248019483b1c82202
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e0ac6ccde2443a7b374d9eb85f6f960af79c69dc
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422452"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769478"
 ---
 # <a name="tutorial-connect-sql-on-demand-preview-to-power-bi-desktop--create-report"></a>Samouczek: Łączenie sql na żądanie (wersja zapoznawcza) z programem Power BI Desktop & tworzenia raportu
 
@@ -24,7 +24,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 >
 > - Tworzenie bazy danych demonstracyjnych
 > - Tworzenie widoku używanego dla raportu
-> - Łączenie się z programem Power BI Desktop
+> - Nawiązywanie połączenia z programem Power BI Desktop
 > - Tworzenie raportu na podstawie widoku
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -51,7 +51,7 @@ Utwórz bazę danych demonstracyjnych (i w razie potrzeby upuść istniejącą b
 
 ```sql
 -- Drop database if it exists
-IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'Demo')
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Demo')
 BEGIN
     DROP DATABASE Demo
 END;

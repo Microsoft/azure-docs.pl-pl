@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 39edaa32b0695f4ab83206cd5701629f12295a0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: b2e8bec18f4f5df6fb78a3c31aa0956ec7333eb5
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527915"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770106"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliki do odczytu w usłudze Azure Database for MariaDB
 
@@ -73,7 +73,7 @@ Dowiedz się, jak [utworzyć replikę odczytu w witrynie Azure portal](howto-rea
 
 ## <a name="connect-to-a-replica"></a>Łączenie się z repliką
 
-Podczas tworzenia replika dziedziczy reguły zapory lub punkt końcowy usługi sieci wirtualnej serwera głównego. Następnie te reguły są niezależne od serwera głównego.
+Podczas tworzenia replika dziedziczy reguły zapory serwera głównego. Następnie te reguły są niezależne od serwera głównego.
 
 Replika dziedziczy konto administratora z serwera głównego. Wszystkie konta użytkowników na serwerze głównym są replikowane do replik odczytu. Z repliką odczytu można łączyć się tylko przy użyciu kont użytkowników dostępnych na serwerze głównym.
 
@@ -126,7 +126,7 @@ Replika jest tworzona przy użyciu tej samej konfiguracji serwera co wzorzec. Po
 > [!IMPORTANT]
 > Przed zaktualizowaniem konfiguracji serwera głównego do nowych wartości zaktualizuj konfigurację repliki do takich samych lub wyższych wartości. Dzięki temu replika może być na bieżąco ze zmianami wprowadzonymi we wzorcu.
 
-Reguły zapory, reguły sieci wirtualnej i ustawienia parametrów są dziedziczone z serwera głównego do repliki podczas tworzenia repliki. Następnie zasady repliki są niezależne.
+Reguły zapory i ustawienia parametrów są dziedziczone z serwera głównego do repliki podczas tworzenia repliki. Następnie zasady repliki są niezależne.
 
 ### <a name="stopped-replicas"></a>Zatrzymane repliki
 

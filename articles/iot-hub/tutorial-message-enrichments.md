@@ -7,12 +7,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.openlocfilehash: c812e00699cd8f8cfbaf32feea1b43866ffb0990
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 78aee7829e58feede3360f30f10260903713c52f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78674353"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770078"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Samouczek: korzystanie z wzbogacania komunikatów usługi Azure IoT Hub
 
@@ -309,7 +310,7 @@ Za pomocą szablonu Menedżera zasobów można tworzyć i konfigurować zasoby, 
    | Nazwa trasy 1 | ContosoStorageRouteoryginalny |
    | Nazwa trasy 2 | ContosoStorageRouteWzszało |
 
-1. Wybierz **pozycję Zapisz**. Zostanie **wyświetlona okienko wdrożenia niestandardowego** i wszystkie parametry używane przez szablon. Jedynym polem, które należy ustawić, jest **grupa zasobów**. Utwórz nowy lub wybierz go z listy rozwijanej.
+1. Wybierz pozycję **Zapisz**. Zostanie **wyświetlona okienko wdrożenia niestandardowego** i wszystkie parametry używane przez szablon. Jedynym polem, które należy ustawić, jest **grupa zasobów**. Utwórz nowy lub wybierz go z listy rozwijanej.
 
    Oto górna połowa okienka **wdrażania niestandardowego.** Możesz zobaczyć, gdzie należy wypełnić grupę zasobów.
 

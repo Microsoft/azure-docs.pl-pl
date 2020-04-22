@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/25/2020
-ms.openlocfilehash: 30664d533215cb49fa6f436ec4cf88fa319c3300
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 18774ae4a98b795846459251174ee47671aef39c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272268"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769899"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planowanie sieci wirtualnej dla usługi Azure HDInsight
 
@@ -243,7 +243,7 @@ Jeśli do kontrolowania ruchu używasz sieciowych grup zabezpieczeń lub tras zd
 
 ## <a name="required-ports"></a><a id="hdinsight-ports"></a>Wymagane porty
 
-Jeśli planujesz przy użyciu **zapory** i uzyskać dostęp do klastra z zewnątrz na niektórych portach, może być konieczne zezwolenie na ruch na tych portach potrzebnych w danym scenariuszu. Domyślnie nie jest potrzebne specjalne białe listy portów tak długo, jak ruch zarządzania platformy azure wyjaśnione w poprzedniej sekcji może dotrzeć do klastra na porcie 443.
+Jeśli planujesz przy użyciu **zapory** i uzyskać dostęp do klastra z zewnątrz na niektórych portach, może być konieczne zezwolenie na ruch na tych portach potrzebnych w danym scenariuszu. Domyślnie nie jest potrzebne specjalne białe listy portów, o ile ruch zarządzania platformy Azure wyjaśniony w poprzedniej sekcji może dotrzeć do klastra na porcie 443.
 
 Aby uzyskać listę portów dla określonych usług, zobacz [Porty używane przez usługi Apache Hadoop w dokumencie HDInsight.](hdinsight-hadoop-port-settings-for-services.md)
 
@@ -253,21 +253,10 @@ Aby uzyskać więcej informacji na temat reguł zapory dla urządzeń wirtualnyc
 
 Podczas tworzenia klastra HDInsight tworzony jest również moduł równoważenia obciążenia. Typ tego modułu równoważenia obciążenia jest na [podstawowym poziomie jednostki SKU,](../load-balancer/concepts-limitations.md#skus)który ma pewne ograniczenia. Jednym z tych ograniczeń jest to, że jeśli masz dwie sieci wirtualne w różnych regionach, nie można połączyć się z podstawowymi modułami równoważenia obciążenia. Zobacz [sieci wirtualne często zadawane pytania: ograniczenia dotyczące komunikacji równorzędnej sieci wirtualnej na sieci globalnej](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), aby uzyskać więcej informacji.
 
-## <a name="transport-layer-security"></a>Zabezpieczenia warstwy transportu
-
-Połączenia z klastrem za pośrednictwem `https://<clustername>.azurehdinsight.net` publicznego punktu końcowego klastra są przesyłane przez węzły bramy klastra. Połączenia te są zabezpieczone za pomocą protokołu o nazwie TLS. Wymuszanie wyższych wersji protokołu TLS na bramkach zwiększa bezpieczeństwo tych połączeń. Aby uzyskać więcej informacji na temat powodów używania nowszych wersji protokołu TLS, zobacz [Rozwiązywanie problemu protokołu TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
-
-Domyślnie klastry usługi Azure HDInsight akceptują połączenia TLS 1.2 w publicznych punktach końcowych HTTPS, a także starsze wersje ze zgodnością z powrotem. Minimalną wersję protokołu TLS obsługiwaną w węzłach bramy można kontrolować za pomocą portalu Azure lub szablonu menedżera zasobów. W przypadku portalu wybierz wersję protokołu TLS z karty **Zabezpieczenia + sieć** podczas tworzenia klastra. W przypadku szablonu menedżera zasobów w czasie wdrażania należy użyć właściwości **minSupportedTlsVersion.** Przykładowy szablon można znaleźć w [szablonie szybkiego startu hdInsight minimalny szablon TLS 1.2 .](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls) Ta właściwość obsługuje trzy wartości: "1.0", "1.1" i "1.2", które odpowiadają TLS 1.0+, TLS 1.1+ i TLS 1.2+ odpowiednio.
-
-> [!IMPORTANT]
-> Począwszy od 30 czerwca 2020 r. usługa Azure HDInsight wymusza wersje protokołu TLS 1.2 lub nowszych dla wszystkich połączeń HTTPS. Zaleca się, aby upewnić się, że wszyscy klienci są gotowe do obsługi TLS 1.2 lub nowszych wersji. Aby uzyskać więcej informacji, zobacz [Azure HDInsight TLS 1.2 Wymuszanie](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
-
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby zapoznać się z przykładami kodu i przykładami tworzenia sieci wirtualnych platformy Azure, zobacz [Tworzenie sieci wirtualnych dla klastrów usługi Azure HDInsight](hdinsight-create-virtual-network.md).
 * Aby uzyskać kompleksowy przykład konfigurowania usługi HDInsight do łączenia się z siecią lokalną, zobacz [Łączenie usługi HDInsight z siecią lokalną](./connect-on-premises-network.md).
-* Aby skonfigurować klastry Apache HBase w sieciach wirtualnych platformy Azure, zobacz [Tworzenie klastrów Apache HBase w usłudze HDInsight w sieci wirtualnej platformy Azure](hbase/apache-hbase-provision-vnet.md).
-* Aby skonfigurować replikację geograficzną Apache HBase, zobacz [Konfigurowanie replikacji klastra Apache HBase w sieciach wirtualnych platformy Azure](hbase/apache-hbase-replication.md).
 * Aby uzyskać więcej informacji na temat sieci wirtualnych platformy Azure, zobacz [omówienie usługi Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 * Aby uzyskać więcej informacji na temat grup zabezpieczeń sieci, zobacz [Sieciowe grupy zabezpieczeń](../virtual-network/security-overview.md).
 * Aby uzyskać więcej informacji na temat tras zdefiniowanych przez użytkownika, zobacz [Trasy zdefiniowane przez użytkownika i przekierowanie IP](../virtual-network/virtual-networks-udr-overview.md).

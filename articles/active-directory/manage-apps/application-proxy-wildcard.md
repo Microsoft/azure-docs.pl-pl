@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406728"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770299"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplikacje wieloznaczne w serwerze proxy aplikacji usługi Azure Active Directory
 
@@ -48,8 +48,6 @@ Aplikacje z symbolami wieloznaczymi można publikować, jeśli zarówno wewnętr
 Na przykład: `http(s)://*.adventure-works.com`.
 
 Wewnętrzne i zewnętrzne adresy URL mogą korzystać z różnych domen, ale powinny być takie same. Podczas publikowania aplikacji pojawia się błąd, jeśli jeden z adresów URL nie ma symbolu wieloznacznego.
-
-Jeśli masz dodatkowe aplikacje z różnymi ustawieniami konfiguracji, należy opublikować te wyjątki jako oddzielne aplikacje, aby zastąpić domyślne ustawienia dla symbolu wieloznacznego. Aplikacje bez symbolu wieloznacznego zawsze mają pierwszeństwo przed aplikacjami wieloznacznym. Z punktu widzenia konfiguracji są to "tylko" zwykłe aplikacje.
 
 Tworzenie aplikacji wieloznacznych opiera się na tym samym [przepływie publikowania aplikacji,](application-proxy-add-on-premises-application.md) który jest dostępny dla wszystkich innych aplikacji. Jedyną różnicą jest to, że należy dołączyć symbol wieloznaczny w adresach URL i potencjalnie konfiguracji jedno i zalogowania.
 

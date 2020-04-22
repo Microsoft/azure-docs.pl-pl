@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 462a44f7766e0ec52ba7156d6de5ae5261e21376
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 0ecb7ee7f5c7c0ebaa87eb6b32eee1926d9e294d
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547368"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768959"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Sieci te można następnie połączyć z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej o sieciach wirtualnych platformy Azure, zacznij od informacji tutaj: [Omówienie sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md).
@@ -108,7 +108,7 @@ Poniżej znajduje się lista typowych problemów z nieprawidłową konfiguracją
 
 <a name="required-ports"> </a> Gdy wystąpienie usługi zarządzania interfejsem API jest hostowane w sieci wirtualnej, używane są porty w poniższej tabeli.
 
-| Źródło / Porty docelowe | Kierunek          | Protokół transportu |   [Tagi usług](../virtual-network/security-overview.md#service-tags) <br> Źródło / Cel podróży   | Cel (*)                                                 | Typ sieci wirtualnej |
+| Źródło / Porty docelowe | Kierunek          | Protokół transportu |   [Tagi usług](../virtual-network/security-overview.md#service-tags) <br> Źródło / Cel podróży   | Cel\*( )                                                 | Typ sieci wirtualnej |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Przychodzący            | TCP                | INTERNET / VIRTUAL_NETWORK            | Komunikacja klienta z zarządzaniem interfejsami API                      | Zewnętrzna             |
 | * / 3443                     | Przychodzący            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Punkt końcowy zarządzania dla witryny Azure portal i programu Powershell         | Zewnętrzne & wewnętrzne  |
@@ -132,9 +132,7 @@ Poniżej znajduje się lista typowych problemów z nieprawidłową konfiguracją
 
 + **Dostęp DNS:** Dostęp wychodzący na porcie 53 jest wymagany do komunikacji z serwerami DNS. Jeśli niestandardowy serwer DNS istnieje na drugim końcu bramy sieci VPN, serwer DNS musi być osiągalny z podsieci hostingu zarządzania interfejsami API.
 
-+ **Metryki i monitorowanie kondycji: Wychodząca**łączność sieciowa z punktami końcowymi monitorowania platformy Azure, które są rozwiązywane w następujących domenach:
-
-+ **Regionalne tagi usługi**": reguły sieciowej sieciowej sieciowej zezwalające na łączność wychodzącą z tagami usługi Storage, SQL i EventHubs mogą używać regionalnych wersji tych tagów odpowiadających regionowi zawierającemu wystąpienie zarządzania interfejsami API (na przykład Storage.WestUS dla wystąpienia zarządzania interfejsami API w regionie Zachodnie stany USA). W wdrożeniach wieloregionowych sieciowej w każdym regionie należy zezwolić na ruch do tagów usługi dla tego regionu.
++ **Metryki i monitorowanie kondycji: Wychodząca**łączność sieciowa z punktami końcowymi monitorowania platformy Azure, które są rozpoznawane w następujących domenach. Jak pokazano w tabeli, te adresy URL są reprezentowane w tagu usługi AzureMonitor do użytku z grupami zabezpieczeń sieci.
 
     | Środowisko platformy Azure | Punkty końcowe                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -142,8 +140,10 @@ Poniżej znajduje się lista typowych problemów z nieprawidłową konfiguracją
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com(**nowy**)</li><li>shoebox2.metrics.nsatc.net(**do przestarzałego**)</li><li>prod3.metrics.microsoftmetrics.com(**nowy**)</li><li>prod3.metrics.nsatc.net( do**przestarzałego**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
     | Azure w Chinach — 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com(**nowy**)</li><li>shoebox2.metrics.nsatc.net(**do przestarzałego**)</li><li>prod3.metrics.microsoftmetrics.com(**nowy**)</li><li>prod3.metrics.nsatc.net( do**przestarzałego**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
 
->[!IMPORTANT]
-> Zmiana klastrów powyżej z dns zone **.nsatc.net** do **.microsoftmetrics.com** jest głównie DNS Change. Adres IP klastra nie ulegnie zmianie.
+  >[!IMPORTANT]
+  > Zmiana klastrów powyżej z dns zone **.nsatc.net** do **.microsoftmetrics.com** jest głównie DNS Change. Adres IP klastra nie ulegnie zmianie.
+
++ **Regionalne tagi usług: Reguły sieciowej**sieciowej zezwalające na łączność wychodzącą z tagami usługi Storage, SQL i Event Hubs mogą używać regionalnych wersji tych tagów odpowiadających regionowi zawierającemu wystąpienie zarządzania interfejsami API (na przykład Storage.WestUS dla wystąpienia usługi API Management w regionie Zachodnie stany USA). W wdrożeniach wieloregionasgowych sieciowej w każdym regionie należy zezwolić na ruch do tagów usługi dla tego regionu i regionu podstawowego.
 
 + **Przekaźnik SMTP:** Wychodząca łączność sieciowa dla przekaźnika `smtpi-db3.msn.com` `smtpi-sin.msn.com` SMTP, który jest rozpoznawany w obszarze hosta `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, i`ies.global.microsoft.com`
 
@@ -151,7 +151,7 @@ Poniżej znajduje się lista typowych problemów z nieprawidłową konfiguracją
 
 + **Diagnostyka portalu Azure:** Aby włączyć przepływ dzienników diagnostycznych z witryny Azure portal podczas korzystania `dc.services.visualstudio.com` z rozszerzenia usługi API Management z wewnątrz sieci wirtualnej, wymagany jest dostęp wychodzący do portu 443. Pomaga to w rozwiązywaniu problemów, które mogą napotkać podczas korzystania z rozszerzenia.
 
-+ **Wymuś ruch tunelowy do zapory wstępnej przy użyciu trasy ekspresowej lub wirtualnego urządzenia sieciowego:** Wspólną konfiguracją klienta jest zdefiniowanie własnej trasy domyślnej (0.0.0.0/0), która wymusza przepływ całego ruchu z podsieci delegowanej usługi API Management przez zaporę lokalną lub do wirtualnego urządzenia sieciowego. Ten przepływ ruchu niezmiennie przerywa łączność z usługą Azure API Management, ponieważ ruch wychodzący jest zablokowany lokalnie lub nat'd do nierozpoznawalnego zestawu adresów, które nie działają już z różnymi punktami końcowymi platformy Azure. Rozwiązanie wymaga wykonania kilku czynności:
++ **Wymuś ruch tunelowania do zapory lokalnej przy użyciu trasy ekspresowej lub wirtualnego urządzenia sieciowego:** Wspólną konfiguracją klienta jest zdefiniowanie własnej trasy domyślnej (0.0.0.0/0), która wymusza przepływ całego ruchu z podsieci delegowanej usługi API Management przez zaporę lokalną lub do wirtualnego urządzenia sieciowego. Ten przepływ ruchu niezmiennie przerywa łączność z usługą Azure API Management, ponieważ ruch wychodzący jest zablokowany lokalnie lub nat'd do nierozpoznawalnego zestawu adresów, które nie działają już z różnymi punktami końcowymi platformy Azure. Rozwiązanie wymaga wykonania kilku czynności:
 
   * Włącz punkty końcowe usługi w podsieci, w której wdrożono usługę api management. [Punkty końcowe usługi][ServiceEndpoints] muszą być włączone dla platformy Azure Sql, Azure Storage, Azure EventHub i Azure ServiceBus. Włączenie punktów końcowych bezpośrednio z podsieci delegowanej usługi API Management do tych usług umożliwia im korzystanie z sieci szkieletowej platformy Microsoft Azure zapewniającej optymalne routing dla ruchu usługi. Jeśli używasz punktów końcowych usługi z wymuszonym tunelowane zarządzaniem interfejsami api, powyższy ruch usług platformy Azure nie jest wymuszany tunelowania. Inny ruch zależności usługi zarządzania interfejsem API jest wymuszony tunelowanie i nie można go utracić lub usługa api Management nie będzie działać poprawnie.
     

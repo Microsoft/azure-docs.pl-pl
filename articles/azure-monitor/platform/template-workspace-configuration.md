@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 81e46f53c0afc69c927918daa0488c4835d60805
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605016"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768116"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Zarządzanie obszarem roboczym usługi Log Analytics przy użyciu szablonów usługi Azure Resource Manager
 
@@ -180,14 +180,15 @@ Poniższy przykład szablonu ilustruje, jak:
 
 1. Dodawanie rozwiązań do obszaru roboczego
 2. Utwórz zapisane wyszukiwania. Aby upewnić się, że wdrożenia nie zastępują zapisanych wyszukiwań przypadkowo, właściwość eTag powinna zostać dodana w zasobie "savedSearches", aby zastąpić i utrzymać idempotency zapisanych wyszukiwań.
-3. Tworzenie grupy komputerów
-4. Włączanie zbierania dzienników usług IIS z komputerów z zainstalowanym agentem systemu Windows
-5. Zbieranie liczników perf dysku logicznego z komputerów z systemem Linux (% używanych iod; Darmowe megabajty; % używanej przestrzeni; Transfery dysków/s; Odczyty dysku/s; Zapisy na dysku/s)
-6. Zbieranie zdarzeń syslog z komputerów z systemem Linux
-7. Zbieranie zdarzeń błędów i ostrzeżeń z dziennika zdarzeń aplikacji z komputerów z systemem Windows
-8. Licznik wydajności Zbieranie pamięci dostępnych bajtów z komputerów z systemem Windows
-9. Zbieranie dzienników usług IIS i dzienników zdarzeń systemu Windows napisanych przez diagnostykę platformy Azure na koncie magazynu
-10. Zbieranie dzienników niestandardowych z komputera z systemem Windows
+3. Utwórz zapisaną funkcję. ETag należy dodać do zastępowania funkcji i utrzymania idempotency.
+4. Tworzenie grupy komputerów
+5. Włączanie zbierania dzienników usług IIS z komputerów z zainstalowanym agentem systemu Windows
+6. Zbieranie liczników perf dysku logicznego z komputerów z systemem Linux (% używanych iod; Darmowe megabajty; % używanej przestrzeni; Transfery dysków/s; Odczyty dysku/s; Zapisy na dysku/s)
+7. Zbieranie zdarzeń syslog z komputerów z systemem Linux
+8. Zbieranie zdarzeń błędów i ostrzeżeń z dziennika zdarzeń aplikacji z komputerów z systemem Windows
+9. Licznik wydajności Zbieranie pamięci dostępnych bajtów z komputerów z systemem Windows
+10. Zbieranie dzienników usług IIS i dzienników zdarzeń systemu Windows napisanych przez diagnostykę platformy Azure na koncie magazynu
+11. Zbieranie dzienników niestandardowych z komputera z systemem Windows
 
 ```json
 {
@@ -228,35 +229,35 @@ Poniższy przykład szablonu ilustruje, jak:
       "type": "bool",
       "defaultValue": "[bool('false')]",
       "metadata": {
-        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
+        "description": "If set to true, changing retention to 30 days will immediately delete older data. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
     },
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiacentral", 
-        "australiaeast", 
-        "australiasoutheast", 
+        "australiacentral",
+        "australiaeast",
+        "australiasoutheast",
         "brazilsouth",
-        "canadacentral", 
-        "centralindia", 
-        "centralus", 
-        "eastasia", 
-        "eastus", 
-        "eastus2", 
-        "francecentral", 
-        "japaneast", 
-        "koreacentral", 
-        "northcentralus", 
-        "northeurope", 
-        "southafricanorth", 
-        "southcentralus", 
-        "southeastasia", 
-        "uksouth", 
-        "ukwest", 
-        "westcentralus", 
-        "westeurope", 
-        "westus", 
+        "canadacentral",
+        "centralindia",
+        "centralus",
+        "eastasia",
+        "eastus",
+        "eastus2",
+        "francecentral",
+        "japaneast",
+        "koreacentral",
+        "northcentralus",
+        "northeurope",
+        "southafricanorth",
+        "southcentralus",
+        "southeastasia",
+        "uksouth",
+        "ukwest",
+        "westcentralus",
+        "westeurope",
+        "westus",
         "westus2"
       ],
       "metadata": {
@@ -264,38 +265,38 @@ Poniższy przykład szablonu ilustruje, jak:
       }
     },
     "applicationDiagnosticsStorageAccountName": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of the storage account with Azure diagnostics output"
-        }
+      "type": "string",
+      "metadata": {
+        "description": "Name of the storage account with Azure diagnostics output"
+      }
     },
     "applicationDiagnosticsStorageAccountResourceGroup": {
-        "type": "string",
-        "metadata": {
-          "description": "The resource group name containing the storage account with Azure diagnostics output"
-        }
+      "type": "string",
+      "metadata": {
+        "description": "The resource group name containing the storage account with Azure diagnostics output"
+      }
     },
     "customLogName": {
-    "type": "string",
-    "metadata": {
-      "description": "The custom log name"
+      "type": "string",
+      "metadata": {
+        "description": "The custom log name"
       }
-     }
+    }
+  },
+  "variables": {
+    "Updates": {
+      "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "Updates"
     },
-    "variables": {
-      "Updates": {
-        "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
-        "GalleryName": "Updates"
-      },
-      "AntiMalware": {
-        "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
-        "GalleryName": "AntiMalware"
-      },
-      "SQLAssessment": {
-        "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
-        "GalleryName": "SQLAssessment"
-      },
-      "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
+    "AntiMalware": {
+      "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "AntiMalware"
+    },
+    "SQLAssessment": {
+      "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "SQLAssessment"
+    },
+    "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
   },
   "resources": [
     {
@@ -321,11 +322,31 @@ Poniższy przykład szablonu ilustruje, jak:
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],
           "properties": {
-            "category": "VMSS",
             "eTag": "*",
+            "category": "VMSS",
             "displayName": "VMSS Instance Count",
             "query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "version": 1
+          }
+        },
+        {
+          "apiVersion": "2017-04-26-preview",
+          "name": "Cross workspace function",
+          "type": "savedSearches",
+            "dependsOn": [
+             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            ],
+            "properties": {
+              "etag": "*",
+              "displayName": "failedLogOnEvents",
+              "category": "Security",
+              "FunctionAlias": "failedlogonsecurityevents",
+              "query": "
+                union withsource=SourceWorkspace
+                workspace('workspace1').SecurityEvent,
+                workspace('workspace2').SecurityEvent,
+                workspace('workspace3').SecurityEvent,
+                | where EventID == 4625"
           }
         },
         {
@@ -519,8 +540,8 @@ Poniższy przykład szablonu ilustruje, jak:
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],
           "properties": {
-            "containers": [ 
-              "wad-iis-logfiles" 
+            "containers": [
+              "wad-iis-logfiles"
             ],
             "tables": [
               "WADWindowsEventLogsTable"
@@ -616,7 +637,7 @@ Poniższy przykład szablonu ilustruje, jak:
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
     },
-    "immediatePurgeDataOn30Days": {  
+    "immediatePurgeDataOn30Days": {
       "type": "bool",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
     },

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/16/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56341affee721b3ee6676da401e03dbbca84e597
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 0cfc66789360f78c927dd157305074ed5ea6f32a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538243"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768447"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Jakie oprogramowanie SAP jest obsługiwane we wdrożeniach platformy Azure
 W tym artykule opisano, jak dowiedzieć się, jakie oprogramowanie SAP jest obsługiwane dla wdrożeń platformy Azure i jakie są niezbędne wersje systemu operacyjnego lub dbms.
@@ -139,6 +139,7 @@ Obsługa platformy SAP Hybris Commerce platform na platformie Azure jest szczeg�
 
 - SQL Server i Oracle na platformie systemu operacyjnego Windows. Te same minimalne zwolnienia mają zastosowanie, jak w przypadku SAP NetWeaver. Szczegółowe informacje na temat informacji na temat pomocy [technicznej sap #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 - SAP HANA na Red Hat i SUSE Linux. Typy maszyn wirtualnych z certyfikatem SAP HANA są wymagane zgodnie z wcześniejszymi dokumentami w [tym dokumencie.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support) Platforma handlowa SAP (Hybris) jest uważana za obciążenie OLTP
+- Baza danych SQL Azure DB od platformy handlowej SAP (Hybris) w wersji 1811
 
 
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 8264e78d938d91782c45697cc226148adadadb14
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 4/21/2020
+ms.openlocfilehash: 0af94d04f4e50fd039f01c5746b3a5d47a3698b3
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985834"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769942"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Konfigurowanie łączności SSL w aplikacji w celu bezpiecznego łączenia się z usługą Azure Database for MariaDB
 Usługa Azure Database for MariaDB obsługuje łączenie serwera usługi Azure Database dla mariadb z aplikacjami klienckimi przy użyciu warstwy SSL (Secure Sockets Layer). Wymuszanie połączeń SSL między serwerem bazy danych a aplikacją kliencką ułatwia ochronę przed atakami typu man-in-the-middle dzięki szyfrowaniu strumienia danych między serwerem a aplikacją.
@@ -94,6 +94,7 @@ conn = pymysql.connect(user='myadmin@mydemoserver',
                        host='mydemoserver.mariadb.database.azure.com',
                        ssl={'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
+
 ### <a name="ruby"></a>Ruby
 ```ruby
 client = Mysql2::Client.new(

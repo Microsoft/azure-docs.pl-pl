@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b199854867c48906061cff65bad21e514456c911
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 845948d9aec28ee79a11fb11aaef4cfbf1b263fa
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81378706"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770548"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurowanie i włączanie użytkowników do uwierzytelniania opartego na programie SMS przy użyciu usługi Azure Active Directory (wersja zapoznawcza)
 
@@ -40,7 +40,8 @@ Aby ukończyć ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 * Aby włączyć uwierzytelnianie oparte na usłudze SMS, potrzebujesz uprawnień *administratora globalnego* w dzierżawie usługi Azure AD.
 * Każdy użytkownik, który jest włączony w zasadach metody uwierzytelniania wiadomości tekstowych musi mieć licencję, nawet jeśli nie używa go. Każdy włączony użytkownik musi mieć jedną z następujących licencji usługi Azure AD lub Microsoft 365:
     * [Usługa Azure AD Premium P1 lub P2][azuread-licensing]
-    * [Microsoft 365 F1 lub F3][m365-firstline-workers-licensing]
+    * [Microsoft 365 (M365) F1 lub F3][m365-firstline-workers-licensing]
+    * [Mobilność w przedsiębiorstwie + zabezpieczenia (EMS) E3 lub E5][ems-licensing] lub [Microsoft 365 (M365) E3 lub E5][m365-licensing]
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -161,3 +162,5 @@ Aby uzyskać dodatkowe sposoby logowania się do usługi Azure AD bez hasła, ta
 [office]: https://www.office.com
 [m365-firstline-workers-licensing]: https://www.microsoft.com/licensing/news/m365-firstline-workers
 [azuread-licensing]: https://azure.microsoft.com/pricing/details/active-directory/
+[ems-licensing]: https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing
+[m365-licensing]: https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans

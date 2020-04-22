@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b9bac14ff47107a4b39f12989685e2e510569ba2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf1db2d737de7004b5ab71c8e0e44d61d1da8c9
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72757075"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768522"
 ---
 # <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Przypadki użycia dla wbudowanej analizy za pomocą usługi Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Dzięki natywnie wbudowanej aplikacji Apache Spark usługa Azure Cosmos DB zapew
 
 W niektórych przypadkach może być konieczne udzielenie odpowiedzi na pytania na podstawie danych w określonym momencie w czasie w przypadku zdarzeń zakończonych w przeszłości. Na przykład, aby uzyskać liczbę stanów działania CRM w określonym dniu. Jeśli raport został uruchomiony tydzień temu, liczba stanów będzie taka, jak na stanach każdego działania w tym momencie. Prowadzenie tego samego sprawozdania dzisiaj daje liczbę działań, których statusy są takie, jakie są dzisiaj, które mogą ulec zmianie od zeszłego tygodnia, ponieważ przechodzą przez ich cykl życia od otwartego do zamkniętego. Tak, należy raport na migawki na każdym etapie cyklu życia sprawy.
 
-W tradycyjnych scenariuszach magazynu danych koncepcja migawki nie jest możliwa, ponieważ magazyny danych nie są przeznaczone do jej włączenia, a dane zapewniają tylko bieżący widok tego, co się dzieje. Dzięki usłudze Azure Cosmos DB użytkownicy mają możliwość zaimplementowania koncepcji podróży w czasie, możliwość wykonywania zapytań i uruchamiania analizy danych retrospektywnie i pytania o wygląd danych w określonym punkcie czasu w historii. Oznacza to, że użytkownicy mogą łatwo przeglądać zarówno bieżące, jak i historyczne widoki danych i uruchamiać na nich analizę.
+Dzięki usłudze Azure Cosmos DB użytkownicy mają możliwość zaimplementowania koncepcji podróży w czasie, możliwość wykonywania zapytań i uruchamiania analizy danych retrospektywnie i pytania o wygląd danych w określonym punkcie czasu w historii. Oznacza to, że użytkownicy mogą łatwo przeglądać zarówno bieżące, jak i historyczne widoki danych i uruchamiać na nich analizę.
 
 ## <a name="globally-distributed-machine-learning-and-ai"></a>Globalnie rozproszone uczenie maszynowe i ai
 

@@ -1,20 +1,20 @@
 ---
 title: Wprowadzenie do wersji zapoznawczej i odtwórczych IoT | Dokumenty firmy Microsoft
 description: Dowiedz się więcej o podglądzie i odtworzenia IoT. Funkcja IoT Plug and Play jest oparta na otwartym języku modelowania, który umożliwia urządzeniom IoT deklarowanie ich możliwości. Urządzenia IoT prezentują tę deklarację, nazywaną modelem możliwości urządzenia, gdy łączą się z rozwiązaniami w chmurze, takimi jak Azure IoT Central lub aplikacje partnerskie. Rozwiązanie w chmurze może następnie automatycznie zrozumieć urządzenie i rozpocząć interakcję z nim — wszystko to bez pisania kodu.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 0399e1659fb7cc6a650c6b3c1d0189c8802d4904
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 12f3febac2c5c8ed01b9b156a64dc77f6ed0704f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064312"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770434"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Co to jest podgląd ioT Plug and Play?
 

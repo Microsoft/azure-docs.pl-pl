@@ -6,16 +6,19 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cdae6a3b7319aefa9d4f19b5d613d1afb8b6804a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3b27a50fa86916b71c84b30ecdbf45deb0ec45c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235308"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770751"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Porównanie funkcji usługi Azure Stream Analytics
 
 Za pomocą usługi Azure Stream Analytics można tworzyć rozwiązania do przesyłania strumieniowego w chmurze i w przeglądarce IoT Edge za pomocą [portalu Azure,](stream-analytics-quick-create-portal.md) [programu Visual Studio](stream-analytics-quick-create-vs.md)i kodu programu Visual [Studio.](quick-create-vs-code.md) Tabele w tym artykule pokazują, które funkcje są obsługiwane przez każdą platformę dla obu typów zadań.
+
+> [!NOTE]
+> Narzędzia Programu Visual Studio i Visual Studio Code nie obsługują zadań w regionach Chiny Wschód, Chiny Północne, Niemcy Środkowe i Niemcy NorthEast.
 
 ## <a name="cloud-job-features"></a>Funkcje zadań w chmurze
 
@@ -27,7 +30,7 @@ Za pomocą usługi Azure Stream Analytics można tworzyć rozwiązania do przesy
 |Skrypt Intellisense     |Wyróżnianie składni         |Wyróżnianie składni</br>Uzupełnianie kodu</br>Znacznik błędu         |Wyróżnianie składni</br>Uzupełnianie kodu</br>Znacznik błędu         |
 |Definiowanie wszystkich typów wejść, wyjść i konfiguracji zadań     |Tak         |Tak         |Tak         |
 |Kontrola źródła     |Nie         |Tak         |Tak         |
-|Obsługa ciągłej integracji/ciągłej integracji/cd     |Częściowo         |Tak         |Tak         |
+|Obsługa ciągłej integracji/ciągłej integracji/cd     |Częściowe         |Tak         |Tak         |
 |Udostępnianie danych wejściowych i wyjściowych w wielu kwerendach     |Nie         |Tak         |Tak         |
 |Testowanie kwerend przy za pomocą przykładowego pliku     |Tak         |Tak        |Tak         |
 |Lokalne testy danych na żywo     |Nie         |Tak       |Tak      |
@@ -57,11 +60,11 @@ Za pomocą usługi Azure Stream Analytics można tworzyć rozwiązania do przesy
 |Eksportowanie zadania do projektu lokalnego     |Nie         |Tak         |Nie         |
 |Testowanie kwerend przy za pomocą przykładowego pliku     |Tak         |Tak         |Nie         |
 |Udostępnianie danych wejściowych i wyjściowych w wielu kwerendach     |Nie         |Tak         |Nie         |
-|C# UDF     |Nie         |Tak         |Nie         |
+|Funkcja zdefiniowana przez użytkownika w języku C#     |Nie         |Tak         |Nie         |
 |Przesyłanie ofert pracy     |Tak         |Tak         |Nie         |
 |Wyświetlanie zadań i wyświetlanie encji zadań     |Tak         |Tak         |Nie         |
-|Wyświetlanie metryk zadań i diagramu     |Tak         |Częściowo         |Nie         |
-|Wyświetlanie błędów środowiska uruchomieniowego zadania     |Tak         |Częściowo         |Nie         |
+|Wyświetlanie metryk zadań i diagramu     |Tak         |Częściowe         |Nie         |
+|Wyświetlanie błędów środowiska uruchomieniowego zadania     |Tak         |Częściowe         |Nie         |
 |Obsługa ciągłej integracji/ciągłej integracji/cd     |Nie         |Nie         |Nie         |
 
 

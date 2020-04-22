@@ -4,12 +4,12 @@ description: Omówienie alertów na platformie Azure. Alerty, klasyczne alerty i
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 7ca77531ed3e1fae8ec297e430597452c7512aea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274790"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769766"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Przegląd alertów na platformie Microsoft Azure 
 
@@ -125,7 +125,10 @@ Aby wyświetlić stronę **Reguły,** wybierz pozycję **Zarządzaj regułami al
 
 
 ## <a name="create-an-alert-rule"></a>Tworzenie reguły alertu
-Alerty można tworzyć w spójny sposób, niezależnie od usługi monitorowania lub typu sygnału. Wszystkie opalane alerty i powiązane szczegóły są dostępne na jednej stronie.
+Reguły alertów można tworzyć w spójny sposób, niezależnie od usługi monitorowania lub typu sygnału.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tflw]
+
  
 Aby utworzyć nową regułę alertu:
 1. Wybierz _obiekt docelowy_ dla alertu.

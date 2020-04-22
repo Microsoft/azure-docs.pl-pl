@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931696"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767540"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Tworzenie akcji skryptów za pomocą rozwiązania HDInsight
 
@@ -26,7 +26,7 @@ Akcje skryptu można zastosować za pomocą następujących metod:
 
 | Ta metoda służy do stosowania skryptu... | Podczas tworzenia klastra... | W uruchomionym klastrze... |
 | --- |:---:|:---:|
-| Portal Azure |✓ |✓ |
+| Azure Portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | Klasyczny interfejs wiersza polecenia platformy Azure |&nbsp; |✓ |
 | HDInsight .NET SDK |✓ |✓ |
@@ -159,7 +159,7 @@ W tym przykładzie polecenie w `hdfs` sposób przejrzysty używa domyślnego mag
 HDInsight rejestruje dane wyjściowe skryptu, który jest zapisywany do STDOUT i STDERR. Informacje te można wyświetlić za pomocą interfejsu użytkownika sieci Web Ambari.
 
 > [!NOTE]  
-> Apache Ambari jest dostępny tylko wtedy, gdy klaster został pomyślnie utworzony. Jeśli podczas tworzenia klastra jest używana akcja skryptu, a tworzenie kończy się niepowodzeniem, zobacz sekcję Rozwiązywanie problemów [Dostosowywanie klastrów HDInsight przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) w celu uzyskania innych sposobów uzyskiwania dostępu do zarejestrowanych informacji.
+> Apache Ambari jest dostępny tylko wtedy, gdy klaster został pomyślnie utworzony. Jeśli używasz akcji skryptu podczas tworzenia klastra, a tworzenie zakończy się [niepowodzeniem, zobacz Rozwiązywanie problemów z akcjami skryptu,](./troubleshoot-script-action.md) aby uzyskać inne sposoby uzyskiwania dostępu do zarejestrowanych informacji.
 
 Większość narzędzi i pakietów instalacyjnych już zapisuje informacje do STDOUT i STDERR, jednak można dodać dodatkowe rejestrowanie. Aby wysłać tekst do `echo`STDOUT, użyj pliku . Przykład:
 
@@ -175,7 +175,7 @@ Domyślnie `echo` wysyła ciąg do STDOUT. Aby skierować go do `>&2` STDERR, do
 
 Spowoduje to przekierowanie informacji zapisanych do STDOUT do STDERR (2). Aby uzyskać więcej informacji na [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)temat przekierowania we/wy, zobacz .
 
-Aby uzyskać więcej informacji na temat wyświetlania informacji zarejestrowanych przez akcje skryptów, zobacz [Dostosowywanie klastrów HDInsight przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+Aby uzyskać więcej informacji na temat wyświetlania informacji zarejestrowanych przez akcje skryptu, zobacz [Rozwiązywanie problemów z akcjami skryptu](./troubleshoot-script-action.md).
 
 ### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>Zapisywanie plików jako ASCII z końcówkami linii LF
 
@@ -313,7 +313,7 @@ Oto kroki podejmowane podczas przygotowywania do wdrożenia skryptu:
 
 Akcji skryptów można użyć do dostosowania klastrów usługi HDInsight przy użyciu następujących metod:
 
-* Portal Azure
+* Azure Portal
 * Azure PowerShell
 * Szablony usługi Azure Resource Manager
 * Plik SDK HDInsight .NET.

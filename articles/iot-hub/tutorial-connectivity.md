@@ -5,16 +5,19 @@ services: iot-hub
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
-ms.custom: mvc
+ms.custom:
+- mvc
+- amqp
+- mqtt
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 78b9d81e20013db41693c24aa8c4a649c724c8b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e42b403717eb83db06a9f719a6451cbca74c2929
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78674408"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770044"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Samouczek: testowanie łączności z centrum IoT za pomocą urządzenia symulowanego
 
@@ -22,7 +25,7 @@ W tym samouczku użyjesz narzędzi portalu usługi Azure IoT Hub i poleceń inte
 
 Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Sprawdzanie uwierzytelniania urządzenia
 > * Sprawdzanie łączności urządzenia z chmurą

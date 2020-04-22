@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: 246ec08e9b4edb33fa49318b68cc4364534282b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bba71ab35920027cc7296e774936c3d1deb8f92
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064662"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770315"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurowanie klastrów w usłudze HDInsight przy użyciu technologii Apache Hadoop, Apache Spark, Apache Kafka i innych
 
@@ -32,11 +32,11 @@ W poniższej tabeli przedstawiono różne metody konfigurowania klastra HDInsigh
 
 | Klastry utworzone za pomocą | Przeglądarka sieci Web | Wiersz polecenia | Interfejs API REST | SDK |
 | --- |:---:|:---:|:---:|:---:|
-| [Portal Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
-| [Fabryka danych platformy Azure](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
+| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Interfejs wiersza polecenia platformy Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [Curl](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Szablony usługi Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 W tym artykule otrzymasz od konfiguracji w [witrynie Azure portal](https://portal.azure.com), w której można utworzyć klaster USŁUGI HDInsight.
@@ -76,11 +76,11 @@ Usługa Azure HDInsight udostępnia obecnie następujące typy klastrów, z któ
 | --- | --- |
 | [Hadoop](hadoop/apache-hadoop-introduction.md) |Kwerenda wsadowa i analiza przechowywanych danych |
 | [HBase](hbase/apache-hbase-overview.md) |Przetwarzanie dużych ilości danych bez schematu, NoSQL |
-| [Zapytanie interaktywne](./interactive-query/apache-interactive-query-get-started.md) |Buforowanie w pamięci dla interaktywnych i szybszych zapytań hive |
+| [Zapytanie interakcyjne](./interactive-query/apache-interactive-query-get-started.md) |Buforowanie w pamięci dla interaktywnych i szybszych zapytań hive |
 | [Kafka](kafka/apache-kafka-introduction.md) | Rozproszona platforma przesyłania strumieniowego, która może służyć do tworzenia potoków i aplikacji przesyłania strumieniowego danych w czasie rzeczywistym |
 | [Usługi ML](r-server/r-server-overview.md) |Różne statystyki dużych zbiorów danych, modelowanie predykcyjne i funkcje uczenia maszynowego |
-| [Iskra](spark/apache-spark-overview.md) |Przetwarzanie w pamięci, zapytania interaktywne, przetwarzanie strumienia mikro wsadowego |
-| [Burza](storm/apache-storm-overview.md) |Przetwarzanie zdarzeń w czasie rzeczywistym |
+| [platforma Spark](spark/apache-spark-overview.md) |Przetwarzanie w pamięci, zapytania interaktywne, przetwarzanie strumienia mikro wsadowego |
+| [Storm](storm/apache-storm-overview.md) |Przetwarzanie zdarzeń w czasie rzeczywistym |
 
 #### <a name="version"></a>Wersja
 
@@ -104,7 +104,7 @@ Nazwa użytkownika SSH ma następujące ograniczenia:
 * Dozwolone znaki specjalne:`_` i`@`
 * Znaki niedozwolone: #;."',\/:'!*?$(){}[]<>|&--=+%~^spacja
 * Maksymalna długość: 64
-* Zastrzeżone nazwy: hadoop, użytkownicy, oozie, ul, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, przędza, hcat, ams, hbase, burza, administrator, administrator, użytkownik, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, console, david, david, david gość, John, właściciel, korzeń, serwer, sql, wsparcie, support_388945a0, sys, test2, test3, user4, user5, iskra
+* Zastrzeżone nazwy: hadoop, użytkownicy, oozie, ul, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, przędza, hcat, ams, hbase, burza, administrator, administrator, użytkownik, użytkownik1, test, użytkownik2, test1, użytkownik3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, konsola, David, gość, John, właściciel, korzeń, serwer, sql, wsparcie, support_388945a0, sys, test2, test3, użytkownik4, użytkownik5, iskra
 
 ## <a name="storage"></a>Magazyn
 
@@ -169,7 +169,7 @@ Aby uzyskać więcej informacji na temat tworzenia klastra HDInsight przyłączo
 
 ### <a name="tls"></a>TLS
 
-Aby uzyskać więcej informacji, zobacz [Zabezpieczenia warstwy transportu](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security)
+Aby uzyskać więcej informacji, zobacz [Zabezpieczenia warstwy transportu](./transport-layer-security.md)
 
 ### <a name="virtual-network"></a>Sieć wirtualna
 

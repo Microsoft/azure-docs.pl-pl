@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 76ef9f92b6b6633982242ccafab1950e0ef5f410
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b4849b4fbfdbaece46f5669f4c242e864b1ca533
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582796"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769753"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji usługi Azure Media Services w wersji 3
 
@@ -35,7 +35,13 @@ Aby być na bieżąco z najnowszymi wydarzeniami, w tym artykule znajdziesz info
 > Za pomocą [witryny Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)w wersji 3 , [wyświetlać zasoby w](assets-concept.md)wersji 3 , uzyskać informacje o uzyskiwaniu dostępu do interfejsów API. W przypadku wszystkich innych zadań zarządzania (na przykład Przekształceń i zadań) użyj [interfejsu API REST,](https://aka.ms/ams-v3-rest-ref) [interfejsu wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z [obsługiwanych pakietów SDK.](media-services-apis-overview.md#sdks)
 
 Aby uzyskać więcej informacji, zobacz [Wskazówki dotyczące migracji dotyczące przechodzenia z usługi Media Services w wersji 2 do wersji 3](migrate-from-v2-to-v3.md#known-issues).
- 
+
+## <a name="april-2020"></a>Kwiecień 2020 r.
+
+### <a name="improvements-in-documentation"></a>Ulepszenia w dokumentacji
+
+Dokumenty programu Azure Media Player zostały zmigrowane do [dokumentacji platformy Azure.](../azure-media-player/azure-media-player-overview.md)
+
 ## <a name="january-2020"></a>Styczeń 2020 r.
 
 ### <a name="improvements-in-media-processors"></a>Ulepszenia procesorów multimediów
@@ -360,5 +366,6 @@ Zapoznaj się z artykułem [społeczności usługi Azure Media Services,](media-
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd](media-services-overview.md)
+- [Omówienie](media-services-overview.md)
+- [Aktualizacje dokumentacji usługi Media Services w wersji 3](docs-release-notes.md)
 - [Informacje o wersji usługi Media Services w wersji 2](../previous/media-services-release-notes.md)

@@ -3,12 +3,12 @@ title: Konfigurowanie klastrów kubernetów hybrydowych za pomocą usługi Azure
 description: W tym artykule opisano, jak skonfigurować usługę Azure Monitor dla kontenerów do monitorowania klastrów kubernetes hostowanych w usłudze Azure Stack lub innym środowisku.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 5a973e7e500906ebe833ec4cc6fd2fa8ee79c19e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6c2782fdd810403a793f6ef682d1112fadc22465
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255434"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769043"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurowanie hybrydowych klastrów kubernetes za pomocą usługi Azure Monitor dla kontenerów
 
@@ -240,6 +240,9 @@ Aby najpierw zidentyfikować pełny identyfikator zasobu obszaru roboczego `work
        Po włączeniu monitorowania może upłynąć około 15 minut, zanim będzie można wyświetlić metryki kondycji klastra.
 
 ## <a name="install-the-chart"></a>Instalowanie wykresu
+
+>[!NOTE]
+>Poniższe polecenia mają zastosowanie tylko do wersji 2 helm. Użycie parametru --name nie ma zastosowania do helm w wersji 3.
 
 Aby włączyć wykres HELM, wykonaj następujące czynności:
 

@@ -7,22 +7,25 @@ ms.author: mamccrea
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fe666359b9ed2773f615ff496f4032bda5e74dc2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313879"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767770"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Szybki start: tworzenie zadania usługi Azure Stream Analytics w programie Visual Studio Code (wersja zapoznawcza)
 
 Ten przewodnik Szybki start pokazuje, jak utworzyć i uruchomić zadanie usługi Azure Stream Analytics przy użyciu rozszerzenia Narzędzia analizy usługi Azure Stream Analytics dla kodu programu Visual Studio. Przykładowe zadanie odczytuje dane przesyłania strumieniowego z urządzenia usługi Azure IoT Hub. Zdefiniujesz zadanie obliczające średnią temperaturę, gdy wynosi ona ponad 27°, i zapisujące wynikowe zdarzenia wyjściowe w magazynie obiektów blob.
 
+> [!NOTE]
+> Narzędzia Programu Visual Studio i Visual Studio Code nie obsługują zadań w regionach Chiny Wschód, Chiny Północne, Niemcy Środkowe i Niemcy NorthEast.
+
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 * Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
-* Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+* Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 * Zainstaluj narzędzie [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -52,7 +55,7 @@ Ten przewodnik Szybki start pokazuje, jak utworzyć i uruchomić zadanie usługi
 
 Przed zdefiniowaniem zadania usługi Stream Analytics należy przygotować dane, które są później skonfigurowane jako dane wejściowe zadania. Aby przygotować dane wejściowe, których wymaga zadanie, wykonaj następujące kroki:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Wybierz **pozycję Utwórz zasób** > Centrum**IoT Hub**internetu**rzeczy** > .
 
@@ -140,14 +143,6 @@ Przed zdefiniowaniem zadania usługi Stream Analytics należy przygotować dane,
    FROM Input
    HAVING Temperature > 27
    ```
-
-## <a name="test-the-query-locally-with-sample-data"></a>Testowanie kwerendy lokalnie przy obliczu przykładowych danych
-
-Przed uruchomieniem kwerendy w chmurze można przetestować ją lokalnie za pomocą lokalnego przykładowego pliku danych lub z danymi przechwyconymi z danych danych na żywo, aby zweryfikować logikę kwerendy.
-
-Postępuj zgodnie z instrukcjami w [zapytaniach testowych lokalnie z przykładowych danych,](visual-studio-code-local-run.md) aby uzyskać więcej szczegółów.
-
- ![Testowanie przy pomocy przykładowych danych w programie Visual Studio Code](./media/vscode-local-run/localrun-localinput.gif)
 
 ## <a name="define-a-live-input"></a>Definiowanie danych wejściowych na żywo
 
@@ -279,6 +274,8 @@ Jeśli planujesz używać zadania w przyszłości, możesz je zatrzymać i ponow
 W tym przewodniku Szybki start wdrożono proste zadanie usługi Stream Analytics przy użyciu programu Visual Studio Code. Można również wdrożyć zadania usługi Stream Analytics przy użyciu [witryny Azure Portal](stream-analytics-quick-create-portal.md), [PowerShell](stream-analytics-quick-create-powershell.md)i [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Aby dowiedzieć się więcej o narzędziach Azure Stream Analytics Tools for Visual Studio Code, przejdź do następujących artykułów:
+
+* [Testowanie zapytań usługi Stream Analytics lokalnie z przykładowymi danymi przy użyciu kodu programu Visual Studio](visual-studio-code-local-run.md)
 
 * [Testowanie zadań usługi Azure Stream Analytics lokalnie względem danych wejściowych na żywo za pomocą kodu programu Visual Studio](visual-studio-code-local-run-live-input.md)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 7069f2cc96b8876f5514acfa4ba49274b61be46f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73c18d45136eea90ad29dc1bd40c4539dddc0ee6
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282940"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767251"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Włącz usługę Azure Monitor dla maszyn wirtualnych przy użyciu zasad platformy Azure
 
@@ -62,7 +62,7 @@ Poniższa tabela zawiera podział informacji, które są prezentowane na stronie
 | Funkcja | Opis | 
 |----------|-------------| 
 | **Zakres** | Grupa zarządzania i subskrypcje, do których masz lub dziedziczono dostęp z możliwością przechodzenia do szczegółów hierarchii grupy zarządzania.|
-| **Roli** | Twoja rola w zakresie, który może być czytelnik, właściciel lub współautor. W niektórych przypadkach może wydawać się puste, aby wskazać, że możesz mieć dostęp do subskrypcji, ale nie do grupy zarządzania, do której należy. Informacje w innych kolumnach różnią się w zależności od roli. Rola jest kluczowa w określaniu, jakie dane można wyświetlać i akcje, które można wykonać w zakresie przypisywania zasad lub inicjatyw (właściciela), edytowania ich lub wyświetlania zgodności. |
+| **Rola** | Twoja rola w zakresie, który może być czytelnik, właściciel lub współautor. W niektórych przypadkach może wydawać się puste, aby wskazać, że możesz mieć dostęp do subskrypcji, ale nie do grupy zarządzania, do której należy. Informacje w innych kolumnach różnią się w zależności od roli. Rola jest kluczowa w określaniu, jakie dane można wyświetlać i akcje, które można wykonać w zakresie przypisywania zasad lub inicjatyw (właściciela), edytowania ich lub wyświetlania zgodności. |
 | **Łączna liczba maszyn wirtualnych** | Liczba maszyn wirtualnych w tym zakresie. Dla grupy zarządzania jest to suma maszyn wirtualnych zagnieżdżonych w ramach subskrypcji lub podrzędnej grupy zarządzania. |
 | **Pokrycie przydziału** | Procent maszyn wirtualnych, które są objęte zasad lub inicjatywy. |
 | **Stan przydziału** | Informacje o stanie zasad lub cesji inicjatywy. |
@@ -79,7 +79,7 @@ Aby włączyć usługę Azure Monitor dla maszyn wirtualnych przy użyciu zasad 
 - Przypisz inicjatywę do zakresu: grupy zarządzania, subskrypcji lub grupy zasobów.
 - Przejrzyj i koryguj wyniki zgodności.
 
-Aby uzyskać więcej informacji na temat przypisywania zasad platformy Azure, zobacz [omówienie zasad platformy Azure](../../governance/policy/overview.md#policy-assignment) i zapoznaj [się z omówieniem grup zarządzania](../../governance/management-groups/overview.md) przed kontynuowaniem.
+Aby uzyskać więcej informacji na temat przypisywania zasad platformy Azure, zobacz [omówienie zasad platformy Azure](../../governance/policy/overview.md#assignments) i zapoznaj [się z omówieniem grup zarządzania](../../governance/management-groups/overview.md) przed kontynuowaniem.
 
 ### <a name="policies-for-azure-vms"></a>Zasady dotyczące maszyn wirtualnych platformy Azure
 
@@ -121,7 +121,7 @@ Aby utworzyć przypisanie zasad na stronie **Pokrycie zasad usługi Azure Monito
 
 Po przypisaniu zasady lub inicjatywy zakres wybrany w przypisaniu może być zakresem wymienionym w tym miejscu lub jego podzbiorem. Na przykład można było utworzyć przypisanie dla subskrypcji (zakres zasad), a nie grupy zarządzania (zakres zasięgu). W takim przypadku procent pokrycia wskazuje maszyn wirtualnych w zakresie zasad lub inicjatywy podzielone przez maszyny wirtualne w zakresie zasięgu. W innym przypadku można wykluczyć niektóre maszyny wirtualne lub grupy zasobów lub subskrypcję z zakresu zasad. Jeśli jest pusta, oznacza to, że zasady lub inicjatywy nie istnieje lub nie masz uprawnień. Informacje są dostarczane w obszarze **Status przydziału**.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. W witrynie Azure portal wybierz pozycję **Monitor**. 
 

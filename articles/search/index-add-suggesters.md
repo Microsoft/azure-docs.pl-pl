@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 1e2a837acef976b6b872c2d4002ee49d662ad594
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.date: 04/21/2020
+ms.openlocfilehash: 7eb2988628d60fa72c7d83b81a58a1e0fae5de33
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641326"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770098"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Tworzenie sugestatora w celu umożliwienia autouzupełnienia i sugerowanych wyników w kwerendzie
 
-W usłudze Azure Cognitive Search opcja "wyszukiwanie zgodnie z typem" jest włączona za pomocą konstruktora **sugestywnyego** dodanego do [indeksu wyszukiwania.](search-what-is-an-index.md) Sugestator obsługuje dwa środowiska: *autouzupełnianie*, które kończy termin lub frazę, oraz *sugestie,* które zwracają krótką listę pasujących dokumentów.  
+W usłudze Azure Cognitive Search opcja "wyszukiwanie zgodnie z typem" jest włączona za pomocą konstruktora **sugestywnyego** dodanego do [indeksu wyszukiwania.](search-what-is-an-index.md) Sugestywny obsługuje dwa środowiska: *autouzupełnianie*, które kończy częściowe wprowadzanie danych dla kwerendy całego okresu i *sugestie,* które zapraszają do kliknięcia do określonego dopasowania. Autouzupełnienie tworzy kwerendę. Sugestie tworzą pasujący dokument.
 
 Poniższy zrzut ekranu z [Tworzenie pierwszej aplikacji w języku C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustruje zarówno. Autouzupełnienie przewiduje potencjalny termin, kończąc "tw" z "in". Sugestie to mini wyniki wyszukiwania, w których pole takie jak nazwa hotelu reprezentuje pasujący dokument wyszukiwania w hotelu z indeksu. W przypadku sugestii można wystawić dowolne pole, które zawiera informacje opisowe.
 
@@ -33,27 +33,36 @@ Obsługa wyszukiwania zgodnie z typem jest włączona dla pól ciągów dla pól
 
 ## <a name="what-is-a-suggester"></a>Co to jest sugest?
 
-Sugestywny jest strukturą danych, która obsługuje zachowania typu wyszukiwania jako typ, przechowując prefiksy do dopasowywania w kwerendach częściowych. Podobnie jak w przypadku terminów tokenizowanych, prefiksy są przechowywane w odwróconych indeksach, po jednym dla każdego pola określonego w kolekcji pól sugestywnych.
-
-Podczas tworzenia prefiksów sugestator ma własny łańcuch analizy, podobny do tego używanego do wyszukiwania pełnotekstowego. Jednak w przeciwieństwie do analizy w wyszukiwaniu pełnotekstowym, sugest może działać tylko nad polami, które używają standardowego analizatora Lucene (domyślnie) lub [analizatora języka.](index-add-language-analyzers.md) Pola, które używają [analizatorów niestandardowych](index-add-custom-analyzers.md) lub [wstępnie zdefiniowanych analizatorów](index-add-custom-analyzers.md#predefined-analyzers-reference) (z wyjątkiem standardowego Lucene) są jawnie zabronione, aby zapobiec słabym wynikom.
-
-> [!NOTE]
-> Jeśli chcesz obejść ograniczenie analizatora, użyj dwóch oddzielnych pól dla tej samej zawartości. Pozwoli to na jedno z pól, aby mieć sugest, podczas gdy inne mogą być skonfigurowane za pomocą konfiguracji analizatora niestandardowego.
+Sugestywny jest wewnętrzna struktura danych, która obsługuje zachowania typu wyszukiwania jako typ przez przechowywanie prefiksów do dopasowania w kwerendach częściowych. Podobnie jak w przypadku terminów tokenizowanych, prefiksy są przechowywane w odwróconych indeksach, po jednym dla każdego pola określonego w kolekcji pól sugestywnych.
 
 ## <a name="define-a-suggester"></a>Definiowanie sugestatora
 
-Aby utworzyć sugestator, dodaj go do [schematu indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) i [ustaw każdą właściwość](#property-reference). W indeksie, można mieć jeden suggester (w szczególności jeden suggester w kolekcji suggesters). Najlepszy czas, aby utworzyć sugest jest, gdy są również definiowania pola, które będzie go używać.
+Aby utworzyć sugestator, dodaj go do [schematu indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) i [ustaw każdą właściwość](#property-reference). Najlepszy czas, aby utworzyć sugest jest, gdy są również definiowania pola, które będzie go używać.
+
++ Używaj tylko pól ciągów
+
++ Użyj domyślnego standardowego analizatora Lucene (`"analyzer": null`) lub [analizatora języka](index-add-language-analyzers.md) (na przykład `"analyzer": "en.Microsoft"`) w polu
 
 ### <a name="choose-fields"></a>Wybieranie pól
 
-Chociaż sugestator ma kilka właściwości, jest to przede wszystkim zbiór pól, dla których są włączanie wyszukiwania jako typ środowiska. W szczególności w przypadku sugestii wybierz pola, które najlepiej reprezentują pojedynczy wynik. Nazwy, tytuły lub inne unikatowe pola, które rozróżniają wiele dopasowań, działają najlepiej. Jeśli pola składają się z powtarzających się wartości, sugestie składają się z identycznych wyników, a użytkownik nie będzie wiedział, który z nich kliknie.
+Chociaż sugestator ma kilka właściwości, jest to przede wszystkim zbiór pól ciągów, dla których są włączanie wyszukiwania jako typ środowiska. Istnieje jeden sugestywny dla każdego indeksu, więc lista sugestywny musi zawierać wszystkie pola, które przyczyniają się do zawartości zarówno sugestie i autouzupełnianie.
 
-Upewnij się, że każde pole używa analizatora, który wykonuje analizę leksykalne podczas indeksowania. Można użyć domyślnego standardowego analizatora`"analyzer": null`Lucene ( ) lub `"analyzer": "en.Microsoft"` [analizatora języka](index-add-language-analyzers.md) (na przykład ). 
+Autouzupełnianie korzysta z większej puli pól do wyciągnięcia, ponieważ dodatkowa zawartość ma większy potencjał ukończenia okresu.
 
-Wybór analizatora określa sposób tokenizacji pól, a następnie poprecysowania. Na przykład dla ciągu dzielonego, takich jak "kontekstowe", przy użyciu analizatora języka spowoduje te kombinacje tokenów: "context", "sensitive", "context-sensitive". Gdyby użyto standardowego analizatora Lucene, ciąg dzielenia wyrazów nie istniałby.
+Z drugiej strony sugestie dają lepsze wyniki, gdy wybór pola jest selektywny. Należy pamiętać, że sugestia jest serwerem proxy dla dokumentu wyszukiwania, więc będziesz chciał pola, które najlepiej reprezentują pojedynczy wynik. Nazwy, tytuły lub inne unikatowe pola, które rozróżniają wiele dopasowań, działają najlepiej. Jeśli pola składają się z powtarzających się wartości, sugestie składają się z identycznych wyników, a użytkownik nie będzie wiedział, który z nich kliknie.
 
-> [!TIP]
-> Należy rozważyć użycie [interfejsu API analizy tekstu, aby](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) uzyskać wgląd w sposób tokenizacji terminów, a następnie poprecysowania. Po utworzeniu indeksu, można wypróbować różne analizatory na ciąg, aby wyświetlić tokeny, które emituje.
+Aby spełnić zarówno środowisko wyszukiwania zgodnie z typem, dodaj wszystkie pola potrzebne do autouzupełniania, ale następnie użyj **$select**, **$top** **, $filter**i **searchFields,** aby kontrolować wyniki pod kątem sugestii.
+
+### <a name="choose-analyzers"></a>Wybieranie analizatorów
+
+Wybór analizatora określa sposób tokenizacji pól, a następnie poprecysowania. Na przykład dla ciągu dzielonego, takich jak "kontekstowe", przy użyciu analizatora języka spowoduje te kombinacje tokenów: "context", "sensitive", "context-sensitive". Gdyby użyto standardowego analizatora Lucene, ciąg dzielenia wyrazów nie istniałby. 
+
+Podczas oceny analizatorów, należy rozważyć użycie [interfejsu API analizy tekstu,](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) aby uzyskać wgląd w sposób terminy są tokenizowane, a następnie poprzedzone. Po utworzeniu indeksu, można wypróbować różne analizatory na ciąg, aby wyświetlić dane wyjściowe tokenu.
+
+Pola, które używają [analizatorów niestandardowych](index-add-custom-analyzers.md) lub [wstępnie zdefiniowanych analizatorów](index-add-custom-analyzers.md#predefined-analyzers-reference) (z wyjątkiem standardowego Lucene) są jawnie zabronione, aby zapobiec słabym wynikom.
+
+> [!NOTE]
+> Jeśli chcesz obejść ograniczenie analizatora, na przykład jeśli potrzebujesz analizatora słowa kluczowego lub ngram dla niektórych scenariuszy kwerend, należy użyć dwóch oddzielnych pól dla tej samej zawartości. Pozwoli to na jedno z pól, aby mieć sugest, podczas gdy inne mogą być skonfigurowane za pomocą konfiguracji analizatora niestandardowego.
 
 ### <a name="when-to-create-a-suggester"></a>Kiedy utworzyć sugest
 
@@ -161,7 +170,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zalecamy poniższy przykład, aby zobaczyć, jak żądania są sformułowane.
+Zalecamy poniższy artykuł, aby dowiedzieć się więcej o tym, jak formułowanie żądań.
 
 > [!div class="nextstepaction"]
 > [Dodawanie autouzupełniania i sugestii do kodu klienta](search-autocomplete-tutorial.md) 

@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: f66347727ad3c1b8eaf1f0e023abe1f2eeefcacb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ac7609d49631fb2ed16fa129f8dc4099cc166247
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403719"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769868"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Samouczek: Raportowanie stanów wizualnych za pomocą funkcji Niestandardowych wizji z urządzeniem IoT
 
 Ta przykładowa aplikacja ilustruje, jak używać funkcji Custom Vision do szkolenia urządzenia z kamerą w celu wykrywania stanów wizualnych. Ten scenariusz wykrywania można uruchomić na urządzeniu IoT przy użyciu eksportowanego modelu ONNX.
 
-Stan wizualny opisuje zawartość obrazu: pusty pokój lub pokój z ludźmi, pusty podjazd z ciężarówką i tak dalej. Na poniższej ilustracji możesz zobaczyć, jak aplikacja wykrywa, kiedy banan lub jabłko jest umieszczone przed kamerą.
+Stan wizualny opisuje zawartość obrazu: pusty pokój lub pokój z ludźmi, pusty podjazd lub podjazd z ciężarówką i tak dalej. Na poniższej ilustracji możesz zobaczyć, jak aplikacja wykrywa, kiedy banan lub jabłko jest umieszczone przed kamerą.
 
 ![Animacja interfejsu użytkownika oznaczającego owoce przed kamerą](./media/iot-visual-alerts-tutorial/scoring.gif)
 

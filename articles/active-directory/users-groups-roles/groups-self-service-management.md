@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52c37e293941a767621cf56ef75f8cc83b1925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 541deb5cf44ad5440e31641b673ed5da5b5d2b26
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298007"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768543"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurowanie zarządzania grupami samoobsługowymi w usłudze Azure Active Directory 
 
@@ -33,7 +33,7 @@ Gdy grupy zabezpieczeń są tworzone w witrynie Azure portal lub przy użyciu us
 Grupy utworzone w | Domyślne zachowanie grupy zabezpieczeń | Domyślne zachowanie grupy usługi Office 365
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | Tylko właściciele mogą dodawać członków<br>Widoczne, ale niedostępne do dołączenia w panelu programu Access | Otwórz, aby dołączyć dla wszystkich użytkowników
-[Portal Azure](https://portal.azure.com) | Tylko właściciele mogą dodawać członków<br>Widoczne, ale niedostępne do dołączenia w panelu programu Access<br>Właściciel nie jest przypisywany automatycznie podczas tworzenia grupy | Otwórz, aby dołączyć dla wszystkich użytkowników
+[Azure Portal](https://portal.azure.com) | Tylko właściciele mogą dodawać członków<br>Widoczne, ale niedostępne do dołączenia w panelu programu Access<br>Właściciel nie jest przypisywany automatycznie podczas tworzenia grupy | Otwórz, aby dołączyć dla wszystkich użytkowników
 [Panel dostęp](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Otwórz, aby dołączyć dla wszystkich użytkowników<br>Opcje członkostwa można zmieniać podczas tworzenia grupy | Otwórz, aby dołączyć dla wszystkich użytkowników<br>Opcje członkostwa można zmieniać podczas tworzenia grupy
 
 ## <a name="self-service-group-management-scenarios"></a>Scenariusze zarządzania grupami samoobsługi
@@ -55,6 +55,9 @@ Grupy utworzone w | Domyślne zachowanie grupy zabezpieczeń | Domyślne zachowa
 Można również użyć **właścicieli, którzy mogą przypisywać członków jako właścicieli grup w witrynach Azure portals** i **właścicieli, którzy mogą przypisać członków jako właścicieli grup w witrynach platformy Azure,** aby uzyskać bardziej szczegółową kontrolę dostępu nad zarządzaniem grupami samoobsługowymi dla użytkowników.
 
 Gdy użytkownicy mogą tworzyć grupy, wszyscy użytkownicy w organizacji mogą tworzyć nowe grupy, a następnie, jako domyślny właściciel, dodawać członków do tych grup. Nie można określić osób, które mogą tworzyć własne grupy. Osoby można określić tylko w celu nadanie innej grupie właściciela grupy.
+
+> [!NOTE]
+> Licencja usługi Azure Active Directory Premium (P1 lub P2) jest wymagana dla użytkowników, aby zażądać dołączenia do grupy zabezpieczeń lub grupy usługi Office 365, a właściciele zatwierdzić lub odrzucić żądania członkostwa. Bez licencji usługi Azure Active Directory Premium użytkownicy nadal mogą zarządzać swoimi grupami w Panelu dostępu, ale nie mogą utworzyć grupy, która wymaga zatwierdzenia przez właściciela w Panelu programu Access i nie mogą żądać dołączenia do grupy. 
 
 ## <a name="next-steps"></a>Następne kroki
 

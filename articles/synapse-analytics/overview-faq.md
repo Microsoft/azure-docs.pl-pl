@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec2791911d1461ae47d9353629d23a5d7dc30791
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424650"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770727"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Usługa Azure Synapse Analytics (wersja zapoznawcza obszaru roboczego) często zadawane pytania
 
@@ -92,7 +92,7 @@ Odp.: Przepływ danych umożliwia inżynierom danych opracowanie logiki transfor
 
 ## <a name="security-and-access"></a>Bezpieczeństwo i dostęp
 
-Odp.: Kompleksowe środowisko logowania jednokrotnego jest ważnym procesem uwierzytelniania w usłudze Synapse Analytics. Zarządzanie i przekazywanie tożsamości za pośrednictwem pełnej integracji AAD jest koniecznością.
+Odp.: Kompleksowe środowisko logowania jednokrotnego jest ważnym procesem uwierzytelniania w usłudze Synapse Analytics. Zarządzanie i przekazywanie tożsamości za pośrednictwem pełnej integracji usługi AAD jest koniecznością.
 
 ### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>P: Jak uzyskać dostęp do plików i folderów w ADLSg2
 
@@ -107,5 +107,5 @@ Odp.: Tak, możesz używać aplikacji biznesowych innych firm, takich jak Tablea
 - [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
 - [Korzystanie z Synapse Studio](quickstart-synapse-studio.md)
 - [Tworzenie puli SQL](quickstart-create-sql-pool.md)
-- [Korzystanie z języka SQL na żądanie](quickstart-sql-on-demand.md)
+- [Korzystanie z bazy danych SQL na żądanie](quickstart-sql-on-demand.md)
 - [Tworzenie puli platformy Spark Apache](quickstart-create-apache-spark-pool.md) 
