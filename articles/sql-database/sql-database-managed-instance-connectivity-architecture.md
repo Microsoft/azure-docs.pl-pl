@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: f30ccd498b79c36c8892ae38a3e26d169249621a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481103"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677170"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architektura łączności dla wystąpienia zarządzanego w bazie danych SQL usługi Azure
 
@@ -39,7 +39,7 @@ Wystąpienie zarządzane jest platformą jako usługą (PaaS). Firma Microsoft u
 
 Niektóre operacje programu SQL Server uruchomione przez użytkowników końcowych lub aplikacje mogą wymagać wystąpienia zarządzanego do interakcji z platformą. Jednym z przypadków jest utworzenie bazy danych wystąpienia zarządzanego. Ten zasób jest udostępniany za pośrednictwem witryny Azure portal, powershell, interfejsu wiersza polecenia platformy Azure i interfejsu API REST.
 
-Wystąpienia zarządzane zależą od usług platformy Azure, takich jak Usługa Azure Storage do tworzenia kopii zapasowych, usługi Azure Event Hubs dla telemetrii, usługa Azure Active Directory dla uwierzytelniania, usługa Azure Key Vault for Transparent Data Encryption (TDE) i kilka usług platformy Azure, które zapewniają zabezpieczeń i możliwości utrzymania. Wystąpienia zarządzane nawiązuje połączenia z tymi usługami.
+Wystąpienia zarządzane zależą od usług platformy Azure, takich jak Usługa Azure Storage do tworzenia kopii zapasowych, usługi Azure Event Hubs dla telemetrii, usługa Azure Active Directory do uwierzytelniania, usługa Azure Key Vault for Transparent Data Encryption (TDE) i kilka usług platformy Azure, które zapewniają funkcje zabezpieczeń i obsługi. Wystąpienia zarządzane nawiązuje połączenia z tymi usługami.
 
 Cała komunikacja jest szyfrowana i podpisywane przy użyciu certyfikatów. Aby sprawdzić wiarygodność komunikujących się stron, wystąpienia zarządzane stale weryfikują te certyfikaty za pomocą list odwołania certyfikatów. Jeśli certyfikaty zostaną odwołane, wystąpienie zarządzane zamyka połączenia w celu ochrony danych.
 
@@ -81,7 +81,7 @@ Gdy połączenia rozpoczynają się wewnątrz wystąpienia zarządzanego (podobn
 > [!NOTE]
 > Ruch, który przechodzi do usług platformy Azure, które znajdują się wewnątrz regionu wystąpienia zarządzanego jest zoptymalizowany i z tego powodu nie NATed do zarządzania wystąpieniem zarządzania wystąpieniami publicznego adresu IP. Z tego powodu, jeśli trzeba użyć reguł zapory opartej na adresie IP, najczęściej do przechowywania, usługa musi znajdować się w innym regionie niż wystąpienie zarządzane.
 
-## <a name="service-aided-subnet-configuration"></a>Konfiguracja podsieci wspomaganej usługą
+## <a name="service-aided-subnet-configuration"></a>Konfiguracja podsieci wspomagana przez usługę
 
 Aby rozwiązać wymagania dotyczące zabezpieczeń i zarządzania klienta Wystąpienie zarządzane jest przejście z ręcznej do konfiguracji podsieci wspomaganej usługą.
 
@@ -306,6 +306,7 @@ Następujące funkcje sieci wirtualnej nie są obecnie obsługiwane przez wystą
 - **Komunikacja równorzędna firmy Microsoft:** Włączenie [komunikacji równorzędnej](../expressroute/expressroute-faqs.md#microsoft-peering) firmy Microsoft w obwodach trasy ekspresowej równorzędnych bezpośrednio lub przechodnie z siecią wirtualną, w której znajduje się wystąpienie zarządzane, wpływa na przepływ ruchu między składnikami wystąpienia zarządzanego wewnątrz sieci wirtualnej a usługami, które zależą od spowodowania problemów z dostępnością. Oczekuje się, że wdrożenia wystąpienia zarządzanego w sieci wirtualnej z już włączonym programem Komunikacji równorzędnej firmy Microsoft nie powiodą się.
 - **Globalna komunikacja równorzędna sieci wirtualnej:** łączność [równorzędna sieci wirtualnej](../virtual-network/virtual-network-peering-overview.md) w regionach platformy Azure nie działa w przypadku wystąpienia zarządzanego z powodu [udokumentowanych ograniczeń równoważenia obciążenia](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 - **AzurePlatformDNS**: Używanie [tagu usługi](../virtual-network/service-tags-overview.md) AzurePlatformDNS do blokowania rozpoznawania DNS platformy spowoduje, że wystąpienie zarządzane stanie się niedostępne. Chociaż wystąpienie zarządzane obsługuje zdefiniowany przez klienta system DNS dla rozpoznawania DNS wewnątrz aparatu, istnieje zależność od platformy DNS dla operacji platformy.
+- **Brama NAT:** Używanie [translatora adresów sieci wirtualnych](../virtual-network/nat-overview.md) do kontrolowania łączności wychodzącej z określonym publicznym adresem IP spowodowałoby, że wystąpienie zarządzane stałoby się niedostępne. Usługa wystąpienia zarządzanego jest obecnie ograniczona do korzystania z podstawowego modułu równoważenia obciążenia, który nie zapewnia współistnienia przepływów przychodzących i wychodzących z siecią wirtualną NAT.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[Przestarzałe] Wymagania sieciowe bez konfiguracji podsieci wspomaganej usługą
 

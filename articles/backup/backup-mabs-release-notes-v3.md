@@ -4,12 +4,12 @@ description: Ten artykuł zawiera informacje o znanych problemach i obejściach 
 ms.topic: conceptual
 ms.date: 11/22/2018
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: b47d83e0e3714f3f035397acaadeac9cda39d12a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03863f7598da06bb36cbb7497d7c773f811a004e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172277"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685613"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Informacje o wersji dla serwera kopii zapasowych platformy Microsoft Azure
 
@@ -60,7 +60,7 @@ Ten artykuł zawiera znane problemy i obejścia dotyczące programu Microsoft Az
 4. [Instalacja](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
 5. Skonfiguruj raportowanie przy użyciu parametrów udokumentowanych w [konfiguracji SSRS za pomocą programu SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6. [Instalacja](backup-azure-microsoft-azure-backup.md) MABS V3.
-7. [Przywracanie](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL przy użyciu SSMS i uruchomić narzędzie DPM-Sync, jak opisano [tutaj](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
+7. [Przywracanie](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL przy użyciu SSMS i uruchomić narzędzie DPM-Sync, jak opisano [tutaj](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync).
 8. Zaktualizuj właściwość "DataBaseVersion" w tabeli dbo.tbl_DLS_GlobalSetting za pomocą następującego polecenia:
 
 ```sql

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 9ed17ed0825e0011d1402efc45155755a1ecbadf
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 2739e960c4bc6d35ac9ad757e80ed620e5dc04f8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459172"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684640"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji usługi Azure Machine Learning
 
@@ -825,7 +825,7 @@ Karta Eksperyment w [nowym portalu obszaru roboczego](https://ml.azure.com) zost
 ### <a name="azure-machine-learning-sdk-for-python-v1062"></a>Zestaw SDK usługi Azure Machine Learning dla języka Python w wersji 1.0.62
 
 + **Nowe funkcje**
-  + Wprowadzono `timeseries` cechę na TabularDataset. Ta cecha umożliwia łatwe filtrowanie sygnatury czasowej danych zestaw danych tabular, takich jak biorąc wszystkie dane między zakresem czasu lub najnowszych danych. Aby dowiedzieć `timeseries` się więcej na ten temat cecha na TabularDataset, odwiedź dokumentację https://aka.ms/azureml-data lub https://aka.ms/azureml-tsd-notebook przykładowy notes.
+  + Wprowadzono `timeseries` cechę na TabularDataset. Ta cecha umożliwia łatwe filtrowanie sygnatury czasowej danych zestaw danych tabular, takich jak biorąc wszystkie dane między zakresem czasu lub najnowszych danych. Aby dowiedzieć `timeseries` się więcej na ten temat cecha na TabularDataset, odwiedź dokumentację https://aka.ms/azureml-data lub https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb przykładowy notes.
   + Włączono szkolenie z tabulardatset i FileDataset. https://aka.ms/dataset-tutorial Odwiedź przykładowy notes.
 
   + **azureml-train-core**
@@ -1339,7 +1339,7 @@ Wycofaliśmy zmianę, która poprawiła wydajność, ponieważ powodowała probl
 + **Funkcje podglądu**
     + Integracja ze [śledzeniem MLflow](https://mlflow.org) 1.0.0 za pośrednictwem pakietu azureml-mlflow[(przykładowe notesy).](https://aka.ms/azureml-mlflow-examples)
     + Prześlij notes Jupyter jako bieg. [Dokumentacja referencyjna interfejsu API](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + Publiczny podgląd [detektora dryfu danych](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) za pośrednictwem pakietu azureml-contrib-datadrift[(przykładowe notesy).](https://aka.ms/azureml-datadrift-example) Dryf danych jest jednym z głównych powodów, dla których dokładność modelu pogarsza się w czasie. Dzieje się tak, gdy dane obsługiwane do modelowania w produkcji różni się od danych, które model został przeszkolony na. Detektor dryfu danych AML pomaga klientowi monitorować dryft danych i wysyła alerty po wykryciu dryfu.
+    + Publiczny podgląd [detektora dryfu danych](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) za pośrednictwem pakietu azureml-contrib-datadrift[(przykładowe notesy).](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/monitor-models/data-drift) Dryf danych jest jednym z głównych powodów, dla których dokładność modelu pogarsza się w czasie. Dzieje się tak, gdy dane obsługiwane do modelowania w produkcji różni się od danych, które model został przeszkolony na. Detektor dryfu danych AML pomaga klientowi monitorować dryft danych i wysyła alerty po wykryciu dryfu.
 
 + **Fundamentalne zmiany**
 

@@ -1,18 +1,18 @@
 ---
-title: Uzyskiwanie tokenów dostępu do usługi
+title: Uzyskiwanie tokenów dostępu do usług
 description: W tym artykule opisano sposób tworzenia tokenów dostępu do interfejsów API REST ARR
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 001a77734a8cedf08c5523380c1cbd00dce89f40
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681196"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687079"
 ---
-# <a name="get-service-access-tokens"></a>Uzyskiwanie tokenów dostępu do usługi
+# <a name="get-service-access-tokens"></a>Uzyskiwanie tokenów dostępu do usług
 
 Dostęp do interfejsów API REST ARR jest przyznawany tylko autoryzowanym użytkownikom. Aby udowodnić autoryzację, należy wysłać *token dostępu* wraz z żądaniami REST. Tokeny te są wystawiane przez *usługę bezpiecznego tokenu* (STS) w zamian za klucz konta. Tokeny mają **okres istnienia 24 godzin** i w związku z tym mogą być wydawane użytkownikom bez udzielania im pełnego dostępu do usługi.
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób tworzenia takiego tokenu dostępu.
 
 ## <a name="token-service-rest-api"></a>Interfejs API REST usługi tokenu
 
-Aby utworzyć tokeny dostępu, *usługa bezpiecznego tokenu* udostępnia jeden interfejs API REST. Adres URL usługi ARR STS to [https://sts.mixedreality.azure.com](https://sts.mixedreality.azure.com).
+Aby utworzyć tokeny dostępu, *usługa bezpiecznego tokenu* udostępnia jeden interfejs API REST. Adres URL usługi ARR STS to\/https: /sts.mixedreality.azure.com.
 
 ### <a name="get-token-request"></a>Żądanie "Pobierz token"
 

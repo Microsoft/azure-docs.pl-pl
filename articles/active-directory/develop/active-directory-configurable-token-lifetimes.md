@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 0b2b9dbe52a5696f21b287402fc4cbaa32b29c73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4138c4ae24ae599d4058c9fd06c33b69657fe38
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263181"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680069"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Okres istnienia tokenu konfigurowalny w usłudze Azure Active Directory (wersja zapoznawcza)
 
@@ -102,7 +102,7 @@ Zasady okresu istnienia tokenu to typ obiektu zasad, który zawiera reguły okre
 | Odśwież token Max Nieaktywny czas (wydany dla klientów poufnych) |Tokeny odświeżania (wydane dla klientów poufnych) |90 dni |
 | Odśwież token Max Age (wydany dla klientów poufnych) |Tokeny odświeżania (wydane dla klientów poufnych) |Do odwołania |
 
-* <sup>1.</sup> Federated użytkowników, którzy mają niewystarczające informacje o odwołaniu obejmują wszystkich użytkowników, którzy nie mają "LastPasswordChangeTimestamp" atrybut zsynchronizowany. Ci użytkownicy otrzymują ten krótki maksymalny wiek, ponieważ AAD nie jest w stanie zweryfikować, kiedy odwołać tokeny powiązane ze starymi poświadczeniami (na przykład hasło, które zostało zmienione) i muszą zaewidencjonować częściej, aby upewnić się, że użytkownik i skojarzone tokeny są nadal w dobrym stanie Stojący. Aby poprawić to doświadczenie, administratorzy dzierżawy muszą upewnić się, że są one synchronizacji "LastPasswordChangeTimestamp" atrybut (można to ustawić na obiekcie użytkownika za pomocą programu Powershell lub za pośrednictwem AADSync).
+* <sup>1.</sup> Federated użytkowników, którzy mają niewystarczające informacje o odwołaniu obejmują wszystkich użytkowników, którzy nie mają "LastPasswordChangeTimestamp" atrybut zsynchronizowany. Ci użytkownicy otrzymują ten krótki Maksymalny wiek, ponieważ aad nie jest w stanie zweryfikować, kiedy odwołać tokeny, które są powiązane ze starymi poświadczeniami (na przykład hasło, które zostało zmienione) i należy zaewidencjonować częściej, aby upewnić się, że użytkownik i skojarzone tokeny są nadal w dobrej kondycji. Aby poprawić to doświadczenie, administratorzy dzierżawy muszą upewnić się, że są one synchronizacji "LastPasswordChangeTimestamp" atrybut (można to ustawić na obiekcie użytkownika za pomocą programu Powershell lub za pośrednictwem AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Ocena polityki i ustalanie priorytetów
 Można utworzyć, a następnie przypisać zasady okresu istnienia tokenu do określonej aplikacji, do organizacji i do podmiotów obsługujących usługi. Wiele zasad może mieć zastosowanie do określonej aplikacji. Zasady okresu istnienia tokenu, które wchodzą w życie, są zgodne z następującymi regułami:
@@ -243,19 +243,25 @@ W tym przykładzie utworzysz zasadę, która umożliwia użytkownikom rzadziej l
         }')
         ```
 
-    2. Aby utworzyć zasadę, uruchom następujące polecenie:
+    1. Aby utworzyć zasadę, uruchom następujące polecenie:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3. Aby wyświetlić nowe zasady i uzyskać **identyfikator objectid**zasad, uruchom następujące polecenie:
+    1. Aby usunąć wszystkie odstępy, uruchom następujące polecenie:
+
+        ```powershell
+        Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
+        ```
+
+    1. Aby wyświetlić nowe zasady i uzyskać **identyfikator objectid**zasad, uruchom następujące polecenie:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Zaktualizuj zasady.
+1. Zaktualizuj zasady.
 
     Możesz zdecydować, że pierwsza zasada ustawiona w tym przykładzie nie jest tak ścisła, jak wymaga tego usługa. Aby ustawić wygaśnięcie tokenu odświeżania jednoskładnikowego w ciągu dwóch dni, uruchom następujące polecenie:
 
@@ -277,13 +283,13 @@ W tym przykładzie utworzysz zasadę, która wymaga od użytkowników częstszeg
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. Aby wyświetlić nowe zasady i uzyskać zasadę **ObjectId**, uruchom następujące polecenie:
+    1. Aby wyświetlić nowe zasady i uzyskać zasadę **ObjectId**, uruchom następujące polecenie:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Przypisz zasady do jednostki usługi. Należy również uzyskać **ObjectId** jednostki usługi.
+1. Przypisz zasady do jednostki usługi. Należy również uzyskać **ObjectId** jednostki usługi.
 
     1. Użyj polecenia cmdlet [Get-AzureADServicePrincipal,](/powershell/module/azuread/get-azureadserviceprincipal) aby wyświetlić wszystkie jednostki usługi organizacji lub jednego podmiotu usługi.
         ```powershell
@@ -291,7 +297,7 @@ W tym przykładzie utworzysz zasadę, która wymaga od użytkowników częstszeg
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
-    2. Jeśli masz jednostkę usługi, uruchom następujące polecenie:
+    1. Jeśli masz jednostkę usługi, uruchom następujące polecenie:
         ```powershell
         # Assign policy to a service principal
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
@@ -308,13 +314,13 @@ W tym przykładzie należy utworzyć zasadę, która wymaga od użytkowników uw
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. Aby wyświetlić nowe zasady, uruchom następujące polecenie:
+    1. Aby wyświetlić nowe zasady, uruchom następujące polecenie:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Przypisz zasady do internetowego interfejsu API. Należy również uzyskać **ObjectId** aplikacji. Użyj polecenia cmdlet [Get-AzureADApplication,](/powershell/module/azuread/get-azureadapplication) aby znaleźć **identyfikator obiektu ObjectId**aplikacji lub użyć [portalu Azure.](https://portal.azure.com/)
+1. Przypisz zasady do internetowego interfejsu API. Należy również uzyskać **ObjectId** aplikacji. Użyj polecenia cmdlet [Get-AzureADApplication,](/powershell/module/azuread/get-azureadapplication) aby znaleźć **identyfikator obiektu ObjectId**aplikacji lub użyć [portalu Azure.](https://portal.azure.com/)
 
     Pobierz **objectid** aplikacji i przypisać zasady:
 
@@ -337,19 +343,19 @@ W tym przykładzie utworzysz kilka zasad, aby dowiedzieć się, jak działa syst
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2. Aby wyświetlić nowe zasady, uruchom następujące polecenie:
+    1. Aby wyświetlić nowe zasady, uruchom następujące polecenie:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Przypisz zasady do jednostki usługi.
+1. Przypisz zasady do jednostki usługi.
 
     Teraz masz zasady, które mają zastosowanie do całej organizacji. Można zachować tę zasadę 30-dniową dla określonego podmiotu usługi, ale zmienić domyślną zasadę organizacji na górny limit "do odwołania".
 
     1. Aby wyświetlić wszystkie jednostki usługi organizacji, należy użyć polecenia cmdlet [Get-AzureADServicePrincipal.](/powershell/module/azuread/get-azureadserviceprincipal)
 
-    2. Jeśli masz jednostkę usługi, uruchom następujące polecenie:
+    1. Jeśli masz jednostkę usługi, uruchom następujące polecenie:
 
         ```powershell
         # Get ID of the service principal
@@ -359,13 +365,13 @@ W tym przykładzie utworzysz kilka zasad, aby dowiedzieć się, jak działa syst
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Ustaw `IsOrganizationDefault` flagę na false:
+1. Ustaw `IsOrganizationDefault` flagę na false:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
-4. Utwórz nową zasadę domyślną organizacji:
+1. Utwórz nową zasadę domyślną organizacji:
 
     ```powershell
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"

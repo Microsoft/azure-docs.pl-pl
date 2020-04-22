@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a0cb7957008308425d91abb3e0f828cc40301736
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064926"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683326"
 ---
 # <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
 
@@ -40,7 +40,7 @@ Firma Microsoft nawiązała współpracę z firmą Gemalto w celu dostarczenia u
 
 ### <a name="q-what-is-an-hsm-used-for"></a>Pyt.: Do czego służy moduł HSM?
 
-Moduły HSM są używane do przechowywania kluczy kryptograficznych, które są używane do funkcji kryptograficznych, takich jak SSL (warstwa bezpiecznego gniazda), szyfrowanie danych, infrastruktura PKI (infrastruktura kluczy publicznych), DRM (zarządzanie prawami cyfrowymi) i podpisywanie dokumentów.
+Moduły HSM są używane do przechowywania kluczy kryptograficznych, które są używane do funkcji kryptograficznych, takich jak TLS (zabezpieczenia warstw transportowych), szyfrowanie danych, infrastruktura PKI (infrastruktura kluczy publicznych), DRM (zarządzanie prawami cyfrowymi) i podpisywanie dokumentów.
 
 ### <a name="q-how-does-dedicated-hsm-work"></a>P: Jak działa dedykowany moduł HSM?
 
@@ -69,6 +69,7 @@ Od końca marca 2019 r. dedykowany moduł HSM jest dostępny w 14 regionach wymi
 * Wschodnie stany USA
 * Wschodnie stany USA 2
 * Zachodnie stany USA
+* Zachodnie stany USA 2
 * Południowo-środkowe stany USA
 * Azja Południowo-Wschodnia
 * Azja Wschodnia
@@ -84,6 +85,10 @@ Od końca marca 2019 r. dedykowany moduł HSM jest dostępny w 14 regionach wymi
 * Kanada Wschodnia
 * Australia Wschodnia
 * Australia Południowo-Wschodnia
+* Szwajcaria Północna
+* Szwajcaria Zachód
+* US Gov Wirginia
+* US Gov Teksas
 
 ## <a name="interoperability"></a>Współdziałanie
 
@@ -132,13 +137,13 @@ Tak. Zapoznaj się z przewodnikiem po migracji Gemalto.
 
 ### <a name="q-how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm"></a>Pyt.: Jak zdecydować, czy używać usługi Azure Key Vault lub azure dedykowany moduł HSM?
 
-Dedykowany moduł HSM platformy Azure jest odpowiednim wyborem dla przedsiębiorstw migrujących do lokalnych aplikacji platformy Azure korzystających z modułów HSM. Dedykowane moduły HSM stanowią opcję migracji aplikacji z minimalnymi zmianami. Jeśli operacje kryptograficzne są wykonywane w kodzie aplikacji uruchomionej w maszynie wirtualnej platformy Azure lub aplikacji sieci Web, mogą używać dedykowanego modułu HSM. Ogólnie rzecz biorąc, oprogramowanie opakowane termokurczliwe działające w modelach IaaS (infrastruktura jako usługa), które obsługują moduły HSM jako magazyn kluczy, mogą używać funkcji Dedykacyjny moduł HSM, takich jak brama aplikacji lub menedżer ruchu dla bezkluczowego ssl, ADCS (Usługi certyfikatów Active Directory) lub podobne narzędzia infrastruktury kluczy publicznych, narzędzia/aplikacje używane do podpisywania dokumentów, podpisywania kodu lub programu SQL Server (IaaS) skonfigurowane z TDE (szyfrowanie przezroczystej bazy danych) z kluczem głównym w systemie HSM przy użyciu dostawcy zarządzania kluczami EKM (rozszerzalny klucz). Usługa Azure Key Vault jest odpowiednia dla aplikacji typu "urodzony w chmurze" lub do szyfrowania w spoczynkach scenariuszy, w których dane klienta są przetwarzane przez PaaS (platforma jako usługa) lub scenariusze SaaS (Oprogramowanie jako usługa), takie jak Klucz klienta usługi Office 365, Ochrona informacji platformy Azure , Szyfrowanie dysków platformy Azure, szyfrowanie usługi Azure Data Lake Store z kluczem zarządzanym przez klienta, szyfrowanie usługi Azure Storage z kluczem zarządzanym przez klienta oraz program Azure SQL z kluczem zarządzanym przez klienta.
+Dedykowany moduł HSM platformy Azure jest odpowiednim wyborem dla przedsiębiorstw migrujących do lokalnych aplikacji platformy Azure korzystających z modułów HSM. Dedykowane moduły HSM stanowią opcję migracji aplikacji z minimalnymi zmianami. Jeśli operacje kryptograficzne są wykonywane w kodzie aplikacji uruchomionej w maszynie wirtualnej platformy Azure lub aplikacji sieci Web, mogą używać dedykowanego modułu HSM. Ogólnie rzecz biorąc, oprogramowanie opakowane termokurczliwe działające w modelach IaaS (infrastruktura jako usługa), które obsługują moduły HSM jako magazyn kluczy, mogą używać funkcji Dedykacyjny moduł HSM, takich jak brama aplikacji lub menedżer ruchu dla bezkluczowych protokołów TLS, ADCS (Usługi certyfikatów Active Directory) lub podobne narzędzia infrastruktury kluczy publicznych, narzędzia/aplikacje używane do podpisywania dokumentów, podpisywania kodu lub programu SQL Server (IaaS) skonfigurowane z TDE (szyfrowanie przezroczystej bazy danych) z kluczem głównym w systemie HSM przy użyciu dostawcy zarządzania kluczami EKM (rozszerzalny klucz). Usługa Azure Key Vault jest odpowiednia dla aplikacji typu "urodzony w chmurze" lub do szyfrowania w spoczynku scenariuszy, w których dane klienta są przetwarzane przez PaaS (platforma jako usługa) lub SaaS (Oprogramowanie jako usługa), takie jak klucz klienta usługi Office 365, ochrona informacji platformy Azure, szyfrowanie dysków azure, szyfrowanie usługi Azure Data Lake Store z kluczem zarządzanym przez klienta, szyfrowanie usługi Azure Storage z kluczem zarządzanym przez klienta i azure SQL z kluczem zarządzanym przez klienta.
 
 ### <a name="q-what-usage-scenarios-best-suit-azure-dedicated-hsm"></a>Pyt.: Jakie scenariusze użycia najlepiej pasują do dedykowanego modułu HSM platformy Azure?
 
 Dedykowany moduł HSM platformy Azure jest najbardziej odpowiedni dla scenariuszy migracji. Oznacza to, że w przypadku migracji lokalnych aplikacji na platformę Azure, które już korzystają z modułów HSM. Zapewnia to opcję o niskim tarciu do migracji na platformę Azure przy minimalnych zmianach w aplikacji. Jeśli operacje kryptograficzne są wykonywane w kodzie aplikacji uruchomionej w usłudze Azure VM lub aplikacji sieci Web, można użyć dedykowanego modułu HSM. Ogólnie rzecz biorąc, oprogramowanie opakowane w folię termokurczliwą działające w modelach IaaS (infrastruktura jako usługa), które obsługuje moduły HSM jako magazynu kluczy, można użyć dedykatu HSM, takich jak:
 
-* Brama aplikacji lub menedżer ruchu dla bezkluzywowego SSL
+* Brama aplikacji lub menedżer ruchu dla bezkluzywowego protokołu TLS
 * USŁUGI ADCS (Usługi certyfikatów Active Directory)
 * Podobne narzędzia infrastruktury kluczy publicznych
 * Narzędzia/aplikacje używane do podpisywania dokumentów

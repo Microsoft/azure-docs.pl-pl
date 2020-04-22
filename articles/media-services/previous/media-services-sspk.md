@@ -1,6 +1,6 @@
 ---
-title: Licencjonowanie zestawu Microsoft® Smooth Streaming Client Porting Kit
-description: Dowiedz się, jak uzyskać licencję na zestaw Microsoft® Smooth Streaming Client Porting Kit.
+title: Licencjonowanie&reg; zestawu Microsoft Smooth Streaming Client Porting Kit
+description: Dowiedz się, jak uzyskać&reg; licencję na zestaw Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 59ac3ab2e70bfa00f19bae7e551780f2b2bb8ccb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096710"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686913"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licencjonowanie zestawu Microsoft® Smooth Streaming Client Porting Kit 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencjonowanie&reg; zestawu Microsoft Smooth Streaming Client Porting Kit 
 ## <a name="overview"></a>Omówienie
 Microsoft Smooth Streaming Client Porting Kit (W skrócie**SSPK)** to implementacja klienta Smooth Streaming, która jest zoptymalizowana, aby pomóc wbudowanym producentom urządzeń, operatorom telewizji kablowej i komórkowej, dostawcom usług w zakresie treści, producentom słuchawek, niezależnym dostawcom oprogramowania (ISV) i dostawcom rozwiązań w tworzeniu produktów i usług do przesyłania strumieniowego adaptacyjnej zawartości w formacie Smooth Streaming. SSPK to niezależna od urządzenia i platforma implementacja klienta Smooth Streaming, który może zostać przeniesiony przez licencjobiorcę na dowolne urządzenie i platformę. 
 
@@ -55,13 +55,13 @@ Zestaw Microsoft Smooth Streaming Client Porting Kit jest udostępniany licencjo
 * W przypadku producentów urządzeń lub dostawców oprogramowania, którzy wymagają praw do dystrybucji produktów końcowych klienta smooth streaming dla użytkowników końcowych, należy wykonać **licencję produktu końcowego zestawu microsoft** smooth streaming client porting kit.
 
 ### <a name="microsoft-smooth-streaming-client-porting-kit-interim-product-license"></a>Tymczasowa licencja produktu zestawu Microsoft Smooth Streaming Client Porting Kit
-Zgodnie z niniejszą licencją firma Microsoft oferuje zestaw smooth streaming client porting kit oraz niezbędne prawa własności intelektualnej do opracowywania i rozpowszechniania produktów tymczasowych klienta Smooth Streaming na rzecz innych licencjobiorców smooth streaming client porting kit, które dystrybucji produktów końcowych klienta Smooth Streaming.
+Zgodnie z niniejszą licencją firma Microsoft oferuje zestaw smooth streaming client porting kit oraz niezbędne prawa własności intelektualnej do opracowywania i dystrybucji produktów tymczasowych klienta Smooth Streaming na rzecz innych licencjobiorców urządzenia Smooth Streaming Client Porting Kit, które dystrybuują produkty końcowe klienta Smooth Streaming.
 
 #### <a name="fee-structure"></a>Struktura opłat
 Jednorazowa opłata licencyjna w wysokości 50 000 USD zapewnia dostęp do zestawu smooth streaming client porting kit. 
 
 ### <a name="microsoft-smooth-streaming-client-porting-kit-final-product-license"></a>Licencja produktu końcowego zestawu do przenoszenia klienta usługi Microsoft Smooth Streaming
-Zgodnie z niniejszą licencją firma Microsoft oferuje wszelkie niezbędne prawa własności intelektualnej do otrzymywania tymczasowych produktów smooth streaming klienta od innych licencjobiorców Smooth Streaming Client Porting Kit oraz do dystrybucji firmowej marki Smooth Streaming Client Final Produkty dla użytkowników końcowych.
+Zgodnie z niniejszą licencją firma Microsoft oferuje wszelkie niezbędne prawa własności intelektualnej do otrzymywania tymczasowych produktów klienta Smooth Streaming od innych licencjobiorców Smooth Streaming Client Porting Kit oraz do dystrybucji produktów końcowych klienta Smooth Streaming marki firmy wśród użytkowników końcowych.
 
 #### <a name="fee-structure"></a>Struktura opłat
 Produkt końcowy klienta Smooth Streaming jest oferowany w modelu tantiem, jak w:
@@ -73,7 +73,7 @@ Produkt końcowy klienta Smooth Streaming jest oferowany w modelu tantiem, jak w
 ## <a name="licensing-procedure-and-sspk-access"></a>Procedura licencjonowania i dostęp do SSPK
 Wyślij [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) wiadomość e-mail do wszystkich zapytań licencyjnych.
 
-[Portal dystrybucji SSPK](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) jest dostępny dla zarejestrowanych licencjobiorców tymczasowych.
+Portal dystrybucji SSPK jest dostępny dla zarejestrowanych licencjobiorców tymczasowych.
 
 Licencjobiorcy tymczasowi i końcowi [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)mogą przesyłać pytania techniczne do .
 

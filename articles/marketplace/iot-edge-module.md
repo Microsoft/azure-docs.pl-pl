@@ -1,18 +1,18 @@
 ---
-title: Moduły usługi Azure IoT Edge
+title: Moduły usługi Azure Marketplace ioT Edge
 description: Oferta modułu usługi IoT Edge w portalu Azure Marketplace dla wydawców aplikacji i usług.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/22/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: aadbf33914f919e393a5ec88cf6fc0a6103911b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 762d9947046f159e992f09211bfcd76ff8d6712e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286153"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684338"
 ---
 # <a name="iot-edge-modules"></a>Moduły usługi IoT Edge
 
@@ -58,7 +58,7 @@ Wszystkie warunki umów i zasad w portalu Microsoft Azure Marketplace mają zast
 
 Aby opublikować moduł usługi IoT Edge w portalu Azure Marketplace, musisz spełnić następujące wymagania wstępne:
 
-- Dostęp do portalu Cloud Partner Portal (CPP). Aby uzyskać więcej informacji, zobacz [Przewodnik po publikacjach w portalu Azure Marketplace i AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Dostęp do Centrum partnerskiego. Aby uzyskać więcej informacji, zobacz [Przewodnik po publikacjach w portalu Azure Marketplace i AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 - Hostuj moduł usługi IoT Edge w rejestrze kontenerów platformy Azure. 
 - Przygotuj metadane modułu Usługi IoT Edge, takie jak (niewyczerpywna lista): 
     - Tytuł
@@ -71,19 +71,19 @@ Aby opublikować moduł usługi IoT Edge w portalu Azure Marketplace, musisz spe
 
 **Wymagania techniczne**
 
-Podstawowe wymagania techniczne dotyczące modułu usługi IoT Edge, aby uzyskać certyfikat i opublikowanie w portalu Azure Marketplace, są szczegółowo opisane w [module IoT Edge zasobów technicznych.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets)  
+Podstawowe wymagania techniczne dotyczące modułu usługi IoT Edge, aby uzyskać certyfikat i opublikowanie w portalu Azure Marketplace, są szczegółowo opisane w [module IoT Edge zasobów technicznych.](./partner-center-portal/create-iot-edge-module-asset.md)
 
 ## <a name="documentation-and-resources"></a>Dokumentacja i zasoby
 
-[Utwórz ofertę modułu Usługi IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) — kroki publikowania nowej oferty modułów usługi IoT Edge za pomocą portalu publikowania w chmurze.
+[Utwórz ofertę modułów usługi IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) — kroki publikowania nowej oferty modułów usługi IoT Edge w Centrum partnerów.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli jeszcze tego nie zrobiłeś,
 
-- [Zarejestruj się](https://azuremarketplace.microsoft.com/sell) na rynku.
+- [Dowiedz się więcej](https://azuremarketplace.microsoft.com/sell) o rynku.
 
-Jeśli jesteś zarejestrowany i tworzysz nową ofertę lub pracujesz nad istniejącą,
+Aby zarejestrować się w Centrum partnerów i rozpocząć tworzenie nowej oferty lub pracę nad istniejącą,
 
-- Zaloguj się do [portalu cloud partner,](https://cloudpartner.azure.com/) aby utworzyć lub uzupełnić ofertę.
-- Zobacz [omówienie publikowania ofert modułów usługi IoT Edge,](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) aby uzyskać informacje na temat publikowania oferty modułów usługi IoT Edge.
+- Zaloguj się do [Centrum partnerów,](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) aby utworzyć lub uzupełnić ofertę.
+- Zobacz [tworzenie oferty modułu usługi IoT Edge,](./partner-center-portal/azure-iot-edge-module-creation.md) aby uzyskać informacje na temat publikowania oferty modułów usługi IoT Edge.

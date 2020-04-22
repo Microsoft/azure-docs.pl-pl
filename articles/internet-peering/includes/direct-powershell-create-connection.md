@@ -8,18 +8,18 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e1cb1bec6273fa79315b9439bec1412622ebfe28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 610bac5c08d7f3aa3c93e273bc6573a08ca1239f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774304"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680761"
 ---
-W poniższym przykładzie pokazano, jak utworzyć 10Gbps direct komunikacji równorzędnej w Seattle.
+W poniższym przykładzie pokazano, jak utworzyć 10 Gb/s bezpośrednie komunikacji równorzędnej w Seattle.
 
-Użyj polecenia cmdlet programu PowerShell **New-AzPeeringDirectConnectionObject** do tworzenia funkcji DirectConnections, które mają być używane w nowym żądaniu komunikacji równorzędnej.
+Użyj polecenia cmdlet Programu PowerShell **New-AzPeeringDirectConnectionObject** do tworzenia obiektów DirectConnection, które mają być używane w nowym żądaniu komunikacji równorzędnej.
 
-Poniżej znajduje się przykład utworzenia DirectConnection:
+W tym przykładzie pokazano, jak utworzyć obiekt DirectConnection.
 
 ```powershell
 $connection1 = New-AzPeeringDirectConnectionObject `
@@ -32,9 +32,9 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> Dla <index> $peeringLocation[<index>] w powyższym przykładzie powinny odpowiadać lokalizacji peeringu do wyboru
+> Wartość <index> **dla $peeringLocation[]** <index> w poprzednim przykładzie powinna odpowiadać wybranej lokalizacji komunikacji równorzędnej.
 
-Utwórz inne połączenie w przypadku, gdy potrzebujesz nadmiarowości w danej lokalizacji komunikacji równorzędnej:
+Utwórz inne połączenie w przypadku, gdy potrzebujesz nadmiarowości w danej lokalizacji komunikacji równorzędnej.
 
 ```powershell
 $connection2 = New-AzPeeringDirectConnectionObject `
@@ -46,7 +46,7 @@ $connection2 = New-AzPeeringDirectConnectionObject `
     -BandwidthInMbps 10000
 ```
 
-Użyj polecenia cmdlet programu PowerShell **New-AzPeering,** aby utworzyć nową komunikację równorzędną direct. To polecenie wymaga identyfikatora zasobu ASN, który można pobrać, jak pokazano poniżej.
+Użyj polecenia cmdlet Programu PowerShell **New-AzPeering,** aby utworzyć nową komunikację równorzędną direct. To polecenie wymaga identyfikatora zasobu ASN, który można pobrać w sposób pokazany poniżej.
 
 
 ```powershell
@@ -60,7 +60,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Poniżej znajduje się przykładowa odpowiedź, gdy żądanie zostało pomyślnie przetworzone:
+W tym przykładzie pokazano odpowiedź, gdy żądanie zostało przetworzone pomyślnie.
 
 ```powershell
 
@@ -78,4 +78,4 @@ Poniżej znajduje się przykładowa odpowiedź, gdy żądanie zostało pomyślni
     Tags                 : {}
 
 ```
-Należy zauważyć, że zamiast **{subscriptionId}** w danych wyjściowych powyżej zostanie wyświetlony rzeczywisty identyfikator subskrypcji.
+Należy zauważyć, że zamiast **{subscriptionId}** w tym wyjściu zostanie wyświetlony rzeczywisty identyfikator subskrypcji.

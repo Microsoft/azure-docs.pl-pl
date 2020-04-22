@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
-ms.openlocfilehash: c1ca87b6e7b8afb50522e73107707e15782a0a91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563ac8748e9d4f8a254a151814491113b9c816e6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79199588"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685134"
 ---
 W tym kroku utworzysz serwer bazy danych SQL Azure i pojedynczą bazę danych, która używa przykładowych danych AdventureWorksLT. Bazę danych można utworzyć przy użyciu menu i ekranów witryny Azure portal lub przy użyciu skryptu interfejsu wiersza polecenia platformy Azure lub programu PowerShell w usłudze Azure Cloud Shell.
 
@@ -28,7 +28,7 @@ Aby utworzyć grupę zasobów, serwer SQL i pojedynczą bazę danych w witrynie 
    ![Dodaj do usługi Azure SQL](../media/sql-database-single-database-get-started/sqldbportal.png)
    
 1. Na stronie **opcji Wybierz wdrożenie SQL** wybierz kafelek bazy danych **SQL** z **pojedynczą bazą danych** w obszarze **Typ zasobu**. Więcej informacji o różnych bazach danych można wyświetlić, wybierając pozycję **Pokaż szczegóły**.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
    
    ![Tworzenie pojedynczej bazy danych](../media/sql-database-single-database-get-started/create-single-database.png)
    
@@ -106,7 +106,7 @@ location=westus2
 adminlogin=azureuser
 password=Azure1234567
 
-# Set a logical server name that is unique in the system
+# Set a logical server name that is unique to Azure DNS (<server_name>.database.windows.net)
 servername=server-$RANDOM
 
 # Set the ip address range that can access your database
@@ -157,7 +157,7 @@ Poprzedni kod używa tych poleceń interfejsu wiersza polecenia platformy Azure:
 
 Aby uzyskać więcej przykładów interfejsu wiersza polecenia platformy Azure bazy danych SQL, zobacz [przykłady interfejsu wiersza polecenia platformy Azure.](../sql-database-cli-samples.md)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Za pomocą programu Windows PowerShell można utworzyć grupę zasobów platformy Azure, serwer SQL i pojedynczą bazę danych. Jeśli nie chcesz używać usługi Azure Cloud Shell, [zainstaluj moduł programu Azure PowerShell.](/powershell/azure/install-az-ps)
 

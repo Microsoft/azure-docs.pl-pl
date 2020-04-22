@@ -4,17 +4,17 @@ description: Nawadniaj swoje obiekty blob z magazynu archiwum, aby uzyskać dost
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/14/2019
+ms.date: 04/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82ea4ad23e3207f5641ade196f69595cd1e7b323
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614795"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684095"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Nawadnianie danych obiektów blob z warstwy archiwum
 
@@ -31,15 +31,21 @@ Gdy obiekt blob znajduje się w warstwie dostępu do archiwum, jest uważany za 
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Kopiowanie zarchiwizowanego obiektu blob do warstwy online
 
-Jeśli nie chcesz ponownie nawilżać obiektu blob archiwum, możesz wykonać operację [kopiowania obiektu blob.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) Oryginalny obiekt blob pozostanie niezmodyfikowany w archiwum, podczas gdy nowy obiekt blob jest tworzony w warstwie online hot lub cool, nad którymi możesz pracować. W operacji Kopiuj obiekt blob można również ustawić opcjonalną właściwość *x-ms-rehydrate-priority* na Standard lub High (wersja zapoznawcza), aby określić priorytet, przy którym ma zostać utworzona kopia obiektu blob.
-
-Obiekty blob archiwum można kopiować tylko do warstw docelowych online na tym samym koncie magazynu. Kopiowanie obiektu blob archiwum do innego obiektu blob archiwum nie jest obsługiwane.
+Jeśli nie chcesz ponownie nawilżać obiektu blob archiwum, możesz wykonać operację [kopiowania obiektu blob.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) Oryginalny obiekt blob pozostanie niezmodyfikowany w archiwum, podczas gdy nowy obiekt blob jest tworzony w warstwie online hot lub cool, nad którymi możesz pracować. W operacji Kopiuj obiekt blob można również ustawić opcjonalną właściwość *x-ms-rehydrate-priority* na Standard lub High, aby określić priorytet, przy którym ma zostać utworzona kopia obiektu blob.
 
 Kopiowanie obiektu blob z archiwum może potrwać wiele godzin, w zależności od wybranego priorytetu ponownego nawodnienia. W tle operacja **Kopiowania obiektu blob** odczytuje źródłowy obiekt blob archiwum, aby utworzyć nowy obiekt blob online w wybranej warstwie docelowej. Nowy obiekt blob może być widoczny podczas listy obiektów blob, ale dane nie są dostępne, dopóki odczyt z źródłowego obiektu blob archiwum jest kompletna, a dane są zapisywane w nowym docelowym obiektu blob online. Nowy obiekt blob jest niezależną kopią i wszelkie modyfikacje lub usunięcie do niego nie wpływa na źródłowego obiektu blob archiwum.
 
+Obiekty blob archiwum można kopiować tylko do warstw docelowych online na tym samym koncie magazynu. Kopiowanie obiektu blob archiwum do innego obiektu blob archiwum nie jest obsługiwane. W poniższej tabeli przedstawiono możliwości CopyBlob.
+
+|                                           | **Źródło warstwy gorąca**   | **Fajne źródło poziomu** | **Źródło warstwy Archiwum**    |
+| ----------------------------------------- | --------------------- | -------------------- | ------------------- |
+| **Miejsce docelowe warstwy gorąca**                  | Obsługiwane             | Obsługiwane            | Obsługiwane na tym samym koncie; oczekujące nawładnie nawadnianie               |
+| **Chłodne miejsce docelowe poziomu**                 | Obsługiwane             | Obsługiwane            | Obsługiwane na tym samym koncie; oczekujące nawładnie nawadnianie               |
+| **Miejsce docelowe warstwy archiwum**              | Obsługiwane             | Obsługiwane            | Nieobsługiwane         |
+
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
-Ponowne nawadnianie obiektów blob z archiwum do warstw gorących lub chłodnych jest naliczane jako operacje odczytu i pobieranie danych. Za pomocą wysokiego priorytetu (wersja zapoznawcza) ma wyższe koszty operacji i pobierania danych w porównaniu do standardowego priorytetu. Nawodnienie o wysokim priorytecie jest wyświetlane jako osobny element zamówienia na rachunku. Jeśli żądanie o wysokim priorytecie, aby zwrócić archiwum obiektu blob kilku gigabajtów trwa ponad 5 godzin, nie zostanie naliczona opłata za pobieranie o wysokim priorytecie. Jednak standardowe stawki pobierania nadal mają zastosowanie, ponieważ nawodnienie było traktowane priorytetowo w stosunku do innych wniosków.
+Ponowne nawadnianie obiektów blob z archiwum do warstw gorących lub chłodnych jest naliczane jako operacje odczytu i pobieranie danych. Za pomocą wysokiego priorytetu ma wyższe koszty operacji i pobierania danych w porównaniu do standardowego priorytetu. Nawodnienie o wysokim priorytecie jest wyświetlane jako osobny element zamówienia na rachunku. Jeśli żądanie o wysokim priorytecie, aby zwrócić archiwum obiektu blob kilku gigabajtów trwa ponad 5 godzin, nie zostanie naliczona opłata za pobieranie o wysokim priorytecie. Jednak standardowe stawki pobierania nadal mają zastosowanie, ponieważ nawodnienie było traktowane priorytetowo w stosunku do innych wniosków.
 
 Kopiowanie obiektów blob z archiwum do warstw gorących lub chłodnych jest naliczane jako operacje odczytu i pobieranie danych. Operacja zapisu jest naliczana za utworzenie nowej kopii obiektu blob. Opłaty za wcześniejsze usunięcie nie mają zastosowania podczas kopiowania do obiektu blob online, ponieważ źródłowy obiekt blob pozostaje niezmieniony w warstwie archiwum. Opłaty za pobieranie o wysokim priorytecie mają zastosowanie, jeśli jest zaznaczona.
 
@@ -52,7 +58,7 @@ Obiekty BLOB w warstwie archiwum powinny być przechowywane przez co najmniej 18
 
 ### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Nawadnianie obiektu blob archiwum do warstwy online
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W witrynie Azure portal wyszukaj i wybierz pozycję **Wszystkie zasoby**.
 
@@ -68,7 +74,8 @@ Obiekty BLOB w warstwie archiwum powinny być przechowywane przez co najmniej 18
 
 1. Wybierz **pozycję Zapisz** u dołu.
 
-![Zmienianie warstwy konta magazynu](media/storage-tiers/blob-access-tier.png)
+![Zmienianie warstwy](media/storage-tiers/blob-access-tier.png)
+![konta magazynu Sprawdź stan ponownego nawadniania](media/storage-tiers/rehydrate-status.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Następujący skrypt programu PowerShell może służyć do zmiany warstwy obiektów blob obiektu blob archiwum. Zmienna `$rgName` musi zostać zainicjowana z nazwą grupy zasobów. Zmienna `$accountName` musi zostać zainicjowana z nazwą konta magazynu. Zmienna `$containerName` musi zostać zainicjowana z nazwą kontenera. Zmienna `$blobName` musi zostać zainicjowana z nazwą obiektu blob. 

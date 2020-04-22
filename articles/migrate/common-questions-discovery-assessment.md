@@ -3,12 +3,12 @@ title: Pytania dotyczące analizy odnajdywania, oceny i zależności w obszarze 
 description: Uzyskaj odpowiedzi na typowe pytania dotyczące odnajdywania, oceny i analizy zależności w usłudze Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 700e5318b66cdf4993a17b1dae85fb43f75ab035
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b4b2a50bc88768d46c82f6bce73447dc901e5dfd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529777"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681904"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Analiza odnajdowania, oceny i zależności — często zadawane pytania
 
@@ -28,6 +28,10 @@ Przejrzyj obsługiwane obszary geograficzne dla chmur [publicznych](migrate-supp
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Ile maszyn wirtualnych można odkryć za pomocą urządzenia?
 
 Za pomocą jednego urządzenia można wykryć do 10 000 maszyn wirtualnych VMware, do 5000 maszyn wirtualnych funkcji Hyper V i do 250 serwerów fizycznych. Jeśli masz więcej maszyn, przeczytaj o [skalowaniu oceny funkcji Hyper-V,](scale-hyper-v-assessment.md) [skalowaniu oceny VMware](scale-vmware-assessment.md)lub [skalowaniu oceny serwera fizycznego.](scale-physical-assessment.md)
+
+## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Nie widzę niektórych typów maszyn wirtualnych w usłudze Azure Government
+
+Typy maszyn wirtualnych obsługiwane do oceny i migracji zależą od dostępności w lokalizacji platformy Azure dla instytucji rządowych. Można [przeglądać i porównywać](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) typy maszyn wirtualnych w usłudze Azure Dla instytucji.
 
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>Rozmiar mojej maszyny Wirtualnej uległ zmianie. Czy mogę ponownie przeprowadzić ocenę?
@@ -87,7 +91,7 @@ Oceny oparte na imporcie to oceny utworzone za pomocą komputerów importowanych
 Wizualizacja zależności może pomóc w ocenie grup maszyn wirtualnych do migracji z większą pewnością. Wizualizacja zależności sprawdza zależności komputera przed uruchomieniem oceny. Pomaga upewnić się, że nic nie pozostaje w tyle i pomaga uniknąć nieoczekiwanych awarii podczas migracji na platformę Azure. Usługa Azure Migrate używa rozwiązania mapy usług w usłudze Azure Monitor, aby włączyć wizualizację zależności. [Dowiedz się więcej](concepts-dependency-visualization.md).
 
 > [!NOTE]
-> Wizualizacja zależności nie jest dostępna w usłudze Azure Dla Instytucji.
+> Analiza zależności oparta na agentach nie jest dostępna w usłudze Azure Government. Można użyć analizy zależności bez agenta
 
 ## <a name="whats-the-difference-between-agent-based-and-agentless"></a>Jaka jest różnica między agentem a agentem?
 

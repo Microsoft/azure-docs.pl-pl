@@ -1,14 +1,14 @@
 ---
 title: Obsługiwane typy zasobów Menedżera zasobów
 description: Podaj listę typów zasobów Menedżera zasobów obsługiwanych przez usługę Azure Resource Graph i historia zmian.
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.topic: reference
-ms.openlocfilehash: 99cb2176e4b0642be1fc31d49528ebf915ea440a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 99a10e084f8ae24156c447f7abca31a8ef977720
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415138"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685481"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela i odwołanie do typu zasobu azure
 
@@ -50,7 +50,11 @@ Usługa Azure Resource Graph obsługuje następujące **typy zasobów** [usługi
 - livearena.broadcast/services
 - mailjet.email/usługi
 - microsoft.aad/domainservices
+- microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/dzierżawcy
+- microsoft.aisupercomputer/accounts microsoft.aisupercomputer/accounts microsoft.aisupercomputer/accounts microsoft.
+- microsoft.aisupercomputer/accounts/jobgroups
+- microsoft.aisupercomputer/accounts/jobgroups/jobs
 - microsoft.alertsmanagement/actionrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servers
@@ -63,6 +67,7 @@ Usługa Azure Resource Graph obsługuje następujące **typy zasobów** [usługi
 - microsoft.automation/automationaccounts/runbooks
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectory
+- microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
 - microsoft.azuredata/sqlbigdataclusters
@@ -351,6 +356,7 @@ Usługa Azure Resource Graph obsługuje następujące **typy zasobów** [usługi
 - microsoft.remoteapp/kolekcje
 - microsoft.resourcegraph/queries
 - microsoft.resources/deploymentscripts
+- microsoft.resources/templatespecs
 - microsoft.saas/aplikacje
 - microsoft.scheduler/jobcollections
 - usługi wyszukiwania/wyszukiwania microsoft.search
@@ -405,6 +411,7 @@ Usługa Azure Resource Graph obsługuje następujące **typy zasobów** [usługi
 - microsoft.visualstudio/account
 - microsoft.visualstudio/account/extension
 - microsoft.visualstudio/account/project
+- microsoft.vmware/arczones
 - microsoft.vmwarecloudsimple/dedicatedcloudnodes microsoft.vmwarecloudy
 - microsoft.vmwarecloudsimple/dedicatedcloudservices
 - microsoft.vmwarecloudsimple/virtualmachines
@@ -454,7 +461,6 @@ Usługa Azure Resource Graph obsługuje następujące **typy zasobów** [usługi
 
 ## <a name="securityresources"></a>zasoby zabezpieczeń
 
-- metadane oceny
 - microsoft.security/assessments
 - microsoft.security/assessments/subassessments microsoft.security/assessments/subassessments microsoft.security/assessments/subassessments microsoft.
 - microsoft.security/pricings

@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9e8aa9bbbdf166ba0caf29cd0bce22b8ed321e4e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411860"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685180"
 ---
 # <a name="azure-sql-auditing"></a>Inspekcja usługi Azure SQL
 
@@ -111,9 +111,6 @@ Aby skonfigurować zapisywanie dzienników inspekcji na koncie magazynu, wybierz
 ### <a name=""></a><a id="audit-log-analytics-destination">Inspekcja do usługi Log Analytics miejsce docelowe</a>
   
 Aby skonfigurować zapisywanie dzienników inspekcji w obszarze roboczym usługi Log Analytics, wybierz pozycję **Usługa Log Analytics (Wersja zapoznawcza)** i otwórz **szczegóły usługi Log Analytics**. Wybierz lub utwórz obszar roboczy usługi Log Analytics, w którym będą zapisywane dzienniki, a następnie kliknij przycisk **OK**.
-    
-  > [!WARNING]
-   > Włączenie inspekcji usługi Log Analytics spowoduje poniesienie kosztów na podstawie stawek pozyskiwania. Należy pamiętać o skojarzonych kosztów przy użyciu tej [opcji](https://azure.microsoft.com/pricing/details/monitor/)lub należy rozważyć przechowywanie dzienników inspekcji na koncie magazynu platformy Azure.
    
    ![Obszar analityczny LogAnalyticswork](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 

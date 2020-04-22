@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60382137"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680044"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Wypełnianie wartości UserPrincipalName w usłudze Azure AD
 
@@ -93,7 +93,7 @@ Lokalny obiekt użytkownika:
 - mailNickName &lt;: nie ustawiono&gt;
 - proxyAddresses :SMTP:us1@contoso.com{ }
 - Poczty:us2@contoso.com
-- userPrincipalName us3@contoso.com: '
+- Userprincipalname:us3@contoso.com
 
 Zsynchronizowanie obiektu użytkownika z dzierżawą usługi Azure AD po raz pierwszy
 - Ustaw atrybut Azure MAILNickName na podstawowy prefiks adresu SMTP.

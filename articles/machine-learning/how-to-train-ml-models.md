@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 678af1855baf52efa727444236de8a1724a7d0b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9a3c10687b92d946fccb282f2eda4af637cf2ab
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79078483"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686768"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Trenuj modele za pomocą usługi Azure Machine Learning przy użyciu estymatora
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,7 +80,7 @@ print(run.get_portal_url())
 >
 > Aby utworzyć artefakty podczas szkolenia (takie jak pliki modelu, punkty kontrolne, `./outputs` pliki danych lub drukowane obrazy) zapisz je w folderze.
 >
-> Podobnie można zapisać dowolne dzienniki z `./logs` przebiegu szkolenia do folderu. Aby korzystać z [integracji tensorboard](https://aka.ms/aml-notebook-tb) usługi Azure Machine Learning, upewnij się, że piszesz dzienniki TensorBoard w tym folderze. Podczas biegu jest w toku, będzie można uruchomić TensorBoard i strumień tych dzienników.  Później będzie można również przywrócić dzienniki z dowolnego z poprzednich uruchomień.
+> Podobnie można zapisać dowolne dzienniki z `./logs` przebiegu szkolenia do folderu. Aby korzystać z [integracji tensorboard](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) usługi Azure Machine Learning, upewnij się, że piszesz dzienniki TensorBoard w tym folderze. Podczas biegu jest w toku, będzie można uruchomić TensorBoard i strumień tych dzienników.  Później będzie można również przywrócić dzienniki z dowolnego z poprzednich uruchomień.
 >
 > Na przykład, aby pobrać plik zapisany w folderze *wyjścia* na komputerze lokalnym po uruchomieniu szkolenia zdalnego:`run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 

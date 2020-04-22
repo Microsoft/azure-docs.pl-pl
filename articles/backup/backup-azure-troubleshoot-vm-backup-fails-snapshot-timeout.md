@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4583c02b52ab6b3a4e5056a47db096d4e34399ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3eedb5440711c7a45a13dcd53dd489c490588fc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248023"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677405"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem usługi Azure Backup: problemy z agentem lub rozszerzeniem
 
@@ -142,6 +142,13 @@ Jeśli zaplanowana operacja tworzenia kopii zapasowej trwa dłużej, jest to spr
 
 Ten błąd jest zgłaszany z maszyny Wirtualnej IaaS. Aby zidentyfikować główną przyczynę problemu, przejdź do ustawień magazynu usług recovery Services. W sekcji **Monitorowanie** wybierz **pozycję Zadania kopii zapasowej,** aby filtrować i wyświetlać stan. Kliknij **błędy,** aby przejrzeć podstawowe szczegóły komunikatu o błędzie. Podejmij dalsze działania zgodnie z zaleceniami na stronie szczegółów błędu.
 
+## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent — kopia zapasowa nie powiodła się: Ta maszyna wirtualna nie jest (aktywnie) chroniona przez usługę Azure Backup
+
+**Kod błędu**: UserErrorBcmDatasourceNotPresent <br>
+**Komunikat o błędzie:** Kopia zapasowa nie powiodła się: Ta maszyna wirtualna nie jest (aktywnie) chroniona przez usługę Azure Backup.
+
+Sprawdź, czy dana maszyna wirtualna jest aktywnie (nie w stanie wstrzymania) chroniona przez usługę Azure Backup. Aby rozwiązać ten problem, upewnij się, że maszyna wirtualna jest aktywna, a następnie ponów próbę wykonania operacji.
+
 ## <a name="causes-and-solutions"></a>Przyczyny i rozwiązania
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Agent jest zainstalowany na maszynie wirtualnej, ale nie odpowiada (dla maszyn wirtualnych z systemem Windows)
@@ -211,7 +218,7 @@ Następujące warunki mogą spowodować niepowodzenie zadania migawki:
 
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>Usuwanie blokady z grupy zasobów punktu odzyskiwania
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Przejdź do **opcji Wszystkie zasoby**, wybierz grupę zasobów kolekcji`<Geo>``<number>`punktów przywracania w następującym formacie AzureBackupRG_ _ .
 3. W sekcji **Ustawienia** wybierz pozycję **Blokady,** aby wyświetlić blokady.
 4. Aby usunąć blokadę, zaznacz wielokropek i kliknij przycisk **Usuń**.
@@ -240,7 +247,7 @@ Po usunięciu blokady wyzwolć kopię zapasową na żądanie. Ta akcja zapewni a
 
 Aby ręcznie wyczyścić kolekcję punktów przywracania, która nie jest wyczyszczona z powodu blokady w grupie zasobów, spróbuj wykonać następujące czynności:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. W menu **Centrum** kliknij polecenie **Wszystkie zasoby**, wybierz grupę`<Geo>`Zasobów`<number>` w następującym formacie AzureBackupRG_ _ gdzie znajduje się maszyna wirtualna.
 
     ![Usuń blokadę](./media/backup-azure-arm-vms-prepare/resource-group.png)

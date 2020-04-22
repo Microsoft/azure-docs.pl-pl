@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2020
 ms.author: shvija
-ms.openlocfilehash: 806a1f16327ad72a7f3527c813b355e1ba807dda
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 32b08e565b86af8f6373c9848211646128bb346d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606758"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677368"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migrowanie do centrów zdarzeń platformy Azure dla ekosystemów platformy Apache Kafka
 Usługa Azure Event Hubs udostępnia punkt końcowy platformy Apache Kafka, który umożliwia łączenie się z centrum zdarzeń przy użyciu protokołu Platformy Kafka. W celu wniesienia minimalnych zmian w istniejącej aplikacji platformy Kafka można połączyć się z usługą Azure Event Hubs i czerpać korzyści z ekosystemu platformy Azure. Centra zdarzeń dla platformy Kafka obsługują [apache kafka w wersji 1.0](https://kafka.apache.org/10/documentation.html) i nowszych.
@@ -71,4 +71,3 @@ Aby dowiedzieć się więcej o centrach zdarzeń i centrach zdarzeń dla platfor
 - [Często zadawane pytania - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.md)
 - [Apache Kafka — przewodnik dla deweloperów usługi Azure Event Hubs](apache-kafka-developer-guide.md)
 - [Zalecane konfiguracje](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
-- 

@@ -1,18 +1,18 @@
 ---
-title: Usługi na rynku - Najlepsze praktyki marketingowe | Azure
+title: Usługi na rynku - Najlepsze praktyki marketingowe | Azure Marketplace
 description: Usługi przejdź do rynku — w tej sekcji opisano najlepsze praktyki marketingowe dla wydawców portalu Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 6/24/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 2926752884576bcf3a7a15d68eecb6f1248f7e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e874343b5bb38928ae2fc429d901d8f7ec163580
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286272"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684600"
 ---
 # <a name="marketing-best-practices"></a>Najlepsze rozwiązania marketingowe
 
@@ -22,6 +22,6 @@ Zoptymalizowana lista na rynku i kampanie typu "przejdź na rynek" mogą pomóc 
 
 Aby dowiedzieć się więcej o usługach GTM w marketplace, przejdź [do usług przejdź na rynek.](https://partner.microsoft.com/reach-customers/gtm)
 
-Zaloguj się do [portalu cloud partner,](https://cloudpartner.azure.com) aby utworzyć i skonfigurować ofertę.
+Zaloguj się do [Centrum partnerów,](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) aby utworzyć i skonfigurować ofertę.
 
 ---

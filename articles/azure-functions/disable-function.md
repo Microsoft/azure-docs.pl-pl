@@ -3,12 +3,12 @@ title: Jak wyłączyć funkcje w usłudze Azure Functions
 description: Dowiedz się, jak wyłączyć i włączyć funkcje w usłudze Azure Functions.
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: fb8edf635856078655b8640ba0e1723fdd5e8a5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11585e92e7d239731b02d06c5093f979cd65cfba
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116144"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686883"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Jak wyłączyć funkcje w usłudze Azure Functions
 
@@ -42,6 +42,9 @@ az functionapp config appsettings set --name <myFunctionApp> \
 Można również użyć przełącznika **Stan funkcji** na karcie **Zarządzanie** funkcją. Przełącznik działa przez utworzenie i usunięcie `AzureWebJobs.<FUNCTION_NAME>.Disabled` ustawienia aplikacji.
 
 ![Przełącznik stanu funkcji](media/disable-function/function-state-switch.png)
+
+> [!NOTE]  
+> Funkcja testowania zintegrowana z `Disabled` portalem ignoruje to ustawienie. Oznacza to, że wyłączona funkcja nadal działa po uruchomieniu z okna **testowego** w portalu. 
 
 ## <a name="other-methods"></a>Inne metody
 

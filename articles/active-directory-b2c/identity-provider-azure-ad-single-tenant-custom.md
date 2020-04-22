@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5a6c85ebed7271655745de45694542fb359836e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be3a7a3ce4ce3a06398436058ea5d4d935ef5a5c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188414"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678089"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania za pomocą konta usługi Azure Active Directory przy użyciu zasad niestandardowych w usłudze Azure Active Directory B2C
 
@@ -28,40 +28,8 @@ W tym artykule pokazano, jak włączyć logowanie użytkowników z organizacji u
 
 Wykonaj kroki opisane w [wprowadzenie do niestandardowych zasad w usłudze Azure Active Directory B2C](custom-policy-get-started.md).
 
-## <a name="register-an-application"></a>Rejestrowanie aplikacji
 
-Aby włączyć logowanie dla użytkowników z określonej organizacji usługi Azure AD, należy zarejestrować aplikację w dzierżawie usługi Azure AD.
-
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD (na przykład contoso.com). Wybierz **filtr subskrypcja katalogu +** w górnym menu, a następnie wybierz katalog zawierający dzierżawę usługi Azure AD.
-1. Wybierz **pozycję Wszystkie usługi** w lewym górnym rogu witryny Azure portal, a następnie wyszukaj i wybierz pozycję **Rejestracje aplikacji.**
-1. Wybierz **pozycję Nowa rejestracja**.
-1. Wprowadź **nazwę** aplikacji. Na przykład `Azure AD B2C App`.
-1. Zaakceptuj domyślny wybór **kont w tym katalogu organizacyjnym tylko** dla tej aplikacji.
-1. W przypadku **identyfikatora URI przekierowania**zaakceptuj wartość **sieci Web**i wprowadź `your-B2C-tenant-name` następujący adres URL we wszystkich małych literach, gdzie jest zastępowany nazwą dzierżawy usługi Azure AD B2C.
-
-    ```
-    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
-    ```
-
-    Na przykład `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
-
-1. Wybierz pozycję **Zarejestruj**. Zarejestruj **identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
-1. Wybierz **pozycję Certyfikaty & wpisy tajne**, a następnie wybierz pozycję Nowy klucz tajny **klienta**.
-1. Wprowadź **opis klucza** tajnego, wybierz wygaśnięcie, a następnie wybierz pozycję **Dodaj**. Zapisz **wartość** klucza tajnego do użycia w późniejszym kroku.
-
-## <a name="configuring-optional-claims"></a>Konfigurowanie oświadczeń opcjonalnych
-
-Jeśli chcesz uzyskać `family_name` i `given_name` oświadczeń z usługi Azure AD, można skonfigurować opcjonalne oświadczenia dla aplikacji w interfejsie użytkownika witryny azure portalu lub manifestu aplikacji. Aby uzyskać więcej informacji, zobacz [Jak podać opcjonalne oświadczenia do aplikacji usługi Azure AD](../active-directory/develop/active-directory-optional-claims.md).
-
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wyszukaj i wybierz pozycję **Azure Active Directory**.
-1. W sekcji **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
-1. Wybierz aplikację, dla której chcesz skonfigurować opcjonalne oświadczenia na liście.
-1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu (wersja zapoznawcza)**.
-1. Wybierz **dodaj oświadczenie opcjonalne**.
-1. Wybierz typ tokenu, który chcesz skonfigurować.
-1. Wybierz opcjonalne oświadczenia do dodania.
-1. Kliknij przycisk **Dodaj**.
+[!INCLUDE [active-directory-b2c-identity-provider-azure-ad](../../includes/active-directory-b2c-identity-provider-azure-ad.md)]
 
 ## <a name="create-a-policy-key"></a>Tworzenie klucza zasad
 
@@ -75,7 +43,7 @@ Należy przechowywać klucz aplikacji utworzony w dzierżawie usługi Azure AD B
 1. Wprowadź **nazwę** klucza zasad. Na przykład `ContosoAppSecret`.  Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza podczas jego tworzenia, więc jego odwołaniem w pliku XML w poniższej sekcji jest *B2C_1A_ContosoAppSecret*.
 1. W **pliku Secret**wprowadź klucz tajny klienta, który został nagrany wcześniej.
 1. Dla **użycia klucza**wybierz opcję `Signature`.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 

@@ -3,8 +3,8 @@ title: Tworzenie kopii zapasowych i odzyskiwanie bazy danych Oracle Database 12c
 description: Dowiedz się, jak zrobić zapas kopii zapasowych i odzyskać bazę danych Oracle Database 12c w środowisku platformy Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: romitgirdhar
-manager: mimckitt
+author: BorisB2015
+manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: mimckitt
-ms.openlocfilehash: 9e2fcc9533c183a356b19c369777e1319ca7f9ae
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: borisb
+ms.openlocfilehash: c5f02117d3af7fb411c75d783df82f6008d8104e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263203"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687002"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Tworzenie kopii zapasowych i odzyskiwanie bazy danych Oracle Database 12c na maszynie wirtualnej systemu Azure Linux
 

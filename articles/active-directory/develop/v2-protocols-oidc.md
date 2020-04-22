@@ -12,19 +12,16 @@ ms.date: 04/12/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: fa42bf65ea5f4469f714dda4331d3cb66156d187
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ebec4cb6bbbac5b331eb2eb4145716e16e7320fa
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535806"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677687"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Platforma tożsamości firmy Microsoft i protokół OpenID Connect
 
 OpenID Connect to protokół uwierzytelniania zbudowany na OAuth 2.0, którego można użyć do bezpiecznego logowania użytkownika do aplikacji sieci web. Korzystając z implementacji openid connect platformy tożsamości firmy Microsoft, można dodać dostęp do logowania i interfejsu API do aplikacji opartych na sieci Web. W tym artykule pokazano, jak to zrobić niezależnie od języka i opisano sposób wysyłania i odbierania wiadomości HTTP bez korzystania z bibliotek open source firmy Microsoft.
-
-> [!NOTE]
-> Punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje wszystkich scenariuszy i funkcji usługi Azure Active Directory (Azure AD). Aby ustalić, czy należy używać punktu końcowego platformy tożsamości firmy Microsoft, przeczytaj o [ograniczeniach platformy tożsamości firmy Microsoft](active-directory-v2-limitations.md).
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) rozszerza protokół *autoryzacji* OAuth 2.0 do użycia jako protokół *uwierzytelniania,* dzięki czemu można zrobić logowanie jednokrotne przy użyciu OAuth. OpenID Connect wprowadza pojęcie *tokenu identyfikatora*, który jest tokenem zabezpieczającym, który umożliwia klientowi weryfikowanie tożsamości użytkownika. Token identyfikatora pobiera również podstawowe informacje o profilu użytkownika. Ponieważ OpenID Connect rozszerza OAuth 2.0, aplikacje mogą bezpiecznie uzyskać *tokeny dostępu,* które mogą być używane do uzyskiwania dostępu do zasobów zabezpieczonych przez [serwer autoryzacji.](active-directory-v2-protocols.md#the-basics) Punkt końcowy platformy tożsamości firmy Microsoft umożliwia również aplikacjom innych firm, które są zarejestrowane w usłudze Azure AD, wystawianie tokenów dostępu dla zabezpieczonych zasobów, takich jak internetowe interfejsy API. Aby uzyskać więcej informacji na temat konfigurowania aplikacji do wystawiania tokenów dostępu, zobacz [Jak zarejestrować aplikację w punkcie końcowym platformy tożsamości firmy Microsoft](quickstart-register-app.md). Zaleca się używanie OpenID Connect, jeśli budujesz [aplikację sieci web,](v2-app-types.md#web-apps) która jest hostowana na serwerze i uzyskiwać dostęp za pośrednictwem przeglądarki.
 

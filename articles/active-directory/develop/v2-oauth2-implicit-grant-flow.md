@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b946ab6157ba63213a4c140221d36f231aa62f0d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7fb2bbcdd5f84e3637a108d0753566d3a9de7fd0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535846"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677757"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Platforma tożsamości firmy Microsoft i niejawny przepływ dotacji
 
@@ -32,9 +32,6 @@ Dla tych aplikacji (Angular, Ember.js, React.js i tak dalej), platforma tożsamo
 W tym artykule opisano sposób programowania bezpośrednio względem protokołu w aplikacji.  Jeśli to możliwe, zaleca się użycie obsługiwanych bibliotek uwierzytelniania firmy Microsoft (MSAL) zamiast tego do [uzyskiwania tokenów i wywoływania zabezpieczonych interfejsów API sieci Web](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Zapoznaj się również z [przykładowymi aplikacjami korzystającymi z programu MSAL](sample-v2-code.md).
 
 Jeśli jednak wolisz nie używać biblioteki w aplikacji jednostronicowej i samodzielnie wysyłać wiadomości z protokołów, wykonaj ogólne kroki opisane poniżej.
-
-> [!NOTE]
-> Nie wszystkie scenariusze i funkcje usługi Azure Active Directory (Azure AD) są obsługiwane przez punkt końcowy platformy tożsamości firmy Microsoft. Aby ustalić, czy należy używać punktu końcowego platformy tożsamości firmy Microsoft, przeczytaj o [ograniczeniach platformy tożsamości firmy Microsoft](active-directory-v2-limitations.md).
 
 ## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Odpowiednie scenariusze dla dotacji dorozumianej OAuth2
 

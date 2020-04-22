@@ -1,14 +1,14 @@
 ---
 title: Szczegóły struktury przypisywania zasad
 description: W tym artykule opisano definicję przypisania zasad używaną przez usługę Azure Policy do powiązania definicji zasad i parametrów z zasobami do oceny.
-ms.date: 09/23/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265300"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683214"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struktura przypisań usługi Azure Policy
 
@@ -20,6 +20,7 @@ JSON służy do tworzenia przypisania zasad. Przypisanie zasad zawiera elementy 
 - description
 - metadane
 - tryb egzekwowania
+- wykluczone zakresy
 - definicja zasad
 - parameters
 
@@ -34,6 +35,7 @@ Na przykład następujący JSON pokazuje przypisanie zasad w trybie _DoNotEnforc
             "assignedBy": "Cloud Center of Excellence"
         },
         "enforcementMode": "DoNotEnforce",
+        "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
         "parameters": {
             "prefix": {
@@ -65,6 +67,10 @@ Ta właściwość ma następujące wartości:
 |Disabled (Wyłączony) |DoNotEnforce (DoNotEnforce) |ciąg |Tak |Nie | Efekt zasad nie jest wymuszany podczas tworzenia lub aktualizowania zasobów. |
 
 Jeśli **tryb enforcementMode** nie jest określony w definicji zasad lub inicjatywy, używana jest wartość _Domyślna._ [Zadania korygowania](../how-to/remediate-resources.md) można uruchomić dla [wdrażaniaIfNotExists](./effects.md#deployifnotexists) zasad, nawet wtedy, gdy **enforcementMode** jest ustawiona na _DoNotEnforce_.
+
+## <a name="excluded-scopes"></a>Wykluczone zakresy
+
+Zakres **scope** przydziału obejmuje wszystkie kontenery zasobów podrzędnych i zasoby podrzędne. Jeśli kontener zasobów podrzędnych lub zasób podrzędny nie powinien mieć zastosowanej definicji, każdy z nich może zostać wykluczony z oceny, ustawiając **notScopes**. Ta właściwość jest tablicą, aby włączyć wykluczając jeden lub więcej kontenerów zasobów lub zasobów z oceny. **notScopes** mogą być dodawane lub aktualizowane po utworzeniu początkowego przypisania.
 
 ## <a name="policy-definition-id"></a>Identyfikator definicji zasad
 

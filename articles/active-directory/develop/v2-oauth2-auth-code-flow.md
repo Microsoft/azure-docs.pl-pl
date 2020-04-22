@@ -12,21 +12,18 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ac630c4901c126ed883adbdc7efb03f36372e6ff
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: e5e462c52c8b06af6da5081f84a082138cd53a3f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535880"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677949"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Platforma tożsamości firmy Microsoft i przepływ kodu autoryzacji OAuth 2.0
 
 Udzielanie kodu autoryzacji OAuth 2.0 może służyć w aplikacjach zainstalowanych na urządzeniu w celu uzyskania dostępu do chronionych zasobów, takich jak internetowe interfejsy API. Korzystając z implementacji platformy tożsamości firmy Microsoft OAuth 2.0, można dodać dostęp logowania i interfejsu API do aplikacji mobilnych i klasycznych. Ten przewodnik jest niezależny od języka i opisuje sposób wysyłania i odbierania wiadomości HTTP bez korzystania z bibliotek [uwierzytelniania typu azure typu open source.](reference-v2-libraries.md)
 
 W tym artykule opisano sposób programowania bezpośrednio względem protokołu w aplikacji.  Jeśli to możliwe, zaleca się użycie obsługiwanych bibliotek uwierzytelniania firmy Microsoft (MSAL) zamiast tego do [uzyskiwania tokenów i wywoływania zabezpieczonych interfejsów API sieci Web](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Zapoznaj się również z [przykładowymi aplikacjami korzystającymi z programu MSAL](sample-v2-code.md).
-
-> [!NOTE]
-> Nie wszystkie scenariusze usługi Azure Active Directory & funkcje są obsługiwane przez punkt końcowy platformy tożsamości firmy Microsoft. Aby ustalić, czy należy używać punktu końcowego platformy tożsamości firmy Microsoft, przeczytaj o [ograniczeniach platformy tożsamości firmy Microsoft](active-directory-v2-limitations.md).
 
 Przepływ kodu autoryzacji OAuth 2.0 jest opisany w [sekcji 4.1 specyfikacji OAuth 2.0](https://tools.ietf.org/html/rfc6749). Służy do uwierzytelniania i autoryzacji w większości typów aplikacji, w tym [w aplikacjach internetowych](v2-app-types.md#web-apps) i [natywnie zainstalowanych aplikacjach.](v2-app-types.md#mobile-and-native-apps) Przepływ umożliwia aplikacjom bezpieczne pozyskiwanie access_tokens, które mogą służyć do uzyskiwania dostępu do zasobów zabezpieczonych przez punkt końcowy platformy tożsamości firmy Microsoft.
 

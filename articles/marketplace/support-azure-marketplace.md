@@ -1,20 +1,21 @@
 ---
-title: Wsparcie dla rynku komercyjnego | Azure
+title: Wsparcie dla rynku komercyjnego | Azure Marketplace
 description: Informacje dotyczące pomocy technicznej i łącza do portalu Azure Marketplace i usługi AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 3/19/2020
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: b2dba23bdf07233a9945086fba2274602cb2dcf1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2b73fee33692b65770caeea651c12e9780dba2c4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252238"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681382"
 ---
-# <a name="support-for-the-marketplace"></a>Obsługa rynku  
+# <a name="support-for-the-marketplace"></a>Obsługa rynku
+
 Oto lista opcji pomocy technicznej dla Marketplace.  
 
 Ponadto możesz uzyskać odpowiedzi na wiele pytań w [kanale Marketplace na Forum Społeczności C+AI.](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222)  
@@ -23,11 +24,11 @@ Ponadto możesz uzyskać odpowiedzi na wiele pytań w [kanale Marketplace na For
 
 Otwórz bilet z [obsługą wydawcy portalu](https://aka.ms/marketplacepublishersupport) Microsoft Marketplace w przypadku problemów z dołączaniem i wprowadzeniem.
 
-## <a name="partner-center-or-cloud-partner-portal"></a>Centrum partnerów lub portal partnerów w chmurze  
+## <a name="partner-center"></a>Centrum partnerskie   
 
 | Kanał pomocy technicznej | Opis | Dostępność |  
 |:--- |:--- |:--- |  
-| Aby uzyskać pomoc, odwiedź stronę Tworzenie incydentu znajdującą się pod [adresem Pomocy technicznej w portalu Marketplace](https://aka.ms/marketplacepublishersupport)</li> </ul> | Obsługa centrum partnerów lub portalu cloud partnerów. | Wsparcie jest zapewnione 24x5. |  
+| Aby uzyskać pomoc, odwiedź stronę Tworzenie incydentu znajdującą się pod [adresem Pomocy technicznej w portalu Marketplace](https://aka.ms/marketplacepublishersupport)</li> </ul> | Wsparcie dla Centrum partnerskiego. | Wsparcie jest zapewnione 24x5. |  
 
 ## <a name="technical"></a>Szczegóły techniczne  
 

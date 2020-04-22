@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bc635addc2a5cd7d3c698f6885bec0399e28743a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e94bdd6e79ff13d8ba736e140538bae74091f727
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309668"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680090"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protokoły OAuth 2.0 i OpenID Connect na platformie tożsamości firmy Microsoft
 
 Punkt końcowy platformy tożsamości firmy Microsoft dla tożsamości jako usługi z protokołami standardowymi branżowymi, OpenID Connect i OAuth 2.0. Chociaż usługa jest zgodna ze standardami, mogą istnieć subtelne różnice między dowolnymi dwiema implementacjami tych protokołów. Informacje w tym miejscu będą przydatne, jeśli zdecydujesz się napisać kod, wysyłając i obsługując żądania HTTP lub korzystając z biblioteki open source innej firmy, zamiast korzystać z jednej z naszych [bibliotek open source.](reference-v2-libraries.md)
-
-> [!NOTE]
-> Nie wszystkie scenariusze i funkcje usługi Azure AD są obsługiwane przez punkt końcowy platformy tożsamości firmy Microsoft. Aby ustalić, czy należy używać punktu końcowego platformy tożsamości firmy Microsoft, przeczytaj o [ograniczeniach platformy tożsamości firmy Microsoft](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Podstawy
 
@@ -68,7 +65,7 @@ Gdzie `{tenant}` można przyjąć jedną z czterech różnych wartości:
 Aby dowiedzieć się, jak wchodzić w interakcje z tymi punktami końcowymi, wybierz określony typ aplikacji w sekcji [Protokoły](#protocols) i skorzystaj z łączy, aby uzyskać więcej informacji.
 
 > [!TIP]
-> Każda aplikacja zarejestrowana w usłudze Azure AD może używać punktu końcowego platformy tożsamości firmy Microsoft, nawet jeśli nie loguje się na kontach osobistych.  W ten sposób można migrować istniejące aplikacje do platformy tożsamości firmy Microsoft i [msal](reference-v2-libraries.md) bez ponownego tworzenia aplikacji.  
+> Każda aplikacja zarejestrowana w usłudze Azure AD może używać punktu końcowego platformy tożsamości firmy Microsoft, nawet jeśli nie loguje się na kontach osobistych.  W ten sposób można migrować istniejące aplikacje do platformy tożsamości firmy Microsoft i [msal](reference-v2-libraries.md) bez ponownego tworzenia aplikacji.
 
 ## <a name="tokens"></a>Tokeny
 

@@ -3,12 +3,12 @@ title: Urządzenie usługi Azure Migrate
 description: Zawiera omówienie urządzenia migracji platformy Azure używanego w ocenie i migracji serwera.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 130de0824a1671fb0b0e3e980f06f4c3abc689d2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1c21f06e674871aefde1ae952a459db16feeb717
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538226"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676337"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -125,7 +125,7 @@ download.microsoft.com/download | Zezwalaj na pobieranie z firmy Microsoft.
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Połącz się z adresami URL usługi Azure Migrate.
 *.hypervrecoverymanager.windowsazure.us | **Używany do migracji bez agenta VMware**<br/><br/> Połącz się z adresami URL usługi Azure Migrate.
 *.blob.core.usgovcloudapi.net  |  **Używany do migracji bez agenta VMware**<br/><br/>Przekaż dane do magazynu w celu migracji.
-*.applicationinsights.us | Używany przez agenta bramy na urządzeniu, aby uzyskać dostęp do punktu końcowego usługi Application Insights do monitorowania diagnostycznego.
+*.applicationinsights.us | Przekaż dzienniki aplikacji używane do monitorowania wewnętrznego.
 
 
 

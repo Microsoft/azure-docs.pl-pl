@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.author: rogarana
-ms.openlocfilehash: 8d1e1262c592f0120b191e18a5c16b97b887a6a2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 44debc299054568769bfbe6cfc089cc528594274
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536538"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677072"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Włączanie uwierzytelniania lokalnych usług domenowych Active Directory za pomocą smb dla udziałów plików platformy Azure
 
@@ -68,11 +68,7 @@ Przed włączeniem uwierzytelniania usług AD DS dla udziałów plików platform
 
 ## <a name="regional-availability"></a>Dostępność regionalna
 
-Uwierzytelnianie za pomocą usługi Azure Files za pomocą usług AD DS (wersja zapoznawcza) jest dostępne w [większości regionów publicznych.](https://azure.microsoft.com/global-infrastructure/regions/)
-
-Uwierzytelnianie usługi Azure Files za pomocą lokalnych usług AD DS nie jest dostępne w:
-- Zachodnie stany USA
-
+Uwierzytelnianie za pomocą usługi Azure Files za pomocą usług AD DS (wersja zapoznawcza) jest dostępne we [wszystkich regionach publicznych i regionach usługi Azure Gov.](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="workflow-overview"></a>Omówienie przepływu pracy
 
@@ -84,13 +80,13 @@ Następnie wykonaj poniższe czynności, aby skonfigurować usługi Azure Files 
 
 1. Włącz uwierzytelnianie usług AD DS w usłudze Azure Files na koncie magazynu. 
 
-1. Przypisz uprawnienia dostępu do udziału do tożsamości usługi Azure AD (użytkownika, grupy lub jednostki usługi), która jest zsynchronizowana z docelową tożsamością usługi AD. 
+2. Przypisz uprawnienia dostępu do udziału do tożsamości usługi Azure AD (użytkownika, grupy lub jednostki usługi), która jest zsynchronizowana z docelową tożsamością usługi AD. 
 
-1. Konfigurowanie list ACL za kątem protokołu SMB dla katalogów i plików. 
+3. Konfigurowanie list ACL za kątem protokołu SMB dla katalogów i plików. 
  
-1. Zainstaluj udział plików platformy Azure na maszynie wirtualnej przyłączony do usług AD DS. 
+4. Zainstaluj udział plików platformy Azure na maszynie wirtualnej przyłączony do usług AD DS. 
 
-1. Zaktualizuj hasło tożsamości konta magazynu w usługach AD DS.
+5. Zaktualizuj hasło tożsamości konta magazynu w usługach AD DS.
 
 Na poniższym diagramie przedstawiono kompleksowy przepływ pracy umożliwiający włączenie uwierzytelniania usługi Azure AD za pomocą smb dla udziałów plików platformy Azure. 
 

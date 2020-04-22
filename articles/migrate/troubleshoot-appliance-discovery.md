@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9fbf55fbe16d958bf10541894159dade26668bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336719"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677322"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem i odnajdywaniem usługi Azure Migrate
 
@@ -41,6 +41,15 @@ Może się tak zdarzyć, jeśli urządzenie znajduje się za serwerem proxy.
 - Upewnij się, że podasz poświadczenia autoryzacji, jeśli serwer proxy ich potrzebuje.
 - Jeśli używasz serwera proxy zapory opartej na adresie URL do kontrolowania łączności wychodzącej, dodaj [te adresy URL](migrate-appliance.md#url-access) do listy dozwolonych.
 - Jeśli używasz przechwytującego serwera proxy do łączenia się z Internetem, zaimportuj certyfikat serwera proxy na maszynę wirtualną urządzenia, wykonując [następujące kroki](https://docs.microsoft.com/azure/migrate/concepts-collector).
+
+## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Nie można zalogować się do platformy Azure za pomocą aplikacji sieci Web urządzenia
+
+Błąd "Przepraszamy, ale mamy problemy z zalogowaniem się" pojawia się, jeśli używasz niepoprawnego konta platformy Azure do logowania się na platformie Azure. Ten błąd występuje z kilku powodów:
+
+- Jeśli zalogujesz się do aplikacji sieci web urządzenia dla chmury publicznej, przy użyciu poświadczeń konta użytkownika dla portalu chmury rządowej.
+- Jeśli zalogujesz się do aplikacji sieci web urządzenia dla chmury rządowej przy użyciu poświadczeń konta użytkownika dla portalu chmury prywatnej.
+
+Upewnij się, że używasz poprawnych poświadczeń.
 
 ##  <a name="datetime-synchronization-error"></a>Błąd synchronizacji daty/godziny
 

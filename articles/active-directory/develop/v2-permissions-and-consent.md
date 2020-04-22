@@ -12,19 +12,16 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 55055f65e1b725e079b60e960837e05558ef08d6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 26bfbcb4762d889b2c56276e66e4bf8e0acb64b2
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886215"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677708"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 
 Aplikacje integrowane z platformą tożsamości firmy Microsoft są zgodne z modelem autoryzacji, który daje użytkownikom i administratorom kontrolę nad tym, jak można uzyskać dostęp do danych. Implementacja modelu autoryzacji została zaktualizowana w punkcie końcowym platformy tożsamości firmy Microsoft i zmienia sposób, w jaki aplikacja musi wchodzić w interakcje z platformą tożsamości firmy Microsoft. W tym artykule opisano podstawowe pojęcia tego modelu autoryzacji, w tym zakresy, uprawnienia i zgody.
-
-> [!NOTE]
-> Punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje wszystkich scenariuszy i funkcji. Aby ustalić, czy należy używać punktu końcowego platformy tożsamości firmy Microsoft, przeczytaj o [ograniczeniach platformy tożsamości firmy Microsoft](active-directory-v2-limitations.md).
 
 ## <a name="scopes-and-permissions"></a>Zakresy i uprawnienia
 
@@ -66,8 +63,8 @@ _Skuteczne uprawnienia_ to uprawnienia, które aplikacja będzie miała podczas 
 - W przypadku uprawnień delegowanych skuteczne uprawnienia aplikacji będą najmniej _uprzywilejowanym_ przecięciem uprawnień delegowanych, które aplikacja uzyskała (za zgodą) i uprawnieniami aktualnie zalogowanego użytkownika. Aplikacja nigdy nie może mieć większych uprawnień niż zalogowany użytkownik. Uprawnienia zalogowanego użytkownika mogą być określone w organizacji na podstawie zasad lub członkostwa w co najmniej jednej roli administratora. Aby dowiedzieć się, które role administratora mogą wyrazić zgodę na uprawnienia delegowane, zobacz [Uprawnienia roli administratora w usłudze Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
    Załóżmy na przykład, że aplikacja została przyznana _User.ReadWrite.All_ delegowane uprawnienia. Uprawnienie to przyznaje aplikacji nominalne uprawnienia do odczytu i aktualizowania profilu każdego użytkownika w organizacji. Jeśli zalogowany użytkownik jest administratorem globalnym, aplikacja będzie mogła zaktualizować profil każdego użytkownika w organizacji. Jeśli jednak zalogowany użytkownik nie pełni roli administratora, aplikacja będzie mogła zaktualizować tylko profil zalogowanego użytkownika. Użytkownik nie będzie mógł zaktualizować profili innych użytkowników w organizacji, ponieważ użytkownik mający uprawnienia do działania w imieniu innych osób nie ma odpowiednich uprawnień.
-  
-- W przypadku uprawnień aplikacji _skuteczne uprawnienia_ aplikacji będą pełnym poziomem uprawnień implikowanych przez uprawnienie. Na przykład aplikacja, która ma _user.ReadWrite.All_ uprawnienia aplikacji można zaktualizować profil każdego użytkownika w organizacji. 
+
+- W przypadku uprawnień aplikacji _skuteczne uprawnienia_ aplikacji będą pełnym poziomem uprawnień implikowanych przez uprawnienie. Na przykład aplikacja, która ma _user.ReadWrite.All_ uprawnienia aplikacji można zaktualizować profil każdego użytkownika w organizacji.
 
 ## <a name="openid-connect-scopes"></a>Zakresy OpenID Connect
 
@@ -92,7 +89,7 @@ Zakres `profile` może być używany `openid` z zakresu i innych. Daje aplikacji
 > [!NOTE]
 > To uprawnienie pojawia się obecnie na wszystkich ekranach zgody, nawet w przypadku przepływów, które nie zapewniają tokenu odświeżania [(przepływu niejawnego).](v2-oauth2-implicit-grant-flow.md)  Ma to na celu pokrycie scenariuszy, w których klient może rozpocząć w ramach przepływu niejawnego, a następnie przejść do przepływu kodu, gdzie oczekuje się tokenu odświeżania.
 
-Na platformie tożsamości firmy Microsoft (żądania do punktu końcowego w wersji `offline_access` 2.0) aplikacja musi jawnie zażądać zakresu, aby odbierać tokeny odświeżania. Oznacza to, że po zrealizowaniu kodu autoryzacji w [przepływie kodu autoryzacji OAuth 2.0](active-directory-v2-protocols.md)otrzymasz tylko token dostępu z punktu końcowego. `/token` Token dostępu jest prawidłowy przez krótki czas. Token dostępu zwykle wygasa w ciągu jednej godziny. W tym momencie aplikacja musi przekierować `/authorize` użytkownika z powrotem do punktu końcowego, aby uzyskać nowy kod autoryzacji. Podczas tego przekierowania, w zależności od typu aplikacji, użytkownik może być konieczne ponowne wprowadzenie poświadczeń lub ponownie wyrazić zgodę na uprawnienia. 
+Na platformie tożsamości firmy Microsoft (żądania do punktu końcowego w wersji `offline_access` 2.0) aplikacja musi jawnie zażądać zakresu, aby odbierać tokeny odświeżania. Oznacza to, że po zrealizowaniu kodu autoryzacji w [przepływie kodu autoryzacji OAuth 2.0](active-directory-v2-protocols.md)otrzymasz tylko token dostępu z punktu końcowego. `/token` Token dostępu jest prawidłowy przez krótki czas. Token dostępu zwykle wygasa w ciągu jednej godziny. W tym momencie aplikacja musi przekierować `/authorize` użytkownika z powrotem do punktu końcowego, aby uzyskać nowy kod autoryzacji. Podczas tego przekierowania, w zależności od typu aplikacji, użytkownik może być konieczne ponowne wprowadzenie poświadczeń lub ponownie wyrazić zgodę na uprawnienia.
 
 Aby uzyskać więcej informacji na temat sposobu ujmowania i używania tokenów odświeżania, zobacz [odwołanie do protokołu platformy tożsamości firmy Microsoft](active-directory-v2-protocols.md).
 
@@ -117,7 +114,7 @@ Parametr `scope` jest oddzieloną spacją listą uprawnień delegowanych, o któ
 Po wprowadzeniu przez użytkownika poświadczeń punkt końcowy platformy tożsamości firmy Microsoft sprawdza, czy nie ma pasującego rekordu *zgody użytkownika*. Jeśli użytkownik nie wyraził zgody na żadne z żądanych uprawnień w przeszłości, ani administrator nie wyraził zgody na te uprawnienia w imieniu całej organizacji, punkt końcowy platformy tożsamości firmy Microsoft prosi użytkownika o przyznanie żądanych uprawnień.
 
 > [!NOTE]
->W tej chwili `offline_access` uprawnienia ("Zachowaj dostęp do danych, `user.read` do których użytkownik udzielił mu dostępu") i ("Zaloguj się i przeczytaj swój profil") są automatycznie uwzględniane w początkowej zgodzie na aplikację.  Te uprawnienia są zazwyczaj wymagane dla prawidłowej `offline_access` funkcjonalności aplikacji — daje aplikacji dostęp do tokenów `user.read` odświeżania, `sub` krytyczne dla aplikacji natywnych i sieci web, a jednocześnie daje dostęp do oświadczenia, dzięki czemu klient lub aplikacja, aby poprawnie zidentyfikować użytkownika w czasie i dostęp do podstawowych informacji o użytkowniku.  
+>W tej chwili `offline_access` uprawnienia ("Zachowaj dostęp do danych, `user.read` do których użytkownik udzielił mu dostępu") i ("Zaloguj się i przeczytaj swój profil") są automatycznie uwzględniane w początkowej zgodzie na aplikację.  Te uprawnienia są zazwyczaj wymagane dla prawidłowej `offline_access` funkcjonalności aplikacji — daje aplikacji dostęp do tokenów `user.read` odświeżania, `sub` krytyczne dla aplikacji natywnych i sieci web, a jednocześnie daje dostęp do oświadczenia, dzięki czemu klient lub aplikacja, aby poprawnie zidentyfikować użytkownika w czasie i dostęp do podstawowych informacji o użytkowniku.
 
 ![Przykładowy zrzut ekranu przedstawiający zgodę konta służbowego](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -149,8 +146,8 @@ Jeśli aplikacja żąda uprawnień aplikacji, a administrator udziela tych upraw
 
 ## <a name="using-the-admin-consent-endpoint"></a>Korzystanie z punktu końcowego zgody administratora
 
-> [!NOTE] 
-> Należy pamiętać, że po udzieleniu zgody administratora przy użyciu punktu końcowego zgody administratora, użytkownik zakończył udzielanie zgody administratora, a użytkownicy nie muszą wykonywać żadnych dodatkowych czynności. Po udzieleniu zgody administratora użytkownicy mogą uzyskać token dostępu za pośrednictwem typowego przepływu eru, a wynikowy token dostępu będzie miał uprawnienia zgody. 
+> [!NOTE]
+> Należy pamiętać, że po udzieleniu zgody administratora przy użyciu punktu końcowego zgody administratora, użytkownik zakończył udzielanie zgody administratora, a użytkownicy nie muszą wykonywać żadnych dodatkowych czynności. Po udzieleniu zgody administratora użytkownicy mogą uzyskać token dostępu za pośrednictwem typowego przepływu eru, a wynikowy token dostępu będzie miał uprawnienia zgody.
 
 Gdy administrator firmy korzysta z aplikacji i jest kierowany do punktu końcowego autoryzacji, platforma tożsamości firmy Microsoft wykryje rolę użytkownika i zapyta go, czy chciałby wyrazić zgodę w imieniu całej dzierżawy na żądane uprawnienia. Istnieje jednak również punkt końcowy zgody dedykowanej administratora, którego można użyć, jeśli chcesz proaktywnie zażądać, aby administrator udzielał uprawnień w imieniu całej dzierżawy. Korzystanie z tego punktu końcowego jest również niezbędne do żądania uprawnień aplikacji (które nie mogą być wymagane przy użyciu punktu końcowego autoryzacji).
 
@@ -189,7 +186,7 @@ Gdy będziesz gotowy do żądania uprawnień od administratora organizacji, moż
   &state=12345
   &redirect_uri=http://localhost/myapp/permissions
   &scope=
-  https://graph.microsoft.com/calendars.read 
+  https://graph.microsoft.com/calendars.read
   https://graph.microsoft.com/mail.send
 ```
 
@@ -200,7 +197,7 @@ Gdy będziesz gotowy do żądania uprawnień od administratora organizacji, moż
 | `client_id` | Wymagany | **Identyfikator aplikacji (klienta),** który usługa Azure portal — środowisko [rejestracji aplikacji przypisane](https://go.microsoft.com/fwlink/?linkid=2083908) do aplikacji. |
 | `redirect_uri` | Wymagany |Identyfikator URI przekierowania, w którym ma zostać wysłana odpowiedź dla aplikacji do obsługi. Musi dokładnie odpowiadać jednemu z identyfikatorów URI przekierowania, które zostały zarejestrowane w portalu rejestracji aplikacji. |
 | `state` | Zalecane | Wartość zawarta w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Użyj stanu, aby zakodować informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takie jak strona lub widok, na których się znajdowały. |
-|`scope`        | Wymagany        | Definiuje zestaw uprawnień wymaganych przez aplikację. Może to być statyczne [`/.default`](#the-default-scope)(przy użyciu) lub zakresy dynamiczne.  Może to obejmować zakresy OIDC (`openid`, , `profile` `email`). Jeśli potrzebujesz uprawnień aplikacji, `/.default` należy użyć do żądania statycznie skonfigurowanej listy uprawnień.  | 
+|`scope`        | Wymagany        | Definiuje zestaw uprawnień wymaganych przez aplikację. Może to być statyczne [`/.default`](#the-default-scope)(przy użyciu) lub zakresy dynamiczne.  Może to obejmować zakresy OIDC (`openid`, , `profile` `email`). Jeśli potrzebujesz uprawnień aplikacji, `/.default` należy użyć do żądania statycznie skonfigurowanej listy uprawnień.  |
 
 
 W tym momencie usługa Azure AD wymaga administratora dzierżawy, aby zalogować się, aby zakończyć żądanie. Administrator jest proszony o zatwierdzenie wszystkich uprawnień wymaganych `scope` w parametrze.  Jeśli użyto wartości statycznej`/.default`( ) będzie działać jak punkt końcowy zgody administratora w wersji 1.0 i zażądać zgody dla wszystkich zakresów znalezionych w wymaganych uprawnieniach dla aplikacji.
@@ -253,7 +250,7 @@ Content-Type: application/json
 }
 ```
 
-Wynikowy token dostępu w żądaniach HTTP do zasobu jest używany. Niezawodnie wskazuje do zasobu, że aplikacja ma odpowiednie uprawnienia do wykonywania określonego zadania. 
+Wynikowy token dostępu w żądaniach HTTP do zasobu jest używany. Niezawodnie wskazuje do zasobu, że aplikacja ma odpowiednie uprawnienia do wykonywania określonego zadania.
 
 Aby uzyskać więcej informacji na temat protokołu OAuth 2.0 i sposobu uzyskiwania tokenów dostępu, zobacz [odwołanie do protokołu punktu końcowego platformy tożsamości firmy Microsoft](active-directory-v2-protocols.md).
 
@@ -261,7 +258,7 @@ Aby uzyskać więcej informacji na temat protokołu OAuth 2.0 i sposobu uzyskiwa
 
 Można użyć `/.default` zakresu, aby ułatwić migrację aplikacji z punktu końcowego w wersji 1.0 do punktu końcowego platformy tożsamości firmy Microsoft. Jest to wbudowany zakres dla każdej aplikacji, która odwołuje się do statycznej listy uprawnień skonfigurowanych w rejestracji aplikacji. Wartość `scope` `https://graph.microsoft.com/.default` jest funkcjonalnie taka sama jak punkty końcowe `resource=https://graph.microsoft.com` w wersji 1.0 — a mianowicie żąda tokenu z zakresami na programie Microsoft Graph, który aplikacja zarejestrowała w witrynie Azure portal.  Jest on konstruowany przy `/.default` użyciu identyfikatora URI + zasobu (np. jeśli identyfikator URI zasobu jest `https://contosoApp.com`, to zakres wymagany będzie `https://contosoApp.com/.default`).  Zobacz [sekcję na końcowe ukośnie](#trailing-slash-and-default) dla przypadków, w których należy dołączyć drugi ukośnik, aby poprawnie zażądać tokenu.
 
-/.default zakres może służyć w dowolnym przepływie OAuth 2.0, ale jest to konieczne w [przepływie w imieniu](v2-oauth2-on-behalf-of-flow.md) i [przepływie poświadczeń klienta,](v2-oauth2-client-creds-grant-flow.md)a także podczas korzystania z punktu końcowego zgody administratora w wersji 2, aby zażądać uprawnień aplikacji.  
+/.default zakres może służyć w dowolnym przepływie OAuth 2.0, ale jest to konieczne w [przepływie w imieniu](v2-oauth2-on-behalf-of-flow.md) i [przepływie poświadczeń klienta,](v2-oauth2-client-creds-grant-flow.md)a także podczas korzystania z punktu końcowego zgody administratora w wersji 2, aby zażądać uprawnień aplikacji.
 
 > [!NOTE]
 > Klienci nie mogą łączyć`/.default`statycznej ( ) i dynamicznej zgody w jednym żądaniu. W `scope=https://graph.microsoft.com/.default+mail.read` związku z tym spowoduje błąd ze względu na kombinację typów zakresu.
@@ -301,13 +298,13 @@ response_type=token            //code or a hybrid flow is also possible here
 &state=1234
 ```
 
-Spowoduje to wyświetlenie ekranu zgody dla wszystkich zarejestrowanych uprawnień (jeśli `/.default`ma to zastosowanie na podstawie powyższych opisów zgody, a następnie zwraca id_token, a nie token dostępu.  To zachowanie istnieje dla niektórych starszych klientów przechodzących z usługi ADAL do MSAL i **nie powinny** być używane przez nowych klientów docelowych punktu końcowego platformy tożsamości firmy Microsoft.  
+Spowoduje to wyświetlenie ekranu zgody dla wszystkich zarejestrowanych uprawnień (jeśli `/.default`ma to zastosowanie na podstawie powyższych opisów zgody, a następnie zwraca id_token, a nie token dostępu.  To zachowanie istnieje dla niektórych starszych klientów przechodzących z usługi ADAL do MSAL i **nie powinny** być używane przez nowych klientów docelowych punktu końcowego platformy tożsamości firmy Microsoft.
 
 ### <a name="trailing-slash-and-default"></a>Ukośnik spływu końcowego i /.default
 
-Niektóre identyfikatory URI zasobów mają`https://contoso.com/` ukośnik (w przeciwieństwie do), `https://contoso.com`co może powodować problemy z sprawdzaniem poprawności tokenu.  Może to wystąpić przede wszystkim podczas żądania tokenu dla usługi Azure Resource Management (`https://management.azure.com/`), który ma końcowe ukośnik na ich identyfikatorze URI zasobów i wymaga, aby być obecny, gdy token jest wymagany.  Tak więc, gdy żądasz tokenu `https://management.azure.com/` i za pomocą `/.default`, należy zażądać `https://management.azure.com//.default` - zanotuj podwójne ukośnik! 
+Niektóre identyfikatory URI zasobów mają`https://contoso.com/` ukośnik (w przeciwieństwie do), `https://contoso.com`co może powodować problemy z sprawdzaniem poprawności tokenu.  Może to wystąpić przede wszystkim podczas żądania tokenu dla usługi Azure Resource Management (`https://management.azure.com/`), który ma końcowe ukośnik na ich identyfikatorze URI zasobów i wymaga, aby być obecny, gdy token jest wymagany.  Tak więc, gdy żądasz tokenu `https://management.azure.com/` i za pomocą `/.default`, należy zażądać `https://management.azure.com//.default` - zanotuj podwójne ukośnik!
 
-Ogólnie rzecz biorąc — jeśli masz zatwierdzone, że token jest wystawiany, a token jest odrzucany przez interfejs API, który powinien go zaakceptować, należy rozważyć dodanie drugiego ukośnika i ponowną próbę. Dzieje się tak, ponieważ serwer logowania emituje token z `scope` odbiorcami `/.default` pasującymi identyfikatory URI w parametrze — z usuniętym z końca.  Jeśli spowoduje to usunięcie końcowego ukośnika, serwer logowania nadal przetwarza żądanie i sprawdza poprawność go względem identyfikatora URI zasobu, nawet jeśli nie są już zgodne — jest to niestandardowe i nie powinno być zależne od aplikacji.  
+Ogólnie rzecz biorąc — jeśli masz zatwierdzone, że token jest wystawiany, a token jest odrzucany przez interfejs API, który powinien go zaakceptować, należy rozważyć dodanie drugiego ukośnika i ponowną próbę. Dzieje się tak, ponieważ serwer logowania emituje token z `scope` odbiorcami `/.default` pasującymi identyfikatory URI w parametrze — z usuniętym z końca.  Jeśli spowoduje to usunięcie końcowego ukośnika, serwer logowania nadal przetwarza żądanie i sprawdza poprawność go względem identyfikatora URI zasobu, nawet jeśli nie są już zgodne — jest to niestandardowe i nie powinno być zależne od aplikacji.
 
 ## <a name="troubleshooting-permissions-and-consent"></a>Rozwiązywanie problemów z uprawnieniami i zgodą
 

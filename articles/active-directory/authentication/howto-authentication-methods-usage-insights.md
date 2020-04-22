@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1730939de399cacd13c62988259904ba84ee78ff
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654147"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680187"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Użycie metod uwierzytelniania & szczegółowych informacji (wersja zapoznawcza)
 
@@ -93,6 +93,8 @@ Korzystając z formantów u góry listy, można wyszukać użytkownika i filtrow
 Dane przedstawione w tych raportach będą opóźnione o maksymalnie 60 minut. W witrynie Azure Portal istnieje pole "Ostatnio odświeżone", aby określić, jak aktualne są twoje dane.
 
 Dane użycia i szczegółowe informacje nie zastępują raportów aktywności uwierzytelniania wieloskładnikowego platformy Azure ani informacji zawartych w raporcie logowania usługi Azure AD.
+
+Raport nie może być obecnie filtrowany, aby wykluczyć użytkowników zewnętrznych.
 
 ## <a name="next-steps"></a>Następne kroki
 

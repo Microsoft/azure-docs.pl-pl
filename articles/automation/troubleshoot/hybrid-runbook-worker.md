@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów — hybrydowe procesy ceł ceł usługi Azure Automation
+title: Rozwiązywanie problemów z hybrydowymi procesami owymi robotników systemu Azure Automation
 description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z hybrydowymi procesami owymi workers w usłudze Azure Automation.
 services: automation
 ms.service: automation
@@ -9,20 +9,23 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2587af0ada18b5c4271e7411783fe60211a3479
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 2b3bf6706e977bdb6915335dee59da3c250e7895
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637863"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679335"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Rozwiązywanie problemów z hybrydowymi pracownikami uruchomieniu
 
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z hybrydowymi pracownikami uruchomieniu. wiązaniem.
 
+>[!NOTE]
+>Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Aby uzyskać instrukcje instalacji modułu Az w hybrydowym usłudze Runbook Worker, zobacz [Instalowanie modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Dla konta automatyzacji można zaktualizować moduły do najnowszej wersji przy użyciu [jak zaktualizować moduły programu Azure PowerShell w usłudze Azure Automation.](../automation-update-azure-modules.md)
+
 ## <a name="general"></a>Ogólne
 
-Hybrydowy proces roboczy uruchomieniu zależy od agenta do komunikowania się z kontem automatyzacji, aby zarejestrować pracownika, odbierać zadania uruchomieniu i stan raportu. W systemie Windows ten agent jest agentem usługi Log Analytics dla systemu Windows, zwanym również agentem monitorowania firmy Microsoft (MMA). W przypadku systemu Linux jest to agent analizy dzienników dla systemu Linux.
+Hybrydowy proces roboczy uruchomieniu zależy od agenta do komunikowania się z kontem automatyzacji, aby zarejestrować pracownika, odbierać zadania uruchomieniu i stan raportu. W systemie Windows ten agent jest agentem usługi Log Analytics dla systemu Windows. W przypadku systemu Linux jest to agent analizy dzienników dla systemu Linux.
 
 ### <a name="scenario-runbook-execution-fails"></a><a name="runbook-execution-fails"></a>Scenariusz: Wykonanie uruchomieniu nie powiedzie się
 
@@ -41,10 +44,8 @@ Element runbook jest zawieszony wkrótce po próbie wykonania trzy razy. Istniej
 Oto możliwe przyczyny:
 
 * Programy runbook nie można uwierzytelnić przy użyciu zasobów lokalnych.
-
 * Hybrydowy proces roboczy znajduje się za serwerem proxy lub zaporą.
-
-* Komputer skonfigurowany do uruchamiania funkcji Hybrydowy proces roboczy elementu runbook nie spełnia minimalnych wymagań sprzętowych.
+* Komputer skonfigurowany do uruchamiania hybrydowego procesu roboczego uruchomieniu nie spełnia minimalnych wymagań sprzętowych.
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -103,20 +104,20 @@ Uruchom komputer roboczy, a następnie ponownie zarejestrować go za pomocą us�
 System runbook uruchomiony w hybrydowym ustępuje procesowi roboczemu systemu runbook z następującym komunikatem o błędzie.
 
 ```error
-Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
 At line:3 char:1
-+ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+    + CategoryInfo          : CloseError: (:) [Connect-AzAccount], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
 ```
 #### <a name="cause"></a>Przyczyna
 
-Ten błąd występuje podczas próby użycia [konta Uruchom jako](../manage-runas-account.md) w bieśpieci, która działa w hybrydowym ustępuje proces pracy systemu runbook, w którym nie ma certyfikatu uruchom jako konto. Hybrydowe środowiska Runbook Workers domyślnie nie mają zasobu certyfikatu lokalnie, co jest wymagane przez konto Uruchom jako do prawidłowego działania.
+Ten błąd występuje podczas próby użycia [konta Uruchom jako](../manage-runas-account.md) w bieśpieci runbook, który działa w hybrydowym przebiegu roboczego życinicy, gdzie nie ma certyfikatu uruchom jako konto. Hybrydowe środowiska Runbook Workers domyślnie nie mają zasobu certyfikatu lokalnie. Konto Uruchom jako wymaga prawidłowego działania tego zasobu.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Jeśli proces roboczy hybrydowego niu gozytu jest maszyną wirtualną platformy Azure, można użyć [tożsamości zarządzanych dla zasobów platformy Azure.](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) W tym scenariuszu upraszcza uwierzytelnianie, umożliwiając uwierzytelnianie zasobów platformy Azure przy użyciu tożsamości zarządzanej maszyny Wirtualnej platformy Azure zamiast konta Uruchom jako. Gdy hybrydowy proces roboczy niu gosna jest komputerem lokalnym, należy zainstalować certyfikat uruchom jako konto na komputerze. Aby dowiedzieć się, jak zainstalować certyfikat, zobacz kroki uruchamiania programu Runbook Export-RunAsCertificateToHybridWorker w [uruchomionych systemach runbook w hybrydowym uliczce uruchomieniu. .](../automation-hrw-run-runbooks.md)
+Jeśli proces roboczy hybrydowego niu gozytu jest maszyną wirtualną platformy Azure, można użyć [tożsamości zarządzanych dla zasobów platformy Azure.](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) W tym scenariuszu upraszcza uwierzytelnianie, umożliwiając uwierzytelnianie zasobów platformy Azure przy użyciu tożsamości zarządzanej maszyny Wirtualnej platformy Azure zamiast konta Uruchom jako. Gdy hybrydowy proces roboczy niu gosna jest komputerem lokalnym, należy zainstalować certyfikat uruchom jako konto na komputerze. Aby dowiedzieć się, jak zainstalować certyfikat, zobacz kroki uruchamiania programu Runbook **Export-RunAsCertificateToHybridWorker** w [uruchomionych systemach runbook w hybrydowym uliczce uruchomieniu. .](../automation-hrw-run-runbooks.md)
 
 ### <a name="scenario-error-403-during-registration-of-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>Scenariusz: Błąd 403 podczas rejestracji hybrydowego pracownika uruchomieniu
 
@@ -193,15 +194,15 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 Hybrydowy proces roboczy systemu Windows do żyjącego uruchomieniu zależy [na agencie usługi Log Analytics dla systemu Windows](../../azure-monitor/platform/log-analytics-agent.md) do komunikowania się z kontem automatyzacji w celu zarejestrowania pracownika, odbierania zadań uruchomieniu i stanu raportu. Jeśli rejestracja pracownika nie powiedzie się, ta sekcja zawiera kilka możliwych przyczyn.
 
-### <a name="scenario-the-microsoft-monitoring-agent-isnt-running"></a><a name="mma-not-running"></a>Scenariusz: Agent monitorowania firmy Microsoft nie jest uruchomiony
+### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>Scenariusz: Agent usługi Log Analytics dla systemu Windows nie jest uruchomiony
 
 #### <a name="issue"></a>Problem
 
-Usługa `healthservice` nie jest uruchomiona na komputerze hybrydowego procesu roboczego egoistry.
+Nie `healthservice` działa na komputerze hybrydowego procesu roboczego egoistry.
 
 #### <a name="cause"></a>Przyczyna
 
-Jeśli usługa Microsoft Monitoring Agent nie jest uruchomiona, hybrydowy proces roboczy uruchomieniu nie może komunikować się z usługą Azure Automation.
+Jeśli usługa Log Analytics dla systemu Windows nie jest uruchomiona, hybrydowy proces roboczy niubratów nie może komunikować się z usługą Azure Automation.
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -272,7 +273,7 @@ Ten problem może być spowodowany przez uszkodzoną pamięć podręczną w hybr
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, zaloguj się do hybrydowego procesu roboczego elementów runbook i uruchom następujący skrypt. Ten skrypt zatrzymuje agenta monitorowania firmy Microsoft, usuwa jego pamięć podręczną i ponownie uruchamia usługę. Ta akcja wymusza hybrydowy proces roboczy niubratów do ponownego pobrania jego konfiguracji z usługi Azure Automation.
+Aby rozwiązać ten problem, zaloguj się do hybrydowego procesu roboczego elementów runbook i uruchom następujący skrypt. Ten skrypt zatrzymuje agenta usługi Log Analytics dla systemu Windows, usuwa jego pamięć podręczną i ponownie uruchamia usługę. Ta akcja wymusza hybrydowy proces roboczy niubratów do ponownego pobrania jego konfiguracji z usługi Azure Automation.
 
 ```powershell
 Stop-Service -Name HealthService
@@ -304,8 +305,8 @@ Aby rozwiązać ten problem, usuń następujący `HealthService`klucz rejestru, 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz problemu lub nie możesz rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli nie widzisz powyższego problemu lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-* Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta, łącząc społeczność platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
-* Jeśli potrzebujesz więcej pomocy, możesz zgłosić zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc **techniczną**.
+* Połącz [@AzureSupport](https://twitter.com/azuresupport)się z oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta, łącząc społeczność platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Złóż zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc **techniczną**.

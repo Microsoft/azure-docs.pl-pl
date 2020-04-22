@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: 6f33f49be74419a8f0cd31d973d64798f5d76a2c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214025"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683019"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Monitorowanie wydajności usługi Azure SQL Database przy użyciu dynamicznych widoków zarządzania
 
@@ -604,7 +604,7 @@ W następnym przykładzie przedstawiono różne sposoby użycia widoku katalogu 
 
 3. Dzięki tym informacjom o średnich i maksymalnych wartościach każdego zasobu można ocenić, jak dobrze obciążenie mieści się w wybranym rozmiarze obliczeń. Zazwyczaj średnie wartości z **pliku sys.resource_stats** zapewniają dobrą linię bazową do użycia względem rozmiaru docelowego. Powinien to być twój podstawowy kij pomiarowy. Na przykład może być przy użyciu standardowej warstwy usług o rozmiarze obliczeniowym S2. Średnie wartości procentowe użycia procesora CPU i we/wy odczytuje i zapisuje są poniżej 40 procent, średnia liczba pracowników jest poniżej 50, a średnia liczba sesji jest poniżej 200. Obciążenie może pasować do rozmiaru obliczeniowego S1. Łatwo sprawdzić, czy baza danych mieści się w limitach procesu roboczego i sesji. Aby sprawdzić, czy baza danych mieści się w mniejszym rozmiarze obliczeń w odniesieniu do procesora CPU, odczytuje i zapisuje, podziel numer JEDNOSTKI DTU o niższym rozmiarze obliczeń przez numer JEDNOSTKI DTU bieżącego rozmiaru obliczeń, a następnie pomnóż wynik przez 100:
 
-    ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
+    `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
     Wynik jest względną różnicą wydajności między dwoma rozmiarami obliczeń w procentach. Jeśli użycie zasobów nie przekracza tej kwoty, obciążenie może pasować do niższego rozmiaru obliczeń. Należy jednak przyjrzeć się wszystkim zakresom wartości użycia zasobów i określić, według wartości procentowej, jak często obciążenie bazy danych będzie pasować do niższego rozmiaru obliczeń. Następująca kwerenda wyprowadza wartość procentową dopasowania na wymiar zasobu na podstawie progu 40 procent obliczonego w tym przykładzie:
 

@@ -1,38 +1,38 @@
 ---
-title: Tworzenie lub modyfikowanie bezpośredniej komunikacji równorzędnej przy użyciu portalu
+title: Tworzenie lub modyfikowanie komunikacji równorzędnej bezpośredniej przy użyciu witryny Azure portal
 titleSuffix: Azure
-description: Tworzenie lub modyfikowanie bezpośredniej komunikacji równorzędnej przy użyciu portalu
+description: Tworzenie lub modyfikowanie komunikacji równorzędnej bezpośredniej przy użyciu witryny Azure portal
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 67a4944082d3ebc14fd564eedee0310afe6e3ff5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcd6aaf584691005dd071a7aba5958070f598978
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75775331"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681049"
 ---
-# <a name="create-or-modify-a-direct-peering-using-the-portal"></a>Tworzenie lub modyfikowanie bezpośredniej komunikacji równorzędnej przy użyciu portalu
+# <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Tworzenie lub modyfikowanie komunikacji równorzędnej bezpośredniej przy użyciu witryny Azure portal
 
-W tym artykule opisano sposób tworzenia komunikacji równorzędnej microsoft direct przy użyciu portalu. W tym artykule pokazano również, jak sprawdzić stan zasobu, zaktualizować go lub usunąć i anulować jego aprowizję.
+W tym artykule opisano sposób tworzenia komunikacji równorzędnej microsoft direct przy użyciu witryny Azure portal. W tym artykule pokazano również, jak sprawdzić stan zasobu, zaktualizować go lub usunąć i anulować jego aprowizję.
 
-Jeśli wolisz, możesz ukończyć ten przewodnik za pomocą programu [PowerShell](howto-direct-powershell.md).
+Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu programu Azure [PowerShell](howto-direct-powershell.md).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-* Przed rozpoczęciem konfiguracji zapoznaj [się z wymaganiami wstępnymi](prerequisites.md) i [bezpośrednią komunikacją równorzędnej.](walkthrough-direct-all.md)
-* W przypadku, gdy masz już bezpośrednią komunikację równorzędną z firmą Microsoft, która nie jest konwertowana na zasoby platformy Azure, zapoznaj się [z poleceniem Konwertuj starsze bezpośrednie komunikacji równorzędnej do zasobu Azure przy użyciu portalu](howto-legacy-direct-portal.md)
+* Przejrzyj [wymagania wstępne](prerequisites.md) i bezpośredni przewodnik [komunikacji równorzędnej](walkthrough-direct-all.md) przed rozpoczęciem konfiguracji.
+* Jeśli masz już bezpośrednie połączenia komunikacji równorzędnej z firmą Microsoft, które nie są konwertowane na zasoby platformy Azure, zobacz [Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu portalu](howto-legacy-direct-portal.md).
 
 ## <a name="create-and-provision-a-direct-peering"></a>Tworzenie i inicjowanie obsługi administracyjnej komunikacji równorzędnej
 
-### <a name="sign-in-to-portal-and-select-your-subscription"></a>Zaloguj się do portalu i wybierz subskrypcję
+### <a name="sign-in-to-the-portal-and-select-your-subscription"></a>Zaloguj się do portalu i wybierz subskrypcję
 [!INCLUDE [Account](./includes/account-portal.md)]
 
 ### <a name="create-a-direct-peering"></a><a name=create></a>Tworzenie komunikacji równorzędnej bezpośredniej
 
-Nowe żądanie komunikacji równorzędnej można utworzyć przy użyciu **zasobu komunikacji równorzędnej.**
+Nowe żądanie komunikacji równorzędnej można utworzyć przy użyciu zasobu **komunikacji równorzędnej.**
 
 #### <a name="launch-resource-and-configure-basic-settings"></a>Uruchamianie zasobu i konfigurowanie podstawowych ustawień
 [!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
@@ -51,9 +51,9 @@ Nowe żądanie komunikacji równorzędnej można utworzyć przy użyciu **zasobu
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange za pomocą portalu](howto-exchange-portal.md).
-* [Konwertuj starszą komunikację równorzędną programu Exchange na zasób platformy Azure przy użyciu portalu](howto-legacy-exchange-portal.md).
+* [Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu portalu](howto-exchange-portal.md)
+* [Konwertowanie starszej komunikacji równorzędnej programu Exchange na zasób platformy Azure przy użyciu portalu](howto-legacy-exchange-portal.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Aby uzyskać więcej informacji, odwiedź [najczęściej zadawane pytania dotyczące komunikacji internet](faqs.md)
+Aby uzyskać więcej informacji, zobacz [Często zadawane pytania dotyczące komunikacji równorzędnej w Internecie](faqs.md).

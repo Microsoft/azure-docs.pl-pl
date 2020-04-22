@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 05d892edf20cda228bc566b30b0b693ea7c4a184
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f52dfd92d430abffe5857d231898dd4b0e7745e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417646"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679920"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Zarządzanie pakietami języka Python 2 w usłudze Azure Automation
 
@@ -22,17 +22,17 @@ Na koncie automatyzacji wybierz **pakiety Języka Python 2** w obszarze **Zasoby
 
 ![Dodawanie pakietu Języka Python](media/python-packages/add-python-package.png)
 
-Na stronie **Dodaj pakiet Języka Python 2** wybierz pakiet lokalny do przekazania. Pakiet może być `.whl` plikiem lub `.tar.gz` plikiem. Gdy ta opcja jest zaznaczona, kliknij przycisk **OK,** aby przekazać pakiet.
+Na stronie Dodaj pakiet Języka Python 2 wybierz pakiet lokalny do przekazania. Pakiet może być plikiem **.whl** lub **.tar.gz.** Po wybraniu pakietu kliknij przycisk **OK,** aby go przekazać.
 
 ![Dodawanie pakietu Języka Python](media/python-packages/upload-package.png)
 
-Po zaimportowaniu pakietu jest on wyświetlany na stronie **pakietów języka Python 2** na koncie automatyzacji. Jeśli chcesz usunąć pakiet, wybierz pakiet i wybierz **pozycję Usuń** na stronie pakietu.
+Po zaimportowaniu pakietu jest on wyświetlany na stronie pakietów języka Python 2 na koncie automatyzacji. Jeśli chcesz usunąć pakiet, zaznacz pakiet i kliknij przycisk **Usuń**.
 
 ![Lista pakietów](media/python-packages/package-list.png)
 
 ## <a name="import-packages-with-dependencies"></a>Importowanie pakietów z zależnościami
 
-Automatyzacja platformy Azure nie rozwiązuje zależności dla pakietów języka Python podczas procesu importowania. Istnieją dwa sposoby importowania pakietu ze wszystkimi jego zależnościami. Tylko jeden z następujących kroków musi być używany do importowania pakietów do konta automatyzacji.
+Automatyzacja platformy Azure nie rozwiązuje zależności dla pakietów języka Python podczas procesu importowania. Istnieją dwa sposoby importowania pakietu ze wszystkimi jego zależnościami. Tylko jeden z następujących kroków musi służyć do importowania pakietów do konta automatyzacji.
 
 ### <a name="manually-download"></a>Pobieranie ręcznie
 
@@ -55,13 +55,13 @@ Zaimportuj pakiety python runbook [Importuj 2 z pypi do konta usługi Azure Auto
 
 ![Lista pakietów](media/python-packages/import-python-runbook.png)
 
-Zestaw runbook pozwala określić, `Azure` jaki pakiet do pobrania, na przykład (czwarty parametr) pobierze wszystkie moduły platformy Azure i wszystkie jego zależności, co stanowi około 105.
+Program runbook umożliwia określenie, jaki pakiet ma być pobierany. Na przykład użycie `Azure` parametru pobiera wszystkie moduły platformy Azure i wszystkie zależności (około 105).
 
-Po zakończeniu uruchomieniu można sprawdzić python **2 pakiety** strony w obszarze **Zasoby udostępnione** na koncie automatyzacji, aby sprawdzić, czy pakiet został zaimportowany poprawnie.
+Po zakończeniu uruchomieniu można sprawdzić **pakiety języka Python 2** w obszarze **Zasoby udostępnione** na koncie automatyzacji, aby sprawdzić, czy pakiet został poprawnie zaimportowany.
 
 ## <a name="use-a-package-in-a-runbook"></a>Używanie pakietu w yjsce
 
-Po zaimportowaniu pakietu można go teraz używać w bieście runbooka. W poniższym przykładzie użyto [pakietu narzędzi usługi Azure Automation](https://github.com/azureautomation/azure_automation_utility). Ten pakiet ułatwia korzystanie z języka Python z usługą Azure Automation. Aby użyć pakietu, postępuj zgodnie z instrukcjami w repozytorium GitHub `from azure_automation_utility import get_automation_runas_credential` i dodaj go do elementu runbook, używając na przykład do importowania funkcji pobierania konta RunAs.
+Po zaimportowaniu pakietu można go używać w bieśmięcie. W poniższym przykładzie użyto [pakietu narzędzi usługi Azure Automation](https://github.com/azureautomation/azure_automation_utility). Ten pakiet ułatwia korzystanie z języka Python z usługą Azure Automation. Aby użyć pakietu, postępuj zgodnie z instrukcjami w repozytorium GitHub i dodaj go do zestawu runbook. Na przykład można `from azure_automation_utility import get_automation_runas_credential` zaimportować funkcję pobierania konta Uruchom jako.
 
 ```python
 import azure.mgmt.resource
@@ -89,4 +89,4 @@ Aby opracować i przetestować swoje elementy runbook języka Python 2 w trybie 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć korzystanie z śmięty python 2, zobacz [Mój pierwszy podręcznik Pythona 2](automation-first-runbook-textual-python2.md)
+Aby rozpocząć korzystanie z śmięty Python 2, zobacz [Mój pierwszy podręcznik Pythona 2](automation-first-runbook-textual-python2.md).

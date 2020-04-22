@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 218fb96f6960e194f0fc4a4a3a3e603388b961c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1198d3cc7ccc0013e7c894488027d8e162470247
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760814"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677601"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proces nauki o danych zespołu w działaniu — przy użyciu klastra hadoop usługi Azure HDInsight w zestawie danych o pojemności 1 TB
 
@@ -434,7 +434,7 @@ W przypadku modułu **Importuj dane** wartości parametrów, które są podane w
 
 1. Wybierz "Zapytanie gałęzi" dla **źródła danych**
 2. W polu **kwerendy bazy danych hive** wystarczy prosty\_\_select *\_\_z <nazwa bazy danych.nazwa tabeli> .
-3. **Hcatalog server URI**: Jeśli klaster jest "abc", to jest to po prostu:https://abc.azurehdinsight.net
+3. **Hcatalog server URI**: Jeśli klaster jest "abc",\/to jest to po prostu: https: /abc.azurehdinsight.net
 4. **Nazwa konta użytkownika Hadoop**: Nazwa użytkownika wybrana w momencie uruchomienia klastra. (NIE nazwa użytkownika dostępu zdalnego!)
 5. **Hasło do konta użytkownika Hadoop**: Hasło do nazwy użytkownika wybranej w momencie uruchomienia klastra. (NIE hasło dostępu zdalnego!)
 6. **Lokalizacja danych wyjściowych:** wybierz "Azure"

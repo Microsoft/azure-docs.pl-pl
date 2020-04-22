@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 07537d3d67e41f7e1179a709ffa19f3d84aa4539
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d3c22e17c37bc46c16a9cc80eb3cf4b9ec93ecf
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77565829"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686922"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Odtwarzanie zawartości w istniejących odtwarzaczach
 Usługa Azure Media Services obsługuje wiele popularnych formatów przesyłania strumieniowego, takich jak płynne przesyłanie strumieniowe, przesyłanie strumieniowe na żywo HTTP i mpeg-dash. W tym temacie wskazano istniejące odtwarzacze, których można użyć do testowania strumieni.
@@ -45,10 +45,6 @@ Użyj [programu Azure Media Player](https://aka.ms/azuremediaplayer) do odtwarza
 * Progresywny MP4
 
 ### <a name="flash-player"></a>Flash Player
-
-#### <a name="aes-encrypted-with-token"></a>Szyfrowane AES za pomocą tokenu
-
-[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
 #### <a name="playready-with-token"></a>PlayReady z tokenem
 

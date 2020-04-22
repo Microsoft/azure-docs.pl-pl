@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811240"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686806"
 ---
 # <a name="develop-a-secure-web-app"></a>Tworzenie bezpiecznej aplikacji internetowej
 
@@ -104,7 +104,7 @@ Ta aplikacja używana:
 - [Narzędzie wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) do wdrożenia.
 - [Centrum platformy Docker](https://hub.docker.com/) jako rejestr kontenerów.
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 ### <a name="network"></a>Sieć
 
@@ -803,7 +803,7 @@ W witrynie Azure Portal skonfiguruj aplikację tak, aby używała wymaganych po�
 Po dodaniu konfiguracji usługi Azure AD i wpisów tajnych do usługi Key Vault użytkownicy mogą być uwierzytelnieni w aplikacji przy użyciu uwierzytelniania usługi Azure OAuth.
 W kodzie aplikacji jest to obsługiwane przez bibliotekę uwierzytelniania usługi Azure Active Directory (ADAL).
 
-Po wpisy tajne są w przechowalni kluczy, a aplikacja ma dostęp do wpisówhttps://GATEWAY_HASH.cloudapp.net)tajnych i bazy danych, usługa aplikacji można uzyskać za pośrednictwem adresu URL aplikacji bramy ( , które można uzyskać z jego bloku.
+Po wpisy tajne są w przechowalni kluczy, a aplikacja ma dostęp do wpisów tajnych\/i bazy danych, usługa aplikacji można uzyskać za pośrednictwem adresu URL aplikacji bramy (https: /GATEWAY_HASH.cloudapp.net), które można uzyskać z jego bloku.
 
 Jeśli podczas logowania się do usługi Azure AD pojawia się komunikat "Użytkownik nie jest zarejestrowany w katalogu, do którego próbujesz się zalogować", musisz dodać użytkownika. Aby dodać użytkownika, przejdź do **użytkowników** kartę Usługi Azure AD i dodać użytkownika ręcznie, wprowadzając jego szczegóły lub zaprosić użytkownika, wprowadzając ich adres e-mail jako użytkownik-gość do usługi Azure AD w bloku **Zaproszony gość.**
 
@@ -920,7 +920,7 @@ Aby utworzyć ten obszar roboczy:
 
       *Dodawanie diagnostyki bramy aplikacji*
 
-   4. Na stronie **Ustawienia diagnostyczne** wybierz utworzony obszar roboczy usługi Log Analytics, a następnie wybierz wszystkie metryki, które chcesz zebrać i wysłać do usługi Azure Sentinel. Wybierz **pozycję Zapisz**.
+   4. Na stronie **Ustawienia diagnostyczne** wybierz utworzony obszar roboczy usługi Log Analytics, a następnie wybierz wszystkie metryki, które chcesz zebrać i wysłać do usługi Azure Sentinel. Wybierz pozycję **Zapisz**.
 
         ![Ustawienia łącznika usługi Azure Sentinel](./media/secure-web-app/sentinel-connector-settings.png)
 
@@ -978,7 +978,7 @@ Narzędzie [ZAP firmy OWASP to](https://www.zaproxy.org/) skaner luk w zabezpiec
 
 ### <a name="find-and-fix-vulnerabilities-in-app-dependencies"></a>Znajdowanie i naprawianie luk w zależnościach od aplikacji
 
-Aby znaleźć i naprawić zależności aplikacji, można użyć [funkcji Sprawdzanie zależności programu OWASP](https://www.owasp.org/index.php/OWASP_Dependency_Check).
+Aby znaleźć i naprawić zależności aplikacji, można użyć [funkcji Sprawdzanie zależności programu OWASP](https://owasp.org/www-project-dependency-check/).
 
 Bezpieczeństwo jest podobną aplikacją, która sprawdza zależności. Można go znaleźć na [GitHub](https://github.com/pyupio/safety). Skanowanie bezpieczeństwa w poszukiwaniu luk znalezionych w dobrze znanych bazach danych luk w zabezpieczeniach.
 

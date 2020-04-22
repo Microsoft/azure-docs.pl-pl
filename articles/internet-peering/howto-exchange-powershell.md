@@ -8,24 +8,24 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 4fd7d345e5efbe6e4e86e5bb410e2df4dd917047
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23c905f148da614c7785b61b76abed191206cd90
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774408"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678687"
 ---
-# <a name="create-or-modify-an-exchange-peering-using-powershell"></a>Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu programu PowerShell
+# <a name="create-or-modify-an-exchange-peering-by-using-powershell"></a>Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu programu PowerShell
 
 W tym artykule opisano sposób tworzenia komunikacji równorzędnej programu Microsoft Exchange przy użyciu poleceń cmdlet programu PowerShell i modelu wdrażania Menedżera zasobów. W tym artykule pokazano również, jak sprawdzić stan zasobu, zaktualizować go lub usunąć i anulować jego aprowizowanie.
 
-Jeśli wolisz, możesz ukończyć ten przewodnik za pomocą [portalu](howto-exchange-portal.md).
+Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu [witryny](howto-exchange-portal.md)Azure portal .
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-* Przed rozpoczęciem konfiguracji zapoznaj [się z wymaganiami wstępnymi](prerequisites.md) i [instruktażem komunikacji równorzędnej programu Exchange.](walkthrough-exchange-all.md)
-* Jeśli masz już komunikację równorzędną programu Exchange z firmą Microsoft, która nie jest konwertowana na zasoby platformy Azure, zapoznaj się [z temat Convert a legacy Exchange peering to Azure resource using PowerShell](howto-legacy-exchange-powershell.md)
+* Przejrzyj [wymagania wstępne](prerequisites.md) i przewodnik [dla programu Exchange równorzędnej](walkthrough-exchange-all.md) przed rozpoczęciem konfiguracji.
+* Jeśli masz już programy komunikacji równorzędnej programu Exchange z firmą Microsoft, które nie są konwertowane na zasoby platformy Azure, zobacz [Konwertowanie starszej komunikacji równorzędnej programu Exchange na zasób platformy Azure przy użyciu programu PowerShell.](howto-legacy-exchange-powershell.md)
 
-### <a name="working-with-azure-powershell"></a>Praca z programem Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Praca z programem Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
 ## <a name="create-and-provision-an-exchange-peering"></a>Tworzenie i inicjowanie obsługi administracyjnej komunikacji równorzędnej programu Exchange
@@ -51,14 +51,14 @@ Jeśli wolisz, możesz ukończyć ten przewodnik za pomocą [portalu](howto-exch
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie lub modyfikowanie komunikacji równorzędnej za pomocą programu PowerShell](howto-direct-powershell.md)
-* [Konwertowanie starszego bezpośredniego równorzędnego zasobu na platformę Azure przy użyciu programu PowerShell](howto-legacy-direct-powershell.md)
+* [Tworzenie lub modyfikowanie komunikacji równorzędnej direct przy użyciu programu PowerShell](howto-direct-powershell.md)
+* [Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu programu PowerShell](howto-legacy-direct-powershell.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 Szczegółowe opisy wszystkich parametrów można uzyskać, uruchamiając następujące polecenie:
 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
 
-Aby uzyskać więcej informacji, odwiedź [najczęściej zadawane pytania dotyczące komunikacji internet](faqs.md)
+Aby uzyskać więcej informacji, zobacz [Często zadawane pytania dotyczące komunikacji równorzędnej w Internecie](faqs.md).

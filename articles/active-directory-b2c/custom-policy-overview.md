@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246047"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678159"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Zasady niestandardowe w usłudze Azure Active Directory B2C
 
@@ -43,7 +43,9 @@ Te trzy typy plików zasad są używane:
 - **Plik rozszerzeń** — przechowuje unikatowe zmiany konfiguracji dla dzierżawy.
 - **Plik jednostki uzależniona (RP)** — pojedynczy plik skoncentrowany na zadaniach, który jest wywoływany bezpośrednio przez aplikację lub usługę (znany również jako jednostka uzależniona). Każde unikatowe zadanie wymaga własnego RP i w zależności od wymagań dotyczących znakowania liczba może być "całkowita liczba aplikacji x całkowita liczba przypadków użycia."
 
-Przepływy użytkownika w usłudze Azure AD B2C są zgodne z wzorcem trzech plików przedstawionym powyżej, ale deweloper widzi tylko plik RP, podczas gdy witryna Azure portal wprowadza zmiany w tle pliku rozszerzeń.
+Przepływy użytkownika w usłudze Azure AD B2C są zgodne ze wzorcem pliku przedstawionym powyżej, ale deweloper widzi tylko plik RP, podczas gdy portal Azure wywrze zmiany w tle pliku rozszerzeń.
+
+Chociaż istnieją trzy typy plików zasad, nie są ograniczone tylko do trzech plików. Może być wiele plików każdego typu pliku. Na przykład jeśli nie chcesz wprowadzać zmian w pliku Rozszerzeń, możesz utworzyć plik Rozszerzenia2, aby jeszcze bardziej rozszerzyć plik Rozszerzeń.
 
 ## <a name="custom-policy-core-concepts"></a>Podstawowe pojęcia dotyczące zasad niestandardowych
 
@@ -55,7 +57,7 @@ Usługa zarządzania tożsamością i dostępem klienta (CIAM) na platformie Azu
 
 Usługa Azure AD B2C współdziała z dostawcami tożsamości, użytkownikami, innymi systemami i z lokalnym katalogiem użytkowników w sekwencji, aby osiągnąć zadanie tożsamości. Na przykład zaloguj się do użytkownika, zarejestruj nowego użytkownika lub zresetuj hasło. Struktura środowiska tożsamości i zasady (nazywane również podróżą użytkownika lub zasadami ramowymi zaufania) ustanawia zaufanie wielu stron i jawnie definiuje podmioty, akcje, protokoły i sekwencję kroków do wykonania.
 
-Struktura środowiska tożsamości to w pełni konfigurowalna, oparta na zasadach platforma Azure oparta na zasadach, która organizuje zaufanie między jednostkami w standardowych formatach protokołów, takich jak OpenID Connect, OAuth, SAML i kilka niestandardowych, na przykład REST Wymiana oświadczeń system-system oparty na interfejsie API. Struktura tworzy przyjazne dla użytkownika, białe etykiety środowisk, które obsługują HTML i CSS.
+Struktura środowiska tożsamości jest w pełni konfigurowalną, opartą na zasadach, opartą na chmurze platformą Azure, która organizuje zaufanie między jednostkami w standardowych formatach protokołu, takich jak OpenID Connect, OAuth, SAML i kilka niestandardowych, na przykład wymiana oświadczeń opartych na interfejsie REST interfejsu API. Struktura tworzy przyjazne dla użytkownika, białe etykiety środowisk, które obsługują HTML i CSS.
 
 Niestandardowe zasady są reprezentowane jako jeden lub kilka plików w formacie XML, które odwołują się do siebie nawzajem zgodnie z łańcuchem hierarchii. Elementy XML definiują schemat oświadczeń, przekształcenia oświadczeń, definicje zawartości, dostawców oświadczeń, profile techniczne i kroki aranżacji podróży użytkownika, wśród innych elementów. Zasady niestandardowe są dostępne jako jeden lub kilka plików XML, które są wykonywane przez platformę środowiska tożsamości, gdy są wywoływane przez jednostkę uzależnioną. Deweloperzy konfigurujący zasady niestandardowe muszą dokładnie definiować zaufane relacje, aby uwzględnić punkty końcowe metadanych, dokładne definicje wymiany oświadczeń i skonfigurować wpisy tajne, klucze i certyfikaty zgodnie z potrzebami każdego dostawcy tożsamości.
 

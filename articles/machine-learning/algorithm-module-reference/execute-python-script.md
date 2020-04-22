@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 0f86d1ad03062797764af6a0d49beacaa3458a8f
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365560"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684726"
 ---
 # <a name="execute-python-script-module"></a>Wykonywanie modułu skryptu Języka Python
 
@@ -164,7 +164,7 @@ W poniższym przykładzie pokazano, jak przekazać plik obrazu w module **Wykony
 # imports up here can be used to
 import pandas as pd
 
-# The entry point function can contain up to two input arguments:
+# The entry point function must have two input arguments:
 #   Param<dataframe1>: a pandas.DataFrame
 #   Param<dataframe2>: a pandas.DataFrame
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -217,10 +217,17 @@ Moduł **Execute Python Script** zawiera przykładowy kod języka Python, które
 
 5. W polu tekstowym **skryptu Python** wpisz lub wklej prawidłowy skrypt Języka Python.
 
+    > [!NOTE]
+    > Należy zachować szczególną ostrożność podczas pisania skryptu i upewnij się, że nie ma błędu składni, takich jak przy użyciu nieo zadeklarowanego obiektu lub niezaimportowanego modułu. Należy również zwrócić szczególną uwagę na listę wstępnie zainstalowanych modułów. Aby zaimportować moduły, których nie ma na liście, zainstaluj odpowiednie pakiety w skrypcie, takie jak
+    >  ``` Python
+    > import os
+    > os.system(f"pip install scikit-misc")
+    > ```
+    
     Pole tekstowe **skryptu języka Python** jest wstępnie wypełnione niektórymi instrukcjami w komentarzach i przykładowym kodem dostępu do danych i danych wyjściowych. Należy edytować lub zastąpić ten kod. Pamiętaj, aby postępować zgodnie z konwencjami Języka Python na temat wcięci i wielkości liter.
 
     + Skrypt musi zawierać funkcję `azureml_main` o nazwie jako punkt wejścia dla tego modułu.
-    + Funkcja punktu wejścia może zawierać maksymalnie `Param<dataframe1>` dwa argumenty wejściowe:`Param<dataframe2>`
+    + Funkcja punktu wejścia musi mieć `Param<dataframe1>` dwa `Param<dataframe2>`argumenty wejściowe: i , nawet jeśli te argumenty nie są używane w skrypcie.
     + Spakowane pliki podłączone do trzeciego portu wejściowego są rozpakowane i przechowywane w `.\Script Bundle` `sys.path`katalogu, który jest również dodawany do Pythona. 
 
     Dlatego jeśli plik zip `mymodule.py`zawiera , `import mymodule`zaimportuj go za pomocą .

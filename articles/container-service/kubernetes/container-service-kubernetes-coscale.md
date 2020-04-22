@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: f1d0ca1ffc2e7a3d645ac5acbaafdf45f85550be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f195a5c05c6c95dac898b2d471747952a3446d52
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76271096"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681713"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(PRZESTARZAŁE) Monitorowanie klastra kubernetes usługi kontenera platformy Azure za pomocą coscale
 
@@ -62,7 +62,7 @@ az acs kubernetes install-cli
 [Zestawy demonów](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) są używane przez kubernetes do uruchamiania pojedynczego wystąpienia kontenera na każdym hoście w klastrze.
 Są one idealne do uruchamiania agentów monitorowania, takich jak agent CoScale.
 
-Po zalogowaniu się do CoScale przejdź do [strony agenta,](https://app.coscale.com/) aby zainstalować agentów CoScale w klastrze przy użyciu zestawu DaemonSet. Interfejs użytkownika CoScale zawiera kroki konfiguracji z przewodnikiem, aby utworzyć agenta i rozpocząć monitorowanie pełnego klastra Kubernetes.
+Po zalogowaniu się do CoScale przejdź do [strony agenta,](https://developer.newrelic.com/) aby zainstalować agentów CoScale w klastrze przy użyciu zestawu DaemonSet. Interfejs użytkownika CoScale zawiera kroki konfiguracji z przewodnikiem, aby utworzyć agenta i rozpocząć monitorowanie pełnego klastra Kubernetes.
 
 ![Konfiguracja agenta CoScale](./media/container-service-kubernetes-coscale/installation.png)
 
@@ -70,7 +70,7 @@ Aby uruchomić agenta w klastrze, uruchom podane polecenie:
 
 ![Uruchamianie agenta CoScale](./media/container-service-kubernetes-coscale/agent_script.png)
 
-Gotowe. Gdy agenci są uruchomione, powinny być widoczne dane w konsoli w ciągu kilku minut. Odwiedź [stronę agenta,](https://app.coscale.com/) aby wyświetlić podsumowanie klastra, wykonać dodatkowe kroki konfiguracji i wyświetlić pulpity nawigacyjne, takie jak **omówienie klastra Kubernetes**.
+Gotowe. Gdy agenci są uruchomione, powinny być widoczne dane w konsoli w ciągu kilku minut. Odwiedź [stronę agenta,](https://developer.newrelic.com/) aby wyświetlić podsumowanie klastra, wykonać dodatkowe kroki konfiguracji i wyświetlić pulpity nawigacyjne, takie jak **omówienie klastra Kubernetes**.
 
 ![Omówienie klastra kubernetes](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 

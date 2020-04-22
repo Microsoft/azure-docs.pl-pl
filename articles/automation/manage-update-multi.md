@@ -5,31 +5,28 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9a3c88ea0c3e656adf0f8c514b418cfc07c9590
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5376562d9df35539a33f6746b387a1ff7083b8f1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335771"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676441"
 ---
-# <a name="manage-updates-for-multiple-machines"></a>Zarządzanie aktualizacjami dla wielu maszyn
+# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Zarządzanie aktualizacjami dla wielu maszyn wirtualnych platformy Azure
 
-Za pomocą rozwiązania Zarządzanie aktualizacjami można zarządzać aktualizacjami i poprawkami dla maszyn wirtualnych systemu Windows i Linux. Korzystając z konta usługi [Azure Automation](automation-offering-get-started.md), można wykonywać następujące czynności:
+Usługi Azure Automation Update Management umożliwiają zarządzanie aktualizacjami i poprawkami maszyn wirtualnych systemu Windows i Linux. Korzystając z konta usługi [Azure Automation](automation-offering-get-started.md), można wykonywać następujące czynności:
 
-- Wbudowane maszyny wirtualne
-- Ocena stanu dostępnych aktualizacji
-- Zaplanuj instalację wymaganych aktualizacji
-- Przejrzyj wyniki wdrożenia, aby sprawdzić, czy aktualizacje zostały pomyślnie zastosowane do wszystkich maszyn wirtualnych, dla których jest włączone zarządzanie aktualizacjami
+- Dołączanie maszyn wirtualnych.
+- Ocenianie stanu dostępnych aktualizacji.
+- Planowanie instalacji wymaganych aktualizacji.
+- Przejrzyj wyniki wdrożenia, aby sprawdzić, czy aktualizacje zostały pomyślnie zastosowane do wszystkich maszyn wirtualnych, dla których jest włączone zarządzanie aktualizacjami.
+
+Aby dowiedzieć się więcej o wymaganiach systemowych dotyczących zarządzania aktualizacjami, zobacz [Wymagania klienta usługi Zarządzania aktualizacjami](automation-update-management.md#clients).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby korzystać z zarządzania aktualizacjami, potrzebujesz:
-
-- Maszyna wirtualna lub komputer z zainstalowanym obsługiwanym systemem operacyjnym.
-
-- Dostęp do repozytorium aktualizacji dla maszyn wirtualnych z systemem Linux dołączanych do rozwiązania.
-
-Aby dowiedzieć się więcej o wymaganiach systemowych dotyczących zarządzania aktualizacjami, zobacz [Wymagania klienta usługi Zarządzania aktualizacjami](automation-update-management.md#clients).
+* Maszyna wirtualna lub komputer z zainstalowanym obsługiwanym systemem operacyjnym.
+* Dostęp do repozytorium aktualizacji dla maszyn wirtualnych z systemem Linux dołączanych do zarządzania aktualizacjami.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Włącz zarządzanie aktualizacjami dla maszyn wirtualnych platformy Azure
 
@@ -53,25 +50,23 @@ Agent analizy dzienników dla systemów Windows i Linux musi być zainstalowany 
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Wyświetlanie komputerów dołączonych do konta automatyzacji
 
-Po włączeniu zarządzania aktualizacjami dla komputerów można wyświetlić informacje o komputerze, wybierając pozycję **Komputery**. Można wyświetlić informacje o *nazwie komputera,* *stanie zgodności,* *środowisku, typie* *systemu operacyjnego,* *zainstalowanych aktualizacjach krytycznych i zabezpieczeń,* *innych zainstalowanych aktualizacjach*i *gotowości agenta aktualizacji* dla komputerów.
+Po włączeniu zarządzania aktualizacjami dla komputerów można wyświetlić informacje o komputerze, wybierając pozycję **Komputery**. Można wyświetlić informacje o nazwie komputera, stanie zgodności, środowisku, typie systemu operacyjnego, zainstalowanych aktualizacjach krytycznych i zabezpieczeń, innych zainstalowanych aktualizacjach i gotowości agenta aktualizacji dla komputerów.
 
   ![Karta z wyświetlonymi komputerami](./media/manage-update-multi/update-computers-tab.png)
 
-Komputery, które zostały ostatnio włączone dla zarządzania aktualizacjami, mogły nie zostać jeszcze ocenione. Stan stanu zgodności dla tych komputerów nie jest **oceniany**. Oto lista możliwych wartości stanu zgodności:
+Komputery, które zostały ostatnio włączone dla zarządzania aktualizacjami, mogły nie zostać jeszcze ocenione. Stan zgodności dla tych `Not assessed`komputerów jest . Oto lista możliwych wartości stanu zgodności:
 
-- **Zgodność:** Komputery, na których nie brakuje aktualizacji krytycznych lub zabezpieczeń.
+- `Compliant`: Komputery, na których nie brakuje aktualizacji krytycznych lub zabezpieczeń.
+- `Non-compliant`: Na komputerach brakuje co najmniej jednej aktualizacji krytycznej lub zabezpieczeń.
+- `Not assessed`: Dane oceny aktualizacji nie zostały odebrane z komputera w oczekiwanych ramach czasowych. W przypadku komputerów z systemem Linux oczekiwany przedział czasu to ostatnia godzina. W przypadku komputerów z systemem Windows oczekiwany przedział czasu to ostatnie 12 godzin.
 
-- **Niezgodne**: Komputery, na których brakuje co najmniej jednej aktualizacji krytycznej lub zabezpieczeń.
-
-- **Nie oceniono:** dane oceny aktualizacji nie zostały odebrane z komputera w oczekiwanych ramach czasowych. W przypadku komputerów z systemem Linux oczekiwany przedział czasu jest w ostatniej godzinie. W przypadku komputerów z systemem Windows oczekiwany przedział czasu jest w ciągu ostatnich 12 godzin.
-
-Aby wyświetlić stan agenta, wybierz łącze w kolumnie **Aktualizuj gotowość agenta.** Wybranie tej opcji powoduje otwarcie okienka **Proces hybrydowy** i wyświetlenie stanu procesu roboczego hybrydowego. Na poniższej ilustracji przedstawiono przykład agenta, który nie był połączony z zarządzaniem aktualizacjami przez dłuższy czas:
+Aby wyświetlić stan agenta, wybierz łącze w kolumnie **Aktualizuj gotowość agenta.** Wybranie tej opcji powoduje otwarcie okienka Proces hybrydowy i wyświetlenie stanu procesu roboczego hybrydowego. Na poniższej ilustracji przedstawiono przykład agenta, który nie był połączony z zarządzaniem aktualizacjami przez dłuższy czas:
 
 ![Karta z wyświetlonymi komputerami](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>Wyświetlanie oceny aktualizacji
 
-Po włączeniu rozwiązania Update Management zostanie otwarte okienko **Update Management**. Możesz wyświetlić listę brakujących aktualizacji na karcie **Brakujące aktualizacje**.
+Po włączeniu zarządzania aktualizacjami zostanie otwarte okienko Zarządzanie aktualizacjami. Możesz wyświetlić listę brakujących aktualizacji na karcie **Brakujące aktualizacje**.
 
 ## <a name="collect-data"></a>Zbieranie danych
 
@@ -129,10 +124,10 @@ W okienku **wdrażania Nowa aktualizacja** określ następujące informacje:
   - Pakiety funkcji
   - Dodatki Service Pack
   - Aktualizacje definicji
-  - Narzędzia
+  - narzędzia
   - Aktualizacje
 
-- **Aktualizacje do uwzględnienia/wykluczenia** — spowoduje to otwarcie strony **Uwzględnij/Wyklucz**. Aktualizacje, które mają zostać uwzględnione lub wykluczone, znajdują się na osobnych kartach. Aby uzyskać dodatkowe informacje dotyczące sposobu obsługi [dołączania,](automation-tutorial-update-management.md#schedule-an-update-deployment)zobacz Planowanie wdrożenia aktualizacji .
+- **Aktualizacje do uwzględnienia/wykluczenia** — spowoduje to otwarcie strony Uwzględnij/Wyklucz. Aktualizacje, które mają zostać uwzględnione lub wykluczone, znajdują się na osobnych kartach. Aby uzyskać dodatkowe informacje dotyczące sposobu obsługi [dołączania,](automation-tutorial-update-management.md#schedule-an-update-deployment)zobacz Planowanie wdrożenia aktualizacji .
 
 > [!NOTE]
 > Ważne jest, aby wiedzieć, że wykluczenia zastępują inkluzje. Na przykład, jeśli zdefiniujesz regułę wykluczania `*`, to żadne poprawki lub pakiety nie są zainstalowane, ponieważ wszystkie są wykluczone. Wykluczone poprawki nadal są wyświetlane jako brakujące w maszynie. Dla komputerów z systemem Linux, jeśli pakiet jest dołączony, ale ma pakiet zależny, który został wykluczony, pakiet nie jest zainstalowany.
@@ -176,11 +171,11 @@ W przypadku błędu co najmniej jednej aktualizacji w ramach wdrożenia jest wy�
 
 Aby wyświetlić pulpit nawigacyjny wdrożenia aktualizacji, wybierz ukończone wdrożenie.
 
-Okienko **Wyniki aktualizacji** zawiera całkowitą liczbę aktualizacji i wyniki wdrożenia maszyny wirtualnej. Tabela po prawej stronie zawiera szczegółowy podział każdej aktualizacji i wyników instalacji. Wyniki instalacji mogą mieć jedną z następujących wartości:
+Okienko Wyniki aktualizacji zawiera całkowitą liczbę aktualizacji i wyniki wdrożenia maszyny wirtualnej. Tabela po prawej stronie zawiera szczegółowy podział każdej aktualizacji i wyników instalacji. Wyniki instalacji mogą mieć jedną z następujących wartości:
 
-- **Nie podjęto próby:** Aktualizacja nie została zainstalowana, ponieważ na podstawie zdefiniowanego okna konserwacji nie było wystarczającego czasu.
-- **Powodzenie**: aktualizacja powiodła się.
-- **Niepowodzenie**: aktualizacja nie powiodła się.
+- `Not attempted`: Aktualizacja nie została zainstalowana, ponieważ na podstawie zdefiniowanego okna konserwacji nie było wystarczającego czasu.
+- `Succeeded`: Aktualizacja powiodła się.
+- `Failed`: Aktualizacja nie powiodła się.
 
 Aby wyświetlić wszystkie wpisy dziennika utworzone przez wdrożenie, wybierz pozycję **Wszystkie dzienniki**.
 

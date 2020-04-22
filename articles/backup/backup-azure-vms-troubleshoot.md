@@ -4,18 +4,18 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z błędami
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 15e4b4c8850798fd2386cd2874b6ab58a18d5406
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c27b1f7e8560c86252aaf2ed1fb79df2439fa
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297394"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677338"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów z błędami tworzenia kopii zapasowych na maszynach wirtualnych platformy Azure
 
 Możesz rozwiązywać problemy z błędami napotkanymi podczas korzystania z usługi Azure Backup, korzystając z informacji wymienionych poniżej:
 
-## <a name="backup"></a>Tworzenie kopii zapasowych
+## <a name="backup"></a>Backup
 
 W tej sekcji opisano niepowodzenie operacji tworzenia kopii zapasowej maszyny wirtualnej platformy Azure.
 
@@ -191,6 +191,7 @@ Dzięki temu migawki będą wykonywane za pośrednictwem hosta, a nie konta goś
 | **Kod błędu**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Komunikat o błędzie:** Operacja migawki nie powiodła się z powodu niepowodzenia w utworzeniu bezpiecznego kanału komunikacji sieciowej. | <ol><li> Otwórz Edytor rejestru, uruchamiając **plik regedit.exe** w trybie podwyższonego poziomu. <li> Zidentyfikuj wszystkie wersje programu .NET Framework dostępne w systemie. Są one obecne w hierarchii klucza rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Dla każdego programu .NET Framework obecnego w kluczu rejestru dodaj następujący klucz: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Kod błędu**: ExtensionVCRedistInstallationFailure <br/> **Komunikat o błędzie:** Operacja migawki nie powiodła się z powodu niepowodzenia instalacji programu Visual C++ Redystrybucyjne dla programu Visual Studio 2012. | Przejdź do pozycji C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion i zainstaluj vcredist2013_x64.<br/>Upewnij się, że wartość klucza rejestru, która umożliwia instalację usługi jest ustawiona na poprawną wartość. Oznacza to, że ustaw wartość **Start** w **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** na **3,** a nie **4**. <br><br>Jeśli nadal występują problemy z instalacją, uruchom ponownie usługę instalacyjną, uruchamiając **msiexec /unregister,** a następnie **msiexec /REGISTER** z wiersza polecenia z podwyższonym poziomem uprawnień.  |
 | **Kod błędu**: UserErrorRequestDisallowedByPolicy <BR> **Komunikat o błędzie:** nieprawidłowa zasada jest skonfigurowana na maszynie wirtualnej, co uniemożliwia działanie migawki. | Jeśli masz zasadę platformy Azure, która [reguluje tagi w danym środowisku,](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags)rozważ zmianę zasad z [efektu Odmów](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) na [efekt modyfikuj](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)lub utwórz grupę zasobów ręcznie zgodnie ze [schematem nazewnictwa wymaganym przez usługę Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
+
 ## <a name="jobs"></a>Stanowiska
 
 | Szczegóły błędu | Obejście |
@@ -229,12 +230,12 @@ Zazwyczaj agent maszyny wirtualnej jest już obecny w maszynach wirtualnych, kt�
 #### <a name="windows-vms"></a>Maszyny wirtualne z systemem Windows
 
 * Pobierz i zainstaluj [plik MSI agenta](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Aby zakończyć instalację, potrzebne są uprawnienia administratora.
-* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania [należy zaktualizować właściwość maszyny Wirtualnej,](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) aby wskazać, że agent jest zainstalowany. Ten krok nie jest wymagany dla maszyn wirtualnych usługi Azure Resource Manager.
+* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania [należy zaktualizować właściwość maszyny Wirtualnej,](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) aby wskazać, że agent jest zainstalowany. Ten krok nie jest wymagany dla maszyn wirtualnych usługi Azure Resource Manager.
 
 #### <a name="linux-vms"></a>Maszyny wirtualne z systemem Linux
 
 * Zainstaluj najnowszą wersję agenta z repozytorium dystrybucji. Aby uzyskać szczegółowe informacje na temat nazwy pakietu, zobacz [repozytorium agenta systemu Linux](https://github.com/Azure/WALinuxAgent).
-* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania [użyj tego bloga,](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) aby zaktualizować właściwość maszyny Wirtualnej i sprawdzić, czy agent jest zainstalowany. Ten krok nie jest wymagany dla maszyn wirtualnych Menedżera zasobów.
+* W przypadku maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania [należy zaktualizować właściwość maszyny Wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) i sprawdzić, czy agent jest zainstalowany. Ten krok nie jest wymagany dla maszyn wirtualnych Menedżera zasobów.
 
 ### <a name="update-the-vm-agent"></a>Aktualizowanie agenta maszyny Wirtualnej
 
@@ -273,11 +274,10 @@ Kopia zapasowa maszyny Wirtualnej opiera się na wydawaniu poleceń migawki do m
 * **Jeśli więcej niż cztery maszyny wirtualne współużytkuje tę samą usługę w chmurze, rozłóż maszyny wirtualne na wiele zasad tworzenia kopii zapasowych.** Rozkładanie czasu wykonywania kopii zapasowej, więc nie więcej niż cztery kopie zapasowe maszyn wirtualnych rozpoczynają się w tym samym czasie. Spróbuj oddzielić godziny rozpoczęcia w zasadach o co najmniej godzinę.
 * **Maszyna wirtualna działa z wysokim procesorem LUB pamięcią**. Jeśli maszyna wirtualna działa przy użyciu wysokiej pamięci lub procesora CPU, więcej niż 90 procent, zadanie migawki jest w kolejce i opóźnione. W końcu to czas. Jeśli ten problem się zdarzy, spróbuj wykonać kopię zapasową na żądanie.
 
-## <a name="networking"></a>Obsługa sieci
+## <a name="networking"></a>Networking
 
 Usługa DHCP musi być włączona wewnątrz gościa, aby kopia zapasowa maszyny wirtualnej usługi IaaS działała. Jeśli potrzebujesz statycznego prywatnego adresu IP, skonfiguruj go za pośrednictwem witryny Azure portal lub programu PowerShell. Upewnij się, że opcja DHCP wewnątrz maszyny Wirtualnej jest włączona.
 Uzyskaj więcej informacji na temat konfigurowania statycznego adresu IP za pośrednictwem programu PowerShell:
 
 * [Jak dodać statyczny wewnętrzny adres IP do istniejącej maszyny Wirtualnej](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
 * [Zmienianie metody alokacji prywatnego adresu IP przypisanego do interfejsu sieciowego](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
-

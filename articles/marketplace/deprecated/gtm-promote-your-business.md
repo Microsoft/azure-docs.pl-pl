@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: dsindona
-ms.openlocfilehash: 8e5165d000ee98212b3fd76091ffbd030b6b787f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fde249f22342ed2a0c50f5fdda3bde9dc2cde183
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281548"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685738"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promowanie swojej firmy we współpracy z firmą Microsoft
 
@@ -26,7 +26,7 @@ Partnerzy portalu Marketplace muszą być częścią sieci Microsoft Partner Net
 
 Aby promować ofertę lub aplikację oraz uzyskać dostęp do większej liczby korzyści i zasobów, skorzystaj z poniższej tabeli:
 
-| Korzyści | Resources |
+| Zalety | Resources |
 |:--- |:--- |
 | Wykorzystaj podstawowe zalety | W ramach sieci partnerów firmy Microsoft otrzymujesz zestaw podstawowych korzyści, które mogą pomóc zaoszczędzić czas i pieniądze. Korzyści mogą pomóc <ul> <li> wzmocnić swoje możliwości, </li> <li> lepiej służyć klientom, a także </li> <li> budować połączenia, aby w pełni wykorzystać swój potencjał biznesowy. </li> </ul> Aby uzyskać więcej informacji na temat podstawowych korzyści, odwiedź [stronę Podstawowe zalety i wymagania](https://partner.microsoft.com/membership/core-benefits#tab-content-1). |
 | Zdobądź kompetencję platformy w chmurze | Zdobycie kompetencji pomaga <ul> <li> Wyróżnij się między innymi partnerami firmy Microsoft. </li> <li> Zademonstruj wiedzę techniczną i sukces klienta na rynku. </li> </ul> Kompetencja jest warunkiem wstępnym dla wielu kluczowych programów partnerskich, takich jak Co-Sell. Aby uzyskać więcej informacji, zobacz [kompetencja platformy w chmurze.](https://partner.microsoft.com/reach-customers/selling-with-microsoft) |
@@ -36,6 +36,6 @@ Aby promować ofertę lub aplikację oraz uzyskać dostęp do większej liczby k
 
 Aby dowiedzieć się więcej o usługach GTM w marketplace, przejdź [do usług przejdź na rynek.](https://partner.microsoft.com/reach-customers/gtm)
 
-Zaloguj się do [portalu cloud partner,](https://cloudpartner.azure.com) aby utworzyć i skonfigurować ofertę.
+[Zaloguj się do Centrum partnerów,](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) aby utworzyć lub uzupełnić ofertę.
 
 ---

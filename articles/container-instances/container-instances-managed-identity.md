@@ -3,12 +3,12 @@ title: Włączanie tożsamości zarządzanej w grupie kontenerów
 description: Dowiedz się, jak włączyć tożsamość zarządzaną w wystąpieniach kontenera platformy Azure, które można uwierzytelnić za pomocą innych usług platformy Azure
 ms.topic: article
 ms.date: 01/29/2020
-ms.openlocfilehash: 003055d5021dd8ad7c3bab6d2900298ffd13b222
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19d2ab22eea15278c7753046f9222c7856fbf5ef
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76901935"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685641"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Jak używać tożsamości zarządzanych za pomocą wystąpień kontenerów platformy Azure
 
@@ -189,7 +189,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Teraz użyj tokenu dostępu do uwierzytelniania do magazynu kluczy i odczytu klucza tajnego. Pamiętaj, aby zastąpić nazwę magazynu kluczy*https://mykeyvault.vault.azure.net/..* w adresie URL ( . ):
+Teraz użyj tokenu dostępu do uwierzytelniania do magazynu kluczy i odczytu klucza tajnego. Pamiętaj, aby zastąpić nazwę magazynu kluczy w adresie URL (*https:\//mykeyvault.vault.azure.net/...*):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

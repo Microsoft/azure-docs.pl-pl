@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 910f284eedbf50be5b58b6c18f02e50adda35e9a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417777"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680006"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrowanie wdrożeń aktualizacji pakietu OMS na platformę Azure
 
-Portal pakietu zarządzania operacjami (OMS) jest [przestarzały.](../azure-monitor/platform/oms-portal-transition.md) Wszystkie funkcje, które były dostępne w portalu pakietu OMS dla zarządzania aktualizacjami jest dostępna w witrynie Azure portal. Ten artykuł zawiera informacje potrzebne do migracji do witryny Azure portal.
+Portal pakietu zarządzania operacjami (OMS) jest [przestarzały.](../azure-monitor/platform/oms-portal-transition.md) Wszystkie funkcje, które były dostępne w portalu pakietu OMS dla zarządzania aktualizacjami jest dostępna w witrynie Azure portal, za pośrednictwem dzienników usługi Azure Monitor. Ten artykuł zawiera informacje potrzebne do migracji do witryny Azure portal.
 
 ## <a name="key-information"></a>Najważniejsze informacje
 
@@ -23,7 +23,7 @@ Portal pakietu zarządzania operacjami (OMS) jest [przestarzały.](../azure-moni
 
 ## <a name="access-the-azure-portal"></a>Uzyskiwanie dostępu do witryny Azure Portal
 
-W obszarze roboczym usługi OMS kliknij pozycję **Otwórz na platformie Azure**. Spowoduje to przejście do obszaru roboczego usługi Log Analytics używanego przez system OMS.
+W obszarze roboczym usługi OMS kliknij pozycję **Otwórz na platformie Azure**. To zaznaczenie przechodzi do obszaru roboczego usługi Log Analytics, który został używany przez system OMS.
 
 ![Otwórz na platformie Azure — portal OMS](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
@@ -31,11 +31,13 @@ W witrynie Azure portal kliknij pozycję **Konto automatyzacji**
 
 ![Dzienniki usługi Azure Monitor](media/migrate-oms-update-deployments/log-analytics.png)
 
-Na koncie automatyzacji kliknij pozycję **Zarządzanie aktualizacjami,** aby otworzyć zarządzanie aktualizacjami.
+Na koncie automatyzacji kliknij pozycję **Zarządzanie aktualizacjami**.
 
 ![Zarządzanie aktualizacjami](media/migrate-oms-update-deployments/azure-automation.png)
 
-W przyszłości możesz przejść bezpośrednio do witryny Azure portal, w obszarze **Wszystkie usługi**wybierz pozycję **Konta automatyzacji** w obszarze **Narzędzia zarządzania**wybierz odpowiednie konto automatyzacji i kliknij pozycję **Zarządzanie aktualizacjami**.
+W witrynie Azure portal wybierz pozycję **Konta automatyzacji** w obszarze **Wszystkie usługi**. 
+
+W obszarze **Narzędzia zarządzania**wybierz odpowiednie konto automatyzacji i kliknij pozycję **Aktualizuj zarządzanie**.
 
 ## <a name="recreate-existing-deployments"></a>Odtworzenie istniejących wdrożeń
 
@@ -49,9 +51,9 @@ Aby utworzyć nowe wdrożenie aktualizacji, przejdź do witryny Azure Portal, wy
 
 ![Planowanie wdrażania aktualizacji](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-Zostanie otwarte okienko **Wdrażanie nowej aktualizacji.** Wprowadź wartości właściwości opisanych w poniższej tabeli, a następnie kliknij przycisk **Utwórz**:
+Zostanie otwarte okienko Wdrażanie nowej aktualizacji. Wprowadź wartości właściwości opisanych w poniższej tabeli, a następnie kliknij przycisk **Utwórz**:
 
-W przypadku aktualizacji maszyny wybierz zapisane wyszukiwanie używane przez istniejące wdrożenie pakietu OMS.
+W przypadku **aktualizacji maszyny**wybierz zapisane wyszukiwanie używane przez istniejące wdrożenie pakietu OMS.
 
 | Właściwość | Opis |
 | --- | --- |
@@ -72,4 +74,4 @@ Jak wspomniano wcześniej, po skonfigurowaniu nowych wdrożeń za pośrednictwem
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o zarządzania aktualizacjami na platformie Azure, zobacz [Zarządzanie aktualizacjami](automation-update-management.md)
+Aby dowiedzieć się więcej o zarządzania aktualizacjami na platformie Azure, zobacz [Zarządzanie aktualizacjami](automation-update-management.md).

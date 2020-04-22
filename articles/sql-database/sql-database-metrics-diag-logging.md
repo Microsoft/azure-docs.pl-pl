@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 288d4e4d0c5faa6bb2b51451fb36bbb6d666c9eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756416"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683177"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Konfigurowanie eksportu przesyłania strumieniowego danych telemetrycznych diagnostycznych usługi Azure SQL Database
 
@@ -126,7 +126,7 @@ Aby włączyć przesyłanie strumieniowe danych telemetrycznych diagnostycznych 
 7. Zaznacz pole wyboru dla danych telemetrycznych diagnostycznych puli elastycznej: **Podstawowe** metryki.
    ![Konfigurowanie diagnostyki dla basenów elastycznych](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-8. Wybierz **pozycję Zapisz**.
+8. Wybierz pozycję **Zapisz**.
 9. Ponadto należy skonfigurować przesyłanie strumieniowe danych telemetrycznych diagnostycznych dla każdej bazy danych w puli elastycznej, którą chcesz monitorować, wykonując kroki opisane w następnej sekcji.
 
 > [!IMPORTANT]
@@ -155,7 +155,7 @@ Aby włączyć przesyłanie strumieniowe danych telemetrycznych diagnostycznych 
 8. Aby uzyskać zaawansowane, jednominutowe środowisko monitorowania, zaznacz pole wyboru **metryki podstawowe.**
 
    ![Konfigurowanie diagnostyki dla pojedynczych, pulowych lub wystąpień baz danych](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
-9. Wybierz **pozycję Zapisz**.
+9. Wybierz pozycję **Zapisz**.
 10. Powtórz te kroki dla każdej bazy danych, którą chcesz monitorować.
 
 > [!TIP]
@@ -191,7 +191,7 @@ Aby włączyć przesyłanie strumieniowe danych telemetrycznych diagnostycznych 
 
    ![Konfigurowanie diagnostyki dla wystąpienia zarządzanego](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-8. Wybierz **pozycję Zapisz**.
+8. Wybierz pozycję **Zapisz**.
 9. Ponadto należy skonfigurować przesyłanie strumieniowe danych telemetrycznych diagnostycznych dla każdej bazy danych wystąpień w wystąpieniu zarządzanym, które chcesz monitorować, wykonując kroki opisane w następnej sekcji.
 
 > [!IMPORTANT]
@@ -219,7 +219,7 @@ Aby włączyć przesyłanie strumieniowe danych telemetrycznych diagnostycznych 
 5. Wybierz zasób docelowy dla danych diagnostycznych przesyłania strumieniowego: **Archiwum do konta magazynu,** **Strumień do centrum zdarzeń**lub Wyślij do usługi Log **Analytics**.
 6. Zaznacz pola wyboru danych telemetrycznych diagnostycznych bazy danych: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**i **Errors**.
    ![Konfigurowanie diagnostyki dla baz danych instancji](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
-7. Wybierz **pozycję Zapisz**.
+7. Wybierz pozycję **Zapisz**.
 8. Powtórz te kroki dla każdej bazy danych wystąpień, którą chcesz monitorować.
 
 > [!TIP]
@@ -363,7 +363,7 @@ Usługi SQL Analytics można używać jako hierarchicznego pulpitu nawigacyjnego
 
 ## <a name="stream-into-event-hubs"></a>Przesyłanie strumieniowe do usługi Event Hubs
 
-Można przesyłać strumieniowo metryki bazy danych SQL i dzienniki zasobów do centrów zdarzeń przy użyciu wbudowanej opcji **Usługi Stream do centrum zdarzeń** w witrynie Azure portal. Można również włączyć identyfikator reguły usługi Service Bus przy użyciu ustawień diagnostyki za pośrednictwem poleceń cmdlet programu PowerShell, interfejsu wiersza polecenia platformy Azure lub interfejsu API REST usługi Azure Monitor.
+Można przesyłać strumieniowo metryki bazy danych SQL i dzienniki zasobów do centrów zdarzeń przy użyciu wbudowanej opcji **Usługi Stream do centrum zdarzeń** w witrynie Azure portal. Można również włączyć identyfikator reguły usługi Service Bus przy użyciu ustawień diagnostyki za pośrednictwem poleceń cmdlet programu PowerShell, interfejsu wiersza polecenia platformy Azure lub interfejsu API REST usługi Azure Monitor. Upewnij się, że centrum zdarzeń znajduje się w tym samym regionie co baza danych i serwer.
 
 ### <a name="what-to-do-with-metrics-and-resource-logs-in-event-hubs"></a>Co zrobić z metrykami i dziennikami zasobów w Centrach zdarzeń
 
@@ -438,13 +438,13 @@ Szczegółowe informacje na temat metryk podstawowych według zasobów można zn
 
 #### <a name="basic-metrics-for-elastic-pools"></a>Podstawowe metryki dla basenów elastycznych
 
-|**Zasobów**|**Metryki**|
+|**Zasób**|**Metryki**|
 |---|---|
 |Elastyczna pula|Procent eDTU, używany eDTU, limit eDTU, procent procesora, procent odczytu danych fizycznych, procent zapisu dziennika, procent zapisu sesji, procent pracowników, procent pamięci masowej, procent pamięci masowej, limit pamięci masowej, procent pamięci XTP |
 
 #### <a name="basic-metrics-for-single-and-pooled-databases"></a>Podstawowe dane dla pojedynczych i puli baz danych
 
-|**Zasobów**|**Metryki**|
+|**Zasób**|**Metryki**|
 |---|---|
 |Pojedyncza i zpulowana baza danych|Procent jednostki DTU, używany protokół DTU, limit jednostki DTU, procent procesora CPU, procent odczytu danych fizycznych, procent zapisu dziennika, pomyślny/nieudany/zablokowany przez połączenia zapory, procent sesji, procent pracowników, procent pamięci masowej, procent pamięci XTP i zakleszczenia |
 

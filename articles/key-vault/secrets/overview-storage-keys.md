@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 0b855584ef6efef574e8264f3cead79000a51b13
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1125bafa43ce1752c58d1cce0bba66a6bbd32c32
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81432010"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685432"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Zarządzanie kluczami kont magazynu za pomocą usługi Key Vault i interfejsu wiersza polecenia platformy Azure
 
@@ -71,13 +71,23 @@ az login
 Użyj polecenia [tworzenia przypisania roli](/cli/azure/role/assignment?view=azure-cli-latest) interfejsu wiersza polecenia Azure CLI az, aby przyznać magazynowi Klucz dostępu do konta magazynu. Podaj polecenie następującymi wartościami parametrów:
 
 - `--role`: Przekazać rolę RBAC roli "Rola usługi operatora klucza magazynu". Ta rola ogranicza zakres dostępu do konta magazynu. W przypadku klasycznego konta magazynu przekaż "Rolę usługi operatora klucza konta magazynu klasycznego".
-- `--assignee-object-id`: Przekazać wartość "93c27d83-f79b-4cb2-8dd4-4aa716542e74", która jest identyfikatorem obiektu dla usługi Key Vault w chmurze publicznej platformy Azure. (Aby uzyskać identyfikator obiektu dla magazynu kluczy w chmurze platformy Azure dla instytucji rządowych, zobacz [Identyfikator aplikacji głównej usługi).](#service-principal-application-id)
+- `--assignee`: Przekaż wartośćhttps://vault.azure.net" ", który jest adresem URL dla usługi Key Vault w chmurze publicznej platformy Azure. (W przypadku chmury usługi Azure Goverment użyj '--asingee-object-id' zamiast tego, zobacz [Identyfikator aplikacji głównej usługi](#service-principal-application-id).)
 - `--scope`: Przekaż identyfikator zasobu konta magazynu, `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`który jest w formularzu . Aby znaleźć identyfikator subskrypcji, użyj polecenia [listy kont az](/cli/azure/account?view=azure-cli-latest#az-account-list) interfejsu wiersza polecenia platformy Azure; aby znaleźć nazwę konta magazynu i grupę zasobów konta magazynu, użyj polecenia [listy kont magazynu az](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) platformy Azure.
 
 ```azurecli-interactive
-az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+az role assignment create --role "Storage Account Key Operator Service Role" --assignee 'https://vault.azure.net' --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
+### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Nadaj uprawnienia konta użytkownika zarządzanym kontom magazynu
 
+Użyj polecenia cmdlet zasad zestawu [kluczy az](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) usługi Azure, aby zaktualizować zasady dostępu usługi Key Vault i udzielić uprawnień konta magazynu do konta użytkownika.
+
+```azurecli-interactive
+# Give your user principal access to all storage account permissions, on your Key Vault instance
+
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage-permissions get list delete set update regeneratekey getsas listsas deletesas setsas recover backup restore purge
+```
+
+Należy zauważyć, że uprawnienia dla kont magazynu nie są dostępne na stronie "Zasady dostępu" konta magazynu w witrynie Azure portal.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Tworzenie konta magazynu zarządzanego w przechowalni kluczy
 
  Utwórz zarządzane konto magazynu usługi Key Vault przy użyciu polecenia magazynu [az keyvault](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) usługi Azure. Ustaw okres regeneracji 90 dni. Po 90 dniach Magazyn `key1` kluczy regeneruje `key2` i `key1`zamienia aktywny klucz z do . `key1`jest następnie oznaczony jako aktywny klawisz. Podaj polecenie następującymi wartościami parametrów:

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 05698596f966f879da1affc58af0122d08d519ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7db3f6f50745526876ef2ca6e3253f1931420f0f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256239"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683245"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Szybki start: importowanie pliku BACPAC do bazy danych w bazie danych SQL usługi Azure
 
@@ -88,7 +88,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > Maszyny przetwarzające żądania importu/eksportu przesłane za pośrednictwem portalu lub programu Powershell muszą przechowywać plik bacpac, a także pliki tymczasowe generowane przez platformę aplikacji warstwy danych (DacFX). Wymagane miejsce na dysku różni się znacznie w zależności od wielkości i może trwać do 3 razy więcej niż rozmiar bazy danych. Komputery z żądaniem importu/eksportu mają tylko 450 GB miejsca na dysku lokalnym. W rezultacie niektóre żądania mogą zakończyć się niepowodzeniem z błędem "Za mało miejsca na dysku". W takim przypadku obejście jest uruchomienie sqlpackage.exe na komputerze z wystarczającą ilością miejsca na dysku lokalnym. Podczas importowania/eksportowania baz danych większych niż 150 GB należy użyć programu SqlPackage, aby uniknąć tego problemu.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > Moduł programu PowerShell Azure Resource Manager (RM) jest nadal obsługiwany przez usługę Azure SQL Database, ale wszystkie przyszłe prace rozwojowe są przeznaczone dla modułu Az.Sql. Moduł AzureRM będzie nadal otrzymywać poprawki błędów co najmniej do grudnia 2020.  Argumenty dla poleceń w module Az i w modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji na temat ich zgodności, zobacz [Przedstawianie nowego modułu Az programu Azure PowerShell.](/powershell/azure/new-azureps-module-az)
@@ -144,7 +144,8 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 ## <a name="limitations"></a>Ograniczenia
 
-Importowanie do bazy danych w puli elastycznej nie jest obsługiwane. Można zaimportować dane do pojedynczej bazy danych, a następnie przenieść bazę danych do puli elastycznej.
+- Importowanie do bazy danych w puli elastycznej nie jest obsługiwane. Można zaimportować dane do pojedynczej bazy danych, a następnie przenieść bazę danych do puli elastycznej.
+- Importuj usługę eksportu nie działa, gdy zezwalaj na dostęp do usług platformy Azure jest ustawiona na OFF. Jednak można obejść ten problem, ręcznie uruchamiając sqlpackage.exe z maszyny wirtualnej platformy Azure lub wykonywania eksportu bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
 
 ## <a name="import-using-wizards"></a>Importowanie przy użyciu kreatorów
 

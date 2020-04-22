@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57c3c2c7a0c923921c727ccea7839940457bc1ee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75418813"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682995"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Wyświetlanie zawartości pliku, który jest śledzony za pomocą śledzenia zmian
 
@@ -44,19 +44,19 @@ ms.locfileid: "75418813"
 
 W następujących krokach można przejść przez włączenie śledzenia zmian dla pliku:
 
-1. Na stronie **Edytowanie ustawień** **śledzenia zmian**wybierz kartę Pliki **systemu Windows** lub Pliki systemu **Linux,** a następnie kliknij przycisk **Dodaj**
+1. Na stronie Edytowanie ustawień **śledzenia zmian**wybierz kartę Pliki **systemu Windows** lub Pliki **systemu Linux,** a następnie kliknij przycisk **Dodaj**
 
-1. Wypełnij informacje dotyczące ścieżki pliku i wybierz pozycję **Wartość prawda** w obszarze Przekaż zawartość pliku dla **wszystkich ustawień**. To ustawienie umożliwia śledzenie zawartości pliku tylko dla tej ścieżki pliku.
+1. Wypełnij informacje dotyczące ścieżki pliku i wybierz pozycję Wartość prawda w obszarze **Przekaż zawartość pliku dla wszystkich ustawień**. To ustawienie umożliwia śledzenie zawartości pliku tylko dla tej ścieżki pliku.
 
    ![dodawanie pliku linuksa](./media/change-tracking-file-contents/add-linux-file.png)
 
 ## <a name="viewing-the-contents-of-a-tracked-file"></a>Wyświetlanie zawartości śledzonego pliku
 
-1. Po wykryciu zmiany dla pliku lub pliku w ścieżce, zostanie ona wyświetlona w portalu. Wybierz zmianę pliku z listy zmian. Zostanie wyświetlone okienko **Zmień szczegóły.**
+1. Po wykryciu zmiany dla pliku lub pliku w ścieżce, zostanie ona wyświetlona w portalu. Wybierz zmianę pliku z listy zmian. Zostanie wyświetlone okienko Zmień szczegóły.
 
    ![zmiany listy](./media/change-tracking-file-contents/change-list.png)
 
-1. Na stronie **Zmienianie szczegółów** zostanie wyświetlony standard przed i po informacji o pliku w lewym górnym rogu kliknij pozycję **Wyświetl zmiany zawartości pliku,** aby wyświetlić zawartość pliku.
+1. W okienku Zmienianie szczegółów są widoczne standardowe informacje o pliku przed i po. Wybierz **pozycję Wyświetl zmiany zawartości pliku,** aby wyświetlić zawartość pliku.
 
    ![zmienianie szczegółów](./media/change-tracking-file-contents/change-details.png)
 

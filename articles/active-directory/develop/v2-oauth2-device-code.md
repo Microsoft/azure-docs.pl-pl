@@ -13,21 +13,18 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9186f633b773a243a84692c30ddc2c2261fb69ba
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 2a39dbb3676df5ed916203bdcbbc51d5a0da32a4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309409"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677832"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Platforma tożsamości firmy Microsoft i przepływ autoryzacji urządzeń OAuth 2.0
 
-Platforma tożsamości firmy Microsoft obsługuje [udzielanie autoryzacji urządzeń,](https://tools.ietf.org/html/rfc8628)które umożliwia użytkownikom logowanie się do urządzeń o ograniczonym dostępie, takich jak telewizor Smart TV, urządzenie IoT lub drukarka.  Aby włączyć ten przepływ, urządzenie ma użytkownika odwiedzić stronę sieci Web w przeglądarce na innym urządzeniu, aby się zalogować.  Gdy użytkownik zaloguje się, urządzenie jest w stanie uzyskać tokeny dostępu i odświeżyć tokeny w razie potrzeby.  
+Platforma tożsamości firmy Microsoft obsługuje [udzielanie autoryzacji urządzeń,](https://tools.ietf.org/html/rfc8628)które umożliwia użytkownikom logowanie się do urządzeń o ograniczonym dostępie, takich jak telewizor Smart TV, urządzenie IoT lub drukarka.  Aby włączyć ten przepływ, urządzenie ma użytkownika odwiedzić stronę sieci Web w przeglądarce na innym urządzeniu, aby się zalogować.  Gdy użytkownik zaloguje się, urządzenie jest w stanie uzyskać tokeny dostępu i odświeżyć tokeny w razie potrzeby.
 
 W tym artykule opisano sposób programowania bezpośrednio względem protokołu w aplikacji.  Jeśli to możliwe, zaleca się użycie obsługiwanych bibliotek uwierzytelniania firmy Microsoft (MSAL) zamiast tego do [uzyskiwania tokenów i wywoływania zabezpieczonych interfejsów API sieci Web](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Zapoznaj się również z [przykładowymi aplikacjami korzystającymi z programu MSAL](sample-v2-code.md).
-
-> [!NOTE]
-> Punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje wszystkich scenariuszy i funkcji usługi Azure Active Directory. Aby ustalić, czy należy używać punktu końcowego platformy tożsamości firmy Microsoft, przeczytaj o [ograniczeniach platformy tożsamości firmy Microsoft](active-directory-v2-limitations.md).
 
 ## <a name="protocol-diagram"></a>Diagram protokołu
 
@@ -62,7 +59,7 @@ scope=user.read%20openid%20profile
 
 ### <a name="device-authorization-response"></a>Odpowiedź autoryzacji urządzenia
 
-Pomyślną odpowiedzią będzie obiekt JSON zawierający wymagane informacje, aby umożliwić użytkownikowi zalogowanie się.  
+Pomyślną odpowiedzią będzie obiekt JSON zawierający wymagane informacje, aby umożliwić użytkownikowi zalogowanie się.
 
 | Parametr | Format | Opis |
 | ---              | --- | --- |
@@ -80,11 +77,11 @@ Pomyślną odpowiedzią będzie obiekt JSON zawierający wymagane informacje, ab
 
 Po otrzymaniu `user_code` i `verification_uri`, klient wyświetla je do użytkownika, instruując go, aby zalogować się za pomocą telefonu komórkowego lub przeglądarki PC.
 
-Jeśli użytkownik uwierzytelnia się przy użyciu konta osobistego (na /common lub /consumers), zostanie poproszony o ponowne zalogowanie się w celu przeniesienia stanu uwierzytelniania na urządzenie.  Zostaną również poproszeni o wyrażenie zgody, aby upewnić się, że są świadomi przyznanych uprawnień.  Nie dotyczy to kont służbowych używanych do uwierzytelniania. 
+Jeśli użytkownik uwierzytelnia się przy użyciu konta osobistego (na /common lub /consumers), zostanie poproszony o ponowne zalogowanie się w celu przeniesienia stanu uwierzytelniania na urządzenie.  Zostaną również poproszeni o wyrażenie zgody, aby upewnić się, że są świadomi przyznanych uprawnień.  Nie dotyczy to kont służbowych używanych do uwierzytelniania.
 
 Podczas gdy użytkownik uwierzytelnia `verification_uri`się w programie `/token` , klient powinien sondować `device_code`punkt końcowy żądanego tokenu przy użyciu .
 
-``` 
+```
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -95,21 +92,21 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | Parametr | Wymagany | Opis|
 | -------- | -------- | ---------- |
-| `tenant`  | Wymagany | Ten sam alias dzierżawy lub dzierżawy używany w żądaniu początkowym. | 
+| `tenant`  | Wymagany | Ten sam alias dzierżawy lub dzierżawy używany w żądaniu początkowym. |
 | `grant_type` | Wymagany | Musi być`urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Wymagany | Musi odpowiadać używane w `client_id` początkowym żądaniu. |
 | `device_code`| Wymagany | Zwrócone `device_code` w żądaniu autoryzacji urządzenia.  |
 
 ### <a name="expected-errors"></a>Oczekiwane błędy
 
-Przepływ kodu urządzenia jest protokołem sondowania, więc klient musi oczekiwać, aby uzyskać błędy, zanim użytkownik zakończy uwierzytelnianie.  
+Przepływ kodu urządzenia jest protokołem sondowania, więc klient musi oczekiwać, aby uzyskać błędy, zanim użytkownik zakończy uwierzytelnianie.
 
 | Błąd | Opis | Akcja klienta |
 | ------ | ----------- | -------------|
 | `authorization_pending` | Użytkownik nie zakończył uwierzytelniania, ale nie anulował przepływu. | Powtórz żądanie po `interval` co najmniej sekundach. |
 | `authorization_declined` | Użytkownik końcowy odmówił żądania autoryzacji.| Zatrzymaj sondowanie i przywróć stan nieuwierzyty.  |
 | `bad_verification_code`| Wysłane `device_code` do `/token` punktu końcowego nie został rozpoznany. | Sprawdź, czy klient wysyła `device_code` poprawność w żądaniu. |
-| `expired_token` | Minęło `expires_in` co najmniej sekundy, a uwierzytelnianie `device_code`nie jest już możliwe dzięki temu . | Zatrzymaj sondowanie i przywróć stan nieuwierzyty. |   
+| `expired_token` | Minęło `expires_in` co najmniej sekundy, a uwierzytelnianie `device_code`nie jest już możliwe dzięki temu . | Zatrzymaj sondowanie i przywróć stan nieuwierzyty. |
 
 ### <a name="successful-authentication-response"></a>Pomyślna odpowiedź na uwierzytelnianie
 
@@ -135,4 +132,4 @@ Pomyślna odpowiedź tokenu będzie wyglądać następująco:
 | `id_token`   | Jwt | Wystawiono, jeśli `scope` oryginalny parametr `openid` zawierał zakres.  |
 | `refresh_token` | Nieprzezroczysty ciąg | Wydane, jeśli `scope` oryginalny parametr `offline_access`zawiera .  |
 
-Token odświeżania służy do uzyskiwania nowych tokenów dostępu i odświeżania tokenów przy użyciu tego samego przepływu udokumentowanego w [dokumentacji przepływu kodu OAuth.](v2-oauth2-auth-code-flow.md#refresh-the-access-token)  
+Token odświeżania służy do uzyskiwania nowych tokenów dostępu i odświeżania tokenów przy użyciu tego samego przepływu udokumentowanego w [dokumentacji przepływu kodu OAuth.](v2-oauth2-auth-code-flow.md#refresh-the-access-token)

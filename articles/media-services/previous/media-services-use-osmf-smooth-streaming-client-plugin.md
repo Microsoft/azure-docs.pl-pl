@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 45a2829411ea4713df898c90be73792718160cd2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71d28a19316bf1b618ec9008a5e96a503687b202
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255110"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681967"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Jak korzystać z wtyczki Microsoft Smooth Streaming dla programu Adobe Open Source Media Framework  
 ## <a name="overview"></a>Omówienie
@@ -331,7 +331,7 @@ pakiet {
 Płynna transmisja strumieniowa dla osmf dynamiczna wtyczka jest kompatybilna z [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Możesz użyć wtyczki SS for OSMF, aby dodać płynne odtwarzanie zawartości do SMP. Aby to zrobić, skopiuj "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" w ramach serwera sieci Web dla obciążenia HTTP, wykonując następujące kroki:
 
 1. Przejrzyj [stronę konfiguracji odtwarzania nośników strobe](http://osmf.org/dev/2.0gm/setup.html). 
-2. Ustaw src na źródło smooth streaming (np.http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
+2. Ustaw src na źródło płynnego przesyłania strumieniowego\/(np. http: /devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3. Wykonuj żądane zmiany konfiguracji i kliknij pozycję Podgląd i aktualizacja.
    
    **Uwaga** Serwer sieci web zawartości potrzebuje prawidłowego pliku crossdomain.xml. 

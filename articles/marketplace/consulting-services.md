@@ -6,14 +6,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 987d04a4138c37d9073e5e9925f06c93d7ebb8e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 528c393983cb3d8d96dbcee9157e38ebc4f193f4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281582"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685387"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Usługi konsultingowe dla portalu Azure Marketplace i AppSource
 Usługi konsultingowe w witrynie Azure Marketplace i AppSource zapewniają partnerom firmy Microsoft cel łączenia klientów z usługami w celu obsługi i rozszerzania ich wykorzystania platformy Azure i celów biznesowych. 
@@ -27,22 +27,22 @@ Witryny sklepu w portalu marketplace są zgodne z odbiorcami i produktami w chmu
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
-|**Grupy odbiorców**   |**Profesjonalistów IT i deweloperów chmury**|**Użytkownicy biznesowi / decydenci biznesowi**|
-|Istotność rozwiązania     |Aplikacje techniczne utworzone dla platformy Azure lub zbudowane na platformie Azure|Aplikacje biznesowe, które wykorzystują / rozszerzają D365, Power BI, O365, Azure. (Aplikacje gotowe dodatku lub dodatku)|
-|Opcje publikowania     |Skontaktuj się ze mną, wersję próbną, transakcje lub usługi dla platformy Azure|Skontaktuj się ze mną, wersja próbna lub usługi dla dynamics 365 i usługi Power BI|
+|**Grupy odbiorców**      |**Profesjonalistów IT i deweloperów chmury**|**Użytkownicy biznesowi / decydenci biznesowi**|
+|Istotność rozwiązania      |Aplikacje techniczne utworzone dla platformy Azure lub zbudowane na platformie Azure|Aplikacje biznesowe, które wykorzystują / rozszerzają D365, Power BI, O365, Azure. (Aplikacje gotowe dodatku lub dodatku)|
+|Opcje publikowania      |Skontaktuj się ze mną, wersję próbną, transakcje lub usługi dla platformy Azure|Skontaktuj się ze mną, wersja próbna lub usługi dla dynamics 365 i usługi Power BI|
 |W doświadczeniu produktu      |Portal zarządzania platformy Azure|Dynamics 365, Office 365, aplikacje klienckie pakietu Office| 
 |Inne      |Publikowanie lokalne za pośrednictwem usługi Azure Stack, usługi konsultingowe dla platformy Azure, usługi zarządzane dla platformy Azure|Usługi konsultingowe dla dynamics i usługi Power BI|
 
 Oferty usług konsultingowych oparte na systemach Microsoft Dynamics 365, Power Apps i Power BI mogą być wyświetlane w usłudze Microsoft AppSource. Aby uzyskać więcej informacji, zobacz [Wskazówki dotyczące wyświetlania usług konsultingowych microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
-Usługi konsultingowe i oferty usług zarządzanych oparte na platformie Microsoft Azure mogą być wyświetlane w portalu Azure Marketplace. Aby uzyskać więcej informacji, zobacz artykuły dotyczące [publikowania usługi konsultingowej platformy Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) i publikowania oferty usług [zarządzanych w portalu Azure Marketplace.](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)
+Usługi konsultingowe i oferty usług zarządzanych oparte na platformie Microsoft Azure mogą być wyświetlane w portalu Azure Marketplace. Aby uzyskać więcej informacji, zobacz artykuły dotyczące [publikowania usługi konsultingowej platformy Azure](./partner-center-portal/create-consulting-service-offer.md) i publikowania oferty usług [zarządzanych w portalu Azure Marketplace.](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)
 
 > [!Note]
 > Usługi konsultingowe w portalu Azure Marketplace powinny wykorzystywać oferty dostosowane do **technicznej grupy odbiorców, koncentrując się na *rozwiązaniach i usługach technicznych platformy Azure.* ** Usługi konsultingowe w AppSource powinny wykorzystywać oferty ukierunkowane na ich wiedzę fachową w dostarczaniu wysokiej jakości rozwiązań dla Dynamics 365, Power BI lub Power Apps, aby wyświetlić listę ofert usług konsultingowych w AppSource
 > 
 > 
 > [!TIP]
-> Aby opublikować w witrynie sklepu portalu Azure Marketplace, należy dokonać tego wyboru, wybierając opcję "Azure" z menu rozwijanego "Produkt podstawowy" w portalu partnerów w chmurze. Aby opublikować w usłudze AppSource, należy dokonać tego wyboru, wybierając "Dynamics 365", "Power BI" lub "Power Apps" z menu rozwijanego "Produkt podstawowy" w portalu partnerów w chmurze.
+> Aby opublikować w witrynie sklepu portalu Azure Marketplace, należy dokonać tego wyboru, wybierając opcję "Azure" z menu rozwijanego "Produkt podstawowy" w Centrum partnerów. Aby opublikować w usłudze AppSource, zaznacz opcję "Dynamics 365", "Power BI" lub "Power Apps" z menu rozwijanego "Produkt podstawowy" w Centrum partnerów.
 
 ## <a name="eligible-partners-and-supported-countriesregions"></a>Kwalifikujący się partnerzy i wspierane kraje/regiony
 
@@ -87,13 +87,18 @@ Dodatkowe zasoby i wsparcie:
 | Wielka Brytania  |
 
 
-## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Jak zarejestrować się w usługach konsultingowych w witrynie Azure Marketplace i AppSource
-Zacznij od [zarejestrowania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) informacji o firmie na rynku. Wydawcy mogą odwoływać [się do zostania wydawcą w portalu Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), aby uzyskać pełną listę kontrolną wymagań rejestracyjnych. 
+## <a name="how-to-register-for-consulting-services-in-commercial-marketplace"></a>Jak zarejestrować się w usługach konsultingowych na rynku komercyjnym
 
-**Czego można się spodziewać po rejestracji** Zespół onboardingu skontaktuje się w ciągu 1-3 dni roboczych z powitalną wiadomością e-mail, która będzie zawierać dane logowania do portalu Cloud Partner Portal (CPP). [Portal Cloud Partner Portal](https://cloudpartner.azure.com) to portal z ofertami, w którym wydawcy przesyłają informacje o aukcji i zgłoszenia. 
+Zacznij od [zarejestrowania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informacji o firmie na rynku. Wydawcy mogą odwoływać [się do zostania wydawcą w portalu Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), aby uzyskać pełną listę kontrolną wymagań rejestracyjnych. 
+
+<!---
+**What To Expect After Registration**
+The Onboarding Team will reach out in 1-3 business days with a welcome email, which will include your Cloud Partner Portal (CPP) login information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions. 
 
 >[!Note]
->Partnerzy muszą zarejestrować się tylko raz, aby zostać wydawcą. Po otrzymaniu powitalnej wiadomości e-mail i logowania do portalu cloud partnerów wydawcy nie muszą ponownie się rejestrować, aby publikować różne typy aukcji. 
+>Partners only need to register once to become a publisher. Once you receive your welcome email and Partner Center login, publishers do not need to re-register in order to publish different listing types. 
+
+--->
 
 ## <a name="prepare-your-publishing-artifacts"></a>Przygotowanie artefaktów publikowania
 Przed rejestracją możesz rozpocząć zbieranie i przygotowywanie treści, które pomogą Twojej aukcji wyrazić wartość usługi i rozwiązania dla docelowego klienta. 
@@ -120,7 +125,7 @@ Przed rejestracją możesz rozpocząć zbieranie i przygotowywanie treści, któ
 ## <a name="publishing-process"></a>Proces publikowania
 Wyświetlanie oferty usługi konsultingowej w witrynie Azure Marketplace i AppSource obejmuje następujące etapy:
 
-1. **Aukcja**: Rozpocznij sporządzanie nowej oferty, logując się na swoje konto Portalu partnerów w [chmurze.](https://cloudpartner.azure.com) Z menu rozwijanego wybierz opcję "Nowa oferta" i "Usługi konsultingowe". Wprowadź artefakt aukcji i opublikuj.
+1. **Aukcja**: Rozpocznij sporządzanie nowej oferty, logując się na swoje konto [Centrum partnerów.](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) Z menu rozwijanego wybierz opcję "Nowa oferta" i "Usługi konsultingowe". Wprowadź artefakt aukcji i opublikuj.
 2. **Sprawdzanie poprawności:** Żądanie zostanie sprawdzone, aby upewnić się, że spełniasz kryteria kwalifikacyjne. Następnie wysyłamy ci instrukcje dotyczące wystawiania ofert usług konsultingowych. 
 3. **Prześlij**: Podaj wymagane informacje wymienione w instrukcjach. Wszystkie treści i materiały pomocnicze muszą być przesłane w języku angielskim. 
 4. **Recenzja**: Nasz zespół marketingowy i redakcyjny sprawdza twoje zgłoszenie i optymalizuje je pod kątem czytelności, gramatyki i skuteczności. 
@@ -161,11 +166,11 @@ Podczas przeglądania opisów ofert i podsumowań ofert zespół zastosuje nast�
 |---------|---------|---------|
 |**Ocena**    |   Dołącz szczegółowy program ocen wielodniowych lub wielotygodniowych oraz wyartykułowanie tego, jakich ujednolików może oczekiwać klient      |    Zoptymalizuj podsumowanie oferty za pomocą najlepszych słów kluczowych optymalizacji pod kątem wyszukiwarek     |
 |**Briefingu**    |   Artykułować, co dostarczane klient może oczekiwać. Pamiętaj, że briefing musi być oferowany osobiście. Jeśli świadczysz usługę wirtualną, wybierz inny typ oferty    |  Zoptymalizuj podsumowanie oferty za pomocą najlepszych słów kluczowych optymalizacji pod kątem wyszukiwarek       |
-|**Wdrażanie**    |  Dołącz szczegółowy plan wielodniowych lub wielotygodniowych implementacji i wyartykułować zmiany inżynieryjne, artefakty techniczne lub inne artefakty, jakich klient może oczekiwać w wyniku zaangażowania       |    Zoptymalizuj podsumowanie oferty za pomocą najlepszych słów kluczowych optymalizacji pod kątem wyszukiwarek     |
+|**Implementacja**    |  Dołącz szczegółowy plan wielodniowych lub wielotygodniowych implementacji i wyartykułować zmiany inżynieryjne, artefakty techniczne lub inne artefakty, jakich klient może oczekiwać w wyniku zaangażowania       |    Zoptymalizuj podsumowanie oferty za pomocą najlepszych słów kluczowych optymalizacji pod kątem wyszukiwarek     |
 |**Dowód koncepcji**    |    Artykułuj, jakich zmian inżynieryjnych, artefaktów technicznych lub innych artefaktów klient może oczekiwać w wyniku zaangażowania     | Zoptymalizuj podsumowanie oferty za pomocą najlepszych słów kluczowych optymalizacji pod kątem wyszukiwarek        |
 |**Warsztaty**    |   W zależności od wybranego czasu trwania oferty należy podać szczegółowy plan dzienny, tygodniowy lub miesięczny. Artykułuj, jakie są cele uczenia się lub inne rezultaty twojego warsztatu     |   Zoptymalizuj podsumowanie oferty za pomocą najlepszych słów kluczowych optymalizacji wyszukiwarek      |
 
-W portalu Cloud Partner Portal możesz dodać formatowanie do swojej aukcji za pomocą [funkcji Markdown](/contribute/markdown-reference). Jest to lekki język projektowania, który pomoże dodać polski do aukcji. 
+W Centrum partnerów możesz dodać formatowanie do aukcji za pomocą [funkcji Markdown](/contribute/markdown-reference). Jest to lekki język projektowania, który pomoże dodać polski do aukcji. 
 
 **Przykładowe notatki z oznaczenia**
 * Dodaj * na początku i na końcu bloku kopiowania - bez miejsca na tworzenie kursywy (Np. *zawartość*)
@@ -181,9 +186,9 @@ W portalu Cloud Partner Portal możesz dodać formatowanie do swojej aukcji za p
 
 Jeśli jeszcze tego nie zrobiłeś, 
 
-- [Zarejestruj się](https://azuremarketplace.microsoft.com/sell) na rynku.
+- [Dowiedz się więcej](https://azuremarketplace.microsoft.com/sell) o rynku.
 
-Jeśli jesteś zarejestrowany i pracujesz w Portalu Cloud Partner, 
+Aby zarejestrować się i rozpocząć pracę w Centrum partnerskim, 
 
-- [Zaloguj się do portalu cloud partner,](https://cloudpartner.azure.com) aby utworzyć lub uzupełnić ofertę.
-- Aby uzyskać więcej informacji, zobacz [oferta usługi konsultingowej platformy Azure i Dynamics 365.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer)
+- [Zaloguj się do Centrum partnerów,](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) aby utworzyć lub uzupełnić ofertę.
+- Aby uzyskać więcej [informacji, zobacz tworzenie oferty usługi konsultingowej.](./partner-center-portal/create-consulting-service-offer.md)

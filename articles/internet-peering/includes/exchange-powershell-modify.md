@@ -8,23 +8,23 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 86e1a9cce1864ce259fe07b6949be2e32be242a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12d169697a35af446392843eb57e6ec3a5508e45
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774421"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678641"
 ---
-Po operacji modyfikacji są obsługiwane dla komunikacji równorzędnej programu Exchange
-1. Dodawanie połączeń komunikacji równorzędnej programu Exchange
-1. Usuwanie połączeń komunikacji równorzędnej programu Exchange
-1. Dodaj sesję IPv4/IPv6 w aktywnych połączeniach.
-1. Usuń sesję IPv4/IPv6 w aktywnych połączeniach.
+Następujące operacje modyfikacji są obsługiwane dla komunikacji równorzędnej programu Exchange:
+* Dodawanie połączeń komunikacji równorzędnej programu Exchange.
+* Usuń połączenia komunikacji równorzędnej programu Exchange.
+* Dodaj sesję IPv4 lub IPv6 w aktywnych połączeniach.
+* Usuwanie sesji IPv4 lub IPv6 w aktywnych połączeniach.
 
 
 ### <a name="add-exchange-peering-connections"></a>Dodawanie połączeń komunikacji równorzędnej programu Exchange
 
-W poniższym przykładzie opisano sposób dodawania połączeń do istniejącej komunikacji równorzędnej programu Exchange
+W tym przykładzie opisano sposób dodawania połączeń do istniejącej komunikacji równorzędnej programu Exchange.
 
 ```powershell
 
@@ -45,7 +45,7 @@ $exchangePeering | Update-AzPeering
 
 ### <a name="remove-exchange-peering-connections"></a>Usuwanie połączeń komunikacji równorzędnej programu Exchange
 
-W poniższym przykładzie opisano sposób usuwania połączeń z istniejącymi elementami równorzędnych programu Exchange
+W tym przykładzie opisano sposób usuwania połączeń z istniejącą komunikacją równorzędną programu Exchange.
 
 ```powershell
 
@@ -85,9 +85,9 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="add-ipv4ipv6-session-on-active-connections"></a>Dodawanie sesji IPv4/IPv6 w aktywnych połączeniach
+### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>Dodawanie sesji IPv4 lub IPv6 w usłudze Active connections
 
-W poniższym przykładzie opisano sposób dodawania sesji IPv6 do istniejącego połączenia programu exchange.
+W tym przykładzie opisano sposób dodawania sesji IPv6 do istniejącego połączenia programu Exchange.
 
 ```powershell
 
@@ -99,6 +99,6 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="remove-ipv4ipv6-session-on-active-connections"></a>Usuwanie sesji IPv4/IPv6 w aktywnych połączeniach
+### <a name="remove-an-ipv4-or-ipv6-session-on-active-connections"></a>Usuwanie sesji IPv4 lub IPv6 w aktywnych połączeniach
 
-Usuwanie sesji IPv4/IPv6 z istniejącego połączenia nie jest obecnie obsługiwane w programie PowerShell. Skontaktuj się z [programem Microsoft w komunikacji równorzędnej](mailto:peeringexperience@microsoft.com).
+Usuwanie sesji IPv4 lub IPv6 z istniejącego połączenia nie jest obecnie obsługiwane w programie PowerShell. Aby uzyskać więcej informacji, skontaktuj się z [programem Microsoft peering](mailto:peeringexperience@microsoft.com).

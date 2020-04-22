@@ -8,20 +8,20 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 33ae3c3f9a2a213bd8135af846b4e72901b3df0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34a23ce76ed0e9285a686073e1cbeb95347f7b7d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774447"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678679"
 ---
-Aby uzyskać listę równorzędnych, uruchom `Get-AzPeering` polecenie:
+Aby uzyskać listę komunikacji równorzędnej, uruchom polecenie **Get-AzPeering.**
 
 ```powershell
 Get-AzPeering ResourceGroupName "PeeringResourceGroup" -Name "SeattleExchangePeering"
 ```
 
-Poniżej znajduje się przykład odpowiedzi po pomyślnym zakończeniu inicjowania obsługi administracyjnej end-to-end:
+W tym przykładzie odpowiedzi pokazano, kiedy end-to-end inicjowania obsługi administracyjnej została pomyślnie ukończona.
 
 ```powershell
     Name                     : SeattleExchangePeering

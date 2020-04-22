@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi platformy Azure umożliwia środowisko zarządzania między dzierżawami.
-ms.date: 04/06/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 107350cdab90751e918d4c7845776464b43abbdd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418522"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682828"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -72,6 +72,14 @@ Większość zadań i usług można wykonywać na delegowanych zasobów w zarzą
 - Analiza dzienników: zapytanie o dane z zdalnych obszarów roboczych klientów w wielu dzierżawach
 - Tworzenie alertów w dzierżawach klientów wyzwalających automatyzację, takich jak elementy runbook usługi Azure Automation lub usługi Azure Functions, w dzierżawie dostawcy usług za pośrednictwem łączy webhook
 
+[Tworzenie sieci na platformie Azure:](../../networking/networking-overview.md)
+
+- Wdrażanie i zarządzanie kartami interfejsu [wirtualnego (VNICs) platformy Azure](../../virtual-network/index.yml) i zarządzanie nimi w ramach dzierżawców klientów
+- Wdrażanie i konfigurowanie [Zapory platformy Azure w](../../firewall/overview.md) celu ochrony zasobów sieci wirtualnej klientów
+- Zarządzanie usługami łączności, takimi jak [wirtualna sieć WAN platformy Azure,](../../virtual-wan/virtual-wan-about.md) [usługa ExpressRoute](../../expressroute/expressroute-introduction.md)i [bramy sieci VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) dla klientów
+- Użyj latarni morskiej platformy Azure do obsługi kluczowych scenariuszy [programu MSP usługi Azure Networking](../../networking/networking-partners-msp.md)
+
+
 [Zasady platformy Azure:](../../governance/policy/index.yml)
 
 - Migawki zgodności pokazują szczegółowe informacje dotyczące przypisanych zasad w ramach delegowanych subskrypcji
@@ -121,10 +129,6 @@ Większość zadań i usług można wykonywać na delegowanych zasobów w zarzą
 - Używanie diagnostyki rozruchu do rozwiązywania problemów z maszynami wirtualnymi platformy Azure w dzierżawach klientów
 - Dostęp do maszyn wirtualnych z konsolą szeregową w dzierżawach klientów
 - Należy pamiętać, że nie można używać usługi Azure Active Directory do zdalnego logowania do maszyny Wirtualnej i nie można zintegrować maszyny Wirtualnej z magazynem kluczy dla haseł, wpisów tajnych lub kluczy kryptograficznych do szyfrowania dysku
-
-[Wirtualna sieć platformy Azure:](../../virtual-network/index.yml)
-
-- Wdrażanie sieci wirtualnych i kart vNIC oraz zarządzanie nimi w ramach dzierżawców klientów
 
 Prośby o pomoc techniczną:
 

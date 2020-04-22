@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5a80c6e3bd8cf647590ed757c042ef3301e27b4a
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 34ed6d043f713aa55bfe464c48d4332364df805d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743511"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680374"
 ---
 # <a name="secure-your-restful-services"></a>Zabezpiecz swoje usługi RESTful 
 
@@ -43,7 +43,7 @@ Uwierzytelnianie podstawowe HTTP jest zdefiniowane w [RFC 2617](https://tools.ie
 
 Aby skonfigurować profil techniczny interfejsu API REST z podstawowym uwierzytelnianiem HTTP, utwórz następujące klucze kryptograficzne do przechowywania nazwy użytkownika i hasła:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD B2C. Wybierz filtr **subskrypcja Katalogu +** w górnym menu i wybierz katalog usługi Azure AD B2C.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. Na stronie Przegląd wybierz pozycję **Identity Experience Framework**.
@@ -53,7 +53,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z podstawowym uwierzyte
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
 1. W polu **Tajne** wprowadź nazwę użytkownika interfejsu API REST.
 1. Aby uzyskać **użycie klucza,** wybierz **opcję Szyfrowanie**.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Ponownie wybierz **pozycję Klawisze zasad.**
 1. Wybierz pozycję **Dodaj**.
 1. W obszarze **Opcje**wybierz **pozycję Ręczny**.
@@ -61,7 +61,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z podstawowym uwierzyte
     Prefiks *B2C_1A_* może zostać dodany automatycznie.
 1. W polu **Tajne** wprowadź hasło interfejsu API REST.
 1. Aby uzyskać **użycie klucza,** wybierz **opcję Szyfrowanie**.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-http-basic-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST do używania uwierzytelniania podstawowego HTTP
 
@@ -132,7 +132,7 @@ W środowiskach nieprodukcyjnych, jeśli nie masz jeszcze certyfikatu, możesz u
 
 ### <a name="add-a-client-certificate-policy-key"></a>Dodawanie klucza zasad certyfikatu klienta
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD B2C. Wybierz filtr **subskrypcja Katalogu +** w górnym menu i wybierz katalog usługi Azure AD B2C.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. Na stronie Przegląd wybierz pozycję **Identity Experience Framework**.
@@ -142,7 +142,7 @@ W środowiskach nieprodukcyjnych, jeśli nie masz jeszcze certyfikatu, możesz u
     Prefiks *B2C_1A_* zostanie dodany automatycznie.
 1. W polu **Przekazywanie pliku** wybierz plik .pfx certyfikatu z kluczem prywatnym.
 1. W polu **Hasło** wpisz hasło certyfikatu.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-client-certificate-authentication"></a>Konfigurowanie profilu technicznego interfejsu API REST do używania uwierzytelniania certyfikatów klienta
 
@@ -211,11 +211,19 @@ Oświadczenie zapewnia tymczasowe przechowywanie danych podczas wykonywania zasa
 1. Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
 1. Wyszukaj [element BuildingBlocks.](buildingblocks.md) Jeśli element nie istnieje, dodaj go.
 1. Znajdź [ClaimsSchema](claimsschema.md) element. Jeśli element nie istnieje, dodaj go.
-1. Dodaj elementu bearer miastaToken do **claimsschema** elementu.  
+1. Dodaj następujące oświadczenia do **claimsschema** elementu.  
 
 ```xml
 <ClaimType Id="bearerToken">
-  <DisplayName>bearer token</DisplayName>
+  <DisplayName>Bearer token</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="grant_type">
+  <DisplayName>Grant type</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="scope">
+  <DisplayName>scope</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
 ```
@@ -306,7 +314,7 @@ Po dodaniu powyższych fragmentów profil techniczny powinien wyglądać następ
 
 Utwórz klucz zasad do przechowywania wartości tokenu nośnika.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD B2C. Wybierz filtr **subskrypcja Katalogu +** w górnym menu i wybierz katalog usługi Azure AD B2C.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. Na stronie Przegląd wybierz pozycję **Identity Experience Framework**.
@@ -315,7 +323,7 @@ Utwórz klucz zasad do przechowywania wartości tokenu nośnika.
 1. Wprowadź **nazwę** klucza zasad. Na przykład `RestApiBearerToken`. Prefiks `B2C_1A_` zostanie automatycznie dodany do nazwy klucza.
 1. W **pliku Secret**wprowadź wcześniej zarejestrowany klucz tajny klienta.
 1. Dla **użycia klucza**wybierz opcję `Encryption`.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-the-bearer-token-policy-key"></a>Skonfiguruj profil techniczny interfejsu API REST tak, aby używał klucza zasad tokenu nośnika
 

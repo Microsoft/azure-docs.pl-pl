@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 5cf3f02284777a54a9d26cad8a7f3b5b4fa6b335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 301e2be0c8b971a0236de6a8b5c8bd5f278c3aee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087778"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686753"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Przewodnik dotyczący sztucznej inteligencji platformy Azure dotyczący rozwiązań do konserwacji predykcyjnej
 
@@ -231,7 +231,7 @@ Specyfikacje techniczne urządzeń, takie jak data produkcji, numer modelu, loka
 
 Omawiane do tej pory wysiłki na rzecz przygotowania danych powinny prowadzić do zorganizowania danych, jak pokazano poniżej. Dane szkoleniowe, testowe i sprawdzania poprawności powinny mieć ten schemat logiczny (w tym przykładzie pokazano czas w jednostkach dni).
 
-| Identyfikator zasobu | Time | \<Kolumny elementów> | Label |
+| Identyfikator zasobu | Time | \<Kolumny elementów> | Etykieta |
 | ---- | ---- | --- | --- |
 | A123 |Dzień 1. | . . . | . |
 | A123 |Dzień 2. | . . . | . |
@@ -449,6 +449,6 @@ Platforma Microsoft Azure oferuje ścieżki szkoleniowe dla podstawowych koncepc
 | [Seminaria internetowe Microsoft AI Na YouTube](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Pokaz AI firmy Microsoft](https://channel9.msdn.com/Shows/AI-Show) | Public |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partnerzy |
-| [Microsoft Partner Network](https://learningportal.microsoft.com) | Partnerzy |
+| [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Partnerzy |
 
 Ponadto bezpłatne MOOCS (masowe otwarte kursy online) na temat AI są oferowane online przez instytucje akademickie, takie jak Stanford i MIT, oraz inne firmy edukacyjne.

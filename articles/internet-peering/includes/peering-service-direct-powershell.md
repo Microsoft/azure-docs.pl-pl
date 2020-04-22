@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: badba278e88e5065d8a4ff57ca9506fe1f9ad203
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 526d8a6a103e7623bac459004bf9ac79e4927541
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774200"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686983"
 ---
 1. Wyświetlanie połączeń w wybranym direct peeringu.
     ```powershell
@@ -47,12 +47,12 @@ ms.locfileid: "75774200"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Teraz zapisz zmiany wprowadzone w poleceniu Direct peering za pomocą poniższego polecenia.
+1. Teraz zapisz zmiany wprowadzone w direct peering za pomocą tego polecenia:
     ```powershell
     $directPeering | Update-AzPeering
     ```
     
-    Poniżej znajduje się przykładowe dane wyjściowe:
+    Oto przykładowe dane wyjściowe:
     
     ```powershell
         Name                 : SeattleDirectPeering

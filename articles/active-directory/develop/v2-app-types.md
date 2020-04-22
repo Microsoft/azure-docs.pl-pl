@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bdbda8bed38819ca2b4d2fb1ef3d9bf591269890
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: def92071496716f90b24158a50e4a5233e93c994
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535914"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677985"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Typy aplikacji dla platformy tożsamości firmy Microsoft
 
 Punkt końcowy platformy tożsamości firmy Microsoft (w wersji 2.0) obsługuje uwierzytelnianie dla różnych nowoczesnych architektur aplikacji, wszystkie oparte na standardowych protokołach [OAuth 2.0 lub OpenID Connect](active-directory-v2-protocols.md). W tym artykule opisano typy aplikacji, które można utworzyć przy użyciu platformy tożsamości firmy Microsoft, niezależnie od preferowanego języka lub platformy. Informacje te mają na celu ułatwienie zrozumienia scenariuszy wysokiego poziomu przed [rozpoczęciem pracy z kodem](v2-overview.md#getting-started).
-
-> [!NOTE]
-> Punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje wszystkich scenariuszy i funkcji usługi Azure Active Directory (Azure AD). Aby ustalić, czy należy używać punktu końcowego platformy tożsamości firmy Microsoft, przeczytaj o [ograniczeniach platformy tożsamości firmy Microsoft](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Podstawy
 

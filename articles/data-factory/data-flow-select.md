@@ -1,5 +1,5 @@
 ---
-title: Transformacja wyboru przepływu danych mapowania
+title: Wybieranie transformacji w przepływie danych mapowania
 description: Transformacja wyboru przepływu danych usługi Azure Data Factory mapowania
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/18/2020
-ms.openlocfilehash: 71a7c812b71e67c7b729844d0672e520c88e2d08
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: a90a2def874c7f081f83a34aea956083eb72879a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606345"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686499"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Wybieranie transformacji w przepływie danych mapowania
 

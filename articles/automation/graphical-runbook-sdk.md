@@ -1,24 +1,24 @@
 ---
-title: Omówienie zestawu SDK interfejsu api dla systemu Azure Automation Grpahical
-description: W tym artykule opisano sposób korzystania z zestawu SDK graficznego podręcznika azure automation
+title: Korzystanie z graficznego zestawu SDK dla grafików usługi Azure Automation
+description: W tym artykule opisano sposób korzystania z zestawu SDK grafiki azure automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: d4dcf6681ade977847c204dd1237f7cd7a67775e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21f6ff8078d5a1db88b2fde33c9063a56b3ee43a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75418260"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682905"
 ---
-# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Korzystanie z zestawu SDK graficznego systemu Azure Automation
+# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Korzystanie z graficznego zestawu SDK dla grafików usługi Azure Automation
 
-[Graficzne programy runbook](automation-graphical-authoring-intro.md) są elementami runbook, które pomagają zarządzać złożonością podstawowego kodu przepływu pracy programu Windows PowerShell lub programu PowerShell. Zestaw SDK tworzenia grafiki automatyzacji usługi Microsoft Azure Automation umożliwia deweloperom tworzenie i edytowanie wiązek autorskich do deweloperów do użytku z usługą Azure Automation. Poniższe fragmenty kodu pokazują podstawowy przepływ tworzenia graficznego elementów runbook z kodu.
+[Graficzne programy runbook](automation-graphical-authoring-intro.md) ułatwiają zarządzanie złożonością podstawowego kodu przepływu pracy programu Windows PowerShell lub programu PowerShell. Zestaw SDK do tworzenia grafiki microsoft azure automation umożliwia deweloperom tworzenie i edytowanie autorskich wiązek do użytku z usługą Azure Automation. W tym artykule opisano podstawowe kroki tworzenia graficznego podstawowego podstawowego kodu.
 
-## <a name="pre-requisites"></a>Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, `Microsoft.Azure.Automation.GraphicalRunbook.Model` zaimportuj pakiet do projektu.
+Zaimportuj `Microsoft.Azure.Automation.GraphicalRunbook.Model` pakiet do projektu.
 
 ## <a name="create-a-runbook-object-instance"></a>Tworzenie wystąpienia obiektu egoisty
 
@@ -89,7 +89,7 @@ var initializeRunbookVariable = runbook.AddActivity(
  });
 ```
 
-Działania są implementowane przez następujące `Orchestrator.GraphRunbook.Model` klasy w obszarze nazw:
+Działania są implementowane przez następujące `Orchestrator.GraphRunbook.Model` klasy w obszarze nazw.
 
 |Klasa  |Działanie  |
 |---------|---------|
@@ -99,9 +99,9 @@ Działania są implementowane przez następujące `Orchestrator.GraphRunbook.Mod
 |Działania w języku roboczym     | Wykonuje blok kodu przepływu pracy programu PowerShell lub programu PowerShell (w zależności od typu elementów runbook) w kontekście elementów runbook. Jest to potężne narzędzie, ale nie należy go nadużywania: interfejs użytkownika pokaże ten blok skryptu jako tekst; aparat wykonywania będzie traktować dostarczony blok jako czarne pole i nie będzie podejmować żadnych prób analizowania jego zawartości, z wyjątkiem podstawowego sprawdzania składni. Jeśli wystarczy wywołać pojedyncze polecenie programu PowerShell, preferuj CommandActivity.        |
 
 > [!NOTE]
-> Nie należy wyprowadzać własnych działań z podanych klas: Usługa Azure Automation nie będzie mogła używać elementów runbook z niestandardowymi typami działań.
+> Nie wywodź własnych działań z podanych klas. Usługa Azure Automation nie może używać elementów runbook z niestandardowymi typami działań.
 
-CommandActivity i InvokeRunbookActivity parametry muszą być podane jako deskryptory wartości, a nie bezpośrednie wartości. Deskryptory wartości określają sposób sporządzania rzeczywistych wartości parametrów. Obecnie dostępne są następujące deskryptory wartości:
+Należy podać `CommandActivity` `InvokeRunbookActivity` i parametry jako deskryptory wartości, a nie wartości bezpośrednie. Deskryptory wartości określają sposób tworzenia rzeczywistych wartości parametrów. Obecnie dostępne są następujące deskryptory wartości:
 
 
 |Deskryptora  |Definicja  |
@@ -115,7 +115,7 @@ CommandActivity i InvokeRunbookActivity parametry muszą być podane jako deskry
 |Deskryptor programu PowerShellExpressionValueDescriptor     | Określa wyrażenie programu PowerShell w postaci swobodnej, które zostanie ocenione tuż przed wywołaniem działania.  <br/>Jest to potężne narzędzie, ale nie należy go nadużywania: interfejs użytkownika pokaże to wyrażenie jako tekst; aparat wykonywania będzie traktować dostarczony blok jako czarne pole i nie będzie podejmować żadnych prób analizowania jego zawartości, z wyjątkiem podstawowego sprawdzania składni. Jeśli to możliwe, preferuj bardziej szczegółowe deskryptory wartości.      |
 
 > [!NOTE]
-> Nie należy wyprowadzać własnych deskryptorów wartości z podanych klas: usługa Azure Automation nie będzie mogła używać elementów runbook z niestandardowymi typami deskryptora wartości.
+> Nie wyprowadzaj własnych deskryptorów wartości z podanych klas. Usługa Azure Automation nie może używać elementów runbook z typami deskryptora wartości niestandardowych.
 
 Tworzenie wystąpienia łączy łączących działania i dodawanie ich do egonatu:
 
@@ -136,10 +136,9 @@ Służy `Orchestrator.GraphRunbook.Model.Serialization.RunbookSerializer` do ser
 var serialized = RunbookSerializer.Serialize(runbook);
 ```
 
-Ten ciąg można zapisać w pliku z rozszerzeniem **.graphrunbook,** a ten plik można zaimportować do usługi Azure Automation.
+Ciąg ten można zapisać w pliku z rozszerzeniem **.graphrunbook.** Odpowiedni projekt runbook można zaimportować do usługi Azure Automation.
 Format serializowany może ulec zmianie `Orchestrator.GraphRunbook.Model.dll`w przyszłych wersjach programu . Obiecujemy zgodność wsteczną: każdy element runbook serializowany ze starszą wersją `Orchestrator.GraphRunbook.Model.dll` może być deserializowany przez dowolną nowszą wersję. Zgodność z przekazywaniem dalej nie jest gwarantowana: system runbook serializowany z nowszą wersją może nie być deserializowalny przez starsze wersje.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o elementach ekwolucie graficznym w usłudze Azure Automation, zobacz [Wprowadzenie do tworzenia grafiki](automation-graphical-authoring-intro.md)
-
+Aby dowiedzieć się więcej o elementach eks-graficznych w usłudze Azure Automation, zobacz [Wprowadzenie do tworzenia symboli graficznych](automation-graphical-authoring-intro.md).

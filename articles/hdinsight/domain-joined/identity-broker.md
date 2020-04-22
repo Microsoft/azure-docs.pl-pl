@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: fb82cec6874f8ef4f41897cc22939fe69ed02ec2
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457420"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685508"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Używanie brokera identyfikatorów (wersja zapoznawcza) do zarządzania poświadczeniami
 
@@ -46,6 +46,46 @@ Funkcja brokera identyfikatorów doda jedną dodatkową maszynę wirtualną do k
 
 ![Opcja włączenia brokera identyfikatorów](./media/identity-broker/identity-broker-enable.png)
 
+### <a name="using-azure-resource-manager-templates"></a>Używanie szablonów usługi Azure Resource Manager
+Jeśli dodasz nową `idbrokernode` rolę wywoływaną z następującymi atrybutami do profilu obliczeniowego szablonu, klaster zostanie utworzony z włączonym węzłem brokera identyfikatorów:
+
+```json
+.
+.
+.
+"computeProfile": {
+    "roles": [
+        {
+            "autoscale": null,
+            "name": "headnode",
+           ....
+        },
+        {
+            "autoscale": null,
+            "name": "workernode",
+            ....
+        },
+        {
+            "autoscale": null,
+            "name": "idbrokernode",
+            "targetInstanceCount": 1,
+            "hardwareProfile": {
+                "vmSize": "Standard_A2_V2"
+            },
+            "virtualNetworkProfile": {
+                "id": "string",
+                "subnet": "string"
+            },
+            "scriptActions": [],
+            "dataDisksGroups": null
+        }
+    ]
+}
+.
+.
+.
+```
+
 ## <a name="tool-integration"></a>Integracja narzędzi
 
 Wtyczka HDInsight [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) została zaktualizowana w celu obsługi oauth. Za pomocą tej wtyczki można połączyć się z klastrem i przesłać zadania.
@@ -62,7 +102,7 @@ W konfiguracji brokera identyfikatorów niestandardowe aplikacje i klienci łąc
 
 *   Uri zasobów OAuth:https://hib.azurehdinsight.net 
 * Identyfikator aplikacji: 7865c1d2-f040-46cc-875f-831a1ef6a28a
-*   Uprawnienie: (nazwa: Cluster.ReadWrite, id:8f89faa0-ffef-4007-974d-4989b39ad77d)
+*   Uprawnienie: (nazwa: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 ## <a name="next-steps"></a>Następne kroki
 

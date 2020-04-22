@@ -7,25 +7,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/24/2020
-ms.openlocfilehash: 888f24e13ce67c878592068927383dd8cbfefa60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 4f2e8b2a691a6b17b5ed075745d556db4e330535
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623103"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682463"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Odczytywanie i zapisywanie danych w bazie danych Apache HBase za pomocą platformy Apache Spark
 
-Apache HBase jest zazwyczaj wyszukiwane za pomocą interfejsu API niskiego poziomu (skanuje, pobiera i stawia) lub ze składnią SQL przy użyciu Apache Phoenix. Apache zapewnia również Apache Spark HBase Connector, który jest wygodną i wydajną alternatywą dla zapytań i modyfikowania danych przechowywanych przez HBase.
+Apache HBase jest zazwyczaj wyszukiwane za pomocą interfejsu API niskiego poziomu (skanuje, pobiera i stawia) lub ze składnią SQL przy użyciu Apache Phoenix. Apache zapewnia również Apache Spark HBase Connector. Łącznik jest wygodną i wydajną alternatywą dla zapytań i modyfikowania danych przechowywanych przez HBase.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Dwa oddzielne klastry HDInsight wdrożone w tej samej [sieci wirtualnej](./hdinsight-plan-virtual-network-deployment.md). Jeden HBase i jeden Spark z co najmniej Spark 2.1 (HDInsight 3.6) zainstalowany. Aby uzyskać więcej informacji, zobacz [Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu portalu Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* [Schemat identyfikatorów URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) dla magazynu podstawowego klastrów. Ten schemat zostanie wasb:// usługi Azure Blob Storage, abfs:// dla usługi Azure Data Lake Storage Gen2 lub adl:// dla usługi Azure Data Lake Storage Gen1. Jeśli bezpieczny transfer jest włączony dla magazynu obiektów `wasbs://`blob, identyfikator URI będzie .  Zobacz też [bezpieczny transfer](../storage/common/storage-require-secure-transfer.md).
+* Schemat identyfikatorów URI dla magazynu podstawowego klastrów. Ten schemat zostanie wasb:// dla usługi Azure `abfs://` Blob Storage dla usługi Azure Data Lake Storage Gen2 lub adl:// dla usługi Azure Data Lake Storage Gen1. Jeśli bezpieczny transfer jest włączony dla magazynu obiektów `wasbs://`blob, identyfikator URI będzie .  Zobacz też [bezpieczny transfer](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="overall-process"></a>Cały proces
 

@@ -3,12 +3,12 @@ title: Konfigurowanie środowiska programistycznego w systemie Linux
 description: Zainstaluj środowisko uruchomieniowe i zestaw SDK oraz utwórz lokalny klaster projektowy w systemie Linux. Po ukończeniu tej konfiguracji wszystko będzie gotowe do kompilowania aplikacji.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 1048e1ccf6b9bc921daa3014ab8003fd53473461
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 6cedd97144a3fd32d9af8582e24ad5c12914e575
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309116"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682622"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Przygotowywanie środowiska projektowego w systemie Linux
 > [!div class="op_single_selector"]
@@ -265,7 +265,7 @@ Wtyczkę środowiska Eclipse dla usługi Service Fabric można zainstalować z p
 
 2. Aby zainstalować wtyczkę sieci szkieletowej usług, wybierz pozycję **Pomoc** > w**instalacji nowego oprogramowania**.
 
-3. W polu **Work with** (Praca z) wpisz adres **https://dl.microsoft.com/eclipse**.
+3. W polu **Praca z** wpisz **\/https: /dl.microsoft.com/eclipse**.
 
 4. Wybierz pozycję **Dodaj**.
 

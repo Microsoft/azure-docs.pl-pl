@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: f8f1eb353087c5121eaafb4c8789e7a2f7638b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475125"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678455"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiwania zależności w usłudze Azure Functions na platformie .NET)
 
 Usługa Azure Functions obsługuje wzorzec projektowania oprogramowania iniekcji zależności (DI), który jest techniką osiągnięcia [inwersji kontroli (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) między klasami i ich zależnościami.
 
-- Iniekcja zależności w usłudze Azure Functions jest oparta na funkcjach iniekcji zależności .NET Core. Zaleca się znajomość [iniekcji zależności .NET Core.](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) Istnieją jednak różnice w sposobie zastępowania zależności i sposobu odczytywania wartości konfiguracji za pomocą usługi Azure Functions w planie zużycia.
+- Iniekcja zależności w usłudze Azure Functions jest oparta na funkcjach iniekcji zależności .NET Core. Zaleca się znajomość [iniekcji zależności .NET Core.](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) Istnieją różnice w sposobie zastępowania zależności i jak wartości konfiguracji są odczytywane za pomocą usługi Azure Functions w planie zużycia.
 
 - Obsługa iniekcji zależności rozpoczyna się od usługi Azure Functions 2.x.
 

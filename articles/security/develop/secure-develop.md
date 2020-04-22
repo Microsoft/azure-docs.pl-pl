@@ -13,22 +13,22 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03f5b0124f95465c4a5da5043364a2f5816dae62
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255661"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685748"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Tworzenie bezpiecznych aplikacji na platformie Azure
 W tym artykule przedstawiamy działania zabezpieczeń i kontrole do rozważenia podczas tworzenia aplikacji dla chmury. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji cyklu życia programu Microsoft [Security Development (SDL).](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) Celem jest pomoc w definiowaniu działań i usług platformy Azure, których można użyć do opracowania bezpieczniejszej aplikacji.
 
 W tym artykule uwzględnione są następujące fazy SDL:
 
-- Wdrażanie
+- Implementacja
 - Weryfikacja
 
-## <a name="implementation"></a>Wdrażanie
+## <a name="implementation"></a>Implementacja
 Faza wdrażania koncentruje się na ustanowieniu najlepszych praktyk w zakresie wczesnego zapobiegania oraz wykrywaniu i usuwaniu problemów z bezpieczeństwem z kodu.
 Załóżmy, że aplikacja będzie używana w sposób, który nie ma zamiaru być używany. Pomaga to chronić przed przypadkowym lub celowym niewłaściwym użyciem aplikacji.
 
@@ -44,7 +44,7 @@ Usługa Azure Marketplace oferuje [narzędzia deweloperskie,](https://azuremarke
 
 ### <a name="validate-and-sanitize-every-input-for-your-application"></a>Sprawdzanie poprawności i dezynfekcji każdego wejścia dla aplikacji
 
-Traktuj wszystkie dane wejściowe jako niezaufane, aby chronić aplikację przed najpopularniejszymi lukami w zabezpieczeniach aplikacji sieci web. Dane niezaufane są nośnikiem ataków iniekcyjnych. Dane wejściowe dla aplikacji zawiera parametry w adresie URL, dane wejściowe od użytkownika, dane z bazy danych lub z interfejsu API i wszystko, co jest przekazywane w tym użytkownik może potencjalnie manipulować. Aplikacja powinna sprawdzić, czy dane są syntaktycznie i semantycznie [prawidłowe,](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) zanim aplikacja użyje danych w jakikolwiek sposób (w tym wyświetlanie ich z powrotem użytkownikowi).
+Traktuj wszystkie dane wejściowe jako niezaufane, aby chronić aplikację przed najpopularniejszymi lukami w zabezpieczeniach aplikacji sieci web. Dane niezaufane są nośnikiem ataków iniekcyjnych. Dane wejściowe dla aplikacji zawiera parametry w adresie URL, dane wejściowe od użytkownika, dane z bazy danych lub z interfejsu API i wszystko, co jest przekazywane w tym użytkownik może potencjalnie manipulować. Aplikacja powinna sprawdzić, czy dane są syntaktycznie i semantycznie [prawidłowe,](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs) zanim aplikacja użyje danych w jakikolwiek sposób (w tym wyświetlanie ich z powrotem użytkownikowi).
 
 Sprawdź poprawność danych wejściowych na wczesnym etapie przepływu danych, aby upewnić się, że tylko poprawnie utworzone dane wejdą do przepływu pracy. Nie chcesz, aby nieprawidłowo sformułowane dane utrwalały się w bazie danych lub wyzwalały usterkę w składniku podrzędnym.
 

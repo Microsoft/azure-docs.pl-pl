@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7a91f61302b5944e69f71c3cfee2f41cd87b809f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 947286a7238e3ddf2aebe66c6ea87e0e1cf8a853
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309373"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677712"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Platforma tożsamości firmy Microsoft i przepływ OAuth 2.0 w imieniu
 
@@ -27,9 +27,7 @@ OAuth 2.0 On-Behalf-Of flow (OBO) służy przypadku użycia, gdy aplikacja wywo�
 W tym artykule opisano sposób programowania bezpośrednio względem protokołu w aplikacji.  Jeśli to możliwe, zaleca się użycie obsługiwanych bibliotek uwierzytelniania firmy Microsoft (MSAL) zamiast tego do [uzyskiwania tokenów i wywoływania zabezpieczonych interfejsów API sieci Web](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Zapoznaj się również z [przykładowymi aplikacjami korzystającymi z programu MSAL](sample-v2-code.md).
 
 > [!NOTE]
->
-> - Punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje wszystkich scenariuszy i funkcji. Aby ustalić, czy należy używać punktu końcowego platformy tożsamości firmy Microsoft, przeczytaj o [ograniczeniach platformy tożsamości firmy Microsoft](active-directory-v2-limitations.md). 
-> - Od maja 2018 r. niektóre `id_token` pochodzące przepływ niejawny nie mogą być używane dla przepływu OBO. Aplikacje jednostronicowe (SPA) należy przekazać token **dostępu** do klienta poufnego warstwy środkowej do wykonywania przepływów OBO zamiast tego. Aby uzyskać więcej informacji o tym, którzy klienci mogą wykonywać wywołania OBO, zobacz [ograniczenia](#client-limitations).
+> Od maja 2018 r. niektóre `id_token` pochodzące przepływ niejawny nie mogą być używane dla przepływu OBO. Aplikacje jednostronicowe (SPA) należy przekazać token **dostępu** do klienta poufnego warstwy środkowej do wykonywania przepływów OBO zamiast tego. Aby uzyskać więcej informacji o tym, którzy klienci mogą wykonywać wywołania OBO, zobacz [ograniczenia](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Diagram protokołu
 
@@ -186,10 +184,10 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Uzyskanie zgody na aplikację klasy średniej
 
-W zależności od architektury lub użycia aplikacji można rozważyć różne strategie dla zapewnienia, że przepływ OBO zakończy się pomyślnie. We wszystkich przypadkach ostatecznym celem jest zapewnienie odpowiedniej zgody jest udzielana, tak aby aplikacja kliencka może wywołać aplikację warstwy środkowej, a aplikacja warstwy środkowej ma uprawnienia do wywoływania zasobu zaplecza. 
+W zależności od architektury lub użycia aplikacji można rozważyć różne strategie dla zapewnienia, że przepływ OBO zakończy się pomyślnie. We wszystkich przypadkach ostatecznym celem jest zapewnienie odpowiedniej zgody jest udzielana, tak aby aplikacja kliencka może wywołać aplikację warstwy środkowej, a aplikacja warstwy środkowej ma uprawnienia do wywoływania zasobu zaplecza.
 
 > [!NOTE]
-> Wcześniej system kont Microsoft (konta osobiste) nie obsługiwał pola "Znana aplikacja kliencka", ani nie mógł wykazywać połączonej zgody.  To zostało dodane i wszystkie aplikacje na platformie tożsamości firmy Microsoft można użyć znanego podejścia aplikacji klienckiej dla gettign zgody na wywołania OBO. 
+> Wcześniej system kont Microsoft (konta osobiste) nie obsługiwał pola "Znana aplikacja kliencka", ani nie mógł wykazywać połączonej zgody.  To zostało dodane i wszystkie aplikacje na platformie tożsamości firmy Microsoft można użyć znanego podejścia aplikacji klienckiej dla gettign zgody na wywołania OBO.
 
 ### <a name="default-and-combined-consent"></a>/.default i łączna zgoda
 

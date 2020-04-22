@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260022"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676408"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Śledzenie i rejestrowanie zdarzeń dla usługi Azure Data Box i Azure Data Box Heavy
 
@@ -24,7 +24,7 @@ W poniższej tabeli przedstawiono podsumowanie kroków zamówienia Data Box lub 
 | Etap zamówienia pola danych       | Narzędzie do śledzenia i audytu                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Tworzenie zamówienia               | [Konfigurowanie kontroli dostępu do zamówienia za pośrednictwem RBAC](#set-up-access-control-on-the-order)                                                    |
-| Zamówienie przetworzone            | [Śledzenie zamówienia](#track-the-order) za pośrednictwem <ul><li> Portal Azure </li><li> Witryna internetowa firmy spedycyjnej </li><li>Powiadomienia e-mail</ul> |
+| Zamówienie przetworzone            | [Śledzenie zamówienia](#track-the-order) za pośrednictwem <ul><li> Azure Portal </li><li> Witryna internetowa firmy spedycyjnej </li><li>Powiadomienia e-mail</ul> |
 | Konfigurowanie urządzenia              | Dostęp do poświadczeń urządzenia zalogowanych w [dziennikach aktywności](#query-activity-logs-during-setup)                                              |
 | Kopiowanie danych na urządzenie        | [Wyświetlanie plików *error.xml* ](#view-error-log-during-data-copy) dla kopiowania danych                                                             |
 | Przygotowanie do wysłania            | [Sprawdzanie plików BOM](#inspect-bom-during-prepare-to-ship) lub plików manifestu na urządzeniu                                      |
@@ -47,7 +47,7 @@ Aby ograniczyć dostęp do zamówienia, można:
 - Przypisz rolę na poziomie zamówienia. Użytkownik ma tylko te uprawnienia zdefiniowane przez role do interakcji z tej konkretnej kolejności pola danych tylko i nic więcej.
 - Przypisz rolę na poziomie grupy zasobów, użytkownik ma dostęp do wszystkich zamówień pola danych w grupie zasobów.
 
-Aby uzyskać więcej informacji na temat sugerowanego użycia RBAC, zobacz [Najważniejsze wskazówki dotyczące rbac](../role-based-access-control/overview.md#best-practice-for-using-rbac).
+Aby uzyskać więcej informacji na temat sugerowanego użycia funkcji RBAC, zobacz [Najważniejsze wskazówki dotyczące usługi Azure RBAC](../role-based-access-control/best-practices.md).
 
 ## <a name="track-the-order"></a>Śledzenie zamówienia
 

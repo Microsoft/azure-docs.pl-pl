@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 768fa9ca2080fc9a58fb321e62d8d61a608f9564
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7a0f0b96f8140118f1c74ecbd4368aac49d7ece6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415253"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684307"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Możliwości transakcji na rynku komercyjnym
 
@@ -202,11 +202,11 @@ Po wybraniu modeli cen subskrypcji lub płatności zgodnie z rzeczywistym użyci
 * Klienci zazwyczaj kupują za pomocą umowy Enterprise Agreement lub umowy płatności zgodnie z rzeczywistym użyciem karty kredytowej. Typ umowy określa rozliczenia, fakturowanie, zbieranie i terminy wypłat.
 
 >[!NOTE]
->Wszystkie raporty i szczegółowe informacje dotyczące opcji publikowania transakcji są dostępne za pośrednictwem sekcji Insights w witrynie Cloud Partner Portal lub Analytics w Centrum partnerów.
+>Wszystkie raporty i szczegółowe informacje dotyczące opcji publikowania transakcji są dostępne w sekcji Analytics w Centrum partnerów.
 
 #### <a name="billing-questions-and-support"></a>Pytania dotyczące rozliczeń i pomoc techniczna
 
-Aby uzyskać więcej informacji i zasad prawnych, zobacz [Umowy wydawcy](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (dostępne w portalu cloud partner).
+Aby uzyskać więcej informacji i zasad prawnych, zobacz [Umowę wydawcy](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (dostępną w Centrum partnerów).
 
 Aby uzyskać pomoc dotyczącą pytań dotyczących rozliczeń, skontaktuj się z [pomocą techniczną wydawcy portalu marketplace.](https://aka.ms/marketplacepublishersupport)
 

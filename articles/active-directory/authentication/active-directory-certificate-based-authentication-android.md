@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0427398d05cbe9f76249ec8f7c25568d566d5d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d9760624afec111a271ae5aa0ebbe5533d6ba8d6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654377"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680208"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Uwierzytelnianie oparte na certyfikatach usługi Azure Active Directory w systemie Android
 
@@ -27,7 +27,7 @@ Urządzenia z systemem Android mogą używać uwierzytelniania opartego na certy
 
 Skonfigurowanie tej funkcji eliminuje konieczność wprowadzania kombinacji nazwy użytkownika i hasła do niektórych aplikacji poczty i pakietu Microsoft Office na urządzeniu przenośnym.
 
-W tym temacie przedstawiono wymagania i obsługiwane scenariusze konfigurowania analizy administracyjnej na urządzeniu z systemem iOS(Android) dla użytkowników dzierżawców w planach usługi Office 365 Enterprise, Business, Education, US Government, China i Germany.
+W tym temacie przedstawiono wymagania i obsługiwane scenariusze konfigurowania analizy AKA na urządzeniu z systemem Android dla użytkowników dzierżawców w planach usługi Office 365 Enterprise, Business, Education, US Government, China i Germany.
 
 Ta funkcja jest dostępna w wersji zapoznawczej w planach obrony i planów federalnych usługi Office 365 dla instytucji rządowych i federalnych.
 

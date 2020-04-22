@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: ac7e721a863414cf0617177885e0ff1c9e9a35d4
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617873"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681853"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -101,6 +101,35 @@ Jeśli te dwa kroki nie pomogły, należy dowiedzieć się, czy klatki wideo są
 **Model nie znajduje się wewnątrz widoku frustum:**
 
 W wielu przypadkach model jest wyświetlany poprawnie, ale znajduje się poza frustum aparatu. Częstym powodem jest to, że model został wyeksportowany z daleko poza centrum obrotu, więc jest przycięty przez aparat daleko płaszczyzny przycinania. Pomaga programowo wysyłać zapytania do obwiedni modelu i wizualizować pole z Unity jako pole wiersza lub wydrukować jego wartości w dzienniku debugowania.
+
+Ponadto proces konwersji generuje [plik json wyjścia](../how-tos/conversion/get-information.md) wraz z przekonwertowanego modelu. Aby debugować problemy z pozycjonowaniem modelu, warto przyjrzeć się wpisowi `boundingBox` w sekcji [outputStatistics](../how-tos/conversion/get-information.md#the-outputstatistics-section):
+
+```JSON
+{
+    ...
+    "outputStatistics": {
+        ...
+        "boundingBox": {
+            "min": [
+                -43.52,
+                -61.775,
+                -79.6416
+            ],
+            "max": [
+                43.52,
+                61.775,
+                79.6416
+            ]
+        }
+    }
+}
+```
+
+Obwiednia jest opisana `min` `max` jako i pozycja w przestrzeni 3D, w metrach. Tak więc współrzędna 1000,0 oznacza, że jest oddalona o 1 kilometr od pochodzenia.
+
+Mogą wystąpić dwa problemy z tą obwiednią, które prowadzą do niewidocznej geometrii:
+* **Pole może być daleko od środka,** więc obiekt jest całkowicie przycięty ze względu na dalekie przycinanie płaszczyzny. Wartości `boundingBox` w tym przypadku będzie `min = [-2000, -5,-5], max = [-1990, 5,5]`wyglądać następująco: , przy użyciu dużego odsunięcia na osi x jako przykład tutaj. Aby rozwiązać ten problem, `recenterToOrigin` włącz opcję w [konfiguracji konwersji modelu](../how-tos/conversion/configure-model-conversion.md).
+* **Pole może być wyśrodkowane, ale mają zbyt duże rzędy wielkości.** Oznacza to, że choć kamera zaczyna się w środku modelu, jego geometria jest przycięta we wszystkich kierunkach. Typowe `boundingBox` wartości w tym przypadku `min = [-1000,-1000,-1000], max = [1000,1000,1000]`będą wyglądać następująco: . Przyczyną tego typu problemu jest zwykle niezgodność skali jednostkowej. Aby skompensować, należy określić [wartość skalowania podczas konwersji](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) lub oznaczyć model źródłowy za pomocą odpowiednich jednostek. Skalowanie można również zastosować do węzła głównego podczas ładowania modelu w czasie wykonywania.
 
 **Potok renderowania Unity nie zawiera haków renderowania:**
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 29ac9239b8dc87b1ed12fc8333bf5201fe8fa204
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: a1229ee389b41625554fb2869089b08a3cb9cb6d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617123"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676510"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Zarządzanie podręcznikami runbook w usłudze Azure Automation
 
@@ -46,11 +46,11 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 Nowy element runbook można utworzyć w usłudze Azure Automation, importując skrypt programu PowerShell lub przepływ pracy programu PowerShell (**ps1),** wyeksportowany element runbook graficzny (**.graphrunbook**) lub skrypt Python2 (**.py**).  Należy określić [typ elementów runbook,](automation-runbook-types.md) który jest tworzony podczas importowania, biorąc pod uwagę następujące zagadnienia.
 
-* Plik **.ps1,** który nie zawiera przepływu pracy, można zaimportować do [wiązki roboczej programu PowerShell](automation-runbook-types.md#powershell-runbooks) lub [do systemu runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Jeśli importujesz go do uruchomieniu pracę programu PowerShell, zostanie on przekonwertowany na przepływ pracy. W takim przypadku komentarze są uwzględniane w zestawie runbook, aby opisać zmiany, które zostały wprowadzone.
+* Plik **ps1,** który nie zawiera przepływu pracy, można zaimportować do wiązka pracy programu [PowerShell](automation-runbook-types.md#powershell-runbooks) ani do systemu [runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Jeśli importujesz go do uruchomieniu pracę programu PowerShell, zostanie on przekonwertowany na przepływ pracy. W takim przypadku komentarze są uwzględniane w zestawie runbook, aby opisać zmiany, które zostały wprowadzone.
 
-* Plik **ps1** zawierający przepływ pracy programu PowerShell można zaimportować tylko do [wiązki roboczej programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Jeśli plik zawiera wiele przepływów pracy programu PowerShell, importowanie nie powiedzie się. Każdy przepływ pracy należy zapisać we własnym pliku i zaimportować oddzielnie.
+* Do [wiązka pracy przepływu programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks)można zaimportować tylko plik **ps1** zawierający przepływ pracy programu PowerShell . Jeśli plik zawiera wiele przepływów pracy programu PowerShell, importowanie nie powiedzie się. Każdy przepływ pracy należy zapisać we własnym pliku i zaimportować oddzielnie.
 
-* Plik **.ps1** zawierający przepływ pracy programu PowerShell nie powinien być importowany do [śmiętu programu PowerShell,](automation-runbook-types.md#powershell-runbooks)ponieważ aparat skryptów programu PowerShell nie może go rozpoznać.
+* Nie należy importować pliku **ps1** zawierającego przepływ pracy programu PowerShell do [ego księgi runbook programu PowerShell,](automation-runbook-types.md#powershell-runbooks)ponieważ aparat skryptów programu PowerShell nie może go rozpoznać.
 
 * Plik **.graphrunbook** można zaimportować tylko do nowego [graficznego programu runbook](automation-runbook-types.md#graphical-runbooks). Należy zauważyć, że element runbook graficzny można utworzyć tylko z pliku **.graphrunbook.**
 

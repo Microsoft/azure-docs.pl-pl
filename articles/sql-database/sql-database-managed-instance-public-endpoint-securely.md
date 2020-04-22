@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f11c19ba33ee2fbae0fef265371bedad2fe29cb7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73821741"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684953"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Bezpieczne korzystanie z wystąpienia zarządzanego usługi Azure SQL Database z publicznymi punktami końcowymi
 
@@ -35,7 +35,7 @@ Chociaż nie jest to obowiązkowe, typowy model wdrażania dla wystąpienia zarz
 
 ## <a name="secure-data-in-motion"></a>Bezpieczne dane w ruchu
 
-Ruch danych wystąpienia zarządzanego jest zawsze szyfrowany, jeśli sterownik klienta obsługuje szyfrowanie. Dane wysyłane między wystąpieniem zarządzanym a innymi maszynami wirtualnymi platformy Azure lub usługami platformy Azure nigdy nie pozostawiają szkieletu platformy Azure. Jeśli istnieje połączenie między wystąpieniem zarządzanym a siecią lokalną, zaleca się użycie usługi Azure ExpressRoute z komunikacją równorzędną firmy Microsoft. Usługa ExpressRoute pomaga uniknąć przenoszenia danych przez publiczny Internet. W przypadku łączności prywatnej wystąpienia zarządzanego można używać tylko prywatnej komunikacji równorzędnej.
+Ruch danych wystąpienia zarządzanego jest zawsze szyfrowany, jeśli sterownik klienta obsługuje szyfrowanie. Dane wysyłane między wystąpieniem zarządzanym a innymi maszynami wirtualnymi platformy Azure lub usługami platformy Azure nigdy nie pozostawiają szkieletu platformy Azure. Jeśli istnieje połączenie między wystąpieniem zarządzanym a siecią lokalną, zaleca się użycie usługi Azure ExpressRoute. Usługa ExpressRoute pomaga uniknąć przenoszenia danych przez publiczny Internet. W przypadku łączności prywatnej wystąpienia zarządzanego można używać tylko prywatnej komunikacji równorzędnej.
 
 ## <a name="lock-down-inbound-and-outbound-connectivity"></a>Blokowanie połączeń przychodzących i wychodzących
 

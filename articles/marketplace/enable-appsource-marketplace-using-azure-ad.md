@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 45855038e60dcdc3be4f98cfdceed69df5e8c946
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2f33fc8b1bdd15b53ad9130b5cc598dd6d5ee1a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286323"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684624"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Włączanie możliwości publikowania ofert w witrynach AppSource i Marketplace z użyciem usługi Azure Active Directory
 
@@ -38,7 +38,7 @@ Różne [opcje wyświetlania i typy ofert](https://docs.microsoft.com/azure/mark
 | Usługa Azure Apps (szablon rozwiązania)  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy |
 | Aplikacje zarządzane  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie |
 | SaaS  | Nie | Tak | Tak | Tak |
-| Kontenery  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie |
+| Containers  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie |
 | Usługi konsultingowe  | Nie | Nie dotyczy | Nie dotyczy | Nie dotyczy |
 
 Aby uzyskać więcej informacji na temat wymagań technicznych SaaS, zobacz [SaaS aplikacje Oferta Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
@@ -87,5 +87,10 @@ Użyj usługi Azure AD do obsługi jednej z następujących akcji:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Upewnij się, że [zarejestrowałeś](https://azuremarketplace.microsoft.com/sell)się w portalu Azure Marketplace .
-- Zobacz, [jak utworzyć konto Centrum partnerów,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) aby uzyskać więcej informacji na temat tworzenia lub uzupełniania oferty.
+Jeśli jeszcze tego nie zrobiłeś, 
+
+- [Dowiedz się więcej](https://azuremarketplace.microsoft.com/sell) o rynku.
+
+Aby zarejestrować się w Centrum partnerów, rozpocznij tworzenie nowej oferty lub pracę nad istniejącą:
+
+- [Zaloguj się do Centrum partnerów,](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) aby utworzyć lub uzupełnić ofertę.

@@ -3,31 +3,22 @@ title: Konfigurowanie urządzenia migracji platformy Azure za pomocą skryptu
 description: Dowiedz się, jak skonfigurować urządzenie migracji platformy Azure za pomocą skryptu
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: faed7f96ea8c1850af5523d35f9f891011a48df8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 0c4d85909bbfa623b5ad8590e973250474d9d95a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537716"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676312"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurowanie urządzenia za pomocą skryptu
 
-W tym artykule opisano sposób [konfigurowania urządzenia migracji platformy Azure](deploy-appliance.md) przy użyciu skryptu instalatora programu PowerShell dla maszyn wirtualnych VMware i maszyn wirtualnych funkcji Hyper-V. Jeśli chcesz skonfigurować urządzenie dla serwerów fizycznych, zapoznaj się [z tym artykułem](how-to-set-up-appliance-physical.md).
+W tym [artykule](deploy-appliance.md) należy utworzyć urządzenie migracji platformy Azure do oceny/migracji maszyn wirtualnych i maszyn wirtualnych z programem HyperMware. Uruchom skrypt, aby utworzyć urządzenie i sprawdź, czy można połączyć się z platformą Azure. 
 
+Urządzenie można wdrożyć dla maszyn wirtualnych vmware i funkcji Hyper-V za pomocą skryptu lub przy użyciu szablonu pobranego z witryny Azure portal. Korzystanie ze skryptu jest przydatne, jeśli nie można utworzyć maszyny Wirtualnej przy użyciu pobranego szablonu.
 
-Urządzenie można wdrożyć przy użyciu kilku metod:
-
-
-- Korzystanie z szablonu dla maszyn wirtualnych VMware (OVA) lub maszyn wirtualnych z użyciem funkcji Hyper-V (VHD).
-- Korzystanie ze skryptu. Jest to metoda opisana w tym artykule. Skrypt zawiera:
-    - Alternatywa dla konfigurowania urządzenia przy użyciu szablonu OVA, do oceny i bezagentowej migracji maszyn wirtualnych VMware.
-    - Alternatywa dla konfigurowania urządzenia przy użyciu szablonu VHD do oceny i migracji maszyn wirtualnych funkcji Hyper-V.
-    - Do oceny serwerów fizycznych (lub maszyn wirtualnych, które mają być migrowane jako serwery fizyczne), skrypt jest jedyną metodą konfigurowania urządzenia.
-    - Sposób wdrażania urządzenia w usłudze Azure Dla Instytucji Rządowych.
-
-
-Po utworzeniu urządzenia można sprawdzić, czy można połączyć się z usługą Azure Migrate. Następnie skonfiguruj urządzenie po raz pierwszy i zarejestruj go w projekcie migracji platformy Azure.
-
+- Aby użyć szablonu, postępuj zgodnie z samouczkami dla [VMware](tutorial-prepare-vmware.md) lub [Hyper-V](tutorial-prepare-hyper-v.md).
+- Aby skonfigurować urządzenie dla serwerów fizycznych, można używać tylko skryptu. Postępuj zgodnie [z tym artykułem](how-to-set-up-appliance-physical.md).
+- Aby skonfigurować urządzenie w chmurze platformy Azure dla instytucji rządowych, wykonaj [ten artykuł](deploy-appliance-script-government.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -55,24 +46,15 @@ Przed wdrożeniem pliku jest bezpieczny, zanim go wdrożysz.
 1. Na maszynie, na którą pobrano plik, otwórz okno wiersza polecenia administratora.
 2. Uruchom następujące polecenie, aby wygenerować skrót dla spakowany plik
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Przykład użycia w chmurze publicznej:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-    - Przykład użycia chmury rządów:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip```
+    - Przykład: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+3. Sprawdź wygenerowaną wartość mieszania. Najnowsza wersja urządzenia:
 
-3. Sprawdź wygenerowane wartości skrótu:
+    **Algorytm** | **Wartość skrótu**
+    --- | ---
+    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-    - Dla chmury publicznej (dla najnowszej wersji urządzenia):
 
-        **Algorytm** | **Wartość skrótu**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-
-    - Dla platformy Azure dla instytucji rządowych (dla najnowszej wersji urządzenia):
-
-        **Algorytm** | **Wartość skrótu**
-          --- | ---
-          MD5 | 6316bcc8bc932204295bfe33f4be3949
-          
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 
@@ -92,15 +74,14 @@ Aby uruchomić skrypt:
 2. Uruchom program PowerShell na komputerze z uprawnieniami administratora (podwyższone).
 3. Zmień katalog programu PowerShell na folder zawierający zawartość wyodrębnione z pobranego pliku spakowane.
 4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób:
-    - Dla chmury publicznej:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
-    - Dla platformy Azure dla instytucji rządowych:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
    
 5. Po pomyślnym uruchomieniu skryptu uruchamia aplikację internetową urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli wystąpią jakiekolwiek problemy, przejrzyj dzienniki skryptów w witrynie C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
 
 ### <a name="verify-access"></a>Weryfikowanie dostępu
 
-Upewnij się, że urządzenie może łączyć się z adresami URL platformy Azure dla [publicznych](migrate-appliance.md#public-cloud-urls) i [chmur rządowych](migrate-appliance.md#government-cloud-urls.
-
+Upewnij się, że urządzenie może łączyć się z adresami URL platformy Azure dla chmury [publicznej.](migrate-appliance.md#public-cloud-urls)
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Konfigurowanie urządzenia dla funkcji Hyper-V
 
@@ -120,24 +101,14 @@ Przed wdrożeniem pliku jest bezpieczny, zanim go wdrożysz.
 1. Na maszynie, na którą pobrano plik, otwórz okno wiersza polecenia administratora.
 2. Uruchom następujące polecenie, aby wygenerować skrót dla spakowany plik
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Przykład użycia w chmurze publicznej:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-    - Przykład użycia chmury rządów:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+    - Przykład: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 
-3. Sprawdź wygenerowane wartości skrótu:
+3. Sprawdź wygenerowane wartości skrótu. Najnowsza wersja urządzenia:
 
-    - Dla chmury publicznej (dla najnowszej wersji urządzenia):
-
-        **Algorytm** | **Wartość skrótu**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-
-    - Dla platformy Azure dla instytucji rządowych (dla najnowszej wersji urządzenia):
-
-        **Algorytm** | **Wartość skrótu**
-          --- | ---
-          MD5 | 717f8b9185f565006b5aff0215ecadac
-          
+    **Algorytm** | **Wartość skrótu**
+    --- | ---
+    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 
@@ -156,22 +127,17 @@ Aby uruchomić skrypt:
 1. Wyodrębnij spakowany plik do folderu na komputerze, w który będzie obsługiwał urządzenie. Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu migracji platformy Azure.
 2. Uruchom program PowerShell na komputerze z uprawnieniami administratora (podwyższone).
 3. Zmień katalog programu PowerShell na folder zawierający zawartość wyodrębnione z pobranego pliku spakowane.
-4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób:
-    - Dla chmury publicznej:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
-    - Dla platformy Azure dla instytucji rządowych:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ```
+4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
    
 5. Po pomyślnym uruchomieniu skryptu uruchamia aplikację internetową urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli wystąpią jakiekolwiek problemy, przejrzyj dzienniki skryptów w witrynie C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
 
 ### <a name="verify-access"></a>Weryfikowanie dostępu
 
-Upewnij się, że urządzenie może łączyć się z adresami URL platformy Azure dla [publicznych](migrate-appliance.md#public-cloud-urls) i [chmur rządowych](migrate-appliance.md#government-cloud-urls.
-
-
+Upewnij się, że urządzenie może łączyć się z adresami URL platformy Azure dla chmury [publicznej.](migrate-appliance.md#public-cloud-urls)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o konfigurowaniu urządzenia za pomocą szablonu lub serwerów fizycznych, zapoznaj się z tymi artykułami:
+Po wdrożeniu urządzenia należy skonfigurować go po raz pierwszy i zarejestrować go w projekcie migracji platformy Azure.
 
 - Skonfiguruj urządzenie dla [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
 - Skonfiguruj urządzenie dla [funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
-- Skonfiguruj urządzenie dla [serwerów fizycznych](how-to-set-up-appliance-physical.md).

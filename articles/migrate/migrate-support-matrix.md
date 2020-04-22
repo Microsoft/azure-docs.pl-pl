@@ -2,14 +2,14 @@
 title: Macierz pomocy technicznej migracji platformy Azure
 description: Zawiera podsumowanie ustawień pomocy technicznej i ograniczeń dla usługi Azure Migrate.
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: 0f766bf95bb7e26d942e7dde3f315bbef6d5dc5c
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 44a971894f53a3f31c068b3c3ed4912bc7e00dab
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535200"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680693"
 ---
 # <a name="azure-migrate-support-matrix"></a>Macierz pomocy technicznej migracji platformy Azure
 
@@ -25,6 +25,8 @@ W tabeli podsumowano obsługiwane scenariusze odnajdywania, oceny i migracji.
 **Ocena lokalna** | Oceniaj obciążenia lokalne i dane uruchomione na maszynach wirtualnych VMware, maszynach wirtualnych funkcji Hyper V i serwerach fizycznych. Oceniaj przy użyciu usługi Azure Migrate Server Assessment i Microsoft Data Migration Assistant (DMA), a także innych narzędzi i ofert isv.
 **Migracja lokalna na platformę Azure** | Migrowanie obciążeń i danych uruchomionych na serwerach fizycznych, maszynach wirtualnych VMware, maszynach wirtualnych funkcji Hyper V, serwerach fizycznych i chmurowych maszynach wirtualnych na platformie Azure. Migruj przy użyciu usługi Azure Migrate Server Assessment i Usługa migracji bazy danych azure (DMS), a także innych narzędzi i ofert usługodawców internetowych.
 
+> [!NOTE]
+> Obecnie narzędzia isv nie można wysyłać danych do usługi Azure Migrate w usłudze Azure dla instytucji rządowych. Można użyć zintegrowanych narzędzi firmy Microsoft lub używać narzędzi partnerskich niezależnie.
 
 ## <a name="supported-tools"></a>Obsługiwane narzędzia
 
@@ -93,7 +95,7 @@ Stany Zjednoczone | Środkowe stany USA lub zachodnie stany USA 2
 **Zadanie** | **Geografia** | **Szczegóły**
 --- | --- | ---
 Tworzenie projektu | Stany Zjednoczone | Metadane są przechowywane w us Gov Arizona, US Gov Virginia
-Ocena docelowa | Stany Zjednoczone | Regiony docelowe: US Gov Arizona, US Gov Virginia/US Gov Texas
+Ocena docelowa | Stany Zjednoczone | Regiony docelowe: US Gov Arizona, US Gov Virginia, US Gov Texas
 Replikacja docelowa | Stany Zjednoczone | Regiony docelowe: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
 

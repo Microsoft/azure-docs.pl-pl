@@ -1,6 +1,6 @@
 ---
-title: Diagnozowanie procesu roboczego hybrydowego systemu Linux — usługa Azure Update Management
-description: Dowiedz się, jak rozwiązywać problemy i rozwiązywać problemy z hybrydowym systemem roboczym usługi Azure Automation w systemie Linux obsługującym zarządzanie aktualizacjami.
+title: Rozwiązywanie problemów z agentem aktualizacji systemu Linux w usłudze Azure Automation Update Management
+description: Dowiedz się, jak rozwiązywać problemy z agentem aktualizacji systemu Linux i windows przy użyciu rozwiązania Do zarządzania aktualizacjami.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bba1c7e89a9c3bb1c9aa1567e36dd71a40f14636
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278300"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679070"
 ---
-# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Zrozumienie i rozwiązanie kondycji procesu roboczego hybrydowego systemu Linux do zarządzania aktualizacjami
+# <a name="troubleshoot-linux-update-agent-issues"></a>Rozwiązywanie problemów z agentem aktualizacji systemu Linux
 
-Może istnieć wiele powodów, dla których komputer nie jest wyświetlany **jako gotowy** w zarządzaniu aktualizacjami. W zarządzanie aktualizacjami można sprawdzić kondycję agenta administracyjnego hybrydowego systemu runbook, aby określić podstawowy problem. W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla komputerów platformy Azure z witryny Azure portal i komputerów innych niż Azure w [scenariuszu offline.](#troubleshoot-offline)
+Może istnieć wiele powodów, dla których komputer nie jest wyświetlany jako gotowy (zdrowy) w zarządzaniu aktualizacjami. W zarządzanie aktualizacjami można sprawdzić kondycję agenta administracyjnego hybrydowego systemu runbook, aby określić podstawowy problem. W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla komputerów platformy Azure z witryny Azure portal i komputerów innych niż Azure w [scenariuszu offline.](#troubleshoot-offline) 
 
 Poniższa lista to trzy stany gotowości, w których może znajdować się maszyna:
 
-* **Gotowy** — hybrydowy proces roboczy żyła pracy jest wdrażany i był ostatnio widziany mniej niż 1 godzinę temu.
-* **Rozłączony** — hybrydowy proces roboczy uruchomieniu jest wdrożony i był ostatnio widziany ponad 1 godzinę temu.
-* **Nie skonfigurowano** — nie znaleziono lub nie zostało ukończone dołączanie.
+* Gotowy — hybrydowy proces roboczy żyła pracy jest wdrażany i był ostatnio widziany mniej niż 1 godzinę temu.
+* Rozłączony — hybrydowy proces roboczy uruchomieniu jest wdrożony i był ostatnio widziany ponad 1 godzinę temu.
+* Nie skonfigurowano — nie znaleziono lub nie zostało ukończone dołączanie.
 
 > [!NOTE]
 > Może wystąpić niewielkie opóźnienie między tym, co pokazuje portal Azure i bieżącego stanu komputera.
 
 ## <a name="start-the-troubleshooter"></a>Uruchamianie narzędzia do rozwiązywania problemów
 
-W przypadku komputerów platformy Azure kliknięcie łącza **Rozwiązywanie problemów** w kolumnie **Gotowość agenta aktualizacji** w portalu uruchamia stronę **Agent aktualizacji rozwiązywania problemów.** W przypadku komputerów innych niż platformy Azure łącze prowadzi do tego artykułu. Zapoznaj się z instrukcjami offline, aby rozwiązać problem z komputerem nienawiązanym z platformą Azure.
+W przypadku komputerów platformy Azure kliknięcie łącza **Rozwiązywanie problemów** w kolumnie **Gotowość agenta aktualizacji** w portalu uruchamia stronę Agent aktualizacji rozwiązywania problemów. W przypadku komputerów innych niż platformy Azure łącze prowadzi do tego artykułu. Zapoznaj się z instrukcjami offline, aby rozwiązać problem z komputerem nienawiązanym z platformą Azure.
 
 ![strona listy maszyn wirtualnych](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> Kontrole wymagają maszyny Wirtualnej do uruchomienia. Jeśli maszyna wirtualna nie jest uruchomiona, zostanie wyświetlony przycisk **uruchom maszynę wirtualną**.
+> Kontrole wymagają maszyny Wirtualnej do uruchomienia. Jeśli maszyna wirtualna nie jest uruchomiona, zostanie wyświetlony przycisk **Rozpocznij maszynę wirtualną.**
 
-Na stronie **Agent rozwiązywania problemów z aktualizacją** kliknij pozycję **Uruchom czeki**, aby uruchomić narzędzie do rozwiązywania problemów. Narzędzie do rozwiązywania problemów używa [polecenia Uruchom](../../virtual-machines/linux/run-command.md) do uruchomienia skryptu na komputerze w celu zweryfikowania zależności. Po zakończeniu narzędzia do rozwiązywania problemów zwraca wynik kontroli.
+Na stronie Agent rozwiązywania problemów z aktualizacją kliknij pozycję **Uruchom czeki**, aby uruchomić narzędzie do rozwiązywania problemów. Narzędzie do rozwiązywania problemów używa [polecenia Uruchom](../../virtual-machines/linux/run-command.md) do uruchomienia skryptu na komputerze w celu zweryfikowania zależności. Po zakończeniu narzędzia do rozwiązywania problemów zwraca wynik kontroli.
 
 ![Strona Rozwiązywanie problemów](../media/update-agent-issues-linux/troubleshoot-page.png)
 

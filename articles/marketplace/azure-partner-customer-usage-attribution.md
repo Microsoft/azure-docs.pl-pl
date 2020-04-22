@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 5fec72ce5f86c1bee9ec0e978e458f5be454c8e3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: e061baa8e7eb73bae0a78f4215f0d48610e85fcb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256590"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686729"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atrybucja partnera i użycia klienta w portalu Marketplace
 
@@ -31,7 +31,7 @@ Atrybucja użycia klienta obsługuje trzy opcje wdrażania:
 >
 >- Atrybucja użycia klienta jest dla nowych wdrożeń i NIE obsługuje tagowanie istniejących zasobów, które zostały już wdrożone.
 >
->- Atrybucja użycia klienta jest wymagana dla ofert [aplikacji platformy Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) opublikowanych w witrynie Azure Marketplace.
+>- Atrybucja użycia klienta jest wymagana dla ofert [aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md) opublikowanych w witrynie Azure Marketplace.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -75,7 +75,7 @@ Po dodaniu identyfikatora GUID do szablonu lub agenta użytkownika i zarejestrow
 
 1. Aby zarejestrować więcej niż jeden identyfikator GUID, wybierz ponownie **pozycję Dodaj identyfikator GUID śledzenia.** Na stronie pojawią się dodatkowe pola.
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="use-resource-manager-templates"></a>Używanie szablonów usługi Resource Manager
 Wiele rozwiązań partnerskich są wdrażane przy użyciu szablonów usługi Azure Resource Manager. Jeśli masz szablon Menedżera zasobów, który jest dostępny w portalu Azure Marketplace, w usłudze GitHub lub jako przewodnik Szybki start, proces modyfikowania szablonu w celu umożliwienia atrybucji użycia klienta jest prosty.
@@ -83,7 +83,7 @@ Wiele rozwiązań partnerskich są wdrażane przy użyciu szablonów usługi Azu
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat tworzenia i publikowania szablonów rozwiązań, zobacz
 > * [Utwórz i wdrudnie pierwszy szablon Menedżera zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
->* [Oferta aplikacji platformy Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+>* [Oferta aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Klip wideo: [tworzenie szablonów rozwiązań i aplikacji zarządzanych dla portalu Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 

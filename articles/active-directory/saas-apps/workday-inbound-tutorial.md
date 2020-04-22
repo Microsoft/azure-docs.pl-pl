@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7eb01f3997ac4ab2e439c00f07990c51ec3e3d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdf0cbfb91332d60516432a7a67fb10404d89113
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370366"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683847"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie workday do automatycznego inicjowania obsługi administracyjnej przez użytkowników
 
@@ -281,6 +281,7 @@ W tym kroku przyznasz grupie zabezpieczeń uprawnienia zasad "zabezpieczenia dom
     ![Zasady zabezpieczeń domeny](./media/workday-inbound-tutorial/wd_isu_06.png "Zasady zabezpieczeń domeny")  
 2. W polu tekstowym **Domena** wyszukaj następujące domeny i dodaj je do filtru jeden po drugim.  
    * *Inicjowanie obsługi administracyjnej konta zewnętrznego*
+   * *Dane pracownika: Pracownicy*
    * *Dane pracownika: Raporty pracowników publicznych*
    * *Dane osoby: Dane kontaktowe pracy*
    * *Dane pracownika: wszystkie stanowiska*
@@ -312,6 +313,7 @@ W tym kroku przyznasz grupie zabezpieczeń uprawnienia zasad "zabezpieczenia dom
    | ---------- | ---------- |
    | Pobierz i umieść | Dane pracownika: Raporty pracowników publicznych |
    | Pobierz i umieść | Dane osoby: Dane kontaktowe pracy |
+   | Get | Dane pracownika: Pracownicy |
    | Get | Dane pracownika: wszystkie stanowiska |
    | Get | Dane pracowników: Aktualne informacje o personelu |
    | Get | Dane pracownika: tytuł firmy w profilu pracownika |
@@ -451,11 +453,15 @@ W tym kroku ustanawiamy łączność z Workday i usługi Active Directory w witr
 
 1. Wypełnij sekcję **Poświadczenia administratora** w następujący sposób:
 
-   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta systemu integracji workday z dołączenie nazwy domeny dzierżawy. Powinien wyglądać mniej więcej tak: **nazwa użytkownika\@tenant_name**
+   * **Nazwa użytkownika dnia roboczego** — wprowadź nazwę użytkownika konta systemu integracji workday z dołączenie nazwy domeny dzierżawy. Powinien wyglądać mniej więcej tak: **nazwa użytkownika\@tenant_name**
 
-   * **Hasło administratora –** Wprowadź hasło konta systemu integracji Workday
+   * **Hasło dnia roboczego –** Wprowadź hasło konta systemu integracji Workday
 
-   * **Adres URL dzierżawy —** Wprowadź adres URL punktu końcowego usług sieci web workday dla dzierżawy. Ta wartość powinna https://wd3-impl-services1.workday.com/ccx/service/contoso4wyglądać następująco: , gdzie *contoso4* jest zastępowany poprawną nazwą dzierżawy i *wd3-impl* jest zastępowany ciągiem poprawnego środowiska.
+   * **Adres URL interfejsu API usług sieci Web workday —** Wprowadź adres URL punktu końcowego usług sieci web workday dla dzierżawy. Ta wartość powinna https://wd3-impl-services1.workday.com/ccx/service/contoso4wyglądać następująco: , gdzie *contoso4* jest zastępowany poprawną nazwą dzierżawy i *wd3-impl* jest zastępowany ciągiem poprawnego środowiska.
+
+     > [!NOTE]
+     > Domyślnie aplikacja używa usług Sieci Web Workday w wersji 21.1, jeśli w adresie URL nie podano żadnych informacji o wersji. Aby użyć określonej wersji interfejsu API usług Sieci Web Workday, użyj formatu adresu URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Przykład: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
 
    * **Las usługi Active Directory -** "Nazwa" domeny usługi Active Directory zarejestrowana u agenta. Użyj listy rozwijanej, aby wybrać domenę docelową do inicjowania obsługi administracyjnej. Ta wartość jest zazwyczaj ciąg jak: *contoso.com*
 
@@ -472,7 +478,7 @@ W tym kroku ustanawiamy łączność z Workday i usługi Active Directory w witr
 
    * Kliknij przycisk **Testuj połączenie.** Jeśli test połączenia zakończy się pomyślnie, kliknij przycisk **Zapisz** u góry. Jeśli to się nie powiedzie, sprawdź, czy poświadczenia Workday i poświadczenia usługi AD skonfigurowane w konfiguracji agenta są prawidłowe.
 
-     ![Portal Azure](./media/workday-inbound-tutorial/wd_1.png)
+     ![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
 
    * Po pomyślnym zapisaniu poświadczeń w sekcji **Mapowania** zostanie wyświetlone domyślne mapowanie **Synchronizuj pracowników dnia roboczego z lokalną usługą Active Directory**
 
@@ -537,7 +543,7 @@ W tej sekcji skonfigurujesz przepływ danych użytkownika z worka do usługi Act
 
 1. Aby zapisać mapowania, kliknij przycisk **Zapisz** u góry sekcji Mapowanie atrybutów.
 
-   ![Portal Azure](./media/workday-inbound-tutorial/wd_2.png)
+   ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>Poniżej znajduje się kilka przykładowych mapowań atrybutów między workday i usługą Active Directory, z niektórymi typowymi wyrażeniami
 
@@ -607,11 +613,16 @@ W poniższych sekcjach opisano kroki konfigurowania inicjowania obsługi adminis
 
 8. Wypełnij sekcję **Poświadczenia administratora** w następujący sposób:
 
-   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta systemu integracji workday z dołączenie nazwy domeny dzierżawy. Powinien wyglądać coś takiego:username@contoso4
+   * **Nazwa użytkownika dnia roboczego** — wprowadź nazwę użytkownika konta systemu integracji workday z dołączenie nazwy domeny dzierżawy. Powinien wyglądać coś takiego:username@contoso4
 
-   * **Hasło administratora –** Wprowadź hasło konta systemu integracji Workday
+   * **Hasło dnia roboczego –** Wprowadź hasło konta systemu integracji Workday
 
-   * **Adres URL dzierżawy —** Wprowadź adres URL punktu końcowego usług sieci web workday dla dzierżawy. Ta wartość powinna https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resourceswyglądać następująco: , gdzie *contoso4* jest zastępowany poprawną nazwą dzierżawy i *wd3-impl* jest zastępowany ciągiem poprawnego środowiska. Jeśli ten adres URL nie jest znany, skontaktuj się z partnerem integracyjnym lub przedstawicielem pomocy technicznej workday, aby ustalić poprawny adres URL do użycia.
+   * **Adres URL interfejsu API usług sieci Web workday —** Wprowadź adres URL punktu końcowego usług sieci web workday dla dzierżawy. Ta wartość powinna https://wd3-impl-services1.workday.com/ccx/service/contoso4wyglądać następująco: , gdzie *contoso4* jest zastępowany poprawną nazwą dzierżawy i *wd3-impl* jest zastępowany ciągiem poprawnego środowiska. Jeśli ten adres URL nie jest znany, skontaktuj się z partnerem integracyjnym lub przedstawicielem pomocy technicznej workday, aby ustalić poprawny adres URL do użycia.
+
+     > [!NOTE]
+     > Domyślnie aplikacja używa usług Sieci Web Workday w wersji 21.1, jeśli w adresie URL nie określono żadnych informacji o wersji. Aby użyć określonej wersji interfejsu API usług Sieci Web Workday, użyj formatu adresu URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Przykład: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+
 
    * **Wiadomość e-mail z powiadomieniem –** Wprowadź swój adres e-mail i zaznacz pole wyboru "Wyślij wiadomość e-mail w przypadku wystąpienia błędu".
 
@@ -737,7 +748,7 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi administracyjnej wor
 
 1. Na karcie **Inicjowanie obsługi administracyjnej** ustaw **stan inicjowania obsługi administracyjnej** **na Włączone**.
 
-2. Kliknij przycisk **Zapisz**.
+2. Kliknij pozycję **Zapisz**.
 
 3. Ta operacja rozpocznie synchronizację początkową, która może zająć zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie Workday. 
 
@@ -745,7 +756,7 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi administracyjnej wor
 
 5. Po zakończeniu synchronizacji początkowej zostanie ono napisać raport podsumowujący inspekcję na karcie **Inicjowanie obsługi administracyjnej,** jak pokazano poniżej.
 
-   ![Portal Azure](./media/workday-inbound-tutorial/wd_3.png)
+   ![Azure Portal](./media/workday-inbound-tutorial/wd_3.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
 
@@ -807,9 +818,13 @@ Ta funkcja nie jest obecnie obsługiwana. Zalecane obejście jest wdrożenie skr
 
 Rozwiązanie korzysta obecnie z następujących interfejsów API workday:
 
-* Get_Workers (wersja 21.1) do pobierania informacji o pracownikach
-* Maintain_Contact_Information (wersja 26.1) dla funkcji Stora e-mail pracy
-* Update_Workday_Account (wersja 31.2) dla funkcji zapisywania nazwy użytkownika
+* Format **adresu URL interfejsu API usług sieci Web usługi Workday** używany w sekcji Poświadczenia **administratora** określa wersję interfejsu API używaną do Get_Workers
+  * Jeśli format adresu URL to:\#\#\#\#\.https://\.com/ccx/service/tenantName , a następnie jest używany interfejs API w wersji 21.1. 
+  * Jeśli format adresu URL to:\#\#\#\#\.https://\.com/ccx/service/tenantName/Human\_Resources , a następnie jest używany interfejs API w wersji 21.1 
+  * Jeśli format adresu URL to:\#\#\#\#\.\.https:// workday com/ccx/service/tenantName/Human\_Resources/v\# \# \. \# , używana jest określona wersja interfejsu API. (Przykład: jeśli określono wersja 34.0, to jest używany.)  
+   
+* Funkcja writeback wiadomości e-mail w dniu roboczym używa Maintain_Contact_Information (wersja 26.1) 
+* Funkcja writeback nazwy użytkownika w dniu roboczym używa Update_Workday_Account (wersja 31.2) 
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>Czy mogę skonfigurować dzierżawę HCM workday z dwoma dzierżawami usługi Azure AD?
 
@@ -848,7 +863,7 @@ Sugerując nowy pomysł, sprawdź, czy ktoś inny już zasugerował podobną fun
 * Przejdź do menu**Odinstalowywanie lub zmienianie** menu Program **w Panelu sterowania** -> 
 * Poszukaj wersji odpowiadającej wpisowi **Agenta aprowizującego usługi Microsoft Azure AD Connect**
 
-  ![Portal Azure](./media/workday-inbound-tutorial/pa_version.png)
+  ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>Czy firma Microsoft automatycznie wypycha aktualizacje agenta inicjowania obsługi administracyjnej?
 
@@ -1135,7 +1150,7 @@ Po kliknięciu dowolnego z rekordów dziennika inspekcji zostanie otwarta strona
 
   Jeśli występują problemy z wyrażeń mapowania atrybutów lub przychodzące dane Workday ma problemy (na przykład: pusta lub null wartość dla wymaganych atrybutów), a następnie można zaobserwować błąd na tym etapie z ErrorCode podając szczegóły błędu.
 
-* Rekord **eksportu usługi AD:** Ten rekord dziennika wyświetla wynik operacji tworzenia konta usługi AD wraz z wartościami atrybutów ustawionymi w procesie. Użyj informacji w sekcji *Szczegóły dodatkowe* rekordu dziennika, aby rozwiązać problemy z operacją tworzenia konta. Poniżej przedstawiono przykładowy rekord wraz ze wskaźnikami interpretacji każdego pola. W sekcji "Dodatkowe szczegóły" "Nazwa zdarzenia" jest ustawiona na "EntryExportAdd", "JoiningProperty" jest ustawiona na wartość pasującego atrybutu ID, "SourceAnchor" jest ustawiona na WorkdayID (WID) skojarzone z rekordem, a "TargetAnchor" jest ustawiona na wartość wartość atrybutu AD "ObjectGuid" nowo utworzonego użytkownika. 
+* Rekord **eksportu usługi AD:** Ten rekord dziennika wyświetla wynik operacji tworzenia konta usługi AD wraz z wartościami atrybutów ustawionymi w procesie. Użyj informacji w sekcji *Szczegóły dodatkowe* rekordu dziennika, aby rozwiązać problemy z operacją tworzenia konta. Poniżej przedstawiono przykładowy rekord wraz ze wskaźnikami interpretacji każdego pola. W sekcji "Dodatkowe szczegóły" "Nazwa zdarzenia" jest ustawiona na "EntryExportAdd", "JoiningProperty" jest ustawiona na wartość atrybutu Pasujący identyfikator, "SourceAnchor" jest ustawiona na WorkdayID (WID) skojarzone z rekordem, a "TargetAnchor" jest ustawiona na wartość atrybutu AD "ObjectGuid" nowego użytkownika. 
 
   ```JSON
   ErrorCode : None // Use the error code captured here to troubleshoot AD account creation issues
@@ -1352,7 +1367,7 @@ Zapoznaj się z artykułem [Eksportowanie i importowanie konfiguracji inicjowani
 
 ## <a name="managing-personal-data"></a>Zarządzanie danymi osobowymi
 
-Rozwiązanie do inicjowania obsługi administracyjnej dnia roboczego dla usługi Active Directory wymaga zainstalowania agenta inicjowania obsługi administracyjnej na lokalnym serwerze windows, a ten agent tworzy dzienniki w dzienniku zdarzeń systemu Windows, które mogą zawierać dane osobowe w zależności od atrybutu Workday to AD Mapowania. Aby spełnić zobowiązania dotyczące prywatności użytkowników, można upewnić się, że żadne dane nie są przechowywane w dziennikach zdarzeń poza 48 godzin, konfiguruje zaplanowane zadanie systemu Windows, aby wyczyścić dziennik zdarzeń.
+Rozwiązanie do inicjowania obsługi administracyjnej dnia roboczego dla usługi Active Directory wymaga zainstalowania agenta inicjowania obsługi administracyjnej na lokalnym serwerze systemu Windows, a ten agent tworzy dzienniki w dzienniku zdarzeń systemu Windows, które mogą zawierać dane osobowe w zależności od mapowania atrybutów usługi AD. Aby spełnić zobowiązania dotyczące prywatności użytkowników, można upewnić się, że żadne dane nie są przechowywane w dziennikach zdarzeń poza 48 godzin, konfiguruje zaplanowane zadanie systemu Windows, aby wyczyścić dziennik zdarzeń.
 
 Usługa inicjowania obsługi administracyjnej usługi Azure AD należy do kategorii **procesora danych** klasyfikacji RODO. Jako potok podmiotu przetwarzającego dane usługa świadczy usługi przetwarzania danych dla kluczowych partnerów i konsumentów końcowych. Usługa inicjowania obsługi administracyjnej usługi Azure AD nie generuje danych użytkownika i nie ma niezależnej kontroli nad tym, jakie dane osobowe są zbierane i jak są używane. Pobieranie danych, agregacja, analiza i raportowanie w usłudze inicjowania obsługi administracyjnej usługi Azure AD są oparte na istniejących danych przedsiębiorstwa.
 

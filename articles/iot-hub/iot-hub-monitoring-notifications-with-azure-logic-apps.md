@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68385720"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680719"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Zdalne monitorowanie i powiadomienia IoT za pomocą usługi Azure Logic Apps łączącej centrum IoT i skrzynkę pocztową
 
@@ -22,7 +22,7 @@ ms.locfileid: "68385720"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Usługa Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) może pomóc w organizowaniu przepływów pracy w usługach lokalnych i w chmurze, w co najmniej jednym przedsiębiorstwie oraz w różnych protokołach. Aplikacja logiki zaczyna się od wyzwalacza, po którym następuje jedna lub więcej akcji, które można sekwencjonować przy użyciu wbudowanych formantów, takich jak warunki i iteratory. Ta elastyczność sprawia, że aplikacje logiki idealnym rozwiązaniem IoT dla scenariuszy monitorowania IoT. Na przykład pojawienie się danych telemetrycznych z urządzenia w punkcie końcowym usługi IoT Hub może inicjować przepływy pracy aplikacji logiki w celu magazynowania danych w obiekcie blob usługi Azure Storage, wysyłać alerty e-mail z ostrzeżeniem o anomaliach danych, zaplanować wizytę technika, jeśli urządzenie zgłasza błąd , i tak dalej.
+[Usługa Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) może pomóc w organizowaniu przepływów pracy w usługach lokalnych i w chmurze, w co najmniej jednym przedsiębiorstwie oraz w różnych protokołach. Aplikacja logiki zaczyna się od wyzwalacza, po którym następuje jedna lub więcej akcji, które można sekwencjonować przy użyciu wbudowanych formantów, takich jak warunki i iteratory. Ta elastyczność sprawia, że aplikacje logiki idealnym rozwiązaniem IoT dla scenariuszy monitorowania IoT. Na przykład pojawienie się danych telemetrycznych z urządzenia w punkcie końcowym usługi IoT Hub może inicjować przepływy pracy aplikacji logiki do magazynowania danych w obiekcie blob usługi Azure Storage, wysyłać alerty e-mail, aby ostrzec o anomaliach danych, zaplanować wizytę technika, jeśli urządzenie zgłasza błąd i tak dalej.
 
 ## <a name="what-you-learn"></a>Omawiane zagadnienia
 
@@ -84,7 +84,7 @@ Utwórz przestrzeń nazw i kolejkę usługi Service Bus. W dalszej części tego
 
    ![Tworzenie obszaru nazw magistrali usług w witrynie Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-1. Wybierz **pozycję Utwórz**. Poczekaj na zakończenie wdrożenia przed przejściem do następnego kroku.
+1. Wybierz pozycję **Utwórz**. Poczekaj na zakończenie wdrożenia przed przejściem do następnego kroku.
 
 ### <a name="add-a-service-bus-queue-to-the-namespace"></a>Dodawanie kolejki usługi Service Bus do obszaru nazw
 
@@ -124,7 +124,7 @@ Dodaj niestandardowy punkt końcowy dla kolejki usługi Service Bus do centrum I
 
    ![Dodawanie punktu końcowego do centrum IoT hub w witrynie Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
-1. Wybierz **pozycję Utwórz**. Po pomyślnym utworzeniu punktu końcowego przejdź do następnego kroku.
+1. Wybierz pozycję **Utwórz**. Po pomyślnym utworzeniu punktu końcowego przejdź do następnego kroku.
 
 ### <a name="add-a-routing-rule"></a>Dodawanie reguły rozsyłania
 
@@ -142,7 +142,7 @@ Dodaj niestandardowy punkt końcowy dla kolejki usługi Service Bus do centrum I
 
    ![Dodawanie reguły routingu w witrynie Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
-1. Wybierz **pozycję Zapisz**. Okienko **Routing wiadomości** można zamknąć.
+1. Wybierz pozycję **Zapisz**. Okienko **Routing wiadomości** można zamknąć.
 
 ## <a name="create-and-configure-a-logic-app"></a>Tworzenie i konfigurowanie aplikacji logiki
 
@@ -162,7 +162,7 @@ W poprzedniej sekcji skonfigurować centrum IoT hub do kierowania komunikatów z
 
    ![Tworzenie aplikacji logiki w witrynie Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="configure-the-logic-app-trigger"></a>Konfigurowanie wyzwalacza aplikacji logiki
 
@@ -212,7 +212,7 @@ W poprzedniej sekcji skonfigurować centrum IoT hub do kierowania komunikatów z
       Pobierz informacje o SMTP dla [hotmail/Outlook.com,](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970) [Gmail](https://support.google.com/a/answer/176600?hl=en)i [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > W celu nawiązania połączenia może być konieczne wyłączenie ssl. Jeśli tak jest i chcesz ponownie włączyć SSL po nawiązaniu połączenia, zobacz opcjonalny krok na końcu tej sekcji.
+      > W celu nawiązania połączenia może być konieczne wyłączenie protokołu TLS/SSL. Jeśli tak jest i chcesz ponownie włączyć TLS po nawiązaniu połączenia, zobacz opcjonalny krok na końcu tej sekcji.
 
    1. Z listy rozwijanej **Dodaj nowy parametr** w kroku Wyślij wiadomość **e-mail** wybierz pozycję **Od**, **Do** **tematu** i **treści**. Kliknij lub naciśnij dowolne miejsce na ekranie, aby zamknąć pole wyboru.
 
@@ -224,7 +224,7 @@ W poprzedniej sekcji skonfigurować centrum IoT hub do kierowania komunikatów z
 
    1. Wybierz **pozycję Zapisz,** aby zapisać połączenie SMTP.
 
-1. (Opcjonalnie) Jeśli trzeba było wyłączyć ssl, aby nawiązać połączenie z dostawcą poczty e-mail i chcesz go ponownie włączyć, wykonaj następujące kroki:
+1. (Opcjonalnie) Jeśli trzeba było wyłączyć usługę TLS w celu nawiązania połączenia z dostawcą poczty e-mail i chcesz go ponownie włączyć, wykonaj następujące czynności:
 
    1. W okienku **aplikacji Logika** w obszarze **Narzędzia programistyczne**wybierz pozycję **Połączenia interfejsu API**.
 

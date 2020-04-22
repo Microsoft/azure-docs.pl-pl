@@ -12,12 +12,12 @@ ms.date: 12/17/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6021348160b338bc3a153764968f6c846a644cd1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f559dc0da8680a6cd3243b5ee12c3145244c9c2c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535863"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677863"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Platforma tożsamości firmy Microsoft i przepływ poświadczeń klienta OAuth 2.0
 
@@ -26,9 +26,6 @@ Można użyć [oauth 2.0 poświadczeń klienta udzielić](https://tools.ietf.org
 W tym artykule opisano sposób programowania bezpośrednio względem protokołu w aplikacji. Jeśli to możliwe, zaleca się użycie obsługiwanych bibliotek uwierzytelniania firmy Microsoft (MSAL) zamiast tego do [uzyskiwania tokenów i wywoływania zabezpieczonych interfejsów API sieci Web](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Zapoznaj się również z [przykładowymi aplikacjami korzystającymi z programu MSAL](sample-v2-code.md).
 
 Poświadczenia klienta OAuth 2.0 udzielają informacji umożliwia usłudze sieci web (klientowi poufnemu) używanie własnych poświadczeń zamiast personifikacji użytkownika do uwierzytelniania podczas wywoływania innej usługi sieci web. W tym scenariuszu klient jest zazwyczaj usługą sieci web warstwy środkowej, usługą demona lub witryną sieci web. Aby uzyskać wyższy poziom pewności, platforma tożsamości firmy Microsoft umożliwia również usłudze wywołującej używanie certyfikatu (zamiast udostępnionego klucza tajnego) jako poświadczenia.
-
-> [!NOTE]
-> Punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje wszystkich scenariuszy i funkcji usługi Azure AD. Aby ustalić, czy należy używać punktu końcowego platformy tożsamości firmy Microsoft, przeczytaj o [ograniczeniach platformy tożsamości firmy Microsoft](active-directory-v2-limitations.md).
 
 W bardziej typowym *trzynożnym OAuth*aplikacja kliencka otrzymuje uprawnienia dostępu do zasobu w imieniu określonego użytkownika. Uprawnienie jest delegowane od użytkownika do aplikacji, zwykle podczas procesu [zgody.](v2-permissions-and-consent.md) Jednak w poświadczeń klienta *(dwunożny OAuth)* przepływ, uprawnienia są przyznawane bezpośrednio do samej aplikacji. Gdy aplikacja przedstawia token do zasobu, zasób wymusza, że sama aplikacja ma autoryzację do wykonywania akcji, a nie użytkownika.
 

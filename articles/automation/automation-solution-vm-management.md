@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 968e609772e08814a9943734d30c16bf6f5972e8
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 369e3bcf4e5913f4a3ff82206d1e24a206db3f34
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604707"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681310"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Uruchamianie/zatrzymywania maszyn wirtualnych poza godzinami pracy w usłudze Azure Automation
 
@@ -120,7 +120,7 @@ Wszystkie nadrzędne elementy `WhatIf` runbook zawierają parametr. Po ustawieni
 W poniższej tabeli wymieniono zmienne utworzone na koncie automatyzacji. Modyfikuj tylko zmienne poprzedzone . `External` Modyfikowanie zmiennych poprzedzonych `Internal` powoduje niepożądane efekty.
 
 > [!NOTE]
-> Ograniczenia dotyczące nazwy maszyny Wirtualnej i grupy zasobów są w dużej mierze wynikiem zmiennego rozmiaru.
+> Ograniczenia dotyczące nazwy maszyny Wirtualnej i grupy zasobów są w dużej mierze wynikiem zmiennego rozmiaru. Zobacz [Zasoby zmienne w usłudze Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
 
 |Zmienna | Opis|
 |---------|------------|
@@ -159,8 +159,8 @@ Nie włączaj wszystkich harmonogramów, ponieważ może to spowodować utworzen
 |Schedule_AutoStop_CreateAlert_Parent | Co 8 godzin | Uruchamia **AutoStop_CreateAlert_Parent** runbook co 8 godzin, co z kolei zatrzymuje wartości `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames`oparte `External_ExcludeVMNames` na maszynie Wirtualnej w programach i zmiennych. Alternatywnie można określić listę maszyn wirtualnych oddzielonych przecinkami przy użyciu parametru. `VMList`|
 |Scheduled_StopVM | Definiowane przez użytkownika, codziennie | Uruchamia **ScheduledStopStart_Parent** runbook z parametrem `Stop` każdego dnia o określonej godzinie.Automatycznie zatrzymuje wszystkie maszyny wirtualne, które spełniają reguły zdefiniowane przez zasoby zmiennych.Włącz powiązany harmonogram **Scheduled-StartVM**.|
 |Scheduled_StartVM | Definiowane przez użytkownika, codziennie | Uruchamia **ScheduledStopStart_Parent** runbook z wartością parametru `Start` każdego dnia o określonej godzinie. Automatycznie uruchamia wszystkie maszyny wirtualne, które spełniają reguły zdefiniowane przez zasoby zmiennych.Włącz powiązany harmonogram **Scheduled-StopVM**.|
-|Sekwencyjny-StopVM | 1:00 (UTC), w każdy piątek | Uruchamia Sequenced_Parent runbook z wartością parametru `Stop` w każdy piątek o określonej godzinie.Sekwencyjnie (rosnąco) zatrzymuje wszystkie maszyny wirtualne z tagiem **SequenceStop** zdefiniowane przez odpowiednie zmienne. Aby uzyskać więcej informacji na temat wartości znaczników i zmiennych zasobów, zobacz sekcję Księgi ekscjowe.Włącz powiązany **harmonogram, Sequenced-StartVM**.|
-|Sekwencjonowane-StartVM | 13:00 (UTC), w każdy poniedziałek | Uruchamia **SequencedStopStart_Parent** runbook z wartością parametru `Start` każdego poniedziałku o określonej godzinie. Sekwencyjnie (malejąco) uruchamia wszystkie maszyny wirtualne z tagiem **SequenceStart** zdefiniowane przez odpowiednie zmienne. Aby uzyskać więcej informacji na temat wartości znaczników i zasobów zmiennych, zobacz [Programy runbook .](#runbooks) Włącz powiązany **harmonogram, Sequenced-StopVM**.
+|Sekwencyjny-StopVM | 1:00 (UTC), w każdy piątek | Uruchamia **Sequenced_StopStop_Parent** runbook z wartością parametru `Stop` w każdy piątek o określonej godzinie.Sekwencyjnie (rosnąco) zatrzymuje wszystkie maszyny wirtualne z tagiem **SequenceStop** zdefiniowane przez odpowiednie zmienne. Aby uzyskać więcej informacji na temat wartości znaczników i zmiennych zasobów, zobacz [Programy runbook](#runbooks).Włącz powiązany **harmonogram, Sequenced-StartVM**.|
+|Sekwencjonowane-StartVM | 13:00 (UTC), w każdy poniedziałek | Uruchamia **SequencedStopStart_Parent** runbook z wartością parametru `Start` każdego poniedziałku o określonej godzinie. Sekwencyjnie (malejąco) uruchamia wszystkie maszyny wirtualne z tagiem **SequenceStart** zdefiniowane przez odpowiednie zmienne. Aby uzyskać więcej informacji na temat wartości znaczników i zasobów zmiennych, zobacz [Programy runbook](#runbooks). Włącz powiązany **harmonogram, Sequenced-StopVM**.
 
 ## <a name="use-of-the-solution-with-classic-vms"></a>Zastosowanie rozwiązania z klasycznymi maszynami wirtualnymi
 

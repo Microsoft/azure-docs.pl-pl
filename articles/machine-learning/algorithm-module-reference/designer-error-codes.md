@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: cc04d11475568af92ba6a617a1eb6b2b51accb45
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481670"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684696"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Wyjątki i kody błędów dla projektanta (wersja zapoznawcza)
 
@@ -145,6 +145,7 @@ Poniżej znajdują się kody błędów modułów w projektancie.
 |Wartość parametru "{arg_name}" powinna być mniejsza lub równa wartości parametru "{upper_boundary_parameter_name}".|
 |Parametr "{arg_name}" ma wartość "{actual_value}", która powinna być mniejsza lub równa {upper_boundary}.|
 |Wartość parametru "{arg_name}" {actual_value} powinna być mniejsza lub równa wartości parametru "{upper_boundary_parameter_name}" {upper_boundary}.|
+|Wartość parametru "{arg_name}" {actual_value} powinna być mniejsza lub równa {upper_boundary_meaning} wartość {upper_boundary}.|
 
 
 ## <a name="error-0008"></a>Błąd 0008  
@@ -253,8 +254,8 @@ Jeśli model został przeszkolony przy użyciu dowolnego z wyspecjalizowanych mo
 
 |Typ modelu|Moduł szkoleniowy| Moduł punktacji|
 |----|----|----|
-|każdy klasyfikator|[Train Model (Trenuj model)](train-model.md) |[Klasyfikacja modelu](score-model.md)|
-|dowolny model regresji|[Train Model (Trenuj model)](train-model.md) |[Klasyfikacja modelu](score-model.md)|
+|każdy klasyfikator|[Trenowanie modelu](train-model.md) |[Klasyfikacja modelu](score-model.md)|
+|dowolny model regresji|[Trenowanie modelu](train-model.md) |[Klasyfikacja modelu](score-model.md)|
 
 <!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
 | anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
@@ -271,6 +272,7 @@ Jeśli model został przeszkolony przy użyciu dowolnego z wyspecjalizowanych mo
 |Uczący się nieprawidłowego typu jest przekazywany.|
 |Uczący się "{arg_name}" ma nieprawidłowy typ.|
 |Uczący się "{arg_name}" ma nieprawidłowy typ "{learner_type}".|
+|Uczący się nieprawidłowego typu jest przekazywany. Komunikat o wyjątku: {exception_message}|
 
 
 ## <a name="error-0014"></a>Błąd 0014  
@@ -393,6 +395,7 @@ W przypadku kolumn, które mają być używane do grupowania lub kategoryzacji, 
 |Wartości w kolumnie nie są sortowane.|
 |Wartości w kolumnie "{col_index}" nie są sortowane.|
 |Wartości w kolumnie "{col_index}" zestawu danych "{dataset}" nie są sortowane.|
+|Wartości w argucie "{arg_name}" nie są sortowane w kolejności "{sorting_order}".|
 
 
 ## <a name="error-0020"></a>Błąd 0020  
@@ -633,6 +636,7 @@ Może się również zdarzyć, że kolumna etykiety jest obecny w zestawie danyc
 |------------------------|
 |Argument musi być skończony.|
 |"{arg_name}" nie jest skończony.|
+|Kolumna "{column_name}" zawiera nieskończone wartości.|
 
 
 ## <a name="error-0034"></a>Błąd 0034  
@@ -1074,7 +1078,7 @@ Komunikat o błędzie z gałęzi jest zwykle zgłaszane z powrotem w dzienniku b
 + Sprawdź, czy kwerenda działa poprawnie poza usługą Azure Machine Learning, logując się do konsoli gałęzi klastra Hadoop i uruchamiając kwerendę.  
 + Spróbuj umieścić komentarze w skrypcie hive w osobnym wierszu, w przeciwieństwie do mieszania instrukcji wykonywalnych i komentarzy w jednym wierszu.  
 
-### <a name="resources"></a>Zasoby
+### <a name="resources"></a>Resources
 
 Zobacz następujące artykuły, aby uzyskać pomoc dotyczącą zapytań hive dotyczących uczenia maszynowego:
 
@@ -1492,6 +1496,18 @@ Rozwiązanie:
 |------------------------------------------------------------|
 |Given TransformationDirectory jest nieprawidłowy.|
 |TransformationDirectory "{arg_name}" jest nieprawidłowy. Powód: {reason}. Uruchom ponownie eksperyment szkoleniowy, który generuje plik Transform. Jeśli eksperyment szkoleniowy został usunięty, należy ponownie utworzyć i zapisać plik przekształcania.|
+|TransformationDirectory "{arg_name}" jest nieprawidłowy. Powód: {reason}. {troubleshoot_hint}|
+
+
+## <a name="error-0159"></a>Błąd 0159
+ Wyjątek występuje, jeśli przekazywane do katalogu modelu modułu jest nieprawidłowy. 
+
+|Komunikaty o wyjątkach|
+|------------------------------------------------------------|
+|Given ModelDirectory jest nieprawidłowy.|
+|ModelDirectory "{arg_name}" jest nieprawidłowy.|
+|ModelDirectory "{arg_name}" jest nieprawidłowy. Powód: {reason}.|
+|ModelDirectory "{arg_name}" jest nieprawidłowy. Powód: {reason}. {troubleshoot_hint}|
 
 
 ## <a name="error-1000"></a>Błąd 1000  

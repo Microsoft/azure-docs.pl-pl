@@ -16,24 +16,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 54ddf6818b95a4037188ab222501ddfa69b28149
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587902"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686628"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Polowanie na zagrożenia za pomocą usługi Azure Sentinel
 
 Jeśli jesteś badaczem, który chce aktywnie wyszukiwać zagrożenia bezpieczeństwa, narzędzia wyszukiwania i wyszukiwania za pomocą zaawansowanego narzędzia do wyszukiwania i wyszukiwania aplikacji Azure Sentinel umożliwiają poszukiwanie zagrożeń bezpieczeństwa w źródłach danych organizacji. Jednak systemy i urządzenia zabezpieczające generują góry danych, które mogą być trudne do przeanalizowania i przefiltrowania na znaczące zdarzenia. Aby pomóc analitykom zabezpieczeń aktywnie szukać nowych anomalii, które nie zostały wykryte przez aplikacje zabezpieczeń, wbudowane zapytania myśliwskie usługi Azure Sentinel prowadzą użytkownika do zadawania właściwych pytań w celu znalezienia problemów w danych, które zostały już zainstalowane w sieci. 
 
-Na przykład jedno wbudowane zapytanie zawiera dane o najbardziej nietypowych procesach uruchomionych w infrastrukturze - nie chcesz otrzymywać alertów za każdym razem, gdy są uruchamiane, mogą być całkowicie niewinne, ale możesz przyjrzeć się zapytaniu przy okazji, aby sprawdzić, czy nie ma nic niezwykłego. 
+Na przykład jedna wbudowana kwerenda zawiera dane o najbardziej nietypowych procesach uruchomionych w infrastrukturze — nie chcesz, aby alert za każdym razem, gdy są uruchamiane, może być całkowicie niewinny, ale możesz przyjrzeć się zapytaniu przy okazji, aby sprawdzić, czy jest coś niezwykłego. 
 
 
 
 Za pomocą funkcji Azure Sentinel hunting można korzystać z następujących możliwości:
 
-- Wbudowane zapytania: Aby rozpocząć, strona początkowa zawiera wstępnie załadowane przykłady zapytań zaprojektowanych w celu rozpoczęcia pracy i zapoznania się z tabelami i językiem zapytań. Te wbudowane zapytania myśliwskie są opracowywane przez badaczy zabezpieczeń firmy Microsoft w sposób ciągły, dodawanie nowych zapytań i dostrajanie istniejących zapytań, aby zapewnić punkt wejścia, aby wyszukać nowe wykrycia i dowiedzieć się, gdzie rozpocząć polowanie na początki nowych ataków. 
+- Wbudowane zapytania: Aby rozpocząć, strona początkowa zawiera wstępnie załadowane przykłady zapytań zaprojektowanych w celu rozpoczęcia pracy i zapoznania się z tabelami i językiem zapytań. Te wbudowane zapytania myśliwskie są opracowywane przez badaczy zabezpieczeń firmy Microsoft w sposób ciągły, dodawanie nowych zapytań i dostosowywanie istniejących zapytań, aby zapewnić punkt wejścia, aby wyszukać nowe wykrycia i dowiedzieć się, gdzie rozpocząć polowanie na początki nowych ataków. 
 
 - Zaawansowany język zapytań z IntelliSense: Zbudowany na górze języka zapytań, który zapewnia elastyczność, której potrzebujesz, aby przejść polowanie na wyższy poziom.
 
@@ -54,7 +54,7 @@ Za pomocą funkcji Azure Sentinel hunting można korzystać z następujących mo
 
 3. Wykonaj szybki przegląd kwerendy podstawowej w okienku szczegółów kwerendy lub kliknij pozycję **Wyświetl wynik kwerendy,** aby otworzyć kwerendę w usłudze Log Analytics. U dołu przejrzyj dopasowania do kwerendy.
 
-4.  Kliknij wiersz i wybierz **dodaj zakładkę,** aby dodać wiersze do zbadania - możesz to zrobić dla wszystkiego, co wygląda podejrzanie. 
+4.    Kliknij wiersz i wybierz **dodaj zakładkę,** aby dodać wiersze do zbadania - możesz to zrobić dla wszystkiego, co wygląda podejrzanie. 
 
 5. Następnie wróć do głównej strony **polowania** i kliknij kartę **Zakładki,** aby wyświetlić wszystkie podejrzane działania. 
 
@@ -66,7 +66,7 @@ Za pomocą funkcji Azure Sentinel hunting można korzystać z następujących mo
 
 ## <a name="query-language"></a>Język zapytań 
 
-Polowanie w usłudze Azure Sentinel opiera się na języku zapytań Kusto. Aby uzyskać więcej informacji na temat języka kwerendy i obsługiwanych operatorów, zobacz [Odwołanie do języka kwerendy](https://docs.loganalytics.io/docs/Language-Reference/).
+Polowanie w usłudze Azure Sentinel opiera się na języku zapytań Kusto. Aby uzyskać więcej informacji na temat języka kwerendy i obsługiwanych operatorów, zobacz [Odwołanie do języka kwerendy](/azure/azure-monitor/log-query/get-started-queries).
 
 ## <a name="public-hunting-query-github-repository"></a>Publiczne zapytanie łowieckie Repozytorium GitHub
 

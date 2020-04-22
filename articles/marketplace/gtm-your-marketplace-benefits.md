@@ -1,18 +1,18 @@
 ---
-title: Usługi typu "przejdź na rynek" - korzyści z rynku komercyjnego | Azure
+title: Usługi typu "przejdź na rynek" - korzyści z rynku komercyjnego | Azure Marketplace
 description: Przejdź do rynku — zasoby firmy Microsoft, z których mogą korzystać wydawcy, są opisane w tej sekcji.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/08/2020
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: d34fb989e7f656df93faae63ef4dc42ed0fe5abe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5c8b2f5cb03c7e1777137100547fbbbaf107f0b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286238"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684534"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Korzyści z komercyjnego rynku
 
@@ -24,7 +24,7 @@ Gdy zaczniesz korzystać z oferty, zespół Marketplace Rewards skontaktuje się
 
 Nagrody Marketplace są przeznaczone do wspierania Cię na określonym etapie rozwoju, począwszy od działań uświadamianych, które pomogą Ci zdobyć pierwszych klientów. W miarę rozwoju na rynku, można odblokować nowe korzyści mające na celu pomóc konwersji klientów i zamknąć oferty. 
 
-Program tworzy pozytywną pętlę sprzężenia zwrotnego: korzyści na każdym etapie rozwoju mają na celu przejście do następnego etapu, co pozwala rozwijać firmę wśród klientów firmy Microsoft, z polem Microsoftu i za pośrednictwem kanału Microsoftu, wykorzystując rynku komercyjnego jako platformy. 
+Program tworzy pozytywną pętlę sprzężenia zwrotnego: korzyści na każdym etapie rozwoju są przeznaczone do przejścia do następnego etapu, co pozwala na rozwój firmy dla klientów firmy Microsoft, z pola Microsoft, a za pośrednictwem kanału firmy Microsoft poprzez wykorzystanie komercyjnego rynku jako platformy. 
 
 Korzyści są zróżnicowane w zależności od tego, czy oferta to [Lista, Wersja próbna czy Transact.](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option)
 
@@ -44,7 +44,7 @@ Twoje kroki, aby rozpocząć, są łatwe:
 2. Zespół dociera do "właściciela" lub "głównego kontaktu" na ofertę marketplace. Najlepszym rozwiązaniem jest wprowadzanie pojedynczej lub regularnie sprawdzanego aliasu: wiadomości wysyłane info@company.com do aliasów, które często gubią się.
 
 >[!Note]
->Jeśli twoja oferta jest dostępna dłużej niż cztery tygodnie i nie otrzymałeś wiadomości, sprawdź w organizacji, kto jest właścicielem danej oferty, zaglądając do portalu Cloud Partner Portal lub w Centrum partnerów. Powinni mieć komunikację i kolejne kroki. <br> <br> Jeśli nie możesz ustalić właściciela lub właściciel opuścił firmę, możesz podnieść bilet pomocy technicznej w punkcie https://aka.ms/marketplacepublishersupport.
+>Jeśli twoja oferta jest dostępna dłużej niż cztery tygodnie i nie otrzymałeś wiadomości, sprawdź w organizacji, kto jest właścicielem danej oferty, zaglądając do Centrum partnerów. Powinni mieć komunikację i kolejne kroki. <br> <br> Jeśli nie możesz ustalić właściciela lub właściciel opuścił firmę, możesz podnieść bilet pomocy technicznej w punkcie https://aka.ms/marketplacepublishersupport.
 
 Zakres dostępnych działań rozszerza się wraz z rozwojem oferty na rynku. Wszystkie aukcje otrzymują podstawowy poziom rekomendacji optymalizacji i promocji w ramach samoobsługowej wiadomości e-mail z zasobami i najlepszymi praktykami.
 
@@ -96,7 +96,7 @@ Firma Microsoft zastrzega sobie prawo do odwołania i zakończenia świadczenia 
 * nielegalnej działalności, korzystając z ich aukcji na rynku.
 * są wykreślone z rynku komercyjnego. 
 * wykorzystać swoją ofertę do pokazynia treści marketingowych lub innych treści naruszających prawa autorskie lub prawa do znaków towarowych.
-* naruszać zasad [programu sponsorowania platformy Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), w tym między innymi za pomocą finansowania sponsoringu platformy Azure dla własnych operacji wewnętrznych lub wydobywania bitcoin. 
+* naruszać zasad [programu sponsorowania platformy Azure,](https://azure.microsoft.com/offers/ms-azr-0036p/)w tym między innymi za pomocą finansowania sponsoringu platformy Azure dla własnych operacji wewnętrznych lub wydobywania Bitcoin. 
 
 ### <a name="offer-availability"></a>Dostępność oferty
 
@@ -106,9 +106,7 @@ Transakcje, które okazały się fałszywe, nie będą wliczane do [warstwy prog
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli ofertę utworzono w [portalu Cloud Partner Portal,](https://cloudpartner.azure.com)zaloguj się, aby utworzyć lub skonfigurować ofertę.
-
-Jeśli ofertę utworzono w [Centrum partnerów,](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview)zaloguj się, aby utworzyć lub skonfigurować ofertę.
+Jeśli ofertę utworzono w [Centrum partnerów,](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)zaloguj się, aby utworzyć lub skonfigurować ofertę.
 
 Przejrzyj [zasoby samoobsługowe dostępne](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)dla Ciebie .
 

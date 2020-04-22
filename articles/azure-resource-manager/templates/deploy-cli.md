@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów za pomocą interfejsu wiersza polecenia platformy Azure i szablonu
 description: Użyj usługi Azure Resource Manager i azure cli do wdrażania zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 241b84bc7b8c0b213e74cd7ee5f3d7668fe0d808
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 8ee15699a085178add05137be895fe6b660b715b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282651"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685700"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure
 
@@ -168,7 +168,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Obsługa rozszerzonego formatu JSON
 
-Aby wdrożyć szablon z wielowierszowymi ciągami `--handle-extended-json-format` lub komentarzami, należy użyć przełącznika.  Przykład:
+Aby wdrożyć szablon z ciągami wielowierszowymi lub komentarzami przy użyciu interfejsu wiersza polecenia `--handle-extended-json-format` platformy Azure w wersji 2.3.0 lub starszej, należy użyć przełącznika.  Przykład:
 
 ```json
 {

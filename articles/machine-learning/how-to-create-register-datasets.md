@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: feaa0c22ec98d170a65e5c9bee119ba3904a95cf
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: cc7a8df80e719173c7818055ab8771ddd7f73691
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673740"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682771"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Tworzenie zestawów danych usługi Azure Machine Learning
 
@@ -164,7 +164,7 @@ sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'
 
 W tabelaryczne zestawy danych można określić sygnaturę czasową z kolumny w danych lub z dowolnego miejsca, w której są przechowywane dane wzorca ścieżki, aby włączyć cechę szeregów czasowych. Ta specyfikacja pozwala na łatwe i wydajne filtrowanie według czasu.
 
-Użyj [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metody w`TabularDataset` klasie, aby określić kolumnę sygnatury czasowej i włączyć filtrowanie według czasu. Aby uzyskać więcej informacji, zobacz [tabelaryczne demo interfejsu API związane z szeregami czasowymi z danymi pogodowymi NOAA](https://aka.ms/azureml-tsd-notebook).
+Użyj [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metody w`TabularDataset` klasie, aby określić kolumnę sygnatury czasowej i włączyć filtrowanie według czasu. Aby uzyskać więcej informacji, zobacz [tabelaryczne demo interfejsu API związane z szeregami czasowymi z danymi pogodowymi NOAA](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
 ```Python
 # create a TabularDataset with time series trait
@@ -261,7 +261,7 @@ Wybierz zestaw danych, zaznaczając jego kafelek. (Możesz filtrować za pomocą
 
 ![Wybieranie zestawu danych](./media/how-to-create-register-datasets/open-datasets-2.png)
 
-Wybierz nazwę, pod którą ma się zarejestrować zestaw danych, i opcjonalnie filtruj dane przy użyciu dostępnych filtrów. W takim przypadku dla zestawu danych dni wolnych od pracy filtrujesz okres do jednego roku i kod kraju tylko do STANÓW Zjednoczonych. Wybierz **pozycję Utwórz**.
+Wybierz nazwę, pod którą ma się zarejestrować zestaw danych, i opcjonalnie filtruj dane przy użyciu dostępnych filtrów. W takim przypadku dla zestawu danych dni wolnych od pracy filtrujesz okres do jednego roku i kod kraju tylko do STANÓW Zjednoczonych. Wybierz pozycję **Utwórz**.
 
 ![Ustawianie params zestawu danych i tworzenie zestawu danych](./media/how-to-create-register-datasets/open-datasets-3.png)
 

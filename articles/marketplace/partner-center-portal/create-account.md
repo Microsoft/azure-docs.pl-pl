@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/14/2020
-ms.openlocfilehash: d62d05cdbda86af3c3a38757877624e87f6d1719
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1bd71a4fb150d544125703679cf0fa0b8951e1eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383770"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684134"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Tworzenie konta w portalu marketplace komercyjnego w Centrum partnerskim
 
@@ -164,7 +164,7 @@ Organizacja może mieć wielu wydawców skojarzonych z kontem w portalu Commerci
 
 Inny użytkownik z tej samej dzierżawy usługi Azure Active Directory może dodać nowego wydawcę, wykonując poniższe kroki:
 
-1. Rozpocznij rejestrację w [Centrum partnerów firmy Microsoft](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
+1. Rozpocznij rejestrację w [Centrum partnerów firmy Microsoft](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
 2. Wybierz **pozycję Zaloguj się za pomocą konta służbowego** i wprowadź służbowy adres e-mail.
 3. Wybierz przycisk **Dodaj wydawcę.**
 4. Wybierz identyfikator MPN, który chcesz skojarzyć z wydawcą.

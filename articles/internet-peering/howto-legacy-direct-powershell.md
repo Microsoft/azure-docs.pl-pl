@@ -1,39 +1,39 @@
 ---
-title: Konwertowanie starszego bezpośredniego równorzędnego zasobu na platformę Azure przy użyciu programu PowerShell
+title: Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu programu PowerShell
 titleSuffix: Azure
-description: Konwertowanie starszego bezpośredniego równorzędnego zasobu na platformę Azure przy użyciu programu PowerShell
+description: Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu programu PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: ba41f4ad8014ba3e85174b7c32e11394f0068643
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5d2a8c910c9e384e137785bc1cd491bc85c7e7a8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75775019"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678492"
 ---
-# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-powershell"></a>Konwertowanie starszego bezpośredniego równorzędnego zasobu na platformę Azure przy użyciu programu PowerShell
+# <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu programu PowerShell
 
-W tym artykule opisano sposób konwertowania istniejącej starszej funkcji bezpośrednie komunikacji równorzędnej na zasób platformy Azure przy użyciu poleceń cmdlet programu PowerShell.
+W tym artykule opisano sposób konwertowania istniejącej starszej funkcji direct komunikacji równorzędnej na zasób platformy Azure przy użyciu poleceń cmdlet programu PowerShell.
 
-Jeśli wolisz, możesz ukończyć ten przewodnik za pomocą [portalu](howto-legacy-direct-portal.md).
+Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu [witryny](howto-legacy-direct-portal.md)Azure portal .
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-* Przed rozpoczęciem konfiguracji zapoznaj [się z wymaganiami wstępnymi](prerequisites.md) i [bezpośrednią komunikacją równorzędnej.](walkthrough-direct-all.md)
+* Przejrzyj [wymagania wstępne](prerequisites.md) i bezpośredni przewodnik [komunikacji równorzędnej](walkthrough-direct-all.md) przed rozpoczęciem konfiguracji.
 
-### <a name="working-with-azure-powershell"></a>Praca z programem Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Praca z programem Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-legacy-direct-peering-to-azure-resource"></a>Konwertowanie starszego bezpośredniego równorzędnego zasobu platformy Azure
+## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej na zasób platformy Azure
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Zaloguj się na swoje konto platformy Azure i wybierz subskrypcję
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="get-legacy-direct-peering-for-conversion"></a><a name= get></a>Uzyskaj starszą komunikację równorzędnie bezpośrednie dla konwersji
-Poniżej znajduje się przykład, aby uzyskać starsze bezpośrednie komunikacji równorzędnej w Seattle lokalizacji komunikacji równorzędnej
+### <a name="get-a-legacy-direct-peering-for-conversion"></a><a name= get></a>Uzyskaj starszą komunikację równorzędną bezpośrednią w celu konwersji
+W tym przykładzie pokazano, jak uzyskać starszą bezpośrednią komunikację równorzędną w lokalizacji komunikacji równorzędnej w Seattle.
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering `
@@ -41,7 +41,7 @@ $legacyPeering = Get-AzLegacyPeering `
 $legacyPeering
 ```
 
-Poniżej znajduje się przykładowa odpowiedź:
+Oto przykładowa odpowiedź:
 ```powershell
 Name                       :
 Sku                        : Basic_Direct_Free
@@ -79,13 +79,13 @@ ProvisionedBandwidthInMbps : 20000
 ProvisioningState          : Succeeded
 ```
 
-### <a name="convert-legacy-direct-peering"></a>Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej
+### <a name="convert-a-legacy-direct-peering"></a>Konwertowanie starszej komunikacji bezpośredniej komunikacji równorzędnej
 
 &nbsp;
 > [!IMPORTANT]
-> Należy zauważyć, że podczas konwertowania starszych komunikacji równorzędnej do zasobu azure modyfikacje nie są obsługiwane. &nbsp;
+> Podczas konwertowania starszej komunikacji równorzędnej na zasób platformy Azure modyfikacje nie są obsługiwane. &nbsp;
 
-Użyj poniższego polecenia, aby przekonwertować starsze bezpośrednie komunikacji równorzędnej do zasobu platformy Azure:
+Użyj tego polecenia, aby przekonwertować starszą komunikację równorzędną direct na zasób platformy Azure:
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -94,7 +94,7 @@ $legacyPeering[0] | New-AzPeering `
 
 ```
 
-Poniżej znajduje się przykładowa odpowiedź:
+Oto przykładowa odpowiedź:
 
 ```powershell
 Name                 : SeattleDirectPeering
@@ -111,15 +111,15 @@ Type                 : Microsoft.Peering/peerings
 Tags                 : {}
 ```
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
-Szczegółowe opisy wszystkich parametrów można uzyskać, uruchamiając następujące polecenie:
+## <a name="additional-resources"></a>Dodatkowe zasoby
+Możesz uzyskać szczegółowe opisy wszystkich parametrów, uruchamiając to polecenie:
 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
 
-Aby uzyskać więcej informacji, odwiedź [najczęściej zadawane pytania dotyczące komunikacji internet](faqs.md)
+Aby uzyskać więcej informacji, zobacz [Często zadawane pytania dotyczące komunikacji równorzędnej w Internecie](faqs.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie lub modyfikowanie komunikacji równorzędnej direct za pomocą programu PowerShell](howto-direct-powershell.md).
+* [Tworzenie lub modyfikowanie komunikacji równorzędnej direct przy użyciu programu PowerShell](howto-direct-powershell.md)

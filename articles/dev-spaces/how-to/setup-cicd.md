@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Dowiedz się, jak skonfigurować ciągłą integrację/ciągłe wdrażanie przy użyciu usługi Azure DevOps za pomocą usługi Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Usługa kontenera azure, kontenery
-ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438441"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685634"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Korzystanie z potoków ciągłej integracji/ciągłego wdrażania za pomocą obszarów Azure Dev Spaces
 
@@ -99,7 +99,7 @@ Masz teraz rozwiązanie ciągłej integracji, które automatycznie będzie tworz
 1. W przypadku **wersji domyślnej**wybierz pozycję **Najnowsze z domyślnej gałęzi potoku kompilacji ze znacznikami**.
 1. Pozostaw **tagi** puste.
 1. Ustaw **alias źródłowy** na `drop`. Wartość **aliasu źródłowego** jest używana przez wstępnie zdefiniowane zadania zwalniania, więc musi być ustawiona.
-1. Kliknij przycisk **Dodaj**.
+1. Kliknij pozycję **Add** (Dodaj).
 1. Teraz kliknij ikonę błyskawicy `drop` na nowo utworzonym źródle artefaktów, jak pokazano poniżej:
 
     ![Instalacja ciągłego wdrażania artefaktu wydania](../media/common/release-artifact-cd-setup.png)
@@ -131,7 +131,7 @@ Teraz rozpocznie się zautomatyzowany proces wydawania, wdrażając wykresy *myw
 Wydanie jest wykonywane po zakończeniu wszystkich zadań.
 
 > [!TIP]
-> Jeśli wydanie nie powiedzie się z komunikatem o błędzie, takim jak *UPGRADE NIE POWIODŁO SIĘ: limit czasu oczekiwania na warunek*, spróbuj sprawdzić zasobników w klastrze za pomocą [pulpitu nawigacyjnego Kubernetes](../../aks/kubernetes-dashboard.md). Jeśli widzisz zasobników nie można uruchomić z komunikatami o błędach, takich jak *Nie można wyciągnąć obraz "azdsexample.azurecr.io/mywebapi:122": rpc https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: error: code = Unknown desc = Odpowiedź na błąd z demona: Pobierz nieautoryzowane: wymagane uwierzytelnianie*, może to być spowodowane klastra nie został upoważniony do ściągania z rejestru kontenerów platformy Azure. Upewnij się, że [ukończono autoryzowanie klastra AKS do wycofania z](../../aks/cluster-container-registry-integration.md) wymaganego rejestru kontenerów platformy Azure.
+> Jeśli wydanie nie powiedzie się z komunikatem o błędzie, takim jak *UPGRADE NIE POWIODŁO SIĘ: limit czasu oczekiwania na warunek*, spróbuj sprawdzić zasobników w klastrze za pomocą [pulpitu nawigacyjnego Kubernetes](../../aks/kubernetes-dashboard.md). Jeśli widzisz zasobników nie można uruchomić z komunikatami o błędach, takich jak *Nie można wyciągnąć obraz "azdsexample.azurecr.io/mywebapi:122": rpc error:\/code = Unknown desc = Odpowiedź na błąd z demona: Pobierz https: /azdsexample.azurecr.io/v2/mywebapi/manifests/122: nieautoryzowane: wymagane uwierzytelnianie*, może to być spowodowane klastra nie został upoważniony do ściągania z rejestru kontenera Azure. Upewnij się, że [ukończono autoryzowanie klastra AKS do wycofania z](../../aks/cluster-container-registry-integration.md) wymaganego rejestru kontenerów platformy Azure.
 
 Masz teraz w pełni zautomatyzowany potok ciągłej integracji/ciągłego wdrażania dla rozwidlenia GitHub przykładowych aplikacji Dev Spaces. Za każdym razem, gdy zatwierdzasz i wypychasz kod, potok kompilacji będzie tworzyć i wypychać obrazy *mywebapi* i *webfrontend* do niestandardowego wystąpienia usługi ACR. Następnie potok wersji wdroży wykres Helm dla każdej aplikacji w przestrzeni _deweloperów_ w klastrze z obsługą przestrzeni deweloperskich.
 

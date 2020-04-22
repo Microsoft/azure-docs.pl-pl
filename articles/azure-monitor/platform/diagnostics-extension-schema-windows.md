@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274712"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676431"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schemat rozszerzenia diagnostyki systemu Windows
 Rozszerzenie diagnostyki platformy Azure jest agentem w usłudze Azure Monitor, który zbiera dane monitorowania z systemu operacyjnego gościa i obciążeń zasobów obliczeniowych platformy Azure. W tym artykule opisano schemat używany do konfiguracji rozszerzenia diagnostyki na maszynach wirtualnych systemu Windows i innych zasobach obliczeniowych.
@@ -170,7 +170,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
 |**Defaultevents**|Opcjonalny atrybut:<br/><br/> **eventDestination** — nazwa tabeli do przechowywania zdarzeń w|  
-|**Zdarzenie**|Wymagany atrybut:<br /><br /> **id** - Identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli do przechowywania zdarzeń w|  
+|**Wydarzenie**|Wymagany atrybut:<br /><br /> **id** - Identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli do przechowywania zdarzeń w|  
 
 
 
@@ -180,7 +180,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
 |**Defaultevents**|Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli do przechowywania zdarzeń w|  
-|**Zdarzenie**|Wymagany atrybut:<br /><br /> **id** - Identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli do przechowywania zdarzeń w|  
+|**Wydarzenie**|Wymagany atrybut:<br /><br /> **id** - Identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli do przechowywania zdarzeń w|  
 
 
 
@@ -223,9 +223,8 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Element podrzędny|Opis|  
 |-------------------|-----------------|  
-|**Datasource**|Dzienniki zdarzeń systemu Windows do zbierania. Wymagany atrybut:<br /><br /> **name** - XPath kwerendy opisujące zdarzenia systemu Windows do zebrania. Przykład:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Aby zebrać wszystkie zdarzenia, określ "*"|  
-
-
+|**Datasource**|Dzienniki zdarzeń systemu Windows do zbierania. Wymagany atrybut:<br /><br /> **name** - XPath kwerendy opisujące zdarzenia systemu Windows do zebrania. Przykład:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Aby zebrać wszystkie zdarzenia, określ "*" |
+|**Zlewozmywaki** | Dodano w 1.5. Element opcjonalny. Wskazuje lokalizację ujścia, aby również wysyłać dane diagnostyczne dla wszystkich elementów podrzędnych, które obsługują pochłaniacze. Przykładem ujścia jest Usługa Application Insights lub Event Hubs.|  
 
 
 ## <a name="logs-element"></a>Element dzienników  

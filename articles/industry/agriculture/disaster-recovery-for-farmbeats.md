@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: d64735e683ba1133e7d381a68611d204c4068026
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313114"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683891"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Odzyskiwanie po awarii dla FarmBeats
 
@@ -28,7 +28,7 @@ Poniższe sekcje zawierają informacje dotyczące sposobu konfigurowania odzyski
 
 FarmBeats przechowuje dane w trzech usługach pierwszej firmy platformy Azure, którymi są **magazyn azure,** **usługa Cosmos DB** i **time series insights.** Wykonaj następujące kroki, aby włączyć nadmiarowość danych dla tych usług do sparowanego regionu platformy Azure:
 
-1.  **Usługa Azure Storage** — postępuj zgodnie z tym wytyczną, aby włączyć nadmiarowość danych dla każdego konta magazynu we wdrożeniu FarmBbeats.
+1.  **Usługa Azure Storage** — postępuj zgodnie z tym wytyczną, aby włączyć nadmiarowość danych dla każdego konta magazynu we wdrożeniu FarmBeats.
 2.  **Usługa Azure Cosmos DB** — postępuj zgodnie z tym wytyczną, aby włączyć nadmiarowość danych dla konta usługi Cosmos DB wdrożenia FarmBeats.
 3.  **Usługa Azure Time Series Insights (TSI)** — TSI obecnie nie oferuje nadmiarowości danych. Aby odzyskać dane usługi Time Series Insights, przejdź do swojego partnera czujnika/pogody i ponownie wypchnij dane do wdrożenia FarmBeats.
 

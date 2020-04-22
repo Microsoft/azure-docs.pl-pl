@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 457979837b1c56eb85fc19c9a1fce5dc7df8c23b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b802a9c9df7e7f0c44ea66ee0061efb517b80050
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481989"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682757"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
@@ -81,7 +81,9 @@ Poniższy przykładowy szablon pokazuje, jak utworzyć obszar roboczy z trzema u
 
 * Włączanie ustawień wysokiej poufności dla obszaru roboczego
 * Włączanie szyfrowania obszaru roboczego
-* Używa istniejącej usługi Azure Key Vault
+* Używa istniejącego magazynu azure key vault do pobierania kluczy zarządzanych przez klienta
+
+Aby uzyskać więcej informacji, zobacz [Szyfrowanie w spoczynku](concept-enterprise-security.md#encryption-at-rest).
 
 ```json
 {
@@ -121,7 +123,7 @@ Poniższy przykładowy szablon pokazuje, jak utworzyć obszar roboczy z trzema u
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "hbi_workspace":{
+    "high_confidentiality":{
       "type": "string",
       "defaultValue": "false",
       "allowedValues": [
@@ -256,27 +258,31 @@ Poniższy przykładowy szablon pokazuje, jak utworzyć obszar roboczy z trzema u
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbiWorkspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('high_confidentiality')]"
       }
     }
   ]
 }
 ```
 
-Aby uzyskać identyfikator magazynu kluczy i identyfikator klucza wymaganego przez ten szablon, można użyć interfejsu wiersza polecenia platformy Azure. Następujące polecenie jest przykładem korzystania z interfejsu wiersza polecenia platformy Azure, aby uzyskać identyfikator zasobu magazynu kluczy i identyfikator URI:
+Aby uzyskać identyfikator magazynu kluczy i identyfikator klucza wymaganego przez ten szablon, można użyć interfejsu wiersza polecenia platformy Azure. Następujące polecenie otrzymuje identyfikator magazynu kluczy:
 
 ```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
 ```
 
-To polecenie zwraca wartość podobną do następującego tekstu. Pierwsza wartość to identyfikator, a druga to identyfikator URI:
+To polecenie zwraca wartość `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`podobną do .
 
-```text
-[
-  "/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault",
-  "https://mykeyvault.vault.azure.net/"
-]
+Aby uzyskać identyfikator URI dla klucza zarządzanego przez klienta, użyj następującego polecenia:
+
+```azurecli-interactive
+az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
 ```
+
+To polecenie zwraca wartość `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`podobną do .
+
+> [!IMPORTANT]
+> Po utworzeniu obszaru roboczego nie można zmienić ustawień poufnych danych, szyfrowania, identyfikatora magazynu kluczy ani identyfikatorów kluczy. Aby zmienić te wartości, należy utworzyć nowy obszar roboczy przy użyciu nowych wartości.
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 

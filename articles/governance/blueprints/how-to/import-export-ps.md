@@ -3,12 +3,12 @@ title: Importowanie i eksportowanie planów za pomocą programu PowerShell
 description: Dowiedz się, jak pracować z definicjami planu jako kodem. Udostępniaj, kontroluj źródła i zarządzaj nimi za pomocą poleceń eksportu i importu.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: dcdf48f8941198591b39d6cf89ec5e6dac7ba94c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677132"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686836"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importowanie i eksportowanie definicji planu za pomocą programu PowerShell
 
@@ -88,7 +88,7 @@ Kroki eksportowania definicji planu są proste. Eksportowanie definicji planu mo
 
 Po [wyeksportowaniu definicji planu](#export-your-blueprint-definition) lub ręcznie utworzonej definicji planu w [wymaganej strukturze folderów](#folder-structure-of-a-blueprint-definition)można zaimportować tę definicję planu do innej grupy zarządzania lub subskrypcji.
 
-Aby zapoznać się z przykładami wbudowanych definicji planu, zobacz [repozytorium Usługi Azure Blueprint GitHub.](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins)
+Aby zapoznać się z przykładami wbudowanych definicji planu, zobacz [repozytorium Usługi Azure Blueprint GitHub.](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins)
 
 - **Nazwa** [wymagane]
   - Określa nazwę nowej definicji planu
@@ -121,7 +121,7 @@ Aby uzyskać informacje na temat tworzenia zaawansowanych definicji planu, zobac
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [cyklu życia planu](../concepts/lifecycle.md).
+- Uzyskaj informacje na temat [cyklu życia strategii](../concepts/lifecycle.md).
 - Dowiedz się, jak używać [parametrów statycznych i dynamicznych](../concepts/parameters.md).
 - Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](../concepts/sequencing-order.md).
 - Dowiedz się, jak używać [blokowania zasobów strategii](../concepts/resource-locking.md).

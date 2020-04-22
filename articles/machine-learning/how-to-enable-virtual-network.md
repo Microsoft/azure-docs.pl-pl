@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: 1f3c9f86072eeedbc999946d0f846fbc3b41f94d
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: f94136ca6bfcb7e33415f2f44fdf4c44ef9f6a6f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641750"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682793"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Zabezpieczanie zadań eksperymentowania i wnioskowania usługi Azure w ramach sieci wirtualnej platformy Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -140,12 +140,13 @@ Aby użyć wystąpienia obliczeniowego usługi Azure Machine Learning lub klastr
 > * Jeśli konta usługi Azure Storage dla obszaru roboczego są również zabezpieczone w sieci wirtualnej, muszą znajdować się w tej samej sieci wirtualnej co wystąpienie lub klaster obliczeniowy usługi Azure Machine Learning. 
 
 > [!TIP]
-> Wystąpienie lub klaster obliczeniowy uczenia maszynowego automatycznie przydziela dodatkowe zasoby sieciowe w grupie zasobów zawierającej sieć wirtualną. Dla każdego wystąpienia obliczeniowego lub klastra usługa przydziela następujące zasoby:
+> Wystąpienie lub klaster obliczeniowy usługi Machine Learning automatycznie przydziela dodatkowe zasoby sieciowe __w grupie zasobów zawierającej sieć wirtualną__. Dla każdego wystąpienia obliczeniowego lub klastra usługa przydziela następujące zasoby:
 > 
 > * Jedna grupa zabezpieczeń sieci
 > * Jeden publiczny adres IP
 > * Jeden moduł równoważenia obciążenia
 > 
+> W przypadku klastrów te zasoby są usuwane (i odtworzone) za każdym razem, gdy klaster skaluje się w dół do 0 węzłów, jednak w przypadku wystąpienia zasoby są przechowywane na dopóki wystąpienie nie zostanie całkowicie usunięte (zatrzymanie nie usuwa zasobów). 
 > Te zasoby są ograniczone przez [limity zasobów](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) subskrypcji.
 
 

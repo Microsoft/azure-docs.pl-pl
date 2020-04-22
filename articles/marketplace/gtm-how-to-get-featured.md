@@ -1,18 +1,18 @@
 ---
-title: Usługi go-to-market - Jak uzyskać biorące udział w rynku | Azure
+title: Usługi go-to-market - Jak uzyskać biorące udział w rynku | Azure Marketplace
 description: Usługi przejdź do rynku — w tej sekcji opisano sposób uzyskania oferty przedstawionej w portalu Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 266070a6292e41af6ce1b4258774d20a9bd90312
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe18ca41942ff58b8d9eefef3122c90980029766
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286289"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684615"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Jak uzyskać polecane w usłudze AppSource i portalu Azure Marketplace
 
@@ -38,7 +38,7 @@ Aby poprawić swój wynik, możesz wziąć następujące elementy akcji:
 Polecane aplikacje promocje działają niezależnie od algorytmu wyszukiwania.
 
 >[!Note]
->Jeśli rozwiązanie nie jest wyświetlane poprawnie w wynikach wyszukiwania, złóż bilet pomocy technicznej za pomocą menu Pomoc w [portalu Cloud Partner Portal](https://cloudpartner.azure.com/).
+>Jeśli rozwiązanie nie jest wyświetlane poprawnie w wynikach wyszukiwania, złóż bilet pomocy technicznej za pomocą menu Pomoc w [Centrum partnerów](https://partner.microsoft.com/).
 
 Twoja pomoc gtm obejmuje również pełną bibliotekę szablonów samopomocy, treści internetowych, szkoleń i narzędzi, które pomogą Ci dalej promować swoje oferty i firmę.
 
@@ -46,6 +46,6 @@ Twoja pomoc gtm obejmuje również pełną bibliotekę szablonów samopomocy, tr
 
 Dowiedz się więcej o [korzyściach płynących z rynku komercyjnego.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)
 
-Zaloguj się do [portalu cloud partner,](https://cloudpartner.azure.com) aby utworzyć i skonfigurować ofertę.
+Zaloguj się do [Centrum partnerów,](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) aby utworzyć i skonfigurować ofertę.
 
 ---

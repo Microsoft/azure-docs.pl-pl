@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z usługi Azure Update Management z klientami programu Configuration Manager
+title: Korzystanie z usługi Azure Automation Update Management z klientami programu Configuration Manager
 description: Ten artykuł ma na celu pomóc skonfigurować program Microsoft Endpoint Configuration Manager z tego rozwiązania do wdrażania aktualizacji oprogramowania dla klientów ConfigMgr.
 services: automation
 ms.subservice: update-management
@@ -7,18 +7,18 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0ca836e3b53c3cce755d45b50fe168073f0bbaa
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 32a077c476d9669c3f32bd4040fdc8ff90156c19
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618726"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678732"
 ---
 # <a name="deploy-updates-to-microsoft-endpoint-configuration-manager-clients-with-update-management"></a>Wdrażanie aktualizacji dla klientów programu Microsoft Endpoint Configuration Manager za pomocą zarządzania aktualizacjami
 
 Klienci, którzy zainwestowali w program Microsoft Endpoint Configuration Manager w celu zarządzania komputerami, serwerami i urządzeniami przenośnymi, również polegają na jego sile i dojrzałości w zarządzaniu aktualizacjami oprogramowania w ramach cyklu zarządzania aktualizacjami oprogramowania (SUM).
 
-Zarządzane serwery systemu Windows można zgłaszać i aktualizować, tworząc i preicyjniejniejniejsną aktualizację wdrożeń oprogramowania w programie Configuration Manager, a także uzyskać szczegółowy stan zakończonych wdrożeń aktualizacji przy użyciu [rozwiązania Zarządzanie aktualizacjami](automation-update-management.md). Jeśli program Menedżer konfiguracji jest używany do raportowania zgodności aktualizacji, ale nie do zarządzania wdrożeniami aktualizacji na serwerach systemu Windows, można kontynuować raportowanie do programu Menedżer konfiguracji, podczas gdy aktualizacje zabezpieczeń są zarządzane za pomocą rozwiązania do zarządzania aktualizacjami.
+Zarządzane serwery systemu Windows można zgłaszać i aktualizować, tworząc i preicyjniejniejniejsną wdrożeń oprogramowania w programie Menedżer konfiguracji, a także uzyskać szczegółowy stan zakończonych wdrożeń aktualizacji przy użyciu [usługi Zarządzanie aktualizacjami](automation-update-management.md). Jeśli program Menedżer konfiguracji jest używany do raportowania zgodności aktualizacji, ale nie do zarządzania wdrożeniami aktualizacji na serwerach systemu Windows, można kontynuować raportowanie do programu Menedżer konfiguracji, podczas gdy aktualizacje zabezpieczeń są zarządzane za pomocą rozwiązania do zarządzania aktualizacjami.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +37,7 @@ Jeśli chcesz kontynuować zarządzanie wdrożeniami aktualizacji z programu Con
 
 1. Utwórz wdrożenie aktualizacji oprogramowania z lokacji najwyższego poziomu w hierarchii programu Menedżer konfiguracji przy użyciu procesu opisanego w [programie Wdrażanie aktualizacji oprogramowania](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates). Jedynym ustawieniem, które musi być skonfigurowane inaczej niż dla standardowego wdrożenia, jest opcja **Nie instaluj aktualizacji oprogramowania** służąca do sterowania zachowaniem pakietu wdrożeniowego podczas pobierania. To zachowanie jest zarządzane przez rozwiązanie zarządzanie aktualizacjami przez utworzenie zaplanowanego wdrożenia aktualizacji w następnym kroku.
 
-1. W usłudze Azure Automation wybierz pozycję **Zarządzanie aktualizacjami**. Utwórz nowe wdrożenie zgodnie z instrukcjami opisanymi w temacie [Tworzenie wdrożenia aktualizacji](automation-tutorial-update-management.md#schedule-an-update-deployment) i wybierz pozycję **Importowane grupy** z listy rozwijanej **Typ,** aby wybrać odpowiednią kolekcję programu Menedżer konfiguracji. Należy pamiętać o następujących ważnych punktach: a. Jeśli okno konserwacji jest zdefiniowane w wybranej kolekcji urządzeń programu Menedżer konfiguracji, członkowie kolekcji honorują go zamiast **ustawienia Czas trwania** zdefiniowanego w zaplanowanym wdrożeniu.
+1. W usłudze Azure Automation wybierz pozycję **Zarządzanie aktualizacjami**. Utwórz nowe wdrożenie zgodnie z instrukcjami opisanymi w temacie [Tworzenie wdrożenia aktualizacji](automation-tutorial-update-management.md#schedule-an-update-deployment) i wybierz pozycję **Importowane grupy** na stronie rozwijanej **Typ,** aby wybrać odpowiednią kolekcję programu Menedżer konfiguracji. Należy pamiętać o następujących ważnych punktach: a. Jeśli okno konserwacji jest zdefiniowane w wybranej kolekcji urządzeń programu Menedżer konfiguracji, członkowie kolekcji honorują go zamiast **ustawienia Czas trwania** zdefiniowanego w zaplanowanym wdrożeniu.
     b. Członkowie kolekcji docelowej muszą mieć połączenie z Internetem (bezpośrednio, za pośrednictwem serwera proxy lub za pośrednictwem bramy usługi Log Analytics).
 
 Po zakończeniu wdrażania aktualizacji za pośrednictwem usługi Azure Automation komputery docelowe, które są członkami wybranej grupy komputerów, zainstalują aktualizacje o zaplanowanym czasie z lokalnej pamięci podręcznej klienta. Możesz [wyświetlić stan wdrożenia aktualizacji](automation-tutorial-update-management.md#view-results-of-an-update-deployment), aby monitorować wyniki swojego wdrożenia.

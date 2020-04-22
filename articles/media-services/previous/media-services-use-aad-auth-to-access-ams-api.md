@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77157860"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682046"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Uzyskiwanie dostępu do interfejsu API usługi Azure Media Services przy użyciu uwierzytelniania usługi Azure AD.  
 
@@ -79,7 +79,7 @@ Na poprzednim diagramie liczby reprezentują przepływ żądań w porządku chro
        Informacje o dzierżawie można pobrać z witryny Azure portal. Umieść kursor nad nazwą zalogowanego użytkownika w prawym górnym rogu.
    * Identyfikator URI zasobu usługi Media Services. 
 
-       Ten identyfikator URI jest taki sam dla kont usługi Media https://rest.media.azure.net)Services, które znajdują się w tym samym środowisku platformy Azure (na przykład .
+       Ten identyfikator URI jest taki sam dla kont usługi Media Services,\/które znajdują się w tym samym środowisku platformy Azure (na przykład https: /rest.media.azure.net).
 
    * Identyfikator klienta aplikacji usługi Media Services (natywnej).
    * Przekierowanie identyfikatora URI aplikacji usługi Media Services (natywnej).
@@ -121,7 +121,7 @@ Na powyższej ilustracji liczby reprezentują przepływ żądań w porządku chr
        Informacje o dzierżawie można pobrać z witryny Azure portal. Umieść kursor nad nazwą zalogowanego użytkownika w prawym górnym rogu.
    * Identyfikator URI zasobu usługi Media Services. 
 
-       Ten identyfikator URI jest taki sam dla kont usługi Media Services, które znajdują się w tym samym środowisku platformy Azure (na przykład https://rest.media.azure.net).
+       Ten identyfikator URI jest taki sam dla kont usługi Media Services, które\/znajdują się w tym samym środowisku platformy Azure (na przykład https: /rest.media.azure.net).
 
    * Identyfikator URI zasobu dla usługi REST Media Services.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 320723744e1366fdc73cd0593fb0ebece03367f8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188447"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678103"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania dla usługi Azure Active Directory z wieloma dzierżawami przy użyciu zasad niestandardowych w usłudze Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Wykonaj kroki opisane w [wprowadzenie do niestandardowych zasad w usłudze Azure
 
 Aby włączyć logowanie dla użytkowników z określonej organizacji usługi Azure AD, należy zarejestrować aplikację w dzierżawie usługi Azure AD.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD (na przykład contoso.com). Wybierz **filtr Katalog + subskrypcja** w górnym menu, a następnie wybierz katalog zawierający dzierżawę.
 1. Wybierz **pozycję Wszystkie usługi** w lewym górnym rogu witryny Azure portal, a następnie wyszukaj i wybierz pozycję **Rejestracje aplikacji.**
 1. Wybierz **pozycję Nowa rejestracja**.
@@ -44,7 +44,7 @@ Aby włączyć logowanie dla użytkowników z określonej organizacji usługi Az
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Na przykład `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    Na przykład `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Wybierz pozycję **Zarejestruj**. Zarejestruj **identyfikator aplikacji (klienta)** do użycia w późniejszym kroku.
 1. Wybierz **pozycję Certyfikaty & wpisy tajne**, a następnie wybierz pozycję Nowy klucz tajny **klienta**.
@@ -54,14 +54,14 @@ Aby włączyć logowanie dla użytkowników z określonej organizacji usługi Az
 
 Jeśli chcesz uzyskać `family_name` i `given_name` oświadczeń z usługi Azure AD, można skonfigurować opcjonalne oświadczenia dla aplikacji w interfejsie użytkownika witryny azure portalu lub manifestu aplikacji. Aby uzyskać więcej informacji, zobacz [Jak podać opcjonalne oświadczenia do aplikacji usługi Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W sekcji **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz aplikację, dla której chcesz skonfigurować opcjonalne oświadczenia na liście.
-1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu (wersja zapoznawcza)**.
+1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu**.
 1. Wybierz **dodaj oświadczenie opcjonalne**.
-1. Wybierz typ tokenu, który chcesz skonfigurować.
-1. Wybierz opcjonalne oświadczenia do dodania.
-1. Kliknij przycisk **Dodaj**.
+1. Dla **typu tokenu**wybierz **id**.
+1. Wybierz opcjonalne oświadczenia `family_name` do `given_name`dodania i .
+1. Kliknij pozycję **Add** (Dodaj).
 
 ## <a name="create-a-policy-key"></a>Tworzenie klucza zasad
 
@@ -75,7 +75,7 @@ Należy przechowywać klucz aplikacji utworzony w dzierżawie usługi Azure AD B
 1. Wprowadź **nazwę** klucza zasad. Na przykład `AADAppSecret`.  Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza podczas jego tworzenia, więc jego odwołaniem w pliku XML w poniższej sekcji jest *B2C_1A_AADAppSecret*.
 1. W **pliku Secret**wprowadź klucz tajny klienta, który został nagrany wcześniej.
 1. Dla **użycia klucza**wybierz opcję `Signature`.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 

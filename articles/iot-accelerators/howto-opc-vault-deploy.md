@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f577059e1ebf70e3a9dfe9e538a9d3d49d7c8e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71199994"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686936"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Tworzenie i wdrażanie usługi zarządzania certyfikatami OPC Vault
 
@@ -90,7 +90,7 @@ Po pomyślnym wdrożeniu można rozpocząć korzystanie z usług. Zobacz [Zarzą
 
 Oto kroki tej procedury:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Przejdź do grupy zasobów, w której usługa została wdrożona.
 3. Wybierz pozycję **Usuń grupę zasobów** i potwierdź.
 4. Po krótkim czasie wszystkie wdrożone składniki usługi są usuwane.
@@ -107,7 +107,7 @@ Użyj krótkiej i prostej nazwy grupy zasobów. Nazwa jest również używana do
 
 ### <a name="website-name-already-in-use"></a>Nazwa witryny już używana
 
-Możliwe, że nazwa strony internetowej jest już używana. Należy użyć innej nazwy grupy zasobów. Nazwy hostów używane przez skrypt wdrażania https://resourcegroupname.azurewebsites.net to: i https://resourgroupname-service.azurewebsites.net.
+Możliwe, że nazwa strony internetowej jest już używana. Należy użyć innej nazwy grupy zasobów. Nazwy hostów używane przez skrypt wdrażania to:\/https: /resourcegroupname.azurewebsites.net i\/https: /resourgroupname-service.azurewebsites.net.
 Inne nazwy usług są budowane przez kombinację skrótów krótkich nazw i jest mało prawdopodobne, aby kolidować z innymi usługami.
 
 ### <a name="azure-ad-registration"></a>Rejestracja w usłudze Azure AD 

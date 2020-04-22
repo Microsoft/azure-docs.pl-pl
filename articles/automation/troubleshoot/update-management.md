@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z błędami za pomocą usługi Azure Update Management
-description: Dowiedz się, jak rozwiązywać problemy i rozwiązywać problemy z rozwiązaniem zarządzania aktualizacjami na platformie Azure.
+title: Rozwiązywanie problemów z zarządzaniem aktualizacjami automatyzacji platformy Azure
+description: Dowiedz się, jak rozwiązywać problemy i rozwiązywać problemy z rozwiązaniem zarządzania aktualizacjami w usłudze Azure Automation.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,22 +8,22 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c9ff05591c98fda8be39e32f26da484f56e0831b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 91ecff311b8820d3b97e1de0e4b4e87c150e749b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984627"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678919"
 ---
-# <a name="troubleshooting-issues-with-update-management"></a>Rozwiązywanie problemów z zarządzaniem aktualizacjami
+# <a name="troubleshoot-issues-with-the-update-management-solution"></a>Rozwiązywanie problemów z rozwiązaniem zarządzanie aktualizacjami
 
-W tym artykule omówiono rozwiązania problemów, które mogą wystąpić podczas korzystania z zarządzania aktualizacjami.
+W tym artykule omówiono problemy, które mogą wystąpić podczas korzystania z rozwiązania zarządzania aktualizacjami. Istnieje narzędzie do rozwiązywania problemów z agentem agenta hybrydowego procesu roboczego podstawowego w celu określenia podstawowego problemu. Aby dowiedzieć się więcej o narzędziu do rozwiązywania problemów, zobacz [Rozwiązywanie problemów z agentem aktualizacji systemu Windows](update-agent-issues.md) i [rozwiązywanie problemów z agentem aktualizacji systemu Linux](update-agent-issues-linux.md). Aby uzyskać inne problemy z dołączaniem, zobacz [Rozwiązywanie problemów z dołączaniem do rozwiązania](onboarding.md).
 
-Istnieje narzędzie do rozwiązywania problemów z agentem agenta hybrydowego procesu roboczego w celu określenia podstawowego problemu. Aby dowiedzieć się więcej o narzędziu do rozwiązywania problemów, zobacz [Rozwiązywanie problemów z agentem aktualizacji](update-agent-issues.md). W przypadku wszystkich innych problemów należy użyć następujących wskazówek dotyczących rozwiązywania problemów.
+>[!NOTE]
+>Jeśli znajdziesz problemy podczas dołączania rozwiązania na maszynie wirtualnej (VM), sprawdź dziennik **programu Operations Manager** w obszarze **Dzienniki aplikacji i usług** na komputerze lokalnym. Poszukaj zdarzeń o identyfikatorze zdarzenia 4502 i szczegółach zdarzenia, które zawierają `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-Jeśli znajdziesz problemy podczas dołączania rozwiązania na maszynie wirtualnej (VM), sprawdź dziennik **programu Operations Manager** w obszarze **Dzienniki aplikacji i usług** na komputerze lokalnym. Poszukaj zdarzeń o identyfikatorze zdarzenia 4502 i szczegółach zdarzenia, które zawierają `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
-
-W poniższej sekcji przedstawiono konkretne komunikaty o błędach i możliwe rozwiązania dla każdego z nich. Aby uzyskać inne problemy z dołączaniem, zobacz [Rozwiązywanie problemów z dołączaniem do rozwiązania](onboarding.md).
+>[!NOTE]
+>Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Aby uzyskać instrukcje instalacji modułu Az w hybrydowym usłudze Runbook Worker, zobacz [Instalowanie modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Dla konta automatyzacji można zaktualizować moduły do najnowszej wersji przy użyciu [jak zaktualizować moduły programu Azure PowerShell w usłudze Azure Automation.](../automation-update-azure-modules.md)
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Scenariusz: Pojawia się błąd "Nie można włączyć rozwiązania aktualizacji"
 
@@ -299,7 +299,7 @@ Ten błąd może wystąpić z następujących powodów:
 
 * Istnieje zduplikowana nazwa komputera z różnymi identyfikatorami komputerów źródłowych. W tym scenariuszu występuje, gdy maszyna wirtualna o określonej nazwie komputera jest tworzona w różnych grupach zasobów i raportuje do tego samego obszaru roboczego agenta logistycznego w subskrypcji.
 
-* Obraz maszyny Wirtualnej jest wbudowany może pochodzić z sklonowanego komputera, który nie został przygotowany z przygotowaniem systemu (sysprep) z zainstalowanym agentem monitorowania firmy Microsoft (MMA).
+* Obraz maszyny Wirtualnej jest wbudowany może pochodzić z sklonowanego komputera, który nie został przygotowany z przygotowaniem systemu (sysprep) z zainstalowanym agentem usługi Log Analytics dla systemu Windows.
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -351,17 +351,16 @@ Ten błąd występuje podczas tworzenia wdrożenia aktualizacji, które ma maszy
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Użyj następującego obejścia, aby zaplanować te elementy. Aby utworzyć harmonogram, można użyć polecenia cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) z `ForUpdate` parametrem. Następnie użyj polecenia cmdlet [konfiguracji New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) i przekaż `NonAzureComputer` maszyny w innej dzierżawie do parametru. W poniższym przykładzie pokazano, jak to zrobić:
+Użyj następującego obejścia, aby zaplanować te elementy. Do utworzenia harmonogramu można użyć polecenia cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) z `ForUpdateConfiguration` parametrem. Następnie należy użyć polecenia cmdlet [konfiguracji New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) i `NonAzureComputer` przekazać maszyny w innej dzierżawie do parametru. W poniższym przykładzie pokazano, jak to zrobić:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
 
 $startTime = ([DateTime]::Now).AddMinutes(10)
 
-$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+$s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
 
-New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
 ## <a name="scenario-unexplained-reboots"></a><a name="node-reboots"></a>Scenariusz: Niewyjaśnione ponowne uruchomienie
