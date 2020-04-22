@@ -1,20 +1,20 @@
 ---
 title: Słowniczek terminów - IoT Plug and Play Preview | Dokumenty firmy Microsoft
 description: Pojęcia - glosariusz wspólnych terminów odnoszących się do podglądu iod iod IoT.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: ef5ce9cc1cda7f1ff6b1985771e20cb20123e264
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f0c21626c664f2d72b534ebae7f0a257620be07d
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025643"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767069"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Słowniczek terminów dla podglądu iod iod IoT
 

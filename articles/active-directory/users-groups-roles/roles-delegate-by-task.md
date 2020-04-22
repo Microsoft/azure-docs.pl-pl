@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac44661dd5a52ba19a3b2dd461aabec1ec250bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd24650c9bf0c4de155b5bfc8723cfa1fef01548
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284878"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81755418"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Role administratora według zadań administratora w usłudze Azure Active Directory
 
@@ -76,9 +76,9 @@ Konfigurowanie właściwości firmy | Administrator globalny |
 
 Zadanie | Najmniej uprzywilejowana rola | Dodatkowe role
 ---- | --------------------- | ----------------
-Uwierzytelnianie przekazywania | Administrator globalny | 
-Przeczytaj całą konfigurację | Czytnik globalny | 
-Bezproblemowe logowanie jednokrotne | Administrator globalny | 
+Uwierzytelnianie przekazywania | Administrator tożsamości hybrydowej | 
+Przeczytaj całą konfigurację | Czytnik globalny | Administrator tożsamości hybrydowej |
+Bezproblemowe logowanie jednokrotne | Administrator tożsamości hybrydowej | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -346,7 +346,7 @@ Aktualizowanie ustawień użytkownika | Administrator globalny |
 
 Zadanie | Najmniej uprzywilejowana rola | Dodatkowe role
 ---- | --------------------- | ----------------
-Prześlij zgłoszenie pomocy technicznej | Administrator usługi | Administrator aplikacji, administrator usługi Azure Information Protection, administrator rozliczeń, administrator aplikacji w chmurze, administrator zgodności, administrator dynamics 365, administrator analizy pulpitu, administrator programu Exchange, hasło Administrator, Administrator usługi Intune, Administrator programu Skype dla firm, Administrator usługi Power BI, Administrator uwierzytelniania uprzywilejowanego, Administrator programu SharePoint, Administrator komunikacji zespołów, Administrator zespołów, Administrator użytkownika, Administrator analityki miejsca pracy
+Prześlij zgłoszenie pomocy technicznej | Administrator usługi | Administrator aplikacji, administrator usługi Azure Information Protection, administrator rozliczeń, administrator aplikacji w chmurze, administrator zgodności, administrator systemu Dynamics 365, administrator analizy pulpitu, administrator programu Exchange, administrator haseł, administrator usługi Intune, administrator programu Skype dla firm, administrator usługi Power BI, administrator uwierzytelniania z uprawnieniami, administrator programu SharePoint, administrator komunikacji zespołów, administrator zespołów, administrator użytkownika, administrator analizy miejsca pracy
 
 ## <a name="next-steps"></a>Następne kroki
 

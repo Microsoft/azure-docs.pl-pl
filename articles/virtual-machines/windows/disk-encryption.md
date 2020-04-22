@@ -2,17 +2,17 @@
 title: Szyfrowanie po stronie serwera dysków zarządzanych platformy Azure — program PowerShell
 description: Usługa Azure Storage chroni dane, szyfrując je w spoczynku przed utrwaleniem ich w klastrach magazynu. Szyfrowanie dysków zarządzanych przez firmę Microsoft można polegać na kluczach zarządzanych lub za pomocą kluczy zarządzanych przez klienta do zarządzania szyfrowaniem za pomocą własnych kluczy.
 author: roygara
-ms.date: 04/02/2020
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 85fc6412a12963bb01782becf639f7acfc31fbe5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 3f6039382b970ca3b0d77042c60cb720f96466d2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81452082"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759197"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Szyfrowanie po stronie serwera dysków zarządzanych platformy Azure
 
@@ -72,7 +72,7 @@ Na razie klucze zarządzane przez klienta mają następujące ograniczenia:
 
 - Jeśli ta funkcja jest włączona dla dysku, nie można jej wyłączyć.
     Jeśli chcesz obejść ten problem, należy [skopiować wszystkie dane na](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) zupełnie inny dysk zarządzany, który nie używa kluczy zarządzanych przez klienta.
-- Obsługiwane są tylko ["miękkie" i "twarde" klucze RSA](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) o rozmiarze 2080, bez innych klawiszy lub rozmiarów.
+- Obsługiwane są tylko ["miękkie" i "twarde" klucze RSA](../../key-vault/keys/about-keys.md) o rozmiarze 2080, bez innych klawiszy lub rozmiarów.
 - Dyski utworzone na podstawie obrazów niestandardowych, które są szyfrowane przy użyciu szyfrowania po stronie serwera i kluczy zarządzanych przez klienta, muszą być szyfrowane przy użyciu tych samych kluczy zarządzanych przez klienta i muszą być w tej samej subskrypcji.
 - Migawki utworzone z dysków zaszyfrowanych za pomocą szyfrowania po stronie serwera i kluczy zarządzanych przez klienta muszą być szyfrowane przy tym samym kluczu zarządzanym przez klienta.
 - W galerii obrazów udostępnionych nie można używać obrazów niestandardowych zaszyfrowanych przy użyciu szyfrowania po stronie serwera i kluczy zarządzanych przez klienta.

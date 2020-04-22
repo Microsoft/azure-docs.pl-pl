@@ -28,8 +28,8 @@
       href: tutorial-custom-role-cli.md
 - name: Pojęcia
   items:
-    - name: Usługa PIM dla zasobów platformy Azure
-      href: pim-azure-resource.md
+    - name: Najlepsze rozwiązania
+      href: best-practices.md
     - name: Dostęp warunkowy do zarządzania platformy Azure
       href: conditional-access-azure-management.md
 - name: Przewodniki z instrukcjami
@@ -44,7 +44,7 @@
       items:
         - name: Portal
           href: role-assignments-list-portal.md
-        - name: Program PowerShell
+        - name: PowerShell
           href: role-assignments-list-powershell.md
         - name: Interfejs wiersza polecenia
           href: role-assignments-list-cli.md
@@ -56,7 +56,7 @@
           href: role-assignments-portal.md
         - name: Portal — użytkownicy-goście
           href: role-assignments-external-users.md
-        - name: Program PowerShell
+        - name: PowerShell
           href: role-assignments-powershell.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: role-assignments-cli.md
@@ -70,7 +70,7 @@
           href: deny-assignments.md
         - name: Portal
           href: deny-assignments-portal.md
-        - name: Program PowerShell
+        - name: PowerShell
           href: deny-assignments-powershell.md
         - name: Interfejs API REST
           href: deny-assignments-rest.md
@@ -80,7 +80,7 @@
           href: custom-roles.md
         - name: Portal
           href: custom-roles-portal.md
-        - name: Program PowerShell
+        - name: PowerShell
           href: custom-roles-powershell.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: custom-roles-cli.md
@@ -117,5 +117,5 @@
           href: /azure/templates/microsoft.authorization/roledefinitions
 - name: Zasoby
   items:
-    - name: Rozwijanie umiejętności dzięki Microsoft Learn
+    - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/?products=azure-active-directory

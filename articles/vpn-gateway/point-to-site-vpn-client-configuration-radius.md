@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6e1b162d17e2369b579fc1210c57e0409b0546bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69517d69a26364cf1cc950d7aaa849522decacf1
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77148474"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732738"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Tworzenie i instalowanie plików konfiguracyjnych klienta sieci VPN do uwierzytelniania P2S RADIUS
 
@@ -49,7 +49,7 @@ Podczas konfigurowania uwierzytelniania nazwy użytkownika/hasła można utworzy
 
 Można wygenerować pliki konfiguracji klienta sieci VPN przy użyciu witryny Azure portal lub przy użyciu programu Azure PowerShell.
 
-#### <a name="azure-portal"></a>Portal Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Przejdź do bramy sieci wirtualnej.
 2. Kliknij **pozycję Konfiguracja punktu do lokacji**.
@@ -114,7 +114,7 @@ Aby skonfigurować macierzystego klienta sieci VPN systemu Windows, należy wyko
       <key>ServerAddresses</key>
         <array>
             <string>10.0.0.132</string>
-        <array>
+        </array>
       <key>SupplementalMatchDomains</key>
         <array>
             <string>TestDomain.com</string>

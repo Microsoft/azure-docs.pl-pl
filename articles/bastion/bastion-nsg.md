@@ -5,14 +5,14 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 04/20/2020
 ms.author: charwen
-ms.openlocfilehash: 15abee4688a2f6aefa2b08ad2b8eee6622d56be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0188f9bc1c7c0e8d7fed9f590d078085b175614f
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087272"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732195"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Praca z dostępem do nsg i bastionem platformy Azure
 
@@ -32,9 +32,9 @@ Na tym diagramie:
 
 W tej sekcji przedstawiono ruch sieciowy między użytkownikiem a bastionem platformy Azure, a następnie do docelowych maszyn wirtualnych w sieci wirtualnej:
 
-### <a name="azurebastionsubnet"></a>Usługa AzureBastionSubnet
+### <a name="azurebastionsubnet"></a><a name="apply"></a>Usługa AzureBastionSubnet
 
-Usługa Azure Bastion jest wdrażana specjalnie w sieci AzureBastionSubnet.
+Usługa Azure Bastion jest wdrażana specjalnie w ***usłudze AzureBastionSubnet.***
 
 * **Ruch przychodzący:**
 
@@ -46,19 +46,11 @@ Usługa Azure Bastion jest wdrażana specjalnie w sieci AzureBastionSubnet.
    * **Ruch wychodzący do docelowych maszyn wirtualnych:** Usługa Azure Bastion osiągnie docelowe maszyny wirtualne za pomocą prywatnego adresu IP. Sieciowe grupy zabezpieczeń muszą zezwalać na ruch wychodzący do innych docelowych podsieci maszyn wirtualnych dla portów 3389 i 22.
    * **Ruch wychodzący do innych publicznych punktów końcowych na platformie Azure:** Usługa Azure Bastion musi mieć możliwość łączenia się z różnymi publicznymi punktami końcowymi na platformie Azure (na przykład do przechowywania dzienników diagnostycznych i dzienników pomiarów). Z tego powodu usługa Bastion platformy Azure musi odlatywać do tagu usługi Usługi Usługi 443 do **usługi AzureCloud.**
 
-* **Podsieć docelowej maszyny Wirtualnej:** Jest to podsieć, która zawiera docelową maszynę wirtualną, do której chcesz rdp/SSH.
+### <a name="target-vm-subnet"></a>Podsieć docelowej maszyny Wirtualnej
+Jest to podsieć, która zawiera docelową maszynę wirtualną, do której chcesz rdp/SSH.
 
    * **Ruch przychodzący z bastionu platformy Azure:** Usługa Azure Bastion dotrze do docelowej maszyny Wirtualnej za pomocą prywatnego adresu IP. Porty RDP/SSH (odpowiednio porty 3389/22) muszą być otwierane po docelowej stronie maszyny Wirtualnej nad prywatnym adresem IP. Najlepszym rozwiązaniem jest dodanie zakresu adresów IP podsieci Bastion platformy Azure w tej regule, aby umożliwić tylko bastionowi otwieranie tych portów na docelowych maszynach wirtualnych w docelowej podsieci maszyny wirtualnej.
 
-## <a name="apply-nsgs-to-azurebastionsubnet"></a><a name="apply"></a>Stosowanie sieci NSG do usługi AzureBastionSubnet
-
-Jeśli utworzysz i zastosujesz sieć sieciową do ***usługi AzureBastionSubnet,*** upewnij się, że dodano następujące reguły w sieciowej sieciowej. Jeśli nie dodasz tych reguł, tworzenie/aktualizowanie sieciowej sieciowej zakończy się niepowodzeniem:
-
-* **Łączność płaszczyzny sterowania:** Przychodzące na 443 z GatewayManager
-* **Rejestrowanie diagnostyki i inne:** Wychodzące na 443 do AzureCloud. Tagi regionalne w tym tagu usługi nie są jeszcze obsługiwane.
-* **Docelowa maszyna wirtualna:** Wychodzące dla 3389 i 22 do VirtualNetwork
-
-Przykład reguły grupy nsg jest dostępny do odwołania w tym [szablonie szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 
 ## <a name="next-steps"></a>Następne kroki
 

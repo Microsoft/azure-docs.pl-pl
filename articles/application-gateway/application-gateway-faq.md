@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: e64b0a8602a4a0806ada15546972856743c38161
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 0e5a683c95e213a0fc37ec4f559e89abfecf034a
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312464"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758910"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące bramy aplikacji
 
@@ -72,7 +72,7 @@ Dla jednostki SKU w wersji 2 otwórz publiczny zasób IP i wybierz pozycję **Ko
 
 *Limit czasu Keep-Alive* określa, jak długo brama aplikacji będzie czekać na klienta, aby wysłać inne żądanie HTTP na trwałe połączenie przed ponownym użyciem lub zamknięciem go. *Limit czasu bezczynności TCP* określa, jak długo połączenie TCP jest otwarte w przypadku braku działania. 
 
-*Limit czasu keep-alive* w jednostce SKU bramy aplikacji w wersji 1 wynosi 120 sekund, a w jednostce SKU w wersji 2 jest to 75 sekund. Limit *czasu bezczynności protokołu TCP* jest domyślnie 4-minutowym wirtualnym adresem IP (VIP) identyfikatora IP (FRONTON) zarówno jednostki SKU aplikacji w wersji 1, jak i w wersji 2. 
+*Limit czasu keep-alive* w jednostce SKU bramy aplikacji w wersji 1 wynosi 120 sekund, a w jednostce SKU w wersji 2 jest to 75 sekund. Limit *czasu bezczynności protokołu TCP* jest domyślnie 4-minutowym wirtualnym adresem IP (VIP) identyfikatora IP (FRONTON) zarówno jednostki SKU aplikacji w wersji 1, jak i w wersji 2. Nie można zmienić tych wartości.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Czy nazwa IP lub DNS zmienia się w okresie istnienia bramy aplikacji?
 

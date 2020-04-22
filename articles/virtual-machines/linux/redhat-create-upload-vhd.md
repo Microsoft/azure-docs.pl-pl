@@ -1,24 +1,19 @@
 ---
 title: Tworzenie i przekazywanie dysku VHD z systemem Linux w przedsiębiorstwie Red Hat do użytku na platformie Azure
 description: Dowiedz się, jak utworzyć i przekazać wirtualny dysk twardy platformy Azure (VHD), który zawiera system operacyjny Red Hat Linux.
-services: virtual-machines-linux
-documentationcenter: ''
 author: gbowerman
-manager: gwallace
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 6c6b8f72-32d3-47fa-be94-6cb54537c69f
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: guybo
-ms.openlocfilehash: cc806fe0c3894174835c99493ebf2ba19a11ca28
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 625dd1c8051d7949987d0dd19ee8a08347eedf14
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460464"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758639"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej bazującej na systemie Red Hat dla platformy Azure
 W tym artykule dowiesz się, jak przygotować maszynę wirtualną Red Hat Enterprise Linux (RHEL) do użycia na platformie Azure. Wersje RHEL, które są omówione w tym artykule są 6.7+ i 7.1+. Hipernadzorcy do przygotowania, które są opisane w tym artykule są Hyper-V, jądra na maszynie wirtualnej (KVM) i VMware. Aby uzyskać więcej informacji na temat wymagań dotyczących uprawnień do uczestnictwa w programie Dostęp do chmury Red Hat, zobacz [witrynę Red Hat cloud access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) i [uruchamianie RHEL na platformie Azure.](https://access.redhat.com/ecosystem/ccsp/microsoft-azure) Sposoby automatyzacji tworzenia obrazów RHEL można znaleźć w [usłudze Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
@@ -122,7 +117,7 @@ W tej sekcji przyjęto założenie, że plik ISO został już uzyskany ze strony
 
 1. Uruchom następujące polecenia, aby anulować aprovision maszyny wirtualnej i przygotować ją do inicjowania obsługi administracyjnej na platformie Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b675a78041b68210fa7583510582783c506c720
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78384826"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767027"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurowanie akceleracji procesora graficznego (GPU) dla pulpitu wirtualnego systemu Windows
 
@@ -88,7 +88,7 @@ Aby sprawdzić, czy pulpit zdalny używa kodowania przyspieszanych przez proceso
 
 ## <a name="next-steps"></a>Następne kroki
 
-Te instrukcje powinny mieć się i działa z przyspieszeniem GPU na jednej sesji hosta maszyny Wirtualnej. Niektóre dodatkowe zagadnienia dotyczące włączania akceleracji GPU w większej puli hostów:
+Te instrukcje powinny być uruchomione z przyspieszeniem GPU na jednym hoście sesji (jednej maszynie wirtualnej). Niektóre dodatkowe zagadnienia dotyczące włączania akceleracji GPU w większej puli hostów:
 
 * Należy rozważyć użycie [rozszerzenia maszyny Wirtualnej,](/azure/virtual-machines/extensions/overview) aby uprościć instalację sterownika i aktualizacje na wielu maszynach wirtualnych. Użyj [rozszerzenia sterownika gpu NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) dla maszyn wirtualnych z procesorami graficznymi NVIDIA i użyj rozszerzenia sterownika PROCESORA GRAFICZNEGO AMD (wkrótce) dla maszyn wirtualnych z procesorami graficznymi AMD.
 * Rozważ użycie zasad grupy usługi Active Directory w celu uproszczenia konfiguracji zasad grupy na wielu maszynach wirtualnych. Aby uzyskać informacje dotyczące wdrażania zasad grupy w domenie usługi Active Directory, zobacz [Praca z obiektami zasad grupy](https://go.microsoft.com/fwlink/p/?LinkId=620889).

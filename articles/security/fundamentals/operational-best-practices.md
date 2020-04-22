@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 72d7a2dd112e5e7a5105ff977e3917ccdfd7b53e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5724a9e4308f05a82df84ae6a7d5602747f5a140
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500306"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757359"
 ---
 # <a name="azure-operational-security-best-practices"></a>Najważniejsze wskazówki dotyczące zabezpieczeń operacyjnych platformy Azure
 Ten artykuł zawiera zestaw najlepszych rozwiązań operacyjnych dotyczących ochrony danych, aplikacji i innych zasobów na platformie Azure.
@@ -108,7 +108,7 @@ Oto kilka sprawdzonych rozwiązań dotyczących zapobiegania zagrożeniom, wykry
 **Szczegóły:** Zbadaj funkcje i możliwości [usługi Azure Sentinel](/azure/sentinel/overview) i porównaj je z możliwościami tego, co obecnie używasz lokalnie. Należy rozważyć przyjęcie usługi Azure Sentinel, jeśli spełnia wymagania SIEM twojej organizacji.
 
 **Najlepsze rozwiązanie:** Znajdź najpoważniejsze luki w zabezpieczeniach, aby ustalić priorytety badania.   
-**Szczegóły:** Przejrzyj [bezpieczny wynik platformy Azure,](../../security-center/security-center-secure-score.md) aby wyświetlić zalecenia wynikające z zasad i inicjatyw platformy Azure wbudowanych w usługę Azure Security Center. Zalecenia te pomagają rozwiązać najważniejsze zagrożenia, takie jak aktualizacje zabezpieczeń, ochrona punktów końcowych, szyfrowanie, konfiguracje zabezpieczeń, brak waf, maszyny wirtualne podłączone do Internetu i wiele innych.
+**Szczegóły:** Przejrzyj [bezpieczny wynik platformy Azure,](../../security-center/secure-score-security-controls.md) aby wyświetlić zalecenia wynikające z zasad i inicjatyw platformy Azure wbudowanych w usługę Azure Security Center. Zalecenia te pomagają rozwiązać najważniejsze zagrożenia, takie jak aktualizacje zabezpieczeń, ochrona punktów końcowych, szyfrowanie, konfiguracje zabezpieczeń, brak waf, maszyny wirtualne podłączone do Internetu i wiele innych.
 
 Bezpieczny wynik, który jest oparty na formanty Center for Internet Security (CIS), umożliwia porównanie zabezpieczeń platformy Azure w organizacji ze źródłami zewnętrznymi. Zewnętrzna weryfikacja pomaga zweryfikować i wzbogacić strategię zabezpieczeń zespołu.
 
@@ -116,7 +116,7 @@ Bezpieczny wynik, który jest oparty na formanty Center for Internet Security (C
 **Szczegóły:** Postępuj zgodnie z [zaleceniami dotyczącymi zabezpieczeń](../../security-center/security-center-recommendations.md) w u źródła zabezpieczeń, począwszy od elementów o najwyższym priorytecie.
 
 **Najlepsze rozwiązanie:** Integruj alerty w centrum zabezpieczeń z rozwiązaniem do zarządzania informacjami o zabezpieczeniach i zdarzeniami (SIEM).   
-**Szczegóły:** Większość organizacji z SIEM używać go jako centralnej ejrze dla alertów zabezpieczeń, które wymagają odpowiedzi analityka. Przetworzone zdarzenia wywoływane przez usługę Security Center są publikowane w dzienniku aktywności platformy Azure, jednym z dzienników dostępnych za pośrednictwem usługi Azure Monitor. Usługa Azure Monitor oferuje skonsolidowany potok do routingu dowolnych danych monitorowania do narzędzia SIEM. Aby uzyskać [instrukcje, zobacz Integrowanie rozwiązań zabezpieczeń w u centrum zabezpieczeń.](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) Jeśli korzystasz z usługi Azure Sentinel, zobacz [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Szczegóły:** Większość organizacji z SIEM używać go jako centralnej ejrze dla alertów zabezpieczeń, które wymagają odpowiedzi analityka. Przetworzone zdarzenia wywoływane przez usługę Security Center są publikowane w dzienniku aktywności platformy Azure, jednym z dzienników dostępnych za pośrednictwem usługi Azure Monitor. Usługa Azure Monitor oferuje skonsolidowany potok do routingu dowolnych danych monitorowania do narzędzia SIEM. Aby uzyskać [instrukcje, zobacz Eksportowanie alertów zabezpieczeń i zaleceń.](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) Jeśli korzystasz z usługi Azure Sentinel, zobacz [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Najlepsze rozwiązanie:** Integruj dzienniki platformy Azure z siem.   
 **Szczegóły:** Zbieranie [i eksportowanie danych](/azure/azure-monitor/overview#integrate-and-export-data)za pomocą usługi Azure Monitor . Ta praktyka ma kluczowe znaczenie dla włączania badania incydentów zabezpieczeń, a przechowywanie dzienników online jest ograniczone. Jeśli korzystasz z usługi Azure Sentinel, zobacz [Łączenie źródeł danych](../../sentinel/connect-data-sources.md).

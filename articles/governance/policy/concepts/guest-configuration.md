@@ -3,12 +3,12 @@ title: Dowiedz się, jak przeprowadzać inspekcje zawartości maszyn wirtualnych
 description: Dowiedz się, jak usługa Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4899f6b3108cabb4e9cdd36e4b2bc5cd2f1cbd4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1721c0f1ca7c084d636278aabc96f8dac3293038
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538039"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759082"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa zasad platformy Azure
 
@@ -20,19 +20,25 @@ Oprócz inspekcji i [korygowania](../how-to/remediate-resources.md) zasobów pla
 
 W tej chwili większość zasad konfiguracji gościa zasad usługi Azure Policy tylko inspekcji ustawień wewnątrz komputera. Nie stosują konfiguracji. Wyjątkiem jest jedna wbudowana [zasada, do którą odwołuje się poniżej](#applying-configurations-using-guest-configuration).
 
+## <a name="resource-provider"></a>Dostawca zasobów
+
+Aby można było używać konfiguracji gościa, należy zarejestrować dostawcę zasobów. Dostawca zasobów jest rejestrowany automatycznie, jeśli przypisanie zasad konfiguracji gościa odbywa się za pośrednictwem portalu. Można ręcznie zarejestrować się za pośrednictwem [portalu,](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) [programu Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)lub [interfejsu wiersza polecenia platformy Azure.](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)
+
 ## <a name="extension-and-client"></a>Rozszerzenie i klient
 
 Aby przeprowadzić inspekcję ustawień wewnątrz maszyny, jest włączone [rozszerzenie maszyny wirtualnej.](../../../virtual-machines/extensions/overview.md) Rozszerzenie pobiera odpowiednie przypisanie zasad i odpowiednią definicję konfiguracji.
+
+> [!Important]
+> Rozszerzenie konfiguracji gościa jest wymagane do wykonywania inspekcji na maszynach wirtualnych platformy Azure.
+> Aby wdrożyć rozszerzenie na dużą skalę, przypisz następujące definicje zasad:
+>   - Wdrażanie wymagań wstępnych w celu włączenia zasad konfiguracji gościa na maszynach wirtualnych systemu Windows.
+>   - Wdrażanie wymagań wstępnych w celu włączenia zasad konfiguracji gościa na maszynach wirtualnych z systemem Linux.
 
 ### <a name="limits-set-on-the-extension"></a>Limity ustawione na rozszerzeniu
 
 Aby ograniczyć rozszerzenie od wpływu aplikacji działających wewnątrz komputera, konfiguracja gościa nie może przekraczać więcej niż 5% procesora CPU. To ograniczenie istnieje zarówno dla wbudowanych i niestandardowych definicji.
 
-## <a name="register-guest-configuration-resource-provider"></a>Zarejestruj dostawcę zasobów konfiguracji gościa
-
-Aby można było używać konfiguracji gościa, należy zarejestrować dostawcę zasobów. Można zarejestrować się za pośrednictwem [portalu](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)lub [Interfejsu wiersza polecenia platformy Azure.](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli) Dostawca zasobów jest rejestrowany automatycznie, jeśli przypisanie zasad konfiguracji gościa odbywa się za pośrednictwem portalu.
-
-## <a name="validation-tools"></a>Narzędzia sprawdzania poprawności
+### <a name="validation-tools"></a>Narzędzia sprawdzania poprawności
 
 Wewnątrz komputera klient konfiguracji gościa używa narzędzi lokalnych do uruchomienia inspekcji.
 
@@ -50,17 +56,17 @@ Wyniki są wysyłane do dostawcy zasobów konfiguracji gościa po zakończeniu i
 
 ## <a name="supported-client-types"></a>Obsługiwane typy klientów
 
-W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych na obrazach platformy Azure:
+Zasady konfiguracji gościa zawierają nowe wersje. Starsze wersje systemów operacyjnych dostępnych w portalu Azure Marketplace są wykluczone, jeśli agent konfiguracji gościa nie jest zgodny. W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych na obrazach platformy Azure:
 
 |Wydawca|Nazwa|Wersje|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
-|Credativ ( Credativ )|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
+|Canonical|Ubuntu Server|14.04 i nowsze|
+|Credativ ( Credativ )|Debian|8 i nowsze|
+|Microsoft|Windows Server|2012 r. i później|
 |Microsoft|Klient systemu Windows|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7, 7.8|
-|Suse|SLES|12 SP3|
+|OpenLogic|CentOS|7.3 i nowsze|
+|Red Hat|Red Hat Enterprise Linux|7.4 i nowsze|
+|Suse|SLES|12 SP3 i nowsze|
 
 ### <a name="unsupported-client-types"></a>Nieobsługiwały typy klientów
 

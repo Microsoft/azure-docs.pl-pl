@@ -8,12 +8,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 7a589ba80b61ea5ef9ea1c941e9a0218a1653c99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 7aa59f8181ad60b3d43846a3f4f1f471a050b238
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60735526"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733436"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Łączenie urządzeń IoT z platformą Azure: Centrum IoT i centra zdarzeń
 
@@ -27,7 +30,7 @@ Podsumowując, oba rozwiązania są przeznaczone do pozyskiwania danych na masow
 
 Poniższa tabela zawiera szczegółowe informacje o tym, jak dwie warstwy Usługi IoT Hub porównać z Centrum zdarzeń podczas oceny ich możliwości IoT. Aby uzyskać więcej informacji na temat standardowych i podstawowych warstw usługi IoT Hub, zobacz [Jak wybrać odpowiednią warstwę Usługi IoT Hub](iot-hub-scaling.md).
 
-| Możliwość IoT | Warstwa standardowa usługi IoT Hub | Warstwa podstawowa usługi IoT Hub | Usługa Event Hubs |
+| Możliwość IoT | Warstwa standardowa usługi IoT Hub | Warstwa podstawowa usługi IoT Hub | Event Hubs |
 | --- | --- | --- | --- |
 | Wiadomości między urządzeniami a chmurą | ![Zaznacz][checkmark] | ![Zaznacz][checkmark] | ![Zaznacz][checkmark] |
 | Protokoły: HTTPS, AMQP, AMQP over webSockets | ![Zaznacz][checkmark] | ![Zaznacz][checkmark] | ![Zaznacz][checkmark] |

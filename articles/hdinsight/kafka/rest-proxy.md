@@ -7,18 +7,18 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6bf34f8fb15bf8fddb1ba398ed678d5c98b8c84f
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 265e15713f8159e370ef22a197ffe931200a88f7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667781"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758995"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interakcja z klastrami platformy Apache w usłudze Azure HDInsight przy użyciu serwera proxy REST
 
 Serwer proxy Kafka REST umożliwia interakcję z klastrem platformy Kafka za pośrednictwem interfejsu API REST za pośrednictwem protokołu HTTP. Ta akcja oznacza, że klienci platformy Kafka mogą znajdować się poza siecią wirtualną. Klienci mogą wykonywać proste wywołania HTTP do klastra platformy Kafka, zamiast polegać na bibliotekach platformy Kafka. W tym artykule pokazano, jak utworzyć klaster platformy Kafka z włączonym serwerem proxy REST. Zawiera również przykładowy kod, który pokazuje, jak nawiązywać połączenia z serwerem proxy REST.
 
-## <a name="rest-api-reference"></a>Informacje o interfejsie API REST
+## <a name="rest-api-reference"></a>Dokumentacja interfejsu API REST
 
 Aby uzyskać informacje na tematy związane z operacjami obsługiwanymi przez interfejs API interfejsu KAFKA REST, zobacz [odwołanie do interfejsu API serwera proxy interfejsu USPozycjów SYSTEMU HDInsight.](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)
 
@@ -74,7 +74,7 @@ W przypadku żądań punktu końcowego serwera proxy REST aplikacje klienckie po
 Poniższy kod języka Python służy do interakcji z serwerem proxy REST w klastrze platformy Kafka. Aby użyć przykładu kodu, wykonaj następujące kroki:
 
 1. Zapisz przykładowy kod na komputerze z zainstalowanym pythonem.
-1. Zainstaluj wymagane zależności pythona, `pip3 install adal` `pip install msrestazure`wykonując i .
+1. Zainstaluj wymagane zależności pythona, `pip3 install msal`wykonując .
 1. Zmodyfikuj sekcję kodu **Skonfiguruj te właściwości** i zaktualizuj następujące właściwości dla swojego środowiska:
 
     |Właściwość |Opis |
@@ -84,7 +84,7 @@ Poniższy kod języka Python służy do interakcji z serwerem proxy REST w klast
     |Klucz tajny klienta|Klucz tajny aplikacji zarejestrowanej w grupie zabezpieczeń.|
     |Kafkarest_endpoint|Pobierz tę wartość z karty **Właściwości** w przeglądzie klastra, zgodnie z opisem w [sekcji wdrażania](#create-a-kafka-cluster-with-rest-proxy-enabled). Powinien być w następującym formacie –`https://<clustername>-kafkarest.azurehdinsight.net`|
 
-1. Z wiersza polecenia wykonaj plik pythona, wykonując`python <filename.py>`
+1. Z wiersza polecenia wykonaj plik pythona, wykonując`sudo python3 <filename.py>`
 
 Ten kod wykonuje następującą akcję:
 
@@ -95,13 +95,9 @@ Aby uzyskać więcej informacji na temat uzyskiwania tokenów OAuth w pythonie, 
 
 ```python
 #Required python packages
-#pip3 install adal
-#pip install msrestazure
+#pip3 install msal
 
-import adal
-from msrestazure.azure_active_directory import AdalAuthentication
-from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
-import requests
+import msal
 
 #--------------------------Configure these properties-------------------------------#
 # Tenant ID for your Azure Subscription
@@ -114,19 +110,24 @@ client_secret = 'password'
 kafkarest_endpoint = "https://<clustername>-kafkarest.azurehdinsight.net"
 #--------------------------Configure these properties-------------------------------#
 
-#getting token
-login_endpoint = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-resource = "https://hib.azurehdinsight.net"
-context = adal.AuthenticationContext(login_endpoint + '/' + tenant_id)
+# Scope
+scope = 'https://hib.azurehdinsight.net/.default'
+#Authority
+authority = 'https://login.microsoftonline.com/' + tenant_id
 
-token = context.acquire_token_with_client_credentials(
-    resource,
-    client_id,
-    client_secret)
+# Create a preferably long-lived app instance which maintains a token cache.
+app = msal.ConfidentialClientApplication(
+    client_id , client_secret, authority,
+    #cache - For details on how look at this example: https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py
+    )
 
-accessToken = 'Bearer ' + token['accessToken']
+# The pattern to acquire a token looks like this.
+result = None
 
-print(accessToken)
+result = app.acquire_token_for_client(scopes=[scope])
+
+print(result)
+accessToken = result['access_token']
 
 # relative url
 getstatus = "/v1/metadata/topics"
@@ -137,10 +138,10 @@ response = requests.get(request_url, headers={'Authorization': accessToken})
 print(response.content)
 ```
 
-Poniżej znajduje się inny przykład, jak pobrać token z platformy Azure dla serwera proxy REST przy użyciu polecenia curl. Należy zauważyć, `resource=https://hib.azurehdinsight.net` że musimy określony podczas uzyskiwania tokenu.
+Poniżej znajduje się inny przykład, jak pobrać token z platformy Azure dla serwera proxy REST przy użyciu polecenia curl. **Należy zauważyć, `scope=https://hib.azurehdinsight.net/.default` że musimy określony podczas uzyskiwania tokenu.**
 
 ```cmd
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&resource=https://hib.azurehdinsight.net' 'https://login.microsoftonline.com/<tenantid>/oauth2/token'
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&scope=https://hib.azurehdinsight.net/.default' 'https://login.microsoftonline.com/<tenantid>/oauth2/v2.0/token'
 ```
 
 ## <a name="next-steps"></a>Następne kroki

@@ -3,12 +3,12 @@ title: Jak utworzyć zasady konfiguracji gościa dla systemu Windows
 description: Dowiedz się, jak utworzyć zasady konfiguracji gościa zasad platformy Azure dla systemu Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: deb51cf502d26dc994bf74ef3cb0c728f624afde
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7b06aa0a70bfa17d67da9c6af447138f8bb9e712
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313979"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757418"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Jak utworzyć zasady konfiguracji gościa dla systemu Windows
 
@@ -25,6 +25,11 @@ Poniższe akcje można utworzyć w celu sprawdzenia poprawności stanu komputera
 
 > [!IMPORTANT]
 > Zasady niestandardowe z konfiguracją gościa to funkcja podglądu.
+>
+> Rozszerzenie konfiguracji gościa jest wymagane do wykonywania inspekcji na maszynach wirtualnych platformy Azure.
+> Aby wdrożyć rozszerzenie na dużą skalę, przypisz następujące definicje zasad:
+>   - Wdrażanie wymagań wstępnych w celu włączenia zasad konfiguracji gościa na maszynach wirtualnych systemu Windows.
+>   - Wdrażanie wymagań wstępnych w celu włączenia zasad konfiguracji gościa na maszynach wirtualnych z systemem Linux.
 
 ## <a name="install-the-powershell-module"></a>Instalowanie modułu programu PowerShell
 
@@ -176,8 +181,10 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker -out ./Config
+AuditBitLocker ./Config
 ```
+
+Zapisz ten plik `config.ps1` o nazwie w folderze projektu. Uruchom go w programie PowerShell, `./config.ps1` wykonując go w terminalu. Zostanie utworzony nowy plik mof.
 
 Polecenie `Node AuditBitlocker` nie jest technicznie wymagane, ale tworzy plik `AuditBitlocker.mof` o nazwie, `localhost.mof`a nie domyślny, . Posiadanie nazwy pliku .mof zgodnie z konfiguracją ułatwia organizowanie wielu plików podczas pracy na dużą skalę.
 

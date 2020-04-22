@@ -1,25 +1,19 @@
 ---
 title: Przekazywanie niestandardowego dysku systemu Linux za pomocą interfejsu wiersza polecenia platformy Azure
 description: Tworzenie i przekazywanie wirtualnego dysku twardego (VHD) na platformę Azure przy użyciu modelu wdrażania usługi Resource Manager i interfejsu wiersza polecenia platformy Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 62855d943dae2e03cefff64710ce23ff0e0a0567
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.custom: storage accounts
+ms.openlocfilehash: 7ec9b670f8b2eb1731511deb1d01cfc7db55054f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458713"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758570"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Przekazywanie i tworzenie maszyny Wirtualnej z systemem Linux z dysku niestandardowego za pomocą interfejsu wiersza polecenia platformy Azure
 

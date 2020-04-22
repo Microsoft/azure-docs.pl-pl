@@ -2,24 +2,24 @@
 title: Uruchamianie skryptów powłoki na maszynie Wirtualnej systemu Linux na platformie Azure
 description: W tym temacie opisano sposób uruchamiania skryptów na maszynie wirtualnej systemu Azure Linux przy użyciu funkcji Uruchom polecenie
 services: automation
-ms.service: automation
+ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 21787854590d3ca0be2cbd6e9d167de33482c787
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80fc33a93d4d83dad1e687b176b39728fc7e8807
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72597882"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758606"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Uruchamianie skryptów powłoki na maszynie wirtualnej systemu Linux przy użyciu polecenia Uruchom
 
 Funkcja Uruchom polecenie używa agenta maszyny wirtualnej (VM) do uruchamiania skryptów powłoki w ramach maszyny wirtualnej systemu Azure Linux. Tych skryptów można używać do ogólnego zarządzania maszynami lub aplikacjami. Mogą one pomóc szybko zdiagnozować i rozwiązać problemy z dostępem do maszyn wirtualnych i sieci i przywrócić maszynę wirtualną do dobrego stanu.
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 
 Dostęp do maszyn wirtualnych można uzyskać na wiele sposobów. Uruchom polecenie można uruchamiać skrypty na maszynach wirtualnych zdalnie przy użyciu agenta maszyny wirtualnej. Polecenia Uruchom można za pośrednictwem witryny Azure portal, [interfejsu API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)lub platformy Azure [CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) dla maszyn wirtualnych z systemem Linux.
 
@@ -65,7 +65,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 > [!NOTE]
 > Aby uruchomić polecenia jako inny `sudo -u` użytkownik, wprowadź, aby określić konto użytkownika.
 
-## <a name="azure-portal"></a>Portal Azure
+## <a name="azure-portal"></a>Azure Portal
 
 Przejdź do maszyny Wirtualnej w [witrynie Azure portal](https://portal.azure.com) i wybierz **polecenie Uruchom w** obszarze **OPERACJE**. Widoczna jest lista dostępnych poleceń do uruchomienia na maszynie Wirtualnej.
 

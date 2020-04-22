@@ -5,19 +5,19 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: 5e18e035bd237fd489b715986e58d7ede726348d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 34aab24bf39e387715cfa5783b801d45ed488750
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886606"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732724"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Tworzenie i publikowanie funkcji na platformie Azure za pomocą funkcji Java i Gradle
 
 W tym artykule pokazano, jak skompilować i opublikować projekt funkcji Java do usługi Azure Functions za pomocą narzędzia wiersza polecenia Gradle. Po zakończeniu kodu funkcji jest uruchamiany na platformie Azure w [planie hostingu bezserwerowym](functions-scale.md#consumption-plan) i jest wyzwalany przez żądanie HTTP. 
 
 > [!NOTE]
-> Jeśli Gradle nie jest preferowanym narzędziem do tworzenia, sprawdź nasze podobne tutoriale dla devlopers Java za pomocą [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions) i [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Jeśli Gradle nie jest preferowanym narzędziem programistycznym, sprawdź nasze podobne samouczki dla programistów Java za pomocą [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) i [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -173,4 +173,4 @@ Utworzono projekt funkcji Java z funkcją wyzwalaną http, uruchom go na kompute
 
 
 [Interfejs wiersza polecenia platformy Azure]: /cli/azure
-[Portal platformy Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

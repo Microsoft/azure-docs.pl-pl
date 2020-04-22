@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: a22808b1d7ab2b2451f50470e8da3770d07407a5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.custom: amqp
+ms.openlocfilehash: ac45cf42ed174d3e9423b4ea39cadf16b84897ef
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985664"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759637"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurowanie zabezpieczeń X.509 w usłudze Azure IoT Hub
 
@@ -86,7 +87,7 @@ Aby uwierzytelnić urządzenie X.509, należy najpierw podpisać urządzenie za 
 
 Następnie pokażemy Ci, jak utworzyć aplikację języka C#, aby symulować urządzenie X.509 zarejestrowane dla centrum IoT hub. Wyślemy wartości temperatury i wilgotności z symulowanego urządzenia do twojego koncentratora. W tym samouczku utworzymy tylko aplikację urządzenia. Pozostaje jako ćwiczenie dla czytelników, aby utworzyć aplikację usługi Usługi Usługi IoT Hub, która wyśle odpowiedź na zdarzenia wysyłane przez to symulowane urządzenie. Aplikacja języka C# zakłada, że postępujesz zgodnie z [instrukcjami w zarządzaniu certyfikatami testu urzędu certyfikacji dla przykładów i samouczków](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
-1. Otwórz program Visual Studio, wybierz pozycję **Utwórz nowy projekt**, a następnie wybierz szablon projektu **aplikacji konsoli (NET Framework).** Wybierz **pozycję Dalej**.
+1. Otwórz program Visual Studio, wybierz pozycję **Utwórz nowy projekt**, a następnie wybierz szablon projektu **aplikacji konsoli (NET Framework).** Wybierz opcję **Dalej**.
 
 1. W **obszarze Konfiguruj nowy projekt**nazwij projekt *SimulateX509Device*, a następnie wybierz pozycję **Utwórz**.
 

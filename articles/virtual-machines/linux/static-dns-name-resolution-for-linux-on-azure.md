@@ -1,26 +1,19 @@
 ---
 title: Używanie wewnętrznego systemu DNS dla rozpoznawania nazw maszyn wirtualnych z interfejsu wiersza polecenia platformy Azure
-description: Jak utworzyć karty interfejsu sieci wirtualnej i używać wewnętrznego dns dla rozpoznawania nazw maszyn wirtualnych na platformie Azure z interfejsem wiersza polecenia platformy Azure
-services: virtual-machines-linux
-documentationcenter: ''
+description: Jak utworzyć karty interfejsu sieci wirtualnej i używać wewnętrznego dns rozpoznawania nazw maszyn wirtualnych na platformie Azure z interfejsu wiersza polecenia platformy Azure.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: networking
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: acfdfd4edf90b90998a913fa0c6479bedf0028b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07a78e4987a844627824ac5034046cf6a393ad8d
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74034743"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757845"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Tworzenie kart interfejsu sieci wirtualnej i używanie wewnętrznego rozpoznawania nazw maszyn wirtualnych w systemie DNS na platformie Azure
 

@@ -7,14 +7,16 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 69660152458de26e9dbcbf1f50db6ce6824351d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77027071"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759102"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Łączenie urządzeń usługi Azure IoT Edge z aplikacją Azure IoT Central
+
+*Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
 
 IoT Edge składa się z trzech komponentów:
 
@@ -72,4 +74,4 @@ Jeśli wybrano urządzenie usługi IoT Edge jako urządzenie bramy, można doda�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy wiesz, jakie są szablony aplikacji IoT Central, rozpocznij tworzenie [aplikacji centralnej IoT](quick-deploy-iot-central.md).
+Jeśli jesteś deweloperem urządzeń, sugerowanym następnym krokiem jest zapoznanie się z [typami urządzeń bramy w aplikacji IoT Central.](./tutorial-define-gateway-device-type.md)

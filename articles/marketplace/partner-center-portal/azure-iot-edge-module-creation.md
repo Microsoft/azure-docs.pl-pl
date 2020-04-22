@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6b56b748ef31bcfd33893e55d3ea5f8d9851a3ff
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: c4eddf68e964b412e7270319630f41fc4d802241
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674477"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733143"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Tworzenie oferty modułu usługi IoT Edge
 
@@ -312,7 +312,7 @@ W polu **Nazwa planu** wprowadź nazwę tego planu. Klienci widzą tę nazwę pr
 > [!NOTE]
 > Identyfikator planu nie można zmienić po wybraniu opcji **Utwórz**.
 
-Wybierz **pozycję Utwórz**.
+Wybierz pozycję **Utwórz**.
 
 ### <a name="plan-setup"></a>Konfiguracja planu
 
@@ -322,9 +322,9 @@ Ta karta umożliwia skonfigurowanie chmur, w których plan jest dostępny. Odpow
 
 Plan musi być dostępny w co najmniej jednej chmurze przy użyciu usługi Azure IoT Hub.
 
-Wybierz opcję **Azure Global,** aby twój plan mógł być używany przez klientów we wszystkich globalnych regionach platformy Azure korzystających z portalu Marketplace. Aby uzyskać szczegółowe informacje, zobacz [Dostępność geograficzna i obsługa walut](https://aka.ms/AzureGovCurrencies).
+Wybierz opcję **Azure Global,** aby twój plan mógł być używany przez klientów we wszystkich globalnych regionach platformy Azure korzystających z portalu Marketplace. Aby uzyskać szczegółowe informacje, zobacz [Dostępność geograficzna i obsługa walut](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Wybierz opcję [Azure Government Cloud,](https://aka.ms/WhatIsAzureGovernment) aby twoje rozwiązanie pojawiło się tutaj. Jest to chmura społeczności rządowej z kontrolowanym dostępem dla klientów z amerykańskich federalnych, stanowych i lokalnych lub plemiennych agencji rządowych, a także partnerów uprawnionych do ich obsługi. Jako wydawca jesteś odpowiedzialny za wszelkie kontrole zgodności, środki zabezpieczeń i najlepsze rozwiązania dla tej społeczności w chmurze. Platforma Azure Government używa fizycznie odizolowanych centrów danych i sieci (zlokalizowanych tylko w Stanach Zjednoczonych). Przed [opublikowaniem](https://aka.ms/azuregovpublish) w usłudze Azure Government należy przetestować i potwierdzić rozwiązanie w tym obszarze, ponieważ wyniki mogą być różne. Aby zaaslić i przetestować rozwiązanie, poproś o konto próbne z [wersji próbnej platformy Microsoft Azure dla instytucji rządowych.](https://aka.ms/AzureGovernmentTrial)
+Wybierz opcję [Azure Government Cloud,](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) aby twoje rozwiązanie pojawiło się tutaj. Jest to chmura społeczności rządowej z kontrolowanym dostępem dla klientów z amerykańskich federalnych, stanowych i lokalnych lub plemiennych agencji rządowych, a także partnerów uprawnionych do ich obsługi. Jako wydawca jesteś odpowiedzialny za wszelkie kontrole zgodności, środki zabezpieczeń i najlepsze rozwiązania dla tej społeczności w chmurze. Platforma Azure Government używa fizycznie odizolowanych centrów danych i sieci (zlokalizowanych tylko w Stanach Zjednoczonych). Przed [opublikowaniem](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) w usłudze Azure Government należy przetestować i potwierdzić rozwiązanie w tym obszarze, ponieważ wyniki mogą być różne. Aby zaaslić i przetestować rozwiązanie, poproś o konto próbne z [wersji próbnej platformy Microsoft Azure dla instytucji rządowych.](https://azure.microsoft.com/global-infrastructure/government/request/)
 
 > [!NOTE]
 > Po opublikowaniu planu i udostępnieniu go w określonej chmurze nie można usunąć tej chmury.
@@ -378,11 +378,11 @@ To pole jest powszechnie używane, gdy:
 
 ## <a name="technical-configuration"></a>Konfiguracja techniczna
 
-Typ oferty **modułu usługi IoT Edge** jest określonym typem kontenera, który działa na urządzeniu usługi IoT Edge. Na karcie **Konfiguracja techniczna** podasz informacje referencyjne dla repozytorium obrazów kontenera wewnątrz [rejestru kontenerów platformy Azure](https://aka.ms/ContainerRegistry)wraz z ustawieniami konfiguracji, które umożliwiają klientom łatwe korzystanie z modułu.
+Typ oferty **modułu usługi IoT Edge** jest określonym typem kontenera, który działa na urządzeniu usługi IoT Edge. Na karcie **Konfiguracja techniczna** podasz informacje referencyjne dla repozytorium obrazów kontenera wewnątrz [rejestru kontenerów platformy Azure](https://azure.microsoft.com/services/container-registry/)wraz z ustawieniami konfiguracji, które umożliwiają klientom łatwe korzystanie z modułu.
 
 Po opublikowaniu oferty obraz kontenera usługi IoT Edge jest kopiowany do portalu Azure Marketplace w określonym rejestrze kontenerów publicznych. Wszystkie żądania od użytkowników platformy Azure do korzystania z modułu są obsługiwane z rejestru kontenerów publicznych w portalu Azure Marketplace, a nie z rejestru kontenerów prywatnych.
 
-Można kierować wiele platform i podać kilka wersji obrazu kontenera modułu za pomocą tagów. Aby dowiedzieć się więcej o tagach i przechowywanie wersji, zobacz [Przygotowywanie zasobów technicznych modułu Usługi IoT Edge](https://aka.ms/AzureIoTTechAsset).
+Można kierować wiele platform i podać kilka wersji obrazu kontenera modułu za pomocą tagów. Aby dowiedzieć się więcej o tagach i przechowywanie wersji, zobacz [Przygotowywanie zasobów technicznych modułu Usługi IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset).
 
 ### <a name="image-repository-details"></a>Szczegóły repozytorium obrazów
 
@@ -392,25 +392,25 @@ Na karcie **Szczegóły repozytorium obrazów** znajdziesz następujące informa
 
 **Identyfikator subskrypcji platformy Azure:** Podaj identyfikator subskrypcji, w którym jest zgłaszane użycie zasobów, a usługi są rozliczane za rejestr kontenerów platformy Azure, który zawiera obraz kontenera. Ten identyfikator można znaleźć na [stronie Subskrypcje](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) w witrynie Azure portal.
 
-**Nazwa grupy zasobów platformy Azure:** Podaj nazwę [grupy zasobów](https://aka.ms/ResourceManagerAzurePortal) zawierającą rejestr kontenerów platformy Azure z obrazem kontenera. Grupa zasobów musi być dostępna w identyfikatorze subskrypcji (powyżej). Nazwę można znaleźć na stronie [Grupy zasobów](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) w witrynie Azure portal.
+**Nazwa grupy zasobów platformy Azure:** Podaj nazwę [grupy zasobów](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) zawierającą rejestr kontenerów platformy Azure z obrazem kontenera. Grupa zasobów musi być dostępna w identyfikatorze subskrypcji (powyżej). Nazwę można znaleźć na stronie [Grupy zasobów](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) w witrynie Azure portal.
 
-**Nazwa rejestru kontenerów platformy Azure:** Podaj nazwę [rejestru kontenerów platformy Azure,](https://aka.ms/DockerContainerRegistriesAzure) który ma obraz kontenera. Rejestr kontenerów musi znajdować się w grupie zasobów platformy Azure, która została podana wcześniej. Podaj tylko nazwę rejestru, a nie pełną nazwę serwera logowania. Pamiętaj, aby pominąć **azurecr.io** z nazwy. Nazwę rejestru można znaleźć na [stronie Rejestry kontenerów](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) w witrynie Azure portal.
+**Nazwa rejestru kontenerów platformy Azure:** Podaj nazwę [rejestru kontenerów platformy Azure,](https://docs.microsoft.com/azure/container-registry/container-registry-intro) który ma obraz kontenera. Rejestr kontenerów musi znajdować się w grupie zasobów platformy Azure, która została podana wcześniej. Podaj tylko nazwę rejestru, a nie pełną nazwę serwera logowania. Pamiętaj, aby pominąć **azurecr.io** z nazwy. Nazwę rejestru można znaleźć na [stronie Rejestry kontenerów](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) w witrynie Azure portal.
 
-**Nazwa użytkownika administratora dla rejestru kontenerów platformy Azure:** Podaj [nazwę użytkownika administratora](https://aka.ms/AdminAccountContainerRegistry) skojarzoną z rejestrem kontenerów platformy Azure, który ma obraz kontenera. Nazwa użytkownika i hasło są wymagane, aby upewnić się, że twoja firma ma dostęp do rejestru. Aby uzyskać nazwę użytkownika i hasło administratora, ustaw właściwość **z włączoną przez administratora** na **True** przy użyciu interfejsu wiersza polecenia platformy Azure (CLI). Opcjonalnie można ustawić **użytkownika administratora,** aby **włączyć** w witrynie Azure portal.
+**Nazwa użytkownika administratora dla rejestru kontenerów platformy Azure:** Podaj [nazwę użytkownika administratora](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) skojarzoną z rejestrem kontenerów platformy Azure, który ma obraz kontenera. Nazwa użytkownika i hasło są wymagane, aby upewnić się, że twoja firma ma dostęp do rejestru. Aby uzyskać nazwę użytkownika i hasło administratora, ustaw właściwość **z włączoną przez administratora** na **True** przy użyciu interfejsu wiersza polecenia platformy Azure (CLI). Opcjonalnie można ustawić **użytkownika administratora,** aby **włączyć** w witrynie Azure portal.
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Ilustruje okno dialogowe Aktualizowanie rejestru kontenerów.":::
 
-**Hasło do rejestru kontenerów platformy Azure:** Podaj hasło dla nazwy użytkownika administratora skojarzonego z rejestrem kontenerów platformy Azure i ma obraz kontenera. Nazwa użytkownika i hasło są wymagane, aby upewnić się, że twoja firma ma dostęp do rejestru. Hasło można uzyskać z witryny Azure portal, przechodząc do **kluczy**dostępu rejestru > **kontenerów** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu [polecenia show.](https://aka.ms/azacrcredentialshow)
+**Hasło do rejestru kontenerów platformy Azure:** Podaj hasło dla nazwy użytkownika administratora skojarzonego z rejestrem kontenerów platformy Azure i ma obraz kontenera. Nazwa użytkownika i hasło są wymagane, aby upewnić się, że twoja firma ma dostęp do rejestru. Hasło można uzyskać z witryny Azure portal, przechodząc do **kluczy**dostępu rejestru > **kontenerów** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu [polecenia show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Ilustruje ekran klucza dostępu w witrynie Azure portal.":::
 
-**Nazwa repozytorium w rejestrze kontenerów platformy Azure**. Podaj nazwę repozytorium rejestru kontenerów platformy Azure, które ma obraz. Należy określić nazwę repozytorium podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc na > **stronę Repozytoria** [rejestru kontenerów](https://aka.ms/ContainerRegistry). Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w witrynie Azure portal](https://aka.ms/ContainerRegistryRepositoriesAzure). Należy zauważyć, że po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na swoim koncie.
+**Nazwa repozytorium w rejestrze kontenerów platformy Azure**. Podaj nazwę repozytorium rejestru kontenerów platformy Azure, które ma obraz. Należy określić nazwę repozytorium podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc na > **stronę Repozytoria** [rejestru kontenerów](https://azure.microsoft.com/services/container-registry/). Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w witrynie Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Należy zauważyć, że po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na swoim koncie.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Znaczniki obrazów dla nowych wersji oferty
 
 Klienci muszą mieć możliwość automatycznego uruchamiania aktualizacji z portalu Azure Marketplace podczas publikowania aktualizacji. Jeśli nie chcą aktualizować, muszą mieć możliwość pozostania w określonej wersji obrazu. Można to zrobić, dodając nowe znaczniki obrazu za każdym razem, gdy wprowadzasz aktualizację do obrazu.
 
-**Znacznik obrazu**. To pole musi zawierać **najnowszy** znacznik, który wskazuje najnowszą wersję obrazu na wszystkich obsługiwanych platformach. Musi również zawierać tag wersji (na przykład, począwszy od xx.xx.xx, gdzie xx jest liczbą). Klienci powinni używać [znaczników manifestu](https://aka.ms/GitHubmanifest-tool) do kierowania na wiele platform. Wszystkie tagi, do których odwołuje się znacznik manifestu, muszą również zostać dodane, abyśmy mogli je przesłać. Wszystkie znaczniki manifestu (z wyjątkiem najnowszego tagu) muszą zaczynać się od X.Y- lub X.Y.Z- gdzie X, Y i Z są liczbami całkowitymi. Na przykład, jeśli najnowszy tag wskazuje na 1.0.1-linux-x64, 1.0.1-linux-arm32 i 1.0.1-windows-arm32, te sześć tagów należy dodać do tego pola. Aby uzyskać szczegółowe informacje na temat tagów i przechowywania wersji, zobacz [Przygotowywanie zasobów technicznych modułu usługi IoT Edge.](https://aka.ms/PrepareIoTEdgeModTechAssets)
+**Znacznik obrazu**. To pole musi zawierać **najnowszy** znacznik, który wskazuje najnowszą wersję obrazu na wszystkich obsługiwanych platformach. Musi również zawierać tag wersji (na przykład, począwszy od xx.xx.xx, gdzie xx jest liczbą). Klienci powinni używać [znaczników manifestu](https://github.com/estesp/manifest-tool) do kierowania na wiele platform. Wszystkie tagi, do których odwołuje się znacznik manifestu, muszą również zostać dodane, abyśmy mogli je przesłać. Wszystkie znaczniki manifestu (z wyjątkiem najnowszego tagu) muszą zaczynać się od X.Y- lub X.Y.Z- gdzie X, Y i Z są liczbami całkowitymi. Na przykład, jeśli najnowszy tag wskazuje na 1.0.1-linux-x64, 1.0.1-linux-arm32 i 1.0.1-windows-arm32, te sześć tagów należy dodać do tego pola. Aby uzyskać szczegółowe informacje na temat tagów i przechowywania wersji, zobacz [Przygotowywanie zasobów technicznych modułu usługi IoT Edge.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets)
 
 ### <a name="default-deployment-settings-optional"></a>Domyślne ustawienia wdrażania (opcjonalnie)
 
@@ -418,7 +418,7 @@ Zdefiniuj najczęściej stosowane ustawienia, aby wdrożyć moduł IoT Edge. Zop
 
 **Trasy domyślne**. Centrum usługi IoT Edge Hub zarządza komunikacją między modułami, centrum IoT Hub i urządzeniami. Można ustawić trasy dla danych wejściowych i wyjściowych między modułami i Usługi IoT Hub, co zapewnia elastyczność wysyłania wiadomości, gdzie trzeba przejść bez konieczności dodatkowych usług do przetwarzania wiadomości lub pisania dodatkowego kodu. Trasy są tworzone przy użyciu par nazw/wartości. Można zdefiniować maksymalnie pięć domyślnych nazw tras o długości do 512 znaków.
 
-Pamiętaj, aby użyć poprawnej [składni trasy](https://aka.ms/DeclareRoutesAzureIoT) w wartości trasy (zwykle zdefiniowanej jako FROM/message/* INTO $upstream). Oznacza to, że wszystkie wiadomości wysyłane przez moduły przejść do usługi IoT Hub. Aby odwołać się do modułu, użyj jego domyślnej nazwy modułu, która będzie **nazwą oferty**, bez spacji lub znaków specjalnych. Aby odwołać się do innych modułów, które nie są jeszcze znane, użyj <FROM_MODULE_NAME> konwencji, aby poinformować klientów, że muszą zaktualizować te informacje. Aby uzyskać szczegółowe informacje o trasach IoT Edge, zobacz [Deklarowanie tras](https://aka.ms/DeclareRoutesAzureIoT).
+Pamiętaj, aby użyć poprawnej [składni trasy](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) w wartości trasy (zwykle zdefiniowanej jako FROM/message/* INTO $upstream). Oznacza to, że wszystkie wiadomości wysyłane przez moduły przejść do usługi IoT Hub. Aby odwołać się do modułu, użyj jego domyślnej nazwy modułu, która będzie **nazwą oferty**, bez spacji lub znaków specjalnych. Aby odwołać się do innych modułów, które nie są jeszcze znane, użyj <FROM_MODULE_NAME> konwencji, aby poinformować klientów, że muszą zaktualizować te informacje. Aby uzyskać szczegółowe informacje o trasach IoT Edge, zobacz [Deklarowanie tras](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
 
 Na przykład jeśli moduł ContosoModule nasłuchuje danych wejściowych na ContosoInput i danych wyjściowych w ContosoOutput, warto zdefiniować następujące dwie trasy domyślne:
 
@@ -427,7 +427,7 @@ Na przykład jeśli moduł ContosoModule nasłuchuje danych wejściowych na Cont
 - Nazwa #2: FromContosoModuleToCloud
 - Wartość #2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Domyślne modułu bliźniaczej żądane właściwości**. Bliźniacza reprezentacja modułu jest dokumentem JSON w Centrum IoT, który przechowuje informacje o stanie wystąpienia modułu, w tym żądane właściwości. Żądane właściwości są używane wraz ze zgłoszonymi właściwościami w celu synchronizacji konfiguracji lub warunków modułu. Wewnętrznej bazy danych rozwiązania można ustawić żądane właściwości i moduł może je odczytać. Moduł może również odbierać powiadomienia o zmianach w żądanych właściwościach. Żądane właściwości są tworzone przy użyciu maksymalnie pięciu par nazw/wartości, a każda wartość domyślna musi być mniejsza niż 512 znaków. Można zdefiniować maksymalnie pięć nazw/wartości bliźniaczej reprezentacji żądanych właściwości. Wartości wstępnie pożądanych właściwości muszą być prawidłowe JSON, bez zmiany znaczenia, bez tablic o maksymalnej hierarchii zagnieżdżonej czterech poziomów. W scenariuszu, w którym parametr wymagany dla wartości domyślnej nie ma sensu (na przykład adres IP serwera klienta), można dodać parametr jako wartość domyślną. Aby dowiedzieć się więcej o bliźniaczych żądanych właściwościach, zobacz [Definiowanie lub aktualizowanie żądanych właściwości](https://aka.ms/DefineUpdateProperties).
+**Domyślne modułu bliźniaczej żądane właściwości**. Bliźniacza reprezentacja modułu jest dokumentem JSON w Centrum IoT, który przechowuje informacje o stanie wystąpienia modułu, w tym żądane właściwości. Żądane właściwości są używane wraz ze zgłoszonymi właściwościami w celu synchronizacji konfiguracji lub warunków modułu. Wewnętrznej bazy danych rozwiązania można ustawić żądane właściwości i moduł może je odczytać. Moduł może również odbierać powiadomienia o zmianach w żądanych właściwościach. Żądane właściwości są tworzone przy użyciu maksymalnie pięciu par nazw/wartości, a każda wartość domyślna musi być mniejsza niż 512 znaków. Można zdefiniować maksymalnie pięć nazw/wartości bliźniaczej reprezentacji żądanych właściwości. Wartości wstępnie pożądanych właściwości muszą być prawidłowe JSON, bez zmiany znaczenia, bez tablic o maksymalnej hierarchii zagnieżdżonej czterech poziomów. W scenariuszu, w którym parametr wymagany dla wartości domyślnej nie ma sensu (na przykład adres IP serwera klienta), można dodać parametr jako wartość domyślną. Aby dowiedzieć się więcej o bliźniaczych żądanych właściwościach, zobacz [Definiowanie lub aktualizowanie żądanych właściwości](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
 
 Na przykład jeśli moduł obsługuje dynamicznie konfigurowalną częstotliwość odświeżania przy użyciu dwóch żądanych właściwości, warto zdefiniować następującą domyślną właściwość bliźniaczej reprezentacji:
 
@@ -441,7 +441,7 @@ Na przykład jeśli moduł wymaga zaakceptowania warunków użytkowania przed ro
 - Imię #1: ACCEPT_EULA
 - Wartość #1: Y
 
-**Domyślne opcje tworzenia kontenera**. Opcje tworzenia kontenera kierują tworzenie kontenera platformy Docker modułu Usługi IoT Edge. Usługa IoT Edge obsługuje opcje tworzenia kontenera z aparatem platformy Docker. Zobacz wszystkie opcje w [kontenerach listy.](https://aka.ms/ContainerList) Pole opcji tworzenia musi być prawidłowe JSON, bez zmiany znaczenia i mniejsze niż 512 znaków.
+**Domyślne opcje tworzenia kontenera**. Opcje tworzenia kontenera kierują tworzenie kontenera platformy Docker modułu Usługi IoT Edge. Usługa IoT Edge obsługuje opcje tworzenia kontenera z aparatem platformy Docker. Zobacz wszystkie opcje w [kontenerach listy.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) Pole opcji tworzenia musi być prawidłowe JSON, bez zmiany znaczenia i mniejsze niż 512 znaków.
 
 Na przykład jeśli moduł wymaga powiązania portów, zdefiniuj następujące opcje tworzenia:
 

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: 50bda733b0bb8b0c98eb69a15ab3000ad278031c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c226d35647e4a5a2b1d583dd6328bfb73dae2a1c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81265709"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732636"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Uzyskiwanie identyfikatora URI podpisu dostępu współdzielonego dla obrazu maszyny Wirtualnej
 
@@ -127,6 +127,6 @@ Przejrzyj każdy utworzony identyfikator URI sygnatury dostępu Współdzieloneg
 
 ## <a name="next-step"></a>Następny krok
 
-Jeśli masz trudności z utworzeniem identyfikatora URI sygnatury dostępu Współdzielonego, zobacz [Typowe problemy z adresem URL sygnatury dostępu Współdzielonego](https://aka.ms/AzureSAS_URI_FAQ). W przeciwnym razie zapisz identyfikatory URI sygnatury dostępu Współdzielonego w bezpiecznej lokalizacji do późniejszego użycia. Musisz go opublikować ofertę maszyny Wirtualnej w Centrum partnerów.
+Jeśli masz trudności z utworzeniem identyfikatora URI sygnatury dostępu Współdzielonego, zobacz [Typowe problemy z adresem URL sygnatury dostępu Współdzielonego](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-sas-uri-issues). W przeciwnym razie zapisz identyfikatory URI sygnatury dostępu Współdzielonego w bezpiecznej lokalizacji do późniejszego użycia. Musisz go opublikować ofertę maszyny Wirtualnej w Centrum partnerów.
 
-* [Tworzenie oferty maszyny wirtualnej platformy Azure](https://aka.ms/Create_AzureVMoffer)
+* [Tworzenie oferty maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer)

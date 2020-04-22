@@ -13,14 +13,14 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cccd2df334828c0b8103e4da2ffcd8549673b69c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bdc7e6e3795719128a8ecfb1e8bc97c1a9a08c7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76697000"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759031"
 ---
-# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Jak: Ogranicz aplikację usługi Azure AD do zestawu użytkowników
+# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Jak: Ograniczanie aplikacji usługi Azure AD do zestawu użytkowników w dzierżawie usługi Azure AD
 
 Aplikacje zarejestrowane w dzierżawie usługi Azure Active Directory (Azure AD) są domyślnie dostępne dla wszystkich użytkowników dzierżawy, którzy uwierzytelniają się pomyślnie.
 
@@ -28,7 +28,7 @@ Podobnie w przypadku aplikacji [z wieloma dzierżawami](howto-convert-app-to-be-
 
 Administratorzy i deweloperzy dzierżawy często mają wymagania, w których aplikacja musi być ograniczona do określonego zestawu użytkowników. Deweloperzy mogą osiągnąć to samo przy użyciu popularnych wzorców autoryzacji, takich jak kontrola dostępu oparta na rolach (RBAC), ale takie podejście wymaga znacznej ilości pracy nad częścią dewelopera.
 
-Usługa Azure AD umożliwia administratorom dzierżawy i deweloperom ograniczenie aplikacji do określonego zestawu użytkowników lub grup zabezpieczeń w dzierżawie.
+Administratorzy dzierżawy i deweloperzy mogą ograniczyć aplikację do określonego zestawu użytkowników lub grup zabezpieczeń w dzierżawie przy użyciu tej wbudowanej funkcji usługi Azure AD.
 
 ## <a name="supported-app-configurations"></a>Obsługiwane konfiguracje aplikacji
 
@@ -62,7 +62,7 @@ Istnieją dwa sposoby tworzenia aplikacji z włączonym przypisaniem użytkownik
 
 1. Wybierz aplikację, do której chcesz przypisać użytkownika lub grupę zabezpieczeń, z listy.
 1. Na stronie **Przegląd** aplikacji wybierz **pozycję Właściwości** z menu nawigacji po lewej stronie aplikacji.
-1. Znajdź ustawienie **Wymagane przypisanie użytkownika?** i ustaw je na **Tak**. Gdy ta opcja jest ustawiona na **Tak,** użytkownicy muszą najpierw zostać przypisani do tej aplikacji, zanim będą mogli uzyskać do niej dostęp.
+1. Znajdź ustawienie **Wymagane przypisanie użytkownika?** i ustaw je na **Tak**. Gdy ta opcja jest ustawiona na **Tak,** użytkownicy w dzierżawie muszą najpierw zostać przypisani do tej aplikacji lub nie będą mogli zalogować się do tej aplikacji.
 1. Wybierz **pozycję Zapisz,** aby zapisać tę zmianę konfiguracji.
 
 ### <a name="app-registration"></a>Rejestracja aplikacji
@@ -75,7 +75,7 @@ Istnieją dwa sposoby tworzenia aplikacji z włączonym przypisaniem użytkownik
 1. Utwórz lub wybierz aplikację, którą chcesz zarządzać. Musisz być **właścicielem** tej rejestracji aplikacji.
 1. Na stronie **Przegląd** aplikacji postępuj zgodnie z **aplikacją Zarządzana w katalogu lokalnym** pod podstawowymi elementami w górnej części strony. Spowoduje to przełączenie użytkownika do _zarządzanej aplikacji enterprise_ rejestracji aplikacji.
 1. Z bloku nawigacyjnego po lewej stronie wybierz pozycję **Właściwości**.
-1. Znajdź ustawienie **Wymagane przypisanie użytkownika?** i ustaw je na **Tak**. Gdy ta opcja jest ustawiona na **Tak,** użytkownicy muszą najpierw zostać przypisani do tej aplikacji, zanim będą mogli uzyskać do niej dostęp.
+1. Znajdź ustawienie **Wymagane przypisanie użytkownika?** i ustaw je na **Tak**. Gdy ta opcja jest ustawiona na **Tak,** użytkownicy w dzierżawie muszą najpierw zostać przypisani do tej aplikacji lub nie będą mogli zalogować się do tej aplikacji.
 1. Wybierz **pozycję Zapisz,** aby zapisać tę zmianę konfiguracji.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Przypisywanie użytkowników i grup do aplikacji
@@ -89,6 +89,14 @@ Po skonfigurowaniu aplikacji do włączania przypisywania użytkowników można 
      Zostanie wyświetlona lista użytkowników i grup zabezpieczeń wraz z polem tekstowym do wyszukiwania i lokalizowania określonego użytkownika lub grupy. Ten ekran umożliwia wybranie wielu użytkowników i grup za jednym zamachem.
 
 1. Po wybraniu użytkowników i grup naciśnij przycisk **Wybierz** na dole, aby przejść do następnej części.
+1. (Opcjonalnie) Jeśli zdefiniowano role aplikacji w aplikacji, można użyć **wybierz rolę** opcji, aby przypisać wybranych użytkowników i grupy do jednej z ról aplikacji. 
 1. Naciśnij przycisk **Przypisz** u dołu, aby zakończyć przypisania użytkowników i grup do aplikacji. 
 1. Upewnij się, że dodawani użytkownicy i grupy są wyświetlane na zaktualizowanej liście **Użytkownicy i grupy.**
 
+## <a name="more-information"></a>Więcej informacji
+
+- [Jak: Dodawanie ról aplikacji w aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+- [Dodawanie autoryzacji przy użyciu ról aplikacji & oświadczeń ról do aplikacji sieci web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [Korzystanie z grup zabezpieczeń i ról aplikacji w aplikacjach (wideo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Usługa Azure Active Directory z oświadczeń grupowych i ról aplikacji](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
+- [Manifest aplikacji usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

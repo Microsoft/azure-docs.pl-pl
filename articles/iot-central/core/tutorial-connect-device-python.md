@@ -7,20 +7,22 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 493dcd71905970434dd2ab2997cfebd17b8e47ff
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891598"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758187"
 ---
-# <a name="tutorial-create-and-connect-a-python-client-application-to-your-azure-iot-central-application-python"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej języka Python z aplikacją Azure IoT Central (Python)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją Azure IoT Central (Python)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
 
+*Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
+
 W tym samouczku pokazano, jak jako deweloper urządzeń połączyć aplikację kliencką języka Python z aplikacją Azure IoT Central. Aplikacja Python symuluje zachowanie urządzenia czujnika środowiska. Przykładowego _modelu możliwości urządzenia_ służy do tworzenia _szablonu urządzenia_ w centrum IoT. Widoki są dodawanye do szablonu urządzenia, aby umożliwić operatorowi interakcję z urządzeniem.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Zaimportowanie modelu możliwości urządzenia w celu utworzenia szablonu urządzenia.
@@ -303,7 +305,12 @@ Możesz zobaczyć, jak urządzenie reaguje na polecenia i aktualizacje właściw
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o modelach możliwości urządzeń i o tym, jak tworzyć własne szablony urządzeń, przejdź do przewodnika jak:
+Jako deweloper urządzeń, teraz, gdy już znasz podstawy tworzenia urządzenia przy użyciu node.js, niektóre sugerowane następne kroki są następujące:
+
+- Dowiedz się, jak połączyć rzeczywiste urządzenie z centrum IoT w [artykule Łączenie urządzenia MXChip IoT DevKit z aplikacją Azure IoT Central.](./howto-connect-devkit.md)
+- Przeczytaj artykuł [Nawiązanie połączenia z usługą Azure IoT Central,](./concepts-get-connected.md) aby dowiedzieć się więcej o rejestrowaniu urządzeń w usłudze IoT Central i sposobie zabezpieczania połączeń urządzeń przez usługę IoT Central.
+
+Jeśli wolisz kontynuować tworzenie samouczków W centrum IoT i dowiedzieć się więcej o tworzeniu rozwiązania Centrum IoT, zobacz:
 
 > [!div class="nextstepaction"]
-> [Definiowanie nowego typu urządzenia IoT](./howto-set-up-template.md)
+> [Tworzenie szablonu urządzenia bramy](./tutorial-define-gateway-device-type.md)

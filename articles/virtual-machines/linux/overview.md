@@ -1,23 +1,19 @@
 ---
 title: Omówienie maszyn wirtualnych z systemem Linux na platformie Azure
 description: Omówienie maszyn wirtualnych systemu Linux na platformie Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines-linux
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines-linux
 ms.topic: overview
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69a9722436aea1cf794e6e3f3ce02ec79180cff3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 83676850a58da4e4bd3c549d9d0c6ac25ae20f83
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80159476"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759426"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Maszyny wirtualne z systemem Linux na platformie Azure
 
@@ -51,7 +47,7 @@ W poniższej tabeli przedstawiono wybrane metody uzyskania dostępu do listy dos
 
 | Metoda | Opis |
 | --- | --- |
-| Portal Azure |Wybór lokalizacji z listy podczas tworzenia maszyny wirtualnej. |
+| Azure Portal |Wybór lokalizacji z listy podczas tworzenia maszyny wirtualnej. |
 | Azure PowerShell |Użyj polecenia [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
 | Interfejs API REST |Użycie operacji [wyświetlania listy lokalizacji](https://docs.microsoft.com/rest/api/resources/subscriptions). |
 | Interfejs wiersza polecenia platformy Azure |Użyj operacji [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
@@ -110,7 +106,7 @@ Platforma Azure obsługuje [init chmury w](https://cloud-init.io/) większości 
 * [Dodawanie dysku do maszyny wirtualnej systemu Linux przy użyciu interfejsu wiersza polecenia platformy Azure](add-disk.md)
 * [Jak dołączyć dysk danych do maszyny wirtualnej w witrynie Azure Portal?](attach-disk-portal.md)
 
-## <a name="networking"></a>Obsługa sieci
+## <a name="networking"></a>Networking
 * [Omówienie usługi Virtual Network](../../virtual-network/virtual-networks-overview.md)
 * [Adresy IP na platformie Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Otwieranie portów dla maszyny wirtualnej systemu Linux na platformie Azure](nsg-quickstart.md)
@@ -123,5 +119,5 @@ Stwórz swoją pierwszą maszynę wirtualną!
 
 - [Portal](quick-create-portal.md)
 - [Interfejs wiersza polecenia platformy Azure](quick-create-cli.md)
-- [Powershell](quick-create-powershell.md)
+- [PowerShell](quick-create-powershell.md)
 

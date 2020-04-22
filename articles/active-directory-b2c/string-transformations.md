@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: acacba591c9b895f1bd6abfbab5d3d4a4c858d12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f08107874598a68fb5ce2a1a8a98b6a81d7b94d4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472779"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756782"
 ---
 # <a name="string-claims-transformations"></a>Przekształcenia oświadczeń ciągów
 
@@ -369,7 +369,7 @@ Kopiuje zlokalizowane ciągi do oświadczeń.
 
 | Element | TransformClaimType (Typ transformacji) | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
-| WynikClaim | Nazwa zlokalizowanego ciągu | ciąg | Lista typów oświadczeń, które są tworzone po wywołaniu tej transformacji oświadczeń. |
+| WynikClaim | Nazwa zlokalizowanego ciągu | ciąg | Lista typów oświadczeń, które są produkowane po tej transformacji oświadczeń został wywołany. |
 
 Aby użyć transformacji oświadczeń GetLocalizedStringsTransformation:
 
@@ -615,13 +615,17 @@ Sprawdza, czy `claimToMatch` oświadczenie `matchTo` ciąg i parametr wejściowy
 | inputClaim | claimToMatch | ciąg | Typ oświadczenia, który ma być porównywany. |
 | Inputparameter | dopasowywkiTo | ciąg | Wyrażenie regularne do dopasowania. |
 | Inputparameter | outputClaimIfMatched | ciąg | Wartość, która ma być ustawiona, jeśli ciągi są równe. |
+| Inputparameter | extractGroups (grupy) | wartość logiczna | [Opcjonalnie] Określa, czy dopasowanie regexu powinno wyodrębnić wartości grup. Możliwe wartości: `true` `false` , lub (domyślnie). | 
 | WynikClaim | outputClaim | ciąg | Jeśli wyrażenie regularne jest zgodne, to `outputClaimIfMatched` oświadczenie danych wyjściowych zawiera wartość parametru wejściowego. Lub null, jeśli nie pasuje. |
 | WynikClaim | regexCompareResultClaim | wartość logiczna | Typ oświadczenia wynikowego wyniku dopasowania wyrażenia regularnego, `true` `false` który ma być ustawiony jako lub na podstawie wyniku dopasowania. |
+| WynikClaim| Nazwa roszczenia| ciąg | Jeśli parametr wejściowy extractGroups ustawiony na true, lista typów oświadczeń, które są tworzone po wywołaniu tego przekształcania oświadczeń. Nazwa claimType musi być zgodna z nazwą grupy Regex. | 
 
-Na przykład sprawdza, czy podany numer telefonu jest prawidłowy, na podstawie wzorca wyrażenia regularnego numeru telefonu.
+### <a name="example-1"></a>Przykład 1
+
+Sprawdza, czy podany numer telefonu jest prawidłowy, na podstawie wzorca wyrażenia regularnego numeru telefonu.
 
 ```XML
-<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
   </InputClaims>
@@ -636,8 +640,6 @@ Na przykład sprawdza, czy podany numer telefonu jest prawidłowy, na podstawie 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Przykład
-
 - Oświadczenia wejściowe:
     - **claimToMatch**: "64854114520"
 - Parametry wejściowe:
@@ -647,6 +649,39 @@ Na przykład sprawdza, czy podany numer telefonu jest prawidłowy, na podstawie 
     - **outputClaim**: "isPhone"
     - **regexCompareResultClaim**: prawda
 
+### <a name="example-2"></a>Przykład 2
+
+Sprawdza, czy podany adres e-mail jest prawidłowy, i zwraca alias e-mail.
+
+```XML
+<ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="(?&lt;mailAlias&gt;.*)@(.*)$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isEmail" />
+    <InputParameter Id="extractGroups" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isEmailString" TransformationClaimType="regexCompareResultClaim" />
+    <OutputClaim ClaimTypeReferenceId="mailAlias" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Oświadczenia wejściowe:
+    - **claimToMatch**:emily@contoso.com"
+- Parametry wejściowe:
+    - **matchTo**:`(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched**: "isEmail"
+    - **extractGroups**: true
+- Oświadczenia wyjściowe:
+    - **outputClaim**: "isEmail"
+    - **regexCompareResultClaim**: prawda
+    - **mailAlias**: emily
+    
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
 Sprawdza, czy oświadczenie `matchTo` ciąg i parametr wejściowy są równe i `stringMatchMsg` `stringMatchMsgCode` ustawia oświadczenia wyjściowe z wartością obecną w `true` `false` i parametrów wejściowych, wraz z porównania oświadczenia wynikowego, który ma być ustawiony jako lub na podstawie wyniku porównania.

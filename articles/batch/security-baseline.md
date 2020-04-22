@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fef1afb9748fd6f2f59b972c451d95ae1204ef70
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 8bda712523faa90f32a12fe7eecce27dccf3a55c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011637"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756623"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Plan bazowy zabezpieczeń platformy Azure dla partii
 
@@ -712,7 +712,7 @@ Opcjonalnie, jeśli masz subskrypcję platformy Rapid7, Qualys lub inną platfor
 
 Chociaż klasyczne zasoby platformy Azure mogą zostać wykryte za pomocą wykresu zasobów, zdecydowanie zaleca się tworzenie i używanie zasobów usługi Azure Resource Manager (ARM) w przyszłości.
 
-Jak tworzyć zapytania za pomocą programu Azure Graph:
+Jak tworzyć zapytania za pomocą programu Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 

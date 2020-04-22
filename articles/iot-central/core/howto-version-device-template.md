@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bb77d1a09cb2692765c4c834ce617d13465d4d67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37c7bc99881c8d1106c8464cfe18c9e63b8a1b02
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157572"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756723"
 ---
 # <a name="create-a-new-device-template-version"></a>Tworzenie nowej wersji szablonu urządzenia
 
-
+*Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
 
 Usługa Azure IoT Central umożliwia szybkie tworzenie aplikacji IoT. Możesz szybko iterować projekty szablonów urządzeń, dodając, edytując lub usuwając funkcje urządzenia, widoki i dostosowania. Po opublikowaniu szablonu urządzenia model możliwości urządzenia jest wyświetlany jako **Opublikowany** z ikonami kłód obok modelu. Aby wprowadzić zmiany w modelu możliwości urządzenia, należy utworzyć nową wersję szablonu urządzenia. Tymczasem właściwości chmury, dostosowania i widoki mogą być edytowane w dowolnym momencie bez konieczności wersji szablonu urządzenia. Po zapisaniu którejkolwiek z tych zmian można opublikować szablon urządzenia, aby udostępnić operatorowi najnowsze zmiany do wyświetlenia w Eksploratorze urządzeń.
 
@@ -32,7 +32,7 @@ Niektóre elementy funkcji urządzenia można edytować bez konieczności wyświ
 1. Wybierz szablon urządzenia, który chcesz dostosować.
 1. Wybierz kartę **Dostosowywanie.**
 1. Wszystkie funkcje zdefiniowane w modelu możliwości urządzenia zostaną wymienione tutaj. Wszystkie pola, które można tu edytować, można zapisywać i używać w całej aplikacji, bez konieczności tworzenia wersji szablonu urządzenia. Jeśli istnieją pola, które chcesz edytować, które są tylko do odczytu, należy wersję szablonu urządzenia, aby je zmienić. Wybierz pole, które chcesz edytować, i wprowadź w nowych wartościach.
-1. Kliknij przycisk **Zapisz**. Teraz te wartości zastąpią wszystko, co zostało pierwotnie zapisane w szablonie urządzenia i będzie używane w całej aplikacji.
+1. Kliknij pozycję **Zapisz**. Teraz te wartości zastąpią wszystko, co zostało pierwotnie zapisane w szablonie urządzenia i będzie używane w całej aplikacji.
 
 ## <a name="versioning-a-device-template"></a>Przechowywanie wersji szablonu urządzenia
 
@@ -81,7 +81,4 @@ Można utworzyć wiele wersji szablonu urządzenia. Z biegiem czasu będziesz mi
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy dowiesz się, jak używać wersji szablonu urządzenia w aplikacji Azure IoT Central, oto sugerowany następny krok:
-
-> [!div class="nextstepaction"]
-> [Jak utworzyć reguły telemetryczne](tutorial-create-telemetry-rules.md)
+Jeśli jesteś deweloperem urządzeń, sugerowanym następnym krokiem jest przeczytanie informacji o [urządzeniach usługi Azure IoT Edge i usłudze Azure IoT Central.](./concepts-iot-edge.md)

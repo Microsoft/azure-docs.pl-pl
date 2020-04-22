@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 179a2120714460c955d1fd3e345ebcd963ae564d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: cebe5564767ee345c1aea96b6ac54b9398c3e9a3
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81453561"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733028"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java systemu Windows dla usługi Azure App Service
 
@@ -318,7 +318,7 @@ Obsługiwany przez platformę Azure zestaw Java Development Kit (JDK) jest [Zulu
 
 Główne aktualizacje wersji zostaną dostarczone za pośrednictwem nowych opcji środowiska uruchomieniowego w usłudze Azure App Service dla systemu Windows. Klienci aktualizują te nowsze wersje oprogramowania Java, konfigurując wdrożenie usługi App Service i są odpowiedzialni za testowanie i zapewnianie, że główna aktualizacja spełnia ich potrzeby.
 
-Obsługiwane JDK są automatycznie poprawiane co kwartał w styczniu, kwietniu, lipcu i październiku każdego roku. Aby uzyskać więcej informacji na temat oprogramowania Java na platformie Azure, zobacz [ten dokument pomocy technicznej](https://docs.microsoft.com/azure/java/jdk/).
+Obsługiwane JDK są automatycznie poprawiane co kwartał w styczniu, kwietniu, lipcu i październiku każdego roku. Aby uzyskać więcej informacji na temat oprogramowania Java na platformie Azure, zobacz [ten dokument pomocy technicznej](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 ### <a name="security-updates"></a>Aktualizacje zabezpieczeń
 

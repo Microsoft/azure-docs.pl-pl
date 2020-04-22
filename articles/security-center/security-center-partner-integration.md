@@ -11,20 +11,17 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: f7a1eccd76313c5b3bc74a5b5ebdbcd202ca6841
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 48869140ba8cd1a9598562b0057b0005d8fcd9c7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435745"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758036"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integracja rozwiązań zabezpieczeń w usłudze Azure Security Center
 Ten dokument ułatwia zarządzanie rozwiązaniami zabezpieczeń już połączonymi z usługą Azure Security Center i dodawanie nowych.
-
-> [!NOTE]
-> Podzbiór rozwiązań zabezpieczających został wycofany 31 lipca 2019. Aby uzyskać więcej informacji i usług alternatywnych, zobacz [Wycofanie funkcji Centrum zabezpieczeń (lipiec 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## <a name="integrated-azure-security-solutions"></a>Zintegrowane rozwiązania zabezpieczeń platformy Azure
 Usługa Security Center ułatwia włączanie zintegrowanych rozwiązań zabezpieczeń na platformie Azure. Korzyści to:
@@ -37,52 +34,57 @@ Obecnie zintegrowane rozwiązania zabezpieczające obejmują ocenę luk w zabezp
 
 > [!NOTE]
 > Usługa Security Center nie instaluje agenta usługi Log Analytics na partnerskich urządzeniach wirtualnych, ponieważ większość dostawców zabezpieczeń zabrania agentów zewnętrznych działających na ich urządzeniach.
->
->
+
+Aby dowiedzieć się więcej o integracji narzędzi do skanowania luk w zabezpieczeniach z qualys, w tym wbudowanego skanera dostępnego dla klientów warstwy standardowej, zobacz: 
+
+- [Zintegrowany skaner luk w zabezpieczeniach dla maszyn wirtualnych](built-in-vulnerability-assessment.md).
+- [Wdrażanie rozwiązania do skanowania luk](partner-vulnerability-assessment.md)w zabezpieczeniach partnera .
+
+Usługa Security Center oferuje również analizę luk w zabezpieczeniach:
+
+* Bazy danych SQL — zobacz [Eksplorowanie raportów oceny luk w zabezpieczeniach na pulpicie nawigacyjnym oceny luk w zabezpieczeniach](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
+* Obrazy rejestru kontenerów platformy Azure — zobacz [integracja rejestru kontenerów platformy Azure z Centrum zabezpieczeń (wersja zapoznawcza)](azure-container-registry-integration.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Jak są integrowane rozwiązania zabezpieczeń
 Rozwiązania zabezpieczeń platformy Azure, które zostały wdrożone z usługi Security Center, są automatycznie połączone. Można również połączyć inne źródła danych zabezpieczeń, w tym komputery z systemem lokalnym lub w innych chmurach.
 
-![Integracja rozwiązań partnerskich](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
+[![Integracja rozwiązań partnerskich](./media/security-center-partner-integration/security-solutions-page.png)](./media/security-center-partner-integration/security-solutions-page.png#lightbox)
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Zarządzanie zintegrowanymi rozwiązaniami zabezpieczeń platformy Azure i innymi źródłami danych
 
-1. Zaloguj się do [Portalu Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Z [witryny Azure portal](https://azure.microsoft.com/features/azure-portal/)otwórz **Centrum zabezpieczeń**.
 
-2. W **menu platformy Microsoft Azure** wybierz pozycję **Security Center**. Zostanie otwarte okno **Security Center — Przegląd**.
+1. Z menu Centrum zabezpieczeń wybierz pozycję **Rozwiązania zabezpieczeń**.
 
-3. W menu usługi Security Center wybierz pozycję **Rozwiązania zabezpieczeń**.
-
-   ![Security Center — Przegląd](./media/security-center-partner-integration/overview.png)
-
-W **rozwiązaniach zabezpieczeń**można zobaczyć kondycję zintegrowanych rozwiązań zabezpieczeń platformy Azure i uruchomić podstawowe zadania zarządzania.
+Na stronie **Rozwiązania zabezpieczeń** możesz zobaczyć kondycję zintegrowanych rozwiązań zabezpieczeń platformy Azure i uruchomić podstawowe zadania zarządzania.
 
 ### <a name="connected-solutions"></a>Rozwiązania połączone
 
 Sekcja **Rozwiązania połączone** zawiera rozwiązania zabezpieczające, które są obecnie połączone z usługą Security Center. Pokazuje również stan kondycji każdego rozwiązania.  
 
-![Rozwiązania połączone](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
+![Rozwiązania połączone](./media/security-center-partner-integration/connected-solutions.png)
 
 Stan rozwiązania partnerskiego może być:
 
-* Zdrowy (zielony) - brak problemów zdrowotnych.
-* Niezdrowe (czerwone) - istnieje problem zdrowotny, który wymaga natychmiastowej uwagi.
-* Problemy zdrowotne (pomarańczowy) - rozwiązanie przestało zgłaszać swoje zdrowie.
-* Nie zgłoszono (szary) — rozwiązanie nie zgłosiło jeszcze niczego i nie są dostępne żadne dane dotyczące kondycji. Stan rozwiązania może być niezgłoszony, jeśli był niedawno połączony i nadal jest wdrażany.
+* **Zdrowy** (zielony) - brak problemów zdrowotnych.
+* **Niezdrowe** (czerwone) - istnieje problem zdrowotny, który wymaga natychmiastowej uwagi.
+* **Zatrzymano raportowanie** (pomarańczowy) - rozwiązanie przestało zgłaszać swoje zdrowie.
+* **Nie zgłoszono** (szary) — rozwiązanie nie zgłosiło jeszcze niczego i nie są dostępne żadne dane dotyczące kondycji. Stan rozwiązania może być niezgłoszony, jeśli był niedawno połączony i nadal jest wdrażany.
 
 > [!NOTE]
 > Jeśli dane o stanie kondycji nie są dostępne, usługa Security Center pokazuje datę i godzinę ostatniego odebranego zdarzenia, aby wskazać, czy rozwiązanie jest raportowanie, czy nie. Jeśli nie są dostępne żadne dane dotyczące kondycji i w ciągu ostatnich 14 dni nie odebrano żadnych alertów, usługa Security Center wskazuje, że rozwiązanie jest w złej kondycji lub nie jest raportowane.
 >
 >
 
-1. Wybierz **widok, aby** uzyskać dodatkowe informacje i opcje, takie jak:
+Wybierz **widok, aby** uzyskać dodatkowe informacje i opcje, takie jak:
 
-   - **Konsola rozwiązania**. Otwiera środowisko zarządzania dla tego rozwiązania.
-   - **Maszyna wirtualna łącza**. Otwiera stronę Połącz aplikacje. W tym miejscu możesz połączyć zasoby z rozwiązaniem partnerskim.
-   - **Usuń rozwiązanie**.
-   - **Skonfiguruj**.
+   - **Konsola rozwiązania** — otwiera środowisko zarządzania dla tego rozwiązania.
+   - **Link VM** — otwiera stronę Aplikacje łącza. W tym miejscu możesz połączyć zasoby z rozwiązaniem partnerskim.
+   - **Usuwanie rozwiązania**
+   - **Konfiguruj**
 
-   ![Szczegóły rozwiązania partnerskiego](./media/security-center-partner-solutions/partner-solutions-detail.png)
+   ![Szczegóły rozwiązania partnerskiego](./media/security-center-partner-integration/partner-solutions-detail.png)
+
 
 ### <a name="discovered-solutions"></a>Rozwiązania odnalezione
 
@@ -91,7 +93,6 @@ Usługa Security Center automatycznie odnajduje rozwiązania zabezpieczeń dzia�
 > [!NOTE]
 > Funkcja odnalezionych rozwiązań wymaga usługi Security Center w warstwie Standardowa na poziomie subskrypcji. Zobacz [Cennik,](security-center-pricing.md) aby dowiedzieć się więcej o warstwach cenowych.
 >
->
 
 Wybierz **connect** w ramach rozwiązania, aby zintegrować się z centrum zabezpieczeń i otrzymywać powiadomienia o alertach zabezpieczeń.
 
@@ -99,57 +100,13 @@ Wybierz **connect** w ramach rozwiązania, aby zintegrować się z centrum zabez
 
 Sekcja **Dodawanie źródeł danych** obejmuje inne dostępne źródła danych, które mogą zostać połączone. Aby uzyskać instrukcje dotyczące dodawania danych z dowolnego z tych źródeł, kliknij przycisk **DODAJ**.
 
-![Źródła danych](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
+![Źródła danych](./media/security-center-partner-integration/add-data-sources.png)
 
-## <a name="exporting-data-to-a-siem"></a>Eksportowanie danych do SIEM
-
-> [!NOTE]
-> Aby uzyskać szczegółowe informacje na temat prostszej metody (obecnie w wersji zapoznawczej) do eksportowania danych do SIEM, zobacz [Eksportowanie alertów i zaleceń dotyczących zabezpieczeń (Wersja zapoznawcza).](continuous-export.md) Nowa metoda nie używa dziennika aktywności jako intermediatora i umożliwia bezpośredni eksport z Centrum zabezpieczeń do centrów zdarzeń (a następnie do siem), obsługuje również eksport zaleceń dotyczących zabezpieczeń.
-
-
-Można skonfigurować siemie lub inne narzędzia do monitorowania do odbierania zdarzeń usługi Azure Security Center.
-
-Wszystkie zdarzenia z usługi Azure Security Center są publikowane w [dzienniku aktywności usługi](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)Azure Monitor. Usługa Azure Monitor używa [potoku skonsolidowanego](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) do przesyłania strumieniowego danych do Centrum zdarzeń, gdzie można je następnie pobierać do narzędzia do monitorowania.
-
-W następnych sekcjach opisano, jak można skonfigurować dane do przesyłania strumieniowego do centrum zdarzeń. Kroki zakładają, że masz już usługi Azure Security Center skonfigurowane w ramach subskrypcji platformy Azure.
-
-### <a name="high-level-overview"></a>Ogólne omówienie
-
-![Omówienie wysokiego poziomu](media/security-center-export-data-to-siem/overview.png)
-
-### <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Co to jest dane zabezpieczeń platformy Azure narażone na SIEM?
-
-W tej wersji możemy udostępnić [alerty zabezpieczeń.](../security-center/security-center-managing-and-responding-alerts.md) W nadchodzących wersjach wzbogacimy zestaw danych o zalecenia dotyczące zabezpieczeń.
-
-### <a name="how-to-set-up-the-pipeline"></a>Jak skonfigurować potok
-
-#### <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
-
-Przed rozpoczęciem [utwórz obszar nazw centrum zdarzeń](../event-hubs/event-hubs-create.md) — miejsce docelowe dla wszystkich danych monitorowania.
-
-#### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Przesyłanie strumieniowe dziennika aktywności platformy Azure do centrów zdarzeń
-
-Zobacz następujący artykuł [dziennik aktywności strumienia do Centrum zdarzeń](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
-
-#### <a name="install-a-partner-siem-connector"></a>Instalowanie partnerskiego łącznika SIEM 
-
-Routing danych monitorowania do Centrum zdarzeń za pomocą usługi Azure Monitor umożliwia łatwą integrację z siem partnera i narzędzi do monitorowania.
-
-Zobacz poniższy artykuł, aby zapoznać się z [listą obsługiwanych SIEMów](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
-
-### <a name="example-for-querying-data"></a>Przykład kwerendy danych 
-
-Oto kilka zapytań splunk, których można użyć do ściągania danych alertów:
-
-| **Opis kwerendy** | **Zapytanie** |
-|----|----|
-| All Alerts| index=główny microsoft.security/locations/alerts|
-| Podsumuj liczbę operacji według ich nazwy| index=main sourcetype="amal:security" \| tabela \| operationName statystyki zliczane według operationName|
-| Uzyskaj informacje o alertach: czas, nazwa, stan, identyfikator i subskrypcja | index=main \| Microsoft.Security/locations/alerts \_table time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób zintegrowania rozwiązania partnerskiego w usłudze Security Center. Aby dowiedzieć się więcej o umyciu Centrum zabezpieczeń, zobacz następujący artykuł:
+W tym artykule przedstawiono sposób zintegrowania rozwiązania partnerskiego w usłudze Security Center. Aby uzyskać powiązane informacje, zobacz następujące artykuły:
 
+* [Eksportuj alerty i zalecenia dotyczące zabezpieczeń](continuous-export.md). Dowiedz się, jak skonfigurować integrację z usługą Azure Sentinel lub dowolnym innym pakietem SIEM.
 * [Monitorowanie kondycji zabezpieczeń w usłudze Security Center](security-center-monitoring.md). Informacje na temat sposobu monitorowania kondycji zasobów platformy Azure.

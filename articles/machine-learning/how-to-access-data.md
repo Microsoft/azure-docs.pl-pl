@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: ca892b5f360f523ee2b5ff875dfb0707136a5ab5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 4a2102f442fc176762b7d5d69f7b367a94633ef5
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383438"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758795"
 ---
 # <a name="connect-to-azure-storage-services"></a>Łączenie się z usługami magazynu platformy Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -99,7 +99,7 @@ Wybierz **pozycję Konta magazynu** w lewym okienku i wybierz konto magazynu, kt
 * W przypadku elementów jednostkowych usług, takich jak identyfikator dzierżawy i identyfikator klienta, przejdź do **rejestracji aplikacji** i wybierz aplikację, której chcesz użyć. Jego **odpowiednia** strona Przegląd będzie zawierać te elementy.
 
 > [!IMPORTANT]
-> Jeśli twoje konto magazynu znajduje się w sieci wirtualnej, obsługiwane jest tylko tworzenie magazynów danych obiektów Blob, File Share, ADLS Gen 1 i ADLS Gen 2 **za pośrednictwem zestawu SDK.** Aby udzielić dostępu obszaru roboczego do `grant_workspace_access` konta `True`magazynu, ustaw parametr na .
+> Jeśli twoje konto magazynu znajduje się w sieci wirtualnej, obsługiwane jest tylko tworzenie magazynów danych **za pośrednictwem zestawu SDK.**
 
 Poniższe przykłady pokazują, jak zarejestrować kontener obiektów blob platformy Azure, udział plików platformy Azure i usługę Azure Data Lake Storage Generation 2 jako magazyn danych. W przypadku innych usług magazynowania należy zapoznać się z [dokumentacją referencyjną `register_azure_*` odpowiednich metod.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods)
 
@@ -121,6 +121,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          account_name=account_name,
                                                          account_key=account_key)
 ```
+Jeśli kontener obiektu blob znajduje `skip_validation=True` się [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)w sieci wirtualnej, ustaw użycie programu .
 
 #### <a name="file-share"></a>Udział plików
 
@@ -140,6 +141,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      account_name=account_name,
                                                      account_key=account_key)
 ```
+Jeśli udział plików znajduje się `skip_validation=True` w [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)sieci wirtualnej, ustaw użycie programu . 
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Generowanie 2 usługi Azure Data Lake
 

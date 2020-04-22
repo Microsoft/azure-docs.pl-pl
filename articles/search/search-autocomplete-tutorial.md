@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 1d8085c6056cb0d2541999c3e9c249cde3da8834
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 60e9a435d705ee0fee6509e92cdcb056ac7ab609
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641257"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758105"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Dodawanie autouzupełniania i sugestii do aplikacji klienckich
 
@@ -22,7 +22,7 @@ Wyszukiwanie zgodnie z typem jest powszechną techniką poprawy wydajności zapy
 Aby zaimplementować te środowiska w usłudze Azure Cognitive Search, konieczne będzie:
 
 + *Sugest na* zapleczu.
-+ *Kwerenda* określająca interfejs API autouzupełniania lub sugestie w żądaniu.
++ *Kwerenda* określająca interfejs API [autouzupełniania](https://docs.microsoft.com/rest/api/searchservice/autocomplete) lub [sugestie](https://docs.microsoft.com/rest/api/searchservice/suggestions) w żądaniu.
 + *Kontrolka interfejsu użytkownika* do obsługi interakcji wyszukiwania po typie w aplikacji klienckiej. Zalecamy użycie w tym celu istniejącej biblioteki JavaScript.
 
 W usłudze Azure Cognitive Search automatycznie kompletowane kwerendy i sugerowane wyniki są pobierane z indeksu wyszukiwania z wybranych pól, które zostały zarejestrowane w suggesterze. Sugestywny jest częścią indeksu i określa, które pola będą dostarczać zawartość, która kończy kwerendę, sugeruje wynik lub wykonuje oba. Gdy indeks jest tworzony i ładowany, struktury danych sugestywny jest tworzony wewnętrznie do przechowywania prefiksów używanych do dopasowywania w kwerendach częściowych. W przypadku sugestii wybór odpowiednich pól, które są unikatowe lub przynajmniej nie powtarzalne, jest niezbędny do doświadczenia. Aby uzyskać więcej informacji, zobacz [Tworzenie sugestatora](index-add-suggesters.md).
@@ -31,7 +31,7 @@ Poniżej dalsza część artykułu Koncentruje się na kwerendach i kodzie klien
 
 ## <a name="set-up-a-request"></a>Konfigurowanie żądania
 
-Elementy żądania obejmują interfejs API[(Autouzupełnienie REST](https://docs.microsoft.com/rest/api/searchservice/autocomplete) lub [sugestia REST),](https://docs.microsoft.com/rest/api/searchservice/suggestions)kwerendę częściową i sugestator.
+Elementy żądania obejmują jeden z interfejsów API wyszukiwania jako typu, kwerendy częściowej i sugestywny. Poniższy skrypt ilustruje składniki żądania, przy użyciu interfejsu API REST autouzupełnianego jako przykład.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
@@ -49,7 +49,7 @@ Interfejsy API nie nakładają minimalnych wymagań dotyczących długości kwer
 
 Dopasowania znajdują się na początku terminu w dowolnym miejscu ciągu wejściowego. Biorąc pod uwagę "szybki brązowy lis", zarówno autouzupełnienie, jak i sugestie będą pasować do częściowych wersji "", "szybkie", "brązowe" lub "lis", ale nie na częściowych terminach infix, takich jak "rown" lub "wół". Ponadto każde dopasowanie ustawia zakres rozszerzeń podrzędnych. Częściowe zapytanie "quick br" będzie pasować do "quick brown" lub "quick bread", ale ani "brązowy" lub "chleb" sam będzie pasował, chyba że "szybkie" poprzedza je.
 
-### <a name="apis"></a>Interfejsy API
+### <a name="apis-for-search-as-you-type"></a>Interfejsy API wyszukiwania według typu
 
 Skorzystaj z tych łączy dla stron referencyjnych REST i .NET SDK:
 
@@ -64,12 +64,13 @@ Odpowiedzi na autouzupełnianie i sugestie są tym, czego można oczekiwać od w
 
 Odpowiedzi są kształtowane przez parametry na żądanie. W przypadku autouzupełniania ustaw [**autouzupełnianieMode,**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) aby określić, czy uzupełnianie tekstu odbywa się na jednym lub dwóch terminach. W polu Sugestie wybrano pole określa zawartość odpowiedzi.
 
-Aby jeszcze bardziej uściślić odpowiedź, dołącz więcej parametrów na żądanie. Następujące parametry dotyczą zarówno autouzupełniania, jak i sugestii.
+W przypadku sugestii należy dodatkowo uściślić odpowiedź, aby uniknąć duplikatów lub tego, co wydaje się być niepowiązanymi wynikami. Aby kontrolować wyniki, należy uwzględnić więcej parametrów na żądanie. Następujące parametry dotyczą zarówno autouzupełnienia, jak i sugestii, ale być może są bardziej potrzebne w przypadku sugestii, zwłaszcza gdy sugest zawiera wiele pól.
 
 | Parametr | Sposób użycia |
 |-----------|-------|
-| **$select** | Jeśli masz wiele **sourceFields**, użyj **$select,** aby wybrać`$select=GameTitle`pole, które współtworzy wartości ( ). |
-| **$filter** | Zastosuj kryteria dopasowania do`$filter=ActionAdventure`zestawu wyników ( ). |
+| **$select** | Jeśli w sugescie masz wiele **pól źródłowych,** użyj **$select,** aby`$select=GameTitle`wybrać, które pole współtworzy wartości ( ). |
+| **pola wyszukiwania** | Ogranicz kwerendę do określonych pól. |
+| **$filter** | Zastosuj kryteria dopasowania do`$filter=Category eq 'ActionAdventure'`zestawu wyników ( ). |
 | **$top** | Ogranicz wyniki do`$top=5`określonej liczby ( ).|
 
 ## <a name="add-user-interaction-code"></a>Dodawanie kodu interakcji użytkownika
@@ -149,6 +150,8 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
     // Call suggest API and return results
     SuggestParameters sp = new SuggestParameters()
     {
+        Select = HotelName,
+        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
         Top = 5
     };

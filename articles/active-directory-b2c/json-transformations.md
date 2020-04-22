@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b42c2a414333e7ed262441321a808fc45425fc3b
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187597"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756758"
 ---
 # <a name="json-claims-transformations"></a>JSON żąda przekształceń
 
@@ -223,6 +223,39 @@ W poniższym przykładzie transformacja `id` oświadczeń wyodrębnia element z 
 - Oświadczenia wyjściowe:
     - **wyodrębnioneClaim**: 6353399
 
+## <a name="getsingleitemfromjson"></a>GetSingleItemFromjson ( GetSingleItemFromjson )
+
+Pobiera pierwszy element z danych JSON.
+
+| Element | TransformClaimType (Typ transformacji) | Typ danych | Uwagi |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim (własnach wejściowych) | inputJson (wejścieJson) | ciąg | ClaimTypes, które są używane przez transformację oświadczeń, aby uzyskać element z danych JSON. |
+| WynikClaim | key | ciąg | Pierwszy klucz elementu w JSON. |
+| WynikClaim | value | ciąg | Pierwsza wartość elementu w JSON. |
+
+W poniższym przykładzie transformacja oświadczeń wyodrębnia pierwszy element (podana nazwa) z danych JSON.
+
+```XML
+<ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="givenNameKey" TransformationClaimType="key" />
+    <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Przykład
+
+- Oświadczenia wejściowe:
+  - **inputJson**: {"givenName": "Emilty", "lastName": "Smith"}
+- Oświadczenia wyjściowe:
+  - **klucz:** givenName
+  - **wartość**: Emilty
+
+
 ## <a name="getsinglevaluefromjsonarray"></a>GetSingleValueFromJsonArray
 
 Pobiera pierwszy element z tablicy danych JSON.
@@ -294,3 +327,5 @@ Oświadczenie wyjściowe:
   }
 }
 ```
+
+

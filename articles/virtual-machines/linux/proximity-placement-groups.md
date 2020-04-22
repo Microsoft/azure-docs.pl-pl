@@ -1,21 +1,18 @@
 ---
-title: Używanie grup miejsc docelowych zbliżeniowych dla maszyn wirtualnych z systemem Linux
-description: Dowiedz się więcej o tworzeniu i używaniu grup miejsc docelowych zbliżeniowych dla maszyn wirtualnych systemu Linux na platformie Azure.
-services: virtual-machines-linux
+title: Korzystanie z grup miejsc docelowych zbliżeniowych
+description: Dowiedz się więcej o tworzeniu i używaniu grup miejsc docelowych zbliżeniowych dla maszyn wirtualnych na platformie Azure.
 author: cynthn
-manager: gwallace
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 353a266b647c299515c15889c302ba4409aa511b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f89b28e7a3c29e45efa2796788e27325c01d7098
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73171053"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759256"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Wdrażanie maszyn wirtualnych w grupach miejsc docelowych zbliżeniowych przy użyciu interfejsu wiersza polecenia platformy Azure
 

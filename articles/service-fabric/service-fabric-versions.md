@@ -2,13 +2,13 @@
 title: Obsługiwane wersje klastra w sieci szkieletowej usług Azure
 description: Dowiedz się więcej o wersjach klastra w sieci szkieletowej usługi Azure, w tym łącze do najnowszych wersji z bloga zespołu sieci szkieletowej usług.
 ms.topic: troubleshooting
-ms.date: 03/02/2020
-ms.openlocfilehash: b76e498926492ce7acaa696dfe9a0299fb5573e0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.date: 04/20/2020
+ms.openlocfilehash: b68314a116b0d9da8baf5f61eeffeef2b30835c4
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460532"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732873"
 ---
 # <a name="supported-service-fabric-versions"></a>Obsługiwane wersje sieci szkieletowej usług
 
@@ -41,6 +41,7 @@ W poniższej tabeli wymieniono wersje sieci szkieletowej usług i daty zakończe
 | 7.0.466.* | 6.5.* |Mniej niż lub równa wersji 4.0|1 sierpnia 2020 r. |
 | 7.0.470.* | 7.0.466.* |Mniej niż lub równa wersji 4.0 |1 sierpnia 2020 r.  |
 | 7.1.409.* | 7.0.466.* |Mniej niż lub równa wersji 4.0 |Bieżąca wersja, więc nie ma daty zakończenia |
+
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
 W poniższej tabeli wymieniono obsługiwane systemy operacyjne dla obsługiwanych wersji sieci szkieletowej usług.
@@ -106,3 +107,4 @@ W poniższej tabeli wymieniono nazwy wersji sieci szkieletowej usług i odpowiad
 | 7,0 CU2 | 7.0.464.9590 | 7.0.464.1 |
 | 7,0 cu3 | 7.0.466.9590 | 7.0.465.1 |
 | 7,0 cu4 | 7.0.470.9590 | 7.0.469.1 |
+| 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |

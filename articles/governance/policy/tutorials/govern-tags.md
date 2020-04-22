@@ -1,19 +1,19 @@
 ---
 title: 'Samouczek: Zarządzanie zarządzaniem tagami'
 description: W tym samouczku użyj modyfikuj efekt zasad platformy Azure, aby utworzyć i wymusić model nadzoru tagów na nowych i istniejących zasobach.
-ms.date: 11/25/2019
+ms.date: 04/21/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6319bbde2fdc8f78e2743dd5f1565c8680433fea
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75965996"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759069"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Samouczek: Zarządzanie zarządzaniem znacznikami za pomocą zasad platformy Azure
 
 [Tagi](../../../azure-resource-manager/management/tag-resources.md) są kluczowym elementem organizowania zasobów platformy Azure w taksonomię. Jeśli przestrzegasz [najlepszych rozwiązań dotyczących zarządzania tagami,](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)tagi mogą być podstawą do stosowania zasad biznesowych za pomocą zasad platformy Azure lub [śledzenia kosztów za pomocą usługi Zarządzanie kosztami.](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources)
-Bez względu na to, jak i dlaczego używasz tagów, ważne jest, aby szybko dodawać, zmieniać i usuwać te znaczniki w zasobach platformy Azure.
+Bez względu na to, jak i dlaczego używasz tagów, ważne jest, aby szybko dodawać, zmieniać i usuwać te znaczniki w zasobach platformy Azure. Aby sprawdzić, czy twój zasób platformy Azure obsługuje tagowanie, zobacz [Obsługa znaczników](../../../azure-resource-manager/management/tag-support.md).
 
 Efekt [modyfikuj](../concepts/effects.md#modify) zasady platformy Azure ma na celu pomoc w zarządzaniu tagami bez względu na etap zarządzania zasobami, na jakim się znajdujesz. **Modyfikowanie** pomaga, gdy:
 

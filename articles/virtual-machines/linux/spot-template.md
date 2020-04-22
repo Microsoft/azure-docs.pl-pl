@@ -7,12 +7,13 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 1352761e308aa2e26864654dae65c290df47102b
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.reviewer: jagaveer
+ms.openlocfilehash: 2d546e9154352ec90aa1b1a457eb5320979239d2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548257"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758352"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Wdrażanie maszyn wirtualnych punktowych przy użyciu szablonu Menedżera zasobów
 

@@ -1,25 +1,20 @@
 ---
 title: Wdrażanie platformy kontenerowej OpenShift 3.11 na platformie Azure
 description: Wdrażanie platformy kontenerów OpenShift 3.11 na platformie Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 7fd1c381ecd2b7dba4c77a025cb0332ace4147bf
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 7d6cd4c6ce7991ae83f6f4a1dd6d8b86fe7eedbc
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673661"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757886"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Wdrażanie platformy kontenerowej OpenShift 3.11 na platformie Azure
 

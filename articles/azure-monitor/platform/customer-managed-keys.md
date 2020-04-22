@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 04/12/2020
-ms.openlocfilehash: dbd217c7135172c52a5ec7459930977960c452aa
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 25fdb0aefacbdd9c2630a69981a67821ac155786
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260869"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758807"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Konfiguracja klucza zarządzanego przez klienta usługi Azure Monitor 
 
@@ -281,7 +281,7 @@ Zaktualizuj właściwości keyvaultproperties *zasobu klastra* o szczegóły ide
 
 **Aktualizacja**
 
-To żądanie Menedżera zasobów jest operacją asynchronizacyjną.
+To żądanie Menedżera zasobów jest operacją asynchronizacyjną podczas aktualizowania szczegółów identyfikatora klucza, podczas gdy jest synchroniczne podczas aktualizowania wartości capacity.
 
 > [!Warning]
 > W aktualizacji zasobów *klastra* należy podać pełną treść, która zawiera *tożsamość,* *sku,* *KeyVaultProperties* i *lokalizację.* Brak szczegółów *KeyVaultProperties* spowoduje usunięcie identyfikatora klucza z zasobu *klastra* i [spowodowanie odwołania klucza](#cmk-kek-revocation).
@@ -314,7 +314,7 @@ Content-type: application/json
 **Odpowiedzi**
 
 200 OK i nagłówek.
-Zajmuje propagacji key identyfikatora kilka minut, aby zakończyć. Stan inicjowania obsługi administracyjnej można sprawdzić na dwa sposoby:
+Zajmuje propagacji key identyfikatora kilka minut, aby zakończyć. Stan aktualizacji można sprawdzić na dwa sposoby:
 1. Skopiuj wartość adresu URL Azure-AsyncOperation z odpowiedzi i postępuj zgodnie z [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
 2. Wyślij żądanie GET w zasobie *klastra* i spójrz na *właściwości KeyVaultProperties.* Ostatnio zaktualizowane szczegóły identyfikatora klucza powinny zostać wrócone w odpowiedzi.
 
@@ -436,13 +436,13 @@ Wszystkie dane są dostępne po operacji rotacji kluczy, w tym dane ponawione pr
 
 - Maksymalna liczba zasobów *klastra* na subskrypcję jest ograniczona do 2
 
-- *Skojarzenie* zasobów klastra z obszarem roboczym powinno być przenoszone TYLKO po sprawdzeniu, że aprowizacji klastra ADX została spełniona. Dane wysyłane przed rozpoczęciem tej inicjowania obsługi administracyjnej zostaną usunięte i nie będą możliwe do odzyskania.
+- *Skojarzenie* zasobów klastra z obszarem roboczym powinno być przenoszone TYLKO po sprawdzeniu, że aprowizacji klastra ADX została ukończona. Dane wysyłane do obszaru roboczego przed zakończeniem inicjowania obsługi administracyjnej zostaną usunięte i nie będą możliwe do odzyskania.
 
 - Szyfrowanie CMK ma zastosowanie do nowo pogoń za danymi po konfiguracji CMK. Dane, które zostały pojętone przed konfiguracją CMK, pozostają zaszyfrowane za pomocą klucza firmy Microsoft. Można bezproblemowo wysyłać zapytania do danych przygonanych przed i po konfiguracji cmk.
 
-- Po skojarzeniu obszaru roboczego z zasobem *klastra* nie można go odłączyć od zasobu *klastra,* ponieważ dane są szyfrowane za pomocą klucza i nie są dostępne bez narzędzia KEK w usłudze Azure Key Vault.
+- Obszar roboczy można odstąrzyć z zasobu *klastra* przy podejmowaniu decyzji, że cmk nie jest wymagany dla określonego obszaru roboczego. Nowe pogoń za operacja de-skojarzenia jest przechowywana w magazynie udostępnionej usługi Log Analytics, jak to było przed skojarzeniem z zasobem *klastra.* Można bezproblemowo wysyłać zapytania do danych przynaudowanych przed i po usunięciu skojarzenia, jeśli zasób *klastra* jest aprowizowany i skonfigurowany przy pomocą prawidłowego klucza usługi Key Vault.
 
-- Usługa Azure Key Vault musi być skonfigurowana jako możliwe do odzyskania. Te właściwości nie są domyślnie włączone i powinny być konfigurowane przy użyciu interfejsu wiersza polecenia i programu PowerShell:
+- Usługa Azure Key Vault musi być skonfigurowana jako możliwe do odzyskania. Te właściwości nie są domyślnie włączone i powinny być konfigurowane przy użyciu interfejsu wiersza polecenia lub programu PowerShell:
 
   - [Usuwanie nietrwałe](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) musi być włączone
   - [Ochrona przed przeczyszczaniem](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) powinna być włączona, aby chronić przed usunięciem siły tajnego / skarbca nawet po usunięciu
@@ -470,6 +470,8 @@ Wszystkie dane są dostępne po operacji rotacji kluczy, w tym dane ponawione pr
 
 - Jeśli spróbujesz usunąć zasób *klastra* skojarzony z obszarem roboczym, operacja usuwania zakończy się niepowodzeniem.
 
+- Jeśli podczas tworzenia zasobu *klastra* pojawia się błąd powodujący konflikt — może to oznaczać, że zasób *klastra* został usunięty w ciągu ostatnich 14 dni i jest w okresie usuwania nietrwałego. Nazwa zasobu *klastra* pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o tej nazwie. Nazwa jest zwalniana po okresie usuwania nietrwałego, gdy zasób *klastra* jest trwale usuwany.
+
 - Pobierz wszystkie zasoby *klastra* dla grupy zasobów:
 
   ```rst
@@ -488,6 +490,11 @@ Wszystkie dane są dostępne po operacji rotacji kluczy, w tym dane ponawione pr
           "tenantId": "tenant-id",
           "principalId": "principal-Id"
         },
+        "sku": {
+          "name": "capacityReservation",
+          "capacity": 1000,
+          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
+          },
         "properties": {
            "KeyVaultProperties": {
               KeyVaultUri: "https://key-vault-name.vault.azure.net",
@@ -517,8 +524,10 @@ Wszystkie dane są dostępne po operacji rotacji kluczy, w tym dane ponawione pr
   **Odpowiedzi**
     
   Ta sama odpowiedź, co w przypadku "zasobów*klastra* dla grupy zasobów", ale w zakresie subskrypcji.
-    
-- Usuń zasób *klastra* — operacja usuwania nietrwałego jest wykonywana w celu umożliwienia odzyskania zasobu klastra, danych i skojarzonych obszarów roboczych w ciągu 14 dni, niezależnie od tego, czy usunięcie było przypadkowe, czy zamierzone. Nazwa zasobu *klastra* pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o tej nazwie. Po okresie usuwania nietrwałego zasób i dane *klastra* nie można odzyskać. Skojarzone obszary robocze są odłączane od zasobu *klastra,* a nowe dane są pozyskiwania do udostępnionego magazynu i szyfrowane za pomocą klucza firmy Microsoft.
+
+- Aktualizowanie *rezerwacji pojemności* w *zasobie klastra* — gdy zmienia się wolumin danych do skojarzonych obszarów roboczych i chcesz zaktualizować poziom rezerwacji pojemności dla zagadnień rozliczeniowych, postępuj zgodnie z [aktualizacją *zasobu klastra* ](#update-cluster-resource-with-key-identifier-details) i podaj nową wartość pojemności. Poziom rezerwacji pojemności może wynosić od 1000 do 2000 GB dziennie i w krokach 100. Aby uzyskać poziom wyższy niż 2000 GB dziennie, skontaktuj się z kontaktem firmy Microsoft, aby go włączyć.
+
+- Usuń zasób *klastra* — operacja usuwania nietrwałego jest wykonywana w celu umożliwienia odzyskania zasobu *klastra* wraz z jego danymi w ciągu 14 dni, niezależnie od tego, czy usunięcie było przypadkowe, czy zamierzone. Nazwa zasobu *klastra* pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o tej nazwie. Po okresie usuwania nietrwałego nazwa zasobu *klastra* jest zwalniana, zasób i dane *klastra* są trwale usuwane i nie można ich odzyskać. Każdy skojarzony obszar roboczy zostanie usunięty z zasobu *klastra* podczas operacji usuwania. Nowe pogoń za pomocą klucza Microsoft jest przechowywana w udostępnionym magazynie usługi Log Analytics. Operacja dezłączniona obszarów roboczych jest asynchroniza.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -529,8 +538,7 @@ Wszystkie dane są dostępne po operacji rotacji kluczy, w tym dane ponawione pr
 
   200 ok.
 
-- Odzyskaj zasób *klastra* i dane — w okresie usuwania nietrwałego utwórz zasób *klastra* o tej samej nazwie i w tej samej subskrypcji, grupie zasobów i regionie. Postępuj zgodnie z krokiem **Utwórz zasób *klastra,* ** aby odzyskać zasób *klastra.*
-
+- Odzyskiwanie *zasobu klastra* i danych — zasób *klastra,* który został usunięty w ciągu ostatnich 14 dni, jest w stanie nietrwałego usuwania i można go odzyskać. Jest to wykonywane ręcznie przez grupę produktów obecnie. Użyj swojego kanału firmy Microsoft do żądania odzyskiwania.
 
 ## <a name="appendix"></a>Dodatek
 

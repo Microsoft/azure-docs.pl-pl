@@ -3,12 +3,12 @@ title: odwołanie host.json dla usługi Azure Functions 1.x
 description: Dokumentacja referencyjna dla pliku host.json usługi Azure functions ze środowiska wykonawczego w wersji 1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 2b00e2343e0959e07b195e2e98c6719a1893b8c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277052"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757519"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>odwołanie host.json dla usługi Azure Functions 1.x
 
@@ -148,9 +148,7 @@ Ustawienia konfiguracji [wyzwalacza i powiązań usługi Azure Cosmos DB](functi
 
 ## <a name="eventhub"></a>eventHub
 
-Ustawienia konfiguracji [wyzwalaczy i powiązań Centrum zdarzeń](functions-bindings-event-hubs.md).
-
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
+Ustawienia konfiguracji [wyzwalaczy i powiązań Centrum zdarzeń](functions-bindings-event-hubs-trigger.md#functions-1x).
 
 ## <a name="functions"></a> — funkcje
 

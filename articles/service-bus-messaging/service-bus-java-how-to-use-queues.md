@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ac6bc8f78bd3d526e68dba3e81825a28a9ac47f7
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 184ffd39281ea27d8596bc37a9f89fd22acfb1ba
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80294126"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732186"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Szybki start: wysyłanie i odbieranie wiadomości za pomocą kolejek usługi Azure Service Bus w języku Java
 
@@ -43,7 +43,7 @@ W tym samouczku dowiesz się, jak tworzyć aplikacje Java do wysyłania wiadomo�
 ## <a name="configure-your-application-to-use-service-bus"></a>Konfigurowanie aplikacji do korzystania z usługi Service Bus
 Przed rozpoczęciem tworzenia tego przykładu upewnij się, że [zainstalowano zestaw SDK platformy Azure dla języka Java.][Azure SDK for Java] 
 
-Jeśli używasz programu Eclipse, możesz zainstalować [zestaw narzędzi Azure Toolkit for Eclipse,][Azure Toolkit for Eclipse] który zawiera zestaw SDK platformy Azure dla języka Java. Następnie można dodać **biblioteki platformy Microsoft Azure dla oprogramowania Java** do projektu. Jeśli używasz IntelliJ, zobacz [Instalowanie zestawu narzędzi azure dla intellij](/azure/java/intellij/azure-toolkit-for-intellij-installation). 
+Jeśli używasz programu Eclipse, możesz zainstalować [zestaw narzędzi Azure Toolkit for Eclipse,][Azure Toolkit for Eclipse] który zawiera zestaw SDK platformy Azure dla języka Java. Następnie można dodać **biblioteki platformy Microsoft Azure dla oprogramowania Java** do projektu. Jeśli używasz IntelliJ, zobacz [Instalowanie zestawu narzędzi azure dla intellij](/azure/developer/java/toolkit-for-intellij/installation). 
 
 ![Dodawanie bibliotek platformy Microsoft Azure dla oprogramowania Java do projektu programu Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
@@ -184,7 +184,7 @@ Poniższy przykład pokazuje, jak wiadomości mogą być odbierane i przetwarzan
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Sposób obsługi awarii aplikacji i komunikatów niemożliwych do odczytania
 Usługa Service Bus zapewnia funkcję ułatwiającą bezpieczne odzyskiwanie w razie błędów w aplikacji lub trudności z przetwarzaniem komunikatu. Jeśli aplikacja odbiorcy nie jest w stanie przetworzyć wiadomości z jakiegoś powodu, może wywołać metodę **abandon()** na obiekcie klienta za pomocą tokenu blokady odebranej wiadomości uzyskanego za pośrednictwem **getLockToken()**. Powoduje to odblokowanie komunikatu w kolejce przez usługę Service Bus i ponowne udostępnienie go do odebrania przez tę samą lub inną odbierającą aplikację.
 
-Istnieje również limit czasu skojarzony z komunikatem zablokowanym w kolejce, a jeśli aplikacja nie może przetworzyć wiadomości przed upływem limitu czasu blokady (na przykład, jeśli aplikacja ulegnie awarii), usługa Service Bus automatycznie odblokowuje wiadomość i ją tworzy. można otrzymać ponownie.
+Istnieje również limit czasu skojarzony z komunikatem zablokowanym w kolejce, a jeśli aplikacja nie może przetworzyć wiadomości przed upływem limitu czasu blokady (na przykład, jeśli aplikacja ulegnie awarii), usługa Service Bus automatycznie odblokowuje wiadomość i udostępnia ją do odebrania.
 
 W przypadku awarii aplikacji po przetworzeniu wiadomości, ale przed wydaniem żądania **complete(),** komunikat jest ponownie dostarczony do aplikacji po ponownym uruchomieniu. Jest to często nazywane *przetwarzaniem co najmniej raz*, co oznacza, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach ten sam komunikat może być dostarczony ponownie. Jeśli scenariusz nie toleruje dwukrotnego przetwarzania, deweloperzy aplikacji powinni dodać dodatkową logikę do swojej aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Jest to często osiągane przy użyciu **getMessageId** metody wiadomości, która pozostaje stała w próbach dostarczenia.
 
@@ -196,7 +196,7 @@ Teraz, gdy poznasz podstawy kolejek usługi Service Bus, zobacz [Kolejki, tematy
 
 Więcej informacji możesz znaleźć w [Centrum deweloperów języka Java](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: /azure/java/java-sdk-azure-get-started
+[Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
 [Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

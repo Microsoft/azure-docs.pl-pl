@@ -85,8 +85,6 @@
           href: batch-aad-auth-management.md
         - name: Bezpieczny dostęp do usługi Key Vault za pomocą usługi Batch
           href: credential-access-key-vault.md
-    - name: Korzystanie z pakietów aplikacji
-      href: batch-application-packages.md
     - name: Kopiowanie plików i aplikacji do węzłów puli
       items:
         - name: Kopiowanie aplikacji i danych do węzłów puli

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 981e13e772ee21e0e4a680e6d07b4ad4892a7cee
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bfa16f59155e420209ab6370056a7c612b5327e4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417067"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759045"
 ---
 # <a name="security-control-secure-configuration"></a>Kontrola bezpieczeństwa: bezpieczna konfiguracja
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 0bdede482b79c82e6e05b1429cb7c17399bc2277
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396065"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756610"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Rozpoznawanie oświadczeń w zasadach niestandardowych usługi Azure Active Directory B2C — informacje
 
@@ -90,7 +90,14 @@ Poniższe sekcje listy dostępnych rozpoznawania oświadczeń.
 | {Kontekst:adres IPAddress} | Adres IP użytkownika. | 11.111.111.11 |
 | {Kontekst:KMSI} | Wskazuje, czy pole [wyboru Niech mnie zalogowano.](custom-policy-keep-me-signed-in.md) |  true |
 
-### <a name="non-protocol-parameters"></a>Parametry inne niż protokoły
+### <a name="claims"></a>Oświadczenia 
+
+| Claim | Opis | Przykład |
+| ----- | ----------- | --------|
+| {Oświadczenie:typ oświadczenia} | Identyfikator typu oświadczenia zdefiniowanego już w sekcji ClaimsSchema w pliku zasad lub nadrzędnym pliku zasad.  Na przykład: `{Claim:displayName}` `{Claim:objectId}`, lub . | Wartość typu oświadczenia.|
+
+
+### <a name="oauth2-key-value-parameters"></a>Parametry wartości klucza OAuth2
 
 Dowolna nazwa parametru zawarta jako część żądania OIDC lub OAuth2 może być mapowana na oświadczenie w podróży użytkownika. Na przykład żądanie z aplikacji może zawierać parametr ciągu `app_session`zapytania `loyalty_number`o nazwie , lub dowolny niestandardowy ciąg zapytania.
 
@@ -118,6 +125,7 @@ Dowolna nazwa parametru zawarta jako część żądania OIDC lub OAuth2 może by
 | {SAML:AllowCreate} | Wartość `AllowCreate` atrybutu, `NameIDPolicy` z elementu żądania SAML. | True |
 | {SAML:ForceAuthn} | Wartość `ForceAuthN` atrybutu, `AuthnRequest` z elementu żądania SAML. | True |
 | {SAML:Nazwa dostawcy} | Wartość `ProviderName` atrybutu, `AuthnRequest` z elementu żądania SAML.| Contoso.com |
+| {SAML:Stan przekaźnika} | Parametr `RelayState` ciągu kwerendy.| 
 
 ## <a name="using-claim-resolvers"></a>Korzystanie z programów rozpoznawania oświadczeń
 

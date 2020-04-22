@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6f93d74653aab78e48e613ddf9252a0876548b95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a99f261e1a834705d081e8197e4ae627cf1cb9f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157674"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756650"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia IoT w aplikacji Azure IoT Central
+
+*Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
 
 Szablon urządzenia to plan, który definiuje cechy i zachowania typu urządzenia, które łączy się z aplikacją Azure IoT Central.
 
@@ -253,18 +255,6 @@ Aby opublikować szablon urządzenia, przejdź do szablonu urządzenia i wybierz
 
 Po opublikowaniu szablonu urządzenia operator może przejść do strony **Urządzenia** i dodać rzeczywiste lub symulowane urządzenia korzystające z szablonu urządzenia. Podczas wprowadzania zmian możesz nadal modyfikować i zapisywać szablon urządzenia. Jeśli chcesz wypchnąć te zmiany do operatora, aby wyświetlić w obszarze **urządzenia** strony, należy wybrać **Publikuj** za każdym razem.
 
-
 ## <a name="next-steps"></a>Następne kroki
 
-W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
-
-* Utwórz nowy szablon urządzenia IoT.
-* Tworzenie właściwości chmury.
-* Tworzenie dostosowań.
-* Zdefiniuj wizualizację danych telemetrycznych urządzenia.
-* Opublikuj szablon urządzenia.
-
-Następnie możesz:
-
-> [!div class="nextstepaction"]
-> [Łączenie urządzenia](howto-connect-devkit.md)
+Jeśli jesteś deweloperem urządzeń, sugerowanym następnym krokiem jest przeczytanie o [wersjonacie szablonów urządzeń](./howto-version-device-template.md).

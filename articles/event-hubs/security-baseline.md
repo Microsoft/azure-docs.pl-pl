@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10fc822f9f36512405dd4e3b5aba6270b53e163f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 1c7e18214ec175b8b21d25643098631a044da19c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549029"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758322"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Usługa Azure Security Baseline dla centrów zdarzeń
 
@@ -335,7 +335,7 @@ Jak korzystać z zasad platformy Azure:https://docs.microsoft.com/azure/governan
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Używanie logowania jednokrotnego (Logowanie jednokrotne) w usłudze Azure Active Directory
 
-**Wskazówki:** Platforma Microsoft Azure zapewnia zintegrowane zarządzanie kontrolą dostępu dla zasobów i aplikacji na podstawie usługi Azure Active Directory (AD). Kluczową zaletą korzystania z usługi Azure AD z usługi Azure Event Hubs jest to, że nie trzeba już przechowywać poświadczenia w kodzie. Zamiast tego można zażądać tokenu dostępu OAuth 2.0 z platformy Microsoft Identity. Nazwa zasobu, aby https://eventhubs.azure.net/zażądać tokenu jest . Usługa Azure AD uwierzytelnia podmiot zabezpieczeń (użytkownika, grupy lub jednostki usługi) z uruchomieniem aplikacji. Jeśli uwierzytelnianie zakończy się pomyślnie, usługa Azure AD zwraca token dostępu do aplikacji, a aplikacja może następnie użyć tokenu dostępu do autoryzowania żądania do zasobów usługi Azure Event Hubs.
+**Wskazówki:** Platforma Microsoft Azure zapewnia zintegrowane zarządzanie kontrolą dostępu dla zasobów i aplikacji na podstawie usługi Azure Active Directory (AD). Kluczową zaletą korzystania z usługi Azure AD z usługi Azure Event Hubs jest to, że nie trzeba już przechowywać poświadczenia w kodzie. Zamiast tego można zażądać tokenu dostępu OAuth 2.0 z platformy Microsoft Identity. Nazwa zasobu, aby zażądać\/tokenu jest https: /eventhubs.azure.net/. Usługa Azure AD uwierzytelnia podmiot zabezpieczeń (użytkownika, grupy lub jednostki usługi) z uruchomieniem aplikacji. Jeśli uwierzytelnianie zakończy się pomyślnie, usługa Azure AD zwraca token dostępu do aplikacji, a aplikacja może następnie użyć tokenu dostępu do autoryzowania żądania do zasobów usługi Azure Event Hubs.
 
 Jak uwierzytelnić aplikację za pomocą usługi Azure AD, aby uzyskać dostęp do zasobów usługi Event Hubs:https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
@@ -631,7 +631,7 @@ Jak tworzyć alerty dla zdarzeń dziennika aktywności platformy Azure:https://d
 
 **Wskazówki:** Użyj usługi Azure Resource Graph do wykonywania zapytań i odnajdywania wszystkich zasobów (w tym obszarów nazw usługi Azure Event Hubs) w ramach subskrypcji. Upewnij się, że masz odpowiednie (odczytu) uprawnienia w dzierżawie i są w stanie wyliczyć wszystkie subskrypcje platformy Azure, a także zasoby w ramach subskrypcji.
 
-Jak tworzyć zapytania za pomocą programu Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Jak tworzyć zapytania za pomocą programu Azure Resource Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Jak wyświetlić subskrypcje platformy Azure:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 

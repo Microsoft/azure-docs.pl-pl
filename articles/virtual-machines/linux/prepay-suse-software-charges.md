@@ -3,18 +3,17 @@ title: Przedpłata za plany oprogramowania — Rezerwacje platformy Azure
 description: Dowiedz się, jak możesz płacić z góry za plany oprogramowania, aby zaoszczędzić pieniądze na kosztach płatności zgodnie z rzeczywistym ratą.
 author: bandersmsft
 manager: yashesvi
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 3e05920e495dd4aa14be6c849590a37a2bafa33f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757233"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759289"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Opłacanie planów oprogramowania platformy Azure z góry
 
@@ -71,7 +70,7 @@ Aby dowiedzieć się, jak zarządzać rezerwacją, zobacz [Zarządzanie rezerwac
 
 Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
-- [Co to są rezerwacje platformy Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Co to jest Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Zarządzanie rezerwacjami na platformie Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 - [Dowiedz się, jak stosowany jest rabat rezerwacjowy SUSE](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)

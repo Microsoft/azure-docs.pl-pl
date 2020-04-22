@@ -1,25 +1,20 @@
 ---
-title: Tworzenie sieci FQDN dla maszyny Wirtualnej z systemem Linux w witrynie Azure portal
+title: Tworzenie sieci FQDN dla maszyny Wirtualnej w witrynie Azure portal
 description: Dowiedz się, jak utworzyć w pełni kwalifikowaną nazwę domeny lub nazwę FQDN dla maszyny wirtualnej opartej na Menedżerze zasobów w witrynie Azure portal.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 2cd6c249-a737-4a0a-b5ba-e1c09e551b30
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: caf7c1c9c0704de1408a322f581019eb74443365
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: f51b9ecf8e300af6b1e3f11d8431de7a282ab342
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461501"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759354"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Tworzenie w pełni kwalifikowanej nazwy domeny w portalu Azure dla maszyny Wirtualnej z systemem Linux
 

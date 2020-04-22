@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79298839"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758134"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definiowanie nowego typu urządzenia bramy IoT w aplikacji Azure IoT Central
 
-W tym samouczku pokazano, jako konstruktora, jak używać szablonu urządzenia bramy do definiowania urządzenia bramy w aplikacji IoT Central. Następnie skonfiguruj kilka urządzeń podrzędnych, które łączą się z aplikacją IoT Central za pośrednictwem urządzenia bramy. 
+*Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
+
+W tym samouczku pokazano, jako konstruktor rozwiązań, jak używać szablonu urządzenia bramy do definiowania urządzenia bramy w aplikacji IoT Central. Następnie skonfiguruj kilka urządzeń podrzędnych, które łączą się z aplikacją IoT Central za pośrednictwem urządzenia bramy. 
 
 W tym samouczku utworzysz szablon urządzenia bramy **inteligentnego budynku.** Urządzenie bramy **inteligentnego budynku** ma relacje z innymi urządzeniami podrzędnymi.
 
@@ -89,7 +91,7 @@ Następnie dodajesz relacje do szablonów szablonów urządzeń podrzędnych:
 
 1. Wybierz **ponownie pozycję + Dodaj relację.** Wprowadź **czujnik obłożenia** jako nazwę wyświetlaną i wybierz **RS40 Czujnik obłożenia** jako cel.
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ![Szablon urządzenia bramy inteligentnego budynku, przedstawiający relacje](./media/tutorial-define-gateway-device-type/relationships.png)
 
@@ -105,10 +107,10 @@ Aby dodać właściwości chmury do szablonu **urządzenia bramy inteligentnego 
 
     | Nazwa wyświetlana      | Typ semantyczny | Schemat |
     | ----------------- | ------------- | ------ |
-    | Data ostatniego serwisowania | Brak          | Data   |
+    | Data ostatniego serwisowania | Brak          | Date   |
     | Nazwa klienta     | Brak          | Ciąg |
 
-2. Wybierz **pozycję Zapisz**.
+2. Wybierz pozycję **Zapisz**.
 
 ### <a name="create-views"></a>Tworzenie widoków
 
@@ -149,7 +151,7 @@ Aby utworzyć symulowane urządzenie bramy:
 
 1. Wybierz, **+** aby rozpocząć dodawanie nowego urządzenia.
 
-1. Zachowaj **wygenerowany identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że przełącznik **symulowane** jest **włączony**. Wybierz **pozycję Utwórz**.
+1. Zachowaj **wygenerowany identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że przełącznik **symulowane** jest **włączony**. Wybierz pozycję **Utwórz**.
 
 Aby utworzyć symulowane urządzenia podrzędne:
 
@@ -157,13 +159,13 @@ Aby utworzyć symulowane urządzenia podrzędne:
 
 1. Wybierz, **+** aby rozpocząć dodawanie nowego urządzenia.
 
-1. Zachowaj **wygenerowany identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że przełącznik **symulowane** jest **włączony**. Wybierz **pozycję Utwórz**.
+1. Zachowaj **wygenerowany identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że przełącznik **symulowane** jest **włączony**. Wybierz pozycję **Utwórz**.
 
 1. Na stronie **Urządzenia** wybierz **pozycję Czujnik S1** na liście szablonów urządzeń.
 
 1. Wybierz, **+** aby rozpocząć dodawanie nowego urządzenia.
 
-1. Zachowaj **wygenerowany identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że przełącznik **symulowane** jest **włączony**. Wybierz **pozycję Utwórz**.
+1. Zachowaj **wygenerowany identyfikator urządzenia** i **nazwę urządzenia**. Upewnij się, że przełącznik **symulowane** jest **włączony**. Wybierz pozycję **Utwórz**.
 
 ![Symulowane urządzenia w aplikacji](./media/tutorial-define-gateway-device-type/simulated-devices.png)
 
@@ -207,7 +209,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > [!NOTE]
 > Generowanie kodu opartego na kodzie VS nie jest obecnie obsługiwane dla urządzeń bramy modelowanych w centrum IoT.
 
-Następnie możesz:
+Następnie, jako programista urządzeń, możesz dowiedzieć się, jak:
 
 > [!div class="nextstepaction"]
-> [Łączenie urządzenia](tutorial-connect-device.md)
+> [Dodawanie urządzenia usługi Azure IoT Edge do aplikacji Azure IoT Central](tutorial-add-edge-as-leaf-device.md)

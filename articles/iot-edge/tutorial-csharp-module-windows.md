@@ -8,19 +8,21 @@ ms.author: kgremban
 ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 4fa3fb17f4eace8d389738fb46267a097610f175
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom:
+- mvc
+- amqp
+ms.openlocfilehash: b71db71ac61e0dcd65a2546b2164610e618dab18
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76760423"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733506"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Samouczek: Opracowanie modułu C# IoT Edge dla urządzeń z systemem Windows
 
 Za pomocą programu Visual Studio opracować kod języka C# i wdrożyć go na urządzeniu z systemem Windows z uruchomiona usługą Azure IoT Edge.
 
-Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -67,7 +69,7 @@ Narzędzia usługi Azure IoT Edge zapewniają szablony projektów dla wszystkich
 
 1. Uruchom program Visual Studio 2019 i wybierz pozycję **Utwórz nowy projekt**.
 
-2. Wyszukaj **usługę IoT Edge** i wybierz projekt **usługi Azure IoT Edge (Windows amd64).** Kliknij przycisk **alej**.
+2. Wyszukaj **usługę IoT Edge** i wybierz projekt **usługi Azure IoT Edge (Windows amd64).** Kliknij przycisk **Dalej**.
 
    ![Tworzenie nowego projektu usługi Azure IoT Edge](./media/tutorial-csharp-module-windows/new-project.png)
 

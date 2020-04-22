@@ -1,25 +1,18 @@
 ---
 title: Zaplanowane zdarzenia dla maszyn wirtualnych z systemem Linux na platformie Azure
 description: Planowanie zdarzeń przy użyciu usługi Azure Metadata Service dla maszyn wirtualnych systemu Linux.
-services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: ''
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: b3b9914d0e5162f8f8f41b929d7bdfef68f85ad9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: ee600d7524af27a0e9e2ce0176e7bd4d1f60bc3b
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263322"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758562"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Usługa metadanych platformy Azure: zaplanowane zdarzenia dla maszyn wirtualnych z systemem Linux
 
@@ -132,7 +125,7 @@ W przypadku, gdy istnieją zaplanowane zdarzenia, odpowiedź zawiera tablicę zd
 | Eventid | Globalnie unikatowy identyfikator dla tego zdarzenia. <br><br> Przykład: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Typ zdarzenia | Wpływ powoduje to zdarzenie. <br><br> Wartości: <br><ul><li> `Freeze`: Maszyna wirtualna jest zaplanowana do wstrzymania na kilka sekund. Łączność procesora i sieci może zostać zawieszona, ale nie ma to wpływu na pamięć lub otwarte pliki.<li>`Reboot`: Maszyna wirtualna jest zaplanowana do ponownego uruchomienia (pamięć nietrwała zostanie utracona). <li>`Redeploy`: Maszyna wirtualna jest zaplanowane do przeniesienia do innego węzła (dyski efemeryczne są tracone). <li>`Preempt`: Maszyna wirtualna punktowa jest usuwana (dyski efemeryczne są tracone). <li> `Terminate`: Maszyna wirtualna jest zaplanowana do usunięcia. |
 | ResourceType | Typ zasobu, którego dotyczy to zdarzenie. <br><br> Wartości: <ul><li>`VirtualMachine`|
-| Zasoby| Lista zasobów, których dotyczy to zdarzenie. Lista jest gwarantowana zawierać maszyny z co najwyżej jednej [domeny aktualizacji,](manage-availability.md)ale może nie zawierać wszystkich maszyn w UD. <br><br> Przykład: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Resources| Lista zasobów, których dotyczy to zdarzenie. Lista jest gwarantowana zawierać maszyny z co najwyżej jednej [domeny aktualizacji,](manage-availability.md)ale może nie zawierać wszystkich maszyn w UD. <br><br> Przykład: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Stan tego zdarzenia. <br><br> Wartości: <ul><li>`Scheduled`: To zdarzenie ma się rozpocząć po `NotBefore` czasie określonym w właściwości.<li>`Started`: To wydarzenie zostało rozpoczęte.</ul> Nigdy `Completed` nie podano żadnego statusu podobnego. Zdarzenie nie jest już zwracane po zakończeniu zdarzenia.
 | Nie wcześniej niż| Czas, po którym można rozpocząć to zdarzenie. <br><br> Przykład: <br><ul><li> pon,19 wrz 2016 18:29:47 GMT  |
 

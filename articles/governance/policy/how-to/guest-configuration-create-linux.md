@@ -3,12 +3,12 @@ title: Jak utworzyć zasady konfiguracji gościa dla systemu Linux
 description: Dowiedz się, jak utworzyć zasady konfiguracji gościa zasad platformy Azure dla systemu Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 65e0082f87f05104e9a57ff0342cd3d2950b63e8
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 24442a89d55e34f9ce9697c2f6a32cfc740bcd85
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617935"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758966"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak utworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -24,6 +24,11 @@ Poniższe akcje można utworzyć w celu sprawdzenia poprawności stanu komputera
 
 > [!IMPORTANT]
 > Zasady niestandardowe z konfiguracją gościa to funkcja podglądu.
+>
+> Rozszerzenie konfiguracji gościa jest wymagane do wykonywania inspekcji na maszynach wirtualnych platformy Azure.
+> Aby wdrożyć rozszerzenie na dużą skalę, przypisz następujące definicje zasad:
+>   - Wdrażanie wymagań wstępnych w celu włączenia zasad konfiguracji gościa na maszynach wirtualnych systemu Windows.
+>   - Wdrażanie wymagań wstępnych w celu włączenia zasad konfiguracji gościa na maszynach wirtualnych z systemem Linux.
 
 ## <a name="install-the-powershell-module"></a>Instalowanie modułu programu PowerShell
 
@@ -101,7 +106,7 @@ end
 
 Zapisz ten plik `linux-path.rb` z nazwą `controls` w `linux-path` nowym folderze o nazwie wewnątrz katalogu.
 
-Na koniec utwórz konfigurację, zaimportuj moduł `ChefInSpecResource` zasobów **GuestConfiguration** i użyj zasobu, aby ustawić nazwę profilu InSpec.
+Na koniec utwórz konfigurację, zaimportuj moduł zasobu **PSDesiredStateConfiguration** i skompiluj konfigurację.
 
 ```powershell
 # Define the configuration and import GuestConfiguration
@@ -119,10 +124,15 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
+import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
+Zapisz ten plik `config.ps1` o nazwie w folderze projektu. Uruchom go w programie PowerShell, `./config.ps1` wykonując go w terminalu. Zostanie utworzony nowy plik mof.
+
 Polecenie `Node AuditFilePathExists` nie jest technicznie wymagane, ale tworzy plik `AuditFilePathExists.mof` o nazwie, `localhost.mof`a nie domyślny, . Posiadanie nazwy pliku .mof zgodnie z konfiguracją ułatwia organizowanie wielu plików podczas pracy na dużą skalę.
+
+
 
 Teraz powinieneś mieć strukturę projektu, jak poniżej:
 
@@ -150,8 +160,8 @@ Uruchom następujące polecenie, aby utworzyć pakiet przy użyciu konfiguracji 
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditFilePathExists' `
-  -Configuration './Config/AuditFilePathExists.mof'
-  -ChefProfilePath './'
+  -Configuration './Config/AuditFilePathExists.mof' `
+  -ChefInSpecProfilePath './'
 ```
 
 Po utworzeniu pakietu konfiguracji, ale przed opublikowaniem go na platformie Azure, można przetestować pakiet ze stacji roboczej lub środowiska ciągłej integracji/ciągłego wdrażania. Polecenie cmdlet `Test-GuestConfigurationPackage` guestconfiguration zawiera tego samego agenta w środowisku programistycznym, który jest używany na komputerach platformy Azure. Za pomocą tego rozwiązania można wykonać testowanie integracji lokalnie przed zwolnieniem do środowisk chmury rozliczane.
@@ -168,7 +178,7 @@ Uruchom następujące polecenie, aby przetestować pakiet utworzony przez poprze
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage `
-  -Path ./AuditFilePathExists.zip
+  -Path ./AuditFilePathExists/AuditFilePathExists.zip
 ```
 
 Polecenie cmdlet obsługuje również dane wejściowe z potoku programu PowerShell. Przesuń `New-GuestConfigurationPackage` wyjście polecenia `Test-GuestConfigurationPackage` cmdlet do polecenia cmdlet.

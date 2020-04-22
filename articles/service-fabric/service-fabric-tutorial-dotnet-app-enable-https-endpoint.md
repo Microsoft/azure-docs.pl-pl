@@ -4,12 +4,12 @@ description: W ramach tego samouczka dowiesz się, jak dodać punkt końcowy HTT
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: b88ecd8d169e7402d149481c22bae95e632efe26
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 2b867a65fa11e14cdc3fc3e5c269686fa4d559de
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605286"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757176"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Samouczek: Dodawanie punktu końcowego HTTPS do usługi frontonu internetowego interfejsu API platformy ASP.NET Core za pomocą usługi Kestrel
 
@@ -41,7 +41,7 @@ Ta seria samouczków zawiera informacje na temat wykonywania następujących czy
 Przed rozpoczęciem tego samouczka:
 
 * Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Zainstaluj program Visual Studio 2019](https://www.visualstudio.com/) w wersji 15.5 lub nowszej za pomocą obciążeń deweloperskich i **ASP.NET i tworzenia sieci Web** platformy **Azure.**
+* [Zainstaluj program Visual Studio 2019](https://www.visualstudio.com/) w wersji 16.5 lub nowszej za pomocą obciążeń deweloperskich i **ASP.NET i tworzenia sieci Web** platformy **Azure.**
 * [Instalowanie zestawu SDK usługi Service Fabric](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Uzyskaj certyfikat lub utwórz certyfikat programistyczny z podpisem własnym

@@ -3,12 +3,12 @@ title: odwołanie host.json dla usługi Azure Functions 2.x
 description: Dokumentacja referencyjna dla pliku host.json usługi Azure functions ze środowiska wykonawczego w wersji 2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 7b3c9d15fc8cf3a1651c44a5656f731a7820e344
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405486"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758836"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>odwołanie host.json dla usługi Azure Functions 2.x i nowszych 
 
@@ -216,7 +216,7 @@ Ustawienie konfiguracji można znaleźć w [powiązaniach dla funkcji trwałych]
 
 ## <a name="eventhub"></a>eventHub
 
-Ustawienia konfiguracji można znaleźć w [wyzwalaczach i powiązaniach Centrum zdarzeń](functions-bindings-event-hubs-output.md#host-json). 
+Ustawienia konfiguracji można znaleźć w [wyzwalaczach i powiązaniach Centrum zdarzeń](functions-bindings-event-hubs-trigger.md#host-json). 
 
 ## <a name="extensions"></a>Rozszerzenia
 

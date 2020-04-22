@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 08177165439ff7d3205e31757e5d1e28759a9836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32bc90cc069ac82641c3aa7692c900c60db7ba87
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274192"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733098"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń
 Usługa Azure Monitor zapewnia kompletne rozwiązanie do monitorowania pełnego stosu dla aplikacji i usług na platformie Azure, w innych chmurach i lokalnie. Oprócz korzystania z usługi Azure Monitor do analizowania tych danych i wykorzystywania ich do różnych scenariuszy monitorowania, może być konieczne wysłanie ich do innych narzędzi monitorowania w danym środowisku. Najbardziej skuteczną metodą przesyłania strumieniowego danych monitorowania do narzędzi zewnętrznych w większości przypadków jest użycie [usługi Azure Event Hubs.](/azure/event-hubs/) Ten artykuł zawiera krótki opis sposobu przesyłania strumieniowego danych monitorowania z różnych źródeł do centrum zdarzeń i łączy się ze szczegółowymi wskazówkami.
@@ -56,7 +56,7 @@ Routing danych monitorowania do centrum zdarzeń za pomocą usługi Azure Monito
 | ArcSight | Nie | Inteligentny łącznik usługi ArcSight Azure Event Hub jest dostępny jako część [kolekcji inteligentnych łączników ArcSight.](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852) |
 | Serwer Syslog | Nie | Jeśli chcesz przesyłać strumieniowo dane usługi Azure Monitor bezpośrednio do serwera syslog, możesz użyć [rozwiązania opartego na funkcji platformy Azure.](https://github.com/miguelangelopereira/azuremonitor2syslog/)
 | LogRhythm (LogRhythm) | Nie| Instrukcje konfigurowania LogRhythm do zbierania dzienników z centrum zdarzeń są dostępne [tutaj](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
-|Logz.io | Tak | Aby uzyskać więcej informacji, zobacz [Wprowadzenie do monitorowania i rejestrowania przy użyciu aplikacji Logz.io dla aplikacji Java działających na platformie Azure](https://docs.microsoft.com/azure/java/java-get-started-with-logzio)
+|Logz.io | Tak | Aby uzyskać więcej informacji, zobacz [Wprowadzenie do monitorowania i rejestrowania przy użyciu aplikacji Logz.io dla aplikacji Java działających na platformie Azure](https://docs.microsoft.com/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>Następne kroki

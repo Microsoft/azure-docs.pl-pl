@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: fe7d076fab6a70736843fc644cd56bef44a55df2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/21/2020
+ms.openlocfilehash: 4db9624fbc71e48fcc10ae1d9a1d700d301248a2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415123"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759533"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Bezpieczeństwo i prywatność danych w usłudze Azure Cognitive Search
 
@@ -40,7 +40,7 @@ Szyfrowanie rozciąga się na cały potok indeksowania: od połączeń, przez tr
 
 | Warstwa zabezpieczeń | Opis |
 |----------------|-------------|
-| Szyfrowanie podczas transferu <br>(HTTPS/SSL/TLS) | Usługa Azure Cognitive Search nasłuchuje na porcie HTTPS 443. Na całej platformie połączenia z usługami platformy Azure są szyfrowane. <br/><br/>Wszystkie interakcje usługi Azure Cognitive Search z funkcją klienta do usługi są obsługiwane przez protokołu SSL/TLS 1.2.  Pamiętaj, aby używać TLSv1.2 dla połączeń SSL z usługą.|
+| Szyfrowanie podczas transferu <br>(HTTPS/SSL/TLS) | Usługa Azure Cognitive Search nasłuchuje na porcie HTTPS 443. Na całej platformie połączenia z usługami platformy Azure są szyfrowane. <br/><br/>Wszystkie interakcje usługi Azure Cognitive Search z usługą klienta używają szyfrowania SSL/TLS 1.2. Wcześniejsze wersje (1.0 lub 1.1) nie są obsługiwane.|
 | Szyfrowanie w spoczynku <br>Klucze zarządzane przez firmę Microsoft | Szyfrowanie jest w pełni internalizacji w procesie indeksowania, bez wymiernego wpływu na indeksowanie czasu do zakończenia lub rozmiar indeksu. Występuje automatycznie na wszystkich indeksowania, w tym na przyrostowe aktualizacje indeksu, który nie jest w pełni zaszyfrowany (utworzony przed styczniem 2018).<br><br>Wewnętrznie szyfrowanie jest oparte na [szyfrowaniu usługi Azure Storage Service,](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)przy użyciu 256-bitowego [szyfrowania AES.](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)<br><br> Szyfrowanie jest wewnętrzne w usłudze Azure Cognitive Search, z certyfikatami i kluczami szyfrowania zarządzanymi wewnętrznie przez firmę Microsoft i powszechnie stosowanymi. Nie można włączać ani wyłączać szyfrowania, zarządzać lub zastępować własnych kluczy ani wyświetlać ustawień szyfrowania w portalu ani programowo.<br><br>Szyfrowanie w spoczynku zostało ogłoszone 24 stycznia 2018 r. i dotyczy wszystkich warstw usług, w tym warstwy bezpłatnej, we wszystkich regionach. Aby zapewnić pełne szyfrowanie, indeksy utworzone przed tą datą muszą zostać usunięte i przebudowane, aby można było je uzyskać. W przeciwnym razie tylko nowe dane dodane po 24 stycznia są szyfrowane.|
 | Szyfrowanie w spoczynku <br>Klucze zarządzane przez klienta | Szyfrowanie za pomocą kluczy zarządzanych przez klienta jest teraz ogólnie dostępne dla usług wyszukiwania utworzonych w styczniu 2019 r. lub później. Nie jest obsługiwana w bezpłatnych (udostępnionych) usługach.<br><br>Indeksy usługi Azure Cognitive Search i mapy synonimów mogą być teraz szyfrowane za pomocą kluczy zarządzanych przez klienta w usłudze Azure Key Vault. Aby dowiedzieć się więcej, zobacz [Zarządzanie kluczami szyfrowania w usłudze Azure Cognitive Search](search-security-manage-encryption-keys.md).<br><br>Ta funkcja nie zastępuje domyślnego szyfrowania w spoczynku, ale jest stosowana oprócz niej.<br><br>Włączenie tej funkcji zwiększy rozmiar indeksu i obniży wydajność kwerendy. Na podstawie dotychczasowych obserwacji można oczekiwać, aby zobaczyć wzrost o 30%-60% w czasie kwerendy, chociaż rzeczywista wydajność będzie się różnić w zależności od definicji indeksu i typów zapytań. Ze względu na ten wpływ na wydajność zaleca się włączenie tej funkcji tylko w indeksach, które naprawdę jej wymagają.
 

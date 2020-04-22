@@ -9,18 +9,20 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: bf74784998de6bbad6310c48c24d6353512bff13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c60cf4b90b089d271c0ccd91031420efe9017b1e
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77027734"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758157"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Samouczek: Dodawanie urządzenia usługi Azure IoT Edge do aplikacji Azure IoT Central
 
+*Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
+
 W tym samouczku pokazano, jak skonfigurować i dodać urządzenie usługi Azure IoT Edge do aplikacji Usługi Azure IoT Central. W samouczku użyto maszyny wirtualnej systemu Linux obsługującej usługę IoT Edge z witryny Azure Marketplace do symulowania urządzenia usługi IoT Edge. Urządzenie usługi IoT Edge używa modułu, który generuje symulowane dane telemetryczne środowiska. Dane telemetryczne można wyświetlić na pulpicie nawigacyjnym w aplikacji IoT Central.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie szablonu urządzenia dla urządzenia IoT Edge
@@ -262,9 +264,9 @@ Strona **Moduły** pokazuje stan modułów IoT Edge:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy już wiesz, jak pracować z urządzeniami IoT Edge i zarządzać nimi w UIŚ Central, oto sugerowany następny krok:
+Jako deweloper urządzeń, teraz, gdy masz instrukcje pracy z urządzeniami IoT Edge i zarządzania nimi w UIOT Central, sugerowanym następnym krokiem jest przeczytanie:
 
 <!-- Next how-tos in the sequence -->
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie bramy przezroczystej](../../iot-edge/how-to-create-transparent-gateway.md)
+> [Nawiązywać połączenia z usługą Azure IoT Central](./concepts-get-connected.md)

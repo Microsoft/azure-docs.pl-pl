@@ -1,5 +1,5 @@
 ---
-title: Zasoby zmiennych w usłudze Azure Automation
+title: Zarządzanie zmiennymi w usłudze Azure Automation
 description: Zasoby zmienne są wartościami, które są dostępne dla wszystkich podstawowych podstawowych i cyfrowych konfiguracji w usłudze Azure Automation.  W tym artykule wyjaśniono szczegóły zmiennych i sposób pracy z nimi zarówno w tekście, jak i w grafice.
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d4a4a92feb3e1b400c0f40076148f7898c4bdef1
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 4778e9b2c0d3b442b214966ab69810d2f42b70b8
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365833"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732763"
 ---
-# <a name="variable-assets-in-azure-automation"></a>Zasoby zmiennych w usłudze Azure Automation
+# <a name="manage-variables-in-azure-automation"></a>Zarządzanie zmiennymi w usłudze Azure Automation
 
 Zasoby zmienne to wartości, które są dostępne dla wszystkich podstawowych podstawowych i podstawowych konfiguracji na koncie automatyzacji. Można zarządzać nimi z witryny Azure portal, z programu PowerShell, w ramach uruchomieniu lub w konfiguracji DSC.
 
@@ -45,11 +45,14 @@ Podczas tworzenia zmiennej za pomocą witryny Azure portal, należy określić t
 * Wartość logiczna
 * Null
 
-Zmienna nie jest ograniczona do wyznaczonego typu danych. Należy ustawić zmienną przy użyciu programu Windows PowerShell, jeśli chcesz określić wartość innego typu. Jeśli wskażesz `Not defined`, wartość zmiennej jest ustawiona na Null i należy ustawić wartość za pomocą polecenia `Set-AutomationVariable` cmdlet [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) lub działania.
+Zmienna nie jest ograniczona do wyznaczonego typu danych. Należy ustawić zmienną przy użyciu programu Windows PowerShell, jeśli chcesz określić wartość innego typu. Jeśli wskażesz, `Not defined`wartość zmiennej jest ustawiona na Null. Należy ustawić wartość za pomocą polecenia cmdlet [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) lub `Set-AutomationVariable` działania.
 
 Nie można użyć witryny Azure portal do tworzenia lub zmieniania wartości dla złożonego typu zmiennej. Jednak można podać wartość dowolnego typu przy użyciu programu Windows PowerShell. Typy złożone są pobierane jako [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 Można zapisać wiele wartości do jednej zmiennej, tworząc tablicę lub hashtable i zapisywanie go do zmiennej.
+
+>[!NOTE]
+>Zmienne nazwy maszyny Wirtualnej mogą mieć maksymalnie 80 znaków. Zmienne grupy zasobów mogą mieć maksymalnie 90 znaków. Zobacz [Reguły nazewnictwa i ograniczenia dotyczące zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
 
 ## <a name="powershell-cmdlets-that-create-and-manage-variable-assets"></a>Polecenia cmdlet programu PowerShell, które tworzą zasoby zmienne i zarządzają nimi
 
@@ -140,7 +143,7 @@ $vmIpAddress = $vmValue.IpAddress
 
 ### <a name="create-and-use-a-variable-in-a-runbook-or-dsc-configuration"></a>Tworzenie i używanie zmiennej w konfiguracji śmi co żyli lub dsc
 
-Jedynym sposobem, aby utworzyć nową zmienną z poziomu konfiguracji systemu `New-AzAutomationVariable` runbook lub DSC jest użycie polecenia cmdlet lub jego odpowiednik modułu AzureRM. Skrypt używa tego polecenia cmdlet do ustawiania wartości początkowej zmiennej. Skrypt może następnie pobrać wartość `Get-AzAutomationVariable`za pomocą programu . Jeśli wartość jest typem prostym, ten sam typ jest pobierany. Jeśli jest to typ złożony, `PSCustomObject` a następnie typ jest pobierany.
+Jedynym sposobem utworzenia nowej zmiennej z poziomu konfiguracji systemu runbook lub DSC jest użycie `New-AzAutomationVariable` polecenia cmdlet lub jego odpowiednika modułu AzureRM. Skrypt używa tego polecenia cmdlet do ustawiania wartości początkowej zmiennej. Skrypt może następnie pobrać wartość `Get-AzAutomationVariable`za pomocą programu . Jeśli wartość jest typem prostym, ten sam typ jest pobierany. Jeśli jest to typ złożony, `PSCustomObject` a następnie typ jest pobierany.
 
 >[!NOTE]
 >Jedynym sposobem pobrania zaszyfrowanej wartości jest użycie `Get-AutomationVariable` działania w konfiguracji runbook lub DSC. 

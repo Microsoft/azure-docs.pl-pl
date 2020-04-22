@@ -3,12 +3,12 @@ title: Szablon do tworzenia alertów kondycji zasobów
 description: Programowo twórz alerty, które powiadamiają Cię, gdy zasoby platformy Azure staną się niedostępne.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: c01934cc88dc29d0503abfafc203ab0f04bf1761
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062910"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759020"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurowanie alertów kondycji zasobów przy użyciu szablonów Menedżera zasobów
 
@@ -228,6 +228,9 @@ Możesz chcieć otrzymywać powiadomienia tylko wtedy, gdy zasób stanie się w 
 ```
 
 Jeśli chcesz otrzymywać powiadomienia o wszystkich czterech etapach zdarzeń kondycji, możesz usunąć ten warunek razem, `status` a alert powiadomi Cię niezależnie od właściwości.
+
+> [!NOTE]
+> Każda sekcja "anyOf" powinna zawierać tylko jedną wartość typu pola.
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Dostosowywanie alertów kondycji zasobu w celu uniknięcia zdarzeń "Nieznany"
 

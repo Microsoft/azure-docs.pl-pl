@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4976be485a9b7609c6e8d23f6b897092217663fc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 4ee724ec66d5fb474f8c8a9a967cc7235fef5e85
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535676"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732628"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Get started with the Azure WebJobs SDK for event-driven background processing (Rozpoczynanie pracy z zestawem SDK usługi Azure WebJobs umożliwiającym oparte na zdarzeniach przetwarzanie w tle)
 
@@ -134,7 +134,7 @@ W tej sekcji skonfigurowano rejestrowanie konsoli, która korzysta z [ASP.NET co
     * Wyłącza [rejestrowanie pulpitu nawigacyjnego](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). Pulpit nawigacyjny jest starszym narzędziem monitorowania, a rejestrowanie pulpitu nawigacyjnego nie jest zalecane w scenariuszach produkcji o wysokiej przepływności.
     * Dodaje dostawcę konsoli z [domyślnym filtrem](webjobs-sdk-how-to.md#log-filtering).
 
-Teraz możesz dodać funkcję, która jest wyzwalana przez wiadomości przychodzące w [kolejce usługi Azure Storage](../azure-functions/functions-bindings-storage-queue.md).
+Teraz można dodać funkcję, która jest wyzwalana przez wiadomości przychodzące w kolejce usługi Azure Storage.
 
 ## <a name="install-the-storage-binding-extension"></a>Instalowanie rozszerzenia powiązania usługi Storage
 
@@ -184,7 +184,7 @@ Począwszy od wersji 3.x, należy jawnie zainstalować rozszerzenie powiązania 
 
    Atrybut `QueueTrigger` informuje środowisko wykonawcze, aby wywołać tę funkcję, gdy nowa `queue`wiadomość jest napisana w kolejce usługi Azure Storage o nazwie . Zawartość komunikatu kolejki są dostarczane do kodu `message` metody w parametrze. Treść metody jest, gdzie można przetwarzać dane wyzwalacza. W tym przykładzie kod po prostu rejestruje komunikat.
 
-   Parametr `message` nie musi być ciągiem. Można również powiązać z obiektem JSON, tablicą bajtową lub obiektem [CloudQueueMessage.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) [Zobacz Użycie wyzwalacza kolejki](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). Każdy typ powiązania (na przykład kolejki, obiekty BLOB lub tabele) ma inny zestaw typów parametrów, które można powiązać.
+   Parametr `message` nie musi być ciągiem. Można również powiązać z obiektem JSON, tablicą bajtową lub obiektem [CloudQueueMessage.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) [Zobacz Użycie wyzwalacza kolejki](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Każdy typ powiązania (na przykład kolejki, obiekty BLOB lub tabele) ma inny zestaw typów parametrów, które można powiązać.
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
@@ -280,7 +280,7 @@ W tej sekcji można skompilować i uruchomić projekt lokalnie i wyzwolić funkc
 
    Ponieważ użyto `QueueTrigger` atrybutu `ProcessQueueMessage` w funkcji, środowisko uruchomieniowe WeJobs SDK nasłuchuje komunikatów kolejki po uruchomieniu. Znajduje nową wiadomość kolejki w kolejce o nazwie *kolejki* i wywołuje funkcję.
 
-   Ze względu na [kolejkowania sondowania wykładniczego wycofywania,](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm)może upłynąć tak długo, jak 2 minuty dla środowiska wykonawczego, aby znaleźć komunikat i wywołać funkcję. Ten czas oczekiwania można skrócić, uruchamiając w [trybie rozwoju](webjobs-sdk-how-to.md#host-development-settings).
+   Ze względu na [kolejkowania sondowania wykładniczego wycofywania,](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm)może upłynąć tak długo, jak 2 minuty dla środowiska wykonawczego, aby znaleźć komunikat i wywołać funkcję. Ten czas oczekiwania można skrócić, uruchamiając w [trybie rozwoju](webjobs-sdk-how-to.md#host-development-settings).
 
    Wyjście konsoli wygląda następująco:
 
@@ -444,7 +444,7 @@ Podczas wdrażania utworzysz wystąpienie usługi aplikacji, w którym mają by�
 1. Odśwież stronę **kolejki,** a nowa wiadomość zniknie, ponieważ została przetworzona przez funkcję uruchomioną na platformie Azure.
 
    > [!TIP]
-   > Podczas testowania na platformie Azure należy użyć [trybu rozwoju,](webjobs-sdk-how-to.md#host-development-settings) aby upewnić się, że funkcja wyzwalacza kolejki jest wywoływana od razu i uniknąć opóźnień spowodowanych [sondowaniem kolejki wykładniczego wycofywania.](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm)
+   > Podczas testowania na platformie Azure należy użyć [trybu rozwoju,](webjobs-sdk-how-to.md#host-development-settings) aby upewnić się, że funkcja wyzwalacza kolejki jest wywoływana od razu i uniknąć opóźnień spowodowanych [sondowaniem kolejki wykładniczego wycofywania.](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm)
 
 ### <a name="view-logs-in-application-insights"></a>Wyświetlanie dzienników w usłudze Application Insights
 

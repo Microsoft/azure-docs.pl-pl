@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 217629ba5c386557455cc2d2b8bd47f85fa8f84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671158"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732950"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Rozwiązywanie problemów z agentem usługi Application Insights Agent (dawniej o nazwie Monitor stanu w wersji 2)
 
@@ -116,7 +116,7 @@ Uruchom `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` polecenie, a
    - Wersja SDK usługi Application Insights
    - Ścieżki plików modułu programu PowerShell
     
-Przejrzyj [odwołanie do interfejsu API,](status-monitor-v2-api-get-status.md) aby uzyskać szczegółowy opis sposobu używania tego polecenia cmdlet.
+Przejrzyj [odwołanie do interfejsu API,](status-monitor-v2-api-reference.md) aby uzyskać szczegółowy opis sposobu używania tego polecenia cmdlet.
 
 
 ### <a name="troubleshooting-running-processes"></a>Rozwiązywanie problemów z uruchomionymi procesami
@@ -126,12 +126,12 @@ Jeśli monitorowanie działa, należy załadować co najmniej 12 bibliotek DLL.
 
 Użyj `Get-ApplicationInsightsMonitoringStatus -InspectProcess` polecenia, aby sprawdzić biblioteki DLL.
 
-Przejrzyj [odwołanie do interfejsu API,](status-monitor-v2-api-get-status.md) aby uzyskać szczegółowy opis sposobu używania tego polecenia cmdlet.
+Przejrzyj [odwołanie do interfejsu API,](status-monitor-v2-api-reference.md) aby uzyskać szczegółowy opis sposobu używania tego polecenia cmdlet.
 
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Zbieranie dzienników ETW przy użyciu PerfView
 
-#### <a name="setup"></a>Konfiguracja
+#### <a name="setup"></a>Konfigurowanie
 
 1. Pobierz pliki PerfView.exe i PerfView64.exe z [gitHub](https://github.com/Microsoft/perfview/releases).
 2. Uruchom plik PerfView64.exe.

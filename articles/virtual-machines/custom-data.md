@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: aadac082e90a19d1a185dd7e6181a490adb70a10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9497e665d024b583c261ade3e6fb5393a9322ce0
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80109630"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759138"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Niestandardowe dane i funkcja cloud-init na maszynach wirtualnych platformy Azure
 
@@ -54,7 +54,7 @@ W usłudze Azure Resource Manager (ARM) istnieje [funkcja base64](https://docs.m
         "computerName": "[parameters('virtualMachineName')]",
         "adminUsername": "[parameters('adminUsername')]",
         "adminPassword": "[parameters('adminPassword')]",
-        "customDataBase64": "[variables('customData')]"
+        "customData": "[variables('customDataBase64')]"
         },
 ```
 
@@ -82,7 +82,7 @@ Aby rozwiązać problem z wykonywaniem danych niestandardowych, przejrzyj */var/
 Aby rozwiązać problem z wykonywaniem danych niestandardowych, zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init)rozwiązywania problemów .
 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 ### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>Czy mogę zaktualizować dane niestandardowe po utworzeniu maszyny Wirtualnej?
 W przypadku pojedynczych maszyn wirtualnych nie można zaktualizować danych niestandardowych w modelu maszyny Wirtualnej, ale w przypadku usług VMSS można aktualizować dane niestandardowe VMSS za pośrednictwem interfejsu API REST (nie dotyczy klientów interfejsu WIERSZA POLECENIA PS lub AZ). Podczas aktualizowania danych niestandardowych w modelu VMSS:
 * Istniejące wystąpienia w VMSS nie otrzymają zaktualizowanych danych niestandardowych, dopóki nie zostaną ponownie zaimkowane.

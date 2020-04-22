@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ba96dd2fcfb995afa6e3b1302a2c8b075abfd90
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 275215a69f97d93a1b1741a8fa8f3ca752c8c9ef
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72968699"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758983"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (Logowanie jednokrotne) z usługą Dynatrace
 
@@ -100,7 +100,7 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azu
 
     a. Ustawienie **Opcja podpisywania** jest wstępnie wypełnione. Przejrzyj ustawienia zgodnie z twoją organizacją.
 
-    b. Kliknij przycisk **Zapisz**.
+    b. Kliknij pozycję **Zapisz**.
 
     ![Opcja podpisywania Communifire](./media/dynatrace-tutorial/tutorial-dynatrace-signing-option.png)
 
@@ -140,7 +140,7 @@ W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platfor
 
 ## <a name="configure-dynatrace-sso"></a>Konfigurowanie dynatrace sytuaj jako
 
-Aby skonfigurować logowanie jednokrotne po stronie **Dynatrace,** należy wysłać pobrany plik **XML metadanych federacji** i odpowiednie skopiowane adresy URL z witryny Azure portal do [zespołu pomocy technicznej Dynatrace](https://www.dynatrace.com/services-support/). Ustawi on to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować logowanie jednokrotne po stronie **Dynatrace,** należy wysłać pobrany plik **XML metadanych federacji** i odpowiednie skopiowane adresy URL z witryny Azure portal do [Dynatrace](https://www.dynatrace.com/support/help/shortlink/users-sso-hub). Możesz postępować zgodnie z instrukcjami w witrynie Dynatrace, aby skonfigurować połączenie SSO SAML po obu stronach.
 
 ### <a name="create-dynatrace-test-user"></a>Utwórz użytkownika testowego Dynatrace
 
@@ -152,7 +152,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Dynatrace w Panelu dostępu należy automatycznie zalogować się do dynatrace, dla którego skonfigurowano logowanie jednośmiętne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

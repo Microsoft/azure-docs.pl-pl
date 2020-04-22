@@ -2,18 +2,17 @@
 title: Uruchamianie skryptów na maszynie wirtualnej systemu Azure z systemem Linux
 description: W tym temacie opisano sposób uruchamiania skryptów na maszynie wirtualnej
 services: automation
-ms.service: automation
+ms.service: virtual-machines-linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
-manager: carmonm
-ms.openlocfilehash: 6175ae4263aee0ecdca5b1d768438ad20352375c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9dbfb3e76fe1c0e80dd8020b79f4edd6d32a24a3
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67477030"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758586"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Uruchamianie skryptów na maszynie Wirtualnej systemu Linux
 
@@ -29,7 +28,7 @@ Aby zautomatyzować zadania lub rozwiązać problemy, może być konieczne uruch
 * Uruchom skrypt programu PowerShell na komputerach z systemem Windows i skrypt Bash na komputerach z systemem Linux.
 * Przydatne do konfiguracji po wdrożeniu, instalacji oprogramowania i innych zadań konfiguracyjnych lub zarządzania.
 
-## <a name="run-command"></a>Uruchom polecenie 
+## <a name="run-command"></a>Uruchom polecenie
 
 Funkcja [Uruchom polecenie](run-command.md) umożliwia zarządzanie maszyną wirtualną i aplikacjami oraz rozwiązywanie problemów przy użyciu skryptów i jest dostępna nawet wtedy, gdy komputer jest niedostępny, na przykład jeśli zapora gościa nie ma otwartego portu RDP lub SSH.
 
@@ -69,6 +68,6 @@ Konsola [szeregowa](serial-console.md) zapewnia bezpośredni dostęp do maszyny 
 Dowiedz się więcej o różnych funkcjach, które są dostępne do uruchamiania skryptów i poleceń w maszynach wirtualnych.
 
 * [Rozszerzenie niestandardowego skryptu](../extensions/custom-script-linux.md)
-* [Uruchom polecenie](run-command.md)
+* [Uruchamianie polecenia](run-command.md)
 * [Hybrydowy proces roboczy elementu Runbook](../../automation/automation-hybrid-runbook-worker.md)
 * [Konsola szeregowa](serial-console.md)

@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować wstępnie utworzony kontener PHP d
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: ad121d605e521704597471b446fa79cb43dfccc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e87466f810dc4ebf767c36ad74c358cbf6069e5
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255849"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758879"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Konfigurowanie aplikacji PHP systemu Linux dla usługi Azure App Service
 
@@ -86,7 +86,7 @@ Domyślny obraz PHP dla usługi App Service używa Apache i nie pozwala dostosow
 <IfModule mod_rewrite.c>
     RewriteEngine on
 
-    RewriteRule ^.*$ /public/$1 [NC,L,QSA]
+    RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```
 

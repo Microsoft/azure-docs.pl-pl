@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a2d79391832bbb5424c6d4096eb5c1a597623367
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2b30c176cf3c9dd31ae3efa85d308b3f89bd4dbe
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81421979"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81737018"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi mieć koncentrator i rozmawiać z urządzeniami SD-WAN/VPN, aby korzystać z wirtualnej sieci WAN platformy Azure?
 
@@ -212,7 +212,7 @@ Koncentrator wirtualny może propagować wyuczonej domyślnej trasy do sieci wir
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Jak koncentrator wirtualny w wirtualnej sieci WAN wybiera najlepszą ścieżkę dla trasy z wielu koncentratorów
 
 Jeśli Virtual Hub uczy się tej samej trasy z wielu zdalnych koncentratorów, kolejność, w jakiej się zdecyduje, jest następująca
-1) Route Origin a) Trasy sieciowe — prefiksy sieci wirtualnej, których bezpośrednio doczone są bramy wirtualnego koncentratora b) BGP c) Hub RouteTable (trasy skonfigurowane statycznie) d) trasy InterHub
+1) Route Origin a) Trasy sieciowe — prefiksy sieci wirtualnej, których bezpośrednio doczone są bramy wirtualnego koncentratora b) Hub RouteTable (trasy skonfigurowane statycznie) c) BGP d) trasy InterHub
 2)  Metryka trasy: Wirtualna sieć WAN preferuje usługę ExpressRoute niż sieć VPN. Peer usługi ExpressRoute ma większą wagę w porównaniu z elementem równorzędnym sieci VPN
 3)  Długość ścieżki AS
 

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a1fd22772e72cba4cce3f9fa2751dc0df0e15bb9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 5a8d5f96449cfecd4628c38fa2788a1e06e96b07
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535602"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758894"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Jak używać zestawu SDK usługi Azure WebJobs w celu opartego na zdarzeniach przetwarzania w tle)
 
@@ -279,7 +279,7 @@ Te typy wyzwalaczy i powiązania są zawarte w wersji 2. *x* `Microsoft.Azure.We
 
 * Blob Storage
 * Queue Storage
-* Magazyn tabel
+* Table Storage
 
 Aby użyć innych typów wyzwalacza i powiązania, należy zainstalować `Use<binding>` pakiet `JobHostConfiguration` NuGet, który je zawiera i wywołać metodę na obiekcie. Na przykład, jeśli chcesz użyć wyzwalacza `Microsoft.Azure.WebJobs.Extensions` czasomierza, zainstaluj i zadzwoń `UseTimers` w metodzie, `Main` jak pokazano poniżej:
 
@@ -423,7 +423,7 @@ static async Task Main()
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz event [hubs powiązanie](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings) artykułu.
+Aby uzyskać więcej informacji, zobacz event [hubs powiązanie](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json) artykułu.
 
 ### <a name="queue-storage-trigger-configuration"></a>Konfiguracja wyzwalacza magazynu kolejki
 

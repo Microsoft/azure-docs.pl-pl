@@ -9,12 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 3b37d7e049e7daabbbb4fe1a7b49feb654e8accc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 3cc74faa39b21b1ab275149db4f85de8f55fd07e
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110263"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733469"
 ---
 # <a name="get-started-with-device-management-net"></a>Wprowadzenie do zarządzania urządzeniami (.NET)
 
@@ -64,7 +65,7 @@ W tej sekcji utworzysz aplikację konsoli .NET przy użyciu języka C#, która i
 
 1. W **obszarze Tworzenie nowego projektu**znajdź i wybierz szablon projektu aplikacji konsoli **(.NET Framework),** a następnie wybierz pozycję **Dalej**.
 
-1. W **obszarze Konfiguruj nowy projekt nazwij**projekt *TriggerReboot*i wybierz opcję .NET Framework w wersji 4.5.1 lub nowszej. Wybierz **pozycję Utwórz**.
+1. W **obszarze Konfiguruj nowy projekt nazwij**projekt *TriggerReboot*i wybierz opcję .NET Framework w wersji 4.5.1 lub nowszej. Wybierz pozycję **Utwórz**.
 
     ![Nowy projekt Visual C# Windows Classic Desktop](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-configure.png)
 
@@ -147,7 +148,7 @@ Aby utworzyć aplikację symulowanego urządzenia, wykonaj następujące czynno�
 
 1. W programie Visual Studio w już utworzonym rozwiązaniu TriggerReboot wybierz pozycję **Plik** > **nowego** > **projektu**. W **obszarze Tworzenie nowego projektu**znajdź i wybierz szablon projektu aplikacji konsoli **(.NET Framework),** a następnie wybierz pozycję **Dalej**.
 
-1. W **obszarze Konfiguruj nowy projekt nazwij**projekt *SimulateManagedDevice*, a w przypadku **rozwiązania**wybierz pozycję Dodaj **do rozwiązania**. Wybierz **pozycję Utwórz**.
+1. W **obszarze Konfiguruj nowy projekt nazwij**projekt *SimulateManagedDevice*, a w przypadku **rozwiązania**wybierz pozycję Dodaj **do rozwiązania**. Wybierz pozycję **Utwórz**.
 
     ![Nadaj nazwę i dodaj projekt do rozwiązania](./media/iot-hub-csharp-csharp-device-management-get-started/configure-device-app.png)
 
