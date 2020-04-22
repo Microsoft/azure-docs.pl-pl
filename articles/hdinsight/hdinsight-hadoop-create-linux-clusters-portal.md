@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: a5f6ac76d509a0a63c2d641f91cd91cdb2e0d19d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 88392e4e61c28d4fe821c8176242246d10e52b23
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313804"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770894"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu witryny Azure portal
 
@@ -94,7 +94,7 @@ Na karcie **Zabezpieczenia + sieć** podaj następujące informacje:
 |Właściwość |Opis |
 |---|---|
 |Pakiet zabezpieczeń przedsiębiorstwa|Opcjonalnie: Zaznacz to pole wyboru, aby użyć **pakietu zabezpieczeń przedsiębiorstwa**. Aby uzyskać więcej informacji, zobacz [Konfigurowanie klastra HDInsight z pakietem zabezpieczeń przedsiębiorstwa przy użyciu usług domenowych Active Directory platformy Azure](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
-|TLS|Opcjonalnie: Wybierz wersję TLS z listy rozwijanej. Aby uzyskać więcej informacji, zobacz [Zabezpieczenia warstwy transportu](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security).|
+|TLS|Opcjonalnie: Wybierz wersję TLS z listy rozwijanej. Aby uzyskać więcej informacji, zobacz [Zabezpieczenia warstwy transportu](./transport-layer-security.md).|
 |Sieć wirtualna|Opcjonalnie: Wybierz istniejącą sieć wirtualną i podsieć z listy rozwijanej. Aby uzyskać więcej informacji, zobacz [Planowanie wdrożenia sieci wirtualnej dla klastrów usługi Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). Artykuł zawiera określone wymagania konfiguracyjne dla sieci wirtualnej.|
 |Ustawienia szyfrowania dysku|Opcjonalnie: Zaznacz to pole wyboru, aby używać szyfrowania. Aby uzyskać więcej informacji, zobacz [Szyfrowanie dysku klucza zarządzanego przez klienta](./disk-encryption.md).|
 |Serwer proxy REST Kafka|To ustawienie jest dostępne tylko dla typu klastra Platformy Kafka. Aby uzyskać więcej informacji, zobacz [Korzystanie z serwera proxy REST](./kafka/rest-proxy.md).|

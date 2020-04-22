@@ -8,14 +8,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc, seo-java-august2019, seo-java-september2019
+ms.custom:
+- mvc
+- seo-java-august2019
+- seo-java-september2019
+- mqtt
 ms.date: 06/21/2019
-ms.openlocfilehash: 96d30d283ec1565e512be77f55d15305fa226db4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d73fab92535820186fcce997c2a5c72abf130c18
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675350"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770996"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Szybki start: sterowanie urządzeniem połączonym z centrum Usługi Azure IoT za pomocą oprogramowania Java
 

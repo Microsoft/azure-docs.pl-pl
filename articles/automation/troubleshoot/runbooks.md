@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z błędami w uruchomieniu systemie użytkownika Azure Automation
+title: Rozwiązywanie problemów z błędami w usłudze Azure Automation
 description: Dowiedz się, jak rozwiązywać problemy i rozwiązywać problemy, które mogą wystąpić w podręcznikach uruchomieniu usługi Azure Automation.
 services: automation
 author: mgoedtel
@@ -8,16 +8,23 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 26c5c5b31d5f3f9e1a642c0bafb947190e479055
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 5ed25821f606b98bacf2acf3c2c389a8437406fa
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632627"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770918"
 ---
-# <a name="troubleshoot-errors-with-runbooks"></a>Rozwiązywanie problemów z błędami elementów runbook
+# <a name="troubleshoot-runbook-errors"></a>Rozwiązywanie problemów z błędami wiązki uruchomieniu
 
-Jeśli masz błędy podczas wykonywania elementów runbook w usłudze Azure Automation, można użyć następujących kroków, aby pomóc zdiagnozować problemy.
+ W tym artykule opisano różne błędy żyła wiązki uruchomieniu, które mogą wystąpić i jak je rozwiązać.
+
+>[!NOTE]
+>Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Aby uzyskać instrukcje instalacji modułu Az w hybrydowym usłudze Runbook Worker, zobacz [Instalowanie modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Dla konta automatyzacji można zaktualizować moduły do najnowszej wersji przy użyciu [jak zaktualizować moduły programu Azure PowerShell w usłudze Azure Automation.](../automation-update-azure-modules.md)
+
+## <a name="diagnosing-runbook-issues"></a>Diagnozowanie problemów z podręcznikiem runbook
+
+Po otrzymaniu błędów podczas wykonywania elementów runbook w usłudze Azure Automation, można użyć następujących kroków, aby pomóc zdiagnozować problemy.
 
 1. **Upewnij się, że skrypt egojnika jest pomyślnie wykonywany na komputerze lokalnym.** 
 
@@ -67,25 +74,32 @@ Jeśli ten błąd zostanie wyświetlony po zaktualizowaniu jednego modułu Azure
 Jeśli próbujesz uzyskać dostęp do zasobów w innej subskrypcji, możesz wykonać poniższe czynności, aby skonfigurować uprawnienia.
 
 1. Przejdź do konta Uruchamianie automatyzacji jako i skopiuj identyfikator aplikacji i odcisk palca.
-  ![Kopiowanie identyfikatora aplikacji i odcisk palca](../media/troubleshoot-runbooks/collect-app-id.png)
+
+    ![Identyfikator kopiowania i odcisk palca](../media/troubleshoot-runbooks/collect-app-id.png)
+
 1. Przejdź do kontroli dostępu subskrypcji, gdzie konto automatyzacji NIE jest hostowane, i dodaj nowe przypisanie roli.
-  ![Kontrola dostępu](../media/troubleshoot-runbooks/access-control.png)
+
+    ![Kontrola dostępu](../media/troubleshoot-runbooks/access-control.png)
+
 1. Dodaj identyfikator aplikacji zebranych wcześniej. Wybierz pozycję Współautor uprawnień.
-   ![Dodaj przypisanie roli](../media/troubleshoot-runbooks/add-role-assignment.png)
+
+    ![Dodaj przypisanie roli](../media/troubleshoot-runbooks/add-role-assignment.png)
+
 1. Skopiuj nazwę subskrypcji.
+
 1. Teraz można użyć następującego kodu systemu runbook, aby przetestować uprawnienia z konta automatyzacji do innej subskrypcji. Zamień `"\<CertificateThumbprint\>"` na wartość skopiowaną w kroku 1. Zamień `"\<SubscriptionName\>"` na wartość skopiowaną w kroku 4.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint "<CertificateThumbprint>"
+    Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint "<CertificateThumbprint>"
     #Select the subscription you want to work with
-    Select-AzureRmSubscription -SubscriptionName '<YourSubscriptionNameGoesHere>'
+    Select-AzSubscription -SubscriptionName '<YourSubscriptionNameGoesHere>'
 
     #Test and get outputs of the subscriptions you granted access.
-    $subscriptions = Get-AzureRmSubscription
+    $subscriptions = Get-AzSubscription
     foreach($subscription in $subscriptions)
     {
-        Set-AzureRmContext $subscription
+        Set-AzContext $subscription
         Write-Output $subscription.Name
     }
     ```
@@ -94,7 +108,7 @@ Jeśli próbujesz uzyskać dostęp do zasobów w innej subskrypcji, możesz wyko
 
 ### <a name="issue"></a>Problem
 
-Podczas pracy z poleceniem `Select-AzureSubscription` cmdlet lub `Select-AzureRmSubscription` poleceniem cmdlet pojawia się następujący błąd:
+Podczas pracy z poleceniem `Select-AzureSubscription` `Select-AzureRMSubscription` `Select-AzSubscription` cmdlet lub poleceniem cmdlet pojawia się następujący błąd:
 
 ```error
 The subscription named <subscription name> cannot be found.
@@ -106,25 +120,26 @@ Ten błąd może wystąpić, jeśli:
 
 * Nazwa subskrypcji jest nieprawidłowa.
 * Użytkownik usługi Azure Active Directory, który próbuje uzyskać szczegóły subskrypcji nie jest skonfigurowany jako administrator subskrypcji.
+* Polecenie cmdlet jest niedostępne.
 
 ### <a name="resolution"></a>Rozwiązanie
 
 Wykonaj poniższe czynności, aby ustalić, czy uwierzytelniłeś się na platformie Azure i masz dostęp do subskrypcji, którą próbujesz wybrać.
 
 1. Aby upewnić się, że skrypt działa autonomicznie, przetestować go poza usługą Azure Automation.
-2. Upewnij się, że `Add-AzureAccount` skrypt uruchamia polecenie `Select-AzureSubscription` cmdlet przed uruchomieniem polecenia cmdlet.
-3. Dodaj `Disable-AzureRmContextAutosave –Scope Process` na początek ego księgi runbook. To wywołanie polecenia cmdlet zapewnia, że wszystkie poświadczenia mają zastosowanie tylko do wykonywania bieżącego zestawu runbook.
-4. Jeśli nadal widzisz ten komunikat o błędzie, `AzureRmContext` zmodyfikuj kod, dodając parametr dla polecenia `Add-AzureAccount` cmdlet, a następnie wykonaj kod.
+2. Przed uruchomieniem polecenia cmdlet polecenia `Select-*` cmdlet upewnij się, że skrypt uruchamia polecenie cmdlet [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0)
+3. Dodaj `Disable-AzContextAutosave –Scope Process` na początek ego księgi runbook. To wywołanie polecenia cmdlet zapewnia, że wszystkie poświadczenia mają zastosowanie tylko do wykonywania bieżącego zestawu runbook.
+4. Jeśli ten komunikat o błędzie nadal jest `AzContext` wyświetlany, `Connect-AzAccount`zmodyfikuj kod, dodając parametr dla , a następnie wykonaj kod.
 
    ```powershell
-   Disable-AzureRmContextAutosave –Scope Process
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $context = Get-AzureRmContext
+   $context = Get-AzContext
 
-   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   Get-AzVM -ResourceGroupName myResourceGroup -AzContext $context
     ```
 
 ## <a name="scenario-authentication-to-azure-failed-because-multi-factor-authentication-is-enabled"></a><a name="auth-failed-mfa"></a>Scenariusz: uwierzytelnianie na platformie Azure nie powiodło się, ponieważ jest włączone uwierzytelnianie wieloskładnikowe
@@ -152,15 +167,15 @@ Aby użyć certyfikatu z poleceniami cmdlet modelu wdrażania klasycznego platfo
 W strumieniach zadań dla systemu runbook jest widoczny następujący błąd:
 
 ```error
-Connect-AzureRMAccount : Method 'get_SerializationSettings' in type
+Connect-AzAccount : Method 'get_SerializationSettings' in type
 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly
 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
 does not have an implementation.
 At line:16 char:1
-+ Connect-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ Connect-AZAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (:) [Connect-AzureRmAccount], TypeLoadException
-    + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+    + CategoryInfo          : NotSpecified: (:) [Connect-AzAccount], TypeLoadException
+    + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
 ```
 
 ### <a name="cause"></a>Przyczyna
@@ -169,7 +184,7 @@ Ten błąd jest spowodowany przy użyciu poleceń cmdlet modułu AzureRM i Az w 
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Nie można zaimportować i używać poleceń cmdlet Az i AzureRM w tym samym uruchomieniu. Rzesz. Aby dowiedzieć się więcej o poleceniach cmdlet AZ w usłudze Azure Automation, zobacz [Obsługa modułów Az w usłudze Azure Automation.](../az-modules.md)
+Nie można zaimportować i używać poleceń cmdlet Az i AzureRM w tym samym uruchomieniu. Rzesz. Aby dowiedzieć się więcej o poleceniach cmdlet AZ w usłudze Azure Automation, zobacz [Zarządzanie modułami w usłudze Azure Automation](../shared-resources/modules.md).
 
 ## <a name="scenario-the-runbook-fails-with-the-error-a-task-was-canceled"></a><a name="task-was-cancelled"></a>Scenariusz: Projekt runbook kończy się niepowodzeniem z powodu błędu: zadanie zostało anulowane
 
@@ -210,26 +225,26 @@ Kontekst subskrypcji może zostać utracony, gdy projekt runbook wywołuje wiele
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
-Disable-AzureRmContextAutosave –Scope Process
+Disable-AzContextAutosave –Scope Process
 
 # Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-Add-AzureRmAccount `
+Connect-AzAccount `
     -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
+    -Tenant $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
 
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+$AzContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
-Start-AzureRmAutomationRunbook `
+Start-AzAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -AzureRmContext $AzureContext `
+    -AzContext $AzureContext `
     –Parameters $params –wait
 ```
 
@@ -240,7 +255,7 @@ Start-AzureRmAutomationRunbook `
 Element runbook kończy się niepowodzeniem z błędem podobnym do następującego przykładu:
 
 ```error
-The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+The term 'Connect-AzAccount' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if the path was included verify that the path is correct and try again.
 ```
 
 ### <a name="cause"></a>Przyczyna
@@ -298,7 +313,7 @@ Ten błąd występuje z powodu jednego z następujących problemów:
 
 ### <a name="issue"></a>Problem
 
-Podczas pracy z poleceniem `Add-AzureAccount` cmdlet `Connect-AzureRmAccount` lub poleceniem cmdlet pojawia się jeden z następujących błędów:
+Podczas pracy z poleceniem `Connect-AzAccount` cmdlet pojawia się jeden z następujących błędów:
 
 ```error
 Unknown_user_type: Unknown User Type
@@ -317,14 +332,14 @@ Te błędy występują, jeśli nazwa zasobu poświadczeń jest nieprawidłowa. M
 Aby ustalić, co jest nie tak, należy wykonać następujące czynności:
 
 1. Upewnij się, że nie masz żadnych znaków specjalnych. Znaki te `\@` zawierają znak w nazwie zasobu poświadczeń automatyzacji, którego używasz do łączenia się z platformą Azure.
-2. Sprawdź, czy można użyć nazwy użytkownika i hasła, które są przechowywane w poświadczeniu usługi Azure Automation w lokalnym edytorze ISE programu PowerShell. Uruchom następujące polecenia cmdlet w programie PowerShell ISE.
+2. Sprawdź, czy można użyć nazwy użytkownika i hasła, które są przechowywane w poświadczeniu usługi Azure Automation w lokalnym edytorze środowiska POWERSHELL ISE. Uruchom następujące polecenia cmdlet w programie PowerShell ISE.
 
    ```powershell
    $Cred = Get-Credential
    #Using Azure Service Management
    Add-AzureAccount –Credential $Cred
    #Using Azure Resource Manager
-   Connect-AzureRmAccount –Credential $Cred
+   Connect-AzAccount –Credential $Cred
    ```
 
 3. Jeśli uwierzytelnianie nie powiedzie się lokalnie, poświadczenia usługi Azure Active Directory nie zostały poprawnie skonfigurowane. Zapoznaj się z wpisem blogu [usługi Azure Active Directory za pomocą usługi Azure Active Directory,](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) aby poprawnie skonfigurować konto usługi Azure Active Directory.
@@ -343,9 +358,9 @@ Aby ustalić, co jest nie tak, należy wykonać następujące czynności:
    {
        $LogonAttempt++
        #Logging in to Azure...
-       $connectionResult = Connect-AzureRmAccount `
+       $connectionResult = Connect-AzAccount `
                               -ServicePrincipal `
-                              -TenantId $servicePrincipalConnection.TenantId `
+                              -Tenant $servicePrincipalConnection.TenantId `
                               -ApplicationId $servicePrincipalConnection.ApplicationId `
                               -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
 
@@ -365,11 +380,11 @@ Object reference not set to an instance of an object
 
 ### <a name="cause"></a>Przyczyna
 
-`Start-AzureRmAutomationRunbook`nie obsługuje strumień output poprawnie, jeśli strumień zawiera obiekty.
+`Start-AzAutomationRunbook`nie obsługuje strumień output poprawnie, jeśli strumień zawiera obiekty.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Zaleca się zaimplementowanie logiki sondowania i użyj polecenia cmdlet [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) do pobrania danych wyjściowych. Przykład tej logiki jest zdefiniowany poniżej.
+Zaleca się zaimplementowanie logiki sondowania i użyj polecenia cmdlet [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) do pobierania danych wyjściowych. Przykład tej logiki jest zdefiniowany poniżej.
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -380,17 +395,17 @@ function IsJobTerminalState([string] $status) {
     return $status -eq "Completed" -or $status -eq "Failed" -or $status -eq "Stopped" -or $status -eq "Suspended"
 }
 
-$job = Start-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
+$job = Start-AzAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
 $pollingSeconds = 5
 $maxTimeout = 10800
 $waitTime = 0
 while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
    Start-Sleep -Seconds $pollingSeconds
    $waitTime += $pollingSeconds
-   $job = $job | Get-AzureRmAutomationJob
+   $job = $job | Get-AzAutomationJob
 }
 
-$jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+$jobResults | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
 
 ## <a name="scenario-runbook-fails-because-of-deserialized-object"></a><a name="fails-deserialized-object"></a>Scenariusz: Program Runbook kończy się niepowodzeniem z powodu obiektu deseriii
@@ -487,9 +502,9 @@ Innym rozwiązaniem jest optymalizacja żyjącego śmiwoju poprzez tworzenie [ś
 
 Polecenia cmdlet programu PowerShell, które umożliwiają scenariusz bieśrodowiska podrzędnej są następujące:
 
-* [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook). To polecenie cmdlet pozwala uruchomić element runbook i przekazać do niego parametry.
+* [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). To polecenie cmdlet pozwala uruchomić element runbook i przekazać do niego parametry.
 
-* [Get-AzureRmAutomationOb](/powershell/module/azurerm.automation/get-azurermautomationjob). Jeśli istnieją operacje, które muszą być wykonywane po zakończeniu śmiętu podrzędnego, to polecenie cmdlet umożliwia sprawdzenie stanu zadania dla każdego dziecka.
+* [Get-AzAutomationOb](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0). Jeśli istnieją operacje, które muszą być wykonywane po zakończeniu śmiętu podrzędnego, to polecenie cmdlet umożliwia sprawdzenie stanu zadania dla każdego dziecka.
 
 ## <a name="scenario-status-400-bad-request-when-calling-a-webhook"></a><a name="expired webhook"></a>Scenariusz: Stan: 400 złe żądanie podczas wywoływania elementu webhook
 
@@ -513,7 +528,7 @@ Jeśli element webhook jest wyłączona, można ponownie włączyć element webh
 
 ### <a name="issue"></a>Problem
 
-Podczas uruchamiania `Get-AzureRmAutomationJobOutput` polecenia cmdlet pojawia się następujący komunikat o błędzie:
+Podczas uruchamiania `Get-AzAutomationJobOutput` polecenia cmdlet pojawia się następujący komunikat o błędzie:
 
 ```error
 429: The request rate is currently too large. Please try again
@@ -529,7 +544,7 @@ Wykonaj jedną z następujących czynności, aby rozwiązać ten błąd.
 
 * Edytuj runbook i zmniejsz liczbę strumieni zadań, które emituje.
 
-* Zmniejsz liczbę strumieni, które mają zostać pobrane podczas uruchamiania polecenia cmdlet. Aby to zrobić, można ustawić `Stream` wartość parametru dla `Get-AzureRmAutomationJobOutput` polecenia cmdlet, aby pobrać tylko strumienie wyjściowe. 
+* Zmniejsz liczbę strumieni, które mają zostać pobrane podczas uruchamiania polecenia cmdlet. Aby to zrobić, można ustawić `Stream` wartość parametru dla polecenia cmdlet [Get-AzAutomationJobOutput,](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) aby pobrać tylko strumienie wyjściowe. 
 
 ## <a name="scenario-powershell-job-fails-with-error-cannot-invoke-method"></a><a name="cannot-invoke-method"></a>Scenariusz: Zadanie programu PowerShell kończy się niepowodzeniem z powodu błędu: nie można wywołać metody
 
@@ -549,7 +564,7 @@ Ten błąd może wskazywać, że programy runbook wykonujące w obszarze izolowa
 
 Istnieją dwa sposoby rozwiązania tego błędu.
 
-* Zamiast używać `Start-Job`, `Start-AzureRmAutomationRunbook` użyj, aby uruchomić runbook.
+* Zamiast używać [zadania startowego,](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7)użyj [start-AzAutomationRunbook,](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) aby uruchomić runbook.
 * Spróbuj uruchomić system runbook w hybrydowym uzywce procesowej.
 
 Aby dowiedzieć się więcej o tym zachowaniu i innych zachowaniach uruchomieniu usługę Azure Automation, zobacz [Zachowanie systemu Runbook](../automation-runbook-execution.md#runbook-behavior).
@@ -594,6 +609,33 @@ Jeśli skrypt analizuje dane wyjściowe polecenia cmdlet, skrypt musi przechowyw
 $SomeVariable = add-pnplistitem ....
 if ($SomeVariable.someproperty -eq ....
 ```
+
+## <a name="scenario-invalid-status-code-forbidden-when-using-key-vault-inside-a-runbook"></a>Scenariusz: Nieprawidłowy kod stanu "Zabronione" podczas korzystania z usługi Key Vault wewnątrz egobooka
+
+### <a name="issue"></a>Problem
+
+Podczas próby uzyskania dostępu do usługi Key Vault za pośrednictwem elementów runbook usługi Azure Automation pojawia się następujący błąd:
+
+```error
+Operation returned an invalid status code 'Forbidden' 
+```
+
+### <a name="cause"></a>Przyczyna
+
+Możliwe przyczyny tego problemu:
+
+* Nie używanie konta Uruchom jako.
+* Niewystarczające uprawnienia.
+
+### <a name="resolution"></a>Rozwiązanie
+
+#### <a name="not-using-run-as-account"></a>Nie używanie konta Uruchom jako
+
+Wykonaj kroki opisane w [kroku 5 — Dodaj uwierzytelnianie, aby zarządzać zasobami platformy Azure,](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) aby upewnić się, że używasz konta Uruchom jako, aby uzyskać dostęp do usługi Key Vault. 
+
+#### <a name="insufficient-permissions"></a>Niewystarczające uprawnienia
+
+Wykonaj czynności opisane w [sekcji Dodaj uprawnienia do usługi Key Vault,](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) aby upewnić się, że twoje konto Uruchom jako ma wystarczające uprawnienia dostępu do usługi Key Vault. 
 
 ## <a name="my-problem-isnt-listed-above"></a><a name="other"></a>Mój problem nie jest wymieniony powyżej
 
@@ -647,7 +689,7 @@ Piaskownica platformy Azure uniemożliwia dostęp do wszystkich serwerów COM po
 ## <a name="recommended-documents"></a>Zalecane dokumenty
 
 * [Uruchamianie uruchomieniu w usłudze Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
-* [Wykonanie uruchomieniu w usłudze Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
+* [Wykonywanie elementu runbook w usłudze Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 
 ## <a name="next-steps"></a>Następne kroki
 

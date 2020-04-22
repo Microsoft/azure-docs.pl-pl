@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 4042fc05f278915fe72bf8fc4e6afd69a5bbb4b9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537427"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770965"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Wdrażanie agenta usługi Azure Monitor Application Insights dla serwerów lokalnych
 
@@ -36,14 +36,14 @@ Usługa Application Insights Agent https://www.powershellgallery.com/packages/Az
 - Zobacz [szczegółowe instrukcje](status-monitor-v2-detailed-instructions.md) dotyczące głębokiego nurkowania, jak rozpocząć pracę.
 
 ## <a name="powershell-api-reference"></a>Odwołanie do interfejsu API programu PowerShell
-- [Monitorowanie disable-ApplicationInsights](status-monitor-v2-api-disable-monitoring.md)
-- [Inwalidacja InstrumentacjaEngyna](status-monitor-v2-api-disable-instrumentation-engine.md)
-- [Monitorowanie wysuwające aplikacje enable](status-monitor-v2-api-enable-monitoring.md)
-- [Włącz-InstrumentacjaInżynie](status-monitor-v2-api-enable-instrumentation-engine.md)
-- [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
-- [Stan monitorowania aplikacji Get-Application](status-monitor-v2-api-get-status.md)
-- [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
-- [Śledzenie monitorowania aplikacji startowych](status-monitor-v2-api-start-trace.md)
+- [Monitorowanie disable-ApplicationInsights](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-applicationinsightsmonitoring)
+- [Inwalidacja InstrumentacjaEngyna](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-instrumentationengine)
+- [Monitorowanie wysuwające aplikacje enable](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring)
+- [Włącz-InstrumentacjaInżynie](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-instrumentationengine)
+- [Get-ApplicationInsightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringconfig)
+- [Stan monitorowania aplikacji Get-Application](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus)
+- [Set-ApplicationInsightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#set-applicationinsightsmonitoringconfig)
+- [Śledzenie monitorowania aplikacji startowych](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#start-applicationinsightsmonitoringtrace)
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 - [Rozwiązywanie problemów](status-monitor-v2-troubleshoot.md)
@@ -64,7 +64,7 @@ Każda z tych opcji jest opisana w [szczegółowych instrukcjach](status-monitor
 
 - Jak sprawdzić, czy włączenie powiodło się?
 
-  - Polecenie cmdlet [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) może służyć do sprawdzenia, czy włączenie powiodło się.
+  - Polecenie cmdlet [Get-ApplicationInsightsMonitoringStatus](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus) może służyć do sprawdzenia, czy włączenie powiodło się.
   - Zalecamy użycie [metryk na żywo,](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) aby szybko określić, czy aplikacja wysyła dane telemetryczne.
 
   - Za pomocą [usługi Log Analytics](../log-query/get-started-portal.md) można również wyświetlić listę wszystkich ról w chmurze aktualnie wysyłających dane telemetryczne:

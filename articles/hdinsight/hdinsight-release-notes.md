@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e5a96d2eb67937ce4eeaa1999d8168e7f5d3d926
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb31f1a46d7f46b69e9e0ad47a77ba6b32a50a0
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130190"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770829"
 ---
 # <a name="release-notes"></a>Informacje o wersji
 
@@ -34,7 +34,7 @@ Ta wersja dotyczy zarówno hdinsight 3.6 i 4.0. Wersja HDInsight jest dostępna 
 ### <a name="tls-12-enforcement"></a>Wymuszanie protokołu TLS 1.2
 Transport Layer Security (TLS) i Secure Sockets Layer (SSL) to protokoły kryptograficzne, które zapewniają bezpieczeństwo komunikacji za pośrednictwem sieci komputerowej. Dowiedz się więcej o [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HdInsight używa protokołu TLS 1.2 w publicznych punktach końcowych HTTPs, ale TLS 1.1 jest nadal obsługiwany ze zgodnym z powrotem. 
 
-W tej wersji klienci mogą zdecydować się na TLS 1.2 tylko dla wszystkich połączeń za pośrednictwem punktu końcowego klastra publicznego. Aby to poprzeć, nowa właściwość **minSupportedTlsVersion** jest wprowadzana i może być określona podczas tworzenia klastra. Jeśli właściwość nie jest ustawiona, klaster nadal obsługuje TLS 1.0, 1.1 i 1.2, który jest taki sam jak dzisiejsze zachowanie. Klienci mogą ustawić wartość dla tej właściwości na "1.2", co oznacza, że klaster obsługuje tylko protokół TLS 1.2 i powyżej. Aby uzyskać więcej informacji, zobacz [Planowanie sieci wirtualnej — Transport Layer Security](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#transport-layer-security).
+W tej wersji klienci mogą zdecydować się na TLS 1.2 tylko dla wszystkich połączeń za pośrednictwem punktu końcowego klastra publicznego. Aby to poprzeć, nowa właściwość **minSupportedTlsVersion** jest wprowadzana i może być określona podczas tworzenia klastra. Jeśli właściwość nie jest ustawiona, klaster nadal obsługuje TLS 1.0, 1.1 i 1.2, który jest taki sam jak dzisiejsze zachowanie. Klienci mogą ustawić wartość dla tej właściwości na "1.2", co oznacza, że klaster obsługuje tylko protokół TLS 1.2 i powyżej. Aby uzyskać więcej informacji, zobacz [Zabezpieczenia warstwy transportu](./transport-layer-security.md).
 
 ### <a name="bring-your-own-key-for-disk-encryption"></a>Przynieś własny klucz do szyfrowania dysku
 Wszystkie dyski zarządzane w usłudze HDInsight są chronione za pomocą szyfrowania usługi Azure Storage Service (SSE). Dane na tych dyskach są domyślnie szyfrowane przez klucze zarządzane przez firmę Microsoft. Począwszy od tej wersji, można przynieść własny klucz (BYOK) do szyfrowania dysku i zarządzać nim przy użyciu usługi Azure Key Vault. Szyfrowanie BYOK jest konfiguracją jednoetapową podczas tworzenia klastra bez dodatkowych kosztów. Wystarczy zarejestrować usługę HDInsight jako tożsamość zarządzaną w usłudze Azure Key Vault i dodać klucz szyfrowania podczas tworzenia klastra. Aby uzyskać więcej informacji, zobacz [Szyfrowanie dysku klucza zarządzanego przez klienta](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
