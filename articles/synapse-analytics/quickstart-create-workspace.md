@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0b6bf4c6a54e2f187a5751d267720f356e0c30ff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1ccfb1b008a7e3e48f56b1af62087d303522ed73
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424398"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676725"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Szybki start: tworzenie obszaru roboczego usługi Azure Synapse Analytics (wersja zapoznawcza)
 
@@ -54,7 +54,7 @@ Logowanie się do [witryny Azure portal](https://portal.azure.com/)
     - Wprowadzone ręcznie przy użyciu nazwy konta
 
     > [!IMPORTANT]
-    > Obszar roboczy Usługi Azure Synapse musi mieć możliwość odczytu i zapisu na wybranym koncie ADLS Gen2.
+    > Obszar roboczy Usługi Azure Synapse musi mieć możliwość odczytu i zapisu na wybranym koncie ADLS Gen2. Ponadto dla każdego konta magazynu, które łączysz jako podstawowe konto magazynu, podczas tworzenia konta magazynu musi być włączony **hierarchiczny obszar nazw.**
     >
     > Poniżej pól wyboru ADLS Gen2 znajduje się notatka informująca, że zarządzana tożsamość obszaru roboczego zostanie przypisana rola **Współautora danych obiektów Blob Storaqe** w wybranym systemie plików Data Lake Storage Gen2, przyznając mu pełny dostęp.
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce1bb3760ae73a9eaeee3cde957cc94841ebdf29
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70390173"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731939"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Opis filtrowania zdarzeń dla subskrypcji usługi Event Grid
 
@@ -59,7 +59,7 @@ Aby filtrować według wartości w polach danych i określać operator porównan
 
 * typ operatora — typ porównania.
 * - pole w danych zdarzenia, których używasz do filtrowania. Może to być liczba, wartość logiczna lub ciąg.
-* wartość lub wartości — wartość lub wartości do porównania z kluczem.
+* wartości — wartość lub wartości do porównania z kluczem.
 
 Jeśli określisz pojedynczy filtr z wieloma wartościami, wykonywana jest operacja **OR,** więc wartość pola klucza musi być jedną z tych wartości. Oto przykład:
 

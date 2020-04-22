@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 62d63b24baab204cb029565b109ea2de768e1d80
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ef933ae9a6b0a34529c7ec145b13c023728a3457
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78165446"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731856"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Szybki start: tworzenie i wypychanie obrazów kontenerów Java do rejestru kontenerów platformy Azure
 
@@ -163,7 +163,7 @@ Aby zapoznać się z innymi wersjami oficjalnych obrazów podstawowych java obs�
 Aby dowiedzieć się więcej na temat oprogramowania Spring i platformy Azure, przejdź do centrum dokumentacji dotyczącej oprogramowania Spring na platformie Azure.
 
 > [!div class="nextstepaction"]
-> [Oprogramowanie Spring na platformie Azure](/azure/java/spring-framework)
+> [Oprogramowanie Spring na platformie Azure](/azure/developer/java/spring-framework)
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -173,5 +173,5 @@ Więcej informacji zawierają następujące zasoby:
 * [Praca z narzędziami Azure DevOps i językiem Java](/azure/devops/java)
 * [Spring Boot na platformie Docker — Wprowadzenie](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
-* [Deploy a Spring Boot Application to the Azure App Service](/azure/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin) (Wdrażanie aplikacji Spring Boot w usłudze Azure App Service)
+* [Deploy a Spring Boot Application to the Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin) (Wdrażanie aplikacji Spring Boot w usłudze Azure App Service)
 * [Używanie niestandardowego obrazu Docker dla usługi Azure Web App w systemie Linux](/azure/app-service-web/app-service-linux-using-custom-docker-image)

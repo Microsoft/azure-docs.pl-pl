@@ -3,20 +3,25 @@ title: Usługa Azure Application Insights zastępuje domyślne punkty końcowe s
 description: Zmodyfikuj domyślne punkty końcowe SDK usługi Azure Monitor Application Insights dla regionów takich jak Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: b4ab05c7ee815b385ffb2d1ff9e621063d744dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b43bd13c73f77c6292e2062db88d68a20e5bf480
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298315"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729533"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Zastępowanie domyślnych punktów końcowych usługi Application Insights
 
 Aby wysłać dane ze usługi Application Insights do niektórych regionów, należy zastąpić domyślne adresy punktów końcowych. Każdy SDK wymaga nieco innych modyfikacji, z których wszystkie są opisane w tym artykule. Zmiany te wymagają dostosowania przykładowego kodu i `QuickPulse_Endpoint_Address`zastąpienia `TelemetryChannel_Endpoint_Address`wartości `Profile_Query_Endpoint_address` zastępczych dla programu , oraz rzeczywistych adresów punktów końcowych dla określonego regionu. Koniec tego artykułu zawiera łącza do adresów punktów końcowych dla regionów, w których ta konfiguracja jest wymagana.
 
+> [!NOTE]
+> [Parametry połączenia](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) to nowa preferowana metoda ustawiania niestandardowych punktów końcowych w usłudze Application Insights.
+
+---
+
 ## <a name="sdk-code-changes"></a>Zmiany kodu SDK
 
-### <a name="net-with-applicationinsightsconfig"></a>.NET z applicationinsights.config
+# <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > Plik applicationinsights.config jest automatycznie zastępowany w dowolnym momencie wykonania uaktualnienia SDK. Po wykonaniu uaktualnienia SDK należy ponownie wprowadzić wartości punktu końcowego określonego regionu.
@@ -41,7 +46,7 @@ Aby wysłać dane ze usługi Application Insights do niektórych regionów, nale
 </ApplicationInsights>
 ```
 
-### <a name="aspnet-core"></a>ASP.NET Core
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Zmodyfikuj plik appsettings.json w projekcie w następujący sposób, aby dostosować główny punkt końcowy:
 
@@ -68,6 +73,8 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
     //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
 ```
+
+# <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
 ### <a name="azure-functions-v2x"></a>Usługi Azure Functions w wersji 2.x
 
@@ -120,7 +127,7 @@ namespace Example
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="java"></a>[Java](#tab/java)
 
 Zmodyfikuj plik applicationinsights.xml, aby zmienić domyślny adres punktu końcowego.
 
@@ -155,7 +162,7 @@ Zmodyfikuj `application.properties` plik i dodaj:
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,7 +181,7 @@ Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascript"></a>[JavaScript](#tab/js)
 
 ```javascript
 <script type="text/javascript">
@@ -187,9 +194,11 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 </script>
 ```
 
-### <a name="python"></a>Python
+# <a name="python"></a>[Python](#tab/python)
 
 Aby uzyskać wskazówki dotyczące modyfikowania punktu końcowego pozyskiwania dla opencensus-python SDK, zapoznaj się z [repozytorium opencensus-python.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+
+---
 
 ## <a name="regions-that-require-endpoint-modification"></a>Regiony wymagające modyfikacji punktu końcowego
 

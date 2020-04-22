@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: e17a76d5a017400287644ad2da46caa5b6636654
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3979be6f49f4ad01a6092fc0d5aa767d342c4642
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262302"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730505"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migracja konta z witryny Cloud Partner Portal do Centrum partnerskiego
 
@@ -47,7 +47,7 @@ Kliknij baner, aby rozpocząć proces migracji konta. Oczekuje się, że wprowad
 
 Firmy, które chcą współpracować z firmą Microsoft, muszą dołączyć do sieci Microsoft Partner Network (MPN) i uzyskać identyfikator MPN. Jeśli jesteś już członkiem sieci Partner Network firmy Microsoft i masz identyfikator MPN, zachowaj informacje w stanie, że będą one potrzebne podczas procesu aktywacji konta.  
 
-Jeśli nie jesteś członkiem sieci Partner Network firmy Microsoft, możesz [dołączyć tutaj,](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) aby uzyskać identyfikator MPN. Zanotuj swój identyfikator MPN, ponieważ musisz go wprowadzić podczas procesu aktywacji konta.
+Jeśli nie jesteś członkiem sieci Partner Network firmy Microsoft, możesz [dołączyć tutaj,](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) aby uzyskać identyfikator MPN. Zanotuj swój identyfikator MPN, ponieważ musisz go wprowadzić podczas procesu aktywacji konta.
 
 Aby dowiedzieć się więcej o sieci partnerów firmy Microsoft, zobacz [Dołączanie do sieci partnerów firmy Microsoft](https://partner.microsoft.com/en-US/membership) w witrynie sieci Web partnera. Aby dowiedzieć się więcej o korzyściach płynących z sieci isv w sieci partnerów firmy Microsoft, zobacz [Centrum zasobów isv](https://partner.microsoft.com/isv-resource-hub).  
 
@@ -61,7 +61,7 @@ Aby uzyskać szczegółowe informacje na temat tego, co należy zrobić do **15 
 > Nie dotyczy to ofert Dynamics 365 Business Central.  
 
 1. Jeśli twoje konto członkowskie MPN zostało pierwotnie utworzone w Centrum członkostwa partnera (PMC), zaloguj się do [Centrum partnerskiego,](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) aby potwierdzić, że twoje konto zostało zmigrowane. Jeśli widzisz ekran profilu z identyfikatorem MPN, możesz kontynuować. Jeśli nie, musisz rozpocząć migrację konta, postępujących zgodnie z instrukcjami w [Centrum członkostwa partnera](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Jeśli potrzebujesz pomocy, odwiedź [pomoc techniczną](https://partner.microsoft.com/support?issueid=100-0077).
-2. Przejdź do [strony przeglądowej portalu Marketplace komercyjnego w Centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Jeśli widzisz "Commercial Marketplace" w lewym okienku nawigacji, jesteś zarejestrowany i powinieneś przejść do następnego kroku. Jeśli nie, [zarejestruj się na rynku komercyjnym](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) już teraz.
+2. Przejdź do [strony przeglądowej portalu Marketplace komercyjnego w Centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Jeśli widzisz "Commercial Marketplace" w lewym okienku nawigacji, jesteś zarejestrowany i powinieneś przejść do następnego kroku. Jeśli nie, [zarejestruj się na rynku komercyjnym](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) już teraz.
 3. Potwierdź, że twoje oferty znajdują się w [AppSource, wyszukując swoje oferty.](https://appsource.microsoft.com/) Jeśli twoje oferty są już w u źródła usług AppSource, przejdź do następnego kroku. W przypadku każdej oferty, która nie ma w programie AppSource, utwórz [nową ofertę Dynamics 365 Customer Engagement](create-new-customer-engagement-offer.md) lub nową ofertę [Dynamics 365 Operations.](create-new-operations-offer.md)
 4. Na [stronie Umowy](https://partner.microsoft.com/dashboard/account/agreements)centrum partnerów upewnij się, że zostały sprawdzone i zaakceptowane w **addendum isv aplikacji biznesowych.**
 5. W [ustawieniach konta](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile)Centrum partnerów upewnij się, że informacje rozliczeniowe są kompletne.
@@ -73,10 +73,10 @@ Aby uzyskać szczegółowe informacje na temat tego, co należy zrobić do **15 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Dołącz do cotygodniowego [zaproszenia społeczności dynamics isv](https://aka.ms/DynamicsISV-CommunityCall) do pomocy technicznej i aktualizacji.
+Uzyskaj pomoc od ekspertów i kolegów na forach i odkryj blogi, seminaria internetowe, filmy wideo, wydarzenia i inne informacje na [platformie Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 
-Jeśli potrzebujesz pomocy w publikowaniu, poświadczaniu lub zarządzaniu ofertami marketplace, [prześlij zgłoszenie pomocy technicznej.](https://aka.ms/MarketplacePublisherSupport)
+Jeśli potrzebujesz pomocy w publikowaniu, poświadczaniu lub zarządzaniu ofertami marketplace, [prześlij zgłoszenie pomocy technicznej.](https://partner.microsoft.com/support/v2/?stage=1)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-step"></a>Następny krok
 
 - [Zarządzanie kontem w portalu marketplace komercyjnego w Centrum partnerskim](./manage-account.md)

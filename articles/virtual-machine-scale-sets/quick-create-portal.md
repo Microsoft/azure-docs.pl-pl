@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: jushiman
-ms.openlocfilehash: 410ae93ea109e5757ccb5b65d353a600574dd595
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 5855c53a73ac94985f34f229fbe5ab77067ef17d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010481"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680416"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Szybki start: tworzenie zestawu skalowania maszyn wirtualnych w witrynie Azure Portal
 
@@ -59,7 +59,7 @@ Możesz wdrożyć zestaw skalowania z obrazu systemu Windows Server lub obrazu s
 1. Wpisz **zestaw skalowania** w polu wyszukiwania. W wynikach w obszarze **Marketplace**wybierz pozycję **Zestawy skalowania maszyny wirtualnej**. Zostanie otwarta strona **Utwórz zestaw skalowania maszyny wirtualnej.** 
 1. Na karcie **Podstawowe**, w obszarze **Szczegóły projektu**, upewnij się, że wybrano poprawną subskrypcję, a następnie wybierz opcję **Utwórz nową** grupę zasobów. Wpisz *myVMSSResourceGroup* dla nazwy, a następnie wybierz **przycisk OK** . 
 1. Wpisz *myScaleSet* jako nazwę zestawu skalowania.
-1. W **obszarze Region**wybierz region, który znajduje się blisko obszaru.
+1. W **obszarze Region**wybierz region, który znajduje się blisko Obszaru.
 1. Pozostaw domyślną wartość **ScaleSet VMs** dla **programu Orchestrator**.
 1. Wybierz obraz z portalu Marketplace dla **obrazu**. W tym przykładzie wybraliśmy *Ubuntu Server 18.04 LTS*.
 1. Wprowadź żądaną nazwę użytkownika, a następnie wybierz typ uwierzytelniania, który preferujesz.

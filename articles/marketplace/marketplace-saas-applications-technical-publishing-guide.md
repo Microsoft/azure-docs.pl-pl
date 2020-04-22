@@ -1,21 +1,21 @@
 ---
-title: Przewodnik po publikowaniu technicznych aplikacji usługi Azure Marketplace SaaS
+title: Przewodnik publikowania aplikacji saaS w portalu Azure Marketplace
 description: Przewodnik krok po kroku i listy kontrolne publikowania aplikacji SaaS w portalu Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: keithcharlie
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: kevidal
-ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.author: dsindona
+ms.openlocfilehash: 1bc2feb4d8f3f103802bd823c66cd3f54ac5d74a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544286"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687559"
 ---
-# <a name="saas-applications-offer-publishing-guide"></a>Przewodnik publikowania ofert w aplikacjach SaaS
+# <a name="saas-applications-offer-publishing-guide"></a>Aplikacje SaaS Przewodnik po publikacjach
 
 Aplikacje SaaS mogą być publikowane na rynku z trzema różnymi wezwaniami do działania: "Skontaktuj się ze mną", "Wypróbuj teraz" i "Pobierz teraz". W tym przewodniku opisano te trzy opcje, w tym wymagania dla każdego z nich. 
 
@@ -33,7 +33,7 @@ Aplikacje SaaS są dostępne w obu witrynach sklepu Azure W poniższej tabeli op
 
 | Oferta aplikacji SaaS | Wymagania biznesowe | Wymagania techniczne |  
 | --- | --- | --- |  
-| **Kontakt z nami** | Tak | Nie |  
+| **Skontaktuj się z nami** | Tak | Nie |  
 | **PowerBI / Dynamics** | Tak | Tak (integracja usługi Azure AD) |  
 | **Aplikacje SaaS**| Tak | Tak (integracja usługi Azure AD) |     
 
@@ -110,8 +110,8 @@ Certyfikuj integrację usługi Azure AD na kilka różnych sposobów, w zależno
 **W przypadku aplikacji wielodostępnych:**  
 
 Jeśli już obsługujesz usługę Azure AD, wykonaj następujące czynności:
-1.  Rejestrowanie aplikacji w witrynie Azure portal
-2.  Włącz funkcję obsługi wielu dzierżaw w usłudze Azure AD, aby uzyskać wersję próbną "jednym kliknięciem". Bardziej szczegółowe informacje można znaleźć [tutaj](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+1.    Rejestrowanie aplikacji w witrynie Azure portal
+2.    Włącz funkcję obsługi wielu dzierżaw w usłudze Azure AD, aby uzyskać wersję próbną "jednym kliknięciem". Bardziej szczegółowe informacje można znaleźć [tutaj](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Jeśli jesteś nowym użytkownikiem usługi Azure AD Federated SSO, wykonaj następujące czynności: 
 1.  Rejestrowanie aplikacji w witrynie Azure portal
@@ -144,9 +144,9 @@ Firma Microsoft obsługuje transakcję handlową. Firma Microsoft rozlicza klien
 ## <a name="next-steps"></a>Następne kroki
 Jeśli jeszcze tego nie zrobiłeś,
 
-- [Zarejestruj się](https://azuremarketplace.microsoft.com/sell) na rynku.
+* [Dowiedz się więcej](https://azuremarketplace.microsoft.com/sell) o rynku.
 
-Jeśli jesteś zarejestrowany i tworzysz nową ofertę lub pracujesz nad istniejącą,
+Aby zarejestrować się w Centrum partnerów, rozpocznij tworzenie nowej oferty lub pracę nad istniejącą:
 
-- [Zaloguj się do portalu cloud partner,](https://cloudpartner.azure.com) aby utworzyć lub uzupełnić ofertę.
-- Aby uzyskać więcej informacji, zobacz [oferta aplikacji Azure SaaS.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer)
+* [Zaloguj się do Centrum partnerów,](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) aby utworzyć lub uzupełnić ofertę.
+* Zobacz [tworzenie oferty aplikacji SaaS,](./partner-center-portal/create-new-saas-offer.md) aby uzyskać więcej informacji.

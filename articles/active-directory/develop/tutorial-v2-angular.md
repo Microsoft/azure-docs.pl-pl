@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 84d7be64e7157c35639fec19cb28fe787fe29b19
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: c3c12f78118734c31641b90e6fcb8469ddda30b0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533891"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678003"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Samouczek: Zaloguj się do użytkowników i zadzwoń do interfejsu API programu Microsoft Graph z aplikacji jednostronicowej angular
 
@@ -53,10 +53,6 @@ W tym samouczku użyto następującej biblioteki:
 |Biblioteka|Opis|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteka uwierzytelniania firmy Microsoft dla otoki kątowej javascript|
-
-> [!NOTE]
-> *Msal.js* jest przeznaczony dla punktu końcowego platformy tożsamości firmy Microsoft, który umożliwia konta osobiste, konta służbowe i konta szkolne logowanie się i nabywanie tokenów. Punkt końcowy platformy tożsamości firmy Microsoft ma [pewne ograniczenia.](../azuread-dev/azure-ad-endpoint-comparison.md#limitations)
-> Aby zrozumieć różnice między punktami końcowymi w wersji 1.0 i v2.0, zobacz [przewodnik porównawczy punktów końcowych](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 Kod źródłowy biblioteki MSAL.js można znaleźć w repozytorium [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) w usłudze GitHub.
 

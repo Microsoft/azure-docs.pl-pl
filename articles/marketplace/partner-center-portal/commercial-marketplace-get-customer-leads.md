@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 05b166b2ec46900d9e3972025efb581d9619ec6a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: a1ec89dfd2dda91a10f2cc00b6ca4d9d7abbf032
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252650"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731135"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Potencjalni klienci z oferty w witrynie Marketplace
 
@@ -96,7 +96,7 @@ Informacje o kliencie są wysyłane za pośrednictwem wielu pól. W poniższym p
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Gdzie mogę uzyskać pomoc w konfigurowaniu miejsca docelowego potencjalnego klienta?
 
-Możesz znaleźć dokumentację [tutaj](#connect-to-your-crm-system) lub przesłać bilet pomocy technicznej za pośrednictwem aka.ms/marketplacepublishersupport a następnie wybrać **"tworzenie oferty"** → **swój typ oferty** → **"konfiguracja zarządzania potencjalnymi klientami".**
+Możesz znaleźć dokumentację [tutaj](#connect-to-your-crm-system) lub https://partner.microsoft.com/support/v2/?stage=1 przesłać bilet pomocy technicznej, a następnie wybrać **"tworzenie oferty"** → **rodzaj oferty** → **"konfiguracja zarządzania potencjalnymi klientami".**
 
 ### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-on-the-marketplace"></a>Czy muszę skonfigurować miejsce docelowe potencjalnego klienta, aby opublikować ofertę na rynku?
 
@@ -133,7 +133,7 @@ Miejsce docelowe potencjalnego klienta obiektów Blob platformy Azure nie jest j
 
 ### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>Otrzymałem wiadomość e-mail z Marketplace, dlaczego nie mogę znaleźć potencjalnego klienta w moim programie CRM?
 
-Jest możliwe, że domena poczty e-mail użytkownika końcowego pochodzi z domeny .edu. Ze względu na prywatność nie przekazujemy prywatnych informacji umożliwiających identyfikację z domeny .edu. Prześlij zgłoszenie pomocy technicznej za pośrednictwem aka.ms/marketplacepublishersupport.
+Jest możliwe, że domena poczty e-mail użytkownika końcowego pochodzi z domeny .edu. Ze względu na prywatność nie przekazujemy prywatnych informacji umożliwiających identyfikację z domeny .edu. Prześlij https://partner.microsoft.com/support/v2/?stage=1zgłoszenie pomocy technicznej za pośrednictwem pliku .
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Skonfigurowano tabelę platformy Azure jako miejsce docelowe potencjalnego klienta, jak mogę wyświetlić potencjalnych klientów?
 

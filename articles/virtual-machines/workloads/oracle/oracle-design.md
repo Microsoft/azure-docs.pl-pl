@@ -3,7 +3,7 @@ title: Projektowanie i wdrażanie bazy danych Oracle na platformie Azure | Dokum
 description: Projektowanie i wdrażanie bazy danych Oracle w środowisku platformy Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: mimckitt
+author: BorisB2015
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: mimckitt
-ms.openlocfilehash: 41e1720dfeaa98a9d0bc2227c58083ce769b06e0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: borisb
+ms.openlocfilehash: ad446180b3bd864c5b6df808e6e4efac7d6c1c65
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263407"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687537"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projektowanie i wdrażanie bazy danych Oracle na platformie Azure
 

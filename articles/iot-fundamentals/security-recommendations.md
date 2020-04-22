@@ -8,13 +8,16 @@ services: iot-hub
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: dkshir
-ms.custom: security-recommendations
-ms.openlocfilehash: 0ada9a520a5be56444a1c3e746a68dbcf9275686
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- security-recommendations
+- amqp
+- mqtt
+ms.openlocfilehash: 5dd09988d37982c41b761688492bd2dc3642b2db
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74048456"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81728980"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Zalecenia dotyczące zabezpieczeń dla wdrażania internetu rzeczy platformy Azure (IoT)
 
@@ -48,7 +51,7 @@ Niektóre z zaleceń zawartych w tym artykule mogą być automatycznie monitorow
 | Bezpieczna komunikacja z urządzeniem | Usługa IoT Hub zabezpiecza połączenie z urządzeniami przy użyciu standardu TLS (Transport Layer Security), obsługując wersje 1.2 i 1.0. Użyj [protokołu TLS 1.2,](https://tools.ietf.org/html/rfc5246) aby zapewnić maksymalne bezpieczeństwo. | - |
 | Bezpieczna komunikacja serwisowa | Usługa IoT Hub udostępnia punkty końcowe do łączenia się z usługami [zaplecza,](/azure/storage/) takimi jak Usługa Azure Storage lub [Usługi Event Hubs](/azure/event-hubs) przy użyciu tylko protokołu TLS, a żaden punkt końcowy nie jest udostępniany w kanale niezaszyfrowanym. Gdy te dane dotrą do tych usług wewnętrznej bazy danych do przechowywania lub analizy, upewnij się, że stosuje odpowiednie metody zabezpieczeń i szyfrowania dla tej usługi i chronić poufne informacje w wewnętrznej bazy danych. | - |
 
-## <a name="networking"></a>Obsługa sieci
+## <a name="networking"></a>Networking
 
 | Zalecenie | Komentarze | Obsługiwane przez ASC |
 |-|----|--|

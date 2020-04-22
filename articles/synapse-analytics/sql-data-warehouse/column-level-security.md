@@ -7,17 +7,17 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 02/05/2020
+ms.date: 04/19/2020
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 61a3e2eadaf79cdb30a931b31cff709298d0a22c
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: b0a783ad5db86ca783ff1cebceec8d77ab528047
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631295"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687919"
 ---
 # <a name="column-level-security"></a>Zabezpieczenia na poziomie kolumny
 
@@ -34,7 +34,7 @@ Można zaimplementować zabezpieczenia na poziomie kolumny za pomocą [instrukcj
 
 ## <a name="syntax"></a>Składnia
 
-```sql
+```syntaxsql
 GRANT <permission> [ ,...n ] ON
     [ OBJECT :: ][ schema_name ]. object_name [ ( column [ ,...n ] ) ]
     TO <database_principal> [ ,...n ]
@@ -77,8 +77,8 @@ Kwerendy wykonywane `TestUser` zgodnie z niepowodzeniem, jeśli zawierają kolum
 ```sql
 SELECT * FROM Membership;
 
-Msg 230, Level 14, State 1, Line 12
-The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
+-- Msg 230, Level 14, State 1, Line 12
+-- The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
 
 ## <a name="use-cases"></a>Przypadki użycia

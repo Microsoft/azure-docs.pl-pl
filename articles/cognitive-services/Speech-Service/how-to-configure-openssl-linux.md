@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: 350c2bf3c4d0fc0a16f1b393e7c8d8a372679797
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78331148"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683167"
 ---
 # <a name="configure-openssl-for-linux"></a>Konfigurowanie biblioteki OpenSSL dla systemu Linux
 
@@ -50,6 +50,8 @@ Przed uruchomieniem programu korzystającego z zestawu SDK mowy należy ustawić
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
+> [!NOTE]
+> Warto również zauważyć, że niektóre dystrybucje Linuksa nie mają zdefiniowanej zmiennej środowiskowej TMP lub TMPDIR. Spowoduje to, że SDK mowy do pobrania listy odwołania certyfikatów (CRL) za każdym razem, a nie buforowanie listy CRL na dysku do ponownego użycia, dopóki nie wygasną. Aby poprawić wydajność połączenia [początkowego, można utworzyć zmienną środowiskową o nazwie TMPDIR i ustawić ją na ścieżce wybranego katalogu tymczasowego.](https://help.ubuntu.com/community/EnvironmentVariables).
 
 ## <a name="next-steps"></a>Następne kroki
 

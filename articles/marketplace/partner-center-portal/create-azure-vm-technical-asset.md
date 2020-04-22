@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 46c59e8b4e60fbe17887ea0fc375b6da758ebf50
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4d2d33f9d83132147b5b257ffcd6d659f272b8ec
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457403"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730715"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
 
@@ -109,7 +109,7 @@ Wykonaj następujące kroki, aby utworzyć podstawowy obraz maszyny Wirtualnej w
 
 Platforma Azure rozpoczyna inicjowanie obsługi administracyjnej określonej maszyny wirtualnej. Jego postęp można śledzić, wybierając kartę **Maszyny wirtualne** po lewej stronie. Po jego utworzeniu stan zmieni się na **Uruchomiony**.
 
-Jeśli napotkasz trudności z utworzeniem nowego dysku wirtualnego opartego na platformie Azure, zobacz [Typowe problemy podczas tworzenia dysków VHD (często zadawane pytania).](https://aka.ms/VHDcreationIssues)
+Jeśli napotkasz trudności z utworzeniem nowego dysku wirtualnego opartego na platformie Azure, zobacz [Typowe problemy podczas tworzenia dysków VHD (często zadawane pytania).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation)
 
 ### <a name="connect-to-your-azure-vm"></a>Łączenie się z maszyną wirtualną platformy Azure
 

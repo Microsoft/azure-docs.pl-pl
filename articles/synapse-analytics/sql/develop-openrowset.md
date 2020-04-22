@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 25eb93a01c59225b6d9e64db5d08b954adb4f8ab
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 6325d5555b01373b148dce69731ec64896d6e1fd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424069"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680488"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Jak używać programu OPENROWSET z programem SQL na żądanie (wersja zapoznawcza)
 
@@ -26,7 +26,7 @@ Funkcja OPENROWSET nie jest obecnie obsługiwana w puli SQL.
 
 ## <a name="syntax"></a>Składnia
 
-```
+```syntaxsql
 --OPENROWSET syntax for reading Parquet files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , 
@@ -60,36 +60,39 @@ Dostępne są dwie opcje dla plików wejściowych, które zawierają dane docelo
 
 - 'PARKIET' - Plik binarny w formacie Parkietu 
 
-"unstructured_data_path"
+**"unstructured_data_path"**
 
-Unstructured_data_path, która ustanawia ścieżkę do danych, jest uporządkowany<prefix>w następujący sposób: " "<storage_account_path>/<storage_path>" 
+unstructured_data_path, która ustanawia ścieżkę do danych, jest skonstruowana w następujący sposób:  
+'\<przedrostek>://\<> storage_account_path/\<storage_path>"
  
  
  Poniżej znajdziesz odpowiednie ścieżki kont magazynu, które będą zawierać łącze do konkretnego zewnętrznego źródła danych. 
 
-| Zewnętrzne źródło danych       | Prefiks | Ścieżka konta magazynu                                |
-| -------------------------- | ------ | --------------------------------------------------- |
-| Azure Blob Storage         | https  | <storage_account>.blob.core.windows.net             |
-| Azure Data Lake Store Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | <storage_account>.dfs.core.windows.net              |
+| Zewnętrzne źródło danych       | Prefiks | Ścieżka konta magazynu                                 |
+| -------------------------- | ------ | ---------------------------------------------------- |
+| Azure Blob Storage         | https  | \<storage_account>.blob.core.windows.net             |
+| Azure Data Lake Store Gen1 | https  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen2 | https  | \<storage_account>.dfs.core.windows.net              |
+||||
 
- "<storage_path>" 
+"\<storage_path>"
 
  Określa ścieżkę w magazynie, która wskazuje folder lub plik, który chcesz odczytać. Jeśli ścieżka wskazuje kontener lub folder, wszystkie pliki zostaną odczytane z tego określonego kontenera lub folderu. Pliki w podfolderach nie zostaną uwzględnione. 
  
  Symbole wieloznaczne można używać do kierowania na wiele plików lub folderów. Użycie wielu nieposiących po sobie symboli wieloznacznych jest dozwolone.
-Poniżej znajduje się przykład, który odczytuje wszystkie pliki *csv,* zaczynająchttps://sqlondemandstorage.blob.core.windows.net/csv/populationod *populacji* ze wszystkich folderów, zaczynając od */csv/population*: '*/population*.csv'
+Poniżej znajduje się przykład, który odczytuje wszystkie pliki *csv,* zaczynając od *populacji* ze wszystkich folderów, zaczynając od */csv/population:*  
+`https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Jeśli określisz unstructured_data_path do folderu, kwerenda SQL na żądanie pobierze pliki z tego folderu. 
 
 > [!NOTE]
 > W przeciwieństwie do Hadoop i PolyBase, SQL na żądanie nie zwraca podfolderów. Ponadto, w przeciwieństwie do Hadoop i PloyBase, SQL na żądanie zwraca pliki, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.).
 
-W poniższym przykładzie, jeśli unstructured_data_path='https://mystorageaccount.dfs.core.windows.net/webdata/', zapytanie SQL na żądanie zwróci wiersze z pliku mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się one w podfolderze.
+W poniższym przykładzie, jeśli`https://mystorageaccount.dfs.core.windows.net/webdata/`unstructured_data_path= kwerenda SQL na żądanie zwróci wiersze z pliku mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się one w podfolderze.
 
 ![Dane cykliczne dla tabel zewnętrznych](./media/develop-openrowset/folder-traversal.png)
 
-[WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]
+`[WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]`
 
 Klauzula WITH umożliwia określenie kolumn, które mają być odczytywane z plików.
 
@@ -113,7 +116,8 @@ WITH (
     --[population] bigint
 )
 ```
-<bulk_options>
+
+**\<bulk_options>**
 
 FIELDTERMINATOR ='field_terminator'
 

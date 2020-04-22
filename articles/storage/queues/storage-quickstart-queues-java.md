@@ -7,12 +7,12 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 9cfedd322db721156584844e949724ab2d104968
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 013281db2821c99f6942edd1322f4978e100c144
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78199805"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729853"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Szybki start: biblioteka klienta magazynu usługi Azure Queue w wersji 12 dla środowiska Java
 
@@ -366,6 +366,6 @@ W tym przewodniku Szybki start dowiesz się, jak utworzyć kolejkę i dodać do 
 Aby uzyskać samouczki, przykłady, szybkie uruchamianie i inną dokumentację, odwiedź stronę:
 
 > [!div class="nextstepaction"]
-> [Platforma Azure dla deweloperów języka Java w chmurze](https://docs.microsoft.com/azure/java/)
+> [Platforma Azure dla deweloperów języka Java w chmurze](https://docs.microsoft.com/azure/developer/java/)
 
 * Aby wyświetlić więcej przykładowych aplikacji magazynu usługi Azure Queue, przejdź do [przykładów biblioteki klienta Java magazynu usługi Azure Queue SDK w wersji 12.](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)

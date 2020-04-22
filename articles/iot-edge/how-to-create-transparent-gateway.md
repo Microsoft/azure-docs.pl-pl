@@ -8,12 +8,15 @@ ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3b3aeff595671c5f924d01599b572b6b938ef09d
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: e563e67b5e951b43e5782f8c845c8ec46ff3e9bb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666659"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687162"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurowanie urządzenia usługi IoT Edge, aby działało jako przezroczysta brama
 
@@ -66,7 +69,7 @@ Jeśli moduł **edgeAgent** działa bez modułu **edgeHub,** należy wykonać na
 
 3. Wybierz pozycję **Ustaw moduły**.
 
-4. Wybierz **pozycję Dalej**.
+4. Wybierz opcję **Dalej**.
 
 5. Na stronie **Określ trasy** powinna być domyślna trasa, która wysyła wszystkie wiadomości ze wszystkich modułów do Centrum IoT Hub. Jeśli tak nie jest, dodaj następujący kod, a następnie wybierz przycisk **Dalej**.
 

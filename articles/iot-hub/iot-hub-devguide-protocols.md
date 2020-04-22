@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 3e7f31371a0582a6f4941efbfa0087119278d2d1
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284631"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729116"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Reference - wybierz protokół komunikacyjny
 
@@ -39,7 +42,7 @@ Przy wyborze protokołu komunikacji po stronie urządzenia należy wziąć pod u
 
 * **Wzór chmury do urządzenia**. Protokół HTTPS nie ma skutecznego sposobu implementacji wypychania serwera. W związku z tym podczas korzystania z protokołu HTTPS urządzenia sondują Centrum IoT hub dla komunikatów z chmury do urządzenia. Takie podejście jest nieefektywne zarówno dla urządzenia i usługi IoT Hub. Zgodnie z aktualnymi wytycznymi HTTPS każde urządzenie powinno sondować wiadomości co 25 minut lub dłużej. MQTT i AMQP obsługują wypychanie serwera podczas odbierania komunikatów z chmury do urządzenia. Umożliwiają one natychmiastowe wypychanie wiadomości z usługi IoT Hub do urządzenia. Jeśli opóźnienie dostarczania jest problemem, MQTT lub AMQP są najlepsze protokoły do użycia. W przypadku rzadko podłączonych urządzeń działa również protokół HTTPS.
 
-* **Bramy polowe**. Korzystając z protokołów MQTT i HTTPS, nie można połączyć wielu urządzeń (każdy z własnymi poświadczeniami na urządzenie) przy użyciu tego samego połączenia TLS. W [przypadku scenariuszy bramy pola,](iot-hub-devguide-endpoints.md#field-gateways) które wymagają jednego połączenia TLS między bramą polowej a centrum IoT hub dla każdego podłączonego urządzenia, protokoły te są nieoptymalne.
+* **Bramy polowe**. MQTT i HTTPS obsługują tylko jedną tożsamość urządzenia (identyfikator urządzenia i poświadczenia) na połączenie TLS. Z tego powodu te protokoły nie są obsługiwane w [scenariuszach bramy pola,](iot-hub-devguide-endpoints.md#field-gateways) które wymagają multipleksowania wiadomości przy użyciu wielu tożsamości urządzeń w jednym lub puli nadrzędnych połączeń z Centrum IoT Hub. Takie bramy można użyć protokołu, który obsługuje wiele tożsamości urządzeń na połączenie, takich jak AMQP, dla ich ruchu nadrzędnego.
 
 * **Urządzenia o niskiej alokacji zasobów**. Biblioteki MQTT i HTTPS mają mniejszy rozmiar niż biblioteki AMQP. W związku z tym jeśli urządzenie ma ograniczone zasoby (na przykład mniej niż 1 MB pamięci RAM), te protokoły mogą być jedyną dostępną implementacją protokołu.
 

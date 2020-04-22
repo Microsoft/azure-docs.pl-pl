@@ -6,14 +6,14 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 678dc8b058d0ae0694dafeb4222b2fc9f10ecda7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a930dfb38007349155581424d03ee7b3e7a6b46
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288703"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730202"
 ---
-# <a name="payout-reporting"></a>Raportowanie wypłat
+# <a name="payout-reporting"></a>Raportowanie wypłaty
 
 [**Podsumowanie wypłat**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) zawiera szczegółowe informacje o pieniądzach zarobionych w firmie Microsoft. Informuje również, kiedy otrzymasz płatności i ile zapłacisz.
 
@@ -67,7 +67,7 @@ Na przykład, jeśli klient kupuje przy użyciu karty kredytowej.
 
 ## <a name="corelation-between-payout-and-usage"></a>Corelation między wypłatą a użyciem
 
-|Opis    |    Data  | Zamówienia/użycie  | Wypłata |
+|Opis    |    Date  | Zamówienia/użycie  | Wypłata |
 |----------|----------|-----------|-------------|
 |Okres zamówienia   | 15 sierpnia 2019 - 30 sierpnia 2019 | **Zlecenia atrybutów korelacji** <br> <ul> <li>OrderId (Identyfikator zamówienia)</li> <li>CustomerId</li> </ul> <br> **Użycia** <br> <ul> <li>CustomerId </li> <li>Nazwa klienta</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Szacowana opłata rozszerzona <br> Szacowana wypłata (PC) </li> </ul> |  |
 |Zakończenie okresu (miesiąc)   | 30 sierpnia 2019 r. | | |
@@ -81,7 +81,7 @@ Na przykład, jeśli klient kupuje przy użyciu karty kredytowej.
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Umowa enterprise (klienci kwartalni/miesięczni)
 
-| Opis |    Data  | Sposób użycia | Wypłata |
+| Opis |    Date  | Sposób użycia | Wypłata |
 |----------|----------|---------|-----------|
 |Okres zamówienia | 15 sierpnia 2019 - 30 sierpnia 2019 | **Korelacja przypisuje zamówienia** <br> <ul> <li>OrderId (Identyfikator zamówienia)</li> <li>CustomerId</li> </ul> <br> **Raport użycia** <br> <ul> <li>CustomerId </li> <li>Nazwa klienta</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Szacowana opłata rozszerzona <br> Szacowana wypłata (PC) </li> </ul> | |
 |Zakończenie kadencji (kwartał) | 30 września 2019 r. | | |
@@ -175,4 +175,4 @@ Ta opcja umożliwia pobranie każdego zyskującego elementu zamówienia widoczne
 
 ## <a name="billing-questions-and-support"></a>Pytania dotyczące rozliczeń i pomoc techniczna
 
-Aby uzyskać pomoc dotyczącą pytań dotyczących rozliczeń, skontaktuj się z [pomocą techniczną wydawcy portalu marketplace.](https://aka.ms/marketplacepublishersupport)
+Aby uzyskać pomoc dotyczącą pytań dotyczących rozliczeń, skontaktuj się z [pomocą techniczną wydawcy portalu marketplace.](https://partner.microsoft.com/support/v2/?stage=1)

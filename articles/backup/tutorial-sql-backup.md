@@ -3,12 +3,12 @@ title: Samouczek — tworzenie kopii zapasowych baz danych programu SQL Server n
 description: W tym samouczku dowiesz się, jak wykonać kopię zapasową bazy danych programu SQL Server uruchomionej na maszynie Wirtualnej Platformy Azure w magazynie usług odzyskiwania kopii zapasowych platformy Azure.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: 3216404b04647e2fb5f15beb09b9a4ccd6648bba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f1d76fe0dfa428688714b8383c3974ac63195681
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74171883"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680732"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Tworzenie kopii zapasowej bazy danych programu SQL Server na maszynie Wirtualnej platformy Azure
 
@@ -64,7 +64,7 @@ Unikaj następujących elementów w nazwach baz danych:
 * Zamykający nawias kwadratowy „]”
 * Nazwy baz danych zaczynające się od 'F:\'
 
-Oferujemy aliasy nieobsługiwanych znaków tabel platformy Azure, ale zalecamy ich unikanie. [Dowiedz się więcej](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+Oferujemy aliasy nieobsługiwanych znaków tabel platformy Azure, ale zalecamy ich unikanie. [Dowiedz się więcej](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

@@ -4,12 +4,12 @@ description: Jak uwierzytelnić żądania i używać interfejsu API REST usługi
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: f52776fc6b5f5f530cc368a2f148a2ff63fb5b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b0e321747e0f84be5a75ab96749311ff0071e8d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294625"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687410"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Przewodnik interfejsu API interfejsu REST monitorowania platformy Azure
 
@@ -238,7 +238,7 @@ Użyj nazwy metryki "value" (nie "localizedValue") dla wszystkich żądań filtr
 
 **Metoda**: GET
 
-**Żądanie identyfikatora URI:**\:https //management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion }*
+**Żądanie identyfikatora URI:**\:https //management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
 
 Na przykład, aby pobrać listę wartości wymiarów, które zostały wyemitowane dla "wymiaru nazwa interfejsu API" dla metryki "Transakcje", gdzie wymiar GeoType = "Podstawowy" w określonym zakresie czasu, żądanie będzie następujące:
 
@@ -311,7 +311,7 @@ Użyj nazwy metryki "value" (nie "localizedValue") dla wszystkich żądań filtr
 
 **Metoda**: GET
 
-**Żądanie identyfikatora URI:** https://management.azure.com/subscriptions/ *{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{ apiVersion}*
+**Identyfikator żądania :**\/https: /management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames?metricnames =*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
 
 Na przykład, aby pobrać 3 najlepsze interfejsy API, w wartości malejącej, przez liczbę "Transakcje" w zakresie 5 minut, gdzie GeotType był "Podstawowy", żądanie będzie w następujący sposób:
 
@@ -463,7 +463,7 @@ Gdy dostępne definicje metryki są znane, jest wtedy możliwe do pobrania powi�
 
 **Metoda**: GET
 
-**Prośba o identyfikator URI:**`https://management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**Prośba o identyfikator URI:**`https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 Na przykład, aby pobrać runssucceededed punktów danych metryki dla danego zakresu czasu i dla ziarna czasu 1 godzinę, żądanie będzie w następujący sposób:
 
@@ -617,7 +617,7 @@ Aby znaleźć identyfikator zasobu dla żądanego zasobu, jednym z przydatnych m
 
 ![Alt "Eksplorator zasobów platformy Azure"](./media/rest-api-walkthrough/azure_resource_explorer.png)
 
-### <a name="azure-portal"></a>Portal Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Identyfikator zasobu można również uzyskać z witryny Azure portal. Aby to zrobić, przejdź do żądanego zasobu, a następnie wybierz pozycję Właściwości. Identyfikator zasobu jest wyświetlany w sekcji Właściwości, jak pokazano na poniższym zrzucie ekranu:
 

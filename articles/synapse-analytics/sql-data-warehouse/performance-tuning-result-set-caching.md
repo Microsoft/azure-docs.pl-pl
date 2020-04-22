@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 42f8f51545f643e1ed9e1a23c9445f6e216fdabe
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: eadbe13269ce1259b4560af117f5b15b3b294151
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273413"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730602"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Strojenie wydajności za pomocą buforowania zestawu wyników
 
@@ -42,10 +42,11 @@ Po włączeniu buforowania zestawu wyników dla bazy danych wyniki są buforowan
 - Kwerendy używające funkcji zdefiniowanych przez użytkownika
 - Kwerendy używające tabel z włączonymi zabezpieczeniami na poziomie wiersza lub poziomem kolumny
 - Kwerendy zwracające dane o rozmiarze wiersza większym niż 64 KB
+- Zapytania zwracające duże dane w rozmiarze (>10 GB) 
 
 > [!IMPORTANT]
 > Operacje tworzenia pamięci podręcznej zestawu wyników i pobierania danych z pamięci podręcznej odbywały się w węźle kontrolnym wystąpienia puli SQL Synapse.
-> Gdy buforowanie zestawu wyników jest włączone, uruchamianie kwerend zwracających duży zestaw wyników (na przykład >1 mln wierszy) może spowodować wysokie użycie procesora CPU w węźle sterowania i spowolnić ogólną odpowiedź zapytania w wystąpieniu.  Te zapytania są powszechnie używane podczas eksploracji danych lub operacji ETL. Aby uniknąć stresu węzła sterowania i spowodować problem z wydajnością, użytkownicy powinni wyłączyć buforowanie zestawu wyników w bazie danych przed uruchomieniem tych typów zapytań.  
+> Gdy buforowanie zestawu wyników jest włączone, uruchamianie kwerend zwracających duży zestaw wyników (na przykład >1 GB) może spowodować wysokie ograniczanie przepustowości w węźle formantu i spowolnić ogólną odpowiedź zapytania w wystąpieniu.  Te zapytania są powszechnie używane podczas eksploracji danych lub operacji ETL. Aby uniknąć stresu węzła sterowania i spowodować problem z wydajnością, użytkownicy powinni wyłączyć buforowanie zestawu wyników w bazie danych przed uruchomieniem tych typów zapytań.  
 
 Uruchom tę kwerendę dla czasu pobranego przez operacje buforowania zestawu wyników dla kwerendy:
 

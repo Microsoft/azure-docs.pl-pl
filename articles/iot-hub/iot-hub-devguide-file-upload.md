@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 35e10c0f9babca7719ff496e7068ad1564670fee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 35337a99706f25d62964e08a5b16cd8e81f315c6
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77209158"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730292"
 ---
 # <a name="upload-files-with-iot-hub"></a>Przekazywanie plików za pomocą usługi IoT Hub
 
@@ -152,7 +153,7 @@ Teraz dowiesz się, jak przekazywać pliki z urządzeń korzystających z Usług
 
 * [Zarządzanie tożsamościami urządzeń w Centrum IoT](iot-hub-devguide-identity-registry.md)
 
-* [Kontrola dostępu do usługi IoT Hub](iot-hub-devguide-security.md)
+* [Kontrola dostępu do centrum IoT Hub](iot-hub-devguide-security.md)
 
 * [Synchronizowanie stanu i konfiguracji za pomocą bliźniąt urządzeń](iot-hub-devguide-device-twins.md)
 

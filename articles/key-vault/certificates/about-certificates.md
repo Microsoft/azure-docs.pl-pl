@@ -10,57 +10,14 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9fbe624563ad03880ff1a75efdc2df41b151846
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5e014634ecb251f05710de16daee30d72dae619e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424279"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685899"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Certyfikaty usługi Azure Key Vault — informacje
-
-Usługa Azure Key Vault umożliwia aplikacjom i użytkownikom platformy Microsoft Azure przechowywanie i używanie certyfikatów, które są oparte na kluczach i wpisach tajnych oraz dodawanie funkcji automatycznego odnawiania.
-
-Aby uzyskać bardziej ogólne informacje na temat usługi Key Vault, zobacz [Co to jest usługa Azure Key Vault?](/azure/key-vault/key-vault-overview)
-
-## <a name="azure-key-vault"></a>W usłudze Azure Key Vault
-
-Poniższe sekcje oferują ogólne informacje mające zastosowanie do implementacji usługi Usługi Usługi Key Vault.
-
-### <a name="supporting-standards"></a>Standardy wspierające
-
-Specyfikacje notacji i szyfrowania obiektów JavaScript (JSON) i JavaScript Object Signing and Encryption (JOSE) są ważnymi informacjami w tle.  
-
--   [Klucz sieci Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
--   [Szyfrowanie sieci Web JSON (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
--   [Algorytmy JSON Web (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
--   [Podpis JSON Web (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
-
-### <a name="objects-identifiers-and-versioning"></a>Obiekty, identyfikatory i przechowywanie wersji
-
-Obiekty przechowywane w przechowalni kluczy są wersjonatowane przy każdym utworzeniu nowego wystąpienia obiektu. Każdej wersji jest przypisywany unikatowy identyfikator i adres URL. Po utworzeniu obiektu nadana jest unikatowy identyfikator wersji i oznaczona jako bieżąca wersja obiektu. Utworzenie nowego wystąpienia o tej samej nazwie obiektu nadaje nowemu obiektowi unikatowy identyfikator wersji, co powoduje, że staje się on bieżącą wersją.  
-
-Obiekty w magazynie kluczy można rozwiązać przy użyciu bieżącego identyfikatora lub identyfikatora specyficznego dla wersji. Na przykład, biorąc pod `MasterKey`uwagę Klucz o nazwie , wykonywanie operacji z bieżącym identyfikatorem powoduje, że system do korzystania z najnowszej dostępnej wersji. Wykonywanie operacji z identyfikatorem specyficznym dla wersji powoduje, że system używa tej określonej wersji obiektu.  
-
-Obiekty są jednoznacznie identyfikowane w magazynie kluczy przy użyciu adresu URL. Żadne dwa obiekty w systemie nie mają tego samego adresu URL, niezależnie od lokalizacji geograficznej. Pełny adres URL obiektu nosi nazwę identyfikatora obiektu. Adres URL składa się z prefiksu identyfikującego magazyn kluczy, typ obiektu, nazwę obiektu pod warunkiem użytkownika i wersję obiektu. Nazwa obiektu jest niewrażliwa na argumenty i niezmienna. Identyfikatory, które nie zawierają wersji obiektu są określane jako identyfikatory podstawowe.  
-
-Aby uzyskać więcej informacji, zobacz [Uwierzytelnianie, żądania i odpowiedzi](../general/authentication-requests-and-responses.md)
-
-Identyfikator obiektu ma następujący ogólny format:  
-
-`https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
-
-Gdzie:  
-
-|||  
-|-|-|  
-|`keyvault-name`|Nazwa magazynu kluczy w usłudze Microsoft Azure Key Vault.<br /><br /> Nazwy magazynu kluczy są wybierane przez użytkownika i są unikatowe globalnie.<br /><br /> Nazwa magazynu kluczy musi być ciągiem znaków 3-24, zawierającym tylko 0-9, a-z, A-Z i -.|  
-|`object-type`|Typ obiektu, "klucze" lub "wpisy tajne".|  
-|`object-name`|Nazwa `object-name` użytkownika jest nazwą podana przez użytkownika i musi być unikatowa w magazynie kluczy. Nazwa musi być ciągiem znaków 1-127, zawierającym tylko 0-9, a-z, A-Z i -.|  
-|`object-version`|An `object-version` jest generowany przez system, 32-znakowy identyfikator ciągu, który jest opcjonalnie używany do adresu unikatową wersję obiektu.|  
-
-
-## <a name="key-vault-certificates"></a>Certyfikaty magazynu kluczy
 
 Obsługa certyfikatów usługi Key Vault zapewnia zarządzanie certyfikatami x509 i następującymi zachowaniami:  
 
@@ -73,7 +30,7 @@ Obsługa certyfikatów usługi Key Vault zapewnia zarządzanie certyfikatami x50
 >[!Note]
 >Dostawcy/władze niebędące partnerami również są dozwolone, ale nie obsługują funkcji automatycznego odnawiania.
 
-### <a name="composition-of-a-certificate"></a>Skład certyfikatu
+## <a name="composition-of-a-certificate"></a>Skład certyfikatu
 
 Podczas tworzenia certyfikatu usługi Key Vault tworzony jest również klucz adresowa i klucz tajny o tej samej nazwie. Klucz przechowalni kluczy umożliwia operacje klucza, a klucz tajny magazynu kluczy umożliwia pobieranie wartości certyfikatu jako klucza tajnego. Certyfikat Usługi Key Vault zawiera również publiczne metadane certyfikatu x509.  
 
@@ -81,7 +38,7 @@ Identyfikator i wersja certyfikatów jest podobny do kluczy i wpisów tajnych. W
  
 ![Certyfikaty są obiektami złożonymi](../media/azure-key-vault.png)
 
-### <a name="exportable-or-non-exportable-key"></a>Klucz do eksportu lub nieeksportowania
+## <a name="exportable-or-non-exportable-key"></a>Klucz do eksportu lub nieeksportowania
 
 Po utworzeniu certyfikatu Usługi Key Vault można go pobrać z adresowalnej tajemnicy tajnej za pomocą klucza prywatnego w formacie PFX lub PEM. Zasady używane do tworzenia certyfikatu muszą wskazywać, że klucz można wyeksportować. Jeśli zasada wskazuje, że nie można eksportować, klucz prywatny nie jest częścią wartości po pobraniu jako klucz tajny.  
 
@@ -89,11 +46,11 @@ Klucz adresowalny staje się bardziej odpowiedni w przypadku certyfikatów KV ni
 
 Obsługiwane są dwa typy kluczy — *RSA* lub *RSA HSM* z certyfikatami. Eksportowanie jest dozwolone tylko przy pomocy rsa, nie jest obsługiwane przez moduł HSM RSA.  
 
-### <a name="certificate-attributes-and-tags"></a>Atrybuty certyfikatów i znaczniki
+## <a name="certificate-attributes-and-tags"></a>Atrybuty certyfikatów i znaczniki
 
 Oprócz metadanych certyfikatów, adresowalny klucz i adresowalny klucz tajny, certyfikat Usługi Key Vault zawiera również atrybuty i tagi.  
 
-#### <a name="attributes"></a>Atrybuty
+### <a name="attributes"></a>Atrybuty
 
 Atrybuty certyfikatu są dublowane do atrybutów klucza adresowalnej i klucza tajnego utworzonego podczas tworzenia certyfikatu KV.  
 
@@ -111,14 +68,14 @@ Istnieją dodatkowe atrybuty tylko do odczytu, które są zawarte w odpowiedzi:
 > [!Note] 
 > Jeśli certyfikat Usługi Key Vault wygaśnie, adresowalny klucz i klucz tajny stają się niesprawne.  
 
-#### <a name="tags"></a>Tagi
+### <a name="tags"></a>Tagi
 
  Klient określony słownik par wartości klucza, podobne do tagów w klucze i wpisy tajne.  
 
  > [!Note]
 > Znaczniki są czytelne przez obiekt wywołujący, jeśli mają *listę* lub *uzyskać* uprawnienia do tego typu obiektu (klucze, wpisy tajne lub certyfikaty).
 
-### <a name="certificate-policy"></a>Zasady dotyczące certyfikatów
+## <a name="certificate-policy"></a>Zasady dotyczące certyfikatów
 
 Zasady certyfikatów zawierają informacje dotyczące tworzenia i zarządzania cyklem życia certyfikatu usługi Key Vault. Gdy certyfikat z kluczem prywatnym jest importowany do magazynu kluczy, domyślna zasada jest tworzona przez odczyt certyfikatu x509.  
 
@@ -138,7 +95,7 @@ Na wysokim poziomie zasady certyfikatów zawierają następujące informacje:
 -   Wystawca: Parametry dotyczące wystawcy certyfikatu używanego do wystawiania certyfikatów x509.  
 -   Atrybuty zasad: zawiera atrybuty skojarzone z zasadami  
 
-#### <a name="x509-to-key-vault-usage-mapping"></a>Mapowanie użycia od X509 do usługi Key Vault
+### <a name="x509-to-key-vault-usage-mapping"></a>Mapowanie użycia od X509 do usługi Key Vault
 
 Poniższa tabela przedstawia mapowanie zasad użycia klucza x509 do skutecznych operacji klucza klucza utworzonego w ramach tworzenia certyfikatu usługi Key Vault.
 
@@ -153,7 +110,7 @@ Poniższa tabela przedstawia mapowanie zasad użycia klucza x509 do skutecznych 
 |Brak zmian|podpisz, sprawdź| Nie dotyczy |
 |znak crlsign|podpisz, sprawdź| Nie dotyczy |
 
-### <a name="certificate-issuer"></a>Wystawca certyfikatu
+## <a name="certificate-issuer"></a>Wystawca certyfikatu
 
 Obiekt certyfikatu Usługi Key Vault zawiera konfigurację używaną do komunikowania się z wybranym dostawcą wystawcy certyfikatów w celu zamówienia certyfikatów x509.  
 
@@ -180,7 +137,7 @@ Usługa Key Vault umożliwia tworzenie wielu obiektów wystawców z inną konfig
 
 Obiekty wystawcy są tworzone w przechowalni i mogą być używane tylko z certyfikatami KV w tym samym magazynie.  
 
-### <a name="certificate-contacts"></a>Kontakty certyfikatów
+## <a name="certificate-contacts"></a>Kontakty certyfikatów
 
 Kontakty certyfikatów zawierają informacje kontaktowe do wysyłania powiadomień wyzwalanych przez zdarzenia okresu istnienia certyfikatu. Informacje o kontaktach są udostępniane przez wszystkie certyfikaty w magazynie kluczy. Powiadomienie jest wysyłane do wszystkich określonych kontaktów dla zdarzenia dla dowolnego certyfikatu w magazynie kluczy.  
 
@@ -191,7 +148,7 @@ Jeśli zasady certyfikatu są ustawione na automatyczne odnawianie, powiadomieni
 
   Gdy zasady certyfikatów, które mają być odnawiane ręcznie (tylko wiadomości e-mail), powiadomienie jest wysyłane, gdy nadszedł czas, aby odnowić certyfikat.  
 
-### <a name="certificate-access-control"></a>Kontrola dostępu do certyfikatów
+## <a name="certificate-access-control"></a>Kontrola dostępu do certyfikatów
 
  Kontrola dostępu dla certyfikatów jest zarządzana przez magazyn kluczy i jest dostarczana przez Magazyn kluczy, który zawiera te certyfikaty. Zasady kontroli dostępu dla certyfikatów różni się od zasad kontroli dostępu dla kluczy i wpisów tajnych w tym samym Magazynie kluczy. Użytkownicy mogą utworzyć jeden lub więcej magazynów do przechowywania certyfikatów, aby zachować scenariusz odpowiedniej segmentacji i zarządzania certyfikatami.  
 
@@ -219,7 +176,11 @@ Jeśli zasady certyfikatu są ustawione na automatyczne odnawianie, powiadomieni
 
 Aby uzyskać więcej informacji, zobacz [operacje certyfikatów w interfejsie API REST magazynu kluczy](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz [Vaults - Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [przechowalnia — Aktualizowanie zasad dostępu](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
+- [Informacje o usłudze Key Vault](../general/overview.md)
+- [Klucze, wpisy tajne i certyfikaty — informacje](../general/about-keys-secrets-certificates.md)
+- [Informacje o kluczach](../keys/about-keys.md)
+- [Informacje o wpisach tajnych](../secrets/about-secrets.md)
 - [Uwierzytelnianie, żądania i odpowiedzi](../general/authentication-requests-and-responses.md)
 - [Przewodnik dewelopera usługi Key Vault](../general/developers-guide.md)

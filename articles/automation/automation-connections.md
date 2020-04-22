@@ -1,18 +1,18 @@
 ---
-title: Zasoby połączeń w usłudze Azure Automation
+title: Zarządzanie połączeniami w usłudze Azure Automation
 description: Zasoby połączeń w usłudze Azure Automation zawierają informacje wymagane do nawiązania połączenia z usługą lub aplikacją z konfiguracji systemu runbook lub DSC. W tym artykule wyjaśniono szczegóły połączeń i sposób pracy z nimi zarówno w tekście, jak i w grafice.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1ce59322b0cbfaf5a4f7b31371f0d0929a3a3ab
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 90d4ec1bbfd0d76ffedf1505c9147376e3947c3c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457726"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729054"
 ---
-# <a name="connection-assets-in-azure-automation"></a>Zasoby połączeń w usłudze Azure Automation
+# <a name="manage-connections-in-azure-automation"></a>Zarządzanie połączeniami w usłudze Azure Automation
 
 Zasób połączenia automatyzacji zawiera informacje wymagane do nawiązania połączenia z usługą lub aplikacją z konfiguracji systemu runbook lub DSC. Może to obejmować informacje wymagane do uwierzytelniania, takie jak nazwa użytkownika i hasło oprócz informacji o połączeniu, takich jak adres URL lub port. Wartość połączenia jest utrzymanie wszystkich właściwości do łączenia się z określoną aplikacją w jednym zasobie, w przeciwieństwie do tworzenia wielu zmiennych. Użytkownik może edytować wartości połączenia w jednym miejscu i można przekazać nazwę połączenia do konfiguracji wiązki uruchomieniu lub DSC w jednym parametrze. Właściwości połączenia są dostępne w konfiguracji elementu runbook lub DSC z działaniem. `Get-AutomationConnection`
 

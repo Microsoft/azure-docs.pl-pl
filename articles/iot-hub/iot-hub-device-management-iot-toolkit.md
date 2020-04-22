@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 9d4d82472664900c96b77b31740573d0463465b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75911904"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688099"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Korzystanie z narzędzi Usługi Azure IoT tools dla kodu programu Visual Studio dla zarządzania urządzeniami usługi Azure IoT Hub
 
@@ -47,8 +47,8 @@ Uruchom narzędzia Azure IoT Tools for Visual Studio Code z różnymi opcjami za
 
 * Aktywna subskrypcja platformy Azure.
 * Centrum Usługi Azure IoT w ramach subskrypcji.
-* [Kod programu Visual Studio](https://code.visualstudio.com/)
-* [Narzędzia Usługi Azure IoT dla programu VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) lub otwórz to [łącze w programie Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Narzędzia IoT usługi Azure dla programu VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) lub skopiuj ten adres URL i wklej go do okna przeglądarki:`vscode:extension/vsciot-vscode.azure-iot-tools`.
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Zaloguj się, aby uzyskać dostęp do centrum IoT
 

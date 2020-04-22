@@ -4,12 +4,12 @@ description: Usługa Application Insights przeprowadza inteligentną analizę te
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671736"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687692"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Inteligentne wykrywanie — anomalie wydajności
 
@@ -57,7 +57,7 @@ Powiadomienia wykrywania inteligentnego są domyślnie włączone i wysyłane do
 
 Wiadomości e-mail dotyczące anomalii wydajności inteligentnych wykrywania są ograniczone do jednej wiadomości e-mail dziennie na zasób usługi Application Insights. Wiadomość e-mail zostanie wysłana tylko wtedy, gdy w tym dniu wykryto co najmniej jeden nowy problem. Nie dostaniesz powtórzeń żadnej wiadomości. 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 * *Tak, pracownicy firmy Microsoft spojrzeć na moje dane?*
   * Nie. Usługa jest całkowicie automatyczna. Tylko Ty otrzymujesz powiadomienia. Twoje dane są [prywatne](../../azure-monitor/app/data-retention-privacy.md).
@@ -71,7 +71,7 @@ Wiadomości e-mail dotyczące anomalii wydajności inteligentnych wykrywania są
 
   * Jeszcze nie, ale możesz:
     * [Skonfiguruj alerty informujące](../../azure-monitor/app/alerts.md) o przekroczeniu progu przez metrykę.
-    * [Eksportuj dane telemetryczne](../../azure-monitor/app/export-telemetry.md) do [bazy danych](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) lub do programu [PowerBI,](../../azure-monitor/app/export-power-bi.md )w którym można ją analizować samodzielnie.
+    * [Eksportuj dane telemetryczne](../../azure-monitor/app/export-telemetry.md) do [bazy danych](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) lub do usługi [Power BI,](../../azure-monitor/app/export-power-bi.md )w której można je analizować samodzielnie.
 * *Jak często przeprowadzana jest analiza?*
 
   * Możemy uruchomić analizę codziennie na dane telemetryczne z poprzedniego dnia (cały dzień w strefie czasowej UTC).
@@ -129,7 +129,7 @@ Powiadomienie o pogorszeniu czasu reakcji informuje:
 
 ## <a name="dependency-duration-degradation"></a>Degradacja czasu trwania zależności
 
-Nowoczesne zastosowanie coraz częściej przyjmuje podejście do projektowania mikro usług, co w wielu przypadkach prowadzi do dużej niezawodności usług zewnętrznych. Na przykład, jeśli aplikacja opiera się na jakiejś platformie danych lub nawet jeśli zbudujesz własną usługę bota, prawdopodobnie przekażesz na jakiś dostawca usług kognitywnych, aby umożliwić botom interakcję w bardziej ludzki sposób, a niektóre usługi przechowywania danych dla bota będą wyciągać odpowiedzi Z.  
+Nowoczesne aplikacje coraz częściej przyjmują podejście do projektowania mikro usług, co w wielu przypadkach prowadzi do dużej niezawodności usług zewnętrznych. Na przykład jeśli aplikacja opiera się na niektórych platform danych lub nawet jeśli zbudujesz własną usługę bot prawdopodobnie przekaźnik u jakiegoś dostawcy usług poznawczych, aby umożliwić botom interakcję w bardziej ludzki sposób i niektóre usługi magazynu danych dla bota, aby wyciągnąć odpowiedzi z.  
 
 Przykładowe powiadomienie o degradacji zależności:
 
@@ -174,7 +174,7 @@ Zmodyfikuj zakres czasu i filtry, aby eksplorować dane telemetryczne.
 Te narzędzia diagnostyczne ułatwiają sprawdzanie danych telemetrycznych z aplikacji:
 
 * [Profiler](profiler.md) 
-* [Debuger migawek](../../azure-monitor/app/snapshot-debugger.md)
+* [Debuger migawki](../../azure-monitor/app/snapshot-debugger.md)
 * [Analiza](../../azure-monitor/log-query/get-started-portal.md)
 * [Inteligentna diagnostyka analityczna](../../azure-monitor/app/analytics.md)
 

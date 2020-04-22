@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186781"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729716"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection roszczeń przekształceń
 
@@ -159,4 +159,38 @@ Poniższy przykład `roles` sprawdza, czy typ oświadczenia stringCollection zaw
 - Oświadczenia wyjściowe:
     - **outputClaim**: "true"
 
+## <a name="stringcollectioncontainsclaim"></a>StringCollectionContainsClaim
 
+Sprawdza, czy typ oświadczenia StringCollection zawiera wartość oświadczenia.
+
+| Element | TransformClaimType (Typ transformacji) | Typ danych | Uwagi |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim (własnach wejściowych) |  — kolekcja | Stringcollection | Typ oświadczenia, który ma być przeszukiwany. |
+| InputClaim (własnach wejściowych) | element|ciąg| Typ oświadczenia zawierający wartość do wyszukania.|
+|Inputparameter|Ignorecase|ciąg|Określa, czy to porównanie powinno ignorować przypadek porównywanych ciągów.|
+| WynikClaim | outputClaim | wartość logiczna | ClaimType, który jest produkowany po tym ClaimsTransformation został wywołany. Wskaźnik logiczny, jeśli kolekcja zawiera taki ciąg |
+
+Poniższy przykład `roles` sprawdza, czy stringCollection typ `role` oświadczenia zawiera wartość typu oświadczenia.
+
+```XML
+<ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="role" TransformationClaimType="item" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="hasAccess" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation> 
+```
+
+- Oświadczenia wejściowe:
+    - **kolekcja**: ["reader", "author", "admin"]
+    - **pozycja**: "Admin"
+- Parametry wejściowe:
+    - **ignoreCase**: "true"
+- Oświadczenia wyjściowe:
+    - **outputClaim**: "true"

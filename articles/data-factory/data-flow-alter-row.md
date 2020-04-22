@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 77c58bb8dfa7d21b108d2aa63e90142f66877fb7
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/20/2020
+ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606523"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729135"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Zmienianie transformacji wierszy w przepływie danych mapowania
 
@@ -48,10 +48,12 @@ Aby zasady alter wiersz do pracy, strumień danych musi zapisywać do bazy danyc
 
 ![Zmień zlew wiersza](media/data-flow/alter-row2.png "Zlew z wierszem Alter")
 
- Domyślnym zachowaniem jest zezwalanie tylko na wstawia. Aby zezwolić na aktualizacje, upserts lub usuwa, zaznacz pole w zlewie odpowiadające tego warunku. Jeśli aktualizacje, upserts lub deletes są włączone, należy określić, które kolumny kluczy w ujściu do dopasowania.
+Domyślnym zachowaniem jest zezwalanie tylko na wstawia. Aby zezwolić na aktualizacje, upserts lub usuwa, zaznacz pole w zlewie odpowiadające tego warunku. Jeśli aktualizacje, upserts lub deletes są włączone, należy określić, które kolumny kluczy w ujściu do dopasowania.
 
 > [!NOTE]
 > Jeśli wstawia, aktualizuje lub upserts zmodyfikować schemat tabeli docelowej w zlewie, przepływ danych zakończy się niepowodzeniem. Aby zmodyfikować schemat docelowy w bazie danych, wybierz pozycję **Odtwórz tabelę** jako akcję tabeli. Spowoduje to upuszczenie i ponownetworzenie tabeli z nową definicją schematu.
+
+Transformacja ujścia wymaga pojedynczego klucza lub serii kluczy do identyfikacji unikatowego wiersza w docelowej bazie danych. W przypadku pochłaniacze SQL ustaw klucze na karcie Ustawienia ujścia. W przypadku usługi CosmosDB ustaw klucz partycji w ustawieniach, a także ustaw "id" pola systemu CosmosDB w mapowaniu ujścia. W przypadku usługi CosmosDB obowiązkowe jest dołączanie kolumny systemowej "id" dla aktualizacji, upserts i usuwa.
 
 ## <a name="data-flow-script"></a>Skrypt przepływu danych
 

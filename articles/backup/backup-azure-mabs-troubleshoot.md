@@ -4,12 +4,12 @@ description: Rozwiązywanie problemów z instalacją, rejestracją serwera kopii
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: deff49a7d00a335c396a6fa36d3846ef353331c5
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7a1cac63ba6497b8580c83fe2b666b020701283a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421296"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688047"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Rozwiązywanie problemów ze składnikiem Azure Backup Server
 
@@ -62,7 +62,7 @@ Zaleca się wykonanie poniższej weryfikacji przed rozpoczęciem rozwiązywania 
 
 | Operacja | Szczegóły błędu | Obejście |
 | --- | --- | --- |
-| Pchanie agentów do chronionych serwerów | Operacja agenta nie powiodła się z powodu błędu \<komunikacji z usługą koordynatora agenta programu DPM w> ServerName. | **Jeśli zalecane działanie pokazane w produkcie nie działa, wykonaj następujące czynności:** <ul><li> Jeśli komputer jest dołączany z niezaufanej domeny, wykonaj [następujące kroki](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> (LUB) </li><li> Jeśli komputer jest dołączany z zaufanej domeny, należy rozwiązać problemy z instrukcjami opisanymi w [tym blogu](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>(LUB)</li><li> Spróbuj wyłączyć program antywirusowy jako krok rozwiązywania problemów. Jeśli problem zostanie rozwiązany, zmodyfikuj ustawienia antywirusowe zgodnie z sugestią w [tym artykule](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).</li></ul> |
+| Pchanie agentów do chronionych serwerów | Operacja agenta nie powiodła się z powodu błędu \<komunikacji z usługą koordynatora agenta programu DPM w> ServerName. | **Jeśli zalecane działanie pokazane w produkcie nie działa, wykonaj następujące czynności:** <ul><li> Jeśli komputer jest dołączany z niezaufanej domeny, wykonaj [następujące kroki](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> (LUB) </li><li> Jeśli komputer jest dołączany z zaufanej domeny, należy rozwiązać problemy z instrukcjami opisanymi w [tym blogu](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>(LUB)</li><li> Spróbuj wyłączyć program antywirusowy jako krok rozwiązywania problemów. Jeśli problem zostanie rozwiązany, zmodyfikuj ustawienia antywirusowe zgodnie z sugestią w [tym artykule](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>Instalator nie może zaktualizować metadanych rejestru
 
@@ -96,7 +96,7 @@ Zaleca się wykonanie poniższej weryfikacji przed rozpoczęciem rozwiązywania 
 | Backup | Jeśli kopię zapasową tylko stan systemu, sprawdź, czy jest wystarczająco dużo wolnego miejsca na chronionym komputerze do przechowywania kopii zapasowej stanu systemu. | <ol><li>Sprawdź, czy kopia zapasowa systemu Windows Server jest zainstalowana na chronionym komputerze.</li><li>Sprawdź, czy na chronionym komputerze jest wystarczająco dużo miejsca dla stanu systemu. Najprostszym sposobem sprawdzenia tego jest przejście do chronionego komputera, otwarcie programu Kopia zapasowa systemu Windows Server, kliknięcie wybranych opcji, a następnie wybranie narzędzia BMR. Następnie interfejs użytkownika informuje, ile miejsca jest wymagane. Otwórz harmonogram > **tworzenia kopii zapasowych w lokalnej kopii** > **zapasowej** **WSB** > **Wybierz pełną konfigurację kopii** > zapasowej **(wyświetlany** jest rozmiar). Użyj tego rozmiaru do weryfikacji.</li></ol>
 | Backup | Awaria kopii zapasowej dla BMR | Jeśli rozmiar BMR jest duży, przenieś niektóre pliki aplikacji na dysk systemu operacyjnego i ponów próbę. |
 | Backup | Opcja ponownego ceł maszyny Wirtualnej VMware na nowym serwerze kopii zapasowej platformy Microsoft Azure nie jest ana jako dostępna do dodania. | Właściwości VMware są wskazywały na stare, wycofane wystąpienie serwera kopii zapasowej platformy Microsoft Azure. Aby rozwiązać ten problem:<br><ol><li>W obszarze VCenter (odpowiednik SC-VMM) przejdź do karty **Podsumowanie,** a następnie do **atrybutów niestandardowych**.</li>  <li>Usuń starą nazwę serwera kopii zapasowych platformy Microsoft Azure z wartości **serwera DPMServer.**</li>  <li>Wróć do nowego serwera kopii zapasowych platformy Microsoft Azure i zmodyfikuj PG.  Po zaznaczeniu przycisku **Odśwież** zostanie wyświetlone pole wyboru z polem wyboru, które jest dostępne do dodania do ochrony.</li></ol> |
-| Backup | Błąd podczas uzyskiwania dostępu do plików/folderów udostępnionych | Spróbuj zmodyfikować ustawienia antywirusowe zgodnie z sugestią w tym artykule [Uruchom oprogramowanie antywirusowe na serwerze programu DPM](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).|
+| Backup | Błąd podczas uzyskiwania dostępu do plików/folderów udostępnionych | Spróbuj zmodyfikować ustawienia antywirusowe zgodnie z sugestią w tym artykule [Uruchom oprogramowanie antywirusowe na serwerze programu DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).|
 
 ## <a name="change-passphrase"></a>Zmienianie hasła
 

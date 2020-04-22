@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: af99f369245d6006d0d4784e572020b820e406a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50028e81c4ca130aa3266c164a431dc935a271cb
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71266053"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730037"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrowanie danych do konta interfejsu API usługi Azure Cosmos DB Cassandra przy użyciu usługi Striim
 
@@ -155,7 +155,7 @@ W tej sekcji skonfigurujesz konto interfejsu API usługi Azure Cosmos DB Cassand
 
    ![Połącz się z obiektem docelowym](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Przed skonfigurowaniem obiektu docelowego upewnij się, że [do środowiska Java firmy Striim](/azure/java/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store)dodano certyfikat główny Baltimore .
+1. Przed skonfigurowaniem obiektu docelowego upewnij się, że [do środowiska Java firmy Striim](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store)dodano certyfikat główny Baltimore .
 
 1. Wprowadź właściwości konfiguracji docelowego wystąpienia usługi Azure Cosmos DB i wybierz pozycję **Zapisz,** aby kontynuować. Oto najważniejsze parametry, na które należy zwrócić uwagę:
 

@@ -7,23 +7,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 03/02/2020
-ms.openlocfilehash: 24981c10985cd353fcd476f416e89c94ad6b6cc6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/20/2020
+ms.openlocfilehash: 44c0ca3a2fc16b805744678cc3358b4f5690766a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78271895"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687650"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Co to jest Apache Storm w usłudze Azure HDInsight?
 
-[Apache Storm](https://storm.apache.org/) to rozproszony, odporny na uszkodzenia system obliczeniowy typu open source. Storm można używać do przetwarzania strumieni danych w czasie rzeczywistym z [Apache Hadoop](https://hadoop.apache.org/). Rozwiązania Storm mogą również zapewnić gwarantowane przetwarzanie danych, z możliwością odtwarzania danych, które nie zostały pomyślnie przetworzone za pierwszym razem.
+[Apache Storm](https://storm.apache.org/) to rozproszony, odporny na uszkodzenia system obliczeniowy typu open source. Storm można używać do przetwarzania strumieni danych w czasie rzeczywistym z [Apache Hadoop](../hadoop/apache-hadoop-introduction.md). Rozwiązania Storm mogą również zapewnić gwarantowane przetwarzanie danych, z możliwością odtwarzania danych, które nie zostały pomyślnie przetworzone za pierwszym razem.
 
 ## <a name="why-use-apache-storm-on-hdinsight"></a>Dlaczego warto skorzystać z Apache Storm na HDInsight?
 
 System Storm w usłudze HDInsight oferuje następujące funkcje:
 
-* __Umowa dotycząca poziomu usług (SLA) gwarantująca czas pracy systemu Storm na poziomie 99%__: Aby uzyskać więcej informacji, zobacz dokument [HDInsight — umowa SLA](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __99% Service Level Agreement (SLA) na storm uptime:__ Storm on HDInsight jest wyposażony w pełne ciągłe wsparcie. System Storm w usłudze HDInsight gwarantuje również dostępność na poziomie 99,9 procent zgodnie z umową SLA. Firma Microsoft gwarantuje więc, że klaster Storm utrzymuje łączność zewnętrzną przez nie mniej niż 99,9% czasu. Aby uzyskać więcej informacji, zobacz [Pomoc techniczna platformy Azure](https://azure.microsoft.com/support/options/). Zobacz też [informacje o umowy SLA dla dokumentu HDInsight.](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/)
 
 * Umożliwia łatwe dostosowywanie klastrów Storm dzięki uruchamianiu w nich skryptów podczas procesu tworzenia klastra lub po jego ukończeniu. Aby uzyskać więcej informacji, zobacz [Dostosowywanie klastrów usługi HDInsight za pomocą akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -33,9 +33,9 @@ System Storm w usłudze HDInsight oferuje następujące funkcje:
 
     * Obsługuje interfejs języka Java Trident. Umożliwia on tworzenie topologii Storm obsługujących dokładnie jednokrotne przetwarzanie komunikatów, transakcyjną trwałość magazynu danych i zestaw typowych operacji analizy strumienia.
 
-* **Dynamiczne skalowanie**: Można dodawać lub usuwać węzły procesu roboczego bez wpływu na działające topologie Storm. Aby skorzystać z nowych węzłów dodanych za pośrednictwem operacji skalowania, musisz dezaktywować i ponownie aktywować działające topologie.
+* **Dynamiczne skalowanie**: Można dodawać lub usuwać węzły procesu roboczego bez wpływu na działające topologie Storm. Dezaktywuj i ponownie aktywuj uruchamianie topologii, aby korzystać z nowych węzłów dodanych za pomocą operacji skalowania.
 
-* **Tworzenie potoków przesyłania strumieniowego przy użyciu wielu usług platformy Azure:** Storm on HDInsight integruje się z innymi usługami platformy Azure, takimi jak Usługi Event Hubs, baza danych SQL, usługa Azure Storage i usługa Azure Data Lake Storage. Aby uzyskać przykładowe rozwiązanie integrujące się z usługami platformy Azure, zobacz [Przetwarzanie zdarzeń z centrów zdarzeń z usługą Apache Storm w programie HDInsight.](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
+* **Tworzenie potoków przesyłania strumieniowego przy użyciu wielu usług platformy Azure:** Storm on HDInsight integruje się z innymi usługami platformy Azure. Takie jak Centra zdarzeń, baza danych SQL, usługa Azure Storage i usługa Azure Data Lake Storage. Aby uzyskać przykładowe rozwiązanie integrujące się z usługami platformy Azure, zobacz [Przetwarzanie zdarzeń z centrów zdarzeń z usługą Apache Storm w programie HDInsight.](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
 
 Lista firm, które używają systemu Apache Storm w rozwiązaniach analitycznych działających w czasie rzeczywistym, jest dostępna na stronie [Companies Using Apache Storm](https://storm.apache.org/Powered-By.html) (Firmy korzystające z systemu Apache Storm).
 
@@ -55,15 +55,11 @@ Storm uruchamia topologie zamiast [apache Hadoop MapReduce](https://hadoop.apach
 
 System Apache Storm gwarantuje, że każdy przychodzący komunikat jest zawsze w pełni przetwarzany — nawet wtedy, gdy analiza danych jest rozłożona na setki węzłów.
 
-Węzeł Nimbus zapewnia funkcje podobne do Apache Hadoop JobTracker i przypisuje zadania do innych węzłów w klastrze za pośrednictwem [Apache ZooKeeper](https://zookeeper.apache.org/). Węzły dozorcy zapewniają koordynację klastra i ułatwiają komunikację między węzłem Nimbus i procesem nadzorczym procesów roboczych. Jeśli jeden węzeł przetwarzania przestanie działać, zostanie zawiadomiony węzeł Nimbus, który przypisze zadanie i związane z nim dane do innego węzła.
+Węzeł Nimbus zapewnia funkcje podobne do Apache Hadoop JobTracker. Nimbus przypisuje zadania do innych węzłów w klastrze za pośrednictwem Apache ZooKeeper. Węzły zookeeper zapewniają koordynację klastra i wspomagają komunikację między Nimbus i procesem nadzorcy w węzłach procesu roboczego. Jeśli jeden węzeł przetwarzania przestanie działać, zostanie zawiadomiony węzeł Nimbus, który przypisze zadanie i związane z nim dane do innego węzła.
 
 W domyślnej konfiguracji klastrów Apache Storm występuje tylko jeden węzeł Nimbus. System Storm w usłudze HDInsight obejmuje dwa węzły Nimbus. W przypadku awarii węzła podstawowego klaster Storm przechodzi do węzła pomocniczego, a węzeł podstawowy jest przywracany. Na poniższym diagramie przedstawiono konfigurację przepływu zadań systemu Storm w usłudze HDInsight:
 
 ![Schemat węzłów Nimbus, dozorcy i nadzorcy](./media/apache-storm-overview/storm-diagram-nimbus.png)
-
-## <a name="ease-of-creation"></a>Łatwość tworzenia
-
-Nowy klaster Storm można utworzyć w usłudze HDInsight w ciągu kilku minut. Aby uzyskać więcej informacji na temat tworzenia klastra Storm, zobacz [Tworzenie klastrów Apache Hadoop przy użyciu portalu Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="ease-of-use"></a>Łatwość obsługi
 
@@ -76,7 +72,7 @@ Nowy klaster Storm można utworzyć w usłudze HDInsight w ciągu kilku minut. A
 
 ## <a name="integration-with-other-azure-services"></a>Integracja z innymi usługami platformy Azure
 
-* __Usługa Azure Data Lake Storage__: Na przykład przy użyciu magazynu usługi Data Lake z klastrem Storm zobacz Korzystanie z usługi Azure Data Lake Storage z [usługą Apache Storm w usłudze HDInsight.](apache-storm-write-data-lake-store.md)
+* __Usługa Azure Data Lake Storage__: Zobacz Korzystanie z usługi Azure Data Lake Storage z [usługą Apache Storm w usłudze HDInsight](apache-storm-write-data-lake-store.md).
 
 * __Event Hubs__: przykład użycia usługi Event Hubs w klastrze Storm można znaleźć w następujących artykułach:
 
@@ -85,10 +81,6 @@ Nowy klaster Storm można utworzyć w usłudze HDInsight w ciągu kilku minut. A
     * [Przetwarzanie zdarzeń z usługi Azure Event Hubs za pomocą usługi Apache Storm w programie HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
 * __SQL Database__, __Cosmos DB__, __Event Hubs__ i __HBase__: przykłady szablonów są dostępne w narzędziach Data Lake Tools for Visual Studio. Aby uzyskać więcej informacji, zobacz [Tworzenie topologii języka C# dla usługi Apache Storm w programie HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
-
-## <a name="support"></a>Pomoc techniczna
-
-System Storm w usłudze HDInsight jest dostarczany z pełną, stale dostępną pomocą techniczną na poziomie korporacyjnym. System Storm w usłudze HDInsight gwarantuje również dostępność na poziomie 99,9 procent zgodnie z umową SLA. Firma Microsoft gwarantuje więc, że klaster Storm utrzymuje łączność zewnętrzną przez nie mniej niż 99,9% czasu. Aby uzyskać więcej informacji, zobacz [Pomoc techniczna platformy Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="apache-storm-use-cases"></a>Przypadki użycia systemu Apache Storm
 
@@ -116,7 +108,7 @@ Składniki systemu Storm można również opracowywać w języku Python. Aby uzy
 
 ### <a name="guaranteed-message-processing"></a>Gwarantowane przetwarzanie komunikatów
 
-System Apache Storm zapewnia różne poziomy gwarantowanego przetwarzania komunikatów. Na przykład podstawowa aplikacja Storm może zagwarantować przetwarzanie co najmniej raz, a [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) może zagwarantować dokładnie po przetworzeniu. Aby uzyskać więcej informacji, zobacz [Guarantees on data processing](https://storm.apache.org/about/guarantees-data-processing.html) (Gwarancje przetwarzania danych) w serwisie apache.org.
+System Apache Storm zapewnia różne poziomy gwarantowanego przetwarzania komunikatów. Na przykład podstawowa aplikacja Storm gwarantuje co najmniej raz przetwarzania, a Trident może zagwarantować dokładnie raz przetwarzania. Zobacz [gwarancje dotyczące przetwarzania danych](https://storm.apache.org/about/guarantees-data-processing.html) w apache.org.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
@@ -124,7 +116,7 @@ Wzorzec odczytu krotki wejściowej, emitując zero lub więcej krotek, a następ
 
 ### <a name="joins"></a>Sprzężenia
 
-Sposób łączenia strumieni danych różni się między aplikacjami. Na przykład można łączyć poszczególne krotki z wielu strumieni w jeden nowy strumień lub łączyć tylko partie krotek w określonym oknie. W obu przypadkach łączenie można przeprowadzić za pomocą metody [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-). Grupowanie pól polega na określeniu, jak krotki są kierowane do składników bolt.
+Sposób łączenia strumieni danych różni się między aplikacjami. Na przykład można połączyć każdą krotę z wielu strumieni w jeden nowy strumień lub dołączyć tylko partie krotek dla określonego okna. W obu przypadkach łączenie można przeprowadzić za pomocą metody [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-). Grupowanie pól polega na określeniu, jak krotki są kierowane do składników bolt.
 
 W poniższym przykładzie w języku Java metoda fieldsGrouping służy do kierowana krotek pochodzących ze składników „1”, „2” i „3” do elementu bolt o nazwie MyJoiner:
 
@@ -150,7 +142,7 @@ Na przykład obliczania górnej wartości N, zobacz [RollingTopWords](https://gi
 
 ## <a name="logging"></a>Rejestrowanie
 
-Storm używa [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) do rejestrowania informacji. Domyślnie rejestrowana jest duża ilość danych i sortowanie informacji może być trudne. W topologii systemu Storm można uwzględnić plik konfiguracji rejestrowania, aby sterować zachowaniem rejestrowania.
+Storm używa Apache Log4j 2 do rejestrowania informacji. Domyślnie rejestrowana jest duża ilość danych i sortowanie informacji może być trudne. W topologii systemu Storm można uwzględnić plik konfiguracji rejestrowania, aby sterować zachowaniem rejestrowania.
 
 Przykładową topologię pokazującą metodę konfigurowania logowania można znaleźć w przykładzie [aplikacji WordCount opartej na języku Java](apache-storm-develop-java-topology.md) dla systemu Storm w usłudze HDInsight.
 

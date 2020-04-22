@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: c2a0dde496d6af66387210ca9b2ebf9cb4bdae7f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3cf4fd958202c28586b7c15932dc88a21d7c60f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79087949"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686875"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Samouczek: Łączenie, konfigurowanie, aktywowanie bramy usługi Azure Data Box
 
@@ -23,7 +23,7 @@ W tym samouczku opisano sposób łączenia się, konfigurowania i aktywowania ur
 
 Proces konfiguracji i aktywacji może potrwać około 10 minut. 
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Łączenie się z urządzeniem wirtualnym
@@ -41,7 +41,7 @@ Przed skonfigurowaniem i skonfigurowaniem bramy pola danych upewnij się, że:
 
 1. Otwórz okno przeglądarki i uzyskaj dostęp do lokalnego interfejsu użytkownika urządzenia pod adresem:
    
-   [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
+   https:\//ip-address-of-network-interface
    
    Użyj adresu URL połączenia odnotowanego w poprzednim samouczku. Zostanie wyświetlony błąd lub ostrzeżenie wskazujące, że wystąpił problem z certyfikatem zabezpieczeń witryny sieci Web.
 

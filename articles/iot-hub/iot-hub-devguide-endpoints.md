@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 53660ad93ab2218d546ae6f363873c4d66872e2b
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284644"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730313"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Odwołanie — punkty końcowe usługi IoT Hub
 
@@ -76,7 +79,7 @@ Istniejące usługi platformy Azure w ramach subskrypcji można połączyć z ce
 Usługa IoT Hub obsługuje obecnie następujące usługi platformy Azure jako dodatkowe punkty końcowe:
 
 * Kontenery usługi Azure Storage
-* Usługa Event Hubs
+* Event Hubs
 * Kolejki usługi Service Bus
 * Tematy dotyczące usługi Service Bus
 
@@ -102,6 +105,6 @@ Zaimplementowanie bramy polowej za pomocą [usługi Azure IoT Edge.](/azure/iot-
 Inne tematy referencyjne w tym przewodniku dla deweloperów usługi IoT Hub obejmują:
 
 * [Język zapytań usługi IoT Hub dla bliźniaczych bliźniąt urządzeń, zadań i routingu wiadomości](iot-hub-devguide-query-language.md)
-* [Limity przydziału i ograniczanie przepływności](iot-hub-devguide-quotas-throttling.md)
+* [Limity przydziału i ograniczanie wydajności](iot-hub-devguide-quotas-throttling.md)
 * [Obsługa usługi IoT Hub MQTT](iot-hub-mqtt-support.md)
 * [Opis adresu IP centrum IoT](iot-hub-understand-ip-address.md)

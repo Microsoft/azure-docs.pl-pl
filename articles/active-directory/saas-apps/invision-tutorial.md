@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63ec58711c5dd142064e2d5cb29ccaa9eb9c0ed9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c2427fff37158745e416f4b2f0641697ad62ea9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79300655"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682693"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory z usługą InVision
 
@@ -157,13 +157,15 @@ W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platfor
 
     e. W **textboxie certyfikatu SAML** otwórz pobrany **certyfikat (Base64)** w Notatniku, skopiuj zawartość i wklej ją do pola tekstowego certyfikatu SAML.
 
-    f. Z listy rozwijanej algorytmu **HASH**wybierz opcję **SHA-256** .
+    f. W obszarze tekstowym **Format** nazwy `Unspecified` użyj **formatu identyfikatora nazwy**.
 
-    g. Wprowadź odpowiednią nazwę etykiety **przycisku SSO**.
+    g. Z listy rozwijanej algorytmu **HASH**wybierz opcję **SHA-256** .
 
-    h. Włącz **aprowizować po prostu w czasie.**
+    h. Wprowadź odpowiednią nazwę etykiety **przycisku SSO**.
 
-    i. Kliknij przycisk **Update** (Aktualizuj).
+    i. Włącz **aprowizować po prostu w czasie.**
+
+    j. Kliknij przycisk **Update** (Aktualizuj).
 
 ### <a name="create-invision-test-user"></a>Utwórz użytkownika testowego InVision
 
@@ -191,7 +193,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka InVision w Panelu dostępu należy automatycznie zalogować się do invision, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

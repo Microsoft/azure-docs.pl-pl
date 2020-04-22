@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 04/20/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcccc64e0c766164a06932e9b65a4459816f9deb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89e09fd63ee6121ac9bf7f3c2be00f0ac22f752f
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409120"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731710"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Jak skonfigurować przypisanie aplikacji samoobsługowej
 
@@ -41,6 +41,9 @@ Przy użyciu tej funkcji można:
 -   Opcjonalnie zezwól osobom zatwierdzacym na ustawianie haseł, których użytkownicy mogą używać do logowania się do aplikacji, bezpośrednio z [panelu dostępu do aplikacji](https://myapps.microsoft.com/)osoby zatwierdzającej.
 
 -   Opcjonalnie automatycznie przypisz bezpośrednio przypisanych użytkowników samoobsługowych do roli aplikacji.
+
+> [!NOTE]
+> Licencja usługi Azure Active Directory Premium (P1 lub P2) jest wymagana dla użytkowników, aby zażądać dołączenia do aplikacji samoobsługowej i dla właścicieli, aby zatwierdzić lub odrzucić żądania. Bez licencji usługi Azure Active Directory Premium użytkownicy nie mogą dodawać aplikacji samoobsługowych.
 
 ## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Umożliwianie dostępu do aplikacji samoobsługowych w celu umożliwienia użytkownikom znajdowania własnych aplikacji
 

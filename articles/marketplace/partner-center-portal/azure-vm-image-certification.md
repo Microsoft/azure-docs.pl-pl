@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 009a8e3db097790788f71486431a3b5b05c488ea
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 9bd7e40855f30612b90cf28365c0b1410cd3e3d8
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81265969"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731122"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Certyfikacja obrazu maszyny wirtualnej platformy Azure
 
@@ -652,4 +652,4 @@ Na koniec wybierz pozycję **Wygeneruj raport,** aby pobrać wyniki testów i pl
 
 ## <a name="next-step"></a>Następny krok
 
-- [Generowanie jednolitych identyfikatorów zasobów (URI) dla każdego dysku VHD](https://aka.ms/AzureSASURI)
+- [Generowanie jednolitych identyfikatorów zasobów (URI) dla każdego dysku VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)

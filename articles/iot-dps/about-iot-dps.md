@@ -8,12 +8,15 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: e564660b502a950021ba4e4754ff5c210dfd477f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 1b12886ee55741f62a1156269423ffadd34cd433
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241178"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683305"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprowizowanie urządzeń za pomocą usługi Azure IoT Hub Device Provisioning Service
 Platforma Microsoft Azure zapewnia bogaty zestaw zintegrowanych usług w chmurze publicznej spełniający wszelkie potrzeby rozwiązania IoT. Usługa inicjowania obsługi administracyjnej (DPS) centrum IoT hub jest usługą pomocniczą dla usługi IoT Hub, która umożliwia inicjowanie obsługi administracyjnej typu "tylko w czasie" do odpowiedniego centrum IoT bez konieczności interwencji człowieka. Dps umożliwia inicjowanie obsługi administracyjnej milionów urządzeń w sposób bezpieczny i skalowalny.
@@ -23,7 +26,7 @@ Istnieje wiele scenariuszy inicjowania obsługi administracyjnej, w których DPS
 
 * Bezobsługowe aprowizowanie w jednym rozwiązaniu IoT bez trwałego kodowania informacji o połączeniu z usługą IoT Hub w fabryce (konfiguracja początkowa)
 * Urządzenia równoważące obciążenie w wielu koncentratorach
-* Łączenie urządzeń z rozwiązaniem IoT ich właściciela na podstawie danych o transakcji sprzedaży (wielodostępność)
+* Łączenie urządzeń z rozwiązaniem IoT właściciela na podstawie danych transakcji sprzedaży (multitenancy)
 * Łączenie urządzeń z określonym rozwiązaniem IoT w zależności od przypadku użycia (izolacja rozwiązania)
 * Łączenie urządzenia z centrum IoT o najmniejszym opóźnieniu (geograficzne dzielenie na fragmenty)
 * Ponowne aprowizowanie na podstawie zmiany w urządzeniu

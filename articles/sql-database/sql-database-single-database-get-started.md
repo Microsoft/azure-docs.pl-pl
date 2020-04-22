@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
-ms.date: 03/10/2020
-ms.openlocfilehash: 638adaac699bb7aa2774f5cbd37dc8394a2baee3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/19/2020
+ms.openlocfilehash: b06c255f94b4d539c7c85e318238b10629cbb907
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240520"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685139"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Szybki start: tworzenie pojedynczej bazy danych usługi Azure SQL Database
 
@@ -67,7 +67,7 @@ Zachowaj grupę zasobów, serwer i pojedynczą bazę danych, aby przejść do na
 
 Po zakończeniu korzystania z tych zasobów można usunąć utworzoną grupę zasobów, która spowoduje również usunięcie serwera i pojedynczej bazy danych w nim.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Aby usunąć **myResourceGroup** i wszystkie jego zasoby za pomocą witryny Azure portal:
 
@@ -75,7 +75,7 @@ Aby usunąć **myResourceGroup** i wszystkie jego zasoby za pomocą witryny Azur
 1. Na stronie grupy zasobów wybierz pozycję **Usuń grupę zasobów**.
 1. W obszarze **Wpisz nazwę grupy zasobów**wprowadź *myResourceGroup*, a następnie wybierz pozycję **Usuń**.
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Aby usunąć grupę zasobów i wszystkie jej zasoby, uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure, używając nazwy grupy zasobów:
 
@@ -83,15 +83,16 @@ Aby usunąć grupę zasobów i wszystkie jej zasoby, uruchom następujące polec
 az group delete --name <your resource group>
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby usunąć grupę zasobów i wszystkie jej zasoby, uruchom następujące polecenie cmdlet programu PowerShell, używając nazwy grupy zasobów:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name <your resource group>
 ```
 
 ---
+
 ## <a name="next-steps"></a>Następne kroki
 
 [Łączenie i wykonywanie zapytań](sql-database-connect-query.md) z bazą danych przy użyciu różnych narzędzi i języków:

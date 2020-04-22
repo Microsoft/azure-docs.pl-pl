@@ -2,13 +2,13 @@
 title: Struktura i składnia szablonu
 description: Opisuje strukturę i właściwości szablonów usługi Azure Resource Manager przy użyciu deklaratywnej składni JSON.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 4e8334e4ddfaee52c5d1aa68fb8689fcde0a6cbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 60d800eb5251fb3454ba60a67bd109261c6ff9d4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79459994"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687880"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Opis struktury i składni szablonów ARM
 
@@ -293,7 +293,7 @@ Istnieje kilka opcji dodawania komentarzy i metadanych do szablonu.
 W przypadku komentarzy wbudowanych można `//` `/* ... */` użyć jednej lub jednej z tych składni, która nie działa ze wszystkimi narzędziami. Edytor szablonów portalu nie może używać się do pracy nad szablonami z komentarzami wbudowanymi. Jeśli dodasz ten styl komentarza, upewnij się, że narzędzia, których używasz, obsługują wbudowane komentarze JSON.
 
 > [!NOTE]
-> Aby wdrożyć szablony z komentarzami przy `--handle-extended-json-format` użyciu interfejsu wiersza polecenia platformy Azure, należy użyć przełącznika.
+> Aby wdrożyć szablony z komentarzami przy użyciu interfejsu wiersza polecenia platformy Azure `--handle-extended-json-format` w wersji 2.3.0 lub starszej, należy użyć przełącznika.
 
 ```json
 {
@@ -404,7 +404,7 @@ Ciąg można podzielić na wiele wierszy. Na przykład zobacz właściwość lok
   ],
 ```
 
-Aby wdrożyć szablony z ciągami wielowierszowymi przy `--handle-extended-json-format` użyciu interfejsu wiersza polecenia platformy Azure, należy użyć przełącznika.
+Aby wdrożyć szablony z ciągami wielowierszowymi przy użyciu interfejsu wiersza polecenia platformy `--handle-extended-json-format` Azure w wersji 2.3.0 lub starszej, należy użyć przełącznika.
 
 ## <a name="next-steps"></a>Następne kroki
 

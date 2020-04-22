@@ -2,20 +2,30 @@
 title: Co nowego w usłudze Azure Migrate
 description: Dowiedz się więcej o nowościach i najnowszych aktualizacjach w usłudze Migracji platformy Azure.
 ms.topic: overview
-ms.date: 04/16/2020
+ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 1b0221f497ae7bbf84f163eef1ddb862d8de2951
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ba85b0a4ed30320099388ccb48dd91ad6445efd5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535251"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677241"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Co nowego w usłudze Azure Migrate
 
 [Usługa Azure Migrate](migrate-services-overview.md) ułatwia odnajdywanie, ocenę i migrację lokalnych serwerów, aplikacji i danych do chmury platformy Microsoft Azure. W tym artykule podsumowano nowe wersje i funkcje w usłudze Azure Migrate.
 
 
+## <a name="update-april-2020"></a>Aktualizacja (kwiecień 2020 r.)
+
+Usługa Azure Migrate obsługuje wdrożenia w usłudze Azure Dla Instytucji. 
+
+- Maszyny wirtualne VMware, maszyny wirtualne funkcji Hyper-V i serwery fizyczne można wykrywać i oceniać.
+- Maszyny wirtualne vmware, maszyny wirtualne funkcji Hyper V i serwery fizyczne można migrować na platformę Azure.
+- W przypadku migracji VMware można użyć migracji bez agenta lub opartej na agentach. [Dowiedz się więcej](server-migrate-overview.md).
+- [Przejrzyj](migrate-support-matrix.md#supported-geographies-azure-government) obsługiwane regiony geograficzne i regiony dla platformy Azure dla instytucji rządowych.
+- [Analiza zależności oparta na agentach](concepts-dependency-visualization.md#agent-based-analysis) nie jest obsługiwana w usłudze Azure Government.
+- Funkcje w wersji zapoznawczej są obsługiwane w usłudze Azure Government, w szczególności [w bezagentowej analizie zależności](concepts-dependency-visualization.md#agentless-analysis)i [odnajdowaniu aplikacji.](how-to-discover-applications.md)
 
 ## <a name="update-march-2020"></a>Aktualizacja (marzec 2020 r.)
 

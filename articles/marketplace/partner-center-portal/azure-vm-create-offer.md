@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 161fd9276427db0d0d7d56da1bfc0bb8ccf52a52
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: d5626f00e9627338349d9b579bcf26256148b551
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536662"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731264"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Tworzenie oferty maszyn wirtualnych platformy Azure
 
@@ -34,19 +34,19 @@ Publikowanie w portalu Azure Marketplace ma następujące zalety:
 
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Jeśli jeszcze tego nie zrobiono, zapoznaj się z [przewodnikiem publikowania oferty maszyny wirtualnej](https://aka.ms/Virtualmachineofferpublishingguide) i materiałem tej maszyny wirtualnej platformy Azure:
+Jeśli jeszcze tego nie zrobiono, zapoznaj się z [przewodnikiem publikowania oferty maszyny wirtualnej](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) i materiałem tej maszyny wirtualnej platformy Azure:
 
 - Przewodniki szybki start
   - [Szablony szybki start platformy Azure](https://azure.microsoft.com/resources/templates/)
   - [Szablony przewodnika Szybki start platformy GitHub](https://github.com/azure/azure-quickstart-templates)
 - Samouczki
-  - [Maszyny wirtualne z systemem Linux](https://aka.ms/LinuxVMtutorial)
-  - [Maszyny wirtualne z systemem Windows](https://aka.ms/windowsvms)
+  - [Maszyny wirtualne z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+  - [Maszyny wirtualne z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - Samples
-  - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Linux](https://aka.ms/linuxclisamples)
-  - [Maszyny wirtualne programu Azure PowerShell dla systemów Linux](https://aka.ms/linuxpowershellsamples)
-  - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Windows](https://aka.ms/windowsclisamples)
-  - [Maszyny wirtualne programu Azure PowerShell dla systemów Windows](https://aka.ms/windowspowershellvmsamples)
+  - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
+  - [Maszyny wirtualne programu Azure PowerShell dla systemów Linux](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
+  - [Przykłady interfejsu wiersza polecenia platformy Azure dla maszyn wirtualnych z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
+  - [Maszyny wirtualne programu Azure PowerShell dla systemów Windows](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>Podstawy wiedzy technicznej
 
@@ -66,7 +66,7 @@ Aby można było utworzyć ofertę maszyny wirtualnej platformy Azure, musisz mi
 2. Na pasku po lewej stronie nawigacyjnej wybierz pozycję **Rynek komercyjny**, a następnie **przegląd**.
 3. Na stronie **Przegląd** wybierz pozycję **+ Nowa oferta**, a następnie **maszynę wirtualną platformy Azure**. Zostanie wyświetlone okno dialogowe **Nowa oferta.**
 
-![Ilustruje stronę Przegląd w Centrum partnerów z wybranym przyciskiem Nowa oferta i ofertą maszyny wirtualnej platformy Azure.](media/avm-create7.png)
+    ![Ilustruje stronę Przegląd w Centrum partnerów z wybranym przyciskiem Nowa oferta i ofertą maszyny wirtualnej platformy Azure.](media/avm-create7.png)
 
 ## <a name="offer-id-and-alias"></a>Identyfikator oferty i alias
 
@@ -91,7 +91,7 @@ Aby włączyć jazdę próbną, zaznacz pole wyboru **Włącz jazdę próbną.**
 Dodatkowe zasoby dysku próbne:
 
 - [Najlepsze praktyki techniczne](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Najlepsze rozwiązania marketingowe](https://aka.ms/TestDriveMarketingBestPractices)
+- [Najlepsze rozwiązania marketingowe](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Omówienie dysków testowych](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (upewnij się, że bloker wyskakujących wyskakujących wyskakujących jest wyłączony).
 
 ### <a name="lead-management"></a>Zarządzanie potencjalnymi klientami
@@ -99,12 +99,12 @@ Dodatkowe zasoby dysku próbne:
 Publikując ofertę na rynku komercyjnym za pomocą Centrum partnerskiego, połącz ją z systemem CRM (Customer Relationship Management). Dzięki temu możesz otrzymywać informacje kontaktowe klienta, gdy tylko ktoś wyrazi zainteresowanie produktem lub z niego korzysta. Podłączenie do crm jest wymagane, jeśli włączysz **jazdę próbną** (patrz poprzednia sekcja), w przeciwnym razie jest to opcjonalne.
 
 1. Wybierz miejsce docelowe potencjalnych klientów, do którego chcesz wysyłać potencjalnych klientów. Centrum partnerskie obsługuje następujące systemy CRM:
-    - [Dynamics 365](https://aka.ms/Dyn365LeadMgmt) dla zaangażowania klientów
-    - [Marketo](https://aka.ms/LeadMgmtMarketo)
-    - [SalesForce](https://aka.ms/LeadMgmtSalesforce)
+    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klientów
+    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+    - [SalesForce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > Jeśli systemu CRM nie ma na liście powyżej, użyj [tabeli Azure](https://aka.ms/AzureTableLeadMgmt) lub [punktu końcowego https](https://aka.ms/LeadMgmtHTTPS) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
+    > Jeśli systemu CRM nie ma na liście powyżej, użyj [tabeli Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego https](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
 
 2. Połącz ofertę z głównym miejscem docelowym podczas publikowania w Centrum partnerów.
 3. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest poprawnie skonfigurowane. Po opublikowaniu go w Centrum partnerów, firma Microsoft sprawdź poprawność połączenia i wysłać potencjalnego klienta testowego. Podczas wyświetlania podglądu oferty przed jej wyświetleniem można również przetestować połączenie potencjalnego klienta, próbując samodzielnie wdrożyć ofertę w środowisku w wersji zapoznawczej.
@@ -274,7 +274,7 @@ Dodaj do pięciu zrzutów ekranu, które pokazują, jak działa Twoja oferta. Ka
 
 Dodaj do pięciu filmów, które pokazują twoją ofertę. Powinny one być hostowane w zewnętrznej usłudze wideo. Wprowadź nazwę, adres internetowy i miniaturę obrazu wideo w trybie PNG każdego filmu o wymiarach 1280 x 720 pikseli.
 
-Aby uzyskać dodatkowe zasoby dotyczące aukcji w portalu marketplace, zobacz [Najważniejsze wskazówki dotyczące aukcji ofert w portalu Marketplace](https://aka.ms/LdMgmtOfferListingBestPractices).
+Aby uzyskać dodatkowe zasoby dotyczące aukcji w portalu marketplace, zobacz [Najważniejsze wskazówki dotyczące aukcji ofert w portalu Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
 
 Wybierz **pozycję Zapisz pochyłość** przed kontynuowaniem.
 
@@ -554,4 +554,4 @@ Te przykłady pokazują, jak oferta pojawia się w portalu Azure Marketplace.
 
 ## <a name="next-step"></a>Następny krok
 
-- [Aktualizowanie istniejącej oferty na rynku komercyjnym](https://aka.ms/UpdateOfferCM)
+- [Aktualizowanie istniejącej oferty na rynku komercyjnym](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

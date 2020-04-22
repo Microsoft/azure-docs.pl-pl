@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 82fa5968d004bd4460f2c05ec944f6e568508675
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 5a17f98d69cb2196f92e19b66fc23dcd89bce188
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641135"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687142"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Jak skonfigurować kodery lokalne podczas tworzenia strumieni o wielu szybkościach transmisji bitów w usłudze Azure Media Services
 W tym temacie wymieniono lokalne kodery na żywo, których można użyć do przechwytywania wydarzeń na żywo i wysyłania pojedynczego strumienia na żywo o szybkości transmisji bitów do kanałów usługi AMS (które są włączone kodowania na żywo) w celu dalszego przetwarzania. Temat zawiera również łącza do samouczków, które pokazują, jak skonfigurować wymienione kodery.
@@ -34,7 +34,7 @@ Aby uzyskać informacje dotyczące konfigurowania [kodera ujeżdnerowy ekwiwalat
 Aby uzyskać informacje na temat konfigurowania kodera [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) do wysyłania pojedynczego strumienia transmisji bitów na żywo do kanału AMS, zobacz [Konfigurowanie wirecastu](media-services-configure-wirecast-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
-Aby uzyskać więcej informacji, zobacz [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).
+Aby uzyskać więcej informacji, zobacz [Elemental Live](https://www.elemental.com/products/aws-elemental-appliances-software/#elemental-live).
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 6b7ca1f10744bf38137c57d94d796655946c31b3
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: a62551b31c51836dfa50534ee6db907c8a4e111a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390342"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730614"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -64,7 +64,7 @@ Zapoznaj się z następującą dokumentacją aplikacji platformy Azure, która z
 * Samouczki:
 
     * [Tworzenie plików definicji](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-    * [Publish marketplace application (Publikowanie aplikacji w witrynie Marketplace)](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
+    * [Publikowanie aplikacji na platformie handlowej](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
 * Próbki:
 
@@ -293,7 +293,7 @@ Ten plan musi być dostępny w co najmniej jednej chmurze.
 
 Wybierz opcję **Platformy Public Azure,** aby twoje rozwiązanie można wdrożyć dla klientów we wszystkich publicznych regionach platformy Azure, które mają integrację z marketplace.  Dowiedz się więcej o [dostępności geograficznej](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Wybierz opcję **Azure Government Cloud,** aby twoje rozwiązanie było możliwe do wdrożenia w [usłudze Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)— chmurze dla instytucji rządowych z kontrolowanym dostępem dla klientów z usług federalnych, stanowych, lokalnych lub plemiennych stanów USA oraz partnerów uprawnionych do obsługi tych jednostek.  Użytkownik, jako wydawca, jest odpowiedzialny za wszelkie mechanizmy kontroli zgodności, środki zabezpieczeń i najlepsze rozwiązania służące tej społeczności w chmurze.  Platforma Azure Government używa fizycznie odizolowanych centrów danych i sieci (zlokalizowanych tylko w Stanach Zjednoczonych).  Przed opublikowaniem na [platformie Azure Government](https://aka.ms/azuregovpublish)firma Microsoft zaleca przetestowanie i sprawdzenie poprawności rozwiązania w środowisku, ponieważ niektóre punkty końcowe mogą się różnić. Aby zaaslić i przetestować rozwiązanie, poproś o konto próbne z tego [linku](https://azure.microsoft.com/global-infrastructure/government/request/).
+Wybierz opcję **Azure Government Cloud,** aby twoje rozwiązanie było możliwe do wdrożenia w [usłudze Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)— chmurze dla instytucji rządowych z kontrolowanym dostępem dla klientów z usług federalnych, stanowych, lokalnych lub plemiennych stanów USA oraz partnerów uprawnionych do obsługi tych jednostek.  Użytkownik, jako wydawca, jest odpowiedzialny za wszelkie mechanizmy kontroli zgodności, środki zabezpieczeń i najlepsze rozwiązania służące tej społeczności w chmurze.  Platforma Azure Government używa fizycznie odizolowanych centrów danych i sieci (zlokalizowanych tylko w Stanach Zjednoczonych).  Przed opublikowaniem na [platformie Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)firma Microsoft zaleca przetestowanie i sprawdzenie poprawności rozwiązania w środowisku, ponieważ niektóre punkty końcowe mogą się różnić. Aby zaaslić i przetestować rozwiązanie, poproś o konto próbne z tego [linku](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 >[!Note]
 >Po opublikowaniu planu jako dostępnego w określonej chmurze nie można usunąć tej chmury.

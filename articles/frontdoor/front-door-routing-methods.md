@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 69ef68dafc2385eb5614179c3d04265250383104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7dd00d28ecfe844094677e0ae19f4fd359d97d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471544"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687810"
 ---
 # <a name="front-door-routing-methods"></a>Metody wyznaczania tras drzwi przednich
 
@@ -27,7 +27,7 @@ Istnieją cztery główne pojęcia dotyczące routingu ruchu dostępne w drzwiac
 * ** [Opóźnienie](#latency):** Routing oparty na opóźnieniach zapewnia, że żądania są wysyłane do najniższych limitów wstecznych opóźnienia dopuszczalne w zakresie czułości. Zasadniczo żądania użytkowników są wysyłane do "najbliższego" zestawu zaplecza w odniesieniu do opóźnienia sieci.
 * ** [Priorytet](#priority):** Priorytety można przypisać do różnych zaplecza, jeśli chcesz użyć wewnętrznej bazy danych usługi podstawowej dla całego ruchu i udostępnić kopie zapasowe w przypadku, gdy podstawowe lub zapasowe zaplecze są niedostępne.
 * ** [Ważone](#weighted):** Wagi można przypisać do różnych zaplecza, jeśli chcesz rozłożyć ruch na zestaw zaplecza, równomiernie lub zgodnie ze współczynnikami wagi.
-* **Koligacja sesji:** Koligacji sesji dla hostów frontonu lub domen, jeśli chcesz, aby kolejne żądania od użytkownika były wysyłane do tego samego zaplecza, o ile sesja użytkownika jest nadal aktywna, a wystąpienie wewnętrznej bazy danych nadal raportuje w dobrej kondycji na podstawie sond kondycji. 
+* ** [Koligacja sesji](#affinity):** Koligacji sesji dla hostów frontonu lub domen, jeśli chcesz, aby kolejne żądania od użytkownika były wysyłane do tego samego zaplecza, o ile sesja użytkownika jest nadal aktywna, a wystąpienie wewnętrznej bazy danych nadal raportuje w dobrej kondycji na podstawie sond kondycji. 
 
 Wszystkie konfiguracje usługi Front Door obejmują monitorowanie kondycji zaplecza i zautomatyzowane, natychmiastowe przechodzenie do trybu failover w skali globalnej. Aby uzyskać więcej informacji, zobacz [Monitorowanie wewnętrznej bazy danych drzwi przednich](front-door-health-probes.md). Drzwi frontowe można skonfigurować tak, aby działały na podstawie jednej metody routingu i w zależności od potrzeb aplikacji można użyć wielu lub wszystkich tych metod routingu w połączeniu, aby utworzyć optymalną topologię routingu.
 
@@ -71,7 +71,7 @@ Metoda ważona umożliwia kilka przydatnych scenariuszy:
 * **Chmura bursting dla dodatkowej pojemności:** szybko rozszerzyć wdrożenia lokalnego w chmurze, umieszczając go za drzwiami frontowymi. Gdy potrzebujesz dodatkowej pojemności w chmurze, można dodać lub włączyć więcej zaplecza i określić, jaka część ruchu przechodzi do każdej wewnętrznej bazy danych.
 
 ## <a name="session-affinity"></a><a name = "affinity"></a>Koligacja sesji
-Domyślnie bez koligacji sesji żądania drzwiami frontowymi pochodzące z tego samego klienta do różnych zaplecza na podstawie konfiguracji równoważenia obciążenia, szczególnie w przypadku zmiany opóźnień w różnych wewnętrznej wartościach lub w przypadku zmiany różnych żądań z tego samego użytkownik ląduje w innym środowisku drzwi przednich. Jednak w przypadku niektórych aplikacji stanowych lub pewnych innych scenariuszy preferowane jest kierowanie kolejnych żądań pochodzących od danego użytkownika do tego samego zaplecza, które przetworzyło początkowe żądanie. Funkcja koligacji sesji na podstawie plików cookie jest przydatna, gdy chcesz utrzymać sesję użytkownika w ramach jednego zaplecza. Za pomocą plików cookie zarządzanych przez drzwiami frontowymi usługi Azure drzwiami frontowymi mogą kierować kolejny ruch z sesji użytkownika do tej samej wewnętrznej bazy danych do przetwarzania, o ile wewnętrznej bazy danych jest w dobrej kondycji, a sesja użytkownika nie wygasła. 
+Domyślnie bez koligacji sesji, drzwiami frontowymi przekazuje żądania pochodzące z tego samego klienta do różnych zaplecza na podstawie konfiguracji równoważenia obciążenia, szczególnie jako opóźnienia do różnych wewnętrznej bazy danych zmiany lub jeśli różne żądania z tego samego użytkownika ląduje w innym środowisku drzwi frontowych. Jednak w przypadku niektórych aplikacji stanowych lub pewnych innych scenariuszy preferowane jest kierowanie kolejnych żądań pochodzących od danego użytkownika do tego samego zaplecza, które przetworzyło początkowe żądanie. Funkcja koligacji sesji na podstawie plików cookie jest przydatna, gdy chcesz utrzymać sesję użytkownika w ramach jednego zaplecza. Za pomocą plików cookie zarządzanych przez drzwiami frontowymi usługi Azure drzwiami frontowymi mogą kierować kolejny ruch z sesji użytkownika do tej samej wewnętrznej bazy danych do przetwarzania, o ile wewnętrznej bazy danych jest w dobrej kondycji, a sesja użytkownika nie wygasła. 
 
 Koligację sesji można włączyć na poziomie hosta frontonu dla każdej skonfigurowanej domeny (lub poddomeny). Po jej włączeniu usługa Front Door dodaje plik cookie do sesji użytkownika. Funkcja koligacji sesji na podstawie plików cookie umożliwia usłudze Front Door identyfikowanie różnych użytkowników, nawet korzystających z tego samego adresu IP, co z kolei umożliwia bardziej równomierne rozłożenia ruchu na różne zaplecza.
 

@@ -10,12 +10,12 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 05e668ff5b0ec19c5e380cf6bfee4b6e46900b2f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9c15e4217c5331346c5a95329bae7e2a4f0e0841
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77372328"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732077"
 ---
 Użyj biblioteki klienta środowiska wykonawczego language understanding (LUIS) dla node.js, aby:
 
@@ -28,6 +28,7 @@ Użyj biblioteki klienta środowiska wykonawczego language understanding (LUIS) 
 
 * Zasób środowiska wykonawczego opisu języka: [utwórz go w witrynie Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)
+* Identyfikator aplikacji usługi LUIS — użyj publicznego identyfikatora aplikacji IoT . `df67dcdb-c37d-46af-88e1-8b97951ca1c2` Kwerenda użytkownika używana w kodzie szybkiego startu jest specyficzna dla tej aplikacji.
 
 ## <a name="setting-up"></a>Konfigurowanie
 
@@ -37,9 +38,9 @@ Pobierz [klucz środowiska wykonawczego,](../luis-how-to-azure-subscription.md) 
 
 [!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
-### <a name="create-a-new-javascript-nodejs-file"></a>Tworzenie nowego pliku javascript (Node.js)
+### <a name="create-a-new-javascript-nodejs-file"></a>Tworzenie nowego pliku JavaScript (Node.js)
 
-Utwórz nowy plik javascript w preferowanym `luis_prediction.js`edytorze lub IDE o nazwie .
+Utwórz nowy plik JavaScript w preferowanym `luis_prediction.js`edytorze lub IDE o nazwie .
 
 ### <a name="install-the-npm-library-for-the-luis-runtime"></a>Instalowanie biblioteki NPM dla środowiska wykonawczego usługi LUIS
 

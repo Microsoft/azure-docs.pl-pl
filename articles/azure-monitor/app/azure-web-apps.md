@@ -3,12 +3,13 @@ title: Monitorowanie wydajności usług aplikacji platformy Azure | Dokumenty fi
 description: Monitorowanie wydajności aplikacji dla usług aplikacji platformy Azure. Czas ładowania wykresu i odpowiedzi, informacje o zależnościach i ustawianie alertów dotyczących wydajności.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom: fasttrack-edit
+ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437189"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729805"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -55,15 +56,16 @@ Istnieją dwa sposoby włączania monitorowania aplikacji dla aplikacji hostowan
 2. Po określeniu zasobu, który ma być używany, można wybrać sposób, w jaki wgląd w aplikacje ma zbierać dane na platformę dla aplikacji. ASP.NET monitorowanie aplikacji jest domyślnie włączone z dwoma różnymi poziomami kolekcji.
 
     ![Wybierz opcje na platformę](./media/azure-web-apps/choose-options-new.png)
-
-   * Poziom **kolekcji** .NET Basic oferuje podstawowe możliwości pojedynczego wystąpienia APM.
-
-   * .NET Zalecany poziom **kolekcji:**
-       * Dodaje trendy użycia procesora CPU, pamięci i we/wy.
-       * Koreluje mikro-usługi między granicami żądania/zależności.
-       * Zbiera trendy użycia i umożliwia korelację od wyników dostępności do transakcji.
-       * Zbiera wyjątki nieobsługiwał przez proces hosta.
-       * Zwiększa dokładność metryk APM pod obciążeniem, gdy jest używane próbkowanie.
+ 
+ Poniżej znajduje się podsumowanie danych zebranych dla każdej trasy:
+        
+|  | Kolekcja podstawowa platformy .NET | .NET Zalecana kolekcja |
+| --- | --- | --- |
+| Dodanie trendów użycia procesora, pamięci i operacji we/wy |Tak |Tak |
+| Zbieranie trendów użycia z możliwością korelacji wyników dostępności z transakcjami | Tak |Tak |
+| Zbieranie wyjątków nieobsłużonych przez proces hosta | Tak |Tak |
+| Zwiększenie dokładności metryki APM pod obciążeniem, gdy jest używane próbkowanie | Tak |Tak |
+| Korelowanie mikrousług ponad granicami żądań/zależności | Nie (tylko możliwości APM z pojedynczym wystąpieniem) |Tak |
 
 3. Aby skonfigurować ustawienia, takie jak próbkowanie, które można wcześniej kontrolować za pośrednictwem pliku applicationinsights.config, można teraz wchodzić w interakcje z tymi samymi ustawieniami za pomocą ustawień aplikacji z odpowiednim prefiksem. 
 

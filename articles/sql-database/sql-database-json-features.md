@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-ms.date: 01/15/2019
-ms.openlocfilehash: 958d937ad85fd62249c7ce3f0e0ab2f8cc1d1b80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: 992c981d49e7c6fbf8b6156570f6554a05caab5d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73819943"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687755"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Wprowadzenie do funkcji JSON w bazie danych SQL usługi Azure
 Usługa Azure SQL Database umożliwia analizowanie i wykonywanie zapytań danych reprezentowanych w formacie notacji obiektów JavaScript [(JSON)](https://www.json.org/) oraz eksportowanie danych relacyjnych jako tekstu JSON. Następujące scenariusze JSON są dostępne w usłudze Azure SQL Database:
@@ -30,7 +30,7 @@ Jeśli masz usługę sieci web, która pobiera dane z warstwy bazy danych i zape
 
 W poniższym przykładzie wiersze z tabeli Sales.Customer są formatowane jako JSON przy użyciu klauzuli FOR JSON:
 
-```
+```sql
 select CustomerName, PhoneNumber, FaxNumber
 from Sales.Customers
 FOR JSON PATH
@@ -38,7 +38,7 @@ FOR JSON PATH
 
 Klauzula FOR JSON PATH formatuje wyniki kwerendy jako tekst JSON. Nazwy kolumn są używane jako klucze, podczas gdy wartości komórek są generowane jako wartości JSON:
 
-```
+```json
 [
 {"CustomerName":"Eric Torres","PhoneNumber":"(307) 555-0100","FaxNumber":"(307) 555-0101"},
 {"CustomerName":"Cosmina Vlad","PhoneNumber":"(505) 555-0100","FaxNumber":"(505) 555-0101"},
@@ -50,7 +50,7 @@ Zestaw wyników jest formatowany jako tablica JSON, gdzie każdy wiersz jest sfo
 
 Ścieżka wskazuje, że można dostosować format wyjściowy wyniku JSON za pomocą notacji kropkowej w aliasach kolumn. Następująca kwerenda zmienia nazwę klucza "CustomerName" w wyjściowym formacie JSON i umieszcza numery telefonów i faksów w podobiekcie "Kontakt":
 
-```
+```sql
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
 from Sales.Customers
 where CustomerID = 931
@@ -59,7 +59,7 @@ FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 
 Dane wyjściowe tej kwerendy wygląda następująco:
 
-```
+```json
 {
     "Name":"Nada Jovanovic",
     "Contact":{
@@ -73,7 +73,7 @@ W tym przykładzie zwróciliśmy pojedynczy obiekt JSON zamiast tablicy, określ
 
 Główną wartością klauzuli FOR JSON jest to, że umożliwia zwracanie złożonych danych hierarchicznych z bazy danych sformatowanych jako zagnieżdżone obiekty JSON lub tablice. W poniższym przykładzie pokazano, jak `Orders` uwzględnić wiersze z tabeli, które należą do `Customer` tablicy zagnieżdżonej: `Orders`
 
-```
+```sql
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
         Orders.OrderID, Orders.OrderDate, Orders.ExpectedDeliveryDate
 from Sales.Customers Customer
@@ -81,12 +81,11 @@ from Sales.Customers Customer
         on Customer.CustomerID = Orders.CustomerID
 where Customer.CustomerID = 931
 FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
-
 ```
 
 Zamiast wysyłać oddzielne zapytania, aby pobrać dane klienta, a następnie pobrać listę powiązanych zamówień, można uzyskać wszystkie niezbędne dane za pomocą jednego zapytania, jak pokazano w poniższym przykładowym wyjściu:
 
-```
+```json
 {
   "Name":"Nada Jovanovic",
   "Phone":"(215) 555-0100",
@@ -95,7 +94,7 @@ Zamiast wysyłać oddzielne zapytania, aby pobrać dane klienta, a następnie po
     {"OrderID":382,"OrderDate":"2013-01-07","ExpectedDeliveryDate":"2013-01-08"},
     {"OrderID":395,"OrderDate":"2013-01-07","ExpectedDeliveryDate":"2013-01-08"},
     {"OrderID":1657,"OrderDate":"2013-01-31","ExpectedDeliveryDate":"2013-02-01"}
-]
+  ]
 }
 ```
 
@@ -104,7 +103,7 @@ Jeśli nie masz ściśle ustrukturyzowanych danych, jeśli masz złożone podnie
 
 JSON jest formatem tekstowym, który może być używany jak każdy inny typ ciągu w usłudze Azure SQL Database. Dane JSON można wysyłać lub przechowywać w standardzie NVARCHAR:
 
-```
+```sql
 CREATE TABLE Products (
   Id int identity primary key,
   Title nvarchar(200),
@@ -120,7 +119,7 @@ END
 
 Dane JSON używane w tym przykładzie są reprezentowane przy użyciu typu NVARCHAR(MAX). JSON można wstawić do tej tabeli lub podać jako argument procedury składowanej przy użyciu standardowej składni Transact-SQL, jak pokazano w poniższym przykładzie:
 
-```
+```sql
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
@@ -131,7 +130,7 @@ Jeśli masz dane sformatowane jako JSON przechowywane w tabelach SQL platformy A
 
 Funkcje JSON, które są dostępne w bazie danych SQL platformy Azure umożliwiają traktowanie danych sformatowanych jako JSON jako innego typu danych SQL. Można łatwo wyodrębnić wartości z tekstu JSON i użyć danych JSON w dowolnej kwerendzie:
 
-```
+```sql
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
 from Products
 where JSON_VALUE(Data, '$.Color') = 'White'
@@ -149,7 +148,7 @@ Funkcja JSON_MODIFY umożliwia określenie ścieżki wartości w tekście JSON, 
 
 Ponieważ JSON jest przechowywany w tekście standardowym, nie ma żadnych gwarancji, że wartości przechowywane w kolumnach tekstowych są poprawnie sformatowane. Można sprawdzić, czy tekst przechowywany w kolumnie JSON jest poprawnie sformatowany przy użyciu standardowych ograniczeń sprawdzania bazy danych SQL azure i funkcji ISJSON:
 
-```
+```sql
 ALTER TABLE Products
     ADD CONSTRAINT [Data should be formatted as JSON]
         CHECK (ISJSON(Data) > 0)
@@ -168,7 +167,7 @@ W powyższym przykładzie możemy określić, gdzie należy zlokalizować tablic
 
 Możemy przekształcić tablicę JSON @orders w zmiennej w zestaw wierszy, analizować ten zestaw wyników lub wstawić wiersze do standardowej tabeli:
 
-```
+```sql
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
 AS BEGIN
 
@@ -181,9 +180,9 @@ AS BEGIN
             Customer varchar(200),
             Quantity int
      )
-
 END
 ```
+
 Kolekcja zamówień sformatowanych jako tablica JSON i dostarczonych jako parametr procedury składowanej może być analizowana i wstawiana do tabeli Zamówienia.
 
 ## <a name="next-steps"></a>Następne kroki

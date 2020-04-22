@@ -7,12 +7,13 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 9d52b2fa9289da709449a5f1edc527239800dfa1
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.custom: mqtt
+ms.openlocfilehash: 9e0b4a3c22c1e6008bdce7fecc1d122fe317dd58
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81000644"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686202"
 ---
 # <a name="architecture-of-iot-central-smart-inventory-management-application-template"></a>Architektura szablonu aplikacji do inteligentnego zarządzania zapasami IoT Central
 

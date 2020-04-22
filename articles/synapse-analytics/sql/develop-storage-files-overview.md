@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8e6fd4955d6d68764895619efd968a957bcb5184
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460600"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676670"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Pliki magazynu zapytań przy użyciu zasobów SQL on-demand (preview) w synapse SQL
 
@@ -62,7 +62,7 @@ Zapoznaj się [z folderami kwerend i wieloma plikami,](query-folders-multiple-cs
 
 Aby zbadać dane źródłowe parkietu, użyj format = 'PARKIET'
 
-```sql
+```syntaxsql
 OPENROWSET
 (
     { BULK 'data_file' ,
@@ -121,7 +121,6 @@ Pomijając klauzulę WITH z instrukcji OPENROWSET, można poinstruować usługę
 ```sql
 OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
-
 ```
 
 ### <a name="filename-function"></a>Nazwa pliku, funkcja
@@ -163,7 +162,7 @@ Aby uzyskać dostęp do elementów zagnieżdżonych z kolumny zagnieżdżonej, t
 
 Przykład fragmentu składni jest następujący:
 
-```sql
+```syntaxsql
     OPENROWSET
     (   BULK 'unstructured_data_path' ,
         FORMAT = 'PARQUET' )
@@ -197,7 +196,7 @@ Aby uzyskać dostęp do elementów nieskarzalnych z powtarzanej kolumny, użyj f
 
 Zobacz fragment składni poniżej:
 
-```sql
+```syntaxsql
     SELECT
        { JSON_VALUE (column_name, path_to_sub_element), }
        { JSON_QUERY (column_name [ , path_to_sub_element ]), )
@@ -215,9 +214,9 @@ Przykłady kwerend dotyczące uzyskiwania dostępu do elementów z powtarzający
 Aby uzyskać więcej informacji na temat wykonywania zapytań o różne typy plików oraz tworzenia i używania widoków, zobacz następujące artykuły:
 
 - [Zapytanie o pojedynczy plik CSV](query-single-csv-file.md)
-- [Pliki parkietu kwerendy](query-parquet-files.md)
-- [Kwerenda plików JSON](query-json-files.md)
-- [Kwerenda Parkiet zagnieżdżone typy](query-parquet-nested-types.md)
+- [Wykonywanie zapytań względem plików Parquet](query-parquet-files.md)
+- [Wykonywanie zapytań względem plików JSON](query-json-files.md)
+- [Wykonywanie zapytań względem typów zagnieżdżonych Parquet](query-parquet-nested-types.md)
 - [Foldery kwerend i wiele plików CSV](query-folders-multiple-csv-files.md)
 - [Używanie metadanych plików w kwerendach](query-specific-files.md)
-- [Tworzenie i używanie widoków](create-use-views.md)
+- [Tworzenie widoków i korzystanie z nich](create-use-views.md)

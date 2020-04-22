@@ -7,12 +7,13 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0600568ace5384cfb13688d14d1cf79e473f3208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: 270e6a0173ed0088ff5d37c989947f5272634200
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133220"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687199"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configure an IoT Edge device to communicate through a proxy server (Konfigurowanie urządzenia usługi IoT Edge pod kątem komunikacji za pośrednictwem serwera proxy)
 
@@ -208,7 +209,7 @@ Oprócz edgeAgent i edgeHub modułów, inne moduły mogą wymagać konfiguracji 
 
 Poniższa procedura ma zastosowanie przez cały okres użytkowania urządzenia IoT Edge.
 
-### <a name="azure-portal"></a>Portal Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Korzystając z kreatora **Set modules** do tworzenia wdrożeń dla urządzeń usługi IoT Edge, każdy moduł ma sekcję **Zmienne środowiskowe,** której można użyć do skonfigurowania połączeń serwera proxy.
 

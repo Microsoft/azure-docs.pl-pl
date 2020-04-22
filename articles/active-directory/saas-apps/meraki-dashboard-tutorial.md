@@ -1,0 +1,198 @@
+---
+title: 'Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z pulpitem nawigacyjnym Meraki | Dokumenty firmy Microsoft'
+description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a pulpitem nawigacyjnym Meraki.
+services: active-directory
+documentationCenter: na
+author: jeevansd
+manager: mtillman
+ms.reviewer: barbkess
+ms.assetid: 09766236-5de0-43fd-8950-5316390ce646
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.topic: tutorial
+ms.date: 04/17/2020
+ms.author: jeedes
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 571f4421a5d890fab31eda0125802d33918144ef
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81726382"
+---
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z pulpitem nawigacyjnym Meraki
+
+W tym samouczku dowiesz się, jak zintegrować pulpit nawigacyjny Meraki z usługą Azure Active Directory (Azure AD). Po zintegrowaniu pulpitu nawigacyjnego Meraki z usługą Azure AD można:
+
+* Kontrola w usłudze Azure AD, który ma dostęp do pulpitu nawigacyjnego Meraki.
+* Włącz użytkownikom automatyczne logowanie do pulpitu nawigacyjnego Meraki za pomocą ich kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Aby rozpocząć, potrzebujesz następujących elementów:
+
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
+* Meraki Dashboard z włączoną subskrypcją logowania jednokrotnego (SSO).
+
+## <a name="scenario-description"></a>Opis scenariusza
+
+W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+
+* Meraki Dashboard obsługuje zainicjowane **przez IDP jednostkę** SSO
+* Po skonfigurowaniu pulpitu nawigacyjnego Meraki można wymusić kontrolę sesji, które chronią eksfiltrację i infiltrację poufnych danych organizacji w czasie rzeczywistym. Kontrola sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymusić kontrolę nad sesją za pomocą programu Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+## <a name="adding-meraki-dashboard-from-the-gallery"></a>Dodawanie pulpitu nawigacyjnego Meraki z galerii
+
+Aby skonfigurować integrację pulpitu nawigacyjnego Meraki z usługą Azure AD, należy dodać pulpit nawigacyjny Meraki z galerii do listy zarządzanych aplikacji SaaS.
+
+1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
+1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
+1. Przejdź do **aplikacji korporacyjnych,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. W sekcji **Dodaj z galerii** wpisz **pulpit nawigacyjny Meraki** w polu wyszukiwania.
+1. Wybierz **Panel Meraki** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+
+
+## <a name="configure-and-test-azure-ad-single-sign-on-for-meraki-dashboard"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla pulpitu nawigacyjnego Meraki
+
+Konfigurowanie i testowanie usługi Azure AD SSO za pomocą pulpitu nawigacyjnego Meraki przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik łączony sytuować działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem na pulpicie nawigacyjnym Meraki.
+
+Aby skonfigurować i przetestować usługę Azure AD SSO za pomocą pulpitu nawigacyjnego Meraki, wykonaj następujące bloki konstrukcyjne:
+
+1. **[Skonfiguruj samouszeńcę usługi Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD za pomocą usługi B.Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić B.Simon używać logowania jednokrotnego usługi Azure AD.
+1. **[Skonfiguruj logowanie jednodzielne meraki dashboard](#configure-meraki-dashboard-sso)** - aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+    1. **[Utwórz użytkownika testowego pulpitu nawigacyjnego Meraki](#create-meraki-dashboard-test-user)** — aby mieć odpowiednik B.Simon w Pulpicie nawigacyjnym Meraki, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+1. **[Test SSO](#test-sso)** - aby sprawdzić, czy konfiguracja działa.
+
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
+
+Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+
+1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **pulpitu nawigacyjnego Meraki** znajdź sekcję **Zarządzaj** i wybierz **opcję logowanie jednokrotne**.
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** kliknij ikonę edycji/pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+
+1. W sekcji **Podstawowa konfiguracja SAML** aplikacja jest wstępnie skonfigurowana, a niezbędne adresy URL są już wstępnie wypełnione platformą Azure. Użytkownik musi zapisać konfigurację, klikając przycisk **Zapisz.**
+
+
+1. Meraki Dashboard aplikacja oczekuje potwierdzeń SAML w określonym formacie, który wymaga, aby dodać niestandardowe mapowania atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
+
+    ![image](common/default-attributes.png)
+
+1. Oprócz powyższej aplikacji Meraki Dashboard oczekuje kilka więcej atrybutów, które mają być przekazywane z powrotem w odpowiedzi SAML, które są pokazane poniżej. Te atrybuty są również wstępnie wypełnione, ale można je przejrzeć zgodnie z wymaganiami.
+    
+    | Nazwa | Atrybut źródłowy|
+    | ---------------| --------- |
+    | nazwa użytkownika | user.userprincipalname |
+    | role (rola) | user.assignedroles |
+
+    > [!NOTE]
+    > Aby dowiedzieć się, jak skonfigurować role w usłudze Azure AD, zobacz [tutaj](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+
+1. W sekcji **Certyfikat podpisywania SAML** kliknij przycisk **Edytuj**, aby otworzyć okno dialogowe **Certyfikat podpisywania SAML**.
+
+    ![Edytowanie certyfikatu podpisywania SAML](common/edit-certificate.png)
+
+1. W sekcji **Certyfikat podpisywania SAML** skopiuj **wartość odcisku palca** i zapisz ją na komputerze.
+
+    ![Kopiowanie wartości Odcisk palca](common/copy-thumbprint.png)
+
+1. W sekcji **Konfigurowanie pulpitu nawigacyjnego Meraki** skopiuj odpowiednie adresy URL na podstawie wymagań.
+
+    ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
+
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
+
+W tej sekcji utworzysz użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+
+1. Z lewego okienka w witrynie Azure portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W polu **Nazwa użytkownika** username@companydomain.extensionwprowadź pole . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
+   1. Kliknij przycisk **Utwórz**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
+
+W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do pulpitu nawigacyjnego Meraki.
+
+1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Na liście aplikacji wybierz pozycję **Meraki Dashboard**.
+1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzaj** i wybierz pozycję **Użytkownicy i grupy**.
+
+   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
+
+1. Wybierz **pozycję Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym Dodawanie **przydziału.**
+
+    ![Łącze Dodaj użytkownika](common/add-assign-user.png)
+
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+1. W oknie dialogowym **Dodawanie przydziału** kliknij przycisk **Przypisz.**
+
+## <a name="configure-meraki-dashboard-sso"></a>Konfigurowanie sytów syda na pulpicie nawigacyjnym Meraki
+
+1. W innym oknie przeglądarki internetowej zaloguj się do pulpitu nawigacyjnego meraki jako administrator.
+
+1. Przejdź do **ustawień** -> **organizacji**.
+
+    ![Konfiguracja pulpitu nawigacyjnego Meraki](./media/meraki-dashboard-tutorial/configure1.png)
+
+1. W obszarze Uwierzytelnianie zmień **funkcję SSO SAML** na **SAML SSO włączoną**.
+
+    ![Konfiguracja pulpitu nawigacyjnego Meraki](./media/meraki-dashboard-tutorial/configure2.png)
+
+1. Kliknij **pozycję Dodaj identyfikator SAML**.
+
+    ![Konfiguracja pulpitu nawigacyjnego Meraki](./media/meraki-dashboard-tutorial/configure3.png)
+
+1. Wklej wartość **odcisku palca,** który został skopiowany z witryny Azure portal do **X.590 cert SHA1 pola tekstowego odcisków palców.** Następnie kliknij przycisk **Zapisz**.
+
+    ![Konfiguracja pulpitu nawigacyjnego Meraki](./media/meraki-dashboard-tutorial/configure4.png)
+
+### <a name="create-meraki-dashboard-test-user"></a>Utwórz użytkownika testowego pulpitu nawigacyjnego Meraki
+
+1. W innym oknie przeglądarki internetowej zaloguj się do pulpitu nawigacyjnego meraki jako administrator.
+
+1. Przejdź do strony**Administratorzy** **organizacji** -> .
+
+    ![Konfiguracja pulpitu nawigacyjnego Meraki](./media/meraki-dashboard-tutorial/user1.png)
+
+1. W sekcji Role administratora SAML kliknij przycisk **Dodaj rolę SAML.**
+
+    ![Konfiguracja pulpitu nawigacyjnego Meraki](./media/meraki-dashboard-tutorial/user2.png)
+
+1. Wprowadź **meraki_full_admin**roli , oznacz **dostęp do organizacji** jako **pełny** i kliknij pozycję **Utwórz rolę**. Powtórz proces **dla meraki_readonly_admin,** tym razem **oznaczyć dostęp organizacji** jako pole tylko do **odczytu.**
+ 
+    ![Konfiguracja pulpitu nawigacyjnego Meraki](./media/meraki-dashboard-tutorial/user3.png)
+
+## <a name="test-sso"></a>Test SSO 
+
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+
+Po kliknięciu kafelka Pulpitu nawigacyjnego Meraki w Panelu dostępu należy automatycznie zalogować się do pulpitu nawigacyjnego Meraki, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+- [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Wypróbuj pulpit nawigacyjny Meraki z usługą Azure AD](https://aad.portal.azure.com/)
+
+- [Co to jest kontrola sesji w usłudze Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Jak chronić Pulpit nawigacyjny Meraki dzięki zaawansowanej widoczności i sterowaniu](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+

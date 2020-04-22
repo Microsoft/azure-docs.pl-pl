@@ -4,15 +4,15 @@ description: W tym artykule opisano, jak usługa Azure Cosmos DB zapewnia wysok�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 2afeae937d56a84c39167ad55a57c86f2623e52d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 0a67360ab840b7897c85a382dfc3965bd27f6a3e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382703"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688056"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Wysoka dostępność w usłudze Azure Cosmos DB
 
@@ -97,6 +97,8 @@ Ta funkcja jest dostępna w następujących regionach platformy Azure:
 - Europa Zachodnia
 
 - Zachodnie stany USA 2
+
+- Australia Wschodnia
 
 > [!NOTE]
 > Włączenie stref dostępności dla pojedynczego regionu konta usługi Azure Cosmos spowoduje naliczenie opłat, które są równoważne dodaniu dodatkowego regionu do konta. Aby uzyskać szczegółowe informacje na temat cen, zobacz [stronę cennika](https://azure.microsoft.com/pricing/details/cosmos-db/) i [koszt wielu regionów w artykułach usługi Azure Cosmos DB.](optimize-cost-regions.md)

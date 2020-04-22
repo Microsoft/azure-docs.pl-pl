@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77206127"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684824"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Obsługa języka i regionu interfejsu API tekstu tłumacza
 
@@ -55,14 +55,15 @@ Interfejs API tekstu tłumacza obsługuje następujące języki do tłumaczenia 
 |Czeski| `cs`    |   Neuronowe|
 |duński|    `da`        |Neuronowe|
 |Niderlandzki| `nl`|   Neuronowe|
-|Polski|   `en`    |   Neuronowe|
+|Angielski|   `en`    |   Neuronowe|
 |Estoński|  `et`    |   Neuronowe|
 |Fijian|    `fj`    |   Statystycznych|
 |Filipino|  `fil`   |   Statystycznych|
 |fiński|   `fi`    |   Neuronowe|
 |Francuski|    `fr`    |   Neuronowe|
-|Niemiecki|    `de`    |   Neuronowe|
+|niemiecki|    `de`    |   Neuronowe|
 |grecki| `el`    |   Neuronowe|
+|Gudżarati|  `gu`    |   Neuronowe|
 |Haitański|    `ht`        |Statystycznych|
 |Hebrajski |`he`   |Neuronowe
 |Hindi| `hi`    |   Neuronowe|
@@ -72,12 +73,12 @@ Interfejs API tekstu tłumacza obsługuje następujące języki do tłumaczenia 
 |Indonezyjski|    `id`    |   Statystycznych|
 |Irlandzki | `ga`| Neuronowe
 |Włoski|   `it`    |   Neuronowe|
-|Japoński|  `ja`    |   Neuronowe|
+|japoński|  `ja`    |   Neuronowe|
 |Kannada|`kn`| Neuronowe
 |Kiswahili| `sw`    |   Statystycznych|
 |Klingoński|   `tlh`   |   Statystycznych|
 |Klingon (plqaD)|   `tlh-Qaak`  |   Statystycznych|
-|Koreański |`ko`   |   Neuronowe|
+|koreański |`ko`   |   Neuronowe|
 |Łotewski|   `lv`    |   Neuronowe|
 |Litewski|    `lt`    |   Neuronowe|
 |Madagaskaru|  `mg`    |   Statystycznych|
@@ -85,6 +86,7 @@ Interfejs API tekstu tłumacza obsługuje następujące języki do tłumaczenia 
 |Malayalam| `ml` | Neuronowe
 |Maltański|   `mt`    |   Statystycznych|
 |Maoryjski| `mi`  | Neuronowe|
+|Marathi| `mr`  | Neuronowe|
 |Norweski| `nb`    |   Neuronowe|
 |Perski|   `fa`    |   Neuronowe|
 |Polski|    `pl`    |   Neuronowe|
@@ -131,7 +133,7 @@ Metoda Transliterate obsługuje następujące języki. W "Do/Od", "<-->" wskazuj
 | Gudżarati | `gu`  | Gudżarati`Gujr` | --> | Łacińskiej`Latn` |
 | Hebrajski | `he` | Hebrajski`Hebr` | <--> | Łacińskiej`Latn` |
 | Hindi | `hi` | Dewanagari`Deva` | <--> | Łacińskiej`Latn` |
-| Japoński | `ja` | Japoński`Jpan` | <--> | Łacińskiej`Latn` |
+| japoński | `ja` | Japoński`Jpan` | <--> | Łacińskiej`Latn` |
 | Kannada | `kn` | Kannada`Knda` | --> | Łacińskiej`Latn` |
 | Malayalam | `ml` | Malayalam`Mlym` | --> | Łacińskiej`Latn` |
 | Marathi | `mr` | Dewanagari`Deva` | --> | Łacińskiej`Latn` |
@@ -163,7 +165,7 @@ Słownik obsługuje następujące języki do lub z języka angielskiego przy uż
 | Estoński      | `et`          |
 | fiński      | `fi`          |
 | Francuski      | `fr`          |
-| Niemiecki      | `de`          |
+| niemiecki      | `de`          |
 | grecki      | `el`          |
 | Haitański      | `ht`          |
 | Hebrajski      | `he`          |
@@ -173,10 +175,10 @@ Słownik obsługuje następujące języki do lub z języka angielskiego przy uż
 | Islandzki    | `is`  |
 | Indonezyjski      | `id`          |
 | Włoski      | `it`          |
-| Japoński      | `ja`          |
+| japoński      | `ja`          |
 | Kiswahili      | `sw`          |
 | Klingoński      | `tlh`          |
-| Koreański      | `ko`          |
+| koreański      | `ko`          |
 | Łotewski      | `lv`          |
 | Litewski      | `lt`          |
 | Malajski      | `ms`          |
@@ -227,11 +229,11 @@ Następujące języki są dostępne do dostosowywania do lub z języka angielski
 | Czeski      | `cs`          |
 | duński      | `da`          |
 | Niderlandzki      | `nl`          |
-| Polski    | `en`     |
+| Angielski    | `en`     |
 | Estoński      | `et`          |
 | fiński      | `fi`          |
 | Francuski      | `fr`          |
-| Niemiecki      | `de`          |
+| niemiecki      | `de`          |
 | grecki      | `el`          |
 | Hebrajski      | `he`          |
 | Hindi      | `hi`          |
@@ -240,9 +242,9 @@ Następujące języki są dostępne do dostosowywania do lub z języka angielski
 | Indonezyjski|   `id`    |
 | Irlandzki | `ga`  |
 | Włoski      | `it`          |
-| Japoński      | `ja`          |
+| japoński      | `ja`          |
 | Kiswahili|    `sw`    |
-| Koreański      | `ko`          |
+| koreański      | `ko`          |
 | Łotewski      | `lv`          |
 | Litewski      | `lt`          |
 | Madagaskaru| `mg`    |
