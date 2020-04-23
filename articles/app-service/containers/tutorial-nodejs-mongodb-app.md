@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 940b49d29707a55bc5d63d6f49cdef19ba3f28e5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c08b99b0449608309b42e51c0ffb8d4b71a0621f
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80045713"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085340"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji środowiska Node.js i usługi MongoDB w usłudze Azure App Service w systemie Linux
 
@@ -23,7 +23,7 @@ ms.locfileid: "80045713"
 
 ![Aplikacja MEAN.js uruchomiona w usłudze Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
@@ -132,7 +132,7 @@ Parametr *--kind MongoDB* umożliwia tworzenie połączeń klienckich MongoDB.
 
 Po utworzeniu konta usługi Cosmos DB w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących:
 
-```json
+<pre>
 {
   "consistencyPolicy":
   {
@@ -141,12 +141,12 @@ Po utworzeniu konta usługi Cosmos DB w interfejsie wiersza polecenia platformy 
     "maxStalenessPrefix": 100
   },
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<cosmosdb-name>.documents.azure.com:443/",
+  "documentEndpoint": "https://&lt;cosmosdb-name&gt;.documents.azure.com:443/",
   "failoverPolicies":
   ...
-  < Output truncated for readability >
+  &lt; Output truncated for readability &gt;
 }
-```
+</pre>
 
 ## <a name="connect-app-to-production-configured-with-azure-cosmos-dbs-api-for-mongodb"></a>Łączenie aplikacji z usługą produkcyjną skonfigurowaną za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
 
@@ -162,14 +162,14 @@ az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
 
 W interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następującego przykładu:
 
-```json
+<pre>
 {
   "primaryMasterKey": "RS4CmUwzGRASJPMoc0kiEvdnKmxyRILC9BWisAYh3Hq4zBYKr0XQiSE4pqx3UchBeO4QRCzUt1i7w0rOkitoJw==",
   "primaryReadonlyMasterKey": "HvitsjIYz8TwRmIuPEUAALRwqgKOzJUjW22wPL2U8zoMVhGvregBkBk9LdMTxqBgDETSq7obbwZtdeFY7hElTg==",
   "secondaryMasterKey": "Lu9aeZTiXU4PjuuyGBbvS1N9IRG3oegIrIh95U6VOstf9bJiiIpw3IfwSUgQWSEYM3VeEyrhHJ4rn3Ci0vuFqA==",
   "secondaryReadonlyMasterKey": "LpsCicpVZqHRy7qbMgrzbRKjbYCwCKPQRl0QpgReAOxMcggTvxJFA94fTi0oQ7xtxpftTJcXkjTirQ0pT7QFrQ=="
 }
-```
+</pre>
 
 Skopiuj wartość `primaryMasterKey`. Ta informacja będzie potrzebna w następnym kroku.
 
@@ -271,7 +271,7 @@ db: {
 
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
+<pre>
 Counting objects: 5, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
@@ -287,9 +287,9 @@ remote: Handling node.js deployment.
 .
 .
 remote: Deployment successful.
-To https://<app-name>.scm.azurewebsites.net/<app-name>.git
+To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
  * [new branch]      master -> master
-```
+</pre>
 
 Możesz zauważyć, że w procesie wdrażania środowisko [Gulp](https://gulpjs.com/) jest uruchamiane po wykonaniu polecenia `npm install`. Usługa App Service nie uruchamia zadań Gulp ani Grunt podczas wdrażania, dlatego w katalogu głównym tego przykładowego repozytorium znajdują się 2 dodatkowe pliki włączające tę funkcję:
 

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c7919dcc89e34831cb4cae7921b60b35eb4c69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae244d93d679199aaa0bd08891cd34d4ca3a2ddc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74024961"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085114"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Niestandardowe role administratora w usłudze Azure Active Directory (wersja zapoznawcza)
 
@@ -35,6 +35,22 @@ Udzielanie uprawnień przy użyciu niestandardowych ról usługi Azure AD jest p
 Po utworzeniu definicji roli można przypisać ją do użytkownika, tworząc przypisanie roli. Przypisanie roli udziela użytkownikowi uprawnień w definicji roli w określonym zakresie. Ten dwuetapowy proces umożliwia utworzenie definicji pojedynczej roli i przypisanie jej wiele razy w różnych zakresach. Zakres definiuje zestaw zasobów usługi Azure AD, do które ma dostęp członek roli. Najczęstszym zakresem jest zakres całej organizacji (w całej organizacji). Rola niestandardowa może być przypisana w zakresie całej organizacji, co oznacza, że element członkowski roli ma uprawnienia roli do wszystkich zasobów w organizacji. Rolę niestandardową można również przypisać w zakresie obiektu. Przykładem zakresu obiektu może być pojedyncza aplikacja. Tę samą rolę można przypisać do jednego użytkownika we wszystkich aplikacjach w organizacji, a następnie do innego użytkownika z zakresem tylko contoso raporty wydatków aplikacji.  
 
 Wbudowane i niestandardowe role usługi Azure AD działają na pojęciach podobnych do [kontroli dostępu opartej na rolach platformy Azure.](../../role-based-access-control/overview.md) [Różnica między tymi dwoma systemami kontroli dostępu opartych na rolach](../../role-based-access-control/rbac-and-directory-admin-roles.md) polega na tym, że usługa Azure RBAC kontroluje dostęp do zasobów platformy Azure, takich jak maszyny wirtualne lub magazyn przy użyciu usługi Azure Resource Management, a role niestandardowe usługi Azure AD kontrolują dostęp do zasobów usługi Azure AD przy użyciu interfejsu API programu Graph. Oba systemy wykorzystują pojęcie definicji ról i przypisań ról.
+
+### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Jak usługa Azure AD określa, czy użytkownik ma dostęp do zasobu
+
+Poniżej przedstawiono kroki wysokiego poziomu, które usługa Azure AD używa do określenia, czy masz dostęp do zasobu zarządzania. Te informacje można wykorzystać do rozwiązywania problemów z dostępem.
+
+1. Użytkownik (lub jednostka usługi) uzyskuje token do punktu końcowego programu Microsoft Graph lub Azure AD Graph.
+
+1. Użytkownik wywołuje interfejs API usługi Azure Active Directory (Azure AD) za pośrednictwem programu Microsoft Graph lub usługi Azure AD Graph przy użyciu wystawionego tokenu.
+
+1. W zależności od okoliczności usługa Azure AD wykonuje jedną z następujących czynności:
+
+    - Ocenia członkostwo roli użytkownika na podstawie [oświadczenia wids](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) w tokenie dostępu użytkownika.
+    - Pobiera wszystkie przypisania ról, które mają zastosowanie do użytkownika, bezpośrednio lub za pośrednictwem członkostwa w grupie, do zasobu, w którym akcja jest podejmowana.
+
+1. Usługa Azure AD określa, czy akcja w wywołaniu interfejsu API jest uwzględniona w rolach, które użytkownik ma dla tego zasobu.
+1. Jeśli użytkownik nie ma roli z akcji w żądanym zakresie, dostęp nie jest przyznawany. Jeśli nie, dostęp jest udzielany.
 
 ### <a name="role-assignments"></a>Przypisania ról
 

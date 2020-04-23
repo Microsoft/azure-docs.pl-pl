@@ -6,21 +6,21 @@ ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
-ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
+ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 4c568c95a5dbc1799a765c95a2b224de53dfbe9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279145"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085148"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Uruchamianie zadań w tle za pomocą aplikacji WebJobs w usłudze Azure App Service
 
 W tym artykule pokazano, jak wdrożyć webjobs za pomocą [witryny Azure Portal](https://portal.azure.com) do przekazywania pliku wykonywalnego lub skryptu. Aby uzyskać informacje dotyczące tworzenia i wdrażania funkcji WebJobs przy użyciu programu Visual Studio, zobacz [Wdrażanie funkcji WebJobs przy użyciu programu Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="overview"></a>Omówienie
-WebJobs to funkcja [usługi Azure App Service,](index.yml) która umożliwia uruchamianie programu lub skryptu w tym samym kontekście co aplikacja sieci web, aplikacja interfejsu API lub aplikacja mobilna. Korzystanie z funkcji WebJobs nie wiąże się z żadnymi dodatkowymi kosztami.
+WebJobs to funkcja [usługi Azure App Service,](index.yml) która umożliwia uruchamianie programu lub skryptu w tym samym wystąpieniu co aplikacja sieci web, aplikacja interfejsu API lub aplikacja mobilna. Korzystanie z funkcji WebJobs nie wiąże się z żadnymi dodatkowymi kosztami.
 
 > [!IMPORTANT]
 > WebJobs nie jest jeszcze obsługiwany dla usługi App Service w systemie Linux.
@@ -80,7 +80,7 @@ when making changes in one don't forget the other two.
    | **Nazwa** | myContinuousWebJob | Nazwa unikatowa w aplikacji usługi App Service. Musi zaczynać się od litery lub liczby i nie może zawierać znaków specjalnych innych niż "-" i "_". |
    | **Przekazywanie pliku** | Aplikacja ConsoleApp.zip | Plik *zip* zawierający plik wykonywalny lub plik skryptu, a także wszystkie pliki pomocnicze potrzebne do uruchomienia programu lub skryptu. Obsługiwane typy plików wykonywalnych lub skryptów są wymienione w sekcji [Obsługiwane typy plików.](#acceptablefiles) |
    | **Typ** | Ciągłe | [Typy WebJob](#webjob-types) są opisane wcześniej w tym artykule. |
-   | **Skali** | Wystąpienie wielokrotne | Dostępne tylko dla ciągłych webjobs. Określa, czy program lub skrypt działa na wszystkich wystąpieniach, czy tylko w jednym wystąpieniu. Opcja uruchamiania w wielu wystąpieniach nie ma zastosowania do warstw cen bezpłatnych lub [udostępnionych](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
+   | **Skalowanie** | Wystąpienie wielokrotne | Dostępne tylko dla ciągłych webjobs. Określa, czy program lub skrypt działa na wszystkich wystąpieniach, czy tylko w jednym wystąpieniu. Opcja uruchamiania w wielu wystąpieniach nie ma zastosowania do warstw cen bezpłatnych lub [udostępnionych](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 4. Kliknij przycisk **OK**.
 

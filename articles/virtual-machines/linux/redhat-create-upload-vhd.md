@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: guybo
-ms.openlocfilehash: 625dd1c8051d7949987d0dd19ee8a08347eedf14
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 4140f9f07a0fd653c8e0370d017cbae7effd0a07
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758639"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084315"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej bazującej na systemie Red Hat dla platformy Azure
 W tym artykule dowiesz się, jak przygotować maszynę wirtualną Red Hat Enterprise Linux (RHEL) do użycia na platformie Azure. Wersje RHEL, które są omówione w tym artykule są 6.7+ i 7.1+. Hipernadzorcy do przygotowania, które są opisane w tym artykule są Hyper-V, jądra na maszynie wirtualnej (KVM) i VMware. Aby uzyskać więcej informacji na temat wymagań dotyczących uprawnień do uczestnictwa w programie Dostęp do chmury Red Hat, zobacz [witrynę Red Hat cloud access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) i [uruchamianie RHEL na platformie Azure.](https://access.redhat.com/ecosystem/ccsp/microsoft-azure) Sposoby automatyzacji tworzenia obrazów RHEL można znaleźć w [usłudze Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
@@ -202,7 +202,7 @@ W tej sekcji przyjęto założenie, że plik ISO został już uzyskany ze strony
 
 1. Uruchom następujące polecenia, aby anulować aprovision maszyny wirtualnej i przygotować ją do inicjowania obsługi administracyjnej na platformie Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -326,7 +326,7 @@ W tej sekcji przyjęto założenie, że plik ISO został już uzyskany ze strony
 
 1. Uruchom następujące polecenia, aby anulować aprovision maszyny wirtualnej i przygotować ją do inicjowania obsługi administracyjnej na platformie Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # waagent -force -deprovision
 
@@ -477,7 +477,7 @@ W tej sekcji przyjęto założenie, że plik ISO został już uzyskany ze strony
 
 1. Uruchom następujące polecenia, aby anulować aprovision maszyny wirtualnej i przygotować ją do inicjowania obsługi administracyjnej na platformie Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -608,7 +608,7 @@ W tej sekcji przyjęto założenie, że maszyna wirtualna RHEL została już zai
 
 1. Uruchom następujące polecenia, aby anulować aprovision maszyny wirtualnej i przygotować ją do inicjowania obsługi administracyjnej na platformie Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -724,7 +724,7 @@ W tej sekcji przyjęto założenie, że maszyna wirtualna RHEL została już zai
 
 1. Uruchom następujące polecenia, aby anulować aprovision maszyny wirtualnej i przygotować ją do inicjowania obsługi administracyjnej na platformie Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 

@@ -1,15 +1,15 @@
 ---
 title: Tworzenie, tworzenie, & wdrażanie inteligentnych umów — azure blockchain service
 description: Samouczek dotyczący używania zestawu Azure Blockchain Development Kit for Ethereum w programie Visual Studio Code do tworzenia, tworzenia i wdrażania inteligentnego kontraktu w usłudze Azure Blockchain Service.
-ms.date: 12/06/2019
+ms.date: 04/22/2020
 ms.topic: tutorial
-ms.reviewer: chrisseg
-ms.openlocfilehash: 5b901ab904425a22d2fe9643ffa75a4e978efa88
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.reviewer: caleteet
+ms.openlocfilehash: dc23c680dfb2ed33cae2a251af16e1b1f25c6ac7
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74972884"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086661"
 ---
 # <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Samouczek: Tworzenie, tworzenie, tworzenie i wdrażanie inteligentnych kontraktów w usłudze Azure Blockchain
 
@@ -27,7 +27,7 @@ Program Azure Blockchain Development Kit for Ethereum umożliwia:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Ukończ [szybki start: łączenie się z siecią konsorcjum usługi Azure Blockchain Service za pomocą kodu programu Visual Studio](connect-vscode.md)
-* [Kod programu Visual Studio](https://code.visualstudio.com/Download)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Rozszerzenie Programu Azure Blockchain Development Kit dla Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Node.js 10.15.x lub nowsza](https://nodejs.org/download)
 * [Git 2.10.x lub wyższy](https://git-scm.com)
@@ -41,7 +41,7 @@ W systemie Windows dla modułu node-gyp wymagany jest zainstalowany kompilator j
 * Jeśli program Visual Studio 2019 jest zainstalowany, ustaw ścieżkę narzędzi kompilacji MS dla npm. Na przykład: `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * W przeciwnym razie zainstaluj autonomiczne `npm install --global windows-build-tools` narzędzia kompilacji vs przy użyciu w podwyższonej *osądy uruchom jako administratora* powłoki polecenia.
 
-Aby uzyskać więcej informacji na temat node-gyp, zobacz [repozytorium node-gyp w usłudze GitHub](https://github.com/node-gyp).
+Aby uzyskać więcej informacji na temat node-gyp, zobacz [repozytorium node-gyp w usłudze GitHub](https://github.com/nodejs/node-gyp).
 
 ## <a name="create-a-smart-contract"></a>Tworzenie inteligentnego kontraktu
 

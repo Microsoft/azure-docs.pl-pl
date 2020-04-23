@@ -132,7 +132,7 @@
     - name: Szablony aplikacji branżowych
       items:
         - name: Sprzedaż detaliczna
-          href: ../retail/overview-iot-central-retail-pnp.md
+          href: ../retail/overview-iot-central-retail.md
         - name: Energetyczna
           href: ../energy/overview-iot-central-energy.md
         - name: Instytucje rządowe

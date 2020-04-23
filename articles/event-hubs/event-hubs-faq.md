@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: d2d74a90d6712089cff681381e11b1caec9d469d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283671"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086372"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Centra zdarzeń często zadawane pytania
 
@@ -182,7 +182,7 @@ W badaniu zastosowano następujące kryteria:
 Wyniki dają wyobrażenie o tym, co można osiągnąć za pomocą dedykowanego klastra centrum zdarzeń. Ponadto klaster dedykacji jest wyposażony w funkcję Przechwytywanie centrów zdarzeń włączone dla scenariuszy mikro-partii i długoterminowego przechowywania.
 
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Jak utworzyć dedykowany klaster centrów zdarzeń?
-Utworzony klaster dedykowany centrum zdarzeń można utworzyć, przesyłając [żądanie zwiększenia przydziału pomocy technicznej](https://portal.azure.com/#create/Microsoft.Support) lub kontaktując się z [zespołem Centrum zdarzeń](mailto:askeventhubs@microsoft.com). Zwykle trwa około dwóch tygodni, aby uzyskać klastra wdrożony i przekazany do użycia przez Ciebie. Ten proces jest tymczasowy, dopóki pełna samoobsługa nie zostanie udostępniona za pośrednictwem witryny Azure portal lub szablonów usługi Azure Resource Manager, co zajmuje około dwóch godzin, aby wdrożyć klaster.
+Utworzony klaster dedykowany centrum zdarzeń można utworzyć, przesyłając [żądanie zwiększenia przydziału pomocy technicznej](https://portal.azure.com/#create/Microsoft.Support) lub kontaktując się z [zespołem Centrum zdarzeń](mailto:askeventhubs@microsoft.com). Zwykle trwa około dwóch tygodni, aby uzyskać klastra wdrożony i przekazany do użycia przez Ciebie. Ten proces jest tymczasowy, dopóki pełna samoobsługa nie zostanie udostępniona za pośrednictwem witryny Azure portal.
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
@@ -257,5 +257,5 @@ Aby dowiedzieć się więcej o naszej umowie SLA, zobacz stronę [Umowy dotyczą
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
 * [Przegląd usługi Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Tworzenie centrum zdarzeń](event-hubs-create.md)
+* [Tworzenie Centrum zdarzeń](event-hubs-create.md)
 * [Centra zdarzeń Automatyczne nadmuchiwane](event-hubs-auto-inflate.md)

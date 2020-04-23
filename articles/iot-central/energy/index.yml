@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 839f7034ec510dd181228409d6ff52ddbe201bd5
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: f62c2249f6a29e8bda04c3056da5c9fcf639b85e
+  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77621457"
+  ms.lasthandoff: 04/22/2020
+  ms.locfileid: "82024578"
 landingContent:
 - title: Tworzenie rozwiązań dla branży energetycznej
   linkLists:
@@ -38,7 +38,7 @@ landingContent:
     - text: Konfigurowanie szablonu urządzenia
       url: ../core/howto-set-up-template.md
     - text: Łączenie urządzenia
-      url: ../core/tutorial-connect-device.md
+      url: ../core/tutorial-connect-device-nodejs.md
     - text: Łączenie urządzenia IoT Plug and Play (wersja zapoznawcza)
       url: ../core/tutorial-connect-pnp-device.md
   - linkListType: how-to-guide

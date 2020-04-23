@@ -2,17 +2,18 @@
 title: Szyfrowanie dysków platformy Azure za pomocą usługi Azure AD dla maszyn wirtualnych z systemem Windows (poprzednia wersja)
 description: Ten artykuł zawiera instrukcje dotyczące włączania szyfrowania dysków platformy Microsoft Azure dla maszyn wirtualnych systemu Windows IaaS.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d06be85e4d18bc0867835a307b44ec8813c79d7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8677fa2620c1edc646dcffe120938f03fd13a0e5
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72245008"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085625"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Szyfrowanie dysków platformy Azure za pomocą usługi Azure AD dla maszyn wirtualnych z systemem Windows (poprzednia wersja)
 

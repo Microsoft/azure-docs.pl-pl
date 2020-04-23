@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: 787809e4132defa101bb82659e8af1a2d9f1b9b6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b66874cf95ed29d9be0a2d1ea397704131c7b21d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81453815"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085440"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Samouczek: zabezpieczanie połączenia usługi Azure SQL Database z usługi App Service za pomocą tożsamości zarządzanej
 
@@ -205,14 +205,14 @@ az webapp identity assign --resource-group myResourceGroup --name <app-name>
 
 Oto przykład danych wyjściowych:
 
-```json
+<pre>
 {
   "additionalProperties": {},
   "principalId": "21dfa71c-9e6f-4d17-9e90-1d28801c9735",
   "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
   "type": "SystemAssigned"
 }
-```
+</pre>
 
 ### <a name="grant-permissions-to-managed-identity"></a>Udziel uprawnień do tożsamości zarządzanej
 

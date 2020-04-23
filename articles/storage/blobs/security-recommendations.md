@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 0ceef2561d84a1fa491ab9577e1eac789b62bef7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 0b32f7e8fa2ec0d1d28f2fd42147e140d2d03341
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454632"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086117"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Zalecenia dotyczące zabezpieczeń dla magazynu obiektów Blob
 
@@ -57,6 +57,7 @@ Usługa Azure Security Center okresowo analizuje stan zabezpieczeń zasobów pla
 | Włączanie reguł zapory | Skonfiguruj reguły zapory, aby ograniczyć dostęp do konta magazynu do żądań pochodzących z określonych adresów IP lub zakresów lub z listy podsieci w sieci wirtualnej platformy Azure.Configure firewall rules to limit access to your storage account to requests that originate from specified IP addresses or ranges, or from a list of subnets in an Azure Virtual Network (VNet). Aby uzyskać więcej informacji na temat konfigurowania reguł zapory, zobacz [Ustawienia serwera proxy i zapory usługi Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md). | - |
 | Zezwalaj zaufanym usługom firmy Microsoft na dostęp do konta magazynu | Włączenie reguł zapory dla konta magazynu domyślnie blokuje przychodzące żądania danych, chyba że żądania pochodzą z usługi działającej w sieci wirtualnej platformy Azure lub z dozwolonych publicznych adresów IP. Żądania, które są zablokowane obejmują te z innych usług platformy Azure, z witryny Azure portal, z rejestrowania i metryki usług i tak dalej. Możesz zezwolić na żądania z innych usług platformy Azure, dodając wyjątek, aby umożliwić zaufanym usługom firmy Microsoft dostęp do konta magazynu. Aby uzyskać więcej informacji na temat dodawania wyjątku dla zaufanych usług firmy Microsoft, zobacz [Ustawienia serwera proxy i zapory synchronizacji plików azure](../files/storage-sync-files-firewall-and-proxy.md).| - |
 | Używanie prywatnych punktów końcowych | Prywatny punkt końcowy przypisuje prywatny adres IP z sieci wirtualnej platformy Azure (VNet) do konta magazynu. Zabezpiecza cały ruch między siecią wirtualną a kontem magazynu za pomocą łącza prywatnego. Aby uzyskać więcej informacji na temat prywatnych punktów końcowych, zobacz [Łączenie prywatnie z kontem magazynu przy użyciu prywatnego punktu końcowego platformy Azure](../../private-link/create-private-endpoint-storage-portal.md). | - |
+| Używanie tagów usługi sieci wirtualnej | Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów objętymi tagiem usługi i automatycznie aktualizuje tag usługi w miarę zmiany adresów. Aby uzyskać więcej informacji na temat tagów usług obsługiwanych przez usługę Azure Storage, zobacz [omówienie tagów usługi platformy Azure](../../virtual-network/service-tags-overview.md). W samouczku, który pokazuje, jak używać tagów usługi do tworzenia reguł sieci wychodzącej, zobacz [Ograniczanie dostępu do zasobów PaaS](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Ograniczanie dostępu do sieci do określonych sieci | Ograniczenie dostępu do sieci do sieci obsługujących klientów wymagających dostępu zmniejsza narażenie zasobów na ataki sieciowe. | [Tak](../../security-center/security-center-sql-service-recommendations.md) |
 
 ## <a name="loggingmonitoring"></a>Rejestrowanie/monitorowanie

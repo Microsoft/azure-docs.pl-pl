@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: b-juche
-ms.openlocfilehash: d28f5469174a2659869ebb01ef01653b7190e30e
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: a73da39dafcc8be78fbe1c023693ffa4a19aa1d3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772082"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085012"
 ---
-# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Korzyści z używania plików NetApp platformy Azure z bazą danych Oracle Database
+# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Korzyści związane z korzystaniem z usługi Azure NetApp Files w bazie danych Oracle Database
 
 Oracle Direct NFS (dNFS) umożliwia wyższą wydajność niż własny sterownik NFS systemu operacyjnego. W tym artykule opisano technologię i przedstawiono porównanie wydajności między dNFS a tradycyjnym klientem systemu plików NFS (Kernel NFS). Pokazuje również zalety i łatwość korzystania z dNFS za pomocą usługi Azure NetApp Files.  
 
@@ -39,7 +39,7 @@ Z drugiej strony oracle dNFS zwiększa wydajność poprzez równoważenie obcią
 
 [Oracle FAQ for Direct NFS](http://www.orafaq.com/wiki/Direct_NFS) pokazuje, że Oracle dNFS jest zoptymalizowanym klientem NFS. Zapewnia szybki i skalowalny dostęp do pamięci masowej NFS, która znajduje się na urządzeniach pamięci masowej NAS (dostępnych za pośrednictwem protokołu TCP/IP). dNFS jest wbudowany w jądro bazy danych, podobnie jak ASM, który jest używany głównie z das lub pamięci masowej SAN. W związku *z tym wytyczne jest użycie dNFS podczas implementowania pamięci masowej NAS i używać ASM podczas wdrażania pamięci masowej SAN.*
 
-dNFS jest opcją domyślną w Oracle 18c i domyślną dla RAC.
+dNFS jest opcją domyślną w Oracle 18c.
 
 dNFS jest dostępny począwszy od Bazy Danych Oracle 11g. Poniższy diagram porównuje dNFS z natywnym NFS. Korzystając z dNFS, baza danych Oracle, która działa na maszynie wirtualnej platformy Azure może prowadzić więcej we/wy niż natywny klient systemu plików NFS.
 

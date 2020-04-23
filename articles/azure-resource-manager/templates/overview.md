@@ -3,12 +3,12 @@ title: Przegląd szablonów
 description: W tym artykule opisano korzyści przy użyciu szablonów usługi Azure Resource Manager do wdrażania zasobów.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885739"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086338"
 ---
 # <a name="what-are-arm-templates"></a>Co to są szablony usługi ARM?
 
@@ -50,7 +50,7 @@ Jeśli próbujesz zdecydować między używaniem szablonów ARM a jedną z innyc
 
 * **Plany wdrażania:** Można skorzystać z [planów dostarczonych](../../governance/blueprints/overview.md) przez firmę Microsoft w celu spełnienia standardów regulacyjnych i zgodności. Te plany obejmują wstępnie utworzone szablony dla różnych architektur.
 
-* **Integracja ciągłej integracji/dysku CD:** Można zintegrować szablony z narzędziami ciągłej integracji i ciągłego wdrażania (CI/CD), które mogą zautomatyzować potoki wydań w celu szybkiego i niezawodnego aktualizowania aplikacji i infrastruktury. Korzystając z zadania szablonu Azure DevOps i Resource Manager, można użyć usługi Azure Pipelines do ciągłego tworzenia i wdrażania projektów szablonów ARM. Aby dowiedzieć się więcej, zobacz [projekt programu VS z potokami](add-template-to-azure-pipelines.md) i [ciągła integracja z usługą Azure Pipelines.](template-tutorial-use-azure-pipelines.md)
+* **Integracja ciągłej integracji/dysku CD:** Można zintegrować szablony z narzędziami ciągłej integracji i ciągłego wdrażania (CI/CD), które mogą zautomatyzować potoki wydań w celu szybkiego i niezawodnego aktualizowania aplikacji i infrastruktury. Korzystając z zadania szablonu Azure DevOps i Resource Manager, można użyć usługi Azure Pipelines do ciągłego tworzenia i wdrażania projektów szablonów ARM. Aby dowiedzieć się więcej, zobacz [projekt programu VS z potokami](add-template-to-azure-pipelines.md) i [samouczek: ciągła integracja szablonów usługi Azure Resource Manager z potokami platformy Azure.](./deployment-tutorial-pipeline.md)
 
 * **Eksportowany kod:** Szablon istniejącej grupy zasobów można uzyskać, eksportując bieżący stan grupy zasobów lub wyświetlając szablon używany dla określonego wdrożenia. Przeglądając [wyeksportowany szablon](export-template-portal.md), można poznać jego składnię.
 

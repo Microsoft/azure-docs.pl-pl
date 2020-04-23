@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 65e97453ba2ee85fb2ed7b512db87a269d2d7f77
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cf4550bae1433f1e751555cd35f8a1ba78747295
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811506"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085840"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji języka PHP i korzystającej z bazy danych MySQL w usłudze Azure App Service w systemie Linux
 
@@ -22,7 +22,7 @@ ms.locfileid: "80811506"
 
 ![Aplikacja PHP uruchomiona w usłudze Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych MySQL na platformie Azure
@@ -163,18 +163,18 @@ az mysql server create --resource-group myResourceGroup --name <mysql-server-nam
 
 Po utworzeniu serwera MySQL w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących:
 
-```json
+<pre>
 {
-  "administratorLogin": "<admin-user>",
+  "administratorLogin": "&lt;admin-user&gt;",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql-server-name>.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
+  "fullyQualifiedDomainName": "&lt;mysql-server-name&gt;.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/&lt;mysql-server-name&gt;",
   "location": "westeurope",
-  "name": "<mysql-server-name>",
+  "name": "&lt;mysql-server-name&gt;",
   "resourceGroup": "myResourceGroup",
   ...
 }
-```
+</pre>
 
 ### <a name="configure-server-firewall"></a>Konfigurowanie zapory serwera
 
@@ -388,7 +388,7 @@ git push azure master
 
 Podczas wdrażania usługa Azure App Service przekaże postęp za pomocą narzędzi Git.
 
-```bash
+<pre>
 Counting objects: 3, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
@@ -400,8 +400,8 @@ remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
 remote: Running deployment command...
 ...
-< Output has been truncated for readability >
-```
+&lt; Output has been truncated for readability &gt;
+</pre>
 
 <!-- > [!NOTE]
 > You may notice that the deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment, so this sample repository has three additional files in its root directory to enable it:

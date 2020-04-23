@@ -1,15 +1,15 @@
 ---
 title: Łączenie się z usługą Azure Blockchain Service za pomocą kodu programu Visual Studio
 description: Łączenie się z siecią konsorcjum usługi Azure Blockchain service przy użyciu rozszerzenia Azure Blockchain Development Kit for Ethereum w kodzie programu Visual Studio
-ms.date: 03/26/2020
+ms.date: 04/22/2020
 ms.topic: quickstart
 ms.reviewer: caleteet
-ms.openlocfilehash: 269a3e419186daddf1e6a41a54e52e688f4bc7e3
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8b502966317c5d07e89de4ae70ff72b899e963e6
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348582"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084842"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Szybki start: łączenie się z siecią konsorcjum usługi Azure Blockchain Service za pomocą kodu programu Visual Studio
 
@@ -20,7 +20,7 @@ W tym przewodniku Szybki start należy zainstalować i używać rozszerzenia Azu
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Ukończ [szybki start: Tworzenie członka łańcucha bloków przy użyciu portalu Azure](create-member.md) lub [przewodnika Szybki start: tworzenie członka łańcucha bloków usługi Azure Blockchain przy użyciu interfejsu wiersza polecenia platformy Azure](create-member-cli.md)
-* [Kod programu Visual Studio](https://code.visualstudio.com/Download)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Rozszerzenie Programu Azure Blockchain Development Kit dla Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Node.js 10.15.x lub nowsza](https://nodejs.org)
 * [Git 2.10.x lub wyższy](https://git-scm.com)
@@ -34,7 +34,7 @@ W systemie Windows dla modułu node-gyp wymagany jest zainstalowany kompilator j
 * Jeśli program Visual Studio 2019 jest zainstalowany, ustaw ścieżkę narzędzi kompilacji MS dla npm. Na przykład: `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * W przeciwnym razie zainstaluj autonomiczne `npm install --global windows-build-tools` narzędzia kompilacji vs przy użyciu w podwyższonej *osądy uruchom jako administratora* powłoki polecenia.
 
-Aby uzyskać więcej informacji na temat node-gyp, zobacz [repozytorium node-gyp w usłudze GitHub](https://github.com/node-gyp).
+Aby uzyskać więcej informacji na temat node-gyp, zobacz [repozytorium node-gyp w usłudze GitHub](https://github.com/nodejs/node-gyp).
 
 ### <a name="verify-azure-blockchain-development-kit-environment"></a>Weryfikowanie środowiska zestawu Azure Blockchain Development Kit
 

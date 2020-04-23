@@ -3,12 +3,12 @@ title: Ciągła integracja/dysk CD z potokami i szablonami platformy Azure
 description: W tym artykule opisano sposób konfigurowania ciągłej integracji w potokach platformy Azure przy użyciu projektów wdrażania grupy zasobów platformy Azure w programie Visual Studio w celu wdrożenia szablonów Usługi Resource Manager.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 7617bf47595fce7baa533b0f7cc94a1803ddd349
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153458"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084655"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integruj szablony ARM z potokami platformy Azure
 
@@ -28,7 +28,7 @@ W tym artykule założono, że projekt programu Visual Studio i organizacja Azur
 
 * Masz organizację Azure DevOps. Jeśli go nie masz, [utwórz go za darmo.](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops) Jeśli Twój zespół ma już organizację Azure DevOps, upewnij się, że jesteś administratorem projektu Azure DevOps, którego chcesz użyć.
 
-* Skonfigurowano [połączenie usługi z](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) subskrypcją platformy Azure. Zadania w potoku wykonywane w ramach tożsamości jednostki usługi. Aby uzyskać instrukcje tworzenia połączenia, zobacz [Tworzenie projektu DevOps](template-tutorial-use-azure-pipelines.md#create-a-devops-project).
+* Skonfigurowano [połączenie usługi z](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) subskrypcją platformy Azure. Zadania w potoku wykonywane w ramach tożsamości jednostki usługi. Aby uzyskać instrukcje tworzenia połączenia, zobacz [Tworzenie projektu DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
 
 * Masz projekt programu Visual Studio, który został utworzony na podstawie szablonu startowego **grupy zasobów platformy Azure.** Aby uzyskać informacje dotyczące tworzenia tego typu projektu, zobacz [Tworzenie i wdrażanie grup zasobów platformy Azure za pośrednictwem programu Visual Studio](create-visual-studio-deployment-project.md).
 
@@ -122,7 +122,7 @@ Teraz, gdy zrozumiesz, jak utworzyć zadanie, przejdźmy przez kroki, aby edytow
        azurePowerShellVersion: LatestVersion
    ```
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
    ![Zapisywanie potoku](./media/add-template-to-azure-pipelines/save-pipeline.png)
 
@@ -249,7 +249,7 @@ Teraz, gdy zrozumiesz, jak utworzyć zadania, przejdźmy przez kroki, aby edytow
         deploymentMode: 'Incremental'
    ```
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 1. Podaj wiadomość dla zatwierdzenia i zaobowiąż się bezpośrednio do **wzorca**.
 
@@ -261,4 +261,4 @@ Można wybrać aktualnie uruchomiony potok, aby wyświetlić szczegółowe infor
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać krok po kroku proces korzystania z usługi Azure Potoki z szablonami ARM, zobacz [Samouczek: Ciągła integracja szablonów ARM z potokami platformy Azure](template-tutorial-use-azure-pipelines.md).
+Aby uzyskać krok po kroku proces korzystania z usługi Azure Potoki z szablonami ARM, zobacz [Samouczek: Ciągła integracja szablonów usługi Azure Resource Manager z potokami platformy Azure.](deployment-tutorial-pipeline.md)

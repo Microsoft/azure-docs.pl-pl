@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: c4c8f21234cfbf040d57c0e1c8dbecbb698d7d50
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 9da8b6d8e5151bd6487d68c2796c261f19c11b55
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685924"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086559"
 ---
 # <a name="cloud-solution-providers"></a>Dostawcy rozwiązań w chmurze
 
@@ -195,4 +195,4 @@ Odwiedź przewodnik [po portalu Azure Marketplace i appsource dla wydawców](htt
 
 Aby dowiedzieć się więcej o usługach GTM w marketplace, zobacz [Usługi przejdź na rynek.](https://partner.microsoft.com/reach-customers/gtm)
 
-Zaloguj się do [Centrum partnerów](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) lub [portalu cloud partnerów,](https://cloudpartner.azure.com/) aby utworzyć i skonfigurować ofertę.
+Zaloguj się do [Centrum partnerów,](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) aby utworzyć i skonfigurować ofertę.

@@ -1,25 +1,19 @@
 ---
 title: Pobierz szablon maszyny Wirtualnej platformy Azure
-description: Pobierz szablon dla maszyny Wirtualnej, aby ułatwić automatyzację wdrożeń w modelu wdrażania Menedżera zasobów
-services: virtual-machines-windows
-documentationcenter: ''
+description: Pobierz szablon maszyny Wirtualnej przy użyciu portalu lub programu PowerShell.
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c73026515f0d7fde4e2f82838696700b1bb17c77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af6905f0ba62a9053e44134348721312ade6b9d7
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74033543"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085386"
 ---
 # <a name="download-the-template-for-a-vm"></a>Pobieranie szablonu dla maszyny wirtualnej
 Podczas tworzenia maszyny Wirtualnej na platformie Azure przy użyciu portalu lub programu PowerShell szablon Menedżera zasobów jest tworzony automatycznie dla Ciebie. Za pomocą tego szablonu można szybko powielić wdrożenie. Szablon zawiera informacje o wszystkich zasobach w grupie zasobów. Dla maszyny wirtualnej oznacza to, że szablon zawiera wszystko, co jest tworzone w celu obsługi maszyny Wirtualnej w tej grupie zasobów, w tym zasobów sieciowych.

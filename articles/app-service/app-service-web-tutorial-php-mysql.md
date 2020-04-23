@@ -6,12 +6,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 7c03e2b5e8c035b53b874a8e7751283fdbe3d516
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: ee5a12b11e36f3d1e08d1154d21f198c0fd1b76e
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811287"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085248"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Samouczek: Tworzenie aplikacji PHP i MySQL na platformie Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "80811287"
 
 ![Aplikacja PHP uruchomiona w usłudze Azure App Service](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych MySQL na platformie Azure
@@ -169,10 +169,10 @@ az mysql server create --resource-group myResourceGroup --name <mysql_server_nam
 
 Po utworzeniu serwera MySQL w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących:
 
-```json
+<pre>
 {
   "location": "westeurope",
-  "name": "<mysql_server_name>",
+  "name": "&lt;mysql_server_name&gt;",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "additionalProperties": {},
@@ -184,9 +184,9 @@ Po utworzeniu serwera MySQL w interfejsie wiersza polecenia platformy Azure zost
   },
   "sslEnforcement": "Enabled",
   ...    +  
-  -  < Output has been truncated for readability >
+  -  &lt; Output has been truncated for readability &gt;
 }
-```
+</pre>
 
 ### <a name="configure-server-firewall"></a>Konfigurowanie zapory serwera
 
@@ -400,7 +400,7 @@ Domyślnie usługa Azure App Service wskazuje_/_ ścieżkę aplikacji wirtualnej
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
+<pre>
 Counting objects: 3, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
@@ -412,8 +412,8 @@ remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
 remote: Running deployment command...
 ...
-< Output has been truncated for readability >
-```
+&lt; Output has been truncated for readability &gt;
+</pre>
 
 > [!NOTE]
 > Możesz zauważyć, że w procesie wdrażania pakiety [Composer](https://getcomposer.org/) są instalowane na końcu. Usługa App Service nie uruchamia tych automatyzacji podczas wdrażania domyślnego, dlatego w katalogu głównym tego przykładowego repozytorium znajdują się 3 dodatkowe pliki włączające tę funkcję:

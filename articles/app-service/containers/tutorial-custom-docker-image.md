@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a6c9eb354bce09a5f652895f4af34df1f6750bec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2609ff908b3c2f872cb63d3dcd7dcd481d316484
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80045757"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085862"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Samouczek: Tworzenie obrazu niestandardowego i uruchamianie w usłudze App Service z rejestru prywatnego
 
 [Usługa App Service](app-service-linux-intro.md) udostępnia wbudowane obrazy platformy Docker w systemie Linux z obsługą określonych wersji, takich jak PHP 7.3 i Node.js 10.14. Usługa App Service używa technologii kontenera platformy Docker do hostowania zarówno wbudowanych obrazów, jak i obrazów niestandardowych jako platformy jako usługi. W tym samouczku dowiesz się, jak utworzyć obraz niestandardowy i uruchomić go w usłudze App Service. Ten wzorzec jest przydatny, gdy wbudowane obrazy nie uwzględniają wybranego przez Ciebie języka lub gdy aplikacja wymaga określonej konfiguracji, której wbudowane obrazy nie obejmują.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wdrażanie obrazu niestandardowego w rejestrze kontenerów prywatnych
@@ -123,7 +123,7 @@ az acr credential show --name <azure-container-registry-name>
 
 Dane wyjściowe ujawniają dwa hasła wraz z nazwą użytkownika.
 
-```json
+<pre>
 {
   "passwords": [
     {
@@ -135,9 +135,9 @@ Dane wyjściowe ujawniają dwa hasła wraz z nazwą użytkownika.
       "value": "{password}"
     }
   ],
-  "username": "<registry-username>"
+  "username": "&lt;registry-username&gt;"
 }
-```
+</pre>
 
 W oknie terminala lokalnego zaloguj się do `docker login` rejestru kontenerów platformy Azure przy użyciu polecenia, jak pokazano w poniższym przykładzie. Zastąp * \<>nazwę rejestru azure* i * \<>nazwy rejestru* wartościami dla rejestru. Po wyświetleniu monitu wpisz jedno z haseł z poprzedniego kroku.
 
@@ -168,11 +168,11 @@ az acr repository list -n <azure-container-registry-name>
 
 Należy uzyskać następujące dane wyjściowe.
 
-```json
+<pre>
 [
   "mydockerimage"
 ]
-```
+</pre>
 
 ### <a name="create-app-service-plan"></a>Tworzenie planu usługi App Service
 
@@ -188,7 +188,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone dane wyjściowe podobne do następujących:
 
-```json
+<pre>
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -196,12 +196,12 @@ Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy A
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Konfigurowanie poświadczeń rejestru w aplikacji sieci Web
 

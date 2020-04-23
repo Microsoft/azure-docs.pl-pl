@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18
-ms.date: 03/11/2020
-ms.openlocfilehash: 66bfa0d3ee4cb03f1b48e2db24be7a90d97f60d6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/22/2020
+ms.openlocfilehash: 5fa25f54faecbc7caf130ffeb0d24c3d8fef7e09
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79117217"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084808"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Samouczek: używanie strumieni ze strukturą platformy Apache Spark z platformą Kafka w usłudze HDInsight
 
@@ -21,7 +21,7 @@ W tym samouczku przedstawiono sposób użycia [przesyłania strumieniowego platf
 
 Spark Structured Streaming to aparat przetwarzania strumienia zbudowany na platformie Spark SQL. Aparat ten umożliwia wyrażanie obliczeń strumieniowych tak samo jak obliczeń wsadowych na danych statycznych.  
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie klastrów za pomocą szablonu usługi Azure Resource Manager
@@ -35,7 +35,7 @@ Po wykonaniu czynności w tym dokumencie należy pamiętać o usunięciu klastr�
 
 * Znajomość zagadnień dotyczących używania [notesów Jupyter](https://jupyter.org/) za pomocą platformy Spark w usłudze HDInsight. Aby uzyskać więcej informacji, zobacz dokument [Ładowanie danych i uruchamianie zapytań za pomocą platformy Apache Spark w usłudze HDInsight](spark/apache-spark-load-data-run-query.md).
 
-* Znajomość języka programowania [Scala](https://www.scala-lang.org/). Kod używany w tym samouczku jest napisany w języku Scala.
+* Znajomość języka programowania Scala. Kod używany w tym samouczku jest napisany w języku Scala.
 
 * Znajomość zagadnień dotyczących tworzenia tematów platformy Kafka. Aby uzyskać więcej informacji, zobacz dokument [Przewodnik Szybki start dla platformy Apache Kafka w usłudze HDInsight](kafka/apache-kafka-get-started.md).
 
@@ -48,7 +48,7 @@ Po wykonaniu czynności w tym dokumencie należy pamiętać o usunięciu klastr�
 
 ## <a name="structured-streaming-with-apache-kafka"></a>Przesyłanie strumieniowe ze strukturą na platformie Apache Kafka
 
-Przesyłanie strumieniowe ze strukturą platformy Spark to aparat przetwarzania strumieni oparty na aparacie SQL platformy Spark. Podczas korzystania z przesyłania strumieniowego ze strukturą możesz pisać zapytania przesyłania strumieniowego w taki sam sposób, jak zapytania wsadowe.
+Przesyłanie strumieniowe ze strukturą platformy Spark to aparat przetwarzania strumieni oparty na aparacie SQL platformy Spark. Podczas korzystania z usługi przesyłania strumieniowego strukturalnego, można pisać zapytania przesyłania strumieniowego w taki sam sposób pisania kwerend wsadowych.
 
 Poniższe fragmenty kodu demonstrują odczytywanie z platformy Kafka i zapisywanie do pliku. Pierwszy z nich to operacja wsadowa, a drugi to operacja przesyłania strumieniowego:
 
@@ -182,7 +182,7 @@ W tym przykładzie pokazano, jak używać usługi Spark Structured Streaming z p
 
 1. Wybierz **pozycję Nowy > Spark,** aby utworzyć notes.
 
-1. Przesyłanie strumieniowe platformy Spark ma mikrobatching, co oznacza, że dane są wykonywane jako partie i executery uruchamiane na partiach danych. Jeśli wykonawca ma limit czasu bezczynnego mniej niż czas potrzebny do przetworzenia partii, a następnie wykonawców będzie stale dodawane i usuwane. Jeśli wykonawca bezczynny limit czasu jest większy niż czas trwania partii, wykonawca nigdy nie zostanie usunięty. W związku z tym **zaleca się wyłączenie alokacji dynamicznej przez ustawienie spark.dynamicAllocation.enabled false podczas uruchamiania aplikacji przesyłania strumieniowego.**
+1. Przesyłanie strumieniowe platformy Spark ma mikrobatching, co oznacza, że dane są wykonywane jako partie i executery uruchamiane na partiach danych. Jeśli wykonawca ma limit czasu bezczynnego mniej niż czas potrzebny do przetworzenia partii, a następnie wykonawców będzie stale dodawane i usuwane. Jeśli wykonawca bezczynny limit czasu jest większy niż czas trwania partii, wykonawca nigdy nie zostanie usunięty. Dlatego **zaleca się wyłączenie alokacji dynamicznej przez ustawienie spark.dynamicAllocation.enabled false podczas uruchamiania aplikacji strumieniowych.**
 
     Ładowanie pakietów używanych przez notes, wprowadzając następujące informacje w komórce notesu. Uruchom polecenie za pomocą **klawiszy CTRL + ENTER**.
 
@@ -277,7 +277,7 @@ W tym przykładzie pokazano, jak używać usługi Spark Structured Streaming z p
     println("Schema declared")
     ```
 
-1. Wybierz dane i uruchom strumień. Poniższe polecenie pokazuje, jak pobierać dane z platformy kafka przy użyciu kwerendy wsadowej, a następnie zapisywać wyniki do usługi HDFS w klastrze platformy Spark. W tym przykładzie `select` pobiera komunikat (pole wartości) z platformy Kafka i stosuje do niego schemat. Dane są następnie zapisywane w formacie HDFS (WASB lub ADL) w formacie parkietu. Wprowadź polecenie w następnej komórce Jupytera.
+1. Wybierz dane i uruchom strumień. Poniższe polecenie pokazuje, jak pobrać dane z platformy Kafka przy użyciu kwerendy wsadowej. A następnie zapisz wyniki do hdfs w klastrze Platformy Spark. W tym przykładzie `select` pobiera komunikat (pole wartości) z platformy Kafka i stosuje do niego schemat. Dane są następnie zapisywane w formacie HDFS (WASB lub ADL) w formacie parkietu. Wprowadź polecenie w następnej komórce Jupytera.
 
     ```scala
     // Read a batch from Kafka
@@ -316,7 +316,7 @@ W tym przykładzie pokazano, jak używać usługi Spark Structured Streaming z p
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Aby wyczyścić zasoby utworzone w tym samouczku, możesz usunąć grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie skojarzonego klastra usługi HDInsight i wszystkich innych zasobów skojarzonych z tą grupą zasobów.
+Aby wyczyścić zasoby utworzone w tym samouczku, możesz usunąć grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie skojarzonego klastra HDInsight. I wszelkie inne zasoby skojarzone z grupą zasobów.
 
 Aby usunąć grupę zasobów za pomocą witryny Azure Portal:
 
@@ -331,7 +331,7 @@ Aby usunąć grupę zasobów za pomocą witryny Azure Portal:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób użycia [przesyłania strumieniowego ze strukturą platformy Apache Spark](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) do zapisywania danych na platformie [Apache Kafka](./kafka/apache-kafka-introduction.md) w usłudze HDInsight i odczytywania z niej danych. Korzystając z poniższego linku, możesz dowiedzieć się, jak używać systemu [Apache Storm](./storm/apache-storm-overview.md) z platformą Kafka.
+W tym samouczku dowiesz się, jak używać apache Spark Structured Streaming. Aby napisać i odczytać dane z Apache Kafka na HDInsight. Korzystając z poniższego linku, możesz dowiedzieć się, jak używać systemu Apache Storm z platformą Kafka.
 
 > [!div class="nextstepaction"]
 > [Używanie systemu Apache Storm z platformą Apache Kafka](hdinsight-apache-storm-with-kafka.md)

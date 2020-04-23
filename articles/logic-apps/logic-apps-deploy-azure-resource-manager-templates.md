@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 95bfa7b1918da09e4f5913eeb2b57c290b093efe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 432e22879ce0eba89f04a1084e2d4a93a487dd45
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270448"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086440"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Wdrażanie szablonów usługi Azure Resource Manager dla aplikacji logiki azure
 
 Po utworzeniu szablonu usługi Azure Resource Manager dla aplikacji logiki można wdrożyć szablon w następujących sposób:
 
-* [Portal Azure](#portal)
+* [Azure Portal](#portal)
 * [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
 * [Interfejs wiersza polecenia platformy Azure](#cli)
@@ -79,7 +79,7 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 
 Więcej informacji można znaleźć w następujących tematach:
 
-* [Deploy resources with Resource Manager templates and Azure CLI (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu wiersza polecenia platformy Azure)](../azure-resource-manager/templates/deploy-cli.md) 
+* [Deploy resources with Resource Manager templates and Azure CLI (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu wiersza polecenia platformy Azure)](../azure-resource-manager/templates/deploy-cli.md)
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
 <a name="azure-pipelines"></a>
@@ -91,7 +91,7 @@ Aby wdrożyć szablony aplikacji logiki i zarządzać środowiskami, zespoły cz
 Aby uzyskać więcej informacji na temat ciągłej integracji i ciągłego wdrażania (CI/CD) dla szablonów usługi Azure Resource Manager za pomocą potoków platformy Azure, zobacz następujące tematy i przykłady:
 
 * [Integruj szablony usługi Resource Manager za pomocą potoków platformy Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
-* [Samouczek: Ciągła integracja szablonów usługi Azure Resource Manager z potokami platformy Azure](../azure-resource-manager/templates/template-tutorial-use-azure-pipelines.md)
+* [Samouczek: Ciągła integracja szablonów usługi Azure Resource Manager z potokami platformy Azure](../azure-resource-manager/templates/deployment-tutorial-pipeline.md)
 * [Przykład: Łączenie się z kolejkami usługi Azure Service Bus z aplikacji logiki azure i wdrażanie za pomocą potoków platformy Azure w usłudze Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Przykład: Łączenie się z kontami usługi Azure Storage z usługi Azure Logic Apps i wdrażanie za pomocą potoków platformy Azure w usłudze Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Przykład: Konfigurowanie akcji aplikacji funkcji dla usługi Azure Logic Apps i wdrażanie za pomocą potoków platformy Azure w usłudze Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)

@@ -2,13 +2,13 @@
 title: Funkcje szablonu - data
 description: W tym artykule opisano funkcje używane w szablonie usługi Azure Resource Manager do pracy z datami.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 75234a142b9f2fbe61c337bfeb378b47534bac79
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/22/2020
+ms.openlocfilehash: 364b41e9e92cb248a7bd2fac5a41eb535adbf440
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986280"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084791"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funkcje daty dla szablonów ARM
 
@@ -21,14 +21,14 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z datami w szablon
 
 `dateTimeAdd(base, duration, [format])`
 
-Dodaje czas trwania do podstawowej wartości datetime.
+Dodaje czas trwania do wartości podstawowej. Oczekuje się formatu ISO 8601.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| base | Tak | ciąg | Wartość data początkowatime dla dodania. Użyj [formatu sygnatury czasowej ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
-| czas trwania | Tak | ciąg | Wartość czasu, aby dodać do podstawy. Może to być wartość ujemna. Użyj [formatu czasu trwania ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| base | Yes | ciąg | Wartość data początkowatime dla dodania. Użyj [formatu sygnatury czasowej ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
+| czas trwania | Yes | ciąg | Wartość czasu, aby dodać do podstawy. Może to być wartość ujemna. Użyj [formatu czasu trwania ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 | format | Nie | ciąg | Format wyjściowy dla wyniku daty. Jeśli nie podano, używany jest format wartości podstawowej. Użyj [ciągów w formacie standardowym](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [ciągów formatu niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Wartość zwracana

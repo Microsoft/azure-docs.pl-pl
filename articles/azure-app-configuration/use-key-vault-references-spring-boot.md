@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b6b6d10165eed331c397e17a18e382b095e1f74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a5bc947c3ea414f197df9cfcdd5f233e4654cbc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79216746"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085029"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Samouczek: Używanie odwołań do magazynu kluczy w aplikacji Java Spring
 
@@ -35,7 +35,7 @@ W tym samouczku pokazano, jak zaimplementować odwołania do usługi Key Vault w
 
 Aby wykonać czynności opisane w tym samouczku, można użyć dowolnego edytora kodu. Na przykład [Visual Studio Code](https://code.visualstudio.com/) to wieloplatformowy edytor kodu, który jest dostępny dla systemów operacyjnych Windows, macOS i Linux.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz klucz konfiguracji aplikacji, który odwołuje się do wartości przechowywanej w magazynie kluczy.
@@ -61,7 +61,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
     * W **nazwie magazynu kluczy**wymagana jest unikatowa nazwa. W tym samouczku wprowadź **Contoso-vault2**.
     * Z listy rozwijanej **Region** wybierz lokalizację.
 1. Pozostaw inne opcje **tworzenia magazynu kluczy** z wartościami domyślnymi.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 W tym momencie twoje konto platformy Azure jest jedynym autoryzowanym do uzyskania dostępu do tego nowego magazynu.
 
@@ -78,11 +78,11 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
     * **Nazwa**: Wprowadź **wiadomość**.
     * **Wartość**: Wprowadź **Hello z przechowalni kluczy**.
 1. Pozostaw inne Tworzenie właściwości **tajnych** z ich wartościami domyślnymi.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Dodawanie odwołania do usługi Key Vault do konfiguracji aplikacji
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wybierz **pozycję Wszystkie zasoby**, a następnie wybierz wystąpienie sklepu konfiguracja aplikacji utworzone w przewodniku Szybki start.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz **pozycję Wszystkie zasoby**, a następnie wybierz wystąpienie sklepu konfiguracja aplikacji utworzone w przewodniku Szybki start.
 
 1. Wybierz **Pozycję Eksplorator konfiguracji**.
 
@@ -140,6 +140,14 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Aktualizowanie kodu w celu użycia odwołania do usługi Key Vault
 
+1. Utwórz zmienną środowiskową o nazwie **APP_CONFIGURATION_ENDPOINT**. Ustaw jego wartość na punkt końcowy dla magazynu konfiguracji aplikacji. Punkt końcowy można znaleźć w bloku **kluczy dostępu** w witrynie Azure portal.
+
+1. Otwórz *bootstrap.properties* w folderze *zasobów.* Zaktualizuj ten plik, aby użyć punktu końcowego konfiguracji aplikacji, a nie ciągu połączenia.
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+    ```
+
 1. Otwórz *messageproperties.java*. Dodaj nową zmienną o nazwie *keyVaultMessage*:
 
     ```java
@@ -166,7 +174,7 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
 1. Utwórz nowy plik o nazwie *AzureCredentials.java* i dodaj poniższy kod.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import com.azure.core.credential.TokenCredential;
     import com.azure.identity.EnvironmentCredentialBuilder;
@@ -195,7 +203,7 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
 1. Utwórz nowy plik o nazwie *AppConfiguration.java*. I dodać poniższy kod.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import org.springframework.context.annotation.Bean;
     import org.springframework.context.annotation.Configuration;
@@ -214,7 +222,7 @@ Aby dodać klucz tajny do magazynu, musisz wykonać tylko kilka dodatkowych krok
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.AppConfiguration
+    com.example.demo.AppConfiguration
     ```
 
 1. Zbuduj aplikację Spring Boot za pomocą Maven i uruchom ją, na przykład:

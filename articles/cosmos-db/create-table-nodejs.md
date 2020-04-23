@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 08/06/2019
 ms.author: sngun
-ms.openlocfilehash: f317b7b5f3ab60f466054f2043027b13e8396abc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e0d2d2ea99822c95b9fab73642db37430771c583
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77212820"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083771"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Szybki start: tworzenie aplikacji interfejsu API tabeli przy użyciu platformy Node.js i usługi Azure Cosmos DB
 
@@ -50,7 +50,7 @@ W tym przewodniku Szybki start utworzysz konto interfejsu API tabeli usługi Azu
 
 ## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
-Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
+Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi.
 
 1. Otwórz wiersz polecenia, utwórz nowy folder o nazwie git-samples, a następnie zamknij wiersz polecenia.
 
@@ -69,6 +69,8 @@ Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połącz
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
+
+> ! [PORADA] Aby uzyskać bardziej szczegółowe wskazówki dotyczące podobnego kodu, zobacz przykładowy artykuł [interfejsu API tabeli usługi Cosmos DB.](table-storage-how-to-use-nodejs.md) 
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 

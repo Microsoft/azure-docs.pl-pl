@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369781"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085743"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Umiejętność poznawcza wyszukiwania encji niestandardowej (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 
 ## <a name="data-limits"></a>Limity danych
 + Maksymalny obsługiwany rozmiar rekordu wejściowego wynosi 256 MB. Jeśli musisz podzielić dane przed wysłaniem ich do umiejętności wyszukiwania encji niestandardowej, rozważ użycie [umiejętności Dzielenie tekstu](cognitive-search-skill-textsplit.md).
-+ Tabela definicji maksymalnej liczby jednostek jest obsługiwana jako 10 MB, jeśli jest dostarczana przy użyciu parametru *entitiesDefitionUri.* 
++ Tabela definicji maksymalnej liczby jednostek jest obsługiwana jako 10 MB, jeśli jest dostarczana przy użyciu parametru *entitiesDefinitionUri.* 
 + Jeśli jednostki są zdefiniowane w linii, przy użyciu *inlineEntitiesDefinition* parametr, maksymalny obsługiwany rozmiar wynosi 10 KB.
 
 ## <a name="skill-parameters"></a>Parametry umiejętności
@@ -63,13 +63,13 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 Istnieją 3 różne sposoby dostarczania listy encji niestandardowych do umiejętności Wyszukiwanie encji niestandardowych. Listę można podać w pliku . CSV, a . JSON lub jako wbudowana definicja jako część definicji umiejętności.  
 
-Jeśli plik definicji jest . CSV lub . JSON, ścieżka pliku musi być podana jako część *parametru entitiesDefitionUri.* W takim przypadku plik jest pobierany raz na początku każdego uruchomienia indeksatora. Plik musi być dostępny tak długo, jak indeksator jest przeznaczony do uruchomienia. Ponadto plik musi być zakodowany UTF-8.
+Jeśli plik definicji jest . CSV lub . JSON, ścieżka pliku musi być podana jako część *jednostekDedefitionItionUri* parametru. W takim przypadku plik jest pobierany raz na początku każdego uruchomienia indeksatora. Plik musi być dostępny tak długo, jak indeksator jest przeznaczony do uruchomienia. Ponadto plik musi być zakodowany UTF-8.
 
 Jeśli definicja jest dostarczana w linii, powinna być podana jako wbudowana, jak zawartość parametru umiejętności *inlineEntitiesDefinition.* 
 
 ### <a name="csv-format"></a>Format CSV
 
-Można podać definicję encji niestandardowych, których należy szukać w pliku CSV (Comma-Separated Value), udostępniając ścieżkę do pliku i ustawiając ją w parametrze umiejętności *entitiesDefitionUri.* Ścieżka powinna znajdować się w lokalizacji https. Rozmiar pliku definicji może mieć rozmiar do 10 MB.
+Można podać definicję encji niestandardowych, których należy szukać w pliku CSV (Comma-Separated Value), udostępniając ścieżkę do pliku i ustawiając ją w parametrze umiejętności *entitiesDefinitionUri.* Ścieżka powinna znajdować się w lokalizacji https. Rozmiar pliku definicji może mieć rozmiar do 10 MB.
 
 Format CSV jest prosty. Każdy wiersz reprezentuje unikatowy element, jak pokazano poniżej:
 
@@ -85,7 +85,7 @@ W takim przypadku istnieją trzy jednostki, które mogą być zwracane jako znal
 
 Można podać definicję encji niestandardowych, których należy szukać również w pliku JSON. Format JSON zapewnia nieco większą elastyczność, ponieważ umożliwia definiowanie reguł dopasowania według terminu. Na przykład można określić rozmytą odległość dopasowania (odległość Damerau-Levenshtein) dla każdego terminu lub czy dopasowanie powinno być rozróżniane, czy nie. 
 
- Podobnie jak w przypadku plików CSV, należy podać ścieżkę do pliku JSON i ustawić go w parametrze skill *entitiesDefitionUri.* Ścieżka powinna znajdować się w lokalizacji https. Rozmiar pliku definicji może mieć rozmiar do 10 MB.
+ Podobnie jak w przypadku plików CSV, należy podać ścieżkę do pliku JSON i ustawić go w parametrze umiejętności *entitiesDefinitionUri.* Ścieżka powinna znajdować się w lokalizacji https. Rozmiar pliku definicji może mieć rozmiar do 10 MB.
 
 Najbardziej podstawową definicją listy encji niestandardowych JSON może być lista encji do dopasowania:
 

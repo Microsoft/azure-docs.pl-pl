@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 39e3521339947263161979033406fb39e397373f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348970"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084961"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Wyzwalacz magazynu obiektów Blob platformy Azure dla usług Azure Functions
 
@@ -103,7 +103,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 W poniższym przykładzie pokazano powiązanie wyzwalacza obiektu blob w pliku *function.json* i [kod JavaScript,](functions-reference-node.md) który używa powiązania. Funkcja zapisuje dziennik, gdy obiekt blob jest `samples-workitems` dodawany lub aktualizowany w kontenerze.
 
@@ -256,7 +256,7 @@ Konto magazynu do użycia jest określane w następującej kolejności:
 
 Atrybuty nie są obsługiwane przez skrypt języka C#.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Atrybuty nie są obsługiwane przez javascript.
 
@@ -294,7 +294,7 @@ W poniższej tabeli opisano właściwości konfiguracji powiązania, które moż
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Dostęp do danych `context.bindings.<NAME>` `<NAME>` obiektów blob przy użyciu miejsca, w którym jest zgodny z wartością zdefiniowaną w *pliku function.json*.
 
@@ -360,7 +360,7 @@ Jeśli obiekt blob nosi nazwę `name` * {20140101}-soundfile.mp3,* wartością z
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = function (context, myBlob) {
@@ -391,7 +391,7 @@ Usługa Azure Functions przechowuje potwierdzenia obiektów blob w kontenerze o 
 * Nazwa obiektu blob
 * ETag (identyfikator wersji obiektu blob, na przykład: "0x8D1DC6E70A277EF")
 
-Aby wymusić ponowne przetwarzanie obiektu blob, należy ręcznie usunąć przyjęcie obiektu blob dla tego obiektu blob z kontenera *azure-webjobs-hosts.* Podczas ponownego przetwarzania może nie wystąpić natychmiast, jest gwarantowane występuje w późniejszym momencie w czasie.
+Aby wymusić ponowne przetwarzanie obiektu blob, należy ręcznie usunąć przyjęcie obiektu blob dla tego obiektu blob z kontenera *azure-webjobs-hosts.* Podczas ponownego przetwarzania może nie wystąpić natychmiast, jest gwarantowane występuje w późniejszym momencie w czasie. Aby ponownie przetworzyć natychmiast, obiekt blob *scaninfo* w *azure-webjobs-hosts/blobscaninfo* mogą być aktualizowane. Wszystkie obiekty BLOB z ostatnio zmodyfikowaną `LatestScan` sygnaturą czasową po właściwości zostaną ponownie zeskanowane.
 
 ## <a name="poison-blobs"></a>Trujące plamy
 

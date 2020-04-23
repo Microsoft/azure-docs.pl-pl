@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5808f892f189bd6cb2cc39bd157be1d61c966763
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: db80c11c3b6eab3b7e682878e479729f4787a40b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424755"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086100"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Używanie uwierzytelniania usługi Azure Active Directory do uwierzytelniania za pomocą programu Synapse SQL
 
 Uwierzytelnianie usługi Azure Active Directory to mechanizm łączenia się z [usługą Azure Synapse Analytics](../overview-faq.md) przy użyciu tożsamości w usłudze Azure Active Directory (Azure AD).
 
-Za pomocą uwierzytelniania usługi Azure AD można centralnie zarządzać tożsamościami użytkowników mających dostęp do usługi Azure Synapse, aby uprościć zarządzanie uprawnieniami. Oto przykładowe korzyści:
+Za pomocą uwierzytelniania usługi Azure AD można centralnie zarządzać tożsamościami użytkowników, które mają dostęp do usługi Azure Synapse, aby uprościć zarządzanie uprawnieniami. Oto przykładowe korzyści:
 
 - Stanowi alternatywę dla regularnego uwierzytelniania nazwy użytkownika i hasła.
 - Pomaga zatrzymać rozprzestrzenianie tożsamości użytkowników na serwerach bazy danych.
@@ -48,26 +48,34 @@ Definiowanie praw dostępu do plików i danych, które są przestrzegane w róż
 
 Poniższy diagram wysokiego poziomu podsumowuje architekturę rozwiązania przy użyciu uwierzytelniania usługi Azure AD za pomocą synapse SQL. Aby obsługiwać hasło użytkownika natywnego usługi Azure AD, uwzględniana jest tylko część usługi Cloud i usługa Azure AD/Synapse Synapse SQL. Do obsługi uwierzytelniania federacyjnego (lub użytkownika/hasła dla poświadczeń systemu Windows) wymagana jest komunikacja z blokiem ADFS. Strzałki wskazują ścieżki komunikacyjne.
 
-![schemat ujedlatek aad][1]
+![schemat ujedlatek aad](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
-Poniższy diagram wskazuje federacji, zaufania i hostingu relacji, które umożliwiają klientowi połączyć się z bazą danych przez przesłanie tokenu. Token jest uwierzytelniony przez usługę Azure AD i jest zaufany przez bazę danych. Klient 1 może reprezentować usługę Azure Active Directory z użytkownikami natywnymi lub usługę Azure AD z użytkownikami federatywnymi. Klient 2 reprezentuje możliwe rozwiązanie, w tym importowanych użytkowników; w tym przykładzie pochodzących z federacyjnej usługi Azure Active Directory z usługą ADFS są synchronizowane z usługą Azure Active Directory. Ważne jest, aby zrozumieć, że dostęp do bazy danych przy użyciu uwierzytelniania usługi Azure AD wymaga, aby subskrypcja hostingu jest skojarzona z usługą Azure AD. Ta sama subskrypcja musi służyć do tworzenia programu SQL Server obsługującego bazę danych SQL azure lub puli SQL.
+Poniższy diagram wskazuje federacji, zaufania i hostingu relacji, które umożliwiają klientowi połączyć się z bazą danych przez przesłanie tokenu. Token jest uwierzytelniony przez usługę Azure AD i jest zaufany przez bazę danych. 
 
-![relacja subskrypcji][2]
+Klient 1 może reprezentować usługę Azure Active Directory z użytkownikami natywnymi lub usługę Azure AD z użytkownikami federatywnymi. Klient 2 reprezentuje możliwe rozwiązanie, w tym importowanych użytkowników; w tym przykładzie pochodzących z federacyjnej usługi Azure Active Directory z usługą ADFS są synchronizowane z usługą Azure Active Directory. 
+
+Ważne jest, aby zrozumieć, że dostęp do bazy danych przy użyciu uwierzytelniania usługi Azure AD wymaga, aby subskrypcja hostingu jest skojarzona z usługą Azure AD. Ta sama subskrypcja musi służyć do tworzenia programu SQL Server obsługującego bazę danych SQL azure lub puli SQL.
+
+![relacja subskrypcji](./media/aad-authentication/2-subscription-relationship.png)
 
 ## <a name="administrator-structure"></a>Struktura administratora
 
-Podczas korzystania z uwierzytelniania usługi Azure AD istnieją dwa konta administratora dla Synapse SQL; pierwotnego administratora programu SQL Server i administratora usługi Azure AD. Tylko administrator na podstawie konta usługi Azure AD można utworzyć pierwszy użytkownik bazy danych zawierającej usługę Azure AD w bazie danych użytkowników. Logowanie administratora usługi Azure AD może być użytkownikiem usługi Azure AD lub grupą usługi Azure AD. 
+Podczas korzystania z uwierzytelniania usługi Azure AD istnieją dwa konta administratora dla Synapse SQL; pierwotnego administratora programu SQL Server i administratora usługi Azure AD. Tylko administrator na podstawie konta usługi Azure AD można utworzyć pierwszy użytkownik bazy danych zawierającej usługę Azure AD w bazie danych użytkowników. 
 
-Gdy administrator jest kontem grupy, może być używany przez dowolnego członka grupy, włączając wielu administratorów usługi Azure AD dla wystąpienia Synapse SQL. Korzystanie z konta grupy jako administratora zwiększa możliwości zarządzania, umożliwiając centralne dodawanie i usuwanie członków grupy w usłudze Azure AD bez zmiany użytkowników lub uprawnień w obszarze roboczym Usługi Synapse Analytics. Tylko jeden administrator usługi Azure AD (użytkownik lub grupa) można skonfigurować w dowolnym momencie.
+Logowanie administratora usługi Azure AD może być użytkownikiem usługi Azure AD lub grupą usługi Azure AD. Gdy administrator jest kontem grupy, może być używany przez dowolnego członka grupy, włączając wielu administratorów usługi Azure AD dla wystąpienia Synapse SQL. 
 
-![struktura administracyjna][3]
+Korzystanie z konta grupy jako administratora zwiększa możliwości zarządzania, umożliwiając centralne dodawanie i usuwanie członków grupy w usłudze Azure AD bez zmiany użytkowników lub uprawnień w obszarze roboczym Usługi Synapse Analytics. Tylko jeden administrator usługi Azure AD (użytkownik lub grupa) można skonfigurować w dowolnym momencie.
+
+![struktura administracyjna](./media/aad-authentication/3-admin-structure.png)
 
 ## <a name="permissions"></a>Uprawnienia
 
 Aby utworzyć nowych użytkowników, `ALTER ANY USER` musisz mieć uprawnienia w bazie danych. Uprawnienie `ALTER ANY USER` można udzielić każdemu użytkownikowi bazy danych. `ALTER ANY USER` Uprawnienie jest również przechowywane przez konta administratora `CONTROL ON DATABASE` serwera `ALTER ON DATABASE` i użytkowników bazy danych z `db_owner` uprawnieniami lub uprawnieniami dla tej bazy danych oraz przez członków roli bazy danych.
 
-Aby utworzyć użytkownika zawartej bazy danych w Synapse SQL, należy połączyć się z bazą danych lub wystąpieniem przy użyciu tożsamości usługi Azure AD. Aby utworzyć pierwszego użytkownika bazy danych, należy połączyć się z bazą danych przy użyciu administratora usługi Azure AD (który jest właścicielem bazy danych). Uwierzytelnianie usługi Azure AD jest możliwe tylko wtedy, gdy administrator usługi Azure AD został utworzony dla synapse SQL. Jeśli administrator usługi Azure Active Directory został usunięty z serwera, istniejący użytkownicy usługi Azure Active Directory utworzone wcześniej wewnątrz Synapse SQL nie mogą już łączyć się z bazą danych przy użyciu poświadczeń usługi Azure Active Directory.
+Aby utworzyć użytkownika zawartej bazy danych w Synapse SQL, należy połączyć się z bazą danych lub wystąpieniem przy użyciu tożsamości usługi Azure AD. Aby utworzyć pierwszego użytkownika bazy danych, należy połączyć się z bazą danych przy użyciu administratora usługi Azure AD (który jest właścicielem bazy danych). 
 
+Uwierzytelnianie usługi Azure AD jest możliwe tylko wtedy, gdy administrator usługi Azure AD został utworzony dla synapse SQL. Jeśli administrator usługi Azure Active Directory został usunięty z serwera, istniejący użytkownicy usługi Azure Active Directory utworzone wcześniej wewnątrz Synapse SQL nie mogą już łączyć się z bazą danych przy użyciu poświadczeń usługi Azure Active Directory.
+ 
 ## <a name="azure-ad-features-and-limitations"></a>Funkcje i ograniczenia usługi Azure AD
 
 - Następujące elementy członkowskie usługi Azure AD mogą być aprowizacji w Synapse SQL:
@@ -120,21 +128,8 @@ Następujące metody uwierzytelniania są obsługiwane dla podmiotów serwerowyc
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać omówienie dostępu i kontroli w synapse SQL, zobacz [Kontrola dostępu Synapse SQL](../sql/access-control.md). Aby dowiedzieć się więcej o podmiotach bazy danych, zobacz [Podmioty.](https://msdn.microsoft.com/library/ms181127.aspx) Dodatkowe informacje na temat ról bazy danych można znaleźć w artykule [Role bazy danych.](https://msdn.microsoft.com/library/ms189121.aspx)
+- Aby uzyskać omówienie dostępu i kontroli w synapse SQL, zobacz [Kontrola dostępu Synapse SQL](../sql/access-control.md).
+- Aby uzyskać więcej informacji na temat podmiotów zabezpieczeń bazy danych, zobacz [Principals](/sql/relational-databases/security/authentication-access/principals-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Podmioty zabezpieczeń).
+- Aby uzyskać więcej informacji na temat ról bazy danych, zobacz [Database roles](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Role bazy danych).
+
  
-
-<!--Image references-->
-
-[1]: ./media/aad-authentication/1-active-directory-authentication-diagram.png
-[2]: ./media/aad-authentication/2-subscription-relationship.png
-[3]: ./media/aad-authentication/3-admin-structure.png
-[4]: ./media/aad-authentication/4-select-subscription.png
-[5]: ./media/aad-authentication/5-active-directory-settings-portal.png
-[6]: ./media/aad-authentication/6-edit-directory-select.png
-[7]: ./media/aad-authentication/7-edit-directory-confirm.png
-[8]: ./media/aad-authentication/8-choose-active-directory.png
-[9]: ./media/aad-authentication/9-active-directory-settings.png
-[10]: ./media/aad-authentication/10-choose-admin.png
-[11]: ./media/aad-authentication/11-connect-using-integrated-authentication.png
-[12]: ./media/aad-authentication/12-connect-using-password-authentication.png
-[13]: ./media/aad-authentication/13-connect-to-db.png

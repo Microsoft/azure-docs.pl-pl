@@ -1,22 +1,18 @@
 ---
-title: Współlokowanie maszyn wirtualnych systemu Windows Azure
+title: Współlokowanie maszyn wirtualnych w celu zwiększenia opóźnienia
 description: Dowiedz się, jak współlokowanie zasobów maszyny Wirtualnej platformy Azure może zwiększyć opóźnienia.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: b61a84f2b284177b7443be00efeea65e7eb8aaef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 066b6d10dbe07b902abfd15565c5ccf1a5e9c115
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266795"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083176"
 ---
 # <a name="co-locate-resource-for-improved-latency"></a>Kololokuj zasób w celu zwiększenia opóźnienia
 

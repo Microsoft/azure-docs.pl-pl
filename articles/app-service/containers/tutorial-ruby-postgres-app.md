@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 7339bb1ec2c16e9d6c83d2cbae8810b660b60765
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2bc30786ccd0bccfba438fa6e553fdcbbf7fdde1
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80045487"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085789"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji w języku Ruby i korzystającej z bazy danych Postgres w usłudze Azure App Service w systemie Linux
 
@@ -18,7 +18,7 @@ ms.locfileid: "80045487"
 
 ![Aplikacja platformy Ruby on Rails uruchomiona w usłudze Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych PostgreSQL na platformie Azure
@@ -126,14 +126,14 @@ az postgres server create --location "West Europe" --resource-group myResourceGr
 
 Po utworzeniu serwera usługi Azure Database for PostgreSQL w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących:
 
-```json
+<pre>
 {
   "administratorLogin": "adminuser",
   "earliestRestoreDate": "2018-06-15T12:38:25.280000+00:00",
-  "fullyQualifiedDomainName": "<postgres-server-name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgres-server-name>",
+  "fullyQualifiedDomainName": "&lt;postgres-server-name&gt;.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/&lt;postgres-server-name&gt;",
   "location": "westeurope",
-  "name": "<postgres-server-name>",
+  "name": "&lt;postgres-server-name&gt;",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "capacity": 2,
@@ -142,9 +142,9 @@ Po utworzeniu serwera usługi Azure Database for PostgreSQL w interfejsie wiersz
     "size": null,
     "tier": "GeneralPurpose"
   },
-  < Output has been truncated for readability >
+  &lt; Output has been truncated for readability &gt;
 }
-```
+</pre>
 
 ### <a name="configure-server-firewall"></a>Konfigurowanie zapory serwera
 
@@ -335,7 +335,7 @@ git push azure master
 
 Podczas wdrażania usługa Azure App Service przekaże postęp za pomocą narzędzi Git.
 
-```bash
+<pre>
 Counting objects: 3, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
@@ -347,8 +347,8 @@ remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
 remote: Running deployment command...
 ...
-< Output has been truncated for readability >
-```
+&lt; Output has been truncated for readability &gt;
+</pre>
 
 ### <a name="browse-to-the-azure-app"></a>Przechodzenie do aplikacji platformy Azure
 

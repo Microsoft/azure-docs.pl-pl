@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 0767d6c003be8f4e0b28c8d8ce1d48b8f578dd86
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: ae76c30f63c87f7e741fff31792d520fb144b93b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273532"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084281"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych generacji 2 na platformie Azure
 
@@ -27,7 +27,7 @@ Maszyny wirtualne generacji 2 używają nowej architektury rozruchowej opartej n
 Maszyny wirtualne generacji 1 są obsługiwane przez wszystkie rozmiary maszyn wirtualnych na platformie Azure (z wyjątkiem maszyn wirtualnych z serii Mv2). Platforma Azure oferuje teraz obsługę generacji 2 dla następujących wybranych serii maszyn wirtualnych:
 
 * [Seria B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
-* [Seria DC](../dcv2-series.md)
+* [Seria DCsv2](../dcv2-series.md)
 * [Seria DSv2](../dv2-dsv2-series.md) i [dsv3](../dv3-dsv3-series.md)
 * [Seria Esv3](../ev3-esv3-series.md)
 * [Seria Fsv2](../fsv2-series.md)

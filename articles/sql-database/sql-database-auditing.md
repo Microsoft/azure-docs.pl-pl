@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 9e8aa9bbbdf166ba0caf29cd0bce22b8ed321e4e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 48cdbc8188604ce1992a1cb15289576ba92902a3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685180"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086151"
 ---
 # <a name="azure-sql-auditing"></a>Inspekcja usługi Azure SQL
 
@@ -89,7 +89,7 @@ W poniższej sekcji opisano konfigurację inspekcji przy użyciu witryny Azure p
   
    ![opcje przechowywania](./media/sql-database-auditing-get-started/auditing-select-destination.png)
    
-### <a name=""></a><a id="audit-storage-destination">Inspekcja do miejsca docelowego magazynu</a>
+### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Inspekcja do miejsca docelowego magazynu
 
 Aby skonfigurować zapisywanie dzienników inspekcji na koncie magazynu, wybierz pozycję **Magazyn** i otwórz **szczegóły magazynu**. Wybierz konto magazynu platformy Azure, na którym będą zapisywane dzienniki, a następnie wybierz okres przechowywania. Następnie kliknij przycisk **OK**. Dzienniki starsze niż okres przechowywania są usuwane.
 
@@ -108,13 +108,13 @@ Aby skonfigurować zapisywanie dzienników inspekcji na koncie magazynu, wybierz
 - Podczas korzystania z uwierzytelniania AAD rekordy logowania nie powiodło się *nie* pojawi się w dzienniku inspekcji SQL. Aby wyświetlić nieudane rekordy inspekcji logowania, należy odwiedzić [portal usługi Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), który rejestruje szczegóły tych zdarzeń.
 - Inspekcja [replik tylko do odczytu](sql-database-read-scale-out.md) jest włączona automatycznie. Aby uzyskać więcej informacji na temat hierarchii folderów magazynu, konwencji nazewnictwa i formatu dziennika, zobacz [format dziennika inspekcji bazy danych SQL](sql-database-audit-log-format.md). 
 
-### <a name=""></a><a id="audit-log-analytics-destination">Inspekcja do usługi Log Analytics miejsce docelowe</a>
+### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Inspekcja do usługi Log Analytics miejsce docelowe
   
 Aby skonfigurować zapisywanie dzienników inspekcji w obszarze roboczym usługi Log Analytics, wybierz pozycję **Usługa Log Analytics (Wersja zapoznawcza)** i otwórz **szczegóły usługi Log Analytics**. Wybierz lub utwórz obszar roboczy usługi Log Analytics, w którym będą zapisywane dzienniki, a następnie kliknij przycisk **OK**.
    
    ![Obszar analityczny LogAnalyticswork](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
-### <a name=""></a><a id="audit-event-hub-destination">Inspekcja do centrum zdarzeń docelowego</a>
+### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Inspekcja do centrum zdarzeń docelowego
 
 > [!WARNING]
 > Włączenie inspekcji na serwerze, na którym znajduje się pula **SQL, powoduje wznowienie puli SQL i ponowne wstrzymanie,** co może ponieść opłaty rozliczeniowe.
@@ -199,7 +199,7 @@ Jeśli zdecydujesz się napisać dzienniki inspekcji na koncie magazynu platform
 
 <!--The description in this section refers to preceding screen captures.-->
 
-#### <a name="auditing-geo-replicated-databases"></a>Inspekcja replikowanych geograficznie baz danych
+### <a name="auditing-geo-replicated-databases"></a>Inspekcja replikowanych geograficznie baz danych
 
 W przypadku replikowanych geograficznie baz danych po włączeniu inspekcji w podstawowej bazie danych pomocnicza baza danych będzie miała identyczną zasadę inspekcji. Możliwe jest również skonfigurowanie inspekcji w pomocniczej bazie danych, włączając inspekcję na **serwerze pomocniczym,** niezależnie od podstawowej bazy danych.
 
@@ -211,7 +211,7 @@ W przypadku replikowanych geograficznie baz danych po włączeniu inspekcji w po
     >[!IMPORTANT]
     >Dzięki inspekcji na poziomie bazy danych ustawienia magazynu pomocniczej bazy danych będą identyczne z ustawieniami podstawowej bazy danych, powodując ruch międzyregionauałowy. Zaleca się włączenie tylko inspekcji na poziomie serwera i pozostawienie inspekcji na poziomie bazy danych wyłączonej dla wszystkich baz danych.
 
-#### <a name="storage-key-regeneration"></a>Regeneracja klucza pamięci masowej
+### <a name="storage-key-regeneration"></a>Regeneracja klucza pamięci masowej
 
 W produkcji jest prawdopodobne, aby okresowo odświeżyć klucze magazynu. Podczas pisania dzienników inspekcji w usłudze Azure Storage należy ponownie zapisać zasady inspekcji podczas odświeżania kluczy. Proces jest następujący:
 
@@ -226,7 +226,7 @@ W produkcji jest prawdopodobne, aby okresowo odświeżyć klucze magazynu. Podcz
 
 ## <a name="manage-azure-sql-server-and-database-auditing"></a><a id="manage-auditing"></a>Zarządzanie inspekcją programu Sql Server i bazy danych platformy Azure
 
-#### <a name="using-azure-powershell"></a>Korzystanie z programu Azure PowerShell
+### <a name="using-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 
 **Polecenia cmdlet programu PowerShell (w tym obsługa klauzuli WHERE dla dodatkowego filtrowania):**
 
@@ -239,7 +239,7 @@ W produkcji jest prawdopodobne, aby okresowo odświeżyć klucze magazynu. Podcz
 
 Przykładowy skrypt zobacz [Konfigurowanie inspekcji i wykrywania zagrożeń przy użyciu programu PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-#### <a name="using-rest-api"></a>Korzystanie z interfejsu API REST
+### <a name="using-rest-api"></a>Korzystanie z interfejsu API REST
 
 **INTERFEJS SPOCZYNKOWY**:
 
@@ -255,7 +255,7 @@ Rozszerzone zasady z klauzulą WHERE obsługuje dodatkowe filtrowanie:
 - [Pobierz zasady *rozszerzonej* inspekcji bazy danych](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Pobierz zasady *rozszerzonej* inspekcji serwera](/rest/api/sql/server%20auditing%20settings/get)
 
-#### <a name="using-azure-resource-manager-templates"></a>Używanie szablonów usługi Azure Resource Manager
+### <a name="using-azure-resource-manager-templates"></a>Używanie szablonów usługi Azure Resource Manager
 
 Inspekcję bazy danych SQL platformy Azure można zarządzać przy użyciu szablonów [usługi Azure Resource Manager,](../azure-resource-manager/management/overview.md) jak pokazano w poniższych przykładach:
 

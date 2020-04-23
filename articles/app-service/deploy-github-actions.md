@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 4a8b3cf47235e061e5dbcc08a409fce84d421771
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57ca5b0880d4b027e33bc0d01fc6225eb886029b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77562211"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084995"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie w usłudze app service przy użyciu akcji usługi GitHub
 
@@ -27,7 +27,7 @@ W przypadku przepływu pracy usługi Azure App Service plik składa się z trzec
 
 |Sekcja  |Zadania  |
 |---------|---------|
-|**Uwierzytelnianie** | 1. Zdefiniuj jednostkę usługi <br /> 2. Tworzenie tajemnicy GitHub |
+|**Authentication** | 1. Zdefiniuj jednostkę usługi <br /> 2. Tworzenie tajemnicy GitHub |
 |**Kompilacja** | 1. Konfigurowanie środowiska <br /> 2. Zbuduj aplikację internetową |
 |**Wdróż** | 1. Wdrażanie aplikacji internetowej |
 
@@ -62,7 +62,7 @@ Można również użyć poświadczeń na poziomie aplikacji, czyli profilu publi
 4. Teraz w pliku przepływu pracy `.github/workflows/workflow.yml` w gałęzi: zastąp klucz tajny dla wprowadzania akcji `publish-profile` wdrażania aplikacji Azure Web App.
     
     ```yaml
-        - uses: azure/webapps-deploy@v1
+        - uses: azure/webapps-deploy@v2
           with:
             creds: ${{ secrets.azureWebAppPublishProfile }}
     ```
@@ -79,12 +79,12 @@ Konfigurowanie środowiska można wykonać za pomocą jednej z akcji konfiguracj
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |
-|**Javascript** | `actions/setup-node` |
+|**JavaScript** | `actions/setup-node` |
 |**Python**     | `actions/setup-python` |
 
 Poniższe przykłady przedstawiają część przepływu pracy, która konfiguruje środowisko dla różnych obsługiwanych języków:
 
-**Javascript**
+**JavaScript**
 
 ```yaml
     - name: Setup Node 10.x
@@ -127,7 +127,7 @@ To zależy od języka i dla języków obsługiwanych przez usługę Azure App Se
 
 Poniższe przykłady pokazują część przepływu pracy, która tworzy aplikację sieci web w różnych obsługiwanych językach.
 
-**Javascript**
+**JavaScript**
 
 ```yaml
     - name: 'Run npm'
@@ -180,9 +180,9 @@ Poniższe przykłady pokazują część przepływu pracy, która tworzy aplikacj
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 ```
-## <a name="deploy-to-app-service"></a>Wdrażanie do usługi App Service
+## <a name="deploy-to-app-service"></a>Wdrażanie w usłudze App Service
 
-Aby wdrożyć kod w aplikacji usługi `azure/webapps-deploy@v1 ` App Service, użyj akcji. Ta akcja ma cztery parametry:
+Aby wdrożyć kod w aplikacji usługi `azure/webapps-deploy@v2` App Service, użyj akcji. Ta akcja ma cztery parametry:
 
 | **Parametr**  | **Wyjaśnienie**  |
 |---------|---------|
@@ -219,7 +219,7 @@ jobs:
         npm run test --if-present
        
     - name: 'Run Azure webapp deploy action using publish profile credentials'
-          uses: azure/webapps-deploy@v1
+          uses: azure/webapps-deploy@v2
           with: 
             app-name: node-rn
             publish-profile: ${{ secrets.azureWebAppPublishProfile }}
@@ -258,7 +258,7 @@ jobs:
         npm run test --if-present
                
     # deploy web app using Azure credentials
-    - uses: azure/webapps-deploy@v1
+    - uses: azure/webapps-deploy@v2
       with:
         app-name: 'node-rn'
 

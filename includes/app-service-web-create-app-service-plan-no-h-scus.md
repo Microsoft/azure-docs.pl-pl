@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: msangapu
 ms.custom: include file
-ms.openlocfilehash: 89a97196f14332ec1812dc3e8a16905af1aa4407
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0ea8048ed72aab11a144b0160eb9299398ec37ac
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67183717"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086010"
 ---
 W aplikacji Cloud Shell utwórz plan [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) usługi app service za pomocą polecenia.
 
@@ -25,7 +25,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do następujących:
 
-```json
+<pre>
 { 
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
@@ -36,9 +36,9 @@ Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Az
   "location": "South Central US",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
 } 
-```
+</pre>

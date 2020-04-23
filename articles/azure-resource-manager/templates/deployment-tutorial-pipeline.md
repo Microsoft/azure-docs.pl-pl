@@ -1,15 +1,15 @@
 ---
 title: Ciągła integracja z użyciem usługi Azure Pipelines
 description: Dowiedz się, jak stale tworzyć, testować i wdrażać szablony usługi Azure Resource Manager.
-ms.date: 03/13/2020
+ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6ce6f176a52a742a3216a5b761b34254027a1c5b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d1c56ce913a1b63bab90f5dd5aaada382abbf493
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255077"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084332"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów usługi Azure Resource Manager z potokami platformy Azure
 
@@ -57,11 +57,7 @@ Jeśli nie masz konta GitHub, zobacz [Wymagania wstępne](#prerequisites).
 
 1. Wybierz **pozycję Nowy**, zielony przycisk.
 1. W **nazwie repozytorium**wprowadź nazwę repozytorium.  Na przykład **AzureRmPipeline-repo**. Pamiętaj, aby zastąpić dowolną usługę **AzureRmPipeline** nazwą projektu. Możesz wybrać **publiczne** lub **prywatne,** aby przejść przez ten samouczek. A następnie wybierz **pozycję Utwórz repozytorium**.
-1. Zapisz adres URL. Adres URL repozytorium jest następującym formatem:
-
-    ```url
-    https://github.com/[YourAccountName]/[YourRepositoryName]
-    ```
+1. Zapisz adres URL. Adres URL repozytorium jest następującym formatem - ** https://github.com/[YourAccountName]/[YourRepositoryName]**.
 
 To repozytorium jest określane jako *zdalne repozytorium*. Każdy z deweloperów tego samego projektu może sklonować własne *repozytorium lokalne*i scalić zmiany w zdalnym repozytorium.
 
@@ -131,7 +127,7 @@ Organizacja DevOps jest potrzebna, zanim będzie można przejść do następnej 
     * **Kontrola wersji**: Wybierz **Git**. Może być konieczne rozwinięcie **zaawansowanego,** aby wyświetlić **kontrolę wersji**.
 
     Użyj wartości domyślnej dla innych właściwości.
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Utwórz połączenie usługi, które jest używane do wdrażania projektów na platformie Azure.
 
@@ -146,7 +142,7 @@ Utwórz połączenie usługi, które jest używane do wdrażania projektów na p
     * **Grupa zasobów**: Pozostaw ją pustą.
     * **Nazwa połączenia**: wprowadź nazwę połączenia. Na przykład **AzureRmPipeline-conn**. Zapisz tę nazwę, potrzebujesz nazwy podczas tworzenia potoku.
     * **Udziel uprawnień dostępu do wszystkich potoków**. (wybrano)
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 

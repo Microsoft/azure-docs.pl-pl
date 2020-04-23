@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 7c26487018b9632b5780dcd7c56ab36f286f8cac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ceadbb4297ad0c5ce28470dd75b3f3496c9c5152
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80059995"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084747"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Samouczek: Tworzenie bramy NAT przy użyciu portalu Azure i testowanie usługi NAT
 
@@ -29,7 +29,7 @@ Jeśli wolisz, możesz wykonać te kroki przy użyciu [interfejsu wiersza polece
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="prepare-the-source-for-outbound-traffic"></a>Przygotowanie źródła dla ruchu wychodzącego
 
@@ -46,9 +46,9 @@ W tej sekcji należy zastąpić następujące parametry w krokach poniższymi in
 | **\<>nazwa grupy zasobów**  | myResourceGroupNAT |
 | **\<>nazwa sieci wirtualnej** | myVNetsource (źródło myVNetsource)          |
 | **\<nazwa regionu>**          | Wschodnie stany USA 2      |
-| **\<>przestrzeni adresowej IPv4**   | 192.168.0.0\16          |
+| **\<>przestrzeni adresowej IPv4**   | 192.168.0.0/16          |
 | **\<>nazwa podsieci**          | mySubnetsource        |
-| **\<>zakresu adresu podsieci** | 192.168.0.0\24          |
+| **\<>zakresu adresu podsieci** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -169,9 +169,9 @@ W tej sekcji należy zastąpić następujące parametry w krokach poniższymi in
 | **\<>nazwa grupy zasobów**  | myResourceGroupNAT |
 | **\<>nazwa sieci wirtualnej** | myVNetdestination          |
 | **\<nazwa regionu>**          | Wschodnie stany USA 2      |
-| **\<>przestrzeni adresowej IPv4**   | 192.168.0.0\16          |
+| **\<>przestrzeni adresowej IPv4**   | 192.168.0.0/16          |
 | **\<>nazwa podsieci**          | mySubnetdestination        |
-| **\<>zakresu adresu podsieci** | 192.168.0.0\24          |
+| **\<>zakresu adresu podsieci** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

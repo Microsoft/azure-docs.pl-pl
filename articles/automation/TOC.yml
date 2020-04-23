@@ -134,7 +134,7 @@
           href: source-control-integration.md
     - name: Zarządzanie konfiguracją
       items:
-        - name: Zarządzanie usługą State Configuration (DSC)
+        - name: Konfiguracja stanu (DSC)
           items:
             - name: Omówienie
               href: automation-dsc-overview.md
@@ -156,7 +156,7 @@
               href: automation-dsc-diagnostics.md
             - name: Rozwiązywanie problemów z platformą DSC
               href: troubleshoot/desired-state-configuration.md
-        - name: Zarządzanie usługą Change Tracking and Inventory
+        - name: Śledzenie zmian i spis
           items:
             - name: Omówienie
               href: change-tracking.md

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 9de9739efce13fc96bf550759eb0ef68d732af1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 673155706c3b7d44b41562c2dc8ce24a94ac6a58
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77212673"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083635"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Szybki start: tworzenie aplikacji interfejsu API tabel przy użyciu języka Python i usługi Azure Cosmos DB
 
@@ -72,6 +72,8 @@ Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połącz
     ```
 
 3. Następnie otwórz plik rozwiązania w programie Visual Studio. 
+
+> ! [PORADA] Aby uzyskać bardziej szczegółowe wskazówki dotyczące podobnego kodu, zobacz przykładowy artykuł [interfejsu API tabeli usługi Cosmos DB.](table-storage-how-to-use-python.md)
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 

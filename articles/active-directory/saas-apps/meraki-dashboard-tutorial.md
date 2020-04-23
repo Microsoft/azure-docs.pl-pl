@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/17/2020
+ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 571f4421a5d890fab31eda0125802d33918144ef
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 6d5fd75a737a0a866b6e5c26c417458ee95845fb
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81726382"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084162"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z pulpitem nawigacyjnym Meraki
 
@@ -57,7 +57,6 @@ Aby skonfigurować integrację pulpitu nawigacyjnego Meraki z usługą Azure AD,
 1. W sekcji **Dodaj z galerii** wpisz **pulpit nawigacyjny Meraki** w polu wyszukiwania.
 1. Wybierz **Panel Meraki** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-meraki-dashboard"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD dla pulpitu nawigacyjnego Meraki
 
 Konfigurowanie i testowanie usługi Azure AD SSO za pomocą pulpitu nawigacyjnego Meraki przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik łączony sytuować działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem na pulpicie nawigacyjnym Meraki.
@@ -81,8 +80,14 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azu
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML** aplikacja jest wstępnie skonfigurowana, a niezbędne adresy URL są już wstępnie wypełnione platformą Azure. Użytkownik musi zapisać konfigurację, klikając przycisk **Zapisz.**
+1. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
+     
+    W polu tekstowym **Odpowiedz na adres URL** wpisz adres URL, używając następującego wzorca:`https://n27.meraki.com/saml/login/m9ZEgb/< UNIQUE ID >`
 
+    > [!NOTE]
+    > Wartość adresu URL odpowiedzi nie jest prawdziwa. Zaktualizuj tę wartość za pomocą rzeczywistej wartości adresu URL odpowiedzi, która została wyjaśniona w dalszej części samouczka.
+
+1. Kliknij przycisk **Zapisz**.
 
 1. Meraki Dashboard aplikacja oczekuje potwierdzeń SAML w określonym formacie, który wymaga, aby dodać niestandardowe mapowania atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -92,8 +97,8 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azu
     
     | Nazwa | Atrybut źródłowy|
     | ---------------| --------- |
-    | nazwa użytkownika | user.userprincipalname |
-    | role (rola) | user.assignedroles |
+    | `https://dashboard.meraki.com/saml/attributes/username` | user.userprincipalname |
+    | `https://dashboard.meraki.com/saml/attributes/role` | user.assignedroles |
 
     > [!NOTE]
     > Aby dowiedzieć się, jak skonfigurować role w usłudze Azure AD, zobacz [tutaj](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
@@ -106,7 +111,7 @@ Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azu
 
     ![Kopiowanie wartości Odcisk palca](common/copy-thumbprint.png)
 
-1. W sekcji **Konfigurowanie pulpitu nawigacyjnego Meraki** skopiuj odpowiednie adresy URL na podstawie wymagań.
+1. W sekcji **Konfigurowanie pulpitu nawigacyjnego Meraki** skopiuj wartość adresu URL wylogowania i zapisz ją na komputerze.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -156,7 +161,7 @@ W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platfor
 
     ![Konfiguracja pulpitu nawigacyjnego Meraki](./media/meraki-dashboard-tutorial/configure3.png)
 
-1. Wklej wartość **odcisku palca,** który został skopiowany z witryny Azure portal do **X.590 cert SHA1 pola tekstowego odcisków palców.** Następnie kliknij przycisk **Zapisz**.
+1. Wklej wartość **odcisku palca,** który został skopiowany z witryny Azure portal do **X.590 cert SHA1 pola tekstowego odcisków palców.** Następnie kliknij przycisk **Zapisz**. Po zapisaniu pojawi się adres URL konsumenta. Skopiuj wartość adresu URL konsumenta i wklej tę tę wiadomość do pola tekstowego **Odpowiedz adres URL** w **sekcji Podstawowa konfiguracja SAML** w witrynie Azure portal.
 
     ![Konfiguracja pulpitu nawigacyjnego Meraki](./media/meraki-dashboard-tutorial/configure4.png)
 

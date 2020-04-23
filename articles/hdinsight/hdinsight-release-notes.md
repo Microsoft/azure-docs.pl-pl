@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/20/2020
-ms.openlocfilehash: cdb31f1a46d7f46b69e9e0ad47a77ba6b32a50a0
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.date: 04/22/2020
+ms.openlocfilehash: f8331b64792781a89428f8c5070375c31c0da48d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770829"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084893"
 ---
 # <a name="release-notes"></a>Informacje o wersji
 
@@ -66,14 +66,3 @@ Usługa HDInsight w dalszym ciągu poprawia niezawodność i wydajność klastra
 ## <a name="component-version-change"></a>Zmiana wersji składnika
 Brak zmiany wersji składnika dla tej wersji. Aktualne wersje komponentów dla HDInsight 4.0 ad HDInsight 3.6 można znaleźć tutaj.
 
-## <a name="known-issues"></a>Znane problemy
-
-Od 18 marca 2020 r. niektórzy klienci usługi Azure HDInsight w Europie Zachodniej lub Północnej otrzymywali powiadomienia o błędach podczas tworzenia lub skalowania klastrów USŁUGI HDInsight w tych regionach. Błędy związane z tym problemem obejmują:
-
-- Wystąpił wewnętrzny błąd serwera podczas przetwarzania żądania. Ponów próbę złożenia wniosku lub skontaktuj się z pomocą techniczną.
-- Co najmniej jedna operacja wdrażania zasobów nie powiodła się. Aby uzyskać szczegółowe informacje, wyszczełzaj operacje wdrażania. Szczegółowe https://aka.ms/DeployOperations informacje na temat użytkowania można znaleźć w
-- Identyfikator subskrypcji\<użytkownika '\>Identyfikator subskrypcji ' nie ma\<rdzeni do utworzenia nazwy klastra>". Wymagane: \<X\>, Dostępne: 0.
-
-Inżynierowie są świadomi tego problemu i aktywnie badają.
-
-Aby uzyskać dodatkową pomoc, utwórz [żądanie pomocy technicznej](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

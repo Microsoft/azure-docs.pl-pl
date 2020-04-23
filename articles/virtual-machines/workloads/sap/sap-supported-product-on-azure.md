@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cfc66789360f78c927dd157305074ed5ea6f32a
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768447"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086134"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Jakie oprogramowanie SAP jest obsługiwane we wdrożeniach platformy Azure
 W tym artykule opisano, jak dowiedzieć się, jakie oprogramowanie SAP jest obsługiwane dla wdrożeń platformy Azure i jakie są niezbędne wersje systemu operacyjnego lub dbms.
@@ -135,7 +135,7 @@ Obsługa sap datahub/Vora w usługach Azure Kubernetes Services (AKS) jest szcze
 
 Obsługa sap BPC 10.1 SP08 jest opisana w [nocie pomocy technicznej SAP #2451795](https://launchpad.support.sap.com/#/notes/2451795)
 
-Obsługa platformy SAP Hybris Commerce platform na platformie Azure jest szczegółowo opisana w [hybris wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud). W przypadku obsługiwanych programów DBMS dla platformy SAP Hybris Commerce, wymienia się w nim:
+Pomoc techniczna dla platformy SAP Hybris Commerce Platform na platformie Azure jest szczegółowo opisana w [dokumentacji hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html). W przypadku obsługiwanych programów DBMS dla platformy SAP Hybris Commerce, wymienia się w nim:
 
 - SQL Server i Oracle na platformie systemu operacyjnego Windows. Te same minimalne zwolnienia mają zastosowanie, jak w przypadku SAP NetWeaver. Szczegółowe informacje na temat informacji na temat pomocy [technicznej sap #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 - SAP HANA na Red Hat i SUSE Linux. Typy maszyn wirtualnych z certyfikatem SAP HANA są wymagane zgodnie z wcześniejszymi dokumentami w [tym dokumencie.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support) Platforma handlowa SAP (Hybris) jest uważana za obciążenie OLTP

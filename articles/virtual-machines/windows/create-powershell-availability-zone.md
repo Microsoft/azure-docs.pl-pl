@@ -1,26 +1,19 @@
 ---
-title: Tworzenie strefyowej maszyny Wirtualnej systemu Windows — Azure PowerShell
+title: Tworzenie strefyowej maszyny Wirtualnej systemu Windows przy użyciu programu Azure PowerShell
 description: Tworzenie maszyny wirtualnej z systemem Windows w strefie dostępności przy użyciu programu Azure PowerShell
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 5cecc6e43dfeda3838ae52fdd0c028a7739ff227
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26ddc6be744e823cffc213798c73568d19ad82dd
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75497944"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084094"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows w strefie dostępności przy użyciu programu PowerShell
 

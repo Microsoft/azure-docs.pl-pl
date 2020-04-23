@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671976"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086619"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Rozwiązywanie typowych błędów i ostrzeżeń indeksatora w usłudze Azure Cognitive Search
 
@@ -35,7 +35,7 @@ Począwszy od `2019-05-06`wersji interfejsu API, błędy i ostrzeżenia indeksat
 | Właściwość | Opis | Przykład |
 | --- | --- | --- |
 | key | Identyfikator dokumentu, na który ma wpływ błąd lub ostrzeżenie. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| name | Nazwa operacji opisująca miejsce wystąpienia błędu lub ostrzeżenia. Jest to generowane przez następującą strukturę: [kategoria]. [podkategoria]. [resourceType]. [nazwa zasobów] | DocumentExtraction.azureblob.myBlobContainerName Enrichment.WebApiSkill.mySkillName Projection.SearchIndex.OutputFieldMapping.myOutputFieldName Projection.SearchIndex.MergeOrUpload.myIndexName Projection.KnowledgeStore.Table.myName tabeli |
+| name | Nazwa operacji opisująca miejsce wystąpienia błędu lub ostrzeżenia. Jest to generowane przez następującą strukturę: [kategoria]. [podkategoria]. [resourceType]. [nazwa zasobów] | DocumentExtraction.azureblob.myBlobContainerName Enrichment.WebApiSkill.mySkillName Projection.SearchIndex.OutputFieldMapping.myOutputFieldName Projection.SearchIndex.MergeOrUpload.myIndexName Projection.KnowledgeStore.Table.myTableName |
 | message | Opis wysokiego poziomu błędu lub ostrzeżenia. | Nie można wykonać umiejętności, ponieważ żądanie interfejsu api sieci Web nie powiodło się. |
 | Szczegóły | Wszelkie dodatkowe szczegóły, które mogą być pomocne w zdiagnozowaniu problemu, takie jak odpowiedź WebApi, jeśli wykonanie umiejętności niestandardowej nie powiodło się. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 źródło,`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` Func ... reszta śladu stosu... |
 | documentationLink | Łącze do odpowiedniej dokumentacji ze szczegółowymi informacjami do debugowania i rozwiązania problemu. Ten link często wskazuje jedną z poniższych sekcji na tej stronie. | https://go.microsoft.com/fwlink/?linkid=2106475 |
@@ -91,6 +91,8 @@ Indeksator nie był w stanie uruchomić umiejętności w skillset.
 
 ## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>Błąd: nie można wykonać umiejętności, ponieważ żądanie interfejsu API sieci Web nie powiodło się
 Wykonanie umiejętności nie powiodło się, ponieważ wywołanie do interfejsu API sieci Web nie powiodło się. Zazwyczaj ta klasa awarii występuje, gdy umiejętności niestandardowe są używane, w którym to przypadku należy debugować kod niestandardowy, aby rozwiązać problem. Jeśli zamiast tego błąd jest z wbudowanej umiejętności, zapoznaj się z komunikatem o błędzie, aby uzyskać pomoc w rozwiązaniu problemu.
+
+Podczas debugowania tego problemu należy zwrócić uwagę na [ostrzeżenia dotyczące wprowadzania umiejętności](#warning-skill-input-was-invalid) dla tej umiejętności. Punkt końcowy interfejsu API sieci Web może się nie powiódł, ponieważ indeksator przekazuje go nieoczekiwane dane wejściowe.
 
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 

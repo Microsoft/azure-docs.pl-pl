@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3f284efd6a9a2fd83c8e2a8f9fb7a962c1cacc1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4ac49209fb1debca604a6aeb8ad3993ff898c331
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406454"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083006"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -52,17 +52,18 @@ Dostępne są następujące role administratora:
 Użytkownicy w tej roli mogą tworzyć i zarządzać wszystkimi aspektami aplikacji dla przedsiębiorstw, rejestracji aplikacji i ustawień serwera proxy aplikacji. Należy zauważyć, że użytkownicy przypisani do tej roli nie są dodawane jako właściciele podczas tworzenia nowych rejestracji aplikacji lub aplikacji przedsiębiorstwa.
 
 Administratorzy aplikacji mogą zarządzać poświadczeniami aplikacji, które umożliwiają im personifikacji aplikacji. Tak więc użytkownicy przypisani do tej roli mogą zarządzać poświadczeniami aplikacji tylko tych aplikacji, które nie są przypisane do żadnych ról usługi Azure AD lub tych przypisanych tylko do następujących ról administratora:
+
 * Administrator aplikacji
 * Deweloper aplikacji
 * Administrator aplikacji w chmurze
 * Czytniki katalogów
 
-Jeśli aplikacja jest przypisana do innej roli, które nie są wymienione powyżej, administrator aplikacji nie może zarządzać poświadczenia tej aplikacji. 
- 
+Jeśli aplikacja jest przypisana do innej roli, które nie są wymienione powyżej, administrator aplikacji nie może zarządzać poświadczenia tej aplikacji.
+
 Ta rola daje również możliwość _wyrażenia zgody_ na delegowane uprawnienia i uprawnienia aplikacji, z wyjątkiem uprawnień do interfejsu API programu Microsoft Graph.
 
 > [!IMPORTANT]
-> Ten wyjątek oznacza, że nadal możesz wyrazić zgodę na uprawnienia dla _innych_ aplikacji (np. aplikacji lub aplikacji innych firm, które zostały zarejestrowane), ale nie do uprawnień do samej usługi Azure AD. Nadal można _zażądać_ tych uprawnień w ramach rejestracji aplikacji, ale _przyznanie_ (tj. zgody) tych uprawnień wymaga administratora usługi Azure AD. Oznacza to, że złośliwy użytkownik nie może łatwo podnieść swoje uprawnienia, na przykład przez utworzenie i wyrażenie zgody na aplikację, która może pisać do całego katalogu i za pośrednictwem uprawnień tej aplikacji podnieść się stać administratorem globalnym.
+> Ten wyjątek oznacza, że nadal można wyrazić zgodę na uprawnienia dla _innych_ aplikacji (na przykład aplikacji lub aplikacji innych firm, które zostały zarejestrowane), ale nie do uprawnień do samej usługi Azure AD. Nadal można _zażądać_ tych uprawnień w ramach rejestracji aplikacji, ale _przyznanie_ (czyli wyrażenia zgody) tych uprawnień wymaga administratora usługi Azure AD. Oznacza to, że złośliwy użytkownik nie może łatwo podnieść swoje uprawnienia, na przykład przez utworzenie i wyrażenie zgody na aplikację, która może pisać do całego katalogu i za pośrednictwem uprawnień tej aplikacji podnieść się stać administratorem globalnym.
 
 ### <a name="application-developer"></a>[Deweloper aplikacji](#application-developer-permissions)
 
@@ -70,13 +71,15 @@ Użytkownicy w tej roli mogą tworzyć rejestracje aplikacji, gdy ustawienie "U�
 
 ### <a name="authentication-administrator"></a>[Administrator uwierzytelniania](#authentication-administrator-permissions)
 
-Rola administratora uwierzytelniania jest obecnie w publicznej wersji zapoznawczej. Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędące hasłami i aktualizować hasła dla wszystkich użytkowników. Administratorzy uwierzytelniania mogą wymagać od użytkowników ponownego zarejestrowania się w oparciu o istniejące poświadczenia niebędące hasłami (na przykład uwierzytelnianie wieloskładnikowe lub FIDO) i odwoływanie **zapamiętania usługi MFA na urządzeniu,** co powoduje monitowanie o uwierzytelnianie wieloskładnikowe przy następnym loguniu użytkowników niebędących administratorami lub przypisanych tylko następujących ról:
+Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędące hasłami dla niektórych użytkowników i mogą aktualizować hasła dla wszystkich użytkowników. Administratorzy uwierzytelniania mogą wymagać od użytkowników, którzy nie są administratorami lub przypisani do niektórych ról, ponownej rejestracji z istniejącymi poświadczeniami niebędącymi hasłami (na przykład uwierzytelnianie wieloskładnikowe lub FIDO), a także mogą odwołać **zapamiętywanie usługi MFA na urządzeniu,** co powoduje monitowanie o uwierzytelnianie wieloskładnikowe przy następnym loguch. Te akcje dotyczą tylko użytkowników, którzy nie są administratorami lub którym przypisano jedną lub więcej z następujących ról:
 
 * Administrator uwierzytelniania
 * Czytniki katalogów
 * Zaproszony gość
 * Czytnik centrum wiadomości
 * Czytnik raportów
+
+Rola [administratora uwierzytelniania uprzywilejowanego](#privileged-authentication-administrator) ma uprawnienia, które mogą wymusić ponowną rejestrację i uwierzytelnianie wieloskładnikowe dla wszystkich użytkowników.
 
 > [!IMPORTANT]
 > Użytkownicy z tą rolą mogą zmieniać poświadczenia dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz usługi Azure Active Directory. Zmiana poświadczeń użytkownika może oznaczać możliwość przyjęcia tożsamości i uprawnień tego użytkownika. Przykład:
@@ -103,7 +106,7 @@ Użytkownicy z tej roli można tworzyć i zarządzać przepływów użytkownikó
 
 ### <a name="b2c-user-flow-attribute-administrator"></a>[Administrator atrybutów przepływu użytkownika B2C](#b2c-user-flow-attribute-administrator-permissions)
 
-Użytkownicy z tą rolą dodają lub usuwają atrybuty niestandardowe dostępne dla wszystkich przepływów użytkowników w dzierżawie.W związku z tym użytkownicy z tej roli można zmienić lub dodać nowe elementy do schematu użytkownika końcowego i wpływ na zachowanie wszystkich przepływów użytkowników i pośrednio spowodować zmiany, jakie dane mogą być zadawane przez użytkowników końcowych i ostatecznie wysyłane jako oświadczenia do aplikacji.Ta rola nie może edytować przepływów użytkownika.
+Użytkownicy z tą rolą dodają lub usuwają atrybuty niestandardowe dostępne dla wszystkich przepływów użytkowników w dzierżawie.W związku z tym użytkownicy z tej roli można zmienić lub dodać nowe elementy do schematu użytkownika końcowego i wpływ na zachowanie wszystkich przepływów użytkowników i pośrednio spowodować zmiany, jakie dane mogą być zadawane użytkowników końcowych i ostatecznie wysyłane jako oświadczenia do aplikacji.Ta rola nie może edytować przepływów użytkownika.
 
 ### <a name="b2c-ief-keyset-administrator"></a>[Administrator zestawu kluczy IEF B2C](#b2c-ief-keyset-administrator-permissions)
 
@@ -128,6 +131,7 @@ Dokonuje zakupów, zarządza subskrypcjami, zarządza biletami pomocy techniczne
 Użytkownicy w tej roli mają takie same uprawnienia jak rola Administrator aplikacji, z wyłączeniem możliwości zarządzania serwerem proxy aplikacji. Ta rola umożliwia tworzenie i zarządzanie wszystkimi aspektami aplikacji dla przedsiębiorstw i rejestracji aplikacji. Ta rola daje również możliwość wyrażenia zgody na uprawnienia delegowane i uprawnienia aplikacji z wyłączeniem interfejsu API programu Microsoft Graph. Użytkownicy przypisani do tej roli nie są dodawane jako właściciele podczas tworzenia nowych rejestracji aplikacji lub aplikacji przedsiębiorstwa.
 
 Administratorzy aplikacji w chmurze mogą zarządzać poświadczeniami aplikacji, które umożliwiają im personifikacji aplikacji. Tak więc użytkownicy przypisani do tej roli mogą zarządzać poświadczeniami aplikacji tylko tych aplikacji, które nie są przypisane do żadnych ról usługi Azure AD lub tych przypisanych tylko do następujących ról administratora:
+
 * Deweloper aplikacji
 * Administrator aplikacji w chmurze
 * Czytniki katalogów
@@ -215,7 +219,7 @@ Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Exchang
 Ten administrator zarządza federacją między dzierżawami usługi Azure Active Directory a zewnętrznymi dostawcami tożsamości.Dzięki tej roli użytkownicy mogą dodawać nowych dostawców tożsamości i konfigurować wszystkie dostępne ustawienia (np. ścieżkę uwierzytelniania, identyfikator usługi, przypisane kontenery kluczy).Ten użytkownik może włączyć dzierżawy do zaufania uwierzytelniania od zewnętrznych dostawców tożsamości.Wynikowy wpływ na środowisko użytkownika końcowego zależy od typu dzierżawy:
 
 * Dzierżawy usługi Azure Active Directory dla pracowników i partnerów: dodanie federacji (np. w Gmailu) będzie miało natychmiastowy wpływ na wszystkie zaproszenia gości, które nie zostały jeszcze zrealizowane. Zobacz [Dodawanie Google jako dostawcy tożsamości dla użytkowników-gości B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-* Dzierżawy usługi Azure Active Directory B2C: dodanie federacji (na przykład z Facebookiem lub inną organizacją usługi Azure AD) nie wpływa natychmiast na przepływy użytkowników końcowych, dopóki dostawca tożsamości nie zostanie dodany jako opcja w przepływie użytkownika (nazywany również wbudowaną zasadą). Zobacz [konfigurowanie konta Microsoft jako dostawcy tożsamości](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) na przykład.Aby zmienić przepływy użytkowników, wymagana jest ograniczona rola "Administrator przepływu użytkownika B2C".
+* Dzierżawy usługi Azure Active Directory B2C: dodanie federacji (na przykład z Facebookiem lub inną organizacją usługi Azure AD) nie wpływa natychmiast na przepływy użytkowników końcowych, dopóki dostawca tożsamości nie zostanie dodany jako opcja w przepływie użytkownika (nazywany również wbudowanymi zasadami). Zobacz [konfigurowanie konta Microsoft jako dostawcy tożsamości](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) na przykład.Aby zmienić przepływy użytkowników, wymagana jest ograniczona rola "Administrator przepływu użytkownika B2C".
 
 ### <a name="global-administrator--company-administrator"></a>[Administrator globalny / Administrator firmy](#company-administrator-permissions)
 
@@ -350,7 +354,13 @@ Użytkownicy z tą rolą mogą rejestrować drukarki i zarządzać stanem drukar
 
 ### <a name="privileged-authentication-administrator"></a>[Administrator uwierzytelniania uprzywilejowanego](#privileged-authentication-administrator-permissions)
 
-Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędące hasłami dla wszystkich użytkowników, w tym administratorów globalnych, i mogą aktualizować hasła dla wszystkich użytkowników. Administratorzy uwierzytelniania uprzywilejowanego mogą wymusić na użytkownikach ponowną rejestrację istniejących poświadczeń niezwiązanych z hasłem (np.
+Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędące hasłami dla wszystkich użytkowników, w tym administratorów globalnych, i mogą aktualizować hasła dla wszystkich użytkowników. Administratorzy uwierzytelniania uprzywilejowanego mogą wymusić na użytkownikach ponowne zarejestrowanie się przy użyciu istniejących poświadczeń niebędących hasłami (takich jak uwierzytelnianie wieloskładnikowe lub FIDO) i odwołać funkcję "zapamiętaj uwierzytelnianie wieloskładnikowe na urządzeniu", monitując o uwierzytelnianie w sprawie następnego logowania wszystkich użytkowników. Rola [administratora uwierzytelniania](#authentication-administrator) może wymusić ponowną rejestrację i uwierzytelnianie wieloskładnikowe tylko dla użytkowników niebędących administratorami i użytkownikami przypisanymi do następujących ról usługi Azure AD:
+
+* Administrator uwierzytelniania
+* Czytniki katalogów
+* Zaproszony gość
+* Czytnik centrum wiadomości
+* Czytnik raportów
 
 ### <a name="privileged-role-administrator"></a>[Administrator ról uprzywilejowanych](#privileged-role-administrator-permissions)
 

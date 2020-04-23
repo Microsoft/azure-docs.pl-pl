@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 8eae528c965e599e7adfb546a09b0d5879e7c54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a26e403671a2f69eeb785d92fa0c1d37a19e3ac5
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369523"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085080"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera odwołania do najlepszych rozwiązań, które mogą pomóc w zrozumieniu architektury rozwiązania przy użyciu plików NetApp platformy Azure.  
@@ -38,6 +38,7 @@ Ten artykuł zawiera odwołania do najlepszych rozwiązań, które mogą pomóc 
 
 * [Przewodnik dotyczący najlepszych rozwiązań dotyczących wdrażania aplikacji Oracle na platformie Azure przy użyciu plików NetApp platformy Azure](https://www.netapp.com/us/media/tr-4780.pdf)
 * [Obrazy maszyn wirtualnych Oracle i ich wdrożenie na platformie Microsoft Azure: opcje konfiguracji magazynu udostępnionego](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
+* [Korzyści związane z korzystaniem z usługi Azure NetApp Files w bazie danych Oracle Database](https://docs.microsoft.com/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database)
 
 ## <a name="sap-application-solutions"></a>Rozwiązania aplikacyjne SAP 
 
