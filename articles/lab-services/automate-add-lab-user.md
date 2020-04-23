@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 70a6359923734c83590d4677bb2c93966c925d14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81a8c5030f716246caf3dcd8b540bb47fcaf6520
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76718143"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82023626"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatyzacja dodawania użytkownika laboratorium do laboratorium w laboratorium usługi Azure DevTest Labs
-Laboratorium devtest platformy Azure umożliwia szybkie tworzenie samoobsługowych środowisk deweloperskich i testowych przy użyciu witryny Azure portal. Jeśli jednak masz kilka zespołów i kilka wystąpień DevTest Labs, automatyzacja procesu tworzenia może zaoszczędzić czas. [Szablony usługi Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) umożliwiają tworzenie laboratoriów, maszyn wirtualnych w laboratorium, obrazów niestandardowych, formuł i dodawanie użytkowników w sposób zautomatyzowany. Ten artykuł koncentruje się w szczególności na dodawanie użytkowników do DevTest Labs wystąpienia.
+Laboratorium devtest platformy Azure umożliwia szybkie tworzenie samoobsługowych środowisk deweloperskich i testowych przy użyciu witryny Azure portal. Jeśli jednak masz kilka zespołów i kilka wystąpień DevTest Labs, automatyzacja procesu tworzenia może zaoszczędzić czas. [Szablony usługi Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) umożliwiają tworzenie laboratoriów, maszyn wirtualnych w laboratorium, obrazów niestandardowych, formuł i dodawanie użytkowników w sposób zautomatyzowany. Ten artykuł koncentruje się w szczególności na dodawanie użytkowników do DevTest Labs wystąpienia.
 
 Aby dodać użytkownika do laboratorium, należy dodać użytkownika do **devtest labs roli użytkownika** w laboratorium. W tym artykule pokazano, jak zautomatyzować dodawanie użytkownika do laboratorium przy użyciu jednego z następujących sposobów:
 

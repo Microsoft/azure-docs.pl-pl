@@ -1,26 +1,21 @@
 ---
 title: Migrowanie z usługi AWS i innych platform do dysków zarządzanych na platformie Azure
 description: Tworzenie maszyn wirtualnych na platformie Azure przy użyciu dysków wirtualnych przekazanych z innych chmur, takich jak AWS lub innych platform wirtualizacji i korzystać z dysków zarządzanych platformy Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: roygara
 manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dbce2969ccb508c2bf3ee33730d0b112caa45c9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc283d1845926b79fb541d8ccb011fe853f50484
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243161"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870278"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migracja z usług Amazon Web Services (AWS) i innych platform na dyski zarządzane na platformie Azure
 

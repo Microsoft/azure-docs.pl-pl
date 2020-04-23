@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c895a13eb9b2bed9e3a8a5a250c4e925dfa834c5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80331813"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024442"
 ---
 # <a name="what-is-a-device-identity"></a>Co to jest tożsamość urządzenia?
 
@@ -53,6 +53,9 @@ Aby uzyskać urządzenie w usłudze Azure AD, masz wiele opcji:
 
 ![Urządzenia wyświetlane w bloku Urządzenia usługi Azure AD](./media/overview/azure-active-directory-devices-all-devices.png)
 
+> [!NOTE]
+> Stan hybrydowy odnosi się do więcej niż tylko stan urządzenia. Aby stan hybrydowy był prawidłowy, wymagany jest również prawidłowy użytkownik usługi Azure AD.
+
 ## <a name="device-management"></a>Zarządzanie urządzeniami
 
 Urządzeniami w usłudze Azure AD można zarządzać za pomocą narzędzi zarządzania urządzeniami przenośnymi (MDM), takich jak Microsoft Intune, Microsoft Endpoint Configuration Manager, Group Policy (hybrid Azure AD join), Mobile Application Management (MAM) lub innych narzędzi innych firm.
@@ -63,6 +66,8 @@ Rejestrowanie i łączenie urządzeń z usługą Azure AD zapewnia użytkownikom
 
 > [!NOTE]
 > Zasady dostępu warunkowego oparte na urządzeniach wymagają hybrydowych urządzeń przyłączonych do usługi Azure AD lub zgodnych urządzeń przyłączonych do usługi Azure AD lub urządzeń zarejestrowanych w usłudze Azure AD.
+
+Podstawowy token odświeżania (PRT) zawiera informacje o urządzeniu i jest wymagany dla logowania pierwszego przyuśtu. Jeśli masz ustawione zasady dostępu warunkowego oparte na urządzeniu w aplikacji, bez PRT, odmowa dostępu. Zasady hybrydowego dostępu warunkowego wymagają urządzenia stanu hybrydowego i prawidłowego użytkownika, który jest zalogowany.
 
 Urządzenia, które są przyłączone do usługi Azure AD lub hybrydowe usługi Azure AD przyłączone korzyści z jednokrotnego użytkownika do zasobów lokalnych organizacji, a także zasobów w chmurze. Więcej informacji można znaleźć w artykule Jak [samouszeńców do zasobów lokalnych działa na urządzeniach przyłączonych do usługi Azure AD.](azuread-join-sso.md)
 

@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934150"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025037"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Wdrażanie na dedykowanych hostach
 
@@ -37,7 +37,7 @@ Właściwość `sku` może mieć jedną z następujących wartości:
 ## <a name="modify-your-json-deployment-template"></a>Modyfikowanie szablonu wdrożenia JSON
 
 W szablonie wdrożenia zmodyfikuj lub dodaj następujące właściwości:
-* W `resources`obszarze `apiVersion` `2012-12-01`, ustawiono na .
+* W `resources`obszarze `apiVersion` `2019-12-01`, ustawiono na .
 * W obszarze właściwości grupy kontenerów `sku` dodaj `Dedicated`właściwość o wartości .
 
 Oto przykładowy fragment kodu dla sekcji zasobów szablonu wdrażania grupy kontenerów, który używa dedykowanego sku:

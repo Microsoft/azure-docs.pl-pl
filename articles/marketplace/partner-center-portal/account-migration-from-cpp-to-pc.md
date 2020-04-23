@@ -1,18 +1,18 @@
 ---
 title: Migracja kont z portalu partnerów w chmurze do centrum partnerskiego — komercyjnego portalu azure
-description: Jak przeprowadzić migrację konta z CPP do Centrum partnerskiego. - komercyjny rynek platformy Azure
+description: Jak przeprowadzić migrację konta z CPP do Centrum partnerskiego — komercyjnego portalu marketplace dla platformy Azure
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 3979be6f49f4ad01a6092fc0d5aa767d342c4642
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 49fb2da05b7284fff10e6271de177551000995ed
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730505"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024425"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migracja konta z witryny Cloud Partner Portal do Centrum partnerskiego
 
@@ -42,6 +42,16 @@ Kliknij baner, aby rozpocząć proces migracji konta. Oczekuje się, że wprowad
 2. Zarejestruj się w programie Microsoft Partner Network
 
     Jeśli twoje konto CPP nie ma identyfikatora sieci partnerów firmy Microsoft lub ma nieprawidłowy identyfikator, musisz zarejestrować się w programie Microsoft Partner Network w ramach procesu aktywacji.
+
+## <a name="publishers-moving-from-cpp"></a>Wydawcy odchodzący z CPP
+
+Jeśli twoje konto zostało zmigrowane z [portalu Cloud Partner Portal (CPP),](https://cloudpartner.azure.com)nie trzeba tworzyć nowego konta Centrum partnerów. Powinieneś otrzymać niestandardowe łącze do nowego konta Centrum partnerów w wiadomości e-mail i w powiadomieniu o banerze po zalogowaniu się na istniejące konto CPP.
+
+Po włączeniu nowego konta Centrum partnerów, odwiedzając ten niestandardowy link, możesz wrócić do swojego konta, odwiedzając [pulpit nawigacyjny rynku komercyjnego](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) w Centrum partnerów.
+
+Umowa wydawnicza i informacje o profilu firmy zostaną przeniesione na nowe konto Centrum partnerów wraz z wszelkimi wcześniej skonfigurowanymi informacjami o profilu wypłaty konta, kontami użytkowników i uprawnieniami oraz aktywnymi ofertami powiązanymi z Twoim kontem CPP.
+
+Po przeniesieniu informacji o koncie z CPP do Centrum partnerów nie będziesz już używać CPP do aktualizacji konta ani zarządzania użytkownikami, uprawnieniami i rozliczeniami. Przez ograniczony czas wszelkie aktualizacje konta w Centrum partnerów będą automatycznie aktualizowane na koncie CPP tylko do odczytu, dopóki portal CPP nie zostanie ostatecznie przestarzały.
 
 ## <a name="sign-up-for-microsoft-partner-network-program"></a>Zarejestruj się w programie Microsoft Partner Network
 

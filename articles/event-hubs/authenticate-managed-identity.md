@@ -9,12 +9,12 @@ manager: ''
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 672b663a9cab72d465ea00e0a5ade364eadbf64e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfc60fbc03021e72dccc0f60a7ac34d204ef6df9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78251524"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025190"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnij tożsamość zarządzaną za pomocą usługi Azure Active Directory w celu uzyskania dostępu do zasobów usługi Event Hubs
 Usługa Azure Event Hubs obsługuje uwierzytelnianie usługi Azure Active Directory (Azure AD) z [zarządzanymi tożsamościami zasobów platformy Azure.](../active-directory/managed-identities-azure-resources/overview.md) Tożsamości zarządzane dla zasobów platformy Azure mogą autoryzować dostęp do zasobów usługi Event Hubs przy użyciu poświadczeń usługi Azure AD z aplikacji uruchomionych w maszynach wirtualnych platformy Azure (maszyny wirtualne), aplikacje funkcji, zestawy skalowania maszyny wirtualnej i inne usługi. Korzystając z zarządzanych tożsamości dla zasobów platformy Azure wraz z uwierzytelnianiem usługi Azure AD, można uniknąć przechowywania poświadczeń w aplikacjach uruchamianych w chmurze.
@@ -24,7 +24,7 @@ W tym artykule pokazano, jak autoryzować dostęp do Centrum zdarzeń przy użyc
 ## <a name="enable-managed-identities-on-a-vm"></a>Włączanie tożsamości zarządzanych na maszynie Wirtualnej
 Aby można było używać tożsamości zarządzanych dla zasobów platformy Azure do autoryzowania zasobów usługi Event Hubs z maszyny Wirtualnej, należy najpierw włączyć tożsamości zarządzane dla zasobów platformy Azure na maszynie Wirtualnej. Aby dowiedzieć się, jak włączyć tożsamości zarządzane dla zasobów platformy Azure, zobacz jeden z następujących artykułów:
 
-- [Portal Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Szablon usługi Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -65,7 +65,7 @@ Aby przypisać rolę do zasobów usługi Event Hubs, przejdź do tego zasobu w w
 4.  Na stronie **Dodawanie przypisania roli** wybierz role centrum zdarzeń, które chcesz przypisać. Następnie wyszukaj, aby zlokalizować zarejestrowaną tożsamość usługi, aby przypisać rolę.
     
     ![Dodawanie strony przypisania roli](./media/authenticate-managed-identity/add-role-assignment-page.png)
-5.  Wybierz **pozycję Zapisz**. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji pokazano, że tożsamość usługi ma właściciela danych usługi Event Hubs.
+5.  Wybierz pozycję **Zapisz**. Tożsamość, do której przypisano rolę, jest wyświetlana na liście w ramach tej roli. Na przykład na poniższej ilustracji pokazano, że tożsamość usługi ma właściciela danych usługi Event Hubs.
     
     ![Tożsamość przypisana do roli](./media/authenticate-managed-identity/role-assigned.png)
 
@@ -149,7 +149,7 @@ Aplikacje Apache Kafka służy do wysyłania wiadomości i odbierania wiadomośc
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [Przykłady witryn Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Te przykłady używają starej biblioteki **Microsoft.Azure.EventHubs,** ale można łatwo zaktualizować go do korzystania z najnowszej biblioteki **Azure.Messaging.EventHubs.** Aby przenieść przykład ze starej biblioteki do nowej, zobacz [Przewodnik do migracji z witryny Microsoft.Azure.EventHubs do usługi Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+    Te przykłady używają starej biblioteki **Microsoft.Azure.EventHubs,** ale można łatwo zaktualizować go do korzystania z najnowszej biblioteki **Azure.Messaging.EventHubs.** Aby przenieść przykład ze starej biblioteki do nowej, zobacz [Przewodnik do migracji z witryny Microsoft.Azure.EventHubs do usługi Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
     Ten przykład został zaktualizowany, aby użyć najnowszej biblioteki **Azure.Messaging.EventHubs.**
 - [Centra zdarzeń dla platformy Kafka — wysyłanie i odbieranie wiadomości przy użyciu identyfikatora zarządzanego OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 

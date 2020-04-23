@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f789f82288c9820214c4ab32c271bb547945d4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48b9f2dc64d1d3ddd8253a253dcab8ef972032f9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77057383"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869741"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie nawigatora sprzedaży LinkedIn do automatycznego inicjowania obsługi administracyjnej przez użytkowników
 
@@ -53,7 +53,7 @@ Przed skonfigurowaniem i włączeniem usługi inicjowania obsługi administracyj
 
 ## <a name="configuring-user-provisioning-to-linkedin-sales-navigator"></a>Konfigurowanie inicjowania obsługi administracyjnej użytkownika w nawigatorze sprzedaży linkedin
 
-W tej sekcji można zainicjować połączenie usługi Azure AD z interfejsem API obsługi administracyjnej konta scim usługi LinkedIn Sales Navigator oraz skonfigurowanie usługi inicjowania obsługi administracyjnej w celu tworzenia, aktualizowania i wyłączania przypisanych kont użytkowników w nawigatorze sprzedaży LinkedIn na podstawie przypisania grupy w usłudze Azure AD.
+W tej sekcji przewodnik po połączeniu usługi Azure AD z interfejsem API obsługi administracyjnej konta scim usługi LinkedIn Sales Navigator i konfigurowaniu usługi inicjowania obsługi administracyjnej w celu tworzenia, aktualizowania i wyłączania przypisanych kont użytkowników w programie LinkedIn Sales Navigator na podstawie przypisania użytkownika i grupy w usłudze Azure AD.
 
 > [!TIP]
 > Można również włączyć logowanie jednokrotne oparte na saml dla LinkedIn Sales Navigator, postępując zgodnie z instrukcjami podanymi w [witrynie Azure portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje wzajemnie się uzupełniają.
@@ -99,7 +99,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu linkedin. Jeśli jesteś adminis
 
 11. Wypełnij następujące pola w obszarze **Poświadczenia administratora:**
 
-    * W polu Adres URL https://api.linkedin.com **dzierżawy** wprowadź .
+    * W polu Adres URL https://developer.linkedin.com **dzierżawy** wprowadź .
 
     * W polu **Tajny token** wprowadź token dostępu wygenerowany w kroku 1 i kliknij przycisk **Testuj połączenie** .
 
@@ -107,7 +107,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu linkedin. Jeśli jesteś adminis
 
 12. Wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej w polu **Wiadomości e-mail z powiadomieniem,** i zaznacz pole wyboru poniżej.
 
-13. Kliknij przycisk **Zapisz**.
+13. Kliknij pozycję **Zapisz**.
 
 14. W sekcji **Mapowania atrybutów** przejrzyj atrybuty użytkownika i grupy, które będą synchronizowane z usługi Azure AD do LinkedIn Sales Navigator. Należy zauważyć, że atrybuty wybrane jako **właściwości dopasowania** będą używane do dopasowania kont użytkowników i grup w LinkedIn Sales Navigator do operacji aktualizacji. Wybierz przycisk Zapisz, aby zatwierdzić wszelkie zmiany.
 
@@ -115,7 +115,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu linkedin. Jeśli jesteś adminis
 
 15. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla nawigatora sprzedaży linkedin, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia**
 
-16. Kliknij przycisk **Zapisz**.
+16. Kliknij pozycję **Zapisz**.
 
 Spowoduje to rozpoczęcie początkowej synchronizacji wszystkich użytkowników i/lub grup przypisanych do LinkedIn Sales Navigator w sekcji Użytkownicy i grupy. Należy zauważyć, że synchronizacja początkowa potrwa dłużej niż kolejne synchronizacje, które występują co około 40 minut, o ile usługa jest uruchomiona. Za pomocą sekcji **Szczegóły synchronizacji** można monitorować postęp i obserwować łącza do dzienników działań inicjowania obsługi administracyjnej, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji LinkedIn Sales Navigator.
 

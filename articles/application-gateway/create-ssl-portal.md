@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/13/2019
+ms.date: 04/22/2019
 ms.author: victorh
-ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312390"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024497"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Samouczek: Konfigurowanie bramy aplikacji z zakończeniem protokołu TLS przy użyciu portalu Azure
 
@@ -56,13 +56,11 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Użyj [export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) z odcisku palca, który został zwrócony do eksportu pliku pfx z certyfikatu:
+Użyj [export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) z odcisku palca, który został zwrócony do eksportu pliku pfx z certyfikatu. Upewnij się, że hasło ma długość od 4 do 12 znaków:
 
-> [!NOTE]
-> Nie używaj żadnych znaków specjalnych w haśle pliku .pfx. Obsługiwane są tylko znaki alfanumeryczne.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String <your password> -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -150,7 +148,7 @@ Na karcie **Konfiguracja** połączysz pulę frontu i wewnętrznej bazy danych u
 
    - **Plik certyfikatu PFX** — umożliwia przeglądanie i wybieranie pliku c:\appgwcert.pfx, który został utworzony wcześniej.
    - **Nazwa certyfikatu** — wpisz *mycert1* dla nazwy certyfikatu.
-   - **Hasło** — wpisz *Azure123456* dla hasła.
+   - **Hasło** — wpisz hasło.
   
         Zaakceptuj wartości domyślne dla innych ustawień na karcie **Odbiornik,** a następnie wybierz kartę **Bazy danych,** aby skonfigurować pozostałą część reguły routingu.
 
@@ -194,10 +192,10 @@ Aby to zrobić, będziesz:
     - **Grupa zasobów**: Wybierz **myResourceGroupAG** dla nazwy grupy zasobów.
     - **Nazwa maszyny wirtualnej**: Wprowadź *myVM* dla nazwy maszyny wirtualnej.
     - **Nazwa użytkownika**: Wprowadź *użytkownika azureuser* dla nazwy użytkownika administratora.
-    - **Hasło:** Wprowadź *usługę Azure123456* dla hasła administratora.
-4. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Dalej: Dyski**.  
-5. Zaakceptuj domyślne ustawienia karty **Dyski,** a następnie wybierz pozycję **Dalej: Sieć**.
-6. Na karcie **Sieć** sprawdź, czy wybrano pozycję **myVNet** w obszarze **Sieć wirtualna** oraz czy pozycja **Podsieć** została ustawiona na wartość **myBackendSubnet**. Zaakceptuj inne ustawienia domyślne, a następnie wybierz **pozycję Dalej: Zarządzanie**.
+    - **Hasło**: Wprowadź hasło do konta administratora.
+1. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Dalej: Dyski**.  
+2. Zaakceptuj domyślne ustawienia karty **Dyski,** a następnie wybierz pozycję **Dalej: Sieć**.
+3. Na karcie **Sieć** sprawdź, czy wybrano pozycję **myVNet** w obszarze **Sieć wirtualna** oraz czy pozycja **Podsieć** została ustawiona na wartość **myBackendSubnet**. Zaakceptuj inne ustawienia domyślne, a następnie wybierz **pozycję Dalej: Zarządzanie**.
 
    Brama aplikacji może komunikować się z wystąpieniami poza siecią wirtualną, w której się znajduje, ale musisz upewnić się, że istnieje łączność IP.
 1. Na karcie **Zarządzanie** ustaw pozycję **Diagnostyka rozruchu** na **Wył.** Zaakceptuj pozostałe wartości domyślne, a następnie wybierz pozycję **Przeglądanie + tworzenie**.

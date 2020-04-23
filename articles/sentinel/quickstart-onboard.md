@@ -9,18 +9,18 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 11fecd875385d8ba044cbe44e2270eed11d61ce1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bcb6cd7393419fb8fc75decb00a8f4165d15668c
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77581553"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025275"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Szybki start: wbudowany program Azure Sentinel
 
 W tym przewodniku Szybki start dowiedz się, jak ować na pokładzie usługi Azure Sentinel. 
 
-Aby urządzenie Azure Sentinel było wbudowane, należy najpierw włączyć usługę Azure Sentinel, a następnie połączyć źródła danych. Usługa Azure Sentinel jest dostępna z wieloma łącznikami dla rozwiązań firmy Microsoft, dostępnymi po wyjęciu z pudełka i zapewniającymi integrację w czasie rzeczywistym, w tym rozwiązaniami microsoft threat protection, źródłami usługi Microsoft 365, w tym usługą Office 365, usługą Azure AD, platformą Azure ATP i Microsoft Cloud App Security i nie tylko. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań innych firm. Można również użyć wspólnego formatu zdarzeń, Syslog lub REST-API, aby połączyć źródła danych z usługą Azure Sentinel.  
+Aby urządzenie Azure Sentinel było wbudowane, należy najpierw włączyć usługę Azure Sentinel, a następnie połączyć źródła danych. Usługa Azure Sentinel jest dostępna z wieloma łącznikami dla rozwiązań firmy Microsoft, dostępnymi po wyjęciu z pudełka i zapewniającymi integrację w czasie rzeczywistym, w tym rozwiązaniami microsoft threat protection, źródłami usługi Microsoft 365, w tym usługą Office 365, usługą Azure AD, azure ATP i microsoft cloud app security i wieloma usługami. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań innych firm. Można również użyć wspólnego formatu zdarzeń, Syslog lub REST-API, aby połączyć źródła danych z usługą Azure Sentinel.  
 
 Po połączeniu źródeł danych wybierz z galerii profesjonalnie utworzonych skoroszytów, które powierzchniowe są oparte na danych. Te skoroszyty można łatwo dostosować do twoich potrzeb.
 
@@ -55,7 +55,7 @@ Po połączeniu źródeł danych wybierz z galerii profesjonalnie utworzonych sk
 
    >[!NOTE] 
    > - Domyślne obszary robocze utworzone przez usługę Azure Security Center nie będą wyświetlane na liście; nie można zainstalować na nich usługi Azure Sentinel.
-   > - Usługa Azure Sentinel może działać w obszarach roboczych w dowolnym [regionie ga usługi Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chiny, Niemcy i Azure Government. Dane generowane przez usługę Azure Sentinel (takie jak zdarzenia, zakładki i reguły alertów, które mogą zawierać niektóre dane klientów pochodzące z tych obszarów roboczych) są zapisywane w Europie Zachodniej (dla obszarów roboczych zlokalizowanych w Europie) lub we wschodnich stanach USA (dla wszystkich obszarów roboczych opartych na STANACH ZJEDNOCZONYCH, a także innego regionu z wyjątkiem Europy).
+   > - Usługa Azure Sentinel może działać w obszarach roboczych w dowolnym [regionie ga usługi Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chiny, Niemcy i Azure Government. Dane generowane przez usługę Azure Sentinel (takie jak zdarzenia, zakładki i reguły alertów, które mogą zawierać niektóre dane klientów pochodzące z tych obszarów roboczych) są zapisywane w Europie Zachodniej (dla obszarów roboczych zlokalizowanych w Europie) lub wschodnich stanach ZJEDNOCZONYch (dla wszystkich obszarów roboczych opartych na stanach Zjednoczonych, a także w każdym innym regionie z wyjątkiem Europy).
 
 1. Wybierz **pozycję Dodaj wartownika platformy Azure**.
   
@@ -64,7 +64,7 @@ Po połączeniu źródeł danych wybierz z galerii profesjonalnie utworzonych sk
 
 Usługa Azure Sentinel tworzy połączenie z usługami i aplikacjami, łącząc się z usługą i przesyłając dalej zdarzenia i dzienniki do usługi Azure Sentinel. W przypadku maszyn i maszyn wirtualnych można zainstalować agenta wartownika platformy Azure, który zbiera dzienniki i przekazuje je do usługi Azure Sentinel. W przypadku zapór i serwerów proxy usługa Azure Sentinel korzysta z serwera Syslog systemu Linux. Agent jest zainstalowany na nim i z którego agent zbiera pliki dziennika i przekazuje je do usługi Azure Sentinel. 
  
-1. Kliknij **pozycję Zbieranie danych**.
+1. Kliknij **pozycję Łączniki danych**.
 2. Istnieje kafelek dla każdego źródła danych, które można połączyć.<br>
 Na przykład kliknij pozycję **Azure Active Directory**. Jeśli połączysz to źródło danych, przesyłasz strumieniowo wszystkie dzienniki z usługi Azure AD do usługi Azure Sentinel. Można wybrać typ dzienników, które wan, aby uzyskać - logi logowania i/lub inspekcji dzienników. <br>
 U dołu usługi Azure Sentinel zawiera zalecenia dotyczące skoroszytów, które należy zainstalować dla każdego łącznika, dzięki czemu można natychmiast uzyskać interesujące informacje na temat danych. <br> Aby uzyskać więcej informacji, należy postępować zgodnie z instrukcjami instalacji lub [zapoznać się z odpowiednim przewodnikiem po połączeniu.](connect-data-sources.md) Aby uzyskać informacje o łącznikach danych, zobacz [Łączenie usług firmy Microsoft](connect-data-sources.md).

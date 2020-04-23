@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc6cbbd0aa9cb0750e497c7cc7edbd42f21bda55
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62127348"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025003"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Organizowanie implementacji laboratoriów DevTest azure
 Ten artykuł zawiera zalecane podejście do szybkiego wdrażania i wdrażania platformy Azure DevTest Labs. Poniższa ilustracja podkreśla ogólny proces jako wskazówki nakazowe, przestrzegając jednocześnie elastyczności obsługi różnych wymagań i scenariuszy branżowych.
@@ -43,7 +43,7 @@ Pierwszym obszarem zainteresowania podczas wdrażania rozwiązania Azure DevTest
 ## <a name="milestone-2-deploy-the-pilot-lab"></a>Kamień milowy 2: Wdrożenie laboratorium pilotażowego
 Po wprowadzeniu topologii sieci można utworzyć pierwsze/pilotażowe laboratorium, wykonując następujące kroki:
 
-1. Tworzenie początkowego środowiska DevTest Labs (instrukcje krok po kroku można znaleźć [tutaj)](https://github.com/Azure/fta-devops/blob/master/devtest-labs/articles/devtest-labs-walkthrough-it.md)
+1. Utwórz początkowe środowisko DevTest Labs.
 2. Określ dopuszczalne obrazy i rozmiary maszyn wirtualnych do użycia w laboratorium. Zdecyduj, czy obrazy niestandardowe mogą być przekazywane na platformę Azure do użytku z DevTest Labs.
 3. Bezpieczny dostęp do laboratorium przez utworzenie początkowych kontroli dostępu do bazy ról (RBAC) dla laboratorium (właścicieli laboratoriów i użytkowników laboratorium). Zaleca się używanie zsynchronizowanych kont usługi Active Directory z usługą Azure Active Directory dla tożsamości w laboratoriach DevTest.
 4. Skonfiguruj laboratoria DevTest, aby używały zasad, takich jak harmonogramy, zarządzanie kosztami, maszyny wirtualne, niestandardowe obrazy lub formuły.

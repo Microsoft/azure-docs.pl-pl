@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f7c4b25dad50b8fe620d358aa7fb3e9decabc2f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd8d9bdfb356ff9816056b85b1dc5688d17b58c
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294351"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869749"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Tworzenie nowej oferty Dynamics 365 for Operations
 
@@ -195,6 +195,9 @@ Podaj tutaj co najmniej jeden (i maksymalnie trzy) powiązane dokumenty marketin
 ### <a name="marketplace-images"></a>Obrazy z Marketplace
 
 W tej sekcji możesz podać logo i obrazy, które będą używane podczas wyświetlania oferty klientowi. Wszystkie obrazy muszą być w formacie png.
+
+>[!Note]
+>Jeśli masz problem z przekazywaniem plików, upewnij się, https://upload.xboxlive.com że sieć lokalna nie blokuje usługi używanej przez Centrum partnerów.
 
 #### <a name="store-logos"></a>Logo sklepu
 

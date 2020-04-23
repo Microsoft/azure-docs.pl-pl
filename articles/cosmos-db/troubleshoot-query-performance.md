@@ -4,22 +4,22 @@ description: Dowiedz się, jak identyfikować, diagnozować i rozwiązywać prob
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/10/2020
+ms.date: 04/20/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 852ed8c49eda7f13542eb0bad63d84e1cf770e92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a8b61f3719a60af567d10f8839987e613babc9e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131377"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870452"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z zapytaniami podczas korzystania z usługi Azure Cosmos DB
 
 W tym artykule oszukuje się ogólne zalecane podejście do rozwiązywania problemów z zapytaniami w usłudze Azure Cosmos DB. Chociaż nie należy brać pod uwagę kroki opisane w tym artykule pełnej obrony przed potencjalnymi problemami z zapytaniami, poniżej uwzględniliśmy najczęściej zadawane wskazówki dotyczące wydajności. Tego artykułu należy użyć jako miejsca rozpoczęcia rozwiązywania problemów z powolnymi lub kosztownymi zapytaniami w interfejsie API rdzenia usługi Azure Cosmos DB (SQL). Dzienniki [diagnostyki](cosmosdb-monitor-resource-logs.md) można również użyć do identyfikowania kwerend, które są powolne lub zużywają znaczne ilości przepływności.
 
-Optymalizacje zapytań można zasadniczo kategoryzować w usłudze Azure Cosmos DB: 
+Optymalizacje zapytań można zasadniczo kategoryzować w usłudze Azure Cosmos DB:
 
 - Optymalizacje zmniejszające obciążenie kwerendy jednostką żądań (RU)
 - Optymalizacje, które po prostu zmniejszają opóźnienia
@@ -28,19 +28,18 @@ Jeśli zmniejszysz ładunek RU kwerendy, prawie na pewno zmniejszyć opóźnieni
 
 W tym artykule przedstawiono przykłady, które można odtworzyć przy użyciu zestawu danych [żywieniowych.](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)
 
-## <a name="important"></a>Ważne
+## <a name="common-sdk-issues"></a>Typowe problemy z SDK
 
 - Aby uzyskać najlepszą wydajność, postępuj zgodnie [z poradami dotyczącymi wydajności](performance-tips.md).
     > [!NOTE]
     > Aby zwiększyć wydajność, zalecamy przetwarzanie hosta 64-bitowego systemu Windows. Zestaw SDK SQL zawiera natywną bibliotekę ServiceInterop.dll do analizowania i optymalizowania zapytań lokalnie. ServiceInterop.dll jest obsługiwany tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiconych platform, na których serviceinterop.dll nie jest dostępny, zostanie wykonane dodatkowe wywołanie sieciowe do bramy w celu uzyskania zoptymalizowanego zapytania.
-- Kwerendy usługi Azure Cosmos DB nie obsługują minimalnej liczby elementów.
-    - Kod powinien obsługiwać dowolny rozmiar strony, od zera do maksymalnej liczby elementów.
-    - Liczba elementów na stronie może i zmieni się bez powiadomienia.
-- Puste strony są oczekiwane dla zapytań i mogą pojawić się w dowolnym momencie.
-    - Puste strony są widoczne w SDK, ponieważ ekspozycja ta umożliwia więcej możliwości anulowania kwerendy. To również sprawia, że jasne, że zestaw SDK wykonuje wiele wywołań sieciowych.
-    - Puste strony mogą pojawić się w istniejących obciążeniach, ponieważ partycja fizyczna jest podzielona w usłudze Azure Cosmos DB. Pierwsza partycja będzie miała zero wyników, co powoduje, że pusta strona.
-    - Puste strony są spowodowane przez wewnętrznej bazy danych wywłaszczenia kwerendy, ponieważ kwerenda zajmuje więcej niż niektóre stałe ilości czasu na wewnętrznej bazy danych, aby pobrać dokumenty. Jeśli usługa Azure Cosmos DB wywłaszcza kwerendę, zwróci token kontynuacji, który pozwoli na kontynuowanie kwerendy.
-- Pamiętaj, aby całkowicie opróżnić zapytanie. Spójrz na próbki SDK i `while` użyj `FeedIterator.HasMoreResults` pętli, aby opróżnić całą kwerendę.
+- Można ustawić `MaxItemCount` dla kwerend, ale nie można określić minimalną liczbę elementów.
+    - Kod powinien obsługiwać dowolny rozmiar `MaxItemCount`strony, od zera do .
+    - Liczba elementów na stronie będzie zawsze mniejsza `MaxItemCount`niż określona . Jednak, `MaxItemCount` jest ściśle maksimum i nie może być mniej wyników niż ta kwota.
+- Czasami kwerendy mogą mieć puste strony, nawet jeśli są wyniki na przyszłej stronie. Przyczyny tego mogą być:
+    - Zestaw SDK może wykonywać wiele wywołań sieciowych.
+    - Kwerenda może zdążyć dużo czasu, aby pobrać dokumenty.
+- Wszystkie kwerendy mają token kontynuacji, który pozwoli kwerendy kontynuować. Pamiętaj, aby całkowicie opróżnić zapytanie. Spójrz na próbki SDK i `while` użyj `FeedIterator.HasMoreResults` pętli, aby opróżnić całą kwerendę.
 
 ## <a name="get-query-metrics"></a>Pobierz metryki zapytań
 
@@ -61,6 +60,8 @@ Zapoznaj się z poniższymi sekcjami, aby zrozumieć odpowiednie optymalizacje z
 - [Uwzględnij niezbędne ścieżki w zasadach indeksowania.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Dowiedz się, które funkcje systemowe używają indeksu.](#understand-which-system-functions-use-the-index)
+
+- [Dowiedz się, które zapytania agregowane używają indeksu.](#understand-which-aggregate-queries-use-the-index)
 
 - [Modyfikuj kwerendy, które mają zarówno filtr, jak i klauzulę ORDER BY.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
 
@@ -190,7 +191,7 @@ Właściwości można dodać do zasad indeksowania w dowolnym momencie, bez wpł
 
 Jeśli wyrażenie można przetłumaczyć na zakres wartości ciągu, można użyć indeksu. W przeciwnym razie nie może.
 
-Oto lista funkcji ciągu, które można użyć indeksu:
+Oto lista niektórych typowych funkcji ciągu, które można użyć indeksu:
 
 - STARTSWITH(wyrażenie_ciągu, wyrażenie_ciągu)
 - LEFT(wyrażenie_ciągu, wyrażenie_liczbowe) = wyrażenie_ciągu
@@ -207,6 +208,50 @@ Poniżej przedstawiono niektóre typowe funkcje systemowe, które nie używają 
 ------
 
 Inne części kwerendy może nadal używać indeksu, nawet jeśli funkcje systemowe nie.
+
+### <a name="understand-which-aggregate-queries-use-the-index"></a>Do zrozumienia, które kwerendy agregowane używają indeksu
+
+W większości przypadków zagregowane funkcje systemowe w usłudze Azure Cosmos DB będą używać indeksu. Jednak w zależności od filtrów lub dodatkowych klauzul w kwerendzie agregującej aparat zapytań może być wymagany do załadowania dużej liczby dokumentów. Zazwyczaj aparat zapytań najpierw zastosuje filtry równości i zakresu. Po zastosowaniu tych filtrów aparat zapytań może ocenić dodatkowe filtry i odwołać się do ładowania pozostałych dokumentów, aby obliczyć agregację, jeśli to konieczne.
+
+Na przykład biorąc pod uwagę te dwa przykładowe `CONTAINS` kwerendy, kwerenda z filtrem funkcji równości `CONTAINS` i systemu będzie na ogół bardziej wydajne niż kwerenda z tylko filtr funkcji systemu. Jest tak, ponieważ filtr równości jest stosowany jako pierwszy i używa indeksu `CONTAINS` przed dokumenty muszą być ładowane dla filtru droższe.
+
+Zapytanie `CONTAINS` z tylko filtrem - wyższa opłata RU:
+
+```sql
+SELECT COUNT(1) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+Zapytanie z filtrem równości i `CONTAINS` filtrem - niższe opłaty RU:
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
+```
+
+Oto dodatkowe przykłady zapytań agregacji, które nie będą w pełni używać indeksu:
+
+#### <a name="queries-with-system-functions-that-dont-use-the-index"></a>Kwerendy z funkcjami systemowymi, które nie używają indeksu
+
+Należy odwołać się do [odpowiedniej funkcji systemu strony,](sql-query-system-functions.md) aby sprawdzić, czy używa indeksu.
+
+```sql
+SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+#### <a name="aggregate-queries-with-user-defined-functionsudfs"></a>Agreguj zapytania z funkcjami zdefiniowanymi przez użytkownika (UDF)
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE udf.MyUDF("Sausages and Luncheon Meats")
+```
+
+#### <a name="queries-with-group-by"></a>Zapytania z GROUP BY
+
+Opłata RU `GROUP BY` wzrośnie wraz ze wzrostem kardynalności właściwości w klauzuli. `GROUP BY` W tym przykładzie aparat zapytań musi `c.foodGroup = "Sausages and Luncheon Meats"` załadować każdy dokument, który pasuje do filtru, więc oczekuje się, że opłata RU będzie wysoka.
+
+```sql
+SELECT COUNT(1) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" GROUP BY c.description
+```
+
+Jeśli planujesz często uruchamiać te same zapytania agregacji, może być bardziej wydajne do tworzenia w czasie rzeczywistym zmaterializowanego widoku z [kanału informacyjnego usługi Azure Cosmos DB zmiany](change-feed.md) niż uruchamianie poszczególnych zapytań.
 
 ### <a name="modify-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Modyfikowanie kwerend, które mają zarówno filtr, jak i klauzulę ORDER BY
 

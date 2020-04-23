@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
-ms.openlocfilehash: 4d397279ac7e5949398d695db615d9a003ab7acd
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811683"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024850"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Konfigurowanie protokołu TLS dla aplikacji na platformie Azure
 
@@ -32,7 +32,7 @@ Aby skonfigurować TLS dla aplikacji, należy najpierw uzyskać certyfikat TLS/S
 
 Certyfikat musi spełniać następujące wymagania dotyczące certyfikatów TLS/SSL na platformie Azure:
 
-* Certyfikat musi zawierać klucz prywatny.
+* Certyfikat musi zawierać klucz publiczny.
 * Certyfikat musi zostać utworzony w celu wymiany kluczy, który można wyeksportować do pliku wymiany informacji osobistych (pfx).
 * Nazwa podmiotu certyfikatu musi być zgodna z domeną używaną do uzyskiwania dostępu do usługi w chmurze. Nie można uzyskać certyfikatu TLS/SSL od urzędu certyfikacji (CA) dla domeny cloudapp.net. Musisz uzyskać niestandardową nazwę domeny, aby używać podczas uzyskiwania dostępu do usługi. Podczas żądania certyfikatu od urzędu certyfikacji nazwa podmiotu certyfikatu musi być zgodna z niestandardową nazwą domeny używaną do uzyskiwania dostępu do aplikacji. Na przykład, jeśli niestandardowa nazwa domeny jest **contoso.com** żądanie certyfikatu od urzędu certyfikacji dla ***.contoso.com** lub **www\.contoso.com**.
 * Certyfikat musi używać szyfrowania 2048-bitowego.

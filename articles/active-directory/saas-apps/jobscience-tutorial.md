@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f0ea5b922b2c958aabf5be3a6123bb81a8f0234
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23d2694aa4936090367cf881379f81911ae70f9d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80048505"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870542"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Samouczek: Integracja usługi Azure Active Directory z jobscience
 
@@ -116,7 +116,7 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
     W polu **tekstowym Logowania adres URL** wpisz adres URL przy użyciu następującego wzorca:`http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Pobierz tę wartość przez [zespół pomocy technicznej klienta Jobscience](https://www.jobscience.com/support) lub z profilu jednookiego użytkownika, który zostanie utworzony, co zostało wyjaśnione w dalszej części samouczka. 
+    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Pobierz tę wartość przez [zespół pomocy technicznej klienta Jobscience](http://www.jobscience.com/support) lub z profilu jednookiego użytkownika, który zostanie utworzony, co zostało wyjaśnione w dalszej części samouczka. 
  
 1. W sekcji **Saml Podpisywanie certyfikatu** kliknij pozycję **Certyfikat (Base64),** a następnie zapisz plik certyfikatu na komputerze.
 
@@ -134,7 +134,7 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 1. Przejdź do **strony Instalator**.
    
-   ![Instalacja](./media/jobscience-tutorial/IC784358.png "Konfiguracja")
+   ![Konfiguracja](./media/jobscience-tutorial/IC784358.png "Setup")
 
 1. W lewym okienku nawigacji w sekcji **Administrowanie** kliknij pozycję **Zarządzanie domenami,** aby rozwinąć powiązaną sekcję, a następnie kliknij pozycję **Moja domena,** aby otworzyć stronę **Moja domena.** 
    
@@ -176,7 +176,7 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
     h. W polu tekstowym **adresu URL wylogowania dostawcy tożsamości** wklej wartość adresu URL **wylogowania,** który został skopiowany z witryny Azure portal.
 
-    i. Kliknij przycisk **Zapisz**.
+    i. Kliknij pozycję **Zapisz**.
 
 1. W lewym okienku nawigacji w sekcji **Administrowanie** kliknij pozycję **Zarządzanie domenami,** aby rozwinąć powiązaną sekcję, a następnie kliknij pozycję **Moja domena,** aby otworzyć stronę **Moja domena.** 
     
@@ -245,7 +245,7 @@ Aby umożliwić użytkownikom usługi Azure AD zalogować się do Jobscience, mu
 
 1. Przejdź do instalatora.
    
-   ![Instalacja](./media/jobscience-tutorial/ic784358.png "Konfiguracja")
+   ![Konfiguracja](./media/jobscience-tutorial/ic784358.png "Setup")
 1. Przejdź do **zarządzania użytkownikami \> **.
    
    ![Użytkownicy](./media/jobscience-tutorial/ic784369.png "Użytkownicy")
@@ -268,7 +268,7 @@ Aby umożliwić użytkownikom usługi Azure AD zalogować się do Jobscience, mu
 
    f. W polu **tekstowym Nazwa nicku** wpisz nazwę nicku użytkownika takiego jak Simon.
 
-   g. Kliknij przycisk **Zapisz**.
+   g. Kliknij pozycję **Zapisz**.
 
     
 > [!NOTE]
@@ -311,7 +311,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 Po kliknięciu kafelka Jobscience w Panelu dostępu należy automatycznie zalogować się do aplikacji Jobscience.
 Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](../user-help/active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

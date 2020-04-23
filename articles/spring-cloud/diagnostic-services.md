@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adbcf28cfbbe2ea3b7cc9c7fd0d1c76246938344
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920046"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870409"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizowanie dzienników i danych za pomocą ustawień diagnostycznych
 
@@ -22,6 +22,9 @@ Korzystając z funkcji diagnostyki usługi Azure Spring Cloud, można analizowa�
 * Przesyłaj strumieniowo dzienniki do centrum zdarzeń w celu pozyskiwania przez usługę innej firmy lub niestandardowe rozwiązanie analityczne.
 
 Wybierz kategorię dziennika i kategorię metryki, którą chcesz monitorować.
+
+> [!TIP]
+> Chcesz tylko przesyłać strumieniowo dzienniki? Zapoznaj się z tym [poleceniem interfejsu wiersza polecenia platformy Azure!](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)
 
 ## <a name="logs"></a>Dzienniki
 
@@ -46,7 +49,7 @@ Aby rozpocząć, włącz jedną z tych usług, aby odbierać dane. Aby dowiedzie
     * **Wysyłanie do usługi Log Analytics**
 
 1. Wybierz kategorię dziennika i kategorię metryki, którą chcesz monitorować, a następnie określ czas przechowywania (w dniach). Czas przechowywania dotyczy tylko konta magazynu.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 > [!NOTE]
 > Może istnieć luka do 15 minut między po emisji dzienników lub metryk i gdy pojawiają się one na koncie magazynu, centrum zdarzeń lub usługi Log Analytics.

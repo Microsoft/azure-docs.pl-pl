@@ -12,12 +12,12 @@ ms.date: 04/12/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ebec4cb6bbbac5b331eb2eb4145716e16e7320fa
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 161f97dc99ce5ce16d7c40126b95a769c4b79621
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677687"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868336"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Platforma tożsamości firmy Microsoft i protokół OpenID Connect
 
@@ -38,6 +38,7 @@ OpenID Connect opisuje dokument metadanych, który zawiera większość informac
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
+
 > [!TIP]
 > Wypróbuj! Kliknij, [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) aby `common` wyświetlić konfigurację dzierżawców.
 
@@ -52,7 +53,7 @@ Może `{tenant}` przyjąć jedną z czterech wartości:
 
 Metadane to prosty dokument notacji obiektu JavaScript (JSON). Zobacz poniższy fragment kodu na przykład. Zawartość fragmentu kodu jest w pełni opisana w [specyfikacji OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
-```
+```json
 {
   "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
   "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
@@ -84,7 +85,7 @@ Gdy aplikacja sieci web musi uwierzytelnić użytkownika, może `/authorize` ski
 
 Przykład:
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -123,7 +124,7 @@ Po uwierzytelnieniu i udzieleniu zgody przez użytkownika punkt końcowy platfor
 
 Pomyślna odpowiedź podczas `response_mode=form_post` korzystania wygląda następująco:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -140,7 +141,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 Odpowiedzi na błędy mogą być również wysyłane do identyfikatora URI przekierowania, dzięki czemu aplikacja może je obsługiwać. Odpowiedź na błąd wygląda następująco:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -187,7 +188,7 @@ Jeśli chcesz wylogować użytkownika z aplikacji, nie wystarczy wyczyścić pli
 
 Możesz przekierować użytkownika `end_session_endpoint` do wymienionych w dokumencie metadanych OpenID Connect:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
@@ -211,7 +212,7 @@ Pełny przepływ logowania i pozyskiwania tokenów OpenID Connect wygląda podob
 ## <a name="get-access-tokens"></a>Uzyskaj tokeny dostępu
 Aby uzyskać tokeny dostępu, zmodyfikuj żądanie logowania:
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -236,7 +237,7 @@ Dołączając zakresy uprawnień w `response_type=id_token code`żądaniu i uży
 
 Pomyślna odpowiedź `response_mode=form_post` z wykorzystaniem wygląda następująco:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -254,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 Odpowiedzi na błędy mogą być również wysyłane do identyfikatora URI przekierowania, dzięki czemu aplikacja może obsługiwać je odpowiednio. Odpowiedź na błąd wygląda następująco:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded

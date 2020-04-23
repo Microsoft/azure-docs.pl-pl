@@ -12,16 +12,16 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c9f633e0d205adaf5cefb2e3c036ce7f48253651
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886385"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868665"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Zgoda administratora na platformie tożsamości firmy Microsoft
 
-Niektóre uprawnienia wymagają zgody administratora, zanim będą mogły zostać udzielone w ramach dzierżawy.  Można również użyć punktu końcowego zgody administratora, aby udzielić uprawnień całej dzierżawie.  
+Niektóre uprawnienia wymagają zgody administratora, zanim będą mogły zostać udzielone w ramach dzierżawy.  Można również użyć punktu końcowego zgody administratora, aby udzielić uprawnień całej dzierżawie.
 
 ## <a name="recommended-sign-the-user-into-your-app"></a>Zalecane: Zaloguj użytkownika do aplikacji
 
@@ -33,15 +33,15 @@ Po zalogowaniu użytkownika do aplikacji można zidentyfikować organizację, do
 
 Gdy będziesz gotowy do żądania uprawnień od administratora organizacji, możesz przekierować użytkownika do *punktu końcowego zgody administratora*platformy tożsamości firmy Microsoft .
 
-```
+```HTTP
 // Line breaks are for legibility only.
-    GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-    &scope=
-    https://graph.microsoft.com/calendars.read 
-    https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
@@ -51,7 +51,7 @@ Gdy będziesz gotowy do żądania uprawnień od administratora organizacji, moż
 | `client_id` | Wymagany | **Identyfikator aplikacji (klienta),** który usługa Azure portal — środowisko [rejestracji aplikacji przypisane](https://go.microsoft.com/fwlink/?linkid=2083908) do aplikacji. |
 | `redirect_uri` | Wymagany |Identyfikator URI przekierowania, w którym ma zostać wysłana odpowiedź dla aplikacji do obsługi. Musi dokładnie odpowiadać jednemu z identyfikatorów URI przekierowania, które zostały zarejestrowane w portalu rejestracji aplikacji. |
 | `state` | Zalecane | Wartość zawarta w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Użyj stanu, aby zakodować informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takie jak strona lub widok, na których się znajdowały. |
-|`scope`        | Wymagany      | Definiuje zestaw uprawnień wymaganych przez aplikację. Może to być statyczne (przy użyciu /.default) lub zakresy dynamiczne.  Może to obejmować zakresy OIDC (`openid`, , `profile` `email`). | 
+|`scope`        | Wymagany      | Definiuje zestaw uprawnień wymaganych przez aplikację. Może to być statyczne (przy użyciu /.default) lub zakresy dynamiczne.  Może to obejmować zakresy OIDC (`openid`, , `profile` `email`). |
 
 
 W tym momencie usługa Azure AD wymaga administratora dzierżawy, aby zalogować się, aby zakończyć żądanie. Administrator jest proszony o zatwierdzenie wszystkich uprawnień wymaganych `scope` w parametrze.  Jeśli użyto wartości statycznej`/.default`( ) będzie działać jak punkt końcowy zgody administratora w wersji 1.0 i zażądać zgody dla wszystkich zakresów znalezionych w wymaganych uprawnieniach dla aplikacji.

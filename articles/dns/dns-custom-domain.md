@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 7/13/2019
 ms.author: rohink
-ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56a7680de3127da06341ac03252a9ab0cff9da7c
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266236"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024952"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Użyj usługi Azure DNS, aby zapewnić niestandardowe ustawienia domeny dla usługi platformy Azure
 
@@ -134,7 +134,7 @@ Przejdź do strefy DNS i kliknij + **Ustaw rekord**. Wypełnij następujące inf
 |Jednostka czasu wygaśnięcia     | Godziny        | Godziny są używane jako pomiar czasu         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Nazwa DNS, dla której tworzysz alias, w tym przykładzie jest to asverify.adatumfunctiona9ed.blob.core.windows.net nazwa DNS podana domyślnie do konta magazynu.        |
 
-Przejdź z powrotem do **Storage** > konta magazynu, klikając pozycję**Konta magazynu,** wybierz konto magazynu i kliknij pozycję **Domena niestandardowa**. Wpisz utworzony alias bez prefiksu aswerify w polu tekstowym, zaznacz **Użyj pośredniej weryfikacji CNAME i kliknij przycisk **Zapisz**. Po zakończeniu tego kroku wróć do strefy DNS i utwórz rekord CNAME bez prefiksu asverify.  Po tym punkcie można bezpiecznie usunąć rekord CNAME z prefiksem cdnverify.
+Przejdź z powrotem do **Storage** > konta magazynu, klikając pozycję**Konta magazynu,** wybierz konto magazynu i kliknij pozycję **Domena niestandardowa**. Wpisz utworzony alias bez prefiksu aswerify w polu tekstowym, zaznacz pole wyboru **Użyj pośredniej weryfikacji CNAME**i kliknij przycisk **Zapisz**. Po zakończeniu tego kroku wróć do strefy DNS i utwórz rekord CNAME bez prefiksu asverify.  Po tym punkcie można bezpiecznie usunąć rekord CNAME z prefiksem cdnverify.
 
 ![Domena niestandardowa magazynu obiektów blob](./media/dns-custom-domain/indirectvalidate.png)
 

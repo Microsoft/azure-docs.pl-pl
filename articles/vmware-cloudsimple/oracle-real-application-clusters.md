@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 733a225c66040cb2ab819f041647120c8b63b6a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b945beaa7497e1ad19315bacf1284dd0cbc24d6a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77016021"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868074"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optymalizacja chmury prywatnej CloudSimple pod kątem instalacji oracle RAC
 
@@ -50,10 +50,10 @@ W poniższym przykładzie użyto dysków zdefiniowanych w poniższej tabeli.
 | Siatki                                      | Instalowanie lokalizacji oprogramowania Oracle Grid     | Nie          |
 | Bazy danych                                  | Instalowanie aplikacji lokalizacji dla oprogramowania bazy danych Oracle | Nie          |
 | ORAHOME (DOM)                                   | Lokalizacja podstawowa dla plików binarnych bazy danych Oracle    | Nie          |
-| DATA1, DATA2, DATA3, DATA4                | Dysk, na którym przechowywane są pliki bazy danych Oracle   | Tak         |
-| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Ponawianie dysków dziennika                                | Tak         |
-| OCR1, OCR2, OCR3, OCR4, OCR5              | Dyski do głosowania                                  | Tak         |
-| FRA1, FRA2                                | Dyski obszarowe szybkiego odzyskiwania                      | Tak         |
+| DATA1, DATA2, DATA3, DATA4                | Dysk, na którym przechowywane są pliki bazy danych Oracle   | Yes         |
+| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Ponawianie dysków dziennika                                | Yes         |
+| OCR1, OCR2, OCR3, OCR4, OCR5              | Dyski do głosowania                                  | Yes         |
+| FRA1, FRA2                                | Dyski obszarowe szybkiego odzyskiwania                      | Yes         |
 
 ![Konfiguracja dysku maszyny wirtualnej Oracle](media/oracle-vmdk.png)
 
@@ -169,7 +169,7 @@ Aby wdrożyć klaster vSphere w chmurze prywatnej, wykonaj ten proces:
 
 Zasady vSAN definiują błędy tolerowania i rozkładanie dysków dla danych przechowywanych na dyskach maszyn wirtualnych.  Utworzone zasady magazynowania muszą być stosowane na dyskach maszyn wirtualnych podczas tworzenia maszyny Wirtualnej.
 
-1. [Zaloguj się do klienta vSphere](https://docs.azure.cloudsimple.com/vsphere-access) w chmurze prywatnej.
+1. [Zaloguj się do klienta vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) w chmurze prywatnej.
 2. W górnym menu wybierz pozycję **Zasady i profile**.
 3. Z lewego menu wybierz pozycję **Zasady magazynowania maszyn wirtualnych,** a następnie wybierz pozycję **Utwórz zasady magazynowania maszyn wirtualnych**.
 4. Wprowadź znaczącą nazwę zasad i kliknij przycisk **DALEJ**.

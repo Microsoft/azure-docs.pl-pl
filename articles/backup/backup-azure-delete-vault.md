@@ -1,18 +1,18 @@
 ---
 title: Usuwanie skarbca usług odzyskiwania platformy Microsoft Azure
-description: W tym artykule dowiesz się, jak usunąć zależności, a następnie usunąć magazyn usług odzyskiwania kopii zapasowych platformy Microsoft Azure (MARS).
+description: W tym artykule dowiesz się, jak usunąć zależności, a następnie usunąć magazyn usług Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: f33f52048729b50015ba86db71118b9a21e1a2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69fed6c53914ed7aa16b04b5311ec69966734f25
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500395"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025139"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Usuwanie magazynu usług odzyskiwania kopii zapasowych platformy Azure
 
-W tym artykule opisano sposób usuwania magazynu usług [marsjańskich](backup-overview.md) (MARS) usługi odzyskiwania kopii zapasowych platformy Microsoft Azure. Zawiera instrukcje dotyczące usuwania zależności, a następnie usuwania magazynu.
+W tym artykule opisano sposób usuwania magazynu usług [Azure Backup](backup-overview.md) Recovery Services. Zawiera instrukcje dotyczące usuwania zależności, a następnie usuwania magazynu.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 

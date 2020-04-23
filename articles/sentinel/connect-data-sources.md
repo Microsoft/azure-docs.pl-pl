@@ -9,22 +9,22 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: overview
+ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 9d2d1985b23e1c7f5e0f7d9fd2795bd85e28ace0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e59359d791729d2136003596d80dd1f31a9a2aac
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240086"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025156"
 ---
 # <a name="connect-data-sources"></a>Łączenie ze źródłami danych
 
-Aby urządzenie Azure Sentinel było wbudowane, musisz najpierw połączyć się ze źródłami danych. Usługa Azure Sentinel jest dostarczana z wieloma łącznikami dla rozwiązań firmy Microsoft, dostępnymi po wyjęciu z pudełka i zapewniającymi integrację w czasie rzeczywistym, w tym rozwiązania microsoft threat protection i źródła usługi Microsoft 365, w tym usługę Office 365, azure ad, azure atp i Microsoft Cloud App Security i nie tylko. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań innych firm. Można również użyć wspólnego formatu zdarzeń, Syslog lub REST-API, aby połączyć źródła danych z usługą Azure Sentinel.  
+Aby urządzenie Azure Sentinel było wbudowane, musisz najpierw połączyć się ze źródłami danych. Usługa Azure Sentinel jest dostępna z wieloma łącznikami dla rozwiązań firmy Microsoft, dostępnymi po wyjęciu z pudełka i zapewniającymi integrację w czasie rzeczywistym, w tym rozwiązania microsoft threat protection i źródła usługi Microsoft 365, w tym usługi Office 365, azure ad, azure ATP i Microsoft Cloud App Security i inne. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań innych firm. Można również użyć wspólnego formatu zdarzeń, Syslog lub REST-API, aby połączyć źródła danych z usługą Azure Sentinel.  
 
 1. W menu wybierz polecenie **Łączniki danych**. Ta strona umożliwia wyświetlenie pełnej listy łączników udostępnianych przez usługę Azure Sentinel i ich stanu. Wybierz łącznik, który chcesz połączyć, i wybierz pozycję **Otwórz stronę łącznika**. 
 
@@ -47,7 +47,7 @@ Następujące metody połączenia danych są obsługiwane przez usługę Azure S
     - [Amazon Web Services - CloudTrail](connect-aws.md)
     - [Działanie platformy Azure](connect-azure-activity.md)
     - [Dzienniki inspekcji usługi Azure AD i logowania](connect-azure-active-directory.md)
-    - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
+    - [Usługa Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure Advanced Threat Protection](connect-azure-atp.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Security Center](connect-azure-security-center.md)

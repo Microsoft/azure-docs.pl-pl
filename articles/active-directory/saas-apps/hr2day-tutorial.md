@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b9de6c2b8d9f7b11b686e820aab54fdd8e8a02f
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67442835"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Samouczek: Integracja usługi Azure Active Directory z hr2day przez Merces
 
@@ -142,7 +142,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą usługi HR2
 
     f. Kliknij przycisk **OK**.
 
-    g. Kliknij przycisk **Zapisz**.
+    g. Kliknij pozycję **Zapisz**.
 
 7. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -163,7 +163,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą usługi HR2
 Aby skonfigurować logowanie jednokrotne w dniu HR2 przez stronę **Merces,** musisz wysłać pobrany **certyfikat (Base64)** i odpowiednie skopiowane adresy URL z witryny Azure portal do [HR2day przez zespół pomocy merces.](mailto:servicedesk@merces.nl) Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 > [!NOTE]
-> Należy wspomnieć zespołowi Merces, że ta integracja wymaga **https://hr2day.force.com/INSTANCENAME**identyfikatora jednostki, który ma być ustawiony ze wzorcem.
+> Należy wspomnieć zespołowi Merces, że ta integracja wymaga identyfikatora jednostki, który ma być ustawiony ze wzorcem **https:\//hr2day.force.com/INSTANCENAME**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 

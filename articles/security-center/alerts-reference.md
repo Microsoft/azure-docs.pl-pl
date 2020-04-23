@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f9b39a672cb5640a36490f2cd088092f40065870
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ef715ed7df1cc203e66bb33cd1493a7f7a713327
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454785"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081612"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alerty zabezpieczeń - przewodnik referencyjny
 
@@ -399,8 +399,8 @@ Obsługiwane przez centrum zabezpieczeń zamiary łańcucha zabójstw są oparte
 
 |Intencja|Opis|
 |------|-------|
-|**Atak wstępny**</br>(zastępuje Sonding)|PreAttack może być próbą uzyskania dostępu do określonego zasobu niezależnie od złośliwego zamiaru lub nieudaną próbą uzyskania dostępu do systemu docelowego w celu zebrania informacji przed użyciem. Ten krok jest zwykle wykrywany jako próba, pochodząca spoza sieci, aby zeskanować system docelowy i zidentyfikować punkt wejścia.</br>Więcej informacji na temat etapu PreAttack można przeczytać na [stronie MITRE.](https://attack.mitre.org/matrices/pre/)|
-|**InitialAccess ( initialAccess )**</br>(zastępuje eksploatację)|InitialAccess to etap, na którym osobie atakującej udaje się zdobyć przyczółek zaatakowanego zasobu. Ten etap jest odpowiedni dla hostów obliczeniowych i zasobów, takich jak konta użytkowników, certyfikaty itp. Podmioty zagrożeń często będą w stanie kontrolować zasób po tym etapie.|
+|**Atak wstępny**|PreAttack może być próbą uzyskania dostępu do określonego zasobu niezależnie od złośliwego zamiaru lub nieudaną próbą uzyskania dostępu do systemu docelowego w celu zebrania informacji przed użyciem. Ten krok jest zwykle wykrywany jako próba, pochodząca spoza sieci, aby zeskanować system docelowy i zidentyfikować punkt wejścia.</br>Więcej informacji na temat etapu PreAttack można przeczytać na [stronie MITRE.](https://attack.mitre.org/matrices/pre/)|
+|**InitialAccess ( initialAccess )**|InitialAccess to etap, na którym osobie atakującej udaje się zdobyć przyczółek zaatakowanego zasobu. Ten etap jest odpowiedni dla hostów obliczeniowych i zasobów, takich jak konta użytkowników, certyfikaty itp. Podmioty zagrożeń często będą w stanie kontrolować zasób po tym etapie.|
 |**Trwałość**|Trwałość jest wszelkie zmiany dostępu, akcji lub konfiguracji do systemu, który daje aktora zagrożenia trwałej obecności w tym systemie. Podmioty zagrożeń często będą musiały zachować dostęp do systemów poprzez przerwy, takie jak ponowne uruchomienie systemu, utrata poświadczeń lub inne błędy, które wymagają narzędzia dostępu zdalnego do ponownego uruchomienia lub zapewnienia alternatywnego zaplecza dla nich odzyskać dostęp.|
 |**PrivilegeEscalation (Obliczanie uprawnień)**|Eskalacja uprawnień jest wynikiem akcji, które umożliwiają przeciwnikowi uzyskanie wyższego poziomu uprawnień w systemie lub sieci. Niektóre narzędzia lub akcje wymagają wyższego poziomu uprawnień do pracy i są prawdopodobnie niezbędne w wielu punktach w trakcie operacji. Konta użytkowników z uprawnieniami dostępu do określonych systemów lub wykonywania określonych funkcji niezbędnych przeciwnikom do osiągnięcia ich celu mogą być również uważane za eskalację uprawnień.|
 |**ObronaWysyłe**|Uchylanie się od obrony składa się z technik, których przeciwnik może użyć, aby uniknąć wykrycia lub uniknąć innych mechanizmów obronnych. Czasami te akcje są takie same jak (lub odmiany) technik w innych kategoriach, które mają dodatkową zaletę obalenia określonej obrony lub łagodzenia.|

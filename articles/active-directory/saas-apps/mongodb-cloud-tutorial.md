@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02cc78f7e786e97062cce6d402c972e66fa56860
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: ef8094464b428f1f46017b0d4abaac5aeb1fa428
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81688113"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024531"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Samouczek: Integracja rejestracji jednokrotnej usługi Azure Active Directory (SSO) z usługą MongoDB Cloud
 
@@ -37,7 +37,7 @@ Aby dowiedzieć się więcej o integracji aplikacji z usługą Azure AD z aplika
 Aby rozpocząć pracę, potrzebne będą następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Subskrypcja mongodb cloud, która jest włączona dla logowania jednokrotnego (Logowanie jednokrotne).
+* Organizacja MongoDB Cloud, która jest włączona dla logowania jednokrotnego (Logowania jednokrotnego), można zarejestrować się w [wolnym klastrze](https://www.mongodb.com/cloud)
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -146,7 +146,7 @@ W tej sekcji można włączyć B.Simon do korzystania z logowania jednokrotnego 
 
 ## <a name="configure-mongodb-cloud-sso"></a>Konfigurowanie usługi SSO usługi MongoDB Cloud
 
-Aby skonfigurować logowanie jednokrotne po stronie mongodb cloud, potrzebujesz odpowiednich adresów URL skopiowanych z witryny Azure portal. Należy również skonfigurować aplikację federacji dla organizacji mongodb cloud. Postępuj zgodnie z instrukcjami zawartymi w [dokumentacji mongodb cloud](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). Jeśli masz problem, skontaktuj się z [zespołem pomocy technicznej MongoDB Cloud](https://support.mongodb.com/).
+Aby skonfigurować logowanie jednokrotne po stronie mongodb cloud, potrzebujesz odpowiednich adresów URL skopiowanych z witryny Azure portal. Należy również skonfigurować aplikację federacji dla organizacji mongodb cloud. Postępuj zgodnie z instrukcjami zawartymi w [dokumentacji mongodb cloud](https://docs.atlas.mongodb.com/security/federated-auth-azure-ad/). Jeśli masz problem, skontaktuj się z [zespołem pomocy technicznej MongoDB Cloud](https://support.mongodb.com/).
 
 ### <a name="create-a-mongodb-cloud-test-user"></a>Tworzenie użytkownika testowego mongodb cloud
 

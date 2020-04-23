@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d738868e0e4ca7599f4aaf8d6e09d22f26a8db92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 77ec999d63175f63c1de6e31fdb3f72c963d228c
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77016378"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024476"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Samouczek: Tworzenie aplikacji do monitorowania jakości wody w usłudze Azure IoT Central
 
@@ -58,7 +58,7 @@ W tej sekcji użyj szablonu monitorowania jakości usługi Azure IoT Central **W
     * **ADRES URL:** Możesz wprowadzić dowolny adres URL lub później zmienić wartość adresu URL.
     * Jeśli masz subskrypcję platformy Azure, wprowadź wartości **dla usługi Directory,** **subskrypcja platformy Azure**i **Region**. Jeśli nie masz subskrypcji, możesz włączyć **7-dniową bezpłatną wersję próbną** i wypełnić wymagane informacje kontaktowe.
 
-    Aby uzyskać więcej informacji na temat katalogów i subskrypcji, zobacz [Tworzenie szybkiego startu aplikacji.](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+    Aby uzyskać więcej informacji na temat katalogów i subskrypcji, zobacz [Tworzenie szybkiego startu aplikacji.](../core/quick-deploy-iot-central.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 1. Wybierz przycisk **Utwórz** w lewej dolnej części strony.
 
@@ -139,13 +139,13 @@ Przećwicz dostosowywanie następujących ustawień szablonu urządzenia:
 1. Przejdź do typu **Telemetria temperatury.**
 1. Zmień wartość **Nazwa wyświetlana** na **Temperatura zgłoszona**.
 1. Zmień jednostkę miary lub ustaw **wartość Min** i **Wartość Maksymalna**.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 #### <a name="add-a-cloud-property"></a>Dodawanie właściwości w chmurze
 
 1. Z menu szablonu urządzenia wybierz **polecenie Chmura**.
 1. Aby dodać nową właściwość chmury, wybierz pozycję **+ Dodaj właściwość chmury**. W usłudze Azure IoT Central można dodać właściwość, która jest odpowiednia dla urządzenia, ale nie oczekuje się, że zostanie wysłana przez urządzenie. Jednym z przykładów takiej właściwości jest próg alertu specyficzny dla obszaru instalacji, informacji o zasobach lub informacji o konserwacji.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ### <a name="explore-views"></a>Eksploruj widoki
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 26a761708f56ff7aba8daf86d2991579e60291cb
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160536"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Samouczek: Integracja usługi Azure Active Directory z usługą Mitel MiCloud Connect
 
@@ -202,7 +202,7 @@ W tej sekcji włączysz Britta Simon do korzystania z logowania jednokrotnego pl
 
 W tej sekcji utworzysz użytkownika o nazwie Britta Simon na swoim koncie MiCloud Connect. Użytkownicy muszą być tworzone i aktywowane przed użyciem logowania jednokrotnego.
 
-Szczegółowe informacje na temat dodawania użytkowników do portalu konta Mitel można znaleźć w artykule [Dodawanie użytkownika](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) w bazie wiedzy Mitel.
+Szczegółowe informacje na temat dodawania użytkowników do portalu konta Mitel można znaleźć w artykule [Dodawanie użytkownika](https://oneview.mitel.com/s/article/Adding-a-User-092815) w bazie wiedzy Mitel.
 
 Utwórz użytkownika na swoim koncie MiCloud Connect z następującymi szczegółami:
 

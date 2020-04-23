@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ee8bee832e48dc7354b4136e25be9bcc43eb90c5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457182"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870558"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Bezpieczny dostęp i dane w usłudze Azure Logic Apps
 
@@ -624,9 +624,9 @@ Jeśli opcja [Basic](../active-directory-b2c/secure-rest-api.md) jest dostępna,
 
 | Właściwość (projektant) | Właściwość (JSON) | Wymagany | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Tak | Podstawowy | Typ uwierzytelniania, którego można użyć |
-| **Nazwę użytkownika** | `username` | Tak | <*nazwa użytkownika*>| Nazwa użytkownika do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
-| **Hasło** | `password` | Tak | <*Hasło*> | Hasło do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
+| **Authentication** | `type` | Yes | Podstawowy | Typ uwierzytelniania, którego można użyć |
+| **Nazwę użytkownika** | `username` | Yes | <*nazwa użytkownika*>| Nazwa użytkownika do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
+| **Hasło** | `password` | Yes | <*Hasło*> | Hasło do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
 ||||||
 
 Korzystając z [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i ochrony poufnych informacji, na przykład w [szablonie usługi Azure Resource Manager do automatyzacji wdrażania,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. W tym przykładzie definicja `type` `Basic` akcji HTTP określa uwierzytelnianie jako i używa [funkcji parameters(),](../logic-apps/workflow-definition-language-functions-reference.md#parameters) aby uzyskać wartości parametrów:
@@ -655,8 +655,8 @@ Jeśli opcja [Certyfikat klienta](../active-directory/authentication/active-dire
 
 | Właściwość (projektant) | Właściwość (JSON) | Wymagany | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Tak | **Certyfikat klienta** <br>lub <br>`ClientCertificate` | Typ uwierzytelniania używany dla certyfikatów klientów TLS/SSL. Podczas gdy certyfikaty z podpisem własnym są obsługiwane, certyfikaty z podpisem własnym dla protokołu TLS/SSL nie są obsługiwane. |
-| **Pfx** | `pfx` | Tak | <*zakodowana zawartość pliku pfx*> | Zawartość zakodowana w bazie 64 z pliku wymiany informacji osobistych (PFX) <p><p>Aby przekonwertować plik PFX na format zakodowany w formacie base64, można użyć programu PowerShell, wykonując następujące czynności: <p>1. Zapisz zawartość certyfikatu w zmiennej: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Przekonwertuj `ToBase64String()` zawartość certyfikatu za pomocą funkcji i zapisz tę zawartość w pliku tekstowym: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
+| **Authentication** | `type` | Yes | **Certyfikat klienta** <br>lub <br>`ClientCertificate` | Typ uwierzytelniania używany dla certyfikatów klientów TLS/SSL <p><p>**Uwaga:** Podczas gdy certyfikaty z podpisem własnym są obsługiwane, certyfikaty z podpisem własnym dla protokołu TLS/SSL nie są obsługiwane. Łącznik HTTP nie obsługuje pośrednich certyfikatów TLS/SSL. |
+| **Pfx** | `pfx` | Yes | <*zakodowana zawartość pliku pfx*> | Zawartość zakodowana w bazie 64 z pliku wymiany informacji osobistych (PFX) <p><p>Aby przekonwertować plik PFX na format zakodowany w formacie base64, można użyć programu PowerShell, wykonując następujące czynności: <p>1. Zapisz zawartość certyfikatu w zmiennej: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Przekonwertuj `ToBase64String()` zawartość certyfikatu za pomocą funkcji i zapisz tę zawartość w pliku tekstowym: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Hasło** | `password`| Nie | <*hasło-dla-pfx-file*> | Hasło dostępu do pliku PFX |
 |||||
 
@@ -694,12 +694,12 @@ Jeśli dostępna jest opcja [OAuth usługi Active Directory,](../active-director
 
 | Właściwość (projektant) | Właściwość (JSON) | Wymagany | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Tak | **Active Directory OAuth** <br>lub <br>`ActiveDirectoryOAuth` | Typ uwierzytelniania do użycia. Logic Apps jest obecnie zgodna z [protokołem OAuth 2.0](../active-directory/develop/v2-overview.md). |
+| **Authentication** | `type` | Yes | **Active Directory OAuth** <br>lub <br>`ActiveDirectoryOAuth` | Typ uwierzytelniania do użycia. Logic Apps jest obecnie zgodna z [protokołem OAuth 2.0](../active-directory/develop/v2-overview.md). |
 | **Urząd** | `authority` | Nie | <*Adres URL dla organu-token-wystawca*> | Adres URL urzędu, który udostępnia token uwierzytelniania. Domyślnie ta wartość `https://login.windows.net`to . |
-| **Dzierżawa** | `tenant` | Tak | <*identyfikator dzierżawy*> | Identyfikator dzierżawy dzierżawy usługi Azure AD |
-| **Grupy odbiorców** | `audience` | Tak | <*zasobów do autoryzacji*> | Zasób, którego chcesz użyć do autoryzacji, na przykład`https://management.core.windows.net/` |
-| **Client ID (Identyfikator klienta)** | `clientId` | Tak | <*identyfikator klienta*> | Identyfikator klienta aplikacji żądającej autoryzacji |
-| **Typ poświadczeń** | `credentialType` | Tak | Certyfikat <br>lub <br>Wpis tajny | Typ poświadczeń używany przez klienta do żądania autoryzacji. Ta właściwość i wartość nie są wyświetlane w podstawowej definicji aplikacji logiki, ale określa właściwości, które pojawiają się dla wybranego typu poświadczeń. |
+| **Dzierżawa** | `tenant` | Yes | <*identyfikator dzierżawy*> | Identyfikator dzierżawy dzierżawy usługi Azure AD |
+| **Grupy odbiorców** | `audience` | Yes | <*zasobów do autoryzacji*> | Zasób, którego chcesz użyć do autoryzacji, na przykład`https://management.core.windows.net/` |
+| **Client ID (Identyfikator klienta)** | `clientId` | Yes | <*identyfikator klienta*> | Identyfikator klienta aplikacji żądającej autoryzacji |
+| **Typ poświadczeń** | `credentialType` | Yes | Certyfikat <br>lub <br>Wpis tajny | Typ poświadczeń używany przez klienta do żądania autoryzacji. Ta właściwość i wartość nie są wyświetlane w podstawowej definicji aplikacji logiki, ale określa właściwości, które pojawiają się dla wybranego typu poświadczeń. |
 | **Wpis tajny** | `secret` | Tak, ale tylko dla typu poświadczeń "Tajne" | <*klucz tajny klienta*> | Klucz tajny klienta do żądania autoryzacji |
 | **Pfx** | `pfx` | Tak, ale tylko dla typu poświadczeń "Certyfikat" | <*zakodowana zawartość pliku pfx*> | Zawartość zakodowana w bazie 64 z pliku wymiany informacji osobistych (PFX) |
 | **Hasło** | `password` | Tak, ale tylko dla typu poświadczeń "Certyfikat" | <*hasło-dla-pfx-file*> | Hasło dostępu do pliku PFX |
@@ -748,8 +748,8 @@ W wyzwalaczu lub akcji obsługującej uwierzytelnianie nieprzetworzone określ n
 
 | Właściwość (projektant) | Właściwość (JSON) | Wymagany | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Tak | Nieprzetworzone | Typ uwierzytelniania, którego można użyć |
-| **Wartość** | `value` | Tak | <*autoryzacja-header-wartość*> | Wartość nagłówka autoryzacji używana do uwierzytelniania |
+| **Authentication** | `type` | Yes | Nieprzetworzone | Typ uwierzytelniania, którego można użyć |
+| **Wartość** | `value` | Yes | <*autoryzacja-header-wartość*> | Wartość nagłówka autoryzacji używana do uwierzytelniania |
 ||||||
 
 Korzystając z [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i ochrony poufnych informacji, na przykład w [szablonie usługi Azure Resource Manager do automatyzacji wdrażania,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. W tym przykładzie definicja `type` `Raw`akcji HTTP określa uwierzytelnianie jako i używa [funkcji parameters(),](../logic-apps/workflow-definition-language-functions-reference.md#parameters) aby uzyskać wartości parametrów:
@@ -783,9 +783,9 @@ Jeśli opcja [Tożsamość zarządzana](../active-directory/managed-identities-a
 
    | Właściwość (projektant) | Właściwość (JSON) | Wymagany | Wartość | Opis |
    |---------------------|-----------------|----------|-------|-------------|
-   | **Authentication** | `type` | Tak | **Tożsamość zarządzana** <br>lub <br>`ManagedServiceIdentity` | Typ uwierzytelniania, którego można użyć |
-   | **Tożsamość zarządzana** | `identity` | Tak | * **Tożsamości zarządzanej przypisanej do systemu** <br>lub <br>`SystemAssigned` <p><p>* <*nazwa tożsamości przypisana przez użytkownika*> | Tożsamość zarządzana do użycia |
-   | **Grupy odbiorców** | `audience` | Tak | <*identyfikator zasobu docelowego*> | Identyfikator zasobu docelowego, do którego chcesz uzyskać dostęp. <p>Na przykład `https://storage.azure.com/` sprawia, że tokeny dostępu do uwierzytelniania prawidłowe dla wszystkich kont magazynu. Można jednak również określić adres URL `https://fabrikamstorageaccount.blob.core.windows.net` usługi głównej, na przykład dla określonego konta magazynu. <p>**Uwaga:** **Właściwość Odbiorca** może być ukryta w niektórych wyzwalaczach lub działaniach. Aby ta właściwość była widoczna, w wyzwalaczu lub akcji otwórz listę **Dodaj nowy parametr** i wybierz pozycję Grupa **odbiorców**. <p><p>**Ważne:** Upewnij się, że ten identyfikator zasobu *docelowego dokładnie odpowiada* wartości, której oczekuje usługa Azure AD, w tym wszelkie wymagane końcowe ukośniki. Tak więc `https://storage.azure.com/` identyfikator zasobu dla wszystkich kont usługi Azure Blob Storage wymaga końcowego ukośnika. Jednak identyfikator zasobu dla określonego konta magazynu nie wymaga ukośnika końcowego. Aby znaleźć te identyfikatory zasobów, zobacz [usługi platformy Azure obsługujące usługę Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Authentication** | `type` | Yes | **Tożsamość zarządzana** <br>lub <br>`ManagedServiceIdentity` | Typ uwierzytelniania, którego można użyć |
+   | **Tożsamość zarządzana** | `identity` | Yes | * **Tożsamości zarządzanej przypisanej do systemu** <br>lub <br>`SystemAssigned` <p><p>* <*nazwa tożsamości przypisana przez użytkownika*> | Tożsamość zarządzana do użycia |
+   | **Grupy odbiorców** | `audience` | Yes | <*identyfikator zasobu docelowego*> | Identyfikator zasobu docelowego, do którego chcesz uzyskać dostęp. <p>Na przykład `https://storage.azure.com/` sprawia, że tokeny dostępu do uwierzytelniania prawidłowe dla wszystkich kont magazynu. Można jednak również określić adres URL `https://fabrikamstorageaccount.blob.core.windows.net` usługi głównej, na przykład dla określonego konta magazynu. <p>**Uwaga:** **Właściwość Odbiorca** może być ukryta w niektórych wyzwalaczach lub działaniach. Aby ta właściwość była widoczna, w wyzwalaczu lub akcji otwórz listę **Dodaj nowy parametr** i wybierz pozycję Grupa **odbiorców**. <p><p>**Ważne:** Upewnij się, że ten identyfikator zasobu *docelowego dokładnie odpowiada* wartości, której oczekuje usługa Azure AD, w tym wszelkie wymagane końcowe ukośniki. Tak więc `https://storage.azure.com/` identyfikator zasobu dla wszystkich kont usługi Azure Blob Storage wymaga końcowego ukośnika. Jednak identyfikator zasobu dla określonego konta magazynu nie wymaga ukośnika końcowego. Aby znaleźć te identyfikatory zasobów, zobacz [usługi platformy Azure obsługujące usługę Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    Korzystając z [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i ochrony poufnych informacji, na przykład w [szablonie usługi Azure Resource Manager do automatyzacji wdrażania,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. W tym przykładzie definicja `type` `ManagedServiceIdentity` akcji HTTP określa uwierzytelnianie jako i używa [funkcji parameters(),](../logic-apps/workflow-definition-language-functions-reference.md#parameters) aby uzyskać wartości parametrów:

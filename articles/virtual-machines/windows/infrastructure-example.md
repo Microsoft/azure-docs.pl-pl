@@ -1,26 +1,19 @@
 ---
 title: Przykładowa instruktaż infrastruktury platformy Azure
 description: Dowiedz się więcej o kluczowych wskazówki dotyczące projektowania i implementacji dotyczące wdrażania przykładowej infrastruktury na platformie Azure.
-documentationcenter: ''
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: example-scenario
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab6f304d78357e261c68ebbcfcb3746844edce8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43e96b891e60dfcf8bc3c29b202bb60213905372
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74038564"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869470"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Przykładowy przewodnik po infrastrukturze platformy Azure dla maszyn wirtualnych systemu Windows
 W tym artykule o wiele więcej niż w artykule. Szczegółowo projektujemy infrastrukturę dla prostego sklepu internetowego, który łączy wszystkie wytyczne i decyzje dotyczące konwencji nazewnictwa, zestawów dostępności, sieci wirtualnych i modułów równoważenia obciążenia, a także faktycznie wdraża maszyny wirtualne.We detailing an infrastructure for a simple online store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancebalrs, and actually deploying your virtual machines (VMs).

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6baf5d77b70fa6e2717b492163826f27d80fbb88
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c040907c6101d11ee645f9967278d3cf297bd74a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991624"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869810"
 ---
 # <a name="create-a-new-managed-service-offer"></a>Tworzenie nowej oferty usługi zarządzanej
 
@@ -137,6 +137,9 @@ Jeśli masz witryny pomocy technicznej dla **klientów globalnych platformy Azur
 ### <a name="marketplace-images"></a>Obrazy z Marketplace
 
 W tej sekcji możesz podać logo i obrazy, które będą używane podczas wyświetlania oferty klientowi. Wszystkie obrazy muszą być w formacie png.
+
+>[!Note]
+>Jeśli masz problem z przekazywaniem plików, upewnij się, https://upload.xboxlive.com że sieć lokalna nie blokuje usługi używanej przez Centrum partnerów.
 
 #### <a name="marketplace-logos"></a>Logo Marketplace
 

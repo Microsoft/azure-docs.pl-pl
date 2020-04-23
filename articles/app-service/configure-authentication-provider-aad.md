@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: f625f5df4f33c6516bd5c50f97c52404d76757a0
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392562"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024459"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Konfigurowanie usługi aplikacji lub aplikacji Usługi Azure Functions do używania logowania usługi Azure AD
 
@@ -100,7 +100,7 @@ Wykonaj poniższe czynności:
     |Pole|Opis|
     |-|-|
     |Identyfikator klienta| Użyj identyfikatora **aplikacji (klienta)** rejestracji aplikacji. |
-    |Adres URL wystawcy| Użyj `https://login.microsoftonline.com/<tenant-id>/v2.0`i zastąp * \<identyfikator dzierżawy>* **identyfikatorem katalogu (dzierżawy)** rejestracji aplikacji. Ta wartość jest używana do przekierowywania użytkowników do poprawnej dzierżawy usługi Azure AD, a także do pobierania odpowiednich metadanych w celu określenia odpowiednich kluczy podpisywania tokenu i wartości oświadczenia wystawcy tokenu na przykład. Sekcja `/v2.0` może zostać pominięta dla aplikacji korzystających z usługi AAD w wersji 1. |
+    |Adres URL wystawcy| Użyj `<authentication-endpoint>/<tenant-id>/v2.0`programu , i zastąp * \<>punktu końcowego uwierzytelniania* [punktem końcowym uwierzytelniania dla środowiska chmury](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (np.https://login.microsoft.com" dla globalnej platformy Azure), zastępując * \<również identyfikatora dzierżawy>* **identyfikatorem katalogu (dzierżawy),** w którym została utworzona rejestracja aplikacji. Ta wartość jest używana do przekierowywania użytkowników do poprawnej dzierżawy usługi Azure AD, a także do pobierania odpowiednich metadanych w celu określenia odpowiednich kluczy podpisywania tokenu i wartości oświadczenia wystawcy tokenu na przykład. Sekcja `/v2.0` może zostać pominięta dla aplikacji korzystających z usługi AAD w wersji 1. |
     |Klucz tajny klienta (opcjonalnie)| Użyj klucza tajnego klienta wygenerowanego podczas rejestracji aplikacji.|
     |Dozwolone grupy odbiorców tokenów| Jeśli jest to aplikacja w chmurze lub serwera i chcesz zezwolić tokeny uwierzytelniania z aplikacji sieci web, dodaj **identyfikator URI identyfikatora aplikacji** w aplikacji sieci web tutaj. Skonfigurowany **identyfikator klienta** jest *zawsze* niejawnie uważany za dozwoloną grupę odbiorców. |
 

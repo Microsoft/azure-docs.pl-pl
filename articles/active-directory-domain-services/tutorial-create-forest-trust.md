@@ -23,7 +23,7 @@ W środowiskach, w których nie można synchronizować skrótów haseł lub masz
 
 ![Diagram zaufania lasu od usług Azure AD DS do lokalnych usług AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie systemu DNS w lokalnym środowisku usług AD DS w celu obsługi łączności usług Ad DS

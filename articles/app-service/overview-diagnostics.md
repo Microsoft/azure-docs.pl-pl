@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: e06e71d4436ac6c64ff2edc876d7849d084482f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671630"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869940"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Omówienie diagnostyki usługi Azure App Service
 
@@ -31,6 +31,10 @@ W przypadku funkcji platformy Azure przejdź do aplikacji funkcji, a w górnej c
 Na stronie głównej diagnostyki usługi app service możesz wybrać kategorię, która najlepiej opisuje problem z aplikacją przy użyciu słów kluczowych na każdym kafelku strony głównej. Ponadto na tej stronie można znaleźć **narzędzia diagnostyczne** dla aplikacji systemu Windows. Zobacz [Narzędzia diagnostyczne (tylko dla aplikacji systemu Windows).](#diagnostic-tools-only-for-windows-app)
 
 ![Strona główna](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+
+> [!NOTE]
+> Jeśli aplikacja jest w dół lub wykonywania powolny, można [zebrać śledzenia profilowania,](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) aby zidentyfikować główną przyczynę problemu. Profilowanie jest lekkie i jest przeznaczone do scenariuszy produkcyjnych.
+>
 
 ## <a name="interactive-interface"></a>Interaktywny interfejs
 

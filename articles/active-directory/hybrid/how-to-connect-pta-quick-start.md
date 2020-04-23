@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b84e972584562be741919c7dccb6bdfe1bdea628
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 18ffb48b2e7978831155afaf2e675bb720e57544
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312856"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082207"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Uwierzytelnianie przekazywane usługi Azure Active Directory: szybki start
 
@@ -37,6 +37,9 @@ Postępuj zgodnie z tymi instrukcjami, aby wdrożyć uwierzytelnianie przekazywa
 ## <a name="step-1-check-the-prerequisites"></a>Krok 1: Sprawdź wymagania wstępne
 
 Upewnij się, że istnieją następujące wymagania wstępne.
+
+>[!IMPORTANT]
+>Z punktu widzenia zabezpieczeń administratorzy powinni traktować serwer z uruchomionym agentem PTA tak, jakby był kontrolerem domeny.  Serwery agenta PTA powinny być wzmocnione zgodnie z opisem w [zabezpieczaniu kontrolerów domeny przed atakiem](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>W centrum administracyjnym usługi Azure Active Directory
 

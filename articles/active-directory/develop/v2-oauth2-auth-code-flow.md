@@ -12,12 +12,12 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e5e462c52c8b06af6da5081f84a082138cd53a3f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: fcd80c052edf659f93f97800da3112c1f11309cc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677949"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868507"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Platforma tożsamości firmy Microsoft i przepływ kodu autoryzacji OAuth 2.0
 
@@ -35,7 +35,7 @@ Na wysokim poziomie cały przepływ uwierzytelniania dla aplikacji natywnej/mobi
 
 ## <a name="request-an-authorization-code"></a>Poproś o kod autoryzacji
 
-Przepływ kodu autoryzacji rozpoczyna się od klienta `/authorize` kierującego użytkownika do punktu końcowego. W tym żądaniu klient `openid` `offline_access`żąda `https://graph.microsoft.com/mail.read `, i uprawnienia od użytkownika.  Niektóre uprawnienia są ograniczone przez administratora, na przykład zapisywanie `Directory.ReadWrite.All`danych w katalogu organizacji przy użyciu programu . Jeśli aplikacja żąda dostępu do jednego z tych uprawnień od użytkownika organizacji, użytkownik otrzymuje komunikat o błędzie informujący, że nie jest upoważniony do wyrażenia zgody na uprawnienia aplikacji. Aby zażądać dostępu do zakresów z ograniczeniami administratora, należy poprosić o nie bezpośrednio administratora firmy.  Aby uzyskać więcej informacji, zobacz [uprawnienia z ograniczeniami administratora](v2-permissions-and-consent.md#admin-restricted-permissions).
+Przepływ kodu autoryzacji rozpoczyna się od klienta `/authorize` kierującego użytkownika do punktu końcowego. W tym żądaniu klient `openid` `offline_access`żąda `https://graph.microsoft.com/mail.read ` , i uprawnienia od użytkownika.  Niektóre uprawnienia są ograniczone przez administratora, na przykład zapisywanie `Directory.ReadWrite.All`danych w katalogu organizacji przy użyciu programu . Jeśli aplikacja żąda dostępu do jednego z tych uprawnień od użytkownika organizacji, użytkownik otrzymuje komunikat o błędzie informujący, że nie jest upoważniony do wyrażenia zgody na uprawnienia aplikacji. Aby zażądać dostępu do zakresów z ograniczeniami administratora, należy poprosić o nie bezpośrednio administratora firmy.  Aby uzyskać więcej informacji, zobacz [uprawnienia z ograniczeniami administratora](v2-permissions-and-consent.md#admin-restricted-permissions).
 
 ```
 // Line breaks for legibility only
@@ -76,7 +76,7 @@ Gdy użytkownik uwierzytelnia się i udzieli zgody, punkt końcowy platformy to�
 
 Pomyślna odpowiedź `response_mode=query` za pomocą wygląda następująco:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
@@ -91,7 +91,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 
 Odpowiedzi na błędy mogą być `redirect_uri` również wysyłane do aplikacji, dzięki czemu aplikacja może obsługiwać je odpowiednio:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/nativeclient?
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -122,7 +122,7 @@ W poniższej tabeli opisano różne kody `error` błędów, które mogą być zw
 
 Teraz, gdy nabyliśmy authorization_code i zostały przyznane uprawnienia przez użytkownika, można `code` wymienić dla żądanego `access_token` zasobu. Aby to zrobić, `POST` wysyłając `/token` żądanie do punktu końcowego:
 
-```
+```HTTP
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -221,7 +221,7 @@ Teraz, po pomyślnym `access_token`nabyciu , można użyć tokenu w żądaniach 
 > [!TIP]
 > Wykonaj to żądanie w postman! (Najpierw `Authorization` zastąp nagłówek) [Spróbuj uruchomić to żądanie w postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-```
+```HTTP
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
@@ -235,7 +235,7 @@ Tokeny odświeżania nie mają określonych okresów istnienia. Zazwyczaj okresy
 
 Chociaż tokeny odświeżania nie są odwoływane, gdy są używane do uzyskiwania nowych tokenów dostępu, oczekuje się, aby odrzucić stary token odświeżania. [Specyfikacja OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) mówi: "Serwer autoryzacji może wydać nowy token odświeżania, w którym to przypadku klient musi odrzucić stary token odświeżania i zastąpić go nowym tokenem odświeżania. Serwer autoryzacji może odwołać stary token odświeżania po wydaniu nowego tokenu odświeżania do klienta."
 
-```
+```HTTP
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -276,6 +276,7 @@ Pomyślna odpowiedź tokenu będzie wyglądać następująco:
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
+
 | Parametr     | Opis         |
 |---------------|-------------------------------------------------------------|
 | `access_token`  | Żądany token dostępu. Aplikacja może używać tego tokenu do uwierzytelniania do zabezpieczonego zasobu, takiego jak internetowy interfejs API. |

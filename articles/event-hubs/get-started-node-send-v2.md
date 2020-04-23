@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 063f2e1005db177420da7f81b799ab01fd212d7e
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 42c58a84c71b6573814e82517373db6900a83658
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478477"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025020"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Wysyłanie zdarzeń do lub odbieranie zdarzeń z centrów zdarzeń przy użyciu języka JavaScript (usługa azure/event-hubs w wersji 5)
 Ten przewodnik Szybki start pokazuje sposób wysyłania zdarzeń do centrum zdarzeń i odbierania ich z wykorzystaniem pakietu JavaScript **usługi azure/event-hubs w wersji 5.** 
@@ -185,7 +185,7 @@ Pamiętaj, aby nagrać parametry połączenia i nazwę kontenera do późniejsze
 1. Uruchom `node receive.js` w wierszu polecenia, aby wykonać ten plik. Okno powinno wyświetlać komunikaty o odebranych zdarzeniach.
 
     > [!NOTE]
-    > Aby uzyskać pełny kod źródłowy, w tym dodatkowe komentarze informacyjne, przejdź do [strony GitHub receiveEventsUsingCheckpointStore.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsUsingCheckpointStore.js).
+    > Aby uzyskać pełny kod źródłowy, w tym dodatkowe komentarze informacyjne, przejdź do [strony GitHub receiveEventsUsingCheckpointStore.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsUsingCheckpointStore.js).
 
 Gratulacje! Zdarzenia zostały odebrane z centrum zdarzeń. Program odbiornika będzie odbierać zdarzenia ze wszystkich partycji domyślnej grupy odbiorców w centrum zdarzeń.
 

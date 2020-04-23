@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f307553a97973d03b0699248373e53e4845aa39a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78248847"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869915"
 ---
 # <a name="what-are-security-defaults"></a>Co to są ustawienia domyślne zabezpieczeń?
 
@@ -83,7 +83,7 @@ Po włączeniu ustawień domyślnych zabezpieczeń w dzierżawie wszystkie żąd
 
 Organizacje korzystają z różnych usług platformy Azure zarządzanych za pośrednictwem interfejsu API usługi Azure Resource Manager, w tym:
 
-- Portal Azure 
+- Azure Portal 
 - Azure PowerShell 
 - Interfejs wiersza polecenia platformy Azure
 
@@ -92,8 +92,6 @@ Używanie usługi Azure Resource Manager do zarządzania usługami jest bardzo u
 Ważne jest, aby zweryfikować tożsamość użytkowników, którzy chcą uzyskać dostęp do usługi Azure Resource Manager i zaktualizować konfiguracje. Weryfikujesz ich tożsamość, wymagając dodatkowego uwierzytelniania przed zezwoleniem na dostęp.
 
 Po włączeniu domyślnych zabezpieczeń w dzierżawie każdy użytkownik, który uzyskuje dostęp do witryny Azure portal, azure powershell lub interfejsu wiersza polecenia platformy Azure, będzie musiał wykonać dodatkowe uwierzytelnianie. Ta zasada ma zastosowanie do wszystkich użytkowników, którzy uzyskują dostęp do usługi Azure Resource Manager, niezależnie od tego, czy są administratorem, czy użytkownikiem. 
-
-Jeśli użytkownik nie jest zarejestrowany do uwierzytelniania wieloskładnikowego, użytkownik będzie musiał zarejestrować się przy użyciu aplikacji Microsoft Authenticator w celu kontynuowania. Nie zostanie zapewniony 14-dniowy okres rejestracji uwierzytelniania wieloskładnikowego.
 
 > [!NOTE]
 > Przed 2017 r. dzierżawcy usługi Exchange Online domyślnie mają nowoczesne uwierzytelnianie wyłączone. Aby uniknąć możliwości pętli logowania podczas uwierzytelniania za pośrednictwem tych dzierżaw, należy [włączyć nowoczesne uwierzytelnianie.](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)
@@ -141,7 +139,7 @@ Aby włączyć domyślne zabezpieczenia w katalogu:
 1. Przejdź do **właściwości usługi Azure Active Directory** > **Properties**.
 1. Wybierz pozycję **Zarządzaj ustawieniami domyślnymi zabezpieczeń**.
 1. Ustaw **przełącznik Włącz domyślne zabezpieczenia** na **Tak**.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="disabling-security-defaults"></a>Wyłączanie ustawień domyślnych zabezpieczeń
 
@@ -155,7 +153,7 @@ Aby wyłączyć ustawienia domyślne zabezpieczeń w katalogu:
 1. Przejdź do **właściwości usługi Azure Active Directory** > **Properties**.
 1. Wybierz pozycję **Zarządzaj ustawieniami domyślnymi zabezpieczeń**.
 1. Ustaw **przełącznik Włącz domyślne zabezpieczenia** na **Nie**.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

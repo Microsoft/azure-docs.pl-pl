@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df4c51953c6f50e30ba61b993cdb35856fcb8e25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 539665c4756a7dc87078922421b45a88404f58f1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77082970"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868140"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Uzyskiwanie dostępu do środowiska chmury CloudSimple private cloud i aplikacji z lokalnego
 
@@ -35,7 +35,7 @@ Aby uzyskać dostęp do programu Private Cloud vCenter i menedżera NSX-T, porty
 
 ## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>Porty wymagane do używania lokalnej usługi active directory jako źródła tożsamości
 
-Aby skonfigurować lokalną usługę active directory jako źródło tożsamości w usłudze Private Cloud vCenter, należy otworzyć porty zdefiniowane w tabeli.  Zobacz [Korzystanie z usługi Azure AD jako dostawcy tożsamości dla vCenter w chmurze prywatnej CloudSimple](https://docs.azure.cloudsimple.com/azure-ad/) dla kroków konfiguracji.
+Aby skonfigurować lokalną usługę active directory jako źródło tożsamości w usłudze Private Cloud vCenter, należy otworzyć porty zdefiniowane w tabeli.  Zobacz [Korzystanie z usługi Azure AD jako dostawcy tożsamości dla vCenter w chmurze prywatnej CloudSimple](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) dla kroków konfiguracji.
 
 | Port         | Element źródłowy                           | Element docelowy                                         | Przeznaczenie                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,6 +60,6 @@ Maszyny wirtualne z obciążeniem dostępu działające w chmurze prywatnej wyma
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie sieci VLAN i podsieci oraz zarządzanie nimi](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
-* [Łączenie się z siecią lokalną przy użyciu usługi Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/)
-* [Konfigurowanie sieci VPN między lokacjami z lokalnego](https://docs.azure.cloudsimple.com/vpn-gateway/)
+* [Tworzenie sieci VLAN i podsieci oraz zarządzanie nimi](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/)
+* [Łączenie się z siecią lokalną przy użyciu usługi Azure ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
+* [Konfigurowanie sieci VPN między lokacjami z lokalnego](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)

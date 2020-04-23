@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ca8c5cacd2b1a1a7b4f70615831d2901510045e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7c137a75c0a021aa8bca3aec23da6c4d1ada300
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024436"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868030"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Szybki start — tworzenie rozwiązania Azure VMware przez usługę CloudSimple
 
@@ -34,7 +34,7 @@ Przejrzyj [wymagania wstępne sieci .](cloudsimple-network-checklist.md)
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-the-service"></a>Tworzenie usługi
 
@@ -82,9 +82,9 @@ Aby skonfigurować pojemność płatności zgodnie z rzeczywistym idziemy dla ś
 11. Wybierz liczbę węzłów do zainicjowania.
 12. Wybierz **pozycję Recenzja + Utwórz**.
 13. Przejrzyj ustawienia. Aby zmodyfikować dowolne ustawienia, kliknij przycisk **Poprzedni**.
-14. Wybierz **pozycję Utwórz**.
+14. Wybierz pozycję **Utwórz**.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Tworzenie chmury prywatnej i konfigurowanie środowiska](quickstart-create-private-cloud.md)
-* Dowiedz się więcej o [usłudze CloudSimple](https://docs.azure.cloudsimple.com/cloudsimple-service)
+* Dowiedz się więcej o [usłudze CloudSimple](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-service)

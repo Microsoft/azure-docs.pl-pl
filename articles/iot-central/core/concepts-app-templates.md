@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: fde46ddfe85ca2cd1aa4ba65c8bd93d4db328410
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 244de9a3236977308a9f7bcaf5106e86a0984201
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77019047"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024680"
 ---
 # <a name="what-are-application-templates"></a>Co to są szablony aplikacji?
 
@@ -41,7 +41,7 @@ Wybierz szablon **aplikacji niestandardowej,** chyba że masz określony powód,
 
 Usługa Azure IoT Central to niezależna od branży platforma aplikacji. Szablony aplikacji są przykładami branżowymi dostępnymi obecnie dla tych branż, a w przyszłości pojawią się kolejne:
 
-- [Sprzedaż detaliczna](../retail/overview-iot-central-retail-pnp.md)
+- [Sprzedaż detaliczna](../retail/overview-iot-central-retail.md)
   - Połączona logistyka
   - Cyfrowe centrum dystrybucji
   - Analityka w sklepie - monitorowanie stanu

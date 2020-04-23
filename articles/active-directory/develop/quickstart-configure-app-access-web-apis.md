@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 03/09/2020
+ms.date: 04/22/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 5e628626f2db49ff67d6d7ab425a3a19870b1ebd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 210ed5b8ad53fd59a46e160fe5fc72633d115d44
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240898"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082326"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Szybki start: konfigurowanie aplikacji klienckiej w celu uzyskiwania dostępu do internetowych interfejsów API
 
@@ -51,14 +51,14 @@ Można dodać niestandardowe identyfikatory URI przekierowania i sugerowane prze
 
    * Dla aplikacji internetowych podaj podstawowy adres URL aplikacji. Na przykład ciąg `http://localhost:31544` może być adresem URL aplikacji internetowej uruchomionej na komputerze lokalnym. Użytkownicy mogą używać tego adresu URL, aby zalogować się do internetowej aplikacji klienckiej.
    * W przypadku aplikacji publicznych podaj identyfikator URI używany przez usługę Azure AD do zwracania odpowiedzi tokenu. Wprowadź wartość specyficzną dla `https://MyFirstApp`aplikacji, na przykład: .
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 Aby wybrać sugerowane identyfikatory URI przekierowania dla klientów publicznych, wykonaj następujące kroki:
 
 1. Na stronie **Przegląd** aplikacji wybierz pozycję **Uwierzytelnianie**.
 1. Znajdź **sugerowane identyfikatory URI przekierowania dla klientów publicznych (mobilnych, stacjonarnych).** Może być konieczne **wybranie opcji Przełącz do starego środowiska**.
 1. Wybierz jeden lub więcej identyfikatorów URI przekierowania dla aplikacji. Można również wprowadzić niestandardowy identyfikator URI przekierowania. Jeśli nie masz pewności, czego użyć, zapoznaj się z dokumentacją biblioteki.
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 Niektóre ograniczenia mają zastosowanie do przekierowania identyfikatorów URI. Aby uzyskać więcej informacji, zobacz [Przekierowywanie ograniczeń i ograniczeń adresów URL identyfikatorów URI/odpowiedzi](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
 
@@ -110,7 +110,10 @@ Aby skonfigurować ustawienia aplikacji na podstawie platformy lub urządzenia, 
    | **Sieć Web**              | Wprowadź **identyfikator URI przekierowania** dla aplikacji. |
    | **iOS / macOS**              | Wpisz identyfikator **pakietu**aplikacji , który znajdziesz w XCode w Info.plist lub Ustawienia kompilacji. Dodanie identyfikatora pakietu automatycznie tworzy identyfikator URI przekierowania dla aplikacji. |
    | **Android**          | Podaj **nazwę pakietu**aplikacji , którą można znaleźć w pliku AndroidManifest.xml.<br/>Generowanie i wprowadzanie **skrótu Podpis**. Dodanie skrótu podpisu automatycznie tworzy identyfikator URI przekierowania dla aplikacji.  |
-   | **Aplikacje mobilne i stacjonarne**  | Element opcjonalny. Wybierz jedną z zalecanych **sugerowanych identyfikatorów URI przekierowania,** jeśli budujesz aplikacje na komputery i urządzenia.<br/>Element opcjonalny. Wprowadź **niestandardowy identyfikator URI przekierowania**, który jest używany jako lokalizacja, w której usługa Azure AD przekieruje użytkowników w odpowiedzi na żądania uwierzytelniania. Na przykład dla aplikacji .NET Core, `https://localhost`w których chcesz interakcję, użyj . |
+   | **Aplikacje mobilne i stacjonarne**  | Element opcjonalny. Wybierz jedną z zalecanych **sugerowanych identyfikatorów URI przekierowania,** jeśli budujesz aplikacje na komputery i urządzenia.<br/>Element opcjonalny. Wprowadź **niestandardowy identyfikator URI przekierowania**, który jest używany jako lokalizacja, w której usługa Azure AD przekieruje użytkowników w odpowiedzi na żądania uwierzytelniania. Na przykład dla aplikacji .NET Core, `http://localhost`w których chcesz interakcję, użyj . |
+
+   > [!NOTE]
+   > W usługach federacyjnych Active Directory (AD FS) i usłudze Azure AD B2C należy również określić numer portu.  Na przykład: `http://localhost:1234`. 
 
    > [!IMPORTANT]
    > W przypadku aplikacji mobilnych, które nie korzystają z najnowszej biblioteki uwierzytelniania firmy Microsoft (MSAL) lub nie korzystają z brokera, należy skonfigurować identyfikatory URI przekierowania dla tych aplikacji w **programach Desktop + devices**.

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: abf80e98881b73bed53c5a939a79bc8b3a9de2db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/21/2020
+ms.openlocfilehash: c5062bce572fbeda4143902ae6a04b31b9a89754
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530584"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025054"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Jak tworzyć repliki odczytu i zarządzać nimi w usłudze Azure Database dla mariadb przy użyciu interfejsu wiersza polecenia platformy Azure i interfejsu API REST
 
@@ -45,9 +45,6 @@ Polecenie `az mariadb server replica create` wymaga następujących parametrów:
 | source-server | mydemoserver | Nazwa lub identyfikator istniejącego serwera głównego do replikacji. |
 
 Aby utworzyć replikę odczytu `--location` międzyregionami, należy użyć parametru. 
-
-> [!NOTE]
-> Replikacja między regionami jest w wersji zapoznawczej.
 
 Poniższy przykład interfejsu wiersza polecenia tworzy replikę w zachodnie stany USA.
 

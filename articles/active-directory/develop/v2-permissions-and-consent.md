@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 26bfbcb4762d889b2c56276e66e4bf8e0acb64b2
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 5495aa6fda189897985ed2f198f6e92c996f6fef
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677708"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868380"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 
@@ -97,7 +97,7 @@ Aby uzyskać więcej informacji na temat sposobu ujmowania i używania tokenów 
 
 W żądaniu autoryzacji [OpenID Connect lub OAuth 2.0](active-directory-v2-protocols.md) aplikacja może `scope` żądać wymaganych uprawnień przy użyciu parametru zapytania. Na przykład, gdy użytkownik loguje się do aplikacji, aplikacja wysyła żądanie, takie jak w poniższym przykładzie (z podziałami wierszy dodanymi dla czytelności):
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
@@ -179,15 +179,15 @@ Po zalogowaniu użytkownika do aplikacji można zidentyfikować organizację, do
 
 Gdy będziesz gotowy do żądania uprawnień od administratora organizacji, możesz przekierować użytkownika do *punktu końcowego zgody administratora*platformy tożsamości firmy Microsoft .
 
-```
+```HTTP
 // Line breaks are for legibility only.
-  GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-  &scope=
-  https://graph.microsoft.com/calendars.read
-  https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
@@ -206,7 +206,7 @@ W tym momencie usługa Azure AD wymaga administratora dzierżawy, aby zalogować
 
 Jeśli administrator zatwierdzi uprawnienia do aplikacji, pomyślna odpowiedź wygląda następująco:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
@@ -220,7 +220,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 Jeśli administrator nie zatwierdzi uprawnień do aplikacji, odpowiedź, która nie powiodło się, wygląda następująco:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
@@ -235,7 +235,7 @@ Po otrzymaniu pomyślnej odpowiedzi z punktu końcowego zgody administratora apl
 
 Po zgody użytkownika na uprawnienia dla aplikacji, aplikacja może uzyskać tokeny dostępu, które reprezentują uprawnienia aplikacji do dostępu do zasobu w pewnym pojemności. Token dostępu może służyć tylko dla pojedynczego zasobu, ale zakodowane wewnątrz tokenu dostępu jest każde uprawnienie, które aplikacja została przyznana dla tego zasobu. Aby uzyskać token dostępu, aplikacja może złożyć żądanie do punktu końcowego tokenu platformy tożsamości firmy Microsoft, w tym stylu:
 
-```
+```HTTP
 POST common/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/json
@@ -287,7 +287,7 @@ W tym przykładzie użytkownik wyraził `mail.read` już zgodę na klienta. Klie
 
 Szczególny przypadek zakresu `/.default` istnieje, gdy klient żąda `/.default` własnego zakresu. W poniższym przykładzie przedstawiono ten scenariusz.
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?

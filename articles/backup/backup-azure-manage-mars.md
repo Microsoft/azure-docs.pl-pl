@@ -4,12 +4,12 @@ description: Dowiedz się, jak zarządzać kopiami zapasowymi agentów usług od
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 404341c8324d9e127e8d8e6bc8083926c0d3106f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537359"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025105"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Zarządzanie kopiami zapasowymi agentów usług odzyskiwania platformy Microsoft Azure (MARS) przy użyciu usługi Azure Backup
 
@@ -79,8 +79,8 @@ Możesz dodać reguły wykluczeń, aby pominąć pliki i foldery, których nie c
 
     ![Zaznaczanie elementów](./media/backup-azure-manage-mars/select-items-remove.png)
 
-> [!NOTE]
-> Należy zachować ostrożność po całkowitym usunięciu woluminu z zasad.  Jeśli musisz dodać go ponownie, zostanie on potraktowany jako nowy wolumin. Następna zaplanowana kopia zapasowa wykona wstępną kopię zapasową (pełną kopię zapasową) zamiast przyrostowej kopii zapasowej. Jeśli musisz tymczasowo usunąć i dodać elementy później, zaleca się użycie **ustawień wykluczeń** zamiast **usuń elementy,** aby zapewnić przyrostową kopię zapasową zamiast pełnej kopii zapasowej.
+    > [!NOTE]
+    > Należy zachować ostrożność po całkowitym usunięciu woluminu z zasad.  Jeśli musisz dodać go ponownie, zostanie on potraktowany jako nowy wolumin. Następna zaplanowana kopia zapasowa wykona wstępną kopię zapasową (pełną kopię zapasową) zamiast przyrostowej kopii zapasowej. Jeśli musisz tymczasowo usunąć i dodać elementy później, zaleca się użycie **ustawień wykluczeń** zamiast **usuń elementy,** aby zapewnić przyrostową kopię zapasową zamiast pełnej kopii zapasowej.
 
 2. Wykonaj kolejne kroki i kliknij przycisk **Zakończ,** aby zakończyć operację.
 
@@ -90,7 +90,7 @@ Istnieją dwa sposoby, aby zatrzymać ochronę kopii zapasowej plików i folder�
 
 - **Zatrzymaj ochronę i zachowaj dane kopii zapasowej**.
   - Ta opcja spowoduje zatrzymanie ochrony wszystkich przyszłych zadań tworzenia kopii zapasowych.
-  - Usługa Azure Backup zachowa wszystkie istniejące punkty odzyskiwania przez czas nieokreślony. Punkty odzyskiwania nie będą sprawdzane pod kątem wygaśnięcia, dopóki ochrona nie zostanie wznowiona.
+  - Usługa Azure Backup będzie nadal zachowywać wszystkie istniejące punkty odzyskiwania.  
   - Będziesz mógł przywrócić dane kopii zapasowej dla niewygasłych punktów odzyskiwania.
   - Jeśli zdecydujesz się wznowić ochronę, możesz użyć opcji *Ponownie włącz harmonogram tworzenia kopii zapasowych.* Następnie dane będą przechowywane na podstawie nowych zasad przechowywania.
 - **Zatrzymaj ochronę i usuń dane kopii zapasowej**.
@@ -167,7 +167,6 @@ Hasło jest używane do szyfrowania i odszyfrowywania danych podczas tworzenia k
 
     ![Generowanie hasła.](./media/backup-azure-manage-mars/passphrase2.png)
 - Upewnij się, że hasło jest bezpiecznie zapisywane w lokalizacji alternatywnej (innej niż komputer źródłowy), najlepiej w usłudze Azure Key Vault. Śledź wszystkie hasła, jeśli masz wiele maszyn, które są archiwizowane z agentami MARS.
-
 
 ## <a name="next-steps"></a>Następne kroki
 

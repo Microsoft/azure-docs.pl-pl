@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 048ab7249b27839890bab3e677154ca3c7a0cc98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 949f1b3ee3db72e1c541c3dd4c5f74f364f1b514
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239438"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869895"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Instalowanie kontrolera transferu danych (AGIC) przy użyciu istniejącej bramy aplikacji
 
@@ -117,7 +117,7 @@ Możliwe jest również zapewnienie agic dostęp do ARM za pośrednictwem tajemn
 1. Utwórz jednostkę usługi Active Directory i zakoduj za pomocą base64. Kodowanie base64 jest wymagane, aby obiekt blob JSON został zapisany w usłudze Kubernetes.
 
 ```azurecli
-az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0
+az ad sp create-for-rbac --sdk-auth | base64 -w0
 ```
 
 2. Dodaj do pliku zakodowany obiekt blob `helm-config.yaml` JSON z kodem base64. Więcej informacji `helm-config.yaml` na ten temat znajduje się w następnej sekcji.
@@ -184,7 +184,7 @@ W pierwszych kilku krokach instalujemy kultywator Helma w klastrze Kubernetes. U
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
     
     ################################################################################
     # Specify if the cluster is RBAC enabled or not
@@ -221,7 +221,7 @@ W pierwszych kilku krokach instalujemy kultywator Helma w klastrze Kubernetes. U
          --set appgw.subscriptionId=subscription-uuid \
          --set appgw.shared=false \
          --set armAuth.type=servicePrincipal \
-         --set armAuth.secretJSON=$(az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0) \
+         --set armAuth.secretJSON=$(az ad sp create-for-rbac --sdk-auth | base64 -w0) \
          --set rbac.enabled=true \
          --set verbosityLevel=3 \
          --set kubernetes.watchNamespace=default \

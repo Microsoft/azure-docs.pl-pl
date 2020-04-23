@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bd9ea5565ea64415c00a458236456bed04b6c38
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: be4edfe3262ab74d903384eb00c0282acc7a3299
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74233380"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867426"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Samouczek: Integracja usługi Azure Active Directory z programem SpringCM
 
@@ -145,7 +145,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą programu Sp
             
     d. Wybierz **opcję SAML włączone** jako **Włącz**.
 
-    e. Kliknij przycisk **Zapisz**.
+    e. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -202,7 +202,7 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 Aby umożliwić użytkownikom usługi Azure Active Directory zalogowanie się do programu SpringCM, muszą one zostać aprowizowane w programach SpringCM. W przypadku SpringCM inicjowania obsługi administracyjnej jest zadanie ręczne.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji, zobacz [Tworzenie i edytowanie użytkownika SpringCM](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
+> Aby uzyskać więcej informacji, zobacz [Tworzenie i edytowanie użytkownika SpringCM](http://community.springcm.com/s/article/Create-and-Edit-a-SpringCM-User-1619481053). 
 
 **Aby aprowizować konto użytkownika do springcm, wykonaj następujące kroki:**
 
@@ -222,7 +222,7 @@ Aby umożliwić użytkownikom usługi Azure Active Directory zalogowanie się do
 
 1. Dodaj użytkownika do **grupy zabezpieczeń**.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
    > [!NOTE]
    > Do aprowizowania kont użytkowników usługi Azure AD można użyć innych narzędzi do tworzenia konta użytkownika programu SpringCM lub interfejsów API udostępnianych przez program SpringCM.
@@ -233,7 +233,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka SpringCM w Panelu dostępu należy automatycznie zalogować się do programu SpringCM, dla którego skonfigurowano logującą się logującą log. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

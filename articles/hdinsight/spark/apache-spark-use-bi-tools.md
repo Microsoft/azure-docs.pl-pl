@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
-ms.date: 03/02/2020
-ms.openlocfilehash: d7330225ecbdc6715847821a47c140a3c2b8d1b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/21/2020
+ms.openlocfilehash: dd0b4d1b0998bd4b13a17fb8345b87924bc27e1d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251947"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869975"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Samouczek: analizowanie danych platformy Apache Spark przy użyciu usługi Power BI w usłudze HDInsight
 
-W tym samouczku dowiesz się, jak wizualizować dane w klastrze Platformy Spark usługi Apache w [usłudze Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)za pomocą [usługi Microsoft Power BI.](https://powerbi.microsoft.com/)
+W tym samouczku dowiesz się, jak wizualizować dane w klastrze platformy Apache Spark w usłudze Azure HDInsight za pomocą usługi Microsoft Power BI.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Wizualizowanie danych platformy Spark przy użyciu usługi Power BI
 
@@ -70,9 +70,6 @@ W tej sekcji użyjemy usługi Power BI do utworzenia wizualizacji, raportów i p
 ### <a name="create-a-report-in-power-bi-desktop"></a>Tworzenie raportu w programie Power BI Desktop
 
 Pierwsze kroki podczas pracy z platformą Spark obejmują połączenie się z klastrem w programie Power BI Desktop, załadowanie danych z klastra i utworzenie podstawowej wizualizacji na podstawie tych danych.
-
-> [!NOTE]  
-> Łącznik zaprezentowany w tym artykule jest obecnie w wersji zapoznawczej. Podziel się swoją opinią za pośrednictwem witryny [społeczności usługi Power BI](https://community.powerbi.com/) lub witryny [pomysłów dla usługi Power BI](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
 1. Otwórz program Power BI Desktop. Zamknij ekran powitalny startowy, jeśli zostanie otwarty.
 
@@ -180,7 +177,7 @@ Aby usunąć klaster, zobacz [Usuwanie klastra HDInsight przy użyciu przegląda
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak wizualizować dane w klastrze Platformy Spark usługi Apache w [usłudze Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)za pomocą [usługi Microsoft Power BI.](https://powerbi.microsoft.com/) Przejdź do następnego artykułu, aby zobaczyć, czy można utworzyć aplikację uczenia maszynowego.
+W tym samouczku dowiesz się, jak wizualizować dane w klastrze platformy Apache Spark w usłudze Azure HDInsight za pomocą usługi Microsoft Power BI. Przejdź do następnego artykułu, aby zobaczyć, czy można utworzyć aplikację uczenia maszynowego.
 
 > [!div class="nextstepaction"]
 > [Tworzenie aplikacji uczenia maszynowego](./apache-spark-ipython-notebook-machine-learning.md)

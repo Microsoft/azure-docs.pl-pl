@@ -7,12 +7,12 @@ manager: saudas
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 907aa83bc293aacd9920d8fd79a1b3184dd1d5dc
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 7a71d3bd70d97df884f1bc962c0ef9897d7fd2cb
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767594"
+ms.locfileid: "82024408"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Używanie tożsamości zarządzanych w usłudze Azure Kubernetes
 
@@ -25,7 +25,7 @@ Usługa AKS tworzy dwie tożsamości zarządzane:
 - **Tożsamość zarządzana przypisana do systemu:** tożsamość używana przez dostawcę chmury Kubernetes do tworzenia zasobów platformy Azure w imieniu użytkownika. Cykl życia tożsamości przypisanej do systemu jest powiązany z cyklem życia klastra. Tożsamość jest usuwana po usunięciu klastra.
 - **Tożsamość zarządzana przypisana przez użytkownika:** tożsamość używana do autoryzacji w klastrze. Na przykład tożsamość przypisana przez użytkownika jest używana do autoryzowania usługi AKS do używania rejestratorów kontenerów platformy Azure (ARS) lub do autoryzowania kubelet w celu uzyskania metadanych z platformy Azure.
 
-Dodatki są również uwierzytelniane przy użyciu tożsamości zarządzanej. Dla każdego dodatku zarządzana tożsamość jest tworzona przez usługi AKS i trwa przez cały okres ważności dodatku. Aby utworzyć własną sieć wirtualną, statyczny adres IP lub dołączony dysk platformy Azure, na którym zasoby znajdują się poza grupą zasobów MC_*, użyj identyfikatora głównego klastra, aby wykonać przypisanie roli. Aby uzyskać więcej informacji na temat przypisywania ról, zobacz [Delegowanie dostępu do innych zasobów platformy Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
+Dodatki są również uwierzytelniane przy użyciu tożsamości zarządzanej. Dla każdego dodatku zarządzana tożsamość jest tworzona przez usługi AKS i trwa przez cały okres ważności dodatku. 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -58,6 +58,9 @@ Pomyślne utworzenie klastra przy użyciu tożsamości zarządzanych zawiera inf
     "secret": null
   }
 ```
+
+> [!NOTE]
+> Aby utworzyć własną sieć wirtualną, statyczny adres IP lub dołączony dysk platformy Azure, na którym zasoby znajdują się poza grupą zasobów MC_*, użyj identyfikatora głównego przypisanej tożsamości zarządzanej systemu klastra, aby wykonać przypisanie roli. Aby uzyskać więcej informacji na temat przypisywania ról, zobacz [Delegowanie dostępu do innych zasobów platformy Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
 
 Na koniec uzyskaj poświadczenia dostępu do klastra:
 

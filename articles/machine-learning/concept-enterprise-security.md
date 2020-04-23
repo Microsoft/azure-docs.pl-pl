@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1af1a1ccd8bff8fc4b578ecdeec3ac5f7c2352b1
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414626"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082139"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla usługi Azure Machine Learning
 
@@ -183,7 +183,7 @@ Aby włączyć inicjowanie obsługi administracyjnej wystąpienia usługi Cosmos
         > [!NOTE]
         > To wystąpienie magazynu kluczy może się różnić od magazynu kluczy, który jest tworzony przez usługę Azure Machine Learning podczas inicjowania obsługi administracyjnej obszaru roboczego. Jeśli chcesz użyć tego samego wystąpienia magazynu kluczy dla obszaru roboczego, przekaż ten sam magazyn kluczy podczas inicjowania obsługi administracyjnej obszaru roboczego przy użyciu [parametru key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-To wystąpienie usługi Cosmos DB jest tworzone w grupie zasobów zarządzanych przez firmę Microsoft w ramach subskrypcji. 
+To wystąpienie usługi Cosmos DB jest tworzone w grupie zasobów zarządzanych przez firmę Microsoft w ramach subskrypcji. Zarządzana grupa zasobów nosi nazwę w formacie<AML Workspace Resource Group Name><GUID>
 
 > [!IMPORTANT]
 > * Jeśli chcesz usunąć to wystąpienie usługi Cosmos DB, należy usunąć obszar roboczy usługi Azure Machine Learning, który go używa. 

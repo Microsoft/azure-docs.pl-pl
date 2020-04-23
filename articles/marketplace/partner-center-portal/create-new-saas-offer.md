@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 45559978f710549088d75d0f0706b798ebad3821
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a39e1e19f65722b4b5ae809ca943da719a3c6e22
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314089"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869773"
 ---
 # <a name="create-a-new-saas-offer"></a>Tworzenie nowej oferty SaaS
 
@@ -43,7 +43,7 @@ Przykład: test-offer-1
 
 <br>Przykład: Oferta testowa 1&#8482;
 
-Wybierz **pozycję Utwórz**.  Dla tej oferty zostanie utworzona strona **Przegląd oferty.**  
+Wybierz pozycję **Utwórz**.  Dla tej oferty zostanie utworzona strona **Przegląd oferty.**  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -290,6 +290,9 @@ Użyj następujących instrukcji, aby użyć edytora tekstu sformatowego:
 
 Pamiętaj, **aby zapisać** przed przejściem do następnej sekcji.
 
+>[!Note]
+>Jeśli masz problem z przekazywaniem plików, upewnij się, https://upload.xboxlive.com że sieć lokalna nie blokuje usługi używanej przez Centrum partnerów.
+
 #### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące aukcji w portalu marketplace
 
 - [Najważniejsze wskazówki dotyczące ofert w marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
@@ -399,7 +402,7 @@ Wybierz częstotliwość, z jaką klienci muszą zapłacić podana cena. Należy
 
 - **Cena:** USD miesięcznie lub USD za rok
 
-Ceny ustalone w walucie lokalnej (USD = Dolar amerykański) są przeliczane na walutę lokalną wszystkich wybranych rynków przy użyciu bieżących kursów wymiany dostępnych podczas konfiguracji. Sprawdź te ceny przed opublikowaniem, eksportując arkusz kalkulacyjny cen i przeglądając cenę na każdym rynku. Jeśli chcesz ustawić ceny niestandardowe na poszczególnych rynkach, zmodyfikuj i zaimportuj arkusz kalkulacyjny cen. Użytkownik jest odpowiedzialny za sprawdzanie poprawności tej ceny i jest właścicielem tych ustawień.
+Ceny ustalone w USD (USD = Dolar amerykański) są przeliczane na walutę lokalną wszystkich wybranych rynków przy użyciu bieżących kursów wymiany po zapisaniu. Sprawdź te ceny przed opublikowaniem, eksportując arkusz kalkulacyjny cen i przeglądając cenę na każdym rynku. Jeśli chcesz ustawić ceny niestandardowe na poszczególnych rynkach, zmodyfikuj i zaimportuj arkusz kalkulacyjny cen. Użytkownik jest odpowiedzialny za sprawdzanie poprawności tej ceny i jest właścicielem tych ustawień.
 *\*Aby włączyć eksport danych cenowych, należy najpierw zapisać zmiany cen.*
 
 Przejrzyj uważnie ceny przed opublikowaniem, ponieważ istnieją pewne ograniczenia dotyczące tego, co może się zmienić po opublikowaniu planu:

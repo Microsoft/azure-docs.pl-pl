@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2808c8431a6b98b162920fb58a6e2ac0498d2055
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74014269"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081714"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Samouczek: Pobierz dane przy użyciu interfejsu API raportowania usługi Azure Active Directory z certyfikatami
 
@@ -44,9 +44,9 @@ W tym samouczku dowiesz się, jak używać certyfikatu testowego, aby uzyskać d
     - Tokeny dostępu użytkownika, kluczy aplikacji i certyfikatów korzystających z bibliotek ADAL
     - Stronicowane wyniki obsługi interfejsu API programu Graph
 
-6. Jeśli po raz pierwszy przy użyciu modułu uruchom **Install-MSCloudIdUtilsModule**, w przeciwnym razie zaimportuj go za pomocą polecenia **Import-Module** Powershell. Sesja powinna wyglądać podobnie do ![tego ekranu: Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Jeśli po raz pierwszy przy użyciu modułu uruchom **Install-MSCloudIdUtilsModule**, w przeciwnym razie zaimportować go za pomocą polecenia **Import-Module** PowerShell. Sesja powinna wyglądać podobnie do ![tego ekranu: Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Użyj polecenia **Programu Powershell New-SelfSignedCertificate,** aby utworzyć certyfikat testowy.
+7. Użyj polecenia **programu PowerShell new-SelfSignedCertificate,** aby utworzyć certyfikat testowy.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -63,13 +63,13 @@ W tym samouczku dowiesz się, jak używać certyfikatu testowego, aby uzyskać d
 
 1. Przejdź do [witryny Azure portal](https://portal.azure.com), wybierz usługę Azure Active **Directory**, a następnie wybierz **pozycję Rejestracje aplikacji** i wybierz aplikację z listy. 
 
-2. Wybierz **pozycję Klawisze ustawień** > **Keys** i wybierz pozycję Przekaż **klucz publiczny**.
+2. Wybierz **pozycję Certyfikaty & wpisy tajne** w sekcji **Zarządzanie** w bloku Rejestracji aplikacji i wybierz pozycję **Przekaż certyfikat**.
 
-3. Wybierz plik certyfikatu z poprzedniego kroku i wybierz pozycję **Zapisz**. 
+3. Wybierz plik certyfikatu z poprzedniego kroku i wybierz pozycję **Dodaj**. 
 
-4. Zanotuj identyfikator aplikacji i odcisk palca certyfikatu, który właśnie zarejestrowałeś w aplikacji. Aby znaleźć odcisk palca, ze strony aplikacji w portalu przejdź do **ustawień** i kliknij przycisk **Klawisze**. Odcisk palca będzie w obszarze **listy klucze publiczne.**
+4. Zanotuj identyfikator aplikacji i odcisk palca certyfikatu, który właśnie zarejestrowałeś w aplikacji. Aby znaleźć odcisk palca, na stronie aplikacji w portalu przejdź do **wpisów tajnych certyfikaty &** w sekcji **Zarządzanie.** Odcisk palca znajdzie się na liście **Certyfikaty.**
 
-5. Otwórz manifest aplikacji w edytorze manifestów wbudowanych i zastąp właściwość *keyCredentials* nowymi informacjami o certyfikacie przy użyciu następującego schematu. 
+5. Otwórz manifest aplikacji w edytorze manifestów wbudowanych i sprawdź, czy właściwość *keyCredentials* jest aktualizowana o nowe informacje o certyfikacie, jak pokazano poniżej - 
 
    ```
    "keyCredentials": [
@@ -81,23 +81,20 @@ W tym samouczku dowiesz się, jak używać certyfikatu testowego, aby uzyskać d
             "value":  "$base64Value" //base64 encoding of the certificate raw data
         }
     ]
-   ```
+   ``` 
+6. Teraz można uzyskać token dostępu dla interfejsu API ms graph przy użyciu tego certyfikatu. Użyj polecenia cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** z modułu Programu PowerShell MSCloudIdUtils, przechodząc w identyfikatorze aplikacji i odcisk palca uzyskany z poprzedniego kroku. 
 
-6. Zapisz manifest. 
-  
-7. Teraz można uzyskać token dostępu dla interfejsu API ms graph przy użyciu tego certyfikatu. Użyj polecenia cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** z modułu Programu PowerShell MSCloudIdUtils, przechodząc w identyfikatorze aplikacji i odcisk palca uzyskany z poprzedniego kroku. 
+   ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-   ![Portal Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+7. Użyj tokenu dostępu w skrypcie programu PowerShell, aby zbadać interfejs API programu Graph. Użyj polecenia cmdlet **Invoke-MSCloudIdMSGraphQuery** z msCloudIDUtils do wyliczenia znaków i directoryAudits punktu końcowego. To polecenie cmdlet obsługuje wielostronicowe wyniki i wysyła te wyniki do potoku programu PowerShell.
 
-8. Użyj tokenu dostępu w skrypcie programu Powershell do kwerendy interfejsu API wykresu. Użyj polecenia cmdlet **Invoke-MSCloudIdMSGraphQuery** z msCloudIDUtils do wyliczenia znaków i directoryAudits punktu końcowego. To polecenie cmdlet obsługuje wielostronicowe wyniki i wysyła te wyniki do potoku programu PowerShell.
-
-9. Kwerenda directoryAudits punktu końcowego, aby pobrać dzienniki inspekcji. 
+8. Kwerenda directoryAudits punktu końcowego, aby pobrać dzienniki inspekcji. 
    ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Kwerenda punkt końcowy signins pobrać dzienniki logowania.
+9. Kwerenda punkt końcowy signins pobrać dzienniki logowania.
     ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. Teraz można wyeksportować te dane do pliku CSV i zapisać je w systemie SIEM. Skrypt można również opakować w zaplanowane zadanie, aby okresowo uzyskiwać dane usługi Azure AD od dzierżawcy bez konieczności przechowywania kluczy aplikacji w kodzie źródłowym. 
+10. Teraz można wyeksportować te dane do pliku CSV i zapisać je w systemie SIEM. Skrypt można również opakować w zaplanowane zadanie, aby okresowo uzyskiwać dane usługi Azure AD od dzierżawcy bez konieczności przechowywania kluczy aplikacji w kodzie źródłowym. 
 
 ## <a name="next-steps"></a>Następne kroki
 

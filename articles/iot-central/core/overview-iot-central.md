@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: ffaab22efb2f6969f03720abba4a7afc6387021a
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 38152889ad43b41aeb345f59963cbfb869964b98
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758210"
+ms.locfileid: "82025241"
 ---
 # <a name="what-is-azure-iot-central"></a>Co to jest usługa Azure IoT Central?
 
@@ -60,7 +60,7 @@ Jako konstruktor rozwiązań używasz usługi IoT Central do tworzenia niestanda
 - Aplikacja oparta na chmurze, która odbiera dane telemetryczne z urządzeń i umożliwia zarządzanie tymi urządzeniami.
 - Wiele urządzeń z uruchomionym niestandardowym kodem połączonych z aplikacją opartą na chmurze.
 
-Możesz szybko wdrożyć nową aplikację IoT Central, a następnie dostosować ją do określonych wymagań w przeglądarce. Możesz zacząć od ogólnego _szablonu aplikacji_ lub jednego z szablonów aplikacji branżowych dla [handlu detalicznego,](../retail/overview-iot-central-retail-pnp.md) [energii,](../energy/overview-iot-central-energy.md) [instytucji rządowych](../government/overview-iot-central-government.md)lub [opieki zdrowotnej.](../healthcare/overview-iot-central-healthcare.md)
+Możesz szybko wdrożyć nową aplikację IoT Central, a następnie dostosować ją do określonych wymagań w przeglądarce. Możesz zacząć od ogólnego _szablonu aplikacji_ lub jednego z szablonów aplikacji branżowych dla [handlu detalicznego,](../retail/overview-iot-central-retail.md) [energii,](../energy/overview-iot-central-energy.md) [instytucji rządowych](../government/overview-iot-central-government.md)lub [opieki zdrowotnej.](../healthcare/overview-iot-central-healthcare.md)
 
 Jako konstruktor rozwiązań używasz narzędzi internetowych do tworzenia _szablonu urządzenia_ dla urządzeń, które łączą się z aplikacją. Szablon urządzenia to plan, który definiuje cechy i zachowanie typu urządzenia, takiego jak:
 

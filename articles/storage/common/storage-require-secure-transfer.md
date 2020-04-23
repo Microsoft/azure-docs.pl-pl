@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/12/2019
+ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 3b2d78bd929e23d49a57f337022f6678114bb5fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75457449"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870514"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Wymagaj bezpiecznego transferu, aby zapewnić bezpieczne połączenia
 
@@ -25,7 +25,7 @@ Gdy wymagany jest bezpieczny transfer, wywołanie operacji interfejsu API rest u
 
 Łączenie się z udziałem pliku usługi Azure za pomocą usługi SMB bez szyfrowania kończy się niepowodzeniem, gdy dla konta magazynu wymagany jest bezpieczny transfer. Przykłady niezabezpieczonych połączeń obejmują połączenia wykonane za 2.1, SMB 3.0 bez szyfrowania lub niektóre wersje klienta SMB systemu Linux.
 
-Domyślnie secure **transfer wymagane** właściwości jest włączona podczas tworzenia konta magazynu w witrynie Azure portal. Jednak jest wyłączona podczas tworzenia konta magazynu przy pomocą sdk.
+Domyślnie właściwość **Wymagane przeniesienie bezpieczeństwa** jest włączona podczas tworzenia konta magazynu.
 
 > [!NOTE]
 > Ponieważ usługa Azure Storage nie obsługuje protokołu HTTPS dla niestandardowych nazw domen, ta opcja nie jest stosowana podczas korzystania z niestandardowej nazwy domeny. A klasyczne konta magazynu nie są obsługiwane.
@@ -53,11 +53,11 @@ Właściwość Wymagane **przeniesienie bezpieczeństwa** można włączyć podc
 
 Aby wymagać bezpiecznego transferu programowo, ustaw _właściwość httpstrafficOnly_ na koncie magazynu. Tę właściwość można ustawić za pomocą interfejsu API REST dostawcy zasobów magazynu, bibliotek klienta lub narzędzi:
 
-* [INTERFEJS API ODPOCZYNKU](/rest/api/storagerp/storageaccounts)
-* [Powershell](/powershell/module/az.storage/set-azstorageaccount)
-* [Cli](/cli/azure/storage/account)
+* [Interfejs API REST](/rest/api/storagerp/storageaccounts)
+* [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
+* [Interfejs wiersza polecenia](/cli/azure/storage/account)
 * [Nodejs](https://www.npmjs.com/package/azure-arm-storage/)
-* [Zestaw SDK platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
+* [Zestaw SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
 * [Python SDK](https://pypi.org/project/azure-mgmt-storage)
 * [Zestaw SDK dla języka Ruby](https://rubygems.org/gems/azure_mgmt_storage)
 

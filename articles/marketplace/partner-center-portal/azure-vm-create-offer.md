@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d5626f00e9627338349d9b579bcf26256148b551
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: d598f741c5add58a89aa2b7aa01802a7e35f9a19
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731264"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869058"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Tworzenie oferty maszyn wirtualnych platformy Azure
 
@@ -240,7 +240,7 @@ Udostępnij witrynę pomocy technicznej, w której klienci mogą skontaktować s
 Podaj informacje kontaktowe partnerom firmy Microsoft, z których będą korzystać klienci, którzy otworzą bilet pomocy technicznej. Nie będzie to wyświetlane na rynku.
 
 - Nazwa
-- Adres e-mail
+- Poczta e-mail
 - Telefon
 
 ### <a name="engineering-contact"></a>Kontakt techniczny
@@ -248,12 +248,15 @@ Podaj informacje kontaktowe partnerom firmy Microsoft, z których będą korzyst
 Podaj informacje kontaktowe firmy Microsoft do użycia w przypadku wystąpienia problemów z ofertą, w tym problemów z certyfikacją. Nie będzie to wyświetlane na rynku.
 
 - Nazwa
-- Adres e-mail
+- Poczta e-mail
 - Telefon
 
 ### <a name="marketplace-media"></a>Media w marketplace
 
 Podaj logo i obrazy do wykorzystania w swojej ofercie. Wszystkie obrazy muszą być w formacie PNG. Rozmazane obrazy spowodują odrzucenie zgłoszenia.
+
+>[!Note]
+>Jeśli masz problem z przekazywaniem plików, upewnij się, https://upload.xboxlive.com że sieć lokalna nie blokuje usługi używanej przez Centrum partnerów.
 
 #### <a name="marketplace-logos"></a>Logo Marketplace
 

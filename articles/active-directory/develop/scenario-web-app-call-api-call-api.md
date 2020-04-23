@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b6f7634d16eeaa631f6d9f3c13ce23181ce7b40b
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: c07241345a724e4489fb137cfe862cde6518b318
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881812"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868714"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Aplikacja internetowa wywołująca internetowe interfejsy API: wywoływanie internetowego interfejsu API
 
@@ -26,7 +26,7 @@ Teraz, gdy masz token, można wywołać chroniony interfejs API sieci web.
 
 Oto uproszczony kod działania `HomeController`. Ten kod pobiera token do wywołania programu Microsoft Graph. Kod został dodany, aby pokazać, jak wywołać Microsoft Graph jako interfejs API REST. Adres URL interfejsu API programu Microsoft Graph znajduje się w pliku appsettings.json i jest odczytywany w zmiennej o nazwie: `webOptions`
 
-```JSon
+```json
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",

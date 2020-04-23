@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: b2e8bec18f4f5df6fb78a3c31aa0956ec7333eb5
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 9129cb308a364a3ed0654055f8afe9dd8c89010a
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770106"
+ms.locfileid: "82024629"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliki do odczytu w usłudze Azure Database for MariaDB
 
@@ -33,9 +33,6 @@ Funkcja repliki odczytu używa replikacji asynchroniiowej. Ta funkcja nie jest p
 
 ## <a name="cross-region-replication"></a>Replikacja między regionami
 Replikę odczytu można utworzyć w innym regionie niż serwer główny. Replikacja między regionami może być przydatna w scenariuszach, takich jak planowanie odzyskiwania po awarii lub przybliżenie danych użytkownikom.
-
-> [!NOTE]
-> Replikacja między regionami jest w wersji zapoznawczej.
 
 Serwer główny można mieć w dowolnej [bazie danych platformy Azure dla regionu MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Serwer główny może mieć replikę w jego sparowanym regionie lub regionach repliki uniwersalnej. Poniższy rysunek przedstawia, które regiony repliki są dostępne w zależności od regionu głównego.
 

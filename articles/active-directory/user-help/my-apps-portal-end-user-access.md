@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ab3ab25df6ce41d4045a270754830d501fe40689
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8eb59eebd29c2cc94e20b71b467866686deec2f1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80347169"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869723"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Logowanie się i uruchamianie aplikacji z portalu Moje aplikacje
 
@@ -110,7 +110,7 @@ Jeśli masz uprawnienia dostępu do aplikacji chmurowych organizacji i korzystan
 
 Wyświetlanie aplikacji organizacji i korzystanie z niej z zarządzanej przeglądarki usługi Intune na urządzeniach z systemami iOS i Android.
 
-1. Na urządzeniu mobilnym pobierz i zainstaluj aplikację Przeglądarka zarządzana usługi Intune ze [sklepu Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) i Sklepu Google [Play](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+1. Na urządzeniu mobilnym pobierz i zainstaluj aplikację Przeglądarka zarządzana usługi Intune ze sklepu Apple App Store i Sklepu Google Play.
 
 2. Otwórz aplikację Przeglądarka zarządzana usługi https://myapps.microsoft.comIntune, przejdź do strony lub użyj łącza dostarczonego https://myapps.microsoft.com/contoso.comprzez organizację, jeśli kierują cię do dostosowanej strony, takiej jak .
 

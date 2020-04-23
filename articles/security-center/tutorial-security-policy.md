@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73906854"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024884"
 ---
 # <a name="working-with-security-policies"></a>Praca z zasadami zabezpieczeń
 
@@ -62,11 +62,11 @@ Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
 
 1. Wybierz jedną z dostępnych opcji na tej stronie:
 
-    1. Aby pracować z zasadami branżowymi, kliknij **pozycję Dodaj więcej standardów**. Aby uzyskać więcej informacji, zobacz [Aktualizowanie do dynamicznych pakietów zgodności](update-regulatory-compliance-packages.md).
+    1. Aby pracować z zasadami branżowymi, wybierz **pozycję Dodaj więcej standardów**. Aby uzyskać więcej informacji, zobacz [Aktualizowanie do dynamicznych pakietów zgodności](update-regulatory-compliance-packages.md).
 
-    1. Aby przypisać inicjatywy niestandardowe i zarządzać nimi, kliknij pozycję **Dodaj inicjatywy niestandardowe**. Aby uzyskać więcej informacji, zobacz [Korzystanie z niestandardowych zasad zabezpieczeń](custom-security-policies.md).
+    1. Aby przypisać inicjatywy niestandardowe i zarządzać nimi, wybierz pozycję **Dodaj inicjatywy niestandardowe**. Aby uzyskać więcej informacji, zobacz [Korzystanie z niestandardowych zasad zabezpieczeń](custom-security-policies.md).
 
-    1. Aby wyświetlić i edytować zasady domyślne, kliknij pozycję **Wyświetl skuteczne zasady** i postępuj zgodnie z poniższymi opisami. 
+    1. Aby wyświetlić i edytować zasady domyślne, wybierz pozycję **Wyświetl skuteczne zasady** i postępuj zgodnie z poniższymi opisami. 
 
        ![ekran zasad](./media/security-center-policies/policy-screen.png)
        
@@ -96,20 +96,20 @@ Usługa Security Center używa kontroli dostępu opartej na rolach udostępniaj�
 Jeśli domyślna zasada zabezpieczeń generuje zalecenie, które nie jest istotne dla danego środowiska, można go zatrzymać, wyłączając definicję zasad, która wysyła zalecenie.
 Aby uzyskać więcej informacji na temat zaleceń, zobacz [Zarządzanie zaleceniami dotyczącymi zabezpieczeń](security-center-recommendations.md).
 
-1. W Centrum zabezpieczeń w sekcji **Zasady & Zgodność** kliknij pozycję Zasady **zabezpieczeń**.
+1. W Centrum zabezpieczeń w sekcji **Zasady & Zgodność** wybierz pozycję Zasady **zabezpieczeń**.
 
    ![zarządzanie polityką](./media/tutorial-security-policy/policy-management.png)
 
-2. Kliknij grupę subskrypcji lub zarządzania, dla której chcesz wyłączyć zalecenie.
+2. Wybierz subskrypcję lub grupę zarządzania, dla której chcesz wyłączyć zalecenie.
 
    > [!NOTE]
    > Pamiętaj, że grupa zarządzania stosuje zasady do swoich subskrypcji. W związku z tym wyłączenie zasady subskrypcji, która należy do grupy zarządzania korzystającej nadal z tych samych zasad, sprawi, że będziesz nadal otrzymywać rekomendacje dotyczące zasad. Zasady będą nadal stosowane z poziomu zarządzania i rekomendacje będą nadal generowane.
 
-1. Kliknij **pozycję Wyświetl skuteczne zasady**.
+1. Wybierz **pozycję Wyświetl skuteczne zasady**.
 
    ![wyłączanie zasad](./media/tutorial-security-policy/view-effective-policy.png)
 
-1. Kliknij przypisane zasady.
+1. Wybierz przypisane zasady.
 
    ![wyłączanie zasad](./media/tutorial-security-policy/security-policy.png)
 
@@ -117,7 +117,7 @@ Aby uzyskać więcej informacji na temat zaleceń, zobacz [Zarządzanie zaleceni
 
    ![wyłączanie zasad](./media/tutorial-security-policy/disable-policy.png)
 
-1. Kliknij przycisk **Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
    > [!NOTE]
    > Wprowadzenie zmian w zasadach wyłączenia może potrwać do 12 godzin.

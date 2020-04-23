@@ -3,15 +3,16 @@ title: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyci
 description: W tym przewodniku Szybki start dowiesz się, jak tworzyć i szyfrować maszynę wirtualną systemu Windows za pomocą portalu Azure.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 2518de3ad5d0f583cd4962796e4adda5751351df
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3a5fb354ab32dd560a94875dd84d891ce0b9d68c
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74151044"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081748"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Szybki start: tworzenie i szyfrowanie maszyny wirtualnej systemu Windows za pomocą portalu Azure
 
@@ -21,7 +22,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej

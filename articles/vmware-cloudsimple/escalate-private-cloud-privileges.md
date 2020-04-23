@@ -9,25 +9,25 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3d06f3e8be449e7050c65c75339a0cff6efe19e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025320"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870471"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Eskalacja uprawnień vCenter w chmurze prywatnej z portalu CloudSimple
 
 Aby uzyskać dostęp administracyjny do usługi Private Cloud vCenter, można tymczasowo eskalować uprawnienia CloudSimple.  Korzystając z podwyższonych uprawnień, można instalować rozwiązania VMware, dodawać źródła tożsamości i zarządzać użytkownikami.
 
-Nowi użytkownicy mogą być tworzone w domenie syt/sso vCenter i mieć dostęp do vCenter.  Podczas tworzenia nowych użytkowników, dodać je do cloudSimple wbudowanych grup dostępu do vCenter.  Aby uzyskać więcej informacji, zobacz [CloudSimple Private Cloud model uprawnień VMware vCenter](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/).
+Nowi użytkownicy mogą być tworzone w domenie syt/sso vCenter i mieć dostęp do vCenter.  Podczas tworzenia nowych użytkowników, dodać je do cloudSimple wbudowanych grup dostępu do vCenter.  Aby uzyskać więcej informacji, zobacz [CloudSimple Private Cloud model uprawnień VMware vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/).
 
 > [!CAUTION]
 > Nie należy wprowadzać żadnych zmian konfiguracji dla składników zarządzania. Akcje podjęte podczas eskalacji stanu uprzywilejowanego mogą niekorzystnie wpłynąć na system lub spowodować, że system stanie się niedostępny.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="escalate-privileges"></a>Podwyższanie poziomu uprawnień
 
@@ -88,5 +88,5 @@ Po zakończeniu zadań administracyjnych należy odeskalować swoje uprawnienia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie źródeł tożsamości vCenter do używania usługi Active Directory](https://docs.azure.cloudsimple.com/set-vcenter-identity/)
-* Instalowanie rozwiązania do tworzenia kopii zapasowych na [maszynach wirtualnych z obciążeniem kopii zapasowej](https://docs.azure.cloudsimple.com/backup-workloads-veeam/)
+* [Konfigurowanie źródeł tożsamości vCenter do używania usługi Active Directory](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
+* Instalowanie rozwiązania do tworzenia kopii zapasowych na [maszynach wirtualnych z obciążeniem kopii zapasowej](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/)

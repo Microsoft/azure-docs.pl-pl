@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c13c6ab180a172c034d25ac84781f5d3f83ae186
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 43fbc158c9ed0bbe87a75cd845433c7a7be2e6d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086635"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867912"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Samouczek: Integracja usługi Azure Active Directory z gwiazdami pracy
 
@@ -110,7 +110,7 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą witryny Wo
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<subdomain>.workstars.com/saml/login_check`
 
     > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zaktualizuj ją, stosując rzeczywisty adres URL odpowiedzi. Skontaktuj się z [zespołem pomocy technicznej klienta Workstars,](https://support.workstars.com/) aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Ta wartość nie jest prawdziwa. Zaktualizuj ją, stosując rzeczywisty adres URL odpowiedzi. Skontaktuj się z [zespołem pomocy technicznej klienta Workstars,](http://support.workstars.com/) aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -210,7 +210,7 @@ W tej sekcji można włączyć Britta Simon do korzystania z logowania jednokrot
 
 ### <a name="create-workstars-test-user"></a>Utwórz użytkownika testowego Workstars
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Workstars. Współpracuj z [zespołem pomocy technicznej Workstars,](https://support.workstars.com) aby dodać użytkowników na platformie Workstars.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Workstars. Współpracuj z [zespołem pomocy technicznej Workstars,](http://support.workstars.com) aby dodać użytkowników na platformie Workstars.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 

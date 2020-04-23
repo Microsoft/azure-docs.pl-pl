@@ -8,19 +8,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 173f5c698ab44ea269995665bcbc33c726d4f03a
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cf2106302064df5ede02d18f253436047a5d33d8
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811461"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024612"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certificates overview for Azure Cloud Services (Omówienie certyfikatów usług Azure Cloud Services)
 Certyfikaty są używane na platformie Azure dla usług w chmurze[(certyfikaty usług)](#what-are-service-certificates)i do uwierzytelniania za pomocą interfejsu API zarządzania[(certyfikaty zarządzania).](#what-are-management-certificates) W tym temacie przedstawiono ogólne omówienie obu typów certyfikatów, jak [je utworzyć](#create) i wdrożyć na platformie Azure.
 
 Certyfikaty używane na platformie Azure to certyfikaty x.509 w wersji 3 i mogą być podpisane przez inny zaufany certyfikat lub mogą być podpisywane samodzielnie. Certyfikat z podpisem własnym jest podpisany przez własnego twórcę, dlatego nie jest domyślnie zaufany. Większość przeglądarek umożliwia zignorowanie tego problemu. Certyfikaty z podpisem własnym należy używać tylko podczas tworzenia i testowania usług w chmurze. 
 
-Certyfikaty używane przez platformę Azure mogą zawierać klucz prywatny lub publiczny. Certyfikaty mają odcisk palca, który zapewnia możliwość zidentyfikowania ich w jednoznaczny sposób. Ten odcisk palca jest używany w [pliku konfiguracji](cloud-services-configure-ssl-certificate-portal.md) platformy Azure, aby zidentyfikować certyfikat, którego powinna używać usługa w chmurze. 
+Certyfikaty używane przez platformę Azure mogą zawierać klucz publiczny. Certyfikaty mają odcisk palca, który zapewnia możliwość zidentyfikowania ich w jednoznaczny sposób. Ten odcisk palca jest używany w [pliku konfiguracji](cloud-services-configure-ssl-certificate-portal.md) platformy Azure, aby zidentyfikować certyfikat, którego powinna używać usługa w chmurze. 
 
 >[!Note]
 >Usługi w chmurze azure nie akceptuje AES256-SHA256 zaszyfrowany certyfikat.
@@ -51,7 +51,7 @@ Istnieje limit 100 certyfikatów zarządzania na subskrypcję. Istnieje równie�
 Za pomocą dowolnego dostępnego narzędzia można utworzyć certyfikat z podpisem własnym, o ile są one zgodne z następującymi ustawieniami:
 
 * Certyfikat X.509.
-* Zawiera klucz prywatny.
+* Zawiera klucz publiczny.
 * Utworzono do wymiany kluczy (plik pfx).
 * Nazwa podmiotu musi być zgodna z domeną używaną do uzyskiwania dostępu do usługi w chmurze.
 

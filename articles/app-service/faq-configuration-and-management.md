@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 9e7070e925d12df82adbc3683da5b10e48c5d4b0
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 810219bca5c75e3ee7e65c6b7302531bca89788d
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668129"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869960"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące konfiguracji i zarządzania aplikacjami sieci Web na platformie Azure
 
@@ -63,7 +63,7 @@ Aby ustawić strefę czasową serwera dla aplikacji sieci web:
 2. W obszarze **Ustawienia aplikacji**dodaj to ustawienie:
     * Klawisz = WEBSITE_TIME_ZONE
     * Wartość = *Odpowiednia strefa czasowa*
-3. Wybierz **pozycję Zapisz**.
+3. Wybierz pozycję **Zapisz**.
 
 W przypadku usług aplikacji uruchamianych w systemie Windows zobacz **kolumnę Strefa czasowa** w [artykule Domyślne strefy czasowe](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) dla zaakceptowanych wartości. W przypadku usług aplikacji uruchamiane w systemie Linux ustaw [nazwę bazy danych TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) jako wartość strefy czasowej. Oto przykład nazwy bazy danych TZ: Ameryka / Adak.
 
@@ -187,7 +187,7 @@ Masz dwie opcje przechwytywania śledzenia F12:
 3. Kliknij prawym przyciskiem myszy w obszarze wiadomości okienka, a następnie wybierz pozycję **Skopiuj wszystkie**.
 4. Wklej skopiowany tekst do pliku, a następnie zapisz plik.
 
-Aby wyświetlić plik HAR, można użyć [przeglądarki HAR](https://www.softwareishard.com/har/viewer/).
+Aby wyświetlić plik HAR, można użyć [przeglądarki HAR](http://www.softwareishard.com/har/viewer/).
 
 ## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>Dlaczego podczas próby podłączenia aplikacji sieci Web usługi App Service do sieci wirtualnej połączonej z usługą ExpressRoute pojawia się błąd?
 

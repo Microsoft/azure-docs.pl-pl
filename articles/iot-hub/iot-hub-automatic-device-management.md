@@ -1,19 +1,18 @@
 ---
 title: Automatyczne zarządzanie urządzeniami na dużą skalę dzięki usłudze Azure IoT Hub | Dokumenty firmy Microsoft
 description: Używanie konfiguracji automatycznych usługi Azure IoT Hub do zarządzania wieloma urządzeniami i modułami IoT
-author: Philmea
-manager: bruz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: philmea
-ms.openlocfilehash: 1de7c34d8f8cbfa139212f29ca6be5d4eca64655
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.author: robinsh
+ms.openlocfilehash: 276f115f579fbd1ab077722b220a4a0c6c571850
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767488"
+ms.locfileid: "82025071"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Automatyczne zarządzanie urządzeniami i modułami IoT za pomocą portalu Azure
 

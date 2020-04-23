@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6102b1e1d6ddbac01033b9cecfeba96a7eb33777
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473544"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868393"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoryzowanie kont deweloperów przy użyciu usługi Azure Active Directory w usłudze Azure API Management
 
@@ -33,12 +33,12 @@ W tym artykule pokazano, jak włączyć dostęp do portalu dla deweloperów dla 
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autoryzowanie kont deweloperów przy użyciu usługi Azure AD
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. Wybierz pozycję ![strzałkę](./media/api-management-howto-aad/arrow.png).
 3. Wpisz **interfejs API** w polu wyszukiwania.
 4. Wybierz **pozycję Usługi zarządzania interfejsami API**.
 5. Wybierz swoje wystąpienie usługi API Management.
-6. W obszarze **Zabezpieczenia**wybierz pozycję **Tożsamości**.
+6. W **obszarze Portal deweloperów**wybierz pozycję **Tożsamości**.
 7. Wybierz **+Dodaj** od góry.
 
     Po prawej stronie pojawi się okienko **Dodaj dostawcę tożsamości.**

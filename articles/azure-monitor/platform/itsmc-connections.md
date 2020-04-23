@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 9441e7bb970508df4c002897ab726d6e683fa848
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 0773492c3042a6f8c906aa6ba1bc3c76ea8c0d8f
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733359"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870589"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM z łącznikiem zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące konfigurowania połączenia między produktem/usługą ITSM a łącznikiem zarządzania usługami IT (ITSMC) w usłudze Log Analytics w celu centralnego zarządzania elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](../../azure-monitor/platform/itsmc-overview.md).
@@ -197,12 +197,12 @@ Upewnij się, że spełnione są następujące wymagania wstępne:
 > [!NOTE]
 > W ramach definicji "Set up OAuth" zalecamy:
 >
-> 1) **Zaktualizuj żywotność tokenu odświeżania do 90 dni (7 776 000 sekund):** W ramach [Konfigurowania OAuth](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) w fazie 2: [Tworzenie punktu końcowego dla klientów, aby uzyskać dostęp do wystąpienia](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) Po definicji punktu końcowego, w servicenow wyszukiwania bloku dla systemu OAuth->Rejestr aplikacji wybierz nazwę OAuth, który został zdefiniowany i zaktualizować pole "Odśwież okres życia tokenu" do 7,776,000.
+> 1) **Zaktualizuj żywotność tokenu odświeżania do 90 dni (7 776 000 sekund):** Jako część [Set up OAuth](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) w fazie 2: [Tworzenie punktu końcowego dla klientów, aby uzyskać dostęp do wystąpienia](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) Po definicji punktu końcowego, w ServiceNow bloku wyszukiwania dla systemu OAuth niż wybierz rejestr aplikacji. Wybierz nazwę OAuth, który został zdefiniowany i zaktualizować pole Odświeżanie tokenu Żywotność do 7,776,000 (90 dni w sekundach).
 > Na końcu kliknij przycisk aktualizuj.
-> 2) **Zalecamy ustanowienie wewnętrznej procedury w celu zapewnienia, że połączenie pozostanie żywe:** Zgodnie z "Odśwież okres życia tokenu", aby odświeżyć token. Upewnij się, że wykonać następujące operacje przed oczekiwanym czasem wygaśnięcia tokenu odświeżania (kilka dni przed wygaśnięciem "Odświeżanie okresu ważności tokenu" zalecamy):
+> 2) **Zalecamy ustanowienie wewnętrznej procedury w celu zapewnienia, że połączenie pozostanie żywe:** Zgodnie z okresem życia tokenu odświeżania, aby odświeżyć token. Upewnij się, że wykonać następujące operacje przed oczekiwanym czasem wygaśnięcia tokenu odświeżania (kilka dni przed wygaśnięciem okresu ważności tokenu odświeżania, zalecamy):
 >
 >>  1) [Zakończenie procesu ręcznej synchronizacji konfiguracji złącza ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
- >> 2) Odwołaj do starego tokenu odświeżania, ponieważ nie zaleca się przechowywania starych kluczy ze względów bezpieczeństwa. W servicenow bloku wyszukiwania "System OAuth"->"Zarządzaj tokeny", a następnie wybierz stary token z listy zgodnie z nazwą OAuth i data wygaśnięcia. Kliknij na "Revoke Access"->"Revoke.
+ >> 2) Odwołaj do starego tokenu odświeżania, ponieważ nie zaleca się przechowywania starych kluczy ze względów bezpieczeństwa. W servicenow bloku wyszukiwania systemu OAuth niż wybierz Zarządzania tokenami. Wybierz stary token z listy zgodnie z nazwą OAuth i datą wygaśnięcia. Kliknij odwołać dostęp i niż na Revoke.
 
 - Zainstaluj aplikację użytkownika dla integracji usługi Microsoft Log Analytics (aplikacja ServiceNow). [Dowiedz się więcej](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Utwórz rolę użytkownika integracji dla zainstalowanej aplikacji użytkownika. Informacje na temat tworzenia roli użytkownika integracji znajdują się [tutaj](#create-integration-user-role-in-servicenow-app).

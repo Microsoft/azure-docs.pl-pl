@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 195fa26a38d89d9ef738e6060ff7dab602d5c234
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 875114c53cb3193b1b140e95be19daf7fb6415a9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67095908"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870312"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Samouczek: Integracja usługi Azure Active Directory z oneteam
 
@@ -118,7 +118,7 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą usługi On
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<team name>.one-team.io/`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Oneteam,](https://support.one-team.com/hc/requests/new) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z zespołem pomocy technicznej klienta Oneteam, aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -136,7 +136,7 @@ Aby skonfigurować logowanie jednookrotne usługi Azure AD za pomocą usługi On
 
 ### <a name="configure-oneteam-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w programie Oneteam
 
-Aby skonfigurować logowanie jednokrotne po stronie **zespołu Oneteam,** musisz wysłać pobrany **kod XML metadanych federacji** i odpowiednie skopiowane adresy URL z witryny Azure portal do [zespołu pomocy technicznej oneteam](https://support.one-team.com/hc/requests/new). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować logowanie jednokrotne po stronie **zespołu Oneteam,** musisz wysłać pobrany **kod XML metadanych federacji** i odpowiednie skopiowane adresy URL z witryny Azure portal do zespołu pomocy technicznej Oneteam. Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -194,7 +194,7 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Oneteam. Oneteam obsługuje just-in-time użytkownika inicjowania obsługi administracyjnej, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w oneteam, nowy jest tworzony po uwierzytelnieniu.
 
 >[!NOTE]
->Jeśli chcesz ręcznie utworzyć użytkownika, możesz podnieść bilet pomocy technicznej za pomocą [zespołu pomocy technicznej Oneteam](https://support.one-team.com/hc/requests/new).
+>Jeśli musisz ręcznie utworzyć użytkownika, możesz podnieść bilet pomocy technicznej za pomocą zespołu pomocy technicznej Oneteam.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: b0efed83237c191f02bfffd9b26a0fd9cd2c871f
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 6ed0d743f9b9cdc136b8f52f4d9d02583fc63eb9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606593"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870174"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Łączenie sieci laboratorium z siecią wirtualną równorzędną w usługach Azure Lab Services
 
@@ -46,7 +46,7 @@ Podczas tworzenia nowego [konta laboratorium](tutorial-setup-lab-account.md)moż
 
 ### <a name="address-range"></a>Zakres adresów
 
-Istnieje również opcja zapewnienia **zakresu adresów** dla maszyn wirtualnych dla laboratoriów. Jeśli zakres adresów jest podany, wszystkie maszyny wirtualne w laboratoriach w ramach konta laboratorium zostaną utworzone w tym zakresie adresów. Zakres adresów powinien znajdować się w notacji CIDR (np. 10.20.0.0/20) i nie pokrywać się z istniejącymi zakresami adresów.  Podczas podawania zakresu adresów, ważne jest, aby myśleć o liczbie *laboratoriów,* które zostaną utworzone i zapewnić zakres adresów, aby pomieścić. Usługi lab przyjmuje maksymalnie 512 maszyn wirtualnych na laboratorium.  Na przykład zakres ip z "/23" może utworzyć tylko jedno laboratorium.  Zakres z "/21" pozwoli na stworzenie czterech laboratoriów.
+Istnieje również opcja zapewnienia **zakresu adresów** dla maszyn wirtualnych dla laboratoriów.  Właściwość **Zakres adresów** ma zastosowanie tylko wtedy, **gdy sieć wirtualna elementu równorzędnego** jest włączona dla laboratorium.  Jeśli zakres adresów jest podany, wszystkie maszyny wirtualne w laboratoriach w ramach konta laboratorium zostaną utworzone w tym zakresie adresów. Zakres adresów powinien znajdować się w notacji CIDR (np. 10.20.0.0/20) i nie pokrywać się z istniejącymi zakresami adresów.  Podczas podawania zakresu adresów, ważne jest, aby myśleć o liczbie *laboratoriów,* które zostaną utworzone i zapewnić zakres adresów, aby pomieścić. Usługi lab przyjmuje maksymalnie 512 maszyn wirtualnych na laboratorium.  Na przykład zakres ip z "/23" może utworzyć tylko jedno laboratorium.  Zakres z "/21" pozwoli na stworzenie czterech laboratoriów.
 
 Jeśli **zakres adresów** nie jest określony, usługi Lab services użyją domyślnego zakresu adresów nadany mu przez platformę Azure podczas tworzenia sieci wirtualnej, która ma być równorzędna z siecią wirtualną.  Zakres jest często coś jak 10.x.0.0/16.  Może to prowadzić do nakładania się zakresu ip, więc upewnij się, że określić i zakres adresów w ustawieniach laboratoryjnych lub sprawdzić zakres adresów sieci wirtualnej jest równorzędny.
 

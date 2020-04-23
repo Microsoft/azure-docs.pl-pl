@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 1dbc08e01b9a36b1bc80ee6b81ceb2d92ff831cc
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273719"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870215"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Często zadawane pytania dotyczące usługi Azure Virtual Machine Scale Sets
 
@@ -224,8 +224,8 @@ Podczas tworzenia maszyny Wirtualnej systemu Linux można podać klucze publiczn
 linuxNazwa elementu konfiguracji | Wymagany | Typ | Opis
 --- | --- | --- | ---
 Ssh | Nie | Collection | Określa konfigurację klucza SSH dla systemu operacyjnego Linux
-ścieżka | Tak | Ciąg | Określa ścieżkę pliku systemu Linux, w której powinny znajdować się klucze lub certyfikat SSH
-Keydata | Tak | Ciąg | Określa podstawowy klucz publiczny SSH zakodowany w kodach bazowych
+ścieżka | Yes | Ciąg | Określa ścieżkę pliku systemu Linux, w której powinny znajdować się klucze lub certyfikat SSH
+Keydata | Yes | Ciąg | Określa podstawowy klucz publiczny SSH zakodowany w kodach bazowych
 
 Na przykład zobacz [szablon szybki start programu 101-vm-sshkey GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -445,7 +445,7 @@ Istnieją dwa główne sposoby zmiany hasła dla maszyn wirtualnych w zestawach 
 
     Zaktualizuj poświadczenia administratora bezpośrednio w modelu zestawu skalowania (na przykład przy użyciu Eksploratora zasobów platformy Azure, programu PowerShell lub interfejsu wiersza polecenia). Po zaktualizowaniu zestawu skalowania wszystkie nowe maszyny wirtualne mają nowe poświadczenia. Istniejące maszyny wirtualne mają tylko nowe poświadczenia, jeśli są one ponownie zaimaged.
 
-- Resetowanie hasła przy użyciu rozszerzeń dostępu do maszyny Wirtualnej.
+- Resetowanie hasła przy użyciu rozszerzeń dostępu do maszyny Wirtualnej. Pamiętaj, aby postępować zgodnie z wymaganiami dotyczącymi haseł opisanymi [tutaj](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
 
     Użyj poniższego przykładu z programu PowerShell:
 

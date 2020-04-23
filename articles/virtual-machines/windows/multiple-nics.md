@@ -1,24 +1,18 @@
 ---
 title: Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi na platformie Azure, które korzystają z wielu kart sieciowych
 description: Dowiedz się, jak utworzyć maszynę wirtualną systemu Windows, do których jest dołączonych wiele kart sieciowych, przy użyciu szablonów programu Azure PowerShell lub Resource Manager, i zarządzanie nią.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 20a595e1386a8d33c919ad4ff151d65e30b31eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6651ae21694022be86d8db08737c609aed3df569
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249986"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870275"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Tworzenie maszyny wirtualnej systemu Windows z wieloma kartami sieciowymi i zarządzanie nią
 Maszyny wirtualne (VM) na platformie Azure mogą mieć podłączone do nich wiele kart interfejsu sieci wirtualnej (NIC). Typowym scenariuszem jest mieć różne podsieci dla łączności front-end i back-end. Można skojarzyć wiele kart sieciowych na maszynie wirtualnej z wieloma podsieciami, ale wszystkie te podsieci muszą znajdować się w tej samej sieci wirtualnej (vNet). W tym artykule opisano, jak utworzyć maszynę wirtualną, która ma wiele kart sieciowych dołączonych do niego. Dowiesz się również, jak dodać lub usunąć karty sieciowe z istniejącej maszyny Wirtualnej. Różne [rozmiary maszyn wirtualnych](sizes.md) obsługują różną liczbę kart sieciowych, więc odpowiednio rozmiar maszyny wirtualnej.

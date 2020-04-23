@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 620c0226d3aca907352658ebbe1b94c7673d91cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13496a18f4c99b69a5b8095caf5b74a04d1bba88
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77014831"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869299"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>Zarządzanie zasobami i aktywnością w chmurze prywatnej
 
@@ -21,7 +21,7 @@ Chmury prywatne są zarządzane z portalu CloudSimple.  Sprawdź stan, dostępne
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="access-the-cloudsimple-portal"></a>Uzyskiwanie dostępu do portalu CloudSimple
 
@@ -37,13 +37,13 @@ Wybierz chmurę prywatną, aby uzyskać dodatkowe informacje i działania.
 
 ## <a name="private-cloud-summary"></a>Podsumowanie chmury prywatnej
 
-Wyświetl obszerne podsumowanie wybranej chmury prywatnej.  Strona Podsumowanie zawiera serwery DNS wdrożone w chmurze prywatnej.  Przekazywanie dns można skonfigurować z lokalnych serwerów DNS na serwery DNS w chmurze prywatnej.  Aby uzyskać więcej informacji na temat przekazywania usług DNS, zobacz [Konfigurowanie rozpoznawania nazw systemu DNS dla centrum vCenter w chmurze prywatnej z lokalnego](https://docs.azure.cloudsimple.com/on-premises-dns-setup/).
+Wyświetl obszerne podsumowanie wybranej chmury prywatnej.  Strona Podsumowanie zawiera serwery DNS wdrożone w chmurze prywatnej.  Przekazywanie dns można skonfigurować z lokalnych serwerów DNS na serwery DNS w chmurze prywatnej.  Aby uzyskać więcej informacji na temat przekazywania usług DNS, zobacz [Konfigurowanie rozpoznawania nazw systemu DNS dla centrum vCenter w chmurze prywatnej z lokalnego](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-dns-setup/).
 
 ![Podsumowanie chmury prywatnej](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>Dostępne akcje
 
-* [Uruchom klienta vSphere](https://docs.azure.cloudsimple.com/vsphere-access/). Dostęp do centrum wirtualnego dla tej chmury prywatnej.
+* [Uruchom klienta vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access). Dostęp do centrum wirtualnego dla tej chmury prywatnej.
 * [Węzły zakupu](create-nodes.md). Dodaj węzły do tej chmury prywatnej.
 * [Rozwiń](expand-private-cloud.md). Dodaj węzły do tej chmury prywatnej.
 * **Odśwież**. Zaktualizuj informacje na tej stronie.
@@ -58,10 +58,10 @@ Wyświetl listę zdefiniowanych sieci/podsieci VLAN dla wybranej chmury prywatne
 
 ### <a name="available-actions"></a>Dostępne akcje
 
-* [Dodaj sieć VLANS/Podsieci](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Dodaj sieć VLAN/podzbiór do tej chmury prywatnej.
+* [Dodaj sieć VLANS/Podsieci](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/). Dodaj sieć VLAN/podzbiór do tej chmury prywatnej.
 
 Wybierz sieć VLAN/Podsieć dla następujących akcji
-* [Dołącz tabelę zapory](https://docs.azure.cloudsimple.com/firewall/). Dołącz tabelę zapory do tej chmury prywatnej.
+* [Dołącz tabelę zapory](https://docs.microsoft.com/azure/vmware-cloudsimple/firewall/). Dołącz tabelę zapory do tej chmury prywatnej.
 * **Edytuj**
 * **Usuń** (tylko sieci/podsieci zdefiniowane przez użytkownika)
 

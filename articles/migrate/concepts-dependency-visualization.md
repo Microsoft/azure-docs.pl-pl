@@ -3,12 +3,12 @@ title: Analiza zależności w ocenie serwera migracji platformy Azure
 description: W tym artykule opisano sposób używania analizy zależności do oceny przy użyciu oceny serwera migracji platformy Azure.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: b11796f2c5d7c1d87f383e6780444e572352eff5
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f0b956620895ae2264b53916015d440f5e586eb2
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537750"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024765"
 ---
 # <a name="dependency-analysis"></a>Analiza zależności
 
@@ -51,7 +51,7 @@ W przypadku analizy opartej na agentach ocena serwera używa [rozwiązania mapy 
 
 ### <a name="collected-data"></a>Zebrane dane
 
-W przypadku wizualizacji opartej na agentach zbierane są następujące dane:
+W przypadku analizy opartej na agentach zbierane są następujące dane:
 
 - Nazwa serwera komputera źródłowego, proces, nazwa aplikacji.
 - Nazwa docelowego serwera komputera, proces, nazwa aplikacji i port.
@@ -70,7 +70,7 @@ Log Analytics | Niewymagane. | Usługa Azure Migrate używa rozwiązania [mapy u
 Jak to działa | Przechwytuje dane połączenia TCP na komputerach włączonych do wizualizacji zależności. Po odnajdowaniu zbiera dane w odstępach pięciu minut. | Agenci mapy usług zainstalowane na komputerze zbierają dane o procesach TCP i połączeniach przychodzących/wychodzących dla każdego procesu.
 Dane | Nazwa serwera komputera źródłowego, proces, nazwa aplikacji.<br/><br/> Nazwa docelowego serwera komputera, proces, nazwa aplikacji i port. | Nazwa serwera komputera źródłowego, proces, nazwa aplikacji.<br/><br/> Nazwa docelowego serwera komputera, proces, nazwa aplikacji i port.<br/><br/> Liczba połączeń, opóźnienia i informacje o transferze danych są zbierane i dostępne dla zapytań usługi Log Analytics. 
 Wizualizacja | Mapa zależności pojedynczego serwera może być oglądana przez okres od jednej godziny do 30 dni. | Mapa zależności pojedynczego serwera.<br/><br/> Mapę można oglądać tylko przez godzinę.<br/><br/> Mapa zależności grupy serwerów.<br/><br/> Dodawanie i usuwanie serwerów w grupie z widoku mapy.
-Eksport danych | Obecnie nie można pobrać w formacie tabelarycznym. | Dane można wyszukiwać za pomocą usługi Log Analytics.
+Eksportowanie danych | Obecnie nie można pobrać w formacie tabelarycznym. | Dane można wyszukiwać za pomocą usługi Log Analytics.
 
 
 

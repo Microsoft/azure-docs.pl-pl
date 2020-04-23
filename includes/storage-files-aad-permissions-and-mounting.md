@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: e40171b95e6faae0020f8bf61410aad8999ddecb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 608c2619c19a2b5fa7e39c1ecb82be40ff4e83f4
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536537"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82072624"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. Przypisywanie uprawnień dostępu do tożsamości
 
@@ -87,15 +87,6 @@ Następujące zestawy uprawnień są obsługiwane w katalogu głównym udziału 
 - NT AUTHORITY\SYSTEM:(F)
 - WŁAŚCICIEL TWÓRCY:(OI)(CI)(IO)(F)
 
-### <a name="configure-ntfs-permissions-with-icacls"></a>Konfigurowanie uprawnień ntfs za pomocą icacls
-Poniższe polecenie systemu Windows umożliwia przyznanie pełnych uprawnień do wszystkich katalogów i plików w ramach udziału plików, w tym do katalogu głównego. Pamiętaj, aby zastąpić wartości zastępcze w przykładzie własnymi wartościami.
-
-```
-icacls <mounted-drive-letter>: /grant <user-email>:(f)
-```
-
-Aby uzyskać więcej informacji na temat używania icacls do ustawiania uprawnień NTFS i różnych typów obsługiwanych uprawnień, zobacz [odwołanie do wiersza polecenia dla icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
-
 ### <a name="mount-a-file-share-from-the-command-prompt"></a>Instalowanie udziału plików w wierszu polecenia
 
 Użyj polecenia **użyj sieci** systemu Windows, aby zainstalować udział plików platformy Azure. Pamiętaj, aby zastąpić wartości zastępcze w poniższym przykładzie własnymi wartościami. Aby uzyskać więcej informacji na temat [instalowania](../articles/storage/files/storage-how-to-use-files-windows.md)udziałów plików, zobacz Używanie udziału plików platformy Azure w systemie Windows . 
@@ -103,6 +94,7 @@ Użyj polecenia **użyj sieci** systemu Windows, aby zainstalować udział plik�
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
 ```
+
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Konfigurowanie uprawnień NTFS za pomocą Eksploratora plików systemu Windows
 Eksploratora plików systemu Windows umożliwia przyznanie pełnych uprawnień wszystkim katalogom i plikom w ramach udziału plików, w tym katalogowi główne.
 
@@ -114,6 +106,15 @@ Eksploratora plików systemu Windows umożliwia przyznanie pełnych uprawnień w
 7.    Kliknij przycisk **OK**.
 8.    Na karcie **Zabezpieczenia** wybierz wszystkie uprawnienia, które chcesz udzielić nowemu użytkownikowi.
 9.    Wybierz przycisk **Zastosuj**.
+
+### <a name="configure-ntfs-permissions-with-icacls"></a>Konfigurowanie uprawnień ntfs za pomocą icacls
+Poniższe polecenie systemu Windows umożliwia przyznanie pełnych uprawnień do wszystkich katalogów i plików w ramach udziału plików, w tym do katalogu głównego. Pamiętaj, aby zastąpić wartości zastępcze w przykładzie własnymi wartościami.
+
+```
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
+```
+
+Aby uzyskać więcej informacji na temat używania icacls do ustawiania uprawnień NTFS i różnych typów obsługiwanych uprawnień, zobacz [odwołanie do wiersza polecenia dla icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. Instalowanie udziału plików z maszyny wirtualnej przyłączanej do domeny
 

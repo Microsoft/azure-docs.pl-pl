@@ -3,15 +3,16 @@ title: Konwertowanie maszyny wirtualnej z systemem Windows z dysków niezarządz
 description: Jak przekonwertować maszynę wirtualną systemu Windows z dysków niezarządzanych na dyski zarządzane przy użyciu programu PowerShell w modelu wdrażania Menedżera zasobów
 author: roygara
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 8c180cfc597c0ade27b1fe8cca5a8751176ea12e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8069b174b7a69cc2e6c47171159569c56a15563
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75460114"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081952"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konwertowanie maszyny wirtualnej z systemem Windows z dysków niezarządzanych na dyski zarządzane
 
@@ -94,7 +95,7 @@ Przed konwersją upewnij się, że wszystkie rozszerzenia maszyny Wirtualnej są
 
 Można również przekonwertować dyski niezarządzane na dyski zarządzane za pomocą witryny Azure portal.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz maszynę wirtualną z listy maszyn wirtualnych w portalu.
 3. W bloku maszyny Wirtualnej wybierz opcję **Dyski** z menu.
 4. U góry bloku **Dyski** wybierz pozycję **Migruj do dysków zarządzanych**.

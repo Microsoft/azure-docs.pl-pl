@@ -6,17 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 5aa025fb366634e796abfb2eb9c0035d9b87dc3c
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 2c6eb5407ec62b6e9e771ce257b66fca2a91e0a5
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437042"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82023609"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Rozwiązanie do zarządzania usługą Office 365 na platformie Azure (wersja zapoznawcza)
 
 ![Logo usługi Office 365](media/solution-office-365/icon.png)
-
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Aktualizacja rozwiązania
@@ -36,8 +35,8 @@ ms.locfileid: "80437042"
 >
 > ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 > 
-> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-april-30th"></a>Pyt.: Czy możliwe jest wbudowane rozwiązanie usługi Azure Monitor usługi Office 365 od teraz do 30 kwietnia?
-> Nie, skrypty dołączania rozwiązania usługi Azure Monitor Office 365 nie są już dostępne. Rozwiązanie zostanie usunięte 30 kwietnia.
+> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-july-30th"></a>Pyt.: Czy możliwe jest wbudowane rozwiązanie usługi Azure Monitor usługi Office 365 od teraz do 30 lipca?
+> Nie, skrypty dołączania rozwiązania usługi Azure Monitor Office 365 nie są już dostępne. Rozwiązanie zostanie usunięte 30 lipca.
 > 
 > ### <a name="q-will-the-tables-and-schemas-be-changed"></a>Pyt.: Czy tabele i schematy zostaną zmienione?
 > Nazwa i schemat tabeli **Aktywności pakietu Office** pozostaną takie same, jak w bieżącym rozwiązaniu. Można kontynuować przy użyciu tych samych zapytań w nowym rozwiązaniu, z wyłączeniem kwerend, które odwołują się do danych usługi Azure AD.
@@ -103,11 +102,11 @@ ms.locfileid: "80437042"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>Pyt.: Czy usługa Azure Sentinel udostępnia dodatkowe łączniki w ramach rozwiązania?
 > Tak, zobacz [Źródło danych usługi Azure Sentinel connect](../../sentinel/connect-data-sources.md).
 > 
-> ###    <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>P: Co się stanie 30 kwietnia? Czy muszę wcześniej wyłączyć pokład?
+> ###    <a name="q-what-will-happen-on-july-30-do-i-need-to-offboard-beforehand"></a>P: Co się stanie 30 lipca? Czy muszę wcześniej wyłączyć pokład?
 > 
 > - Nie będzie można odbierać danych z rozwiązania **usługi Office365.** Rozwiązanie nie będzie już dostępne w marketplace
 > - Dla klientów usługi Azure Sentinel rozwiązanie obszaru roboczego usługi **Office365** zostanie uwzględnione w rozwiązaniu Usługi Azure Sentinel **SecurityInsights.**
-> - Jeśli nie wyłączysz rozwiązania ręcznie, dane zostaną automatycznie rozłączone 30 kwietnia.
+> - Jeśli nie wyłączysz rozwiązania ręcznie, dane zostaną automatycznie rozłączone 30 lipca.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: Czy mój transfer danych do nowego rozwiązania?
 > Tak. Po usunięciu rozwiązania **usługi Office 365** z obszaru roboczego jego dane staną się tymczasowo niedostępne, ponieważ schemat zostanie usunięty. Po włączeniu nowego łącznika **usługi Office 365** w sentinel schemat zostanie przywrócony do obszaru roboczego i wszystkie dane już zebrane staną się dostępne. 
