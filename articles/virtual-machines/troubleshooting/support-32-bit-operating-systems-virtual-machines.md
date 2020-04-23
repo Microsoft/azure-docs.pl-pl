@@ -1,6 +1,6 @@
 ---
-title: Obsługa 32-bitowych systemów operacyjnych na maszynach wirtualnych platformy Azure| Dokumenty firmy Microsoft
-description: Informacje o systemach operacyjnych obsługiwanych na maszynach wirtualnych platformy Azure
+title: Obsługa 32-bitowych systemów operacyjnych na maszynach wirtualnych platformy Azure | Microsoft Docs
+description: Informacje o systemach operacyjnych obsługiwanych w usłudze Azure Virtual Machines
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -22,25 +22,25 @@ ms.locfileid: "71846539"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Obsługa 32-bitowych systemów operacyjnych na maszynach wirtualnych platformy Azure
 
-Platforma Microsoft Azure umożliwia teraz użytkownikom wprowadzenie swoich 32-bitowych systemów operacyjnych Windows na platformę Azure. Ponieważ niektóre z tych systemów operacyjnych osiągnęły już umowę o wsparciu na koniec eksploatacji, firma Microsoft może nie oferować dodatkowej pomocy technicznej. Pomoc techniczna nie jest również oferowana dla systemów operacyjnych opartych na systemie Linux ani Berkeley Software Distribution (BSD), które działają na maszynie wirtualnej platformy Microsoft Azure.Support is also not offered for Linux, or Berkeley Software Distribution (BSD)-based operating systems that run on a Microsoft Azure virtual machine (VM).
+Microsoft Azure teraz umożliwia użytkownikom korzystanie z 32-bitowych systemów operacyjnych Windows na platformie Azure. Ponieważ niektóre z tych systemów operacyjnych osiągnęły już swoją umowę dotyczącą korzystania z usługi Life, firma Microsoft może nie oferować dodatkowej pomocy technicznej. Pomoc techniczna nie jest również oferowana dla systemów operacyjnych opartych na systemie Linux lub Berkeley Software Distribution (BSD), które działają na Microsoft Azure maszynę wirtualną.
 
 ## <a name="more-information"></a>Więcej informacji
 
-Aby uzyskać więcej informacji na temat systemów operacyjnych obsługiwanych na maszynach wirtualnych platformy Azure, przejdź do następujących artykułów z bazy wiedzy Microsoft Knowledge Base:
+Aby uzyskać więcej informacji na temat systemów operacyjnych obsługiwanych w usłudze Azure Virtual Machines, przejdź do następujących artykułów z bazy wiedzy Microsoft Knowledge Base:
 
 * [Pomoc techniczna dotycząca oprogramowania serwerowego firmy Microsoft dla maszyn wirtualnych platformy Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
-* [Obsługa systemu Linux i technologii open source na platformie Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)
+* [Obsługa technologii Linux i Open Source na platformie Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)
 
 ## <a name="references"></a>Dokumentacja
 
 * [Dowiedz się więcej o bezpłatnych rozszerzonych aktualizacjach zabezpieczeń dla systemu Windows Server 2008/R2 na platformie Azure](https://www.microsoft.com/cloud-platform/windows-server-2008)
-* [Dowiedz się więcej o obsłudze 32-bitowych wyspecjalizowanych obrazów dodatku WINDOWS Server 2008 z dodatku SP2 na platformie Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
-* [Dowiedz się więcej o obsłudze migracji obrazów systemu Windows Server 2008 na platformę Azure przy użyciu usługi Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)
-* [Dowiedz się więcej o obsługiwanych systemach operacyjnych usługi Azure Extension](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)
-* [Dowiedz się więcej o uruchamianiu systemu Windows Server 2003 na platformie Microsoft Azure](https://support.microsoft.com/help/3206074/running-windows-server-2003-on-microsoft-azure)
+* [Dowiedz się więcej o obsłudze systemu Windows Server 2008 z dodatkiem SP2 32-bitowym wyspecjalizowanym obrazom na platformie Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
+* [Dowiedz się więcej o obsłudze migracji obrazów systemu Windows Server 2008 na platformie Azure przy użyciu Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)
+* [Dowiedz się więcej o obsługiwanych systemach operacyjnych rozszerzenia platformy Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)
+* [Dowiedz się więcej o uruchamianiu systemu Windows Server 2003 na Microsoft Azure](https://support.microsoft.com/help/3206074/running-windows-server-2003-on-microsoft-azure)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz więcej pomocy w dowolnym momencie tego artykułu, skontaktuj się z ekspertami platformy Azure na [forach MSDN Azure i Stack Overflow](https://azure.microsoft.com/support/forums/).
+Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, skontaktuj się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/).
 
-Alternatywnie złóż błąd pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc **techniczną**.
+Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.

@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej udziału plików platformy Azure
 description: Dowiedz się, jak utworzyć kopię zapasową udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: bea5035ff50eaf4047f56cde3bd671d81e21f5d3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: c79100724b882c0682c86070ee74a8726d6b049f
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101431"
+ms.locfileid: "82105747"
 ---
 # <a name="about-azure-file-share-backup"></a>Informacje o kopii zapasowej udziału plików platformy Azure
 
@@ -47,12 +47,7 @@ Kopia zapasowa udziału plików platformy Azure to natywne, oparte na chmurze ro
 
 ## <a name="backup-costs"></a>Koszty kopii zapasowych
 
-Tworzenie kopii zapasowej udziału plików platformy Azure to rozwiązanie oparte na migawce oraz opłaty za magazyn, które są naliczane w przypadku migawek i za użycie Azure Files zgodnie z powyższymi szczegółami dotyczącymi [cen.](https://azure.microsoft.com/pricing/details/storage/files/)
-
-Jednak opłata za chronione wystąpienie na potrzeby korzystania z rozwiązania do tworzenia kopii zapasowych jest zgodna z modelem cen opisanym w sekcji [Tworzenie kopii zapasowej Azure Files](https://azure.microsoft.com/pricing/details/backup/) . Obecnie cena rzeczywista została zaktualizowana tylko w regionie zachodnie stany USA. W przypadku innych regionów dokładne ceny zostaną zaktualizowane wkrótce z niektórymi odmianami regionalnymi, ale przy użyciu tego samego modelu cen.
-
->[!NOTE]
->Obecnie nie ma żadnych "chronionych opłat za wystąpienie" i zostanie naliczona opłata tylko za migawki zgodnie z wymienionymi [tutaj](https://azure.microsoft.com/pricing/details/storage/files/)cenami.
+Obecnie opłata zostanie naliczona tylko za migawki, ponieważ kopia zapasowa udziału plików platformy Azure jest rozwiązaniem opartym na migawce. Opłaty za magazyn dla migawek są rozliczane wraz z użyciem Azure Files zgodnie z informacjami o cenach opisanymi [tutaj](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z pochylaniem danych — narzędzia usługi Azure Data Lake tools dla programu Visual Studio
-description: Rozwiązywanie problemów z potencjalnymi rozwiązaniami problemów z wypaczaniem danych przy użyciu narzędzi usługi Azure Data Lake tools dla programu Visual Studio.
+title: Rozwiązywanie problemów z pochyleniem Azure Data Lake Tools for Visual Studio
+description: Rozwiązywanie potencjalnych rozwiązań dotyczących problemów z pochyleniem danych przy użyciu Azure Data Lake Tools for Visual Studio.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -17,53 +17,53 @@ ms.locfileid: "71802554"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resolve data-skew problems by using Azure Data Lake Tools for Visual Studio (Rozwiązywanie problemów z niesymetrycznością danych przy użyciu narzędzi Azure Data Lake Tools for Visual Studio)
 
-## <a name="what-is-data-skew"></a>Co to jest pochylenie danych?
+## <a name="what-is-data-skew"></a>Co to jest odchylone dane?
 
-Krótko mówiąc, pochylenie danych jest wartością nadprezentalnej. Wyobraź sobie, że masz przypisane 50 ekspertów podatkowych do kontroli zeznań podatkowych, jeden ekspert dla każdego stanu USA. Egzaminator z Wyoming, ponieważ populacja jest mała, ma niewiele do zrobienia. W Kalifornii, jednak, egzaminator jest bardzo zajęty ze względu na dużą populację stanu.
-    ![Przykład problemu z wypaczaniem danych](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png)
+Krótko podano, skośność danych jest wartością przestawioną przez nadmierną reprezentację. Załóżmy, że przypisano 50ych ekspertów podatkowych do inspekcji podatków, jeden ekspert dla każdego stanu Stanów Zjednoczonych. Test Wyoming, ponieważ populacja jest mała, ma niewiele do zrobienia. W Kalifornii, jednak ten test jest bardzo zajęty z powodu dużej populacji stanu.
+    ![Przykład problemu z pochyleniem danych](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png)
 
-W naszym scenariuszu dane są nierównomiernie rozdzielane między wszystkich ekspertów podatkowych, co oznacza, że niektórzy egzaminatorzy muszą pracować więcej niż inni. W swojej pracy często doświadczasz sytuacji, takich jak przykład eksperta podatkowego. W ujęciu bardziej technicznym jeden wierzchołek pobiera znacznie więcej danych niż jego elementy równorzędne, co sprawia, że wierzchołek działa bardziej niż inni i ostatecznie spowalnia całe zadanie. Co gorsza, zadanie może zakończyć się niepowodzeniem, ponieważ wierzchołki mogą mieć na przykład ograniczenie 5-godzinnego czasu wykonywania i ograniczenie pamięci 6 GB.
+W naszym scenariuszu dane są nierównomiernie dystrybuowane we wszystkich testach podatkowych, co oznacza, że niektóre badania muszą współpracować więcej niż inne. We własnym zadaniu często występują sytuacje, takie jak przykład obtestowania podatku. W celu uzyskania więcej informacji technicznych jeden wierzchołek otrzymuje znacznie więcej danych niż jego elementy równorzędne. sytuacja, w której wierzchołk działa więcej niż pozostałe, a ostatecznie spowalnia całe zadanie. Co się nie dzieje, zadanie może się nie powieść, ponieważ wierzchołki mogą mieć na przykład 5-godzinne ograniczenie środowiska uruchomieniowego i ograniczenie pamięci 6 GB.
 
-## <a name="resolving-data-skew-problems"></a>Rozwiązywanie problemów z wypaczaniem danych
+## <a name="resolving-data-skew-problems"></a>Rozwiązywanie problemów z pochyleniem danych
 
-Narzędzia usługi Azure Data Lake tools dla programu Visual Studio mogą pomóc wykryć, czy w twoim zadaniu występuje problem z wypaczeniem danych. Jeśli problem istnieje, można go rozwiązać, wypróbowywając rozwiązania w tej sekcji.
+Azure Data Lake Tools for Visual Studio może pomóc wykryć, czy zadanie ma problem z pochyleniem danych. Jeśli problem istnieje, możesz go rozwiązać, próbując rozwiązania w tej sekcji.
 
-## <a name="solution-1-improve-table-partitioning"></a>Rozwiązanie 1: Poprawa partycjonowania tabeli
+## <a name="solution-1-improve-table-partitioning"></a>Rozwiązanie 1: ulepszanie partycjonowania tabel
 
-### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Opcja 1: Filtruj przekrzywiony klucz z wyprzedzeniem
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Opcja 1: Filtruj z góry wartość pochylonego klucza
 
-Jeśli nie ma to wpływu na logikę biznesową, można filtrować wartości o wyższej częstotliwości z wyprzedzeniem. Na przykład jeśli istnieje dużo 000-000-000 w identyfikatorze GUID kolumny, nie można zagregować tej wartości. Przed agregacji, można napisać "WHERE GUID != "000-000-000"," do filtrowania wartości wysokiej częstotliwości.
+Jeśli nie ma to wpływu na logikę biznesową, można odfiltrować wartości wyższych częstotliwości z góry. Na przykład jeśli w identyfikatorze GUID kolumny istnieje wiele 000-000-000, możesz nie chcieć agregować tej wartości. Przed agregacją można napisać "WHERE GUID! =" 000-000-000 "", aby odfiltrować wartość o wysokiej częstotliwości.
 
-### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opcja 2: Wybierz inną partycję lub klucz dystrybucji
+### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opcja 2: wybranie innej partycji lub klucza dystrybucji
 
-W poprzednim przykładzie, jeśli chcesz tylko sprawdzić obciążenie inspekcji podatkowej w całym kraju/regionie, możesz poprawić dystrybucję danych, wybierając numer identyfikatora jako klucz. Wybranie innej partycji lub klucza dystrybucji może czasami dystrybuować dane bardziej równomiernie, ale należy upewnić się, że ten wybór nie wpływa na logikę biznesową. Na przykład, aby obliczyć sumę podatku dla każdego stanu, można wyznaczyć _stan_ jako klucz partycji. Jeśli nadal występuje ten problem, spróbuj użyć opcji 3.
+W poprzednim przykładzie, jeśli chcesz tylko sprawdzić obciążenie związane z inspekcją podatkową w całym kraju/regionie, możesz poprawić dystrybucję danych, wybierając numer IDENTYFIKACYJNy jako klucz. Wybranie innej partycji lub klucza dystrybucji może czasami jednocześnie dystrybuować dane, ale należy upewnić się, że wybór nie ma wpływu na logikę biznesową. Na przykład aby obliczyć sumę podatków dla każdego stanu, możesz określić _stan_ jako klucz partycji. Jeśli ten problem będzie nadal występować, spróbuj użyć opcji 3.
 
-### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opcja 3: Dodaj więcej kluczy partycji lub dystrybucji
+### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opcja 3: Dodaj więcej partycji lub kluczy dystrybucji
 
-Zamiast używać tylko _stan_ jako klucz partycji, można użyć więcej niż jeden klucz do partycjonowania. Rozważmy na przykład dodanie _kodu pocztowego_ jako dodatkowego klucza partycji, aby zmniejszyć rozmiary partycji danych i bardziej równomiernie rozpowszechniać dane.
+Zamiast używać tylko _stanu_ jako klucza partycji, można użyć więcej niż jednego klucza do partycjonowania. Przykładowo rozważ dodanie _kodu pocztowego_ jako dodatkowego klucza partycji, aby zmniejszyć rozmiar partycji danych i równomiernie rozesłać dane.
 
-### <a name="option-4-use-round-robin-distribution"></a>Opcja 4: Użyj dystrybucji okrężkowej
+### <a name="option-4-use-round-robin-distribution"></a>Opcja 4. Korzystanie z rozkładu okrężnego
 
-Jeśli nie można znaleźć odpowiedni klucz dla partycji i dystrybucji, można spróbować użyć dystrybucji okrężnej. Dystrybucja okrężna traktuje wszystkie wiersze jednakowo i losowo umieszcza je w odpowiednich zasobnikach. Dane są równomiernie rozłożone, ale traci informacje o lokalizacji, co jest wadą, która może również zmniejszyć wydajność zadania w niektórych operacjach. Ponadto jeśli wykonujesz agregację dla pochyłego klucza mimo to problem pochylenia danych będzie się powtarzał. Aby dowiedzieć się więcej o dystrybucji okrężnych, zobacz sekcję Rozkłady tabel U-SQL w [temacie TWORZENIE TABELI (U-SQL): Tworzenie tabeli ze schematem](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
+Jeśli nie możesz znaleźć odpowiedniego klucza dla partycji i dystrybucji, możesz spróbować użyć rozkładu okrężnego. Rozkład Round-Robin traktuje wszystkie wiersze równo i losowo umieszcza je w odpowiednich zasobnikach. Dane są dystrybuowane równomiernie, ale utraci informacje o lokalizacji lokalnej, a wadą, która może również zmniejszyć wydajność zadań dla niektórych operacji. Dodatkowo, jeśli w tym przypadku w tym przypadku jest wykonywane agregowanie pochylonego klucza, problem z pochyleniem danych będzie trwały. Aby dowiedzieć się więcej o dystrybucji okrężnej, zobacz sekcję rozkłady tabeli U-SQL w [CREATE TABLE (U-SQL): Tworzenie tabeli ze schematem](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
 
-## <a name="solution-2-improve-the-query-plan"></a>Rozwiązanie 2: Ulepszanie planu zapytań
+## <a name="solution-2-improve-the-query-plan"></a>Rozwiązanie 2: ulepszanie planu zapytania
 
-### <a name="option-1-use-the-create-statistics-statement"></a>Opcja 1: Użyj instrukcji CREATE STATISTICS
+### <a name="option-1-use-the-create-statistics-statement"></a>Opcja 1. Korzystanie z instrukcji CREATE STATISTICs
 
-U-SQL udostępnia instrukcję CREATE STATISTICS w tabelach. Ta instrukcja zawiera więcej informacji do optymalizatora kwerendy o właściwości danych, takich jak dystrybucja wartości, które są przechowywane w tabeli. W przypadku większości zapytań optymalizator kwerend generuje już niezbędne statystyki dla planu zapytań wysokiej jakości. Od czasu do czasu może być konieczne zwiększenie wydajności kwerendy, tworząc dodatkowe statystyki za pomocą CREATE STATISTICS lub modyfikując projekt kwerendy. Aby uzyskać więcej informacji, zobacz stronę [TWORZENIE STATYSTYK (U-SQL).](/u-sql/ddl/statistics/create-statistics)
+Język U-SQL zawiera instrukcję CREATE STATISTICs w tabelach. Ta instrukcja zawiera więcej informacji o cechach danych, takich jak dystrybucja wartości, które są przechowywane w tabeli. W przypadku większości zapytań optymalizator zapytań generuje już niezbędne dane statystyczne dla planu zapytania o wysokiej jakości. Czasami może być konieczne zwiększenie wydajności zapytania przez utworzenie dodatkowych statystyk przy użyciu programu CREATE STATISTICs lub zmodyfikowanie projektu zapytania. Aby uzyskać więcej informacji, zobacz stronę [Tworzenie statystyk (U-SQL)](/u-sql/ddl/statistics/create-statistics) .
 
 Przykład kodu:
 
     CREATE STATISTICS IF NOT EXISTS stats_SampleTable_date ON SampleDB.dbo.SampleTable(date) WITH FULLSCAN;
 
 >[!NOTE]
->Informacje statystyczne nie są aktualizowane automatycznie. Jeśli zaktualizujesz dane w tabeli bez ponownego tworzenia statystyk, wydajność kwerendy może zmniejszyć.
+>Informacje statystyczne nie są aktualizowane automatycznie. Jeśli zaktualizujesz dane w tabeli bez ponownego tworzenia statystyk, wydajność zapytań może się nie powieść.
 
-### <a name="option-2-use-skewfactor"></a>Opcja 2: Użyj SKEWFACTOR
+### <a name="option-2-use-skewfactor"></a>Opcja 2: korzystanie z SKEWFACTOR
 
-Jeśli chcesz zsumować podatek dla każdego stanu, należy użyć group by state, podejście, które nie pozwala uniknąć problemu pochylenia danych. Jednak można podać wskazówkę danych w zapytaniu do identyfikowania danych pochylenia w klucze, dzięki czemu optymalizator może przygotować plan wykonania dla Ciebie.
+Jeśli chcesz zsumować podatek dla każdego stanu, musisz użyć grupowania według stanu, metody, która nie pozwala uniknąć problemu związanego z odchyleniami danych. Można jednak podać wskazówkę dotyczącą danych w zapytaniu, aby identyfikować pochylenie danych w kluczach, aby Optymalizator mógł przygotować plan wykonania.
 
-Zazwyczaj można ustawić parametr jako 0,5 i 1, z 0,5 co oznacza, że nie dużo skośne i 1 znaczenie ciężkich pochyleń. Ponieważ wskazówka wpływa na optymalizację planu wykonania dla bieżącej instrukcji i wszystkich instrukcji podrzędnych, należy dodać wskazówkę przed potencjalną agregacją pochylenia kluczy.
+Zazwyczaj można ustawić parametr jako 0,5 i 1, z 0,5 oznacza to, że nie ma dużo pochylenia i 1 oznacza duże pochylenie. Ponieważ Wskazówka ma wpływ na optymalizację planu wykonania dla bieżącej instrukcji i wszystkich instrukcji podrzędnych, należy pamiętać, aby dodać wskazówkę przed potencjalną skośną agregacją klucza.
 
     SKEWFACTOR (columns) = x
 
@@ -97,8 +97,8 @@ Przykład kodu:
                 ON @Sessions.Query == @Campaigns.Query
         ;   
 
-### <a name="option-3-use-rowcount"></a>Opcja 3: Użyj ROWCOUNT  
-Oprócz SKEWFACTOR, dla określonych przypadkach sprzężenia skośnego klucza, jeśli wiesz, że inny zestaw wierszy sprzężony jest mały, można powiedzieć optymalizatora, dodając wskazówkę ROWCOUNT w instrukcji U-SQL przed JOIN. W ten sposób optymalizator może wybrać strategię sprzężenia emisji, aby poprawić wydajność. Należy pamiętać, że ROWCOUNT nie rozwiązuje problemu pochylenia danych, ale może zaoferować dodatkową pomoc.
+### <a name="option-3-use-rowcount"></a>Opcja 3: Użyj liczby wierszy  
+Oprócz SKEWFACTOR, dla konkretnych przypadków sprzężenia z kluczami skośnymi, Jeśli wiesz, że inny połączony zestaw wierszy jest mały, możesz powiedzieć Optymalizatorowi, dodając wskazówkę w instrukcji "U-SQL" przed przyłączeniem. Dzięki temu optymalizator może wybrać strategię sprzężenia emisji, aby zwiększyć wydajność. Należy pamiętać, że liczba wierszy nie rozwiązuje problemu związanego z odchyleniami danych, ale może oferować dodatkową pomoc.
 
     OPTION(ROWCOUNT = n)
 
@@ -122,19 +122,19 @@ Przykład kodu:
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Rozwiązanie 3: Poprawa zdefiniowanego przez użytkownika reduktora i kombajna
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Rozwiązanie 3: poprawa zdefiniowanego przez użytkownika narzędzia do ograniczania i łączenia
 
-Czasami można napisać operatora zdefiniowanego przez użytkownika, aby poradzić sobie ze skomplikowaną logiką procesu, a dobrze napisany reduktor i kombajnia może w niektórych przypadkach złagodzić problem z wypaczeniem danych.
+Czasami można napisać operatora zdefiniowanego przez użytkownika, aby zaradzić sobie z skomplikowaną logiką procesów, a dobrze napisanym środkiem ograniczającym i łączenia w niektórych przypadkach zmniejszał problem z pochyleniem danych.
 
-### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Opcja 1: Jeśli to możliwe, użyj reduktora cyklicznego
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Opcja 1: Użyj zmniejszenia cyklicznego, jeśli to możliwe
 
-Domyślnie reduktor zdefiniowany przez użytkownika działa w trybie niecyklicznym, co oznacza, że zmniejszenie pracy dla klucza jest rozłożone na jeden wierzchołek. Ale jeśli dane są wypaczone, ogromne zestawy danych mogą być przetwarzane w jednym wierzchołku i działać przez długi czas.
+Domyślnie, zdefiniowane przez użytkownika ograniczenie działa w trybie niecyklicznym, co oznacza, że zmniejszenie pracy dla klucza jest dystrybuowane do jednego wierzchołka. Ale jeśli dane są skośne, ogromne zestawy danych mogą być przetwarzane w jednym wierzchołku i uruchamiane przez dłuższy czas.
 
-Aby zwiększyć wydajność, można dodać atrybut w kodzie, aby zdefiniować reduktor do uruchomienia w trybie cyklicznym. Następnie ogromne zestawy danych mogą być dystrybuowane do wielu wierzchołków i działać równolegle, co przyspiesza zadanie.
+Aby zwiększyć wydajność, można dodać atrybut w kodzie, aby zdefiniować zmniejszenie do uruchomienia w trybie cyklicznym. Następnie duże zestawy danych mogą być dystrybuowane do wielu wierzchołków i uruchamiane równolegle, co przyspiesza pracę.
 
-Aby zmienić reduktor niecykliczny na cykliczny, należy upewnić się, że algorytm jest zespolonej. Na przykład suma jest zespolowaty, a mediana nie jest. Należy również upewnić się, że dane wejściowe i wyjściowe dla reduktora zachować ten sam schemat.
+Aby zmienić ograniczenie niecykliczne na cykliczne, należy się upewnić, że algorytm jest asocjacyjny. Na przykład suma jest asocjacyjna, a mediana nie jest. Należy również upewnić się, że dane wejściowe i wyjściowe dla elementu zmniejszającą ten sam schemat.
 
-Atrybut reduktora cyklicznego:
+Atrybut zredukowania cyklicznego:
 
     [SqlUserDefinedReducer(IsRecursive = true)]
 
@@ -150,28 +150,28 @@ Przykład kodu:
         }
     }
 
-### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opcja 2: W miarę możliwości użyj trybu kombajny na poziomie wiersza
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opcja 2: Użyj trybu łączenia na poziomie wiersza, jeśli jest to możliwe
 
-Podobnie jak ROWCOUNT wskazówki dla określonych przypadkach sprzężenia skośny klucz, tryb kombajnia próbuje rozdzielić ogromne zestawy wartości przekrzywiony klucz do wielu wierzchołków, dzięki czemu praca może być wykonywana jednocześnie. Tryb kombajnu nie może rozwiązać problemów z wypaczeniem danych, ale może zaoferować dodatkową pomoc dla ogromnych zestawów wartości przekrzywionych kluczy.
+Podobnie jak w przypadku określonych skośnych przypadków sprzężenia, tryb połączenia próbuje rozesłać ogromny zestaw wartości klucza skośnego do wielu wierzchołków, aby można było wykonywać zadania współbieżnie. Tryb łączenia nie może rozwiązywać problemów z odchyleniami danych, ale może oferować dodatkową pomoc dla bardzo dużych zestawów wartości z kluczami skośnymi.
 
-Domyślnie tryb kombajnia jest Pełny, co oznacza, że nie można rozdzielić zestawu lewego wiersza i prawego wiersza. Ustawienie trybu jako Lewy/Prawy/Wewnętrzny umożliwia sprzężenie na poziomie wiersza. System oddziela odpowiednie zestawy wierszy i rozmieszcza je na wiele wierzchołków, które są uruchamiane równolegle. Jednak przed skonfigurowaniem trybu kombajnu należy uważać, aby upewnić się, że odpowiednie zestawy wierszy mogą być oddzielone.
+Domyślnie tryb łączenia jest pełny, co oznacza, że nie można oddzielić lewego zestawu wierszy i prawego zestawu wierszy. Ustawienie trybu jako Left/Right/Inner włącza przyłączanie na poziomie wiersza. System oddziela odpowiednie zestawy wierszy i dystrybuuje je do wielu wierzchołków, które są uruchamiane równolegle. Jednak przed skonfigurowaniem trybu łączenia należy zachować ostrożność, aby upewnić się, że odpowiednie zestawy wierszy mogą być oddzielone.
 
-W poniższym przykładzie przedstawiono oddzielny zestaw lewego wiersza. Każdy wiersz wyjściowy zależy od pojedynczego wiersza wejściowego od lewej i potencjalnie zależy od wszystkich wierszy z prawej strony o tej samej wartości klucza. Jeśli ustawisz tryb kombajnia jako lewy, system oddziela ogromny zestaw lewego rzędu na małe i przypisuje je do wielu wierzchołków.
+Poniższy przykład pokazuje rozdzielony zestaw wierszy z lewej strony. Każdy wiersz danych wyjściowych zależy od jednego wiersza wejściowego z lewej strony i może zależeć od wszystkich wierszy z prawej strony z tą samą wartością klucza. Jeśli ustawisz tryb łączenia z lewej strony, system oddziela ogromnie zdefiniowany lewy wiersz do małych i przypisze do wielu wierzchołków.
 
-![Ilustracja trybu kombinatora](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/combiner-mode-illustration.png)
+![Ilustracja przedstawiająca tryb łączenia](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/combiner-mode-illustration.png)
 
 >[!NOTE]
->Jeśli ustawisz niewłaściwy tryb kombinowania, kombinacja jest mniej wydajna, a wyniki mogą być błędne.
+>Jeśli ustawisz niewłaściwy tryb łączenia, kombinacja jest mniej wydajna i wyniki mogą być błędne.
 
-Atrybuty trybu kombinatora:
+Atrybuty trybu łączenia:
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Full): Każdy wiersz danych wyjściowych potencjalnie zależy od wszystkich wierszy wejściowych z lewej i prawej strony o tej samej wartości klucza.
+- SqlUserDefinedCombiner (Mode = CombinerMode. Full): każdy wiersz danych wyjściowych może być zależny od wszystkich wierszy danych wejściowych od lewej i prawej z tą samą wartością klucza.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Left): Każdy wiersz danych wyjściowych zależy od pojedynczego wiersza wejściowego od lewej (i potencjalnie wszystkich wierszy z prawej strony o tej samej wartości klucza).
+- SqlUserDefinedCombiner (Mode = CombinerMode. Left): każdy wiersz danych wyjściowych zależy od jednego wiersza wejściowego z lewej strony (i potencjalnie wszystkie wiersze z prawej strony z tą samą wartością klucza).
 
-- qlUserDefinedCombiner(Mode=CombinerMode.Right): Każdy wiersz danych wyjściowych zależy od pojedynczego wiersza wejściowego od prawej (i potencjalnie wszystkich wierszy z lewej strony o tej samej wartości klucza).
+- qlUserDefinedCombiner (Mode = CombinerMode. Right): każdy wiersz danych wyjściowych zależy od jednego wiersza wejściowego z prawej strony (i potencjalnie wszystkie wiersze z lewej strony z tą samą wartością klucza).
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Każdy wiersz danych wyjściowych zależy od pojedynczego wiersza wejściowego z lewej i prawej wartości o tej samej wartości.
+- SqlUserDefinedCombiner (Mode = CombinerMode. Inner): każdy wiersz danych wyjściowych zależy od pojedynczego wiersza wejściowego z lewej strony i z prawej strony z tą samą wartością.
 
 Przykład kodu:
 

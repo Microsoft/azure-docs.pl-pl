@@ -1,25 +1,23 @@
 ---
 title: Wewnętrzne elementy usługi Azure SignalR
-description: Dowiedz się więcej o wewnętrznych usługach Azure SignalR, architekturze, połączeniach i sposobie przesyłania danych.
+description: Dowiedz się więcej na temat wewnętrznych usług sygnałów platformy Azure, architektury, połączeń i sposobu przesyłania danych.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 62afa5ee6993aa1bb3c7b5926e5320ab1fa510a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ba34edfc382f0f03abe080d78a6a47dcb65501b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74157600"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82105764"
 ---
 # <a name="azure-signalr-service-internals"></a>Wewnętrzne elementy usługi Azure SignalR
 
-Usługa Azure SignalR Service powstała na podstawie struktury SignalR platformy ASP.NET Core. Obsługuje ona również bibliotekę SignalR platformy ASP.NET jako funkcję w wersji zapoznawczej.
+Usługa Azure SignalR Service powstała na podstawie struktury SignalR platformy ASP.NET Core. Obsługuje ona również sygnalizację ASP.NET przez zaimplementowanie protokołu danych sygnalizującego ASP.NET w oparciu o strukturę ASP.NET Core.
 
-> Aby zapewnić obsługę biblioteki SignalR platformy ASP.NET, usługa Azure SignalR Service implementuje ponownie protokół danych biblioteki SignalR platformy ASP.NET na strukturze ASP.NET Core
-
-Można łatwo przeprowadzić migrację lokalnej aplikacji SignalR platformy ASP.NET Core do pracy z usługą SignalR Service. Wystarczy zmienić kilka wierszy kodu.
+Można z łatwością migrować ASP.NET Core lokalną aplikację ASP.NETer lub aplikację sygnalizującą do pracy z usługą sygnalizującego przy użyciu kilku wierszy zmiany kodu.
 
 Na poniższym diagramie opisano typową architekturę stosowaną podczas używania usługi SignalR Service z serwerem aplikacji.
 

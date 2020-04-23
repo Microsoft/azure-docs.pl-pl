@@ -1,6 +1,6 @@
 ---
-title: 'Usługa Azure Cosmos DB: interfejs API rdzenia SQL .NET, & zasobów'
-description: Dowiedz się wszystkiego o interfejsie API i SDK programu SQL .NET Core, w tym datach wydania, datach wycofania i zmianach wprowadzonych między każdą wersją interfejsu SDK programu Azure Cosmos DB .NET Core.
+title: 'Azure Cosmos DB: SQL .NET Core API, zasoby & SDK'
+description: Poznaj wszystkie informacje o interfejsie API programu SQL .NET Core i zestawie SDK, w tym daty wydania, daty wycofania i zmiany wprowadzone między poszczególnymi wersjami zestaw .NET Core SDK Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -20,34 +20,34 @@ ms.locfileid: "72177705"
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Plik danych o zmianach w sieci .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Źródło zmian platformy .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java (asynchroniczny)](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [Reszta](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Wykonawca zbiorczy - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Wykonawca luzem - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Wykonawca zbiorczy — .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
-|**Pobieranie SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
-|**Dokumentacja interfejsu API**|[Dokumentacja referencyjna interfejsu API platformy .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
-|**Próbki**|[Przykłady kodu .NET](sql-api-dotnet-samples.md)|
-|**Wprowadzenie**|[Wprowadzenie do usługi Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
-|**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą usługi Azure Cosmos DB](sql-api-dotnet-application.md)|
-|**Obecne obsługiwane ramy**|[.NET Standard 1.6 i .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
+|**Pobieranie zestawu SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
+|**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API platformy .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Przykłady**|[Przykłady kodu platformy .NET](sql-api-dotnet-samples.md)|
+|**Rozpoczęcie pracy**|[Wprowadzenie do Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
+|**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Bieżąca obsługiwana platforma**|[.NET Standard 1,6 i .NET Standard 1,5](https://www.nuget.org/packages/NETStandard.Library)|
 
-## <a name="release-notes"></a>Informacje o wersji
+## <a name="release-notes"></a>Uwagi do wersji
 
 > [!NOTE]
-> Jeśli używasz programu .NET Core, zapoznaj się z najnowszą wersją 3.x [sdk .NET,](sql-api-sdk-dotnet-standard.md)która jest przeznaczona dla platformy .NET Standard. 
+> W przypadku korzystania z platformy .NET Core zapoznaj się z najnowszą wersją 3. x [zestawu SDK platformy .NET](sql-api-sdk-dotnet-standard.md), która jest przeznaczona dla .NET Standard. 
 
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
 
 
 ## <a name="see-also"></a>Zobacz też
-Aby dowiedzieć się więcej o usłudze Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)
+Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) .
 

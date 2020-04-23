@@ -5,25 +5,27 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0331678b50d2448013556ab0694d0ca87045c3a3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 10c66ba175484d8b95f26ef9330753151a92969b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82096920"
+ms.locfileid: "82106036"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Uruchamianie/zatrzymywanie maszyn wirtualnych w rozwiązaniu off-godzinnym w Azure Automation
 
 W rozwiązaniu do **uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami** są uruchamiane lub zatrzymywane maszyny wirtualne platformy Azure. Uruchamia lub kończy maszyny w harmonogramach zdefiniowanych przez użytkownika, udostępnia szczegółowe informacje za pośrednictwem dzienników Azure Monitor i wysyła opcjonalne wiadomości e-mail przy użyciu [grup akcji](../azure-monitor/platform/action-groups.md). Rozwiązanie obsługuje Azure Resource Manager i klasycznych maszyn wirtualnych w większości scenariuszy. 
 
-To rozwiązanie zapewnia zdecentralizowaną opcję automatyzacji o niskich kosztach dla użytkowników, którzy chcą zoptymalizować koszty maszyn wirtualnych. Dzięki temu rozwiązaniu można:
+To rozwiązanie używa polecenia cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) do uruchamiania maszyn wirtualnych. Do zatrzymywania maszyn wirtualnych jest wykorzystywany [komunikat STOP-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) .
+
+> [!NOTE]
+> **Maszyny wirtualne uruchamiania/zatrzymywania w trakcie rozwiązania offline** zostały zaktualizowane, aby obsługiwały najnowsze wersje modułów platformy Azure, które są dostępne.
+
+Rozwiązanie zapewnia zdecentralizowaną opcję automatyzacji o niskich kosztach dla użytkowników, którzy chcą zoptymalizować koszty maszyn wirtualnych. Dzięki temu rozwiązaniu można:
 
 - [Zaplanuj uruchamianie i zatrzymywanie maszyn wirtualnych](automation-solution-vm-management-config.md#schedule).
 - Zaplanuj uruchamianie i zatrzymywanie maszyn wirtualnych w porządku rosnącym przy [użyciu tagów platformy Azure](automation-solution-vm-management-config.md#tags) (nieobsługiwanych w przypadku klasycznych maszyn wirtualnych).
 - Zatrzymaj zatrzymywanie maszyn wirtualnych na podstawie [niskiego użycia procesora CPU](automation-solution-vm-management-config.md#cpuutil).
-
-> [!NOTE]
-> **Maszyny wirtualne uruchamiania/zatrzymywania w trakcie rozwiązania offline** zostały zaktualizowane, aby obsługiwały najnowsze wersje modułów platformy Azure, które są dostępne.
 
 Istnieją następujące ograniczenia dotyczące bieżącego rozwiązania:
 

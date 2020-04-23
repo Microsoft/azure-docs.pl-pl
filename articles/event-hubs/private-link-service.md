@@ -1,98 +1,113 @@
 ---
-title: Integruj usługi Azure Event Hubs z usługą Azure Private Link Service
-description: Dowiedz się, jak zintegrować usługi Azure Event Hubs z usługą Azure Private Link Service
+title: Integrowanie Event Hubs platformy Azure z usługą prywatnych linków platformy Azure
+description: Dowiedz się, jak zintegrować usługę Azure Event Hubs z usługą Azure Private Link Service
 services: event-hubs
 author: spelluru
 ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: bcc360bbe4dd58200993b9377317ccb608b3529d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 110d4b94eda8315c20f4baa70256f7e5ed378530
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383648"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106478"
 ---
-# <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integruj usługi Azure Event Hubs z łączem prywatnym platformy Azure (wersja zapoznawcza)
-Usługa Azure Private Link Service umożliwia dostęp do usług platformy Azure (na przykład usługi Azure Event Hubs, Azure Storage i Azure Cosmos DB) oraz usługi klienta/partnera platformy Azure hostowane za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
+# <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integracja usługi Azure Event Hubs z usługą Azure Private link (wersja zapoznawcza)
+Usługa link prywatny platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Event Hubs, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
 
-Prywatny punkt końcowy to interfejs sieciowy, który łączy cię prywatnie i bezpiecznie z usługą obsługiwaną przez usługę Azure Private Link. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, skutecznie wprowadzając usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, więc nie są potrzebne żadne bramy, urządzenia NAT, połączenia usługi ExpressRoute lub VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Można połączyć się z wystąpieniem zasobu platformy Azure, co zapewnia najwyższy poziom szczegółowości w kontroli dostępu.
+Prywatny punkt końcowy to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, co skutecznie doprowadza usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, dlatego nie są konieczne żadne bramy, urządzenia NAT, połączenia ExpressRoute lub sieci VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Można nawiązać połączenie z wystąpieniem zasobu platformy Azure, zapewniając najwyższy poziom szczegółowości kontroli dostępu.
 
-Aby uzyskać więcej informacji, zobacz [Co to jest łącze prywatne platformy Azure?](../private-link/private-link-overview.md)
+Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link?](../private-link/private-link-overview.md)
 
-> [!NOTE]
-> Ta funkcja jest obsługiwana tylko w **warstwie dedykowanej.** Aby uzyskać więcej informacji na temat warstwy dedykowanej, zobacz [Omówienie dedykowanych centrów zdarzeń](event-hubs-dedicated-overview.md). 
+> [!IMPORTANT]
+> Ta funkcja jest obsługiwana tylko w przypadku warstwy **dedykowanej** . Aby uzyskać więcej informacji na temat warstwy dedykowanej, zobacz [omówienie Event Hubs — warstwa dedykowana](event-hubs-dedicated-overview.md). 
 >
-> Ta funkcja jest obecnie w **wersji zapoznawczej**. 
+> Ta funkcja jest obecnie dostępna w **wersji zapoznawczej**. 
 
+>[!WARNING]
+> Włączenie prywatnych punktów końcowych może uniemożliwić innym usługom platformy Azure współdziałanie z Event Hubs.
+>
+> Zaufane usługi firmy Microsoft nie są obsługiwane w przypadku implementacji sieci wirtualnych.
+>
+> Typowe scenariusze platformy Azure, które nie współpracują z sieciami wirtualnymi (należy zauważyć, że lista **nie** jest wyczerpująca) —
+> - Azure Monitor (ustawienie diagnostyczne)
+> - Usługa Azure Stream Analytics
+> - Integracja z usługą Azure Event Grid
+> - Trasy usługi Azure IoT Hub
+> - Device Explorer usługi Azure IoT
+>
+> Następujące usługi firmy Microsoft muszą znajdować się w sieci wirtualnej
+> - Azure Web Apps
+> - Azure Functions
 
-## <a name="add-a-private-endpoint-using-azure-portal"></a>Dodawanie prywatnego punktu końcowego przy użyciu portalu Azure
+## <a name="add-a-private-endpoint-using-azure-portal"></a>Dodawanie prywatnego punktu końcowego przy użyciu Azure Portal
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Aby zintegrować obszar nazw Centrum zdarzeń z łączem prywatnym platformy Azure, potrzebne są następujące jednostki lub uprawnienia:
+Aby zintegrować Event Hubs przestrzeń nazw z linkiem prywatnym platformy Azure, potrzebne są następujące jednostki lub uprawnienia:
 
-- Obszar nazw centrów zdarzeń.
+- Przestrzeń nazw Event Hubs.
 - Sieć wirtualna platformy Azure.
 - Podsieć w sieci wirtualnej.
-- Uprawnienia właściciela lub współautora zarówno dla obszaru nazw, jak i sieci wirtualnej.
+- Uprawnienia właściciela lub współautora dla przestrzeni nazw i sieci wirtualnej.
 
-Twój prywatny punkt końcowy i sieć wirtualna muszą znajdować się w tym samym regionie. Po wybraniu regionu dla prywatnego punktu końcowego za pomocą portalu, automatycznie filtruje tylko sieci wirtualne, które znajdują się w tym regionie. Obszar nazw może znajdować się w innym regionie.
+Prywatny punkt końcowy i Sieć wirtualna muszą znajdować się w tym samym regionie. W przypadku wybrania regionu dla prywatnego punktu końcowego przy użyciu portalu program automatycznie odfiltruje tylko te sieci wirtualne, które znajdują się w tym regionie. Przestrzeń nazw może znajdować się w innym regionie.
 
 Prywatny punkt końcowy używa prywatnego adresu IP w sieci wirtualnej.
 
 ### <a name="steps"></a>Kroki
-Jeśli masz już obszar nazw Centrum zdarzeń, możesz utworzyć połączenie łącza prywatnego, wykonując następujące kroki:
+Jeśli masz już Event Hubs przestrzeń nazw, możesz utworzyć połączenie prywatne, wykonując następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
-2. Na pasku wyszukiwania wpisz **w centrach zdarzeń**.
-3. Wybierz **obszar nazw** z listy, do której chcesz dodać prywatny punkt końcowy.
+2. Na pasku wyszukiwania wpisz w **centrach zdarzeń**.
+3. Wybierz **przestrzeń nazw** z listy, do której chcesz dodać prywatny punkt końcowy.
 4. Wybierz kartę **Sieć** w obszarze **Ustawienia**.
-5. Wybierz kartę **Prywatne połączenia punktów końcowych (podgląd)** u góry strony. Jeśli nie używasz dedykowanej warstwy Centrów zdarzeń, zostanie wyświetlony komunikat: **Prywatne połączenia punktów końcowych w centrach zdarzeń są obsługiwane tylko przez przestrzenie nazw utworzone w dedykowanym klastrze**.
-6. Wybierz przycisk **+ Prywatny punkt końcowy** u góry strony.
+5. Wybierz kartę **prywatne połączenia punktu końcowego (wersja zapoznawcza)** w górnej części strony. Jeśli nie korzystasz z dedykowanej warstwy Event Hubs, zobaczysz komunikat: **połączenia prywatnego punktu końcowego na Event Hubs są obsługiwane tylko przez obszary nazw utworzone w ramach dedykowanego klastra**.
+6. Wybierz przycisk **+ prywatny punkt końcowy** w górnej części strony.
 
     ![Image (Obraz)](./media/private-link-service/private-link-service-3.png)
-7. Na stronie **Podstawy** wykonaj następujące czynności: 
-    1. Wybierz **subskrypcję platformy Azure,** w której chcesz utworzyć prywatny punkt końcowy. 
-    2. Wybierz **grupę zasobów** dla zasobu prywatnego punktu końcowego.
+7. Na stronie **podstawowe** wykonaj następujące kroki: 
+    1. Wybierz **subskrypcję platformy Azure** , w której chcesz utworzyć prywatny punkt końcowy. 
+    2. Wybierz **grupę zasobów** dla prywatnego zasobu punktu końcowego.
     3. Wprowadź **nazwę** prywatnego punktu końcowego. 
-    5. Wybierz **region** dla prywatnego punktu końcowego. Twój prywatny punkt końcowy musi znajdować się w tym samym regionie co sieć wirtualna, ale może znajdować się w innym regionie zasobu łącza prywatnego, z którego nawiązujesz połączenie. 
-    6. Wybierz **przycisk Dalej: >zasobu** u dołu strony.
+    5. Wybierz **region** dla prywatnego punktu końcowego. Prywatny punkt końcowy musi znajdować się w tym samym regionie, w którym znajduje się Twoja sieć wirtualna, ale może znajdować się w innym regionie niż zasób linku prywatnego, z którym nawiązujesz połączenie. 
+    6. Wybierz pozycję **Dalej: przycisk >zasobu** w dolnej części strony.
 
-        ![Tworzenie prywatnego punktu końcowego — strona Podstawy](./media/private-link-service/create-private-endpoint-basics-page.png)
-8. Na stronie **Zasób** wykonaj następujące czynności:
-    1. W przypadku metody połączenia, jeśli **wybierzesz opcję Połącz z zasobem platformy Azure w moim katalogu,** wykonaj następujące kroki: 
-        1. Wybierz **subskrypcję platformy Azure,** w której istnieje **obszar nazw usługi Event Hubs.** 
-        2. W przypadku **typu zasobu**wybierz pozycję **Microsoft.EventHub/namespaces** dla **typu zasobu**.
-        3. W obszarze **Zasób**wybierz obszar nazw Centrów zdarzeń z listy rozwijanej. 
-        4. Upewnij się, że **podźródło docelowe** jest ustawione na **obszar nazw**.
-        5. Wybierz **przycisk Dalej: Przycisk >konfiguracji** u dołu strony. 
+        ![Tworzenie prywatnego punktu końcowego — Strona podstawy](./media/private-link-service/create-private-endpoint-basics-page.png)
+8. Na stronie **zasób** wykonaj następujące kroki:
+    1. W przypadku metody połączenia w przypadku wybrania opcji **Połącz z zasobem platformy Azure w katalogu my**wykonaj następujące czynności: 
+        1. Wybierz **subskrypcję platformy Azure** , w której znajduje się **przestrzeń nazw Event Hubs** . 
+        2. W polu **Typ zasobu**wybierz pozycję **Microsoft. EventHub/przestrzenie nazw** dla **typu zasobu**.
+        3. W obszarze **zasób**wybierz Event Hubs przestrzeń nazw z listy rozwijanej. 
+        4. Upewnij się, że **docelowy podzasób** jest ustawiony na **przestrzeń nazw**.
+        5. Wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony. 
         
-            ![Tworzenie prywatnego punktu końcowego — strona Zasób](./media/private-link-service/create-private-endpoint-resource-page.png)    
-    2. Jeśli wybierzesz **opcję Połącz z zasobem platformy Azure według identyfikatora lub aliasu zasobu,** wykonaj następujące kroki:
-        1. Wprowadź **identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który niektórzy udostępnili.
-        2. W obszarze **podrzędny obiekt Docelowy**wprowadź **obszar nazw**. Jest to typ zasobu podrzędnego, do który można uzyskać dostęp do prywatnego punktu końcowego.
-        3. (opcjonalnie) Wprowadź **komunikat żądania**. Właściciel zasobu widzi ten komunikat podczas zarządzania połączeniem prywatnego punktu końcowego.
-        4. Następnie wybierz przycisk **Dalej: >konfiguracji** u dołu strony.
+            ![Tworzenie prywatnego punktu końcowego — Strona zasobów](./media/private-link-service/create-private-endpoint-resource-page.png)    
+    2. W przypadku wybrania opcji **Połącz z zasobem platformy Azure według identyfikatora zasobu lub aliasu**wykonaj następujące kroki:
+        1. Wprowadź **Identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który został udostępniony Tobie.
+        2. W przypadku **docelowego zasobu podrzędnego**wprowadź **przestrzeń nazw**. Jest to typ zasobu podrzędnego, do którego Twój prywatny punkt końcowy może uzyskać dostęp.
+        3. obowiązkowe Wprowadź **komunikat żądania**. Właściciel zasobu widzi ten komunikat podczas zarządzania połączeniem prywatnego punktu końcowego.
+        4. Następnie wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony.
 
-            ![Tworzenie prywatnego punktu końcowego — łączenie przy użyciu identyfikatora zasobu](./media/private-link-service/connect-resource-id.png)
-9. Na **stronie Konfiguracja** wybierz podsieć w sieci wirtualnej do miejsca, w którym chcesz wdrożyć prywatny punkt końcowy. 
-    1. Wybierz **sieć wirtualną**. Na liście rozwijanej znajdują się tylko sieci wirtualne w aktualnie wybranej subskrypcji i lokalizacji. 
+            ![Tworzenie prywatnego punktu końcowego — Łączenie przy użyciu identyfikatora zasobu](./media/private-link-service/connect-resource-id.png)
+9. Na stronie **Konfiguracja** wybierz podsieć w sieci wirtualnej, w której chcesz wdrożyć prywatny punkt końcowy. 
+    1. Wybierz **sieć wirtualną**. Na liście rozwijanej są wyświetlane tylko sieci wirtualne w aktualnie wybranej subskrypcji i lokalizacji. 
     2. Wybierz **podsieć** w wybranej sieci wirtualnej. 
-    3. Wybierz **dalej: Przycisk >znaczników** u dołu strony. 
+    3. Wybierz pozycję **Dalej: tagi >** przycisk w dolnej części strony. 
 
-        ![Tworzenie prywatnego punktu końcowego — strona konfiguracji](./media/private-link-service/create-private-endpoint-configuration-page.png)
-10. Na stronie **Znaczniki** utwórz wszystkie znaczniki (nazwy i wartości), które chcesz skojarzyć z zasobem prywatnego punktu końcowego. Następnie wybierz przycisk **Przejrzyj + utwórz** u dołu strony. 
-11. W **obszarze Recenzja + utwórz**przejrzyj wszystkie ustawienia i wybierz pozycję **Utwórz,** aby utworzyć prywatny punkt końcowy.
+        ![Tworzenie prywatnego punktu końcowego — Strona konfiguracji](./media/private-link-service/create-private-endpoint-configuration-page.png)
+10. Na stronie **Tagi** Utwórz dowolne Tagi (nazwy i wartości), które chcesz skojarzyć z prywatnym zasobem punktu końcowego. Następnie wybierz przycisk **Przegląd + Utwórz** u dołu strony. 
+11. Na stronie **Przegląd i tworzenie**Przejrzyj wszystkie ustawienia, a następnie wybierz pozycję **Utwórz** , aby utworzyć prywatny punkt końcowy.
     
-    ![Tworzenie prywatnego punktu końcowego — recenzja i tworzenie strony](./media/private-link-service/create-private-endpoint-review-create-page.png)
-12. Upewnij się, że na liście punktów końcowych jest wyświetlany widok na utworzone połączenie prywatnego punktu końcowego. W tym przykładzie prywatny punkt końcowy jest automatycznie zatwierdzany, ponieważ masz połączenie z zasobem platformy Azure w katalogu i masz wystarczające uprawnienia. 
+    ![Tworzenie prywatnego punktu końcowego — przegląd i Tworzenie strony](./media/private-link-service/create-private-endpoint-review-create-page.png)
+12. Upewnij się, że utworzone połączenie prywatnego punktu końcowego jest widoczne na liście punktów końcowych. W tym przykładzie prywatny punkt końcowy jest zaakceptowany, ponieważ nawiązano połączenie z zasobem platformy Azure w Twoim katalogu i masz wystarczające uprawnienia. 
 
-    ![Utworzony prywatny punkt końcowy](./media/private-link-service/private-endpoint-created.png)
+    ![Utworzono prywatny punkt końcowy](./media/private-link-service/private-endpoint-created.png)
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>Dodawanie prywatnego punktu końcowego przy użyciu programu PowerShell
-W poniższym przykładzie pokazano, jak utworzyć połączenie prywatnego punktu końcowego za pomocą programu Azure PowerShell. Nie tworzy dedykowanego klastra dla Ciebie. Wykonaj kroki opisane w [tym artykule,](event-hubs-dedicated-cluster-create-portal.md) aby utworzyć dedykowany klaster centrów zdarzeń. 
+Poniższy przykład pokazuje, jak za pomocą Azure PowerShell utworzyć połączenie prywatnego punktu końcowego. Dla Ciebie nie jest tworzony dedykowany klaster. Wykonaj kroki opisane w [tym artykule](event-hubs-dedicated-cluster-create-portal.md) , aby utworzyć dedykowany klaster Event Hubs. 
 
 ```azurepowershell-interactive
 # create resource group
@@ -153,8 +168,8 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 
 ```
 
-### <a name="configure-the-private-dns-zone"></a>Konfigurowanie prywatnej strefy DNS
-Utwórz prywatną strefę DNS dla domeny Centrum zdarzeń i utwórz łącze skojarzenia z siecią wirtualną:
+### <a name="configure-the-private-dns-zone"></a>Skonfiguruj prywatną strefę DNS
+Utwórz prywatną strefę DNS dla domeny Event Hubs i Utwórz link skojarzenia z siecią wirtualną:
 
 ```azurepowershell-interactive
 $zone = New-AzPrivateDnsZone -ResourceGroupName $rgName `
@@ -179,62 +194,62 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 }
 ```
 
-## <a name="manage-private-endpoints-using-azure-portal"></a>Zarządzanie prywatnymi punktami końcowymi przy użyciu portalu Azure
+## <a name="manage-private-endpoints-using-azure-portal"></a>Zarządzanie prywatnymi punktami końcowymi przy użyciu Azure Portal
 
-Podczas tworzenia prywatnego punktu końcowego połączenie musi zostać zatwierdzone. Jeśli zasób, dla którego tworzysz prywatny punkt końcowy znajduje się w katalogu, możesz zatwierdzić żądanie połączenia, pod warunkiem, że masz wystarczające uprawnienia. Jeśli łączysz się z zasobem platformy Azure w innym katalogu, musisz poczekać, aż właściciel tego zasobu zatwierdzi żądanie połączenia.
+Podczas tworzenia prywatnego punktu końcowego należy zatwierdzić połączenie. Jeśli zasób, dla którego tworzysz prywatny punkt końcowy, znajduje się w katalogu, możesz zatwierdzić żądanie połączenia pod warunkiem, że masz wystarczające uprawnienia. Jeśli łączysz się z zasobem platformy Azure w innym katalogu, musisz poczekać, aż właściciel tego zasobu zatwierdzi Twoje żądanie połączenia.
 
-Istnieją cztery stany inicjowania obsługi administracyjnej:
+Istnieją cztery Stany aprowizacji:
 
-| Akcja serwisowa | Stan prywatnego punktu końcowego usługi konsumenta | Opis |
+| Akcja usługi | Stan prywatnego punktu końcowego klienta usługi | Opis |
 |--|--|--|
-| Brak | Oczekujące | Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu Łącza prywatnego. |
-| Zatwierdzenie | Approved (Zatwierdzono) | Połączenie zostało zatwierdzone automatycznie lub ręcznie i jest gotowe do użycia. |
-| Reject | Odrzucone | Połączenie zostało odrzucone przez właściciela zasobu łącza prywatnego. |
-| Remove | Odłączony | Połączenie zostało usunięte przez właściciela zasobu łącza prywatnego, prywatny punkt końcowy staje się informacyjny i powinien zostać usunięty w celu oczyszczenia. |
+| Brak | Oczekujące | Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu link prywatny. |
+| Zatwierdzenie | Approved (Zatwierdzono) | Połączenie zostało automatycznie lub ręcznie zatwierdzone i jest gotowe do użycia. |
+| Reject | Odrzucone | Połączenie zostało odrzucone przez właściciela zasobu link prywatny. |
+| Remove | Odłączony | Połączenie zostało usunięte przez właściciela zasobu link prywatny, a prywatny punkt końcowy zmieni się na format i powinien zostać usunięty do oczyszczenia. |
  
-###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdzanie, odrzucanie lub usuwanie połączenia prywatnego punktu końcowego
+###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
 1. Zaloguj się do Portalu Azure.
-2. Na pasku wyszukiwania wpisz **w centrach zdarzeń**.
-3. Wybierz **obszar nazw,** którymi chcesz zarządzać.
-4. Wybierz kartę **Sieć.**
-5. Przejdź do odpowiedniej sekcji poniżej na podstawie operacji, którą chcesz: zatwierdzić, odrzucić lub usunąć.
+2. Na pasku wyszukiwania wpisz w **centrach zdarzeń**.
+3. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
+4. Wybierz kartę **Sieć** .
+5. Przejdź do odpowiedniej sekcji poniżej w zależności od operacji, którą chcesz wykonać: Zatwierdź, Odrzuć lub Usuń.
 
-### <a name="approve-a-private-endpoint-connection"></a>Zatwierdzanie połączenia prywatnego punktu końcowego
-1. Jeśli istnieją jakieś połączenia, które są oczekujące, zostanie wyświetlone połączenie na liście **Oczekujące** w stanie inicjowania obsługi administracyjnej. 
-2. Wybierz **prywatny punkt końcowy,** który chcesz zatwierdzić
-3. Wybierz przycisk **Zatwierdź.**
+### <a name="approve-a-private-endpoint-connection"></a>Zatwierdź połączenie prywatnego punktu końcowego
+1. Jeśli istnieją oczekujące połączenia, w stanie aprowizacji zostanie wyświetlone połączenie z **oczekującą** . 
+2. Wybierz **prywatny punkt końcowy** , który chcesz zatwierdzić
+3. Wybierz przycisk **Zatwierdź** .
 
     ![Image (Obraz)](./media/private-link-service/approve-private-endpoint.png)
-4. Na stronie **Zatwierdzanie połączenia** dodaj komentarz (opcjonalnie) i wybierz pozycję **Tak**. Jeśli wybierzesz **nie**, nic się nie stanie. 
-5. Na liście powinien zostać wyświetlony stan połączenia prywatnego punktu końcowego na liście **zmienionej**na Zatwierdzone . 
+4. Na stronie **zatwierdzanie połączenia** Dodaj komentarz (opcjonalnie), a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
+5. Stan połączenia prywatnego punktu końcowego powinien zostać wyświetlony na liście zmieniono na **zatwierdzone**. 
 
-### <a name="reject-a-private-endpoint-connection"></a>Odrzucanie połączenia prywatnego punktu końcowego
+### <a name="reject-a-private-endpoint-connection"></a>Odrzuć połączenie prywatnego punktu końcowego
 
-1. Jeśli istnieją jakieś połączenia prywatnego punktu końcowego, które chcesz odrzucić, niezależnie od tego, czy jest to żądanie oczekujące, czy istniejące połączenie, zaznacz połączenie i kliknij przycisk **Odrzuć.**
+1. Jeśli istnieją jakieś połączenia prywatnego punktu końcowego, które chcesz odrzucić, niezależnie od tego, czy jest to oczekujące żądanie, czy istniejące połączenie, wybierz połączenie i kliknij przycisk **Odrzuć** .
 
     ![Image (Obraz)](./media/private-link-service/private-endpoint-reject-button.png)
-2. Na stronie **Odrzucanie połączenia** wprowadź komentarz (opcjonalnie) i wybierz pozycję **Tak**. Jeśli wybierzesz **nie**, nic się nie stanie. 
-3. Na liście powinien zostać wyświetlony stan połączenia prywatnego punktu końcowego na liście **zmienionej**na Odrzucone . 
+2. Na stronie **Odrzuć połączenie** Wprowadź komentarz (opcjonalnie), a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
+3. Stan połączenia prywatnego punktu końcowego powinien zostać wyświetlony na liście zmieniono na **odrzucony**. 
 
-### <a name="remove-a-private-endpoint-connection"></a>Usuwanie połączenia prywatnego punktu końcowego
+### <a name="remove-a-private-endpoint-connection"></a>Usuń połączenie prywatnego punktu końcowego
 
-1. Aby usunąć połączenie prywatnego punktu końcowego, zaznacz je na liście i wybierz pozycję **Usuń** na pasku narzędzi.
-2. Na stronie **Usuwanie połączenia** wybierz pozycję **Tak,** aby potwierdzić usunięcie prywatnego punktu końcowego. Jeśli wybierzesz **nie**, nic się nie stanie.
-3. Powinien zostać wyświetlony stan zmieniony na **Rozłączony**. Następnie zostanie wyświetlony punkt końcowy zniknie z listy.
+1. Aby usunąć połączenie z prywatnym punktem końcowym, wybierz je z listy i wybierz pozycję **Usuń** na pasku narzędzi.
+2. Na stronie **Usuwanie połączenia** wybierz pozycję **tak** , aby potwierdzić usunięcie prywatnego punktu końcowego. Jeśli wybierzesz opcję **nie**, nic się nie dzieje.
+3. Powinien zostać wyświetlony stan zmieniono na **rozłączony**. Następnie punkt końcowy zostanie wyświetlony na liście.
 
-## <a name="validate-that-the-private-link-connection-works"></a>Sprawdzanie, czy połączenie łącza prywatnego działa
+## <a name="validate-that-the-private-link-connection-works"></a>Sprawdź, czy połączenie z linkiem prywatnym działa
 
-Należy sprawdzić, czy zasoby w tej samej podsieci zasobu prywatnego punktu końcowego łączą się z obszarem nazw centrum zdarzeń za pośrednictwem prywatnego adresu IP i że mają one prawidłową integrację prywatnej strefy DNS.
+Należy sprawdzić, czy zasoby znajdujące się w tej samej podsieci zasobu prywatnego punktu końcowego nawiązują połączenie z przestrzenią nazw Event Hubs przy użyciu prywatnego adresu IP i czy mają poprawną integrację prywatnej strefy DNS.
 
-Najpierw utwórz maszynę wirtualną, wykonując kroki opisane w [obszarze Tworzenie maszyny wirtualnej systemu Windows w portalu Azure](../virtual-machines/windows/quick-create-portal.md)
+Najpierw utwórz maszynę wirtualną, wykonując czynności opisane w sekcji [Tworzenie maszyny wirtualnej z systemem Windows w Azure Portal](../virtual-machines/windows/quick-create-portal.md)
 
-Na karcie **Sieć:**
+Na karcie **Sieć** :
 
-1. Określ **sieć wirtualną** i **podsieć**. Można utworzyć nową sieć wirtualną lub wybrać istniejącą. Jeśli wybierzesz istniejący, upewnij się, że region jest zgodny.
-1. Określ publiczny zasób **IP.**
-1. W **grupie zabezpieczeń sieciowej karty sieciowej**wybierz pozycję **Brak**.
-1. W **obszarze Równoważenie obciążenia**wybierz **pozycję Nie**.
+1. Określ **sieć wirtualną** i **podsieć**. Można utworzyć nową sieć wirtualną lub wybrać istniejącą. Jeśli wybierzesz jeden z istniejących, upewnij się, że region jest zgodny.
+1. Określ zasób **publicznego adresu IP** .
+1. W **sieciowej grupie zabezpieczeń nic**nie zaznaczaj **żadnej**z nich.
+1. W obszarze **równoważenia obciążenia**wybierz pozycję **nie**.
 
 Otwórz wiersz polecenia i uruchom następujące polecenie:
 
@@ -242,7 +257,7 @@ Otwórz wiersz polecenia i uruchom następujące polecenie:
 nslookup <your-event-hubs-namespace-name>.servicebus.windows.net
 ```
 
-Po uruchomieniu polecenia wyszukiwania ns w celu rozpoznania adresu IP obszaru nazw Centrum zdarzeń za pomocą publicznego punktu końcowego zostanie wyświetlony wynik, który wygląda następująco:
+W przypadku uruchomienia polecenia wyszukiwania NS w celu rozpoznania adresu IP Event Hubs przestrzeni nazw za pośrednictwem publicznego punktu końcowego zobaczysz wynik, który wygląda następująco:
 
 ```console
 c:\ >nslookup <your-event-hubs-namespae-name>.servicebus.windows.net
@@ -253,7 +268,7 @@ Address:  (public IP address)
 Aliases:  <your-event-hubs-namespace-name>.servicebus.windows.net
 ```
 
-Po uruchomieniu polecenia wyszukiwania ns w celu rozpoznania adresu IP obszaru nazw Centrum zdarzeń w prywatnym punkcie końcowym zostanie wyświetlony wynik, który wygląda następująco:
+W przypadku uruchomienia polecenia wyszukiwania NS w celu rozpoznania adresu IP Event Hubs przestrzeni nazw za pośrednictwem prywatnego punktu końcowego zobaczysz wynik, który będzie wyglądać następująco:
 
 ```console
 c:\ >nslookup your_event-hubs-namespace-name.servicebus.windows.net
@@ -264,17 +279,17 @@ Address:  10.1.0.5 (private IP address)
 Aliases:  <your-event-hub-name>.servicebus.windows.net
 ```
 
-## <a name="limitations-and-design-considerations"></a>Ograniczenia i zagadnienia projektowe
+## <a name="limitations-and-design-considerations"></a>Ograniczenia i zagadnienia dotyczące projektowania
 
-**Cennik**: Aby uzyskać informacje o cenach, zobacz [Cennik łącza prywatnego platformy Azure](https://azure.microsoft.com/pricing/details/private-link/).
+**Cennik**: Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Ograniczenia:** Prywatny punkt końcowy dla usługi Azure Event Hubs jest w publicznej wersji zapoznawczej. Ta funkcja jest dostępna we wszystkich regionach publicznych platformy Azure.
+**Ograniczenia**: prywatny punkt końcowy dla platformy Azure Event Hubs jest w publicznej wersji zapoznawczej. Ta funkcja jest dostępna we wszystkich regionach publicznych platformy Azure.
 
-**Maksymalna liczba prywatnych punktów końcowych na obszar nazw centrum zdarzeń:** 120.
+**Maksymalna liczba prywatnych punktów końcowych na Event Hubs przestrzeń nazw**: 120.
 
-Aby uzyskać więcej informacji, zobacz [Usługa Azure Private Link: Ograniczenia](../private-link/private-link-service-overview.md#limitations)
+Aby uzyskać więcej informacji, zobacz [usługa Azure Private Link Service: ograniczenia](../private-link/private-link-service-overview.md#limitations)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [łączu prywatnym platformy Azure](../private-link/private-link-service-overview.md)
+- Dowiedz się więcej o [prywatnym łączu platformy Azure](../private-link/private-link-service-overview.md)
 - Dowiedz się więcej o [usłudze Azure Event Hubs](event-hubs-about.md)

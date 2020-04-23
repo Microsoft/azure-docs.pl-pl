@@ -1,6 +1,6 @@
 ---
-title: Uwierzytelnianie — narzędzie microsoft do modelowania zagrożeń — Azure | Dokumenty firmy Microsoft
-description: zagrożeniach ujawnionych w narzędziu do modelowania zagrożeń
+title: Uwierzytelnianie — Microsoft Threat Modeling Tool — Azure | Microsoft Docs
+description: środki zaradcze dla zagrożeń ujawnionych w Threat Modeling Tool
 services: security
 documentationcenter: na
 author: jegeib
@@ -22,23 +22,23 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 03/27/2020
 ms.locfileid: "72244629"
 ---
-# <a name="security-frame-authentication--mitigations"></a>Ramka zabezpieczeń: Uwierzytelnianie | Czynniki 
+# <a name="security-frame-authentication--mitigations"></a>Ramka zabezpieczeń: uwierzytelnianie | Środki zaradcze 
 
 | Produkt/usługa | Artykuł |
 | --------------- | ------- |
-| **Aplikacja internetowa**    | <ul><li>[Rozważ użycie standardowego mechanizmu uwierzytelniania do uwierzytelniania w aplikacji sieci Web](#standard-authn-web-app)</li><li>[Aplikacje muszą bezpiecznie obsługiwać scenariusze uwierzytelniania, które nie powiodły się](#handle-failed-authn)</li><li>[Włączanie uwierzytelniania krokowego lub adaptacyjnego](#step-up-adaptive-authn)</li><li>[Upewnij się, że interfejsy administracyjne są odpowiednio zablokowane](#admin-interface-lockdown)</li><li>[Bezpieczne wdrażanie funkcji zapomnianych haseł](#forgot-pword-fxn)</li><li>[Upewnij się, że hasło i zasady konta są implementowane](#pword-account-policy)</li><li>[Implementowanie formantów zapobiegające wyliczaniu nazwy użytkownika](#controls-username-enum)</li></ul> |
-| **baza danych** | <ul><li>[Jeśli to możliwe, użyj uwierzytelniania systemu Windows do łączenia się z programem SQL Server](#win-authn-sql)</li><li>[Jeśli to możliwe, użyj uwierzytelniania usługi Azure Active Directory do łączenia się z bazą danych SQL](#aad-authn-sql)</li><li>[Gdy używany jest tryb uwierzytelniania SQL, upewnij się, że zasady konta i hasła są wymuszane na serwerze SQL](#authn-account-pword)</li><li>[Nie używaj uwierzytelniania SQL w zamkniętych bazach danych](#autn-contained-db)</li></ul> |
-| **Centrum zdarzeń Azure** | <ul><li>[Używanie poświadczeń uwierzytelniania na urządzeniu przy użyciu tokenów SaS](#authn-sas-tokens)</li></ul> |
-| **Granica zaufania platformy Azure** | <ul><li>[Włączanie uwierzytelniania wieloskładnikowego platformy Azure dla administratorów platformy Azure](#multi-factor-azure-admin)</li></ul> |
-| **Granica zaufania sieci usług** | <ul><li>[Ograniczanie dostępu anonimowego do klastra sieci szkieletowej usług](#anon-access-cluster)</li><li>[Upewnij się, że certyfikat klient-węzeł sieci szkieletowej usług różni się od certyfikatu węzeł-węzeł](#fabric-cn-nn)</li><li>[Uwierzytelnianie klientów do obsługi klastrów sieci szkieletowej za pomocą usługi AAD](#aad-client-fabric)</li><li>[Upewnij się, że certyfikaty sieci szkieletowej usług są uzyskiwane z zatwierdzonego urzędu certyfikacji](#fabric-cert-ca)</li></ul> |
-| **Serwer tożsamości** | <ul><li>[Używanie standardowych scenariuszy uwierzytelniania obsługiwanych przez serwer tożsamości](#standard-authn-id)</li><li>[Zastępowanie domyślnej pamięci podręcznej tokenów serwera tożsamości skalowalnymi alternatywą](#override-token)</li></ul> |
+| **Aplikacja sieci Web**    | <ul><li>[Rozważ użycie standardowego mechanizmu uwierzytelniania do uwierzytelniania w aplikacji sieci Web](#standard-authn-web-app)</li><li>[Aplikacje muszą obsługiwać bezpieczne scenariusze dotyczące niepowodzenia uwierzytelniania](#handle-failed-authn)</li><li>[Włącz uwierzytelnianie krok po kroku lub adaptacyjne](#step-up-adaptive-authn)</li><li>[Upewnij się, że interfejsy administracyjne są odpowiednio zablokowane.](#admin-interface-lockdown)</li><li>[Bezpieczne Implementowanie funkcji zapomnianego hasła](#forgot-pword-fxn)</li><li>[Upewnij się, że zasady haseł i kont zostały zaimplementowane](#pword-account-policy)</li><li>[Implementowanie formantów w celu zapobiegania wyliczaniu nazw użytkowników](#controls-username-enum)</li></ul> |
+| **Database** | <ul><li>[Jeśli to możliwe, Użyj uwierzytelniania systemu Windows w celu nawiązania połączenia z usługą SQL Server](#win-authn-sql)</li><li>[Gdy jest to możliwe, Użyj uwierzytelniania Azure Active Directory w celu nawiązania połączenia z SQL Database](#aad-authn-sql)</li><li>[Gdy jest używany tryb uwierzytelniania SQL, upewnij się, że zasady konta i hasła są wymuszane w programie SQL Server](#authn-account-pword)</li><li>[Nie używaj uwierzytelniania SQL w zawartych bazach danych](#autn-contained-db)</li></ul> |
+| **Centrum zdarzeń Azure** | <ul><li>[Użyj poświadczeń uwierzytelniania na urządzeniu przy użyciu tokenów SaS](#authn-sas-tokens)</li></ul> |
+| **Granica zaufania platformy Azure** | <ul><li>[Włączanie usługi Azure Multi-Factor Authentication dla administratorów platformy Azure](#multi-factor-azure-admin)</li></ul> |
+| **Service Fabric granic zaufania** | <ul><li>[Ograniczanie dostępu anonimowego do klastra Service Fabric](#anon-access-cluster)</li><li>[Upewnij się, że Service Fabric certyfikat klienta-węzeł różni się od certyfikatu węzła-węzeł](#fabric-cn-nn)</li><li>[Uwierzytelnianie klientów w klastrach usługi Service Fabric za pomocą usługi AAD](#aad-client-fabric)</li><li>[Upewnij się, że certyfikaty usługi Service Fabric są uzyskiwane z zatwierdzonego urzędu certyfikacji (CA)](#fabric-cert-ca)</li></ul> |
+| **Serwer tożsamości** | <ul><li>[Używaj standardowych scenariuszy uwierzytelniania obsługiwanych przez serwer tożsamości](#standard-authn-id)</li><li>[Zastąp domyślną pamięć podręczną tokenów serwera tożsamości z skalowalną alternatywą](#override-token)</li></ul> |
 | **Granica zaufania maszyny** | <ul><li>[Upewnij się, że pliki binarne wdrożonej aplikacji są podpisane cyfrowo](#binaries-signed)</li></ul> |
-| **WCF** | <ul><li>[Włączanie uwierzytelniania podczas łączenia się z kolejkami usługi MSMQ w wiktymnie](#msmq-queues)</li><li>[WCF-Nie ustawiaj message clientCredentialType na brak](#message-none)</li><li>[WCF-Nie ustawiaj elementu klienta transportuCredentialType na brak](#transport-none)</li></ul> |
+| **WCF** | <ul><li>[Włączanie uwierzytelniania podczas nawiązywania połączenia z kolejkami usługi MSMQ w programie WCF](#msmq-queues)</li><li>[WCF — nie ustawiaj komunikatu clientCredentialtype na none](#message-none)</li><li>[WCF — nie ustawiaj transportowej wartości clientCredentialtype na none](#transport-none)</li></ul> |
 | **Interfejs API sieci Web** | <ul><li>[Upewnij się, że standardowe techniki uwierzytelniania są używane do zabezpieczania interfejsów API sieci Web](#authn-secure-api)</li></ul> |
-| **Azure AD** | <ul><li>[Używanie standardowych scenariuszy uwierzytelniania obsługiwanych przez usługę Azure Active Directory](#authn-aad)</li><li>[Zastępowanie domyślnej pamięci podręcznej tokenów ADAL skalowalnym alternatywą](#adal-scalable)</li><li>[Upewnij się, że tokenReplayCache jest używany, aby zapobiec powtórce tokenów uwierzytelniania ADAL](#tokenreplaycache-adal)</li><li>[Biblioteki ADAL za pomocą bibliotek ADAL do zarządzania żądaniami tokenów od klientów OAuth2 do usługi AAD (lub lokalnej usługi AD)](#adal-oauth2)</li></ul> |
-| **Brama pola IoT** | <ul><li>[Uwierzytelnianie urządzeń łączących się z bramą polowej](#authn-devices-field)</li></ul> |
-| **Brama w chmurze IoT** | <ul><li>[Upewnij się, że urządzenia łączące się z bramą w chmurze są uwierzytelnione](#authn-devices-cloud)</li><li>[Używanie poświadczeń uwierzytelniania na urządzenie](#authn-cred)</li></ul> |
-| **Azure Storage** | <ul><li>[Upewnij się, że tylko wymagane kontenery i obiekty blob mają anonimowy dostęp do odczytu](#req-containers-anon)</li><li>[Udzielanie ograniczonego dostępu do obiektów w magazynie platformy Azure przy użyciu usługi SAS lub SAP](#limited-access-sas)</li></ul> |
+| **Azure AD** | <ul><li>[Używaj standardowych scenariuszy uwierzytelniania obsługiwanych przez Azure Active Directory](#authn-aad)</li><li>[Zastąp domyślną pamięć podręczną tokenów ADAL skalowalną alternatywą](#adal-scalable)</li><li>[Upewnij się, że TokenReplayCache jest używany do zapobiegania powtarzaniu tokenów uwierzytelniania ADAL](#tokenreplaycache-adal)</li><li>[Korzystanie z bibliotek ADAL do zarządzania żądaniami tokenów od klientów OAuth2 do usługi AAD (lub w lokalnej usłudze AD)](#adal-oauth2)</li></ul> |
+| **Brama pola IoT** | <ul><li>[Uwierzytelnianie urządzeń łączących się z bramą pola](#authn-devices-field)</li></ul> |
+| **Brama usługi IoT Cloud** | <ul><li>[Upewnij się, że urządzenia łączące się z bramą w chmurze są uwierzytelniane](#authn-devices-cloud)</li><li>[Użyj poświadczeń uwierzytelniania dla urządzenia](#authn-cred)</li></ul> |
+| **Azure Storage** | <ul><li>[Upewnij się, że tylko wymagane kontenery i obiekty blob mają anonimowy dostęp do odczytu](#req-containers-anon)</li><li>[Udzielanie ograniczonego dostępu do obiektów w usłudze Azure Storage przy użyciu SAS lub SAP](#limited-access-sas)</li></ul> |
 
 ## <a name="consider-using-a-standard-authentication-mechanism-to-authenticate-to-web-application"></a><a id="standard-authn-web-app"></a>Rozważ użycie standardowego mechanizmu uwierzytelniania do uwierzytelniania w aplikacji sieci Web
 
@@ -48,21 +48,10 @@ ms.locfileid: "72244629"
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
-| Szczegóły | <p>Uwierzytelnianie to proces, w którym jednostka potwierdza swoją tożsamość, zazwyczaj za pomocą poświadczeń, takich jak nazwa użytkownika i hasło. Dostępnych jest wiele protokołów uwierzytelniania, które mogą być brane pod uwagę. Niektóre z nich są wymienione poniżej:</p><ul><li>Certyfikaty klientów</li><li>Oparte na systemie Windows</li><li>Oparte na formularzach</li><li>Federacja — ADFS</li><li>Federacja — usługa Azure AD</li><li>Federacja — serwer tożsamości</li></ul><p>Rozważ użycie standardowego mechanizmu uwierzytelniania w celu zidentyfikowania procesu źródłowego</p>|
+| **Dokumentacja**              | Nie dotyczy  |
+| Szczegóły | <p>Uwierzytelnianie to proces, w którym jednostka udowadnia swoją tożsamość, zwykle za pomocą poświadczeń, takich jak nazwa użytkownika i hasło. Istnieje wiele dostępnych protokołów uwierzytelniania, które mogą być brane pod uwagę. Poniżej wymieniono niektóre z nich:</p><ul><li>Certyfikaty klienta</li><li>Na podstawie systemu Windows</li><li>Oparte na formularzach</li><li>Federacja — ADFS</li><li>Federacja — Azure AD</li><li>Federacyjny serwer tożsamości</li></ul><p>Rozważ użycie standardowego mechanizmu uwierzytelniania do identyfikowania procesu źródłowego</p>|
 
-## <a name="applications-must-handle-failed-authentication-scenarios-securely"></a><a id="handle-failed-authn"></a>Aplikacje muszą bezpiecznie obsługiwać scenariusze uwierzytelniania, które nie powiodły się
-
-| Tytuł                   | Szczegóły      |
-| ----------------------- | ------------ |
-| **Składnik**               | Aplikacja internetowa | 
-| **Faza SDL**               | Kompilacja |  
-| **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
-| Szczegóły | <p>Aplikacje jawnie uwierzytelniają użytkowników, które muszą bezpiecznie obsługiwać scenariusze uwierzytelniania, które nie powiodły się. Mechanizm uwierzytelniania musi:</p><ul><li>Odmowa dostępu do zasobów uprzywilejowanych, gdy uwierzytelnianie nie powiedzie się</li><li>Wyświetlanie ogólnego komunikatu o błędzie po wystąpieniu nieudanego uwierzytelniania i odmowy dostępu</li></ul><p>Badanie na:</p><ul><li>Ochrona uprzywilejowanych zasobów po nieudanych logowaniach</li><li>Ogólny komunikat o błędzie jest wyświetlany w przypadku zdarzeń uwierzytelniania nie powiodło się i odmowy dostępu</li><li>Konta są wyłączone po nadmiernej liczbie nieudanych prób</li><ul>|
-
-## <a name="enable-step-up-or-adaptive-authentication"></a><a id="step-up-adaptive-authn"></a>Włączanie uwierzytelniania krokowego lub adaptacyjnego
+## <a name="applications-must-handle-failed-authentication-scenarios-securely"></a><a id="handle-failed-authn"></a>Aplikacje muszą obsługiwać bezpieczne scenariusze dotyczące niepowodzenia uwierzytelniania
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -70,21 +59,10 @@ ms.locfileid: "72244629"
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
-| Szczegóły | <p>Sprawdź, czy aplikacja ma dodatkową autoryzację (np. zwiększenie lub uwierzytelnianie adaptacyjne, za pomocą uwierzytelniania wieloskładnikowego, takiego jak wysyłanie OTP w wiadomościach SMS, e-mailach itp. lub monitowanie o ponowne uwierzytelnienie), aby użytkownik został zakwestionowany przed udzieleniem dostępu do informacji szczególnie chronionych. Zasada ta ma również zastosowanie do wprowadzania krytycznych zmian na koncie lub</p><p>Oznacza to również, że dostosowanie uwierzytelniania musi być zaimplementowane w taki sposób, aby aplikacja poprawnie wymuszała autoryzację kontekstową, aby nie zezwalać na nieautoryzowaną manipulację za pomocą np.</p>|
+| **Dokumentacja**              | Nie dotyczy  |
+| Szczegóły | <p>Aplikacje, które jawnie uwierzytelniają użytkowników, muszą bezpiecznie obsłużyć scenariusze niepowodzenia uwierzytelniania. Mechanizm uwierzytelniania musi:</p><ul><li>Odmowa dostępu do zasobów uprzywilejowanych, gdy uwierzytelnianie nie powiedzie się</li><li>Wyświetl ogólny komunikat o błędzie po nieudanym uwierzytelnieniu i wystąpieniu odmowy dostępu</li></ul><p>Test dla:</p><ul><li>Ochrona uprzywilejowanych zasobów po nieudanych próbach logowania</li><li>Ogólny komunikat o błędzie jest wyświetlany w przypadku niepowodzenia uwierzytelniania i zdarzeń odmowy dostępu</li><li>Konta są wyłączone po nadmiernej liczbie nieudanych prób</li><ul>|
 
-## <a name="ensure-that-administrative-interfaces-are-appropriately-locked-down"></a><a id="admin-interface-lockdown"></a>Upewnij się, że interfejsy administracyjne są odpowiednio zablokowane
-
-| Tytuł                   | Szczegóły      |
-| ----------------------- | ------------ |
-| **Składnik**               | Aplikacja internetowa | 
-| **Faza SDL**               | Kompilacja |  
-| **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
-| Szczegóły | Pierwszym rozwiązaniem jest udzielenie dostępu tylko z określonego źródłowego zakresu ip do interfejsu administracyjnego. Jeśli to rozwiązanie nie byłoby możliwe, niż zawsze zaleca się wymuszanie intencyjnego lub adaptacyjnego uwierzytelniania w celu zalogowania się do interfejsu administracyjnego |
-
-## <a name="implement-forgot-password-functionalities-securely"></a><a id="forgot-pword-fxn"></a>Bezpieczne wdrażanie funkcji zapomnianych haseł
+## <a name="enable-step-up-or-adaptive-authentication"></a><a id="step-up-adaptive-authn"></a>Włącz uwierzytelnianie krok po kroku lub adaptacyjne
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -92,21 +70,10 @@ ms.locfileid: "72244629"
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
-| Szczegóły | <p>Pierwszą rzeczą jest sprawdzenie, czy zapomniane hasło i inne ścieżki odzyskiwania wysyłają link zawierający ograniczony czas token aktywacji, a nie samo hasło. Przed wysłaniem łącza może być wymagane dodatkowe uwierzytelnianie oparte na tokenach programowych (np. tokenu SMS, natywnych aplikacjach mobilnych itp.). Po drugie, nie należy blokować konta użytkowników, podczas gdy proces uzyskiwania nowego hasła jest w toku.</p><p>Może to prowadzić do ataku typu "odmowa usługi", gdy osoba atakująca zdecyduje się celowo zablokować użytkowników za pomocą automatycznego ataku. Po trzecie, za każdym razem, gdy nowe żądanie hasła zostało ustawione w toku, wyświetlany komunikat powinien być uogólniony, aby zapobiec wyliczaniu nazwy użytkownika. Po czwarte, zawsze nie zezwalaj na używanie starych haseł i implementuje silną politykę haseł.</p> |
+| **Dokumentacja**              | Nie dotyczy  |
+| Szczegóły | <p>Sprawdź, czy aplikacja ma dodatkowe uprawnienia (takie jak krokowe lub adaptacyjne uwierzytelnianie, za pomocą uwierzytelniania wieloskładnikowego, takiego jak wysyłanie OTP w wiadomościach SMS, wiadomości e-mail itp. lub monitowanie o ponowne uwierzytelnienie), aby użytkownik był wzywany przed udzieleniem dostępu do poufnych informacji. Ta reguła ma zastosowanie również do wprowadzania zmian krytycznych do konta lub akcji</p><p>Oznacza to również, że dostosowanie uwierzytelniania musi być zaimplementowane w taki sposób, że aplikacja poprawnie wymusza autoryzację kontekstową, tak aby nie umożliwiała nieautoryzowanego manipulowania przy użyciu na przykład naruszenia parametrów</p>|
 
-## <a name="ensure-that-password-and-account-policy-are-implemented"></a><a id="pword-account-policy"></a>Upewnij się, że hasło i zasady konta są implementowane
-
-| Tytuł                   | Szczegóły      |
-| ----------------------- | ------------ |
-| **Składnik**               | Aplikacja internetowa | 
-| **Faza SDL**               | Kompilacja |  
-| **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
-| Szczegóły | <p>Należy zaimplementować zasady haseł i kont zgodnie z zasadami organizacji i najlepszymi praktykami.</p><p>Aby bronić się przed zgadywaniem opartym na brutalnej sile i słowniku: należy wdrożyć zasady silnego hasła, aby zapewnić użytkownikom tworzenie złożonych haseł (np. 12 znaków o minimalnej długości, znaków alfanumerycznej i specjalnych).</p><p>Zasady blokady konta mogą być implementowane w następujący sposób:</p><ul><li>**Miękka blokada:** Może to być dobrym rozwiązaniem do ochrony użytkowników przed atakami siłowymi. Na przykład za każdym razem, gdy użytkownik wprowadzi nieprawidłowe hasło trzy razy aplikacja może zablokować konto na minutę, aby spowolnić proces brutalnego wymuszania hasła, co czyni go mniej opłacalnym dla osoby atakującej. Jeśli w tym przykładzie zostaną wprowadzone środki zaradcze dotyczące blokady twardej, można by uzyskać "DoS", definitywnie blokując konta. Alternatywnie, aplikacja może wygenerować OTP (One Time Password) i wysłać go poza pasmem (za pośrednictwem poczty e-mail, sms itp.) do użytkownika. Innym podejściem może być wdrożenie CAPTCHA po osiągnięciu progu liczby nieudanych prób.</li><li>**Blokada twarda:** Ten typ blokady powinny być stosowane za każdym razem, gdy wykryje użytkownika atakującego aplikację i przeciwdziałać im za pomocą trwałego blokowania ich konta, dopóki zespół odpowiedzi nie miał czasu, aby zrobić ich kryminalistyki. Po tym procesie możesz zdecydować się na oddanie użytkownikowi konta lub podjąć dalsze kroki prawne przeciwko nim. Ten typ podejścia uniemożliwia osobie atakującej dalsze penetracji aplikacji i infrastruktury.</li></ul><p>Aby bronić się przed atakami na konta domyślne i przewidywalne, sprawdź, czy wszystkie klucze i hasła są wymienne i są generowane lub zastępowane po czasie instalacji.</p><p>Jeśli aplikacja ma do automatycznego generowania haseł, upewnij się, że wygenerowane hasła są losowe i mają wysoką entropię.</p>|
-
-## <a name="implement-controls-to-prevent-username-enumeration"></a><a id="controls-username-enum"></a>Implementowanie formantów zapobiegające wyliczaniu nazwy użytkownika
+## <a name="ensure-that-administrative-interfaces-are-appropriately-locked-down"></a><a id="admin-interface-lockdown"></a>Upewnij się, że interfejsy administracyjne są odpowiednio zablokowane.
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -114,32 +81,65 @@ ms.locfileid: "72244629"
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
-| **Kroki** | Wszystkie komunikaty o błędach powinny być uogólnione, aby zapobiec wyliczaniu nazwy użytkownika. Czasami nie można również uniknąć wycieku informacji w funkcjach, takich jak strona rejestracji. W tym miejscu należy użyć metod ograniczających szybkość, takich jak CAPTCHA, aby zapobiec automatycznemu atakowi przez osobę atakującą. |
+| **Dokumentacja**              | Nie dotyczy  |
+| Szczegóły | Pierwszym rozwiązaniem jest przyznanie dostępu tylko z określonego źródłowego zakresu adresów IP do interfejsu administracyjnego. Jeśli to rozwiązanie nie będzie możliwe, niż jest zawsze zalecane, aby wymusić podwyższenie lub adaptacyjne uwierzytelnianie do logowania w interfejsie administracyjnym |
 
-## <a name="when-possible-use-windows-authentication-for-connecting-to-sql-server"></a><a id="win-authn-sql"></a>Jeśli to możliwe, użyj uwierzytelniania systemu Windows do łączenia się z programem SQL Server
+## <a name="implement-forgot-password-functionalities-securely"></a><a id="forgot-pword-fxn"></a>Bezpieczne Implementowanie funkcji zapomnianego hasła
+
+| Tytuł                   | Szczegóły      |
+| ----------------------- | ------------ |
+| **Składnik**               | Aplikacja internetowa | 
+| **Faza SDL**               | Kompilacja |  
+| **Odpowiednie technologie** | Ogólny |
+| **Atrybuty**              | Nie dotyczy  |
+| **Dokumentacja**              | Nie dotyczy  |
+| Szczegóły | <p>Pierwszym krokiem jest zweryfikowanie, że zapomniane hasło i inne ścieżki odzyskiwania wysyłają łącze, w tym token aktywacji ograniczony czas zamiast samego hasła. Dodatkowe uwierzytelnianie oparte na tokenach miękkich (np. token programu SMS, natywne aplikacje mobilne itp.) może być również wymagane przed wysłaniem linku. Po drugie nie należy blokować konta użytkowników, gdy trwa proces uzyskiwania nowego hasła.</p><p>Może to prowadzić do ataku typu "odmowa usługi", gdy osoba atakująca zdecyduje się celowo zablokowaniu użytkowników przy użyciu automatycznego ataku. Trzeci, za każdym razem, gdy nowe żądanie hasła zostało ustawione w toku, wyświetlany komunikat powinien zostać uogólniony, aby zapobiec wyliczaniu nazw użytkowników. Czwarty, zawsze nie Zezwalaj na używanie starych haseł i Implementuj zasady silnego hasła.</p> |
+
+## <a name="ensure-that-password-and-account-policy-are-implemented"></a><a id="pword-account-policy"></a>Upewnij się, że zasady haseł i kont zostały zaimplementowane
+
+| Tytuł                   | Szczegóły      |
+| ----------------------- | ------------ |
+| **Składnik**               | Aplikacja internetowa | 
+| **Faza SDL**               | Kompilacja |  
+| **Odpowiednie technologie** | Ogólny |
+| **Atrybuty**              | Nie dotyczy  |
+| **Dokumentacja**              | Nie dotyczy  |
+| Szczegóły | <p>Należy zaimplementować zasady dotyczące haseł i kont zgodnie z zasadami organizacji i najlepszymi rozwiązaniami.</p><p>Aby chronić przed rozpuszczeniem i odzgadywaniem słownika: należy zaimplementować zasady silnego hasła, aby zapewnić użytkownikom możliwość tworzenia złożonych haseł (np. 12 znaków, znaków alfanumerycznych i specjalnych).</p><p>Zasady blokady konta mogą być implementowane w następujący sposób:</p><ul><li>**Niewygładzone Blokowanie:** Może to być dobra opcja w celu ochrony użytkowników przed atakami polegającymi na rozdzieleniu. Na przykład za każdym razem, gdy użytkownik wprowadzi nieprawidłowe hasło trzykrotnie, aplikacja może zablokować konto przez minutę w celu spowolnienia procesu rozrzucania hasła, co zmniejsza opłacalność działania osoby atakującej. Jeśli w tym przykładzie zaimplementowano środki zaradcze dla trwałego blokowania, można uzyskać "system DoS", trwale blokując konta. Alternatywnie aplikacja może generować uwierzytelnianie OTP (jednorazowe hasło) i wysyłać je poza pasmem (za pośrednictwem poczty e-mail, wiadomości SMS itp.) do użytkownika. Innym rozwiązaniem może być wdrożenie CAPTCHA po osiągnięciu progu liczby nieudanych prób.</li><li>**Twarda blokada:** Ten typ blokady powinien zostać zastosowany za każdym razem, gdy wykryjesz użytkownika, który atakuje aplikację, a następnie przeniesiesz je przez trwałe zablokowanie swojego konta do momentu, gdy zespół odpowiedzi zakończył dowodowych. Po wykonaniu tego procesu możesz zdecydować, aby przekazać użytkownikowi kopię zapasową swojego konta, lub podjąć w nim dalsze działania prawne. Ten typ podejścia uniemożliwia osobie atakującej dalsze przechodzą do aplikacji i infrastruktury.</li></ul><p>Aby chronić przed atakami na konta domyślne i przewidywalne, sprawdź, czy wszystkie klucze i hasła są wymienne i są generowane lub zastępowane po upływie czasu instalacji.</p><p>Jeśli aplikacja ma generować automatyczne generowanie haseł, należy się upewnić, że wygenerowane hasła są losowo i mają wysoką entropię.</p>|
+
+## <a name="implement-controls-to-prevent-username-enumeration"></a><a id="controls-username-enum"></a>Implementowanie formantów w celu zapobiegania wyliczaniu nazw użytkowników
+
+| Tytuł                   | Szczegóły      |
+| ----------------------- | ------------ |
+| **Składnik**               | Aplikacja internetowa | 
+| **Faza SDL**               | Kompilacja |  
+| **Odpowiednie technologie** | Ogólny |
+| **Atrybuty**              | Nie dotyczy  |
+| **Dokumentacja**              | Nie dotyczy  |
+| **Czynnooci** | Wszystkie komunikaty o błędach powinny być uogólnione w celu uniknięcia wyliczenia nazw użytkowników. Czasami nie można uniknąć wycieku informacji w funkcjach, takich jak Strona rejestracji. W tym miejscu należy użyć metod ograniczania szybkości, takich jak CAPTCHA, aby zapobiec automatycznemu atakowi osoby atakującej. |
+
+## <a name="when-possible-use-windows-authentication-for-connecting-to-sql-server"></a><a id="win-authn-sql"></a>Jeśli to możliwe, Użyj uwierzytelniania systemu Windows w celu nawiązania połączenia z usługą SQL Server
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | baza danych | 
 | **Faza SDL**               | Kompilacja |  
-| **Odpowiednie technologie** | OnPrem ( OnPrem ) |
-| **Atrybuty**              | Wersja SQL - Wszystkie |
-| **Odwołania**              | [SQL Server — wybieranie trybu uwierzytelniania](https://msdn.microsoft.com/library/ms144284.aspx) |
-| **Kroki** | Uwierzytelnianie systemu Windows używa protokołu zabezpieczeń Kerberos, zapewnia wymuszanie zasad haseł w odniesieniu do sprawdzania poprawności złożoności dla silnych haseł, zapewnia obsługę blokady konta i obsługuje wygasanie hasła.|
+| **Odpowiednie technologie** | Lokalnego |
+| **Atrybuty**              | Wersja SQL — wszystkie |
+| **Dokumentacja**              | [SQL Server — wybierz tryb uwierzytelniania](https://msdn.microsoft.com/library/ms144284.aspx) |
+| **Czynnooci** | Uwierzytelnianie systemu Windows używa protokołu zabezpieczeń Kerberos, zapewnia wymuszanie zasad haseł w odniesieniu do sprawdzania złożoności silnych haseł, zapewnia obsługę blokady konta oraz obsługuje wygasanie haseł.|
 
-## <a name="when-possible-use-azure-active-directory-authentication-for-connecting-to-sql-database"></a><a id="aad-authn-sql"></a>Jeśli to możliwe, użyj uwierzytelniania usługi Azure Active Directory do łączenia się z bazą danych SQL
+## <a name="when-possible-use-azure-active-directory-authentication-for-connecting-to-sql-database"></a><a id="aad-authn-sql"></a>Gdy jest to możliwe, Użyj uwierzytelniania Azure Active Directory w celu nawiązania połączenia z SQL Database
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | baza danych | 
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Usługi SQL Azure |
-| **Atrybuty**              | Wersja SQL - V12 |
-| **Odwołania**              | [Łączenie się z bazą danych SQL przy użyciu uwierzytelniania usługi Azure Active Directory](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
-| **Kroki** | **Wersja minimalna:** Usługa Azure SQL Database V12 wymagana do zezwalania bazie danych SQL azure na używanie uwierzytelniania AAD w katalogu Microsoft Directory |
+| **Atrybuty**              | Wersja SQL — V12 |
+| **Dokumentacja**              | [Nawiązywanie połączenia z SQL Database przy użyciu uwierzytelniania Azure Active Directory](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
+| **Czynnooci** | **Minimalna wersja:** Azure SQL Database V12 wymagany do zezwalania Azure SQL Database na używanie uwierzytelniania usługi AAD w odniesieniu do katalogu Microsoft |
 
-## <a name="when-sql-authentication-mode-is-used-ensure-that-account-and-password-policy-are-enforced-on-sql-server"></a><a id="authn-account-pword"></a>Gdy używany jest tryb uwierzytelniania SQL, upewnij się, że zasady konta i hasła są wymuszane na serwerze SQL
+## <a name="when-sql-authentication-mode-is-used-ensure-that-account-and-password-policy-are-enforced-on-sql-server"></a><a id="authn-account-pword"></a>Gdy jest używany tryb uwierzytelniania SQL, upewnij się, że zasady konta i hasła są wymuszane w programie SQL Server
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -147,21 +147,21 @@ ms.locfileid: "72244629"
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Zasady haseł programu SQL Server](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
-| **Kroki** | Podczas korzystania z uwierzytelniania programu SQL Server logowania są tworzone w programie SQL Server, które nie są oparte na kontach użytkowników systemu Windows. Zarówno nazwa użytkownika, jak i hasło są tworzone przy użyciu programu SQL Server i przechowywane w programie SQL Server. Program SQL Server może używać mechanizmów zasad haseł systemu Windows. Można zastosować te same zasady złożoności i wygasania używane w systemie Windows do haseł używanych w programie SQL Server. |
+| **Dokumentacja**              | [Zasady haseł SQL Server](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
+| **Czynnooci** | W przypadku korzystania z uwierzytelniania SQL Server nazwy logowania są tworzone w SQL Server, które nie są oparte na kontach użytkowników systemu Windows. Zarówno nazwa użytkownika, jak i hasło są tworzone przy użyciu SQL Server i przechowywane w SQL Server. SQL Server mogą korzystać z mechanizmów zasad haseł systemu Windows. Może stosować te same zasady złożoności i wygasania używane w systemie Windows do haseł używanych wewnątrz SQL Server. |
 
-## <a name="do-not-use-sql-authentication-in-contained-databases"></a><a id="autn-contained-db"></a>Nie używaj uwierzytelniania SQL w zamkniętych bazach danych
+## <a name="do-not-use-sql-authentication-in-contained-databases"></a><a id="autn-contained-db"></a>Nie używaj uwierzytelniania SQL w zawartych bazach danych
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | baza danych | 
 | **Faza SDL**               | Kompilacja |  
-| **Odpowiednie technologie** | OnPrem, SQL Azure |
-| **Atrybuty**              | Wersja SQL - MSSQL2012, wersja SQL - V12 |
-| **Odwołania**              | [Najważniejsze wskazówki dotyczące zabezpieczeń dotyczące zawartych w nich baz danych](https://msdn.microsoft.com/library/ff929055.aspx) |
-| **Kroki** | Brak wymuszanych zasad haseł może zwiększyć prawdopodobieństwo ustanowienia słabych poświadczeń w zawartej bazie danych. Wykorzystaj uwierzytelnianie systemu Windows. |
+| **Odpowiednie technologie** | Lokalnego, SQL Azure |
+| **Atrybuty**              | SQL Version-MSSQL2012, SQL Version-V12 |
+| **Dokumentacja**              | [Najlepsze rozwiązania w zakresie zabezpieczeń z zawartymi bazami danych](https://msdn.microsoft.com/library/ff929055.aspx) |
+| **Czynnooci** | Brak wymuszanych zasad haseł może zwiększyć prawdopodobieństwo ustanowienia słabego poświadczenia w zawartej bazie danych. Skorzystaj z uwierzytelniania systemu Windows. |
 
-## <a name="use-per-device-authentication-credentials-using-sas-tokens"></a><a id="authn-sas-tokens"></a>Używanie poświadczeń uwierzytelniania na urządzeniu przy użyciu tokenów SaS
+## <a name="use-per-device-authentication-credentials-using-sas-tokens"></a><a id="authn-sas-tokens"></a>Użyj poświadczeń uwierzytelniania na urządzeniu przy użyciu tokenów SaS
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -169,65 +169,65 @@ ms.locfileid: "72244629"
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Omówienie uwierzytelniania i modelu zabezpieczeń centrum zdarzeń](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Kroki** | <p>Model zabezpieczeń Centrum zdarzeń jest oparty na kombinacji tokenów sygnatury dostępu współdzielonego (SAS) i wydawców zdarzeń. Nazwa wydawcy reprezentuje DeviceID, który odbiera token. Pomogłoby to skojarzyć tokeny wygenerowane z odpowiednimi urządzeniami.</p><p>Wszystkie wiadomości są oznaczone inicjatorem po stronie usługi, co pozwala na wykrycie prób fałszowania pochodzenia ładunku. Podczas uwierzytelniania urządzeń wygeneruj token SaS na urządzenie o zakresie do unikatowego wydawcy.</p>|
+| **Dokumentacja**              | [Omówienie modelu uwierzytelniania i zabezpieczeń Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Czynnooci** | <p>Model zabezpieczeń Event Hubs jest oparty na kombinacji tokenów sygnatury dostępu współdzielonego (SAS) i wydawców zdarzeń. Nazwa wydawcy reprezentuje identyfikator DeviceID, który odbiera token. Pomoże to skojarzyć tokeny wygenerowane z odpowiednimi urządzeniami.</p><p>Wszystkie komunikaty są otagowane przy użyciu programu inicjującego po stronie usługi, umożliwiając wykrywanie prób podania źródła w ładunku. Podczas uwierzytelniania urządzeń Wygeneruj token sygnatury dostępu współdzielonego na urządzenie w zakresie unikatowego wydawcy.</p>|
 
-## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Włączanie uwierzytelniania wieloskładnikowego platformy Azure dla administratorów platformy Azure
+## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Włączanie usługi Azure Multi-Factor Authentication dla administratorów platformy Azure
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Granica zaufania platformy Azure | 
-| **Faza SDL**               | wdrażania |  
+| **Faza SDL**               | Wdrożenie |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Co to jest usługa Multi-Factor Authentication platformy Azure?](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
-| **Kroki** | <p>Uwierzytelnianie wieloskładnikowe (MFA) jest metodą uwierzytelniania, która wymaga więcej niż jednej metody weryfikacji i dodaje krytyczną drugą warstwę zabezpieczeń do logowania i transakcji użytkowników. Działa poprzez wymaganie dwóch lub więcej z następujących metod weryfikacji:</p><ul><li>Coś, co znasz (zazwyczaj hasło)</li><li>Coś, co masz (zaufane urządzenie, które nie jest łatwo powielane, jak telefon)</li><li>Coś, czym jesteś (biometria)</li><ul>|
+| **Dokumentacja**              | [Co to jest usługa Multi-Factor Authentication platformy Azure?](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
+| **Czynnooci** | <p>Uwierzytelnianie wieloskładnikowe (MFA) to metoda uwierzytelniania wymagająca więcej niż jednej metody weryfikacji i zwiększania krytycznej drugiej warstwy zabezpieczeń do logowania i transakcji użytkownika. Działa ono, wymagając co najmniej dwóch następujących metod weryfikacji:</p><ul><li>Coś, co wiesz (zazwyczaj hasło)</li><li>Coś, co masz (zaufane urządzenie, które nie jest łatwo duplikowane, takie jak telefon)</li><li>Coś, co masz (biometria)</li><ul>|
 
-## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Ograniczanie dostępu anonimowego do klastra sieci szkieletowej usług
-
-| Tytuł                   | Szczegóły      |
-| ----------------------- | ------------ |
-| **Składnik**               | Granica zaufania sieci usług | 
-| **Faza SDL**               | wdrażania |  
-| **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Środowisko — Platforma Azure  |
-| **Odwołania**              | [Scenariusze zabezpieczeń klastra sieci szkieletowej usług](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
-| **Kroki** | <p>Klastry powinny być zawsze zabezpieczone, aby uniemożliwić nieautoryzowanym użytkownikom łączenie się z klastrem, zwłaszcza gdy ma uruchomione obciążenia produkcyjne.</p><p>Podczas tworzenia klastra sieci szkieletowej usług upewnij się, że tryb zabezpieczeń jest ustawiony na "bezpieczny" i skonfiguruj wymagany certyfikat serwera X.509. Utworzenie klastra "niezabezpieczonego" umożliwi każdemu anonimowemu użytkownikowi nawiązanie z nim połączenia, jeśli udostępnia punkty końcowe zarządzania do publicznego Internetu.</p>|
-
-## <a name="ensure-that-service-fabric-client-to-node-certificate-is-different-from-node-to-node-certificate"></a><a id="fabric-cn-nn"></a>Upewnij się, że certyfikat klient-węzeł sieci szkieletowej usług różni się od certyfikatu węzeł-węzeł
+## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Ograniczanie dostępu anonimowego do klastra Service Fabric
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
-| **Składnik**               | Granica zaufania sieci usług | 
-| **Faza SDL**               | wdrażania |  
+| **Składnik**               | Service Fabric granic zaufania | 
+| **Faza SDL**               | Wdrożenie |  
 | **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Środowisko — Azure, Środowisko — autonomiczne |
-| **Odwołania**              | [Zabezpieczenia certyfikatu klient-węzeł sieci szkieletowej usług](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#_client-to-node-certificate-security), [Łączenie się z bezpiecznym klastrem przy użyciu certyfikatu klienta](https://azure.microsoft.com/documentation/articles/service-fabric-connect-to-secure-cluster/) |
-| **Kroki** | <p>Zabezpieczenia certyfikatu klient-węzeł są konfigurowane podczas tworzenia klastra za pośrednictwem portalu Azure, szablonów usługi Resource Manager lub autonomicznego szablonu JSON przez określenie certyfikatu klienta administratora i/lub certyfikatu klienta użytkownika.</p><p>Określone certyfikaty klienta administratora i klienta użytkownika powinny być inne niż certyfikaty podstawowe i pomocnicze określone dla zabezpieczeń węzeł-węzeł.</p>|
+| **Atrybuty**              | Środowisko — Azure  |
+| **Dokumentacja**              | [Scenariusze zabezpieczeń klastra Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
+| **Czynnooci** | <p>Klaster powinien zawsze być zabezpieczony, aby uniemożliwić nieautoryzowanym użytkownikom łączenie się z klastrem, zwłaszcza gdy ma uruchomione na nim obciążenia produkcyjne.</p><p>Podczas tworzenia klastra usługi Service Fabric upewnij się, że tryb zabezpieczeń jest ustawiony na wartość "Secure" i skonfiguruj wymagany certyfikat serwera X. 509. Utworzenie klastra "niezabezpieczony" zezwoli każdemu użytkownikowi Anonimowemu na nawiązanie z nim połączenia, jeśli ujawnia on punkty końcowe zarządzania do publicznego Internetu.</p>|
 
-## <a name="use-aad-to-authenticate-clients-to-service-fabric-clusters"></a><a id="aad-client-fabric"></a>Uwierzytelnianie klientów do obsługi klastrów sieci szkieletowej za pomocą usługi AAD
+## <a name="ensure-that-service-fabric-client-to-node-certificate-is-different-from-node-to-node-certificate"></a><a id="fabric-cn-nn"></a>Upewnij się, że Service Fabric certyfikat klienta-węzeł różni się od certyfikatu węzła-węzeł
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
-| **Składnik**               | Granica zaufania sieci usług | 
-| **Faza SDL**               | wdrażania |  
+| **Składnik**               | Service Fabric granic zaufania | 
+| **Faza SDL**               | Wdrożenie |  
 | **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Środowisko — Platforma Azure |
-| **Odwołania**              | [Scenariusze zabezpieczeń klastra — zalecenia dotyczące zabezpieczeń](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#security-recommendations) |
-| **Kroki** | Klastry uruchomione na platformie Azure mogą również zabezpieczyć dostęp do punktów końcowych zarządzania przy użyciu usługi Azure Active Directory (AAD), oprócz certyfikatów klientów. W przypadku klastrów platformy Azure zaleca się używanie zabezpieczeń usługi AAD do uwierzytelniania klientów i certyfikatów dla zabezpieczeń między węzłami.|
+| **Atrybuty**              | Środowisko — platforma Azure, środowisko autonomiczne |
+| **Dokumentacja**              | [Service Fabric zabezpieczenia certyfikatu klienta do węzła](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#_client-to-node-certificate-security), Połącz się [z bezpiecznym klastrem przy użyciu certyfikatu klienta](https://azure.microsoft.com/documentation/articles/service-fabric-connect-to-secure-cluster/) |
+| **Czynnooci** | <p>Zabezpieczenia certyfikatów klient-węzeł są konfigurowane podczas tworzenia klastra za pomocą Azure Portal, Menedżer zasobów szablonów lub autonomicznego szablonu JSON, określając certyfikat klienta i/lub certyfikat klienta użytkownika.</p><p>Określone certyfikaty klienta administracyjnego i klienta użytkownika powinny być inne niż certyfikaty podstawowe i pomocnicze określone dla zabezpieczeń między węzłami.</p>|
 
-## <a name="ensure-that-service-fabric-certificates-are-obtained-from-an-approved-certificate-authority-ca"></a><a id="fabric-cert-ca"></a>Upewnij się, że certyfikaty sieci szkieletowej usług są uzyskiwane z zatwierdzonego urzędu certyfikacji
+## <a name="use-aad-to-authenticate-clients-to-service-fabric-clusters"></a><a id="aad-client-fabric"></a>Uwierzytelnianie klientów w klastrach usługi Service Fabric za pomocą usługi AAD
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
-| **Składnik**               | Granica zaufania sieci usług | 
-| **Faza SDL**               | wdrażania |  
+| **Składnik**               | Service Fabric granic zaufania | 
+| **Faza SDL**               | Wdrożenie |  
 | **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Środowisko — Platforma Azure |
-| **Odwołania**              | [Certyfikaty X.509 i sieci szkieletowej usług](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#x509-certificates-and-service-fabric) |
-| **Kroki** | <p>Usługa Service Fabric używa certyfikatów serwera X.509 do uwierzytelniania węzłów i klientów.</p><p>Kilka ważnych rzeczy, które należy wziąć pod uwagę podczas korzystania z certyfikatów w sieci szkieletowej usług:</p><ul><li>Certyfikaty używane w klastrach z uruchomionymi obciążeniami produkcyjnymi powinny być tworzone przy użyciu poprawnie skonfigurowanej usługi certyfikatów systemu Windows Server lub uzyskiwane z zatwierdzonego urzędu certyfikacji.Certificates used in clusters running production workloads should be created by using a correctly configured Windows Server certificate service or obtained from an approved Certificate Authority (CA). Urząd certyfikacji może być zatwierdzonym zewnętrznym urzędem certyfikacji lub prawidłowo zarządzaną wewnętrzną infrastrukturą kluczy publicznych (PKI)</li><li>Nigdy nie używaj żadnych certyfikatów tymczasowych lub testowych w produkcji, które są tworzone za pomocą narzędzi, takich jak MakeCert.exe</li><li>Można użyć certyfikatu z podpisem własnym, ale należy to zrobić tylko dla klastrów testowych, a nie w produkcji</li></ul>|
+| **Atrybuty**              | Środowisko — Azure |
+| **Dokumentacja**              | [Scenariusze zabezpieczeń klastra — zalecenia dotyczące zabezpieczeń](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#security-recommendations) |
+| **Czynnooci** | Klastry działające na platformie Azure mogą również zabezpieczyć dostęp do punktów końcowych zarządzania przy użyciu usługi Azure Active Directory (AAD), a nie od certyfikatów klienta. W przypadku klastrów platformy Azure zaleca się używanie zabezpieczeń usługi AAD do uwierzytelniania klientów i certyfikatów na potrzeby zabezpieczeń między węzłami.|
 
-## <a name="use-standard-authentication-scenarios-supported-by-identity-server"></a><a id="standard-authn-id"></a>Używanie standardowych scenariuszy uwierzytelniania obsługiwanych przez serwer tożsamości
+## <a name="ensure-that-service-fabric-certificates-are-obtained-from-an-approved-certificate-authority-ca"></a><a id="fabric-cert-ca"></a>Upewnij się, że certyfikaty usługi Service Fabric są uzyskiwane z zatwierdzonego urzędu certyfikacji (CA)
+
+| Tytuł                   | Szczegóły      |
+| ----------------------- | ------------ |
+| **Składnik**               | Service Fabric granic zaufania | 
+| **Faza SDL**               | Wdrożenie |  
+| **Odpowiednie technologie** | Ogólny |
+| **Atrybuty**              | Środowisko — Azure |
+| **Dokumentacja**              | [Certyfikaty X. 509 i Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#x509-certificates-and-service-fabric) |
+| **Czynnooci** | <p>Service Fabric używa certyfikatów serwera X. 509 do uwierzytelniania węzłów i klientów.</p><p>Niektóre ważne zagadnienia, które należy wziąć pod uwagę podczas korzystania z certyfikatów w sieciach szkieletowych usług:</p><ul><li>Certyfikaty używane w klastrach z uruchomionym obciążeniem produkcyjnym powinny być tworzone przy użyciu poprawnie skonfigurowanej usługi certyfikatów systemu Windows Server lub uzyskanej z zatwierdzonego urzędu certyfikacji (CA). Urząd certyfikacji może być zatwierdzonym zewnętrznym urzędem certyfikacji lub prawidłowo zarządzaną infrastrukturą kluczy publicznych (PKI)</li><li>Nigdy nie używaj żadnych certyfikatów tymczasowych lub testowych w środowisku produkcyjnym, które są tworzone za pomocą narzędzi, takich jak MakeCert. exe</li><li>Można użyć certyfikatu z podpisem własnym, ale należy to zrobić tylko w przypadku klastrów testowych, a nie w środowisku produkcyjnym.</li></ul>|
+
+## <a name="use-standard-authentication-scenarios-supported-by-identity-server"></a><a id="standard-authn-id"></a>Używaj standardowych scenariuszy uwierzytelniania obsługiwanych przez serwer tożsamości
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -235,44 +235,44 @@ ms.locfileid: "72244629"
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [IdentityServer3 - Wielki obraz](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
-| **Kroki** | <p>Poniżej znajdują się typowe interakcje obsługiwane przez serwer tożsamości:</p><ul><li>Przeglądarki komunikują się z aplikacjami internetowymi</li><li>Aplikacje sieci Web komunikują się z internetowymi interfejsami API (czasami samodzielnie, czasami w imieniu użytkownika)</li><li>Aplikacje oparte na przeglądarce komunikują się z internetowymi interfejsami API</li><li>Aplikacje natywne komunikują się z internetowymi interfejsami API</li><li>Aplikacje oparte na serwerze komunikują się z internetowymi interfejsami API</li><li>Internetowe interfejsy API komunikują się z internetowymi interfejsami API (czasami samodzielnie, czasami w imieniu użytkownika)</li></ul>|
+| **Dokumentacja**              | [IdentityServer3 — Big Picture](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
+| **Czynnooci** | <p>Poniżej przedstawiono typowe interakcje obsługiwane przez serwer tożsamości:</p><ul><li>Przeglądarki komunikują się z aplikacjami sieci Web</li><li>Aplikacje sieci Web komunikują się z internetowymi interfejsami API (czasami w imieniu użytkownika)</li><li>Aplikacje oparte na przeglądarce komunikują się z interfejsami API sieci Web</li><li>Aplikacje natywne komunikują się z interfejsami API sieci Web</li><li>Aplikacje oparte na serwerze komunikują się z interfejsami API sieci Web</li><li>Interfejsy API sieci Web komunikują się z internetowymi interfejsami API (czasami w imieniu użytkownika)</li></ul>|
 
-## <a name="override-the-default-identity-server-token-cache-with-a-scalable-alternative"></a><a id="override-token"></a>Zastępowanie domyślnej pamięci podręcznej tokenów serwera tożsamości skalowalnymi alternatywą
+## <a name="override-the-default-identity-server-token-cache-with-a-scalable-alternative"></a><a id="override-token"></a>Zastąp domyślną pamięć podręczną tokenów serwera tożsamości z skalowalną alternatywą
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Serwer tożsamości | 
-| **Faza SDL**               | wdrażania |  
+| **Faza SDL**               | Wdrożenie |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Wdrażanie serwera tożsamości — buforowanie](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
-| **Kroki** | <p>IdentityServer posiada prostą wbudowaną pamięć podręczną w pamięci. Chociaż jest to dobre dla aplikacji natywnych na małą skalę, nie skaluje się dla aplikacji warstwy środkowej i wewnętrznej z następujących powodów:</p><ul><li>Dostęp do tych aplikacji jest dostępnych dla wielu użytkowników jednocześnie. Zapisywanie wszystkich tokenów dostępu w tym samym magazynie stwarza problemy z izolacją i stanowi wyzwanie podczas pracy na dużą skalę: wielu użytkowników, z których każdy ma tyle tokenów, ile zasobów, do których aplikacja uzyskuje dostęp w ich imieniu, może oznaczać ogromne liczby i bardzo kosztowne operacje wyszukiwania</li><li>Te aplikacje są zazwyczaj wdrażane w rozproszonych topologiach, gdzie wiele węzłów musi mieć dostęp do tej samej pamięci podręcznej</li><li>Tokeny buforowane muszą przetrwać recyklingi i dezaktywacji procesów</li><li>Ze wszystkich powyższych powodów podczas implementowania aplikacji sieci web zaleca się zastąpienie domyślnej pamięci podręcznej tokenów serwera tożsamości skalowalną alternatywą, taką jak Usługa Azure Cache for Redis</li></ul>|
+| **Dokumentacja**              | [Wdrożenie serwera tożsamości — buforowanie](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
+| **Czynnooci** | <p>IdentityServer ma prostą wbudowaną pamięć podręczną w pamięci. Chociaż jest to dobre w przypadku aplikacji w małych skali, nie jest ona skalowana w przypadku aplikacji warstwy środkowej i zaplecza z następujących powodów:</p><ul><li>Te aplikacje są dostępne dla wielu użytkowników jednocześnie. Zapisanie wszystkich tokenów dostępu w tym samym magazynie powoduje problemy z izolacją i przedstawia wyzwania podczas działania w odpowiedniej skali: wielu użytkowników, z których każda zawiera dowolną liczbę tokenów jako zasoby, do których uzyskuje dostęp aplikacja w ich imieniu, może oznaczać ogromną liczbę i bardzo kosztowne operacje wyszukiwania</li><li>Te aplikacje są zwykle wdrażane w topologiach rozproszonych, w których wiele węzłów musi mieć dostęp do tej samej pamięci podręcznej</li><li>Tokeny buforowane muszą przetrwać odtwarzanie procesów i aktywacje</li><li>Ze względu na to, że podczas implementowania usługi Web Apps zaleca się przesłonięcie pamięci podręcznej tokeny domyślnego serwera tożsamości z skalowalną alternatywą, taką jak usługa Azure cache for Redis</li></ul>|
 
 ## <a name="ensure-that-deployed-applications-binaries-are-digitally-signed"></a><a id="binaries-signed"></a>Upewnij się, że pliki binarne wdrożonej aplikacji są podpisane cyfrowo
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Granica zaufania maszyny | 
-| **Faza SDL**               | wdrażania |  
+| **Faza SDL**               | Wdrożenie |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
-| **Kroki** | Upewnij się, że pliki binarne wdrożonej aplikacji są podpisane cyfrowo, aby można było zweryfikować integralność plików binarnych|
+| **Dokumentacja**              | Nie dotyczy  |
+| **Czynnooci** | Upewnij się, że pliki binarne wdrożonych aplikacji są podpisane cyfrowo, aby można było zweryfikować integralność plików binarnych|
 
-## <a name="enable-authentication-when-connecting-to-msmq-queues-in-wcf"></a><a id="msmq-queues"></a>Włączanie uwierzytelniania podczas łączenia się z kolejkami usługi MSMQ w wiktymnie
+## <a name="enable-authentication-when-connecting-to-msmq-queues-in-wcf"></a><a id="msmq-queues"></a>Włączanie uwierzytelniania podczas nawiązywania połączenia z kolejkami usługi MSMQ w programie WCF
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | WCF | 
 | **Faza SDL**               | Kompilacja |  
-| **Odpowiednie technologie** | Ogólny, NET Framework 3 |
+| **Odpowiednie technologie** | Ogólne, NET Framework 3 |
 | **Atrybuty**              | Nie dotyczy |
-| **Odwołania**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
-| **Kroki** | Program nie włącza uwierzytelniania podczas łączenia się z kolejkami usługi MSMQ, osoba atakująca może anonimowo przesyłać wiadomości do kolejki w celu przetworzenia. Jeśli uwierzytelnianie nie jest używane do łączenia się z kolejką usługi MSMQ używaną do dostarczania wiadomości do innego programu, osoba atakująca może przesłać anonimową wiadomość, która jest złośliwa.|
+| **Dokumentacja**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
+| **Czynnooci** | Program nie może włączyć uwierzytelniania podczas nawiązywania połączenia z kolejkami usługi MSMQ, osoba atakująca może anonimowo przesyłać komunikaty do kolejki w celu przetworzenia. Jeśli uwierzytelnianie nie jest używane do nawiązywania połączenia z kolejką usługi MSMQ służącą do dostarczania wiadomości do innego programu, osoba atakująca może przesłać anonimowy komunikat, który jest złośliwy.|
 
 ### <a name="example"></a>Przykład
-Element `<netMsmqBinding/>` pliku konfiguracyjnego WCF poniżej nakazuje WCF wyłączyć uwierzytelnianie podczas łączenia się z kolejką usługi MSMQ do dostarczania wiadomości.
+Poniższy `<netMsmqBinding/>` element pliku konfiguracji WCF instruuje program WCF, aby wyłączył uwierzytelnianie podczas nawiązywania połączenia z kolejką usługi MSMQ na potrzeby dostarczania komunikatów.
 ```
 <bindings>
     <netMsmqBinding>
@@ -284,10 +284,10 @@ Element `<netMsmqBinding/>` pliku konfiguracyjnego WCF poniżej nakazuje WCF wy�
     </netMsmqBinding>
 </bindings>
 ```
-Skonfiguruj program MSMQ tak, aby wymagał uwierzytelniania domeny lub certyfikatu systemu Windows przez cały czas dla wszystkich wiadomości przychodzących lub wychodzących.
+Konfigurowanie usługi MSMQ do żądania uwierzytelniania domeny systemu Windows lub certyfikatów dla wszystkich wiadomości przychodzących lub wychodzących.
 
 ### <a name="example"></a>Przykład
-Element `<netMsmqBinding/>` pliku konfiguracyjnego WCF poniżej nakazuje WCF włączyć uwierzytelnianie certyfikatów podczas łączenia się z kolejką usługi MSMQ. Klient jest uwierzytelniony przy użyciu certyfikatów X.509. Certyfikat klienta musi znajdować się w magazynie certyfikatów serwera.
+Poniższy `<netMsmqBinding/>` element pliku konfiguracji WCF instruuje program WCF, aby włączył uwierzytelnianie certyfikatu podczas nawiązywania połączenia z kolejką usługi MSMQ. Klient jest uwierzytelniany przy użyciu certyfikatów X. 509. Certyfikat klienta musi znajdować się w magazynie certyfikatów serwera programu.
 ```
 <bindings>
     <netMsmqBinding>
@@ -300,7 +300,7 @@ Element `<netMsmqBinding/>` pliku konfiguracyjnego WCF poniżej nakazuje WCF wł
 </bindings>
 ```
 
-## <a name="wcf-do-not-set-message-clientcredentialtype-to-none"></a><a id="message-none"></a>WCF-Nie ustawiaj message clientCredentialType na brak
+## <a name="wcf-do-not-set-message-clientcredentialtype-to-none"></a><a id="message-none"></a>WCF — nie ustawiaj komunikatu clientCredentialtype na none
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -308,24 +308,24 @@ Element `<netMsmqBinding/>` pliku konfiguracyjnego WCF poniżej nakazuje WCF wł
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | .NET Framework 3 |
 | **Atrybuty**              | Typ poświadczeń klienta — brak |
-| **Odwołania**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Wzmacnianie](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
-| **Kroki** | Brak uwierzytelniania oznacza, że każdy ma dostęp do tej usługi. Usługa, która nie uwierzytelnia swoich klientów, umożliwia dostęp wszystkim użytkownikom. Skonfiguruj aplikację do uwierzytelniania za poświadczenia klienta. Można to zrobić, ustawiając komunikat clientCredentialType na Windows lub Certificate. |
+| **Dokumentacja**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [wzmacnianie](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
+| **Czynnooci** | Brak uwierzytelniania oznacza, że wszyscy użytkownicy mogą uzyskać dostęp do tej usługi. Usługa, która nie uwierzytelnia swoich klientów, zezwala na dostęp wszystkim użytkownikom. Skonfiguruj aplikację do uwierzytelniania przy użyciu poświadczeń klienta. Można to zrobić, ustawiając komunikat clientCredentialtype na Windows lub Certificate. |
 
 ### <a name="example"></a>Przykład
 ```
 <message clientCredentialType=""Certificate""/>
 ```
 
-## <a name="wcf-do-not-set-transport-clientcredentialtype-to-none"></a><a id="transport-none"></a>WCF-Nie ustawiaj elementu klienta transportuCredentialType na brak
+## <a name="wcf-do-not-set-transport-clientcredentialtype-to-none"></a><a id="transport-none"></a>WCF — nie ustawiaj transportowej wartości clientCredentialtype na none
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | WCF | 
 | **Faza SDL**               | Kompilacja |  
-| **Odpowiednie technologie** | Ogólny, .NET Framework 3 |
+| **Odpowiednie technologie** | Ogólne, .NET Framework 3 |
 | **Atrybuty**              | Typ poświadczeń klienta — brak |
-| **Odwołania**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Wzmacnianie](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
-| **Kroki** | Brak uwierzytelniania oznacza, że każdy ma dostęp do tej usługi. Usługa, która nie uwierzytelnia swoich klientów, umożliwia wszystkim użytkownikom dostęp do jej funkcji. Skonfiguruj aplikację do uwierzytelniania za poświadczenia klienta. Można to zrobić, ustawiając klienta transportuCredentialType do systemu Windows lub certyfikatu. |
+| **Dokumentacja**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [wzmacnianie](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
+| **Czynnooci** | Brak uwierzytelniania oznacza, że wszyscy użytkownicy mogą uzyskać dostęp do tej usługi. Usługa, która nie uwierzytelnia swoich klientów, umożliwia wszystkim użytkownikom dostęp do jej funkcjonalności. Skonfiguruj aplikację do uwierzytelniania przy użyciu poświadczeń klienta. Można to zrobić, ustawiając wartość clientCredentialtype transportu na Windows lub Certificate. |
 
 ### <a name="example"></a>Przykład
 ```
@@ -340,21 +340,10 @@ Element `<netMsmqBinding/>` pliku konfiguracyjnego WCF poniżej nakazuje WCF wł
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Uwierzytelnianie i autoryzacja w ASP.NET interfejsie API sieci Web,](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) [zewnętrzne usługi uwierzytelniania z ASP.NET interfejsem API sieci Web (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
-| **Kroki** | <p>Uwierzytelnianie to proces, w którym jednostka potwierdza swoją tożsamość, zazwyczaj za pomocą poświadczeń, takich jak nazwa użytkownika i hasło. Dostępnych jest wiele protokołów uwierzytelniania, które mogą być brane pod uwagę. Niektóre z nich są wymienione poniżej:</p><ul><li>Certyfikaty klientów</li><li>Oparte na systemie Windows</li><li>Oparte na formularzach</li><li>Federacja — ADFS</li><li>Federacja — usługa Azure AD</li><li>Federacja — serwer tożsamości</li></ul><p>Łącza w sekcji odwołania zawierają szczegółowe informacje na temat sposobu zaimplementowania każdego ze schematów uwierzytelniania w celu zabezpieczenia interfejsu API sieci Web.</p>|
+| **Dokumentacja**              | [Uwierzytelnianie i autoryzacja w usłudze ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [zewnętrzne usługi uwierzytelniania z interfejsem api sieci Web ASP.NET (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
+| **Czynnooci** | <p>Uwierzytelnianie to proces, w którym jednostka udowadnia swoją tożsamość, zwykle za pomocą poświadczeń, takich jak nazwa użytkownika i hasło. Istnieje wiele dostępnych protokołów uwierzytelniania, które mogą być brane pod uwagę. Poniżej wymieniono niektóre z nich:</p><ul><li>Certyfikaty klienta</li><li>Na podstawie systemu Windows</li><li>Oparte na formularzach</li><li>Federacja — ADFS</li><li>Federacja — Azure AD</li><li>Federacyjny serwer tożsamości</li></ul><p>Linki w sekcji References zawierają szczegółowe informacje o tym, jak można zaimplementować poszczególne schematy uwierzytelniania w celu zabezpieczenia internetowego interfejsu API.</p>|
 
-## <a name="use-standard-authentication-scenarios-supported-by-azure-active-directory"></a><a id="authn-aad"></a>Używanie standardowych scenariuszy uwierzytelniania obsługiwanych przez usługę Azure Active Directory
-
-| Tytuł                   | Szczegóły      |
-| ----------------------- | ------------ |
-| **Składnik**               | Azure AD | 
-| **Faza SDL**               | Kompilacja |  
-| **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Scenariusze uwierzytelniania dla usługi Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [przykłady kodu usługi Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [przewodnik dla dewelopera usługi Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
-| **Kroki** | <p>Usługa Azure Active Directory (Azure AD) upraszcza uwierzytelnianie deweloperów, udostępniając tożsamość jako usługę, obsługując protokoły zgodne ze standardami branżowymi, takie jak OAuth 2.0 i OpenID Connect. Poniżej znajduje się pięć podstawowych scenariuszy aplikacji obsługiwanych przez usługę Azure AD:</p><ul><li>Przeglądarka sieci Web do aplikacji sieci Web: użytkownik musi zalogować się do aplikacji sieci web, która jest zabezpieczona przez usługę Azure AD</li><li>Aplikacja jednostronicowa (SPA): Użytkownik musi zalogować się do aplikacji jednostronicowej zabezpieczonej usługą Azure AD</li><li>Natywna aplikacja do interfejsu API sieci Web: natywna aplikacja uruchamiana na telefonie, tablecie lub komputerze musi uwierzytelnić użytkownika, aby uzyskać zasoby z internetowego interfejsu API zabezpieczonego usługą Azure AD</li><li>Aplikacja sieci Web do interfejsu API sieci Web: aplikacja sieci Web musi uzyskać zasoby z internetowego interfejsu API zabezpieczonego przez usługę Azure AD</li><li>Daemon lub Aplikacja serwera do interfejsu API sieci Web: aplikacja demona lub aplikacja serwera bez interfejsu użytkownika sieci Web musi uzyskać zasoby z internetowego interfejsu API zabezpieczonego usługą Azure AD</li></ul><p>Szczegółowe informacje na temat implementacji niskiego poziomu można znaleźć w linkach w sekcji odniesień</p>|
-
-## <a name="override-the-default-adal-token-cache-with-a-scalable-alternative"></a><a id="adal-scalable"></a>Zastępowanie domyślnej pamięci podręcznej tokenów ADAL skalowalnym alternatywą
+## <a name="use-standard-authentication-scenarios-supported-by-azure-active-directory"></a><a id="authn-aad"></a>Używaj standardowych scenariuszy uwierzytelniania obsługiwanych przez Azure Active Directory
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -362,10 +351,10 @@ Element `<netMsmqBinding/>` pliku konfiguracyjnego WCF poniżej nakazuje WCF wł
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Nowoczesne uwierzytelnianie za pomocą usługi Azure Active Directory dla aplikacji sieci Web](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), przy użyciu pamięci [podręcznej tokenu Redis jako ADAL](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
-| **Kroki** | <p>Domyślna pamięć podręczna używana przez bibliotekę uwierzytelniania usługi ADAL (Biblioteka uwierzytelniania usługi Active Directory) jest pamięcią podręczną w pamięci, która opiera się na magazynie statycznym, dostępnym w całym procesie. Chociaż działa to dla aplikacji natywnych, nie skaluje się dla aplikacji warstwy środkowej i wewnętrznej z następujących powodów:</p><ul><li>Dostęp do tych aplikacji jest dostępnych dla wielu użytkowników jednocześnie. Zapisywanie wszystkich tokenów dostępu w tym samym magazynie stwarza problemy z izolacją i stanowi wyzwanie podczas pracy na dużą skalę: wielu użytkowników, z których każdy ma tyle tokenów, ile zasobów, do których aplikacja uzyskuje dostęp w ich imieniu, może oznaczać ogromne liczby i bardzo kosztowne operacje wyszukiwania</li><li>Te aplikacje są zazwyczaj wdrażane w rozproszonych topologiach, gdzie wiele węzłów musi mieć dostęp do tej samej pamięci podręcznej</li><li>Tokeny buforowane muszą przetrwać recyklingi i dezaktywacji procesów</li></ul><p>Ze wszystkich powyższych powodów podczas implementowania aplikacji sieci web zaleca się zastąpienie domyślnej pamięci podręcznej tokenu ADAL skalowalną alternatywą, taką jak Usługa Azure Cache for Redis.</p>|
+| **Dokumentacja**              | [Scenariusze uwierzytelniania dla usługi Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [Azure Active Directory przykłady kodu](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [przewodnik dewelopera Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
+| **Czynnooci** | <p>Azure Active Directory (Azure AD) upraszcza uwierzytelnianie dla deweloperów, dostarczając tożsamość jako usługę, z obsługą protokołów standardowych branżowych, takich jak OAuth 2,0 i OpenID Connect Connect. Poniżej przedstawiono pięć scenariuszy aplikacji podstawowych obsługiwanych przez usługę Azure AD:</p><ul><li>Przeglądarka sieci Web do aplikacji sieci Web: użytkownik musi zalogować się do aplikacji sieci Web, która jest zabezpieczona przez usługę Azure AD</li><li>Aplikacja jednostronicowa (SPA): użytkownik musi zalogować się do aplikacji jednostronicowej zabezpieczonej przez usługę Azure AD</li><li>Natywna aplikacja do interfejsu API sieci Web: Natywna aplikacja działająca na telefonie, tablecie lub komputerze musi uwierzytelniać użytkownika w celu pobierania zasobów z internetowego interfejsu API, który jest zabezpieczony przez usługę Azure AD</li><li>Aplikacja sieci Web do interfejsu API sieci Web: aplikacja sieci Web musi pobrać zasoby z internetowego interfejsu API chronionego przez usługę Azure AD</li><li>Demon lub aplikacja serwera do interfejsu API sieci Web: aplikacja demona lub aplikacja serwera bez interfejsu użytkownika sieci Web musi pobierać zasoby z internetowego interfejsu API zabezpieczonego przez usługę Azure AD</li></ul><p>Zapoznaj się z linkami w sekcji References, aby zapoznać się ze szczegółami dotyczącymi implementacji niskiego poziomu.</p>|
 
-## <a name="ensure-that-tokenreplaycache-is-used-to-prevent-the-replay-of-adal-authentication-tokens"></a><a id="tokenreplaycache-adal"></a>Upewnij się, że tokenReplayCache jest używany, aby zapobiec powtórce tokenów uwierzytelniania ADAL
+## <a name="override-the-default-adal-token-cache-with-a-scalable-alternative"></a><a id="adal-scalable"></a>Zastąp domyślną pamięć podręczną tokenów ADAL skalowalną alternatywą
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -373,8 +362,19 @@ Element `<netMsmqBinding/>` pliku konfiguracyjnego WCF poniżej nakazuje WCF wł
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Nowoczesne uwierzytelnianie za pomocą usługi Azure Active Directory dla aplikacji sieci Web](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
-| **Kroki** | <p>Właściwość TokenReplayCache umożliwia deweloperom definiowanie pamięci podręcznej powtarzania tokenów, magazynu, który może być używany do zapisywania tokenów w celu sprawdzenia, czy żaden token nie może być używany więcej niż jeden raz.</p><p>Jest to środek przeciwko wspólnemu atakowi, trafnie nazywanego atakiem powtarzania tokenu: osoba atakująca przechwytująca token wysłany przy logowaniu może spróbować wysłać go ponownie do aplikacji ("powtórka" go) w celu ustanowienia nowej sesji. Na przykład w przepływie oidc kod-grant, po pomyślnym uwierzytelnieniu użytkownika, żądanie punktu końcowego "/signin-oidc" jednostki uzależnionej jest wykonane z parametrami "id_token", "code" i "state".</p><p>Jednostka uzależniająca sprawdza poprawność tego żądania i ustanawia nową sesję. Jeśli przeciwnik przechwytuje to żądanie i odtwarza je, może ustanowić udaną sesję i sfałszować użytkownika. Obecność nonce w OpenID Connect może ograniczyć, ale nie w pełni wyeliminować okoliczności, w których atak może być pomyślnie uchwalony. Aby chronić swoje aplikacje, deweloperzy mogą zapewnić implementację ITokenReplayCache i przypisać wystąpienie do TokenReplayCache.</p>|
+| **Dokumentacja**              | [Nowoczesne uwierzytelnianie z Azure Active Directory aplikacji sieci Web](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) [przy użyciu Redis jako pamięci podręcznej tokenów ADAL](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
+| **Czynnooci** | <p>Domyślną pamięcią podręczną używaną w ramach biblioteki ADAL (Active Directory Authentication Library) jest pamięć podręczna w pamięci, która opiera się na magazynie statycznym, dostępnym dla całego procesu. Chociaż działa to w przypadku aplikacji natywnych, nie jest ona skalowana w przypadku aplikacji warstwy środkowej i zaplecza z następujących powodów:</p><ul><li>Te aplikacje są dostępne dla wielu użytkowników jednocześnie. Zapisanie wszystkich tokenów dostępu w tym samym magazynie powoduje problemy z izolacją i przedstawia wyzwania podczas działania w odpowiedniej skali: wielu użytkowników, z których każda zawiera dowolną liczbę tokenów jako zasoby, do których uzyskuje dostęp aplikacja w ich imieniu, może oznaczać ogromną liczbę i bardzo kosztowne operacje wyszukiwania</li><li>Te aplikacje są zwykle wdrażane w topologiach rozproszonych, w których wiele węzłów musi mieć dostęp do tej samej pamięci podręcznej</li><li>Tokeny buforowane muszą przetrwać odtwarzanie procesów i aktywacje</li></ul><p>Ze względu na to, że podczas implementowania usługi Web Apps zaleca się przesłonięcie domyślnej pamięci podręcznej tokenów biblioteki ADAL z skalowalną alternatywą, taką jak usługa Azure cache for Redis.</p>|
+
+## <a name="ensure-that-tokenreplaycache-is-used-to-prevent-the-replay-of-adal-authentication-tokens"></a><a id="tokenreplaycache-adal"></a>Upewnij się, że TokenReplayCache jest używany do zapobiegania powtarzaniu tokenów uwierzytelniania ADAL
+
+| Tytuł                   | Szczegóły      |
+| ----------------------- | ------------ |
+| **Składnik**               | Azure AD | 
+| **Faza SDL**               | Kompilacja |  
+| **Odpowiednie technologie** | Ogólny |
+| **Atrybuty**              | Nie dotyczy  |
+| **Dokumentacja**              | [Nowoczesne uwierzytelnianie za pomocą Azure Active Directory dla aplikacji sieci Web](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
+| **Czynnooci** | <p>Właściwość TokenReplayCache umożliwia deweloperom zdefiniowanie pamięci podręcznej powtarzania tokenów, magazynu, który może być używany do zapisywania tokenów w celu sprawdzenia, czy nie można użyć żadnego tokenu więcej niż raz.</p><p>Jest to miara w odniesieniu do typowego ataku, aptly wywołane atakiem typu "token". osoba atakująca przechwytuje token wysłany podczas logowania może próbować ponownie wysłać do aplikacji ("Powtórz" ją) w celu ustanowienia nowej sesji. Na przykład w przypadku przepływu przydzielenia kodu OIDC po pomyślnym uwierzytelnieniu użytkownika żądanie do punktu końcowego "/SignIn-OIDC" jednostki uzależnionej jest nawiązywane za pomocą parametrów "id_token", "Code" i "State".</p><p>Jednostka uzależniona sprawdza poprawność tego żądania i ustanawia nową sesję. Jeśli atakującej przechwytuje to żądanie i odtwarza je, może nawiązać pomyślną sesję i sfałszować użytkownika. Obecność identyfikatora jednorazowego w programie OpenID Connect Connect może ograniczyć, ale nie całkowicie wyeliminować sytuacje, w których atak może zostać pomyślnie wdrożony. Aby chronić swoje aplikacje, deweloperzy mogą zapewnić implementację ITokenReplayCache i przypisać wystąpienie do TokenReplayCache.</p>|
 
 ### <a name="example"></a>Przykład
 ```csharp
@@ -387,7 +387,7 @@ bool TryFind(string securityToken);
 ```
 
 ### <a name="example"></a>Przykład
-Oto przykładowa implementacja interfejsu ITokenReplayCache. (Dostosuj i zaimplementuj ramy buforowania specyficzne dla projektu)
+Oto Przykładowa implementacja interfejsu ITokenReplayCache. (Dostosuj i zaimplementuj strukturę buforowania specyficzną dla projektu)
 ```csharp
 public class TokenReplayCache : ITokenReplayCache
 {
@@ -411,7 +411,7 @@ public class TokenReplayCache : ITokenReplayCache
     }
 }
 ```
-Zaimplementowanej pamięci podręcznej musi być odwołuje się w opcjach OIDC za pośrednictwem "TokenValidationParameters" właściwość w następujący sposób.
+Zaimplementowana pamięć podręczna musi być przywoływana w opcjach OIDC za pomocą właściwości "TokenValidationParameters" w następujący sposób.
 ```csharp
 OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 {
@@ -424,9 +424,9 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 }
 ```
 
-Należy pamiętać, że aby przetestować skuteczność tej konfiguracji, zaloguj się do lokalnej aplikacji `"/signin-oidc"` chronionej oidc i przechwyć żądanie do punktu końcowego w skrzypek. Gdy ochrona nie jest w miejscu, odtwarzanie tego żądania w fiddler ustawi nowy plik cookie sesji. Gdy żądanie jest odtwarzane po tokenreplayCache ochrony jest dodawany, aplikacja zda wyjątek w następujący sposób:`SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
+Należy pamiętać, że w celu przetestowania skuteczności tej konfiguracji zaloguj się do lokalnej aplikacji chronionej przez OIDC i Przechwyć `"/signin-oidc"` żądanie do punktu końcowego w programu Fiddler. Gdy ochrona nie jest na miejscu, odtwarzanie tego żądania w programu Fiddler ustawi nowy plik cookie sesji. Gdy żądanie jest ponownie odtwarzane po dodaniu ochrony TokenReplayCache, aplikacja zgłosi wyjątek w następujący sposób:`SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
 
-## <a name="use-adal-libraries-to-manage-token-requests-from-oauth2-clients-to-aad-or-on-premises-ad"></a><a id="adal-oauth2"></a>Biblioteki ADAL za pomocą bibliotek ADAL do zarządzania żądaniami tokenów od klientów OAuth2 do usługi AAD (lub lokalnej usługi AD)
+## <a name="use-adal-libraries-to-manage-token-requests-from-oauth2-clients-to-aad-or-on-premises-ad"></a><a id="adal-oauth2"></a>Korzystanie z bibliotek ADAL do zarządzania żądaniami tokenów od klientów OAuth2 do usługi AAD (lub w lokalnej usłudze AD)
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -434,10 +434,10 @@ Należy pamiętać, że aby przetestować skuteczność tej konfiguracji, zalogu
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
-| **Kroki** | <p>Biblioteka uwierzytelniania usługi Azure AD (ADAL) umożliwia deweloperom aplikacji klienckich łatwe uwierzytelnianie użytkowników w chmurze lub lokalnej usłudze Active Directory (AD), a następnie uzyskiwanie tokenów dostępu do zabezpieczania wywołań interfejsu API.</p><p>ADAL ma wiele funkcji, które ułatwiają uwierzytelnianie dla deweloperów, takich jak obsługa asynchronii, konfigurowalna pamięć podręczna tokenów, która przechowuje tokeny dostępu i tokeny odświeżania, automatyczne odświeżanie tokenu po wygaśnięciu tokenu dostępu i token odświeżania jest dostępny, oraz Więcej.</p><p>Obsługując większość złożoności, ADAL może pomóc deweloperowi skupić się na logice biznesowej w swojej aplikacji i łatwo zabezpieczyć zasoby bez bycia ekspertem w dziedzinie zabezpieczeń. Oddzielne biblioteki są dostępne dla .NET, JavaScript (klient i Node.js), Python, iOS, Android i Java.</p>|
+| **Dokumentacja**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
+| **Czynnooci** | <p>Biblioteka Azure AD Authentication Library (ADAL) umożliwia deweloperom aplikacji klienckich łatwe uwierzytelnianie użytkowników w chmurze lub Active Directory lokalnych (AD), a następnie uzyskanie tokenów dostępu w celu zabezpieczania wywołań interfejsu API.</p><p>Biblioteka ADAL ma wiele funkcji, które ułatwiają uwierzytelnianie dla deweloperów, takich jak obsługa asynchroniczna, konfigurowalna pamięć podręczna tokenów, która przechowuje tokeny dostępu i odświeżanie tokenów, automatyczne odświeżanie tokenów, gdy token dostępu wygasa i dostępny jest token odświeżania.</p><p>Dzięki obsłudze większości złożoności Biblioteka ADAL może ułatwić deweloperom skoncentrowanie się na logice biznesowej w swojej aplikacji i łatwe Zabezpieczanie zasobów bez konieczności eksperta w zakresie zabezpieczeń. Dostępne są osobne biblioteki dla platform .NET, JavaScript (Client i Node. js), Python, iOS, Android i Java.</p>|
 
-## <a name="authenticate-devices-connecting-to-the-field-gateway"></a><a id="authn-devices-field"></a>Uwierzytelnianie urządzeń łączących się z bramą polowej
+## <a name="authenticate-devices-connecting-to-the-field-gateway"></a><a id="authn-devices-field"></a>Uwierzytelnianie urządzeń łączących się z bramą pola
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -445,19 +445,19 @@ Należy pamiętać, że aby przetestować skuteczność tej konfiguracji, zalogu
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
-| **Kroki** | Upewnij się, że każde urządzenie jest uwierzytelnione przez bramę field przed zaakceptowaniem danych z nich i przed ułatwieniem komunikacji nadrzędnej z bramą w chmurze. Upewnij się również, że urządzenia łączą się z poświadczeniem na urządzenie, aby poszczególne urządzenia mogły być jednoznacznie identyfikowane.|
+| **Dokumentacja**              | Nie dotyczy  |
+| **Czynnooci** | Upewnij się, że każde urządzenie jest uwierzytelniane przez bramę pola przed zaakceptowaniem z nich danych i przed ułatwieniem komunikacji z bramą w chmurze. Należy również upewnić się, że urządzenia łączą się z poświadczeniem urządzenia, aby umożliwić jednoznaczne zidentyfikowanie poszczególnych urządzeń.|
 
-## <a name="ensure-that-devices-connecting-to-cloud-gateway-are-authenticated"></a><a id="authn-devices-cloud"></a>Upewnij się, że urządzenia łączące się z bramą w chmurze są uwierzytelnione
+## <a name="ensure-that-devices-connecting-to-cloud-gateway-are-authenticated"></a><a id="authn-devices-cloud"></a>Upewnij się, że urządzenia łączące się z bramą w chmurze są uwierzytelniane
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
-| **Składnik**               | Brama w chmurze IoT | 
+| **Składnik**               | Brama usługi IoT Cloud | 
 | **Faza SDL**               | Kompilacja |  
-| **Odpowiednie technologie** | Ogólny, C#, Node.JS,  |
-| **Atrybuty**              | Nie dotyczy, wybór bramy — Usługa Azure IoT Hub |
-| **Odwołania**              | Nie dotyczy, [centrum Usługi Azure IoT z usługą .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), wprowadzenie do centrum [IoT hub i węzeł JS,](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted) [zabezpieczanie IoT przy sygnaturze dostępu Współdzielonego i certyfikatach,](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) [repozytorium Git](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
-| **Kroki** | <ul><li>**Rodzajowy:** Uwierzytelnij urządzenie przy użyciu zabezpieczeń warstwy transportowej (TLS) lub PROTOKOŁU IPSec. Infrastruktura powinna obsługiwać przy użyciu klucza wstępnego (PSK) na tych urządzeniach, które nie obsługują pełnej kryptografii asymetrycznej. Wykorzystaj usługę Azure AD, Oauth.</li><li>**C#:** Podczas tworzenia wystąpienia DeviceClient domyślnie Create Metoda tworzy DeviceClient wystąpienie, który używa protokołu AMQP do komunikowania się z Centrum IoT Hub. Aby użyć protokołu HTTPS, użyj zastępowania metody Utwórz, które pozwala na określenie protokołu. Jeśli używasz protokołu HTTPS, należy `Microsoft.AspNet.WebApi.Client` również dodać pakiet NuGet `System.Net.Http.Formatting` do projektu, aby uwzględnić obszar nazw.</li></ul>|
+| **Odpowiednie technologie** | Ogólne, C#, Node. JS,  |
+| **Atrybuty**              | Nie dotyczy, wybór bramy — Azure IoT Hub |
+| **Dokumentacja**              | Nie dotyczy [platformy Azure IoT Hub z platformą .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [wprowadzenie z usługami IoT Hub i Node js](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Zabezpieczanie IoT za pomocą sygnatury dostępu współdzielonego i certyfikatów](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [repozytorium git](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **Czynnooci** | <ul><li>**Ogólne:** Uwierzytelnij urządzenie przy użyciu protokołu Transport Layer Security (TLS) lub IPSec. Infrastruktura powinna obsługiwać korzystanie z klucza wstępnego (PSK) na tych urządzeniach, które nie mogą obsługiwać pełnego asymetrycznego kryptografii. Korzystanie z usługi Azure AD i uwierzytelniania OAuth.</li><li>**C#:** Podczas tworzenia wystąpienia DeviceClient domyślnie Metoda Create Tworzy wystąpienie DeviceClient, które używa protokołu AMQP do komunikowania się z IoT Hub. Aby użyć protokołu HTTPS, użyj zastępowania metody Utwórz, które pozwala na określenie protokołu. Jeśli używasz protokołu HTTPS, należy również dodać pakiet `Microsoft.AspNet.WebApi.Client` NuGet do projektu w celu uwzględnienia `System.Net.Http.Formatting` przestrzeni nazw.</li></ul>|
 
 ### <a name="example"></a>Przykład
 ```csharp
@@ -475,10 +475,10 @@ await deviceClient.SendEventAsync(message);
 ```
 
 ### <a name="example"></a>Przykład
-**Node.JS: Uwierzytelnianie**
+**Node. JS: uwierzytelnianie**
 #### <a name="symmetric-key"></a>Klucz symetryczny
-* Tworzenie centrum IoT na platformie Azure
-* Tworzenie wpisu w rejestrze tożsamości urządzenia
+* Tworzenie Centrum IoT Hub na platformie Azure
+* Tworzenie wpisu w rejestrze tożsamości urządzeń
     ```javascript
     var device = new iothub.Device(null);
     device.deviceId = <DeviceId >
@@ -491,10 +491,10 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-  #### <a name="sas-token"></a>SAS Token
-* Pobiera wewnętrznie generowane podczas korzystania z klucza symetrycznego, ale możemy wygenerować i używać go jawnie, jak również
-* Definiowanie protokołu:`var Http = require('azure-iot-device-http').Http;`
-* Utwórz token sas:
+  #### <a name="sas-token"></a>Token SAS
+* Pobiera wewnętrznie, gdy jest używany klucz symetryczny, ale można go również wygenerować i użyć jawnie
+* Zdefiniuj protokół:`var Http = require('azure-iot-device-http').Http;`
+* Utwórz token sygnatury dostępu współdzielonego:
     ```javascript
     resourceUri = encodeURIComponent(resourceUri.toLowerCase()).toLowerCase();
     var deviceName = "<deviceName >";
@@ -512,13 +512,13 @@ await deviceClient.SendEventAsync(message);
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
-* Połącz się za pomocą tokenu sas: 
+* Połącz przy użyciu tokenu SAS: 
     ```javascript
     Client.fromSharedAccessSignature(sas, Http); 
     ```
   #### <a name="certificates"></a>Certyfikaty
-* Generowanie samodzielnie podpisanego certyfikatu X509 przy użyciu dowolnego narzędzia, takiego jak OpenSSL, do generowania plików .cert i .key do przechowywania odpowiednio certyfikatu i klucza
-* Aprowizuj urządzenie, które akceptuje zabezpieczone połączenie przy użyciu certyfikatów.
+* Generuj certyfikat x509 z podpisem własnym przy użyciu dowolnego narzędzia, takiego jak OpenSSL, aby wygenerować plik. Certificate i. Key do przechowywania certyfikatu i klucza odpowiednio
+* Zapewnij urządzeniu, które akceptuje bezpieczne połączenie przy użyciu certyfikatów.
     ```javascript
     var connectionString = '<connectionString>';
     var registry = iothub.Registry.fromConnectionString(connectionString);
@@ -532,7 +532,7 @@ await deviceClient.SendEventAsync(message);
     var device = deviceJSON;
     registry.create(device, function (err) {});
     ```
-* Podłączanie urządzenia przy użyciu certyfikatu
+* Łączenie urządzenia przy użyciu certyfikatu
     ```javascript
     var Protocol = require('azure-iot-device-http').Http;
     var Client = require('azure-iot-device').Client;
@@ -548,16 +548,16 @@ await deviceClient.SendEventAsync(message);
     client.open(fn);
     ```
 
-## <a name="use-per-device-authentication-credentials"></a><a id="authn-cred"></a>Używanie poświadczeń uwierzytelniania na urządzenie
+## <a name="use-per-device-authentication-credentials"></a><a id="authn-cred"></a>Użyj poświadczeń uwierzytelniania dla urządzenia
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
-| **Składnik**               | Brama w chmurze IoT  | 
+| **Składnik**               | Brama usługi IoT Cloud  | 
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Wybór bramy — usługa Azure IoT Hub |
-| **Odwołania**              | [Tokeny zabezpieczające usługi Azure IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
-| **Kroki** | Użyj poświadczeń uwierzytelniania na urządzeniu przy użyciu tokenów SaS opartych na kluczu urządzenia lub certyfikatie klienta zamiast zasad dostępu współużytkowanego na poziomie usługi IoT Hub. Zapobiega to ponownemu użyciu tokenów uwierzytelniania jednego urządzenia lub bramy polowej przez inną |
+| **Atrybuty**              | Wybór bramy — IoT Hub platformy Azure |
+| **Dokumentacja**              | [Tokeny zabezpieczające IoT Hub platformy Azure](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
+| **Czynnooci** | Użyj poświadczeń uwierzytelniania na urządzeniu przy użyciu tokenów SaS opartych na kluczu urządzenia lub certyfikacie klienta, a nie na poziomie IoT Hub zasad dostępu współdzielonego. Zapobiega to ponownemu używaniu tokenów uwierzytelniania jednego urządzenia lub bramy pola przez inną |
 
 ## <a name="ensure-that-only-the-required-containers-and-blobs-are-given-anonymous-read-access"></a><a id="req-containers-anon"></a>Upewnij się, że tylko wymagane kontenery i obiekty blob mają anonimowy dostęp do odczytu
 
@@ -566,11 +566,11 @@ await deviceClient.SendEventAsync(message);
 | **Składnik**               | Azure Storage | 
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
-| **Atrybuty**              | Typ magazynu — obiekt blob |
-| **Odwołania**              | [Zarządzanie anonimowym dostępem do odczytu kontenerów i obiektów blob](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [sygnatury dostępu współdzielonego, część 1: Opis modelu sygnatury dostępu Współdzielonego](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
-| **Kroki** | <p>Domyślnie kontener i wszystkie obiekty blob w nim mogą być dostępne tylko przez właściciela konta magazynu. Aby nadać anonimowym użytkownikom uprawnienia do odczytu kontenera i jego obiektów blob, można ustawić uprawnienia kontenera, aby umożliwić dostęp publiczny. Anonimowi użytkownicy mogą odczytywać obiekty blob w kontenerze publicznie dostępnym bez uwierzytelniania żądania.</p><p>Kontenery zapewniają następujące opcje zarządzania dostępem do kontenerów:</p><ul><li>Pełny publiczny dostęp do odczytu: dane kontenera i obiektu blob można odczytać za pośrednictwem anonimowego żądania. Klienci mogą wyliczać obiekty BLOB w kontenerze za pośrednictwem żądania anonimowego, ale nie można wyliczyć kontenerów w ramach konta magazynu.</li><li>Publiczny dostęp do odczytu tylko dla obiektów blob: dane obiektów blob w tym kontenerze można odczytać za pomocą żądania anonimowego, ale dane kontenera nie są dostępne. Klienci nie mogą wyliczać obiektów blob w kontenerze za pomocą żądania anonimowego</li><li>Brak publicznego dostępu do odczytu: dane kontenera i obiektu blob mogą być odczytywane tylko przez właściciela konta</li></ul><p>Dostęp anonimowy jest najlepszy w scenariuszach, w których niektóre obiekty blob powinny być zawsze dostępne dla anonimowego dostępu do odczytu. W przypadku kontroli drobnieziarnistej można utworzyć sygnaturę dostępu współdzielonego, która umożliwia delegowanie ograniczonego dostępu przy użyciu różnych uprawnień i w określonym przedziale czasu. Upewnij się, że kontenery i obiekty BLOB, które mogą potencjalnie zawierać poufne dane, nie mają przypadkowo dostępu anonimowego</p>|
+| **Atrybuty**              | StorageType — obiekt BLOB |
+| **Dokumentacja**              | [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [sygnatury dostępu współdzielonego, część 1: Omówienie modelu SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
+| **Czynnooci** | <p>Domyślnie kontener i wszystkie obiekty blob w ramach niego mogą być dostępne tylko dla właściciela konta magazynu. Aby przyznać anonimowym użytkownikom uprawnienia do odczytu do kontenera i jego obiektów blob, jeden może ustawić uprawnienia kontenera, aby zezwolić na dostęp publiczny. Anonimowi użytkownicy mogą odczytywać obiekty blob w publicznie dostępnym kontenerze bez uwierzytelniania żądania.</p><p>Kontenery oferują następujące opcje zarządzania dostępem do kontenera:</p><ul><li>Pełny publiczny dostęp do odczytu: kontener i dane obiektu BLOB mogą być odczytywane za pośrednictwem anonimowego żądania. Klienci mogą wyliczać obiekty blob w kontenerze za pośrednictwem żądania anonimowego, ale nie mogą wyliczać kontenerów na koncie magazynu.</li><li>Publiczny dostęp do odczytu tylko dla obiektów blob: dane obiektów BLOB w tym kontenerze można odczytać za pośrednictwem anonimowego żądania, ale dane kontenera nie są dostępne. Klienci nie mogą wyliczyć obiektów BLOB w kontenerze za pośrednictwem żądania anonimowego</li><li>Brak publicznego dostępu do odczytu: kontener i dane obiektu BLOB mogą być odczytane tylko przez właściciela konta</li></ul><p>Dostęp anonimowy jest najlepszy dla scenariuszy, w których niektóre obiekty blob powinny zawsze być dostępne do anonimowego dostępu do odczytu. W celu zapewnienia precyzyjnej kontroli, jeden może utworzyć sygnaturę dostępu współdzielonego, która umożliwia delegowanie ograniczonego dostępu przy użyciu różnych uprawnień i w określonym przedziale czasu. Upewnij się, że kontenery i obiekty blob, które mogą potencjalnie zawierać dane poufne, nie mają przypadkowego dostępu anonimowego</p>|
 
-## <a name="grant-limited-access-to-objects-in-azure-storage-using-sas-or-sap"></a><a id="limited-access-sas"></a>Udzielanie ograniczonego dostępu do obiektów w magazynie platformy Azure przy użyciu usługi SAS lub SAP
+## <a name="grant-limited-access-to-objects-in-azure-storage-using-sas-or-sap"></a><a id="limited-access-sas"></a>Udzielanie ograniczonego dostępu do obiektów w usłudze Azure Storage przy użyciu SAS lub SAP
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
@@ -578,5 +578,5 @@ await deviceClient.SendEventAsync(message);
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy |
-| **Odwołania**              | [Sygnatury dostępu współdzielonego, część 1: Opis modelu dostępu współdzielonego,](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) [sygnatury dostępu współdzielonego, część 2: Tworzenie i używanie sygnatury dostępu współdzielonego z magazynem obiektów Blob](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [Jak delegować dostęp do obiektów na koncie przy użyciu sygnatur dostępu współdzielonego i zasad dostępu przechowywanego](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
-| **Kroki** | <p>Przy użyciu sygnatury dostępu współdzielonego (SAS) jest skutecznym sposobem przyznania ograniczonego dostępu do obiektów na koncie magazynu innym klientom, bez konieczności udostępniania klucza dostępu do konta. Sygnatura dostępu Współdzielonego jest identyfikatorem URI, który obejmuje w swoich parametrach zapytania wszystkie informacje niezbędne do uwierzytelnionego dostępu do zasobu magazynu. Aby uzyskać dostęp do zasobów magazynu za pomocą sygnatury dostępu Współdzielonego, klient musi przekazać tylko w sygnaturze dostępu Współdzielonego do odpowiedniego konstruktora lub metody.</p><p>Sygnatury dostępu Współdzielonego można użyć, gdy chcesz zapewnić dostęp do zasobów na koncie magazynu klientowi, któremu nie można ufać przy użyciu klucza konta. Klucze konta magazynu zawierają klucz podstawowy i pomocniczy, z których oba zapewniają dostęp administracyjny do konta i wszystkich zasobów w nim. Ujawnienie któregokolwiek z kluczy konta otwiera twoje konto na możliwość złośliwego lub niedbałego użycia. Sygnatury dostępu współdzielonego zapewniają bezpieczną alternatywę, która umożliwia innym klientom odczytywanie, zapisywanie i usuwanie danych z konta magazynu zgodnie z przyznanymi uprawnieniami i bez konieczności posiadania klucza konta.</p><p>Jeśli masz logiczny zestaw parametrów, które są podobne za każdym razem, przy użyciu zasady dostępu przechowywane (SAP) jest lepszym pomysłem. Ponieważ przy użyciu sygnatury dostępu współdzielonego pochodzącego z zasad dostępu przechowywane daje możliwość natychmiastowego odwołania tego sygnatury dostępu współdzielonego, zaleca się najlepsze rozwiązanie, aby zawsze używać zasad dostępu przechowywanego, gdy jest to możliwe.</p>|
+| **Dokumentacja**              | [Sygnatury dostępu współdzielonego, część 1: zrozumienie modelu SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [sygnatury dostępu współdzielonego, część 2: Tworzenie i używanie SAS z magazynem obiektów BLOB](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [jak delegować dostęp do obiektów na koncie przy użyciu sygnatur dostępu współdzielonego i przechowywanych zasad dostępu](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
+| **Czynnooci** | <p>Używanie sygnatury dostępu współdzielonego (SAS) jest zaawansowanym sposobem przyznawania ograniczonego dostępu do obiektów na koncie magazynu innym klientom bez konieczności ujawniania klucza dostępu do konta. Sygnatura dostępu współdzielonego to identyfikator URI, który obejmuje parametry zapytania, wszystkie informacje niezbędne do uwierzytelnienia dostęp do zasobu magazynu. Aby uzyskać dostęp do zasobów magazynu z sygnaturą dostępu współdzielonego, klient musi przekazać sygnaturę dostępu współdzielonego tylko do odpowiedniego konstruktora lub metody.</p><p>Sygnatury dostępu współdzielonego można użyć, jeśli chcesz zapewnić dostęp do zasobów na koncie magazynu do klienta, którego nie można zaufać przy użyciu klucza konta. Klucze konta magazynu obejmują zarówno klucz podstawowy, jak i pomocniczy, które mają dostęp administracyjny do Twojego konta i wszystkich znajdujących się w nim zasobów. Udostępnienie jednego z kluczy konta spowoduje otwarcie konta użytkownika w celu uzyskania złośliwego lub zaniedbanego użycia. Sygnatury dostępu współdzielonego zapewniają bezpieczną alternatywę, która umożliwia innym klientom odczytywanie, zapisywanie i usuwanie danych na koncie magazynu zgodnie z przyznanymi uprawnieniami i bez konieczności stosowania klucza konta.</p><p>Jeśli masz logiczny zestaw parametrów, które są podobne za każdym razem, użycie zasad dostępu przechowywanego (SAP) jest lepszym pomysłem. Ze względu na to, że używanie sygnatury dostępu współdzielonego pochodzącego z przechowywanych zasad jest możliwe, można natychmiast odwołać te sygnatury dostępu współdzielonego.</p>|

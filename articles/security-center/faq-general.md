@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure Security Center — często zadawane pytania — pytania ogólne
-description: Często zadawane ogólne pytania dotyczące usługi Azure Security Center, produktu, który pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie
+title: Często zadawane pytania dotyczące Azure Security Center — pytania ogólne
+description: Często zadawane pytania ogólne dotyczące Azure Security Center, produktu, który pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,84 +13,84 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 54263a8be900ed381d8450b460e5cf9e6117ac54
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436134"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106580"
 ---
-# <a name="faq---general-questions-about-azure-security-center"></a>Często zadawane pytania — ogólne pytania dotyczące usługi Azure Security Center
+# <a name="faq---general-questions-about-azure-security-center"></a>Często zadawane pytania — ogólne pytania dotyczące Azure Security Center
 
 ## <a name="what-is-azure-security-center"></a>Co to jest Centrum zabezpieczeń Azure?
-Usługa Azure Security Center pomaga zapobiegać zagrożeniom, wykrywać ich i reagować na nie, zwiększając wgląd w zabezpieczenia zasobów i kontrolę nad nim. Umożliwia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami dla wszystkich subskrypcji, pomaga wykrywać zagrożenia, które w przeciwnym razie mogłyby pozostać niezauważone, a także współpracuje z szerokim ekosystemem rozwiązań zabezpieczających.
+Azure Security Center pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie dzięki zwiększonej widoczności i kontroli nad bezpieczeństwem zasobów. Umożliwia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami dla wszystkich subskrypcji, pomaga wykrywać zagrożenia, które w przeciwnym razie mogłyby pozostać niezauważone, a także współpracuje z szerokim ekosystemem rozwiązań zabezpieczających.
 
-Usługa Security Center używa agenta usługi Log Analytics do zbierania i przechowywania danych. Aby uzyskać szczegółowe informacje, zobacz [Zbieranie danych w usłudze Azure Security Center.](security-center-enable-data-collection.md)
-
-
-## <a name="how-do-i-get-azure-security-center"></a>Jak uzyskać usługę Azure Security Center?
-Usługa Azure Security Center jest włączona wraz z subskrypcją platformy Microsoft Azure i dostępna z [witryny Azure.](https://azure.microsoft.com/features/azure-portal/) Aby uzyskać do niego dostęp, [zaloguj się do portalu](https://portal.azure.com), wybierz pozycję **Przeglądaj**i przewiń do **Centrum zabezpieczeń**.
+Security Center używa agenta Log Analytics do zbierania i przechowywania danych. Szczegółowe informacje znajdują się w temacie [zbieranie danych w Azure Security Center](security-center-enable-data-collection.md).
 
 
-## <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Które zasoby platformy Azure są monitorowane przez usługę Azure Security Center?
-Usługa Azure Security Center monitoruje następujące zasoby platformy Azure:
+## <a name="how-do-i-get-azure-security-center"></a>Jak mogę uzyskać Azure Security Center?
+Azure Security Center jest włączona z subskrypcją Microsoft Azure i jest dostępna z [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Aby uzyskać do niego dostęp, [Zaloguj się do portalu](https://portal.azure.com), wybierz pozycję **Przeglądaj**i przewiń do **Security Center**.
 
-* Maszyny wirtualne (w tym usługi w [chmurze)](../cloud-services/cloud-services-choose-me.md)
+
+## <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Które zasoby platformy Azure są monitorowane przez Azure Security Center?
+Azure Security Center monitoruje następujące zasoby platformy Azure:
+
+* Maszyny wirtualne (z uwzględnieniem [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Zestawy skalowania maszyn wirtualnych
 * Sieci wirtualne platformy Azure
-* Kontenery
-* Usługa SQL platformy Azure
+* Containers
+* Usługa Azure SQL
 * Konto usługi Azure Storage
-* Usługi Azure Web Apps (w [środowisku usługi aplikacji)](../app-service/environment/intro.md)
-* Rozwiązania partnerskie zintegrowane z subskrypcją platformy Azure, takie jak zapora aplikacji sieci web na maszynach wirtualnych i w środowisku usługi aplikacji
+* Web Apps platformy Azure (w [App Service Environment](../app-service/environment/intro.md))
+* Rozwiązania partnerskie zintegrowane z subskrypcją platformy Azure, taką jak Zapora aplikacji sieci Web na maszynach wirtualnych i na App Service Environment
 
-Ponadto maszyny spoza platformy Azure (w tym lokalne) mogą być również monitorowane przez usługę Azure Security Center. Obsługiwane są zarówno [maszyny z systemem Windows,](./quick-onboard-windows-computer.md) jak i [linux.](./quick-onboard-linux-computer.md)
-
-
-## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Jak wyświetlić bieżący stan zabezpieczeń moich zasobów platformy Azure?
-Strona **Przegląd usługi Security Center** przedstawia ogólną postawę zabezpieczeń środowiska w podziale według danych obliczeniowych, sieci, magazynu & i aplikacji. Każdy typ zasobu ma wskaźnik pokazujący zidentyfikowane luki w zabezpieczeniach. Kliknięcie każdego kafelka powoduje wyświetlenie listy problemów z zabezpieczeniami zidentyfikowanych przez program Security Center wraz z spisem zasobów w ramach subskrypcji.
+Ponadto komputery spoza platformy Azure (w tym lokalne) mogą być również monitorowane przez Azure Security Center. Obsługiwane są zarówno [maszyny z systemem Windows](./quick-onboard-windows-computer.md) , jak i komputery z systemem [Linux](./quick-onboard-linux-computer.md) .
 
 
-
-## <a name="what-is-a-security-policy"></a>Co to jest polityka bezpieczeństwa?
-Zasady zabezpieczeń definiuje zestaw formantów, które są zalecane dla zasobów w ramach określonej subskrypcji. W usłudze Azure Security Center definiujesz zasady dotyczące subskrypcji platformy Azure zgodnie z wymaganiami dotyczącymi zabezpieczeń firmy oraz typem aplikacji lub czułością danych w każdej subskrypcji.
-
-Zasady zabezpieczeń włączone w usłudze Azure Security Center napędzają zalecenia dotyczące zabezpieczeń i monitorowanie. Aby dowiedzieć się więcej o zasadach zabezpieczeń, zobacz [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](security-center-monitoring.md).
+## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Jak można zobaczyć bieżący stan zabezpieczeń moich zasobów platformy Azure?
+Na stronie **przegląd Security Centeru** są wyświetlane ogólne stan zabezpieczeń środowiska, podzielone na dane dotyczące zasobów obliczeniowych, sieci, magazynu & i aplikacji. Każdy typ zasobu ma wskaźnik pokazujący zidentyfikowane luki w zabezpieczeniach. Kliknięcie każdego kafelka powoduje wyświetlenie listy problemów dotyczących zabezpieczeń zidentyfikowanych przez Security Center oraz spisu zasobów w ramach subskrypcji.
 
 
-## <a name="who-can-modify-a-security-policy"></a>Kto może modyfikować zasady zabezpieczeń?
-Aby zmodyfikować zasady zabezpieczeń, użytkownik musi być administratorem zabezpieczeń lub właścicielem lub współautorem tej subskrypcji.
 
-Aby dowiedzieć się, jak skonfigurować zasady zabezpieczeń, zobacz [Ustawianie zasad zabezpieczeń w usłudze Azure Security Center](tutorial-security-policy.md).
+## <a name="what-is-a-security-policy"></a>Co to są zasady zabezpieczeń?
+Zasady zabezpieczeń definiują zestaw formantów, które są zalecane dla zasobów w ramach określonej subskrypcji. W Azure Security Center definiujesz zasady dla subskrypcji platformy Azure zgodnie z wymaganiami firmy dotyczącymi zabezpieczeń oraz typem aplikacji lub poufnością danych w poszczególnych subskrypcjach.
+
+Zasady zabezpieczeń włączone w Azure Security Center na dysku zalecenia dotyczące zabezpieczeń i monitorowania. Aby dowiedzieć się więcej na temat zasad zabezpieczeń, zobacz [monitorowanie kondycji zabezpieczeń w Azure Security Center](security-center-monitoring.md).
+
+
+## <a name="who-can-modify-a-security-policy"></a>Kto może zmodyfikować zasady zabezpieczeń?
+Aby zmodyfikować zasady zabezpieczeń, musisz być administratorem zabezpieczeń lub właścicielem subskrypcji lub współautorem.
+
+Aby dowiedzieć się, jak skonfigurować zasady zabezpieczeń, zobacz [Ustawianie zasad zabezpieczeń w Azure Security Center](tutorial-security-policy.md).
 
 
 ## <a name="what-is-a-security-recommendation"></a>Co to jest zalecenie dotyczące zabezpieczeń?
-Usługa Azure Security Center analizuje stan zabezpieczeń zasobów platformy Azure. Po zidentyfikowaniu potencjalnych luk w zabezpieczeniach tworzone są zalecenia. Zalecenia prowadzą użytkownika przez proces konfigurowania potrzebnej kontroli. Oto przykłady:
+Usługa Azure Security Center analizuje stan zabezpieczeń zasobów platformy Azure. Po zidentyfikowaniu potencjalnych luk w zabezpieczeniach są tworzone zalecenia. Zalecenia przeprowadzą Cię przez proces konfigurowania wymaganego formantu. Oto przykłady:
 
-* Inicjowanie obsługi administracyjnej ochrony przed złośliwym oprogramowaniem w celu identyfikacji i usuwania złośliwego oprogramowania
-* [Sieciowe grupy zabezpieczeń](../virtual-network/security-overview.md) i reguły do kontrolowania ruchu na maszynach wirtualnych
-* Aprowizacji zapory aplikacji sieci web, aby pomóc w obronie przed atakami kierowania aplikacji internetowych
+* Inicjowanie obsługi programu chroniącego przed złośliwym oprogramowaniem w celu identyfikowania i usuwania złośliwego oprogramowania
+* [Sieciowe grupy zabezpieczeń](../virtual-network/security-overview.md) i reguły sterujące ruchem do maszyn wirtualnych
+* Inicjowanie obsługi zapory aplikacji sieci Web w celu ułatwienia obrony przed atakami ukierunkowanymi na aplikacje sieci Web
 * Wdrażanie brakujących aktualizacji systemu
 * Modyfikowanie konfiguracji systemu operacyjnego, które odbiegają od zalecanych standardów
 
-W tym miejscu wyświetlane są tylko zalecenia, które są włączone w zasadach zabezpieczeń.
+Tutaj są wyświetlane tylko zalecenia włączone w zasadach zabezpieczeń.
 
 
 
 ## <a name="what-triggers-a-security-alert"></a>Co wyzwala alert zabezpieczeń?
-Usługa Azure Security Center automatycznie zbiera, analizuje i łączy dane dziennika z zasobów platformy Azure, sieci i rozwiązań partnerskich, takich jak ochrona przed złośliwym oprogramowaniem i zapory. Po wykryciu zagrożenia tworzony jest alert zabezpieczeń. Przykłady obejmują wykrywanie:
+Azure Security Center automatycznie gromadzi, analizuje i odrzuca dane dzienników z zasobów platformy Azure, sieci i rozwiązań partnerskich, takich jak oprogramowanie chroniące przed złośliwym kodem i zapory. Po wykryciu zagrożenia tworzony jest alert zabezpieczeń. Przykłady obejmują wykrywanie:
 
 * Zagrożonych maszyn wirtualnych komunikujących się ze znanymi złośliwymi adresami IP
-* Zaawansowane złośliwe oprogramowanie wykryte przy użyciu raportowania błędów systemu Windows
+* Wykryto zaawansowane złośliwe oprogramowanie korzystające z raportowania błędów systemu Windows
 * Ataków siłowych wobec maszyn wirtualnych
-* Alerty zabezpieczeń pochodzące ze zintegrowanych rozwiązań zabezpieczeń partnerów, takich jak ochrona przed złośliwym oprogramowaniem lub zapory aplikacji sieci Web
+* Alerty zabezpieczeń z zintegrowanych rozwiązań zabezpieczeń partnerów, takich jak zapory chroniące przed złośliwym oprogramowaniem lub aplikacje sieci Web
 
 
-## <a name="why-did-secure-score-values-change"></a>Dlaczego wartości Secure Score zmieniły się? <a name="secure-score-faq"></a>
-Od lutego 2019 r. Centrum Zabezpieczeń skorygowało ocenę kilku zaleceń, aby lepiej dopasować je do ich ważności. W wyniku tego dostosowania mogą wystąpić zmiany w ogólnych wartościach bezpiecznego wyniku.  Aby uzyskać więcej informacji na temat bezpiecznego wyniku, zobacz [Obliczanie bezpiecznego wyniku](security-center-secure-score.md).
+## <a name="why-did-secure-score-values-change"></a>Dlaczego zostały zmienione wartości oceny? <a name="secure-score-faq"></a>
+Od lutego 2019 Security Center skorygowany wynik kilku zaleceń w celu lepszego dopasowania ich ważności. W wyniku tej korekty mogą wystąpić zmiany ogólnych, bezpiecznych wartości oceny.  Aby uzyskać więcej informacji na temat zabezpieczeń oceny, zobacz [Secure Score calculation](security-center-secure-score.md).
 
 
-## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Jaka jest różnica między zagrożeniami wykrytymi i alertami przez Centrum odpowiedzi zabezpieczeń firmy Microsoft a usługą Azure Security Center?
-Centrum microsoft security response center (MSRC) wykonuje wybrane monitorowanie zabezpieczeń sieci i infrastruktury platformy Azure oraz otrzymuje analizy zagrożeń i skargi dotyczące nadużyć od stron trzecich. Gdy msrc dowie się, że dane klienta zostały dostępne przez stronę niezgodną z prawem lub nieautoryzowane lub że korzystanie przez klienta z platformy Azure nie jest zgodne z warunkami dopuszczalnego użytkowania, menedżer incydentów zabezpieczeń powiadamia klienta. Powiadomienie zazwyczaj występuje, wysyłając wiadomość e-mail do kontaktów zabezpieczeń określonych w usłudze Azure Security Center lub właściciela subskrypcji platformy Azure, jeśli kontakt zabezpieczeń nie jest określony.
+## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Jaka jest różnica między zagrożeniami wykrytymi przez centrum Microsoft Security Response Center a Azure Security Centerymi
+Centrum Microsoft Security Response Center (MSRC) wykonuje wybór opcji monitorowanie zabezpieczeń sieci i infrastruktury platformy Azure, a następnie odbiera analizę zagrożeń i reklamacji nadużycia od stron trzecich. Gdy centrum MSRC uzyska dostęp do danych klienta przez nielegalną lub nieautoryzowaną stronę albo że klient korzystający z systemu Azure nie spełnia warunków akceptowalnego użycia, Menedżer zdarzeń zabezpieczeń powiadamia klienta. Powiadomienie zwykle odbywa się przez wysłanie wiadomości e-mail do kontaktów zabezpieczeń określonych w Azure Security Center lub właściciela subskrypcji platformy Azure, jeśli nie określono kontaktu zabezpieczeń.
 
-Usługa Security Center to usługa platformy Azure, która stale monitoruje środowisko platformy Azure klienta i stosuje analizy do automatycznego wykrywania szerokiego zakresu potencjalnie złośliwych działań. Te wykrycia są wykrywane jako alerty zabezpieczeń na pulpicie nawigacyjnym centrum zabezpieczeń.
+Security Center to usługa platformy Azure, która stale monitoruje środowisko platformy Azure klienta i stosuje analizę w celu automatycznego wykrywania szerokiego zakresu potencjalnie złośliwych działań. Te wykrycia są rozłączone jako alerty zabezpieczeń na pulpicie nawigacyjnym Security Center.

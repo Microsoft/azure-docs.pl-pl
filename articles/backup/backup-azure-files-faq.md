@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej plików w usłudze Azure Files — często zada
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące ochrony udziałów plików platformy Azure za pomocą usługi Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b89e4a55bc8bc4ef2f4cdb50059537fe7708b6a6
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: d7b19fd11e6784a188a18f6a613eef5ff4f77764
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101165"
+ms.locfileid: "82105645"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Pytania dotyczące tworzenia kopii zapasowej plików w usłudze Azure Files
 
@@ -74,7 +74,7 @@ Tak. Zapoznaj się ze szczegółową dokumentacją [tutaj](backup-azure-afs-auto
 
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-them"></a>Czy mogę uzyskać dostęp do migawek wykonanych przez kopie zapasowe platformy Azure i zainstalować je?
 
-Dostęp do wszystkich migawek wykonanych przez Azure Backup można uzyskać, wyświetlając migawki w portalu, programie PowerShell lub interfejsie wiersza polecenia. Aby dowiedzieć się więcej na temat udostępniania migawek udziału usługi Azure Files, zobacz [Omówienie migawek udziału dla usługi Azure Files (wersja zapoznawcza)](../storage/files/storage-snapshots-files.md).
+Dostęp do wszystkich migawek wykonanych przez Azure Backup można uzyskać, wyświetlając migawki w portalu, programie PowerShell lub interfejsie wiersza polecenia. Aby dowiedzieć się więcej na temat migawek udziału Azure Files, zobacz [Omówienie migawek udziałów dla Azure Files](../storage/files/storage-snapshots-files.md).
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Jaki jest maksymalny czas przechowywania, który można skonfigurować dla kopii zapasowych?
 

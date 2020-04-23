@@ -1,41 +1,41 @@
 ---
-title: Bezpieczne dostarczanie elementu WebHook z usługą Azure AD w usłudze Azure Event Grid
-description: W tym artykule opisano sposób dostarczania zdarzeń do punktów końcowych HTTPS chronionych przez usługę Azure Active Directory przy użyciu usługi Azure Event Grid
+title: Dostarczanie bezpiecznego elementu webhook za pomocą usługi Azure AD w Azure Event Grid
+description: Opisuje sposób dostarczania zdarzeń do punktów końcowych HTTPS chronionych przez Azure Active Directory przy użyciu Azure Event Grid
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 074378668b0516936e11968ea8c800d3daa667bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4cb8168cd6d1c19cc797a7cd5454b96131fa35be
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931554"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106621"
 ---
-# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publikowanie zdarzeń w chronionych punktach końcowych usługi Azure Active Directory
+# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publikuj zdarzenia w celu Azure Active Directory chronionych punktów końcowych
 
-W tym artykule opisano, jak korzystać z usługi Azure Active Directory w celu zabezpieczenia połączenia między subskrypcją zdarzeń a punktem końcowym elementu webhook. Aby zapoznać się z omówieniem aplikacji usługi Azure AD i podmiotów świadczących usługi, zobacz [omówienie platformy tożsamości firmy Microsoft (w wersji 2.0).](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
+W tym artykule opisano, jak korzystać z Azure Active Directory, aby zabezpieczyć połączenie między subskrypcją zdarzeń a punktem końcowym elementu webhook. Omówienie aplikacji usługi Azure AD i nazw głównych usług można znaleźć w temacie [Microsoft Identity platform (v 2.0) — Omówienie](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
-W tym artykule używa portalu Azure do demonstracji, jednak funkcja może być również włączona przy użyciu interfejsu wiersza polecenia, programu PowerShell lub zestawów SDK.
+W tym artykule jest używana Azure Portal dla demonstracji, jednak funkcja ta może być również włączona przy użyciu interfejsu wiersza polecenia, programu PowerShell lub zestawów SDK.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-an-azure-ad-application"></a>Tworzenie aplikacji usługi Azure AD
 
-Rozpocznij od utworzenia aplikacji usługi Azure AD dla chronionego punktu końcowego. Zobacz: https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
-    - Skonfiguruj chroniony interfejs API, który ma być wywoływany przez aplikację demona.
+Zacznij od utworzenia aplikacji usługi Azure AD dla chronionego punktu końcowego. Zobacz: https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
+    - Skonfiguruj chroniony interfejs API do wywoływania przez aplikację demona.
     
-## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Włącz siatkę zdarzeń, aby używać aplikacji usługi Azure AD
+## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Włącz Event Grid, aby korzystać z aplikacji usługi Azure AD
 
-Użyj skryptu programu PowerShell poniżej, aby utworzyć zasadę roli i usługi w aplikacji usługi Azure AD. Identyfikator dzierżawy i identyfikator obiektu z aplikacji usługi Azure AD będą potrzebne:
+Użyj poniższego skryptu programu PowerShell, aby utworzyć regułę roli i usługi w aplikacji usługi Azure AD. Wymagany jest identyfikator dzierżawy i identyfikator obiektu z aplikacji usługi Azure AD:
 
     > [!NOTE]
     > You must be a member of the [Azure AD Application Administrator role](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
     
 1. Zmodyfikuj $myTenantId skryptu programu PowerShell, aby użyć identyfikatora dzierżawy usługi Azure AD.
-1. Modyfikowanie $myAzureADApplicationObjectId skryptu programu PowerShell w celu użycia identyfikatora obiektu aplikacji usługi Azure AD
+1. Zmodyfikuj $myAzureADApplicationObjectId skryptu programu PowerShell, aby użyć identyfikatora obiektu aplikacji usługi Azure AD
 1. Uruchom zmodyfikowany skrypt.
 
 ```PowerShell
@@ -103,28 +103,28 @@ else
     
 New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
     
-Write-Host "My Azure AD Tenant Id" + $myTenantId
-Write-Host "My Azure AD Application Id" + $myAzureADApplicationObjectId
-Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
-Write-Host "My Azure AD Application's Roles"
+Write-Host "My Azure AD Tenant Id: $myTenantId"
+Write-Host "My Azure AD Application Id: $($myApp.AppId)"
+Write-Host "My Azure AD Application ObjectId: $($myApp.ObjectId)"
+Write-Host "My Azure AD Application's Roles: "
 Write-Host $myApp.AppRoles
 ```
     
 ## <a name="configure-the-event-subscription"></a>Konfigurowanie subskrypcji zdarzeń
 
-W przepływie tworzenia subskrypcji zdarzeń wybierz typ punktu końcowego "Web Hook". Po podaniu identyfikatora URI punktu końcowego kliknij kartę dodatkowe funkcje u góry bloku subskrypcji zdarzeń tworzenia.
+W przepływie tworzenia dla subskrypcji zdarzeń wybierz pozycję punkt końcowy "element webhook". Po otrzymaniu identyfikatora URI punktu końcowego kliknij kartę dodatkowe funkcje w górnej części bloku Tworzenie subskrypcji zdarzeń.
 
-![Wybieranie elementu webhook typu punktu końcowego](./media/secure-webhook-delivery/select-webhook.png)
+![Wybierz element webhook typu punktu końcowego](./media/secure-webhook-delivery/select-webhook.png)
 
-Na karcie Funkcje dodatkowe zaznacz pole wyboru "Użyj uwierzytelniania AAD" i skonfiguruj identyfikator dzierżawy i identyfikator aplikacji:
+Na karcie funkcje dodatkowe zaznacz pole wyboru Użyj uwierzytelniania usługi AAD, a następnie skonfiguruj identyfikator dzierżawy i identyfikator aplikacji:
 
-* Skopiuj identyfikator dzierżawy usługi Azure AD z danych wyjściowych skryptu i wprowadź go w polu Identyfikator dzierżawy usługi AAD.
-* Skopiuj identyfikator aplikacji usługi Azure AD z danych wyjściowych skryptu i wprowadź go w polu Identyfikator aplikacji usługi AAD.
+* Skopiuj identyfikator dzierżawy usługi Azure AD z danych wyjściowych skryptu i wprowadź go w polu Identyfikator dzierżawy AAD.
+* Skopiuj identyfikator aplikacji Azure AD z danych wyjściowych skryptu i wprowadź go w polu Identyfikator aplikacji usługi AAD.
 
-    ![Akcja Bezpiecznego elementu Webhook](./media/secure-webhook-delivery/aad-configuration.png)
+    ![Akcja bezpiecznego elementu webhook](./media/secure-webhook-delivery/aad-configuration.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać informacje dotyczące monitorowania dostaw zdarzeń, zobacz [Monitorowanie dostarczania komunikatów w sieci zdarzeń](monitor-event-delivery.md).
-* Aby uzyskać więcej informacji na temat klucza uwierzytelniania, zobacz [Zabezpieczenia i uwierzytelnianie w siatce zdarzeń](security-authentication.md).
-* Aby uzyskać więcej informacji na temat tworzenia subskrypcji usługi Azure Event Grid, zobacz [schemat subskrypcji usługi Event Grid](subscription-creation-schema.md).
+* Aby uzyskać informacje na temat monitorowania dostarczania zdarzeń, zobacz [monitorowanie Event Grid dostarczania komunikatów](monitor-event-delivery.md).
+* Aby uzyskać więcej informacji na temat klucza uwierzytelniania, zobacz [Event Grid zabezpieczenia i uwierzytelnianie](security-authentication.md).
+* Aby uzyskać więcej informacji na temat tworzenia subskrypcji Azure Event Grid, zobacz [Event Grid schematu subskrypcji](subscription-creation-schema.md).
