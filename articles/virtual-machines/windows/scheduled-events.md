@@ -1,103 +1,96 @@
 ---
-title: Zaplanowane zdarzenia dla maszyn wirtualnych systemu Windows na platformie Azure
-description: Zaplanowane zdarzenia przy użyciu usługi Azure Metadata dla maszyn wirtualnych systemu Windows.
-services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: ''
+title: Scheduled Events maszyn wirtualnych z systemem Windows na platformie Azure
+description: Zaplanowane zdarzenia za pomocą usługi Azure Metadata Service dla maszyn wirtualnych z systemem Windows.
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: ''
-ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: c1e9ef8de65912c4f33e17ee2bb2175c76e7ea07
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 105279940546c8e5b40d1d8378b35f85af1ea98b
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258688"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099550"
 ---
-# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Usługa metadanych platformy Azure: zaplanowane zdarzenia dla maszyn wirtualnych systemu Windows
+# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events maszyn wirtualnych z systemem Windows
 
-Zaplanowane zdarzenia to usługa metadanych platformy Azure, która daje czas aplikacji na przygotowanie się do konserwacji maszyny wirtualnej. Zawiera informacje o nadchodzących zdarzeniach konserwacji (np. ponownym uruchomieniu), dzięki czemu aplikacja może się do nich przygotować i ograniczyć zakłócenia. Jest on dostępny dla wszystkich typów maszyn wirtualnych platformy Azure, w tym PaaS i IaaS w systemie Windows i Linux. 
+Scheduled Events to Metadata Service platformy Azure, który umożliwia aplikacji przygotowanie do konserwacji maszyn wirtualnych. Zawiera informacje o nadchodzących zdarzeniach konserwacyjnych (np. ponownym uruchomieniu), aby aplikacja mogła je przygotować i ograniczyć zakłócenia. Jest ona dostępna dla wszystkich typów maszyn wirtualnych platformy Azure, w tym PaaS i IaaS w systemach Windows i Linux. 
 
-Aby uzyskać informacje o zaplanowanych zdarzeniach w systemie Linux, zobacz [Zaplanowane zdarzenia dla maszyn wirtualnych z systemem Linux](../linux/scheduled-events.md).
+Aby uzyskać informacje na temat Scheduled Events w systemie Linux, zobacz [Scheduled Events dla maszyn wirtualnych z systemem Linux](../linux/scheduled-events.md).
 
 > [!Note] 
-> Zaplanowane zdarzenia są ogólnie dostępne we wszystkich regionach platformy Azure. Aby uzyskać najnowsze informacje o wersji, zobacz [Dostępność wersji i regionu.](#version-and-region-availability)
+> Scheduled Events jest ogólnie dostępna we wszystkich regionach świadczenia usługi Azure. Informacje o [dostępności wersji i regionu](#version-and-region-availability) znajdują się w temacie dotyczącym najnowszych informacji o wersji.
 
-## <a name="why-scheduled-events"></a>Dlaczego zaplanowane wydarzenia?
+## <a name="why-scheduled-events"></a>Dlaczego Scheduled Events?
 
-Wiele aplikacji może korzystać z czasu, aby przygotować się do konserwacji maszyny wirtualnej. Czas może służyć do wykonywania zadań specyficznych dla aplikacji, które zwiększają dostępność, niezawodność i łatwość serwisowania, w tym: 
+Wiele aplikacji może korzystać z czasu, aby przygotować się do konserwacji maszyn wirtualnych. Czas może służyć do wykonywania zadań specyficznych dla aplikacji, które zwiększają dostępność, niezawodność i możliwości obsługi, w tym: 
 
 - Punkt kontrolny i przywracanie
 - Opróżnianie połączeń
-- Podstawowego trybu failover repliki 
-- Usuwanie z puli modułów równoważenia obciążenia
+- Tryb failover repliki podstawowej 
+- Usuwanie z puli modułu równoważenia obciążenia
 - Rejestrowanie zdarzeń
-- Wdzięczne zamknięcie 
+- Bezpieczne zamykanie 
 
-Za pomocą zaplanowanych zdarzeń aplikacji można odnajdywać, kiedy nastąpi konserwacja i wyzwalać zadania, aby ograniczyć jego wpływ. Włączenie zaplanowanych zdarzeń daje maszynie wirtualnej minimalny czas przed wykonaniem czynności konserwacyjnej. Szczegółowe informacje można znaleźć w sekcji Planowanie zdarzeń poniżej.
+Korzystanie Scheduled Events aplikacji może wykryć, gdy nastąpi konserwacja, i wyzwala zadania, aby ograniczyć jego wpływ. Włączenie zaplanowanych zdarzeń powoduje, że maszyna wirtualna jest minimalnym czasem przed wykonaniem działania konserwacji. Aby uzyskać szczegółowe informacje, zobacz sekcję planowanie zdarzeń poniżej.
 
-Zaplanowane zdarzenia udostępnia zdarzenia w następujących przypadkach użycia:
-- [Konserwacja inicjowana przez platformę](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (na przykład ponowne uruchomienie maszyny Wirtualnej, migracja na żywo lub przechowywanie aktualizacji pamięci dla hosta)
-- Maszyna wirtualna jest uruchomiona na [zdegradowanym sprzęcie hosta,](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) który wkrótce zakończy się niepowodzeniem
-- Konserwacja inicjowana przez użytkownika (np. ponowne uruchomienie lub ponowne wdrożenie maszyny Wirtualnej)
-- Eksmisje wystąpienia zestawu instancji [maszyny wirtualnej](spot-vms.md) punktowej i [skali punktowej](../../virtual-machine-scale-sets/use-spot.md)
+Scheduled Events udostępnia zdarzenia w następujących przypadkach użycia:
+- [Konserwacja inicjowana przez platformę](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (na przykład ponowne uruchomienie maszyny wirtualnej, migracja na żywo lub zachowywanie pamięci na potrzeby hosta)
+- Maszyna wirtualna jest uruchomiona na [obniżyć wydajności sprzętu hosta](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) , który przewiduje niepowodzenie wkrótce
+- Konserwacja inicjowana przez użytkownika (np. użytkownik uruchamia ponownie lub wdraża maszynę wirtualną)
+- Wykluczanie wystąpień [maszyn wirtualnych](spot-vms.md) i [zestawów skalowania](../../virtual-machine-scale-sets/use-spot.md)
 
-## <a name="the-basics"></a>Podstawy  
+## <a name="the-basics"></a>Podstawowe informacje  
 
-Usługa metadanych platformy Azure udostępnia informacje o uruchamianiu maszyn wirtualnych przy użyciu punktu końcowego REST dostępne z poziomu maszyny wirtualnej. Informacje są dostępne za pośrednictwem nie rutable IP, tak aby nie jest narażony poza maszyną wirtualną.
+Usługa Azure Metadata umożliwia ujawnianie informacji na temat uruchamiania Virtual Machines przy użyciu punktu końcowego REST dostępnego z poziomu maszyny wirtualnej. Informacje są dostępne za pośrednictwem adresu IP bez obsługi routingu, tak aby nie były widoczne poza maszyną wirtualną.
 
-### <a name="endpoint-discovery"></a>Odnajdowanie punktu końcowego
-W przypadku maszyn wirtualnych z włączoną obsługą metadanych usługa metadanych jest dostępna ze statycznego nie rutowalnej usługi IP. `169.254.169.254` Pełny punkt końcowy dla najnowszej wersji zaplanowanych zdarzeń jest: 
+### <a name="endpoint-discovery"></a>Odnajdywanie punktów końcowych
+W przypadku maszyn wirtualnych z obsługą sieci wirtualnej usługa metadanych jest dostępna ze statycznego adresu IP `169.254.169.254`bez obsługi routingu. Pełny punkt końcowy dla najnowszej wersji Scheduled Events to: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
 
-Jeśli maszyna wirtualna nie jest tworzona w sieci wirtualnej, domyślne przypadki dla usług w chmurze i klasycznych maszyn wirtualnych, dodatkowa logika jest wymagana do odnajdywanie adresu IP do użycia. Zapoznaj się z tym przykładem, aby dowiedzieć się, jak [odnajdować punkt końcowy hosta](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+Jeśli maszyna wirtualna nie zostanie utworzona w ramach Virtual Network, domyślne przypadki usług Cloud Services i klasycznych maszyn wirtualnych są wymagane do odnajdywania adresu IP do użycia. Zapoznaj się z tym przykładem, aby dowiedzieć się [, jak odnaleźć punkt końcowy hosta](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Dostępność wersji i regionu
-Usługa zaplanowanych zdarzeń jest wersjona. Wersje są obowiązkowe, a `2019-01-01`bieżąca wersja jest .
+Usługa Scheduled Events jest w wersji. Wersje są obowiązkowe, a bieżąca wersja to `2019-01-01`.
 
-| Wersja | Typ wydania | Regiony | Informacje o wersji | 
+| Wersja | Typ wydania | Regiony | Uwagi do wersji | 
 | - | - | - | - |
-| 2019-01-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę zestawów skalowania maszyny wirtualnej EventType "Terminate" |
-| 2017-11-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę spot vm eksmisji EventType "Preempt"<br> | 
-| 2017-08-01 | Ogólna dostępność | Wszystkie | <li> Usunięto poprzedzane podkreślenie z nazw zasobów maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszane dla wszystkich żądań | 
+| 2019-01-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
+| 2017-11-01 | Ogólna dostępność | Wszystkie | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 
+| 2017-08-01 | Ogólna dostępność | Wszystkie | <li> Usunięto poprzedzony znak podkreślenia z nazw zasobów dla maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszone dla wszystkich żądań | 
 | 2017-03-01 | Wersja zapoznawcza | Wszystkie |<li>Wersja początkowa |
 
 > [!NOTE] 
-> Poprzednie wersje zapoznawcza zaplanowanych zdarzeń obsługiwane {latest} jako wersja interfejsu api. Ten format nie jest już obsługiwany i zostanie przestarzały w przyszłości.
+> W poprzedniej wersji zapoznawczej obsługiwane są zaplanowane zdarzenia {Najnowsza} jako wersja interfejsu API. Ten format nie jest już obsługiwany i będzie przestarzały w przyszłości.
 
 ### <a name="enabling-and-disabling-scheduled-events"></a>Enabling and Disabling Scheduled Events (Włączanie i wyłączanie usługi Scheduled Events)
-Zaplanowane zdarzenia są włączone dla usługi przy pierwszym zwładniu żądania zdarzeń. Należy się spodziewać opóźnionej odpowiedzi w pierwszym wywołaniu do dwóch minut. Należy okresowo wysyłać zapytania do punktu końcowego, aby wykryć nadchodzące zdarzenia konserwacji, a także stan wykonywanych czynności konserwacyjnych.
+Scheduled Events jest włączona dla Twojej usługi podczas pierwszego żądania zdarzeń. Oczekiwana jest opóźniona odpowiedź w pierwszym wywołaniu przez maksymalnie dwie minuty. Należy okresowo wysyłać zapytania do punktu końcowego w celu wykrycia przyszłych zdarzeń konserwacji, jak również stanu wykonywanych działań konserwacyjnych.
 
-Zaplanowane zdarzenia są wyłączone dla usługi, jeśli nie złóż żądania przez 24 godziny.
+Scheduled Events jest wyłączone dla usługi, jeśli nie zostanie wysłane żądanie przez 24 godziny.
 
-### <a name="user-initiated-maintenance"></a>Konserwacja inicjowana przez użytkownika
-Zainicjowana przez użytkownika konserwacja maszyny wirtualnej za pośrednictwem portalu Azure, interfejsu API, interfejsu wiersza polecenia lub programu PowerShell powoduje zaplanowane zdarzenie. Dzięki temu można przetestować logikę przygotowania konserwacji w aplikacji i umożliwia aplikacji przygotowanie do konserwacji zainicjowanej przez użytkownika.
+### <a name="user-initiated-maintenance"></a>Konserwacja zainicjowana przez użytkownika
+Użytkownik zainicjował konserwację maszyny wirtualnej za pośrednictwem Azure Portal, interfejsu API, wiersza polecenia lub programu PowerShell w zaplanowanym zdarzeniu. Pozwala to na przetestowanie logiki przygotowania konserwacji w aplikacji i umożliwia aplikacji przygotowanie się do konserwacji zainicjowanej przez użytkownika.
 
-Ponowne uruchomienie maszyny wirtualnej planuje `Reboot`zdarzenie z typem . Ponowne wdrożenie maszyny wirtualnej planuje zdarzenie z `Redeploy`typem .
+Ponowne uruchomienie maszyny wirtualnej powoduje zaplanowanie zdarzenia `Reboot`typu. Ponowne wdrożenie maszyny wirtualnej powoduje zaplanowanie zdarzenia typu `Redeploy`.
 
 ## <a name="using-the-api"></a>Korzystanie z interfejsu API
 
 ### <a name="headers"></a>Nagłówki
-Podczas kwerendy usługi metadanych, należy `Metadata:true` podać nagłówek, aby upewnić się, że żądanie nie zostało przypadkowo przekierowane. Nagłówek `Metadata:true` jest wymagany dla wszystkich żądań zaplanowanych zdarzeń. Nieuwzpochnienie do uwzględnienia nagłówka w żądaniu spowoduje odpowiedź bad request z usługi metadanych.
+Podczas wykonywania zapytania dotyczącego Metadata Service należy podać nagłówek `Metadata:true` , aby upewnić się, że żądanie nie zostało przypadkowo przekierowane. `Metadata:true` Nagłówek jest wymagany dla wszystkich żądań zaplanowanych zdarzeń. Niepowodzenie dołączenia nagłówka w żądaniu spowoduje nieprawidłową odpowiedź na żądanie z Metadata Service.
 
-### <a name="query-for-events"></a>Kwerenda o zdarzenia
-Można wyszukiwać zaplanowane zdarzenia po prostu przez następujące wywołanie:
+### <a name="query-for-events"></a>Zapytanie o zdarzenia
+Możesz wykonać zapytanie o Scheduled Events po prostu, wykonując następujące wywołanie:
 
 #### <a name="powershell"></a>PowerShell
 ```
 curl http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01 -H @{"Metadata"="true"}
 ```
 
-Odpowiedź zawiera tablicę zaplanowanych zdarzeń. Pusta tablica oznacza, że obecnie nie są zaplanowane żadne zdarzenia.
-W przypadku, gdy istnieją zaplanowane zdarzenia, odpowiedź zawiera tablicę zdarzeń: 
+Odpowiedź zawiera tablicę zaplanowanych zdarzeń. Pusta tablica oznacza, że aktualnie nie ma żadnych zaplanowanych zdarzeń.
+W przypadku zaplanowanych zdarzeń odpowiedź zawiera tablicę zdarzeń: 
 ```
 {
     "DocumentIncarnation": {IncarnationID},
@@ -113,46 +106,46 @@ W przypadku, gdy istnieją zaplanowane zdarzenia, odpowiedź zawiera tablicę zd
     ]
 }
 ```
-DocumentIncarnation jest ETag i zapewnia łatwy sposób, aby sprawdzić, czy ładunek zdarzenia uległ zmianie od ostatniego zapytania.
+DocumentIncarnation jest elementem ETag i zapewnia łatwy sposób sprawdzenia, czy ładunek zdarzeń został zmieniony od czasu ostatniego zapytania.
 
 ### <a name="event-properties"></a>Właściwości zdarzenia
 |Właściwość  |  Opis |
 | - | - |
-| Eventid | Globalnie unikatowy identyfikator dla tego zdarzenia. <br><br> Przykład: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Typ zdarzenia | Wpływ powoduje to zdarzenie. <br><br> Wartości: <br><ul><li> `Freeze`: Maszyna wirtualna jest zaplanowana do wstrzymania na kilka sekund. Łączność procesora i sieci może zostać zawieszona, ale nie ma to wpływu na pamięć lub otwarte pliki. <li>`Reboot`: Maszyna wirtualna jest zaplanowana do ponownego uruchomienia (pamięć nietrwała zostanie utracona). <li>`Redeploy`: Maszyna wirtualna jest zaplanowane do przeniesienia do innego węzła (dyski efemeryczne są tracone). <li>`Preempt`: Maszyna wirtualna punktowa jest usuwana (dyski efemeryczne są tracone). <li> `Terminate`: Maszyna wirtualna jest zaplanowana do usunięcia. |
-| ResourceType | Typ zasobu, na który ma wpływ to zdarzenie. <br><br> Wartości: <ul><li>`VirtualMachine`|
-| Zasoby| Lista zasobów, które ma wpływ na to zdarzenie. Gwarantuje to, że zawiera maszyny z co najwyżej jednej [domeny aktualizacji,](manage-availability.md)ale może nie zawierać wszystkich maszyn w UD. <br><br> Przykład: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| Stan zdarzenia | Stan tego zdarzenia. <br><br> Wartości: <ul><li>`Scheduled`: To zdarzenie ma się rozpocząć po `NotBefore` czasie określonym w właściwości.<li>`Started`: To wydarzenie zostało rozpoczęte.</ul> Nigdy `Completed` nie podano żadnego statusu podobnego; zdarzenie nie zostanie już zwrócone po zakończeniu wydarzenia.
-| Nie wcześniej niż| Czas, po którym może się rozpocząć to zdarzenie. <br><br> Przykład: <br><ul><li> pon,19 wrz 2016 18:29:47 GMT  |
+| EventId | Unikatowy identyfikator globalny dla tego zdarzenia. <br><br> Przykład: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| Typ zdarzenia | Ma to wpływ na przyczyny tego zdarzenia. <br><br> Wartości: <br><ul><li> `Freeze`: Zaplanowano wstrzymanie maszyny wirtualnej przez kilka sekund. Połączenie procesora i sieci może być zawieszone, ale nie ma wpływu na pamięć lub otwieranie plików. <li>`Reboot`: Zaplanowano ponowne uruchomienie maszyny wirtualnej (pamięć nietrwała zostanie utracona). <li>`Redeploy`: Zaplanowano przeniesienie maszyny wirtualnej do innego węzła (dyski tymczasowe są tracone). <li>`Preempt`: Trwa usuwanie miejsca na maszynie wirtualnej (dyski tymczasowe są tracone). <li> `Terminate`: Zaplanowano usunięcie maszyny wirtualnej. |
+| ResourceType | Typ zasobu, którego dotyczy to zdarzenie. <br><br> Wartości: <ul><li>`VirtualMachine`|
+| Zasoby| Lista zasobów, na które ma wpływ zdarzenie. Ma to na celu zapewnienie maszyn z co najwyżej jednej [domeny aktualizacji](manage-availability.md), ale może nie zawierać wszystkich maszyn w ud. <br><br> Przykład: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Stan zdarzenia | Stan tego zdarzenia. <br><br> Wartości: <ul><li>`Scheduled`: To zdarzenie jest zaplanowane do uruchomienia po upływie czasu określonego we `NotBefore` właściwości.<li>`Started`: To zdarzenie zostało uruchomione.</ul> Nie `Completed` jest dostępny żaden ani podobny stan; zdarzenie nie będzie już zwracane po zakończeniu zdarzenia.
+| Nie wcześniej niż| Czas, po którym to zdarzenie może się zacząć. <br><br> Przykład: <br><ul><li> PN, 19 wrz 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Planowanie zdarzeń
-Każde zdarzenie jest zaplanowane przez co najmniej czas w przyszłości na podstawie typu zdarzenia. Ten czas znajduje odzwierciedlenie w `NotBefore` właściwości zdarzenia. 
+Każde zdarzenie ma zaplanowaną minimalną ilość czasu w przyszłości w oparciu o typ zdarzenia. Ten czas jest uwzględniany we `NotBefore` właściwości zdarzenia. 
 
-|Typ zdarzenia  | Minimalne powiadomienie |
+|Typ zdarzenia  | Minimalny komunikat |
 | - | - |
-| Zamrozić| 15 minut |
+| Funkcja| 15 minut |
 | Ponowne uruchamianie | 15 minut |
 | Ponowne wdrożenie | 10 minut |
-| Wywłaszczyć | 30 sekund |
-| Terminate | [Możliwość konfiguracji użytkownika:](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications)od 5 do 15 minut |
+| Stępują | 30 sekund |
+| Terminate | [Użytkownik konfigurowalny](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): od 5 do 15 minut |
 
 > [!NOTE] 
-> W niektórych przypadkach platforma Azure jest w stanie przewidzieć awarię hosta z powodu awarii sprzętu i podejmie próbę złagodzenia zakłóceń w usłudze przez zaplanowanie migracji. Których dotyczy problem maszyny wirtualne otrzymają zaplanowane zdarzenie z `NotBefore` zwykle kilku dni w przyszłości. Rzeczywisty czas różni się w zależności od przewidywanej oceny ryzyka awarii. Platforma Azure próbuje powiadomić z 7-dniowym wyprzedzeniem, jeśli jest to możliwe, ale rzeczywisty czas jest różny i może być mniejszy, jeśli przewidywanie jest, że istnieje duże prawdopodobieństwo, że sprzęt nie działa w najbliższym czasie. Aby zminimalizować ryzyko związane z usługą w przypadku awarii sprzętu przed rozpoczęciem migracji przez system, zaleca się samoreepcie maszyny wirtualnej tak szybko, jak to możliwe.
+> W niektórych przypadkach platforma Azure może przewidzieć awarię hosta z powodu nieprawidłowego sprzętu i podejmuje próbę ograniczenia zakłócenia usługi przez zaplanowanie migracji. Na maszynach wirtualnych `NotBefore` , których to dotyczy, zostanie odebrane zaplanowane zdarzenie, które jest zwykle kilka dni w przyszłości. Rzeczywisty czas zależy od przewidywanej oceny ryzyka niepowodzeń. Platforma Azure podejmuje próbę wydawania z wyprzedzeniem 7 dni, ale rzeczywisty czas jest różny i może być mniejszy, jeśli przewidywane jest, że nastąpi bezpośrednie awaria sprzętu. Aby zminimalizować ryzyko dla usługi na wypadek awarii sprzętu przed zainicjowaniem migracji systemu, zaleca się samodzielnego ponownego wdrożenia maszyny wirtualnej najszybciej, jak to możliwe.
 
 ### <a name="event-scope"></a>Zakres zdarzenia     
-Zaplanowane wydarzenia są dostarczane do:
- - Autonomiczne maszyny wirtualne
- - Wszystkie maszyny wirtualne w usłudze w chmurze      
- - Wszystkie maszyny wirtualne w zestawie dostępności      
- - Wszystkie maszyny wirtualne w grupie umieszczania zestawów skalowania.         
+Zaplanowane zdarzenia są dostarczane do:
+ - Virtual Machines autonomiczna
+ - Wszystkie Virtual Machines w usłudze w chmurze      
+ - Wszystkie Virtual Machines w zestawie dostępności      
+ - Wszystkie Virtual Machines w grupie umieszczania zestawu skalowania.         
 
-W rezultacie należy sprawdzić `Resources` pole w zdarzeniu, aby zidentyfikować, które maszyny wirtualne będą miały wpływ. 
+W związku z tym należy zaznaczyć `Resources` pole w zdarzeniu, aby ustalić, które maszyny wirtualne mają mieć wpływ. 
 
-### <a name="starting-an-event"></a>Rozpoczynanie wydarzenia 
+### <a name="starting-an-event"></a>Uruchamianie zdarzenia 
 
-Po zapoznaniu się z nadchodzącym wydarzeniem i zakończeniu logiki wdzięku `POST` zamknięcia, można zatwierdzić `EventId`zdarzenie wybitne, nawiązując połączenie z usługą metadanych za pomocą pliku . Oznacza to, że platforma Azure może skrócić minimalny czas powiadamiania (jeśli to możliwe). 
+Po uzyskaniu nadchodzącego zdarzenia i zakończeniu logiki w celu bezpiecznego zamknięcia możesz zatwierdzić wydarzenie zaległe, wykonując `POST` wywołanie do usługi metadanych przy użyciu. `EventId` Wskazuje to na platformę Azure, że może skrócić minimalny czas powiadomienia (jeśli to możliwe). 
 
-Poniżej przedstawiono json `POST` oczekiwane w treści żądania. Żądanie powinno zawierać listę `StartRequests`. Każdy `StartRequest` zawiera `EventId` dla zdarzenia, które chcesz przyspieszyć:
+Poniżej znajduje się kod JSON oczekiwany w `POST` treści żądania. Żądanie powinno zawierać listę `StartRequests`. Każdy `StartRequest` z nich `EventId` zawiera dla zdarzenia, które chcesz przyspieszyć:
 ```
 {
     "StartRequests" : [
@@ -169,12 +162,12 @@ curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": 
 ```
 
 > [!NOTE] 
-> Potwierdzanie zdarzenia umożliwia zdarzenie, aby `Resources` przejść dla wszystkich w przypadku, a nie tylko maszyny wirtualnej, która potwierdza zdarzenie. W związku z tym można wybrać lidera do koordynowania potwierdzenia, które mogą `Resources` być tak proste, jak pierwsza maszyna w terenie.
+> Potwierdzenie zdarzenia pozwala na wykonanie zdarzenia dla wszystkich `Resources` zdarzeń w zdarzeniu, a nie tylko do maszyny wirtualnej, która potwierdzi zdarzenie. W związku z tym możesz wybrać lidera, aby koordynował potwierdzenie, które może być proste jako pierwszy komputer w `Resources` polu.
 
 
 ## <a name="powershell-sample"></a>Przykładowy skrypt programu PowerShell 
 
-Poniższy przykład zapytania usługi metadanych dla zaplanowanych zdarzeń i zatwierdza każde zdarzenie zaległe.
+Poniższy przykład wysyła zapytanie do usługi metadanych o zaplanowanych zdarzeniach i zatwierdza każde wydarzenie zaległe.
 
 ```powershell
 # How to get scheduled events 
@@ -233,7 +226,7 @@ foreach($event in $scheduledEvents.Events)
 
 ## <a name="next-steps"></a>Następne kroki 
 
-- Obejrzyj [pokaz zaplanowanych zdarzeń](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) w piątek na platformie Azure. 
-- Przejrzyj przykłady kodu zaplanowanych zdarzeń w [repozytorium GitHub zaplanowane zdarzenia wystąpienia platformy Azure](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
-- Dowiedz się więcej o interfejsach API dostępnych w [usłudze metadanych wystąpienia](instance-metadata-service.md).
-- Dowiedz się więcej o [planowanej konserwacji maszyn wirtualnych z systemem Windows na platformie Azure](planned-maintenance.md).
+- Obejrzyj [Scheduled Events demonstrację](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) w piątek na platformie Azure. 
+- Zapoznaj się z przykładami kodu Scheduled Events w [metadanych wystąpienia platformy Azure Scheduled Events repozytorium GitHub](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
+- Przeczytaj więcej na temat interfejsów API dostępnych w [usłudze metadanych wystąpienia](instance-metadata-service.md).
+- Informacje o [planowanej konserwacji maszyn wirtualnych z systemem Windows na platformie Azure](planned-maintenance.md).

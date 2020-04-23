@@ -1,35 +1,33 @@
 ---
-title: Udostępnianie obrazów galerii wśród dzierżawców platformy Azure
-description: Dowiedz się, jak udostępniać obrazy maszyn wirtualnych w dzierżawach platformy Azure przy użyciu galerii obrazów udostępnionych.
-services: virtual-machines-windows
+title: Udostępnianie obrazów galerii między dzierżawcami na platformie Azure
+description: Dowiedz się, jak udostępniać obrazy maszyn wirtualnych w dzierżawach platformy Azure przy użyciu udostępnionych galerii obrazów.
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines-windows
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: cynthn
-ms.openlocfilehash: 9b7e7066f186017b7cc4408cd4f7edcc7e5f0dcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c35799147d276bf4b6f07893b7cd975c5c5823c
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74065522"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101199"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Udostępnianie obrazów maszyn wirtualnych galerii w dzierżawach platformy Azure
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Udostępnianie obrazów maszyn wirtualnych z galerii w ramach dzierżawców platformy Azure
 
-Udostępnione galerie obrazów umożliwiają udostępnianie obrazów za pomocą funkcji RBAC. Za pomocą funkcji RBAC można udostępniać obrazy w obrębie dzierżawy, a nawet osobom spoza dzierżawy. Aby uzyskać więcej informacji na temat tej prostej opcji udostępniania, zobacz [udostępnianie galerii](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery).
+Udostępnione Galerie obrazów umożliwiają udostępnianie obrazów przy użyciu RBAC. RBAC można używać do udostępniania obrazów w dzierżawie, a nawet do osób poza dzierżawcą. Aby uzyskać więcej informacji na temat tej prostej opcji udostępniania, zobacz [udostępnianie galerii](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
 > [!IMPORTANT]
-> Nie można użyć portalu do wdrożenia maszyny Wirtualnej z obrazu w innej dzierżawie platformy Azure. Aby utworzyć maszynę wirtualną z obrazu udostępnionego przez dzierżawców, należy użyć [interfejsu wiersza polecenia platformy Azure](../linux/share-images-across-tenants.md) lub programu Powershell.
+> Nie można użyć portalu do wdrożenia maszyny wirtualnej na podstawie obrazu w innej dzierżawie platformy Azure. Aby utworzyć maszynę wirtualną na podstawie obrazu udostępnianego między dzierżawcami, musisz użyć [interfejsu wiersza polecenia platformy Azure](../linux/share-images-across-tenants.md) lub programu PowerShell.
 
 ## <a name="create-a-vm-using-powershell"></a>Tworzenie maszyny wirtualnej przy użyciu programu PowerShell
 
-Zaloguj się do obu dzierżaw przy użyciu identyfikatora aplikacji, klucz tajny i identyfikator dzierżawy. 
+Zaloguj się do obu dzierżawców przy użyciu identyfikatora aplikacji, klucza tajnego i identyfikatora dzierżawy. 
 
 ```azurepowershell-interactive
 $applicationId = '<App ID>'
@@ -42,7 +40,7 @@ Connect-AzAccount -ServicePrincipal -Credential $cred  -Tenant "<Tenant 1 ID>"
 Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant "<Tenant 2 ID>"
 ```
 
-Utwórz maszynę wirtualną w grupie zasobów, która ma uprawnienia do rejestracji aplikacji. Zastąp informacje w tym przykładzie własnymi.
+Utwórz maszynę wirtualną w grupie zasobów, która ma uprawnienia do rejestracji aplikacji. Zastąp informacje w tym przykładzie własnym.
 
 
 
@@ -86,4 +84,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zasoby galerii obrazów udostępnionych można również tworzyć za pomocą [portalu Azure](shared-images-portal.md).
+Możesz również utworzyć zasoby udostępnionej galerii obrazów przy użyciu [Azure Portal](shared-images-portal.md).

@@ -1,7 +1,7 @@
 ---
-title: Uzyskaj token, aby wywołać internetowy interfejs API (aplikacje mobilne) | Azure
+title: Uzyskaj token do wywoływania internetowego interfejsu API (aplikacje mobilne) | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak utworzyć aplikację mobilną, która wywołuje internetowe interfejsy API. (Pobierz token dla aplikacji.)
+description: Dowiedz się, jak utworzyć aplikację mobilną, która wywołuje interfejsy API sieci Web. (Pobierz token dla aplikacji).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,22 +13,22 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a77e6c9086a745804c23f431f633d530e2655f16
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 2be074c457eaadd1fb6467cbcfdd45a2e7745613
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868891"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098904"
 ---
-# <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Pobierz token dla aplikacji mobilnej, która wywołuje internetowe interfejsy API
+# <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Uzyskaj token dla aplikacji mobilnej, która wywołuje interfejsy API sieci Web
 
-Zanim aplikacja będzie mogła wywoływać chronione interfejsy API sieci Web, potrzebuje tokenu dostępu. W tym artykule otrzymasz od użytkownika proces, aby uzyskać token przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL).
+Aby aplikacja mogła wywoływać chronione interfejsy API sieci Web, musi mieć token dostępu. W tym artykule omówiono proces uzyskiwania tokenu przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL).
 
-## <a name="define-a-scope"></a>Definiowanie zakresu
+## <a name="define-a-scope"></a>Zdefiniuj zakres
 
-Podczas żądania tokenu, należy zdefiniować zakres. Zakres określa, jakie dane aplikacja może uzyskać dostęp.
+Podczas żądania tokenu należy zdefiniować zakres. Zakres określa, jakie dane może uzyskać dostęp do aplikacji.
 
-Najprostszym sposobem zdefiniowania zakresu jest połączenie żądanego `App ID URI` internetowego `.default`interfejsu API z zakresem. Ta definicja informuje platformę tożsamości firmy Microsoft, że aplikacja wymaga wszystkich zakresów, które są ustawione w portalu.
+Najprostszym sposobem zdefiniowania zakresu jest połączenie żądanych interfejsów API sieci Web `App ID URI` z zakresem. `.default` Ta definicja instruuje platformę tożsamości firmy Microsoft, że aplikacja wymaga wszystkich zakresów ustawionych w portalu.
 
 ### <a name="android"></a>Android
 ```Java
@@ -45,11 +45,11 @@ let scopes = ["https://graph.microsoft.com/.default"]
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
-## <a name="get-tokens"></a>Zdobądź żetony
+## <a name="get-tokens"></a>Pobierz tokeny
 
-### <a name="acquire-tokens-via-msal"></a>Pozyskiwanie tokenów za pośrednictwem protokołu MSAL
+### <a name="acquire-tokens-via-msal"></a>Uzyskiwanie tokenów za pośrednictwem MSAL
 
-MSAL umożliwia aplikacjom pobieranie tokenów w trybie cichym i interaktywnym. Podczas `AcquireTokenSilent()` wywoływania `AcquireTokenInteractive()`lub , MSAL zwraca token dostępu dla żądanych zakresów. Prawidłowy wzorzec jest, aby ciche żądanie, a następnie wrócić do żądania interaktywnego.
+MSAL umożliwia aplikacjom uzyskiwanie tokenów dyskretnie i interaktywnie. Po wywołaniu `AcquireTokenSilent()` lub `AcquireTokenInteractive()`MSAL zwraca token dostępu dla żądanych zakresów. Prawidłowym wzorcem jest wykonanie żądania dyskretnego, a następnie powrót do interaktywnego żądania.
 
 #### <a name="android"></a>Android
 
@@ -83,7 +83,7 @@ sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 
 #### <a name="ios"></a>iOS
 
-Najpierw spróbuj po cichu nabyć token:
+Najpierw spróbuj uzyskać token w trybie dyskretnym:
 
 ```objc
 
@@ -145,7 +145,7 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 }
 ```
 
-Jeśli msal `MSALErrorInteractionRequired`zwraca , a następnie spróbuj nabycia tokenów interaktywnie:
+Jeśli MSAL zwraca `MSALErrorInteractionRequired`, a następnie spróbuj uzyskać tokeny interaktywnie:
 
 ```objc
 UIViewController *viewController = ...; // Pass a reference to the view controller that should be used when getting a token interactively
@@ -179,14 +179,14 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 })
 ```
 
-Msal dla systemu iOS i macOS obsługuje różne modyfikatory, aby uzyskać token interaktywnie lub cicho:
+MSAL dla systemów iOS i macOS obsługuje różne modyfikatory, aby uzyskać token interaktywnie lub dyskretnie:
 * [Typowe parametry uzyskiwania tokenu](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALTokenParameters.html#/Configuration%20parameters)
-* [Parametry uzyskiwania tokenu interaktywnego](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALInteractiveTokenParameters.html#/Configuring%20MSALInteractiveTokenParameters)
-* [Parametry uzyskiwania cichego tokenu](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALSilentTokenParameters.html)
+* [Parametry pobierania tokenu interakcyjnego](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALInteractiveTokenParameters.html#/Configuring%20MSALInteractiveTokenParameters)
+* [Parametry pobierania tokenu dyskretnego](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALSilentTokenParameters.html)
 
 #### <a name="xamarin"></a>Xamarin
 
-W poniższym przykładzie przedstawiono minimalny kod, aby uzyskać token interaktywnie. W przykładzie użyto programu Microsoft Graph do odczytu profilu użytkownika.
+Poniższy przykład pokazuje minimalny kod umożliwiający interaktywny dostęp do tokenu. W przykładzie używa się Microsoft Graph do odczytywania profilu użytkownika.
 
 ```csharp
 string[] scopes = new string[] {"user.read"};
@@ -205,45 +205,45 @@ catch(MsalUiRequiredException)
 }
 ```
 
-#### <a name="mandatory-parameters-in-msalnet"></a>Parametry obowiązkowe w MSAL.NET
+#### <a name="mandatory-parameters-in-msalnet"></a>Obowiązkowe parametry w MSAL.NET
 
-`AcquireTokenInteractive`ma tylko jeden parametr `scopes`obowiązkowy: . Parametr `scopes` wylicza ciągi, które definiują zakresy, dla których wymagany jest token. Jeśli token jest dla programu Microsoft Graph, można znaleźć wymagane zakresy w odwołaniu do interfejsu API każdego interfejsu API programu Microsoft Graph. W odwołaniu przejdź do sekcji "Uprawnienia".
+`AcquireTokenInteractive`ma tylko jeden obowiązkowy parametr: `scopes`. `scopes` Parametr wylicza ciągi definiujące zakresy, dla których wymagany jest token. Jeśli token jest przeznaczony dla Microsoft Graph, można znaleźć wymagane zakresy w dokumentacji interfejsu API dla każdego Microsoft Graph interfejsu API. W odwołaniu przejdź do sekcji "uprawnienia".
 
-Na przykład, aby [wyświetlić listę kontaktów użytkownika,](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts)należy użyć zakresu "User.Read", "Contacts.Read". Aby uzyskać więcej informacji, zobacz [Odwołanie do uprawnień programu Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Na przykład aby [wyświetlić listę kontaktów użytkownika](https://docs.microsoft.com/graph/api/user-list-contacts), należy użyć zakresu "User. Read", "Contacts. Read". Aby uzyskać więcej informacji, zobacz [Microsoft Graph informacje o uprawnieniach](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
-W systemie Android można określić aktywność nadrzędną podczas tworzenia aplikacji za pomocą programu `PublicClientApplicationBuilder`. Jeśli nie określisz działania nadrzędnego w tym czasie, później `.WithParentActivityOrWindow` można określić go za pomocą jak w poniższej sekcji. Jeśli określisz działanie nadrzędne, token powraca do tego działania nadrzędnego po interakcji. Jeśli go nie określisz, `.ExecuteAsync()` wywołanie zgłasza wyjątek.
+W systemie Android podczas tworzenia aplikacji za pomocą programu `PublicClientApplicationBuilder`można określić działanie nadrzędne. Jeśli nie określisz działania nadrzędnego w tym czasie, możesz je określić za pomocą `.WithParentActivityOrWindow` , jak w poniższej sekcji. W przypadku określenia działania nadrzędnego token wraca do tego działania nadrzędnego po interakcji. Jeśli nie zostanie on określony, `.ExecuteAsync()` wywołanie zgłosi wyjątek.
 
-#### <a name="specific-optional-parameters-in-msalnet"></a>Specyficzne parametry opcjonalne w MSAL.NET
+#### <a name="specific-optional-parameters-in-msalnet"></a>Określone parametry opcjonalne w MSAL.NET
 
 W poniższych sekcjach wyjaśniono parametry opcjonalne w MSAL.NET.
 
-##### <a name="withprompt"></a>ZPrompt
+##### <a name="withprompt"></a>WithPrompt
 
-Parametr `WithPrompt()` steruje interaktywnością z użytkownikiem, określając monit.
+`WithPrompt()` Parametr steruje interakcją z użytkownikiem przez określenie monitu.
 
 <img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
 
 Klasa definiuje następujące stałe:
 
-- `SelectAccount`wymusza, aby usługa tokenu zabezpieczającego (STS) zaprezentowała okno dialogowe wyboru konta. Okno dialogowe zawiera konta, dla których użytkownik ma sesję. Tej opcji można użyć, gdy użytkownik ma wybierać spośród różnych tożsamości. Ta opcja umożliwia msal do wysyłania `prompt=select_account` do dostawcy tożsamości.
+- `SelectAccount`wymusza, aby usługa tokenu zabezpieczającego zaprezentować okno dialogowe wyboru konta. Okno dialogowe zawiera konta, dla których użytkownik ma sesję. Możesz użyć tej opcji, jeśli chcesz zezwolić użytkownikowi na wybór różnych tożsamości. Ta opcja umożliwia MSAL wysyłanie `prompt=select_account` do dostawcy tożsamości.
 
-    Stała `SelectAccount` jest domyślna i skutecznie zapewnia najlepsze możliwe środowisko na podstawie dostępnych informacji. Dostępne informacje mogą obejmować konto, obecność sesji dla użytkownika i tak dalej. Nie zmieniaj tego ustawienia domyślnego, chyba że masz ku temu dobry powód.
-- `Consent`umożliwia monitowanie użytkownika o zgodę, nawet jeśli zgoda została udzielona wcześniej. W takim przypadku MSAL wysyła `prompt=consent` do dostawcy tożsamości.
+    `SelectAccount` Stała jest wartością domyślną i efektywnie zapewnia najlepsze możliwe środowisko na podstawie dostępnych informacji. Dostępne informacje mogą obejmować konto, obecność sesji dla użytkownika i tak dalej. Nie zmieniaj tego ustawienia domyślnego, chyba że masz dobry powód, aby to zrobić.
+- `Consent`pozwala na monitowanie użytkownika o zgodę nawet w przypadku udzielenia zgody. W takim przypadku MSAL wysyła `prompt=consent` do dostawcy tożsamości.
 
-    Można użyć stałej `Consent` w aplikacjach z naciskiem na zabezpieczenia, w których zarządzanie organizacją wymaga od użytkowników, aby mogli zobaczyć okno dialogowe zgody za każdym razem, gdy korzystają z aplikacji.
-- `ForceLogin`umożliwia usłudze monitowanie użytkownika o poświadczenia, nawet jeśli monit nie jest potrzebny.
+    Możesz chcieć użyć `Consent` stałej w aplikacjach ukierunkowanych na zabezpieczenia, gdy organizacja organizacji wymaga, aby użytkownicy widzieli okno dialogowe zgody za każdym razem, gdy korzystają z aplikacji.
+- `ForceLogin`umożliwia usłudze monitowanie użytkownika o podanie poświadczeń, nawet jeśli monit nie jest wymagany.
 
-    Ta opcja może być przydatna, jeśli pobieranie tokenu nie powiedzie się i chcesz umożliwić użytkownikowi ponowne zalogowanie się. W takim przypadku MSAL wysyła `prompt=login` do dostawcy tożsamości. Można użyć tej opcji w aplikacjach z uwzględnieniem zabezpieczeń, gdzie zarządzanie organizacją wymaga od użytkownika, aby zalogować się za każdym razem, gdy uzyskują dostęp do określonych części aplikacji.
-- `Never`jest tylko dla .NET 4.5 i Windows Runtime (WinRT). Ta stała nie monituje użytkownika, ale spróbuje użyć pliku cookie, który jest przechowywany w ukrytym osadzonym widoku sieci Web. Aby uzyskać więcej informacji, zobacz [Korzystanie z przeglądarek internetowych z MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
+    Ta opcja może być przydatna w przypadku niepowodzenia pozyskiwania tokenu i poinformowania użytkownika o konieczności ponownego zalogowania. W takim przypadku MSAL wysyła `prompt=login` do dostawcy tożsamości. Warto użyć tej opcji w aplikacjach ukierunkowanych na zabezpieczenia, w których administrator organizacji wymaga, aby użytkownik mógł się zalogować przy każdej próbie dostępu do określonych części aplikacji.
+- `Never`dotyczy tylko programu .NET 4,5 i środowisko wykonawcze systemu Windows (WinRT). Ta stała nie monituje użytkownika, ale podejmie próbę użycia pliku cookie przechowywanego w ukrytym osadzonym widoku sieci Web. Aby uzyskać więcej informacji, zobacz [Korzystanie z przeglądarek sieci Web w programie MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
 
-    Jeśli ta opcja `AcquireTokenInteractive` nie powiedzie się, a następnie zgłasza wyjątek, aby powiadomić, że interakcja interfejsu użytkownika jest potrzebna. Następnie należy użyć `Prompt` innego parametru.
+    Jeśli ta opcja zakończy się `AcquireTokenInteractive` niepowodzeniem, program zgłosi wyjątek, aby powiadomić o konieczności interakcji z interfejsem użytkownika. Następnie należy użyć innego `Prompt` parametru.
 - `NoPrompt`nie wysyła monitu do dostawcy tożsamości.
 
-    Ta opcja jest przydatna tylko w przypadku zasad profilu edycji w usłudze Azure Active Directory B2C. Aby uzyskać więcej informacji, zobacz [B2C specyfiki](https://aka.ms/msal-net-b2c-specificities).
+    Ta opcja jest przydatna tylko w przypadku zasad edytowanie profilu w programie Azure Active Directory B2C. Aby uzyskać więcej informacji, zobacz [szczegóły dotyczące B2C](https://aka.ms/msal-net-b2c-specificities).
 
-##### <a name="withextrascopetoconsent"></a>ZExtraScopeToConsent
+##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Użyj `WithExtraScopeToConsent` modyfikatora w zaawansowanym scenariuszu, w którym chcesz, aby użytkownik udzielił zgody z góry na kilka zasobów. Tego modyfikatora można użyć, gdy nie chcesz używać zgody przyrostowej, która jest zwykle używana z MSAL.NET lub platformą tożsamości firmy Microsoft 2.0. Aby uzyskać więcej informacji, zobacz [Wyrażanie zgody użytkownika z góry na kilka zasobów.](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources)
+Użyj `WithExtraScopeToConsent` modyfikatora w zaawansowanym scenariuszu, w którym użytkownik powinien zapewnić z góry zgodę na kilka zasobów. Tego modyfikatora można użyć, jeśli nie chcesz używać wyrażenia przyrostowego, które jest zwykle używane z MSAL.NET lub Microsoft Identity platform 2,0. Aby uzyskać więcej informacji, zobacz artykuł czy [użytkownik ma zgodę na dostęp do kilku zasobów](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 Oto przykład kodu:
 
@@ -255,18 +255,18 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ##### <a name="other-optional-parameters"></a>Inne parametry opcjonalne
 
-Aby dowiedzieć się więcej `AcquireTokenInteractive`o innych parametrach opcjonalnych dla , zobacz [dokumentację referencyjną dla AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+Aby dowiedzieć się więcej na temat innych `AcquireTokenInteractive`parametrów opcjonalnych dla programu, zobacz [dokumentację referencyjną AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
 
-### <a name="acquire-tokens-via-the-protocol"></a>Pozyskiwanie tokenów za pośrednictwem protokołu
+### <a name="acquire-tokens-via-the-protocol"></a>Uzyskiwanie tokenów za pośrednictwem protokołu
 
-Nie zaleca się bezpośrednio przy użyciu protokołu, aby uzyskać tokeny. Jeśli to zrobisz, aplikacja nie będzie obsługiwać niektórych scenariuszy, które obejmują logowanie jednokrotne (logowanie jednokrotne), zarządzanie urządzeniami i dostęp warunkowy.
+Nie zalecamy bezpośrednio korzystania z protokołu w celu uzyskania tokenów. Jeśli to zrobisz, aplikacja nie będzie obsługiwać niektórych scenariuszy obejmujących Logowanie jednokrotne (SSO), zarządzanie urządzeniami i dostęp warunkowy.
 
-Gdy używasz protokołu do pobieranie tokenów dla aplikacji mobilnych, należy wykonać dwa żądania:
+W przypadku korzystania z protokołu do uzyskiwania tokenów dla aplikacji mobilnych wykonaj dwa żądania:
 
 * Pobierz kod autoryzacji.
-* Wymiana kodu dla tokenu.
+* Wymienia kod dla tokenu.
 
-#### <a name="get-an-authorization-code"></a>Uzyskaj kod autoryzacji
+#### <a name="get-an-authorization-code"></a>Pobieranie kodu autoryzacji
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -278,7 +278,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="get-access-and-refresh-the-token"></a>Uzyskaj dostęp i odśwież token
+#### <a name="get-access-and-refresh-the-token"></a>Uzyskiwanie dostępu i odświeżanie tokenu
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1

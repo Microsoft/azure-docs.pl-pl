@@ -1,47 +1,119 @@
 ---
-title: Tworzenie zestawów webhook na regułach w usłudze Azure IoT Central | Dokumenty firmy Microsoft
-description: Tworzenie zestawów webhook w usłudze Azure IoT Central, aby automatycznie powiadamiać inne aplikacje, gdy reguły są uruchamiane.
+title: Tworzenie elementów webhook dla reguł na platformie Azure IoT Central | Microsoft Docs
+description: Tworzenie elementów webhook w usłudze Azure IoT Central w celu automatycznego powiadamiania innych aplikacji o pożaru reguł.
 author: viv-liu
 ms.author: viviali
-ms.date: 12/02/2019
+ms.date: 04/03/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: d97bd7a3c6de92f22a9880040f407960d5257f6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cb80b54c75d637842c5f50d9336629dedf758fa
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158099"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100128"
 ---
-# <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Tworzenie akcji elementu webhook dla reguł w usłudze Azure IoT Central
+# <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Tworzenie akcji elementu webhook dla reguł na platformie Azure IoT Central
 
 *Ten temat dotyczy konstruktorów i administratorów.*
 
-Elementów Webhook umożliwiają łączenie aplikacji IoT Central z innymi aplikacjami i usługami do zdalnego monitorowania i powiadomień. Elementów Webhook automatycznie powiadamia inne aplikacje i usługi, które łączysz się za każdym razem, gdy reguła jest wyzwalana w aplikacji IoT Central. Aplikacja IoT Central wysyła żądanie POST do punktu końcowego HTTP innej aplikacji za każdym razem, gdy reguła jest wyzwalana. Ładunek zawiera szczegóły urządzenia i szczegóły wyzwalacza reguły.
+Elementy webhook umożliwiają łączenie aplikacji IoT Central z innymi aplikacjami i usługami na potrzeby zdalnego monitorowania i powiadomień. Elementy webhook automatycznie powiadamiają inne aplikacje i usługi, które są połączone przy każdym wyzwoleniu reguły w aplikacji IoT Central. Aplikacja IoT Central wysyła żądanie POST do punktu końcowego HTTP innej aplikacji przy każdym wyzwoleniu reguły. Ładunek zawiera szczegóły urządzenia i szczegóły wyzwalacza reguł.
 
 ## <a name="set-up-the-webhook"></a>Konfigurowanie elementu webhook
 
-W tym przykładzie można połączyć się z RequestBin, aby otrzymywać powiadomienia, gdy reguły są uruchamiane za pomocą elementów webhook.
+W tym przykładzie nawiążesz połączenie z usługą RequestBin, aby otrzymywać powiadomienia, gdy reguły wyzwalają korzystanie z elementów webhook.
 
-1. Otwórz [plik RequestBin](https://requestbin.net/).
+1. Otwórz [RequestBin](https://requestbin.net/).
 
-1. Utwórz nowy Plik RequestBin i skopiuj **adres URL pojemnika**.
+1. Utwórz nowy RequestBin i skopiuj **adres URL bin**.
 
-1. Tworzenie [reguły telemetrii](tutorial-create-telemetry-rules.md). Zapisz regułę i dodaj nową akcję.
+1. Utwórz [regułę telemetrii](tutorial-create-telemetry-rules.md). Zapisz regułę i Dodaj nową akcję.
 
-    ![Ekran tworzenia elementu Webhook](media/howto-create-webhooks/webhookcreate.png)
+    ![Ekran tworzenia elementu webhook](media/howto-create-webhooks/webhookcreate.png)
 
-1. Wybierz akcję elementu webhook i podaj nazwę wyświetlaną i wklej adres URL pojemnika jako adres URL wywołania zwrotnego.
+1. Wybierz akcję elementu webhook i podaj nazwę wyświetlaną, a następnie wklej adres URL bin jako adres URL wywołania zwrotnego.
 
 1. Zapisz regułę.
 
-Teraz, gdy reguła jest wyzwalana, pojawi się nowe żądanie w RequestBin.
+Teraz, gdy reguła zostanie wyzwolona, zobaczysz nowe żądanie w RequestBin.
 
 ## <a name="payload"></a>Ładunku
 
-Po wyzwoleniu reguły żądanie HTTP POST jest składane z adresu URL wywołania zwrotnego zawierającego ładunek json z danymi telemetrii, urządzenia, reguły i aplikacji. Ładowność może wyglądać następująco:
+Gdy reguła jest wyzwalana, żądanie HTTP POST jest wykonywane do adresu URL wywołania zwrotnego zawierającego ładunek JSON z danymi telemetrycznymi, urządzeniem, regułą i aplikacją. Ładunek może wyglądać następująco:
+
+```json
+{
+    "timestamp": "2020-04-06T00:20:15.06Z",
+    "action": {
+        "id": "<id>",
+        "type": "WebhookAction",
+        "rules": [
+            "<rule_id>"
+        ],
+        "displayName": "Webhook 1",
+        "url": "<callback_url>"
+    },
+    "application": {
+        "id": "<application_id>",
+        "displayName": "Contoso",
+        "subdomain": "contoso",
+        "host": "contoso.azureiotcentral.com"
+    },
+    "device": {
+        "id": "<device_id>",
+        "etag": "<etag>",
+        "displayName": "MXChip IoT DevKit - 1yl6vvhax6c",
+        "instanceOf": "<device_template_id>",
+        "simulated": true,
+        "provisioned": true,
+        "approved": true,
+        "cloudProperties": {
+            "City": {
+                "value": "Seattle"
+            }
+        },
+        "properties": {
+            "deviceinfo": {
+                "firmwareVersion": {
+                    "value": "1.0.0"
+                }
+            }
+        },
+        "telemetry": {
+            "<interface_instance_name>": {
+                "humidity": {
+                    "value": 47.33228889360127
+                }
+            }
+        }
+    },
+    "rule": {
+        "id": "<rule_id>",
+        "displayName": "Humidity monitor"
+    }
+}
+```
+Jeśli reguła monitoruje zagregowaną telemetrię w danym okresie czasu, ładunek będzie zawierać inną sekcję telemetrii.
+
+```json
+{
+    "telemetry": {
+        "<interface_instance_name>": {
+            "Humidity": {
+                "avg": 39.5
+            }
+        }
+    }
+}
+```
+
+## <a name="data-format-change-notice"></a>Powiadomienie o zmianie formatu danych
+
+Jeśli masz co najmniej jeden element webhook, który został utworzony i zapisany przed **3 kwietnia 2020**, musisz usunąć element webhook i utworzyć nowy element webhook. Wynika to z faktu, że starsze elementy webhook używają starszego formatu ładunku, który będzie przestarzały w przyszłości.
+
+### <a name="webhook-payload-format-deprecated-as-of-3-april-2020"></a>Ładunek elementu webhook (format jest przestarzały z 3 kwietnia 2020)
 
 ```json
 {
@@ -80,10 +152,10 @@ Po wyzwoleniu reguły żądanie HTTP POST jest składane z adresu URL wywołania
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 
-Obecnie nie istnieje programowy sposób subskrybowania/anulowania subskrypcji z tych łączy webhook za pośrednictwem interfejsu API.
+Obecnie nie ma możliwości programistycznego subskrybowania/anulowania subskrypcji z tych elementów webhook za pośrednictwem interfejsu API.
 
-Jeśli masz pomysły na ulepszenie tej funkcji, opublikuj swoje sugestie na naszym [forum głosowych użytkownika.](https://feedback.azure.com/forums/911455-azure-iot-central)
+Jeśli masz pomysły dotyczące ulepszania tej funkcji, Opublikuj swoje sugestie na naszym [forum użytkowników](https://feedback.azure.com/forums/911455-azure-iot-central).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy już wiesz, jak skonfigurować i używać zestawów webhook, sugerowanym następnym krokiem jest [zbadanie konfigurowania grup akcji monitora Azure.](howto-use-action-groups.md)
+Teraz, gdy już wiesz, jak skonfigurować elementy webhook i korzystać z nich, zalecanym następnym krokiem jest zapoznanie się z tematem [Konfigurowanie grup akcji Azure monitor](howto-use-action-groups.md).

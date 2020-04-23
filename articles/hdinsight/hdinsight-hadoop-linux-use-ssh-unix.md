@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z protokołu SSH w usłudze Hadoop — Azure HDInsight
-description: Do usługi HDInsight można uzyskać dostęp przy użyciu protokołu Secure Shell (SSH). Ten dokument zawiera informacje dotyczące nawiązywania połączenia z usługą HDInsight przy użyciu poleceń ssh i scp z klientów systemów Windows, Linux, Unix lub macOS.
+description: Do usługi HDInsight można uzyskać dostęp przy użyciu protokołu Secure Shell (SSH). Ten dokument zawiera informacje dotyczące łączenia się z usługą HDInsight przy użyciu poleceń SSH z klientów z systemem Windows, Linux, UNIX lub macOS.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,24 +8,24 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: a53037b5f6c43de0e08bb1c5143f27d14600ca62
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 427a3fbebe858d50d774ebfa7de4576985135abf
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381415"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099176"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH
 
-Dowiedz się, jak bezpiecznie połączyć się z usługą Apache Hadoop w usłudze Azure HDInsight za pomocą [secure shell (SSH).](https://en.wikipedia.org/wiki/Secure_Shell) Aby uzyskać informacje na temat łączenia się za pośrednictwem sieci wirtualnej, zobacz [architektura sieci wirtualnej usługi Azure HDInsight](./hdinsight-virtual-network-architecture.md) i [planowanie wdrożenia sieci wirtualnej dla klastrów usługi Azure HDInsight.](./hdinsight-plan-virtual-network-deployment.md)
+Dowiedz się, jak bezpiecznie łączyć się z Apache Hadoop w usłudze Azure HDInsight za pomocą [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) . Aby uzyskać informacje na temat nawiązywania połączenia za pomocą sieci wirtualnej, zobacz [Architektura sieci wirtualnej usługi Azure HDInsight](./hdinsight-virtual-network-architecture.md). Zobacz również [Planowanie wdrożenia sieci wirtualnej dla klastrów usługi Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md).
 
-Poniższa tabela zawiera informacje o adresie i porcie potrzebne podczas łączenia się z programem HDInsight przy użyciu klienta SSH:
+Poniższa tabela zawiera informacje o adresie i porcie, które są konieczne podczas nawiązywania połączenia z usługą HDInsight przy użyciu klienta SSH:
 
 | Adres | Port | Element docelowy połączenia |
 | ----- | ----- | ----- |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Podstawowy węzeł główny |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Dodatkowy węzeł główny |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | węzeł krawędzi (usługi ML w programie HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | węzeł krawędzi (usługi w usłudze ML w usłudze HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | węzeł krawędzi (dowolny inny typ klastra, jeśli istnieje węzeł krawędzi) |
 
 Zastąp ciąg `<clustername>` nazwą klastra. Element `<edgenodename>` należy zastąpić nazwą węzła krawędzi.
@@ -43,15 +43,15 @@ Systemy Linux, Unix i macOS obejmują polecenia `ssh` i `scp`. Klient `ssh` jest
 
 System Microsoft Windows domyślnie nie instaluje żadnych klientów SSH. Klienci `ssh` i `scp` są dostępni dla systemu Windows za pośrednictwem następujących pakietów:
 
-* [OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). Ten klient jest opcjonalną funkcją wprowadzoną w aktualizacji Windows 10 Fall Creators Update.
+* [Klient OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). Ten klient jest opcjonalną funkcją wprowadzoną w aktualizacji Windows 10 dla twórców.
 
-* [Bash na Ubuntu na Windows 10](https://docs.microsoft.com/windows/wsl/about).
+* [Bash na Ubuntu w systemie Windows 10](https://docs.microsoft.com/windows/wsl/about).
 
-* [Powłoka chmury platformy Azure](../cloud-shell/quickstart.md). Powłoka chmury zapewnia środowisko Bash w przeglądarce.
+* [Azure Cloud Shell](../cloud-shell/quickstart.md). Cloud Shell zapewnia środowisko bash w przeglądarce.
 
-* [Git](https://git-scm.com/).
+* Usługi [git](https://git-scm.com/).
 
-Istnieje również kilka graficznych klientów SSH, takich jak [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) i [MobaXterm](https://mobaxterm.mobatek.net/). Mimo że ci klienci umożliwiają nawiązywanie połączeń z usługą HDInsight, proces łączenia się jest inny niż w przypadku narzędzia `ssh`. Aby uzyskać więcej informacji, zobacz dokumentację używanego klienta graficznego.
+Istnieje również kilka graficznych klientów SSH, takich jak [MobaXterm](https://mobaxterm.mobatek.net/) [i.](https://www.chiark.greenend.org.uk/~sgtatham/putty/) Mimo że ci klienci umożliwiają nawiązywanie połączeń z usługą HDInsight, proces łączenia się jest inny niż w przypadku narzędzia `ssh`. Aby uzyskać więcej informacji, zapoznaj się z dokumentacją używanego klienta graficznego.
 
 ## <a name="authentication-ssh-keys"></a><a id="sshkey"></a>Uwierzytelnianie: klucze SSH
 
@@ -87,14 +87,14 @@ Zostanie wyświetlony monit o podanie informacji podczas procesu tworzenia klucz
 
 | Metoda tworzenia | Sposób użycia klucza publicznego |
 | ------- | ------- |
-| Azure Portal | Wyebranu pola __wyboru Użyj hasła logowania klastra dla SSH,__ a następnie wybierz pozycję Klucz __publiczny__ jako typ uwierzytelniania SSH. Na koniec wybierz plik klucza publicznego lub wklej zawartość tekstową pliku w polu __Klucz publiczny SSH__.</br>![Okno dialogowe dotyczące klucza publicznego SSH w procesie tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| Azure Portal | Usuń zaznaczenie pola __Użyj hasła logowania klastra dla protokołu SSH__, a następnie wybierz opcję __klucz publiczny__ jako typ uwierzytelniania SSH. Na koniec wybierz plik klucza publicznego lub wklej zawartość tekstową pliku w polu __Klucz publiczny SSH__.</br>![Okno dialogowe dotyczące klucza publicznego SSH w procesie tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | Azure PowerShell | Użyj `-SshPublicKey` parametru polecenia cmdlet [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) i przekaż zawartość klucza publicznego jako ciąg.|
-| Interfejs wiersza polecenia platformy Azure | Użyj `--sshPublicKey` parametru [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) polecenia i przekazać zawartość klucza publicznego jako ciąg. |
+| Interfejs wiersza polecenia platformy Azure | Użyj `--sshPublicKey` parametru [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) polecenia i przekaż zawartość klucza publicznego jako ciąg. |
 | Szablon usługi Resource Manager | Przykład użycia kluczy SSH razem z szablonem można znaleźć w temacie [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) (Wdrażanie usługi HDInsight w systemie Linux przy użyciu klucza SSH). Element `publicKeys` w pliku [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) umożliwia przekazanie kluczy do platformy Azure podczas tworzenia klastra. |
 
 ## <a name="authentication-password"></a>Uwierzytelnianie: hasło
 
-Konta SSH mogą być chronione przy użyciu hasła. Po nawiązaniu połączenia z programem HDInsight przy użyciu funkcji SSH zostanie wyświetlony monit o wprowadzenie hasła.
+Konta SSH mogą być chronione przy użyciu hasła. Po nawiązaniu połączenia z usługą HDInsight przy użyciu protokołu SSH zostanie wyświetlony monit o wprowadzenie hasła.
 
 > [!WARNING]  
 > W przypadku protokołu SSH firma Microsoft nie zaleca korzystania z uwierzytelniania za pomocą hasła. Hasła można złamać i są one podatne na ataki siłowe. Zamiast tego zalecamy używanie [kluczy SSH w celu uwierzytelniania](#sshkey).
@@ -106,20 +106,20 @@ Konta SSH mogą być chronione przy użyciu hasła. Po nawiązaniu połączenia 
 
 | Metoda tworzenia | Sposób określenia hasła |
 | --------------- | ---------------- |
-| Azure Portal | Domyślnie hasło do konta użytkownika SSH jest takie samo jak hasło do konta umożliwiającego logowanie do klastra. Aby użyć innego hasła, wyeznańcz pole __wyboru Użyj hasła logowania klastra dla SSH,__ a następnie wprowadź hasło w polu Hasło __SSH.__</br>![Okno dialogowe dotyczące hasła SSH w procesie tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| Azure PowerShell | Użyj `--SshCredential` parametru polecenia cmdlet [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) i przekaż obiekt zawierający `PSCredential` nazwę konta użytkownika SSH i hasło. |
-| Interfejs wiersza polecenia platformy Azure | Użyj `--ssh-password` parametru [polecenia az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) i podaj wartość hasła. |
+| Azure Portal | Domyślnie hasło do konta użytkownika SSH jest takie samo jak hasło do konta umożliwiającego logowanie do klastra. Aby użyć innego hasła, usuń zaznaczenie pola __Użyj hasła logowania klastra dla protokołu SSH__, a następnie wprowadź hasło w polu __hasło ssh__ .</br>![Okno dialogowe dotyczące hasła SSH w procesie tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| Azure PowerShell | Użyj `--SshCredential` parametru polecenia cmdlet [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) i przekaż `PSCredential` obiekt, który zawiera nazwę konta użytkownika ssh i hasło. |
+| Interfejs wiersza polecenia platformy Azure | Użyj `--ssh-password` parametru [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) polecenia i podaj wartość hasła. |
 | Szablon usługi Resource Manager | Przykład użycia hasła razem z szablonem można znaleźć w temacie [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) (Wdrażanie usługi HDInsight w systemie Linux przy użyciu hasła SSH). Element `linuxOperatingSystemProfile` w pliku [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) umożliwia przekazanie nazwy konta SSH i hasła do platformy Azure podczas tworzenia klastra.|
 
 ### <a name="change-the-ssh-password"></a>Zmienianie hasła SSH
 
 Informacje dotyczące zmiany hasła użytkownika konta SSH można znaleźć w sekcji __Change passwords__ (Zmienianie haseł) dokumentu [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) (Zarządzanie usługą HDInsight).
 
-## <a name="authentication-domain-joined-hdinsight"></a>Domena uwierzytelniania przyłączona do usługi HDInsight
+## <a name="authentication-domain-joined-hdinsight"></a>Przyłączony do domeny uwierzytelniania Usługa HDInsight
 
-Jeśli używasz __klastra HDInsight przyłączonego do domeny,__ musisz użyć `kinit` polecenia po nawiązaniu połączenia z lokalnym użytkownikiem SSH. Spowoduje to wyświetlenie monitu o podanie nazwy użytkownika domeny i hasła oraz uwierzytelnienie sesji w domenie usługi Azure Active Directory skojarzonej z klastrem.
+Jeśli korzystasz z __klastra usługi HDInsight przyłączonego do domeny__, musisz użyć `kinit` polecenia po nawiązaniu połączenia z użytkownikiem lokalnym SSH. Spowoduje to wyświetlenie monitu o podanie nazwy użytkownika domeny i hasła oraz uwierzytelnienie sesji w domenie usługi Azure Active Directory skojarzonej z klastrem.
 
-Można również włączyć uwierzytelnianie Kerberos w każdym sprzężonym węźle domeny (na przykład węzeł główny, węzeł krawędzi) w celu ssh przy użyciu konta domeny. Aby to zrobić, należy edytować plik konfiguracji sshd:
+Można również włączyć uwierzytelnianie Kerberos w każdym węźle przyłączonym do domeny (na przykład węzeł główny, węzeł krawędzi) do protokołu SSH przy użyciu konta domeny. Aby to zrobić, należy edytować plik konfiguracji sshd:
 
 ```bash
 sudo vi /etc/ssh/sshd_config
@@ -137,7 +137,7 @@ Aby uzyskać więcej informacji, zobacz [Configure domain-joined HDInsight](./do
 
 ## <a name="connect-to-nodes"></a>Nawiązywanie połączeń z węzłami
 
-Węzły głównego i węzeł krawędzi (jeśli istnieje) można uzyskać za pośrednictwem Internetu na portach 22 i 23.
+Węzły główne i węzeł brzegowy (jeśli taki istnieje) są dostępne przez Internet na portach 22 i 23.
 
 * Podczas nawiązywania połączenia z __węzłami głównymi__ użyj portu __22__, aby łączyć się z podstawowym węzłem głównym, oraz portu __23__, aby łączyć się z pomocniczym węzłem głównym. W pełni kwalifikowana nazwa domeny do zastosowania to `clustername-ssh.azurehdinsight.net`, gdzie `clustername` jest nazwą Twojego klastra.
 
@@ -160,11 +160,11 @@ Węzły głównego i węzeł krawędzi (jeśli istnieje) można uzyskać za poś
 > [!IMPORTANT]  
 > Poprzednie przykłady zakładają, że korzystasz z uwierzytelniania przy użyciu hasła lub że uwierzytelnianie certyfikatu odbywa się automatycznie. Jeśli korzystasz z pary kluczy SSH do uwierzytelniania, a certyfikat nie jest używany automatycznie, skorzystaj z parametru `-i`, aby określić klucz prywatny. Na przykład `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
-Po nawiązaniu połączenia monit zmieni się, aby wskazać nazwę użytkownika SSH i węzeł, z którego masz połączenie. Na przykład w przypadku połączenia z podstawowym węzłem głównym jako użytkownik `sshuser` wiersz polecenia będzie wyglądać następująco: `sshuser@<active-headnode-name>:~$`.
+Po nawiązaniu połączenia zostanie wyświetlony monit o podanie nazwy użytkownika SSH i węzła, z którym nawiązano połączenie. Na przykład w przypadku połączenia z podstawowym węzłem głównym jako użytkownik `sshuser` wiersz polecenia będzie wyglądać następująco: `sshuser@<active-headnode-name>:~$`.
 
-### <a name="connect-to-worker-and-apache-zookeeper-nodes"></a>Łączenie się z węzłami pracownika i zookeepera Apache
+### <a name="connect-to-worker-and-apache-zookeeper-nodes"></a>Łączenie z węzłami procesu roboczego i Apache dozorcy
 
-Węzły procesu roboczego i węzły Zookeeper nie są bezpośrednio dostępne z Internetu. Można uzyskać do nich dostęp z węzłów głównych lub węzłów krawędzi klastra. Poniżej przedstawiono ogólny zarys czynności, które należy wykonać w celu nawiązania połączenia z innymi węzłami:
+Węzły procesu roboczego i węzły dozorcy nie są bezpośrednio dostępne z Internetu. Można uzyskać do nich dostęp z węzłów głównych lub węzłów krawędzi klastra. Poniżej przedstawiono ogólny zarys czynności, które należy wykonać w celu nawiązania połączenia z innymi węzłami:
 
 1. Połącz się z węzłem głównym lub węzłem krawędzi za pomocą protokołu SSH:
 
@@ -178,7 +178,7 @@ Węzły procesu roboczego i węzły Zookeeper nie są bezpośrednio dostępne z 
     ssh sshuser@wn0-myhdi
     ```
 
-    Aby pobrać listę nazw węzłów, zobacz [Zarządzanie hdinsight za pomocą dokumentu APACHE Ambari REST API.](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes)
+    Aby pobrać listę nazw węzłów, zobacz [Zarządzanie usługą HDInsight przy użyciu dokumentu interfejsu API REST usługi Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes) .
 
 Jeśli konto SSH jest zabezpieczone przy użyciu __hasła__, wprowadź hasło podczas nawiązywania połączenia.
 
@@ -217,9 +217,9 @@ Jeśli konto SSH jest zabezpieczone przy użyciu __kluczy SSH__, upewnij się, �
     /tmp/ssh-rfSUL1ldCldQ/agent.1792
     ```
 
-    Jeśli nic nie `ssh-agent` jest zwracane, to nie jest uruchomiony. Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat skryptów uruchamiania agenta na stronie [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Korzystanie z agenta SSH z protokołem SSH) lub zajrzyj do dokumentacji używanego klienta SSH.
+    Jeśli nic nie zostanie zwrócone, `ssh-agent` a następnie nie jest uruchomiony. Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat skryptów uruchamiania agenta na stronie [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Korzystanie z agenta SSH z protokołem SSH) lub zajrzyj do dokumentacji używanego klienta SSH.
 
-4. Po sprawdzeniu, że **ssh-agent** jest uruchomiony, użyj następujących czynności, aby dodać klucz prywatny SSH do agenta:
+4. Po sprawdzeniu, że **Agent SSH** jest uruchomiony, użyj następującego programu, aby dodać klucz prywatny SSH do agenta:
 
     ```bash
     ssh-add ~/.ssh/id_rsa
@@ -229,35 +229,8 @@ Jeśli konto SSH jest zabezpieczone przy użyciu __kluczy SSH__, upewnij się, �
 
 5. Połącz się z węzłem krawędzi lub węzłami głównymi klastra przy użyciu protokołu SSH. Następnie połącz się z węzłem procesu roboczego lub węzłem dozorcy przy użyciu polecenia SSH. Połączenie zostanie nawiązane przy użyciu przekazanego klucza.
 
-## <a name="copy-files"></a>Kopiowanie plików
-
-Narzędzia `scp` można użyć do kopiowania plików do i z poszczególnych węzłów w klastrze. Na przykład następujące polecenie kopiuje katalog `test.txt` z systemu lokalnego do podstawowego węzła głównego:
-
-```bash
-scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
-```
-
-Ponieważ po znaku `:` nie określono ścieżki, plik zostanie umieszczony w katalogu macierzystym użytkownika `sshuser`.
-
-Poniższy przykład kopiuje plik `test.txt` z katalogu macierzystego użytkownika `sshuser` w podstawowym węźle głównym do systemu lokalnego:
-
-```bash
-scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
-```
-
-> [!IMPORTANT]  
-> Narzędzie `scp` może uzyskać dostęp tylko do systemu plików poszczególnych węzłów w klastrze. Nie może zostać użyte w celu uzyskania dostępu do danych w magazynie zgodnym z systemem HDFS dla klastra.
->
-> Użyj narzędzia `scp`, jeśli musisz przekazać zasób do użycia z sesji SSH. Na przykład przekaż skrypt języka Python, a następnie uruchom go z sesji SSH.
->
-> Aby uzyskać informacje o bezpośrednim ładowaniu danych do magazynu zgodnego z systemem HDFS, zobacz następujące dokumenty:
->
-> * [Usługa HDInsight korzystająca z usługi Azure Storage](hdinsight-hadoop-use-blob-storage.md).
->
-> * [usługa HDInsight przy użyciu usługi Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md).
-
 ## <a name="next-steps"></a>Następne kroki
 
 * [Use SSH tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) (Używanie tunelowania SSH z usługą HDInsight)
-* [Planowanie sieci wirtualnej za pomocą funkcji HDInsight](hdinsight-plan-virtual-network-deployment.md)
 * [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) (Używanie węzłów krawędzi w usłudze HDInsight)
+* [Korzystanie z punktu połączenia usługi HDInsight](./use-scp.md)

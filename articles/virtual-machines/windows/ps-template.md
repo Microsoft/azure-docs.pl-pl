@@ -1,30 +1,22 @@
 ---
-title: Tworzenie maszyny Wirtualnej systemu Windows na podstawie szablonu na platformie Azure
-description: Użyj szablonu Menedżera zasobów i programu PowerShell, aby łatwo utworzyć nową maszynę wirtualną systemu Windows.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Tworzenie maszyny wirtualnej z systemem Windows na podstawie szablonu na platformie Azure
+description: Użyj szablonu Menedżer zasobów i programu PowerShell, aby łatwo utworzyć nową maszynę wirtualną z systemem Windows.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99e292930414ae027c9cbbf3a901d550041899d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cafe28be1d7c08c24b728de2476cb2210c6e5bd0
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74065548"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098326"
 ---
-# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Tworzenie maszyny wirtualnej systemu Windows na podstawie szablonu Menedżera zasobów
+# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Tworzenie maszyny wirtualnej z systemem Windows na podstawie szablonu Menedżer zasobów
 
-Dowiedz się, jak utworzyć maszynę wirtualną systemu Windows przy użyciu szablonu usługi Azure Resource Manager i programu Azure PowerShell z powłoki usługi Azure Cloud. Szablon użyty w tym artykule wdraża pojedynczą maszynę wirtualną z systemem Windows Server w nowej sieci wirtualnej z pojedynczą podsiecią. Aby utworzyć maszynę wirtualną systemu Linux, zobacz [Jak utworzyć maszynę wirtualną systemu Linux za pomocą szablonów usługi Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
+Dowiedz się, jak utworzyć maszynę wirtualną z systemem Windows przy użyciu szablonu Azure Resource Manager i Azure PowerShell z usługi Azure Cloud Shell. Szablon używany w tym artykule wdraża pojedynczą maszynę wirtualną z systemem Windows Server w nowej sieci wirtualnej z jedną podsiecią. Aby utworzyć maszynę wirtualną z systemem Linux, zobacz [How to Create a Virtual Machine Machine z szablonami Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -33,11 +25,11 @@ Tworzenie maszyny wirtualnej platformy Azure zwykle obejmuje dwa kroki:
 - Utwórz grupę zasobów. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupę zasobów należy utworzyć przed maszyną wirtualną.
 - Tworzy maszynę wirtualną.
 
-Poniższy przykład tworzy maszynę wirtualną z [szablonu Szybki start platformy Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json). Oto kopia szablonu:
+Poniższy przykład tworzy maszynę wirtualną na podstawie [szablonu szybkiego startu platformy Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json). Oto kopia szablonu:
 
 [!code-json[create-windows-vm](~/quickstart-templates/101-vm-simple-windows/azuredeploy.json)]
 
-Aby uruchomić skrypt programu PowerShell, wybierz pozycję **Spróbuj,** aby otworzyć powłokę usługi Azure Cloud. Aby wkleić skrypt, kliknij prawym przyciskiem myszy powłokę, a następnie wybierz polecenie **Wklej**:
+Aby uruchomić skrypt programu PowerShell, wybierz pozycję **Wypróbuj** , aby otworzyć usługę Azure Cloud Shell. Aby wkleić skrypt, kliknij prawym przyciskiem myszy powłokę, a następnie wybierz polecenie **Wklej**:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -58,28 +50,28 @@ New-AzResourceGroupDeployment `
 
 ```
 
-Jeśli zdecydujesz się zainstalować i używać programu PowerShell lokalnie zamiast z powłoki usługi Azure Cloud, ten samouczek wymaga modułu programu Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, a nie z poziomu usługi Azure Cloud Shell, ten samouczek wymaga modułu Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
-W poprzednim przykładzie określono szablon przechowywany w usłudze GitHub. Można również pobrać lub utworzyć szablon i określić ścieżkę lokalną z parametrem. `--template-file`
+W poprzednim przykładzie określono szablon przechowywany w serwisie GitHub. Możesz również pobrać lub utworzyć szablon i określić ścieżkę lokalną za pomocą `--template-file` parametru.
 
 Oto kilka dodatkowych zasobów:
 
-- Aby dowiedzieć się, jak tworzyć szablony Usługi Resource Manager, zobacz [dokumentację usługi Azure Resource Manager](/azure/azure-resource-manager/).
-- Aby wyświetlić schematy maszyny wirtualnej platformy Azure, zobacz [odwołanie do szablonu platformy Azure](/azure/templates/microsoft.compute/allversions).
-- Aby wyświetlić więcej przykładów szablonów maszyn wirtualnych, zobacz [Szablony szybki start platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
+- Aby dowiedzieć się, jak opracowywać szablony Menedżer zasobów, zobacz [dokumentację dotyczącą Azure Resource Manager](/azure/azure-resource-manager/).
+- Aby wyświetlić schematy maszyn wirtualnych platformy Azure, zobacz [Dokumentacja szablonu platformy Azure](/azure/templates/microsoft.compute/allversions).
+- Aby zobaczyć więcej przykładów szablonów maszyn wirtualnych, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 ## <a name="connect-to-the-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
 
-Ostatnie polecenie programu PowerShell z poprzedniego skryptu pokazuje nazwę maszyny wirtualnej. Aby połączyć się z maszyną wirtualną, zobacz [Jak połączyć się i zalogować się na maszynie wirtualnej platformy Azure z systemem Windows](./connect-logon.md).
+Ostatnie polecenie programu PowerShell z poprzedniego skryptu pokazuje nazwę maszyny wirtualnej. Aby nawiązać połączenie z maszyną wirtualną, zobacz [jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows](./connect-logon.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli wystąpiły problemy z wdrożeniem, możesz przyjrzeć się [rozwiązywaniu typowych błędów wdrażania platformy Azure za pomocą usługi Azure Resource Manager.](../../resource-manager-common-deployment-errors.md)
-- Dowiedz się, jak tworzyć maszynę wirtualną i zarządzać nią w [programie Tworzenie maszyn wirtualnych systemu Windows i zarządzanie nimi za pomocą modułu Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Jeśli wystąpiły problemy ze wdrożeniem, można zapoznać się z tematem [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Dowiedz się, jak utworzyć maszynę wirtualną i zarządzać nią w temacie [Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi za pomocą modułu Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Aby dowiedzieć się więcej na temat tworzenia szablonów, wyświetl składnię JSON i właściwości wdrożonych typów zasobów:
+Aby dowiedzieć się więcej na temat tworzenia szablonów, Wyświetl składnię i właściwości JSON dla wdrożonych typów zasobów:
 
-- [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
-- [Sieć Microsoft.Network/virtual Sieci](/azure/templates/microsoft.network/virtualnetworks)
-- [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
-- [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+- [Microsoft. Network/adresów publicipaddress](/azure/templates/microsoft.network/publicipaddresses)
+- [Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+- [Microsoft. Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+- [Microsoft. COMPUTE/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

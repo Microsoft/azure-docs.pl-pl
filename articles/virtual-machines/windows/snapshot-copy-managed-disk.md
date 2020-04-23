@@ -1,48 +1,43 @@
 ---
 title: Tworzenie migawki wirtualnego dysku twardego na platformie Azure
-description: Dowiedz się, jak utworzyć kopię maszyny Wirtualnej platformy Azure do użycia jako kopia zapasowa lub rozwiązywanie problemów.
-documentationcenter: ''
+description: Dowiedz się, jak utworzyć kopię maszyny wirtualnej platformy Azure, która ma być używana jako kopia zapasowa lub w celu rozwiązywania problemów.
 author: roygara
 manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bc74a3eea1f99de6080788d6f3fddcac823092dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92957bd078c04a9bb7ac35f9d30f042a44e10764
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75370905"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100638"
 ---
 # <a name="create-a-snapshot"></a>Tworzenie migawki
 
-Migawka to pełna kopia wirtualnego dysku twardego (VHD) tylko do odczytu. Można wykonać migawkę dysku twardego systemu operacyjnego lub dysku twardego z danymi, aby użyć ich jako kopii zapasowej lub rozwiązać problemy z maszyną wirtualną.You can take a snapshot of an OS or data disk VHD to use as a backup, or to troubleshoot virtual machine (VM) issues.
+Migawka to pełna kopia tylko do odczytu wirtualnego dysku twardego (VHD). Możesz utworzyć migawkę dysku VHD systemu operacyjnego lub danych, aby użyć go jako kopii zapasowej, lub rozwiązać problemy z maszynami wirtualnymi.
 
-Jeśli zamierzasz użyć migawki do utworzenia nowej maszyny Wirtualnej, zaleca się, aby czysto zamknąć maszynę wirtualną przed wykonaniem migawki, aby wyczyścić wszystkie procesy, które są w toku.
+Jeśli zamierzasz utworzyć nową maszynę wirtualną przy użyciu migawki, zalecamy wyczyszczenie maszyny wirtualnej przed wykonaniem migawki, aby wyczyścić wszystkie procesy, które są w toku.
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal 
 
 Aby utworzyć migawkę, wykonaj następujące czynności: 
-1.  W [witrynie Azure portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób**.
-2. Wyszukaj i wybierz **migawkę**.
-3. W oknie **Migawka** wybierz pozycję **Utwórz**. Zostanie wyświetle okno **Utwórz migawkę.**
+1.  Na [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób**.
+2. Wyszukaj i wybierz pozycję **migawka**.
+3. W oknie **migawki** wybierz pozycję **Utwórz**. Zostanie wyświetlone okno **Utwórz migawkę** .
 4. Wprowadź **nazwę** migawki.
 5. Wybierz istniejącą [grupę zasobów](../../azure-resource-manager/management/overview.md#resource-groups) lub wprowadź nazwę nowej. 
 6. Wybierz **lokalizację** centrum danych Azure.  
-7. W obszarze **Dysk źródłowy**wybierz dysk zarządzany do migawki.
-8. Wybierz **typ konta,** który ma być używany do przechowywania migawki. Wybierz **opcję Standard_HDD**, chyba że migawka jest ujęty na dysku o wysokiej wydajności.
-9. Wybierz **pozycję Utwórz**.
+7. W polu **dysk źródłowy**wybierz dysk zarządzany do utworzenia migawki.
+8. Wybierz **Typ konta** , który ma być używany do przechowywania migawki. Wybierz pozycję **Standard_HDD**, chyba że potrzebujesz, aby migawka była przechowywana na dysku o wysokiej wydajności.
+9. Wybierz pozycję **Utwórz**.
 
 ## <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
-Poniższe kroki pokazują, jak skopiować dysk VHD i utworzyć konfigurację migawki. Następnie można zrobić migawkę dysku za pomocą polecenia cmdlet [New-AzSnapshot.](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) 
+Poniższe kroki pokazują, jak skopiować dysk VHD i utworzyć konfigurację migawki. Następnie można wykonać migawkę dysku za pomocą polecenia cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
 
  
 
@@ -63,7 +58,7 @@ Poniższe kroki pokazują, jak skopiować dysk VHD i utworzyć konfigurację mig
    -Name $vmName
    ```
 
-3. Utwórz konfigurację migawki. W tym przykładzie migawka jest z dysku systemu operacyjnego:
+3. Utwórz konfigurację migawki. W tym przykładzie migawka jest dyskiem systemu operacyjnego:
 
    ```azurepowershell-interactive
    $snapshot =  New-AzSnapshotConfig 
@@ -73,7 +68,7 @@ Poniższe kroki pokazują, jak skopiować dysk VHD i utworzyć konfigurację mig
    ```
    
    > [!NOTE]
-   > Jeśli chcesz przechowywać migawkę w magazynie odpornym na strefy, utwórz ją `-SkuName Standard_ZRS` w regionie, który obsługuje strefy [dostępności](../../availability-zones/az-overview.md) i dołącz parametr.   
+   > Jeśli chcesz przechowywać migawkę w magazynie odpornym na strefy, utwórz ją w regionie, który obsługuje [strefy dostępności](../../availability-zones/az-overview.md) i Uwzględnij `-SkuName Standard_ZRS` parametr.   
    
 4. Zrób migawkę:
 
@@ -87,4 +82,4 @@ Poniższe kroki pokazują, jak skopiować dysk VHD i utworzyć konfigurację mig
 
 ## <a name="next-steps"></a>Następne kroki
 
-Utwórz maszynę wirtualną na podstawie migawki, tworząc dysk zarządzany z migawki, a następnie dołączając nowy dysk zarządzany jako dysk systemu operacyjnego. Aby uzyskać więcej informacji, zobacz przykład w [Tworzenie maszyny Wirtualnej z migawki z programem PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+Tworzenie maszyny wirtualnej na podstawie migawki przez utworzenie dysku zarządzanego na podstawie migawki, a następnie dołączenie nowego dysku zarządzanego jako dysku systemu operacyjnego. Aby uzyskać więcej informacji, zobacz przykład w temacie [Tworzenie maszyny wirtualnej na podstawie migawki przy użyciu programu PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).

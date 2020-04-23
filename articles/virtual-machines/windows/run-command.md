@@ -1,51 +1,51 @@
 ---
-title: Uruchamianie skryptów programu PowerShell na maszynie Wirtualnej systemu Windows na platformie Azure
-description: W tym temacie opisano sposób uruchamiania skryptów programu PowerShell na maszynie wirtualnej systemu Azure Windows przy użyciu funkcji Uruchom polecenie
+title: Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z systemem Windows na platformie Azure
+description: W tym temacie opisano sposób uruchamiania skryptów programu PowerShell na maszynie wirtualnej z systemem Windows Azure przy użyciu funkcji run polecenia
 services: automation
-ms.service: automation
+ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: article
+ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: fa7f72989d47499127714eddfa6b5e98aa80178c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0125c556789b1a1a5b11dcd16b852d7f57b6c50
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73749224"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099873"
 ---
-# <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Uruchamianie skryptów programu PowerShell na maszynie Wirtualnej systemu Windows przy użyciu polecenia Uruchom
+# <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z systemem Windows za pomocą polecenia Uruchom
 
-Funkcja Uruchom polecenie używa agenta maszyny wirtualnej (VM) do uruchamiania skryptów programu PowerShell w maszynie Wirtualnej systemu Windows platformy Azure. Tych skryptów można używać do ogólnego zarządzania maszynami lub aplikacjami. Mogą one pomóc szybko zdiagnozować i rozwiązać problemy z dostępem do maszyn wirtualnych i sieci i przywrócić maszynę wirtualną do dobrego stanu.
+Funkcja Run command używa agenta maszyny wirtualnej do uruchamiania skryptów programu PowerShell na maszynie wirtualnej z systemem Windows Azure. Za pomocą tych skryptów można zarządzać ogólnymi maszynami lub aplikacjami. Mogą one pomóc w szybkim zdiagnozowaniu i rozpoczęciu problemów z dostępem do maszyn wirtualnych i rozpoczęciu pracy z powrotem do dobrego stanu.
 
  
 
 ## <a name="benefits"></a>Korzyści
 
-Dostęp do maszyn wirtualnych można uzyskać na wiele sposobów. Uruchom polecenie można uruchamiać skrypty na maszynach wirtualnych zdalnie przy użyciu agenta maszyny wirtualnej. Polecenia Uruchom można za pośrednictwem portalu Azure, [interfejsu API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)lub programu [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) dla maszyn wirtualnych z systemem Windows.
+Dostęp do maszyn wirtualnych można uzyskać na wiele sposobów. Polecenie Uruchom może zdalnie uruchamiać skrypty na maszynach wirtualnych za pomocą agenta maszyny wirtualnej. Używasz polecenia Run za pośrednictwem Azure Portal, [interfejsu API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)lub [programu PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) dla maszyn wirtualnych z systemem Windows.
 
-Ta funkcja jest przydatna we wszystkich scenariuszach, w których chcesz uruchomić skrypt w maszynie wirtualnej. Jest to jeden z niewielu sposobów rozwiązywania problemów i korygowanie maszyny wirtualnej, która nie ma otwartego portu RDP lub SSH z powodu niewłaściwej konfiguracji sieci lub użytkownika administracyjnego.
+Ta funkcja jest przydatna we wszystkich scenariuszach, w których chcesz uruchomić skrypt w ramach maszyny wirtualnej. Jest to jeden z jedynych sposobów rozwiązywania problemów i korygowania maszyny wirtualnej, która nie ma otwartego portu RDP lub protokołu SSH z powodu nieprawidłowej konfiguracji sieci lub użytkownika administracyjnego.
 
 ## <a name="restrictions"></a>Ograniczenia
 
-Podczas korzystania z polecenia Uruchom polecenie obowiązują następujące ograniczenia:
+W przypadku korzystania z polecenia Uruchom należy zastosować następujące ograniczenia:
 
-* Dane wyjściowe są ograniczone do ostatnich 4096 bajtów.
-* Minimalny czas uruchamiania skryptu wynosi około 20 sekund.
-* Skrypty działają jako system w systemie Windows.
-* Jeden skrypt naraz można uruchomić.
-* Skrypty monitowane o informacje (tryb interaktywny) nie są obsługiwane.
+* Dane wyjściowe są ograniczone do ostatnich 4 096 bajtów.
+* Minimalny czas uruchomienia skryptu wynosi około 20 sekund.
+* Skrypty są uruchamiane jako system w systemie Windows.
+* Można uruchomić jeden skrypt jednocześnie.
+* Skrypty, które monitują o informacje (tryb interaktywny) nie są obsługiwane.
 * Nie można anulować uruchomionego skryptu.
-* Maksymalny czas uruchomienia skryptu wynosi 90 minut. Po tym, to będzie limit czasu.
-* Łączność wychodząca z maszyny Wirtualnej jest wymagana do zwrócenia wyników skryptu.
+* Maksymalny czas uruchomienia skryptu to 90 minut. Po tym czasie zostanie przekroczony limit czasu.
+* Łączność wychodząca z maszyny wirtualnej jest wymagana do zwrócenia wyników skryptu.
 
 > [!NOTE]
-> Aby działać poprawnie, Uruchom polecenie wymaga łączności (port 443) do publicznych adresów IP platformy Azure. Jeśli rozszerzenie nie ma dostępu do tych punktów końcowych, skrypty mogą działać pomyślnie, ale nie zwracają wyników. Jeśli blokujesz ruch na maszynie wirtualnej, możesz użyć [tagów usługi,](../../virtual-network/security-overview.md#service-tags) aby `AzureCloud` zezwolić na ruch na publicznych adresach IP platformy Azure przy użyciu tagu.
+> Aby działało prawidłowo, polecenie Run wymaga łączności (port 443) z publicznymi adresami IP platformy Azure. Jeśli rozszerzenie nie ma dostępu do tych punktów końcowych, skrypty mogą działać pomyślnie, ale nie zwracają wyników. W przypadku blokowania ruchu na maszynie wirtualnej można użyć [tagów usługi](../../virtual-network/security-overview.md#service-tags) , aby zezwolić na ruch do publicznych adresów IP platformy Azure przy użyciu `AzureCloud` znacznika.
 
 ## <a name="available-commands"></a>Dostępne polecenia
 
-W tej tabeli przedstawiono listę poleceń dostępnych dla maszyn wirtualnych systemu Windows. Za pomocą polecenia **RunPowerShellScript** można uruchomić dowolny skrypt niestandardowy. Podczas korzystania z interfejsu wiersza polecenia platformy Azure lub programu PowerShell `--command-id` `-CommandId` do uruchamiania polecenia, wartość, która jest podasz dla lub parametr musi być jedną z następujących wymienionych wartości. Po określeniu wartości, która nie jest dostępnym poleceniem, pojawia się ten błąd:
+W tej tabeli przedstawiono listę poleceń dostępnych dla maszyn wirtualnych z systemem Windows. Możesz użyć polecenia **RunPowerShellScript** , aby uruchomić dowolny niestandardowy skrypt. Gdy korzystasz z interfejsu wiersza polecenia platformy Azure lub programu PowerShell, aby uruchomić polecenie, wartość podana dla parametru `--command-id` lub `-CommandId` musi być jedną z następujących wartości. Jeśli określisz wartość, która nie jest dostępnym poleceniem, zostanie wyświetlony następujący błąd:
 
 ```error
 The entity was not found in this Azure location
@@ -53,17 +53,17 @@ The entity was not found in this Azure location
 
 |**Nazwa**|**Opis**|
 |---|---|
-|**Kod RunPowerShellScript**|Uruchamia skrypt programu PowerShell.|
-|**EnableRemotePS**|Konfiguruje urządzenie do włączania zdalnego programu PowerShell.|
-|**Włącz konto AdminAccount**|Sprawdza, czy lokalne konto administratora jest wyłączone, a jeśli tak, to włącza.|
-|**Ipconfig**| Pokazuje szczegółowe informacje dotyczące adresu IP, maski podsieci i bramy domyślnej dla każdej karty powiązanej z usługą TCP/IP.|
+|**RunPowerShellScript**|Uruchamia skrypt programu PowerShell.|
+|**EnableRemotePS**|Konfiguruje maszynę w celu włączenia zdalnego programu PowerShell.|
+|**EnableAdminAccount**|Sprawdza, czy konto administratora lokalnego jest wyłączone, a jeśli to możliwe, należy je włączyć.|
+|**IPConfig**| Przedstawia szczegółowe informacje o adresie IP, masce podsieci i bramie domyślnej dla każdej karty powiązanej z protokołem TCP/IP.|
 |**RDPSettings**|Sprawdza ustawienia rejestru i ustawienia zasad domeny. Sugeruje akcje zasad, jeśli komputer jest częścią domeny lub modyfikuje ustawienia do wartości domyślnych.|
-|**ResetRDPCert**|Usuwa certyfikat SSL powiązany z odbiornikiem RDP i przywraca domyślne zabezpieczenia odbiornika RDP. Użyj tego skryptu, jeśli widzisz jakiekolwiek problemy z certyfikatem.|
-|**Port SetRDP**|Ustawia domyślny lub określony przez użytkownika numer portu dla połączeń pulpitu zdalnego. Włącza reguły zapory dla dostępu przychodzącego do portu.|
+|**ResetRDPCert**|Usuwa certyfikat SSL powiązany z odbiornikiem RDP i przywraca domyślne zabezpieczenia odbiornika RDP. Użyj tego skryptu, Jeśli zobaczysz problemy z certyfikatem.|
+|**SetRDPPort**|Ustawia domyślny lub określony przez użytkownika numer portu dla połączeń Pulpit zdalny. Włącza reguły zapory dla przychodzącego dostępu do portu.|
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-W poniższym przykładzie użyto polecenia [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) do uruchomienia skryptu powłoki na maszynie wirtualnej systemu Windows platformy Azure.
+W poniższym przykładzie za pomocą polecenia [AZ VM Run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) można uruchomić skrypt powłoki na maszynie wirtualnej z systemem Windows Azure.
 
 ```azurecli-interactive
 # script.ps1
@@ -77,37 +77,37 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
     --scripts @script.ps1 --parameters "arg1=somefoo" "arg2=somebar"
 ```
 
-## <a name="azure-portal"></a>Portal Azure
+## <a name="azure-portal"></a>Azure Portal
 
-Przejdź do maszyny Wirtualnej w [witrynie Azure portal](https://portal.azure.com) i wybierz **polecenie Uruchom w** obszarze **OPERACJE**. Widoczna jest lista dostępnych poleceń do uruchomienia na maszynie Wirtualnej.
+Przejdź do maszyny wirtualnej w [Azure Portal](https://portal.azure.com) i wybierz pozycję **Uruchom polecenie** w obszarze **operacje**. Zostanie wyświetlona lista dostępnych poleceń do uruchomienia na maszynie wirtualnej.
 
 ![Lista poleceń](./media/run-command/run-command-list.png)
 
-Wybierz polecenie do uruchomienia. Niektóre polecenia mogą mieć opcjonalne lub wymagane parametry wejściowe. Dla tych poleceń parametry są prezentowane jako pola tekstowe, aby zapewnić wartości wejściowe. Dla każdego polecenia można wyświetlić skrypt uruchamiany przez rozwinięcie **skryptu Widok**. **RunPowerShellScript** różni się od innych poleceń, ponieważ pozwala na dostarczenie własnego skryptu niestandardowego.
+Wybierz polecenie do uruchomienia. Niektóre polecenia mogą zawierać opcjonalne lub wymagane parametry wejściowe. W przypadku tych poleceń parametry są prezentowane jako pola tekstowe umożliwiające podanie wartości wejściowych. Dla każdego polecenia można wyświetlić skrypt, który jest uruchamiany, rozszerzając **skrypt widoku**. **RunPowerShellScript** różni się od innych poleceń, ponieważ umożliwia udostępnianie własnego skryptu niestandardowego.
 
 > [!NOTE]
 > Wbudowane polecenia nie są edytowalne.
 
-Po wybraniu polecenia wybierz pozycję **Uruchom,** aby uruchomić skrypt. Po zakończeniu skryptu zwraca dane wyjściowe i wszelkie błędy w oknie danych wyjściowych. Poniższy zrzut ekranu przedstawia przykładowe dane wyjściowe z uruchomienia polecenia **RDPSettings.**
+Po wybraniu polecenia wybierz pozycję **Uruchom** , aby uruchomić skrypt. Po zakończeniu działania skryptu zwraca dane wyjściowe i wszystkie błędy w oknie danych wyjściowych. Poniższy zrzut ekranu przedstawia przykładowe dane wyjściowe polecenia **RDPSettings** .
 
 ![Uruchom dane wyjściowe skryptu polecenia](./media/run-command/run-command-script-output.png)
 
 ## <a name="powershell"></a>PowerShell
 
-W poniższym przykładzie użyto polecenia cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) do uruchomienia skryptu programu PowerShell na maszynie Wirtualnej platformy Azure. Polecenie cmdlet oczekuje, że skrypt, do którego odwołuje się `-ScriptPath` parametr, będzie lokalny, do którego jest uruchamiane polecenie cmdlet.
+W poniższym przykładzie za pomocą polecenia cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) można uruchomić skrypt programu PowerShell na maszynie wirtualnej platformy Azure. Polecenie cmdlet oczekuje skryptu, do którego istnieje odwołanie `-ScriptPath` w parametrze, do lokalizacji, w której jest uruchamiane polecenie cmdlet.
 
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
-## <a name="limiting-access-to-run-command"></a>Ograniczanie dostępu do polecenia Uruchom
+## <a name="limiting-access-to-run-command"></a>Ograniczanie dostępu do polecenia Run
 
-Wyświetlanie poleceń uruchamiania lub wyświetlanie szczegółów `Microsoft.Compute/locations/runCommands/read` polecenia wymaga uprawnienia na poziomie subskrypcji. Wbudowana rola [czytnika](../../role-based-access-control/built-in-roles.md#reader) i wyższe poziomy mają to uprawnienie.
+Wyświetlanie listy poleceń uruchamiania lub wyświetlanie szczegółów polecenia wymaga `Microsoft.Compute/locations/runCommands/read` uprawnienia na poziomie subskrypcji. To uprawnienie ma wbudowaną rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) i wyższe poziomy.
 
-Uruchamianie polecenia `Microsoft.Compute/virtualMachines/runCommand/action` wymaga uprawnienia na poziomie subskrypcji. Rola [współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) i wyższe poziomy mają to uprawnienie.
+Uruchomienie polecenia wymaga `Microsoft.Compute/virtualMachines/runCommand/action` uprawnienia na poziomie subskrypcji. Rola [współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) i wyższe poziomy mają to uprawnienie.
 
-Można użyć jednej z [wbudowanych ról](../../role-based-access-control/built-in-roles.md) lub utworzyć [rolę niestandardową,](../../role-based-access-control/custom-roles.md) aby użyć polecenia Uruchom.
+Możesz użyć jednej z [wbudowanych ról](../../role-based-access-control/built-in-roles.md) lub utworzyć [rolę niestandardową](../../role-based-access-control/custom-roles.md) , aby użyć polecenia Uruchom.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o innych sposobach zdalnego uruchamiania skryptów i poleceń na maszynie wirtualnej, zobacz [Uruchamianie skryptów na maszynie Wirtualnej systemu Windows](run-scripts-in-vm.md).
+Aby dowiedzieć się więcej na temat innych metod zdalnego uruchamiania skryptów i poleceń na maszynie wirtualnej, zobacz [Uruchamianie skryptów na maszynie wirtualnej z systemem Windows](run-scripts-in-vm.md).

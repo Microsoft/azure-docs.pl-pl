@@ -1,99 +1,101 @@
 ---
-title: Rozwiązywanie problemów z zapytaniami podczas korzystania z usługi Azure Cosmos DB
-description: Dowiedz się, jak identyfikować, diagnozować i rozwiązywać problemy z zapytaniami SQL usługi Azure Cosmos DB.
+title: Rozwiązywanie problemów z kwerendą podczas korzystania z Azure Cosmos DB
+description: Dowiedz się, jak identyfikować, diagnozować i rozwiązywać problemy z Azure Cosmos DB zapytań SQL.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/20/2020
+ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 4a8b61f3719a60af567d10f8839987e613babc9e
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: b3c6926f17e8378fd3b53bfd59a7c5ea8141adb4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81870452"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097238"
 ---
-# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z zapytaniami podczas korzystania z usługi Azure Cosmos DB
+# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z kwerendą podczas korzystania z Azure Cosmos DB
 
-W tym artykule oszukuje się ogólne zalecane podejście do rozwiązywania problemów z zapytaniami w usłudze Azure Cosmos DB. Chociaż nie należy brać pod uwagę kroki opisane w tym artykule pełnej obrony przed potencjalnymi problemami z zapytaniami, poniżej uwzględniliśmy najczęściej zadawane wskazówki dotyczące wydajności. Tego artykułu należy użyć jako miejsca rozpoczęcia rozwiązywania problemów z powolnymi lub kosztownymi zapytaniami w interfejsie API rdzenia usługi Azure Cosmos DB (SQL). Dzienniki [diagnostyki](cosmosdb-monitor-resource-logs.md) można również użyć do identyfikowania kwerend, które są powolne lub zużywają znaczne ilości przepływności.
+W tym artykule przedstawiono ogólne zalecane podejście do rozwiązywania problemów z zapytaniami w Azure Cosmos DB. Chociaż nie należy traktować kroków opisanych w tym artykule, pełna ochrona przed potencjalnymi problemami związanymi z zapytaniami zawiera najpopularniejsze porady dotyczące wydajności. Należy używać tego artykułu jako lokalizacji początkowej do rozwiązywania problemów z powolnymi lub kosztownymi zapytaniami w interfejsie API Azure Cosmos DB Core (SQL). [Dzienników diagnostycznych](cosmosdb-monitor-resource-logs.md) można także użyć do identyfikowania zapytań, które są powolne lub zużywają znaczną przepływność.
 
-Optymalizacje zapytań można zasadniczo kategoryzować w usłudze Azure Cosmos DB:
+Optymalizacje zapytań można w szerokim zakresie klasyfikować w Azure Cosmos DB:
 
-- Optymalizacje zmniejszające obciążenie kwerendy jednostką żądań (RU)
-- Optymalizacje, które po prostu zmniejszają opóźnienia
+- Optymalizacje, które zmniejszają opłatę jednostki żądania (RU) zapytania
+- Optymalizacje, które po prostu skracają opóźnienia
 
-Jeśli zmniejszysz ładunek RU kwerendy, prawie na pewno zmniejszyć opóźnienie, jak również.
+W przypadku zredukowania opłaty za usługę RU do programu dla kwerendy niemal znacznie zmniejszasz opóźnienia.
 
-W tym artykule przedstawiono przykłady, które można odtworzyć przy użyciu zestawu danych [żywieniowych.](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)
+W tym artykule przedstawiono przykłady, które można utworzyć ponownie przy użyciu zestawu danych [odżywiania](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) .
 
-## <a name="common-sdk-issues"></a>Typowe problemy z SDK
+## <a name="common-sdk-issues"></a>Typowe problemy z zestawem SDK
 
-- Aby uzyskać najlepszą wydajność, postępuj zgodnie [z poradami dotyczącymi wydajności](performance-tips.md).
+Przed przeczytaniem tego przewodnika warto rozważyć typowe problemy z zestawem SDK, które nie są związane z aparatem zapytań.
+
+- Aby uzyskać najlepszą wydajność, postępuj zgodnie z tymi [wskazówkami dotyczącymi wydajności](performance-tips.md).
     > [!NOTE]
-    > Aby zwiększyć wydajność, zalecamy przetwarzanie hosta 64-bitowego systemu Windows. Zestaw SDK SQL zawiera natywną bibliotekę ServiceInterop.dll do analizowania i optymalizowania zapytań lokalnie. ServiceInterop.dll jest obsługiwany tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiconych platform, na których serviceinterop.dll nie jest dostępny, zostanie wykonane dodatkowe wywołanie sieciowe do bramy w celu uzyskania zoptymalizowanego zapytania.
-- Można ustawić `MaxItemCount` dla kwerend, ale nie można określić minimalną liczbę elementów.
-    - Kod powinien obsługiwać dowolny rozmiar `MaxItemCount`strony, od zera do .
-    - Liczba elementów na stronie będzie zawsze mniejsza `MaxItemCount`niż określona . Jednak, `MaxItemCount` jest ściśle maksimum i nie może być mniej wyników niż ta kwota.
-- Czasami kwerendy mogą mieć puste strony, nawet jeśli są wyniki na przyszłej stronie. Przyczyny tego mogą być:
+    > Aby zwiększyć wydajność, zalecamy przetwarzanie hosta Windows 64-bitowego. Zestaw SDK SQL zawiera natywną bibliotekę serviceinterop. dll umożliwiającą analizowanie i optymalizowanie zapytań lokalnie. Usługa serviceinterop. dll jest obsługiwana tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiwanych platform, na których nie jest dostępna usługa serviceinterop. dll, do bramy zostanie nawiązane dodatkowe połączenie sieciowe w celu uzyskania zoptymalizowanego zapytania.
+- Zestaw SDK umożliwia ustawienie dla `MaxItemCount` zapytań, ale nie można określić minimalnej liczby elementów.
+    - Kod powinien obsługiwać dowolny rozmiar strony od zera do `MaxItemCount`.
+    - Liczba elementów na stronie będzie zawsze mniejsza lub równa podanej `MaxItemCount`liczbie. Jednak `MaxItemCount` jest ściśle maksimum i może być mniej wyników niż ta kwota.
+- Czasami zapytania mogą mieć puste strony nawet wtedy, gdy wyniki są na przyszłość. Przyczyny tego mogą być następujące:
     - Zestaw SDK może wykonywać wiele wywołań sieciowych.
-    - Kwerenda może zdążyć dużo czasu, aby pobrać dokumenty.
-- Wszystkie kwerendy mają token kontynuacji, który pozwoli kwerendy kontynuować. Pamiętaj, aby całkowicie opróżnić zapytanie. Spójrz na próbki SDK i `while` użyj `FeedIterator.HasMoreResults` pętli, aby opróżnić całą kwerendę.
+    - Pobieranie dokumentów może potrwać dłuższy czas.
+- Wszystkie zapytania mają token kontynuacji, który umożliwi kontynuowanie zapytania. Pamiętaj, aby całkowicie opróżnić zapytanie. Zapoznaj się z przykładami zestawu SDK i `while` Użyj pętli `FeedIterator.HasMoreResults` on, aby opróżnić całe zapytanie.
 
-## <a name="get-query-metrics"></a>Pobierz metryki zapytań
+## <a name="get-query-metrics"></a>Pobierz metryki zapytania
 
-Podczas optymalizacji kwerendy w usłudze Azure Cosmos DB, pierwszym krokiem jest zawsze, aby [uzyskać metryki kwerendy](profile-sql-api-query.md) dla kwerendy. Te metryki są również dostępne za pośrednictwem witryny Azure portal:
+Podczas optymalizowania zapytania w Azure Cosmos DB, pierwszym krokiem jest zawsze [pobieranie metryk zapytania](profile-sql-api-query.md) dla zapytania. Te metryki są również dostępne za pomocą Azure Portal. Po uruchomieniu zapytania w Eksplorator danych metryki zapytania są widoczne obok karty **wyniki** :
 
-[![Uzyskiwanie danych](./media/troubleshoot-query-performance/obtain-query-metrics.png) kwerendy](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+[![Pobieranie metryk](./media/troubleshoot-query-performance/obtain-query-metrics.png) zapytania](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-Po pobraniu metryk kwerendy porównaj liczbę pobranych dokumentów z liczbą dokumentów wyjściowych dla kwerendy. Użyj tego porównania, aby zidentyfikować odpowiednie sekcje do przejrzenia w tym artykule.
+Po otrzymaniu metryk zapytania Porównaj **liczbę pobranych dokumentów** z **liczbą dokumentów wyjściowych** dla zapytania. To porównanie służy do identyfikowania odpowiednich sekcji do przejrzenia w tym artykule.
 
-Liczba pobranych dokumentów to liczba dokumentów, które kwerenda jest potrzebna do załadowania. Liczba dokumentów wyjściowych to liczba dokumentów, które były potrzebne do wyników kwerendy. Jeśli liczba pobranych dokumentów jest znacznie wyższa niż liczba dokumentów wyjściowych, istnieje co najmniej jedna część kwerendy, która nie może użyć indeksu i potrzebne do skanowania.
+**Liczba pobranych dokumentów** to liczba dokumentów, które aparat zapytań potrzebował do załadowania. **Liczba dokumentów wyjściowych** to liczba dokumentów, które były zbędne dla wyników zapytania. Jeśli **liczba pobranych dokumentów** jest znacznie większa niż **Liczba dokumentów wyjściowych**, istniała co najmniej jedna część zapytania, która nie mogła użyć indeksu i jest wymagana do skanowania.
 
-Zapoznaj się z poniższymi sekcjami, aby zrozumieć odpowiednie optymalizacje zapytań dla danego scenariusza.
+Zapoznaj się z następującymi sekcjami, aby zrozumieć odpowiednie optymalizacje zapytań dla danego scenariusza.
 
-### <a name="querys-ru-charge-is-too-high"></a>Opłata RU kwerendy jest zbyt wysoka
+### <a name="querys-ru-charge-is-too-high"></a>Zbyt wysoka opłata za zapytanie RU
 
 #### <a name="retrieved-document-count-is-significantly-higher-than-output-document-count"></a>Liczba pobranych dokumentów jest znacznie wyższa niż liczba dokumentów wyjściowych
 
-- [Uwzględnij niezbędne ścieżki w zasadach indeksowania.](#include-necessary-paths-in-the-indexing-policy)
+- [Dołącz wymagane ścieżki do zasad indeksowania.](#include-necessary-paths-in-the-indexing-policy)
 
-- [Dowiedz się, które funkcje systemowe używają indeksu.](#understand-which-system-functions-use-the-index)
+- [Informacje o tym, które funkcje systemowe używają indeksu.](#understand-which-system-functions-use-the-index)
 
-- [Dowiedz się, które zapytania agregowane używają indeksu.](#understand-which-aggregate-queries-use-the-index)
+- [Zrozumieć, które zapytania agregujące używają indeksu.](#understand-which-aggregate-queries-use-the-index)
 
-- [Modyfikuj kwerendy, które mają zarówno filtr, jak i klauzulę ORDER BY.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
+- [Optymalizuj zapytania, które mają klauzulę Filter i ORDER BY.](#optimize-queries-that-have-both-a-filter-and-an-order-by-clause)
 
-- [Optymalizuj wyrażenia JOIN za pomocą podkwerendy.](#optimize-join-expressions-by-using-a-subquery)
+- [Optymalizuj wyrażenia SPRZĘŻENIa przy użyciu podzapytania.](#optimize-join-expressions-by-using-a-subquery)
 
 <br>
 
 #### <a name="retrieved-document-count-is-approximately-equal-to-output-document-count"></a>Liczba pobranych dokumentów jest w przybliżeniu równa liczbie dokumentów wyjściowych
 
-- [Unikaj zapytań między partycjami.](#avoid-cross-partition-queries)
+- [Minimalizuj zapytania między partycjami.](#minimize-cross-partition-queries)
 
-- [Optymalizuj kwerendy, które mają filtry na wielu właściwościach.](#optimize-queries-that-have-filters-on-multiple-properties)
+- [Optymalizuj zapytania z filtrami dla wielu właściwości.](#optimize-queries-that-have-filters-on-multiple-properties)
 
-- [Modyfikuj kwerendy, które mają zarówno filtr, jak i klauzulę ORDER BY.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
+- [Optymalizuj zapytania, które mają klauzulę Filter i ORDER BY.](#optimize-queries-that-have-both-a-filter-and-an-order-by-clause)
 
 <br>
 
-### <a name="querys-ru-charge-is-acceptable-but-latency-is-still-too-high"></a>Opłata RU kwerendy jest dopuszczalna, ale opóźnienie jest nadal zbyt wysokie
+### <a name="querys-ru-charge-is-acceptable-but-latency-is-still-too-high"></a>Opłata za usługę RU dla zapytania jest akceptowalna, ale opóźnienie jest wciąż zbyt wysokie
 
-- [Poprawa bliskości.](#improve-proximity)
+- [Zwiększ bliskość.](#improve-proximity)
 
-- [Zwiększ aprowizowaną przepływność.](#increase-provisioned-throughput)
+- [Zwiększ przepływność aprowizacji.](#increase-provisioned-throughput)
 
-- [Zwiększenie MaxConcurrency.](#increase-maxconcurrency)
+- [Zwiększ MaxConcurrency.](#increase-maxconcurrency)
 
 - [Zwiększ MaxBufferedItemCount.](#increase-maxbuffereditemcount)
 
-## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Kwerendy, w których liczba pobranych dokumentów przekracza liczbę dokumentów wyjściowych
+## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Zapytania, w przypadku których liczba pobranych dokumentów przekracza liczbę dokumentów wyjściowych
 
- Liczba pobranych dokumentów to liczba dokumentów, które kwerenda jest potrzebna do załadowania. Liczba dokumentów wyjściowych to liczba dokumentów, które były potrzebne do wyników kwerendy. Jeśli liczba pobranych dokumentów jest znacznie wyższa niż liczba dokumentów wyjściowych, istnieje co najmniej jedna część kwerendy, która nie może użyć indeksu i potrzebne do skanowania.
+ **Liczba pobranych dokumentów** to liczba dokumentów, które aparat zapytań potrzebował do załadowania. **Liczba dokumentów wyjściowych** to liczba dokumentów zwróconych przez zapytanie. Jeśli **liczba pobranych dokumentów** jest znacznie większa niż **Liczba dokumentów wyjściowych**, istniała co najmniej jedna część zapytania, która nie mogła użyć indeksu i jest wymagana do skanowania.
 
-Oto przykład kwerendy skanowania, która nie była w pełni obsługiwana przez indeks:
+Oto przykład zapytania skanowania, które nie było całkowicie obsługiwane przez indeks:
 
 Zapytanie:
 
@@ -103,7 +105,7 @@ FROM c
 WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
  ```
 
-Metryki kwerendy:
+Metryki zapytań:
 
 ```
 Retrieved Document Count                 :          60,951
@@ -129,20 +131,25 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-Liczba pobranych dokumentów (60 951) jest znacznie wyższa niż liczba dokumentów wyjściowych (7), więc ta kwerenda jest potrzebna do skanowania. W takim przypadku funkcja systemowa [UPPER()](sql-query-upper.md) nie używa indeksu.
+**Liczba pobranych dokumentów** (60 951) jest znacznie większa niż **Liczba dokumentów wyjściowych** (7), co oznacza, że to zapytanie spowodowało przeprowadzenie skanowania dokumentów. W takim przypadku funkcja systemu [Upper ()](sql-query-upper.md) nie używa indeksu.
 
-### <a name="include-necessary-paths-in-the-indexing-policy"></a>Uwzględnij niezbędne ścieżki w zasadach indeksowania
+### <a name="include-necessary-paths-in-the-indexing-policy"></a>Dołącz wymagane ścieżki do zasad indeksowania
 
-Zasady indeksowania powinny obejmować wszystkie właściwości `WHERE` zawarte `ORDER BY` w klauzulach, klauzulach `JOIN`i większości funkcji systemowych. Ścieżka określona w zasadach indeksu powinna być zgodna z właściwością (z uwzględnieniem wielkości liter) właściwości w dokumentach JSON.
+Zasady indeksowania powinny obejmować wszystkie właściwości zawarte w `WHERE` klauzulach, `ORDER BY` klauzulach `JOIN`i większości funkcji systemu. Żądane ścieżki określone w zasadach indeksu powinny być zgodne z właściwościami w dokumentach JSON.
 
-Jeśli uruchomisz proste zapytanie na zestaw danych [żywieniowych,](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) można zaobserwować `WHERE` znacznie niższe opłaty RU, gdy właściwość w klauzuli jest indeksowany:
+> [!NOTE]
+> W przypadku właściwości w Azure Cosmos DB zasad indeksowania jest uwzględniana wielkość liter
+
+Jeśli uruchamiasz następujące proste zapytanie w zestawie danych [odżywiania](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) , zobaczysz znacznie mniejszą opłatą ru, gdy właściwość w `WHERE` klauzuli jest indeksowana:
 
 #### <a name="original"></a>Oryginał
 
 Zapytanie:
 
 ```sql
-SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
+SELECT *
+FROM c
+WHERE c.description = "Malabar spinach, cooked"
 ```
 
 Zasady indeksowania:
@@ -164,11 +171,11 @@ Zasady indeksowania:
 }
 ```
 
-**Opłata RU:** 409,51 RU
+**Opłata za ru:** 409,51 jednostek ru
 
 #### <a name="optimized"></a>Optymalizacja
 
-Zaktualizowano zasady indeksowania:
+Zaktualizowane zasady indeksowania:
 
 ```json
 {
@@ -183,86 +190,102 @@ Zaktualizowano zasady indeksowania:
 }
 ```
 
-**Opłata RU:** 2,98 RU
+**Opłata za ru:** 2,98 jednostek ru
 
-Właściwości można dodać do zasad indeksowania w dowolnym momencie, bez wpływu na dostępność zapisu lub wydajność. Jeśli dodasz nową właściwość do indeksu, kwerendy, które używają właściwości natychmiast użyje nowego dostępnego indeksu. Kwerenda użyje nowego indeksu podczas jego budowy. Więc wyniki kwerendy może być niespójne, gdy przebudowa indeksu jest w toku. Jeśli nowa właściwość jest indeksowana, kwerendy, które używają tylko istniejących indeksów nie będzie miało wpływu podczas przebudowy indeksu. Można [śledzić postęp transformacji indeksu](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+W dowolnej chwili można dodać właściwości do zasad indeksowania bez wpływu na dostępność zapisu ani wydajność. Jeśli dodasz nową właściwość do indeksu, zapytania, które używają właściwości, będą natychmiast używały nowego dostępnego indeksu. Zapytanie będzie używać nowego indeksu podczas kompilowania. Wyniki zapytania mogą być niespójne w czasie, gdy trwa ponowne kompilowanie indeksu. Jeśli nowa właściwość jest indeksowana, nie wpłynie to na zapytania, które używają tylko istniejących indeksów podczas ponownego kompilowania indeksu. [Postęp przekształcania indeksów można śledzić](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
-### <a name="understand-which-system-functions-use-the-index"></a>Do zrozumienia, które funkcje systemowe używają indeksu
+### <a name="understand-which-system-functions-use-the-index"></a>Informacje o tym, które funkcje systemowe używają indeksu
 
-Jeśli wyrażenie można przetłumaczyć na zakres wartości ciągu, można użyć indeksu. W przeciwnym razie nie może.
+Jeśli wyrażenie może być przetłumaczone na zakres wartości ciągu, można użyć indeksu. W przeciwnym razie nie jest to możliwe.
 
-Oto lista niektórych typowych funkcji ciągu, które można użyć indeksu:
+Poniżej znajduje się lista niektórych typowych funkcji ciągów, które mogą używać indeksu:
 
 - STARTSWITH(wyrażenie_ciągu, wyrażenie_ciągu)
 - LEFT(wyrażenie_ciągu, wyrażenie_liczbowe) = wyrażenie_ciągu
-- PODCIĄGNIE(str_expr, num_expr, num_expr) = str_expr, ale tylko wtedy, gdy pierwszy num_expr to 0
+- Podciąg (str_expr, num_expr, num_expr) = str_expr, ale tylko wtedy, gdy pierwszy num_expr wynosi 0
 
 Poniżej przedstawiono niektóre typowe funkcje systemowe, które nie używają indeksu i muszą ładować każdy dokument:
 
-| **Funkcja systemowa**                     | **Pomysły na optymalizację**             |
+| **Funkcja systemowa**                     | **Pomysły dotyczące optymalizacji**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| CONTAINS                                | Użyj usługi Azure Search do wyszukiwania pełnotekstowego.                        |
-| GÓRNA/DOLNA                             | Zamiast używać funkcji systemu do normalizacji danych do porównań, znormalizuj obudowę po wstawieniu. Zapytanie ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` takie ```SELECT * FROM c WHERE c.name = 'BOB'```jak staje się . |
-| Funkcje matematyczne (inne niż agregaty) | Jeśli chcesz obliczyć wartość często w kwerendzie, należy rozważyć przechowywanie wartości jako właściwości w dokumencie JSON. |
+| CONTAINS                                | Użyj Azure Search do wyszukiwania pełnotekstowego.                        |
+| GÓRNY/DOLNY                             | Zamiast używać funkcji system do normalizacji danych do porównania, należy znormalizować wielkość liter po wstawieniu. ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` Zostanie ```SELECT * FROM c WHERE c.name = 'BOB'```zapytanie. |
+| Funkcje matematyczne (inne niż zagregowane) | Jeśli trzeba często obliczać wartość w zapytaniu, należy rozważyć przechowywanie wartości jako właściwości w dokumencie JSON. |
 
 ------
 
-Inne części kwerendy może nadal używać indeksu, nawet jeśli funkcje systemowe nie.
+Inne części zapytania nadal mogą używać indeksu, mimo że funkcje systemowe nie są.
 
-### <a name="understand-which-aggregate-queries-use-the-index"></a>Do zrozumienia, które kwerendy agregowane używają indeksu
+### <a name="understand-which-aggregate-queries-use-the-index"></a>Zrozumienie, które zapytania agregujące używają indeksu
 
-W większości przypadków zagregowane funkcje systemowe w usłudze Azure Cosmos DB będą używać indeksu. Jednak w zależności od filtrów lub dodatkowych klauzul w kwerendzie agregującej aparat zapytań może być wymagany do załadowania dużej liczby dokumentów. Zazwyczaj aparat zapytań najpierw zastosuje filtry równości i zakresu. Po zastosowaniu tych filtrów aparat zapytań może ocenić dodatkowe filtry i odwołać się do ładowania pozostałych dokumentów, aby obliczyć agregację, jeśli to konieczne.
+W większości przypadków zagregowane funkcje systemowe w Azure Cosmos DB będą używały indeksu. Jednak w zależności od filtrów lub dodatkowych klauzul w kwerendzie agregującej aparat zapytań może być wymagany do załadowania dużej liczby dokumentów. Zwykle aparat zapytań zastosuje najpierw filtry równości i zakresu. Po zastosowaniu tych filtrów aparat zapytań może oszacować dodatkowe filtry i wykonać ładowanie pozostałych dokumentów w celu obliczenia agregacji, jeśli jest to konieczne.
 
-Na przykład biorąc pod uwagę te dwa przykładowe `CONTAINS` kwerendy, kwerenda z filtrem funkcji równości `CONTAINS` i systemu będzie na ogół bardziej wydajne niż kwerenda z tylko filtr funkcji systemu. Jest tak, ponieważ filtr równości jest stosowany jako pierwszy i używa indeksu `CONTAINS` przed dokumenty muszą być ładowane dla filtru droższe.
+Na przykład biorąc pod tym dwa przykładowe zapytania, zapytanie z filtrem równości i `CONTAINS` funkcji systemu zwykle będzie bardziej wydajne niż zapytanie zawierające tylko filtr funkcji `CONTAINS` systemu. Dzieje się tak, ponieważ filtr równości jest stosowany jako pierwszy i używa indeksu przed załadowaniem dokumentów dla bardziej kosztownego `CONTAINS` filtru.
 
-Zapytanie `CONTAINS` z tylko filtrem - wyższa opłata RU:
-
-```sql
-SELECT COUNT(1) FROM c WHERE CONTAINS(c.description, "spinach")
-```
-
-Zapytanie z filtrem równości i `CONTAINS` filtrem - niższe opłaty RU:
+Kwerenda z tylko `CONTAINS` filtrem o wyższym poziomie filtrów:
 
 ```sql
-SELECT AVG(c._ts) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
+SELECT COUNT(1)
+FROM c
+WHERE CONTAINS(c.description, "spinach")
 ```
 
-Oto dodatkowe przykłady zapytań agregacji, które nie będą w pełni używać indeksu:
-
-#### <a name="queries-with-system-functions-that-dont-use-the-index"></a>Kwerendy z funkcjami systemowymi, które nie używają indeksu
-
-Należy odwołać się do [odpowiedniej funkcji systemu strony,](sql-query-system-functions.md) aby sprawdzić, czy używa indeksu.
+Zapytanie z zarówno filtrem równości `CONTAINS` , jak i filtrem o niższych wartościach ru:
 
 ```sql
-SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
+SELECT AVG(c._ts)
+FROM c
+WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
 ```
 
-#### <a name="aggregate-queries-with-user-defined-functionsudfs"></a>Agreguj zapytania z funkcjami zdefiniowanymi przez użytkownika (UDF)
+Poniżej znajdują się dodatkowe przykłady kwerend agregujących, które nie w pełni wykorzystują indeks:
+
+#### <a name="queries-with-system-functions-that-dont-use-the-index"></a>Zapytania z funkcjami systemowymi, które nie używają indeksu
+
+Należy odwołać się do [strony odpowiedniej funkcji systemu](sql-query-system-functions.md) , aby sprawdzić, czy używa indeksu.
 
 ```sql
-SELECT AVG(c._ts) FROM c WHERE udf.MyUDF("Sausages and Luncheon Meats")
+SELECT MAX(c._ts)
+FROM c
+WHERE CONTAINS(c.description, "spinach")
 ```
 
-#### <a name="queries-with-group-by"></a>Zapytania z GROUP BY
-
-Opłata RU `GROUP BY` wzrośnie wraz ze wzrostem kardynalności właściwości w klauzuli. `GROUP BY` W tym przykładzie aparat zapytań musi `c.foodGroup = "Sausages and Luncheon Meats"` załadować każdy dokument, który pasuje do filtru, więc oczekuje się, że opłata RU będzie wysoka.
+#### <a name="aggregate-queries-with-user-defined-functionsudfs"></a>Agregowanie zapytań przy użyciu funkcji zdefiniowanych przez użytkownika (UDF)
 
 ```sql
-SELECT COUNT(1) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" GROUP BY c.description
+SELECT AVG(c._ts)
+FROM c
+WHERE udf.MyUDF("Sausages and Luncheon Meats")
 ```
 
-Jeśli planujesz często uruchamiać te same zapytania agregacji, może być bardziej wydajne do tworzenia w czasie rzeczywistym zmaterializowanego widoku z [kanału informacyjnego usługi Azure Cosmos DB zmiany](change-feed.md) niż uruchamianie poszczególnych zapytań.
+#### <a name="queries-with-group-by"></a>Zapytania z grupą według
 
-### <a name="modify-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Modyfikowanie kwerend, które mają zarówno filtr, jak i klauzulę ORDER BY
+Opłata za usługę RU dla zapytań `GROUP BY` w programie zwiększa się w miarę wzrostu kardynalności właściwości w `GROUP BY` klauzuli. W poniższym zapytaniu, na przykład, opłata za wartość RU zapytania zostanie zwiększona w miarę wzrostu liczby unikatowych opisów.
 
-Mimo że kwerendy, które `ORDER BY` mają filtr i klauzuli zwykle użyje indeksu zakresu, będą one bardziej wydajne, jeśli mogą być obsługiwane z indeksu złożonego. Oprócz modyfikowania zasad indeksowania należy dodać wszystkie właściwości w indeksie `ORDER BY` złożonym do klauzuli. Ta zmiana w kwerendzie zapewni, że używa indeksu złożonego.  Możesz zaobserwować wpływ, uruchamiając zapytanie na zestaw danych [żywieniowych:](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)
+Opłata za obiekt RU funkcji agregującej z `GROUP BY` klauzulą będzie większa niż wartość "ru" funkcji agregującej. W tym przykładzie aparat zapytań musi załadować każdy dokument pasujący do `c.foodGroup = "Sausages and Luncheon Meats"` filtru, aby opłata ru była wysoka.
+
+```sql
+SELECT COUNT(1)
+FROM c
+WHERE c.foodGroup = "Sausages and Luncheon Meats"
+GROUP BY c.description
+```
+
+Jeśli planujesz często uruchamiać te same zapytania agregujące, może być wydajniejsze Kompilowanie widoku z materiałami w czasie rzeczywistym za pomocą [kanału informacyjnego zmiany Azure Cosmos DB](change-feed.md) niż uruchamianie pojedynczych zapytań.
+
+### <a name="optimize-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Optymalizowanie zapytań, które mają klauzulę Filter i ORDER BY
+
+Mimo że zapytania z filtrem i `ORDER BY` klauzulą zwykle używają indeksu zakresu, będą bardziej wydajne, jeśli będą mogły być obsługiwane z indeksu złożonego. Oprócz modyfikowania zasad indeksowania należy dodać wszystkie właściwości w indeksie złożonym do `ORDER BY` klauzuli. Ta zmiana w zapytaniu zapewni użycie indeksu złożonego.  Można obserwować wpływ przez uruchomienie zapytania na zestawie danych [odżywiania](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) :
 
 #### <a name="original"></a>Oryginał
 
 Zapytanie:
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup = "Soups, Sauces, and Gravies" ORDER BY c._ts ASC
+SELECT *
+FROM c
+WHERE c.foodGroup = "Soups, Sauces, and Gravies"
+ORDER BY c._ts ASC
 ```
 
 Zasady indeksowania:
@@ -281,19 +304,20 @@ Zasady indeksowania:
 }
 ```
 
-**Opłata RU:** 44,28 RU
+**Opłata za ru:** 44,28 jednostek ru
 
 #### <a name="optimized"></a>Optymalizacja
 
-Zaktualizowana kwerenda (zawiera `ORDER BY` obie właściwości w klauzuli):
+Zaktualizowane zapytanie (zawiera obie właściwości w `ORDER BY` klauzuli):
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies"
 ORDER BY c.foodGroup, c._ts ASC
 ```
 
-Zaktualizowano zasady indeksowania:
+Zaktualizowane zasady indeksowania:
 
 ```json
 {  
@@ -321,12 +345,13 @@ Zaktualizowano zasady indeksowania:
 
 ```
 
-**Opłata RU:** 8,86 RU
+**Opłata za ru:** 8,86 jednostek ru
 
-### <a name="optimize-join-expressions-by-using-a-subquery"></a>Optymalzowanie wyrażeń JOIN przy użyciu podkwerendy
-Wielowartościowe podkemiecje mogą optymalizować `JOIN` wyrażenia, wypychając predykaty po każdym `WHERE` wyrażeniu select-many, a nie po wszystkich sprzężeniach krzyżowych w klauzuli.
+### <a name="optimize-join-expressions-by-using-a-subquery"></a>Optymalizowanie wyrażeń SPRZĘŻENIa przy użyciu podzapytania
 
-Należy wziąć pod uwagę tę kwerendę:
+Podzapytania wielowartościowe mogą optymalizować `JOIN` wyrażenia przez wypychanie predykatów po każdym wyrażeniu SELECT-wielu, a nie po wszystkich sprzężeniach `WHERE` krzyżowych w klauzuli.
+
+Weź pod uwagę następujące zapytanie:
 
 ```sql
 SELECT Count(1) AS Count
@@ -338,13 +363,13 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**Opłata RU:** 167,62 RU
+**Opłata za ru:** 167,62 jednostek ru
 
-W przypadku tej kwerendy indeks będzie zgodny z dowolnym dokumentem, który ma znacznik o nazwie "formuła dla niemowląt", nutritionValue większa niż 0 i ilość porcji większa niż 1. Wyrażenie `JOIN` w tym miejscu wykona cross-product wszystkich elementów tagów, składników odżywczych i tablic porcji dla każdego dokumentu dopasowania przed zastosowaniem dowolnego filtru. Klauzula `WHERE` będzie następnie zastosować predykatu filtru dla każdej `<c, t, n, s>` krotki.
+W przypadku tego zapytania indeks będzie pasować do dowolnego dokumentu, który ma tag o nazwie `infant formula`, `nutritionValue` większy niż 0 i `amount` większy od 1. W `JOIN` tym miejscu wyrażenie będzie przekroczyć iloczyn wszystkich elementów tagów, składników odżywczych i obsługuje tablice dla każdego pasującego dokumentu przed zastosowaniem filtra. `WHERE` Klauzula zastosuje predykat filtru dla każdej `<c, t, n, s>` krotki.
 
-Na przykład jeśli pasujący dokument ma 10 elementów w każdej z trzech tablic, zostanie on rozszerzony do 1 x 10 x 10 x 10 (czyli 1000) krotek. Użycie podkemietów w tym miejscu może pomóc odfiltrować połączone elementy tablicy przed dołączeniem do następnego wyrażenia.
+Na przykład, jeśli pasujący dokument zawiera 10 elementów w każdej z trzech tablic, zostanie rozszerzony na 1 x 10 x 10 x 10 (czyli 1 000) krotek. Użycie podkwerend w tym miejscu może pomóc w odfiltrowaniu sprzężonych elementów tablicy przed dołączeniem do następnego wyrażenia.
 
-Ta kwerenda jest odpowiednikiem poprzedniej, ale używa podksyłek:
+To zapytanie jest równoważne poprzedniemu, ale używa podzapytań:
 
 ```sql
 SELECT Count(1) AS Count
@@ -354,59 +379,65 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**Opłata RU:** 22,17 RU
+**Opłata za ru:** 22,17 jednostek ru
 
-Załóżmy, że tylko jeden element w tablicy tagów pasuje do filtru i że istnieje pięć elementów dla modułów składników odżywczych i tablic obsługujących. Wyrażenia `JOIN` zostaną rozszerzone do 1 x 1 x 5 x 5 = 25 elementów, w przeciwieństwie do 1000 elementów w pierwszym zapytaniu.
+Załóżmy, że tylko jeden element w tablicy tagów pasuje do filtru i że istnieje pięć elementów dla elementów odżywczych i obsługujących tablice. `JOIN` Wyrażenia zostaną rozszerzone na 1 x 1 x 5 x 5 = 25 elementów, w przeciwieństwie do 1 000 elementów w pierwszym zapytaniu.
 
-## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Kwerendy, w których liczba pobranych dokumentów jest równa liczbie dokumentów wyjściowych
+## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Zapytania, w przypadku których liczba pobranych dokumentów jest równa liczbie dokumentów wyjściowych
 
-Jeśli liczba pobranych dokumentów jest w przybliżeniu równa licznik dokumentów wyjściowych, kwerenda nie trzeba skanować wiele niepotrzebnych dokumentów. W przypadku wielu zapytań, takich jak te, które używają słowa kluczowego TOP, liczba pobranych dokumentów może przekroczyć liczbę dokumentów wyjściowych o 1. Nie musisz się tym przejmować.
+Jeśli **liczba pobranych dokumentów** jest w przybliżeniu równa **liczbie dokumentów wyjściowych**, aparat zapytań nie musiał skanować wielu zbędnych dokumentów. W przypadku wielu zapytań, takich jak te, `TOP` które używają słowa kluczowego, **liczba pobranych dokumentów** może przekroczyć **liczbę dokumentów wyjściowych** o 1. Nie musisz się z nim wiązać.
 
-### <a name="avoid-cross-partition-queries"></a>Unikaj zapytań dotyczących partycji krzyżowych
+### <a name="minimize-cross-partition-queries"></a>Minimalizuj zapytania między partycjami
 
-Usługa Azure Cosmos DB używa [partycjonowania](partitioning-overview.md) do skalowania poszczególnych kontenerów w miarę zwiększania potrzeb jednostki żądań i magazynu danych. Każda partycja fizyczna ma oddzielny i niezależny indeks. Jeśli kwerenda ma filtr równości, który pasuje do klucza partycji kontenera, należy sprawdzić tylko indeks odpowiedniej partycji. Ta optymalizacja zmniejsza całkowitą liczbę procesorów RU, które wymaga kwerendy.
+Azure Cosmos DB używa [partycjonowania](partitioning-overview.md) do skalowania poszczególnych kontenerów jako jednostki żądania i magazynu danych. Każda partycja fizyczna ma oddzielny i niezależny indeks. Jeśli zapytanie ma filtr równości pasujący do klucza partycji kontenera, należy sprawdzić tylko odpowiedni indeks partycji. Ta optymalizacja zmniejsza łączną liczbę jednostek ru wymaganych przez zapytanie.
 
-Jeśli masz dużą liczbę aprowizowanych ru (więcej niż 30 000) lub dużą ilość danych przechowywanych (więcej niż około 100 GB), prawdopodobnie masz wystarczająco duży kontener, aby zobaczyć znaczne zmniejszenie opłat RU kwerendy.
+Jeśli masz dużą liczbę zainicjowanych jednostek ru (ponad 30 000) lub dużą ilość przechowywanych danych (więcej niż około 100 GB), prawdopodobnie masz wystarczająco duży rozmiar kontenera, aby zobaczyć znaczną redukcję opłat za zapytania RU.
 
-Na przykład w przypadku utworzenia kontenera z kluczem partycji foodGroup, następujące kwerendy będą musiały sprawdzić tylko jedną partycję fizyczną:
+Na przykład, jeśli utworzysz kontener z kluczem partycji żywność, następujące zapytania będą musiały sprawdzić tylko jedną partycję fizyczną:
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
-Te zapytania będą również zoptymalizowane przez dodanie klucza partycji w kwerendzie:
+Zapytania z `IN` filtrem z kluczem partycji będą sprawdzać tylko odpowiednie partycje fizyczne i nie będą "wentylatorem":
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup IN("Soups, Sauces, and Gravies", "Vegetables and Vegetable Products") and c.description = "Mushroom, oyster, raw"
 ```
 
-Kwerendy, które mają filtry zakresu na kluczu partycji lub które nie mają żadnych filtrów na kluczu partycji, będą musiały sprawdzić indeks każdej partycji fizycznej pod kątem wyników:
+Zapytania, które mają filtry zakresu w kluczu partycji lub nie mają żadnych filtrów w kluczu partycji, muszą mieć wartość "wentylator-out" i sprawdzać każdy indeks partycji fizycznej pod kątem wyników:
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.description = "Mushroom, oyster, raw"
 ```
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup > "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
-### <a name="optimize-queries-that-have-filters-on-multiple-properties"></a>Optymalizuj kwerendy, które mają filtry na wielu właściwościach
+### <a name="optimize-queries-that-have-filters-on-multiple-properties"></a>Optymalizowanie zapytań z filtrami dla wielu właściwości
 
-Mimo że kwerendy, które mają filtry na wiele właściwości zwykle użyje indeksu zakresu, będą one bardziej wydajne, jeśli mogą być obsługiwane z indeksu złożonego. W przypadku niewielkich ilości danych ta optymalizacja nie będzie miała znaczącego wpływu. Może to być przydatne, jednak dla dużych ilości danych. Można zoptymalizować tylko jeden filtr nie równości na indeks złożony. Jeśli kwerenda ma wiele filtrów nie równości, wybierz jeden z nich, który będzie używać indeksu złożonego. Reszta będzie nadal używać indeksów zakresu. Filtr nie równości musi być zdefiniowany jako ostatni w indeksie złożonym. [Dowiedz się więcej o indeksach złożonych](index-policy.md#composite-indexes).
+Mimo że zapytania zawierające filtry dla wielu właściwości zwykle używają indeksu zakresu, będą bardziej wydajne, jeśli będą mogły być obsługiwane z indeksu złożonego. W przypadku małych ilości danych Ta optymalizacja nie ma znaczącego wpływu. Mogą jednak być przydatne w przypadku dużych ilości danych. Można zoptymalizować maksymalnie jeden filtr nierówności na indeks złożony. Jeśli zapytanie ma wiele filtrów bez równości, wybierz jedną z nich, która będzie używać indeksu złożonego. Pozostałe będą nadal używać indeksów zakresów. Filtr bez równości musi być zdefiniowany jako ostatni w indeksie złożonym. [Dowiedz się więcej na temat indeksów złożonych](index-policy.md#composite-indexes).
 
-Oto kilka przykładów zapytań, które można zoptymalizować za pomocą indeksu złożonego:
+Poniżej przedstawiono kilka przykładów zapytań, które można zoptymalizować za pomocą indeksu złożonego:
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts = 1575503264
 ```
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 ```
 
@@ -437,29 +468,29 @@ Oto odpowiedni indeks złożony:
 }
 ```
 
-## <a name="optimizations-that-reduce-query-latency"></a>Optymalizacje zmniejszające opóźnienie kwerendy
+## <a name="optimizations-that-reduce-query-latency"></a>Optymalizacje zmniejszające czas oczekiwania na zapytanie
 
-W wielu przypadkach opłata RU może być dopuszczalna, gdy opóźnienie zapytania jest nadal zbyt wysokie. W poniższych sekcjach przedstawiono omówienie wskazówek dotyczących zmniejszania opóźnienia kwerendy. Jeśli uruchomisz tę samą kwerendę wiele razy w tym samym zestawie danych, będzie ono miało za każdym razem taką samą opłatę RU. Ale opóźnienie kwerendy może się różnić między wykonaniami kwerend.
+W wielu przypadkach opłata za usługę RU może być akceptowalna, gdy opóźnienie zapytania jest wciąż zbyt wysokie. Poniższe sekcje zawierają omówienie wskazówek dotyczących skracania opóźnień zapytań. W przypadku uruchomienia tego samego zapytania wiele razy w tym samym zestawie danych będzie on miał te same opłaty RU za każdym razem. Opóźnienia zapytań mogą się różnić między wykonaniami zapytań.
 
-### <a name="improve-proximity"></a>Poprawa bliskości
+### <a name="improve-proximity"></a>Zwiększ bliskość
 
-Kwerendy, które są uruchamiane z innego regionu niż konto usługi Azure Cosmos DB będą miały większe opóźnienia niż gdyby zostały uruchomione w tym samym regionie. Na przykład jeśli używasz kodu na komputerze stacjonarnym, należy oczekiwać opóźnienia mają być dziesiątki lub setki milisekund wyższe (lub więcej) niż jeśli kwerenda pochodzi z maszyny wirtualnej w tym samym regionie platformy Azure jako usługi Azure Cosmos DB. Globalna [dystrybucja danych w usłudze Azure Cosmos DB](distribute-data-globally.md) jest prosta, aby zapewnić przybliżenie danych do aplikacji.
+Zapytania uruchamiane z innego regionu niż konto Azure Cosmos DB będą miały wyższy czas oczekiwania niż w przypadku uruchomienia w tym samym regionie. Na przykład jeśli używasz kodu na komputerze stacjonarnym, należy oczekiwać opóźnienia na dziesiątki lub setki milisekund (lub więcej) niż w przypadku, gdy zapytanie pochodzi z maszyny wirtualnej w tym samym regionie platformy Azure co Azure Cosmos DB. Jest ona prosta do [dystrybuowania danych w Azure Cosmos DB](distribute-data-globally.md) , aby zapewnić, że dane będą bliżej Twojej aplikacji.
 
-### <a name="increase-provisioned-throughput"></a>Zwiększanie aprowizowanej przepływności
+### <a name="increase-provisioned-throughput"></a>Zwiększ przepływność aprowizacji
 
-W usłudze Azure Cosmos DB aprowizowana przepływność jest mierzona w jednostkach żądań (NP). Wyobraź sobie, że masz kwerendę, która zużywa 5 procesorów RU przepływności. Na przykład jeśli aprowizujesz 1000 procesorów RU, można uruchomić tę kwerendę 200 razy na sekundę. Jeśli próbowano uruchomić kwerendę, gdy nie było wystarczającej przepływności dostępne, usługa Azure Cosmos DB zwróci błąd HTTP 429. Każdy z bieżących core (SQL) API SDK automatycznie ponowi próbę tej kwerendy po odczekaniu przez krótki czas. Ograniczone żądania trwać dłużej, więc zwiększenie aprowizowanej przepływności może zwiększyć opóźnienie kwerendy. Można zaobserwować [całkowitą liczbę żądań ograniczonego](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) w **bloku Metryki witryny** Azure portal.
+W Azure Cosmos DB zainicjowana przepływność jest mierzona w jednostkach żądania (jednostek ru). Wyobraź sobie, że masz zapytanie, które zużywa 5 jednostek ru przepływności. Na przykład jeśli zainicjujesz 1 000 jednostek ru, będzie można uruchamiać zapytanie o godzinie 200 na sekundę. Jeśli podjęto próbę uruchomienia zapytania w przypadku braku wystarczającej przepływności, Azure Cosmos DB zwróci błąd HTTP 429. Wszystkie podstawowe zestawy SDK interfejsu API (SQL) są automatycznie ponowią próbę wykonania tego zapytania po krótkim czasie oczekiwania. Żądania ograniczające przepustowość są dłuższe, więc zwiększenie zainicjowanej przepływności może poprawić opóźnienia zapytań. Można obserwować [łączną liczbę żądań z ograniczeniami](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) w bloku **metryk** Azure Portal.
 
-### <a name="increase-maxconcurrency"></a>Zwiększ maksymalną cyrku
+### <a name="increase-maxconcurrency"></a>Zwiększ MaxConcurrency
 
-Zapytania równoległe działają, badając równolegle wiele partycji. Ale dane z pojedynczej kolekcji podzielonej na partycje są pobierane szeregowo w odniesieniu do kwerendy. Tak więc, jeśli ustawisz MaxConcurrency na liczbę partycji, masz największe szanse na osiągnięcie najbardziej wydajne zapytanie, pod warunkiem, że wszystkie inne warunki systemowe pozostają takie same. Jeśli nie znasz liczby partycji, można ustawić MaxConcurrency (lub MaxDegreesOfParallelism w starszych wersjach zestawu SDK) na dużą liczbę. System wybierze minimalną (liczbę partycji, dane wejściowe dostarczone przez użytkownika) jako maksymalny stopień równoległości.
+Zapytania równoległe działają przez wykonywanie zapytań na wielu partycjach równolegle. Ale dane z pojedynczej kolekcji partycjonowanej są pobierane sekwencyjnie w odniesieniu do zapytania. Tak więc, jeśli ustawisz MaxConcurrency na liczbę partycji, masz najlepszą szansę osiągnięcia najbardziej wydajnego zapytania, pod warunkiem, że wszystkie inne warunki systemu pozostają takie same. Jeśli nie znasz liczby partycji, możesz ustawić wysoką liczbę MaxConcurrency (lub MaxDegreesOfParallelism we wcześniejszych wersjach zestawu SDK). System wybierze minimalną (liczbę partycji, dane wejściowe podane przez użytkownika) jako maksymalny stopień równoległości.
 
-### <a name="increase-maxbuffereditemcount"></a>Zwiększ wartość MaxBufferedItemCount
+### <a name="increase-maxbuffereditemcount"></a>Zwiększ MaxBufferedItemCount
 
-Zapytania są przeznaczone do wstępnego pobierania wyników, podczas gdy bieżąca partia wyników jest przetwarzana przez klienta. Pobieranie wstępne pomaga poprawić ogólne opóźnienie kwerendy. Ustawienie MaxBufferedItemCount ogranicza liczbę wstępnie pobranych wyników. Jeśli ustawisz tę wartość na oczekiwaną liczbę zwracanych wyników (lub większą liczbę), kwerenda może uzyskać największe korzyści z pobierania wstępnego. Jeśli ustawisz tę wartość na -1, system automatycznie określi liczbę elementów do buforowania.
+Zapytania są zaprojektowane w celu wstępnego pobrania wyników, podczas gdy bieżąca partia wyników jest przetwarzana przez klienta. Przed pobraniem pomaga poprawić ogólne opóźnienie zapytania. Ustawienie MaxBufferedItemCount ogranicza liczbę wstępnie pobranych wyników. Jeśli ustawisz tę wartość na oczekiwaną liczbę zwracanych wyników (lub wyższą liczbę), zapytanie może uzyskać największą korzyść z pobierania wstępnego. W przypadku ustawienia tej wartości na wartość-1 system automatycznie określi liczbę elementów do buforowania.
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły, aby uzyskać informacje na temat pomiaru identyfikatorów procesorów na kwerendę, uzyskać statystyki wykonywania, aby dostroić zapytania i więcej:
+Zapoznaj się z następującymi artykułami, aby uzyskać informacje na temat mierzenia jednostek ru na zapytanie, uzyskać statystykę wykonywania w celu dostrajania zapytań i nie tylko:
 
-* [Pobierz metryki wykonywania zapytań SQL przy użyciu narzędzia SDK .NET](profile-sql-api-query.md)
+* [Pobieranie metryk wykonywania zapytań SQL przy użyciu zestawu .NET SDK](profile-sql-api-query.md)
 * [Tuning query performance with Azure Cosmos DB (Dostosowywanie wydajności zapytań w usłudze Azure Cosmos DB)](sql-api-sql-query-metrics.md)
 * [Porady dotyczące wydajności dla zestawu.NET SDK](performance-tips.md)

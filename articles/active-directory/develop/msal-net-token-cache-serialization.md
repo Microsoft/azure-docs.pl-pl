@@ -1,7 +1,7 @@
 ---
 title: Serializacja pamięci podręcznej tokenów (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się więcej o serializacji i serializacji pamięci podręcznej tokenów przy użyciu biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET).
+description: Informacje o serializacji i serializacji klienta pamięci podręcznej tokenów przy użyciu biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,58 +13,58 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1bd348ad27d892d0421b13c16ce81bc4f5dfb021
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6cb164628923b7a0b4fd0e48e3b9a6095591060
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262804"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099023"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serializacja pamięci podręcznej tokenów w MSAL.NET
-Po [nabyciu tokenu](msal-acquire-cache-tokens.md)jest on buforowany przez bibliotekę uwierzytelniania firmy Microsoft (MSAL).  Kod aplikacji należy spróbować uzyskać token z pamięci podręcznej przed uzyskaniem tokenu za pomocą innej metody.  W tym artykule omówiono domyślną i niestandardową serializację pamięci podręcznej tokenów w MSAL.NET.
+Po [uzyskaniu tokenu](msal-acquire-cache-tokens.md)zostanie on zbuforowany przez bibliotekę uwierzytelniania firmy Microsoft (MSAL).  Kod aplikacji powinien próbować uzyskać token z pamięci podręcznej przed uzyskaniem tokenu przez inną metodę.  W tym artykule omówiono domyślną i niestandardową serializację pamięci podręcznej tokenów w MSAL.NET.
 
-Ten artykuł dotyczy MSAL.NET 3.x. Jeśli jesteś zainteresowany MSAL.NET 2.x, zobacz [Serializacja pamięci podręcznej tokenów w MSAL.NET 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Token-cache-serialization-2x).
+Ten artykuł dotyczy MSAL.NET 3. x. Jeśli interesuje Cię MSAL.NET 2. x, zobacz [Serializacja pamięci podręcznej tokenów w MSAL.NET 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Token-cache-serialization-2x).
 
-## <a name="default-serialization-for-mobile-platforms"></a>Domyślna serializacja dla platform mobilnych
+## <a name="default-serialization-for-mobile-platforms"></a>Domyślna Serializacja dla platform mobilnych
 
-W MSAL.NET domyślnie udostępniana jest pamięć podręczna tokenów w pamięci. Serializacja jest domyślnie dostarczana dla platform, na których bezpieczna pamięć masowa jest dostępna dla użytkownika jako część platformy. Dotyczy to platformy uniwersalnej systemu Windows (PLATFORMY UNIWERSALNEJ), Platformy Xamarin.iOS i platformy Xamarin.Android.
+W MSAL.NET jest udostępniana pamięć podręczna tokenów w pamięci. Serializacja jest udostępniana domyślnie dla platform, w których bezpieczny magazyn jest dostępny dla użytkownika jako część platformy. W tym przypadku platforma uniwersalna systemu Windows (platformy UWP), Xamarin. iOS i Xamarin. Android.
 
 > [!Note]
-> Podczas migracji projektu platformy Xamarin.Android z MSAL.NET 1.x do MSAL.NET 3.x, można `android:allowBackup="false"` dodać do projektu, aby uniknąć starych tokenów buforowanych z powrotem, gdy wdrożenia programu Visual Studio wyzwalają przywracanie magazynu lokalnego. Zobacz [#659 problem](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/659#issuecomment-436181938).
+> Podczas migrowania projektu Xamarin. Android z MSAL.NET 1. x do MSAL.NET 3. x, możesz chcieć dodać `android:allowBackup="false"` do projektu, aby uniknąć powrotu starych tokenów w pamięci podręcznej, gdy wdrożenia programu Visual Studio wyzwalają przywracanie magazynu lokalnego. Zobacz [#659 problemu](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/659#issuecomment-436181938).
 
-## <a name="custom-serialization-for-windows-desktop-apps-and-web-appsweb-apis"></a>Niestandardowa serializacja dla aplikacji klasycznych systemu Windows i aplikacji internetowych/internetowych interfejsów API
+## <a name="custom-serialization-for-windows-desktop-apps-and-web-appsweb-apis"></a>Serializacja niestandardowa dla aplikacji klasycznych systemu Windows i aplikacji sieci Web/interfejsów API sieci Web
 
-Pamiętaj, że niestandardowa serializacja nie jest dostępna na platformach mobilnych (UWP, Xamarin.iOS i Xamarin.Android). MSAL już definiuje bezpieczny i wydajny mechanizm serializacji dla tych platform. Aplikacje .NET desktop i .NET Core mają jednak różne architektury i msal nie może zaimplementować mechanizmu serializacji ogólnego przeznaczenia. Na przykład witryny sieci web mogą zdecydować się na przechowywanie tokenów w pamięci podręcznej Redis lub tokeny magazynu aplikacji klasycznych w zaszyfrowanym pliku. Serializacja nie jest więc dostarczana po wyjęciu z pudełka. Aby mieć trwałą aplikację pamięci podręcznej tokenu na pulpicie platformy .NET lub .NET Core, należy dostosować serializację.
+Należy pamiętać, że Serializacja niestandardowa nie jest dostępna na platformach mobilnych (platformy UWP, Xamarin. iOS i Xamarin. Android). MSAL już definiuje bezpieczny i wydajny mechanizm serializacji dla tych platform. Aplikacje klasyczne i .NET Core programu .NET mają jednak różne architektury i MSAL nie mogą implementować mechanizmu serializacji ogólnego przeznaczenia. Na przykład witryny sieci Web mogą zawierać tokeny w pamięci podręcznej Redis, a aplikacje pulpitu przechowują tokeny w zaszyfrowanym pliku. Dlatego Serializacja nie jest dostarczana jako wbudowana. Aby mieć trwałą aplikację pamięci podręcznej tokenów w programie .NET Desktop lub .NET Core, należy dostosować serializację.
 
-Następujące klasy i interfejsy są używane w serializacji pamięci podręcznej tokenów:
+Następujące klasy i interfejsy są używane w serializacji pamięci podręcznej tokenu:
 
-- `ITokenCache`, który definiuje zdarzenia do subskrybowania żądań serializacji pamięci podręcznej tokenów, a także metody serializacji lub de-serializacji pamięci podręcznej w różnych formatach (ADAL v3.0, MSAL 2.x i MSAL 3.x = ADAL v5.0).
-- `TokenCacheCallback`jest wywołaniem zwrotnym przekazanym do zdarzeń, dzięki czemu można obsługiwać serializacji. Będą one wywoływane z `TokenCacheNotificationArgs`argumentami typu .
-- `TokenCacheNotificationArgs`zawiera `ClientId` tylko aplikacji i odwołanie do użytkownika, dla którego token jest dostępny.
+- `ITokenCache`, który definiuje zdarzenia subskrybowania żądań serializacji pamięci podręcznej tokenów, a także metody serializacji lub deserializacji pamięci podręcznej w różnych formatach (ADAL v 3.0, MSAL 2. x i MSAL 3. x = ADAL v 5.0).
+- `TokenCacheCallback`to wywołanie zwrotne przesłane do zdarzeń, aby można było obsłużyć serializacji. Zostaną one wywołane z argumentami typu `TokenCacheNotificationArgs`.
+- `TokenCacheNotificationArgs`udostępnia `ClientId` tylko aplikację i odwołanie do użytkownika, dla którego token jest dostępny.
 
   ![Diagram klas](media/msal-net-token-cache-serialization/class-diagram.png)
 
 > [!IMPORTANT]
-> MSAL.NET tworzy pamięć podręczną tokenu dla Ciebie `IToken` i zapewnia pamięć podręczną podczas wywoływania aplikacji `UserTokenCache` i `AppTokenCache` właściwości. Nie należy samodzielnie implementować interfejsu. Odpowiedzialność, podczas implementowania serializacji niestandardowej pamięci podręcznej tokenu, jest:
-> - Reaguj na `BeforeAccess` i `AfterAccess` "wydarzenia" (lub ich asynowe smaki). Pełnomocnik `BeforeAccess` jest odpowiedzialny za deserializacji pamięci `AfterAccess` podręcznej, podczas gdy jeden jest odpowiedzialny za serializacji pamięci podręcznej.
-> - Część tych zdarzeń przechowywania lub ładowania obiektów blob, które są przekazywane przez argument zdarzenia do dowolnego magazynu, który chcesz.
+> MSAL.NET tworzy pamięć podręczną tokenów i udostępnia `IToken` pamięć podręczną, gdy wywołasz aplikację `UserTokenCache` i `AppTokenCache` właściwości. Nie zaleca się zaimplementowania interfejsu samodzielnie. Podczas implementowania serializacji pamięci podręcznej tokenów niestandardowych należy wykonać następujące zadanie:
+> - Reagowanie `BeforeAccess` na `AfterAccess` i "zdarzenia" (lub ich ich typy asynchroniczne). `BeforeAccess` Delegat jest odpowiedzialny za deserializacja pamięci podręcznej `AfterAccess` , podczas gdy jest on odpowiedzialny za Serializowanie pamięci podręcznej.
+> - Część tych zdarzeń przechowuje lub ładuje obiekty blob, które są przesyłane przez argument zdarzenia do dowolnego potrzebnego miejsca.
 
-Strategie różnią się w zależności od tego, czy piszesz serializacji pamięci podręcznej tokenu dla [publicznej aplikacji klienckiej](msal-client-applications.md) (pulpit), lub [poufnej aplikacji klienckiej](msal-client-applications.md)) (aplikacja internetowa / internetowy interfejs API, aplikacja demona).
+Strategie są różne w zależności od tego, czy piszesz serializacji pamięci podręcznej tokenów dla [publicznej aplikacji klienckiej](msal-client-applications.md) (klasycznej), czy [poufnej aplikacji klienckiej](msal-client-applications.md)) (aplikacja sieci Web/internetowy interfejs API, aplikacja demona).
 
-### <a name="token-cache-for-a-public-client"></a>Pamięć podręczna tokenu dla klienta publicznego 
+### <a name="token-cache-for-a-public-client"></a>Pamięć podręczna tokenów dla klienta publicznego 
 
-Od MSAL.NET wersji 2.x masz kilka opcji serializacji pamięci podręcznej tokenu klienta publicznego. Pamięć podręczną można serializować tylko w formacie MSAL.NET (pamięć podręczna ujednoliconego formatu jest wspólna dla msal i platform).  Można również obsługiwać serializacji pamięci podręcznej [starszych](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) tokenów ADAL V3.
+Ponieważ MSAL.NET V2. x istnieje kilka opcji serializacji pamięci podręcznej tokenów klienta publicznego. Pamięć podręczną można serializować tylko do formatu MSAL.NET (pamięć podręczna Unified format jest wspólna dla MSAL i platform).  Można także obsłużyć serializacji [starszej](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) pamięci podręcznej tokenów biblioteki ADAL v3.
 
-Dostosowywanie serializacji pamięci podręcznej tokenów w celu współużytkowania stanu logowania jednokrotnego między ADAL.NET 3.x, ADAL.NET 5.x i MSAL.NET jest wyjaśnione w części z poniższego przykładu: [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2).
+Dostosowanie serializacji pamięci podręcznej tokenów w celu udostępnienia stanu logowania jednokrotnego między ADAL.NET 3. x, ADAL.NET 5. x i MSAL.NET jest wyjaśnione w części poniższego przykładu: [Active-Directory-dotnet-V1-do-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2).
 
 > [!Note]
-> Format pamięci podręcznej tokenów MSAL.NET 1.1.4-preview nie jest już obsługiwany w formacie MSAL 2.x. Jeśli masz aplikacje wykorzystujące MSAL.NET 1.x, użytkownicy będą musieli ponownie się zalogować. Alternatywnie jest obsługiwana migracja z 4.x (i 3.x).
+> Format pamięci podręcznej tokenów MSAL.NET 1.1.4 (wersja zapoznawcza) nie jest już obsługiwany w MSAL 2. x. Jeśli masz aplikacje korzystające z MSAL.NET 1. x, użytkownicy będą musieli ponowić logowanie. Alternatywnie, obsługiwana jest migracja z biblioteki ADAL 4. x (i 3. x).
 
-#### <a name="simple-token-cache-serialization-msal-only"></a>Prosta serializacja pamięci podręcznej tokenów (tylko MSAL)
+#### <a name="simple-token-cache-serialization-msal-only"></a>Serializacja prostej pamięci podręcznej tokenów (tylko MSAL)
 
-Poniżej znajduje się przykład naiwnej implementacji niestandardowej serializacji pamięci podręcznej tokenu dla aplikacji klasycznych. W tym miejscu pamięć podręczna tokenu użytkownika jest plikiem w tym samym folderze co aplikacja.
+Poniżej znajduje się przykład implementacji algorytmie niestandardowej serializacji pamięci podręcznej tokenów dla aplikacji klasycznych. W tym miejscu pamięć podręczna tokenów użytkownika to plik w tym samym folderze, w którym znajduje się aplikacja.
 
-Po utworzeniu aplikacji można włączyć serializacji, `TokenCacheHelper.EnableSerialization()` wywołując metodę `UserTokenCache`i przekazując aplikację .
+Po skompilowaniu aplikacji należy włączyć serializację, wywołując `TokenCacheHelper.EnableSerialization()` metodę i przekazując aplikację. `UserTokenCache`
 
 ```csharp
 app = PublicClientApplicationBuilder.Create(ClientId)
@@ -72,7 +72,7 @@ app = PublicClientApplicationBuilder.Create(ClientId)
 TokenCacheHelper.EnableSerialization(app.UserTokenCache);
 ```
 
-Klasa `TokenCacheHelper` pomocnika jest zdefiniowana jako:
+Klasa `TokenCacheHelper` pomocnika jest definiowana jako:
 
 ```csharp
 static class TokenCacheHelper
@@ -122,11 +122,11 @@ static class TokenCacheHelper
  }
 ```
 
-Podgląd pliku pamięci podręcznej tokenu jakości produktu opartego na serializatorze dla publicznych aplikacji klienckich (dla aplikacji klasycznych działających w systemach Windows, Mac i Linux) jest dostępny w bibliotece open source [Microsoft.Identity.Client.Extensions.Msal.](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) Można go dołączyć do aplikacji z następującego pakietu nuget: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+Wersja zapoznawcza serializatora opartego na plikach pamięci podręcznej tokenu jakości produktu dla publicznych aplikacji klienckich (dla aplikacji klasycznych działających w systemach Windows, Mac i Linux) jest dostępna w bibliotece [Microsoft. Identity. Client. Extensions. Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) Open-Source. Można go uwzględnić w aplikacjach z następującego pakietu NuGet: [Microsoft. Identity. Client. Extensions. Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
-#### <a name="dual-token-cache-serialization-msal-unified-cache-and-adal-v3"></a>Serializacja pamięci podręcznej dwóch tokenów (ujednolicona pamięć podręczna MSAL i ADAL v3)
+#### <a name="dual-token-cache-serialization-msal-unified-cache-and-adal-v3"></a>Serializacja podwójnego tokenu pamięci podręcznej (MSAL Unified cache i ADAL v3)
 
-Jeśli chcesz zaimplementować serializację pamięci podręcznej tokenów zarówno w formacie ujednoliconej pamięci podręcznej (typowe dla ADAL.NET 4.x, MSAL.NET 2.x, jak i innych listÓW MSALs tej samej generacji lub starszych, na tej samej platformie), zapoznaj się z następującym kodem:
+Jeśli chcesz zaimplementować serializacji pamięci podręcznej tokenu w formacie ujednoliconej pamięci podręcznej (wspólne dla ADAL.NET 4. x, MSAL.NET 2. x i inne MSALs tej samej generacji lub starszej, na tej samej platformie), zapoznaj się z następującym kodem:
 
 ```csharp
 string appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location;
@@ -143,7 +143,7 @@ FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
 
 ```
 
-Tym razem klasa pomocnika zdefiniowana jako:
+Tym razem Klasa pomocnika zdefiniowana jako:
 
 ```csharp
 using System;
@@ -267,18 +267,18 @@ namespace CommonCacheMsalV3
 }
 ```
 
-### <a name="token-cache-for-a-web-app-confidential-client-application"></a>Pamięć podręczna tokenu dla aplikacji sieci web (poufna aplikacja kliencka)
+### <a name="token-cache-for-a-web-app-confidential-client-application"></a>Pamięć podręczna tokenów dla aplikacji sieci Web (poufne aplikacje klienckie)
 
-W aplikacjach sieci Web lub interfejsach API sieci Web pamięć podręczna może korzystać z sesji, pamięci podręcznej Redis lub bazy danych.
+W obszarze aplikacje sieci Web lub interfejsy API sieci Web pamięć podręczna może korzystać z sesji, pamięci podręcznej Redis lub bazy danych.
 
-W aplikacjach sieci Web lub interfejsach API sieci Web zachowaj jedną pamięć podręczną tokenu na konto.  W przypadku aplikacji sieci web pamięć podręczna tokenu powinna być kluczem przez identyfikator konta.  W przypadku interfejsów API sieci web konto powinno być kluczem przez skrót tokenu używanego do wywoływania interfejsu API. MSAL.NET zapewnia niestandardową serializację pamięci podręcznej tokenów w platformach podrzędnych .NET Framework i .NET Core. Zdarzenia są uruchamiane, gdy pamięć podręczna jest dostępna, aplikacje można wybrać, czy serializacji lub deserializacji pamięci podręcznej. W poufnych aplikacjach klienckich obsługujących użytkowników (aplikacje sieci web, które logują się do użytkowników i wywołują internetowe interfejsy API, oraz internetowe interfejsy API wywołujące podrzędne interfejsy API sieci web) może istnieć wielu użytkowników, a użytkownicy są przetwarzane równolegle. Ze względów bezpieczeństwa i wydajności naszą rekomendacją jest serializowanie jednej pamięci podręcznej na użytkownika. Zdarzenia serializacji obliczają klucz pamięci podręcznej na podstawie tożsamości przetworzonego użytkownika i serializują/deserialie pamięci podręcznej tokenu dla tego użytkownika.
+W obszarze aplikacje sieci Web lub interfejsy API sieci Web Zachowaj jedną pamięć podręczną tokenów dla każdego konta.  W przypadku usługi Web Apps bufor tokenów powinien być poprzedzony IDENTYFIKATORem konta.  W przypadku interfejsów API sieci Web konto powinno być poprzedzone przez skrót tokenu używanego do wywoływania interfejsu API. MSAL.NET zapewnia serializowaną niestandardową pamięć podręczną tokenów w ramach podplatform .NET Framework i .NET Core. Zdarzenia są wywoływane podczas uzyskiwania dostępu do pamięci podręcznej, aplikacje mogą wybrać, czy należy serializować czy zdeserializować pamięci podręcznej. Poufne aplikacje klienckie, które obsługują użytkowników (aplikacje sieci Web, które logują użytkowników i wywołują interfejsy API sieci Web, oraz interfejsy API sieci Web wywołujące podrzędne interfejsy API sieci Web), mogą być wielu użytkowników i są przetwarzane równolegle. Ze względu na bezpieczeństwo i wydajność nasze zalecenia polegają na serializacji jednej pamięci podręcznej na użytkownika. Zdarzenia serializacji obliczają klucz pamięci podręcznej na podstawie tożsamości przetworzonego użytkownika i serializacji/deserializacji pamięci podręcznej tokenów dla tego użytkownika.
 
-Przykłady używania pamięci podręcznej tokenów dla aplikacji sieci web i internetowych interfejsów API są dostępne w [samouczku ASP.NET Core aplikacji sieci web](https://ms-identity-aspnetcore-webapp-tutorial) w pamięci podręcznej tokenów fazy [2-2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). W przypadku implementacji zajrzyj do folderu [TokenCacheProviders](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/Microsoft.Identity.Web/TokenCacheProviders) w [bibliotece microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (w folderze [Microsoft.Identity.Client.Extensions.Web.](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 
+Przykłady użycia pamięci podręcznej tokenów dla aplikacji sieci Web i interfejsów API sieci Web są dostępne w [samouczku ASP.NET Core aplikacji sieci](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/) Web w fazie [2-2 tokena w pamięci podręcznej](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). W przypadku implementacji zapoznaj się z folderem [TokenCacheProviders](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/Microsoft.Identity.Web/TokenCacheProviders) w bibliotece [Microsoft-Authentication-Extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (w folderze [Microsoft. Identity. Client. Extensions. Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) ). 
 
 ## <a name="next-steps"></a>Następne kroki
-Poniższe przykłady ilustrują serializacji pamięci podręcznej tokenów.
+W poniższych przykładach przedstawiono serializacji pamięci podręcznej tokenów.
 
-| Sample | Platforma | Opis|
+| Przykład | Platforma | Opis|
 | ------ | -------- | ----------- |
-|[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Pulpit (WPF) | Aplikacja Windows Desktop .NET (WPF) wywołująca interfejs API programu Microsoft Graph. ![Topologia](media/msal-net-token-cache-serialization/topology.png)|
-|[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Pulpit (konsola) | Zestaw rozwiązań programu Visual Studio ilustrujących migrację aplikacji usługi Azure AD w wersji 1.0 (przy użyciu ADAL.NET) do aplikacji usługi Azure AD w wersji 2.0, nazywanych również aplikacjami konwergentnymi (przy użyciu MSAL.NET), w szczególności [migracja pamięci podręcznej tokenów](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|
+|[Active-Directory-dotnet-Desktop-MSGraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Pulpit (WPF) | Aplikacja Windows Desktop .NET (WPF) wywołuje interfejs API Microsoft Graph. ![Topologia](media/msal-net-token-cache-serialization/topology.png)|
+|[Active-Directory-dotnet-V1-do-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Pulpit (konsola) | Zestaw rozwiązań programu Visual Studio ilustrujący migrację aplikacji usługi Azure AD v 1.0 (przy użyciu usługi ADAL.NET) do aplikacji usługi Azure AD v 2.0, nazywanej również aplikacjami zbieżnymi (przy użyciu MSAL.NET), w szczególności [migracji pamięci podręcznej tokenów](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|

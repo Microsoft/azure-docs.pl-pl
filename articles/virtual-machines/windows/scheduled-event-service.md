@@ -1,48 +1,45 @@
 ---
-title: Monitorowanie zaplanowanych zdarzeń maszyn wirtualnych z systemem Windows na platformie Azure
+title: Monitorowanie zaplanowanych zdarzeń dla maszyn wirtualnych z systemem Windows na platformie Azure
 description: Dowiedz się, jak monitorować maszyny wirtualne platformy Azure pod kątem zaplanowanych zdarzeń.
-services: virtual-machines-windows
-documentationcenter: ''
 author: mysarn
-manager: gwallace
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
+ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
-ms.topic: conceptual
-ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.openlocfilehash: 3f3bf83d8155383757cc87749281c688bd281a4a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073310"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099601"
 ---
-# <a name="monitoring-scheduled-events"></a>Monitorowanie zaplanowanych zdarzeń
+# <a name="monitoring-scheduled-events"></a>Scheduled Events monitorowania
 
-Aktualizacje są stosowane do różnych części platformy Azure każdego dnia, aby zapewnić bezpieczeństwo i aktualnie uruchomione na nich usługi. Oprócz planowanych aktualizacji mogą również wystąpić nieplanowane zdarzenia. Na przykład w przypadku wykrycia awarii sprzętu lub usterki usługi platformy Azure mogą wymagać przeprowadzenia nieplanowanej konserwacji. Za pomocą migracji na żywo, pamięci zachowania aktualizacji i ogólnie utrzymanie ścisłego paska wpływu aktualizacji, w większości przypadków te zdarzenia są prawie przezroczyste dla klientów i nie mają wpływu lub co najwyżej spowodować kilka sekund zamrożenia maszyny wirtualnej. Jednak w przypadku niektórych aplikacji nawet kilka sekund zamrożenia maszyny wirtualnej może spowodować wpływ. Wiedza z wyprzedzeniem o nadchodzącej konserwacji platformy Azure jest ważna, aby zapewnić najlepsze środowisko dla tych aplikacji. [Usługa zaplanowane zdarzenia](scheduled-events.md) zapewnia interfejs programowy, który ma być powiadamiany o nadchodzącej konserwacji i umożliwia bezpiecznie obsługiwać konserwacji. 
+Aktualizacje są stosowane do różnych części platformy Azure codziennie, aby zapewnić ich bezpieczeństwo i aktualność usług. Oprócz planowanych aktualizacji mogą wystąpić również niezaplanowane zdarzenia. Jeśli na przykład zostanie wykryte obniżenie wydajności sprzętu lub błędu, usługi platformy Azure mogą wymagać nieplanowanej konserwacji. Korzystanie z migracji na żywo, zachowywanie i ogólnie bardziej rygorystycznego paska wpływu na aktualizacje, w większości przypadków te zdarzenia są prawie niewidoczne dla klientów i nie mają wpływu na kilka sekund blokowania maszyn wirtualnych. Jednak w przypadku niektórych aplikacji nawet kilka sekund zablokowania maszyny wirtualnej może spowodować wpływ. Zapoznaj się z wyprzedzeniem o zbliżającej się konserwacji platformy Azure, aby zapewnić najlepsze środowisko dla tych aplikacji. [Usługa Scheduled Events](scheduled-events.md) udostępnia interfejs programistyczny, który będzie powiadamiany o nadchodzącej konserwacji i pozwala bezpiecznie obsłużyć konserwację. 
 
-W tym artykule pokażemy, jak można użyć zaplanowanych zdarzeń, które mają być powiadamiane o zdarzeniach konserwacji, które mogą mieć wpływ na maszyny wirtualne i utworzyć kilka podstawowych automatyzacji, które mogą pomóc w monitorowaniu i analizie.
+W tym artykule pokazano, jak można użyć zaplanowanych zdarzeń, aby otrzymywać powiadomienia o zdarzeniach konserwacji, które mogą mieć wpływ na maszyny wirtualne i utworzyć podstawową automatyzację, która może pomóc w monitorowaniu i analizie.
 
 
-## <a name="routing-scheduled-events-to-log-analytics"></a>Routing zaplanowanych zdarzeń do usługi Log Analytics
+## <a name="routing-scheduled-events-to-log-analytics"></a>Kierowanie zaplanowanych zdarzeń do Log Analytics
 
-Zaplanowane zdarzenia są dostępne w ramach [usługi metadanych wystąpienia platformy Azure,](instance-metadata-service.md)która jest dostępna na każdej maszynie wirtualnej platformy Azure. Klienci mogą pisać automatyzacji do kwerendy punktu końcowego ich maszyn wirtualnych, aby znaleźć zaplanowane powiadomienia konserwacji i wykonać środki zaradcze, takie jak zapisywanie stanu i biorąc maszyny wirtualnej z rotacji. Zaleca się automatyzację tworzenia, aby rejestrować zaplanowane zdarzenia, dzięki czemu można mieć dziennik inspekcji zdarzeń konserwacji platformy Azure. 
+Scheduled Events jest dostępny w ramach [instance Metadata Service platformy Azure](instance-metadata-service.md), który jest dostępny na wszystkich maszynach wirtualnych platformy Azure. Klienci mogą napisać automatyzację, aby wysyłać zapytania do punktu końcowego maszyn wirtualnych w celu znalezienia powiadomień o zaplanowanej konserwacji i wykonywania środków zaradczych, takich jak zapisywanie stanu i przejmowanie maszyny wirtualnej poza rotacją. Zalecamy utworzenie automatyzacji, aby zarejestrować Scheduled Events tak, aby można było rejestrować inspekcje zdarzeń konserwacji platformy Azure. 
 
-W tym artykule poprowadzimy Cię przez sposób przechwytywania konserwacji zaplanowane zdarzenia do analizy dzienników. Następnie uruchomimy kilka podstawowych akcji powiadomień, takich jak wysyłanie wiadomości e-mail do zespołu i uzyskiwanie historycznego widoku wszystkich zdarzeń, które wpłynęły na maszyny wirtualne. W przypadku agregacji zdarzeń i automatyzacji użyjemy [usługi Log Analytics,](/azure/azure-monitor/learn/quick-create-workspace)ale można użyć dowolnego rozwiązania do monitorowania, aby zebrać te dzienniki i wyzwolić automatyzację.
+W tym artykule przeprowadzimy Cię przez proces przechwytywania Scheduled Events konserwacji do Log Analytics. Następnie wyzwolimy pewne podstawowe akcje powiadamiania, takie jak wysyłanie wiadomości e-mail do zespołu i uzyskiwanie historycznego widoku wszystkich zdarzeń, które miały oddziaływać z maszynami wirtualnymi. W przypadku agregacji zdarzeń i automatyzacji będziemy używać [log Analytics](/azure/azure-monitor/learn/quick-create-workspace), ale można użyć dowolnego rozwiązania monitorowania w celu zebrania tych dzienników i wyzwolenia automatyzacji.
 
 ![Diagram przedstawiający cykl życia zdarzenia](./media/notifications/events.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym przykładzie należy utworzyć [maszynę wirtualną systemu Windows w zestawie dostępności](tutorial-availability-sets.md). Zaplanowane zdarzenia zapewniają powiadomienia o zmianach, które mogą mieć wpływ na dowolne maszyny wirtualne w zestawie dostępności, usłudze w chmurze, zestawie skalowania maszyny wirtualnej lub autonomicznych maszynach wirtualnych. Będziemy uruchamiać [usługę,](https://github.com/microsoft/AzureScheduledEventsService) która sonduje dla zaplanowanych zdarzeń na jednej z maszyn wirtualnych, która będzie działać jako moduł zbierający, aby uzyskać zdarzenia dla wszystkich innych maszyn wirtualnych w zestawie dostępności.    
+Na potrzeby tego przykładu należy utworzyć [maszynę wirtualną z systemem Windows w zestawie dostępności](tutorial-availability-sets.md). Scheduled Events udostępniać powiadomienia o zmianach, które mogą mieć wpływ na wszystkie maszyny wirtualne w zestawie dostępności, usłudze w chmurze, zestawie skalowania maszyn wirtualnych lub autonomicznych maszyn wirtualnych. Będziemy korzystać z [usługi](https://github.com/microsoft/AzureScheduledEventsService) , która sonduje zaplanowanych zdarzeń na jednej z maszyn wirtualnych, które będą pełnić rolę modułu zbierającego, aby uzyskać zdarzenia dla wszystkich innych maszyn wirtualnych w zestawie dostępności.    
 
 Nie usuwaj grupy zasobów grupy na końcu samouczka.
 
-Należy również [utworzyć obszar roboczy usługi Log Analytics,](/azure/azure-monitor/learn/quick-create-workspace) który będzie używany do agregowania informacji z maszyn wirtualnych w zestawie dostępności.
+Należy również [utworzyć obszar roboczy log Analytics](/azure/azure-monitor/learn/quick-create-workspace) , który będzie używany do agregowania informacji z maszyn wirtualnych w zestawie dostępności.
 
 ## <a name="set-up-the-environment"></a>Konfigurowanie środowiska
 
-Teraz powinien mieć 2 początkowe maszyny wirtualne w zestawie dostępności. Teraz musimy utworzyć 3 rd VM, o nazwie myCollectorVM, w tym samym zestawie dostępności. 
+W zestawie dostępności powinny znajdować się teraz 2 początkowe maszyny wirtualne. Teraz musimy utworzyć trzecią maszynę wirtualną o nazwie myCollectorVM w tym samym zestawie dostępności. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -59,9 +56,9 @@ New-AzVm `
 ```
  
 
-Pobierz plik .zip instalacji projektu z [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
+Pobierz plik zip instalacji projektu z usługi [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Połącz się z **myCollectorVM** i skopiuj plik .zip na maszynę wirtualną i wyodrębnij wszystkie pliki. Na maszynie wirtualnej otwórz monit programu PowerShell. Przenieś monit do folderu `SchService.ps1`zawierającego `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`na przykład: i skonfiguruj usługę.
+Połącz się z usługą **myCollectorVM** i skopiuj plik zip na maszynę wirtualną i Wyodrębnij wszystkie pliki. Na maszynie wirtualnej Otwórz wiersz polecenia programu PowerShell. Przenieś monit do folderu zawierającego `SchService.ps1`, na przykład: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`, i skonfiguruj usługę.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -73,71 +70,71 @@ Uruchom usługę.
 .\SchService.ps1 -Start
 ```
 
-Usługa rozpocznie sondowanie co 10 sekund dla wszystkich zaplanowanych zdarzeń i zatwierdzi zdarzenia, aby przyspieszyć konserwację.  Freeze, Reboot, Redeploy i Preempt to zdarzenia przechwycone przez zdarzenia harmonogramu.   Należy zauważyć, że można rozszerzyć skrypt, aby wyzwolić pewne środki zaradcze przed zatwierdzeniem zdarzenia.
+Usługa zacznie teraz sondować co 10 sekund w przypadku wszelkich zaplanowanych zdarzeń i zatwierdzić zdarzenia w celu przyspieszenia konserwacji.  Zablokuj, przeprowadź ponowny rozruch, ponowne wdrożenie i przemieszczenie zdarzeń przez zdarzenia harmonogramu.   Należy pamiętać, że można zwiększyć skrypt, aby wyzwolił pewne środki zaradcze przed zatwierdzeniem zdarzenia.
 
-Sprawdź poprawność stanu usługi i upewnij się, że jest uruchomiona.
+Sprawdź stan usługi i upewnij się, że jest uruchomiona.
 
 ```powershell
 .\SchService.ps1 -status  
 ```
 
-To powinno `Running`powrócić .
+Powinno to zwrócić `Running`.
 
-Usługa rozpocznie sondowanie co 10 sekund dla wszystkich zaplanowanych zdarzeń i zatwierdzi zdarzenia, aby przyspieszyć konserwację.  Freeze, Reboot, Redeploy i Preempt to zdarzenia przechwycone przez zdarzenia harmonogramu. Można rozszerzyć skrypt, aby wyzwolić pewne środki zaradcze przed zatwierdzeniem zdarzenia.
+Usługa zacznie teraz sondować co 10 sekund w przypadku wszelkich zaplanowanych zdarzeń i zatwierdzić zdarzenia w celu przyspieszenia konserwacji.  Zablokuj, przeprowadź ponowny rozruch, ponownie Wdróż i Zastąp zdarzenia przechwycone przez zdarzenia harmonogramu. Możesz zwiększyć skrypt, aby wyzwolił pewne środki zaradcze przed zatwierdzeniem zdarzenia.
 
-Gdy którekolwiek z powyższych zdarzeń są przechwytywane przez usługę Zdarzenia harmonogramu, zostanie ona zarejestrowana w stan zdarzenia dziennika zdarzeń aplikacji, typ zdarzenia, zasoby (nazwy maszyn wirtualnych) i NotBefore (minimalny okres wypowiedzenia). Zdarzenia można zlokalizować o identyfikatorze 1234 w dzienniku zdarzeń aplikacji.
+Gdy dowolne z powyższych zdarzeń jest przechwytywane przez usługę zdarzenia harmonogramu, zostanie zarejestrowane w dzienniku zdarzeń aplikacji stan zdarzenia, typ zdarzenia, zasoby (nazwy maszyn wirtualnych) i NotBefore (minimalny okres powiadomienia). Zdarzenia o IDENTYFIKATORze 1234 można znaleźć w dzienniku zdarzeń aplikacji.
 
-Po skonfigurowaniu i uruchomieniu usługi będzie rejestrować zdarzenia w dziennikach aplikacji systemu Windows.   Aby sprawdzić, czy to działa, uruchom ponownie jedną z maszyn wirtualnych w zestawie dostępności i powinien zostać wyświetlony zdarzenie rejestrowane w Podglądzie zdarzeń w dziennikach > aplikacji systemu Windows z ponownym uruchomieniem maszyny wirtualnej. 
+Po skonfigurowaniu i uruchomieniu usługi będzie ona rejestrować zdarzenia w dziennikach aplikacji systemu Windows.   Aby sprawdzić, czy to działa, uruchom ponownie jedną z maszyn wirtualnych w zestawie dostępności, a w dziennikach systemu Windows powinno zostać wyświetlone zdarzenie, które jest rejestrowane, > dziennik aplikacji pokazujący uruchomioną maszynę wirtualną. 
 
-![Zrzut ekranu przedstawiający przeglądarkę zdarzeń.](./media/notifications/event-viewer.png)
+![Zrzut ekranu przedstawiający Podgląd zdarzeń.](./media/notifications/event-viewer.png)
 
-Gdy zdarzenia są przechwytywane przez usługę Zdarzenia harmonogramu, zostanie ona zalogowana w aplikacji nawet dziennika ze stanem zdarzenia, typem zdarzenia, zasobami (nazwa maszyny wirtualnej) i NotBefore (minimalny okres wypowiedzenia). Zdarzenia można zlokalizować o identyfikatorze 1234 w dzienniku zdarzeń aplikacji.
+Gdy zdarzenia są przechwytywane przez usługę zdarzenia harmonogramu, zostanie ona zarejestrowana w aplikacji nawet w dzienniku stanu zdarzenia, typu zdarzenia, zasobów (Nazwa maszyny wirtualnej) i NotBefore (okres minimalny). Zdarzenia o IDENTYFIKATORze 1234 można znaleźć w dzienniku zdarzeń aplikacji.
 
 > [!NOTE] 
-> W tym przykładzie maszyny wirtualne były w zestawie dostępności, który umożliwił nam wyznaczyć pojedynczą maszynę wirtualną jako moduł zbierający do nasłuchiwać i kierować zaplanowane zdarzenia do naszej analizy dziennika działa miejsca. Jeśli masz autonomiczne maszyny wirtualne, można uruchomić usługę na każdej maszynie wirtualnej, a następnie połączyć je indywidualnie z obszaru roboczego analizy dziennika.
+> W tym przykładzie maszyny wirtualne znajdowały się w zestawie dostępności, który umożliwił nam wyznaczenie pojedynczej maszyny wirtualnej jako modułu zbierającego w celu nasłuchiwania i kierowania zaplanowanych zdarzeń do naszego obszaru działania usługi log Analytics. Jeśli masz autonomiczną maszynę wirtualną, możesz uruchomić tę usługę na każdej maszynie wirtualnej, a następnie połączyć je pojedynczo z obszarem roboczym usługi log Analytics.
 >
-> Dla naszej konfiguracji wybraliśmy system Windows, ale możesz zaprojektować podobne rozwiązanie na Linuksie.
+> W naszej konfiguracji wybieramy system Windows, ale można zaprojektować podobne rozwiązanie w systemie Linux.
 
-W dowolnym momencie można zatrzymać/usunąć usługę zaplanowanego `–stop` zdarzenia `–remove`za pomocą przełączników i .
+W dowolnym momencie możesz zatrzymać/usunąć zaplanowaną usługę zdarzeń przy użyciu przełączników `–stop` i `–remove`.
 
-## <a name="connect-to-the-workspace"></a>Łączenie się z obszarem roboczym
+## <a name="connect-to-the-workspace"></a>Łączenie z obszarem roboczym
 
 
-Teraz chcemy połączyć obszar roboczy analizy dzienników z maszyną wirtualną modułu zbierającego. Obszar roboczy usługi Log Analytics działa jako repozytorium i skonfigurujemy kolekcję dzienników zdarzeń do przechwytywania dzienników aplikacji z maszyny wirtualnej modułu zbierającego. 
+Teraz chcemy połączyć obszar roboczy Log Analytics z maszyną wirtualną modułu zbierającego. Obszar roboczy Log Analytics działa jako repozytorium i skonfigurujemy zbieranie dzienników zdarzeń w celu przechwycenia dzienników aplikacji z maszyny wirtualnej modułu zbierającego. 
 
- Aby przekierować zaplanowane zdarzenia do dziennika zdarzeń, który zostanie zapisany jako dziennik aplikacji przez naszą usługę, musisz połączyć maszynę wirtualną z obszarem roboczym usługi Log Analytics.  
+ Aby skierować Scheduled Events do dziennika zdarzeń, który zostanie zapisany jako dziennik aplikacji przez naszą usługę, musisz połączyć maszynę wirtualną z obszarem roboczym Log Analytics.  
  
 1. Otwórz stronę utworzonego obszaru roboczego.
-1. W obszarze **Połącz ze źródłem danych** wybierz **maszyny wirtualne platformy Azure .**
+1. W obszarze **Połącz ze źródłem danych** wybierz pozycję **Azure Virtual Machines (maszyny wirtualne)**.
 
-    ![Łączenie się z maszyną wirtualną jako źródłem danych](./media/notifications/connect-to-data-source.png)
+    ![Nawiązywanie połączenia z maszyną wirtualną jako źródłem danych](./media/notifications/connect-to-data-source.png)
 
-1. Wyszukaj i wybierz **myCollectorVM**. 
-1. Na nowej stronie **dla myCollectorVM**wybierz pozycję **Połącz**.
+1. Wyszukaj i wybierz pozycję **myCollectorVM**. 
+1. Na stronie New for **myCollectorVM**wybierz pozycję **Połącz**.
 
-Spowoduje to zainstalowanie [agenta monitorowania firmy Microsoft](/azure/virtual-machines/extensions/oms-windows) na maszynie wirtualnej. Połączenie maszyny wirtualnej z obszarem roboczym i zainstalowanie rozszerzenia zajmie kilka minut. 
+Spowoduje to zainstalowanie [programu Microsoft Monitoring Agent](/azure/virtual-machines/extensions/oms-windows) na maszynie wirtualnej. Połączenie maszyny wirtualnej z obszarem roboczym i zainstalowanie rozszerzenia potrwa kilka minut. 
 
 ## <a name="configure-the-workspace"></a>Konfigurowanie obszaru roboczego
 
 1. Otwórz stronę obszaru roboczego i wybierz pozycję **Ustawienia zaawansowane**.
-1. Wybierz **pozycję Dane** z lewego menu, a następnie wybierz pozycję **Dzienniki zdarzeń systemu Windows**.
-1. W **obszarze Zbieranie z następujących dzienników zdarzeń rozpocznij**wpisywanie *aplikacji,* a następnie wybierz **pozycję Aplikacja** z listy.
+1. Z menu po lewej stronie wybierz pozycję **dane** , a następnie wybierz pozycję **dzienniki zdarzeń systemu Windows**.
+1. W obszarze **zbieranie danych z poniższych dzienników zdarzeń**zacznij pisać *aplikację* , a następnie wybierz **aplikację** z listy.
 
-    ![Wybieranie ustawień zaawansowanych](./media/notifications/advanced.png)
+    ![Wybierz ustawienia zaawansowane](./media/notifications/advanced.png)
 
-1. Pozostaw **błąd ,** **OSTRZEŻENIE**i **informacje** zaznaczone, a następnie wybierz pozycję **Zapisz,** aby zapisać ustawienia.
+1. Pozostaw zaznaczone pole wyboru **błąd**, **Ostrzeżenie**i **informacje** , a następnie wybierz pozycję **Zapisz** , aby zapisać ustawienia.
 
 
 > [!NOTE]
-> Będzie pewne opóźnienie, a może upłynąć do 10 minut, zanim dziennik jest dostępny. 
+> Istnieje kilka opóźnień, po upływie których dziennik będzie dostępny, może upłynąć do 10 minut. 
 
 
-## <a name="creating-an-alert-rule-with-azure-monitor"></a>Tworzenie reguły alertów za pomocą usługi Azure Monitor 
+## <a name="creating-an-alert-rule-with-azure-monitor"></a>Tworzenie reguły alertu z Azure Monitor 
 
 
-Po przesunięciu zdarzeń do usługi Log Analytics można uruchomić następującą [kwerendę,](/azure/azure-monitor/log-query/get-started-portal) aby wyszukać harmonogram zdarzeń.
+Po wypchnięciu zdarzeń do Log Analytics można uruchomić następujące [zapytanie](/azure/azure-monitor/log-query/get-started-portal) , aby wyszukać zdarzenia harmonogramu.
 
-1. U góry strony wybierz pozycję **Dzienniki** i wklej następujące elementy w polu tekstowym:
+1. W górnej części strony wybierz pozycję **dzienniki** i wklej następujący tekst do pola tekstowego:
 
     ```
     Event
@@ -153,28 +150,28 @@ Po przesunięciu zdarzeń do usługi Log Analytics można uruchomić następują
     | project-away RenderedDescription,ReqJson
     ```
 
-1. Wybierz **pozycję Zapisz**, a następnie wpisz *logQuery* dla nazwy, pozostaw **kwerendę** jako typ, wpisz *VMLogs* jako **kategorię**, a następnie wybierz pozycję **Zapisz**. 
+1. Wybierz **pozycję Zapisz**, a następnie *wpisz logQuery* w polu Nazwa, pozostaw **zapytanie** jako typ, wpisz *VMLogs* jako **kategorię**, a następnie wybierz pozycję **Zapisz**. 
 
-    ![Zapisywanie kwerendy](./media/notifications/save-query.png)
+    ![Zapisz zapytanie](./media/notifications/save-query.png)
 
 1. Wybierz przycisk **Nowa reguła alertu**. 
-1. Na stronie **Reguła** `collectorworkspace` tworzenia pozostaw jako **Zasób**.
-1. W **obszarze Warunek**wybierz wpis *Zawsze, <login undefined>gdy wyszukiwanie w dzienniku klienta jest *. Zostanie otwarta strona **Logika konfiguruj sygnał.**
-1. W obszarze **Wartość progu**wprowadź *0,* a następnie wybierz pozycję **Gotowe**.
-1. W obszarze **Akcje**wybierz pozycję **Utwórz grupę akcji**. Zostanie otwarta strona **Dodaj grupę akcji.**
-1. W **pliku Action group name**wpisz *myActionGroup*.
-1. W **skróconej nazwie**wpisz **myActionGroup**.
-1. W **grupie zasobów**wybierz **myResourceGroupAvailability**.
-1. W obszarze Akcje wpisz **nazwę akcji** **Wpisz e-mail,** a następnie wybierz pozycję **E-mail/SMS/Push/Voice**. Zostanie otwarta strona **e-mail/SMS/Push/Voice.**
-1. Wybierz **pozycję Poczta e-mail**, wpisz swój adres e-mail, a następnie wybierz **przycisk OK**.
+1. Na stronie **Tworzenie reguły** pozostaw `collectorworkspace` jako **zasób**.
+1. W obszarze **warunek**wybierz wpis *za każdym razem, gdy przeszukiwane są <login undefined>dzienniki klienta *. Zostanie otwarta strona **Konfigurowanie logiki sygnału** .
+1. W obszarze **wartość progowa**wprowadź *0* , a następnie wybierz pozycję **gotowe**.
+1. W obszarze **Akcje**wybierz pozycję **Utwórz grupę akcji**. Zostanie otwarta strona **Dodaj grupę akcji** .
+1. W polu **Nazwa grupy akcji**wpisz *Akcja*.
+1. W polu **krótka nazwa**wpisz **Akcja**.
+1. W obszarze **Grupa zasobów**wybierz pozycję **myResourceGroupAvailability**.
+1. W obszarze Akcje w polu **Nazwa akcji** wpisz **adres e-mail**, a następnie wybierz pozycję **poczta e-mail/SMS/wypychanie/głos**. Zostanie otwarta strona **wiadomości e-mail/SMS/wypychana/głosowa** .
+1. Wybierz pozycję **poczta e-mail**, wpisz adres e-mail, a następnie wybierz przycisk **OK**.
 1. Na stronie **Dodaj grupę akcji** wybierz pozycję **OK**. 
-1. Na stronie **Tworzenie reguły** w obszarze **SZCZEGÓŁY ALERTU**wpisz *myAlert* dla **nazwy reguły alertu,** a następnie wpisz *regułę alertu e-mail* dla **opisu**.
+1. Na stronie **Tworzenie reguły** w obszarze **szczegóły alertu**wpisz *alert* dla **nazwy reguły alertu**, a następnie wpisz w polu **Opis** *regułę alertu e-mail* .
 1. Po zakończeniu wybierz pozycję **Utwórz regułę alertu**.
-1. Uruchom ponownie jedną z maszyn wirtualnych w zestawie dostępności. W ciągu kilku minut powinieneś otrzymać wiadomość e-mail z powiadomieniem o wyzwoleniu alertu.
+1. Uruchom ponownie jedną z maszyn wirtualnych w zestawie dostępności. W ciągu kilku minut otrzymasz wiadomość e-mail z informacją, że alert został wyzwolony.
 
-Aby zarządzać regułami alertów, przejdź do grupy zasobów, wybierz **alerty** z lewego menu, a następnie wybierz pozycję **Zarządzaj regułami alertów** u góry strony.
+Aby zarządzać regułami alertów, przejdź do grupy zasobów, wybierz pozycję **alerty** z menu po lewej stronie, a następnie wybierz pozycję **Zarządzaj regułami alertów** w górnej części strony.
 
      
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej, zobacz stronę [usługi zaplanowane zdarzenia](https://github.com/microsoft/AzureScheduledEventsService) w usłudze GitHub.
+Aby dowiedzieć się więcej, zobacz stronę [usługi zaplanowane zdarzenia](https://github.com/microsoft/AzureScheduledEventsService) w witrynie GitHub.

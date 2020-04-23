@@ -1,20 +1,20 @@
 ---
 title: Zalecenia dotyczące zabezpieczeń dla maszyn wirtualnych z systemem Windows na platformie Azure
-description: Zastosuj te zalecenia, aby pomóc w wypełnieniu zobowiązań dotyczących zabezpieczeń opisanych w modelu współużytkowania i poprawić ogólne bezpieczeństwo wdrożeń.
-services: virtual-machines
+description: Zastosuj te zalecenia, aby pomóc spełnić zobowiązania dotyczące zabezpieczeń opisane w udostępnionym modelu odpowiedzialności oraz poprawić ogólne zabezpieczenia wdrożeń.
 author: msmbaldwin
 manager: RKarlin
 ms.service: virtual-machines
-ms.topic: article
+ms.subservice: security
+ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 3fc65b0314a3da3f35b03a82849a94d0ddc375e1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 94da5ebc3094e112e6f6fcbf220fb7b6738686d0
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545879"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100723"
 ---
 # <a name="security-recommendations-for-windows-virtual-machines-in-azure"></a>Zalecenia dotyczące zabezpieczeń dla maszyn wirtualnych z systemem Windows na platformie Azure
 
