@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 82094fadf7b11d97b0e9e74d9ba897baed16ee01
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 655194a1335ae258e27dff2c75a370578253794a
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874283"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605869"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Samouczek: Tworzenie budżetów platformy Azure i zarządzanie nimi
 
@@ -185,7 +185,7 @@ Budżet można utworzyć za pomocą szablonu usługi Azure Resource Manager. Sza
 
 Wybierz następujący obraz, aby zalogować się do witryny Azure Portal i otworzyć szablon:
 
-[![Wdrażanie szablonu Tworzenie budżetu na platformie Azure](./media/tutorial-acm-create-budgets/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
+[![Wdrażanie szablonu Tworzenie budżetu na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
 
 Aby wyświetlić listę wszystkich parametrów szablonu i ich opisów, zapoznaj się z szablonem [Tworzenie budżetu](https://azure.microsoft.com/resources/templates/create-budget/).
 
