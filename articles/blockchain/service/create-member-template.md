@@ -1,6 +1,6 @@
 ---
-title: Tworzenie członka usługi Azure Blockchain przy użyciu szablonu usługi Azure Resource Manager
-description: Dowiedz się, jak utworzyć członka usługi Azure Blockchain przy użyciu szablonu usługi Azure Resource Manager.
+title: Tworzenie elementu członkowskiego usługi Azure łańcucha bloków przy użyciu szablonu Azure Resource Manager
+description: Dowiedz się, jak utworzyć element członkowski usługi Azure łańcucha bloków przy użyciu szablonu Azure Resource Manager.
 services: azure-resource-manager
 author: PatAltimore
 ms.service: azure-resource-manager
@@ -8,72 +8,72 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
 ms.date: 04/22/2020
-ms.openlocfilehash: 8fd5a1775a6a217ce9dd8c80439dd2c54f9cd727
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: db5cabd82ebfed3b1de7659e4b9450ccee0ff001
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82087597"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115299"
 ---
-# <a name="create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Tworzenie członka usługi Azure Blockchain przy użyciu szablonu usługi Azure Resource Manager
+# <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Szybki Start: Tworzenie elementu członkowskiego usługi Azure łańcucha bloków przy użyciu szablonu Azure Resource Manager
 
-W tym przewodniku Szybki start można wdrożyć nowego członka łańcucha bloków i konsorcjum w usłudze Azure Blockchain przy użyciu szablonu Usługi Azure Resource Manager.
+W tym przewodniku szybki start wdrożono nowego członka łańcucha bloków i konsorcjum w usłudze Azure łańcucha bloków przy użyciu szablonu Azure Resource Manager.
 
-Członek usługi Azure Blockchain Service jest węzłem łańcucha bloków w sieci łańcucha bloków prywatnego konsorcjum. Podczas inicjowania obsługi administracyjnej członka, można utworzyć lub dołączyć do sieci konsorcjum. Potrzebujesz co najmniej jednego członka sieci konsorcjum. Liczba członków łańcucha bloków potrzebnych uczestnikom zależy od scenariusza. Uczestnicy konsorcjum mogą mieć jednego lub więcej członków łańcucha bloków lub mogą dzielić się członkami z innymi uczestnikami. Aby uzyskać więcej informacji na temat konsorcjów, zobacz [konsorcjum usługi Azure Blockchain Service](consortium.md).
+Członek usługi Azure łańcucha bloków to węzeł łańcucha bloków w sieci prywatnej łańcucha bloków. Podczas aprowizacji elementu członkowskiego można utworzyć sieć konsorcjum lub dołączyć do niej. Potrzebujesz co najmniej jednego elementu członkowskiego dla sieci konsorcjum. Liczba członków łańcucha bloków wymaganych przez uczestników zależy od danego scenariusza. Uczestnicy konsorcjum mogą mieć co najmniej jednego członka łańcucha bloków lub mogą współdzielić członków z innymi uczestnikami. Aby uzyskać więcej informacji na temat konsorcjów, zobacz [Azure łańcucha bloków Service Consortium](consortium.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Brak.
 
-## <a name="review-the-template"></a>Przejrzyj szablon
+## <a name="review-the-template"></a>Zapoznaj się z szablonem
 
-Szablon używany w tym przewodniku Szybki start pochodzi z [szablonów szybki start platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/201-blockchain-asaservice/).
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/201-blockchain-asaservice/).
 
 [!code-json[<Azure Resource Manager template create blockchain member>](~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json)]
 
 Zasoby platformy Azure zdefiniowane w szablonie:
 
-* [**Microsoft.Blockchain/blockchainCzłonek**](https://docs.microsoft.com/azure/templates/microsoft.blockchain/blockchainmembers)
+* [**Microsoft. łańcucha bloków/blockchainMembers**](https://docs.microsoft.com/azure/templates/microsoft.blockchain/blockchainmembers)
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-1. Wybierz następujące łącze, aby zalogować się na platformie Azure i otworzyć szablon.
+1. Wybierz poniższy link, aby zalogować się do platformy Azure i otworzyć szablon.
 
     [![Wdrażanie na platformie Azure](./media/create-member-template/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
 
-1. Określ ustawienia dla członka usługi Azure Blockchain.
+1. Określ ustawienia dla elementu członkowskiego usługi Azure łańcucha bloków.
 
     Ustawienie | Opis
     --------|------------
-    Subskrypcja | Wybierz subskrypcję platformy Azure, której chcesz użyć dla swojej usługi. Jeśli masz wiele subskrypcji, wybierz tę, w ramach której są naliczane opłaty za ten zasób.
+    Subskrypcja | Wybierz subskrypcję platformy Azure, która ma być używana dla usługi. Jeśli masz wiele subskrypcji, wybierz tę, w ramach której są naliczane opłaty za ten zasób.
     Grupa zasobów | Utwórz nową nazwę grupy zasobów lub wybierz istniejącą z subskrypcji.
-    Lokalizacja | Wybierz lokalizację, aby utworzyć element członkowski. Wszyscy członkowie konsorcjum muszą znajdować się w tej samej lokalizacji. Dostępne lokalizacje dla rozmieszczenia to *WestEurope, eastus, southeastasia, westeurope, northeurope, westus2*i *japaneast*.
-    Nazwa elementu członkowskiego | Wybierz unikatową nazwę dla członka usługi Azure Blockchain Service. Nazwa członka łańcucha bloków może zawierać tylko małe litery i cyfry. Pierwszy znak musi być literą. Wartość musi zawierać się o długości od 2 do 20 znaków.
-    Nazwa konsorcjum | Wprowadź unikatową nazwę. Aby uzyskać więcej informacji na temat konsorcjów, zobacz [konsorcjum usługi Azure Blockchain Service](consortium.md).
-    Hasło członka | Hasło konta członkowskiego służy do szyfrowania klucza prywatnego dla konta Ethereum, który jest tworzony dla twojego członka. Do zarządzania konsorcjum używasz konta członkowskiego i hasła do konta członkowskiego.
-    Poziom Sku | Warstwa cenowa dla nowej usługi. Wybierz **warstwę Standardowa** i **Podstawowa.** Użyj warstwy *Podstawowa* do tworzenia, testowania i weryfikacji pojęć. Użyj warstwy *Standardowa* dla wdrożeń na poziomie produkcyjnym. Należy również użyć *warstwy Standardowa,* jeśli używasz Menedżera danych Blockchain lub wysyłasz dużą liczbę transakcji prywatnych. Zmiana warstwy cenowej między podstawową a standardową po utworzeniu elementu członkowskiego nie jest obsługiwana.
-    Nazwa Sku | Konfiguracja węzła i koszt nowej usługi.
+    Lokalizacja | Wybierz lokalizację, w której ma zostać utworzony element członkowski. Wszyscy członkowie konsorcjum muszą znajdować się w tej samej lokalizacji. Dostępne lokalizacje wdrożenia to *westeurope, wschodnie, southeastasia, westeurope, northeurope, westus2*i *japaneast*.
+    Nazwa elementu członkowskiego | Wybierz unikatową nazwę elementu członkowskiego usługi Azure łańcucha bloków. Nazwa elementu członkowskiego łańcucha bloków może zawierać tylko małe litery i cyfry. Pierwszy znak musi być literą. Wartość musi mieć długość od 2 do 20 znaków.
+    Nazwa konsorcjum | Wprowadź unikatową nazwę. Aby uzyskać więcej informacji na temat konsorcjów, zobacz [Azure łańcucha bloków Service Consortium](consortium.md).
+    Hasło elementu członkowskiego | Hasło konta elementu członkowskiego służy do szyfrowania klucza prywatnego dla konta Ethereum utworzonego dla elementu członkowskiego. Do zarządzania konsorcjum używasz konta elementu członkowskiego i hasła konta elementu członkowskiego.
+    Warstwa SKU | Warstwa cenowa nowej usługi. Wybierz warstwę **standardowa** i **podstawowa** . Skorzystaj z warstwy *podstawowa* na potrzeby tworzenia, testowania i sprawdzania poprawności koncepcji. Użyj warstwy *standardowa* dla wdrożeń klasy produkcyjnej. W przypadku korzystania z łańcucha bloków Data Manager lub wysyłania dużej liczby transakcji prywatnych należy również użyć warstwy *standardowa* . Zmiana warstwy cenowej między podstawowa i Standardowa po utworzeniu elementu członkowskiego nie jest obsługiwana.
+    Nazwa jednostki SKU | Konfiguracja węzła i koszt nowej usługi.
 
-1. Wybierz **pozycję Zakup,** aby wdrożyć szablon.
+1. Wybierz pozycję **Kup** , aby wdrożyć szablon.
 
-  Witryna Azure portal jest używana w tym miejscu do wdrażania szablonu. Można również użyć interfejsu API programu Azure PowerShell, interfejsu wiersza polecenia platformy Azure i rest. Aby poznać inne metody wdrażania, zobacz [Wdrażanie szablonów](../../azure-resource-manager/templates/deploy-powershell.md).
+  Azure Portal jest używany tutaj do wdrożenia szablonu. Można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Możesz użyć członka łańcucha bloków utworzonego dla następnego przewodnika Szybki start lub samouczka. Gdy nie są już potrzebne, można usunąć zasoby, usuwając grupę zasobów utworzoną dla szybkiego startu.
+Możesz użyć elementu członkowskiego łańcucha bloków utworzonego dla następnego przewodnika Szybki start lub samouczka. Gdy zasoby nie będą już potrzebne, można je usunąć przez usunięcie grupy zasobów utworzonej dla przewodnika Szybki Start.
 
 Aby usunąć grupę zasobów:
 
-1. W witrynie Azure Portal przejdź do **grupy zasobów** w lewym okienku nawigacji i wybierz grupę zasobów, którą chcesz usunąć.
-2. Wybierz pozycję **Usuń grupę zasobów**. Zweryfikuj usunięcie, wprowadzając nazwę grupy zasobów i wybierając pozycję **Usuń**.
+1. W Azure Portal przejdź do **grupy zasobów** w okienku nawigacji po lewej stronie i wybierz grupę zasobów, którą chcesz usunąć.
+2. Wybierz pozycję **Usuń grupę zasobów**. Sprawdź usuwanie, wprowadzając nazwę grupy zasobów i wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start wdrożono członka usługi Azure Blockchain service i nowe konsorcjum. Wypróbuj następny przewodnik Szybki start, aby dołączyć do członka usługi Azure Blockchain Service za pomocą zestawu Azure Blockchain Development Kit for Ethereum.
+W tym przewodniku szybki start wdrożono członka usługi Azure łańcucha bloków i nowego konsorcjum. Skorzystaj z następnego przewodnika Szybki Start, aby użyć usługi Azure łańcucha bloków Development Kit dla Ethereum w celu dołączenia do członka usług Azure łańcucha bloków.
 
 > [!div class="nextstepaction"]
-> [Łączenie się z usługą Azure Blockchain Service za pomocą kodu programu Visual Studio](connect-vscode.md)
+> [Użyj Visual Studio Code, aby nawiązać połączenie z usługą Azure łańcucha bloków](connect-vscode.md)

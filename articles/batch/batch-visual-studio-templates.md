@@ -1,133 +1,123 @@
 ---
-title: Tworzenie rozwiązań za pomocą szablonów programu Visual Studio — usługa Azure Batch | Dokumenty firmy Microsoft
-description: Dowiedz się, jak szablony projektów programu Visual Studio mogą pomóc w zaimplementowanie i uruchomienie obciążeń intensywnie korzystających z obliczeń w usłudze Azure Batch.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
-ms.service: batch
+title: Tworzenie rozwiązań za pomocą szablonów programu Visual Studio — Azure Batch | Microsoft Docs
+description: Dowiedz się, jak szablony projektów programu Visual Studio mogą pomóc w implementacji i uruchomieniu obciążeń intensywnie korzystających z obliczeń na Azure Batch.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: e42917237f3b114881655d88a017c2c4366612b3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 8e8d5be4a9f0fb5482ba6c86a8766a25e5713c09
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254567"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117526"
 ---
-# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Szybkie uruchamianie rozwiązań wsadowych za pomocą szablonów projektów programu Visual Studio
+# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Korzystanie z szablonów projektów programu Visual Studio do szybkiego uruchamiania rozwiązań wsadowych
 
-**Szablony Programu** Visual Studio Menedżera zadań i **procesor zadań** dla usługi Batch zawierają kod ułatwiający implementowanie i uruchamianie obciążeń intensywnie korzystających z obliczeń w usłudze Batch przy jak najmniejszym wysiłku. W tym dokumencie opisano te szablony i przedstawiono wskazówki dotyczące sposobu ich używania.
+Szablony programu **Menedżer zadań** i **zadań w programie Visual Studio** dla usługi Batch udostępniają kod, który ułatwia implementowanie i uruchamianie obciążeń intensywnie korzystających z obliczeń w usłudze Batch z mniejszą ilością wysiłku. W tym dokumencie opisano te szablony i przedstawiono wskazówki dotyczące korzystania z nich.
 
 > [!IMPORTANT]
-> W tym artykule omówiono tylko informacje mające zastosowanie do tych dwóch szablonów i zakłada, że użytkownik jest zaznajomiony z usługą batch i kluczowymi pojęciami z nią związanymi: pule, węzły obliczeniowe, zadania i zadania, zadania menedżera zadań, zmienne środowiskowe i inne istotne informacje. Więcej informacji można znaleźć w [omówienie](batch-technical-overview.md) funkcji Podstawowe usługi Azure Batch i [Batch dla deweloperów](batch-api-basics.md).
+> W tym artykule omówiono tylko informacje dotyczące tych dwóch szablonów i przyjęto założenie, że znasz usługę Batch i kluczowe pojęcia związane z działem IT: pule, węzły obliczeniowe, zadania i zadania, zadania Menedżera zadań, zmienne środowiskowe i inne istotne informacje. Więcej informacji można znaleźć w [temacie podstawy Azure Batch](batch-technical-overview.md) i [Omówienie funkcji usługi Batch dla deweloperów](batch-api-basics.md).
 > 
 > 
 
 ## <a name="high-level-overview"></a>Ogólne omówienie
-Szablony Menedżera zadań i procesor zadań mogą być używane do tworzenia dwóch przydatnych składników:
+Szablony Menedżera zadań i procesora zadań mogą służyć do tworzenia dwóch przydatnych składników:
 
-* Zadanie menedżera zadań, które implementuje rozdzielacz zadań, który może podzielić zadanie na wiele zadań, które można uruchomić niezależnie, równolegle.
-* Procesor zadań, który może służyć do przetwarzania wstępnego i przetwarzania końcowego wokół wiersza polecenia aplikacji.
+* Zadanie Menedżera zadań, które implementuje rozdzielacz zadań, który może spowodować przerwanie zadania w wielu zadaniach, które mogą być uruchamiane niezależnie, równolegle.
+* Procesor zadań, który może służyć do wykonywania wstępnego przetwarzania i przetwarzania końcowego wokół wiersza polecenia aplikacji.
 
-Na przykład w scenariuszu renderowania filmu rozdzielacz zadań zamieniłby pojedyncze zadanie filmu w setki lub tysiące oddzielnych zadań, które przetwarzałyby poszczególne klatki oddzielnie. Odpowiednio procesor zadań wywoła aplikację renderowania i wszystkie procesy zależne, które są potrzebne do renderowania każdej ramki, a także wykonać dodatkowe akcje (na przykład kopiowanie renderowanego ramki do lokalizacji magazynu).
+Na przykład w scenariuszu renderowania filmu rozdzielacz zadania może przekształcić pojedyncze zadanie filmowe w setki lub tysiące oddzielnych zadań, które przetwarzą poszczególne ramki osobno. Następnie procesor zadań wywoła aplikację renderowania i wszystkie zależne procesy, które są potrzebne do renderowania każdej ramki, a także wykonują dodatkowe akcje (na przykład kopiując renderowane ramki do lokalizacji magazynu).
 
 > [!NOTE]
-> Szablony Menedżera zadań i procesor zadań są od siebie niezależne, więc można użyć obu lub tylko jednego z nich, w zależności od wymagań zadania obliczeniowego i preferencji.
+> Szablony Menedżera zadań i procesora zadań są niezależne od siebie, więc można wybrać opcję użycia lub tylko jednego z nich, w zależności od wymagań zadania obliczeniowego i preferencji.
 > 
 > 
 
-Jak pokazano na poniższym diagramie, zadanie obliczeniowe, które używa tych szablonów, przejdzie przez trzy etapy:
+Jak pokazano na poniższym diagramie, zadanie obliczeniowe korzystające z tych szablonów przejdzie przez trzy etapy:
 
-1. Kod klienta (np. aplikacja, usługa sieci web itp.) przesyła zadanie do usługi Batch na platformie Azure, określając jako zadanie menedżera zadań program menedżera zadań.
-2. Usługa Batch uruchamia zadanie menedżera zadań w węźle obliczeniowym, a rozdzielacz zadań uruchamia określoną liczbę zadań procesora zadań, na tyle węzłów obliczeniowych, ile jest wymagane, na podstawie parametrów i specyfikacji w kodzie rozdzielacza zadań.
-3. Zadania procesora zadań są uruchamiane niezależnie, równolegle, aby przetwarzać dane wejściowe i generować dane wyjściowe.
+1. Kod klienta (np. aplikacja, usługa sieci Web itd.) przesyła zadanie do usługi Batch na platformie Azure, określając jako zadanie Menedżera zadań zadania podrzędnego Menedżera zadań.
+2. Usługa Batch uruchamia zadanie Menedżera zadań w węźle obliczeniowym, a rozdzielacz zadania uruchamia określoną liczbę zadań procesora zadań na tyle, ile węzłów obliczeniowych jest wymaganych, na podstawie parametrów i specyfikacji w kodzie rozdzielacza zadania.
+3. Zadania procesora zadań uruchamiają się niezależnie, równolegle, przetwarzać dane wejściowe i generować dane wyjściowe.
 
-![Diagram przedstawiający interakcję kodu klienta z usługą Batch][diagram01]
+![Diagram przedstawiający sposób interakcji kodu klienta z usługą Batch][diagram01]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby korzystać z szablonów usługi Batch, potrzebne będą następujące elementy:
+Aby korzystać z szablonów wsadowych, potrzebne są następujące elementy:
 
-* Zainstalowany komputer z programem Visual Studio 2015. Szablony wsadowe są obecnie obsługiwane tylko dla programu Visual Studio 2015.
-* Szablony usługi Batch, które są dostępne w [galerii programu Visual Studio][vs_gallery] jako rozszerzenia programu Visual Studio. Szablony można uzyskać na dwa sposoby:
+* Komputer z zainstalowanym programem Visual Studio 2015. Szablony wsadowe są obecnie obsługiwane tylko dla programu Visual Studio 2015.
+* Szablony usługi Batch, które są dostępne w [Galerii programu Visual Studio][vs_gallery] jako rozszerzenia programu Visual Studio. Istnieją dwa sposoby pobrania szablonów:
   
-  * Instalowanie szablonów przy użyciu okna dialogowego **Rozszerzenia i aktualizacje** w programie Visual Studio (aby uzyskać więcej informacji, zobacz [Znajdowanie i używanie rozszerzeń programu Visual Studio][vs_find_use_ext]). W oknie dialogowym **Rozszerzenia i aktualizacje** wyszukaj i pobierz następujące dwa rozszerzenia:
+  * Zainstaluj szablony przy użyciu okna dialogowego **rozszerzenia i aktualizacje** w programie Visual Studio (Aby uzyskać więcej informacji, zobacz [Znajdowanie i używanie rozszerzeń programu Visual Studio][vs_find_use_ext]). W oknie dialogowym **rozszerzenia i aktualizacje** Wyszukaj i pobierz następujące dwa rozszerzenia:
     
-    * Menedżer zadań wsadowych platformy Azure z rozdzielaczem zadań
-    * Procesor zadań wsadowych platformy Azure
-  * Pobierz szablony z galerii online programu Visual Studio: [Szablony projektów wsadowych platformy Microsoft Azure][vs_gallery_templates]
-* Jeśli planujesz użyć funkcji [Pakiety aplikacji](batch-application-packages.md) do wdrożenia menedżera zadań i procesora zadań w węzłach obliczeniowych batch, musisz połączyć konto magazynu z kontem usługi Batch.
+    * Menedżer zadań Azure Batch z rozdzielaczem zadań
+    * Procesor zadań Azure Batch
+  * Pobierz szablony z galerii online dla programu Visual Studio: [Microsoft Azure Batch szablonów projektu][vs_gallery_templates]
+* Jeśli planujesz użycie funkcji [pakietów aplikacji](batch-application-packages.md) do wdrożenia Menedżera zadań i procesora zadań w węzłach obliczeniowych wsadowych, musisz połączyć konto magazynu z kontem w usłudze Batch.
 
 ## <a name="preparation"></a>Przygotowywanie
-Zalecamy utworzenie rozwiązania, które może zawierać menedżera zadań, a także procesor zadań, ponieważ może to ułatwić udostępnianie kodu między menedżerem zadań a programami procesora zadań. Aby utworzyć to rozwiązanie, wykonaj następujące kroki:
+Zalecamy utworzenie rozwiązania, które może zawierać Menedżera zadań oraz procesora zadań, ponieważ może to ułatwić udostępnianie kodu między menedżerem zadań i programami procesora zadań. Aby utworzyć to rozwiązanie, wykonaj następujące kroki:
 
-1. Otwórz program Visual Studio i wybierz **pozycję Plik** > **nowego** > **projektu**.
-2. W obszarze **Szablony**rozwiń węzeł **Inne typy projektów**kliknij pozycję **Rozwiązania programu Visual Studio**, a następnie wybierz pozycję Puste **rozwiązanie**.
-3. Wpisz nazwę opisującą aplikację i cel tego rozwiązania (np.
+1. Otwórz program Visual Studio i wybierz pozycję **plik** > **Nowy** > **projekt**.
+2. W obszarze **Szablony**rozwiń węzeł **Inne typy projektów**, kliknij pozycję **rozwiązania programu Visual Studio**, a następnie wybierz pozycję **puste rozwiązanie**.
+3. Wpisz nazwę opisującą aplikację i cel tego rozwiązania (np. "LitwareBatchTaskPrograms").
 4. Aby utworzyć nowe rozwiązanie, kliknij przycisk **OK**.
 
 ## <a name="job-manager-template"></a>Szablon Menedżera zadań
-Szablon Menedżera zadań ułatwia zaimplementowanie zadania menedżera zadań, które może wykonywać następujące akcje:
+Szablon Menedżera zadań ułatwia zaimplementowanie zadania Menedżera zadań, które może wykonywać następujące czynności:
 
 * Podziel zadanie na wiele zadań.
-* Prześlij te zadania do uruchomienia w uerce.
+* Prześlij te zadania do uruchomienia w usłudze Batch.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat zadań menedżera zadań, zobacz [Omówienie funkcji usługi Batch dla deweloperów](batch-api-basics.md#job-manager-task).
+> Aby uzyskać więcej informacji o zadaniach Menedżera zadań, zobacz [Omówienie funkcji usługi Batch dla deweloperów](batch-api-basics.md#job-manager-task).
 > 
 > 
 
 ### <a name="create-a-job-manager-using-the-template"></a>Tworzenie Menedżera zadań przy użyciu szablonu
-Aby dodać menedżera zadań do rozwiązania utworzonego wcześniej, wykonaj następujące kroki:
+Aby dodać Menedżera zadań do utworzonego wcześniej rozwiązania, wykonaj następujące kroki:
 
 1. Otwórz istniejące rozwiązanie w programie Visual Studio.
-2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy rozwiązanie, kliknij polecenie **Dodaj** > **nowy projekt**.
-3. W **obszarze Visual C#** kliknij pozycję **Chmura**, a następnie kliknij pozycję **Azure Batch Job Manager with Job Splitter**.
-4. Wpisz nazwę opisującą aplikację i identyfikuje ten projekt jako menedżera zadań (np.
+2. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie, a następnie kliknij pozycję **Dodaj** > **Nowy projekt**.
+3. W obszarze **Visual C#** kliknij pozycję **chmura**, a następnie kliknij pozycję **Azure Batch Menedżer zadań z rozdzielaczem zadania**.
+4. Wpisz nazwę opisującą aplikację i zidentyfikuj ten projekt jako Menedżera zadań (np. "LitwareJobManager").
 5. Aby utworzyć projekt, kliknij przycisk **OK**.
-6. Na koniec skompiluj projekt, aby wymusić visual studio załadować wszystkie pakiety NuGet odwołuje i sprawdzić, czy projekt jest prawidłowy przed rozpoczęciem modyfikowania go.
+6. Na koniec Skompiluj projekt, aby wymusić, że program Visual Studio załaduje wszystkie pakiety NuGet, do których istnieją odwołania, i sprawdź, czy projekt jest prawidłowy przed rozpoczęciem modyfikowania.
 
-### <a name="job-manager-template-files-and-their-purpose"></a>Pliki szablonów menedżera zadań i ich przeznaczenie
-Podczas tworzenia projektu przy użyciu szablonu Menedżer zadań generuje trzy grupy plików kodu:
+### <a name="job-manager-template-files-and-their-purpose"></a>Pliki szablonów Menedżera zadań i ich przeznaczenie
+Podczas tworzenia projektu przy użyciu szablonu Menedżera zadań generuje on trzy grupy plików kodu:
 
-* Główny plik programu (Program.cs). Zawiera punkt wejścia programu i obsługę wyjątków najwyższego poziomu. Zwykle nie należy tego modyfikować.
-* Katalog Framework. Zawiera pliki odpowiedzialne za pracę "standardową" wykonaną przez program menedżera zadań – rozpakowywanie parametrów, dodawanie zadań do zadania Batch itp. Zwykle nie należy modyfikować tych plików.
-* Plik rozdzielacza zadań (JobSplitter.cs). W tym miejscu można umieścić logikę specyficzne dla aplikacji do dzielenia zadania na zadania.
+* Główny plik programu (Program.cs). Zawiera ona punkt wejścia programu i obsługę wyjątków najwyższego poziomu. Zwykle nie trzeba go modyfikować.
+* Katalog struktury. Zawiera ona pliki odpowiedzialne za "typowe" działania wykonywane przez program Menedżer zadań — rozpakowywanie parametrów, dodanie zadań do zadania wsadowego itd. Zwykle nie trzeba modyfikować tych plików.
+* Plik rozdzielacza zadania (JobSplitter.cs). W tym miejscu zostanie umieszczona logika specyficzna dla aplikacji służąca do dzielenia zadania na zadania.
 
-Oczywiście można dodać dodatkowe pliki zgodnie z wymaganiami do obsługi kodu podziału zadań, w zależności od złożoności logiki podziału zadań.
+Oczywiście można dodać dodatkowe pliki wymagane do obsługi kodu rozdzielacza zadania, w zależności od złożoności logiki podziału zadania.
 
-Szablon generuje również standardowe pliki projektu .NET, takie jak plik csproj, app.config, packages.config itp.
+Szablon generuje również standardowe pliki projektu .NET, takie jak plik. csproj, App. config, Packages. config itd.
 
-W dalszej części tej sekcji opisano różne pliki i ich strukturę kodu i wyjaśniono, co robi każda klasa.
+W pozostałej części tej sekcji opisano różne pliki i ich struktury kodu oraz wyjaśniono, co robi każda klasa.
 
-![Eksplorator rozwiązań programu Visual Studio przedstawiający rozwiązanie szablonu Menedżera zadań][solution_explorer01]
+![Program Visual Studio Eksplorator rozwiązań pokazujący rozwiązanie szablonu Menedżera zadań][solution_explorer01]
 
-**Pliki ramowe**
+**Pliki struktury**
 
-* `Configuration.cs`: Hermetyzuje ładowanie danych konfiguracji zadania, takich jak szczegóły konta usługi Batch, poświadczenia połączonego konta magazynu, informacje o zadaniu i zadaniu oraz parametry zadania. Zapewnia również dostęp do zmiennych środowiskowych zdefiniowanych przez partię (zobacz ustawienia środowiska dla zadań w dokumentacji usługi Batch) za pośrednictwem klasy Configuration.EnvironmentVariable.
-* `IConfiguration.cs`: Abstrakcje implementacji Configuration klasy, dzięki czemu można jednostki testowania podziału zadania przy użyciu fałszywego lub makiety obiektu konfiguracji.
-* `JobManager.cs`: Aranżuje składniki programu menedżera zadań. Jest odpowiedzialny za inicjowanie rozdzielacza zadań, wywoływanie rozdzielacza zadań i wysyłanie zadań zwróconych przez rozdzielacz zadań do osoby przesyłającej zadania.
-* `JobManagerException.cs`: Reprezentuje błąd, który wymaga zakończenia menedżera zadań. JobManagerException służy do zawijania błędów "oczekiwane", gdzie określone informacje diagnostyczne mogą być dostarczane w ramach zakończenia.
-* `TaskSubmitter.cs`: Ta klasa jest odpowiedzialna za dodawanie zadań zwróconych przez rozdzielacz zadań do zadania Batch. JobManager Klasy agreguje sekwencję zadań w partiach dla wydajnego, ale terminowe dodanie do zadania, a następnie wywołuje TaskSubmitter.SubmitTasks w wątku w tle dla każdej partii.
+* `Configuration.cs`: Hermetyzuje ładowanie danych konfiguracji zadania, takich jak szczegóły konta, powiązane poświadczenia konta magazynu, informacje o zadaniach i zadaniach oraz parametry zadań. Zapewnia również dostęp do zmiennych środowiskowych zdefiniowanych przez partię (zobacz Ustawienia środowiska dla zadań, w dokumentacji usługi Batch) za pośrednictwem klasy Configuration. zmiennych środowiskowych.
+* `IConfiguration.cs`: Jest abstrakcyjna implementacja klasy konfiguracji, dzięki czemu można testować rozdzielacz zadania przy użyciu obiektu konfiguracji fałszywego lub makiety.
+* `JobManager.cs`: Organizuje składniki programu Menedżer zadań. Jest on odpowiedzialny za Inicjowanie rozdzielacza zadań, wywoływanie rozdzielacza zadania i wysyłanie zadań zwróconych przez rozdzielacz zadania do osoby przesyłającej zadanie podrzędne.
+* `JobManagerException.cs`: Reprezentuje błąd, który wymaga przerwania Menedżera zadań. JobManagerException jest używany do zawijania "oczekiwanych" błędów, w przypadku których konkretne informacje diagnostyczne mogą być dostarczane jako część zakończenia.
+* `TaskSubmitter.cs`: Ta klasa jest odpowiedzialna za Dodawanie zadań zwracanych przez rozdzielacz zadania do zadania wsadowego. Klasa JobManager agreguje sekwencję zadań do partii w celu wydajnego, ale jednocześnie dodaje do zadania, a następnie wywołuje TaskSubmitter. SubmitTasks w wątku w tle dla każdej partii.
 
 **Rozdzielacz zadań**
 
-`JobSplitter.cs`: Ta klasa zawiera logikę specyficzne dla aplikacji do dzielenia zadania na zadania. Struktura wywołuje JobSplitter.Split metody, aby uzyskać sekwencję zadań, które dodaje do zadania, jak metoda zwraca je. Jest to klasa, w której można wstrzyknąć logikę swojej pracy. Zaimplementuj metodę Podziału, aby zwrócić sekwencję wystąpień CloudTask reprezentujących zadania, do których chcesz podzielić zadanie.
+`JobSplitter.cs`: Ta klasa zawiera logikę specyficzną dla aplikacji służącą do dzielenia zadania na zadania. Struktura wywołuje metodę JobSplitter. Split, aby uzyskać sekwencję zadań, którą dodaje do zadania, jak metoda zwraca je. Jest to Klasa, w której zostanie wprowadzona logika zadania. Zaimplementuj metodę Split, aby zwrócić sekwencję wystąpień CloudTask reprezentujących zadania, w których chcesz podzielić zadanie.
 
-**Standardowe pliki projektu wiersza polecenia .NET**
+**Standardowe pliki projektu wiersza polecenia platformy .NET**
 
-* `App.config`: Standardowy plik konfiguracyjny aplikacji .NET.
+* `App.config`: Standardowy plik konfiguracji aplikacji .NET.
 * `Packages.config`: Standardowy plik zależności pakietu NuGet.
 * `Program.cs`: Zawiera punkt wejścia programu i obsługę wyjątków najwyższego poziomu.
 
 ### <a name="implementing-the-job-splitter"></a>Implementowanie rozdzielacza zadań
-Po otwarciu projektu szablonu Menedżera zadań projekt będzie domyślnie otwierany JobSplitter.cs pliku. Logikę podziału dla zadań w obciążeniu można zaimplementować przy użyciu metody Split() poniżej:
+Po otwarciu projektu szablonu Menedżera zadań projekt będzie miał domyślnie otwarty plik JobSplitter.cs. Można zaimplementować logikę podziału dla zadań w obciążeniu przy użyciu metody Split (), pokazane poniżej:
 
 ```csharp
 /// <summary>
@@ -156,56 +146,56 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> Sekcja z adnotacjami w metodzie jest jedyną `Split()` sekcją kodu szablonu Menedżera zadań, który jest przeznaczony do modyfikowania przez dodanie logiki, aby podzielić zadania na różne zadania. Jeśli chcesz zmodyfikować inną sekcję szablonu, upewnij się, że zapoznasz się z działaniem usługi Batch i wypróbuj kilka [przykładów kodu usługi Batch.][github_samples]
+> Sekcja z adnotacjami w tej `Split()` metodzie jest jedyną sekcją kodu szablonu Menedżera zadań, która jest przeznaczona do modyfikacji przez dodanie logiki w celu podzielenia zadań na różne zadania. Aby zmodyfikować inną sekcję szablonu, należy się upewnić, że wiesz już, jak działa przetwarzanie wsadowe, i wypróbować kilka [przykładów kodu partii][github_samples].
 > 
 > 
 
-Implementacja Split() ma dostęp do:
+Implementacja Split () ma dostęp do:
 
-* Parametry zadania, za `_parameters` pośrednictwem pola.
-* CloudJob obiektu reprezentującego zadanie, `_job` za pośrednictwem pola.
-* CloudTask obiektu reprezentującego zadanie menedżera zadań, za pośrednictwem `_jobManagerTask` pola.
+* Parametry zadania, za pomocą `_parameters` pola.
+* Obiekt CloudJob reprezentujący zadanie, za pośrednictwem `_job` pola.
+* Obiekt CloudTask reprezentujący zadanie Menedżera zadań, za pomocą `_jobManagerTask` pola.
 
-Implementacja `Split()` nie musi bezpośrednio dodawać zadań do zadania. Zamiast tego kod powinien zwracać sekwencję CloudTask obiektów, a te zostaną dodane do zadania automatycznie przez klasy struktury, które wywołują rozdzielacz zadań. Często używa się funkcji iteratora języka`yield return`C#( ) do implementowania rozdzielaczy zadań, ponieważ umożliwia to uruchamianie zadań tak szybko, jak to możliwe, zamiast czekać na obliczenie wszystkich zadań.
+`Split()` Implementacja nie musi bezpośrednio dodawać zadań do zadania. Zamiast tego kod powinien zwrócić sekwencję obiektów CloudTask i zostaną one dodane do zadania automatycznie przez klasy struktur, które wywołują rozdzielacz zadań. Często można używać funkcji iteratora języka C# (`yield return`) w celu zaimplementowania rozdzielaczów zadań, co umożliwia uruchamianie zadań tak szybko, jak to możliwe, a nie w oczekiwaniu na obliczenia wszystkich zadań.
 
-**Niepowodzenie rozdzielacza zadań**
+**Niepowodzenie rozdzielacza zadania**
 
-Jeśli rozdzielacz zadań napotka błąd, powinien on:
+Jeśli rozdzielacz zadania napotka błąd, powinien:
 
-* Zakończ sekwencję przy użyciu `yield break` instrukcji C#, w którym to przypadku menedżer zadań będzie traktowany jako udany; Lub
-* Zgłosić wyjątek, w którym to przypadku menedżer zadań będą traktowane jako nie powiodło się i może być ponowiony w zależności od tego, jak klient skonfigurował go).
+* Przerwij sekwencję przy użyciu instrukcji `yield break` języka C#, w takim przypadku Menedżer zadań będzie traktowany jak pomyślne; oraz
+* Zgłoś wyjątek, w takim przypadku Menedżer zadań będzie traktowany jako niepowodzenie i może być ponowiony w zależności od tego, jak klient został skonfigurowany.
 
-W obu przypadkach wszystkie zadania już zwrócone przez rozdzielacz zadań i dodane do zadania Batch będą kwalifikowalne do uruchomienia. Jeśli nie chcesz, aby tak się stało, możesz:
+W obu przypadkach każde zadanie, które zostało już zwrócone przez rozdzielacz zadania i dodane do zadania usługi Batch, będzie kwalifikować się do uruchomienia. Jeśli nie chcesz tego zrobić, możesz:
 
-* Zakończenie zadania przed powrotem z rozdzielacza zadań
-* Sformułowanie całej kolekcji zadań przed zwróceniem go `ICollection<CloudTask>` `IList<CloudTask>` (oznacza to, że zwraca lub zamiast implementowania rozdzielacza zadań przy użyciu iteratora języka C#)
-* Użyj zależności zadań, aby wszystkie zadania były zależne od pomyślnego ukończenia menedżera zadań
+* Zakończ zadanie przed powrotem z rozdzielacza zadań
+* Formułowanie całej kolekcji zadań przed jej zwróceniem (oznacza to, że Zwróć `ICollection<CloudTask>` lub `IList<CloudTask>` zamiast implementowania rozdzielacza zadania przy użyciu iteratora języka C#)
+* Użyj zależności zadań, aby wykonać wszystkie zadania zależą od pomyślnego ukończenia Menedżera zadań
 
-**Menedżer zadań ponownych prób**
+**Ponowne próby Menedżera zadań**
 
-Jeśli menedżer zadań nie powiedzie się, może zostać ponowiony przez usługę Batch w zależności od ustawień ponawiania próby klienta. Ogólnie rzecz biorąc jest to bezpieczne, ponieważ gdy struktura dodaje zadania do zadania, ignoruje wszystkie zadania, które już istnieją. Jednak jeśli obliczanie zadań jest kosztowne, możesz nie chcieć ponieść kosztu ponownego obliczania zadań, które zostały już dodane do zadania; z drugiej strony, jeśli ponowne uruchomienie nie jest gwarantowane do generowania tych samych identyfikatorów zadań, a następnie zachowanie "ignoruj duplikaty" nie będzie kopać w. W takich przypadkach należy zaprojektować rozdzielacz zadań, aby wykryć pracę, która została już wykonana i nie powtarzać go, na przykład wykonując CloudJob.ListTasks przed rozpoczęciem wykonywania zadań.
+Jeśli Menedżer zadań nie powiedzie się, może to być ponowiona przez usługę Batch w zależności od ustawień ponownych prób klienta. Ogólnie rzecz biorąc, jest to bezpieczne, ponieważ gdy struktura dodaje zadania do zadania, ignoruje wszystkie zadania, które już istnieją. Jeśli jednak Obliczanie zadań jest kosztowne, nie można ponieść kosztów ponownego obliczania zadań, które zostały już dodane do zadania; z drugiej strony, jeśli ponowne uruchomienie nie jest gwarantowane do wygenerowania tych samych identyfikatorów zadań, zachowanie "Zignoruj duplikaty" nie zostanie uruchomione. W takich przypadkach należy zaprojektować rozdzielacz zadania w celu wykrywania wykonanej pracy, a nie powtarzania jej, na przykład przez wykonanie CloudJob. ListTasks przed rozpoczęciem wykonywania zadań.
 
-### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>Kody zakończenia i wyjątki w szablonie Menedżer zadań
-Kody zakończenia i wyjątki zapewniają mechanizm do określenia wyniku uruchomienia programu i mogą pomóc zidentyfikować wszelkie problemy z wykonywaniem programu. Szablon Menedżera zadań implementuje kody zakończenia i wyjątki opisane w tej sekcji.
+### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>Kody zakończenia i wyjątki w szablonie Menedżera zadań
+Kody i wyjątki wyjściowe zapewniają mechanizm określania wyniku działania programu i mogą pomóc w zidentyfikowaniu wszelkich problemów z wykonywaniem programu. Szablon Menedżera zadań implementuje kody zakończenia i wyjątki opisane w tej sekcji.
 
-Zadanie menedżera zadań zaimplementowane za pomocą szablonu Menedżer zadań może zwrócić trzy możliwe kody zakończenia:
+Zadanie Menedżera zadań zaimplementowane przy użyciu szablonu Menedżera zadań może zwracać trzy możliwe kody zakończenia:
 
 | Code | Opis |
 | --- | --- |
-| 0 |Menedżer zadań zakończył pomyślnie. Kod podziału zadań został uruchomiony do ukończenia, a wszystkie zadania zostały dodane do zadania. |
-| 1 |Zadanie menedżera zadań nie powiodło się z wyjątkiem w "oczekiwanej" części programu. Wyjątek został przetłumaczony na JobManagerException z informacjami diagnostycznymi i, jeśli to możliwe, sugestie dotyczące rozwiązywania błędu. |
-| 2 |Zadanie menedżera zadań nie powiodło się z "nieoczekiwanym" wyjątkiem. Wyjątek został zarejestrowany w standardowych danych wyjściowych, ale menedżer zadań nie mógł dodać żadnych dodatkowych informacji diagnostycznych lub korygowania. |
+| 0 |Menedżer zadań zakończył pracę pomyślnie. Kod rozdzielacza zadania został zrealizowany i wszystkie zadania zostały dodane do zadania. |
+| 1 |Zadanie Menedżera zadań nie powiodło się, ponieważ wystąpił wyjątek w części "oczekiwanej" programu. Wyjątek został przetłumaczony na JobManagerException z informacjami diagnostycznymi oraz, gdzie to możliwe, sugestie dotyczące rozwiązania błędu. |
+| 2 |Zadanie Menedżera zadań nie powiodło się z powodu nieoczekiwanego wyjątku. Wyjątek został zarejestrowany w standardowym wyjściu, ale Menedżer zadań nie mógł dodać żadnych dodatkowych informacji diagnostycznych ani korygowanych. |
 
-W przypadku niepowodzenia zadania menedżera zadań niektóre zadania mogły zostać dodane do usługi przed wystąpieniem błędu. Te zadania będą działać normalnie. Zobacz "Błąd podziału zadań" powyżej do dyskusji na temat tej ścieżki kodu.
+W przypadku niepowodzenia zadania Menedżera zadań niektóre zadania mogły być nadal dodawane do usługi przed wystąpieniem błędu. Te zadania będą wykonywane w zwykły sposób. Zobacz "Niepowodzenie rozdzielacza zadania" powyżej, aby poznać dyskusję o tej ścieżce kodu.
 
-Wszystkie informacje zwracane przez wyjątki są zapisywane w plikach stdout.txt i stderr.txt. Aby uzyskać więcej informacji, zobacz [Obsługa błędów](batch-api-basics.md#error-handling).
+Wszystkie informacje zwrócone przez wyjątki są zapisywane w plikach stdout. txt i stderr. txt. Aby uzyskać więcej informacji, zobacz [Obsługa błędów](batch-api-basics.md#error-handling).
 
-### <a name="client-considerations"></a>Uwagi klientów
-W tej sekcji opisano niektóre wymagania dotyczące implementacji klienta podczas wywoływania menedżera zadań na podstawie tego szablonu. Zobacz [Jak przekazać parametry i zmienne środowiskowe z kodu klienta, aby](#pass-environment-settings) uzyskać szczegółowe informacje na temat przekazywania parametrów i ustawień środowiska.
+### <a name="client-considerations"></a>Uwagi dotyczące klienta
+W tej sekcji opisano niektóre wymagania dotyczące implementacji klienta podczas wywoływania Menedżera zadań w oparciu o ten szablon. Zobacz [, jak przekazać parametry i zmienne środowiskowe z kodu klienta,](#pass-environment-settings) Aby uzyskać szczegółowe informacje na temat przekazywania parametrów i ustawień środowiska.
 
-**Poświadczenia obowiązkowe**
+**Obowiązkowe poświadczenia**
 
-Aby dodać zadania do zadania usługi Azure Batch, zadanie menedżera zadań wymaga adresu URL konta usługi Azure Batch i klucza. Należy przekazać je w zmiennych środowiskowych o nazwie YOUR_BATCH_URL i YOUR_BATCH_KEY. Można je ustawić w ustawieniach środowiska zadań Menedżera zadań. Na przykład w kliencie języka C#:
+Aby można było dodać zadania do zadania Azure Batch, zadanie Menedżera zadań wymaga adresu URL i klucza konta Azure Batch. Należy przekazać je w zmiennych środowiskowych o nazwie YOUR_BATCH_URL i YOUR_BATCH_KEY. Można je ustawić w ustawieniach środowiska zadania Menedżera zadań. Na przykład w kliencie C#:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -215,7 +205,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 ```
 **Poświadczenia magazynu**
 
-Zazwyczaj klient nie musi podawać poświadczeń połączonego konta magazynu do zadania menedżera zadań, ponieważ (a) większość menedżerów zadań nie musi jawnie uzyskiwać dostępu do połączonego konta magazynu i (b) połączone konto magazynu jest często dostarczane do wszystkich zadań jako typowe ustawienie środowiska dla zadania. Jeśli nie podajesz połączonego konta magazynu za pośrednictwem typowych ustawień środowiska, a menedżer zadań wymaga dostępu do połączonego magazynu, należy podać połączone poświadczenia magazynu w następujący sposób:
+Zwykle klient nie musi podawać poświadczeń konta połączonego magazynu do zadania Menedżera zadań, ponieważ (a) większość menedżerów zadań nie musi jawnie uzyskiwać dostępu do połączonego konta magazynu i (b) połączone konto magazynu jest często udostępniane wszystkim zadaniom w ramach typowego ustawienia środowiska dla tego zadania. Jeśli nie podasz połączonego konta magazynu za pomocą wspólnych ustawień środowiska, a Menedżer zadań wymaga dostępu do połączonego magazynu, należy podać następujące poświadczenia połączonego magazynu:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -225,83 +215,83 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 };
 ```
 
-**Ustawienia zadań menedżera zadań**
+**Ustawienia zadania Menedżera zadań**
 
-Klient powinien ustawić *killJobOnCompletion* flagę menedżera zadań na **false**.
+Klient powinien ustawić flagę *killJobOnCompletion* Menedżera zadań na **wartość false**.
 
-Zazwyczaj jest to bezpieczne dla klienta, aby ustawić *runExclusive* do **false**.
+Jest to zwykle bezpieczne, aby klient ustawił *runExclusive* na **wartość false**.
 
-Klient powinien używać *resourceFiles* lub *applicationPackageReferences* kolekcji, aby plik wykonywalny menedżera zadań (i jego wymagane biblioteki DLL) wdrożony w węźle obliczeniowym.
+Klient powinien użyć kolekcji *resourceFiles* lub *applicationPackageReferences* , aby można było wdrożyć plik wykonywalny Menedżera zadań (i jego wymagane biblioteki dll) w węźle obliczeniowym.
 
-Domyślnie menedżer zadań nie zostanie ponowiony, jeśli zakończy się niepowodzeniem. W zależności od logiki menedżera zadań klient może chcieć włączyć ponownych prób za pomocą *ograniczeń*/*maxTaskRetryCount*.
+Domyślnie Menedżer zadań nie zostanie ponowiony, jeśli zakończy się niepowodzeniem. W zależności od logiki Menedżera zadań klient może chcieć włączyć ponowną próbę przy użyciu *ograniczeń*/*maxTaskRetryCount*.
 
 **Ustawienia zadania**
 
-Jeśli rozdzielacz zadań emituje zadania z zależnościami, klient musi ustawić użycie zadaniaZaważania na wartość true.
+Jeśli rozdzielacz zadania emituje zadania z zależnościami, klient musi ustawić usesTaskDependencies dla zadania na wartość true.
 
-W modelu podziału zadań jest nietypowe dla klientów, aby chcieć dodać zadania do zadań ponad to, co tworzy rozdzielacz zadań. W związku z tym klient powinien normalnie ustawić zadanie *onAllTasksComplete* **do terminatejob**.
+W modelu rozdzielacza zadań niekiedy klienci chcą dodawać zadania do zadań powyżej i powyżej tego, co tworzy rozdzielacz zadania. W związku z tym klient powinien zwykle ustawić *onAllTasksComplete* zadania na **terminatejob**.
 
 ## <a name="task-processor-template"></a>Szablon procesora zadań
 Szablon procesora zadań ułatwia zaimplementowanie procesora zadań, który może wykonywać następujące czynności:
 
-* Skonfiguruj informacje wymagane przez każde zadanie usługi Batch do uruchomienia.
+* Skonfiguruj informacje wymagane przez każde zadanie wsadowe do uruchomienia.
 * Uruchom wszystkie akcje wymagane przez każde zadanie wsadowe.
-* Zapisz dane wyjściowe zadań w magazynie trwałym.
+* Zapisz dane wyjściowe zadania w magazynie trwałym.
 
-Chociaż procesor zadań nie jest wymagany do uruchamiania zadań w uczynku, kluczową zaletą korzystania z procesora zadań jest to, że udostępnia otokę do zaimplementowania wszystkich akcji wykonywania zadań w jednej lokalizacji. Na przykład jeśli trzeba uruchomić kilka aplikacji w kontekście każdego zadania lub jeśli trzeba skopiować dane do magazynu trwałego po wykonaniu każdego zadania.
+Mimo że procesor zadań nie jest wymagany do uruchamiania zadań w usłudze Batch, najważniejsze zalety korzystania z procesora zadań to, że oferuje otokę do implementowania wszystkich akcji wykonywania zadań w jednej lokalizacji. Na przykład, jeśli konieczne jest uruchomienie kilku aplikacji w kontekście każdego zadania, lub jeśli trzeba będzie skopiować dane do magazynu trwałego po wykonaniu każdego zadania.
 
-Akcje wykonywane przez procesor zadań mogą być tak proste lub złożone, a nawet tyle lub nieliczne, zgodnie z wymaganiami obciążenia. Ponadto implementując wszystkie akcje zadań w jednym procesorze zadań, można łatwo aktualizować lub dodawać akcje na podstawie zmian w aplikacjach lub wymaganiach dotyczących obciążenia. Jednak w niektórych przypadkach procesor zadań może nie być optymalnym rozwiązaniem dla implementacji, ponieważ może dodać niepotrzebną złożoność, na przykład podczas uruchamiania zadań, które można szybko uruchomić z prostego wiersza polecenia.
+Akcje wykonywane przez procesor zadań mogą być proste lub złożone oraz dowolną liczbę lub kilka, zgodnie z wymaganiami obciążenia. Ponadto, implementując wszystkie akcje zadań w jednym procesorze zadań, można łatwo zaktualizować lub dodać akcje na podstawie zmian w aplikacjach lub wymaganiach dotyczących obciążenia. Jednak w niektórych przypadkach procesor zadań może nie być najlepszym rozwiązaniem dla implementacji, ponieważ może to spowodować dodanie niepotrzebnej złożoności, na przykład podczas uruchamiania zadań, które można szybko uruchomić z prostego wiersza polecenia.
 
 ### <a name="create-a-task-processor-using-the-template"></a>Tworzenie procesora zadań przy użyciu szablonu
 Aby dodać procesor zadań do utworzonego wcześniej rozwiązania, wykonaj następujące kroki:
 
 1. Otwórz istniejące rozwiązanie w programie Visual Studio.
-2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy rozwiązanie, kliknij polecenie **Dodaj**, a następnie kliknij polecenie **Nowy projekt**.
-3. W obszarze **Visual C#** kliknij pozycję **Chmura**, a następnie kliknij pozycję **Procesor zadań wsadowych platformy Azure**.
-4. Wpisz nazwę opisującą aplikację i identyfikuje ten projekt jako procesor zadań (np.
+2. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy rozwiązanie, kliknij polecenie **Dodaj**, a następnie kliknij pozycję **Nowy projekt**.
+3. W obszarze **Visual C#** kliknij pozycję **chmura**, a następnie kliknij pozycję **Azure Batch procesora zadań**.
+4. Wpisz nazwę opisującą aplikację i zidentyfikuj ten projekt jako procesor zadań (np. "LitwareTaskProcessor").
 5. Aby utworzyć projekt, kliknij przycisk **OK**.
-6. Na koniec skompiluj projekt, aby wymusić visual studio załadować wszystkie pakiety NuGet odwołuje i sprawdzić, czy projekt jest prawidłowy przed rozpoczęciem modyfikowania go.
+6. Na koniec Skompiluj projekt, aby wymusić, że program Visual Studio załaduje wszystkie pakiety NuGet, do których istnieją odwołania, i sprawdź, czy projekt jest prawidłowy przed rozpoczęciem modyfikowania.
 
 ### <a name="task-processor-template-files-and-their-purpose"></a>Pliki szablonów procesora zadań i ich przeznaczenie
-Podczas tworzenia projektu przy użyciu szablonu procesora zadań generuje trzy grupy plików kodu:
+Podczas tworzenia projektu przy użyciu szablonu procesora zadań generuje on trzy grupy plików kodu:
 
-* Główny plik programu (Program.cs). Zawiera punkt wejścia programu i obsługę wyjątków najwyższego poziomu. Zwykle nie należy tego modyfikować.
-* Katalog Framework. Zawiera pliki odpowiedzialne za pracę "standardową" wykonaną przez program menedżera zadań – rozpakowywanie parametrów, dodawanie zadań do zadania Batch itp. Zwykle nie należy modyfikować tych plików.
-* Plik procesora zadań (TaskProcessor.cs). W tym miejscu można umieścić logikę specyficzne dla aplikacji do wykonywania zadania (zazwyczaj przez wywołanie istniejącego pliku wykonywalnego). Kod przed i po processingu, taki jak pobieranie dodatkowych danych lub przesyłanie plików wyników, również idzie tutaj.
+* Główny plik programu (Program.cs). Zawiera ona punkt wejścia programu i obsługę wyjątków najwyższego poziomu. Zwykle nie trzeba go modyfikować.
+* Katalog struktury. Zawiera ona pliki odpowiedzialne za "typowe" działania wykonywane przez program Menedżer zadań — rozpakowywanie parametrów, dodanie zadań do zadania wsadowego itd. Zwykle nie trzeba modyfikować tych plików.
+* Plik procesora zadań (TaskProcessor.cs). W tym miejscu zostanie umieszczona logika specyficzna dla aplikacji służąca do wykonywania zadania (zazwyczaj przez wywołanie do istniejącego pliku wykonywalnego). Kod poprzedzający i po przetworzeniu, taki jak pobieranie dodatkowych danych lub przekazywanie plików wynikowych, również przechodzą tutaj.
 
-Oczywiście można dodać dodatkowe pliki zgodnie z wymaganiami do obsługi kodu procesora zadań, w zależności od złożoności logiki podziału zadań.
+Oczywiście można dodać dodatkowe pliki wymagane do obsługi kodu procesora zadań, w zależności od złożoności logiki podziału zadania.
 
-Szablon generuje również standardowe pliki projektu .NET, takie jak plik csproj, app.config, packages.config itp.
+Szablon generuje również standardowe pliki projektu .NET, takie jak plik. csproj, App. config, Packages. config itd.
 
-W dalszej części tej sekcji opisano różne pliki i ich strukturę kodu i wyjaśniono, co robi każda klasa.
+W pozostałej części tej sekcji opisano różne pliki i ich struktury kodu oraz wyjaśniono, co robi każda klasa.
 
-![Eksplorator rozwiązań programu Visual Studio przedstawiający rozwiązanie szablonu procesora zadań][solution_explorer02]
+![Program Visual Studio Eksplorator rozwiązań pokazujący rozwiązanie szablonu procesora zadań][solution_explorer02]
 
-**Pliki ramowe**
+**Pliki struktury**
 
-* `Configuration.cs`: Hermetyzuje ładowanie danych konfiguracji zadania, takich jak szczegóły konta usługi Batch, poświadczenia połączonego konta magazynu, informacje o zadaniu i zadaniu oraz parametry zadania. Zapewnia również dostęp do zmiennych środowiskowych zdefiniowanych przez partię (zobacz ustawienia środowiska dla zadań w dokumentacji usługi Batch) za pośrednictwem klasy Configuration.EnvironmentVariable.
-* `IConfiguration.cs`: Abstrakcje implementacji Configuration klasy, dzięki czemu można jednostki testowania podziału zadania przy użyciu fałszywego lub makiety obiektu konfiguracji.
-* `TaskProcessorException.cs`: Reprezentuje błąd, który wymaga zakończenia menedżera zadań. TaskProcessorException służy do zawijania błędów "oczekiwane", gdzie określone informacje diagnostyczne mogą być dostarczane w ramach zakończenia.
+* `Configuration.cs`: Hermetyzuje ładowanie danych konfiguracji zadania, takich jak szczegóły konta, powiązane poświadczenia konta magazynu, informacje o zadaniach i zadaniach oraz parametry zadań. Zapewnia również dostęp do zmiennych środowiskowych zdefiniowanych przez partię (zobacz Ustawienia środowiska dla zadań, w dokumentacji usługi Batch) za pośrednictwem klasy Configuration. zmiennych środowiskowych.
+* `IConfiguration.cs`: Jest abstrakcyjna implementacja klasy konfiguracji, dzięki czemu można testować rozdzielacz zadania przy użyciu obiektu konfiguracji fałszywego lub makiety.
+* `TaskProcessorException.cs`: Reprezentuje błąd, który wymaga przerwania Menedżera zadań. TaskProcessorException jest używany do zawijania "oczekiwanych" błędów, w przypadku których konkretne informacje diagnostyczne mogą być dostarczane jako część zakończenia.
 
 **Procesor zadań**
 
-* `TaskProcessor.cs`: Uruchamia zadanie. Struktura wywołuje TaskProcessor.Run metody. Jest to klasa, w której można wstrzyknąć logiki specyficzne dla aplikacji zadania. Zaimplementuj run metody do:
-  * Analizuj i sprawdzaj poprawność parametrów zadania
-  * Skomponowanie wiersza polecenia dla dowolnego programu zewnętrznego, który ma zostać wywołany
-  * Rejestrowanie wszelkich informacji diagnostycznych, które mogą być wymagane do celów debugowania
-  * Rozpoczynanie procesu przy użyciu tego wiersza polecenia
+* `TaskProcessor.cs`: Uruchamia zadanie. Struktura wywołuje metodę TaskProcessor. Run. Jest to Klasa, w której zostanie wprowadzona logika specyficzna dla aplikacji. Zaimplementuj metodę Run, aby:
+  * Analizowanie i weryfikowanie wszelkich parametrów zadań
+  * Redaguj wiersz polecenia dla dowolnego programu zewnętrznego, który ma zostać wywołany
+  * Rejestruj wszystkie informacje diagnostyczne, które mogą być wymagane do celów debugowania
+  * Uruchamianie procesu przy użyciu tego wiersza polecenia
   * Poczekaj na zakończenie procesu
-  * Przechwyć kod zakończenia procesu, aby ustalić, czy zakończył się pomyślnie, czy nie
-  * Zapisywanie wszystkich plików wyjściowych, które chcesz zachować w pamięci trwałej
+  * Przechwyć kod zakończenia procesu, aby określić, czy zakończył się powodzeniem, czy niepowodzeniem
+  * Zapisz wszystkie pliki wyjściowe, które mają być przechowywane w magazynie trwałym
 
-**Standardowe pliki projektu wiersza polecenia .NET**
+**Standardowe pliki projektu wiersza polecenia platformy .NET**
 
-* `App.config`: Standardowy plik konfiguracyjny aplikacji .NET.
+* `App.config`: Standardowy plik konfiguracji aplikacji .NET.
 * `Packages.config`: Standardowy plik zależności pakietu NuGet.
 * `Program.cs`: Zawiera punkt wejścia programu i obsługę wyjątków najwyższego poziomu.
 
 ## <a name="implementing-the-task-processor"></a>Implementowanie procesora zadań
-Po otwarciu projektu szablonu procesora zadań projekt będzie domyślnie otwierany TaskProcessor.cs pliku. Logikę uruchamiania zadań w obciążeniu można zaimplementować przy użyciu metody Run() przedstawionej poniżej:
+Po otwarciu projektu szablonu procesora zadań projekt będzie miał domyślnie otwarty plik TaskProcessor.cs. Można zaimplementować logikę uruchamiania dla zadań w obciążeniu przy użyciu metody Run () pokazanej poniżej:
 
 ```csharp
 /// <summary>
@@ -347,44 +337,44 @@ public async Task<int> Run()
 }
 ```
 > [!NOTE]
-> Sekcja z adnotacjami w metodzie Run() jest jedyną sekcją kodu szablonu procesora zadań, który jest przeznaczony do modyfikowania przez dodanie logiki uruchamiania dla zadań w obciążeniu. Jeśli chcesz zmodyfikować inną sekcję szablonu, najpierw zapoznaj się z tym, jak działa usługa Batch, przeglądając dokumentację usługi Batch i wypróbując kilka przykładów kodu usługi Batch.
+> Sekcja z adnotacją w metodzie Run () jest jedyną sekcją kodu szablonu procesora zadań, która jest przeznaczona do modyfikacji przez dodanie logiki uruchamiania dla zadań w obciążeniu. Jeśli chcesz zmodyfikować inną sekcję szablonu, najpierw zapoznaj się z informacjami o tym, jak działa sekwencja zadań wsadowych, przeglądając dokumentację dotyczącą programu Batch i próbując wykonać kilka przykładów kodu partii.
 > 
 > 
 
-Run() Metoda jest odpowiedzialny za uruchomienie wiersza polecenia, uruchomienie jednego lub więcej procesów, oczekiwanie na zakończenie całego procesu, zapisywanie wyników i na koniec powrót z kodem zakończenia. Run() Metoda jest, gdzie można zaimplementować logikę przetwarzania dla zadań. Struktura procesora zadań wywołuje metodę Run() dla Ciebie; nie musisz nazywać tego sam.
+Metoda Run () jest odpowiedzialna za uruchamianie wiersza polecenia, uruchamianie jednego lub kilku procesów, oczekiwanie na zakończenie całego procesu, zapisywanie wyników i zwracanie kodu zakończenia. Metoda Run () służy do implementowania logiki przetwarzania dla zadań podrzędnych. Platforma procesora zadań wywołuje dla Ciebie metodę Run (). nie musisz samodzielnie dzwonić.
 
-Implementacja Run() ma dostęp do:
+Implementacja Run () ma dostęp do:
 
-* Parametry zadania za `_parameters` pośrednictwem pola.
-* Zadania i identyfikatory zadań, `_jobId` za `_taskId` pośrednictwem pól i.
-* Konfiguracja zadania za `_configuration` pośrednictwem pola.
+* Parametry zadania, za pomocą `_parameters` pola.
+* Identyfikatory zadań i zadań, za pomocą pól `_jobId` i `_taskId` .
+* Konfiguracja zadania, za pomocą `_configuration` pola.
 
-**Błąd zadania**
+**Niepowodzenie zadania**
 
-W przypadku awarii można zamknąć Run() metody, zgłaszając wyjątek, ale pozostawia to najwyższego poziomu obsługi wyjątków w kontroli kodu zakończenia zadania. Jeśli trzeba kontrolować kod zakończenia, dzięki czemu można odróżnić różne typy błędów, na przykład do celów diagnostycznych lub ponieważ niektóre tryby awarii należy zakończyć zadanie, a inne nie, następnie należy zakończyć Run(), zwracając kod zakończenia niezerowe. Staje się to kod zakończenia zadania.
+W przypadku awarii można wyjść z metody Run (), zgłaszając wyjątek, ale pozostawia obsługę wyjątków najwyższego poziomu w kontroli kodu zakończenia zadania. Jeśli musisz kontrolować kod zakończenia, aby można było rozróżnić różne typy błędów, na przykład dla celów diagnostycznych lub niektóre tryby awarii powinny kończyć zadanie, a inne nie powinny, a następnie należy zamknąć metodę Run (), zwracając kod zakończenia różny od zera. Zostanie to kod zakończenia zadania.
 
-### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Kody zakończenia i wyjątki w szablonie Procesor zadań
-Kody zakończenia i wyjątki zapewniają mechanizm do określenia wyniku uruchomienia programu i mogą pomóc zidentyfikować wszelkie problemy z wykonaniem programu. Szablon Procesor zadań implementuje kody zakończenia i wyjątki opisane w tej sekcji.
+### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Kody zakończenia i wyjątki w szablonie procesora zadań
+Kody i wyjątki wyjściowe zapewniają mechanizm określania wyniku działania programu i mogą pomóc w identyfikowaniu problemów z wykonywaniem programu. Szablon procesora zadań implementuje kody zakończenia i wyjątki opisane w tej sekcji.
 
-Zadanie procesora zadań zaimplementowane za pomocą szablonu Procesor zadań może zwrócić trzy możliwe kody zakończenia:
+Zadanie procesora zadań, które jest implementowane za pomocą szablonu procesora zadań, może zwracać trzy możliwe kody zakończenia:
 
 | Code | Opis |
 | --- | --- |
-| [Process.ExitCode][process_exitcode] |Procesor zadań został ukończony. Należy zauważyć, że nie oznacza to, że wywoływany program zakończył się pomyślnie — tylko, że procesor zadań wywołał go pomyślnie i wykonał wszelkie post-processing bez wyjątków. Znaczenie kodu zakończenia zależy od wywoływanego programu — zazwyczaj kod zakończenia 0 oznacza, że program zakończył się pomyślnie, a każdy inny kod zakończenia oznacza, że program nie powiódł się. |
-| 1 |Procesor zadań nie powiódł się z wyjątkiem w "oczekiwanej" części programu. Wyjątek został przetłumaczony `TaskProcessorException` na z informacjami diagnostycznymi i, w miarę możliwości, sugestie dotyczące rozwiązania błędu. |
-| 2 |Procesor zadań nie powiódł się z "nieoczekiwanym" wyjątkiem. Wyjątek został zarejestrowany w standardowym wyjściu, ale procesor zadań nie mógł dodać żadnych dodatkowych informacji diagnostycznych lub korygowania. |
+| [Process. ExitCode][process_exitcode] |Procesor zadań działał do ukończenia. Należy zauważyć, że nie oznacza to, że wywoływany program zakończył się powodzeniem — tylko pomyślnie wywołany przez niego procesor zadań i przeprowadzono wszystkie przetwarzanie końcowe bez wyjątków. Znaczenie kodu zakończenia zależy od wywoływanego programu — zazwyczaj kod zakończenia 0 oznacza, że program zakończył się powodzeniem, a jakikolwiek inny kod zakończenia oznacza, że program nie powiódł się. |
+| 1 |Procesor zadań nie powiódł się, ponieważ wystąpił wyjątek w części "oczekiwanej" programu. Wyjątek został przetłumaczony na `TaskProcessorException` informacje diagnostyczne i, gdzie to możliwe, sugestie dotyczące rozwiązania błędu. |
+| 2 |Procesor zadań nie powiódł się z powodu nieoczekiwanego wyjątku. Wyjątek został zarejestrowany w standardowym wyjściu, ale procesor zadań nie mógł dodać żadnych dodatkowych informacji diagnostycznych ani korygowania. |
 
 > [!NOTE]
-> Jeśli wywoływany program używa kodów zakończenia 1 i 2 do wskazania określonych trybów awarii, użycie kodów zakończenia 1 i 2 dla błędów procesora zadań jest niejednoznaczne. Te kody błędów procesora zadań można zmienić na charakterystyczne kody zakończenia, edytując przypadki wyjątków w pliku Program.cs.
+> Jeśli wywoływany program używa kodów zakończenia 1 i 2 w celu wskazania konkretnych trybów awarii, wówczas użycie kodów zakończenia 1 i 2 dla błędów procesora zadań jest niejednoznaczne. Można zmienić te kody błędów procesora zadań na charakterystyczne kody wyjścia, edytując przypadki wyjątków w pliku Program.cs.
 > 
 > 
 
-Wszystkie informacje zwracane przez wyjątki są zapisywane w plikach stdout.txt i stderr.txt. Aby uzyskać więcej informacji, zobacz obsługa błędów w dokumentacji usługi Batch.
+Wszystkie informacje zwrócone przez wyjątki są zapisywane w plikach stdout. txt i stderr. txt. Aby uzyskać więcej informacji, zobacz Obsługa błędów w dokumentacji usługi Batch.
 
-### <a name="client-considerations"></a>Uwagi klientów
+### <a name="client-considerations"></a>Uwagi dotyczące klienta
 **Poświadczenia magazynu**
 
-Jeśli procesor zadań używa magazynu obiektów blob platformy Azure do utrwalania danych wyjściowych, na przykład przy użyciu biblioteki pomocnika konwencji plików, następnie wymaga dostępu do poświadczeń konta magazynu w *chmurze* *lub* adresu URL kontenera obiektu blob, który zawiera sygnaturę dostępu współdzielonego (SAS). Szablon zawiera obsługę dostarczania poświadczeń za pośrednictwem wspólnych zmiennych środowiskowych. Klient może przekazać poświadczenia magazynu w następujący sposób:
+Jeśli procesor zadań korzysta z usługi Azure Blob Storage w celu utrwalania danych wyjściowych, na przykład przy użyciu biblioteki pomocnika Konwencji plików, musi mieć dostęp do poświadczeń konta *magazynu w chmurze* *lub* do adresu URL kontenera obiektów blob, który zawiera sygnaturę dostępu współdzielonego (SAS). Szablon obejmuje obsługę udostępniania poświadczeń za pomocą wspólnych zmiennych środowiskowych. Klient może przekazać poświadczenia magazynu w następujący sposób:
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {
@@ -393,50 +383,50 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-Konto magazynu jest następnie dostępne w Klasie TaskProcessor za pośrednictwem `_configuration.StorageAccount` właściwości.
+Konto magazynu jest następnie dostępne w klasie TaskProcessor za pośrednictwem `_configuration.StorageAccount` właściwości.
 
-Jeśli wolisz używać adresu URL kontenera z sygnaturą sygnatury dostępu Współdzielonego, możesz również przekazać to za pomocą wspólnego ustawienia środowiska zadania, ale szablon procesora zadań nie zawiera obecnie wbudowanej obsługi tej funkcji.
+Jeśli wolisz używać adresu URL kontenera z sygnaturą dostępu współdzielonego, możesz również przekazać je za pomocą typowego ustawienia środowiska zadania, ale szablon procesora zadania nie zawiera obecnie wbudowanej obsługi.
 
-**Konfiguracja pamięci masowej**
+**Konfiguracja magazynu**
 
-Zaleca się, aby zadanie klienta lub menedżera zadań utworzyło wszystkie kontenery wymagane przez zadania przed dodaniem zadań do zadania. Jest to obowiązkowe, jeśli używasz adresu URL kontenera z sygnaturą współdzieloną, ponieważ taki adres URL nie zawiera uprawnień do tworzenia kontenera. Zalecane jest, nawet jeśli przekazać poświadczenia konta magazynu, ponieważ zapisuje każde zadanie konieczności wywołania CloudBlobContainer.CreateIfNotExistsAsync w kontenerze.
+Zaleca się, aby zadanie klienta lub Menedżera zadań utworzyło wszystkie kontenery wymagane przez zadania przed dodaniem zadań do zadania. Jest to wymagane w przypadku używania adresu URL kontenera z sygnaturą dostępu współdzielonego, ponieważ taki adres URL nie obejmuje uprawnienia do tworzenia kontenera. Jest to zalecane nawet w przypadku przekazania poświadczeń konta magazynu, ponieważ zapisuje każde zadanie, które ma wywołać CloudBlobContainer. CreateIfNotExistsAsync na kontenerze.
 
-## <a name="pass-parameters-and-environment-variables"></a>Parametry przebiegu i zmienne środowiskowe
+## <a name="pass-parameters-and-environment-variables"></a>Przekazywanie parametrów i zmiennych środowiskowych
 ### <a name="pass-environment-settings"></a>Przekaż ustawienia środowiska
-Klient może przekazywać informacje do zadania menedżera zadań w postaci ustawień środowiska. Te informacje mogą być następnie używane przez zadanie menedżera zadań podczas generowania zadań procesora zadań, które będą uruchamiane jako część zadania obliczeniowego. Przykłady informacji, które można przekazać jako ustawienia środowiska są:
+Klient może przekazać informacje do zadania Menedżera zadań w postaci ustawień środowiska. Te informacje mogą być następnie używane przez zadanie Menedżera zadań podczas generowania zadań procesora zadań, które zostaną uruchomione w ramach zadania obliczeniowego. Przykłady informacji, które można przekazać jako ustawienia środowiska:
 
 * Nazwa konta magazynu i klucze konta
 * Adres URL konta wsadowego
-* Klucz konta wsadowego
+* Klucz konta w usłudze Batch
 
-Usługa Batch ma prosty mechanizm przekazywania ustawień środowiska do `EnvironmentSettings` zadania menedżera zadań przy użyciu właściwości w [witrynie Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
+Usługa Batch ma prosty mechanizm przekazywania ustawień środowiska do zadania Menedżera zadań przy użyciu `EnvironmentSettings` właściwości w [Microsoft. Azure. Batch. JobManagerTask][net_jobmanagertask].
 
-Na przykład, aby `BatchClient` uzyskać wystąpienie dla konta usługi Batch, można przekazać jako zmienne środowiskowe z kodu klienta adres URL i poświadczenia klucza udostępnionego dla konta usługi Batch. Podobnie, aby uzyskać dostęp do konta magazynu, który jest połączony z kontem usługi Batch, można przekazać nazwę konta magazynu i klucz konta magazynu jako zmienne środowiskowe.
+Na przykład aby uzyskać `BatchClient` wystąpienie dla konta usługi Batch, można przekazać jako zmienne środowiskowe z kodu klienta poświadczenia adresu URL i klucza współdzielonego dla konta usługi Batch. Analogicznie, aby uzyskać dostęp do konta magazynu połączonego z kontem wsadowym, można przekazać nazwę konta magazynu i klucz konta magazynu jako zmienne środowiskowe.
 
 ### <a name="pass-parameters-to-the-job-manager-template"></a>Przekazywanie parametrów do szablonu Menedżera zadań
-W wielu przypadkach warto przekazać parametry na zadanie do zadania menedżera zadań, aby kontrolować proces dzielenia zadań lub skonfigurować zadania dla zadania. Można to zrobić, przekazując plik JSON o nazwie parameters.json jako plik zasobów dla zadania menedżera zadań. Parametry mogą być następnie `JobSplitter._parameters` dostępne w polu w szablonie Menedżer zadań.
+W wielu przypadkach przydatne jest przekazywanie parametrów poszczególnych zadań do zadania Menedżera zadań w celu kontrolowania procesu dzielenia zadania lub konfigurowania zadań dla tego zadania. Można to zrobić, przekazując plik JSON o nazwie Parameters. JSON jako plik zasobów zadania Menedżera zadań. Parametry mogą następnie być dostępne w `JobSplitter._parameters` polu szablonu Menedżera zadań.
 
 > [!NOTE]
-> Wbudowany program obsługi parametrów obsługuje tylko słowniki ciąg-ciąg. Jeśli chcesz przekazać złożone wartości JSON jako wartości parametrów, należy przekazać je jako ciągi i przeanalizować je `Configuration.GetJobParameters` w rozdzielaczu zadań lub zmodyfikować metodę struktury.
+> Wbudowana procedura obsługi parametrów obsługuje tylko słowniki ciągów do ciągu. Jeśli chcesz przekazać złożone wartości JSON jako wartości parametrów, musisz przekazać je jako ciągi i przeanalizować je w rozdzielaczu zadania lub zmodyfikować `Configuration.GetJobParameters` metodę struktury.
 > 
 > 
 
 ### <a name="pass-parameters-to-the-task-processor-template"></a>Przekazywanie parametrów do szablonu procesora zadań
-Parametry można również przekazywać do poszczególnych zadań zaimplementowanych przy użyciu szablonu Procesor zadań. Podobnie jak w przypadku szablonu menedżera zadań, szablon procesora zadań wyszukuje plik zasobu o nazwie
+Parametry można także przekazać do poszczególnych zadań wdrożonych przy użyciu szablonu procesora zadań. Podobnie jak w przypadku szablonu Menedżera zadań szablon procesora zadań szuka pliku zasobów o nazwie
 
-parameters.json, a jeśli się okaże, ładuje go jako słownik parametrów. Istnieje kilka opcji przekazywania parametrów do zadań procesora zadań:
+Parameters. JSON i jeśli został znaleziony, ładuje go jako słownik parametrów. Istnieje kilka opcji przekazywania parametrów do zadań procesora zadań:
 
-* Ponowne użycie parametrów zadania JSON. Działa to dobrze, jeśli tylko parametry są te dla całej pracy (na przykład wysokość renderowania i szerokość). Aby to zrobić, podczas tworzenia CloudTask w rozdzielaczu zadań, należy dodać odwołanie do obiektu pliku zasobów parameters.json z zadania Menedżera zadań ResourceFiles (`JobSplitter._jobManagerTask.ResourceFiles`) do kolekcji ResourceFiles cloudtask.
-* Generowanie i przekazywanie dokumentu specyficznego dla zadania.json jako część wykonywania rozdzielacza zadań i odwoływanie się do tego obiektu blob w kolekcji plików zasobów zadania. Jest to konieczne, jeśli różne zadania mają różne parametry. Przykładem może być scenariusz renderowania 3D, w którym indeks ramki jest przekazywany do zadania jako parametr.
+* Ponownie Użyj kodu JSON parametrów zadania. Jest to dobre rozwiązanie, jeśli jedyne parametry są zależne od zadania (na przykład wysokość i szerokość renderowania). Aby to zrobić, podczas tworzenia CloudTask w rozdzielaczu zadań Dodaj odwołanie do obiektu plik zasobu Parameters. JSON z zadania Menedżera zadań ResourceFiles (`JobSplitter._jobManagerTask.ResourceFiles`) do kolekcji ResourceFiles CloudTask.
+* Generuj i przekazuj specyficzne dla zadania parametry. JSON jako część wykonywania zadania rozdzielacza i odwołują się do tego obiektu BLOB w kolekcji plików zasobów zadania. Jest to konieczne, jeśli różne zadania mają różne parametry. Przykładem może być scenariusz renderowania 3W, w którym indeks ramki jest przenoszona do zadania jako parametr.
 
 > [!NOTE]
-> Wbudowany program obsługi parametrów obsługuje tylko słowniki ciąg-ciąg. Jeśli chcesz przekazać złożone wartości JSON jako wartości parametrów, należy przekazać je jako ciągi i przeanalizować je `Configuration.GetTaskParameters` w procesorze zadań lub zmodyfikować metodę struktury.
+> Wbudowana procedura obsługi parametrów obsługuje tylko słowniki ciągów do ciągu. Jeśli chcesz przekazać złożone wartości JSON jako wartości parametrów, musisz przekazać je jako ciągi i przeanalizować je w procesorze zadań lub zmodyfikować `Configuration.GetTaskParameters` metodę struktury.
 > 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Utrwalanie danych wyjściowych zadania i zadania w usłudze Azure Storage
-Innym pomocnym narzędziem w opracowywaniu rozwiązania wsadowego jest [konwencje plików wsadowych platformy Azure.][nuget_package] Użyj tej biblioteki klas .NET (obecnie w wersji zapoznawczej) w aplikacjach usługi Batch .NET, aby łatwo przechowywać i pobierać dane wyjściowe zadań do i z usługi Azure Storage. [Persist Azure Batch zadanie i dane wyjściowe zadania](batch-task-output.md) zawiera pełną dyskusję na temat biblioteki i jej użycia.
+Innym przydatnym narzędziem do tworzenia rozwiązań wsadowych jest [Azure Batch Konwencji plików][nuget_package]. Ta biblioteka klas .NET (obecnie dostępna w wersji zapoznawczej) w aplikacjach wsadowych platformy .NET umożliwia łatwe przechowywanie i pobieranie danych wyjściowych zadań do i z usługi Azure Storage. [Utrwalaj Azure Batch zadanie i dane wyjściowe zadania](batch-task-output.md) zawierają pełną dyskusję biblioteki i jej użycia.
 
 
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx

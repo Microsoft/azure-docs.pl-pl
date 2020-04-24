@@ -1,6 +1,6 @@
 ---
-title: Szybki start platformy tożsamości firmy Microsoft dla systemu Windows
-description: Dowiedz się, jak aplikacja platformy .NET (XAML) dla pulpitu systemu Windows może uzyskać token dostępu i wywołać interfejs API chroniony przez punkt końcowy platformy tożsamości firmy Microsoft
+title: Microsoft Identity platform — szybki start dla systemu Windows Desktop
+description: Dowiedz się, w jaki sposób aplikacja Windows Desktop .NET (XAML) może uzyskać token dostępu i wywołać interfejs API chroniony przez punkt końcowy platformy tożsamości firmy Microsoft
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a464bb8a942c449e0b17751fbea7a810711cb48d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: e3674f7686679c27ad732fcaa92620703b91b5fc
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535999"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112613"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Szybki start: uzyskiwanie tokenu i wywoływanie interfejsu API programu Microsoft Graph z poziomu aplikacji klasycznej w systemie Windows
 
-W tym przewodniku Szybki start dowiesz się, jak napisać aplikację klasyczną .NET (WPF) w systemie Windows umożliwiającą logowanie się na kontach osobistych i służbowych, uzyskiwanie tokenów dostępu i wywoływanie interfejsu API programu Microsoft Graph. (Zobacz [Jak działa przykład](#how-the-sample-works) dla ilustracji).
+W tym przewodniku Szybki start dowiesz się, jak napisać aplikację klasyczną .NET (WPF) w systemie Windows umożliwiającą logowanie się na kontach osobistych i służbowych, uzyskiwanie tokenów dostępu i wywoływanie interfejsu API programu Microsoft Graph. (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Rejestrowanie i pobieranie aplikacji Szybki start
@@ -30,7 +30,7 @@ W tym przewodniku Szybki start dowiesz się, jak napisać aplikację klasyczną 
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opcja 1. Zarejestrowanie i automatyczne skonfigurowanie aplikacji, a następnie pobranie przykładowego kodu
 >
-> 1. Przejdź do nowego [portalu Azure — rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Przejdź do nowego [Azure Portal-rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 > 1. Wprowadź nazwę aplikacji i wybierz pozycję **Zarejestruj**.
 > 1. Postępuj zgodnie z instrukcjami, aby pobrać i automatycznie skonfigurować nową aplikację za pomocą tylko jednego kliknięcia.
 >
@@ -39,20 +39,20 @@ W tym przewodniku Szybki start dowiesz się, jak napisać aplikację klasyczną 
 > #### <a name="step-1-register-your-application"></a>Krok 1. Rejestrowanie aplikacji
 > Aby ręcznie zarejestrować aplikację i dodać informacje na temat rejestracji aplikacji do rozwiązania, wykonaj następujące czynności:
 >
-> 1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
+> 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 > 1. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
-> 1. Przejdź do platformy tożsamości firmy Microsoft dla deweloperów [Rejestracje aplikacji.](https://aka.ms/MobileAppReg)
-> 1. Wybierz **pozycję Nowa rejestracja**.
+> 1. Przejdź do bloku [Rejestracje aplikacji](https://aka.ms/MobileAppReg) Azure Active Directory w Azure Portal.
+> 1. Wybierz pozycję **Nowa rejestracja**.
 >      - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `Win-App-calling-MsGraph`.
 >      - W sekcji **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft (na przykład Skype, Xbox, Outlook.com)**.
 >      - Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 > 1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**.
-> 1. W sekcji **Redirect URIs** | **Suggested Redirect Redirect URI dla klientów publicznych (mobilnych, stacjonarnych)** użyj pliku **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+> 1. W sekcji **adresy** | URI przekierowania**sugerowane identyfikatory URI dla klientów publicznych (Mobile, Desktop)** Użyj **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 > 1. Wybierz pozycję **Zapisz**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Krok 1. Konfigurowanie aplikacji w witrynie Azure Portal
-> Aby przykładowy kod tego szybkiego startu działał, musisz **https://login.microsoftonline.com/common/oauth2/nativeclient**dodać adres URL odpowiedzi jako .
+> Aby uzyskać przykład kodu dla tego przewodnika Szybki Start, musisz dodać adres URL odpowiedzi jako **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Wprowadź tę zmianę automatycznie]()
 >
@@ -67,11 +67,11 @@ W tym przewodniku Szybki start dowiesz się, jak napisać aplikację klasyczną 
 > [!div class="sxs-lookup" renderon="portal"]
 > Uruchom projekt przy użyciu programu Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Pobierz przykładowy kod](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+> [Pobierz przykład kodu](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3: Aplikacja jest skonfigurowana i gotowa do uruchomienia
-> Skonfigurowaliśmy projekt z wartościami właściwości aplikacji i jest on gotowy do uruchomienia.
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3. Twoja aplikacja jest skonfigurowana i gotowa do uruchomienia
+> Twój projekt został skonfigurowany z wartościami właściwości aplikacji i jest gotowy do uruchomienia.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -100,11 +100,11 @@ W tym przewodniku Szybki start dowiesz się, jak napisać aplikację klasyczną 
 
 ## <a name="more-information"></a>Więcej informacji
 
-### <a name="how-the-sample-works"></a>Jak działa próbka
-![Pokazuje, jak działa przykładowa aplikacja generowana przez ten szybki start](media/quickstart-v2-windows-desktop/windesktop-intro.svg)
+### <a name="how-the-sample-works"></a>Jak działa przykład
+![Pokazuje sposób działania przykładowej aplikacji wygenerowanej przez ten przewodnik Szybki Start](media/quickstart-v2-windows-desktop/windesktop-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) to biblioteka używana do logowania użytkowników i żądania tokenów używanych do uzyskiwania dostępu do interfejsu API chronionego przez platformę tożsamości firmy Microsoft. Bibliotekę MSAL można zainstalować, uruchamiając następujące polecenie w **Konsoli menedżera pakietów** programu Visual Studio:
+MSAL ([Microsoft. Identity. Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) to biblioteka służąca do logowania użytkowników i żądania tokenów używanych w celu uzyskania dostępu do interfejsu API chronionego przez platformę tożsamości firmy Microsoft. Bibliotekę MSAL można zainstalować, uruchamiając następujące polecenie w **Konsoli menedżera pakietów** programu Visual Studio:
 
 ```powershell
 Install-Package Microsoft.Identity.Client -IncludePrerelease
@@ -138,7 +138,7 @@ Biblioteka MSAL oferuje dwie metody uzyskiwania tokenów: `AcquireTokenInteracti
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Niektóre sytuacje wymagają wymuszania interakcji użytkowników z punktem końcowym platformy tożsamości firmy Microsoft za pośrednictwem okna podręcznego, aby zweryfikować swoje poświadczenia lub wyrazić zgodę. Oto niektóre przykłady:
+W niektórych sytuacjach należy wymusić, aby użytkownicy korzystali z punktu końcowego platformy tożsamości firmy Microsoft za pomocą okna podręcznego w celu sprawdzenia poprawności poświadczeń lub udzielenia zgody. Oto niektóre przykłady:
 
 - Gdy nowi użytkownicy logują się do aplikacji po raz pierwszy.
 - Gdy użytkownicy muszą ponownie wprowadzić poświadczenia, ponieważ hasło wygasło.
@@ -152,7 +152,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 > |Gdzie:||
 > |---------|---------|
-> | `_scopes` | Zawiera żądane zakresy, takie `{ "user.read" }` jak program `{ "api://<Application ID>/access_as_user" }` Microsoft Graph lub niestandardowe interfejsy API sieci Web. |
+> | `_scopes` | Zawiera żądane zakresy, takie jak `{ "user.read" }` dla Microsoft Graph lub `{ "api://<Application ID>/access_as_user" }` niestandardowych interfejsów API sieci Web. |
 
 #### <a name="get-a-user-token-silently"></a>Dyskretne pobieranie tokenu użytkownika
 
@@ -167,7 +167,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 
 > |Gdzie: ||
 > |---------|---------|
-> | `scopes` | Zawiera żądane zakresy, takie `{ "user.read" }` jak program `{ "api://<Application ID>/access_as_user" }` Microsoft Graph lub niestandardowe interfejsy API sieci Web. |
+> | `scopes` | Zawiera żądane zakresy, takie jak `{ "user.read" }` dla Microsoft Graph lub `{ "api://<Application ID>/access_as_user" }` niestandardowych interfejsów API sieci Web. |
 > | `firstAccount` | Określa pierwszego użytkownika w pamięci podręcznej (biblioteka MSAL obsługuje wielu użytkowników w jednej aplikacji). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

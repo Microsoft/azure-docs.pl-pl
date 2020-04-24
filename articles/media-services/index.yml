@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: a1c31725883204f473a46a3d20ca6fd4bbd741e8
-  ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+  ms.openlocfilehash: 2f2049f710dcdbb210594331fa69e6743f5e431e
+  ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
   ms.translationtype: HT
   ms.contentlocale: pl-PL
   ms.lasthandoff: 04/22/2020
-  ms.locfileid: "81755339"
+  ms.locfileid: "81869309"
 highlightedContent:
   items:
   - title: Informacje o usłudze Azure Media Services w wersji 3
@@ -39,9 +39,6 @@ highlightedContent:
   - title: Migrowanie usługi Media Services z wersji 2 do wersji 3
     itemType: concept
     url: ./latest/migrate-from-v2-to-v3.md
-  - title: Specyfikacje usługi Azure Media Services
-    itemType: concept
-    url: media-services-specifications-live-timed-metadata.md
   - title: Azure Media Player
     itemType: overview
     url: azure-media-player/azure-media-player-overview.md
@@ -55,6 +52,9 @@ conceptualContent:
     - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
       itemType: sample
       text: Przykłady kodu
+    - url: ./latest/release-notes.md
+      itemType: concept
+      text: Informacje o nowościach w usłudze Media Services w wersji 3
   - title: Przesyłanie strumieniowe na żywo
     links:
     - url: ./latest/live-streaming-overview.md
@@ -99,6 +99,17 @@ conceptualContent:
     - url: ./latest/analyze-videos-tutorial-with-api.md
       itemType: tutorial
       text: Analizowanie wideo
+  - title: Informacje o specyfikacjach usługi Media Services
+    links:
+    - url: media-services-specifications-live-timed-metadata.md
+      itemType: concept
+      text: Metadane czasowe w transmisji strumieniowej na żywo (RTMP & Smooth Streaming)
+    - url: media-services-specifications-ms-sstr-amendment-hevc.md
+      itemType: concept
+      text: Poprawka protokołu Smooth Streaming (MS-SSTR) dla standardu HEVC
+    - url: media-services-fmp4-live-ingest-overview.md
+      itemType: concept
+      text: Smooth Streaming — protokół pozyskiwania
 additionalContent:
   sections:
   - items:

@@ -1,27 +1,19 @@
 ---
-title: Azure Batch Analytics
-description: Tematy w analizie wsadowej zawierają informacje referencyjne dotyczące zdarzeń i alertów dostępnych dla zasobów usługi wsadowej.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
+title: Analiza Azure Batch
+description: Tematy w usłudze Batch Analytics zawierają informacje referencyjne dotyczące zdarzeń i alertów dostępnych dla zasobów usługi Batch.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: d9538461dfa48a961f9325566b2adaf265e8daeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d35bf249a3ae5dd06f42b89c3d5c2773f9508603
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77025966"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113072"
 ---
 # <a name="batch-analytics"></a>Analiza danych usługi Batch
-Tematy w analizie wsadowej zawierają informacje referencyjne dotyczące zdarzeń i alertów dostępnych dla zasobów usługi wsadowej.
+Tematy w usłudze Batch Analytics zawierają informacje referencyjne dotyczące zdarzeń i alertów dostępnych dla zasobów usługi Batch.
 
-Zobacz [rejestrowanie diagnostyczne usługi Azure Batch, aby](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) uzyskać więcej informacji na temat włączania i korzystania z dzienników diagnostycznych partii.
+Aby uzyskać więcej informacji na temat włączania i używania dzienników diagnostycznych usługi Batch, zobacz [Azure Batch rejestrowanie diagnostyczne](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) .
 
 ## <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
 
@@ -30,9 +22,9 @@ Usługa Azure Batch emituje następujące zdarzenia dziennika diagnostycznego w 
 **Zdarzenia dziennika usługi**
 * [Tworzenie puli](batch-pool-create-event.md)
 * [Początek usuwania puli](batch-pool-delete-start-event.md)
-* [Ukończono usuwanie puli](batch-pool-delete-complete-event.md)
-* [Rozpoczęcie ponownego rozmiaru puli](batch-pool-resize-start-event.md)
-* [Rozmiar rozmiaru puli został ukończony](batch-pool-resize-complete-event.md)
+* [Ukończono Usuwanie puli](batch-pool-delete-complete-event.md)
+* [Początek zmiany rozmiaru puli](batch-pool-resize-start-event.md)
+* [Ukończono Zmienianie rozmiaru puli](batch-pool-resize-complete-event.md)
 * [Rozpoczęcie zadania](batch-task-start-event.md)
-* [Zadanie ukończone](batch-task-complete-event.md)
+* [Zadanie zakończone](batch-task-complete-event.md)
 * [Niepowodzenie zadania](batch-task-fail-event.md)

@@ -112,7 +112,7 @@
           displayName: 'request units, RUs, RU'
           href: scaling-throughput.md
         - name: Typy konfliktów i zasady ich rozwiązywania
-          displayName: 'last write wins, custom'
+          displayName: 'last write wins, custom, multi master, multi-master'
           href: conflict-resolution-policies.md
         - name: Dystrybucja globalna — szczegóły działania
           href: global-dist-under-the-hood.md
@@ -1180,8 +1180,8 @@
       href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
-    - name: Korzyści z wielowzorcowości
-      href: multi-master-benefits.md
+    - name: Poziomy wydajności
+      href: performance-levels.md
     - name: Przypadki zastosowań
       items:
         - name: Typowe przypadki użycia

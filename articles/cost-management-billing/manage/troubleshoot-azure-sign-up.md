@@ -1,27 +1,28 @@
 ---
-title: Rozwiązywanie problemów z tworzeniem konta na platformie Azure
-description: Rozwiązywanie problemu, który może wystąpić przy próbie utworzenia nowego konta w centrum konta w witrynie Microsoft Azure Portal.
+title: Nie można utworzyć nowego konta platformy Azure
+description: Rozwiązywanie problemu, który może wystąpić przy próbie utworzenia nowego konta w Centrum konta w witrynie Microsoft Azure Portal.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 540cb5b4ca8f78c734fbc7dcd16358be8eb391c0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e8536555e3763674a2c018182e70f8d50e11556b
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409452"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641733"
 ---
-# <a name="troubleshoot-azure-sign-up"></a>Rozwiązywanie problemów z tworzeniem konta na platformie Azure
+# <a name="troubleshoot-issues-when-you-sign-up-a-new-account-in-azure-portal-or-azure-account-center"></a>Rozwiązywanie problemów podczas tworzenia nowego konta w witrynie Azure Portal lub Centrum konta platformy Azure
 
 Podczas próby utworzenia nowego konta w witrynie Microsoft Azure Portal lub w Centrum konta platformy Azure może wystąpić problem. Przed rozwiązaniem tego problemu należy najpierw sprawdzić następujące kwestie:
 
 - Informacje podane dla Twojego profilu konta platformy Azure (w tym kontaktowy adres e-mail, adres i numer telefonu) są poprawne.
 - Informacje o karcie kredytowej są poprawne.
-- Nie masz jeszcze konta Microsoft z tymi samymi informacjami.
+- Nie masz jeszcze konta Microsoft używającego tych samych informacji.
 
 ## <a name="resolutions"></a>Rozwiązania
 
@@ -84,7 +85,7 @@ Czy w przeszłości używano subskrypcji platformy Azure? Umowa dotycząca warun
 
 ### <a name="i-saw-a-charge-on-my-free-trial-account"></a>Widzę opłatę za konto bezpłatnej wersji próbnej
 
-Gdy utworzysz nowe, możesz zauważyć niewielkie wstrzymanie weryfikacji na koncie karty kredytowej. Zostanie ono usunięte w ciągu trzech do pięciu dni. Jeśli martwisz się o zarządzanie kosztami, przeczytaj więcej na temat [zapobiegania nieoczekiwanym kosztom](getting-started.md).
+Gdy utworzysz konto, możesz zauważyć transakcję weryfikacyjną, która blokuje niewielką kwotę na koncie karty kredytowej. Zostanie ono usunięte w ciągu trzech do pięciu dni. Jeśli martwisz się o zarządzanie kosztami, przeczytaj więcej na temat [zapobiegania nieoczekiwanym kosztom](getting-started.md).
 
 ### <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Nie można aktywować planu korzyści platformy Azure, takiego jak MSDN, BizSpark, BizSparkPlus lub MPN
 

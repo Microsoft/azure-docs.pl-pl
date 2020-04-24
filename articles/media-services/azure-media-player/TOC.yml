@@ -32,10 +32,12 @@
       href: azure-media-player-plugin-gallery.md
     - name: Lokalizacja
       href: azure-media-player-localization.md
+- name: Samples
+  items:
+    - name: Przykłady usługi Azure Media Player
+      href: 'https://github.com/Azure-Samples/azure-media-player-samples'
 - name: Dokumentacja
   items:
-    - name: Samples
-      href: 'https://github.com/Azure-Samples/azure-media-player-samples'
     - name: Interfejs API
       href: 'https://docs.microsoft.com/en-us/javascript/api/azuremediaplayer/?view=azure-node-latest'
     - name: Metody interfejsu API

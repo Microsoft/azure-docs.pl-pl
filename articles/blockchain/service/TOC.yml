@@ -7,10 +7,12 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Tworzenie elementu członkowskiego — portal
+    - name: Tworzenie elementu członkowskiego przy użyciu portalu
       href: create-member.md
-    - name: Tworzenie elementu członkowskiego — interfejs wiersza polecenia
+    - name: Tworzenie elementu członkowskiego przy użyciu interfejsu wiersza polecenia
       href: create-member-cli.md
+    - name: Tworzenie elementu członkowskiego przy użyciu szablonu
+      href: create-member-template.md
     - name: Łączenie z węzłem transakcji
       items:
         - name: Korzystanie z programu VS Code

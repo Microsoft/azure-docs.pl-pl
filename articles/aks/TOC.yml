@@ -20,8 +20,8 @@
     - name: Tworzenie aplikacji
       expanded: true
       items:
-        - name: Korzystanie z narzędzia Draft
-          href: kubernetes-draft.md
+        - name: Tworzenie przy użyciu zestawu Helm
+          href: quickstart-helm.md
         - name: Azure Dev Spaces
           expanded: true
           items:
@@ -316,7 +316,7 @@
                 - name: 3 — Programowanie zespołowe
                   href: ../dev-spaces/team-development-nodejs.md
                   maintainContext: true
-        - name: Uruchamianie aplikacji za pomocą narzędzia Helm
+        - name: Instalowanie istniejących aplikacji za pomocą zestawu Helm
           href: kubernetes-helm.md
         - name: Korzystanie z usługi OpenFaaS
           href: openfaas.md

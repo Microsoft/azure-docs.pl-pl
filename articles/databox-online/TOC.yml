@@ -51,7 +51,9 @@
           href: data-box-edge-contact-microsoft-support.md
     - name: Informacje o wersji
       items:
-        - name: 1906 — bieżąca
+        - name: 1911 — bieżąca
+          href: data-box-gateway-1911-release-notes.md
+        - name: 1906
           href: data-box-gateway-1906-release-notes.md
         - name: 1905
           href: data-box-gateway-1905-release-notes.md
@@ -117,7 +119,9 @@
           href: data-box-edge-return-device.md
     - name: Informacje o wersji
       items:
-        - name: 1906 — bieżąca
+        - name: 1911 — bieżąca
+          href: data-box-gateway-1911-release-notes.md
+        - name: 1906
           href: data-box-gateway-1906-release-notes.md
         - name: 1905
           href: data-box-gateway-1905-release-notes.md
@@ -129,5 +133,5 @@
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
     - name: Produkt Azure Stack Edge/Data Box Gateway
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

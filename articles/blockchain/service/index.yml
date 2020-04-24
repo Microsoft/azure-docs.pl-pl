@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 11/04/2019
-  ms.openlocfilehash: c388f08ae3e1323af48f486730699aee4f205468
-  ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+  ms.openlocfilehash: 216dbd52531807d471066b01151fba841df308b6
+  ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/27/2020
-  ms.locfileid: "80348325"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82084978"
 landingContent:
 - title: Informacje o usłudze Azure Blockchain
   linkLists:
@@ -39,6 +39,8 @@ landingContent:
       url: create-member.md
     - text: Tworzenie węzłów członkowskich łańcucha bloków — interfejs wiersza polecenia
       url: create-member-cli.md
+    - text: Tworzenie przy użyciu szablonu usługi ARM
+      url: create-member-template.md
   - linkListType: quickstart
     links:
     - text: Łączenie z siecią konsorcjum za pomocą programu Visual Studio Code

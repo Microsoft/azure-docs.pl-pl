@@ -441,7 +441,7 @@
           href: ./partner-center-portal/manage-account.md
         - name: Znajdowanie lub tworzenie firmowego konta służbowego
           href: ./partner-center-portal/company-work-accounts.md
-        - name: Migracja kont z witryny CPP do Centrum partnerskiego
+        - name: Migracja kont z witryny CPP do portalu Partner Center
           href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Tworzenie nowej oferty
       items:

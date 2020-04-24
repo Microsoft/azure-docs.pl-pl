@@ -1,48 +1,42 @@
 ---
-title: Wprowadzenie do uwierzytelniania w usłudze Azure Automation
+title: Wprowadzenie do uwierzytelniania w Azure Automation
 description: Ten artykuł zawiera przegląd zabezpieczeń usługi Automation i różnych dostępnych metod uwierzytelniania dla kont usługi Azure Automation.
 keywords: zabezpieczenia usługi automation, bezpieczna usługa automation, uwierzytelnianie usługi automation
 services: automation
 ms.subservice: process-automation
-ms.date: 03/19/2018
+ms.date: 04/23/2020
 ms.topic: conceptual
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6c823e613bdc6566b683d600051d7c0315979cf6
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 109bb6dd29ea9c4239e0abcfc668f1185f7e9783
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604802"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82114534"
 ---
-# <a name="introduction-to-authentication-in-azure-automation"></a>Wprowadzenie do uwierzytelniania w usłudze Azure Automation  
-Usługa Azure Automation pozwala na zautomatyzowanie zadań w odniesieniu do zasobów platformy Azure, a także zasobów lokalnych oraz pochodzących od innych dostawców chmury, takich jak usługa Amazon Web Services (AWS).  Aby element Runbook mógł wykonać żądane działania, musi mieć uprawnienia do bezpiecznego dostępu do zasobów z minimalnymi prawami wymaganymi w ramach subskrypcji.
+# <a name="introduction-to-authentication-in-azure-automation"></a>Wprowadzenie do uwierzytelniania w usłudze Azure Automation
 
-W tym artykule uwzględniono różne scenariusze uwierzytelniania obsługiwane przez usługę Azure Automation i opisano, w jaki sposób można rozpocząć pracę w zależności od środowiska lub środowisk, którymi trzeba zarządzać.  
+Usługa Azure Automation pozwala na zautomatyzowanie zadań w odniesieniu do zasobów platformy Azure, a także zasobów lokalnych oraz pochodzących od innych dostawców chmury, takich jak usługa Amazon Web Services (AWS). Aby element Runbook mógł wykonać żądane działania, musi mieć uprawnienia do bezpiecznego dostępu do zasobów z minimalnymi prawami wymaganymi w ramach subskrypcji.
+
+W tym artykule opisano różne scenariusze uwierzytelniania obsługiwane przez Azure Automation oraz sposób rozpoczynania pracy w oparciu o środowisko lub środowiska, którymi trzeba zarządzać.  
 
 ## <a name="automation-account-overview"></a>Konto usługi Automation — omówienie
-Kiedy uruchamiasz usługę Azure Automation po raz pierwszy, musisz utworzyć co najmniej jedno konto usługi Automation. Konta usługi Automation umożliwiają izolowanie zasobów usługi Automation (elementy Runbook, elementy zawartości, konfiguracje) od zasobów znajdujących się na innych kontach usługi Automation. Konta usługi Automation można wykorzystać do rozdzielenia zasobów w ramach oddzielnych środowisk logicznych. Na przykład jednego konta można użyć dla środowiska rozwojowego, innego dla produkcyjnego, a jeszcze innego dla lokalnego.  Konto usługi Azure Automation różni się od konta Microsoft lub kont utworzonych w ramach subskrypcji platformy Azure.
+
+Kiedy uruchamiasz usługę Azure Automation po raz pierwszy, musisz utworzyć co najmniej jedno konto usługi Automation. Konta usługi Automation umożliwiają izolowanie zasobów usługi Automation (elementy Runbook, elementy zawartości, konfiguracje) od zasobów znajdujących się na innych kontach usługi Automation. Konta usługi Automation można wykorzystać do rozdzielenia zasobów w ramach oddzielnych środowisk logicznych. Na przykład jednego konta można użyć dla środowiska rozwojowego, innego dla produkcyjnego, a jeszcze innego dla lokalnego. Konto usługi Azure Automation różni się od konta Microsoft lub kont utworzonych w ramach subskrypcji platformy Azure.
 
 Zasoby usługi Automation na poszczególnych kontach są skojarzone z pojedynczym regionem świadczenia usługi Azure, ale za pomocą kont usługi Automation można zarządzać wszystkimi zasobami w ramach subskrypcji. Głównym powodem tworzenia kont usługi Automation w różnych regionach jest istnienie zasad, które wymagają, aby dane i zasoby były izolowane w określonym regionie.
 
-Wszystkie zadania, które wykonuje się w odniesieniu do zasobów za pomocą usługi Azure Resource Manager i poleceń cmdlet platformy Azure w usłudze Azure Automation, muszą zostać uwierzytelnione na platformie Azure przy użyciu funkcji uwierzytelniania opartego na poświadczeniu tożsamości organizacyjnej w usłudze Azure Active Directory.  Uwierzytelnianie oparte na certyfikatach było pierwotną metodą uwierzytelniania za pomocą klasycznej platformy Azure, ale jego konfigurowanie było skomplikowane.  Uwierzytelnianie na platformie Azure za pomocą użytkownika usługi Azure AD zostało wprowadzone w 2014 roku nie tylko po to, aby uprościć proces konfigurowania konta usługi Automation, ale także po to, aby umożliwić uwierzytelnianie nieinteraktywne na platformie Azure za pomocą jednego konta użytkownika, które współdziała zarówno z usługą Azure Resource Manager, jak i zasobami klasycznymi.   
+Wszystkie zadania, które wykonuje się w odniesieniu do zasobów za pomocą usługi Azure Resource Manager i poleceń cmdlet platformy Azure w usłudze Azure Automation, muszą zostać uwierzytelnione na platformie Azure przy użyciu funkcji uwierzytelniania opartego na poświadczeniu tożsamości organizacyjnej w usłudze Azure Active Directory. Konta Uruchom jako w Azure Automation umożliwiają uwierzytelnianie w celu zarządzania zasobami na platformie Azure przy użyciu poleceń cmdlet platformy Azure. Podczas tworzenia konta Uruchom jako jest tworzony nowy użytkownik głównej nazwy usługi w Azure Active Directory (AD) i przypisuje rolę współautor do tego użytkownika na poziomie subskrypcji. W przypadku elementów Runbook, które używają hybrydowych procesów roboczych elementów Runbook na maszynach wirtualnych platformy Azure, można używać [tożsamości zarządzanych dla zasobów platformy Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) zamiast kont Uruchom jako do uwierzytelniania w zasobach platformy Azure.
 
-Obecnie po utworzeniu nowego konta usługi Automation witryna Azure Portal automatycznie tworzy:
+Nazwa główna usługi dla konta Uruchom jako nie ma uprawnień do domyślnego odczytywania usługi Azure AD. Jeśli chcesz dodać uprawnienia do odczytu lub zarządzania usługą Azure AD, musisz udzielić uprawnień do nazwy głównej usługi w obszarze **uprawnienia interfejsu API**. Aby dowiedzieć się więcej, zobacz [Dodawanie uprawnień dostępu do interfejsów API sieci Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
-* Konto Uruchom jako, które tworzy nową nazwę główną usługi w usłudze Azure Active Directory i certyfikat oraz przypisuje rolę Współautor kontroli dostępu opartej na rolach (RBAC), która jest używana do zarządzania zasobami usługi Resource Manager za pomocą elementów runbook.
-* Klasyczne konto Uruchom jako przez przekazanie certyfikatu zarządzania, które jest używane do zarządzania klasycznymi zasobami platformy Azure przy użyciu elementów runbook.  
+Dostępna w usłudze Azure Resource Manager kontrola dostępu oparta na rolach umożliwia przypisywanie praw wykonywania dozwolonych akcji do konta użytkownika usługi Azure AD i konta Uruchom jako oraz pozwala na uwierzytelnianie tego obiektu głównego usługi. Dalsze informacje pomagające w tworzeniu modelu zarządzania uprawnieniami w usłudze Automation można znaleźć w artykule [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).  
 
-Dostępna w usłudze Azure Resource Manager kontrola dostępu oparta na rolach umożliwia przypisywanie praw wykonywania dozwolonych akcji do konta użytkownika usługi Azure AD i konta Uruchom jako oraz pozwala na uwierzytelnianie tego obiektu głównego usługi.  Dalsze informacje pomagające w tworzeniu modelu zarządzania uprawnieniami w usłudze Automation można znaleźć w artykule [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).  
+Elementy Runbook działające w ramach hybrydowego procesu roboczego elementu Runbook w centrum danych lub w przypadku usług obliczeniowych w innych środowiskach chmurowych, takich jak AWS, nie mogą korzystać z tej samej metody, która jest zwykle używana w przypadku elementów Runbook uwierzytelnianych w zasobach platformy Azure. Jest to spowodowane faktem, że te zasoby działają poza platformą Azure i dlatego wymagają własnych poświadczeń zabezpieczeń zdefiniowanych w usłudze Automation do uwierzytelniania w zasobach, z których korzystają lokalnie. Aby uzyskać więcej informacji na temat uwierzytelniania elementów Runbook w ramach procesów roboczych elementów Runbook, zobacz temat [uwierzytelnianie elementów Runbook dla hybrydowych procesów roboczych elementów Runbook](automation-hrw-run-runbooks.md). 
 
-Elementy Runbook uruchomione w ramach hybrydowego procesu roboczego elementu Runbook w centrum danych lub względem usług obliczeniowych AWS nie mogą korzystać z tej samej metody, która jest zwykle używana w odniesieniu do elementów Runbook uwierzytelnianych w zasobach platformy Azure.  Jest to spowodowane faktem, że te zasoby działają poza platformą Azure i dlatego wymagają własnych poświadczeń zabezpieczeń zdefiniowanych w usłudze Automation do uwierzytelniania w zasobach, z których korzystają lokalnie.  
+## <a name="next-steps"></a>Następne kroki
 
-## <a name="authentication-methods"></a>Metody uwierzytelniania
-Poniższa tabela zawiera zestawienie różnych metod uwierzytelniania dla środowisk obsługiwanych przez usługę Azure Automation oraz linki do artykułów opisujących sposób konfigurowania uwierzytelniania dla elementów Runbook.
+* [Utwórz konto usługi Automation na podstawie Azure Portal](automation-create-standalone-account.md).
 
-| Metoda | Środowisko | Artykuł |
-| --- | --- | --- |
-| Konto użytkownika usługi Azure AD |Usługa Azure Resource Manager i klasyczna platforma Azure |[Uwierzytelnianie elementów Runbook przy użyciu konta użytkownika usługi Azure AD](automation-create-aduser-account.md) |
-| Konto Uruchom jako platformy Azure |Azure Resource Manager |[Uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md) |
-| Klasyczne konto Uruchom jako platformy Azure |Klasyczny portal Azure |[Uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md) |
-| Uwierzytelnianie systemu Windows |Lokalne centrum danych |[Uwierzytelnianie elementów Runbook dla hybrydowych procesów roboczych Runbook](automation-hybrid-runbook-worker.md) |
-| Poświadczenia AWS |Amazon Web Services |[Uwierzytelnianie elementów Runbook w usłudze Amazon Web Services](automation-config-aws-account.md) |
+* [Utwórz konto usługi Automation przy użyciu szablonu Azure Resource Manager](automation-create-account-template.md).
 
+* [Uwierzytelnianie za pomocą Amazon Web Services (AWS)](automation-config-aws-account.md).

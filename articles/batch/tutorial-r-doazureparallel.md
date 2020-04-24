@@ -1,22 +1,16 @@
 ---
 title: Równoległa symulacja języka R w usłudze Azure Batch
 description: Samouczek — Instrukcje krok po kroku umożliwiające uruchomienie symulacji finansowej Monte Carlo w usłudze Azure Batch za pomocą pakietu języka R doAzureParallel
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 64daede5de4f2d1bbc69c65f88fe5b5875a0a5b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c9708360df4a7fb711a3d57b39f33c576c75a0d5
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77025847"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117101"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Samouczek: równoległe uruchamianie symulacji języka R w usłudze Azure Batch 
 
@@ -40,7 +34,7 @@ Z tego samouczka dowiesz się, jak wdrożyć pulę usługi Azure Batch i uruchom
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>Instalowanie pakietu doAzureParallel
@@ -226,7 +220,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time() 
 ```
 
-Symulacja rozdziela zadania podrzędne do węzłów w puli usługi Batch. Możesz zobaczyć tę aktywność na mapie cieplnej puli w witrynie Azure Portal. Przejdź do **konta wsadowego** > *myBatchAccount*. Kliknij **pozycję Pule** > *myPoolName*. 
+Symulacja rozdziela zadania podrzędne do węzłów w puli usługi Batch. Możesz zobaczyć tę aktywność na mapie cieplnej puli w witrynie Azure Portal. Przejdź do pozycji >  **konta wsadowe***myBatchAccount*. Kliknij pozycję **Pule** > moja*Pula*. 
 
 ![Mapa cieplna puli z uruchomionymi równoległymi zadaniami języka R](media/tutorial-r-doazureparallel/pool.png)
 

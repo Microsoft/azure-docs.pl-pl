@@ -149,8 +149,9 @@
             - name: Używanie linku prywatnego
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: Zabezpieczanie usług internetowych przy użyciu protokołu SSL
+            - name: Zabezpieczanie usług internetowych przy użyciu protokołu TLS
               href: how-to-secure-web-service.md
+              displayName: ssl
             - name: Korzystanie z tożsamości usługi Azure AD we wdrożeniach usługi AKS
               href: how-to-use-azure-ad-identity.md
             - name: Ponowne generowanie kluczy dostępu do magazynu

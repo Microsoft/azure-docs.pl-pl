@@ -1,25 +1,15 @@
 ---
-title: Wprowadzenie do interfejsu wiersza polecenia platformy Azure dla usługi Batch | Microsoft Docs
+title: Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure dla usługi Batch
 description: Skorzystaj z szybkiego wprowadzenia do poleceń usługi Batch w interfejsie wiersza polecenia platformy Azure, aby zarządzać zasobami usługi Azure Batch
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
-ms.service: batch
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30f71432ca008b87bddfb253f23ae3cef0ac390d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77020186"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117373"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -62,7 +52,7 @@ Aby używać interfejsu wiersza polecenia platformy Azure z usługą Batch, nale
 Istnieje kilka różnych sposobów logowania się na platformie Azure. Opisano je szczegółowo w artykule [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli):
 
 1. [Logowanie interakcyjne](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Zaloguj się interakcyjnie, gdy samodzielnie uruchamiasz polecenia interfejsu wiersza polecenia platformy Azure w wierszu polecenia.
-2. [Zaloguj się za pomocą jednostki usługi](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Zaloguj się za pomocą jednostki usługi, gdy uruchamiasz polecenia interfejsu wiersza polecenia platformy Azure za pomocą skryptu lub aplikacji.
+2. [Zaloguj się przy użyciu nazwy głównej usługi](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Zaloguj się za pomocą jednostki usługi, gdy uruchamiasz polecenia interfejsu wiersza polecenia platformy Azure za pomocą skryptu lub aplikacji.
 
 Na potrzeby tego artykułu wyjaśnimy, jak zalogować się interakcyjnie. W wierszu polecenia wpisz [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login):
 
@@ -97,7 +87,7 @@ Dostępne są dwie opcje uwierzytelnienia na koncie usługi Batch:
     az batch account login -g myresource group -n mybatchaccount
     ```
 
-- **Za pomocą uwierzytelniania klucza udostępnionego**
+- **Przy użyciu uwierzytelniania klucza współużytkowanego**
 
     [Uwierzytelnianie klucza wspólnego](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) polega na uwierzytelnianiu poleceń interfejsu wiersza polecenia platformy Azure dla usługi Batch za pomocą kluczy dostępu konta.
 

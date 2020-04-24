@@ -1,21 +1,15 @@
 ---
 title: Szybki start na platformie Azure — uruchamianie zadania usługi Batch — .NET
-description: Szybkie uruchamianie przykładowego zadania usługi Azure Batch i zadań z aplikacji języka C# za pomocą biblioteki klienta usługi Batch .NET.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.devlang: dotnet
+description: Szybkie uruchamianie Azure Batch przykładowego zadania i zadań z aplikacji w języku C# przy użyciu biblioteki klienckiej usługi Batch .NET.
 ms.topic: quickstart
 ms.date: 11/29/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 809ca9d9aafa813e05dea81eb05616eefcc65472
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1163d63f8cbd6afedfb6e5323fa469059fa8021c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77017211"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117220"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Szybki start: uruchamianie pierwszego zadania usługi Azure Batch za pomocą interfejsu API platformy .NET
 
@@ -27,13 +21,13 @@ Ten przewodnik Szybki start przedstawia uruchamianie zadania usługi Azure Batch
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Visual Studio 2017 lub nowsze](https://www.visualstudio.com/vs)lub [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) dla systemów Linux, macOS lub Windows. 
+* [Program Visual Studio 2017 lub nowszy](https://www.visualstudio.com/vs)lub [.NET Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) dla systemów Linux, macOS i Windows. 
 
 * Konto usługi Batch i połączone konto usługi Azure Storage. Aby utworzyć te konta, skorzystaj z przewodników Szybki start dla usługi Batch i [witryny Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
@@ -70,7 +64,7 @@ Aby zobaczyć działanie przepływu pracy usługi Batch, skompiluj i uruchom apl
 
 * Jeśli zostanie wyświetlony monit, potwierdź przywrócenie pakietów NuGet. Jeśli musisz pobrać brakujące pakiety, upewnij się, że zainstalowano [menedżera pakietów NuGet](https://docs.nuget.org/consume/installing-nuget).
 
-Następnie uruchom go. Po uruchomieniu aplikacji przykładowej dane wyjściowe w konsoli będą wyglądać mniej więcej następująco. W czasie wykonywania nastąpi wstrzymanie operacji w momencie wyświetlenia komunikatu `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` podczas uruchamiania węzłów obliczeniowych puli. Zadania podrzędne zostaną umieszczone w kolejce do uruchomienia zaraz po uruchomieniu pierwszego węzła obliczeniowego. Przejdź do konta usługi Batch w [witrynie Azure portal,](https://portal.azure.com) aby monitorować pulę, węzły obliczeniowe, zadania i zadania.
+Następnie uruchom go. Po uruchomieniu aplikacji przykładowej dane wyjściowe w konsoli będą wyglądać mniej więcej następująco. W czasie wykonywania nastąpi wstrzymanie operacji w momencie wyświetlenia komunikatu `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` podczas uruchamiania węzłów obliczeniowych puli. Zadania podrzędne zostaną umieszczone w kolejce do uruchomienia zaraz po uruchomieniu pierwszego węzła obliczeniowego. Przejdź do konta partii w [Azure Portal](https://portal.azure.com) , aby monitorować pulę, węzły obliczeniowe, zadanie i zadania.
 
 ```
 Sample start: 11/16/2018 4:02:54 PM

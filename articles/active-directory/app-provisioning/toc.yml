@@ -79,6 +79,8 @@
   items:
     - name: Zgodność z protokołem SCIM 2.0
       href: application-provisioning-config-problem-scim-compatibility.md
+    - name: Scenariusze SCIM i Graph
+      href: scim-graph-scenarios.md
     - name: Wybór metody aprowizacji
       href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Aprowizacja w usłudze Cloud HR
@@ -99,7 +101,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: Aktualizacje usług
       href: 'https://azure.microsoft.com/updates/?product=active-directory'

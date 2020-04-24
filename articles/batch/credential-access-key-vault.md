@@ -1,49 +1,43 @@
 ---
-title: Bezpieczny dostęp do magazynu kluczy za pomocą usługi Batch — usługa Azure Batch
-description: Dowiedz się, jak programowo uzyskiwać dostęp do poświadczeń z usługi Key Vault przy użyciu usługi Azure Batch.
-services: batch
-author: laurenhughes
-manager: gwallace
-ms.service: batch
-ms.workload: big-compute
+title: Bezpieczny dostęp do usługi Key Vault za pomocą usługi Batch
+description: Dowiedz się, jak programowo uzyskać dostęp do poświadczeń z Key Vault przy użyciu Azure Batch.
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: lahugh
-ms.openlocfilehash: 0134e7d92ddca9bd3b45abaf642f33de9d209b33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d24904c3a539431e8aff420e9fbd8291cddde78a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78192306"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117458"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Bezpieczny dostęp do usługi Key Vault za pomocą usługi Batch
 
-W tym artykule dowiesz się, jak skonfigurować węzły usługi Batch, aby bezpiecznie uzyskiwać dostęp do poświadczeń przechowywanych w usłudze Azure Key Vault. Nie ma sensu umieszczać poświadczeń administratora w ucho, a następnie kodować poświadczenia z dysku twardego, aby uzyskać dostęp do usługi Key Vault ze skryptu. Rozwiązaniem jest użycie certyfikatu, który udziela dostępu węzłom usługi Batch do usługi Key Vault. Za pomocą kilku kroków możemy zaimplementować bezpieczne przechowywanie kluczy dla usługi Batch.
+W tym artykule dowiesz się, jak skonfigurować węzły wsadowe pod kątem bezpiecznego dostępu do poświadczeń przechowywanych w Azure Key Vault. Nie ma żadnego punktu podczas umieszczania poświadczeń administratora w Key Vault, a następnie do uzyskiwania dostępu do Key Vault ze skryptu. Rozwiązanie polega na użyciu certyfikatu, który przyznaje węzłom partii dostęp do Key Vault. Za pomocą kilku kroków możemy zaimplementować bezpieczny Magazyn kluczy dla usługi Batch.
 
-Aby uwierzytelnić się w usłudze Azure Key Vault z węzła usługi Batch, potrzebujesz:
+Aby można było uwierzytelnić Azure Key Vault z węzła usługi Batch, potrzebne są:
 
-- Poświadczenie usługi Azure Active Directory (Azure AD)
+- Poświadczenie Azure Active Directory (Azure AD)
 - Certyfikat
-- Konto usługi Batch
+- Konto w usłudze Batch
 - Pula wsadowa z co najmniej jednym węzłem
 
-## <a name="obtain-a-certificate"></a>Uzyskiwanie certyfikatu
+## <a name="obtain-a-certificate"></a>Uzyskaj certyfikat
 
-Jeśli nie masz jeszcze certyfikatu, najprostszym sposobem uzyskania certyfikatu jest wygenerowanie `makecert` certyfikatu z podpisem własnym za pomocą narzędzia wiersza polecenia.
+Jeśli nie masz jeszcze certyfikatu, najprostszym sposobem, aby uzyskać certyfikat z podpisem własnym, za pomocą narzędzia wiersza `makecert` polecenia.
 
-Zazwyczaj można znaleźć `makecert` w tej `C:\Program Files (x86)\Windows Kits\10\bin\<arch>`ścieżce: . Otwórz wiersz polecenia jako administrator `makecert` i przejdź do przy użyciu następującego przykładu.
+Zwykle można znaleźć `makecert` w tej ścieżce: `C:\Program Files (x86)\Windows Kits\10\bin\<arch>`. Otwórz wiersz polecenia jako administrator i przejdź do `makecert` poniższego przykładu.
 
 ```console
 cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 ```
 
-Następnie użyj `makecert` narzędzia do tworzenia plików certyfikatów z podpisem własnym o nazwie `batchcertificate.cer` i `batchcertificate.pvk`. Nazwa pospolita (CN) używana nie jest ważna dla tej aplikacji, ale warto zrobić z niej coś, co informuje o tym, do czego służy certyfikat.
+Następnie użyj `makecert` narzędzia, aby utworzyć pliki certyfikatów z podpisem własnym o `batchcertificate.cer` nazwie `batchcertificate.pvk`i. Użyta nazwa pospolita (CN) nie jest ważna dla tej aplikacji, ale warto ją określić, która informuje o tym, jak certyfikat jest używany.
 
 ```console
 makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
-Partia wymaga `.pfx` pliku. Użyj narzędzia [pvk2pfx,](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) `.cer` aby `.pvk` przekonwertować pliki i pliki utworzone przez `makecert` jeden `.pfx` plik.
+Partia wymaga `.pfx` pliku. Użyj narzędzia [Pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) `.cer` do przekonwertowania `.pvk` plików utworzonych przez `makecert` program na pojedynczy `.pfx` plik.
 
 ```console
 pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificate.pfx -po
@@ -51,12 +45,12 @@ pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificat
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Dostęp do usługi Key Vault jest przyznawany **użytkownikowi** lub **podmiotowi usługi.** Aby uzyskać dostęp do usługi Key Vault programowo, użyj jednostki usługi z certyfikatem utworzonym przez nas w poprzednim kroku.
+Dostęp do Key Vault jest udzielany **użytkownikowi** lub jednostce **usługi**. Aby uzyskać dostęp do Key Vault programowo, użyj nazwy głównej usługi z certyfikatem, który utworzył poprzedni krok.
 
-Aby uzyskać więcej informacji na temat podmiotów świadczących usługi platformy Azure, zobacz [Obiekty głównej aplikacji i usługi w usłudze Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
+Aby uzyskać więcej informacji na temat jednostek usługi platformy Azure, zobacz [obiekty główne aplikacji i usługi w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
 > [!NOTE]
-> Podmiot zabezpieczeń usługi musi znajdować się w tej samej dzierżawie usługi Azure AD co magazyn kluczy.
+> Nazwa główna usługi musi znajdować się w tej samej dzierżawie usługi Azure AD co Key Vault.
 
 ```powershell
 $now = [System.DateTime]::Parse("2020-02-10")
@@ -73,27 +67,27 @@ $newADApplication = New-AzureRmADApplication -DisplayName "Batch Key Vault Acces
 $newAzureAdPrincipal = New-AzureRmADServicePrincipal -ApplicationId $newADApplication.ApplicationId
 ```
 
-Adresy URL aplikacji nie są ważne, ponieważ używamy ich tylko do dostępu do usługi Key Vault.
+Adresy URL aplikacji nie są ważne, ponieważ są używane tylko do Key Vault dostępu.
 
-## <a name="grant-rights-to-key-vault"></a>Przyznanie praw do usługi Key Vault
+## <a name="grant-rights-to-key-vault"></a>Przyznaj prawa Key Vault
 
-Podmiot zabezpieczeń usługi utworzony w poprzednim kroku wymaga uprawnień do pobierania wpisów tajnych z usługi Key Vault. Uprawnienie można udzielić za pośrednictwem witryny Azure portal lub polecenia programu PowerShell poniżej.
+Nazwa główna usługi utworzona w poprzednim kroku wymaga uprawnień do pobrania wpisów tajnych z Key Vault. Uprawnienie można udzielić za pomocą Azure Portal lub przy użyciu poniższego polecenia programu PowerShell.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
 ```
 
-## <a name="assign-a-certificate-to-a-batch-account"></a>Przypisywanie certyfikatu do konta usługi Batch
+## <a name="assign-a-certificate-to-a-batch-account"></a>Przypisywanie certyfikatu do konta w usłudze Batch
 
-Utwórz pulę partii, a następnie przejdź do karty certyfikatu w puli i przypisz utworzony certyfikat. Certyfikat znajduje się teraz we wszystkich węzłach usługi Batch.
+Utwórz pulę zadań wsadowych, a następnie przejdź do karty certyfikat w puli i przypisz utworzony certyfikat. Certyfikat znajduje się teraz we wszystkich węzłach w usłudze Batch.
 
-Następnie musimy przypisać certyfikat do konta usługi Batch. Przypisanie certyfikatu do konta pozwala nam przypisać go do pul, a następnie do węzłów. Najprostszym sposobem, aby to zrobić, jest przejście do konta usługi Batch w portalu, przejście do **pozycji Certyfikaty**i **wybranie**opcji Dodaj . Przekaż `.pfx` plik wygenerowany w [uzyskać certyfikat](#obtain-a-certificate) i podać hasło. Po zakończeniu certyfikat jest dodawany do listy i można zweryfikować odcisk palca.
+Następnie musimy przypisać certyfikat do konta w usłudze Batch. Przypisanie certyfikatu do konta umożliwia nam przypisanie go do pul, a następnie do węzłów. Najprostszym sposobem, aby to zrobić, przejdź do konta w usłudze Batch w portalu, przejdź do pozycji **Certyfikaty**, a następnie wybierz pozycję **Dodaj**. Przekaż `.pfx` plik wygenerowany w polu [uzyskaj certyfikat](#obtain-a-certificate) i podaj hasło. Po zakończeniu ten certyfikat zostanie dodany do listy i będzie można zweryfikować odcisk palca.
 
-Teraz podczas tworzenia puli usługi Batch można przejść do **pozycji Certyfikaty** w puli i przypisać certyfikat utworzony do tej puli. Po wykonaniu tej opcji należy wybrać **opcję LocalMachine** dla lokalizacji sklepu. Certyfikat jest ładowany na wszystkie węzły usługi Batch w puli.
+Teraz podczas tworzenia puli wsadowej można przejść do **certyfikatów** w puli i przypisać utworzony certyfikat do tej puli. Gdy to zrobisz, upewnij się, że wybrano pozycję **LocalMachine** w polu Lokalizacja magazynu. Certyfikat jest ładowany we wszystkich węzłach wsadowych w puli.
 
 ## <a name="install-azure-powershell"></a>Instalowanie programu Azure PowerShell
 
-Jeśli planujesz dostęp do usługi Key Vault przy użyciu skryptów programu PowerShell w węzłach, musisz zainstalować bibliotekę programu Azure PowerShell. Istnieje kilka sposobów, aby to zrobić, jeśli węzły mają windows management framework (WMF) 5 zainstalowany, a następnie można użyć polecenia install-module, aby go pobrać. Jeśli używasz węzłów, które nie mają WMF 5, najprostszym sposobem zainstalowania go `.msi` jest powiązanie pliku programu Azure PowerShell z plikami usługi Batch, a następnie wywołanie instalatora jako pierwszej części skryptu uruchamiania usługi Batch. Zobacz ten przykład, aby uzyskać szczegółowe informacje:
+Jeśli planujesz uzyskać dostęp do Key Vault przy użyciu skryptów programu PowerShell w węzłach, musisz mieć zainstalowaną bibliotekę Azure PowerShell. Istnieje kilka sposobów, aby to zrobić, jeśli w węzłach jest zainstalowany program Windows Management Framework (WMF) 5, można go pobrać za pomocą polecenia install-module. W przypadku używania węzłów, które nie mają programu WMF 5, najprostszym sposobem na zainstalowanie tej usługi jest Załączenie pliku Azure PowerShell `.msi` z plikami wsadowymi, a następnie Wywołaj Instalatora jako pierwszą część skryptu uruchamiania usługi Batch. Aby uzyskać szczegółowe informacje, zobacz ten przykład:
 
 ```powershell
 $psModuleCheck=Get-Module -ListAvailable -Name Azure -Refresh
@@ -104,13 +98,13 @@ if($psModuleCheck.count -eq 0) {
 
 ## <a name="access-key-vault"></a>Uzyskiwanie dostępu do usługi Key Vault
 
-Teraz wszyscy jesteśmy skonfigurowani, aby uzyskać dostęp do usługi Key Vault w skryptach uruchomionych w węzłach usługi Batch. Aby uzyskać dostęp do usługi Key Vault ze skryptu, wystarczy, aby skrypt uwierzytelnił się w usłudze Azure AD przy użyciu certyfikatu. Aby to zrobić w programie PowerShell, należy użyć następujących przykładowych poleceń. Określ odpowiedni identyfikator GUID dla **odcisku palca,** **identyfikator aplikacji** (identyfikator jednostki usługi) i **identyfikator dzierżawy** (dzierżawy, w której istnieje jednostka usługi).
+Teraz wszystko jest skonfigurowane do uzyskiwania dostępu do Key Vault w skryptach uruchomionych w węzłach wsadowych. Aby uzyskać dostęp do Key Vault ze skryptu, wystarczy, aby skrypt uwierzytelniał się w usłudze Azure AD przy użyciu certyfikatu. Aby to zrobić w programie PowerShell, użyj następujących przykładowych poleceń. Określ odpowiedni identyfikator GUID dla **odcisku palca**, **Identyfikator aplikacji** (identyfikator nazwy głównej usługi) i **Identyfikator dzierżawy** (dzierżawy, w której istnieje jednostka usługi).
 
 ```powershell
 Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint -ApplicationId
 ```
 
-Po uwierzytelnieniu dostęp KeyVault, jak zwykle.
+Po uwierzytelnieniu należy uzyskać dostęp do magazynu kluczy w zwykły sposób.
 
 ```powershell
 $adminPassword=Get-AzureKeyVaultSecret -VaultName BatchVault -Name batchAdminPass

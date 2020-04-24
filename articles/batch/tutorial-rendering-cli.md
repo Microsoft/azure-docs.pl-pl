@@ -1,20 +1,15 @@
 ---
-title: Renderowanie sceny w chmurze — Azure Batch
+title: Renderowanie sceny w chmurze
 description: Samouczek — Renderowanie sceny programu Autodesk 3ds Max przy użyciu programu Arnold, usługi Batch Rendering Service oraz interfejsu wiersza polecenia platformy Azure
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: a415a74af654ef9cf56a37c1fca5ac6632ba4418
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78672977"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117135"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Samouczek: renderowanie sceny w usłudze Azure Batch 
 
@@ -33,7 +28,7 @@ Ten samouczek obejmuje renderowanie sceny programu 3ds Max przy użyciu usługi 
 
 Aby korzystać z aplikacji renderujących w usłudze Batch z opłatami za użycie, potrzebujesz subskrypcji z płatnością zgodnie z rzeczywistym użyciem lub innej opcji zakupu platformy Azure. **Licencjonowanie na zasadzie płatności za użycie nie jest obsługiwane, jeśli korzystasz z bezpłatnej oferty platformy Azure, w ramach której otrzymujesz środki pieniężne.**
 
-Przykładową scenę programu 3ds Max na potrzeby tego samouczka, przykładowy skrypt powłoki Bash oraz pliki konfiguracyjne w formacie JSON znajdziesz w witrynie [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene). Scenę programu 3ds Max zawierają [pliki przykładowe dla programu Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Pliki przykładowe programu Autodesk 3ds Max są dostępne w ramach licencji Creative Commons Attribution-NonCommercial-Share Alike. Copyright &copy; Autodesk, Inc.)
+Przykładową scenę programu 3ds Max na potrzeby tego samouczka, przykładowy skrypt powłoki Bash oraz pliki konfiguracyjne w formacie JSON znajdziesz w witrynie [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene). Scenę programu 3ds Max zawierają [pliki przykładowe dla programu Autodesk 3ds Max](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Pliki przykładowe programu Autodesk 3ds Max są dostępne w ramach licencji Creative Commons Attribution-NonCommercial-Share Alike. Informacje &copy; o prawach autorskich, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -70,7 +65,7 @@ az batch account create \
     --location eastus2
 ```
 
-Aby tworzyć pule obliczeniowe i zadania oraz zarządzać nimi, należy uwierzytelnić się w usłudze Batch. Zaloguj się do konta za pomocą polecenia [az batch account login](/cli/azure/batch/account#az-batch-account-login). Po zalogowaniu Twoje polecenia `az batch` będą wykonywane w kontekście tego konta. W poniższym przykładzie zastosowano metodę uwierzytelniania klucza wspólnego, w której używana jest nazwa konta usługi Batch wraz z kluczem. Usługa Batch obsługuje również uwierzytelnianie za pośrednictwem [usługi Azure Active Directory,](batch-aad-auth.md)aby uwierzytelnić poszczególnych użytkowników lub aplikację nienadzorowane.
+Aby tworzyć pule obliczeniowe i zadania oraz zarządzać nimi, należy uwierzytelnić się w usłudze Batch. Zaloguj się do konta za pomocą polecenia [az batch account login](/cli/azure/batch/account#az-batch-account-login). Po zalogowaniu Twoje polecenia `az batch` będą wykonywane w kontekście tego konta. W poniższym przykładzie zastosowano metodę uwierzytelniania klucza wspólnego, w której używana jest nazwa konta usługi Batch wraz z kluczem. Program Batch obsługuje również uwierzytelnianie za [Azure Active Directory](batch-aad-auth.md), aby uwierzytelniać poszczególnych użytkowników lub nienadzorowane aplikacje.
 
 ```azurecli-interactive 
 az batch account login \
@@ -138,7 +133,7 @@ Utwórz pulę usługi Batch na potrzeby renderowania za pomocą polecenia [az ba
   "enableInterNodeCommunication": false 
 }
 ```
-Usługa Batch obsługuje dedykowane węzły i węzły [o niskim priorytecie](batch-low-pri-vms.md) i można użyć jednego lub obu w pulach. Węzły dedykowane są zarezerwowane dla Twojej puli. Węzły o niskim priorytecie są oferowane w obniżonej cenie i korzystają z nadwyżek pojemności maszyn wirtualnych na platformie Azure. Węzły o niskim priorytecie staną się niedostępne, jeśli pojemność platformy Azure będzie niewystarczająca. 
+Funkcja Batch obsługuje węzły dedykowane i węzły [o niskim priorytecie](batch-low-pri-vms.md) , a także można używać obu tych pul. Węzły dedykowane są zarezerwowane dla Twojej puli. Węzły o niskim priorytecie są oferowane w obniżonej cenie i korzystają z nadwyżek pojemności maszyn wirtualnych na platformie Azure. Węzły o niskim priorytecie staną się niedostępne, jeśli pojemność platformy Azure będzie niewystarczająca. 
 
 Skonfigurowana pula zawiera jeden węzeł o niskim priorytecie z uruchomionym obrazem systemu Windows Server i oprogramowaniem wymaganym przez usługę Batch Rendering Service. Ta pula ma licencję umożliwiającą renderowanie z użyciem programów 3ds Max i Arnold. W kolejnym kroku pula będzie skalowana w celu zwiększenia liczby węzłów.
 
@@ -168,7 +163,7 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-Do zapisania plików wyjściowych w kontenerze usługa Batch wymaga tokenu sygnatury dostępu współdzielonego (SAS). Utwórz ten token za pomocą polecenia [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). W tym przykładzie tworzy token do zapisu do dowolnego kontenera obiektów blob na koncie, a token wygasa 15 listopada 2020 r.:
+Do zapisania plików wyjściowych w kontenerze usługa Batch wymaga tokenu sygnatury dostępu współdzielonego (SAS). Utwórz ten token za pomocą polecenia [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). Ten przykład tworzy token do zapisu do dowolnego kontenera obiektów BLOB na koncie, a token wygasa 15 listopada 2020:
 
 ```azurecli-interactive
 az storage account generate-sas \
@@ -291,7 +286,7 @@ Zmiana rozmiaru puli zajmuje kilka minut. Podczas trwania tego procesu skonfigur
 
 ## <a name="render-a-multiframe-scene"></a>Renderowanie sceny z wieloma ramkami
 
-Tak jak w przykładzie z jedną ramką użyj polecenia [az batch task create](/cli/azure/batch/task#az-batch-task-create) w celu utworzenia zadań podrzędnych renderowania w ramach zadania *myrenderjob*. Tym razem określisz ustawienia zadań podrzędnych w pliku JSON o nazwie *myrendertask_multi.json*. (Możesz pobrać plik z [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Każde z sześciu zadań określa wiersz polecenia Arnolda, aby renderować jedną klatkę sceny 3ds Max *MotionBlur-DragonFlying.max*.
+Tak jak w przykładzie z jedną ramką użyj polecenia [az batch task create](/cli/azure/batch/task#az-batch-task-create) w celu utworzenia zadań podrzędnych renderowania w ramach zadania *myrenderjob*. Tym razem określisz ustawienia zadań podrzędnych w pliku JSON o nazwie *myrendertask_multi.json*. (Plik można pobrać z witryny [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json)). Każdy z sześciu zadań określa wiersz polecenia Arnold w celu renderowania jednej ramki z maksymalną sceną *MotionBlur-DragonFlying. Max*.
 
 W bieżącej powłoce utwórz plik o nazwie *myrendertask_multi.json*, a następnie skopiuj i wklej zawartość pobranego pliku. Zmodyfikuj elementy `blobSource` i `containerURL` w pliku JSON, wprowadzając w nich nazwę Twojego konta magazynu i Twój token SAS. Pamiętaj o zmianie ustawień dla każdego z sześciu zadań podrzędnych. Zapisz plik, a następnie uruchom następujące polecenie w celu dodania zadań podrzędnych do kolejki:
 
@@ -317,7 +312,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Zadania generują pliki wyjściowe o nazwie *dragon0002.jpg* - *dragon0007.jpg* na węzłach obliczeniowych i przesyłają je do kontenera *job-myrenderjob* na koncie magazynu. Aby wyświetlić pliki wyjściowe, pobierz te pliki do folderu na komputerze lokalnym za pomocą polecenia [az storage blob download-batch](/cli/azure/storage/blob). Przykład:
+Zadania generują pliki wyjściowe o nazwie *dragon0002. jpg* - *dragon0007. jpg* w węzłach obliczeniowych i przekazują je do kontenera *Job-myrenderjob* na koncie magazynu. Aby wyświetlić pliki wyjściowe, pobierz te pliki do folderu na komputerze lokalnym za pomocą polecenia [az storage blob download-batch](/cli/azure/storage/blob). Przykład:
 
 ```azurecli-interactive
 az storage blob download-batch \

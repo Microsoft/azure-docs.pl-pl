@@ -11,56 +11,58 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b70c11cd6bc24f945b437decf22586cfb97557
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 3713901dd3dd5d17c4e1ddcef529c663b68f5b43
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81873305"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112579"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła ocena dostępu
 
-Usługi firmy Microsoft, takie jak azure active directory (Azure AD) i Office 365, używają otwartych standardów i protokołów, aby zmaksymalizować współdziałanie. Jednym z najbardziej krytycznych jest Open ID Connect (OIDC). Gdy aplikacja kliencka, taka jak Outlook, łączy się z usługą, taką jak Exchange Online, żądania interfejsu API są autoryzowane przy użyciu tokenów dostępu OAuth 2.0. Domyślnie te tokeny dostępu są prawidłowe przez jedną godzinę. Po ich wygaśnięciu klient jest przekierowywane z powrotem do usługi Azure AD, aby je odświeżyć. Zapewnia to również możliwość ponownej oceny zasad dostępu użytkownika — możemy zdecydować się nie odświeżać tokenu z powodu zasad dostępu warunkowego lub ponieważ użytkownik został wyłączony w katalogu. 
+Usługi firmy Microsoft, takie jak Azure Active Directory (Azure AD) i Office 365, używają otwartych standardów i protokołów w celu zmaksymalizowania współdziałania. Jedną z najważniejszych z nich jest Open ID Connect (OIDC). Gdy aplikacja kliencka, taka jak program Outlook, nawiązuje połączenie z usługą, taką jak Exchange Online, żądania interfejsu API są autoryzowane przy użyciu tokenów dostępu OAuth 2,0. Domyślnie te tokeny dostępu są prawidłowe przez jedną godzinę. Po ich wygaśnięciu klient zostanie przekierowany z powrotem do usługi Azure AD w celu jego odświeżenia. Pozwala to również na ocenę zasad dostępu użytkowników — nie można odświeżyć tokenu ze względu na zasady dostępu warunkowego lub, ponieważ użytkownik został wyłączony w katalogu. 
 
-Słyszeliśmy przytłaczające opinie naszych klientów: jednogodzinne opóźnienie z powodu okresu istnienia tokenu dostępu do ponownego zastosowania zasad dostępu warunkowego i zmian w stanie użytkownika (na przykład: wyłączone z powodu furlough) nie jest wystarczająco dobre.
+Wygaśnięcie i odświeżenie tokenu jest standardowym mechanizmem w branży. W tym przypadku Klienci wyrazili wątpliwości dotyczące opóźnienia między zmianą warunków ryzyka dla użytkownika (na przykład przechodzenie z biura firmy do lokalnej usługi kawowej lub poświadczeń użytkownika odnalezionych na czarnym rynku) oraz, kiedy zasady mogą być wymuszane w odniesieniu do tej zmiany. Poznamy podejście "Blunt Object" dotyczące krótszych okresów istnienia tokenu, ale znaleziono, że mogą one obniżyć wydajność i niezawodność użytkowników bez eliminowania zagrożeń.
 
-Firma Microsoft była wczesnym uczestnikiem inicjatywy CAEP (Continuous Access Evaluation Protocol) w ramach grupy roboczej [Shared Signals and Events](https://openid.net/wg/sse/) w OpenID Foundation. Dostawcy tożsamości i podmioty uzależniające będą mogli wykorzystać zdarzenia i sygnały zabezpieczeń zdefiniowane przez grupę roboczą do ponownego autoryzowania lub zakończenia dostępu. Jest to ekscytująca praca i poprawi bezpieczeństwo na wielu platformach i aplikacjach.
+Czasowa reakcja na naruszenia zasad lub problemy z zabezpieczeniami naprawdę wymaga "konwersacji" między wystawcą tokenów, takimi jak Azure AD, a jednostką uzależnioną, taką jak Exchange Online. Ta dwukierunkowa konwersacja daje nam dwie ważne możliwości. Jednostka uzależniona może zwrócić uwagę na to, że zmiany uległy zmianie, takie jak klient pochodzący z nowej lokalizacji i informujący wystawca tokenów. Zapewnia również wystawcy tokenów sposób informowania jednostki uzależnionej o zaprzestanie poszanowania tokenów dla danego użytkownika ze względu na złamanie konta, wyłączenie lub inne problemy. Mechanizmem tej konwersacji jest ciągły dostęp do wersji ewaluacyjnej (CAE).
 
-Ponieważ korzyści w zakresie bezpieczeństwa są tak duże, wdrażamy początkową implementację specyficzną firmy Microsoft równolegle do naszej dalszej pracy w organach normalizacyjnych. W miarę wdrażania tych funkcji ciągłej oceny dostępu (CAE) w usługach firmy Microsoft wiele się nauczyliśmy i udostępniamy te informacje społeczności standardów. Mamy nadzieję, że nasze doświadczenie we wdrażaniu pomoże w osiągnięciu jeszcze lepszego standardu branżowego i zobowiązujemy się do wdrożenia tego standardu po ich ratyfikacji, umożliwiając wszystkim uczestniczącym usługom korzystanie z tego systemu.
+Firma Microsoft jest wczesnym uczestnikiem inicjatywy protokołu do oceny dostępu ciągłego (CAEP) w ramach wspólnej grupy [sygnałów i zdarzeń](https://openid.net/wg/sse/) w usłudze OpenID Connect Foundation. Dostawcy tożsamości i jednostki uzależnione będą mogły wykorzystać zdarzenia zabezpieczeń i sygnały zdefiniowane przez grupę roboczą, aby ponownie autoryzować lub przerwać dostęp. Jest to atrakcyjne działanie i poprawi zabezpieczenia na wielu platformach i aplikacjach.
+
+Ze względu na to, że korzyści z zabezpieczeń są tak duże, wdrażamy wstępną implementację od firmy Microsoft równolegle do naszej działalności w ramach organizacji normalizacyjnych. W miarę jak pracujemy nad wdrożeniem tych funkcji oceny ciągłego dostępu (CAE) w ramach usług firmy Microsoft, poznamy wiele i udostępniamy te informacje społecznościom ze standardami. Mamy nadzieję, że nasze środowisko wdrażania może pomóc w poinformowaniu jeszcze lepszego standardu branżowego i zdecydowaniu się na wdrożenie tej normy po ratyfikacji, umożliwiając wszystkim usługom uczestniczącym korzystanie z programu.
 
 ## <a name="how-does-cae-work-in-microsoft-services"></a>Jak działa CAE w usługach firmy Microsoft?
 
-Koncentrujemy naszą wstępną implementację ciągłej oceny dostępu do exchange i zespołów. Mamy nadzieję rozszerzyć wsparcie na inne usługi firmy Microsoft w przyszłości. Zaczniemy włączać ciągłą ocenę dostępu tylko dla dzierżawców bez zasad dostępu warunkowego. Wykorzystamy nasze wnioski z tej fazy CAE, aby poinformować o naszym ciągłym wdrażaniu CAE.
+Koncentrujemy się na początkowej implementacji ciągłej oceny dostępu do programów Exchange i Teams. Mamy nadzieję, że w przyszłości obsłużymy wsparcie dla innych usług firmy Microsoft. Zaczniemy włączać ciągłą ocenę dostępu tylko dla dzierżawców bez zasad dostępu warunkowego. Będziemy korzystać z naszych nauk z tej fazy CAE, aby informować nas o trwającym wdrożeniu CAE.
 
-## <a name="service-side-requirements"></a>Wymagania dotyczące serwisu
+## <a name="service-side-requirements"></a>Wymagania po stronie usługi
 
-Ciągła ocena dostępu jest implementowana przez umożliwienie usługom (dostawcom zasobów) subskrybowania zdarzeń o znaczeniu krytycznym w usłudze Azure AD, dzięki czemu zdarzenia te mogą być oceniane i wymuszane w czasie zbliżonym do rzeczywistego. Następujące zdarzenia będą wymuszane w tym początkowym wdrożeniem CAE:
+Ciągła ocena dostępu jest implementowana przez umożliwienie usługom (dostawcom zasobów) subskrybowania krytycznych zdarzeń w usłudze Azure AD, dzięki czemu te zdarzenia mogą być oceniane i wymuszane niemal w czasie rzeczywistym. W tym początkowym wdrożeniu CAE zostaną wymuszone następujące zdarzenia:
 
-- Konto użytkownika jest usuwane lub wyłączone
-- Hasło użytkownika zostało zmienione lub zresetowane
+- Konto użytkownika zostało usunięte lub wyłączone
+- Hasło użytkownika jest zmieniane lub resetowane
 - Administrator jawnie odwołuje wszystkie tokeny odświeżania dla użytkownika
-- Podwyższone ryzyko użytkownika wykryte przez usługę Azure AD Identity Protection
+- Wykryto podwyższone ryzyko użytkownika Azure AD Identity Protection
 
-W przyszłości mamy nadzieję dodać więcej zdarzeń, w tym zdarzeń, takich jak zmiany lokalizacji i stanu urządzenia. **Podczas gdy naszym celem jest, aby egzekwowanie było natychmiastowe, w niektórych przypadkach opóźnienie do 15 minut może być obserwowane ze względu na czas propagacji zdarzeń.** 
+W przyszłości mamy nadzieję, że dodasz więcej zdarzeń, w tym zdarzenia, takie jak lokalizacja i zmiany stanu urządzenia. **Mimo że naszym celem jest wymuszenie, w niektórych przypadkach opóźnienie do 15 minut może być zaobserwowane z powodu czasu propagacji zdarzeń**. 
 
-## <a name="client-side-claim-challenge"></a>Wyzwanie roszczenia po stronie klienta
+## <a name="client-side-claim-challenge"></a>Wyzwanie dla żądania po stronie klienta
 
-Przed ciągłą oceną dostępu klienci zawsze będą próbować odtworzyć token dostępu z jego pamięci podręcznej, o ile nie wygasł. W przypadku CAE wprowadzamy nową sprawę, w którym dostawca zasobów może odrzucić token, nawet jeśli nie wygasł. Aby poinformować klientów o ominięciu pamięci podręcznej, nawet jeśli tokeny buforowane nie wygasły, wprowadzamy mechanizm zwany **żądaniem.** CAE wymaga aktualizacji klienta, aby zrozumieć wyzwanie roszczenia. Najnowsza wersja następujących aplikacji poniżej wsparcie roszczenia wyzwanie:
+Przed ciągłą oceną dostępu klienci będą zawsze próbować odtworzyć token dostępu z jego pamięci podręcznej, o ile nie wygasł. Dzięki CAE wprowadzamy nowy przypadek, że dostawca zasobów może odrzucić token nawet wtedy, gdy nie wygasł. Aby poinformować klientów o konieczności obejścia swojej pamięci podręcznej, nawet jeśli tokeny w pamięci podręcznej nie wygasły, wprowadzimy mechanizm o nazwie **wyzwanie dla żądania**. CAE wymaga aktualizacji klienta w celu zrozumienia wyzwania żądania. Najnowsza wersja następujących aplikacji poniżej obsługuje wyzwanie dla żądania:
 
 - Program Outlook dla systemu Windows 
-- Aplikacja Outlook dla systemu iOS 
-- Outlook Android 
-- Outlook Mac 
-- Usługa Teams dla systemu Windows
-- Zespoły iOS 
-- Zespoły Android 
+- Outlook iOS 
+- Program Outlook Android 
+- Komputer Mac z programem Outlook 
+- Zespoły dla systemu Windows
+- Zespoły systemu iOS 
+- Zespoły systemu Android 
 - Teams Mac 
 
 ## <a name="token-lifetime"></a>Czas życia tokenu
 
-Ponieważ ryzyko i zasady są oceniane w czasie rzeczywistym, klienci negocjują sesje obsługujące ocenę ciągłego dostępu będą polegać na CAE zamiast na istniejących zasadach okresu istnienia tokenu dostępu statycznego, co oznacza, że konfigurowalne zasady okresu istnienia tokenu nie będą już honorowane dla klientów obsługujących CAE, którzy negocjują sesje obsługujące CAE.
+Ze względu na to, że ryzyko i zasady są oceniane w czasie rzeczywistym, klienci, którzy negocjują sesje z obsługą oceny ciągłego dostępu, będą korzystać z CAE zamiast istniejących zasad okresów istnienia tokenu dostępu statycznego, co oznacza, że zasady okresowego okresu istnienia tokenów nie będą już brane pod uwagę dla klientów obsługujących CAE.
 
-Wydłużymy okres istnienia tokenu dostępu do 24 godzin w sesjach CAE. Odwołanie jest spowodowane krytycznymi zdarzeniami i oceną zasad, a nie arbitralnym okresem. Ta zmiana zwiększa stabilność aplikacji bez wpływu na postawę zabezpieczeń. 
+Okres istnienia tokenu dostępu zostanie zwiększony do 24 godzin w sesjach CAE. Odwołanie jest obsługiwane przez zdarzenia krytyczne i ocenę zasad, a nie okres. Ta zmiana zwiększa stabilność aplikacji bez wpływu na stan bezpieczeństwa. 
 
 ## <a name="example-flows"></a>Przykładowe przepływy
 
@@ -68,28 +70,28 @@ Wydłużymy okres istnienia tokenu dostępu do 24 godzin w sesjach CAE. Odwołan
 
 ![Przepływ zdarzeń odwołania użytkownika](./media/concept-fundamentals-continuous-access-evaluation/user-revocation-event-flow.png)
 
-1. Klient obsługujący cae przedstawia poświadczenia lub token odświeżania do usługi AAD z prośbą o token dostępu dla niektórych zasobów.
-1. Token dostępu jest zwracany wraz z innymi artefaktami do klienta.
+1. Klient obsługujący CAE przedstawia poświadczenia lub token odświeżenia w usłudze AAD z prośbą o token dostępu dla niektórych zasobów.
+1. Token dostępu jest zwracany wraz z innymi artefaktami dla klienta.
 1. Administrator jawnie [odwołuje wszystkie tokeny odświeżania dla użytkownika](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Zdarzenie odwołania zostanie wysłane do dostawcy zasobów z usługi Azure AD.
-1. Token dostępu jest prezentowany dostawcy zasobów. Dostawca zasobów ocenia ważność tokenu i sprawdza, czy istnieje zdarzenie odwołania dla użytkownika. Dostawca zasobów używa tych informacji, aby zdecydować o udzieleniu dostępu do zasobu, czy nie.
-1. W takim przypadku dostawca zasobów odmawia dostępu i wysyła do klienta żądanie 401+
-1. Klient obsługujący CAE rozumie wyzwanie roszczenia 401+. Pomija pamięci podręczne i wraca do kroku 1, wysyłając jego token odświeżania wraz z wyzwaniem oświadczeń z powrotem do usługi Azure AD. Usługa Azure AD następnie ponownie oceni wszystkie warunki i poprosi użytkownika o ponowne uwierzytelnienie w tym przypadku.
+1. Dostawca zasobów przedstawia token dostępu. Dostawca zasobów szacuje ważność tokenu i sprawdza, czy istnieją jakieś zdarzenia odwołania dla użytkownika. Dostawca zasobów używa tych informacji do podejmowania decyzji o udzieleniu dostępu do zasobu.
+1. W takim przypadku dostawca zasobów nie zezwala na dostęp i wysyła żądanie 401 + żądanie do klienta
+1. Klient z obsługą CAE rozumie wyzwanie 401 i roszczeń. Pomija pamięć podręczną i wraca do kroku 1, wysyłając token odświeżania wraz z wezwaniem do usługi Azure AD. Usługa Azure AD będzie następnie ponownie szacować wszystkie warunki i monitować użytkownika o ponowne uwierzytelnienie w tym przypadku.
  
 ## <a name="faqs"></a>Często zadawane pytania
 
 ### <a name="what-is-the-lifetime-of-my-access-token"></a>Jaki jest okres istnienia tokenu dostępu?
 
-Jeśli nie używasz klientów obsługujących CAE, domyślny okres istnienia tokenu dostępu będzie nadal 1 godzina, chyba że skonfigurowano okres istnienia tokenu dostępu z funkcją podglądu [konfigurowalny okres istnienia tokenu (CTL).](../develop/active-directory-configurable-token-lifetimes.md)
+Jeśli nie korzystasz z klientów z systemem CAE, domyślny okres istnienia tokenu dostępu będzie nadal wynosić 1 godzinę, chyba że okres istnienia tokenu dostępu zostanie skonfigurowany z użyciem funkcji wersji zapoznawczej [okres istnienia tokenu](../develop/active-directory-configurable-token-lifetimes.md) .
 
-Jeśli używasz klientów obsługujących CAE, którzy negocjują sesje obsługujące CAE, ustawienia CTL dla okresu istnienia tokenu dostępu zostaną zastąpione, a okres istnienia tokenu dostępu będzie 24 godziny.
+Jeśli używasz klientów obsługujących CAE, którzy negocjują sesje obsługujące CAE, ustawienia listy CTL dla okresu istnienia tokenu dostępu zostaną nadpisywane i okres istnienia tokenu dostępu będzie wynosić 24 godziny.
 
-### <a name="how-quick-is-enforcement"></a>Jak szybkie jest egzekwowanie przepisów?
+### <a name="how-quick-is-enforcement"></a>Jak szybko jest wymuszane wymuszanie?
 
-Podczas gdy naszym celem jest, aby wymuszanie było natychmiastowe, w niektórych przypadkach opóźnienie do 15 minut może być obserwowane ze względu na czas propagacji zdarzeń.
+Mimo że naszym celem jest wymuszenie, w niektórych przypadkach opóźnienie do 15 minut może być zaobserwowane z powodu czasu propagacji zdarzeń.
 
-### <a name="how-will-cae-work-with-sign-in-frequency"></a>Jak cae będzie działać z częstotliwością logowania?
+### <a name="how-will-cae-work-with-sign-in-frequency"></a>Jak będzie CAE z częstotliwością logowania?
 
-Częstotliwość logowania będzie honorowana z CAE lub bez niego.
+Częstotliwość logowania będzie uznawana za CAE lub bez niej.
 
 ## <a name="next-steps"></a>Następne kroki
 

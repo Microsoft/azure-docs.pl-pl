@@ -1,15 +1,15 @@
 ---
-title: Samouczek — przywracanie dysku maszyny Wirtualnej za pomocą kopii zapasowej platformy Azure
+title: Samouczek — przywracanie dysku maszyny wirtualnej za pomocą Azure Backup
 description: Dowiedz się, jak przywrócić dysk i utworzyć odzyskaną maszynę wirtualną na platformie Azure przy użyciu usługi Backup i Recovery Services.
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 8a66cee7e844f0049f2d2ca2f6841943aa267f3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 31e2645a4a627793f13c37c543d9e08240e06930
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238734"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113718"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Przywracanie dysku i tworzenie odzyskanej maszyny wirtualnej na platformie Azure
 
@@ -59,11 +59,11 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Przywracanie dysku maszyny wirtualnej
 
 > [!IMPORTANT]
-> Bardzo zdecydowanie zaleca się użycie interfejsu wiersza polecenia Az w wersji 2.0.74 lub nowszej, aby uzyskać wszystkie korzyści wynikające z szybkiego przywracania, w tym przywracanie dysku zarządzanego. Najlepiej, jeśli użytkownik zawsze używa najnowszej wersji.
+> Zdecydowanie zaleca się używanie polecenia AZ CLI Version 2.0.74 lub nowszego, aby uzyskać wszystkie zalety szybkiego przywracania, w tym przywracania dysku zarządzanego. Najlepiej, jeśli użytkownik zawsze używa najnowszej wersji.
 
 ### <a name="managed-disk-restore"></a>Przywracanie dysku zarządzanego
 
-Jeśli kopia zapasowa maszyny Wirtualnej zarządzała dyskami i celem jest przywrócenie dysków zarządzanych z punktu odzyskiwania, najpierw należy podać konto magazynu platformy Azure. To konto magazynu służy do przechowywania konfiguracji maszyny Wirtualnej i szablonu wdrożenia, który może być później użyty do wdrożenia maszyny Wirtualnej z przywróconych dysków. Następnie należy również podać docelową grupę zasobów dla dysków zarządzanych, które mają zostać przywrócone.
+Jeśli kopia zapasowa maszyny wirtualnej ma dyski zarządzane i chcesz przywrócić dyski zarządzane z punktu odzyskiwania, najpierw Podaj konto usługi Azure Storage. To konto magazynu służy do przechowywania konfiguracji maszyny wirtualnej i szablonu wdrożenia, którego można później użyć do wdrożenia maszyny wirtualnej z przywróconych dysków. Następnie podaj docelową grupę zasobów dla dysków zarządzanych, do których mają zostać przywrócone.
 
 1. Aby utworzyć konto magazynu, użyj polecenia [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Nazwa konta magazynu może zawierać tylko małe litery i musi być globalnie unikatowa. Zastąp ciąg *mystorageaccount* własną unikatową nazwą:
 
@@ -74,7 +74,7 @@ Jeśli kopia zapasowa maszyny Wirtualnej zarządzała dyskami i celem jest przyw
         --sku Standard_LRS
     ```
 
-2. Przywróć dysk z punktu odzyskiwania, uruchamiając polecenie [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Zastąp ciąg *mystorageaccount* nazwą konta magazynu utworzonego przy użyciu poprzedniego polecenia. Zastąp *myRecoveryPointName* nazwą punktu odzyskiwania uzyskaną w danych wyjściowych z poprzedniego polecenia [az backup recoverypoint list.](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) ***Należy również podać docelową grupę zasobów, do której są przywracane dyski zarządzane.***
+2. Przywróć dysk z punktu odzyskiwania, uruchamiając polecenie [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Zastąp ciąg *mystorageaccount* nazwą konta magazynu utworzonego przy użyciu poprzedniego polecenia. Zastąp *ciąg myrecoverypointname nazwą* nazwą punktu odzyskiwania uzyskaną w danych wyjściowych z poprzedniego polecenia [AZ Backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) . ***Podaj również docelową grupę zasobów, do której zostaną przywrócone dyski zarządzane***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -88,11 +88,23 @@ Jeśli kopia zapasowa maszyny Wirtualnej zarządzała dyskami i celem jest przyw
     ```
 
 > [!WARNING]
-> Jeśli grupa zasobów docelowych nie zostanie podana, dyski zarządzane zostaną przywrócone jako dyski niezarządzane na danym koncie magazynu. Będzie to miało istotne konsekwencje dla czasu przywracania, ponieważ czas całkowicie pochłonięta przywróceniem dysków zależy od danego konta magazynu.
+> Jeśli grupa Target-Resource-Group nie została podana, dyski zarządzane zostaną przywrócone jako dyski niezarządzane do danego konta magazynu. Będzie to miało znaczący wpływ na czas przywracania, ponieważ czas potrzebny do przywrócenia dysków jest całkowicie zależny od danego konta magazynu. Klienci będą mogli korzystać z funkcji natychmiastowego przywracania tylko wtedy, gdy zostanie określony parametr Target-Resource-Group. W przypadku zamiaru przywrócenia dysków zarządzanych jako niezarządzanych, nie należy podawać parametru Target-Resource-Group i zamiast tego podać parametr "Przywracanie jako niezarządzany-dysk", jak pokazano poniżej. Ten parametr jest dostępny w AZ 3.4.0 lub nowszym.
+
+    ```azurecli-interactive
+    az backup restore restore-disks \
+        --resource-group myResourceGroup \
+        --vault-name myRecoveryServicesVault \
+        --container-name myVM \
+        --item-name myVM \
+        --storage-account mystorageaccount \
+        --rp-name myRecoveryPointName
+        --restore-as-unmanaged-disk
+    ```
+Spowoduje to przywrócenie dysków zarządzanych jako dysków niezarządzanych do danego konta magazynu i nie będzie korzystać z funkcji przywracania natychmiastowej. W przyszłych wersjach interfejsu wiersza polecenia będzie wymagane podanie parametru "Target-Resource-Group" lub "Restore-as-Unmanaged-Disk".
 
 ### <a name="unmanaged-disks-restore"></a>Przywracanie dysków niezarządzanych
 
-Jeśli kopia zapasowa maszyny Wirtualnej ma dyski niezarządzane i jeśli celem jest przywrócenie dysków z punktu odzyskiwania, najpierw należy podać konto magazynu platformy Azure. To konto magazynu służy do przechowywania konfiguracji maszyny Wirtualnej i szablonu wdrożenia, który może być później użyty do wdrożenia maszyny Wirtualnej z przywróconych dysków. Domyślnie dyski niezarządzane zostaną przywrócone do ich oryginalnych kont magazynu. Jeśli użytkownik chce przywrócić wszystkie dyski niezarządzane w jednym miejscu, dane konto magazynu może być również używane jako lokalizacja przejściowa dla tych dysków.
+Jeśli kopia zapasowa maszyny wirtualnej zawiera dyski niezarządzane i chcesz przywrócić dyski z punktu odzyskiwania, najpierw Podaj konto usługi Azure Storage. To konto magazynu służy do przechowywania konfiguracji maszyny wirtualnej i szablonu wdrożenia, którego można później użyć do wdrożenia maszyny wirtualnej z przywróconych dysków. Domyślnie dyski niezarządzane zostaną przywrócone do ich oryginalnych kont magazynu. Jeśli użytkownik chce przywrócić wszystkie dyski niezarządzane do jednego miejsca, można również użyć danego konta magazynu jako lokalizacji przejściowej dla tych dysków.
 
 Dodatkowe czynności obejmują tworzenie maszyny wirtualnej przy użyciu przywróconego dysku.
 
@@ -117,7 +129,7 @@ Dodatkowe czynności obejmują tworzenie maszyny wirtualnej przy użyciu przywr�
         --rp-name myRecoveryPointName
     ```
 
-Jak wspomniano powyżej, dyski niezarządzane zostaną przywrócone do ich oryginalnego konta magazynu. Zapewnia to najlepszą wydajność przywracania. Ale jeśli wszystkie dyski niezarządzane muszą zostać przywrócone do danego konta magazynu, użyj odpowiedniej flagi, jak pokazano poniżej.
+Jak wspomniano powyżej, dyski niezarządzane zostaną przywrócone do oryginalnego konta magazynu. Zapewnia to najlepszą wydajność przywracania. Jeśli jednak wszystkie dyski niezarządzane muszą zostać przywrócone do danego konta magazynu, użyj odpowiedniej flagi, jak pokazano poniżej.
 
 ```azurecli-interactive
     az backup restore restore-disks \
@@ -151,15 +163,15 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Po zakończeniu *raportów* *o stanie* zadania przywracania niezbędne informacje (konfiguracja maszyny wirtualnej i szablon wdrożenia) zostały przywrócone do konta magazynu.
+Po ukończeniu *stanu* zadania przywracania wymagane informacje ( *Completed*konfiguracja maszyny wirtualnej i szablon wdrożenia) zostały przywrócone do konta magazynu.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Tworzenie maszyny wirtualnej na podstawie przywróconego dysku
 
-Ostatnim krokiem jest utworzenie maszyny Wirtualnej z przywróconych dysków. Szablon wdrożenia pobrany na dane konto magazynu służy do tworzenia maszyny Wirtualnej.
+Ostatnim krokiem jest utworzenie maszyny wirtualnej na podstawie przywróconych dysków. Aby utworzyć maszynę wirtualną, można użyć szablonu wdrożenia pobranego do danego konta magazynu.
 
-### <a name="fetch-the-job-details"></a>Pobieranie szczegółów zadania
+### <a name="fetch-the-job-details"></a>Pobierz szczegóły zadania
 
-Wynikowe szczegóły zadania podać identyfikator URI szablonu, który może być wyszukiwane i wdrażane. Użyj polecenia show zadania, aby uzyskać więcej szczegółów dla wyzwalane zadanie przywrócone.
+Szczegóły zadania wynikowego zawierają identyfikator URI szablonu, który można zbadać i wdrożyć. Aby uzyskać więcej informacji na temat wyzwolonego zadania, należy użyć polecenia Pokaż zadanie.
 
 ```azurecli-interactive
 az backup job show \
@@ -168,7 +180,7 @@ az backup job show \
     -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
 ```
 
-Dane wyjściowe tej kwerendy poda wszystkie szczegóły, ale jesteśmy zainteresowani tylko zawartością konta magazynu. Możemy użyć [możliwości zapytania](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest) platformy Azure CLI, aby pobrać odpowiednie szczegóły
+Dane wyjściowe tego zapytania będą zawierać wszystkie szczegóły, ale będziemy zainteresowani tylko zawartością konta magazynu. Można użyć [funkcji zapytania](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest) interfejsu wiersza polecenia platformy Azure, aby pobrać odpowiednie szczegóły
 
 ```azurecli-interactive
 az backup job show \
@@ -189,11 +201,11 @@ az backup job show \
 }
 ```
 
-### <a name="fetch-the-deployment-template"></a>Pobieranie szablonu wdrożenia
+### <a name="fetch-the-deployment-template"></a>Pobierz szablon wdrożenia
 
-Szablon nie jest bezpośrednio dostępny, ponieważ znajduje się pod kontem magazynu klienta i danym kontenerem. Aby uzyskać dostęp do tego szablonu, potrzebujemy pełnego adresu URL (wraz z tymczasowym tokenem Sygnatury dostępu współdzielonego).
+Szablon nie jest dostępny bezpośrednio, ponieważ znajduje się na koncie magazynu klienta i podanym kontenerze. Do uzyskania dostępu do tego szablonu potrzebny jest pełny adres URL (wraz z tymczasowym tokenem SAS).
 
-Najpierw wyodrębnij identyfikator Uri obiektu blob szablonu ze szczegółów zadania
+Najpierw Wyodrębnij identyfikator URI obiektu BLOB szablonu ze szczegółowych informacji o zadaniu
 
 ```azurecli-interactive
 az backup job show \
@@ -205,15 +217,15 @@ az backup job show \
 "https://mystorageaccount.blob.core.windows.net/myVM-daa1931199fd4a22ae601f46d8812276/azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json"
 ```
 
-Szablon obiektu blob Uri będzie tego formatu i wyodrębnić nazwę szablonu
+Identyfikator URI obiektu BLOB szablonu będzie miał następujący format i Wyodrębnij nazwę szablonu
 
 ```https
 https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
 ```
 
-Tak więc nazwa szablonu z ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` powyższego przykładu będzie i nazwa kontenera jest```myVM-daa1931199fd4a22ae601f46d8812276```
+Dlatego nazwa szablonu z powyższego przykładu będzie zawierać ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` nazwę kontenera```myVM-daa1931199fd4a22ae601f46d8812276```
 
-Teraz pobierz token Sygnatury dostępu Współdzielonego dla tego kontenera i szablonu, jak opisano [tutaj](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)
+Uzyskaj teraz token sygnatury dostępu współdzielonego dla tego kontenera i szablonu zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -235,9 +247,9 @@ url=$(az storage blob url \
     --connection-string $connection)
 ```
 
-### <a name="deploy-the-template-to-create-the-vm"></a>Wdrażanie szablonu w celu utworzenia maszyny Wirtualnej
+### <a name="deploy-the-template-to-create-the-vm"></a>Wdróż szablon, aby utworzyć maszynę wirtualną
 
-Teraz wdrożyć szablon, aby utworzyć maszynę wirtualną, jak wyjaśniono [w tym miejscu](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli).
+Teraz Wdróż szablon, aby utworzyć maszynę wirtualną zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli).
 
 ```azurecli-interactive
 az group deployment create \

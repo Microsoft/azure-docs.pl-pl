@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8665e58dc84a2ea9b5f2ed70a41bbdd0aa3aa9b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 2df562d65ad064efb1be337e0b68cb8638536981
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82099159"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112766"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Raporty w usłudze Azure Multi-Factor Authentication
 
@@ -129,13 +129,13 @@ Najpierw upewnij się, że zainstalowano [moduł PowerShell MSOnline V1](https:/
 Zidentyfikuj użytkowników, którzy zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego, korzystając z programu PowerShell w następujący sposób. Ten zestaw poleceń wyklucza wyłączonych użytkowników, ponieważ nie można uwierzytelnić tych kont w usłudze Azure AD.
 
 ```powershell
-Get-MsolUser -All | Where-Object {$._StrongAuthenticationMethods -ne $null -and $._BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
 Zidentyfikuj użytkowników, którzy nie zarejestrowali usługi MFA przy użyciu poniższego programu PowerShell. Ten zestaw poleceń wyklucza wyłączonych użytkowników, ponieważ nie można uwierzytelnić tych kont w usłudze Azure AD.
 
 ```powershell
-Get-MsolUser -All | Where-Object {$._StrongAuthenticationMethods.Count -eq 0 -and $._BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
 Zidentyfikuj zarejestrowane metody użytkownika i wyjścia. 

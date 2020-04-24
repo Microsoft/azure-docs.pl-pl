@@ -1,85 +1,78 @@
 ---
 title: Planowanie zadań
-description: Zarządzanie zadaniami służy do planowania zadań.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
-ms.service: batch
+description: Użyj planowania zadań, aby zarządzać zadaniami.
 ms.topic: article
-ms.workload: big-compute
 ms.date: 02/20/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 55ea8fb4cc0e65deaa89d718c4a46513716dcf54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49b2064d38f9f646c6189d859479d2414569ff60
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672435"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116880"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Planowanie zadań pod kątem wydajności
 
-Planowanie zadań wsadowych umożliwia nadanie priorytetu zadańom, które mają być uruchamiane jako pierwsze, biorąc pod uwagę zadania, które mają zależności od innych zadań. Planując zadania, można upewnić się, że używasz najmniejszej ilości zasobów. Węzły mogą być likwidowane, gdy nie są potrzebne, zadania, które są zależne od innych zadań są obracane w sam raz optymalizacji przepływów pracy. Uruchamia się tylko jedno zadanie naraz. Nowy nie rozpocznie się, dopóki poprzedni nie zostanie ukończony. Zadanie można ustawić na autouzupełnienie. 
+Planowanie zadań wsadowych umożliwia określenie priorytetów zadań, które mają być uruchamiane w pierwszej kolejności, przy jednoczesnym uwzględnieniu zadań, które mają zależności od innych zadań. Planując zadania, możesz mieć pewność, że używasz najmniejszej ilości zasobów. Węzły mogą zostać zlikwidowane, gdy nie jest to potrzebne, zadania, które są zależne od innych zadań, są przypadające niemal w czasie, optymalizując przepływy pracy. Wykonywane jest tylko jedno zadanie w czasie. Nowy nie zostanie uruchomiony do momentu ukończenia poprzedniej. Można ustawić Autouzupełnianie dla zadania. 
 
-## <a name="benefit-of-job-scheduling"></a>Korzyści z planowania zadań
+## <a name="benefit-of-job-scheduling"></a>Korzyść w planowaniu zadań
 
-Zaletą planowania zadań jest to, że można określić harmonogram tworzenia zadań. Zadania zaplanowane przy użyciu zadania menedżera zadań są skojarzone z zadaniem. Zadanie menedżera zadań utworzy zadania dla zadania. Aby to zrobić, zadanie menedżera zadań musi uwierzytelnić się przy użyciu konta usługi Batch. Użyj tokenu dostępu AZ_BATCH_AUTHENTICATION_TOKEN. Token umożliwi dostęp do pozostałej części zadania. 
+Korzystanie z planowania zadań polega na tym, że można określić harmonogram tworzenia zadań. Zadania zaplanowane przy użyciu zadania Menedżera zadań są skojarzone z zadaniem. Zadanie Menedżera zadań spowoduje utworzenie zadań dla tego zadania. W tym celu zadanie Menedżera zadań musi być uwierzytelniane przy użyciu konta wsadowego. Użyj AZ_BATCH_AUTHENTICATION_TOKEN tokenu dostępu. Token zezwoli na dostęp do pozostałej części zadania. 
 
-## <a name="use-the-portal-to-schedule-a-job"></a>Planowanie zadania za pomocą portalu
+## <a name="use-the-portal-to-schedule-a-job"></a>Planowanie zadania przy użyciu portalu
 
-   1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/).
+   1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
 
-   2. Wybierz konto usługi Batch, na które chcesz zaplanować zadania.
+   2. Wybierz konto wsadowe, w którym chcesz zaplanować zadania.
 
-   3. Wybierz **pozycję Dodaj,** aby utworzyć nowy harmonogram zadań i wypełnić **formularz Podstawowy**.
+   3. Wybierz pozycję **Dodaj** , aby utworzyć nowy harmonogram zadań i wypełnij **formularz podstawowy**.
 
 
 
-![Planowanie zadania][1]
+![Zaplanuj zadanie][1]
 
-**Identyfikator harmonogramu**zadań: unikatowy identyfikator dla tego harmonogramu zadań.
+**Identyfikator harmonogramu zadań**: unikatowy identyfikator tego harmonogramu zadań.
 
-**Nazwa wyświetlana:** Nazwa wyświetlana zadania nie musi być unikatowa, ale ma maksymalną długość 1024 znaków.
+**Nazwa wyświetlana**: Nazwa wyświetlana zadania nie musi być unikatowa, ale ma maksymalną długość 1024 znaków.
 
-**Nie należy uruchamiać, dopóki:** Określa najwcześniejszą godzinę uruchomienia zadania. Jeśli nie ustawisz tego, harmonogram stanie się gotowy do natychmiastowego uruchomienia zadań.
+**Nie uruchamiaj do**: określa najwcześniejszy czas uruchomienia zadania. Jeśli ta wartość nie zostanie ustawiona, harmonogram będzie gotowy do natychmiastowego uruchamiania zadań.
 
-**Nie uruchamiaj po:** Żadne zadania nie są uruchamiane po godzinie ustawionej w tym miejscu. Jeśli nie określisz czasu, tworzysz harmonogram zadań cyklicznych, który pozostaje aktywny, dopóki nie zostanie jawnie zakończony.
+**Nie uruchamiaj po**: żadne zadania nie są uruchamiane po upływie określonego czasu. Jeśli nie określisz czasu, tworzysz cykliczny harmonogram zadań, który pozostaje aktywny, dopóki nie zostanie on jawnie zamknięty.
 
-**Interwał cyklu:** Można określić czas między zadaniami. W zaplanowanym czasie może być tylko jedno zadanie, więc jeśli nadszedł czas, aby utworzyć nowe zadanie zgodnie z harmonogramem zadań, ale poprzednie zadanie jest nadal uruchomione, usługa wsadowa nie utworzy nowego zadania do czasu zakończenia poprzedniego zadania.  
+**Interwał cyklu**: można określić ilość czasu między zadaniami. Możesz mieć tylko jedno zadanie w określonym czasie, więc jeśli jest to czas, aby utworzyć nowe zadanie w ramach harmonogramu zadań, ale poprzednie zadanie jest nadal uruchomione, usługa Batch nie utworzy nowego zadania, dopóki nie zakończy się poprzednie zadanie.  
 
-**Okno Start:** W tym miejscu należy określić przedział czasu, począwszy od czasu, w której harmonogram wskazuje, że zadanie powinno zostać utworzone, aż do jego ukończenia. Jeśli bieżące zadanie nie zostanie ukończone w oknie, następne zadanie nie zostanie uruchomiony.
+**Okno uruchamiania**: w tym miejscu należy określić interwał czasu, rozpoczynając od momentu, w którym harmonogram wskazuje, że zadanie powinno zostać utworzone. Jeśli bieżące zadanie nie zakończy się w oknie, następne zadanie nie zostanie uruchomione.
 
-U dołu formularza podstawowego określą pulę, na której ma być uruchamiane zadanie. Aby znaleźć informacje o identyfikatorze puli, wybierz pozycję **Aktualizuj**. 
+W dolnej części formularza Basic określisz pulę, w której ma zostać uruchomione zadanie. Aby znaleźć informacje o IDENTYFIKATORze puli, wybierz pozycję **Aktualizuj**. 
 
 ![Określ pulę][2]
 
 
-**Identyfikator puli:** Zidentyfikuj pulę, na której uruchomisz zadanie.
+**Identyfikator puli**: Zidentyfikuj pulę, w której zostanie uruchomione zadanie.
 
-**Zadanie konfiguracji zadania**: Wybierz **opcję Aktualizuj,** aby nadać nazwę zadaniu Menedżera zadań, a także zadania związane z przygotowaniem i zwolnieniem zadań, jeśli są używane.
+**Zadanie konfiguracji zadania**: wybierz opcję **Aktualizuj** , aby nazwać zadanie Menedżera zadań oraz zadania przygotowania i zwolnienia zadania, jeśli są używane.
 
-**Priorytet:** Nadaj zadaniu priorytet.
+**Priorytet**: nadaj zadanie priorytetu.
 
-**Maksymalny czas zegara ściennego:** Ustaw maksymalny czas, przez jaki zadanie może być uruchamiane. Jeśli nie zostanie ukończona w ramach czasowych, partia kończy zadanie. Jeśli nie ustawisz tego, nie ma limitu czasu dla zadania.
+**Maksymalny czas zegara ściany**: Ustaw maksymalną ilość czasu, przez jaką zadanie może zostać uruchomione. Jeśli nie zakończy się w przedziale czasowym, partia kończy zadanie. Jeśli nie ustawisz tej opcji, nie ma limitu czasu dla tego zadania.
 
-**Maksymalna liczba ponownych prób:** Określ, ile razy zadanie może zostać ponowione maksymalnie czterokrotnie. To nie jest taka sama, jak liczba ponownych prób wywołanie interfejsu API może mieć.
+**Maksymalna liczba ponownych prób wykonania zadania**: Określ, ile razy można ponowić próbę wykonania zadania maksymalnie cztery razy. Ta wartość nie jest taka sama jak liczba ponownych prób wywołania interfejsu API.
 
-**Po wykonaniu wszystkich zadań**: Domyślnie nie ma akcji.
+**Po zakończeniu wszystkich zadań**: wartość domyślna nie jest akcją.
 
-**Gdy zadanie nie powiedzie się**: Wartość domyślna nie jest żadna akcja. Zadanie kończy się niepowodzeniem, jeśli liczba ponownych prób jest wyczerpana lub wystąpił błąd podczas uruchamiania zadania. 
+**Gdy zadanie nie powiedzie się**: domyślnie nie ma żadnej akcji. Zadanie kończy się niepowodzeniem, jeśli liczba ponownych prób jest wyczerpana lub wystąpił błąd podczas uruchamiania zadania. 
 
-Po **wybraniu opcji Zapisz**, jeśli przejdziesz do **Harmonogramy zadań** w lewej nawigacji, możesz śledzić wykonanie zadania, wybierając informacje o **wykonaniu**.
+Po wybraniu opcji **Zapisz**, jeśli przejdziesz do **harmonogramów zadań** w okienku nawigacji po lewej stronie, możesz śledzić wykonywanie zadania, wybierając pozycję **Informacje o wykonywaniu**.
 
 
 ## <a name="for-more-information"></a>Więcej informacji
 
-Aby zarządzać zadaniem przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [harmonogram zadań wsadowych az](https://docs.microsoft.com/cli/azure/batch/job-schedule?view=azure-cli-latest).
+Aby zarządzać zadaniem przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [AZ Batch Job-Schedule](https://docs.microsoft.com/cli/azure/batch/job-schedule?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie zależności zadań w celu uruchamiania zadań zależnych od innych zadań](batch-task-dependencies.md).
+[Utwórz zależności zadań, aby uruchamiać zadania, które są zależne od innych zadań](batch-task-dependencies.md).
 
 
 

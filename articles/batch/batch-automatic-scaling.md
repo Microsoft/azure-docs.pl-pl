@@ -1,69 +1,60 @@
 ---
-title: Automatyczne skalowanie węzłów obliczeniowych w puli usługi Azure Batch | Dokumenty firmy Microsoft
-description: Włącz automatyczne skalowanie w puli chmury, aby dynamicznie dostosowywać liczbę węzłów obliczeniowych w puli.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
-ms.service: batch
+title: Automatyczne skalowanie węzłów obliczeniowych w puli Azure Batch
+description: Włącz automatyczne skalowanie w puli w chmurze, aby dynamicznie dostosować liczbę węzłów obliczeniowych w puli.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 398b6d9c3fc05a6cf164b4003f57b94ecd6c1972
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b790ee286d9edd8cee04ef1db719be6395509be2
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054016"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82113565"
 ---
-# <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Tworzenie automatycznej formuły skalowania węzłów obliczeniowych w puli wsadowej
+# <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Utwórz automatyczną formułę skalowania węzłów obliczeniowych w puli usługi Batch
 
-Usługa Azure Batch może automatycznie skalować pule na podstawie parametrów zdefiniowanych. Dzięki automatycznemu skalowaniu usługa Batch dynamicznie dodaje węzły do puli w miarę zwiększania zapotrzebowania na zadania i usuwa węzły obliczeniowe wraz z ich zmniejszaniem. Można zaoszczędzić czas i pieniądze, automatycznie dostosowując liczbę węzłów obliczeniowych używanych przez aplikację Batch.
+Azure Batch może automatycznie skalować pule na podstawie zdefiniowanych parametrów. W przypadku automatycznego skalowania przetwarzanie wsadowe dynamicznie dodaje węzły do puli w miarę wzrostu wymagań zadań i usuwa węzły obliczeniowe w miarę ich zmniejszania. Możesz zaoszczędzić czas i pieniądze przez automatyczne dostosowanie liczby węzłów obliczeniowych używanych przez aplikację usługi Batch.
 
-Automatyczne skalowanie puli węzłów obliczeniowych umożliwia automatyczne skalowanie przez skojarzenie z nią *zdefiniowanej formuły skalowania automatycznego.* Usługa Batch używa formuły skalowania automatycznego do określenia liczby węzłów obliczeniowych, które są potrzebne do wykonania obciążenia. Węzły obliczeniowe mogą być węzłami dedykowanymi lub [węzłami o niskim priorytecie.](batch-low-pri-vms.md) Batch odpowiada na dane metryki usługi, które są zbierane okresowo. Korzystając z tych danych metryk, usługa Batch dostosowuje liczbę węzłów obliczeniowych w puli na podstawie formuły i w konfigurowalnym odstępie czasu.
+Automatyczne skalowanie w puli węzłów obliczeniowych można włączyć, kojarząc z nią zdefiniowaną *formułę skalowania* automatycznego. Usługa Batch używa formuły skalowania automatycznego, aby określić liczbę węzłów obliczeniowych, które są konieczne do wykonania obciążenia. Węzły obliczeniowe mogą być węzłami dedykowanymi lub [węzłami o niskim priorytecie](batch-low-pri-vms.md). Usługa Batch reaguje na dane metryk usług, które są zbierane okresowo. Za pomocą tych danych metryk, wsadowe dostosowuje liczbę węzłów obliczeniowych w puli na podstawie formuły i w skonfigurowanym interwale.
 
-Skalowanie automatyczne można włączyć podczas tworzenia puli lub w istniejącej puli. Można również zmienić istniejącą formułę w puli skonfigurowanej do skalowania automatycznego. Usługa Batch umożliwia ocenę formuł przed przypisaniem ich do pul i monitorowanie stanu automatycznych przebiegów skalowania.
+Skalowanie automatyczne można włączyć podczas tworzenia puli lub w istniejącej puli. Istnieje również możliwość zmiany istniejącej formuły w puli, która jest skonfigurowana do skalowania automatycznego. Funkcja Batch umożliwia ocenę formuł przed przypisaniem ich do pul i monitorowanie stanu automatycznych uruchomień skalowania.
 
-W tym artykule omówiono różne jednostki, które tworzą formuły skalowania automatycznego, w tym zmienne, operatory, operacje i funkcje. Omówimy sposób uzyskiwania różnych zasobów obliczeniowych i metryk zadań w ramach usługi Batch. Za pomocą tych metryk można dostosować liczbę węzłów puli na podstawie użycia zasobów i stanu zadania. Następnie opisano, jak skonstruować formułę i włączyć automatyczne skalowanie w puli przy użyciu interfejsów API batch REST i .NET. Na koniec kończymy z kilkoma przykładowymi formułami.
+W tym artykule omówiono różne jednostki, które tworzą formuły automatycznego skalowania, w tym zmienne, operatory, operacje i funkcje. Omawiamy, jak uzyskać różne metryki zasobów i zadań obliczeniowych w usłudze Batch. Za pomocą tych metryk można dostosować liczbę węzłów puli w zależności od użycia zasobów i stanu zadania. Następnie opisano sposób konstruowania formuły i włączania automatycznego skalowania w puli przy użyciu interfejsów API REST i platformy .NET. Na koniec zakończymy kilka przykładowych formuł.
 
 > [!IMPORTANT]
-> Podczas tworzenia konta usługi Batch można określić [konfigurację konta,](batch-api-basics.md#account)która określa, czy pule są przydzielane w subskrypcji usługi wsadowej (domyślnie) lub w subskrypcji użytkownika. Jeśli konto usługi Batch zostało utworzone z domyślną konfiguracją usługi wsadowej, konto jest ograniczone do maksymalnej liczby rdzeni, które mogą być używane do przetwarzania. Usługa Batch skaluje węzły obliczeniowe tylko do tego limitu rdzenia. Z tego powodu usługa Batch może nie osiągnąć docelowej liczby węzłów obliczeniowych określonej przez formułę skalowania automatycznego. Aby uzyskać informacje na temat wyświetlania i zwiększania przydziałów konta, zobacz [Przydziały i limity dla usługi Azure Batch.](batch-quota-limit.md)
+> Podczas tworzenia konta usługi Batch można określić [konfigurację konta](batch-api-basics.md#account), która decyduje o tym, czy pule są przydzieleni w ramach subskrypcji usługi Batch (wartość domyślna), czy w ramach subskrypcji użytkownika. Jeśli konto usługi Batch zostało utworzone z domyślną konfiguracją usług Batch, konto jest ograniczone do maksymalnej liczby rdzeni, które mogą być używane do przetwarzania. Usługa Batch skaluje węzły obliczeniowe tylko do tego limitu podstawowego. Z tego powodu usługa Batch może nie dotrzeć do docelowej liczby węzłów obliczeniowych określonych przez formułę skalowania automatycznego. Zobacz [przydziały i limity dla usługi Azure Batch,](batch-quota-limit.md) Aby uzyskać informacje na temat przeglądania i zwiększania limitów przydziału konta.
 >
->Jeśli konto utworzono w konfiguracji Subskrypcja użytkownika, twoje konto współudzieli przydział podstawowy subskrypcji. Aby uzyskać więcej informacji, zobacz sekcję [Virtual Machines limits (Limity maszyn wirtualnych)](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) w artykule [Azure subscription and service limits, quotas, and constraints (Ograniczenia, przydziały i limity usług i subskrypcji platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md).
+>Jeśli konto zostało utworzone przy użyciu konfiguracji subskrypcji użytkownika, Twoje konto ma udział w podstawowym limicie przydziału dla subskrypcji. Aby uzyskać więcej informacji, zobacz sekcję [Virtual Machines limits (Limity maszyn wirtualnych)](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) w artykule [Azure subscription and service limits, quotas, and constraints (Ograniczenia, przydziały i limity usług i subskrypcji platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md).
 >
 >
 
 ## <a name="automatic-scaling-formulas"></a>Automatyczne skalowanie formuł
 
-Formuła skalowania automatycznego to zdefiniowana wartość ciągu zawierająca jedną lub więcej instrukcji. Formuła skalowania automatycznego jest przypisywana do elementu [autoscaleformula][rest_autoscaleformula] puli (Batch REST) lub [CloudPool.AutoScaleFormula(Batch][net_cloudpool_autoscaleformula] .NET). Usługa Batch używa formuły do określenia docelowej liczby węzłów obliczeniowych w puli dla następnego interwału przetwarzania. Ciąg formuły nie może przekraczać 8 KB, może zawierać maksymalnie 100 instrukcji, które są oddzielone średnikami i mogą zawierać podziały wierszy i komentarze.
+Formuła automatycznego skalowania jest zdefiniowana przez użytkownika wartość ciągu, która zawiera jedną lub więcej instrukcji. Formuła skalowania automatycznego jest przypisana do elementu [autoScaleFormula][rest_autoscaleformula] puli (Batch REST) lub [CloudPool. autoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). Usługa Batch używa formuły do określenia docelowej liczby węzłów obliczeniowych w puli dla następnego interwału przetwarzania. Ciąg formuły nie może przekroczyć 8 KB, może zawierać do 100 instrukcji, które są rozdzielone średnikami i mogą zawierać podziały wierszy i komentarze.
 
-Możesz myśleć o automatycznym skalowaniu formuł jako o "języku" w programie Batch w skalowaniu automatycznym. Instrukcje formuły to wyrażenia formowane bezpłatnie, które mogą zawierać zarówno zmienne zdefiniowane przez usługę (zmienne zdefiniowane przez usługę Batch), jak i zmienne zdefiniowane przez użytkownika (zdefiniowane zmienne). Mogą wykonywać różne operacje na tych wartościach przy użyciu wbudowanych typów, operatorów i funkcji. Na przykład instrukcja może przyjąć następującą formę:
+Można myśleć o automatycznym skalowaniu formuł jako języka wsadowego skalowania automatycznego. Instrukcje formuł są niektórymi sformułowanymi wyrażeniami, które mogą zawierać zarówno zmienne zdefiniowane przez usługę, jak i zmienne zdefiniowane przez użytkownika (zdefiniowane zmienne). Mogą wykonywać różne operacje na tych wartościach przy użyciu wbudowanych typów, operatorów i funkcji. Na przykład instrukcja może mieć następującą postać:
 
 ```
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
 ```
 
-Formuły zazwyczaj zawierają wiele instrukcji, które wykonują operacje na wartościach, które są uzyskiwane w poprzednich instrukcjach. Na przykład najpierw uzyskujemy `variable1`wartość dla , a następnie przekazujemy ją do funkcji, aby wypełnić: `variable2`
+Formuły zwykle zawierają wiele instrukcji, które wykonują operacje na wartościach, które są uzyskiwane w poprzednich instrukcjach. Na przykład najpierw uzyskamy wartość dla `variable1`, a następnie przekazujemy ją do funkcji, aby wypełnić `variable2`:
 
 ```
 $variable1 = function1($ServiceDefinedVariable);
 $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
-Dołącz te instrukcje do formuły skalowania automatycznego, aby dotrzeć do docelowej liczby węzłów obliczeniowych. Dedykowane węzły i węzły o niskim priorytecie mają własne ustawienia docelowe, dzięki czemu można zdefiniować miejsce docelowe dla każdego typu węzła. Formuła skalowania automatycznego może zawierać wartość docelową dla dedykowanych węzłów, wartość docelową dla węzłów o niskim priorytecie lub obie te te wartości.
+Uwzględnij te instrukcje w formule skalowania automatycznego, aby dotrzeć do docelowej liczby węzłów obliczeniowych. Węzły dedykowane i węzły o niskim priorytecie mają własne ustawienia docelowe, aby można było zdefiniować element docelowy dla każdego typu węzła. Formuła automatycznego skalowania może zawierać wartość docelową dla węzłów dedykowanych, wartość docelową dla węzłów o niskim priorytecie lub obie te metody.
 
-Docelowa liczba węzłów może być wyższa, niższa lub taka sama jak bieżąca liczba węzłów tego typu w puli. Batch ocenia formułę skalowania automatycznego puli w określonym przedziale czasu (patrz [automatyczne interwały skalowania).](#automatic-scaling-interval) Partia dostosowuje numer docelowy każdego typu węzła w puli do liczby, którą formuła skalowania automatycznego określa w czasie oceny.
+Docelowa liczba węzłów może być wyższa, niższa lub taka sama jak bieżąca liczba węzłów tego typu w puli. Wsadowe oblicza formułę skalowania automatycznego puli w określonym interwale (zobacz [Automatyczne skalowanie interwałów](#automatic-scaling-interval)). Sekwencja wsadowa dostosowuje liczbę docelową każdego typu węzła w puli do liczby, która jest określana przez formułę skalowania automatycznego w czasie szacowania.
 
-### <a name="sample-autoscale-formulas"></a>Przykładowe formuły skalowania automatycznego
+### <a name="sample-autoscale-formulas"></a>Przykładowe formuły automatycznego skalowania
 
-Poniżej znajdują się przykłady dwóch formuł skalowania automatycznego, które można dostosować do pracy w większości scenariuszy. Zmienne `startingNumberOfVMs` i `maxNumberofVMs` w przykładowych formułach można dostosować do twoich potrzeb.
+Poniżej przedstawiono przykłady dwóch formuł automatycznego skalowania, które można dostosować do pracy w większości scenariuszy. Zmienne `startingNumberOfVMs` i `maxNumberofVMs` w przykładowych formułach można dostosować do własnych potrzeb.
 
-#### <a name="pending-tasks"></a>Zadania oczekujące
+#### <a name="pending-tasks"></a>Oczekujące zadania
 
 ```
 startingNumberOfVMs = 1;
@@ -74,11 +65,11 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```
 
-Za pomocą tej formuły skalowania automatycznego pula jest początkowo tworzona przy jednej maszynie wirtualnej. `$PendingTasks` Metryka definiuje liczbę zadań, które są uruchomione lub umieszczone w kolejce. Formuła znajduje średnią liczbę oczekujących zadań w ciągu ostatnich `$TargetDedicatedNodes` 180 sekund i odpowiednio ustawia zmienną. Formuła gwarantuje, że docelowa liczba dedykowanych węzłów nigdy nie przekracza 25 maszyn wirtualnych. W miarę przesyłania nowych zadań pula automatycznie rośnie. Po zakończeniu zadań maszyny wirtualne stają się bezpłatne jeden po drugim, a formuła skalowania automatycznego zmniejsza pulę.
+W przypadku tej formuły automatycznego skalowania Pula jest początkowo tworzona z jedną maszyną wirtualną. `$PendingTasks` Metryka definiuje liczbę zadań, które są uruchomione lub umieszczone w kolejce. Formuła znajduje średnią liczbę oczekujących zadań w ciągu ostatnich 180 sekund i odpowiednio ustawia `$TargetDedicatedNodes` zmienną. Formuła zapewnia, że docelowa liczba węzłów dedykowanych nigdy nie przekracza 25 maszyn wirtualnych. W miarę przesyłania nowych zadań Pula automatycznie rośnie. Po zakończeniu zadań maszyny wirtualne stają się wolne od siebie, a formuła skalowania automatycznego zmniejsza pulę.
 
-Ta formuła skaluje dedykowane węzły, ale można ją zmodyfikować w celu zastosowania do skalowania węzłów o niskim priorytecie.
+Ta formuła skaluje dedykowane węzły, ale można ją zmodyfikować, aby zastosować ją również do skalowania węzłów o niskim priorytecie.
 
-#### <a name="preempted-nodes"></a>Wstępnie wywłaszczone węzły 
+#### <a name="preempted-nodes"></a>Zastępujące węzły 
 
 ```
 maxNumberofVMs = 25;
@@ -87,78 +78,78 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 $NodeDeallocationOption = taskcompletion;
 ```
 
-W tym przykładzie tworzy pulę, która rozpoczyna się od 25 węzłów o niskim priorytecie. Za każdym razem, gdy węzeł o niskim priorytecie jest wywłaszczony, jest zastępowany dedykowanym węzłem. Podobnie jak w pierwszym `maxNumberofVMs` przykładzie zmienna zapobiega puli przekraczającej 25 maszyn wirtualnych. W tym przykładzie jest przydatne do korzystania z maszyn wirtualnych o niskim priorytecie, a także zapewnienie, że tylko stała liczba wywłaszczeń wystąpi przez cały okres istnienia puli.
+Ten przykład tworzy pulę, która rozpoczyna się od 25 węzłów o niskim priorytecie. Za każdym razem, gdy węzeł o niskim priorytecie jest zastępowany, zostanie on zastąpiony przez dedykowany węzeł. Podobnie jak w przypadku pierwszego przykładu `maxNumberofVMs` zmienna zapobiega przekraczaniu 25 maszyn wirtualnych. Ten przykład jest przydatny do korzystania z maszyn wirtualnych o niskim priorytecie, a także w przypadku, gdy tylko stała liczba przeniesień będzie miała miejsce w okresie istnienia puli.
 
 ## <a name="variables"></a>Zmienne
 
-W formułach skalowania automatycznego można używać zarówno zmiennych **zdefiniowanych przez usługę,** jak i **zdefiniowanych przez użytkownika.** Zmienne zdefiniowane przez usługę są wbudowane w usługę Batch. Niektóre zmienne zdefiniowane przez usługę są odczytu i zapisu, a niektóre są tylko do odczytu. Zmienne zdefiniowane przez użytkownika są zmiennymi, które definiujesz. W przykładowej formule pokazanej w poprzedniej sekcji `$TargetDedicatedNodes` są `$PendingTasks` zmienne zdefiniowane przez usługę. Zmienne `startingNumberOfVMs` `maxNumberofVMs` i są zmiennymi zdefiniowanymi przez użytkownika.
+W formułach skalowania automatycznego można używać zarówno zmiennych **zdefiniowanych przez usługę** , jak i **zdefiniowanych przez użytkownika** . Zmienne zdefiniowane przez usługę są wbudowane w usługę Batch. Niektóre zmienne zdefiniowane przez usługę są do odczytu i zapisu, a niektóre z nich są tylko do odczytu. Zmienne zdefiniowane przez użytkownika to zmienne, które definiujesz. W przykładowej formule pokazanej w poprzedniej `$TargetDedicatedNodes` sekcji `$PendingTasks` i są zmiennymi zdefiniowanymi przez usługę. Zmienne `startingNumberOfVMs` i `maxNumberofVMs` są zmiennymi zdefiniowanymi przez użytkownika.
 
 > [!NOTE]
-> Zmienne zdefiniowane przez usługę są zawsze poprzedzone znakiem dolara ($). W przypadku zmiennych zdefiniowanych przez użytkownika znak dolara jest opcjonalny.
+> Zmienne zdefiniowane przez usługę zawsze poprzedzają znak dolara ($). W przypadku zmiennych zdefiniowanych przez użytkownika znak dolara jest opcjonalny.
 >
 >
 
-W poniższych tabelach przedstawiono zmienne tylko do odczytu i tylko do odczytu, które są zdefiniowane przez usługę Batch.
+W poniższych tabelach przedstawiono zarówno zmienne do odczytu i zapisu, jak i tylko do odczytu, które są zdefiniowane przez usługę Batch.
 
-Można uzyskać i ustawić wartości tych zmiennych zdefiniowanych przez usługę, aby zarządzać liczbą węzłów obliczeniowych w puli:
+Można pobrać i ustawić wartości tych zmiennych zdefiniowanych przez usługę w celu zarządzania liczbą węzłów obliczeniowych w puli:
 
-| Zmienne zdefiniowane przez usługę odczytu i zapisu | Opis |
+| Zmienne zdefiniowane przez usługę do odczytu i zapisu | Opis |
 | --- | --- |
-| $TargetDedicatedNodes |Docelowa liczba dedykowanych węzłów obliczeniowych dla puli. Liczba dedykowanych węzłów jest określona jako miejsce docelowe, ponieważ pula nie zawsze może osiągnąć żądaną liczbę węzłów. Na przykład jeśli liczba docelowa dedykowanych węzłów jest modyfikowana przez ocenę skalowania automatycznego, zanim pula osiągnie początkowy cel docelowy, pula może nie osiągnąć obiektu docelowego. <br /><br /> Pula na koncie utworzonym za pomocą konfiguracji usługi wsadowej może nie osiągnąć swojego obiektu docelowego, jeśli obiekt docelowy przekracza węzeł konta usługi Batch lub przydział podstawowy. Pula na koncie utworzonym za pomocą konfiguracji subskrypcja użytkownika może nie osiągnąć swojego celu, jeśli obiekt docelowy przekroczy udostępniony przydział podstawowy dla subskrypcji.|
-| $TargetLowPriorityNodes |Docelowa liczba węzłów obliczeniowych o niskim priorytecie dla puli. Liczba węzłów o niskim priorytecie jest określona jako miejsce docelowe, ponieważ pula nie zawsze może osiągnąć żądaną liczbę węzłów. Na przykład jeśli liczba docelowa węzłów o niskim priorytecie jest modyfikowana przez ocenę skalowania automatycznego, zanim pula osiągnie początkowy cel docelowy, pula może nie osiągnąć obiektu docelowego. Pula może również nie osiągnąć swój cel, jeśli obiekt docelowy przekracza węzeł konta usługi Batch lub przydział podstawowy. <br /><br /> Aby uzyskać więcej informacji na temat węzłów obliczeniowych o niskim priorytecie, zobacz [Używanie maszyn wirtualnych o niskim priorytecie z partią](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |Akcja, która występuje, gdy węzły obliczeniowe są usuwane z puli. Możliwe wartości:<ul><li>**requeue**-- Wartość domyślna. Natychmiast kończy zadania i umieszcza je z powrotem w kolejce zadań, tak aby zostały przełożone. Ta akcja zapewnia docelową liczbę węzłów jest osiągany tak szybko, jak to możliwe, ale może być mniej wydajne, jak wszystkie uruchomione zadania zostaną przerwane i muszą zostać ponownie uruchomione, marnując wszelkie prace, które już wykonano. <li>**zakończyć**--Kończy zadania natychmiast i usuwa je z kolejki zadań.<li>**taskcompletion**--Czeka na aktualnie uruchomione zadania do zakończenia, a następnie usuwa węzeł z puli. Użyj tej opcji, aby uniknąć przerywania i ponownego wysuwania zadań w kolejce, marnując każdą pracę wykonaną przez zadanie. <li>**retaineddata**--Czeka na wszystkie lokalne dane zachowane w węźle do oczyszczenia przed usunięciem węzła z puli.</ul> |
+| $TargetDedicatedNodes |Docelowa liczba dedykowanych węzłów obliczeniowych w puli. Liczba węzłów dedykowanych jest określona jako element docelowy, ponieważ pula może nie zawsze osiągnąć żądaną liczbę węzłów. Na przykład jeśli docelowa liczba węzłów jest modyfikowana przez ocenę skalowania automatycznego przed osiągnięciem początkowej docelowej puli, Pula może nie dotrzeć do miejsca docelowego. <br /><br /> Pula w ramach konta utworzonego przy użyciu konfiguracji usługi Batch może nie osiągnąć swojego celu, jeśli element docelowy przekracza węzeł konta usługi Batch lub przydział podstawowy. Pula w ramach konta utworzonego przy użyciu konfiguracji subskrypcji użytkownika może nie osiągnąć swojego celu, jeśli wartość docelowa przekroczy współużytkowany przydział rdzeni dla subskrypcji.|
+| $TargetLowPriorityNodes |Docelowa liczba węzłów obliczeniowych o niskim priorytecie dla puli. Liczba węzłów o niskim priorytecie jest określana jako element docelowy, ponieważ pula może nie zawsze osiągnąć żądaną liczbę węzłów. Na przykład jeśli docelowa liczba węzłów o niskim priorytecie jest modyfikowana przez ocenę skalowania automatycznego przed osiągnięciem początkowej docelowej puli, Pula może nie dotrzeć do miejsca docelowego. Pula może być również nieosiągalna, jeśli element docelowy przekracza węzeł konta wsadowego lub przydział podstawowy. <br /><br /> Aby uzyskać więcej informacji na temat węzłów obliczeniowych o niskim priorytecie, zobacz [Korzystanie z maszyn wirtualnych o niskim priorytecie w usłudze Batch](batch-low-pri-vms.md). |
+| $NodeDeallocationOption |Akcja wykonywana po usunięciu węzłów obliczeniowych z puli. Możliwe wartości:<ul><li>**requeue**--wartość domyślna. Natychmiast kończy zadania i umieszcza je z powrotem w kolejce zadań, aby zostały ponownie zaplanowane. Ta akcja zapewnia, że docelowa liczba węzłów jest możliwie najszybsza, ale może być mniej wydajna, ponieważ wszystkie uruchomione zadania zostaną przerwane i trzeba będzie je ponownie uruchomić, transakcję już wykonanej pracy. <li>**Przerwij**— kończy zadania natychmiast i usuwa je z kolejki zadań.<li>**taskcompletion**--czeka na zakończenie działania aktualnie wykonywanych zadań, a następnie usuwa węzeł z puli. Użyj tej opcji, aby uniknąć przerwania i przetworzenia kolejki zadań do wykonania przez zadanie. <li>**retaineddata**--czeka na oczyszczenie wszystkich lokalnych danych zadań przechowywanych w węźle przed usunięciem węzła z puli.</ul> |
 
 > [!NOTE]
-> Zmienną `$TargetDedicatedNodes` można również określić `$TargetDedicated`za pomocą aliasu . Podobnie zmienną `$TargetLowPriorityNodes` można określić za `$TargetLowPriority`pomocą aliasu . Jeśli zarówno w pełni nazwana zmienna, jak i jej alias są ustawiane przez formułę, wartość przypisana do w pełni nazwanej zmiennej będzie mieć pierwszeństwo.
+> `$TargetDedicatedNodes` Zmienną można również określić przy użyciu aliasu `$TargetDedicated`. Podobnie `$TargetLowPriorityNodes` zmienna może być określona za pomocą aliasu `$TargetLowPriority`. Jeśli zarówno w pełni nazwana zmienna, jak i jej alias są ustawiane przez formułę, pierwszeństwo ma wartość przypisana do pełnej nazwanej zmiennej.
 >
 >
 
-Można uzyskać wartość tych zmiennych zdefiniowanych przez usługę, aby wprowadzić korekty, które są oparte na metrykach z usługi Batch:
+Możesz uzyskać wartości tych zmiennych zdefiniowanych przez usługę, aby wprowadzić zmiany, które są oparte na metrykach usługi Batch:
 
-| Zmienne zdefiniowane tylko do odczytu | Opis |
+| Zmienne zdefiniowane przez usługę tylko do odczytu | Opis |
 | --- | --- |
 | $CPUPercent |Średni procent użycia procesora CPU. |
-| $WallClockSeconds |Liczba zużytych sekund. |
-| $MemoryBytes |Średnia liczba używanych megabajtów. |
+| $WallClockSeconds |Liczba użytych sekund. |
+| $MemoryBytes |Średnia liczba użytych megabajtów. |
 | $DiskBytes |Średnia liczba gigabajtów używanych na dyskach lokalnych. |
 | $DiskReadBytes |Liczba odczytanych bajtów. |
-| $DiskWriteBytes |Liczba bajtów zapisanych. |
-| $DiskReadOps |Liczba wykonanych operacji dysku odczytu. |
-| $DiskWriteOps |Liczba wykonanych operacji na dysku zapisu. |
+| $DiskWriteBytes |Liczba zapisanych bajtów. |
+| $DiskReadOps |Liczba wykonanych operacji odczytu dysku. |
+| $DiskWriteOps |Liczba wykonanych operacji zapisu na dysku. |
 | $NetworkInBytes |Liczba bajtów przychodzących. |
 | $NetworkOutBytes |Liczba bajtów wychodzących. |
 | $SampleNodeCount |Liczba węzłów obliczeniowych. |
-| $ActiveTasks |Liczba zadań, które są gotowe do wykonania, ale nie są jeszcze wykonywane. Liczba $ActiveTasks obejmuje wszystkie zadania, które są w stanie aktywnym i których zależności zostały spełnione. Wszystkie zadania, które są w stanie aktywnym, ale których zależności nie zostały spełnione, są wykluczone z $ActiveTasks liczby. W przypadku zadania z wieloma wystąpieniami $ActiveTasks będzie zawierać liczbę wystąpień ustawionych w zadaniu.|
-| $RunningTasks |Liczba zadań w stanie uruchomionym. |
+| $ActiveTasks |Liczba zadań, które są gotowe do wykonania, ale jeszcze nie są wykonywane. Liczba $ActiveTasks obejmuje wszystkie zadania znajdujące się w stanie aktywnym, których zależności zostały spełnione. Wszystkie zadania, które znajdują się w stanie aktywnym, ale których zależności nie zostały spełnione, są wykluczone z liczby $ActiveTasks. W przypadku zadania o wielu wystąpieniach $ActiveTasks będzie zawierać liczbę wystąpień ustawionych dla zadania.|
+| $RunningTasks |Liczba zadań w stanie uruchomienia. |
 | $PendingTasks |Suma $ActiveTasks i $RunningTasks. |
 | $SucceededTasks |Liczba zadań, które zakończyły się pomyślnie. |
-| $FailedTasks |Liczba zadań, które nie powiodły się. |
+| $FailedTasks |Liczba zadań, które zakończyły się niepowodzeniem. |
 | $CurrentDedicatedNodes |Bieżąca liczba dedykowanych węzłów obliczeniowych. |
-| $CurrentLowPriorityNodes |Bieżąca liczba węzłów obliczeniowych o niskim priorytecie, w tym wszystkie węzły, które zostały wywłaszczone. |
-| $PreemptedNodeCount | Liczba węzłów w puli, które są w stanie wywłaszczonych. |
+| $CurrentLowPriorityNodes |Bieżąca liczba węzłów obliczeniowych o niskim priorytecie, w tym wszystkich węzłów, które zostały przeniesiona. |
+| $PreemptedNodeCount | Liczba węzłów w puli, które są w stanie przeniesiona. |
 
 > [!TIP]
-> Zmienne tylko do odczytu, zdefiniowane przez usługę, które są wyświetlane w poprzedniej tabeli są *obiekty,* które zapewniają różne metody dostępu do danych skojarzonych z każdym. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie przykładowych danych](#getsampledata) w dalszej części tego artykułu.
+> Zmienne zdefiniowane w ramach usługi, które są wyświetlane w poprzedniej tabeli, to *obiekty* , które udostępniają różne metody uzyskiwania dostępu do danych skojarzonych z każdym z nich. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie przykładowych danych](#getsampledata) w dalszej części tego artykułu.
 >
 >
 
-## <a name="types"></a>Types
+## <a name="types"></a>Typy
 
 Te typy są obsługiwane w formule:
 
 * double
-* doubleVec (doubleVec)
+* doubleVec
 * doubleVecList
 * ciąg
-* sygnatura czasowa - sygnatura czasowa jest strukturą złożoną, która zawiera następujące elementy członkowskie:
+* Sygnatura czasowa — sygnatura czasowa jest strukturą złożoną, która zawiera następujące elementy członkowskie:
 
   * rok
   * miesiąc (1-12)
   * dzień (1-31)
-  * w dni powszednie (w formacie liczby; na przykład 1 na poniedziałek)
-  * godzina (w formacie 24-godzinnym; na przykład 13 oznacza 13:00)
+  * dzień tygodnia (w formacie liczbowym, na przykład 1 dla poniedziałku)
+  * godzina (w formacie 24-godzinnym, na przykład 13 oznacza 1 PM)
   * minuta (00-59)
-  * drugi (00-59)
+  * sekunda (00-59)
 * timeinterval
 
   * TimeInterval_Zero
@@ -174,63 +165,63 @@ Te typy są obsługiwane w formule:
 
 ## <a name="operations"></a>Operacje
 
-Te operacje są dozwolone na typy, które są wymienione w poprzedniej sekcji.
+Te operacje są dozwolone dla typów, które są wymienione w poprzedniej sekcji.
 
 | Operacja | Obsługiwane operatory | Typ wyniku |
 | --- | --- | --- |
-| podwójny *operator* podwójny |+, -, *, / |double |
-| *dwukrotna* wyinterwal operatora |* |timeinterval |
-| doubleVec *operator* podwójny |+, -, *, / |doubleVec (doubleVec) |
-| doubleVec *operator* doubleVec |+, -, *, / |doubleVec (doubleVec) |
-| *operator* timeinterval dwukrotnie |*, / |timeinterval |
-| timeinterval *operatora* timeinterval |+, - |timeinterval |
-| sygnatura *czasowa operatora* w czasie |+ |sygnatura czasowa |
-| wyinterwal *operatora sygnatury* czasowej |+ |sygnatura czasowa |
-| *sygnatura czasowa operatora sygnatury czasowej* |- |timeinterval |
-| *operator*dwukrotnie |-, ! |double |
-| *czas operatorainterwal* |- |timeinterval |
-| podwójny *operator* podwójny |<, <=, ==, >=, >, != |double |
-| ciąg *operatora* ciągu |<, <=, ==, >=, >, != |double |
-| *sygnatura czasowa operatora sygnatury czasowej* |<, <=, ==, >=, >, != |double |
-| timeinterval *operatora* timeinterval |<, <=, ==, >=, >, != |double |
-| podwójny *operator* podwójny |&&  &#124;&#124; |double |
+| podwójny *operator* Double |+, -, *, / |double |
+| podwójny *operator* TimeInterval |* |timeinterval |
+| *operator* doubleVec (Double) |+, -, *, / |doubleVec |
+| *operator* doubleVec doubleVec |+, -, *, / |doubleVec |
+| *operator* TimeInterval (Double) |*, / |timeinterval |
+| *operator* TimeInterval TimeInterval |+, - |timeinterval |
+| Sygnatura czasowa *operatora* TimeInterval |+ |sygnatura czasowa |
+| TimeInterval *operatora* sygnatury czasowej |+ |sygnatura czasowa |
+| Sygnatura czasowa *operatora* timestamp |- |timeinterval |
+| *operator*Double |-, ! |double |
+| TimeInterval *operatora* |- |timeinterval |
+| podwójny *operator* Double |<, <=, = =, >=, >,! = |double |
+| ciąg *operatora* ciągu |<, <=, = =, >=, >,! = |double |
+| Sygnatura czasowa *operatora* timestamp |<, <=, = =, >=, >,! = |double |
+| *operator* TimeInterval TimeInterval |<, <=, = =, >=, >,! = |double |
+| podwójny *operator* Double |&&,  &#124;&#124; |double |
 
-Podczas testowania podwójnego z operatorem`double ? statement1 : statement2`trójskładnikowym ( ), nonzero jest **prawdą,** a zero jest **fałszywe.**
+Podczas testowania podwójnego przy użyciu operatora Trzyelementowy (`double ? statement1 : statement2`) niezerowego ma **wartość true**, a zero ma **wartość false**.
 
 ## <a name="functions"></a>Funkcje
-Te wstępnie **zdefiniowane funkcje** są dostępne do użycia podczas definiowania formuły skalowania automatycznego.
+Te wstępnie zdefiniowane **funkcje** są dostępne do użycia podczas definiowania formuły skalowania automatycznego.
 
 | Funkcja | Zwracany typ | Opis |
 | --- | --- | --- |
-| avg(doubleVecList) |double |Zwraca średnią wartość dla wszystkich wartości w doubleVecList. |
-| len(doubleVecList) |double |Zwraca długość wektora, który jest tworzony z doubleVecList. |
-| lg (podwójna) |double |Zwraca podstawę dziennika 2 podwójnego. |
-| lg (doubleVecList) |doubleVec (doubleVec) |Zwraca bazę dziennika 2 doubleVecList. Vec(double) musi być jawnie przekazywane dla parametru. W przeciwnym razie zakłada się podwójną wersję lg(double). |
-| ln(podwójny) |double |Zwraca dziennik naturalny double. |
-| ln(doubleVecList) |doubleVec (doubleVec) |Zwraca dziennik naturalny double. |
-| dziennik (podwójny) |double |Zwraca podstawę dziennika 10 podwójnego. |
-| dziennik (doubleVecList) |doubleVec (doubleVec) |Zwraca bazę dziennika 10 doubleVecList. Vec(double) musi być jawnie przekazywane dla pojedynczego double parametru. W przeciwnym razie zakłada się wersję double log(double). |
-| max(doubleVecList) |double |Zwraca maksymalną wartość w doubleVecList. |
-| min(doubleVecList) |double |Zwraca wartość minimalną w doubleVecList. |
-| norm(doubleVecList) |double |Zwraca dwie normy wektora, który jest tworzony z doubleVecList. |
-| percentyl(doubleVec v, double p) |double |Zwraca element percentylu wektora v. |
-| Rand() |double |Zwraca wartość losową z 0,0 a 1,0. |
-| zakres (doubleVecList) |double |Zwraca różnicę między wartościami min i max w doubleVecList. |
-| std(doubleVecList) |double |Zwraca przykładowe odchylenie standardowe wartości w doubleVecList. |
-| stop() | |Zatrzymuje ocenę wyrażenia skalowania automatycznego. |
-| suma(doubleVecList) |double |Zwraca sumę wszystkich składników doubleVecList. |
-| time(ciąg dateTime=")) |sygnatura czasowa |Zwraca sygnaturę czasową bieżącego czasu, jeśli nie są przekazywane żadne parametry, lub sygnaturę czasową ciągu dateTime, jeśli jest przekazywana. Obsługiwane formaty dateTime to W3C-DTF i RFC 1123. |
-| val(doubleVec v, double i) |double |Zwraca wartość elementu, który znajduje się w lokalizacji i w vector v, z indeksem początkowym zero. |
+| Średnia (doubleVecList) |double |Zwraca średnią wartość dla wszystkich wartości w doubleVecList. |
+| len (doubleVecList) |double |Zwraca długość wektora utworzonego na podstawie doubleVecList. |
+| LG (Double) |double |Zwraca bazę logarytmiczną 2 z podwójnej precyzji. |
+| LG (doubleVecList) |doubleVec |Zwraca bazę dziennika ze składnikiem 2 z doubleVecList. Element VEC (Double) musi być jawnie zakończony dla parametru. W przeciwnym razie przyjmowana jest podwójna wersja LG (Double). |
+| ln (Double) |double |Zwraca naturalny dziennik z podwójnej precyzji. |
+| ln (doubleVecList) |doubleVec |Zwraca naturalny dziennik z podwójnej precyzji. |
+| Dziennik (Double) |double |Zwraca bazę dziennika o wartości 10 z podwójnej precyzji. |
+| Dziennik (doubleVecList) |doubleVec |Zwraca bazę dziennika ze składnikami 10 doubleVecList. Element VEC (Double) musi być jawnie zakończony dla pojedynczego parametru Double. W przeciwnym razie przyjmowana jest wersja podwójnego rejestrowania (Double). |
+| Max (doubleVecList) |double |Zwraca maksymalną wartość w doubleVecList. |
+| min (doubleVecList) |double |Zwraca minimalną wartość w doubleVecList. |
+| Norma (doubleVecList) |double |Zwraca dwie normy wektora, który jest tworzony na podstawie doubleVecList. |
+| percentyl (doubleVec v, Double p) |double |Zwraca element percentylu wektora v. |
+| rand() |double |Zwraca wartość losową z zakresu od 0,0 do 1,0. |
+| zakres (doubleVecList) |double |Zwraca różnicę między wartościami minimalną i maksymalną w doubleVecList. |
+| STD (doubleVecList) |double |Zwraca odchylenie standardowe próbki wartości w doubleVecList. |
+| Stop () | |Kończy Obliczanie wyrażenia skalowania automatycznego. |
+| Sum (doubleVecList) |double |Zwraca sumę wszystkich składników doubleVecList. |
+| Time (ciąg dateTime = "") |sygnatura czasowa |Zwraca sygnaturę czasową bieżącego czasu, jeśli nie są spełnione żadne parametry lub sygnaturę czasową ciągu dateTime, jeśli został on zakończony. Obsługiwane formaty dateTime to W3C-DTF i RFC 1123. |
+| Val (doubleVec v, podwójne i) |double |Zwraca wartość elementu, który znajduje się w lokalizacji i w wektorze v, z indeksem początkowym równym zero. |
 
-Niektóre funkcje, które są opisane w poprzedniej tabeli można zaakceptować listę jako argument. Lista oddzielona przecinkami jest dowolną kombinacją *double* i *doubleVec*. Przykład:
+Niektóre funkcje, które są opisane w poprzedniej tabeli, mogą akceptować listę jako argument. Rozdzielana przecinkami lista jest dowolną kombinacją wartości *Double* i *doubleVec*. Przykład:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-*DoubleVecList* wartość jest konwertowana na pojedynczy *doubleVec* przed oceną. Na przykład, `v = [1,2,3]`jeśli `avg(v)` wywołanie jest `avg(1,2,3)`równoznaczne z wywołaniem . Wywołanie `avg(v, 7)` jest `avg(1,2,3,7)`równoznaczne z wywołaniem .
+Wartość *doubleVecList* jest konwertowana na jedną *doubleVec* przed oceną. Na przykład, jeśli `v = [1,2,3]`, wywołanie `avg(v)` jest równoważne wywołaniu `avg(1,2,3)`. Wywołanie `avg(v, 7)` jest równoważne wywołaniu `avg(1,2,3,7)`.
 
 ## <a name="obtain-sample-data"></a><a name="getsampledata"></a>Uzyskiwanie przykładowych danych
 
-Formuły skalowania automatycznego działają na dane metryk (przykłady), które są dostarczane przez usługę Batch. Formuła zwiększa lub zmniejsza rozmiar puli na podstawie wartości, które uzyskuje z usługi. Zmienne zdefiniowane przez usługę, które zostały opisane wcześniej, są obiektami, które zapewniają różne metody dostępu do danych skojarzonych z tym obiektem. Na przykład następujące wyrażenie pokazuje żądanie, aby uzyskać ostatnie pięć minut użycia procesora CPU:
+Formuły skalowania automatycznego działają na danych metryk (próbek) dostarczanych przez usługę Batch. Formuła zwiększa lub zmniejsza rozmiar puli na podstawie wartości pobieranych z usługi. Opisane wcześniej zmienne zdefiniowane przez usługę to obiekty, które udostępniają różne metody uzyskiwania dostępu do danych, które są skojarzone z tym obiektem. Na przykład poniższe wyrażenie przedstawia żądanie pobrania ostatnich pięciu minut użycia procesora CPU:
 
 ```
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
@@ -238,59 +229,59 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Metoda | Opis |
 | --- | --- |
-| GetSample() |Metoda `GetSample()` zwraca wektor próbek danych.<br/><br/>Przykład jest 30 sekund wartości danych metryk. Innymi słowy próbki są uzyskiwane co 30 sekund. Ale jak wspomniano poniżej, występuje opóźnienie między kiedy próbka jest pobierana i kiedy jest dostępna dla formuły. W związku z tym nie wszystkie próbki w danym okresie mogą być dostępne do oceny według wzoru.<ul><li>`doubleVec GetSample(double count)`<br/>Określa liczbę próbek do uzyskania z najnowszych próbek, które zostały zebrane.<br/><br/>`GetSample(1)`zwraca ostatnią dostępną próbkę. W przypadku metryk, takich jak `$CPUPercent`, jednak nie należy tego używać, ponieważ nie można wiedzieć, *kiedy* próbka została pobrana. Może to być ostatnie, lub, z powodu problemów z systemem, może być znacznie starszy. Lepiej jest w takich przypadkach użyć przedziału czasu, jak pokazano poniżej.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Określa przedział czasu zbierania przykładowych danych. Opcjonalnie określa również procent próbek, które muszą być dostępne w żądanym przedziale czasu.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`zwróci 20 próbek, jeśli wszystkie próbki z ostatnich 10 minut są obecne w historii CPUPercent. Jeśli jednak ostatnia minuta historii nie była dostępna, tylko 18 próbek zostanie zwróconych. W takim przypadku:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`nie powiedzie się, ponieważ tylko 90 procent próbek są dostępne.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`się udało.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Określa przedział czasu zbierania danych, zarówno z czasem rozpoczęcia, jak i czasem zakończenia.<br/><br/>Jak wspomniano powyżej, występuje opóźnienie między pobraniem próbki a tym, kiedy jest dostępna dla formuły. Należy wziąć pod uwagę `GetSample` to opóźnienie podczas korzystania z metody. Zobacz `GetSamplePercent` poniżej. |
-| GetSamplePeriod() |Zwraca okres próbek pobranych w historycznym zestawie danych próbki. |
-| Liczba() |Zwraca całkowitą liczbę próbek w historii metryk. |
-| HistoriaPowierzchnia() |Zwraca sygnaturę czasową najstarszego dostępnego przykładu danych dla metryki. |
-| GetSamplePercent() |Zwraca procent próbek, które są dostępne dla danego przedziału czasu. Przykład:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Ponieważ `GetSample` metoda kończy się niepowodzeniem, jeśli procent `samplePercent` zwracanych próbek `GetSamplePercent` jest mniejsza niż określona, można użyć metody, aby najpierw sprawdzić. Następnie można wykonać alternatywną akcję, jeśli istnieje niewystarczające próbki, bez zatrzymywania automatycznej oceny skalowania. |
+| Getsample () |`GetSample()` Metoda zwraca wektor próbek danych.<br/><br/>Przykładem jest 30-sekundowa ilość danych metryk. Innymi słowy, próbki są uzyskiwane co 30 sekund. Jak pokazano poniżej, występuje opóźnienie między pobieraniem próbki a udostępnieniem jej w formule. W związku z tym nie wszystkie próbki dla danego okresu mogą być dostępne do oceny przez formułę.<ul><li>`doubleVec GetSample(double count)`<br/>Określa liczbę próbek do pobrania z najnowszych próbek, które zostały zebrane.<br/><br/>`GetSample(1)`Zwraca ostatni dostępny przykład. Nie należy jednak `$CPUPercent`używać takich metryk, ponieważ nie można wiedzieć, *kiedy* przykład został zebrany. Może być to Najnowsza wersja, lub z powodu problemów z systemem, może być ona znacznie starsza. W takich przypadkach lepszym rozwiązaniem jest użycie przedziału czasu, jak pokazano poniżej.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Określa ramy czasowe do zbierania przykładowych danych. Opcjonalnie określa również procent próbek, które muszą być dostępne w żądanym przedziale czasowym.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`zwraca 20 próbek, jeśli wszystkie próbki w ciągu ostatnich 10 minut są obecne w historii CPUPercent. Jeśli Ostatnia minuta historii była niedostępna, zostaną zwrócone tylko 18 próbek. W takim przypadku:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`nie powiedzie się, ponieważ dostępne są tylko 90 procent próbek.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`powiedzie się.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Określa ramy czasowe do zbierania danych, zarówno czas rozpoczęcia, jak i godzinę zakończenia.<br/><br/>Jak wspomniano powyżej, występuje opóźnienie między pobieraniem próbki a udostępnieniem jej w formule. Należy wziąć pod uwagę to opóźnienie przy `GetSample` użyciu metody. Zobacz `GetSamplePercent` poniżej. |
+| GetSamplePeriod() |Zwraca okres próbkowania, które zostały wykonane w historycznym zestawie danych przykładowych. |
+| Count () |Zwraca łączną liczbę próbek w historii metryk. |
+| HistoryBeginTime() |Zwraca sygnaturę czasową najstarszego dostępnego przykładu danych dla metryki. |
+| GetSamplePercent() |Zwraca wartość procentową próbek, które są dostępne dla danego interwału czasu. Przykład:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Ponieważ `GetSample` Metoda kończy się niepowodzeniem, jeśli wartość procentowa zwracanych próbek jest `samplePercent` mniejsza niż określona, można użyć `GetSamplePercent` metody do sprawdzenia w pierwszej kolejności. Następnie można wykonać alternatywną akcję, jeśli istnieją niewystarczające próbki, bez zatrzymania automatycznej oceny skalowania. |
 
-### <a name="samples-sample-percentage-and-the-getsample-method"></a>Próbki, procent próbki i *Metoda GetSample()*
-Podstawową operacją formuły skalowania automatycznego jest uzyskanie danych metryki zadań i zasobów, a następnie dostosowanie rozmiaru puli na podstawie tych danych. W związku z tym ważne jest, aby mieć jasne zrozumienie, jak formuły skalowania automatycznego współdziałają z danymi metryk (przykłady).
+### <a name="samples-sample-percentage-and-the-getsample-method"></a>Przykłady, przykładowa wartość procentowa i Metoda *getsample ()*
+Podstawową operacją formułę skalowania automatycznego jest uzyskanie danych metryk zadania i zasobu, a następnie dopasowanie rozmiaru puli na podstawie tych danych. W związku z tym ważne jest, aby jasno zrozumieć, jak formuły skalowania automatycznego współdziałają z danymi metryk (przykładami).
 
-**Próbki**
+**Samples**
 
-Usługa Batch okresowo pobiera próbki metryk zadań i zasobów i udostępnia je formułom skalowania automatycznego. Te przykłady są rejestrowane co 30 sekund przez usługę Batch. Jednak zazwyczaj występuje opóźnienie między tym, kiedy te próbki zostały zarejestrowane, a kiedy są dostępne (i mogą być odczytywane przez) formuły skalowania automatycznego. Ponadto ze względu na różne czynniki, takie jak problemy z siecią lub inną infrastrukturą, próbki mogą nie być rejestrowane dla określonego interwału.
+Usługa Batch okresowo pobiera próbki metryk zadań i zasobów oraz udostępnia je dla formuł skalowania automatycznego. Te próbki są rejestrowane co 30 sekund przez usługę Batch. Jednak zazwyczaj występuje opóźnienie między zapisaniem tych próbek a udostępnieniem ich dla (i może być odczytywane przez) formuł skalowania automatycznego. Ponadto ze względu na różne czynniki, takie jak sieć lub inne problemy związane z infrastrukturą, próbki nie mogą być rejestrowane w określonym interwale.
 
 **Procent próbki**
 
-Po `samplePercent` przekazaniu `GetSample()` do metody `GetSamplePercent()` lub wywoływana jest metoda, _procent_ odwołuje się do porównania całkowitej możliwej liczby próbek, które są rejestrowane przez usługę Batch, a liczbą próbek dostępnych dla formuły skalowania automatycznego.
+Gdy `samplePercent` jest przenoszona do `GetSample()` metody lub wywoływana `GetSamplePercent()` jest metoda, _wartość procentowa_ odnosi się do porównania między całkowitą możliwą liczbą próbek, które są rejestrowane przez usługę Batch, oraz liczbą próbek dostępnych dla formuły skalowania automatycznego.
 
-Spójrzmy na 10-minutowy timespan jako przykład. Ponieważ próbki są rejestrowane co 30 sekund w ciągu 10 minut, maksymalna całkowita liczba próbek, które są rejestrowane przez partię będzie 20 próbek (2 na minutę). Jednak ze względu na nieodłączne opóźnienie mechanizmu raportowania i innych problemów na platformie Azure może istnieć tylko 15 przykładów, które są dostępne dla formuły skalowania automatycznego do odczytu. Na przykład w tym 10-minutowym okresie tylko 75% całkowitej liczby zarejestrowanych próbek może być dostępnych dla formuły.
+Przyjrzyjmy się na przykład do 10-minutowego przedziału czasu. Ponieważ próbki są rejestrowane co 30 sekund w ramach przedziału czasu, Maksymalna łączna liczba próbek, które są rejestrowane przez partię, wynosi 20 próbek (2 na minutę). Jednak ze względu na niewłaściwe opóźnienie mechanizmu raportowania i innych problemów w ramach platformy Azure może istnieć tylko 15 próbek dostępnych dla formuły skalowania automatycznego. Tak więc, na przykład w przypadku okresu 10-minutowego, w formule może być dostępna tylko 75% łącznej liczby prób.
 
-**GetSample() i zakresy próbek**
+**Getsample () i zakresy próbek**
 
-Formuły skalowania automatycznego będą rosnąć i zmniejszać &mdash; pule, dodając węzły lub usuwając węzły. Ponieważ węzły kosztują pieniądze, należy upewnić się, że formuły używają inteligentnej metody analizy opartej na wystarczających danych. Dlatego zaleca się użycie analizy typu trendów w formułach. Ten typ powiększa i zmniejsza pul pul na podstawie zakresu pobranych próbek.
+Formuły skalowania automatycznego będą zwiększać i zmniejszać pule &mdash; , dodając węzły lub usuwając węzły. Ze względu na to, że węzły są kosztowne, należy się upewnić, że formuły korzystają z inteligentnej metody analizy, która jest oparta na wystarczających danych. W związku z tym zalecamy użycie analizy trendów typów w formułach. Ten typ powiększa i zmniejsza pule w oparciu o zakres zebranych próbek.
 
-Aby to zrobić, należy użyć `GetSample(interval look-back start, interval look-back end)` do zwrócenia wektora próbek:
+Aby to zrobić, użyj `GetSample(interval look-back start, interval look-back end)` funkcji do zwrócenia wektora próbek:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Gdy powyższy wiersz jest oceniany przez batch, zwraca zakres próbek jako wektor wartości. Przykład:
+Gdy powyższy wiersz jest oceniany przez partię, zwraca zakres próbek jako wektor wartości. Przykład:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 ```
 
-Po zebraniu wektora próbek można następnie użyć funkcji `min()`takich `max()`jak `avg()` , i uzyskać znaczące wartości z zebranego zakresu.
+Po zebraniu wektora próbek można użyć funkcji, takich jak `min()`, `max()`, i `avg()` do wygenerowania istotnych wartości z zebranych zakresów.
 
-Aby uzyskać dodatkowe zabezpieczenia, można wymusić niepowodzenie oceny formuły, jeśli dla określonego okresu dostępna jest mniejsza niż określona wartość procentowa próbki. Wymuszenie niepowodzenia oceny formuły powoduje polecenie batch zaprzestania dalszej oceny formuły, jeśli określony procent próbek nie jest dostępny. W takim przypadku nie jest wprowadzana żadna zmiana rozmiaru puli. Aby określić wymagany procent próbek, aby ocena powiodła się, `GetSample()`należy określić ją jako trzeci parametr do . W tym miejscu określono wymóg 75 procent próbek:
+Aby zwiększyć bezpieczeństwo, można wymusić niepowodzenie oceny formuły, jeśli mniej niż określony procent próbkowania jest dostępny w określonym przedziale czasu. Jeśli wymusisz niepowodzenie oceny formuły, nakazujesz przeprowadzenie dalszej oceny formuły, jeśli określony procent próbek nie jest dostępny. W takim przypadku nie wprowadzono żadnych zmian w rozmiarze puli. Aby określić wymaganą wartość procentową próbek do pomyślnej oceny, określ ją jako trzeci parametr `GetSample()`. W tym miejscu określono wymóg 75% próbek:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
-Ponieważ może wystąpić opóźnienie w dostępności próbki, ważne jest, aby zawsze określić zakres czasu z czasem rozpoczęcia look-back, który jest starszy niż jedna minuta. Rozmnażowanie próbek za pośrednictwem systemu zajmuje około jednej minuty, `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` więc próbki z zakresu mogą być niedostępne. Ponownie można użyć parametru `GetSample()` procentowego, aby wymusić określone wymaganie procentowe próbki.
+Ponieważ w przypadku przykładowej dostępności może wystąpić opóźnienie, ważne jest, aby zawsze określać zakres czasu o godzinie rozpoczęcia wyszukiwania starszej niż jedna minuta. Przekazanie próbek przez system trwa około minutę, więc próbki w zakresie `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` mogą być niedostępne. Ponownie można użyć parametru procentu, `GetSample()` aby wymusić określone przykładowe wymagania procentowe.
 
 > [!IMPORTANT]
-> **Zdecydowanie zalecamy** **unikanie polegania `GetSample(1)` *tylko* na formułach skalowania automatycznego.** To dlatego, `GetSample(1)` że zasadniczo mówi do usługi Batch, "Daj mi ostatnią próbkę masz, bez względu na to, jak dawno temu go pobrać." Ponieważ jest to tylko pojedyncza próbka i może to być starsza próbka, może nie być reprezentatywna dla większego obrazu ostatniego stanu zadania lub zasobu. Jeśli używasz `GetSample(1)`, upewnij się, że jest to część większej instrukcji, a nie jedyny punkt danych, na których opiera się formuła.
+> **Zdecydowanie zalecamy** , aby **uniknąć używania *tylko* `GetSample(1)` w formułach skalowania automatycznego**. Wynika to z `GetSample(1)` faktu, że jest to ważne w przypadku usługi Batch, "Przekaż mi ostatni przykład, niezależnie od tego, jak długo zostało ono pobrane". Ponieważ jest tylko pojedynczym przykładem i może być starszym przykładem, może nie być reprezentatywny dla większego obrazu ostatniego stanu zadania lub zasobu. Jeśli używasz `GetSample(1)`, upewnij się, że jest częścią większej instrukcji, a nie tylko punktem danych, na którym bazuje formuła.
 >
 >
 
 ## <a name="metrics"></a>Metryki
 
-Podczas definiowania formuły można używać zarówno metryk zasobów, jak i zadań. Można dostosować liczbę docelową dedykowanych węzłów w puli na podstawie danych metryk, które można uzyskać i ocenić. Zobacz [zmienne](#variables) sekcji powyżej, aby uzyskać więcej informacji na temat każdej metryki.
+Podczas definiowania formuły można użyć metryk zasobów i zadań. Dostosowana jest docelowa liczba węzłów dedykowanych w puli na podstawie zbieranych i obliczanych danych metryk. Aby uzyskać więcej informacji na temat każdej metryki, zobacz sekcję [zmienne](#variables) powyżej.
 
 <table>
   <tr>
@@ -298,9 +289,9 @@ Podczas definiowania formuły można używać zarówno metryk zasobów, jak i za
     <th>Opis</th>
   </tr>
   <tr>
-    <td><b>Zasobów</b></td>
-    <td><p>Metryki zasobów są oparte na procesorze, przepustowości, użyciu pamięci węzłów obliczeniowych i liczbie węzłów.</p>
-        <p> Te zmienne zdefiniowane przez usługę są przydatne do wprowadzania korekt na podstawie liczby węzłów:</p>
+    <td><b>Zasób</b></td>
+    <td><p>Metryki zasobów bazują na PROCESORAch, przepustowości, użyciu pamięci węzłów obliczeniowych i liczbie węzłów.</p>
+        <p> Te zmienne zdefiniowane przez usługę są przydatne do wprowadzania zmian na podstawie liczby węzłów:</p>
     <p><ul>
             <li>$TargetDedicatedNodes</li>
             <li>$TargetLowPriorityNodes</li>
@@ -309,7 +300,7 @@ Podczas definiowania formuły można używać zarówno metryk zasobów, jak i za
             <li>$PreemptedNodeCount</li>
             <li>$SampleNodeCount</li>
     </ul></p>
-    <p>Te zmienne zdefiniowane przez usługę są przydatne do wprowadzania korekt na podstawie użycia zasobów węzła:</p>
+    <p>Te zmienne zdefiniowane przez usługę są przydatne do wprowadzania zmian opartych na użyciu zasobów węzła:</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -323,8 +314,8 @@ Podczas definiowania formuły można używać zarówno metryk zasobów, jak i za
       <li>$NetworkOutBytes</li></ul></p>
   </tr>
   <tr>
-    <td><b>Zadanie</b></td>
-    <td><p>Metryki zadań są oparte na stanie zadań, takich jak Aktywne, Oczekujące i Zakończone. Następujące zmienne zdefiniowane przez usługę są przydatne do wprowadzania korekt rozmiaru puli na podstawie metryk zadań:</p>
+    <td><b>Zadaniem</b></td>
+    <td><p>Metryki zadań są oparte na stanie zadań, takich jak aktywne, oczekujące i ukończone. Następujące zmienne zdefiniowane przez usługę są przydatne do wprowadzania zmian rozmiaru puli na podstawie metryk zadania:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
@@ -335,18 +326,18 @@ Podczas definiowania formuły można używać zarówno metryk zasobów, jak i za
   </tr>
 </table>
 
-## <a name="write-an-autoscale-formula"></a>Pisanie formuły skalowania automatycznego
+## <a name="write-an-autoscale-formula"></a>Napisz formułę skalowania automatycznego
 
-Formuła skalowania automatycznego tworzy się, tworząc instrukcje, które używają powyższych składników, a następnie łączy te instrukcje w pełną formułę. W tej sekcji tworzymy przykładową formułę skalowania automatycznego, która może wykonywać niektóre rzeczywiste decyzje dotyczące skalowania.
+Tworzysz formułę skalowania automatycznego przez utworzenie instrukcji wykorzystujących powyższe składniki, a następnie połącz te instrukcje w kompletnej formule. W tej sekcji utworzysz Przykładową formułę skalowania automatycznego, która może wykonywać pewne rzeczywiste decyzje dotyczące skalowania.
 
-Najpierw zdefiniujmy wymagania dla naszej nowej formuły skalowania automatycznego. Wzór powinien:
+Najpierw zdefiniujemy wymagania dla nowej formuły automatycznego skalowania. Formuła powinna:
 
-1. Zwiększ docelową liczbę dedykowanych węzłów obliczeniowych w puli, jeśli użycie procesora CPU jest wysokie.
-1. Zmniejsz docelową liczbę dedykowanych węzłów obliczeniowych w puli, gdy użycie procesora CPU jest niskie.
-1. Zawsze ograniczaj maksymalną liczbę dedykowanych węzłów do 400.
-1. Zmniejszając liczbę węzłów, nie należy usuwać węzłów, które są uruchomione zadania; w razie potrzeby poczekaj, aż zadania zostaną zakończone, aby usunąć węzły.
+1. Zwiększ wartość docelową dedykowanych węzłów obliczeniowych w puli, jeśli użycie procesora CPU jest wysokie.
+1. Zmniejsz liczbę elementów docelowych dedykowanych węzłów obliczeniowych w puli, gdy użycie procesora CPU jest niskie.
+1. Zawsze Ogranicz maksymalną liczbę dedykowanych węzłów do 400.
+1. Podczas zmniejszania liczby węzłów nie usuwaj węzłów, na których działają zadania; w razie potrzeby Zaczekaj na zakończenie zadań usuwania węzłów.
 
-Aby zwiększyć liczbę węzłów podczas wysokiego użycia procesora CPU, zdefiniuj instrukcję, która wypełnia zmienną zdefiniowaną przez użytkownika (`$totalDedicatedNodes`) wartością, która wynosi 110 procent bieżącej docelowej liczby dedykowanych węzłów, ale tylko wtedy, gdy minimalne średnie użycie procesora CPU w ciągu ostatnich 10 minut było powyżej 70 procent. W przeciwnym razie należy użyć wartości dla bieżącej liczby dedykowanych węzłów.
+Aby zwiększyć liczbę węzłów podczas wysokiego użycia procesora CPU, zdefiniuj instrukcję wypełniającą zmienną zdefiniowaną przez użytkownika (`$totalDedicatedNodes`) o wartości 110 procent bieżącej docelowej liczby węzłów dedykowanych, ale tylko wtedy, gdy minimalne średnie użycie procesora CPU w ciągu ostatnich 10 minut było większe niż 70 procent. W przeciwnym razie użyj wartości dla bieżącej liczby dedykowanych węzłów.
 
 ```
 $totalDedicatedNodes =
@@ -354,7 +345,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
-Aby *zmniejszyć* liczbę dedykowanych węzłów podczas niskiego użycia procesora `$totalDedicatedNodes` CPU, następna instrukcja w naszej formule ustawia tę samą zmienną do 90 procent bieżącej docelowej liczby dedykowanych węzłów, jeśli średnie użycie procesora CPU w ciągu ostatnich 60 minut wynosiło poniżej 20 procent. W przeciwnym razie należy `$totalDedicatedNodes` użyć bieżącej wartości, którą wypełniliśmy w powyższej instrukcji.
+Aby *zmniejszyć* liczbę węzłów dedykowanych podczas niskiego użycia procesora CPU, następna instrukcja w naszej formule ustawia tę `$totalDedicatedNodes` samą zmienną na 90% bieżącej docelowej liczby węzłów dedykowanych, jeśli średnie użycie procesora CPU w ostatnich 60 minutach było poniżej 20 procent. W przeciwnym razie Użyj bieżącej wartości, `$totalDedicatedNodes` która została wypełniona w powyższej instrukcji.
 
 ```
 $totalDedicatedNodes =
@@ -362,13 +353,13 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 0.9) : $totalDedicatedNodes;
 ```
 
-Teraz ogranicz docelową liczbę dedykowanych węzłów obliczeniowych do maksymalnie 400:
+Teraz Ogranicz docelową liczbę dedykowanych węzłów obliczeniowych do maksymalnie 400:
 
 ```
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-Oto pełna formuła:
+Oto kompletna formuła:
 
 ```
 $totalDedicatedNodes =
@@ -380,21 +371,21 @@ $totalDedicatedNodes =
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Tworzenie puli z obsługą skalowania automatycznego za pomocą sdk wsadowych
+## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Tworzenie puli z włączoną funkcją automatycznego skalowania przy użyciu zestawów SDK partii
 
-Pool autoscaling can be configured using any of the [Batch SDKs](batch-apis-tools.md#azure-accounts-for-batch-development), the [Batch REST API](https://docs.microsoft.com/rest/api/batchservice/) [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md), and the [Batch CLI](batch-cli-get-started.md). W tej sekcji można zobaczyć przykłady dla .NET i Python.
+Automatyczne skalowanie puli można skonfigurować przy użyciu dowolnego zestawu [SDK usługi Batch](batch-apis-tools.md#azure-accounts-for-batch-development), [poleceń cmdlet programu PowerShell](batch-powershell-cmdlets-get-started.md)dla usługi [Batch REST](https://docs.microsoft.com/rest/api/batchservice/) i interfejsu [wiersza polecenia usługi Batch](batch-cli-get-started.md). W tej sekcji można zobaczyć przykłady dla platformy .NET i języka Python.
 
 ### <a name="net"></a>.NET
 
-Aby utworzyć pulę z włączoną skalowaniem automatycznym w programie .NET, wykonaj następujące kroki:
+Aby utworzyć pulę z włączonym skalowaniem automatycznym w programie .NET, wykonaj następujące kroki:
 
-1. Utwórz pulę za pomocą [pliku BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-1. Ustaw właściwość [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) na `true`.
-1. Ustaw [właściwość CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) za pomocą formuły skalowania automatycznego.
-1. (Opcjonalnie) Ustaw właściwość [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (wartość domyślna to 15 minut).
-1. Zaajmij pulę za pomocą [cloudpool.commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) lub [commitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Utwórz pulę przy użyciu [BatchClient. PoolOperations. ispool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
+1. Dla `true`właściwości [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) ustaw wartość.
+1. Ustaw właściwość [CloudPool. AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) na formułę skalowania automatycznego.
+1. Obowiązkowe Ustaw właściwość [CloudPool. AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (wartość domyślna to 15 minut).
+1. Zatwierdź pulę z [CloudPool. Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) lub [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-Poniższy fragment kodu tworzy pulę z włączoną skalą automatyczną w .NET. Formuła skalowania automatycznego puli ustawia docelową liczbę dedykowanych węzłów na 5 w poniedziałki i 1 co drugi dzień tygodnia. Automatyczny [interwał skalowania](#automatic-scaling-interval) jest ustawiony na 30 minut. W tym i innych fragmentów C# w `myBatchClient` tym artykule jest poprawnie zainicjowane wystąpienie [BatchClient][net_batchclient] klasy.
+Poniższy fragment kodu tworzy pulę z włączoną funkcją automatycznego skalowania w programie .NET. Formuła skalowania automatycznego puli ustawia liczbę docelową dedykowanych węzłów na 5 w poniedziałek i 1 na każdy inny dzień tygodnia. [Interwał skalowania automatycznego](#automatic-scaling-interval) jest ustawiany na 30 minut. W tym i innych fragmentach kodu C# w tym artykule `myBatchClient` jest prawidłowo zainicjowany wystąpienie klasy [BatchClient][net_batchclient] .
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -408,31 +399,31 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Podczas tworzenia puli z włączoną skalą automatyczną nie należy określać parametru _targetDedicatedNodes_ ani parametru _targetLowPriorityNodes_ w wywołaniu **CreatePool**. Zamiast tego należy określić **Właściwości AutoScaleEnabled** i **AutoScaleFormula** w puli. Wartości dla tych właściwości określają docelowy numer każdego typu węzła. Ponadto, aby ręcznie zmienić rozmiar puli z włączoną skalą automatyczną (na przykład za pomocą [BatchClient.PoolOperations.ResizePoolAsync),][net_poolops_resizepoolasync]najpierw **wyłącz** automatyczne skalowanie w puli, a następnie zmienić jej rozmiar.
+> Podczas tworzenia puli z włączoną funkcją automatycznego skalowania nie należy określać parametru _targetDedicatedNodes_ ani parametru _targetLowPriorityNodes_ w wywołaniu funkcji **ispool**. Zamiast tego należy określić właściwości **AutoScaleEnabled** i **AutoScaleFormula** w puli. Wartości tych właściwości określają docelowy numer każdego typu węzła. Ponadto, aby ręcznie zmienić rozmiar puli z włączoną funkcją automatycznego skalowania (na przykład z [BatchClient. PoolOperations. ResizePoolAsync][net_poolops_resizepoolasync]), najpierw **Wyłącz** automatyczne skalowanie w puli, a następnie zmień jego rozmiar.
 >
 >
 
-#### <a name="automatic-scaling-interval"></a>Automatyczny interwał skalowania
+#### <a name="automatic-scaling-interval"></a>Interwał automatycznego skalowania
 
-Domyślnie usługa Batch dostosowuje rozmiar puli zgodnie z formułą skalowania automatycznego co 15 minut. Ten interwał można konfigurować przy użyciu następujących właściwości puli:
+Domyślnie usługa Batch dostosowuje rozmiar puli zgodnie z formułą automatycznego skalowania co 15 minut. Ten interwał można skonfigurować przy użyciu następujących właściwości puli:
 
-* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (partia .NET)
-* [autoScaleEvaluationInterval][rest_autoscaleinterval] (INTERFEJS API REST)
+* [CloudPool. AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [autoScaleEvaluationInterval][rest_autoscaleinterval] (interfejs API REST)
 
-Minimalny interwał wynosi pięć minut, a maksymalny 168 godzin. Jeśli określony jest interwał poza tym zakresem, usługa Batch zwraca błąd nieprawidłowego żądania (400).
+Minimalny interwał wynosi pięć minut, a wartość maksymalna to 168 godzin. Jeśli określono interwał poza tym zakresem, usługa Batch zwraca błąd nieprawidłowego żądania (400).
 
 > [!NOTE]
-> Skalowanie automatyczne nie jest obecnie przeznaczone do reagowania na zmiany w mniej niż minutę, ale raczej jest przeznaczony do dostosowywania rozmiaru puli stopniowo podczas uruchamiania obciążenia.
+> Skalowanie automatyczne nie jest obecnie przeznaczone do reagowania na zmiany w czasie krótszym niż minutę, ale zamiast tego jest przeznaczone do stopniowego dostosowywania rozmiaru puli podczas uruchamiania obciążenia.
 >
 >
 
 ### <a name="python"></a>Python
 
-Podobnie można wykonać pulę z włączoną skalowaniem automatyczną za pomocą sdk języka Python przez:
+Podobnie można utworzyć pulę z obsługą skalowania automatycznego za pomocą zestawu SDK języka Python, wykonując następujące polecenie:
 
 1. Utwórz pulę i określ jej konfigurację.
 1. Dodaj pulę do klienta usługi.
-1. Włącz skalowanie automatyczne w puli za pomocą formuły, którą piszesz.
+1. Włącz automatyczne skalowanie w puli przy użyciu zapisanej formuły.
 
 ```python
 # Create a pool; specify configuration
@@ -466,31 +457,31 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 ```
 
 > [!TIP]
-> Więcej przykładów używania SDK języka Python można znaleźć w [repozytorium Szybki start języka Python batch w](https://github.com/Azure-Samples/batch-python-quickstart) usłudze GitHub.
+> Więcej przykładów użycia zestawu SDK języka Python można znaleźć w [repozytorium przewodnika Szybki Start](https://github.com/Azure-Samples/batch-python-quickstart) dla usługi Batch w witrynie GitHub.
 >
 >
 
-## <a name="enable-autoscaling-on-an-existing-pool"></a>Włączanie skalowania automatycznego w istniejącej puli
+## <a name="enable-autoscaling-on-an-existing-pool"></a>Włącz Skalowanie automatyczne w istniejącej puli
 
-Każdy plik SDK partii umożliwia włączenie skalowania automatycznego. Przykład:
+Każdy zestaw SDK w usłudze Batch umożliwia włączenie skalowania automatycznego. Przykład:
 
-* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (partia .NET)
-* [Włączanie automatycznego skalowania w puli][rest_enableautoscale] (INTERFEJS API REST)
+* [BatchClient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
+* [Włącz automatyczne skalowanie w puli][rest_enableautoscale] (interfejs API REST)
 
 Po włączeniu skalowania automatycznego w istniejącej puli należy pamiętać o następujących kwestiach:
 
-* Jeśli skalowanie automatyczne jest obecnie wyłączone w puli podczas wystawiania żądania włączenia skalowania automatycznego, należy określić prawidłową formułę skalowania automatycznego podczas wystawiania żądania. Opcjonalnie można określić interwał oceny skalowania automatycznego. Jeśli interwał nie zostanie określony, używana jest wartość domyślna 15 minut.
-* Jeśli skalowanie automatyczne jest obecnie włączone w puli, można określić formułę skalowania automatycznego, interwał oceny lub oba te elementy. Należy określić co najmniej jedną z tych właściwości.
+* Jeśli automatyczne skalowanie jest obecnie wyłączone w puli po wydaniu żądania włączenia skalowania automatycznego, należy określić prawidłową formułę automatycznego skalowania po wydaniu żądania. Opcjonalnie można określić interwał oceny skalowania automatycznego. Jeśli nie określisz interwału, zostanie użyta wartość domyślna wynosząca 15 minut.
+* Jeśli automatyczne skalowanie jest obecnie włączone w puli, można określić formułę skalowania automatycznego, interwał oceny lub oba te elementy. Należy określić co najmniej jedną z tych właściwości.
 
-  * Jeśli określisz nowy interwał oceny skalowania automatycznego, istniejący harmonogram oceny zostanie zatrzymany i zostanie uruchomiony nowy harmonogram. Czas rozpoczęcia nowego harmonogramu jest godziną, w której zostało wydane żądanie włączenia skalowania automatycznego.
-  * Jeśli pominięto formułę skalowania automatycznego lub interwał oceny, usługa Batch nadal będzie używać bieżącej wartości tego ustawienia.
+  * Jeśli określisz nowy interwał oceny automatycznego skalowania, istniejący harmonogram szacowania zostanie zatrzymany i zostanie uruchomiony nowy harmonogram. Godzina rozpoczęcia nowego harmonogramu to godzina, o której wydano żądanie włączenia skalowania automatycznego.
+  * W przypadku pominięcia formuły automatycznego skalowania lub interwału oceny usługa Batch będzie używać bieżącej wartości tego ustawienia.
 
 > [!NOTE]
-> Jeśli określono wartości dla *obiektu docelowegoDedicatedNodes* lub *targetLowPriorityNodes* parametry **CreatePool** metody podczas tworzenia puli w .NET lub dla porównywalnych parametrów w innym języku, a następnie te wartości są ignorowane podczas automatycznego skalowania formuły jest oceniane.
+> Jeśli określono wartości parametrów *targetDedicatedNodes* lub *targetLowPriorityNodes* **metody tworzenia puli w** programie .NET lub dla porównywalnych parametrów w innym języku, te wartości są ignorowane podczas obliczania formuły skalowania automatycznego.
 >
 >
 
-Ten fragment kodu języka C# używa biblioteki [Batch .NET,][net_api] aby włączyć skalowanie automatyczne w istniejącej puli:
+Ten fragment kodu w języku C# używa biblioteki [Batch .NET][net_api] do włączenia skalowania automatycznego w istniejącej puli:
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -505,7 +496,7 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 
 ### <a name="update-an-autoscale-formula"></a>Aktualizowanie formuły skalowania automatycznego
 
-Aby zaktualizować formułę w istniejącej puli z włączoną skalą automatyczną, należy wywołać operację, aby ponownie włączyć skalowanie automatyczne za pomocą nowej formuły. Na przykład jeśli skalowanie automatyczne `myexistingpool` jest już włączone podczas wykonywania następującego kodu .NET, `myNewFormula`jego formuła skalowania automatycznego jest zastępowana zawartością programu .
+Aby zaktualizować formułę w istniejącej puli z włączoną funkcją automatycznego skalowania, wywołaj operację, aby ponownie włączyć automatyczne skalowanie przy użyciu nowej formuły. Na przykład jeśli automatyczne skalowanie jest już włączone `myexistingpool` podczas wykonywania poniższego kodu platformy .NET, jego formuła automatycznego skalowania jest zastępowana zawartością. `myNewFormula`
 
 ```csharp
 await myBatchClient.PoolOperations.EnableAutoScaleAsync(
@@ -513,9 +504,9 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
     autoscaleFormula: myNewFormula);
 ```
 
-### <a name="update-the-autoscale-interval"></a>Aktualizowanie interwału skalowania automatycznego
+### <a name="update-the-autoscale-interval"></a>Aktualizowanie interwału automatycznego skalowania
 
-Aby zaktualizować interwał oceny skalowania automatycznego istniejącej puli z włączoną skalą automatyczną, należy wywołać operację, aby ponownie włączyć skalowanie automatyczne z nowym interwałem. Na przykład, aby ustawić interwał oceny skalowania automatycznego na 60 minut dla puli, która jest już włączona w skali automatycznej w .NET:
+Aby zaktualizować interwał oceny automatycznego skalowania istniejącej puli z włączoną funkcją automatycznego skalowania, należy wywołać operację, aby ponownie włączyć skalowanie automatyczne przy użyciu nowego interwału. Na przykład, aby ustawić interwał oceny automatycznego skalowania do 60 minut dla puli, która jest już automatycznie skalowana w programie .NET:
 
 ```csharp
 await myBatchClient.PoolOperations.EnableAutoScaleAsync(
@@ -523,21 +514,21 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
     autoscaleEvaluationInterval: TimeSpan.FromMinutes(60));
 ```
 
-## <a name="evaluate-an-autoscale-formula"></a>Ocena formuły skalowania automatycznego
+## <a name="evaluate-an-autoscale-formula"></a>Oceń formułę skalowania automatycznego
 
-Formułę można ocenić przed zastosowaniem jej do puli. W ten sposób można przetestować formułę, aby zobaczyć, jak jej instrukcje oceniają przed umieszczeniem formuły w produkcji.
+Można oszacować formułę przed zastosowaniem jej do puli. W ten sposób można przetestować formułę, aby zobaczyć, jak jej instrukcje są oceniane przed umieszczeniem formuły w środowisku produkcyjnym.
 
-Aby ocenić formułę skalowania automatycznego, należy najpierw włączyć skalowanie automatyczne w puli z prawidłową formułą. Aby przetestować formułę w puli, która nie ma jeszcze włączonej `$TargetDedicatedNodes = 0` skalowania automatycznego, użyj formuły jednowierszowej przy pierwszym włączeniu skalowania automatycznego. Następnie użyj jednej z następujących opcji, aby ocenić formułę, którą chcesz przetestować:
+Aby oszacować formułę skalowania automatycznego, należy najpierw włączyć skalowanie automatyczne w puli przy użyciu prawidłowej formuły. Aby przetestować formułę w puli, która nie ma jeszcze włączonego skalowania automatycznego, należy użyć jednowierszowej `$TargetDedicatedNodes = 0` formuły przy pierwszym włączeniu skalowania automatycznego. Następnie użyj jednej z następujących wartości, aby oszacować formułę, którą chcesz przetestować:
 
-* [BatchClient.PoolOperations.EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) lub [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+* [BatchClient. PoolOperations. EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) lub [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
-    Te metody Batch .NET wymagają identyfikatora istniejącej puli i ciągu zawierającego formułę skalowania automatycznego do oceny.
+    Te metody wsadowe .NET wymagają identyfikatora istniejącej puli i ciągu zawierającego formułę skalowania automatycznego do obliczenia.
 
-* [Ocena formuły skalowania automatycznego](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
+* [Oceń formułę skalowania automatycznego](https://docs.microsoft.com/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
 
-    W tym żądaniu interfejsu API REST określ identyfikator puli w identyfikatorze URI i formułę skalowania automatycznego w elemencie *autoScaleFormula* treści żądania. Odpowiedź operacji zawiera wszelkie informacje o błędzie, które mogą być związane z formułą.
+    W tym żądaniu interfejsu API REST Określ Identyfikator puli w identyfikatorze URI i formułę skalowania automatycznego w elemencie *autoScaleFormula* treści żądania. Odpowiedź operacji zawiera wszystkie informacje o błędzie, które mogą być powiązane z formułą.
 
-W tym urywek kodu [usługi Batch .NET][net_api] oceniamy formułę skalowania automatycznego. Jeśli pula nie ma włączone skalowanie automatyczne, możemy włączyć go najpierw.
+W tym fragmencie kodu dla [platformy .NET partię][net_api] obliczamy formułę skalowania automatycznego. Jeśli w puli nie włączono automatycznego skalowania, zostanie ona najpierw włączona.
 
 ```csharp
 // First obtain a reference to an existing pool
@@ -603,7 +594,7 @@ if (pool.AutoScaleEnabled == true)
 }
 ```
 
-Pomyślna ocena formuły pokazanej w tym fragmentie kodu daje wyniki podobne do:
+Pomyślne oszacowanie formuły pokazanej w tym fragmencie kodu daje wyniki podobne do:
 
 ```
 AutoScaleRun.Results:
@@ -615,19 +606,19 @@ AutoScaleRun.Results:
     $workHours=0
 ```
 
-## <a name="get-information-about-autoscale-runs"></a>Uzyskaj informacje o przebiegach skalowania automatycznego
+## <a name="get-information-about-autoscale-runs"></a>Pobierz informacje o uruchomieniach automatycznego skalowania
 
-Aby upewnić się, że formuła działa zgodnie z oczekiwaniami, zaleca się okresowe sprawdzanie wyników przebiegów skalowania automatycznego, które usługa Batch wykonuje w puli. Aby to zrobić, pobierz (lub odśwież) odwołanie do puli i sprawdź właściwości jego ostatniego uruchomienia skalowania automatycznego.
+Aby upewnić się, że formuła działa zgodnie z oczekiwaniami, zalecamy okresowe sprawdzanie wyników przebiegów skalowania automatycznego, które wykonuje partia na tej puli. Aby to zrobić, Pobierz (lub Odśwież) odwołanie do puli i przejrzyj właściwości ostatniego przebiegu automatycznego skalowania.
 
-W usłudze Batch .NET właściwość [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) ma kilka właściwości, które dostarczają informacji o najnowszym automatycznym przebiegu skalowania wykonywanego w puli:
+W usłudze Batch .NET Właściwość [CloudPool. AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) ma kilka właściwości, które zawierają informacje o najnowszym przebiegu skalowania automatycznego wykonanego w puli:
 
-* [AutoScaleRun.Timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
-* [AutoScaleRun.Wyniki](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
-* [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
+* [AutoScaleRun. timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
+* [AutoScaleRun. results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
+* [AutoScaleRun. Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-W interfejsie API REST [pobierz informacje o](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) żądaniu puli zwraca informacje o puli, która zawiera najnowsze informacje o uruchomieniu automatycznego skalowania we właściwości [autoScaleRun.](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool)
+W interfejsie API REST informacje o żądaniu [pobrania](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) puli zwracają informacje o puli, które obejmują najnowsze automatyczne skalowanie informacji o uruchomieniu we właściwości [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) .
 
-Poniższy fragment kodu języka C# używa biblioteki Batch .NET do drukowania informacji o ostatnim uruchomieniu skalowania automatycznego w puli _myPool:_
+Poniższy fragment kodu w języku C# używa biblioteki Batch .NET do drukowania informacji na temat ostatniego uruchomienia skalowania automatycznego w puli moja _Pula_:
 
 ```csharp
 await Cloud pool = myBatchClient.PoolOperations.GetPoolAsync("myPool");
@@ -654,11 +645,11 @@ Error:
 
 Przyjrzyjmy się kilku formułom, które pokazują różne sposoby dostosowywania ilości zasobów obliczeniowych w puli.
 
-### <a name="example-1-time-based-adjustment"></a>Przykład 1: Korekta oparta na czasie
+### <a name="example-1-time-based-adjustment"></a>Przykład 1: korekta oparta na czasie
 
-Załóżmy, że chcesz dostosować rozmiar puli na podstawie dnia tygodnia i porą dnia. W tym przykładzie pokazano, jak odpowiednio zwiększyć lub zmniejszyć liczbę węzłów w puli.
+Załóżmy, że chcesz dostosować rozmiar puli w oparciu o dzień tygodnia i godzinę. Ten przykład pokazuje, jak zwiększyć lub zmniejszyć liczbę węzłów w puli odpowiednio do siebie.
 
-Formuła najpierw uzyskuje bieżący czas. Jeśli jest to dzień tygodnia (1-5) i w godzinach pracy (8 RANO do 6 PM), rozmiar puli docelowej jest ustawiona na 20 węzłów. W przeciwnym razie jest ustawiona na 10 węzłów.
+Formuła najpierw uzyskuje bieżącą godzinę. Jeśli jest to dzień tygodnia (1-5) i w godzinach roboczych (od 8 do 6 PM), rozmiar puli docelowej jest ustawiany na 20 węzłów. W przeciwnym razie jest ustawiony na 10 węzłów.
 
 ```
 $curTime = time();
@@ -668,11 +659,11 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
-`$curTime`można dostosować, aby odzwierciedlić lokalną strefę czasową, dodając `time()` do produktu `TimeZoneInterval_Hour` i przesunięcie UTC. Na przykład `$curTime = time() + (-6 * TimeInterval_Hour);` użyj dla mountain daylight time (MDT). Należy pamiętać, że przesunięcie musiałoby zostać dostosowane na początku i na końcu czasu letniego (jeśli dotyczy).
+`$curTime`można dostosować w celu odzwierciedlenia lokalnej strefy czasowej przez `time()` dodanie do produktu `TimeZoneInterval_Hour` i przesunięcia czasu UTC. Na przykład użyj `$curTime = time() + (-6 * TimeInterval_Hour);` terminu górski czas letni (zestawu MDT). Należy pamiętać, że przesunięcie powinno być dostosowane na początku i na końcu czasu letniego (jeśli dotyczy).
 
-### <a name="example-2-task-based-adjustment"></a>Przykład 2: Dostosowanie oparte na zadaniach
+### <a name="example-2-task-based-adjustment"></a>Przykład 2: korekta oparta na zadaniach
 
-W tym przykładzie rozmiar puli jest korygowany na podstawie liczby zadań w kolejce. Zarówno komentarze, jak i podziały wierszy są dopuszczalne w ciągach formuły.
+W tym przykładzie rozmiar puli jest dostosowywany na podstawie liczby zadań w kolejce. Komentarze i podziały wierszy są akceptowalne w ciągach formuły.
 
 ```csharp
 // Get pending tasks for the past 15 minutes.
@@ -690,9 +681,9 @@ $TargetDedicatedNodes = max(0, min($targetVMs, 20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>Przykład 3: Rozliczanie zadań równoległych
+### <a name="example-3-accounting-for-parallel-tasks"></a>Przykład 3: ewidencjonowanie aktywności zadań równoległych
 
-W tym przykładzie dostosowuje rozmiar puli na podstawie liczby zadań. Ta formuła uwzględnia również wartość [MaxTasksPerComputeNode,][net_maxtasks] która została ustawiona dla puli. Takie podejście jest przydatne w sytuacjach, gdy [równoległe wykonywanie zadań](batch-parallel-node-tasks.md) zostało włączone w puli.
+Ten przykład dostosowuje rozmiar puli na podstawie liczby zadań. Ta formuła uwzględnia również wartość [MaxTasksPerComputeNode][net_maxtasks] , która została ustawiona dla puli. Takie podejście jest przydatne w sytuacjach, w których włączono [równoległe wykonywanie zadań](batch-parallel-node-tasks.md) w puli.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -712,17 +703,17 @@ $TargetDedicatedNodes = max(0,min($targetVMs,3));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-4-setting-an-initial-pool-size"></a>Przykład 4: Ustawianie początkowego rozmiaru puli
+### <a name="example-4-setting-an-initial-pool-size"></a>Przykład 4: Ustawianie rozmiaru puli początkowej
 
-W tym przykładzie pokazano fragment kodu języka C# z formułą skalowania automatycznego, która ustawia rozmiar puli na określoną liczbę węzłów dla początkowego okresu. Następnie dostosowuje rozmiar puli na podstawie liczby uruchomionych i aktywnych zadań po upływie początkowego okresu.
+W tym przykładzie przedstawiono fragment kodu C# z formułą skalowania automatycznego, która ustawia rozmiar puli na określoną liczbę węzłów w początkowym okresie. Następnie dostosowuje rozmiar puli na podstawie liczby uruchomionych i aktywnych zadań po upływie czasu początkowego.
 
-Wzór w poniższym urywek kodu:
+Formuła w poniższym fragmencie kodu:
 
-* Ustawia początkowy rozmiar puli na cztery węzły.
-* Nie dostosowuje rozmiaru puli w ciągu pierwszych 10 minut cyklu życia puli.
-* Po 10 minutach uzyskuje maksymalną wartość liczby uruchomionych i aktywnych zadań w ciągu ostatnich 60 minut.
-  * Jeśli obie wartości są 0 (co oznacza, że żadne zadania nie były uruchomione lub aktywne w ciągu ostatnich 60 minut), rozmiar puli jest ustawiony na 0.
-  * Jeśli którakolwiek z wartości jest większa od zera, nie jest wprowadzana żadna zmiana.
+* Ustawia rozmiar puli początkowej na cztery węzły.
+* Nie dopasowuje rozmiaru puli w ciągu pierwszych 10 minut cyklu życia puli.
+* Po upływie 10 minut uzyskuje maksymalną wartość liczby uruchomionych i aktywnych zadań w ciągu ostatnich 60 minut.
+  * Jeśli obie wartości są równe 0 (wskazuje, że żadne zadania nie były uruchomione lub aktywne w ciągu ostatnich 60 minut), rozmiar puli jest ustawiony na 0.
+  * Jeśli jedna z wartości jest większa od zera, nie zostanie wprowadzona żadna zmiana.
 
 ```csharp
 string now = DateTime.UtcNow.ToString("r");
@@ -739,8 +730,8 @@ string formula = string.Format(@"
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Maksymalizuj użycie zasobów obliczeniowych usługi Azure Batch za pomocą równoczesnych zadań węzłów](batch-parallel-node-tasks.md) zawiera szczegółowe informacje o tym, jak można wykonywać wiele zadań jednocześnie w węzłach obliczeniowych w puli. Oprócz skalowania automatycznego ta funkcja może pomóc w zmniejszeniu czasu trwania zadania dla niektórych obciążeń, oszczędzając pieniądze.
-* Aby uzyskać inny booster wydajności, upewnij się, że aplikacja batch wysyła kwerendy usługi batch w najbardziej optymalny sposób. Zobacz [Kwerenda usługi Azure Batch skutecznie,](batch-efficient-list-queries.md) aby dowiedzieć się, jak ograniczyć ilość danych, które przecina przewody podczas kwerendy o stanie potencjalnie tysiące węzłów obliczeniowych lub zadań.
+* [Maksymalizuj Azure Batch użycie zasobów obliczeniowych za pomocą współbieżnych zadań węzłów](batch-parallel-node-tasks.md) zawiera szczegółowe informacje na temat sposobu wykonywania wielu zadań jednocześnie w węzłach obliczeniowych w puli. Oprócz skalowania automatycznego ta funkcja może pomóc w obniżeniu czasu trwania zadań w przypadku niektórych obciążeń, co pozwala zaoszczędzić pieniądze.
+* W przypadku innego detonatora wydajności upewnij się, że aplikacja usługi Batch wyśle do niej zapytanie w najbardziej optymalny sposób. Zobacz [wydajną pracę usługi Azure Batch,](batch-efficient-list-queries.md) aby dowiedzieć się, jak ograniczyć ilość danych przekreślonych w czasie wykonywania zapytania o stan potencjalnie tysięcy węzłów obliczeniowych lub zadań.
 
 [net_api]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [net_batchclient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient

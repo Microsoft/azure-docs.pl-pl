@@ -1,24 +1,22 @@
 ---
 title: Renderowanie sceny programu Blender przy użyciu usługi Azure Batch i narzędzia Batch Explorer
 description: Samouczek — renderowanie wielu ramek ze sceny programu Blender przy użyciu usługi Azure Batch i aplikacji klienckiej narzędzia Batch Explorer
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ca23bbc2b53eaaaf1848a7a98228be23c9ffed0c
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "60617629"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117084"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Samouczek: renderowanie sceny programu Blender przy użyciu narzędzia Batch Explorer
 
 W tym samouczku przedstawiono sposób renderowania wielu ramek sceny demonstracyjnej programu Blender. Na potrzeby tego samouczka używany jest program Blender, ponieważ jest bezpłatny dla klienta i renderujących maszyn wirtualnych, ale proces jest bardzo podobny w przypadku używania innych aplikacji, takich jak Maya lub 3ds Max.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Przekazywanie sceny programu Blender do usługi Azure Storage
 > * Tworzenie puli usługi Batch z wieloma węzłami w celu wykonania renderowania

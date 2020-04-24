@@ -1,21 +1,16 @@
 ---
-title: Uruchamianie równoległego obciążenia — usługa Azure Batch dla środowiska Python
+title: Uruchamianie równoległego obciążenia
 description: Samouczek — Równoległe przetwarzanie plików multimedialnych przy użyciu narzędzia ffmpeg w usłudze Azure Batch z zastosowaniem biblioteki klienta Batch Python
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: d4277e383a5cb69ef5395cb6dc477d888abd1d0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 32e42fe04ad8ce55bbbbb90e5aca6356fd1c6f22
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77023093"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117119"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API Python
 
@@ -37,13 +32,13 @@ W tym samouczku przekonwertujesz równolegle pliki multimedialne w formacie MP4 
 
 * [Środowisko Python w wersji 2.7 lub 3.3 albo nowszej](https://www.python.org/downloads/)
 
-* menedżer pakietów [pip](https://pip.pypa.io/en/stable/installing/)
+* Menedżer pakietów [PIP](https://pip.pypa.io/en/stable/installing/)
 
 * Konto usługi Azure Batch i połączone konto usługi Azure Storage. Aby utworzyć te konta, skorzystaj z przewodników Szybki start dla usługi Batch i [witryny Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do witryny Azure portal w [https://portal.azure.com](https://portal.azure.com).
+Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 
@@ -107,13 +102,13 @@ Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Przejdź do konta usługi Batch w witrynie Azure Portal, aby monitorować pulę, węzły obliczeniowe, zadanie i zadania podrzędne. Na przykład, aby wyświetlić mapę cieplną węzłów obliczeniowych w puli, kliknij pozycję **Pule** > *LinuxFFmpegPool*.
+Przejdź do konta usługi Batch w witrynie Azure Portal, aby monitorować pulę, węzły obliczeniowe, zadanie i zadania podrzędne. Na przykład aby wyświetlić mapę cieplną węzłów obliczeniowych w puli, kliknij pozycję **Pule** > *LinuxFFmpegPool*.
 
 Podczas wykonywania zadań podrzędnych mapa cieplna może wyglądać następująco:
 
 ![Mapa cieplna puli](./media/tutorial-parallel-python/pool.png)
 
-Typowy czas wykonywania wynosi około **5 minut** po uruchomieniu aplikacji w konfiguracji domyślnej. Tworzenie puli zajmuje najwięcej czasu. 
+Typowy czas wykonywania wynosi mniej więcej **5 minut** w przypadku uruchomienia aplikacji w konfiguracji domyślnej. Tworzenie puli zajmuje najwięcej czasu. 
 
 [!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
 
@@ -131,7 +126,7 @@ blob_client = azureblob.BlockBlobService(
     account_key=_STORAGE_ACCOUNT_KEY)
 ```
 
-Aplikacja tworzy obiekt [BatchServiceClient](/python/api/azure.batch.batchserviceclient) na potrzeby tworzenia pul, zadań i zadań podrzędnych w usłudze Batch oraz zarządzania nimi. Klient usługi Batch w przykładzie korzysta z uwierzytelniania za pomocą klucza wspólnego. Usługa Batch obsługuje również uwierzytelnianie za pośrednictwem [usługi Azure Active Directory,](batch-aad-auth.md)aby uwierzytelnić poszczególnych użytkowników lub aplikację nienadzorowane.
+Aplikacja tworzy obiekt [BatchServiceClient](/python/api/azure.batch.batchserviceclient) na potrzeby tworzenia pul, zadań i zadań podrzędnych w usłudze Batch oraz zarządzania nimi. Klient usługi Batch w przykładzie korzysta z uwierzytelniania za pomocą klucza wspólnego. Program Batch obsługuje również uwierzytelnianie za [Azure Active Directory](batch-aad-auth.md), aby uwierzytelniać poszczególnych użytkowników lub nienadzorowane aplikacje.
 
 ```python
 credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,

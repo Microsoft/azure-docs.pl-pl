@@ -108,7 +108,7 @@
           items:
             - name: Inspekcja usługi Azure SQL
               href: sql-database-auditing.md
-            - name: Do magazynu za siecią wirtualną lub zaporą
+            - name: Inspekcja na konto magazynu za siecią wirtualną lub zaporą
               href: create-auditing-storage-account-vnet-firewall.md
             - name: Format dziennika inspekcji
               href: sql-database-audit-log-format.md
