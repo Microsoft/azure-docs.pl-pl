@@ -1,64 +1,66 @@
 ---
-title: Sondy sieci szkieletowej usług Azure
-description: Jak modelować sondę żywotności w sieci szkieletowej usługi Azure przy użyciu plików manifestu aplikacji i usług.
+title: Sondy usługi Azure Service Fabric
+description: Jak modelować sondę na żywo w usłudze Azure Service Fabric przy użyciu plików manifestu aplikacji i usługi.
 ms.topic: conceptual
+author: tugup
+ms.author: tugup
 ms.date: 3/12/2020
-ms.openlocfilehash: 38f3888a29bf505b723d40bc7cd08fb0c7e29eff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81431217"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137590"
 ---
-# <a name="liveness-probe"></a>Sonda żywotności
-Począwszy od sieci szkieletowej usług 7.1 obsługuje mechanizm liveness probe dla aplikacji [konteneryzowanych.][containers-introduction-link] Liveness Probe pomóc ogłosić żywotność konteneryzowanej aplikacji i gdy nie reagują w odpowiednim czasie, spowoduje to ponowne uruchomienie.
-Ten artykuł zawiera omówienie sposobu definiowania sondy żywotności za pomocą plików manifestu.
+# <a name="liveness-probe"></a>Sonda na żywo
+Począwszy od wersji 7,1, platforma Azure Service Fabric obsługuje mechanizm sondowania na żywo dla aplikacji [kontenerowych][containers-introduction-link] . Sonda na żywo pomaga w raportowaniu na żywo aplikacji kontenera, która zostanie uruchomiona ponownie, jeśli nie odpowie szybko.
+Ten artykuł zawiera omówienie sposobu definiowania sondy na żywo przy użyciu plików manifestu.
 
-Przed przystąpieniem do tego artykułu zalecamy zapoznanie się z [modelem aplikacji sieci szkieletowej usług][application-model-link] i [modelem hostingu sieci szkieletowej usług.][hosting-model-link]
+Przed przejściem do tego artykułu zapoznaj się z [modelem aplikacji Service Fabric][application-model-link] i [Service Fabric modelem hostingu][hosting-model-link].
 
 > [!NOTE]
-> Liveness Probe jest obsługiwany tylko dla kontenerów w trybie sieciowym NAT.
+> Sonda na żywo jest obsługiwana tylko w przypadku kontenerów w trybie sieci NAT.
 
-## <a name="semantics"></a>Semantyka
-Można określić tylko 1 sonda żywotności na kontener i można kontrolować jego zachowanie za pomocą tych pól:
+## <a name="semantics"></a>Semantyki
+Można określić tylko jedną sondę na żywo na kontener i kontrolować jej zachowanie przy użyciu następujących pól:
 
-* `initialDelaySeconds`: Początkowe opóźnienie w sekundach, aby rozpocząć wykonywanie sondy po uruchomieniu kontenera. Obsługiwana wartość to int. Wartość domyślna to 0. Minimalna wartość to 0.
+* `initialDelaySeconds`: Początkowe opóźnienie (w sekundach) uruchomienia sondy po rozpoczęciu kontenera. Obsługiwana wartość to **int**. Wartość domyślna to 0, a wartość minimalna to 0.
 
-* `timeoutSeconds`: Okres w sekundach, po którym uważamy sondę za nieudaną, jeśli nie została ukończona pomyślnie. Obsługiwana wartość to int. Wartość domyślna to 1. Minimum to 1.
+* `timeoutSeconds`: Okres (w sekundach), po którym uważamy, że sonda zakończyła się niepowodzeniem, jeśli nie została ukończona pomyślnie. Obsługiwana wartość to **int**. Wartość domyślna to 1, a wartość minimalna to 1.
 
-* `periodSeconds`: Okres w sekundach, aby określić, jak często sondujemy. Obsługiwana wartość to int. Wartość domyślna to 10. Minimum to 1.
+* `periodSeconds`: Okres (w sekundach) określający częstotliwość sondowania. Obsługiwana wartość to **int**. Wartość domyślna to 10, a wartość minimalna to 1.
 
-* `failureThreshold`: Po trafieniu FailureThreshold kontener zostanie ponownie uruchomiony. Obsługiwana wartość to int. Wartość domyślna to 3. Minimum to 1.
+* `failureThreshold`: Gdy ta wartość zostanie osiągnięta, kontener zostanie uruchomiony ponownie. Obsługiwana wartość to **int**. Wartość domyślna to 3, a wartość minimalna to 1.
 
-* `successThreshold`: W przypadku awarii, dla sondy, które mają być uznane za sukces musi wykonać pomyślnie dla SuccessThreshold. Obsługiwana wartość to int. Wartość domyślna to 1. Minimum to 1.
+* `successThreshold`: W przypadku niepowodzenia, aby sonda mogła zostać uznana za pomyślne, musi ona zostać pomyślnie uruchomiona dla tej wartości. Obsługiwana wartość to **int**. Wartość domyślna to 1, a wartość minimalna to 1.
 
-W jednym momencie będzie co najwyżej 1 sonda do kontenera. Jeśli sonda nie zostanie ukończona w **przeliczeniu limitu czasuSekseksujmy** czeka i liczymy go w kierunku **awariiThreshold**. 
+W każdej chwili może istnieć co najwyżej jedna sonda do jednego kontenera. Jeśli sonda nie zakończy się w czasie ustawionym w **timeoutSeconds**, poczekaj i Policz czas na **failureThreshold**. 
 
-Ponadto ServiceFabric podniesie następujące [raporty kondycji][health-introduction-link] sondy na DeployedServicePackage:
+Ponadto Service Fabric spowodują [wygenerowanie następujących raportów o kondycji][health-introduction-link] sond w **DeployedServicePackage**:
 
-* `Ok`: Jeśli sonda powiedzie się dla **sukcesuThreshold** następnie zgłaszamy kondycję jako Ok.
+* `OK`: Sonda powiodła się dla wartości ustawionej w **successThreshold**.
 
-* `Error`: Jeśli sonda failureCount == **failureThreshold**, przed ponownym uruchomieniem kontenera zgłaszamy błąd.
+* `Error`: Sonda **failureCount** ==  **failureThreshold**przed ponownym uruchomieniem kontenera.
 
 * `Warning`: 
-    1. Jeśli sonda nie powiedzie się i failureCount < **failureThreshold** zgłaszamy Warning. Ten raport o kondycji pozostaje do failureCount osiągnie **failureThreshold** lub **successThreshold**.
-    2. Na sukces po niepowodzeniu, nadal raport Ostrzeżenie, ale z zaktualizowanym sukcesem z rzędu.
+    * Sonda kończy się niepowodzeniem i **failureCount** < **failureThreshold**. Ten raport kondycji pozostaje do momentu, gdy **failureCount** osiągnie wartość ustawioną w **failureThreshold** lub **successThreshold**.
+    * Po pomyślnym wystąpieniu błędu ostrzeżenie pozostaje niezmienione, ale z zaktualizowanymi kolejnymi sukcesami.
 
-## <a name="specifying-liveness-probe"></a>Określanie sondy żywotności
+## <a name="specifying-a-liveness-probe"></a>Określanie sondy na żywo
 
-Można określić sondę w applicationmanifest.xml w obszarze ServiceManifestImport:
+Możesz określić sondę w pliku ApplicationManifest. XML w obszarze **ServiceManifestImport**.
 
-Sonda może jedną z:
+Sonda może mieć jedną z następujących wartości:
 
-1. HTTP
-2. TCP
-3. Exec 
+* HTTP
+* TCP
+* Exec 
 
-## <a name="http-probe"></a>Sonda HTTP
+### <a name="http-probe"></a>Sonda HTTP
 
-W przypadku sondy HTTP sieci szkieletowej usług zostanie wysłane żądanie HTTP do określonego portu i ścieżki. Kod zwrotny większy lub równy 200 i mniej niż 400 wskazuje na sukces.
+W przypadku sondy HTTP Service Fabric wyśle żądanie HTTP do określonego portu i ścieżki. Kod powrotny, który jest większy niż lub równy 200 i mniejszy niż 400, wskazuje na powodzenie.
 
-Oto przykład jak określić HttpGet sondy:
+Oto przykład sposobu określania sondy HTTP:
 
 ```xml
   <ServiceManifestImport>
@@ -79,21 +81,21 @@ Oto przykład jak określić HttpGet sondy:
   </ServiceManifestImport>
 ```
 
-Sonda HttpGet ma dodatkowe właściwości, które można ustawić:
+Sonda HTTP ma dodatkowe właściwości, które można ustawić:
 
-* `path`: Ścieżka dostępu w żądaniu HTTP.
+* `path`: Ścieżka do użycia w żądaniu HTTP.
 
-* `port`: Port dostępu do sond. Zakres wynosi od 1 do 65535. Obowiązkowy.
+* `port`: Port używany do sondowania. Ta właściwość jest obowiązkowa. Zakres wynosi od 1 do 65535.
 
-* `scheme`: Schemat do użycia do łączenia się z pakietem kodu. Jeśli ustawiona jest wartość HTTPS, weryfikacja certyfikatu jest pomijana. Domyślnie http
+* `scheme`: Schemat, który ma być używany do nawiązywania połączenia z pakietem kodu. Jeśli ta właściwość jest ustawiona na HTTPS, weryfikacja certyfikatu jest pomijana. Ustawieniem domyślnym jest HTTP.
 
-* `httpHeader`: Nagłówki ustawione w żądaniu. Można określić wiele z nich.
+* `httpHeader`: Nagłówki, które mają zostać ustawione w żądaniu. Można określić wiele nagłówków.
 
-* `host`: Host IP, aby się połączyć.
+* `host`: Adres IP hosta, z którym ma zostać nawiązane połączenie.
 
-## <a name="tcp-probe"></a>Sonda TCP
+### <a name="tcp-probe"></a>Sonda TCP
 
-W przypadku sondy TCP sieci szkieletowej usług spróbuje otworzyć gniazdo w kontenerze z określonym portem. Jeśli można ustanowić połączenie, sonda jest uważany za sukces. Oto przykład sposobu określania sondy, która używa gniazda TCP:
+W przypadku sondy TCP Service Fabric próbuje otworzyć gniazdo w kontenerze przy użyciu określonego portu. Jeśli może nawiązać połączenie, sonda zostanie uznana za pomyślnie. Oto przykład sposobu określania sondy korzystającej z gniazda TCP:
 
 ```xml
   <ServiceManifestImport>
@@ -111,13 +113,13 @@ W przypadku sondy TCP sieci szkieletowej usług spróbuje otworzyć gniazdo w ko
   </ServiceManifestImport>
 ```
 
-## <a name="exec-probe"></a>Sonda Exec
+### <a name="exec-probe"></a>Sonda exec
 
-Ta sonda wyda exec do kontenera i czekać na polecenie, aby zakończyć.
+To sondowanie spowoduje wydanie polecenia **exec** do kontenera i poczekanie na zakończenie polecenia.
 
 > [!NOTE]
-> Polecenie Exec przyjmuje ciąg przecinkowy. Następujące polecenie w przykładzie będzie działać dla kontenera systemu Linux.
-> Jeśli próbujesz kontenera systemu Windows, <Command>użyj</Command>
+> **Exec** polecenie pobiera ciąg rozdzielony przecinkami. Polecenie w poniższym przykładzie będzie działało dla kontenera systemu Linux.
+> Jeśli próbujesz sondować kontener systemu Windows, użyj **polecenia cmd**.
 
 ```xml
   <ServiceManifestImport>
@@ -138,8 +140,8 @@ Ta sonda wyda exec do kontenera i czekać na polecenie, aby zakończyć.
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły, aby uzyskać powiązane informacje.
-* [Tkanina serwisowa i kontenery.][containers-introduction-link]
+Informacje pokrewne można znaleźć w następującym artykule:
+* [Service Fabric i kontenery][containers-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

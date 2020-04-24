@@ -1,26 +1,26 @@
 ---
-title: Zmienianie kanału informacyjnego w interfejsie API bazy danych usługi Azure Cosmos dla usługi Cassandra
-description: Dowiedz się, jak korzystać z kanału informacyjnego usługi Azure Cosmos DB dla firmy Cassandra, aby uzyskać zmiany wprowadzone w danych.
+title: Źródło zmian w interfejsie API Azure Cosmos DB dla Cassandra
+description: Dowiedz się, jak używać kanału informacyjnego zmian w interfejsie API Azure Cosmos DB Cassandra, aby uzyskać zmiany wprowadzone w danych.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: c2c695608653130b97bf29cc9ce48e2fbb429209
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 167d9fc68cb075a2cf96d9079131be9e5a510c08
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74694625"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137420"
 ---
-# <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Zmienianie kanału informacyjnego w interfejsie API bazy danych usługi Azure Cosmos dla usługi Cassandra
+# <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Źródło zmian w interfejsie API Azure Cosmos DB dla Cassandra
 
-[Obsługa kanału informacyjnego zmiany](change-feed.md) w interfejsie API bazy danych usługi Azure Cosmos dla bazy danych Cassandra jest dostępna za pośrednictwem predykatów kwerendy w języku kasandra query language (CQL). Korzystając z tych warunków predykatu, można zbadać interfejs API źródła danych zmian. Aplikacje mogą uzyskać zmiany wprowadzone do tabeli przy użyciu klucza podstawowego (znany również jako klucz partycji), zgodnie z wymaganiami w CQL. Następnie można podjąć dalsze działania na podstawie wyników. Zmiany w wierszach w tabeli są przechwytywane w kolejności ich czasu modyfikacji i kolejność sortowania jest gwarantowana na klucz partycji.
+Obsługa [kanału informacyjnego zmian](change-feed.md) w interfejsie API Azure Cosmos DB dla Cassandra jest dostępna za pomocą predykatów zapytań w języku zapytań CASSANDRA (CQL). Za pomocą tych warunków predykatu można wysyłać zapytania do interfejsu API źródła zmian. Aplikacje mogą pobrać zmiany wprowadzone do tabeli przy użyciu klucza podstawowego (zwanego również kluczem partycji), jak jest to wymagane w CQL. Następnie można wykonać dalsze czynności na podstawie wyników. Zmiany w wierszach w tabeli są przechwytywane w kolejności ich modyfikacji, a porządek sortowania jest gwarantowany na klucz partycji.
 
-W poniższym przykładzie pokazano, jak uzyskać źródło danych o zmianach we wszystkich wierszach w tabeli obszaru kluczowego interfejsu API Cassandra przy użyciu platformy .NET. Predykat COSMOS_CHANGEFEED_START_TIME() jest używany bezpośrednio w CQL do wykonywania zapytań o elementy w pliku danych o zmianach z określonego czasu rozpoczęcia (w tym przypadku bieżącego datetime). Pełną próbkę można pobrać [tutaj](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/).
+Poniższy przykład pokazuje, jak uzyskać Źródło zmian dla wszystkich wierszy w interfejs API Cassandra tabeli przestrzeni kluczy przy użyciu platformy .NET. Predykat COSMOS_CHANGEFEED_START_TIME () jest używany bezpośrednio w CQL do wykonywania zapytań o elementy ze źródła zmian od określonego czasu rozpoczęcia (w tym przypadku Current DateTime). Możesz pobrać pełny przykład dla języka C# [tutaj](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) i dla środowiska Java [tutaj](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 
-W każdej iteracji kwerenda wznawia w ostatnim punkcie zmiany zostały odczytane przy użyciu stanu stronicowania. Widzimy ciągły strumień nowych zmian w tabeli w przestrzeni kluczy. Zobaczymy zmiany w wierszach, które są wstawiane lub aktualizowane. Obserwowanie operacji usuwania przy użyciu źródła danych w api Cassandra nie jest obecnie obsługiwane. 
+W każdej iteracji zapytanie zostaje wznowione w ostatnim momencie odczytu, przy użyciu stanu stronicowania. W obszarze kluczy można zobaczyć ciągły strumień nowych zmian w tabeli. Zobaczymy zmiany w wierszach, które są wstawiane lub aktualizowane. Obserwowanie operacji usuwania przy użyciu źródła zmian w interfejs API Cassandra nie jest obecnie obsługiwane.
 
 ```C#
     //set initial start time for pulling the change feed
@@ -70,8 +70,41 @@ W każdej iteracji kwerenda wznawia w ostatnim punkcie zmiany zostały odczytane
     }
 
 ```
+```java
+        Session cassandraSession = utils.getSession();
 
-Aby uzyskać zmiany w jednym wierszu według klucza podstawowego, można dodać klucz podstawowy w kwerendzie. W poniższym przykładzie pokazano, jak śledzić zmiany w wierszu, w którym "user_id = 1"
+        try {
+              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+               LocalDateTime now = LocalDateTime.now().minusHours(6).minusMinutes(30);  
+               String query="SELECT * FROM uprofile.user where COSMOS_CHANGEFEED_START_TIME()='" 
+                    + dtf.format(now)+ "'";
+               
+             byte[] token=null; 
+             System.out.println(query); 
+             while(true)
+             {
+                 SimpleStatement st=new  SimpleStatement(query);
+                 st.setFetchSize(100);
+                 if(token!=null)
+                     st.setPagingStateUnsafe(token);
+                 
+                 ResultSet result=cassandraSession.execute(st) ;
+                 token=result.getExecutionInfo().getPagingState().toBytes();
+                 
+                 for(Row row:result)
+                 {
+                     System.out.println(row.getString("user_name"));
+                 }
+             }
+                    
+
+        } finally {
+            utils.close();
+            LOGGER.info("Please delete your table after verifying the presence of the data in portal or from CQL");
+        }
+
+```
+Aby uzyskać zmiany w pojedynczym wierszu według klucza podstawowego, można dodać klucz podstawowy w zapytaniu. Poniższy przykład pokazuje, jak śledzić zmiany w wierszu, w którym "user_id = 1"
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1
@@ -79,21 +112,25 @@ Aby uzyskać zmiany w jednym wierszu według klucza podstawowego, można dodać 
     $"SELECT * FROM uprofile.user where user_id = 1 AND COSMOS_CHANGEFEED_START_TIME() = '{timeBegin.ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture)}'");
 
 ```
-
+```java
+    String query="SELECT * FROM uprofile.user where user_id=1 and COSMOS_CHANGEFEED_START_TIME()='" 
+                    + dtf.format(now)+ "'";
+    SimpleStatement st=new  SimpleStatement(query);
+```
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
-Następujące ograniczenia mają zastosowanie w przypadku korzystania z pliku danych o zmianach w interfejsie API Cassandra:
+W przypadku korzystania z kanału informacyjnego zmian z interfejs API Cassandra są stosowane następujące ograniczenia:
 
-* Wstawia i aktualizacje są obecnie obsługiwane. Operacja usuwania nie jest jeszcze obsługiwana. Aby obejść ten problem, można dodać znacznik miękki w wierszach, które są usuwane. Na przykład dodaj pole w wierszu o nazwie "usunięte" i ustaw je na "true".
-* Ostatnia aktualizacja jest zachowywana, jak w rdzeniu SQL API i pośrednie aktualizacje do jednostki nie są dostępne.
+* Operacje INSERT i Update są obecnie obsługiwane. Operacja usuwania nie jest jeszcze obsługiwana. Aby obejść ten element, można dodać znacznik elastyczny do wierszy, które są usuwane. Na przykład Dodaj pole w wierszu o nazwie "usunięte" i ustaw je na wartość "true".
+* Ostatnia aktualizacja jest utrwalona, ponieważ w podstawowym interfejsie API SQL Server nie są dostępne aktualizacje pośrednie.
 
 
 ## <a name="error-handling"></a>Obsługa błędów
 
-Następujące kody błędów i komunikaty są obsługiwane podczas korzystania z źródła danych w api Cassandra:
+Następujące kody błędów i komunikaty są obsługiwane w przypadku używania źródła zmian w interfejs API Cassandra:
 
-* **Kod błędu HTTP 429** — gdy wskaźnik dostępu do zmian jest ograniczony, zwraca pustą stronę.
+* **Kod błędu HTTP 429** — gdy kanał informacyjny zmiany ma ograniczoną szybkość, zwraca pustą stronę.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie zasobami interfejsu API usługi Azure Cosmos DB Cassandra przy użyciu szablonów usługi Azure Resource Manager](manage-cassandra-with-resource-manager.md)
+* [Zarządzanie zasobami interfejs API Cassandra Azure Cosmos DB przy użyciu szablonów Azure Resource Manager](manage-cassandra-with-resource-manager.md)
