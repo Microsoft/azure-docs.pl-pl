@@ -1,29 +1,29 @@
 ---
-title: Skalowanie rozmiarów klastra — usługa Azure HDInsight
-description: Elastyczne skalowanie klastra Apache Hadoop w celu dopasowania do obciążenia w usłudze Azure HDInsight
+title: Skalowanie rozmiarów klastrów — Azure HDInsight
+description: Skalowanie klastra Apache Hadoop elastycznie w celu dopasowania do obciążenia w usłudze Azure HDInsight
 author: ashishthaps
 ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 0fc067f0be4ac5d2b8fa7db9ad7999efe06625a0
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.date: 04/23/2020
+ms.openlocfilehash: aee0576654827351fa5ff9b3c29b57d0d4148d3e
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804507"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116608"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skalowanie klastrów usługi Azure HDInsight
 
-Usługa HDInsight zapewnia elastyczność dzięki opcjom skalowania w górę i skalowania w dół liczby węzłów procesu roboczego w klastrach. Ta elastyczność pozwala zmniejszyć klaster po godzinach lub w weekendy. I rozwijać go w szczytowym zapotrzebowaniu biznesowym.
+Usługa HDInsight zapewnia elastyczność z opcjami umożliwiającymi skalowanie w górę i w dół liczby węzłów procesu roboczego w klastrach. Elastyczność pozwala zmniejszyć klaster po godzinach lub w weekendy. I rozwijać je podczas szczytowego zapotrzebowania na działalność biznesową.
 
-Skalowanie w górę klastra przed okresowym przetwarzaniem wsadowym, dzięki czemu klaster ma odpowiednie zasoby. Po zakończeniu przetwarzania i użycie spada, skalowanie w dół klastra HDInsight do mniejszej liczby węzłów procesu roboczego.
+Skaluj klaster przed okresowym przetwarzaniem wsadowym, aby klaster miał odpowiednie zasoby. Po zakończeniu przetwarzania i przejściu w dół klaster usługi HDInsight jest skalowany w dół do mniejszej liczby węzłów procesu roboczego.
 
-Klaster można skalować ręcznie przy użyciu jednej z metod opisanych poniżej. Można również użyć opcji [skalowania automatycznego,](hdinsight-autoscale-clusters.md) aby automatycznie skalować w górę i w dół w odpowiedzi na określone metryki.
+Klaster można skalować ręcznie przy użyciu jednej z metod opisanych poniżej. Możesz również użyć opcji [skalowania](hdinsight-autoscale-clusters.md) automatycznego, aby automatycznie skalować w górę i w dół w odpowiedzi na określone metryki.
 
 > [!NOTE]  
-> Obsługiwane są tylko klastry z hdinsight w wersji 3.1.3 lub nowszej. Jeśli nie masz pewności co do wersji klastra, możesz sprawdzić stronę Właściwości.
+> Obsługiwane są tylko klastry z usługą HDInsight w wersji 3.1.3 lub nowszej. Jeśli nie masz pewności, jaka jest wersja klastra, możesz sprawdzić stronę właściwości.
 
 ## <a name="utilities-to-scale-clusters"></a>Narzędzia do skalowania klastrów
 
@@ -34,34 +34,34 @@ Firma Microsoft udostępnia następujące narzędzia do skalowania klastrów:
 |[Moduł Az programu PowerShell](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Moduł AzureRM programu PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
-|[Klasyczna fraza cli platformy Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
-|[Azure Portal](https://portal.azure.com)|Otwórz okienko klastra HDInsight, wybierz **rozmiar klastra** w menu po lewej stronie, a następnie w okienku Rozmiar klastra wpisz liczbę węzłów procesu roboczego i wybierz pozycję Zapisz.|  
+|[Klasyczny interfejs wiersza polecenia platformy Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
+|[Azure Portal](https://portal.azure.com)|Otwórz okienko klastra usługi HDInsight, wybierz pozycję **rozmiar klastra** w menu po lewej stronie, a następnie w okienku rozmiar klastra wpisz liczbę węzłów procesu roboczego i wybierz pozycję Zapisz.|  
 
-![Opcja klastra skalowania usługi Azure portal](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
+![Azure Portal skalowanie — opcja klastra](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
-Za pomocą dowolnej z tych metod można skalować klaster HDInsight w górę lub w dół w ciągu kilku minut.
+Korzystając z dowolnej z tych metod, można skalować klaster usługi HDInsight w górę lub w dół w ciągu kilku minut.
 
 > [!IMPORTANT]  
-> * Klasyczna interfejs wiersza polecenia platformy Azure jest przestarzała i powinna być używana tylko z klasycznym modelem wdrażania. W przypadku wszystkich innych wdrożeń należy użyć interfejsu [wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-> * Moduł AzureRM programu PowerShell jest przestarzały.  W miarę możliwości należy korzystać z [modułu Az.](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0)
+> * Klasyczny interfejs wiersza polecenia platformy Azure jest przestarzały i powinien być używany tylko z klasycznym modelem wdrażania. W przypadku wszystkich innych wdrożeń Użyj [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+> * Moduł AzureRM programu PowerShell jest przestarzały.  Użyj [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) wszędzie tam, gdzie to możliwe.
 
 ## <a name="impact-of-scaling-operations"></a>Wpływ operacji skalowania
 
-Po **dodaniu** węzłów do uruchomionego klastra HDInsight (skalowanie w górę) zadania nie będą miały wpływu. Nowe zadania można bezpiecznie przesłać, gdy proces skalowania jest uruchomiony. Jeśli operacja skalowania nie powiedzie się, błąd pozostawi klaster w stanie funkcjonalnym.
+W przypadku **dodawania** węzłów do działającego klastra usługi HDInsight (skalowanie w górę) nie ma to wpływu na zadania. Nowe zadania mogą być bezpiecznie przesłane, gdy proces skalowania jest uruchomiony. Jeśli operacja skalowania nie powiedzie się, błąd spowoduje pozostawienie klastra w stanie funkcjonalnym.
 
-Jeśli **usuniesz** węzły (skalowanie w dół), zadania oczekujące lub uruchomione zakończy się niepowodzeniem po zakończeniu operacji skalowania. Ten błąd jest spowodowane niektóre usługi ponownego uruchamiania podczas procesu skalowania. Klaster może utknąć w trybie awaryjnym podczas operacji ręcznego skalowania.
+Jeśli **usuniesz** węzły (skalowanie w dół), oczekujące lub uruchomione zadania zakończą się niepowodzeniem po zakończeniu operacji skalowania. Ten błąd jest spowodowany tym, że niektóre z usług są ponownie uruchamiane podczas procesu skalowania. Klaster może zostać zablokowany w trybie awaryjnym podczas operacji skalowania ręcznego.
 
-Wpływ zmiany liczby węzłów danych różni się dla każdego typu klastra obsługiwanego przez program HDInsight:
+Wpływ zmiany liczby węzłów danych różni się w zależności od typu klastra obsługiwanego przez usługi HDInsight:
 
 * Apache Hadoop
 
-    Można bezproblemowo zwiększyć liczbę węzłów procesu roboczego w uruchomionym klastrze Hadoop bez wpływu na żadne zadania. Nowe zadania można również przesłać w trakcie operacji. Błędy w operacji skalowania są bezpiecznie obsługiwane. Klaster jest zawsze pozostawiony w stanie funkcjonalnym.
+    Można bezproblemowo zwiększyć liczbę węzłów procesu roboczego w uruchomionym klastrze usługi Hadoop bez wpływu na żadne zadania. Nowe zadania mogą być również przesyłane, gdy operacja jest w toku. Błędy w operacji skalowania są bezpiecznie obsługiwane. Klaster zawsze pozostaje w stanie funkcjonalności.
 
-    Gdy klaster Hadoop jest skalowany w dół z mniejszą liczbą węzłów danych, niektóre usługi są ponownie uruchamiane. To zachowanie powoduje, że wszystkie uruchomione i oczekujące zadania zakończyć się niepowodzeniem po zakończeniu operacji skalowania. Można jednak ponownie przesłać zadania po zakończeniu operacji.
+    Gdy klaster usługi Hadoop jest skalowany z mniejszą liczbą węzłów danych, niektóre usługi są uruchamiane ponownie. To zachowanie powoduje, że wszystkie uruchomione i oczekujące zadania kończą się niepowodzeniem po zakończeniu operacji skalowania. Można jednak ponownie przesłać zadania po zakończeniu operacji.
 
 * Apache HBase
 
-    Możesz bezproblemowo dodać lub usunąć węzły do klastra HBase, gdy jest uruchomiony. Serwery regionalne są automatycznie równoważące w ciągu kilku minut od ukończenia operacji skalowania. Można jednak ręcznie zrównoważyć serwery regionalne. Zaloguj się do węzła główny klastra i uruchom następujące polecenia:
+    Można bezproblemowo dodawać lub usuwać węzły do klastra HBase, gdy jest on uruchomiony. Serwery regionalne są automatycznie równoważone w ciągu kilku minut od zakończenia operacji skalowania. Można jednak ręcznie zrównoważyć serwery regionalne. Zaloguj się do węzła głównego klastra i uruchom następujące polecenia:
 
     ```bash
     pushd %HBASE_HOME%\bin
@@ -69,24 +69,24 @@ Wpływ zmiany liczby węzłów danych różni się dla każdego typu klastra obs
     balancer
     ```
 
-    Aby uzyskać więcej informacji na temat korzystania z powłoki HBase, zobacz [Wprowadzenie do przykładu Apache HBase w programie HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
+    Aby uzyskać więcej informacji na temat używania powłoki HBase, zobacz Rozpoczynanie [pracy z przykładem Apache HBase w usłudze HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
 
 * Apache Storm
 
-    Węzły danych można bezproblemowo dodawać lub usuwać, gdy usługa Storm jest uruchomiona. Jednak po pomyślnym zakończeniu operacji skalowania, należy ponownie zrównoważyć topologii.
+    Można bezproblemowo dodawać lub usuwać węzły danych, gdy burza jest uruchomiona. Jednak po pomyślnym zakończeniu operacji skalowania należy ponownie zrównoważyć topologię.
 
     Ponowne równoważenie można wykonać na dwa sposoby:
 
-  * Interfejs użytkownika sieci Burzowej
+  * Interfejs użytkownika sieci Web burzy
   * Narzędzie interfejsu wiersza polecenia (CLI)
 
-    Aby uzyskać więcej informacji, zobacz [apache Storm dokumentacji](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Aby uzyskać więcej informacji, zobacz [dokumentację Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-    Interfejs użytkownika sieci Storm jest dostępny w klastrze HDInsight:
+    Interfejs użytkownika sieci Web burzy jest dostępny w klastrze usługi HDInsight:
 
-    ![Równoważenie skali burzy HDInsight](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    ![Ponowne równoważenie skali burzy usługi HDInsight](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
-    Oto przykładowe polecenie interfejsu wiersza polecenia, aby zrównoważyć topologię storm:
+    Oto przykładowe polecenie interfejsu wiersza polecenia do ponownego zrównoważenia topologii burzy:
 
     ```console
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
@@ -95,32 +95,32 @@ Wpływ zmiany liczby węzłów danych różni się dla każdego typu klastra obs
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-## <a name="how-to-safely-scale-down-a-cluster"></a>Jak bezpiecznie skalować w dół klastra
+## <a name="how-to-safely-scale-down-a-cluster"></a>Jak bezpiecznie skalować klaster
 
 ### <a name="scale-down-a-cluster-with-running-jobs"></a>Skalowanie w dół klastra z uruchomionymi zadaniami
 
-Aby uniknąć niepowodzenia uruchomionych zadań podczas operacji skalowania w dół, możesz wypróbować trzy rzeczy:
+Aby uniknąć niepowodzenia wykonywanych zadań podczas operacji skalowania w dół, możesz wypróbować trzy rzeczy:
 
-1. Poczekaj na wykonanie zadań przed skalowaniem w dół klastra.
-1. Ręcznie zakończ zadania.
-1. Ponownie prześlij zadania po zakończeniu operacji skalowania.
+1. Poczekaj na zakończenie zadań przed skalowaniem klastra w dół.
+1. Ręcznie Zakończ zadania.
+1. Prześlij ponownie zadania po zakończeniu operacji skalowania.
 
-Aby wyświetlić listę oczekujących i uruchomionych zadań, można użyć **interfejsu użytkownika Menedżera zasobów**YARN, wykonując następujące kroki:
+Aby wyświetlić listę oczekujących i uruchomionych zadań, można użyć **interfejsu użytkownika Menedżer zasobów**przędzy, wykonując następujące czynności:
 
-1. Z [witryny Azure portal](https://portal.azure.com/)wybierz swój klaster.  Aby uzyskać instrukcje, zobacz [Lista i pokazyj klastry.](./hdinsight-administer-use-portal-linux.md#showClusters) Klaster jest otwierany na nowej stronie portalu.
-2. Z widoku głównego przejdź do **pulpitów nawigacyjnych Klastra** > **Ambari home**. Wprowadź poświadczenia klastra.
-3. W interfejsie użytkownika Ambari wybierz **pozycję YARN** na liście usług w menu po lewej stronie.  
-4. Na stronie YARN wybierz pozycję **Szybkie łącza** i umieść wskaźnik myszy na aktywnym węźle głównym, a następnie wybierz pozycję Interfejs użytkownika **Menedżera zasobów**.
+1. Na [Azure Portal](https://portal.azure.com/)wybierz swój klaster.  Klaster zostanie otwarty na nowej stronie portalu.
+2. W widoku głównym przejdź do strony **pulpity nawigacyjne** > klastra**Ambari Home**. Wprowadź poświadczenia klastra.
+3. Z poziomu interfejsu użytkownika Ambari wybierz pozycję **przędza** na liście usług w menu po lewej stronie.  
+4. Na stronie PRZĘDZa wybierz pozycję **szybkie linki** i umieść kursor nad aktywnym węzłem głównym, a następnie wybierz pozycję **Menedżer zasobów interfejsie użytkownika**.
 
-    ![Apache Ambari szybkie linki Resource Manager Interfejsu użytkownika](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    ![Szybkie linki Menedżer zasobów Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
-Użytkownik może uzyskać bezpośredni dostęp do `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`interfejsu użytkownika Menedżera zasobów za pomocą programu .
+Możesz bezpośrednio uzyskać dostęp do interfejsu użytkownika Menedżer zasobów `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`przy użyciu programu.
 
-Zobaczysz listę zadań wraz z ich bieżącym stanem. Na zrzucie ekranu jest jedno zadanie aktualnie uruchomione:
+Zostanie wyświetlona lista zadań wraz z bieżącym stanem. Na zrzucie ekranu jest aktualnie uruchomione jedno zadanie:
 
-![Aplikacje interfejsu użytkownika Menedżera zasobów](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+![Menedżer zasobów aplikacji interfejsu użytkownika](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
 
-Aby ręcznie zabić uruchominą aplikację, wykonaj następujące polecenie z powłoki SSH:
+Aby ręcznie skasować tę uruchomioną aplikację, wykonaj następujące polecenie w powłoce SSH:
 
 ```bash
 yarn application -kill <application_id>
@@ -132,15 +132,15 @@ Przykład:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-### <a name="getting-stuck-in-safe-mode"></a>Utknięcie w trybie awaryjnym
+### <a name="getting-stuck-in-safe-mode"></a>Uruchamianie w trybie awaryjnym
 
-Podczas skalowania w dół klastra, HDInsight używa interfejsów zarządzania Apache Ambari, aby najpierw zlikwidować dodatkowe węzły procesu roboczego. Węzły replikują swoje bloki HDFS do innych węzłów procesu roboczego online. Następnie usługa HDInsight bezpiecznie skaluje klaster w dół. System HDFS przechodzi w tryb awaryjny podczas operacji skalowania. HDFS ma wyjść po zakończeniu skalowania. W niektórych przypadkach jednak usługa HDFS utknie w trybie awaryjnym podczas operacji skalowania z powodu niedoreplancji bloku plików.
+Podczas skalowania w dół klastra Usługa HDInsight używa interfejsów zarządzania Apache Ambari do pierwszej likwidacji dodatkowych węzłów procesu roboczego. Węzły replikują swoje bloki systemu plików HDFS do innych węzłów procesów roboczych w trybie online. Następnie Usługa HDInsight bezpiecznie skaluje klaster. W trakcie operacji skalowania system plików HDFS przechodzi do trybu awaryjnego. System plików HDFS powinien zostać wyprowadzony po zakończeniu skalowania. W niektórych przypadkach system plików HDFS jest blokowany w trybie awaryjnym podczas operacji skalowania ze względu na to, że jest on w trakcie replikacji.
 
-Domyślnie system plików HDFS `dfs.replication` jest skonfigurowany z ustawieniem 1, które określa, ile kopii każdego bloku plików jest dostępnych. Każda kopia bloku plików jest przechowywana w innym węźle klastra.
+Domyślnie system plików HDFS jest skonfigurowany z `dfs.replication` ustawieniem 1, które określa, ile kopii poszczególnych bloków plików jest dostępnych. Każda kopia bloku plików jest przechowywana w innym węźle klastra.
 
-Gdy oczekiwana liczba kopii bloków nie jest dostępna, hdfs wchodzi w tryb awaryjny, a Ambari generuje alerty. System PLIKÓW HDFS może wejść w tryb awaryjny dla operacji skalowania. Klaster może utknąć w trybie awaryjnym, jeśli wymagana liczba węzłów nie zostanie wykryta dla replikacji.
+Gdy oczekiwana liczba kopii bloku nie jest dostępna, system plików HDFS przechodzi do trybu awaryjnego i Ambari generuje alerty. System plików HDFS może wejść w tryb awaryjny dla operacji skalowania. Klaster może zostać zablokowany w trybie awaryjnym, jeśli wymagana liczba węzłów nie zostanie wykryta na potrzeby replikacji.
 
-### <a name="example-errors-when-safe-mode-is-turned-on"></a>Przykładowe błędy, gdy włączony jest tryb awaryjny
+### <a name="example-errors-when-safe-mode-is-turned-on"></a>Przykładowe błędy w przypadku włączenia trybu awaryjnego
 
 ```output
 org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Name node is in safe mode.
@@ -150,32 +150,32 @@ org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create director
 org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.servername.internal.cloudapp.net:10001 [active-headnode-name.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 ```
 
-Można przejrzeć dzienniki węzłów `/var/log/hadoop/hdfs/` nazw z folderu, w pobliżu czasu, kiedy klaster został przeskalowany, aby zobaczyć, kiedy wszedł w tryb awaryjny. Pliki dziennika mają `Hadoop-hdfs-namenode-<active-headnode-name>.*`nazwy .
+Można przejrzeć nazwy dzienników węzłów z `/var/log/hadoop/hdfs/` folderu, w czasie, gdy klaster został przeskalowany, aby zobaczyć, kiedy przeszedł tryb awaryjny. Pliki dziennika mają nazwę `Hadoop-hdfs-namenode-<active-headnode-name>.*`.
 
-Główną przyczyną było to, że Hive zależy od plików tymczasowych w HDFS podczas uruchamiania zapytań. Gdy hdfs wchodzi w tryb awaryjny, Hive nie można uruchamiać kwerendy, ponieważ nie można zapisać do hdfs. Pliki tymczasowe w hdfs znajdują się na dysku lokalnym zamontowanym na maszynach wirtualnych poszczególnych węzłów procesu roboczego. Pliki są replikowane między innymi węzłami procesu roboczego w trzech replikach, minimum.
+Głównym powodem jest to, że gałąź czasowa jest zależna od plików tymczasowych w systemie plików HDFS podczas wykonywania zapytań. Gdy system plików HDFS przechodzi w tryb awaryjny, gałąź nie może uruchamiać zapytań, ponieważ nie może zapisywać w systemie plików HDFS. Pliki tymczasowe w systemie plików HDFS znajdują się na dysku lokalnym zainstalowanym na maszynach wirtualnych poszczególnych węzłów procesu roboczego. Pliki są replikowane między innymi węzłami procesu roboczego w trzech replikach, co najmniej.
 
-### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode"></a>Jak zapobiec utknięciu hdinsight w trybie awaryjnym
+### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode"></a>Jak uniemożliwić blokowanie usługi HDInsight w trybie awaryjnym
 
-Istnieje kilka sposobów zapobiegania pozostawieniu programu HDInsight w trybie awaryjnym:
+Istnieje kilka sposobów, aby uniemożliwić pozostawienie usługi HDInsight w trybie awaryjnym:
 
-* Przed skalowaniem w dół pliku HDInsight należy zatrzymać wszystkie zadania gałęzi. Alternatywnie należy zaplanować proces skalowania w dół, aby uniknąć konfliktu z uruchomionymi zadaniami hive.
-* Ręcznie oczyść pliki katalogów `tmp` zarysowania Hive w hdfs przed skalowaniem w dół.
-* Skalowanie tylko w dół HDInsight do trzech węzłów procesu roboczego, minimum. Unikaj przechodzenia tak niskie, jak jeden węzeł procesu roboczego.
-* Uruchom polecenie, aby w razie potrzeby pozostawić tryb awaryjny.
+* Zatrzymaj wszystkie zadania Hive przed skalowaniem w dół usługi HDInsight. Alternatywnie Zaplanuj proces skalowania w dół, aby uniknąć konfliktu z uruchomionymi zadaniami programu Hive.
+* Ręcznie Wyczyść pliki katalogów magazynu `tmp` Hive w systemie plików HDFS przed skalowaniem w dół.
+* Maksymalnie Skaluj w dół usługi HDInsight do trzech węzłów procesów roboczych. Należy unikać przechodzenia do jednego węzła procesu roboczego.
+* Uruchom polecenie, aby wyjść z trybu awaryjnego, w razie potrzeby.
 
 W poniższych sekcjach opisano te opcje.
 
-#### <a name="stop-all-hive-jobs"></a>Zatrzymywać wszystkie zadania Hive
+#### <a name="stop-all-hive-jobs"></a>Zatrzymaj wszystkie zadania Hive
 
-Zatrzymaj wszystkie zadania hive przed skalowaniem w dół do jednego węzła procesu roboczego. Jeśli obciążenie jest zaplanowane, a następnie wykonać skalowanie w dół po zakończeniu pracy hive.
+Zatrzymaj wszystkie zadania Hive przed skalowaniem w dół do jednego węzła procesu roboczego. Jeśli obciążenie jest zaplanowane, po wykonaniu operacji Hive wykonaj skalowanie w dół.
 
-Zatrzymanie zadań gałęzi przed skalowaniem pomaga zminimalizować liczbę plików zarysowań w folderze tmp (jeśli istnieje).
+Zatrzymywanie zadań programu Hive przed skalowaniem umożliwia zminimalizowanie liczby plików w folderze tmp (jeśli istnieje).
 
-#### <a name="manually-clean-up-hives-scratch-files"></a>Ręczne czyszczenie plików zdrapki Hive
+#### <a name="manually-clean-up-hives-scratch-files"></a>Ręczne czyszczenie plików tymczasowych Hive
 
-Jeśli hive pozostawił pliki tymczasowe, można ręcznie oczyścić te pliki przed skalowaniem w dół, aby uniknąć trybu awaryjnego.
+Jeśli gałąź została pozostawiona za pliki tymczasowe, można ręcznie oczyścić te pliki przed skalowaniem w dół, aby uniknąć trybu awaryjnego.
 
-1. Sprawdź, która lokalizacja jest używana dla plików `hive.exec.scratchdir` tymczasowych hive, patrząc na właściwość konfiguracji. Ten parametr jest `/etc/hive/conf/hive-site.xml`ustawiony w zakresie:
+1. Sprawdź, która lokalizacja jest używana dla plików tymczasowych programu Hive, przeglądając Właściwość `hive.exec.scratchdir` konfiguracji. Ten parametr jest ustawiany w `/etc/hive/conf/hive-site.xml`:
 
     ```xml
     <property>
@@ -184,9 +184,9 @@ Jeśli hive pozostawił pliki tymczasowe, można ręcznie oczyścić te pliki pr
     </property>
     ```
 
-1. Zatrzymaj usługi hive i upewnij się, że wszystkie kwerendy i zadania zostały ukończone.
+1. Zatrzymaj usługi Hive i upewnij się, że wszystkie zapytania i zadania zostały ukończone.
 
-1. Wyświetl listę zawartości katalogu podstaw znalezionego powyżej, aby sprawdzić, `hdfs://mycluster/tmp/hive/` czy zawiera on jakieś pliki:
+1. Wystaw zawartość katalogu tymczasowego znalezionego powyżej, aby zobaczyć `hdfs://mycluster/tmp/hive/` , czy zawiera on pliki:
 
     ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
@@ -204,37 +204,37 @@ Jeśli hive pozostawił pliki tymczasowe, można ręcznie oczyścić te pliki pr
     -rw-r--r--   3 hive hdfs         26 2017-07-06 20:30 hdfs://mycluster/tmp/hive/hive/c108f1c2-453e-400f-ac3e-e3a9b0d22699/inuse.info
     ```
 
-1. Jeśli wiesz, że hive jest zrobione z tych plików, można je usunąć. Upewnij się, że hive nie ma żadnych zapytań uruchomionych, patrząc na stronie interfejsu użytkownika Menedżera zasobów Yarn.
+1. Jeśli wiesz, że gałąź jest wykonywana z tymi plikami, możesz je usunąć. Upewnij się, że w usłudze Hive nie są uruchomione żadne zapytania, szukając na stronie interfejsu użytkownika Menedżer zasobów przędzy.
 
-    Przykładowy wiersz polecenia do usuwania plików z plików HDFS:
+    Przykładowy wiersz polecenia usuwania plików z systemu plików HDFS:
 
     ```bash
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
 
-#### <a name="scale-hdinsight-to-three-or-more-worker-nodes"></a>Skalowanie hdinsight do trzech lub więcej węzłów procesu roboczego
+#### <a name="scale-hdinsight-to-three-or-more-worker-nodes"></a>Skalowanie usługi HDInsight do trzech lub większej liczby węzłów procesu roboczego
 
-Jeśli klastry utknąć w trybie awaryjnym często podczas skalowania w dół do mniej niż trzech węzłów procesu roboczego, a następnie zachować co najmniej trzy węzły procesu roboczego.
+Jeśli klastry są wykonywane w trybie awaryjnym często podczas skalowania do mniej niż trzy węzły procesów roboczych, należy pozostawić co najmniej trzy węzły procesu roboczego.
 
-Posiadanie trzech węzłów procesu roboczego jest bardziej kosztowne niż skalowanie w dół tylko do jednego węzła procesu roboczego. Jednak ta akcja zapobiegnie utknięciu klastra w trybie awaryjnym.
+Trzy węzły procesu roboczego są droższe niż skalowanie w dół tylko do jednego węzła procesu roboczego. Jednak ta akcja uniemożliwi uruchamianie klastra w trybie awaryjnym.
 
-### <a name="scale-hdinsight-down-to-one-worker-node"></a>Skalowanie hdinsight w dół do jednego węzła procesu roboczego
+### <a name="scale-hdinsight-down-to-one-worker-node"></a>Skalowanie usługi HDInsight do jednego węzła procesu roboczego
 
-Nawet wtedy, gdy klaster jest skalowany w dół do jednego węzła, węzeł roboczy 0 będzie nadal przetrwać. Węzeł roboczy 0 nigdy nie może zostać wycofany.
+Nawet jeśli klaster jest skalowany w dół do jednego węzła, węzeł procesu roboczego 0 nadal będzie przeżyje. Węzeł procesu roboczego 0 nigdy nie może zostać zlikwidowany.
 
-#### <a name="run-the-command-to-leave-safe-mode"></a>Uruchom polecenie, aby opuścić tryb awaryjny
+#### <a name="run-the-command-to-leave-safe-mode"></a>Uruchom polecenie, aby wyjść z trybu awaryjnego
 
-Ostatnią opcją jest wykonanie polecenia trybu awaryjnego . Jeśli usługa HDFS weszła w tryb awaryjny z powodu braku replikacji pliku Hive, wykonaj następujące polecenie, aby opuścić tryb awaryjny:
+Końcową opcją jest wykonanie polecenia Opuść tryb bezpieczny. Jeśli w systemie plików HDFS wprowadzono tryb awaryjny z powodu replikacji pliku Hive, wykonaj następujące polecenie, aby wyjść z trybu awaryjnego:
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 ```
 
-### <a name="scale-down-an-apache-hbase-cluster"></a>Skalowanie w dół klastra Apache HBase
+### <a name="scale-down-an-apache-hbase-cluster"></a>Skalowanie klastra Apache HBase
 
-Serwery regionu są automatycznie równoważące w ciągu kilku minut po zakończeniu operacji skalowania. Aby ręcznie zrównoważyć serwery regionu, wykonaj następujące czynności:
+Serwery regionów są automatycznie równoważone w ciągu kilku minut od zakończenia operacji skalowania. Aby ręcznie zrównoważyć serwery regionów, wykonaj następujące czynności:
 
-1. Połącz się z klastrem HDInsight za pomocą funkcji SSH. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Połącz się z klastrem usługi HDInsight przy użyciu protokołu SSH. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Uruchom powłokę HBase:
 
@@ -242,7 +242,7 @@ Serwery regionu są automatycznie równoważące w ciągu kilku minut po zakońc
     hbase shell
     ```
 
-3. Użyj następującego polecenia, aby ręcznie zrównoważyć serwery regionu:
+3. Użyj następującego polecenia, aby ręcznie zrównoważyć serwery regionów:
 
     ```bash
     balancer
@@ -251,4 +251,3 @@ Serwery regionu są automatycznie równoważące w ciągu kilku minut po zakońc
 ## <a name="next-steps"></a>Następne kroki
 
 * [Automatyczne skalowanie klastrów usługi Azure HDInsight](hdinsight-autoscale-clusters.md)
-* [Wprowadzenie do usługi Azure HDInsight](hadoop/apache-hadoop-introduction.md)

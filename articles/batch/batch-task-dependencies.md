@@ -1,46 +1,36 @@
 ---
-title: Tworzenie zależności zadań do uruchamiania zadań — usługa Azure Batch
-description: Tworzenie zadań, które zależą od ukończenia innych zadań do przetwarzania mapReduce stylu i podobnych obciążeń dużych zbiorów danych w usłudze Azure Batch.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
-ms.service: batch
+title: Tworzenie zależności zadań do uruchamiania zadań — Azure Batch
+description: Utwórz zadania, które zależą od ukończenia innych zadań przetwarzania stylu MapReduce i podobnych obciążeń danych Big Data w Azure Batch.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca771117e889afc8e143c4ca4626ab2d3bb4da2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b3bc37a3d004f077e2e780d096b7bb2a8e5f773
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022906"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116489"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Tworzenie zależności zadań w celu uruchamiania zadań zależnych od innych zadań
 
-Zależności zadań można zdefiniować w celu uruchomienia zadania lub zestawu zadań tylko po zakończeniu zadania nadrzędnego. Niektóre scenariusze, w których zależności zadań są przydatne obejmują:
+Można zdefiniować zależności zadań do uruchamiania zadania lub zestawu zadań dopiero po zakończeniu zadania nadrzędnego. Niektóre scenariusze, w których są przydatne zależności zadań, obejmują:
 
-* MapReduce stylu obciążeń w chmurze.
-* Zadania, których zadania przetwarzania danych mogą być wyrażone jako ukierunkowany wykres acykliczny (DAG).
-* Procesy renderowania wstępnego i post-renderingu, w których każde zadanie musi zostać ukończone przed rozpoczęciem następnego zadania.
-* Każde inne zadanie, w którym zadania podrzędne zależą od wyników zadań nadrzędnych.
+* Obciążenia w stylu MapReduce w chmurze.
+* Zadania, których zadania przetwarzania danych mogą być wyrażone jako ukierunkowane wykresy acykliczne (DAG).
+* Procesy przed renderowaniem i po renderingu, gdzie każde zadanie musi zakończyć się przed rozpoczęciem następnego zadania.
+* Wszystkie inne zadania, w których zadania podrzędne są zależne od danych wyjściowych zadań nadrzędnych.
 
-Za pomocą zależności zadań usługi Batch można tworzyć zadania, które są zaplanowane do wykonania w węzłach obliczeniowych po zakończeniu jednego lub więcej zadań nadrzędnych. Można na przykład utworzyć zadanie, które renderuje każdą klatkę filmu 3D z oddzielnymi zadaniami równoległymi. Ostateczne zadanie — "zadanie scalania" - scala renderowane klatki z pełnym filmem dopiero po pomyślnym renderowaniu wszystkich klatek.
+Za pomocą zależności zadań wsadowych można tworzyć zadania zaplanowane do wykonania w węzłach obliczeniowych po zakończeniu jednego lub kilku zadań nadrzędnych. Można na przykład utworzyć zadanie, które renderuje każdą ramkę filmu 3W z oddzielnymi zadaniami równoległymi. Zadanie końcowe — "zadanie scalania" — Scala renderowane ramki do kompletnego filmu dopiero po pomyślnym wyrenderowaniu wszystkich ramek.
 
-Domyślnie zadania zależne są planowane do wykonania dopiero po pomyślnym zakończeniu zadania nadrzędnego. Można określić akcję zależności, aby zastąpić domyślne zachowanie i uruchamiać zadania, gdy zadanie nadrzędne zakończy się niepowodzeniem. Zobacz [akcje zależności](#dependency-actions) sekcji, aby uzyskać szczegółowe informacje.  
+Domyślnie zadania zależne są planowane do wykonania dopiero po pomyślnym ukończeniu zadania nadrzędnego. Można określić akcję zależności, aby zastąpić zachowanie domyślne i uruchamiać zadania, gdy zadanie nadrzędne zakończy się niepowodzeniem. Aby uzyskać szczegółowe informacje, zobacz sekcję [Akcje zależności](#dependency-actions) .  
 
-Można tworzyć zadania, które zależą od innych zadań w relacji jeden do jednego lub jeden do wielu. Można również utworzyć zależność zakresu, gdzie zadanie zależy od ukończenia grupy zadań w określonym zakresie identyfikatorów zadań. Można połączyć te trzy podstawowe scenariusze, aby utworzyć relacje wiele do wielu.
+Można tworzyć zadania, które są zależne od innych zadań w relacji jeden-do-jednego lub jeden-do-wielu. Można również utworzyć zależność zakresu, w którym zadanie zależy od ukończenia grupy zadań w określonym zakresie identyfikatorów zadań. Te trzy podstawowe scenariusze można połączyć, aby utworzyć relacje wiele-do-wielu.
 
-## <a name="task-dependencies-with-batch-net"></a>Zależności zadań z wydzieleniam .NET
-W tym artykule omówimy sposób konfigurowania zależności zadań przy użyciu biblioteki [Batch .NET.][net_msdn] Najpierw pokazujemy, jak [włączyć zależność zadań od](#enable-task-dependencies) zadań, a następnie zademonstrujemy sposób [konfigurowania zadania z zależnościami.](#create-dependent-tasks) Opisano również, jak określić akcję zależności do uruchamiania zadań zależnych, jeśli element nadrzędny nie powiedzie się. Na koniec omówimy [scenariusze zależności,](#dependency-scenarios) które obsługuje usługa Batch.
+## <a name="task-dependencies-with-batch-net"></a>Współzależności zadań z usługą Batch .NET
+W tym artykule omówiono sposób konfigurowania zależności zadań przy użyciu biblioteki usługi Batch dla [platformy .NET][net_msdn] . Najpierw pokazano, jak [włączyć zależność zadań](#enable-task-dependencies) względem zadań, a następnie zademonstrować sposób [konfigurowania zadania z zależnościami](#create-dependent-tasks). Opisano również sposób określania akcji zależności do uruchamiania zadań zależnych w przypadku niepowodzenia elementu nadrzędnego. Na koniec omówiono [scenariusze zależności](#dependency-scenarios) obsługiwane przez partię.
 
-## <a name="enable-task-dependencies"></a>Włączanie zależności zadań
-Aby użyć zależności zadań w aplikacji batch, należy najpierw skonfigurować zadanie do używania zależności zadań. W programie Batch .NET włącz go na swoim [cloudjob,][net_cloudjob] ustawiając jego `true` [Właściwość UsesTaskDependencies][net_usestaskdependencies] na:
+## <a name="enable-task-dependencies"></a>Włącz zależności zadań
+Aby korzystać z zależności zadań w aplikacji wsadowej, należy najpierw skonfigurować zadanie tak, aby korzystało z zależności zadań. W usłudze Batch .NET Włącz ją na [CloudJob][net_cloudjob] , ustawiając jej właściwość [UsesTaskDependencies][net_usestaskdependencies] na `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -50,10 +40,10 @@ CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
 unboundJob.UsesTaskDependencies = true;
 ```
 
-W poprzednim fragmentie kodu "batchClient" jest wystąpieniem [klasy BatchClient.][net_batchclient]
+W poprzednim fragmencie kodu "batchClient" jest wystąpieniem klasy [batchClient][net_batchclient] .
 
 ## <a name="create-dependent-tasks"></a>Tworzenie zadań zależnych
-Aby utworzyć zadanie, które zależy od ukończenia jednego lub więcej zadań nadrzędnych, można określić, że zadanie "zależy od" innych zadań. W obszarze Batch .NET skonfiguruj [program CloudTask][net_cloudtask]. [DependsOn][net_dependson] właściwość z wystąpieniem [TaskDependencies][net_taskdependencies] klasy:
+Aby utworzyć zadanie, które zależy od ukończenia jednego lub kilku zadań nadrzędnych, można określić, że zadanie "zależy od" innych zadań. W usłudze Batch .NET Skonfiguruj [CloudTask][net_cloudtask]. Właściwość [DependsOn][net_dependson] z wystąpieniem klasy [TaskDependencies][net_taskdependencies] :
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -64,29 +54,29 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 },
 ```
 
-Ten fragment kodu tworzy zadanie zależne o identyfikatorze zadania "Kwiaty". Zadanie "Kwiaty" zależy od zadań "Deszcz" i "Słońce". Zadanie "Kwiaty" zostanie zaplanowane do uruchomienia w węźle obliczeniowym dopiero po pomyślnym zakończeniu zadań "Deszcz" i "Słońce".
+Ten fragment kodu tworzy zadanie zależne z IDENTYFIKATORem zadania "kwiaty". Zadanie "kwiaty" zależy od zadań "deszcz" i "Sun". Zadanie "kwiaty" zostanie zaplanowane do uruchomienia w węźle obliczeniowym dopiero po pomyślnym ukończeniu zadań "deszcz" i "Sun".
 
 > [!NOTE]
-> Domyślnie zadanie jest uważane za ukończone pomyślnie, gdy jest w `0`stanie **ukończonym,** a jego kod **zakończenia** jest . W partii .NET oznacza to [CloudTask][net_cloudtask]. [Wartość][net_taskstate] właściwości `Completed` stanu i CloudTask's [TaskExecutionInformation][net_taskexecutioninformation]. Wartość właściwości [ExitCode][net_exitcode] to `0`. Aby dowiedzieć się, jak to zmienić, zobacz [sekcję Akcje zależności.](#dependency-actions)
+> Domyślnie zadanie jest uznawane za zakończone pomyślnie, gdy jest w stanie **ukończone** i jego **Kod zakończenia** to `0`. W usłudze Batch .NET oznacza to [CloudTask][net_cloudtask]. Wartość właściwości [State][net_taskstate] `Completed` i [TaskExecutionInformation][net_taskexecutioninformation]CloudTask. Wartość właściwości [ExitCode][net_exitcode] to `0`. Aby to zmienić, zobacz sekcję [Akcje zależności](#dependency-actions) .
 > 
 > 
 
 ## <a name="dependency-scenarios"></a>Scenariusze zależności
-Istnieją trzy podstawowe scenariusze zależności zadań, których można użyć w usłudze Azure Batch: zależność zakresu jeden do jednego, jeden do wielu i zakres identyfikatora zadań. Można je połączyć, aby zapewnić czwarty scenariusz, wiele do wielu.
+Istnieją trzy podstawowe scenariusze zależności zadań, których można użyć w Azure Batch: jeden do jednego, jeden-do-wielu i zakres identyfikatorów zadań. Można je łączyć, aby zapewnić czwarty scenariusz, wiele-do-wielu.
 
 | Scenariusz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Przykład |  |
 |:---:| --- | --- |
-|  [Jeden do jednego](#one-to-one) |*taskB* zależy od *taskA* <p/> *taskB* nie zostanie zaplanowane do wykonania, dopóki *zadanieA* nie zostanie pomyślnie ukończone |![Diagram: zależność zadania jeden do jednego][1] |
-|  [Jeden do wielu](#one-to-many) |*taskC* zależy zarówno od *taskA, jak* i *taskB* <p/> *TaskC* nie zostanie zaplanowane do wykonania, dopóki zarówno *taskA* i *taskB* nie zostaną pomyślnie ukończone |![Diagram: zależność zadania jeden do wielu][2] |
-|  [Zakres identyfikatora zadania](#task-id-range) |*taskD* zależy od zakresu zadań <p/> *TaskD* nie zostanie zaplanowane do wykonania, dopóki zadania o identyfikatorach *od 1* do *10* nie zostaną pomyślnie ukończone |![Diagram: Zależność zakresu identyfikatora zadania][3] |
+|  [Jeden do jednego](#one-to-one) |*zadaniab* zależy od *zadania* <p/> *zadaniab* nie zostanie zaplanowana do wykonania przed pomyślnym zakończeniem *zadania* |![Diagram: zależność zadania jeden do jednego][1] |
+|  [Jeden do wielu](#one-to-many) |*zadaniec* zależy od *zadania* i *zadaniab* <p/> *zadaniec* nie zostanie zaplanowana do wykonania, dopóki *zadania* i *zadaniab* nie zostaną ukończone pomyślnie |![Diagram: zależność zadania jeden-do-wielu][2] |
+|  [Zakres identyfikatorów zadań](#task-id-range) |*zadania* podrzędne są zależne od zakresu zadań <p/> *zadanie* nie zostanie zaplanowane do wykonania, dopóki zadania o identyfikatorach od *1* do *10* nie zakończą się pomyślnie |![Diagram: zależność zakresu identyfikatora zadania][3] |
 
 > [!TIP]
-> Można tworzyć relacje **wiele do wielu,** na przykład gdzie zadania C, D, E i F zależą od zadań A i B. Jest to przydatne, na przykład w równoległych scenariuszach przetwarzania wstępnego, w których zadania podrzędne zależą od danych wyjściowych wielu zadań nadrzędnych.
+> Można utworzyć relacje **wiele-do-wielu** , takie jak zadania C, D, E i F, które są zależne od zadań a i B. Jest to przydatne na przykład w przypadku równoległych scenariuszy przetwarzania wstępnego, w których zadania podrzędne zależą od danych wyjściowych wielu zadań nadrzędnych.
 > 
-> W przykładach w tej sekcji zadanie zależne jest uruchamiane tylko po pomyślnym wykonaniu zadań nadrzędnych. To zachowanie jest domyślnym zachowaniem dla zadania zależnego. Zadanie zależne można uruchomić po wykonaniu zadania nadrzędnego, określając akcję zależności w celu zastąpienia zachowania domyślnego. Zobacz [akcje zależności](#dependency-actions) sekcji, aby uzyskać szczegółowe informacje.
+> W przykładach w tej sekcji zadanie zależne jest uruchamiane dopiero po pomyślnym ukończeniu zadań nadrzędnych. To zachowanie jest zachowaniem domyślnym dla zadania zależnego. Zadanie zależne można uruchomić po niepowodzeniu zadania nadrzędnego, określając akcję zależności, która zastąpi zachowanie domyślne. Aby uzyskać szczegółowe informacje, zobacz sekcję [Akcje zależności](#dependency-actions) .
 
 ### <a name="one-to-one"></a>Jeden do jednego
-W relacji jeden-do-jednego zadanie zależy od pomyślnego zakończenia jednego zadania nadrzędnego. Aby utworzyć zależność, podaj identyfikator pojedynczego zadania do [TaskDependencies][net_taskdependencies]. [OnId][net_onid] metoda statyczna podczas wypełniania [DependsOn][net_dependson] właściwość [CloudTask][net_cloudtask].
+W relacji jeden do jednego zadanie jest zależne od pomyślnego ukończenia jednego zadania nadrzędnego. Aby utworzyć zależność, podaj jeden identyfikator zadania do [TaskDependencies][net_taskdependencies]. Metoda statyczna [OnId][net_onid] po wypełnieniu właściwości [DependsOn][net_dependson] elementu [CloudTask][net_cloudtask].
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -100,7 +90,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Jeden do wielu
-W relacji jeden do wielu zadanie zależy od ukończenia wielu zadań nadrzędnych. Aby utworzyć zależność, podaj kolekcję identyfikatorów zadań do [TaskDependencies][net_taskdependencies]. [OnIds][net_onids] metoda statyczna podczas wypełniania [DependsOn][net_dependson] właściwość [CloudTask][net_cloudtask].
+W relacji jeden do wielu zadanie zależy od ukończenia wielu zadań nadrzędnych. Aby utworzyć zależność, podaj kolekcję identyfikatorów zadań do [TaskDependencies][net_taskdependencies]. Metoda statyczna [OnIds][net_onids] po wypełnieniu właściwości [DependsOn][net_dependson] elementu [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -115,16 +105,16 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 },
 ``` 
 
-### <a name="task-id-range"></a>Zakres identyfikatora zadania
-W zależności od zakresu zadań nadrzędnych zadanie zależy od ukończenia zadań, których identyfikatory znajdują się w zakresie.
-Aby utworzyć zależność, podaj pierwsze i ostatnie identyfikatory zadań w zakresie do [TaskDependencies][net_taskdependencies]. [OnIdRange][net_onidrange] metoda statyczna podczas wypełniania [DependsOn][net_dependson] właściwość [CloudTask][net_cloudtask].
+### <a name="task-id-range"></a>Zakres identyfikatorów zadań
+W zależności od zakresu zadań nadrzędnych zadanie zależy od ukończenia zadań, których identyfikatory mieszczą się w zakresie.
+Aby utworzyć zależność, podaj pierwsze i ostatnie identyfikatory zadań w zakresie do [TaskDependencies][net_taskdependencies]. Metoda statyczna [OnIdRange][net_onidrange] po wypełnieniu właściwości [DependsOn][net_dependson] elementu [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> W przypadku używania zakresów identyfikatorów zadań dla zależności zakresy tylko zadania z identyfikatorami reprezentującymi wartości całkowite będą wybierane przez zakres. Tak więc `1..10` zakres `3` wybierze zadania i `7`, ale nie `5flamingoes`. 
+> W przypadku korzystania z zakresów identyfikatorów zadań w zależności od zakresu będą wybierane tylko zadania z identyfikatorami reprezentującymi wartości całkowite. Dlatego zakres `1..10` będzie wybierać zadania `3` i `7`, ale nie. `5flamingoes` 
 > 
-> Wiodące zera nie są znaczące podczas oceny zależności zakresu, `4` `04` więc `004` zadania z identyfikatorami ciągów i będą `4`wszystkie *w* zakresie i wszystkie będą traktowane jako zadanie, więc pierwszy do wykonania zadowoli zależność.
+> Zera wiodące nie są istotne podczas oceniania zależności zakresu, dlatego zadania z identyfikatorami `4`ciągów `04` i `004` wszystkie będą znajdować się *w* zakresie, a wszystkie będą traktowane jako zadania `4`, więc pierwszy z nich będzie spełniał zależność.
 > 
-> Każde zadanie w zakresie musi spełniać zależność, albo przez ukończenie pomyślnie lub przez ukończenie z błędem, który jest mapowany na akcję zależności ustawioną na **Spełnij**. Zobacz [akcje zależności](#dependency-actions) sekcji, aby uzyskać szczegółowe informacje.
+> Każde zadanie w zakresie musi spełniać zależność, przez pomyślne zakończenie lub przez zakończenie z powodu błędu zamapowanego na akcję zależności ustawioną na **spełnienie**. Aby uzyskać szczegółowe informacje, zobacz sekcję [Akcje zależności](#dependency-actions) .
 >
 >
 
@@ -148,26 +138,26 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 ## <a name="dependency-actions"></a>Akcje zależności
 
-Domyślnie zadanie zależne lub zestaw zadań jest uruchamiane tylko po pomyślnym zakończeniu zadania nadrzędnego. W niektórych scenariuszach można uruchomić zadania zależne, nawet jeśli zadanie nadrzędne nie powiedzie się. Zachowanie domyślne można zastąpić, określając akcję zależności. Akcja zależności określa, czy zadanie zależne kwalifikuje się do uruchomienia na podstawie powodzenia lub niepowodzenia zadania nadrzędnego. 
+Domyślnie zależne zadanie lub zestaw zadań jest uruchamiany dopiero po pomyślnym ukończeniu zadania nadrzędnego. W niektórych scenariuszach można uruchamiać zadania zależne nawet wtedy, gdy zadanie nadrzędne zakończy się niepowodzeniem. Zachowanie domyślne można przesłonić, określając akcję zależności. Akcja zależności określa, czy zadanie zależne jest uprawnione do uruchomienia, na podstawie sukcesu lub niepowodzenia zadania nadrzędnego. 
 
-Załóżmy na przykład, że zadanie zależne oczekuje na dane po zakończeniu zadania nadrzędnego. Jeśli zadanie nadrzędne zakończy się niepowodzeniem, zadanie zależne może nadal być w stanie uruchomić przy użyciu starszych danych. W takim przypadku akcja zależności można określić, że zadanie zależne kwalifikuje się do uruchomienia pomimo niepowodzenia zadania nadrzędnego.
+Załóżmy na przykład, że zadanie zależne oczekuje na dane po zakończeniu zadania nadrzędnego. Jeśli zadanie nadrzędne zakończy się niepowodzeniem, zadanie zależne może nadal być uruchamiane przy użyciu starszych danych. W takim przypadku akcja zależności może określać, że zadanie zależne jest uprawnione do uruchomienia niezależnie od błędu zadania nadrzędnego.
 
-Akcja zależności jest oparta na warunku zakończenia zadania nadrzędnego. Można określić akcję zależności dla dowolnego z następujących warunków zakończenia; dla .NET, zobacz [ExitConditions][net_exitconditions] klasy, aby uzyskać szczegółowe informacje:
+Akcja zależności jest oparta na warunku wyjścia zadania nadrzędnego. Można określić akcję zależności dla dowolnego z następujących warunków wyjścia; Aby uzyskać szczegółowe informacje na temat platformy .NET, zobacz [ExitConditions][net_exitconditions] klasy:
 
-- Po wystąpieniu błędu przetwarzania wstępnego.
-- Po wystąpieniu błędu przekazywania pliku. Jeśli zadanie kończy pracę z kodem zakończenia, który został określony za pośrednictwem **exitCodes** lub **exitCodeRanges**, a następnie napotka błąd przekazywania pliku, akcja określona przez kod zakończenia ma pierwszeństwo.
-- Gdy zadanie kończy pracę z kodem zakończenia zdefiniowanym przez **ExitCodes** właściwości.
-- Gdy zadanie kończy pracę z kodem zakończenia, który mieści się w zakresie określonym przez **ExitCodeRanges** właściwości.
-- Przypadek domyślny, jeśli zadanie kończy działanie z kodem zakończenia nie zdefiniowanym przez **ExitCodes** lub **ExitCodeRanges**, lub jeśli zadanie kończy działanie z błędem przetwarzania wstępnego i właściwość **PreProcessingError** nie jest ustawiona lub jeśli zadanie zakończy się niepowodzeniem z błędem przekazywania pliku i właściwość **FileUploadError** nie jest ustawiona. 
+- Gdy wystąpi błąd podczas przetwarzania wstępnego.
+- Gdy wystąpi błąd przekazywania pliku. Jeśli zadanie zostanie zakończone z kodem zakończenia, który został określony za pośrednictwem **exitCodes** lub **exitCodeRanges**, a następnie napotka błąd przekazywania pliku, Akcja określona przez kod zakończenia ma pierwszeństwo.
+- Gdy zadanie zostanie zakończone z kodem zakończenia zdefiniowanym przez właściwość **ExitCodes** .
+- Gdy zadanie zostanie zakończone z kodem zakończenia, który mieści się w zakresie określonym przez właściwość **ExitCodeRanges** .
+- Przypadek domyślny, jeśli zadanie zostanie zakończone z kodem zakończenia niezdefiniowanym przez **ExitCodes** lub **ExitCodeRanges**, lub jeśli zadanie zakończy się z błędem przetwarzania wstępnego, a właściwość **PreProcessingError** nie została ustawiona lub jeśli zadanie zakończy się niepowodzeniem z błędem przekazywania pliku i Właściwość **FileUploadError** nie jest ustawiona. 
 
-Aby określić akcję zależności w .NET, ustaw [opcję ExitOptions][net_exitoptions]. [Właściwość DependencyAction][net_dependencyaction] dla warunku zakończenia. Właściwość **DependencyAction** przyjmuje jedną z dwóch wartości:
+Aby określić akcję zależności w programie .NET, należy ustawić [ExitOptions][net_exitoptions]. Właściwość [DependencyAction][net_dependencyaction] dla warunku zakończenia. Właściwość **DependencyAction** przyjmuje jedną z dwóch wartości:
 
-- Ustawienie **DependencyAction** właściwość **na satisfy** wskazuje, że zadania zależne kwalifikują się do uruchomienia, jeśli zadanie nadrzędne kończy działanie z określonym błędem.
-- Ustawienie **DependencyAction** właściwość **bloku** wskazuje, że zadania zależne nie kwalifikują się do uruchomienia.
+- Ustawienie właściwości **DependencyAction** na wartość **spełnia** wskazuje, że zależne zadania są uprawnione do uruchamiania, jeśli zadanie nadrzędne zostanie zakończone z określonym błędem.
+- Ustawienie właściwości **DependencyAction** na **Block** wskazuje, że zadania zależne nie mogą być uruchamiane.
 
-Domyślnym ustawieniem **właściwości DependencyAction** jest **Satisfy** for exit code 0 i **Block** for all other exit conditions.
+Ustawienie domyślne właściwości **DependencyAction** jest **zgodne** dla kodu zakończenia 0 i **bloku** dla wszystkich pozostałych warunków zakończenia.
 
-Poniższy fragment kodu ustawia **właściwość DependencyAction** dla zadania nadrzędnego. Jeśli zadanie nadrzędne kończy pracę z błędem przetwarzania wstępnego lub z określonymi kodami błędów, zadanie zależne jest blokowane. Jeśli zadanie nadrzędne kończy pracę z innym błędem niezerowym, zadanie zależne kwalifikuje się do uruchomienia.
+Poniższy fragment kodu ustawia właściwość **DependencyAction** dla zadania nadrzędnego. Jeśli zadanie nadrzędne zostanie zakończone z błędem przetwarzania wstępnego lub z określonymi kodami błędów, zadanie zależne zostanie zablokowane. Jeśli zadanie nadrzędne zostanie zakończone z jakimkolwiek innym błędem o wartości innej niż zero, zadanie zależne może zostać uruchomione.
 
 ```csharp
 // Task A is the parent task.
@@ -203,18 +193,18 @@ new CloudTask("B", "cmd.exe /c echo B")
 ```
 
 ## <a name="code-sample"></a>Przykład kodu
-Przykładowy projekt [TaskDependencies][github_taskdependencies] jest jednym z [przykładowych przykładów kodu usługi Azure Batch][github_samples] w usłudze GitHub. To rozwiązanie programu Visual Studio pokazuje:
+Przykładowy projekt [TaskDependencies][github_taskdependencies] jest jednym z [przykładów kodu Azure Batch][github_samples] w witrynie GitHub. To rozwiązanie programu Visual Studio ilustruje:
 
-- Jak włączyć zależność zadania od zadania
-- Jak tworzyć zadania zależne od innych zadań
-- Jak wykonać te zadania w puli węzłów obliczeniowych.
+- Jak włączyć zależność zadań względem zadania
+- Tworzenie zadań, które są zależne od innych zadań
+- Sposób wykonywania tych zadań w puli węzłów obliczeniowych.
 
 ## <a name="next-steps"></a>Następne kroki
 ### <a name="application-deployment"></a>Wdrażanie aplikacji
-Funkcja [pakietów aplikacji](batch-application-packages.md) usługi Batch zapewnia łatwy sposób wdrażania i wersji aplikacji wykonywanych przez zadania w węzłach obliczeniowych.
+Funkcja [pakietów aplikacji](batch-application-packages.md) usługi Batch umożliwia łatwe wdrażanie i przechowywanie aplikacji wykonywanych przez zadania w węzłach obliczeniowych.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalowanie aplikacji i danych przemieszczania
-Zobacz [Instalowanie aplikacji i danych przemieszczania w węzłach obliczeniowych usługi Batch na][forum_post] forum usługi Azure Batch, aby uzyskać omówienie metod przygotowywania węzłów do uruchamiania zadań. Napisany przez jednego z członków zespołu usługi Azure Batch, ten post jest dobrym podkładem na różne sposoby kopiowania aplikacji, danych wejściowych zadań i innych plików do węzłów obliczeniowych.
+Zapoznaj się z tematem [Instalowanie aplikacji i danych przemieszczania w węzłach obliczeniowych usługi Batch][forum_post] na forum Azure Batch, aby zapoznać się z omówieniem metod przygotowywania węzłów do uruchamiania zadań. Na podstawie jednego z członków zespołu Azure Batch ten wpis jest dobrym systemem na różne sposoby kopiowania aplikacji, danych wejściowych zadań i innych plików do węzłów obliczeniowych.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -237,5 +227,5 @@ Zobacz [Instalowanie aplikacji i danych przemieszczania w węzłach obliczeniowy
 [net_taskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskdependencies.aspx
 
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Diagram: zależność jeden do jednego"
-[2]: ./media/batch-task-dependency/02_one_to_many.png "Diagram: zależność od jednego do wielu"
+[2]: ./media/batch-task-dependency/02_one_to_many.png "Diagram: zależność jeden do wielu"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagram: zależność zakresu identyfikatora zadania"

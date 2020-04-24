@@ -1,159 +1,157 @@
 ---
-title: Sprawdzanie błędów puli i węzłów — usługa Azure Batch
-description: W tym artykule opisano operacje w tle, które mogą wystąpić, wraz z błędami, aby sprawdzić i jak ich uniknąć podczas tworzenia pul i węzłów.
-services: batch
-ms.service: batch
+title: Sprawdź, czy występują błędy puli i węzłów
+description: W tym artykule opisano operacje w tle, które mogą wystąpić, a także błędy do sprawdzenia i sposoby ich unikania podczas tworzenia pul i węzłów.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: a68d812a044c776819d169d5bf179f011d06390f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5051b9c536ded50e77fb75515c16daba884d5d24
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472949"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115911"
 ---
-# <a name="check-for-pool-and-node-errors"></a>Sprawdzanie błędów puli i węzłów
+# <a name="check-for-pool-and-node-errors"></a>Sprawdź, czy występują błędy puli i węzłów
 
-Podczas tworzenia i zarządzania pulami usługi Azure Batch niektóre operacje są natychmiast. Jednak niektóre operacje są asynchroniczne i działają w tle, co zajmuje kilka minut.
+Podczas tworzenia pul Azure Batch i zarządzania nimi, niektóre operacje są wykonywane natychmiast. Niektóre operacje są jednak asynchroniczne i uruchamiane w tle, co trwa kilka minut.
 
-Wykrywanie awarii dla operacji, które odbywają się natychmiast jest proste, ponieważ wszelkie błędy są zwracane natychmiast przez interfejs API, interfejs wiersza polecenia lub interfejsu użytkownika.
+Wykrywanie błędów dla operacji, które są wykonywane natychmiast, jest proste, ponieważ wszystkie błędy są zwracane bezpośrednio przez interfejs API, interfejsu wiersza polecenia lub interfejsu użytkownika.
 
-W tym artykule opisano operacje w tle, które mogą wystąpić dla pul i węzłów puli. Określa, jak można wykryć i uniknąć awarii.
+W tym artykule opisano operacje w tle, które mogą wystąpić w przypadku pul i węzłów puli. Określa sposób wykrywania i unikania niepowodzeń.
 
 ## <a name="pool-errors"></a>Błędy puli
 
-### <a name="resize-timeout-or-failure"></a>Przeliczenie limitu czasu lub błąd rozmiaru
+### <a name="resize-timeout-or-failure"></a>Zmień limit czasu lub niepowodzenie
 
-Podczas tworzenia nowej puli lub zmiany rozmiaru istniejącej puli, należy określić docelową liczbę węzłów.  Operacja tworzenia lub ponownego rozmiaru kończy się natychmiast, ale rzeczywista alokacja nowych węzłów lub usunięcie istniejących węzłów może potrwać kilka minut.  Należy określić limit czasu ponownego rozmiaru w interfejsie API [tworzenia](https://docs.microsoft.com/rest/api/batchservice/pool/add) lub [ponownego rozmiaru.](https://docs.microsoft.com/rest/api/batchservice/pool/resize) Jeśli usługa Batch nie może uzyskać docelowej liczby węzłów podczas okresu limitu czasu ponownego rozmiaru, pula przechodzi w stan ustalony i zgłasza błędy rozmiaru.
+Podczas tworzenia nowej puli lub zmiany rozmiarów istniejącej puli należy określić docelową liczbę węzłów.  Operacja tworzenia lub zmiany rozmiaru zostanie zakończona natychmiast, ale rzeczywista alokacja nowych węzłów lub usunięcie istniejących węzłów może potrwać kilka minut.  Limit czasu można określić w interfejsie API [tworzenia](https://docs.microsoft.com/rest/api/batchservice/pool/add) lub [zmiany rozmiaru](https://docs.microsoft.com/rest/api/batchservice/pool/resize) . Jeśli w usłudze Batch nie można uzyskać docelowej liczby węzłów podczas okresu limitu czasu, Pula przechodzi w stan stały i raporty błędów zmieniania rozmiaru.
 
-[Właściwość ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) dla najnowszej oceny wyświetla listę błędów, które wystąpiły.
+Właściwość [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) dla najnowszej oceny zawiera listę błędów, które wystąpiły.
 
-Typowe przyczyny błędów ponownego rozmiaru obejmują:
+Typowe przyczyny błędów zmiany rozmiaru obejmują:
 
-- Limit czasu ponownego rozmiaru rozmiaru jest za krótki
-  - W większości przypadków domyślny limit czasu 15 minut jest wystarczająco długi, aby węzły puli zostały przydzielone lub usunięte.
-  - Jeśli przydzielasz dużą liczbę węzłów, zalecamy ustawienie limitu czasu rozmiaru do 30 minut. Na przykład podczas zmiany rozmiaru do więcej niż 1000 węzłów z obrazu portalu Azure Marketplace lub do ponad 300 węzłów z niestandardowego obrazu maszyny Wirtualnej.
-- Niewystarczająca kwota podstawowa
-  - Konto usługi Batch jest ograniczona w liczbie rdzeni, które można przydzielić we wszystkich pulach. Partia zatrzymuje przydzielanie węzłów po osiągnięciu tego przydziału. [Można zwiększyć](https://docs.microsoft.com/azure/batch/batch-quota-limit) przydział podstawowy, dzięki czemu usługa Batch może przydzielić więcej węzłów.
-- Niewystarczające adresy IP podsieci, gdy [pula znajduje się w sieci wirtualnej](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - Podsieć sieci wirtualnej musi mieć wystarczającą liczbę nieprzypisanych adresów IP, aby przydzielić je do każdego żądanego węzła puli. W przeciwnym razie nie można utworzyć węzłów.
-- Niewystarczające zasoby, gdy [pula znajduje się w sieci wirtualnej](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - W tej samej subskrypcji co konto usługi Batch można utworzyć zasoby, takie jak moduły równoważenia obciążenia, publiczne wiadomości IP i sieciowe grupy zabezpieczeń. Sprawdź, czy przydziały subskrypcji są wystarczające dla tych zasobów.
+- Limit czasu zmiany rozmiaru jest za krótki
+  - W większości przypadków domyślny limit czasu wynoszący 15 minut jest wystarczająco długi dla węzłów puli do przydzielenia lub usunięcia.
+  - W przypadku przydzielania dużej liczby węzłów zalecamy ustawienie limitu czasu na 30 minut. Na przykład po zmianie wielkości na więcej niż 1 000 węzłów z obrazu portalu Azure Marketplace lub do ponad 300 węzłów z niestandardowego obrazu maszyny wirtualnej.
+- Niewystarczający przydział rdzeni
+  - Konto w usłudze Batch jest ograniczone do liczby rdzeni, które można przydzielić między wszystkimi pulami. Zadanie wsadowe przerywa alokowanie węzłów po osiągnięciu limitu przydziału. [Możesz zwiększyć](https://docs.microsoft.com/azure/batch/batch-quota-limit) limit przydziału rdzeni, aby zadanie wsadowe mogły przydzielić więcej węzłów.
+- Za mało adresów IP podsieci, gdy [Pula znajduje się w sieci wirtualnej](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+  - Podsieć sieci wirtualnej musi mieć wystarczającą liczbę nieprzypisanych adresów IP do przydzielenia do każdego żądanego węzła puli. W przeciwnym razie nie można utworzyć węzłów.
+- Niewystarczające zasoby, gdy [Pula znajduje się w sieci wirtualnej](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+  - Możesz tworzyć zasoby, takie jak moduły równoważenia obciążenia, publiczne adresy IP i sieciowe grupy zabezpieczeń w tej samej subskrypcji, co konto usługi Batch. Sprawdź, czy limity przydziału subskrypcji są wystarczające dla tych zasobów.
 - Duże pule z niestandardowymi obrazami maszyn wirtualnych
-  - Duże pule, które używają niestandardowych obrazów maszyn wirtualnych może trwać dłużej, aby przydzielić i zmienić rozmiar limitów czasu może wystąpić.  Aby uzyskać zalecenia dotyczące limitów i konfiguracji, zobacz [Tworzenie puli z Galerią obrazów udostępnionych.](batch-sig-images.md)
+  - Duże pule, które używają niestandardowych obrazów maszyn wirtualnych, mogą być dłużej przydzielane i zmieniać limity czasu.  Zapoznaj się z tematem [Tworzenie puli za pomocą galerii obrazów udostępnionych](batch-sig-images.md) w celu uzyskania zaleceń dotyczących ograniczeń i konfiguracji.
 
-### <a name="automatic-scaling-failures"></a>Automatyczne błędy skalowania
+### <a name="automatic-scaling-failures"></a>Automatyczne skalowanie błędów
 
-Można również ustawić usługę Azure Batch, aby automatycznie skalować liczbę węzłów w puli. Należy zdefiniować parametry [formuły automatycznego skalowania dla puli](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). Usługa Batch używa formuły do okresowej oceny liczby węzłów w puli i ustawiania nowego numeru docelowego. Mogą wystąpić następujące typy problemów:
+Możesz również ustawić Azure Batch, aby automatycznie skalować liczbę węzłów w puli. Należy zdefiniować parametry dla [formuły automatycznego skalowania dla puli](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). Usługa Batch używa formuły, aby okresowo oszacować liczbę węzłów w puli i ustawić nowy numer docelowy. Mogą wystąpić następujące typy problemów:
 
-- Automatyczna ocena skalowania kończy się niepowodzeniem.
-- Wynikowa operacja ponownego rozmiaru kończy się niepowodzeniem i przesunie się.
-- Problem z formułą automatycznego skalowania prowadzi do niepoprawnych wartości docelowych węzła. Rozmiar albo działa lub przesunie się.
+- Obliczanie automatycznego skalowania kończy się niepowodzeniem.
+- Operacja powodująca zmianę rozmiaru kończy się niepowodzeniem i zostanie przeprowadzona.
+- Problem z formułą automatycznego skalowania prowadzi do nieprawidłowych wartości docelowych węzła. Zmiana rozmiaru jest wykonywana lub przeprowadzona w czasie.
 
-Można uzyskać informacje o ostatniej automatycznej oceny skalowania przy użyciu [właściwości autoScaleRun.](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) Ta właściwość raportuje czas oceny, wartości i wynik oraz wszelkie błędy wydajności.
+Możesz uzyskać informacje na temat ostatniej automatycznej oceny skalowania przy użyciu właściwości [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) . Ta właściwość służy do raportowania czasu oceny, wartości i wyniku oraz ewentualnych błędów wydajności.
 
-Rozmiar [puli complete event](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) przechwytuje informacje o wszystkich ocenach.
+[Zdarzenie ukończenia zmiany rozmiaru puli](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) przechwytuje informacje o wszystkich obliczeniach.
 
 ### <a name="delete"></a>Usuń
 
-Po usunięciu puli zawierającej węzły, najpierw batch usuwa węzły. Następnie usuwa sam obiekt puli. Usunięcie węzłów puli może potrwać kilka minut.
+Po usunięciu puli zawierającej węzły, pierwsza partia danych Usuwa węzły. Spowoduje to usunięcie samego obiektu puli. Usunięcie węzłów puli może potrwać kilka minut.
 
-Partia ustawia [stan puli](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) do **usuwania** podczas procesu usuwania. Aplikacja wywołująca może wykryć, czy usuwanie puli trwa zbyt długo przy użyciu **stanu** i **stateTransitionTime** właściwości.
+Wsadowe ustawia [stan puli](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) do **usunięcia** podczas procesu usuwania. Aplikacja wywołująca może wykryć, czy usunięcie puli trwa zbyt długo przy użyciu właściwości **State** i **stateTransitionTime** .
 
-## <a name="pool-compute-node-errors"></a>Błędy węzła obliczeniowego puli
+## <a name="pool-compute-node-errors"></a>Błędy węzłów obliczeniowych puli
 
-Nawet wtedy, gdy usługa Batch pomyślnie przydziela węzły w puli, różne problemy mogą powodować, że niektóre węzły są w złej kondycji i nie mogą uruchamiać zadań. Te węzły nadal ponoszą opłaty, dlatego ważne jest, aby wykryć problemy, aby uniknąć płacenia za węzły, których nie można użyć. Oprócz typowych błędów węzła, znajomość bieżącego [stanu zadania](/rest/api/batchservice/job/get#jobstate) jest przydatna do rozwiązywania problemów.
+Nawet w przypadku pomyślnego przydzielenia węzłów w puli różne problemy mogą spowodować, że niektóre węzły są w złej kondycji i nie mogą uruchamiać zadań. W tych węzłach nadal są naliczane opłaty, dlatego ważne jest, aby wykrywać problemy, aby uniknąć płacenia za węzły, które nie mogą być używane. Oprócz typowych błędów węzłów, wiedząc, że bieżący [stan zadania](/rest/api/batchservice/job/get#jobstate) jest przydatny do rozwiązywania problemów.
 
-### <a name="start-task-failures"></a>Uruchamianie błędów zadań
+### <a name="start-task-failures"></a>Błędy uruchamiania zadań
 
-Można określić opcjonalne [zadanie początkowe](/rest/api/batchservice/pool/add#starttask) dla puli. Podobnie jak w przypadku każdego zadania, można użyć wiersza polecenia i plików zasobów do pobrania z magazynu. Zadanie uruchamiania jest uruchamiane dla każdego węzła po jego uruchomieniu. Właściwość **waitForSuccess** określa, czy usługa Batch czeka, aż zadanie rozpoczęcia zakończy się pomyślnie, zanim zaplanuje wszelkie zadania do węzła.
+Może być konieczne określenie opcjonalnego zadania podrzędnego [uruchamiania](/rest/api/batchservice/pool/add#starttask) dla puli. Podobnie jak w przypadku każdego zadania, można użyć wiersza polecenia i plików zasobów do pobrania z magazynu. Zadanie uruchamiania jest uruchamiane dla każdego węzła po jego uruchomieniu. Właściwość **waitForSuccess** określa, czy zadanie wsadowe ma czekać do momentu zakończenia zadania uruchamiania przed zaplanowaniem wykonywania zadań w węźle.
 
-Co zrobić, jeśli węzeł został skonfigurowany tak, aby czekał na pomyślne rozpoczęcie zadania, ale zadanie startowe nie powiedzie się? W takim przypadku węzeł nie będzie użyteczny, ale nadal będzie ponosić opłaty.
+Co zrobić, jeśli węzeł został skonfigurowany tak, aby poczekać na zakończenie zadania uruchamiania, ale zadanie uruchamiania zakończy się niepowodzeniem? W takim przypadku węzeł nie będzie użyteczny, ale nadal będzie naliczane opłaty.
 
-Błędy uruchamiania zadań można wykryć przy użyciu [wyników](/rest/api/batchservice/computenode/get#taskexecutionresult) i [failureInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) właściwości najwyższego poziomu [startTaskInfo](/rest/api/batchservice/computenode/get#starttaskinformation) właściwości węzła.
+Można wykryć nieudane zadania uruchamiania przy użyciu właściwości [wynik](/rest/api/batchservice/computenode/get#taskexecutionresult) i [FailureInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) właściwości węzła [startTaskInfo](/rest/api/batchservice/computenode/get#starttaskinformation) najwyższego poziomu.
 
-Zadanie uruchomienia nie powiodło się powoduje również, że usługa Batch ustawia [stan](/rest/api/batchservice/computenode/get#computenodestate) węzła na **uruchamianie,** jeśli **waitForSuccess** został ustawiony na **true**.
+Zadanie uruchamiania zakończone niepowodzeniem powoduje także ustawienie [stanu](/rest/api/batchservice/computenode/get#computenodestate) węzła na **Starttaskfailed** , jeśli **waitForSuccess** został ustawiony na **wartość true**.
 
-Podobnie jak w przypadku każdego zadania, może istnieć wiele przyczyn niepowodzenia zadania uruchamiania.  Aby rozwiązać problem, sprawdź stdout, stderr i wszelkie inne pliki dziennika specyficzne dla zadania.
+Podobnie jak w przypadku każdego zadania, może istnieć wiele przyczyn niepowodzenia zadania uruchamiania.  Aby rozwiązać problem, sprawdź plik stdout, stderr i wszelkie dalsze pliki dzienników specyficzne dla zadania.
 
-Zadania startowe muszą być ponownie uruchomione, ponieważ jest możliwe, że zadanie startowe jest uruchamiane wiele razy w tym samym węźle; zadanie start jest uruchamiane, gdy węzeł zostanie ponownie zaimagedyz lub ponownie uruchomiony. W rzadkich przypadkach zadanie uruchamiania zostanie uruchomione po zdarzeniu spowodowanym ponownym uruchomieniem węzła, gdzie jeden z systemów operacyjnych lub efemerycznych dysków został ponownie zaimagedyzami, podczas gdy drugi nie był. Ponieważ zadania uruchamiania usługi Batch (podobnie jak wszystkie zadania wsadowe) są uruchamiane z dysku efemerycznego, zwykle nie jest to problem, ale w niektórych przypadkach, gdy zadanie uruchamiania instaluje aplikację na dysku systemu operacyjnego i przechowuje inne dane na dysku efemerycznym, może to spowodować problemy, ponieważ rzeczy są niezsynchronizowane. Odpowiednio chroń aplikację, jeśli używasz obu dysków.
+Zadania uruchamiania muszą być ponownie współużytkowane, ponieważ możliwe jest uruchamianie zadania uruchamiania wiele razy w tym samym węźle. zadanie uruchamiania jest uruchamiane po odinstalowaniu lub ponownym uruchomieniu węzła. W rzadkich przypadkach zadanie uruchamiania zostanie uruchomione po zdarzeniu powodującym ponowne uruchomienie węzła, gdzie jeden z systemów operacyjnych lub dysków tymczasowych został odtworzony, a drugi nie. Ponieważ zadania uruchamiania wsadowego (takie jak wszystkie zadania wsadowe) są uruchamiane z dysku tymczasowych, nie jest to zazwyczaj problemem, ale w niektórych przypadkach, gdy zadanie uruchamiania instaluje aplikację na dysku systemu operacyjnego i przechowując inne dane na dysku tymczasowych, może to spowodować problemy, ponieważ elementy nie są zsynchronizowane. Odpowiednio Chroń aplikację, jeśli używasz obu dysków.
 
 ### <a name="application-package-download-failure"></a>Niepowodzenie pobierania pakietu aplikacji
 
-Można określić jeden lub więcej pakietów aplikacji dla puli. Usługa Batch pobiera określone pliki pakietu do każdego węzła i dekompresuje pliki po uruchomieniu węzła, ale przed zaplanowaniem zadań. Często używa się wiersza polecenia zadania startowego w połączeniu z pakietami aplikacji. Na przykład, aby skopiować pliki do innej lokalizacji lub uruchomić instalatora.
+Dla puli można określić jeden lub więcej pakietów aplikacji. Program Batch pobiera określone pliki pakietu do każdego węzła i dekompresuje pliki po rozpoczęciu działania węzła, ale przed zaplanowaniem zadań. Często należy używać wiersza polecenia Uruchom zadanie w połączeniu z pakietami aplikacji. Na przykład, aby skopiować pliki do innej lokalizacji lub uruchomić Instalatora.
 
-Właściwość [błędów węzła](/rest/api/batchservice/computenode/get#computenodeerror) zgłasza niepowodzenie pobierania i odkompresowywać pakiet aplikacji; stan węzła jest ustawiony na **bezużyteczny**.
+Właściwość [Błędy](/rest/api/batchservice/computenode/get#computenodeerror) węzła zgłasza niepowodzenie pobrania i cofnięcia kompresji pakietu aplikacji; stan węzła jest ustawiony na **niezdatny do użytku**.
 
-### <a name="container-download-failure"></a>Błąd pobierania kontenera
+### <a name="container-download-failure"></a>Niepowodzenie pobierania kontenera
 
-Można określić co najmniej jedno odwołanie do kontenera w puli. Partia pobiera określone kontenery do każdego węzła. Właściwość [błędów węzła](/rest/api/batchservice/computenode/get#computenodeerror) zgłasza niepowodzenie pobrania kontenera i ustawia stan węzła **na bezużyteczny.**
+W puli można określić co najmniej jedno odwołanie do kontenera. Wsadowe pobiera określone kontenery do każdego węzła. Właściwość [Błędy](/rest/api/batchservice/computenode/get#computenodeerror) węzła zgłasza niepowodzenie pobrania kontenera i ustawia stan węzła na **niezdatny do użytku**.
 
-### <a name="node-in-unusable-state"></a>Węzeł w stanie bezużytecznym
+### <a name="node-in-unusable-state"></a>Węzeł w stanie niezdatnym do użytku
 
-Usługa Azure Batch może ustawić [stan węzła](/rest/api/batchservice/computenode/get#computenodestate) **bezużyteczny z** wielu powodów. Ze stanem węzła ustawionym na **bezużyteczny,** zadania nie mogą być zaplanowane do węzła, ale nadal wiąże się z opłatami.
+Azure Batch może ustawić [stan węzła](/rest/api/batchservice/computenode/get#computenodestate) na **niezdatny do użytku** z wielu powodów. Gdy stan węzła jest ustawiony na **niezdatny do użytku**, zadania nie mogą być zaplanowane do węzła, ale nadal są naliczane opłaty.
 
-Węzły w stanie **bezużytecznym,** ale bez [błędów](/rest/api/batchservice/computenode/get#computenodeerror) oznacza, że usługa Batch nie może komunikować się z maszyną wirtualną. W takim przypadku Batch zawsze próbuje odzyskać maszynę wirtualną. Usługa Batch nie będzie automatycznie próbowała odzyskać maszyn wirtualnych, których nie udało się zainstalować pakietów lub kontenerów aplikacji, nawet jeśli ich stan nie nadaje się do **bezużytecznia.**
+Węzły w stanie **niezdatnym do użytku** , ale bez [błędów](/rest/api/batchservice/computenode/get#computenodeerror) oznacza, że partia nie może komunikować się z maszyną wirtualną. W takim przypadku program Batch zawsze próbuje odzyskać maszynę wirtualną. Funkcja Batch nie będzie automatycznie podejmować prób odzyskania maszyn wirtualnych, których nie udało się zainstalować pakietów lub kontenerów aplikacji, nawet jeśli ich stan nie **nadaje się do użytku**.
 
-Jeśli usługa Batch może określić przyczynę, właściwość [błędów węzła](/rest/api/batchservice/computenode/get#computenodeerror) zgłasza ją.
+Jeśli partia może ustalić przyczynę, właściwość [Błędy](/rest/api/batchservice/computenode/get#computenodeerror) węzła zgłasza ją.
 
-Dodatkowe przykłady przyczyn **bezużytecznych** węzłów obejmują:
+Dodatkowe przykłady przyczyn **nieużytecznych** węzłów obejmują:
 
-- Niestandardowy obraz maszyny Wirtualnej jest nieprawidłowy. Na przykład obraz, który nie jest odpowiednio przygotowany.
+- Niestandardowy obraz maszyny wirtualnej jest nieprawidłowy. Na przykład obraz, który nie jest prawidłowo przygotowany.
 
-- Maszyna wirtualna jest przenoszona z powodu awarii infrastruktury lub uaktualnienia niskiego poziomu. Partia odzyskuje węzeł.
+- Maszyna wirtualna została przeniesiona z powodu awarii infrastruktury lub uaktualnienia niskiego poziomu. Partia odzyskuje węzeł.
 
-- Obraz maszyny Wirtualnej został wdrożony na sprzęcie, który go nie obsługuje. Na przykład próbuje uruchomić obraz HPC CentOS na [maszynie wirtualnej Standard_D1_v2.](../virtual-machines/dv2-dsv2-series.md)
+- Obraz maszyny wirtualnej został wdrożony na sprzęcie, który go nie obsługuje. Na przykład próba uruchomienia obrazu CentOS HPC na maszynie wirtualnej [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) .
 
-- Maszyny wirtualne znajdują się w [sieci wirtualnej platformy Azure,](batch-virtual-network.md)a ruch został zablokowany do kluczowych portów.
+- Maszyny wirtualne znajdują się w [sieci wirtualnej platformy Azure](batch-virtual-network.md), a ruch został zablokowany do kluczowych portów.
 
-- Maszyny wirtualne znajdują się w sieci wirtualnej, ale ruch wychodzący do magazynu platformy Azure jest zablokowany.
+- Maszyny wirtualne znajdują się w sieci wirtualnej, ale ruch wychodzący do usługi Azure Storage jest blokowany.
 
-- Maszyny wirtualne znajdują się w sieci wirtualnej z konfiguracją DNS klienta, a serwer DNS nie może rozpoznać magazynu platformy Azure.
+- Maszyny wirtualne znajdują się w sieci wirtualnej z konfiguracją DNS klienta, a serwer DNS nie może rozpoznać usługi Azure Storage.
 
 ### <a name="node-agent-log-files"></a>Pliki dziennika agenta węzła
 
-Proces agenta usługi Batch, który działa w każdym węźle puli może dostarczyć pliki dziennika, które mogą być przydatne, jeśli trzeba skontaktować się z pomocą techniczną w sprawie problemu węzła puli. Pliki dziennika dla węzła można przekazać za pośrednictwem portalu Azure, Eksploratora wsadowego lub [interfejsu API.](/rest/api/batchservice/computenode/uploadbatchservicelogs) Warto przekazać i zapisać pliki dziennika. Następnie można usunąć węzeł lub pulę, aby zaoszczędzić koszt uruchomionych węzłów.
+Proces agenta wsadowego, który jest uruchamiany w poszczególnych węzłach puli, może dostarczyć pliki dziennika, które mogą być przydatne, jeśli trzeba skontaktować się z pomocą techniczną dotyczącą problemu z węzłem puli. Pliki dziennika dla węzła można przekazać za pomocą Azure Portal, Batch Explorer lub [interfejsu API](/rest/api/batchservice/computenode/uploadbatchservicelogs). Warto przekazać i zapisać pliki dziennika. Następnie można usunąć węzeł lub pulę, aby zaoszczędzić koszt uruchomionych węzłów.
 
-### <a name="node-disk-full"></a>Pełny dysk węzła
+### <a name="node-disk-full"></a>Dysk węzła jest pełny
 
-Tymczasowy dysk dla węzła puli Maszyny Wirtualnej jest używany przez partię dla plików zadań, plików zadań i plików udostępnionych.
+Dysk tymczasowy dla maszyny wirtualnej węzła puli jest używany przez partię dla plików zadań, plików zadań i plików udostępnionych.
 
 - Pliki pakietów aplikacji
 - Pliki zasobów zadań
 - Pliki specyficzne dla aplikacji pobrane do jednego z folderów wsadowych
-- Pliki stdout i stderr dla każdego wykonania aplikacji zadania
+- Pliki stdout i stderr dla każdego zadania wykonywania aplikacji
 - Pliki wyjściowe specyficzne dla aplikacji
 
-Niektóre z tych plików są zapisywane tylko raz podczas tworzenia węzłów puli, takich jak pakiety aplikacji puli lub pliki zasobów uruchamiania puli. Nawet jeśli tylko raz napisane podczas tworzenia węzła, jeśli te pliki są zbyt duże, mogą wypełnić dysk tymczasowy.
+Niektóre z tych plików są zapisywane tylko raz podczas tworzenia węzłów puli, takich jak pakiety aplikacji puli lub pliki zasobów zadania uruchamiania puli. Nawet jeśli tylko raz podczas tworzenia węzła, jeśli te pliki są zbyt duże, mogą wypełniać dysk tymczasowy.
 
-Inne pliki są zapisywane dla każdego zadania, które jest uruchamiane w węźle, takich jak stdout i stderr. Jeśli duża liczba zadań uruchamianych w tym samym węźle i/lub pliki zadań są zbyt duże, mogą wypełnić dysk tymczasowy.
+Inne pliki są zapisywane dla każdego zadania uruchamianego w węźle, na przykład stdout i stderr. Jeśli duża liczba zadań uruchomionych w tym samym węźle i/lub pliki zadań są zbyt duże, może to spowodować wypełnienie dysku tymczasowego.
 
-Rozmiar dysku tymczasowego zależy od rozmiaru maszyny Wirtualnej. Jedną z kwestii podczas wybierania rozmiaru maszyny Wirtualnej jest zapewnienie, że dysk tymczasowy ma wystarczająco dużo miejsca.
+Rozmiar dysku tymczasowego zależy od rozmiaru maszyny wirtualnej. Należy wziąć pod uwagę podczas wybierania rozmiaru maszyny wirtualnej, aby upewnić się, że na dysku tymczasowym jest wystarczająca ilość miejsca.
 
-- W witrynie Azure portal podczas dodawania puli można wyświetlić pełną listę rozmiarów maszyn wirtualnych i kolumnę "Rozmiar dysku zasobów".
-- Artykuły opisujące wszystkie rozmiary maszyn wirtualnych mają tabele z kolumną "Magazyn tymczasowy"; na przykład [rozmiary zoptymalizowanych pod kątem obliczeń maszyn wirtualnych](/azure/virtual-machines/windows/sizes-compute)
+- W Azure Portal podczas dodawania puli zostanie wyświetlona pełna lista rozmiarów maszyn wirtualnych, w której jest dostępna kolumna "rozmiar dysku zasobu".
+- Artykuły opisujące wszystkie rozmiary maszyn wirtualnych mają tabele z kolumną "temp Storage"; na przykład [rozmiary maszyn wirtualnych zoptymalizowane pod kątem obliczeń](/azure/virtual-machines/windows/sizes-compute)
 
-W przypadku plików zapisanych przez każde zadanie można określić czas przechowywania dla każdego zadania, który określa, jak długo pliki zadań są przechowywane przed automatycznym czyszczeniem. Czas przechowywania można zmniejszyć, aby obniżyć wymagania dotyczące magazynu.
+W przypadku plików pisanych przez każde zadanie można określić czas przechowywania dla każdego zadania, które określa, jak długo pliki zadań są przechowywane przed automatycznym wyczyszczeniem. Czas przechowywania można zmniejszyć, aby zmniejszyć wymagania dotyczące magazynu.
 
 
-Jeśli na dysku tymczasowym zabraknie miejsca (lub jest bardzo blisko wyczerpania miejsca), węzeł zostanie przesunięty do stanu [bezużytecznego](/rest/api/batchservice/computenode/get#computenodestate) i zostanie zgłoszony błąd węzła z informacją, że dysk jest zapełniony.
+Jeśli na dysku tymczasowym wyczerpie się wolne miejsce (lub jest bardzo blisko wolnego miejsca), węzeł przejdzie w stan [niezdatny do użytku](/rest/api/batchservice/computenode/get#computenodestate) i zostanie zgłoszony błąd węzła, co oznacza, że dysk jest pełny.
 
-### <a name="what-to-do-when-a-disk-is-full"></a>Co zrobić, gdy dysk jest zapełniony
+### <a name="what-to-do-when-a-disk-is-full"></a>Co zrobić, gdy dysk jest pełny
 
-Określ, dlaczego dysk jest pełny: Jeśli nie masz pewności, co zajmuje miejsce w węźle, zaleca się zdalne do węzła i zbadać ręcznie, gdzie miejsce poszło. Można również użyć [interfejsu API plików listy wsadowej](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) do sprawdzania plików w folderach zarządzanych usługi Batch (na przykład wyjść zadań). Należy zauważyć, że ten interfejs API zawiera tylko pliki w katalogach zarządzanych partii i jeśli zadania utworzone pliki w innym miejscu nie będą widoczne.
+Określ, dlaczego dysk jest pełny: Jeśli nie masz pewności co do tego, co zajmuje miejsce w węźle, zaleca się zdalne z węzłem i zbadaj ręcznie miejsce, gdzie został usunięty. Można również użyć [interfejsu API plików list usługi Batch](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) do sprawdzenia plików w folderach zarządzanych wsadowo (na przykład w danych wyjściowych zadania). Należy zauważyć, że ten interfejs API wyświetla listę tylko plików w katalogach zarządzanych przez partię i jeśli zadania utworzone w innym miejscu nie będą widoczne.
 
-Upewnij się, że wszystkie potrzebne dane zostały pobrane z węzła lub przekazane do magazynu trwałe. Wszystkie łagodzenie problemu pełnego dysku obejmują usunięcie danych w celu zwolnienia miejsca.
+Upewnij się, że wszystkie dane, które są potrzebne, zostały pobrane z węzła lub przekazane do magazynu trwałego. Wszystkie środki zaradcze związane z dyskiem — pełny problem polega na usunięciu danych w celu zwolnienia miejsca.
 
 ### <a name="recovering-the-node"></a>Odzyskiwanie węzła
 
-1. Jeśli pula jest pulą [C.loudServiceConfiguration,](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) można ponownie obrazować węzeł za pośrednictwem [interfejsu API ponownego obrazu usługi Batch](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). Spowoduje to wyczyszcenie całego dysku. Ponowne obraz nie jest obecnie obsługiwany dla [pul VirtualMachineConfiguration.](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)
+1. Jeśli pula jest pulą [C. loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) , możesz ją odtworzyć przy użyciu [interfejsu API ponownego obrazu usługi Batch](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). Spowoduje to wyczyszczenie całego dysku. Ponowne tworzenie obrazu nie jest obecnie obsługiwane w przypadku pul [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
 
-2. Jeśli pula jest [konfiguracją VirtualMachineConfiguration,](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)można usunąć węzeł z puli za pomocą [interfejsu API usuwania węzłów](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Następnie można ponownie rozwijać pulę, aby zastąpić zły węzeł świeżym.
+2. Jeśli pula jest [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), można usunąć węzeł z puli za pomocą [interfejsu API usuwania węzłów](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Następnie można ponownie zwiększyć pulę, aby zastąpić zły węzeł nowym.
 
-3.  Usuń stare ukończone zadania lub stare ukończone zadania, których dane zadań nadal są w węzłach. Aby uzyskać wskazówkę, jakie zadania/zadania dane znajdują się w węzłach, które można sprawdzić w [kolekcji RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) w węźle lub [w plikach w węźle](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). Usunięcie zadania spowoduje usunięcie wszystkich zadań w zadaniu, a usunięcie zadań w zadaniu spowoduje wyzwolenie danych w katalogach zadań w węźle do usunięcia, zwalniając w ten sposób miejsce. Po zwolnieniu wystarczającej ilości miejsca, uruchom ponownie węzeł i powinien przenieść się ze stanu "Bezużyteczny" i ponownie w "Bezczynny".
+3.  Usuń stare zakończone zadania lub stare wykonane zadania, których dane zadania są nadal w węzłach. Aby uzyskać wskazówkę na temat tego, jakie dane zadań/zadań są w węzłach, można wyszukać w [kolekcji RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) w węźle lub w [plikach w węźle](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). Usunięcie zadania spowoduje usunięcie wszystkich zadań z zadania, a usunięcie zadań w ramach zadania spowoduje wyzwolenie danych w katalogach zadań w węźle, który ma zostać usunięty, w ten sposób Zwolnij miejsce. Po zwolnieniu wystarczającej ilości miejsca, uruchom ponownie węzeł i nie powinna zostać przeniesiona z stanu "bez użycia" do "bezczynne".
 
 ## <a name="next-steps"></a>Następne kroki
 
-Sprawdź, czy aplikacja została ustawiona w celu zaimplementowania kompleksowego sprawdzania błędów, szczególnie w przypadku operacji asynchronicznych. Może być bardzo ważne, aby szybko wykryć i zdiagnozować problemy.
+Sprawdź, czy ustawiono aplikację, aby zaimplementować kompleksowe sprawdzanie błędów, szczególnie w przypadku operacji asynchronicznych. Może to być krytyczne, aby szybko wykrywać i diagnozować problemy.

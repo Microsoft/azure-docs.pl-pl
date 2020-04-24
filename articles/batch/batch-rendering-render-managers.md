@@ -1,51 +1,49 @@
 ---
-title: Obsługa menedżera renderowania — usługa Azure Batch
-description: Korzystanie z integracji menedżera renderowania usługi Azure Batch. Dowiedz się więcej o wbudowanej pomocy technicznej lub dodatkach dla popularnych menedżerów renderowania.
-services: batch
-ms.service: batch
+title: Obsługa Menedżera renderowania
+description: Korzystanie z integracji z programem Azure Batch Render Manager. Poznaj wbudowane wsparcie lub Dodatki dla popularnych menedżerów renderowania.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 246907b16534d1a91833cab633a1973c97429f47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9921c68bf6ebe44d6d2a6b7b74afbe3fa98e0803
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75449682"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115741"
 ---
-# <a name="using-azure-batch-with-render-farm-managers"></a>Korzystanie z usługi Azure Batch z menedżerami farm renderowania
+# <a name="using-azure-batch-with-render-farm-managers"></a>Używanie Azure Batch z menedżerami renderowania farmy
 
-Jeśli używasz istniejącej lokalnej farmy renderowania, jest wysoce prawdopodobne, że menedżer renderowania kontroluje pojemność farmy renderowania i zadania renderowania.
+W przypadku korzystania z istniejącej lokalnej farmy renderowania jest wysoce prawdopodobnie, że Menedżer renderowania kontroluje wydajność farmy renderowania i zadania renderowania.
 
-Platforma Azure zapewnia wbudowaną pomoc techniczną lub dodatki dla popularnych menedżerów renderowania. Następnie można dodawać i usuwać maszyny wirtualne platformy Azure, w tym maszyny wirtualne z płatnym licencjonowaniem aplikacji i maszynami wirtualnymi o niskim priorytecie.
+Platforma Azure udostępnia wbudowane wsparcie lub Dodatki dla popularnych menedżerów renderowania. Następnie można dodawać i usuwać maszyny wirtualne platformy Azure, w tym maszyny wirtualne z licencjonowaniem aplikacji do użycia i maszynami wirtualnymi o niskim priorytecie.
 
-Obsługiwane są następujące menedżery renderowania:
+Obsługiwane są następujące Menedżery renderowania:
 
 * [PipelineFX Qube!](https://www.pipelinefx.com/)
-* [Królewski render](https://www.royalrender.de/)
-* [Termin Thinkbox](https://deadline.thinkboxsoftware.com/)
+* [Renderowanie wzdania](https://www.royalrender.de/)
+* [Thinkbox termin](https://deadline.thinkboxsoftware.com/)
 
 ## <a name="azure-render-hub"></a>Centrum renderowania platformy Azure
 
-Usługa Azure Render Hub upraszcza tworzenie farm renderowania platformy Azure i zarządzanie nimi.  Render Hub ma natywną obsługę PipelineFx Qube i Deadline 10.  Aby uzyskać więcej informacji i szczegółowe instrukcje, zobacz [repozytorium GitHub](https://github.com/Azure/azure-render-hub).
+Centrum renderowania platformy Azure upraszcza tworzenie Farm renderowania platformy Azure i zarządzanie nimi.  Centrum renderowania ma natywną obsługę PipelineFx Qube i ostateczny termin 10.  Aby uzyskać więcej informacji i szczegółowe instrukcje, zobacz [repozytorium GitHub](https://github.com/Azure/azure-render-hub).
 
-## <a name="using-azure-with-pipelinefx-qube"></a>Korzystanie z platformy Azure z PipelineFX Qube
+## <a name="using-azure-with-pipelinefx-qube"></a>Korzystanie z platformy Azure z usługą PipelineFX Qube
 
-Usługa Azure Render Hub obsługuje popularnych menedżerów renderowania, w tym deadline.  Aby uzyskać instrukcje dotyczące wdrażania i używania Centrum renderowania, zobacz [repozytorium GitHub](https://github.com/Azure/azure-render-hub).
+Usługa Azure rendering Hub obsługuje popularne menedżerów renderowania, w tym termin.  Aby uzyskać instrukcje dotyczące wdrażania i używania centrum renderowania, zobacz [repozytorium GitHub](https://github.com/Azure/azure-render-hub).
 
-Skrypty i instrukcje umożliwiające korzystanie z maszyn wirtualnych puli usługi Azure Batch jako pracowników Qube są również dostępne w [repozytorium GitHub.](https://github.com/Azure/azure-qube)
+Skrypty i instrukcje dotyczące włączania maszyn wirtualnych puli Azure Batch, które będą używane jako procesy robocze Qube są również dostępne w [repozytorium GitHub](https://github.com/Azure/azure-qube).
 
-## <a name="using-azure-with-royal-render"></a>Korzystanie z platformy Azure z renderowaniem królewskim
+## <a name="using-azure-with-royal-render"></a>Korzystanie z platformy Azure z funkcją renderowania do prezentowania
 
-Royal Render ma wbudowaną integrację platformy Azure i usługi Azure Batch, która umożliwia rozszerzenie farmy renderowania za pomocą maszyn wirtualnych opartych na platformie Azure. Aby uzyskać podsumowanie, zobacz [pliki pomocy](https://www.royalrender.de/help8/index.html?Cloudrendering.html).
+Funkcja renderowania do prezentowania ma wbudowaną integrację z platformą Azure i Azure Batch, co pozwala na rozszerzenie farmy renderowania z maszynami wirtualnymi opartymi na platformie Azure. Aby uzyskać podsumowanie, zobacz [pliki pomocy](https://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
-Na przykład klienta Royal Render przy użyciu integracji platformy Azure, zobacz [historię klienta Jellyfish Pictures](https://customers.microsoft.com/story/jellyfishpictures).
+Aby zapoznać się z przykładem, jak korzystać z integracji z platformą Azure, zobacz [artykuł Jellyfish obrazy klientów](https://customers.microsoft.com/story/jellyfishpictures).
 
-## <a name="using-azure-with-thinkbox-deadline"></a>Korzystanie z platformy Azure z terminem thinkbox
+## <a name="using-azure-with-thinkbox-deadline"></a>Korzystanie z platformy Azure z terminem Thinkbox
 
-Usługa Azure Render Hub obsługuje popularnych menedżerów renderowania, w tym deadline.  Aby uzyskać instrukcje dotyczące wdrażania i używania Centrum renderowania, zobacz [repozytorium GitHub](https://github.com/Azure/azure-render-hub).
+Usługa Azure rendering Hub obsługuje popularne menedżerów renderowania, w tym termin.  Aby uzyskać instrukcje dotyczące wdrażania i używania centrum renderowania, zobacz [repozytorium GitHub](https://github.com/Azure/azure-render-hub).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wypróbuj integrację usługi Azure Batch dla menedżera renderowania, korzystając z odpowiedniej wtyczki i instrukcji w usłudze GitHub, w stosownych przypadkach.
+Wypróbuj Azure Batch integrację z menedżerem programu renderowania przy użyciu odpowiedniej wtyczki i instrukcji w witrynie GitHub, jeśli ma to zastosowanie.

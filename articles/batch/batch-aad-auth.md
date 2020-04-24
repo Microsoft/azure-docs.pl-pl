@@ -1,143 +1,132 @@
 ---
-title: Uwierzytelnij usługi Azure Batch za pomocą usługi Azure Active Directory
-description: Usługa Batch obsługuje usługę Azure AD w celu uwierzytelnienia z usługi Batch. Dowiedz się, jak uwierzytelniać się na dwa sposoby.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: batch
+title: Uwierzytelnianie Azure Batch Services za pomocą Azure Active Directory
+description: Usługa Batch obsługuje uwierzytelnianie z usługi Batch w usłudze Azure AD. Dowiedz się, jak uwierzytelniać się na jeden z dwóch sposobów.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 01/28/2020
-ms.author: labrenne
-ms.openlocfilehash: f56c05f64086ac2e98e69d6b21fae7a0a63b5006
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1f95871788b4b9848ba622da1c8eb0cc83c07aa
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77019523"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116183"
 ---
-# <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnij rozwiązania usługi wsadowej za pomocą usługi Active Directory
+# <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory
 
-Usługa Azure Batch obsługuje uwierzytelnianie za pomocą [usługi Azure Active Directory][aad_about] (Azure AD). Usługa Azure AD to usługa zarządzania katalogami i tożsamościami opartymi na chmurze z wieloma dzierżawcami firmy Microsoft. Sama platforma Azure używa usługi Azure AD do uwierzytelniania swoich klientów, administratorów usług i użytkowników organizacji.
+Azure Batch obsługuje uwierzytelnianie z [Azure Active Directory][aad_about] (Azure AD). Azure AD to usługa zarządzania tożsamościami w chmurze z wieloma dzierżawcami firmy Microsoft. Sama platforma Azure korzysta z usługi Azure AD do uwierzytelniania klientów, administratorów usług i użytkowników w organizacji.
 
-Korzystając z uwierzytelniania usługi Azure AD przy użyciu usługi Azure Batch, można uwierzytelnić na jeden z dwóch sposobów:
+W przypadku korzystania z uwierzytelniania usługi Azure AD za pomocą Azure Batch można uwierzytelnić się na jeden z dwóch sposobów:
 
-- Za pomocą **zintegrowanego uwierzytelniania** do uwierzytelniania użytkownika, który wchodzi w interakcję z aplikacją. Aplikacja używająca zintegrowanego uwierzytelniania zbiera poświadczenia użytkownika i używa tych poświadczeń do uwierzytelniania dostępu do zasobów usługi Batch.
-- Za pomocą **jednostki usługi** do uwierzytelniania aplikacji nienadzorowanych. Podmiot usługi definiuje zasady i uprawnienia dla aplikacji w celu reprezentowania aplikacji podczas uzyskiwania dostępu do zasobów w czasie wykonywania.
+- Przy użyciu **uwierzytelniania zintegrowanego** do uwierzytelniania użytkownika, który działa z aplikacją. Aplikacja używająca uwierzytelniania zintegrowanego zbiera poświadczenia użytkownika i używa tych poświadczeń do uwierzytelniania dostępu do zasobów usługi Batch.
+- Za pomocą **nazwy głównej usługi** do uwierzytelniania aplikacji nienadzorowanej. Nazwa główna usługi definiuje zasady i uprawnienia dla aplikacji w celu reprezentowania aplikacji podczas uzyskiwania dostępu do zasobów w czasie wykonywania.
 
-Aby dowiedzieć się więcej o usłudze Azure AD, zobacz [Dokumentację usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+Aby dowiedzieć się więcej o usłudze Azure AD, zapoznaj się z [dokumentacją Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
 
 ## <a name="endpoints-for-authentication"></a>Punkty końcowe uwierzytelniania
 
-Aby uwierzytelnić aplikacje usługi Batch za pomocą usługi Azure AD, należy dołączyć kilka dobrze znanych punktów końcowych w kodzie.
+Aby uwierzytelniać aplikacje wsadowe za pomocą usługi Azure AD, należy uwzględnić w kodzie niektóre dobrze znane punkty końcowe.
 
 ### <a name="azure-ad-endpoint"></a>Punkt końcowy usługi Azure AD
 
-Podstawowym punktem końcowym urzędu usługi Azure AD jest:
+Podstawowy punkt końcowy urzędu usługi Azure AD to:
 
 `https://login.microsoftonline.com/`
 
-Aby uwierzytelnić się za pomocą usługi Azure AD, należy użyć tego punktu końcowego wraz z identyfikatorem dzierżawy (identyfikator katalogu). Identyfikator dzierżawy identyfikuje dzierżawę usługi Azure AD do użycia do uwierzytelniania. Aby pobrać identyfikator dzierżawy, wykonaj kroki opisane w [pobierz identyfikator dzierżawy dla usługi Azure Active Directory:](#get-the-tenant-id-for-your-active-directory)
+Aby uwierzytelnić się w usłudze Azure AD, użyj tego punktu końcowego wraz z IDENTYFIKATORem dzierżawy (identyfikator katalogu). Identyfikator dzierżawy identyfikuje dzierżawę usługi Azure AD do użycia na potrzeby uwierzytelniania. Aby pobrać identyfikator dzierżawy, wykonaj kroki opisane w temacie [Pobieranie identyfikatora dzierżawy dla Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
 
 `https://login.microsoftonline.com/<tenant-id>`
 
 > [!NOTE] 
-> Punkt końcowy specyficzne dla dzierżawy jest wymagane podczas uwierzytelniania przy użyciu jednostki usługi. 
+> Punkt końcowy specyficzny dla dzierżawy jest wymagany podczas uwierzytelniania za pomocą nazwy głównej usługi. 
 > 
-> Punkt końcowy specyficzny dla dzierżawy jest opcjonalny podczas uwierzytelniania przy użyciu zintegrowanego uwierzytelniania, ale zalecane. Można jednak również użyć wspólnego punktu końcowego usługi Azure AD. Wspólny punkt końcowy zapewnia ogólny interfejs gromadzenia poświadczeń, gdy określona dzierżawca nie jest podana. Wspólnym punktem `https://login.microsoftonline.com/common`końcowym jest .
+> Punkt końcowy specyficzny dla dzierżawy jest opcjonalny w przypadku uwierzytelniania przy użyciu uwierzytelniania zintegrowanego, ale zalecane. Można jednak również użyć wspólnego punktu końcowego usługi Azure AD. Wspólny punkt końcowy zawiera interfejs zbierania poświadczeń ogólnych, gdy nie podano określonej dzierżawy. Wspólny punkt końcowy to `https://login.microsoftonline.com/common`.
 >
 >
 
-Aby uzyskać więcej informacji na temat punktów końcowych usługi Azure AD, zobacz [Scenariusze uwierzytelniania dla usługi Azure AD][aad_auth_scenarios].
+Aby uzyskać więcej informacji na temat punktów końcowych usługi Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD][aad_auth_scenarios].
 
-### <a name="batch-resource-endpoint"></a>Punkt końcowy zasobu wsadowego
+### <a name="batch-resource-endpoint"></a>Punkt końcowy zasobu partii
 
-Punkt **końcowy zasobu usługi Azure Batch** służy do uzyskiwania tokenu do uwierzytelniania żądań do usługi Batch:
+Użyj **punktu końcowego zasobów Azure Batch** , aby uzyskać token do uwierzytelniania żądań do usługi Batch:
 
 `https://batch.core.windows.net/`
 
-## <a name="register-your-application-with-a-tenant"></a>Zarejestruj aplikację w dzierżawie
+## <a name="register-your-application-with-a-tenant"></a>Rejestrowanie aplikacji w dzierżawie
 
-Pierwszym krokiem przy użyciu usługi Azure AD do uwierzytelniania jest rejestrowanie aplikacji w dzierżawie usługi Azure AD. Rejestrowanie aplikacji umożliwia wywołanie [biblioteki uwierzytelniania usługi][aad_adal] Azure Active Directory (ADAL) z kodu. Usługa ADAL udostępnia interfejs API do uwierzytelniania za pomocą usługi Azure AD z aplikacji. Rejestrowanie aplikacji jest wymagane, niezależnie od tego, czy planujesz używać zintegrowanego uwierzytelniania, czy jednostki usługi.
+Pierwszym krokiem korzystania z usługi Azure AD do uwierzytelniania jest rejestrowanie aplikacji w dzierżawie usługi Azure AD. Zarejestrowanie aplikacji umożliwia wywołanie [Active Directory Authentication Library][aad_adal] platformy Azure (ADAL) z kodu. Biblioteka ADAL udostępnia interfejs API do uwierzytelniania w usłudze Azure AD z poziomu aplikacji. Rejestracja aplikacji jest wymagana niezależnie od tego, czy zamierzasz używać uwierzytelniania zintegrowanego, czy nazwy głównej usługi.
 
-Podczas rejestrowania aplikacji, należy podać informacje o aplikacji do usługi Azure AD. Usługa Azure AD udostępnia następnie identyfikator aplikacji (nazywany również *identyfikatorem klienta),* którego używasz do skojarzenia aplikacji z usługą Azure AD w czasie wykonywania. Aby dowiedzieć się więcej o identyfikatorze aplikacji, zobacz [Obiekty głównej aplikacji i usługi w usłudze Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
+Po zarejestrowaniu aplikacji dostarczasz informacje o aplikacji do usługi Azure AD. Następnie usługa Azure AD udostępnia identyfikator aplikacji (nazywany także *identyfikatorem klienta*) używany do kojarzenia aplikacji z usługą Azure AD w czasie wykonywania. Aby dowiedzieć się więcej o IDENTYFIKATORze aplikacji, zobacz [obiekty główne aplikacji i usługi w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Aby zarejestrować aplikację batch, wykonaj kroki opisane w sekcji [Dodawanie aplikacji](../active-directory/develop/quickstart-register-app.md) w obszarze [Integrowanie aplikacji z usługą Azure Active Directory][aad_integrate]. Jeśli aplikacja zostanie zarejestrowana jako aplikacja natywna, można określić dowolny prawidłowy identyfikator URI **dla identyfikatora URI przekierowania**. Nie musi być prawdziwym punktem końcowym.
+Aby zarejestrować aplikację w usłudze Batch, wykonaj kroki opisane w sekcji [Dodawanie aplikacji](../active-directory/develop/quickstart-register-app.md) w temacie [Integrowanie aplikacji z Azure Active Directory][aad_integrate]. Jeśli aplikacja jest zarejestrowana jako aplikacja natywna, można określić dowolny prawidłowy identyfikator URI dla **identyfikatora URI przekierowania**. Nie musi to być rzeczywisty punkt końcowy.
 
-Po zarejestrowaniu aplikacji zostanie wyświetlony identyfikator aplikacji:
+Po zarejestrowaniu aplikacji zobaczysz identyfikator aplikacji:
 
-![Rejestrowanie aplikacji wsadowego za pomocą usługi Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
+![Rejestrowanie aplikacji usługi Batch w usłudze Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-Aby uzyskać więcej informacji na temat rejestrowania aplikacji za pomocą usługi Azure AD, zobacz [Scenariusze uwierzytelniania dla usługi Azure AD](../active-directory/develop/authentication-scenarios.md).
+Aby uzyskać więcej informacji na temat rejestrowania aplikacji w usłudze Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](../active-directory/develop/authentication-scenarios.md).
 
-## <a name="get-the-tenant-id-for-your-active-directory"></a>Pobierz identyfikator dzierżawy usługi Active Directory
+## <a name="get-the-tenant-id-for-your-active-directory"></a>Uzyskaj identyfikator dzierżawy dla Active Directory
 
-Identyfikator dzierżawy identyfikuje dzierżawę usługi Azure AD, która zapewnia usługi uwierzytelniania aplikacji. Aby uzyskać identyfikator dzierżawy, wykonaj następujące kroki:
+Identyfikator dzierżawy identyfikuje dzierżawę usługi Azure AD, która udostępnia usługi uwierzytelniania aplikacji. Aby uzyskać identyfikator dzierżawy, wykonaj następujące kroki:
 
-1. W witrynie Azure portal wybierz usługę Active Directory.
-1. Wybierz **pozycję Właściwości**.
-1. Skopiuj wartość guid pod warunkiem **identyfikatora katalogu**. Ta wartość jest również nazywany identyfikatorem dzierżawy.
+1. W Azure Portal wybierz Active Directory.
+1. Wybierz pozycję **Właściwości**.
+1. Skopiuj wartość identyfikatora GUID podaną dla **identyfikatora katalogu**. Ta wartość jest również określana mianem identyfikatora dzierżawy.
 
-![Kopiowanie identyfikatora katalogu](./media/batch-aad-auth/aad-directory-id.png)
+![Skopiuj identyfikator katalogu](./media/batch-aad-auth/aad-directory-id.png)
 
-## <a name="use-integrated-authentication"></a>Korzystanie ze zintegrowanego uwierzytelniania
+## <a name="use-integrated-authentication"></a>Użyj uwierzytelniania zintegrowanego
 
-Aby uwierzytelnić się za pomocą zintegrowanego uwierzytelniania, należy udzielić uprawnień aplikacji, aby połączyć się z interfejsem API usługi Batch. Ten krok umożliwia aplikacji uwierzytelnienie wywołań do interfejsu API usługi wsadowej za pomocą usługi Azure AD.
+Aby uwierzytelnić się przy użyciu uwierzytelniania zintegrowanego, należy przyznać aplikacji uprawnienia do nawiązywania połączeń z interfejsem API usługi Batch. Ten krok umożliwia aplikacji uwierzytelnianie wywołań interfejsu API usługi Batch za pomocą usług Azure AD.
 
-Po zarejestrowaniu aplikacji wykonaj następujące kroki w witrynie Azure portal, aby udzielić jej dostępu do usługi Batch:
+Po zarejestrowaniu aplikacji wykonaj następujące kroki w Azure Portal, aby udzielić dostępu do usługi Batch:
 
-1. W lewym okienku nawigacji w witrynie Azure portal wybierz pozycję **Wszystkie usługi**. Wybierz **pozycję Rejestracje aplikacji**.
+1. W okienku nawigacji po lewej stronie Azure Portal wybierz pozycję **wszystkie usługi**. Wybierz pozycję **rejestracje aplikacji**.
 1. Wyszukaj nazwę aplikacji na liście rejestracji aplikacji:
 
     ![Wyszukaj nazwę aplikacji](./media/batch-aad-auth/search-app-registration.png)
 
-1. Wybierz aplikację i wybierz **uprawnienia interfejsu API**.
-1. W sekcji **Uprawnienia interfejsu API** wybierz pozycję Dodaj **uprawnienie**.
-1. W **obszarze Wybierz interfejs API**wyszukaj interfejs API usługi Batch. Wyszukuj następujące ciągi, aż znajdziesz odpowiedni interfejs API:
-    1. **Partia platformy Microsoft Azure**
+1. Wybierz aplikację i wybierz pozycję **uprawnienia interfejsu API**.
+1. W sekcji **uprawnienia interfejsu API** wybierz pozycję **Dodaj uprawnienie**.
+1. W obszarze **Wybierz interfejs API**Wyszukaj interfejs API usługi Batch. Wyszukuj następujące ciągi, aż znajdziesz odpowiedni interfejs API:
+    1. **Microsoft Azure Batch**
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** to identyfikator interfejsu API usługi Batch.
-1. Po znalezieniu interfejsu API partii zaznacz go i wybierz pozycję **Wybierz**.
-1. W **obszarze Zaznacz uprawnienia**zaznacz pole wyboru obok pozycji Dostęp do usługi **wsadowej usługi Azure,** a następnie wybierz pozycję **Dodaj uprawnienia**.
+1. Po znalezieniu interfejsu API usługi Batch zaznacz go i wybierz pozycję **Wybierz**.
+1. W obszarze **Wybierz uprawnienia**zaznacz pole wyboru obok pozycji **dostęp do usługi Azure Batch** , a następnie wybierz pozycję **Dodaj uprawnienia**.
 
-Sekcja **uprawnień interfejsu API** pokazuje teraz, że aplikacja usługi Azure AD ma dostęp zarówno do programu Microsoft Graph, jak i interfejsu API usługi Batch. Uprawnienia są przyznawane do programu Microsoft Graph automatycznie podczas pierwszego rejestrowania aplikacji w usłudze Azure AD.
+Sekcja **uprawnienia interfejsu API** pokazuje teraz, że aplikacja usługi Azure AD ma dostęp do zarówno Microsoft Graph, jak i interfejsu API usługi Batch. Uprawnienia są udzielane Microsoft Graph automatycznie po pierwszym zarejestrowaniu aplikacji w usłudze Azure AD.
 
-![Udziel uprawnień interfejsu API](./media/batch-aad-auth/required-permissions-data-plane.png)
+![Przyznawanie uprawnień interfejsu API](./media/batch-aad-auth/required-permissions-data-plane.png)
 
-## <a name="use-a-service-principal"></a>Korzystanie z jednostki usługi
+## <a name="use-a-service-principal"></a>Korzystanie z nazwy głównej usługi
 
-Aby uwierzytelnić aplikację, która działa bez nadzoru, należy użyć jednostki usługi. Po zarejestrowaniu aplikacji wykonaj następujące kroki w witrynie Azure portal, aby skonfigurować jednostkę usługi:
+Aby uwierzytelnić aplikację, w której działa nienadzorowana, należy użyć nazwy głównej usługi. Po zarejestrowaniu aplikacji wykonaj następujące kroki w Azure Portal, aby skonfigurować jednostkę usługi:
 
-1. Poproś o klucz tajny dla aplikacji.
-1. Przypisz do aplikacji kontrolę dostępu opartą na rolach (RBAC).
+1. Zażądaj wpisu tajnego dla aplikacji.
+1. Przypisywanie kontroli dostępu opartej na rolach (RBAC) do aplikacji.
 
-### <a name="request-a-secret-for-your-application"></a>Poproś o klucz tajny dla swojej aplikacji
+### <a name="request-a-secret-for-your-application"></a>Żądaj wpisu tajnego dla aplikacji
 
-Gdy aplikacja uwierzytelnia się za pomocą jednostki usługi, wysyła zarówno identyfikator aplikacji, jak i klucz tajny do usługi Azure AD. Musisz utworzyć i skopiować klucz tajny, aby użyć go z kodu.
+Gdy aplikacja jest uwierzytelniana za pomocą nazwy głównej usługi, wysyła zarówno identyfikator aplikacji, jak i klucz tajny do usługi Azure AD. Należy utworzyć i skopiować klucz tajny do użycia w kodzie.
 
 Wykonaj następujące kroki w witrynie Azure Portal:
 
-1. W lewym okienku nawigacji w witrynie Azure portal wybierz pozycję **Wszystkie usługi**. Wybierz **pozycję Rejestracje aplikacji**.
+1. W okienku nawigacji po lewej stronie Azure Portal wybierz pozycję **wszystkie usługi**. Wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz aplikację z listy rejestracji aplikacji.
-1. Wybierz aplikację, a następnie wybierz **pozycję Certyfikaty & wpisy tajne**. W sekcji **Wpisy tajne klienta** wybierz pozycję **Nowy klucz tajny klienta**.
-1. Aby utworzyć klucz tajny, wprowadź opis klucza tajnego. Następnie wybierz wygaśnięcia tajemnicy jednego roku, dwóch lat lub bez wygaśnięcia..
-1. Wybierz **dodaj,** aby utworzyć i wyświetlić klucz tajny. Skopiuj wartość tajną w bezpieczne miejsce, ponieważ nie będziesz mieć do niej dostępu ponownie po opuszczeniu strony.
+1. Wybierz aplikację, a następnie wybierz pozycję **certyfikaty & wpisy tajne**. W sekcji wpisy **tajne klienta** wybierz pozycję **Nowy wpis tajny klienta**.
+1. Aby utworzyć wpis tajny, wprowadź opis wpisu tajnego. Następnie wybierz pozycję wygaśnięcia dla wpisu tajnego z jednego roku, dwóch lat lub bez wygaśnięcia.
+1. Wybierz pozycję **Dodaj** , aby utworzyć i wyświetlić wpis tajny. Skopiuj wartość klucza tajnego do bezpiecznego miejsca, ponieważ nie będzie można uzyskać do niego dostępu po opuszczeniu strony.
 
     ![Tworzenie klucza tajnego](./media/batch-aad-auth/secret-key.png)
 
-### <a name="assign-rbac-to-your-application"></a>Przypisywanie RBAC do aplikacji
+### <a name="assign-rbac-to-your-application"></a>Przypisywanie kontroli RBAC do aplikacji
 
-Aby uwierzytelnić się za pomocą jednostki usługi, należy przypisać RBAC do aplikacji. Wykonaj następujące kroki:
+Aby uwierzytelnić się za pomocą jednostki usługi, należy przypisać kontrolę RBAC do aplikacji. Wykonaj następujące kroki:
 
-1. W witrynie Azure portal przejdź do konta usługi Batch używanego przez aplikację.
-1. W sekcji **Ustawienia** konta usługi Batch wybierz pozycję **Kontrola dostępu (IAM)**.
-1. Wybierz kartę **Przypisania ról.**
+1. W Azure Portal przejdź do konta wsadowego używanego przez aplikację.
+1. W sekcji **Ustawienia** konta Partia zadań wybierz pozycję **Access Control (IAM)**.
+1. Wybierz kartę **przypisania ról** .
 1. Wybierz pozycję **Dodaj przypisanie roli**.
-1. Z listy rozwijanej **Rola** wybierz rolę *współautora* lub *czytelnika* dla aplikacji. Aby uzyskać więcej informacji na temat tych ról, zobacz [Wprowadzenie do kontroli dostępu opartej na rolach w witrynie Azure portal.](../role-based-access-control/overview.md)  
+1. Z listy rozwijanej **rola** wybierz rolę *współautor* lub *czytelnika* dla aplikacji. Aby uzyskać więcej informacji na temat tych ról, zobacz Wprowadzenie do [Access Control opartej na rolach w Azure Portal](../role-based-access-control/overview.md).  
 1. W polu **Wybierz** wprowadź nazwę aplikacji. Wybierz aplikację z listy, a następnie wybierz pozycję **Zapisz**.
 
 Aplikacja powinna teraz pojawić się w ustawieniach kontroli dostępu z przypisaną rolą RBAC.
@@ -146,28 +135,28 @@ Aplikacja powinna teraz pojawić się w ustawieniach kontroli dostępu z przypis
 
 ### <a name="assign-a-custom-role"></a>Przypisywanie roli niestandardowej
 
-Rola niestandardowa udziela szczegółowych uprawnień użytkownikowi do przesyłania zadań, zadań i innych funkcji. Zapewnia to możliwość uniemożliwienia użytkownikom wykonywania operacji, które wpływają na koszt, takich jak tworzenie pul lub modyfikowanie węzłów.
+Rola niestandardowa przyznaje użytkownikowi szczegółowe uprawnienia do przesyłania zadań, zadań i nie tylko. Dzięki temu użytkownicy mogą uniemożliwić wykonywanie operacji, które mają wpływ na koszt, na przykład tworząc pule lub modyfikując węzły.
 
-Za pomocą roli niestandardowej można udzielić uprawnień użytkownikowi, grupie lub podmiotowi usługi Azure AD dla następujących operacji RBAC:
+Możesz użyć roli niestandardowej, aby przyznać uprawnienia użytkownikowi, grupie lub jednostce usługi usługi Azure AD dla następujących operacji RBAC:
 
-- Microsoft.Batch/batchKonta/pule/zapis
-- Microsoft.Batch/batchKonsuny/pule/usuwanie
-- Microsoft.Batch/batchKonsuny/pule/odczyt
-- Microsoft.Batch/batchKonta/zadaniaSześci/zapis
-- Microsoft.Batch/batchKonta/zadaniaSześci/usuń
-- Microsoft.Batch/batchKonta/zadaniaSześci/odczyt
-- Microsoft.Batch/batchKonta/zadania/zapis
-- Microsoft.Batch/batchKonta/zadania/usuń
-- Microsoft.Batch/batchKonta/zadania/odczyt
-- Microsoft.Batch/batchKonta/certyfikaty/zapis
-- Microsoft.Batch/batchKonsunacje/certyfikaty/usuń
-- Microsoft.Batch/batchKonsuny/certyfikaty/odczyt
-- Microsoft.Batch/batchKonsuny/odczyt (dla każdej operacji odczytu)
-- Microsoft.Batch/batchKonta/listKeys/akcja (dla każdej operacji)
+- Microsoft. Batch/batchAccounts/pule/zapis
+- Microsoft. Batch/batchAccounts/pule/usuwanie
+- Microsoft. Batch/batchAccounts/pule/odczyt
+- Microsoft. Batch/batchAccounts/jobSchedules/Write
+- Microsoft. Batch/batchAccounts/jobSchedules/Delete
+- Microsoft. Batch/batchAccounts/jobSchedules/odczyt
+- Microsoft. Batch/batchAccounts/Jobs/Write
+- Microsoft. Batch/batchAccounts/Jobs/Delete
+- Microsoft. Batch/batchAccounts/Jobs/Read
+- Microsoft. Batch/batchAccounts/Certificates/Write
+- Microsoft. Batch/batchAccounts/Certificates/Delete
+- Microsoft. Batch/batchAccounts/Certificates/Read
+- Microsoft. Batch/batchAccounts/Read (dla każdej operacji odczytu)
+- Microsoft. Batch/batchAccounts/listKeys/Action (dla każdej operacji)
 
-Role niestandardowe są dla użytkowników uwierzytelnionych przez usługę Azure AD, a nie poświadczenia konta usługi Batch (klucz udostępniony). Należy zauważyć, że poświadczenia konta usługi Batch dają pełne uprawnienia do konta usługi Batch. Należy również zauważyć, że zadania korzystające z autopool wymagają uprawnień na poziomie puli.
+Role niestandardowe są przeznaczone dla użytkowników uwierzytelnionych przez usługę Azure AD, a nie poświadczenia konta usługi Batch (klucz współużytkowany). Zwróć uwagę, że poświadczenia konta w usłudze Batch dają pełne uprawnienia do konta w usłudze Batch. Należy również pamiętać, że zadania używające autopuli wymagają uprawnień na poziomie puli.
 
-Oto przykład niestandardowej definicji roli:
+Oto przykład definicji roli niestandardowej:
 
 ```json
 {
@@ -203,35 +192,35 @@ Oto przykład niestandardowej definicji roli:
 }
 ```
 
-Aby uzyskać bardziej ogólne informacje dotyczące tworzenia roli niestandardowej, zobacz [Role niestandardowe dla zasobów platformy Azure](../role-based-access-control/custom-roles.md).
+Aby uzyskać ogólne informacje na temat tworzenia roli niestandardowej, zobacz [role niestandardowe dla zasobów platformy Azure](../role-based-access-control/custom-roles.md).
 
-### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Uzyskaj identyfikator dzierżawy usługi Azure Active Directory
+### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Uzyskaj identyfikator dzierżawy dla Azure Active Directory
 
-Identyfikator dzierżawy identyfikuje dzierżawę usługi Azure AD, która zapewnia usługi uwierzytelniania aplikacji. Aby uzyskać identyfikator dzierżawy, wykonaj następujące kroki:
+Identyfikator dzierżawy identyfikuje dzierżawę usługi Azure AD, która udostępnia usługi uwierzytelniania aplikacji. Aby uzyskać identyfikator dzierżawy, wykonaj następujące kroki:
 
-1. W witrynie Azure portal wybierz usługę Active Directory.
-1. Wybierz **pozycję Właściwości**.
-1. Skopiuj wartość guid pod warunkiem **identyfikatora katalogu**. Ta wartość jest również nazywany identyfikatorem dzierżawy.
+1. W Azure Portal wybierz Active Directory.
+1. Wybierz pozycję **Właściwości**.
+1. Skopiuj wartość identyfikatora GUID podaną dla **identyfikatora katalogu**. Ta wartość jest również określana mianem identyfikatora dzierżawy.
 
-![Kopiowanie identyfikatora katalogu](./media/batch-aad-auth/aad-directory-id.png)
+![Skopiuj identyfikator katalogu](./media/batch-aad-auth/aad-directory-id.png)
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Przykłady kodu w tej sekcji pokazują, jak uwierzytelniać się za pomocą usługi Azure AD przy użyciu zintegrowanego uwierzytelniania i jednostki usługi. Większość z tych przykładów kodu używa .NET, ale pojęcia są podobne dla innych języków.
+Przykłady kodu w tej sekcji przedstawiają sposób uwierzytelniania za pomocą usługi Azure AD przy użyciu uwierzytelniania zintegrowanego i nazwy głównej usługi. Większość z tych przykładów kodu korzysta z platformy .NET, ale koncepcje są podobne dla innych języków.
 
 > [!NOTE]
-> Token uwierzytelniania usługi Azure AD wygasa po godzinie. Podczas korzystania z obiektu **batchclient** długowieczne, zaleca się pobrać token z biblioteki ADAL na każde żądanie, aby upewnić się, że zawsze masz prawidłowy token. 
+> Token uwierzytelniania usługi Azure AD wygasa po upływie godziny. W przypadku korzystania z długotrwałego obiektu **BatchClient** zalecamy pobranie tokenu z biblioteki ADAL na każde żądanie, aby upewnić się, że zawsze masz prawidłowy token. 
 >
 >
-> Aby to osiągnąć w .NET, napisz metodę, która pobiera token z usługi Azure AD i przekazać tę metodę do **obiektu BatchTokenCredentials** jako pełnomocnika. Metoda delegata jest wywoływana przy każdym żądaniu do usługi Batch, aby upewnić się, że jest dostarczany prawidłowy token. Domyślnie ADAL buforuje tokeny, więc nowy token jest pobierany z usługi Azure AD tylko wtedy, gdy jest to konieczne. Aby uzyskać więcej informacji na temat tokenów w usłudze Azure AD, zobacz [Scenariusze uwierzytelniania dla usługi Azure AD][aad_auth_scenarios].
+> Aby to osiągnąć, należy napisać metodę pobierającą token z usługi Azure AD i przekazać tę metodę do obiektu **BatchTokenCredentials** jako delegata. Metoda Delegate jest wywoływana dla każdego żądania do usługi Batch, aby upewnić się, że podano prawidłowy token. Domyślnie tokeny pamięci podręcznej biblioteki ADAL, dlatego nowy token jest pobierany z usługi Azure AD tylko wtedy, gdy jest to konieczne. Aby uzyskać więcej informacji na temat tokenów w usłudze Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD][aad_auth_scenarios].
 >
 >
 
 ### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Przykład kodu: używanie zintegrowanego uwierzytelniania usługi Azure AD z usługą Batch .NET
 
-Aby uwierzytelnić się przy użyciu zintegrowanego uwierzytelniania z usługi Batch .NET, odwołaj się do pakietu [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) i pakietu [ADAL.](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)
+Aby uwierzytelnić się przy użyciu zintegrowanego uwierzytelniania z usługi Batch .NET, należy odwołać się do pakietu [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) i pakietu [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) .
 
-Dołącz do `using` kodu następujące instrukcje:
+Uwzględnij następujące `using` instrukcje w kodzie:
 
 ```csharp
 using Microsoft.Azure.Batch;
@@ -239,37 +228,37 @@ using Microsoft.Azure.Batch.Auth;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Odwołanie się do punktu końcowego usługi Azure AD w kodzie, w tym identyfikator dzierżawy. Aby pobrać identyfikator dzierżawy, wykonaj kroki opisane w [pobierz identyfikator dzierżawy dla usługi Azure Active Directory:](#get-the-tenant-id-for-your-active-directory)
+Odwołuje się do punktu końcowego usługi Azure AD w kodzie, w tym identyfikatora dzierżawy. Aby pobrać identyfikator dzierżawy, wykonaj kroki opisane w temacie [Pobieranie identyfikatora dzierżawy dla Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
 
 ```csharp
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
 ```
 
-Odwołanie się do punktu końcowego zasobu usługi wsadowej:
+Odwołuje się do punktu końcowego zasobu usługi Batch:
 
 ```csharp
 private const string BatchResourceUri = "https://batch.core.windows.net/";
 ```
 
-Odwołaj się do swojego konta Batch:
+Odwołuje się do konta w usłudze Batch:
 
 ```csharp
 private const string BatchAccountUrl = "https://myaccount.mylocation.batch.azure.com";
 ```
 
-Określ identyfikator aplikacji (identyfikator klienta) dla aplikacji. Identyfikator aplikacji jest dostępny w rejestracji aplikacji w witrynie Azure portal:
+Określ identyfikator aplikacji (identyfikator klienta) aplikacji. Identyfikator aplikacji jest dostępny w ramach rejestracji aplikacji w Azure Portal:
 
 ```csharp
 private const string ClientId = "<application-id>";
 ```
 
-Również skopiować identyfikator URI przekierowania, który został określony, jeśli aplikacja została zarejestrowana jako aplikacja macierzysta. Identyfikator URI przekierowania określony w kodzie musi być zgodny z identyfikatorem URI przekierowania podanym podczas rejestracji aplikacji:
+Skopiuj również określony identyfikator URI przekierowania, jeśli aplikacja została zarejestrowana jako aplikacja natywna. Identyfikator URI przekierowania określony w kodzie musi być zgodny z identyfikatorem URI przekierowania, który został podany podczas rejestracji aplikacji:
 
 ```csharp
 private const string RedirectUri = "http://mybatchdatasample";
 ```
 
-Napisz metodę wywołania zwrotnego, aby uzyskać token uwierzytelniania z usługi Azure AD. Metoda **wywołania zwrotnego GetAuthenticationTokenAsync** pokazano w tym miejscu wywołuje adal uwierzytelnić użytkownika, który wchodzi w interakcję z aplikacją. **Metoda AcquireTokenAsync dostarczona** przez adal monituje użytkownika o ich poświadczenia, a aplikacja jest kontynuowana, gdy użytkownik je udostępnia (chyba że ma już zapisane poświadczenia w pamięci podręcznej):
+Napisz metodę wywołania zwrotnego, aby uzyskać token uwierzytelniania z usługi Azure AD. Metoda wywołania zwrotnego **GetAuthenticationTokenAsync** pokazana tutaj wywołuje bibliotekę ADAL w celu uwierzytelnienia użytkownika, który działa z aplikacją. Metoda **AcquireTokenAsync** udostępniona przez bibliotekę ADAL wyświetla użytkownikowi informacje o poświadczeniach, a aplikacja jest wykonywana, gdy użytkownik je udostępni (chyba że ma już poświadczenia w pamięci podręcznej):
 
 ```csharp
 public static async Task<string> GetAuthenticationTokenAsync()
@@ -286,7 +275,7 @@ public static async Task<string> GetAuthenticationTokenAsync()
 }
 ```
 
-Konstruuj **BatchTokenCredentials** obiektu, który przyjmuje delegata jako parametr. Użyj tych poświadczeń, aby otworzyć **Obiekt BatchClient.** Można użyć tego **obiektu BatchClient** dla kolejnych operacji względem usługi Batch:
+Utwórz obiekt **BatchTokenCredentials** , który przyjmuje delegat jako parametr. Użyj tych poświadczeń, aby otworzyć obiekt **BatchClient** . Tego obiektu **BatchClient** można użyć do kolejnych operacji w usłudze Batch:
 
 ```csharp
 public static async Task PerformBatchOperations()
@@ -300,11 +289,11 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Przykład kodu: używanie jednostki usługi Azure AD z usługą Batch .NET
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Przykład kodu: używanie jednostki usługi Azure AD w usłudze Batch .NET
 
-Aby uwierzytelnić się przy użyciu jednostki usługi z usługi Batch .NET, odwołaj się do pakietu [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) i pakietu [ADAL.](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)
+Aby uwierzytelnić się za pomocą jednostki usługi w usłudze Batch .NET, należy odwołać się do pakietu [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) i pakietu [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) .
 
-Dołącz do `using` kodu następujące instrukcje:
+Uwzględnij następujące `using` instrukcje w kodzie:
 
 ```csharp
 using Microsoft.Azure.Batch;
@@ -312,37 +301,37 @@ using Microsoft.Azure.Batch.Auth;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Odwołanie się do punktu końcowego usługi Azure AD w kodzie, w tym identyfikator dzierżawy. Korzystając z jednostki usługi, należy podać punkt końcowy specyficzne dla dzierżawy. Aby pobrać identyfikator dzierżawy, wykonaj kroki opisane w [pobierz identyfikator dzierżawy dla usługi Azure Active Directory:](#get-the-tenant-id-for-your-active-directory)
+Odwołuje się do punktu końcowego usługi Azure AD w kodzie, w tym identyfikatora dzierżawy. W przypadku korzystania z jednostki usługi należy podać punkt końcowy specyficzny dla dzierżawy. Aby pobrać identyfikator dzierżawy, wykonaj kroki opisane w temacie [Pobieranie identyfikatora dzierżawy dla Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
 
 ```csharp
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
 ```
 
-Odwołanie się do punktu końcowego zasobu usługi wsadowej:  
+Odwołuje się do punktu końcowego zasobu usługi Batch:  
 
 ```csharp
 private const string BatchResourceUri = "https://batch.core.windows.net/";
 ```
 
-Odwołaj się do swojego konta Batch:
+Odwołuje się do konta w usłudze Batch:
 
 ```csharp
 private const string BatchAccountUrl = "https://myaccount.mylocation.batch.azure.com";
 ```
 
-Określ identyfikator aplikacji (identyfikator klienta) dla aplikacji. Identyfikator aplikacji jest dostępny w rejestracji aplikacji w witrynie Azure portal:
+Określ identyfikator aplikacji (identyfikator klienta) aplikacji. Identyfikator aplikacji jest dostępny w ramach rejestracji aplikacji w Azure Portal:
 
 ```csharp
 private const string ClientId = "<application-id>";
 ```
 
-Określ klucz tajny skopiowany z witryny Azure Portal:
+Określ klucz tajny, który został skopiowany z Azure Portal:
 
 ```csharp
 private const string ClientKey = "<secret-key>";
 ```
 
-Napisz metodę wywołania zwrotnego, aby uzyskać token uwierzytelniania z usługi Azure AD. Metoda **wywołania zwrotnego GetAuthenticationTokenAsync** jest wyświetlana w tym miejscu, wywołuje metodę ADAL dla uwierzytelniania nienadzorowanego:
+Napisz metodę wywołania zwrotnego, aby uzyskać token uwierzytelniania z usługi Azure AD. Metoda wywołania zwrotnego **GetAuthenticationTokenAsync** pokazana tutaj wywołuje biblioteki ADAL do uwierzytelniania nienadzorowanego:
 
 ```csharp
 public static async Task<string> GetAuthenticationTokenAsync()
@@ -354,7 +343,7 @@ public static async Task<string> GetAuthenticationTokenAsync()
 }
 ```
 
-Konstruuj **BatchTokenCredentials** obiektu, który przyjmuje delegata jako parametr. Użyj tych poświadczeń, aby otworzyć **Obiekt BatchClient.** Następnie użyj tego **obiektu BatchClient** dla kolejnych operacji względem usługi Batch:
+Utwórz obiekt **BatchTokenCredentials** , który przyjmuje delegat jako parametr. Użyj tych poświadczeń, aby otworzyć obiekt **BatchClient** . Następnie użyj tego obiektu **BatchClient** dla kolejnych operacji w usłudze Batch:
 
 ```csharp
 public static async Task PerformBatchOperations()
@@ -368,46 +357,46 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Przykład kodu: używanie jednostki usługi Azure AD z usługą Batch Python
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Przykład kodu: używanie jednostki usługi Azure AD w usłudze Batch Python
 
-Aby uwierzytelnić się przy użyciu jednostki usługi z usługi Batch Python, zainstaluj i odwołaj się do modułów [azure-batch](https://pypi.org/project/azure-batch/) i [azure-common.](https://pypi.org/project/azure-common/)
+Aby uwierzytelnić się za pomocą jednostki usługi w usłudze Batch Python, zainstaluj i Odwołuj się do modułów [Azure-Batch](https://pypi.org/project/azure-batch/) i [Azure-Common](https://pypi.org/project/azure-common/) .
 
 ```python
 from azure.batch import BatchServiceClient
 from azure.common.credentials import ServicePrincipalCredentials
 ```
 
-Korzystając z jednostki usługi, należy podać identyfikator dzierżawy. Aby pobrać identyfikator dzierżawy, wykonaj kroki opisane w [pobierz identyfikator dzierżawy dla usługi Azure Active Directory:](#get-the-tenant-id-for-your-active-directory)
+W przypadku korzystania z jednostki usługi należy podać identyfikator dzierżawy. Aby pobrać identyfikator dzierżawy, wykonaj kroki opisane w temacie [Pobieranie identyfikatora dzierżawy dla Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
 
 ```python
 TENANT_ID = "<tenant-id>"
 ```
 
-Odwołanie się do punktu końcowego zasobu usługi wsadowej:  
+Odwołuje się do punktu końcowego zasobu usługi Batch:  
 
 ```python
 RESOURCE = "https://batch.core.windows.net/"
 ```
 
-Odwołaj się do swojego konta Batch:
+Odwołuje się do konta w usłudze Batch:
 
 ```python
 BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com"
 ```
 
-Określ identyfikator aplikacji (identyfikator klienta) dla aplikacji. Identyfikator aplikacji jest dostępny w rejestracji aplikacji w witrynie Azure portal:
+Określ identyfikator aplikacji (identyfikator klienta) aplikacji. Identyfikator aplikacji jest dostępny w ramach rejestracji aplikacji w Azure Portal:
 
 ```python
 CLIENT_ID = "<application-id>"
 ```
 
-Określ klucz tajny skopiowany z witryny Azure Portal:
+Określ klucz tajny, który został skopiowany z Azure Portal:
 
 ```python
 SECRET = "<secret-key>"
 ```
 
-Utwórz obiekt **ServicePrincipalCredentials:**
+Utwórz obiekt **ServicePrincipalCredentials** :
 
 ```python
 credentials = ServicePrincipalCredentials(
@@ -418,7 +407,7 @@ credentials = ServicePrincipalCredentials(
 )
 ```
 
-Użyj poświadczeń jednostki usługi, aby otworzyć **obiekt BatchServiceClient.** Następnie użyj tego **obiektu BatchServiceClient** dla kolejnych operacji względem usługi Batch.
+Użyj poświadczeń jednostki usługi, aby otworzyć obiekt **BatchServiceClient** . Następnie użyj tego obiektu **BatchServiceClient** dla kolejnych operacji w usłudze Batch.
 
 ```python
     batch_client = BatchServiceClient(
@@ -429,16 +418,16 @@ Użyj poświadczeń jednostki usługi, aby otworzyć **obiekt BatchServiceClient
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o usłudze Azure AD, zobacz [Dokumentację usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Szczegółowe przykłady pokazujące, jak używać biblioteki ADAL są dostępne w [bibliotece przykładów kodu Azure.](https://azure.microsoft.com/resources/samples/?service=active-directory)
+- Aby dowiedzieć się więcej o usłudze Azure AD, zapoznaj się z [dokumentacją Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Szczegółowe przykłady pokazujące, jak używać biblioteki ADAL, są dostępne w bibliotece [przykładów kodu platformy Azure](https://azure.microsoft.com/resources/samples/?service=active-directory) .
 
-- Aby dowiedzieć się więcej o jednostkach usługi, zobacz [Obiekty głównej aplikacji i usługi w usłudze Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Aby utworzyć jednostkę usługi przy użyciu witryny Azure Portal, zobacz [Tworzenie aplikacji i jednostki usługi Active Directory, która może uzyskiwać dostęp do zasobów, umożliwia utworzenie portalu](../active-directory/develop/howto-create-service-principal-portal.md)za pomocą portalu. Można również utworzyć jednostkę usługi za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+- Aby dowiedzieć się więcej na temat nazw głównych usług, zobacz temat [obiekty główne aplikacji i usługi w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Aby utworzyć nazwę główną usługi przy użyciu Azure Portal, zobacz temat [Używanie portalu do tworzenia Active Directory aplikacji i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md). Możesz również utworzyć jednostkę usługi przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-- Aby uwierzytelnić aplikacje zarządzania partią przy użyciu usługi Azure AD, zobacz [Uwierzytelnianie rozwiązań zarządzania wsadowego za pomocą usługi Active Directory](batch-aad-auth-management.md).
+- Aby uwierzytelnić aplikacje zarządzania usługą Batch za pomocą usługi Azure AD, zobacz temat [uwierzytelnianie rozwiązań do zarządzania partiami przy użyciu Active Directory](batch-aad-auth-management.md).
 
-- Przykład pythonu dotyczący sposobu tworzenia klienta usługi Batch uwierzytelnionego przy użyciu tokenu usługi Azure AD można znaleźć w [przykładzie wdrażania niestandardowego obrazu usługi Azure Batch za pomocą przykładu skryptu języka Python.](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md)
+- Przykładowy kod w języku Python dotyczący tworzenia klienta usługi Batch uwierzytelniany przy użyciu tokenu usługi Azure AD znajduje się w temacie [wdrażanie Azure Batch niestandardowego obrazu przy użyciu skryptu języka Python](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) .
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Co to jest usługa Azure Active Directory?"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "Co to jest Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Scenariusze uwierzytelniania dla usługi Azure AD"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrowanie aplikacji z usługą Azure Active Directory"
+[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrowanie aplikacji z Azure Active Directory"
 [azure_portal]: https://portal.azure.com

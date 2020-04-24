@@ -1,27 +1,17 @@
 ---
-title: Zarządzanie kontem — usługa Azure Batch | Dokumenty firmy Microsoft
-description: Dowiedz się, co obejmuje konto usługi Azure Batch
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
+title: Zarządzanie kontem
+description: Dowiedz się, co obejmuje konto Azure Batch
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecae47f6aa0ab3f179632467b7da7805f06162d6
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: ce0c612e3434249c0c7d078949b10e0b9f6b1f10
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397265"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116013"
 ---
-# <a name="manage-your-batch-account"></a>Zarządzanie kontem usługi Batch
+# <a name="manage-your-batch-account"></a>Zarządzaj kontem w usłudze Batch
 
 Konto usługi Batch jest jednoznacznie zdefiniowanym obiektem w ramach usługi Batch. Całe przetwarzanie jest skojarzone z kontem usługi Batch.
 
@@ -29,36 +19,36 @@ Konto usługi Azure Batch możesz utworzyć za pomocą witryny [Azure Portal](ba
 
 Można uruchomić wiele obciążeń usługi Batch na jednym koncie usługi Batch lub rozdzielić obciążenia pomiędzy konta tej usługi znajdujące się w jednej subskrypcji, ale różnych regionach świadczenia usługi Azure.
 
-## <a name="components-of-the-batch-account"></a>Składniki konta batch
+## <a name="components-of-the-batch-account"></a>Składniki konta wsadowego
 
-Konto usługi Batch umożliwia wydajne uruchamianie zadań wsadowych na dużą skalę w obliczeniach równoległych i wysokowydajnych (HPC) na platformie Azure. W ramach zarządzanego konta:
+Konto usługi Batch umożliwia wydajne Uruchamianie zadań wsadowych o dużej skali równoległych i o wysokiej wydajności (HPC) na platformie Azure. Na zarządzanym koncie:
 
-- Aplikacje, które uruchamiasz
+- Aplikacje, z których korzystasz
 
 - Alokacja pul i węzłów w pulach
 
 - Liczba i typy zadań 
 
-- Wprowadzanie i dane wyjściowe. Nie trzeba instalować dodatkowego oprogramowania do zarządzania zadaniami.
+- Dane wejściowe i wyjściowe. Nie musisz instalować dodatkowego oprogramowania, aby zarządzać zadaniami.
 
-- Podczas tworzenia konta usługi Batch zostaniesz poproszony o przypisanie do niego nazwy. Ta nazwa jest jego identyfikatorem i po przypisaniu nie można zmienić.
+- Po utworzeniu konta w usłudze Batch zostanie wyświetlony monit o przypisanie jego nazwy. Ta nazwa jest jego IDENTYFIKATORem i po przypisaniu nie można zmienić.
 
-- Aby zmienić nazwę konta, należy je usunąć i utworzyć nowe konto usługi Batch.
+- Aby zmienić nazwę konta, należy usunąć je i utworzyć nowe konto w usłudze Batch.
 
 - Konto jest tworzone w ramach subskrypcji, której chcesz użyć.
 
-- Użyj konta, aby zidentyfikować i pobrać klucze konta podstawowego i pomocniczego z dowolnego konta usługi Batch w ramach subskrypcji.
+- Użyj konta, aby identyfikować i pobierać podstawowe i pomocnicze klucze kont z dowolnego konta usługi Batch w ramach subskrypcji.
 
-- Konto przechowuje informacje o alokacji puli i przydziałach podstawowych.  
+- Konto utrzymuje informacje o alokacji puli i przydziałach podstawowych.  
 
 - Konto zawiera informacje o lokalizacji.
 
-- Konto identyfikuje Twoje konto magazynu.
+- Konto identyfikuje konto magazynu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Utwórz konto usługi Batch przy użyciu [portalu Azure](batch-account-create-portal.md).
-- Programowo utwórz konto usługi Batch, na przykład w [bibliotece .NET usługi Zarządzanie wsadowe](batch-management-dotnet.md).
-- [Konfigurowanie lub wyłączanie dostępu zdalnego do węzłów obliczeniowych w puli usługi Azure Batch](pool-endpoint-configuration.md).
-- [Uruchamianie zadań przygotowania zadań i zwalniania zadań w węzłach obliczeniowych wsadowych](batch-job-prep-release.md)
+- Utwórz konto usługi Batch przy użyciu [Azure Portal](batch-account-create-portal.md).
+- Utwórz konto wsadowe programowo, takie jak w przypadku [biblioteki zarządzania usługą Batch dla platformy .NET](batch-management-dotnet.md).
+- [Skonfiguruj lub wyłącz dostęp zdalny do węzłów obliczeniowych w puli Azure Batch](pool-endpoint-configuration.md).
+- [Uruchamianie zadań przygotowania i zwolnienia zadań w węzłach obliczeniowych wsadowych](batch-job-prep-release.md)
 

@@ -1,61 +1,61 @@
 ---
-title: 'Samouczek klasyfikacji obrazów: Modele pociągów'
+title: 'Samouczek klasyfikacji obrazów: Nauka modeli'
 titleSuffix: Azure Machine Learning
-description: Użyj usługi Azure Machine Learning, aby wyszkolić model klasyfikacji obrazów za pomocą scikit-learn w notesie języka Python Jupyter. Ten samouczek jest częścią jedną z dwóch.
+description: Użyj Azure Machine Learning, aby nauczyć model klasyfikacji obrazów z scikit — uczenie się w notesie Jupyter języka Python. Ten samouczek jest częścią jednego z dwóch.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 02/10/2020
+ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8cf46db06a4a2f8fa86f97dab5a8477cf427c999
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bcc9e748cb5f88084b9cd3254654f9dc0fbc8aa1
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80159086"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115571"
 ---
-# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Samouczek: Trenuj modele klasyfikacji obrazów z danymi MNIST i scikit-learn 
+# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Samouczek: uczenie modeli klasyfikacji obrazów przy użyciu MNIST ręcznie danych i scikit — uczenie się 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym samouczku przeprowadzisz szkolenie modelu uczenia maszynowego na zdalnych zasobach obliczeniowych. Przepływ pracy szkoleniowych i wdrażania usługi Azure Machine Learning będzie używany w notesie języka Python Jupyter.  Następnie możesz użyć notesu jako szablonu do uczenia własnego modelu uczenia maszynowego z użyciem własnych danych. Ten poradnik jest **częścią pierwszej serii dwuczęściowych samouczków**.  
+W tym samouczku przeprowadzisz szkolenie modelu uczenia maszynowego na zdalnych zasobach obliczeniowych. Możesz użyć przepływu pracy szkolenia i wdrażania Azure Machine Learning w notesie w języku Python Jupyter.  Następnie możesz użyć notesu jako szablonu do uczenia własnego modelu uczenia maszynowego z użyciem własnych danych. Ten samouczek jest **częścią jednej z serii samouczków z dwiema częściami**.  
 
-W tym samouczku trenuje prostą regresję logistyczną przy użyciu zestawu danych [MNIST](http://yann.lecun.com/exdb/mnist/) i [scikit-learn](https://scikit-learn.org) za pomocą usługi Azure Machine Learning. MNIST jest popularnym zestawem danych składającym się z 70 000 obrazów w skali szarości. Każdy obraz ma rozmiar 28 x 28 pikseli i przedstawia odręcznie napisaną cyfrę z zakresu od 0 do 9. Celem jest utworzenie klasyfikatora wieloklasowego do identyfikacji cyfry reprezentowanej przez dany obraz.
+Ten samouczek pociąga za niego prostą regresję logistyczną za pomocą zestawu danych [mnist ręcznie](http://yann.lecun.com/exdb/mnist/) i [scikit — uczenie się](https://scikit-learn.org) z Azure Machine Learning. MNIST jest popularnym zestawem danych składającym się z 70 000 obrazów w skali szarości. Każdy obraz ma rozmiar 28 x 28 pikseli i przedstawia odręcznie napisaną cyfrę z zakresu od 0 do 9. Celem jest utworzenie klasyfikatora wieloklasowego do identyfikacji cyfry reprezentowanej przez dany obraz.
 
 Dowiedz się, jak wykonać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie środowiska projektowego.
 > * Uzyskiwanie dostępu do danych i badanie ich.
-> * Trenuj prosty model regresji logistycznej w klastrze zdalnym.
+> * Uczenie prostego modelu regresji logistycznej w klastrze zdalnym.
 > * Przeglądanie wyników uczenia i rejestrowanie najlepszego modelu.
 
 Tego, jak wybrać i wdrożyć model, dowiesz się z [drugiej części tego samouczka](tutorial-deploy-models-with-aml.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję usługi Azure Machine Learning](https://aka.ms/AMLFree) już dziś.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 
 >[!NOTE]
-> Kod w tym artykule został przetestowany przy testach [azure machine learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) w wersji 1.0.65.
+> Kod w tym artykule został przetestowany przy użyciu [zestawu SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 1.0.83.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Ukończ [samouczek: Rozpocznij tworzenie pierwszego eksperymentu usługi Azure ML](tutorial-1st-experiment-sdk-setup.md) w celu:
+* Ukończ [Samouczek: wprowadzenie do tworzenia pierwszego eksperymentu w usłudze Azure ml](tutorial-1st-experiment-sdk-setup.md) :
     * Tworzenie obszaru roboczego
-    * Sklonuj notes samouczków do folderu w obszarze roboczym.
+    * Sklonuj Notes samouczków do folderu w obszarze roboczym.
     * Tworzenie wystąpienia obliczeniowego opartego na chmurze.
 
-* W sklonowanym *folderze tutoriale/image-classification-mnist-data* otwórz notes *img-classification-part1-training.ipynb.* 
+* W folderze sklonowane *samouczki/mnist ręcznie-Data (Klasyfikacja obrazu* ) Otwórz Notes *IMG-klasyfikacyjn-part1-Train. ipynb* . 
 
 
-Samouczek i towarzyszący mu plik **utils.py** jest również dostępny na [GitHub,](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) jeśli chcesz go używać we własnym [środowisku lokalnym.](how-to-configure-environment.md#local) Uruchom, `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` aby zainstalować zależności dla tego samouczka.
+Samouczek i towarzyszący plik **utils.py** są również dostępne w usłudze [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) , jeśli chcesz korzystać z niego w [środowisku lokalnym](how-to-configure-environment.md#local). Uruchom `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` , aby zainstalować zależności dla tego samouczka.
 
 > [!Important]
-> Pozostała część tego artykułu zawiera tę samą zawartość, co w notesie.  
+> Pozostała część tego artykułu zawiera tę samą zawartość, która jest wyświetlana w notesie.  
 >
-> Przełącz się do notebooka Jupyter teraz, jeśli chcesz przeczytać wzdłuż podczas uruchamiania kodu. 
-> Aby uruchomić pojedynczą komórkę kodu w notesie, kliknij komórkę kodu i naciśnij **klawisze Shift+Enter**. Możesz też uruchomić cały notes, wybierając pozycję **Uruchom wszystko** z górnego paska narzędzi.
+> Przełącz się do notesu Jupyter teraz, jeśli chcesz czytać wraz z uruchamianiem kodu. 
+> Aby uruchomić pojedynczą komórkę kodu w notesie, kliknij komórkę kod i naciśnij **klawisze SHIFT + ENTER**. Lub Uruchom cały Notes, wybierając pozycję **Uruchom wszystkie** z górnego paska narzędzi.
 
 ## <a name="set-up-your-development-environment"></a><a name="start"></a>Konfigurowanie środowiska projektowego
 
@@ -103,13 +103,13 @@ experiment_name = 'sklearn-mnist'
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-compute-target"></a>Tworzenie lub dołączanie istniejącego obiektu docelowego obliczeń
+### <a name="create-or-attach-an-existing-compute-target"></a>Utwórz lub Dołącz istniejący obiekt docelowy obliczeń
 
-Za pomocą usługi zarządzanej Azure Machine Learning Compute analitycy danych mogą szkolić modele uczenia maszynowego w klastrach maszyn wirtualnych platformy Azure. Przykłady obejmują maszyny wirtualne z obsługą procesorów GPU. W tym samouczku utworzysz usługę Azure Machine Learning Compute jako środowisko uczenia. Otrzymasz kod języka Python do uruchomienia na tej maszynie wirtualnej w dalszej części samouczka. 
+Za pomocą usługi zarządzanej Azure Machine Learning Compute analitycy danych mogą szkolić modele uczenia maszynowego w klastrach maszyn wirtualnych platformy Azure. Przykłady obejmują maszyny wirtualne z obsługą procesorów GPU. W tym samouczku utworzysz usługę Azure Machine Learning Compute jako środowisko uczenia. Kod języka Python do uruchomienia na tej maszynie wirtualnej zostanie przesłany później w samouczku. 
 
 Poniższy kod utworzy za Ciebie klastry obliczeniowe, jeśli nie istnieją one jeszcze w Twoim obszarze roboczym.
 
- **Tworzenie celu obliczeń trwa około pięciu minut.** Jeśli zasób obliczeniowy jest już w obszarze roboczym, kod używa go i pomija proces tworzenia.
+ **Tworzenie obiektu docelowego obliczeń trwa około 5 minut.** Jeśli zasób obliczeniowy znajduje się już w obszarze roboczym, kod używa go i pomija proces tworzenia.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -159,11 +159,11 @@ Zanim nauczysz model, musisz zrozumieć dane używane na potrzeby uczenia. W tej
 
 ### <a name="download-the-mnist-dataset"></a>Pobieranie zestawu danych MNIST
 
-Użyj zestawu danych Azure Open, aby uzyskać nieprzetworzone pliki danych MNIST. [Zestawy danych azure open](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) są wyselekcjonowane publicznych zestawów danych, których można użyć do dodawania funkcji specyficznych dla scenariusza do rozwiązań uczenia maszynowego dla bardziej dokładnych modeli. Każdy zestaw danych ma `MNIST` odpowiednią klasę, w tym przypadku, aby pobrać dane na różne sposoby.
+Użyj otwartych zestawów danych platformy Azure, aby pobrać pierwotne pliki MNIST ręcznie. [Otwarte zestawy danych platformy Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) mają nadzorowane zestawy danych, których można użyć do dodawania funkcji specyficznych dla scenariusza do rozwiązań uczenia maszynowego w celu uzyskania dokładniejszych modeli. Każdy zestaw danych ma odpowiadającą klasę `MNIST` w tym przypadku, aby można było pobrać dane na różne sposoby.
 
-Ten kod pobiera dane `FileDataset` jako obiekt, który jest `Dataset`podklasą . Odwołuje `FileDataset` się do pojedynczych lub wielu plików dowolnego formatu w magazynach danych lub publicznych adresach URL. Klasa zapewnia możliwość pobierania lub instalowania plików do obliczeń przez utworzenie odwołania do lokalizacji źródła danych. Ponadto można zarejestrować zestaw danych w obszarze roboczym w celu łatwego pobierania podczas szkolenia.
+Ten kod pobiera dane jako `FileDataset` obiekt, który jest podklasą klasy. `Dataset` Odwołuje się `FileDataset` do jednego lub wielu plików dowolnego formatu w magazynach danych lub publicznych adresach URL. Klasa umożliwia pobieranie lub Instalowanie plików w ramach obliczeń przez utworzenie odwołania do lokalizacji źródła danych. Ponadto możesz zarejestrować zestaw danych w obszarze roboczym, aby ułatwić jego pobieranie podczas uczenia się.
 
-Postępuj zgodnie z [instrukcjami, aby dowiedzieć](how-to-create-register-datasets.md) się więcej o zestawach danych i ich użyciu w zestawie SDK.
+Postępuj [zgodnie z instrukcjami, aby](how-to-create-register-datasets.md) dowiedzieć się więcej o zestawach danych i ich użyciu w zestawie SDK.
 
 ```python
 from azureml.core import Dataset
@@ -188,12 +188,15 @@ Załaduj pliki skompresowane do tablic `numpy`. Następnie użyj `matplotlib` do
 ```python
 # make sure utils.py is in the same directory as this code
 from utils import load_data
+import glob
+
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data(os.path.join(data_folder, "train-images-idx3-ubyte.gz"), False) / 255.0
-X_test = load_data(os.path.join(data_folder, "t10k-images-idx3-ubyte.gz"), False) / 255.0
-y_train = load_data(os.path.join(data_folder, "train-labels-idx1-ubyte.gz"), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, "t10k-labels-idx1-ubyte.gz"), True).reshape(-1)
+X_train = load_data(glob.glob(os.path.join(data_folder,"**/train-images-idx3-ubyte.gz"), recursive=True)[0], False) / 255.0
+X_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-images-idx3-ubyte.gz"), recursive=True)[0], False) / 255.0
+y_train = load_data(glob.glob(os.path.join(data_folder,"**/train-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
+y_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
+
 
 # now let's show some randomly chosen images from the traininng set.
 count = 0
@@ -217,7 +220,7 @@ Teraz wiesz już, jak wyglądają te obrazy i jakie są oczekiwane wyniki przewi
 
 ## <a name="train-on-a-remote-cluster"></a>Uczenie w klastrze zdalnym
 
-W tym zadaniu należy przesłać zadanie do uruchomienia w klastrze szkolenia zdalnego skonfigurowany wcześniej.  W celu przesłania zadania wykonywane są następujące czynności:
+W przypadku tego zadania można przesłać zadanie do uruchomienia na wcześniej skonfigurowanym klastrze szkoleniowym.  W celu przesłania zadania wykonywane są następujące czynności:
 * Tworzenie katalogu
 * Tworzenie skryptu uczenia
 * Tworzenie obiektu narzędzia do szacowania
@@ -228,6 +231,7 @@ W tym zadaniu należy przesłać zadanie do uruchomienia w klastrze szkolenia zd
 Utwórz katalog w celu dostarczenia niezbędnego kodu ze swojego komputera do zasobu zdalnego.
 
 ```python
+import os
 script_folder = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
@@ -245,7 +249,7 @@ import numpy as np
 import glob
 
 from sklearn.linear_model import LogisticRegression
-from sklearn.externals import joblib
+import joblib
 
 from azureml.core import Run
 from utils import load_data
@@ -265,6 +269,7 @@ X_train = load_data(glob.glob(os.path.join(data_folder, '**/train-images-idx3-ub
 X_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-images-idx3-ubyte.gz'), recursive=True)[0], False) / 255.0
 y_train = load_data(glob.glob(os.path.join(data_folder, '**/train-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
 y_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
+
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 
 # get hold of the current run
@@ -293,9 +298,9 @@ Zwróć uwagę, jak skrypt pobiera dane i zapisuje modele:
 
 + Skrypt uczenia odczytuje argument, aby znaleźć katalog zawierający dane. Podczas późniejszego przesyłania zadania wskażesz magazyn danych dla tego argumentu: ```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ Skrypt szkoleniowy zapisuje model w katalogu o nazwie **dane wyjściowe**. Dowolne pliki zapisane w tym katalogu są automatycznie przekazywane do Twojego obszaru roboczego. W dalszej części samouczka z poziomu tego katalogu uzyskasz dostęp do swojego modelu. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
++ Skrypt szkoleniowy zapisuje model w katalogu **o nazwie**Outputs. Dowolne pliki zapisane w tym katalogu są automatycznie przekazywane do Twojego obszaru roboczego. W dalszej części samouczka z poziomu tego katalogu uzyskasz dostęp do swojego modelu. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
-+ Skrypt szkolenia wymaga `utils.py` pliku, aby poprawnie załadować zestaw danych. Poniższy kod `utils.py` jest `script_folder` kopiowany do tak, aby można było uzyskać dostęp do pliku wraz ze skryptem szkoleniowym na zasób zdalny.
++ Skrypt szkoleniowy wymaga pliku `utils.py` do poprawnego załadowania zestawu danych. Poniższy kod kopiuje `utils.py` do `script_folder` programu, aby można było uzyskać dostęp do pliku wraz z skryptem szkoleniowym w zasobie zdalnym.
 
   ```python
   import shutil
@@ -304,39 +309,49 @@ Zwróć uwagę, jak skrypt pobiera dane i zapisuje modele:
 
 ### <a name="create-an-estimator"></a>Tworzenie narzędzia do szacowania
 
-[Obiekt estymatora SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) jest używany do przesyłania przebiegu. Utwórz narzędzie do szacowania, uruchamiając następujący kod, aby zdefiniować następujące elementy:
+Obiekt narzędzia do szacowania służy do przesyłania przebiegu. Azure Machine Learning wstępnie skonfigurowany szacowania dla popularnych platform uczenia maszynowego, a także ogólny szacowania. Utwórz element szacowania, określając
+
 
 * Nazwa obiektu narzędzia do szacowania, `est`.
 * Katalog zawierający Twoje skrypty. Wszystkie pliki w tym katalogu są przekazywane do węzłów klastra w celu wykonania.
 * Docelowy zasób obliczeniowy. W tym przypadku użyjesz utworzonego klastra obliczeniowego usługi Azure Machine Learning.
 * Nazwa skryptu uczenia, **train.py**.
+* Środowisko, które zawiera biblioteki, które są konieczne do uruchomienia skryptu.
 * Wymagane parametry skryptu uczenia.
 
-W tym samouczku elementem docelowym jest usługa AmlCompute. Wszystkie pliki w folderze skryptów są przekazywane do węzłów klastra w celu uruchomienia. **Data_folder** jest ustawiona na użycie zestawu danych. Najpierw utwórz obiekt środowiska, który określa zależności wymagane do szkolenia. 
+W tym samouczku elementem docelowym jest usługa AmlCompute. Wszystkie pliki w folderze skryptów są przekazywane do węzłów klastra w celu uruchomienia. **Data_folder** jest ustawiony do korzystania z zestawu danych. "Najpierw Utwórz środowisko, które zawiera: Biblioteka scikit-Dowiedz się, jest wymagana do uzyskania dostępu do zestawu danych i platformy Azure — wartości domyślne, które zawierają zależności dotyczące rejestrowania metryk. Wartość domyślna platformy Azure zawiera również zależności wymagane do wdrożenia modelu jako usługi sieci Web w dalszej części tego samouczka.
+
+Po zdefiniowaniu środowiska zarejestruj je w obszarze roboczym, aby ponownie użyć go w części 2 samouczka.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 
-env = Environment('my_env')
-cd = CondaDependencies.create(pip_packages=['azureml-sdk','scikit-learn','azureml-dataprep[pandas,fuse]>=1.1.14'])
+# to install required packages
+env = Environment('tutorial-env')
+cd = CondaDependencies.create(pip_packages=['azureml-dataprep[pandas,fuse]>=1.1.14', 'azureml-defaults'], conda_packages = ['scikit-learn==0.22.1'])
+
 env.python.conda_dependencies = cd
+
+# Register environment to re-use later
+env.register(workspace = ws)
 ```
 
-Następnie utwórz estymatora z następującym kodem.
+Następnie utwórz szacowania z poniższym kodem.
 
 ```python
-from azureml.train.sklearn import SKLearn
+from azureml.train.estimator import Estimator
 
 script_params = {
+    # to mount files referenced by mnist dataset
     '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
     '--regularization': 0.5
 }
 
-est = SKLearn(source_directory=script_folder,
+est = Estimator(source_directory=script_folder,
               script_params=script_params,
               compute_target=compute_target,
-              environment_definition=env, 
+              environment_definition=env,
               entry_script='train.py')
 ```
 
@@ -357,28 +372,28 @@ Ponieważ wywołanie jest asynchroniczne, zwraca ono stan **Przygotowywanie** lu
 
 Co się dzieje podczas oczekiwania:
 
-- **Tworzenie obrazu:** Tworzony jest obraz platformy Docker, który pasuje do środowiska Języka Python określonego przez estymatora. Obraz jest przekazywany do obszaru roboczego. Tworzenie obrazu i jego przekazywanie trwa **około pięciu minut**.
+- **Tworzenie obrazu**: tworzony jest obraz platformy Docker, który jest zgodny ze środowiskiem Python określonym przez szacowania. Obraz jest przekazywany do obszaru roboczego. Tworzenie obrazu i jego przekazywanie trwa **około pięciu minut**.
 
   Ten etap jest wykonywany tylko raz dla każdego środowiska Python, ponieważ kontener jest buforowany dla kolejnych przebiegów. Podczas tworzenia obrazu dzienniki są przesyłane strumieniowo do historii uruchamiania. Postęp tworzenia obrazu możesz monitorować przy użyciu tych dzienników.
 
-- **Skalowanie:** Jeśli klaster zdalny wymaga więcej węzłów do uruchomienia niż obecnie dostępne, dodatkowe węzły są dodawane automatycznie. Skalowanie zazwyczaj trwa **około pięciu minut.**
+- **Skalowanie**: Jeśli klaster zdalny wymaga większej liczby węzłów do uruchomienia, niż jest to obecnie dostępne, dodatkowe węzły są dodawane automatycznie. Skalowanie zazwyczaj trwa **około pięciu minut.**
 
-- **Uruchomione**: Na tym etapie niezbędne skrypty i pliki są wysyłane do obiektu docelowego obliczeń. Następnie magazyny danych są instalowane lub kopiowane. Następnie uruchamiany jest skrypt **entry_script**. Podczas działania zadania dane z wyjścia **stdout** i katalogu **./logs** są przesyłane strumieniowo do historii uruchamiania. Postęp przebiegu możesz monitorować przy użyciu tych dzienników.
+- **Uruchomione**: na tym etapie niezbędne skrypty i pliki są wysyłane do elementu docelowego obliczeń. Następnie magazyny danych są instalowane lub kopiowane. Następnie uruchamiany jest skrypt **entry_script**. Podczas działania zadania dane z wyjścia **stdout** i katalogu **./logs** są przesyłane strumieniowo do historii uruchamiania. Postęp przebiegu możesz monitorować przy użyciu tych dzienników.
 
-- **Przetwarzanie końcowe:** Katalog **./outputs** przebiegu jest kopiowany do historii uruchamiania w obszarze roboczym, dzięki czemu można uzyskać dostęp do tych wyników.
+- **Przetwarzanie końcowe**: katalog **./Outputs** przebiegu jest kopiowany do historii uruchamiania w obszarze roboczym, dzięki czemu możesz uzyskać dostęp do tych wyników.
 
 Postęp działającego zadania możesz sprawdzić na kilka sposobów. W tym samouczku jest używany widżet Jupyter oraz metoda `wait_for_completion`.
 
 ### <a name="jupyter-widget"></a>Widżet Jupyter
 
-Obserwuj postęp biegu za pomocą [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Podobnie jak przesyłanie przebiegu, widżet jest asynchroniczny i udostępnia aktualizacje na bieżąco co 10–15 sekund aż do zakończenia zadania:
+Obejrzyj postęp przebiegu za pomocą [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Podobnie jak przesyłanie przebiegu, widżet jest asynchroniczny i udostępnia aktualizacje na bieżąco co 10–15 sekund aż do zakończenia zadania:
 
 ```python
 from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 
-Widżet będzie wyglądał następująco po zakończeniu szkolenia:
+Widżet będzie wyglądać podobnie do poniższego na końcu szkolenia:
 
 ![Widżet notesu](./media/tutorial-train-models-with-aml/widget.png)
 
@@ -438,7 +453,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku usługi Azure Machine Learning użyto języka Python do następujących zadań:
+W tym Azure Machine Learning samouczku użyto języka Python dla następujących zadań:
 
 > [!div class="checklist"]
 > * Konfigurowanie środowiska projektowego.

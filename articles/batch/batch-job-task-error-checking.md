@@ -1,89 +1,87 @@
 ---
-title: Sprawdzanie błędów zadań i zadań — usługa Azure Batch | Dokumenty firmy Microsoft
-description: Błędy do sprawdzania zadań i zadań rozwiązywania problemów
-services: batch
+title: Sprawdzanie pod kątem błędów w zadaniach i zadaniach podrzędnych
+description: Błędy do sprawdzenia i rozwiązywania problemów z zadaniami i zadaniami
 author: mscurrell
-ms.service: batch
 ms.topic: article
 ms.date: 03/10/2019
 ms.author: markscu
-ms.openlocfilehash: 4ace0de6d252680eb64990277b9478adf752f54d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c58bdf50f3e69b2b7d18f750f94fecdb512af85
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087016"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116030"
 ---
 # <a name="job-and-task-error-checking"></a>Sprawdzanie błędów zadania i zadania
 
-Istnieją różne błędy, które mogą wystąpić podczas dodawania zadań i zadań. Wykrywanie błędów dla tych operacji jest proste, ponieważ wszelkie błędy są zwracane natychmiast przez interfejs API, interfejs wiersza polecenia lub interfejsu użytkownika.  Jednak istnieją błędy, które mogą się zdarzyć później, gdy zadania i zadania są zaplanowane i uruchomione.
+Istnieją różne błędy, które mogą wystąpić podczas dodawania zadań i zadań. Wykrywanie błędów dla tych operacji jest proste, ponieważ wszystkie błędy są zwracane bezpośrednio przez interfejs API, interfejsu wiersza polecenia lub interfejsu użytkownika.  Istnieją jednak błędy, które mogą wystąpić później w przypadku zaplanowania i uruchomienia zadań i zadań.
 
-W tym artykule opisano błędy, które mogą wystąpić po przesłaniu zadań i zadań. Wyświetla listę i wyjaśnia błędy, które muszą być sprawdzane i obsługiwane.
+W tym artykule opisano błędy, które mogą wystąpić po przesłaniu zadań i zadań. Zawiera listę i wyjaśnia błędy, które należy sprawdzić i obsłużyć.
 
 ## <a name="jobs"></a>Stanowiska
 
-Zadanie to grupowanie jednego lub więcej zadań, a zadania faktycznie określają wiersze polecenia do uruchomienia.
+Zadanie to grupa składająca się z jednego lub więcej zadań, zadania w rzeczywistości określają wiersze poleceń do uruchomienia.
 
-Podczas dodawania zadania można określić następujące parametry, które mogą mieć wpływ na sposób, w jaki zadanie może zakończyć się niepowodzeniem:
+Podczas dodawania zadania można określić następujące parametry, które mogą mieć wpływ na sposób niepowodzenia zadania:
 
-- [Ograniczenia zatrudnienia](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints)
-  - Właściwość `maxWallClockTime` można opcjonalnie określić, aby ustawić maksymalną ilość czasu zadanie może być aktywne lub uruchomione. Jeśli zostanie przekroczona, zadanie `terminateReason` zostanie zakończone z właściwością ustawioną w [executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#cloudjob) dla zadania.
+- [Ograniczenia zadania](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints)
+  - Opcjonalnie `maxWallClockTime` można określić właściwość, aby ustawić maksymalną ilość czasu, przez jaki zadanie może być aktywne lub uruchomione. W przypadku przekroczenia tego zadania zostanie zakończone z `terminateReason` właściwością ustawioną w [executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#cloudjob) dla tego zadania.
 - [Zadanie przygotowania zadania](https://docs.microsoft.com/rest/api/batchservice/job/add#jobpreparationtask)
-  - Jeśli określono, zadanie przygotowania zadania jest uruchamiane po raz pierwszy zadanie jest uruchamiane dla zadania w węźle. Zadanie przygotowania zadania może zakończyć się niepowodzeniem, co doprowadzi do nieubiegania zadania i niekończenia zadania.
+  - Jeśli ta wartość jest określona, zadanie przygotowania zadania jest uruchamiane przy pierwszym uruchomieniu zadania dla zadania w węźle. Zadanie przygotowania zadania może zakończyć się niepowodzeniem, co spowoduje, że zadanie nie zostanie uruchomione, a zadanie nie zostanie ukończone.
 - [Zadanie zwolnienia zadania](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)
-  - Zadanie zwolnienia zadania można określić tylko wtedy, gdy skonfigurowano zadanie przygotowania zadania. Po zakończeniu zadania zadanie zwalniające zadanie jest uruchamiane w każdym z węzłów puli, w których uruchomiono zadanie przygotowania zadania. Zadanie zwolnienia zadania może zakończyć się niepowodzeniem, `completed` ale zadanie nadal zostanie przeniesione do stanu.
+  - Zadanie zwolnienia zadania można określić tylko w przypadku skonfigurowania zadania przygotowania zadania. Gdy zadanie jest przerywane, zadanie zwolnienia zadania jest uruchamiane w każdym węźle puli, w którym uruchomiono zadanie przygotowania zadania. Zadanie zwolnienia zadania może zakończyć się niepowodzeniem, ale zadanie będzie nadal przenoszone `completed` do stanu.
 
 ### <a name="job-properties"></a>Właściwości zadania
 
-Następujące właściwości zadania powinny być sprawdzane pod kątem błędów:
+Następujące właściwości zadania powinny zostać sprawdzone pod kątem błędów:
 
-- '[executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#jobexecutioninformation)':
-  - Właściwość `terminateReason` może mieć wartości `maxWallClockTime`wskazujące, że , określone w ograniczeniach zadania, został przekroczony i w związku z tym zadanie zostało zakończone. Można również ustawić, aby wskazać zadanie nie `onTaskFailure` powiodło się, jeśli właściwość zadania została ustawiona odpowiednio.
+- "[executionInfo](https://docs.microsoft.com/rest/api/batchservice/job/get#jobexecutioninformation)":
+  - `terminateReason` Właściwość może mieć wartości `maxWallClockTime`, aby wskazać, że, określone w ograniczeniach zadania, zostało przekroczone i w związku z tym zadanie zostało zakończone. Można również ustawić, aby wskazać, że zadanie nie powiodło się `onTaskFailure` , jeśli właściwość zadania została odpowiednio ustawiona.
   - Właściwość [schedulingError](https://docs.microsoft.com/rest/api/batchservice/job/get#jobschedulingerror) jest ustawiona, jeśli wystąpił błąd planowania.
  
-### <a name="job-preparation-tasks"></a>Zadania związane z przygotowaniem do pracy
+### <a name="job-preparation-tasks"></a>Zadania przygotowania zadania
 
-Jeśli zadanie przygotowania zadania jest określone dla zadania, wystąpienie tego zadania zostanie uruchomione po raz pierwszy, gdy zadanie jest uruchamiane w węźle. Zadanie przygotowania zadania skonfigurowane w zadaniu można traktować jako szablon zadania, z wieloma wystąpieniami zadań przygotowania zadania są uruchamiane, aż do liczby węzłów w puli.
+Jeśli zadanie przygotowania zadania jest określone dla zadania, wystąpienie tego zadania zostanie uruchomione po raz pierwszy zadanie dla zadania zostanie uruchomione w węźle. Zadanie przygotowania zadania skonfigurowane w tym zadaniu może być przemyślane jako szablon zadania, z uruchomionym wieloma wystąpieniami zadań przygotowania zadania, do liczby węzłów w puli.
 
-Wystąpienia zadań przygotowania zadania należy sprawdzić, aby ustalić, czy wystąpiły błędy:
-- Po uruchomieniu zadania przygotowania zadania zadanie, a następnie zadanie, które [state](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate) wyzwoliło `preparing`zadanie przygotowania zadania zostanie przeniesione do stanu ; Jeśli zadanie przygotowania zadania zakończy się niepowodzeniem, zadanie `active` wyzwalające powróci do stanu i nie zostanie uruchomione.  
-- Wszystkie wystąpienia zadania przygotowania zadania, które zostały uruchomione, można uzyskać z zadania za pomocą interfejsu API [przygotowanie listy i stan zadania wydania.](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus) Podobnie jak w przypadku każdego zadania, dostępne `failureInfo`są `exitCode`informacje `result` [o wykonaniu](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) z właściwościami, takimi jak , i .
-- Jeśli zadania przygotowania zadania nie powiodą się, zadania wyzwalania zadania nie zostaną uruchomione, zadanie nie zostanie ukończone i zostanie zablokowane. Pula może być niewykorzystana, jeśli nie ma innych zadań z zadaniami, które można zaplanować.
+Należy sprawdzić wystąpienia zadania przygotowania zadania, aby określić, czy wystąpiły błędy:
+- Gdy zadanie przygotowania zadania zostanie uruchomione, zadanie, które wyzwoliło zadanie przygotowania zadania, przejdzie w [stan](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate) `preparing`; Jeśli zadanie przygotowania zadania zakończy się niepowodzeniem, zadanie wyzwalania zostanie przywrócone `active` do stanu i nie zostanie uruchomione.  
+- Wszystkie wystąpienia zadania przygotowania zadania, które zostały uruchomione, można uzyskać z zadania za pomocą interfejsu API [listy stan zadania przygotowania i zwolnienia](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus) . Podobnie jak w przypadku każdego zadania, dostępne są [Informacje o wykonywaniu](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) z `failureInfo`właściwościami, takimi jak, `exitCode`i `result`.
+- W przypadku niepowodzenia zadań związanych z przygotowaniem zadania zadania wyzwalania nie zostaną uruchomione, zadanie nie zostanie ukończone i zostanie zablokowane. Pula może być niedostępna, jeśli nie ma żadnych innych zadań z zadaniami, które można zaplanować.
 
-### <a name="job-release-tasks"></a>Zadania zwalniania zadań
+### <a name="job-release-tasks"></a>Zadania zwolnienia zadań
 
-Jeśli zadanie zwolnienia zadania jest określone dla zadania, a następnie po zakończeniu zadania wystąpienie zadania zwalniania zadania jest uruchamiane w każdym z węzłów puli, w którym zostało uruchomione zadanie przygotowania zadania.  Wystąpienia zadań zwalniania zadania powinny być sprawdzane, aby ustalić, czy wystąpiły błędy:
-- Wszystkie wystąpienia uruchamianego zadania zwalniania zadania można uzyskać z zadania przy użyciu [stanu zadania przygotowywania listy](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus)interfejsu API i wydania . Podobnie jak w przypadku każdego zadania, dostępne `failureInfo`są `exitCode`informacje `result` [o wykonaniu](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) z właściwościami, takimi jak , i .
-- Jeśli jedno lub więcej zadań zwolnienia zadania zakończy się niepowodzeniem, `completed` zadanie nadal zostanie zakończone i przeniesione do stanu.
+Jeśli zadanie zwolnienia zadania jest określone dla zadania, wtedy, gdy zadanie jest przerywane, wystąpienie zadania zwolnienia zadania jest uruchamiane na wszystkich węzłach puli, w których uruchomiono zadanie przygotowania zadania.  Należy sprawdzić wystąpienia zadania wydania zadania, aby określić, czy wystąpiły błędy:
+- Wszystkie wystąpienia uruchomionego zadania zwolnienia zadania mogą zostać uzyskane z zadania przy użyciu [stanu zadania przygotowania i zwolnienia listy](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus)interfejsów API. Podobnie jak w przypadku każdego zadania, dostępne są [Informacje o wykonywaniu](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) z `failureInfo`właściwościami, takimi jak, `exitCode`i `result`.
+- Jeśli co najmniej jedno zadanie zwolnienia zadania zakończy się niepowodzeniem, zadanie będzie nadal kończone i przechodzi do `completed` stanu.
 
 ## <a name="tasks"></a>Zadania
 
-Zadania zadania mogą zakończyć się niepowodzeniem z wielu powodów:
+Zadania zadań mogą się nie powieść z wielu powodów:
 
-- Wiersz polecenia zadania kończy się niepowodzeniem, zwracając z kodem zakończenia niezerowego.
-- Istnieją `resourceFiles` określone dla zadania, ale wystąpił błąd, który oznaczał, że jeden lub więcej plików nie zostało pobranych.
-- Istnieją `outputFiles` określone dla zadania, ale wystąpił błąd, który oznaczał, że jeden lub więcej plików nie zostało przekazanych.
-- Przekroczono czas, jaki upłynął `maxWallClockTime` dla zadania określonego przez właściwość w [ograniczeniach](https://docs.microsoft.com/rest/api/batchservice/task/add#taskconstraints)zadania.
+- Wiersz polecenia zadania kończy się niepowodzeniem, zwracając niezerowy kod zakończenia.
+- `resourceFiles` Określono dla zadania, ale wystąpił błąd, co oznacza, że co najmniej jeden plik nie został pobrany.
+- `outputFiles` Określono dla zadania, ale wystąpił błąd, co oznacza, że co najmniej jeden plik nie został przekazany.
+- Przekroczono czas trwania zadania określony przez `maxWallClockTime` właściwość w [ograniczeniach](https://docs.microsoft.com/rest/api/batchservice/task/add#taskconstraints)zadań.
 
-We wszystkich przypadkach należy sprawdzić następujące właściwości pod kątem błędów i informacji o błędach:
-- Właściwość tasks [executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutioninformation) zawiera wiele właściwości, które zawierają informacje o błędzie. [wynik](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutionresult) wskazuje, czy zadanie nie powiodło `exitCode` `failureInfo` się z jakiegokolwiek powodu, z i zapewniając więcej informacji o awarii.
-- Zadanie zawsze zostanie przeniesione `completed` do [stanu](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate), niezależnie od tego, czy się powiodło, czy nie.
+We wszystkich przypadkach następujące właściwości muszą być sprawdzane pod kątem błędów i informacji o błędach:
+- Właściwość [executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutioninformation) zadań zawiera wiele właściwości, które zawierają informacje o błędzie. [wynik](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutionresult) wskazuje, czy zadanie nie powiodło się z `exitCode` jakiegokolwiek powodu `failureInfo` , i dostarcza więcej informacji o błędzie.
+- Zadanie będzie zawsze przenoszone do `completed` [stanu](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate)niezależnie od tego, czy zakończyło się powodzeniem, czy niepowodzeniem.
 
-Należy wziąć pod uwagę wpływ błędów zadań na zadanie i wszelkie zależności zadań.  [ExitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) Właściwość może być określona dla zadania, aby skonfigurować akcję dla zależności i dla zadania.
-- W przypadku zależności [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) kontroluje, czy zadania zależne od zadania nie powiodło się są blokowane lub są uruchamiane.
-- W przypadku zadania [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) określa, czy zadanie zakończone niepowodzeniem prowadzi do wyłączenia zadania, zakończenia lub pozostawienia go bez zmian.
+Należy rozważyć wpływ niepowodzeń zadań na zadanie i wszelkie zależności zadań.  Właściwość [exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) może być określona dla zadania w celu skonfigurowania akcji dla zależności i zadania.
+- W przypadku zależności, [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) kontroluje, czy zadania zależne od zadania zakończonego niepowodzeniem są blokowane czy uruchamiane.
+- Dla zadania [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) kontroluje, czy zadanie zakończone niepowodzeniem prowadzi do zadania, które zostało wyłączone, przerwane lub pozostawione bez zmian.
 
 ### <a name="task-command-line-failures"></a>Błędy wiersza polecenia zadania
 
-Po uruchomieniu wiersza polecenia zadania dane `stderr.txt` wyjściowe są zapisywane do i `stdout.txt`. Ponadto aplikacja może zapisywać pliki dziennika specyficzne dla aplikacji.
+Po uruchomieniu wiersza polecenia zadania, dane wyjściowe są zapisywane do `stderr.txt` i. `stdout.txt` Ponadto aplikacja może zapisywać w plikach dziennika specyficznych dla aplikacji.
 
-Jeśli węzeł puli, na którym zadanie zostało uruchomione nadal istnieje, pliki dziennika można uzyskać i wyświetlić. Na przykład portal Azure wyświetla listę i może wyświetlać pliki dziennika dla zadania lub węzła puli. Wiele interfejsów API umożliwia również wyświetlenie i uzyskanie plików zadań, takich jak [Pobierz z zadania](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask).
+Jeśli węzeł puli, na którym zadanie zostało uruchomione nadal istnieje, można uzyskać i wyświetlić pliki dziennika. Na przykład Azure Portal list i może wyświetlać pliki dzienników dla danego zadania lub węzła puli. Wiele interfejsów API umożliwia również wyświetlanie i uzyskiwanie plików zadań, takich jak [pobieranie z zadania](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask).
 
-Ze względu na pule i węzły puli często są efemeryczne, z węzłów stale dodawane i usuwane, a następnie zaleca się, że pliki dziennika są zachowywane. [Pliki wyjściowe zadań](https://docs.microsoft.com/azure/batch/batch-task-output-files) to wygodny sposób zapisywania plików dziennika w usłudze Azure Storage.
+Ze względu na to, że pule i węzły puli często są trwałe, a węzły są ciągle dodawane i usuwane, zaleca się zachowywanie plików dziennika. [Pliki wyjściowe zadania](https://docs.microsoft.com/azure/batch/batch-task-output-files) są wygodnym sposobem zapisywania plików dziennika w usłudze Azure Storage.
 
 ### <a name="output-file-failures"></a>Błędy plików wyjściowych
-Przy każdym przekazywaniu pliku partia zapisuje dwa pliki `fileuploadout.txt` `fileuploaderr.txt`dziennika do węzła obliczeniowego i . Można sprawdzić te pliki dziennika, aby dowiedzieć się więcej o określonej awarii. W przypadkach, gdy nigdy nie podjęto próby przekazania pliku, na przykład dlatego, że samo zadanie nie może działać, te pliki dziennika nie będą istnieć.  
+W przypadku każdego przekazywania plików Batch zapisuje dwa pliki dziennika w węźle COMPUTE `fileuploadout.txt` i. `fileuploaderr.txt` Możesz sprawdzić te pliki dziennika, aby dowiedzieć się więcej na temat konkretnego błędu. W przypadkach, gdy nigdy nie podjęto próby przekazania pliku, na przykład ponieważ nie można uruchomić samego zadania, te pliki dziennika nie będą istnieć.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-Sprawdź, czy aplikacja implementuje kompleksowe sprawdzanie błędów; może być bardzo ważne, aby szybko wykryć i zdiagnozować problemy.
+Sprawdź, czy aplikacja implementuje kompleksowe sprawdzanie błędów; może to być krytyczne, aby szybko wykrywać i diagnozować problemy.

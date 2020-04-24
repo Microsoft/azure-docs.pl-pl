@@ -1,6 +1,6 @@
 ---
-title: Informacje o wydaniu indeksatora wideo usługi Azure Media Services | Dokumenty firmy Microsoft
-description: Aby być na bieżąco z najnowszymi rozwiązaniami, w tym artykule przedstawiono najnowsze aktualizacje indeksatora wideo usługi Azure Media Services.
+title: Informacje o wersji Azure Media Services Video Indexer | Microsoft Docs
+description: Aby zachować aktualność najnowszych zmian, ten artykuł zawiera najnowsze aktualizacje Azure Media Services Video Indexer.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,209 +12,234 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: f7ce5f5086bcf2d577fb998df307ee684d536c15
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 07046d181e8e83e0271cb78cfb182df4e76980b5
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81870098"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115520"
 ---
-# <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wydaniu indeksatora wideo usługi Azure Media Services
+# <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
->Otrzymuj powiadomienia o tym, kiedy można ponownie odwiedzić `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` tę stronę, aby uzyskać aktualizacje, kopiując i wklejając ten adres URL: do czytnika kanałów RSS.
+>Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` tego adresu URL: do czytnika źródła danych RSS.
 
-Aby być na bieżąco z najnowszymi wydarzeniami, w tym artykule znajdziesz informacje na temat:
+Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na temat:
 
-* Najnowsze wydania
+* Najnowsze wersje
 * Znane problemy
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
 
 ## <a name="april-2020"></a>Kwiecień 2020 r.
 
-### <a name="new-widget-parameters-capabilities"></a>Nowe funkcje parametrów widżetu
+### <a name="new-widget-parameters-capabilities"></a>Nowe możliwości parametrów widżetu
 
-Widżet **Insights** `language` zawiera `control`nowe parametry: i .
+Widżet **Insights** zawiera nowe parametry: `language` i. `control`
 
-Widżet **Odtwarzacz** ma nowy `locale` parametr. Zarówno `locale` `language` parametry, jak i parametry kontrolują język gracza.
+Widżet **odtwarzacza** ma nowy `locale` parametr. Oba `locale` i `language` parametry kontrolują język odtwarzacza.
 
-Aby uzyskać więcej informacji, zobacz sekcję [typy widżetów.](video-indexer-embed-widgets.md#widget-types) 
+Aby uzyskać więcej informacji, zobacz sekcję [typy elementów widget](video-indexer-embed-widgets.md#widget-types) . 
 
-### <a name="new-player-skin"></a>Nowa skórka gracza
+### <a name="new-player-skin"></a>Nowa skórka odtwarzacza
 
-Nowa skórka gracza z zaktualizowanym designem.
+Nowa skórka odtwarzacza została uruchomiona z zaktualizowanym projektem.
+
+### <a name="prepare-for-upcoming-changes"></a>Przygotuj się na nadchodzące zmiany
+
+* Obecnie następujące interfejsy API zwracają obiekt konta:
+
+    * [Utwórz — konto płatne](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)
+    * [Pobierz konto](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account)
+    * [Get-accounts-Authorization](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
+    * [Get-accounts-with-token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
+ 
+    Obiekt konta ma `Url` pole wskazujące lokalizację [witryny sieci Web Video Indexer](https://www.videoindexer.ai/).
+W przypadku płatnych `Url` kont pole jest obecnie wskazywane na wewnętrzny adres URL zamiast publicznej witryny sieci Web.
+W najbliższych tygodniach zmienimy ją i zwrócimy adres URL [witryny internetowej Video Indexer](https://www.videoindexer.ai/) dla wszystkich kont (wersja próbna i płatna).
+
+    Nie używaj wewnętrznych adresów URL, należy używać [Video Indexer publicznych interfejsów API](https://api-portal.videoindexer.ai/).
+* W przypadku osadzania Video Indexerych adresów URL w aplikacjach, a adresy URL nie wskazują [Video Indexer witryny sieci Web](https://www.videoindexer.ai/) ani [punktu końcowego interfejsu API Video Indexer](https://api.videoindexer.ai) , ale nie do regionalnego punktu końcowego ( `https://wus2.videoindexer.ai`na przykład), należy ponownie wygenerować adresy URL.
+
+   Można to zrobić za pomocą jednej z:
+
+    * Zamienianie adresu URL na adres URL wskazujący interfejsy API widżetu Video Indexer (na przykład [widżet Insights](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
+    * Aby wygenerować nowy osadzony adres URL przy użyciu witryny sieci Web Video Indexer:
+         
+         Naciśnij klawisz **Play** , aby przejść do strony wideo — > kliknij ** &lt;pozycję&gt; Osadź** — > Skopiuj adres URL do aplikacji:
+   
+    Regionalne adresy URL nie są obsługiwane i zostaną zablokowane w najbliższych tygodniach.
 
 ## <a name="january-2020"></a>Styczeń 2020 r.
  
-### <a name="custom-language-support-for-additional-languages"></a>Obsługa języków niestandardowych dla dodatkowych języków
+### <a name="custom-language-support-for-additional-languages"></a>Obsługa języków niestandardowych w dodatkowych językach
 
-Indeksator wideo obsługuje teraz `ar-SY` niestandardowe modele językowe dla programów `en-UK`, i `en-AU` (tylko interfejs API).
+Video Indexer teraz obsługuje niestandardowe modele języka dla `ar-SY` , `en-UK`i `en-AU` (tylko interfejsy API).
  
-### <a name="delete-account-timeframe-action-update"></a>Usuń aktualizację akcji ramy czasowe konta
+### <a name="delete-account-timeframe-action-update"></a>Usuń aktualizację przedziału czasu konta
 
-Akcja Usuń konto usuwa teraz konto w ciągu 90 dni zamiast 48 godzin.
+Akcja Usuń konto teraz usuwa konto w ciągu 90 dni, a nie 48 godzin.
  
-### <a name="new-video-indexer-github-repository"></a>Nowe repozytorium GitHub indeksatora wideo
+### <a name="new-video-indexer-github-repository"></a>Nowe repozytorium usługi GitHub Video Indexer
 
-Nowy Video Indexer GitHub z różnych projektów, wprowadzenie przewodników i przykładów kodu jest teraz dostępna:https://github.com/Azure-Samples/media-services-video-indexer
+Dostępna jest nowa Video Indexer GitHub z różnymi projektami, przewodniki z wprowadzeniem i przykłady kodu:https://github.com/Azure-Samples/media-services-video-indexer
  
-### <a name="swagger-update"></a>Aktualizacja Swagger
+### <a name="swagger-update"></a>Aktualizacja struktury Swagger
 
-Indeksator wideo ujednolicił **uwierzytelnianie** i **operacje** w jednej [specyfikacji OpenAPI indeksatora wideo (swagger).](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson) Deweloperzy mogą znaleźć interfejsy API w [portalu deweloperskim indeksatora wideo](https://api-portal.videoindexer.ai/).
+Video Indexer ujednolicone **uwierzytelnianie** i **operacje** w ramach jednej [specyfikacji Video Indexer openapi (Swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Deweloperzy mogą znaleźć interfejsy API w [portalu dla deweloperów Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="december-2019"></a>Grudzień 2019 r.
 
-### <a name="update-transcript-with-the-new-api"></a>Aktualizowanie transkrypcji za pomocą nowego interfejsu API
+### <a name="update-transcript-with-the-new-api"></a>Aktualizowanie transkrypcji przy użyciu nowego interfejsu API
 
-Zaktualizuj określoną sekcję w transkrypcji przy użyciu interfejsu API [update-video-index.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update)
+Zaktualizuj określoną sekcję w transkrypcji przy użyciu interfejsu API [Update-Video-index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update) .
 
-### <a name="fix-account-configuration-from-the-video-indexer-portal"></a>Napraw konfigurację konta z portalu indeksatora wideo
+### <a name="fix-account-configuration-from-the-video-indexer-portal"></a>Napraw konfigurację konta z poziomu portalu Video Indexer
 
-Teraz można zaktualizować konfigurację połączenia usługi Media Services, aby samodzielnie pomóc w rozwiązywaniu takich problemów, jak: 
+Teraz możesz aktualizować Media Services konfigurację połączenia, aby samoobsługowo rozwiązywać problemy, takie jak: 
 
-* niepoprawny zasób usługi Azure Media Services
+* Nieprawidłowy zasób Azure Media Services
 * zmiany hasła
-* Zasoby usługi Media Services zostały przeniesione między subskrypcjami  
+* Media Services zasoby zostały przeniesione między subskrypcjami  
 
-Aby naprawić konfigurację konta, w portalu indeksatora wideo przejdź do pozycji Ustawienia > konto (jako właściciel).
+Aby naprawić konfigurację konta, w portalu Video Indexer przejdź do Ustawienia Karta konto > (jako właściciel).
 
-### <a name="configure-the-custom-vision-account"></a>Konfigurowanie niestandardowego konta wizji
+### <a name="configure-the-custom-vision-account"></a>Skonfiguruj niestandardowe konto wizji
 
-Skonfiguruj niestandardowe konto wizji na płatnych kontach za pomocą portalu indeksatora wideo (wcześniej było to obsługiwane tylko przez interfejs API). Aby to zrobić, zaloguj się do portalu indeksatora wideo, wybierz pozycję Dostosowanie modelu > animowane znaki > konfigurowanie. 
+Skonfiguruj niestandardowe konto wizji na płatnych kontach przy użyciu portalu Video Indexer (wcześniej było to obsługiwane tylko przez interfejs API). W tym celu zaloguj się do portalu Video Indexer, wybierz pozycję dostosowanie modelu > animowane znaki > Skonfiguruj. 
 
-### <a name="scenes-shots-and-keyframes--now-in-one-insight-pane"></a>Sceny, ujęcia i klatki kluczowe – teraz w jednym okienku wglądu
+### <a name="scenes-shots-and-keyframes--now-in-one-insight-pane"></a>Sceny, zrzuty i klatki kluczowe — teraz w jednym okienku szczegółowych informacji
 
-Sceny, ujęcia i klatki kluczowe są teraz łączone w jeden wgląd w łatwiejszy sposób konsumpcji i nawigacji. Po wybraniu żądanej sceny można zobaczyć, jakie ujęcia i klatki kluczowe składają się z. 
+Sceny, zrzuty i ramki kluczowe są teraz scalane w jeden wgląd w celu łatwiejszego użycia i nawigacji. Po wybraniu żądanej sceny można zobaczyć, jakie zrzuty i klatki kluczowe zawiera. 
 
-### <a name="notification-about-a-long-video-name"></a>Powiadomienie o długiej nazwie filmu
+### <a name="notification-about-a-long-video-name"></a>Powiadomienie dotyczące długiej nazwy wideo
 
-Gdy nazwa wideo jest dłuższa niż 80 znaków, indeksator wideo pokazuje błąd opisowy podczas przekazywania.
+Jeśli nazwa filmu wideo jest dłuższa niż 80 znaków, Video Indexer pokazuje opisowy błąd podczas przekazywania.
 
-### <a name="streaming-endpoint-is-disabled-notification"></a>Punkt końcowy przesyłania strumieniowego jest wyłączony powiadomienie
+### <a name="streaming-endpoint-is-disabled-notification"></a>Powiadomienie o punkcie końcowym przesyłania strumieniowego jest wyłączone
 
-Gdy punkt końcowy przesyłania strumieniowego jest wyłączony, indeksator wideo wyświetli błąd opisowy na stronie odtwarzacza.
+Gdy punkt końcowy przesyłania strumieniowego jest wyłączony, Video Indexer wyświetli opisowy błąd na stronie odtwarzacza.
 
 ### <a name="error-handling-improvement"></a>Poprawa obsługi błędów
 
-Kod stanu 409 zostanie teraz zwrócony z interfejsów API [ponownego indeksu wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) i aktualizacji [indeksu wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) w przypadku, gdy film wideo jest aktywnie indeksowany, aby zapobiec przypadkowemu zastąpieniu bieżących zmian ponownego indeksowania.
+Kod stanu 409 będzie teraz zwracany przez [ponowne indeksowanie wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) i aktualizowanie interfejsów API [indeksu wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) w przypadku, gdy wideo jest aktywnie indeksowane, aby zapobiec zastępowaniu bieżących zmian w indeksie.
 
 ## <a name="november-2019"></a>Listopad 2019 r.
  
-* Obsługa koreańskich modeli języków niestandardowych
+* Obsługa koreańskich niestandardowych modeli języków
 
-    Indeksator wideo obsługuje teraz niestandardowe`ko-KR`modele językowe w języku koreańskim ( ) zarówno w interfejsie API, jak i portalu. 
-* Nowe języki obsługiwane dla mowy na tekst (STT)
+    Indeksator wideo obsługuje teraz niestandardowe modele językowe w języku koreańskim`ko-KR`() zarówno w interfejsie API, jak i w portalu. 
+* Nowe języki obsługiwane w przypadku zamiany mowy na tekst (monitora STT)
 
-    Interfejsy API indeksatora wideo obsługują teraz technologię STT w języku angielskim Levantine (ar-SY), angielskim dialekcie brytyjskim (en-GB) i angielskim dialekcie australijskim (en-AU).
+    Interfejsy API Video Indexer obsługują teraz monitora STT w języku arabskim Levantine (AR-SY), dialekt angielskiej Brytanii (en-GB) i angielski dialekt australijski (en-AU).
     
-    Do przesyłania wideo, zastąpiliśmy zh-HANS do zh-CN, oba są obsługiwane, ale zh-CN jest zalecane i bardziej dokładne.
+    W przypadku przekazywania wideo zamieniono polecenie zh-HANS na zh-CN, obie są obsługiwane, ale zaleca się, aby Metoda zh-CN była zalecana i bardziej dokładna.
     
 ## <a name="october-2019"></a>Październik 2019 r.
  
-* Wyszukiwanie animowanych postaci w galerii
+* Wyszukaj animowane znaki w galerii
 
-    Podczas indeksowania animowanych postaci można je teraz wyszukiwać w rozkwicie wideo konta. Aby uzyskać więcej informacji, zobacz [Rozpoznawanie animowanych znaków](animated-characters-recognition.md).
+    W przypadku indeksowania animowanych znaków można teraz wyszukiwać je w postaci szpaltowej wideo na koncie. Aby uzyskać więcej informacji, zobacz [rozpoznawanie znaków animowanych](animated-characters-recognition.md).
 
 ## <a name="september-2019"></a>Wrzesień 2019 r.
  
-Wiele osiągnięć zapowiedzianych na IBC 2019:
+Wiele zaliczek zapowiedziano w IBC 2019:
  
-* Animowane rozpoznawanie znaków (podgląd publiczny)
+* Rozpoznawanie znaków animowanych (publiczna wersja zapoznawcza)
 
-    Możliwość wykrywania grupowej reklamy rozpoznaje postacie w animowanych treściach dzięki integracji z niestandardową wizją. Aby uzyskać więcej informacji, zobacz [Animowane wykrywanie znaków](animated-characters-recognition.md).
+    Możliwość wykrywania grup AD rozpoznaje znaki w animowanej zawartości, poprzez integrację z niestandardową wizją. Aby uzyskać więcej informacji, zobacz [wykrywanie znaków animowanych](animated-characters-recognition.md).
 * Identyfikacja w wielu językach (publiczna wersja zapoznawcza)
 
-    Wykrywaj segmenty w wielu językach ścieżki dźwiękowej i twórz na ich podstawie wielojęzyczny zapis. Początkowe wsparcie: angielski, hiszpański, niemiecki i francuski. Aby uzyskać więcej informacji, zobacz [Automatyczne identyfikowanie i transkrybowanie zawartości wielojęzycznej](multi-language-identification-transcription.md).
-* Wyodrębnianie nazwanych jednostek dla osób i lokalizacji
+    Wykrywaj segmenty w wielu językach w ścieżce audio i twórz na ich podstawie wielojęzyczne transkrypcje. Wstępna pomoc techniczna: angielski, hiszpański, niemiecki i francuski. Aby uzyskać więcej informacji, zobacz [Automatyczne identyfikowanie i transkrypcja zawartości w wielu językach](multi-language-identification-transcription.md).
+* Wyodrębnianie jednostek nazwanych dla osób i lokalizacji
 
-    Wyodrębnia marki, lokalizacje i osoby z mowy i tekstu wizualnego za pomocą przetwarzania języka naturalnego (NLP).
-* Klasyfikacja typów strzałów redakcyjnych
+    Wyodrębnianie marek, lokalizacji i osób z mowy i tekstu wizualnego za pośrednictwem przetwarzania języka naturalnego (NLP).
+* Klasyfikacja typu zrzutu redakcyjnego
 
-    Oznaczanie zdjęć z typów redakcyjnych, takich jak zbliżenie, średni strzał, dwa strzały, wewnątrz, na zewnątrz itp. Aby uzyskać więcej informacji, zobacz [Wykrywanie typu zdjęcia redakcyjnego](scenes-shots-keyframes.md#editorial-shot-type-detection).
-* Rozszerzenie tematu - teraz obejmujące poziom 2
+    Tagowanie zrzutów z typami redakcyjnymi, takimi jak zamknięcie, średnie zrzuty, dwa zrzuty, wewnętrzne, zewnętrzne itd. Aby uzyskać więcej informacji, zobacz [wykrywanie typów zrzutów redakcyjnych](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* Temat inferencing — teraz obejmujący poziom 2
     
-    Model wnioskowania tematu obsługuje teraz głębszą szczegółowość taksonomii IPTC. Przeczytaj szczegółowe informacje na temat nowych innowacji opartych na [sztucznej inteligencji w usłudze Azure Media Services.](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/)
+    Temat inferencing model obsługuje teraz bardziej szczegółowy stopień szczegółowości taksonomii IPTC. Przeczytaj wszystkie szczegółowe informacje o [Azure Media Services nowych innowacyjności opartych na AI](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
 ## <a name="august-2019"></a>Sierpień 2019 r.
  
-### <a name="video-indexer-deployed-in-uk-south"></a>Indeksator wideo wdrożony w Wielkiej Brytanii Południowej
+### <a name="video-indexer-deployed-in-uk-south"></a>Video Indexer wdrożony w programie Południowe Zjednoczone Królestwo
 
-Teraz możesz utworzyć płatne konto indeksatora wideo w regionie Południowej Wielkiej Brytanii.
+Teraz możesz utworzyć konto płatne Video Indexer w regionie Południowo-południe.
 
-### <a name="new-editorial-shot-type-insights-available"></a>Dostępne nowe statystyki typu strzału redakcyjnego
+### <a name="new-editorial-shot-type-insights-available"></a>Dostępne są nowe szczegółowe informacje o typie zrzutu redakcyjnego
 
-Nowe tagi dodane do zdjęć wideo zapewnia redakcji "typy strzałów", aby zidentyfikować je z typowych zwrotów redakcyjnych używanych w przepływie pracy tworzenia treści, takich jak: ekstremalne zbliżenie, zbliżenie, szeroki, średni, dwa strzały, na zewnątrz, wewnątrz, lewej twarzy i prawej twarzy (Dostępne w JSON).
+Nowe Tagi dodawane do zrzutów wideo udostępniają redakcyjne "typy zrzutów", aby identyfikować je za pomocą wspólnych fraz redakcyjnych używanych w przepływie pracy tworzenia zawartości, takich jak: Extreme Closeup, Closeup, Wide, medium, dwa zrzuty, na zewnątrz, w lewo i w prawo (dostępne w formacie JSON).
 
-### <a name="new-people-and-locations-entities-extraction-available"></a>Dostępne wyodrębnianie jednostek Nowe osoby i lokalizacje
+### <a name="new-people-and-locations-entities-extraction-available"></a>Dostępne są nowe osoby i lokalizacje
 
-Indeksator wideo identyfikuje nazwane lokalizacje i osoby za pomocą przetwarzania języka naturalnego (NLP) z ocr wideo i transkrypcji. Indeksator wideo używa algorytmu uczenia maszynowego do rozpoznawania, kiedy określone lokalizacje (na przykład Wieża Eiffla) lub osoby (na przykład John Doe) są wywoływane w filmie.
+Video Indexer identyfikuje nazwane lokalizacje i osoby za pośrednictwem przetwarzania języka naturalnego (NLP) na podstawie OCR i transkrypcji wideo. Video Indexer używa algorytmu uczenia maszynowego do rozpoznawania, gdy określone lokalizacje (na przykład Eiffel Tower) lub osoby (na przykład Jan Nowak) są wywoływane w filmie wideo.
 
 ### <a name="keyframes-extraction-in-native-resolution"></a>Wyodrębnianie klatek kluczowych w rozdzielczości natywnej
 
-Klatki kluczowe wyodrębnione przez video indexer są dostępne w oryginalnej rozdzielczości wideo.
+Ramki kluczowe wyodrębnione przez Video Indexer są dostępne w oryginalnej rozdzielczości wideo.
  
-### <a name="ga-for-training-custom-face-models-from-images"></a>GA do szkolenia niestandardowych modeli twarzy z obrazów
+### <a name="ga-for-training-custom-face-models-from-images"></a>Zaplanowanie szkolenia niestandardowych modeli czołowych z obrazów
 
-Twarze szkoleniowe z obrazów przeniesione z trybu podglądu do ga (dostępne za pośrednictwem interfejsu API i portalu).
+Uczenie się zdjęć z obrazów przenoszonych z trybu podglądu do GA (dostępne za pośrednictwem interfejsu API i portalu).
 
 > [!NOTE]
-> Nie ma wpływu na ceny związane z przejściem "Podgląd do GA".
+> Nie ma wpływu na ceny związane z przejściem "wersja zapoznawcza do wersji zapoznawczej".
 
-### <a name="hide-gallery-toggle-option"></a>Opcja przełączania Ukryj galerię
+### <a name="hide-gallery-toggle-option"></a>Ukryj opcję przełączania galerii
 
-Użytkownik może ukryć kartę galerii z portalu (podobnie jak ukrywanie karty przykłady).
+Użytkownik może wybrać opcję ukrycia karty Galeria w portalu (podobnie jak w przypadku ukrycia karty przykłady).
  
 ### <a name="maximum-url-size-increased"></a>Zwiększono maksymalny rozmiar adresu URL
 
-Obsługa ciągu zapytania adresu URL 4096 (zamiast 2048) podczas indeksowania wideo.
+Obsługa ciągu zapytania URL o 4096 (zamiast 2048) na indeksowaniu wideo.
  
-### <a name="support-for-multi-lingual-projects"></a>Wsparcie dla projektów wielojęzycznych
+### <a name="support-for-multi-lingual-projects"></a>Obsługa projektów wielojęzycznych
 
-Projekty można teraz tworzyć na podstawie filmów indeksowanych w różnych językach (tylko interfejs API).
+Projekty można teraz tworzyć w oparciu o wideo indeksowane w różnych językach (tylko interfejsy API).
 
 ## <a name="july-2019"></a>Lipiec 2019 r.
 
 ### <a name="editor-as-a-widget"></a>Edytor jako widżet
 
-Edytor AI indeksatora wideo jest teraz dostępny jako widżet, który ma być osadzony w aplikacjach klientów.
+Edytor Video Indexer AI jest teraz dostępny jako widżet, który ma zostać osadzony w aplikacjach klienta.
 
-### <a name="update-custom-language-model-from-closed-caption-file-from-the-portal"></a>Aktualizowanie niestandardowego modelu języka z pliku podpisów kodowych z portalu
+### <a name="update-custom-language-model-from-closed-caption-file-from-the-portal"></a>Aktualizowanie niestandardowego modelu języka z pliku napisów w portalu
 
-Klienci mogą udostępniać formaty plików VTT, SRT i TTML jako dane wejściowe dla modeli językowych na stronie dostosowywania portalu.
+Klienci mogą udostępniać formaty plików VTT, narzędzia SRT i TTML jako dane wejściowe dla modeli języka na stronie dostosowywania portalu.
 
 ## <a name="june-2019"></a>Czerwiec 2019 r.
 
-### <a name="video-indexer-deployed-to-japan-east"></a>Indeksator wideo wdrożony na wschodzie Japonii
+### <a name="video-indexer-deployed-to-japan-east"></a>Video Indexer wdrożone na Japonia Wschodnia
 
-Teraz można utworzyć płatne konto indeksatora wideo w regionie Japonia Wschodnia.
+Teraz można utworzyć konto płatne Video Indexer w regionie Japonia Wschodnia.
 
-### <a name="create-and-repair-account-api-preview"></a>Interfejs API tworzenia i naprawy konta (wersja zapoznawcza)
+### <a name="create-and-repair-account-api-preview"></a>Tworzenie i naprawa interfejsu API konta (wersja zapoznawcza)
 
-Dodano nowy interfejs API, który umożliwia [aktualizację punktu końcowego lub klucza połączenia usługi Azure Media Service.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag)
+Dodano nowy interfejs API, który umożliwia [zaktualizowanie punktu końcowego lub klucza połączenia usługi Azure Media Service](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&groupBy=tag).
 
-### <a name="improve-error-handling-on-upload"></a>Usprawnij obsługę błędów podczas przekazywania 
+### <a name="improve-error-handling-on-upload"></a>Ulepsz obsługę błędów podczas przekazywania 
 
-Opisowy komunikat jest zwracany w przypadku błędnej konfiguracji podstawowego konta usługi Azure Media Services.
+Komunikat opisowy jest zwracany w przypadku nieprawidłowych konfiguracji bazowego konta Azure Media Services.
 
-### <a name="player-timeline-keyframes-preview"></a>Podgląd klatek kluczowych na osi czasu gracza 
+### <a name="player-timeline-keyframes-preview"></a>Klatki kluczowe programu Player — wersja zapoznawcza 
 
-Podgląd obrazu za każdym razem na osi czasu gracza.
+Możesz teraz zobaczyć podgląd obrazu za każdym razem na osi czasu odtwarzacza.
 
-### <a name="editor-semi-select"></a>Edytor półwyborczy
+### <a name="editor-semi-select"></a>Wybór częściowo edytora
 
-Teraz możesz zobaczyć podgląd wszystkich szczegółowych informacji, które są wybrane w wyniku wyboru określonego przedziału czasowego szczegółowych w edytorze.
+Teraz można wyświetlić podgląd wszystkich szczegółowych informacji, które są wybrane w wyniku wybrania konkretnego przedziału czasu wglądu w edytorze.
 
 ## <a name="may-2019"></a>Maj 2019 r.
 
-### <a name="update-custom-language-model-from-closed-caption-file"></a>Aktualizowanie niestandardowego modelu języka z pliku podpisów kodowych
+### <a name="update-custom-language-model-from-closed-caption-file"></a>Aktualizowanie niestandardowego modelu języka z pliku napisów
 
-[Tworzenie niestandardowego modelu języka](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) i [aktualizowanie niestandardowych modeli językowych interfejsów](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) API obsługuje teraz formaty plików VTT, SRT i TTML jako dane wejściowe dla modeli języków.
+[Tworzenie niestandardowego modelu języka](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) i [Aktualizowanie niestandardowych modeli języka](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) interfejsy API obsługują teraz formaty plików VTT, narzędzia SRT i ttml jako dane wejściowe dla modeli języka.
 
-Podczas [wywoływania interfejsu API transkrypcji aktualizacji](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript)wideo transkrypcja transkrypcji transkrypcja jest dodawana automatycznie. Model szkolenia skojarzony z filmem jest również aktualizowany automatycznie. Aby uzyskać informacje na temat dostosowywania i szkolenia modeli języków, zobacz [Dostosowywanie modelu języka za pomocą indeksatora wideo](customize-language-model-overview.md).
+Podczas wywoływania [interfejsu API aktualizowania transkrypcji wideo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript)transkrypcja jest dodawana automatycznie. Model szkoleniowy skojarzony z filmem wideo jest również aktualizowany automatycznie. Aby uzyskać informacje na temat dostosowywania i uczenia modeli języka, zobacz [Dostosowywanie modelu języka za pomocą Video Indexer](customize-language-model-overview.md).
 
-### <a name="new-download-transcript-formats--txt-and-csv"></a>Nowe formaty transkrypcji pobierania – TXT i CSV
+### <a name="new-download-transcript-formats--txt-and-csv"></a>Nowe formaty pobierania transkrypcji — TXT i CSV
 
-Oprócz formatu podpisów kodowanych już obsługiwanych (SRT, VTT i TTML), video indexer obsługuje teraz pobieranie transkrypcji w formatach TXT i CSV.
+Oprócz obsługiwanego formatu napisów (narzędzia SRT, VTT i TTML), Video Indexer teraz obsługuje pobieranie transkrypcji w formatach TXT i CSV.
 
 ## <a name="next-steps"></a>Następne kroki
 

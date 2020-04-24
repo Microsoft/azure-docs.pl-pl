@@ -1,6 +1,6 @@
 ---
-title: Omówienie — zapytanie o dane w magazynie przy użyciu języka SQL na żądanie (wersja zapoznawcza)
-description: Ta sekcja zawiera przykładowe kwerendy, których można użyć do wypróbowania zasobu SQL on-demand (preview) w usłudze Azure Synapse Analytics.
+title: Przegląd — wykonywanie zapytań dotyczących danych w magazynie przy użyciu języka SQL na żądanie (wersja zapoznawcza)
+description: Ta sekcja zawiera przykładowe zapytania, których można użyć w celu wypróbowania zasobu SQL na żądanie (wersja zapoznawcza) w ramach usługi Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,72 +9,69 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cdad95b1a910a45629e85bcc716218b272afd9de
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e18fc765385e6d703e735a1ca15c539c32f36e93
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424902"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116251"
 ---
-# <a name="overview-query-data-in-storage"></a>Omówienie: Zapytanie o dane w magazynie
+# <a name="overview-query-data-in-storage"></a>Przegląd: wykonywanie zapytań dotyczących danych w magazynie
 
-Ta sekcja zawiera przykładowe kwerendy, których można użyć do wypróbowania zasobu SQL on-demand (preview) w usłudze Azure Synapse Analytics.
-Obecnie obsługiwane pliki to: 
+Ta sekcja zawiera przykładowe zapytania, których można użyć w celu wypróbowania zasobu SQL na żądanie (wersja zapoznawcza) w ramach usługi Azure Synapse Analytics.
+Obecnie obsługiwane są następujące pliki: 
 - CSV
-- Parkiet
+- Parquet
 - JSON
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Narzędzia potrzebne do wystawiania zapytań:
+Narzędzia potrzebne do wysyłania zapytań:
 
 - Wybrany klient SQL:
-    - Usługa Azure Synapse Studio (wersja zapoznawcza)
+    - Azure Synapse Studio (wersja zapoznawcza)
     - Azure Data Studio
     - SQL Server Management Studio
 
-Ponadto parametry są następujące:
+Dodatkowo parametry są następujące:
 
 | Parametr                                 | Opis                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Adres punktu końcowego usługi SQL na żądanie    | Będzie używany jako nazwa serwera.                                   |
-| Region punktu końcowego usługi SQL na żądanie     | Będzie używany do określenia magazynu używanego w próbkach. |
-| Nazwa użytkownika i hasło dostępu do punktu końcowego | Będzie używany do uzyskiwania dostępu do punktu końcowego.                               |
-| Baza danych, której użyjesz do tworzenia widoków     | Ta baza danych będzie używana jako punkt wyjścia dla przykładów.       |
+| Adres punktu końcowego usługi SQL na żądanie    | Zostanie użyta jako nazwa serwera.                                   |
+| Region punktu końcowego usługi SQL na żądanie     | Zostanie użyta do określenia magazynu używanego w przykładach. |
+| Nazwa użytkownika i hasło dostępu do punktu końcowego | Zostanie użyta w celu uzyskania dostępu do punktu końcowego.                               |
+| Baza danych, która będzie używana do tworzenia widoków     | Ta baza danych będzie używana jako punkt wyjścia dla przykładów.       |
 
-## <a name="first-time-setup"></a>Konfiguracja po raz pierwszy
+## <a name="first-time-setup"></a>Konfiguracja pierwszego czasu
 
-Przed użyciem próbek zawartych w dalszej części tego artykułu, masz dwa kroki:
+Przed użyciem przykładów zamieszczonych w dalszej części tego artykułu, należy wykonać dwie czynności:
 
-- Tworzenie bazy danych dla widoków (w przypadku, gdy chcesz użyć widoków)
-- Tworzenie poświadczeń, które mają być używane przez SQL na żądanie, aby uzyskać dostęp do plików w magazynie
+- Tworzenie bazy danych dla widoków (w przypadku, gdy chcesz używać widoków)
+- Utwórz poświadczenia, które będą używane przez SQL na żądanie do uzyskiwania dostępu do plików w magazynie
 
 ### <a name="create-database"></a>Tworzenie bazy danych
 
-Do utworzenia widoków potrzebna jest baza danych. Użyjesz tej bazy danych dla niektórych przykładowych zapytań w tej dokumentacji.
+Do tworzenia widoków potrzebna jest baza danych. Ta baza danych będzie używana dla niektórych przykładowych zapytań w tej dokumentacji.
 
 > [!NOTE]
-> Bazy danych są używane tylko do wyświetlania metadanych, a nie dla rzeczywistych danych.  Zapisz nazwę bazy danych, której używasz, będziesz jej potrzebować później.
+> Bazy danych są używane tylko do wyświetlania metadanych, a nie dla rzeczywistych danych.  Zapisz nazwę używanej bazy danych, która będzie potrzebna później.
 
 ```sql
 CREATE DATABASE mydbname;
 ```
 
-### <a name="create-credentials"></a>Tworzenie poświadczeń
+### <a name="create-credentials"></a>Utwórz poświadczenia
 
-Przed uruchomieniem kwerend należy utworzyć poświadczenia. To poświadczenie będzie używane przez usługę SQL na żądanie, aby uzyskać dostęp do plików w magazynie.
+Aby można było uruchamiać zapytania, należy utworzyć poświadczenia. To poświadczenie będzie używane przez usługę SQL na żądanie do uzyskiwania dostępu do plików w magazynie.
 
 > [!NOTE]
-> Aby pomyślnie uruchomić How To w tej sekcji, musisz użyć tokenu Sygnatury dostępu Współdzielonego.
+> W celu pomyślnego uruchomienia tego tematu należy użyć tokenu SAS.
 >
-> Aby rozpocząć korzystanie z tokenów sygnatury dostępu Współdzielonego, należy upuścić UserIdentity, który jest wyjaśniony w poniższym [artykule](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
+> Aby rozpocząć korzystanie z tokenów SAS, należy porzucić tożsamość użytkownika, który został wyjaśniony w następującym [artykule](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 >
-> SQL na żądanie domyślnie zawsze używa przekazywania usługi AAD.
+> Funkcja SQL on-Demand domyślnie zawsze używa przekazywania w usłudze AAD.
 
-Aby uzyskać więcej informacji na temat zarządzania kontrolą dostępu do magazynu, sprawdź to [łącze](develop-storage-files-storage-access-control.md).
-
-> [!WARNING]
-> Należy utworzyć poświadczenia dla konta magazynu, który znajduje się w regionie punktu końcowego. Chociaż SQL na żądanie może uzyskać dostęp do magazynów z różnych regionów, posiadanie magazynu i punktu końcowego w tym samym regionie zapewni lepszą wydajność.
+Aby uzyskać więcej informacji na temat zarządzania kontrolą dostępu do magazynu, zaznacz ten [link](develop-storage-files-storage-access-control.md).
 
 Aby utworzyć poświadczenia dla kontenerów CSV, JSON i Parquet, uruchom poniższy kod:
 
@@ -110,37 +107,37 @@ SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-
 GO
 ```
 
-## <a name="provided-demo-data"></a>Dostarczone dane demonstracyjne
+## <a name="provided-demo-data"></a>Podane dane demonstracyjne
 
 Dane demonstracyjne zawierają następujące zestawy danych:
 
-- NYC Taxi - Yellow Taxi Trip Records - część publicznego zestawu danych NYC
+- NYC taksówki — w przypadku rekordów podróży z podróżą za taksówkę — część publicznego zestawu danych NYC
   - Format CSV
   - Format Parquet
 - Zestaw danych populacji
   - Format CSV
-- Przykładowe pliki parkietu z zagnieżdżonych kolumn
+- Przykładowe pliki Parquet z kolumnami zagnieżdżonymi
   - Format Parquet
-- Książki JSON
+- Books JSON
   - Format JSON
 
 | Ścieżka folderu                                                  | Opis                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| /csv/                                                        | Folder nadrzędny dla danych w formacie CSV                         |
-| /csv/populacja/<br />/csv/populacja-unix/<br />/csv/population-unix-hdr/<br />/csv/population-unix-hdr-escape<br />/csv/population-unix-hdr-cytowany | Foldery z plikami danych populacji w różnych formatach CSV. |
-| /csv/taxi/                                                   | Folder z publicznymi plikami danych NYC w formacie CSV              |
-| /parkiet/                                                    | Folder nadrzędny dla danych w formacie Parkietu                     |
-| /parkiet/taksówka                                                | NYC publicznych plików danych w formacie Parkiet, podzielony na partycje według roku i miesiąca przy użyciu hive/Hadoop partycjonowania schematu. |
-| /parkiet/zagnieżdżone/                                             | Przykładowe pliki parkietu z zagnieżdżonych kolumn                     |
-| /json/                                                       | Folder nadrzędny dla danych w formacie JSON                        |
-| /json/książki/                                                 | Pliki JSON z danymi książek                                   |
+| CSV                                                        | Folder nadrzędny dla danych w formacie CSV                         |
+| /csv/population/<br />/csv/population-unix/<br />/csv/population-unix-hdr/<br />/csv/population-unix-hdr-escape<br />/csv/population-unix-hdr-quoted | Foldery z plikami danych populacji w różnych formatach CSV. |
+| /csv/taxi/                                                   | Folder z plikami danych publicznych NYC w formacie CSV              |
+| Parquet                                                    | Folder nadrzędny dla danych w formacie Parquet                     |
+| /parquet/taxi                                                | NYC publiczne pliki danych w formacie Parquet, podzielone na partycje według roku i miesiąca przy użyciu schematu partycjonowania Hive/Hadoop. |
+| /parquet/nested/                                             | Przykładowe pliki Parquet z kolumnami zagnieżdżonymi                     |
+| kodu                                                       | Folder nadrzędny dla danych w formacie JSON                        |
+| /json/books/                                                 | Pliki JSON z danymi książek                                   |
 
 ## <a name="validation"></a>Walidacja
 
-Wykonaj następujące trzy kwerendy i sprawdź, czy poświadczenia są poprawnie utworzone.
+Wykonaj następujące trzy zapytania i sprawdź, czy poświadczenia zostały utworzone prawidłowo.
 
 > [!NOTE]
-> Wszystkie identyfikatory URI w przykładowych kwerendach używają konta magazynu znajdującego się w regionie Platformy Azure w Europie Północnej. Upewnij się, że utworzono odpowiednie poświadczenia. Uruchom poniższą kwerendę i upewnij się, że konto magazynu znajduje się na liście.
+> Wszystkie identyfikatory URI w przykładowych zapytaniach używają konta magazynu znajdującego się w regionie platformy Azure Europa Północna. Upewnij się, że utworzono odpowiednie poświadczenie. Uruchom poniższe zapytanie i upewnij się, że konto magazynu jest wymienione na liście.
 
 ```sql
 SELECT name
@@ -151,11 +148,11 @@ WHERE
      'https://sqlondemandstorage.blob.core.windows.net/json');
 ```
 
-Jeśli nie możesz znaleźć odpowiednich poświadczeń, zaznacz pole wyboru [Pierwsza konfiguracja](#first-time-setup).
+Jeśli nie możesz znaleźć odpowiedniego poświadczenia, zapoznaj się z tematem [Konfiguracja pierwszego czasu](#first-time-setup).
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
-Ostatnim krokiem sprawdzania poprawności jest wykonanie następującej kwerendy:
+Ostatnim krokiem weryfikacji jest wykonanie następującej kwerendy:
 
 ```sql
 SELECT
@@ -167,22 +164,22 @@ FROM
     ) AS nyc;
 ```
 
-Powyższa kwerenda powinna zwrócić ten numer: **8945574**.
+Powyższe zapytanie powinno zwrócić ten numer: **8945574**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz możesz kontynuować następujące artykuły Jak to zrobić:
+Teraz można przystąpić do dalszej pracy z następującymi artykułami:
 
-- [Zapytanie o pojedynczy plik CSV](query-single-csv-file.md)
+- [Kwerenda pojedynczego pliku CSV](query-single-csv-file.md)
 
-- [Foldery kwerend i wiele plików CSV](query-folders-multiple-csv-files.md)
+- [Foldery zapytań i wiele plików CSV](query-folders-multiple-csv-files.md)
 
 - [Kwerenda określonych plików](query-specific-files.md)
 
-- [Pliki parkietu kwerendy](query-parquet-files.md)
+- [Wykonywanie zapytań względem plików Parquet](query-parquet-files.md)
 
-- [Kwerenda Parkiet zagnieżdżone typy](query-parquet-nested-types.md)
+- [Wykonywanie zapytań względem typów zagnieżdżonych Parquet](query-parquet-nested-types.md)
 
-- [Kwerenda plików JSON](query-json-files.md)
+- [Wykonywanie zapytań względem plików JSON](query-json-files.md)
 
-- [Tworzenie widoków i korzystanie z ich używania](create-use-views.md)
+- [Tworzenie widoków i korzystanie z nich](create-use-views.md)

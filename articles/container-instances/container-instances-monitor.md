@@ -1,54 +1,54 @@
 ---
 title: Monitorowanie wystąpień kontenerów
-description: Jak monitorować zużycie zasobów obliczeniowych, takich jak procesor i pamięć przez kontenery w wystąpieniach kontenerów platformy Azure.
+description: Jak monitorować użycie zasobów obliczeniowych, takich jak procesor CPU i pamięć, w Azure Container Instances.
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: b4a66254c18d7e01b6d56e64e6b62721b620d499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250036"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116371"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorowanie zasobów kontenerów w usłudze Azure Container Instances
 
-[Usługa Azure Monitor][azure-monitoring] zapewnia wgląd w zasoby obliczeniowe używane przez wystąpienia kontenerów. Te dane użycia zasobów pomaga określić najlepsze ustawienia zasobów dla grup kontenerów. Usługa Azure Monitor udostępnia również metryki, które śledzą aktywność sieciową w wystąpieniach kontenera.
+[Azure monitor][azure-monitoring] zapewnia wgląd w zasoby obliczeniowe używane przez wystąpienia kontenerów. Te dane użycia zasobów ułatwiają określenie najlepszych ustawień zasobów dla grup kontenerów. Azure Monitor udostępnia również metryki, które śledzą aktywność sieci w wystąpieniach kontenerów.
 
-Ten dokument zawiera szczegółowe informacje o zbieraniu metryk usługi Azure Monitor dla wystąpień kontenerów przy użyciu witryny Azure portal i interfejsu wiersza polecenia platformy Azure.
+Ten dokument zawiera szczegółowe informacje o zbieraniu Azure Monitor metryk dla wystąpień kontenerów za pomocą Azure Portal i interfejsu wiersza polecenia platformy Azure.
 
 > [!IMPORTANT]
-> Metryki usługi Azure Monitor w wystąpieniach kontenerów platformy Azure są obecnie w wersji zapoznawczej i obowiązują pewne [ograniczenia.](#preview-limitations) Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
+> Azure Monitor metryki w Azure Container Instances są obecnie dostępne w wersji zapoznawczej, a niektóre [ograniczenia mają zastosowanie](#preview-limitations). Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
 
 ## <a name="preview-limitations"></a>Ograniczenia wersji zapoznawczej
 
-W tej chwili metryki usługi Azure Monitor są dostępne tylko dla kontenerów systemu Linux.
+W tej chwili Azure Monitor metryki są dostępne tylko dla kontenerów systemu Linux.
 
 ## <a name="available-metrics"></a>Dostępne metryki
 
-Usługa Azure Monitor udostępnia następujące [metryki dla wystąpień kontenerów platformy Azure.][supported-metrics] Te metryki są dostępne dla grupy kontenerów i poszczególnych kontenerów.
+Azure Monitor udostępnia następujące [metryki dla Azure Container Instances][supported-metrics]. Te metryki są dostępne dla grupy kontenerów i poszczególnych kontenerów. Domyślnie metryki są agregowane jako średnie.
 
-* **Użycie procesora** - mierzone w **milikores**. Jeden milicyr jest 1/1000th rdzenia procesora, więc 500 milikores (lub 500 m) stanowi 50% wykorzystania rdzenia procesora. Zagregowane jako **średnie użycie** we wszystkich rdzeniach.
+* **Użycie procesora CPU** — mierzone w **millicores**. Jeden millicore to 1/1000th rdzeń procesora CPU, więc 500 millicores reprezentuje użycie procesora CPU 0,5.
 
-* **Użycie pamięci** — agregowane jako **średnie bajty**.
+* **Użycie pamięci** — w bajtach.
 
-* **Bajty sieciowe odebrane na sekundę** i **bajty sieciowe przesyłane na sekundę** — agregowane jako średnie **bajty na sekundę**. 
+* **Bajty odebrane przez sieć na sekundę** i **bajty przesyłane przez sieć na sekundę**. 
 
 ## <a name="get-metrics---azure-portal"></a>Pobieranie metryk — Azure Portal
 
-Po utworzeniu grupy kontenerów dane usługi Azure Monitor są dostępne w witrynie Azure Portal. Aby wyświetlić metryki dla grupy kontenerów, przejdź do strony **Przegląd** dla grupy kontenerów. Tutaj możesz zobaczyć wstępnie utworzone wykresy dla każdego z dostępnych danych.
+Po utworzeniu grupy kontenerów dane usługi Azure Monitor są dostępne w witrynie Azure Portal. Aby wyświetlić metryki dla grupy kontenerów, przejdź do strony **Przegląd** dla grupy kontenerów. W tym miejscu można wyświetlić wstępnie utworzone wykresy dla każdej z dostępnych metryk.
 
 ![podwójny wykres][dual-chart]
 
-W grupie kontenerów, która zawiera wiele kontenerów, należy użyć [wymiaru][monitor-dimension] do przedstawienia metryk według kontenera. Aby utworzyć wykres z metrykami pojedynczego kontenera, wykonaj następujące kroki:
+W grupie kontenerów zawierającej wiele kontenerów Użyj [wymiaru][monitor-dimension] , aby przedstawić metryki według kontenera. Aby utworzyć wykres z metrykami pojedynczego kontenera, wykonaj następujące kroki:
 
-1. Na stronie **Przegląd** wybierz jeden z wykresów metrycznych, takich jak **PROCESOR .** 
-1. Wybierz przycisk **Zastosuj podział** i wybierz pozycję **Nazwa kontenera**.
+1. Na stronie **Przegląd** wybierz jeden z wykresów metryk, takich jak **procesor CPU**. 
+1. Wybierz przycisk **Zastosuj podział** , a następnie wybierz pozycję **nazwa kontenera**.
 
 ![wymiar][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Pobieranie metryk — interfejs wiersza polecenia platformy Azure
 
-Metryki dla wystąpień kontenerów można również zbierać przy użyciu interfejsu wiersza polecenia platformy Azure. Najpierw pobierz identyfikator grupy kontenerów za pomocą następującego polecenia. Zastąp element `<resource-group>` nazwą grupy zasobów, a element `<container-group>` zastąp nazwą grupy kontenerów.
+Metryki wystąpień kontenerów można również zbierać przy użyciu interfejsu wiersza polecenia platformy Azure. Najpierw pobierz identyfikator grupy kontenerów za pomocą następującego polecenia. Zastąp element `<resource-group>` nazwą grupy zasobów, a element `<container-group>` zastąp nazwą grupy kontenerów.
 
 
 ```console
@@ -78,7 +78,7 @@ Timestamp            Name       Average
 2019-04-23 23:10:00  CPU Usage  0.5
 ```
 
-Zmień wartość parametru `--metric` w poleceniu, aby uzyskać inne obsługiwane [metryki][supported-metrics]. Na przykład użyj następującego polecenia, aby uzyskać metryki użycia **pamięci.** 
+Zmień wartość `--metric` parametru w poleceniu, aby uzyskać inne [obsługiwane metryki][supported-metrics]. Na przykład użyj poniższego polecenia, aby uzyskać metryki użycia **pamięci** . 
 
 ```azurecli
 az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
@@ -101,7 +101,7 @@ Timestamp            Name          Average
 2019-04-23 23:10:00  Memory Usage  8093696.0
 ```
 
-Dla grupy wielu kontenerów `containerName` wymiar można dodać do zwracania metryk na kontener.
+Dla grupy wielokontenera można dodać `containerName` wymiar do metryk zwracanych dla kontenera.
 
 ```azurecli
 az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
@@ -140,7 +140,7 @@ Timestamp            Name          Containername             Average
 
 Zobacz [Omówienie monitorowania na platformie Azure][azure-monitoring], aby dowiedzieć się więcej na temat monitorowania na platformie Azure.
 
-Dowiedz się, jak tworzyć [alerty metryki,][metric-alert] aby otrzymywać powiadomienia, gdy metryka dla wystąpień kontenerów platformy Azure przekroczy próg.
+Dowiedz się, jak tworzyć [alerty metryk][metric-alert] , aby otrzymywać powiadomienia, gdy metryka Azure Container Instances przekracza próg.
 
 <!-- IMAGES -->
 [cpu-chart]: ./media/container-instances-monitor/cpu-multi.png
