@@ -61,6 +61,8 @@
     - name: Najlepsze rozwiązania
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
+    - name: Używanie usług QnA Maker i LUIS
+      href: choose-natural-language-processing-service.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Zarządzanie zasobami platformy Azure
@@ -74,6 +76,8 @@
           href: How-To/collaborate-knowledge-base.md
         - name: Włącz uczenie aktywne
           href: How-To/use-active-learning.md
+        - name: Zmiana domyślnej odpowiedzi
+          href: How-To/change-default-answer.md
     - name: Zarządzanie bazą wiedzy
       items:
         - name: Tworzenie bazy wiedzy

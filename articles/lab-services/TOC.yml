@@ -14,16 +14,34 @@
       href: tutorial-create-custom-lab.md
     - name: 2. Dostęp do laboratorium
       href: tutorial-use-custom-lab.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Szablony usługi Resource Manager
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates'
     - name: Azure PowerShell
       href: samples-powershell.md
+      items:
+        - name: Dodawanie użytkownika zewnętrznego do laboratorium
+          href: scripts/add-external-user-to-lab.md
+        - name: Dodawanie obrazów z witryny Marketplace do laboratorium
+          href: scripts/add-marketplace-images-to-lab.md
+        - name: Tworzenie obrazu niestandardowego z wirtualnego dysku twardego
+          href: scripts/create-custom-image-from-vhd.md
+        - name: Tworzenie roli niestandardowej w laboratorium
+          href: scripts/create-custom-role-in-lab.md
+        - name: Ustawianie dozwolonych rozmiarów maszyn wirtualnych w laboratorium
+          href: scripts/set-allowed-vm-sizes-in-lab.md
     - name: Azure PowerShell — moduł Az.DevTestLabs2
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
     - name: Interfejs wiersza polecenia platformy Azure
       href: samples-cli.md
+      items:
+        - name: Tworzenie i weryfikowanie dostępności maszyny wirtualnej
+          href: scripts/create-verify-virtual-machine-in-lab-cli.md
+        - name: Uruchamianie maszyny wirtualnej
+          href: scripts/start-connect-virtual-machine-in-lab-cli.md
+        - name: Zatrzymywanie i usuwanie maszyny wirtualnej
+          href: scripts/stop-delete-virtual-machine-in-lab-cli.md
 - name: Pojęcia
   items:
     - name: DevTest Labs — pojęcia
@@ -247,7 +265,7 @@
   items:
     - name: Interfejs wiersza polecenia
       href: /cli/azure/lab
-    - name: Program PowerShell
+    - name: PowerShell
       href: /powershell/module/az.devtestlabs
     - name: PowerShell — przykładowy moduł Az.DevTestLabs2
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
@@ -259,7 +277,7 @@
   items:
     - name: Aktualizacje platformy Azure
       href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs'

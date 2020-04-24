@@ -192,8 +192,10 @@
           href: storage-how-to-recover-deleted-account.md
 - name: Dokumentacja
   items:
-    - name: Azure PowerShell
+    - name: Azure PowerShell (Storage)
       href: /powershell/module/az.storage
+    - name: Azure PowerShell (StorageSync)
+      href: /powershell/module/az.storagesync
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/storage
     - name: .NET

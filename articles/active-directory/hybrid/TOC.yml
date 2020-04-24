@@ -152,6 +152,8 @@
               href: plan-migrate-adfs-pass-through-authentication.md
             - name: Przenoszenie grup z jednego lasu do drugiego
               href: how-to-connect-migrate-groups.md
+            - name: Migrowanie do uwierzytelniania w chmurze przy użyciu wprowadzania etapowego
+              href: how-to-connect-staged-rollout.md
         - name: Zagadnienia dotyczące projektowania tożsamości hybrydowej
           items:
             - name: Omówienie zagadnień dotyczących projektowania tożsamości hybrydowej

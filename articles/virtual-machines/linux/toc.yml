@@ -45,9 +45,13 @@
       href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
     - name: 14b — Integrowanie rozwiązania Jenkins z usługą Azure DevOps
       href: ../../jenkins/tutorial-build-deploy-jenkins.md
-    - name: 15a — Usługa DevOps dla rozwiązań IaaS i PaaS na platformie Azure
+    - name: 15a — Konfigurowanie strategii wdrażania stopniowego
       href: tutorial-devops-azure-pipelines-classic.md
-    - name: 15b — Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure Pipelines (YAML)
+    - name: 15b — Konfigurowanie strategii wdrażania kanarkowego
+      href: tutorial-azure-devops-canary-strategy.md
+    - name: 15c — Konfigurowanie strategii wdrażania w środowisku niebieskim i zielonym
+      href: tutorial-azure-devops-blue-green-strategy.md
+    - name: 15d — Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a — Tworzenie stosu LAMP
       href: tutorial-lamp-stack.md

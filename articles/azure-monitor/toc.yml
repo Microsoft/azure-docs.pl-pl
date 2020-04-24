@@ -1199,6 +1199,8 @@
           href: platform/diagnostic-logs-schema.md
         - name: Schemat dziennika aktywności
           href: platform/activity-log-schema.md
+    - name: Odwołanie do tabeli dzienników usługi Azure Monitor
+      href: 'https://docs.microsoft.com/azure/azure-monitor/reference/'
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Interfejs wiersza polecenia platformy Azure — usługa Application Insights (wersja zapoznawcza)

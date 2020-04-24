@@ -34,6 +34,8 @@
       href: security-baselines-overview.md
     - name: Linia bazowa zabezpieczeń usługi Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Backup
+      href: ../../backup/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Batch
       href: ../../batch/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Container Registry
@@ -56,3 +58,5 @@
       href: ../../postgresql/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi SQL Database
       href: ../../sql-database/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Storage
+      href: ../../storage/common/security-baseline.md

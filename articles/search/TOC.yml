@@ -232,7 +232,7 @@
           items:
             - name: Tworzenie sugestora
               href: index-add-suggesters.md
-            - name: Dodawanie sugestii lub autouzupełniania
+            - name: Dodawanie autouzupełniania i sugestii
               href: search-autocomplete-tutorial.md
         - name: Wykonywanie zapytań z poziomu usługi Power Apps
           href: search-howto-powerapps.md
@@ -256,8 +256,8 @@
           href: search-query-troubleshoot-collection-filters.md
         - name: Omówienie filtrów kolekcji
           href: search-query-understand-collection-filters.md
-        - name: Przykład wielopoziomowych aspektów
-          href: search-example-adventureworks-multilevel-faceting.md
+        - name: Filtrowanie według języka
+          href: search-filters-language.md
     - name: Wyniki
       items:
         - name: Praca z wynikami
@@ -455,10 +455,6 @@
           href: 'https://wolterskluwereap.azurewebsites.net/'
         - name: Pokaz plików JFK
           href: 'https://aka.ms/jfkfiles'
-        - name: Pokaz dotyczący zatrudnienia w Nowym Jorku
-          href: 'https://aka.ms/azjobsdemo'
-        - name: Przeszukiwanie przypadków użycia
-          href: 'https://searchsamples.azurewebsites.net/'
     - name: Szkolenia
       items:
         - name: Wprowadzenie (Microsoft Learn)

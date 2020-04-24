@@ -20,8 +20,8 @@
       href: quickstart-synapse-studio.md
     - name: Tworzenie pul
       items:
-        - name: Tworzenie puli platformy Apache Spark przy użyciu narzędzi internetowych
-          href: ./spark/apache-spark-notebook-create-spark-use-sql.md
+        - name: Tworzenie notesu platformy Apache Spark przy użyciu narzędzi internetowych
+          href: quickstart-apache-spark-notebook.md
         - name: Tworzenie puli platformy Apache Spark przy użyciu witryny Azure Portal
           href: quickstart-create-apache-spark-pool.md
         - name: Tworzenie puli SQL

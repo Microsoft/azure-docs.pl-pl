@@ -26,6 +26,8 @@
       href: learn/automation-tutorial-runbook-textual-python2.md
 - name: Pojęcia
   items:
+    - name: Omówienie uwierzytelniania konta usługi Automation
+      href: automation-security-overview.md
     - name: Przegląd wykonywania elementu runbook
       href: automation-runbook-execution.md
     - name: Omówienie hybrydowych procesów roboczych elementów Runbook
@@ -48,6 +50,8 @@
           href: automation-create-standalone-account.md
         - name: Tworzenie konta usługi Automation za pomocą szablonu usługi Resource Manager
           href: automation-create-account-template.md
+        - name: Konfigurowanie uwierzytelniania przy użyciu usługi Amazon Web Services
+          href: automation-config-aws-account.md
         - name: Zarządzanie kontem Uruchom jako usługi Automation
           href: manage-runas-account.md
         - name: Zarządzanie uprawnieniami ról i zabezpieczeniami
@@ -156,6 +160,8 @@
               href: automation-dsc-diagnostics.md
             - name: Rozwiązywanie problemów z platformą DSC
               href: troubleshoot/desired-state-configuration.md
+            - name: Historia wersji rozszerzenia Azure DSC
+              href: automation-dsc-extension-history.md
         - name: Śledzenie zmian i spis
           items:
             - name: Omówienie
@@ -248,8 +254,6 @@
           href: automation-create-alert-triggered-runbook.md
         - name: Zarządzanie usługami Office 365
           href: manage-office-365.md
-        - name: Uwierzytelnianie elementów runbook w usłudze Amazon Web Services
-          href: automation-config-aws-account.md
         - name: Wdrażanie maszyny wirtualnej AWS przy użyciu elementu runbook usługi Automation
           href: automation-scenario-aws-deployment.md
         - name: Wdrażanie szablonu usługi Resource Manager przy użyciu elementu runbook

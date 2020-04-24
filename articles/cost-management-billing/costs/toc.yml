@@ -10,6 +10,9 @@
       items:
         - name: Rozpoczynanie analizowania kosztów
           href: quick-acm-cost-analysis.md
+        - name: Tworzenie budżetu przy użyciu szablonu
+          href: quick-create-budget-template.md
+          displayName: 'ARM template, resource manager template'
     - name: Samouczki
       items:
         - name: Tworzenie budżetów i zarządzanie nimi

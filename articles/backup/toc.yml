@@ -60,6 +60,8 @@
           href: sql-support-matrix.md
         - name: Tabela obsługi kopii zapasowych platformy SAP HANA
           href: sap-hana-backup-support-matrix.md
+        - name: Tabela obsługi kopii zapasowych udziałów plików na platformie Azure
+          href: azure-file-share-support-matrix.md
         - name: Obsługiwane jednostki SKU maszyny wirtualnej dla usługi Azure Policy
           href: backup-azure-policy-supported-skus.md
     - name: Często zadawane pytania
@@ -346,6 +348,8 @@
           href: backup-azure-security-feature.md
         - name: Wbudowane mechanizmy zabezpieczeń
           href: backup-security-controls.md
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Rozwiązywanie problemów
       items:
         - name: Maszyna wirtualna platformy Azure
