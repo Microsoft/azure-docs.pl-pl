@@ -1,26 +1,21 @@
 ---
 title: Samouczek — zarządzanie dyskami platformy Azure za pomocą programu Azure PowerShell
 description: Z tego samouczka dowiesz się, jak tworzyć dyski platformy Azure dla maszyn wirtualnych i zarządzać nimi za pomocą programu Azure PowerShell
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.subservice: disks
-ms.openlocfilehash: 1957ae620cccee619c8608b79d9e804c356adf17
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: c9f514b70eda7d74950576a1a6f3a1199cddb232
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81455669"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100332"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Samouczek — zarządzanie dyskami platformy Azure za pomocą programu Azure PowerShell
 
@@ -37,15 +32,15 @@ Maszyny wirtualne platformy Azure przechowują swoje systemy operacyjne, aplikac
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również uruchomić usługę Cloud Shell w [https://shell.azure.com/powershell](https://shell.azure.com/powershell)osobnej karcie przeglądarki, przechodząc do . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 ## <a name="default-azure-disks"></a>Domyślne dyski platformy Azure
 
 Do tworzonej maszyny wirtualnej platformy Azure automatycznie dołączane są dwa dyski. 
 
-**Dysk systemu operacyjnego** — dyski systemu operacyjnego mogą mieć rozmiar do 4 terabajtów i hostują system operacyjny maszyny wirtualnej. Jeśli utworzysz nową maszynę wirtualną (VM) z obrazu [portalu Azure Marketplace,](https://azure.microsoft.com/marketplace/) zazwyczaj 127 GB (ale niektóre obrazy mają mniejsze rozmiary dysku systemu operacyjnego). Dysk systemu operacyjnego ma domyślnie przypisaną literę dysku *C:*. Konfiguracja buforowania dysku systemu operacyjnego jest zoptymalizowana pod kątem wydajności systemu operacyjnego. Dysk systemu operacyjnego **nie powinien** hostować aplikacji ani danych. Na potrzeby aplikacji i danych należy użyć dysku z danymi, które zostanie szczegółowo opisany w dalszej części tego artykułu.
+**Dysk systemu operacyjnego** — dyski systemu operacyjnego mogą mieć rozmiar do 4 terabajtów i hostują system operacyjny maszyny wirtualnej. Jeśli tworzysz nową maszynę wirtualną z obrazu [portalu Azure Marketplace](https://azure.microsoft.com/marketplace/) , zwykle 127 GB (ale niektóre obrazy mają mniejsze rozmiary dysków systemu operacyjnego). Dysk systemu operacyjnego ma domyślnie przypisaną literę dysku *C:*. Konfiguracja buforowania dysku systemu operacyjnego jest zoptymalizowana pod kątem wydajności systemu operacyjnego. Dysk systemu operacyjnego **nie powinien** hostować aplikacji ani danych. Na potrzeby aplikacji i danych należy użyć dysku z danymi, które zostanie szczegółowo opisany w dalszej części tego artykułu.
 
-**Dysk tymczasowy** — dyski tymczasowe używają dysku SSD, który znajduje się na tym samym hoście platformy Azure co maszyna wirtualna. Dyski tymczasowe są wysoce wydajne i można przy ich użyciu wykonywać operacje takie jak przetwarzanie danych tymczasowych. Jednak jeśli maszyna wirtualna zostanie przeniesiona do nowego hosta, wszystkie dane przechowywane na dysku tymczasowym zostaną usunięte. Rozmiar dysku tymczasowego zależy od [rozmiaru maszyny Wirtualnej](sizes.md). Dyski tymczasowe mają domyślnie przypisaną literę dysku *D:*.
+**Dysk tymczasowy** — dyski tymczasowe używają dysku SSD, który znajduje się na tym samym hoście platformy Azure co maszyna wirtualna. Dyski tymczasowe są wysoce wydajne i można przy ich użyciu wykonywać operacje takie jak przetwarzanie danych tymczasowych. Jednak jeśli maszyna wirtualna zostanie przeniesiona do nowego hosta, wszystkie dane przechowywane na dysku tymczasowym zostaną usunięte. Rozmiar dysku tymczasowego zależy od [rozmiaru maszyny wirtualnej](sizes.md). Dyski tymczasowe mają domyślnie przypisaną literę dysku *D:*.
 
 ## <a name="azure-data-disks"></a>Dyski z danymi platformy Azure
 

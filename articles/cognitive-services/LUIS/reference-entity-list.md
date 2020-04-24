@@ -1,33 +1,33 @@
 ---
-title: Typ jednostki listy — USŁUGA LUIS
-description: Encje listy reprezentują stały, zamknięty zestaw powiązanych słów wraz z ich synonimami. Usługa LUIS nie odnajduje dodatkowych wartości dla jednostek listy. Użyj funkcji Poleć, aby wyświetlić sugestie dotyczące nowych słów na podstawie bieżącej listy.
+title: List — typ jednostki — LUIS
+description: Jednostki listy reprezentują stały, zamknięty zestaw powiązanych słów wraz z ich synonimami. LUIS nie odnajduje dodatkowych wartości dla jednostek listy. Użyj opcji zalecamy, aby zobaczyć sugestie dotyczące nowych słów na podstawie bieżącej listy.
 ms.topic: reference
 ms.date: 03/12/2020
-ms.openlocfilehash: 795d16bc2e0c4223ff3ac283a72493923d3ab355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297241"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097578"
 ---
 # <a name="list-entity"></a>Jednostka listy
 
-Encje listy reprezentują stały, zamknięty zestaw powiązanych słów wraz z ich synonimami. Usługa LUIS nie odnajduje dodatkowych wartości dla jednostek listy. Użyj funkcji **Poleć,** aby wyświetlić sugestie dotyczące nowych słów na podstawie bieżącej listy. Jeśli istnieje więcej niż jedna encja listy o tej samej wartości, każda jednostka jest zwracana w kwerendzie punktu końcowego.
+Jednostki listy reprezentują stały, zamknięty zestaw powiązanych słów wraz z ich synonimami. LUIS nie odnajduje dodatkowych wartości dla jednostek listy. Użyj opcji **zalecamy** , aby zobaczyć sugestie dotyczące nowych słów na podstawie bieżącej listy. Jeśli istnieje więcej niż jedna jednostka listy o tej samej wartości, każda jednostka zostanie zwrócona w zapytaniu punktu końcowego.
 
-Jednostka listy nie jest nauczona maszynowo. Jest to dokładne dopasowanie tekstu. Usługa LUIS oznacza dowolne dopasowanie do elementu na dowolnej liście jako encję w odpowiedzi.
+Jednostka listy nie jest zauczenia maszynowego. Jest to dokładne dopasowanie tekstu. LUIS oznacza dowolne dopasowanie do elementu na dowolnej liście jako jednostki w odpowiedzi.
 
-**Encja jest dobrze dopasowana, gdy dane tekstowe:**
+**Jednostka jest dobrym dopasowaniem, gdy dane tekstowe:**
 
 * Są znanym zestawem.
-* Nie zmienia się często. Jeśli chcesz często zmieniać listę lub chcesz, aby lista się rozwijała, lepszym wyborem jest prosta encja promowana za pomocą listy fraz.
-* Zestaw nie przekracza maksymalnych [granic](luis-boundaries.md) usługi LUIS dla tego typu jednostki.
-* Tekst w wypowiedź jest dopasowanie bez uwzględniania wielkości liter z synonimem lub nazwy kanonicznej. Usługa LUIS nie używa listy poza dopasowaniem. Dopasowywanie rozmyte, wynikające, liczba mnoga i inne odmiany nie są rozpoznawane za pomocą jednostki listy. Aby zarządzać wariacjami, rozważ użycie [wzorca](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) z opcjonalną składnią tekstu.
+* Nie zmienia się często. Jeśli musisz zmienić listę często lub chcesz, aby lista została powiększana, to lepszy wybór jest prostą jednostką z listą fraz.
+* Zestaw nie przekracza maksymalnych [granic](luis-limits.md) usługi LUIS dla tego typu jednostki.
+* Tekst w wypowiedź jest dopasowaniem bez uwzględniania wielkości liter z synonimem lub nazwą kanoniczną. LUIS nie używa listy poza dopasowaniem. Dopasowywanie rozmyte, Rdzeniowanie, plural i inne odmiany nie są rozpoznawane za pomocą jednostki listy. Aby zarządzać wariacjami, rozważ użycie [wzorca](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) z opcjonalną składnią tekstu.
 
-![encja listy](./media/luis-concept-entities/list-entity.png)
+![Jednostka listy](./media/luis-concept-entities/list-entity.png)
 
-## <a name="example-json-to-import-into-list-entity"></a>Przykład .json do zaimportowania do encji listy
+## <a name="example-json-to-import-into-list-entity"></a>Przykład. JSON do zaimportowania do jednostki listy
 
-  Wartości można importować do istniejącej encji listy przy użyciu następującego formatu .json:
+  Możesz zaimportować wartości do istniejącej jednostki listy przy użyciu następującego formatu JSON:
 
   ```JSON
   [
@@ -52,18 +52,18 @@ Jednostka listy nie jest nauczona maszynowo. Jest to dokładne dopasowanie tekst
 
 ## <a name="example-json-response"></a>Przykładowa odpowiedź JSON
 
-Załóżmy, że aplikacja `Cities`ma listę, o nazwie , co pozwala na zmiany nazw miast, w tym miasta lotniska (Sea-tac), kod lotniska (SEA), pocztowy kod pocztowy (98101) i numer kierunkowy telefonu (206).
+Załóżmy, że aplikacja ma listę o nazwie `Cities`, co pozwala na odmianę nazw miast, w tym miasto lotniska (Sea-Tac), kod lotniska (Sea), kod pocztowy (98101) i numer kierunkowy telefonu (206).
 
-|Element listy|Synonimy przedmiotów|
+|Element listy|Synonimy elementów|
 |---|---|
 |`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
 |`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
 
 `book 2 tickets to paris`
 
-W poprzedniej wypowiedź `paris` słowo jest mapowane do elementu `Cities` paris jako część jednostki listy. Encja listy jest zgodna zarówno znormalizowaną nazwą elementu, jak i synonimami elementu.
+W poprzednim wypowiedź słowo `paris` jest zamapowane na element paryski jako część jednostki `Cities` listy. Jednostka listy dopasowuje zarówno znormalizowaną nazwę elementu, jak i synonimy elementów.
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
 ```JSON
   "entities": [
@@ -81,10 +81,10 @@ W poprzedniej wypowiedź `paris` słowo jest mapowane do elementu `Cities` paris
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
 
-Jest to JSON, jeśli `verbose=false` jest ustawiona w ciągu zapytania:
+Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -96,7 +96,7 @@ Jest to JSON, jeśli `verbose=false` jest ustawiona w ciągu zapytania:
 }
 ```
 
-Jest to JSON, jeśli `verbose=true` jest ustawiona w ciągu zapytania:
+Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -127,9 +127,9 @@ Jest to JSON, jeśli `verbose=true` jest ustawiona w ciągu zapytania:
 
 |Obiekt danych|Nazwa jednostki|Wartość|
 |--|--|--|
-|Encja listy|`Cities`|`paris`|
+|Jednostka listy|`Cities`|`paris`|
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym [samouczku](tutorial-list-entity.md)dowiesz się, jak użyć **jednostki listy** do wyodrębniania dokładnych dopasowań tekstu z listy znanych elementów.
+W tym [samouczku](tutorial-list-entity.md)dowiesz się, jak za pomocą **jednostki listy** wyodrębnić dokładne dopasowania tekstu z listy znanych elementów.

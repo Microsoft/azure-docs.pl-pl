@@ -1,25 +1,20 @@
 ---
-title: Samouczek — ponowne utworzenie kopii zapasowej maszyn wirtualnych systemu Windows w portalu Azure
+title: Samouczek — Tworzenie kopii zapasowych maszyn wirtualnych z systemem Windows w Azure Portal
 description: Z tego samouczka dowiesz się, jak za pomocą witryny Azure Portal chronić maszyny wirtualne z systemem Windows przy użyciu usługi Azure Backup.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e1fa85dc63bc23760888192f2118158e73320a86
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4b5e4fe585b01670c06d5ff08fb3d221086d94d2
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456111"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100434"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Samouczek: tworzenie kopii zapasowych i przywracanie plików dla maszyn wirtualnych z systemem Windows na platformie Azure
 
@@ -45,11 +40,11 @@ Utwórz prostą, zaplanowaną, codzienną operację tworzenia kopii zapasowych w
 1. W menu po lewej stronie wybierz pozycję **Maszyny wirtualne**. 
 1. Z listy wybierz maszynę wirtualną do utworzenia kopii zapasowej.
 1. W bloku maszyny wirtualnej w sekcji **Operacje** kliknij pozycję **Kopia zapasowa**. Spowoduje to otwarcie bloku **Włącz kopię zapasową**.
-1. W **Magazynie usługi Recovery Services** kliknij pozycję **Utwórz nowy** i podaj nazwę nowego magazynu. Nowy magazyn jest tworzony w tej samej grupie zasobów i lokalizacji co maszyna wirtualna.
-1. W obszarze **Wybierz zasady tworzenia kopii zapasowych**zachowaj domyślną **(nową) zasadę dzienną,** a następnie kliknij pozycję **Włącz kopię zapasową**.
+1. W **Magazynie usługi Recovery Services** kliknij pozycję **Utwórz nowy** i podaj nazwę nowego magazynu. Nowy magazyn zostanie utworzony w tej samej grupie zasobów i lokalizacji co maszyna wirtualna.
+1. W obszarze **Wybierz zasady tworzenia kopii zapasowej**zachowaj domyślne **(nowe) DailyPolicy**, a następnie kliknij pozycję **Włącz kopię zapasową**.
 1. Aby utworzyć początkowy punkt odzyskiwania, w bloku **Kopia zapasowa** kliknij opcję **Utwórz kopię zapasową teraz**.
-1. Na **bloku Kopia zapasowa teraz** kliknij ikonę kalendarza, użyj kontrolki kalendarza, aby określić, jak długo punkt przywracania jest zachowywany, a następnie kliknij przycisk **OK**.
-1. W **bloku kopii zapasowej** dla maszyny Wirtualnej zobaczysz liczbę punktów przywracania, które zostały ukończone.
+1. W bloku **Utwórz kopię zapasową teraz** kliknij ikonę kalendarza, użyj kontrolki kalendarz, aby określić, jak długo punkt przywracania jest zachowywany, a następnie kliknij przycisk **OK**.
+1. W bloku **kopia zapasowa** maszyny wirtualnej zobaczysz liczbę ukończonych punktów przywracania.
 
 
     ![Punkty odzyskiwania](./media/tutorial-backup-vms/backup-complete.png)
@@ -77,14 +72,14 @@ W tym przykładzie przedstawiono sposób odzyskiwania pliku obrazu używanego na
 1. W bloku maszyny wirtualnej w sekcji **Operacje** kliknij pozycję **Kopia zapasowa**. Zostanie otwarty blok **Kopia zapasowa**. 
 1. W menu w górnej części bloku wybierz opcję **Odzyskiwanie pliku**. Zostanie otwarty blok **Odzyskiwanie plików**.
 1. W obszarze **Krok 1. Wybieranie punktu odzyskiwania** wybierz punkt odzyskiwania z listy rozwijanej.
-1. W obszarze **Krok 2. Pobieranie skryptu na potrzeby przeglądania i odzyskiwania plików** kliknij przycisk **Pobierz plik wykonywalny**. Skopiuj hasło do pliku i zapisz go w bezpiecznym miejscu.
+1. W obszarze **Krok 2. Pobieranie skryptu na potrzeby przeglądania i odzyskiwania plików** kliknij przycisk **Pobierz plik wykonywalny**. Skopiuj hasło do pliku i Zapisz je w bezpiecznym miejscu.
 1. Na komputerze lokalnym otwórz **Eksploratora plików**, przejdź do folderu **Pobrane** i skopiuj pobrany plik exe. Nazwa pliku jest poprzedzona nazwą maszyny wirtualnej. 
-1. Na maszynie wirtualnej (przy użyciu połączenia RDP) wklej plik exe na pulpicie maszyny Wirtualnej. 
+1. Na maszynie wirtualnej (przy użyciu połączenia RDP) Wklej plik. exe na pulpicie maszyny wirtualnej. 
 1. Przejdź do pulpitu maszyny wirtualnej i kliknij dwukrotnie plik exe. Zostanie uruchomiony wiersz polecenia. Program instaluje punkt odzyskiwania jako udział plików, do którego można uzyskać dostęp. Po zakończeniu tworzenia udziału wpisz **q**, aby zamknąć wiersz polecenia.
 1. Na maszynie wirtualnej otwórz **Eksploratora plików** i przejdź do dysku oznaczonego literą, której użyto na potrzeby udziału plików.
 1. Przejdź do folderu \inetpub\wwwroot, skopiuj plik **iisstart.png** z udziału plików i wklej go do folderu \inetpub\wwwroot. Na przykład skopiuj plik F:\inetpub\wwwroot\iisstart.png i wklej go do folderu C:\inetpub\wwwroot, aby odzyskać plik.
 1. Na komputerze lokalnym otwórz kartę przeglądarki, na której nawiązano połączenie z adresem IP maszyny wirtualnej i wyświetlono domyślną stronę usług IIS. Naciśnij klawisze CTRL + F5, aby odświeżyć stronę przeglądarki. Teraz można zobaczyć, że obraz został przywrócony.
-1. Na komputerze lokalnym wróć do karty przeglądarki internetowej z witryną Azure Portal i w obszarze **Krok 3. Odinstalowanie dysków po odzyskiwaniu** kliknij przycisk **Odinstaluj dyski**. Jeśli pominiesz ten krok, połączenie z punktem instalacji zostanie automatycznie zamknięte po 12 godzinach. Po tych 12 godzinach musisz pobrać nowy skrypt, aby utworzyć nowy punkt instalacji.
+1. Na komputerze lokalnym wróć do karty przeglądarki internetowej z witryną Azure Portal i w obszarze **Krok 3. Odinstalowanie dysków po odzyskiwaniu** kliknij przycisk **Odinstaluj dyski**. Jeśli pominiesz ten krok, połączenie z punktem instalacji zostanie automatycznie zamknięte po 12 godzinach. Po upływie 12 godzin należy pobrać nowy skrypt, aby utworzyć nowy punkt instalacji.
 
 
 

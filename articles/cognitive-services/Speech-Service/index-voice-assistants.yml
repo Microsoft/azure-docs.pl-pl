@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Dokumentacja asystentów głosowych
-summary: Asystenci głosowi korzystający z usługi Mowy umożliwiają deweloperom tworzenie naturalnych, podobnych do człowieka interfejsów konwersacyjnych dla swoich aplikacji i środowisk.
+summary: Asystenci głosu korzystający z usługi mowy umożliwiają deweloperom tworzenie naturalnych, przypominających konwersacje interfejsów dla aplikacji i środowisk.
 metadata:
-  title: Dokumentacja asystentów głosowych — samouczki, informacje o interfejsie API — usługi Azure Cognitive Services | Dokumenty firmy Microsoft
+  title: Dokumentacja dotycząca asystentów głosowych — samouczki i dokumentacja interfejsu API — Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -11,20 +11,20 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: cbef289ebc79e20b928db684af01a4eaeb1c0ce8
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: c4b1c6348e834f83e20c612678075405a14f1a9d
+  ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81401469"
+  ms.lasthandoff: 04/23/2020
+  ms.locfileid: "82106206"
 landingContent:
-- title: Asystentów głosowych – informacje
+- title: Asystenci głosu — informacje
   linkLists:
   - linkListType: overview
     links:
     - text: Co to jest asystent głosowy?
       url: voice-assistants.md
-    - text: Co to jest aplikacja Polecenia niestandardowe?
+    - text: Co to jest aplikacja poleceń niestandardowych?
       url: custom-commands.md
     - text: Co to jest mowa Direct Line?
       url: direct-line-speech.md
@@ -32,8 +32,12 @@ landingContent:
     links:
     - text: Często zadawane pytania dotyczące asystentów głosowych
       url: faq-voice-assistants.md
-    - text: Ceny asystentów głosowych
+    - text: Cennik asystentów głosowych
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+  - linkListType: get-started
+    links:
+    - text: Kompilowanie i wdrażanie przykładowego asystenta głosowego w ramach subskrypcji platformy Azure (GitHub)
+      url: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
 - title: Tworzenie za pomocą poleceń niestandardowych
   linkLists:
   - linkListType: quickstart
@@ -56,7 +60,7 @@ landingContent:
       url: how-to-custom-speech-commands-confirmations.md
     - text: Dodawanie korekcji w jednym kroku
       url: how-to-custom-speech-commands-one-step-correction.md
-- title: Rozwijaj się za pomocą direct line speech
+- title: Programowanie przy użyciu bezpośredniej linii mowy
   linkLists:
   - linkListType: quickstart
     links:
@@ -70,7 +74,7 @@ landingContent:
     links:
     - text: Dodawanie obsługi głosu do bota przy użyciu zestawu SDK usługi Mowa
       url: tutorial-voice-enable-your-bot-speech-sdk.md
-- title: Rozwijaj za pomocą niestandardowego słowa kluczowego
+- title: Programowanie za pomocą słowa kluczowego Custom
   linkLists:
   - linkListType: how-to-guide
     links:

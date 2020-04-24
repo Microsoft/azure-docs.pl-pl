@@ -1,37 +1,31 @@
 ---
-title: Szybki start — tworzenie maszyny Wirtualnej systemu Windows za pomocą programu Azure PowerShell
+title: Szybki Start — Tworzenie maszyny wirtualnej z systemem Windows przy użyciu Azure PowerShell
 description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć maszynę wirtualną z systemem Windows za pomocą programu Azure PowerShell
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9b927105d2fd74051c7449f52a886d71e6ad0ad7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 45160e8bc406318f3b3924142899e33640ee6b73
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458134"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097952"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Windows za pomocą programu Azure PowerShell
 
 Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia programu PowerShell lub skryptów. Z tego przewodnika Szybki start dowiesz się, jak za pomocą modułu programu Azure PowerShell wdrożyć na platformie Azure maszynę wirtualną z systemem Windows Server 2016. Połączysz się również z maszyną wirtualną za pomocą protokołu RDP i zainstalujesz serwer internetowy usług IIS, aby zobaczyć, jak działa ta maszyna.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również uruchomić usługę Cloud Shell w [https://shell.azure.com/powershell](https://shell.azure.com/powershell)osobnej karcie przeglądarki, przechodząc do . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
@@ -76,9 +70,9 @@ Użyj następującego polecenia, aby utworzyć sesję usług pulpitu zdalnego z 
 mstsc /v:publicIpAddress
 ```
 
-W oknie **Zabezpieczenia systemu Windows** wybierz pozycję **Więcej opcji**, a następnie pozycję **Użyj innego konta**. Wpisz nazwę użytkownika jako*nazwę użytkownika* **localhost**\\, wprowadź hasło utworzone dla maszyny wirtualnej, a następnie kliknij przycisk **OK**.
+W oknie **Zabezpieczenia systemu Windows** wybierz pozycję **Więcej opcji**, a następnie pozycję **Użyj innego konta**. Wpisz nazwę użytkownika jako **localhost**\\*nazwę użytkownika*localhost, wprowadź hasło utworzone dla maszyny wirtualnej, a następnie kliknij przycisk **OK**.
 
-Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Kliknij **przycisk Tak** lub **Kontynuuj,** aby utworzyć połączenie
+Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Kliknij przycisk **tak** lub **Kontynuuj** , aby utworzyć połączenie
 
 ## <a name="install-web-server"></a>Instalowanie serwera internetowego
 

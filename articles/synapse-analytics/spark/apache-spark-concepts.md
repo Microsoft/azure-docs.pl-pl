@@ -1,6 +1,6 @@
 ---
-title: Platforma Iskrowa Apache w usłudze Azure Synapse Analytics — podstawowe pojęcia
-description: Ten artykuł zawiera wprowadzenie do platformy Apache Spark w usłudze Azure Synapse Analytics i różnych pojęć.
+title: Apache Spark w usłudze Azure Synapse Analytics — podstawowe pojęcia
+description: Ten artykuł zawiera wprowadzenie do Apache Spark usługi Azure Synapse Analytics i różnych koncepcji.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,58 +9,58 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 3cf654e77bf68c5194a0213d4452242b5c44e234
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b1db306ffdb1c05c880e5fc639de2cc1db130d8e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423670"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096286"
 ---
-# <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark w podstawowe koncepcje analizy usługi Azure Synapse Analytics
+# <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark w podstawowych pojęciach dotyczących usługi Azure Synapse Analytics
 
-Apache Spark jest platformą przetwarzania równoległego, która obsługuje przetwarzanie w pamięci w celu zwiększania wydajności aplikacji do analizy danych big data. Apache Spark w usłudze Azure Synapse Analytics jest jedną z implementacji platformy Microsoft apache Spark w chmurze. 
+Apache Spark jest platformą przetwarzania równoległego, która obsługuje przetwarzanie w pamięci w celu zwiększania wydajności aplikacji do analizy danych big data. Apache Spark w usłudze Azure Synapse Analytics jest jednym z implementacji Apache Spark w chmurze firmy Microsoft. 
 
-Usługa Azure Synapse ułatwia tworzenie i konfigurowanie funkcji platformy Spark na platformie Azure. Usługa Azure Synapse udostępnia inną implementację tych funkcji platformy Spark, które są udokumentowane w tym miejscu.
+Usługa Azure Synapse ułatwia tworzenie i Konfigurowanie funkcji platformy Spark na platformie Azure. Usługa Azure Synapse zapewnia inną implementację tych możliwości platformy Spark, które są udokumentowane w tym miejscu.
 
-## <a name="spark-pools-preview"></a>Baseny iskrowe (wersja zapoznawcza)
+## <a name="spark-pools-preview"></a>Pule Spark (wersja zapoznawcza)
 
-Pula platformy Spark (wersja zapoznawcza) jest tworzona w witrynie Azure portal. Jest to definicja puli platformy Spark, która po utworzeniu wystąpienia jest używana do tworzenia wystąpienia platformy Spark, które przetwarza dane. Po utworzeniu puli platformy Spark istnieje ona tylko jako metadane; żadne zasoby nie są zużywane, uruchomione ani naliczane. A Spark puli ma szereg właściwości, które kontrolują właściwości Spark wystąpienia; te cechy obejmują, ale nie są ograniczone do nazwy, rozmiar, zachowanie skalowania, czas na żywo.
+W Azure Portal zostanie utworzona Pula Spark (wersja zapoznawcza). Jest to definicja puli platformy Spark, która w przypadku wystąpienia jest używana do tworzenia wystąpienia platformy Spark, które przetwarza dane. Po utworzeniu puli platformy Spark istnieje ona tylko jako metadane; żadne zasoby nie są używane, nie są uruchamiane ani obciążane opłatami. Pula platformy Spark ma serię właściwości kontrolujących charakterystykę wystąpienia platformy Spark; te cechy obejmują, ale nie są ograniczone do nazw, rozmiarów, zachowania skalowania, czasu wygaśnięcia.
 
-Ponieważ z tworzeniem pul platformy Spark nie ma żadnych kosztów dolara ani zasobu, można utworzyć dowolną liczbę z dowolną liczbą różnych konfiguracji. Uprawnienia mogą być również stosowane do pul platformy Spark, dzięki czemu użytkownicy mają dostęp tylko do niektórych, a nie innych.
+Ponieważ nie ma dolarów ani kosztu zasobów związanych z tworzeniem pul platformy Spark, można utworzyć dowolną liczbę z dowolną liczbą różnych konfiguracji. Uprawnienia mogą być również stosowane do pul platformy Spark, co pozwala użytkownikom tylko na dostęp do niektórych i innych osób.
 
-Najlepszym rozwiązaniem jest utworzenie mniejszych pul platformy Spark, które mogą być używane do programowania i debugowania, a następnie większe dla uruchamiania obciążeń produkcyjnych.
+Najlepszym rozwiązaniem jest utworzenie mniejszych pul platformy Spark, które mogą być używane do programowania i debugowania, a następnie większych do uruchamiania obciążeń produkcyjnych.
 
-Możesz przeczytać, jak utworzyć pulę platformy Spark i zobaczyć wszystkie ich właściwości tutaj [Wprowadzenie do puli platformy Spark w usłudze Synapse Analytics](apache-spark-notebook-create-spark-use-sql.md#create-an-apache-spark-pool)
+Możesz zapoznać się z artykułem jak utworzyć pulę platformy Spark i zobaczyć wszystkie ich właściwości tutaj, aby rozpocząć [pracę z pulami platformy Spark w Synapse Analytics](../quickstart-create-apache-spark-pool.md)
 
-## <a name="spark-instances"></a>Instancje iskry
+## <a name="spark-instances"></a>Wystąpienia platformy Spark
 
-Wystąpienia platformy Spark są tworzone podczas łączenia się z pulą platformy Spark, tworzenia sesji i uruchamiania zadania. Ponieważ wielu użytkowników może mieć dostęp do jednej puli platformy Spark, dla każdego użytkownika, który łączy się, tworzone jest nowe wystąpienie platformy Spark. 
+Wystąpienia platformy Spark są tworzone podczas łączenia się z pulą platformy Spark, tworzenia sesji i uruchamiania zadania. Ponieważ wielu użytkowników może mieć dostęp do pojedynczej puli platformy Spark, dla każdego z nich zostanie utworzone nowe wystąpienie platformy Spark. 
 
-Po przesłaniu drugiego zadania, a następnie jeśli istnieje pojemność w puli, istniejące wystąpienie Platformy Spark ma również pojemność, a następnie istniejące wystąpienie będzie przetwarzać zadanie; jeśli nie i istnieje pojemność na poziomie puli, zostanie utworzone nowe wystąpienie platformy Spark.
+Po przesłaniu drugiego zadania, jeśli istnieje pojemność w puli, istniejące wystąpienie platformy Spark ma również pojemność, a istniejące wystąpienie przetworzy zadanie. Jeśli nie, a na poziomie puli istnieje pojemność, zostanie utworzone nowe wystąpienie platformy Spark.
 
 ## <a name="examples"></a>Przykłady
 
 ### <a name="example-1"></a>Przykład 1
 
-- Utworzysz pulę platformy Spark o nazwie SP1; ma stały rozmiar klastra 20 węzłów.
-- Prześlij zadanie notesu, J1, który używa 10 węzłów, Spark wystąpienie, SI1 jest tworzony do przetwarzania zadania.
-- Teraz prześlij inne zadanie, J2, który używa 10 węzłów, ponieważ nadal istnieje pojemność w puli i wystąpienie, J2, jest przetwarzany przez SI1.
-- Gdyby J2 poprosił o 11 węzłów, nie byłoby pojemności w dodatku SP1 lub SI1. W takim przypadku, jeśli J2 pochodzi z notesu, zadanie zostanie odrzucone; jeśli J2 pochodzi z zadania wsadowego, a następnie będzie w kolejce.
+- Tworzysz pulę platformy Spark o nazwie SP1; ma stały rozmiar klastra 20 węzłów.
+- Przesyłasz zadanie notesu, J1, które używa 10 węzłów, wystąpienie platformy Spark, SI1 jest tworzone w celu przetworzenia zadania.
+- Teraz przesyłamy kolejne zadanie, j2, które korzysta z 10 węzłów, ponieważ nadal istnieje pojemność puli i wystąpienia, a J2 jest przetwarzana przez SI1.
+- Jeśli J2 zażądali 11 węzłów, nie było możliwości w programie SP1 ani SI1. W takim przypadku, jeśli J2 pochodzi z notesu, zadanie zostanie odrzucone. Jeśli J2 pochodzi z zadania usługi Batch, zostanie on umieszczony w kolejce.
 
 ### <a name="example-2"></a>Przykład 2
 
-- Tworzenie wywołania puli platformy Spark SP2; ma włączoną automatyczną skalę 10 – 20 węzłów
-- Prześlij zadanie notesu, J1, który używa 10 węzłów, Spark wystąpienie, SI1, jest tworzony do przetwarzania zadania.
-- Teraz prześlij inne zadanie, J2, który używa 10 węzłów, ponieważ nadal istnieje pojemność w puli auto wystąpienia rośnie do 20 węzłów i przetwarza J2.
+- Należy utworzyć wywołanie puli Spark z dodatkiem SP2. ma włączoną funkcję automatycznego skalowania o wielkości 10 – 20
+- Przesyłasz zadanie notesu, J1, które używa 10 węzłów, wystąpienia Spark, SI1, jest tworzone w celu przetworzenia zadania.
+- Teraz przesyłamy kolejne zadanie, j2, które korzysta z 10 węzłów, ponieważ nadal istnieje pojemność w puli, którą wystąpienie jest rozrastane do 20 węzłów i procesów J2.
 
 ### <a name="example-3"></a>Przykład 3
 
-- Utworzysz pulę platformy Spark o nazwie SP1; ma stały rozmiar klastra 20 węzłów.
-- Prześlij zadanie notesu, J1, który używa 10 węzłów, Spark wystąpienie, SI1 jest tworzony do przetwarzania zadania.
-- Inny użytkownik, U2, przesyła zadanie, J3, który używa 10 węzłów, nowe wystąpienie platformy Spark, SI2, jest tworzony do przetwarzania zadania.
-- Teraz prześlij inne zadanie, J2, który używa 10 węzłów, ponieważ nadal istnieje pojemność w puli i wystąpienie, J2, jest przetwarzany przez SI1.
+- Tworzysz pulę platformy Spark o nazwie SP1; ma stały rozmiar klastra 20 węzłów.
+- Przesyłasz zadanie notesu, J1, które używa 10 węzłów, wystąpienie platformy Spark, SI1 jest tworzone w celu przetworzenia zadania.
+- Inny użytkownik, U2, przesyła zadanie, J3, które używa 10 węzłów, nowe wystąpienie platformy Spark, SI2, zostało utworzone w celu przetworzenia zadania.
+- Teraz przesyłamy kolejne zadanie, j2, które korzysta z 10 węzłów, ponieważ nadal istnieje pojemność puli i wystąpienie, j2, jest przetwarzane przez SI1.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [Apache Spark Dokumentacja](https://spark.apache.org/docs/2.4.4/)
+- [Dokumentacja Apache Spark](https://spark.apache.org/docs/2.4.4/)

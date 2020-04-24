@@ -1,25 +1,21 @@
 ---
 title: Samouczek — zarządzanie maszynami wirtualnymi za pomocą programu PowerShell
 description: Z tego samouczka dowiesz się, jak za pomocą programu Azure PowerShell zarządzać maszynami wirtualnymi platformy Azure, stosując kontrolę dostępu opartą na rolach, zasady, blokady i tagi
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: tfitzmac
-manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.tgt_pltfrm: vm-windows
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: d8cb1895c980fa9f84983ea8364cb2f0f5dcb982
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b4ce4cd53f9dda3d0f96e892128d543e59c83b26
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456026"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100366"
 ---
-# <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Samouczek: Dowiedz się więcej o zarządzaniu maszynami wirtualnymi systemu Windows za pomocą programu Azure PowerShell
+# <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Samouczek: informacje o zarządzaniu maszynami wirtualnymi systemu Windows za pomocą Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -27,7 +23,7 @@ ms.locfileid: "81456026"
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również uruchomić usługę Cloud Shell w [https://shell.azure.com/powershell](https://shell.azure.com/powershell)osobnej karcie przeglądarki, przechodząc do . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 ## <a name="understand-scope"></a>Objaśnienie zakresu
 
@@ -67,7 +63,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Jeśli pojawi się błąd ** \<informujący o identyfikatorze guid zabezpieczeń zabezpieczeń,> nie istnieje w katalogu,** nowa grupa nie jest propagowana w usłudze Azure Active Directory. Spróbuj ponownie uruchomić polecenie.
+Jeśli zostanie wyświetlony komunikat o błędzie informujący, że **identyfikator> GUID podmiotu zabezpieczeń \<nie istnieje w katalogu**, Nowa grupa nie jest propagowana w ramach Azure Active Directory. Spróbuj ponownie uruchomić polecenie.
 
 Zazwyczaj należy powtórzyć ten proces dla roli *Współautor sieci* i *Współautor konta magazynu*, aby upewnić się, że użytkownicy mogą zarządzać wdrożonymi zasobami. W tym artykule można pominąć te kroki.
 
@@ -167,7 +163,7 @@ Zostanie wyświetlony komunikat o błędzie informujący, że nie można zakońc
 
 ## <a name="tag-resources"></a>Tagowanie zasobów
 
-Zastosuj [tagi](../../azure-resource-manager/management/tag-resources.md) do zasobów platformy Azure, aby logicznie zorganizować je według kategorii. Każdy tag składa się z nazwy i wartości. Na przykład można zastosować nazwę „Środowisko” i wartość „Produkcyjne” do wszystkich zasobów w środowisku produkcyjnym.
+[Znaczniki](../../azure-resource-manager/management/tag-resources.md) do zasobów platformy Azure są stosowane w celu logicznego organizowania ich według kategorii. Każdy tag składa się z nazwy i wartości. Na przykład można zastosować nazwę „Środowisko” i wartość „Produkcyjne” do wszystkich zasobów w środowisku produkcyjnym.
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
@@ -232,7 +228,7 @@ W tym samouczku został utworzony obraz niestandardowy maszyny wirtualnej. W tym
 > * Ochrona krytycznych zasobów za pomocą blokad
 > * Tagowanie zasobów na potrzeby rozliczeń i zarządzania
 
-Przejdź do następnego samouczka, aby dowiedzieć się, jak zidentyfikować zmiany i zarządzać aktualizacjami pakietów na maszynie wirtualnej systemu Linux.
+Przejdź do następnego samouczka, aby dowiedzieć się, jak identyfikować zmiany i zarządzać aktualizacjami pakietów na maszynie wirtualnej z systemem Linux.
 
 > [!div class="nextstepaction"]
 > [Zarządzanie maszynami wirtualnymi](tutorial-config-management.md)

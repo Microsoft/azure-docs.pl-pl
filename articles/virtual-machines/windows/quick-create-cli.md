@@ -1,41 +1,35 @@
 ---
-title: Szybki start — tworzenie maszyny Wirtualnej systemu Windows przy użyciu interfejsu wiersza polecenia platformy Azure
-description: W tym przewodniku Szybki start dowiesz się, jak utworzyć maszynę wirtualną systemu Windows za pomocą interfejsu wiersza polecenia platformy Azure
-services: virtual-machines-windows
-documentationcenter: virtual-machines
+title: Szybki Start — Tworzenie maszyny wirtualnej z systemem Windows przy użyciu interfejsu wiersza polecenia platformy Azure
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć maszynę wirtualną z systemem Windows przy użyciu interfejsu wiersza polecenia platformy Azure
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 37f86f480e0d2a46bb54ad9b041fb1892a9ebbc4
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: c6f1663924f338b6b17c760afe64527f563f5bc2
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458168"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098020"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Windows za pomocą interfejsu wiersza polecenia platformy Azure
 
 Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. Z tego przewodnika Szybki start dowiesz się, jak za pomocą interfejsu wiersza polecenia platformy Azure wdrożyć na platformie Azure maszynę wirtualną z systemem Windows Server 2016. Aby zobaczyć działanie maszyny wirtualnej, połączysz się z nią za pomocą protokołu RDP i zainstalujesz serwer internetowy usług IIS.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również uruchomić usługę Cloud Shell w [https://shell.azure.com/bash](https://shell.azure.com/bash)osobnej karcie przeglądarki, przechodząc do . Wybierz **pozycję Kopiuj,** aby skopiować bloki kodu, wkleić go do powłoki chmury, a następnie naciśnij klawisz **Enter,** aby go uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash). Wybierz pozycję **Kopiuj** , aby skopiować bloki kodu, wkleić je do Cloud Shell i naciśnij klawisz **Enter** , aby go uruchomić.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus:*
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -43,10 +37,10 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). W poniższym przykładzie utworzono maszynę wirtualną o nazwie *myVM*. W tym przykładzie użyto *azureuser* dla nazwy użytkownika administracyjnego. 
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). W poniższym przykładzie utworzono maszynę wirtualną o nazwie *myVM*. W tym przykładzie używa się *azureuser* dla nazwy użytkownika administracyjnego. 
 
-Należy podać hasło spełniające [wymagania dotyczące haseł dla maszyn wirtualnych platformy Azure.](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
-) Korzystając z poniższego przykładu, zostanie wyświetlony monit o wprowadzenie hasła w wierszu polecenia. Można również dodać `--admin-password` parametr z wartością hasła. Nazwa użytkownika i hasło będą używane później, po nawiązaniu połączenia z maszyną wirtualną.
+Należy podać hasło spełniające [wymagania dotyczące haseł dla maszyn wirtualnych platformy Azure](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+). W poniższym przykładzie zostanie wyświetlony monit o wprowadzenie hasła w wierszu polecenia. Można również dodać `--admin-password` parametr z wartością hasła. Nazwa użytkownika i hasło będą później używane podczas nawiązywania połączenia z maszyną wirtualną.
 
 ```azurecli-interactive
 az vm create \

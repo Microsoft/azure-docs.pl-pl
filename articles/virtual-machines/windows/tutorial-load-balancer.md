@@ -1,25 +1,19 @@
 ---
-title: Samouczek — równoważenie obciążenia maszyn wirtualnych systemu Windows na platformie Azure
+title: Samouczek — Równoważenie obciążenia maszyn wirtualnych z systemem Windows na platformie Azure
 description: Z tego samouczka dowiesz się, jak za pomocą programu Azure PowerShell utworzyć moduł równoważenia obciążenia dla bezpiecznej aplikacji o wysokiej dostępności na 3 maszynach wirtualnych z systemem Windows
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 781ee9136c13f75ab53c662225cc12b28b1fb02e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 0ece182765be2ee3b18334569799769e251d1af4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81455703"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100349"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Samouczek: równoważenie obciążenia maszyn wirtualnych z systemem Windows na platformie Azure w celu utworzenia aplikacji o wysokiej dostępności za pomocą programu Azure PowerShell
 Równoważenie obciążenia zwiększa dostępność dzięki rozdzieleniu żądań przychodzących pomiędzy wiele maszyn wirtualnych. W tym samouczku poznasz poszczególne składniki modułu równoważenia obciążenia platformy Azure, które dystrybuują ruch i zapewniają wysoką dostępność. Omawiane kwestie:
@@ -46,10 +40,10 @@ Aby sterować przepływem ruchu, zdefiniuj reguły równoważenia obciążenia d
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również uruchomić usługę Cloud Shell w [https://shell.azure.com/powershell](https://shell.azure.com/powershell)osobnej karcie przeglądarki, przechodząc do . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 ## <a name="create-azure-load-balancer"></a>Tworzenie modułu równoważenia obciążenia na platformie Azure
-W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania poszczególnych składników modułu równoważenia obciążenia. Zanim będzie można utworzyć moduł równoważenia obciążenia, należy utworzyć grupę zasobów za pomocą polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupLoadBalancer* w lokalizacji *EastUS:*
+W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania poszczególnych składników modułu równoważenia obciążenia. Zanim będzie można utworzyć moduł równoważenia obciążenia, należy utworzyć grupę zasobów za pomocą polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupLoadBalancer* w lokalizacji *Wschodnie* :
 
 ```azurepowershell-interactive
 New-AzResourceGroup `

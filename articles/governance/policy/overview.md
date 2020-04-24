@@ -3,52 +3,52 @@ title: Omówienie zasad platformy Azure
 description: Azure Policy to usługa platformy Azure, która umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w środowisku platformy Azure.
 ms.date: 04/21/2020
 ms.topic: overview
-ms.openlocfilehash: 68005a9a07e7f081a646c75566a0be4046f078ad
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 4ec09c8a38e22fc14980422bfe9a80a2bf3edda4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770580"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097374"
 ---
 # <a name="what-is-azure-policy"></a>Co to jest Azure Policy?
 
-Usługa Azure Policy pomaga w egzekwowaniu standardów organizacyjnych i ocenie zgodności na dużą skalę. Za pośrednictwem pulpitu nawigacyjnego zgodności zapewnia zagregowany widok do oceny ogólnego stanu środowiska, z możliwością przechodzenia do szczegółów do szczegółowości dla zasobów, na zasady. Pomaga również zapewnić zgodność zasobów poprzez zbiorcze korygowanie istniejących zasobów i automatyczne korygowanie nowych zasobów.
+Azure Policy pomaga wymuszać standardy organizacyjne i oceniać zgodność na skalę. Pulpit nawigacyjny zgodności udostępnia Zagregowany widok do oceny ogólnego stanu środowiska, z możliwością przechodzenia do szczegółów dla poszczególnych zasobów i stopnia szczegółowości poszczególnych zasad. Pomaga również zapewnić zgodność zasobów dzięki korygowaniu zbiorczemu dla istniejących zasobów i automatycznym korygowaniu nowych zasobów.
 
-Typowe przypadki użycia dla usługi Azure Policy obejmują implementowanie nadzoru w celu zapewnienia spójności zasobów, zgodności z przepisami, zabezpieczeń, kosztów i zarządzania. Definicje zasad dla tych typowych przypadków użycia są już dostępne w środowisku platformy Azure jako wbudowane, aby ułatwić rozpoczęcie pracy.
+Typowe przypadki użycia Azure Policy obejmują wdrażanie ładu pod kątem spójności zasobów, zgodności z przepisami, bezpieczeństwa, kosztów i zarządzania. Definicje zasad dla tych typowych przypadków użycia są już dostępne w środowisku platformy Azure jako wbudowane, aby pomóc Ci rozpocząć pracę.
 
 ## <a name="overview"></a>Omówienie
 
-Usługa Azure Policy ocenia zasoby na platformie Azure, porównując właściwości tych zasobów z regułami biznesowymi. Te reguły biznesowe, opisane w [formacie JSON,](./concepts/definition-structure.md)są znane jako [definicje zasad.](#policy-definition) Aby uprościć zarządzanie, można zgrupować kilka reguł biznesowych w celu utworzenia [inicjatywy politycznej](#initiative-definition) (czasami nazywanej _policySet_). Po utworzeniu reguł biznesowych definicja lub inicjatywa zasad jest [przypisywana](#assignments) do dowolnego zakresu zasobów, które obsługuje platforma Azure, takich jak grupy [zarządzania,](../management-groups/overview.md)subskrypcje, [grupy zasobów](../../azure-resource-manager/management/overview.md#resource-groups)lub zasoby indywidualne. Przypisanie ma zastosowanie do wszystkich zasobów w [zakresie](../../azure-resource-manager/management/overview.md#understand-scope) tego przypisania.
-W razie potrzeby można wykluczyć podkwzakoń.
+Azure Policy oblicza zasoby na platformie Azure, porównując właściwości tych zasobów z regułami biznesowymi. Te reguły biznesowe, opisane w [formacie JSON](./concepts/definition-structure.md), są nazywane [definicjami zasad](#policy-definition). Aby uprościć zarządzanie, można zgrupować kilka reguł firmowych w celu utworzenia [inicjatywy](#initiative-definition) dotyczącej zasad (nazywanych czasem _policySet_). Po utworzeniu reguł firmy definicja zasad lub inicjatywa jest [przypisywana](#assignments) do dowolnego zakresu zasobów obsługiwanych przez platformę Azure, takich jak [grupy zarządzania](../management-groups/overview.md), subskrypcje, [grupy zasobów](../../azure-resource-manager/management/overview.md#resource-groups)lub poszczególne zasoby. Przypisanie dotyczy wszystkich zasobów w [zakresie](../../azure-resource-manager/management/overview.md#understand-scope) tego przydziału.
+W razie potrzeby można wykluczyć podzakresy.
 
-Usługa Azure Policy używa [formatu JSON](./concepts/definition-structure.md) do utworzenia logiki używanej przez ocenę do określenia, czy zasób jest zgodny, czy nie. Definicje obejmują metadane i regułę zasad. Zdefiniowana reguła może używać funkcji, parametrów, operatorów logicznych, warunków i [aliasów](./concepts/definition-structure.md#aliases) właściwości, aby dokładnie dopasować odpowiedni scenariusz. Reguła zasad określa, które zasoby w zakresie przydziału są oceniane.
+Azure Policy używa [formatu JSON](./concepts/definition-structure.md) do tworzenia logiki używanej przez ewaluacyjną do określenia, czy zasób jest zgodny, czy nie. Definicje obejmują metadane i regułę zasad. Zdefiniowana reguła może używać funkcji, parametrów, operatorów logicznych, warunków i [aliasów](./concepts/definition-structure.md#aliases) właściwości, aby dokładnie dopasować żądany scenariusz. Reguła zasad określa, które zasoby z zakresu przydziału zostaną obliczone.
 
-### <a name="understand-evaluation-outcomes"></a>Zrozumienie wyników oceny
+### <a name="understand-evaluation-outcomes"></a>Poznaj wyniki oceny
 
-Zasoby są oceniane w określonych godzinach w cyklu życia zasobu, cyklu życia przypisania zasad i dla regularnej bieżącej oceny zgodności. Poniżej przedstawiono godziny lub zdarzenia, które powodują, że zasób ma zostać oceniony:
+Zasoby są oceniane w określonym czasie podczas cyklu życia zasobów, cyklu życia przypisania zasad i dla regularnej ciągłej oceny zgodności. Poniżej przedstawiono czasy lub zdarzenia, które powodują obliczenie zasobu:
 
 - Zasób jest tworzony, aktualizowany lub usuwany w zakresie z przypisaniem zasad.
-- Zasady lub inicjatywy jest nowo przypisany do zakresu.
-- Zasady lub inicjatywy już przypisane do zakresu jest aktualizowana.
-- Podczas standardowego cyklu oceny zgodności, który występuje raz na 24 godziny.
+- Zasady lub inicjatywa są nowo przypisane do zakresu.
+- Zasady lub inicjatywa już przypisane do zakresu zostały zaktualizowane.
+- W trakcie standardowego cyklu oceny zgodności, który występuje co 24 godziny.
 
-Aby uzyskać szczegółowe informacje o tym, kiedy i jak odbywa się ocena zasad, zobacz [Wyzwalacze ewaluacji](./how-to/get-compliance-data.md#evaluation-triggers).
+Aby uzyskać szczegółowe informacje o tym, kiedy i jak odbywa się Ocena zasad, zobacz [wyzwalacze oceny](./how-to/get-compliance-data.md#evaluation-triggers).
 
-### <a name="control-the-response-to-an-evaluation"></a>Kontrola reakcji na ocenę
+### <a name="control-the-response-to-an-evaluation"></a>Sterowanie odpowiedzią na ocenę
 
-Reguły biznesowe dotyczące obsługi niezgodnych zasobów różnią się znacznie w zależności od organizacji. Przykłady tego, jak organizacja chce, aby platforma odpowiadała na zasób niebędący skargą:
+Reguły biznesowe do obsługi niezgodnych zasobów różnią się między organizacjami. Przykłady sposobu, w jaki organizacja chce odpowiedzieć na platformę do zasobów niezwiązanych z skargą:
 
-- Odmów zmiany zasobu
-- Rejestrowanie zmiany w zasobie
-- Zmienianie zasobu przed zmianą
-- Zmienianie zasobu po zmianie
-- Wdrażanie powiązanych zgodnych zasobów
+- Odmowa zmiany zasobu
+- Rejestruj zmianę w zasobie
+- Zmień zasób przed zmianą
+- Zmień zasób po zmianie
+- Wdróż powiązane zasoby zgodne
 
-Usługa Azure Policy umożliwia każdej z tych odpowiedzi biznesowych za pomocą [efektów.](./concepts/effects.md) Efekty są ustawiane w części **reguły zasad** [definicji zasad](./concepts/definition-structure.md).
+Azure Policy każda z tych odpowiedzi jest możliwa w wyniku zastosowania [efektów](./concepts/effects.md). Efekty są ustawiane w części **reguły zasad** w [definicji zasad](./concepts/definition-structure.md).
 
 ### <a name="remediate-non-compliant-resources"></a>Korygowanie niezgodnych zasobów
 
-Podczas gdy te efekty wpływają przede wszystkim na zasób, gdy zasób jest tworzony lub aktualizowany, usługa Azure Policy obsługuje również radzenie sobie z istniejącymi zasobami niezgodnymi bez konieczności zmiany tego zasobu. Aby uzyskać więcej informacji na temat zgodności istniejących zasobów, zobacz [korygowanie zasobów](./how-to/remediate-resources.md).
+Chociaż te efekty mają wpływ głównie na zasób, gdy zasób jest tworzony lub aktualizowany, Azure Policy obsługuje również obsługę istniejących niezgodnych zasobów bez konieczności zmiany tego zasobu. Aby uzyskać więcej informacji na temat tworzenia zgodności istniejących zasobów, zobacz [korygowaniem Resources](./how-to/remediate-resources.md).
 
 ### <a name="video-overview"></a>Omówienie wideo
 
@@ -58,13 +58,13 @@ Poniższe omówienie usługi Azure Policy dotyczy kompilacji 2018. Aby pobrać s
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-### <a name="azure-policy-and-rbac"></a>Zasady platformy Azure i rbac
+### <a name="azure-policy-and-rbac"></a>Azure Policy i RBAC
 
-Istnieje kilka kluczowych różnic między zasadami platformy Azure a kontrolą dostępu opartą na rolach (RBAC). Usługa Azure Policy ocenia stan, badając właściwości zasobów, które są reprezentowane w Menedżerze zasobów i właściwości niektórych dostawców zasobów. Usługa Azure Policy nie ogranicza akcji (nazywanych również _operacjami)._ Usługa Azure Policy zapewnia, że stan zasobów jest zgodny z regułami biznesowymi bez obawy, kto dokonał zmiany lub kto ma uprawnienia do wprowadzania zmian.
+Istnieje kilka najważniejszych różnic między Azure Policy i kontroli dostępu opartej na rolach (RBAC). Azure Policy szacuje stan, sprawdzając właściwości zasobów, które są reprezentowane w Menedżer zasobów i właściwościach niektórych dostawców zasobów. Azure Policy nie ogranicza akcji (nazywanych również _operacjami_). Azure Policy zapewnia, że stan zasobów jest zgodny z regułami biznesowymi bez obaw dla użytkowników, którzy wprowadzili zmianę lub którzy mają uprawnienia do wprowadzania zmian.
 
-RBAC koncentruje się na zarządzaniu [działaniami](../../role-based-access-control/resource-provider-operations.md) użytkowników w różnych zakresach. Jeśli wymagana jest kontrola akcji, rbac jest właściwym narzędziem do użycia. Nawet jeśli osoba ma dostęp do wykonania akcji, jeśli wynikiem jest niezgodny zasób, usługa Azure Policy nadal blokuje tworzenie lub aktualizowanie.
+RBAC skupia się na zarządzaniu [akcjami](../../role-based-access-control/resource-provider-operations.md) użytkownika w różnych zakresach. Jeśli wymagana jest kontrola nad akcją, funkcja RBAC jest poprawnym narzędziem do użycia. Nawet jeśli osoba ma dostęp do wykonywania akcji, jeśli wynik jest niezgodnym zasobem, Azure Policy nadal blokuje Tworzenie lub aktualizowanie.
 
-Połączenie rbac i usługi Azure Policy zapewniają pełną kontrolę zakresu na platformie Azure.
+Kombinacja RBAC i Azure Policy zapewniają pełną kontrolę zakresu na platformie Azure.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Uprawnienia RBAC w usłudze Azure Policy
 
@@ -73,16 +73,16 @@ Usługa Azure Policy ma kilka uprawnień, znanych jako operacje, w ramach dwóch
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Wiele wbudowanych ról udziela uprawnień zasobom usługi Azure Policy. Rola **współautora zasad zasobów** obejmuje większość operacji usługi Azure Policy. **Właściciel** ma pełne uprawnienia. Współautor **Contributor** i **Program Reader** mają dostęp do wszystkich operacji _odczytu_ usługi Azure Policy. **Współautor** może wyzwolić korygowanie zasobów, ale nie może _tworzyć_ definicji ani przypisań.
+Wiele wbudowanych ról udziela uprawnień zasobom usługi Azure Policy. Rola **współautor zasad zasobów** obejmuje większość operacji Azure Policy. **Właściciel** ma pełne uprawnienia. Zarówno **współautor** , jak i **czytelnik** mają dostęp do wszystkich operacji _odczytu_ Azure Policy. **Współautor** może wyzwolić korygowanie zasobów, ale nie może _tworzyć_ definicji ani przypisań.
 
 Jeśli żadna z wbudowanych ról nie ma wymaganych uprawnień, należy utworzyć [rolę niestandardową](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Tożsamość zarządzana **deployIfNotExists** przypisanie zasad wymaga wystarczających uprawnień do tworzenia lub aktualizowania zasobów zawartych w szablonie. Aby uzyskać więcej informacji, zobacz [Konfigurowanie definicji zasad w celu korygowania](./how-to/remediate-resources.md#configure-policy-definition).
+> Zarządzana tożsamość przypisywania zasad **deployIfNotExists** musi mieć wystarczające uprawnienia do tworzenia lub aktualizowania zasobów zawartych w szablonie. Aby uzyskać więcej informacji, zobacz [Konfigurowanie definicji zasad na potrzeby korygowania](./how-to/remediate-resources.md#configure-policy-definition).
 
-### <a name="resources-covered-by-azure-policy"></a>Zasoby objęte zasadami platformy Azure
+### <a name="resources-covered-by-azure-policy"></a>Zasoby objęte Azure Policy
 
-Usługa Azure Policy ocenia wszystkie zasoby na platformie Azure. W przypadku niektórych dostawców zasobów, takich jak [Konfiguracja gościa,](./concepts/guest-configuration.md) [Usługa Azure Kubernetes](../../aks/intro-kubernetes.md)i [Usługa Azure Key Vault,](../../key-vault/key-vault-overview.md)istnieje głębsza integracja w zakresie zarządzania ustawieniami i obiektami. Aby dowiedzieć się więcej, zobacz [Tryby dostawcy zasobów](./concepts/definition-structure.md).
+Azure Policy szacuje wszystkie zasoby na platformie Azure. W przypadku niektórych dostawców zasobów, takich jak [Konfiguracja gościa](./concepts/guest-configuration.md), [usługa Azure Kubernetes](../../aks/intro-kubernetes.md)i [Azure Key Vault](../../key-vault/key-vault-overview.md), istnieje dokładniejsza integracja z zarządzaniem ustawieniami i obiektami. Aby dowiedzieć się więcej, zobacz [tryby dostawcy zasobów](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Zalecenia dotyczące zarządzania zasadami
 
@@ -100,7 +100,7 @@ Poniżej przedstawiono kilka wskazówek i porad, które warto uwzględnić:
 - Podczas oceny przypisania inicjatywy oceniane są również wszystkie zasady w ramach tej inicjatywy.
   Jeśli konieczne jest indywidualne ocenianie zasad, lepszym rozwiązaniem jest nieuwzględnianie ich w inicjatywie.
 
-## <a name="azure-policy-objects"></a>Obiekty zasad platformy Azure
+## <a name="azure-policy-objects"></a>Azure Policy obiektów
 
 ### <a name="policy-definition"></a>Definicja zasad
 
@@ -108,13 +108,13 @@ Proces tworzenia i implementowania zasad w usłudze Azure Policy rozpoczyna się
 
 Usługa Azure Policy oferuje kilka wbudowanych zasad, które są domyślnie dostępne. Przykład:
 
-- **Dozwolone jednostki SKU konta magazynu** (odmów) określa, czy konto magazynu jest wdrażane w zestawie rozmiarów jednostek SKU. Jej efektem jest odrzucanie wszystkich kont magazynu, które nie są zgodne z zestawem zdefiniowanych rozmiarów SKU.
-- **Dozwolony typ zasobu** (odmowa): definiuje typy zasobów, które można wdrożyć. Jej efektem jest odrzucanie wszystkich zasobów, które nie należą do tej zdefiniowanej listy.
-- **Dozwolone lokalizacje** (odmowa): Ogranicza dostępne lokalizacje dla nowych zasobów. Jej efekt jest używany do wymuszania wymagań dotyczących zgodności obszarów geograficznych.
-- **Dozwolone jednostki SKU maszyny wirtualnej** (odmowa): Określa zestaw jednostek SKU maszyny wirtualnej, które można wdrożyć.
-- **Dodaj znacznik do zasobów** (Modyfikuj): Stosuje wymagany tag i jego wartość domyślną, jeśli nie jest określony przez żądanie wdrożenia.
-- **Dołącz tag i jego wartość domyślną** (Dołącz): Wymusza wymagany znacznik i jego wartość do zasobu.
-- **Niedozwolone typy zasobów** (Odmów): Zapobiega wdrażaniu listy typów zasobów.
+- **Dozwolone jednostki SKU konta magazynu** (odmowa): określa, czy wdrożone konto magazynu znajduje się w zestawie rozmiarów jednostki SKU. Jej efektem jest odrzucanie wszystkich kont magazynu, które nie są zgodne z zestawem zdefiniowanych rozmiarów SKU.
+- **Dozwolony typ zasobu** (Odmów): określa typy zasobów, które można wdrożyć. Jej efektem jest odrzucanie wszystkich zasobów, które nie należą do tej zdefiniowanej listy.
+- **Dozwolone lokalizacje** (Odmów): ogranicza dostępne lokalizacje dla nowych zasobów. Jej efekt jest używany do wymuszania wymagań dotyczących zgodności obszarów geograficznych.
+- **Dozwolone jednostki SKU maszyny wirtualnej** (Odmów): określa zestaw jednostek SKU maszyn wirtualnych, które można wdrożyć.
+- **Dodaj tag do zasobów** (Modyfikuj): stosuje wymagany tag i jego wartość domyślną, jeśli nie jest określony przez żądanie wdrożenia.
+- **Dołącz tag i jego wartość domyślną** (append): wymusza wymagany tag i jego wartość do zasobu.
+- **Niedozwolone typy zasobów** (Odmów): uniemożliwiają wdrożenie listy typów zasobów.
 
 Aby móc zaimplementować te definicje zasad (wbudowane i niestandardowe), musisz je przypisać. Dowolną z tych zasad można przypisać za pośrednictwem witryny Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
@@ -133,7 +133,7 @@ Dodatkowe informacje na temat parametrów zasad zamieszczono w artykule [Struktu
 Definicja inicjatywy to kolekcja definicji zasad dostosowanych w celu osiągnięcia jednego ogólnego celu. Definicje inicjatyw upraszczają przypisywanie definicji zasad i zarządzanie nimi. Upraszczają działania przez grupowanie zestawu zasad w ramach pojedynczego elementu. Można na przykład utworzyć inicjatywę o nazwie **Włączanie monitorowania w Azure Security Center**, której celem jest monitorowanie wszystkich dostępnych zaleceń dotyczących zabezpieczeń w Azure Security Center.
 
 > [!NOTE]
-> Zestaw SDK, taki jak narzędzia interfejsu wiersza polecenia platformy Azure i program Azure PowerShell, używa właściwości i parametrów o nazwie **PolicySet** w celu odwoływania się do inicjatyw.
+> Zestaw SDK, taki jak interfejs wiersza polecenia platformy Azure i Azure PowerShell, używają właściwości i parametrów o nazwie **PolicySet** , aby odwołać się do inicjatyw.
 
 W ramach tej inicjatywy mogą występować definicje zasad, takie jak:
 
@@ -153,22 +153,22 @@ Na przykład masz definicję inicjatywy **initiativeC** oraz definicje zasad **p
 W tym scenariuszu podczas definiowania parametrów inicjatywy **initiativeC** dostępne są trzy opcje:
 
 - Użycie parametrów definicji zasad w ramach tej inicjatywy: w tym przykładzie _allowedLocations_ i _allowedSingleLocation_ stają się parametrami inicjatywy dla **initiativeC**.
-- Przekaż wartości parametrom definicji zasad w ramach tej definicji inicjatywy. W tym przykładzie można podać listę lokalizacji do **policyA**parametr - **allowedLocations** i **policyB**'s parametr - **allowedSingleLocation**. Wartości można przekazać również podczas przypisywania tej inicjatywy.
+- Przekaż wartości parametrom definicji zasad w ramach tej definicji inicjatywy. W tym przykładzie można podać listę lokalizacji parametru **Policy**- **allowedLocations** i **policyB**- **allowedSingleLocation**. Wartości można przekazać również podczas przypisywania tej inicjatywy.
 - Podaj listę opcji _value_, które mogą być używane podczas przypisywania tej inicjatywy. Podczas przypisywania tej inicjatywy odziedziczone parametry z definicji zasad w ramach tej inicjatywy mogą zawierać jedynie wartości z tej dostarczonej listy.
 
 W przypadku tworzenia opcji wartości w definicji inicjatywy nie można wprowadzić innej wartości w trakcie przypisywania inicjatywy, ponieważ nie jest ona częścią listy.
 
 ### <a name="assignments"></a>Przypisania
 
-Przypisanie jest definicją zasad lub inicjatywą, która została przypisana do odbywania się w określonym zakresie. Ten zakres może wahać się od [grupy zarządzania](../management-groups/overview.md) do pojedynczego zasobu. Termin _zakres_ odnosi się do wszystkich zasobów, grup zasobów, subskrypcji lub grup zarządzania, do których jest przypisana definicja. Przydziały są dziedziczone przez wszystkie zasoby podrzędne. Ten projekt oznacza, że definicja zastosowana do grupy zasobów jest również stosowana do zasobów w tej grupie zasobów. Można jednak wykluczyć podzakres z przypisania.
+Przypisanie jest definicją lub inicjatywą zasad, która została przypisana w określonym zakresie. Ten zakres może się wahać od [grupy zarządzania](../management-groups/overview.md) do pojedynczego zasobu. _Termin ten odnosi się do_ wszystkich zasobów, grup zasobów, subskrypcji lub grup zarządzania, do których jest przypisana definicja. Przypisania są dziedziczone przez wszystkie zasoby podrzędne. Ten projekt oznacza, że definicja zastosowana do grupy zasobów jest również stosowana do zasobów w tej grupie zasobów. Można jednak wykluczyć Podzakres z przypisania.
 
 Na przykład w zakresie subskrypcji można przypisać definicję, która uniemożliwia tworzenie zasobów sieciowych. Można wyłączyć grupę zasobów w ramach subskrypcji, która jest przeznaczona dla infrastruktury sieciowej. Następnie dostęp do tej grupy zasobów sieciowych można przyznać użytkownikom, którym powierzono tworzenie zasobów sieciowych.
 
-W innym przykładzie można przypisać definicję listy zezwalania na typ zasobu na poziomie grupy zarządzania. Następnie można przypisać bardziej dopuszczalne zasady (zezwalające na więcej typów zasobów) w podrzędnej grupie zarządzania lub nawet bezpośrednio w subskrypcjach. Jednak w tym przykładzie nie będzie działać, ponieważ zasady platformy Azure jest jawnym systemem odmowy. Zamiast tego należy wykluczyć podrzędną grupę zarządzania lub subskrypcję z przypisania na poziomie grupy zarządzania. Następnie przypisz bardziej dopuszczalną definicję na podrzędnej grupie zarządzania lub poziomie subskrypcji. Jeśli jakiekolwiek przypisanie powoduje odmowę zasobu, jedynym sposobem na zezwolenie zasobu jest zmodyfikowanie przypisania odmowy.
+W innym przykładzie możesz chcieć przypisać do definicji listy dozwolonych typów zasobów na poziomie grupy zarządzania. Następnie można przypisać bardziej ograniczające zasady (co pozwala na więcej typów zasobów) w podrzędnej grupie zarządzania lub nawet bezpośrednio w subskrypcjach. Jednak ten przykład nie działa, ponieważ Azure Policy jest jawnym systemem odmowy. Zamiast tego należy wykluczyć podrzędną grupę zarządzania lub subskrypcję z przypisań na poziomie grupy zarządzania. Następnie należy przypisać bardziej ograniczającą definicję w podrzędnej grupie zarządzania lub na poziomie subskrypcji. Jeśli jakiekolwiek przypisanie powoduje odmowa zasobu, jedynym sposobem na umożliwienie zasobu jest zmodyfikowanie przypisania odmowy.
 
-Aby uzyskać więcej informacji na temat ustawiania przydziałów za pośrednictwem portalu, zobacz [Tworzenie przypisania zasad w celu identyfikowania niezgodnych zasobów w środowisku platformy Azure](assign-policy-portal.md). Dostępne są również instrukcje dotyczące korzystania z programu [PowerShell](assign-policy-powershell.md) i [interfejsu wiersza polecenia platformy Azure](assign-policy-azurecli.md).
+Aby uzyskać więcej informacji na temat ustawiania przypisań za pomocą portalu, zobacz [Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów w środowisku platformy Azure](assign-policy-portal.md). Dostępne są również instrukcje dotyczące korzystania z programu [PowerShell](assign-policy-powershell.md) i [interfejsu wiersza polecenia platformy Azure](assign-policy-azurecli.md).
 
-## <a name="maximum-count-of-azure-policy-objects"></a>Maksymalna liczba obiektów usługi Azure Policy
+## <a name="maximum-count-of-azure-policy-objects"></a>Maksymalna liczba obiektów Azure Policy
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -177,4 +177,4 @@ Aby uzyskać więcej informacji na temat ustawiania przydziałów za pośrednict
 Teraz, gdy masz już podstawowe informacje na temat usługi Azure Policy i kluczowych pojęć, oto zalecane kolejne kroki:
 
 - [Przejrzyj strukturę definicji zasad](./concepts/definition-structure.md).
-- [Przypisywanie definicji zasad za pomocą portalu](./assign-policy-portal.md).
+- [Przypisywanie definicji zasad przy użyciu portalu](./assign-policy-portal.md).

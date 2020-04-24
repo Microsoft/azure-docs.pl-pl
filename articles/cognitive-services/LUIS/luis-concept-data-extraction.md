@@ -1,44 +1,44 @@
 ---
-title: Wyodrębnianie danych — usługa LUIS
-description: Wyodrębnij dane z tekstu wypowiedź z intencji i jednostek. Dowiedz się, jakiego rodzaju dane można wyodrębnić ze zrozumienia języka (LUIS).
+title: Wyodrębnianie danych — LUIS
+description: Wyodrębnij dane z wypowiedź tekstu z intencjami i jednostkami. Dowiedz się, jakiego rodzaju dane mogą zostać wyodrębnione z Language Understanding (LUIS).
 author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3cea4a46564210ad8c37fdeda68e24337091d0bb
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221085"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100298"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Wyodrębnianie danych z tekstu wypowiedź z intencjami i encjami
-Usługa LUIS umożliwia uzyskanie informacji z wypowiedzi użytkownika w języku naturalnym. Informacje są wyodrębniane w taki sposób, że mogą być używane przez program, aplikację lub czat bot do podjęcia działań. W poniższych sekcjach dowiedzieć się, jakie dane są zwracane z intencji i jednostek z przykładami JSON.
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Wyodrębnij dane z wypowiedź tekstu z intencjami i jednostkami
+LUIS daje możliwość uzyskiwania informacji z wyrażenia długości języka naturalnego użytkownika. Informacje są wyodrębniane w taki sposób, aby mogły być używane przez program, aplikację lub czat bot. W poniższych sekcjach dowiesz się, jakie dane są zwracane z intencji i jednostek z przykładami JSON.
 
-Najtrudniejsze dane do wyodrębnienia to dane nauczone maszynowo, ponieważ nie są zgodne z dokładnym tekstem. Wyodrębnianie danych [jednostek](luis-concept-entity-types.md) nauczanych maszyn musi być częścią [cyklu tworzenia,](luis-concept-app-iteration.md) dopóki nie masz pewności, że otrzymasz oczekiwane dane.
+Najtrudniejsze dane do wyodrębnienia to dane zdobyte na maszynie, ponieważ nie jest to dokładne dopasowanie tekstu. Wyodrębnianie danych [jednostek](luis-concept-entity-types.md) , które są poznanie maszynowe, musi być częścią [cyklu tworzenia](luis-concept-app-iteration.md) , dopóki nie uzyskasz pewności, że otrzymasz oczekiwane dane.
 
 ## <a name="data-location-and-key-usage"></a>Lokalizacja danych i użycie klucza
-Usługa LUIS udostępnia dane z opublikowanego [punktu końcowego](luis-glossary.md#endpoint). **Żądanie HTTPS** (POST lub GET) zawiera wypowiedź, a także niektóre opcjonalne konfiguracje, takie jak środowiska przejściowe lub produkcyjne.
+LUIS udostępnia dane z opublikowanego [punktu końcowego](luis-glossary.md#endpoint). **Żądanie https** (post lub Get) zawiera wypowiedź, a także niektóre opcjonalne konfiguracje, takie jak środowiska przejściowe lub produkcyjne.
 
 #### <a name="v2-prediction-endpoint-request"></a>[Żądanie punktu końcowego przewidywania wersji 2](#tab/V2)
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-#### <a name="v3-prediction-endpoint-request"></a>[Żądanie punktu końcowego przewidywania wersji 3](#tab/V3)
+#### <a name="v3-prediction-endpoint-request"></a>[Żądanie punktu końcowego przewidywania v3](#tab/V3)
 
 `https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 * * *
 
-Jest `appID` on dostępny na stronie **Ustawienia** aplikacji usługi LUIS, a `/apps/`także część adresu URL (po) podczas edytowania tej aplikacji usługi LUIS. Jest `subscription-key` kluczem punktu końcowego używanym do wykonywania zapytań o aplikację. Podczas nauki usługi LUIS można używać bezpłatnego klucza tworzenia/rozruchu, ale ważne jest, aby zmienić klucz punktu końcowego na klucz [obsługujący oczekiwane użycie usługi LUIS.](luis-boundaries.md#key-limits) Urządzenie `timezoneOffset` jest kilka minut.
+Jest ona dostępna na stronie **Ustawienia** aplikacji Luis, a także jako część adresu URL (po `/apps/`) podczas edytowania tej aplikacji Luis. `appID` `subscription-key` Jest to klucz punktu końcowego używany do wykonywania zapytań dotyczących aplikacji. Chociaż możesz użyć bezpłatnego klucza autorstwa/początkowego podczas uczenia się LUIS, ważne jest, aby zmienić klucz punktu końcowego na klucz, który obsługuje [oczekiwane użycie Luis](luis-limits.md#key-limits). `timezoneOffset` Jednostka jest minut.
 
-**Odpowiedź HTTPS** zawiera wszystkie intencji i informacji o jednostce usługi LUIS można określić na podstawie bieżącego opublikowanego modelu punktu końcowego przemieszczania lub produkcji. Adres URL punktu końcowego znajduje się w witrynie sieci Web [usługi LUIS,](luis-reference-regions.md) w sekcji **Zarządzanie,** na **klucze i punkty końcowe** strony.
+**Odpowiedź https** zawiera wszystkie zamierzenia i informacje o jednostce, które Luis mogą ustalić w oparciu o aktualnie opublikowany model punktu końcowego lub produkcyjnego. Adres URL punktu końcowego znajduje się w witrynie sieci Web [Luis](luis-reference-regions.md) w sekcji **Zarządzanie** na stronie **klucze i punkty końcowe** .
 
 ## <a name="data-from-intents"></a>Dane z intencji
-Dane podstawowe to **najwyższa nazwa intencji**oceniania . Odpowiedź punktu końcowego jest:
+Dane podstawowe są największą **nazwą przeznaczenie**oceniania. Odpowiedź punktu końcowego to:
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
 ```JSON
 {
@@ -51,7 +51,7 @@ Dane podstawowe to **najwyższa nazwa intencji**oceniania . Odpowiedź punktu ko
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
 ```JSON
 {
@@ -69,20 +69,20 @@ Dane podstawowe to **najwyższa nazwa intencji**oceniania . Odpowiedź punktu ko
 }
 ```
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 * * *
 
 |Obiekt danych|Typ danych|Lokalizacja danych|Wartość|
 |--|--|--|--|
-|Intencja|Ciąg|topScoringIntent.intent|"GetStoreInfo"|
+|Intencja|Ciąg|topScoringIntent. intencja|"GetStoreInfo"|
 
-Jeśli twój chatbot lub aplikacja do wywoływania usługi LUIS podejmuje decyzję na podstawie więcej niż jednego wyniku intencji, zwróć wyniki wszystkich intencji.
+Jeśli aplikacja chatbot lub LUIS-wywołująca podejmuje decyzję na podstawie więcej niż jednego wyniku zamiaru, zwracają wszystkie wyniki założeń.
 
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
-Ustaw parametr querystring, `verbose=true`. Odpowiedź punktu końcowego jest:
+Ustaw parametr QueryString, `verbose=true`. Odpowiedź punktu końcowego to:
 
 ```JSON
 {
@@ -105,9 +105,9 @@ Ustaw parametr querystring, `verbose=true`. Odpowiedź punktu końcowego jest:
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-Ustaw parametr querystring, `show-all-intents=true`. Odpowiedź punktu końcowego jest:
+Ustaw parametr QueryString, `show-all-intents=true`. Odpowiedź punktu końcowego to:
 
 ```JSON
 {
@@ -129,7 +129,7 @@ Ustaw parametr querystring, `show-all-intents=true`. Odpowiedź punktu końcoweg
 }
 ```
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 * * *
 
@@ -137,12 +137,12 @@ Intencje są uporządkowane od najwyższego do najniższego wyniku.
 
 |Obiekt danych|Typ danych|Lokalizacja danych|Wartość|Wynik|
 |--|--|--|--|:--|
-|Intencja|Ciąg|intencji[0].intent|"GetStoreInfo"|0.984749258|
-|Intencja|Ciąg|intencje[1].intent|"Brak"|0.0168218873|
+|Intencja|Ciąg|intencje [0]. cel|"GetStoreInfo"|0,984749258|
+|Intencja|Ciąg|intencje [1]. cel|Dawaj|0,0168218873|
 
-Jeśli dodasz wstępnie utworzone domeny, nazwa intencji wskazuje `Utilties` `Communication` domenę, taką jak lub, a także intencję:
+W przypadku dodania wstępnie skompilowanych domen nazwa zamierzenia wskazuje domenę, taką jak `Utilties` lub `Communication` , a także zamiar:
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
 ```JSON
 {
@@ -168,7 +168,7 @@ Jeśli dodasz wstępnie utworzone domeny, nazwa intencji wskazuje `Utilties` `Co
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
 ```JSON
 {
@@ -192,25 +192,25 @@ Jeśli dodasz wstępnie utworzone domeny, nazwa intencji wskazuje `Utilties` `Co
 }
 ```
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 * * *
 
 |Domain|Obiekt danych|Typ danych|Lokalizacja danych|Wartość|
 |--|--|--|--|--|
-|Narzędzia|Intencja|Ciąg|intencji[0].intent|"<b>Narzędzia</b>. ShowNext"|
-|Komunikacja|Intencja|Ciąg|intencje[1].intent|<b>Komunikacji</b>. StartOver"|
-||Intencja|Ciąg|intencji[2].intent|"Brak"|
+|Narzędzia|Intencja|Ciąg|intencje [0]. cel|"<b>Narzędzia</b>. ShowNext"|
+|Komunikacja|Intencja|Ciąg|intencje [1]. cel|<b>Komunikacja</b>. StartOver"|
+||Intencja|Ciąg|intencje [2]. cel|Dawaj|
 
 
 ## <a name="data-from-entities"></a>Dane z jednostek
-Większość chatbotów i aplikacji potrzebuje więcej niż nazwa intencji. Te dodatkowe, opcjonalne dane pochodzą z jednostek wykrytych w wypowiedź. Każdy typ jednostki zwraca różne informacje o dopasowaniu.
+Większość rozszerzenie czatbotów i aplikacji potrzebują więcej niż nazwy zamierzeń. Te dodatkowe dane opcjonalne pochodzą z jednostek odnalezionych w wypowiedź. Każdy typ jednostki zwraca różne informacje o dopasowaniu.
 
-Pojedynczy wyraz lub fraza w wypowiedź może odpowiadać więcej niż jednej jednostce. W takim przypadku każda pasująca jednostka jest zwracana z jego wynikiem.
+Pojedyncze słowo lub fraza w wypowiedź może być zgodna z więcej niż jedną jednostką. W takim przypadku każda pasująca jednostka jest zwracana z wynikiem.
 
-Wszystkie jednostki są zwracane w **tablicy jednostek** odpowiedzi z punktu końcowego:
+Wszystkie jednostki są zwracane w tablicy **jednostek** odpowiedzi z punktu końcowego:
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -233,7 +233,7 @@ Wszystkie jednostki są zwracane w **tablicy jednostek** odpowiedzi z punktu ko�
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
 ```JSON
 "entities": {
@@ -241,32 +241,32 @@ Wszystkie jednostki są zwracane w **tablicy jednostek** odpowiedzi z punktu ko�
     "number": [3]
 }
 ```
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 * * *
 
-## <a name="tokenized-entity-returned"></a>Tokenizowana jednostka zwrócona
+## <a name="tokenized-entity-returned"></a>Zwrócono token jednostki
 
-Przejrzyj [obsługę tokenów](luis-language-support.md#tokenization) w usłudze LUIS.
+Zapoznaj się z [pomocą techniczną tokenu](luis-language-support.md#tokenization) w Luis.
 
-## <a name="simple-entity-data"></a>Proste dane encji
+## <a name="simple-entity-data"></a>Proste dane jednostki
 
-[Prosta jednostka](reference-entity-simple.md) jest wartością nauczaną maszynowo. Może to być słowo lub fraza.
+[Prosta jednostka](reference-entity-simple.md) to wartość nadana przez maszynę. Może to być słowo lub fraza.
 
-## <a name="composite-entity-data"></a>Złożone dane encji
+## <a name="composite-entity-data"></a>Dane jednostki złożonej
 
-Jednostka [złożona](reference-entity-composite.md) składa się z innych jednostek, takich jak wstępnie utworzone jednostki, proste, wyrażenie regularne i jednostki listy. Oddzielne jednostki tworzą całą encję.
+[Jednostka złożona](reference-entity-composite.md) składa się z innych jednostek, takich jak wstępnie zbudowane jednostki, proste, wyrażenie regularne i jednostki listy. Oddzielne jednostki tworzą całość jednostki.
 
-## <a name="list-entity-data"></a>Lista danych encji
+## <a name="list-entity-data"></a>Wyświetl dane jednostki
 
-[Encje listy](reference-entity-list.md) reprezentują stały, zamknięty zestaw powiązanych słów wraz z ich synonimami. Usługa LUIS nie odnajduje dodatkowych wartości dla jednostek listy. Użyj funkcji **Poleć,** aby wyświetlić sugestie dotyczące nowych słów na podstawie bieżącej listy. Jeśli istnieje więcej niż jedna encja listy o tej samej wartości, każda jednostka jest zwracana w kwerendzie punktu końcowego.
+[Jednostki listy](reference-entity-list.md) reprezentują stały, zamknięty zestaw powiązanych słów wraz z ich synonimami. LUIS nie odnajduje dodatkowych wartości dla jednostek listy. Użyj opcji **zalecamy** , aby zobaczyć sugestie dotyczące nowych słów na podstawie bieżącej listy. Jeśli istnieje więcej niż jedna jednostka listy o tej samej wartości, każda jednostka zostanie zwrócona w zapytaniu punktu końcowego.
 
-## <a name="prebuilt-entity-data"></a>Wstępnie utworzone dane encji
-[Wstępnie utworzone](luis-concept-entity-types.md) jednostki są odnajdywane na podstawie dopasowania wyrażenia regularnego przy użyciu projektu aparaty rozpoznawania typu open [source-Text.](https://github.com/Microsoft/Recognizers-Text) Wstępnie utworzone jednostki są zwracane w tablicy jednostek `builtin::`i używają nazwy typu poprzedzone . Poniższy tekst jest wypowiedź przykład z zwróconych wstępnie utworzonych jednostek:
+## <a name="prebuilt-entity-data"></a>Wstępnie utworzone dane jednostki
+Wstępnie [skompilowane](luis-concept-entity-types.md) jednostki są odnajdywane na podstawie wyrażenia regularnego zgodnego z rozpoznawaniem typu "Open Source [" — projektem tekstu](https://github.com/Microsoft/Recognizers-Text) . Wstępnie skompilowane jednostki są zwracane w tablicy jednostek i używają nazwy typu poprzedzonej prefiksem `builtin::`. Następujący tekst to przykład wypowiedź z zwróconymi wstępnie skompilowanymi jednostkami:
 
 `Dec 5th send to +1 360-555-1212`
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -347,9 +347,9 @@ Jednostka [złożona](reference-entity-composite.md) składa się z innych jedno
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-Bez parametru querystring: `verbose=true`
+Bez parametru QueryString `verbose=true`:
 
 ```json
 "entities": {
@@ -391,7 +391,7 @@ Bez parametru querystring: `verbose=true`
 }
 ```
 
-Z parametrem querystring: `verbose=true`
+Za pomocą QueryString parametru `verbose=true`:
 
 ```json
 
@@ -524,41 +524,41 @@ Z parametrem querystring: `verbose=true`
 }
 ```
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 * * *
-## <a name="regular-expression-entity-data"></a>Dane encji wyrażenia regularnego
+## <a name="regular-expression-entity-data"></a>Dane jednostki wyrażenia regularnego
 
-[Jednostka wyrażenia regularnego](reference-entity-regular-expression.md) wyodrębnia jednostkę na podstawie wzorca wyrażenia regularnego, który podasz.
+[Jednostka wyrażenia regularnego](reference-entity-regular-expression.md) wyodrębnia jednostkę na podstawie podania wzorca wyrażenia regularnego.
 
 ## <a name="extracting-names"></a>Wyodrębnianie nazw
-Uzyskiwanie nazw z wypowiedź jest trudne, ponieważ nazwa może być prawie dowolną kombinacją liter i słów. W zależności od typu wyodrębniania nazwy dostępnych jest kilka opcji. Poniższe sugestie nie są regułami, ale bardziej wytycznymi.
+Pobieranie nazw z wypowiedź jest trudne, ponieważ nazwa może być niemal dowolną kombinacją liter i wyrazów. W zależności od typu wyodrębnianych nazw można korzystać z kilku opcji. Poniższe sugestie nie są regułami, ale są bardziej szczegółowe.
 
-### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Dodawanie wstępnie utworzonych encji PersonName i GeographyV2
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Dodawanie wstępnie utworzonych jednostek PersonName i GeographyV2
 
-[Jednostki PersonName](luis-reference-prebuilt-person.md) i [GeographyV2](luis-reference-prebuilt-geographyV2.md) są dostępne w niektórych [kulturach językowych.](luis-reference-prebuilt-entities.md)
+Jednostki [PersonName](luis-reference-prebuilt-person.md) i [GeographyV2](luis-reference-prebuilt-geographyV2.md) są dostępne w niektórych [kulturach językowych](luis-reference-prebuilt-entities.md).
 
-### <a name="names-of-people"></a>Nazwiska osób
+### <a name="names-of-people"></a>Nazwy osób
 
-Nazwa ludzi może mieć niewielki format w zależności od języka i kultury. Użyj wstępnie utworzonej **[jednostki personName](luis-reference-prebuilt-person.md)** lub **[prostej jednostki](luis-concept-entity-types.md#simple-entity)** z [rolami](luis-concept-roles.md) imienia i nazwiska.
+Nazwa osoby może mieć nieco niewielki format w zależności od języka i kultury. Użyj wstępnie utworzonej jednostki **[PersonName](luis-reference-prebuilt-person.md)** lub **[prostej jednostki](luis-concept-entity-types.md#simple-entity)** z [rolami](luis-concept-roles.md) imię i nazwisko.
 
-Jeśli używasz proste jednostki, upewnij się, aby podać przykłady, które używają imię i nazwisko w różnych częściach wypowiedź, wypowiedzi o różnych długościach i wypowiedzi we wszystkich intencji, w tym Brak intencji. [Regularnie przeglądaj](luis-how-to-review-endoint-utt.md) wypowiedzi punktów końcowych, aby oznaczyć wszystkie nazwy, które nie zostały poprawnie przewidziane.
+Jeśli używasz prostej jednostki, upewnij się, że są podane przykłady, które używają pierwszej i ostatniej nazwy w różnych częściach wypowiedź, w wyrażenia długości o różnej długości i wyrażenia długości we wszystkich intencjach, w tym dla opcji Brak. Regularnie [Przeglądaj](luis-how-to-review-endoint-utt.md) wyrażenia długości punktu końcowego, aby oznaczyć wszystkie nazwy, które nie zostały prawidłowo przewidywalne.
 
 ### <a name="names-of-places"></a>Nazwy miejsc
 
-Nazwy lokalizacji są ustawione i znane, takie jak miasta, powiaty, stany, prowincje i kraje/regiony. Użyj wstępnie utworzonej **[jednostki geographyV2,](luis-reference-prebuilt-geographyv2.md)** aby wyodrębnić informacje o lokalizacji.
+Nazwy lokalizacji są ustawiane i znane, takie jak miasta, powiaty, Stany, prowincje i kraje/regiony. Aby wyodrębnić informacje o lokalizacji, Użyj wstępnie skompilowanej jednostki **[geographyV2](luis-reference-prebuilt-geographyv2.md)** .
 
 ### <a name="new-and-emerging-names"></a>Nowe i pojawiające się nazwy
 
-Niektóre aplikacje muszą być w stanie znaleźć nowe i pojawiające się nazwy, takie jak produkty lub firmy. Te typy nazw są najtrudniejszym typem wyodrębniania danych. Zacznij od **[prostej encji](luis-concept-entity-types.md#simple-entity)** i dodaj [listę fraz](luis-concept-feature.md). [Regularnie przeglądaj](luis-how-to-review-endoint-utt.md) wypowiedzi punktów końcowych, aby oznaczyć wszystkie nazwy, które nie zostały poprawnie przewidziane.
+Niektóre aplikacje muszą być w stanie znaleźć nowe i pojawiające się nazwy, takie jak produkty lub firmy. Te typy nazw są najbardziej trudnym typem wyodrębniania danych. Zacznij od **[prostej jednostki](luis-concept-entity-types.md#simple-entity)** i Dodaj [listę fraz](luis-concept-feature.md). Regularnie [Przeglądaj](luis-how-to-review-endoint-utt.md) wyrażenia długości punktu końcowego, aby oznaczyć wszystkie nazwy, które nie zostały prawidłowo przewidywalne.
 
 ## <a name="pattern-roles-data"></a>Dane ról wzorca
-Role są kontekstowe różnice jednostek.
+Role są kontekstowymi różnicami jednostek.
 
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
-Nazwa encji to `Location`, `Origin` `Destination`z dwiema rolami i .
+Nazwa jednostki to `Location`, z dwiema rolami `Origin` i. `Destination`
 
 ```JSON
 "entities": [
@@ -589,13 +589,13 @@ Nazwa encji to `Location`, `Origin` `Destination`z dwiema rolami i .
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-W wersji 3 **nazwa roli** jest podstawową nazwą obiektu.
+W wersji 3 **Nazwa roli** jest nazwą podstawową obiektu.
 
-Nazwa encji to `Location`, `Origin` `Destination`z dwiema rolami i .
+Nazwa jednostki to `Location`, z dwiema rolami `Origin` i. `Destination`
 
-Bez parametru querystring: `verbose=true`
+Bez parametru QueryString `verbose=true`:
 
 ```json
 "entities": {
@@ -611,7 +611,7 @@ Bez parametru querystring: `verbose=true`
 }
 ```
 
-Z parametrem querystring: `verbose=true`
+Za pomocą QueryString parametru `verbose=true`:
 
 ```json
 "entities": {
@@ -673,21 +673,21 @@ Z parametrem querystring: `verbose=true`
 }
 ```
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 * * *
 
-## <a name="patternany-entity-data"></a>Dane jednostki Pattern.any
+## <a name="patternany-entity-data"></a>Wzorzec. wszystkie dane jednostki
 
-[Pattern.any](reference-entity-pattern-any.md) jest symbolem zastępczym o zmiennej długości używanym tylko w wypowiedź szablonu wzorca, aby oznaczyć, gdzie jednostka zaczyna się i kończy.
+[Wzorzec. any](reference-entity-pattern-any.md) jest symbolem zastępczym o zmiennej długości używanym tylko w szablonie wzorca wypowiedź, aby oznaczyć, gdzie rozpoczyna się i kończą.
 
 ## <a name="sentiment-analysis"></a>Analiza tonacji
-Jeśli jest skonfigurowana analiza tonacji, odpowiedź json usługi LUIS zawiera analizę tonacji. Dowiedz się więcej o analizie opinii w dokumentacji [analizy tekstu.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)
+W przypadku skonfigurowania analizy tonacji odpowiedź JSON LUIS obejmuje analizę tonacji. Dowiedz się więcej o analizie tonacji w dokumentacji [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) .
 
-### <a name="sentiment-data"></a>Dane dotyczące tonacji
-Dane o nastrojach to wynik od 1 do 0 wskazujący pozytywny (bliżej 1) lub ujemny (bliżej 0) sentyment danych.
+### <a name="sentiment-data"></a>Tonacji dane
+Dane tonacji to wynik z zakresu od 1 do 0 wskazujący dodatnie (bliżej 1) lub ujemne (bliżej 0) tonacji danych.
 
-Gdy kultura `en-us`jest , odpowiedź jest:
+Gdy kultura jest `en-us`, odpowiedź jest:
 
 ```JSON
 "sentimentAnalysis": {
@@ -696,7 +696,7 @@ Gdy kultura `en-us`jest , odpowiedź jest:
 }
 ```
 
-Dla wszystkich innych kultur odpowiedzią jest:
+W przypadku wszystkich innych kultur odpowiedź jest:
 
 ```JSON
 "sentimentAnalysis": {
@@ -705,11 +705,11 @@ Dla wszystkich innych kultur odpowiedzią jest:
 ```
 
 
-### <a name="key-phrase-extraction-entity-data"></a>Dane encji wyodrębniania fraz kluczowych
-Jednostka wyodrębniania fraz kluczowych zwraca kluczowe frazy w wypowiedź, dostarczone przez [analizę tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+### <a name="key-phrase-extraction-entity-data"></a>Dane jednostki wyodrębniania klucza
+Jednostka wyodrębniania klucza zwraca kluczowe frazy w wypowiedź, dostarczone przez [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
 ```JSON
 {
@@ -744,11 +744,11 @@ Jednostka wyodrębniania fraz kluczowych zwraca kluczowe frazy w wypowiedź, dos
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
-Bez parametru querystring: `verbose=true`
+Bez parametru QueryString `verbose=true`:
 
 ```json
 "entities": {
@@ -760,7 +760,7 @@ Bez parametru querystring: `verbose=true`
 }
 ```
 
-Z parametrem querystring: `verbose=true`
+Za pomocą QueryString parametru `verbose=true`:
 
 ```json
 "entities": {
@@ -809,20 +809,20 @@ Z parametrem querystring: `verbose=true`
 }
 ```
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 * * *
 
 
-## <a name="data-matching-multiple-entities"></a>Dane pasujące do wielu encji
+## <a name="data-matching-multiple-entities"></a>Dane pasujące do wielu jednostek
 
-Usługa LUIS zwraca wszystkie jednostki wykryte w wypowiedź. W rezultacie twój chatbot może być potrzebny do podjęcia decyzji na podstawie wyników. Wypowiedź może mieć wiele jednostek w wypowiedź:
+LUIS zwraca wszystkie jednostki odnalezione w wypowiedź. W związku z tym chatbot może wymagać podjęcia decyzji na podstawie wyników. Element wypowiedź może mieć wiele jednostek w wypowiedź:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-Punkt końcowy usługi LUIS można odnajdyć te same dane w różnych jednostkach.
+Punkt końcowy LUIS może odnaleźć te same dane w różnych jednostkach.
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
 ```JSON
 {
@@ -948,9 +948,9 @@ Punkt końcowy usługi LUIS można odnajdyć te same dane w różnych jednostkac
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-Bez `verbose=true` jako querystring parametr.
+Bez `verbose=true` jako parametr QueryString.
 
 ```json
 "entities": {
@@ -987,7 +987,7 @@ Bez `verbose=true` jako querystring parametr.
 }
 ```
 
-Z `verbose=true` jako parametr querystring.
+Za `verbose=true` pomocą jako parametru QueryString.
 
 
 ```json
@@ -1125,17 +1125,17 @@ Z `verbose=true` jako parametr querystring.
 }
 ```
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 * * *
 
-## <a name="data-matching-multiple-list-entities"></a>Dane pasujące do wielu encji listy
+## <a name="data-matching-multiple-list-entities"></a>Dane zgodne z wieloma jednostkami listy
 
-Jeśli wyraz lub fraza pasuje do więcej niż jednej encji listy, kwerenda punktu końcowego zwraca każdą encję List.
+Jeśli słowo lub fraza pasuje do więcej niż jednej jednostki listy, zapytanie punktu końcowego zwróci każdą jednostkę listy.
 
-W przypadku `when is the best time to go to red rock?`kwerendy , a `red` aplikacja ma słowo na więcej niż jednej liście, usługa LUIS rozpoznaje wszystkie jednostki i zwraca tablicę jednostek jako część odpowiedzi punktu końcowego JSON:
+Dla zapytania `when is the best time to go to red rock?`, a aplikacja zawiera słowo `red` w więcej niż jednej liście, Luis rozpoznaje wszystkie jednostki i zwraca tablicę jednostek jako część odpowiedzi punktu końcowego JSON:
 
-#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
 ```JSON
 {
@@ -1173,7 +1173,7 @@ W przypadku `when is the best time to go to red rock?`kwerendy , a `red` aplikac
 
 
 
-#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
 Bez `verbose=true` ciągu zapytania:
 
@@ -1205,7 +1205,7 @@ Bez `verbose=true` ciągu zapytania:
 ```
 
 
-Z `verbose=true` w ciągu zapytania:
+Za `verbose=true` pomocą ciągu zapytania:
 
 ```JSON
 {
@@ -1262,10 +1262,10 @@ Z `verbose=true` w ciągu zapytania:
 }
 ```
 
-Dowiedz się więcej o [punkcie końcowym przewidywania V3](luis-migration-api-v3.md).
+Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v3.md).
 
 * * *
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [Dodawanie jednostek,](luis-how-to-add-entities.md) aby dowiedzieć się więcej o dodaniu jednostek do aplikacji usługi LUIS.
+Zobacz [Dodawanie jednostek](luis-how-to-add-entities.md) , aby dowiedzieć się więcej na temat dodawania jednostek do aplikacji Luis.

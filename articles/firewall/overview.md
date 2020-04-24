@@ -6,19 +6,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/08/2020
+ms.date: 04/23/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: bb4b654bd0b3591ebaa1bd217020095319a4938c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: a3a81513773ef6d826ad354d47a3e7ec83e75d65
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381913"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106648"
 ---
 # <a name="what-is-azure-firewall"></a>Co to jest usługa Azure Firewall?
 
-![Certyfikacja ICSA](media/overview/icsa-cert-firewall-small.png)
+![Certyfikat ICSA](media/overview/icsa-cert-firewall-small.png)
 
 Azure Firewall to zarządzana, sieciowa usługa zabezpieczeń oparta na chmurze, która zabezpiecza zasoby usługi Azure Virtual Network. Jest to w pełni stanowa zapora jako usługa z wbudowaną wysoką dostępnością i możliwością nieograniczonego skalowania w chmurze.
 
@@ -30,22 +30,22 @@ Usługa Azure Firewall oferuje następujące funkcje:
 
 ## <a name="built-in-high-availability"></a>Wbudowana wysoka dostępność
 
-Wysoka dostępność jest wbudowana, więc nie są wymagane żadne dodatkowe moduły równoważenia obciążenia i nie ma nic, co należy skonfigurować.
+Wysoka dostępność jest wbudowana, więc nie są wymagane żadne dodatkowe moduły równoważenia obciążenia i nie trzeba konfigurować żadnych usług.
 
 ## <a name="availability-zones"></a>Strefy dostępności
 
-Zaporę platformy Azure można skonfigurować podczas wdrażania, aby objąć wiele stref dostępności w celu zwiększenia dostępności. Dzięki strefom dostępności dostępność zwiększa się do 99,99% czasu pracy. Aby uzyskać więcej informacji, zobacz Umowę dotyczącą poziomu usług zapory azure [(SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). 99,99% dostępności SLA jest oferowana po wybraniu dwóch lub więcej stref dostępności.
+Zaporę platformy Azure można skonfigurować podczas wdrażania w celu rozdzielenia wielu Strefy dostępności w celu zwiększenia dostępności. W przypadku Strefy dostępności czas dostępności wzrosną do 99,99% czasu. Aby uzyskać więcej informacji, zobacz Umowa dotycząca poziomu usług zapory platformy Azure [(SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). Umowa SLA na czas działania na 99,99% jest oferowana w przypadku wybrania co najmniej dwóch Strefy dostępności.
 
-Możesz również skojarzyć Zaporę platformy Azure z określoną strefą tylko ze względów zbliżeniowych, korzystając ze standardowej umowy SLA 99,95%.
+Można także skojarzyć zaporę platformy Azure z określoną strefą tylko z przyczyn bliskości przy użyciu standardowej umowy SLA usługi 99,95%.
 
-Nie ma żadnych dodatkowych kosztów dla zapory wdrożonej w strefie dostępności. Istnieją jednak dodatkowe koszty dla przychodzących i wychodzących transferów danych skojarzonych ze strefami dostępności. Aby uzyskać więcej informacji, zobacz [Szczegóły dotyczące cen przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/).
+Dla zapory wdrożonej w strefie dostępności nie ma dodatkowych kosztów. Istnieją jednak dodatkowe koszty dla przychodzących i wychodzących transferów danych skojarzonych z Strefy dostępności. Aby uzyskać więcej informacji, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/bandwidth/)dotyczącego przepustowości.
 
-Strefy dostępności zapory azure są dostępne w regionach, które obsługują strefy dostępności. Aby uzyskać więcej informacji, zobacz [Co to są strefy dostępności na platformie Azure?](../availability-zones/az-overview.md#services-support-by-region)
+Strefy dostępności zapory platformy Azure są dostępne w regionach, które obsługują Strefy dostępności. Aby uzyskać więcej informacji, zobacz [co to jest strefy dostępności na platformie Azure?](../availability-zones/az-overview.md#services-support-by-region)
 
 > [!NOTE]
-> Strefy dostępności można skonfigurować tylko podczas wdrażania. Nie można skonfigurować istniejącej zapory tak, aby zawierała strefy dostępności.
+> Strefy dostępności można skonfigurować tylko podczas wdrażania. Nie można skonfigurować istniejącej zapory do dołączania Strefy dostępności.
 
-Aby uzyskać więcej informacji na temat stref dostępności, zobacz [Co to są strefy dostępności na platformie Azure?](../availability-zones/az-overview.md)
+Aby uzyskać więcej informacji na temat Strefy dostępności, zobacz [co to jest strefy dostępności na platformie Azure?](../availability-zones/az-overview.md)
 
 ## <a name="unrestricted-cloud-scalability"></a>Skalowalność w chmurze bez ograniczeń
 
@@ -53,7 +53,7 @@ Usługa Azure Firewall umożliwia skalowanie bez ograniczeń, odpowiednio do zmi
 
 ## <a name="application-fqdn-filtering-rules"></a>Reguły filtrowania w pełni kwalifikowanych nazw domen aplikacji
 
-Ruch HTTP/S wychodzący lub ruch SQL platformy Azure (wersja zapoznawcza) można ograniczyć do określonej listy w pełni kwalifikowanych nazw domen (FQDN), w tym symboli wieloznacznych. Ta funkcja nie wymaga zakończenia protokołu TLS.
+Możesz ograniczyć ruch wychodzący HTTP/S lub ruch usługi Azure SQL (wersja zapoznawcza) do określonej listy w pełni kwalifikowanych nazw domen (FQDN), w tym symboli wieloznacznych. Ta funkcja nie wymaga zakończenia protokołu TLS.
 
 ## <a name="network-traffic-filtering-rules"></a>Reguły filtrowania ruchu sieciowego
 
@@ -61,34 +61,34 @@ Można centralnie tworzyć reguły filtrowania sieci (*zezwalania* lub *blokowan
 
 ## <a name="fqdn-tags"></a>Tagi w pełni kwalifikowanych nazw domen
 
-Tagi FQDN ułatwiają zezwalanie na dobrze znany ruch sieciowy usługi platformy Azure za pośrednictwem zapory. Załóżmy na przykład, że chcesz zezwolić na ruch sieciowy z witryny Windows Update przez zaporę. Tworzysz regułę aplikacji i dołączasz tag „Windows Update”. Teraz ruch sieciowy z witryny Windows Update może przechodzić przez zaporę.
+Tagi FQDN ułatwiają zapewnienie dobrze znanego ruchu sieciowego usługi platformy Azure przez zaporę. Załóżmy na przykład, że chcesz zezwolić na ruch sieciowy z witryny Windows Update przez zaporę. Tworzysz regułę aplikacji i dołączasz tag „Windows Update”. Teraz ruch sieciowy z witryny Windows Update może przechodzić przez zaporę.
 
 ## <a name="service-tags"></a>Tagi usługi
 
-Tag usługi reprezentuje grupę prefiksów adresów IP, aby zminimalizować złożoność tworzenia reguły zabezpieczeń. Nie można utworzyć własnego tagu usługi ani określić, które adresy IP są zawarte w tagu. Firma Microsoft zarządza prefiksami adresów obejmowanymi przez tag usługi i automatycznie aktualizuje tag usługi, gdy adresy ulegną zmianie.
+Tag usługi reprezentuje grupę prefiksów adresów IP, aby zminimalizować złożoność tworzenia reguły zabezpieczeń. Nie można utworzyć własnego tagu usługi ani określić, które adresy IP znajdują się w tagu. Firma Microsoft zarządza prefiksami adresów obejmowanymi przez tag usługi i automatycznie aktualizuje tag usługi, gdy adresy ulegną zmianie.
 
 ## <a name="threat-intelligence"></a>Analiza zagrożeń
 
-Filtrowanie oparte na analizie zagrożeń można włączyć, aby zapora ostrzegała i odmawiała ruchu ze znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą z źródła danych microsoft Threat Intelligence.
+Filtrowanie na podstawie analizy zagrożeń może być włączone, aby zapora mogła zgłaszać i odrzucać ruch z/do znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą ze źródła analizy zagrożeń firmy Microsoft.
 
 ## <a name="outbound-snat-support"></a>Obsługa translacji adresów sieciowych źródła (SNAT) dla ruchu wychodzącego
 
-Wszystkie adresy IP wychodzącego ruchu sieciowego są tłumaczone na publiczny adres IP usługi Azure Firewall (translacja adresów sieciowych źródła, SNAT). Możesz zidentyfikować ruch pochodzący z sieci wirtualnej do zdalnych internetowych miejsc docelowych i zezwalać na niego. Zapora azure nie SNAT, gdy docelowy adres IP jest prywatny zakres IP na [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
+Wszystkie adresy IP wychodzącego ruchu sieciowego są tłumaczone na publiczny adres IP usługi Azure Firewall (translacja adresów sieciowych źródła, SNAT). Możesz zidentyfikować ruch pochodzący z sieci wirtualnej do zdalnych internetowych miejsc docelowych i zezwalać na niego. Zapora platformy Azure nie ma protokołu IPSec, gdy docelowy adres IP jest prywatnym zakresem adresów IP na [organizację IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
 
-Jeśli twoja organizacja używa zakresu publicznego adresu IP dla sieci prywatnych, Zapora Azure spowoduje snat ruchu do jednego z zapory prywatnych adresów IP w usłudze AzureFirewallSubnet. Zaporę platformy Azure można skonfigurować tak, aby **nie** była dostępna w zakresie publicznego adresu IP. Aby uzyskać więcej informacji, zobacz [Zakresy prywatnych adresów IP zapory azure SNAT](snat-private-range.md).
+Jeśli Twoja organizacja używa zakresu publicznego adresu IP dla sieci prywatnych, Zapora platformy Azure przywróci ruch do jednego z prywatnych adresów IP zapory w AzureFirewallSubnet. Zaporę platformy Azure można skonfigurować w taki sposób, aby **nie** było możliwe przechodzenie do publicznego zakresu adresów IP. Aby uzyskać więcej informacji, zobacz [zakresy prywatnych adresów IP zapory systemu Azure](snat-private-range.md).
 
 ## <a name="inbound-dnat-support"></a>Obsługa technologii DNAT dla ruchu przychodzącego
 
-Przychodzący ruch sieciowy do publicznego adresu IP zapory jest tłumaczony (Tłumaczenie docelowego adresu sieciowego) i filtrowany na prywatne adresy IP w sieciach wirtualnych.
+Ruch przychodzący w sieci Internet do publicznego adresu IP zapory jest tłumaczony (translacja adresów sieciowych) i filtrowany na prywatne adresy IP w sieciach wirtualnych.
 
 ## <a name="multiple-public-ip-addresses"></a>Wiele publicznych adresów IP
 
-Z zaporą można skojarzyć wiele publicznych adresów IP (do 100).
+Za pomocą zapory można skojarzyć wiele publicznych adresów IP (do 100).
 
-Umożliwia to następujące scenariusze:
+Dzięki temu można wykonać następujące scenariusze:
 
-- **DNAT** — można przetłumaczyć wiele standardowych wystąpień portów na serwery wewnętrznej bazy danych. Na przykład jeśli masz dwa publiczne adresy IP, możesz przetłumaczyć port TCP 3389 (RDP) dla obu adresów IP.
-- **SNAT** — dostępne są dodatkowe porty dla wychodzących połączeń SNAT, co zmniejsza ryzyko wyczerpania portów SNAT. W tej chwili Zapora platformy Azure losowo wybiera źródłowy publiczny adres IP do użycia dla połączenia. Jeśli masz jakiekolwiek filtrowanie podrzędne w sieci, musisz zezwolić na wszystkie publiczne adresy IP skojarzone z zaporą.
+- **DNAT** — wiele standardowych wystąpień portów można przetłumaczyć na serwery zaplecza. Na przykład jeśli masz dwa publiczne adresy IP, możesz przetłumaczyć port TCP 3389 (RDP) dla obu adresów IP.
+- Reportcy **adresów sieciowych** — dodatkowe porty są dostępne dla wychodzących połączeń z reportem adresów sieciowych, co zmniejsza prawdopodobieństwo wyczerpania portów dla tego elementu. W tej chwili Zapora platformy Azure losowo wybiera źródłowy publiczny adres IP, który ma być używany w połączeniu. Jeśli masz jakieś filtrowanie podrzędne w sieci, musisz zezwolić na wszystkie publiczne adresy IP skojarzone z zaporą.
 
 ## <a name="azure-monitor-logging"></a>Rejestrowanie w usłudze Azure Monitor
 
@@ -96,7 +96,7 @@ Wszystkie zdarzenia są zintegrowane z usługą Azure Monitor, co umożliwia arc
 
 ## <a name="certifications"></a>Certyfikaty
 
-Zapora Azure jest zgodna z payment card industry (PCI), Service Organization Controls (SOC), International Organization for Standardization (ISO) i ICSA Labs. Aby uzyskać więcej informacji, zobacz [Certyfikaty zgodności zapory platformy Azure](compliance-certifications.md).
+Zapora platformy Azure to branżowa karta płatnicza (PCI), kontrolki organizacji usług (SOC), Międzynarodowa Organizacja Normalizacyjna (ISO) i ICSA Labs. Aby uzyskać więcej informacji, zobacz [certyfikaty zgodności zapory platformy Azure](compliance-certifications.md).
 
 
 ## <a name="known-issues"></a>Znane problemy
@@ -105,24 +105,24 @@ W usłudze Azure Firewall występują następujące znane problemy:
 
 |Problem  |Opis  |Środki zaradcze  |
 |---------|---------|---------|
-Reguły filtrowania dla protokołów innych niż TCP/UDP (na przykład ICMP) nie działają dla ruchu powiązanego z Internetem|Reguły filtrowania sieci dla protokołów innych niż TCP/UDP nie działają z SNAT do publicznego adresu IP. Protokoły inne niż TCP/UDP są obsługiwane między podsieciami szprych i sieciami wirtualnymi.|Usługa Azure Firewall korzysta ze standardowego modułu równoważenia obciążenia, [który obecnie nie obsługuje funkcji SNAT dla protokołów IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Analizujemy opcje obsługi tego scenariusza w przyszłej wersji.|
-|Brak obsługi protokołu ICMP w programie PowerShell i interfejsie wiersza polecenia|Usługi Azure PowerShell i cli nie obsługują protokołu ICMP jako prawidłowego protokołu w regułach sieciowych.|Nadal można używać protokołu ICMP jako protokołu za pośrednictwem portalu i interfejsu API REST. Pracujemy nad tym, aby wkrótce dodać ICMP w programie PowerShell i CLI.|
-|Tagi FQDN wymagają ustawienia protokołu i portu|Reguły aplikacji ze znacznikami FQDN wymagają definicji protokołu port:.|Jako wartości portu i protokołu można użyć wartości **https**. Pracujemy nad tym, aby to pole było opcjonalne, gdy używane są znaczniki FQDN.|
-|Przenoszenie zapory do innej grupy zasobów lub subskrypcji nie jest obsługiwane|Przenoszenie zapory do innej grupy zasobów lub subskrypcji nie jest obsługiwane.|Obsługa tej funkcji jest w naszym harmonogramie działania. Aby przenieść zaporę do innej grupy zasobów lub subskrypcji, musisz usunąć bieżące wystąpienie i utworzyć je ponownie w nowej grupie zasobów lub subskrypcji.|
-|Alerty analizy zagrożeń mogą zostać zamaskowane|Reguły sieciowe z miejscem docelowym 80/443 dla wychodzących filtrowania maski alerty analizy zagrożeń po skonfigurowaniu do trybu alertów tylko.|Tworzenie filtrowania wychodzącego dla 80/443 przy użyciu reguł aplikacji. Możesz też zmienić tryb analizy zagrożeń na **Alert i Odmów**.|
-|Zapora azure używa usługi Azure DNS tylko do rozpoznawania nazw|Zapora azure rozwiązuje nazwy FQDN przy użyciu tylko usługi Azure DNS. Niestandardowy serwer DNS nie jest obsługiwany. Nie ma wpływu na rozpoznawanie dns w innych podsieciach.|Pracujemy nad złagodzeniem tego ograniczenia.|
-|Usługa Azure Firewall SNAT/DNAT nie działa w przypadku prywatnych miejsc docelowych adresów IP|Obsługa usługi Azure Firewall SNAT/DNAT jest ograniczona do danych wychodzących/przychodzących w dostępie internetowym. SNAT/DNAT nie działa obecnie w prywatnych miejscach docelowych IP. Na przykład, mówił do mówił.|Jest to aktualne ograniczenie.|
-|Nie można usunąć pierwszej publicznej konfiguracji ip|Każdy publiczny adres IP zapory platformy Azure jest przypisany do *konfiguracji IP*.  Pierwsza konfiguracja IP jest przypisywana podczas wdrażania zapory i zazwyczaj zawiera również odwołanie do podsieci zapory (chyba że jest skonfigurowana jawnie inaczej za pośrednictwem wdrożenia szablonu). Nie można usunąć tej konfiguracji IP, ponieważ spowoduje to de-przydzielenie zapory. Nadal można zmienić lub usunąć publiczny adres IP skojarzony z tą konfiguracją IP, jeśli zapora ma co najmniej jeden inny publiczny adres IP dostępny do użycia.|Jest to celowe.|
-|Strefy dostępności można skonfigurować tylko podczas wdrażania.|Strefy dostępności można skonfigurować tylko podczas wdrażania. Nie można skonfigurować stref dostępności po wdrożeniu zapory.|Jest to celowe.|
-|SNAT na połączeniach przychodzących|Oprócz DNAT połączenia za pośrednictwem publicznego adresu IP zapory (przychodzącego) są sNATed do jednego z prywatnych adresów IP zapory. To wymaganie dzisiaj (również dla aktywnych/aktywnych wynaużania NVA) w celu zapewnienia routingu symetrycznego.|Aby zachować oryginalne źródło dla protokołu HTTP/S, należy rozważyć użycie nagłówków [XFF.](https://en.wikipedia.org/wiki/X-Forwarded-For) Na przykład należy użyć usługi, takich jak [Usługi Azure Drzwi frontowe](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) lub [usługi Azure Application Gateway](../application-gateway/rewrite-http-headers.md) przed zaporą. Można również dodać WAF jako część usługi Azure Front Door i łańcuch do zapory.
-|Obsługa filtrowania FQDN SQL tylko w trybie proxy (port 1433)|W przypadku usługi Azure SQL Database, usługi Azure SQL Data Warehouse i wystąpienia zarządzanego sql platformy Azure:<br><br>Podczas podglądu filtrowanie FQDN SQL jest obsługiwane tylko w trybie proxy (port 1433).<br><br>W przypadku usługi Azure SQL IaaS:<br><br>Jeśli używasz portów niestandardowych, można określić te porty w regułach aplikacji.|W przypadku języka SQL w trybie przekierowania (domyślne, jeśli łączysz się z poziomu platformy Azure), można zamiast tego filtrować dostęp przy użyciu tagu usługi SQL jako część reguł sieciowych Zapory platformy Azure.
-|Ruch wychodzący na porcie TCP 25 jest niedozwolony| Wychodzące połączenia SMTP korzystające z portu TCP 25 są blokowane. Port 25 jest używany głównie do nieuwierzyleni dostarczania wiadomości e-mail. Jest to domyślne zachowanie platformy dla maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz więcej [Rozwiązywanie problemów z łącznością smtp wychodzących na platformie Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Jednak w przeciwieństwie do maszyn wirtualnych obecnie nie jest możliwe włączenie tej funkcji w zaporze platformy Azure. Uwaga: aby zezwolić na uwierzytelnione smtp (port 587) lub SMTP na porcie innym niż 25, upewnij się, że skonfigurowano regułę sieci, a nie regułę aplikacji, ponieważ inspekcja SMTP nie jest obecnie obsługiwana.|Postępuj zgodnie z zalecaną metodą wysyłania wiadomości e-mail, zgodnie z dokumentami w artykule dotyczącym rozwiązywania problemów z smtp. Możesz też wykluczyć maszynę wirtualną, która potrzebuje wychodzącego dostępu SMTP z domyślnej trasy do zapory. Zamiast tego skonfiguruj dostęp wychodzący bezpośrednio do Internetu.
-|Aktywny ftp nie jest obsługiwany|Aktywny protokół FTP jest wyłączony w zaporze platformy Azure w celu ochrony przed atakami odbijania FTP za pomocą polecenia FTP PORT.|Zamiast tego można użyć pasywnego FTP. Nadal należy jawnie otworzyć porty TCP 20 i 21 na zaporze.
-|Wskaźnik wykorzystania portów SNAT pokazuje 0%|Metryka wykorzystania portu SNAT zapory platformy Azure może wykazywać 0% użycia nawet wtedy, gdy są używane porty SNAT. W takim przypadku przy użyciu metryki jako część metryki kondycji zapory zapewnia niepoprawny wynik.|Ten problem został rozwiązany i wdrożenie do produkcji jest ukierunkowane na maj 2020. W niektórych przypadkach ponowne wdrożenie zapory rozwiązuje problem, ale nie jest spójne. Jako obejście pośrednie należy używać tylko stanu kondycji zapory, aby wyszukać *stan=zdegradowany*, nie dla *stanu=w złej kondycji*. Wyczerpanie portu będzie wyświetlane jako *zdegradowane*. *Nie w dobrej kondycji* jest zarezerwowany do wykorzystania w przyszłości, gdy są bardziej metryki, aby wpłynąć na kondycję zapory.
-|Protokół DNAT nie jest obsługiwany z włączoną obsługą tunelowania wymuszonego|Zapory wdrożone z włączoną obsługą tunelowania wymuszonego nie obsługują dostępu przychodzącego z Internetu z powodu routingu asymetrycznego.|Jest to zgodnie z projektem ze względu na routing asymetryczny. Ścieżka powrotu dla połączeń przychodzących przechodzi przez zaporę lokalną, która nie została nawiązana.
-|Wychodzący pasywny protokół FTP nie działa w przypadku zapór z wieloma publicznymi adresami IP.|Pasywny FTP ustanawia różne połączenia dla kanałów sterowania i transmisji danych. Gdy Zapora z wieloma publicznymi adresami IP wysyła dane wychodzące, losowo wybiera jeden ze swoich publicznych adresów IP dla źródłowego adresu IP. Protokół FTP kończy się niepowodzeniem, gdy kanały danych i kontroli używają różnych źródłowych adresów IP.|Planowana jest jawna konfiguracja SNAT. W międzyczasie należy rozważyć użycie jednego adresu IP w tej sytuacji.|
-|W metryce NetworkRuleHit brakuje wymiaru protokołu|Metryka ApplicationRuleHit umożliwia filtrowanie protokołu opartego, ale tej funkcji brakuje w odpowiedniej metryki NetworkRuleHit.|Poprawka jest badana.|
-|Aktualizacje konfiguracji mogą trwać średnio pięć minut.|Aktualizacja konfiguracji zapory platformy Azure może trwać średnio od trzech do pięciu minut, a aktualizacje równoległe nie są obsługiwane.|Poprawka jest badana.
+Reguły filtrowania dla protokołów innych niż TCP/UDP (na przykład ICMP) nie działają dla ruchu powiązanego z Internetem|Reguły filtrowania sieci dla protokołów innych niż TCP/UDP nie działają z przystawcy do publicznego adresu IP. Protokoły inne niż TCP/UDP są obsługiwane między podsieciami szprych i sieciami wirtualnymi.|Usługa Azure Firewall korzysta ze standardowego modułu równoważenia obciążenia, [który obecnie nie obsługuje funkcji SNAT dla protokołów IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Szukamy opcji obsługi tego scenariusza w przyszłej wersji.|
+|Brak obsługi protokołu ICMP w programie PowerShell i interfejsie wiersza polecenia|Azure PowerShell i interfejs wiersza polecenia nie obsługują protokołu ICMP jako prawidłowego protokołu w regułach sieci.|Nadal jest możliwe używanie protokołu ICMP jako protokołu za pośrednictwem portalu i interfejsu API REST. Pracujemy nad dodaniem protokołu ICMP w programie PowerShell i interfejsie wiersza polecenia.|
+|Tagi FQDN wymagają ustawienia protokołu i portu|Reguły aplikacji ze znacznikami FQDN wymagają portu: Definicja protokołu.|Jako wartości portu i protokołu można użyć wartości **https**. Pracujemy nad tym, aby to pole było opcjonalne, gdy używane są Tagi FQDN.|
+|Przeniesienie zapory do innej grupy zasobów lub subskrypcji nie jest obsługiwane|Przeniesienie zapory do innej grupy zasobów lub subskrypcji nie jest obsługiwane.|Obsługa tej funkcji jest w naszym harmonogramie działania. Aby przenieść zaporę do innej grupy zasobów lub subskrypcji, musisz usunąć bieżące wystąpienie i utworzyć je ponownie w nowej grupie zasobów lub subskrypcji.|
+|Alerty analizy zagrożeń mogą zostać zamaskowane|Reguły sieciowe z lokalizacją docelową 80/443 dla wyzwalanych masek filtrowania zdarzeń analizy zagrożeń po skonfigurowaniu trybu tylko alertu.|Utwórz filtrowanie wychodzące dla 80/443 przy użyciu reguł aplikacji. Lub zmień tryb analizy zagrożeń na **alert i Odmów**.|
+|Zapora platformy Azure używa Azure DNS tylko do rozpoznawania nazw|Zapora platformy Azure rozwiązuje nazwy FQDN tylko przy użyciu Azure DNS. Niestandardowy serwer DNS nie jest obsługiwany. Nie ma to wpływu na rozpoznawanie nazw DNS w innych podsieciach.|Pracujemy nad ograniczeniem tego ograniczenia.|
+|Zapora platformy Azure DNAT nie działa w przypadku prywatnych miejsc docelowych IP|Obsługa usługi Azure firewall DNAT jest ograniczona do Internetu/ruchu przychodzącego. DNAT aktualnie nie działa w przypadku prywatnych miejsc docelowych IP. Na przykład satelity.|Jest to bieżące ograniczenie.|
+|Nie można usunąć pierwszej konfiguracji publicznego adresu IP|Każdy publiczny adres IP zapory platformy Azure jest przypisywany do *konfiguracji adresu IP*.  Pierwsza konfiguracja protokołu IP jest przypisywana podczas wdrażania zapory, a także zazwyczaj zawiera odwołanie do podsieci zapory (chyba że jest inaczej skonfigurowana za pośrednictwem wdrożenia szablonu). Nie można usunąć tej konfiguracji protokołu IP, ponieważ spowodowałoby to cofnięcie alokacji zapory. Nadal można zmienić lub usunąć publiczny adres IP skojarzony z tą konfiguracją IP, Jeśli Zapora ma co najmniej jeden publiczny adres IP do użycia.|Jest to celowe.|
+|Strefy dostępności można skonfigurować tylko podczas wdrażania.|Strefy dostępności można skonfigurować tylko podczas wdrażania. Nie można skonfigurować Strefy dostępności po wdrożeniu zapory.|Jest to celowe.|
+|Przychodzący translator adresów sieciowych dla połączeń przychodzących|Oprócz DNAT połączenia za pośrednictwem publicznego adresu IP (przychodzącego) zapory są podłączony do jednego z prywatnych IP zapory. Ten wymóg jest obecny (również w przypadku usługi Active/Active urządzeń WUS) w celu zapewnienia symetrycznego routingu.|Aby zachować oryginalne źródło dla protokołu HTTP/S, rozważ użycie nagłówków [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) . Na przykład użyj usługi, takiej jak [Azure Front drzwiczk](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) lub [Azure Application Gateway](../application-gateway/rewrite-http-headers.md) przed zaporą. Możesz również dodać WAF w ramach frontonu i łańcucha do zapory platformy Azure.
+|Obsługa filtrowania nazw FQDN programu SQL tylko w trybie proxy (port 1433)|W przypadku Azure SQL Database, Azure SQL Data Warehouse i wystąpienia zarządzanego Azure SQL:<br><br>W trakcie okresu zapoznawczego filtrowanie FQDN programu SQL jest obsługiwane tylko w trybie proxy (port 1433).<br><br>W przypadku usługi Azure SQL IaaS:<br><br>Jeśli używasz portów niestandardowych, możesz określić te porty w regułach aplikacji.|W przypadku usługi SQL w trybie przekierowania (wartość domyślna w przypadku nawiązywania połączenia z poziomu platformy Azure) można zamiast tego filtrować dostęp przy użyciu znacznika usługi SQL w ramach reguł sieci zapory platformy Azure.
+|Ruch wychodzący na porcie TCP 25 jest niedozwolony| Wychodzące połączenia SMTP używające portu 25 TCP są blokowane. Port 25 jest używany głównie do dostarczania nieuwierzytelnionych wiadomości e-mail. Jest to domyślne zachowanie platformy dla maszyn wirtualnych. Aby uzyskać więcej informacji, Zobacz więcej [Rozwiązywanie problemów z łącznością wychodzącą SMTP na platformie Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Jednak w przeciwieństwie do maszyn wirtualnych nie jest obecnie możliwe włączenie tej funkcji w zaporze platformy Azure. Uwaga: aby zezwolić na uwierzytelnionego protokołu SMTP (port 587) lub SMTP przez port inny niż 25, upewnij się, że skonfigurowano regułę sieciową, a nie regułę aplikacji, ponieważ Inspekcja SMTP nie jest w tej chwili obsługiwana.|Postępuj zgodnie z zalecaną metodą wysyłania wiadomości e-mail zgodnie z opisem w artykule dotyczącym rozwiązywania problemów z protokołem SMTP. Lub Wyklucz maszynę wirtualną wymagającą dostępu wychodzącego SMTP z domyślnej trasy do zapory. Zamiast tego należy skonfigurować dostęp wychodzący bezpośrednio do Internetu.
+|Aktywne FTP nie jest obsługiwane|Usługa Active FTP została wyłączona w zaporze platformy Azure w celu ochrony przed atakami za pośrednictwem protokołu FTP za pomocą polecenia FTP PORT.|Zamiast tego można użyć pasywnego protokołu FTP. Należy nadal jawnie otwierać porty TCP 20 i 21 w zaporze.
+|Metryka wykorzystania portów przez przytranslatora adresów sieciowych pokazuje 0%|Metryka wykorzystania portów w zaporze platformy Azure może wskazywać na użycie 0% nawet wtedy, gdy są używane porty. W takim przypadku użycie metryki jako części metryki kondycji zapory zapewnia niepoprawny wynik.|Ten problem został rozwiązany, a wdrażanie w środowisku produkcyjnym jest celem 2020 maja. W niektórych przypadkach ponowne wdrożenie zapory rozwiązuje problem, ale nie jest to spójne. Jako obejście pośrednie Użyj stanu kondycji zapory tylko w celu wyszukania *stanu = obniżona*wartość, a nie dla *stanu = zła kondycja*. W przypadku wyczerpania portów zostanie wyświetlony stan *obniżonej wydajności*. *Nie* działa w przyszłości, gdy jest więcej metryk, które mają wpływ na kondycję zapory.
+|DNAT nie jest obsługiwana z włączonym wymuszonym tunelowaniem|Zapory wdrożone z włączonym wymuszonym tunelowaniem nie mogą obsługiwać przychodzącego dostępu z Internetu z powodu asymetrycznego routingu.|Jest to spowodowane projektem routingu asymetrycznego. Ścieżka zwrotna dla połączeń przychodzących odbywa się za pośrednictwem lokalnej zapory, która nie widziała ustanowionego połączenia.
+|Pasywny protokół FTP nie działa w przypadku zapór z wieloma publicznymi adresami IP.|Pasywne FTP ustanawia różne połączenia dla kanałów kontroli i danych. Gdy Zapora z wieloma publicznymi adresami IP wysyła dane wychodzące, losowo wybiera jeden z jego publicznych adresów IP dla źródłowego adresu IP. Usługa FTP kończy się niepowodzeniem, gdy kanały danych i kontroli używają różnych źródłowych adresów IP.|Zaplanowano jawną konfigurację translatora adresów sieciowych. W międzyczasie Rozważ użycie pojedynczego adresu IP w tej sytuacji.|
+|W metryce NetworkRuleHit brakuje wymiaru protokołu|Metryka ApplicationRuleHit umożliwia filtrowanie na podstawie protokołu, ale w odpowiedniej metryce NetworkRuleHit nie ma tej możliwości.|Trwa badanie poprawki.|
+|Aktualizacje konfiguracji mogą mieć średnio pięć minut.|Aktualizacja konfiguracji zapory platformy Azure może trwać od trzech do pięciu minut, a aktualizacje równoległe nie są obsługiwane.|Trwa badanie poprawki.
 
 ## <a name="next-steps"></a>Następne kroki
 

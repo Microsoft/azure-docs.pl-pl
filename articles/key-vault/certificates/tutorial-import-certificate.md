@@ -1,6 +1,6 @@
 ---
-title: Samouczek — importowanie certyfikatu w magazynie kluczy przy użyciu witryny Azure portal | Dokumenty firmy Microsoft
-description: Samouczek przedstawiający importowanie certyfikatu w usłudze Azure Key Vault
+title: Samouczek — Importowanie certyfikatu w Key Vault przy użyciu Azure Portal | Microsoft Docs
+description: Samouczek przedstawiający sposób importowania certyfikatu w programie Azure Key Vault
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -9,30 +9,30 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 754f30f7931f9fad6a95328cbf8ab34f70cb75a0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9496173ee006c6ca3cab557f4e63ec21647ad0fd
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423110"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82105577"
 ---
-# <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Samouczek: Importowanie certyfikatu w usłudze Azure Key Vault
+# <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Samouczek: Importowanie certyfikatu w Azure Key Vault
 
-Azure Key Vault to usługa w chmurze, która zapewnia bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym samouczku utworzysz magazyn kluczy, a następnie użyj go do zaimportowania certyfikatu. Aby uzyskać więcej informacji na temat usługi Key Vault, możesz zapoznać się z [omówieniem](../general/overview.md).
+Azure Key Vault to usługa w chmurze, która zapewnia bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym samouczku utworzysz Magazyn kluczy, a następnie użyjesz go do zaimportowania certyfikatu. Aby uzyskać więcej informacji na temat usługi Key Vault, możesz zapoznać się z [omówieniem](../general/overview.md).
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie magazynu kluczy.
-> * Importowanie certyfikatu w przechowalni kluczy przy użyciu portalu.
-> * Importowanie certyfikatu w magazynie kluczy przy użyciu interfejsu wiersza polecenia.
+> * Zaimportuj certyfikat w magazynie kluczy przy użyciu portalu.
+> * Zaimportuj certyfikat w magazynie kluczy przy użyciu interfejsu wiersza polecenia.
 
 
-Przed rozpoczęciem przeczytaj [podstawowe pojęcia programu Key Vault](../general/basic-concepts.md). 
+Przed rozpoczęciem Przeczytaj [Key Vault podstawowe pojęcia](../general/basic-concepts.md). 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -40,53 +40,56 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
-1. Z menu Portalu Platformy Azure lub ze strony **głównej** wybierz pozycję **Utwórz zasób**.
+1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
 2. W polu wyszukiwania wpisz **Key Vault**.
 3. Na liście wyników wybierz pozycję **Key Vault**.
 4. W sekcji Key Vault, wybierz przycisk **Utwórz**.
 5. W sekcji **Tworzenie magazynu kluczy** podaj następujące informacje:
-    - **Nazwa**: wymagana jest unikatowa nazwa. W tym przewodniku Szybki start używamy **przykładu-Vault**. 
+    - **Nazwa**: wymagana jest unikatowa nazwa. W tym przewodniku szybki start użyjemy **przykładowego magazynu**. 
     - **Subskrypcja**: wybierz subskrypcję.
-    - W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nowy** i wprowadź nazwę grupy zasobów.
+    - W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
     - W menu rozwijanym **Lokalizacja** wybierz lokalizację.
     - Dla pozostałych opcji zostaw wartości domyślne.
 6. Po podaniu powyższych informacje wybierz przycisk **Utwórz**.
 
 Zanotuj dwie poniższe właściwości:
 
-* **Nazwa przechowalni:** W przykładzie jest to **Przykład-Vault**. Użyjesz tej nazwy w innych krokach.
+* **Nazwa magazynu**: w tym przykładzie **przykład-magazyn**. Użyjesz tej nazwy w innych krokach.
 * **Identyfikator URI magazynu**: w tym przykładzie jest to https://example-vault.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania operacji na tym nowym magazynie.
 
 ![Dane wyjściowe po ukończeniu tworzenia usługi Key Vault](../media/certificates/tutorial-import-cert/vault-properties.png)
 
-## <a name="import-a-certificate-to-key-vault"></a>Importowanie certyfikatu do magazynu kluczy
+## <a name="import-a-certificate-to-key-vault"></a>Importuj certyfikat do Key Vault
 
-Aby zaimportować certyfikat do przechowalni, musisz mieć plik certyfikatu PEM lub PFX, aby znajdować się na dysku. W takim przypadku zaimportujemy certyfikat o nazwie **ExampleCertificate**.
+Aby zaimportować certyfikat do magazynu, należy mieć plik certyfikatu PEM lub PFX na dysku. W takim przypadku zostanie zaimportowany certyfikat z nazwą pliku o nazwie **ExampleCertificate**.
 
 > [!IMPORTANT]
-> W usłudze Azure Key Vault obsługiwane formaty certyfikatów to PFX i PEM. 
-> - Format pliku pem zawiera jeden lub więcej plików certyfikatów X509.
-> - Format pliku pfx jest formatem pliku archiwum do przechowywania kilku obiektów kryptograficznych w jednym pliku, czyli certyfikatu serwera (wystawionego dla domeny), pasującego klucza prywatnego i może opcjonalnie zawierać pośredni urząd certyfikacji.  
+> W Azure Key Vault obsługiwane formaty certyfikatów to PFX i PEM. 
+> - Format pliku PEM zawiera co najmniej jeden plik certyfikatu x509.
+> - Format pliku PFX to format pliku archiwum służący do przechowywania kilku obiektów kryptograficznych w jednym pliku, tj. certyfikat serwera (wystawiony dla Twojej domeny), odpowiadający mu klucz prywatny i opcjonalnie może zawierać pośredni urząd certyfikacji.  
 
-1. Na stronach właściwości magazynu kluczy wybierz pozycję **Certyfikaty**.
+1. Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
 2. Kliknij pozycję **Wygeneruj/zaimportuj**.
 3. Na ekranie **Tworzenie certyfikatu** wybierz następujące wartości:
-    - **Metoda tworzenia certyfikatu:** Import.
+    - **Metoda tworzenia certyfikatu**: import.
     - **Nazwa certyfikatu**: ExampleCertificate.
-    - **Przekaż plik certyfikatu**: wybierz plik certyfikatu z dysku
-    - Dla pozostałych opcji zostaw wartości domyślne. Kliknij przycisk **Utwórz**.
+    - **Przekaż plik certyfikatu**: Wybierz plik certyfikatu z dysku
+    - **Hasło** : w przypadku przekazywania pliku certyfikatu chronionego hasłem Podaj tutaj hasło. W przeciwnym razie pozostaw to pole puste. Po pomyślnym zaimportowaniu pliku certyfikatu Magazyn kluczy usunie to hasło.
+4. Kliknij przycisk **Utwórz**.
 
 ![Właściwości certyfikatu](../media/certificates/tutorial-import-cert/cert-import.png)
 
-Po otrzymaniu komunikatu o pomyślnym zaimportowaniu certyfikatu można kliknąć go na liście. Następnie można wyświetlić niektóre z jego właściwości. 
+Dodanie certyfikatu przy użyciu metody **Import** spowoduje, że magazyn kluczy Azure automatycznie wypełni parametry certyfikatu (tj. okres ważności, nazwę wystawcy, datę aktywacji itp.).
+
+Po otrzymaniu komunikatu o pomyślnym zaimportowaniu certyfikatu można kliknąć go na liście, aby wyświetlić jego właściwości. 
 
 ![Właściwości certyfikatu](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
 ## <a name="import-a-certificate-using-azure-cli"></a>Importowanie certyfikatu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Importowanie certyfikatu do określonego magazynu kluczy. Aby zaimportować istniejący prawidłowy certyfikat zawierający klucz prywatny do usługi Azure Key Vault, plik do zaimportowania może być w formacie PFX lub PEM. Jeśli certyfikat jest w formacie PEM, plik PEM musi zawierać klucz, a także certyfikaty x509. Ta operacja wymaga certyfikatów/uprawnień importu.
+Zaimportuj certyfikat do określonego magazynu kluczy. Aby zaimportować istniejący prawidłowy certyfikat zawierający klucz prywatny do Azure Key Vault, plik do zaimportowania może być w formacie PFX lub PEM. Jeśli certyfikat jest w formacie PEM, plik PEM musi zawierać klucz oraz certyfikaty x509. Ta operacja wymaga uprawnień certyfikatów/importu.
 
 ```azurecli
 az keyvault certificate import --file
@@ -99,7 +102,23 @@ az keyvault certificate import --file
                                [--subscription]
                                [--tags]
 ```
-Dowiedz się więcej o parametrach [tutaj](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
+Dowiedz się więcej na [temat parametrów](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
+
+Po zaimportowaniu certyfikatu można wyświetlić certyfikat przy użyciu polecenia [Pokaż certyfikat](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+
+
+```azurecli
+az keyvault certificate show [--id]
+                             [--name]
+                             [--only-show-errors]
+                             [--subscription]
+                             [--vault-name]
+                             [--version]
+```
+
+
+
+Teraz utworzono Magazyn kluczy, zaimportowano certyfikat i Wyświetlono właściwości certyfikatu.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -113,8 +132,8 @@ Jeśli nie będą Ci one już potrzebne, usuń grupę zasobów, a zostanie takż
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono przechowalnię kluczy i zaimportowano w nim certyfikat. Aby dowiedzieć się więcej o programie Key Vault i integruj go z aplikacjami, przejdź do poniższych artykułów.
+W tym samouczku utworzono Key Vault i zaimportowano do niego certyfikat. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
 
-- Dowiedz się więcej o [zarządzaniu certyfikatami w usłudze Azure Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault)
+- Przeczytaj więcej [na temat zarządzania tworzeniem certyfikatów w Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
 - Zobacz przykłady [importowania certyfikatów przy użyciu interfejsów API REST](/rest/api/keyvault/importcertificate/importcertificate)
-- Zapoznaj się z [najlepszymi rozwiązaniami usługi Azure Key Vault](../general/best-practices.md)
+- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań
