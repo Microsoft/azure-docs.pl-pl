@@ -12,4 +12,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183174"
 ---
 > [!NOTE]
-> W usłudze Azure Active Directory B2C [zasady niestandardowe](../articles/active-directory-b2c/custom-policy-get-started.md) są przeznaczone przede wszystkim do rozwiązywania złożonych scenariuszy. W większości scenariuszy zaleca się użycie wbudowanych [przepływów użytkownika](../articles/active-directory-b2c/user-flow-overview.md).
+> W Azure Active Directory B2C [zasady niestandardowe](../articles/active-directory-b2c/custom-policy-get-started.md) są przeznaczone głównie do realizacji złożonych scenariuszy. W przypadku większości scenariuszy zalecamy używanie wbudowanych [przepływów użytkowników](../articles/active-directory-b2c/user-flow-overview.md).
