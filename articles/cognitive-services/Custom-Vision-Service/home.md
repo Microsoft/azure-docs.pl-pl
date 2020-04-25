@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: bdb2b31ee3abb30e6e7339f641b778ff5dc522b0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 79ecb801e1b4d0fa96ca7ae06223fc231cbf12e6
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403807"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129886"
 ---
 # <a name="what-is-custom-vision"></a>Co to jest usługa Custom Vision?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Usługa Azure Custom Vision to usługa poznawcza umożliwiająca tworzenie, wdrażanie i ulepszanie własnych klasyfikatorów obrazów. Klasyfikator obrazu to usługa AI, która stosuje etykiety (które reprezentują _klasy)_ do obrazów, zgodnie z ich cechami wizualnymi. W przeciwieństwie do usługi [Przetwarzania Obrazów,](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) Usługa Custom Vision umożliwia określenie etykiet do zastosowania.
+Usługa Azure Custom Vision to usługa poznawcza umożliwiająca tworzenie, wdrażanie i ulepszanie własnych klasyfikatorów obrazów. Klasyfikator obrazów to usługa AI, która stosuje etykiety (reprezentujące _klasy_) do obrazów, zgodnie z ich cechami wizualnymi. W przeciwieństwie do usługi [Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) , Custom Vision umożliwia określenie etykiet do zastosowania.
 
 ## <a name="what-it-does"></a>Wyniki działania
 
@@ -33,9 +33,9 @@ Funkcje usługi Custom Vision można podzielić na dwie kategorie. **Klasyfikacj
 
 ### <a name="optimization"></a>Optymalizacja
 
-Usługa Custom Vision jest zoptymalizowana, aby szybko rozpoznać główne różnice między obrazami, dzięki czemu można rozpocząć tworzenie prototypów modelu z niewielką ilością danych. 50 obrazów na etykietę to zazwyczaj dobry początek. Jednak usługa nie jest optymalna do wykrywania subtelnych różnic w obrazach (na przykład wykrywania drobnych pęknięć lub wgnieceń w scenariuszach zapewniania jakości).
+Usługa Custom Vision jest zoptymalizowana pod kątem szybkiego rozpoznawania głównych różnic między obrazami, dzięki czemu możesz zacząć prototypować model za pomocą niewielkiej ilości danych. 50 obrazów na etykietę to zazwyczaj dobry początek. Jednak usługa nie jest optymalna do wykrywania delikatnych różnic w obrazach (na przykład w przypadku wykrywania drobnych pęknięć lub zwiększania wcięcia w scenariuszach zapewniania jakości).
 
-Ponadto możesz wybrać spośród kilku różnych typów algorytmu usługi Custom Vision, które są zoptymalizowane pod kątem obrazów z określonymi materiałami &mdash;, na przykład elementami krajobrazu lub produktami sprzedaży detalicznej. Aby uzyskać więcej informacji, zobacz [Tworzenie klasyfikatora](getting-started-build-a-classifier.md) przewodnik.
+Ponadto możesz wybrać spośród kilku różnych typów algorytmu usługi Custom Vision, które są zoptymalizowane pod kątem obrazów z określonymi materiałami &mdash;, na przykład elementami krajobrazu lub produktami sprzedaży detalicznej. Aby uzyskać więcej informacji, zobacz Przewodnik dotyczący [tworzenia klasyfikatora](getting-started-build-a-classifier.md) .
 
 ## <a name="what-it-includes"></a>Co zawiera
 
@@ -49,4 +49,4 @@ Jak w przypadku wszystkich usług Cognitive Services, deweloperzy korzystający 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Postępuj zgodnie z przewodnikiem [Tworzenie klasyfikatora](getting-started-build-a-classifier.md), aby rozpocząć korzystanie z usługi Custom Vision w Internecie, lub ukończ [Samouczek klasyfikacji obrazów](csharp-tutorial.md), aby zaimplementować podstawowy scenariusz w kodzie.
+Postępuj zgodnie z przewodnikiem [Tworzenie klasyfikatora](getting-started-build-a-classifier.md), aby rozpocząć korzystanie z usługi Custom Vision w Internecie, lub ukończ [Samouczek klasyfikacji obrazów](quickstarts/image-classification.md), aby zaimplementować podstawowy scenariusz w kodzie.

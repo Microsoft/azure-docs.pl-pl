@@ -1,22 +1,37 @@
 ---
-title: Lista wbudowanych inicjatyw politycznych
-description: Wyświetl listę wbudowanych inicjatyw zasad dla zasad platformy Azure. Kategorie obejmują zgodność z przepisami, konfigurację gościa i inne.
-ms.date: 01/31/2020
+title: Lista wbudowanych inicjatyw zasad
+description: Utwórz listę wbudowanych inicjatyw zasad dla Azure Policy. Kategorie obejmują zgodność z przepisami, konfigurację gościa i inne.
+ms.date: 04/24/2020
 ms.topic: sample
-ms.openlocfilehash: f98a5d611e807875390102d67efd1b0f0f262628
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: generated
+ms.openlocfilehash: 119a016431e399a94fbaffa527172005b9355f42
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239749"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146444"
 ---
-# <a name="azure-policy-built-in-initiative-definitions"></a>Wbudowane definicje inicjatywy usługi Azure Policy
+# <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy wbudowane definicje inicjatyw
 
-Ta strona jest indeksem wbudowanych definicji inicjatywy usługi Azure Policy.
+Ta strona jest indeksem Azure Policy wbudowanych definicji inicjatywy.
 
-Nazwa na każdym wbudowanym łączu do źródła definicji inicjatywy w [repozytorium Usługi Azure Policy GitHub](https://github.com/Azure/azure-policy). Wbudowane są pogrupowane według właściwości **kategorii** w **metadanych**. Aby przejść do określonej **kategorii,** użyj menu po prawej stronie strony. W przeciwnym razie użyj <kbd>klawisza Ctrl</kbd>-<kbd>F,</kbd> aby korzystać z funkcji wyszukiwania przeglądarki.
+Nazwa każdego wbudowanego łącza do źródła definicji inicjatywy w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy). Wbudowane elementy są pogrupowane według właściwości **Category** w **metadanych**. Aby przejść do określonej **kategorii**, użyj menu po prawej stronie. W przeciwnym razie użyj <kbd>klawiszy CTRL</kbd>-<kbd>F</kbd> , aby użyć funkcji wyszukiwania przeglądarki.
 
-[!INCLUDE [azure-policy-samples-policyset-index](../../../../includes/azure-policy-samples-policyset-index.md)]
+## <a name="guest-configuration"></a>Konfiguracja gościa
+
+[!INCLUDE [azure-policy-samples-policysets-guest-configuration](../../../../includes/policy/samples/bycat/policysets-guest-configuration.md)]
+
+## <a name="monitoring"></a>Monitorowanie
+
+[!INCLUDE [azure-policy-samples-policysets-monitoring](../../../../includes/policy/samples/bycat/policysets-monitoring.md)]
+
+## <a name="regulatory-compliance"></a>Zgodność z przepisami
+
+[!INCLUDE [azure-policy-samples-policysets-regulatory-compliance](../../../../includes/policy/samples/bycat/policysets-regulatory-compliance.md)]
+
+## <a name="security-center"></a>Security Center
+
+[!INCLUDE [azure-policy-samples-policysets-security-center](../../../../includes/policy/samples/bycat/policysets-security-center.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
