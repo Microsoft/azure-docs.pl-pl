@@ -1,42 +1,42 @@
 ---
-title: Ustawienia oferty dla obrazu kontenerów platformy Azure | Azure Marketplace
-description: Konfigurowanie ustawień oferty dla kontenera platformy Azure.
+title: Ustawienia oferty dla obrazu kontenerów platformy Azure | Portal Azure Marketplace
+description: Skonfiguruj ustawienia oferty dla kontenera platformy Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: dfdc588ffe3ca8c0f21e4111b6f4c66de162299d
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 61d9fa535d2bec0a52351ba6199183ea899a0e1c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270183"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146257"
 ---
 # <a name="container-offer-settings-tab"></a>Karta Ustawienia oferty kontenera
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami usługi Azure Container do Centrum partnerów. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [tworzenie oferty usługi Azure Container](https://aka.ms/CreateContainerOffer) do zarządzania zmigrowanych ofert.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami kontenerów platformy Azure w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Tworzenie oferty kontenera platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) , aby zarządzać migrowanymi ofertami.
 
-Zostanie otwarta strona **Kontenery > Nowa oferta** z naciskiem na kartę **Ustawienia oferty.** 
+Zostanie otwarta strona **kontenery > Nowa oferta** z fokusem na karcie **Ustawienia oferty** . 
 
 ![Tożsamość oferty](./media/containers-offer-settings.png)
 
 ## <a name="offer-identity-settings"></a>Ustawienia tożsamości oferty
 
-W obszarze **Tożsamość oferty**należy podać informacje dotyczące pól opisanych w poniższej tabeli. Gwiazdka (*) dołączona do nazwy pola wskazuje, że jest ona wymagana. 
+W obszarze **tożsamość oferty**musisz podać informacje dotyczące pól opisanych w poniższej tabeli. Gwiazdka (*) dołączona do nazwy pola wskazuje, że jest to wymagane. 
 
 |  **Pole**       |     **Opis**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Identyfikator oferty\***       | Unikatowy identyfikator (w profilu wydawcy) dla oferty. Ten identyfikator będzie widoczny w adresach URL produktów i raportach szczegółowych. Ma maksymalną długość 50 znaków i może używać małych liter alfanumeryczne znaki i myślniki (-). (Identyfikator nie może zakończyć się kreską). **Uwaga:** Tego pola nie można zmienić po uruchomieniu oferty. <br> Jeśli na przykład firma Contoso opublikuje ofertę z **kontenerem próbkowania**identyfikatora `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-container?tab=Overview`oferty, zostanie przypisany adres URL usługi Azure Marketplace . |
-| **Identyfikator wydawcy\***     | Unikatowy identyfikator twojej organizacji w portalu Azure Marketplace. Wszystkie oferty powinny być powiązane z identyfikatorem wydawcy. Tej wartości nie można zmienić po zapisaniu oferty. |
-| **Nazwa\***          | Wyświetlana nazwa oferty. Ta nazwa jest wyświetlana w portalu Azure Marketplace i w portalu cloud partnerów. Może zawierać maksymalnie 50 znaków. Zalecamy używanie rozpoznawalnej nazwy marki dla twojego produktu. Nie podawaj nazwy organizacji, chyba że w ten sposób produkt jest sprzedawany. Jeśli sprzedajesz tę ofertę w innych witrynach internetowych i publikacjach, upewnij się, że nazwa jest dokładnie taka sama we wszystkich publikacjach. |
+| **Identyfikator oferty\***       | Unikatowy identyfikator (w ramach profilu wydawcy) oferty. Ten identyfikator będzie widoczny w raportach dotyczących adresów URL produktów i szczegółowych informacji. Ma maksymalną długość 50 znaków i może zawierać małe litery alfanumeryczne i kreski (-). (Identyfikator nie może kończyć się znakiem kreski). **Uwaga:** Nie można zmienić tego pola po zakończeniu oferty. <br> Na przykład, jeśli firma Contoso publikuje ofertę z IDENTYFIKATORem oferty **przykładowo-kontenerem**, przypisany jest adres URL `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-container?tab=Overview`witryny Azure Marketplace. |
+| **IDENTYFIKATOR wydawcy\***     | Unikatowy identyfikator organizacji w witrynie Azure Marketplace. Wszystkie oferty powinny być skojarzone z IDENTYFIKATORem wydawcy. Tej wartości nie można zmienić po zapisaniu oferty. |
+| **Nazwa\***          | Nazwa wyświetlana oferty. Ta nazwa jest wyświetlana w portalu Azure Marketplace i w portal Cloud Partner. Może zawierać maksymalnie 50 znaków. Zalecamy użycie rozpoznawalnej nazwy marki dla produktu. Nie dołączaj nazwy organizacji, chyba że jest to produkt sprzedawany na rynku. W przypadku wprowadzania tej oferty w innych witrynach sieci Web i publikacjach upewnij się, że nazwa jest dokładnie taka sama dla wszystkich publikacji. |
 |  |  |
 
-Wybierz **pozycję Zapisz,** aby zapisać ustawienia oferty.
+Wybierz pozycję **Zapisz** , aby zapisać ustawienia oferty.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Karta [Jednostki SKU](./cpp-skus-tab.md) służy do konfigurowania jednostek SKU dla oferty.
+Użyj karty [jednostki SKU](./cpp-skus-tab.md) , aby skonfigurować jednostki SKU oferty.

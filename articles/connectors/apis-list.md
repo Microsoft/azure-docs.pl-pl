@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: 9723fc3ab68785c6e444647f427fcf9788792cea
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 27f86a3fa34f8029e59d11066de9ea5a25a8c5ad
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115690"
+ms.locfileid: "82147977"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Łączniki dla usługi Azure Logic Apps
 
@@ -48,9 +48,6 @@ Chociaż Logic Apps oferuje [setki łączników](https://docs.microsoft.com/conn
 
   Łączniki są klasyfikowane jako standardowe lub Enterprise. [Łączniki przedsiębiorstwa](#enterprise-connectors) zapewniają dostęp do systemów przedsiębiorstwa, takich jak SAP, IBM MQ i IBM 3270, w celu uzyskania dodatkowych kosztów. Aby określić, czy łącznik jest standardem, czy Enterprise, zobacz szczegóły techniczne na stronie odniesienia poszczególnych łączników w obszarze [Przegląd łączników](https://docs.microsoft.com/connectors).
 
-  > [!IMPORTANT]
-  > Od **1 maja 2020**zmiany wprowadzone przez firmę Google do ich [zabezpieczeń i zasad zachowania poufności danych](https://www.blog.google/technology/safety-security/project-strobe/) mogą mieć wpływ na aplikacje logiki korzystające z [łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/). Jeśli aplikacje logiki korzystają z łącznika usługi Gmail przy użyciu konta użytkownika usługi Gmail (adresu e-mail kończącego się na @gmail.com lub @googlemail.com), Aplikacje logiki mogą korzystać tylko z zaakceptowanych przez firmę Google wyzwalaczy, akcji i łączników. Od **15 czerwca 2020**wszystkie niezgodne przepływy pracy zostaną wyłączone. Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
-
   Możesz również identyfikować łączniki przy użyciu tych kategorii, chociaż niektóre łączniki mogą przecinać wiele kategorii. Na przykład SAP to łącznik przedsiębiorstwa i łącznik On-Premises Connector:
 
   |   |   |
@@ -59,6 +56,9 @@ Chociaż Logic Apps oferuje [setki łączników](https://docs.microsoft.com/conn
   | [**Łączniki lokalne**](#on-premises-connectors) | Po zainstalowaniu i skonfigurowaniu [bramy danych lokalnych][gateway-doc]te łączniki ułatwiają aplikacjom lokalnym dostęp do systemów lokalnych, takich jak SQL Server, SharePoint Server, Oracle DB, udziały plików i inne. |
   | [**Łączniki konta integracji**](#integration-account-connectors) | Te łączniki są dostępne podczas tworzenia i regulowania konta integracji, przekształcają i sprawdzają poprawność kodu XML, kodowania i dekodowania plików prostych oraz przetwarzania komunikatów typu B2B (Business-to-Business) za pomocą protokołów AS2, EDIFACT i X12. |
   |||
+
+  > [!IMPORTANT]
+  > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 <a name="integration-service-environment"></a>
 

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie oferty modułów usługi Azure IoT Edge | Azure Marketplace
+title: Tworzenie oferty modułu Azure IoT Edge | Portal Azure Marketplace
 description: Jak opublikować nowy moduł IoT Edge dla portalu Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,36 +7,36 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ab40a0e90bee8f034d811aac2781192359cbc109
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d8f4300f45fc626c104055f987d123301ba8f39d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981753"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148063"
 ---
-# <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Tworzenie nowej oferty modułów Usługi IoT Edge za pomocą portalu Cloud Partner Portal
+# <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Utwórz nową ofertę modułu IoT Edge przy użyciu portal Cloud Partner
 
 >[!Important]
->Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami modułu IoT Edge do Centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [tworzenie oferty modułu IoT Edge,](https://aka.ms/AzureCreateIoT) aby zarządzać zmigrowanymi ofertami.
+>Od 13 kwietnia 2020 rozpocznie się Zarządzanie ofertą modułu IoT Edge w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Create an IoT Edge module](https://docs.microsoft.com//azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) , aby zarządzać migrowanymi ofertami.
 
-W tym artykule opisano sposób tworzenia i publikowania wpisu oferty modułu usługi IoT Edge dla portalu Azure Marketplace. Każda oferta jest wyświetlana jako jej własna jednostka w portalu Azure Marketplace i jest skojarzona z co najmniej jedną jednostką SKU.  Oferta modułu Usługi IoT Edge składa się z następujących grup zasobów i usług pomocniczych:
+W tym artykule opisano sposób tworzenia i publikowania wpisu oferty modułu IoT Edge w portalu Azure Marketplace. Każda oferta pojawia się jako jej własna jednostka w portalu Azure Marketplace i jest skojarzona z co najmniej jedną jednostką SKU.  Oferta modułu IoT Edge składa się z następujących grup zasobów i usług pomocniczych:
 
-|  **Grupa aktywów**   |  **Opis**  |
+|  **Grupa zasobów**   |  **Opis**  |
 |  ---------------   |  ---------------  |
-|    Jednostki SKU            |  Najmniejsza rozmieszczona jednostka oferty. Z ofertą może być skojarzonych pojedyncza oferta (klasa produktu). Jednostek SKU można używać do rozróżniania między obsługiwanymi funkcjami a modelami rozliczeń. |
-|  Portal Marketplace       | Zawiera aktywa i specyfikacje marketingu, zarządzania prawnego i ołowiu.  <ul><li> Zasoby marketingowe obejmują nazwę oferty, opis i logo</li> <li> Aktywa prawne obejmują politykę prywatności, warunki użytkowania i inną dokumentację prawną</li>  <li> Zasady zarządzania potencjalnymi klientami umożliwiają określenie sposobu obsługi potencjalnych klientów z portalu użytkowników końcowych usługi Azure Marketplace.</li> </ul> |
-| Pomoc techniczna            | Zawiera informacje o kontakcie i zasadach pomocy technicznej |
+|    Jednostki SKU            |  Najmniejsza dostępna jednostka oferty. Pojedyncza oferta (Klasa produktu) może mieć wiele jednostek SKU skojarzonych z ofertą. Jednostek SKU można użyć do rozróżnienia między obsługiwanymi funkcjami i modelami rozliczeń. |
+|  Portal Marketplace       | Zawiera zasoby i specyfikacje zarządzania marketingiem, prawną i liderem.  <ul><li> Zasoby marketingowe obejmują nazwę oferty, opis i logo</li> <li> Zasoby prawne obejmują zasady ochrony prywatności, warunki użytkowania i inne dokumenty prawne</li>  <li> Zasady zarządzania potencjalnymi klientami umożliwiają określenie sposobu obsługi potencjalnych klientów z poziomu portalu użytkowników końcowych platformy Azure Marketplace.</li> </ul> |
+| Pomoc techniczna            | Zawiera informacje o kontakcie i zasadach |
 
 
-## <a name="new-offer-form"></a>Formularz Nowa oferta 
+## <a name="new-offer-form"></a>Formularz nowej oferty 
 
-Zaloguj się do [portalu cloud partner,](https://cloudpartner.azure.com/)a następnie wybierz **+ Nowa oferta** na pasku menu po lewej stronie. W menu Nowa oferta wybierz **pozycję Moduły brzegowe IoT,** aby wyświetlić formularz **Nowa oferta** i rozpocząć proces definiowania zasobów dla nowej oferty modułu krawędzi ioT. 
+Zaloguj się do [Portal Cloud partner](https://cloudpartner.azure.com/), a następnie wybierz pozycję **+ Nowa oferta** na pasku menu po lewej stronie. W menu Nowa oferta wybierz pozycję **moduły IoT Edge** , aby wyświetlić **nowy formularz oferty** i rozpocząć proces definiowania zasobów dla nowej oferty modułu usługi IoT Edge. 
 
 ![Nowy moduł IoT Edge oferuje wybór interfejsu użytkownika](./media/new-iot-edge-module-offer.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Strona **Nowa oferta** dla typu oferty modułu Usługi IoT Edge zawiera zestaw kart i pól formularzy, których użyjesz do utworzenia nowej oferty. Każdy z poniższych artykułów wyjaśnia, jak używać karty do definiowania grup zasobów i usług pomocniczych dla nowej oferty modułu usługi IoT Edge.
+**Nowa strona oferty** dla typu oferty modułu IoT Edge zawiera zestaw kart i pól formularza, które będą używane do tworzenia nowej oferty. W każdym z poniższych artykułów wyjaśniono, jak za pomocą karty definiować grupy zasobów i usługi pomocnicze dla nowej oferty modułu IoT Edge.
 
 - [Karta ustawień oferty](./cpp-offer-settings-tab.md)
 - [Karta jednostek SKU](./cpp-skus-tab.md)

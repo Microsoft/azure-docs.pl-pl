@@ -1,25 +1,25 @@
 ---
-title: Szablon wdrożenia usługi Azure Key Vault | Azure Marketplace
-description: Wyświetla listę szablonu usługi Azure Resource Manager wymaganego do wdrożenia nowego wystąpienia usługi Azure Key Vault.
+title: Szablon wdrożenia Azure Key Vault | Portal Azure Marketplace
+description: Wyświetla listę Azure Resource Manager szablonu wymaganego do wdrożenia nowego wystąpienia Azure Key Vault.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 0d08caf5444216666e7296b830f0af6af606dd4f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a6e7260bb761db5cfa6884baf29317a004ab1452
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273838"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147025"
 ---
 # <a name="key-vault-deployment-template"></a>Szablon wdrożenia magazynu kluczy
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami maszyny wirtualnej platformy Azure do centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [certyfikacji obrazów maszyn wirtualnych platformy Azure,](https://aks.ms/CertifyVMimage) aby zarządzać zmigrowanymi ofertami.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami usługi Azure Virtual Machine w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [certyfikat obrazu maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) , aby zarządzać migrowanymi ofertami.
 
-Poniższy szablon usługi Azure Resource Manager definiuje nowe wystąpienie usługi Azure Key Vault.  Jest on używany w artykule [Tworzenie certyfikatu magazynu kluczy](cpp-create-key-vault-cert.md). 
+Poniższy szablon Azure Resource Manager definiuje nowe wystąpienie Azure Key Vault.  Jest on używany w artykule [Tworzenie certyfikatu magazynu kluczy](cpp-create-key-vault-cert.md).
 
 ```json
 {

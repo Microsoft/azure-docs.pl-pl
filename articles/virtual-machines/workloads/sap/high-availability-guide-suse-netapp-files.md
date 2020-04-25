@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/27/2020
+ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 436e9c6b8bdff42680d7aa5b941822090f668855
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
-ms.translationtype: HT
+ms.openlocfilehash: 9cde457d36154a71970a159b1c247af7b37bae82
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82127633"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148192"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Azure NetApp Files dla aplikacji SAP
 
@@ -152,7 +152,7 @@ Architektura SAP NetWeaver w tym artykule używa puli pojemności Azure NetApp F
 
 4. Delegowanie podsieci do plików NetApp platformy Azure zgodnie z opisem w [instrukcji delegowania podsieci do Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Wdróż woluminy Azure NetApp Files, postępując zgodnie z [instrukcjami, aby utworzyć wolumin dla Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Wdróż woluminy w wyznaczeniej [podsieci](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)Azure NetApp Files. Należy pamiętać, że zasoby Azure NetApp Files i maszyny wirtualne platformy Azure muszą znajdować się w tym samym Virtual Network platformy Azure lub w równorzędnych sieciach wirtualnych platformy Azure. W tym przykładzie używamy dwóch Azure NetApp Files woluminów: SAP<b>QAS</b> i trans. Ścieżki plików, które są zainstalowane do odpowiednich punktów instalacji, to/usrsap<b>QAS</b>/sapmnt<b>QAS</b>,/usrsap<b>QAS</b>/usrsap<b>QAS</b>sys itd.  
+5. Wdróż woluminy Azure NetApp Files, postępując zgodnie z [instrukcjami, aby utworzyć wolumin dla Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Wdróż woluminy w wyznaczeniej [podsieci](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)Azure NetApp Files. Adresy IP woluminów NetApp platformy Azure są przypisywane automatycznie. Należy pamiętać, że zasoby Azure NetApp Files i maszyny wirtualne platformy Azure muszą znajdować się w tym samym Virtual Network platformy Azure lub w równorzędnych sieciach wirtualnych platformy Azure. W tym przykładzie używamy dwóch Azure NetApp Files woluminów: SAP<b>QAS</b> i trans. Ścieżki plików, które są zainstalowane do odpowiednich punktów instalacji, to/usrsap<b>QAS</b>/sapmnt<b>QAS</b>,/usrsap<b>QAS</b>/usrsap<b>QAS</b>sys itd.  
 
    1. Volume SAP<b>QAS</b> (NFS://10.1.0.4/usrsap<b>QAS</b>/sapmnt<b>QAS</b>)
    2. Volume SAP<b>QAS</b> (NFS://10.1.0.4/usrsap<b>QAS</b>/usrsap<b>QAS</b>ASCS)

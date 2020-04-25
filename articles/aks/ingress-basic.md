@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować podstawowy kontrol
 services: container-service
 ms.topic: article
 ms.date: 12/20/2019
-ms.openlocfilehash: f6e07dde68f2f2ce0ccfbb7858fd1d217b993a62
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 689cfe4c94ba83b4c0b8815fd7b0438da32f6018
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101488"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145958"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Tworzenie kontrolera transferu danych przychodzących w usłudze Azure Kubernetes Service (AKS)
 
@@ -41,7 +41,7 @@ Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. W
 > Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o nazwie transfery *-Basic*. W razie potrzeby określ przestrzeń nazw dla własnego środowiska.
 
 > [!TIP]
-> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for*. W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta przekazywanie protokołu SSL nie będzie działało.
+> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for*. W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta protokół TLS nie będzie działał.
 
 ```console
 # Create a namespace for your ingress resources

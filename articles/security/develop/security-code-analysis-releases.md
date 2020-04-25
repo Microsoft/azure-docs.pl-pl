@@ -1,10 +1,10 @@
 ---
 title: Wersje analizy kodu zabezpieczeń firmy Microsoft
-description: Ten artykuł zawiera opis nadchodzących wydań rozszerzenia Analizy kodu zabezpieczeń firmy Microsoft
+description: W tym artykule opisano przyszłe wersje rozszerzenia Microsoft Security code Analysis
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 04/14/2020
+ms.date: 04/24/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,63 +12,63 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a07ce7437d664baca0cfdc310dbc2631f41fdbcc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: d4281d3b6132e551283a71cd1801ef462fbfc68c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81462037"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146123"
 ---
-# <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Publikacje i plan analizy kodu zabezpieczeń firmy Microsoft
+# <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Wersje i plany analizy kodu zabezpieczeń firmy Microsoft
 
-Zespół Microsoft Security Code Analysis we współpracy z pomocą techniczną dla deweloperów z dumą ogłasza najnowsze i nadchodzące ulepszenia naszego rozszerzenia MSCA. Zapoznaj się z poniższym planem działania.
+Zespół analizy kodu zabezpieczeń firmy Microsoft w partnerstwie z pomoc techniczna Developerem jest dumny, aby ogłosić najnowsze i nadchodzące ulepszenia rozszerzenia MSCA. Zapoznaj się z planem poniżej.
 
 ![Wydania](./media/security-code-analysis-releases/releases.png)
 
-## <a name="credential-scanner-v20-released-on-april-1-2020"></a>Skaner poświadczeń w wersji 2.0: Wydany 1 kwietnia 2020
+## <a name="credential-scanner-v20-released-in-april-2020"></a>Skaner poświadczeń v 2.0: wydano w kwietniu 2020
 
 ### <a name="innovations--improvements"></a>Innowacje & ulepszenia
 
-- **Silnik rdzenia**
+- **Silnik podstawowy**
 
-   - Średnia aktualizacja wydajności o 25% przy niemal liniowym czasie pracy
-   - Wyszukiwanie kontekstowe/oparte na dowodach w celu zwiększenia dokładności
-   - Ulepszenia ogólnego wykrywania haseł i logiki dopasowywania oczywistych symboli zastępczych (na przykład fakePassword)
+   - Średnie uaktualnienie wydajności o 25% z niemal liniowym czasem wykonywania
+   - Wyszukiwanie na podstawie kontekstu/dowodu i klasyfikacja dla zwiększonej dokładności
+   - Ulepszenia ogólnego wykrywania haseł i logiki dopasowania dla oczywistych symboli zastępczych (na przykład fakePassword)
 
-- **Zasięg** — obsługa 25+ tajnych typów, w tym następujące góry wymagane:
+- **Pokrycie** — wsparcie dla 25 + tajnych typów, w tym następujące wymagane u góry:
 
    - Hasło certyfikatu konta sieci szkieletowej
-   - Klucz tajny/API klienta
+   - Wpis tajny klienta/klucz interfejsu API
    - Nagłówek autoryzacji HTTP
-   - Klucz tajnego dostępu klienta Amazon S3
-   - Token dostępu klienta usługi Azure Active Directory
-   - Klucz wzorzec/interfejs API funkcji platformy Azure
-   - Klucz dostępu usługi Power BI
-   - Wzorzec hasła szablonu usługi Azure Resource Manager
+   - Klucz dostępu klucza tajnego klienta Amazon S3
+   - Azure Active Directory token dostępu klienta
+   - Główny klucz interfejsu API usługi Azure Functions
+   - Klucz dostępu Power BI
+   - Wzorzec hasła szablonu Azure Resource Manager
 
 - **Dane wyjściowe**
 
-   - Obsługa formatów plików wyjściowych SARIF 2.1 i CSV
+   - Obsługa formatów plików wyjściowych SARIF 2,1 i CSV
 
-## <a name="binskim-v160-to-be-released-on-april-2020"></a>BinSkim v1.6.0: Ukaże się w kwietniu 2020
+## <a name="binskim-v160-released-in-april-2020"></a>BinSkim v 1.6.0: Opublikowano w kwietniu 2020
 
 ### <a name="improvements"></a>Ulepszenia
 
-- FUNKCJA: Aktualizacja do końcowego SARIF v2 (wersja 2.1.16). Umożliwia to buforowanie wyników podczas przekazywania skrótów w wierszu polecenia, co stanowi znaczną poprawę wydajności podczas cyklicznej analizy katalogów z wieloma kopiami obiektów docelowych skanowania.
-- POPRAWKA BŁĘDU: Napraw literówkę w BA2021. DoNotMarkWritableSectionsAsWykonalne wyjście.
-- WYDAJNOŚĆ: Wyeliminuj ładowanie bazy danych dla wszystkich niemieszkalnych trybów dla zarządzanych zestawów, w tym plików binarnych biblioteki IL (z wyprzedzeniem skompilowanych).
-- FALSE NEGATIVE FIX: Sprawdź, czy PDB umieszczony obok pliku binarnego faktycznie pasuje do pliku binarnego w analizie
-- CECHA: Podaj argument --local-symbol-directories, aby określić dodatkowe lokalizacje wyszukiwania PDB (lokalne, nienazytalne)
-- FALSE POSITIVE FIX: Pomiń analizę opartą na PDB dla wygenerowanego .NET core native bootstrap exe (który nie jest kodem kontrolowanym przez użytkownika).
+- Funkcja: Aktualizacja do wersji ostatecznej SARIF v2 (wersja 2.1.16). Dzięki temu wyniki są buforowane w przypadku przekazywania wartości skrótu w wierszu polecenia, a znaczne zwiększenie wydajności podczas rekursywnego analizowania katalogów z wieloma kopiami elementów docelowych skanowania.
+- Poprawka usterki: Poprawka literówki w BA2021. DoNotMarkWritableSectionsAsExecutable dane wyjściowe.
+- WYDAJNOŚĆ: eliminowanie ładowania plików PDB dla wszystkich trybów niemieszanych dla zestawów zarządzanych, w tym biblioteki IL (przed czasem skompilowaną).
+- FAŁSZYWa poprawka ujemna: Sprawdź, czy plik PDB umieszczony obok danych binarnych rzeczywiście pasuje do danych binarnych w obszarze Analiza
+- Funkcja: Podaj--Local-Symbols argumentu, aby określić dodatkowe lokalizacje wyszukiwania plików PDB (lokalne, niebędące symbolami)
+- FAŁSZ POZYTYWNEj poprawki: Pomiń analizę opartą na pliku PDB dla wygenerowanego natywnego pliku wykonywalnego Bootstrap platformy .NET Core (który nie jest kodem kontrolowanym przez użytkownika).
 
 ## <a name="whats-next-in-fy20"></a>Co dalej w FY20?
 
-- Narzędzie Analizy zabezpieczeń Java
-- Narzędzie Analizy zabezpieczeń języka Python
-- ES Lint zastąpić TS Lint dla TypeScript i JavaScript
+- Narzędzie do analizy zabezpieczeń języka Java
+- Narzędzie do analizy zabezpieczeń języka Python
+- ES lint zastępujący usługi TS lint dla języka TypeScript i JavaScript
 
 ## <a name="next-steps"></a>Następne kroki
 
-Instrukcje dotyczące dołączania i instalowania kodu zabezpieczeń firmy Microsoft można znaleźć w naszym [podręczniku dołączania i instalacji.](security-code-analysis-onboard.md)
+Aby uzyskać instrukcje na temat sposobu dołączania i instalowania analizy kodu zabezpieczeń firmy Microsoft, zapoznaj się z naszym przewodnikiem dotyczącym dołączania [i instalacji](security-code-analysis-onboard.md).
 
-Jeśli masz więcej pytań na temat rozszerzenia i oferowanych narzędzi, sprawdź naszą [stronę FAQ](security-code-analysis-faq.md).
+Jeśli masz więcej pytań na temat rozszerzenia i oferowanych narzędzi, zapoznaj się ze [stroną często zadawanych pytań](security-code-analysis-faq.md).

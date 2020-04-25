@@ -1,18 +1,18 @@
 ---
 title: Omówienie routingu zawartości opartego na adresach URL w usłudze Azure Application Gateway
-description: Ten artykuł zawiera omówienie routingu zawartości opartej na adresach URL bramy aplikacji platformy Azure, konfiguracji UrlPathMap i reguły PathBasedRouting.
+description: Ten artykuł zawiera Omówienie routingu zawartości opartego na adresach URL usługi Azure Application Gateway, konfiguracji UrlPathMap i reguły PathBasedRouting.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e20acb131b1a091fef858dab34705f4a8d3b4c4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d393055b0ac62198bd5a7239b2b92b7aeff62e5
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77251842"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145367"
 ---
 # <a name="url-path-based-routing-overview"></a>Routing oparty na ścieżkach URL — omówienie
 
@@ -24,10 +24,10 @@ W poniższym przykładzie usługa Application Gateway obsługuje ruch dla domeny
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Żądania http\://contoso.com/video/* są kierowane do VideoServerPool,\:a http //contoso.com/images/* są kierowane do ImageServerPool. Pula DefaultServerPool jest wybierana, jeśli żaden z wzorców ścieżki nie pasuje.
+Żądania HTTP\://contoso.com/video/* są kierowane do puli videoserverpool, a protokół http\://contoso.com/images/* są kierowane do puli imageserverpool. Pula DefaultServerPool jest wybierana, jeśli żaden z wzorców ścieżki nie pasuje.
 
 > [!IMPORTANT]
-> Dla jednostki SKU w wersji 1 reguły są przetwarzane w kolejności, w jakiej są wymienione w portalu. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik. Dla jednostki SKU v2 dokładne dopasowania mają wyższy priorytet. Jednak zaleca się skonfigurowanie detektorów wielu lokacji przed skonfigurowaniem odbiornika podstawowego. Zapewnia to skierowanie ruchu do odpowiedniego zaplecza.
+> W przypadku jednostki SKU V1 reguły są przetwarzane w kolejności, w której są wyświetlane w portalu. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik. W przypadku jednostki SKU v2 dokładne dopasowania mają wyższy priorytet. Jednak zdecydowanie zaleca się skonfigurowanie odbiorników z obsługą kilku lokacji najpierw przed skonfigurowaniem odbiornika podstawowego. Zapewnia to skierowanie ruchu do odpowiedniego zaplecza.
 
 ## <a name="urlpathmap-configuration-element"></a>Element konfiguracji UrlPathMap
 
@@ -62,17 +62,17 @@ Element urlPathMap jest używany do określania wzorców ścieżki na potrzeby m
 }]
 ```
 
-### <a name="pathpattern"></a>ŚcieżkaPattern
+### <a name="pathpattern"></a>Właściwości
 
-PathPattern to lista wzorców ścieżek do dopasowania. Każdy wzorzec musi rozpoczynać się od znaku „/”, a znak gwiazdki „*” jest dozwolony jedynie na końcu po znaku „/”. Ciąg podawany do matcher ścieżki nie zawiera żadnego tekstu po pierwszym ? lub #, a te znaki nie są tutaj dozwolone. W przeciwnym razie wszystkie znaki dozwolone w adresie URL są dozwolone w PathPattern.
+Właściwości to lista wzorców ścieżek do dopasowania. Każdy wzorzec musi rozpoczynać się od znaku „/”, a znak gwiazdki „*” jest dozwolony jedynie na końcu po znaku „/”. Ciąg podawany do dopasowania ścieżki nie zawiera żadnego tekstu po pierwszym? lub #, a te znaki nie są dozwolone w tym miejscu. W przeciwnym razie wszystkie znaki dozwolone w adresie URL są dozwolone w właściwości.
 
-Obsługiwane wzorce zależą od tego, czy wdrażasz bramę aplikacji w wersji 1, czy w wersji 2:
+Obsługiwane wzorce zależą od tego, czy wdrożono Application Gateway v1 lub v2:
 
-#### <a name="v1"></a>w wersji 1
+#### <a name="v1"></a>wersjach
 
-Reguły ścieżki są niewrażliwe na wielkości liter.
+W regułach ścieżki jest rozróżniana wielkość liter.
 
-|Wzorzec ścieżki w wersji 1  |Czy jest obsługiwana?  |
+|Wersja 1 — wzorzec ścieżki  |Czy jest obsługiwana?  |
 |---------|---------|
 |`/images/*`     |tak|
 |`/images*`     |nie|
@@ -83,9 +83,9 @@ Reguły ścieżki są niewrażliwe na wielkości liter.
 
 #### <a name="v2"></a>v2
 
-Reguły ścieżki są niewrażliwe na wielkości liter.
+W regułach ścieżki jest rozróżniana wielkość liter.
 
-|Wzorzec ścieżki w wersji 2  |Czy jest obsługiwana?  |
+|2 — wzorzec ścieżki  |Czy jest obsługiwana?  |
 |---------|---------|
 |`/images/*`     |tak|
 |`/images*`     |tak|
@@ -113,8 +113,8 @@ Fragment reguły PathBasedRouting:
         "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/httpListeners/<listenerName>"
     },
     "urlPathMap": {
-        "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/ urlPathMaps/{urlpathMapName}"
-    },
+        "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/urlPathMaps/{urlpathMapName}"
+    }
 
 }
     }

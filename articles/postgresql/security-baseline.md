@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a38bb12577fd646b2e7abf773dbb2a3f138f58fe
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
-ms.translationtype: HT
+ms.openlocfilehash: eb6fc65d15ba7262b38a48e220f01d74bfcee54a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127547"
+ms.locfileid: "82146550"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Linia bazowa zabezpieczeń platformy Azure dla Azure Database for PostgreSQL pojedynczego serwera
 
@@ -130,7 +130,7 @@ Opis użycia tagu usługi dla Azure Database for PostgreSQL:https://docs.microso
 
 - Należy włączyć Standard DDoS Protection
 
-- Należy włączyć połączenie SSL dla serwerów bazy danych PostgreSQL
+- Należy włączyć połączenie TLS dla serwerów bazy danych PostgreSQL
 
 Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -525,7 +525,7 @@ Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: Szyfruj wszystkie poufne informacje podczas przesyłania
 
-**Wskazówki**: Azure Database for PostgreSQL obsługuje łączenie serwera PostgreSQL z aplikacjami klienckimi przy użyciu SSL (SSL). Wymuszanie połączeń SSL między serwerem bazy danych a aplikacją kliencką ułatwia ochronę przed atakami typu man-in-the-middle dzięki szyfrowaniu strumienia danych między serwerem a aplikacją. W Azure Portal upewnij się, że "Wymuszaj połączenie SSL" jest domyślnie włączone dla wszystkich wystąpień Azure Database for PostgreSQL.
+**Wskazówki**: Azure Database for PostgreSQL obsługuje łączenie serwera PostgreSQL z aplikacjami klienckimi przy użyciu protokołu Transport Layer Security (TLS), wcześniej znanego jako SSL (SSL). Wymuszanie połączeń TLS między serwerem bazy danych i aplikacjami klienckimi pomaga chronić przed atakami typu man-the-Middle przez szyfrowanie strumienia danych między serwerem a aplikacją. W Azure Portal upewnij się, że "Wymuszaj połączenie SSL" jest domyślnie włączone dla wszystkich wystąpień Azure Database for PostgreSQL.
 
 Obecnie wersja protokołu TLS obsługiwana przez Azure Database for PostgreSQL to TLS 1,0, TLS 1,1, TLS 1,2.
 
@@ -794,7 +794,7 @@ Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resourc
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla wystąpień Azure Database for PostgreSQL przy użyciu Azure Policy. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. DBforPostgreSQL", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci wystąpień Azure Database for PostgreSQL. Mogą również używać wbudowanych definicji zasad związanych z wystąpieniami Azure Database for PostgreSQL, takimi jak:
 
-- Należy włączyć połączenie SSL dla serwerów bazy danych PostgreSQL
+- Należy włączyć połączenie TLS dla serwerów bazy danych PostgreSQL
 
 - Należy włączyć połączenia dzienników dla serwerów baz danych PostgreSQL
 

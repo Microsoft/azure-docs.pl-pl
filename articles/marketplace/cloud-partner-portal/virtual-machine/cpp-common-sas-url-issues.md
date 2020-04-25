@@ -1,35 +1,35 @@
 ---
-title: Typowe problemy z adresami URL sygnatury dostępu Współdzielonego i poprawki w portalu Azure Marketplace
-description: Lista typowych problemów wokół przy użyciu identyfikatorów identyfikatorów URI podpisu dostępu współdzielonego i możliwych rozwiązań.
+title: Typowe problemy dotyczące adresów URL i poprawki dla portalu Azure Marketplace
+description: Wyświetl listę typowych problemów dotyczących używania identyfikatorów URI sygnatury dostępu współdzielonego i możliwych rozwiązań.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/27/2018
 ms.author: dsindona
-ms.openlocfilehash: c575389538230218e1e6e4f172ebcfbee8ee51dc
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 723762695d34380b7f237fa9082dc470dafcc8df
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273464"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147041"
 ---
-# <a name="common-sas-url-issues-and-fixes"></a>Typowe problemy i poprawki adresów URL sygnatury dostępu Współdzielonego
+# <a name="common-sas-url-issues-and-fixes"></a>Typowe problemy i poprawki dotyczące adresów URL sygnatury dostępu współdzielonego
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami maszyny wirtualnej platformy Azure do centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami [dotyczącymi typowych problemów z adresami URL sygnatury dostępu Współdzielonego i poprawek,](https://aka.ms/AzureSAS_URL_FAQ) aby zarządzać zmigrowanymi ofertami.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami usługi Azure Virtual Machine w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [typowe problemy dotyczące adresów URL i poprawek w usłudze SAS,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-sas-uri-issues) aby zarządzać migrowanymi ofertami.
 
-W poniższej tabeli wymieniono niektóre typowe problemy napotkane podczas pracy z podpisami dostępu współdzielonego (które są używane do identyfikowania i udostępniania przesłanych identyfikatorów VHD dla rozwiązania) wraz z sugerowanymi rozwiązaniami.
+W poniższej tabeli przedstawiono niektóre typowe problemy występujące podczas pracy z sygnaturami dostępu współdzielonego (które są używane do identyfikowania i udostępniania przekazanych dysków VHD dla danego rozwiązania) wraz z sugerowanymi rozwiązaniami.
 
-| **Problem** | **Komunikat o błędzie** | **Poprawka** | 
+| **Wykonaj** | **Komunikat o niepowodzeniu** | **Poprawka** | 
 | --------- | ------------------- | ------- | 
-| &emsp;  *Niepowodzenie kopiowania obrazów* |  |  |
-| "?" nie znajduje się w adresie URL sygnatury dostępu Współdzielonego | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Zaktualizuj adres URL sygnatury dostępu Współdzielonego przy użyciu zalecanych narzędzi. |
-| parametry "st" i "se" nie w adresie URL sygnatury dostępu Współdzielonego | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Zaktualizuj adres URL sygnatury dostępu **Współdzielonego** z odpowiednimi wartościami Data początkowa i **Data zakończenia.** | 
-| "sp=rl" nie w adresie URL sygnatury dostępu Współdzielonego | `Failure: Copying Images. Not able to download blob using provided SAS Uri` | Zaktualizuj adres URL `Read` `List`sygnatury dostępu Współdzielonego z uprawnieniami ustawionymi jako i . | 
-| Adres URL sygnatury dostępu Współdzielonego ma białe spacje w nazwie VHD | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Zaktualizuj adres URL sygnatury dostępu Współdzielonego, aby usunąć białe spacje. |
-| Błąd autoryzacji adresu URL sygnatury dostępu Współdzielon | `Failure: Copying Images. Not able to download blob due to authorization error` | Przejrzyj i popraw format identyfikatora URI sygnatury dostępu Współdzielonego. W razie potrzeby zregeneruj. |
-| Parametry adresu URL SAS "st" i "se" nie mają pełnej specyfikacji daty i godziny | `Failure: Copying Images. Not able to download blob due to incorrect SAS URL` | Parametry **daty rozpoczęcia** i`st` **daty zakończenia** adresu URL sygnatury dostępu Współdzielonego (i `se` podciągów) muszą mieć pełny format datetime, na przykład `11-02-2017T00:00:00Z`. Skrócone wersje są nieprawidłowe. (Niektóre polecenia w usłudze Azure CLI mogą domyślnie generować skrócone wartości). | 
+| &emsp;  *Błąd podczas kopiowania obrazów* |  |  |
+| nie znaleziono "?" w adresie URL sygnatury dostępu współdzielonego | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Zaktualizuj adres URL sygnatury dostępu współdzielonego za pomocą zalecanych narzędzi. |
+| parametry "St" i "SE" nie są w adresie URL sygnatury dostępu współdzielonego | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Zaktualizuj adres URL sygnatury dostępu współdzielonego o poprawne wartości **daty rozpoczęcia** i **zakończenia** . | 
+| "Sp = RL" nie jest adresem URL sygnatury dostępu współdzielonego | `Failure: Copying Images. Not able to download blob using provided SAS Uri` | Zaktualizuj adres URL sygnatury dostępu współdzielonego z uprawnieniami ustawionymi jako `Read` i `List`. | 
+| Adres URL sygnatury dostępu współdzielonego zawiera białe znaki w nazwie dysku VHD | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Zaktualizuj adres URL sygnatury dostępu współdzielonego, aby usunąć białe znaki. |
+| Błąd autoryzacji adresu URL sygnatury dostępu współdzielonego | `Failure: Copying Images. Not able to download blob due to authorization error` | Przejrzyj i popraw format identyfikatora URI sygnatury dostępu współdzielonego. Wygeneruj ponownie w razie potrzeby. |
+| Parametry adresu URL sygnatury dostępu współdzielonego "St" i "SE" nie mają pełnej specyfikacji daty i godziny | `Failure: Copying Images. Not able to download blob due to incorrect SAS URL` | **Data rozpoczęcia** i Data **zakończenia** adresu URL sygnatury`st` dostępu `se` współdzielonego (oraz podciągi) muszą mieć pełny format DateTime `11-02-2017T00:00:00Z`, taki jak. Skrócone wersje są nieprawidłowe. (Niektóre polecenia w interfejsie wiersza polecenia platformy Azure mogą domyślnie generować skrócone wartości). | 
 |  |  |  |
 
-Aby uzyskać więcej informacji, zobacz [Korzystanie z sygnatur dostępu współdzielonego (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+Aby uzyskać więcej informacji, zobacz [Używanie sygnatur dostępu współdzielonego (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).

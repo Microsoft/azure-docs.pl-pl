@@ -1,45 +1,45 @@
 ---
-title: Ustawienia portalu Marketplace dla obrazu kontenerów platformy Azure | Azure Marketplace
-description: Konfigurowanie ustawień portalu Marketplace dla kontenera platformy Azure.
+title: Ustawienia witryny Marketplace dla obrazu kontenerów platformy Azure | Portal Azure Marketplace
+description: Skonfiguruj ustawienia witryny Marketplace dla kontenera platformy Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: cb879a9578a550e972ed7874a42cf389271abf47
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 724c2ffebd34b838c19f3296363c38c83e142b96
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270302"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148234"
 ---
-# <a name="container-marketplace-tab"></a>Karta Container Marketplace
+# <a name="container-marketplace-tab"></a>Karta witryna Marketplace kontenera
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami usługi Azure Container do Centrum partnerów. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [tworzenie oferty usługi Azure Container](https://aka.ms/CreateContainerOffer) do zarządzania zmigrowanych ofert.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami kontenerów platformy Azure w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Tworzenie oferty kontenera platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) , aby zarządzać migrowanymi ofertami.
 
-Karta **Marketplace** na stronie **Nowa oferta** umożliwia dostarczanie potencjalnym klientom informacji marketingowych, sprzedażowych i prawnych oraz umów oraz zarządzanie potencjalnymi klientami generowanymi z rynku. Dodaj treści marketingowe do sekcji **Przegląd.**
+Na karcie **Marketplace** na stronie **Nowa oferta** można zapewnić potencjalnym klientom potencjalną obsługę marketingową, sprzedażową i informacje prawne oraz umowy oraz zarządzać klientami wygenerowanymi w portalu Marketplace. Dodaj zawartość specyficzną dla marketingu do sekcji **Przegląd** .
 
 ## <a name="overview"></a>Omówienie
 
-W tej sekcji należy wprowadzić ogólne informacje o ofercie portalu Azure Marketplace.  Gwiazdka (*) dołączona do nazwy pola wskazuje, że jest ona wymagana.
+W tej sekcji wprowadzasz ogólne informacje o ofercie portalu Azure Marketplace.  Gwiazdka (*) dołączona do nazwy pola wskazuje, że jest to wymagane.
 
-![Informacje o rynku](./media/containers-marketplace-tab.png)
+![Informacje o witrynie Marketplace](./media/containers-marketplace-tab.png)
 
-W poniższej tabeli opisano przeznaczenie i zawartość tych pól. Wymagane pola są oskarżane gwiazdką (*).
+W poniższej tabeli opisano przeznaczenie i zawartość tych pól. Wymagane pola są indicted przez gwiazdkę (*).
 
 |    Pole                  |       Opis                                                            |
 |  ---------                |     ---------------                                                          |
-| **Tytuł\***                 | Tytuł oferty. Będzie on wyświetlany w widocznym miejscu na rynku.  Maksymalna długość to 50 znaków. |
+| **Tytuł\***                 | Tytuł oferty. Zostanie ona wyświetlona w widocznym miejscu w portalu Marketplace.  Maksymalna długość to 50 znaków. |
 | **Podsumowanie\***               | Krótkie podsumowanie oferty. Maksymalna długość to 100 znaków. |
-| **Długie podsumowanie\***          | Dłuższe podsumowanie oferty (choć może być takie samo jak **podsumowanie).**  Maksymalna długość to 256 znaków. |
+| **Długie podsumowanie\***          | Dłuższe podsumowanie oferty (chociaż może być takie samo, jak w przypadku **podsumowania**).  Maksymalna długość to 256 znaków. |
 | **Opis\***           | Opis oferty.  Maksymalna długość to 3000 znaków, obsługuje proste formatowanie HTML.
-| **Identyfikator marketingowy**  | Unikatowy adres URL do skojarzenia z tą ofertą, który zazwyczaj zawiera nazwę organizacji i rozwiązania. Maksymalna długość to 50 znaków.   |
-| **Identyfikatory subskrypcji w wersji zapoznawczej\*** | Dodaj jeden do 100 identyfikatorów subskrypcji podglądu. Te subskrypcje z białą listą będą miały dostęp do oferty po jej opublikowaniu, zanim zostanie ona wyeksponowana. |
+| **Identyfikator marketingu**  | Unikatowy adres URL do skojarzenia z ofertą, który zwykle zawiera nazwę organizacji i rozwiązania. Maksymalna długość to 50 znaków.   |
+| **Podgląd identyfikatorów subskrypcji\*** | Dodaj jeden do 100 identyfikatorów subskrypcji dla recenzentów. Te białe subskrypcje będą miały dostęp do oferty po jej opublikowaniu. |
 |  |  |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Karta [Pomoc techniczna](./cpp-support-tab.md) umożliwia dostarczanie zasobów pomocy technicznej i pomocy technicznej dla swojej oferty.
+Skorzystaj z karty [Pomoc techniczna](./cpp-support-tab.md) , aby udostępnić zasoby techniczne i pomoc techniczną dla swojej oferty.

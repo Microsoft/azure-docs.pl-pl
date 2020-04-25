@@ -1,27 +1,27 @@
 ---
-title: Łączenie się z bazą danych Oracle
-description: Wstawianie rekordów i zarządzanie nimi za pomocą interfejsów API ORACLE Database REST i aplikacji Azure Logic Apps
+title: Połącz z Oracle Database
+description: Wstawianie rekordów i zarządzanie nimi za pomocą Oracle Database interfejsów API REST i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/29/2017
 tags: connectors
-ms.openlocfilehash: 99abd48bde97c2a2e085688cdfbb365e5e4cfd56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74789430"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147812"
 ---
-# <a name="get-started-with-the-oracle-database-connector"></a>Wprowadzenie do łącznika bazy danych Oracle
+# <a name="get-started-with-the-oracle-database-connector"></a>Wprowadzenie do łącznika Oracle Database
 
-Korzystając z łącznika bazy danych Oracle Database, tworzysz organizacyjne przepływy pracy, które wykorzystują dane w istniejącej bazie danych. Ten łącznik może łączyć się z lokalną bazą danych Oracle Database lub maszyną wirtualną platformy Azure z zainstalowaną bazą danych Oracle Database. Za pomocą tego złącza można:
+Korzystając z łącznika Oracle Database, tworzysz przepływy pracy organizacyjne, które korzystają z danych w istniejącej bazie danych. Ten łącznik może nawiązać połączenie z lokalną Oracle Database lub maszyną wirtualną platformy Azure z zainstalowaną Oracle Database. Za pomocą tego łącznika możesz:
 
-* Tworzenie przepływu pracy przez dodanie nowego klienta do bazy danych klientów lub aktualizowanie zamówienia w bazie danych zamówień.
-* Użyj akcji, aby uzyskać wiersz danych, wstawić nowy wiersz, a nawet usunąć. Na przykład, gdy rekord jest tworzony w Dynamics CRM Online (wyzwalacz), a następnie wstawić wiersz w bazie danych Oracle Database (akcja). 
+* Kompiluj swój przepływ pracy, dodając nowego klienta do bazy danych klientów lub aktualizując zamówienie w bazie danych zamówień.
+* Użyj akcji, aby uzyskać wiersz danych, Wstaw nowy wiersz, a nawet Usuń. Na przykład po utworzeniu rekordu w usłudze Dynamics CRM Online (wyzwalacz), a następnie wstawieniu wiersza w Oracle Database (Akcja). 
 
-W tym artykule pokazano, jak używać łącznika bazy danych Oracle w aplikacji logiki.
+W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji logiki.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,102 +29,102 @@ W tym artykule pokazano, jak używać łącznika bazy danych Oracle w aplikacji 
     * Oracle 9 lub nowszy
     * Oprogramowania klienta Oracle 8.1.7 lub nowsze
 
-* Zainstaluj lokalną bramę danych. [Połącz się z danymi lokalnymi z aplikacji logiki](../logic-apps/logic-apps-gateway-connection.md) zawiera listę kroków. Brama jest wymagana do łączenia się z lokalną bazą danych Oracle Database lub maszyną wirtualną platformy Azure z zainstalowaną usługą Oracle DB. 
+* Zainstaluj lokalną bramę danych. [Łączenie z danymi lokalnymi z aplikacji logiki](../logic-apps/logic-apps-gateway-connection.md) zawiera listę kroków. Brama jest wymagana do nawiązania połączenia z lokalną Oracle Database lub z maszyną wirtualną platformy Azure z zainstalowaną Oracle DB. 
 
     > [!NOTE]
-    > Lokalna brama danych działa jako mostek i zapewnia bezpieczny transfer danych między danymi lokalnymi (danymi, które nie znajdują się w chmurze) a aplikacjami logiki. Tej samej bramy można używać z wieloma usługami i wieloma źródłami danych.Tak więc może być konieczne tylko raz zainstalować bramę.
+    > Lokalna Brama danych działa jako most i zapewnia bezpieczny transfer danych między lokalnymi danymi (danymi, które nie znajdują się w chmurze) i aplikacjami logiki. Ta sama Brama może być używana z wieloma usługami i wieloma źródłami danych.W związku z tym wystarczy zainstalować bramę tylko raz.
 
-* Zainstaluj klienta Oracle na komputerze, na którym zainstalowano lokalną bramę danych.Pamiętaj, aby zainstalować 64-bitowy dostawca danych Oracle dla platformy .NET firmy Oracle:  
+* Zainstaluj klienta Oracle na komputerze, na którym zainstalowano lokalną bramę danych.Pamiętaj, aby zainstalować 64-bitową Dostawca danych Oracle dla programu .NET z bazy danych Oracle:  
 
   [64-bitowa wersja programu ODAC 12c w wersji 4 (12.1.0.2.4) dla systemu Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Jeśli klient Oracle nie jest zainstalowany, podczas próby utworzenia lub użycia połączenia występuje błąd. Zobacz typowe błędy w tym artykule.
+    > Jeśli klient Oracle nie jest zainstalowany, podczas próby utworzenia lub użycia połączenia wystąpi błąd. Zobacz typowe błędy w tym artykule.
 
 
 ## <a name="add-the-connector"></a>Dodawanie łącznika
 
 > [!IMPORTANT]
-> To złącze nie ma żadnych wyzwalaczy. Ma tylko działania. Tak więc podczas tworzenia aplikacji logiki, dodać inny wyzwalacz, aby uruchomić aplikację logiki, takich jak **Harmonogram - Cykl**lub Żądanie / Odpowiedź - **Odpowiedź**. 
+> Ten łącznik nie ma żadnych wyzwalaczy. Ma tylko akcje. Dlatego podczas tworzenia aplikacji logiki należy dodać kolejny wyzwalacz, aby uruchomić aplikację logiki, taką jak **harmonogram-cykl**lub **żądanie/odpowiedź-odpowiedź**. 
 
-1. W [witrynie Azure portal](https://portal.azure.com)utwórz pustą aplikację logiki.
+1. W [Azure Portal](https://portal.azure.com)Utwórz pustą aplikację logiki.
 
-2. Na początku aplikacji logiki wybierz żądanie **/ odpowiedź - żądanie** wyzwalacza: 
+2. Na początku aplikacji logiki Wybierz wyzwalacz **żądanie/odpowiedź-żądanie** : 
 
     ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Wybierz **pozycję Zapisz**. Podczas zapisywania adres URL żądania jest generowany automatycznie. 
+3. Wybierz pozycję **Zapisz**. Podczas zapisywania zostanie automatycznie wygenerowany adres URL żądania. 
 
-4. Wybierz pozycję **Nowy krok**, a następnie pozycję **Dodaj akcję**. `oracle` Wpisz, aby wyświetlić dostępne akcje: 
+4. Wybierz pozycję **Nowy krok**, a następnie pozycję **Dodaj akcję**. Wpisz, `oracle` aby wyświetlić dostępne akcje: 
 
     ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
-    > Jest to również najszybszy sposób, aby zobaczyć wyzwalacze i akcje dostępne dla dowolnego łącznika. Wpisz część nazwy łącznika, `oracle`na przykład . Projektant wyświetla listę wszystkich wyzwalaczy i wszelkich akcji. 
+    > Jest to również najszybszy sposób wyświetlania wyzwalaczy i akcji dostępnych dla każdego łącznika. Wpisz część nazwy łącznika, na przykład `oracle`. Projektant wyświetla wszystkie wyzwalacze i wszystkie akcje. 
 
-5. Wybierz jedną z akcji, na przykład **Oracle Database - Get row**. Wybierz **pozycję Połącz za pośrednictwem lokalnej bramy danych**. Wprowadź nazwę serwera Oracle, metodę uwierzytelniania, nazwę użytkownika, hasło i wybierz bramę:
+5. Wybierz jedną z akcji, na przykład **Oracle Database — Pobierz wiersz**. Wybierz pozycję **Połącz za pośrednictwem lokalnej bramy danych**. Wprowadź nazwę serwera Oracle, metodę uwierzytelniania, nazwę użytkownika, hasło, a następnie wybierz bramę:
 
     ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
-6. Po nawiązaniu połączenia wybierz tabelę z listy i wprowadź identyfikator wiersza do tabeli. Musisz znać identyfikator do tabeli. Jeśli nie wiesz, skontaktuj się z administratorem bazy danych `select * from yourTableName`Oracle DB i uzyskaj dane wyjściowe. Daje to identyfikowalne informacje, które należy wykonać.
+6. Po nawiązaniu połączenia wybierz tabelę z listy, a następnie wprowadź identyfikator wiersza w tabeli. Musisz znać identyfikator tabeli. Jeśli nie wiesz, skontaktuj się z administratorem usługi Oracle DB i Pobierz dane wyjściowe z `select * from yourTableName`programu. Zapewnia to informacje, które należy wykonać.
 
-    W poniższym przykładzie dane zadania są zwracane z bazy danych zasobów ludzkich: 
+    W poniższym przykładzie dane zadania są zwracane z bazy danych kadr: 
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. W tym następnym kroku można użyć dowolnego z innych łączników do tworzenia przepływu pracy. Jeśli chcesz przetestować uzyskiwanie danych z Oracle, wyślij sobie wiadomość e-mail z danymi Oracle przy użyciu jednego z łączników wysyłania wiadomości e-mail, takiego jak Office 365 lub Gmail. Użyj tokenów dynamicznych z tabeli `Subject` `Body` Oracle, aby zbudować i wiadomości e-mail:
+7. W tym następnym kroku można użyć dowolnego z innych łączników do skompilowania przepływu pracy. Jeśli chcesz przetestować pobieranie danych z programu Oracle, Wyślij do siebie wiadomość e-mail z danymi z programu Oracle przy użyciu jednego z łączników wysyłania wiadomości e-mail, takiego jak Office 365 Outlook. Użyj tokenów dynamicznych z tabeli Oracle, aby utworzyć `Subject` i `Body` wysłać wiadomość e-mail:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
-8. **Zapisz** aplikację logiki, a następnie wybierz pozycję **Uruchom**. Zamknij projektanta i spójrz na historię przebiegów dla stanu. Jeśli to się nie powiedzie, wybierz wiersz wiadomości nie powiodło się. Projektant otwiera i pokazuje, który krok nie powiódł się, a także pokazuje informacje o błędzie. Jeśli to się powiedzie, powinieneś otrzymać wiadomość e-mail z dodanymi informacjami.
+8. **Zapisz** aplikację logiki, a następnie wybierz pozycję **Uruchom**. Zamknij projektanta i przejrzyj historię uruchamiania dla stanu. Jeśli to się nie powiedzie, wybierz wiersz komunikatu z błędem. Zostanie otwarty projektant, który pokazuje, który krok nie powiódł się, a także informacje o błędzie. Jeśli się powiedzie, należy odebrać wiadomość e-mail z dodanymi informacjami.
 
 
-### <a name="workflow-ideas"></a>Pomysły na przepływ pracy
+### <a name="workflow-ideas"></a>Pomysły dotyczące przepływu pracy
 
-* Chcesz monitorować #oracle hashtag i umieścić tweety w bazie danych, aby mogły być wyszukiwane i używane w innych aplikacjach. W aplikacji logiki `Twitter - When a new tweet is posted` dodaj wyzwalacz i wprowadź **hashtag #oracle.** Następnie dodaj `Oracle Database - Insert row` akcję i wybierz tabelę:
+* Chcesz monitorować #oraclego i umieścić tweety w bazie danych, aby można było wykonywać zapytania i używać ich w innych aplikacjach. W aplikacji logiki Dodaj `Twitter - When a new tweet is posted` wyzwalacz i wprowadź **#oracle** hasztagów. Następnie Dodaj `Oracle Database - Insert row` akcję i wybierz tabelę:
 
     ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
-* Wiadomości są wysyłane do kolejki usługi Service Bus. Chcesz uzyskać te wiadomości i umieścić je w bazie danych. W aplikacji logiki `Service Bus - when a message is received in a queue` dodaj wyzwalacz i wybierz kolejkę. Następnie dodaj `Oracle Database - Insert row` akcję i wybierz tabelę:
+* Komunikaty są wysyłane do kolejki Service Bus. Chcesz uzyskać te komunikaty i umieścić je w bazie danych. W aplikacji logiki Dodaj `Service Bus - when a message is received in a queue` wyzwalacz i wybierz kolejkę. Następnie Dodaj `Oracle Database - Insert row` akcję i wybierz tabelę:
 
     ![](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
 
 ## <a name="common-errors"></a>Typowe błędy
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Błąd:** Nie można dotrzeć do bramy
+#### <a name="error-cannot-reach-the-gateway"></a>**Błąd**: nie można nawiązać połączenia z bramą
 
-**Przyczyna:** Lokalna brama danych nie może połączyć się z chmurą. 
+**Przyczyna**: lokalna Brama danych nie może nawiązać połączenia z chmurą. 
 
-**Środki zaradcze:** Upewnij się, że brama jest uruchomiona na komputerze lokalnym, na którym została zainstalowana, i że może łączyć się z Internetem.Nie zaleca się instalowania bramy na komputerze, który może być wyłączony lub uśpiony.Można również ponownie uruchomić lokalną usługę bramy danych (PBIEgwService).
+Środki **zaradcze**: Upewnij się, że brama jest uruchomiona na komputerze lokalnym, na którym został zainstalowany, i czy może nawiązać połączenie z Internetem.Nie zaleca się instalowania bramy na komputerze, który może zostać wyłączony lub uśpiony.Możesz również ponownie uruchomić usługę lokalna Brama danych (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Błąd:** Używany dostawca jest przestarzały: "System.Data.OracleClient wymaga oprogramowania klienta Oracle w wersji 8.1.7 lub nowszej.". Zobacz, [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) aby zainstalować oficjalnego dostawcę.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Błąd**: używany dostawca jest przestarzały: element "System. Data. OracleClient wymaga oprogramowania klienckiego Oracle w wersji 8.1.7 lub nowszej.". Zobacz [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) , aby zainstalować oficjalnego dostawcę.
 
-**Przyczyna:** Zestaw SDK klienta Oracle nie jest zainstalowany na komputerze, na którym działa lokalna brama danych.  
+**Przyczyna**: zestaw SDK klienta Oracle nie jest zainstalowany na komputerze, na którym jest uruchomiona lokalna Brama danych.  
 
-**Rozwiązanie:** Pobierz i zainstaluj zestaw SDK klienta Oracle na tym samym komputerze co lokalna brama danych.
+**Rozwiązanie**: Pobierz i Zainstaluj zestaw SDK klienta Oracle na tym samym komputerze, na którym znajduje się lokalna Brama danych.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Błąd**: Tabela "[Nazwa tabeli]" nie definiuje żadnych kolumn kluczowych
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Błąd**: tabela "[TableName]" nie definiuje żadnych kolumn klucza
 
-**Przyczyna:** Tabela nie ma żadnego klucza podstawowego.  
+**Przyczyna**: tabela nie ma klucza podstawowego.  
 
-**Rozdzielczość:** Łącznik bazy danych Oracle wymaga użycia tabeli z kolumną klucza podstawowego.
+**Rozwiązanie**: Łącznik Oracle Database wymaga użycia tabeli z kolumną klucza podstawowego.
 
-#### <a name="currently-not-supported"></a>Obecnie nie jest obsługiwana
+#### <a name="currently-not-supported"></a>Obecnie nieobsługiwane
 
 * Widoki 
-* Dowolna tabela z kluczami kompozytowymi
+* Dowolna tabela z kluczami złożonymi
 * Zagnieżdżone typy obiektów w tabelach
  
-## <a name="connector-specific-details"></a>Szczegóły specyficzne dla łącznika
+## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
-Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger, a także zobacz wszelkie limity w [szczegółach łącznika](/connectors/oracle/). 
+Wyświetlanie wszystkich wyzwalaczy i akcji zdefiniowanych w strukturze Swagger, a także wszystkich ograniczeń w [szczegółach łącznika](/connectors/oracle/). 
 
 ## <a name="get-some-help"></a>Uzyskaj pomoc
 
-[Forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) to doskonałe miejsce do zadawania pytań, odpowiadania na pytania i zobacz, co robią inni użytkownicy aplikacji logiki. 
+[Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) jest doskonałym miejscem, w którym można zadawać pytania, odpowiadać na nie i dowiedzieć się, co inni użytkownicy Logic Apps robią. 
 
-Możesz ulepszyć aplikacje logiki i łączniki, głosując i przesyłając swoje pomysły w pliku [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
+Możesz pomóc ulepszyć Logic Apps i łączniki, głosując i przesyłając swoje pomysły [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)w witrynie. 
 
 
 ## <a name="next-steps"></a>Następne kroki
-[Utwórz aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)i eksploruj dostępne łączniki na liście Aplikacji logiki na [liście interfejsów API](apis-list.md).
+[Utwórz aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)i Eksploruj dostępne łączniki w Logic Apps na [liście interfejsów API](apis-list.md).

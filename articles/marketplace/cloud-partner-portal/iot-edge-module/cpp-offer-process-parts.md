@@ -1,47 +1,47 @@
 ---
-title: Omówienie publikowania oferty usługi Azure IoT Edge Module | Azure Marketplace
-description: Omówienie procesu publikowania oferty modułów usługi IoT Edge w portalu Azure Marketplace.
+title: Przegląd udostępniania oferty modułu Azure IoT Edge Portal Azure Marketplace
+description: Przegląd procesu publikowania oferty modułu IoT Edge w portalu Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 20c76cec82944568c1b16694bef2838626b90b03
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: e9116e5cdb3bd9ed61205ceabd4d51c96c6aadc2
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983351"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144666"
 ---
-# <a name="iot-edge-module-offer-publishing-overview"></a>Omówienie publikowania modułów IoT Edge
+# <a name="iot-edge-module-offer-publishing-overview"></a>Przegląd udostępniania oferty modułu IoT Edge
 
 >[!Important]
->Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami modułu IoT Edge do Centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [tworzenie oferty modułu IoT Edge,](https://aka.ms/AzureCreateIoT) aby zarządzać zmigrowanymi ofertami.
+>Od 13 kwietnia 2020 rozpocznie się Zarządzanie ofertą modułu IoT Edge w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Create an IoT Edge module](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) , aby zarządzać migrowanymi ofertami.
 
-<table> <tr> <td>W tej sekcji wyjaśniono, jak opublikować nową ofertę modułu Usługi Azure IoT Edge w portalu Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace.</a> Moduł usługi IoT Edge to kontener zgodny z docker, który jest uruchamiany na urządzeniu usługi IoT Edge. Moduły usługi Azure IoT Edge są najmniejszą jednostką obliczeń zarządzaną przez usługę IoT Edge i mogą zawierać usługi platformy Azure lub niestandardowy kod rozwiązania. </td> <td><img src="./media/iotedge-icon1.png"  alt="Azure IoT Edge module icon" /></td> </tr> </table>
+<table> <tr> <td>W tej sekcji opisano sposób publikowania nowej oferty modułu Azure IoT Edge w <a href="https://azuremarketplace.microsoft.com">portalu Microsoft Azure Marketplace</a>. Moduł IoT Edge jest kontenerem zgodnym z platformą Docker, który jest uruchamiany na urządzeniu IoT Edge. Moduły Azure IoT Edge są najmniejszą jednostką obliczeniową zarządzaną przez IoT Edge i mogą zawierać usługi platformy Azure lub niestandardowy kod rozwiązania. </td> <td><img src="./media/iotedge-icon1.png"  alt="Azure IoT Edge module icon" /></td> </tr> </table>
 
 ## <a name="publishing-process"></a>Proces publikowania
 
-Kroki wysokiego poziomu publikowania oferty modułów IoT Edge to:
+Poniżej przedstawiono ogólne kroki publikowania oferty modułu IoT Edge:
 
-1. Tworzenie oferty<br> Podaj szczegółowe informacje na temat oferty. Informacje te obejmują: opis oferty, materiały marketingowe, informacje o pomocy technicznej i specyfikacje zasobów.
+1. Tworzenie oferty<br> Podaj szczegółowe informacje o ofercie. Te informacje obejmują: opis oferty, materiały marketingowe, informacje o pomocy technicznej i specyfikacje zasobów.
 
-2. Tworzenie zasobów biznesowych i technicznych<br> Utwórz zasoby biznesowe (dokumenty prawne i materiały marketingowe) oraz zasoby techniczne skojarzonego rozwiązania (obrazy modułów usługi IoT Edge hostowane w rejestrze kontenerów platformy Azure.
+2. Tworzenie zasobów firmowych i technicznych<br> Utwórz zasoby biznesowe (dokumenty prawne i materiały marketingowe) i zasoby techniczne dla skojarzonego rozwiązania (IoT Edge obrazy modułu hostowane w Azure Container Registry.
 
-3. Tworzenie jednostki SKU<br> Utwórz jednostki SKU skojarzone z ofertą. Unikatowa jednostka SKU jest wymagana dla każdego obrazu, który planujesz opublikować.
+3. Tworzenie jednostki SKU<br> Utwórz jednostki SKU skojarzone z ofertą. Dla każdego obrazu, który ma zostać opublikowany, wymagana jest unikatowa jednostka SKU.
 
-4. Certyfikuj i publikuj ofertę <br>Po zakończeniu oferty i zasobów technicznych można złożyć ofertę. To przesłanie rozpoczyna proces publikowania. Podczas tego procesu rozwiązanie jest testowane, sprawdzane, certyfikowane, a następnie "przechodzi na rynek" w portalu Azure Marketplace.
+4. Certyfikowanie i publikowanie oferty <br>Po zakończeniu oferty i zasobów technicznych można przesłać ofertę. To przesyłanie rozpocznie proces publikowania. W trakcie tego procesu rozwiązanie jest testowane, weryfikowane, certyfikowane, a następnie "trafia na żywo" w portalu Azure Marketplace.
 
 ## <a name="parts-of-an-offer"></a>Części oferty
 
-Poniższe artykuły obejmują kluczowe części oferty modułu IoT Edge.
+Poniższe artykuły obejmują podstawowe elementy oferty modułu IoT Edge.
 
-- [Wymagania wstępne](./cpp-prerequisites.md) <br>W tym artykule wymieniono wymagania techniczne i biznesowe przed utworzeniem lub opublikowaniem oferty modułów usługi IoT Edge.
-- [Przygotowywanie zasobów technicznych dla modułu usługi IoT Edge](./cpp-create-technical-assets.md) <br>W tym artykule opisano sposób przygotowania zasobów technicznych dla modułu usługi IoT Edge. Te zasoby muszą spełniać wszystkie wymagane kryteria techniczne, zanim moduł usługi IoT Edge będzie mógł zostać opublikowany w portalu Azure Marketplace.
-- [Tworzenie oferty modułu usługi IoT Edge](./cpp-create-offer.md) <br>W tym artykule wymieniono kroki wymagane do utworzenia nowego wpisu oferty modułu usługi IoT Edge przy użyciu [portalu Cloud Partner Portal](https://cloudpartner.azure.com).
-- [Publikowanie oferty modułu usługi IoT Edge](./cpp-publish-offer.md)<br> W tym artykule opisano sposób przesyłania oferty publikowania w portalu Azure Marketplace.
+- [Wymagania wstępne](./cpp-prerequisites.md) <br>W tym artykule wymieniono wymagania techniczne i biznesowe przed utworzeniem lub opublikowaniem oferty modułu IoT Edge.
+- [Przygotowywanie zasobów technicznych dla modułu usługi IoT Edge](./cpp-create-technical-assets.md) <br>W tym artykule opisano sposób przygotowania zasobów technicznych dla modułu IoT Edge. Te zasoby muszą spełniać wszystkie wymagane kryteria techniczne przed opublikowaniem modułu IoT Edge w portalu Azure Marketplace.
+- [Tworzenie oferty modułu usługi IoT Edge](./cpp-create-offer.md) <br>W tym artykule wymieniono kroki wymagane do utworzenia nowego wpisu oferty modułu IoT Edge przy użyciu [Portal Cloud partner](https://cloudpartner.azure.com).
+- [Publikowanie oferty modułu usługi IoT Edge](./cpp-publish-offer.md)<br> W tym artykule opisano sposób przesyłania oferty do opublikowania w portalu Azure Marketplace.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [wymaganiami technicznymi i biznesowymi dotyczącymi](./cpp-prerequisites.md) publikowania modułu usługi IoT Edge w portalu Microsoft Azure Marketplace.
+Zapoznaj się z [wymaganiami technicznymi i biznesowymi](./cpp-prerequisites.md) dotyczącymi publikowania modułu IoT Edge w Microsoft Azure Marketplace.

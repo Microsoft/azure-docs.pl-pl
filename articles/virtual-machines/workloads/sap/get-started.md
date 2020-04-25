@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 04/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe7b375ebafb1e8194b29061430d956e48f2c441
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: bf8c797edec143d09739272917b5781a239280ba
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100758"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147743"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -111,6 +111,7 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 04/24/2020: zmiany w [SAP HANA skalowanie w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure z usługą ANF na SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse), w [SAP HANA skalowanie w poziomie z węzłem gotowości](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)na maszynach wirtualnych platformy Azure z ANF na RHEL, [wysokiej dostępności dla oprogramowania SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) na maszynach wirtualnych platformy Azure na SLES z ANF i [wysoką dostępność dla SAP NetWeaver na maszynach](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) wirtualnych platformy Azure w RHEL
 - 04/22/2020: Zmień [wysoką dostępność SAP HANA na maszynach wirtualnych platformy Azure w usłudze SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) , aby `is-managed` usunąć atrybut meta z instrukcji, ponieważ powoduje to konflikt z umieszczeniem klastra w trybie konserwacji lub z niego
 - 04/21/2020: dodano usługę SQL Azure DB jako obsługiwaną w systemie DBMS dla oprogramowania SAP (Hybris) Commerce platform 1811 i nowszych w artykułach [jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) oraz [Certyfikaty i konfiguracje SAP działające w systemie Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 - 04/16/2020: dodano SAP HANA jako obsługiwaną platformę DBMS for SAP (Hybris) dla platformy commerce w artykułach [jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) oraz [Certyfikaty i konfiguracje SAP działające w systemie Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)

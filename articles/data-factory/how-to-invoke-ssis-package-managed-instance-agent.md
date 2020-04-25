@@ -1,6 +1,6 @@
 ---
-title: Wykonywanie pakietów SSIS przez agenta wystąpienia zarządzanego sql azure
-description: Dowiedz się, jak wykonywać pakiety SSIS przez agenta wystąpienia zarządzanego sql azure.
+title: Uruchamianie pakietów SSIS za pomocą Azure SQL Database agenta wystąpienia zarządzanego
+description: Dowiedz się, jak uruchamiać pakiety usług SSIS za pomocą Azure SQL Database agenta wystąpienia zarządzanego.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -9,92 +9,108 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: b3b7a25149a9d075c81b30307ade2beb71907637
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: fcbfeb5ab3a3a80fdb8f7e355f290451d4afe804
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81394724"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144798"
 ---
-# <a name="execute-ssis-packages-by-azure-sql-managed-instance-agent"></a>Wykonywanie pakietów SSIS przez agenta wystąpienia zarządzanego sql azure
-W tym artykule opisano sposób uruchamiania pakietu usług integracji programu SQL Server (SSIS) przy użyciu agenta wystąpienia zarządzanego sql azure. Ta funkcja zapewnia podobne zachowania, podobnie jak podczas planowania pakietów SSIS przez agenta programu SQL Server w środowisku on-prem.
+# <a name="run-ssis-packages-by-using-azure-sql-database-managed-instance-agent"></a>Uruchamianie pakietów SSIS za pomocą Azure SQL Database agenta wystąpienia zarządzanego
+W tym artykule opisano sposób uruchamiania pakietu SQL Server Integration Services (SSIS) przy użyciu agenta wystąpienia zarządzanego Azure SQL Database. Ta funkcja udostępnia zachowania podobne do sytuacji, w której pakiety SSIS są planowane przy użyciu agenta SQL Server w środowisku lokalnym.
 
-Za pomocą tej funkcji można uruchamiać pakiety SSIS, które są przechowywane w UDS wystąpienia zarządzanego programu Azure SQL lub systemu plików, takiego jak pliki Azure.
+Za pomocą tej funkcji można uruchamiać pakiety usług SSIS, które są przechowywane w SSISDB w wystąpieniu zarządzanym Azure SQL Database lub systemie plików, takim jak Azure Files.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby korzystać z tej funkcji, pobierz i zainstaluj najnowszą wersję usługi SSMS, która jest w wersji 18.5 lub nowszej. Pobierz go z [tej strony](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+Aby użyć tej funkcji, [Pobierz](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) i zainstaluj najnowszą wersję programu SQL Server Management Studio (SSMS), która jest w wersji 18,5.
 
-I należy aprowizować środowisko uruchomieniowe integracji platformy Azure-SSIS w usłudze Azure Data Factory, która używa wystąpienia zarządzanego sql platformy Azure jako serwera punktu końcowego. Jeśli nie zostały już zainicjowane, przepisać go, postępując zgodnie z instrukcjami w [samouczku](tutorial-create-azure-ssis-runtime-portal.md). 
+Musisz również [udostępnić środowisko Azure-SSIS Integration Runtime](tutorial-create-azure-ssis-runtime-portal.md) w Azure Data Factory. Używa wystąpienia zarządzanego Azure SQL Database jako serwera punktu końcowego. 
 
-## <a name="run-ssis-packages-in-ssisdb-by-azure-sql-managed-instance-agent"></a>Uruchamianie pakietów SSIS w Usłudze SSISDB przez agenta wystąpienia zarządzanego sql azure
-W tym kroku używasz agenta wystąpienia zarządzanego sql platformy Azure do wywoływania pakietów SSIS przechowywanych w Usłudze SSISDB w wystąpieniu zarządzanym sql platformy Azure.
-1. W najnowszej wersji usługi SSMS połącz się z wystąpieniem zarządzanym usługi Azure SQL.
-2. Utwórz nową pracę agenta i nowy krok zadania.
+## <a name="run-an-ssis-package-in-ssisdb"></a>Uruchamianie pakietu usług SSIS w SSISDB
+W tej procedurze użyto Azure SQL Database agenta wystąpienia zarządzanego do wywołania pakietu SSIS, który jest przechowywany w SSISDB.
 
-![Nowa praca agenta](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+1. W najnowszej wersji programu SSMS Połącz się z Azure SQL Database wystąpieniem zarządzanym.
+1. Utwórz nowe zadanie agenta i nowy krok zadania. W obszarze **Agent SQL Server**kliknij prawym przyciskiem myszy folder **Jobs (zadania** ), a następnie wybierz pozycję **nowe zadanie**.
 
-3. Na stronie **Nowy krok zadania** wybierz typ pakietu usług **integracyjnych programu SQL Server.**
+   ![Wybrane opcje tworzenia nowego zadania agenta](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
-![Nowy krok zadania SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+1. Na stronie **nowy etap zadania** wybierz pozycję **SQL Server Integration Services pakiet** jako typ.
 
-4. Na karcie **Pakiet** wybierz pozycję **Wykaz SSIS** jako typ źródła pakietu.
-5. Ponieważ SSISDB znajduje się w tym samym wystąpieniu zarządzanym sql platformy Azure, nie trzeba określać uwierzytelniania.
-6. Określ pakiet SSIS z bazy SSISDB.
+   ![Opcje tworzenia nowego kroku zadania SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
 
-![Typ źródła pakietu - Katalog SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
+1. Na karcie **pakiet** wybierz pozycję **Katalog usług SSIS** jako typ źródła pakietu.
+1. Ponieważ SSISDB znajduje się w wystąpieniu zarządzanym Azure SQL Database, nie trzeba określać uwierzytelniania.
+1. Określ pakiet SSIS z SSISDB.
 
-7. Na karcie **Konfiguracje** można określić wartości **parametrów,** zastąpić wartości w **menedżerach połączeń,** zastąpić **właściwość** i wybrać pozycję Poziom **rejestrowania**.
+   ![Karta pakiet z opcjami wyboru dla typu źródła pakietu](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
 
-![Typ źródła pakietu — konfiguracja katalogu SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
+1. Na karcie **Konfiguracja** można:
+  
+   - Określ wartości parametrów w obszarze **Parametry**.
+   - Zastąp wartości w obszarze **menedżerów połączeń**.
+   - Zastąp Właściwość i wybierz poziom rejestrowania w obszarze **Zaawansowane**.
 
-8. Po zakończeniu całej konfiguracji powyżej kliknij przycisk **OK,** aby zapisać konfigurację zadania agenta.
-9. Uruchom zadanie agenta, aby wykonać pakiet SSIS.
+   ![Karta Konfiguracja z opcjami wyboru dla typu źródła pakietu](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
 
-
-## <a name="run-ssis-packages-in-file-system-by-azure-sql-managed-instance-agent"></a>Uruchamianie pakietów SSIS w systemie plików przez agenta wystąpienia zarządzanego sql azure
-W tym kroku można użyć agenta wystąpienia zarządzanego sql platformy Azure do wywołania pakietów SSIS, który jest przechowywany w systemie plików do uruchomienia.
-1. W najnowszej wersji usługi SSMS połącz się z wystąpieniem zarządzanym usługi Azure SQL.
-2. Utwórz nową pracę agenta i nowy krok zadania.
-
-   ![Nowa praca agenta](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
-
-3. Na stronie **Nowy krok zadania** wybierz typ pakietu usług **integracyjnych programu SQL Server.**
-
-   ![Nowy krok zadania SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
-
-4. Na karcie **Pakiet** wybierz pozycję **System plików** jako typ źródła pakietu.
-
-   ![Typ źródła pakietu — system plików](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
-
-   1. Jeśli pakiet jest przekazyny do usługi Azure File, wybierz **udział plików platformy Azure** jako typ źródła pliku.
-      - Ścieżka pakietu to ** \\ <storage account name>nazwa udziału\<plików file.core.windows.net>\<nazwa pakietu>.dtsx**
-      - Wpisz nazwę konta pliku platformy Azure i klucz konta w **poświadczeniu dostępu do pliku pakietu,** aby uzyskać dostęp do pliku platformy Azure. Domena jest ustawiona jako **Azure**.
-   2. Jeśli pakiet jest przekazyany do udziału sieciowego, wybierz **opcję Udział sieciowy** jako typ źródła pliku.
-      - Ścieżka pakietu jest **ścieżką UNC** pliku pakietu z rozszerzeniem dtsx.
-      - Wpisz odpowiednią **domenę,** **nazwę użytkownika**i **hasło,** aby uzyskać dostęp do pliku pakietu udziału sieciowego.
-   3. Jeśli plik pakietu jest zaszyfrowany hasłem, wybierz **hasło szyfrowania** i wpisz hasło.
-
- 5. Na karcie **Konfiguracje** wpisz **ścieżkę pliku konfiguracji,** jeśli potrzebujesz pliku konfiguracyjnego do wykonania pakietu SSIS.
- 6. Na karcie **Opcje wykonywania** można wybrać, czy do wykonania pakietu SSIS ma być używane **uwierzytelnianie systemu Windows,** czy **32-bitowe środowisko uruchomieniowe.**
- 7. Na karcie **Rejestrowanie** można wybrać **ścieżkę rejestrowania** i odpowiadające im poświadczenia dostępu do rejestrowania do przechowywania plików dziennika. Domyślnie ścieżka rejestrowania będzie taka sama jak ścieżka folderu pakietu, a poświadczenia dostępu do rejestrowania będą takie same jak poświadczenia dostępu do pakietu.
- 8. Na karcie **Ustaw wartości** można wpisać ścieżkę **właściwości** i **wartość,** aby zastąpić właściwości pakietu.
- Na przykład, aby zastąpić wartość zmiennej użytkownika, wprowadź jej ścieżkę w następującym formacie: **<variable name>\Package.Variables[User:: ]. Wartość**.
- 9. Po zakończeniu całej konfiguracji powyżej kliknij przycisk **OK,** aby zapisać konfigurację zadania agenta.
- 10. Uruchom zadanie agenta, aby wykonać pakiet SSIS.
+1. Wybierz **przycisk OK** , aby zapisać konfigurację zadania agenta.
+1. Uruchom zadanie agenta, aby uruchomić pakiet SSIS.
 
 
- ## <a name="cancel-ssis-package-execution"></a>Anulowanie wykonania pakietu SSIS
- Aby anulować wykonanie pakietu z zadania programu Azure SQL Managed Agent, należy wykonać poniższe kroki zamiast bezpośrednio zatrzymywać zadanie agenta.
- 1. Znajdź swój **jobId agenta** SQL z **msdb.dbo.sysjobs**.
- 2. Znajdź odpowiedni **identyfikator wykonywania** SSIS na podstawie identyfikatora zadania według poniższej kwerendy:
-    ```sql
-    select * from ssisdb.internal.execution_parameter_values_noncatalog where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
-    ```
- 3. Wybierz **pozycję Aktywne operacje** w katalogu SSIS.
+## <a name="run-an-ssis-package-in-the-file-system"></a>Uruchamianie pakietu usług SSIS w systemie plików
+W tej procedurze użyto Azure SQL Database agenta wystąpienia zarządzanego do uruchomienia pakietu usług SSIS, który jest przechowywany w systemie plików.
 
-    ![Typ źródła pakietu — system plików](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
+1. W najnowszej wersji programu SSMS Połącz się z Azure SQL Database wystąpieniem zarządzanym.
+1. Utwórz nowe zadanie agenta i nowy krok zadania. W obszarze **Agent SQL Server**kliknij prawym przyciskiem myszy folder **Jobs (zadania** ), a następnie wybierz pozycję **nowe zadanie**.
 
- 4. Zatrzymaj odpowiednią operację na podstawie **executionId**.
+   ![Wybrane opcje tworzenia nowego zadania agenta](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+
+1. Na stronie **nowy etap zadania** wybierz pozycję **SQL Server Integration Services pakiet** jako typ.
+
+   ![Opcje tworzenia nowego kroku zadania SSIS](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+
+1. Na karcie **pakiet** :
+
+   1. W obszarze **Źródło pakietu**wybierz pozycję **system plików**.
+   
+   1. Dla **typu źródła pliku**:   
+
+      - Jeśli pakiet zostanie przekazany do Azure Files, wybierz pozycję **udział plików platformy Azure**.
+
+        ![Opcje dla typu źródła pliku](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
+      
+        Ścieżka pakietu to ** \\ <storage account name>File.Core.Windows.NET\<nazwa udziału plików>\<nazwa pakietu>. dtsx**.
+      
+        W obszarze **poświadczenia dostępu do pliku pakietu**wprowadź nazwę konta i klucz konta usługi Azure File, aby uzyskać dostęp do pliku platformy Azure. Domena jest ustawiona na **platformę Azure**.
+
+      - Jeśli pakiet zostanie przekazany do udziału sieciowego, wybierz pozycję **udział sieciowy**.
+      
+        Ścieżka pakietu jest ścieżką UNC pliku pakietu z rozszerzeniem. dtsx.
+      
+        Wprowadź odpowiednią domenę, nazwę użytkownika i hasło, aby uzyskać dostęp do pliku pakietu udziału sieciowego.
+   1. Jeśli plik pakietu jest szyfrowany przy użyciu hasła, wybierz opcję **hasło szyfrowania** i wprowadź hasło.
+1. Na karcie **konfiguracje** wprowadź ścieżkę pliku konfiguracji, jeśli potrzebujesz pliku konfiguracji do uruchomienia pakietu usług SSIS.
+1. Na karcie **Opcje wykonywania** , możesz wybrać, czy użyć **uwierzytelniania systemu Windows** lub **32-bitowego środowiska uruchomieniowego** , aby uruchomić pakiet SSIS.
+1. Na karcie **Rejestrowanie** możesz wybrać ścieżkę rejestrowania i odpowiednie poświadczenia dostępu do rejestrowania do przechowywania plików dziennika. Domyślnie ścieżka rejestrowania jest taka sama jak ścieżka folderu pakietu, a poświadczenia dostępu do logowania są takie same, jak poświadczenia dostępu do pakietu.
+1. Na karcie **ustawienia wartości** możesz wprowadzić ścieżkę i wartość właściwości, aby zastąpić właściwości pakietu.
+ 
+   Na przykład aby zastąpić wartość zmiennej użytkownika, wprowadź jej ścieżkę w następującym formacie: **\Package.Variables [User:<variable name>:]. Wartość**.
+1. Wybierz **przycisk OK** , aby zapisać konfigurację zadania agenta.
+1. Uruchom zadanie agenta, aby uruchomić pakiet SSIS.
+
+
+## <a name="cancel-ssis-package-execution"></a>Anuluj wykonywanie pakietu SSIS
+Aby anulować wykonywanie pakietu przy użyciu zadania agenta wystąpienia zarządzanego Azure SQL Database, wykonaj następujące czynności zamiast bezpośredniego zatrzymywania zadania agenta:
+
+1. Znajdź identyfikator **jobId** agenta SQL z bazy danych **msdb. dbo. tabela sysjobs**.
+1. Znajdź odpowiednie **EXECUTIONID** SSIS na podstawie identyfikatora zadania, korzystając z tego zapytania:
+   ```sql
+   select * from ssisdb.internal.execution_parameter_values_noncatalog where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
+   ```
+1. Kliknij prawym przyciskiem myszy katalog SSISDB, a następnie wybierz pozycję **aktywne operacje**.
+
+   !["Operacje aktywne" w menu skrótów dla katalogu SSISDB](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
+
+1. Zatrzymywanie odpowiedniej operacji na podstawie **ExecutionID**.
 
 ## <a name="next-steps"></a>Następne kroki
- Można również zaplanować pakiety SSIS przy użyciu usługi Azure Data Factory. Aby uzyskać instrukcje krok po kroku, zobacz [Wyzwalacz zdarzeń usługi Azure Data Factory .](how-to-create-event-trigger.md) 
+Możesz również zaplanować pakiety SSIS przy użyciu Azure Data Factory. Aby uzyskać instrukcje krok po kroku, zobacz [Azure Data Factory wyzwalacza zdarzeń](how-to-create-event-trigger.md). 

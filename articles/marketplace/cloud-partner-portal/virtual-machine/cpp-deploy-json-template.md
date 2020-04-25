@@ -1,25 +1,25 @@
 ---
-title: Szablon wdrożenia platformy Azure VHD | Azure Marketplace
-description: Wyświetla listę szablonu usługi Azure Resource Manager wymaganego do wdrożenia nowej maszyny wirtualnej platformy Azure z wirtualnego dysku twardego użytkownika.
+title: Szablon wdrożenia wirtualnego dysku twardego platformy Azure | Portal Azure Marketplace
+description: Zawiera listę Azure Resource Manager szablonu wymaganego do wdrożenia nowej maszyny wirtualnej platformy Azure na podstawie wirtualnego dysku twardego użytkownika.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 506412c23288d58c2f59b91a300265ddd79428bf
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: f3e3dc6e0d73627f49ba04a8b861253bafcddfa9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273923"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148049"
 ---
-# <a name="virtual-hard-disk-deployment-template"></a>Szablon wdrażania wirtualnego dysku twardego
+# <a name="virtual-hard-disk-deployment-template"></a>Szablon wdrożenia wirtualnego dysku twardego
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami maszyny wirtualnej platformy Azure do centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [certyfikacji obrazów maszyn wirtualnych platformy Azure,](https://aks.ms/CertifyVMimage) aby zarządzać zmigrowanymi ofertami.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami usługi Azure Virtual Machine w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [certyfikat obrazu maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) , aby zarządzać migrowanymi ofertami.
 
-Poniższy szablon usługi Azure Resource Manager definiuje nowe wystąpienie maszyny wirtualnej platformy Azure (VM), utworzone na lokalnym wirtualnym dysku twardym (VHD).  Ten szablon jest używany w artykule [Wdrażanie maszyny Wirtualnej platformy Azure z dysku VHD użytkownika](./cpp-deploy-vm-user-image.md). 
+Poniższy szablon Azure Resource Manager definiuje nowe wystąpienie maszyny wirtualnej platformy Azure utworzone na podstawie lokalnego wirtualnego dysku twardego (VHD).  Ten szablon jest używany w artykule [Wdrażanie maszyny wirtualnej platformy Azure z dysku VHD użytkownika](./cpp-deploy-vm-user-image.md).
 
 ```json
 {

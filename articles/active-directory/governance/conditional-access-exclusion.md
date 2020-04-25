@@ -1,9 +1,9 @@
 ---
-title: Zarządzanie użytkownikami wykluczonymi z zasad dostępu warunkowego — usługa Azure AD
-description: Dowiedz się, jak zarządzać użytkownikami wykluczonymi z zasad dostępu usługi Azure Active Directory (Azure AD) za pomocą recenzje dostępu usługi Azure Active Directory (Azure AD)
+title: Zarządzanie użytkownikami wykluczonymi z zasad dostępu warunkowego — Azure AD
+description: Dowiedz się, jak za pomocą przeglądów dostępu w usłudze Azure Active Directory (Azure AD) zarządzać użytkownikami, którzy zostali wykluczeni z zasad dostępu warunkowego
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,43 +12,50 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/25/2018
-ms.author: ajburnle
+ms.date: 04/24/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d7bce940f2b614c239e8b5e5719d96da10a6c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91bb5a342eea079b6e9abcf109ad472151d3c13d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75422712"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144498"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Zarządzanie użytkownikami wykluczonymi z zasad dostępu warunkowego za pomocą przeglądów dostępu usługi Azure AD
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Korzystanie z przeglądów dostępu usługi Azure AD do zarządzania użytkownikami wykluczonymi z zasad dostępu warunkowego
 
-W idealnym świecie wszyscy użytkownicy będą postępować zgodnie z zasady dostępu, aby zapewnić dostęp do zasobów organizacji. Czasami jednak zdarzają się przypadki biznesowe, które wymagają wyjątków. W tym artykule opisano kilka przykładów, w których mogą być wymagane wykluczenia i jak użytkownik, jako administrator IT, może zarządzać tym zadaniem, unikać nadzoru nad wyjątkami zasad i dostarczać audytorom dowód, że wyjątki te są regularnie sprawdzane przy użyciu platformy Azure Przeglądy dostępu usługi Active Directory (Azure AD).
+W idealnym świecie wszyscy użytkownicy przestrzegają zasad dostępu w celu zabezpieczenia dostępu do zasobów organizacji. Czasami jednak istnieją przypadki biznesowe, które wymagają wprowadzenia wyjątków. W tym artykule przedstawiono kilka przykładów sytuacji, w których może być konieczne wyłączenie. Administrator IT może zarządzać tym zadaniem, unikać nadzoru wyjątków zasad i zapewniać audytorom dowód, że te wyjątki są regularnie analizowane za pomocą przeglądów dostępu Azure Active Directory (Azure AD).
 
-> [!NOTE]
-> Do korzystania z recenzji dostępu usługi Azure AD AD Access wymagana jest prawidłowa licencja azure ad premium P2, enterprise mobility + security E5 płatna lub licencja próbna. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](../fundamentals/active-directory-whatis.md).
+>[!NOTE]
+> Do korzystania z przeglądów dostępu do usługi Azure AD wymagana jest prawidłowa Azure AD — wersja Premium P2, Enterprise Mobility + Security E5 lub wersja próbna. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
-## <a name="why-would-you-exclude-users-from-policies"></a>Dlaczego chcesz wykluczyć użytkowników z zasad?
+## <a name="why-would-you-exclude-users-from-policies"></a>Dlaczego należy wykluczyć użytkowników z zasad?
 
-Jako administrator IT możesz użyć [dostępu warunkowego usługi Azure AD,](../conditional-access/overview.md) aby wymagać od użytkowników uwierzytelniania przy użyciu uwierzytelniania wieloskładnikowego (MFA) lub logowania się z zaufanej sieci lub urządzenia. Podczas planowania wdrożenia dowiesz się, że niektóre z tych wymagań nie mogą być spełnione przez wszystkich użytkowników. Na przykład są użytkownicy, którzy pracują z biura zdalnego, które nie jest częścią sieci wewnętrznej lub jest dyrektor, który używa starego telefonu, który nie jest obsługiwany. Firma wymaga, aby ci użytkownicy mogli się logować i wykonywać swoje zadania, w związku z czym są wykluczeni z zasad dostępu warunkowego.
+Załóżmy, że jako administrator zdecyduje się użyć [dostępu warunkowego usługi Azure AD](../conditional-access/overview.md) , aby wymagać uwierzytelniania wieloskładnikowego (MFA) i ograniczyć żądania uwierzytelniania do określonych sieci lub urządzeń. Podczas planowania wdrożenia należy pamiętać, że nie wszyscy użytkownicy mogą spełnić te wymagania. Na przykład użytkownicy mogą korzystać z zdalnych biur, a nie części sieci wewnętrznej. Może być również konieczne, aby umożliwić użytkownikom łączenie się za pomocą nieobsługiwanych urządzeń podczas oczekiwania na zamienienie tych urządzeń. W skrócie firma wymaga od użytkowników zalogowania się i wykonania zadania w celu wykluczenia ich z zasad dostępu warunkowego.
 
-Innym przykładem można użyć [nazwanych lokalizacji](../conditional-access/location-condition.md) w dostępie warunkowym do skonfigurowania zestawu powiatów i regionów, z których nie chcesz zezwalać użytkownikom na dostęp do ich dzierżawy.
+Innym przykładem może być użycie [nazwanych lokalizacji](../conditional-access/location-condition.md) w dostępie warunkowym w celu określenia zestawu krajów i regionów, z których użytkownik nie chce zezwalać użytkownikom na dostęp do swojej dzierżawy.
 
-![Nazwane lokalizacje w programie "Dostęp warunkowy"](./media/conditional-access-exclusion/named-locations.png)
+![Nazwane lokalizacje w dostępie warunkowym](./media/conditional-access-exclusion/named-locations.png)
 
-Jednak w niektórych przypadkach użytkownicy mogą mieć uzasadniony powód, aby zalogować się z tych zablokowanych krajów/regionów. Na przykład użytkownicy mogą podróżować z powodów służbowych lub osobistych. W tym przykładzie zasady dostępu warunkowego do blokowania tych krajów/regionów może mieć dedykowaną grupę zabezpieczeń w chmurze dla użytkowników, którzy są wykluczeni z zasad. Użytkownicy, którzy potrzebują dostępu podczas podróży, mogą dodać się do grupy za pomocą [samoobsługowego zarządzania grupami usługi Azure AD](../users-groups-roles/groups-self-service-management.md).
+Niestety niektórzy użytkownicy mogą nadal mieć ważną przyczynę zalogowania się z tych zablokowanych krajów/regionów. Na przykład użytkownicy mogą Podróżujący do pracy i muszą uzyskiwać dostęp do zasobów firmy. W takim przypadku zasady dostępu warunkowego do blokowania tych krajów/regionów mogą korzystać z grupy zabezpieczeń chmury dla wykluczonych użytkowników z zasad. Użytkownicy, którzy potrzebują dostępu w podróży, mogą dodać siebie do grupy przy użyciu samoobsługowego [zarządzania grupami w usłudze Azure AD](../users-groups-roles/groups-self-service-management.md).
 
-Innym przykładem może być zasada dostępu warunkowego, która [blokuje starsze uwierzytelnianie dla większości użytkowników.](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/) Firma Microsoft zdecydowanie zaleca zablokowanie używania starszych protokołów w dzierżawie w celu poprawy stanu zabezpieczeń. Jeśli jednak niektórzy użytkownicy muszą bezwzględnie używać starszych metod uwierzytelniania, aby uzyskać dostęp do zasobów za pośrednictwem klientów opartych na pakiecie Office 2010 lub IMAP/SMTP/POP, możesz wykluczyć tych użytkowników z zasad blokujących starsze metody uwierzytelniania.
+Innym przykładem mogą być zasady dostępu warunkowego [blokujące starsze uwierzytelnianie dla większości użytkowników](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Jednak w przypadku niektórych użytkowników, którzy muszą używać starszych metod uwierzytelniania w celu uzyskania dostępu do zasobów za pośrednictwem klientów pakietu Office 2010 lub protokołu IMAP/wyskakujących okienek, można wykluczyć tych użytkowników z zasad, które blokują starsze metody uwierzytelniania.
 
-## <a name="why-are-exclusions-challenging"></a>Dlaczego wykluczenia są wyzwaniem?
+>[!NOTE]
+>Firma Microsoft zdecydowanie zaleca zablokowanie użycia starszych protokołów w dzierżawie w celu usprawnienia stan zabezpieczeń.
 
-W usłudze Azure AD można określić zakres zasad dostępu warunkowego do zestawu użytkowników. Można również wykluczyć niektórych z tych użytkowników, wybierając role usługi Azure AD, poszczególnych użytkowników lub gości użytkowników. Należy pamiętać, że po skonfigurowaniu tych wykluczeń intencji zasad nie można wymuszać dla tych użytkowników. Jeśli te wyłączenia zostały skonfigurowane jako lista poszczególnych użytkowników lub za pośrednictwem starszej lokalnej grupy zabezpieczeń, ogranicza to widoczność tej listy wykluczeń (użytkownicy mogą nie wiedzieć o jej istnieniu) i kontroli nad nim przez administratora IT (użytkownicy mogą dołączyć do tej listy wykluczeń( użytkownicy mogą nie wiedzieć o jej istnieniu) i kontroli administratora IT nad nim (użytkownicy mogą dołączyć do grupy zabezpieczeń, aby ominąć zasady). Ponadto użytkownicy, którzy zakwalifikowali się do wykluczenia w tym samym czasie, mogą już go nie potrzebować lub kwalifikować się do niego.
+## <a name="why-are-exclusions-challenging"></a>Dlaczego wyjątki są trudne?
 
-Na początku wykluczenia istnieje krótka lista użytkowników, którzy omijają zasady. Z biegiem czasu coraz więcej użytkowników jest wykluczonych, a lista rośnie. W pewnym momencie istnieje potrzeba przejrzenia listy i potwierdzenia, że każdy z tych użytkowników powinien być nadal wykluczony. Zarządzanie listą z technicznego punktu widzenia może być stosunkowo łatwe, ale kto podejmuje decyzje biznesowe i jak upewnić się, że wszystko podlega audytowi?
+W usłudze Azure AD można ograniczyć zakres zasad dostępu warunkowego do zestawu użytkowników. Wykluczenia można także skonfigurować, wybierając pozycję Role usługi Azure AD, poszczególnych użytkowników lub Gości. Należy pamiętać, że po skonfigurowaniu wykluczeń nie można wymusić przeznaczenie zasad dla wykluczonych użytkowników. Jeśli wykluczenia są skonfigurowane przy użyciu listy użytkowników lub starszych lokalnych grup zabezpieczeń, będziesz mieć ograniczoną widoczność wykluczeń. W efekcie:
 
-Jeśli jednak skonfigurujesz wykluczenie do zasad dostępu warunkowego przy użyciu grupy usługi Azure AD, możesz użyć przeglądów dostępu jako formantu kompensacyjnego, aby zwiększyć widoczność i zmniejszyć liczbę użytkowników, którzy mają wyjątek.
+- Użytkownicy mogą nie wiedzieć, że są wykluczeni.
+
+- Użytkownicy mogą dołączać grupę zabezpieczeń w celu obejścia zasad.
+
+- Wykluczeni użytkownicy mogą zostać zakwalifikowani do wykluczenia, ale nie mogą już z niego korzystać.
+
+Często podczas pierwszej konfiguracji wykluczenia istnieje Shortlist użytkowników, którzy pomijają zasady. Wraz z upływem czasu więcej niż jeden użytkownik zostanie dodany do wykluczenia, a lista rośnie. W pewnym momencie należy przejrzeć listę i potwierdzić, że każdy z tych użytkowników nadal kwalifikuje się do wykluczenia. Zarządzanie listą wykluczeń z punktu widzenia technicznego może być stosunkowo proste, ale kto podejmuje decyzje biznesowe i jak upewnić się, że jest on dostępny do inspekcji? Jeśli jednak zostanie skonfigurowane wykluczenie przy użyciu grupy usługi Azure AD, można użyć przeglądów dostępu jako kontroli kompensowania, aby zwiększyć widoczność dysku i zmniejszyć liczbę wykluczonych użytkowników.
 
 ## <a name="how-to-create-an-exclusion-group-in-a-conditional-access-policy"></a>Jak utworzyć grupę wykluczeń w zasadach dostępu warunkowego
 
@@ -58,105 +65,106 @@ Wykonaj następujące kroki, aby utworzyć nową grupę usługi Azure AD i zasad
 
 1. Zaloguj się do Portalu Azure.
 
-1. W lewej nawigacji kliknij pozycję **Usługa Azure Active Directory,** a następnie kliknij pozycję **Grupy**.
+2. W lewym okienku nawigacji kliknij pozycję **Azure Active Directory** a następnie kliknij pozycję **grupy**.
 
-1. W górnym menu kliknij pozycję **Nowa grupa,** aby otworzyć okienko grupy.
+3. W górnym menu kliknij pozycję **Nowa grupa** , aby otworzyć okienko grupy.
 
-1. Na liście **Typ grupy** wybierz pozycję **Zabezpieczenia**. Określ nazwę i opis.
+4. Z listy **Typ grupy** wybierz pozycję **zabezpieczenia**. Określ nazwę i opis.
 
-1. Upewnij się, że typ **członkostwa** jest **przypisany**.
+5. Upewnij się, że typ **członkostwa** jest ustawiony na wartość **przypisane**.
 
-1. Wybierz użytkowników, którzy powinni być częścią tej grupy wykluczeń, a następnie kliknij przycisk **Utwórz**.
+6. Wybierz użytkowników, którzy powinni być częścią tej grupy wykluczeń, a następnie kliknij przycisk **Utwórz**.
 
-    ![Nowe okienko grup w usłudze Azure Active Directory](./media/conditional-access-exclusion/new-group.png)
+![Okienko nowej grupy w Azure Active Directory](./media/conditional-access-exclusion/new-group.png)
 
-### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>Tworzenie zasad dostępu warunkowego, które wykluczają grupę
+### <a name="create-a-conditional-access-policy-that-excludes-the-group"></a>Tworzenie zasad dostępu warunkowego, które nie wykluczają grupy
 
-Teraz można utworzyć zasadę dostępu warunkowego, która używa tej grupy wykluczeń.
+Teraz można utworzyć zasady dostępu warunkowego, które korzystają z tej grupy wykluczeń.
 
-1. W lewej nawigacji kliknij pozycję **Usługa Azure Active Directory,** a następnie kliknij pozycję Dostęp **warunkowy,** aby otworzyć blok **Zasady.**
+1. W lewym okienku nawigacji kliknij pozycję **Azure Active Directory** a następnie kliknij pozycję **dostęp warunkowy** , aby otworzyć blok **zasady** .
 
-1. Kliknij **pozycję Nowe zasady,** aby otworzyć okienko **Nowe.**
+2. Kliknij pozycję **nowe zasady** , aby otworzyć **nowe** okienko.
 
-1. Określ nazwę.
+3. Określ nazwę.
 
-1. W obszarze Przydziały kliknij **pozycję Użytkownicy i grupy**.
+4. W obszarze przypisania kliknij pozycję **Użytkownicy i grupy**.
 
-1. Na karcie **Dołączanie** wybierz pozycję **Wszyscy użytkownicy**.
+5. Na karcie **Dołącz** wybierz pozycję **Wszyscy użytkownicy**.
 
-1. Na karcie **Wykluczanie** dodaj znacznik wyboru do **użytkowników i grup,** a następnie kliknij pozycję **Wybierz wykluczonych użytkowników**.
+6. Na karcie **Wyklucz** , Dodaj znacznik wyboru do opcji **Użytkownicy i grupy** , a następnie kliknij pozycję **Wybierz wykluczonych użytkowników**.
 
-1. Wybierz utworzoną grupę wykluczeń.
+7. Wybierz utworzoną grupę wykluczeń.
 
-    > [!NOTE]
-    > Najlepszym rozwiązaniem jest zaleca się wykluczenie co najmniej jednego konta administratora z zasad podczas testowania, aby upewnić się, że nie są zablokowane z dzierżawy.
+   > [!NOTE] 
+   > Najlepszym rozwiązaniem jest wykluczenie co najmniej jednego konta administratora z zasad podczas testowania, aby upewnić się, że nie masz zablokowanej dzierżawy.
 
-1. Kontynuuj konfigurowanie zasad dostępu warunkowego na podstawie wymagań organizacji.
+8. Kontynuuj Konfigurowanie zasad dostępu warunkowego zgodnie z wymaganiami organizacji.
 
-    ![Okienko Wykluczanie użytkowników w programie Dostęp warunkowy](./media/conditional-access-exclusion/select-excluded-users.png)
+![Wybieranie okienka wykluczonych użytkowników w dostępie warunkowym](./media/conditional-access-exclusion/select-excluded-users.png)
+  
+Zapoznajmy się z dwoma przykładami, które umożliwiają zarządzanie wykluczeniami w zasadach dostępu warunkowego.
 
-Omówimy dwa przykłady, w których można używać przeglądów dostępu do zarządzania wykluczeniami w zasadach dostępu warunkowego.
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Przykład 1: przegląd dostępu dla użytkowników uzyskujących dostęp z zablokowanych krajów/regionów
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Przykład 1: Przegląd dostępu dla użytkowników uzyskujących dostęp z zablokowanych krajów/regionów
+Załóżmy, że masz zasady dostępu warunkowego, które blokują dostęp z określonych krajów/regionów. Obejmuje grupę, która jest wykluczona z zasad. Poniżej znajduje się Zalecany przegląd dostępu, w którym są przeglądane członkowie grupy.
 
-Załóżmy, że masz zasady dostępu warunkowego, które blokują dostęp z niektórych krajów/regionów. Obejmuje grupę, która jest wykluczona z zasad. Oto zalecany przegląd dostępu, w którym członkowie grupy są przeglądani.
+> [!NOTE] 
+> Aby można było tworzyć przeglądy dostępu, wymagana jest rola administratora globalnego lub administratora użytkowników.
 
-> [!NOTE]
-> Do tworzenia recenzji dostępu wymagana jest rola administratora globalnego lub administratora użytkownika.
+1. Przegląd będzie miał miejsce co tydzień.
 
-1. Przegląd będzie powtarzał się co tydzień.
+2. Nie zakończy się, aby upewnić się, że ta grupa wykluczeń jest aktualna.
 
-2. Nigdy się nie skończy, aby upewnić się, że utrzymujesz tę grupę wykluczeń najbardziej aktualną.
+3. Wszystkie elementy członkowskie tej grupy będą znajdować się w zakresie przeglądu.
 
-3. Wszyscy członkowie tej grupy będą w zakresie przeglądu.
+4. Każdy użytkownik będzie musiał zaświadczać, że nadal potrzebują dostępu z tych zablokowanych krajów/regionów, dlatego nadal musi być członkiem grupy.
 
-4. Każdy użytkownik będzie musiał samodzielnie potwierdzić, że nadal musi mieć dostęp z tych zablokowanych krajów/regionów, dlatego nadal musi być członkiem grupy.
+5. Jeśli użytkownik nie odpowie na żądanie przejrzenia, zostanie automatycznie usunięty z grupy i nie będzie miał już dostępu do dzierżawy podczas podróży do tych krajów/regionów.
 
-5. Jeśli użytkownik nie odpowie na żądanie recenzji, zostanie automatycznie usunięty z grupy i w związku z tym nie będzie już mógł uzyskać dostępu do dzierżawy podczas podróży do tych krajów/regionów.
-
-6. Włącz powiadomienia poczty, aby użytkownicy otrzymywać powiadomienia o rozpoczęciu i zakończeniu przeglądu dostępu.
+6. Włącz powiadomienia e-mail, aby umożliwić użytkownikom zapoznanie się z rozpoczęciem i zakończeniem przeglądu dostępu.
 
     ![Tworzenie okienka przeglądu dostępu na przykład 1](./media/conditional-access-exclusion/create-access-review-1.png)
 
-## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Przykład 2: Przegląd programu Access dla użytkowników uzyskujących dostęp za pomocą uwierzytelniania starszego
+## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Przykład 2: przegląd dostępu dla użytkowników korzystających z starszego uwierzytelniania
 
-Załóżmy, że masz zasadę dostępu warunkowego, która blokuje dostęp dla użytkowników korzystających ze starszego uwierzytelniania i starszych wersji klienta. Obejmuje grupę, która jest wykluczona z zasad. Oto zalecany przegląd dostępu, w którym członkowie grupy są przeglądani.
+Załóżmy, że masz zasady dostępu warunkowego, które blokują dostęp dla użytkowników korzystających ze starszego uwierzytelniania i starszych wersji klienta i zawierają grupę, która jest wykluczona z zasad. Poniżej znajduje się Zalecany przegląd dostępu, w którym są przeglądane członkowie grupy.
 
-1. Przegląd ten musiałby być przeglądem cyklicznym.
+1. Ten przegląd musi być cyklicznym przeglądem.
 
-2. Wszyscy członkowie grupy musieliby zostać zrewiasowani.
+2. Należy przejrzeć wszystkie osoby w grupie.
 
-3. Można go skonfigurować tak, aby wymieniał właścicieli jednostek biznesowych jako wybranych recenzentów.
+3. Można ją skonfigurować tak, aby wystawiali właścicieli jednostek firmy jako wybranych recenzentów.
 
-4. Automatyczne stosowanie wyników i usuwanie użytkowników, którzy nie zostali zatwierdzeni, aby kontynuować korzystanie ze starszych metod uwierzytelniania.
+4. Stosuj autouwierzytelnianie i Usuń użytkowników, którzy nie zostali zatwierdzeni, aby nadal używać starszych metod uwierzytelniania.
 
-5. Może być korzystne włączenie zaleceń, aby recenzenci dużych grup mogli łatwo podejmować decyzje.
+5. Warto włączyć zalecenia, aby recenzenci dużych grup mogli w łatwy sposób podejmować decyzje.
 
-6. Włącz powiadomienia poczty, aby użytkownicy otrzymywać powiadomienia o rozpoczęciu i zakończeniu przeglądu dostępu.
+6. Włącz powiadomienia e-mail, aby użytkownicy byli powiadamiani o rozpoczęciu i zakończeniu przeglądu dostępu.
 
     ![Tworzenie okienka przeglądu dostępu na przykład 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
-**Porada**dla profesjonalistów: Jeśli masz wiele grup wykluczeń i dlatego musisz utworzyć wiele recenzji dostępu, mamy teraz interfejs API w punkcie końcowym wersji beta programu Microsoft Graph, który umożliwia tworzenie i zarządzanie nimi programowo. Aby rozpocząć, zobacz [odwołanie do interfejsu API dostępu usługi Azure AD i](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) przykład pobierania [przeglądów dostępu usługi Azure AD za pośrednictwem programu Microsoft Graph.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096)
+>[!IMPORTANT] 
+>Jeśli masz wiele grup wykluczeń i w związku z tym trzeba utworzyć wiele przeglądów dostępu, w punkcie końcowym Microsoft Graph wersji beta jest teraz dostępny interfejs API, który umożliwia programowe tworzenie i zarządzanie nimi. Aby rozpocząć, zobacz informacje o [interfejsie API przeglądów usługi Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) i [przykład pobierania przeglądów dostępu do usługi Azure AD za pośrednictwem Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
-## <a name="access-review-results-and-audit-logs"></a>Uzyskiwanie dostępu do wyników przeglądu i dzienników inspekcji
+## <a name="access-review-results-and-audit-logs"></a>Wyniki przeglądu dostępu i dzienniki inspekcji
 
-Teraz, gdy masz wszystko na swoim miejscu, grupę, zasady dostępu warunkowego i przeglądy dostępu, nadszedł czas, aby monitorować i śledzić wyniki tych recenzji.
+Teraz, gdy masz wszystko na bieżąco, grupy, zasady dostępu warunkowego i przeglądy dostępu, jest czas na monitorowanie i śledzenie wyników tych przeglądów.
 
-1. W witrynie Azure portal otwórz bloku **przeglądy programu Access.**
+1. W Azure Portal Otwórz blok **przeglądy dostępu** .
 
-1. Otwórz formant i program utworzony do zarządzania grupą wykluczeń.
+2. Otwórz formant i program utworzony w celu zarządzania grupą wykluczeń.
 
-1. Kliknij **wyniki,** aby zobaczyć, kto został zatwierdzony do pozostania na liście, a kto został usunięty.
+3. Kliknij pozycję **wyniki** , aby zobaczyć, kto został zatwierdzony do pozostawania na liście i kto został usunięty.
 
-    ![Wyniki opinii programu Access pokazują, kto został zatwierdzony](./media/conditional-access-exclusion/access-reviews-results.png)
+    ![Wyniki przeglądów dostępu pokazują, kto został zatwierdzony](./media/conditional-access-exclusion/access-reviews-results.png)
 
-1. Następnie kliknij **inspekcję dzienników,** aby zobaczyć akcje, które zostały podjęte podczas tej recenzji.
+4. Następnie kliknij pozycję **dzienniki inspekcji** , aby wyświetlić akcje, które zostały wykonane podczas tego przeglądu.
 
-    ![Dzienniki inspekcji przeglądów programu Access z listą akcji](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
+    ![Przeglądy inspekcji dostępu Inspekcja listy akcje](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 
-Jako administrator IT wiesz, że zarządzanie grupami wykluczeń w zasadach jest czasami nieuniknione. Jednak utrzymanie tych grup, przeglądanie ich regularnie przez właściciela firmy lub samych użytkowników i inspekcji tych zmian może ułatwić dzięki przeglądom dostępu usługi Azure AD.
+Jako administrator IT wiesz, że zarządzanie grupami wykluczeń do zasad jest czasami nieuniknione. Jednak utrzymywanie tych grup, przeglądanie ich regularnie przez właściciela firmy lub samych użytkowników, a także Inspekcja tych zmian można ułatwić przy użyciu przeglądów dostępu do usługi Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie przeglądu dostępu grup lub aplikacji](create-access-review.md)
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)
+- [Tworzenie przeglądu dostępu do grup lub aplikacji](create-access-review.md)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)

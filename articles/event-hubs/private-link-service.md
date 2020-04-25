@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: 110d4b94eda8315c20f4baa70256f7e5ed378530
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106478"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148205"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integracja usługi Azure Event Hubs z usługą Azure Private link (wersja zapoznawcza)
 Usługa link prywatny platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Event Hubs, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
@@ -29,7 +29,7 @@ Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link?]
 >[!WARNING]
 > Włączenie prywatnych punktów końcowych może uniemożliwić innym usługom platformy Azure współdziałanie z Event Hubs.
 >
-> Zaufane usługi firmy Microsoft nie są obsługiwane w przypadku implementacji sieci wirtualnych.
+> Zaufane usługi firmy Microsoft nie są obsługiwane w przypadku korzystania z sieci wirtualnych.
 >
 > Typowe scenariusze platformy Azure, które nie współpracują z sieciami wirtualnymi (należy zauważyć, że lista **nie** jest wyczerpująca) —
 > - Azure Monitor (ustawienie diagnostyczne)
@@ -72,7 +72,7 @@ Jeśli masz już Event Hubs przestrzeń nazw, możesz utworzyć połączenie pry
     1. Wybierz **subskrypcję platformy Azure** , w której chcesz utworzyć prywatny punkt końcowy. 
     2. Wybierz **grupę zasobów** dla prywatnego zasobu punktu końcowego.
     3. Wprowadź **nazwę** prywatnego punktu końcowego. 
-    5. Wybierz **region** dla prywatnego punktu końcowego. Prywatny punkt końcowy musi znajdować się w tym samym regionie, w którym znajduje się Twoja sieć wirtualna, ale może znajdować się w innym regionie niż zasób linku prywatnego, z którym nawiązujesz połączenie. 
+    5. Wybierz **region** dla prywatnego punktu końcowego. Prywatny punkt końcowy musi znajdować się w tym samym regionie, w którym znajduje się sieć wirtualna, ale może znajdować się w innym regionie niż zasób link prywatny, z którym nawiązujesz połączenie. 
     6. Wybierz pozycję **Dalej: przycisk >zasobu** w dolnej części strony.
 
         ![Tworzenie prywatnego punktu końcowego — Strona podstawy](./media/private-link-service/create-private-endpoint-basics-page.png)
@@ -86,7 +86,7 @@ Jeśli masz już Event Hubs przestrzeń nazw, możesz utworzyć połączenie pry
         
             ![Tworzenie prywatnego punktu końcowego — Strona zasobów](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. W przypadku wybrania opcji **Połącz z zasobem platformy Azure według identyfikatora zasobu lub aliasu**wykonaj następujące kroki:
-        1. Wprowadź **Identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który został udostępniony Tobie.
+        1. Wprowadź **Identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który ktoś udostępni Tobie. Najprostszym sposobem uzyskania identyfikatora zasobu jest przejście do przestrzeni nazw Event Hubs w Azure Portal i skopiowanie fragmentu identyfikatora URI rozpoczynającego się od `/subscriptions/`. Przykład można znaleźć na poniższym obrazie. 
         2. W przypadku **docelowego zasobu podrzędnego**wprowadź **przestrzeń nazw**. Jest to typ zasobu podrzędnego, do którego Twój prywatny punkt końcowy może uzyskać dostęp.
         3. obowiązkowe Wprowadź **komunikat żądania**. Właściciel zasobu widzi ten komunikat podczas zarządzania połączeniem prywatnego punktu końcowego.
         4. Następnie wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony.

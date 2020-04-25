@@ -1,52 +1,52 @@
 ---
-title: Wdrażanie maszyny wirtualnej z portalu Azure Marketplace
-description: W tym artykule wyjaśniono, jak wdrożyć maszynę wirtualną z wstępnie skonfigurowanej maszyny wirtualnej w portalu Azure Marketplace.
+title: Wdrażanie maszyny wirtualnej z poziomu portalu Azure Marketplace
+description: Wyjaśnia, jak wdrożyć maszynę wirtualną na podstawie wstępnie skonfigurowanej maszyny wirtualnej w portalu Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 6e39f1c70cd94c14b12e54817941ea9106aacfdd
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2fb04e2e953e2bcbe479f7685b8042fdc7ea1767
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273872"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146989"
 ---
-# <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Wdrażanie maszyny wirtualnej z portalu Azure Marketplace
+# <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Wdrażanie maszyny wirtualnej z poziomu portalu Azure Marketplace
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami maszyny wirtualnej platformy Azure do centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [certyfikacji obrazów maszyn wirtualnych platformy Azure,](https://aks.ms/CertifyVMimage) aby zarządzać zmigrowanymi ofertami.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami usługi Azure Virtual Machine w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [certyfikat obrazu maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) , aby zarządzać migrowanymi ofertami.
 
-W tym artykule wyjaśniono, jak wdrożyć wstępnie skonfigurowaną maszynę wirtualną (VM) z portalu Azure Marketplace przy użyciu dostarczonego skryptu programu Azure PowerShell.  Ten skrypt udostępnia również punkty końcowe HTTP i HTTPS w programie WinRM na maszynie wirtualnej.  Skrypt wymaga, aby certyfikat został już przekazany do usługi Azure Key Vault, zgodnie z opisem w [artykule Tworzenie certyfikatów dla usługi Azure Key Vault](./cpp-create-key-vault-cert.md). 
+W tym artykule wyjaśniono, jak wdrożyć wstępnie skonfigurowaną maszynę wirtualną z portalu Azure Marketplace przy użyciu podanego skryptu Azure PowerShell.  Ten skrypt udostępnia również punkty końcowe HTTP i HTTPS usługi WinRM na maszynie wirtualnej.  Skrypt wymaga już przekazania certyfikatu do Azure Key Vault, zgodnie z opisem w temacie [Tworzenie certyfikatów dla Azure Key Vault](./cpp-create-key-vault-cert.md). 
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="vm-deployment-template"></a>Szablon wdrażania maszyny Wirtualnej
+## <a name="vm-deployment-template"></a>Szablon wdrożenia maszyny wirtualnej
 
-Szablon wdrażania maszyny Wirtualnej platformy Azure szybki start jest dostępny jako plik online [azuredeploy.json](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json).  Zawiera następujące parametry:
+Szablon wdrożenia maszyny wirtualnej z przewodnikiem Szybki Start jest dostępny jako plik online [azuredeploy. JSON](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json).  Zawiera następujące parametry:
 
-|  **Parametr**        |   **Opis**                                 |
+|  **Konstruktora**        |   **Opis**                                 |
 |  -------------        |   ---------------                                 |
-| nowyName konta administracyjnego    | Nazwa konta magazynu                       |
-| dnsNameForPublicIP    | Nazwa DNS dla publicznego adresu IP. Musi być małe litery.    |
+| newStorageAccountName    | Nazwa konta magazynu                       |
+| dnsNameForPublicIP    | Nazwa DNS publicznego adresu IP. Musi być małymi literami.    |
 | adminUserName            | Nazwa użytkownika administratora                          |
 | adminPassword            | Hasło administratora                          |
 | imagePublisher        | Wydawca obrazu                                   |
-| imageOffer            | Oferta graficzna                                       |
-| imageSKU                | SKU obrazu                                         |
-| vmSize                | Rozmiar maszyny Wirtualnej                                    |
-| vmName                | Nazwa maszyny Wirtualnej                                    |
-| nazwa skarbca                | Nazwa magazynu kluczy                             |
+| imageOffer            | Oferta obrazu                                       |
+| imageSKU                | Jednostka SKU obrazu                                         |
+| vmSize                | Rozmiar maszyny wirtualnej                                    |
+| vmName                | Nazwa maszyny wirtualnej                                    |
+| vaultName                | Nazwa magazynu kluczy                             |
 | vaultResourceGroup    | Grupa zasobów magazynu kluczy                   |
-| certyfikatUrl        | Adres URL certyfikatu, w tym wersji w keyvault, na przykład`https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| certificateUrl        | Adres URL certyfikatu, w tym wersja w magazynie kluczy, na przykład`https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 |  |  |
 
 
 ## <a name="deployment-script"></a>Skrypt wdrażania
 
-Edytuj następujący skrypt programu Azure PowerShell i wykonaj go, aby wdrożyć określoną maszynę wirtualną w portalu Azure Marketplace.
+Edytuj następujący skrypt Azure PowerShell i wykonaj go w celu wdrożenia określonej maszyny wirtualnej portalu Azure Marketplace.
 
 ```powershell
 
@@ -57,4 +57,4 @@ New-AzResourceGroupDeployment -Name "dplvm$postfix" -ResourceGroupName "$rgName"
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po wdrożeniu wstępnie skonfigurowane maszyny Wirtualnej, można skonfigurować i uzyskać dostęp do rozwiązań i usług, które zawiera lub używać go do dalszego rozwoju. 
+Po wdrożeniu wstępnie skonfigurowanej maszyny wirtualnej można skonfigurować i uzyskać dostęp do rozwiązań i usług, które zawiera, lub użyć jej do dalszej kompilacji. 

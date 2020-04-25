@@ -1,6 +1,6 @@
 ---
-title: Tworzenie nowej oferty usługi zarządzanej w portalu Commercial Marketplace
-description: How to create a new Managed Service offer for listing in Azure Marketplace using the Commercial Marketplace portal in Partner Center.
+title: Utwórz nową ofertę usługi zarządzanej w komercyjnej witrynie Marketplace
+description: Tworzenie nowej oferty usługi zarządzanej na potrzeby wyświetlania listy w witrynie Azure Marketplace przy użyciu portalu komercyjnej witryny Marketplace w centrum partnerskim.
 author: JnHs
 ms.author: jenhayes
 manager: evansma
@@ -8,142 +8,142 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: c040907c6101d11ee645f9967278d3cf297bd74a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: c82c3e0b6e6d11ccc33bf8556b06aeb04a6d37b5
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869810"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147906"
 ---
-# <a name="create-a-new-managed-service-offer"></a>Tworzenie nowej oferty usługi zarządzanej
+# <a name="create-a-new-managed-service-offer"></a>Utwórz nową ofertę usługi zarządzanej
 
 > [!IMPORTANT]
-> Przenosimy zarządzanie ofertami usługi zarządzanej z portalu cloud partner do centrum partnerskiego. Dopóki oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami w [obszarze Publikuj ofertę usługi zarządzanej w portalu Azure Marketplace,](../../lighthouse/how-to/publish-managed-services-offers.md) aby zarządzać ofertami w portalu cloud partner.
+> Przenosimy zarządzanie ofertami usług zarządzanych z portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami w temacie [Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) , aby zarządzać ofertami w Portal Cloud partner.
 
-Usługa zarządzana oferuje pomoc w włączanie scenariuszy [latarni morskiej platformy Azure.](../../lighthouse/overview.md) Gdy klient zaakceptuje ofertę usługi zarządzanej, będzie mógł dołączać zasoby do [zarządzania zasobami delegowanymi platformy Azure.](../../lighthouse/concepts/azure-delegated-resource-management.md)
+Usługa zarządzana oferuje pomoc w włączaniu scenariuszy [usługi Azure Lighthouse](../../lighthouse/overview.md) . Gdy klient zaakceptuje ofertę usługi zarządzanej, może później dołączyć zasoby do [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
-Aby rozpocząć tworzenie ofert usługi zarządzanej, upewnij się, że najpierw [utwórz konto Centrum partnerów](./create-account.md) i otwórz [pulpit nawigacyjny portalu komercyjnego w portalu Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)z zaznaczoną stroną **Przegląd.** Aby opublikować ofertę usługi zarządzanej, musisz mieć [poziom kompetencji Silver lub Gold Cloud Platform](https://partner.microsoft.com/membership/cloud-platform-competency) lub być [usługą Azure Expert MSP.](https://partner.microsoft.com/membership/azure-expert-msp)
+Aby rozpocząć tworzenie ofert usług zarządzanych, należy najpierw [utworzyć konto Centrum partnerskiego](./create-account.md) i otworzyć [komercyjny pulpit nawigacyjny portalu Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)z wybraną stroną **Przegląd** . Aby opublikować ofertę usługi zarządzanej, należy dysponować [poziomem kompetencji](https://partner.microsoft.com/membership/cloud-platform-competency) lub [specjalistą dla chmury platformy Azure](https://partner.microsoft.com/membership/azure-expert-msp) .
 
-![Pulpit nawigacyjny portalu Marketplace w Centrum partnerów](./media/new-offer-overview.png)
+![Komercyjny pulpit nawigacyjny portalu Marketplace w centrum partnerskim](./media/new-offer-overview.png)
 
 >[!Note]
-> Po opublikowaniu oferty zmiany w ofercie złożonej w Centrum partnerskim zostaną zaktualizowane dopiero po ponownym opublikowaniu w systemie i na frontach sklepu. Po dokonaniu zmian należy przesłać ofertę do publikacji.
+> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim zostaną zaktualizowane w systemie i przechowane przed ponownym opublikowaniem. Upewnij się, że przesyłasz ofertę do publikacji po wprowadzeniu zmian.
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
-Wybierz przycisk **+ Nowa oferta,** a następnie wybierz pozycję menu **Usługa zarządzana.** Zostanie wyświetlone okno dialogowe **Nowa oferta.**
+Wybierz przycisk **+ Nowa oferta** , a następnie wybierz element menu **usługi zarządzanej** . Zostanie wyświetlone okno dialogowe **Nowa oferta** .
 
 ### <a name="offer-id-and-alias"></a>Identyfikator oferty i alias
 
-- **Identyfikator oferty:** Unikatowy identyfikator dla każdej oferty na twoim koncie. Ten identyfikator będzie widoczny dla klientów w adresie URL oferty marketplace. Ten identyfikator może zawierać tylko małe litery alfanumeryczne (w tym łączniki i podkreślenia, ale bez odstępów), ograniczone do 50 znaków i nie można go zmienić po wybraniu opcji **Utwórz**.  Na przykład, jeśli wprowadzisz *test-offer-1* tutaj, `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`adres URL oferty będzie .
+- **Identyfikator oferty**: unikatowy identyfikator dla każdej oferty na Twoim koncie. Ten identyfikator będzie widoczny dla klientów w adresie URL dla oferty portalu Marketplace. Ten identyfikator może zawierać tylko małe znaki alfanumeryczne (w tym łączniki i podkreślenia, ale nie odstępy), ograniczony do 50 znaków i nie można go zmienić po wybraniu opcji **Utwórz**.  Jeśli na przykład wprowadzisz polecenie *test-Offer-1* tutaj, adres URL oferty będzie mieć `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`wartość.
 
-- **Alias oferty**: Nazwa używana do odwoływania się do oferty w Centrum partnerów. Ta nazwa nie będzie używana w portalu marketplace i różni się od nazwy oferty i innych wartości, które będą wyświetlane klientom. Tej wartości nie można zmienić po wybraniu opcji **Utwórz**.
+- **Alias oferty**: nazwa używana do odwoływania się do oferty w centrum partnerskim. Ta nazwa nie będzie używana w portalu Marketplace i różni się od nazwy oferty i innych wartości, które będą widoczne dla klientów. Tej wartości nie można zmienić po wybraniu opcji **Utwórz**.
 
-Po wprowadzeniu identyfikatora **oferty** i **aliasu oferty**wybierz pozycję **Utwórz**. Będziesz wtedy mógł pracować nad wszystkimi częściami swojej oferty.
+Po wprowadzeniu **identyfikatora oferty** i **aliasu oferty**wybierz pozycję **Utwórz**. Następnie będzie można obejść wszystkie różne części oferty.
 
 ## <a name="offer-setup"></a>Konfiguracja oferty
 
-Strona **Ustawienia oferty** prosi o następujące informacje. Pamiętaj, aby wybrać **pozycję Zapisz** po zakończeniu tych pól.
+Na stronie **Konfiguracja oferty** są wyświetlane poniższe informacje. Pamiętaj, aby po zakończeniu tych pól wybrać opcję **Zapisz** .
 
-## <a name="connect-lead-management"></a>Łączenie zarządzania potencjalnymi klientami
+## <a name="connect-lead-management"></a>Zarządzanie potencjalnymi klientami
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Należy zauważyć, że zgodnie z [zasadami certyfikacji usług zarządzanych](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)wymagane jest **miejsce docelowe potencjalnego klienta.** Spowoduje to utworzenie rekordu w systemie CRM za każdym razem, gdy klient wdraża ofertę.
+Należy pamiętać, że zgodnie z [zasadami certyfikacji usług zarządzanych](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)wymagany jest **obiekt docelowy potencjalnego klienta** . Spowoduje to utworzenie rekordu w systemie CRM przy każdym wdrożeniu oferty przez klienta.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie zarządzania potencjalnymi klientami](./commercial-marketplace-get-customer-leads.md).
+Aby uzyskać więcej informacji, zobacz temat [Zarządzanie potencjalnymi klientami — Omówienie](./commercial-marketplace-get-customer-leads.md).
 
-Pamiętaj, **aby zapisać** stronę przed przejściem do następnej sekcji.
+Pamiętaj, aby **zapisać** stronę przed przejściem do następnej sekcji.
 
 ## <a name="properties"></a>Właściwości
 
-Strona **Właściwości** umożliwia zdefiniowanie kategorii używanych do grupowania oferty na rynku oraz umów prawnych wspierających ofertę. Wybierz **pozycję Zapisz** po zakończeniu tej strony.
+Strona **Właściwości** umożliwia definiowanie kategorii używanych do grupowania oferty w witrynie Marketplace oraz umów prawnych wspierających Twoją ofertę. Wybierz pozycję **Zapisz** po zakończeniu tej strony.
 
 ### <a name="category"></a>Kategoria
 
-Wybierz co najmniej jedną i maksymalnie pięć kategorii, które zostaną wykorzystane do umieszczenia oferty w odpowiednich obszarach wyszukiwania w rynku. Pamiętaj, aby sprawdzić, w jaki sposób Twoja oferta obsługuje te kategorie w opisie oferty.
+Wybierz co najmniej jedną i maksymalnie pięć kategorii, które będą używane do umieszczania oferty w odpowiednich obszarach wyszukiwania w portalu Marketplace. Pamiętaj, aby dowiedzieć się, jak Twoja oferta obsługuje te kategorie w opisie oferty.
 
 ### <a name="terms-and-conditions"></a>Warunki i postanowienia
 
-Podaj własne warunki prawne w polu **Warunki.** Możesz też podać adres URL, pod którym można znaleźć warunki. Klienci będą musieli zaakceptować te warunki, zanim będą mogli wypróbować Twoją ofertę.
+Podaj własne warunki prawne i postanowienia w polu Warunki **i** postanowienia. Możesz także podać adres URL, pod którym można znaleźć warunki i postanowienia. Klienci będą musieli zaakceptować te warunki, aby wypróbować ofertę.
 
-## <a name="offer-listing"></a>Oferta aukcji
+## <a name="offer-listing"></a>Lista oferty
 
-Strona **Oferta aukcji** umożliwia zdefiniowanie szczegółów rynku (nazwa oferty, opis, obrazy itp.) dla oferty.
+Na stronie z **listą ofert** można definiować szczegóły witryny Marketplace (nazwę oferty, opis, obrazy itp.) oferty.
 
 > [!NOTE]
-> Zawartość aukcji oferty (taka jak opis, dokumenty, zrzuty ekranu, warunki użytkowania itp.) nie musi być w języku angielskim, o ile opis oferty zaczyna się od wyrażenia" Ta aplikacja jest dostępna tylko w języku [nieanglojęzycznym]". Dopuszczalne jest również podanie *użytecznego adresu URL linku,* aby oferować treści w języku innym niż ten używany w treści aukcji Oferty.
+> Oferta zawartości oferty (na przykład opis, dokumenty, zrzuty ekranu, warunki użytkowania itp.) nie jest wymagana w języku angielskim, tak długo, jak opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w języku innym niż angielski]". Można także zapewnić *przydatny adres URL linku* do oferowania zawartości w języku innym niż ten, który jest używany w ofercie dotyczącej oferty.
 
 ### <a name="name"></a>Nazwa
 
-Nazwa, którą wpiszesz w tym miejscu, będzie wyświetlana klientom jako tytuł twojej oferty. To pole jest wstępnie wypełnione tekstem wprowadzonym dla **aliasu Oferty** podczas tworzenia oferty, ale można zmienić tę wartość. Nazwa ta może być znakiem towarowym (i możesz zawierać znaki towarowe lub symbole praw autorskich). Nazwa nie może zawierać więcej niż 50 znaków i nie może zawierać żadnych emotikonów.
+Nazwa wprowadzona w tym miejscu będzie wyświetlana klientom jako tytuł oferty. To pole jest wstępnie wypełniane tekstem wprowadzonym dla **aliasu oferty** podczas tworzenia oferty, ale można zmienić tę wartość. Ta nazwa może być znakiem towarowym (i może zawierać znaki towarowe lub autorskie). Nazwa nie może być dłuższa niż 50 znaków i nie może zawierać żadnych znaków emoji.
 
 ### <a name="search-results-summary"></a>Podsumowanie wyników wyszukiwania
 
-Podaj krótki opis oferty (do 100 znaków), która może być używana w wynikach wyszukiwania w marketplace.
+Podaj krótki opis oferty (do 100 znaków), która może być używana w wynikach wyszukiwania w portalu Marketplace.
 
 ### <a name="long-summary"></a>Długie podsumowanie
 
-Podaj dłuższy opis swojej oferty (do 256 znaków). To długie podsumowanie może być również używane w wynikach wyszukiwania w portalu Marketplace.
+Podaj dłuższy opis oferty (do 256 znaków). To długie podsumowanie może być również używane w wynikach wyszukiwania w portalu Marketplace.
 
 ### <a name="description"></a>Opis
 
-Podaj dłuższy opis swojej oferty (do 3000 znaków). Ten opis będzie wyświetlany klientom w przeglądzie aukcji w portalu marketplace. Dołącz propozycję wartości oferty, kluczowe korzyści, kategorie i/lub stowarzyszenia branżowe, możliwości zakupu w aplikacji i wszelkie wymagane informacje.
+Podaj dłuższy opis oferty (do 3 000 znaków). Ten opis będzie wyświetlany klientom na liście przeglądów w portalu Marketplace. Uwzględnij swoją propozycję oferty, najważniejsze zalety, kategorie i/lub branżowe skojarzenia, szanse zakupu w aplikacji oraz wszelkie wymagane informacje.
 
-Kilka wskazówek dotyczących pisania opisu:  
+Niektóre porady dotyczące pisania opisu:  
 
-- Wyraźnie opisz propozycję wartości swojej oferty w pierwszych kilku zdaniach opisu. Dołącz do swojej propozycji wartości następujące elementy:
+- Jasno opisz swoją wartość oferty w pierwszych kilku zdaniach opisu. Uwzględnij następujące elementy na swojej pozycji wartości:
   - Opis oferty
-  - Typ użytkownika, który korzysta z oferty
-  - Klient potrzebuje lub bólu, który dotyczy oferty
-- Pamiętaj, że kilka pierwszych zdań może być wyświetlanych w wynikach wyszukiwania.  
-- Nie polegaj na funkcjach i funkcjach sprzedaży produktu. Zamiast tego skup się na wartości, którą dostarczasz.  
-- W miarę możliwości używaj słownictwa branżowego lub opartego na korzyściach.
+  - Typ użytkownika, który przynosi korzyści z oferty
+  - Klienci muszą lub cierpią, że adres oferty
+- Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.  
+- Nie należy polegać na funkcjach i funkcjach, aby sprzedawać produkt. Zamiast tego należy skoncentrować się na dostarczanej wartości.  
+- Korzystaj z specyficznych dla branży słownictwa lub takich słów, jak to możliwe.
 
-Aby opis oferty był bardziej atrakcyjny, użyj edytora tekstu sformatowania opisu.
+Aby zwiększyć atrakcyjność opisu oferty, użyj edytora tekstu sformatowanego do formatowania opisu.
 
-![Korzystanie z edytora tekstu sformatowego](./media/text-editor2.png)
+![Korzystanie z edytora tekstu sformatowanego](./media/text-editor2.png)
 
-Użyj następujących instrukcji, aby użyć edytora tekstu sformatowego:
+Skorzystaj z poniższych instrukcji, aby użyć edytora tekstu sformatowanego:
 
-- Aby zmienić format zawartości, wyróżnij tekst, który chcesz sformatować, i zaznacz styl tekstu, jak pokazano poniżej:
+- Aby zmienić format zawartości, zaznacz tekst, który chcesz sformatować, i wybierz styl tekstu, jak pokazano poniżej:
 
-     ![Zmiana formatu tekstu za pomocą edytora tekstu sformatowania](./media/text-editor3.png)
+     ![Zmienianie formatu tekstu przy użyciu edytora tekstu sformatowanego](./media/text-editor3.png)
 
-- Aby dodać do tekstu listę punktowaną lub ponumerowaną, użyj poniższych opcji:
+- Aby dodać listę punktowaną lub numerowaną do tekstu, Użyj poniższych opcji:
 
-     ![Dodawanie list za pomocą edytora tekstu sformatowego](./media/text-editor4.png)
+     ![Używanie edytora tekstu sformatowanego do dodawania list](./media/text-editor4.png)
 
-- Aby dodać lub usunąć wcięcie do tekstu, użyj poniższych opcji:
+- Aby dodać lub usunąć wcięcie do tekstu, Użyj poniższych opcji:
 
-     ![Używanie edytora tekstu sformatowego do wcięcie](./media/text-editor5.png)
+     ![Używanie edytora tekstu sformatowanego do wcięcia](./media/text-editor5.png)
 
-### <a name="privacy-policy-link"></a>Link do polityki prywatności
+### <a name="privacy-policy-link"></a>Link zasad ochrony prywatności
 
-Wprowadź adres URL do zasad ochrony prywatności organizacji (hostowanych w witrynie). Użytkownik jest odpowiedzialny za zapewnienie zgodności aplikacji z przepisami i regulacjami dotyczącymi prywatności oraz za zapewnienie ważnej polityki prywatności.
+Wprowadź adres URL zasad zachowania poufności informacji organizacji (hostowanych w Twojej witrynie). Użytkownik jest odpowiedzialny za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności oraz w celu zapewnienia prawidłowych zasad zachowania poufności informacji.
 
 ### <a name="useful-links"></a>Przydatne łącza
 
-Podaj opcjonalne dodatkowe dokumenty online dotyczące rozwiązania. Dodaj dodatkowe przydatne łącza, klikając **+ Dodaj łącze**.
+Podaj opcjonalne uzupełniające dokumenty online dotyczące Twojego rozwiązania. Dodaj dodatkowe przydatne linki, klikając pozycję **+ Dodaj link**.
 
 ### <a name="contact-information"></a>Informacje kontaktowe
 
-W tej sekcji należy podać nazwę, adres e-mail i numer telefonu dla **kontaktu pomocy technicznej** i kontaktu **inżyniera.** Te informacje nie są wyświetlane klientom, ale będą dostępne dla firmy Microsoft i mogą być dostarczane partnerom CSP.
+W tej sekcji należy podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego**. Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP.
 
-### <a name="support-urls"></a>Obsługa adresów URL
+### <a name="support-urls"></a>Adresy URL pomocy technicznej
 
-Jeśli masz witryny pomocy technicznej dla **klientów globalnych platformy Azure** i/lub klientów platformy Azure dla instytucji **rządowych,** podaj te adresy URL tutaj.
+Jeśli masz pomoc techniczną dla klientów **globalnych platformy Azure** i/lub **Azure Government klientów**, podaj te adresy URL tutaj.
 
-### <a name="marketplace-images"></a>Obrazy z Marketplace
+### <a name="marketplace-images"></a>Obrazy z witryny Marketplace
 
-W tej sekcji możesz podać logo i obrazy, które będą używane podczas wyświetlania oferty klientowi. Wszystkie obrazy muszą być w formacie png.
+W tej sekcji można podać logo i obrazy, które będą używane podczas wyświetlania oferty dla klienta. Wszystkie obrazy muszą mieć format PNG.
 
 >[!Note]
->Jeśli masz problem z przekazywaniem plików, upewnij się, https://upload.xboxlive.com że sieć lokalna nie blokuje usługi używanej przez Centrum partnerów.
+>Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
-#### <a name="marketplace-logos"></a>Logo Marketplace
+#### <a name="marketplace-logos"></a>Logo witryny Marketplace
 
-Wymagane są cztery rozmiary logo: **Mały (40x40),** **Średni (90x90),** **Duży (115x115)** i **Szeroki (255x115)**. Postępuj zgodnie z tymi wskazówkami dotyczącymi logo:
+Wymagane są cztery rozmiary logo: **małe (40x40)**, **średnie (90x90)**, **duże (115x115)** i **szerokie (255x115)**. Postępuj zgodnie z poniższymi wskazówkami dotyczącymi logo:
 
 - Projekt platformy Azure ma prostą paletę kolorów. Ogranicz liczbę podstawowych i pomocniczych kolorów w logo.
 - Kolory motywu portalu to biały i czarny. Nie używaj tych kolorów jako kolorów tła swojego logo. Użyj koloru, który sprawi, że logo będzie się wyróżniać w portalu. Zalecamy proste kolory podstawowe.
@@ -154,111 +154,111 @@ Wymagane są cztery rozmiary logo: **Mały (40x40),** **Średni (90x90),** **Du�
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 
-Dodaj do pięciu zrzutów ekranu, które pokazują, jak działa Twoja oferta. Wszystkie zrzuty ekranu muszą mieć rozmiary 1280 x 720 pikseli.
+Dodaj maksymalnie pięć zrzutów ekranu, które pokazują, jak działa Twoja oferta. Wszystkie zrzuty ekranu muszą mieć 1280 x 720 pikseli.
 
 #### <a name="videos"></a>Filmy wideo
 
-Opcjonalnie możesz dodać maksymalnie pięć filmów, które zademonstrują Twoją ofertę. Te filmy powinny być hostowane na YouTube i / lub Vimeo. Dla każdego z nich wprowadź nazwę filmu, jego adres URL i miniaturę filmu (1280 x 720 pikseli).
+Opcjonalnie możesz dodać maksymalnie pięć filmów wideo, które demonstrują Twoją ofertę. Te filmy wideo powinny być hostowane w usłudze YouTube i/lub Vimeo. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres URL i obraz miniatury filmu wideo (1280 x 720 pikseli).
 
-#### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące aukcji w portalu marketplace
+#### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące wyświetlania w portalu Marketplace
 
-- [Najważniejsze wskazówki dotyczące ofert w marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Najlepsze rozwiązania dotyczące aukcji z ofertą Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 ## <a name="preview"></a>Wersja zapoznawcza
 
-Zanim opublikujesz ofertę na żywo w szerszej ofercie marketplace, musisz najpierw udostępnić ją ograniczonej widowni w wersji zapoznawczej. Dzięki temu można potwierdzić, jak oferta pojawia się w portalu Azure Marketplace przed udostępnieniem jej klientom. Zespoły pomocy technicznej i inżynierów firmy Microsoft będą również mogły wyświetlać ofertę w tym okresie wersji zapoznawczej.
+Przed opublikowaniem oferty na żywo w szerszej ofercie z witryny Marketplace musisz najpierw udostępnić ją w ograniczonej grupie odbiorców w wersji zapoznawczej. Dzięki temu można potwierdzić, jak oferta jest wyświetlana w portalu Azure Marketplace przed udostępnieniem jej klientom. Zespoły pomocy technicznej i inżynierów firmy Microsoft będą mogli wyświetlać Twoją ofertę w tym okresie zapoznawczym.
 
-Odbiorców w wersji zapoznawczej można zdefiniować, wprowadzając identyfikatory subskrypcji platformy Azure w sekcji Grupa odbiorców w **wersji zapoznawczej.** Możesz ręcznie wprowadzić maksymalnie 10 identyfikatorów subskrypcji lub przesłać plik csv o maksymalnie 100 identyfikatorach subskrypcji.
+Możesz zdefiniować odbiorców wersji zapoznawczej, wprowadzając identyfikatory subskrypcji platformy Azure w sekcji **Podgląd odbiorców** . Możesz wprowadzić maksymalnie 10 identyfikatorów subskrypcji ręcznie lub przekazać plik CSV z maksymalnie 100 identyfikatorami subskrypcji.
 
-Każdy klient skojarzony z tymi subskrypcjami będzie mógł wyświetlić ofertę w portalu Azure Marketplace, zanim zostanie ona wyjęta z tej usługi. Pamiętaj, aby dołączyć własne subskrypcje tutaj, aby móc wyświetlić podgląd oferty.
+Wszyscy klienci powiązani z tymi subskrypcjami będą mogli wyświetlać ofertę w portalu Azure Marketplace przed rozpoczęciem jej używania. Pamiętaj o dołączeniu własnych subskrypcji tutaj, aby można było wyświetlić podgląd oferty.
 
-## <a name="plan-overview"></a>Omówienie planu
+## <a name="plan-overview"></a>Przegląd planu
 
-Każda oferta musi mieć jeden lub więcej planów (czasami nazywanych jednostkami SKU). Możesz dodać wiele planów do obsługi różnych zestawów funkcji w różnych cenach lub dostosować określony plan dla ograniczonej grupy odbiorców określonych klientów. Klienci mogą wyświetlać plany, które są dla nich dostępne w ramach oferty nadrzędnej.
+Każda oferta musi mieć co najmniej jeden plan (czasami określany jako jednostki SKU). Możesz dodać wiele planów, aby obsługiwać różne zestawy funkcji w różnych cenach lub dostosować konkretny plan dla ograniczonej liczby odbiorców określonych klientów. Klienci mogą przeglądać plany, które są dostępne dla nich w ramach oferty nadrzędnej.
 
-Na stronie **Przegląd planu** wybierz pozycję **+ Utwórz nowy plan**. Następnie wprowadź identyfikator **planu** i **nazwę planu**. Obie te wartości mogą zawierać tylko małe litery alfanumeryczne, kreski i podkreślenia, maksymalnie 50 znaków. Te wartości mogą być widoczne dla klientów i nie można ich zmienić po opublikowaniu oferty.
+Na stronie **Przegląd planu** wybierz pozycję **+ Utwórz nowy plan**. Następnie wprowadź **identyfikator planu** i **nazwę planu**. Obie te wartości mogą zawierać tylko małe znaki alfanumeryczne, łączniki i podkreślenia, maksymalnie 50 znaków. Te wartości mogą być widoczne dla klientów i nie można ich zmienić po opublikowaniu oferty.
 
-Wybierz **pozycję Utwórz** po wprowadzeniu tych wartości, aby kontynuować pracę nad planem. Do ukończenia znajdują się trzy sekcje: **Lista planu,** **Ceny i dostępność**oraz **Konfiguracja techniczna.**
+Wybierz pozycję **Utwórz** po wprowadzeniu tych wartości, aby kontynuować pracę z planem. Istnieją trzy sekcje do zakończenia: **Planowanie list**, **cen i dostępności**oraz **konfiguracji technicznej**.
 
-### <a name="plan-listing"></a>Lista planu
+### <a name="plan-listing"></a>Zaplanuj listę
 
-Najpierw podaj **podsumowanie wyników wyszukiwania** dla planu. Jest to krótki opis planu (do 100 znaków), który może być używany w wynikach wyszukiwania w marketplace.
+Najpierw Podaj **Podsumowanie wyników wyszukiwania** dla planu. Jest to krótki opis planu (do 100 znaków), który może być używany w wynikach wyszukiwania w portalu Marketplace.
 
-Następnie wprowadź **opis,** który zawiera bardziej szczegółowe wyjaśnienie planu.
+Następnie wprowadź **Opis** , który zawiera bardziej szczegółowe wyjaśnienie planu.
 
 ### <a name="pricing-and-availability"></a>Cennik i dostępność
 
-Obecnie istnieje tylko jeden model cenowy, który może być używany do oferty usługi **zarządzanej: Przynieś własną licencję (BYOL)**. Oznacza to, że użytkownik będzie rozliczał klientów bezpośrednio za koszty związane z tą ofertą, a firma Microsoft nie pobiera żadnych opłat.
+Obecnie istnieje tylko jeden model cenowy, który może być używany na potrzeby oferty usługi zarządzanej: **Bring Your Own License (BYOL)**. Oznacza to, że klienci będą rozliczani bezpośrednio za koszty związane z tą ofertą, a firma Microsoft nie nalicza opłat za Ciebie.
 
-Sekcja **Widoczność planu** umożliwia wskazanie, czy plan ten powinien być [prywatny](../../marketplace/private-offers.md). Jeśli pole **To jest plan prywatny** niezaznaczone, plan nie będzie ograniczony do określonych klientów (lub do określonej liczby klientów).
+Sekcja **widoczność planu** pozwala wskazać, czy ten plan powinien być [prywatny](../../marketplace/private-offers.md). Jeśli opuścisz **to pole jest** niezaznaczone, Twój plan nie zostanie ograniczony do określonych klientów (lub do określonej liczby klientów).
 
-Aby udostępnić ten plan tylko określonym klientom, wybierz opcję **Tak**. Gdy to zrobisz, musisz zidentyfikować klientów, podając ich identyfikatory subskrypcji. Można je wprowadzić jeden po drugim (dla maksymalnie 10 subskrypcji) lub przesłać plik csv (maksymalnie 10 000 subskrypcji we wszystkich planach). Pamiętaj, aby dołączyć własne subskrypcje tutaj, dzięki czemu można przetestować i zweryfikować ofertę.
+Aby ten plan był dostępny tylko dla określonych klientów, wybierz opcję **tak**. W takim przypadku należy zidentyfikować klientów, podając ich identyfikatory subskrypcji. Można je wprowadzić jeden po jednym (dla maksymalnie 10 subskrypcji) lub przekazując plik CSV (maksymalnie 10 000 subskrypcji we wszystkich planach). Pamiętaj o dołączeniu własnych subskrypcji tutaj, aby móc testować i sprawdzać poprawność oferty.
 
 > [!IMPORTANT]
-> Po opublikowaniu planu jako publicznego nie można go zmienić na prywatny. Aby kontrolować, którzy klienci mogą akceptować ofertę i delegować zasoby, użyj planu prywatnego. W przypadku planu publicznego nie można ograniczyć dostępności do niektórych klientów, a nawet do określonej liczby klientów (chociaż możesz całkowicie zaprzestać sprzedaży planu, jeśli to zrobisz). Dostęp [do delegowania](../../lighthouse/how-to/onboard-customer.md#remove-access-to-a-delegation) można usunąć po zaakceptowaniu oferty przez klienta tylko wtedy, gdy podczas publikowania oferty została uwzględniona **autoryzacja** z **definicją roli** ustawioną na [Rolę usuwania przypisania rejestracji usług zarządzanych.](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) Możesz również skontaktować się z klientem i poprosić go o [usunięcie dostępu.](../../lighthouse/how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers)
+> Po opublikowaniu planu jako publicznego nie można go zmienić na prywatny. Aby kontrolować, którzy klienci mogą akceptować ofertę i delegować zasoby, należy użyć planu prywatnego. W przypadku planu publicznego nie można ograniczyć dostępności do określonych klientów, a nawet do określonej liczby klientów (mimo że można już zrezygnować z sprzedaży planu w przypadku wybrania tej opcji). [Dostęp do delegowania można usunąć](../../lighthouse/how-to/remove-delegation.md) , gdy klient zaakceptuje ofertę tylko wtedy, gdy została uwzględniona **autoryzacja** z **definicją roli** ustawioną na [przypisanie rejestracji usług zarządzanych](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) , po opublikowaniu oferty. Możesz również skontaktować się z klientem i poproś o [usunięcie dostępu](../../lighthouse/how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ### <a name="technical-configuration"></a>Konfiguracja techniczna
 
-Ta sekcja planu tworzy manifest z informacjami o autoryzacji do zarządzania zasobami klienta. Te informacje są wymagane w celu umożliwienia [zarządzania zasobami delegowanymi platformy Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
+W tej części planu tworzony jest manifest z informacjami o autoryzacji do zarządzania zasobami klientów. Te informacje są wymagane w celu włączenia [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
-Pamiętaj, aby przejrzeć [dzierżawy, role i użytkowników w scenariuszach latarni morskiej platformy Azure,](../../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles) aby dowiedzieć się, które role są obsługiwane i najlepsze rozwiązania dotyczące definiowania autoryzacji.
+Pamiętaj, aby zapoznać się z [dzierżawcami, rolami i użytkownikami w scenariuszach usługi Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles) , aby zrozumieć, które role są obsługiwane, oraz najlepsze rozwiązania dotyczące definiowania autoryzacji.
 
 > [!NOTE]
-> Jak wspomniano powyżej, użytkownicy i role we wpisach **autoryzacji** będą miały zastosowanie do każdego klienta, który zakupi plan. Jeśli chcesz ograniczyć dostęp do określonego klienta, musisz opublikować prywatny plan do wyłącznego użytku.
+> Jak wspomniano powyżej, użytkownicy i role w wpisach **autoryzacji** będą stosowane do każdego klienta, który kupuje plan. Jeśli chcesz ograniczyć dostęp do określonego klienta, musisz opublikować plan prywatny do ich wyłącznego użytku.
 
 #### <a name="manifest"></a>Manifest
 
-Najpierw podaj **wersję** dla manifestu. Użyj formatu *n.n.n* (na przykład 1.2.5).
+Najpierw Podaj **wersję** manifestu. Użyj formatu *n. n. n* (na przykład 1.2.5).
 
-Następnie wprowadź identyfikator **dzierżawy**. Jest to identyfikator GUID skojarzony z identyfikatorem dzierżawy usługi Azure Active Directory (Azure AD) w organizacji; oznacza to, że dzierżawa zarządzająca, z której będzie można uzyskać dostęp do zasobów swoich klientów. Jeśli nie masz tego pod ręką, możesz go znaleźć, najeżdżając kursorem na nazwę konta w prawym górnym rogu **witryny**Azure portal lub wybierając katalog Przełącznik .
+Następnie wprowadź swój **Identyfikator dzierżawy**. Jest to identyfikator GUID skojarzony z IDENTYFIKATORem dzierżawy usługi Azure Active Directory (Azure AD) organizacji; oznacza to, że dzierżawy zarządzającej, z której będziesz uzyskiwać dostęp do zasobów klientów. Jeśli go nie masz, możesz go znaleźć, umieszczając kursor nad nazwą swojego konta w prawym górnym rogu Azure Portal lub wybierając pozycję **Przełącz katalog**.
 
-Jeśli publikujesz nową wersję oferty i musisz utworzyć zaktualizowany manifest, wybierz **+ Nowy manifest**. Pamiętaj, aby zwiększyć numer wersji z poprzedniej wersji manifestu.
+Jeśli opublikujesz nową wersję oferty i chcesz utworzyć zaktualizowany manifest, wybierz pozycję **+ nowy manifest**. Pamiętaj, aby zwiększyć numer wersji z poprzedniej wersji manifestu.
 
 #### <a name="authorization"></a>Autoryzacja
 
-Autoryzacje definiują jednostki w dzierżawie zarządzającej, które mogą uzyskiwać dostęp do zasobów i subskrypcji dla klientów, którzy zakupią plan. Każdej z tych jednostek są przypisane wbudowaną rolę, która przyznaje określonego poziomu dostępu.
+Autoryzacje definiują jednostki w dzierżawie zarządzającej, które mają dostęp do zasobów i subskrypcji dla klientów, którzy kupują plan. Każda z tych jednostek ma przypisaną wbudowaną rolę, która przyznaje określony poziom dostępu.
 
 Dla każdego planu można utworzyć maksymalnie dwadzieścia autoryzacji.
 
 > [!TIP]
-> W większości przypadków należy przypisać role do grupy użytkowników usługi Azure AD lub jednostki usługi, a nie do serii kont poszczególnych użytkowników. Dzięki temu można dodać lub usunąć dostęp dla poszczególnych użytkowników bez konieczności aktualizowania i ponownego publikowania planu po zmianie wymagań dostępu. Podczas przypisywania ról do grup usługi Azure AD [upewnij się, że **typem grupy** są **zabezpieczenia,** a nie **usługa Office 365**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Aby uzyskać dodatkowe zalecenia, zobacz [dzierżawy, role i użytkowników w scenariuszach latarni morskiej platformy Azure.](../../lighthouse/concepts/tenants-users-roles.md)
+> W większości przypadków chcesz przypisać role do grupy użytkowników usługi Azure AD lub nazwy głównej usług, a nie do serii poszczególnych kont użytkowników. Pozwala to na dodawanie lub usuwanie dostępu dla poszczególnych użytkowników bez konieczności aktualizacji i ponownego publikowania planu, gdy zmienią się wymagania dotyczące dostępu. Podczas przypisywania ról do grup usługi Azure AD upewnij się, [że **typem grupy** jest **zabezpieczenia** , a nie **pakiet Office 365**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Aby uzyskać dodatkowe zalecenia, zobacz [dzierżawy, role i użytkowników w scenariuszach usługi Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md).
 
-Dla każdej **autoryzacji**należy podać następujące informacje. Następnie można wybrać **+ Dodaj autoryzację** tyle razy, ile potrzeba, aby dodać więcej użytkowników i definicje ról.
+Dla każdej **autoryzacji**należy podać następujące dane. Następnie można wybrać opcję **+ Dodaj autoryzację** dowolną liczbę razy, aby dodać więcej użytkowników i definicje ról.
 
-- **Identyfikator obiektu usługi Azure AD:** identyfikator usługi Azure AD użytkownika, grupy użytkowników lub aplikacji, który otrzyma określone uprawnienia (zgodnie z definicją roli) do zasobów klientów.
-- **Nazwa wyświetlania obiektu usługi Azure AD:** przyjazna nazwa ułatwiające klientowi zrozumienie celu tej autoryzacji. Klient zobaczy tę nazwę podczas delegowannia zasobów.
-- **Definicja roli:** Wybierz jedną z dostępnych ról wbudowanych usługi Azure AD z listy. Ta rola określi uprawnienia, które użytkownik w polu **identyfikator obiektu usługi Azure AD** będzie miał w zasobach klientów. Aby uzyskać opisy tych ról, zobacz [Wbudowane role](../../role-based-access-control/built-in-roles.md) i [Obsługa ról dla zarządzania zasobami delegowanymi platformy Azure](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
+- **Identyfikator obiektu usługi Azure AD**: identyfikator usługi Azure AD użytkownika, grupy użytkowników lub aplikacji, do której zostaną przyznane określone uprawnienia (zgodnie z definicją roli) do zasobów klientów.
+- **Nazwa wyświetlana obiektu usługi Azure AD**: przyjazna nazwa, która pomaga klientowi zrozumieć cel tej autoryzacji. Klient zobaczy tę nazwę podczas delegowania zasobów.
+- **Definicja roli**: Wybierz jedną z dostępnych ról wbudowanych usługi Azure AD z listy. Ta rola określi uprawnienia, które użytkownik w polu **Identyfikator obiektu usługi Azure AD** będzie mieć w zasobach klientów. Opisy tych ról można znaleźć w temacie [wbudowane role](../../role-based-access-control/built-in-roles.md) i [Obsługa ról dla delegowanego zarządzania zasobami platformy Azure](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
   > [!NOTE]
-  > W stosownych przypadkach nowe wbudowane role są dodawane do platformy Azure, staną się one dostępne w tym miejscu, chociaż może wystąpić pewne opóźnienie, zanim się pojawią.
-- **Przypisywalne role:** Ta opcja pojawi się tylko wtedy, gdy w **definicji roli** dla tej autoryzacji wybrano administratora dostępu użytkownika. Jeśli tak, należy dodać w tym miejscu jedną lub więcej ról, które można przypisać. Użytkownik w polu **Identyfikator obiektu usługi Azure AD** będzie mógł przypisać te role do tożsamości [zarządzanych,](../../active-directory/managed-identities-azure-resources/overview.md)co jest wymagane do [wdrożenia zasad, które można skorygować.](../../lighthouse/how-to/deploy-policy-remediation.md) Należy zauważyć, że żadne inne uprawnienia zwykle skojarzone z rolą Administrator dostępu użytkownika nie będą miały zastosowania do tego użytkownika.
+  > Nowe wbudowane role są dodawane do platformy Azure, ale staną się dostępne w tym miejscu, chociaż może wystąpić pewne opóźnienie przed ich wyświetleniem.
+- **Role**możliwe do przypisania: Ta opcja będzie wyświetlana tylko wtedy, gdy w **definicji roli** dla tej autoryzacji wybrano administratora dostępu użytkownika. Jeśli tak, należy dodać co najmniej jedną przypisaną rolę w tym miejscu. Użytkownik w polu **Identyfikator obiektu usługi Azure AD** będzie mógł przypisywać te role do [tożsamości zarządzanych](../../active-directory/managed-identities-azure-resources/overview.md), które są wymagane w celu [wdrożenia zasad, które można skorygować](../../lighthouse/how-to/deploy-policy-remediation.md). Należy pamiętać, że żadne inne uprawnienia zwykle skojarzone z rolą administratora dostępu użytkowników będą stosowane dla tego użytkownika.
 
 > [!TIP]
-> Aby upewnić się, że w razie potrzeby można [usunąć dostęp do delegacji,](../../lighthouse/how-to/onboard-customer.md#remove-access-to-a-delegation) dołącz **autoryzację** z **definicją roli** ustawioną na Rolę [usuwania przydziału rejestracji usług zarządzanych](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Jeśli ta rola nie jest przypisana, delegowane zasoby mogą zostać usunięte tylko przez użytkownika w dzierżawie klienta.
+> Aby mieć pewność, że w razie potrzeby będzie można [usunąć dostęp do delegowania](../../lighthouse/how-to/remove-delegation.md) , Uwzględnij **autoryzację** z **definicją roli** ustawioną na [przydział rejestracji usług zarządzanych](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Jeśli ta rola nie jest przypisana, delegowane zasoby mogą zostać usunięte tylko przez użytkownika w dzierżawie klienta.
 
-Po zakończeniu wszystkich sekcji planu możesz wybrać **+ Utwórz nowy plan** tyle razy, ile potrzeba do utworzenia dodatkowych planów. Po zakończeniu wybierz pozycję **Zapisz**.
+Po zakończeniu wszystkich sekcji planu możesz wybrać pozycję **+ Utwórz nowy plan** dowolną liczbę razy, aby utworzyć dodatkowe plany. Po zakończeniu wybierz pozycję **Zapisz**.
 
 ## <a name="publish"></a>Publikowanie
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 
-Po wypełnieniu wszystkich wymaganych sekcji oferty wybierz **pozycję publikuj** w prawym górnym rogu portalu. Zostaniesz przekierowany do strony **Recenzja i publikowanie.**
+Po zakończeniu wszystkich wymaganych sekcji oferty wybierz pozycję **Publikuj** w prawym górnym rogu portalu. Nastąpi przekierowanie do strony **Recenzja i publikowanie** .
 
 Jeśli po raz pierwszy publikujesz tę ofertę, możesz:
 
-- Zobacz stan ukończenia każdej sekcji oferty.
-  - *Nie rozpoczęto* - oznacza, że sekcja nie została dotknięta i musi zostać ukończona.
-  - *Niekompletne* - oznacza, że sekcja zawiera błędy, które muszą zostać naprawione lub wymaga więcej informacji, które mają być dostarczone. Wróć do sekcji i zaktualizuj ją.
-  - *Complete* - oznacza, że sekcja jest kompletna, wszystkie wymagane dane zostały dostarczone i nie ma żadnych błędów. Wszystkie sekcje oferty muszą być w pełnym stanie, zanim będzie można złożyć ofertę.
-- W sekcji **Uwagi dotyczące certyfikacji** podaj zespołowi certyfikacyjnemu instrukcje testowania, aby upewnić się, że aplikacja jest poprawnie testowana, a także wszelkie dodatkowe uwagi przydatne do zrozumienia aplikacji.
-- Prześlij ofertę do publikacji, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail, gdy wersja zapoznawcza oferty będzie dostępna do przejrzenia i zatwierdzenia. Wróć do Centrum partnerskiego i wybierz **opcję Przejdź na żywo,** aby oferta opublikowała ofertę publicznie (lub prywatną ofertę dla odbiorców prywatnych).
+- Zobacz stan ukończenia dla każdej sekcji oferty.
+  - *Nie uruchomiono* — oznacza, że sekcja nie została dotknięcia i należy ją ukończyć.
+  - *Niekompletne* — oznacza, że sekcja zawiera błędy, które muszą zostać naprawione lub wymaga podania więcej informacji. Wróć do sekcji i zaktualizuj ją.
+  - *Gotowe* — oznacza, że sekcja została ukończona, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
+- W sekcji **uwagi dotyczące certyfikacji** Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja została prawidłowo przetestowana, a także dodatkowe uwagi przydatne do poznania aplikacji.
+- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail, gdy zostanie udostępniona wersja zapoznawcza oferty, którą możesz przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać ofertę opublikowania oferty na publiczną (lub w przypadku prywatnej oferty dla odbiorców prywatnych).
 
 ### <a name="customer-experience-and-offer-management"></a>Obsługa klienta i zarządzanie ofertami
 
-Gdy klient wdraża ofertę, będzie mógł delegować subskrypcje lub grupy zasobów do [zarządzania zasobami delegowanymi platformy Azure.](../../lighthouse/concepts/azure-delegated-resource-management.md) Aby uzyskać więcej informacji na temat tego procesu, zobacz [Proces dołączania klienta](../../lighthouse/how-to/publish-managed-services-offers.md#the-customer-onboarding-process).
+Po wdrożeniu oferty przez klienta będzie można delegować subskrypcje lub grupy zasobów na potrzeby [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Aby uzyskać więcej informacji o tym procesie, zobacz proces dołączania [klienta](../../lighthouse/how-to/publish-managed-services-offers.md#the-customer-onboarding-process).
 
-W każdej chwili możesz [opublikować zaktualizowaną wersję swojej oferty.](update-existing-offer.md) Na przykład można dodać nową definicję roli do wcześniej opublikowanej oferty. Gdy to zrobisz, klienci, którzy już dodali ofertę zobaczą ikonę na stronie [**Dostawcy usług**](../../lighthouse/how-to/view-manage-service-providers.md) w witrynie Azure portal, która informuje ich, że dostępna jest aktualizacja. Każdy klient będzie mógł przejrzeć zmiany i zdecydować, czy chce zaktualizować do nowej wersji.
+[Zaktualizowaną wersję oferty można opublikować](update-existing-offer.md) w dowolnym momencie. Na przykład możesz chcieć dodać nową definicję roli do wcześniej opublikowanej oferty. Po wykonaniu tej czynności klienci, którzy już dodaliśmy do oferty, będą widzieć ikonę na stronie [**dostawcy usług**](../../lighthouse/how-to/view-manage-service-providers.md) w Azure Portal, która pozwala im znać aktualizację. Każdy klient będzie mógł przejrzeć zmiany i zdecydować, czy chcą one zaktualizować do nowej wersji.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Aktualizowanie istniejącej oferty w witrynie Marketplace dla zastosowań komercyjnych](./update-existing-offer.md)
-- [Dowiedz się więcej o latarni morskiej platformy Azure](../../lighthouse/overview.md)
+- [Dowiedz się więcej o usłudze Azure Lighthouse](../../lighthouse/overview.md)

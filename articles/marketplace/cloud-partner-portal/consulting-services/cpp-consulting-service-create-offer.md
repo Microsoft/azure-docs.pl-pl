@@ -1,41 +1,41 @@
 ---
-title: Tworzenie oferty konsultingowej | Azure Marketplace
-description: Utwórz ofertę usługi konsultingowej platformy Azure lub Dynamics 365 w portalu cloud partner dla portalu azure marketplace.
+title: Tworzenie oferty konsultingowej | Portal Azure Marketplace
+description: Utwórz ofertę usługi konsultingowej platformy Azure lub Dynamics 365 w portal Cloud Partner portalu Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ed744cfbb49393980c2622b00233fca373b32019
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: a9fbf402bb8de11ae0353ef05d2a526d686c5884
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985137"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148176"
 ---
 # <a name="create-a-consulting-offer"></a>Tworzenie oferty konsultingowej
 
 >[!Important]
->Od 13 kwietnia 2020 r. zaczniemy przenosić zarządzanie ofertami usług konsultingowych do Centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [przeglądzie tworzenia usług konsultingowych,](https://aka.ms/AzureCreateConsultingService) aby zarządzać zmigrowanymi ofertami.
+>Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami usług konsultacyjnych do Centrum partnerskiego. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Omówienie tworzenia usługi konsultingowej](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) , aby zarządzać migrowanymi ofertami.
 
-W tym artykule opisano sposób tworzenia i publikowania oferty usług konsultingowych.
+W tym artykule opisano sposób tworzenia i publikowania oferty usługi konsultingowej.
 
-## <a name="define-your-offer"></a>Zdefiniuj swoją ofertę
+## <a name="define-your-offer"></a>Definiowanie oferty
 
-Zdefiniuj ofertę usług doradztwa pakietowego. Skoncentruj się na stałym zakresie, stałym czasie trwania, szacowanej cenie stałej (lub bezpłatnej), a przede wszystkim na ofertach zorientowanych przedsprzedaży dla jednego klienta. Wybierz powtarzalne pakiety, które są popularne i skuteczne w prowadzeniu nowego biznesu dla Ciebie.
+Zdefiniuj swoją spakowaną ofertę usługi konsultingowej. Skup się na stałym zakresie, stałym czasie trwania, szacowanej cenie stałej (lub bezpłatna) i przede wszystkim ofertami oferowanymi w ramach sprzedaży dla jednego klienta. Wybierz powtarzające się spakowane zaangażowanie, które są popularne i efektywne podczas prowadzenia nowej firmy.
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 Aby utworzyć nową ofertę, wykonaj następujące kroki.
-1. W menu głównym portalu Cloud Partner Portal wybierz pozycję **Nowa oferta**.
-1. W menu **Nowa oferta** wybierz pozycję **Usługa konsultingowa**.
+1. W menu głównym portal Cloud Partner wybierz pozycję **Nowa oferta**.
+1. W menu **Nowa oferta** wybierz pozycję **Usługa doradcza**.
 
-    ![Tworzenie nowej oferty usług konsultingowych](media/cppselectnewconsultingoffer.png)
+    ![Utwórz nową ofertę usługi konsultingowej](media/cppselectnewconsultingoffer.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Strona **Nowa oferta** dla typu oferty usług konsultingowych zawiera zestaw kart i pól formularzy używanych do tworzenia nowej oferty. W poniższych artykułach wyjaśniono, jak użyć tej karty do zdefiniowania ustawień oferty i szczegółów witryny sklepowej dla nowej oferty:
+**Nowa strona oferty** typu oferty usługi konsultingowej zawiera zestaw kart i pól formularzy, które służą do tworzenia nowej oferty. W poniższych artykułach wyjaśniono, jak za pomocą karty zdefiniować ustawienia oferty oraz szczegóły dotyczące witryny dla nowej oferty:
 
--    [Definiowanie ustawień oferty](./cpp-consulting-service-define-offer-settings.md)
--    [Wprowadzanie szczegółów witryny sklepu oraz publikowanie w portalu Azure Marketplace lub w usłudze AppSource](./cpp-consulting-service-storefront-details.md)
+-    [Zdefiniuj ustawienia oferty](./cpp-consulting-service-define-offer-settings.md)
+-    [Wprowadź szczegóły witryny Marketplace i zdecyduj, czy chcesz publikować w witrynie Azure Portal, czy w witrynie AppSource](./cpp-consulting-service-storefront-details.md)

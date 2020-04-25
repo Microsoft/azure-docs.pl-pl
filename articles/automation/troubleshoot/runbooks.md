@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 73f79145f63e0d8afee7596f1f8231a054ef1c2e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: a407461e20eefe29dd410ac6ed547b33287a5be8
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82097697"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145409"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Rozwiązywanie problemów z błędami elementów Runbook
 
@@ -180,11 +180,11 @@ At line:16 char:1
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd jest spowodowany przez użycie poleceń cmdlet AzureRM i AZ module w elemencie Runbook. Występuje po zaimportowaniu elementu AZ module przed zaimportowaniem modułu AzureRM.
+Ten błąd jest prawdopodobnie spowodowany użyciem niekompletnej migracji z AzureRM do AZ modules w elemencie Runbook. Może to spowodować, że Azure Automation uruchomić zadanie elementu Runbook przy użyciu tylko modułów AzureRM, a następnie uruchomić inne zadanie przy użyciu tylko AZ modułów, co prowadzi do awarii piaskownicy. 
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Polecenia cmdlet AZ i AzureRM nie mogą być importowane i używane w tym samym elemencie Runbook. Aby dowiedzieć się więcej na temat polecenia cmdlet programu w Azure Automation, zobacz [Zarządzanie modułami w programie Azure Automation](../shared-resources/modules.md).
+Nie zaleca się używania poleceń cmdlet AZ i AzureRM w tym samym elemencie Runbook. Aby dowiedzieć się więcej o prawidłowym użyciu tych modułów, zobacz [Migrowanie do AZ modules](../shared-resources/modules.md#migrating-to-az-modules).
 
 ## <a name="scenario-the-runbook-fails-with-the-error-a-task-was-canceled"></a><a name="task-was-cancelled"></a>Scenariusz: element Runbook kończy się niepowodzeniem z powodu błędu: zadanie zostało anulowane
 
@@ -581,7 +581,7 @@ Istnieją dwa sposoby rozwiązania tego błędu.
 * Zamiast korzystać z [zadania startowego](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), należy użyć polecenia [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) , aby uruchomić element Runbook.
 * Spróbuj uruchomić element Runbook w hybrydowym procesie roboczym elementu Runbook.
 
-Aby dowiedzieć się więcej na temat tego zachowania i innych zachowań Azure Automation elementów Runbook, zobacz [zachowanie elementu Runbook](../automation-runbook-execution.md#runbook-behavior).
+Aby dowiedzieć się więcej na temat tego zachowania i innych zachowań Azure Automation elementów Runbook, zobacz [wykonywanie elementów Runbook w programie Azure Automation](../automation-runbook-execution.md).
 
 ## <a name="scenario-linux-hybrid-runbook-worker-receives-a-prompt-for-a-password-when-signing-a-runbook"></a>Scenariusz: hybrydowy proces roboczy elementu Runbook systemu Linux odbiera monit o podanie hasła podczas podpisywania elementu Runbook
 
@@ -645,11 +645,11 @@ Możliwe przyczyny tego problemu:
 
 #### <a name="not-using-run-as-account"></a>Nieużywanie konta Uruchom jako
 
-Wykonaj kroki opisane w [kroku 5 — Dodawanie uwierzytelniania w celu zarządzania zasobami platformy Azure](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) , aby upewnić się, że do uzyskiwania dostępu do Key Vault używasz konta Uruchom jako. 
+Postępuj zgodnie z [krok 5. Dodawanie uwierzytelniania w celu zarządzania zasobami platformy Azure](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) w celu zapewnienia dostępu do Key Vault za pomocą konta Uruchom jako. 
 
 #### <a name="insufficient-permissions"></a>Niewystarczające uprawnienia
 
-Wykonaj kroki opisane w sekcji [Dodawanie uprawnień do Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) , aby upewnić się, że konto Uruchom jako ma wystarczające uprawnienia dostępu do Key Vault. 
+[Dodaj uprawnienia do Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) , aby upewnić się, że konto Uruchom jako ma wystarczające uprawnienia dostępu do Key Vault. 
 
 ## <a name="my-problem-isnt-listed-above"></a><a name="other"></a>Mój problem nie jest wymieniony powyżej
 
@@ -669,7 +669,7 @@ Aby uzyskać pomoc dotyczącą przekazywania parametrów do elementów webhook, 
 
 ### <a name="issues-using-az-modules"></a>Problemy przy użyciu polecenia AZ modules
 
-Korzystanie z modułów AZ module i AzureRM na tym samym koncie usługi Automation nie jest obsługiwane. Aby uzyskać więcej informacji, zobacz [AZ modules in Runbooks](https://docs.microsoft.com/azure/automation/az-modules) .
+Użycie niekompletnej migracji modułów Runbook z programu AzureRM do AZ może spowodować awarie awarii i elementów Runbook piaskownicy. Zobacz [używanie modułów w elementach Runbook](../automation-runbook-execution.md#using-modules-in-your-runbooks).
 
 ### <a name="inconsistent-behavior-in-runbooks"></a>Niespójne zachowanie w elementach runbook
 
@@ -688,10 +688,6 @@ Konta Uruchom jako mogą nie mieć tych samych uprawnień wobec zasobów platfor
 
 Aby uzyskać pomoc dotyczącą przekazywania parametrów do elementów webhook, zobacz [Uruchamianie elementu Runbook z elementu webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook).
 
-### <a name="using-az-modules"></a>Korzystanie z modułów Az
-
-Korzystanie z modułów AZ module i AzureRM na tym samym koncie usługi Automation nie jest obsługiwane. Zobacz [AZ modules in Runbooks](https://docs.microsoft.com/azure/automation/az-modules).
-
 ### <a name="using-self-signed-certificates"></a>Korzystanie z certyfikatów z podpisem własnym
 
 Aby korzystać z certyfikatów z podpisem własnym, zobacz [Tworzenie nowego certyfikatu](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
@@ -702,6 +698,7 @@ Piaskownica systemu Azure uniemożliwia dostęp do wszystkich pozaprocesowych se
 
 ## <a name="recommended-documents"></a>Zalecane dokumenty
 
+* [Wykonywanie elementu runbook w usłudze Azure Automation](../automation-runbook-execution.md)
 * [Uruchamianie elementu Runbook w Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
 * [Wykonywanie elementu runbook w usłudze Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 

@@ -1,51 +1,52 @@
 ---
-title: Przenoszenie publicznego adresu IP platformy Azure do innego regionu platformy Azure przy użyciu portalu Azure
-description: Użyj szablonu usługi Azure Resource Manager, aby przenieść publiczny adres IP platformy Azure z jednego regionu platformy Azure do drugiego przy użyciu witryny Azure portal.
+title: Przenieś publiczny adres IP platformy Azure do innego regionu platformy Azure przy użyciu Azure Portal
+description: Użyj szablonu Azure Resource Manager, aby przenieść publiczny adres IP platformy Azure z jednego regionu świadczenia usługi Azure do innego przy użyciu Azure Portal.
 author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 6d10265e8383b68ebe13c95d8b2a9632668e85da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6dd4b3279fc0110fff2ee0397a785c87b63644d6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75641405"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147827"
 ---
-# <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Przenoszenie publicznego adresu IP platformy Azure do innego regionu przy użyciu witryny Azure portal
+# <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Przenieś publiczny adres IP platformy Azure do innego regionu przy użyciu Azure Portal
 
-Istnieją różne scenariusze, w których chcesz przenieść istniejące publiczne usługi Azure IP z jednego regionu do drugiego. Na przykład można utworzyć publiczny adres IP z tą samą konfiguracją i sku do testowania. Można również przenieść publiczny adres IP do innego regionu w ramach planowania odzyskiwania po awarii.
+Istnieją różne scenariusze, w których należy przenieść istniejące publiczne adresy IP platformy Azure z jednego regionu do innego. Na przykład możesz chcieć utworzyć publiczny adres IP z taką samą konfiguracją i jednostką SKU na potrzeby testowania. Możesz również przenieść publiczny adres IP do innego regionu w ramach planowania odzyskiwania po awarii.
 
-Publiczne usługi IP platformy Azure są specyficzne dla regionu i nie można ich przenosić z jednego regionu do drugiego. Można jednak użyć szablonu usługi Azure Resource Manager do wyeksportowania istniejącej konfiguracji publicznego adresu IP.  Następnie można zorganizować zasób w innym regionie, eksportując publiczny adres IP do szablonu, modyfikując parametry zgodne z regionem docelowym, a następnie wdrażając szablon w nowym regionie.  Aby uzyskać więcej informacji na temat Menedżera zasobów i szablonów, zobacz [Szybki start: Tworzenie i wdrażanie szablonów usługi Azure Resource Manager przy użyciu portalu Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Publiczne adresy IP platformy Azure są specyficzne dla regionu i nie można ich przenosić z jednego regionu do innego. Można jednak użyć szablonu Azure Resource Manager do eksportowania istniejącej konfiguracji publicznego adresu IP.  Następnie można przemieścić zasób w innym regionie, eksportując publiczny adres IP do szablonu, modyfikując parametry w celu dopasowania do regionu docelowego, a następnie wdrożyć szablon w nowym regionie.  Aby uzyskać więcej informacji na temat Menedżer zasobów i szablonów, zobacz [Szybki Start: Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Upewnij się, że publiczny adres IP platformy Azure znajduje się w regionie platformy Azure, z którego chcesz przenieść.
+- Upewnij się, że publiczny adres IP platformy Azure znajduje się w regionie świadczenia usługi Azure, z którego chcesz przenieść.
 
-- Nie można przenosić publicznych obiektów IP platformy Azure między regionami.  Musisz skojarzyć nowe adresy ip publiczne z zasobami w regionie docelowym.
+- Nie można przenosić publicznych adresów IP platformy Azure między regionami.  Musisz skojarzyć nowy publiczny adres IP z zasobami w regionie docelowym.
 
-- Aby wyeksportować publiczną konfigurację adresu IP i wdrożyć szablon w celu utworzenia publicznego adresu IP w innym regionie, musisz mieć rolę Współautor sieci lub wyższą.
+- Aby wyeksportować konfigurację publicznego adresu IP i wdrożyć szablon w celu utworzenia publicznego adresu IP w innym regionie, musisz mieć rolę współautor sieci lub wyższą.
 
-- Zidentyfikuj układ sieci źródłowej i wszystkie zasoby, których aktualnie używasz. Ten układ obejmuje między innymi moduły równoważenia obciążenia, sieciowe grupy zabezpieczeń i sieci wirtualne.
+- Zidentyfikuj układ sieci źródłowej i wszystkie aktualnie używane zasoby. Ten układ obejmuje, ale nie jest ograniczony do modułów równoważenia obciążenia, sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) i sieci wirtualnych.
 
-- Sprawdź, czy subskrypcja platformy Azure umożliwia tworzenie publicznych witryn IP w regionie docelowym, który jest używany. Skontaktuj się z pomocą techniczną, aby włączyć wymagany limit przydziału.
+- Sprawdź, czy subskrypcja platformy Azure umożliwia tworzenie publicznych adresów IP w używanym regionie docelowym. Skontaktuj się z pomocą techniczną, aby włączyć wymagany limit przydziału.
 
-- Upewnij się, że subskrypcja ma wystarczającą ilość zasobów do obsługi dodawania publicznych usług IP dla tego procesu.  Zobacz [Azure subscription and service limits, quotas, and constraints (Limity, przydziały i ograniczenia usługi i subskrypcji platformy Azure)](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Upewnij się, że Twoja subskrypcja ma wystarczającą ilość zasobów, aby obsłużyć Dodawanie publicznych adresów IP dla tego procesu.  Zobacz [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits) (Limity, przydziały i ograniczenia usługi i subskrypcji platformy Azure).
 
 
-## <a name="prepare-and-move"></a>Przygotowanie i przeniesienie
-Poniższe kroki pokazują, jak przygotować publiczny adres IP do przeniesienia konfiguracji przy użyciu szablonu Menedżera zasobów i przenieść publiczną konfigurację IP do regionu docelowego przy użyciu witryny Azure portal.
+## <a name="prepare-and-move"></a>Przygotowywanie i przenoszenie
+Poniższe kroki pokazują, jak przygotować publiczny adres IP do przenoszenia konfiguracji przy użyciu szablonu Menedżer zasobów i przenieść konfigurację publicznego adresu IP do regionu docelowego przy użyciu Azure Portal.
 
-### <a name="export-the-template-and-deploy-from-a-script"></a>Eksportowanie szablonu i wdrażanie ze skryptu
+### <a name="export-the-template-and-deploy-from-a-script"></a>Eksportowanie szablonu i wdrażanie go ze skryptu
 
-1. Zaloguj się do**grup zasobów** [portalu](https://portal.azure.com) > Azure .
-2. Znajdź grupę zasobów zawierającą publiczny adres IP źródła i kliknij ją.
-3. Wybierz**szablon eksportu** **> Ustawienia** > .
-4. Wybierz **pozycję Wdrażanie** w bloku **Szablon eksportu.**
-5. Kliknij **pozycję SZABLON** > **Edytuj parametry,** aby otworzyć plik **parameters.json** w edytorze online.
-8. Aby edytować parametr publicznej nazwy IP, zmień właściwość w**obszarze wartości** **parametrów** > ze źródłowej publicznej nazwy IP na nazwę docelowego publicznego adresu IP, upewnij się, że nazwa znajduje się w cudzysłowie:
+1. Zaloguj się do [Azure portal](https://portal.azure.com) > **grup zasobów**Azure Portal.
+2. Znajdź grupę zasobów zawierającą źródłowy publiczny adres IP, a następnie kliknij ją.
+3. Wybierz pozycję > **Ustawienia** > **Eksportuj szablon**.
+4. Wybierz pozycję **Wdróż** w bloku **Eksportuj szablon** .
+5. Kliknij pozycję **szablon** > **Edytuj parametry** , aby otworzyć plik **Parameters. JSON** w edytorze online.
+8. Aby edytować parametr publicznej nazwy IP, Zmień właściwość w polu**wartość** **parametrów** > ze źródłowej publicznej nazwy IP na nazwę docelowego publicznego adresu IP, upewnij się, że nazwa jest cudzysłowem:
 
     ```json
             {
@@ -59,11 +60,11 @@ Poniższe kroki pokazują, jak przygotować publiczny adres IP do przeniesienia 
             }
 
     ```
-8.  Kliknij **pozycję Zapisz** w edytorze.
+8.  Kliknij przycisk **Zapisz** w edytorze.
 
-9.  Kliknij **pozycję Szablon** > **Edytuj szablon,** aby otworzyć plik **template.json** w edytorze online.
+9.  Kliknij pozycję **szablon** > **Edytuj szablon** , aby otworzyć plik **Template. JSON** w edytorze online.
 
-10. Aby edytować region docelowy, w którym zostanie przeniesiony publiczny adres IP, zmień **właściwość lokalizacji** w obszarze **zasoby:**
+10. Aby edytować region docelowy, w którym zostanie przeniesiony publiczny adres IP, Zmień właściwość **lokalizacji** w obszarze **zasoby**:
 
     ```json
             "resources": [
@@ -89,11 +90,11 @@ Poniższe kroki pokazują, jak przygotować publiczny adres IP do przeniesienia 
              ]
     ```
 
-11. Aby uzyskać kody lokalizacji regionu, zobacz [Lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod dla regionu to nazwa regionu bez spacji, **Central US** = **centralus**.
+11. Aby uzyskać kody lokalizacji regionu, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Kod regionu to nazwa regionu bez spacji, **środkowe stany USA** = **.**
 
-12. Można również zmienić inne parametry w szablonie, jeśli wybierzesz i są opcjonalne w zależności od wymagań:
+12. W przypadku wybrania opcji i opcjonalnych w zależności od wymagań można także zmienić inne parametry szablonu:
 
-    * **Sku** - Możesz zmienić sku publicznego IP w konfiguracji ze standardowej na podstawową lub podstawową na standardową, zmieniając właściwość **sku** > **name** w pliku **template.json:**
+    * **Jednostka SKU** — można zmienić jednostkę SKU publicznego adresu IP w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na standardowa, zmieniając właściwość**Nazwa** **jednostki SKU** > w pliku **Template. JSON** :
 
         ```json
           "resources": [
@@ -108,9 +109,9 @@ Poniższe kroki pokazują, jak przygotować publiczny adres IP do przeniesienia 
             },
         ```
 
-        Aby uzyskać więcej informacji na temat różnic między podstawowymi i standardowymi identyfikatorami publicznymi sku, zobacz [Tworzenie, zmienianie lub usuwanie publicznego adresu IP:](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
+        Aby uzyskać więcej informacji na temat różnic między podstawowymi a standardowymi adresami IP jednostki SKU, zobacz [Tworzenie, zmienianie lub usuwanie publicznego adresu IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address):
 
-    * **Publicznej metody alokacji ip** i **limitu czasu bezczynności** — można zmienić obie te opcje w szablonie, zmieniając **właściwość publicIPAllocationMethod** z **dynamicznego** na **statyczny** lub **statyczny** na **dynamiczny**. Limit czasu bezczynność można zmienić, zmieniając **idleTimeoutInMinutes** właściwości do żądanej kwoty.  Wartość domyślna to **4**:
+    * **Metoda alokacji publicznego adresu IP** i **limit czasu bezczynności** — można zmienić obie te opcje w szablonie, zmieniając właściwość **publicIPAllocationMethod** z **dynamicznego** na **statyczny** lub **statyczny** na **dynamiczny**. Limit czasu bezczynności można zmienić, zmieniając właściwość **idleTimeoutInMinutes** na żądaną wartość.  Wartość domyślna to **4**:
 
         ```json
           "resources": [
@@ -137,31 +138,31 @@ Poniższe kroki pokazują, jak przygotować publiczny adres IP do przeniesienia 
         Aby uzyskać więcej informacji na temat metod alokacji i wartości limitu czasu bezczynności, zobacz [Tworzenie, zmienianie lub usuwanie publicznego adresu IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
-13. Kliknij **pozycję Zapisz** w edytorze online.
+13. Kliknij przycisk **Zapisz** w edytorze online.
 
-14. Kliknij **przycisk Basics** > **Subscription,** aby wybrać subskrypcję, w której zostanie wdrożony docelowy publiczny adres IP.
+14. Kliknij pozycję**subskrypcja** **podstawy** > , aby wybrać subskrypcję, w której zostanie wdrożony docelowy publiczny adres IP.
 
-15. Kliknij **pozycję BASICS** > **Resource group to** choose the resource group where the target public IP will be deployed.  Można kliknąć przycisk **Utwórz nowy,** aby utworzyć nową grupę zasobów dla docelowego publicznego adresu IP.  Upewnij się, że nazwa nie jest taka sama jak grupa zasobów źródłowych istniejącego źródłowego publicznego adresu IP.
+15. Kliknij pozycję **podstawowe** > **grupy zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy publiczny adres IP.  Możesz kliknąć pozycję **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowego publicznego adresu IP.  Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącego publicznego adresu IP.
 
-16. Sprawdź, czy**lokalizacja** **BASICS** > jest ustawiona na lokalizację docelową, w której chcesz wdrożyć publiczny adres IP.
+16. Sprawdź, czy**Lokalizacja** **podstawy** > jest ustawiona na lokalizację docelową, w której ma zostać wdrożony publiczny adres IP.
 
-17. Sprawdź w obszarze **USTAWIENIA,** czy nazwa jest zgodna z nazwą wprowadzona w edytorze parametrów powyżej.
+17. Sprawdź, czy w obszarze **Ustawienia** nazwa jest zgodna z nazwą wprowadzoną w edytorze parametrów powyżej.
 
-18. Zaznacz pole w **regulaminie**.
+18. Zaznacz pole wyboru w obszarze **warunki i postanowienia**.
 
-19. Kliknij przycisk **Zakup,** aby wdrożyć docelowy publiczny adres IP.
+19. Kliknij przycisk **Kup** , aby wdrożyć docelowy publiczny adres IP.
 
 ## <a name="discard"></a>Odrzuć
 
-Jeśli chcesz odrzucić docelowy publiczny adres IP, usuń grupę zasobów zawierającą docelowy publiczny adres IP.  Aby to zrobić, wybierz grupę zasobów z pulpitu nawigacyjnego w portalu i wybierz pozycję **Usuń** u góry strony przeglądu.
+Jeśli chcesz odrzucić docelowy publiczny adres IP, Usuń grupę zasobów zawierającą docelowy publiczny adres IP.  Aby to zrobić, wybierz grupę zasobów z pulpitu nawigacyjnego w portalu i wybierz pozycję **Usuń** w górnej części strony przegląd.
 
 ## <a name="clean-up"></a>Czyszczenie
 
-Aby zatwierdzić zmiany i zakończyć przenoszenie publicznego adresu IP, usuń źródłowy publiczny adres IP lub grupę zasobów. Aby to zrobić, wybierz publiczny adres IP lub grupę zasobów z pulpitu nawigacyjnego w portalu i wybierz **pozycję Usuń** u góry każdej strony.
+Aby zatwierdzić zmiany i zakończyć przenoszenie publicznego adresu IP, Usuń źródłowy publiczny adres IP lub grupę zasobów. Aby to zrobić, wybierz publiczny adres IP lub grupę zasobów z pulpitu nawigacyjnego w portalu i wybierz pozycję **Usuń** w górnej części każdej strony.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przeniesiono publiczny adres IP platformy Azure z jednego regionu do drugiego i oczyściłeś zasoby źródłowe.  Aby dowiedzieć się więcej na temat przenoszenia zasobów między regionami i odzyskiwania po awarii na platformie Azure, zobacz:
+W tym samouczku przyniesiono publiczny adres IP platformy Azure z jednego regionu do innego i wyczyszczono zasoby źródłowe.  Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zobacz:
 
 
 - [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

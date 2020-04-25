@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: b58c24fdd7912b3e424a493932fe09b1a1f058c5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: HT
+ms.openlocfilehash: 601194d3a8cc789c51b8e127001ab2367dceeee7
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661281"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148218"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux z Azure NetApp Files dla aplikacji SAP
 
@@ -32,14 +32,14 @@ ms.locfileid: "77661281"
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2009879]: https://launchpad.support.sap.com/#/notes/2009879
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -97,39 +97,38 @@ Teraz można osiągnąć rozwiązanie SAP NetWeaver HA przy użyciu magazynu udo
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver wykres WYWOŁUJĄCYCH, a SAP HANA Database używają wirtualnej nazwy hosta i wirtualnych adresów IP. Na platformie Azure moduł równoważenia obciążenia jest wymagany do używania wirtualnego adresu IP. Zalecamy korzystanie z usługi [równoważenia obciążenia w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). Na poniższej liście przedstawiono konfigurację modułu równoważenia obciążenia z oddzielnymi adresami IP frontonu dla (A) SCS i wykres WYWOŁUJĄCYCH.
 
-### <a name="ascs"></a>(A)SCS
+### <a name="ascs"></a>Z SCS
 
 * Konfiguracja frontonu
   * Adres IP 192.168.14.9
-* Konfiguracja zaplecza
-  * Połączono z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią klastra programu (A) SCS/wykres WYWOŁUJĄCYCH
 * Port sondy
   * Port 620<strong>&lt;nr&gt;</strong>
 * Reguły równoważenia obciążenia
   * W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję **porty ha**
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 36<strong>&lt;nr&gt;</strong> TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
+  * 32<strong>&lt;nr&gt; </strong> TCP
+  * 36<strong>&lt;nr&gt; </strong> TCP
+  * 39<strong>&lt;nr&gt; </strong> TCP
+  * 81<strong>&lt;nr&gt; </strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
   * 5<strong>&lt;nr&gt;</strong>16 TCP
 
-### <a name="ers"></a>ERS
+### <a name="ers"></a>Wykres WYWOŁUJĄCYCH
 
 * Konfiguracja frontonu
   * Adres IP 192.168.14.10
-* Konfiguracja zaplecza
-  * Połączono z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią klastra programu (A) SCS/wykres WYWOŁUJĄCYCH
 * Port sondy
   * Port 621<strong>&lt;nr&gt;</strong>
 * Reguły równoważenia obciążenia
   * W przypadku używania usługa Load Balancer w warstwie Standardowa wybierz pozycję **porty ha**
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
+  * 32<strong>&lt;nr&gt; </strong> TCP
+  * 33<strong>&lt;nr&gt; </strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
   * 5<strong>&lt;nr&gt;</strong>16 TCP
+
+* Konfiguracja zaplecza
+  * Połączono z podstawowymi interfejsami sieciowymi wszystkich maszyn wirtualnych, które powinny być częścią klastra programu (A) SCS/wykres WYWOŁUJĄCYCH
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Konfigurowanie infrastruktury Azure NetApp Files 
 
@@ -147,7 +146,7 @@ W tych krokach przyjęto założenie, że wdrożono już [Virtual Network platfo
 Architektura SAP NetWeaver w tym artykule używa puli pojemności Azure NetApp Files w wersji Premium. Zalecamy Azure NetApp Files jednostki SKU Premium dla obciążenia aplikacji SAP NetWeaver na platformie Azure.  
 4. Delegowanie podsieci do plików NetApp platformy Azure zgodnie z opisem w [instrukcji delegowania podsieci do Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Wdróż woluminy Azure NetApp Files, postępując zgodnie z [instrukcjami, aby utworzyć wolumin dla Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Wdróż woluminy w wyznaczeniej [podsieci](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)Azure NetApp Files. Należy pamiętać, że zasoby Azure NetApp Files i maszyny wirtualne platformy Azure muszą znajdować się w tym samym Virtual Network platformy Azure lub w równorzędnych sieciach wirtualnych platformy Azure. W tym przykładzie używamy dwóch Azure NetApp Files woluminów: SAP<b>QAS</b> i transSAP. Ścieżki plików, które są zainstalowane do odpowiednich punktów instalacji, to/usrsap<b>QAS</b>/sapmnt<b>QAS</b>,/usrsap<b>QAS</b>/usrsap<b>QAS</b>sys itd.  
+5. Wdróż woluminy Azure NetApp Files, postępując zgodnie z [instrukcjami, aby utworzyć wolumin dla Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Wdróż woluminy w wyznaczeniej [podsieci](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)Azure NetApp Files. Adresy IP woluminów NetApp platformy Azure są przypisywane automatycznie. Należy pamiętać, że zasoby Azure NetApp Files i maszyny wirtualne platformy Azure muszą znajdować się w tym samym Virtual Network platformy Azure lub w równorzędnych sieciach wirtualnych platformy Azure. W tym przykładzie używamy dwóch Azure NetApp Files woluminów: SAP<b>QAS</b> i transSAP. Ścieżki plików, które są zainstalowane do odpowiednich punktów instalacji, to/usrsap<b>QAS</b>/sapmnt<b>QAS</b>,/usrsap<b>QAS</b>/usrsap<b>QAS</b>sys itd.  
 
    1. Volume SAP<b>QAS</b> (NFS://192.168.24.5/usrsap<b>QAS</b>/sapmnt<b>QAS</b>)
    2. Volume SAP<b>QAS</b> (NFS://192.168.24.5/usrsap<b>QAS</b>/usrsap<b>QAS</b>ASCS)
@@ -159,7 +158,7 @@ Architektura SAP NetWeaver w tym artykule używa puli pojemności Azure NetApp F
   
 W tym przykładzie użyto Azure NetApp Files dla wszystkich systemów plików SAP NetWeaver, aby zademonstrować, jak Azure NetApp Files może być używany. Systemy plików SAP, które nie muszą być instalowane za pośrednictwem systemu plików NFS, można również wdrożyć jako [usługę Azure Disk Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) . W tym przykładzie <b>a-e</b> musi znajdować się w Azure NetApp Files i <b>f-g</b> (czyli/usr/SAP/<b>QAS</b>/d<b>02</b>,/usr/SAP/<b>QAS</b>/d<b>03</b>) można wdrożyć jako usługę Azure Disk Storage. 
 
-### <a name="important-considerations"></a>Ważne zagadnienia
+### <a name="important-considerations"></a>Istotne zagadnienia
 
 Rozważając Azure NetApp Files dla architektury SAP NetWeaver w systemie SUSE wysokiej dostępności, weź pod uwagę następujące ważne zagadnienia:
 
@@ -167,7 +166,7 @@ Rozważając Azure NetApp Files dla architektury SAP NetWeaver w systemie SUSE w
 - Minimalny wolumin to 100 GiB
 - Azure NetApp Files i wszystkie maszyny wirtualne, w których zostaną zainstalowane woluminy Azure NetApp Files, muszą znajdować się w tej samej Virtual Network platformy Azure lub w [równorzędnych sieciach wirtualnych](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) w tym samym regionie. Azure NetApp Files dostęp za pośrednictwem komunikacji równorzędnej sieci wirtualnej w tym samym regionie jest obecnie obsługiwany. Dostęp do usługi Azure NetApp za pośrednictwem globalnej komunikacji równorzędnej nie jest jeszcze obsługiwany.
 - Wybrana Sieć wirtualna musi mieć podsieć delegowaną do Azure NetApp Files.
-- Azure NetApp Files oferuje [zasady eksportowania](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): można kontrolować dozwolonych klientów, typ dostępu (odczyt & zapis, tylko do odczytu itp.). 
+- Azure NetApp Files oferuje [zasady eksportowania](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): można kontrolować dozwolonych klientów, typ dostępu (odczyt&zapis, tylko do odczytu itp.). 
 - Funkcja Azure NetApp Files nie jest jeszcze dostępna dla strefy. Obecnie Azure NetApp Files funkcja nie jest wdrażana we wszystkich strefach dostępności w regionie świadczenia usługi Azure. Weź pod uwagę potencjalne konsekwencje opóźnienia w niektórych regionach świadczenia usługi Azure. 
 - Woluminy Azure NetApp Files można wdrożyć jako woluminy NFSv3 lub NFSv 4.1. Oba protokoły są obsługiwane dla warstwy aplikacji SAP (ASCS/wykres WYWOŁUJĄCYCH, serwery aplikacji SAP). 
 
@@ -177,7 +176,7 @@ W tym przykładzie zasoby zostały wdrożone ręcznie za pośrednictwem [Azure P
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Ręczne wdrażanie systemu Linux za pośrednictwem Azure Portal
 
-Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualne. Następnie należy utworzyć moduł równoważenia obciążenia i użyć maszyn wirtualnych w pulach zaplecza.
+Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualne. Następnie należy utworzyć moduł równoważenia obciążenia i użyć maszyn wirtualnych w puli zaplecza.
 
 1. Tworzenie modułu równoważenia obciążenia (wewnętrznego, standardowego):  
    1. Utwórz adresy IP frontonu
@@ -185,23 +184,22 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualn
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję Pula adresów IP frontonu, a następnie kliknij przycisk Dodaj.
          1. Wprowadź nazwę nowej puli adresów IP frontonu (na przykład **frontonu). QAS. ASCS**)
          1. Ustaw przypisanie na static i wprowadź adres IP (na przykład **192.168.14.9**)
-         1. Kliknij przycisk OK
+         1. Kliknij przycisk OK.
       1. 192.168.14.10 adresu IP dla ASCS wykres WYWOŁUJĄCYCH
          * Powtórz powyższe kroki w obszarze "a", aby utworzyć adres IP dla wykres WYWOŁUJĄCYCH (na przykład **192.168.14.10** i **fronton. QAS. Wykres WYWOŁUJĄCYCH**)
-   1. Tworzenie pul zaplecza
-      1. Tworzenie puli zaplecza dla ASCS
-         1. Otwórz moduł równoważenia obciążenia, wybierz pozycję Pule zaplecza, a następnie kliknij przycisk Dodaj.
-         1. Wprowadź nazwę nowej puli zaplecza (na przykład **zaplecze. QAS**)
-         1. Kliknij pozycję Dodaj maszynę wirtualną.
-         1. Wybierz pozycję maszyna wirtualna. 
-         1. Wybierz Maszyny wirtualne klastra SCS i ich adresy IP.
-         1. Kliknij pozycję Dodaj.
+   1. Tworzenie puli zaplecza
+      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję Pule zaplecza, a następnie kliknij przycisk Dodaj.
+      1. Wprowadź nazwę nowej puli zaplecza (na przykład **zaplecze. QAS**)
+      1. Kliknij pozycję Dodaj maszynę wirtualną.
+      1. Wybierz pozycję Maszyna wirtualna. 
+      1. Wybierz Maszyny wirtualne klastra SCS i ich adresy IP.
+      1. Kliknij pozycję Dodaj.
    1. Tworzenie sond kondycji
       1. Port 620**00** dla ASCS
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję sondy kondycji, a następnie kliknij przycisk Dodaj.
          1. Wprowadź nazwę nowej sondy kondycji (na przykład **kondycja. QAS. ASCS**)
          1. Wybierz pozycję TCP jako protokół, port 620**00**, Zachowaj interwał 5 i próg złej kondycji 2
-         1. Kliknij przycisk OK
+         1. Kliknij przycisk OK.
       1. Port 621**01** dla ASCS wykres wywołujących
             * Powtórz powyższe kroki w sekcji "c", aby utworzyć sondę kondycji dla wykres WYWOŁUJĄCYCH (na przykład 621**01** i **kondycja). QAS. Wykres WYWOŁUJĄCYCH**)
    1. Reguły równoważenia obciążenia
@@ -212,7 +210,7 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualn
          1. Wybieranie **portów ha**
          1. Zwiększ limit czasu bezczynności do 30 minut
          1. **Upewnij się, że włączono zmiennoprzecinkowy adres IP**
-         1. Kliknij przycisk OK
+         1. Kliknij przycisk OK.
          * Powtórz powyższe kroki, aby utworzyć reguły równoważenia obciążenia dla wykres WYWOŁUJĄCYCH (na przykład **LB. QAS. Wykres WYWOŁUJĄCYCH**)
 1. Alternatywnie, jeśli scenariusz wymaga podstawowego modułu równoważenia obciążenia (wewnętrznego), wykonaj następujące czynności:  
    1. Utwórz adresy IP frontonu
@@ -220,23 +218,22 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualn
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję Pula adresów IP frontonu, a następnie kliknij przycisk Dodaj.
          1. Wprowadź nazwę nowej puli adresów IP frontonu (na przykład **frontonu). QAS. ASCS**)
          1. Ustaw przypisanie na static i wprowadź adres IP (na przykład **192.168.14.9**)
-         1. Kliknij przycisk OK
+         1. Kliknij przycisk OK.
       1. 192.168.14.10 adresu IP dla ASCS wykres WYWOŁUJĄCYCH
          * Powtórz powyższe kroki w obszarze "a", aby utworzyć adres IP dla wykres WYWOŁUJĄCYCH (na przykład **192.168.14.10** i **fronton. QAS. Wykres WYWOŁUJĄCYCH**)
-   1. Tworzenie pul zaplecza
-      1. Tworzenie puli zaplecza dla ASCS
-         1. Otwórz moduł równoważenia obciążenia, wybierz pozycję Pule zaplecza, a następnie kliknij przycisk Dodaj.
-         1. Wprowadź nazwę nowej puli zaplecza (na przykład **zaplecze. QAS**)
-         1. Kliknij pozycję Dodaj maszynę wirtualną.
-         1. Wybierz zestaw dostępności utworzony wcześniej dla ASCS 
-         1. Wybierz Maszyny wirtualne klastra SCS
-         1. Kliknij przycisk OK
+   1. Tworzenie puli zaplecza
+      1. Otwórz moduł równoważenia obciążenia, wybierz pozycję Pule zaplecza, a następnie kliknij przycisk Dodaj.
+      1. Wprowadź nazwę nowej puli zaplecza (na przykład **zaplecze. QAS**)
+      1. Kliknij pozycję Dodaj maszynę wirtualną.
+      1. Wybierz zestaw dostępności utworzony wcześniej dla ASCS 
+      1. Wybierz Maszyny wirtualne klastra SCS
+      1. Kliknij przycisk OK.
    1. Tworzenie sond kondycji
       1. Port 620**00** dla ASCS
          1. Otwórz moduł równoważenia obciążenia, wybierz pozycję sondy kondycji, a następnie kliknij przycisk Dodaj.
          1. Wprowadź nazwę nowej sondy kondycji (na przykład **kondycja. QAS. ASCS**)
          1. Wybierz pozycję TCP jako protokół, port 620**00**, Zachowaj interwał 5 i próg złej kondycji 2
-         1. Kliknij przycisk OK
+         1. Kliknij przycisk OK.
       1. Port 621**01** dla ASCS wykres wywołujących
             * Powtórz powyższe kroki w sekcji "c", aby utworzyć sondę kondycji dla wykres WYWOŁUJĄCYCH (na przykład 621**01** i **kondycja). QAS. Wykres WYWOŁUJĄCYCH**)
    1. Reguły równoważenia obciążenia
@@ -247,7 +244,7 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualn
          1. Utrzymywanie protokołu **TCP**, wprowadź port **3200**
          1. Zwiększ limit czasu bezczynności do 30 minut
          1. **Upewnij się, że włączono zmiennoprzecinkowy adres IP**
-         1. Kliknij przycisk OK
+         1. Kliknij przycisk OK.
       1. Dodatkowe porty dla ASCS
          * Powtórz powyższe kroki w obszarze "d" dla portów 36**00**, 39**00**, 81**00**, 5**00**, 5**00**14, 5**00**16 i TCP dla ASCS
       1. Dodatkowe porty dla ASCS wykres WYWOŁUJĄCYCH
@@ -263,10 +260,10 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Wdróż maszyny wirtualn
 
 Instrukcje zawarte w tej sekcji mają zastosowanie tylko w przypadku korzystania z Azure NetApp Files woluminów z protokołem NFSv 4.1. Wykonaj konfigurację na wszystkich maszynach wirtualnych, gdzie zostaną zainstalowane woluminy Azure NetApp Files NFSv 4.1.  
 
-1. Sprawdź ustawienie domeny systemu plików NFS. Upewnij się, że domena jest skonfigurowana jako domyślna domena Azure NetApp Files, czyli **`defaultv4iddomain.com`** i mapowanie jest ustawione na wartość **nikt**.  
+1. Sprawdź ustawienie domeny systemu plików NFS. Upewnij się, że domena jest skonfigurowana jako domyślna domena Azure NetApp Files, tj. **`defaultv4iddomain.com`** , a mapowanie jest ustawione na wartość **nikt**.  
 
     > [!IMPORTANT]
-    > Upewnij się, że ustawiono domenę systemu plików NFS w `/etc/idmapd.conf` na maszynie wirtualnej tak, aby była zgodna z domyślną konfiguracją domeny na Azure NetApp Files: **`defaultv4iddomain.com`** . Jeśli istnieje niezgodność między konfiguracją domeny na kliencie NFS (tj. maszyną wirtualną) a serwerem NFS, tj. konfiguracją usługi Azure NetApp, wówczas uprawnienia do plików na woluminach NetApp platformy Azure, które są zainstalowane na maszynach wirtualnych, będą wyświetlane jako `nobody`.  
+    > Upewnij się, że na maszynie wirtualnej ustawiono `/etc/idmapd.conf` domenę systemu plików NFS zgodną z domyślną konfiguracją domeny na **`defaultv4iddomain.com`** Azure NetApp Files:. Jeśli istnieje niezgodność między konfiguracją domeny na kliencie NFS (tj. maszyną wirtualną) a serwerem NFS, tj. konfiguracją usługi Azure NetApp, wówczas uprawnienia do plików na woluminach NetApp platformy Azure, które są zainstalowane na maszynach wirtualnych, będą `nobody`wyświetlane jako.  
 
     <pre><code>
     sudo cat /etc/idmapd.conf
@@ -278,7 +275,7 @@ Instrukcje zawarte w tej sekcji mają zastosowanie tylko w przypadku korzystania
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** Sprawdź `nfs4_disable_idmapping`. Powinna być ustawiona na wartość **Y**. Aby utworzyć strukturę katalogów, w której znajduje się `nfs4_disable_idmapping`, wykonaj polecenie instalacji. Nie będzie można ręcznie utworzyć katalogu w obszarze/sys/modules, ponieważ dostęp jest zarezerwowany dla jądra/sterowników.  
+4. **[A]** Sprawdź `nfs4_disable_idmapping`poprawność. Powinna być ustawiona na wartość **Y**. Aby utworzyć strukturę katalogów, w `nfs4_disable_idmapping` której znajduje się, wykonaj polecenie instalacji. Nie będzie można ręcznie utworzyć katalogu w obszarze/sys/modules, ponieważ dostęp jest zarezerwowany dla jądra/sterowników.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -292,7 +289,7 @@ Instrukcje zawarte w tej sekcji mają zastosowanie tylko w przypadku korzystania
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     </code></pre>
 
-   Aby uzyskać więcej informacji na temat zmiany `nfs4_disable_idmapping` parametru, zobacz https://access.redhat.com/solutions/1749883.
+   Aby uzyskać więcej informacji na temat zmiany `nfs4_disable_idmapping` parametru, https://access.redhat.com/solutions/1749883Zobacz.
 
 ### <a name="create-pacemaker-cluster"></a>Tworzenie klastra Pacemaker
 
@@ -304,14 +301,14 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
 
 1. **[A]** rozpoznawanie nazw hostów
 
-   Można użyć serwera DNS lub zmodyfikować/etc/hosts na wszystkich węzłach. W tym przykładzie pokazano, jak przy użyciu pliku/etc/hosts.
+   Możesz użyć serwera DNS lub zmodyfikować/etc/hosts na wszystkich węzłach. Ten przykład pokazuje, jak używać pliku/etc/hosts.
    Zastąp adres IP i nazwę hosta w następujących poleceniach
 
     ```
     sudo vi /etc/hosts
     ```
 
-   Wstaw następujące wiersze do/etc/hosts. Zmienianie adresu IP i nazwy hosta do danego środowiska
+   Wstaw następujące wiersze do/etc/hosts. Zmień adres IP i nazwę hosta, aby odpowiadały Twojemu środowisku
 
     ```
     # IP address of cluster node 1
@@ -759,7 +756,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
 
    Następujące elementy są poprzedzone znakiem **[A]** — dotyczy zarówno platformy pas, jak i AAS, **[P]** — dotyczy tylko platformy pas lub **[S]** — dotyczy tylko AAS.  
 
-1. **[A]** rozpoznawanie nazw hostów można użyć serwera DNS lub zmodyfikować/etc/hosts na wszystkich węzłach. W tym przykładzie pokazano, jak przy użyciu pliku/etc/hosts.
+1. **[A]** rozpoznawanie nazw hostów można użyć serwera DNS lub zmodyfikować/etc/hosts na wszystkich węzłach. Ten przykład pokazuje, jak używać pliku/etc/hosts.
    Zastąp adres IP i nazwę hosta w następujących poleceniach:  
 
    ```
@@ -892,9 +889,9 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    sudo service waagent restart
    ```
 
-## <a name="install-database"></a>Zainstaluj bazę danych
+## <a name="install-database"></a>Instalowanie bazy danych
 
-W tym przykładzie system SAP NetWeaver jest instalowany na SAP HANA. Dla tej instalacji można użyć każdej obsługiwanej bazy danych. Aby uzyskać więcej informacji na temat instalowania SAP HANA na platformie Azure, zobacz [wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
+W tym przykładzie system SAP NetWeaver jest instalowany na SAP HANA. Dla tej instalacji można użyć każdej obsługiwanej bazy danych. Aby uzyskać więcej informacji na temat instalowania SAP HANA na platformie Azure, zobacz [wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure w Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 1. Uruchamianie instalacji wystąpienia bazy danych SAP
 
@@ -928,7 +925,7 @@ Wykonaj następujące kroki, aby zainstalować serwer aplikacji SAP.
 
    Zaktualizuj SAP HANA bezpiecznego magazynu, aby wskazywał nazwę wirtualną konfiguracji replikacji systemu SAP HANA.
 
-   Uruchom następujące polecenie, aby wyświetlić listę wpisów jako \<sapsid > adm
+   Uruchom następujące polecenie, aby wyświetlić listę wpisów jako \<sapsid>adm
 
    ```
    hdbuserstore List
@@ -1092,7 +1089,7 @@ Wykonaj następujące kroki, aby zainstalować serwer aplikacji SAP.
    [root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
    ```
 
-   Jeśli serwer wiadomości zostanie skasowany tylko raz, zostanie on uruchomiony ponownie przez `sapstart`. Jeśli zakończysz go często, Pacemaker będzie ostatecznie przenieść wystąpienie ASCS do innego węzła. Uruchom następujące polecenia jako główne, aby wyczyścić stan zasobu wystąpienia ASCS i wykres WYWOŁUJĄCYCH po teście.
+   Jeśli serwer wiadomości zostanie skasowany tylko raz, zostanie on ponownie uruchomiony przez `sapstart`program. Jeśli zakończysz go często, Pacemaker będzie ostatecznie przenieść wystąpienie ASCS do innego węzła. Uruchom następujące polecenia jako główne, aby wyczyścić stan zasobu wystąpienia ASCS i wykres WYWOŁUJĄCYCH po teście.
 
    ```
    [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
@@ -1186,7 +1183,7 @@ Wykonaj następujące kroki, aby zainstalować serwer aplikacji SAP.
    [root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
    ```
 
-   Jeśli uruchamiasz polecenie tylko raz, `sapstart` uruchomi ponownie ten proces. Jeśli uruchomisz go często, `sapstart` nie uruchomi ponownie procesu, a zasób stanie się zatrzymany. Uruchom następujące polecenia jako główne, aby wyczyścić stan zasobu wystąpienia wykres WYWOŁUJĄCYCH po teście.
+   Jeśli uruchamiasz polecenie tylko raz, `sapstart` program uruchomi ponownie ten proces. Jeśli uruchomisz go często, `sapstart` program nie uruchomi ponownie procesu, a zasób stanie się zatrzymany. Uruchom następujące polecenia jako główne, aby wyczyścić stan zasobu wystąpienia wykres WYWOŁUJĄCYCH po teście.
 
    ```
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01

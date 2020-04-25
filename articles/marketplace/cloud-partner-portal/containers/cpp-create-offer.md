@@ -1,42 +1,42 @@
 ---
-title: Tworzenie oferty kontenerów platformy Azure | Azure Marketplace
-description: Jak opublikować nową ofertę kontenera dla Marketplace..
+title: Tworzenie oferty kontenerów platformy Azure | Portal Azure Marketplace
+description: Jak opublikować nową ofertę kontenera dla portalu Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 25d678ad7b8c2b786239b294de873bc1d98fa5cb
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a7266d0f32a8ac18a4a76dee7eb3c39be253f7bd
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270336"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148289"
 ---
-# <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Tworzenie nowej oferty kontenerów za pomocą portalu Cloud Partner Portal
+# <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Utwórz nową ofertę kontenera z portal Cloud Partner
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami usługi Azure Container do Centrum partnerów. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [tworzenie oferty usługi Azure Container](https://aka.ms/CreateContainerOffer) do zarządzania zmigrowanych ofert.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami kontenerów platformy Azure w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Tworzenie oferty kontenera platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) , aby zarządzać migrowanymi ofertami.
 
-W tym artykule opisano sposób tworzenia i publikowania wpisu oferty kontenera dla portalu Azure Marketplace. Każda oferta jest wyświetlana jako jej własna jednostka w portalu Azure Marketplace i jest skojarzona z co najmniej jedną jednostką SKU.  Oferta kontenera składa się z następujących grup zasobów i usług pomocniczych:
+W tym artykule opisano sposób tworzenia i publikowania wpisu oferty kontenera dla portalu Azure Marketplace. Każda oferta pojawia się jako jej własna jednostka w portalu Azure Marketplace i jest skojarzona z co najmniej jedną jednostką SKU.  Oferta kontenera składa się z następujących grup zasobów i usług pomocniczych:
 
-|  **Grupa aktywów**   |  **Opis**  |
+|  **Grupa zasobów**   |  **Opis**  |
 |  ---------------   |  ---------------  |
-|    Jednostki SKU            |  Najmniejsza rozmieszczona jednostka oferty. Z ofertą może być skojarzonych pojedyncza oferta (klasa produktu). Jednostek SKU można używać do rozróżniania między obsługiwanymi funkcjami a modelami rozliczeń. |
-|  Portal Marketplace       | Zawiera aktywa i specyfikacje marketingu, zarządzania prawnego i ołowiu.  <ul><li> Zasoby marketingowe obejmują nazwę oferty, opis i logo</li> <li> Aktywa prawne obejmują politykę prywatności, warunki użytkowania i inną dokumentację prawną</li>  <li> Zasady zarządzania potencjalnymi klientami umożliwiają określenie sposobu obsługi potencjalnych klientów z portalu użytkowników końcowych usługi Azure Marketplace.</li> </ul> |
-| Pomoc techniczna            | Zawiera informacje o kontakcie i zasadach pomocy technicznej |
+|    Jednostki SKU            |  Najmniejsza dostępna jednostka oferty. Pojedyncza oferta (Klasa produktu) może mieć wiele jednostek SKU skojarzonych z ofertą. Jednostek SKU można użyć do rozróżnienia między obsługiwanymi funkcjami i modelami rozliczeń. |
+|  Portal Marketplace       | Zawiera zasoby i specyfikacje zarządzania marketingiem, prawną i liderem.  <ul><li> Zasoby marketingowe obejmują nazwę oferty, opis i logo</li> <li> Zasoby prawne obejmują zasady ochrony prywatności, warunki użytkowania i inne dokumenty prawne</li>  <li> Zasady zarządzania potencjalnymi klientami umożliwiają określenie sposobu obsługi potencjalnych klientów z poziomu portalu użytkowników końcowych platformy Azure Marketplace.</li> </ul> |
+| Pomoc techniczna            | Zawiera informacje o kontakcie i zasadach |
 
 
-## <a name="new-offer-form"></a>Formularz Nowa oferta 
+## <a name="new-offer-form"></a>Formularz nowej oferty 
 
-Zaloguj się do [portalu cloud partner,](https://cloudpartner.azure.com/)a następnie wybierz **+ Nowa oferta** na pasku menu po lewej stronie. W menu Nowa oferta wybierz **pozycję Kontenery,** aby wyświetlić formularz **Nowa oferta** i rozpocząć proces definiowania zasobów dla nowej oferty kontenera.
+Zaloguj się do [Portal Cloud partner](https://cloudpartner.azure.com/), a następnie wybierz pozycję **+ Nowa oferta** na pasku menu po lewej stronie. W menu Nowa oferta wybierz pozycję **kontenery** , aby wyświetlić **nowy formularz oferty** i rozpocząć proces definiowania zasobów dla nowej oferty kontenera.
 
-![Wybierz opcję kontenerów dla nowej oferty](./media/azure-container-offer.png)
+![Opcja wybierania kontenerów dla nowej oferty](./media/azure-container-offer.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Strona **Nowa oferta** dla typu oferty kontenera zawiera zestaw kart i pól formularza, których użyjesz do utworzenia nowej oferty. Każdy z poniższych artykułów wyjaśnia, jak używać karty do definiowania grup zasobów i usług pomocniczych dla nowej oferty kontenera.
+**Nowa strona oferty** typu oferta kontenera zawiera zestaw kart i pól formularza, które będą używane do tworzenia nowej oferty. W każdym z poniższych artykułów wyjaśniono, jak za pomocą karty definiować grupy zasobów i usługi pomocnicze dla nowej oferty kontenera.
 
 - [Karta ustawień oferty](./cpp-offer-settings-tab.md)
 - [Karta jednostek SKU](./cpp-skus-tab.md)

@@ -1,51 +1,51 @@
 ---
-title: Ustawienia pomocy technicznej dla obrazu kontenerów platformy Azure | Azure Marketplace
-description: Konfigurowanie ustawień pomocy technicznej dla kontenera platformy Azure.
+title: Ustawienia obsługi dla obrazu kontenerów platformy Azure | Portal Azure Marketplace
+description: Skonfiguruj ustawienia obsługi dla kontenera platformy Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: 58845401fc14950b9c446d1481b8ac6f8ecc5523
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 8369c99c5bc44a7281c9e2072c20c723974ec83a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81269928"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146375"
 ---
 # <a name="container-support-tab"></a>Karta Obsługa kontenerów
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami usługi Azure Container do Centrum partnerów. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [tworzenie oferty usługi Azure Container](https://aka.ms/CreateContainerOffer) do zarządzania zmigrowanych ofert.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami kontenerów platformy Azure w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Tworzenie oferty kontenera platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) , aby zarządzać migrowanymi ofertami.
 
-Użyj karty **Pomoc techniczna** na stronie **Nowa oferta,** aby zapewnić zasoby pomocy technicznej i pomocy technicznej dla swojej oferty.  W formularzu Pomocy technicznej znajdują się następujące obszary wejściowe: **Kontakt inżynierski,** **Obsługa klienta**i **Adresy URL pomocy technicznej.** Gwiazdka (*) dołączona do nazwy pola wskazuje, że jest ona wymagana.
+Skorzystaj z karty **Pomoc techniczna** na **nowej stronie oferty** , aby udostępnić zasoby techniczne i pomoc techniczną dla swojej oferty.  Następujące obszary danych wejściowych są dostępne w formularzu pomocy technicznej: **kontakt inżynieryjny**, **Obsługa klienta**i **adresy URL pomocy technicznej**. Gwiazdka (*) dołączona do nazwy pola wskazuje, że jest to wymagane.
 
 
 ## <a name="support-form-fields"></a>Pola formularza pomocy technicznej
 
-Podaj wymagane informacje dla pól Kontakt inżynierski i Obsługa klienta.
+Podaj wymagane informacje dla kontaktów inżynieryjnych i pomocy technicznej dla klientów.
 
 
-### <a name="engineering-contact"></a>Kontakt techniczny
+### <a name="engineering-contact"></a>Kontakt inżynieryjny
 
-Kontakt inżynierski to kontakt techniczny między organizacją a firmą Microsoft. Wymagane pola są oskarżane gwiazdką (*).
+Kontakt inżynieryjny jest kontaktem technicznym między organizacją i firmą Microsoft. Wymagane pola są indicted przez gwiazdkę (*).
 
-- **Nazwa\* ** — imię i nazwisko osoby lub grupy, która służy jako wsparcie techniczne/inżynieryjne.
-- **E-mail\* ** — adres e-mail tego kontaktu technicznego.
-- **Telefon\* ** - Numer telefonu do pomocy technicznej.
+- **Nazwa\* ** — Nazwa osoby lub grupy, która służy jako wsparcie techniczne/inżynieryjne.
+- **E-mail\* ** — adres e-mail tej osoby kontaktowej.
+- Numer telefonu dla pomocy technicznej. **\* **
 
 
 ### <a name="customer-support"></a>Obsługa klienta
 
-Kontakt działu obsługi klienta otrzymuje bilety pomocy technicznej otwierane przez klientów na platformie Azure.  Wymagane pola są oskarżane gwiazdką (*).
+Kontakt z działem pomocy technicznej otrzymuje bilety pomocy technicznej otwarte przez klientów na platformie Azure.  Wymagane pola są indicted przez gwiazdkę (*).
 
-- **Nazwa\* ** — imię i nazwisko osoby lub grupy, która służy jako obsługa klienta.
-- **E-mail\* ** — adres e-mail tego kontaktu pomocy technicznej.
-- **Telefon\* ** - Numer telefonu do obsługi klienta.
+- **Nazwa\* ** — Nazwa osoby lub grupy, która służy jako obsługa klienta.
+- **E-mail\* ** — adres e-mail tego kontaktu z pomocą techniczną.
+- Numer telefonu do obsługi klienta. **\* **
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zakończeniu dostarczania informacji o pomocy technicznej możesz opublikować [ofertę.](./cpp-publish-offer.md) 
+Po zapoznaniu się z informacjami o pomocy technicznej możesz [opublikować swoją ofertę](./cpp-publish-offer.md). 
 

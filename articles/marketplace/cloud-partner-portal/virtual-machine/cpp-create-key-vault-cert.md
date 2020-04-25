@@ -1,47 +1,47 @@
 ---
-title: Tworzenie certyfikatu usługi Azure Key Vault | Azure Marketplace
-description: W tym artykule wyjaśniono, jak zarejestrować maszynę wirtualną z dysku wirtualnego wdrożonego w usłudze Azure.
+title: Tworzenie certyfikatu Azure Key Vault | Portal Azure Marketplace
+description: Wyjaśnia, jak zarejestrować maszynę wirtualną na podstawie wirtualnego dysku twardego wdrożonego na platformie Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 09e82b9905104df9b1902b0f64f6cfdf812aabb8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9981f8eda174bbe04b54933528d20d270d360824
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274025"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148254"
 ---
-# <a name="create-certificates-for-azure-key-vault"></a>Tworzenie certyfikatów dla usługi Azure Key Vault
+# <a name="create-certificates-for-azure-key-vault"></a>Tworzenie certyfikatów dla Azure Key Vault
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami maszyny wirtualnej platformy Azure do centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [certyfikacji obrazów maszyn wirtualnych platformy Azure,](https://aks.ms/CertifyVMimage) aby zarządzać zmigrowanymi ofertami.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami usługi Azure Virtual Machine w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [certyfikat obrazu maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) , aby zarządzać migrowanymi ofertami.
 
-W tym artykule wyjaśniono, jak aprowizować certyfikaty z podpisem własnym wymagane do ustanowienia łączności usługi WinRM (Windows Remote Management) z maszyną wirtualną hostowanego przez platformę Azure(VM). Proces ten składa się z trzech etapów:
+W tym artykule opisano sposób aprowizacji certyfikatów z podpisem własnym, które są wymagane do nawiązania połączenia z usługą Windows Remote Management (WinRM) z maszyną wirtualną (VM) hostowaną na platformie Azure. Proces ten składa się z trzech kroków:
 
 1.    Utwórz certyfikat zabezpieczeń. 
-2.    Utwórz usługę Azure Key Vault do przechowywania tego certyfikatu. 
-3.    Przechowuj certyfikaty w tym magazynie kluczy. 
+2.    Utwórz Azure Key Vault do zapisania tego certyfikatu. 
+3.    Zapisz certyfikaty w tym magazynie kluczy. 
 
-Można użyć nowej lub istniejącej grupy zasobów platformy Azure dla tej pracy.  Pierwsze podejście jest używane w poniższym wyjaśnieniu.
+Do tej pracy można użyć nowej lub istniejącej grupy zasobów platformy Azure.  Poprzednie podejście jest używane w poniższym wyjaśnieniu.
 
 
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="create-the-certificate"></a>Tworzenie certyfikatu
+## <a name="create-the-certificate"></a>Utwórz certyfikat
 
-Edytuj i uruchom następujący skrypt programu Azure Powershell, aby utworzyć plik certyfikatu (pfx) w folderze lokalnym.  Należy zastąpić wartości dla następujących parametrów:
+Edytuj i uruchom poniższy skrypt programu Azure PowerShell, aby utworzyć plik certyfikatu (pfx) w folderze lokalnym.  Należy zastąpić wartości następujących parametrów:
 
-|  **Parametr**        |   **Opis**                                                               |
+|  **Konstruktora**        |   **Opis**                                                               |
 |  -------------        |   ---------------                                                               |
-| `$certroopath` | Folder lokalny do zapisywania pliku .pfx w  |
-| `$location`    | Jedna ze standardowych lokalizacji geograficznych platformy Azure  |
+| `$certroopath` | Folder lokalny, w którym ma zostać zapisany plik PFX  |
+| `$location`    | Jedna z lokalizacji geograficznych platformy Azure w warstwie Standardowa  |
 | `$vmName`      | Nazwa planowanej maszyny wirtualnej platformy Azure   |
-| `$certname`    | Nazwa certyfikatu; musi być zgodna z w pełni kwalifikowaną nazwą domeny planowanej maszyny Wirtualnej  |
-| `$certpassword` | Hasło certyfikatów musi być zgodne z hasłem używanym dla planowanej maszyny Wirtualnej  |
+| `$certname`    | Nazwa certyfikatu; musi być zgodna z w pełni kwalifikowaną nazwą domeny planowanej maszyny wirtualnej  |
+| `$certpassword` | Hasło dla certyfikatów musi być zgodne z hasłem używanym dla planowanej maszyny wirtualnej  |
 |  |  |
 
 ```powershell
@@ -71,22 +71,22 @@ Edytuj i uruchom następujący skrypt programu Azure Powershell, aby utworzyć p
 
 ```
 > [!TIP]
-> Podczas tych czynności zachowaj aktywną tę samą sesję konsoli programu PowerShell, aby zachować wartości różnych parametrów.
+> Po wykonaniu tych kroków należy zachować tę samą sesję konsoli programu PowerShell, dzięki czemu wartości różnych parametrów zostaną zachowane.
 
 > [!WARNING]
-> Jeśli zapiszesz ten skrypt, przechowuj go tylko w bezpiecznej lokalizacji, ponieważ zawiera informacje zabezpieczające (hasło).
+> Zapisz ten skrypt tylko w bezpiecznej lokalizacji, ponieważ zawiera on informacje o zabezpieczeniach (hasło).
 
 
 ## <a name="create-the-key-vault"></a>Tworzenie magazynu kluczy
 
-Skopiuj zawartość [szablonu wdrażania magazynu kluczy](./cpp-key-vault-deploy-template.md) do pliku na komputerze lokalnym. (w poniższym przykładowym skrypcie ten zasób to `C:\certLocation\keyvault.json`.)  Edytuj i uruchom następujący skrypt programu Azure Powershell, aby utworzyć wystąpienie usługi Azure Key Vault i skojarzoną grupę zasobów.  Należy zastąpić wartości dla następujących parametrów:
+Skopiuj zawartość [szablonu wdrożenia magazynu kluczy](./cpp-key-vault-deploy-template.md) do pliku na komputerze lokalnym. (w przykładowym skrypcie poniżej znajduje się `C:\certLocation\keyvault.json`ten zasób).  Edytuj i uruchom poniższy skrypt programu Azure PowerShell, aby utworzyć wystąpienie Azure Key Vault i skojarzoną grupę zasobów.  Należy zastąpić wartości następujących parametrów:
 
-|  **Parametr**        |   **Opis**                                                               |
+|  **Konstruktora**        |   **Opis**                                                               |
 |  -------------        |   ---------------                                                               |
-| `$postfix`            | Dowolny ciąg numeryczny dołączony do identyfikatorów wdrażania                     |
+| `$postfix`            | Dowolny ciąg liczbowy dołączony do identyfikatorów wdrożenia                     |
 | `$rgName`             | Nazwa grupy zasobów platformy Azure (RG) do utworzenia                                        |
-|  `$location`          | Jedna ze standardowych lokalizacji geograficznych platformy Azure                                  |
-| `$kvTemplateJson`     | Ścieżka pliku (keyvault.json) zawierająca szablon Menedżera zasobów dla magazynu kluczy |
+|  `$location`          | Jedna z lokalizacji geograficznych platformy Azure w warstwie Standardowa                                  |
+| `$kvTemplateJson`     | Ścieżka pliku (. JSON) zawierającego szablon Menedżer zasobów dla magazynu kluczy |
 | `$kvname`             | Nazwa nowego magazynu kluczy                                                       |
 |  |  |
 
@@ -188,7 +188,7 @@ Skopiuj zawartość [szablonu wdrażania magazynu kluczy](./cpp-key-vault-deploy
 
 ## <a name="store-the-certificate"></a>Przechowywanie certyfikatu
 
-Teraz można przechowywać certyfikaty zawarte w pliku pfx w nowym magazynie kluczy, uruchamiając następujący skrypt. 
+Teraz można przechowywać certyfikaty znajdujące się w pliku PFX do nowego magazynu kluczy, uruchamiając następujący skrypt. 
 
 ```powershell
     #push certificate to key vault secret
@@ -217,4 +217,4 @@ Teraz można przechowywać certyfikaty zawarte w pliku pfx w nowym magazynie klu
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnie wdrożysz [maszynę wirtualną z obrazu maszyny Wirtualnej użytkownika](./cpp-deploy-vm-user-image.md).
+Następnie zostanie [wdrożona maszyna wirtualna z obrazu maszyny wirtualnej użytkownika](./cpp-deploy-vm-user-image.md).

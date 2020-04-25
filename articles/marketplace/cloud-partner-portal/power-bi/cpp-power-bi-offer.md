@@ -1,54 +1,54 @@
 ---
-title: Oferta aplikacji Power BI | Azure Marketplace
-description: Jak opublikować aplikację usługi Power BI w witrynie Microsoft AppSource marketplace.
+title: Oferta aplikacji Power BI | Portal Azure Marketplace
+description: Jak opublikować aplikację Power BI w witrynie Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: dc433fb2ee7888a20af16e01d76d4678cf12b01b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 1745868085a4ca573e2d6b5f78bea5f18b9e23c2
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985579"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147717"
 ---
 # <a name="power-bi-app-offer"></a>Oferta aplikacji Power BI
 
 >[!Important]
->Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami aplikacji Usługi Power BI do Centrum partnerów. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami zawartymi w [omówienie tworzenia aplikacji usługi Power BI,](https://aka.ms/AzurePBIAppCreationOverview) aby zarządzać zmigrowanymi ofertami.
+>Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami Power BI aplikacji do Centrum partnerskiego. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Power BI — omówienie tworzenia aplikacji](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) , aby zarządzać migrowanymi ofertami.
 
 |              |                                |
 |--------------|--------------------------------|
-| W tym artykule wyjaśniono, jak opublikować aplikację usługi Power BI w portalu Microsoft [AppSource](https://appsource.microsoft.com/)marketplace .  Aplikacja Power BI pakuje konfigurowalną zawartość usługi Power BI, w tym zestawy danych, raporty i pulpity nawigacyjne. Następnie można wdrożyć aplikację do innych dzierżawy usługi Power BI za pośrednictwem usługi AppSource, wykonać dostosowania i dostosowania dozwolone przez dewelopera i połączyć ją z własnymi danymi. | ![Ikona usługi Power BI](./media/powerbi-icon.png) |
+| W tym artykule opisano sposób publikowania aplikacji Power BI w witrynie Microsoft [AppSource Marketplace](https://appsource.microsoft.com/).  Power BI pakiety aplikacji dostosowywalne Power BI zawartości, w tym zestawy danych, raporty i pulpity nawigacyjne. Następnie można wdrożyć aplikację w innych Power BI dzierżawców za pośrednictwem AppSource, przeprowadzić korekty i dostosowania dozwolone przez dewelopera i połączyć je z własnymi danymi. | ![Ikona usługi Power BI](./media/powerbi-icon.png) |
 
 
 Ten artykuł jest podzielony na trzy główne części:
 
--   [Wymagania wstępne](./cpp-prerequisites.md). Wymagania techniczne i biznesowe dotyczące tworzenia i publikowania oferty aplikacji usługi Power BI.
--   [Tworzenie oferty aplikacji usługi Power BI](./cpp-create-offer.md). Jak utworzyć wpis oferty aplikacji Power BI za pomocą [portalu Cloud Partner Portal](https://cloudpartner.azure.com).
--   [Publikowanie oferty aplikacji Usługi Power BI](./cpp-publish-offer.md). Jak przesłać nową ofertę do usługi AppSource w celu opublikowania i jak zaktualizować istniejącą ofertę.
+-   [Wymagania wstępne](./cpp-prerequisites.md). Wymagania techniczne i biznesowe dotyczące tworzenia i publikowania oferty aplikacji Power BI.
+-   [Utwórz ofertę aplikacji Power BI](./cpp-create-offer.md). Jak utworzyć wpis oferty aplikacji Power BI przy użyciu [Portal Cloud partner](https://cloudpartner.azure.com).
+-   [Opublikuj ofertę aplikacji Power BI](./cpp-publish-offer.md). Jak przesłać nową ofertę do AppSource na potrzeby publikowania oraz jak zaktualizować istniejącą ofertę.
 
 
 ## <a name="publishing-steps"></a>Kroki publikowania
 
-Oto kroki wysokiego poziomu publikowania oferty aplikacji Usługi Power BI:
+Poniżej przedstawiono ogólne kroki publikowania oferty aplikacji Power BI:
 
-![Instrukcje publikowania aplikacji Power BI App](media/publishing-steps.png)
+![Kroki publikowania Power BI aplikacji](media/publishing-steps.png)
 
-Oto proces publikowania oferty aplikacji Power BI App:
+Oto proces publikowania oferty aplikacji Power BI:
 
-1. Tworzenie aplikacji szablonu w usłudze Power BI. Ta akcja generuje adres URL instalacji pakietu, który reprezentuje podstawowy zasób techniczny oferty. Również w tym czasie, promować pakiet testowy do pre-produkcji. Aby uzyskać więcej informacji, zobacz [Co to są aplikacje szablonów usługi Power BI?](https://docs.microsoft.com/power-bi/service-template-apps-overview). 
-2. Zbieraj lub twórz materiały marketingowe oferty, w tym: oficjalną nazwę, opis, logo itp. 
-3. Zbierz lub utwórz dokumenty prawne i supportowe oferty: *warunki użytkowania,* *polityka prywatności,* *polityka wsparcia,* pomoc użytkownika itp.
-4. Utwórz ofertę: skorzystaj z portalu Cloud Partner Portal, aby skonfigurować szczegóły oferty, w tym opis oferty, materiały marketingowe, informacje prawne, informacje o pomocy technicznej i specyfikacje zasobów.  Po pełnym określeniu oferty prześlij ją do publikacji.
-5. Monitorowanie procesu publikowania w portalu cloud partner.  Podczas tego kroku zespół dołączania appsource testuje, sprawdza poprawność i certyfikuje aplikację. 
-6. Po pomyślnym certyfikowaniu aplikacji przejrzyj ją w swoim środowisku testowym i zwolnij. 
-7. Aplikacja Power BI jest wyświetlana w usłudze AppSource (jest ona dostępna").
-8. W usłudze Power BI promuj pakiet przedprodukcyjny do produkcji. Aby uzyskać więcej informacji, zobacz [Zarządzanie wydaniem aplikacji szablonu](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release).
+1. Utwórz aplikację szablonu w Power BI. Ta akcja generuje adres URL instalacji pakietu, który reprezentuje podstawowy zasób techniczny oferty. Ponadto w tym czasie Podnieś poziom pakietu testowego do przedprodukcyjnego. Aby uzyskać więcej informacji, zobacz [co to są Power BI aplikacje szablonów?](https://docs.microsoft.com/power-bi/service-template-apps-overview). 
+2. Zbieranie lub tworzenie materiałów marketingowych oferty, w tym: Oficjalna nazwa, opis, logo itp. 
+3. Zbieraj i twórz dokumenty prawne i pomoc techniczna oferty: *warunki użytkowania*, *Zasady ochrony prywatności*, *zasady pomocy technicznej*, pomoc użytkownika itd.
+4. Utwórz ofertę: Użyj portal Cloud Partner, aby skonfigurować szczegóły oferty, łącznie z opisem oferty, materiałami marketingowymi, informacjami prawnymi, informacjami o pomocy technicznej i specyfikacjami zasobów.  Po całkowitym określeniu oferty Prześlij ją do publikacji.
+5. Monitoruj proces publikowania w portal Cloud Partner.  W tym kroku zespół przechodzenia do AppSource, sprawdza poprawność i poświadcza swoją aplikację. 
+6. Po pomyślnym zacertyfikowaniu aplikacji Przejrzyj ją w środowisku testowym i zwolnij ją. 
+7. Aplikacja Power BI zostanie wyświetlona na liście w AppSource ("trafia na żywo").
+8. W Power BI Podnieś poziom pakietu przedprodukcyjnego do środowiska produkcyjnego. Aby uzyskać więcej informacji, zobacz [Zarządzanie wersjami szablonu aplikacji](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przed utworzeniem oferty aplikacji Usługi Power BI i opublikowaniem jej w usłudze AppSource należy spełnić [wymagania dotyczące](./cpp-prerequisites.md) publikowania aplikacji usługi Power BI w usłudze AppSource.
+Przed utworzeniem oferty aplikacji Power BI i opublikowaniem jej w usłudze AppSource należy spełnić [wymagania](./cpp-prerequisites.md) dotyczące publikowania aplikacji Power BI w usłudze AppSource.

@@ -1,109 +1,109 @@
 ---
-title: Często zadawane pytania dotyczące migracji serwera do migracji platformy Azure
-description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące migracji komputerów do migracji komputerów przy użyciu usługi Azure Migrate Server.
+title: Migracja serwera Azure Migrate — często zadawane pytania
+description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące korzystania z migracji Azure Migrate serwera w celu migrowania maszyn.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: bf33c276c721f3be16d75b964c2b223e90c2a560
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8d4d83791366e153f0fa8b81ae120ca3fd33be2d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529806"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146049"
 ---
-# <a name="azure-migrate-server-migration-common-questions"></a>Migracja serwera migracji platformy Azure: typowe pytania
+# <a name="azure-migrate-server-migration-common-questions"></a>Migracja serwera Azure Migrate: typowe pytania
 
-Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące narzędzia Migracji platformy Azure: Migracja serwera. Jeśli masz inne pytania, sprawdź następujące zasoby:
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące Azure Migrate: serwerowego narzędzia migracji. Jeśli masz inne pytania, zapoznaj się z następującymi zasobami:
 
-- [Ogólne pytania](resources-faq.md) dotyczące migracji platformy Azure
-- Pytania dotyczące [urządzenia migracji platformy Azure](common-questions-appliance.md)
-- Pytania dotyczące [wizualizacji odnajdowania, oceny i zależności](common-questions-discovery-assessment.md)
-- Odpowiedzi na pytania na [forum migracji platformy Azure](https://aka.ms/AzureMigrateForum)
+- [Ogólne pytania](resources-faq.md) dotyczące Azure Migrate
+- Pytania dotyczące [urządzenia Azure Migrate](common-questions-appliance.md)
+- Pytania dotyczące [odnajdywania, oceny i wizualizacji zależności](common-questions-discovery-assessment.md)
+- Uzyskaj odpowiedzi na pytania na [forum Azure Migrate](https://aka.ms/AzureMigrateForum)
 
-## <a name="what-geographies-are-supported-for-migration-with-azure-migrate"></a>Jakie lokalizacje geograficzne są obsługiwane w przypadku migracji za pomocą usługi Azure Migrate?
+## <a name="what-geographies-are-supported-for-migration-with-azure-migrate"></a>Jakie lokalizacje geograficzne są obsługiwane w przypadku migracji z Azure Migrate?
 
-Przejrzyj obsługiwane obszary geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
+Zapoznaj się z obsługiwaną lokalizacje geograficzneą dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## <a name="how-does-agentless-vmware-replication-work"></a>Jak działa replikacja VMware bez agenta?
 
-Metoda replikacji bez agenta dla VMware używa migawek VMware i śledzenia bloków zmienionych przez VMware (CBT).
+Metoda replikacji bez agenta dla oprogramowania VMware używa migawek VMware i śledzenia bloków zmienionych przez program VMware (CBT).
 
 Oto proces:
 
-1. Po uruchomieniu replikacji zaplanowano początkowy cykl replikacji. W początkowym cyklu jest pobierana migawka maszyny Wirtualnej. Migawka służy do replikowania VMDKs maszyn wirtualnych (dysków). 
-2. Po zakończeniu początkowego cyklu replikacji cykle replikacji różnicowej są okresowo planowane.
-    - Podczas replikacji różnicowej jest pobierana migawka i replikowane są bloki danych, które uległy zmianie od poprzedniego cyklu replikacji.
-    - VMware CBT służy do określania bloków, które uległy zmianie od ostatniego cyklu.
-    - Częstotliwość okresowych cykli replikacji jest automatycznie zarządzana przez usługę Azure Migrate i zależy od liczby innych maszyn wirtualnych i dysków, które są jednocześnie replikowane z tego samego magazynu danych. W idealnych warunkach replikacja ostatecznie zbiega się do jednego cyklu na godzinę dla każdej maszyny Wirtualnej.
+1. Po uruchomieniu replikacji jest zaplanowana początkowa cykl replikacji. W cyklu początkowym tworzona jest migawka maszyny wirtualnej. Migawka służy do replikowania maszyn wirtualnych VMDK (disks). 
+2. Po zakończeniu cyklu replikacji początkowej cykle replikacji różnicowej są planowane okresowo.
+    - Podczas replikacji różnicowej jest wykonywana migawka, a bloki danych, które uległy zmianie od czasu ostatniego cyklu replikacji, są replikowane.
+    - Program VMware CBT służy do określania bloków, które uległy zmianie od ostatniego cyklu.
+    - Częstotliwość okresowych cykli replikacji jest automatycznie zarządzana przez Azure Migrate i zależy od tego, jak wiele innych maszyn wirtualnych i dysków jest jednocześnie replikowana z tego samego magazynu danych. W idealnych warunkach replikacja ostatecznie wywoła jeden cykl na godzinę dla każdej maszyny wirtualnej.
 
-Podczas migracji zaplanowano cykl replikacji na żądanie, aby urządzenie przechwyciło wszystkie pozostałe dane. Aby zapewnić zerową utratę danych i spójność aplikacji, można zamknąć komputer podczas migracji.
+Podczas migracji w celu przechwycenia wszystkich pozostałych danych na komputerze zaplanowano cykl replikacji na żądanie. Aby zapewnić zero utraty danych i spójność aplikacji, można wyłączyć maszynę podczas migracji.
 
-## <a name="why-isnt-resynchronization-exposed"></a>Dlaczego ponowna synchronizacja nie jest narażona?
+## <a name="why-isnt-resynchronization-exposed"></a>Dlaczego nie jest dostępna ponowna synchronizacja?
 
-Podczas migracji bez agenta w każdym cyklu delta jest zapisywana różnica między bieżącą migawką a poprzednio zrobiona migawka. Zawsze jest to różnica między migawkami, składaniem danych. Jeśli określony sektor jest zapisywany *N* razy między migawkami, tylko ostatni zapis musi zostać przeniesiony, ponieważ jesteśmy zainteresowani tylko w ostatniej synchronizacji. Proces różni się od replikacji opartej na agentach, podczas której śledzimy i stosujemy każdy zapis. W tym procesie każdy cykl delta jest ponowna synchronizacja. Tak, nie opcji ponownej synchronizyzacji narażone. Jeśli dyski kiedykolwiek nie są synchronizowane z powodu awarii, jest ustalona w następnym cyklu. 
+Podczas migracji bez wykorzystania agentów w każdym cyklu różnicowym jest zapisywana różnica między bieżącą migawką a wcześniej zrobioną migawką. Zawsze jest to różnica między migawkami, składania danych w programie. Jeśli określony sektor jest zapisywana *N* razy między migawkami, tylko ostatni zapis musi być transferowany, ponieważ interesuje tylko ostatnią synchronizację. Proces różni się od replikacji opartej na agentach, podczas którego śledzimy i stosujemy każdy zapis. W tym procesie każdy cykl różnicowy jest ponowną synchronizacją. Tak więc nie jest dostępna opcja ponownej synchronizacji. Jeśli dyski kiedykolwiek nie są zsynchronizowane ze względu na awarię, zostanie ona rozwiązana w następnym cyklu. 
 
 ## <a name="how-does-churn-rate-affect-agentless-replication"></a>Jak współczynnik zmian wpływa na replikację bezagentową?
 
-Ponieważ replikacja bez agenta składa się w danych, *wzorzec zmian* jest ważniejszy niż *współczynnik zmian*. Gdy plik jest zapisywany wielokrotnie, stawka nie ma większego wpływu. Jednak wzorzec, w którym co drugi sektor jest zapisywany powoduje wysoki współczynnik zmian w następnym cyklu. Ponieważ minimalizujemy ilość przesyłanych danych, zezwalamy na składanie danych w jak największej ilości danych, zanim zaplanujemy następny cykl.  
+Ponieważ replikacja bez agentów jest składana w danych, *wzorzec* zmian jest ważniejszy niż *współczynnik*zmian. Gdy plik zostanie ponownie zapisany i ponownie, szybkość nie ma znacznie wpływu. Jednak wzorzec, w którym każdy inny sektor jest zapisywana, powoduje duże zmiany w następnym cyklu. Ze względu na to, że minimalizujemy ilość przesyłanych danych, będziemy mogli złożyć dane tak dużo, jak to możliwe, przed zaplanowaniem następnego cyklu.  
 
-## <a name="how-frequently-is-a-replication-cycle-scheduled"></a>Jak często jest zaplanowany cykl replikacji?
+## <a name="how-frequently-is-a-replication-cycle-scheduled"></a>Jak często zaplanowano cykl replikacji?
 
-Formuła do zaplanowania następnego cyklu replikacji to (poprzedni czas cyklu / 2) lub jedna godzina, w zależności od tego, która z tych wartości jest wyższa.
+Formuła do zaplanowania następnego cyklu replikacji to (czas poprzedniego cyklu/2) lub jedna godzina, w zależności od tego, co jest wyższe.
 
-Na przykład jeśli maszyna wirtualna trwa cztery godziny dla cyklu delta, następny cykl jest zaplanowane w ciągu dwóch godzin, a nie w następnej godzinie. Proces jest różny natychmiast po replikacji początkowej, gdy pierwszy cykl delta jest zaplanowane natychmiast.
+Na przykład jeśli maszyna wirtualna zajmuje cztery godziny cyklu różnicowego, kolejny cykl jest zaplanowany w ciągu dwóch godzin, a nie w ciągu następnej godziny. Proces jest inny od razu po replikacji początkowej, gdy pierwszy cykl różnicowy jest zaplanowany natychmiast.
 
-## <a name="how-does-agentless-replication-affect-vmware-servers"></a>Jak replikacja bez agenta wpływa na serwery VMware?
+## <a name="how-does-agentless-replication-affect-vmware-servers"></a>W jaki sposób replikacja bez agentów ma wpływ na serwery VMware?
 
-Replikacja bez agenta powoduje pewien wpływ na wydajność hostów VMware vCenter Server i VMware ESXi. Ponieważ replikacja bez agenta używa migawek, zużywa we/wy we/wy na magazynie, więc wymagana jest przepustowość magazynu we/wy. Nie zaleca się używania replikacji bez agenta, jeśli masz ograniczenia dotyczące magazynu lub we/wy w swoim środowisku.
+Replikacja bez wykorzystania agentów powoduje pewien wpływ na wydajność na hostach VMware vCenter Server i VMware ESXi. Ponieważ replikacja bezagentowa używa migawek, zużywa ona operacje we/wy na sekundę, więc wymagana jest pewna przepustowość magazynu IOPS. Nie zalecamy korzystania z replikacji bez wykorzystania agentów, jeśli istnieją ograniczenia dotyczące magazynu lub operacji we/wy na sekundę w danym środowisku.
 
-## <a name="can-i-do-agentless-migration-of-uefi-vms-to-azure-gen-2"></a>Czy mogę wykonywać bezagentową migrację maszyn wirtualnych UEFI do platformy Azure Gen 2?
+## <a name="can-i-do-agentless-migration-of-uefi-vms-to-azure-gen-2"></a>Czy można przeprowadzić migrację maszyn wirtualnych UEFI do usługi Azure Gen 2 bez wykorzystania agentów?
 
-Nie. Użyj usługi Azure Site Recovery, aby migrować te maszyny wirtualne do maszyn wirtualnych platformy 2 platformy Azure. 
+Nie. Użyj Azure Site Recovery do migrowania tych maszyn wirtualnych do maszyn wirtualnych platformy Azure w generacji 2. 
 
-## <a name="can-i-pin-vms-to-azure-availability-zones-when-i-migrate"></a>Czy mogę przypiąć maszyny wirtualne do stref dostępności platformy Azure podczas migracji?
+## <a name="can-i-pin-vms-to-azure-availability-zones-when-i-migrate"></a>Czy mogę przypiąć maszyny wirtualne do Strefy dostępności platformy Azure podczas migracji?
 
-Nie. Strefy dostępności platformy Azure nie są obsługiwane w przypadku migracji migracji platformy Azure.
+Nie. Strefy dostępności platformy Azure nie są obsługiwane w przypadku migracji Azure Migrate.
 
-## <a name="what-transport-protocol-does-azure-migrate-use-during-replication"></a>Jakiego protokołu transportu używa usługa Azure Migrate podczas replikacji?
+## <a name="what-transport-protocol-does-azure-migrate-use-during-replication"></a>Jakiego protokołu transportowego Azure Migrate używać podczas replikacji?
 
-Usługa Azure Migrate używa protokołu NBD (Network Block Device) z szyfrowaniem SSL.
+Azure Migrate używa protokołu urządzenia bloku sieciowego (w przypadku szyfrowania TLS).
 
-## <a name="what-is-the-minimum-vcenter-server-version-required-for-migration"></a>Jaka jest minimalna wersja serwera vCenter Server wymagana do migracji?
+## <a name="what-is-the-minimum-vcenter-server-version-required-for-migration"></a>Co to jest minimalna wersja vCenter Server wymagana do migracji?
 
-Musisz mieć co najmniej vCenter Server 5.5 i vSphere ESXi hosta w wersji 5.5.
+Musisz mieć co najmniej vCenter Server 5,5 i vSphere ESXi w wersji 5,5.
 
-## <a name="can-customers-migrate-their-vms-to-unmanaged-disks"></a>Czy klienci mogą migrować swoje maszyny wirtualne na dyski niezarządzane?
+## <a name="can-customers-migrate-their-vms-to-unmanaged-disks"></a>Czy klienci mogą migrować maszyny wirtualne do dysków niezarządzanych?
 
-Nie. Usługa Azure Migrate obsługuje migrację tylko do dysków zarządzanych (standardowy dysk twardy, dysk SSD w wersji Premium).
+Nie. Azure Migrate obsługuje migrację tylko do dysków zarządzanych (HDD w warstwie Standardowa, SSD w warstwie Premium).
 
-## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Ile maszyn wirtualnych można replikować jednocześnie przy użyciu migracji bez agenta?
+## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Ile maszyn wirtualnych można replikować jednocześnie za pomocą migracji bez wykorzystania agentów?
 
-Obecnie można jednocześnie migrować 100 maszyn wirtualnych na wystąpienie serwera vCenter Server. Migrowanie w partiach 10 maszyn wirtualnych.
+Obecnie można migrować maszyny wirtualne 100 na wystąpienie vCenter Server jednocześnie. Migrowanie w partiach 10 maszyn wirtualnych.
 
-## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Jak ograniczyć replikację przy użyciu urządzenia migracji platformy Azure do replikacji VMware bez agenta?  
+## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Jak mogęnie przepustowości w przypadku używania urządzenia Azure Migrate do replikacji VMware bez agentów?  
 
-Można przepustnicy za pomocą NetQosPolicy. Przykład:
+Można ograniczyć użycie NetQosPolicy. Przykład:
 
-AppNamePrefix do użycia w NetQosPolicy jest "GatewayWindowsService.exe". Można utworzyć zasady na urządzeniu migracji platformy Azure do ograniczania ruchu replikacji z urządzenia, tworząc zasady, takie jak ta:
+AppNamePrefix do użycia w NetQosPolicy to "GatewayWindowsService. exe". Można utworzyć zasady na urządzeniu Azure Migrate, aby ograniczyć ruch związany z replikacją z urządzenia przez utworzenie zasad, takich jak:
  
-New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
+New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService. exe"-ThrottleRateActionBitsPerSecond 1 MB
 
-## <a name="when-do-i-migrate-machines-as-physical-servers"></a>Kiedy mogę migrować maszyny jako serwery fizyczne?
+## <a name="when-do-i-migrate-machines-as-physical-servers"></a>Kiedy należy migrować maszyny jako serwery fizyczne?
 
 Migrowanie maszyn przez traktowanie ich jako serwerów fizycznych jest przydatne w wielu scenariuszach:
 
-- Podczas migracji lokalnych serwerów fizycznych.
-- Jeśli migrujesz maszyny wirtualne zwirtualizowane przez platformy takie jak Xen, KVM.
-- Aby przeprowadzić migrację maszyn wirtualnych funkcji Hyper-V lub VMware, jeśli z jakiegoś powodu nie można użyć standardowego procesu migracji dla migracji [funkcji Hyper-V](tutorial-migrate-hyper-v.md)lub [VMware.](server-migrate-overview.md) Na przykład, jeśli nie używasz VMware vCenter i używasz tylko hostów ESXi.
-- Aby przeprowadzić migrację maszyn wirtualnych, które są aktualnie uruchomione w chmurach prywatnych na platformę Azure
+- Podczas migrowania lokalnych serwerów fizycznych.
+- W przypadku migrowania maszyn wirtualnych zwirtualizowanych przez platformy takie jak Xen, KVM.
+- Aby przeprowadzić migrację maszyn wirtualnych funkcji Hyper-V lub oprogramowania VMware, jeśli z jakiegoś powodu nie można użyć standardowego procesu migracji dla [funkcji Hyper-V](tutorial-migrate-hyper-v.md)lub migracji [VMware](server-migrate-overview.md) . Jeśli na przykład nie korzystasz z programu VMware vCenter i są używane tylko hosty ESXi.
+- Aby migrować maszyny wirtualne, które są aktualnie uruchomione w chmurach prywatnych na platformie Azure
 - Jeśli chcesz przeprowadzić migrację maszyn wirtualnych działających w chmurach publicznych, takich jak Amazon Web Services (AWS) lub Google Cloud Platform (GCP), na platformę Azure.
 
-## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>Wdrożyłem dwa (lub więcej) urządzeń, aby odnajdować maszyny wirtualne w moim serwerze vCenter. Jednak podczas próby migracji maszyn wirtualnych, widzę tylko maszyny wirtualne odpowiadające jednemu z urządzeń.
+## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>Wdrożono co najmniej dwa urządzenia do odnajdywania maszyn wirtualnych w vCenter Server. Jednak podczas próby migrowania maszyn wirtualnych są wyświetlane tylko maszyny wirtualne odpowiadające jednemu urządzeniu.
 
-Chociaż może to być dobry przypadek użycia, obecnie nie obsługujemy go. Wdrażanie dwóch (lub więcej) urządzeń w celu odnajdywania tego samego zestawu maszyn wirtualnych powoduje problem z usługą, w którym własność maszyny Wirtualnej utrzymuje przełączanie między dwoma urządzeniami. Jest to powód, dla którego widzisz maszyny wirtualne pojawiające się i znikające. W takich przypadkach, aby rozwiązać ten problem, należy usunąć jedno urządzenie i wykonać twarde odświeżenie.
+Chociaż może to być dobry przypadek użycia, obecnie nie jest to obsługiwane. Wdrożenie dwóch (lub więcej) urządzeń w celu odnalezienia tego samego zestawu maszyn wirtualnych powoduje problem z usługą, w którym własność maszyny wirtualnej utrzymuje przełączanie między dwoma urządzeniami. Jest to powód wyświetlania maszyn wirtualnych, które pojawiają się i znikają. W takich przypadkach aby rozwiązać ten problem, należy usunąć jedno urządzenie i przeprowadzić stałe odświeżanie.
 
-## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Czy do migracji maszyn wirtualnych VMware potrzebny jest vMware vCenter?
-Aby [przeprowadzić migrację maszyn wirtualnych VMware](server-migrate-overview.md) przy użyciu migracji opartej na agentach VMware lub bez agenta, hosty ESXi, na których znajdują się maszyny wirtualne, muszą być zarządzane przez serwer vCenter Server. Jeśli nie masz serwera vCenter, możesz migrować maszyny wirtualne VMware, migrując je jako serwery fizyczne. [Dowiedz się więcej](migrate-support-matrix-physical-migration.md).
+## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Czy do migrowania maszyn wirtualnych VMware jest potrzebny program VMware vCenter?
+Aby [przeprowadzić migrację maszyn wirtualnych VMware](server-migrate-overview.md) przy użyciu migracji opartej na agencie VMware lub bez agentów, hosty ESXi, na których znajdują się maszyny wirtualne, muszą być zarządzane przez vCenter Server. Jeśli nie masz vCenter Server, możesz migrować maszyny wirtualne VMware przez migrowanie ich jako serwerów fizycznych. [Dowiedz się więcej](migrate-support-matrix-physical-migration.md).
  
 ## <a name="next-steps"></a>Następne kroki
 
-Przeczytaj [omówienie migracji platformy Azure](migrate-services-overview.md).
+Zapoznaj się z [omówieniem Azure Migrate](migrate-services-overview.md).

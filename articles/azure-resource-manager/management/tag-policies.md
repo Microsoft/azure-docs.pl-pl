@@ -1,24 +1,24 @@
 ---
-title: Zasady oznaczania zasobów
-description: W tym artykule opisano zasady platformy Azure, które można przypisać, aby zapewnić zgodność tagów.
+title: Zasady tagowania zasobów
+description: Opisuje zasady platformy Azure, które można przypisać w celu zapewnienia zgodności tagów.
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e7febe4c833cefd0ee9a5c49b4b70f4901fea8d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eeb28ea23b18c3492f68d2fac294fc014420c5
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80147020"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147864"
 ---
-# <a name="assign-policies-for-tag-compliance"></a>Przypisywanie zasad w celu zapewnienia zgodności z tagami
+# <a name="assign-policies-for-tag-compliance"></a>Przypisywanie zasad zgodności tagów
 
-Zasady [platformy Azure](../../governance/policy/overview.md) są używane do wymuszania reguł i konwencji tagowania. Tworząc zasady, można uniknąć scenariusza zasobów wdrażanych w ramach subskrypcji, które nie mają oczekiwanych tagów dla twojej organizacji. Zamiast ręcznie stosować tagi lub wyszukiwać zasoby, które nie są zgodne, należy utworzyć zasadę, która automatycznie stosuje potrzebne tagi podczas wdrażania. Znaczniki można teraz również stosować do istniejących zasobów za pomocą nowego efektu [modyfikowania](../../governance/policy/concepts/effects.md#modify) i [zadania korygowania](../../governance/policy/how-to/remediate-resources.md). W poniższej sekcji przedstawiono przykładowe zasady tagów.
+Użyj [Azure Policy](../../governance/policy/overview.md) , aby wymusić reguły tagowania i konwencje. Utworzenie zasad pozwala uniknąć scenariusza wdrażania zasobów w ramach subskrypcji, które nie mają oczekiwanych tagów w organizacji. Zamiast ręcznie stosować Tagi lub wyszukiwać zasoby, które nie są zgodne, należy utworzyć zasady, które automatycznie stosują potrzebne Tagi podczas wdrażania. Tagi mogą być również stosowane do istniejących zasobów przy użyciu nowego efektu [Modyfikuj](../../governance/policy/concepts/effects.md#modify) i [zadania korygowania](../../governance/policy/how-to/remediate-resources.md). W poniższej sekcji przedstawiono przykładowe zasady dla tagów.
 
 ## <a name="policies"></a>Zasady
 
-[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-policies-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/policy/samples/bycat/policies-tags.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o oznaczaniu zasobów, zobacz [Organizowanie zasobów platformy Azure za pomocą tagów.](tag-resources.md)
-* Nie wszystkie typy zasobów obsługują tagi. Aby ustalić, czy można zastosować znacznik do typu zasobu, zobacz [Obsługa tagów dla zasobów platformy Azure](tag-support.md).
+* Aby dowiedzieć się więcej o znakowaniu zasobów, zobacz [Używanie tagów do organizowania zasobów platformy Azure](tag-resources.md).
+* Nie wszystkie typy zasobów obsługują Tagi. Aby określić, czy można zastosować tag do typu zasobu, zobacz [obsługa tagów dla zasobów platformy Azure](tag-support.md).

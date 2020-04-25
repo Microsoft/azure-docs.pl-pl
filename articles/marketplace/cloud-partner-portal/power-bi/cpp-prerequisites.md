@@ -1,47 +1,47 @@
 ---
-title: Wymagania wstępne oferty aplikacji Power BI | Azure Marketplace
-description: Zawiera wymagania wstępne dotyczące publikowania aplikacji usługi Power BI w usłudze AppSource.
+title: Wymagania wstępne oferty aplikacji Power BI | Portal Azure Marketplace
+description: Zapewnia wymagania wstępne dotyczące publikowania aplikacji Power BI w programie AppSource.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ac27a2c95789eac3e824e4ecb31138a6720868a6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f68d8cfb4a221d1f7ec5123f532e7b0bf420b123
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981651"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147684"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Wymagania wstępne oferty aplikacji usługi Power BI
 
 >[!Important]
->Od 13 kwietnia 2020 r. zaczniemy przenosić zarządzanie ofertami aplikacji Power BI do Centrum partnerów. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami zawartymi w [omówienie tworzenia aplikacji usługi Power BI,](https://aka.ms/AzurePBIAppCreationOverview) aby zarządzać zmigrowanymi ofertami.
+>Od kwietnia 13 2020 rozpocznie się zarządzanie ofertami Power BI aplikacji do Centrum partnerskiego. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Power BI — omówienie tworzenia aplikacji](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) , aby zarządzać migrowanymi ofertami.
 
-Ten artykuł zawiera wymagania techniczne i biznesowe, które należy spełnić, zanim będzie można opublikować ofertę aplikacji Usługi Power BI w portalu AppSource marketplace.  Jeśli jeszcze tego nie zrobiłeś, zapoznaj się z [przewodnikiem publikowania ofert office 365, Dynamics 365, PowerApps i Power BI .](../../appsource-offer-publishing-guide.md)
+Ten artykuł zawiera wymagania techniczne i biznesowe, które należy spełnić, aby można było opublikować ofertę aplikacji Power BI w witrynie AppSource Marketplace.  Jeśli jeszcze tego nie zrobiono, zapoznaj się z [przewodnikiem publikowania pakietu Office 365, Dynamics 365, usługi powerapps i Power BI](../../appsource-offer-publishing-guide.md).
 
 
 ## <a name="technical-requirements"></a>Wymagania techniczne
 
-Głównym zasobem technicznym potrzebnym dla tego typu oferty jest [aplikacja Power BI.](https://go.microsoft.com/fwlink/?linkid=2028636) Aby uzyskać więcej informacji, zobacz [Tworzenie zasobów technicznych usługi Power BI](./cpp-create-technical-assets.md).
+Głównym zasobem technicznym potrzebnym dla tego typu oferty jest [aplikacja Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). Aby uzyskać więcej informacji, zobacz [tworzenie Power BI zasobów technicznych](./cpp-create-technical-assets.md).
 
-Po utworzeniu i przetestowaniu aplikacji usługi w usłudze Power BI należy zapisać adres URL instalacji aplikacji generowany przez usługę Power BI. Do [utworzenia oferty aplikacji Usługi Power BI](./cpp-create-offer.md)jest potrzebny.
+Po utworzeniu i przetestowaniu aplikacji usługi w Power BI należy zapisać adres URL instalacji aplikacji generowany przez Power BI. Będzie ona potrzebna do [utworzenia oferty aplikacji Power BI](./cpp-create-offer.md).
 
 ## <a name="business-requirements"></a>Wymagania biznesowe
 
-Wymogi biznesowe obejmują zobowiązania proceduralne, umowne i prawne.  Musisz:
+Wymagania biznesowe obejmują proceduralne, umowne i prawne zobowiązania.  Należy:
 
-- Bądź zarejestrowanym wydawcą portalu w chmurze. Jeśli nie jesteś zarejestrowany, wykonaj czynności opisane w programie [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).
+- Być zarejestrowanym wydawcą portalu Marketplace w chmurze. Jeśli nie jesteś zarejestrowanym, postępuj zgodnie z instrukcjami w sekcji [Zostań the Cloud Marketplace wydawcy](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE] 
-    > Użyj tego samego konta rejestracji Centrum deweloperów firmy Microsoft, aby zalogować się do [portalu cloud partner.](https://cloudpartner.azure.com) Możesz mieć tylko jedno konto Microsoft na potrzeby ofert w witrynie AppSource. Konta nie powinny być przeznaczone dla poszczególnych usług lub ofert.
+    > Użyj tego samego konta rejestracji Centrum deweloperów firmy Microsoft, aby zalogować się do [Portal Cloud partner](https://cloudpartner.azure.com). Możesz mieć tylko jedno konto Microsoft na potrzeby ofert w witrynie AppSource. Konta nie powinny być przeznaczone dla poszczególnych usług lub ofert.
  
 - Klienci muszą mieć dostęp do pomocy technicznej zorganizowanej w sposób rozsądny z komercyjnego punktu widzenia.
-- Podaj zawartość, która spełnia kryteria, aby twoja oferta była wyświetlana w u źródła usług AppSource. Aby uzyskać więcej informacji, zobacz [Czy aplikacja do wyświetlenia w u źródła aplikacji? Oto jak](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
-- Zgodność z [Zasadami zachowania poufności informacji firmy Microsoft](https://privacy.microsoft.com/privacystatement).
+- Podaj zawartość, która spełnia kryteria oferty do wystawienia w witrynie AppSource. Aby uzyskać więcej informacji, zobacz temat [czy aplikacja ma być wyświetlana w witrynie AppSource? Oto jak to zrobić](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
+- Przestrzegaj [zasad zachowania poufności informacji firmy Microsoft](https://privacy.microsoft.com/privacystatement).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po spełnienie wszystkich wymagań możesz przystąpić do [tworzenia oferty aplikacji Usługi Power BI](./cpp-create-offer.md) w portalu Cloud Partner Portal.
+Po spełnieniu wszystkich wymagań możesz [utworzyć ofertę aplikacji Power BI](./cpp-create-offer.md) w Portal Cloud partner.

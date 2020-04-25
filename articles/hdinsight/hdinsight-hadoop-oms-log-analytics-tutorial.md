@@ -1,34 +1,34 @@
 ---
-title: Monitorowanie klastrów usługi Azure HDInsight za pomocą dzienników usługi Azure Monitor
-description: Dowiedz się, jak używać dzienników usługi Azure Monitor do monitorowania zadań uruchomionych w klastrze HDInsight.
+title: Używanie dzienników Azure Monitor do monitorowania klastrów usługi Azure HDInsight
+description: Informacje dotyczące monitorowania zadań uruchomionych w klastrze usługi HDInsight przy użyciu dzienników Azure Monitor.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/06/2020
-ms.openlocfilehash: e4b33e132e660fba7d06ff33c7db06c7727dd26c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: 4007d18291e91ae2a72d7a99dac2cb3a8bc2877a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162790"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143848"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Monitorowanie klastrów usługi HDInsight za pomocą dzienników usługi Azure Monitor
 
-Dowiedz się, jak włączyć dzienniki usługi Azure Monitor do monitorowania operacji klastra Hadoop w programie HDInsight i jak dodać rozwiązanie do monitorowania HDInsight.
+Dowiedz się, jak włączyć dzienniki Azure Monitor, aby monitorować operacje klastra Hadoop w usłudze HDInsight. I jak dodać rozwiązanie do monitorowania usługi HDInsight.
 
-[Dzienniki usługi Azure Monitor](../log-analytics/log-analytics-overview.md) to usługa w usłudze Azure Monitor, która monitoruje środowisko w chmurze i środowiskach lokalnych w celu utrzymania ich dostępności i wydajności. Zbiera ona dane generowane przez zasoby w środowiskach chmurowych i lokalnych oraz inne narzędzia do monitorowania, aby przeprowadzać analizę na podstawie wielu źródeł.
+[Dzienniki Azure monitor](../log-analytics/log-analytics-overview.md) to usługa Azure monitor, która monitoruje środowiska chmurowe i lokalne. Monitorowanie ma na celu zachowanie ich dostępności i wydajności. Zbiera dane generowane przez zasoby w chmurze, w środowiskach lokalnych i innych narzędziach do monitorowania. Dane służą do zapewnienia analiz w wielu źródłach.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Obszar roboczy usługi Log Analytics. Ten obszar roboczy można potraktować jako unikatowe środowisko dzienników usługi Azure Monitor z własnym repozytorium danych, źródłami danych i rozwiązaniami. Aby uzyskać instrukcje, zobacz [Tworzenie obszaru roboczego usługi Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* Obszar roboczy usługi Log Analytics. Ten obszar roboczy można traktować jako unikatowe środowisko dzienników Azure Monitor z własnym repozytorium danych, źródłami danych i rozwiązaniami. Aby uzyskać instrukcje, zobacz [Tworzenie obszaru roboczego log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
-* Klaster usługi Azure HDInsight. Obecnie można używać dzienników usługi Azure Monitor z następującymi typami klastra USŁUGI HDInsight:
+* Klaster usługi Azure HDInsight. Obecnie można użyć dzienników Azure Monitor z następującymi typami klastrów usługi HDInsight:
 
   * Hadoop
   * HBase
@@ -37,32 +37,32 @@ Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://
   * platforma Spark
   * Storm
 
-  Aby uzyskać instrukcje dotyczące tworzenia klastra HDInsight, zobacz [Wprowadzenie do usługi Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
+  Instrukcje dotyczące sposobu tworzenia klastra usługi HDInsight można znaleźć w temacie [Rozpoczynanie pracy z usługą Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* Moduł Az programu Azure PowerShell.  Zobacz [Wprowadzenie nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). Upewnij się, że masz najnowszą wersję. W razie `Update-Module -Name Az`potrzeby uruchom plik .
+* Azure PowerShell AZ module.  Zobacz [wprowadzenie do nowego Azure PowerShell AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). Upewnij się, że masz najnowszą wersję. W razie potrzeby uruchom `Update-Module -Name Az`polecenie.
 
 > [!NOTE]  
-> Zaleca się umieszczenie klastra HDInsight i obszaru roboczego usługi Log Analytics w tym samym regionie w celu uzyskania lepszej wydajności. Dzienniki usługi Azure Monitor nie są dostępne we wszystkich regionach platformy Azure.
+> Zaleca się umieszczenie klastra usługi HDInsight i obszaru roboczego Log Analytics w tym samym regionie w celu uzyskania lepszej wydajności. Dzienniki Azure Monitor nie są dostępne we wszystkich regionach świadczenia usługi Azure.
 
-## <a name="enable-azure-monitor-logs-by-using-the-portal"></a>Włączanie dzienników usługi Azure Monitor przy użyciu portalu
+## <a name="enable-azure-monitor-logs-by-using-the-portal"></a>Włączanie dzienników Azure Monitor przy użyciu portalu
 
-W tej sekcji można skonfigurować istniejący klaster programu HDInsight Hadoop do używania obszaru roboczego usługi Azure Log Analytics do monitorowania zadań, dzienników debugowania itp.
+W tej sekcji skonfigurujesz istniejący klaster usługi HDInsight Hadoop do używania obszaru roboczego Log Analytics platformy Azure do monitorowania zadań, debugowania dzienników itd.
 
-1. Z [witryny Azure portal](https://portal.azure.com/)wybierz swój klaster.  Aby uzyskać instrukcje, zobacz [Lista i pokazyj klastry.](./hdinsight-administer-use-portal-linux.md#showClusters) Klaster jest otwierany na nowej stronie portalu.
+1. Na [Azure Portal](https://portal.azure.com/)wybierz swój klaster. Klaster zostanie otwarty na nowej stronie portalu.
 
-1. Od lewej w obszarze **Monitorowanie**wybierz pozycję **Azure Monitor**.
+1. W obszarze **monitorowanie**wybierz pozycję **Azure monitor**.
 
-1. Z widoku głównego w obszarze **Integracja usługi Azure Monitor**wybierz pozycję **Włącz**.
+1. W widoku głównym w obszarze **integracja Azure monitor**wybierz pozycję **Włącz**.
 
-1. Z listy **rozwijanej Wybierz obszar roboczy** wybierz istniejący obszar roboczy usługi Log Analytics.
+1. Z listy rozwijanej **Wybierz obszar roboczy** wybierz istniejący obszar roboczy log Analytics.
 
-1. Wybierz **pozycję Zapisz**.  Zapisanie ustawienia zajmuje kilka chwil.
+1. Wybierz pozycję **Zapisz**.  Zapisanie tego ustawienia trwa kilka chwil.
 
-    ![Włącz monitorowanie klastrów HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Włącz monitorowanie klastrów HDInsight")
+    ![Włącz monitorowanie klastrów usługi HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Włącz monitorowanie klastrów usługi HDInsight")
 
-## <a name="enable-azure-monitor-logs-by-using-azure-powershell"></a>Włączanie dzienników usługi Azure Monitor przy użyciu programu Azure PowerShell
+## <a name="enable-azure-monitor-logs-by-using-azure-powershell"></a>Włączanie dzienników Azure Monitor przy użyciu Azure PowerShell
 
-Dzienniki usługi Azure Monitor można włączyć przy użyciu polecenia cmdlet cmdlet programu Azure PowerShell Az [modułu Enable-AzHDInsightMonitoring.](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightmonitoring)
+Dzienniki Azure Monitor można włączyć za Azure PowerShell pomocą polecenia cmdlet AZ module [enable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightmonitoring) .
 
 ```powershell
 # Enter user information
@@ -94,44 +94,45 @@ Get-AzHDInsightMonitoring `
     -Name $cluster
 ```
 
-Aby wyłączyć, użyj polecenia cmdlet [Disable-AzHDInsightMonitoring:](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring)
+Aby wyłączyć, użyj polecenia cmdlet [disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) :
 
 ```powershell
 Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 ```
 
-## <a name="install-hdinsight-cluster-management-solutions"></a>Instalowanie rozwiązań do zarządzania klastrami HDInsight
+## <a name="install-hdinsight-cluster-management-solutions"></a>Instalowanie rozwiązań do zarządzania klastrami usługi HDInsight
 
-Usługa HDInsight udostępnia rozwiązania do zarządzania specyficzne dla klastra, które można dodać do dzienników usługi Azure Monitor. [Rozwiązania do zarządzania](../log-analytics/log-analytics-add-solutions.md) dodają funkcje do dzienników usługi Azure Monitor, zapewniając dodatkowe narzędzia do analizy danych i analizy. Rozwiązania te zbierają ważne metryki wydajności z klastrów HDInsight i udostępniają narzędzia do wyszukiwania metryk. Rozwiązania te zapewniają również wizualizacje i pulpity nawigacyjne dla większości typów klastrów obsługiwanych w programie HDInsight. Za pomocą metryki, które można zbierać z rozwiązania, można utworzyć niestandardowe reguły monitorowania i alerty.
+Usługa HDInsight udostępnia rozwiązania do zarządzania specyficzne dla klastra, które można dodać do dzienników Azure Monitor. [Rozwiązania do zarządzania](../log-analytics/log-analytics-add-solutions.md) umożliwiają dodawanie funkcji do dzienników Azure monitor, które udostępniają dodatkowe narzędzia do obsługi danych i analizy. Te rozwiązania zbierają ważne metryki wydajności z klastrów usługi HDInsight. I podaj narzędzia do wyszukiwania metryk. Te rozwiązania udostępniają również wizualizacje i pulpity nawigacyjne dla większości typów klastrów obsługiwanych w usłudze HDInsight. Korzystając z metryk zbieranych z rozwiązaniem, można tworzyć niestandardowe reguły monitorowania i alerty.
 
-Oto dostępne rozwiązania HDInsight:
+Dostępne rozwiązania usługi HDInsight:
 
-* Monitorowanie hadoopu HDInsight
-* Monitorowanie hdinight HBase
-* Interaktywne monitorowanie zapytań HDInsight
-* Monitorowanie kafka HDInsight
-* Monitorowanie iskry HDInsight
-* Monitorowanie burzy HDInsight
+* Monitorowanie usługi HDInsight Hadoop
+* HDInsight HBase Monitoring
+* Monitorowanie interakcyjnych zapytań usługi HDInsight
+* Monitorowanie usługi HDInsight Kafka
+* Monitorowanie usługi HDInsight Spark
+* Monitorowanie burzy usługi HDInsight
 
-Aby uzyskać instrukcje dotyczące instalowania rozwiązania do zarządzania, zobacz [Rozwiązania do zarządzania na platformie Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Aby eksperymentować, zainstaluj rozwiązanie do monitorowania hadoop HDInsight. Po zakończeniu zobaczysz kafelek **HDInsightHadoop** wymieniony w obszarze **Podsumowanie**. Wybierz kafelek **HDInsightHadoop.** Rozwiązanie HDInsightHadoop wygląda następująco:
+Aby uzyskać instrukcje dotyczące rozwiązania do zarządzania, zobacz [rozwiązania do zarządzania na platformie Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Aby eksperymentować, Zainstaluj rozwiązanie do monitorowania usługi HDInsight Hadoop. Gdy wszystko będzie gotowe, zobaczysz kafelek **HDInsightHadoop** na liście **Podsumowanie**. Wybierz kafelek **HDInsightHadoop** . Rozwiązanie HDInsightHadoop wygląda następująco:
 
-![Widok rozwiązania monitorowania HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
+![Widok rozwiązania do monitorowania usługi HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
-Ponieważ klaster jest zupełnie nowy klaster, raport nie pokazuje żadnych działań.
+Ponieważ klaster jest zupełnie nowym klastrem, raport nie zawiera żadnych działań.
 
 ## <a name="configuring-performance-counters"></a>Konfigurowanie liczników wydajności
 
-Monitor platformy Azure obsługuje również zbieranie i analizowanie metryk wydajności dla węzłów w klastrze. Aby uzyskać więcej informacji na temat włączania i konfigurowania tej funkcji, zobacz [Źródła danych wydajności systemu Linux w usłudze Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
+Usługa Azure monitor obsługuje zbieranie i analizowanie metryk wydajności dla węzłów w klastrze. Aby uzyskać więcej informacji, zobacz [źródła danych wydajności systemu Linux w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
 
 ## <a name="cluster-auditing"></a>Inspekcja klastra
 
-Usługa HDInsight obsługuje inspekcje klastrów za pomocą dzienników usługi Azure Monitor, importując następujące typy dzienników:
+Usługa HDInsight obsługuje inspekcję klastra przy użyciu dzienników Azure Monitor przez zaimportowanie następujących typów dzienników:
 
-* `log_gateway_audit_CL`- ta tabela zawiera dzienniki inspekcji z węzłów bramy klastra, które pokazują pomyślne i nieudane próby logowania.
-* `log_auth_CL`- ta tabela zawiera dzienniki SSH z udanych i nieudanych prób logowania.
-* `log_ambari_audit_CL`- ta tabela zawiera dzienniki inspekcji z Ambari.
-* `log_ranger_audti_CL`- ta tabela zawiera dzienniki inspekcji z Apache Ranger na klastrach ESP.
+* `log_gateway_audit_CL`-Ta tabela zawiera dzienniki inspekcji z węzłów bramy klastra, które pokazują pomyślne i nieudane próby zalogowania.
+* `log_auth_CL`-Ta tabela zawiera dzienniki protokołu SSH z pomyślnymi i nieudanymi próbami logowania.
+* `log_ambari_audit_CL`-Ta tabela zawiera dzienniki inspekcji z Ambari.
+* `log_ranger_audti_CL`-Ta tabela zawiera dzienniki inspekcji z platformy Apache Ranger na klastrach ESP.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wysyłaj zapytania do dzienników usługi Azure Monitor w celu monitorowania klastrów usługi HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+* [Wykonywanie zapytań dotyczących dzienników Azure Monitor do monitorowania klastrów usługi HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+* [Jak monitorować dostępność klastra za pomocą programu Apache Ambari i dzienników Azure Monitor](./hdinsight-cluster-availability.md)

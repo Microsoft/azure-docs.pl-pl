@@ -3,12 +3,12 @@ title: Przegląd Service Health | Microsoft Docs
 description: Spersonalizowane informacje o tym, w jaki sposób aplikacje platformy Azure wpływają na bieżące i przyszłe problemy z usługą i konserwację platformy Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 280be9f0df1f94dad59c1af147d499860571f86e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82097255"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146919"
 ---
 # <a name="service-health-overview"></a>Przegląd Service Health
 
@@ -41,6 +41,12 @@ W widoku **problemy dotyczące usługi** są wyświetlane wszystkie bieżące pr
 Wybierz kartę **potencjalny wpływ** , aby wyświetlić konkretną listę zasobów, które mogą mieć wpływ na problem. Możesz pobrać listę woluminów CSV tych zasobów do udostępnienia zespołowi.
 
 ![Zarządzanie problemem z usługą](./media/service-health-overview/azure-service-health-overview-4.png)
+
+## <a name="see-emerging-issues-which-may-impact-your-services"></a>Zobacz pojawiające się problemy, które mogą mieć wpływ na usługi
+
+Istnieją sytuacje, w których można opublikować rozległe problemy z usługą na [stronie stanu platformy Azure](https://status.azure.com) przed wysłaniem komunikacji skierowanej do klientów, których to dotyczy. Aby zapewnić, że Azure Service Health zapewnia kompleksowy wgląd w problemy, które mogą mieć wpływ na aktywne problemy ze stroną stanu platformy Azure, w Service Health jako *pojawiające się problemy*. Gdy wydarzenie jest aktywne na stronie stanu platformy Azure, transparent pojawiających się problemów będzie obecny w Service Health. Kliknij transparent, aby wyświetlić szczegółowe informacje o problemie.
+
+![Pojawiający się problem z usługą](./media/service-health-overview/azure-service-health-emerging-issue.png)
 
 ## <a name="get-links-and-downloadable-explanations"></a>Pobierz linki i wyjaśnień do pobrania 
 

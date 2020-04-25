@@ -1,35 +1,35 @@
 ---
-title: Usługi konsultingowe Platformy Azure i Dynamics 365 oferują warunki wstępne | Azure Marketplace
-description: Wymagania wstępne dotyczące oferty usługi konsultingowej platformy Azure lub Dynamics 365 w portalu cloud partnerów.
+title: Wymagania wstępne dotyczące oferty usług Azure i Dynamics 365 Portal Azure Marketplace
+description: Wymagania wstępne dotyczące oferty usługi konsultingowej platformy Azure lub Dynamics 365 w portal Cloud Partner.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 35ef732111ff0b75bba7397f7cc22b3ff08c00d5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6b5f28e5214720acd92c5e3c44411ad570272ee0
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985103"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148114"
 ---
-# <a name="consulting-service-prerequisites"></a>Wymagania wstępne usługi konsultingowej
+# <a name="consulting-service-prerequisites"></a>Wymagania wstępne dotyczące usługi konsultingowej
 
 >[!Important]
->Od 13 kwietnia 2020 r. zaczniemy przenosić zarządzanie ofertami usług konsultingowych do Centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [przeglądzie tworzenia usług konsultingowych,](https://aka.ms/AzureCreateConsultingService) aby zarządzać zmigrowanymi ofertami.
+>Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami usług konsultacyjnych do Centrum partnerskiego. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Omówienie tworzenia usługi konsultingowej](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) , aby zarządzać migrowanymi ofertami.
 
-Przejrzyj opis i wymagania dotyczące tego typu oferty w [usługach konsultingowych dla portalu Azure Marketplace i AppSource](../../consulting-services.md).  Następujące typy usług konsultingowych specyficzne mają dodatkowe wymagania:
+Przejrzyj opis i wymagania dotyczące tego typu oferty w [usługach konsultingowych dla witryny Azure Marketplace i AppSource](../../consulting-services.md).  Następujące konkretne typy usług konsultingowych mają dodatkowe wymagania:
 
 | Typ oferty | Wymaganie |
 |---------|---------|
-| Dynamics 365 — sprzedaż <br> Dynamics 365 Marketing <br> Obsługa klienta Dynamics 365 <br> Dynamics 365 Serwis terenowy <br> Dynamics 365 Zasoby ludzkie |   Musi mieć certyfikat Gold lub Silver w [kompetencji Cloud Business Applications](https://partner.microsoft.com/membership/cloud-business-applications-competency) dla opcji Customer Engagement.    | 
-| Dynamika 365 Finanse <br> Dynamics 365 Zarządzanie łańcuchem dostaw <br> Dynamics 365 Handel <br> Dynamics 365 Zasoby ludzkie <br> Automatyzacja usług projektowych Dynamics 365 |  Musi mieć certyfikat Gold lub Silver w [chmurze aplikacji biznesowych kompetencji](https://partner.microsoft.com/membership/cloud-business-applications-competency) dla ujednoliconej operacji opcji.       |
-| Dynamics 365 Customer Insights | Musi mieć co najmniej 1 pomyślne wdrożenie w produkcji [dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) z co najmniej 5 miar i 5 segmentów. |
-| Dynamics 365 Business Central | Musi posiadać certyfikat Gold lub Silver w [kompetencji Planowania zasobów przedsiębiorstwa](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) i musi być dostawcą rozwiązań w chmurze dla co najmniej 3 klientów business central. <br> <br> LUB <br> <br> Musi opublikować [aplikację Business Central w uźródle AppSource](https://appsource.microsoft.com/) |
-| Power BI | Musi być wymieniony w [prezentacji partnera usługi Power BI](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
-|Power Apps | Musi kwalifikować się do korzystania z zaawansowanych korzyści w [programie partnerskim PowerApps.](https://aka.ms/PowerAppsPartner) |
+| Dynamics 365 — sprzedaż <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Usługa pola Dynamics 365 <br> Zasoby ludzkie Dynamics 365 |   Wymagany jest pakiet Gold lub Silver z certyfikatem w [chmurze Business Applications](https://partner.microsoft.com/membership/cloud-business-applications-competency) opcji zaangażowania klientów.    | 
+| Dynamics 365 — finanse <br> Zarządzanie łańcuchem dostaw w usłudze Dynamics 365 <br> Dynamics 365 Commerce <br> Zasoby ludzkie Dynamics 365 <br> Automatyzacja usługi projektu Dynamics 365 |  W przypadku opcji ujednoliconych operacji należy mieć uprawnienia Gold lub Silver z certyfikatem [Business Applications w chmurze](https://partner.microsoft.com/membership/cloud-business-applications-competency) .       |
+| Dynamics 365 Customer Insights | Musi mieć co najmniej 1 pomyślne wdrożenie systemu [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) z co najmniej 5 miar i 5 segmentów. |
+| Dynamics 365 Business Central | Wymagany jest pakiet Gold lub Silver z certyfikatem [planowania zasobów przedsiębiorstwa](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) i musi to być dostawca rozwiązań w chmurze dla co najmniej 3 klientów usługi Business Central. <br> <br> LUB <br> <br> Musi opublikować [aplikację biznesową w programie AppSource](https://appsource.microsoft.com/) |
+| Power BI | Muszą być wymienione na liście [partnerów Power BI](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
+|Power Apps | Musi kwalifikować się do korzystania z zaawansowanych korzyści w [programie partnerskim usługi powerapps](https://aka.ms/PowerAppsPartner). |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po spełnieniu poprzednich wymagań możesz [utworzyć ofertę usług konsultingowych.](./cpp-consulting-service-create-offer.md)
+Po spełnieniu powyższych wymagań możesz [utworzyć ofertę usług doradczych](./cpp-consulting-service-create-offer.md).

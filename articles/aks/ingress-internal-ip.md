@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować międzyNGINXowy ko
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 38b08775158a9e5742f1df013ba52a2176af390d
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: d6533434fc053427ae26a28879af18aed73f40aa
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100043"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145437"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Tworzenie kontrolera transferu danych przychodzących w wewnętrznej sieci wirtualnej w usłudze Azure Kubernetes Service (AKS)
 
@@ -53,7 +53,7 @@ Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. W
 > Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o nazwie transfery *-Basic*. W razie potrzeby określ przestrzeń nazw dla własnego środowiska. Jeśli klaster AKS nie jest włączony RBAC, Dodaj `--set rbac.create=false` do poleceń Helm.
 
 > [!TIP]
-> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for*. W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta przekazywanie protokołu SSL nie będzie działało.
+> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for*. W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta protokół TLS nie będzie działał.
 
 ```console
 # Create a namespace for your ingress resources

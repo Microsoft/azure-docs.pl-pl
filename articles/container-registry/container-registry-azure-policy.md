@@ -1,59 +1,59 @@
 ---
-title: Zgodność przy użyciu zasad platformy Azure
-description: Przypisywanie wbudowanych zasad w zasadach platformy Azure w celu inspekcji zgodności rejestrów kontenerów platformy Azure
+title: Zgodność przy użyciu Azure Policy
+description: Przypisywanie wbudowanych zasad w Azure Policy do inspekcji zgodności rejestrów kontenerów platformy Azure
 ms.topic: article
 ms.date: 02/26/2020
-ms.openlocfilehash: 012cd013de1c60fddcfb28e4bca96d761ada41ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2bfdc18f4bbf16fe8fa6bcbcba7bab18aedabf1
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78330740"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145003"
 ---
-# <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Zgodność inspekcji rejestrów kontenerów platformy Azure przy użyciu zasad platformy Azure
+# <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Inspekcja zgodności rejestrów kontenerów platformy Azure przy użyciu Azure Policy
 
-[Zasady platformy Azure](../governance/policy/overview.md) to usługa na platformie Azure używana do tworzenia, przypisywania i zarządzania zasadami. Te zasady wymuszają różne reguły i efekty dotyczące zasobów, dzięki czemu zasoby te pozostają zgodne ze standardami firmy i umowami dotyczącymi poziomu usług.
+[Azure Policy](../governance/policy/overview.md) to usługa platformy Azure, za pomocą której można tworzyć i przypisywać zasady oraz zarządzać nimi. Te zasady wymuszają różne reguły i efekty dotyczące zasobów, dzięki czemu zasoby te pozostają zgodne ze standardami firmy i umowami dotyczącymi poziomu usług.
 
-W tym artykule przedstawiono wbudowane zasady (w wersji zapoznawczej) dla rejestru kontenerów platformy Azure. Użyj tych zasad do inspekcji nowych i istniejących rejestrów pod kątem zgodności.
+W tym artykule wprowadzono wbudowane zasady (wersja zapoznawcza) dla Azure Container Registry. Te zasady służą do inspekcji nowych i istniejących rejestrów pod kątem zgodności.
 
-Korzystanie z zasad platformy Azure nie pobiera żadnych opłat.
+Za korzystanie z Azure Policy nie są naliczane opłaty.
 
 > [!IMPORTANT]
 > Ta funkcja jest obecnie dostępna w wersji zapoznawczej. Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
 
 ## <a name="built-in-policy-definitions"></a>Wbudowane definicje zasad
 
-Następujące wbudowane definicje zasad są specyficzne dla rejestru kontenerów platformy Azure:
+Następujące wbudowane definicje zasad są specyficzne dla Azure Container Registry:
 
-[!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/azure-policy-samples-policies-container-registry.md)]
+[!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/policy/samples/bycat/policies-container-registry.md)]
 
-Zobacz też wbudowaną definicję zasad [sieciowych: [Podgląd] Rejestr kontenerów powinien używać punktu końcowego usługi sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
+Zobacz również wbudowana definicja zasad sieciowych: [[wersja zapoznawcza] Container Registry powinna używać punktu końcowego usługi sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
 ## <a name="assign-policies"></a>Przypisywanie zasad
 
-* Przypisz zasady przy użyciu [witryny Azure portal,](../governance/policy/assign-policy-portal.md) [interfejsu wiersza polecenia platformy Azure,](../governance/policy/assign-policy-azurecli.md) [szablonu Usługi Resource Manager](../governance/policy/assign-policy-template.md)lub zestawów SDK zasad platformy Azure.
-* Zakres przypisania zasad do grupy zasobów, subskrypcji lub [grupy zarządzania platformy Azure](../governance/management-groups/overview.md). Przypisania zasad rejestru kontenerów mają zastosowanie do istniejących i nowych rejestrów kontenerów w zakresie.
-* Włącz lub wyłącz [wymuszanie zasad](../governance/policy/concepts/assignment-structure.md#enforcement-mode) w dowolnym momencie.
+* Przypisywanie zasad za pomocą [Azure Portal](../governance/policy/assign-policy-portal.md), [interfejsu wiersza polecenia platformy Azure](../governance/policy/assign-policy-azurecli.md), [szablonu Menedżer zasobów](../governance/policy/assign-policy-template.md)lub zestawów SDK Azure Policy.
+* Określanie zakresu przydziału zasad do grupy zasobów, subskrypcji lub [grupy zarządzania platformy Azure](../governance/management-groups/overview.md). Przypisania zasad rejestru kontenera mają zastosowanie do istniejących i nowych rejestrów kontenerów w ramach zakresu.
+* Włącz lub Wyłącz [wymuszanie zasad](../governance/policy/concepts/assignment-structure.md#enforcement-mode) w dowolnym momencie.
 
 > [!NOTE]
-> Po przypisaniu lub zaktualizowaniu zasad, zajmuje trochę czasu, aby przypisanie do zasobów w zdefiniowanym zakresie. Zobacz informacje o [wyzwalaczach oceny zasad](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+> Po przypisaniu lub zaktualizowaniu zasad trwa jakiś czas, aby przypisanie zostało zastosowane do zasobów w zdefiniowanym zakresie. Zobacz informacje na temat [wyzwalaczy oceny zasad](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## <a name="review-policy-compliance"></a>Przegląd zgodności zasad
 
-Uzyskaj dostęp do informacji o zgodności generowanych przez przypisania zasad przy użyciu witryny Azure portal, narzędzi wiersza polecenia platformy Azure lub zestawów SDK zasad platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Otrzymywowanie danych dotyczących zgodności zasobów platformy Azure](../governance/policy/how-to/get-compliance-data.md).
+Uzyskaj dostęp do informacji o zgodności wygenerowanych przez przypisania zasad przy użyciu Azure Portal, narzędzi wiersza polecenia platformy Azure lub zestawów SDK Azure Policy. Aby uzyskać szczegółowe informacje, zobacz [pobieranie danych zgodności zasobów platformy Azure](../governance/policy/how-to/get-compliance-data.md).
 
-Gdy zasób jest niezgodny, istnieje wiele możliwych przyczyn. Aby ustalić przyczynę lub znaleźć odpowiedzialną zmianę, zobacz [Określanie niezgodności](../governance/policy/how-to/determine-non-compliance.md).
+Jeśli zasób nie jest zgodny, istnieje wiele możliwych przyczyn. Aby ustalić przyczynę lub aby znaleźć zmianę, zobacz [Określanie braku zgodności](../governance/policy/how-to/determine-non-compliance.md).
 
-### <a name="policy-compliance-in-the-portal"></a>Zgodność z zasadami w portalu:
+### <a name="policy-compliance-in-the-portal"></a>Zgodność zasad w portalu:
 
-1. Wybierz **pozycję Wszystkie usługi**i wyszukaj pozycję **Zasady**.
-1. Wybierz **opcję Zgodność**.
-1. Użyj filtrów, aby ograniczyć stany ![zgodności lub](./media/container-registry-azure-policy/azure-policy-compliance.png)wyszukać zasady Zgodność zasad w portalu .
-1. Wybierz zasady, aby przejrzeć zagregowane szczegóły zgodności i zdarzenia. W razie potrzeby wybierz określony rejestr zgodności zasobów.
+1. Wybierz pozycję **wszystkie usługi**i Wyszukaj **zasady**.
+1. Wybierz pozycję **zgodność**.
+1. Użyj filtrów, aby ograniczyć stany zgodności lub wyszukiwać ![zasady zgodności zasad w portalu.](./media/container-registry-azure-policy/azure-policy-compliance.png)
+1. Wybierz zasady, aby przejrzeć zagregowane szczegóły zgodności i zdarzenia. W razie potrzeby wybierz konkretny rejestr w celu zapewnienia zgodności zasobów.
 
-### <a name="policy-compliance-in-the-azure-cli"></a>Zgodność zasad w wierszu polecenia platformy Azure
+### <a name="policy-compliance-in-the-azure-cli"></a>Zgodność zasad w interfejsie wiersza polecenia platformy Azure
 
-Można również użyć interfejsu wiersza polecenia platformy Azure, aby uzyskać dane zgodności. Na przykład użyj polecenia [listy przypisań zasad az](/cli/azure/policy/assignment#az-policy-assignment-list) w wierszu polecenia polecenia, aby uzyskać identyfikatory zasad zasad zasad usługi Azure Container Registry, które są stosowane:
+Możesz również użyć interfejsu wiersza polecenia platformy Azure, aby uzyskać dane zgodności. Na przykład użyj polecenia [AZ Policy list przypisano](/cli/azure/policy/assignment#az-policy-assignment-list) w interfejsie CLI, aby uzyskać identyfikatory zasad stosowanych Azure Container Registry zasad:
 
 ```azurecli
 az policy assignment list --query "[?contains(displayName,'Container Registries')].{name:displayName, ID:id}" --output table
@@ -68,14 +68,14 @@ Name                                                                            
 [Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-Następnie uruchom [listę stanu zasad AZ,](/cli/azure/policy/state#az-policy-state-list) aby zwrócić stan zgodności w formacie JSON dla wszystkich zasobów w określonym identyfikatorze zasad:
+Następnie uruchom [AZ Policy State list](/cli/azure/policy/state#az-policy-state-list) , aby przywrócić stan zgodności sformatowany w formacie JSON dla wszystkich zasobów w ramach określonego identyfikatora zasad:
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-Lub uruchom [listę stanu zasad az,](/cli/azure/policy/state#az-policy-state-list) aby zwrócić stan zgodności w formacie JSON określonego zasobu rejestru, takiego jak *myregistry:*
+Lub uruchom [AZ Policy State list](/cli/azure/policy/state#az-policy-state-list) w celu zwrócenia stanu zgodności w formacie JSON określonego zasobu rejestru, takiego jak mój *Rejestr*:
 
 ```azurecli
 az policy state list \
@@ -87,11 +87,11 @@ az policy state list \
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [definicjach](../governance/policy/concepts/definition-structure.md) i [efektach](../governance/policy/concepts/effects.md) zasad platformy Azure
+* Dowiedz się więcej o Azure Policy [definicjach](../governance/policy/concepts/definition-structure.md) i [efektach](../governance/policy/concepts/effects.md)
 
-* Tworzenie [niestandardowej definicji zasad](../governance/policy/tutorials/create-custom-policy-definition.md)
+* Utwórz [niestandardową definicję zasad](../governance/policy/tutorials/create-custom-policy-definition.md)
 
-* Dowiedz się więcej o [możliwościach nadzoru](../governance/index.yml) na platformie Azure
+* Dowiedz się więcej o [możliwościach ładu](../governance/index.yml) na platformie Azure
 
 
 <!-- LINKS - External -->
