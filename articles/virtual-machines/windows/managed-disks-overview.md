@@ -1,24 +1,24 @@
 ---
-title: Omówienie usługi Azure Disk Storage
-description: Omówienie dysków zarządzanych platformy Azure, które obsługują konta magazynu podczas korzystania z maszyn wirtualnych platformy Azure
+title: Przegląd Azure Disk Storage
+description: Omówienie usługi Azure Managed disks, która obsługuje konta magazynu w przypadku korzystania z maszyn wirtualnych platformy Azure
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 689fc0b5dbf590dd7f2284091188bf96d12477ad
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 4b3a66ce00582a3ef05e77f65acdc46fbde8ce72
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869993"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148087"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduction to Azure managed disks (Wprowadzenie do dysków zarządzanych na platformie Azure)
 
-Dyski zarządzane platformy Azure to woluminy magazynu na poziomie bloku, które są zarządzane przez platformę Azure i używane z maszynami wirtualnymi platformy Azure. Dyski zarządzane są jak dysk fizyczny na serwerze lokalnym, ale zwirtualizowane. W dyskach zarządzanych wystarczy określić rozmiar dysku, typ dysku i udostępnić dysk. Po zainicjowaniu obsługi dysku platforma Azure obsługuje pozostałe.
+Azure Managed disks to woluminy magazynu na poziomie bloku, które są zarządzane przez platformę Azure i używane z usługą Azure Virtual Machines. Dyski zarządzane są podobne do dysku fizycznego na serwerze lokalnym, ale zwirtualizowane. W przypadku dysków zarządzanych należy określić rozmiar dysku, typ dysku i zainicjować obsługę administracyjną dysku. Po udostępnieniu dysku platforma Azure obsługuje pozostałe.
 
-Dostępne typy dysków to dyski ultra, dyski PÓŁPRZEWODNIKOWE klasy premium (SSD), standardowe dyski SSD i standardowe dyski twarde (HDD). Aby uzyskać informacje o poszczególnych typach dysku, zobacz [Wybieranie typu dysku dla maszyn wirtualnych IaaS](disks-types.md).
+Dostępne typy dysków to Ultra disks, dyski półprzewodnikowe w warstwie Premium (SSD), standardowe dysków SSD i standardowe dyski twarde (dysk twardy). Aby uzyskać informacje o poszczególnych typach dysków, zobacz [Wybieranie typu dysku dla maszyn wirtualnych IaaS](disks-types.md).
 
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 

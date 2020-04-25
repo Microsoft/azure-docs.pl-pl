@@ -68,6 +68,8 @@
           href: cognitive-search-tutorial-blob.md
         - name: Python
           href: cognitive-search-tutorial-blob-python.md
+    - name: Wykonywanie zapytań z poziomu usługi Power Apps
+      href: search-howto-powerapps.md
 - name: Samples
   items:
     - name: 'Przykłady w języku C#'
@@ -234,8 +236,6 @@
               href: index-add-suggesters.md
             - name: Dodawanie autouzupełniania i sugestii
               href: search-autocomplete-tutorial.md
-        - name: Wykonywanie zapytań z poziomu usługi Power Apps
-          href: search-howto-powerapps.md
         - name: Dokumentacja składni
           items:
             - name: Prosta składnia zapytań

@@ -7,6 +7,9 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
+    - name: Szablon ARM
+      displayName: Resource Manager
+      href: quickstart-cluster-template.md
     - name: Tworzenie aplikacji .NET
       href: service-fabric-quickstart-dotnet.md
     - name: Wdrażanie aplikacji kontenera systemu Linux

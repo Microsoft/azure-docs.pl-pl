@@ -1,6 +1,6 @@
 ---
-title: Automatyczne wdrażanie maszyn wirtualnych z przewodnikiem szybki start konfiguracji aplikacji platformy Azure
-description: Ten przewodnik Szybki start pokazuje, jak wdrożyć sklep konfiguracji aplikacji Azure App Configuration za pomocą modułu Azure PowerShell i szablonów usługi Azure Resource Manager. Następnie użyj wartości w magazynie, aby wdrożyć maszynę wirtualną.
+title: Zautomatyzowane wdrażanie maszyn wirtualnych przy użyciu konfiguracji aplikacji platformy Azure — Szybki Start
+description: W tym przewodniku szybki start pokazano, jak używać modułu Azure PowerShell i szablonów Azure Resource Manager do wdrażania magazynu konfiguracji aplikacji platformy Azure. Następnie użyj wartości ze sklepu, aby wdrożyć maszynę wirtualną.
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 04/14/2020
@@ -9,18 +9,18 @@ ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: 02afa2cb36323e0c3c38c2451b1924b636f7faed
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 96d09de73e8b904a8e26eb4f365d34fab1401203
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309109"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137556"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Szybki start: automatyczne wdrażanie maszyn wirtualnych z szablonem Konfiguracja aplikacji i Menedżer zasobów
+# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Szybki Start: Automatyczne wdrażanie maszyn wirtualnych z konfiguracją aplikacji i szablonem Menedżer zasobów
 
-Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą poleceń cmdlet programu PowerShell lub skryptów. Ten przewodnik Szybki start pokazuje, jak wdrożyć sklep konfiguracji aplikacji Azure App Configuration za pomocą szablonów programu Azure PowerShell i usługi Azure Resource Manager. Następnie dowiesz się, jak używać wartości klucza w magazynie do wdrażania maszyny Wirtualnej.
+Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą poleceń cmdlet programu PowerShell lub skryptów. W tym przewodniku szybki start pokazano, jak za pomocą szablonów Azure PowerShell i Azure Resource Manager wdrożyć magazyn konfiguracji aplikacji platformy Azure. Następnie dowiesz się, jak wdrożyć maszynę wirtualną przy użyciu wartości kluczy w sklepie.
 
-Szablon warunek wstępny służy do tworzenia magazynu konfiguracji aplikacji, a następnie dodać wartości klucza do sklepu przy użyciu witryny Azure portal lub interfejsu wiersza polecenia platformy Azure. Szablon podstawowy odwołuje się do istniejących konfiguracji klucz-wartość z istniejącego magazynu konfiguracji. Pobrane wartości są używane do ustawiania właściwości zasobów utworzonych przez szablon, takich jak maszyna wirtualna w tym przykładzie.
+Aby utworzyć magazyn konfiguracji aplikacji, należy użyć szablonu wymagań wstępnych, a następnie dodać wartości klucza do magazynu przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure. Szablon podstawowy odwołuje się do istniejących konfiguracji klucza i wartości z istniejącego magazynu konfiguracji. Pobrane wartości są używane do ustawiania właściwości zasobów utworzonych przez szablon, takich jak maszyna wirtualna w tym przykładzie.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -28,7 +28,7 @@ Szablon warunek wstępny służy do tworzenia magazynu konfiguracji aplikacji, a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto.](https://azure.microsoft.com/free/)
+* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto.](https://azure.microsoft.com/free/)
 
 * Dla tego przewodnika Szybki start jest wymagany moduł Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby znaleźć wersję zainstalowaną na komputerze lokalnym. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
@@ -41,7 +41,7 @@ Zaloguj się do subskrypcji platformy Azure za pomocą polecenia `Connect-AzAcco
 Connect-AzAccount
 ```
 
-Jeśli masz więcej niż jedną subskrypcję, wybierz subskrypcję, której chcesz użyć w tym przewodniku Szybki start, uruchamiając następujące polecenia cmdlet. Nie zapomnij zastąpić `<your subscription name>` nazwą subskrypcji:
+Jeśli masz więcej niż jedną subskrypcję, wybierz subskrypcję, której chcesz użyć dla tego przewodnika Szybki Start, uruchamiając następujące polecenia cmdlet. Nie zapomnij zamienić `<your subscription name>` na nazwę subskrypcji:
 
 ```azurepowershell-interactive
 # List all available subscriptions.
@@ -63,11 +63,11 @@ New-AzResourceGroup `
     -Location $location
 ```
 
-## <a name="deploy-an-azure-app-configuration-store"></a>Wdrażanie sklepu konfiguracji aplikacji platformy Azure
+## <a name="deploy-an-azure-app-configuration-store"></a>Wdróż magazyn konfiguracji aplikacji platformy Azure
 
-Aby można było zastosować wartości klucza do maszyny Wirtualnej, musisz mieć istniejący magazyn konfiguracji aplikacji platformy Azure. W tej sekcji opisano sposób wdrażania magazynu konfiguracji aplikacji platformy Azure przy użyciu szablonu usługi Azure Resource Manager. Jeśli masz już sklep z konfiguracami aplikacji, możesz przejść do następnej sekcji tego artykułu. 
+Aby można było zastosować kluczowe wartości do maszyny wirtualnej, musisz mieć istniejący magazyn konfiguracji aplikacji platformy Azure. W tej sekcji szczegółowo opisano sposób wdrażania magazynu konfiguracji aplikacji platformy Azure przy użyciu szablonu Azure Resource Manager. Jeśli masz już magazyn konfiguracji aplikacji, możesz przejść do następnej sekcji tego artykułu. 
 
-1. Skopiuj i wklej następujący kod json do nowego pliku o nazwie *prereq.azuredeploy.json*.
+1. Skopiuj i wklej następujący kod JSON do nowego pliku o nazwie *Ignoruj. azuredeploy. JSON*.
 
    ```json
    {
@@ -109,7 +109,7 @@ Aby można było zastosować wartości klucza do maszyny Wirtualnej, musisz mie�
    }
    ```
 
-1. Skopiuj i wklej następujący kod json do nowego pliku o nazwie *prereq.azuredeploy.parameters.json*. Zastąp **GET-UNIQUE** unikatową nazwą sklepu configuration store.
+1. Skopiuj i wklej następujący kod JSON do nowego pliku o nazwie *Ignoruj. azuredeploy. Parameters. JSON*. Zastąp **ciąg Get-Unique** unikatową nazwą magazynu konfiguracji.
 
    ```json
    {
@@ -123,40 +123,40 @@ Aby można było zastosować wartości klucza do maszyny Wirtualnej, musisz mie�
    }
    ```
 
-1. W oknie programu PowerShell uruchom następujące polecenie, aby wdrożyć sklep konfiguracji aplikacji platformy Azure. Nie zapomnij zastąpić nazwy grupy zasobów, ścieżki pliku szablonu i ścieżki pliku parametru szablonu.
+1. W oknie programu PowerShell uruchom następujące polecenie, aby wdrożyć magazyn konfiguracji aplikacji platformy Azure. Nie zapomnij zastąpić nazwy grupy zasobów, ścieżki pliku szablonu i ścieżki pliku parametru szablonu.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" 
+       -ResourceGroupName "<your resource group>" `
        -TemplateFile "<path to prereq.azuredeploy.json>" `
        -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
    ```
 
-## <a name="add-vm-configuration-key-values"></a>Dodawanie wartości klucza konfiguracji maszyny Wirtualnej
+## <a name="add-vm-configuration-key-values"></a>Dodawanie klucza konfiguracji maszyny wirtualnej — wartości
 
-Można utworzyć magazyn konfiguracji aplikacji przy użyciu szablonu usługi Azure Resource Manager, ale należy dodać wartości kluczy przy użyciu witryny Azure portal lub interfejsu wiersza polecenia platformy Azure. W tym przewodniku Szybki start można dodać wartości kluczy za pomocą witryny Azure portal.
+Magazyn konfiguracji aplikacji można utworzyć przy użyciu szablonu Azure Resource Manager, ale należy dodać wartości kluczowe przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure. W tym przewodniku szybki start dowiesz się, jak dodać kluczowe wartości przy użyciu Azure Portal.
 
-1. Po zakończeniu wdrażania przejdź do nowo utworzonego sklepu konfiguracji aplikacji w [witrynie Azure portal](https://portal.azure.com).
+1. Po zakończeniu wdrażania przejdź do nowo utworzonego magazynu konfiguracji aplikacji w [Azure Portal](https://portal.azure.com).
 
-1. Wybierz **pozycję Ustawienia** > **klawiszy dostępu**. Zanotuj podstawowy ciąg połączenia klucza tylko do odczytu. Ten ciąg połączenia użyjesz później, aby skonfigurować aplikację do komunikowania się z utworzonym sklepem konfiguracji aplikacji.
+1. Wybierz pozycję **Ustawienia** > **klucze dostępu**. Zanotuj podstawowe parametry połączenia klucza tylko do odczytu. Te parametry połączenia będą używane później, aby skonfigurować aplikację do komunikacji z utworzonym magazynem konfiguracji aplikacji.
 
-1. Wybierz pozycję**Tworzenie** **Eksploratora** > konfiguracji, aby dodać następujące pary klucz-wartość:
+1. Wybierz pozycję **Eksplorator** > konfiguracji**Utwórz** , aby dodać następujące pary klucz-wartość:
 
    |Klucz|Wartość|
    |-|-|
-   |windowsOsVersion|2019-Centrum danych|
-   |dyskSizeGB|1023|
+   |windowsOsVersion|2019 — centrum danych|
+   |diskSizeGB|1023|
   
-   Wprowadź *szablon* **etykiety**, ale **zachowaj typ zawartości** pusty.
+   Wprowadź *szablon* dla **etykiety**, ale pozostaw pusty **Typ zawartości** .
 
-## <a name="deploy-vm-using-stored-key-values"></a>Wdrażanie maszyny Wirtualnej przy użyciu przechowywanych wartości klucza
+## <a name="deploy-vm-using-stored-key-values"></a>Wdróż maszynę wirtualną przy użyciu przechowywanych wartości klucza
 
-Teraz, gdy dodano wartości klucza do magazynu, możesz przystąpić do wdrażania maszyny Wirtualnej przy użyciu szablonu usługi Azure Resource Manager. Szablon odwołuje się do utworzonych kluczy **windowsOsVersion** i **diskSizeGB.**
+Teraz, po dodaniu klucza — wartości do magazynu, możesz przystąpić do wdrożenia maszyny wirtualnej przy użyciu szablonu Azure Resource Manager. Szablon odwołuje się do utworzonych kluczy **windowsOsVersion** i **diskSizeGB** .
 
 > [!WARNING]
-> Szablony ARM nie mogą odwoływać się do kluczy w magazynie konfiguracji aplikacji z włączonym łączem prywatnym.
+> Szablony ARM nie mogą odwoływać się do kluczy w magazynie konfiguracji aplikacji z włączonym linkiem prywatnym.
 
-1. Skopiuj i wklej następujący kod json do nowego pliku o nazwie *azuredeploy.json*lub pobierz plik z [szablonów szybki start platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
+1. Skopiuj i wklej następujący kod JSON do nowego pliku o nazwie *azuredeploy. JSON*lub Pobierz plik z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
 
    ```json
    {
@@ -378,7 +378,7 @@ Teraz, gdy dodano wartości klucza do magazynu, możesz przystąpić do wdrażan
    }
    ```
 
-1. Skopiuj i wklej następujący kod json do nowego pliku o nazwie *azuredeploy.parameters.json*lub pobierz plik z [szablonów szybkiej platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.parameters.json).
+1. Skopiuj i wklej następujący kod JSON do nowego pliku o nazwie *azuredeploy. Parameters. JSON*lub Pobierz plik z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.parameters.json).
 
    ```json
    {
@@ -417,14 +417,14 @@ Teraz, gdy dodano wartości klucza do magazynu, możesz przystąpić do wdrażan
 
    |Parametr|Wartość|
    |-|-|
-   |adminPassword|Hasło administratora maszyny Wirtualnej.|
-   |nazwa aplikacjiConfigStoreName|Nazwa sklepu konfiguracji aplikacji platformy Azure.|
-   |grupa appConfigStoreResourceGroup|Grupa zasobów zawierająca magazyn konfiguracji aplikacji.|
-   |klucz wirtualny|*windowsOSVersion*|
-   |diskSizeKey|*dyskSizeGB*|
-   |adminUsername|Nazwa użytkownika administratora maszyny Wirtualnej.|
+   |adminPassword|Hasło administratora dla maszyny wirtualnej.|
+   |appConfigStoreName|Nazwa magazynu konfiguracji aplikacji platformy Azure.|
+   |appConfigStoreResourceGroup|Grupa zasobów zawierająca magazyn konfiguracji aplikacji.|
+   |vmSkuKey|*windowsOSVersion*|
+   |diskSizeKey|*diskSizeGB*|
+   |adminUsername|Nazwa użytkownika administratora dla maszyny wirtualnej.|
    |storageAccountName|Unikatowa nazwa konta magazynu skojarzonego z maszyną wirtualną.|
-   |nazwa domenyLabel|Unikatowa nazwa domeny.|
+   |Wartość domainnamelabel|Unikatowa nazwa domeny.|
 
 1. W oknie programu PowerShell uruchom następujące polecenie, aby wdrożyć maszynę wirtualną. Nie zapomnij zastąpić nazwy grupy zasobów, ścieżki pliku szablonu i ścieżki pliku parametru szablonu.
 
@@ -435,11 +435,11 @@ Teraz, gdy dodano wartości klucza do magazynu, możesz przystąpić do wdrażan
        -TemplateParameterFile "<path to azuredeploy.parameters.json>"
    ```
 
-Gratulacje! Maszyna wirtualna została wdrożona przy użyciu konfiguracji przechowywanych w konfiguracji aplikacji platformy Azure.
+Gratulacje! Maszyna wirtualna została wdrożona przy użyciu konfiguracji przechowywanych w usłudze Azure App Configuration.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebne, usuń grupę zasobów, magazyn konfiguracji aplikacji, maszynę wirtualną i wszystkie powiązane zasoby. Jeśli planujesz korzystać z magazynu konfiguracji aplikacji lub maszyny Wirtualnej w przyszłości, możesz pominąć jej usunięcie. Jeśli nie planujesz używania tego zadania w przyszłości, usuń wszystkie zasoby utworzone w ramach tego przewodnika Szybki start, uruchamiając następujące polecenie cmdlet:
+Gdy grupa zasobów, magazyn konfiguracji aplikacji, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Jeśli planujesz używać magazynu konfiguracji aplikacji lub maszyny wirtualnej w przyszłości, możesz pominąć usuwanie. Jeśli nie planujesz używania tego zadania w przyszłości, usuń wszystkie zasoby utworzone w ramach tego przewodnika Szybki start, uruchamiając następujące polecenie cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup `
@@ -448,9 +448,9 @@ Remove-AzResourceGroup `
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start wdrożono maszynę wirtualną przy użyciu szablonu usługi Azure Resource Manager i wartości kluczy z konfiguracji aplikacji platformy Azure.
+W tym przewodniku szybki start wdrożono maszynę wirtualną przy użyciu szablonu Azure Resource Manager i wartości kluczy z konfiguracji aplikacji platformy Azure.
 
 Aby dowiedzieć się więcej o tworzeniu innych aplikacji za pomocą usługi Azure App Configuration, przejdź do następującego artykułu:
 
 > [!div class="nextstepaction"]
-> [Szybki start: tworzenie aplikacji ASP.NET Core za pomocą konfiguracji aplikacji platformy Azure](quickstart-aspnet-core-app.md)
+> [Szybki Start: Tworzenie aplikacji ASP.NET Core przy użyciu konfiguracji aplikacji platformy Azure](quickstart-aspnet-core-app.md)

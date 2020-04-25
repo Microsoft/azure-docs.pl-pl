@@ -1,24 +1,24 @@
 ---
 title: Monitorowanie aplikacji internetowej ASP.NET za pomocą usługi Azure Application Insights | Microsoft Docs
-description: Zawiera instrukcje szybkiego konfigurowania ASP.NET aplikacji Sieci Web do monitorowania za pomocą usługi Application Insights
+description: Zawiera instrukcje pozwalające szybko skonfigurować aplikację sieci Web ASP.NET do monitorowania za pomocą Application Insights
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 3775070320b8c6e96dd06031bd87ea53f37046c5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 074010a2f3b1f4f4a58b3c4727bf4eed28402e0a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78894850"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142634"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Rozpoczynanie monitorowania aplikacji internetowej ASP.NET
 
 Usługa Azure Application Insights umożliwia łatwe monitorowanie dostępności, wydajności i użycia aplikacji internetowej.  Pozwala też szybko identyfikować i diagnozować błędy w aplikacji bez oczekiwania na zgłoszenie ich przez użytkownika.  Dzięki uzyskiwanym za pomocą usługi Application Insights informacjom o wydajności i efektywności aplikacji można dokonywać świadomych wyborów dotyczących konserwacji i udoskonalania aplikacji.
 
-W tym przewodniku Szybki start pokazano, jak dodać usługę Application Insights do istniejącej aplikacji internetowej ASP.NET i rozpocząć korzystanie z jednej z wielu metod analizowania aplikacji — badania statystyk udostępnianych na żywo. Jeśli nie masz ASP.NET aplikacji sieci Web, możesz ją utworzyć po przewodniku [Szybki start aplikacji Tworzenie ASP.NET aplikacji Web App](../../app-service/app-service-web-get-started-dotnet-framework.md).
+W tym przewodniku Szybki start pokazano, jak dodać usługę Application Insights do istniejącej aplikacji internetowej ASP.NET i rozpocząć korzystanie z jednej z wielu metod analizowania aplikacji — badania statystyk udostępnianych na żywo. Jeśli nie masz aplikacji sieci Web ASP.NET, możesz ją utworzyć za pomocą [przewodnika Szybki Start dotyczącego tworzenia aplikacji sieci web ASP.NET](../../app-service/app-service-web-get-started-dotnet-framework.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby ukończyć ten przewodnik Szybki start:
@@ -28,11 +28,11 @@ Aby ukończyć ten przewodnik Szybki start:
     - Tworzenie aplikacji na platformie Azure
 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="enable-application-insights"></a>Włączanie usługi Application Insights
 
-1. Otwórz swój projekt w programie Visual Studio 2019.
+1. Otwórz projekt w programie Visual Studio 2019.
 2. Wybierz pozycję **Konfiguruj usługę Application Insights** z menu Projekt. Program Visual Studio doda zestaw SDK usługi Application Insights do aplikacji.
 
     > [!IMPORTANT]
@@ -44,7 +44,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.
 
 4. Wybierz swoją subskrypcję i kliknij przycisk **Zarejestruj**.
 
-5. Wybierz**źródło pakietu** > **Pakietów** > Pakietu Programu **Project** > Manage: nuget.org**zaktualizowanie** pakietów zestawu SDK usługi Application Insights do najnowszej stabilnej wersji.
+5. Wybierz **pozycję projekt** > **Zarządzanie** > **pakietami NuGet źródło pakietów: NuGet.org** > **zaktualizować** pakiety SDK Application Insights do najnowszej wersji stabilnej.
 
 6. Uruchom aplikację, wybierając pozycję **Rozpocznij debugowanie** z menu **Debuguj** lub naciskając klawisz F5.
 
@@ -52,7 +52,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.
 
 Usługa Application Insights zbiera dane telemetryczne aplikacji niezależnie od tego, gdzie jest ona uruchomiona. Aby rozpocząć wyświetlanie tych danych, wykonaj poniższe czynności.
 
-1. Otwórz aplikację Insights, klikając **pozycję Wyświetl** -> inne**wyszukiwanie w aplikacji systemu****Windows** -> .  Pojawią się dane telemetryczne z bieżącej sesji.<BR><br>![Dane telemetryczne w programie Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. Otwórz Application Insights, klikając pozycję **Wyświetl** -> inne**Application Insights wyszukiwania**w**systemie Windows** -> .  Pojawią się dane telemetryczne z bieżącej sesji.<BR><br>![Dane telemetryczne w programie Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. Kliknij pierwsze żądanie na liście (w tym przykładzie GET Home/Index), aby wyświetlić jego szczegóły. Zwróć uwagę, że są widoczne kod stanu i czas odpowiedzi, a także inne cenne informacje dotyczące żądania.<br><br>![Szczegóły odpowiedzi w programie Visual Studio](media/quick-monitor-portal/request-details.png)
 
@@ -60,7 +60,7 @@ Usługa Application Insights zbiera dane telemetryczne aplikacji niezależnie od
 
 Możesz teraz otworzyć usługę Application Insights w witrynie Azure Portal i wyświetlić różne szczegółowe informacje o uruchomionej aplikacji.
 
-1. Rozwiń folder **Połączone usługi** (ikona chmury i wtyczki) w Eksploratorze rozwiązań, a następnie kliknij prawym przyciskiem myszy folder Usługi **Application Insights** i kliknij polecenie Otwórz portal **aplikacji .**  Pojawią się wybrane informacje o aplikacji i różne opcje.
+1. Rozwiń folder **usługi połączone** (ikona chmury i wtyczki) w Eksplorator rozwiązań następnie kliknij prawym przyciskiem myszy folder **Application Insights** i kliknij polecenie **Otwórz Portal Application Insights**.  Pojawią się wybrane informacje o aplikacji i różne opcje.
 
     ![Mapa aplikacji](media/quick-monitor-portal/04-overview.png)
 
@@ -68,11 +68,11 @@ Możesz teraz otworzyć usługę Application Insights w witrynie Azure Portal i 
 
     ![Mapa aplikacji](media/quick-monitor-portal/05-appmap.png)
 
-3. Kliknij ikonę ![ **app analytics** widok mapy aplikacji](media/quick-monitor-portal/app-viewinlogs-icon.png) **w dziennikach (Analytics)** na jednym ze składników aplikacji. Spowoduje to otwarcie **dzienników (Analytics),** który zapewnia bogaty język zapytań do analizowania wszystkich danych zebranych przez usługa Application Insights. W tym przypadku jest generowane zapytanie, które renderuje liczbę żądań w formie wykresu. Możesz pisać własne zapytania do analizy innych danych.
+3. Kliknij ![](media/quick-monitor-portal/app-viewinlogs-icon.png) ikonę **Analiza aplikacji** widok mapy aplikacji **w dziennikach (analiza)** na jednym ze składników aplikacji. Spowoduje to otwarcie **dzienników (analiza)**, który oferuje bogaty język zapytań umożliwiający analizowanie wszystkich danych zebranych przez Application Insights. W tym przypadku jest generowane zapytanie, które renderuje liczbę żądań w formie wykresu. Możesz pisać własne zapytania do analizy innych danych.
 
     ![Analiza](media/quick-monitor-portal/6viewanalytics.png)
 
-4. Kliknij strumień **metryk** na żywo po lewej stronie w obszarze zbadaj. Spowoduje to wyświetlenie danych statystycznych dotyczących uruchomionej aplikacji. Dane te obejmują informacje dotyczące liczby żądań przychodzących, czasu trwania tych żądań i błędów. Można też sprawdzić krytyczne metryki wydajności, takie jak wydajność procesora i pamięci.
+4. Kliknij **Live Metrics Stream** po lewej stronie w obszarze Zbadaj. Spowoduje to wyświetlenie danych statystycznych dotyczących uruchomionej aplikacji. Dane te obejmują informacje dotyczące liczby żądań przychodzących, czasu trwania tych żądań i błędów. Można też sprawdzić krytyczne metryki wydajności, takie jak wydajność procesora i pamięci.
 
     ![Transmisja strumieniowa na żywo](media/quick-monitor-portal/7livemetrics.png)
 
@@ -101,17 +101,13 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 Aby dowiedzieć się więcej, odwiedź repozytorium GitHub [naszego zestawu SDK typu open-source dla języka JavaScript](https://github.com/Microsoft/ApplicationInsights-JS).
 
-## <a name="video"></a>Film wideo
-
-* Zewnętrzny film krok po kroku dotyczący [konfigurowania usługi Application Insights za pomocą aplikacji .NET od podstaw](https://www.youtube.com/watch?v=blnGAVgMAfA).
-
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Po zakończeniu testowania można usunąć grupę zasobów i wszystkie powiązane zasoby. Aby to zrobić, wykonaj poniższe czynności.
+Po zakończeniu testowania można usunąć grupę zasobów i wszystkie powiązane zasoby. W tym celu wykonaj poniższe kroki.
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij pozycję **myResourceGroup**.
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz **myResourceGroup** w polu tekstowym, a następnie kliknij pozycję **Usuń**.
+2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym pozycję Grupa **zasobów** , a następnie kliknij pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku Szybki start włączono aplikację do monitorowania przez usługę Azure Application Insights.  Przejdź do kolejnych samouczków, aby dowiedzieć się, jak użyć tej usługi do monitorowania statystyk i wykrywania problemów w aplikacji.
+W tym przewodniku szybki start włączono aplikację do monitorowania za pomocą usługi Azure Application Insights.  Przejdź do kolejnych samouczków, aby dowiedzieć się, jak użyć tej usługi do monitorowania statystyk i wykrywania problemów w aplikacji.
 
 > [!div class="nextstepaction"]
 > [Samouczki dotyczące usługi Azure Application Insights](tutorial-runtime-exceptions.md)

@@ -1,24 +1,24 @@
 ---
-title: Szybki start ASP.NET Core — usługa Azure Monitor Application Insights
-description: Zawiera instrukcje szybkiego konfigurowania ASP.NET core web app do monitorowania za pomocą usługi Azure Monitor Application Insights
+title: Szybki Start ASP.NET Core — Azure Monitor Application Insights
+description: Zawiera instrukcje umożliwiające szybkie skonfigurowanie ASP.NET Core aplikacji sieci Web na potrzeby monitorowania za pomocą Azure Monitor Application Insights
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ef46b86186d1f5e26360de891b3a090ab0ece66b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9aa19dfa0626ff0726911815addbb03945ee36f1
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78894813"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144850"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Rozpoczynanie monitorowania aplikacji internetowej ASP.NET Core
 
 Usługa Azure Application Insights umożliwia łatwe monitorowanie dostępności, wydajności i użycia aplikacji internetowej. Pozwala też szybko identyfikować i diagnozować błędy w aplikacji bez oczekiwania na zgłoszenie ich przez użytkownika. 
 
-Ten przewodnik szybki start prowadzi użytkownika przez dodawanie SDK usługi Application Insights do istniejącej aplikacji sieci web ASP.NET Core. Aby dowiedzieć się więcej o konfigurowaniu usługi Application Insights bez wyewidencjonowania programu Visual Studio w tym [artykule](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
+Ten przewodnik Szybki Start przeprowadzi Cię przez proces dodawania zestawu SDK Application Insights do istniejącej ASP.NET Core aplikacji sieci Web. Aby dowiedzieć się więcej o konfigurowaniu Application Insights bez wyewidencjonowania tego [artykułu](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)przez program Visual Studio.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -30,29 +30,29 @@ Aby ukończyć ten przewodnik Szybki start:
 - [Instalowanie zestawu SDK programu .NET Core 2.0](https://dotnet.microsoft.com/download)
 - Wymagana jest subskrypcja platformy Azure i istniejąca aplikacja internetowa .NET Core.
 
-Jeśli nie masz aplikacji sieci web ASP.NET Core, możesz użyć naszego przewodnika krok po kroku, aby [utworzyć aplikację ASP.NET Core i dodać usługa Application Insights.](../../azure-monitor/app/asp-net-core.md)
+Jeśli nie masz aplikacji sieci Web ASP.NET Core, możesz skorzystać z naszego przewodnika krok po kroku, aby [utworzyć aplikację ASP.NET Core i dodać Application Insights.](../../azure-monitor/app/asp-net-core.md)
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Włączanie usługi Application Insights
 
 Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowolnej aplikacji połączonej z Internetem, niezależnie od tego, czy jest to aplikacja lokalna czy aplikacja w chmurze. Aby rozpocząć wyświetlanie tych danych, wykonaj poniższe czynności.
 
-1. Wybierz pozycję **Utwórz narzędzie** > **Developer tools** > deweloperskie aplikacji **.**
+1. Wybierz pozycję **Utwórz zasób** > **Narzędzia** > deweloperskie**Application Insights**.
 
    > [!NOTE]
-   >Jeśli jest to pierwszy raz tworzenia zasobu usługi Application Insights można dowiedzieć się więcej, odwiedzając [utwórz plik doc zasobów usługi Application Insights.](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)
+   >Jeśli tworzysz zasób Application Insights, możesz dowiedzieć się więcej, odwiedzając dokument [tworzenie Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
 
     Zostanie wyświetlone okno konfiguracji. Wypełnij pola wejściowe, używając poniższej tabeli.
 
    | Ustawienia        |  Wartość           | Opis  |
    | ------------- |:-------------|:-----|
    | **Nazwa**      | Wartość unikatowa w skali globalnej | Nazwa identyfikująca monitorowaną aplikację |
-   | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów do hosta danych usługi App Insights. istnieje możliwość utworzenia nowej lub użycia istniejącej grupy zasobów. |
+   | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów, w której mają być hostowane dane usługi App Insights. istnieje możliwość utworzenia nowej lub użycia istniejącej grupy zasobów. |
    | **Lokalizacja** | Wschodnie stany USA | Wybierz lokalizację w pobliżu Ciebie lub w pobliżu miejsca hostowania aplikacji |
 
 2. Kliknij przycisk **Utwórz**.
@@ -65,13 +65,13 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
 
     ![Dodawanie telemetrii usługi Application Insights](./media/dotnetcore-quick-start/2vsaddappinsights.png)
 
-2. Kliknij przycisk **Wprowadzenie**
+2. Kliknij przycisk **wprowadzenie**
 
-3. Wybierz swoje konto i subskrypcję > Wybierz **istniejący zasób** utworzony w witrynie Azure portal > **kliknij przycisk Zarejestruj**się .
+3. Wybierz swoje konto i subskrypcję, > wybierz **istniejący zasób** utworzony w Azure Portal > kliknij pozycję **zarejestruj**.
 
-4. Wybierz**źródło pakietu** > **Pakietów** > Pakietu Programu **Project** > Manage: nuget.org**zaktualizowanie** pakietów zestawu SDK usługi Application Insights do najnowszej stabilnej wersji.
+4. Wybierz **pozycję projekt** > **Zarządzanie** > **pakietami NuGet źródło pakietów: NuGet.org** > **zaktualizować** pakiety SDK Application Insights do najnowszej wersji stabilnej.
 
-5. Wybierz **przycisk Start debugowania** > **bez debugowania** (Ctrl+F5), aby uruchomić aplikację
+5. Wybierz pozycję **Debuguj** > **Uruchom bez debugowania** (Ctrl + F5), aby uruchomić aplikację
 
     ![Menu Przegląd usługi Application Insights](./media/dotnetcore-quick-start/3debug.png)
 
@@ -80,7 +80,7 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Rozpoczynanie monitorowania w witrynie Azure Portal
 
-1. Otwórz ponownie stronę **Przegląd** usługi Application Insights w witrynie Azure portal, wybierając **pozycję Narzędzia domowe** i w obszarze ostatnie zasoby, wybierz zasób utworzony wcześniej, aby wyświetlić szczegółowe informacje o aktualnie uruchomionej aplikacji.
+1. Ponownie otwórz stronę **przeglądu** Application Insights w Azure Portal, wybierając pozycję **Strona główna** i w obszarze ostatnie zasoby wybierz utworzony wcześniej zasób, aby wyświetlić szczegółowe informacje o aktualnie uruchomionej aplikacji.
 
    ![Menu Przegląd usługi Application Insights](./media/dotnetcore-quick-start/4overview.png)
 
@@ -88,7 +88,7 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
 
    ![Mapa aplikacji](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Kliknij ikonę ![](./media/dotnetcore-quick-start/006.png) Mapy aplikacji Analizy **aplikacji** **Wyświetl ikonę w Analytics**. Spowoduje to otwarcie strony **Analiza usługi Application Insights**, która udostępnia zaawansowany język zapytań na potrzeby analizy wszystkich danych zbieranych przez usługę Application Insights. W tym przypadku jest generowane zapytanie, które renderuje liczbę żądań w formie wykresu. Możesz pisać własne zapytania do analizy innych danych.
+3. Kliknij ![](./media/dotnetcore-quick-start/006.png) ikonę **Analiza aplikacji** widok ikona mapy aplikacji **w obszarze Analiza**. Spowoduje to otwarcie strony **Analiza usługi Application Insights**, która udostępnia zaawansowany język zapytań na potrzeby analizy wszystkich danych zbieranych przez usługę Application Insights. W tym przypadku jest generowane zapytanie, które renderuje liczbę żądań w formie wykresu. Możesz pisać własne zapytania do analizy innych danych.
 
    ![Wykres analizy żądań użytkowników w danym okresie](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -96,23 +96,18 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
 
    ![Wykresy osi czasu przeglądu kondycji](./media/dotnetcore-quick-start/7kpidashboards.png)
 
-5. Po lewej stronie kliknij **metryki**. Użyj Eksploratora metryk, aby zbadać kondycję i wykorzystanie zasobu. Możesz kliknąć pozycję **Dodaj nowy wykres**, aby utworzyć dodatkowe widoki niestandardowe, lub wybrać pozycję **Edytuj**, aby zmodyfikować istniejące typy wykresów, wysokość, paletę kolorów, grupowanie i metryki. Na przykład można zrobić wykres, który wyświetla średni czas ładowania strony przeglądarki, wybierając "Czas ładowania strony przeglądarki" z listy rozwijanej metryki i "Avg" z agregacji. Aby dowiedzieć się więcej o Eksploratorze metryk platformy Azure odwiedź wprowadzenie [do Eksploratora metryk platformy Azure.](../../azure-monitor/platform/metrics-getting-started.md)
+5. Po lewej stronie kliknij pozycję **metryki**. Użyj Eksploratora metryk do zbadania kondycji i wykorzystania zasobu. Możesz kliknąć pozycję **Dodaj nowy wykres**, aby utworzyć dodatkowe widoki niestandardowe, lub wybrać pozycję **Edytuj**, aby zmodyfikować istniejące typy wykresów, wysokość, paletę kolorów, grupowanie i metryki. Na przykład można utworzyć wykres, który wyświetla średni czas ładowania strony w przeglądarce, wybierając pozycję "czas ładowania strony w przeglądarce" z listy rozwijanej metryki i "Średnia" z agregacji. Aby dowiedzieć się więcej o usłudze Azure Eksplorator metryk odwiedź stronę Rozpoczynanie [pracy z usługą azure Eksplorator metryk](../../azure-monitor/platform/metrics-getting-started.md).
 
-     ![Karta Metryki: Wykres średniego czasu ładowania strony przeglądarki](./media/dotnetcore-quick-start/8metrics.png)
-
-## <a name="video"></a>Film wideo
-
-- Zewnętrzny film krok po kroku dotyczący [konfigurowania usługi Application Insights za pomocą programu .NET Core i programu Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) od podstaw.
-- Zewnętrzny film krok po kroku dotyczący [konfigurowania usługi Application Insights za pomocą programu .NET Core i visual studio code](https://youtu.be/ygGt84GDync) od podstaw.
+     ![Karta metryk: Średni wykres czasu ładowania strony przeglądarki](./media/dotnetcore-quick-start/8metrics.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Po zakończeniu testowania można usunąć grupę zasobów i wszystkie powiązane zasoby. Aby to zrobić, wykonaj poniższe czynności.
+Po zakończeniu testowania można usunąć grupę zasobów i wszystkie powiązane zasoby. W tym celu wykonaj poniższe kroki.
 
 > [!NOTE]
-> Jeśli użyto istniejącej grupy zasobów, poniższe instrukcje nie będą działać i trzeba będzie po prostu usunąć pojedynczy zasób usługi Application Insights. Pamiętaj, że w każdej chwili usuniesz grupę zasobów, wszystkie zasoby, które są członkami tej grupy, zostaną usunięte.
+> Jeśli użyto istniejącej grupy zasobów, poniższe instrukcje nie będą działać i konieczne będzie tylko usunięcie poszczególnych zasobów Application Insights. Należy pamiętać, że usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów underyling, które są członkami tej grupy.
 
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij pozycję **myResourceGroup**.
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz **myResourceGroup** w polu tekstowym, a następnie kliknij pozycję **Usuń**.
+2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym pozycję Grupa **zasobów** , a następnie kliknij pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

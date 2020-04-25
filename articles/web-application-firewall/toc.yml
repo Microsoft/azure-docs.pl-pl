@@ -107,7 +107,7 @@
           href: ./ag/bot-protection.md
         - name: Kojarzenie zasad z istniejącym wystąpieniem usługi Application Gateway
           href: ./ag/associate-waf-policy-existing-gateway.md
-        - name: Dzienniki diagnostyczne
+        - name: Dzienniki zasobów
           href: ./ag/web-application-firewall-logs.md
         - name: Rozwiązywanie problemów z zaporą aplikacji internetowej
           href: ./ag/web-application-firewall-troubleshoot.md

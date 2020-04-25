@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: sharadag
-ms.openlocfilehash: e7e500f0459c0f5fd4039acf316d9469e1567a09
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: c1ce34bb7fc851d3f763241c9e92371b43ed1861
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116980"
+ms.locfileid: "82133402"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Szybki start: tworzenie usługi Front Door na potrzeby globalnej aplikacji internetowej o wysokiej dostępności
 
@@ -42,7 +42,7 @@ Jeśli nie masz jeszcze aplikacji sieci Web, wykonaj następujące kroki, aby sk
 
 1. Wybierz pozycję **Web** > **App**Web.
 
-   ![Tworzenie aplikacji internetowej w witrynie Azure Portal](media/quickstart-create-front-door/create-web-app-for-front-door.png)
+   ![Tworzenie aplikacji internetowej w witrynie Azure Portal](media/quickstart-create-front-door/create-web-app-azure-front-door.png)
 
 1. W obszarze **aplikacja internetowa**wybierz **subskrypcję** do użycia.
 
@@ -60,7 +60,7 @@ Jeśli nie masz jeszcze aplikacji sieci Web, wykonaj następujące kroki, aby sk
 
 1. Wybierz pozycję **Przegląd + Utwórz**, przejrzyj **Podsumowanie**, a następnie wybierz pozycję **Utwórz**. Ukończenie wdrożenia może potrwać kilka minut.
 
-   ![Przejrzyj podsumowanie dla aplikacji sieci Web](media/quickstart-create-front-door/summary-for-web-app-for-front-door.png)
+   ![Przejrzyj podsumowanie dla aplikacji sieci Web](media/quickstart-create-front-door/web-app-summary-azure-front-door.png)
 
 Po zakończeniu wdrażania Utwórz drugą aplikację sieci Web. Użyj tej samej procedury z tymi samymi wartościami, z wyjątkiem następujących wartości:
 
@@ -87,7 +87,7 @@ Skonfiguruj drzwiczki frontonu platformy Azure, aby skierować ruch użytkownik�
 
 1. W obszarze **Nazwa hosta**wprowadź globalnie unikatową nazwę hosta. W tym przykładzie używamy *contoso-frontonu*. Wybierz pozycję **Dodaj**.
 
-   ![Dodawanie hosta frontonu dla drzwi platformy Azure](media/quickstart-create-front-door/add-frontend-host-for-front-door.png)
+   ![Dodawanie hosta frontonu dla drzwi platformy Azure](media/quickstart-create-front-door/add-frontend-host-azure-front-door.png)
 
 Następnie Utwórz pulę zaplecza zawierającą dwie aplikacje sieci Web.
 
@@ -103,7 +103,7 @@ Następnie Utwórz pulę zaplecza zawierającą dwie aplikacje sieci Web.
 
 1. Wybierz swoją subskrypcję, a następnie wybierz drugą aplikację sieci Web utworzoną na podstawie **nazwy hosta zaplecza**. Wybierz pozycję **Dodaj**.
 
-   ![Dodawanie hosta zaplecza do drzwi przednich](media/quickstart-create-front-door/add-backend-host-to-pool-for-front-door.png)
+   ![Dodawanie hosta zaplecza do drzwi przednich](media/quickstart-create-front-door/add-backend-host-pool-azure-front-door.png)
 
 Na koniec Dodaj regułę routingu. Reguła routingu mapuje hosta frontonu do puli zaplecza. Reguła przekazuje żądanie `contoso-frontend.azurefd.net` do **myBackendPool**.
 
@@ -116,7 +116,7 @@ Na koniec Dodaj regułę routingu. Reguła routingu mapuje hosta frontonu do pul
 
 1. Wybierz kolejno pozycje **Przegląd + Utwórz**i **Utwórz**.
 
-   ![Skonfigurowane drzwi frontonu platformy Azure](media/quickstart-create-front-door/configuration-of-front-door.png)
+   ![Skonfigurowane drzwi frontonu platformy Azure](media/quickstart-create-front-door/configuration-azure-front-door.png)
 
 ## <a name="view-azure-front-door-in-action"></a>Wyświetl działania z przodu platformy Azure w działaniu
 
@@ -141,7 +141,7 @@ Aby przetestować natychmiastową globalną pracę w trybie failover, spróbuj w
 
 1. Odśwież przeglądarkę. Tym razem powinien zostać wyświetlony komunikat o błędzie.
 
-   ![Oba wystąpienia aplikacji sieci Web zostały zatrzymane](media/quickstart-create-front-door/service-has-been-stopped.png)
+   ![Oba wystąpienia aplikacji sieci Web zostały zatrzymane](media/quickstart-create-front-door/web-app-stopped-message.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
