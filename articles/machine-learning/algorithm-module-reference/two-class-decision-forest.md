@@ -1,103 +1,113 @@
 ---
-title: 'Las decyzyjny dwuklasowy: odwołanie do modułu'
+title: 'Las decyzyjny dwuklasowej: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu Dwuklasowy las decyzji w usłudze Azure Machine Learning do utworzenia modelu uczenia maszynowego na podstawie algorytmu lasów decyzyjnych.
+description: Dowiedz się, jak utworzyć model uczenia maszynowego na podstawie algorytmu lasów decyzyjnych przy użyciu dwuklasowego modułu lasu decyzyjnego w Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: c9388da449e75dee00fd43af9a4e0407c46f597a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: c98935781699510d84247f80367d5c57cb388f6b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77916714"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137641"
 ---
-# <a name="two-class-decision-forest-module"></a>Moduł dwuklasowy moduł "Decision Forest"
+# <a name="two-class-decision-forest-module"></a>Moduł dwuklasowego lasu decyzyjnego
 
-W tym artykule opisano moduł w projektancie usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
-Ten moduł służy do tworzenia modelu uczenia maszynowego na podstawie algorytmu lasów decyzji.  
+Ten moduł służy do tworzenia modelu uczenia maszynowego na podstawie algorytmu lasów decyzyjnych.  
 
-Lasy decyzyjne są szybkimi, nadzorowane modele zespołów. Ten moduł jest dobrym wyborem, jeśli chcesz przewidzieć cel z maksymalnie dwoma wynikami. 
+Lasy decyzyjne są szybkimi, nadzorowanymi modelami kompletów. Ten moduł jest dobrym rozwiązaniem, jeśli chcesz przewidzieć element docelowy z maksymalnie dwoma wynikami. 
 
 ## <a name="understanding-decision-forests"></a>Zrozumienie lasów decyzyjnych
 
-Ten algorytm lasu decyzji jest metoda uczenia zespołu przeznaczone do zadań klasyfikacji. Metody zespołu są oparte na ogólnej zasadzie, że zamiast polegać na jednym modelu, można uzyskać lepsze wyniki i bardziej uogólniony model, tworząc wiele powiązanych modeli i łącząc je w jakiś sposób. Ogólnie rzecz biorąc, modele zespołu zapewniają lepsze pokrycie i dokładność niż drzewa pojedynczej decyzji. 
+Ten algorytm lasu decyzyjnego to metoda uczenia się, która jest przeznaczona dla zadań klasyfikacji. Metody kompletności opierają się na ogólnej zasadzie, która nie polega na pojedynczym modelu, można uzyskać lepsze wyniki i bardziej Uogólniony model, tworząc wiele powiązanych modeli i łącząc je w jakiś sposób. Ogólnie rzecz biorąc, modele kompletów zapewniają lepszy zakres i dokładność niż pojedyncze drzewa decyzyjne. 
 
-Istnieje wiele sposobów tworzenia poszczególnych modeli i łączenia ich w zespole. To konkretne wdrożenie decyzji leśnej działa poprzez budowę wielu drzew decyzyjnych, a następnie **głosowanie** na najbardziej popularne klasy produkcji. Głosowanie jest jedną z lepiej znanych metod generowania wyników w modelu zespołu. 
+Istnieje wiele sposobów tworzenia pojedynczych modeli i łączenia ich w kompletną. Ta konkretna implementacja lasu decyzyjnego działa przez utworzenie wielu drzew decyzyjnych, a następnie **głosujących** na najpopularniejszą klasę wyjściową. Głosowanie jest jedną z lepszych metod generowania wyników w modelu typu "kompletna". 
 
-+ Wiele poszczególnych drzew klasyfikacji są tworzone przy użyciu całego zestawu danych, ale różne (zwykle losowo) punkty początkowe. Różni się to od metody losowego lasu, w którym poszczególne drzewa decyzyjne mogą używać tylko niektórych losowych części danych lub funkcji.
-+ Każde drzewo w drzewie leśnym decyzji wyprowadza histogram częstotliwości nieznormalizowany etykiet. 
++ Wiele pojedynczych drzew klasyfikacji jest tworzonych przy użyciu całego zestawu danych, ale różne (zazwyczaj losowe) punkty początkowe. Różni się to od przypadkowego podejścia lasów, w którym poszczególne drzewa decyzyjne mogą korzystać tylko z części danych lub funkcji.
++ Każde drzewo w drzewie lasu decyzyjnego wyprowadza histogram o nieznormalizowanej częstotliwości etykiet. 
 + Proces agregacji sumuje te histogramy i normalizuje wynik, aby uzyskać "prawdopodobieństwa" dla każdej etykiety. 
-+ Drzewa, które mają wysoką pewność przewidywania będą miały większą wagę w ostatecznej decyzji zespołu.
++ Drzewa, które mają wysoki poziom zaufania, będą mieć większą wagę w ostatecznej decyzji o zestawie.
 
-Drzewa decyzyjne w ogóle mają wiele zalet dla zadań klasyfikacyjnych:
+Drzewa decyzyjne ogólnie posiadają wiele zalet zadań klasyfikacji:
   
-- Mogą przechwytywać nieliniowe granice decyzji.
-- Można trenować i przewidywać na wiele danych, ponieważ są one wydajne w obliczeniach i użycia pamięci.
-- Wybór funkcji jest zintegrowany z procesami szkolenia i klasyfikacji.  
-- Drzewa mogą pomieścić hałaśliwe dane i wiele funkcji.  
-- Są to modele nie parametryczne, co oznacza, że mogą obsługiwać dane z różnymi dystrybucjami. 
+- Mogą przechwytywać granice decyzyjne nieliniowe.
+- Możesz nauczyć i przewidzieć duże ilości danych, ponieważ są one wydajne w zakresie obliczeń i użycia pamięci.
+- Wybór funkcji jest zintegrowany w procesach szkolenia i klasyfikacji.  
+- Drzewa mogą obsługiwać dane szumu i wiele funkcji.  
+- Nie są to modele parametryczne, co oznacza, że mogą obsługiwać dane przy użyciu różnych dystrybucji. 
 
-Jednak proste drzewa decyzyjne mogą przepasowyać dane i są mniej uogólnione niż zespoły drzew.
+Jednak proste drzewa decyzyjne mogą overfit na danych i są mniej możliwe do wyróżnienia niż w drzewie drzewa.
 
-Aby uzyskać więcej informacji, zobacz ["Lasy decyzyjne](https://go.microsoft.com/fwlink/?LinkId=403677)"  
+Aby uzyskać więcej informacji, zobacz [lasy decyzyjne](https://go.microsoft.com/fwlink/?LinkId=403677).  
 
 ## <a name="how-to-configure"></a>Jak skonfigurować
   
-1.  Dodaj moduł **Las decyzji dwuklasowej** do potoku w usłudze Azure Machine Learning i otwórz okienko **Właściwości** modułu. 
+1.  Dodaj moduł **Las decyzyjny z dwoma klasami** do potoku w Azure Machine Learning i Otwórz okienko **Właściwości** modułu. 
 
-    Moduł można znaleźć w obszarze **Uczenie maszynowe**. Rozwiń pozycję **Inicjowanie**, a następnie **klasyfikacja**.  
+    Moduł można znaleźć w obszarze **Machine Learning**. Rozwiń węzeł **Inicjalizacja**, a następnie pozycję **Klasyfikacja**.  
   
-2.  W przypadku **metody ponownego**próby wybierz metodę używaną do tworzenia poszczególnych drzew.  Możesz wybrać **opcję Bagging** lub **Replicate**.  
+2.  Dla **metody ponowne próbkowanie**wybierz metodę używaną do tworzenia poszczególnych drzew.  Możesz wybrać jedną z opcji **Working** lub **replikacja**.  
   
-    -   **Bagging**: Bagging jest również nazywany *bootstrap agregacji*. W tej metodzie każde drzewo jest uprawiane na nowej próbce, tworzone przez losowe próbkowanie oryginalnego zestawu danych z zastąpieniem, dopóki nie masz zestawu danych o rozmiarze oryginału.  
+    -   **Working**: w workach jest również wywoływana *agregacja Bootstrap*. W tej metodzie Każde drzewo jest uprawiane na nowym przykładzie, utworzonym losowo próbkowanie oryginalnego zestawu danych z zastępowaniem do momentu, gdy zestaw danych ma rozmiar oryginalny.  
   
-         Wyniki modeli są łączone przez *głosowanie,* co jest formą agregacji. Każde drzewo w lesie decyzji o klasyfikacji wyprowadza histogram częstotliwości nienormalizowanej etykiet. Agregacja jest zsumowanie tych histogramów i normalizacji, aby uzyskać "prawdopodobieństwa" dla każdej etykiety. W ten sposób drzewa, które mają wysoką pewność przewidywania będą miały większą wagę w ostatecznej decyzji zespołu.  
+         Dane wyjściowe modeli są łączone przez *głosowanie*, który jest formą agregacji. Każde drzewo w lesie decyzyjnym klasyfikacji wyprowadza nieznormalizowane histogramy częstotliwości etykiet. Agregacją jest sumowanie tych histogramów i normalizowanie w celu uzyskania "prawdopodobieństwa" dla każdej etykiety. W ten sposób drzewa, które mają wysoki poziom zaufania, będą mieć większą wagę w ostatecznej decyzji dotyczącej tego elementu.  
   
-         Aby uzyskać więcej informacji, zobacz wpis w Wikipedii dla agregowania Bootstrap.  
+         Aby uzyskać więcej informacji, zobacz wpis Wikipedia na potrzeby agregowania Bootstrap.  
   
-    -   **Replikacja:** W replikacji każde drzewo jest przeszkolone na dokładnie tych samych danych wejściowych. Określenie, które predykatu podziału jest używany dla każdego węzła drzewa pozostaje losowe i drzewa będą zróżnicowane.   
+    -   **Replikacja**: w replikacji Każde drzewo jest przeszkolone dokładnie na te same dane wejściowe. Określenie, który predykat Split jest używany dla każdego węzła drzewa, pozostaje losowy, a drzewa będą różne.   
   
-3.  Określ sposób, w jaki model ma być trenowany, ustawiając opcję **Utwórz tryb trenera.**  
+3.  Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .  
   
-    -   **Pojedynczy parametr:** Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty.
+    -   **Pojedynczy parametr**: Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty.
 
-    -   **Zakres parametrów:** Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry za pomocą modułu [Tune Model Hyperparameters.](tune-model-hyperparameters.md) Należy podać zakres wartości, a trener iteruje przez wiele kombinacji ustawień, aby określić kombinację wartości, która daje najlepszy wynik.
+    -   **Zakres parametrów**: Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Podajesz kilka wartości, a Trainer wykonuje iterację wielu kombinacji ustawień, aby określić kombinację wartości, które tworzą najlepszy wynik.
   
-4.  W przypadku **liczby drzew decyzyjnych**wpisz maksymalną liczbę drzew decyzyjnych, które mogą być tworzone w zespole. Tworząc więcej drzew decyzyjnych, można potencjalnie uzyskać lepszy zasięg, ale czas szkolenia wzrasta.  
+4.  W przypadku **liczby drzew decyzyjnych**wpisz maksymalną liczbę drzew decyzyjnych, które można utworzyć w części. Przez utworzenie większej liczby drzew decyzyjnych można potencjalnie uzyskać lepszy zakres, ale wydłużyć czas uczenia.  
   
     > [!NOTE]
-    >  Ta wartość kontroluje również liczbę drzew wyświetlanych podczas wizualizacji modelu uczonego. Jeśli chcesz wyświetlić lub wydrukować pojedyncze drzewo, możesz ustawić wartość na 1. Jednak tylko jedno drzewo może być produkowane (drzewo z początkowym zestawem parametrów) i nie są wykonywane dalsze iteracje.
+    >  Ta wartość kontroluje również liczbę drzew wyświetlanych podczas wizualizacji przeszkolonego modelu. Jeśli chcesz zobaczyć lub wydrukować pojedyncze drzewo, możesz ustawić wartość 1. Jednak można utworzyć tylko jedno drzewo (drzewo z początkowym zestawem parametrów) i nie są wykonywane żadne dalsze iteracje.
   
-5.  W przypadku **maksymalnej głębokości drzew decyzyjnych**wpisz liczbę, aby ograniczyć maksymalną głębokość dowolnego drzewa decyzyjnego. Zwiększenie głębokości drzewa może zwiększyć precyzję, na ryzyko niektórych overfitting i wydłużony czas szkolenia.
+5.  W celu uzyskania **maksymalnej głębokości drzew decyzyjnych**wpisz liczbę, aby ograniczyć maksymalną głębokość każdego drzewa decyzyjnego. Zwiększenie głębokości drzewa może zwiększyć precyzję w przypadku ryzyka pewnego przekroczenia i zwiększenia czasu uczenia się.
   
-6.  W **polach Liczba podziałów losowych na węzeł**wpisz liczbę podziałów, które mają być używane podczas tworzenia każdego węzła drzewa. *Podział* oznacza, że operacje na każdym poziomie drzewa (węzła) są losowo podzielone.
+6.  Dla **liczby losowych podziałów na węzeł**wpisz liczbę podziałów, która ma być używana podczas kompilowania każdego węzła drzewa. *Podział* oznacza, że funkcje na każdym poziomie drzewa (węzeł) są losowo podzielone.
   
-7.  Dla **minimalnej liczby próbek na węzeł liścia**, należy wskazać minimalną liczbę przypadków, które są wymagane do utworzenia dowolnego węzła terminala (liść) w drzewie.
+7.  Dla **minimalnej liczby próbek na węzeł liścia**wskaż minimalną liczbę przypadków, które są wymagane do utworzenia dowolnego węzła terminalu (liścia) w drzewie.
   
-     Zwiększając tę wartość, można zwiększyć próg tworzenia nowych reguł. Na przykład z wartością domyślną 1, nawet pojedynczy przypadek może spowodować utworzenie nowej reguły. Jeśli zwiększysz wartość do 5, dane szkoleniowe będą musiały zawierać co najmniej pięć przypadków, które spełniają te same warunki.  
+     Zwiększenie tej wartości spowoduje zwiększenie wartości progowej tworzenia nowych reguł. Na przykład, z wartością domyślną 1, nawet pojedynczy przypadek może spowodować utworzenie nowej reguły. W przypadku zwiększenia wartości do 5 dane szkoleniowe muszą zawierać co najmniej pięć przypadków, które spełniają te same warunki.  
   
-8.  Wybierz opcję **Zezwalaj na nieznane wartości dla obiektów kategorii,** aby utworzyć grupę dla nieznanych wartości w zestawach szkolenia lub sprawdzania poprawności. Model może być mniej precyzyjne dla znanych wartości, ale może zapewnić lepsze prognozy dla nowych (nieznanych) wartości. 
+8.  Wybierz opcję **Zezwalaj na nieznane wartości dla funkcji kategorii** , aby utworzyć grupę dla nieznanych wartości w zestawach szkoleniowych lub walidacji. Model może być mniej dokładny dla znanych wartości, ale może zapewnić lepsze przewidywania dla nowych wartości (nieznanych). 
 
-     Jeśli usuniesz zaznaczenie tej opcji, model może zaakceptować tylko wartości, które są zawarte w danych szkoleniowych.
+     W przypadku zaznaczenia tej opcji model może akceptować tylko wartości, które są zawarte w danych szkoleniowych.
   
-9. Dołącz oznaczony zestaw danych i jeden z [modułów szkoleniowych:](module-reference.md)  
+9. Dołącz zestaw danych z etykietą i Przeszkol model:
+
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    -   Jeśli **ustawisz tryb Utwórz tryb trenera** na **Pojedynczy parametr,** użyj modułu [Model pociągu.](./train-model.md)  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Jeśli przejdziesz do zakresu parametrów w celu [nauczenia modelu](train-model.md), zostanie użyta tylko wartość domyślna na liście jednego parametru.  
+    > 
+    > W przypadku przekazania jednego zestawu wartości parametrów do modułu [strojenia modelu](tune-model-hyperparameters.md) , gdy oczekuje on zakresu ustawień dla każdego parametru, zignoruje wartości i użyje wartości domyślnych dla dodanej informacji.  
+    > 
+    > Jeśli wybierzesz opcję **zakres parametrów** i wprowadzisz pojedynczą wartość dla każdego parametru, ta pojedyncza wartość zostanie użyta w całym wyczyszczeniu, nawet jeśli inne parametry zmienią się w zakres wartości.  
     
 ## <a name="results"></a>Wyniki
 
 Po zakończeniu szkolenia:
 
-+ Aby zapisać migawkę uczonego modelu, wybierz kartę **Wyjścia** w prawym panelu modułu **Modelu pociągu.** Wybierz ikonę **Zarejestruj zestaw danych,** aby zapisać model jako moduł wielokrotnego wyboru.
++ Aby zapisać migawkę przeszkolonego modelu, wybierz kartę dane **wyjściowe** w prawym panelu modułu **uczenie modelu** . Wybierz ikonę **zarejestruj zestaw danych** , aby zapisać model jako moduł wielokrotnego użytku.
 
-+ Aby użyć modelu do oceniania, dodaj **wynik modelu** modułu do potoku.
++ Aby użyć modelu do oceniania, Dodaj moduł **model oceny** do potoku.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

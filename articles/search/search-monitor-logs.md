@@ -1,47 +1,47 @@
 ---
 title: Zbieranie danych dziennika
 titleSuffix: Azure Cognitive Search
-description: Zbieraj i analizuj dane dziennika, włączając ustawienie diagnostyczne, a następnie użyj języka zapytań Kusto do eksplorowania wyników.
+description: Zbieranie i analizowanie danych dziennika przez włączenie ustawienia diagnostycznego, a następnie użycie języka zapytań Kusto do eksplorowania wyników.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 86e869bc08552ea11728c508486a4784eccf4042
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462370"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127829"
 ---
-# <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Zbieranie i analizowanie danych dziennika dla usługi Azure Cognitive Search
+# <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Zbieranie i analizowanie danych dziennika dla usługi Azure Wyszukiwanie poznawcze
 
-Dzienniki diagnostyczne lub operacyjne zapewniają wgląd w szczegółowe operacje usługi Azure Cognitive Search i są przydatne do monitorowania procesów usługi i obciążenia. Wewnętrznie dzienniki istnieją na wewnętrznej bazy danych przez krótki okres czasu, wystarczające do badania i analizy, jeśli plik bilet pomocy technicznej. Jednak jeśli chcesz samokierunkowe nad danymi operacyjnymi, należy skonfigurować ustawienie diagnostyczne, aby określić, gdzie są zbierane informacje rejestrowania.
+Dzienniki diagnostyczne lub operacyjne zapewniają wgląd w szczegółowe operacje na platformie Azure Wyszukiwanie poznawcze i są przydatne do monitorowania procesów usług i obciążeń. Wewnętrznie dzienniki znajdują się w zapleczu przez krótki czas, co jest wystarczające do zbadania i analizy w przypadku utworzenia biletu pomocy technicznej. Jeśli jednak chcesz mieć własny kierunek danych operacyjnych, należy skonfigurować ustawienie diagnostyczne, aby określić, gdzie zbierane są informacje o rejestrowaniu.
 
-Konfigurowanie dzienników jest przydatne do diagnostyki i zachowania historii operacyjnej. Po włączeniu rejestrowania można uruchamiać kwerendy lub tworzyć raporty do analizy strukturalnej.
+Konfigurowanie dzienników jest przydatne w przypadku diagnostyki i zachowania historii operacyjnej. Po włączeniu rejestrowania można uruchamiać zapytania lub tworzyć raporty na potrzeby analizy strukturalnej.
 
-W poniższej tabeli wylicza się opcje zbierania i utrwalania danych.
+W poniższej tabeli przedstawiono opcje zbierania i utrwalania danych.
 
 | Zasób | Używana do |
 |----------|----------|
-| [Wyślij do obszaru roboczego usługi Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Zdarzenia i metryki są wysyłane do obszaru roboczego usługi Log Analytics, które można wyszukiwać w portalu, aby zwrócić szczegółowe informacje. Aby uzyskać wprowadzenie, zobacz [Wprowadzenie do dzienników usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Archiwum z pamięcią blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Zdarzenia i metryki są archiwizowane w kontenerze obiektów Blob i przechowywane w plikach JSON. Dzienniki mogą być dość szczegółowe (przez godzinę / minutę), przydatne do badania konkretnego incydentu, ale nie do otwartego dochodzenia. Za pomocą edytora JSON można wyświetlić nieprzetworzony plik dziennika lub usługi Power BI w celu agregowania i wizualizowania danych dziennika.|
-| [Strumień do Centrum zdarzeń](https://docs.microsoft.com/azure/event-hubs/) | Zdarzenia i metryki są przesyłane strumieniowo do usługi Usługi Azure Event Hubs. Wybierz to jako alternatywną usługę zbierania danych dla bardzo dużych dzienników. |
+| [Wyślij do obszaru roboczego Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Zdarzenia i metryki są wysyłane do obszaru roboczego Log Analytics, w którym można wykonywać zapytania w portalu w celu zwrócenia szczegółowych informacji. Aby zapoznać się z wprowadzeniem, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Archiwizowanie przy użyciu magazynu obiektów BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Zdarzenia i metryki są archiwizowane w kontenerze obiektów blob i przechowywane w plikach JSON. Dzienniki mogą być bardzo szczegółowe (przez godzinę/minutę), przydatne do przeszukiwania konkretnego zdarzenia, ale nie dla badania otwartego. Użyj edytora JSON, aby wyświetlić Nieprzetworzony plik dziennika lub Power BI do agregowania i wizualizacji danych dziennika.|
+| [Przesyłanie strumieniowe do centrum zdarzeń](https://docs.microsoft.com/azure/event-hubs/) | Zdarzenia i metryki są przesyłane strumieniowo do usługi Event Hubs platformy Azure. Wybierz tę opcję jako alternatywną usługę zbierania danych dla bardzo dużych dzienników. |
 
-Dzienniki usługi Azure Monitor i magazyn obiektów Blob są dostępne jako bezpłatna usługa, dzięki czemu można go wypróbować bezpłatnie przez cały okres istnienia subskrypcji platformy Azure. Usługa Application Insights może się zarejestrować i używać tak długo, jak rozmiar danych aplikacji jest w pewnych granicach (szczegółowe informacje można znaleźć na [stronie cennika).](https://azure.microsoft.com/pricing/details/monitor/)
+Zarówno dzienniki Azure Monitor, jak i magazyn obiektów BLOB są dostępne jako bezpłatna usługa, dzięki czemu można wypróbować ją bezpłatnie w okresie istnienia subskrypcji platformy Azure. Application Insights jest bezpłatny, aby zarejestrować się i używać tak długo, jak rozmiar danych aplikacji ma określone limity (szczegółowe informacje znajdują się na [stronie cennika](https://azure.microsoft.com/pricing/details/monitor/) ).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli używasz usługi Log Analytics lub usługi Azure Storage, możesz utworzyć zasoby z wyprzedzeniem.
+W przypadku korzystania z usługi Log Analytics lub magazynu Azure można z góry utworzyć zasoby.
 
-+ [Tworzenie obszaru roboczego analizy dzienników](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
++ [Tworzenie obszaru roboczego usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
 + [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 
 ## <a name="enable-data-collection"></a>Włączanie zbierania danych
 
-Ustawienia diagnostyczne określają sposób zbierania zarejestrowanych zdarzeń i metryk.
+Ustawienia diagnostyczne określają, jak są zbierane zdarzenia i metryki.
 
 1. W obszarze **Monitorowanie** wybierz pozycję **Ustawienia diagnostyczne**.
 
@@ -49,39 +49,39 @@ Ustawienia diagnostyczne określają sposób zbierania zarejestrowanych zdarzeń
 
 1. Wybierz **+ Dodaj ustawienie diagnostyczne**
 
-1. Sprawdź **analitykę dziennika,** wybierz obszar roboczy i wybierz **OperationLogs** i **AllMetrics**.
+1. Zaznacz **log Analytics**, wybierz obszar roboczy, a następnie wybierz pozycję **OperationLogs** i **AllMetrics**.
 
-   ![Konfigurowanie zbierania danych](./media/search-monitor-usage/configure-storage.png "Konfigurowanie zbierania danych")
+   ![Konfiguruj zbieranie danych](./media/search-monitor-usage/configure-storage.png "Konfiguruj zbieranie danych")
 
 1. Zapisz ustawienie.
 
-1. Po włączeniu rejestrowania użyj usługi wyszukiwania, aby rozpocząć generowanie dzienników i metryk. Zanim zarejestrowane zdarzenia i metryki staną się dostępne, zajmie trochę czasu.
+1. Po włączeniu rejestrowania Użyj usługi wyszukiwania, aby rozpocząć generowanie dzienników i metryk. To zajmie czas przed udostępnieniem zarejestrowanych zdarzeń i metryk.
 
-W przypadku usługi Log Analytics będzie to kilka minut przed udostępnieniem danych, po czym można uruchomić zapytania Kusto w celu zwrócenia danych. Aby uzyskać więcej informacji, zobacz [Monitorowanie żądań kwerend](search-monitor-logs.md).
+W przypadku Log Analytics będzie to kilka minut, zanim dane będą dostępne, a następnie można uruchomić zapytania Kusto w celu zwrócenia danych. Aby uzyskać więcej informacji, zobacz [monitorowanie żądań zapytań](search-monitor-logs.md).
 
-W przypadku magazynu obiektów Blob trwa godzinę, zanim kontenery pojawią się w magazynie obiektów Blob. Istnieje jeden obiekt blob, na godzinę, na kontener. Kontenery są tworzone tylko wtedy, gdy istnieje działanie do rejestrowania lub pomiaru. Gdy dane są kopiowane na konto magazynu, dane są formatowane jako JSON i umieszczane w dwóch kontenerach:
+W przypadku usługi BLOB Storage trwa jedna godzina, zanim kontenery pojawią się w usłudze BLOB Storage. Dla każdego kontenera istnieje jeden obiekt BLOB o godzinie. Kontenery są tworzone tylko w przypadku działania do rejestrowania lub mierzenia. Po skopiowaniu danych na konto magazynu dane są formatowane jako kod JSON i umieszczane w dwóch kontenerach:
 
-+ insights-logs-operationlogs: dla dzienników ruchu wyszukiwania
-+ insights-metrics-pt1m: dla metryk
++ Insights-Logs-operationlogs: w przypadku dzienników ruchu wyszukiwania
++ Insights-Metrics-pt1m: for Metrics
 
-## <a name="query-log-information"></a>Informacje dziennika kwerend
+## <a name="query-log-information"></a>Informacje dziennika zapytania
 
-W dziennikach diagnostycznych dwie tabele zawierają dzienniki i metryki dla usługi Azure Cognitive Search: **AzureDiagnostics** i **AzureMetrics**.
+Dwie tabele zawierają dzienniki i metryki dla usługi Azure Wyszukiwanie poznawcze: **AzureDiagnostics** i **AzureMetrics**.
 
-1. W obszarze **Monitorowanie**wybierz **pozycję Dzienniki**.
+1. W obszarze **monitorowanie**wybierz pozycję **dzienniki**.
 
-1. Wprowadź **azuremetrics** w oknie kwerendy. Uruchom tę prostą kwerendę, aby zapoznać się z danymi zebranymi w tej tabeli. Przewiń tabelę, aby wyświetlić metryki i wartości. Zwróć uwagę na liczbę rekordów u góry, a jeśli usługa zbiera metryki od jakiegoś czasu, możesz dostosować przedział czasu, aby uzyskać zestaw danych, którymi można zarządzać.
+1. W oknie zapytania wprowadź **AzureMetrics** . Uruchom to proste zapytanie, aby zapoznać się z danymi zebranymi w tej tabeli. Przewiń tabelę, aby wyświetlić metryki i wartości. Zwróć uwagę na liczbę rekordów u góry, a jeśli usługa zbiera metryki przez pewien czas, możesz chcieć dostosować przedział czasu, aby uzyskać dostęp do możliwego do zarządzania zestawu danych.
 
    ![Tabela AzureMetrics](./media/search-monitor-usage/azuremetrics-table.png "Tabela AzureMetrics")
 
-1. Wprowadź następującą kwerendę, aby zwrócić zestaw wyników tabelaryczne.
+1. Wprowadź następujące zapytanie, aby zwrócić tabelaryczny zestaw wyników.
 
    ```
    AzureMetrics
     | project MetricName, Total, Count, Maximum, Minimum, Average
    ```
 
-1. Powtórz poprzednie kroki, począwszy od **azurediagnostics,** aby zwrócić wszystkie kolumny w celach informacyjnych, a następnie bardziej selektywne zapytanie, które wyodrębnia bardziej interesujące informacje.
+1. Powtórz poprzednie kroki, rozpoczynając od **AzureDiagnostics** , aby zwrócić wszystkie kolumny do celów informacyjnych, a następnie bardziej selektywne zapytanie, które wyodrębnia bardziej interesujące informacje.
 
    ```
    AzureDiagnostics
@@ -93,72 +93,72 @@ W dziennikach diagnostycznych dwie tabele zawierają dzienniki i metryki dla us�
 
 ## <a name="log-schema"></a>Schemat dziennika
 
-Struktury danych, które zawierają dane dziennika usługi Azure Cognitive Search są zgodne ze schematem poniżej. 
+Struktury danych zawierające dane dziennika usługi Azure Wyszukiwanie poznawcze są zgodne ze schematem poniżej. 
 
-W przypadku magazynu obiektów Blob każdy obiekt blob ma jeden obiekt główny o nazwie **rekordy** zawierające tablicę obiektów dziennika. Każdy obiekt blob zawiera rekordy dla wszystkich operacji, które miały miejsce w tej samej godzinie.
+W przypadku usługi BLOB Storage każdy obiekt BLOB ma jeden element główny o nazwie **Records** zawierający tablicę obiektów dziennika. Każdy obiekt BLOB zawiera rekordy dla wszystkich operacji, które miały miejsce w danej godzinie.
 
-Poniższa tabela zawiera częściową listę pól typowych dla rejestrowania diagnostycznego.
+Poniższa tabela jest częściową listą pól wspólnych dla rejestrowania zasobów.
 
 | Nazwa | Typ | Przykład | Uwagi |
 | --- | --- | --- | --- |
-| czasGenerowany |datetime |"2018-12-07T00:00:43.6872559Z" |Sygnatura czasowa operacji |
-| resourceId |ciąg |"/SUBSCRIPTIONS/1111111-1111-1111-1111-111111111111111111/<br/>GRUPY ZASOBÓW/DOMYŚLNE/DOSTAWCY/<br/> Microsoft. SZUKAJ/SZUKAJ USŁUGI/SEARCHSERVICE" |Identyfikator zasobu |
-| operationName |ciąg |"Szukaj zapytań" |Nazwa operacji |
-| operationVersion |ciąg |"2019-05-06" |Wersja api używana |
+| timeGenerated |datetime |"2018 R-12-07T00:00:43.6872559 Z" |Sygnatura czasowa operacji |
+| resourceId |ciąg |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DOMYŚLNE/DOSTAWCY/<br/> Programu. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |Identyfikator zasobu |
+| operationName |ciąg |"Query. Search" |Nazwa operacji |
+| operationVersion |ciąg |"2019-05-06" |Używana wersja interfejsu API |
 | category |ciąg |"OperationLogs" | — stała |
-| resultType |ciąg |"Sukces" |Możliwe wartości: Sukces lub porażka |
+| resultType |ciąg |Prawnego |Możliwe wartości: sukces lub niepowodzenie |
 | resultSignature |int |200 |Kod wyniku HTTP |
-| durationMS |int |50 |Czas trwania operacji w milisekundach |
-| properties |obiekt |zobacz poniższą tabelę |Obiekt zawierający dane specyficzne dla operacji |
+| Milisekundach) |int |50 |Czas trwania operacji w milisekundach |
+| properties |obiekt |Zapoznaj się z poniższą tabelą. |Obiekt zawierający dane specyficzne dla operacji |
 
 ### <a name="properties-schema"></a>Schemat właściwości
 
-Poniższe właściwości są specyficzne dla usługi Azure Cognitive Search.
+Poniższe właściwości są specyficzne dla Wyszukiwanie poznawcze platformy Azure.
 
 | Nazwa | Typ | Przykład | Uwagi |
 | --- | --- | --- | --- |
-| Description_s |ciąg |"GET /indexes('content')/docs" |Punkt końcowy operacji |
+| Description_s |ciąg |"GET/Indexes (" Content ")/docs" |Punkt końcowy operacji |
 | Documents_d |int |42 |Liczba przetworzonych dokumentów |
-| IndexName_s |ciąg |"test-indeks" |Nazwa indeksu skojarzonego z operacją |
-| Query_s |ciąg |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Parametry kwerendy |
+| IndexName_s |ciąg |"test-index" |Nazwa indeksu skojarzonego z operacją |
+| Query_s |ciąg |"? Search = AzureSearch&$count = true&API-Version = 2019-05-06" |Parametry zapytania |
 
-## <a name="metrics-schema"></a>Schemat metryki
+## <a name="metrics-schema"></a>Schemat metryk
 
-Metryki są przechwytywane dla żądań zapytań i mierzone w odstępach jednominutowych. Każda metryka udostępnia minimalne, maksymalne i średnie wartości na minutę. Aby uzyskać więcej informacji, zobacz [Monitorowanie żądań kwerend](search-monitor-queries.md).
+Metryki są przechwytywane dla żądań zapytań i mierzone w ciągu jednej minuty. Każda Metryka uwidacznia wartości minimalne, maksymalne i średnie na minutę. Aby uzyskać więcej informacji, zobacz [monitorowanie żądań zapytań](search-monitor-queries.md).
 
 | Nazwa | Typ | Przykład | Uwagi |
 | --- | --- | --- | --- |
-| resourceId |ciąg |"/SUBSCRIPTIONS/1111111-1111-1111-1111-111111111111111111/<br/>GRUPY ZASOBÓW/DOMYŚLNE/DOSTAWCY/<br/>Microsoft. SZUKAJ/SZUKAJ USŁUGI/SEARCHSERVICE" |identyfikator zasobu |
-| metricName |ciąg |"Opóźnienie" |nazwa metryki |
-| time |datetime |"2018-12-07T00:00:43.6872559Z" |sygnatura czasowa operacji |
-| średnia |int |64 |Średnia wartość próbek surowców w przedziale czasu metryki, jednostki w sekundach lub procentach, w zależności od metryki. |
-| minimum |int |37 |Minimalna wartość próbek pierwotnych w przedziale czasu metryki, jednostki w sekundach. |
-| maksimum |int |78 |Maksymalna wartość próbek pierwotnych w przedziale czasu metryki, jednostki w sekundach.  |
-| suma |int |258 |Całkowita wartość próbek surowców w przedziale czasu metryki, jednostki w sekundach.  |
-| count |int |4 |Liczba metryk emitowanych z węzła do dziennika w ciągu jednej minuty interwału.  |
-| w czasie |ciąg |"PT1M" |Ziarno czasu metryki w ISO 8601. |
+| resourceId |ciąg |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DOMYŚLNE/DOSTAWCY/<br/>Programu. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |Identyfikator zasobu |
+| metricName |ciąg |Opóźnienie |Nazwa metryki |
+| time |datetime |"2018 R-12-07T00:00:43.6872559 Z" |Sygnatura czasowa operacji |
+| średnia |int |64 |Średnia wartość próbek pierwotnych w interwale czasu metryki, jednostki w sekundach lub procent, w zależności od metryki. |
+| minimum |int |37 |Minimalna wartość próbek pierwotnych w interwale czasu metryki (w sekundach). |
+| maksimum |int |78 |Maksymalna wartość próbek pierwotnych w interwale czasu metryki (w sekundach).  |
+| suma |int |258 |Całkowita wartość próbek pierwotnych w interwale czasu metryki (w sekundach).  |
+| count |int |4 |Liczba metryk emitowanych z węzła do dziennika w interwale jednominutowym.  |
+| timegrain |ciąg |"PT1M" |Ziarno czasu metryki w ISO 8601. |
 
-Jest to typowe dla kwerend do wykonania w milisekundach, więc tylko kwerendy, które mierzą jako sekundy pojawią się w metryki, takich jak QPS.
+Jest to typowe dla zapytań wykonywanych w milisekundach, dlatego w metrykach, takich jak zapytań, będą wyświetlane tylko zapytania, które mierzą jako sekundy.
 
-W przypadku metryki **Zapytania wyszukiwania na sekundę** minimalna jest najniższą wartością zapytań wyszukiwania na sekundę, która została zarejestrowana w tej minucie. To samo dotyczy wartości maksymalnej. Średnia, jest agregacji w całej minucie. Na przykład w ciągu jednej minuty może mieć wzorzec tak: jedna sekunda wysokiego obciążenia, który jest maksymalna dla SearchQueriesPerSecond, a następnie 58 sekund średniego obciążenia i wreszcie jedną sekundę z tylko jedną kwerendą, która jest minimalna.
+W przypadku metryk **kwerendy wyszukiwania na sekundę** minimalna wartość to najmniejsza liczba zapytań wyszukiwania na sekundę, które zostały zarejestrowane w tej minucie. Ta sama zasada dotyczy wartości maksymalnej. Średnia, to wartość zagregowana w całej minucie. Na przykład w ciągu jednej minuty może istnieć wzorzec podobny do tego: jedna sekunda wysokiego obciążenia, która jest maksymalną wartością dla SearchQueriesPerSecond, a następnie 58 sekund średniego obciążenia, a wreszcie jedna sekunda z tylko jednym zapytaniem, co jest minimalne.
 
-W przypadku **procentu kwerend wyszukiwania ograniczonego**, minimalna, maksymalna, średnia i całkowita, wszystkie mają tę samą wartość: procent zapytań wyszukiwania, które zostały ograniczone, z całkowitej liczby zapytań wyszukiwania w ciągu jednej minuty.
+W przypadku **kwerend wyszukiwania z ograniczeniami wartość procentowa**, minimum, maksimum, średnia i suma — wszystkie mają tę samą wartość: procent zapytań wyszukiwania, które zostały ograniczone, od łącznej liczby zapytań wyszukiwania w ciągu jednej minuty.
 
 ## <a name="view-raw-log-files"></a>Wyświetlanie nieprzetworzonych plików dziennika
 
-Magazyn obiektów blob służy do archiwizowania plików dziennika. Do wyświetlenia pliku dziennika można użyć dowolnego edytora JSON. Jeśli go nie masz, zalecamy [program Visual Studio Code.](https://code.visualstudio.com/download)
+Magazyn obiektów BLOB jest używany do archiwizowania plików dziennika. Aby wyświetlić plik dziennika, można użyć dowolnego edytora JSON. Jeśli go nie masz, zalecamy [Visual Studio Code](https://code.visualstudio.com/download).
 
-1. W witrynie Azure portal otwórz swoje konto magazynu. 
+1. W Azure Portal Otwórz konto magazynu. 
 
-2. W lewym okienku nawigacji kliknij pozycję **Obiekty Blob**. Powinieneś zobaczyć **insights-logs-operationlogs** i **insights-metrics-pt1m**. Te kontenery są tworzone przez usługę Azure Cognitive Search, gdy dane dziennika są eksportowane do magazynu obiektów Blob.
+2. W okienku nawigacji po lewej stronie kliknij pozycję **obiekty blob**. Powinny być widoczne informacje **Insights-Logs-operationlogs** i **Insights-Metrics-pt1m**. Te kontenery są tworzone przez usługę Azure Wyszukiwanie poznawcze podczas eksportowania danych dziennika do magazynu obiektów BLOB.
 
-3. Klikaj w dół hierarchię folderów, aż do niego dojdziesz do pliku .json.  Użyj menu kontekstowego, aby pobrać plik.
+3. Kliknij kolejno pozycje hierarchia folderów, aby uzyskać dostęp do pliku. JSON.  Użyj menu kontekstowego, aby pobrać plik.
 
-Po pobraniu pliku otwórz go w edytorze JSON, aby wyświetlić zawartość.
+Po pobraniu pliku Otwórz go w edytorze JSON, aby wyświetlić jego zawartość.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jeszcze tego nie zrobiłeś, zapoznaj się z podstawami monitorowania usługi wyszukiwania, aby dowiedzieć się więcej o pełnym zakresie możliwości nadzoru.
+Jeśli jeszcze tego nie zrobiono, zapoznaj się z tematem monitorowanie usługi wyszukiwania, aby dowiedzieć się więcej na temat pełnego zakresu możliwości nadzoru.
 
 > [!div class="nextstepaction"]
-> [Monitorowanie operacji i aktywności w usłudze Azure Cognitive Search](search-monitor-usage.md)
+> [Monitoruj operacje i działania na platformie Azure Wyszukiwanie poznawcze](search-monitor-usage.md)

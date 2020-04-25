@@ -1,190 +1,197 @@
 ---
-title: Tabela platformy Azure | Azure Marketplace
-description: Konfigurowanie zarządzania potencjalnymi klientami dla tabeli platformy Azure.
+title: Konfigurowanie komercyjnego zarządzania liderem portalu Marketplace firmy Microsoft przy użyciu tabeli platformy Azure
+description: Dowiedz się, jak używać tabeli platformy Azure do zarządzania potencjalni klienci z Microsoft AppSource i witryny Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: a36c411b9ababc42adb51d82a316df4252c01e24
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 9814b03e348fc807c04364afbf027369f917670a
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252012"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131141"
 ---
-# <a name="configure-lead-management-using-an-azure-table"></a>Konfigurowanie zarządzania potencjalnymi klientami przy użyciu tabeli platformy Azure
+# <a name="configure-lead-management-by-using-an-azure-table"></a>Konfigurowanie zarządzania liderem przy użyciu tabeli platformy Azure
 
-Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiwany w Centrum partnerów do odbierania potencjalnych klientów w portalu Azure Marketplace i AppSource, można użyć tabeli platformy Azure do obsługi tych potencjalnych klientów. Następnie można wyeksportować dane i zaimportować je do systemu CRM. Instrukcje zawarte w tym artykule pokonują proces tworzenia konta usługi Azure Storage i tabeli platformy Azure w ramach tego konta. Ponadto można utworzyć nowy przepływ za pomocą usługi Microsoft Flow, aby wysłać powiadomienie e-mail, gdy oferta otrzyma potencjalnego klienta.
+Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiwany w centrum partnerskim, aby otrzymywać Microsoft AppSource i potencjalni klienci portalu Azure Marketplace, możesz użyć tabeli platformy Azure, aby obsłużyć te potencjalni klienci. Następnie można wyeksportować dane i zaimportować je do systemu CRM. Instrukcje zawarte w tym artykule przeprowadzą Cię przez proces tworzenia konta usługi Azure Storage i tabeli platformy Azure w ramach tego konta. Ponadto możesz utworzyć nowy przepływ przy użyciu narzędzia do automatyzacji, aby wysłać powiadomienie e-mail, gdy oferta odbierze potencjalny klient.
 
-## <a name="configure-azure-table"></a>Konfigurowanie tabeli platformy Azure
+## <a name="configure-an-azure-table"></a>Konfigurowanie tabeli platformy Azure
 
-1. Jeśli nie masz konta platformy Azure, możesz [utworzyć bezpłatne konto próbne](https://azure.microsoft.com/pricing/free-trial/).
-2. Po aktywnym koncie platformy Azure zaloguj się do [witryny Azure portal](https://portal.azure.com).
-3. W witrynie Azure portal utwórz konto magazynu przy użyciu poniższej procedury.  
-    1. Wybierz **pozycję +Utwórz zasób** na lewym pasku menu.  **Okienko Nowy** (ostrze) zostanie wyświetlone po prawej stronie.
-    2. Wybierz **pozycję Magazyn** w okienku **Nowy.**  Po **Featured** prawej stronie zostanie wyświetlona lista Polecane.
-    3. Wybierz **konto magazynu,** aby rozpocząć tworzenie konta.  Postępuj zgodnie z instrukcjami w artykule [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+1. Jeśli nie masz konta platformy Azure, możesz [utworzyć bezpłatne konto wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
+1. Po uaktywnieniu konta platformy Azure Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. W Azure Portal utworzyć konto magazynu przy użyciu następującej procedury:
 
-        ![Kroki tworzenia konta magazynu platformy Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
+    1. Wybierz pozycję **+ Utwórz zasób** na pasku menu po lewej stronie. **Nowe** okienko pojawia się po prawej stronie.
+    1. Wybierz pozycję **Magazyn** w **nowym** okienku. Lista **Proponowana** pojawia się po prawej stronie.
+    1. Wybierz pozycję **konto magazynu** , aby rozpocząć tworzenie konta. Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
-        Aby uzyskać więcej informacji na temat kont magazynu, wybierz [samouczek Szybki start](https://docs.microsoft.com/azure/storage/).  Aby uzyskać więcej informacji na temat cen magazynowania, zobacz [ceny magazynowania](https://azure.microsoft.com/pricing/details/storage/).
+        ![Procedura tworzenia konta usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 
-4. Poczekaj, aż konto magazynu zostanie aprowizny, proces, który zwykle trwa kilka minut.  Następnie przejdź do konta magazynu ze strony **głównej** witryny Azure portal, wybierając **pozycję Zobacz wszystkie zasoby** lub wybierając wszystkie **zasoby** z lewego paska menu nawigacji w witrynie Azure portal.
+        Aby uzyskać więcej informacji na temat kont magazynu, zobacz [samouczek szybki start](https://docs.microsoft.com/azure/storage/). Aby uzyskać więcej informacji na temat cennika usługi Storage, zobacz [Cennik usługi Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-    ![Uzyskiwanie dostępu do konta magazynu platformy Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
+1. Zaczekaj na zainicjowanie obsługi konta magazynu. Ten proces zazwyczaj trwa kilka minut. Następnie uzyskaj dostęp do konta magazynu ze strony **głównej** Azure Portal, wybierając pozycję **Zobacz wszystkie zasoby**. Możesz również wybrać pozycję **wszystkie zasoby** na pasku menu po lewej stronie Azure Portal.
 
-5. W okienku konta magazynu wybierz pozycję **Klawisze programu Access** i skopiuj wartość *ciągu połączenia* dla klucza. Zapisz tę wartość, ponieważ jest to wartość *parametry połączenia konta magazynu,* którą należy podać w portalu publikowania, aby otrzymywać potencjalnych klientów dla oferty marketplace. 
+    ![Dostęp do konta usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
 
-    Przykładem użądlenia połączenia jest:
+1. W okienku konto magazynu wybierz pozycję **klucze dostępu** i skopiuj wartość **Parametry połączenia** dla klucza. Zapisz tę wartość, ponieważ jest to wartość **parametrów połączenia konta magazynu** , która będzie potrzebna w portalu wydawców w celu otrzymywania potencjalnych klientów na potrzeby oferty platformy Azure Marketplace. 
+
+    Oto przykład parametrów połączenia.
 
     ```sql
-    DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
+    DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    ![Klucz magazynu platformy Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png)
+    ![Klucz usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png)
 
-6. W okienku konta magazynu wybierz pozycję **Tabele** i wybierz **pozycję +Tabela,** aby utworzyć tabelę. Wprowadź nazwę tabeli i wybierz **przycisk OK**. Zapisz tę wartość, ponieważ będzie ona potrzebna, jeśli chcesz skonfigurować MS Flow do odbierania powiadomień e-mail po odebraniu potencjalnych klientów.
+1. W okienku konto magazynu wybierz pozycję **tabele**, a następnie wybierz pozycję **+ tabela** , aby utworzyć tabelę. Wprowadź nazwę tabeli i wybierz **przycisk OK**. Zapisz tę wartość, ponieważ będzie ona potrzebna, jeśli chcesz skonfigurować przepływ do odbierania powiadomień e-mail po odebraniu potencjalnych klientów.
 
     ![Tabele platformy Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    Explorer [magazynu platformy Azure](https://archive.codeplex.com/?p=azurestorageexplorer) lub inne narzędzie, aby wyświetlić dane w tabeli magazynu. Można również wyeksportować dane w tabeli platformy Azure. 
+    Możesz użyć [Eksplorator usługi Azure Storage](https://archive.codeplex.com/?p=azurestorageexplorer) lub dowolnego innego narzędzia, aby wyświetlić dane w tabeli magazynu. Możesz również eksportować dane w tabeli platformy Azure. 
 
-## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>(Opcjonalnie) Korzystanie z usługi Microsoft Flow z tabelą platformy Azure  
+## <a name="optional-use-power-automate-with-an-azure-table"></a>Obowiązkowe Używanie automatyzacji zaawansowanej z tabelą platformy Azure 
 
-Za pomocą usługi [Microsoft Flow](https://docs.microsoft.com/flow/) można zautomatyzować powiadomienia za każdym razem, gdy potencjalny klient jest dodawany do tabeli platformy Azure. Jeśli nie masz konta, możesz [założyć bezpłatne konto.](https://flow.microsoft.com/)
+Możesz użyć [automatyzacji](https://docs.microsoft.com/flow/) , aby zautomatyzować powiadomienia za każdym razem, gdy potencjalny klient zostanie dodany do tabeli platformy Azure. Jeśli nie masz konta, możesz [zarejestrować się w celu uzyskania bezpłatnego konta](https://flow.microsoft.com/).
 
-### <a name="lead-notification-example"></a>Przykład powiadomienia potencjalnego klienta
+### <a name="lead-notification-example"></a>Przykład powiadomienia lidera
 
-Użyj tego przykładu jako przewodnika, aby utworzyć prosty przepływ, który automatycznie wysyła powiadomienie e-mail po dodaniu nowego potencjalnego klienta do tabeli platformy Azure. W tym przykładzie konfiguruje cykl wysyłania informacji o potencjalnych klientach co godzinę, jeśli magazyn tabel jest aktualizowany.
+Ten przykład służy jako przewodnik tworzenia prostego przepływu, który automatycznie wysyła powiadomienie e-mail po dodaniu nowego potencjalnego klienta do tabeli platformy Azure. W tym przykładzie skonfigurowano cykl do wysyłania informacji o potencjalnym kliencie co godzinę w przypadku zaktualizowania magazynu tabel.
 
-1. Zaloguj się na swoje konto Usługi Microsoft Flow.
-2. Na lewym pasku nawigacyjnym wybierz pozycję **Moje przepływy**.
-3. Na górnym pasku nawigacyjnym wybierz pozycję **+ Nowy**.  
-4. Na liście rozwijanej wybierz **+ Zaplanowane — z pustego**
+1. Zaloguj się do swojego konta automatyzacji.
+1. Na pasku po lewej stronie wybierz pozycję **Moje przepływy**.
+1. Na górnym pasku wybierz pozycję **+ Nowy**. 
+1. Z listy rozwijanej wybierz pozycję **+ zaplanowane — od pustej**.
 
-   ![Moje przepływy **+ Zaplanowane - z pustego**](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
+   ![Moje przepływy + zaplanowano — z pustej](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-5.    W oknie *Kompilacja zaplanowanego przepływu* w obszarze *Powtórz co* wybierz "1" dla interwału i "godzina" dla częstotliwości. Ponadto nadaj przepływowi nazwę, jeśli chcesz. Wybierz **pozycję Utwórz**.
+1. W oknie **kompilacja zaplanowanego przepływu** dla opcji **Powtarzaj w każdym**przypadku wybierz wartość **1** dla interwału i **godziny** dla częstotliwości. Ponadto Nadaj nazwę przepływowi, jeśli chcesz. Wybierz pozycję **Utwórz**.
 
->[!Note]
->Chociaż w tym przykładzie używa interwału 1 godziny, można wybrać interwał i częstotliwość, która jest najlepsza dla potrzeb biznesowych.
+   >[!NOTE]
+   >Mimo że w tym przykładzie używany jest interwał jednogodzinny, można wybrać interwał i częstotliwość, które najlepiej odpowiadają potrzebom biznesowym.
 
-![Tworzenie zaplanowanego przepływu.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
+   ![Kompilowanie zaplanowanego przepływu](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
-6. Wybierz pozycję **+ Nowy krok**.
-7. W oknie *Wybierz wyszukiwanie akcji* dla "pomiń czas", a następnie wybierz pozycję **Przejmij czas przeszły** w obszarze Akcje.
+1. Wybierz pozycję **+ Nowy krok**.
+1. W oknie **Wybierz akcję** Wyszukaj ciąg **uzyskaj czas**ostatniej operacji. Następnie w obszarze **Akcje**wybierz pozycję **Pobierz czas ostatniej operacji**.
 
-   ![Wybierz akcję.](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
+   ![Wybierz akcję](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
-8. W oknie **Czas przemiń** ustaw **interwał** na 1. Z listy rozwijanej **Jednostka czasu** wybierz pozycję **Godzina**.
+1. W oknie **Pobierz czas** ostatniej Ustaw **Interwał** na **1**. Z listy rozwijanej **jednostka czasu** wybierz pozycję Hour ( **godzina**).
 
-    >[!Important]
-    >Upewnij się, że ta jednostka interwału i czasu jest zgodna z interwałem i częstotliwością skonfigurowaną dla cyklu w kroku 5.
+    >[!IMPORTANT]
+    >Upewnij się, że interwał i jednostka czasu wysłana w kroku 8 są zgodne z interwałem i częstotliwością skonfigurowaną na potrzeby cyklu w kroku 5.
 
-    ![Ustawianie odstępu czasu](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-getpast-time.png)
+    ![Ustaw przedział czasu pobierania](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-getpast-time.png)
 
->[!TIP] 
->Przepływ można sprawdzić w dowolnym momencie, aby sprawdzić, czy każdy krok jest poprawnie skonfigurowany. Aby sprawdzić przepływ, wybierz **opcję Kontroler przepływu** na pasku menu Przepływ.
+   >[!TIP] 
+   >W każdej chwili można sprawdzić, czy każdy krok jest prawidłowo skonfigurowany. Aby sprawdzić przepływ, wybierz pozycję **moduł sprawdzania przepływu** na pasku menu **przepływ** .
 
-W następnym zestawie kroków połączysz się z tabelą platformy Azure i skonfigurujesz logikę przetwarzania do obsługi nowych potencjalnych klientów.
+   W następnym zestawie kroków zostanie nawiązane połączenie z tabelą platformy Azure i skonfigurowanie logiki przetwarzania w celu obsługi nowych potencjalnych klientów.
 
-9. Po kroku "Przejdź za przemijanie czasu" wybierz pozycję **+ Nowy krok**, a następnie wyszukaj hasło "Pobierz encje" w oknie Wybierz *akcję.*
-10. W obszarze **Akcje**wybierz pozycję **Pobierz jednostki (Usługa Azure Table Storage).**
-11.    W oknie **Usługi Azure Table Storage** podaj informacje dotyczące następujących pól i wybierz pozycję **Utwórz:**
-* *Nazwa połączenia* — podaj znaczącą nazwę połączenia, które ustanawiasz między tym przepływem a tabelą platformy Azure.
-* *Nazwa konta magazynu* — podaj nazwę konta magazynu dla tabeli platformy Azure. Można to znaleźć na stronie **klucze dostępu** konta magazynu.
-* *Udostępniony klucz magazynu* — podaj wartość klucza dla konta sklepu dla tabeli platformy Azure. Można to znaleźć na stronie **klucze dostępu** konta magazynu.
-    ![Magazyn tabel platformy Azure.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
+1. Po kroku 8 wybierz pozycję **+ nowy krok**. Następnie wyszukaj pozycję **Pobierz jednostki** w oknie **Wybieranie akcji** .
+1. W obszarze **Akcje**wybierz pozycję **Pobierz jednostki (Azure Table Storage)**.
+1. W oknie **Table Storage platformy Azure** podaj informacje dla następujących pól i wybierz pozycję **Utwórz**:
 
-Po kliknięciu przycisku Utwórz zostanie wyświetlene okno *Pobierz jednostki.* W tym miejscu wybierz pozycję **Pokaż opcje zaawansowane** i podaj informacje dotyczące następujących pól:
-* *Tabela* — wybierz nazwę usługi Azure Table Storage (z kroku 6 instrukcji dotyczących konfigurowania tabeli platformy Azure). Następne przechwytywanie ekranu pokazuje monit, gdy w tym przykładzie wybrano tabelę "marketplaceleads".
-    ![Azure Table pobierz jednostki.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
+    * **Nazwa połączenia**: Podaj zrozumiałą nazwę połączenia, które tworzysz między tym przepływem a tabelą platformy Azure.
+    * **Nazwa konta magazynu**: Podaj nazwę konta magazynu dla swojej tabeli platformy Azure. Tę nazwę można znaleźć na stronie **klucze dostępu** konta magazynu.
+    * **Współużytkowany klucz magazynu**: Podaj wartość klucza dla konta magazynu w tabeli platformy Azure. Tę wartość można znaleźć na stronie **klucze dostępu** konta magazynu.
 
-* *Kwerenda filtrująca* — wybierz to pole `Timestamp gt datetime'@{body('Get_past_time')}'` ![i wklej tę funkcję w polu: Jednostki otrzymasz tabelę platformy Azure — kwerenda filtrująca.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
+      ![Okno Table Storage platformy Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-12. Po zakończeniu konfigurowania połączenia z tabelą platformy Azure wybierz pozycję **Nowy krok,** aby dodać warunek do skanowania tabeli platformy Azure w poszukiwaniu nowych potencjalnych klientów. 
+   Po wybraniu opcji **Utwórz**zostanie wyświetlone okno **pobieranie jednostek** . W tym miejscu wybierz pozycję **Pokaż opcje zaawansowane**i podaj informacje dla następujących pól:
 
-13. W oknie **Wybieranie akcji** wybierz pozycję **Akcje**, a następnie wybierz **kontrolka Warunek**.
+   * **Tabela**: wybierz nazwę magazynu tabel platformy Azure (z kroku 6 instrukcji w sekcji "Konfigurowanie tabeli platformy Azure"). Na poniższej ilustracji przedstawiono monit, gdy w tym przykładzie wybrano tabelę "marketplaceleads".
 
-    ![Tabela platformy Azure — wybierz akcję.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
+     ![Pobierz okno jednostek](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-14. W oknie **Warunek** wybierz pole **Wybierz wartość,** a następnie wybierz **pozycję Wyrażenie** w oknie podręcznym.
+   * **Zapytanie filtru**: zaznacz to pole i wklej tę funkcję do pola:`Timestamp gt datetime'@{body('Get_past_time')}'`
 
-15. Wklej `length(body('Get_entities')?['value'])` do pola ***fx.*** Wybierz **przycisk OK,** aby dodać tę funkcję. 
+     ![Pobierz jednostki, Filtrowanie pól zapytania](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
-16. Aby zakończyć konfigurowanie warunku:
-    1. Wybierz "jest większa niż" z listy rozwijanej.
-    2. Wprowadź 0 jako wartość
+1. Po zakończeniu konfigurowania połączenia z tabelą platformy Azure wybierz pozycję **nowy krok** , aby dodać warunek skanowania tabeli platformy Azure pod kątem nowych potencjalnych klientów.
 
-        ![Tabela azure — warunek.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition.png)
+1. W oknie **Wybierz akcję** wybierz pozycję **Akcje**. Następnie wybierz pozycję **Kontrola warunku**.
 
-W następnych kilku krokach skonfigurujesz akcję do podjęcia na podstawie wyniku warunku.
+    ![Wybierz okno akcji](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
 
-* Jeśli warunek jest rozpoznawany jako **Jeśli nie,** nie rób nic.
-* Jeśli warunek zostanie rozpoznany na **if yes**, wyzwolić akcję łączącą konto usługi Office 365 w celu wysłania wiadomości e-mail. 
+1. W oknie **warunek** wybierz pozycję **Wybierz wartość**. Następnie wybierz pozycję **wyrażenie** w oknie podręcznym.
 
-17. Wybierz **pozycję Dodaj akcję** w obszarze Jeśli **tak**.
+1. Wklej `length(body('Get_entities')?['value'])` do pola **FX** . Wybierz **przycisk OK** , aby dodać tę funkcję. 
 
-    ![Tabela platformy Azure — warunek **Jeśli tak**.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes.png)
+1. Aby zakończyć konfigurowanie warunku:
+    1. Opcja Wybierz **jest większa niż** wartość z listy rozwijanej.
+    2. Wprowadź **0** jako wartość.
 
-18. Wybierz **pozycję Wyślij wiadomość e-mail (Office 365 Outlook)**.
+        ![Okno warunku](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition.png)
 
-    ![Tabela platformy Azure — warunek **Jeśli tak**, wyślij wiadomość e-mail.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-send-email.png)
+   W następnych kilku krokach skonfigurujesz akcję do wykonania w oparciu o wynik warunku:
 
-    >[!Note]
-    >Jeśli chcesz użyć innego dostawcy poczty e-mail, wyszukaj i wybierz opcję Wyślij powiadomienie e-mail (Mail) jako akcję. Instrukcje pokażą, jak skonfigurować przy użyciu programu Office 365 Outlook, ale instrukcje są podobne dla innego dostawcy poczty e-mail.
+   * Jeśli warunek jest rozpoznawany jako **nie**, nic nie rób.
+   * Jeśli warunek ma **wartość tak**, wyzwól akcję, która łączy konto Office 365 w celu wysłania wiadomości e-mail. 
 
-19. W oknie **programu Outlook usługi Office 365** podaj informacje dotyczące następujących pól:
+1. Wybierz pozycję **Dodaj akcję** w obszarze **Jeśli tak**.
 
-    1. **Do** - Wprowadź adres e-mail dla wszystkich, którzy otrzymają to powiadomienie.
-    1. **Temat** — podaj temat wiadomości e-mail. Na przykład: Nowi potencjalni klienci!
-    1. **Treść** — dodaj tekst, który chcesz uwzględnić w każdej wiadomości `body('Get_entities')?['value']`e-mail (opcjonalnie), a następnie wklej w treści .
+    ![Okno warunku, jeśli tak, Dodaj akcję](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes.png)
 
-    >[!Note]
+1. Wybierz pozycję **Wyślij wiadomość e-mail (Office 365 Outlook)**.
+
+    ![Okno warunku, jeśli tak, Wyślij wiadomość e-mail](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-send-email.png)
+
+    >[!NOTE]
+    >Aby użyć innego dostawcy poczty e-mail, Wyszukaj i wybierz pozycję **Wyślij powiadomienie e-mail (poczta)** jako akcję. Instrukcje pokazują, jak skonfigurować program przy użyciu pakietu Office 365 Outlook, ale instrukcje są podobne dla innego dostawcy poczty e-mail.
+
+1. W oknie Office 365 Outlook podaj informacje dla następujących pól:
+
+    1. **Do**: wprowadź adres e-mail dla wszystkich użytkowników, którzy otrzymają to powiadomienie.
+    1. **Temat**: Podaj temat wiadomości e-mail. Przykładem są **nowi potencjalni klienci!**
+    1. **Treść**: Dodaj tekst, który ma zostać uwzględniony w każdej wiadomości e-mail (opcjonalnie), a następnie wklej `body('Get_entities')?['value']`w.
+
+    >[!NOTE]
     >Do treści tej wiadomości e-mail można wstawić dodatkowe statyczne lub dynamiczne punkty danych.
 
-    ![Tabela platformy Azure — warunek **Jeśli tak**, okno programu Office 365 Outlook.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
+    ![Okno warunku, jeśli tak, okno Office 365 Outlook](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
 
-20. Aby zapisać zmiany, wybierz opcję **Zapisz**. Usługa Microsoft Flow automatycznie przetestuje przepływ pod kątem błędów. Jeśli nie ma żadnych błędów, przepływ zaczyna działać po jego zapisaniu.
+1. Aby zapisać zmiany, wybierz opcję **Zapisz**. Automatyzuje automatyczne testowanie przepływu pod kątem błędów. Jeśli nie ma żadnych błędów, przepływ zostanie uruchomiony po jego zapisaniu.
 
-Następne przechwytywanie ekranu pokazuje przykład, jak powinien wyglądać przepływ końcowy.
+Na poniższej ilustracji przedstawiono przykład sposobu, w jaki powinien wyglądać końcowy przepływ.
 
-![Przykład przepływu końcowego.](./media/commercial-marketplace-lead-management-instructions-azure-table/final-flow.png)
+![Przykład przepływu końcowego](./media/commercial-marketplace-lead-management-instructions-azure-table/final-flow.png)
 
 ### <a name="manage-your-flow"></a>Zarządzanie przepływem
 
-Zarządzanie przepływem po jego uruchomieniu jest łatwe. Masz pełną kontrolę nad przepływem. Na przykład możesz go zatrzymać, edytować, wyświetlić historię uruchamiania i uzyskać analizę. Następne przechwytywanie ekranu pokazuje opcje, które są dostępne do zarządzania przepływem. 
+Zarządzanie przepływem jest proste. Masz pełną kontrolę nad przepływem. Można na przykład ją zatrzymać, edytować, wyświetlić historię uruchamiania i uzyskać analizę. Na poniższej ilustracji przedstawiono dostępne opcje zarządzania przepływem.
 
  ![Zarządzanie przepływem](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-manage-completed.png)
 
-Przepływ działa do momentu jego zatrzymania za pomocą opcji **Wyłącz przepływ.**
+Przepływ pozostaje uruchomiony do momentu zatrzymania go przy użyciu opcji **Wyłącz przepływ** .
 
-Jeśli nie otrzymujesz żadnych powiadomień e-mail potencjalnych klientów, oznacza to, że nowi potencjalni klienci nie zostali dodana do tabeli platformy Azure. Jeśli wystąpią jakiekolwiek błędy przepływu, otrzymasz wiadomość e-mail, taką jak przykład w następnym przechwytywaniu ekranu.
+Jeśli nie otrzymasz żadnych powiadomień e-mail dotyczących potencjalnych klientów, oznacza to, że nowi potencjalni klienci nie zostali dodani do tabeli platformy Azure. Jeśli wystąpią jakieś błędy przepływu, otrzymasz wiadomość e-mail podobną do tego przykładu.
 
- ![Powiadomienie e-mail o awarii przepływu](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-failure-note.png)
+ ![Powiadomienie e-mail o niepowodzeniu przepływu](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-failure-note.png)
 
 ## <a name="configure-your-offer-to-send-leads-to-the-azure-table"></a>Konfigurowanie oferty do wysyłania potencjalnych klientów do tabeli platformy Azure
 
-Gdy będziesz gotowy skonfigurować informacje o zarządzaniu potencjalnymi klientami dla oferty w portalu publikowania, wykonaj poniższe czynności:
+Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania potencjalnym liderem oferty w portalu wydawców, wykonaj następujące kroki.
 
-1. Przejdź do strony **Ustawienia oferty** dla swojej oferty.
-2. Wybierz **pozycję Połącz** w sekcji Zarządzanie potencjalnymi klientami.
-3. W oknie podręcznym Szczegóły połączenia wybierz **pozycję Tabela platformy Azure** dla miejsca **docelowego potencjalnego klienta**i wklej ciąg połączenia z konta magazynu platformy Azure utworzonego przez wykonując wcześniejsze kroki w polu ciągu połączenia konta **magazynu.**
-4. **Kontaktowy adres e-mail** — udostępniaj wiadomości e-mail osobom w firmie, które powinny otrzymywać powiadomienia e-mail po otrzymaniu nowego potencjalnego klienta. Możesz dostarczyć wiele wiadomości e-mail, oddzielając je średnikiem.
-5. Wybierz **ok**.
+1. Przejdź do strony **konfiguracji oferty** oferty.
+1. Wybierz pozycję **Połącz** w sekcji **Zarządzanie potencjalnymi klientami** .
+1. W oknie podręcznym **szczegóły połączenia** wybierz pozycję **tabela Azure** dla **miejsca docelowego potencjalnego klienta**. Wklej parametry połączenia z konta usługi Azure Storage utworzonego w ramach wcześniejszych kroków w polu **Parametry połączenia konta magazynu** .
+1. **Kontaktowy adres e-mail**: Podaj wiadomości e-mail dla osób w firmie, które powinny otrzymywać powiadomienia pocztą email po odebraniu nowego potencjalnego klienta. Można podać wiele wiadomości e-mail, rozdzielając je średnikami.
+1. Kliknij przycisk **OK**.
 
-Aby upewnić się, że udało ci się połączyć z miejscem docelowym potencjalnego klienta, kliknij przycisk sprawdź poprawność. Jeśli się powiedzie, będziesz miał potencjalnego klienta testowego w głównym miejscu docelowym.
+Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz przycisk **Weryfikuj** . Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 
->[!Note]
->Musisz zakończyć konfigurowanie pozostałej części oferty i opublikować ją, zanim będzie można odbierać potencjalnych klientów dla oferty.
+>[!NOTE]
+>Musisz zakończyć konfigurowanie reszty oferty i opublikować ją przed odebraniem potencjalnych klientów do oferty.
 
-Gdy potencjalni klienci są generowane, Microsoft wysyła potencjalnych klientów do tabeli platformy Azure. Jeśli skonfigurowano przepływ, na skonfigurowany adres e-mail zostanie również wysłana wiadomość e-mail.
+Gdy są generowane potencjalni klienci, firma Microsoft wysyła potencjalni klienci do tabeli platformy Azure. W przypadku skonfigurowania przepływu poczta e-mail również zostanie wysłana na skonfigurowany adres e-mail.
 
 ![Zarządzanie potencjalnymi klientami](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
 
-![Zarządzanie potencjalnymi klientami — szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
+![Zarządzanie potencjalnymi klientami, szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
 
-![Zarządzanie potencjalnymi klientami — konto przechowywania szczegółów połączenia](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
+![Zarządzanie potencjalnymi klientami, konto magazynu szczegółów połączenia](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
 

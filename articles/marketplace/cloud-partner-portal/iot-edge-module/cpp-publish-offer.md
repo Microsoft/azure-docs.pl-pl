@@ -1,5 +1,5 @@
 ---
-title: Publikowanie oferty modułów Usługi Azure IoT Edge | Azure Marketplace
+title: Oferta publikowania Azure IoT Edge modułu | Portal Azure Marketplace
 description: Jak opublikować ofertę modułu IoT Edge.
 author: dsindona
 ms.service: marketplace
@@ -7,41 +7,41 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 9d78ff53fb520dcfc80a812d53ae188e340722af
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: ef73956b1b0d3e7bed6e91cde0b92bcc3e432795
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983198"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82141840"
 ---
 # <a name="publish-iot-edge-module-offer"></a>Publikowanie oferty modułu usługi IoT Edge
 
 >[!Important]
->Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami modułu IoT Edge do Centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [tworzenie oferty modułu IoT Edge,](https://aka.ms/AzureCreateIoT) aby zarządzać zmigrowanymi ofertami.
+>Od 13 kwietnia 2020 rozpocznie się Zarządzanie ofertą modułu IoT Edge w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Create an IoT Edge module](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) , aby zarządzać migrowanymi ofertami.
 
- Po utworzeniu nowej oferty, podając informacje na stronie **Nowa oferta,** możesz opublikować ofertę. Wybierz **pozycję Publikuj,** aby rozpocząć proces publikowania.
+ Po utworzeniu nowej oferty, podając informacje na **nowej stronie oferty** , można opublikować ofertę. Wybierz pozycję **Publikuj** , aby rozpocząć proces publikowania.
 
-Na poniższym diagramie przedstawiono główne kroki w procesie publikowania dla oferty "go live".
+Na poniższym diagramie przedstawiono główne kroki w procesie publikowania dla oferty "go Live".
 
-![Kroki publikowania dla oferty modułów IoT Edge](./media/iot-edge-module-publishing-steps.png)
+![Kroki publikowania dla oferty modułu IoT Edge](./media/iot-edge-module-publishing-steps.png)
 
 ## <a name="detailed-description-of-publishing-steps"></a>Szczegółowy opis kroków publikowania
 
-W poniższej tabeli opisano każdy krok publikowania, z oszacowaniem czasu (maksymalnie), aby wykonać każdy krok.
+W poniższej tabeli opisano każdy krok publikowania, z oszacowaniem czasu (maksimum) w celu ukończenia każdego kroku.
 <!-- P2: we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **Krok publikowania**           | **Czas**    | **Opis**                                                            |
+|  **Etap publikowania**           | **Pierwszym**    | **Opis**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| Sprawdzanie poprawności wymagań wstępnych         | 15 min.   | Informacje o ofercie i ustawienia oferty są sprawdzane.                        |
-| Certyfikacja                  | 2 tygodnie | Oferta jest analizowana przez zespół certyfikacji platformy Azure. Ten krok spowoduje wykonanie skanowania w poszukiwaniu wirusów, złośliwego oprogramowania, zgodności z przepisami bezpieczeństwa i problemów z zabezpieczeniami. Zweryfikuje również, czy ta oferta modułu IoT Edge spełnia wszystkie kryteria kwalifikowalności (patrz [wymagania wstępne](./cpp-prerequisites.md) i [przygotowanie zasobów technicznych).](./cpp-create-technical-assets.md) Informacja zwrotna jest dostarczana w przypadku znalezienia problemu. |
-| Tworzenie pakietów | 1 godzina  | Zasoby techniczne oferty są pakowane do użytku klienta, a systemy ołowiane są konfigurowane i konfigurowane. |
-|  Znak wydawcy             |  -        | Ostateczna recenzja wydawcy i potwierdzenie przed rozpoczęciem oferty. Możesz wdrożyć ofertę w wybranych subskrypcjach (w krokach informacji o ofercie), aby sprawdzić, czy spełnia ona wszystkie twoje wymagania.  Wybierz **opcję Przejdź na żywo,** aby Twoja oferta mogła przejść do następnego kroku. |
-| Tworzenie pakietów                 | 1 godzina | Sfinalizowana oferta jest replikowana w systemach produkcyjnych i regionach marketplace. | 
-| Na żywo                           | 4 dni |Oferta jest zwalniana, replikowana do wymaganych regionów i udostępniana publicznie. |
+| Sprawdzanie wymagań wstępnych         | 15 minut   | Informacje o ofercie i ustawienia oferty są weryfikowane.                        |
+| Certyfikacja                  | 2 tygodnie | Oferta jest analizowana przez zespół certyfikacji platformy Azure. Ten krok spowoduje wykonanie skanowania w poszukiwaniu wirusów, złośliwego oprogramowania, zgodności z bezpieczeństwem i problemów z zabezpieczeniami. Zostanie również zweryfikowana, że ta oferta modułu IoT Edge spełnia wszystkie kryteria kwalifikujące (zobacz [wymagania wstępne](./cpp-prerequisites.md) i [przygotowania zasobów technicznych](./cpp-create-technical-assets.md)). Opinie są podawane w przypadku znalezienia problemu. |
+| Tworzenie pakietów | 1 godzina  | Zasoby techniczne oferty są pakowane do użytku przez klienta, a systemy liderów są skonfigurowane i konfigurowane. |
+|  Wylogowanie wydawcy             |  -        | Końcowe przeglądy i potwierdzenie wydawcy przed rozpoczęciem oferty. Ofertę można wdrożyć w wybranych subskrypcjach (w krokach dotyczących informacji o ofercie), aby sprawdzić, czy spełnia ona wszystkie wymagania.  Wybierz pozycję **Przejdź na żywo** , aby Twoja oferta mogła przejść do następnego kroku. |
+| Tworzenie pakietów                 | 1 godzina | Końcowa oferta jest replikowana w systemach i regionach produkcyjnych w portalu Marketplace. | 
+| Na żywo                           | 4 dni |Oferta jest wydana, replikowana do wymaganych regionów i udostępniona publicznie. |
 
-Poczekaj do 10 dni roboczych na zakończenie procesu publikowania i wydanie oferty. Po zakończeniu procesu publikowania oferta modułu Usługi IoT Edge zostanie wyświetlona w portalu [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).
+Zezwalaj na zakończenie procesu publikowania przez maksymalnie 10 dni roboczych i oferowana jest oferta. Po zakończeniu procesu publikowania w [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules)zostanie wyświetlona oferta modułu IoT Edge.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Aktualizowanie istniejącej oferty modułów usługi IoT Edge w portalu Azure Marketplace](./cpp-update-existing-offer.md)
+- [Aktualizowanie istniejącej oferty modułu IoT Edge w portalu Azure Marketplace](./cpp-update-existing-offer.md)

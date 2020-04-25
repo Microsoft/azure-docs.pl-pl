@@ -1,6 +1,6 @@
 ---
-title: Akceleracja zapytań usługi Azure Data Lake Storage (wersja zapoznawcza)
-description: Przyspieszenie zapytań (wersja zapoznawcza) to nowa funkcja usługi Azure Data Lake Storage, która umożliwia aplikacjom i strukturom analitycznym radykalną optymalizację przetwarzania danych przez pobranie tylko danych wymaganych do operacji przetwarzania.
+title: Przyspieszenie zapytań Azure Data Lake Storage (wersja zapoznawcza)
+description: Przyspieszenie zapytań (wersja zapoznawcza) to nowa funkcja dla Azure Data Lake Storage, która umożliwia aplikacjom i platformom analitycznym znacznie zoptymalizować przetwarzanie danych przez pobranie tylko danych wymaganych do wykonania operacji przetwarzania.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -8,79 +8,77 @@ ms.reviewer: jamesbak
 ms.date: 04/21/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 191a3280075403c8c5b57c5ffca1c7707d1ddb11
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 70a087e106e632d697052461928f3e1123a06b1b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81771822"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137539"
 ---
-# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Akceleracja zapytań usługi Azure Data Lake Storage (wersja zapoznawcza)
+# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Przyspieszenie zapytań Azure Data Lake Storage (wersja zapoznawcza)
 
-Przyspieszenie zapytań (wersja zapoznawcza) to nowa funkcja usługi Azure Data Lake Storage, która umożliwia aplikacjom i platformom analitycznym radykalną optymalizację przetwarzania danych przez pobranie tylko danych, które są potrzebne do wykonania danej operacji. Skraca to czas i moc obliczeniową, która jest wymagana do uzyskania krytycznego wglądu w przechowywane dane.
+Przyspieszenie zapytań (wersja zapoznawcza) to nowa funkcja Azure Data Lake Storage, która umożliwia aplikacjom i platformom analitycznym znaczne Optymalizowanie przetwarzania danych przez pobranie tylko tych danych, których potrzebują do wykonania danej operacji. Pozwala to skrócić czas i moc obliczeniową, która jest wymagana do uzyskania kluczowych informacji o przechowywanych danych.
 
 > [!NOTE]
-> Funkcja przyspieszania kwerend jest dostępna w publicznej wersji zapoznawczej i jest dostępna w regionach Kanada Środkowa i Francja Central. Aby przejrzeć ograniczenia, zobacz artykuł [Znane problemy.](data-lake-storage-known-issues.md) Aby zarejestrować się w wersji zapoznawczej, zobacz [ten formularz](https://aka.ms/adls/qa-preview-signup).  
+> Funkcja przyspieszenia zapytań jest w publicznej wersji zapoznawczej i jest dostępna w regionach Kanada Środkowa i Francja środkowa. Aby zapoznać się z ograniczeniami, zobacz artykuł [znane problemy](data-lake-storage-known-issues.md) . Aby zarejestrować się w wersji zapoznawczej, zobacz [ten formularz](https://aka.ms/adls/qa-preview-signup).  
 
 ## <a name="overview"></a>Omówienie
 
-Akceleracja zapytań akceptuje *predykaty* filtrowania i *rzuty kolumn,* które umożliwiają aplikacjom filtrowanie wierszy i kolumn w czasie odczytu danych z dysku. Tylko dane, które spełniają warunki predykatu są przesyłane za pośrednictwem sieci do aplikacji. Zmniejsza to opóźnienia sieci i koszty obliczeń.  
+Przyspieszenie zapytań akceptuje *predykaty* filtrowania i *projekcje kolumn* , które umożliwiają aplikacjom filtrowanie wierszy i kolumn w czasie, gdy dane są odczytywane z dysku. Tylko dane, które spełniają warunki predykatu, są transferowane przez sieć do aplikacji. Zmniejsza to opóźnienia sieci i koszt obliczeniowy.  
 
-Za pomocą języka SQL można określić predykaty filtru wiersza i rzutowania kolumn w żądaniu przyspieszenia kwerendy. Żądanie przetwarza tylko jeden plik. W związku z tym zaawansowane funkcje relacyjne języka SQL, takie jak sprzężenia i grupowanie według agregatów, nie są obsługiwane. Akceleracja zapytań obsługuje dane sformatowane w formacie CSV i JSON jako dane wejściowe do każdego żądania.
+Aby określić predykaty filtru wierszy i projekcje kolumn w żądaniu przyspieszenia zapytania, można użyć języka SQL. Żądanie przetwarza tylko jeden plik. W związku z tym zaawansowane funkcje relacyjne SQL, takie jak sprzężenia i grupowanie według agregacji, nie są obsługiwane. Przyspieszenie zapytań obsługuje dane w formacie CSV i JSON jako dane wejściowe do każdego żądania.
 
-Funkcja przyspieszania kwerend nie jest ograniczona do usługi Data Lake Storage (konta magazynu, na których włączono hierarchiczną przestrzeń nazw). Akceleracja kwerend jest całkowicie zgodna z obiektami blob na kontach magazynu, które **nie** mają włączonego hierarchicznego obszaru nazw. Oznacza to, że można osiągnąć takie samo zmniejszenie opóźnienia sieci i kosztów obliczeniowych podczas przetwarzania danych, które zostały już zapisane jako obiekty blob na kontach magazynu.
+Funkcja przyspieszania zapytań nie jest ograniczona do Data Lake Storage (konta magazynu, na których włączono hierarchiczną przestrzeń nazw). Przyspieszenie zapytań jest w pełni zgodne z obiektami BLOB na kontach magazynu, na których **nie** włączono hierarchicznej przestrzeni nazw. Oznacza to, że można osiągnąć takie samo zmniejszenie opóźnienia sieci i kosztów obliczeniowych podczas przetwarzania danych, które są już przechowywane jako obiekty blob na kontach magazynu.
 
-Na przykład sposobu używania akceleracji kwerend w aplikacji klienckiej zobacz [Filtrowanie danych przy użyciu akceleracji zapytań usługi Azure Data Lake.](data-lake-storage-query-acceleration-how-to.md)
+Aby zapoznać się z przykładem użycia przyspieszenia zapytania w aplikacji klienckiej, zobacz [filtrowanie danych za pomocą Azure Data Lake Storage przyspieszania zapytań](data-lake-storage-query-acceleration-how-to.md).
 
 ## <a name="data-flow"></a>Przepływ danych
 
-Na poniższym diagramie przedstawiono, jak typowa aplikacja używa akceleracji zapytań do przetwarzania danych.
+Na poniższym diagramie przedstawiono sposób, w jaki Typowa aplikacja używa przyspieszenia zapytań do przetwarzania danych.
 
 > [!div class="mx-imgBorder"]
-> ![Omówienie akceleracji kwerend](./media/data-lake-storage-query-acceleration/query-acceleration.png)
+> ![Przyspieszenie zapytań — Omówienie](./media/data-lake-storage-query-acceleration/query-acceleration.png)
 
 1. Aplikacja kliencka żąda danych pliku, określając predykaty i projekcje kolumn.
 
-2. Przyspieszenie kwerend analizuje określoną kwerendę SQL i dystrybuuje pracę do analizowania i filtrowania danych.
+2. Przyspieszenie zapytań analizuje określone zapytanie SQL i dystrybuuje prace do analizy i filtrowania danych.
 
-3. Procesory odczytują dane z dysku, analizują dane przy użyciu odpowiedniego formatu, a następnie filtrują dane, stosując określone predykaty i rzuty kolumnowe.
+3. Procesory odczytują dane z dysku, analizują dane przy użyciu odpowiedniego formatu, a następnie filtrują dane, stosując określone predykaty i projekcje kolumn.
 
-4. Przyspieszenie kwerendy łączy fragmenty odpowiedzi do strumienia z powrotem do aplikacji klienckiej.
+4. Przyspieszenie zapytań łączy fragmentów odpowiedzi, aby przesłać strumieniowo do aplikacji klienckiej.
 
-5. Aplikacja kliencka odbiera i analizuje odpowiedzi przesyłane strumieniowo. Aplikacja nie musi filtrować żadnych dodatkowych danych i może bezpośrednio zastosować żądane obliczenia lub transformację.
+5. Aplikacja kliencka odbiera i analizuje przesyłaną strumieniowo odpowiedź. Aplikacja nie musi odfiltrować żadnych dodatkowych danych i może bezpośrednio zastosować wymagane obliczenia lub przekształcenie.
 
-## <a name="better-performance-at-a-lower-cost"></a>Lepsza wydajność przy niższych kosztach
+## <a name="better-performance-at-a-lower-cost"></a>Lepsza wydajność z niższym kosztem
 
-Przyspieszenie kwerendy optymalizuje wydajność, zmniejszając ilość danych, które są przesyłane i przetwarzane przez aplikację.
+Przyspieszenie zapytań optymalizuje wydajność, zmniejszając ilość danych, które są przesyłane i przetwarzane przez aplikację.
 
-Aby obliczyć wartość zagregowane, aplikacje często pobierają **wszystkie** dane z pliku, a następnie przetwarzają i filtrują dane lokalnie. Analiza wzorców wejścia/wyjścia dla obciążeń analitycznych wynika, że aplikacje zwykle wymagają tylko 20% danych, które odczytują do wykonywania dowolnych obliczeń. Ta statystyka jest prawdziwa nawet po zastosowaniu technik, takich jak [przycinanie partycji](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). Oznacza to, że 80% tych danych jest niepotrzebnie przesyłane przez sieć, analizowane i filtrowane przez aplikacje. Ten wzorzec, zasadniczo zaprojektowany w celu usunięcia niepotrzebnych danych, wiąże się ze znacznymi kosztami obliczeniowymi.  
+Aby obliczyć zagregowaną wartość, aplikacje zwykle pobierają **wszystkie** dane z pliku, a następnie przetwarzają i filtrują dane lokalnie. Analiza wzorców wejścia/wyjścia dla obciążeń analitycznych ujawnia, że aplikacje wymagają zwykle tylko 20% danych, które są przez nich odczytywane w celu wykonania danego obliczenia. Ta statystyka jest prawdziwa nawet po zastosowaniu technik takich jak [oczyszczanie partycji](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). Oznacza to, że 80% tych danych jest niepotrzebnie przesyłane przez sieć, przeanalizowane i filtrowane według aplikacji. Ten wzorzec, głównie przeznaczony do usuwania niepotrzebnych danych, wiąże się z istotnym kosztem obliczeniowym.  
 
-Mimo że platforma Azure oferuje wiodącą w branży sieć, zarówno pod względem przepływności, jak i opóźnienia, niepotrzebne przesyłanie danych w tej sieci jest nadal kosztowne dla wydajności aplikacji. Odfiltrowanie niechcianych danych podczas żądania magazynu, akceleracja zapytań eliminuje ten koszt.
+Mimo że platforma Azure oferuje wiodącą w branży sieć, pod względem przepływności i opóźnień, niepotrzebnie transfer danych w sieci jest w dalszym ciągu kosztowny dla wydajności aplikacji. Dzięki filtrowaniu niechcianych danych podczas żądania magazynu przyspieszenie zapytań eliminuje ten koszt.
 
-Ponadto obciążenie procesora CPU, który jest wymagany do analizowania i filtrowania niepotrzebnych danych wymaga aplikacji do aprowizowania większej liczby i większych maszyn wirtualnych, aby wykonać swoją pracę. Przenosząc to obciążenie obliczeniowe do przyspieszenia zapytań, aplikacje mogą osiągnąć znaczne oszczędności kosztów.
+Ponadto obciążenie procesora CPU, które jest wymagane do analizowania i filtrowania niepotrzebnych danych, wymaga, aby aplikacja mogła zapewnić większą liczbę i większe maszyny wirtualne w celu wykonania tej czynności. Dzięki przeniesieniu tego obciążenia obliczeń do przyspieszenia zapytań aplikacje mogą korzystać z znaczących oszczędności kosztów.
 
-## <a name="applications-that-can-benefit-from-query-acceleration"></a>Aplikacje, które mogą korzystać z przyspieszenia zapytań
+## <a name="applications-that-can-benefit-from-query-acceleration"></a>Aplikacje, które mogą korzystać z przyspieszania zapytań
 
-Akceleracja zapytań jest przeznaczona dla rozproszonych struktur analitycznych i aplikacji do przetwarzania danych. 
+Przyspieszenie zapytań jest przeznaczone do obsługi rozproszonych platform analitycznych i aplikacji do przetwarzania danych. 
 
-Struktury analizy rozproszonej, takie jak Apache Spark i Apache Hive, zawierają warstwę abstrakcji magazynu w ramach. Aparaty te obejmują również optymalizatory zapytań, które mogą zawierać wiedzę na temat możliwości podstawowej usługi We/Wy podczas określania optymalnego planu zapytań dla zapytań użytkowników. Te struktury zaczynają integrować przyspieszanie zapytań. W rezultacie użytkownicy tych struktur zobaczą lepsze opóźnienie kwerendy i niższy całkowity koszt własności bez konieczności wprowadzania jakichkolwiek zmian w kwerendach. 
+Struktury analizy rozproszonej, takie jak Apache Spark i Apache Hive, obejmują warstwę abstrakcji magazynu w ramach struktury. Te aparaty obejmują również optymalizacje zapytań, które mogą uwzględniać wiedzę o możliwościach podstawowej usługi we/wy podczas określania optymalnego planu zapytania dla zapytań użytkowników. Te platformy zaczynają integrować przyspieszenie zapytań. W związku z tym użytkownicy tych struktur zobaczą ulepszone opóźnienia zapytań i niższy całkowity koszt posiadania bez konieczności wprowadzania jakichkolwiek zmian w zapytaniach. 
 
-Akceleracja zapytań jest również przeznaczona dla aplikacji do przetwarzania danych. Te typy aplikacji zazwyczaj wykonują przekształcenia danych na dużą skalę, które mogą nie prowadzić bezpośrednio do szczegółowych informacji analizy, więc nie zawsze używają ustalonych struktur analizy rozproszonej. Te aplikacje często mają bardziej bezpośredni związek z podstawową usługą magazynu, dzięki czemu mogą korzystać bezpośrednio z funkcji, takich jak przyspieszenie zapytań. 
+Przyspieszenie zapytań jest również przeznaczone dla aplikacji do przetwarzania danych. Te typy aplikacji zwykle wykonują przekształcenia danych o dużej skali, które mogą nie prowadzić bezpośrednio do analizy szczegółowych informacji, aby nie zawsze używały ustalonych struktur analizy rozproszonej. Te aplikacje często mają bardziej bezpośrednią relację z podstawową usługą magazynu, dzięki czemu mogą korzystać bezpośrednio z funkcji, takich jak przyspieszenie zapytań. 
 
-Na przykład, jak aplikacja może integrować akcelerację zapytań, zobacz [Filtrowanie danych przy użyciu akceleracji zapytań usługi Azure Data Lake.](data-lake-storage-query-acceleration-how-to.md)
+Aby zapoznać się z przykładem, jak aplikacja może zintegrować przyspieszenie zapytań, zobacz [filtrowanie danych za pomocą Azure Data Lake Storage przyspieszania zapytań](data-lake-storage-query-acceleration-how-to.md).
 
 ## <a name="pricing"></a>Cennik
 
-Ze względu na zwiększone obciążenie obliczeń w ramach usługi Azure Data Lake Storage model cenowy do korzystania z akceleracji zapytań różni się od normalnego modelu transakcji usługi Azure Data Lake Storage. Przyspieszenie kwerendy pobiera koszt za ilość skanowanych danych, a także koszt ilości danych zwróconych do obiektu wywołującego.
+Ze względu na zwiększone obciążenie obliczeniowe w ramach usługi Azure Data Lake Storage Model cenowy dla użycia przyspieszania zapytań różni się od normalnego Azure Data Lake Storage modelu transakcji. Przyspieszenie zapytań obciąża koszt ilości skanowanych danych, a także koszt ilości danych zwracanych do obiektu wywołującego.
 
-Pomimo zmiany modelu rozliczeń, model cenowy akceleracji query jest przeznaczony do obniżenia całkowitego kosztu posiadania dla obciążenia, biorąc pod uwagę zmniejszenie znacznie droższych kosztów maszyn wirtualnych.
+Pomimo zmiany modelu rozliczeń, model cen przyspieszania zapytań został zaprojektowany w celu obniżenia całkowitego kosztu posiadania obciążenia, z uwzględnieniem zmniejszenia znacznie kosztownych kosztów maszyn wirtualnych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Formularz rejestracji akceleracji kwerend](https://aka.ms/adls/qa-preview-signup)    
-- [Filtrowanie danych przy użyciu akceleracji zapytań usługi Azure Data Storage](data-lake-storage-query-acceleration-how-to.md)
-- [Odwołanie do języka SQL akceleracji kwerendy (wersja zapoznawcza)](query-acceleration-sql-reference.md)
-- Odwołanie do interfejsu API REST akceleracji kwerend
-
+- [Formularz rejestracji przyspieszania zapytań](https://aka.ms/adls/qa-preview-signup)    
+- [Filtrowanie danych przy użyciu przyspieszania zapytań Azure Data Lake Storage (wersja zapoznawcza)](data-lake-storage-query-acceleration-how-to.md)
+- [Informacje dotyczące języka SQL przyspieszania zapytań (wersja zapoznawcza)](query-acceleration-sql-reference.md)
 
 

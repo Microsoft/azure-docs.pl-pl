@@ -1,53 +1,53 @@
 ---
 title: Tworzenie oferty maszyny wirtualnej w portalu Azure Marketplace
-description: Wyświetla listę kroków wymaganych do utworzenia nowej oferty maszyny wirtualnej dla portalu Azure Marketplace.
+description: Zawiera listę kroków wymaganych do utworzenia nowej oferty maszyny wirtualnej w portalu Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 9d06809df2774224b61fd3fb643ab628dd2890f6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a25f6877f1fb4940fb1de127b81d83975c8e835c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273991"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142706"
 ---
-# <a name="create-virtual-machine-offer"></a>Tworzenie oferty maszyny wirtualnej
+# <a name="create-virtual-machine-offer"></a>Utwórz ofertę maszyny wirtualnej
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami maszyny wirtualnej platformy Azure do centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [tworzenie oferty maszyny wirtualnej platformy Azure,](https://aka.ms/CreateAzureVMoffer) aby zarządzać zmigrowanymi ofertami.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami usługi Azure Virtual Machine w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Tworzenie oferty maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) w celu zarządzania zmigrowanymi ofertami.
 
-W tej sekcji wymieniono kroki wymagane do utworzenia nowego żądania oferty maszyny wirtualnej dla portalu Azure Marketplace.  Każda oferta jest wyświetlana jako jej własna jednostka w portalu Azure Marketplace i jest skojarzona z co najmniej jedną jednostką SKU.  Oferta maszyny Wirtualnej składa się z następujących grup zasobów i usług pomocniczych: 
+W tej sekcji przedstawiono kroki wymagane do utworzenia nowego żądania oferty maszyny wirtualnej w witrynie Azure Marketplace.  Każda oferta pojawia się jako jej własna jednostka w portalu Azure Marketplace i jest skojarzona z co najmniej jedną jednostką SKU.  Oferta maszyny wirtualnej składa się z następujących grup zasobów i usług pomocniczych: 
 
-![Zasoby oferty maszyn wirtualnych](./media/publishvm_002.png)
+![Zasoby dla oferty maszyny wirtualnej](./media/publishvm_002.png)
 
 gdzie:
 
-|  **Grupa aktywów**   |  **Opis**  |
+|  **Grupa zasobów**   |  **Opis**  |
 |  ---------------   |  ---------------  |
-|    Jednostki SKU            |  Najmniejsza jednostka do kupienia oferty. Z jedną ofertą (klasą produktów) może być skojarzonych wiele jednostek SKU, aby odróżnić obsługiwane funkcje, typy obrazów maszyn wirtualnych i modele rozliczeń. |
-|  Portal Marketplace       | Zawiera aktywa i specyfikacje marketingu, zarządzania prawnego i ołowiu.  <ul><li> Zasoby marketingowe obejmują nazwę oferty, opis i logo</li> <li> Aktywa prawne obejmują politykę prywatności, warunki użytkowania i inną dokumentację prawną</li>  <li> Zasady zarządzania potencjalnymi klientami umożliwiają określenie sposobu obsługi potencjalnych klientów z portalu użytkowników końcowych portalu usługi Azure Marketplace.</li> </ul> |
-| Pomoc techniczna            | Zawiera informacje o kontakcie i zasadach pomocy technicznej |
-| Wersja testowa         | Definiuje zasoby, które umożliwiają użytkownikom końcowym testowanie oferty przed jej zakupem |
+|    Jednostki SKU            |  Najmniejsza jednostka jednostek oferty. Z jedną ofertą (Klasa produktu) może być skojarzonych wiele jednostek SKU, aby można było rozróżnić obsługiwane funkcje, typy obrazów maszyn wirtualnych i modele rozliczeń. |
+|  Portal Marketplace       | Zawiera zasoby i specyfikacje zarządzania marketingiem, prawną i liderem.  <ul><li> Zasoby marketingowe obejmują nazwę oferty, opis i logo</li> <li> Zasoby prawne obejmują zasady ochrony prywatności, warunki użytkowania i inne dokumenty prawne</li>  <li> Zasady zarządzania potencjalnymi klientami umożliwiają określenie sposobu obsługi potencjalnych klientów z poziomu portalu użytkowników końcowych platformy Azure Marketplace.</li> </ul> |
+| Pomoc techniczna            | Zawiera informacje o kontakcie i zasadach |
+| Wersja testowa         | Definiuje zasoby, które umożliwiają użytkownikom końcowym testowanie oferty przed ich zakupieniem |
 |  |  |
 
 
-## <a name="new-offer-form"></a>Formularz Nowa oferta
+## <a name="new-offer-form"></a>Formularz nowej oferty
 
-Po zalogowaniu się do [portalu cloud partnerów](https://cloudpartner.azure.com/)kliknij pozycję **+ Nowa oferta** na lewym pasku menu. W menu wynikowym kliknij na **maszyny wirtualne,** aby wyświetlić formularz **Nowa oferta** i rozpocząć proces definiowania zasobów dla nowej oferty maszyny wirtualnej. 
+Po zalogowaniu się do [Portal Cloud partner](https://cloudpartner.azure.com/)kliknij pozycję **+ nowy element oferty** na lewym pasku menu. W menu wyniki kliknij pozycję **Virtual Machines** , aby wyświetlić nowy formularz **oferty** i rozpocząć proces definiowania zasobów dla nowej oferty maszyny wirtualnej. 
 <!-- not all publishers see corevm or azure apps test, you need to be whitelisted to see them. we should hide those in these images. -->
 
-![Nowa maszyna wirtualna oferuje wybór interfejsu użytkownika](./media/publishvm_003.png)
+![Wybór interfejsu użytkownika dla nowej maszyny wirtualnej](./media/publishvm_003.png)
 
 > [!WARNING]
-> Jeśli opcja **Maszyny wirtualne** nie jest wyświetlana lub nie jest włączona, twoje konto nie ma uprawnień do tworzenia tego typu oferty.  Sprawdź, czy spełniasz wszystkie [wymagania wstępne](./cpp-prerequisites.md) dla tego typu oferty, w tym rejestrację konta dewelopera.
+> Jeśli opcja **Virtual Machines** nie jest wyświetlana lub nie jest włączona, Twoje konto nie ma uprawnień do tworzenia tego typu oferty.  Upewnij się, że spełniono wszystkie [wymagania wstępne](./cpp-prerequisites.md) dla tego typu oferty, w tym rejestrowanie dla konta dewelopera.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Kolejne tematy w tej sekcji odzwierciedlają karty na stronie **Nowa oferta** (dla typu oferty maszyny Wirtualnej).  Każdy artykuł wyjaśnia, jak używać skojarzonej karty do definiowania grup zasobów i usług pomocniczych dla nowej oferty maszyny Wirtualnej.
+W kolejnych tematach w tej sekcji są dublowane karty na **nowej stronie oferty** (dla typu oferty maszyny wirtualnej).  W każdym artykule wyjaśniono, jak za pomocą skojarzonej karty definiować grupy zasobów i usługi pomocnicze dla nowej oferty maszyn wirtualnych.
 
 - [Karta ustawień oferty](./cpp-offer-settings-tab.md)
 - [Karta jednostek SKU](./cpp-skus-tab.md)

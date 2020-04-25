@@ -1,66 +1,39 @@
 ---
 title: Kontrola konserwacji maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
-description: Dowiedz się, jak kontrolować, gdy konserwacja jest stosowana do maszyn wirtualnych platformy Azure przy użyciu kontroli konserwacji i programu PowerShell.
+description: Dowiedz się, jak kontrolować, kiedy konserwacja jest stosowana do maszyn wirtualnych platformy Azure przy użyciu funkcji kontroli konserwacji i programu PowerShell.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: dc47afe9cb6eca1b10f8caca7b85087023c5eadf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c72c2f606ab653d7e3f1d81f7278571e8e4978
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060134"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136536"
 ---
-# <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>W wersji zapoznawczej: kontroluj aktualizacje za pomocą kontroli konserwacji i programu Azure PowerShell
+# <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Kontroluj aktualizacje przy użyciu sterowania konserwacją i Azure PowerShell
 
-Zarządzanie aktualizacjami platformy, które nie wymagają ponownego uruchomienia, przy użyciu kontroli konserwacji. Platforma Azure często aktualizuje swoją infrastrukturę, aby zwiększyć niezawodność, wydajność, zabezpieczenia lub uruchomić nowe funkcje. Większość aktualizacji jest nieprzejrzysta dla użytkowników. Niektóre poufne obciążenia, takie jak gry, przesyłanie strumieniowe multimediów i transakcje finansowe, nie tolerują nawet kilku sekund zamrożenia lub odłączenia maszyny Wirtualnej w celu konserwacji. Kontrola konserwacji umożliwia oczekiwanie na aktualizacje platformy i zastosowanie ich w 35-dniowym oknie kroczącym. 
-
-Kontrola konserwacji pozwala zdecydować, kiedy należy zastosować aktualizacje do izolowanych maszyn wirtualnych.
-
-Dzięki kontroli konserwacji można:
-- Aktualizacje wsadowe do jednego pakietu aktualizacji.
-- Poczekaj do 35 dni, aby zastosować aktualizacje. 
-- Zautomatyzuj aktualizacje platformy dla okna konserwacji przy użyciu usługi Azure Functions.
-- Konfiguracje konserwacji działają między subskrypcjami i grupami zasobów. 
-
-> [!IMPORTANT]
-> Kontrola konserwacji jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-
-## <a name="limitations"></a>Ograniczenia
-
-- Maszyny wirtualne muszą znajdować się na [dedykowanym hoście](./linux/dedicated-hosts.md)lub być tworzone przy użyciu [izolowanego rozmiaru maszyny Wirtualnej.](./linux/isolation.md)
-- Po 35 dniach aktualizacja zostanie automatycznie zastosowana.
-- Użytkownik musi mieć dostęp **współautora zasobów.**
-
-
+Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje odizolowanych maszyn wirtualnych i hostów dedykowanych platformy Azure. W tym temacie omówiono opcje Azure PowerShell sterowania konserwacją. Aby uzyskać więcej informacji na temat korzyści z używania kontroli konserwacji, jej ograniczeń i innych opcji zarządzania, zobacz [Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji](maintenance-control.md).
+ 
 ## <a name="enable-the-powershell-module"></a>Włączanie modułu programu PowerShell
 
-Upewnij `PowerShellGet` się, że jest aktualna.
+Upewnij się `PowerShellGet` , że jest aktualne.
 
 ```azurepowershell-interactive
 Install-Module -Name PowerShellGet -Repository PSGallery -Force
 ```
 
-Polecenia cmdlet programu Az.Maintenance programu PowerShell są w wersji `AllowPrerelease` zapoznawczej, więc należy zainstalować moduł z parametrem w aplikacji Cloud Shell lub lokalnej instalacji programu PowerShell.   
+Jeśli instalujesz lokalnie, upewnij się, że otwarto wiersz polecenia programu PowerShell jako administrator.
 
-```azurepowershell-interactive
-Install-Module -Name Az.Maintenance -AllowPrerelease
-```
-
-Jeśli instalujesz lokalnie, upewnij się, że monit programu PowerShell został otwarty jako administrator.
-
-Może zostać również poproszony o potwierdzenie, że chcesz zainstalować z *niezaufanego repozytorium*. Wpisz `Y` lub wybierz **tak na wszystkie,** aby zainstalować moduł.
+Może również pojawić się monit o potwierdzenie, że chcesz zainstalować z *niezaufanego repozytorium*. Wpisz `Y` lub wybierz opcję **tak, aby** zainstalować moduł.
 
 
+## <a name="create-a-maintenance-configuration"></a>Utwórz konfigurację konserwacji
 
-## <a name="create-a-maintenance-configuration"></a>Tworzenie konfiguracji konserwacji
-
-Utwórz grupę zasobów jako kontener dla twojej konfiguracji. W tym przykładzie grupa zasobów o nazwie *myMaintenanceRG* jest tworzony w *eastus*. Jeśli masz już grupę zasobów, której chcesz użyć, możesz pominąć tę część i zastąpić nazwę grupy zasobów własną w pozostałych przykładach.
+Utwórz grupę zasobów jako kontener dla konfiguracji. W tym przykładzie grupa zasobów o nazwie *myMaintenanceRG* jest tworzona w *wschodnim regionie*. Jeśli masz już grupę zasobów, której chcesz użyć, możesz pominąć tę część i zastąpić nazwę grupy zasobów własnymi w pozostałej części przykładów.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -68,7 +41,7 @@ New-AzResourceGroup `
    -Name myMaintenanceRG
 ```
 
-Użyj [New-AzMaintenanceConfiguration,](https://docs.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) aby utworzyć konfigurację konserwacji. W tym przykładzie tworzy konfigurację konserwacji o nazwie *myConfig* o zakresie do hosta. 
+Użyj [New-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) , aby utworzyć konfigurację konserwacji. W tym przykładzie zostanie utworzona konfiguracja konserwacji o nazwie Moja *config* objęta zakresem hosta. 
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -78,23 +51,23 @@ $config = New-AzMaintenanceConfiguration `
    -Location  eastus
 ```
 
-Korzystanie `-MaintenanceScope host` zapewnia, że konfiguracja konserwacji jest używana do kontrolowania aktualizacji do hosta.
+Użycie `-MaintenanceScope host` gwarantuje, że konfiguracja konserwacji jest używana do kontrolowania aktualizacji hosta.
 
-Jeśli spróbujesz utworzyć konfigurację o tej samej nazwie, ale w innej lokalizacji, pojawi się błąd. Nazwy konfiguracji muszą być unikatowe dla subskrypcji.
+Jeśli spróbujesz utworzyć konfigurację o tej samej nazwie, ale w innej lokalizacji, zostanie wyświetlony komunikat o błędzie. Nazwy konfiguracji muszą być unikatowe dla Twojej subskrypcji.
 
-Za pomocą funkcji [Get-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceconfiguration)można wyszukiwać dostępne konfiguracje konserwacji.
+Można wykonać zapytanie o dostępne konfiguracje konserwacji za pomocą polecenia [Get-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-## <a name="assign-the-configuration"></a>Przypisywanie konfiguracji
+## <a name="assign-the-configuration"></a>Przypisz konfigurację
 
-Użyj [new-AzConfigurationAssignment przypisać](https://docs.microsoft.com/powershell/module/az.maintenance/new-azconfigurationassignment) konfigurację do izolowanej maszyny Wirtualnej lub hosta dedykowanego platformy Azure.
+Użyj [New-AzConfigurationAssignment](https://docs.microsoft.com/powershell/module/az.maintenance/new-azconfigurationassignment) , aby przypisać konfigurację do izolowanej maszyny wirtualnej lub dedykowanego hosta platformy Azure.
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
-Zastosuj konfigurację do maszyny Wirtualnej przy użyciu identyfikatora konfiguracji. Określ `-ResourceType VirtualMachines` i podaj nazwę `-ResourceName`maszyny Wirtualnej dla i `-ResourceGroupName`grupy zasobów maszyny Wirtualnej dla . 
+Zastosuj konfigurację do maszyny wirtualnej przy użyciu identyfikatora konfiguracji. Określ `-ResourceType VirtualMachines` i podaj nazwę maszyny wirtualnej dla `-ResourceName`programu oraz grupę zasobów maszyny wirtualnej dla. `-ResourceGroupName` 
 
 ```azurepowershell-interactive
 New-AzConfigurationAssignment `
@@ -109,7 +82,7 @@ New-AzConfigurationAssignment `
 
 ### <a name="dedicated-host"></a>Dedykowany host
 
-Aby zastosować konfigurację do dedykowanego hosta, należy również uwzględnić `-ResourceType hosts`, `-ResourceParentName` z nazwą grupy hosta i `-ResourceParentType hostGroups`. 
+Aby zastosować konfigurację do dedykowanego hosta, należy również dołączyć `-ResourceType hosts` `-ResourceParentName` z nazwą grupy hostów i. `-ResourceParentType hostGroups` 
 
 
 ```azurepowershell-interactive
@@ -125,11 +98,11 @@ New-AzConfigurationAssignment `
    -MaintenanceConfigurationId $config.Id
 ```
 
-## <a name="check-for-pending-updates"></a>Sprawdzanie oczekujących aktualizacji
+## <a name="check-for-pending-updates"></a>Wyszukaj oczekujące aktualizacje
 
-Użyj [Get-AzMaintenanceUpdate,](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) aby sprawdzić, czy są oczekujące aktualizacje. Służy `-subscription` do określania subskrypcji platformy Azure maszyny Wirtualnej, jeśli różni się od tej, do której jesteś zalogowany.
+Użyj [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) , aby sprawdzić, czy istnieją oczekujące aktualizacje. Użyj `-subscription` , aby określić subskrypcję platformy Azure dla maszyny wirtualnej, jeśli jest inna niż ta, która jest zarejestrowana.
 
-Jeśli nie ma żadnych aktualizacji, aby pokazać, to polecenie zwróci nic. W przeciwnym razie zwróci obiekt PSApplyUpdate:
+Jeśli nie ma żadnych aktualizacji do wyświetlenia, to polecenie zwróci wartość Nothing. W przeciwnym razie zwróci obiekt PSApplyUpdate:
 
 ```json
 {
@@ -145,7 +118,7 @@ Jeśli nie ma żadnych aktualizacji, aby pokazać, to polecenie zwróci nic. W p
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
-Sprawdź, czy oczekujące aktualizacje dla izolowanej maszyny Wirtualnej. W tym przykładzie dane wyjściowe są formatowane jako tabela dla czytelności.
+Sprawdź, czy istnieją oczekujące aktualizacje dla izolowanej maszyny wirtualnej. W tym przykładzie dane wyjściowe są sformatowane jako tabela na potrzeby czytelności.
 
 ```azurepowershell-interactive
 Get-AzMaintenanceUpdate `
@@ -158,7 +131,7 @@ Get-AzMaintenanceUpdate `
 
 ### <a name="dedicated-host"></a>Dedykowany host
 
-Aby sprawdzić oczekujące aktualizacje dla dedykowanego hosta. W tym przykładzie dane wyjściowe są formatowane jako tabela dla czytelności. Zastąp wartości zasobów własnymi.
+Aby sprawdzić oczekujące aktualizacje dla dedykowanego hosta. W tym przykładzie dane wyjściowe są sformatowane jako tabela na potrzeby czytelności. Zamień wartości dla zasobów własnymi.
 
 ```azurepowershell-interactive
 Get-AzMaintenanceUpdate `
@@ -173,11 +146,11 @@ Get-AzMaintenanceUpdate `
 
 ## <a name="apply-updates"></a>Stosowanie aktualizacji
 
-Użyj [New-AzApplyUpdate,](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) aby zastosować oczekujące aktualizacje.
+Użyj opcji [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) , aby zastosować oczekujące aktualizacje.
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
-Utwórz żądanie, aby zastosować aktualizacje do izolowanej maszyny Wirtualnej.
+Utwórz żądanie zastosowania aktualizacji dla izolowanej maszyny wirtualnej.
 
 ```azurepowershell-interactive
 New-AzApplyUpdate `
@@ -187,7 +160,7 @@ New-AzApplyUpdate `
    -ProviderName Microsoft.Compute
 ```
 
-Po sukcesie to polecenie `PSApplyUpdate` zwróci obiekt. Aby sprawdzić stan aktualizacji, `Get-AzApplyUpdate` można użyć atrybutu Nazwa w poleceniu. Zobacz [Sprawdzanie stanu aktualizacji](#check-update-status).
+Po powodzeniu to polecenie zwróci `PSApplyUpdate` obiekt. Aby sprawdzić stan aktualizacji, można użyć atrybutu `Get-AzApplyUpdate` Name w poleceniu. Zobacz [Sprawdzanie stanu aktualizacji](#check-update-status).
 
 ### <a name="dedicated-host"></a>Dedykowany host
 
@@ -204,7 +177,7 @@ New-AzApplyUpdate `
 ```
 
 ## <a name="check-update-status"></a>Sprawdź stan aktualizacji
-Użyj [Get-AzApplyUpdate,](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) aby sprawdzić stan aktualizacji. Polecenia pokazane poniżej pokazują stan najnowszej `default` aktualizacji `-ApplyUpdateName` przy użyciu parametru. Można zastąpić nazwę aktualizacji (zwróconą przez [polecenie New-AzApplyUpdate),](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) aby uzyskać stan określonej aktualizacji.
+Aby sprawdzić stan aktualizacji, użyj [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) . Poniższe polecenia pokazują stan najnowszej aktualizacji przy użyciu `default` `-ApplyUpdateName` parametru. Można zastąpić nazwę aktualizacji (zwracaną przez polecenie [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) ), aby uzyskać stan konkretnej aktualizacji.
 
 ```text
 Status         : Completed
@@ -216,11 +189,11 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
-LastUpdateTime będzie czas, kiedy aktualizacja została zakończona, zainicjowane przez Ciebie lub przez platformę w przypadku, gdy okno samoobsługi nie był używany. Jeśli nigdy nie było aktualizacji stosowane za pomocą kontroli konserwacji pokaże wartość domyślną.
+LastUpdateTime będzie czas, w którym aktualizacja została ukończona, inicjowana przez użytkownika lub przez platformę w przypadku nieużycia okna samoobsługowego. Jeśli aktualizacja nie została zastosowana przez kontrolę konserwacji, zostanie wyświetlona wartość domyślna.
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
-Sprawdź, czy nie ma aktualizacji do określonej maszyny wirtualnej.
+Sprawdź, czy są aktualizacje określonej maszyny wirtualnej.
 
 ```azurepowershell-interactive
 Get-AzApplyUpdate `
@@ -233,7 +206,7 @@ Get-AzApplyUpdate `
 
 ### <a name="dedicated-host"></a>Dedykowany host
 
-Sprawdź dostępność aktualizacji dedykowanego hosta.
+Sprawdź dostępność aktualizacji na dedykowanym hoście.
 
 ```azurepowershell-interactive
 Get-AzApplyUpdate `
@@ -246,9 +219,9 @@ Get-AzApplyUpdate `
    -ApplyUpdateName myUpdateName
 ```
 
-## <a name="remove-a-maintenance-configuration"></a>Usuwanie konfiguracji konserwacji
+## <a name="remove-a-maintenance-configuration"></a>Usuń konfigurację konserwacji
 
-Użyj [Remove-AzMaintenanceConfiguration,](https://docs.microsoft.com/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) aby usunąć konfigurację konserwacji.
+Aby usunąć konfigurację konserwacji, należy użyć [Remove-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) .
 
 ```azurepowershell-interactive
 Remove-AzMaintenanceConfiguration `
@@ -257,4 +230,4 @@ Remove-AzMaintenanceConfiguration `
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej, zobacz [Konserwacja i aktualizacje](maintenance-and-updates.md).
+Aby dowiedzieć się więcej, zobacz temat [konserwacja i aktualizacje](maintenance-and-updates.md).

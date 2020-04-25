@@ -1,48 +1,48 @@
 ---
-title: Punkt końcowy HTTPS | Azure Marketplace
-description: Konfigurowanie zarządzania potencjalnymi klientami dla punktu końcowego HTTPS.
+title: Komercyjne zarządzanie potencjalnymi klientami portalu Marketplace firmy Microsoft z użyciem protokołu HTTPS
+description: Skonfiguruj zarządzanie liderem komercyjnego portalu Microsoft Marketplace dla punktu końcowego HTTPS.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 33359883df86091120295b93618a13476e428d2f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1c3337e970fdbb22cb1ed88f105d5e7798a68f74
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262617"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133739"
 ---
-# <a name="configure-lead-management-using-an-https-endpoint"></a>Konfigurowanie zarządzania potencjalnymi klientami przy użyciu punktu końcowego HTTPS
+# <a name="configure-lead-management-by-using-an-https-endpoint"></a>Konfigurowanie zarządzania liderem przy użyciu punktu końcowego HTTPS
 
->[!Note]
->Złącze Power Automate używane w tych instrukcjach wymaga płatnej subskrypcji usługi Power Automate. Prosimy o to przed przestrzeganiem instrukcji zawartych w tym dokumencie.
+>[!NOTE]
+>Łącznik automatyzacji, używany w tych instrukcjach, wymaga płatnej subskrypcji do automatyzacji. Przed wykonaniem instrukcji opisanych w tym artykule upewnij się, że to konto jest odpowiednie.
 
-Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiwany w Centrum partnerów do odbierania potencjalnych klientów w portalu Azure Marketplace i AppSource, można użyć punktu końcowego HTTPS w programie Power Automate do obsługi tych potencjalnych klientów. W punkcie końcowym HTTPS przewody te mogą być wysyłane jako powiadomienie e-mail lub mogą być zapisywane w systemie zarządzania relacjami z klientami (CRM) obsługiwanym przez program Power Automate. Instrukcje zawarte w tym artykule poprowadzą Cię przez podstawowy proces tworzenia nowego przepływu przy użyciu programu Power Automate, który wygeneruje adres URL HTTP POST, który zostanie wprowadzony w portalu publikowania dla pola Adres URL zarządzania potencjalnymi klientami > **https endpoint.** Ponadto, zawarte są instrukcje, w jaki sposób można przetestować przepływ za pomocą narzędzia o nazwie [Listonosz,](https://www.getpostman.com/downloads/) które można znaleźć w Internecie.
+Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiwany w centrum partnerskim, aby otrzymywać Microsoft AppSource i potencjalni klienci portalu Azure Marketplace, możesz użyć punktu końcowego HTTPS w programie PowerShell, aby obsłużyć te potencjalni klienci. Za pomocą punktu końcowego HTTPS te potencjalni klienci mogą być wysyłane jako powiadomienia e-mail lub mogą być zapisywane w systemie CRM obsługiwanym przez program. Instrukcje zawarte w tym artykule przeprowadzą Cię przez proces podstawowy, aby utworzyć nowy przepływ przy użyciu narzędzia do automatyzowania, które generuje adres URL post protokołu HTTP, który zostanie wprowadzony do portalu wydawców w polu > **adres URL punktu końcowego protokołu HTTPS** **zarządzania liderem**. Uwzględniono również instrukcje testowania przepływu za pomocą narzędzia o nazwie [Poster](https://www.getpostman.com/downloads/), które jest dostępne online.
 
-## <a name="create-a-flow-using-power-automate"></a>Tworzenie przepływu za pomocą automatyzacji zasilania
+## <a name="create-a-flow-by-using-power-automate"></a>Tworzenie przepływu za pomocą automatyzacji
 
-1. Otwórz stronę internetową [Flow.](https://flow.microsoft.com/) Wybierz **pozycję Zaloguj się**lub jeśli nie masz jeszcze konta, wybierz pozycję Zarejestruj się **bezpłatnie,** aby utworzyć bezpłatne konto Flow.
+1. Otwórz stronę sieci Web [automatyzacji](https://flow.microsoft.com/) . Wybierz pozycję **Zaloguj się**. Jeśli nie masz jeszcze konta, wybierz pozycję **zarejestruj się bezpłatnie** , aby utworzyć bezpłatne konto automatyzacji.
 
-2. Zaloguj się i wybierz **pozycję Moje przepływy** na pasku menu.
+1. Zaloguj się, a następnie wybierz pozycję **Moje przepływy** w menu.
 
-3. Wybierz **+Automated - z pustego**.
+1. Wybierz pozycję **+ Automatyczne — od pustej**.
 
-    ![Moje przepływy + Zautomatyzowane - z pustego](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+    ![Moje przepływy + automatyczne — z pustej](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-4. W oknie *Tworzenie przepływu automatycznego* wybierz pozycję **Pomiń**. 
+1. W oknie **kompilacja przepływu automatycznego** wybierz pozycję **Pomiń**. 
 
-    ![Tworzenie przepływu automatycznego - Pomiń](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
+    ![Kompiluj przycisk pomijania okna przepływu automatycznego](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
 
-5. W polu **Wyszukaj łączniki i wyzwalacze** wpisz "request", aby znaleźć łącznik żądania.
-6. W obszarze *Wyzwalacze*wybierz pozycję **Po odebraniu żądania HTTP**. 
+1. W polu **Łączniki wyszukiwania i wyzwalacze** wprowadź **żądanie** znalezienia łącznika żądania.
+1. W obszarze **wyzwalacze**wybierz opcję **po odebraniu żądania HTTP**. 
 
-    ![łącznik żądania — wyzwalacze](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
+    ![Menu wyzwalaczy](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
 
-7. W *oknie Kiedy żądanie HTTP jest odbierane* kopiuj i wklej schemat JSON poniżej w polu tekstowym **Schemat JSON treści żądania.** Ten schemat jest używany przez firmę Microsoft do przechowywania danych potencjalnego klienta.
+1. W oknie dialogowym **po odebraniu żądania HTTP** skopiuj i wklej poniższy schemat JSON do pola tekstowego **schemat JSON treści żądania** . Ten schemat jest używany przez firmę Microsoft do przechowywania danych potencjalnych klientów.
 
-    ![łącznik żądania — wyzwalacze](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
+    ![Pole tekstowe schematu JSON treści żądania](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
 
     **Schemat JSON**
 
@@ -103,121 +103,120 @@ Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiw
     }
     ```
 
->[!Note]
->W tym momencie w konfiguracji można wybrać połączenie z systemem CRM lub skonfigurowanie powiadomienia e-mail. Postępuj zgodnie z pozostałymi instrukcjami na podstawie wyboru.
+>[!NOTE]
+>W tym momencie konfiguracji można wybrać opcję nawiązywania połączenia z systemem CRM lub skonfigurować powiadomienie e-mail. Postępuj zgodnie z pozostałymi instrukcjami.
 
-### <a name="to-connect-to-a-crm-system"></a>Aby połączyć się z systemem CRM
+### <a name="connect-to-a-crm-system"></a>Nawiązywanie połączenia z systemem CRM
 
 1. Wybierz pozycję **+ Nowy krok**.
-2. Wybierz wybrany system CRM, wyszukując go tam, gdzie jest *komunikat Szukaj łączników i akcji,* i wybierz go w sekcji *Akcje* z akcją, aby utworzyć nowy rekord. Następujące zrzut ekranu pokazuje **Dynamics 365 — utwórz** nowy rekord jako przykład.
+1. Wybierz wybrany przez siebie system CRM, wyszukując go w miejscu, w którym widnieją **łączniki i akcje**. Wybierz ją na karcie **Akcje** z akcją, aby utworzyć nowy rekord. Na poniższym ekranie przedstawiono przykład **tworzenia nowego rekordu (Dynamics 365)** .
 
     ![Tworzenie nowego rekordu](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
 
-3. Podaj **nazwę organizacji** skojarzoną z systemem CRM. Wybierz **pozycję Potencjalni klienci** z listy rozwijanej Nazwa **encji.**
+1. Podaj **nazwę organizacji** skojarzoną z systemem CRM. Wybierz pozycję **potencjalni klienci** z listy rozwijanej **Nazwa jednostki** .
 
-    ![Wybieranie potencjalnych klientów](./media/commercial-marketplace-lead-management-instructions-https/select-leads.png)
+    ![Wybierz potencjalnych klientów](./media/commercial-marketplace-lead-management-instructions-https/select-leads.png)
 
-4. Przepływ pokazuje formularz do dostarczania informacji o potencjalnych klientach. Elementy można mapować z żądania wprowadzania, wybierając opcję dodawania zawartości dynamicznej. Poniższe zrzut ekranu pokazuje **OfferTitle** jako przykład.
+1. Automatyzacja w programie PowerShell przedstawia formularz do udostępniania informacji o potencjalnych klientach. Możesz mapować elementy z żądania wejściowego, wybierając pozycję Dodaj zawartość dynamiczną. Na poniższym ekranie przedstawiono przykład **OfferTitle** .
 
     ![Dodaj zawartość dynamiczną](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
 
-5. Zamapuj żądane pola, a następnie wybierz pozycję **Zapisz,** aby zapisać przepływ. Zostanie utworzony adres URL http post i jest dostępny w oknie *Po odebraniu żądania HTTP.* Skopiuj ten adres URL za pomocą formantu kopiowania, który znajduje się po prawej stronie adresu URL HTTP POST - jest to ważne, aby nie przegapić omyłkowo żadnej części całego adresu URL. Zapisz ten adres URL, ponieważ będzie potrzebny podczas konfigurowania zarządzania potencjalnymi klientami w portalu publikowania.
+1. Zamapuj odpowiednie pola, a następnie wybierz pozycję **Zapisz** , aby zapisać przepływ. Adres URL POST protokołu HTTP jest tworzony i jest dostępny w oknie **po odebraniu żądania HTTP** . Skopiuj ten adres URL przy użyciu kontrolki Kopiuj znajdującej się po prawej stronie adresu URL POST protokołu HTTP. Użycie kontrolki Copy jest ważne, aby nie pominąć żadnej części całego adresu URL. Zapisz ten adres URL, ponieważ będzie on potrzebny podczas konfigurowania zarządzania liderem w portalu wydawców.
 
-    ![Po odebraniu żądania HTTP.](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
+    ![Po odebraniu żądania HTTP](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
-### <a name="to-set-up-email-notification"></a>Aby skonfigurować powiadomienia e-mail
+### <a name="set-up-email-notification"></a>Konfigurowanie powiadomienia e-mail
 
-1. Po zakończeniu schematu JSON wybierz **+ Nowy krok**.
-2. W obszarze **Wybierz akcję**wybierz pozycję **Akcje**.
-3. W obszarze **Akcje**wybierz pozycję **Wyślij wiadomość e-mail (Office 365 Outlook)**.
+1. Po zakończeniu schematu JSON wybierz pozycję **+ nowy krok**.
+1. W obszarze **Wybierz akcję**wybierz pozycję **Akcje**.
+1. Na karcie **Akcje** wybierz pozycję **Wyślij wiadomość e-mail (Office 365 Outlook)**.
 
-    >[!Note]
-    >Jeśli chcesz użyć innego dostawcy poczty e-mail, wyszukaj i wybierz *opcję Wyślij powiadomienie e-mail (Mail)* jako akcję.
+    >[!NOTE]
+    >Jeśli chcesz użyć innego dostawcy poczty e-mail, Wyszukaj i wybierz opcję **Wyślij powiadomienie e-mail (poczta)** jako akcję.
 
-    ![Dodawanie akcji e-mail](./media/commercial-marketplace-lead-management-instructions-https/https-request-received-send-email.png)
+    ![Dodaj akcję poczty e-mail](./media/commercial-marketplace-lead-management-instructions-https/https-request-received-send-email.png)
 
-4. W oknie **Wyślij wiadomość e-mail** skonfiguruj następujące wymagane pola:
+1. W oknie **wysyłanie wiadomości e-mail** skonfiguruj następujące wymagane pola:
 
-   - **Do** - Wprowadź co najmniej jeden prawidłowy adres e-mail, na który zostaną wysłane potencjalni klienci.
-   - **Temat** — przepływ umożliwia dodanie zawartości dynamicznej, takiej jak **LeadSource** w poniższym przechwytywaniu ekranu. Zacznij od wpisania nazwy pola, a następnie kliknięcia listy wyboru zawartości dynamicznej w oknie podręcznym. 
+   - **Do**: wprowadź co najmniej jeden prawidłowy adres e-mail, na który będą wysyłane potencjalni klienci.
+   - **Temat**: energia automatyzuje zapewnia możliwość dodania zawartości dynamicznej, na przykład **LeadSource** pokazanej na poniższym ekranie. Zacznij od wprowadzenia nazwy pola. Następnie wybierz listę dynamiczne pobranie zawartości z okna podręcznego. 
 
-        >[!Note] 
-        > Podczas dodawania nazw pól można śledzić każdy z ":" a następnie wprowadź, aby utworzyć nowy wiersz. Po dodaniu nazw pól można dodać każdy skojarzony parametr z dynamicznej listy pobrania.
+        >[!NOTE] 
+        > Po dodaniu nazw pól można wykonać każdą nazwę z dwukropkiem (:) a następnie wybierz **klawisz ENTER** , aby utworzyć nowy wiersz. Po dodaniu nazw pól można dodać każdy skojarzony parametr z listy pobrań dynamicznych.
 
-        ![Dodawanie akcji wiadomości e-mail przy użyciu zawartości dynamicznej](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
+        ![Dodawanie akcji poczty e-mail przy użyciu zawartości dynamicznej](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **Treść** — na liście wyboru zawartości dynamicznej dodaj żądane informacje w treści wiadomości e-mail. Na przykład LastName, FirstName, E-mail i Firma. <br> <br> Po zakończeniu konfigurowania powiadomienia e-mail będzie wyglądać jak przykład w poniższym przechwytywaniu ekranu.
+   - **Treść**: z listy dynamiczne pobranie zawartości Dodaj odpowiednie informacje w treści wiadomości e-mail. Na przykład użyj LastName, FirstName, poczty E-mail i firmy. Po zakończeniu konfigurowania powiadomienia e-mail wygląda jak przykład na poniższym ekranie.
 
 
-       ![Dodawanie akcji e-mail](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
+       ![Przykład powiadomienia e-mail](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
-5. Wybierz **pozycję Zapisz,** aby zakończyć przepływ. Adres URL HTTP POST jest tworzony i jest dostępny w oknie *Po odebraniu żądania HTTP.* Skopiuj ten adres URL za pomocą formantu kopiowania, który znajduje się po prawej stronie adresu URL HTTP POST - jest to ważne, aby nie przegapić omyłkowo żadnej części całego adresu URL. Zapisz ten adres URL, ponieważ będzie potrzebny podczas konfigurowania zarządzania potencjalnymi klientami w portalu publikowania.
+1. Wybierz pozycję **Zapisz** , aby zakończyć przepływ. Adres URL POST protokołu HTTP jest tworzony i jest dostępny w oknie **po odebraniu żądania HTTP** . Skopiuj ten adres URL przy użyciu kontrolki Kopiuj znajdującej się po prawej stronie adresu URL POST protokołu HTTP. Użycie tego formantu jest ważne, aby nie pominąć żadnej części całego adresu URL. Zapisz ten adres URL, ponieważ będzie on potrzebny podczas konfigurowania zarządzania liderem w portalu wydawców.
 
-   ![Adres URL WPISU HTTP ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
+   ![ADRES URL POST PROTOKOŁU HTTP](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 
 ### <a name="testing"></a>Testowanie
 
-Możesz sprawdzić, czy wszystko działa zgodnie z oczekiwaniami, wykonując następujące kroki za pomocą narzędzia o nazwie [Listonosz](https://app.getpostman.com/app/download/win64), które można pobrać online. Ta usługa jest dostępna dla systemu Windows. 
+Możesz sprawdzić, czy wszystko działa zgodnie z oczekiwaniami przy użyciu narzędzia o nazwie [Poster](https://app.getpostman.com/app/download/win64), które można pobrać w trybie online. To narzędzie jest dostępne dla systemu Windows. 
 
-1. Uruchom listonosz i wybierz **nowe** > **żądanie,** aby skonfigurować narzędzie testowe. 
+1. Uruchom program Poster i wybierz pozycję **nowe** > **żądanie** , aby skonfigurować narzędzie testowe. 
 
    ![Żądanie skonfigurowania narzędzia testowego](./media/commercial-marketplace-lead-management-instructions-https/postman-request.png)
 
-2. Wypełnij formularz *Zapisz żądanie,* a następnie **zapisz** w utworzonym folderze.
+1. Wypełnij formularz **Zapisz żądanie** , a następnie zapisz go w utworzonym folderze.
 
-   ![Zapisywanie żądania](./media/commercial-marketplace-lead-management-instructions-https/postman-save-to-test.png)
+   ![Zapisz formularz żądania](./media/commercial-marketplace-lead-management-instructions-https/postman-save-to-test.png)
 
-3. Z listy rozwijanej **wybierz pozycję OPUBLIKUJ.** 
+1. Z listy rozwijanej wybierz pozycję **post** . 
 
-   ![Przetestuj mój przepływ](./media/commercial-marketplace-lead-management-instructions-https/test-my-flow.png)
+   ![Testowanie mojego przepływu](./media/commercial-marketplace-lead-management-instructions-https/test-my-flow.png)
 
-4. Wklej adres URL HTTP POST z przepływu utworzonego w umiań funkcji Power Automate, w którym znajduje się *adres URL żądania Enter*.
+1. Wklej adres URL POST protokołu HTTP z przepływu utworzonego w programie w celu zautomatyzowania, w którym znajduje się **adres URL żądania**.
 
-   ![Wklej adres URL WPISu HTTP](./media/commercial-marketplace-lead-management-instructions-https/paste-http-post-url.png)
+   ![Wklej adres URL POST protokołu HTTP](./media/commercial-marketplace-lead-management-instructions-https/paste-http-post-url.png)
 
-5. Wróć do [przepływu](https://flow.microsoft.com/) i znajdź przepływ utworzony w celu wysyłania potencjalnych klientów, przechodząc do **opcji Moje przepływy** z paska menu Przepływ.  Wybierz 3 kropki obok nazwy przepływu i wybierz pozycję **Edytuj**.
+1. Wróć do trybu [automatyzacji](https://flow.microsoft.com/). Znajdź utworzony przepływ w celu wysłania potencjalnych klientów, przechodząc do **obszaru Moje przepływy** z paska menu usługi Automatyzacja. Wybierz wielokropek obok nazwy przepływu, aby wyświetlić więcej opcji, a następnie wybierz pozycję **Edytuj**.
 
-   ![Moje przepływy - Edytuj](./media/commercial-marketplace-lead-management-instructions-https/my-flows-edit.png)
 
-6. Wybierz **opcję Testuj** w prawym górnym rogu, wybierz opcję "Wykonam akcję wyzwalacza", a następnie wybierz **opcję Testuj**. W górnej części ekranu pojawi się informacja wskazująca, że test został rozpoczęty
+1. Wybierz pozycję **Testuj** w prawym górnym rogu, wybierz opcję **Chcę wykonać akcję wyzwalacza**, a następnie wybierz pozycję **Testuj**. Na górze ekranu zobaczysz wskazanie, że test został uruchomiony.
 
-   ![Przepływ testowy - wyzwalacz](./media/commercial-marketplace-lead-management-instructions-https/test-flow-trigger-action.png)
+   ![Wykonaję akcję wyzwalacza](./media/commercial-marketplace-lead-management-instructions-https/test-flow-trigger-action.png)
 
-7. Wróć do aplikacji Postman i wybierz **pozycję Wyślij** obok miejsca, w którym wklejono adres URL HTTPS.
+1. Wróć do aplikacji w programie Poster i wybierz pozycję **Wyślij**.
 
-   ![Przetestuj mój przepływ - Wyślij](./media/commercial-marketplace-lead-management-instructions-https/postman-send.png)
+   ![Przycisk Wyślij](./media/commercial-marketplace-lead-management-instructions-https/postman-send.png)
 
-8. Wróć do swojego przepływu i sprawdź wynik. Jeśli wszystko działa zgodnie z oczekiwaniami, zostanie wyświetlony komunikat informujący, że zakończyło się pomyślnie.
+1. Wróć do przepływu i sprawdź wynik. Jeśli wszystko działa zgodnie z oczekiwaniami, zobaczysz komunikat informujący o tym, że przepływ zakończył się pomyślnie.
 
-   ![Przepływ - Sprawdź wyniki](./media/commercial-marketplace-lead-management-instructions-https/my-flow-check-results.png)
+   ![Sprawdź wyniki](./media/commercial-marketplace-lead-management-instructions-https/my-flow-check-results.png)
 
-9. Powinieneś również otrzymać wiadomość e-mail. Sprawdź swoją skrzynkę e-mail. 
+1. Użytkownik powinien również otrzymać wiadomość e-mail. Sprawdź skrzynkę odbiorczą poczty e-mail. 
 
-    >[!Note] 
-    >Jeśli nie widzisz wiadomości e-mail z testu, sprawdź foldery spamu i wiadomości-śmieci. Poniżej można zauważyć tylko etykiety pól dodane podczas konfigurowania powiadomienia e-mail. Gdyby był to rzeczywisty potencjalny klient wygenerowany z oferty, można również wyświetlić rzeczywiste informacje z kontaktu potencjalnego klienta w treści i w wierszu Temat.
+    >[!NOTE] 
+    >Jeśli nie widzisz wiadomości e-mail z testu, Sprawdź swoje spam i foldery śmieci. Na poniższym ekranie zobaczysz tylko etykiety pól dodane podczas konfigurowania powiadomienia e-mail. Jeśli jako rzeczywisty potencjalny klient został wygenerowany z oferty, zobaczysz również rzeczywiste informacje z kontaktu potencjalnego klienta w treści i w wierszu tematu.
 
-   ![Otrzymana wiadomość e-mail](./media/commercial-marketplace-lead-management-instructions-https/email-received.png)
+   ![Odebrano wiadomość e-mail](./media/commercial-marketplace-lead-management-instructions-https/email-received.png)
 
 ## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Konfigurowanie oferty do wysyłania potencjalnych klientów do punktu końcowego HTTPS
 
-Gdy będziesz gotowy skonfigurować informacje o zarządzaniu potencjalnymi klientami dla oferty w portalu publikowania, wykonaj poniższe czynności:
+Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania potencjalnym liderem oferty w portalu wydawców, wykonaj następujące kroki.
 
-1. Przejdź do strony **Ustawienia oferty** dla swojej oferty.
-2. Wybierz **pozycję Połącz** w sekcji Zarządzanie potencjalnymi klientami.
-3. W oknie podręcznym Szczegóły połączenia wybierz **pozycję Punkt końcowy HTTPS** dla **miejsca docelowego potencjalnego klienta** i wklej adres URL HTTP POST z utworzonego przepływu, wykonując wcześniejsze kroki w polu URL punktu **końcowego HTTPS.**
-4. **Kontaktowy adres e-mail** — udostępniaj wiadomości e-mail osobom w firmie, które powinny otrzymywać powiadomienia e-mail po otrzymaniu nowego potencjalnego klienta. Możesz dostarczyć wiele wiadomości e-mail, oddzielając je średnikiem.
-5. Kliknij przycisk **OK**.
+1. Przejdź do strony **konfiguracji oferty** oferty.
+1. Wybierz pozycję **Połącz** w sekcji **Zarządzanie potencjalnymi klientami** .
+1. W oknie podręcznym **szczegóły połączenia** wybierz pozycję **punkt końcowy https** dla **miejsca docelowego potencjalnego klienta**. Wklej adres URL POST protokołu HTTP z przepływu utworzonego przez wykonanie wcześniejszych kroków w polu **adres URL punktu końcowego HTTPS** .
+1. W obszarze **kontaktowy adres e-mail**wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Można podać wiele wiadomości e-mail, rozdzielając je średnikami.
+1. Kliknij przycisk **OK**.
 
-Aby upewnić się, że udało ci się połączyć z miejscem docelowym potencjalnego klienta, kliknij przycisk sprawdź poprawność. Jeśli się powiedzie, będziesz miał potencjalnego klienta testowego w głównym miejscu docelowym.
+Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz przycisk **Weryfikuj** . Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 
->[!Note] 
->Musisz zakończyć konfigurowanie pozostałej części oferty i opublikować ją, zanim będzie można odbierać potencjalnych klientów dla oferty.
+>[!NOTE] 
+>Musisz zakończyć konfigurowanie reszty oferty i opublikować ją przed odebraniem potencjalnych klientów do oferty.
 
-Gdy potencjalni klienci są generowani, firma Microsoft wysyła potencjalnych klientów do przepływu, które są kierowane do skonfigurowanych skonfigurowanych adresów e-mail systemu CRM.
+Gdy są generowane potencjalni klienci, firma Microsoft wysyła potencjalni klienci do przepływu. Potencjalni klienci są kierowani do skonfigurowanego systemu CRM lub adresu e-mail.
 
-![Zarządzanie potencjalnymi klientami - połączenie](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+![Przycisk Połącz z zarządzaniem potencjalnym klientem](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
 
-![Szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
+![Miejsce docelowe lidera szczegółów połączenia](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
 
-![Szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
+![Adres e-mail osoby kontaktowej szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 

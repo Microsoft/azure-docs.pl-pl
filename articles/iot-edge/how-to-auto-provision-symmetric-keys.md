@@ -1,6 +1,6 @@
 ---
-title: Udostępnianie urządzenia przy użyciu zaświadczania klucza symetrycznego — usługa Azure IoT Edge
-description: Użyj zaświadczania klucza symetrycznego, aby przetestować automatyczne inicjowanie obsługi administracyjnej urządzeń dla usługi Azure IoT Edge z usługą inicjowania obsługi administracyjnej urządzeń
+title: Udostępnianie urządzenia przy użyciu zaświadczania klucza symetrycznego — Azure IoT Edge
+description: Korzystanie z zaświadczania klucza symetrycznego do testowania automatycznej aprowizacji urządzeń dla Azure IoT Edge przy użyciu usługi Device Provisioning
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,79 +9,79 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 139a2cafe137d000b991cbad8b8567e005ffc728
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c6c2067526850ba972f002dc40bbd5d4cb24c9ba
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668668"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131017"
 ---
-# <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Tworzenie i inicjowania obsługi administracyjnej urządzenia usługi IoT Edge przy użyciu zaświadczania klucza symetrycznego
+# <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu zaświadczania klucza symetrycznego
 
-Urządzenia usługi Azure IoT Edge mogą być automatycznie aprowizacji przy użyciu [usługi inicjowania obsługi administracyjnej urządzeń,](../iot-dps/index.yml) podobnie jak urządzenia, które nie są włączone krawędzi. Jeśli nie znasz procesu automatycznego inicjowania obsługi administracyjnej, przejrzyj [pojęcia automatycznego inicjowania obsługi administracyjnej](../iot-dps/concepts-auto-provisioning.md) przed kontynuowaniem.
+Urządzenia Azure IoT Edge mogą być obsługiwane przy użyciu [usługi Device Provisioning](../iot-dps/index.yml) , podobnie jak dla urządzeń, które nie są włączone. Jeśli nie znasz procesu samoobsługowego inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z [pojęciami autouzupełniania](../iot-dps/concepts-auto-provisioning.md) .
 
-W tym artykule pokazano, jak utworzyć indywidualną rejestrację usługi inicjowania obsługi administracyjnej urządzeń przy użyciu zaświadczania klucza symetrycznego na urządzeniu usługi IoT Edge, wykonując następujące czynności:
+W tym artykule opisano sposób tworzenia rejestracji indywidualnej usługi Device Provisioning przy użyciu zaświadczania klucza symetrycznego na urządzeniu IoT Edge, wykonując następujące czynności:
 
-* Utwórz wystąpienie usługi inicjowania obsługi administracyjnej urządzeń (DPS) centrum IoT.
-* Utwórz indywidualną rejestrację dla urządzenia.
-* Zainstaluj środowisko uruchomieniowe usługi IoT Edge i połącz się z centrum IoT Hub.
+* Utwórz wystąpienie IoT Hub Device Provisioning Service (DPS).
+* Utwórz rejestrację indywidualną dla urządzenia.
+* Zainstaluj środowisko uruchomieniowe IoT Edge i Połącz się z IoT Hub.
 
-Zaświadczanie klucza symetrycznego jest proste podejście do uwierzytelniania urządzenia z wystąpienia usługi inicjowania obsługi administracyjnej urządzenia. Ta metoda zaświadczania reprezentuje środowisko "Hello world" dla deweloperów, którzy są nowicjuszami w inicjowaniu obsługi administracyjnej urządzeń lub nie mają ścisłych wymagań dotyczących zabezpieczeń. Zaświadczanie urządzenia przy użyciu certyfikatów [modułu TPM](../iot-dps/concepts-tpm-attestation.md) lub [X.509](../iot-dps/concepts-security.md#x509-certificates) jest bezpieczniejsze i powinno być używane do bardziej rygorystycznych wymagań dotyczących zabezpieczeń.
+Zaświadczenie klucza symetrycznego to proste podejście do uwierzytelniania urządzenia za pomocą wystąpienia usługi Device Provisioning. Ta metoda zaświadczania reprezentuje środowisko "Hello World" dla deweloperów, którzy są nowym sposobem aprowizacji urządzeń lub nie mają rygorystycznych wymagań dotyczących zabezpieczeń. Zaświadczenie urządzenia przy użyciu [modułu TPM](../iot-dps/concepts-tpm-attestation.md) lub [certyfikatu X. 509](../iot-dps/concepts-security.md#x509-certificates) jest bezpieczniejsze i powinno być używane do bardziej rygorystycznych wymagań w zakresie bezpieczeństwa.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Aktywne centrum IoT
+* Aktywna IoT Hub
 * Urządzenie fizyczne lub wirtualne
 
-## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Konfigurowanie usługi inicjowania obsługi administracyjnej urządzeń usługi IoT Hub
+## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Skonfiguruj IoT Hub Device Provisioning Service
 
-Utwórz nowe wystąpienie usługi inicjowania obsługi administracyjnej urządzeń usługi Usługi obsługi urządzeń usługi Usługi IoT na platformie Azure i połącz je z centrum IoT hub. Postępuj zgodnie z instrukcjami w [konfigurowaniu dps centrum IoT](../iot-dps/quick-setup-auto-provision.md)Hub .
+Utwórz nowe wystąpienie IoT Hub Device Provisioning Service na platformie Azure i połącz je z Centrum IoT. Można postępować zgodnie z instrukcjami podanymi w temacie [konfigurowanie IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
 
-Po uruchomieniu usługi inicjowania obsługi administracyjnej urządzeń skopiuj wartość **zakresu identyfikatora** ze strony przeglądowej. Ta wartość jest używana podczas konfigurowania środowiska wykonawczego usługi IoT Edge.
+Po uruchomieniu usługi Device Provisioning należy skopiować wartość **zakres identyfikatora** ze strony przegląd. Ta wartość jest używana podczas konfigurowania środowiska uruchomieniowego IoT Edge.
 
-## <a name="choose-a-unique-registration-id-for-the-device"></a>Wybierz unikatowy identyfikator rejestracyjny urządzenia
+## <a name="choose-a-unique-registration-id-for-the-device"></a>Wybierz unikatowy identyfikator rejestracji dla urządzenia
 
-Unikatowy identyfikator rejestracji musi być zdefiniowany w celu zidentyfikowania każdego urządzenia. Z urządzenia można użyć adresu MAC, numeru seryjnego lub unikatowych informacji.
+Unikatowy identyfikator rejestracji musi być zdefiniowany, aby można było zidentyfikować każde urządzenie. Możesz użyć adresu MAC, numeru seryjnego lub wszelkich unikatowych informacji z urządzenia.
 
-W tym przykładzie używamy kombinacji adresu MAC i numeru seryjnego tworzącego następujący `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`ciąg dla identyfikatora rejestracji: .
+W tym przykładzie używamy kombinacji adresu MAC i numeru seryjnego, tworząc następujący ciąg dla identyfikatora rejestracji: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`.
 
-Utwórz unikatowy identyfikator rejestracyjny urządzenia. Prawidłowe znaki to małe litery alfanumeryczne i myślnik ('-').
+Utwórz unikatowy identyfikator rejestracji dla urządzenia. Prawidłowe znaki to małe litery alfanumeryczne i myślnik ("-").
 
-## <a name="create-a-dps-enrollment"></a>Tworzenie rejestracji DPS
+## <a name="create-a-dps-enrollment"></a>Tworzenie rejestracji w usłudze DPS
 
-Użyj identyfikatora rejestracji urządzenia, aby utworzyć indywidualną rejestrację w dps.
+Użyj identyfikatora rejestracji urządzenia, aby utworzyć rejestrację indywidualną w usłudze DPS.
 
-Podczas tworzenia rejestracji w dps, masz możliwość zadeklarowania **stanu bliźniaczej reprezentacji urządzenia początkowego**. W bliźniaczej reprezentacji urządzenia można ustawić znaczniki, aby grupować urządzenia według dowolnej metryki potrzebnej w rozwiązaniu, takiej jak region, środowisko, lokalizacja lub typ urządzenia. Tagi te są używane do tworzenia [wdrożeń automatycznych](how-to-deploy-monitor.md).
+Po utworzeniu rejestracji w usłudze DPS można zadeklarować **początkowy stan dwuosiowy urządzenia**. W ramach sznurka urządzenia można ustawić Tagi do grupowania urządzeń według dowolnej metryki potrzebnej w rozwiązaniu, na przykład regionu, środowiska, lokalizacji lub typu urządzenia. Tagi te służą do tworzenia [wdrożeń automatycznych](how-to-deploy-at-scale.md).
 
 > [!TIP]
-> Rejestracje grupowe są również możliwe podczas korzystania z zaświadczania klucza symetrycznego i wiążą się z tymi samymi decyzjami co rejestracje indywidualne.
+> Rejestracje grup są również możliwe podczas korzystania z zaświadczania klucza symetrycznego i obejmują te same decyzje co rejestracje indywidualne.
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do wystąpienia usługi inicjowania obsługi administracyjnej urządzeń usługi IoT Hub.
+1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia IoT Hub Device Provisioning Service.
 
 1. W obszarze **Ustawienia**wybierz pozycję **Zarządzaj rejestracjami**.
 
-1. Wybierz **pozycję Dodaj rejestrację indywidualną,** a następnie wykonaj następujące czynności, aby skonfigurować rejestrację:  
+1. Wybierz pozycję **Dodaj rejestrację indywidualną** , a następnie wykonaj następujące kroki, aby skonfigurować rejestrację:  
 
-   1. W przypadku **opcji Mechanizm**wybierz opcję **Klucz symetryczny**.
+   1. W obszarze **mechanizm**wybierz opcję **klucz symetryczny**.
 
-   1. Zaznacz pole wyboru **Automatyczne generowanie kluczy.**
+   1. Zaznacz pole wyboru **automatycznie Generuj klucze** .
 
-   1. Podaj **identyfikator rejestracji** utworzony dla urządzenia.
+   1. Podaj **Identyfikator rejestracji** , który został utworzony dla Twojego urządzenia.
 
-   1. Jeśli chcesz, podaj identyfikator **urządzenia usługi IoT Hub** dla swojego urządzenia. Identyfikatory urządzeń można użyć do kierowania poszczególnych urządzeń do wdrożenia modułu. Jeśli nie podasz identyfikatora urządzenia, zostanie użyty identyfikator rejestracji.
+   1. Podaj **Identyfikator urządzenia IoT Hub** , jeśli chcesz. Identyfikatory urządzeń umożliwiają kierowanie poszczególnych urządzeń do wdrożenia modułu. Jeśli nie podano identyfikatora urządzenia, zostanie użyty Identyfikator rejestracji.
 
-   1. Wybierz **wartość True,** aby zadeklarować, że rejestracja dotyczy urządzenia ZoT. W przypadku rejestracji w grupie wszystkie urządzenia muszą być urządzeniami IoT Edge lub żadne z nich nie może być.
+   1. Wybierz **wartość true** , aby zadeklarować, że rejestracja dotyczy urządzenia IoT Edge. W przypadku rejestracji grupy wszystkie urządzenia muszą być IoT Edge urządzeń lub żadna z nich nie może być.
 
    > [!TIP]
-   > W wierszu polecenia platformy Azure można utworzyć [rejestrację](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) lub [grupę rejestracji](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) i użyć flagi **obsługującej krawędź,** aby określić, że urządzenie lub grupa urządzeń jest urządzeniem usługi IoT Edge.
+   > W interfejsie wiersza polecenia platformy Azure można utworzyć [rejestrację](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) lub [grupę rejestracji](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) , a następnie użyć flagi z **włączoną krawędzią** , aby określić, że urządzenie lub grupa urządzeń jest urządzeniem IoT Edge.
 
-   1. Zaakceptuj wartość domyślną z zasad alokacji usługi inicjowania obsługi administracyjnej urządzeń, **aby przypisać urządzenia do koncentratorów** lub wybrać inną wartość specyficzną dla tej rejestracji.
+   1. Zaakceptuj wartość domyślną z zasad alokacji usługi Device Provisioning, aby określić **sposób przypisywania urządzeń do centrów** lub wybrać inną wartość specyficzną dla tej rejestracji.
 
-   1. Wybierz połączone centrum **IoT Hub,** do którego chcesz podłączyć urządzenie. Można wybrać wiele koncentratorów, a urządzenie zostanie przypisane do jednego z nich zgodnie z wybranymi zasadami alokacji.
+   1. Wybierz połączone **IoT Hub** , do których chcesz połączyć urządzenie. Można wybrać wiele centrów, a urządzenie zostanie przypisane do jednej z nich zgodnie z wybranymi zasadami alokacji.
 
-   1. Wybierz **sposób obsługi danych urządzenia podczas ponownej inicjowania obsługi administracyjnej,** gdy urządzenia żądają inicjowania obsługi administracyjnej po raz pierwszy.
+   1. Wybierz **, w jaki sposób dane urządzenia mają być obsługiwane na potrzeby ponownej aprowizacji,** gdy urządzenia zażądają aprowizacji po raz pierwszy.
 
-   1. Dodaj wartość znacznika do **stanu bliźniaczej reprezentacji urządzenia początkowego,** jeśli chcesz. Tagów można używać do grup docelowych urządzeń do wdrażania modułu. Przykład:
+   1. Jeśli chcesz, Dodaj wartość tagu do **początkowego stanu dwuosiowego urządzenia** . Możesz użyć tagów do grup docelowych urządzeń do wdrożenia modułu. Przykład:
 
       ```json
       {
@@ -94,28 +94,28 @@ Podczas tworzenia rejestracji w dps, masz możliwość zadeklarowania **stanu bl
       }
       ```
 
-   1. Upewnij **się,** że włącz wpis jest ustawiony na **Włącz**.
+   1. Upewnij się, że **wpis Enable** ma wartość **enable**.
 
-   1. Wybierz **pozycję Zapisz**.
+   1. Wybierz pozycję **Zapisz**.
 
-Teraz, gdy istnieje rejestracja dla tego urządzenia, środowisko uruchomieniowe IoT Edge może automatycznie aprowizować urządzenie podczas instalacji. Pamiętaj, aby skopiować wartość **klucza podstawowego** rejestracji do użycia podczas instalowania środowiska wykonawczego usługi IoT Edge lub jeśli zamierzasz tworzyć klucze urządzenia do użytku z rejestracją grupy.
+Teraz, gdy istnieje Rejestracja dla tego urządzenia, środowisko uruchomieniowe IoT Edge może automatycznie zainicjować obsługę administracyjną urządzenia podczas instalacji. Skopiuj wartość **klucza podstawowego** rejestracji, która ma być używana podczas instalowania środowiska uruchomieniowego IoT Edge, lub jeśli chcesz utworzyć klucze urządzeń do użycia z rejestracją grupy.
 
-## <a name="derive-a-device-key"></a>Wyprowadzanie klucza urządzenia
+## <a name="derive-a-device-key"></a>Utwórz klucz urządzenia
 
 > [!NOTE]
-> Ta sekcja jest wymagana tylko w przypadku korzystania z rejestracji grupy.
+> Ta sekcja jest wymagana tylko w przypadku korzystania z rejestracji grupowej.
 
-Każde urządzenie używa swojego pochodnego klucza urządzenia z unikatowym identyfikatorem rejestracji do wykonywania zaświadczania klucza symetrycznego z rejestracją podczas inicjowania obsługi administracyjnej. Aby wygenerować klucz urządzenia, użyj klucza skopiowanego z rejestracji DPS, aby obliczyć [identyfikator HMAC-SHA256](https://wikipedia.org/wiki/HMAC) unikatowego identyfikatora rejestracji urządzenia i przekonwertować wynik na format Base64.
+Każde urządzenie używa pochodnego klucza urządzenia z unikatowym IDENTYFIKATORem rejestracji w celu przeprowadzenia zaświadczania klucza symetrycznego z rejestracją podczas aprowizacji. Aby wygenerować klucz urządzenia, użyj klucza skopiowanego z rejestracji usługi DPS w celu obliczenia [algorytmu HMAC-SHA256](https://wikipedia.org/wiki/HMAC) unikatowego identyfikatora rejestracji dla urządzenia i Przekształć wynik w formacie base64.
 
-Nie należy dołączać klucza podstawowego lub pomocniczego rejestracji do kodu urządzenia.
+Nie uwzględniaj klucza podstawowego lub pomocniczego rejestracji w kodzie urządzenia.
 
-### <a name="linux-workstations"></a>Stacje robocze Linuksa
+### <a name="linux-workstations"></a>Stacje robocze systemu Linux
 
-Jeśli używasz stacji roboczej systemu Linux, można użyć openssl do wygenerowania klucza urządzenia pochodnego, jak pokazano w poniższym przykładzie.
+Jeśli używasz stacji roboczej z systemem Linux, możesz użyć OpenSSL, aby wygenerować pochodny klucz urządzenia, jak pokazano w poniższym przykładzie.
 
-Zastąp wartość **keya** **kluczem kluczowym odnotowanym** wcześniej.
+Zastąp wartość **klucza kluczem** **podstawowym** zanotowanym wcześniej.
 
-Zastąp wartość **REG_ID** identyfikatorem rejestracyjnym urządzenia.
+Zastąp wartość **REG_ID** identyfikatorem rejestracji urządzenia.
 
 ```bash
 KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
@@ -131,11 +131,11 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 ### <a name="windows-based-workstations"></a>Stacje robocze z systemem Windows
 
-Jeśli używasz stacji roboczej opartej na systemie Windows, można użyć programu PowerShell do wygenerowania klucza urządzenia pochodnego, jak pokazano w poniższym przykładzie.
+Jeśli używasz stacji roboczej z systemem Windows, możesz użyć programu PowerShell, aby wygenerować pochodny klucz urządzenia, jak pokazano w poniższym przykładzie.
 
-Zastąp wartość **keya** **kluczem kluczowym odnotowanym** wcześniej.
+Zastąp wartość **klucza kluczem** **podstawowym** zanotowanym wcześniej.
 
-Zastąp wartość **REG_ID** identyfikatorem rejestracyjnym urządzenia.
+Zastąp wartość **REG_ID** identyfikatorem rejestracji urządzenia.
 
 ```powershell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
@@ -152,26 +152,26 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
-## <a name="install-the-iot-edge-runtime"></a>Instalowanie środowiska wykonawczego usługi IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Zainstaluj środowisko uruchomieniowe IoT Edge
 
-Środowisko uruchomieniowe usługi IoT Edge jest wdrożone na wszystkich urządzeniach usługi IoT Edge. Jego składniki są uruchamiane w kontenerach i umożliwiają wdrażanie dodatkowych kontenerów na urządzeniu, dzięki czemu można uruchomić kod na krawędzi.
+Środowisko uruchomieniowe usługi IoT Edge jest wdrożone na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi.
 
-Podczas inicjowania obsługi administracyjnej urządzenia potrzebne są następujące informacje:
+Podczas aprowizacji urządzenia potrzebne są następujące informacje:
 
 * Wartość **zakresu identyfikatora** DPS
-* Identyfikator **rejestracji** urządzenia, który został utworzony
-* **Klucz podstawowy** skopiowany z rejestracji DPS
+* Utworzony **Identyfikator rejestracji** urządzenia
+* **Klucz podstawowy** skopiowany z rejestracji usługi DPS
 
 > [!TIP]
-> W przypadku rejestracji grupowych potrzebny jest [klucz pochodny](#derive-a-device-key) każdego urządzenia, a nie klucz rejestracji DPS.
+> W przypadku rejestracji grup wymagany jest [klucz pochodny](#derive-a-device-key) każdego urządzenia, a nie klucz rejestracji usługi DPS.
 
 ### <a name="linux-device"></a>Urządzenie z systemem Linux
 
-Postępuj zgodnie z instrukcjami dotyczącymi architektury urządzenia. Upewnij się, aby skonfigurować środowisko uruchomieniowe IoT Edge dla automatycznego, a nie ręcznego inicjowania obsługi administracyjnej.
+Postępuj zgodnie z instrukcjami dotyczącymi architektury urządzenia. Pamiętaj, aby skonfigurować środowisko uruchomieniowe IoT Edge automatyczne, a nie ręczne, Inicjowanie obsługi administracyjnej.
 
-[Instalowanie środowiska wykonawczego usługi Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md)
+[Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md)
 
-Sekcja w pliku konfiguracyjnym dla inicjowania obsługi administracyjnej kluczy symetrycznych wygląda następująco:
+Sekcja w pliku konfiguracyjnym dla udostępniania klucza symetrycznego wygląda następująco:
 
 ```yaml
 # DPS symmetric key provisioning configuration
@@ -185,37 +185,37 @@ provisioning:
       symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
-Zastąp wartości `<SCOPE_ID>` `<REGISTRATION_ID>`zastępcze `<SYMMETRIC_KEY>` dla , i danymi zebranymi wcześniej. Upewnij się, że **inicjowanie obsługi administracyjnej:** wiersz nie ma poprzedniego odstępu i że elementy zagnieżdżone są wcięte przez dwie spacje.
+Zastąp wartości symboli `<SCOPE_ID>`zastępczych `<REGISTRATION_ID>`dla, `<SYMMETRIC_KEY>` i z danymi, które zostały zebrane wcześniej. Upewnij się, że funkcja **aprowizacji:** wiersz nie ma poprzedzającego odstępu i że elementy zagnieżdżone są wcięte o dwie spacje.
 
 ### <a name="windows-device"></a>Urządzenie z systemem Windows
 
-Zainstaluj środowisko uruchomieniowe usługi IoT Edge na urządzeniu, dla którego wygenerowano klucz urządzenia pochodnego. Środowiska wykonawczego IoT Edge można skonfigurować do automatycznego, a nie ręcznego inicjowania obsługi administracyjnej.
+Zainstaluj środowisko uruchomieniowe IoT Edge na urządzeniu, dla którego Wygenerowano pochodny klucz urządzenia. Skonfigurujesz środowisko uruchomieniowe IoT Edge automatyczne, nie ręczne, Inicjowanie obsługi administracyjnej.
 
-Aby uzyskać bardziej szczegółowe informacje dotyczące instalowania usługi IoT Edge w systemie Windows, w tym wymagania wstępne i instrukcje dotyczące zadań, takich jak zarządzanie kontenerami i aktualizowanie usługi IoT Edge, zobacz [Instalowanie środowiska wykonawczego usługi Azure IoT Edge w systemie Windows](how-to-install-iot-edge-windows.md).
+Aby uzyskać bardziej szczegółowe informacje na temat instalowania IoT Edge w systemie Windows, w tym wymagania wstępne i instrukcje dotyczące zadań, takich jak Zarządzanie kontenerami i aktualizowanie IoT Edge, zobacz [Instalowanie środowiska uruchomieniowego Azure IoT Edge w systemie Windows](how-to-install-iot-edge-windows.md).
 
-1. Otwórz okno programu PowerShell w trybie administratora. Pamiętaj, aby podczas instalowania aplikacji IoT Edge, a nie programu PowerShell (x86), należy używać sesji programu AMD64 programu PowerShell.
+1. Otwórz okno programu PowerShell w trybie administratora. Należy pamiętać, aby podczas instalowania IoT Edge używać sesji AMD64 programu PowerShell, a nie programu PowerShell (x86).
 
-1. Polecenie **Deploy-IoTEdge** sprawdza, czy komputer z systemem Windows jest w obsługiwanej wersji, włącza funkcję kontenerów, a następnie pobiera środowisko uruchomieniowe moby i środowisko wykonawcze usługi IoT Edge. Polecenie domyślnie używa kontenerów systemu Windows.
+1. Polecenie **Deploy-IoTEdge** sprawdza, czy komputer z systemem Windows jest w obsługiwanej wersji, włącza funkcję Containers, a następnie pobiera środowisko uruchomieniowe Moby i środowisko uruchomieniowe IoT Edge. Polecenie domyślnie używa kontenerów systemu Windows.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
-1. W tym momencie urządzenia IoT Core mogą zostać automatycznie ponownie uruchomione. Inne urządzenia z systemem Windows 10 lub Windows Server mogą monitować o ponowne uruchomienie. Jeśli tak, uruchom ponownie urządzenie teraz. Gdy urządzenie będzie gotowe, uruchom program PowerShell jako administrator ponownie.
+1. W tym momencie urządzenia IoT Core mogą zostać automatycznie uruchomione ponownie. Inne urządzenia z systemem Windows 10 lub Windows Server mogą monitować o ponowne uruchomienie. Jeśli tak, ponownie uruchom urządzenie teraz. Gdy urządzenie jest gotowe, uruchom ponownie program PowerShell jako administrator.
 
-1. Polecenie **Initialize-IoTEdge** konfiguruje środowisko wykonawcze IoT Edge na komputerze. Polecenie domyślnie ręczne inicjowanie obsługi `-Dps` administracyjnej za pomocą kontenerów systemu Windows, chyba że używasz flagi do użycia automatycznego inicjowania obsługi administracyjnej.
+1. Polecenie **Initialize-IoTEdge** konfiguruje środowisko uruchomieniowe IoT Edge na komputerze. Polecenie domyślnie umożliwia ręczne Inicjowanie obsługi przy użyciu kontenerów systemu Windows, chyba że `-Dps` flaga nie zostanie użyta do użycia automatycznej aprowizacji.
 
-   Zastąp wartości `{scope_id}` `{registration_id}`zastępcze `{symmetric_key}` dla , i danymi zebranymi wcześniej.
+   Zastąp wartości symboli `{scope_id}`zastępczych `{registration_id}`dla, `{symmetric_key}` i z danymi, które zostały zebrane wcześniej.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
 
-## <a name="verify-successful-installation"></a>Weryfikacja pomyślnej instalacji
+## <a name="verify-successful-installation"></a>Weryfikuj pomyślną instalację
 
-Jeśli środowisko wykonawcze rozpoczęło się pomyślnie, możesz przejść do centrum IoT Hub i rozpocząć wdrażanie modułów usługi IoT Edge na urządzeniu. Użyj następujących poleceń na urządzeniu, aby sprawdzić, czy środowisko wykonawcze zostało zainstalowane i uruchomione pomyślnie.
+Jeśli środowisko uruchomieniowe zostało pomyślnie uruchomione, możesz przejść do IoT Hub i rozpocząć wdrażanie modułów IoT Edge na urządzeniu. Użyj następujących poleceń na urządzeniu, aby sprawdzić, czy środowisko uruchomieniowe zostało prawidłowo zainstalowane i uruchomione.
 
 ### <a name="linux-device"></a>Urządzenie z systemem Linux
 
@@ -225,13 +225,13 @@ Sprawdź stan usługi IoT Edge.
 systemctl status iotedge
 ```
 
-Sprawdź dzienniki usług.
+Sprawdzanie dzienników usług.
 
 ```cmd/sh
 journalctl -u iotedge --no-pager --no-full
 ```
 
-Lista uruchomionych modułów.
+Wyświetl listę uruchomionych modułów.
 
 ```cmd/sh
 iotedge list
@@ -245,20 +245,20 @@ Sprawdź stan usługi IoT Edge.
 Get-Service iotedge
 ```
 
-Sprawdź dzienniki usług.
+Sprawdzanie dzienników usług.
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Lista uruchomionych modułów.
+Wyświetl listę uruchomionych modułów.
 
 ```powershell
 iotedge list
 ```
 
-Można sprawdzić, czy została użyta indywidualna rejestracja utworzona w usłudze inicjowania obsługi administracyjnej urządzeń. Przejdź do wystąpienia usługi inicjowania obsługi administracyjnej urządzeń w witrynie Azure portal. Otwórz szczegóły rejestracji dla utworzonej rejestracji indywidualnej. Należy zauważyć, że stan rejestracji jest **przypisany** i identyfikator urządzenia jest wyświetlany.
+Możesz sprawdzić, czy została użyta Rejestracja indywidualna utworzona w usłudze Device Provisioning. Przejdź do wystąpienia usługi Device Provisioning w Azure Portal. Otwórz szczegóły rejestracji dla utworzonej rejestracji indywidualnej. Zwróć uwagę, że jest **przypisany** stan rejestracji i identyfikator urządzenia jest wyświetlany.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Proces rejestracji usługi inicjowania obsługi administracyjnej urządzeń umożliwia ustawienie identyfikatora urządzenia i bliźniaczych tagów urządzenia w tym samym czasie, co aprowizowanie nowego urządzenia. Za pomocą tych wartości można kierować reklamy na poszczególne urządzenia lub grupy urządzeń za pomocą automatycznego zarządzania urządzeniami. Dowiedz się, jak [wdrażać i monitorować moduły usługi IoT Edge na dużą skalę przy użyciu witryny Azure portal](how-to-deploy-monitor.md) lub [przy użyciu interfejsu wiersza polecenia platformy Azure.](how-to-deploy-monitor-cli.md)
+Proces rejestracji w usłudze Device Provisioning Service umożliwia ustawienie tagów urządzeń i urządzeń w tym samym czasie, w których jest inicjowane nowe urządzenie. Tych wartości można użyć do kierowania poszczególnych urządzeń lub grup urządzeń przy użyciu funkcji automatycznego zarządzania urządzeniami. Dowiedz się, jak [wdrażać i monitorować moduły IoT Edge na dużą skalę przy użyciu Azure Portal](how-to-deploy-at-scale.md) lub [przy użyciu interfejsu wiersza polecenia platformy Azure](how-to-deploy-cli-at-scale.md).

@@ -1,14 +1,14 @@
 ---
 title: Obsługiwane Menedżer zasobów typy zasobów
 description: Podaj listę typów zasobów Menedżer zasobów obsługiwanych przez usługę Azure Resource Graph i historię zmian.
-ms.date: 04/23/2020
+ms.date: 04/24/2020
 ms.topic: reference
-ms.openlocfilehash: 021a0d595a34bc132aa0e67f2b5485ae9c321ef3
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 7092a6dccc2870c7fd7b6dc6feb3af16f0fd3b7a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116642"
+ms.locfileid: "82141894"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
 
@@ -65,6 +65,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Automation/automationaccounts
 - Microsoft. Automation/automationaccounts/konfiguracje
 - Microsoft. Automation/automationaccounts/elementy Runbook
+- Microsoft. autonomoussystems/obszary robocze
 - Microsoft. azconfig/configurationstores
 - Microsoft. usługi azureactivedirectory/b2cdirectories
 - Microsoft. azuredata/kontrolery datacontrollers
@@ -104,6 +105,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Cognition/syntheticsaccounts
 - Microsoft. cognitiveservices/konta
 - Microsoft. COMPUTE/availabilitysets
+- Microsoft. COMPUTE/diskaccesses
 - Microsoft. COMPUTE/diskencryptionsets
 - Microsoft. COMPUTE/disks
 - Microsoft. COMPUTE/galerie

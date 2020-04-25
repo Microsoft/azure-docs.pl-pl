@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: a0125c556789b1a1a5b11dcd16b852d7f57b6c50
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: f4e318281da5cd704d9fbf13c96cbec0a2d1b1b6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82099873"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143775"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z systemem Windows za pomocą polecenia Uruchom
 
@@ -58,7 +58,7 @@ The entity was not found in this Azure location
 |**EnableAdminAccount**|Sprawdza, czy konto administratora lokalnego jest wyłączone, a jeśli to możliwe, należy je włączyć.|
 |**IPConfig**| Przedstawia szczegółowe informacje o adresie IP, masce podsieci i bramie domyślnej dla każdej karty powiązanej z protokołem TCP/IP.|
 |**RDPSettings**|Sprawdza ustawienia rejestru i ustawienia zasad domeny. Sugeruje akcje zasad, jeśli komputer jest częścią domeny lub modyfikuje ustawienia do wartości domyślnych.|
-|**ResetRDPCert**|Usuwa certyfikat SSL powiązany z odbiornikiem RDP i przywraca domyślne zabezpieczenia odbiornika RDP. Użyj tego skryptu, Jeśli zobaczysz problemy z certyfikatem.|
+|**ResetRDPCert**|Usuwa certyfikat TLS/SSL powiązany z odbiornikiem RDP i przywraca domyślne zabezpieczenia odbiornika RDP. Użyj tego skryptu, Jeśli zobaczysz problemy z certyfikatem.|
 |**SetRDPPort**|Ustawia domyślny lub określony przez użytkownika numer portu dla połączeń Pulpit zdalny. Włącza reguły zapory dla przychodzącego dostępu do portu.|
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure

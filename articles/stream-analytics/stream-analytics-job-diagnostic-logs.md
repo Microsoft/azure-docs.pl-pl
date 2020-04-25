@@ -1,149 +1,149 @@
 ---
-title: Rozwiązywanie problemów z usługą Azure Stream Analytics przy użyciu dzienników diagnostycznych
-description: W tym artykule opisano sposób analizowania dzienników diagnostycznych w usłudze Azure Stream Analytics.
+title: Rozwiązywanie problemów Azure Stream Analytics przy użyciu dzienników zasobów
+description: W tym artykule opisano sposób analizowania dzienników zasobów w Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: cdb6629441becd0a8356debe3360830ff11a7a9d
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 40b57af95f9ea4d4212756634c721ddd55f85d7b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398425"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127749"
 ---
-# <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Rozwiązywanie problemów z usługą Azure Stream Analytics przy użyciu dzienników diagnostycznych
+# <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Rozwiązywanie problemów z Azure Stream Analytics przy użyciu dzienników zasobów
 
-Czasem może się zdarzyć, że przetwarzanie zadania usługi Azure Stream Analytics zostanie nieoczekiwanie zatrzymane. Ważne jest, aby było możliwe rozwiązanie problemu z tego rodzaju zdarzeniem. Mogą one być spowodowane przez nieoczekiwany wynik zapytania, problemy z łącznością z urządzeniami lub nieoczekiwaną awarię usługi. Dzienniki diagnostyczne w usłudze Stream Analytics mogą pomóc w zidentyfikowaniu przyczyny problemów w przypadku ich wystąpienia i skrócić czas odzyskiwania.
+Czasem może się zdarzyć, że przetwarzanie zadania usługi Azure Stream Analytics zostanie nieoczekiwanie zatrzymane. Ważne jest, aby było możliwe rozwiązanie problemu z tego rodzaju zdarzeniem. Mogą one być spowodowane przez nieoczekiwany wynik zapytania, problemy z łącznością z urządzeniami lub nieoczekiwaną awarię usługi. Dzienniki zasobów w Stream Analytics mogą pomóc w zidentyfikowaniu przyczyny problemów występujących i skróceniu czasu odzyskiwania.
 
-Zdecydowanie zaleca się włączenie dzienników diagnostycznych dla wszystkich zadań, ponieważ znacznie pomoże to w debugowaniu i monitorowaniu.
+Zdecydowanie zaleca się włączenie dzienników zasobów dla wszystkich zadań, ponieważ ułatwi to debugowanie i monitorowanie.
 
 ## <a name="log-types"></a>Typy dzienników
 
-Usługa Stream Analytics oferuje dwa typy dzienników:
+Stream Analytics oferuje dwa typy dzienników:
 
-* [Dzienniki aktywności](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (zawsze włączone), które dają wgląd w operacje wykonywane na zadaniach.
+* [Dzienniki aktywności](../azure-monitor/platform/platform-logs-overview.md) (zawsze włączone), które dają wgląd w operacje wykonywane na zadaniach.
 
-* [Dzienniki diagnostyczne](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (konfigurowalne), które zapewniają bogatsze wgląd we wszystko, co dzieje się z zadaniem. Dzienniki diagnostyki rozpoczynają się po utworzeniu zadania i kończą się po usunięciu zadania. Obejmują one zdarzenia, gdy zadanie jest aktualizowane i gdy jest uruchomione.
+* [Dzienniki zasobów](../azure-monitor/platform/platform-logs-overview.md) (konfigurowalne), które zapewniają bogatszy wgląd w wszystko, co się dzieje z zadaniami. Dzienniki zasobów zaczynają się, gdy zadanie zostanie utworzone i zakończy się, gdy zadanie zostanie usunięte. Obejmują one zdarzenia, gdy zadanie jest aktualizowane i uruchomione.
 
 > [!NOTE]
-> Do analizowania danych niezgodnych z zasadami można używać usług, takich jak usługa Azure Storage, usługi Azure Event Hubs i dzienniki usługi Azure Monitor. Opłaty są naliczane na podstawie modelu cenowego dla tych usług.
+> Aby analizować dane niezgodne, można użyć usług takich jak Azure Storage, Azure Event Hubs i Azure Monitor logs. Opłata jest naliczana na podstawie modelu cen dla tych usług.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="debugging-using-activity-logs"></a>Debugowanie przy użyciu dzienników aktywności
 
-Dzienniki aktywności są domyślnie włączone i zapewniają wgląd wysokiego poziomu w operacje wykonywane przez zadanie usługi Stream Analytics. Informacje zawarte w dziennikach aktywności mogą pomóc w znalezieniu głównej przyczyny problemów wpływających na pracę. Wykonaj następujące czynności, aby używać dzienników aktywności w usłudze Stream Analytics:
+Dzienniki aktywności są domyślnie włączone i zapewniają szczegółowe informacje o operacjach wykonywanych przez zadanie Stream Analytics. Informacje znajdujące się w dziennikach aktywności mogą pomóc w znalezieniu głównej przyczyny problemów wpływających na zadanie. Wykonaj następujące kroki, aby użyć dzienników aktywności w Stream Analytics:
 
-1. Zaloguj się do witryny Azure portal i wybierz **dziennik aktywności** w obszarze **Przegląd**.
+1. Zaloguj się do Azure Portal i wybierz pozycję **Dziennik aktywności** w obszarze **Przegląd**.
 
-   ![Dziennik aktywności usługi Stream Analytics](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
+   ![Stream Analytics dziennik aktywności](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
 
-2. Można wyświetlić listę operacji, które zostały wykonane. Każda operacja, która spowodowała niepowodzenie zadania, ma czerwoną dymkę informacji.
+2. Można wyświetlić listę operacji, które zostały wykonane. Każda operacja, która spowodowała niepowodzenie zadania, zawiera czerwony dymek informacyjny.
 
-3. Kliknij operację, aby wyświetlić jej widok podsumowania. Informacje tutaj są często ograniczone. Aby dowiedzieć się więcej szczegółów dotyczących operacji, kliknij przycisk **JSON**.
+3. Kliknij operację, aby wyświetlić jej widok podsumowania. Informacje są często ograniczone. Aby dowiedzieć się więcej na temat operacji, kliknij pozycję **JSON**.
 
-   ![Podsumowanie operacji dziennika aktywności usługi Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
+   ![Podsumowanie operacji dziennika aktywności Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Przewiń w dół do **sekcji Właściwości** JSON, która zawiera szczegółowe informacje o błędzie, który spowodował nieudaną operację. W tym przykładzie błąd był spowodowany błędem środowiska uruchomieniowego z wartości szerokości geograficznej powiązanej. Rozbieżność w danych, które są przetwarzane przez zadanie usługi Stream Analytics powoduje błąd danych. Możesz dowiedzieć się więcej o różnych [błędach danych wejściowych i wyjściowych oraz o ich przyczynach.](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+4. Przewiń w dół do sekcji **Właściwości** w formacie JSON, która zawiera szczegółowe informacje o błędzie, który spowodował niepowodzenie operacji. W tym przykładzie błąd był spowodowany błędem środowiska uruchomieniowego z nieprawidłowych wartości szerokości geograficznej. Niezgodność danych przetwarzanych przez zadanie Stream Analytics powoduje błąd danych. Można dowiedzieć się więcej o różnych [błędach danych wejściowych i wyjściowych oraz o tym, dlaczego występują](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
    ![Szczegóły błędu JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
-5. Można podjąć działania naprawcze na podstawie komunikatu o błędzie w JSON. W tym przykładzie sprawdza, aby upewnić się, że wartość szerokości geograficznej wynosi od -90 stopni do 90 stopni, należy dodać do kwerendy.
+5. Możesz podejmować działania naprawcze na podstawie komunikatu o błędzie w formacie JSON. W tym przykładzie sprawdza, czy wartość szerokości geograficznej jest między-90 stopni i 90 stopni należy dodać do zapytania.
 
-6. Jeśli komunikat o błędzie w dziennikach aktywności nie jest pomocne w identyfikowaniu głównej przyczyny, włącz dzienniki diagnostyczne i użyj dzienników usługi Azure Monitor.
+6. Jeśli komunikat o błędzie w dziennikach aktywności nie jest pomocny w przypadku identyfikowania głównej przyczyny, należy włączyć dzienniki zasobów i użyć dzienników Azure Monitor.
 
-## <a name="send-diagnostics-to-azure-monitor-logs"></a>Wysyłanie diagnostyki do dzienników usługi Azure Monitor
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>Wyślij diagnostykę do dzienników Azure Monitor
 
-Włączenie dzienników diagnostycznych i wysyłanie ich do dzienników usługi Azure Monitor jest wysoce zalecane. Dzienniki diagnostyczne są domyślnie **wyłączone.** Aby włączyć dzienniki diagnostyczne, wykonaj następujące czynności:
+Zdecydowanie zaleca się włączenie dzienników zasobów i wysłanie ich do dzienników Azure Monitor. Domyślnie są one **wyłączone** . Aby je włączyć, wykonaj następujące kroki:
 
-1.  Zaloguj się do witryny Azure portal i przejdź do zadania usługi Stream Analytics. W obszarze **Monitorowanie**wybierz **pozycję Dzienniki diagnostyczne**. Następnie wybierz pozycję **Włącz diagnostykę**.
+1.  Zaloguj się do Azure Portal i przejdź do zadania Stream Analytics. W obszarze **monitorowanie**wybierz pozycję **dzienniki diagnostyczne**. Następnie wybierz pozycję **Włącz diagnostykę**.
 
-    ![Nawigacja w kasach do dzienników diagnostycznych](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
+    ![Nawigacja w bloku do dzienników zasobów](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Utwórz **nazwę** w **ustawieniach diagnostycznych** i zaznacz pole obok **pozycji Wyślij do usługi Log Analytics**. Następnie dodaj istniejący lub utwórz nowy **obszar roboczy analizy dzienników**. Zaznacz pola wyboru **Wykonanie** i **Tworzenie** w obszarze **DZIENNIK**i **Wszystkiemetryki** w obszarze **METRYK**. Kliknij przycisk **Zapisz**. Zaleca się użycie obszaru roboczego usługi Log Analytics w tym samym regionie platformy Azure co zadanie usługi Stream Analytics, aby zapobiec dodatkowym kosztom.
+2.  Utwórz **nazwę** w **ustawieniach diagnostycznych** i zaznacz pole wyboru obok pozycji **Wyślij do log Analytics**. Następnie Dodaj istniejący lub Utwórz nowy **obszar roboczy usługi log Analytics**. Zaznacz pola wyboru do **wykonania** i **tworzenia** w obszarze **Dziennik**, a następnie pozycję **AllMetrics** w obszarze **Metryka**. Kliknij pozycję **Zapisz**. Zalecane jest używanie obszaru roboczego Log Analytics w tym samym regionie świadczenia usługi Azure co zadanie Stream Analytics, aby zapobiec dodatkowym kosztom.
 
-    ![Ustawienia dzienników diagnostycznych](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
+    ![Ustawienia dzienników zasobów](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. Po uruchomieniu zadania usługi Stream Analytics dzienniki diagnostyczne są kierowane do obszaru roboczego usługi Log Analytics. Aby wyświetlić dzienniki diagnostyczne dla zadania, wybierz **dzienniki** w sekcji **Monitorowanie.**
+3. Po rozpoczęciu zadania Stream Analytics dzienniki zasobów są kierowane do obszaru roboczego Log Analytics. Aby wyświetlić dzienniki zasobów dla zadania, wybierz pozycję **dzienniki** w sekcji **monitorowanie** .
 
-   ![Dzienniki diagnostyczne w obszarze Monitorowanie](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![Dzienniki zasobów w obszarze monitorowanie](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Usługa Stream Analytics udostępnia wstępnie zdefiniowane zapytania, które umożliwiają łatwe wyszukiwanie zainteresowanych dzienników. 3 kategorie to **Ogólne,** **Błędy danych wejściowych** i Błędy danych **wyjściowych.** Na przykład, aby wyświetlić podsumowanie wszystkich błędów zadania w ciągu ostatnich 7 dni, można wybrać **Uruchom** odpowiednią wstępnie zdefiniowaną kwerendę. 
+4. Stream Analytics udostępnia wstępnie zdefiniowane zapytania, które umożliwiają łatwe wyszukiwanie dzienników, które Cię interesują. 3 kategorie są **Ogólne**, **błędy danych wejściowych** i **błędy danych wyjściowych**. Na przykład, aby zobaczyć podsumowanie wszystkich błędów zadania w ciągu ostatnich 7 dni, można wybrać opcję **uruchomienia** odpowiedniego wstępnie zdefiniowanego zapytania. 
 
-   ![Dzienniki diagnostyczne w obszarze Monitorowanie](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
+   ![Dzienniki zasobów w obszarze monitorowanie](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
 
    ![Wyniki dzienników](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
 
-## <a name="diagnostics-log-categories"></a>Kategorie dzienników diagnostyki
+## <a name="resource-log-categories"></a>Kategorie dzienników zasobów
 
-Usługa Azure Stream Analytics przechwytuje dwie kategorie dzienników diagnostycznych:
+Azure Stream Analytics przechwytuje dwie kategorie dzienników zasobów:
 
-* **Tworzenie:** Przechwytuje zdarzenia dziennika, które są związane z operacjami tworzenia zadań, takimi jak tworzenie zadań, dodawanie i usuwanie danych wejściowych i wyjściowych, dodawanie i aktualizowanie kwerendy oraz uruchamianie lub zatrzymywanie zadania.
+* **Tworzenie**: przechwytuje zdarzenia dziennika, które są związane z operacjami tworzenia zadań, takimi jak tworzenie zadań, Dodawanie i usuwanie danych wejściowych i wyjściowych, Dodawanie i aktualizowanie zapytania oraz uruchamianie lub zatrzymywanie zadania.
 
-* **Wykonanie:** Przechwytuje zdarzenia, które występują podczas wykonywania zadania.
+* **Wykonywanie**: przechwytuje zdarzenia, które wystąpiły podczas wykonywania zadania.
     * Błędy łączności
     * Błędy przetwarzania danych, w tym:
-        * Zdarzenia, które nie są zgodne z definicją kwerendy (niedopasowane typy i wartości pól, brakujące pola itd.)
+        * Zdarzenia, które nie są zgodne z definicją zapytania (niezgodne typy pól i wartości, brakujące pola itd.)
         * Błędy oceny wyrażenia
     * Inne zdarzenia i błędy
 
-## <a name="diagnostics-logs-schema"></a>Schemat dzienników diagnostycznych
+## <a name="resource-logs-schema"></a>Schemat dzienników zasobów
 
-Wszystkie dzienniki są przechowywane w formacie JSON. Każdy wpis ma następujące wspólne pola ciągu:
+Wszystkie dzienniki są przechowywane w formacie JSON. Każdy wpis ma następujące wspólne pola ciągów:
 
 Nazwa | Opis
 ------- | -------
-time | Sygnatura czasowa dziennika (w czasie UTC).
-resourceId | Identyfikator zasobu, na który operacja miała miejsce, w wielkich literach. Zawiera identyfikator subskrypcji, grupę zasobów i nazwę zadania. Na przykład **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
-category | Kategoria dziennika, **wykonanie** lub **tworzenie**.
-operationName | Nazwa operacji, która jest rejestrowana. Na przykład **Wyślij zdarzenia: Błąd zapisu danych wyjściowych SQL do mysqloutput**.
-status | Stan operacji. Na **przykład** niepowodzenie lub **powodnie**.
-poziom | Poziom dziennika. Na przykład **Błąd**, **Ostrzeżenie**lub **Informacje**.
-properties | Szczegóły specyficzne dla wpisu dziennika, serializowane jako ciąg JSON. Aby uzyskać więcej informacji, zobacz poniższe sekcje w tym artykule.
+time | Sygnatura czasowa (w formacie UTC) dziennika.
+resourceId | Identyfikator zasobu, w którym miała miejsce operacja, w Wielkiej litery. Zawiera identyfikator subskrypcji, grupę zasobów i nazwę zadania. Na przykład **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/my-Resource-Group/Providers/Microsoft. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+category | Kategoria dziennika, **wykonanie** lub **Tworzenie**.
+operationName | Nazwa rejestrowanej operacji. Na przykład **wysyłanie zdarzeń: niepowodzenie zapisu danych wyjściowych SQL do mysqloutput**.
+status | Stan operacji. Na przykład **nie powiodło się** lub **zakończyło**się niepowodzeniem.
+poziom | Poziom dziennika. Na przykład **błąd**, **Ostrzeżenie**lub **informacyjny**.
+properties | Szczegóły wpisu dziennika, Zserializowany jako ciąg JSON. Aby uzyskać więcej informacji, zobacz następujące sekcje w tym artykule.
 
-### <a name="execution-log-properties-schema"></a>Schemat właściwości dziennika wykonania
+### <a name="execution-log-properties-schema"></a>Schemat właściwości dziennika wykonywania
 
-Dzienniki wykonywania mają informacje o zdarzeniach, które miały miejsce podczas wykonywania zadania usługi Stream Analytics. Schemat właściwości różni się w zależności od tego, czy zdarzenie jest błędem danych, czy zdarzeniem ogólnym.
+Dzienniki wykonywania zawierają informacje o zdarzeniach, które wystąpiły podczas wykonywania zadania Stream Analytics. Schemat właściwości różni się w zależności od tego, czy zdarzenie jest błędem danych czy zdarzeniem ogólnym.
 
 ### <a name="data-errors"></a>Błędy danych
 
-Każdy błąd, który występuje podczas przetwarzania danych przez zadanie, znajduje się w tej kategorii dzienników. Te dzienniki najczęściej są tworzone podczas odczytu danych, serializacji i operacji zapisu. Te dzienniki nie zawierają błędów łączności. Błędy łączności są traktowane jako zdarzenia ogólne. Możesz dowiedzieć się więcej o przyczynach różnych [błędów danych wejściowych i wyjściowych.](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+Każdy błąd, który występuje, gdy zadanie przetwarza dane, jest w tej kategorii dzienników. Te dzienniki najczęściej są tworzone podczas operacji odczytu, serializacji i zapisu danych. Te dzienniki nie obejmują błędów łączności. Błędy łączności są traktowane jako zdarzenia ogólne. Możesz dowiedzieć się więcej na temat przyczyny różnych [błędów danych wejściowych i wyjściowych](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
 Nazwa | Opis
 ------- | -------
 Element źródłowy | Nazwa danych wejściowych lub wyjściowych zadania, w których wystąpił błąd.
 Komunikat | Komunikat skojarzony z błędem.
 Typ | Typ błędu. Na przykład **DataConversionError**, **CsvParserError**lub **ServiceBusPropertyColumnMissingError**.
-Dane | Zawiera dane, które są przydatne do dokładnego zlokalizowania źródła błędu. Z zastrzeżeniem obcinania, w zależności od rozmiaru.
+Dane | Zawiera dane, które są przydatne do dokładnego lokalizowania źródła błędu. Podlega obcięciu, w zależności od rozmiaru.
 
-W zależności od wartości **operationName** błędy danych mają następujący schemat:
+W zależności od wartości **OperationName** , błędy danych mają następujący schemat:
 
-* **Zdarzenia serializacji** występują podczas operacji odczytu zdarzenia. Występują one, gdy dane na wejściu nie spełnia schematu kwerendy z jednego z następujących powodów:
+* Podczas operacji odczytu zdarzeń wystąpią **serializowane zdarzenia** . Występują one, gdy dane w danych wejściowych nie spełniają schematu zapytania z jednego z następujących powodów:
 
-   * *Niezgodność typu podczas zdarzenia (de)serializacji:* Identyfikuje pole, które powoduje błąd.
+   * *Niezgodność typów podczas serializacji zdarzenia (de)*: Określa pole, które powoduje błąd.
 
-   * *Nie można odczytać zdarzenia, nieprawidłowa serializacja:* Wyświetla informacje o lokalizacji w danych wejściowych, w których wystąpił błąd. Zawiera nazwę obiektu blob dla danych wejściowych obiektów blob, przesunięcie i próbki danych.
+   * *Nie można odczytać zdarzenia, nieprawidłowa Serializacja*: wyświetla informacje o lokalizacji w danych wejściowych, w której wystąpił błąd. Zawiera nazwę obiektu BLOB dla danych wejściowych obiektów blob, przesunięcia i próbkowania.
 
-* **Wysyłanie zdarzeń** występuje podczas operacji zapisu. Identyfikują zdarzenie przesyłania strumieniowego, które spowodowało błąd.
+* **Zdarzenia wysyłania** występują podczas operacji zapisu. Identyfikują one zdarzenie przesyłania strumieniowego, które spowodowało błąd.
 
 ### <a name="generic-events"></a>Zdarzenia ogólne
 
-Ogólne zdarzenia obejmują wszystko inne.
+Zdarzenia ogólne obejmują wszystko inne.
 
 Nazwa | Opis
 -------- | --------
-Błąd | (opcjonalnie) Informacje o błędzie. Zazwyczaj jest to informacja o wyjątku, jeśli jest dostępna.
+Błąd | obowiązkowe Informacje o błędzie. Zazwyczaj są to informacje o wyjątkach, jeśli są dostępne.
 Komunikat| Komunikat dziennika.
-Typ | Typ wiadomości. Mapy do wewnętrznej kategoryzacji błędów. Na przykład **JobValidationError** lub **BlobOutputAdapterInitializationFailure**.
-Identyfikator korelacji | [Identyfikator GUID,](https://en.wikipedia.org/wiki/Universally_unique_identifier) który jednoznacznie identyfikuje wykonanie zadania. Wszystkie wpisy dziennika wykonywania od momentu rozpoczęcia zadania do zatrzymania zadania mają taką samą wartość **identyfikatora korelacji.**
+Typ | Typ komunikatu. Mapuje na wewnętrzną kategoryzację błędów. Na przykład **JobValidationError** lub **BlobOutputAdapterInitializationFailure**.
+Identyfikator korelacji | [Identyfikator GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) , który jednoznacznie identyfikuje wykonywanie zadania. Wszystkie wpisy dziennika wykonania od momentu uruchomienia zadania do momentu zatrzymania zadania mają tę samą wartość **identyfikatora korelacji** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wprowadzenie do analizy strumienia](stream-analytics-introduction.md)
+* [Wprowadzenie do Stream Analytics](stream-analytics-introduction.md)
 * [Wprowadzenie do usługi Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skalowanie zadań usługi Stream Analytics](stream-analytics-scale-jobs.md)
-* [Odwołanie do języka zapytań usługi Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Błędy danych usługi Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+* [Stream Analytics Dokumentacja języka zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Błędy danych Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)

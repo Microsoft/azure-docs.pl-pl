@@ -1,7 +1,7 @@
 ---
-title: Najważniejsze wskazówki dotyczące usługi Azure AD B2C
+title: Najlepsze rozwiązania dotyczące Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Zalecenia i najlepsze rozwiązania, które należy wziąć pod uwagę podczas pracy z usługą Azure Active Directory B2C (Azure AD B2C).
+description: Zalecenia i najlepsze rozwiązania, które należy wziąć pod uwagę podczas pracy z Azure Active Directory B2C (Azure AD B2C).
 services: active-directory-b2c
 author: vigunase
 manager: celestedg
@@ -11,85 +11,85 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: a76852a6e3cc5ffcdfcac62ce29fe47c97af3df1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b16c60130836cf0e3b38092b894129f503ee6e83
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136163"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82141672"
 ---
-# <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Zalecenia i najlepsze rozwiązania dotyczące usługi Azure Active Directory B2C
+# <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Zalecenia i najlepsze rozwiązania dotyczące Azure Active Directory B2C
 
-Poniższe najlepsze rozwiązania i zalecenia obejmują niektóre z podstawowych aspektów integracji usługi Azure Active Directory (Azure AD) B2C z istniejącymi lub nowymi środowiskami aplikacji.
+Poniższe najlepsze rozwiązania i zalecenia dotyczą niektórych podstawowych aspektów integrowania Azure Active Directory (Azure AD) B2C z istniejącymi lub nowymi środowiskami aplikacji.
 
 ## <a name="fundamentals"></a>Podstawy
 
 |  |  |
 |--|--|
-| Wybieranie przepływów użytkowników w większości scenariuszy | Struktura środowiska tożsamości usługi Azure AD B2C jest podstawową siłą usługi. Zasady w pełni opisują środowisko tożsamości, takie jak rejestracja, logowanie się lub edytowanie profilu. Aby ułatwić konfigurowanie najbardziej typowych zadań tożsamości, portal usługi Azure AD B2C zawiera wstępnie zdefiniowane, konfigurowalne zasady o nazwie przepływy użytkowników. Dzięki przepływom użytkownika możesz tworzyć wspaniałe wrażenia użytkownika w ciągu kilku minut, za pomocą zaledwie kilku kliknięć. [Dowiedz się, kiedy używać przepływów użytkowników a zasad niestandardowych](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
-| Rejestracje aplikacji | Każda aplikacja (web, native) i interfejs API, który jest zabezpieczony musi być zarejestrowany w usłudze Azure AD B2C. Jeśli aplikacja ma zarówno sieci web i natywnej wersji systemu iOS i Android, można zarejestrować je jako jedną aplikację w usłudze Azure AD B2C z tym samym identyfikatorem klienta. Dowiedz się, jak [zarejestrować aplikacje OIDC, SAML, web i natywne.](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=applications) Dowiedz się więcej o [typach aplikacji, które mogą być używane w usłudze Azure AD B2C.](https://docs.microsoft.com/azure/active-directory-b2c/application-types) |
-| Przechodzenie do miesięcznych aktywnych użytkowników | Usługa Azure AD B2C została przeniesiona z miesięcznych aktywnych uwierzytelniania do miesięcznych aktywnych użytkowników (MAU) rozliczeń. Większość klientów znajdzie ten model opłacalne. [Dowiedz się więcej o miesięcznych płatnościach dla aktywnych użytkowników](https://azure.microsoft.com/updates/mau-billing/). |
+| Wybieranie przepływów użytkownika dla większości scenariuszy | Platforma obsługi tożsamości Azure AD B2C jest podstawową siłą usługi. Zasady w pełni opisują środowiska tożsamości, takie jak rejestrowanie, logowanie lub edytowanie profilów. Aby ułatwić skonfigurowanie najczęstszych zadań związanych z tożsamościami, Portal Azure AD B2C obejmuje wstępnie zdefiniowane, konfigurowalne zasady o nazwie przepływy użytkownika. Korzystając z przepływów użytkowników, możesz tworzyć wspaniałe środowiska użytkownika w kilka minut za pomocą zaledwie kilku kliknięć. [Dowiedz się, kiedy używać przepływów użytkowników a zasad niestandardowych](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
+| Rejestracje aplikacji | Wszystkie aplikacje (w sieci Web, natywny) i interfejs API, które są zabezpieczane, muszą być zarejestrowane w Azure AD B2C. Jeśli aplikacja ma zarówno wersję sieci Web, jak i natywną systemu iOS i Android, można zarejestrować je jako jedną aplikację w Azure AD B2C z tym samym IDENTYFIKATORem klienta. Dowiedz się [, jak zarejestrować aplikacje OIDC, SAML, Web i Native](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=applications). Dowiedz się więcej o [typach aplikacji, których można używać w Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/application-types). |
+| Przechodzenie do rozliczania miesięcznie aktywnych użytkowników | Azure AD B2C została przeniesiona z comiesięcznych aktywnych uwierzytelnień na miesięczne rozliczenia aktywnych użytkowników (MAU). Większość klientów znajdzie ten model ekonomicznie. [Dowiedz się więcej o comiesięcznych rozliczeniach aktywnych użytkowników](https://azure.microsoft.com/updates/mau-billing/). |
 
 ## <a name="planning-and-design"></a>Planowanie i projektowanie
 
-Zdefiniuj architekturę aplikacji i usług, bieżące systemy zapasów i zaplanuj migrację na usługę Azure AD B2C.
+Zdefiniuj architekturę aplikacji i usług, bieżące systemy spisu i zaplanuj migrację do Azure AD B2C.
 
 |  |  |
 |--|--|
-| Architekt kompleksowego rozwiązania | Uwzględnij wszystkie zależności aplikacji podczas planowania integracji usługi Azure AD B2C. Należy wziąć pod uwagę wszystkie usługi i produkty, które są obecnie w środowisku lub które mogą wymagać dodania do rozwiązania, na przykład usługi Azure Functions, systemy zarządzania relacjami z klientami (CRM), brama usługi Azure API Management i usługi magazynu. Weź pod uwagę bezpieczeństwo i skalowalność wszystkich usług. |
-| Dokumentowanie doświadczeń użytkowników | Szczegółowo wszystkie podróże użytkowników, które klienci mogą wystąpić w aplikacji. Uwzględnij każdy ekran i wszelkie przepływy rozgałęziania, które mogą wystąpić podczas interakcji z aspektami tożsamości i profilu aplikacji. Uwzględnij użyteczność, dostępność i lokalizację w planowaniu. |
-| Wybierz odpowiedni protokół uwierzytelniania |  Aby zapoznać się z podziałem różnych scenariuszy aplikacji i ich zalecanych przepływów uwierzytelniania, zobacz [Scenariusze i obsługiwane przepływy uwierzytelniania](../active-directory/develop/authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). |
-| Pilotaż kompleksowego środowiska weryfikacji koncepcji (POC) | Zacznij od naszych [przykładów kodu firmy Microsoft](code-samples.md) i [przykładów społeczności.](https://github.com/azure-ad-b2c/samples) |
-| Tworzenie planu migracji |Planowanie z wyprzedzeniem może sprawić, że migracja przebiegnie płynniej. Dowiedz się więcej o [migracji użytkowników](user-migration.md).|
-| Użyteczność a bezpieczeństwo | Rozwiązanie musi zapewniać właściwą równowagę między użytecznością aplikacji a dopuszczalnym poziomem ryzyka w organizacji. |
-| Przenoszenie lokalnych zależności do chmury | Aby zapewnić odporne rozwiązanie, należy rozważyć przeniesienie istniejących zależności aplikacji do chmury. |
-| Migrowanie istniejących aplikacji w celu b2clogin.com | Wycofanie login.microsoftonline.com weszło w życie dla wszystkich dzierżaw usługi Azure AD B2C w dniu 04 grudnia 2020 r. [Dowiedz się więcej](b2clogin.md). |
+| Tworzenie kompleksowego rozwiązania | Uwzględnij wszystkie zależności aplikacji podczas planowania integracji Azure AD B2C. Należy wziąć pod uwagę wszystkie usługi i produkty, które znajdują się w danym środowisku lub które mogą być konieczne do dodania do rozwiązania, na przykład Azure Functions, systemy zarządzania relacjami z klientami (CRM), Azure API Management Gateway i Storage. Weź pod uwagę bezpieczeństwo i skalowalność wszystkich usług. |
+| Udokumentowanie środowisk użytkowników | Szczegółowe informacje o tym, jak wszyscy użytkownicy mogą napotkać użytkownicy w Twojej aplikacji. Uwzględnij każdy ekran i wszystkie przepływy rozgałęzienia, które mogą wystąpić podczas korzystania z aspektów tożsamości i profilu aplikacji. Uwzględnij użyteczność, dostępność i lokalizację w planowaniu. |
+| Wybieranie odpowiedniego protokołu uwierzytelniania |  Aby zapoznać się z różnymi scenariuszami aplikacji i zalecanymi przepływami uwierzytelniania, zobacz [scenariusze i obsługiwane przepływy uwierzytelniania](../active-directory/develop/authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). |
+| Pilotażowe środowisko użytkownika — Weryfikacja koncepcji (ZK) | Zacznij od naszych [przykładów kodu firmy Microsoft](code-samples.md) i [przykładów społecznościowych](https://github.com/azure-ad-b2c/samples). |
+| Utwórz plan migracji |Planowanie z wyprzedzeniem może sprawiać, że migracja przebiega bardziej płynnie. Dowiedz się więcej o [migracji użytkowników](user-migration.md).|
+| Użyteczność a zabezpieczenia | Twoje rozwiązanie musi mieć możliwość osiągnięcia odpowiedniej równowagi między użytecznością aplikacji a akceptowalnym poziomem ryzyka w organizacji. |
+| Przenoszenie lokalnych zależności do chmury | Aby zapewnić odporne rozwiązanie, rozważ przeniesienie istniejących zależności aplikacji do chmury. |
+| Migrowanie istniejących aplikacji do b2clogin.com | Zaniechanie login.microsoftonline.com będzie obowiązywać dla wszystkich dzierżawców Azure AD B2C 4 grudnia 2020. [Dowiedz się więcej](b2clogin.md). |
 
-## <a name="implementation"></a>Wdrażanie
+## <a name="implementation"></a>Implementacja
 
-Na etapie wdrażania należy wziąć pod uwagę następujące zalecenia.
+W fazie wdrażania należy wziąć pod uwagę następujące zalecenia.
 
 |  |  |
 |--|--|
-| Edytowanie zasad niestandardowych za pomocą rozszerzenia usługi Azure AD B2C dla programu Visual Studio Code | Pobierz kod programu Visual Studio i to rozszerzenie utworzone przez społeczność [z portalu Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). Chociaż nie jest to oficjalny produkt firmy Microsoft, rozszerzenie usługi Azure AD B2C dla programu Visual Studio Code zawiera kilka funkcji, które ułatwiają pracę z zasadami niestandardowymi. |
-| Dowiedz się, jak rozwiązywać problemy z usługą Azure AD B2C | Dowiedz się, jak [rozwiązywać problemy z zasadami niestandardowymi](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) podczas opracowywania. Dowiedz się, jak wygląda normalny przepływ uwierzytelniania i użyj narzędzi do wykrywania anomalii i błędów. Na przykład użyj [usługi Application Insights](troubleshoot-with-application-insights.md) do przeglądania dzienników danych wyjściowych podróży użytkowników. |
-| Wykorzystaj naszą bibliotekę sprawdzonych wzorców zasad niestandardowych | Znajdź przykłady kilku [ulepszonych procesów](https://github.com/azure-ad-b2c/samples) pozyskiwania użytkowników tożsamości i dostępu klientów usługi Azure AD B2C (CIAM). |
+| Edytuj zasady niestandardowe z rozszerzeniem Azure AD B2C dla Visual Studio Code | Pobierz Visual Studio Code i to [rozszerzenie utworzone przez społeczność z witryny Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). Chociaż nie jest to oficjalny produkt firmy Microsoft, rozszerzenie Azure AD B2C dla Visual Studio Code zawiera kilka funkcji, które ułatwiają pracę z zasadami niestandardowymi. |
+| Dowiedz się, jak rozwiązywać problemy Azure AD B2C | Dowiedz się, jak [rozwiązywać problemy z zasadami niestandardowymi](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) podczas projektowania. Dowiedz się, jak wygląda normalny przepływ uwierzytelniania i korzystaj z narzędzi do wykrywania anomalii i błędów. Na przykład użyj [Application Insights](troubleshoot-with-application-insights.md) , aby przejrzeć dzienniki wyjściowe podróży użytkownika. |
+| Skorzystaj z naszej biblioteki sprawdzonych wzorców zasad niestandardowych | Znajdź [przykłady](https://github.com/azure-ad-b2c/samples) kilku ulepszonych Azure AD B2C użytkowników zarządzania tożsamościami i dostępem klientów (CIAM). |
 
 
 ## <a name="testing"></a>Testowanie
 
-Testowanie i automatyzacja implementacji usługi Azure AD B2C.
+Przetestuj i automatyzuj implementację Azure AD B2C.
 
 |  |  |
 |--|--|
-| Uwzględnianie globalnego ruchu | Użyj źródeł ruchu z różnych adresów globalnych, aby przetestować wymagania dotyczące wydajności i lokalizacji. Upewnij się, że wszystkie htmls, CSS i zależności mogą spełnić Twoje potrzeby w zakresie wydajności. |
-| Testowanie funkcjonalne i interfejsu użytkownika | Przetestuj przepływy użytkownika end-to-end. Dodaj syntetycznych testów co kilka minut za pomocą Selenu, VS Web Test, itp. |
-| Testowanie pióra | Przed rozpoczęciem pracy z rozwiązaniem należy wykonać ćwiczenia testów penetracyjnych, aby sprawdzić, czy wszystkie składniki są bezpieczne, w tym zależności innych firm. Sprawdź, czy zabezpieczenia interfejsów API zostały zabezpieczone za pomocą tokenów dostępu i użycia odpowiedniego protokołu uwierzytelniania dla scenariusza aplikacji. Dowiedz się więcej o [testach penetracyjnych](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) i [ujednoliconych regułach testowania penetracji w chmurze firmy Microsoft.](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) |
-| Testowanie A/B | Lot nowe funkcje z małym, losowy zestaw użytkowników przed wprowadzeniem do całej populacji. Po włączeniu języka JavaScript w usłudze Azure AD B2C można zintegrować się z narzędziami testowymi A/B, takimi jak Optymalizator, Przejrzystość i inne. |
-| Testowanie obciążeniowe | Usługa Azure AD B2C można skalować, ale aplikacja może skalować tylko wtedy, gdy wszystkie jego zależności można skalować. Sprawdź obciążenia interfejsów API i cdn. |
-| Ograniczanie przepływności |  Usługa Azure AD B2C ogranicza ruch, jeśli zbyt wiele żądań są wysyłane z tego samego źródła w krótkim okresie czasu. Użyj kilku źródeł ruchu podczas testowania `AADB2C90229` obciążenia i obsługiwać kod błędu bezpiecznie w aplikacjach. |
-| Automatyzacja | Użyj potoków ciągłej integracji i dostarczania (CI/CD), aby zautomatyzować testowanie i wdrażanie, na przykład [azure devops](deploy-custom-policies-devops.md). |
+| Konto dla ruchu globalnego | Użyj źródeł ruchu z różnych adresów globalnych, aby przetestować wymagania dotyczące wydajności i lokalizacji. Upewnij się, że wszystkie pliki HTML, CSS i zależności mogą spełniać wymagania dotyczące wydajności. |
+| Testowanie funkcjonalne i interfejsu użytkownika | Przetestuj przepływy użytkowników na całym końcu. Dodaj testy syntetyczne co kilka minut przy użyciu protokołu selen, test sieci Web programu VS itd. |
+| Testowanie piórem | Przed rozpoczęciem korzystania z rozwiązania należy wykonać ćwiczenia testowania penetracji w celu sprawdzenia, czy wszystkie składniki są bezpieczne, w tym wszystkich zależności innych firm. Upewnij się, że interfejsy API zostały zabezpieczone przy użyciu tokenów dostępu i używasz właściwego protokołu uwierzytelniania dla scenariusza aplikacji. Dowiedz się więcej o [testowaniu penetracji](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) i [Microsoft Cloud ujednolicone reguły testowania penetracji](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1). |
+| Testowanie A/B | Przed przeprowadzeniem całego wypełniania, aby przetworzyć nowe funkcje przy użyciu małego, losowego zestawu użytkowników. Dzięki włączeniu języka JavaScript w Azure AD B2C można zintegrować z narzędziami do testowania/B, takimi jak optymalizacja, przejrzystość i inne. |
+| Testowanie obciążeniowe | Azure AD B2C można skalować, ale aplikacja może skalować się tylko wtedy, gdy wszystkie jej zależności można skalować. Przetestuj testowanie interfejsów API i sieci CDN. |
+| Ograniczanie przepływności |  Azure AD B2C ogranicza ruch, jeśli zbyt wiele żądań jest wysyłanych z tego samego źródła w krótkim czasie. Używaj kilku źródeł ruchu podczas testowania obciążenia i łagodnie Obsługuj `AADB2C90229` kod błędu w aplikacjach. |
+| Automatyzacja | Korzystaj z potoków ciągłej integracji i dostarczania (CI/CD), aby zautomatyzować testowanie i wdrożenia, na przykład [Azure DevOps](deploy-custom-policies-devops.md). |
 
 ## <a name="operations"></a>Operacje
 
-Zarządzanie środowiskiem usługi Azure AD B2C.
+Zarządzaj środowiskiem Azure AD B2C.
 
 |  |  |
 |--|--|
-| Tworzenie wielu środowisk | Aby ułatwić operacje i wdrożenie, należy utworzyć oddzielne środowiska do programowania, testowania, przedprodukcji i produkcji. Tworzenie dzierżaw usługi Azure AD B2C dla każdego. |
-| Używanie kontroli wersji dla zasad niestandardowych | Należy rozważyć użycie usługi GitHub, usługi Azure Repos lub innego systemu kontroli wersji w chmurze dla zasad niestandardowych usługi Azure AD B2C. |
-| Za pomocą interfejsu API programu Microsoft Graph można zautomatyzować zarządzanie dzierżawcami usługi B2C | Interfejsy API programu Microsoft Graph:<br/>Zarządzanie [platformą środowiska tożsamości](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (zasady niestandardowe)<br/>[Klucze](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[User Flows (Przepływy użytkowników)](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
-| Integracja z platformą Azure DevOps | [Potok ciągłej integracji/ciągłego wdrażania](deploy-custom-policies-devops.md) sprawia, że przenoszenie kodu między różnymi środowiskami jest łatwe i zapewnia gotowość do produkcji przez cały czas.   |
-| Integracja z usługą Azure Monitor | [Zdarzenia dziennika inspekcji](view-audit-logs.md) są zachowywane tylko przez siedem dni. [Integracja z usługą Azure Monitor](azure-monitor.md) w celu zachowania dzienników do długotrwałego użytku lub integracja z narzędziami do zarządzania informacjami i zdarzeniami (SIEM) innych firm w celu uzyskania szczegółowych informacji o środowisku. |
-| Konfigurowanie aktywnego alertów i monitorowania | [Śledzenie zachowania użytkowników](active-directory-b2c-custom-guide-eventlogger-appins.md) w usłudze Azure AD B2C przy użyciu usługi Application Insights. |
+| Tworzenie wielu środowisk | Aby ułatwić wykonywanie operacji i wdrażania, Utwórz osobne środowiska na potrzeby opracowywania, testowania, przedprodukcyjnego i produkcyjnego. Utwórz Azure AD B2C dzierżawców dla każdej z nich. |
+| Używanie kontroli wersji dla zasad niestandardowych | Należy rozważyć użycie usługi GitHub, Azure Repos lub innego systemu kontroli wersji opartej na chmurze dla zasad niestandardowych Azure AD B2C. |
+| Użyj interfejsu API Microsoft Graph, aby zautomatyzować zarządzanie dzierżawcami usługi B2C | Interfejsy API Microsoft Graph:<br/>Zarządzanie [platformą obsługi tożsamości](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (zasady niestandardowe)<br/>[Klucze](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[Przepływy użytkowników](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Integracja z usługą Azure DevOps | [Potok](deploy-custom-policies-devops.md) ciągłej integracji i ciągłego wdrażania umożliwia łatwe i szybkie przemieszczanie kodu między różnymi środowiskami.   |
+| Integracja z usługą Azure Monitor | [Zdarzenia dziennika inspekcji](view-audit-logs.md) są przechowywane tylko przez siedem dni. [Integracja z usługą Azure monitor](azure-monitor.md) w celu przechowywania dzienników do długoterminowego użytku lub integracji z narzędziami do zarządzania informacjami i zdarzeniami zabezpieczeń innych firm (Siem) w celu uzyskania szczegółowych informacji o środowisku. |
+| Skonfiguruj aktywne alerty i monitorowanie | [Śledź zachowanie użytkowników](active-directory-b2c-custom-guide-eventlogger-appins.md) w Azure AD B2C przy użyciu Application Insights. |
 
 
 ## <a name="support-and-status-updates"></a>Aktualizacje pomocy technicznej i stanu
 
-Bądź na bieżąco ze stanem usługi i znajdź opcje pomocy technicznej.
+Bądź na bieżąco z stanem usługi i Znajdź opcje pomocy technicznej.
 
 |  |  |
 |--|--|
-| [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Bądź na bieżąco z aktualizacjami i ogłoszeniami dotyczącymi usług Azure AD B2C. |
-| [Pomoc techniczna firmy Microsoft](support-options.md) | Złóż żądanie pomocy technicznej dotyczące problemów technicznych usługi Azure AD B2C. Pomoc techniczna w zakresie rozliczeń i zarządzania subskrypcjami jest świadczona bezpłatnie. |
+| [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Bądź na bieżąco z Azure AD B2Cmi aktualizacjami i ogłoszeniami o produkcie. |
+| [Pomoc techniczna firmy Microsoft](support-options.md) | Prześlij żądanie pomocy technicznej dotyczące Azure AD B2C problemów technicznych. Pomoc dotycząca rozliczeń i subskrypcji jest świadczona bezpłatnie. |
 | [Stan platformy Azure](https://status.azure.com/status) | Wyświetl bieżący stan kondycji wszystkich usług platformy Azure. |

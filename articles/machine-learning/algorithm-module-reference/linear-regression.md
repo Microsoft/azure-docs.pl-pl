@@ -1,145 +1,155 @@
 ---
-title: 'Regresja liniowa: Odwołanie do modułu'
+title: 'Regresja liniowa: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu regresji liniowej w usłudze Azure Machine Learning do utworzenia modelu regresji liniowej do użycia w potoku.
+description: Dowiedz się, jak użyć modułu regresja liniowa w Azure Machine Learning, aby utworzyć model regresji liniowej do użycia w potoku.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 602553637e21b17aa4f9bc7402753af024c697c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477565"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137461"
 ---
 # <a name="linear-regression-module"></a>Moduł regresji liniowej
-W tym artykule opisano moduł w projektancie usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
-Ten moduł służy do tworzenia modelu regresji liniowej do użycia w potoku.  Regresja liniowa próbuje ustanowić relację liniową między jedną lub kilkoma zmiennymi niezależnymi a wynikiem liczbowym lub zmienną zależną. 
+Użyj tego modułu, aby utworzyć model regresji liniowej do użycia w potoku.  Regresja liniowa próbuje nawiązać liniową relację między jedną lub wieloma niezależnymi zmiennymi oraz wynikiem liczbowym lub zmienną zależną. 
 
-Ten moduł służy do definiowania metody regresji liniowej, a następnie trenowania modelu przy użyciu oznaczonego zestawu danych. Przeszkolony model może następnie służyć do prognozowania.
+Ten moduł służy do definiowania metody regresji liniowej, a następnie uczenia modelu przy użyciu oznaczonego zestawu danych. Model przeszkolony może być następnie używany do prognozowania.
 
-## <a name="about-linear-regression"></a>Regresja liniowa – informacje
+## <a name="about-linear-regression"></a>Regresja liniowa — informacje
 
-Regresja liniowa jest powszechną metodą statystyczną, która została przyjęta w uczeniu maszynowym i wzbogacona o wiele nowych metod dopasowania błędu liniowego i pomiarowego. W najbardziej podstawowym znaczeniu regresja odnosi się do przewidywania liczbowego celu. Regresja liniowa jest nadal dobrym wyborem, gdy potrzebujesz prostego modelu dla podstawowego zadania predykcyjnego. Regresja liniowa ma również tendencję do dobrego działania w wysokowymiarowych, rzadkich zestawach danych pozbawionych złożoności.
+Regresja liniowa to wspólna metoda statystyczna, która została przyjęta w uczeniu maszynowym i ulepszona z wieloma nowymi metodami dopasowania linii i błędów pomiaru. W najbardziej podstawowym sensie regresja odnosi się do przewidywania liczbowych elementów docelowych. Regresja liniowa jest nadal dobrym wyborem, gdy chcesz utworzyć prosty model dla podstawowego zadania predykcyjnego. Regresja liniowa również znacznie działa w przypadku wysoce wielowymiarowych, rozrzedzonych zestawów danych, które nie mają złożoności.
 
-Usługa Azure Machine Learning obsługuje wiele modeli regresji, oprócz regresji liniowej. Jednak termin "regresja" może być interpretowany luźno, a niektóre typy regresji podane w innych narzędziach nie są obsługiwane.
+Oprócz regresji liniowej Azure Machine Learning obsługuje różne modele regresji. Jednak termin "regresja" może być interpretowany w sposób luźny, a niektóre typy regresji dostępne w innych narzędziach nie są obsługiwane.
 
-+ Klasyczny problem regresji obejmuje pojedynczą zmienną niezależną i zmienną zależną. Nazywa się to *prostą regresją*.  Ten moduł obsługuje prostą regresję.
++ Klasyczny problem z regresją dotyczy pojedynczej zmiennej niezależnej i zmiennej zależnej. Ta nazwa jest nazywana *prostą regresją*.  Ten moduł obsługuje prostą regresję.
 
-+ *Wielokrotna regresja liniowa* obejmuje dwie lub więcej niezależnych zmiennych, które przyczyniają się do pojedynczej zmiennej zależnej. Problemy, w których wiele wejść są używane do przewidywania pojedynczego wyniku numerycznego są również nazywane *regresji liniowej wielowymiarowej*.
++ *Wielokrotne regresja liniowa* obejmuje dwie lub więcej niezależnych zmiennych, które przyczyniają się do pojedynczej zmiennej zależnej. Problemy, w których wielokrotne dane wejściowe są używane do przewidywania pojedynczego wyniku liczbowego, są również nazywane *regresją liniową wieloczynnikowa*.
 
-    Moduł **regresji liniowej** może rozwiązać te problemy, podobnie jak większość innych modułów regresji.
+    Moduł **regresja liniowa** może rozwiązać te problemy, jak większość innych modułów regresji.
 
-+ *Regresja wielu etykiet* jest zadaniem przewidywania wielu zmiennych zależnych w ramach jednego modelu. Na przykład w regresji logistycznej wielu etykiet próbki można przypisać do wielu różnych etykiet. (To różni się od zadania przewidywania wielu poziomów w ramach jednej zmiennej klasy.)
++ *Regresja z wieloma etykietami* to zadanie przewidywania wielu zmiennych zależnych w ramach jednego modelu. Na przykład w przypadku regresji logistycznej z wieloma etykietami można przypisać przykład do wielu różnych etykiet. (Różni się to od zadania przewidywania wielu poziomów w ramach pojedynczej zmiennej klasy).
 
-    Ten typ regresji nie jest obsługiwany w usłudze Azure Machine Learning. Aby przewidzieć wiele zmiennych, należy utworzyć oddzielny uczeń dla każdego wyjścia, które chcesz przewidzieć.
+    Ten typ regresji nie jest obsługiwany w Azure Machine Learning. Aby przewidzieć wiele zmiennych, należy utworzyć osobne informacje o danych wyjściowych, które mają być przewidywane.
 
-Statystycy od lat opracowują coraz bardziej zaawansowane metody regresji. Dotyczy to nawet regresji liniowej. Ten moduł obsługuje dwie metody pomiaru błędu i dopasowania linii regresji: zwykłą metodę najmniejszych kwadratów i zejście gradientu.
+W latach statystyków opracowano coraz bardziej zaawansowane metody regresji. Jest to prawdziwe nawet w przypadku regresji liniowej. Ten moduł obsługuje dwie metody pomiaru błędu i dopasowuje linię regresji: Metoda zwykła najmniejsza kwadraty i Gradient.
 
-- **Gradient zejście** jest metodą, która minimalizuje ilość błędu na każdym etapie procesu szkolenia modelu. Istnieje wiele odmian gradientu zejścia i jego optymalizacji dla różnych problemów uczenia się został szeroko zbadany. Jeśli wybierzesz tę opcję dla **metody rozwiązanie,** można ustawić różne parametry, aby kontrolować rozmiar kroku, szybkość uczenia się i tak dalej. Ta opcja obsługuje również użycie zintegrowanego wyciągnięcia pochyłości parametrów.
+- **Nachylenie gradientu** to metoda, która minimalizuje ilość błędów w każdym kroku procesu szkolenia modelu. Istnieje wiele różnic w odniesieniu do gradientu i jego Optymalizacja dla różnych problemów szkoleniowych została rozległie przetestowana. W przypadku wybrania tej opcji dla **metody rozwiązania**można ustawić różne parametry, aby kontrolować rozmiar kroku, szybkość uczenia i tak dalej. Ta opcja obsługuje również korzystanie z odchylenia zintegrowanego parametru.
 
-- **Zwykłe najmniejsze kwadraty** są jedną z najczęściej stosowanych technik regresji liniowej. Na przykład najmniej kwadratów jest metodą używaną w pakiecie Analysis Toolpak dla programu Microsoft Excel.
+- **Zwykłe najmniejsze kwadraty** są jedną z najczęściej używanych technik w regresji liniowej. Na przykład najmniejsza kwadraty to metoda, która jest używana w dodatku Analysis ToolPak dla programu Microsoft Excel.
 
-    Zwykłe najmniejsze kwadraty odnoszą się do funkcji utraty, która oblicza błąd jako sumę kwadratu odległości od rzeczywistej wartości do przewidywanej linii i pasuje do modelu, minimalizując kwadratowy błąd. Ta metoda zakłada silną relację liniową między wejściami a zmienną zależną.
+    Zwykłe najmniejsze kwadraty odnoszą się do funkcji strat, która oblicza błąd jako sumę kwadratową odległości od wartości rzeczywistej do przewidywanego wiersza i dopasowuje model przez zminimalizowanie kwadratowego błędu. Ta metoda zakłada silną liniową relację między danymi wejściowymi i zmienną zależną.
 
 ## <a name="configure-linear-regression"></a>Konfigurowanie regresji liniowej
 
-Ten moduł obsługuje dwie metody montażu modelu regresji, z różnymi opcjami:
+Ten moduł obsługuje dwie metody dostosowania modelu regresji z różnymi opcjami:
 
-+ [Dopasuj model regresji przy użyciu zwykłych najmniejszych kwadratów](#create-a-regression-model-using-ordinary-least-squares)
++ [Dopasuj model regresji przy użyciu zwykłych, najmniejszych kwadratów](#create-a-regression-model-using-ordinary-least-squares)
 
-    W przypadku małych zestawów danych najlepiej wybrać zwykłe najmniejsze kwadraty. Powinno to dać podobne wyniki do programu Excel.
+    W przypadku małych zestawów danych najlepiej wybrać zwykłe, najmniejsze kwadraty. Powinno to dawać podobne wyniki do programu Excel.
     
 + [Tworzenie modelu regresji przy użyciu gradientu online](#create-a-regression-model-using-online-gradient-descent)
 
-    Zejście gradientu jest lepszą funkcją utraty dla modeli, które są bardziej złożone lub które mają zbyt mało danych szkoleniowych, biorąc pod uwagę liczbę zmiennych.
+    Nachylenie gradientu to lepsza funkcja strat dla modeli, które są bardziej skomplikowane lub które mają zbyt małe dane szkoleniowe z uwzględnieniem liczby zmiennych.
 
-### <a name="create-a-regression-model-using-ordinary-least-squares"></a>Tworzenie modelu regresji przy użyciu zwykłych najmniejszych kwadratów
+### <a name="create-a-regression-model-using-ordinary-least-squares"></a>Tworzenie modelu regresji przy użyciu zwykłych, najmniejszych kwadratów
 
 1. Dodaj moduł **modelu regresji liniowej** do potoku w projektancie.
 
-    Ten moduł można znaleźć w kategorii **Uczenie maszynowe.** Rozwiń pozycję **Inicjowanie modelu,** rozwiń **regresję,** a następnie przeciągnij moduł **Modelu regresji liniowej** do potoku.
+    Ten moduł można znaleźć w kategorii **Machine Learning** . Rozwiń węzeł **zainicjuj model**, rozwiń pozycję **regresja**, a następnie przeciągnij moduł **model regresji liniowej** do potoku.
 
-2. W okienku **Właściwości** na liście rozwijanej **Metoda rozwiązania** wybierz pozycję Zwykłe **najmniej kwadratów**. Ta opcja określa metodę obliczeń używaną do znajdowania linii regresji.
+2. W okienku **Właściwości** na liście rozwijanej **Metoda rozwiązania** wybierz pozycję zwykłe, **najmniejsze kwadraty**. Ta opcja określa metodę obliczeń używaną do znajdowania linii regresji.
 
-3. W **L2 waga legalizacji**, wpisz wartość do użycia jako waga do legalizacji L2. Zaleca się użycie wartości niezerowej, aby uniknąć overfitting.
+3. W polu **waga uregulowania L2**wpisz wartość, która ma być używana jako waga dla uregulowania L2. Zalecamy użycie wartości innej niż zero, aby uniknąć przełączenia.
 
-     Aby dowiedzieć się więcej o tym, jak uregulowanie wpływa na dopasowanie modelu, zobacz ten artykuł: [L1 i L2 Regularization for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+     Aby dowiedzieć się więcej o tym, jak uregulowanie wpływa na dopasowanie modelu, zobacz ten artykuł: [uregulowanie L1 i L2 dla Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
 
-4. Wybierz opcję **Dołącz termin przecięcia**, jeśli chcesz wyświetlić termin przecięcia.
+4. Wybierz opcję, **Dołącz termin przechwycenia**, jeśli chcesz wyświetlić termin przechwycenia.
 
     Usuń zaznaczenie tej opcji, jeśli nie musisz przeglądać formuły regresji.
 
-5. W polu **Ilość materiału siewnego liczb losowych**można opcjonalnie wpisać wartość, aby wysiewnić generator liczb losowych używany przez model.
+5. W przypadku **liczby losowej inicjatora**można opcjonalnie wpisać wartość, aby wypełniać generator liczb losowych używany przez model.
 
-    Za pomocą wartości inicjatora jest przydatne, jeśli chcesz zachować te same wyniki w różnych przebiegach tego samego potoku. W przeciwnym razie wartością domyślną jest użycie wartości z zegara systemowego.
+    Użycie wartości inicjatora jest przydatne, jeśli chcesz zachować te same wyniki w różnych przebiegach tego samego potoku. W przeciwnym razie wartością domyślną jest użycie wartości z zegara systemowego.
 
 
-7. Dodaj moduł [Modelu pociągu](./train-model.md) do potoku i połącz zestaw danych z etykietą.
+7. Dodaj moduł [uczenie modelu](./train-model.md) do potoku i Połącz zestaw danych z etykietą.
 
 8. Prześlij potok.
 
-### <a name="results-for-ordinary-least-squares-model"></a>Wyniki dla zwykłego modelu najmniejszych kwadratów
+### <a name="results-for-ordinary-least-squares-model"></a>Wyniki dla modelu z najniższymi kwadratami
 
 Po zakończeniu szkolenia:
 
 
-+ Aby dokonać prognoz, należy połączyć przeszkolony model do [score model](./score-model.md) modułu, wraz z zestawem danych nowych wartości. 
++ Aby dokonać prognoz, Połącz model przeszkolony z modułem [modelu oceny](./score-model.md) wraz z zestawem danych nowych wartości. 
 
 
 ### <a name="create-a-regression-model-using-online-gradient-descent"></a>Tworzenie modelu regresji przy użyciu gradientu online
 
 1. Dodaj moduł **modelu regresji liniowej** do potoku w projektancie.
 
-    Ten moduł można znaleźć w kategorii **Uczenie maszynowe.** Rozwiń **rozwijanie modułu Inicjuj model,** rozwiń **regresję**i przeciągnij moduł **Model regresji liniowej** do potoku
+    Ten moduł można znaleźć w kategorii **Machine Learning** . Rozwiń węzeł **zainicjuj model**, rozwiń **regresję**i przeciągnij moduł **modelu regresji liniowej** do potoku
 
-2. W okienku **Właściwości** na liście rozwijanej **Metody rozwiązania** wybierz pozycję **Zejście gradientu online** jako metodę obliczeń używaną do znajdowania linii regresji.
+2. W okienku **Właściwości** na liście rozwijanej **Metoda rozwiązania** wybierz **gradient online** , który jest używany do znajdowania linii regresji.
 
-3. W przypadku **opcji Utwórz tryb trenera**należy wskazać, czy model ma być trenowany ze wstępnie zdefiniowanym zestawem parametrów, czy też chcesz zoptymalizować model przy użyciu wyciągnięcia po parametrze.
+3. W przypadku **tworzenia trybu Trainer**wskaż, czy chcesz nauczyć model ze wstępnie zdefiniowanym zestawem parametrów, czy chcesz zoptymalizować model przy użyciu odchylenia parametrów.
 
-    + **Pojedynczy parametr:** Jeśli wiesz, jak chcesz skonfigurować sieć regresji liniowej, możesz podać określony zestaw wartości jako argumenty.
+    + **Pojedynczy parametr**: Jeśli wiesz, jak chcesz skonfigurować sieć regresji liniowej, możesz podać określony zestaw wartości jako argumenty.
     
-    + **Zakres parametrów:** Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić wyciągnięcie po parametrze. Wybierz zakres wartości, aby iterować ponad i [Tune Model Hyperparameters](tune-model-hyperparameters.md) iteruje nad wszystkimi możliwymi kombinacjami ustawień podanych w celu określenia hiperparametrów, które dają optymalne wyniki.  
+    + **Zakres parametrów**: Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki.  
 
    
-4. W przypadku **wskaźnika uczenia się**określ początkową szybkość uczenia się optymalizatora zejścia gradientu stochastycznego.
+4. W polu **stawka szkoleniowa**określ początkową stawkę szkoleniową dla stochastycznegoego gradientu.
 
-5. W polu **Liczba epok treningowych**wpisz wartość, która wskazuje, ile razy algorytm powinien iterować za pomocą przykładów. W przypadku zestawów danych z niewielką liczbą przykładów liczba ta powinna być duża, aby osiągnąć zbieżność.
+5. W przypadku **liczby epoki szkoleniowej**wpisz wartość wskazującą, ile razy algorytm ma wykonać iterację za pomocą przykładów. W przypadku zestawów danych z niewielką liczbą przykładów ten numer powinien być duży, aby osiągnąć zbieżność.
 
-6. **Normalizuj funkcje:** Jeśli zostały już znormalizowane dane liczbowe użyte do przeszkolenia modelu, można usunąć zaznaczenie tej opcji. Domyślnie moduł normalizuje wszystkie dane wejściowe numeryczne do zakresu od 0 do 1.
+6. **Normalizing Features**: Jeśli zostały już znormalizowane dane liczbowe używane do uczenia modelu, możesz usunąć zaznaczenie tej opcji. Domyślnie moduł normalizuje wszystkie dane wejściowe liczbowe do zakresu od 0 do 1.
 
     > [!NOTE]
     > 
     > Pamiętaj, aby zastosować tę samą metodę normalizacji do nowych danych używanych do oceniania.
 
-7. W **L2 waga legalizacji**, wpisz wartość do użycia jako waga do legalizacji L2. Zaleca się użycie wartości niezerowej, aby uniknąć overfitting.
+7. W polu **waga uregulowania L2**wpisz wartość, która ma być używana jako waga dla uregulowania L2. Zalecamy użycie wartości innej niż zero, aby uniknąć przełączenia.
 
-    Aby dowiedzieć się więcej o tym, jak uregulowanie wpływa na dopasowanie modelu, zobacz ten artykuł: [L1 i L2 Regularization for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
-
-
-9. Wybierz opcję **Zmniejsz szybkość uczenia się**, jeśli chcesz, aby szybkość uczenia się zmniejszała się wraz z postępem iteracji.  
-
-10. W polu **Ilość materiału siewnego liczb losowych**można opcjonalnie wpisać wartość, aby wysiewnić generator liczb losowych używany przez model. Za pomocą wartości inicjatora jest przydatne, jeśli chcesz zachować te same wyniki w różnych przebiegach tego samego potoku.
+    Aby dowiedzieć się więcej o tym, jak uregulowanie wpływa na dopasowanie modelu, zobacz ten artykuł: [uregulowanie L1 i L2 dla Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
 
 
-12. Dodaj oznaczony zestaw danych i jeden z modułów szkoleniowych.
+9. Wybierz opcję, aby **zmniejszyć szybkość**uczenia, jeśli chcesz, aby szybkość uczenia była zmniejszana w miarę postępu iteracji.  
 
-    Jeśli nie używasz wyciągnięcia po parametrze, użyj modułu [Model pociągu.](train-model.md)
+10. W przypadku **liczby losowej inicjatora**można opcjonalnie wpisać wartość, aby wypełniać generator liczb losowych używany przez model. Użycie wartości inicjatora jest przydatne, jeśli chcesz zachować te same wyniki w różnych przebiegach tego samego potoku.
+
+
+12. Uczenie modelu:
+
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
+  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Jeśli przejdziesz do zakresu parametrów w celu [nauczenia modelu](train-model.md), zostanie użyta tylko wartość domyślna na liście jednego parametru.  
+    > 
+    > W przypadku przekazania jednego zestawu wartości parametrów do modułu [strojenia modelu](tune-model-hyperparameters.md) , gdy oczekuje on zakresu ustawień dla każdego parametru, zignoruje wartości i użyje wartości domyślnych dla dodanej informacji.  
+    > 
+    > Jeśli wybierzesz opcję **zakres parametrów** i wprowadzisz pojedynczą wartość dla każdego parametru, ta pojedyncza wartość zostanie użyta w całym wyczyszczeniu, nawet jeśli inne parametry zmienią się w zakres wartości.
 
 13. Prześlij potok.
 
-### <a name="results-for-online-gradient-descent"></a>Wyniki zejścia gradientu online
+### <a name="results-for-online-gradient-descent"></a>Wyniki dla gradientu online
 
 Po zakończeniu szkolenia:
 
-+ Aby dokonać prognoz, należy podłączyć przeszkolony model do [score model](./score-model.md) modułu, wraz z nowymi danymi wejściowymi.
++ Aby dokonać prognoz, Połącz model przeszkolony z modułem [modelu oceny](./score-model.md) wraz z nowymi danymi wejściowymi.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

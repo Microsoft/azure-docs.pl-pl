@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
-ms.openlocfilehash: f456137b61a96f555b2604e7871516fd1d38ab42
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 33e6ce1d5feb50080b00fcbecdeb9e512980eab6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116710"
+ms.locfileid: "82141943"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integracja Azure Service Bus z prywatnym łączem platformy Azure (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link?]
 >[!WARNING]
 > Implementacja prywatnych punktów końcowych może uniemożliwić innym usługom platformy Azure współdziałanie z Service Bus.
 >
-> Zaufane usługi firmy Microsoft nie są obsługiwane w przypadku implementacji sieci wirtualnych.
+> Zaufane usługi firmy Microsoft nie są obsługiwane w przypadku korzystania z sieci wirtualnych.
 >
 > Typowe scenariusze platformy Azure, które nie współpracują z sieciami wirtualnymi (należy zauważyć, że lista **nie** jest wyczerpująca) —
 > - Integracja z usługą Azure Event Grid
@@ -71,7 +71,7 @@ Jeśli masz już istniejącą przestrzeń nazw, możesz utworzyć prywatny punkt
     1. Wybierz **subskrypcję platformy Azure** , w której chcesz utworzyć prywatny punkt końcowy. 
     2. Wybierz **grupę zasobów** dla prywatnego zasobu punktu końcowego.
     3. Wprowadź **nazwę** prywatnego punktu końcowego. 
-    5. Wybierz **region** dla prywatnego punktu końcowego. Prywatny punkt końcowy musi znajdować się w tym samym regionie, w którym znajduje się Twoja sieć wirtualna, ale może znajdować się w innym regionie niż zasób linku prywatnego, z którym nawiązujesz połączenie. 
+    5. Wybierz **region** dla prywatnego punktu końcowego. Prywatny punkt końcowy musi znajdować się w tym samym regionie, w którym znajduje się sieć wirtualna, ale może znajdować się w innym regionie niż zasób link prywatny, z którym nawiązujesz połączenie. 
     6. Wybierz pozycję **Dalej: przycisk >zasobu** w dolnej części strony.
 
         ![Tworzenie prywatnego punktu końcowego — Strona podstawy](./media/private-link-service/create-private-endpoint-basics-page.png)
@@ -85,7 +85,7 @@ Jeśli masz już istniejącą przestrzeń nazw, możesz utworzyć prywatny punkt
         
             ![Tworzenie prywatnego punktu końcowego — Strona zasobów](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. W przypadku wybrania opcji **Połącz z zasobem platformy Azure według identyfikatora zasobu lub aliasu**wykonaj następujące kroki:
-        1. Wprowadź **Identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który został udostępniony Tobie.
+        1. Wprowadź **Identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który ktoś udostępni Tobie. Najprostszym sposobem uzyskania identyfikatora zasobu jest przejście do przestrzeni nazw Service Bus w Azure Portal i skopiowanie fragmentu identyfikatora URI rozpoczynającego się od `/subscriptions/`. Przykład można znaleźć na poniższym obrazie. 
         2. W przypadku **docelowego zasobu podrzędnego**wprowadź **przestrzeń nazw**. Jest to typ zasobu podrzędnego, do którego Twój prywatny punkt końcowy może uzyskać dostęp. 
         3. obowiązkowe Wprowadź **komunikat żądania**. Właściciel zasobu widzi ten komunikat podczas zarządzania połączeniem prywatnego punktu końcowego. 
         4. Następnie wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony. 

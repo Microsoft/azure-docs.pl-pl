@@ -1,54 +1,54 @@
 ---
-title: Włączanie dzienników diagnostycznych usługi Azure Bastion i praca z nim
-description: W tym artykule dowiesz się, jak włączyć dzienniki diagnostyczne usługi Azure Bastion i pracować z nim.
+title: Włącz i pracuj z dziennikami zasobów usługi Azure bastionu
+description: W tym artykule dowiesz się, jak włączyć i korzystać z dzienników diagnostycznych usługi Azure bastionu.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 97f0cdb1e93ef2ad06d2daa04b2f4893fd5dfac2
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 4b71dba02a311b8fa6a16645364f90d7632693a2
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619279"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131272"
 ---
-# <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Włączanie dzienników diagnostycznych bastionu i praca z nim
+# <a name="enable-and-work-with-bastion-resource-logs"></a>Włącz i pracuj z dziennikami zasobów bastionu
 
-Gdy użytkownicy łączą się z obciążeniami przy użyciu usługi Azure Bastion, bastion może rejestrować diagnostykę sesji zdalnych. Następnie można użyć diagnostyki, aby wyświetlić, którzy użytkownicy połączyli się z obciążeniami, w jakim czasie, skąd i inne takie istotne informacje rejestrowania. Aby korzystać z diagnostyki, należy włączyć dzienniki diagnostyczne na platformie Azure Bastion. Ten artykuł ułatwia włączenie dzienników diagnostycznych, a następnie wyświetlanie dzienników.
+Gdy użytkownicy łączą się z obciążeniami przy użyciu usługi Azure bastionu, usługa bastionu może rejestrować diagnostykę sesji zdalnych. Następnie można użyć diagnostyki, aby zobaczyć, którzy użytkownicy połączeni z tymi obciążeniami, w jakim czasie, od miejsca i inne informacje dotyczące rejestrowania. Aby móc korzystać z diagnostyki, należy włączyć dzienniki diagnostyczne na platformie Azure bastionu. Ten artykuł ułatwia włączenie dzienników diagnostycznych, a następnie wyświetlenie dzienników.
 
-## <a name="enable-the-diagnostics-log"></a><a name="enable"></a>Włączanie dziennika diagnostyki
+## <a name="enable-the-resource-log"></a><a name="enable"></a>Włącz dziennik zasobów
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do zasobu Bastion platformy Azure i wybierz **ustawienia diagnostyki** na stronie Bastion platformy Azure.
+1. W [Azure Portal](https://portal.azure.com)przejdź do zasobu Azure bastionu, a następnie wybierz pozycję **Ustawienia diagnostyki** na stronie bastionu platformy Azure.
 
-   ![ustawienia diagnostyki](./media/diagnostic-logs/1diagnostics-settings.png)
-2. Wybierz **ustawienia diagnostyki**, a następnie wybierz **+Dodaj ustawienie diagnostyczne,** aby dodać miejsce docelowe dla dzienników.
+   ![Ustawienia diagnostyki](./media/diagnostic-logs/1diagnostics-settings.png)
+2. Wybierz pozycję **Ustawienia diagnostyczne**, a następnie wybierz pozycję **+ Dodaj ustawienie diagnostyczne** , aby dodać miejsce docelowe dla dzienników.
 
-   ![dodawanie ustawień diagnostycznych](./media/diagnostic-logs/2add-diagnostic-setting.png)
+   ![Dodaj ustawienie diagnostyczne](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. Na stronie **Ustawienia diagnostyki** wybierz typ konta magazynu, które ma być używane do przechowywania dzienników diagnostycznych.
 
-   ![wybierz lokalizację przechowywania](./media/diagnostic-logs/3add-storage-account.png)
+   ![Wybierz lokalizację magazynu](./media/diagnostic-logs/3add-storage-account.png)
 4. Po zakończeniu ustawień będzie wyglądać podobnie do tego przykładu:
 
-   ![przykładowe ustawienia](./media/diagnostic-logs/4example-settings.png)
+   ![Przykładowe ustawienia](./media/diagnostic-logs/4example-settings.png)
 
-## <a name="view-diagnostics-log"></a><a name="view"></a>Wyświetlanie dziennika diagnostyki
+## <a name="view-diagnostics-log"></a><a name="view"></a>Wyświetl dziennik diagnostyki
 
-Aby uzyskać dostęp do dzienników diagnostycznych, można bezpośrednio użyć konta magazynu, które zostały określone podczas włączania ustawień diagnostyki.
+Aby uzyskać dostęp do dzienników diagnostycznych, możesz bezpośrednio użyć konta magazynu określonego podczas włączania ustawień diagnostycznych.
 
-1. Przejdź do zasobu konta magazynu, a następnie do **pozycji Kontenery**. Zobaczysz obiekt blob **insights-logs-bastionauditlogs** utworzony w kontenerze obiektów blob konta magazynu.
+1. Przejdź do zasobu konta magazynu, a następnie do **kontenerów**. Zobaczysz obiekt BLOB **Insights-Logs-bastionauditlogs** utworzony w kontenerze obiektów BLOB konta magazynu.
 
-   ![ustawienia diagnostyki](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. Podczas przechodzenia do wewnątrz kontenera, widać różne foldery w blogu. Te foldery wskazują hierarchię zasobów dla zasobu Bastion platformy Azure.
+   ![Ustawienia diagnostyki](./media/diagnostic-logs/1-navigate-to-logs.png)
+2. Gdy przejdziesz do wnętrza kontenera, zobaczysz różne foldery w blogu. Te foldery wskazują hierarchię zasobów dla zasobu usługi Azure bastionu.
 
-   ![dodawanie ustawień diagnostycznych](./media/diagnostic-logs/2-resource-h.png)
-3. Przejdź do pełnej hierarchii zasobu bastionu platformy Azure, którego dzienniki diagnostyczne chcesz uzyskać dostęp/widok. 'y=', 'm=', 'd=', 'h=' i 'm=' wskazują odpowiednio rok, miesiąc, dzień, godzinę i minutę dla dzienników diagnostycznych.
+   ![Dodaj ustawienie diagnostyczne](./media/diagnostic-logs/2-resource-h.png)
+3. Przejdź do pełnej hierarchii zasobu usługi Azure bastionu, której dzienniki diagnostyki chcesz uzyskać dostęp/wyświetlić. Wartości "y =", "-", "a =", "h =" i "=" wskazują odpowiednio rok, miesiąc, dzień, godzinę i minutę dla dzienników zasobów.
 
-   ![wybierz lokalizację przechowywania](./media/diagnostic-logs/3-resource-location.png)
-4. Zlokalizuj plik json utworzony przez usługę Azure Bastion, który zawiera dane dziennika diagnostyki dla okresu, do którym następuje nawigowanie.
+   ![Wybierz lokalizację magazynu](./media/diagnostic-logs/3-resource-location.png)
+4. Znajdź plik JSON utworzony przez usługę Azure bastionu, który zawiera dane dziennika diagnostyki dla przedziału czasu, do którego przeszedł okres.
 
-5. Pobierz plik json z kontenera obiektów blob magazynu. Przykładowy wpis z pliku json jest pokazany poniżej w celach informacyjnych:
+5. Pobierz plik JSON z kontenera magazynu obiektów BLOB. Poniżej przedstawiono przykładowy wpis z pliku JSON:
 
    ```json
    { 
@@ -79,4 +79,4 @@ Aby uzyskać dostęp do dzienników diagnostycznych, można bezpośrednio użyć
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przeczytaj często zadawane pytania dotyczące [bastionu](bastion-faq.md).
+Zapoznaj się z [bastionu często zadawanych pytań](bastion-faq.md).

@@ -1,91 +1,91 @@
 ---
-title: Konfigurowanie zarządzania potencjalnymi klientami w Marketo | Azure Marketplace
-description: Skonfiguruj zarządzanie potencjalnymi klientami dla marketo dla platformy Azure.
+title: Konfigurowanie zarządzania liderem w programie Marketo | Portal Azure Marketplace
+description: Skonfiguruj zarządzanie potencjalnymi klientami dla programu Marketo dla klientów portalu Azure Marketplace.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 90f42954fd4d7324a7684795fca6ec302411790c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: b142e0ab1aaa242157e207ceecf958be51bb1721
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731113"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133650"
 ---
-# <a name="configure-lead-management-in-marketo"></a>Konfigurowanie zarządzania potencjalnymi klientami w Marketo
+# <a name="configure-lead-management-in-marketo"></a>Konfigurowanie zarządzania potencjalnymi klientami w programie Marketo
 
-W tym artykule opisano, jak skonfigurować system Marketo CRM do przetwarzania potencjalnych klientów sprzedaży z oferty marketplace.
+W tym artykule opisano, jak skonfigurować system CRM dla programu Marketo, aby przetwarzać potencjalne wyniki sprzedaży z komercyjnej oferty portalu Marketplace.
 
-## <a name="set-up-your-marketo-crm-system"></a>Skonfiguruj swój system Marketo CRM
+## <a name="set-up-your-marketo-crm-system"></a>Skonfiguruj system CRM dla programu Marketo
 
-1. Zaloguj się do Marketo.
+1. Zaloguj się do programu Marketo.
 
-2. Wybierz **Design Studio**.
+1. Wybierz pozycję **projekt Studio**.
 
-    ![Studio Projektowe Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
+    ![Projekt programu Marketo Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
-3.  Wybierz **pozycję Nowy formularz**.
+1.  Wybierz pozycję **nowy formularz**.
 
-    ![Marketo nowa forma](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
+    ![Nowy formularz dla programu Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
-4.  Wypełnij wymagane pola w nowym formularzu, a następnie wybierz pozycję **Utwórz**.
+1.  Wypełnij pola wymagane w **nowym formularzu** okna dialogowego, a następnie wybierz pozycję **Utwórz**.
 
-    ![Marketo tworzenie nowego formularza](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
+    ![Nowy formularz dla programu Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
-5.  W obszarze Szczegóły pola wybierz pozycję **Zakończ**.
+1.  Na stronie **Szczegóły pola** wybierz pozycję **Zakończ**.
 
-    ![Formularz wykończenia Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
+    ![Formularz zakończenia programu Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
-6.  Zatwierdź i zamknij.
+1.  Zatwierdź i Zamknij.
 
-7. Na karcie *MarketplaceLeadBacked* wybierz pozycję **Osadź kod**. 
+1. Na karcie **MarketplaceLeadBackend** wybierz pozycję **Osadź kod**. 
 
-    ![Kod osadzania](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
+    ![Kod osadzania programu Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
 
-8. Marketo Embed Code wyświetla kod podobny do poniższego przykładu.
+1. Kod osadzania programu Marketo wyświetla kod podobny do poniższego przykładu.
 
     ```html
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
 
-9. Skopiuj wartości poniższych pól wyświetlanych w formularzu Kod osadzania. Użyjesz tych wartości, aby skonfigurować ofertę do odbierania potencjalnych klientów w następnym kroku. Użyj następnego przykładu jako przewodnika do uzyskiwania identyfikatorów, których potrzebujesz w przykładzie Marketo Embed Code.
+1. Skopiuj wartości dla następujących pól przedstawionych w formularzu kodu osadzania. Te wartości zostaną użyte do skonfigurowania oferty, aby otrzymywać potencjalni klienci w następnym kroku. W następnym przykładzie przedstawiono Przewodnik dotyczący uzyskiwania wymaganych identyfikatorów z przykładu kodu osadzania programu Marketo.
 
     - Identyfikator serwera = **ys12**
     - Identyfikator Munchkin = **123-PQR-789**
     - Identyfikator formularza = **1179**
 
-    **Innym sposobem, aby dowiedzieć się tych wartości**
+    Innym sposobem ustalenia następujących wartości:
 
-    - Identyfikator serwera znajduje się w adresie URL wystąpienia Marketo, na przykład "`serverID.marketo.com`".
-    - Uzyskaj identyfikator Munching ID subskrypcji, przechodząc do menu Administrator>Munchkin w polu "Identyfikator konta Munchkin" lub z pierwszej części poddomeny hosta interfejsu Marketo REST: `https://{Munchkin ID}.mktorest.com`.
-    - Identyfikator formularza to identyfikator formularza Embed Code utworzonego w kroku 7 w celu kierowania potencjalnych klientów z naszego rynku.
+    - Identyfikator serwera znajduje się w adresie URL wystąpienia programu Marketo, na przykład `serverID.marketo.com`.
+    - Aby uzyskać identyfikator Munchkin subskrypcji, przejdź do menu **administratora** > **Munchkin** w polu **Identyfikator konta Munchkin** lub z pierwszej części poddomeny hosta interfejsu API REST usługi Marketo: `https://{Munchkin ID}.mktorest.com`.
+    - Identyfikator formularza jest IDENTYFIKATORem formularza kodu osadzania utworzonego w kroku 7 do kierowania potencjalnych klientów z portalu Marketplace.
 
-## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Skonfiguruj ofertę wysyłania potencjalnych klientów do Marketo
+## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Konfigurowanie oferty do wysyłania potencjalnych klientów do programu Marketo
 
-Gdy wszystko będzie gotowe do skonfigurowania informacji o zarządzaniu potencjalnymi klientami dla oferty w portalu publikowania, wykonaj następujące kroki: 
+Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania potencjalnym liderem oferty w portalu wydawców, wykonaj następujące kroki. 
 
-1. Przejdź do strony **Ustawienia oferty** dla swojej oferty.
+1. Przejdź do strony **konfiguracji oferty** oferty.
 
-1. Wybierz **pozycję Połącz** w sekcji Zarządzanie potencjalnymi klientami. 
+1. Wybierz pozycję **Połącz** w sekcji **Zarządzanie potencjalnymi klientami** . 
 
-    ![Zarządzanie potencjalnymi klientami - Połącz](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+    ![Przycisk Połącz sekcję zarządzania potencjalnymi klientami](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
 
-1. W oknie podręcznym Szczegóły połączenia wybierz **pozycję Marketo** dla miejsca docelowego potencjalnego klienta.
+1. W oknie podręcznym **szczegóły połączenia** wybierz pozycję **Marketo** dla **miejsca docelowego potencjalnego klienta**.
 
-    ![Wybieranie miejsca docelowego potencjalnego klienta](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
+    ![Wybierz miejsce docelowe potencjalnego klienta](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-4. Podaj **identyfikator serwera,** **identyfikator konta munching**i **identyfikator formularza**.
+1. Podaj **Identyfikator serwera**, **Identyfikator konta Munchkin**i **Identyfikator formularza**.
 
-    > [!Note]
-    > Musisz zakończyć konfigurowanie pozostałej części oferty i opublikować ją, zanim będzie można odbierać potencjalnych klientów dla oferty. 
+    > [!NOTE]
+    > Musisz zakończyć konfigurowanie reszty oferty i opublikować ją przed odebraniem potencjalnych klientów do oferty. 
 
-5. **Kontaktowy adres e-mail** — udostępniaj wiadomości e-mail osobom w firmie, które powinny otrzymywać powiadomienia e-mail po otrzymaniu nowego potencjalnego klienta. Możesz dostarczyć wiele wiadomości e-mail, oddzielając je średnikiem.
+1. W obszarze **kontaktowy adres e-mail**wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Można podać wiele adresów e-mail, rozdzielając je średnikami.
 
-6. Kliknij przycisk **OK**.
+1. Kliknij przycisk **OK**.
 
-   Aby upewnić się, że udało ci się połączyć z miejscem docelowym potencjalnego klienta, kliknij przycisk sprawdź poprawność. Jeśli się powiedzie, będziesz miał potencjalnego klienta testowego w głównym miejscu docelowym.
+   Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz przycisk **Weryfikuj** . Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 
-   ![Szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
+   ![Okno podręczne szczegółów połączenia](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

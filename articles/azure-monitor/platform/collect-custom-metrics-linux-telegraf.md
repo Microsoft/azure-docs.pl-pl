@@ -1,78 +1,81 @@
 ---
-title: Zbieranie niestandardowych metryk dla maszyny Wirtualnej systemu Linux za pomocą agenta InfluxData Telegraf
-description: Instrukcje dotyczące wdrażania agenta Telegraf InfluxData na maszynie Wirtualnej systemu Linux na platformie Azure i konfigurowania agenta do publikowania metryk w usłudze Azure Monitor.
+title: Zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf
+description: Instrukcje dotyczące sposobu wdrażania agenta InfluxData telegraf na maszynie wirtualnej z systemem Linux na platformie Azure i konfigurowania agenta do publikowania metryk w Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 0ed9144116c1d716124025ef0aae39e7783c5934
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5ea32fb198a61391e1be3648d1d2d2e829a7214
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655467"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137267"
 ---
-# <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Zbieranie niestandardowych metryk dla maszyny Wirtualnej z systemem Linux za pomocą agenta InfluxData Telegraf
+# <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf
 
-Za pomocą usługi Azure Monitor można zbierać metryki niestandardowe za pośrednictwem danych telemetrycznych aplikacji, agenta działającego na zasoby platformy Azure, a nawet poza systemami monitorowania. Następnie można przesłać je bezpośrednio do usługi Azure Monitor. Ten artykuł zawiera instrukcje dotyczące wdrażania [agenta Telegraf InfluxData](https://www.influxdata.com/) na maszynie Wirtualnej systemu Linux na platformie Azure i konfigurowania agenta do publikowania metryk w usłudze Azure Monitor. 
+Korzystając z Azure Monitor, można zbierać niestandardowe metryki za pośrednictwem telemetrii aplikacji, agenta uruchomionego na zasobach platformy Azure, a nawet poza systemami monitorowania. Następnie można przesłać je bezpośrednio do Azure Monitor. Ten artykuł zawiera instrukcje dotyczące wdrażania agenta [InfluxData](https://www.influxdata.com/) telegraf na maszynie wirtualnej z systemem Linux na platformie Azure i konfigurowania agenta do publikowania metryk w Azure monitor. 
 
-## <a name="influxdata-telegraf-agent"></a>Agent InfluxData Telegraf 
+## <a name="influxdata-telegraf-agent"></a>Agent InfluxData telegraf 
 
-[Telegraf](https://docs.influxdata.com/telegraf/) jest agentem opartym na wtyczce, który umożliwia zbieranie danych z ponad 150 różnych źródeł. W zależności od tego, jakie obciążenia są uruchamiane na maszynie wirtualnej, można skonfigurować agenta do wykorzystania specjalistycznych wtyczek wejściowych do zbierania metryk. Przykładami są MySQL, NGINX i Apache. Za pomocą wtyczek wyjściowych agent może następnie zapisywać do wybranych miejsc docelowych. Agent Telegraf zintegrował się bezpośrednio z interfejsem API REST metryk niestandardowych usługi Azure Monitor. Obsługuje wtyczkę wyjściową usługi Azure Monitor. Korzystając z tej wtyczki, agent może zbierać metryki specyficzne dla obciążenia na maszynie Wirtualnej systemu Linux i przesyłać je jako metryki niestandardowe do usługi Azure Monitor. 
+[Telegraf](https://docs.influxdata.com/telegraf/) jest agentem opartym na wtyczkach, który umożliwia zbieranie metryk z ponad 150 różnych źródeł. W zależności od obciążenia uruchomionego na maszynie wirtualnej można skonfigurować agenta, aby korzystał z wyspecjalizowanych wtyczek wejściowych do zbierania metryk. Przykłady to MySQL, NGINX i Apache. Korzystając z wtyczek wyjściowych, Agent może następnie zapisywać do wybranych miejsc docelowych. Agent telegraf został zintegrowany bezpośrednio z interfejsem API REST niestandardowych metryk Azure Monitor. Obsługuje ona wtyczkę wyjściową Azure Monitor. Za pomocą tej wtyczki Agent może zbierać metryki specyficzne dla obciążeń na maszynie wirtualnej z systemem Linux i przesyłać je jako metryki niestandardowe do Azure Monitor. 
 
- ![Przegląd agenta telegraficznego](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
+ ![Omówienie agenta telegraficznego](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
-## <a name="send-custom-metrics"></a>Wysyłanie niestandardowych danych 
+> [!NOTE]  
+> Metryki niestandardowe nie są obsługiwane we wszystkich regionach. Obsługiwane regiony są wymienione [tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#supported-regions)
 
-W tym samouczku wdrażamy maszynę wirtualną z systemem Linux, która uruchamia system operacyjny Ubuntu 16.04 LTS. Agent Telegraf jest obsługiwany dla większości systemów operacyjnych Linux. Pakiety Debian i RPM są dostępne wraz z nieopakowanymi plikami binarnymi Linuksa na [portalu pobierania InfluxData.](https://portal.influxdata.com/downloads) Dodatkowe instrukcje i opcje instalacji można znaleźć w tym [podręczniku instalacji telegrafu.](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) 
+## <a name="send-custom-metrics"></a>Wysyłanie metryk niestandardowych 
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+W tym samouczku wdrażamy maszynę wirtualną z systemem Linux z systemem operacyjnym Ubuntu 16,04 LTS. Agent telegraf jest obsługiwany w przypadku większości systemów operacyjnych Linux. Pakiety Debian i RPM są dostępne wraz z nieopakowanymi plikami binarnymi systemu Linux w [portalu pobierania InfluxData](https://portal.influxdata.com/downloads). Więcej instrukcji i opcji instalacji można znaleźć w tym [przewodniku instalacji telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) . 
+
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 Utwórz nową maszynę wirtualną z systemem Linux: 
 
-1. Wybierz opcję **Utwórz zasób** z lewego okienka nawigacji. 
+1. Wybierz opcję **Utwórz zasób** w okienku nawigacji po lewej stronie. 
 1. Wyszukaj **maszynę wirtualną**.  
-1. Wybierz **Ubuntu 16.04 LTS** i wybierz **pozycję Utwórz**. 
-1. Podaj nazwę maszyny Wirtualnej, taką jak **MyTelegrafVM**.  
-1. Pozostaw typ dysku jako **SSD**. Następnie podaj **nazwę użytkownika**, takie jak **azureuser**. 
-1. W przypadku **typu Uwierzytelnianie**wybierz **pozycję Hasło**. Następnie wprowadź hasło, którego użyjesz później do SSH do tej maszyny Wirtualnej. 
-1. Wybierz pozycję **Utwórz nową grupę zasobów**. Następnie podaj nazwę, taką jak **myResourceGroup**. Wybierz swoją **lokalizację**. Następnie wybierz przycisk **OK**. 
+1. Wybierz pozycję **Ubuntu 16,04 LTS** i wybierz pozycję **Utwórz**. 
+1. Podaj nazwę maszyny wirtualnej, taką jak **MyTelegrafVM**.  
+1. Pozostaw typ dysku jako dysk **SSD**. Podaj **nazwę użytkownika**, taką jak **azureuser**. 
+1. W obszarze **Typ uwierzytelniania**wybierz pozycję **hasło**. Następnie wprowadź hasło, które będzie używane później do protokołu SSH do tej maszyny wirtualnej. 
+1. Wybierz opcję **utworzenia nowej grupy zasobów**. Podaj nazwę **, na przykład.** Wybierz **lokalizację**. Następnie wybierz przycisk **OK**. 
 
     ![Tworzenie maszyny wirtualnej z systemem Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
 1. Wybierz rozmiar maszyny wirtualnej. Możesz filtrować między innymi według wartości **Typ obliczeń** lub **Typ dysku**. 
 
-    ![Omówienie agenta o rozmiarze maszyny wirtualnej Telegraph](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
+    ![Omówienie agenta telegraficznego rozmiaru maszyny wirtualnej](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. Na stronie **Ustawienia** w **sieciowej** > **grupie** > zabezpieczeń**Wybierz publiczne porty przychodzące**wybierz **HTTP** i **SSH (22)**. Pozostaw resztę ustawień domyślnych, a następnie wybierz pozycję **OK**. 
+1. Na stronie **Ustawienia** **w** > **grupie** > zabezpieczeń sieci**Wybierz pozycję publiczne porty przychodzące**, wybierz pozycję **http** i **SSH (22)**. Pozostaw resztę ustawień domyślnych, a następnie wybierz pozycję **OK**. 
 
 1. Na stronie podsumowania wybierz pozycję **Utwórz**, aby rozpocząć wdrażanie maszyny wirtualnej. 
 
-1. Maszyna wirtualna jest przypięta do pulpitu nawigacyjnego witryny Azure Portal. Po zakończeniu wdrażania zostanie automatycznie otwarte podsumowanie maszyny Wirtualnej. 
+1. Maszyna wirtualna jest przypięta do pulpitu nawigacyjnego witryny Azure Portal. Po zakończeniu wdrożenia zostanie automatycznie otwarte podsumowanie maszyny wirtualnej. 
 
-1. W okienku maszyny Wirtualnej przejdź do karty **Tożsamość.** **On** 
+1. W okienku maszyn wirtualnych przejdź do karty **tożsamość** . **upewnij się,** że maszyna wirtualna ma ustawioną tożsamość przypisaną do systemu. 
  
-    ![Podgląd tożsamości maszyny Wirtualnej telegrafu](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
+    ![Wersja zapoznawcza maszyny wirtualnej telegraf](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  
 ## <a name="connect-to-the-vm"></a>Łączenie z maszyną wirtualną 
 
 Utwórz połączenie SSH z maszyną wirtualną. Na stronie przeglądu wybierz przycisk **Połącz** dla swojej maszyny wirtualnej. 
 
-![Strona przeglądu maszyny Wirtualnej Telegraf](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
+![Strona omówienia maszyny wirtualnej telegraf](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
-Na stronie **Nawiązywanie połączenia z maszyną wirtualną** zostaw opcje domyślne, aby połączyć się za pomocą nazwy DNS przez port 22. W **pozycji Logowanie przy użyciu konta lokalnego maszyny Wirtualnej**jest wyświetlane polecenie połączenia. Wybierz przycisk, aby skopiować polecenie. W poniższym przykładzie pokazano, jak wygląda polecenie połączenia SSH: 
+Na stronie **Nawiązywanie połączenia z maszyną wirtualną** zostaw opcje domyślne, aby połączyć się za pomocą nazwy DNS przez port 22. W obszarze **Logowanie przy użyciu lokalnego konta maszyny wirtualnej**jest wyświetlane polecenie połączenia. Wybierz przycisk, aby skopiować polecenie. W poniższym przykładzie pokazano, jak wygląda polecenie połączenia SSH: 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 
 ```
 
-Wklej polecenie połączenia SSH do powłoki, takiej jak Usługa Azure Cloud Shell lub Bash na Ubuntu w systemie Windows, lub użyj wybranego klienta SSH, aby utworzyć połączenie. 
+Wklej polecenie połączenia SSH do powłoki, na przykład Azure Cloud Shell lub bash na Ubuntu w systemie Windows, lub Użyj wybranego klienta SSH, aby utworzyć połączenie. 
 
-## <a name="install-and-configure-telegraf"></a>Instalowanie i konfigurowanie programu Telegraf 
+## <a name="install-and-configure-telegraf"></a>Instalowanie i Konfigurowanie telegraf 
 
-Aby zainstalować pakiet Telegraf Debian na maszynie wirtualnej, uruchom następujące polecenia z sesji SSH: 
+Aby zainstalować pakiet telegraf Debian na maszynie wirtualnej, uruchom następujące polecenia w sesji SSH: 
 
 ```cmd
 # download the package to the VM 
@@ -80,7 +83,7 @@ wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb
 # install the package 
 sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
 ```
-Plik konfiguracyjny Telegraf definiuje działalność Telegrafu. Domyślnie przykładowy plik konfiguracyjny jest instalowany na ścieżce **/etc/telegraf/telegraf.conf**. Przykładowy plik konfiguracyjny zawiera listę wszystkich możliwych wtyczek wejściowych i wyjściowych. Jednak utworzymy niestandardowy plik konfiguracyjny i agent użyje go, uruchamiając następujące polecenia: 
+Plik konfiguracji telegraf definiuje operacje telegraf. Domyślnie przykładowy plik konfiguracji jest instalowany w ścieżce **/etc/telegraf/telegraf.conf**. Przykładowy plik konfiguracji zawiera listę wszystkich możliwych wtyczek wejściowych i wyjściowych. Jednak utworzymy niestandardowy plik konfiguracji i użyjesz go przez agenta, uruchamiając następujące polecenia: 
 
 ```cmd
 # generate the new Telegraf config file in the current directory 
@@ -91,9 +94,9 @@ sudo cp azm-telegraf.conf /etc/telegraf/telegraf.conf
 ```
 
 > [!NOTE]  
-> Poprzedni kod umożliwia tylko dwie wtyczki wejściowe: **cpu** i **mem**. Można dodać więcej wtyczek wejściowych, w zależności od obciążenia, które działa na komputerze. Przykładami są Platformy Docker, MySQL i NGINX. Aby uzyskać pełną listę wtyczek wejściowych, zobacz sekcję **Konfiguracja dodatkowa.** 
+> Poprzedni kod włącza tylko dwie wtyczki wejściowe: **CPU** i **MEM**. Możesz dodać więcej wtyczek wejściowych, w zależności od obciążenia, które jest uruchamiane na maszynie. Przykłady to Docker, MySQL i NGINX. Aby zapoznać się z pełną listą wtyczek wejściowych, zobacz sekcję **dodatkowa konfiguracja** . 
 
-Na koniec, aby agent zaczął używać nowej konfiguracji, wymuszamy agenta, aby zatrzymać i rozpocząć od uruchomienia następujących poleceń: 
+Na koniec, aby uruchomić agenta przy użyciu nowej konfiguracji, Wymuś zatrzymanie i uruchomienie agenta przez uruchomienie następujących poleceń: 
 
 ```cmd
 # stop the telegraf agent on the VM 
@@ -101,33 +104,33 @@ sudo systemctl stop telegraf
 # start the telegraf agent on the VM to ensure it picks up the latest configuration 
 sudo systemctl start telegraf 
 ```
-Teraz agent będzie zbierać metryki z każdej z określonych wtyczek wejściowych i emitować je do usługi Azure Monitor. 
+Teraz agent będzie zbierać metryki z każdej z określonych wtyczek wejściowych i emituje je do Azure Monitor. 
 
-## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Wykreślanie danych telegrafu w witrynie Azure portal 
+## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Wykreśl metryki telegraf w Azure Portal 
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com). 
 
-1. Przejdź do nowej karty **Monitor.** Następnie wybierz **metryki**.  
+1. Przejdź do karty nowy **monitor** . Następnie wybierz pozycję **metryki**.  
 
-     ![Monitor - Metryki (wersja zapoznawcza)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
+     ![Monitor — metryki (wersja zapoznawcza)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 
 1. Wybierz maszynę wirtualną w selektorze zasobów.
 
-     ![Wykres metryczny](./media/collect-custom-metrics-linux-telegraf/metric-chart.png)
+     ![Wykres metryk](./media/collect-custom-metrics-linux-telegraf/metric-chart.png)
 
-1. Wybierz obszar nazw **Telegraf/CPU** i wybierz metrykę **usage_system.** Można filtrować według wymiarów na tej metryki lub podzielić na nich.  
+1. Wybierz przestrzeń nazw **telegraf/CPU** , a następnie wybierz metrykę **usage_system** . Możesz filtrować według wymiarów tej metryki lub podzielić je na nie.  
 
-     ![Wybieranie obszaru nazw i metryki](./media/collect-custom-metrics-linux-telegraf/VM-resource-selector.png)
+     ![Wybieranie przestrzeni nazw i metryki](./media/collect-custom-metrics-linux-telegraf/VM-resource-selector.png)
 
 ## <a name="additional-configuration"></a>Dodatkowa konfiguracja 
 
-Poprzedni instruktaż zawiera informacje na temat konfigurowania agenta Telegraf do zbierania metryk z kilku podstawowych wtyczek wejściowych. Agent Telegraf obsługuje ponad 150 wtyczek wejściowych, z niektórymi obsługującymi dodatkowe opcje konfiguracji. InfluxData opublikował [listę obsługiwanych wtyczek](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) i [instrukcje, jak je skonfigurować.](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/)  
+Powyższy przewodnik zawiera informacje dotyczące sposobu konfigurowania agenta telegraf w celu zbierania metryk z kilku podstawowych wtyczek wejściowych. Agent telegraf obsługuje ponad 150 wtyczek wejściowych z niektórymi dodatkowymi opcjami konfiguracji. InfluxData opublikował [listę obsługiwanych wtyczek](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) i instrukcje dotyczące [sposobu ich konfigurowania](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/).  
 
-Ponadto w tym instruktażu użyto agenta Telegraf do emitowania metryk dotyczących maszyny Wirtualnej, na której jest wdrożony agent. Agent Telegraf może być również używany jako moduł zbierający i przesyłający dalej metryki dla innych zasobów. Aby dowiedzieć się, jak skonfigurować agenta do emitowania metryk dla innych zasobów platformy Azure, zobacz [Niestandardowe dane wyjściowe metryki usługi Azure Monitor dla telegrafu](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md).  
+Ponadto w tym instruktażu Agent telegraf był używany do emitowania metryk dotyczących maszyny wirtualnej, na której jest wdrożony Agent. Agenta telegraf można także użyć jako modułu zbierającego i usługi przesyłania dalej metryk dla innych zasobów. Aby dowiedzieć się, jak skonfigurować agenta do emisji metryk dla innych zasobów platformy Azure, zobacz [Azure monitor niestandardowe dane wyjściowe metryki dla telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md).  
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
 
-Gdy nie są już potrzebne, można usunąć grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby. Aby to zrobić, wybierz grupę zasobów dla maszyny wirtualnej i wybierz pozycję **Usuń**. Następnie potwierdź nazwę grupy zasobów do usunięcia. 
+Gdy nie są już potrzebne, możesz usunąć grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby. W tym celu wybierz grupę zasobów dla maszyny wirtualnej, a następnie wybierz pozycję **Usuń**. Następnie Potwierdź nazwę grupy zasobów do usunięcia. 
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [metrykach niestandardowych](metrics-custom-overview.md).

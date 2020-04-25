@@ -7,14 +7,8 @@
       href: Overview.md
 - name: Przewodniki Szybki start
   items:
-    - name: Korzystanie z zestawu SDK klienta
-      items:
-        - name: Zestaw SDK .NET
-          href: Quickstarts/csharp-sdk.md
-        - name: Zestaw SDK dla języka Python
-          href: QuickStarts/python-sdk.md
-        - name: Zestaw SDK dla języka Go
-          href: QuickStarts/go-sdk.md
+    - name: Używanie biblioteki klienta
+      href: Quickstarts/client-libraries.md
     - name: Korzystanie z interfejsu API REST
       items:
         - name: Wykrywanie twarzy na obrazie
@@ -99,7 +93,7 @@
           href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: Zasoby
   items:
-    - name: Przykłady
+    - name: Samples
       items:
         - name: Przykłady twarzy
           href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face'

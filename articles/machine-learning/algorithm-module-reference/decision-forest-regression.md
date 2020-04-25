@@ -1,86 +1,96 @@
 ---
-title: 'Regresja lasu decyzji: odwołanie do modułu'
+title: 'Regresja lasu decyzyjnego: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu regresji lasu decyzji w usłudze Azure Machine Learning do utworzenia modelu regresji na podstawie zestawu drzew decyzyjnych.
+description: Dowiedz się, jak używać modułu regresji lasów w Azure Machine Learning, aby utworzyć model regresji na podstawie kompletu drzew decyzyjnych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 63d90a5239e6bf350d8a6b66f35157e4c7d15aee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: bb7ebee67d65ab37dc037437b7c35d8c19c53096
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456543"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137029"
 ---
-# <a name="decision-forest-regression-module"></a>Moduł regresji lasu decyzji
+# <a name="decision-forest-regression-module"></a>Moduł regresji lasu decyzyjnego
 
-W tym artykule opisano moduł w projektancie usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
-Ten moduł służy do tworzenia modelu regresji na podstawie zespołu drzew decyzyjnych.
+Użyj tego modułu, aby utworzyć model regresji na podstawie kompletu drzew decyzyjnych.
 
-Po skonfigurowaniu modelu należy trenować model przy użyciu zestawu danych z etykietą i modułu [Model pociągu.](./train-model.md) Przeszkolony model może następnie służyć do prognozowania. 
+Po skonfigurowaniu modelu należy przeprowadzić uczenie modelu przy użyciu zestawu danych z etykietami i modułu [uczenie modelu](./train-model.md) . Model przeszkolony może być następnie używany do prognozowania. 
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Drzewa decyzyjne są modelami nie parametrycznymi, które wykonują sekwencję prostych testów dla każdego wystąpienia, przechodząc przez strukturę danych drzewa binarnego, dopóki nie zostanie osiągnięty węzeł liścia (decyzja).
+Drzewa decyzyjne są modelami nieparametrycznymi, które wykonują sekwencję prostych testów dla każdego wystąpienia, przechodząc do struktury danych drzewa binarnego do momentu osiągnięcia węzła liścia (decyzja).
 
 Drzewa decyzyjne mają następujące zalety:
 
-- Są one wydajne w obliczeniach i użycia pamięci podczas szkolenia i przewidywania.
+- Są one wydajne w przypadku obliczeń i wykorzystania pamięci podczas uczenia i przewidywania.
 
-- Mogą one reprezentować nieliniowe granice decyzji.
+- Mogą reprezentować granice decyzyjne nieliniowe.
 
-- Wykonują one zintegrowany wybór i klasyfikację funkcji i są odporne w obecności hałaśliwych funkcji.
+- Zapewniają one zintegrowane Wybieranie funkcji i klasyfikację i są odporne na obecność funkcji szumów.
 
-Ten model regresji składa się z zespołu drzew decyzyjnych. Każde drzewo w lesie decyzji regresji wyprowadza rozkład Gaussa jako prognozę. Agregacja jest wykonywana przez zespół drzew, aby znaleźć rozkład gaussowski najbliżej połączonego rozkładu dla wszystkich drzew w modelu.
+Ten model regresji składa się z kompletów drzew decyzyjnych. Każde drzewo w lesie z decyzją regresji wyprowadza rozkład gaussowskie jako prognozowanie. Agregacja jest wykonywana w ramach zestawu drzew, aby znaleźć rozkład gaussowskie najbliżej połączonej dystrybucji dla wszystkich drzew w modelu.
 
-Aby uzyskać więcej informacji na temat teoretycznych ram dla tego algorytmu i jego implementacji, zobacz ten artykuł: [Lasy decyzyjne: Ujednolicone ramy klasyfikacji, regresji, szacowania gęstości, uczenia się kolektora i uczenia się półnadzorowanego](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Aby uzyskać więcej informacji na temat teoretycznej struktury tego algorytmu i jego implementacji, zobacz ten artykuł: [lasy decyzyjne: ujednolicona struktura klasyfikacji, regresji, oszacowania gęstości, uczenie kolektora i uczenie Międzynadzorowane](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
-## <a name="how-to-configure-decision-forest-regression-model"></a>Jak skonfigurować model regresji lasu decyzji
+## <a name="how-to-configure-decision-forest-regression-model"></a>Konfigurowanie modelu regresji lasu decyzyjnego
 
-1. Dodaj moduł **regresji lasu decyzji** do potoku. Moduł można znaleźć w projektancie w obszarze **Uczenie maszynowe**, **Inicjalizuj model**i **Regresja**.
+1. Dodaj moduł **regresji lasu decyzji** do potoku. Moduł można znaleźć w projektancie w obszarze **Machine Learning**, **zainicjuj model**i **regresję**.
 
-2. Otwórz właściwości modułu, a w przypadku **metody ponownej próby**wybierz metodę używaną do tworzenia poszczególnych drzew.  Możesz wybrać **opcję Bagging** lub **Replicate**.
+2. Otwórz właściwości modułu i dla **metody ponownej próbkowania**wybierz metodę użytą do utworzenia poszczególnych drzew.  Możesz wybrać jedną z opcji **Working** lub **replikacja**.
 
-    - **Bagging**: Bagging jest również nazywany *bootstrap agregacji*. Każde drzewo w lesie decyzji regresji wyprowadza rozkład Gaussa w drodze przewidywania. Agregacja polega na znalezieniu Gaussa, którego pierwsze dwie chwile pasują do momentów mieszaniny rozkładów gaussowskich, które zostały podane przez połączenie wszystkich rozkładów zwróconych przez poszczególne drzewa.
+    - **Working**: w workach jest również wywoływana *agregacja Bootstrap*. Każde drzewo w lesie z decyzją regresji wyprowadza rozkład gaussowskie w drodze przewidywania. Agregacją jest znalezienie gaussowskie, którego pierwsze dwa momenty są zgodne z chwilą mieszaniny rozkładów gaussowskie przyznanych przez połączenie wszystkich dystrybucji zwracanych przez poszczególne drzewa.
 
-         Aby uzyskać więcej informacji, zobacz wpis w Wikipedii dla [agregowania Bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
+         Aby uzyskać więcej informacji, zobacz wpis Wikipedia na potrzeby [agregowania Bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
-    - **Replikacja:** W replikacji każde drzewo jest przeszkolone na dokładnie tych samych danych wejściowych. Określenie, które predykatu podziału jest używany dla każdego węzła drzewa pozostaje losowe i drzewa będą zróżnicowane.
+    - **Replikacja**: w replikacji Każde drzewo jest przeszkolone dokładnie na te same dane wejściowe. Określenie, który predykat Split jest używany dla każdego węzła drzewa, pozostaje losowy, a drzewa będą różne.
 
-         Aby uzyskać więcej informacji na temat procesu szkolenia z opcją **Replikacja,** zobacz [Prawa decyzyjne dla wizji komputerowej i analizy obrazu medycznego. Criminisi i J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/).
+         Aby uzyskać więcej informacji na temat procesu szkolenia z opcją **replikacja** , zobacz [lasy decyzyjne dla przetwarzanie obrazów i analizy obrazu medycznego. Criminisi i J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/)..
 
-3. Określ sposób, w jaki model ma być trenowany, ustawiając opcję **Utwórz tryb trenera.**
+3. Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .
 
     - **Pojedynczy parametr**
 
-      Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty. Być może nauczyłeś się tych wartości przez eksperymentowanie lub otrzymałeś je jako wskazówki.
+      Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty. Te wartości mogą być uzyskane przez eksperymentowanie lub otrzymywanie jako wskazówki.
 
-    - **Zakres parametrów:** Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić wyciągnięcie po parametrze. Wybierz zakres wartości, aby iterować ponad i [Tune Model Hyperparameters](tune-model-hyperparameters.md) iteruje nad wszystkimi możliwymi kombinacjami ustawień podanych w celu określenia hiperparametrów, które dają optymalne wyniki. 
+    - **Zakres parametrów**: Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki. 
 
 
 
-4. W przypadku **liczby drzew decyzyjnych**należy wskazać całkowitą liczbę drzew decyzyjnych do utworzenia w zespole. Tworząc więcej drzew decyzyjnych, można potencjalnie uzyskać lepszy zasięg, ale czas szkolenia wzrośnie.
+4. W przypadku **liczby drzew decyzyjnych**należy wskazać łączną liczbę drzew decyzyjnych do utworzenia w całości. Przez utworzenie większej liczby drzew decyzyjnych można potencjalnie uzyskać lepszy zakres, ale zwiększy się czas uczenia.
 
     > [!TIP]
-    > Ta wartość kontroluje również liczbę drzew wyświetlanych podczas wizualizacji modelu uczonego. Jeśli chcesz wyświetlić lub wydrukować pojedyncze drzewo, możesz ustawić wartość na 1; oznacza to jednak, że zostanie wyprodukowane tylko jedno drzewo (drzewo z początkowym zestawem parametrów) i nie zostaną wykonane żadne dalsze iteracje.
+    > Ta wartość kontroluje również liczbę drzew wyświetlanych podczas wizualizacji przeszkolonego modelu. Jeśli chcesz zobaczyć lub wydrukować pojedyncze drzewo, możesz ustawić wartość 1. oznacza to jednak, że zostanie utworzone tylko jedno drzewo (drzewo z początkowym zestawem parametrów) i żadna kolejna iteracja nie zostanie wykonana.
 
-5. W przypadku **maksymalnej głębokości drzew decyzyjnych**wpisz liczbę, aby ograniczyć maksymalną głębokość dowolnego drzewa decyzyjnego. Zwiększenie głębokości drzewa może zwiększyć precyzję, na ryzyko niektórych overfitting i wydłużony czas szkolenia.
+5. W celu uzyskania **maksymalnej głębokości drzew decyzyjnych**wpisz liczbę, aby ograniczyć maksymalną głębokość każdego drzewa decyzyjnego. Zwiększenie głębokości drzewa może zwiększyć precyzję w przypadku ryzyka pewnego przekroczenia i zwiększenia czasu uczenia się.
 
-6. W **polach Liczba podziałów losowych na węzeł**wpisz liczbę podziałów, które mają być używane podczas tworzenia każdego węzła drzewa. *Podział* oznacza, że operacje na każdym poziomie drzewa (węzła) są losowo podzielone.
+6. Dla **liczby losowych podziałów na węzeł**wpisz liczbę podziałów, która ma być używana podczas kompilowania każdego węzła drzewa. *Podział* oznacza, że funkcje na każdym poziomie drzewa (węzeł) są losowo podzielone.
 
-7. Dla **minimalnej liczby próbek na węzeł liścia**, należy wskazać minimalną liczbę przypadków, które są wymagane do utworzenia dowolnego węzła terminala (liść) w drzewie.
+7. Dla **minimalnej liczby próbek na węzeł liścia**wskaż minimalną liczbę przypadków, które są wymagane do utworzenia dowolnego węzła terminalu (liścia) w drzewie.
 
-     Zwiększając tę wartość, można zwiększyć próg tworzenia nowych reguł. Na przykład z wartością domyślną 1, nawet pojedynczy przypadek może spowodować utworzenie nowej reguły. Jeśli zwiększysz wartość do 5, dane szkoleniowe będą musiały zawierać co najmniej pięć przypadków, które spełniają te same warunki.
+     Zwiększenie tej wartości spowoduje zwiększenie wartości progowej tworzenia nowych reguł. Na przykład, z wartością domyślną 1, nawet pojedynczy przypadek może spowodować utworzenie nowej reguły. W przypadku zwiększenia wartości do 5 dane szkoleniowe muszą zawierać co najmniej pięć przypadków, które spełniają te same warunki.
 
 
-9. Połącz oznaczony etykietą zestaw danych, wybierz pojedynczą kolumnę etykiet zawierającą nie więcej niż dwa wyniki i połącz się z [modelem pociągu](./train-model.md).
+9. Uczenie modelu:
 
-    - Jeśli **ustawisz** opcję Utwórz tryb trenera na **Pojedynczy parametr,** trenuj model przy użyciu modułu [Model pociągu.](./train-model.md)
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
+  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Jeśli przejdziesz do zakresu parametrów w celu [nauczenia modelu](train-model.md), zostanie użyta tylko wartość domyślna na liście jednego parametru.  
+    > 
+    > W przypadku przekazania jednego zestawu wartości parametrów do modułu [strojenia modelu](tune-model-hyperparameters.md) , gdy oczekuje on zakresu ustawień dla każdego parametru, zignoruje wartości i użyje wartości domyślnych dla dodanej informacji.  
+    > 
+    > Jeśli wybierzesz opcję **zakres parametrów** i wprowadzisz pojedynczą wartość dla każdego parametru, ta pojedyncza wartość zostanie użyta w całym wyczyszczeniu, nawet jeśli inne parametry zmienią się w zakres wartości.
 
    
 
@@ -90,8 +100,8 @@ Aby uzyskać więcej informacji na temat teoretycznych ram dla tego algorytmu i 
 
 Po zakończeniu szkolenia:
 
-+ Aby zapisać migawkę uczonego modelu, wybierz moduł szkolenia, a następnie przełącz się na kartę **Wyjścia** w prawym panelu. Kliknij ikonę **Zarejestruj model**.  Zapisany model można znaleźć jako moduł w drzewie modułów. 
++ Aby zapisać migawkę przeszkolonego modelu, wybierz moduł szkoleń, a następnie przejdź do karty Output (dane **wyjściowe** ) na prawym panelu. Kliknij ikonę **zarejestruj model**.  Zapisany model można znaleźć jako moduł w drzewie modułów. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

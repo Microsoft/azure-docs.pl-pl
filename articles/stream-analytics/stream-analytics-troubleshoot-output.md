@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z danymi wyjściowymi usługi Azure Stream Analytics
-description: W tym artykule opisano techniki rozwiązywania problemów z połączeniami wyjściowymi w zadaniach usługi Azure Stream Analytics.
+title: Rozwiązywanie problemów dotyczących danych wyjściowych Azure Stream Analytics
+description: W tym artykule opisano techniki rozwiązywania problemów z połączeniami wyjściowymi w Azure Stream Analytics zadaniach.
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -8,31 +8,31 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 305632a0faa1eb7e217e86d36c5159e557df7aaf
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
-ms.translationtype: MT
+ms.openlocfilehash: 5652df0cf142af2ff96590368892530abcb3d667
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409250"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133234"
 ---
-# <a name="troubleshoot-azure-stream-analytics-outputs"></a>Rozwiązywanie problemów z danymi wyjściowymi usługi Azure Stream Analytics
+# <a name="troubleshoot-azure-stream-analytics-outputs"></a>Rozwiązywanie problemów dotyczących danych wyjściowych Azure Stream Analytics
 
-W tym artykule opisano typowe problemy z połączeniami wyjściowymi usługi Azure Stream Analytics, jak rozwiązywać problemy z danymi wyjściowymi i jak rozwiązać problemy. Wiele kroków rozwiązywania problemów wymaga włączenia dzienników diagnostycznych dla zadania usługi Usługi Stream Analytics. Jeśli nie masz włączonych dzienników diagnostycznych, zobacz [Rozwiązywanie problemów z usługą Azure Stream Analytics przy użyciu dzienników diagnostycznych](stream-analytics-job-diagnostic-logs.md).
+W tym artykule opisano typowe problemy związane z Azure Stream Analytics połączeniami wyjściowymi, sposoby rozwiązywania problemów z danymi wyjściowymi oraz sposoby rozwiązania problemów. Wiele kroków rozwiązywania problemów wymaga włączenia zasobów i innych dzienników diagnostycznych dla zadania Stream Analytics. Jeśli nie masz włączonych dzienników zasobów, zobacz [Rozwiązywanie problemów Azure Stream Analytics przy użyciu dzienników zasobów](stream-analytics-job-diagnostic-logs.md).
 
-## <a name="output-not-produced-by-job"></a>Produkcja nieprodukcowa według pracy
+## <a name="output-not-produced-by-job"></a>Dane wyjściowe nie zostały utworzone przez zadanie
 
-1.  Sprawdź łączność z wyjściami za pomocą przycisku **Testuj połączenie** dla każdego wyjścia.
+1.  Sprawdź łączność z danymi wyjściowymi przy użyciu przycisku **Testuj połączenie** dla każdego elementu wyjściowego.
 
-2.  Spójrz na [**monitorowanie metryki**](stream-analytics-monitoring.md) **na** monitorze kartę. Ponieważ wartości są agregowane, metryki są opóźnione o kilka minut.
-   * Jeśli zdarzenia wejściowe są większe niż 0, zadanie jest w stanie odczytać dane wejściowe. Jeśli zdarzenia wejściowe nie są większe niż 0, występuje problem z wejściem pracy. Zobacz [Rozwiązywanie problemów z połączeniami wejściowymi,](stream-analytics-troubleshoot-input.md) aby dowiedzieć się, jak rozwiązywać problemy z połączeniem wejściowym.
-   * Jeśli błędy konwersji danych są większe niż 0 i wspinaczka, zobacz [Błędy danych usługi Azure Stream Analytics, aby](data-errors.md) uzyskać szczegółowe informacje o błędach konwersji danych.
-   * Jeśli błędy środowiska uruchomieniowego są większe niż 0, zadanie może odbierać dane, ale generuje błędy podczas przetwarzania kwerendy. Aby znaleźć błędy, przejdź do [dzienników inspekcji](../azure-resource-manager/management/view-activity-logs.md) i filtruj stan *Niepowodzenie.*
-   * Jeśli InputEvents jest większa niż 0, a OutputEvents jest równe 0, jedna z następujących czynności jest spełniony:
+2.  Sprawdź [**metryki monitorowania**](stream-analytics-monitoring.md) na karcie **monitorowanie** . Ponieważ wartości są agregowane, metryki są opóźnione o kilka minut.
+   * Jeśli zdarzenia wejściowe są większe niż 0, zadanie może odczytywać dane wejściowe. Jeśli zdarzenia wejściowe nie są większe niż 0, wystąpi problem z danymi wejściowymi zadania. Zobacz [Rozwiązywanie problemów z połączeniami](stream-analytics-troubleshoot-input.md) , aby dowiedzieć się, jak rozwiązywać problemy z połączeniem wejściowym.
+   * Jeśli błędy konwersji danych są większe niż 0 i wspinanie się, zobacz [Azure Stream Analytics błędy danych](data-errors.md) , aby uzyskać szczegółowe informacje na temat błędów konwersji danych.
+   * Jeśli błędy środowiska uruchomieniowego są większe niż 0, zadanie może odbierać dane, ale generuje błędy podczas przetwarzania zapytania. Aby znaleźć błędy, przejdź do [dziennika inspekcji](../azure-resource-manager/management/view-activity-logs.md) i odfiltruj stan *niepowodzenia* .
+   * Jeśli wartość InputEvents jest większa niż 0 i OutputEvents równa 0, jeden z następujących warunków jest spełniony:
       * W wyniku przetwarzania zapytania nie zostało zwrócone żadne zdarzenie wyjściowe.
-      * Zdarzenia lub pola mogą być zniekształcone, co powoduje zero danych wyjściowych po przetworzeniu kwerendy.
-      * Zadanie nie może wypchnąć danych do ujścia danych wyjściowych ze względu na łączność lub uwierzytelnianie.
+      * Zdarzenia lub pola mogą być źle sformułowane, co powoduje wyjście z zera po przetworzeniu zapytania.
+      * Zadanie nie może wypchnąć danych do ujścia wyjściowego w celu uzyskania łączności lub przyczyny uwierzytelnienia.
 
-   We wszystkich wcześniej wymienionych przypadkach błędów komunikaty dziennika operacji wyjaśnić dodatkowe szczegóły (w tym co się dzieje), z wyjątkiem przypadków, gdy logika kwerendy odfiltrowane wszystkie zdarzenia. Jeśli przetwarzanie wielu zdarzeń generuje błędy, błędy są agregowane co 10 minut.
+   We wszystkich wyżej wymienionych przypadkach błędów komunikaty dzienników operacji wyjaśniają dodatkowe szczegóły (w tym informacje o tym, co się dzieje), z wyjątkiem przypadków, gdy logika zapytań odfiltrowana wszystkie zdarzenia. Jeśli przetwarzanie wielu zdarzeń generuje błędy, błędy są agregowane co 10 minut.
 
 ## <a name="job-output-is-delayed"></a>Job output is delayed (Dane wyjściowe zadania są opóźnione)
 
@@ -40,60 +40,60 @@ W tym artykule opisano typowe problemy z połączeniami wyjściowymi usługi Azu
 
 Po uruchomieniu zadania usługi Stream Analytics odczytywane są zdarzenia wejściowe, ale w pewnych okolicznościach generowanie danych wyjściowych może być opóźnione.
 
-Duże wartości czasu w elementach zapytania czasowego może przyczynić się do opóźnienia danych wyjściowych. Aby uzyskać poprawne dane wyjściowe w dużych oknach czasu, zadanie przesyłania strumieniowego uruchamia się przez odczyt danych z ostatniego możliwego czasu (do siedmiu dni temu), aby wypełnić okno czasu. W tym czasie nie jest produkowanych żadnych danych wyjściowych, dopóki nie zostanie ukończony odczyt zaległych zdarzeń wejściowych. Ten problem może pojawić się, gdy system uaktualnia zadania przesyłania strumieniowego, a tym samym uruchom ponownie zadanie. Takie ulepszenia zazwyczaj występują raz na kilka miesięcy.
+Duże wartości czasu w elementach zapytań czasowych mogą przyczynić się do opóźnienia danych wyjściowych. Aby wygenerować poprawne dane wyjściowe w dużych oknach czasu, zadanie przesyłania strumieniowego uruchamia się, odczytując dane z ostatniego możliwego czasu (do siedmiu dni temu) w celu wypełnienia przedziału czasu. W tym czasie nie są generowane żadne dane wyjściowe, dopóki nie zostanie ukończony odczyt oczekujących zdarzeń wejściowych. Ten problem może być narażony, gdy system uaktualnia zadania przesyłania strumieniowego, w tym celu należy ponownie uruchomić zadanie. Takie uaktualnienia są zwykle wykonywane co kilka miesięcy.
 
-W związku z tym należy użyć dyskrecji podczas projektowania zapytania usługi Stream Analytics. Jeśli używasz dużego przedziału czasu (więcej niż kilka godzin, do siedmiu dni) dla elementów czasowych w składni kwerendy zadania, może to prowadzić do opóźnienia na pierwszym wyjściu po uruchomieniu lub ponownym uruchomieniu zadania.  
+W związku z tym należy używać uznania podczas projektowania zapytania Stream Analytics. Jeśli używasz dużego przedziału czasu (więcej niż kilka godzin, do siedmiu dni) dla elementów czasowych w składni zapytania zadania, może to opóźnić na pierwsze wyjście, gdy zadanie zostanie uruchomione lub uruchomione ponownie.  
 
-Jednym z czynników ograniczających zagrożenie dla tego rodzaju pierwszego opóźnienia wyjściowego jest użycie technik równoległości zapytania (partycjonowanie danych) lub dodanie większej liczby jednostek przesyłania strumieniowego w celu zwiększenia przepływności, dopóki zadanie nie zostanie nadrobić zaległości.  Aby uzyskać więcej informacji, zobacz [Zagadnienia podczas tworzenia zadań usługi Stream Analytics](stream-analytics-concepts-checkpoint-replay.md)
+Jedno ograniczenie dla tego rodzaju pierwszego opóźnienia danych wyjściowych polega na użyciu technik przetwarzanie równoległe kwerend (partycjonowania danych) lub dodaniu większej liczby jednostek przesyłania strumieniowego w celu zwiększenia przepływności do momentu wychwycenia zadania.  Aby uzyskać więcej informacji, zobacz [uwagi dotyczące tworzenia zadań Stream Analytics](stream-analytics-concepts-checkpoint-replay.md)
 
-Te czynniki mają wpływ na terminowość pierwszego generowanego wyjścia:
+Czynniki te wpływają na oś czasu pierwszego generowanego wyjścia:
 
-1. Korzystanie z agregatów okiennych (GROUP BY okien tumbling, hopping i przesuwnych)
-   - W przypadku agregacji okien tumbling lub hopping wyniki są generowane na końcu przedziału czasowego okna.
-   - W przypadku okna przesuwnego wyniki są generowane, gdy zdarzenie wchodzi lub wychodzi z okna przesuwnego.
-   - Jeśli planujesz użyć dużego rozmiaru okna (> 1 godzinę), najlepiej wybrać okno przeskakiwania lub przesuwne, aby częściej wyświetlać dane wyjściowe.
+1. Korzystanie z agregacji w oknie (Grupuj według wirowania, przeskoku i ruchomych okien)
+   - W przypadku agregacji okna wirowania lub przeskoku wyniki są generowane na końcu przedziału czasu okna.
+   - W przypadku przesuwanego okna wyniki są generowane, gdy zdarzenie przejdzie lub wyjdzie z przesuwanego okna.
+   - Jeśli planujesz używać dużego okna (> 1 godziny), najlepiej wybrać przeskoku lub ruchome okno, aby wyświetlić dane wyjściowe częściej.
 
-2. Używanie sprzężeń czasowych (DOŁĄCZ z DATEDIFF)
-   - Dopasowania są generowane natychmiast po przybyciu obu stron dopasowanych zdarzeń.
-   - Dane, które nie mają dopasowania (LEFT OUTER JOIN) jest generowany na końcu okna DATEDIFF w odniesieniu do każdego zdarzenia po lewej stronie.
+2. Korzystanie z sprzężeń czasowych (SPRZĘŻENIe z DATEDIFF)
+   - Dopasowania są generowane zaraz po nadejściu obu stron dopasowanego zdarzenia.
+   - Dane, które nie posiadają dopasowania (lewe SPRZĘŻENIe zewnętrzne), są generowane na końcu okna DATEDIFF w odniesieniu do każdego zdarzenia po lewej stronie.
 
-3. Korzystanie z czasowych funkcji analitycznych (ISFIRST, LAST i LAG z LIMIT DURATION)
-   - Dla funkcji analitycznych dane wyjściowe są generowane dla każdego zdarzenia, nie ma opóźnienia.
+3. Korzystanie z funkcji analitycznych CZASowych (isfirst, LAST i LAG z LIMITem czasu trwania)
+   - W przypadku funkcji analitycznych dane wyjściowe są generowane dla każdego zdarzenia, nie ma opóźnienia.
 
-### <a name="output-falls-behind"></a>Produkcja pozostaje w tyle
+### <a name="output-falls-behind"></a>Dane wyjściowe wykraczają poza
 
-Podczas normalnego działania zadania, jeśli okaże się, że dane wyjściowe zadania są w tyle (dłuższe i dłuższe opóźnienia), można wskazać główne przyczyny, badając następujące czynniki:
-- Czy zlew w dolnym biegu rzeki jest ograniczany
-- Czy źródło nadrzędne jest ograniczane
-- Określa, czy logika przetwarzania w kwerendzie jest wymagająca dużej mocy obliczeniowej
+W trakcie normalnego działania zadania, jeśli okaże się, że dane wyjściowe zadania są opóźnione (dłuższe i dłuższe opóźnienia), można wskazać główne przyczyny, badając te czynniki:
+- Czy obiekt sink podrzędny jest ograniczany
+- Czy źródło nadrzędnego jest ograniczone
+- Czy logika przetwarzania w zapytaniu jest intensywnie COMPUTE
 
-Aby wyświetlić te szczegóły, w witrynie Azure Portal wybierz zadanie przesyłania strumieniowego i wybierz **diagram zadań**. Dla każdego wejścia istnieje metryka zdarzenia zaległości na partycje. Jeśli metryka zdarzenia zaległości stale rośnie, jest wskaźnikiem, że zasoby systemowe są ograniczone. Potencjalnie jest to spowodowane ograniczaniem ujścia wyjściowego lub wysokim procesorem CPU. Aby uzyskać więcej informacji na temat korzystania z diagramu zadań, zobacz [Debugowanie oparte na danych przy użyciu diagramu zadań](stream-analytics-job-diagram-with-metrics.md).
+Aby wyświetlić te szczegóły, w Azure Portal wybierz zadanie przesyłania strumieniowego i wybierz **Diagram zadań**. Dla każdego elementu wejściowego istnieje Metryka zdarzenia zaległości dla partycji. Jeśli Metryka zdarzenia zaległości ciągle rośnie, jest wskaźnikiem, że zasoby systemowe są ograniczone. Może to być spowodowane ograniczaniem przepływów danych wyjściowych lub dużym procesorem CPU. Aby uzyskać więcej informacji na temat korzystania z diagramu zadań, zobacz [debugowanie oparte na danych przy użyciu diagramu zadań](stream-analytics-job-diagram-with-metrics.md).
 
-## <a name="key-violation-warning-with-azure-sql-database-output"></a>Ostrzeżenie o naruszeniu klucza z danymi wyjściowymi usługi Azure SQL Database
+## <a name="key-violation-warning-with-azure-sql-database-output"></a>Ostrzeżenie o naruszeniu klucza z danymi wyjściowymi Azure SQL Database
 
-Podczas konfigurowania bazy danych SQL platformy Azure jako dane wyjściowe do zadania usługi Stream Analytics, to zbiorczo wstawia rekordy do tabeli docelowej. Ogólnie rzecz biorąc analizy strumienia platformy Azure gwarantuje [co najmniej raz dostawy](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) do ujścia danych wyjściowych, nadal można osiągnąć dokładnie raz [dostarczanie]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) do danych wyjściowych SQL, gdy tabela SQL ma zdefiniowane ograniczenie unikatowe.
+Podczas konfigurowania usługi Azure SQL Database jako dane wyjściowe do zadania Stream Analytics zbiorczo wstawia rekordy do tabeli docelowej. Ogólnie rzecz biorąc, usługa Azure Stream Analytics gwarantuje [co najmniej raz dostarczenie](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) do ujścia danych wyjściowych. jeden z nich może być w dalszym ciągu zapewniać [jednokrotne dostarczenie]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) do danych wyjściowych SQL, gdy tabela SQL ma zdefiniowane unikatowe ograniczenie.
 
-Po skonfigurowaniu unikatowych ograniczeń klucza w tabeli SQL i są wstawiane zduplikowane rekordy do tabeli SQL, usługa Azure Stream Analytics usuwa zduplikowany rekord. Dzieli dane na partie i rekursywnie wstawiając partie, dopóki nie zostanie znaleziony pojedynczy zduplikowany rekord. Jeśli zadanie przesyłania strumieniowego ma znaczną liczbę zduplikowanych wierszy, ten proces podziału i wstawiania musi ignorować duplikaty jeden po drugim, co jest mniej wydajne i czasochłonne. Jeśli w dzienniku aktywności zostanie wyświetlonych wiele komunikatów o naruszeniu zasad naruszenia kluczy w ciągu ostatniej godziny, prawdopodobnie dane wyjściowe SQL spowalniają całe zadanie.
+Po skonfigurowaniu unikatowych ograniczeń klucza w tabeli SQL, gdy do tabeli SQL są wstawiane zduplikowane rekordy, Azure Stream Analytics usuwa zduplikowany rekord. Dzieli dane na partie i cyklicznie wstawiając partie do momentu znalezienia pojedynczego duplikatu rekordu. Jeśli zadanie przesyłania strumieniowego ma znaczną liczbę zduplikowanych wierszy, ten proces dzielenia i wstawiania musi ignorować duplikaty po jednym, który jest mniej wydajny i czasochłonny. Jeśli w dzienniku aktywności w ciągu ostatniej godziny widzisz wiele komunikatów ostrzegawczych naruszenia klucza, prawdopodobnie dane wyjściowe SQL spowalniają całe zadanie.
 
-Aby rozwiązać ten problem, należy [skonfigurować indeks,]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) który powoduje naruszenie klucza, włączając opcję IGNORE_DUP_KEY. Włączenie tej opcji umożliwia zduplikowane wartości, które mają być ignorowane przez SQL podczas wstawia zbiorczych i SQL Azure po prostu tworzy komunikat ostrzegawczy zamiast błędu. Usługa Azure Stream Analytics nie generuje już błędów naruszenia podstawowych kluczy.
+Aby rozwiązać ten problem, należy [skonfigurować indeks]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) , który powoduje naruszenie klucza przez włączenie opcji IGNORE_DUP_KEY. Włączenie tej opcji pozwala na ignorowanie zduplikowanych wartości przez SQL podczas operacji wstawiania zbiorczego, a usługa SQL Azure po prostu generuje komunikat ostrzegawczy zamiast błędu. Azure Stream Analytics nie generują już błędów naruszenia klucza podstawowego.
 
-Należy zwrócić uwagę na następujące obserwacje podczas konfigurowania IGNORE_DUP_KEY dla kilku typów indeksów:
+Podczas konfigurowania IGNORE_DUP_KEY dla kilku typów indeksów należy zwrócić uwagę na następujące uwagi:
 
-* Nie można ustawić IGNORE_DUP_KEY klucza podstawowego lub unikatowego ograniczenia, które używa ALTER INDEX, należy upuścić i odtworzyć indeks.  
-* Można ustawić opcję IGNORE_DUP_KEY przy użyciu ALTER INDEX dla unikatowego indeksu, który różni się od ograniczenia KLUCZ PODSTAWOWY/UNIKATOWY i został utworzony przy użyciu definicji CREATE INDEX lub INDEX.  
+* Nie można ustawić IGNORE_DUP_KEY dla klucza podstawowego lub ograniczenia UNIQUE, które używa instrukcji ALTER INDEX, należy porzucić i ponownie utworzyć indeks.  
+* Możesz ustawić opcję IGNORE_DUP_KEY przy użyciu polecenia ALTER INDEX dla unikatowego indeksu, który różni się od klucza podstawowego/UNIKATOWEgo ograniczenia i utworzonego przy użyciu polecenia Utwórz indeks lub definicję indeksu.  
 
-* IGNORE_DUP_KEY nie ma zastosowania do indeksów magazynu kolumn, ponieważ nie można wymusić unikatowość w takich indeksach.  
+* IGNORE_DUP_KEY nie dotyczy indeksów magazynu kolumn, ponieważ nie można wymusić unikatowości takich indeksów.  
 
-## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Nazwy kolumn są małe litery przez usługę Azure Stream Analytics
-Podczas korzystania z oryginalnego poziomu zgodności (1.0), usługa Azure Stream Analytics służy do zmiany nazw kolumn na małe litery. To zachowanie zostało ustalone w późniejszych poziomach zgodności. Aby zachować sprawę, zalecamy klientom przejście do poziomu zgodności 1.1 i nowszych. Więcej informacji na temat [poziomu zgodności dla zadań usługi Azure Stream Analytics można](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)znaleźć .
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Nazwy kolumn są mniejsze niż w przypadku Azure Stream Analytics
+Przy użyciu oryginalnego poziomu zgodności (1,0) Azure Stream Analytics używany do zmiany nazw kolumn na małe litery. Takie zachowanie zostało rozwiązane na późniejszych poziomach zgodności. Aby zachować sprawność, firma Microsoft zaleca klientom przejście do poziomu zgodności 1,1 i nowszych. Więcej informacji na temat poziomu zgodności można znaleźć w [Azure Stream Analytics zadaniach](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
 ## <a name="get-help"></a>Uzyskiwanie pomocy
 
-Aby uzyskać dalszą pomoc, wypróbuj nasze [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Aby uzyskać dalszą pomoc, wypróbuj nasze [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
+* [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

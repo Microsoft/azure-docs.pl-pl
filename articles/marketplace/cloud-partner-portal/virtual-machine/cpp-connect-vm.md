@@ -1,74 +1,74 @@
 ---
-title: Łączenie się z maszyną wirtualną opartą na platformie Microsoft Azure | Azure Marketplace
-description: W tym artykule wyjaśniono, jak połączyć się z nową maszyną wirtualną utworzoną na platformie Azure.
+title: Nawiązywanie połączenia z maszyną wirtualną opartą na Microsoft Azure | Portal Azure Marketplace
+description: Wyjaśnia, jak nawiązać połączenie z nową maszyną wirtualną utworzoną na platformie Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 6f2652a98aa081b62ba80951212ef3a3de513593
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4aea624c2127c9b0a61d72b8d14929ce6f47df24
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272665"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142487"
 ---
-# <a name="connect-to-your-azure-based-virtual-machine"></a>Łączenie się z maszyną wirtualną opartą na platformie Azure
+# <a name="connect-to-your-azure-based-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną opartą na platformie Azure
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami maszyny wirtualnej platformy Azure do centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure](https://aka.ms/AzureVMTechAsset) do zarządzania zmigrowanych ofert.
+> Od 13 kwietnia 2020 rozpocznie się Zarządzanie ofertą usługi Azure Virtual Machine w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Tworzenie zasobów technicznych maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) , aby zarządzać migrowanymi ofertami.
 
-W tym artykule wyjaśniono, jak połączyć się z maszynami wirtualnymi (VM) utworzonymi na platformie Azure i zalogować się do ich maszyn.  Po pomyślnym nawiązaniu połączenia można pracować z maszyną wirtualną tak, jakby użytkownik był zalogowany lokalnie na serwerze hosta. 
+W tym artykule wyjaśniono, jak nawiązać połączenie z maszynami wirtualnymi utworzonymi na platformie Azure i zalogować się do nich.  Po pomyślnym nawiązaniu połączenia możesz współpracować z maszyną wirtualną tak, jakby była ona zalogowana lokalnie na serwerze hosta.
 
-## <a name="connect-to-a-windows-based-vm"></a>Łączenie się z maszyną wirtualną z systemem Windows
+## <a name="connect-to-a-windows-based-vm"></a>Nawiązywanie połączenia z maszyną wirtualną z systemem Windows
 
-Użyjesz klienta pulpitu zdalnego, aby połączyć się z maszyną wirtualną z systemem Windows hostowanym na platformie Azure.  Większość wersji systemu Windows natywnie zawiera obsługę protokołu pulpitu zdalnego (RDP).  W przypadku innych komputerów można znaleźć więcej informacji o klientach w [komputerach zdalnych.](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients)  
+Klient usług pulpitu zdalnego będzie używany do nawiązywania połączenia z maszyną wirtualną opartą na systemie Windows hostowaną na platformie Azure.  Większość wersji systemu Windows natywnie zawiera obsługę protokołu RDP (Remote Desktop Protocol).  W przypadku innych maszyn można znaleźć więcej informacji o klientach w [pulpit zdalny klientach](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
 
-W poniższym artykule opisano, jak połączyć się z [maszyną wirtualną i zalogować się na maszynie wirtualnej platformy Azure](../../../virtual-machines/windows/connect-logon.md)za pomocą wbudowanej obsługi protokołu RDP systemu Windows: Jak nawiązać połączenie i zalogować się na maszynie wirtualnej platformy Azure z systemem Windows .  
+W poniższym artykule szczegółowo opisano sposób używania wbudowanej obsługi protokołu RDP systemu Windows do nawiązywania połączenia z maszyną wirtualną: [jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows](../../../virtual-machines/windows/connect-logon.md).  
 
 >[!TIP]
-> Podczas procesu mogą pojawić się ostrzeżenia dotyczące zabezpieczeń, na przykład, że plik rdp pochodzi od nieznanego wydawcy lub że nie można zweryfikować poświadczeń użytkownika.  Można bezpiecznie zignorować te ostrzeżenia.
+> Podczas procesu mogą pojawić się ostrzeżenia dotyczące zabezpieczeń, na przykład że plik RDP pochodzi od nieznanego wydawcy lub nie można zweryfikować poświadczeń użytkownika.  Można bezpiecznie zignorować te ostrzeżenia.
 
 
-## <a name="connect-to-a-linux-based-vm"></a>Łączenie się z maszyną wirtualną z systemem Linux
+## <a name="connect-to-a-linux-based-vm"></a>Nawiązywanie połączenia z maszyną wirtualną opartą na systemie Linux
 
-Aby połączyć maszynę wirtualną z systemem Linux, potrzebny jest klient protokołu SSH (Secure Shell).  Ta dyskusja będzie korzystać z bezpłatnego terminalu [PuTTY](https://www.ssh.com/ssh/putty/) SHH.
+Aby połączyć maszynę wirtualną z systemem Linux, musisz mieć klienta Secure Shell Protocol (SSH).  W tej dyskusji zostanie [użyty bezpłatny prywatnego](https://www.ssh.com/ssh/putty/) terminala.
 
-1. Przejdź do [witryny Azure portal](https://ms.portal.azure.com). Wyszukaj i wybierz **maszyny wirtualne**. 
-2. Wybierz maszynę wirtualną, z którą chcesz się połączyć.  
-3. **Uruchom** maszynę wirtualną, jeśli nie jest jeszcze uruchomiona.
-4. Kliknij nazwę maszyny Wirtualnej, aby otworzyć jej stronę **Przegląd.**
-5. Zanotuj publiczny adres IP i nazwę DNS maszyny Wirtualnej.  (Jeśli te wartości nie są ustawione, należy [utworzyć interfejs sieciowy](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)
+1. Przejdź do [Azure Portal](https://ms.portal.azure.com). Wyszukaj i wybierz pozycję **maszyny wirtualne**. 
+2. Wybierz maszynę wirtualną, z którą chcesz nawiązać połączenie.  
+3. **Uruchom** maszynę wirtualną, jeśli jeszcze nie działa.
+4. Kliknij nazwę maszyny wirtualnej, aby otworzyć jej stronę **przeglądu** .
+5. Zanotuj publiczny adres IP i nazwę DNS maszyny wirtualnej.  (Jeśli te wartości nie są ustawione, należy [utworzyć interfejs sieciowy](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)
 
    ![Ustawienia przeglądu maszyny wirtualnej](./media/publishvm_019.png)
  
-6. Otwórz aplikację PuTTY.  
-7. W oknie dialogowym Konfiguracja PuTTY wprowadź adres IP lub nazwę DNS maszyny wirtualnej. 
+6. Otwórz aplikację.  
+7. W oknie dialogowym Konfiguracja konfiguracji wprowadź adres IP lub nazwę DNS maszyny wirtualnej. 
 
-   ![Ustawienia terminali PuTTY](./media/publishvm_020.png)
+   ![Podano ustawienia terminalu](./media/publishvm_020.png)
  
-8. Kliknij **przycisk Otwórz,** aby otworzyć terminal PuTTY.  
-9. Po wyświetleniu monitu wprowadź nazwę konta i hasło konta maszyny Wirtualnej z systemem Linux. 
+8. Kliknij przycisk **Otwórz** , aby otworzyć wystawcy Terminal.  
+9. Po wyświetleniu monitu wprowadź nazwę konta i hasło do konta maszyny wirtualnej z systemem Linux. 
 
-Jeśli masz problemy z połączeniem, zapoznaj się z dokumentacją klienta SSH, na przykład [rozdział 10: Typowe komunikaty o błędach](https://www.ssh.com/ssh/putty/putty-manuals).
+Jeśli występują problemy z połączeniem, zapoznaj się z dokumentacją klienta SSH, na przykład [rozdział 10: typowe komunikaty o błędach](https://www.ssh.com/ssh/putty/putty-manuals).
 
-Aby uzyskać więcej informacji, w tym jak dodać pulpit do aprowizowanego urządzenia wirtualnego z systemem Linux, zobacz [Instalowanie i konfigurowanie pulpitu zdalnego w celu łączenia się z maszyną wirtualną z systemem Linux na platformie Azure](../../../virtual-machines/linux/use-remote-desktop.md).
+Aby uzyskać więcej informacji, w tym o sposobach dodawania pulpitu do maszyny wirtualnej z systemem Linux z obsługą administracyjną, zobacz [Instalowanie i konfigurowanie pulpit zdalny do nawiązywania połączenia z maszyną wirtualną z systemem Linux na platformie Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 
 
-## <a name="stop-unused-vms"></a>Zatrzymywać nieużywane maszyny wirtualne
-Platforma Azure rozlicza hosting maszyn wirtualnych, gdy maszyna wirtualna jest uruchomiona *lub bezczynna*.  W związku z tym najlepszym rozwiązaniem jest zatrzymanie maszyn wirtualnych, które nie są obecnie używane.  Na przykład test, kopia zapasowa lub wycofane maszyny wirtualne są kandydatami do zamknięcia. Aby zamknąć maszynę wirtualną, wykonaj następujące czynności:
+## <a name="stop-unused-vms"></a>Zatrzymaj nieużywane maszyny wirtualne
+Weksle platformy Azure dla hostingu maszyn wirtualnych, gdy maszyna wirtualna jest uruchomiona lub jest w *stanie bezczynności*.  W związku z tym najlepszym rozwiązaniem jest zatrzymanie maszyn wirtualnych, które nie są obecnie używane.  Na przykład, test, kopia zapasowa lub wycofane maszyny wirtualne są kandydatami do zamknięcia. Aby zamknąć maszynę wirtualną, wykonaj następujące czynności:
 
-1. W bloku **Maszyny wirtualne** wybierz maszynę wirtualną, którą chcesz zatrzymać. 
-2. Na pasku narzędzi u góry strony kliknij przycisk **Zatrzymaj.**
+1. W bloku **maszyny wirtualne** wybierz maszynę wirtualną, która ma zostać zatrzymana. 
+2. Na pasku narzędzi u góry strony kliknij przycisk **Zatrzymaj** .
 
    ![Zatrzymywanie maszyny wirtualnej](./media/publishvm_018.png)
 
-Platforma Azure szybko zatrzymuje maszynę wirtualną w procesie o nazwie *deallocation*, który nie tylko zamyka system operacyjny na maszynie Wirtualnej, ale także zwalnia sprzęt i zasoby sieciowe wcześniej aprowizowana dla niego.
+Platforma Azure szybko zatrzyma maszynę wirtualną w procesie nazywanym *cofnięciem alokacji*, który nie tylko zamknie system operacyjny na maszynie wirtualnej, ale również zwalnia zasoby sprzętowe i sieciowe, które wcześniej zainicjowano dla niego.
 
-Jeśli chcesz później ponownie aktywować zatrzymaną maszynę wirtualną, zaznacz ją i kliknij przycisk **Start.**
+Jeśli chcesz później ponownie uaktywnić zatrzymaną maszynę wirtualną, zaznacz ją i kliknij przycisk **Uruchom** .
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po podłączeniu zdalnym można skonfigurować [maszynę wirtualną](./cpp-configure-vm.md).
+Po nawiązaniu połączenia zdalnego możesz [skonfigurować maszynę wirtualną](./cpp-configure-vm.md).

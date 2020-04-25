@@ -1,40 +1,40 @@
 ---
-title: Zagadnienia dotyczące inicjowania obsługi administracyjnej udziałów plików platformy Azure.
-description: Aprowizuj udziały plików platformy Azure do użycia z synchronizacją plików platformy Azure. Wspólny blok tekstu, współużytkowane przez dokumenty migracji.
+title: Zagadnienia dotyczące aprowizacji udziałów plików platformy Azure
+description: Udostępnianie udziałów plików platformy Azure do użycia z Azure File Sync. Wspólny blok tekstu współużytkowany w dokumentach migracji.
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 8cb398d1b1ec14f52d9c5fa5c122dc2e4ba4376d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d48baba5ee60a2bf5a4cb5e4d1ce840fce8eec43
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78209430"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143562"
 ---
-Udział plików platformy Azure jest przechowywany w chmurze na koncie magazynu platformy Azure.
-Istnieje inny poziom zagadnień wydajności tutaj.
+Udział plików platformy Azure jest przechowywany w chmurze na koncie usługi Azure Storage.
+Poniżej znajdują się inne zagadnienia dotyczące wydajności.
 
-Jeśli masz bardzo aktywne udziały — udziały używane przez wielu użytkowników i/lub aplikacji, a następnie dwa udziały plików platformy Azure może osiągnąć limit wydajności konta magazynu.
+Jeśli masz wysoce aktywne udziały (udziały używane przez wielu użytkowników i/lub aplikacje), wówczas dwa udziały plików platformy Azure mogą osiągnąć limit wydajności konta magazynu.
 
 Najlepszym rozwiązaniem jest wdrożenie kont magazynu z jednym udziałem plików.
-Można połączyć wiele udziałów plików platformy Azure na tym samym koncie magazynu, w przypadku, gdy masz udziały archiwalne lub oczekujesz niskiej codziennej aktywności w nich.
+Można umieścić wiele udziałów plików platformy Azure w ramach tego samego konta magazynu, na przykład w przypadku udziałów archiwalnych lub w przypadku niewielkich codziennych działań.
 
-Te zagadnienia dotyczą bardziej bezpośredniego dostępu do chmury (za pośrednictwem maszyny Wirtualnej platformy Azure) niż mają zastosowanie do synchronizacji plików platformy Azure. Jeśli planujesz używać tylko usługi Azure File Sync w tych udziałach, grupowanie kilku na jedno konto magazynu platformy Azure jest w porządku.
+Te zagadnienia dotyczą tylko bezpośredniego dostępu do chmury (za pośrednictwem maszyny wirtualnej platformy Azure Azure File Sync). Jeśli planujesz używać Azure File Sync tylko w tych udziałach, to zgrupowanie kilku na jedno konto usługi Azure Storage jest odpowiednie.
 
-Jeśli dokonałeś listy swoich udziałów, powinieneś zamapować każdy udział na konto magazynu, na które będą przebywać.
+Jeśli utworzono listę udziałów, należy zmapować każdy udział na konto magazynu, w którym będzie się znajdować.
 
-W poprzedniej fazie określono odpowiednią liczbę udziałów. W tym kroku utworzono mapowanie kont magazynu do udziałów plików. Wdrażanie teraz odpowiednią liczbę kont magazynu platformy Azure z odpowiednią liczbą udziałów plików platformy Azure w nich.
+W poprzedniej fazie określono odpowiednią liczbę udziałów. W tym kroku utworzono mapowanie kont magazynu do udziałów plików. Teraz Wdróż odpowiednią liczbę kont usługi Azure Storage z odpowiednią liczbą udziałów plików platformy Azure.
 
-Upewnij się, że region każdego konta magazynu jest taki sam i odpowiada regionowi zasobu usługi synchronizacji magazynu, który został już wdrożony.
+Upewnij się, że region każdego z kont magazynu jest taki sam i jest zgodny z regionem zasobu usługi synchronizacji magazynu, który został już wdrożony.
 
 > [!CAUTION]
-> Jeśli utworzysz 100 TiB limit udziału plików platformy Azure, udział ten może używać tylko lokalnie nadmiarowych magazynów lub strefowych opcji nadmiarowości magazynu. Należy wziąć pod uwagę potrzeby nadmiarowości pamięci masowej przed użyciem 100 udziałów plików TiB.
+> Jeśli tworzysz udział plików platformy Azure z limitem 100 TiB, ten udział może korzystać tylko z opcji nadmiarowości magazynu lokalnie nadmiarowego lub strefy nadmiarowej. Przed użyciem udziałów plików 100 TiB należy wziąć pod uwagę potrzeby nadmiarowości magazynu.
 
-Udziały plików platformy Azure są nadal tworzone z limitem 5 TiB domyślnie. Ponieważ tworzysz nowe konta magazynu, postępuj zgodnie ze wskazówkami dotyczącymi [tworzenia kont magazynu, które zezwalają na udziały plików platformy Azure z limitami 100 TiB](../articles/storage/files/storage-files-how-to-create-large-file-share.md).
+Udziały plików platformy Azure są nadal tworzone domyślnie z limitem 5 TiB. Ponieważ tworzysz nowe konta magazynu, upewnij się, że postępuj zgodnie ze [wskazówkami dotyczącymi tworzenia kont magazynu, które zezwalają na udziały plików platformy Azure z limitami 100-TIB](../articles/storage/files/storage-files-how-to-create-large-file-share.md).
 
-Inną kwestią podczas wdrażania konta magazynu jest nadmiarowość magazynu platformy Azure. Zobacz: [Opcje nadmiarowości usługi Azure Storage](../articles/storage/common/storage-redundancy.md).
+Innym zagadnieniem podczas wdrażania konta magazynu jest nadmiarowość usługi Azure Storage. Zobacz [Opcje nadmiarowości usługi Azure Storage](../articles/storage/common/storage-redundancy.md).
 
-Nazwy zasobów są również ważne. Na przykład jeśli grupujesz wiele udziałów dla działu KADR na konto magazynu platformy Azure, należy odpowiednio nazwać konto magazynu. Podobnie podczas nazywania udziałów plików platformy Azure należy używać nazw podobnych do tych używanych dla ich odpowiedników lokalnych.
+Nazwy zasobów są również ważne. Na przykład Jeśli grupujesz wiele udziałów dla działu kadr na koncie usługi Azure Storage, musisz odpowiednio nazwać konto magazynu. Podobnie podczas nadawania nazw udziałom plików platformy Azure należy używać nazw podobnych do tych, które są używane na potrzeby swoich lokalnych odpowiedników.

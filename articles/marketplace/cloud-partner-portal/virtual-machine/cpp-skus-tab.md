@@ -1,96 +1,96 @@
 ---
-title: Karta Jednostki SKU maszyn wirtualnych w portalu partnerów w chmurze dla portalu Azure Marketplace
-description: W tym artykule opisano kartę Jednostki SKU używane do tworzenia oferty maszyny wirtualnej w portalu Azure Marketplace.
+title: Karta jednostki SKU maszyny wirtualnej w portal Cloud Partner portalu Azure Marketplace
+description: Opisuje kartę jednostki SKU używane podczas tworzenia oferty maszyny wirtualnej w portalu Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: a8dbadf959107e733a94216c8a01495e6ebf5039
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 6ca2ebf9d02c43c3fe6bb3abec6bc0d5815fac74
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273124"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143012"
 ---
-# <a name="virtual-machine-skus-tab"></a>Karta Jednostki SKU maszyny wirtualnej
+# <a name="virtual-machine-skus-tab"></a>Karta jednostki SKU maszyny wirtualnej
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami maszyny wirtualnej platformy Azure do centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [tworzenie oferty maszyny wirtualnej platformy Azure,](https://aka.ms/CreateAzureVMoffer) aby zarządzać zmigrowanymi ofertami.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami usługi Azure Virtual Machine w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Tworzenie oferty maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) w celu zarządzania zmigrowanymi ofertami.
 
-Karta **Jednostki SKU** na stronie **Nowa oferta** umożliwia utworzenie co najmniej jednej jednostki SKU i skojarzenie ich z nową ofertą.  Różne jednostki SKU mogą rozróżniać rozwiązanie według zestawów funkcji, typów obrazów maszyn wirtualnych, przepływności lub skalowalności, modeli rozliczeń lub innej cechy.
+Karta **jednostki SKU** nowej strony **oferty** umożliwia utworzenie co najmniej jednej jednostki SKU i skojarzenie ich z nową ofertą.  Różne jednostki SKU mogą odróżnić rozwiązanie przez zestawy funkcji, typy obrazów maszyn wirtualnych, przepływność lub skalowalność, modele rozliczeń lub inne cechy.
 
 
 ## <a name="create-a-sku"></a>Tworzenie jednostki SKU
 
-Początkowo nowa oferta nie będzie miała żadnych powiązanych jednostek SKU, więc utworzysz ją, klikając **pozycję Nowa jednostka SKU**.
+Początkowo Nowa oferta nie będzie miała skojarzonych jednostek SKU, więc utworzysz ją, klikając pozycję **Nowa jednostka SKU**.
 
-![Przycisk Nowa jednostka SKU na karcie Nowa oferta dla maszyn wirtualnych](./media/publishvm_005.png)
+![Przycisk nowej jednostki SKU na karcie Nowa oferta dla maszyn wirtualnych](./media/publishvm_005.png)
 
 <br/>
 
-Zostanie wyświetlone okno dialogowe **Nowa jednostka SKU.**  Wprowadź identyfikator nowej jednostki SKU, a następnie kliknij przycisk **OK**. (Poniżej znajdują się konwencje nazewnictwa identyfikatorów).  Na karcie **Jednostki SKU** będą teraz wyświetlane pola dostępne do edycji.    Dołączona gwiazdka (*) w nazwie pola wskazuje, że jest ona wymagana.
+Zostanie wyświetlone okno dialogowe **Nowa jednostka SKU** .  Wprowadź identyfikator nowej jednostki SKU, a następnie kliknij przycisk **OK**. (Zobacz poniżej, aby poznać konwencje nazewnictwa identyfikatorów).  Na karcie **jednostki SKU** zostaną wyświetlone pola dostępne do edycji.    Dołączona gwiazdka (*) w nazwie pola wskazuje, że jest to wymagane.
 
 <!-- TD: This tab has been updated, now has "Old Pricing" and "Simplified Currency Pricing" sections"! -->
 
-![Karta SKU w formularzu Nowa oferta dla maszyn wirtualnych](./media/publishvm_006.png)
+![Karta SKU w formularzu nowej oferty dla maszyn wirtualnych](./media/publishvm_006.png)
 
-W poniższej tabeli opisano przeznaczenie, zawartość i formatowanie tych pól.  Wymagane pola są oskarżane gwiazdką (*).
+W poniższej tabeli opisano przeznaczenie, zawartość i formatowanie tych pól.  Wymagane pola są indicted przez gwiazdkę (*).
 
 <!-- TD: I took a new screenshot, and the fields differ somewhat from description in the VM Pub Guide.  Needs review. -->
 
 |  **Pole**       |     **Opis**                                                          |
 |  ---------       |     ---------------                                                          |
 |  *Ustawienia jednostki SKU*   |    |
-| **Identyfikator jednostki SKU\***       | Identyfikator dla tej jednostki SKU.  Ta nazwa ma maksymalnie 50 znaków, składających się z małych liter alfanumeryczne znaki lub myślniki (-), ale nie może kończyć się kreską.  Nie można go zmodyfikować po opublikowaniu oferty.  |
-|  *SKU Szczegóły*   |  |
-| **Tytuł\***        | Przyjazna nazwa oferty do wyświetlenia na rynku. Maksymalna długość 50 znaków. |
-| **Podsumowanie\***      | Zwięzły opis oferty do wyświetlenia na rynku. Maksymalna długość 100 znaków. |
-| **Opis\***  | Opis tekstu, który zawiera bardziej szczegółowe wyjaśnienie oferty.  <!-- TD: max len/guidance? 3k characters -->  |
-| **Ukryj tę jednostkę SKU\*** | Wskazuje, czy jednostka SKU powinna być widoczna w portalu marketplace dla klientów.  Możesz chcieć ukryć jednostkę SKU, jeśli chcesz, aby była dostępna tylko za pośrednictwem szablonów rozwiązań, a nie do zakupu indywidualnie.  Może to być również przydatne w przypadku wstępnych testów lub ofert tymczasowych lub sezonowych. |
-| **Dostępność chmury\*** | Określa, w których chmurach jednostka SKU powinna być dostępna.  Wartością domyślną jest publiczna wersja platformy Azure.  Microsoft Azure Government to chmura społeczności rządowej z kontrolowanym dostępem dla rządów federalnych, stanowych, lokalnych lub plemiennych stanów USA oraz ich certyfikowanych partnerów.  Aby uzyskać więcej informacji na temat chmury rządów, zobacz [Zapraszamy do platformy Azure dla instytucji rządowych](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). |
-| **Czy jest to prywatna jednostka SKU?\*** | Wskazuje, czy jednostka SKU jest prywatna czy publiczna. Wartość domyślna to **Nie** (publiczne).  Aby uzyskać więcej informacji, zobacz [jednostki SKU publiczne i prywatne](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). |
-| **Dostępność kraju/regionu\*** | Określa, w których krajach lub regionach świata jednostka SKU będzie dostępna do zakupu. Wybierz co najmniej jeden region/kraj. <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
+| **IDENTYFIKATOR JEDNOSTKI SKU\***       | Identyfikator dla tej jednostki SKU.  Ta nazwa ma maksymalnie 50 znaków składających się z małych znaków alfanumerycznych lub kresek (-), ale nie może kończyć się kreską.  Nie można go modyfikować po opublikowaniu oferty.  |
+|  *Szczegóły jednostki SKU*   |  |
+| **Tytuł\***        | Przyjazna nazwa oferty do wyświetlania w portalu Marketplace. Maksymalna długość 50 znaków. |
+| **Podsumowanie\***      | Zwięzły opis oferty do wyświetlania w portalu Marketplace. Maksymalna długość 100 znaków. |
+| **Opis\***  | Tekst opisu, który zawiera bardziej szczegółowy opis oferty.  <!-- TD: max len/guidance? 3k characters -->  |
+| **Ukryj tę jednostkę SKU\*** | Wskazuje, czy jednostka SKU powinna być widoczna w portalu Marketplace dla klientów.  Możesz chcieć ukryć jednostkę SKU, jeśli chcesz, aby była dostępna tylko za pośrednictwem szablonów rozwiązań, a nie do zakupu osobno.  Może to również być przydatne podczas wstępnego testowania lub dla ofert tymczasowych lub sezonowych. |
+| **Dostępność w chmurze\*** | Określa chmurę, w której powinna być dostępna jednostka SKU.  Wartość domyślna to publiczna wersja platformy Azure.  Microsoft Azure Government jest chmurą dla instytucji rządowych, która ma kontrolowany dostęp do instytucji rządowych Stanów Zjednoczonych, stanowych, lokalnych lub plemienne oraz ich certyfikowanych partnerów.  Aby uzyskać więcej informacji o chmurze dla instytucji rządowych, zobacz [Zapraszamy do Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). |
+| **Czy jest to prywatna jednostka SKU?\*** | Wskazuje, czy jednostka SKU jest prywatna, czy publiczna. Wartość domyślna to **no** (Public).  Aby uzyskać więcej informacji, zobacz [publiczne i prywatne jednostki SKU](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). |
+| **Dostępność kraju/regionu\*** | Określa kraje lub regiony świata, które będą dostępne do zakupu. Wybierz co najmniej jeden region/kraj. <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
 |  *Cennik*   |  |
-| **Model licencji\***| Standardowy model rozliczeń do użycia.  Jeśli wybierzesz **jednostkę SKU rozliczaną miesięcznie opartą na użyciu,** zostanie otwarta sekcja akordeonu, aby określić szczegóły cen dla rdzenia i czy chcesz zaoferować bezpłatny okres próbny.  Ta sekcja umożliwia również eksportowanie i importowanie tego harmonogramu cenowego do programu Excel. Aby uzyskać więcej informacji, zobacz [Opcje rozliczeń w portalu Azure Marketplace](../../billing-options-azure-marketplace.md). | 
+| **Model licencji\***| Standardowy model rozliczeń do użycia.  W przypadku wybrania **comiesięcznego rozliczanej jednostki SKU opartej na użyciu**zostanie otwarta sekcja zgodnie z informacjami o cenach na poziomie podstawowym oraz o tym, czy ma być oferowany bezpłatny okres próbny.  Ta sekcja umożliwia również eksportowanie i importowanie tego harmonogramu cen do programu Excel. Aby uzyskać więcej informacji, zobacz [Opcje rozliczeń w portalu Azure Marketplace](../../billing-options-azure-marketplace.md). | 
 |  *Obrazy maszyn wirtualnych*   |  |
-| **Rodzina systemów operacyjnych\*** | Wskazuje, czy maszyna wirtualna rozwiązania jest oparta na systemie Windows lub Linux. |
-| **Wybierz typ systemu operacyjnego** | Określonego dostawcy lub zwolnienie określonego systemu operacyjnego. |
-| **Nazwa przyjazna systemowi operacyjnym\*** | Nazwa systemu operacyjnego ma być wyświetlana klientom.  |
-| **Zalecane rozmiary maszyn wirtualnych\*** | Umożliwia wybór maksymalnie sześciu zalecanych rozmiarów maszyn wirtualnych ze standardowej listy.  Ta lista jest przekazywana do witryny Azure portal i witryn firmy Microsoft.  Pierwszy rozmiar maszyny Wirtualnej na tej liście, który jest prawidłowy (dla tej subskrypcji klienta, regionu, strefy itp.) jest ustawiony jako domyślny dla tego potencjalnego klienta.  Użytkownik może zmienić ten rozmiar na dowolny zgodny z obrazem rozwiązania. | 
-| **Otwarte porty**| Porty do otwarcia i protokół do obsługi jednostki SKU.  Te konfiguracje muszą być zgodne z siecią wirtualną skonfigurowany dla sieci maszyny Wirtualnej rozwiązania. Te ustawienia wchodzą w życie podczas wdrażania maszyny Wirtualnej. Jednak ustawienia portu można zmodyfikować po opublikowaniu jednostki SKU. Aby uzyskać więcej informacji, zobacz [Jak otwierać porty do maszyny wirtualnej z portalu Azure](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Następujące domyślne mapowania sieci są dodawane do wszystkich maszyn wirtualnych. &emsp;Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
-| **Wersja dysku**  | Skojarzona maszyna wirtualna rozwiązania, określona przez numer wersji dysku i adres URL dysku. Wersja dysku musi być w formacie wersji `<major>.<minor>.<patch>` [semantycznej:](https://semver.org/) .  Adres URL jest identyfikatorem URI sygnatury dostępu współdzielonego utworzonego dla vhd systemu operacyjnego.  Chociaż można dodać maksymalnie osiem wersji dysku na jednostkę SKU, tylko najwyższy numer wersji dysku dla jednostki SKU pojawi się w portalu Azure Marketplace. Pozostałe wersje będą widoczne tylko za pośrednictwem interfejsów API.  <!--TD: Add more specific link to API --> <br/> Sekcja **Akordeon nowego dysku danych** umożliwia podłączenie do 15 dysków danych do maszyny Wirtualnej.  Po opublikowaniu jednostki SKU z daną wersją maszyny Wirtualnej i skojarzonymi dyskami danych nie można zmodyfikować tej konfiguracji.  Jeśli do jednostki SKU zostaną dodane dodatkowe wersje maszyn wirtualnych, muszą one również obsługiwać taką samą liczbę dysków z danymi. <br/> Jeśli nie utworzono obrazów maszyn wirtualnych opartych na platformie Azure, możesz dodać to pole później.  Aby uzyskać informacje dotyczące tworzenia skojarzonego zasobu maszyny Wirtualnej, zobacz sekcję [Tworzenie zasobów technicznych maszyn wirtualnych](./cpp-create-technical-assets.md).  
+| **Rodzina systemów operacyjnych\*** | Wskazuje, czy maszyna wirtualna jest oparta na systemie Windows, czy Linux. |
+| **Wybierz typ systemu operacyjnego** | Określony dostawca lub wydanie określonego systemu operacyjnego. |
+| **Przyjazna nazwa systemu operacyjnego\*** | Nazwa systemu operacyjnego, który ma być wyświetlany klientom.  |
+| **Zalecane rozmiary maszyn wirtualnych\*** | Umożliwia wybór maksymalnie sześciu zalecanych rozmiarów maszyn wirtualnych z listy ustandaryzowanej.  Ta lista jest przenoszona do Azure Portal i Microsoft Marketplace.  Pierwszy rozmiar maszyny wirtualnej na tej liście jest prawidłowy (dla tej subskrypcji klienta, regionu, strefy itp.) jest ustawiony jako domyślny dla tego potencjalnego klienta.  Użytkownik może zmienić ten rozmiar na dowolny zgodny z obrazem rozwiązania. | 
+| **Otwarte porty**| Porty do otwarcia i protokołu do obsługi jednostki SKU.  Te konfiguracje muszą być zgodne z siecią wirtualną skonfigurowaną dla sieci maszyny wirtualnej rozwiązania. Te ustawienia są stosowane podczas wdrażania maszyny wirtualnej. Ustawienia portów można jednak modyfikować po opublikowaniu jednostki SKU. Aby uzyskać więcej informacji, zobacz [Jak otwierać porty do maszyny wirtualnej z portalu Azure](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Następujące domyślne mapowania sieci są dodawane do wszystkich maszyn wirtualnych. &emsp;Windows: 3389-> 3389 TCP, 5986-> 5986 TCP; &emsp; Linux: 22 — > 22, TCP (SSH). |
+| **Wersja dysku**  | Skojarzona maszyna wirtualna rozwiązania określona przez numer wersji dysku i adres URL dysku. Wersja dysku musi mieć format [wersji semantycznej](https://semver.org/) : `<major>.<minor>.<patch>`.  Adres URL to identyfikator URI sygnatury dostępu współdzielonego utworzony dla wirtualnego dysku twardego systemu operacyjnego.  Mimo że można dodać do ośmiu wersji dysku na jednostkę SKU, tylko najwyższy numer wersji dysku dla jednostki SKU będzie widoczny w witrynie Azure Marketplace. Pozostałe wersje będą widoczne tylko za pośrednictwem interfejsów API.  <!--TD: Add more specific link to API --> <br/> Sekcja **nowe miejsce na dysku z danymi** umożliwia dołączenie do maszyny wirtualnej maksymalnie 15 dysków danych.  Ta konfiguracja nie może być modyfikowana po opublikowaniu jednostki SKU z daną wersją maszyny wirtualnej i skojarzonymi dyskami z danymi.  Jeśli dodatkowe wersje maszyn wirtualnych zostaną dodane do jednostki SKU, muszą one również obsługiwać tę samą liczbę dysków danych. <br/> Jeśli nie utworzono obrazów maszyn wirtualnych opartych na platformie Azure, możesz dodać to pole później.  Aby uzyskać informacje na temat tworzenia skojarzonego zasobu maszyny wirtualnej, zobacz sekcję [Tworzenie zasobów technicznych maszyn wirtualnych](./cpp-create-technical-assets.md).  
 |  |  |
 
 <!-- TD: The CPP UX warning msg indicates that underscores are also supported in these SKU IDs. I suspect this might be true for other identifiers. --> 
 
-<br/> Kliknij **przycisk Zapisz,** aby zapisać swoje postępy. W następnej karcie określ, czy oferta obsługuje [jazdę próbną](./cpp-test-drive-tab.md).
+<br/> Kliknij przycisk **Zapisz** , aby zapisać postęp. Na następnej karcie należy określić, czy oferta obsługuje [dysk testowy](./cpp-test-drive-tab.md).
 
 
-## <a name="additional-pricing-considerations"></a>Dodatkowe kwestie cenowe
+## <a name="additional-pricing-considerations"></a>Dodatkowe zagadnienia dotyczące cen
 
-Model cenowy opisany powyżej jest podstawowym opisem.  Zmiany mogą ulec zmianie i mogą mieć na nie wpływ lokalne lub regionalne przepisy podatkowe oraz zasady cenowe firmy Microsoft. 
+Opisany powyżej model cen jest podstawowym opisem.  Zmiany te są zmieniane i mogą mieć wpływ lokalne lub regionalne regulacje podatkowe oraz zasady cenowe firmy Microsoft. 
 
-### <a name="new-core-sizes-added-on-722019"></a>Dodano nowe rozmiary rdzeni 7/2/2019
+### <a name="new-core-sizes-added-on-722019"></a>Nowe rozmiary podstawowe dodane do 7/2/2019
 
-Wydawcy maszyn wirtualnych zostali powiadomieni 2 lipca 2019 r. o dodaniu nowych cen nowych rozmiarów maszyn wirtualnych platformy Azure (na podstawie liczby rdzeni).  Nowe ceny są dla podstawowych rozmiarów 10, 44, 48, 60, 120, 208 i 416.  W przypadku istniejących ofert maszyn wirtualnych nowe ceny dla tych rozmiarów rdzeni zostały automatycznie obliczone na podstawie cen bieżących.  Wydawcy mają czas do 1 sierpnia 2019 r., aby przejrzeć dodatkowe ceny i wprowadzić wszelkie pożądane zmiany.  Po tej dacie, jeśli wydawca nie został jeszcze ponownie opublikowany, automatycznie obliczone ceny dla tych nowych rozmiarów rdzenia zostaną zastosowane.
+Wydawca maszyn wirtualnych został powiadomiony 2 lipca 2019 o dodawaniu nowych cen dla nowych rozmiarów maszyn wirtualnych platformy Azure (na podstawie liczby rdzeni).  Nowe ceny są dla wielkości rdzeni 10, 44, 48, 60, 120, 208 i 416.  W przypadku istniejącej maszyny wirtualnej nowe ceny dla tych rozmiarów rdzeni zostały automatycznie obliczone na podstawie bieżących cen.  Wydawcy mają do 1 sierpnia 2019 w celu przejrzenia dodatkowych cen i wprowadzenia wymaganych zmian.  Po tej dacie, jeśli nie została jeszcze ponownie opublikowana przez wydawcę, automatycznie obliczone ceny dla tych nowych rozmiarów podstawowych zaczną obowiązywać.
 
 
-### <a name="simplified-currency-pricing"></a>Uproszczone ceny walut
+### <a name="simplified-currency-pricing"></a>Uproszczone ceny walutowe
 
-Od 1 września 2018 r. do portalu zostanie dodana nowa sekcja o nazwie **Uproszczone ceny walut.** Firma Microsoft usprawnia działalność portalu Azure Marketplace, umożliwiając bardziej przewidywalne ceny i kolekcje od klientów z całego świata. Usprawnienie to będzie obejmować zmniejszenie liczby walut, w których wystawiamy faktury klientom.  Aby uzyskać więcej informacji, zobacz [Aktualizowanie istniejącej oferty maszyn wirtualnych w portalu Azure Marketplace](./cpp-update-existing-offer.md).
+Od września 1 2018 nową sekcję o nazwie **uproszczone ceny waluty** zostaną dodane do portalu. Firma Microsoft usprawnia działalność biznesową w witrynie Azure Marketplace, zapewniając bardziej przewidywalne ceny i kolekcje od klientów na całym świecie. Ta ulepszona oferta obejmie zmniejszenie liczby walut, w których klienci są rozliczani.  Aby uzyskać więcej informacji, zobacz temat [Aktualizowanie istniejącej oferty maszyny wirtualnej w witrynie Azure Marketplace](./cpp-update-existing-offer.md).
 
 
 ### <a name="additional-information-on-taxes-and-prices"></a>Dodatkowe informacje na temat podatków i cen
 
-* Firma Microsoft klasyfikuje niektóre kraje/regiony jako kraje, w których *podatek został nadajony.*  W takich krajach/regionach firma Microsoft pobiera podatki od klientów, a następnie płaci (przekazuje) podatki rządowi.  W innych krajach/regionach partnerzy są zazwyczaj odpowiedzialni za pobieranie podatków od swoich klientów i płacenie podatków rządowi. Jeśli zdecydujesz się na sprzedaż w tych ostatnich krajach/regionach, musisz mieć możliwość obliczania i płacenia podatków lokalnych.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
-* Ceny nie są zmienne po uruchomieniu oferty. Jednak nadal można dodawać lub usuwać obsługiwane regiony. 
-* Firma Microsoft pobiera od klienta standardowe opłaty za użycie maszyny wirtualnej platformy Azure oprócz zaplanowanych opłat za jednostkę SKU.
-* Ceny są ustalane dla wszystkich regionów w walucie lokalnej według dostępnych kursów walut w momencie ustalania cen.  <!-- TD: Meaning? - Offer created, published, other? -->
-* Aby ustawić cenę każdego regionu indywidualnie, eksportuj arkusz kalkulacyjny cen, zastosuj ceny niestandardowe, a następnie zaimportuj. 
+* Firma Microsoft klasyfikuje niektóre kraje/regiony jako kraje przestawione *podatkiem*.  W takich krajach/regionach firma Microsoft zbiera podatki od klientów, a następnie płaci podatki od instytucji rządowych.  W innych krajach/regionach partnerzy są zwykle odpowiedzialni za pobieranie podatków od klientów i opłacanie podatków dla instytucji rządowych. Jeśli zdecydujesz się sprzedawać w tych samych krajach/regionach, musisz mieć możliwość obliczania i płacenia podatków lokalnych.  <!-- TD: Find a good reference on taxing policies. The best I found was in the UWP section: https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps -->
+* Ceny nie są zmieniane po przeprowadzeniu oferty na żywo. Można jednak nadal dodawać lub usuwać obsługiwane regiony. 
+* Firma Microsoft obciąża standardowe opłaty za korzystanie z maszyn wirtualnych platformy Azure, oprócz opłat zaplanowanych dla jednostki SKU.
+* Ceny są ustawiane dla wszystkich regionów w walucie lokalnej dla dostępnych stawek walutowych w momencie Ustawienia cen.  <!-- TD: Meaning? - Offer created, published, other? -->
+* Aby ustawić cenę każdego regionu osobno, należy wyeksportować arkusz cen, zastosować Cennik niestandardowy, a następnie zaimportować. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Opcjonalnie określ informacje [o dysku testowym,](./cpp-test-drive-tab.md) jeśli obsługujesz tę funkcję; w przeciwnym razie podajesz dane [rynkowe](./cpp-marketplace-tab.md) dla swojej oferty.
+Opcjonalnie możesz określić informacje o [stacji testowej](./cpp-test-drive-tab.md) , Jeśli obsługujesz tę funkcję. w przeciwnym razie podajesz [dane dla](./cpp-marketplace-tab.md) swojej oferty.

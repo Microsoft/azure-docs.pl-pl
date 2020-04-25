@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie obciążenia — witryna Azure portal
-description: Monitoruj synapsę SQL za pomocą portalu Azure
+title: Monitorowanie obciążenia — Azure Portal
+description: Monitoruj Synapse SQL przy użyciu Azure Portal
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,37 +10,37 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0658a775e40c1fc433c7c2e1d853493544e74ee4
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 327174974affb3b2511eac60755aa1bf047b3b5e
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743202"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133466"
 ---
-# <a name="monitor-workload---azure-portal"></a>Monitorowanie obciążenia — witryna Azure portal
+# <a name="monitor-workload---azure-portal"></a>Monitorowanie obciążenia — Azure Portal
 
-W tym artykule opisano, jak używać witryny Azure Portal do monitorowania obciążenia. Obejmuje to konfigurowanie dzienników usługi Azure Monitor w celu zbadania trendów wykonywania zapytań i obciążenia przy użyciu analizy dzienników dla [synapse SQL](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
+W tym artykule opisano, jak używać Azure Portal do monitorowania obciążenia. Obejmuje to Konfigurowanie dzienników Azure Monitor, aby zbadać trendy wykonywania i obciążeń zapytań za pomocą usługi log Analytics dla [Synapse SQL](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure: jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
-- Pula SQL: Będziemy zbierać dzienniki dla puli SQL. Jeśli nie masz aprowizowanego puli SQL, zobacz instrukcje w [aplikacji Tworzenie puli SQL](load-data-from-azure-blob-storage-using-polybase.md).
+- Subskrypcja platformy Azure: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+- Pula SQL: będziemy zbierać dzienniki dla puli SQL. Jeśli nie masz zainicjowanej puli SQL, zapoznaj się z instrukcjami w temacie [Tworzenie puli SQL](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="create-a-log-analytics-workspace"></a>Tworzenie obszaru roboczego usługi Log Analytics
 
-Przejdź do bloku przeglądania obszarów roboczych usługi Log Analytics i utwórz obszar roboczy
+Przejdź do bloku Przeglądaj dla obszarów roboczych Log Analytics i Utwórz obszar roboczy
 
 ![Obszary robocze usługi Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
-![Dodawanie obszaru roboczego analizy](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
+![Dodaj obszar roboczy analizy](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
 
-![Dodawanie obszaru roboczego analizy](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
+![Dodaj obszar roboczy analizy](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-Aby uzyskać więcej informacji na temat obszarów roboczych, odwiedź następującą [dokumentację](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
+Aby uzyskać więcej informacji na temat obszarów roboczych, zapoznaj się z poniższą [dokumentacją](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 
-## <a name="turn-on-diagnostic-logs"></a>Włączanie dzienników diagnostycznych
+## <a name="turn-on-resource-logs"></a>Włącz dzienniki zasobów
 
-Skonfiguruj ustawienia diagnostyczne, aby emitować dzienniki z puli SQL. Dzienniki składają się z widoków telemetrycznych równoważnych najczęściej używanym rejestratorom dmv rozwiązywania problemów z wydajnością. Obecnie obsługiwane są następujące widoki:
+Skonfiguruj ustawienia diagnostyczne, aby emitować dzienniki z puli SQL. Dzienniki składają się z widoków telemetrii równoważnych najczęściej używanym rozwiązywaniu problemów z wydajnością widoków DMV. Obecnie obsługiwane są następujące widoki:
 
 - [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -48,28 +48,28 @@ Skonfiguruj ustawienia diagnostyczne, aby emitować dzienniki z puli SQL. Dzienn
 - [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-![Włączanie dzienników diagnostycznych](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
+![Włączanie dzienników zasobów](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
-Dzienniki mogą być emitowane do usługi Azure Storage, Usługi Stream Analytics lub usługi Log Analytics. W tym samouczku wybierz pozycję Analiza dzienników.
+Dzienniki mogą być emitowane do usługi Azure Storage, Stream Analytics lub Log Analytics. Na potrzeby tego samouczka wybierz pozycję Log Analytics.
 
 ![Określanie dzienników](./media/sql-data-warehouse-monitor-workload-portal/specify_logs.png)
 
-## <a name="run-queries-against-log-analytics"></a>Uruchamianie zapytań względem usługi Log Analytics
+## <a name="run-queries-against-log-analytics"></a>Uruchom zapytania względem Log Analytics
 
-Przejdź do obszaru roboczego usługi Log Analytics, w którym można wykonać następujące czynności:
+Przejdź do obszaru roboczego Log Analytics, gdzie można wykonać następujące czynności:
 
-- Analizowanie dzienników przy użyciu zapytań dziennika i zapisywanie zapytań do ponownego użycia
-- Zapisywanie kwerend do ponownego użycia
+- Analizuj dzienniki przy użyciu zapytań dzienników i zapisuj zapytania do ponownego użycia
+- Zapisz zapytania do ponownego użycia
 - Tworzenie alertów dotyczących dzienników
-- Przypinanie wyników kwerendy do pulpitu nawigacyjnego
+- Przypinanie wyników zapytania do pulpitu nawigacyjnego
 
-Aby uzyskać szczegółowe informacje na temat możliwości zapytań dziennika, odwiedź następującą [dokumentację](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Aby uzyskać szczegółowe informacje na temat możliwości kwerend dzienników, zapoznaj się z poniższą [dokumentacją](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-![Edytor obszaru roboczego usługi Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
+![Log Analytics Edytor obszarów roboczych](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
 
-![Kwerendy obszaru roboczego usługi Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_queries.png)
+![Log Analytics zapytań obszaru roboczego](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_queries.png)
 
-## <a name="sample-log-queries"></a>Przykładowe kwerendy dziennika
+## <a name="sample-log-queries"></a>Przykładowe zapytania dziennika
 
 ```Kusto
 //List all queries
@@ -97,4 +97,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy masz skonfigurowane i skonfigurowane dzienniki monitora platformy Azure, [dostosuj pulpity nawigacyjne platformy Azure,](../../azure-portal/azure-portal-dashboards.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) aby udostępnić je zespołowi.
+Teraz, po skonfigurowaniu i skonfigurowaniu dzienników usługi Azure monitor, [Dostosuj pulpity nawigacyjne platformy Azure](../../azure-portal/azure-portal-dashboards.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tak, aby były udostępniane przez zespół.

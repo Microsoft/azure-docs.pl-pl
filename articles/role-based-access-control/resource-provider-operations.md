@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 61fb8b53d7d109fefc002b387702a240353f0dca
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: bfe0c6fcc0d1d22807bfb59b146050fb307892a0
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82117611"
+ms.locfileid: "82133154"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operacje dostawcy zasobów Azure Resource Manager
 
@@ -4284,7 +4284,7 @@ Usługa platformy Azure: [Event Grid](../event-grid/index.yml)
 > |  | **domeny/privateLinkResources** |  |
 > | Akcja | Microsoft. EventGrid/domens/privateLinkResources/Read | Pobierz lub Wyświetl listę PrivateLinkResources dla domen |
 > |  | **domeny/dostawcy/Microsoft. Insights/logDefinitions** |  |
-> | Akcja | Microsoft. EventGrid/domeny/dostawcy/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników diagnostycznych |
+> | Akcja | Microsoft. EventGrid/domeny/dostawcy/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników zasobów |
 > |  | **domeny/dostawcy/Microsoft. Insights/metricDefinitions** |  |
 > | Akcja | Microsoft. EventGrid/domeny/dostawcy/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla domen |
 > |  | **domeny/tematy** |  |
@@ -4352,7 +4352,7 @@ Usługa platformy Azure: [Event Grid](../event-grid/index.yml)
 > | Akcja | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne dla tematów systemowych |
 > | Akcja | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne dla tematów systemowych |
 > |  | **systemTopics/Providers/Microsoft. Insights/logDefinitions** |  |
-> | Akcja | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników diagnostycznych |
+> | Akcja | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników zasobów |
 > |  | **systemTopics/Providers/Microsoft. Insights/metricDefinitions** |  |
 > | Akcja | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla tematów systemowych |
 > |  | **opisano** |  |
@@ -4376,7 +4376,7 @@ Usługa platformy Azure: [Event Grid](../event-grid/index.yml)
 > | Akcja | Microsoft. EventGrid/tematy/dostawcy/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne dla tematów |
 > | Akcja | Microsoft. EventGrid/tematy/dostawcy/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne dla tematów |
 > |  | **Tematy/dostawcy/Microsoft. Insights/logDefinitions** |  |
-> | Akcja | Microsoft. EventGrid/tematy/dostawcy/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników diagnostycznych |
+> | Akcja | Microsoft. EventGrid/tematy/dostawcy/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników zasobów |
 > |  | **Tematy/dostawcy/Microsoft. Insights/metricDefinitions** |  |
 > | Akcja | Microsoft. EventGrid/tematy/dostawcy/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla tematów |
 > |  | **topictypes** |  |

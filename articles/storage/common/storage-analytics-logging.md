@@ -1,6 +1,6 @@
 ---
 title: Rejestrowanie analityki magazynu platformy Azure
-description: Dowiedz się, jak rejestrować szczegóły dotyczące żądań dotyczących usługi Azure Storage.
+description: Dowiedz się, jak rejestrować szczegółowe informacje o żądaniach skierowanych do usługi Azure Storage.
 author: normesta
 ms.service: storage
 ms.subservice: common
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 5b94a97f1286e1273300014e4eef140be412436b
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 45224625cfc828227708247d082a1aab1aef8469
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637181"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142642"
 ---
 # <a name="azure-storage-analytics-logging"></a>Rejestrowanie analityki magazynu platformy Azure
 
-Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszych starań.
+Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku.
 
- Rejestrowanie w usłudze Storage Analytics nie jest domyślnie włączone dla Twojego konta magazynu. Można go włączyć w [witrynie Azure portal;](https://portal.azure.com/) aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w witrynie Azure portal](/azure/storage/storage-monitor-storage-account). Można również włączyć usługi Storage Analytics programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Użyj [get właściwości usługi obiektów blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Pobierz właściwości usługi kolejki](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties)i Pobierz właściwości usługi [tabel,](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) aby włączyć analizę magazynu dla każdej usługi.
+ Rejestrowanie w usłudze Storage Analytics nie jest domyślnie włączone dla Twojego konta magazynu. Można ją włączyć w [Azure Portal](https://portal.azure.com/); Aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w Azure Portal](/azure/storage/storage-monitor-storage-account). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Aby włączyć analityka magazynu dla każdej usługi, użyj [właściwości get BLOB Service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Pobierz właściwości usługi kolejkowania](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties)i [Pobierz właściwości usługi Table](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) Service.
 
- Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania wykonane względem punktu końcowego usługi. Na przykład jeśli konto magazynu ma działanie w jego blob punktu końcowego, ale nie w jego tabeli lub kolejka punktów końcowych, zostaną utworzone tylko dzienniki odnoszące się do usługi obiektów Blob.
+ Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do punktu końcowego usługi. Na przykład jeśli konto magazynu ma aktywność w swoim punkcie końcowym obiektu BLOB, ale nie znajduje się w jego punktach końcowych tabeli lub kolejki, zostaną utworzone tylko dzienniki dotyczące Blob service.
 
 > [!NOTE]
 >  Rejestrowanie w usłudze Storage Analytics jest aktualnie dostępne tylko dla usług Blob Storage, Queue Storage i Table Storage. Jednak konto magazynu w warstwie Premium nie jest obsługiwane.
 
-## <a name="requests-logged-in-logging"></a>Żądania logowania do logowania
-### <a name="logging-authenticated-requests"></a>Rejestrowanie uwierzytelnionych żądań
+## <a name="requests-logged-in-logging"></a>Zarejestrowane żądania logowania
+### <a name="logging-authenticated-requests"></a>Rejestrowanie żądań uwierzytelnionych
 
  Rejestrowane są następujące typy żądań uwierzytelnionych:
 
@@ -36,7 +36,7 @@ Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żąda�
 - Żądania przy użyciu sygnatury dostępu współdzielonego (SAS) lub protokołu OAuth, w tym żądania zakończone niepowodzeniem i zakończone powodzeniem
 - Żądania dotyczące danych analityki
 
-  Żądania wykonane przez samą analizę magazynu, takie jak tworzenie lub usuwanie dziennika, nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w tematach [Operacje rejestrowane i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) analizy magazynu oraz Format dziennika analizy [magazynu.](/rest/api/storageservices/storage-analytics-log-format)
+  Żądania wykonywane przez analityka magazynu samego siebie, takie jak tworzenie lub usuwanie dziennika, nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w temacie [analityka magazynu zarejestrowane operacje i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [formacie dziennika analityka magazynu](/rest/api/storageservices/storage-analytics-log-format) .
 
 ### <a name="logging-anonymous-requests"></a>Rejestrowanie żądań anonimowych
 
@@ -44,23 +44,23 @@ Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żąda�
 
 - Żądania zakończone powodzeniem
 - Błędy serwera
-- Błędy limitu czasu zarówno dla klienta, jak i serwera
+- Błędy przekroczenia limitu czasu dla klienta i serwera
 - Żądania GET zakończone niepowodzeniem z kodem błędu 304 (Nie zmodyfikowano)
 
-  Wszystkie inne żądania anonimowe nie powiodły się, nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w tematach [Operacje rejestrowane i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) analizy magazynu oraz Format dziennika analizy [magazynu.](/rest/api/storageservices/storage-analytics-log-format)
+  Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w temacie [analityka magazynu zarejestrowane operacje i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz informacje o [formacie dziennika analityka magazynu](/rest/api/storageservices/storage-analytics-log-format) .
 
-## <a name="how-logs-are-stored"></a>Sposób przechowywania dzienników
+## <a name="how-logs-are-stored"></a>Jak przechowywane są dzienniki
 
-Wszystkie dzienniki są przechowywane w blokowych `$logs`obiektach blob w kontenerze o nazwie , który jest tworzony automatycznie, gdy usługa Storage Analytics jest włączona dla konta magazynu. Kontener `$logs` znajduje się w obszarze nazw obiektów blob konta `http://<accountname>.blob.core.windows.net/$logs`magazynu, na przykład: . Tego kontenera nie można usunąć po włączeniu usługi Storage Analytics, ale jego zawartość można usunąć. Jeśli używasz narzędzia do przeglądania magazynu, aby przejść bezpośrednio do kontenera, zobaczysz wszystkie obiekty blob, które zawierają dane rejestrowania.
+Wszystkie dzienniki są przechowywane w blokowych obiektach Blob w `$logs`kontenerze o nazwie, który jest tworzony automatycznie, gdy analityka magazynu jest włączona dla konta magazynu. `$logs` Kontener znajduje się w przestrzeni nazw obiektów BLOB na koncie magazynu, na przykład: `http://<accountname>.blob.core.windows.net/$logs`. Nie można usunąć tego kontenera po włączeniu analityka magazynu, chociaż jego zawartość może zostać usunięta. Jeśli używasz narzędzia do przeglądania magazynu do bezpośredniego przechodzenia do kontenera, zobaczysz wszystkie obiekty blob zawierające dane rejestrowania.
 
 > [!NOTE]
->  Kontener `$logs` nie jest wyświetlany po wykonaniu operacji listy kontenerów, takiej jak operacja Kontenery listy. Dostęp do niego musi być dostępny bezpośrednio. Na przykład można użyć operacji Lista obiektów blob, `$logs` aby uzyskać dostęp do obiektów blob w kontenerze.
+>  `$logs` Kontener nie jest wyświetlany, gdy jest wykonywana operacja tworzenia listy kontenerów, taka jak operacja listy kontenerów. Dostęp do niego należy uzyskać bezpośrednio. Na przykład możesz użyć operacji list Blobs, aby uzyskać dostęp do obiektów BLOB w `$logs` kontenerze.
 
-Ponieważ żądania są rejestrowane, Analiza magazynu będzie przesyłać wyniki pośrednie jako bloki. Okresowo analiza magazynu zatwierdzi te bloki i udostępni je jako obiekt blob. Może upłynąć do godziny dla danych dziennika pojawiają się w obiektach blob w kontenerze **$logs,** ponieważ częstotliwość, z jaką usługa magazynu opróżnia moduły zapisujących dziennik. Zduplikowane rekordy mogą istnieć dla dzienników utworzonych w tej samej godzinie. Można określić, czy rekord jest duplikatem, sprawdzając numer **RequestId** i **Operation.**
+Gdy żądania są rejestrowane, analityka magazynu przekaże wyniki pośrednie jako bloki. Okresowo analityka magazynu zatwierdzi te bloki i udostępni je jako obiekt BLOB. Dane dziennika mogą pojawić się w obiektach Blob w kontenerze **$Logs** , ponieważ częstotliwość opróżniania przez usługę magazynu dzienników. Zduplikowane rekordy mogą istnieć dla dzienników utworzonych w tej samej godzinie. Można określić, czy rekord jest duplikatem, sprawdzając identyfikator **żądania** i numer **operacji** .
 
-Jeśli masz dużą ilość danych dziennika z wieloma plikami dla każdej godziny, możesz użyć metadanych obiektu blob, aby określić, jakie dane zawiera dziennik, badając pola metadanych obiektów blob. Jest to również przydatne, ponieważ czasami może wystąpić opóźnienie, gdy dane są zapisywane w plikach dziennika: metadane obiektu blob daje dokładniejsze wskazanie zawartości obiektu blob niż nazwa obiektu blob.
+Jeśli masz dużą ilość danych dziennika z wieloma plikami dla każdej godziny, możesz użyć metadanych obiektu BLOB, aby określić, jakie dane zawiera dziennik, badając pola metadanych obiektów BLOB. Jest to również przydatne, ponieważ czasami może wystąpić opóźnienie, gdy dane są zapisywane w plikach dziennika: metadane obiektów BLOB zapewniają dokładniejsze wskazanie zawartości obiektu BLOB niż nazwa obiektu BLOB.
 
-Większość narzędzi do przeglądania magazynu umożliwiają wyświetlanie metadanych obiektów blob; można również odczytać te informacje za pomocą programu PowerShell lub programowo. Poniższy fragment kodu programu PowerShell jest przykładem filtrowania listy obiektów blob dziennika według nazwy, aby określić czas i przez metadane, aby zidentyfikować tylko te dzienniki, które zawierają operacje **zapisu.**  
+Większość narzędzi do przeglądania magazynu umożliwia przeglądanie metadanych obiektów BLOB; te informacje można również odczytać przy użyciu programu PowerShell lub programowo. Poniższy fragment kodu programu PowerShell to przykład filtrowania listy obiektów BLOB dziennika według nazwy w celu określenia czasu i metadanych w celu zidentyfikowania tylko tych dzienników, które zawierają operacje **zapisu** .  
 
  ```powershell
  Get-AzureStorageBlob -Container '$logs' |  
@@ -76,7 +76,7 @@ Większość narzędzi do przeglądania magazynu umożliwiają wyświetlanie met
  }  
  ```  
 
-Aby uzyskać informacje dotyczące programowego wyświetlania obiektów blob, zobacz [Wyliczanie zasobów obiektów blob](https://msdn.microsoft.com/library/azure/hh452233.aspx) oraz [ustawianie i pobieranie właściwości i metadanych zasobów obiektów blob](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
+Aby uzyskać informacje na temat programistycznego tworzenia listy obiektów blob, zobacz [wyliczanie zasobów obiektów BLOB](https://msdn.microsoft.com/library/azure/hh452233.aspx) i [Ustawianie właściwości i metadanych dla zasobów obiektów BLOB](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
 
 ### <a name="log-naming-conventions"></a>Konwencje nazewnictwa dzienników
 
@@ -88,36 +88,36 @@ Aby uzyskać informacje dotyczące programowego wyświetlania obiektów blob, zo
 
 |Atrybut|Opis|
 |---------------|-----------------|
-|`<service-name>`|Nazwa usługi magazynu. Na `blob`przykład: `table`, , lub`queue`|
+|`<service-name>`|Nazwa usługi magazynu. Na przykład: `blob`, `table`, lub`queue`|
 |`YYYY`|Czterocyfrowy rok dla dziennika. Na przykład: `2011`|
 |`MM`|Dwucyfrowy miesiąc dla dziennika. Na przykład: `07`|
-|`DD`|Dwucyfrowy dzień dla dziennika. Na przykład: `31`|
-|`hh`|Dwucyfrowa godzina, która wskazuje godzinę początkową dzienników w formacie 24-godzinnym UTC. Na przykład: `18`|
-|`mm`|Dwucyfrowy numer, który wskazuje minutę rozpoczęcia dzienników. **Uwaga:**  Ta wartość nie jest poparta w bieżącej wersji analizy magazynu, a jej wartość będzie zawsze `00`.|
-|`<counter>`|Licznik od zera z sześcioma cyframi, który wskazuje liczbę obiektów blob dziennika wygenerowanych dla usługi magazynu w ciągu godziny. Ten licznik zaczyna `000000`się od . Na przykład: `000001`|
+|`DD`|Dzień dwa cyfry dla dziennika. Na przykład: `31`|
+|`hh`|Godzina dwie cyfry, która wskazuje godzinę początkową dzienników w formacie 24-godzinnym. Na przykład: `18`|
+|`mm`|Wartość dwóch cyfr wskazująca na minutę początkową dzienników. **Uwaga:**  Ta wartość nie jest obsługiwana w bieżącej wersji analityka magazynu i jej wartość będzie zawsze równa `00`.|
+|`<counter>`|Licznik oparty na zero, zawierający sześć cyfr wskazujących liczbę obiektów BLOB dziennika wygenerowanych dla usługi magazynu w ciągu godziny. Ten licznik jest uruchamiany `000000`o. Na przykład: `000001`|
 
- Poniżej znajduje się pełna nazwa dziennika przykładu, który łączy powyższe przykłady:
+ Poniżej znajduje się pełna nazwa dziennika przykładowego, który łączy powyższe przykłady:
 
  `blob/2011/07/31/1800/000001.log`
 
- Poniżej przedstawiono przykładowy identyfikator URI, który może służyć do uzyskiwania dostępu do powyższego dziennika:
+ Poniżej znajduje się przykładowy identyfikator URI, którego można użyć w celu uzyskania dostępu do powyższego dziennika:
 
  `https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log`
 
- Po zarejestrowaniu żądania magazynu wynikowa nazwa dziennika jest skorelowana z godziną po zakończeniu żądanej operacji. Na przykład jeśli żądanie GetBlob zostało ukończone o godzinie 18:30 w dniu 31.07.2011 r., dziennik zostanie zapisany z następującym prefiksem:`blob/2011/07/31/1800/`
+ Gdy żądanie magazynu zostanie zarejestrowane, powstająca Nazwa dziennika jest skorelowana na godzinę, gdy żądana operacja została ukończona. Na przykład jeśli żądanie GetBlob zostało wykonane w dniu 6:30 na 7/31/2011, Dziennik zostanie zapisany z następującym prefiksem:`blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>Metadane dziennika
 
- Wszystkie obiekty BLOB dziennika są przechowywane z metadanymi, które mogą służyć do identyfikowania danych rejestrowania obiektu blob zawiera. W poniższej tabeli opisano każdy atrybut metadanych:
+ Wszystkie obiekty blob dziennika są przechowywane z metadanymi, których można użyć do zidentyfikowania, jakie dane rejestrowania zawiera obiekt BLOB. W poniższej tabeli opisano każdy atrybut metadanych:
 
 |Atrybut|Opis|
 |---------------|-----------------|
-|`LogType`|Opisuje, czy dziennik zawiera informacje dotyczące operacji odczytu, zapisu lub usuwania. Ta wartość może zawierać jeden typ lub kombinację wszystkich trzech, oddzielonych przecinkami.<br /><br /> Przykład 1:`write`<br /><br /> Przykład 2:`read,write`<br /><br /> Przykład 3:`read,write,delete`|
-|`StartTime`|Najwcześniejsza godzina wpisu w dzienniku, `YYYY-MM-DDThh:mm:ssZ`w formie . Na przykład: `2011-07-31T18:21:46Z`|
-|`EndTime`|Ostatni czas wpisu w dzienniku, w `YYYY-MM-DDThh:mm:ssZ`formie . Na przykład: `2011-07-31T18:22:09Z`|
+|`LogType`|Opisuje, czy dziennik zawiera informacje dotyczące operacji odczytu, zapisu lub usuwania. Ta wartość może zawierać jeden typ lub kombinację wszystkich trzech, rozdzielonych przecinkami.<br /><br /> Przykład 1:`write`<br /><br /> Przykład 2:`read,write`<br /><br /> Przykład 3:`read,write,delete`|
+|`StartTime`|Najwcześniejsza godzina wpisu w dzienniku w postaci `YYYY-MM-DDThh:mm:ssZ`. Na przykład: `2011-07-31T18:21:46Z`|
+|`EndTime`|Najnowsza godzina wpisu w dzienniku w postaci `YYYY-MM-DDThh:mm:ssZ`. Na przykład: `2011-07-31T18:22:09Z`|
 |`LogVersion`|Wersja formatu dziennika.|
 
- Na poniższej liście są wyświetlane pełne przykładowe metadane przy użyciu powyższych przykładów:
+ Na poniższej liście przedstawiono kompletne przykładowe metadane przy użyciu powyższych przykładów:
 
 -   `LogType=write`
 -   `StartTime=2011-07-31T18:21:46Z`
@@ -126,39 +126,43 @@ Aby uzyskać informacje dotyczące programowego wyświetlania obiektów blob, zo
 
 ## <a name="enable-storage-logging"></a>Włącz rejestrowanie magazynu
 
-Rejestrowanie magazynu można włączyć za pomocą witryny Azure portal, powershell i zestawów SDK magazynu.
+Rejestrowanie magazynu można włączyć przy użyciu zestawów SDK Azure Portal, PowerShell i magazynu.
 
-### <a name="enable-storage-logging-using-the-azure-portal"></a>Włącz rejestrowanie magazynu przy użyciu witryny Azure portal  
+### <a name="enable-storage-logging-using-the-azure-portal"></a>Włącz rejestrowanie magazynu przy użyciu Azure Portal  
 
-W witrynie Azure portal użyj bloku **Ustawienia diagnostyki (klasyczne),** aby sterować rejestrowaniem magazynu, dostępną z sekcji **Monitorowanie (klasyczna)** **bloku Menu**konta magazynu.
+W Azure Portal użyj bloku **ustawień diagnostycznych (klasyczny)** , aby kontrolować Rejestrowanie magazynu, dostępne w sekcji **monitorowanie (klasyczne)** w **bloku menu**konta magazynu.
 
-Można określić usługi magazynu, które chcesz zarejestrować, oraz okres przechowywania (w dniach) dla zarejestrowanych danych.  
+Możesz określić usługi magazynu, które mają być rejestrowane, oraz okres przechowywania (w dniach) dla zarejestrowanych danych.  
 
 ### <a name="enable-storage-logging-using-powershell"></a>Włączanie rejestrowania magazynu przy użyciu programu PowerShell  
 
- Za pomocą programu PowerShell na komputerze lokalnym można skonfigurować rejestrowanie magazynu na koncie magazynu przy użyciu polecenia cmdlet Azure PowerShell **Get-AzureStorageServiceLoggingProperty** do pobierania bieżących ustawień i **właściwości cmdlet Set-AzureStorageServiceLoggingProperty,** aby zmienić bieżące ustawienia.  
+ Aby skonfigurować rejestrowanie magazynu na koncie magazynu przy Azure PowerShell użyciu polecenia cmdlet **Get-AzureStorageServiceLoggingProperty** w programie PowerShell, można użyć narzędzia do pobrania bieżących ustawień oraz polecenia cmdlet **Set-AzureStorageServiceLoggingProperty** w celu zmiany bieżących ustawień.  
 
- Polecenia cmdlet, które kontrolują rejestrowanie magazynu używać **LoggingOperations** parametr, który jest ciągiem zawierającym listę typów żądań oddzielonych przecinkami do dziennika. Trzy możliwe typy żądań są **odczytywane,** **zapisywane**i **usuwane**. Aby wyłączyć rejestrowanie, należy użyć wartości **brak** dla **LoggingOperations** parametru.  
+ Polecenia cmdlet kontrolujące Rejestrowanie magazynu używają **LoggingOperations** parametru, który jest ciągiem zawierającym rozdzielaną przecinkami listę typów żądań do rejestrowania. Trzy możliwe typy żądań to **Odczyt**, **zapis**i **usuwanie**. Aby wyłączyć rejestrowanie, użyj wartości **none** dla parametru **LoggingOperations** .  
 
- Następujące polecenie włącza rejestrowanie żądań odczytu, zapisu i usuwania w usłudze Kolejka na domyślnym koncie magazynu z przechowywaniem ustawionym na pięć dni:  
+ Następujące polecenie przełącza do rejestrowania żądań odczytu, zapisu i usuwania w usługa kolejki na domyślnym koncie magazynu z ustawionym okresem przechowywania na pięć dni:  
 
 ```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
- Następujące polecenie wyłącza rejestrowanie usługi tabel na domyślnym koncie magazynu:  
+ Następujące polecenie wyłącza rejestrowanie dla usługi Table Service na domyślnym koncie magazynu:  
 
 ```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
- Aby uzyskać informacje dotyczące konfigurowania poleceń cmdlet programu Azure PowerShell do pracy z subskrypcją platformy Azure i wybierania domyślnego konta magazynu do użycia, zobacz: [Jak zainstalować i skonfigurować program Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+ Aby uzyskać informacje dotyczące sposobu konfigurowania Azure PowerShell poleceń cmdlet do pracy z subskrypcją platformy Azure i wybierania domyślnego konta magazynu do użycia, zobacz: [jak zainstalować i skonfigurować Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
-### <a name="enable-storage-logging-programmatically"></a>Programowo włączanie rejestrowania magazynu  
+### <a name="enable-storage-logging-programmatically"></a>Programowo Włącz rejestrowanie magazynu  
 
- Oprócz korzystania z witryny Azure portal lub poleceń cmdlet programu Azure PowerShell do kontrolowania rejestrowania magazynu, można również użyć jednego z interfejsów API usługi Azure Storage. Na przykład jeśli używasz języka .NET, możesz użyć biblioteki klienta magazynu.  
+ Oprócz używania Azure Portal lub Azure PowerShell poleceń cmdlet do kontrolowania rejestrowania magazynu, można również użyć jednego z interfejsów API usługi Azure Storage. Jeśli na przykład używasz języka .NET, możesz użyć biblioteki klienta usługi Storage.  
 
- Klasy **CloudBlobClient**, **CloudQueueClient**i **CloudTableClient** mają metody, takie jak **SetServicePropertiesasync,** które przyjmują obiekt **ServiceProperties** jako parametr. **SetServicePropertiesAsync** Za pomocą obiektu **ServiceProperties** można skonfigurować rejestrowanie magazynu. Na przykład następujący fragment kodu języka C# pokazuje, jak zmienić to, co jest rejestrowane i okres przechowywania dla rejestrowania kolejki:  
+# <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/diagnostic-logs-classic.cs" id="snippet_EnableDiagnosticLogs":::
+
+# <a name="net-v11-sdk"></a>[\.Zestaw SDK NET v11](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -171,37 +175,40 @@ serviceProperties.Logging.RetentionDays = 2;
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
 
- Aby uzyskać więcej informacji na temat konfigurowania rejestrowania rejestrowania magazynu przy użyciu języka .NET, zobacz [Odwołanie do biblioteki klienta magazynu](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
+---
 
- Aby uzyskać ogólne informacje dotyczące konfigurowania rejestrowania magazynu przy użyciu interfejsu API REST, zobacz [Włączanie i konfigurowanie analizy magazynu](https://msdn.microsoft.com/library/azure/hh360996.aspx).  
+
+ Aby uzyskać więcej informacji na temat konfigurowania rejestrowania magazynu przy użyciu języka .NET, zobacz [Dokumentacja biblioteki klienta usługi Storage](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
+
+ Aby uzyskać ogólne informacje o konfigurowaniu rejestrowania magazynu za pomocą interfejsu API REST, zobacz [Włączanie i konfigurowanie analityka magazynu](https://msdn.microsoft.com/library/azure/hh360996.aspx).  
 
 ## <a name="download-storage-logging-log-data"></a>Pobieranie danych dziennika rejestrowania magazynu
 
- Aby wyświetlić i przeanalizować dane dziennika, należy pobrać obiekty BLOB, które zawierają dane dziennika, które cię interesują na komputerze lokalnym. Wiele narzędzi do przeglądania pamięci masowej umożliwia pobieranie obiektów blob z konta magazynu; można również użyć zespołu usługi Azure Storage dostarczone wiersza polecenia Azure Copy Tool [AzCopy](storage-use-azcopy-v10.md) do pobierania danych dziennika.  
+ Aby wyświetlić i przeanalizować dane dziennika, należy pobrać obiekty blob zawierające dane dzienników, które interesują się na komputerze lokalnym. Wiele narzędzi do przeglądania magazynu umożliwia pobieranie obiektów blob z konta magazynu; do pobrania danych dzienników można również użyć zespołu usługi Azure Storage dostępnego w wierszu polecenia usługi Azure copy [AzCopy](storage-use-azcopy-v10.md) .  
  
 >[!NOTE]
-> Kontener `$logs` nie jest zintegrowany z siatką zdarzeń, więc nie będzie otrzymywać powiadomień, gdy pliki dziennika są zapisywane. 
+> `$logs` Kontener nie jest zintegrowany z Event Grid, więc nie będziesz otrzymywać powiadomień o zapisie plików dziennika. 
 
- Aby upewnić się, że pobierasz dane dziennika, które Cię interesują, i aby uniknąć pobierania tych samych danych dziennika więcej niż jeden raz:  
+ Aby upewnić się, że pobierasz dane dziennika, które Cię interesują, i unikaj pobierania tych samych danych dziennika więcej niż raz:  
 
--   Użyj konwencji nazewnictwa daty i godziny dla obiektów blob zawierających dane dziennika, aby śledzić obiekty blob, które zostały już pobrane do analizy, aby uniknąć ponownego pobrania tych samych danych więcej niż raz.  
+-   Użyj konwencji nazewnictwa daty i godziny dla obiektów BLOB zawierających dane dziennika, aby śledzić, które obiekty blob zostały już pobrane do analizy, aby uniknąć ponownego pobierania tych samych danych więcej niż raz.  
 
--   Użyj metadanych na obiektach blob zawierających dane dziennika, aby zidentyfikować określony okres, dla którego obiekt blob przechowuje dane dziennika, aby zidentyfikować dokładny obiekt blob, który należy pobrać.  
+-   Użyj metadanych obiektów BLOB zawierających dane dziennika, aby określić konkretny okres, dla którego obiekt BLOB przechowuje dane dziennika w celu zidentyfikowania dokładnego obiektu BLOB, który należy pobrać.  
 
-Aby rozpocząć korzystanie z AzCopy, zobacz [Wprowadzenie do AzCopy](storage-use-azcopy-v10.md) 
+Aby rozpocząć pracę z usługą AzCopy, zobacz artykuł [Rozpoczynanie pracy z usługą AzCopy](storage-use-azcopy-v10.md) 
 
-W poniższym przykładzie pokazano, jak można pobrać dane dziennika dla usługi kolejki dla godzin rozpoczynających się od 09:00, 10:00 i 11:00 w dniu 20 maja 2014 r.
+Poniższy przykład pokazuje, jak można pobrać dane dziennika dla usługi kolejki dla godzin, począwszy od 09 AM, 10 AM i 11 AM 20 maja, 2014.
 
 ```
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Aby dowiedzieć się więcej o pobieraniu określonych plików, zobacz [Pobieranie określonych plików](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
+Aby dowiedzieć się więcej o pobieraniu określonych plików, zobacz [pobieranie określonych plików](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
-Po pobraniu danych dziennika można wyświetlić wpisy dziennika w plikach. Te pliki dziennika używają rozdzielanego formatu tekstu, który wiele narzędzi do odczytu dziennika jest w stanie przeanalizować, w tym Microsoft Message Analyzer (aby uzyskać więcej informacji, zobacz przewodnik [Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Różne narzędzia mają różne możliwości formatowania, filtrowania, sortowania, przeszukiwania zawartości plików dziennika. Aby uzyskać więcej informacji na temat formatu pliku dziennika rejestrowania magazynu i zawartości, zobacz [Format dziennika analizy magazynu](/rest/api/storageservices/storage-analytics-log-format) i operacje rejestrowane analizy magazynu i [komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
+Po pobraniu danych dziennika można wyświetlić wpisy dziennika w plikach. Te pliki dzienników używają rozdzielanego formatu tekstu, który umożliwia przeanalizowanie wielu narzędzi do odczytywania dzienników, w tym programu Microsoft Message Analyzer (Aby uzyskać więcej informacji, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Różne narzędzia mają różne pomieszczenia do formatowania, filtrowania, sortowania, wyszukiwania w usłudze AD zawartości plików dziennika. Aby uzyskać więcej informacji na temat formatu i zawartości pliku dziennika rejestrowania magazynu, zobacz [analityka magazynu format dziennika](/rest/api/storageservices/storage-analytics-log-format) i [analityka magazynu zarejestrowanych operacji i komunikatów o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Format dziennika analizy magazynu](/rest/api/storageservices/storage-analytics-log-format)
-* [Operacje rejestrowane i komunikaty o stanie analizy magazynu](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
-* [Dane analizy przestrzeni dyskowej (klasyczne)](storage-analytics-metrics.md)
+* [analityka magazynu format dziennika](/rest/api/storageservices/storage-analytics-log-format)
+* [analityka magazynu zarejestrowane operacje i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
+* [Metryki analityka magazynu (klasyczne)](storage-analytics-metrics.md)

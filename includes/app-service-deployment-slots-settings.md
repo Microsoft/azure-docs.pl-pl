@@ -4,42 +4,42 @@ ms.service: app-service
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
-ms.openlocfilehash: e00db06346b19ef85eb77626eb2ed169d2224b6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4234acb2ce32980a268e389cb31de9a57ed18e6
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71129689"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131756"
 ---
-Podczas klonowania konfiguracji z innego gniazda wdrażania, sklonowana konfiguracja jest edytowalna. Niektóre elementy konfiguracji są zgodne z zawartością w całej wymiany (nie specyficzne dla gniazda), podczas gdy inne elementy konfiguracji pozostają w tym samym gnieździe po zamiany (specyficzne dla gniazda). Na poniższych listach przedstawiono ustawienia, które zmieniają się podczas wymiany gniazd.
+W przypadku klonowania konfiguracji z innego miejsca wdrożenia sklonowana konfiguracja jest edytowalna. Niektóre elementy konfiguracji są zgodne z zawartością w wymianie (nie w konkretnym gnieździe), podczas gdy inne elementy konfiguracji pozostają w tym samym miejscu po wymianie (specyficzne dla miejsca). Poniższe listy pokazują ustawienia, które zmieniają się w przypadku wymiany miejsc.
 
-**Ustawienia, które są zamienione:**
+**Ustawienia, które zostały zamienione**:
 
-* Ustawienia ogólne, takie jak wersja ramowa, 32/64-bitowe, gniazda internetowe
-* Ustawienia aplikacji (można skonfigurować tak, aby trzymać się gniazda)
-* Parametry połączenia (można skonfigurować tak, aby przywierały do gniazda)
+* Ustawienia ogólne, takie jak wersja platformy, 32/64-bitowa, gniazda sieci Web
+* Ustawienia aplikacji (można skonfigurować do nalepki do miejsca)
+* Parametry połączenia (można je skonfigurować do nawiązania połączenia z gniazdem)
 * Mapowania obsługi
 * Certyfikaty publiczne
-* Zawartość WebJobs
+* Zawartość zadań WebJob
 * Połączenia hybrydowe *
-* Integracja z siecią wirtualną *
+* Integracja sieci wirtualnej *
 * Punkty końcowe usługi *
-* Sieć dostarczania zawartości platformy Azure *
+* Azure Content Delivery Network *
 
-Obiekty oznaczone gwiazdką (*) mają być odsunięty od zamszu. 
+Funkcje oznaczone gwiazdką (*) są planowane jako niezamienione. 
 
-**Ustawienia, które nie są zamienione:**
+**Ustawienia, które nie zostały zamienione**:
 
 * Publikowanie punktów końcowych
 * Niestandardowe nazwy domen
-* Certyfikaty niepubliczne i ustawienia TLS/SSL
+* Certyfikaty inne niż publiczne i ustawienia protokołu TLS/SSL
 * Ustawienia skalowania
-* Harmonogramy WebJobs
-* Ograniczenia własności intelektualnej
+* Harmonogramy zadań WebJob
+* Ograniczenia adresów IP
 * Zawsze włączone
-* Ustawienia dziennika diagnostycznego
-* Współużytkowy przydział zasobów między źródłami (CORS)
+* Ustawienia diagnostyczne
+* Współużytkowanie zasobów między źródłami (CORS)
 
 > [!NOTE]
-> Niektóre ustawienia aplikacji, które mają zastosowanie do niezamapowanych ustawień również nie są zamieniane. Na przykład ponieważ ustawienia dziennika diagnostycznego nie są `WEBSITE_HTTPLOGGING_RETENTION_DAYS` `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` zamienione, powiązane ustawienia aplikacji, takie jak i nie są również zamienione, nawet jeśli nie są wyświetlane jako ustawienia gniazda.
+> Niektóre ustawienia aplikacji, które mają zastosowanie do niewymienianych ustawień, również nie są zamieniane. Na przykład, ponieważ ustawienia diagnostyczne nie są wymieniane, powiązane ustawienia aplikacji, `WEBSITE_HTTPLOGGING_RETENTION_DAYS` takie `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` jak i, również nie są wymieniane, nawet jeśli nie są wyświetlane jako ustawienia gniazda.
 >

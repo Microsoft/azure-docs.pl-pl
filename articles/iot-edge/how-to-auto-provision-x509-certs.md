@@ -1,6 +1,6 @@
 ---
-title: Automatyczne aprowizyjuj urządzenia z DPS przy użyciu certyfikatów X.509 — Usługa Azure IoT Edge | Dokumenty firmy Microsoft
-description: Użyj certyfikatów X.509, aby przetestować automatyczne inicjowanie obsługi administracyjnej urządzeń dla usługi Azure IoT Edge z usługą inicjowania obsługi administracyjnej urządzeń
+title: Automatyczne Inicjowanie obsługi administracyjnej urządzeń za pomocą usługi DPS przy użyciu certyfikatów X. 509 — Azure IoT Edge | Microsoft Docs
+description: Używanie certyfikatów X. 509 do testowania automatycznej aprowizacji urządzeń dla Azure IoT Edge przy użyciu usługi Device Provisioning
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,53 +9,53 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d5e968e578428a16a0005149a409986015a1fc5c
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: ccd8d383db265826d8644ee89d7300128fc3a350
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393753"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131306"
 ---
-# <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Tworzenie i aprowizyja na urządzeniu Usługi IoT Edge przy użyciu certyfikatów X.509
+# <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu certyfikatów X. 509
 
-Dzięki [usłudze inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub (DPS)](../iot-dps/index.yml)można automatycznie aprowizować urządzenia usługi IoT Edge przy użyciu certyfikatów X.509. Jeśli nie znasz procesu automatycznego inicjowania obsługi administracyjnej, przejrzyj [pojęcia automatycznego inicjowania obsługi administracyjnej](../iot-dps/concepts-auto-provisioning.md) przed kontynuowaniem.
+Za pomocą [usługi Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml)można automatycznie zainicjować obsługę administracyjną urządzeń IoT Edge za pomocą certyfikatów X. 509. Jeśli nie znasz procesu samoobsługowego inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z [pojęciami autouzupełniania](../iot-dps/concepts-auto-provisioning.md) .
 
-W tym artykule pokazano, jak utworzyć rejestrację usługi inicjowania obsługi administracyjnej urządzeń przy użyciu certyfikatów X.509 na urządzeniu usługi IoT Edge, wykonując następujące czynności:
+W tym artykule pokazano, jak utworzyć rejestrację usługi Device Provisioning za pomocą certyfikatów X. 509 na urządzeniu IoT Edge, wykonując następujące czynności:
 
 * Generowanie certyfikatów i kluczy.
-* Utwórz rejestrację indywidualną dla urządzenia lub rejestrację grupową dla zestawu urządzeń.
-* Zainstaluj środowisko uruchomieniowe usługi IoT Edge i zarejestruj urządzenie za pomocą usługi IoT Hub.
+* Utwórz rejestrację indywidualną dla urządzenia lub rejestrację grupy dla zestawu urządzeń.
+* Zainstaluj środowisko uruchomieniowe IoT Edge i Zarejestruj urządzenie przy użyciu IoT Hub.
 
-Używanie certyfikatów X.509 jako mechanizmu zaświadczania jest doskonałym sposobem skalowania produkcji i upraszczania inicjowania obsługi administracyjnej urządzeń. Zazwyczaj certyfikaty X.509 są rozmieszczone w łańcuchu zaufania certyfikatów. Począwszy od certyfikatu głównego z podpisem własnym lub zaufanym, każdy certyfikat w łańcuchu podpisuje następny niższy certyfikat. Ten wzorzec tworzy delegowany łańcuch zaufania od certyfikatu głównego w dół za pośrednictwem każdego certyfikatu pośredniego do końcowego certyfikatu "liścia" zainstalowanego na urządzeniu.
+Używanie certyfikatów X. 509 jako mechanizmu zaświadczania jest doskonałym sposobem na skalowanie produkcji i uproszczenie aprowizacji urządzeń. Zazwyczaj certyfikaty X. 509 są uporządkowane w łańcuchu certyfikatów zaufania. Począwszy od certyfikatu z podpisem własnym lub z zaufanym certyfikatem głównym, każdy certyfikat w łańcuchu podpisuje następny niższy certyfikat. Ten wzorzec tworzy delegowany łańcuch zaufania z certyfikatu głównego w dół przez każdy certyfikat pośredni do końcowego certyfikatu "liścia" zainstalowanego na urządzeniu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Aktywne Centrum IoT.
-* Urządzenie fizyczne lub wirtualne, które ma być urządzeniem usługi IoT Edge.
-* Zainstalowana najnowsza wersja [Gita.](https://git-scm.com/download/)
-* Wystąpienie usługi inicjowania obsługi administracyjnej urządzeń usługi Usługi obsługi urządzeń usługi IoT hub na platformie Azure, połączone z centrum IoT hub.
-  * Jeśli nie masz wystąpienia usługi inicjowania obsługi urządzeń, postępuj zgodnie z instrukcjami w [aplikacji Konfigurowanie dps usługi Dps w centrum IoT](../iot-dps/quick-setup-auto-provision.md).
-  * Po uruchomieniu usługi inicjowania obsługi administracyjnej urządzeń skopiuj wartość **zakresu identyfikatora** ze strony przeglądowej. Ta wartość jest używana podczas konfigurowania środowiska wykonawczego usługi IoT Edge.
+* Aktywna IoT Hub.
+* Urządzenie fizyczne lub wirtualne będące urządzeniem IoT Edge.
+* Najnowsza wersja usługi [git](https://git-scm.com/download/) jest zainstalowana.
+* Wystąpienie IoT Hub Device Provisioning Service na platformie Azure połączone z Centrum IoT Hub.
+  * Jeśli nie masz wystąpienia usługi Device Provisioning, postępuj zgodnie z instrukcjami podanymi w temacie [konfigurowanie IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
+  * Po uruchomieniu usługi Device Provisioning należy skopiować wartość **zakres identyfikatora** ze strony przegląd. Ta wartość jest używana podczas konfigurowania środowiska uruchomieniowego IoT Edge.
 
-## <a name="generate-device-identity-certificates"></a>Generowanie certyfikatów tożsamości urządzenia
+## <a name="generate-device-identity-certificates"></a>Generuj Certyfikaty tożsamości urządzeń
 
-Certyfikat tożsamości urządzenia to certyfikat typu liść łączący się za pośrednictwem łańcucha zaufania certyfikatów z najwyższym certyfikatem urzędu certyfikacji X.509(CA). Certyfikat tożsamości urządzenia musi mieć ustawioną nazwę pospolitą (CN) na identyfikator urządzenia, który ma mieć urządzenie w centrum IoT hub.
+Certyfikat tożsamości urządzenia to certyfikat liścia, który nawiązuje połączenie za pomocą łańcucha certyfikatów zaufania z certyfikatem głównego urzędu certyfikacji X. 509. Certyfikat tożsamości urządzenia musi mieć ustawioną nazwę pospolitą (CN) odpowiadającą IDENTYFIKATORowi urządzenia, które ma mieć urządzenie w centrum IoT.
 
-Certyfikaty tożsamości urządzenia są używane tylko do inicjowania obsługi administracyjnej urządzenia usługi IoT Edge i uwierzytelniania urządzenia za pomocą usługi Azure IoT Hub. Nie podpisują certyfikatów, w przeciwieństwie do certyfikatów urzędu certyfikacji, które urządzenie IoT Edge przedstawia modułom lub urządzeniom typu liść do weryfikacji. Aby uzyskać więcej informacji, zobacz [szczegóły użycia certyfikatu usługi Azure IoT Edge](iot-edge-certs.md).
+Certyfikaty tożsamości urządzeń są używane tylko do aprowizacji urządzenia IoT Edge i uwierzytelniania urządzenia za pomocą usługi Azure IoT Hub. Nie podpisywania certyfikatów, w przeciwieństwie do certyfikatów urzędu certyfikacji, które urządzenie IoT Edge prezentuje na moduły lub urządzenia liściowe w celu weryfikacji. Aby uzyskać więcej informacji, zobacz [Azure IoT Edge szczegóły użycia certyfikatu](iot-edge-certs.md).
 
-Po utworzeniu certyfikatu tożsamości urządzenia powinny być dostępne dwa pliki: plik cer lub pem zawierający publiczną część certyfikatu oraz plik cer lub pem z kluczem prywatnym certyfikatu. Jeśli planujesz używać rejestracji grup w dps, potrzebujesz również publicznej części pośredniego lub głównego certyfikatu urzędu certyfikacji w tym samym łańcuchu zaufania certyfikatów.
+Po utworzeniu certyfikatu tożsamości urządzenia powinny znajdować się dwa pliki: plik cer lub PEM zawierający publiczną część certyfikatu oraz plik. cer lub PEM z kluczem prywatnym certyfikatu. Jeśli planujesz korzystanie z rejestracji grupowej w usłudze DPS, potrzebujesz także publicznej części certyfikatu pośredniego lub głównego urzędu certyfikacji w tym samym łańcuchu certyfikatów zaufania.
 
-Do skonfigurowania automatycznego inicjowania obsługi administracyjnej za pomocą x.509 potrzebne są następujące pliki:
+Aby skonfigurować automatyczną Inicjowanie obsługi przy użyciu pliku X. 509, potrzebne są następujące pliki:
 
-* Certyfikat tożsamości urządzenia i jego certyfikat klucza prywatnego. Certyfikat tożsamości urządzenia jest przekazyany do dps, jeśli tworzysz rejestrację indywidualną. Klucz prywatny jest przekazywany do środowiska wykonawczego usługi IoT Edge.
-* Pełny certyfikat łańcucha, który powinien mieć co najmniej tożsamość urządzenia i certyfikaty pośrednie w nim. Certyfikat pełnego łańcucha jest przekazywany do środowiska wykonawczego IoT Edge.
-* Pośredni lub główny certyfikat urzędu certyfikacji z łańcucha zaufania certyfikatów. Ten certyfikat jest przekazyany do dps po utworzeniu rejestracji grupy.
+* Certyfikat tożsamości urządzenia i jego certyfikat klucza prywatnego. Certyfikat tożsamości urządzenia zostanie przekazany do funkcji DPS w przypadku utworzenia rejestracji indywidualnej. Klucz prywatny jest przesyłany do środowiska uruchomieniowego IoT Edge.
+* Pełny certyfikat łańcucha, który powinien mieć co najmniej tożsamość urządzenia i certyfikaty pośrednie. Pełny certyfikat łańcucha jest przesyłany do środowiska uruchomieniowego IoT Edge.
+* Certyfikat pośredniego lub głównego urzędu certyfikacji z łańcucha certyfikatów zaufania. Ten certyfikat jest przekazywany do programu DPS w przypadku utworzenia rejestracji grupy.
 
-### <a name="use-test-certificates"></a>Używanie certyfikatów testowych
+### <a name="use-test-certificates"></a>Korzystanie z certyfikatów testowych
 
-Jeśli nie masz urzędu certyfikacji dostępne do tworzenia nowych certyfikatów tożsamości i chcesz wypróbować ten scenariusz, repozytorium git usługi Azure IoT Edge zawiera skrypty, których można użyć do generowania certyfikatów testowych. Certyfikaty te są przeznaczone wyłącznie do badań rozwojowych i nie mogą być używane w produkcji.
+Jeśli nie masz dostępnego urzędu certyfikacji, aby utworzyć nowe certyfikaty tożsamości i chcesz wypróbować ten scenariusz, Azure IoT Edge repozytorium git zawiera skrypty, których można użyć do generowania certyfikatów testowych. Te certyfikaty są przeznaczone wyłącznie do testowania deweloperskiego i nie mogą być używane w środowisku produkcyjnym.
 
-Aby utworzyć certyfikaty testowe, wykonaj czynności opisane w [artykule Tworzenie certyfikatów demonstracyjnych w celu przetestowania funkcji urządzenia IoT Edge](how-to-create-test-certificates.md). Wykonaj dwie wymagane sekcje, aby skonfigurować skrypty generowania certyfikatów i utworzyć główny certyfikat urzędu certyfikacji. Następnie wykonaj kroki, aby utworzyć certyfikat tożsamości urządzenia. Po zakończeniu powinieneś mieć następujący łańcuch certyfikatów i parę kluczy:
+Aby utworzyć certyfikaty testowe, wykonaj kroki opisane w temacie [Tworzenie certyfikatów demonstracyjnych w celu przetestowania IoT Edge funkcji urządzeń](how-to-create-test-certificates.md). Wykonaj dwie wymagane sekcje, aby skonfigurować skrypty generowania certyfikatów i utworzyć certyfikat głównego urzędu certyfikacji. Następnie postępuj zgodnie z instrukcjami, aby utworzyć certyfikat tożsamości urządzenia. Po zakończeniu należy mieć następujący łańcuch certyfikatów i parę kluczy:
 
 W systemie Linux:
 
@@ -67,40 +67,40 @@ W systemie Windows:
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
-Oba certyfikaty są potrzebne na urządzeniu Usługi IoT Edge. Jeśli zamierzasz korzystać z rejestracji indywidualnej w dps, przekażesz plik .cert.pem. Jeśli zamierzasz używać rejestracji grup w dps, potrzebujesz również pośredniego lub głównego certyfikatu urzędu certyfikacji w tym samym łańcuchu zaufania certyfikatów do przekazania. Jeśli używasz certyfikatów demonstracyjnych, użyj certyfikatu `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` do rejestracji grupowej.
+Te certyfikaty są wymagane na urządzeniu IoT Edge. Jeśli zamierzasz użyć rejestracji indywidualnej w usłudze DPS, przekażesz plik. CERT. pem. W przypadku korzystania z funkcji rejestracji grupowej w usłudze DPS należy również uzyskać certyfikat pośredniego lub głównego urzędu certyfikacji w ramach tego samego łańcucha certyfikatów, który ma zostać przekazany. Jeśli używasz certyfikatów demonstracyjnych, użyj `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` certyfikatu do rejestracji grupowej.
 
-## <a name="create-a-dps-individual-enrollment"></a>Tworzenie indywidualnej rejestracji DPS
+## <a name="create-a-dps-individual-enrollment"></a>Tworzenie rejestracji indywidualnej w usłudze DPS
 
-Wygenerowane certyfikaty i klucze służy do tworzenia indywidualnej rejestracji w dps dla jednego urządzenia IoT Edge. Rejestracje indywidualne przyjmują publiczną część certyfikatu tożsamości urządzenia i dopasowywać ją do certyfikatu na urządzeniu.
+Użyj wygenerowanych certyfikatów i kluczy, aby utworzyć rejestrację indywidualną w usłudze DPS dla jednego IoT Edge urządzenia. Indywidualne rejestracje pobierają publiczną część certyfikatu tożsamości urządzenia i pasują do certyfikatu na urządzeniu.
 
-Jeśli chcesz aprowizować wiele urządzeń IoT Edge, wykonaj kroki opisane w następnej sekcji [Tworzenie rejestracji grupy DPS](#create-a-dps-group-enrollment).
+Jeśli chcesz zainicjować obsługę wielu urządzeń IoT Edge, wykonaj kroki opisane w następnej sekcji, aby [utworzyć rejestrację grupy w usłudze DPS](#create-a-dps-group-enrollment).
 
-Podczas tworzenia rejestracji w dps, masz możliwość zadeklarowania **stanu bliźniaczej reprezentacji urządzenia początkowego**. W bliźniaczej reprezentacji urządzenia można ustawić znaczniki, aby grupować urządzenia według dowolnej metryki potrzebnej w rozwiązaniu, takiej jak region, środowisko, lokalizacja lub typ urządzenia. Tagi te są używane do tworzenia [wdrożeń automatycznych](how-to-deploy-monitor.md).
+Po utworzeniu rejestracji w usłudze DPS można zadeklarować **początkowy stan dwuosiowy urządzenia**. W ramach sznurka urządzenia można ustawić Tagi do grupowania urządzeń według dowolnej metryki potrzebnej w rozwiązaniu, na przykład regionu, środowiska, lokalizacji lub typu urządzenia. Tagi te służą do tworzenia [wdrożeń automatycznych](how-to-deploy-at-scale.md).
 
-Aby uzyskać więcej informacji na temat rejestracji w usłudze inicjowania obsługi administracyjnej urządzeń, zobacz [Jak zarządzać rejestracjami urządzeń](../iot-dps/how-to-manage-enrollments.md).
+Aby uzyskać więcej informacji na temat rejestracji w usłudze Device Provisioning, zobacz [jak zarządzać rejestracjami urządzeń](../iot-dps/how-to-manage-enrollments.md).
 
    > [!TIP]
-   > W wierszu polecenia platformy Azure można utworzyć [rejestrację](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) lub [grupę rejestracji](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) i użyć flagi **obsługującej krawędź,** aby określić, że urządzenie lub grupa urządzeń jest urządzeniem usługi IoT Edge.
+   > W interfejsie wiersza polecenia platformy Azure można utworzyć [rejestrację](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) lub [grupę rejestracji](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) , a następnie użyć flagi z **włączoną krawędzią** , aby określić, że urządzenie lub grupa urządzeń jest urządzeniem IoT Edge.
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do wystąpienia usługi inicjowania obsługi administracyjnej urządzeń usługi IoT Hub.
+1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia IoT Hub Device Provisioning Service.
 
 1. W obszarze **Ustawienia**wybierz pozycję **Zarządzaj rejestracjami**.
 
-1. Wybierz **pozycję Dodaj rejestrację indywidualną,** a następnie wykonaj następujące czynności, aby skonfigurować rejestrację:  
+1. Wybierz pozycję **Dodaj rejestrację indywidualną** , a następnie wykonaj następujące kroki, aby skonfigurować rejestrację:  
 
-   * **Mechanizm**: Wybierz **X.509**.
+   * **Mechanizm**: Wybierz **X. 509**.
 
-   * **Podstawowy certyfikat .pem lub plik cer**: Prześlij plik publiczny z certyfikatu tożsamości urządzenia. Jeśli skrypty zostały użyte do wygenerowania certyfikatu testowego, wybierz następujący plik:
+   * **Plik PEM lub CER certyfikatu podstawowego**: Przekaż plik publiczny z certyfikatu tożsamości urządzenia. Jeśli użyto skryptów do wygenerowania certyfikatu testowego, wybierz następujący plik:
 
       `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 
-   * **Identyfikator urządzenia usługi IoT Hub:** podaj identyfikator urządzenia, jeśli chcesz. Identyfikatory urządzeń można użyć do kierowania poszczególnych urządzeń do wdrożenia modułu. Jeśli nie podasz identyfikatora urządzenia, używana jest nazwa pospolita (CN) w certyfikacie X.509.
+   * **Identyfikator urządzenia IoT Hub**: podaj identyfikator urządzenia, jeśli chcesz. Identyfikatory urządzeń umożliwiają kierowanie poszczególnych urządzeń do wdrożenia modułu. Jeśli nie podano identyfikatora urządzenia, używana jest nazwa pospolita (CN) w certyfikacie X. 509.
 
-   * **Urządzenie IoT Edge**: Wybierz **true,** aby zadeklarować, że rejestracja jest dla urządzenia IoT Edge.
+   * **IoT Edge urządzenie**: Wybierz **wartość true** , aby zadeklarować, że rejestracja dotyczy urządzenia IoT Edge.
 
-   * **Wybierz koncentratory IoT, do**których można przypisać to urządzenie: Wybierz połączony węzeł IoT, do którego chcesz podłączyć urządzenie. Można wybrać wiele koncentratorów, a urządzenie zostanie przypisane do jednego z nich zgodnie z wybranymi zasadami alokacji.
+   * **Wybierz centra IoT, do których można przypisać to urządzenie**: Wybierz połączone centrum IoT Hub, z którym chcesz połączyć urządzenie. Można wybrać wiele centrów, a urządzenie zostanie przypisane do jednej z nich zgodnie z wybranymi zasadami alokacji.
 
-   * **Początkowy stan bliźniaczej**reprezentacji urządzenia: Dodaj wartość znacznika, która ma zostać dodana do bliźniaczej reprezentacji urządzenia, jeśli chcesz. Tagów można używać do grup docelowych urządzeń do automatycznego wdrażania. Przykład:
+   * **Początkowy stan dwuosiowy urządzenia**: Dodaj wartość tagu, która ma zostać dodana do sznurka urządzenia, jeśli chcesz. Można używać tagów do grup docelowych urządzeń na potrzeby automatycznego wdrażania. Przykład:
 
       ```json
       {
@@ -115,37 +115,37 @@ Aby uzyskać więcej informacji na temat rejestracji w usłudze inicjowania obs�
 
 1. Wybierz pozycję **Zapisz**.
 
-Teraz, gdy istnieje rejestracja dla tego urządzenia, środowisko uruchomieniowe IoT Edge może automatycznie aprowizować urządzenie podczas instalacji. Przejdź do sekcji [Zainstaluj środowisko wykonawcze usługi IoT Edge,](#install-the-iot-edge-runtime) aby skonfigurować urządzenie Usługi IoT Edge.
+Teraz, gdy istnieje Rejestracja dla tego urządzenia, środowisko uruchomieniowe IoT Edge może automatycznie zainicjować obsługę administracyjną urządzenia podczas instalacji. Przejdź do sekcji [instalowanie IoT Edge środowiska uruchomieniowego](#install-the-iot-edge-runtime) , aby skonfigurować urządzenie IoT Edge.
 
-## <a name="create-a-dps-group-enrollment"></a>Tworzenie rejestracji grupy DPS
+## <a name="create-a-dps-group-enrollment"></a>Utwórz rejestrację grupy DPS
 
-Użyj wygenerowanych certyfikatów i kluczy, aby utworzyć rejestrację grupową w dps dla wielu urządzeń IoT Edge. Rejestracje grup używają pośredniego lub głównego certyfikatu urzędu certyfikacji z łańcucha zaufania certyfikatów używanego do generowania certyfikatów tożsamości poszczególnych urządzeń.
+Użyj wygenerowanych certyfikatów i kluczy, aby utworzyć rejestrację grupy w usłudze DPS dla wielu IoT Edge urządzeń. Rejestracje grup używają pośredniego lub głównego certyfikatu urzędu certyfikacji z łańcucha certyfikatów zaufania używanego do generowania certyfikatów tożsamości poszczególnych urządzeń.
 
-Jeśli zamiast tego chcesz aprowizować pojedyncze urządzenie IoT Edge, wykonaj kroki opisane w poprzedniej sekcji [Utwórz rejestrację indywidualną DPS](#create-a-dps-individual-enrollment).
+Jeśli chcesz zamiast tego zainicjować obsługę jednego urządzenia IoT Edge, wykonaj kroki opisane w poprzedniej sekcji, aby [utworzyć rejestrację indywidualną](#create-a-dps-individual-enrollment)w usłudze DPS.
 
-Podczas tworzenia rejestracji w dps, masz możliwość zadeklarowania **stanu bliźniaczej reprezentacji urządzenia początkowego**. W bliźniaczej reprezentacji urządzenia można ustawić znaczniki, aby grupować urządzenia według dowolnej metryki potrzebnej w rozwiązaniu, takiej jak region, środowisko, lokalizacja lub typ urządzenia. Tagi te są używane do tworzenia [wdrożeń automatycznych](how-to-deploy-monitor.md).
+Po utworzeniu rejestracji w usłudze DPS można zadeklarować **początkowy stan dwuosiowy urządzenia**. W ramach sznurka urządzenia można ustawić Tagi do grupowania urządzeń według dowolnej metryki potrzebnej w rozwiązaniu, na przykład regionu, środowiska, lokalizacji lub typu urządzenia. Tagi te służą do tworzenia [wdrożeń automatycznych](how-to-deploy-at-scale.md).
 
 ### <a name="verify-your-root-certificate"></a>Weryfikowanie certyfikatu głównego
 
-Podczas tworzenia grupy rejestracji można użyć zweryfikowanego certyfikatu. Certyfikat za pomocą dps można zweryfikować, potwierdzając, że masz własność certyfikatu głównego. Aby uzyskać więcej informacji, zobacz [Jak wykonać dowód posiadania certyfikatów urzędu certyfikacji X.509](../iot-dps/how-to-verify-certificates.md).
+Podczas tworzenia grupy rejestracji można skorzystać z zweryfikowanego certyfikatu. Certyfikat można sprawdzić za pomocą programu DPS, wskazując, że masz własność certyfikatu głównego. Aby uzyskać więcej informacji, zobacz [Jak przeprowadzić potwierdzenie posiadania dla certyfikatów urzędu certyfikacji X. 509](../iot-dps/how-to-verify-certificates.md).
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do wystąpienia usługi inicjowania obsługi administracyjnej urządzeń usługi IoT Hub.
+1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia IoT Hub Device Provisioning Service.
 
-1. Wybierz **pozycję Certyfikaty** z menu po lewej stronie.
+1. Z menu po lewej stronie wybierz pozycję **Certyfikaty** .
 
-1. Wybierz **pozycję Dodaj,** aby dodać nowy certyfikat.
+1. Wybierz pozycję **Dodaj** , aby dodać nowy certyfikat.
 
-1. Wprowadź przyjazną nazwę certyfikatu, a następnie przejdź do pliku .cer lub pem reprezentującego publiczną część certyfikatu X.509.
+1. Wprowadź przyjazną nazwę certyfikatu, a następnie przejdź do pliku cer lub PEM, który reprezentuje publiczną część certyfikatu X. 509.
 
-   Jeśli używasz certyfikatów demonstracyjnych, przekaż `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` certyfikat.
+   Jeśli używasz certyfikatów demonstracyjnych, Przekaż `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` certyfikat.
 
 1. Wybierz pozycję **Zapisz**.
 
-1. Certyfikat powinien być teraz wyświetlany na stronie **Certyfikaty.** Wybierz go, aby otworzyć szczegóły certyfikatu.
+1. Certyfikat powinien teraz znajdować się na liście na stronie **Certyfikaty** . Wybierz go, aby otworzyć Szczegóły certyfikatu.
 
-1. Wybierz **pozycję Generuj kod weryfikacyjny,** a następnie skopiuj wygenerowany kod.
+1. Wybierz pozycję **Generuj kod weryfikacyjny** , a następnie skopiuj wygenerowany kod.
 
-1. Niezależnie od tego, czy został przywieziony własny certyfikat urzędu certyfikacji, czy certyfikaty demonstracyjne, możesz użyć narzędzia weryfikacji dostępnego w repozytorium usługi IoT Edge w celu zweryfikowania dowodu posiadania. Narzędzie weryfikacyjne używa certyfikatu urzędu certyfikacji do podpisania nowego certyfikatu, który ma podany kod weryfikacyjny jako nazwę podmiotu.
+1. Niezależnie od tego, czy masz własny certyfikat urzędu certyfikacji, czy korzystasz z certyfikatów demonstracyjnych, możesz użyć narzędzia weryfikacyjnego dostępnego w repozytorium IoT Edge, aby sprawdzić dowód posiadania. Narzędzie weryfikacji używa certyfikatu urzędu certyfikacji w celu podpisania nowego certyfikatu, który ma podany kod weryfikacyjny jako nazwę podmiotu.
 
    * W systemie Windows:
 
@@ -159,33 +159,33 @@ Podczas tworzenia grupy rejestracji można użyć zweryfikowanego certyfikatu. C
      ./certGen.sh create_verification_certificate <verification code>
      ```
 
-1. Na tej samej stronie szczegółów certyfikatu w witrynie Azure portal przekaż nowo wygenerowany certyfikat weryfikacji.
+1. Na tej samej stronie Szczegóły certyfikatu w Azure Portal Przekaż nowo wygenerowany certyfikat weryfikacyjny.
 
 1. Wybierz pozycję **Verify** (Weryfikuj).
 
-### <a name="create-enrollment-group"></a>Tworzenie grupy rejestracji
+### <a name="create-enrollment-group"></a>Utwórz grupę rejestracji
 
-Aby uzyskać więcej informacji na temat rejestracji w usłudze inicjowania obsługi administracyjnej urządzeń, zobacz [Jak zarządzać rejestracjami urządzeń](../iot-dps/how-to-manage-enrollments.md).
+Aby uzyskać więcej informacji na temat rejestracji w usłudze Device Provisioning, zobacz [jak zarządzać rejestracjami urządzeń](../iot-dps/how-to-manage-enrollments.md).
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do wystąpienia usługi inicjowania obsługi administracyjnej urządzeń usługi IoT Hub.
+1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia IoT Hub Device Provisioning Service.
 
 1. W obszarze **Ustawienia**wybierz pozycję **Zarządzaj rejestracjami**.
 
-1. Wybierz **pozycję Dodaj grupę rejestracji,** a następnie wykonaj następujące czynności, aby skonfigurować rejestrację:
+1. Wybierz pozycję **Dodaj grupę rejestracji** , a następnie wykonaj następujące kroki, aby skonfigurować rejestrację:
 
-   * **Nazwa grupy**: Podaj zapadającą w pamięć nazwę dla tej rejestracji grupy.
+   * **Nazwa grupy**: Podaj nazwę do zapamiętania dla tej rejestracji grupy.
 
-   * **Typ zaświadczenia**: Wybierz **certyfikat**.
+   * **Typ zaświadczania**: wybierz pozycję **certyfikat**.
 
-   * **Urządzenie IoT Edge**: Wybierz **true**. W przypadku rejestracji w grupie wszystkie urządzenia muszą być urządzeniami IoT Edge lub żadne z nich nie może być.
+   * **IoT Edge urządzenie**: Wybierz **wartość PRAWDA**. W przypadku rejestracji grupy wszystkie urządzenia muszą być IoT Edge urządzeń lub żadna z nich nie może być.
 
-   * **Typ certyfikatu:** Wybierz **certyfikat urzędu certyfikacji,** jeśli certyfikat zweryfikowanego urzędu certyfikacji jest przechowywany w systemie DPS lub **certyfikat pośredni,** jeśli chcesz przekazać nowy plik tylko dla tej rejestracji.
+   * **Typ certyfikatu**: wybierz opcję **certyfikat urzędu certyfikacji** , jeśli certyfikat urzędu certyfikacji jest przechowywany przy użyciu usługi DPS lub **certyfikatu pośredniego** , jeśli chcesz przekazać nowy plik tylko dla tej rejestracji.
 
-   * **Certyfikat podstawowy:** Jeśli w ostatniej sekcji wybrano certyfikat urzędu certyfikacji, wybierz certyfikat z listy rozwijanej. Jeśli wybrano certyfikat pośredni, przekaż plik publiczny z certyfikatu urzędu certyfikacji w łańcuchu zaufania certyfikatów, który został użyty do wygenerowania certyfikatów tożsamości urządzenia.
+   * **Certyfikat podstawowy**: w przypadku wybrania w ostatniej sekcji certyfikatu urzędu certyfikacji wybierz certyfikat z listy rozwijanej. W przypadku wybrania certyfikatu pośredniego należy przekazać plik publiczny z certyfikatu urzędu certyfikacji w łańcuchu certyfikatów zaufania, który został użyty do wygenerowania certyfikatów tożsamości urządzeń.
 
-   * **Wybierz koncentratory IoT, do**których można przypisać to urządzenie: Wybierz połączony węzeł IoT, do którego chcesz podłączyć urządzenie. Można wybrać wiele koncentratorów, a urządzenie zostanie przypisane do jednego z nich zgodnie z wybranymi zasadami alokacji.
+   * **Wybierz centra IoT, do których można przypisać to urządzenie**: Wybierz połączone centrum IoT Hub, z którym chcesz połączyć urządzenie. Można wybrać wiele centrów, a urządzenie zostanie przypisane do jednej z nich zgodnie z wybranymi zasadami alokacji.
 
-   * **Początkowy stan bliźniaczej**reprezentacji urządzenia: Dodaj wartość znacznika, która ma zostać dodana do bliźniaczej reprezentacji urządzenia, jeśli chcesz. Tagów można używać do grup docelowych urządzeń do automatycznego wdrażania. Przykład:
+   * **Początkowy stan dwuosiowy urządzenia**: Dodaj wartość tagu, która ma zostać dodana do sznurka urządzenia, jeśli chcesz. Można używać tagów do grup docelowych urządzeń na potrzeby automatycznego wdrażania. Przykład:
 
       ```json
       {
@@ -200,33 +200,33 @@ Aby uzyskać więcej informacji na temat rejestracji w usłudze inicjowania obs�
 
 1. Wybierz pozycję **Zapisz**.
 
-Teraz, gdy istnieje rejestracja dla tego urządzenia, środowisko uruchomieniowe IoT Edge może automatycznie aprowizować urządzenie podczas instalacji. Przejdź do następnej sekcji, aby skonfigurować urządzenie IoT Edge.
+Teraz, gdy istnieje Rejestracja dla tego urządzenia, środowisko uruchomieniowe IoT Edge może automatycznie zainicjować obsługę administracyjną urządzenia podczas instalacji. Przejdź do następnej sekcji, aby skonfigurować urządzenie IoT Edge.
 
-## <a name="install-the-iot-edge-runtime"></a>Instalowanie środowiska wykonawczego usługi IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Zainstaluj środowisko uruchomieniowe IoT Edge
 
-Środowisko uruchomieniowe usługi IoT Edge jest wdrożone na wszystkich urządzeniach usługi IoT Edge. Jego składniki są uruchamiane w kontenerach i umożliwiają wdrażanie dodatkowych kontenerów na urządzeniu, dzięki czemu można uruchomić kod na krawędzi.
+Środowisko uruchomieniowe usługi IoT Edge jest wdrożone na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi.
 
-Aprowizacji X.509 z DPS jest obsługiwany tylko w Uodochy IoT Edge w wersji 1.0.9 lub nowszej.
+Obsługa administracyjna X. 509 z usługą DPS jest obsługiwana tylko w IoT Edge w wersji 1.0.9 lub nowszej.
 
-Podczas inicjowania obsługi administracyjnej urządzenia potrzebne są następujące informacje:
+Podczas aprowizacji urządzenia potrzebne są następujące informacje:
 
-* Wartość **zakresu identyfikatora** DPS. Tę wartość można pobrać ze strony przeglądu wystąpienia DPS w witrynie Azure portal.
+* Wartość **identyfikatora** DPS. Tę wartość można pobrać ze strony Przegląd wystąpienia usługi DPS w Azure Portal.
 * Plik łańcucha certyfikatu tożsamości urządzenia na urządzeniu.
 * Plik klucza tożsamości urządzenia na urządzeniu.
-* Opcjonalny identyfikator rejestracji (pobrany z nazwy pospolitej w certyfikacie tożsamości urządzenia, jeśli nie jest podany).
+* Opcjonalny identyfikator rejestracji (pobierany z nazwy pospolitej w certyfikacie tożsamości urządzenia, jeśli nie zostanie podany).
 
 ### <a name="linux-device"></a>Urządzenie z systemem Linux
 
-Użyj następującego łącza, aby zainstalować środowisko uruchomieniowe usługi Azure IoT Edge na urządzeniu przy użyciu poleceń odpowiednich dla architektury urządzenia. Po dojście do sekcji dotyczącej konfigurowania demona zabezpieczeń należy skonfigurować środowisko uruchomieniowe IoT Edge dla automatycznego, a nie ręcznego inicjowania obsługi administracyjnej urządzenia XoT Edge. Po zakończeniu poprzednich sekcji tego artykułu należy mieć wszystkie potrzebne informacje i pliki certyfikatów.
+Użyj poniższego linku, aby zainstalować środowisko uruchomieniowe Azure IoT Edge na urządzeniu przy użyciu poleceń odpowiednich dla architektury urządzenia. Po przeniesieniu do sekcji dotyczącej konfigurowania demona zabezpieczeń Skonfiguruj IoT Edge środowisko uruchomieniowe dla X. 509 automatyczne, a nie ręczne, Inicjowanie obsługi administracyjnej. Należy dysponować wszystkimi plikami informacji i certyfikatów, które są potrzebne po wykonaniu poprzednich sekcji tego artykułu.
 
-[Instalowanie środowiska wykonawczego usługi Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md)
+[Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md)
 
-Po dodaniu certyfikatu X.509 i informacji o kluczu do pliku config.yaml ścieżki powinny być dostarczane jako identyfikatory URI plików. Przykład:
+Po dodaniu informacji o certyfikacie X. 509 i kluczu do pliku config. YAML ścieżki powinny być podawane jako identyfikatory URI plików. Przykład:
 
 * `file:///<path>/identity_certificate_chain.pem`
 * `file:///<path>/identity_key.pem`
 
-Sekcja w pliku konfiguracyjnym automatycznego inicjowania obsługi administracyjnej X.509 wygląda następująco:
+Sekcja w pliku konfiguracyjnym dla programu X. 509 automatyczne Inicjowanie obsługi wygląda następująco:
 
 ```yaml
 # DPS X.509 provisioning configuration
@@ -241,9 +241,9 @@ provisioning:
     identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
 ```
 
-Zastąp wartości `scope_id` `identity_cert`zastępcze dla , `identity_pk` z identyfikatorem zakresu z wystąpienia DPS i identyfikatorami URI do łańcucha certyfikatów i lokalizacji plików kluczy na urządzeniu. Podaj `registration_id` urządzenie, jeśli chcesz, lub pozostaw ten wiersz, aby zarejestrować urządzenie z nazwą CN certyfikatu tożsamości.
+Zastąp wartości symboli `scope_id`zastępczych `identity_cert`, `identity_pk` , z identyfikatorem zakresu z wystąpienia usługi DPS, oraz identyfikatorów URI do łańcucha certyfikatów i lokalizacji plików kluczy na urządzeniu. W razie `registration_id` potrzeby podaj dla urządzenia urządzenie lub pozostaw ten wiersz komentarzem, aby zarejestrować urządzenie przy użyciu nazwy pospolitej certyfikatu tożsamości.
 
-Zawsze ponownie uruchamiaj demona zabezpieczeń po zaktualizowaniu pliku config.yaml.
+Zawsze należy ponownie uruchomić demona zabezpieczeń po zaktualizowaniu pliku config. YAML.
 
 ```bash
 sudo systemctl restart iotedge
@@ -251,24 +251,24 @@ sudo systemctl restart iotedge
 
 ### <a name="windows-device"></a>Urządzenie z systemem Windows
 
-Zainstaluj środowisko uruchomieniowe usługi IoT Edge na urządzeniu, dla którego wygenerowano łańcuch certyfikatów tożsamości i klucz tożsamości. Środowiska wykonawczego IoT Edge można skonfigurować do automatycznego, a nie ręcznego inicjowania obsługi administracyjnej.
+Zainstaluj środowisko uruchomieniowe IoT Edge na urządzeniu, dla którego Wygenerowano łańcuch certyfikatów tożsamości i klucz tożsamości. Skonfigurujesz środowisko uruchomieniowe IoT Edge automatyczne, nie ręczne, Inicjowanie obsługi administracyjnej.
 
-Aby uzyskać bardziej szczegółowe informacje dotyczące instalowania usługi IoT Edge w systemie Windows, w tym wymagania wstępne i instrukcje dotyczące zadań, takich jak zarządzanie kontenerami i aktualizowanie usługi IoT Edge, zobacz [Instalowanie środowiska wykonawczego usługi Azure IoT Edge w systemie Windows](how-to-install-iot-edge-windows.md).
+Aby uzyskać bardziej szczegółowe informacje na temat instalowania IoT Edge w systemie Windows, w tym wymagania wstępne i instrukcje dotyczące zadań, takich jak Zarządzanie kontenerami i aktualizowanie IoT Edge, zobacz [Instalowanie środowiska uruchomieniowego Azure IoT Edge w systemie Windows](how-to-install-iot-edge-windows.md).
 
-1. Otwórz okno programu PowerShell w trybie administratora. Pamiętaj, aby podczas instalowania aplikacji IoT Edge, a nie programu PowerShell (x86), należy używać sesji programu AMD64 programu PowerShell.
+1. Otwórz okno programu PowerShell w trybie administratora. Należy pamiętać, aby podczas instalowania IoT Edge używać sesji AMD64 programu PowerShell, a nie programu PowerShell (x86).
 
-1. Polecenie **Deploy-IoTEdge** sprawdza, czy komputer z systemem Windows jest w obsługiwanej wersji, włącza funkcję kontenerów, a następnie pobiera środowisko uruchomieniowe moby i środowisko wykonawcze usługi IoT Edge. Polecenie domyślnie używa kontenerów systemu Windows.
+1. Polecenie **Deploy-IoTEdge** sprawdza, czy komputer z systemem Windows jest w obsługiwanej wersji, włącza funkcję Containers, a następnie pobiera środowisko uruchomieniowe Moby i środowisko uruchomieniowe IoT Edge. Polecenie domyślnie używa kontenerów systemu Windows.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
-1. W tym momencie urządzenia IoT Core mogą zostać automatycznie ponownie uruchomione. Inne urządzenia z systemem Windows 10 lub Windows Server mogą monitować o ponowne uruchomienie. Jeśli tak, uruchom ponownie urządzenie teraz. Gdy urządzenie będzie gotowe, uruchom program PowerShell jako administrator ponownie.
+1. W tym momencie urządzenia IoT Core mogą zostać automatycznie uruchomione ponownie. Inne urządzenia z systemem Windows 10 lub Windows Server mogą monitować o ponowne uruchomienie. Jeśli tak, ponownie uruchom urządzenie teraz. Gdy urządzenie jest gotowe, uruchom ponownie program PowerShell jako administrator.
 
-1. Polecenie **Initialize-IoTEdge** konfiguruje środowisko wykonawcze IoT Edge na komputerze. Polecenie domyślnie ręczne inicjowanie obsługi administracyjnej, chyba że flaga `-Dps` jest używana do używania automatycznego inicjowania obsługi administracyjnej.
+1. Polecenie **Initialize-IoTEdge** konfiguruje środowisko uruchomieniowe IoT Edge na komputerze. Polecenie domyślnie umożliwia ręczne Inicjowanie obsługi, chyba że używana jest `-Dps` flaga do korzystania z automatycznej aprowizacji.
 
-   Zastąp wartości `{scope_id}` `{identity cert chain path}`zastępcze `{identity key path}` dla programu , oraz odpowiednie wartości z wystąpienia DPS i ścieżki plików na urządzeniu. Jeśli chcesz określić identyfikator rejestracji, `-RegistrationId {registration_id}` dołącz również, zastępując symbol zastępczy, stosownie do przypadku.
+   Zastąp wartości symboli `{scope_id}`zastępczych `{identity cert chain path}`dla, `{identity key path}` i z odpowiednimi wartościami z wystąpienia usługi DPS i ścieżkami plików na urządzeniu. Jeśli chcesz określić identyfikator rejestracji, Uwzględnij `-RegistrationId {registration_id}` również symbol zastępczy odpowiednio do potrzeb.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
@@ -276,15 +276,15 @@ Aby uzyskać bardziej szczegółowe informacje dotyczące instalowania usługi I
    ```
 
    >[!TIP]
-   >Plik config.yaml przechowuje certyfikat i informacje o kluczu jako identyfikatory URI plików. Jednak polecenie Initialize-IoTEdge obsługuje ten krok formatowania, dzięki czemu można podać bezwzględną ścieżkę do certyfikatu i plików kluczy na urządzeniu.
+   >Plik config. YAML przechowuje certyfikat i informacje o kluczu jako identyfikatory URI plików. Jednak polecenie Initialize-IoTEdge obsługuje ten krok formatowania, więc można podać ścieżkę bezwzględną do certyfikatu i plików kluczy na urządzeniu.
 
-## <a name="verify-successful-installation"></a>Weryfikacja pomyślnej instalacji
+## <a name="verify-successful-installation"></a>Weryfikuj pomyślną instalację
 
-Jeśli środowisko wykonawcze rozpoczęło się pomyślnie, możesz przejść do centrum IoT Hub i rozpocząć wdrażanie modułów usługi IoT Edge na urządzeniu.
+Jeśli środowisko uruchomieniowe zostało pomyślnie uruchomione, możesz przejść do IoT Hub i rozpocząć wdrażanie modułów IoT Edge na urządzeniu.
 
-Można sprawdzić, czy została użyta indywidualna rejestracja utworzona w usłudze inicjowania obsługi administracyjnej urządzeń. Przejdź do wystąpienia usługi inicjowania obsługi administracyjnej urządzeń w witrynie Azure portal. Otwórz szczegóły rejestracji dla utworzonej rejestracji indywidualnej. Należy zauważyć, że stan rejestracji jest **przypisany** i identyfikator urządzenia jest wyświetlany.
+Możesz sprawdzić, czy została użyta Rejestracja indywidualna utworzona w usłudze Device Provisioning. Przejdź do wystąpienia usługi Device Provisioning w Azure Portal. Otwórz szczegóły rejestracji dla utworzonej rejestracji indywidualnej. Zwróć uwagę, że jest **przypisany** stan rejestracji i identyfikator urządzenia jest wyświetlany.
 
-Użyj następujących poleceń na urządzeniu, aby sprawdzić, czy środowisko wykonawcze zostało zainstalowane i uruchomione pomyślnie.
+Użyj następujących poleceń na urządzeniu, aby sprawdzić, czy środowisko uruchomieniowe zostało prawidłowo zainstalowane i uruchomione.
 
 ### <a name="linux-device"></a>Urządzenie z systemem Linux
 
@@ -294,13 +294,13 @@ Sprawdź stan usługi IoT Edge.
 systemctl status iotedge
 ```
 
-Sprawdź dzienniki usług.
+Sprawdzanie dzienników usług.
 
 ```cmd/sh
 journalctl -u iotedge --no-pager --no-full
 ```
 
-Lista uruchomionych modułów.
+Wyświetl listę uruchomionych modułów.
 
 ```cmd/sh
 iotedge list
@@ -314,13 +314,13 @@ Sprawdź stan usługi IoT Edge.
 Get-Service iotedge
 ```
 
-Sprawdź dzienniki usług.
+Sprawdzanie dzienników usług.
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Lista uruchomionych modułów.
+Wyświetl listę uruchomionych modułów.
 
 ```powershell
 iotedge list
@@ -328,4 +328,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Następne kroki
 
-Proces rejestracji usługi inicjowania obsługi administracyjnej urządzeń umożliwia ustawienie identyfikatora urządzenia i bliźniaczych tagów urządzenia w tym samym czasie, co aprowizowanie nowego urządzenia. Za pomocą tych wartości można kierować reklamy na poszczególne urządzenia lub grupy urządzeń za pomocą automatycznego zarządzania urządzeniami. Dowiedz się, jak [wdrażać i monitorować moduły usługi IoT Edge na dużą skalę przy użyciu witryny Azure portal](how-to-deploy-monitor.md) lub [przy użyciu interfejsu wiersza polecenia platformy Azure.](how-to-deploy-monitor-cli.md)
+Proces rejestracji w usłudze Device Provisioning Service umożliwia ustawienie tagów urządzeń i urządzeń w tym samym czasie, w których jest inicjowane nowe urządzenie. Tych wartości można użyć do kierowania poszczególnych urządzeń lub grup urządzeń przy użyciu funkcji automatycznego zarządzania urządzeniami. Dowiedz się, jak [wdrażać i monitorować moduły IoT Edge na dużą skalę przy użyciu Azure Portal](how-to-deploy-at-scale.md) lub [przy użyciu interfejsu wiersza polecenia platformy Azure](how-to-deploy-cli-at-scale.md).

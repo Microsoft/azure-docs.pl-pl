@@ -1,79 +1,89 @@
 ---
-title: 'Regresja logistyczna dwóch klas: odwołanie do modułu'
+title: 'Regresja logistyczna na dwie klasy: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu regresji logistycznej dwuklasowej w usłudze Azure Machine Learning, aby utworzyć model regresji logistycznej, który może służyć do przewidywania dwóch (i tylko dwóch) wyników.
+description: Dowiedz się, jak używać dwuklasowego modułu regresji logistycznej w Azure Machine Learning, aby utworzyć model regresji logistycznej, który może być używany do przewidywania dwóch (i tylko dwóch) rezultatów.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 7eb1ad00c3c947c3ed6d4ca450bddc0956a08d71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455829"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137624"
 ---
-# <a name="two-class-logistic-regression-module"></a>Dwuklasowy moduł regresji logistycznej
+# <a name="two-class-logistic-regression-module"></a>Moduł regresji logistycznej dla dwóch klas
 
-W tym artykule opisano moduł w projektancie usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
-Ten moduł służy do tworzenia modelu regresji logistycznej, który może służyć do przewidywania dwóch (i tylko dwa) wyników. 
+Użyj tego modułu, aby utworzyć model regresji logistycznej, który może służyć do przewidywania dwóch (i tylko dwóch) wyników. 
 
-Regresja logistyczna jest dobrze znaną techniką statystyczną, która jest używana do modelowania wielu rodzajów problemów. Algorytm ten jest nadzorowaną metodą *uczenia się;*  w związku z tym należy podać zestaw danych, który już zawiera wyniki do uczenia modelu.  
+Regresja logistyczna to dobrze znana technika statystyczna, która jest używana do modelowania wielu rodzajów problemów. Ten algorytm to *nadzorowana Metoda uczenia* się;  w związku z tym musisz dostarczyć zestaw danych, który zawiera już wyniki do uczenia modelu.  
 
 ### <a name="about-logistic-regression"></a>Regresja logistyczna — informacje  
 
-Regresja logistyczna jest dobrze znaną metodą w statystykach, która jest używana do przewidywania prawdopodobieństwa wyniku i jest szczególnie popularna w przypadku zadań klasyfikacji. Algorytm przewiduje prawdopodobieństwo wystąpienia zdarzenia przez dopasowanie danych do funkcji logistycznej.
+Regresja logistyczna to dobrze znana metoda w statystyce, która jest używana do przewidywania prawdopodobieństwa wyniku i jest szczególnie popularna w przypadku zadań klasyfikacji. Algorytm przewiduje prawdopodobieństwo wystąpienia zdarzenia przez dopasowanie danych do funkcji logistycznej.
   
-W tym module algorytm klasyfikacji jest zoptymalizowany pod kątem zmiennych dychotomicznych lub binarnych. Jeśli trzeba sklasyfikować wiele wyników, należy użyć [multiklasy logistycznej regresji](./multiclass-logistic-regression.md) modułu.
+W tym module algorytm klasyfikacji jest zoptymalizowany pod kątem dichotomous lub zmiennych binarnych. Jeśli potrzebujesz sklasyfikować wiele wyników, użyj modułu [regresja logistyczna](./multiclass-logistic-regression.md) dla wielu klas.
 
 ##  <a name="how-to-configure"></a>Jak skonfigurować  
 
-Aby uszkodywać ten model, należy podać zestaw danych zawierający etykietę lub kolumnę klasy. Ponieważ ten moduł jest przeznaczony dla problemów dwuklasowych, etykieta lub kolumna klasy musi zawierać dokładnie dwie wartości. 
+Aby szkolić ten model, należy dostarczyć zestaw danych, który zawiera etykietę lub kolumnę klasy. Ponieważ ten moduł jest przeznaczony do rozwiązywania problemów z dwoma klasami, etykieta lub kolumna klasy musi zawierać dokładnie dwie wartości. 
 
-Na przykład kolumna etykiety może być [Głosowana] z możliwymi wartościami "Tak" lub "Nie". Lub może to być [Ryzyko kredytowe], z możliwymi wartościami "Wysoki" lub "Niski". 
+Na przykład kolumna etykieta może być [głosowana] z możliwymi wartościami "yes" lub "No". Lub może to być [ryzyko kredytowe], z możliwymi wartościami "High" lub "Low". 
   
-1.  Dodaj moduł **regresji logistycznej dwóch klas** do potoku.  
+1.  Dodaj moduł **regresja logistyczna dla dwóch klas** do potoku.  
   
-2.  Określ sposób, w jaki model ma być trenowany, ustawiając opcję **Utwórz tryb trenera.**  
+2.  Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .  
   
-    -   **Pojedynczy parametr:** Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty.  
+    -   **Pojedynczy parametr**: Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty.  
 
-    -   **Zakres parametrów:** Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry za pomocą modułu [Tune Model Hyperparameters.](tune-model-hyperparameters.md) Należy podać zakres wartości, a trener iteruje przez wiele kombinacji ustawień, aby określić kombinację wartości, która daje najlepszy wynik.
+    -   **Zakres parametrów**: Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Podajesz kilka wartości, a Trainer wykonuje iterację wielu kombinacji ustawień, aby określić kombinację wartości, które tworzą najlepszy wynik.
   
-3.  W polu **Tolerancja optymalizacji**należy określić wartość progową używaną podczas optymalizacji modelu. Jeśli poprawa między iteracjami spadnie poniżej określonego progu, algorytm jest uważany za zbieżne na rozwiązanie i szkolenia zatrzymuje.  
+3.  Aby uzyskać **tolerancję optymalizacji**, określ wartość progową, która ma być używana podczas optymalizowania modelu. Jeśli poprawa między iteracjami spadnie poniżej określonego progu, algorytm jest uznawany za zbieżny w rozwiązaniu, a szkolenie zostanie zatrzymane.  
   
-4.  Dla **masy regularyzacji L1** i **masy regularyzacji L2**wpisz wartość do użycia dla parametrów regularyzacji L1 i L2. Wartość niezerowa jest zalecana dla obu.  
-     *Regularization* jest metodą zapobiegania nadmiernemu dosyć przez karanie modeli o ekstremalnych wartościach współczynnika. Prawidłowość działa przez dodanie kary, która jest skojarzona z wartościami współczynnika do błędu hipotezy. W ten sposób dokładny model o ekstremalnych wartościach współczynnika zostałby bardziej ukarany, ale mniej dokładny model o bardziej konserwatywnych wartościach zostałby ukarany mniej.  
+4.  W przypadku **wag uregulowania** i **wagi L2**wpisz wartość, która ma być używana dla parametrów uregulowania L1 i L2. Dla obu tych zaleca się wartość różną od zera.  
+     *Uregulowanie* to metoda zapobiegania zastępowaniu poprzez nakładanie się modeli o wartości skrajnego współczynnika. Uregulowanie działa przez dodanie kary, która jest skojarzona z wartościami współczynnika, do błędu hipotezy. W ten sposób dokładny model z wartościami współczynnika skrajnie byłby bardziej karany, ale mniej dokładny model z bardziej bardziej nieprawidłowymi wartościami będzie mniejszy.  
   
-     L1 i L2 regularizacji mają różne efekty i zastosowań.  
+     Uregulowanie L1 i L2 mają różne efekty i używa.  
   
-    -   L1 może być stosowany do modeli rozrzedzonych, co jest przydatne podczas pracy z danymi o wysokiej wymiarze.  
+    -   L1 można zastosować do modeli rozrzedzonych, co jest przydatne podczas pracy z danymi o dużym wymiarze.  
   
-    -   Natomiast regularyzacja L2 jest korzystniejsza dla danych, które nie są rzadkie.  
+    -   Z kolei w przypadku danych, które nie są rozrzedzone, preferowane jest uregulowanie L2.  
   
-     Algorytm ten obsługuje liniową kombinację wartości regularyzacji L1 i <code>x = L1</code> <code>y = L2</code>L2: oznacza to, że if i , następnie <code>ax + by = c</code> definiuje zakres liniowy terminów regularyzacji.  
+     Ten algorytm obsługuje liniową kombinację wartości rozliczania L1 i L2: to jest, <code>x = L1</code> Jeśli <code>y = L2</code>i, <code>ax + by = c</code> następnie definiuje liniowy zakres warunków uregulowania.  
   
     > [!NOTE]
-    >  Chcesz dowiedzieć się więcej o legalizacji L1 i L2? Poniższy artykuł zawiera omówienie, jak L1 i L2 regularizacji są różne i jak wpływają one na dopasowanie modelu, z przykładami kodu dla regresji logistycznej i modeli sieci neuronowych: [L1 i L2 Regularization for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Chcesz dowiedzieć się więcej na temat uregulowania L1 i L2? Poniższy artykuł zawiera omówienie sposobu, w jaki uregulowania L1 i L2 są różne i jak wpływają na ich dopasowanie, z przykładami kodu na potrzeby regresji logistycznej i modeli sieci neuronowych: [w przypadku Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
     >
-    > Dla modeli regresji logistycznej opracowano różne kombinacje liniowe terminów L1 i L2: na przykład [elastyczna legalizacja sieci.](https://wikipedia.org/wiki/Elastic_net_regularization) Sugerujemy odwołanie się do tych kombinacji, aby zdefiniować kombinację liniową, która jest skuteczna w modelu.
+    > Dla modeli regresji logistycznej opracowano różne liniowe kombinacje warunków L1 i L2: na przykład [elastyczne uregulowanie netto](https://wikipedia.org/wiki/Elastic_net_regularization). Sugerujemy, aby odwoływać się do tych kombinacji w celu zdefiniowania kombinacji liniowej, która obowiązuje w modelu.
       
-5.  W przypadku **rozmiaru pamięci dla L-BFGS**należy określić ilość pamięci używanej do optymalizacji *L-BFGS.*  
+5.  W polu **rozmiar pamięci dla l-BFGS**określ ilość pamięci, która ma być używana dla optymalizacji *l-BFGS* .  
   
-     L-BFGS oznacza "ograniczoną pamięć Broyden-Fletcher-Goldfarb-Shanno". Jest to algorytm optymalizacji, który jest popularny do szacowania parametrów. Ten parametr wskazuje liczbę przeszłych pozycji i gradientów do przechowywania w celu obliczenia następnego kroku.  
+     L-BFGS oznacza "Limited Memory Broyden-Fletcher-Goldfarb-Shanno". Jest to algorytm optymalizacji, który jest popularny dla szacowania parametrów. Ten parametr wskazuje liczbę wcześniejszych pozycji i gradientów do przechowania w obliczeniach następnego kroku.  
   
-     Ten parametr optymalizacji ogranicza ilość pamięci, która jest używana do obliczania następnego kroku i kierunku. Po określeniu mniej pamięci, szkolenie jest szybsze, ale mniej dokładne.  
+     Ten parametr optymalizacji ogranicza ilość pamięci, która jest używana do obliczania następnego etapu i kierunku. W przypadku określenia mniejszej ilości pamięci szkolenie jest szybsze, ale mniej dokładne.  
   
-6.  W polu **Siewna liczb losowych**wpisz wartość całkowitą. Definiowanie wartości inicjatora jest ważne, jeśli chcesz, aby wyniki były powtarzalne w wielu przebiegach tego samego potoku.  
+6.  W przypadku **liczby losowej inicjatora**wpisz wartość całkowitą. Definiowanie wartości inicjatora jest ważne, jeśli chcesz, aby wyniki były odtwarzalne dla wielu przebiegów tego samego potoku.  
   
   
-8. Dodaj oznakowany zestaw danych do potoku i połącz jeden z [modułów szkoleniowych](module-reference.md).  
+8. Dodawanie oznaczonego zestawu danych do potoku i uczenie modelu:
+
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    -   Jeśli **ustawisz tryb Utwórz tryb trenera** na **Pojedynczy parametr,** użyj modułu [Model pociągu.](./train-model.md)  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Jeśli przejdziesz do zakresu parametrów w celu [nauczenia modelu](train-model.md), zostanie użyta tylko wartość domyślna na liście jednego parametru.  
+    > 
+    > W przypadku przekazania jednego zestawu wartości parametrów do modułu [strojenia modelu](tune-model-hyperparameters.md) , gdy oczekuje on zakresu ustawień dla każdego parametru, zignoruje wartości i użyje wartości domyślnych dla dodanej informacji.  
+    > 
+    > Jeśli wybierzesz opcję **zakres parametrów** i wprowadzisz pojedynczą wartość dla każdego parametru, ta pojedyncza wartość zostanie użyta w całym wyczyszczeniu, nawet jeśli inne parametry zmienią się w zakres wartości.  
   
 9. Prześlij potok.  
   
@@ -82,9 +92,9 @@ Na przykład kolumna etykiety może być [Głosowana] z możliwymi wartościami 
 Po zakończeniu szkolenia:
  
   
-+ Aby prognozować na nowe dane, należy użyć przeszkolonego modelu i nowych danych jako dane wejściowe do [modelu wynik](./score-model.md) modułu. 
++ Aby dokonać prognoz dotyczących nowych danych, użyj przeszkolonego modelu i nowych danych jako danych wejściowych w module [model oceny](./score-model.md) . 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

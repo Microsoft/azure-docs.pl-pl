@@ -1,62 +1,72 @@
 ---
-title: 'Regresja lasu decyzji: odwołanie do modułu'
+title: 'Regresja lasu decyzyjnego: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć dwuklasowego modułu Perceptron uśrednionego w usłudze Azure Machine Learning, aby utworzyć model uczenia maszynowego na podstawie algorytmu perceptron uśrednionego.
+description: Dowiedz się, jak utworzyć model uczenia maszynowego na podstawie średniego algorytmu Perceptron przy użyciu dwuklasowego modułu Perceptron w Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 73e23dd7d350ea63e9fd8b933a525a9d8aad9e3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 53e40726a5745263ee2b3cb4ada8671bf65da963
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920777"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137675"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>Dwuklasowy moduł perceptron uśredniony
+# <a name="two-class-averaged-perceptron-module"></a>Moduł Perceptron o średniej klasie
 
-W tym artykule opisano moduł w projektancie usługi Azure Machine Learning (wersja zapoznawcza).
+W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
-Ten moduł służy do tworzenia modelu uczenia maszynowego na podstawie algorytmu perceptron uśredniony.  
+Ten moduł służy do tworzenia modelu uczenia maszynowego na podstawie średniego algorytmu Perceptron.  
   
-Ten algorytm klasyfikacji jest nadzorowaną metodą uczenia się i wymaga *oznakowanego zestawu danych,* który zawiera kolumnę etykiet. Model można trenować, udostępniając model i oznakowany zestaw danych jako dane wejściowe do [modelu pociągu](./train-model.md). Przeszkolony model może następnie służyć do przewidywania wartości dla nowych przykładów wejściowych.  
+Ten algorytm klasyfikacji to nadzorowana Metoda uczenia i wymaga *oznakowanego zestawu danych*, który zawiera kolumnę etykiet. Możesz nauczyć model, dostarczając model i otagowany zestaw danych jako dane wejściowe do [modelu uczenia](./train-model.md). Model przeszkolony może być następnie używany do przewidywania wartości dla nowych przykładów wejściowych.  
 
-### <a name="about-averaged-perceptron-models"></a>Informacje o uśrednionych modelach perceptronowych
+### <a name="about-averaged-perceptron-models"></a>Informacje o średnich modelach Perceptron
 
-*Uśredniona metoda perceptronu* jest wczesną i prostą wersją sieci neuronowej. W tym podejściu dane wejściowe są klasyfikowane do kilku możliwych wyjść na podstawie funkcji liniowej, a następnie łączone z zestawem wag, które są pochodne od wektora operacji , stąd nazwa "perceptron".
+*Średnia Metoda Perceptron* to wczesna i prosta wersja sieci neuronowych. W tym podejściu dane wejściowe są klasyfikowane do kilku możliwych wyjść opartych na funkcji liniowej, a następnie połączone z zestawem wag, które pochodzą od wektora funkcji, dlatego nazwa "Perceptron".
 
-Prostsze modele perceptronu nadają się do uczenia się liniowo rozdzielnych wzorców, podczas gdy sieci neuronowe (szczególnie głębokie sieci neuronowe) mogą modelować bardziej złożone granice klas. Jednak perceptrony są szybsze, a ponieważ przetwarzają sprawy szeregowo, perceptrony mogą być używane z ciągłym treningiem.
+Prostsze modele Perceptron są odpowiednie do uczenia się liniowo oddzielnych wzorców, natomiast sieci neuronowych (zwłaszcza głębokie sieci neuronowych) mogą modelować bardziej złożone granice klas. Perceptrons są jednak szybsze i ponieważ przetwarzają przypadki seryjnie, Perceptrons może być używany z ciągłym szkoleniem.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>Jak skonfigurować dwuklasowy perceptron uśredniony
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Jak skonfigurować Perceptron średniej klasy dwuklasowej
 
-1.  Dodaj do potoku moduł **Perceptron uśredniony** dwuklasowy.  
+1.  Dodaj do potoku moduł **Perceptron o średniej klasie** .  
 
-2.  Określ sposób, w jaki model ma być trenowany, ustawiając opcję **Utwórz tryb trenera.**  
+2.  Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .  
   
-    -   **Pojedynczy parametr:** Jeśli wiesz, jak chcesz skonfigurować model, podaj określony zestaw wartości jako argumenty.
+    -   **Pojedynczy parametr**: Jeśli wiesz, jak chcesz skonfigurować model, podaj określony zestaw wartości jako argumenty.
 
-    -   **Zakres parametrów:** Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić wyciągnięcie po parametrze. Wybierz zakres wartości, aby iterować ponad i [Tune Model Hyperparameters](tune-model-hyperparameters.md) iteruje nad wszystkimi możliwymi kombinacjami ustawień podanych w celu określenia hiperparametrów, które dają optymalne wyniki.  
+    -   **Zakres parametrów**: Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki.  
   
-3.  W polu **Wskaźnik uczenia się**określ wartość *wskaźnika uczenia się*. Wartości szybkości uczenia się kontrolują rozmiar kroku, który jest używany w gradientu stochastycznego zejścia za każdym razem, gdy model jest testowany i korygowany.
+3.  W polu **stawka szkoleniowa**Określ wartość dla *stawki szkoleniowej*. Wartości współczynnika uczenia kontrolują rozmiar kroku, który jest używany w gradiencie stochastycznego przy każdym przetestowaniu i skorygowaniu modelu.
   
-     Dzięki mniejszej szybkości, można przetestować model częściej, z ryzykiem, że może utknąć w lokalnym płaskowyżu. Dzięki pomniejszeniu kroku można zbiegać się szybciej, ryzykując przekroczenie prawdziwych minimów.
+     Zmniejszając szybkość, można testować model częściej, z ryzykiem, który może zostać zablokowany w lokalnej Plateau. Dzięki powiększeniu tego kroku można szybciej łączyć się z ryzykiem w przypadku przekroczenia rzeczywistych wartości.
   
-4.  W przypadku **maksymalnej liczby iteracji**wpisz liczbę razy, w których algorytm ma sprawdzać dane szkoleniowe.  
+4.  Dla **maksymalnej liczby iteracji**wpisz, ile razy algorytm ma przeanalizować dane szkoleniowe.  
   
-     Wczesne zatrzymanie często zapewnia lepsze uogólnienie. Zwiększenie liczby iteracji poprawia dopasowanie, na ryzyko overfitting.
+     Zatrzymywanie wczesne często zapewnia lepszy sposób uogólniania. Zwiększenie liczby iteracji usprawnia dopasowanie w przypadku naruszenia.
   
-5.  W polu **Ilość materiału siewnego liczb losowych**opcjonalnie wpisz wartość całkowitą, która ma być używana jako materiał siewny. Za pomocą materiału siewnego jest zalecane, jeśli chcesz zapewnić odtwarzalność potoku przez przebiegi.  
+5.  W przypadku **liczby losowej inicjatora**opcjonalnie wpisz wartość całkowitą, która ma być używana jako inicjator. Użycie inicjatora jest zalecane, jeśli chcesz zapewnić odtwarzalność potoku między przebiegami.  
   
-1.  Połącz zestaw danych szkoleniowych i jeden z modułów szkoleniowych:
+1.  Połącz zestaw danych szkoleniowych i Przeszkol model:
+
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    -   Jeśli **ustawisz tryb Utwórz tryb trenera** na **Pojedynczy parametr,** użyj modułu [Model pociągu.](train-model.md)
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Jeśli przejdziesz do zakresu parametrów w celu [nauczenia modelu](train-model.md), zostanie użyta tylko wartość domyślna na liście jednego parametru.  
+    > 
+    > W przypadku przekazania jednego zestawu wartości parametrów do modułu [strojenia modelu](tune-model-hyperparameters.md) , gdy oczekuje on zakresu ustawień dla każdego parametru, zignoruje wartości i użyje wartości domyślnych dla dodanej informacji.  
+    > 
+    > Jeśli wybierzesz opcję **zakres parametrów** i wprowadzisz pojedynczą wartość dla każdego parametru, ta pojedyncza wartość zostanie użyta w całym wyczyszczeniu, nawet jeśli inne parametry zmienią się w zakres wartości.
 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

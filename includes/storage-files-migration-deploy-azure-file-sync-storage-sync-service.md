@@ -1,27 +1,24 @@
 ---
 title: Wdrażanie usługi synchronizacji magazynu
-description: Wdrażanie zasobu chmury usługi Azure File Sync. Usługa synchronizacji magazynu. Wspólny blok tekstu, współużytkowane przez dokumenty migracji.
+description: Wdrożenie zasobu chmury Azure File Sync, usługi synchronizacji magazynu. Wspólny blok tekstu współużytkowany w dokumentach migracji.
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fe74bae95784dcb63a80ee7e280c02de2eadeb5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 248b61530b80a00aa10272dcb3d28b85c6ee04e5
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124709"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143595"
 ---
-W tym kroku potrzebujesz poświadczeń subskrypcji platformy Azure.
+W tym kroku wymagane są poświadczenia subskrypcji platformy Azure.
 
-Podstawowy zasób do konfigurowania usługi Azure File Sync jest nazywany "usługą synchronizacji magazynu".
-Zaleca się wdrożenie tylko jednego dla wszystkich serwerów w firmie, które synchronizują ten sam zestaw plików teraz lub w przyszłości. Utwórz wiele usług synchronizacji magazynu tylko wtedy, gdy masz różne zestawy serwerów, które nigdy nie mogą wymieniać danych. (na przykład: zsynchronizować ten sam udział plików platformy Azure). W przeciwnym razie jedną usługę synchronizacji magazynu jest najlepszym rozwiązaniem.
+Podstawowym zasobem do skonfigurowania dla Azure File Sync jest nazywana *usługa synchronizacji magazynu*. Zalecamy wdrożenie tylko jednego serwera dla wszystkich serwerów, które synchronizują ten sam zestaw plików teraz lub w przyszłości. Utwórz wiele usług synchronizacji magazynu tylko wtedy, gdy masz różne zestawy serwerów, które nigdy nie muszą wymieniać danych (na przykład: Synchronizuj ten sam udział plików platformy Azure). W przeciwnym razie najlepszym rozwiązaniem jest usługa synchronizacji magazynu.
 
-Wybierz region platformy Azure dla usługi synchronizacji magazynu, która znajduje się w pobliżu lokalizacji biura. Wszystkie inne zasoby w chmurze muszą być wdrożone w tym samym regionie.
-Aby uprościć zarządzanie, utwórz nową grupę zasobów w ramach subskrypcji, w której znajdują się zasoby synchronizacji i magazynu.
+Wybierz region platformy Azure dla usługi synchronizacji magazynu znajdującej się blisko lokalizacji. Wszystkie inne zasoby w chmurze muszą zostać wdrożone w tym samym regionie.
+Aby uprościć zarządzanie, należy utworzyć nową grupę zasobów w subskrypcji, w której zawarto zasoby synchronizacji i magazynu.
 
-W poniższym artykule opisano sposób wdrażania usługi synchronizacji magazynu. Postępuj tylko zgodnie z tą częścią doc. W późniejszych krokach będą dostępne łącza do innych podsekcji tego doc.
-
-[Dowiedz się, jak wdrożyć usługę synchronizacji magazynu.](../articles/storage/files/storage-sync-files-deployment-guide.md#deploy-the-storage-sync-service)
+Aby uzyskać więcej informacji, zobacz [sekcję dotyczącą wdrażania usługi synchronizacji magazynu](../articles/storage/files/storage-sync-files-deployment-guide.md#deploy-the-storage-sync-service) w artykule na temat wdrażania Azure File Sync. Wykonaj tylko tę część artykułu. W dalszych krokach znajdziesz linki do innych sekcji artykułu.

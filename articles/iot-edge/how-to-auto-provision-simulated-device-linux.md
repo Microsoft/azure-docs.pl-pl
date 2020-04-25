@@ -1,6 +1,6 @@
 ---
-title: Aprowizuj urządzenie z wirtualnym modułem TPM na maszynie VM systemu Linux — usługa Azure IoT Edge
-description: Użyj symulowanego modułu TPM na maszynie Wirtualnej systemu Linux, aby przetestować usługę inicjowania obsługi administracyjnej urządzeń platformy Azure dla usługi Azure IoT Edge
+title: Udostępnianie urządzenia za pomocą wirtualnego modułu TPM na maszynie wirtualnej z systemem Linux — Azure IoT Edge
+description: Korzystanie z symulowanego modułu TPM na maszynie wirtualnej z systemem Linux w celu przetestowania usługi Azure Device Provisioning dla Azure IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,41 +8,41 @@ ms.date: 3/2/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b62f551e2532e0205159358b3618695524ae85c8
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 82bdc71a123a263fffd842a04f4837b34aaa8685
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666703"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131064"
 ---
-# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Tworzenie i aprowizyja na urządzeniu usługi IoT Edge za pomocą wirtualnego modułu TPM na maszynie wirtualnej systemu Linux
+# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu wirtualnego modułu TPM na maszynie wirtualnej z systemem Linux
 
-Urządzenia usługi Azure IoT Edge mogą być automatycznie aprowidzone przy użyciu [usługi inicjowania obsługi administracyjnej urządzeń.](../iot-dps/index.yml) Jeśli nie znasz procesu automatycznego inicjowania obsługi administracyjnej, przejrzyj [pojęcia automatycznego inicjowania obsługi administracyjnej](../iot-dps/concepts-auto-provisioning.md) przed kontynuowaniem.
+Azure IoT Edge urządzeń można automatycznie zainicjować przy użyciu [usługi Device Provisioning](../iot-dps/index.yml). Jeśli nie znasz procesu samoobsługowego inicjowania obsługi administracyjnej, przed kontynuowaniem zapoznaj się z [pojęciami autouzupełniania](../iot-dps/concepts-auto-provisioning.md) .
 
-W tym artykule pokazano, jak przetestować automatyczne inicjowanie obsługi administracyjnej na symulowanym urządzeniu Z krawędzią IoT w następujących krokach:
+W tym artykule pokazano, jak przetestować funkcję autoaprowizacji na symulowanym urządzeniu IoT Edge, wykonując następujące czynności:
 
-* Utwórz maszynę wirtualną systemu Linux (V) w funkcji Hyper-V z symulowanym modułem TPM (Trusted Platform Module) dla zabezpieczeń sprzętu.
-* Utwórz wystąpienie usługi inicjowania obsługi administracyjnej urządzeń (DPS) centrum IoT.
-* Tworzenie indywidualnej rejestracji dla urządzenia
-* Zainstaluj środowisko wykonawcze usługi IoT Edge i podłącz urządzenie do centrum IoT Hub
+* Utwórz maszynę wirtualną z systemem Linux w funkcji Hyper-V z symulowanym moduł TPM (TPM) na potrzeby zabezpieczeń sprzętowych.
+* Utwórz wystąpienie IoT Hub Device Provisioning Service (DPS).
+* Utwórz rejestrację indywidualną dla urządzenia
+* Zainstaluj środowisko uruchomieniowe IoT Edge i Połącz urządzenie z IoT Hub
 
 > [!TIP]
-> W tym artykule opisano sposób testowania aprowizacji dps przy użyciu symulatora modułu TPM, ale wiele z nich dotyczy fizycznego sprzętu TPM, takiego jak [Infineon&trade; OPTIGA TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), urządzenie z certyfikatem platformy Azure dla IoT.
+> W tym artykule opisano sposób testowania aprowizacji usługi DPS przy użyciu symulatora modułu TPM, ale większość z nich dotyczy fizycznego sprzętu modułu TPM, takiego jak [moduł&trade; TPM Infineon OPTIGA](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), urządzenie z certyfikatem platformy Azure dla IoT.
 >
-> Jeśli używasz urządzenia fizycznego, możesz przejść do sekcji [Pobieranie obsługi administracyjnej z urządzenia fizycznego](#retrieve-provisioning-information-from-a-physical-device) w tym artykule.
+> Jeśli używasz urządzenia fizycznego, możesz przejść do sekcji [pobieranie informacji o aprowizacji z urządzenia fizycznego](#retrieve-provisioning-information-from-a-physical-device) w tym artykule.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Komputer dewelopera systemu Windows z [włączoną funkcją Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). W tym artykule używa się systemu Windows 10 z uruchomioną maszyną wirtualną Ubuntu Server.
-* Aktywne Centrum IoT.
-* W przypadku korzystania z symulowanego modułu TPM, [visual studio](https://visualstudio.microsoft.com/vs/) 2015 lub nowsze z włączonym obciążeniem "Programowy pulpitu z włączonym [c++".](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)
+* Maszyna deweloperskia systemu Windows z [włączoną funkcją Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). W tym artykule jest używany system Windows 10 z uruchomioną maszyną wirtualną serwera Ubuntu.
+* Aktywna IoT Hub.
+* W przypadku korzystania z symulowanego modułu TPM, [programu Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 lub nowszego z włączonym obciążeniem ["Programowanie aplikacji klasycznych w języku C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) .
 
 > [!NOTE]
-> Moduł TPM 2.0 jest wymagany podczas korzystania z zaświadczania modułu TPM z dps i może być używany tylko do tworzenia rejestracji indywidualnych, a nie grupowych.
+> Moduł TPM 2,0 jest wymagany w przypadku korzystania z zaświadczania TPM z usługą DPS i może być używany tylko do tworzenia pojedynczych, nie grup, rejestracji.
 
-## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>Tworzenie maszyny wirtualnej systemu Linux za pomocą wirtualnego modułu TPM
+## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>Tworzenie maszyny wirtualnej z systemem Linux przy użyciu wirtualnego modułu TPM
 
-W tej sekcji utworzysz nową maszynę wirtualną systemu Linux w funkcji Hyper-V. Ta maszyna wirtualna została skonfigurowana z symulowanym modułem TPM, dzięki czemu można jej używać do testowania sposobu automatycznego inicjowania obsługi administracyjnej z usługą IoT Edge.
+W tej sekcji utworzysz nową maszynę wirtualną z systemem Linux w ramach funkcji Hyper-V. Ta maszyna wirtualna została skonfigurowana przy użyciu symulowanego modułu TPM, aby można było użyć jej do testowania, w jaki sposób Automatyczna obsługa administracyjna współpracuje z IoT Edge.
 
 ### <a name="create-a-virtual-switch"></a>Tworzenie wirtualnego przełącznika
 
@@ -50,60 +50,60 @@ Przełącznik wirtualny umożliwia maszynie wirtualnej łączenie się z siecią
 
 1. Otwórz Menedżera funkcji Hyper-V na komputerze z systemem Windows.
 
-2. W menu **Akcje** wybierz polecenie **Wirtualny Menedżer przełączników**.
+2. W menu **Akcje** wybierz pozycję **Menedżer przełącznika wirtualnego**.
 
 3. Wybierz **zewnętrzny** przełącznik wirtualny, a następnie wybierz pozycję **Utwórz przełącznik wirtualny**.
 
-4. Nadaj nowemu wirtualnemu przełącznikowi nazwę, na przykład **EdgeSwitch**. Upewnij się, że typ połączenia jest ustawiony na **Sieć zewnętrzna,** a następnie **wybierz**ok .
+4. Nadaj nowemu przełącznikowi wirtualnemu nazwę, na przykład **EdgeSwitch**. Upewnij się, że typ połączenia to **Sieć zewnętrzna**, a następnie wybierz przycisk **OK**.
 
-5. W wyskakującym okienku z ostrzeżeniem, że łączność sieciowa może zostać zakłócona. Wybierz **pozycję Tak,** aby kontynuować.
+5. Wyskakujące okienko ostrzega o tym, że łączność sieciowa może ulec zakłóceniu. Wybierz pozycję **tak** , aby kontynuować.
 
-Jeśli podczas tworzenia nowego przełącznika wirtualnego widoczne są błędy, upewnij się, że żadne inne przełączniki nie używają adaptera Ethernet i że żadne inne przełączniki nie używają tej samej nazwy.
+Jeśli podczas tworzenia nowego przełącznika wirtualnego pojawią się błędy, upewnij się, że żadne inne przełączniki nie używają adaptera Ethernet i że żadne inne przełączniki nie mają tej samej nazwy.
 
 ### <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-1. Pobierz plik obrazu dysku do użycia na maszynie wirtualnej i zapisz go lokalnie. Na przykład [serwer Ubuntu](https://www.ubuntu.com/download/server).
+1. Pobierz plik obrazu dysku do użycia dla maszyny wirtualnej i Zapisz go lokalnie. Na przykład [serwer Ubuntu](https://www.ubuntu.com/download/server).
 
-2. Ponownie w Menedżerze funkcji Hyper-V wybierz polecenie **Nowa** > **maszyna wirtualna** w menu **Akcje.**
+2. W Menedżerze funkcji Hyper-V ponownie wybierz pozycję **Nowa** > **maszyna wirtualna** w menu **Akcje** .
 
-3. Ukończ **Kreatora nowej maszyny wirtualnej** następującymi określonymi konfiguracjami:
+3. Ukończ pracę **Kreatora nowej maszyny wirtualnej** z następującymi określonymi konfiguracjami:
 
-   1. **Określ generowanie**: Wybierz **generację 2**. Maszyny wirtualne generacji 2 mają włączoną wirtulizację zagnieżdżoną, która jest wymagana do uruchamiania usługi IoT Edge na maszynie wirtualnej.
-   2. **Konfigurowanie sieci:** Ustaw wartość **połączenia** na przełącznik wirtualny utworzony w poprzedniej sekcji.
-   3. **Opcje instalacji**: Wybierz **pozycję Zainstaluj system operacyjny z pliku obrazu rozruchowego** i przejdź do pliku obrazu dysku zapisanego lokalnie.
+   1. **Określ generację**: Wybierz **generację 2**. Maszyny wirtualne generacji 2 mają włączoną funkcję wirtualizacji zagnieżdżonej, która jest wymagana do uruchamiania IoT Edge na maszynie wirtualnej.
+   2. **Konfigurowanie sieci**: Ustaw wartość ustawienia **połączenie** z przełącznikiem wirtualnym, który został utworzony w poprzedniej sekcji.
+   3. **Opcje instalacji**: wybierz opcję **Zainstaluj system operacyjny z pliku obrazu rozruchowego** i przejdź do pliku obrazu dysku zapisanego lokalnie.
 
-4. Wybierz **pozycję Zakończ** w kreatorze, aby utworzyć maszynę wirtualną.
+4. Wybierz pozycję **Zakończ** w kreatorze, aby utworzyć maszynę wirtualną.
 
-Utworzenie nowej maszyny Wirtualnej może potrwać kilka minut.
+Utworzenie nowej maszyny wirtualnej może potrwać kilka minut.
 
 ### <a name="enable-virtual-tpm"></a>Włącz wirtualny moduł TPM
 
-Po utworzeniu maszyny Wirtualnej otwórz jej ustawienia, aby włączyć moduł TPM (virtual trusted platform module), który umożliwia automatyczne aprowizowanie urządzenia.
+Po utworzeniu maszyny wirtualnej Otwórz jej ustawienia, aby włączyć moduł TPM (Trusted Platform Module), który umożliwia samoobsługowe Inicjowanie obsługi urządzenia.
 
 1. Wybierz maszynę wirtualną, a następnie otwórz jej **Ustawienia**.
 
 2. Przejdź do obszaru **Security** (Zabezpieczenia).
 
-3. Odznacz pozycję **Włącz bezpieczny rozruch**.
+3. Usuń zaznaczenie pola wyboru **Włącz bezpieczny rozruch**.
 
-4. Sprawdź **włącz moduł zaufanej platformy**.
+4. Zaznacz **opcję włącz moduł TPM**.
 
 5. Kliknij przycisk **OK**.  
 
-### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Uruchamianie maszyny wirtualnej i zbieranie danych modułu TPM
+### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Uruchom maszynę wirtualną i Zbierz dane modułu TPM
 
-Na maszynie wirtualnej skompiluj narzędzie, za pomocą którego można pobrać **identyfikator rejestracji** urządzenia i **klucz poręczenia.**
+Na maszynie wirtualnej Utwórz narzędzie, za pomocą którego można pobrać **Identyfikator rejestracji** i **Klucz poręczenia**urządzenia.
 
-1. Uruchom maszynę wirtualną i połącz się z nią.
+1. Uruchom maszynę wirtualną i nawiąż z nią połączenie.
 
-1. Postępuj zgodnie z instrukcjami w maszynie wirtualnej, aby zakończyć proces instalacji i ponownie uruchomić komputer.
+1. Postępuj zgodnie z monitami na maszynie wirtualnej, aby zakończyć proces instalacji i ponownie uruchomić maszynę.
 
-1. Zaloguj się do maszyny Wirtualnej, a następnie wykonaj kroki opisane w [Konfigurowanie środowiska programistycznego systemu Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) w celu zainstalowania i utworzenia zestawu SDK urządzenia Usługi Azure IoT dla języka C.
+1. Zaloguj się do maszyny wirtualnej, a następnie wykonaj kroki opisane w temacie [Konfigurowanie środowiska deweloperskiego systemu Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) w celu zainstalowania i SKOMPILOWANIA zestawu SDK urządzeń Azure IoT dla języka C.
 
    >[!TIP]
-   >W trakcie tego artykułu skopiujesz i wklej z maszyny wirtualnej, co nie jest łatwe za pośrednictwem aplikacji połączenia Menedżera funkcji Hyper-V. Możesz połączyć się z maszyną wirtualną za pośrednictwem Menedżera funkcji `ifconfig`Hyper-V raz, aby pobrać jego adres IP: . Następnie można użyć adresu IP, aby połączyć się za pośrednictwem SSH: `ssh <username>@<ipaddress>`.
+   >W tym artykule opisano kopiowanie do i wklejanie z maszyny wirtualnej, co nie jest łatwe w aplikacji połączenia Menedżera funkcji Hyper-V. Aby pobrać swój adres IP, możesz połączyć się z maszyną wirtualną za pomocą Menedżera funkcji Hyper-V: `ifconfig`. Następnie można użyć adresu IP, aby nawiązać połączenie za pośrednictwem `ssh <username>@<ipaddress>`protokołu SSH:.
 
-1. Uruchom następujące polecenia, aby utworzyć narzędzie zestawu SDK, które pobiera informacje o inicjowaniu obsługi administracyjnej urządzenia z symulatora modułu TPM.
+1. Uruchom następujące polecenia, aby skompilować narzędzie zestawu SDK, które pobiera informacje o aprowizacji urządzenia z symulatora modułu TPM.
 
    ```bash
    cd azure-iot-sdk-c/cmake
@@ -113,27 +113,27 @@ Na maszynie wirtualnej skompiluj narzędzie, za pomocą którego można pobrać 
    sudo ./tpm_device_provision
    ```
 
-1. W oknie polecenia przejdź `azure-iot-sdk-c` do katalogu i uruchom symulator modułu TPM. Nasłuchuje on przez gniazdo na portach 2321 i 2322. Nie należy zamykać tego okna polecenia; trzeba będzie zachować ten symulator działa.
+1. W oknie wiersza polecenia przejdź do `azure-iot-sdk-c` katalogu i uruchom symulator modułu TPM. Nasłuchuje on przez gniazdo na portach 2321 i 2322. Nie zamykaj tego okna polecenia; należy zachować ten symulator uruchomiony.
 
-   W `azure-iot-sdk-c` katalogu uruchom następujące polecenie, aby uruchomić symulator:
+   W `azure-iot-sdk-c` katalogu Uruchom następujące polecenie, aby uruchomić symulator:
 
    ```bash
    ./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe
    ```
 
-1. Za pomocą programu Visual Studio `cmake` otwórz rozwiązanie `azure_iot_sdks.sln`wygenerowane w katalogu o nazwie i skompiluj je za pomocą polecenia **Kompilacja rozwiązania** w menu **Kompilacja.**
+1. Korzystając z programu Visual Studio, Otwórz rozwiązanie wygenerowane `cmake` w katalogu `azure_iot_sdks.sln`o nazwie i skompiluj je za pomocą polecenia **Kompiluj rozwiązanie** w menu **kompilacja** .
 
 1. W okienku **Eksplorator rozwiązań** w programie Visual Studio przejdź do folderu **Provision\_Tools**. Kliknij prawym przyciskiem myszy projekt **tpm_device_provision** i wybierz pozycję **Ustaw jako projekt startowy**.
 
-1. Uruchom rozwiązanie przy użyciu jednego z poleceń **Start** w menu **Debugowania.** Okno danych wyjściowych wyświetla **identyfikator rejestracji** symulatora modułu TPM i **klucz poręczenia,** który należy skopiować do użycia później podczas tworzenia indywidualnej rejestracji dla urządzenia w oknie Można zamknąć to okno (z identyfikatorem rejestracji i kluczem poręczenia), ale pozostawić uruchomione okno symulatora modułu TPM.
+1. Uruchom rozwiązanie przy użyciu dowolnego polecenia **Uruchom** z menu **debugowanie** . W oknie danych wyjściowych zostanie wyświetlony **Identyfikator rejestracji** symulatora modułu TPM i **Klucz poręczenia**, który należy skopiować do użycia później podczas tworzenia rejestracji indywidualnej dla urządzenia w tym oknie (z identyfikatorem rejestracji i kluczem poręczenia), ale pozostawić okno symulatora modułu TPM uruchomione.
 
-## <a name="retrieve-provisioning-information-from-a-physical-device"></a>Pobieranie informacji aprowizacji z urządzenia fizycznego
+## <a name="retrieve-provisioning-information-from-a-physical-device"></a>Pobieranie informacji o aprowizacji z urządzenia fizycznego
 
-Na urządzeniu skompiluj narzędzie, za pomocą którego można pobrać informacje o inicjowaniu obsługi administracyjnej urządzenia.
+Na urządzeniu Utwórz narzędzie, za pomocą którego można pobrać informacje o aprowizacji urządzenia.
 
-1. Wykonaj kroki opisane w [konfigurowaniu środowiska programistycznego systemu Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) w celu zainstalowania i utworzenia zestawu SDK urządzenia Usługi Azure IoT dla języka C.
+1. Wykonaj kroki opisane w temacie [Konfigurowanie środowiska deweloperskiego systemu Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) , aby zainstalować i skompilować zestaw SDK urządzeń Azure IoT dla języka C.
 
-1. Uruchom następujące polecenia, aby utworzyć narzędzie zestawu SDK, które pobiera informacje o inicjowaniu obsługi administracyjnej urządzenia z urządzenia TPM.
+1. Uruchom następujące polecenia, aby skompilować narzędzie zestawu SDK, które pobiera informacje o aprowizacji urządzenia z urządzenia TPM.
 
    ```bash
    cd azure-iot-sdk-c/cmake
@@ -143,43 +143,43 @@ Na urządzeniu skompiluj narzędzie, za pomocą którego można pobrać informac
    sudo ./tpm_device_provision
    ```
 
-1. Skopiuj wartości dla **identyfikatora rejestracji** i **klucza poręczenia**. Te wartości są używane do tworzenia indywidualnej rejestracji dla urządzenia w dps.
+1. Skopiuj wartości **Identyfikator rejestracji** i **Klucz poręczenia**. Te wartości służą do tworzenia rejestracji indywidualnej dla urządzenia w usłudze DPS.
 
-## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Konfigurowanie usługi inicjowania obsługi administracyjnej urządzeń usługi IoT Hub
+## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Skonfiguruj IoT Hub Device Provisioning Service
 
-Utwórz nowe wystąpienie usługi inicjowania obsługi administracyjnej urządzeń usługi Usługi obsługi urządzeń usługi Usługi IoT na platformie Azure i połącz je z centrum IoT hub. Postępuj zgodnie z instrukcjami w [konfigurowaniu dps centrum IoT](../iot-dps/quick-setup-auto-provision.md)Hub .
+Utwórz nowe wystąpienie IoT Hub Device Provisioning Service na platformie Azure i połącz je z Centrum IoT. Można postępować zgodnie z instrukcjami podanymi w temacie [konfigurowanie IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
 
-Po uruchomieniu usługi inicjowania obsługi administracyjnej urządzeń skopiuj wartość **zakresu identyfikatora** ze strony przeglądowej. Ta wartość jest używana podczas konfigurowania środowiska wykonawczego usługi IoT Edge.
+Po uruchomieniu usługi Device Provisioning należy skopiować wartość **zakres identyfikatora** ze strony przegląd. Ta wartość jest używana podczas konfigurowania środowiska uruchomieniowego IoT Edge.
 
-## <a name="create-a-dps-enrollment"></a>Tworzenie rejestracji DPS
+## <a name="create-a-dps-enrollment"></a>Tworzenie rejestracji w usłudze DPS
 
-Pobierz informacje aprowizacji z maszyny wirtualnej i użyj ich do utworzenia indywidualnej rejestracji w usłudze inicjowania obsługi administracyjnej urządzeń.
+Pobierz informacje o aprowizacji z maszyny wirtualnej i Użyj tej funkcji, aby utworzyć rejestrację indywidualną w usłudze Device Provisioning.
 
-Podczas tworzenia rejestracji w dps, masz możliwość zadeklarowania **stanu bliźniaczej reprezentacji urządzenia początkowego**. W bliźniaczej reprezentacji urządzenia można ustawić znaczniki, aby grupować urządzenia według dowolnej metryki potrzebnej w rozwiązaniu, takiej jak region, środowisko, lokalizacja lub typ urządzenia. Tagi te są używane do tworzenia [wdrożeń automatycznych](how-to-deploy-monitor.md).
+Po utworzeniu rejestracji w usłudze DPS można zadeklarować **początkowy stan dwuosiowy urządzenia**. W ramach sznurka urządzenia można ustawić Tagi do grupowania urządzeń według dowolnej metryki potrzebnej w rozwiązaniu, na przykład regionu, środowiska, lokalizacji lub typu urządzenia. Tagi te służą do tworzenia [wdrożeń automatycznych](how-to-deploy-at-scale.md).
 
 > [!TIP]
-> W wierszu polecenia platformy Azure można utworzyć [rejestrację](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) lub [grupę rejestracji](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) i użyć flagi **obsługującej krawędź,** aby określić, że urządzenie lub grupa urządzeń jest urządzeniem usługi IoT Edge.
+> W interfejsie wiersza polecenia platformy Azure można utworzyć [rejestrację](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) lub [grupę rejestracji](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) , a następnie użyć flagi z **włączoną krawędzią** , aby określić, że urządzenie lub grupa urządzeń jest urządzeniem IoT Edge.
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do wystąpienia usługi inicjowania obsługi administracyjnej urządzeń usługi IoT Hub.
+1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia IoT Hub Device Provisioning Service.
 
 2. W obszarze **Ustawienia**wybierz pozycję **Zarządzaj rejestracjami**.
 
-3. Wybierz **pozycję Dodaj rejestrację indywidualną,** a następnie wykonaj następujące czynności, aby skonfigurować rejestrację:  
+3. Wybierz pozycję **Dodaj rejestrację indywidualną** , a następnie wykonaj następujące kroki, aby skonfigurować rejestrację:  
 
-   1. W przypadku **opcji Mechanizm**wybierz **TPM**.
+   1. W obszarze **mechanizm**wybierz pozycję **TPM**.
 
-   2. Podaj **klucz poręczenia i** **identyfikator rejestracji** skopiowany z maszyny wirtualnej.
+   2. Podaj **Klucz poręczenia** i **Identyfikator rejestracji** skopiowane z maszyny wirtualnej.
 
       > [!TIP]
-      > Jeśli używasz fizycznego urządzenia TPM, musisz określić **klucz poręczenia,** który jest unikatowy dla każdego układu TPM i jest uzyskiwany od producenta układu TPM skojarzonego z nim. Unikatowy **identyfikator rejestracji** dla urządzenia TPM można uzyskać, na przykład tworząc skrót SHA-256 klucza poręczenia.
+      > W przypadku korzystania z fizycznego urządzenia TPM należy określić **Klucz poręczenia**, który jest unikatowy dla każdego mikroukładu modułu TPM i jest uzyskiwany z przypisanego do niego producenta mikroukładu modułu TPM. Można utworzyć unikatowy **Identyfikator rejestracji** dla urządzenia TPM, na przykład tworząc skrót SHA-256 klucza poręczenia.
 
-   3. Wybierz **wartość True,** aby zadeklarować, że ta maszyna wirtualna jest urządzeniem usługi IoT Edge.
+   3. Wybierz **wartość true** , aby zadeklarować, że ta maszyna wirtualna jest urządzeniem IoT Edge.
 
-   4. Wybierz połączone centrum **IoT Hub,** do którego chcesz podłączyć urządzenie. Można wybrać wiele koncentratorów, a urządzenie zostanie przypisane do jednego z nich zgodnie z wybranymi zasadami alokacji.
+   4. Wybierz połączone **IoT Hub** , do których chcesz połączyć urządzenie. Można wybrać wiele centrów, a urządzenie zostanie przypisane do jednej z nich zgodnie z wybranymi zasadami alokacji.
 
-   5. Podaj identyfikator urządzenia, jeśli chcesz. Identyfikatory urządzeń można użyć do kierowania poszczególnych urządzeń do wdrożenia modułu. Jeśli nie podasz identyfikatora urządzenia, zostanie użyty identyfikator rejestracji.
+   5. Podaj identyfikator urządzenia, jeśli chcesz. Identyfikatory urządzeń umożliwiają kierowanie poszczególnych urządzeń do wdrożenia modułu. Jeśli nie podano identyfikatora urządzenia, zostanie użyty Identyfikator rejestracji.
 
-   6. Dodaj wartość znacznika do **stanu bliźniaczej reprezentacji urządzenia początkowego,** jeśli chcesz. Tagów można używać do grup docelowych urządzeń do wdrażania modułu. Przykład:
+   6. Jeśli chcesz, Dodaj wartość tagu do **początkowego stanu dwuosiowego urządzenia** . Możesz użyć tagów do grup docelowych urządzeń do wdrożenia modułu. Przykład:
 
       ```json
       {
@@ -192,31 +192,31 @@ Podczas tworzenia rejestracji w dps, masz możliwość zadeklarowania **stanu bl
       }
       ```
 
-   7. Wybierz **pozycję Zapisz**.
+   7. Wybierz pozycję **Zapisz**.
 
-Teraz, gdy istnieje rejestracja dla tego urządzenia, środowisko uruchomieniowe IoT Edge może automatycznie aprowizować urządzenie podczas instalacji.
+Teraz, gdy istnieje Rejestracja dla tego urządzenia, środowisko uruchomieniowe IoT Edge może automatycznie zainicjować obsługę administracyjną urządzenia podczas instalacji.
 
-## <a name="install-the-iot-edge-runtime"></a>Instalowanie środowiska wykonawczego usługi IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Zainstaluj środowisko uruchomieniowe IoT Edge
 
-Środowisko uruchomieniowe usługi IoT Edge jest wdrożone na wszystkich urządzeniach usługi IoT Edge. Jego składniki są uruchamiane w kontenerach i umożliwiają wdrażanie dodatkowych kontenerów na urządzeniu, dzięki czemu można uruchomić kod na krawędzi. Zainstaluj środowisko uruchomieniowe usługi IoT Edge na maszynie wirtualnej.
+Środowisko uruchomieniowe usługi IoT Edge jest wdrożone na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi. Zainstaluj środowisko uruchomieniowe IoT Edge na maszynie wirtualnej.
 
-Poznaj zakres **identyfikatora** DPS i **identyfikator rejestracji** urządzenia przed rozpoczęciem artykułu, który pasuje do typu urządzenia. Jeśli zainstalowano przykładowy serwer Ubuntu, użyj instrukcji **x64.** Upewnij się, aby skonfigurować środowisko uruchomieniowe IoT Edge dla automatycznego, a nie ręcznego inicjowania obsługi administracyjnej.
+Przed rozpoczęciem artykułu, który jest zgodny z typem urządzenia, należy znać **zakres identyfikatorów** DPS i **Identyfikator rejestracji** urządzenia. Jeśli zainstalowano przykładowy serwer Ubuntu, należy użyć instrukcji **x64** . Pamiętaj, aby skonfigurować środowisko uruchomieniowe IoT Edge automatyczne, a nie ręczne, Inicjowanie obsługi administracyjnej.
 
-[Instalowanie środowiska wykonawczego usługi Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md)
+[Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md)
 
-## <a name="give-iot-edge-access-to-the-tpm"></a>Udzielanie ioT Edge dostępu do modułu TPM
+## <a name="give-iot-edge-access-to-the-tpm"></a>Nadaj IoT Edge dostęp do modułu TPM
 
-Aby środowisko uruchomieniowe IoT Edge było automatycznie aprowizować urządzenie, musi mieć dostęp do modułu TPM.
+Aby środowisko uruchomieniowe IoT Edge automatycznie inicjować obsługę administracyjną urządzenia, musi mieć dostęp do modułu TPM.
 
-Można udzielić tpm dostępu do środowiska uruchomieniowego usługi IoT Edge, zastępując ustawienia systemd, tak aby usługa **iotedge** ma uprawnienia główne. Jeśli nie chcesz podnosić poziomu uprawnień usługi, możesz również użyć następujących kroków, aby ręcznie zapewnić dostęp do modułu TPM.
+Aby zapewnić dostęp do IoT Edge środowiska uruchomieniowego TPM, można zastępowanie ustawień systemowych, aby `iotedge` usługa miała uprawnienia główne. Jeśli nie chcesz podwyższyć poziomu uprawnień usługi, możesz również użyć poniższych kroków, aby ręcznie zapewnić dostęp do modułu TPM.
 
-1. Znajdź ścieżkę pliku do modułu sprzętowego modułu TPM na urządzeniu i zapisz ją jako zmienną lokalną.
+1. Znajdź ścieżkę pliku do modułu sprzętowego modułu TPM na urządzeniu i Zapisz ją jako zmienną lokalną.
 
    ```bash
    tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
    ```
 
-2. Utwórz nową regułę, która zapewni środowisko uruchomieniowe IoT Edge dostęp do tpm0.
+2. Utwórz nową regułę, która zapewni IoT Edge dostęp do środowiska uruchomieniowego do tpm0.
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
@@ -237,7 +237,7 @@ Można udzielić tpm dostępu do środowiska uruchomieniowego usługi IoT Edge, 
 
 5. Zapisz i zamknij plik.
 
-6. Wyzwolić system udev, aby ocenić nową regułę.
+6. Wyzwól system udev, aby oszacować nową regułę.
 
    ```bash
    /bin/udevadm trigger $tpm
@@ -249,17 +249,17 @@ Można udzielić tpm dostępu do środowiska uruchomieniowego usługi IoT Edge, 
    ls -l /dev/tpm0
    ```
 
-   Pomyślne wyjście wygląda następująco:
+   Pomyślne dane wyjściowe wyglądają następująco:
 
    ```output
    crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
-   Jeśli nie widzisz, że zostały zastosowane odpowiednie uprawnienia, spróbuj ponownie uruchomić komputer, aby odświeżyć udev.
+   Jeśli nie widzisz odpowiednich uprawnień, spróbuj ponownie uruchomić maszynę, aby odświeżyć udev.
 
-## <a name="restart-the-iot-edge-runtime"></a>Ponowne uruchamianie ioT Edge
+## <a name="restart-the-iot-edge-runtime"></a>Uruchom ponownie środowisko uruchomieniowe IoT Edge
 
-Uruchom ponownie środowisko uruchomieniowe usługi IoT Edge, aby odebrało wszystkie zmiany konfiguracji wprowadzone na urządzeniu.
+Uruchom ponownie środowisko uruchomieniowe IoT Edge, aby wyszukać wszystkie zmiany konfiguracji wprowadzone na urządzeniu.
 
    ```bash
    sudo systemctl restart iotedge
@@ -271,17 +271,17 @@ Sprawdź, czy środowisko uruchomieniowe IoT Edge jest uruchomione.
    sudo systemctl status iotedge
    ```
 
-Jeśli widzisz błędy inicjowania obsługi administracyjnej, może być, że zmiany konfiguracji nie zostały jeszcze wprowadzone. Spróbuj ponownie uruchomić demona IoT Edge.
+Jeśli widzisz błędy aprowizacji, może to spowodować, że zmiany konfiguracji nie zostały jeszcze zastosowane. Spróbuj ponownie uruchomić demo IoT Edge.
 
    ```bash
    sudo systemctl daemon-reload
    ```
 
-Możesz też ponownie uruchomić maszynę wirtualną, aby sprawdzić, czy zmiany zaczną obowiązywać od nowego początku.
+Lub spróbuj ponownie uruchomić maszynę wirtualną, aby sprawdzić, czy zmiany zaczną obowiązywać po rozpoczęciu pracy.
 
-## <a name="verify-successful-installation"></a>Weryfikacja pomyślnej instalacji
+## <a name="verify-successful-installation"></a>Weryfikuj pomyślną instalację
 
-Jeśli środowisko wykonawcze zostało pomyślnie uruchomione, możesz przejść do centrum IoT Hub i zobaczyć, że nowe urządzenie zostało automatycznie aprowizowane. Teraz urządzenie jest gotowe do uruchamiania modułów IoT Edge.
+Jeśli środowisko uruchomieniowe zostało pomyślnie uruchomione, możesz przejść do IoT Hub i zobaczyć, że nowe urządzenie zostało automatycznie zainicjowane. Teraz urządzenie jest gotowe do uruchamiania modułów IoT Edge.
 
 Sprawdź stan demona IoT Edge.
 
@@ -289,20 +289,20 @@ Sprawdź stan demona IoT Edge.
 systemctl status iotedge
 ```
 
-Sprawdź dzienniki demonów.
+Sprawdzanie dzienników demona.
 
 ```cmd/sh
 journalctl -u iotedge --no-pager --no-full
 ```
 
-Lista uruchomionych modułów.
+Wyświetl listę uruchomionych modułów.
 
 ```cmd/sh
 iotedge list
 ```
 
-Można sprawdzić, czy została użyta indywidualna rejestracja utworzona w usłudze inicjowania obsługi administracyjnej urządzeń. Przejdź do wystąpienia usługi inicjowania obsługi administracyjnej urządzeń w witrynie Azure portal. Otwórz szczegóły rejestracji dla utworzonej rejestracji indywidualnej. Należy zauważyć, że stan rejestracji jest **przypisany** i identyfikator urządzenia jest wyświetlany.
+Możesz sprawdzić, czy została użyta Rejestracja indywidualna utworzona w usłudze Device Provisioning. Przejdź do wystąpienia usługi Device Provisioning w Azure Portal. Otwórz szczegóły rejestracji dla utworzonej rejestracji indywidualnej. Zwróć uwagę, że jest **przypisany** stan rejestracji i identyfikator urządzenia jest wyświetlany.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Proces rejestracji usługi inicjowania obsługi administracyjnej urządzeń umożliwia ustawienie identyfikatora urządzenia i bliźniaczych tagów urządzenia w tym samym czasie, co aprowizowanie nowego urządzenia. Za pomocą tych wartości można kierować reklamy na poszczególne urządzenia lub grupy urządzeń za pomocą automatycznego zarządzania urządzeniami. Dowiedz się, jak [wdrażać i monitorować moduły usługi IoT Edge na dużą skalę przy użyciu witryny Azure portal](how-to-deploy-monitor.md) lub [przy użyciu interfejsu wiersza polecenia platformy Azure.](how-to-deploy-monitor-cli.md)
+Proces rejestracji w usłudze Device Provisioning Service umożliwia ustawienie tagów urządzeń i urządzeń w tym samym czasie, w których jest inicjowane nowe urządzenie. Tych wartości można użyć do kierowania poszczególnych urządzeń lub grup urządzeń przy użyciu funkcji automatycznego zarządzania urządzeniami. Dowiedz się, jak [wdrażać i monitorować moduły IoT Edge na dużą skalę przy użyciu Azure Portal](how-to-deploy-at-scale.md) lub [przy użyciu interfejsu wiersza polecenia platformy Azure](how-to-deploy-cli-at-scale.md).

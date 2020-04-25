@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 07046d181e8e83e0271cb78cfb182df4e76980b5
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115520"
+ms.locfileid: "82131208"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -65,7 +65,7 @@ W najbliższych tygodniach zmienimy ją i zwrócimy adres URL [witryny interneto
     * Zamienianie adresu URL na adres URL wskazujący interfejsy API widżetu Video Indexer (na przykład [widżet Insights](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Aby wygenerować nowy osadzony adres URL przy użyciu witryny sieci Web Video Indexer:
          
-         Naciśnij klawisz **Play** , aby przejść do strony wideo — > kliknij ** &lt;pozycję&gt; Osadź** — > Skopiuj adres URL do aplikacji:
+         Naciśnij klawisz **Play** , aby przejść do strony wideo — > kliknij przycisk ** &lt; / &gt; Osadź** , > Skopiuj adres URL do aplikacji:
    
     Regionalne adresy URL nie są obsługiwane i zostaną zablokowane w najbliższych tygodniach.
 

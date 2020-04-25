@@ -1,50 +1,50 @@
 ---
 title: Oferta maszyny wirtualnej w portalu Azure Marketplace
-description: Omówienie procesu publikowania oferty maszyny Wirtualnej w portalu Azure Marketplace.
+description: Przegląd procesu publikowania oferty maszyny wirtualnej w portalu Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: dsindona
-ms.openlocfilehash: 0f2ae9fe6f006b5418ebee82b08a44188b7c58d3
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: b857cf8b7485beb884adf77d99f82d965f55a0ad
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273073"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142797"
 ---
 # <a name="virtual-machine-offer"></a>Oferta maszyny wirtualnej
 
 > [!IMPORTANT]
-> Od 13 kwietnia 2020 r. rozpoczniemy przenoszenie zarządzania ofertami maszyny wirtualnej platformy Azure do centrum partnerskiego. Po migracji utworzysz oferty i zarządzasz nimi w Centrum partnerów. Postępuj zgodnie z instrukcjami w [tworzenie oferty maszyny wirtualnej platformy Azure,](https://aka.ms/CreateAzureVMoffer) aby zarządzać zmigrowanymi ofertami.
+> Od 13 kwietnia 2020 rozpocznie się zarządzanie ofertami usługi Azure Virtual Machine w centrum partnerskim. Po przeprowadzeniu migracji utworzysz oferty w centrum partnerskim i zarządzaj nimi. Postępuj zgodnie z instrukcjami w temacie [Tworzenie oferty maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) w celu zarządzania zmigrowanymi ofertami.
 
 |    |    |
 |-----------------------------------------------------------------|------------------------------------------|
-| W tej sekcji wyjaśniono, jak opublikować nową ofertę maszyny wirtualnej w [portalu Azure Marketplace.](https://azuremarketplace.microsoft.com) Obsługa jest dostępna zarówno dla maszyn wirtualnych opartych na systemie Windows, jak i linux, zawierających wirtualny dysk twardy systemu operacyjnego (VHD) i zero lub więcej dysków VHD danych. | ![ikona maszyny wirtualnej](./media/virtual-machine-icon.png)  |
+| W tej sekcji opisano sposób publikowania nowej oferty maszyny wirtualnej w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com). Pomoc techniczna jest świadczona zarówno dla maszyn wirtualnych opartych na systemie Windows, jak i Linux, zawierających wirtualny dysk twardy (VHD) systemu operacyjnego i zero lub więcej dysków VHD z danymi. | ![ikona maszyny wirtualnej](./media/virtual-machine-icon.png)  |
 
 
-## <a name="publishing-overview"></a>Omówienie publikowania
+## <a name="publishing-overview"></a>Przegląd publikowania
 
-Poniższy klip [wideo: Optymalizuj ofertę portalu Azure Marketplace](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player), przedstawiono ogólny przegląd portalu Azure Marketplace, w tym sposób publikowania w tym portalu marketplace (przy użyciu rozwiązania maszyny wirtualnej), jak zoptymalizować środowisko użytkownika za pomocą strony produktu i opcjonalne środowisko z dysku testowego, jak generowane są potencjalni klienci i jak można z nich korzystać, a także zoptymalizować zaangażowanie klientów.
+Poniższy film wideo [optymalizuje ofertę portalu Azure Marketplace](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player), przedstawia szerokie Omówienie portalu Azure Marketplace, w tym informacje dotyczące publikowania na tym rynku (przy użyciu rozwiązania maszyny wirtualnej), sposobu optymalizowania środowiska użytkownika przy użyciu strony produktu oraz opcjonalnego środowiska testowego testowania, sposobu generowania potencjalnych klientów i ich używania oraz optymalizowania zaangażowania klientów.
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026/player]
 
 
-## <a name="vm-publishing-process-flow"></a>Przepływ procesu publikowania maszyn wirtualnych
+## <a name="vm-publishing-process-flow"></a>Przepływ procesu publikowania maszyny wirtualnej
 
-Na poniższym diagramie przedstawiono kroki wysokiego poziomu w publikowaniu oferty maszyny Wirtualnej. 
+Na poniższym diagramie przedstawiono ogólne kroki publikowania oferty maszyn wirtualnych. 
 
 ![Proces publikowania maszyn wirtualnych](./media/publishvm_001.png)
 
-1. Utwórz ofertę — wszystkie szczegóły i informacje o ofercie są konfigurowane, w tym opis oferty, materiały marketingowe, informacje prawne, pomoc techniczna i specyfikacje zasobów.
+1. Utwórz ofertę — wszystkie szczegóły i informacje o ofercie zostały skonfigurowane, w tym opis oferty, materiały marketingowe, informacje o pomocy technicznej i specyfikacje zasobów.
 
-2. Tworzenie zasobów biznesowych i technicznych — tworzenie zasobów biznesowych (dokumentów prawnych i materiałów marketingowych) oraz zasobów technicznych dla skojarzonego rozwiązania (tutaj maszyny wirtualne i dołączone dyski). 
+2. Twórz zasoby biznesowe i techniczne — Twórz zasoby biznesowe (dokumenty prawne i materiały marketingowe) oraz zasoby techniczne dla skojarzonego rozwiązania (tutaj: maszyny wirtualne i dołączone dyski). 
 
-3. Utwórz jednostkę SKU — utwórz skojarzone jednostki SKU skojarzone z ofertą i prześlij je.  Unikatowa jednostka SKU jest wymagana dla każdego obrazu, który planujesz opublikować. 
+3. Utwórz jednostkę SKU — Utwórz skojarzone jednostki SKU skojarzone z ofertą i prześlij je.  Dla każdego obrazu, który ma zostać opublikowany, wymagana jest unikatowa jednostka SKU. 
  
-4. Poświadczaj i publikuj ofertę - Po zakończeniu oferty i aktywach technicznych można przesłać ofertę. To przesyłanie rozpocznie proces publikowania, w którym rozwiązanie jest testowane, weryfikowane, certyfikowane, a następnie "idzie na żywo" na rynku.  
+4. Certyfikowanie i publikowanie oferty — po zakończeniu oferty i zasobów technicznych można przesłać ofertę. To zgłoszenie rozpocznie proces publikowania, w którym rozwiązanie zostanie przetestowane, zweryfikowane, certyfikowane, a następnie "trafia na żywo" w portalu Marketplace.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przed rozważeniem tych kroków należy spełnić [wymagania techniczne i biznesowe dotyczące](./cpp-prerequisites.md) publikowania maszyny wirtualnej w portalu Microsoft Azure Marketplace. 
+Przed zainstalowaniem tych kroków należy spełnić [wymagania techniczne i biznesowe](./cpp-prerequisites.md) dotyczące publikowania maszyny wirtualnej w Microsoft Azure Marketplace. 

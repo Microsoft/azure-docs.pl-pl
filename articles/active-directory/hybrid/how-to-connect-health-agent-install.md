@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47fede0726ff1a540a71b9c42ca0c07117865d9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9b3857a5ae845f5cc48464152bb6ca600444c1b
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331623"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136706"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalowanie agenta programu Azure AD Connect Health
 
@@ -33,25 +33,25 @@ Poniższa tabela zawiera listę wymagań dotyczących używania programu Azure A
 
 | Wymaganie | Opis |
 | --- | --- |
-| Usługa Azure AD — wersja Premium |Azure AD Connect Health to funkcja usługi Azure AD w wersji Premium, dlatego wymaga tej usługi. <br /><br />Aby uzyskać więcej informacji, zobacz [Wprowadzenie do usługi Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) <br />Aby skorzystać z bezpłatnej 30-dniowej wersji próbnej, zobacz [Włączanie wersji próbnej](https://azure.microsoft.com/trial/get-started-active-directory/). |
-| Aby rozpocząć pracę z programem Azure AD Connect Health, musisz być administratorem globalnym usługi Azure AD |Domyślnie tylko administratorzy globalni mogą instalować i konfigurować agentów kondycji, aby rozpoczynać pracę z programem Azure AD Connect Health, uzyskiwać dostęp do portalu i wykonywać dowolne operacje w programie. Aby więcej informacji, zobacz [Administering your Azure AD directory](../fundamentals/active-directory-administer.md) (Administrowanie katalogiem usługi Azure AD). <br /><br /> Używając funkcji kontroli dostępu opartej na rolach, możesz zezwalać na dostęp do programu Azure AD Connect Health innym użytkownikom w organizacji. Aby uzyskać więcej informacji, zobacz [kontrola dostępu oparta na rolach dla usługi Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Ważne:** Konto używane podczas instalowania agentów musi być kontem służbowym. Nie może być kontem Microsoft. Aby uzyskać więcej informacji, zobacz [Tworzenie konta na platformie Azure jako organizacja](../fundamentals/sign-up-organization.md) |
+| Usługa Azure AD — wersja Premium |Azure AD Connect Health to funkcja usługi Azure AD w wersji Premium, dlatego wymaga tej usługi. <br /><br />Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure AD — wersja Premium](../fundamentals/active-directory-get-started-premium.md) <br />Aby skorzystać z bezpłatnej 30-dniowej wersji próbnej, zobacz [Włączanie wersji próbnej](https://azure.microsoft.com/trial/get-started-active-directory/). |
+| Aby rozpocząć pracę z programem Azure AD Connect Health, musisz być administratorem globalnym usługi Azure AD |Domyślnie tylko administratorzy globalni mogą instalować i konfigurować agentów kondycji, aby rozpoczynać pracę z programem Azure AD Connect Health, uzyskiwać dostęp do portalu i wykonywać dowolne operacje w programie. Aby więcej informacji, zobacz [Administering your Azure AD directory](../fundamentals/active-directory-administer.md) (Administrowanie katalogiem usługi Azure AD). <br /><br /> Używając funkcji kontroli dostępu opartej na rolach, możesz zezwalać na dostęp do programu Azure AD Connect Health innym użytkownikom w organizacji. Aby uzyskać więcej informacji, zobacz [Access Control oparte na rolach dla Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Ważne:** Konto używane podczas instalowania agentów musi być kontem służbowym. Nie może być kontem Microsoft. Aby uzyskać więcej informacji, zobacz [Tworzenie konta na platformie Azure jako organizacja](../fundamentals/sign-up-organization.md) |
 | Na każdym serwerze docelowym jest zainstalowany agent programu Azure AD Connect Health | Program Azure AD Connect Health wymaga zainstalowania i skonfigurowania agentów kondycji na serwerach docelowych w celu umożliwienia odbioru danych i zapewnienia możliwości monitorowania i analizy. <br /><br />Na przykład aby uzyskać dane z infrastruktury usług AD FS, musisz zainstalować agenta na serwerach proxy usług AD FS i aplikacji internetowej. Podobnie, aby uzyskać dane dotyczące lokalnej infrastruktury usług AD DS, agent musi być zainstalowany na kontrolerach domeny. <br /><br /> |
 | Łączność wychodząca z punktami końcowymi usług Azure | Podczas instalowania i w czasie pracy agent wymaga łączności z punktami końcowymi usługi Azure AD Connect Health. Jeśli łączność wychodząca jest blokowana przy użyciu zapór, nie zapomnij dodać następujących punktów końcowych do listy lokalizacji dozwolonych. Zobacz sekcję dotyczącą [punktów końcowych łączności wychodzącej](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Łączność wychodząca na podstawie adresów IP | W przypadku filtrowania zapory opartego na adresach IP zapoznaj się z [zakresem adresów IP platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
-| Inspekcja TLS dla ruchu wychodzącego jest filtrowana lub wyłączona | Krok rejestracji agenta lub operacje przekazywania danych mogą zakończyć się niepowodzeniem, jeśli istnieje inspekcja TLS lub zakończenie ruchu wychodzącego w warstwie sieciowej. Dowiedz się więcej o [konfigurowaniu inspekcji protokołu TLS](https://technet.microsoft.com/library/ee796230.aspx) |
-| Porty zapory na serwerze, na którym jest uruchomiony agent |Agent wymaga, aby poniższe porty zapory były otwarte w celu komunikacji z punktami końcowymi usług programu Azure AD Connect Health.<br /><br /><li>Port TCP 443</li><li>Port TCP 5671</li> <br />Należy zauważyć, że port 5671 nie jest już wymagany dla najnowszej wersji agenta. Uaktualnienie do najnowszej wersji, więc wymagany jest tylko port 443. Dowiedz się więcej na temat [włączania portów zapory](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
-| Zezwalaj na następujące witryny sieci web, jeśli są włączone zwiększone zabezpieczenia programu Internet Explorer |Jeśli zwiększone zabezpieczenia programu Internet Explorer są włączone na serwerze, na którym ma zostać zainstalowany agent, musisz zezwolić na otwieranie poniższych witryn sieci Web.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>Serwer federacyjny Twojej organizacji zaufany przez usługę Azure Active Directory. Na przykład: https:\//sts.contoso.com</li> Dowiedz się więcej o [konfiguracji IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Jeśli masz serwer proxy w sieci, patrz uwaga poniżej.|
+| Inspekcja protokołu TLS dla ruchu wychodzącego jest filtrowana lub wyłączona | Krok rejestracji agenta lub operacje przekazywania danych mogą się nie powieść, jeśli istnieje Inspekcja lub przerwa dla ruchu wychodzącego w warstwie sieciowej. Przeczytaj więcej [na temat sposobu konfigurowania inspekcji protokołu TLS](https://technet.microsoft.com/library/ee796230.aspx) |
+| Porty zapory na serwerze, na którym jest uruchomiony agent |Agent wymaga, aby poniższe porty zapory były otwarte w celu komunikacji z punktami końcowymi usług programu Azure AD Connect Health.<br /><br /><li>Port TCP 443</li><li>Port TCP 5671</li> <br />Należy zauważyć, że port 5671 nie jest już wymagany dla najnowszej wersji agenta. Uaktualnij do najnowszej wersji, aby był wymagany tylko port 443. Dowiedz się więcej na temat [włączania portów zapory](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| Zezwalaj na następujące witryny sieci web, jeśli są włączone zwiększone zabezpieczenia programu Internet Explorer |Jeśli zwiększone zabezpieczenia programu Internet Explorer są włączone na serwerze, na którym ma zostać zainstalowany agent, musisz zezwolić na otwieranie poniższych witryn sieci Web.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.NET</li><li>Serwer federacyjny Twojej organizacji zaufany przez usługę Azure Active Directory. Na przykład: https:\//sts.contoso.com</li> Dowiedz się więcej [na temat konfigurowania programu IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Jeśli masz serwer proxy w sieci, zobacz uwagi poniżej.|
 | Upewnij się, że zainstalowano program PowerShell w wersji 4.0 lub nowszej | <li>System Windows Server 2008 R2 jest dostarczany z programem PowerShell w wersji 2.0, która jest niewystarczająca dla agenta. Zaktualizuj program PowerShell zgodnie z opisem w poniższej sekcji dotyczącej [instalacji agenta na serwerach z systemem Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>System Windows Server 2012 jest dostarczany z programem PowerShell w wersji 3.0, która jest niewystarczająca dla agenta.  [Zaktualizuj](https://www.microsoft.com/download/details.aspx?id=40855) platformę Windows Management Framework.</li><li>System Windows Server 2012 R2 i jego nowsze wersje są dostarczane z wystarczająco nową wersją programu PowerShell.</li>|
 |Wyłącz standard FIPS|Standard FIPS nie jest obsługiwany przez agentów programu Azure AD Connect Health.|
 
 
 > [!NOTE]
-> Jeśli masz wysoce zablokowane i bardzo ograniczone środowisko, należy wpisać adresy URL wymienione na poniższych listach punktów końcowych usługi, oprócz tych wymienionych w konfiguracji zabezpieczeń rozszerzonych Allowed IE powyżej. 
+> Jeśli masz wysoce zablokowanie i wyjątkowo ograniczone środowisko, musisz dozwolonych adresy URL wymienione na liście punktów końcowych usług, oprócz tych wymienionych w powyższej konfiguracji programu IE zwiększonych zabezpieczeń. 
 >
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Łączność wychodząca z punktami końcowymi usług Azure
 
- Podczas instalowania i w czasie pracy agent wymaga łączności z punktami końcowymi usługi Azure AD Connect Health. Jeśli łączność wychodząca jest zablokowana za pomocą zapór, upewnij się, że następujące adresy URL nie są domyślnie blokowane. Nie wyłączaj monitorowania zabezpieczeń ani nie przeprowadzaj tych adresów URL, ale zezwalaj na nie tak jak w przypadku innego ruchu internetowego. Zezwalają one na komunikację z punktami końcowymi usługi Azure AD Connect Dla kondycji. Dowiedz się, jak [sprawdzić łączność wychodzącą za pomocą narzędzia Test AzureADConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
+ Podczas instalowania i w czasie pracy agent wymaga łączności z punktami końcowymi usługi Azure AD Connect Health. Jeśli łączność wychodząca jest blokowana przy użyciu zapór, upewnij się, że następujące adresy URL nie są domyślnie blokowane. Nie należy wyłączać monitorowania zabezpieczeń ani inspekcji tych adresów URL, ale Zezwalaj na tak jak w przypadku innego ruchu internetowego. Umożliwiają one komunikację z punktami końcowymi usługi Azure AD Connect Health. Dowiedz się, jak [sprawdzić łączność wychodzącą przy użyciu Test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
 
 | Środowisko domeny | Wymagane punkty końcowe usług platformy Azure |
 | --- | --- |
@@ -69,7 +69,7 @@ Poniższa tabela zawiera listę wymagań dotyczących używania programu Azure A
 * Wprowadzenie do korzystania z programu Azure AD Connect Health do celów synchronizacji
     * [Pobierz i zainstaluj najnowszą wersję programu Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). Agent kondycji do celów synchronizacji zostanie zainstalowany w ramach instalacji programu Azure AD Connect (w wersji 1.0.9125.0 lub nowszej).
 * Wprowadzenie do korzystania z programu Azure AD Connect Health dla usług AD DS
-    * [Pobierz agenta kondycji usługi Azure AD Connect dla usług AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Pobierz Azure AD Connect Health agenta dla AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [Zobacz instrukcje instalacji](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Instalowanie agenta programu Azure AD Connect Health Agent dla usług AD FS
@@ -138,7 +138,7 @@ Aby funkcja Analiza użycia mogła zbierać i analizować dane, agent programu A
 <br />   -- **Poniższe kroki są wymagane wyłącznie w przypadku podstawowych serwerów usług AD FS.** -- <br />
 6. Otwórz przystawkę **Zarządzanie usługami AD FS**. Aby otworzyć przystawkę Zarządzanie usługami AD FS, kliknij przycisk **Start**, wskaż pozycję **Programy**, wskaż pozycję **Narzędzia administracyjne**, a następnie kliknij pozycję **Zarządzanie usługami AD FS 2.0**.
 7. W okienku **Akcje** kliknij pozycję **Edytuj właściwości usługi federacyjnej**.
-8. W oknie dialogowym **Właściwości usługi federacyjnej** kliknij kartę **Zdarzenia.**
+8. W oknie dialogowym **właściwości usługa federacyjna** kliknij kartę **zdarzenia** .
 9. Zaznacz pola wyboru **Inspekcje zakończone sukcesem** i **Inspekcje zakończone niepowodzeniem**.
 10. Kliknij przycisk **OK**.
 
@@ -152,7 +152,7 @@ Aby funkcja Analiza użycia mogła zbierać i analizować dane, agent programu A
 <br />   -- **Poniższe kroki są wymagane wyłącznie w przypadku podstawowych serwerów usług AD FS.** -- <br />
 6. Otwórz przystawkę **Zarządzanie usługami AD FS** (w Menedżerze serwera kliknij pozycję Narzędzia, a następnie wybierz pozycję Zarządzanie usługami AD FS).
 7. W okienku **Akcje** kliknij pozycję **Edytuj właściwości usługi federacyjnej**.
-8. W oknie dialogowym **Właściwości usługi federacyjnej** kliknij kartę **Zdarzenia.**
+8. W oknie dialogowym **właściwości usługa federacyjna** kliknij kartę **zdarzenia** .
 9. Zaznacz pola wyboru **Inspekcje zakończone sukcesem i Inspekcje zakończone niepowodzeniem**, a następnie kliknij przycisk **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Aby włączyć inspekcję usług AD FS w systemie Windows Server 2016
@@ -165,7 +165,7 @@ Aby funkcja Analiza użycia mogła zbierać i analizować dane, agent programu A
 <br />   -- **Poniższe kroki są wymagane wyłącznie w przypadku podstawowych serwerów usług AD FS.** -- <br />
 6. Otwórz przystawkę **Zarządzanie usługami AD FS** (w Menedżerze serwera kliknij pozycję Narzędzia, a następnie wybierz pozycję Zarządzanie usługami AD FS).
 7. W okienku **Akcje** kliknij pozycję **Edytuj właściwości usługi federacyjnej**.
-8. W oknie dialogowym **Właściwości usługi federacyjnej** kliknij kartę **Zdarzenia.**
+8. W oknie dialogowym **właściwości usługa federacyjna** kliknij kartę **zdarzenia** .
 9. Zaznacz pola wyboru **Inspekcje zakończone sukcesem i Inspekcje zakończone niepowodzeniem**, a następnie kliknij przycisk **OK**. Powinno to być włączone domyślnie.
 10. Otwórz okno programu PowerShell i uruchom następujące polecenie: ```Set-AdfsProperties -AuditLevel Verbose```.
 
@@ -257,10 +257,10 @@ Jeśli konfiguracja została zakończona, te usługi powinny być uruchomione. W
 
 ### <a name="quick-agent-installation-in-multiple-servers"></a>Szybka instalacja agenta na wielu serwerach
 
-1. Utwórz konto użytkownika w usłudze Azure AD przy hasucie.
-2. Przypisz rolę **właściciela** dla tego lokalnego konta usługi AAD w usłudze Azure AD Connect Health za pośrednictwem portalu. Wykonaj kroki [tutaj](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Przypisz rolę do wszystkich wystąpień usługi. 
-3. Pobierz plik MSI programu .exe w lokalnym kontrolerze domeny w celu instalacji.
-4. Uruchom następujący skrypt do rejestracji. Zastąp parametry nowym kontem użytkownika i jego hasłem. 
+1. Utwórz konto użytkownika w usłudze Azure AD przy użyciu hasła.
+2. Przypisz rolę **właściciela** dla tego lokalnego konta usługi AAD w Azure AD Connect Health za pośrednictwem portalu. Wykonaj kroki opisane [tutaj](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Przypisz rolę do wszystkich wystąpień usługi. 
+3. Pobierz plik MSI. exe na lokalny kontroler domeny w celu instalacji.
+4. Uruchom następujący skrypt, aby przeprowadzić rejestrację. Zastąp parametry nowym kontem użytkownika utworzonym wraz z jego hasłem. 
 
 ```powershell
 AdHealthAddsAgentSetup.exe /quiet
@@ -270,14 +270,14 @@ $secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
 $myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
 import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
  
-Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $myCreds
+Register-AzureADConnectHealthADDSAgent -Credential $myCreds
 
 ```
 
-1. Po zakończeniu można usunąć dostęp do konta lokalnego, wykonując co najmniej jedną z następujących czynności: 
-    * Usuwanie przypisania roli dla konta lokalnego dla usługi AAD Connect Health
-    * Obróć hasło konta lokalnego. 
-    * Wyłączanie konta lokalnego usługi AAD
+1. Gdy skończysz, możesz usunąć dostęp do konta lokalnego, wykonując jedną lub więcej z następujących czynności: 
+    * Usuń przypisanie roli dla konta lokalnego dla programu AAD Connect Health
+    * Obróć hasło do konta lokalnego. 
+    * Wyłącz konto lokalne usługi AAD
     * Usuwanie konta lokalnego usługi AAD  
 
 ## <a name="agent-registration-using-powershell"></a>Rejestracja agenta przy użyciu programu PowerShell
@@ -319,7 +319,7 @@ Agenta programu Azure AD Connect Health możesz skonfigurować na potrzeby korzy
 
 > [!NOTE]
 > Aby ustawienia serwera proxy zostały zaktualizowane, musisz uruchomić ponownie wszystkie usługi agenta programu Azure AD Connect Health. Uruchom następujące polecenie:<br />
-> Ponowne uruchomienie usługi AzureADConnectHealth*
+> Restart-Service AzureADConnectHealth *
 >
 >
 
@@ -384,9 +384,9 @@ Parametr roli obecnie przyjmuje następujące wartości:
 ## <a name="related-links"></a>Powiązane linki
 
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Operacje kondycji usługi Azure AD Connect](how-to-connect-health-operations.md)
+* [Operacje w programie Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Używanie programu Azure AD Connect Health z usługami AD FS](how-to-connect-health-adfs.md)
-* [Używanie usługi Azure AD Connect Health do synchronizacji](how-to-connect-health-sync.md)
+* [Używanie Azure AD Connect Health do synchronizacji](how-to-connect-health-sync.md)
 * [Używanie programu Azure AD Connect Health z usługami AD DS](how-to-connect-health-adds.md)
 * [Azure AD Connect Health — często zadawane pytania](reference-connect-health-faq.md)
-* [Historia wersji usługi Azure AD Connect](reference-connect-health-version-history.md)
+* [Historia wersji Azure AD Connect Health](reference-connect-health-version-history.md)

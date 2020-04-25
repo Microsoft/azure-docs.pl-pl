@@ -1,4 +1,5 @@
 - name: Dokumentacja funkcji rozpoznawania osoby mówiącej
+  href: Home.md
 - name: Omówienie
   items:
     - name: Informacje na temat funkcji rozpoznawania osoby mówiącej
@@ -12,7 +13,7 @@
           items:
             - name: Android
               href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android'
-            - name: System Windows
+            - name: Windows
               href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Windows'
 - name: Zasoby
   items:

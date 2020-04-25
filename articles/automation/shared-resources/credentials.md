@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42abeba310e7a30364f93e998f12129a2d3c1f15
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 4226a625918be378b14e14c55fe4dd4ca5c398d5
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114296"
+ms.locfileid: "82136689"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Zarządzanie poświadczeniami w Azure Automation
 
@@ -41,7 +41,7 @@ W ramach Azure PowerShell AZ module polecenia cmdlet w poniższej tabeli służ�
 
 ## <a name="activities-used-to-access-credentials"></a>Działania używane do uzyskiwania dostępu do poświadczeń
 
-Działania w poniższej tabeli służą do uzyskiwania dostępu do poświadczeń w elementach Runbook i konfiguracjach DSC.
+Działania w poniższej tabeli służą do uzyskiwania dostępu do poświadczeń w graficznych elementach Runbook i konfiguracjach DSC. Przykłady użycia działań można znaleźć [w temacie Tworzenie graficzne w Azure Automation](../automation-graphical-authoring-intro.md#activities).
 
 | Działanie | Opis |
 |:--- |:--- |

@@ -1,5 +1,5 @@
 ---
-title: Zasady usługi Azure API Management | Dokumenty firmy Microsoft
+title: Zasady usługi Azure API Management | Microsoft Docs
 description: Dowiedz się więcej o zasadach dostępnych do użycia w usłudze Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -12,77 +12,77 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4a29c7cb7e35e69eb9410dd7ddc9f07757e3565
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71219470"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128731"
 ---
 # <a name="api-management-policies"></a>API Management policies
-Ta sekcja zawiera odwołanie do następujących zasad zarządzania interfejsami API. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [Zasady w zarządzania interfejsami API](api-management-howto-policies.md).  
+Ta sekcja zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](api-management-howto-policies.md).  
   
- Zasady są zaawansowane możliwości systemu, które umożliwiają wydawcy, aby zmienić zachowanie interfejsu API za pomocą konfiguracji. Zasady są kolekcją instrukcji, które są wykonywane sekwencyjnie na żądanie lub odpowiedź interfejsu API. Popularne instrukcje obejmują konwersję formatu z XML do JSON i ograniczenie szybkości połączeń w celu ograniczenia liczby połączeń przychodzących od dewelopera. Wiele innych zasad jest dostępnych po wyjęciu z pudełka.  
+ Zasady są zaawansowaną możliwością systemu umożliwiającą wydawcy zmianę zachowania interfejsu API za pomocą konfiguracji. Zasady są zbiorem instrukcji, które są wykonywane sekwencyjnie na żądanie lub odpowiedź interfejsu API. Popularne instrukcje obejmują konwersję formatu z XML do JSON i ograniczanie szybkości wywołań, aby ograniczyć liczbę wywołań przychodzących od dewelopera. Dostępnych jest wiele innych zasad.  
   
  Wyrażenia zasad mogą służyć jako wartości atrybutów lub wartości tekstowe w dowolnej z zasad usługi API Management, o ile w zasadach nie określono inaczej. Niektóre zasady, np. [Przepływ sterowania](api-management-advanced-policies.md#choose) i [Ustawianie zmiennej](api-management-advanced-policies.md#set-variable), są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz tematy [Advanced policies](api-management-advanced-policies.md#AdvancedPolicies) (Zaawansowane zasady) i [Policy expressions](api-management-policy-expressions.md) (Wyrażenia zasad).  
   
-##  <a name="policies"></a><a name="ProxyPolicies"></a>Zasady działalności  
+##  <a name="policies"></a><a name="ProxyPolicies"></a>Jazd  
   
 -   [Zasady ograniczeń dostępu](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
     -   [Sprawdź nagłówek HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) — wymusza istnienie i/lub wartość nagłówka HTTP.  
-    -   [Ogranicz szybkość wywołania według subskrypcji](api-management-access-restriction-policies.md#LimitCallRate) — zapobiega skokom użycia interfejsu API przez ograniczenie szybkości wywołania na podstawie subskrypcji.  
-    -   [Ogranicz szybkość wywołania według klucza](api-management-access-restriction-policies.md#LimitCallRateByKey) — zapobiega skokom użycia interfejsu API, ograniczając szybkość wywołania na podstawie klucza.  
-    -   [Ogranicz adresy IP wywołującego](api-management-access-restriction-policies.md#RestrictCallerIPs) — filtry (zezwala/odrzuca) wywołania z określonych adresów IP i/lub zakresów adresów.  
-    -   [Ustaw przydział użycia według subskrypcji](api-management-access-restriction-policies.md#SetUsageQuota) — umożliwia wymuszanie przydziału woluminu i/lub przepustowości dla odnawialnych lub dożywotnich połączeń na podstawie subskrypcji.  
-    -   [Ustaw przydział użycia według klucza](api-management-access-restriction-policies.md#SetUsageQuotaByKey) — umożliwia wymuszanie przydziału woluminu i/lub przepustowości w okresie dochodzenia w okresie dochodzenia 10 lub 10 000 000 000 000 000 000 000 000 000 000 000 000 000  
-    -   [Sprawdź poprawność JWT](api-management-access-restriction-policies.md#ValidateJWT) — wymusza istnienie i ważność JWT wyodrębnione z określonego nagłówka HTTP lub określonego parametru kwerendy.  
+    -   [Ogranicz częstotliwość wywołań przez subskrypcję](api-management-access-restriction-policies.md#LimitCallRate) — uniemożliwia użycie interfejsu API przez ograniczenie liczby wywołań dla każdej subskrypcji.  
+    -   [Ogranicz częstotliwość wywołań według klucza](api-management-access-restriction-policies.md#LimitCallRateByKey) — uniemożliwia użycie interfejsu API przez ograniczenie liczby wywołań na podstawie poszczególnych kluczy.  
+    -   [Ogranicz adresy IP wywołującego](api-management-access-restriction-policies.md#RestrictCallerIPs) — filtry (dozwolone/odmawiające) wywołania z określonych adresów i/lub zakresów adresów.  
+    -   [Ustawianie limitu przydziału użycia według subskrypcji](api-management-access-restriction-policies.md#SetUsageQuota) — umożliwia wymuszenie naliczania i/lub przydziału przepustowości dla każdej subskrypcji.  
+    -   [Ustawianie przydziału użycia według klucza](api-management-access-restriction-policies.md#SetUsageQuotaByKey) — umożliwia wymuszenie naliczania i/lub przydziału przepustowości dla każdego klucza.  
+    -   [Sprawdzanie poprawności tokenu JWT](api-management-access-restriction-policies.md#ValidateJWT) — wymusza istnienie i ważność tokenu JWT wyodrębnionego z albo określonego nagłówka HTTP lub określonego parametru zapytania.  
 -   [Zasady zaawansowane](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [Przepływ sterowania](api-management-advanced-policies.md#choose) — warunkowo stosuje instrukcje zasad na podstawie oceny wyrażeń logicznych.  
-    -   [Żądanie przesyłania dalej](api-management-advanced-policies.md#ForwardRequest) — przekazuje żądanie do usługi wewnętrznej bazy danych.
-    -   [Ogranicz współbieżność](api-management-advanced-policies.md#LimitConcurrency) — zapobiega wykonywanie zamkniętych zasad przez więcej niż określoną liczbę żądań naraz.
-    -   [Zaloguj się do Centrum zdarzeń](api-management-advanced-policies.md#log-to-eventhub) — wysyła wiadomości w określonym formacie do obiektu docelowego wiadomości zdefiniowanego przez jednostkę Rejestratora.
-    -   [Mock odpowiedzi](api-management-advanced-policies.md#mock-response) — przerywa wykonanie potoku i zwraca mocked odpowiedzi bezpośrednio do wywołującego.
-    -   [Ponów próbę](api-management-advanced-policies.md#Retry) — ponawia ponawia wykonywanie instrukcji zasad, jeśli i dopóki warunek nie zostanie spełniony. Wykonanie zostanie powtórzone w określonych odstępach czasu i do określonej liczby ponownych prób.  
-    -   [Odpowiedź zwracana](api-management-advanced-policies.md#ReturnResponse) — przerywa wykonanie potoku i zwraca określoną odpowiedź bezpośrednio do wywołującego.  
-    -   [Wyślij żądanie w jedną stronę](api-management-advanced-policies.md#SendOneWayRequest) — wysyła żądanie do określonego adresu URL bez oczekiwania na odpowiedź.  
+    -   [Żądanie przesyłania dalej](api-management-advanced-policies.md#ForwardRequest) przesyła żądanie do usługi zaplecza.
+    -   [Ograniczenie współbieżności](api-management-advanced-policies.md#LimitConcurrency) uniemożliwia wykonywanie załączonych zasad przez więcej niż określoną liczbę żądań w danym momencie.
+    -   [Logowanie do centrum zdarzeń](api-management-advanced-policies.md#log-to-eventhub) — wysyła komunikaty w określonym formacie do obiektu docelowego komunikatu zdefiniowanego przez jednostkę rejestratora.
+    -   [Makieta odpowiedzi](api-management-advanced-policies.md#mock-response) — przerywa wykonywanie potoku i zwraca zamakietę odpowiedzi bezpośrednio do obiektu wywołującego.
+    -   [Ponawianie](api-management-advanced-policies.md#Retry) próbuje wykonać załączone instrukcje zasad, jeśli i do momentu spełnienia warunku. Wykonanie będzie powtarzane w określonych odstępach czasu i do określonej liczby ponownych prób.  
+    -   [Odpowiedź zwrotna](api-management-advanced-policies.md#ReturnResponse) — przerywa wykonywanie potoku i zwraca określoną odpowiedź bezpośrednio do obiektu wywołującego.  
+    -   [Wyślij jednokierunkowe żądanie](api-management-advanced-policies.md#SendOneWayRequest) — wysyła żądanie do określonego adresu URL bez oczekiwania na odpowiedź.  
     -   [Wyślij żądanie](api-management-advanced-policies.md#SendRequest) — wysyła żądanie do określonego adresu URL.
     -   [Ustaw serwer proxy HTTP](api-management-advanced-policies.md#SetHttpProxy) — umożliwia kierowanie żądań przesyłanych dalej za pośrednictwem serwera proxy HTTP.
-    -   [Ustaw zmienną](api-management-advanced-policies.md#set-variable) — utrwalanie wartości w nazwanej zmiennej kontekstowej dla późniejszego dostępu.  
-    -   [Ustaw metodę żądania](api-management-advanced-policies.md#SetRequestMethod) — umożliwia zmianę metody HTTP dla żądania.  
-    -   [Ustaw kod stanu](api-management-advanced-policies.md#SetStatus) — zmienia kod stanu HTTP na określoną wartość.  
-    -   [Śledzenie](api-management-advanced-policies.md#Trace) — dodaje niestandardowe ślady do danych wyjściowych [inspektora interfejsu API,](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) telemetrie usługi Application Insights i dzienników diagnostycznych.  
-    -   [Czekaj](api-management-advanced-policies.md#Wait) — przed kontynuowaniem trwa oczekiwanie na zamknięte [żądanie wysłania](api-management-advanced-policies.md#SendRequest), [Pobierz wartość z pamięci podręcznej](api-management-caching-policies.md#GetFromCacheByKey)lub [Zasady przepływu sterowania](api-management-advanced-policies.md#choose) do ukończenia.  
+    -   [Ustaw zmienną](api-management-advanced-policies.md#set-variable) — utrwalanie wartości w nazwanej zmiennej kontekstowej w celu późniejszego dostępu.  
+    -   [Ustaw metodę żądania](api-management-advanced-policies.md#SetRequestMethod) — pozwala zmienić metodę http dla żądania.  
+    -   [Ustawianie kodu stanu](api-management-advanced-policies.md#SetStatus) — zmienia kod stanu HTTP na określoną wartość.  
+    -   [Trace](api-management-advanced-policies.md#Trace) — dodaje niestandardowe ślady do danych wyjściowych [inspektora interfejsu API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , Application Insights telemetrii i dzienników zasobów.  
+    -   [Zaczekaj](api-management-advanced-policies.md#Wait) — oczekiwanie na załączone [żądanie wysłania](api-management-advanced-policies.md#SendRequest), [Pobierz wartość z pamięci podręcznej](api-management-caching-policies.md#GetFromCacheByKey)lub zasady [przepływu sterowania](api-management-advanced-policies.md#choose) do ukończenia przed kontynuowaniem.  
 -   [Zasady uwierzytelniania](api-management-authentication-policies.md#AuthenticationPolicies)  
-    -   [Uwierzytelnij się za pomocą podstawowego](api-management-authentication-policies.md#Basic) — uwierzytelnij się za pomocą usługi wewnętrznej bazy danych przy użyciu uwierzytelniania podstawowego.  
-    -   [Uwierzytelnij się przy użyciu certyfikatu klienta](api-management-authentication-policies.md#ClientCertificate) — uwierzytelnij się za pomocą usługi wewnętrznej bazy danych przy użyciu certyfikatów klienta.  
-    -   [Uwierzytelnij się przy użyciu tożsamości zarządzanej](api-management-authentication-policies.md#ManagedIdentity) — uwierzytelnij się za pomocą usługi wewnętrznej bazy danych przy użyciu [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
+    -   [Uwierzytelnianie z](api-management-authentication-policies.md#Basic) uwierzytelnianiem Basic z użyciem usługi wewnętrznej bazy danych przy użyciu uwierzytelniania podstawowego.  
+    -   [Uwierzytelnianie przy użyciu certyfikatu klienta](api-management-authentication-policies.md#ClientCertificate) — uwierzytelnianie za pomocą usługi zaplecza przy użyciu certyfikatów klienta.  
+    -   [Uwierzytelnianie przy użyciu tożsamości zarządzanej](api-management-authentication-policies.md#ManagedIdentity) — uwierzytelnianie za pomocą usługi zaplecza przy użyciu [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Caching policies](api-management-caching-policies.md#CachingPolicies)  
-    -   [Pobierz z pamięci podręcznej](api-management-caching-policies.md#GetFromCache) — wyszukuj pamięć podręczną i zwróć prawidłową odpowiedź w pamięci podręcznej, gdy jest dostępna.  
-    -   [Magazyn do pamięci podręcznej](api-management-caching-policies.md#StoreToCache) — bufory odpowiedzi zgodnie z określoną konfiguracją kontroli pamięci podręcznej.  
-    -   [Pobierz wartość z pamięci podręcznej](api-management-caching-policies.md#GetFromCacheByKey) — pobieranie elementu w pamięci podręcznej według klucza.  
-    -   [Wartość magazynu w pamięci podręcznej](api-management-caching-policies.md#StoreToCacheByKey) — przechowuj element w pamięci podręcznej według klucza.  
-    -   [Usuń wartość z pamięci podręcznej](api-management-caching-policies.md#RemoveCacheByKey) — usuń element w pamięci podręcznej według klucza.  
+    -   [Pobierz z pamięci podręcznej](api-management-caching-policies.md#GetFromCache) — wykonaj wyszukiwanie w pamięci podręcznej i zwróć poprawną buforowaną odpowiedź, jeśli jest dostępna.  
+    -   [Przechowywanie w pamięci](api-management-caching-policies.md#StoreToCache) podręcznej w pamięci podręcznej zgodnie z określoną konfiguracją kontroli pamięci podręcznej.  
+    -   [Pobierz wartość z pamięci podręcznej](api-management-caching-policies.md#GetFromCacheByKey) — Pobierz zbuforowany element według klucza.  
+    -   [Wartość magazynu w pamięci podręcznej](api-management-caching-policies.md#StoreToCacheByKey) — przechowywanie elementu w pamięci podręcznej według klucza.  
+    -   [Usuń wartość z pamięci podręcznej](api-management-caching-policies.md#RemoveCacheByKey) — Usuń element z pamięci podręcznej według klucza.  
 -   [Zasady międzydomenowe](api-management-cross-domain-policies.md#CrossDomainPolicies)  
-    -   [Zezwalaj na połączenia między domenami](api-management-cross-domain-policies.md#AllowCrossDomainCalls) — umożliwia dostęp interfejsu API od klientów korzystających z przeglądarki Adobe Flash i Microsoft Silverlight.  
-    -   [CORS](api-management-cross-domain-policies.md#CORS) — dodaje obsługę udostępniania zasobów między źródłami (CORS) do operacji lub interfejsu API, aby umożliwić wywołania między domenami od klientów opartych na przeglądarce.  
-    -   [JSONP](api-management-cross-domain-policies.md#JSONP) — dodaje JSON z obsługą dopełnienia (JSONP) do operacji lub interfejsu API, aby umożliwić wywołania między domenami z klientów opartych na przeglądarce JavaScript.  
+    -   [Zezwalaj na wywołania międzydomenowe](api-management-cross-domain-policies.md#AllowCrossDomainCalls) — umożliwia dostęp do interfejsu API z poziomu klientów opartych na przeglądarce Adobe Flash i Microsoft Silverlight.  
+    -   [CORS](api-management-cross-domain-policies.md#CORS) — dodaje obsługę funkcji udostępniania zasobów między źródłami (CORS) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce.  
+    -   [JSONP](api-management-cross-domain-policies.md#JSONP) — dodaje kod JSON z obsługą dopełnienia (JSONP) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce JavaScript.  
 -   [Zasady transformacji](api-management-transformation-policies.md#TransformationPolicies)  
-    -   [Konwertuj JSON na XML](api-management-transformation-policies.md#ConvertJSONtoXML) — konwertuje treść żądania lub odpowiedzi z JSON na XML.  
-    -   [Konwertuj XML na JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) — konwertuje treść żądania lub odpowiedzi z XML na JSON.  
-    -   [Znajdź i zastąp ciąg w treści](api-management-transformation-policies.md#Findandreplacestringinbody) — znajduje podciąg żądania lub odpowiedzi i zastępuje go innym podciągem.  
-    -   [Maskuj adresy URL w zawartości](api-management-transformation-policies.md#MaskURLSContent) — ponownie zapisuje (maskuje) łącza w treści odpowiedzi, dzięki czemu wskazują one równoważne łącze za pośrednictwem bramy.  
-    -   [Ustaw usługę wewnętrznej bazy danych](api-management-transformation-policies.md#SetBackendService) — zmienia usługę wewnętrznej bazy danych dla żądania przychodzącego.  
+    -   [Convert JSON do formatu XML](api-management-transformation-policies.md#ConvertJSONtoXML) — konwertuje treść żądania lub odpowiedzi z formatu JSON na XML.  
+    -   [Konwertuj kod XML na format JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) — konwertuje treść żądania lub odpowiedzi z formatu XML na notację JSON.  
+    -   [Znajdź i Zamień ciąg w treści](api-management-transformation-policies.md#Findandreplacestringinbody) — umożliwia znalezienie żądania lub podciągu odpowiedzi i zastąpienie go innym podciągiem.  
+    -   [Maskowanie adresów URL w](api-management-transformation-policies.md#MaskURLSContent) treści odpowiedzi, aby wskazywały na równoważne łącze za pośrednictwem bramy.  
+    -   [Ustawianie usługi zaplecza](api-management-transformation-policies.md#SetBackendService) — zmienia usługę zaplecza dla żądania przychodzącego.  
     -   [Ustaw treść](api-management-transformation-policies.md#SetBody) — ustawia treść wiadomości dla żądań przychodzących i wychodzących.  
-    -   [Ustaw nagłówek HTTP](api-management-transformation-policies.md#SetHTTPheader) — przypisuje wartość do istniejącego nagłówka odpowiedzi i/lub żądania lub dodaje nowy nagłówek odpowiedzi i/lub żądania.  
-    -   [Ustaw parametr ciągu kwerendy](api-management-transformation-policies.md#SetQueryStringParameter) — dodaje, zastępuje wartość lub usuwa parametr ciągu zapytania żądania.  
-    -   [Przepisz adres URL](api-management-transformation-policies.md#RewriteURL) — konwertuje adres URL żądania z formularza publicznego na formularz oczekiwany przez usługę sieci web.  
-    -   [Przekształcanie xml przy użyciu XSLT](api-management-transformation-policies.md#XSLTransform) - Stosuje transformację XSL do XML w treści żądania lub odpowiedzi.  
+    -   [Ustawianie nagłówka HTTP](api-management-transformation-policies.md#SetHTTPheader) — przypisuje wartość do istniejącej odpowiedzi i/lub nagłówka żądania lub dodaje nową odpowiedź i/lub nagłówek żądania.  
+    -   [Ustaw parametr ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) — dodaje, zastępuje wartość lub usuwa parametr ciągu zapytania żądania.  
+    -   [Ponownie Napisz adres URL](api-management-transformation-policies.md#RewriteURL) — konwertuje adres URL żądania z jego formularza publicznego na formularz oczekiwany przez usługę sieci Web.  
+    -   [Przekształcanie kodu XML przy użyciu XSLT](api-management-transformation-policies.md#XSLTransform) — stosuje transformację XSL do pliku XML w treści żądania lub odpowiedzi.  
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 
-+ [Zasady w zarządzaniu interfejsami API](api-management-howto-policies.md)
-+ [Przekształcanie interfejsów API](transform-api.md)
++ [Zasady w API Management](api-management-howto-policies.md)
++ [Przekształć interfejsy API](transform-api.md)
 + [Przykłady zasad](policy-samples.md)   

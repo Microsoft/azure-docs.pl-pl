@@ -1,6 +1,6 @@
 ---
-title: Włączanie rejestrowania diagnostycznego w usłudze Azure Traffic Manager
-description: Dowiedz się, jak włączyć rejestrowanie diagnostyczne profilu usługi Traffic Manager i uzyskać dostęp do plików dziennika, które zostały utworzone w wyniku.
+title: Włącz rejestrowanie zasobów na platformie Azure Traffic Manager
+description: Dowiedz się, jak włączyć rejestrowanie zasobów dla profilu Traffic Manager i uzyskać dostęp do plików dziennika, które są tworzone w wyniku.
 services: traffic-manager
 author: rohinkoul
 manager: twooley
@@ -11,72 +11,72 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0ffcffd7d4a4f2072b640ace03ec819aa416d47
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938671"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133901"
 ---
-# <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Włączanie rejestrowania diagnostycznego w usłudze Azure Traffic Manager
+# <a name="enable-resource-logging-in-azure-traffic-manager"></a>Włącz rejestrowanie zasobów na platformie Azure Traffic Manager
 
-W tym artykule opisano sposób włączania rejestrowania diagnostycznego i dostępu do danych dziennika dla profilu usługi Traffic Manager.
+W tym artykule opisano sposób włączania zbierania dzienników zasobów diagnostycznych i uzyskiwania dostępu do danych dziennika dla profilu Traffic Manager.
 
-Dzienniki diagnostyczne usługi Azure Traffic Manager mogą zapewniać wgląd w zachowanie zasobu profilu usługi Traffic Manager. Na przykład można użyć danych dziennika profilu, aby ustalić, dlaczego poszczególne sondy zostały przesunął limit czasu względem punktu końcowego.
+Dzienniki zasobów usługi Azure Traffic Manager mogą zapewnić wgląd w zachowanie zasobu profilu Traffic Manager. Na przykład można użyć danych dziennika profilu, aby określić, dlaczego poszczególne sondy przekroczyły limit czasu względem punktu końcowego.
 
-## <a name="enable-diagnostic-logging"></a>Włączanie rejestrowania diagnostycznego
+## <a name="enable-resource-logging"></a>Włącz rejestrowanie zasobów
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Można uruchomić polecenia, które należy wykonać w [usłudze Azure Cloud Shell](https://shell.azure.com/powershell)lub uruchamiając program PowerShell z komputera. Usługa Azure Cloud Shell to bezpłatna powłoka interaktywna. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Jeśli program PowerShell jest uruchamiany z komputera, potrzebny jest moduł programu Azure PowerShell, 1.0.0 lub nowsze. Można uruchomić, `Get-Module -ListAvailable Az` aby znaleźć zainstalowaną wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli korzystasz z programu PowerShell lokalnie, `Login-AzAccount` musisz również uruchomić, aby zalogować się na platformie Azure.
+Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.azure.com/powershell)lub przez uruchomienie programu PowerShell z komputera. Azure Cloud Shell to bezpłatna interaktywna powłoka. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Po uruchomieniu programu PowerShell z komputera potrzebny jest moduł Azure PowerShell, 1.0.0 lub nowszy. Można uruchomić `Get-Module -ListAvailable Az` , aby znaleźć zainstalowaną wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić `Login-AzAccount` polecenie, aby zalogować się do platformy Azure.
 
-1. **Pobierz profil Usługi Traffic Manager:**
+1. **Pobierz profil Traffic Manager:**
 
-    Aby włączyć rejestrowanie diagnostyczne, potrzebny jest identyfikator profilu usługi Traffic Manager. Pobierz profil usługi Traffic Manager, który ma zostać włączyny w rejestrowaniu diagnostycznym za pomocą [programu Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). Dane wyjściowe zawierają informacje o identyfikatorze profilu usługi Traffic Manager.
+    Aby włączyć rejestrowanie zasobów, wymagany jest identyfikator Traffic Manager profilu. Pobierz profil Traffic Manager, dla którego chcesz włączyć rejestrowanie zasobów w programie [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). Dane wyjściowe zawierają informacje o IDENTYFIKATORze profilu Traffic Manager.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
-2. **Włącz rejestrowanie diagnostyczne dla profilu usługi Traffic Manager:**
+2. **Włącz rejestrowanie zasobów dla profilu Traffic Manager:**
 
-    Włącz rejestrowanie diagnostyczne profilu usługi Traffic Manager przy użyciu identyfikatora uzyskanego w poprzednim kroku za pomocą [funkcji Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). Następujące polecenie przechowuje pełne dzienniki profilu usługi Traffic Manager do określonego konta usługi Azure Storage. 
+    Włącz rejestrowanie zasobów dla profilu Traffic Manager przy użyciu identyfikatora uzyskanego w poprzednim kroku przy użyciu polecenia [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). Następujące polecenie przechowuje pełne dzienniki dla profilu Traffic Manager na określonym koncie usługi Azure Storage. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Sprawdź ustawienia diagnostyczne:**
 
-      Sprawdź ustawienia diagnostyczne profilu Usługi Traffic Manager za pomocą [polecenia Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). Następujące polecenie wyświetla kategorie, które są rejestrowane dla zasobu.
+      Sprawdź ustawienia diagnostyczne profilu Traffic Manager przy użyciu polecenia [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). Następujące polecenie wyświetla kategorie, które są rejestrowane dla zasobu.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
      ```  
-      Upewnij się, że wszystkie kategorie dzienników skojarzone z zasobem profilu usługi Traffic Manager są wyświetlane jako włączone. Ponadto sprawdź, czy konto magazynu jest poprawnie ustawione.
+      Upewnij się, że wszystkie kategorie dzienników skojarzone z zasobem profilu Traffic Manager są wyświetlane jako włączone. Sprawdź również, czy konto magazynu zostało prawidłowo ustawione.
 
-## <a name="access-log-files"></a>Dostęp do plików dziennika
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). 
+## <a name="access-log-files"></a>Pliki dziennika dostępu
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 1. Przejdź do konta usługi Azure Storage w portalu.
-2. Na stronie **Przegląd** konta magazynu platformy Azure w obszarze **Usługi** wybierz pozycję **Obiekty blob**.
-3. W przypadku **kontenerów**wybierz **insights-logs-probehealthstatusevents**i przejdź w dół do pliku PT1H.json i kliknij przycisk **Pobierz,** aby pobrać i zapisać kopię tego pliku dziennika.
+2. Na stronie **Przegląd** konta usługi Azure Storage w obszarze **usługi** wybierz pozycję **obiekty blob**.
+3. W przypadku **kontenerów**wybierz pozycję **Insights-Logs-probehealthstatusevents**i przejdź do pliku PT1H. JSON, a następnie kliknij pozycję **Pobierz** , aby pobrać i zapisać kopię tego pliku dziennika.
 
-    ![Uzyskiwanie dostępu do plików dziennika profilu usługi Traffic Manager z magazynu obiektów blob](./media/traffic-manager-logs/traffic-manager-logs.png)
+    ![Uzyskiwanie dostępu do plików dziennika profilu Traffic Manager z magazynu obiektów BLOB](./media/traffic-manager-logs/traffic-manager-logs.png)
 
 
-## <a name="traffic-manager-log-schema"></a>Schemat dziennika usługi Traffic Manager
+## <a name="traffic-manager-log-schema"></a>Traffic Manager schematu dziennika
 
-Wszystkie dzienniki diagnostyczne dostępne za pośrednictwem usługi Azure Monitor współużytkują wspólny schemat najwyższego poziomu, z elastycznością dla każdej usługi do emitowania unikatowych właściwości dla własnych zdarzeń. Aby uzyskać schemat dzienników diagnostycznych najwyższego poziomu, zobacz [Obsługiwane usługi, schematy i kategorie dzienników diagnostycznych platformy Azure.](../azure-monitor/platform/tutorial-dashboards.md)
+Wszystkie dzienniki zasobów dostępne za pomocą Azure Monitor współdzielą wspólny schemat najwyższego poziomu, z elastycznością dla każdej usługi do emitowania unikatowych właściwości dla własnych zdarzeń. Aby uzyskać schemat dzienników zasobów najwyższego poziomu, zobacz [obsługiwane usługi, schematy i kategorie dla dzienników zasobów platformy Azure](../azure-monitor/platform/tutorial-dashboards.md).
 
-Poniższa tabela zawiera schemat dzienników specyficzny dla zasobu profilu usługi Azure Traffic Manager.
+W poniższej tabeli przedstawiono schemat dzienników specyficzny dla zasobu profilu usługi Azure Traffic Manager.
 
 |||||
 |----|----|---|---|
-|**Nazwa pola**|**Typ pola**|**Definicja**|**Przykład**|
-|Nazwa punktu końcowego|Ciąg|Nazwa punktu końcowego programu Traffic Manager, którego stan kondycji jest rejestrowany.|*myPrimaryEndpoint*|
-|Stan|Ciąg|Stan kondycji punktu końcowego programu Traffic Manager, który został sondowany. Stan może być w **górę** lub **w dół**.|**W górę**|
+|**Nazwa pola**|**Typ pola**|**Definicja**|**Przyklad**|
+|Nazwapunktukoncowego|Ciąg|Nazwa punktu końcowego Traffic Manager, którego stan kondycji jest rejestrowany.|*myPrimaryEndpoint*|
+|Stan|Ciąg|Stan kondycji punktu końcowego Traffic Manager, który był sondowany. Stan może być w **górę** lub **w dół**.|**W górę**|
 |||||
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [monitorowaniu usługi Traffic Manager](traffic-manager-monitoring.md)
+* Dowiedz się więcej o [monitorowaniu Traffic Manager](traffic-manager-monitoring.md)
 
