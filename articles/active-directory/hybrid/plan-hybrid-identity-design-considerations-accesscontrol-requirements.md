@@ -1,6 +1,6 @@
 ---
-title: Wymagania dotyczące kontroli dostępu do projektu tożsamości hybrydowej Platformy Azure | Dokumenty firmy Microsoft
-description: Obejmuje filary tożsamości i identyfikowanie wymagań dotyczących dostępu dla zasobów dla użytkowników w środowisku hybrydowym.
+title: Wymagania kontroli dostępu do projektu tożsamości hybrydowej na platformie Azure | Microsoft Docs
+description: Obejmuje filary tożsamości i identyfikowanie wymagań dostępu dla zasobów dla użytkowników w środowisku hybrydowym.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,63 +18,63 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60295147"
 ---
-# <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Określanie wymagań dotyczących kontroli dostępu dla rozwiązania tożsamości hybrydowej
-Gdy organizacja projektuje swoje rozwiązanie tożsamości hybrydowej, mogą również użyć tej okazji do przeglądania wymagań dotyczących dostępu dla zasobów, które planują udostępnić je użytkownikom. Dostęp do danych przekracza wszystkie cztery filary tożsamości, które są:
+# <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Określ wymagania dotyczące kontroli dostępu dla rozwiązania do tworzenia tożsamości hybrydowej
+Gdy organizacja opracowuje swoje rozwiązanie do tworzenia tożsamości hybrydowych, może również użyć tej możliwości do sprawdzenia wymagań dostępu dla zasobów, które mają być dostępne dla użytkowników. Dostęp do danych przekracza wszystkie cztery filary tożsamości, które są następujące:
 
 * Administracja
 * Uwierzytelnianie
 * Autoryzacja
 * Inspekcja
 
-Sekcje, które następują, obejmują uwierzytelnianie i autoryzację bardziej szczegółowo, administracja i inspekcja są częścią cyklu życia tożsamości hybrydowej. Przeczytaj [określ zadania zarządzania tożsamościami hybrydowymi,](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) aby uzyskać więcej informacji na temat tych możliwości.
+Poniższe sekcje dotyczą uwierzytelniania i autoryzacji w celu uzyskania większej ilości szczegółów, administracji i inspekcji są częścią cyklu życia tożsamości hybrydowej. Aby uzyskać więcej informacji o tych funkcjach, przeczytaj artykuł [Określanie hybrydowych zadań związanych z zarządzaniem tożsamościami](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) .
 
 > [!NOTE]
-> Przeczytaj [cztery filary tożsamości - zarządzanie tożsamością w wieku hybrydowego IT, aby](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) uzyskać więcej informacji na temat każdego z tych filarów.
+> Zapoznaj [się z czterema filarami zarządzania tożsamościami w wieku hybrydowym](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) , aby uzyskać więcej informacji na temat każdego z tych filarów.
 > 
 > 
 
 ## <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
-Istnieją różne scenariusze uwierzytelniania i autoryzacji, te scenariusze będą miały określone wymagania, które muszą być spełnione przez rozwiązanie tożsamości hybrydowej, które firma zamierza przyjąć. Scenariusze obejmujące komunikację między firmami (B2B) mogą być dodatkowym wyzwaniem dla administratorów IT, ponieważ będą musieli zapewnić, że metoda uwierzytelniania i autoryzacji używana przez organizację może komunikować się ze swoimi partnerami biznesowymi. Podczas procesu projektowania wymagań dotyczących uwierzytelniania i autoryzacji należy upewnić się, że odpowiedzi na następujące pytania:
+Istnieją różne scenariusze uwierzytelniania i autoryzacji, te scenariusze będą mieć określone wymagania, które muszą zostać spełnione przez rozwiązanie do tworzenia tożsamości hybrydowej, które firma zamierza zastosować. Scenariusze dotyczące komunikacji między firmami (B2B) mogą dodać dodatkowe wyzwanie dla administratorów IT, ponieważ muszą one zapewnić, że metoda uwierzytelniania i autoryzacji używana przez organizację będzie mogła komunikować się z partnerami biznesowymi. Podczas projektowania procesu wymagania dotyczące uwierzytelniania i autoryzacji upewnij się, że udzielono odpowiedzi na następujące pytania:
 
-* Czy twoja organizacja uwierzytelni i autoryzuje tylko użytkowników znajdujących się w ich systemie zarządzania tożsamościami?
-  * Czy są jakieś plany dla scenariuszy B2B?
-  * Jeśli tak, czy wiesz już, które protokoły (SAML, OAuth, Kerberos lub Certyfikaty) będą używane do łączenia obu firm?
-* Czy rozwiązanie tożsamości hybrydowej, które zamierzasz przyjąć, obsługuje te protokoły?
+* Czy Twoja organizacja będzie uwierzytelniać i autoryzować tylko użytkowników znajdujących się w systemie zarządzania tożsamościami?
+  * Czy istnieją plany dotyczące scenariuszy B2B?
+  * Jeśli tak, czy już wiesz, które protokoły (SAML, OAuth, Kerberos lub certyfikaty) będą używane do łączenia obu firm?
+* Czy rozwiązanie do obsługi tożsamości hybrydowej, które ma zostać przyjęte, obsługuje te protokoły?
 
-Innym ważnym punktem do rozważenia jest to, gdzie repozytorium uwierzytelniania, które będą używane przez użytkowników i partnerów będzie znajdować się i model administracyjny, który ma być używany. Rozważmy następujące dwie podstawowe opcje:
+Innym ważnym zagadnieniem jest to, że repozytorium uwierzytelniania, które będzie używane przez użytkowników i partnerów, będzie zlokalizowane i używany model administracyjny. Należy wziąć pod uwagę następujące dwie opcje podstawowe:
 
 * Scentralizowane: w tym modelu poświadczenia użytkownika, zasady i administracja mogą być scentralizowane lokalnie lub w chmurze.
-* Hybrydowy: w tym modelu poświadczenia użytkownika, zasady i administracja będą scentralizowane lokalnie i replikowane w chmurze.
+* Hybrydowe: w tym modelu poświadczenia użytkownika, zasady i administracja będą scentralizowane lokalnie i zreplikowane w chmurze.
 
-Który model przyjmie organizacja będzie się różnić w zależności od wymagań biznesowych, chcesz odpowiedzieć na następujące pytania, aby określić, gdzie będzie mieszkał system zarządzania tożsamościami i tryb administracyjny do użycia:
+Model, który zostanie przyjęty przez organizację, będzie różny w zależności od wymagań firmy, należy odpowiedzieć na następujące pytania, aby ustalić, gdzie znajduje się system zarządzania tożsamościami i tryb administracyjny do użycia:
 
-* Czy twoja organizacja ma obecnie lokalne zarządzanie tożsamościami?
-  * Jeśli tak, czy planują go zatrzymać?
-  * Czy istnieją jakieś wymagania dotyczące regulacji lub zgodności, które muszą być przestrzegane przez organizację, które określają, gdzie powinien znajdować się system zarządzania tożsamościami?
-* Czy organizacja używa logowania jednokrotnego dla aplikacji znajdujących się lokalnie lub w chmurze?
-  * Jeśli tak, czy przyjęcie modelu tożsamości hybrydowej wpływa na ten proces?
+* Czy Twoja organizacja ma obecnie lokalne Zarządzanie tożsamościami?
+  * Jeśli tak, czy są one planowane, aby je zachować?
+  * Czy istnieją jakieś wymagania dotyczące regulacji lub zgodności, które należy wykonać w organizacji, która określa, gdzie powinien znajdować się system zarządzania tożsamościami?
+* Czy Twoja organizacja korzysta z logowania jednokrotnego dla aplikacji znajdujących się lokalnie lub w chmurze?
+  * Jeśli tak, czy przyjęcie hybrydowego modelu tożsamości ma wpływ na ten proces?
 
 ## <a name="access-control"></a>Kontrola dostępu
-Podczas gdy uwierzytelnianie i autoryzacja są podstawowymi elementami umożliwiającymi dostęp do danych firmowych poprzez sprawdzanie poprawności przez użytkownika, ważne jest również kontrolowanie poziomu dostępu, jaki będą mieli ci użytkownicy, oraz poziomu dostępu, jaki administratorzy będą mieli nad zasobami. które zarządzają. Rozwiązanie tożsamości hybrydowej musi być w stanie zapewnić szczegółowy dostęp do zasobów, delegowania i kontroli dostępu podstawowego roli. Upewnij się, że udzielono odpowiedzi na następujące pytanie dotyczące kontroli dostępu:
+Chociaż uwierzytelnianie i autoryzacja są elementami podstawowymi, aby umożliwić dostęp do danych firmowych za pomocą weryfikacji użytkownika, ważne jest również, aby kontrolować poziom dostępu, jaki będą mieli użytkownicy, i poziom administratorów dostępu będzie miał za pośrednictwem zarządzanych przez nich zasobów. Twoje rozwiązanie do obsługi tożsamości hybrydowej musi mieć możliwość zapewnienia szczegółowego dostępu do zasobów, delegowania i podstawowej kontroli dostępu. Upewnij się, że odpowiedzi na następujące pytania dotyczą kontroli dostępu:
 
-* Czy Twoja firma ma więcej niż jednego użytkownika z podwyższonym uprawnieniami do zarządzania systemem tożsamości?
-  * Jeśli tak, czy każdy użytkownik potrzebuje tego samego poziomu dostępu?
-* Czy twoja firma musi delegować dostęp do użytkowników w celu zarządzania określonymi zasobami?
-  * Jeśli tak, jak często tak się dzieje?
-* Czy Twoja firma musi zintegrować możliwości kontroli dostępu między zasobami lokalnymi i chmurowymi?
-* Czy Twoja firma będzie musiała ograniczyć dostęp do zasobów zgodnie z pewnymi warunkami?
-* Czy Twoja firma ma dowolną aplikację, która wymaga niestandardowego dostępu do niektórych zasobów?
+* Czy firma ma więcej niż jednego użytkownika z podwyższonym poziomem uprawnień do zarządzania systemem tożsamości?
+  * Jeśli tak, czy każdy użytkownik musi mieć ten sam poziom dostępu?
+* Czy firma musi delegować dostęp do użytkowników w celu zarządzania określonymi zasobami?
+  * Jeśli tak, jak często się dzieje?
+* Czy firma musi zintegrować możliwości kontroli dostępu między zasobami lokalnymi i w chmurze?
+* Czy firma musi ograniczyć dostęp do zasobów zgodnie z pewnymi warunkami?
+* Czy firma ma dowolną aplikację, która wymaga dostępu do kontroli niestandardowej do niektórych zasobów?
   * Jeśli tak, gdzie znajdują się te aplikacje (lokalnie lub w chmurze)?
   * Jeśli tak, gdzie znajdują się te zasoby docelowe (lokalnie lub w chmurze)?
 
 > [!NOTE]
-> Pamiętaj, aby zanotować wszystkie odpowiedzi i zrozumieć ich uzasadnienie. [Zdefiniuj strategię ochrony danych](plan-hybrid-identity-design-considerations-data-protection-strategy.md) będzie wykraczać poza dostępne opcje i zalety / wady każdej opcji.  Odpowiadając na te pytania, wybierzesz opcję, która najlepiej odpowiada Twoim potrzebom biznesowym.
+> Pamiętaj, aby zanotować wszystkie odpowiedzi i zrozumieć ich uzasadnienie. [Zdefiniowanie strategii ochrony danych](plan-hybrid-identity-design-considerations-data-protection-strategy.md) spowoduje przejście do opcji dostępne i zalety/wady każdej opcji.  Odpowiadając na te pytania, wybierz opcję najlepiej pasującą do potrzeb Twojej firmy.
 > 
 > 
 
@@ -82,5 +82,5 @@ Podczas gdy uwierzytelnianie i autoryzacja są podstawowymi elementami umożliwi
 [Określanie wymagań dotyczących odpowiadania na zdarzenia](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## <a name="see-also"></a>Zobacz też
-[Omówienie zagadnień projektowych](plan-hybrid-identity-design-considerations-overview.md)
+[Omówienie zagadnień dotyczących projektowania](plan-hybrid-identity-design-considerations-overview.md)
 

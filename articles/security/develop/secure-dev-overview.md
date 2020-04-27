@@ -1,6 +1,6 @@
 ---
-title: Najważniejsze wskazówki dotyczące bezpiecznego programowania na platformie Microsoft Azure
-description: Najważniejsze wskazówki, które pomogą Ci opracować bezpieczniejszy kod i wdrożyć bezpieczniejszą aplikację w chmurze.
+title: Bezpieczne rozwiązania deweloperskie na Microsoft Azure
+description: Najlepsze rozwiązania ułatwiające tworzenie bezpieczniejszego kodu i wdrażanie bezpieczniejszej aplikacji w chmurze.
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
@@ -14,69 +14,69 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68934863"
 ---
-# <a name="secure-development-best-practices-on-azure"></a>Najważniejsze wskazówki dotyczące bezpiecznego programowania na platformie Azure
-Ta seria artykułów przedstawia działania zabezpieczeń i kontrole, które należy wziąć pod uwagę podczas tworzenia aplikacji dla chmury. Zostaną omówione fazy cyklu życia programu Microsoft Security Development (SDL) oraz pytania i pojęcia dotyczące zabezpieczeń, które należy wziąć pod uwagę podczas każdej fazy cyklu życia. Celem jest pomoc w definiowaniu działań i usług platformy Azure, których można używać w każdej fazie cyklu życia do projektowania, opracowywania i wdrażania bezpieczniejszej aplikacji.
+# <a name="secure-development-best-practices-on-azure"></a>Bezpieczne programowanie najlepszych rozwiązań na platformie Azure
+W tej serii artykułów przedstawiono działania i mechanizmy kontroli zabezpieczeń, które należy wziąć pod uwagę podczas opracowywania aplikacji dla chmury. Fazy Microsoft Security Development Lifecycle (SDL) i pytania dotyczące zabezpieczeń oraz pojęcia, które należy wziąć pod uwagę podczas każdej fazy cyklu życia, zostały omówione. Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można używać w każdej fazie cyklu życia w celu projektowania, opracowywania i wdrażania bezpieczniejszej aplikacji.
 
-Zalecenia zawarte w artykułach pochodzą z naszego środowiska z zabezpieczeniami platformy Azure i z doświadczeń naszych klientów. Możesz użyć tych artykułów jako odniesienia do tego, co należy wziąć pod uwagę podczas określonej fazy projektu dewelopera, ale sugerujemy, aby przeczytać wszystkie artykuły od początku do końca co najmniej raz. Czytanie wszystkich artykułów wprowadza do pojęć, które mogły zostać pominięte we wcześniejszych fazach projektu. Wdrożenie tych koncepcji przed wydaniem produktu może pomóc w tworzeniu bezpiecznego oprogramowania, spełnianiu wymagań dotyczących zgodności zabezpieczeń i obniżaniu kosztów rozwoju.
+Zalecenia zawarte w artykułach pochodzą z naszego doświadczenia związanego z bezpieczeństwem platformy Azure i z naszych klientów. Możesz użyć tych artykułów jako odniesienia do tego, co należy wziąć pod uwagę podczas konkretnej fazy projektu deweloperskiego, ale sugerujemy również zapoznanie się ze wszystkimi artykułami od początku do końca. W przypadku odczytywania wszystkich artykułów wprowadzono koncepcje, które mogły zostać pominięte we wcześniejszych fazach projektu. Wdrożenie tych koncepcji przed udostępnieniem produktu może pomóc w tworzeniu bezpiecznego oprogramowania, wymaganiach dotyczących zgodności z zabezpieczeniami i zmniejszeniu kosztów rozwoju.
 
-Te artykuły mają być zasobem dla projektantów oprogramowania, deweloperów i testerów na wszystkich poziomach, którzy twórz i wdrażają bezpieczne aplikacje platformy Azure.
+Te artykuły są przeznaczone dla projektantów oprogramowania, deweloperów i testerów na wszystkich poziomach, którzy tworzą i wdrażają bezpieczne aplikacje platformy Azure.
 
 ## <a name="overview"></a>Omówienie
 
-Bezpieczeństwo jest jednym z najważniejszych aspektów każdej aplikacji i nie jest to prosta rzecz, aby uzyskać prawo. Na szczęście platforma Azure oferuje wiele usług, które mogą pomóc w zabezpieczeniu aplikacji w chmurze. Te artykuły dotyczą działań i usług platformy Azure, które można zaimplementować na każdym etapie cyklu życia tworzenia oprogramowania, aby ułatwić tworzenie bezpieczniejszego kodu i wdrażanie bezpieczniejszej aplikacji w chmurze.
+Bezpieczeństwo jest jednym z najważniejszych aspektów dowolnych aplikacji i nie jest prostą kwestią, aby uzyskać prawo. Na szczęście platforma Azure oferuje wiele usług, które mogą pomóc w zabezpieczeniu aplikacji w chmurze. Te artykuły zawierają adresy i usługi platformy Azure, które można wdrożyć na każdym etapie cyklu projektowania oprogramowania, aby ułatwić tworzenie bezpieczniejszego kodu i wdrażanie bezpieczniejszej aplikacji w chmurze.
 
 ## <a name="security-development-lifecycle"></a>Cykl projektowania zabezpieczeń
 
-Przestrzeganie najlepszych praktyk w zakresie bezpiecznego tworzenia oprogramowania wymaga włączenia zabezpieczeń do każdej fazy cyklu życia tworzenia oprogramowania, od analizy wymagań po konserwację, niezależnie od metodologii projektu[(wodospad,](https://en.wikipedia.org/wiki/Waterfall_model) [agile](https://en.wikipedia.org/wiki/Agile_software_development)lub [DevOps).](https://en.wikipedia.org/wiki/DevOps) W następstwie głośnych naruszeń danych i wykorzystania błędów zabezpieczeń operacyjnych, więcej deweloperów rozumie, że bezpieczeństwo musi być rozwiązywane w trakcie całego procesu rozwoju.
+Zgodnie z najlepszymi rozwiązaniami dotyczącymi bezpiecznego opracowywania oprogramowania należy zintegrować zabezpieczenia w każdej fazie cyklu tworzenia oprogramowania, od analizy wymagań do konserwacji, niezależnie od metodologii projektu ([kaskadowego](https://en.wikipedia.org/wiki/Waterfall_model), [Agile](https://en.wikipedia.org/wiki/Agile_software_development)lub [DevOps](https://en.wikipedia.org/wiki/DevOps)). W przypadku wzbudzania naruszeń danych wysokiego profilu oraz wykorzystania luk w zabezpieczeniach operacyjnych więcej deweloperów ma świadomość, że zabezpieczenia muszą być rozkierowane w całym procesie tworzenia oprogramowania.
 
-Im później rozwiążesz problem w cyklu życia rozwoju, tym bardziej ta poprawka będzie cię kosztować. Problemy z zabezpieczeniami nie są wyjątkiem. Jeśli nie uwzględnisz problemów z zabezpieczeniami we wczesnych fazach tworzenia oprogramowania, każda następująca faza może dziedziczyć luki w zabezpieczeniach poprzedniej fazy. Twój produkt końcowy zgromadzi wiele problemów z bezpieczeństwem i możliwość naruszenia. Budowanie zabezpieczeń w każdej fazie cyklu życia rozwoju pomaga wcześnie wyłapać problemy i pomaga zmniejszyć koszty rozwoju.
+Im później nawiążesz problem z cyklem rozwoju, tym większa opłata zostanie naprawiona. Problemy z zabezpieczeniami nie są wyjątkiem. W przypadku pominięcia problemów z zabezpieczeniami we wczesnych fazach tworzenia oprogramowania każda z poniższych faz może odziedziczyć luki w powyższej fazie. Końcowy produkt będzie zbierać wiele problemów z zabezpieczeniami i możliwość naruszenia. Tworzenie zabezpieczeń w każdej fazie cyklu projektowania pomaga w wczesnym wykorzystaniu problemów i pomaga zmniejszyć koszty tworzenia oprogramowania.
 
-Śledzimy fazy cyklu rozwoju zabezpieczeń firmy Microsoft [(SDL),](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) aby wprowadzić działania i usługi platformy Azure, których można używać do realizacji bezpiecznych praktyk w zakresie tworzenia oprogramowania na każdym etapie cyklu życia.
+Postępuj zgodnie z etapami [cyklu projektowania zabezpieczeń firmy Microsoft (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) , aby wprowadzić działania i usługi platformy Azure, których można użyć do spełnienia praktyk bezpiecznego tworzenia oprogramowania w każdej fazie cyklu życia.
 
 Fazy SDL to:
 
   - Szkolenia
   - Wymagania
-  - Projekt
-  - Wdrażanie
+  - Projektowanie
+  - Implementacja
   - Weryfikacja
   - Release
   - Odpowiedź
 
 ![Cykl projektowania zabezpieczeń](./media/secure-dev-overview/01-sdl-phase.png)
 
-W tych artykułach grupujemy fazy SDL w projektowaniu, opracowywaniu i wdrażaniu.
+W tych artykułach są grupowane fazy SDL w celu projektowania, opracowywania i wdrażania.
 
-## <a name="engage-your-organizations-security-team"></a>Zaangażuj zespół zabezpieczeń swojej organizacji
+## <a name="engage-your-organizations-security-team"></a>Zaangażuj zespół ds. zabezpieczeń w organizacji
 
-Organizacja może mieć formalny program zabezpieczeń aplikacji, który pomaga w działaniach związanych z zabezpieczeniami od początku do końca w cyklu życia rozwoju. Jeśli twoja organizacja ma zespoły zabezpieczeń i zgodności, należy zaangażować je przed rozpoczęciem tworzenia aplikacji. Zapytaj ich na każdym etapie SDL, czy są jakieś zadania, które przegapiłeś.
+Organizacja może mieć formalny program zabezpieczeń aplikacji, który ułatwia wykonywanie działań związanych z bezpieczeństwem. Jeśli Twoja organizacja ma zespoły ds. zabezpieczeń i zgodności, pamiętaj o tym przed rozpoczęciem tworzenia aplikacji. Zadawaj je w każdej fazie SDL, niezależnie od tego, czy istnieją jakieś zadania, które nie zostały pominięte.
 
-Rozumiemy, że wielu czytelników może nie mieć zespołu zabezpieczeń lub zgodności do zaangażowania. Te artykuły mogą pomóc w pytaniu i decyzjach dotyczących zabezpieczeń, które należy wziąć pod uwagę na każdym etapie SDL.
+Zdajemy sobie sprawę, że wielu czytelników może nie mieć zespołu ds. zabezpieczeń lub zgodności. Te artykuły mogą pomóc w zalogowaniu się do pytań zabezpieczających i decyzji, które należy wziąć pod uwagę w każdej fazie SDL.
 
 ## <a name="resources"></a>Resources
 
-Skorzystaj z następujących zasobów, aby dowiedzieć się więcej na temat tworzenia bezpiecznych aplikacji i pomóc w zabezpieczeniu aplikacji na platformie Azure:
+Skorzystaj z następujących zasobów, aby dowiedzieć się więcej na temat tworzenia bezpiecznych aplikacji i zabezpieczania aplikacji na platformie Azure:
 
-[Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) — SDL to proces tworzenia oprogramowania firmy Microsoft, który pomaga deweloperom tworzyć bezpieczniejsze oprogramowanie. Pomaga rozwiązać wymagania dotyczące zgodności zabezpieczeń przy jednoczesnym obniżeniu kosztów rozwoju.
+[Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) — jest to proces tworzenia oprogramowania od firmy Microsoft, który pomaga deweloperom w tworzeniu bezpieczniejszego oprogramowania. Ułatwia ona Rozwiązywanie wymagań dotyczących zgodności z zabezpieczeniami przy jednoczesnym zmniejszeniu kosztów tworzenia oprogramowania.
 
-[Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) — OWASP to społeczność online, która produkuje swobodnie dostępne artykuły, metodologie, dokumentację, narzędzia i technologie w dziedzinie zabezpieczeń aplikacji sieci Web.
+[Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) — OWASP to społeczność online, która dostarcza bezpłatnie dostępne artykuły, metodologie, dokumentację, narzędzia i technologie w polu zabezpieczenia aplikacji sieci Web.
 
-[Wypychanie w lewo, jak szef](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) — seria artykułów online, która przedstawia różne typy działań zabezpieczeń aplikacji, które deweloperzy powinni wykonać, aby utworzyć bardziej bezpieczny kod.
+[Wypychanie z lewej strony, jak piasta](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) — szereg artykułów online, które przedstawiają różne typy działań zabezpieczeń aplikacji, które deweloperzy powinni zakończyć, aby utworzyć bardziej bezpieczny kod.
 
-[Platforma tożsamości firmy Microsoft](../../active-directory/develop/index.yml) — platforma tożsamości firmy Microsoft to ewolucja usługi tożsamości usługi Azure AD i platformy dewelopera. Jest to w pełni funkcjonalna platforma, która składa się z usługi uwierzytelniania, bibliotek open source, rejestracji i konfiguracji aplikacji, pełnej dokumentacji dewelopera, przykładów kodu i innej zawartości dewelopera. Platforma tożsamości firmy Microsoft obsługuje standardowe protokoły branżowe, takie jak OAuth 2.0 i OpenID Connect.
+[Platforma tożsamości firmy Microsoft](../../active-directory/develop/index.yml) — platforma tożsamości firmy Microsoft to ewolucja usługi tożsamości usługi Azure AD i platformy deweloperskiej. Jest to w pełni funkcjonalna platforma, która składa się z usługi uwierzytelniania, bibliotek typu open source, rejestracji aplikacji i konfiguracji, pełnej dokumentacji dla deweloperów, przykładów kodu i innej zawartości dla deweloperów. Platforma tożsamości firmy Microsoft obsługuje protokoły standardowe branżowe, takie jak OAuth 2,0 i OpenID Connect Connect.
 
-[Najważniejsze rozwiązania dotyczące zabezpieczeń dotyczące rozwiązań platformy Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) — zbiór najlepszych rozwiązań w zakresie zabezpieczeń, których można używać podczas projektowania, wdrażania i zarządzania rozwiązaniami w chmurze przy użyciu platformy Azure. Ten dokument ma być zasobem dla profesjonalistów IT. Może to obejmować projektantów, architektów, deweloperów i testerów, którzy twórz i wdrażają bezpieczne rozwiązania platformy Azure.
+[Najlepsze rozwiązania w zakresie zabezpieczeń dla rozwiązań platformy Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) — zbiór najlepszych rozwiązań dotyczących zabezpieczeń do użycia podczas projektowania, wdrażania i zarządzania rozwiązaniami w chmurze przy użyciu platformy Azure. Ten dokument jest przeznaczony dla informatyków. Może to obejmować projektantów, architektów, deweloperów i testerów, którzy tworzą i wdrażają bezpieczne rozwiązania platformy Azure.
 
 [Plany zabezpieczeń i zgodności na platformie Azure](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) — plany zabezpieczeń i zgodności platformy Azure to zasoby, które mogą pomóc w tworzeniu i uruchamianiu aplikacji opartych na chmurze, które są zgodne z rygorystycznymi przepisami i standardami.
 
 ## <a name="next-steps"></a>Następne kroki
-W poniższych artykułach zaleca się kontrolki zabezpieczeń i działania, które mogą pomóc w projektowaniu, opracowywaniu i wdrażaniu bezpiecznych aplikacji.
+W poniższych artykułach zalecamy mechanizmy kontroli zabezpieczeń i działania, które mogą pomóc w projektowaniu, projektowaniu i wdrażaniu bezpiecznych aplikacji.
 
 - [Projektowanie bezpiecznych aplikacji](secure-design.md)
 - [Tworzenie bezpiecznych aplikacji](secure-develop.md)

@@ -1,6 +1,6 @@
 ---
-title: H264 Multiple Bitrate 720p Media Encoder Standard preset - Azure| Dokumenty firmy Microsoft
-description: W tym temacie przedstawiono omówienie ustawienia predefiniowanego zadania **H264 Multiple Bitrate 720p.**
+title: Wielokrotna H264 wiele szybkości transmisji bitów 720 Media Encoder Standard — platforma Azure | Microsoft Docs
+description: Temat zawiera omówienie ustawienia **wielokrotna H264 wiele szybkości transmisji bitów** .
 author: Juliako
 manager: femila
 editor: ''
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 47fe4494ad37566f7849b5b123cfb77323d3edd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61463637"
 ---
 # <a name="h264-multiple-bitrate-720p"></a>Wielokrotna szybkość transmisji bitów H264 720p
-`Media Encoder Standard`definiuje zestaw ustawień predefiniowanych kodowania, których można używać podczas tworzenia zadań kodowania. Można użyć a, `preset name` aby określić, w jakim formacie chcesz zakodować plik multimedialny. Można też utworzyć własne ustawienia predefiniowane oparte na języku JSON lub XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie należy przekazać niestandardowe ustawienia predefiniowane do kodera. Aby uzyskać listę wszystkich predefiniowanych `Media Encoder Standard` nazw obsługiwanych przez ten koder, zobacz [Presety zadań dla standardu kodera multimediów](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definiuje zestaw ustawień predefiniowanych kodowania, których można użyć podczas tworzenia zadań kodowania. Możesz użyć, `preset name` aby określić format, w którym chcesz kodować plik multimedialny. Można też tworzyć własne ustawienia predefiniowane JSON lub XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie można przekazać niestandardowe ustawienie wstępne do kodera. Aby uzyskać listę wszystkich wstępnie zdefiniowanych nazw obsługiwanych przez ten `Media Encoder Standard` koder, zobacz [Ustawienia wstępne zadań dla Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- W tym `H264 Multiple Bitrate 720p` temacie przedstawiono ustawienia predefiniowane w formacie XML i JSON.  
+ W tym temacie przedstawiono `H264 Multiple Bitrate 720p` ustawienia wstępne w formacie XML i JSON.  
   
- To ustawienie wstępne tworzy zestaw 6 plików MP4 wyrównanych do GOP, od 3400 kb/s do 400 kb/s i stereofoniczny dźwięk AAC. Aby uzyskać szczegółowe informacje na temat profilu, szybkości transmisji bitów, częstotliwości próbkowania itp. Aby uzyskać wyjaśnienia, co oznacza każdy element w tych ustawieniach predefiniowanych i prawidłowe wartości dla każdego elementu, zobacz temat [schematu Standardowy koder nośnika.](media-services-mes-schema.md)  
+ To ustawienie wstępne tworzy zestaw 6 grupę GOPych plików MP4, z zakresu od 3400 KB/s do 400 KB/s oraz stereo AAC audio. Aby uzyskać szczegółowe informacje na temat profilu, szybkości transmisji bitów, częstotliwości próbkowania itp., zapoznaj się z kodem XML lub JSON zdefiniowanym poniżej. Aby dowiedzieć się, co oznacza każdy element w tych ustawieniach wstępnych, i prawidłowe wartości dla każdego elementu, zobacz temat [schemat Media Encoder Standard](media-services-mes-schema.md) .  
   
 > [!NOTE]
->  Modyfikując `Width` wartości `Height` i wartości między warstwami, upewnij się, że współczynnik proporcji pozostaje spójny. Na przykład: 1920x1080, 1280x720, 1080x576, 640x360. Nie należy używać kombinacji współczynników proporcji, takich jak: 1280x720, 720x480, 640x360.  
+>  Podczas modyfikowania wartości `Width` i `Height` w warstwach upewnij się, że współczynnik proporcji pozostaje spójny. Na przykład: 1920 x 1080, 1280x720, 1080x576, 640 x 360. Nie należy używać kombinacji proporcji, takich jak: 1280x720, 720x480, 640 x 360.  
   
  XML  
   

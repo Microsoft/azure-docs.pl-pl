@@ -1,6 +1,6 @@
 ---
-title: 'Usługa Azure AD Connect: odwołanie programu PowerShell usługi ADSyncTools | Dokumenty firmy Microsoft'
-description: Ten dokument zawiera informacje referencyjne dla modułu programu POWERShell programu ADSyncTools.psm1.
+title: 'Azure AD Connect: ADSyncTools programu PowerShell | Microsoft Docs'
+description: Ten dokument zawiera informacje referencyjne dotyczące modułu programu PowerShell ADSyncTools. PSM1.
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -11,19 +11,19 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a1b8abf15233c06e8ff9e507b315cc8a3703970
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60454663"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Usługa Azure AD Connect: odwołanie programu ADSyncTools powershell
-Poniższa dokumentacja zawiera informacje referencyjne dla modułu programu PowerShell programu ADSyncTools.psm1 dołączonego do usługi Azure AD Connect.
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools programu PowerShell
+Poniższa dokumentacja zawiera informacje dotyczące modułu PowerShell ADSyncTools. PSM1, który jest dołączony do Azure AD Connect.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
 
 ### <a name="synopsis"></a>STRESZCZENIE
-Czyszczenie mS-Ds-ConsistencyGuid z użytkownika usługi AD
+Czyszczenie mS-ds-ConsistencyGuid z użytkownika usługi AD
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -32,7 +32,7 @@ Clear-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>OPIS
-Czyszczenie wartości w mS-Ds-ConsistencyGuid dla docelowego użytkownika usługi AD
+Wyczyść wartość w temacie mS-ds-ConsistencyGuid dla docelowego użytkownika usługi AD
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -49,7 +49,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRY
 
 #### <a name="-user"></a>-User
-Użytkownik docelowy w uerce do ustawienia
+Użytkownik docelowy w usłudze AD do ustawienia
 
 ```yaml
 Type: Object
@@ -65,12 +65,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="confirm-adsynctoolsadmoduleloaded"></a>Potwierdź-ADSyncToolsADModuleLoaded
+## <a name="confirm-adsynctoolsadmoduleloaded"></a>Potwierdź — ADSyncToolsADModuleLoaded
 
 ### <a name="synopsis"></a>STRESZCZENIE
-{{Wypełnij opis}}
+{{Wypełnienie w postaci streszczenia}}
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -79,7 +79,7 @@ Confirm-ADSyncToolsADModuleLoaded
 ```
 
 ### <a name="description"></a>OPIS
-{{Wypełnij opis}}
+{{Wypełnienie w opisie}}
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -88,12 +88,12 @@ Confirm-ADSyncToolsADModuleLoaded
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Dodaj przykładowy opis tutaj }}
+{{Dodaj tutaj opis przykładu}}
 
-## <a name="connect-adsyncdatabase"></a>Połącz-AdSyncDatabase
+## <a name="connect-adsyncdatabase"></a>Connect-AdSyncDatabase
 
 ### <a name="synopsis"></a>STRESZCZENIE
-{{Wypełnij opis}}
+{{Wypełnienie w postaci streszczenia}}
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -103,7 +103,7 @@ Connect-AdSyncDatabase [-Server] <String> [[-Instance] <String>] [[-Database] <S
 ```
 
 ### <a name="description"></a>OPIS
-{{Wypełnij opis}}
+{{Wypełnienie w opisie}}
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -112,12 +112,12 @@ Connect-AdSyncDatabase [-Server] <String> [[-Instance] <String>] [[-Database] <S
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Dodaj przykładowy opis tutaj }}
+{{Dodaj tutaj opis przykładu}}
 
 ### <a name="parameters"></a>PARAMETRY
 
-#### <a name="-database"></a>-Baza danych
-{{Opis bazy danych wypełniania}}
+#### <a name="-database"></a>-Database
+{{Opis wypełnienia bazy danych}}
 
 ```yaml
 Type: String
@@ -147,7 +147,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-password"></a>-Password
-{{Wypełnij opis hasła}}
+{{Opis hasła wypełnienia}}
 
 ```yaml
 Type: String
@@ -162,7 +162,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-server"></a>-Server
-{{Opis serwera wypełnienia}}
+{{Fill Server Description}}
 
 ```yaml
 Type: String
@@ -177,7 +177,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-username"></a>-UserName
-{{Opis nazwy użytkownika wypełnienia}}
+{{Fill-Description UserName}}
 
 ```yaml
 Type: String
@@ -193,12 +193,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="export-adsynctoolsconsistencyguidmigration"></a>Export-ADSyncToolsConsistencyGuidMigracja
+## <a name="export-adsynctoolsconsistencyguidmigration"></a>Export-ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>STRESZCZENIE
-Raport Eksportuj spójnośćGuid
+Eksportuj raport ConsistencyGuid
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -208,7 +208,7 @@ Export-ADSyncToolsConsistencyGuidMigration [-AlternativeLoginId] [-UserPrincipal
 ```
 
 ### <a name="description"></a>OPIS
-Generuje raport ConsistencyGuid na podstawie pliku CSV importu z importu-ADSyncToolsImmutableIdMigration
+Generuje raport ConsistencyGuid na podstawie pliku CSV importu z usługi Import-ADSyncToolsImmutableIdMigration
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -225,7 +225,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRY
 
 #### <a name="-alternativeloginid"></a>-AlternativeLoginId
-Użyj alternatywnego identyfikatora logowania (poczty)
+Użyj alternatywnego identyfikatora logowania (poczta)
 
 ```yaml
 Type: SwitchParameter
@@ -254,8 +254,8 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-#### <a name="-immutableidguid"></a>-NiezmienneIdguid
-NiezmiennyJudguid
+#### <a name="-immutableidguid"></a>-ImmutableIdGUID
+ImmutableIdGUID
 
 ```yaml
 Type: String
@@ -269,8 +269,8 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-#### <a name="-output"></a>-Wyjście
-Wyjściowa nazwa pliku dla plików CSV i LOG
+#### <a name="-output"></a>-Output
+Nazwa pliku wyjściowego dla plików CSV i dzienników
 
 ```yaml
 Type: String
@@ -286,12 +286,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="get-adsyncsqlbrowserinstances"></a>Nieinstancje brwi Get-ADSyncSQL
+## <a name="get-adsyncsqlbrowserinstances"></a>Get-ADSyncSQLBrowserInstances
 
 ### <a name="synopsis"></a>STRESZCZENIE
-{{Wypełnij opis}}
+{{Wypełnienie w postaci streszczenia}}
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -300,7 +300,7 @@ Get-ADSyncSQLBrowserInstances [[-hostName] <String>]
 ```
 
 ### <a name="description"></a>OPIS
-{{Wypełnij opis}}
+{{Wypełnienie w opisie}}
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -309,12 +309,12 @@ Get-ADSyncSQLBrowserInstances [[-hostName] <String>]
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Dodaj przykładowy opis tutaj }}
+{{Dodaj tutaj opis przykładu}}
 
 ### <a name="parameters"></a>PARAMETRY
 
-#### <a name="-hostname"></a>-nazwa hosta
-{{Opis nazwy hosta wypełnienia}}
+#### <a name="-hostname"></a>-hostName
+{{Fill opis nazwy hosta}}
 
 ```yaml
 Type: String
@@ -340,7 +340,7 @@ Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>OPIS
-Zwraca obiekt USŁUGI AD DO DO: Obsługa wielu lasów
+Zwraca obiekt usługi AD do wykonania: obsługa wiele lasów
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -357,7 +357,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRY
 
 #### <a name="-user"></a>-User
-Użytkownik docelowy w u. w u. do ustawiania consistencyguid
+Użytkownik docelowy w usłudze AD do ustawiania ConsistencyGuid
 
 ```yaml
 Type: Object
@@ -373,12 +373,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
 ## <a name="get-adsynctoolsconsistencyguid"></a>Get-ADSyncToolsConsistencyGuid
 
 ### <a name="synopsis"></a>STRESZCZENIE
-Pobierz mS-Ds-ConsistencyGuid od użytkownika usługi AD
+Pobierz mS-ds-ConsistencyGuid z użytkownika usługi AD
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -387,7 +387,7 @@ Get-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>OPIS
-Zwraca wartość atrybutu mS-Ds-ConsistencyGuid docelowego użytkownika usługi AD w formacie GUID
+Zwraca wartość w atrybucie mS-ds-ConsistencyGuid docelowego użytkownika usługi AD w formacie identyfikatora GUID
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -404,7 +404,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRY
 
 #### <a name="-user"></a>-User
-Użytkownik docelowy w uerce do ustawienia
+Użytkownik docelowy w usłudze AD do ustawienia
 
 ```yaml
 Type: Object
@@ -420,12 +420,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
 ## <a name="get-adsynctoolsobjectguid"></a>Get-ADSyncToolsObjectGuid
 
 ### <a name="synopsis"></a>STRESZCZENIE
-Pobierz ObjectGuid od użytkownika usługi AD
+Pobieranie ObjectGuid z użytkownika usługi AD
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -434,7 +434,7 @@ Get-ADSyncToolsObjectGuid [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>OPIS
-Zwraca wartość atrybutu ObjectGUID docelowego użytkownika usługi AD w formacie GUID
+Zwraca wartość w atrybucie ObjectGUID docelowego użytkownika usługi AD w formacie identyfikatora GUID
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -451,7 +451,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRY
 
 #### <a name="-user"></a>-User
-Użytkownik docelowy w uerce do ustawienia
+Użytkownik docelowy w usłudze AD do ustawienia
 
 ```yaml
 Type: Object
@@ -467,12 +467,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="get-adsynctoolsrunhistory"></a>Historia Get-ADSyncToolsRunHistory
+## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
 ### <a name="synopsis"></a>STRESZCZENIE
-Pobierz historię uruchamiania połączenia AAD
+Pobierz historię przebiegu połączenia usługi AAD
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -481,7 +481,7 @@ Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 
 ### <a name="description"></a>OPIS
-Funkcja zwracana historia przebiegu połączenia AAD w formacie XML
+Funkcja zwracająca historię uruchomienia połączenia usługi AAD w formacie XML
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -497,8 +497,8 @@ Get-ADSyncToolsRunHistory -Days 1
 
 ### <a name="parameters"></a>PARAMETRY
 
-#### <a name="-days"></a>-Dni
-{{Opis dni wypełnienia}}
+#### <a name="-days"></a>— Dni
+{{Fill dni Description}}
 
 ```yaml
 Type: Int32
@@ -514,12 +514,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="get-adsynctoolssourceanchorchanged"></a>Get-ADSyncToolsSourceAnchorZmienił
+## <a name="get-adsynctoolssourceanchorchanged"></a>Get-ADSyncToolsSourceAnchorChanged
 
 ### <a name="synopsis"></a>STRESZCZENIE
-Pobierz użytkowników z SourceAnchor zmienionych błędów
+Uzyskaj użytkowników z SourceAnchor zmienionymi błędami
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -528,7 +528,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>OPIS
-Funkcja odpytuje historię uruchamiania AAD Connect i eksportuje wszystkich użytkowników zgłaszających błąd: "Atrybut SourceAnchor został zmieniony".
+Funkcja wysyła zapytanie do historii uruchamiania programu AAD Connect i eksportuje wszystkich użytkowników raportujących błąd: "atrybut SourceAnchor został zmieniony".
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -537,9 +537,9 @@ Funkcja odpytuje historię uruchamiania AAD Connect i eksportuje wszystkich uży
 #Required Parameters
 ```
 
-$sourcePath = Read-Host -Prompt "Enter your log file path\<with file\>name" #" Source_Path " $outputPath = Read-Host -Prompt "Enter your out file path with file name" #"\<Out_Path\>"
+$sourcePath = read-host-Prompt "wprowadź ścieżkę pliku dziennika o nazwie pliku" #\<"Source_Path\>" $OutputPath = read-host-Prompt "wprowadź ścieżkę do pliku wyjściowego z nazwą pliku" # "\<Out_Path"\>
  
- Get-ADSyncToolsUsersSourceAnchorZmienia -sourcePath $sourcePath -outputPath $outputPath
+ Get-ADSyncToolsUsersSourceAnchorChanged-sourcePath $sourcePath-outputPath $outputPath
 
 #### <a name="example-2"></a>PRZYKŁAD 2
 ```
@@ -548,8 +548,8 @@ Another example of how to use this cmdlet
 
 ### <a name="parameters"></a>PARAMETRY
 
-#### <a name="-sourcepath"></a>-sourcePath
-{{Opis ścieżki źródłowej wypełnienia}}
+#### <a name="-sourcepath"></a>-ścieżka_źródłowa
+{{Fill opis sourcePath}}
 
 ```yaml
 Type: Object
@@ -564,7 +564,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-outputpath"></a>-outputPath
-{{Opis ścieżki wyjściowej wypełnienia}}
+{{Fill outputPath Description}}
 
 ```yaml
 Type: Object
@@ -580,12 +580,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
 ## <a name="import-adsynctoolsimmutableidmigration"></a>Import-ADSyncToolsImmutableIdMigration
 
 ### <a name="synopsis"></a>STRESZCZENIE
-Importowanie identyfikatora niezmiennego z aad
+Importuj ImmutableID z usługi AAD
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -595,7 +595,7 @@ Import-ADSyncToolsImmutableIdMigration [-Output] <String> [-IncludeSyncUsersFrom
 ```
 
 ### <a name="description"></a>OPIS
-Generuje plik ze wszystkimi zsynchronizowanymi użytkownikami usługi Azure AD zawierającymi wartość ImmutableID w wymaganiach dotyczących formatu GUID: Moduł MSOnline PowerShell
+Generuje plik ze wszystkimi synchronizowanymi użytkownikami usługi Azure AD zawierającymi wartość ImmutableID w wymaganiach w formacie identyfikatora GUID: MSOnline module PowerShell
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -611,7 +611,7 @@ Another example of how to use this cmdlet
 
 ### <a name="parameters"></a>PARAMETRY
 
-#### <a name="-output"></a>-Wyjście
+#### <a name="-output"></a>-Output
 Wyjściowy plik CSV
 
 ```yaml
@@ -643,13 +643,13 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
 
 ## <a name="invoke-adsyncdatabasequery"></a>Invoke-AdSyncDatabaseQuery
 
 ### <a name="synopsis"></a>STRESZCZENIE
-{{Wypełnij opis}}
+{{Wypełnienie w postaci streszczenia}}
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -658,7 +658,7 @@ Invoke-AdSyncDatabaseQuery [-SqlConnection] <SqlConnection> [[-Query] <String>] 
 ```
 
 ### <a name="description"></a>OPIS
-{{Wypełnij opis}}
+{{Wypełnienie w opisie}}
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -667,12 +667,12 @@ Invoke-AdSyncDatabaseQuery [-SqlConnection] <SqlConnection> [[-Query] <String>] 
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Dodaj przykładowy opis tutaj }}
+{{Dodaj tutaj opis przykładu}}
 
 ### <a name="parameters"></a>PARAMETRY
 
 #### <a name="-query"></a>-Zapytanie
-{{Opis kwerendy wypełniającej}}
+{{Opis zapytania Fill}}}
 
 ```yaml
 Type: String
@@ -687,7 +687,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-sqlconnection"></a>-SqlConnection
-{{Wypełnij opis połączenia sqlconnection}}
+{{Fill — Opis połączenia}}}
 
 ```yaml
 Type: SqlConnection
@@ -703,12 +703,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="remove-adsynctoolsexpiredcertificates"></a>Usuń-ADSyncToolsExpiredCertificates
+## <a name="remove-adsynctoolsexpiredcertificates"></a>Remove-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>STRESZCZENIE
-Skrypt do usuwania wygasłych certyfikatów z atrybutu UserCertificate
+Skrypt służący do usuwania wygasłych certyfikatów z atrybutu UserCertificate
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -718,10 +718,10 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 ```
 
 ### <a name="description"></a>OPIS
-Ten skrypt pobiera wszystkie obiekty z docelowej jednostki organizacyjnej w domenie usługi Active Directory — filtrowane według klasy obiektu (Użytkownik/komputer) i usuwa wszystkie wygasłe certyfikaty obecne w atrybucie UserCertificate.
-Domyślnie (BackupOnly mode) będzie tylko kopia zapasowa wygasłe certyfikaty do pliku i nie robić żadnych zmian w u.
-Jeśli używasz -BackupOnly $false następnie wygasły certyfikat obecny w UserCertificate atrybut dla tych obiektów zostaną usunięte z usługi AD po skopiowaniu do pliku.
-Kopia zapasowa każdego certyfikatu zostanie utworzona na oddzielonej nazwy pliku: ObjectClass_ObjectGUID_CertThumprint.cer Skrypt utworzy również plik dziennika w formacie CSV przedstawiający wszystkich użytkowników z certyfikatami, które są prawidłowe lub wygasłe, w tym rzeczywistą podjętą akcją (Pominięte/Wyeksportowane/Usunięte).
+Ten skrypt przyjmuje wszystkie obiekty z docelowej jednostki organizacyjnej w Active Directory domeny filtrowane według klasy obiektów (użytkownik/komputer) i usuwa wszystkie wygasłe certyfikaty obecne w atrybucie UserCertificate.
+Domyślnie (tryb w trybie niezmienionym) będzie tworzyć kopie zapasowe wygasłe certyfikaty tylko do pliku, a nie wszystkie zmiany w usłudze AD.
+Jeśli używasz-$false, to każdy wygasły certyfikat obecny w atrybucie UserCertificate dla tych obiektów zostanie usunięty z usługi AD po skopiowaniu do pliku.
+Dla każdego certyfikatu zostanie utworzona kopia zapasowa z rozdzieloną nazwą pliku: ObjectClass_ObjectGUID_CertThumprint. cer skrypt utworzy również plik dziennika w formacie CSV pokazujący wszystkich użytkowników z certyfikatami, które są ważne lub wygasłe, w tym rzeczywiste działanie wykonane (pominięte/wyeksportowane/usunięte).
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -730,19 +730,19 @@ Kopia zapasowa każdego certyfikatu zostanie utworzona na oddzielonej nazwy plik
 Check all users in target OU - Expired Certificates will be copied to separated files and no certificates will be removed
 ```
 
-Usuń-ADSyncToolsExpiredCertificates -TargetOU "OU=Użytkownicy,OU=Corp,DC=Contoso,DC=com" -ObjectClass użytkownika
+Remove-ADSyncToolsExpiredCertificates-TargetOU "OU = users = użytkownicy, OU = Corp, DC = contoso, DC = com"-ObjectClass
 
 #### <a name="example-2"></a>PRZYKŁAD 2
 ```
 Delete Expired Certs from all Computer objects in target OU - Expired Certificates will be copied to files and removed from AD
 ```
 
-Usuń-ADSyncToolsExpiredCertificates -TargetOU "OU=Komputery,OU=Corp,DC=Contoso,DC=com" -ObjectClass komputer -BackupOnly $false
+Remove-ADSyncToolsExpiredCertificates-TargetOU "OU = Computers, OU = Corp, DC = contoso, DC = com"-ObjectClass Computer-$false
 
 ### <a name="parameters"></a>PARAMETRY
 
 #### <a name="-targetou"></a>-TargetOU
-Docelowa do umadłań w poszukiwaniu obiektów usługi AD
+Docelowa jednostka organizacyjna do wyszukiwania obiektów usługi AD
 
 ```yaml
 Type: String
@@ -756,8 +756,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-backuponly"></a>-BackupOnly
-BackupOnly nie usunie żadnych certyfikatów z usługi AD
+#### <a name="-backuponly"></a>— W dowolnym momencie
+Nie spowoduje to usunięcia żadnych certyfikatów z usługi AD
 
 ```yaml
 Type: Boolean
@@ -772,7 +772,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-objectclass"></a>-ObjectClass
-Filtr klasy obiektu
+Filtr klasy obiektów
 
 ```yaml
 Type: String
@@ -788,9 +788,9 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="repair-adsynctoolsautoupgradestate"></a>Naprawa-ADSyncToolsAutoUpgradeState
+## <a name="repair-adsynctoolsautoupgradestate"></a>Repair-ADSyncToolsAutoUpgradeState
 
 ### <a name="synopsis"></a>STRESZCZENIE
 Krótki opis
@@ -816,10 +816,10 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-## <a name="resolve-adsynchostaddress"></a>Rozwiązanie-AdSyncHostAddress
+## <a name="resolve-adsynchostaddress"></a>Rozwiąż — ADSyncHostAddress
 
 ### <a name="synopsis"></a>STRESZCZENIE
-{{Wypełnij opis}}
+{{Wypełnienie w postaci streszczenia}}
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -828,7 +828,7 @@ Resolve-ADSyncHostAddress [[-hostName] <String>]
 ```
 
 ### <a name="description"></a>OPIS
-{{Wypełnij opis}}
+{{Wypełnienie w opisie}}
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -837,12 +837,12 @@ Resolve-ADSyncHostAddress [[-hostName] <String>]
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Dodaj przykładowy opis tutaj }}
+{{Dodaj tutaj opis przykładu}}
 
 ### <a name="parameters"></a>PARAMETRY
 
-#### <a name="-hostname"></a>-nazwa hosta
-{{Opis nazwy hosta wypełnienia}}
+#### <a name="-hostname"></a>-hostName
+{{Fill opis nazwy hosta}}
 
 ```yaml
 Type: String
@@ -856,10 +856,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="restore-adsynctoolsexpiredcertificates"></a>Narzędzie przywracania-ADSyncToolsExpiredCertificates
+## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>STRESZCZENIE
-(DO ZROBIENIA) Przywraca atrybut Ad UserCertificate z pliku certyfikatu
+(DO DO) Przywraca atrybut UserCertificate usługi AD z pliku certyfikatu
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -885,7 +885,7 @@ Another example of how to use this cmdlet
 ## <a name="set-adsynctoolsconsistencyguid"></a>Set-ADSyncToolsConsistencyGuid
 
 ### <a name="synopsis"></a>STRESZCZENIE
-Ustawianie mS-Ds-ConsistencyGuid dla użytkownika usługi AD
+Ustaw mS-ds-ConsistencyGuid na użytkownika usługi AD
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -894,7 +894,7 @@ Set-ADSyncToolsConsistencyGuid [-User] <Object> [-Value] <Object> [<CommonParame
 ```
 
 ### <a name="description"></a>OPIS
-Ustawianie wartości w atrybucie mS-Ds-ConsistencyGuid dla docelowego użytkownika usługi AD
+Ustaw wartość w atrybucie mS-ds-ConsistencyGuid dla docelowego użytkownika usługi AD
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -911,7 +911,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRY
 
 #### <a name="-user"></a>-User
-Użytkownik docelowy w u. w u. do ustawiania consistencyguid
+Użytkownik docelowy w usłudze AD do ustawiania ConsistencyGuid
 
 ```yaml
 Type: Object
@@ -926,7 +926,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-value"></a>-Wartość
-ImpmutableId (tablica bajtów, identyfikator GUID, ciąg GUID lub ciąg Base64)
+ImmutableId (tablica bajtowa, identyfikator GUID, ciąg identyfikatora GUID lub ciąg base64)
 
 ```yaml
 Type: Object
@@ -942,12 +942,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
 ## <a name="test-adsyncnetworkport"></a>Test-ADSyncNetworkPort
 
 ### <a name="synopsis"></a>STRESZCZENIE
-{{Wypełnij opis}}
+{{Wypełnienie w postaci streszczenia}}
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -956,7 +956,7 @@ Test-ADSyncNetworkPort [[-hostName] <String>] [[-port] <String>]
 ```
 
 ### <a name="description"></a>OPIS
-{{Wypełnij opis}}
+{{Wypełnienie w opisie}}
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -965,12 +965,12 @@ Test-ADSyncNetworkPort [[-hostName] <String>] [[-port] <String>]
 PS C:\> {{ Add example code here }}
 ```
 
-{{ Dodaj przykładowy opis tutaj }}
+{{Dodaj tutaj opis przykładu}}
 
 ### <a name="parameters"></a>PARAMETRY
 
-#### <a name="-hostname"></a>-nazwa hosta
-{{Opis nazwy hosta wypełnienia}}
+#### <a name="-hostname"></a>-hostName
+{{Fill opis nazwy hosta}}
 
 ```yaml
 Type: String
@@ -984,7 +984,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-port"></a>-port
+#### <a name="-port"></a>-Port
 {{Opis portu wypełnienia}}
 
 ```yaml
@@ -999,10 +999,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="trace-adsynctoolsadimport"></a>Trace-ADSyncToolsADImport
+## <a name="trace-adsynctoolsadimport"></a>Trace — ADSyncToolsADImport
 
 ### <a name="synopsis"></a>STRESZCZENIE
-Tworzy plik śledzenia z i krok importu usługi AD
+Tworzy plik śledzenia z kroku importowania usługi AD i
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -1012,7 +1012,7 @@ Trace-ADSyncToolsADImport [[-ADConnectorXML] <String>] [[-dc] <String>] [[-rootD
 ```
 
 ### <a name="description"></a>OPIS
-Śledzi wszystkie kwerendy ldap importu usługi AAD Connect AD z danego punktu kontrolnego znaku wodnego AD (plik cookie partycji). Tworzy plik śledzenia '.\ADimportTrace_yyyyMMddHHmmss.log' w bieżącym folderze.
+Śledzi wszystkie zapytania LDAP programu AAD Connect AD Run z danego punktu kontrolnego usługi AD wodnego (plik cookie partycji). Tworzy plik śledzenia ". \ ADimportTrace_yyyyMMddHHmmss. log" w bieżącym folderze.
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -1029,7 +1029,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRY
 
 #### <a name="-adconnectorxml"></a>-ADConnectorXML
-{{Wypełnij opis ADConnectorXML}}
+{{Fill ADConnectorXML Description}}
 
 ```yaml
 Type: String
@@ -1043,7 +1043,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-dc"></a>-dc
+#### <a name="-dc"></a>-DC
 Plik XML eksportu łącznika usługi AD
 
 ```yaml
@@ -1073,8 +1073,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-filter"></a>-filtr
-Główny katalog główny lasu
+#### <a name="-filter"></a>-Filter
+Główna nazwa wyróżniająca lasu
 
 ```yaml
 Type: String
@@ -1089,7 +1089,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-skipcredentials"></a>-SkipCredentials
-Typy obiektów USŁUGI \> AD do śledzenia * = wszystkie typy obiektów
+Typy obiektów usługi AD do śledzenia \> * = wszystkie typy obiektów
 
 ```yaml
 Type: SwitchParameter
@@ -1103,9 +1103,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-adwatermark"></a>-Znak adwodny
-Jeśli jest już uruchomiony jako administrator domeny, nie ma potrzeby podawania poświadczeń usługi AD.
-Ręczne wprowadzanie znaku wodnego zamiast pliku XML $ADwatermark np.
+#### <a name="-adwatermark"></a>-ADwatermark
+Jeśli już działa jako administrator domeny, nie ma potrzeby podania poświadczeń usługi AD.
+Ręczne wprowadzanie znaku wodnego zamiast pliku XML, np. $ADwatermark = "TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA (...)"
 
 ```yaml
 Type: String
@@ -1121,9 +1121,9 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="trace-adsynctoolsldapquery"></a>Trace-ADSyncToolsLdapQuery
+## <a name="trace-adsynctoolsldapquery"></a>Trace — ADSyncToolsLdapQuery
 
 ### <a name="synopsis"></a>STRESZCZENIE
 Krótki opis
@@ -1153,7 +1153,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRY
 
 #### <a name="-context"></a>-Kontekst
-Opis pomocy Param1
+Opis pomocy param1
 
 ```yaml
 Type: String
@@ -1168,7 +1168,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-server"></a>-Server
-Opis pomocy Param2
+Opis pomocy param2
 
 ```yaml
 Type: String
@@ -1183,7 +1183,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-port"></a>-Port
-Opis pomocy Param2
+Opis pomocy param2
 
 ```yaml
 Type: Int32
@@ -1197,8 +1197,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-filter"></a>-Filtr
-Opis pomocy Param2
+#### <a name="-filter"></a>-Filter
+Opis pomocy param2
 
 ```yaml
 Type: String
@@ -1214,12 +1214,12 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.
 
-## <a name="update-adsynctoolsconsistencyguidmigration"></a>Aktualizacja-ADSyncToolsConsistencyGuidMigration
+## <a name="update-adsynctoolsconsistencyguidmigration"></a>Update-ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>STRESZCZENIE
-Aktualizuje użytkowników za pomocą nowego ConsistencyGuid (ImmutableId)
+Aktualizuje użytkowników przy użyciu nowego ConsistencyGuid (ImmutableId)
 
 ### <a name="syntax"></a>SKŁADNIA
 
@@ -1229,7 +1229,7 @@ Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-Imm
 ```
 
 ### <a name="description"></a>OPIS
-Aktualizuje użytkowników o nową wartość ConsistencyGuid (ImmutableId) pobraną z raportu ConsistencyGuid Ta funkcja obsługuje przełącznik WhatIf Uwaga: Raport ConsistencyGuid musi zostać zaimportowany z tab Demiliter
+Aktualizuje użytkowników przy użyciu nowej wartości ConsistencyGuid (ImmutableId) pobranej z raportu ConsistencyGuid ta funkcja obsługuje parametr WhatIf. Uwaga: należy zaimportować raport ConsistencyGuid z kartą Demiliter
 
 ### <a name="examples"></a>PRZYKŁADY
 
@@ -1245,8 +1245,8 @@ Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsCons
 
 ### <a name="parameters"></a>PARAMETRY
 
-#### <a name="-distinguishedname"></a>-DistinguishedName
-Distinguishedname
+#### <a name="-distinguishedname"></a>-Odróżnionyname
+DistinguishedName
 
 ```yaml
 Type: String
@@ -1260,8 +1260,8 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-#### <a name="-immutableidguid"></a>-NiezmienneIdguid
-NiezmiennyJudguid
+#### <a name="-immutableidguid"></a>-ImmutableIdGUID
+ImmutableIdGUID
 
 ```yaml
 Type: String
@@ -1275,7 +1275,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-#### <a name="-action"></a>-Działanie
+#### <a name="-action"></a>-Action
 Akcja
 
 ```yaml
@@ -1290,8 +1290,8 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-#### <a name="-output"></a>-Wyjście
-Wyjściowa nazwa pliku dla plików LOG
+#### <a name="-output"></a>-Output
+Nazwa pliku wyjściowego dla plików dziennika
 
 ```yaml
 Type: String
@@ -1305,7 +1305,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-whatif"></a>-CoIf
+#### <a name="-whatif"></a>-WhatIf
 Pokazuje, co się stanie po uruchomieniu polecenia cmdlet.
 Polecenie cmdlet nie zostało uruchomione.
 
@@ -1338,4 +1338,4 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>Typowe parametry
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
-Aby uzyskać więcej informacji, zobaczhttps://go.microsoft.com/fwlink/?LinkID=113216)about_CommonParameters ( .
+Aby uzyskać więcej informacji, zobacz about_CommonParametershttps://go.microsoft.com/fwlink/?LinkID=113216)(.

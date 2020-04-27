@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: 6d1f3d6badde82a78fb143452a45ece4ff1ebb11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67183314"
 ---
 > [!div class="op_single_selector"]
-> * [Netto](../articles/service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+> * [Waga](../articles/service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 > * [Java](../articles/service-bus-messaging/service-bus-java-how-to-use-queues.md)
 > * [Node.js](../articles/service-bus-messaging/service-bus-nodejs-how-to-use-queues.md)
 > * [PHP](../articles/service-bus-messaging/service-bus-php-how-to-use-queues.md)
 > * [Python](../articles/service-bus-messaging/service-bus-python-how-to-use-queues.md)
 > * [Ruby](../articles/service-bus-messaging/service-bus-ruby-how-to-use-queues.md)
-> * [Reszta](../articles/service-bus-messaging/service-bus-brokered-tutorial-rest.md)
+> * [REST](../articles/service-bus-messaging/service-bus-brokered-tutorial-rest.md)
 > 
 > 
 

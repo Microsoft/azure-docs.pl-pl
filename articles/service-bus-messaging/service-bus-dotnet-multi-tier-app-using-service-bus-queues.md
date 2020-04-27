@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60403379"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplikacja wielowarstwowa platformy .NET używająca kolejek usługi Azure Service Bus
@@ -58,7 +58,7 @@ W poniższych sekcjach omówiono kod, który implementuje tę architekturę.
 
 ## <a name="create-a-namespace"></a>Tworzenie przestrzeni nazw
 
-Pierwszym krokiem jest utworzenie *obszaru nazw*i uzyskanie klucza [sygnatury dostępu współdzielonego (SAS)](service-bus-sas.md) dla tej przestrzeni nazw. Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest generowany przez system po utworzeniu przestrzeni nazw. Kombinacja nazwy przestrzeni nazw i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
+Pierwszym krokiem jest utworzenie *przestrzeni nazw*i uzyskanie klucza [sygnatury dostępu współdzielonego (SAS)](service-bus-sas.md) dla tej przestrzeni nazw. Przestrzeń nazw wyznacza granice każdej aplikacji uwidacznianej za pośrednictwem usługi Service Bus. Klucz sygnatury dostępu współdzielonego jest generowany przez system po utworzeniu przestrzeni nazw. Kombinacja nazwy przestrzeni nazw i klucza sygnatury dostępu współdzielonego dostarcza poświadczenia dla usługi Service Bus w celu uwierzytelnienia dostępu do aplikacji.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -177,7 +177,7 @@ W tej sekcji utworzysz różne strony, które będą wyświetlane przez Twoją a
 6. Zostanie wyświetlone okno dialogowe tworzenia widoku. Na liście **Szablony** wybierz pozycję **Utwórz**. Z listy **Klasa modelu** wybierz klasę **OnlineOrder**.
    
    ![][15]
-7. Kliknij przycisk **Dodaj**.
+7. Kliknij pozycję **Add** (Dodaj).
 8. Teraz zmień nazwę wyświetlaną aplikacji. W **Eksploratorze rozwiązań** kliknij dwukrotnie plik **Views\Shared\\_Layout.cshtml**, aby otworzyć go w edytorze programu Visual Studio.
 9. Zamień wszystkie wystąpienia hasła **My ASP.NET Application** na hasło **Northwind Traders Products**.
 10. Usuń linki **Home**, **About** oraz **Contact**. Usuń wyróżniony kod:

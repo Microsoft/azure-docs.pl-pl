@@ -1,31 +1,40 @@
 ---
 title: Aktualizuj grupę kontenerów
-description: Dowiedz się, jak zaktualizować uruchomione kontenery w grupach kontenerów wystąpień kontenerów usługi Azure Container.
+description: Dowiedz się, jak aktualizować uruchomione kontenery w grupach kontenerów Azure Container Instances.
 ms.topic: article
-ms.date: 09/03/2019
-ms.openlocfilehash: f57ebcf050b5563b45f10af57c1721338df88ff9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/17/2020
+ms.openlocfilehash: d64590c553f4ae4ef462d4468fade68861db31c3
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533301"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160106"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aktualizowanie kontenerów w usłudze Azure Container Instances
 
-Podczas normalnego działania wystąpień kontenera może okazać się konieczne zaktualizowanie uruchomionych kontenerów w [grupie kontenerów](container-instances-container-groups.md). Na przykład można zaktualizować wersję obrazu, zmienić nazwę DNS, zaktualizować zmienne środowiskowe lub odświeżyć stan kontenera, którego aplikacja uległa awarii.
+Podczas normalnego działania wystąpień kontenera może być konieczne zaktualizowanie uruchomionych kontenerów w [grupie kontenerów](container-instances-container-groups.md). Na przykład możesz chcieć zaktualizować właściwość, taką jak wersja obrazu, nazwa DNS lub zmienna środowiskowa, lub odświeżyć właściwość w kontenerze, którego aplikacja uległa awarii.
+
+Zaktualizuj kontenery w uruchomionej grupie kontenerów przez ponowne wdrożenie istniejącej grupy z co najmniej jedną zmodyfikowaną właściwością. Podczas aktualizowania grupy kontenerów wszystkie uruchomione kontenery w grupie są uruchamiane ponownie w miejscu, zazwyczaj na tym samym hoście kontenera.
 
 > [!NOTE]
-> Nie można zaktualizować zakończonych lub usuniętych grup kontenerów. Po zakończeniu grupy kontenerów (jest w stanie udane lub nieudane) lub został usunięty, grupa musi być wdrożony jako nowy.
+> Nie można zaktualizować grup kontenerów zakończonych lub usuniętych. Po zakończeniu grupy kontenerów (w stanie powodzenie lub niepowodzenie) lub została usunięta, należy wdrożyć grupę jako nową. Zobacz inne [ograniczenia](#limitations).
 
 ## <a name="update-a-container-group"></a>Aktualizowanie grupy kontenerów
 
-Zaktualizuj kontenery w uruchomionej grupie kontenerów, ponownie rozmieszczając istniejącą grupę z co najmniej jedną zmodyfikowaną właściwością. Po zaktualizowaniu grupy kontenerów wszystkie uruchomione kontenery w grupie są ponownie uruchamiane w miejscu, zwykle na tym samym podstawowym hoście kontenera.
+Aby zaktualizować istniejącą grupę kontenerów:
 
-Ponownie rozmieszcz istniejącą grupę kontenerów, wydając polecenie create (lub użyj portalu Azure) i określ nazwę istniejącej grupy. Zmodyfikuj co najmniej jedną prawidłową właściwość grupy podczas wystawiania polecenia create, aby wyzwolić ponowne wdrożenie, i pozostaw pozostałe właściwości bez zmian (lub nadal używasz wartości domyślnych). Nie wszystkie właściwości grupy kontenerów są prawidłowe dla ponownego rozmieszczenia. Zobacz [Właściwości, które wymagają usunięcia](#properties-that-require-container-delete) dla listy nieobsługiwałych właściwości.
+* Wydaj polecenie Create (lub użyj Azure Portal) i określ nazwę istniejącej grupy 
+* Zmodyfikuj lub Dodaj co najmniej jedną właściwość grupy, która obsługuje aktualizację podczas ponownego wdrażania. Niektóre właściwości [nie obsługują aktualizacji](#properties-that-require-container-delete).
+* Ustaw inne właściwości o podane wcześniej wartości. Jeśli nie ustawisz wartości dla właściwości, zostanie ona przywrócona do wartości domyślnej.
 
-Poniższy przykład interfejsu wiersza polecenia platformy Azure aktualizuje grupę kontenerów z nową etykietą nazwy DNS. Ponieważ właściwość etykiety nazwy DNS grupy jest właściwość, która może być aktualizowana, grupa kontenerów jest ponownie rozmieszczona, a jej kontenery ponownie.
+> [!TIP]
+> [Plik YAML](/container-instances-container-groups.md#deployment) pomaga zachować konfigurację wdrożenia grupy kontenerów i zapewnia punkt wyjścia do wdrożenia zaktualizowanej grupy. Jeśli do utworzenia grupy użyto innej metody, można wyeksportować konfigurację do YAML przy użyciu polecenia [AZ Container Export][az-container-export]. 
 
-Początkowe wdrożenie z etykietą nazwy DNS *myapplication-staging:*
+### <a name="example"></a>Przykład
+
+Poniższy przykład interfejsu wiersza polecenia platformy Azure aktualizuje grupę kontenerów za pomocą nowej etykiety nazwy DNS. Ponieważ właściwość etykieta nazwy DNS grupy jest taka, którą można zaktualizować, Grupa kontenerów jest ponownie wdrażana, a jej kontenery zostały uruchomione od początku.
+
+Początkowe wdrożenie z etykietą nazw DNS moja *aplikacja — przemieszczanie*:
 
 ```azurecli-interactive
 # Create container group
@@ -33,7 +42,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Zaktualizuj grupę kontenerów o nową etykietę nazwy DNS, *myapplication*i pozostaw pozostałe właściwości bez zmian:
+Zaktualizuj grupę kontenerów za pomocą nowej etykiety nazwy DNS, *aplikacji*i ustaw pozostałe właściwości z użytymi wcześniej wartościami:
 
 ```azurecli-interactive
 # Update DNS name label (restarts container), leave other properties unchanged
@@ -41,48 +50,45 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication
 ```
 
-## <a name="update-benefits"></a>Aktualizowanie korzyści
+## <a name="update-benefits"></a>Korzyści z aktualizacji
 
-Podstawową zaletą aktualizowania istniejącej grupy kontenerów jest szybsze wdrażanie. Po ponownej demisji istniejącej grupy kontenerów, jego warstwy obrazu kontenera są pobierane z tych buforowanych przez poprzednie wdrożenie. Zamiast ściągać wszystkie warstwy obrazów prosto z rejestru, jak to ma miejsce w przypadku nowych wdrożeń, tylko zmodyfikowane warstwy (jeśli istnieją) są pobierane.
+Główną zaletą aktualizowania istniejącej grupy kontenerów jest szybsze wdrażanie. Po ponownym wdrożeniu istniejącej grupy kontenerów warstwy obrazu kontenera są ściągane z pamięci podręcznej w poprzednim wdrożeniu. Zamiast ściągania wszystkich warstw obrazu z rejestru w taki sam sposób, jak w przypadku nowych wdrożeń, pobierane są tylko zmodyfikowane warstwy (jeśli istnieją).
 
-Aplikacje oparte na większych obrazach kontenerów, takich jak Windows Server Core, mogą znacznie poprawić szybkość wdrażania podczas aktualizacji zamiast usuwania i wdrażania nowych.
+Aplikacje oparte na większych obrazach kontenerów, takich jak Windows Server Core, mogą mieć znaczący wpływ na szybkość wdrażania podczas aktualizacji, a nie do usuwania i wdrażania nowych.
 
 ## <a name="limitations"></a>Ograniczenia
 
-Nie wszystkie właściwości grupy kontenerów obsługują aktualizacje. Aby zmienić niektóre właściwości grupy kontenerów, należy najpierw usunąć, a następnie ponownie wdrożyć grupę. Aby uzyskać szczegółowe informacje, zobacz [Właściwości, które wymagają usunięcia kontenera](#properties-that-require-container-delete).
-
-Wszystkie kontenery w grupie kontenerów są ponownie uruchamiane po zaktualizowaniu grupy kontenerów. Nie można wykonać aktualizacji lub ponownego uruchomienia w miejscu określonego kontenera w grupie wielu kontenerów.
-
-Adres IP kontenera zazwyczaj nie zmienia się między aktualizacjami, ale nie ma gwarancji, że pozostanie taki sam. Tak długo, jak grupa kontenerów jest wdrażana na tym samym hoście źródłowym, grupa kontenerów zachowuje swój adres IP. Mimo że rzadko i podczas wystąpienia kontenera platformy Azure dokłada wszelkich starań, aby ponownie wdrożyć do tego samego hosta, istnieją pewne zdarzenia wewnętrzne platformy Azure, które mogą powodować ponowne wdrożenie do innego hosta. Aby rozwiązać ten problem, należy zawsze używać etykiety nazwy DNS dla wystąpień kontenera.
-
-Nie można zaktualizować zakończonych lub usuniętych grup kontenerów. Po zatrzymaniu grupy kontenerów (jest w stanie *Zakończone)* lub został usunięty, grupa jest wdrażany jako nowy.
+* Nie wszystkie właściwości grupy kontenerów obsługują aktualizacje. Aby zmienić niektóre właściwości grupy kontenerów, należy najpierw usunąć, a następnie wdrożyć ponownie grupę. Zobacz [właściwości, które wymagają usunięcia kontenera](#properties-that-require-container-delete).
+* Wszystkie kontenery w grupie kontenerów są uruchamiane ponownie po zaktualizowaniu grupy kontenerów. Nie można wykonać aktualizacji ani ponownego uruchomienia w miejscu dla określonego kontenera w grupie wielokontenerowej.
+* Adres IP grupy kontenerów jest zwykle zachowywany między aktualizacjami, ale nie ma gwarancji, że pozostaje taki sam. Dopóki Grupa kontenerów zostanie wdrożona na tym samym hoście podstawowym, Grupa kontenerów zachowuje swój adres IP. Chociaż rzadko istnieją pewne zdarzenia wewnętrzne platformy Azure, które mogą spowodować ponowne wdrożenie na innym hoście. Aby wyeliminować ten problem, zalecamy użycie etykiety nazwy DNS dla wystąpień kontenerów.
+* Nie można zaktualizować grup kontenerów zakończonych lub usuniętych. Po zatrzymaniu grupy kontenerów (w stanie *przerwania* ) lub usunięciu grupa zostanie wdrożona jako nowa.
 
 ## <a name="properties-that-require-container-delete"></a>Właściwości wymagające usunięcia kontenera
 
-Jak wspomniano wcześniej, nie wszystkie właściwości grupy kontenerów mogą być aktualizowane. Na przykład, aby zmienić porty lub ponownie uruchomić zasady kontenera, należy najpierw usunąć grupę kontenerów, a następnie utworzyć ją ponownie.
+Nie można zaktualizować wszystkich właściwości grupy kontenerów. Na przykład aby zmienić zasady ponownego uruchamiania kontenera, należy najpierw usunąć grupę kontenerów, a następnie utworzyć ją ponownie.
 
-Te właściwości wymagają usunięcia grupy kontenerów przed ponowne wdrożenie:
+Zmiany tych właściwości wymagają usunięcia grupy kontenerów przed ponownem wdrożeniem:
 
 * Typ systemu operacyjnego
-* Procesor CPU
-* Memory (Pamięć)
+* Zasoby procesora CPU, pamięci lub procesora GPU
 * Zasady ponownego uruchamiania
-* Porty
+* Profil sieciowy
 
-Po usunięciu grupy kontenerów i ponownym utworzeniu jej nie jest ona "ponownie rozmieszczona", ale została utworzona jako nowa. Wszystkie warstwy obrazu są pobierane świeże z rejestru, a nie z tych buforowanych przez poprzednie wdrożenie. Adres IP kontenera może również ulec zmianie z powodu wdrożenia na innym podstawowym hoście.
+Gdy usuniesz grupę kontenerów i utworzysz ją ponownie, nie jest to "redeployed", ale utworzona nowa. Wszystkie warstwy obrazu są ściągane z rejestru, a nie z pamięci podręcznej w poprzednim wdrożeniu. Adres IP kontenera może także ulec zmianie z powodu wdrożenia na innym hoście podstawowym.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wymienione kilka razy w tym artykule jest **grupa kontenerów**. Każdy kontener w wystąpieniach kontenera platformy Azure jest wdrażany w grupie kontenerów, a grupy kontenerów mogą zawierać więcej niż jeden kontener.
+Wspomniano kilka razy w tym artykule **Grupa kontenerów**. Każdy kontener w Azure Container Instances jest wdrażany w grupie kontenerów, a grupy kontenerów mogą zawierać więcej niż jeden kontener.
 
 [Grupy kontenerów w usłudze Azure Container Instances](container-instances-container-groups.md)
 
 [Wdrażanie grupy z wieloma kontenerami](container-instances-multi-container-group.md)
 
-[Ręczne zatrzymywać lub uruchamiać kontenery w wystąpieniach kontenerów platformy Azure](container-instances-stop-start.md)
+[Ręcznie Zatrzymaj lub Uruchom kontenery w Azure Container Instances](container-instances-stop-start.md)
 
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-container-export]: /cli/azure/container#az-container-export

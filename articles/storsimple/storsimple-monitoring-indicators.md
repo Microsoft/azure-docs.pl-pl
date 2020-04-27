@@ -1,6 +1,6 @@
 ---
-title: Wskaźniki monitorowania StorSimple | Dokumenty firmy Microsoft
-description: Opisuje diody elektroluminescencyjne (LED) i alarmy dźwiękowe używane do monitorowania stanu urządzenia StorSimple.
+title: StorSimple wskaźniki monitorowania | Microsoft Docs
+description: Opisuje diody emitujące światło (diody LED) i dźwiękowe alarmy używane do monitorowania stanu urządzenia StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,234 +15,234 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60630613"
 ---
-# <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Zarządzanie urządzeniem za pomocą wskaźników monitorowania StorSimple
+# <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Używanie wskaźników monitorowania StorSimple do zarządzania urządzeniem
 
 
 ## <a name="overview"></a>Omówienie
-Urządzenie StorSimple zawiera diody emitujące światło (LED) i alarmy, za pomocą których można monitorować moduły i ogólny stan urządzenia StorSimple. Wskaźniki monitorowania można znaleźć na komponentach sprzętowych głównej obudowy urządzenia i obudowy EBOD. Wskaźnikiem monitorowania mogą być diody LED lub alarmy dźwiękowe.
+Urządzenie StorSimple obejmuje diodowe nadajniki (diody LED) i alarmy, których można użyć do monitorowania modułów i ogólnego stanu urządzenia StorSimple. Wskaźniki monitorowania znajdują się na składnikach sprzętowych podstawowej obudowy urządzenia i w obudowie EBOD. Wskaźniki monitorowania mogą być diodami LED lub alarmami dźwiękowymi.
 
-Istnieją trzy stany LED używane do wskazania stanu modułu: zielony, migający na zielono do czerwono-bursztynowego lub czerwono-bursztynowy.  
+Istnieją trzy stany LED używane do wskazywania stanu modułu: zielony, migający zielony do czerwonego żółtego lub czerwonego bursztynu.  
 
-* Zielone diody LED reprezentują zdrowy stan pracy.  
-* Migające na zielono do czerwono-bursztynowych diod LED reprezentują obecność niekrytycznych warunków, które mogą wymagać interwencji użytkownika.  
-* Czerwono-bursztynowe diody LED wskazują, że w module występuje krytyczna usterka.  
+* Zielone diody LED przedstawiają stan działania w dobrej kondycji.  
+* Lampka błyskowa w kolorze zielonym do czerwonego bursztynu przedstawia obecność niekrytycznych warunków, które mogą wymagać interwencji użytkownika.  
+* Czerwone żółte diody LED wskazują, że występuje błąd krytyczny występujący w module.  
 
-Poniżej dalsza część artykułu Opisano różne diody LED wskaźników monitorowania, ich lokalizacje na urządzeniu StorSimple, stan urządzenia na podstawie stanów LED i wszelkie związane z nimi alarmy dźwiękowe.
+W pozostałej części tego artykułu opisano różne diody LED wskaźnika monitorowania, ich lokalizacje na urządzeniu StorSimple, stan urządzenia oparty na Stanach LED i wszelkie związane z nimi alarmy dźwiękowe.
 
-## <a name="front-panel-indicator-leds"></a>Diody LED na panelu przednim
-Na panelu przednim, znanym również jako *panel operacyjny* lub *panel operacyjny,* wyświetlany jest stan zagregowany wszystkich modułów w systemie. Panel przedni jest identyczny na storsimple podstawowych i obudowy EBOD, i jest zilustrowany poniżej.  
+## <a name="front-panel-indicator-leds"></a>Diody LED wskaźnika panelu przedniego
+Panel przedni, nazywany również *panelem operacje* lub *panelem Ops*, wyświetla zagregowany stan wszystkich modułów w systemie. Panel przedni jest identyczny z StorSimpleą i obudowy EBOD i przedstawiono poniżej.  
 
-   ![Przedni panel urządzenia][1]
+   ![Panel przedni urządzenia][1]
 
-Przedni panel zawiera następujące wskaźniki:  
+Panel przedni zawiera następujące wskaźniki:  
 
 1. Przycisk Wycisz
-2. Dioda LED wskaźnika zasilania (zielony/czerwono-bursztynowy)
-3. Dioda LED wskaźnika usterek modułu (ON red-amber/OFF)
-4. Wskaźnik błędu logicznego LED (ON red-amber/OFF
-5. Wyświetlacz identyfikatora jednostki  
+2. Dioda LED wskaźnika napięcia (kolor zielony/czerwony — bursztynowo)
+3. Wskaźnik błędu modułu (na czerwono — bursztyn/wył.)
+4. Wskaźnik błędu logicznego diody LED (czerwony-bursztynowy/wyłączony)
+5. Wyświetlanie identyfikatora jednostki  
 
-Główną różnicą między diodami LED na panelu przednim dla urządzenia a diodami dla obudowy EBOD jest **numer identyfikacyjny jednostki systemowej** wyświetlany na wyświetlaczu LED. Domyślny identyfikator jednostki wyświetlany na urządzeniu to **00,** natomiast domyślny identyfikator jednostki wyświetlany w obudowie EBOD to **01**. Pozwala to szybko odróżnić urządzenie od obudowy EBOD, gdy urządzenie jest włączone. Jeśli urządzenie jest wyłączone, użyj informacji podanych w [funkcji Włącz nowe urządzenie,](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) aby odróżnić je od obudowy EBOD.  
+Główna różnica między diodami LED panelu przedniego a urządzeniem dla obudowy EBOD jest **numer identyfikacyjny jednostki systemowej** wyświetlany na ekranie diody LED. Domyślnym IDENTYFIKATORem jednostki wyświetlanym na urządzeniu jest **00**, podczas gdy domyślny identyfikator jednostki wyświetlany w obudowie EBOD jest **01**. Pozwala to na szybkie rozróżnienie urządzenia i obudowy EBOD, gdy urządzenie jest włączone. Jeśli urządzenie jest wyłączone, Skorzystaj z informacji podanych w temacie [Włączanie nowego urządzenia](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) w celu odróżnienia urządzenia od obudowy EBOD.  
 
 ## <a name="front-panel-led-status"></a>Stan diody LED panelu przedniego
-Poniższa tabela służy do identyfikacji stanu wskazanego przez diody LED na panelu przednim urządzenia lub obudowy EBOD.  
+Poniższa tabela służy do identyfikowania stanu wskazywanego przez diody LED na panelu przednim urządzenia lub obudowy EBOD.  
 
-| Moc systemu | Usterka modułu | Błąd logiczny | Alarm | Stan |
+| Moc systemu | Błąd modułu | Błąd logiczny | Uruchomienia | Stan |
 | --- | --- | --- | --- | --- |
-| Czerwono-bursztynowy |WYŁ. |WYŁ. |Nie dotyczy |Utrata zasilania prądem zmiennym, zasilanie zapasowe lub zasilanie prądem zmiennym włączone i moduły kontrolera zostały usunięte. |
-| Zielony |ON |ON |Nie dotyczy |Stan testowy panelu ops (5s) |
-| Zielony |WYŁ. |WYŁ. |Nie dotyczy |Włączanie, wszystkie funkcje są dobre |
-| Zielony |ON |Nie dotyczy |Diody LED usterek PCM, diody LED z usterkami wentylatora |Wszelkie usterki PCM, usterka wentylatora, temperatura powyżej lub poniżej |
-| Zielony |ON |Nie dotyczy |Diody LED modułu We/Wy |Wszelkie usterki modułu kontrolera |
-| Zielony |ON |Nie dotyczy |Nie dotyczy |Usterka logiczna obudowy |
-| Zielony |Flash |Nie dotyczy |Dioda LED stanu modułu na module kontrolera. Diody LED usterek PCM, diody LED z usterkami wentylatora |Zainstalowany nieznany typ modułu kontrolera, awaria magistrali I2C, błąd konfiguracji istotnych danych produktu modułu kontrolera (VPD) |
+| Czerwona — bursztynowa |WYŁ. |WYŁ. |Nie dotyczy |Utrata zasilania, działanie z mocą tworzenia kopii zapasowej lub zasilanie i moduły kontrolera zostały usunięte. |
+| Zielony |ON |ON |Nie dotyczy |Stan testu włączania napięcia (5 s) w panelu Ops |
+| Zielony |WYŁ. |WYŁ. |Nie dotyczy |Włącz, wszystkie funkcje są dobre |
+| Zielony |ON |Nie dotyczy |Diody błędów modułu PCM, diody LED błędów wentylatorów |Wszelkie błędy modułu PCM, awaria wentylatorów, ponad lub poniżej temperatury |
+| Zielony |ON |Nie dotyczy |Diody LED modułu we/wy |Dowolny błąd modułu kontrolera |
+| Zielony |ON |Nie dotyczy |Nie dotyczy |Błąd logiki obudowy |
+| Zielony |Flash |Nie dotyczy |Stan modułu został przeprowadzony w module kontrolera. Diody błędów modułu PCM, diody LED błędów wentylatorów |Zainstalowano nieznany typ modułu kontrolera, awaria magistrali I2C, nieważna konfiguracja danych produktu (VPD) |
 
-## <a name="power-cooling-module-pcm-indicator-leds"></a>Diody LED wskaźników modułu chłodzenia zasilania (PCM)
-Diody LED modułu chłodzenia zasilania (PCM) można znaleźć z tyłu obudowy głównej lub obudowy EBOD na każdym module PCM. W tym temacie omówiono sposób monitorowania stanu urządzenia StorSimple za pomocą następujących diod LED.  
+## <a name="power-cooling-module-pcm-indicator-leds"></a>Diody LED wskaźnika modułu chłodzenia (PCM)
+Diody LED wskaźnika modułu chłodzenia (PCM) można znaleźć na tylnej stronie obudowy podstawowej lub obudowy EBOD na każdym module PCM. W tym temacie omówiono sposób używania następujących diod LED do monitorowania stanu urządzenia StorSimple.  
 
-* Diody LED PCM do obudowy podstawowej
-* Diody LED PCM do obudowy EBOD
+* Diody LED modułu PCM dla obudowy podstawowej
+* Diody LED modułu PCM dla obudowy EBOD
 
-## <a name="pcm-leds-for-the-primary-enclosure"></a>Diody LED PCM do obudowy podstawowej
-Urządzenie StorSimple ma moduł PCM o przekątnej 764 W z dodatkową baterią. Na poniższej ilustracji przedstawiono panel LED urządzenia.  
+## <a name="pcm-leds-for-the-primary-enclosure"></a>Diody LED modułu PCM dla obudowy podstawowej
+Urządzenie StorSimple ma moduł 764W PCM z dodatkową baterią. Na poniższej ilustracji przedstawiono panel LED dla urządzenia.  
 
-   ![Diody LED PCM na obudowie głównej][2]
+   ![Diody LED PCM na obudowie podstawowej][2]
 
-Legenda LED:
+Legenda diody LED:
 
-1. Awaria zasilania prądem przemienna
+1. Awaria zasilania AC
 2. Awaria wentylatora
 3. Awaria baterii
-4. PCM OK
+4. MODUŁ PCM JEST PRAWIDŁOWY
 5. Awaria kontrolera domeny
-6. Bateria dobra  
+6. Bateria jest dobra  
 
-Stan PCM jest wskazany na panelu LED. Panel LED PCM urządzenia ma sześć diod LED. Cztery z tych diod LED wyświetlają stan zasilacza i wentylatora. Pozostałe dwie diody LED wskazują stan zapasowego modułu baterii w pcm. Do określenia stanu pcm można użyć poniższych tabel.  
+Stan modułu PCM jest wskazany w panelu LED. Panel LED urządzenia PCM ma sześć diod LED. Cztery z tych diod LED wyświetlają stan zasilacza i wentylatoru. Pozostałe dwa diody LED wskazują stan modułu baterii kopii zapasowej w module PCM. Aby określić stan modułu PCM, można użyć poniższych tabel.  
 
-### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>Diody LED wskaźników PCM do zasilania i wentylatora
-| Stan | PCM OK (zielony) | Niepowodzenie ac (bursztyn) | Niepowodzenie wentylatora (bursztynowy) | Niepowodzenie dc (bursztynowy) |
+### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>Diody LED wskaźnika PCM dla zasilacza i wentylatoru
+| Stan | Moduł PCM OK (zielony) | Awaria AC (bursztynowa) | Awaria wentylatoru (bursztynowa) | Awaria kontrolera domeny (bursztynowa) |
 | --- | --- | --- | --- | --- |
-| Brak zasilania prądem zmiennym (do obudowy) |WYŁ. |WYŁ. |WYŁ. |WYŁ. |
-| Brak zasilania prądem przemienna (tylko ten PCM) |WYŁ. |ON |WYŁ. |ON |
-| AC obecny PCM ON - OK |ON |WYŁ. |WYŁ. |WYŁ. |
-| Niepowodzenie PCM (niepowodzenie wentylatora) |WYŁ. |WYŁ. |ON |Nie dotyczy |
-| Usterka PCM (ponad amper, przepięcie, przetędłe) |WYŁ. |ON |ON |ON |
-| PCM (wentylator z tolerancji) |ON |WYŁ. |WYŁ. |ON |
-| Tryb czuwania |Miga |WYŁ. |WYŁ. |WYŁ. |
-| Pobieranie oprogramowania układowego PCM |WYŁ. |Miga |Miga |Miga |
+| Bez zasilania sieciowego (do obudowy) |WYŁ. |WYŁ. |WYŁ. |WYŁ. |
+| Bez zasilania AC (tylko ten moduł PCM) |WYŁ. |ON |WYŁ. |ON |
+| Zaprezentowanie modułu PCM na OK |ON |WYŁ. |WYŁ. |WYŁ. |
+| Niepowodzenie PCM (wentylator nie powiodło się) |WYŁ. |WYŁ. |ON |Nie dotyczy |
+| Błąd PCM (over amp, ponad napięciem, over) |WYŁ. |ON |ON |ON |
+| PCM (brak tolerancji) |ON |WYŁ. |WYŁ. |ON |
+| Tryb wstrzymania |Braku |WYŁ. |WYŁ. |WYŁ. |
+| Pobieranie oprogramowania układowego PCM |WYŁ. |Braku |Braku |Braku |
 
-### <a name="pcm-indicator-leds-for-the-backup-battery"></a>Diody LED wskaźnika PCM dla baterii zapasowej
-| Stan | Bateria dobra (zielona) | Usterka baterii (bursztynowa) |
+### <a name="pcm-indicator-leds-for-the-backup-battery"></a>Diody LED wskaźnika PCM dla baterii kopii zapasowej
+| Stan | Baterie dobry (zielony) | Błąd baterii (bursztynowo) |
 | --- | --- | --- |
-| Bateria nie jest obecna |WYŁ. |WYŁ. |
-| Bateria obecna i naładowana |ON |WYŁ. |
-| Ładowanie lub rozładowywanie akumulatora |Miga |WYŁ. |
-| "Miękka" usterka baterii (owalna do odzyskania) |WYŁ. |Miga |
-| Awaria "twardego" akumulatora (nie do odzyskania) |WYŁ. |ON |
-| Rozbroiona bateria |Miga |WYŁ. |
+| Bateria nieobecna |WYŁ. |WYŁ. |
+| Baterie obecne i naliczone |ON |WYŁ. |
+| Ładowanie baterii lub zakończenie konserwacji |Braku |WYŁ. |
+| Błąd baterii "miękki" (możliwy do odzyskania) |WYŁ. |Braku |
+| Błąd baterii "twarda" (bez możliwości odzyskania) |WYŁ. |ON |
+| Nieuzbrojony akumulator |Braku |WYŁ. |
 
-## <a name="pcm-leds-for-the-ebod-enclosure"></a>Diody LED PCM do obudowy EBOD
-Obudowa EBOD ma 580W PCM i nie ma dodatkowej baterii. Panel PCM obudowy EBOD ma diody LED ze wskaźnikami tylko dla zasilaczy i wentylatora. Na poniższej ilustracji przedstawiono te diody LED.
+## <a name="pcm-leds-for-the-ebod-enclosure"></a>Diody LED modułu PCM dla obudowy EBOD
+Obudowa EBOD ma 580W PCM i nie ma dodatkowej baterii. Panel PCM dla obudowy EBOD ma diody LED wskaźnika tylko dla zasilaczy i wentylatorów. Na poniższej ilustracji przedstawiono te diody LED.
 
-   ![Diody LED PCM w obudowie EBOD][3] 
+   ![Diody LED modułu PCM w obudowie EBOD][3] 
 
-W poniższej tabeli można określić stan pcm.  
+Aby określić stan modułu PCM, można użyć poniższej tabeli.  
 
-| Stan | PCM OK (zielony) | Niepowodzenie ac (bursztyn) | Niepowodzenie wentylatora (bursztynowy) | Niepowodzenie dc (bursztynowy) |
+| Stan | Moduł PCM OK (zielony) | Awaria AC (bursztynowa) | Awaria wentylatoru (bursztynowa) | Awaria kontrolera domeny (bursztynowa) |
 | --- | --- | --- | --- | --- |
-| Brak zasilania prądem zmiennym (do obudowy) |WYŁ. |WYŁ. |WYŁ. |WYŁ. |
-| Brak zasilania prądem przemienna (tylko ten PCM) |WYŁ. |ON |WYŁ. |ON |
-| AC obecny PCM ON - OK |ON |WYŁ. |WYŁ. |WYŁ. |
-| Niepowodzenie PCM (niepowodzenie wentylatora) |WYŁ. |WYŁ. |ON |X |
-| Usterka PCM (ponad amper, przepięcie, przetędłe |WYŁ. |ON |ON |ON |
-| PCM (wentylator z tolerancji) |ON |WYŁ. |WYŁ. |ON |
-| Model gotowości |Miga |WYŁ. |WYŁ. |WYŁ. |
-| Pobieranie oprogramowania układowego PCM |WYŁ. |Miga |Miga |Miga |
+| Bez zasilania sieciowego (do obudowy) |WYŁ. |WYŁ. |WYŁ. |WYŁ. |
+| Bez zasilania AC (tylko ten moduł PCM) |WYŁ. |ON |WYŁ. |ON |
+| Zaprezentowanie modułu PCM w — OK |ON |WYŁ. |WYŁ. |WYŁ. |
+| Niepowodzenie PCM (wentylator nie powiodło się) |WYŁ. |WYŁ. |ON |X |
+| Błąd modułu PCM (over amp, ponad napięciem, nad prądem |WYŁ. |ON |ON |ON |
+| PCM (brak tolerancji) |ON |WYŁ. |WYŁ. |ON |
+| Model rezerwy |Braku |WYŁ. |WYŁ. |WYŁ. |
+| Pobieranie oprogramowania układowego PCM |WYŁ. |Braku |Braku |Braku |
 
-## <a name="controller-module-indicator-leds"></a>Diody LED wskaźników modułu kontrolera
-Urządzenie StorSimple zawiera diody LED dla sterownika podstawowego i modułów kontrolera EBOD.   
+## <a name="controller-module-indicator-leds"></a>Diody LED wskaźnika modułu kontrolera
+Urządzenie StorSimple zawiera diody LED dla kontrolera podstawowego i modułów kontrolera EBOD.   
 
-### <a name="monitoring-leds-for-the-primary-controller"></a>Diody LED do monitorowania sterownika głównego
-Poniższa ilustracja ułatwia identyfikację diod LED na głównym kontrolerze. (Wszystkie składniki są wymienione w celu ułatwienia orientacji).  
+### <a name="monitoring-leds-for-the-primary-controller"></a>Monitorowanie diod LED dla kontrolera podstawowego
+Poniższa ilustracja pomaga zidentyfikować diody LED na kontrolerze podstawowym. (Wszystkie składniki są wymienione na liście w celu uzyskania pomocy w orientacji).  
 
-   ![Diody LED do monitorowania - sterownik główny][4]
+   ![Diody LED monitorowania — kontroler podstawowy][4]
 
-Poniższa tabela służy do określania, czy moduł kontrolera działa poprawnie.  
+Skorzystaj z poniższej tabeli, aby określić, czy moduł kontrolera działa prawidłowo.  
 
-### <a name="controller-indicator-leds"></a>Diody LED wskaźników kontrolera
-| Led | Opis |
+### <a name="controller-indicator-leds"></a>Diody LED wskaźnika kontrolera
+| BRANŻ | Opis |
 | --- | --- |
-| Dioda LED identyfikatora (niebieska) |Wskazuje, że moduł jest identyfikowany. Jeśli niebieska dioda LED miga na uruchomionym kontrolerze, sterownik jest aktywnym kontrolerem, a drugi kontrolerem rezerwowym. Aby uzyskać więcej informacji, zobacz [Identyfikowanie aktywnego kontrolera na urządzeniu](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
-| Dioda LED usterek (bursztynowa) |Wskazuje usterkę w sterowniku. |
-| OK LED (zielony) |Stały zielony wskazuje, że kontroler jest OK. Miganie na zielono oznacza błąd konfiguracji vpd kontrolera. |
-| Diody LED aktywności SAS (zielony) |Stały zielony oznacza połączenie bez bieżącej aktywności. Migający zielony oznacza, że połączenie ma ciągłą aktywność. |
-| Diody LED stanu Ethernet |Po prawej stronie wskazuje łącze/aktywność sieci: (stały zielony) łącze aktywne, (migające na zielono) aktywność sieci. Po lewej stronie wskazuje prędkość sieci: (żółty) 1000 Mb/s, (zielony) 100 Mb/s i (WYŁ.) 10 Mb/s. W zależności od modelu komponentu ta lampka może migać, nawet jeśli interfejs sieciowy nie jest włączony. |
-| Diody LED POST |Wskazuje postęp rozruchu po włączeniu kontrolera. Jeśli uruchomienie urządzenia StorSimple nie powiedzie się, ta dioda LED pomoże pomocy technicznej firmy Microsoft zidentyfikować punkt w procesie rozruchu, w którym wystąpił błąd. |
+| Identyfikator LED (niebieski) |Wskazuje, że moduł jest identyfikowany. Jeśli niebieska dioda LED miga na uruchomionym kontrolerze, kontroler jest aktywnym kontrolerem, a drugi jest kontrolerem gotowości. Aby uzyskać więcej informacji, zobacz [Identyfikowanie aktywnego kontrolera na urządzeniu](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| Dioda LED błędu (bursztynowo) |Wskazuje błąd w kontrolerze. |
+| OK (zielony) |Stałe zielony wskazuje, że kontroler jest prawidłowy. Migający zielony wskazuje na błąd konfiguracji VPD kontrolera. |
+| Diody LED działania SAS (zielony) |Stałe zielony wskazuje połączenie bez bieżącego działania. Migająca zielona wskazuje, że połączenie ma trwającą aktywność. |
+| Diody LED stanu sieci Ethernet |Po prawej stronie wskazuje, że działanie link/sieć: (stałe zielone) aktywne łącze (migające) aktywność sieciową. Po lewej stronie wskazuje szybkość sieci: (żółty) 1000 MB/s, (zielony) 100 MB/s i (wyłączone) 10 MB/s. W zależności od modelu składnika sygnalizator ten może migać nawet wtedy, gdy interfejs sieciowy nie jest włączony. |
+| Opublikuj diody LED |Wskazuje postęp rozruchu, gdy kontroler jest włączony. Jeśli rozruch urządzenia StorSimple nie powiedzie się, ta dioda LED pomoże pomoc techniczna firmy Microsoft zidentyfikować punkt w procesie rozruchu, w którym wystąpił błąd. |
 
 > [!IMPORTANT]
-> Jeśli dioda LED usterki świeci się, występuje problem z modułem kontrolera, który może zostać rozwiązany przez ponowne uruchomienie kontrolera. Skontaktuj się z pomocą techniczną firmy Microsoft, jeśli ponowne uruchomienie kontrolera nie rozwiąże tego problemu.  
+> W przypadku awarii, wystąpił problem z modułem kontrolera, który można rozwiązać przez ponowne uruchomienie kontrolera. Skontaktuj się z pomoc techniczna firmy Microsoft, jeśli ponowne uruchomienie kontrolera nie rozwiąże tego problemu.  
 > 
 > 
 
-### <a name="monitoring-leds-for-the-ebod-ebod-enclosure"></a>Diody LED do monitorowania ebod (obudowa EBOD)
-Każdy z kontrolerów SAS EBOD 6 Gb/s ma diody LED, które wskazują jego stan, jak pokazano na poniższej ilustracji.  
+### <a name="monitoring-leds-for-the-ebod-ebod-enclosure"></a>Diody LED monitorowania dla EBOD (obudowa EBOD)
+Każdy kontroler EBOD SAS 6 GB/s ma diody LED wskazujące jego stan, jak pokazano na poniższej ilustracji.  
 
-  ![Diody LED do monitorowania - obudowa EBOD][5]
+  ![Diody LED monitorowania — obudowa EBOD][5]
 
-Poniższa tabela służy do określenia, czy moduł kontrolera EBOD działa normalnie.  
+Skorzystaj z poniższej tabeli, aby określić, czy moduł kontrolera EBOD działa normalnie.  
 
-### <a name="ebod-controller-module-indicator-leds"></a>Diody LED modułu sterownika EBOD
-| Stan | Moduł we/wy OK (zielony) | Usterka modułu we/wy (bursztynowa) | Aktywność portu hosta (zielona) |
+### <a name="ebod-controller-module-indicator-leds"></a>Diody LED wskaźnika modułu EBOD Controller
+| Stan | Moduł we/wy jest prawidłowy (zielony) | Błąd modułu we/wy (bursztynowo) | Aktywność portów hosta (zielona) |
 | --- | --- | --- | --- |
-| Moduł kontrolera OK |ON |WYŁ. |- |
-| Usterka modułu kontrolera |WYŁ. |ON |- |
-| Brak połączenia z portem hosta zewnętrznego |- |- |WYŁ. |
-| Zewnętrzne połączenie z portem hosta – brak działań |- |- |ON |
-| Zewnętrzne połączenie portu hosta — działanie |- |- |Miga |
-| Błąd metadanych modułu kontrolera |Miga |- |- |
+| Moduł kontrolera jest prawidłowy |ON |WYŁ. |- |
+| Błąd modułu kontrolera |WYŁ. |ON |- |
+| Brak połączenia z portem zewnętrznym hosta |- |- |WYŁ. |
+| Połączenie z portem zewnętrznym hosta — brak działania |- |- |ON |
+| Połączenie z portem zewnętrznym hosta — aktywność |- |- |Braku |
+| Błąd metadanych modułu kontrolera |Braku |- |- |
 
-## <a name="disk-drive-indicator-leds-for-the-primary-enclosure-and-ebod-enclosure"></a>Diody LED wskaźnika dysku dla obudowy głównej i obudowy EBOD
-Urządzenie StorSimple ma dyski znajdujące się zarówno w obudowy podstawowej, jak i w obudowie EBOD. Każdy dysk zawiera diody LED ze wskaźnikiem monitorowania, jak opisano w tej sekcji. 
+## <a name="disk-drive-indicator-leds-for-the-primary-enclosure-and-ebod-enclosure"></a>Diody LED wskaźnika stacji dysków dla obudowy podstawowej i obudowy EBOD
+Urządzenie StorSimple ma stacje dysków znajdujące się zarówno w obudowie podstawowej, jak i w obudowie EBOD. Każdy dysk zawiera diody LED wskaźnika monitorowania, zgodnie z opisem w tej sekcji. 
 
-W przypadku dysków stan dysku jest wskazywany przez zieloną diodę LED i czerwono-bursztynową diodę LED zamontowaną z przodu każdego modułu nośnika napędu. Na poniższej ilustracji przedstawiono te diody LED.
+W przypadku dysków dyskowych stan stacji jest wskazywany przez zieloną diodę LED, a dioda LED Red-bursztynowa została zainstalowana z przodu każdego modułu nośnej stacji. Na poniższej ilustracji przedstawiono te diody LED.
 
-  ![Diody LED dysków][6]
+  ![Diody LED dysku][6]
 
-Poniższa tabela służy do określania stanu każdego dysku, co z kolei wpływa na ogólny stan diody LED panelu przedniego.  
+Skorzystaj z poniższej tabeli, aby określić stan każdego dysku, który z kolei ma wpływ na ogólny stan diody LED panelu przedniego.  
 
-### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Diody LED wskaźnika dysku dla obudowy EBOD
-| Stan | Aktywność OK LED (zielona) | Dioda LED usterek (czerwono-bursztynowa) | Powiązana dioda LED panelu operacji |
+### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Diody LED wskaźnika stacji dysków dla obudowy EBOD
+| Stan | Działanie OK (zielony) | Dioda LED błędu (czerwony — bursztynowo) | DIODa skojarzona z panelem Ops |
 | --- | --- | --- | --- |
-| Brak zainstalowanego dysku |WYŁ. |WYŁ. |Brak |
-| Napęd zainstalowany i operacyjny |Miganie włączanie/wyłączanie z aktywnością |X |Brak |
-| Zestaw tożsamości urządzeń usług obudowy SCSI (SES) |ON |Miga 1 sekunda włączonego/1 sekundy wyłączenia |Brak |
+| Nie zainstalowano żadnego dysku |WYŁ. |WYŁ. |Brak |
+| Stacja dysków zainstalowana i operacyjna |Miganie przy działaniu |X |Brak |
+| Zestaw tożsamości urządzeń usługi obudów SCSI (SES) |ON |Migająca 1 sekunda na/1 sekundę |Brak |
 | Zestaw bitów błędów urządzenia SES |ON |ON |Błąd logiczny (czerwony) |
-| Awaria obwodu sterowania zasilaniem |WYŁ. |ON |Usterka modułu (czerwony) |
+| Awaria obwodu sterowania mocą |WYŁ. |ON |Błąd modułu (czerwony) |
 
 ## <a name="audible-alarms"></a>Alarmy dźwiękowe
-Urządzenie StorSimple zawiera alarmy dźwiękowe związane zarówno z obudową podstawową, jak i z obudową EBOD. Na panelu przednim (zwanym również panelem operacyjnym) obu obudów znajduje się alarm dźwiękowy. Alarm dźwiękowy wskazuje, kiedy występuje stan usterki. W ysydakuje:  
+Urządzenie StorSimple zawiera dźwiękowe alarmy skojarzone zarówno z obudową podstawową, jak i obudową EBOD. Alarm dźwiękowy znajduje się na panelu przednim (nazywanym również panelem Ops) obu obudów. Alarm dźwiękowy wskazuje, kiedy występuje warunek błędu. Następujące warunki spowodują aktywowanie alarmu:  
 
-* Usterka lub awaria wentylatora
-* Napięcie poza zasięgiem
-* Warunki powyżej lub w temperaturze
-* Przekroczenie termiczne
-* Usterka systemu
+* Błąd wentylatoru lub niepowodzenie
+* Napięcie poza zakresem
+* W warunkach temperatury lub poniżej
+* Przepełnienie termiczne
+* Błąd systemu
 * Błąd logiczny
-* Usterka zasilania
-* Usunięcie modułu chłodzenia (PCM)  
+* Awaria zasilacza
+* Usuwanie modułu chłodzenia prądem (PCM)  
 
-W poniższej tabeli opisano różne stany alarmowe.  
+W poniższej tabeli opisano różne stany alarmu.  
 
-### <a name="alarm-states"></a>Stany alarmowe
-| Stan alarmu | Akcja | Akcja z wciśniętym przyciskiem wyciszenia |
+### <a name="alarm-states"></a>Stany alarmu
+| Stan alarmu | Akcja | Naciśnięto przycisk akcji z wyciszeniem |
 | --- | --- | --- |
-| S0 |Tryb normalny: cichy |Sygnał dźwiękowy dwa razy |
-| S1 |Tryb usterki: 1 sekunda wł/1 sekundy wyłączenia |Przejście do S2 lub S3 (patrz uwagi) |
-| S2 |Tryb przypominania: przerywany sygnał dźwiękowy |Brak |
-| S3 |Tryb wyciszony: cichy |Brak |
-| S4 |Tryb awarii krytycznej: alarm ciągły |Niedostępne: wyciszenie nieaktywne |
+| S0 |Tryb normalny: dyskretny |Sygnalizuj dźwiękiem dwa razy |
+| S1 |Tryb błędu: 1 sekundę na/1 sekundę |Przejście do S2 lub S3 (Zobacz uwagi) |
+| S2 |Tryb przypomnień: sporadyczny sygnał dźwiękowy |Brak |
+| S3 |Tryb wyciszony: dyskretny |Brak |
+| S4 |Tryb błędu krytycznego: alarm ciągły |Niedostępne: wyciszenie nieaktywne |
 
 > [!NOTE]
-> * W stanie alarmowym S1, jeśli nie naciśniesz wyciszenia w ciągu 2 minut, stan automatycznie przejdzie do S2 lub S3.  
-> * Stany alarmowe S1 do S4 wracają do S0 po usunięciu usterki.  
-> * Krytyczny stan usterki S4 można wprowadzić z dowolnego innego stanu.  
+> * W stanie alarmu S1, jeśli nie naciśniesz przycisku Wycisz w ciągu 2 minut, stan automatycznie przechodzi do S2 lub S3.  
+> * Stany alarmu S1 z S4 Wróć do S0 po wyczyszczeniu warunku błędu.  
+> * Stan błędu krytycznego S4 można wprowadzić z dowolnego innego stanu.  
 
 
-Alarm dźwiękowy można wyciszyć, naciskając przycisk wyciszenia na panelu ops. Automatyczne wyciszanie nastąpi po dwóch minutach, jeśli przełącznik wyciszenia nie jest obsługiwany ręcznie. Gdy alarm jest wyciszony, będzie nadal rozbrzmiewał krótkimi przerywanymi sygnałami dźwiękowymi, aby wskazać, że problem nadal istnieje. Alarm będzie cichy, gdy wszystkie problemy zostaną wyczyszczone.
+Alarm dźwiękowy można wyciszyć, naciskając przycisk Wycisz w panelu Ops. Automatyczne wyciszenie nastąpi po upływie dwóch minut, jeśli przełącznik wyciszenia nie będzie obsługiwany ręcznie. Gdy alarm jest wyciszony, będzie kontynuował dźwięk z krótkimi sporadycznymi sygnałami dźwiękowymi, aby wskazać, że problem nadal istnieje. Alarm będzie cichy, gdy wszystkie problemy zostaną wyczyszczone.
 
-W poniższej tabeli opisano różne warunki alarmowe.
+W poniższej tabeli opisano różne warunki alarmu.
 
-### <a name="alarm-conditions"></a>Warunki alarmowe
-| Stan | Ważność | Alarm | Dioda LED panelu ops |
+### <a name="alarm-conditions"></a>Warunki alarmu
+| Stan | Ważność | Uruchomienia | Dioda LED panelu Ops |
 | --- | --- | --- | --- |
-| Alert PCM – utrata zasilania prądem stałym z jednego pcm |Usterka – brak utraty nadmiarowości |S1 |Usterka modułu |
-| Alert PCM – utrata zasilania prądem stałym z jednego pcm |Usterka – utrata nadmiarowości |S1 |Usterka modułu |
-| Niepowodzenie wentylatora PCM |Usterka – utrata nadmiarowości |S1 |Usterka modułu |
-| Moduł SBB wykrył usterkę PCM |Usterki |S1 |Usterka modułu |
-| PcM usunięte |Błąd konfiguracji |Brak |Usterka modułu |
-| Błąd konfiguracji obudowy |Usterka – krytyczna |S1 |Usterka modułu |
-| Alert o niskiej temperaturze ostrzegawczej |Ostrzeżenie |S1 |Usterka modułu |
-| Alert o wysokiej temperaturze ostrzegawczej |Ostrzeżenie |S1 |Usterka modułu |
-| Alarm przeceny temperatury |Usterka – krytyczna |S1 |Usterka modułu |
-| Awaria magistrali I2C |Usterka – utrata nadmiarowości |S1 |Usterka modułu |
-| Błąd komunikacji panelu ops (I2C) |Usterka – krytyczna |S1 |Usterka modułu |
-| Błąd kontrolera |Usterka – krytyczna |S1 |Usterka modułu |
-| Usterka modułu interfejsu SBB |Usterka – krytyczna |S1 |Usterka modułu |
-| Usterka modułu interfejsu SBB – Brak pozostałych modułów funkcjonowania |Usterka – krytyczna |S4 |Usterka modułu |
-| Usunięto moduł interfejsu SBB |Ostrzeżenie |Brak |Usterka modułu |
-| Usterka sterowania zasilaniem napędu |Ostrzeżenie – brak utraty mocy napędowej |S1 |Usterka modułu |
-| Usterka sterowania zasilaniem napędu |Usterka – krytyczna; utrata mocy napędowej |S1 |Usterka modułu |
-| Napęd usunięty |Ostrzeżenie |Brak |Usterka modułu |
-| Brak dostępnej mocy |Ostrzeżenie |brak |Usterka modułu |
+| Alert PCM — utrata zasilania kontrolera domeny z pojedynczego modułu PCM |Błąd — brak utraty nadmiarowości |S1 |Błąd modułu |
+| Alert PCM — utrata zasilania kontrolera domeny z pojedynczego modułu PCM |Błąd — utrata nadmiarowości |S1 |Błąd modułu |
+| Wentylator modułu PCM nie powiodło się |Błąd — utrata nadmiarowości |S1 |Błąd modułu |
+| Moduł SBB wykrył błąd PCM |Powodu |S1 |Błąd modułu |
+| Usunięto moduł PCM |Błąd konfiguracji |Brak |Błąd modułu |
+| Błąd konfiguracji obudowy |Błąd — krytyczny |S1 |Błąd modułu |
+| Alert dotyczący niskich temperatur ostrzeżenia |Ostrzeżenie |S1 |Błąd modułu |
+| Alert dotyczący temperatury wysokiego ostrzeżenia |Ostrzeżenie |S1 |Błąd modułu |
+| Alarm z ponad temperaturą |Błąd — krytyczny |S1 |Błąd modułu |
+| Awaria magistrali I2C |Błąd — utrata nadmiarowości |S1 |Błąd modułu |
+| Błąd komunikacji z panelem Ops (I2C) |Błąd — krytyczny |S1 |Błąd modułu |
+| Błąd kontrolera |Błąd — krytyczny |S1 |Błąd modułu |
+| Błąd modułu interfejsu SBB |Błąd — krytyczny |S1 |Błąd modułu |
+| Błąd modułu interfejsu SBB — pozostałe moduły działające |Błąd — krytyczny |S4 |Błąd modułu |
+| Moduł interfejsu SBB został usunięty |Ostrzeżenie |Brak |Błąd modułu |
+| Awaria sterowania mocą |Ostrzeżenie — brak możliwości dysku |S1 |Błąd modułu |
+| Awaria sterowania mocą |Błąd — krytyczny; Utrata mocy dysku |S1 |Błąd modułu |
+| Usunięto dysk |Ostrzeżenie |Brak |Błąd modułu |
+| Za mało dostępnej mocy |Ostrzeżenie |brak |Błąd modułu |
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [składnikach sprzętowych StorSimple i stanie](storsimple-8000-monitor-hardware-status.md).
+Dowiedz się więcej o [składnikach i stanie sprzętu StorSimple](storsimple-8000-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png

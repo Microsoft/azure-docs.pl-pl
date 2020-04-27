@@ -1,6 +1,6 @@
 ---
-title: Składniki i granice systemu informacyjnego platformy Azure
-description: Ten artykuł zawiera ogólny opis architektury i zarządzania platformy Microsoft Azure.
+title: Składniki i granice systemu informacji platformy Azure
+description: Ten artykuł zawiera ogólny opis architektury Microsoft Azure i zarządzania nimi.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,117 +16,117 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68727213"
 ---
-# <a name="azure-information-system-components-and-boundaries"></a>Składniki i granice systemu informacyjnego platformy Azure
-Ten artykuł zawiera ogólny opis architektury platformy Azure i zarządzania. Środowisko systemowe platformy Azure składa się z następujących sieci:
+# <a name="azure-information-system-components-and-boundaries"></a>Składniki i granice systemu informacji platformy Azure
+Ten artykuł zawiera ogólny opis architektury i zarządzania platformą Azure. Środowisko systemu Azure składa się z następujących sieci:
 
-- Sieć produkcyjna platformy Microsoft Azure (sieć platformy Azure)
-- Sieć firmowa firmy Microsoft (corpnet)
+- Sieć produkcyjna Microsoft Azure (sieć platformy Azure)
+- Sieć firmowa firmy Microsoft (CorpNet)
 
-Oddzielne zespoły IT są odpowiedzialne za operacje i utrzymanie tych sieci.
+Oddzielne zespoły IT są odpowiedzialne za operacje i konserwację tych sieci.
 
 ## <a name="azure-architecture"></a>Architektura platformy Azure
-Platforma Azure to platforma przetwarzania w chmurze i infrastruktura do tworzenia, wdrażania i zarządzania aplikacjami i usługami za pośrednictwem sieci centrów danych. Firma Microsoft zarządza tymi centrami danych. Na podstawie liczby zasobów, które określisz, platforma Azure tworzy maszyny wirtualne (maszyny wirtualne) na podstawie zapotrzebowania na zasoby. Te maszyny wirtualne są uruchamiane na hipernadzorcy platformy Azure, który jest przeznaczony do użytku w chmurze i nie jest dostępny publicznie.
+Platforma Azure to platforma obliczeniowa w chmurze i infrastruktura służąca do kompilowania i wdrażania aplikacji i usług oraz zarządzania nimi za pomocą sieci centrów danych. Firma Microsoft zarządza tymi centrami danych. Na podstawie liczby określonych zasobów platforma Azure tworzy maszyny wirtualne na podstawie potrzeb zasobów. Te maszyny wirtualne działają w ramach funkcji hypervisor platformy Azure, która jest przeznaczona do użytku w chmurze i nie jest dostępna publicznie.
 
-W każdym węźle serwera fizycznego platformy Azure istnieje funkcja hypervisor, która działa bezpośrednio za pomocą sprzętu. Funkcja hypervisor dzieli węzeł na zmienną liczbę maszyn wirtualnych gościa. Każdy węzeł ma również jedną główną maszynę wirtualną, która uruchamia system operacyjny hosta. Zapora systemu Windows jest włączona na każdej maszynie wirtualnej. Można zdefiniować, które porty są adresowalne, konfigurując plik definicji usługi. Porty te są jedynymi otwartymi i adresowalnymi, wewnętrznie lub zewnętrznie. Cały ruch i dostęp do dysku i sieci jest pośredniczy przez hipernadzorcy i główny system operacyjny.
+W każdym węźle serwera fizycznego platformy Azure istnieje funkcja hypervisor, która jest uruchamiana bezpośrednio przez sprzęt. Funkcja hypervisor dzieli węzeł na zmienną liczbę maszyn wirtualnych gościa. Każdy węzeł ma również jedną główną maszynę wirtualną, w której jest uruchomiony system operacyjny hosta. Zapora systemu Windows jest włączona na każdej maszynie wirtualnej. Można zdefiniować, które porty są adresowane przez skonfigurowanie pliku definicji usługi. Te porty są jedynymi otwartymi i adresowanymi, wewnętrznymi lub zewnętrznymi. Cały ruch i dostęp do dysku i sieci jest korygowany przez funkcję hypervisor i główny system operacyjny.
 
-W warstwie hosta maszyny wirtualne platformy Azure uruchamiają dostosowaną i wzmocnioną wersję najnowszego systemu Windows Server. Platforma Azure używa wersji systemu Windows Server, która zawiera tylko te składniki niezbędne do obsługi maszyn wirtualnych. Zwiększa to wydajność i zmniejsza powierzchnię ataku. Granice komputera są wymuszane przez hipernadzorcę, co nie zależy od zabezpieczeń systemu operacyjnego.
+W warstwie hosta maszyny wirtualne platformy Azure uruchamiają dostosowaną i zaostrzoną wersję najnowszego systemu Windows Server. Platforma Azure korzysta z wersji systemu Windows Server, która zawiera tylko te składniki, które są niezbędne do hostowania maszyn wirtualnych. Zwiększa to wydajność i zmniejsza podatność na ataki. Granice maszyn są wymuszane przez funkcję hypervisor, która nie zależy od zabezpieczeń systemu operacyjnego.
 
 ### <a name="azure-management-by-fabric-controllers"></a>Zarządzanie platformą Azure przez kontrolery sieci szkieletowej
 
-Na platformie Azure maszyny wirtualne działające na serwerach fizycznych (bloków/węzłów) są pogrupowane w klastry o około 1000. Maszyny wirtualne są niezależnie zarządzane przez skalowany w poziomie i nadmiarowy składnik oprogramowania platformy o nazwie kontroler sieci szkieletowej (FC).
+Na platformie Azure maszyny wirtualne działające na serwerach fizycznych (blokach/węzłach) są pogrupowane w klastry o około 1000. Maszyny wirtualne są niezależnie zarządzane przez skalowalny w poziomie i nadmiarowy składnik oprogramowania platformy o nazwie Kontroler sieci szkieletowej (FC).
 
-Każdy FC zarządza cyklem życia aplikacji uruchomionych w jego klastrze i aprowekuje i monitoruje kondycję sprzętu pod jego kontrolą. Uruchamia operacje autonomiczne, takie jak ponowne wskrzeszenie wystąpień maszyn wirtualnych na serwerach w dobrej kondycji, gdy stwierdzi, że serwer nie powiódł się. FC wykonuje również operacje zarządzania aplikacjami, takie jak wdrażanie, aktualizowanie i skalowanie w poziomie aplikacji.
+Każda FC zarządza cyklem życia aplikacji działających w jej klastrze, a ponadto udostępnia i monitoruje kondycję sprzętu w ramach jego kontroli. Wykonuje operacje autonomii, takie jak wystąpienia maszyn wirtualnych reincarnating na serwerach w dobrej kondycji, gdy określa, że serwer nie powiódł się. FC wykonuje również operacje zarządzania aplikacjami, takie jak wdrażanie, aktualizowanie i skalowanie aplikacji w poziomie.
 
-Centrum danych jest podzielone na klastry. Klastry izolują błędy na poziomie FC i zapobiegają wpływaniu niektórych klas błędów na serwery poza klastrem, w którym występują. Kontrolery domeny obsługujące określony klaster platformy Azure są grupowane w klastrze FC.
+Centrum danych jest podzielone na klastry. Klastry izolują błędy na poziomie FC i zapobiegają niektórym klasom błędów, które mają wpływ na serwery wykraczające poza klaster, w którym występują. FCs, który obsługuje określony klaster platformy Azure, jest pogrupowany w klastrze FC.
 
 ### <a name="hardware-inventory"></a>Spis sprzętu
 
-FC przygotowuje spis sprzętu platformy Azure i urządzeń sieciowych podczas procesu konfiguracji bootstrap. Wszystkie nowe składniki sprzętu i sieci wchodzące w środowisko produkcyjne platformy Azure muszą być zgodne z procesem konfiguracji bootstrap. Fc jest odpowiedzialny za zarządzanie całym zapasem wymienionym w pliku konfiguracyjnym datacenter.xml.
+FC przygotowuje spis sprzętu i urządzeń sieciowych platformy Azure podczas procesu konfiguracji ładowania początkowego. Każdy nowy sprzęt i składniki sieciowe wprowadzane do środowiska produkcyjnego platformy Azure muszą być zgodne z procesem konfiguracji ładowania początkowego. FC jest odpowiedzialny za zarządzanie całym spisem wymienionym w pliku konfiguracyjnym centrum danych. XML.
 
-### <a name="fc-managed-operating-system-images"></a>Obrazy systemu operacyjnego zarządzanego przez FC
+### <a name="fc-managed-operating-system-images"></a>Obrazy systemu operacyjnego zarządzane przez FC
 
-Zespół systemu operacyjnego udostępnia obrazy w postaci wirtualnych dysków twardych, wdrożone na wszystkich maszynach wirtualnych hosta i gościa w środowisku produkcyjnym platformy Azure. Zespół konstruuje te obrazy podstawowe za pomocą zautomatyzowanego procesu kompilacji w trybie offline. Obraz podstawowy jest wersją systemu operacyjnego, w której jądro i inne podstawowe składniki zostały zmodyfikowane i zoptymalizowane pod kątem obsługi środowiska platformy Azure.
+Zespół systemu operacyjnego udostępnia obrazy w postaci wirtualnych dysków twardych wdrożonych na wszystkich maszynach wirtualnych hosta i gościa w środowisku produkcyjnym platformy Azure. Zespół tworzy te obrazy podstawowe za pomocą zautomatyzowanego procesu kompilacji w trybie offline. Podstawowy obraz to wersja systemu operacyjnego, w którym jądro i inne podstawowe składniki zostały zmodyfikowane i zoptymalizowane pod kątem obsługi środowiska platformy Azure.
 
-Istnieją trzy typy obrazów systemu operacyjnego zarządzanego przez sieci szkieletowe:
+Istnieją trzy typy obrazów systemu operacyjnego zarządzanych przez sieć szkieletową:
 
-- Host: dostosowany system operacyjny, który działa na maszynach wirtualnych hosta.
-- Natywny: natywny system operacyjny, który działa na dzierżawców (na przykład usługi Azure Storage). Ten system operacyjny nie ma żadnego hypervisor.
+- Host: dostosowany system operacyjny uruchomiony na maszynach wirtualnych hosta.
+- Natywny: natywny system operacyjny, który działa w dzierżawach (na przykład Azure Storage). Ten system operacyjny nie ma żadnej funkcji hypervisor.
 - Gość: system operacyjny gościa, który działa na maszynach wirtualnych gościa.
 
 Host i natywne systemy operacyjne zarządzane przez FC są przeznaczone do użytku w chmurze i nie są publicznie dostępne.
 
-#### <a name="host-and-native-operating-systems"></a>Host i natywne systemy operacyjne
+#### <a name="host-and-native-operating-systems"></a>Hostowanie i natywne systemy operacyjne
 
-Host i natywne są wzmocnione obrazy systemu operacyjnego, które obsługują agentów sieci szkieletowej i uruchomić na węźle obliczeniowym (działa jako pierwsza maszyna wirtualna w węźle) i węzłów magazynu. Zaletą używania zoptymalizowanych obrazów bazowych hosta i natywnych jest to, że zmniejsza powierzchnię narażoną przez interfejsy API lub nieużywane składniki. Mogą one stwarzać wysokie zagrożenia dla bezpieczeństwa i zwiększać zasięg systemu operacyjnego. Systemy operacyjne o zmniejszonym rozmiarze obejmują tylko składniki niezbędne do platformy Azure.
+Host i natywne są obrazami systemu operacyjnego z ograniczeniami, które obsługują agentów sieci szkieletowej, i działają w węźle obliczeniowym (działają jako pierwsza maszyna wirtualna w węźle) i węzły magazynu. Zaletą korzystania z zoptymalizowanych obrazów podstawowych hosta i natywnego jest zmniejszenie obszaru powierzchni widocznego dla interfejsów API lub nieużywanych składników. Mogą one stwarzać wysokie zagrożenia bezpieczeństwa i zwiększyć zasięg systemu operacyjnego. Zredukowane systemy operacyjne zawierają tylko składniki niezbędne do korzystania z platformy Azure.
 
 #### <a name="guest-operating-system"></a>System operacyjny gościa
 
-Wewnętrzne składniki platformy Azure uruchomione na maszynach wirtualnych systemu operacyjnego gościa nie mają możliwości uruchamiania protokołu pulpitu zdalnego. Wszelkie zmiany w ustawieniach konfiguracji linii bazowej muszą przejść przez proces zarządzania zmianami i wydaniami.
+Wewnętrzne składniki platformy Azure działające na maszynach wirtualnych systemu operacyjnego gościa nie mają możliwości uruchamiania Remote Desktop Protocol. Wszelkie zmiany ustawień konfiguracji linii bazowej muszą przechodzić przez proces zarządzania zmianami i wydaniami.
 
 ## <a name="azure-datacenters"></a>Centra danych platformy Azure
-Zespół Microsoft Cloud Infrastructure and Operations (MCIO) zarządza infrastrukturą fizyczną i urządzeniami centrów danych dla wszystkich usług online firmy Microsoft. MCIO jest przede wszystkim odpowiedzialny za zarządzanie fizycznymi i środowiskowymi kontrolami w centrach danych, a także za zarządzanie zewnętrznymi urządzeniami sieciowymi obwodowymi (takimi jak routery brzegowe i routery centrów danych). McIO jest również odpowiedzialny za konfigurowanie gołego minimalnego sprzętu serwera na stojakach w centrum danych. Klienci nie mają bezpośredniej interakcji z platformą Azure.
+Zespół infrastruktury Microsoft Cloud i Operations (MCIO) zarządza infrastrukturą fizyczną i funkcjami centrum danych dla wszystkich Usługi online firmy Microsoft. MCIO jest przede wszystkim odpowiedzialny za zarządzanie kontrolami fizycznymi i środowiskami w centrach danych, a także zarządzanie i obsługa zewnętrznych urządzeń sieciowych (takich jak routery brzegowe i routery centrum danych). MCIO jest również odpowiedzialny za skonfigurowanie minimalnego sprzętu serwerowego na stojakach w centrum danych. Klienci nie mają bezpośredniej interakcji z platformą Azure.
 
-## <a name="service-management-and-service-teams"></a>Zespoły zarządzania serwisem i serwisowe
-Różne grupy inżynierów, znane jako zespoły usług, zarządzają pomocą usługi platformy Azure. Każdy zespół serwisowy jest odpowiedzialny za obszar pomocy technicznej dla platformy Azure. Każdy zespół serwisowy musi udostępnić inżyniera 24x7, aby zbadać i rozwiązać błędy w usłudze. Zespoły usług domyślnie nie mają fizycznego dostępu do sprzętu działającego na platformie Azure.
+## <a name="service-management-and-service-teams"></a>Zarządzanie usługami i zespoły usług
+Różne grupy inżynieryjne, znane jako zespoły usługi, zarządzają obsługą usługi platformy Azure. Każdy zespół usługi jest odpowiedzialny za obszar pomocy technicznej dla platformy Azure. Każdy zespół usług musi udostępnić inżynierowi 24x7 do zbadania i rozwiązania błędów w usłudze. Zespoły usługi nie domyślnie mają fizyczny dostęp do sprzętu działającego na platformie Azure.
 
-Zespoły serwisowe to:
+Zespoły usługi:
 
 - Platforma aplikacji
 - Usługa Azure Active Directory
 - Azure Compute
-- Sieć platformy Azure
-- Usługi inżynierii w chmurze
-- ISSD: Bezpieczeństwo
+- Usługa Azure NET
+- Usługi w chmurze
+- ISSD: zabezpieczenia
 - Uwierzytelnianie wieloskładnikowe
 - Baza danych SQL
 - Magazyn
 
 ## <a name="types-of-users"></a>Typy użytkowników
-Pracownicy (lub wykonawcy) firmy Microsoft są uważani za użytkowników wewnętrznych. Wszyscy inni użytkownicy są uważani za użytkowników zewnętrznych. Wszyscy użytkownicy wewnętrzni platformy Azure mają status pracownika sklasyfikowany na poziomie czułości, który definiuje ich dostęp do danych klienta (dostęp lub brak dostępu). Uprawnienia użytkownika do platformy Azure (uprawnienie autoryzacji po uwierzytelnieniu) są opisane w poniższej tabeli:
+Pracownicy (lub wykonawcy) firmy Microsoft są uznawani za użytkowników wewnętrznych. Wszyscy inni użytkownicy są uważani za użytkowników zewnętrznych. Wszyscy użytkownicy wewnętrzni platformy Azure mają swój stan pracownika kategorii według poziomu czułości, który definiuje ich dostęp do danych klienta (dostęp lub brak dostępu). Uprawnienia użytkownika do platformy Azure (uprawnienie autoryzacji po uzyskaniu uwierzytelnienia) są opisane w poniższej tabeli:
 
-| Rola | Wewnętrzne lub zewnętrzne | Poziom czułości | Autoryzowane uprawnienia i funkcje wykonywane | Typ dostępu
+| Rola | Wewnętrzne lub zewnętrzne | Poziom czułości | Autoryzowane uprawnienia i funkcje | Typ dostępu
 | --- | --- | --- | --- | --- |
-| Inżynier centrum danych platformy Azure | Wewnętrzny | Brak dostępu do danych klienta | Zarządzanie fizycznym bezpieczeństwem pomieszczeń. Przeprowadzaj patrole w centrum danych i poza centrum danych oraz monitoruj wszystkie punkty wejścia. Eskortuj do i z centrum danych niektórych nierozliczonych pracowników, którzy świadczą ogólne usługi (takie jak jadalnia lub czyszczenie) lub it działają w centrum danych. Przeprowadzaj rutynowe monitorowanie i konserwację sprzętu sieciowego. Wykonuj zarządzanie zdarzeniami i pracę z poprawkami, korzystając z różnych narzędzi. Przeprowadzaj rutynowe monitorowanie i konserwację sprzętu fizycznego w centrach danych. Dostęp do środowiska na żądanie od właścicieli nieruchomości. Możliwość przeprowadzania dochodzeń kryminalistycznych, rejestrowania raportów o zdarzeniach i wymaga obowiązkowego szkolenia w zakresie zabezpieczeń i wymagań dotyczących zasad. Własność operacyjna i konserwacja krytycznych narzędzi zabezpieczeń, takich jak skanery i zbieranie dzienników. | Trwały dostęp do środowiska. |
-| Triage zdarzeń platformy Azure (inżynierowie szybkiego reagowania) | Wewnętrzny | Dostęp do danych klientów | Zarządzaj komunikacją między zespołami MCIO, wsparciem i inżynierami. Zdarzenia platformy triage, problemy z wdrażaniem i żądania usług. | Dostęp just-in-time do środowiska, z ograniczonym trwałym dostępem do systemów niebędących klientami. |
-| Inżynierowie wdrażania platformy Azure | Wewnętrzny | Dostęp do danych klientów | Wdrażanie i uaktualnianie składników platformy, oprogramowania i zaplanowanych zmian konfiguracji w pomocy technicznej platformy Azure. | Dostęp just-in-time do środowiska, z ograniczonym trwałym dostępem do systemów niebędących klientami. |
-| Obsługa awarii klienta platformy Azure (dzierżawa) | Wewnętrzny | Dostęp do danych klientów | Debugowanie i diagnozowanie awarii platformy i błędów dla poszczególnych dzierżaw obliczeniowych i kont platformy Azure. Analizowanie usterek. Napęd krytycznych poprawek do platformy lub klienta, i napęd ulepszeń technicznych w całej pomocy technicznej. | Dostęp just-in-time do środowiska, z ograniczonym trwałym dostępem do systemów niebędących klientami. |
-| Inżynierowie witryny azure live (inżynierowie monitorowania) i incydenty | Wewnętrzny | Dostęp do danych klientów | Diagnozowanie i łagodzenie kondycji platformy przy użyciu narzędzi diagnostycznych. Poprawki dysków dla sterowników woluminów, naprawiają elementy wynikające z awarii i pomagają w przywracaniu awarii. | Dostęp just-in-time do środowiska, z ograniczonym trwałym dostępem do systemów niebędących klientami. |
+| Inżynier centrum danych platformy Azure | Wewnętrzny | Brak dostępu do danych klienta | Zarządzaj zabezpieczeniami fizycznymi w środowisku lokalnym. Przeprowadzaj patrolowanie do i z centrum danych oraz Monitoruj wszystkie punkty wejścia. Eskorty do i z centrum danych niektórych wyczyszczonych pracowników, którzy świadczą usługi ogólne (na przykład rekomendowanych lokali lub czyszcząc) lub działają w centrum danych. Przeprowadzaj rutynowe monitorowanie i konserwacja sprzętu sieciowego. Wykonywanie zadań związanych z zarządzaniem zdarzeniami i przerywaniem działania przy użyciu różnych narzędzi. Przeprowadzaj rutynowe monitorowanie i konserwację fizycznego sprzętu w centrach danych. Dostęp do środowiska na żądanie od właścicieli właściwości. Możliwość przeprowadzania dochodzeń śledczej, rejestrowania raportów zdarzeń i wymagania obowiązkowych szkoleń w zakresie zabezpieczeń i zasad. Własność operacyjna i obsługa krytycznych narzędzi zabezpieczeń, takich jak skanery i zbieranie dzienników. | Stały dostęp do środowiska. |
+| Azure incydent Klasyfikacja (inżynierowie szybkich odpowiedzi) | Wewnętrzny | Dostęp do danych klienta | Zarządzanie komunikacją między MCIO, wsparcie i zespoły inżynieryjne. Zdarzenia platformy klasyfikacja, problemy z wdrażaniem i żądania obsługi. | Dostęp just in Time do środowiska z ograniczonym stałym dostępem do systemów nieobsługujących klientów. |
+| Inżynierowie wdrożeń platformy Azure | Wewnętrzny | Dostęp do danych klienta | Wdrażaj i uaktualniaj składniki platformy, oprogramowanie i zaplanowane zmiany konfiguracji w ramach obsługi platformy Azure. | Dostęp just in Time do środowiska z ograniczonym stałym dostępem do systemów nieobsługujących klientów. |
+| Obsługa awarii klienta platformy Azure (dzierżawa) | Wewnętrzny | Dostęp do danych klienta | Debugowanie i diagnozowanie awarii platformy i błędów dla indywidualnych dzierżawców obliczeniowych i kont platformy Azure. Analizuj błędy. Ważne poprawki dotyczące platformy lub klienta oraz zapewnianie ulepszeń technicznych w ramach pomocy technicznej. | Dostęp just in Time do środowiska z ograniczonym stałym dostępem do systemów nieobsługujących klientów. |
+| Inżynierowie usługi Azure Live site (inżynierowie monitorowania) i incydent | Wewnętrzny | Dostęp do danych klienta | Diagnozuj i łagodzenie kondycji platformy przy użyciu narzędzi diagnostycznych. Poprawki dysków dla sterowników woluminów, Naprawianie elementów wynikających z awarii i pomoc w akcjach przywracania przestojów. | Dostęp just in Time do środowiska z ograniczonym stałym dostępem do systemów nieobsługujących klientów. |
 |Klienci platformy Azure | Zewnętrzna | Nie dotyczy | Nie dotyczy | Nie dotyczy |
 
-Platforma Azure używa unikatowych identyfikatorów do uwierzytelniania użytkowników i klientów organizacji (lub procesów działających w imieniu użytkowników organizacji). Dotyczy to wszystkich zasobów i urządzeń, które są częścią środowiska platformy Azure.
+Platforma Azure korzysta z unikatowych identyfikatorów do uwierzytelniania użytkowników w organizacji i klientów (lub procesów działających w imieniu użytkowników w organizacji). Dotyczy to wszystkich zasobów i urządzeń, które są częścią środowiska platformy Azure.
 
 ### <a name="azure-internal-authentication"></a>Uwierzytelnianie wewnętrzne platformy Azure
 
-Komunikacja między wewnętrznymi składnikami platformy Azure jest chroniona za pomocą szyfrowania TLS. W większości przypadków certyfikaty X.509 są podpisywane samodzielnie. Certyfikaty z połączeniami, do których można uzyskać dostęp spoza sieci platformy Azure, są wyjątkiem, podobnie jak certyfikaty dla kontrolerów domeny. Kontrolery domeny mają certyfikaty wystawione przez certyfikat urzędu firmy Microsoft (CA), który jest wspierany przez zaufany główny urząd certyfikacji. Dzięki temu klucze publiczne FC mają być przerzucone łatwo. Ponadto narzędzia deweloperskie firmy Microsoft używają kluczy publicznych FC. Gdy deweloperzy przesyłają nowe obrazy aplikacji, obrazy są szyfrowane za pomocą klucza publicznego FC w celu ochrony wszelkich osadzonych wpisów tajnych.
+Komunikacja między składnikami wewnętrznymi platformy Azure jest chroniona za pomocą szyfrowania TLS. W większości przypadków certyfikaty X. 509 są z podpisem własnym. Certyfikaty z połączeniami, do których można uzyskać dostęp spoza sieci platformy Azure, to wyjątek, jako certyfikaty dla programu FCs. Program FCs ma certyfikaty wystawione przez certyfikat firmy Microsoft dla urzędu certyfikacji, który jest objęty zaufanym głównym urzędem certyfikacji. Dzięki temu klucze publiczne FC mogą być łatwo rzutowane. Ponadto narzędzia programistyczne firmy Microsoft używają kluczy publicznych FC. Gdy deweloperzy przesyłają nowe obrazy aplikacji, obrazy są szyfrowane za pomocą klucza publicznego FC, aby chronić wszystkie osadzone klucze tajne.
 
 ### <a name="azure-hardware-device-authentication"></a>Uwierzytelnianie urządzeń sprzętowych platformy Azure
 
-FC przechowuje zestaw poświadczeń (klucze i/lub hasła) używane do uwierzytelniania się do różnych urządzeń sprzętowych pod jego kontrolą. Firma Microsoft używa systemu, aby uniemożliwić dostęp do tych poświadczeń. W szczególności transport, trwałość i korzystanie z tych poświadczeń ma na celu uniemożliwienie deweloperom platformy Azure, administratorom i usługom tworzenia kopii zapasowych i pracownikom dostępu do poufnych, poufnych lub prywatnych informacji.
+FC utrzymuje zestaw poświadczeń (kluczy i/lub haseł) służących do samodzielnego uwierzytelnienia na różnych urządzeniach sprzętowych pod kontrolą. Firma Microsoft używa systemu, aby uniemożliwić dostęp do tych poświadczeń. W odróżnieniu od tego, że transport, trwałość i korzystanie z tych poświadczeń jest zaprojektowana tak, aby uniemożliwić deweloperom platformy Azure, administratorom i usługom kopii zapasowych oraz dostęp do poufnych, poufnych lub prywatnych informacji.
 
-Firma Microsoft używa szyfrowania opartego na głównym kluczu tożsamości FC. Dzieje się tak w czasie konfiguracji FC i ponownej konfiguracji FC, aby przenieść poświadczenia używane do uzyskiwania dostępu do urządzeń sprzętowych sieciowych. Gdy FC potrzebuje poświadczeń, FC pobiera i odszyfrowuje je.
+Firma Microsoft używa szyfrowania opartego na kluczu publicznym głównej tożsamości FC. Dzieje się tak w przypadku konfiguracji FC i czasu ponownej konfiguracji FC, aby przetransferować poświadczenia używane do uzyskiwania dostępu do urządzeń sprzętowych. Gdy FC wymaga poświadczeń, FC pobiera i odszyfrowuje je.
 
 ### <a name="network-devices"></a>Urządzenia sieciowe
 
-Zespół sieci platformy Azure konfiguruje konta usługi sieciowej, aby umożliwić klientowi platformy Azure uwierzytelnianie na urządzeniach sieciowych (routerach, przełącznikach i modułach równoważenia obciążenia).
+Zespół sieci platformy Azure konfiguruje konta usług sieciowych, aby umożliwić klientowi platformy Azure uwierzytelnianie na urządzeniach sieciowych (routerach, przełącznikach i modułach równoważenia obciążenia).
 
-## <a name="secure-service-administration"></a>Bezpieczne administrowanie usługami
-Personel operacyjny platformy Azure są wymagane do korzystania z bezpiecznych stacji roboczych administratora (SAWs). Klienci mogą zaimplementować podobne formanty przy użyciu stacji roboczych dostępu uprzywilejowanego. W przypadku pakietów SA personel administracyjny używa indywidualnie przypisanego konta administracyjnego, które jest niezależne od konta użytkownika standardowego. SAW opiera się na tej praktyce separacji kont, zapewniając godną zaufania stację roboczą dla tych poufnych kont.
+## <a name="secure-service-administration"></a>Administrowanie usługą Secure Service
+Pracownicy operacji platformy Azure są zobowiązani do korzystania z bezpiecznych stacji roboczych administratora (piły). Klienci mogą zaimplementować podobne kontrolki przy użyciu uprzywilejowanych stacji roboczych dostępu. W przypadku, gdy pracownicy administracyjni korzystają z pojedynczego przypisanego konta administracyjnego, które jest oddzielone od konta użytkownika standardowego użytkownika. Piła została opracowana na podstawie tej rozdzielenia konta przez udostępnienie zaufanej stacji roboczej dla tych kont poufnych.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o tym, co firma Microsoft robi, aby zabezpieczyć infrastrukturę platformy Azure, zobacz:
+Aby dowiedzieć się więcej na temat tego, co firma Microsoft pomaga w zabezpieczeniu infrastruktury platformy Azure, zobacz:
 
-- [Obiekty platformy Azure, pomieszczenia i zabezpieczenia fizyczne](physical-security.md)
+- [Funkcje platformy Azure, lokalne i zabezpieczenia fizyczne](physical-security.md)
 - [Dostępność infrastruktury platformy Azure](infrastructure-availability.md)
 - [Architektura sieci platformy Azure](infrastructure-network.md)
 - [Sieć produkcyjna platformy Azure](production-network.md)
-- [Funkcje zabezpieczeń usługi Azure SQL Database](infrastructure-sql.md)
-- [Operacje produkcyjne i zarządzanie platformą Azure](infrastructure-operations.md)
+- [Azure SQL Database funkcje zabezpieczeń](infrastructure-sql.md)
+- [Operacje produkcyjne platformy Azure i zarządzanie nimi](infrastructure-operations.md)
 - [Monitorowanie infrastruktury platformy Azure](infrastructure-monitoring.md)
 - [Integralność infrastruktury platformy Azure](infrastructure-integrity.md)
-- [Ochrona danych klientów platformy Azure](protection-customer-data.md)
+- [Ochrona danych klienta platformy Azure](protection-customer-data.md)

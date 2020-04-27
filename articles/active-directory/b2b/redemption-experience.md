@@ -1,6 +1,6 @@
 ---
-title: Realizacja zaproszenia we współpracy b2b — usługa Azure AD
-description: W tym artykule opisano środowisko realizacji zaproszenia do współpracy usługi Azure AD B2B dla użytkowników końcowych, w tym umowę dotyczącą warunków prywatności.
+title: Realizacja zaproszeń w współpracy B2B — Azure AD
+description: Opisuje środowisko realizacji zaproszeń do współpracy B2B usługi Azure AD dla użytkowników końcowych, w tym umowę na warunki zachowania poufności informacji.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,104 +11,106 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0645807aa40557c163643f1393c310668518f9be
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: c7917b63b86e4d103061a902f74c368dfd6c123b
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535143"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160748"
 ---
-# <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Realizacja zaproszenia do współpracy usługi Azure Active Directory B2B
+# <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory realizacji zaproszeń do współpracy B2B
 
-W tym artykule opisano sposoby, w jakie użytkownicy-goście mogą uzyskiwać dostęp do zasobów i proces wyrażania zgody, który napotkają. Jeśli wyślesz wiadomość e-mail z zaproszeniem do gościa, zaproszenie zawiera link, który gość może zrealizować, aby uzyskać dostęp do aplikacji lub portalu. Wiadomość e-mail z zaproszeniem to tylko jeden ze sposobów, w jaki goście mogą uzyskać dostęp do Twoich zasobów. Alternatywnie możesz dodać gości do katalogu i nadać im bezpośredni link do portalu lub aplikacji, którą chcesz udostępnić. Niezależnie od używanej metody, goście są prowadzeni przez proces zgody po raz pierwszy. Proces ten gwarantuje, że Twoi goście akceptują warunki prywatności i akceptują wszelkie [skonfigurowane warunki użytkowania.](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou)
+W tym artykule opisano sposób, w jaki użytkownicy-Goście mogą uzyskać dostęp do Twoich zasobów i proces wyrażania zgody. Jeśli wyślesz wiadomość e-mail z zaproszeniem do gościa, zaproszenie zawiera link, który może zostać zrealizowany przez Gościa w celu uzyskania dostępu do aplikacji lub portalu. Wiadomość e-mail z zaproszeniem jest tylko jeden z sposobów, w którym Goście mogą uzyskać dostęp do zasobów. Alternatywnie możesz dodać Gości do katalogu i udostępnić im bezpośredni link do portalu lub aplikacji, którą chcesz udostępnić. Niezależnie od używanej metody Goście są przeprowadzani przez proces wyrażania zgody po raz pierwszy. Ten proces zapewnia, że Goście zgadzają się na warunki zachowania poufności i akceptują wszelkie skonfigurowane [warunki użytkowania](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) .
 
-Po dodaniu użytkownika-gościa do katalogu, konto użytkownika-gościa ma stan zgody (widoczny w programie PowerShell), który jest początkowo ustawiony na **PendingAcceptance**. To ustawienie pozostaje do momentu, gdy gość zaakceptuje Zaproszenie i zaakceptuje twoją politykę prywatności i warunki użytkowania. Następnie stan zgody zmienia się na **Zaakceptowane,** a strony zgody nie są już prezentowane gościowi.
+Po dodaniu użytkownika-gościa do katalogu konto użytkownika-gościa ma stan zgody (widoczny w programie PowerShell) początkowo ustawiony na **PendingAcceptance**. To ustawienie pozostanie do momentu zaakceptowania zaproszenia przez gościa i zgody na zasady ochrony prywatności oraz warunki użytkowania. Następnie stan zgody zmieni się na **zaakceptowane**, a strony zgody nie będą już widoczne dla gościa.
 
    > [!IMPORTANT]
-   > **Począwszy od 31 marca 2021**r. firma Microsoft nie będzie już obsługiwać realizacji zaproszeń, tworząc niezarządzane konta usługi Azure AD i dzierżawy scenariuszy współpracy B2B. W ramach przygotowań zachęcamy klientów do wyrażenia zgody na [jednorazowe uwierzytelnianie kodem dostępu pocztą e-mail.](one-time-passcode.md) Cieszymy się z waszych opinii na temat tej publicznej funkcji podglądu i cieszymy się, że możemy stworzyć jeszcze więcej sposobów współpracy.
+   > **Od 31 marca 2021**firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
 
-## <a name="redemption-through-the-invitation-email"></a>Realizacja za pośrednictwem wiadomości e-mail z zaproszeniem
+## <a name="redemption-through-the-invitation-email"></a>Wykup za pośrednictwem wiadomości e-mail z zaproszeniem
 
-Po dodaniu użytkownika-gościa do katalogu [przy użyciu witryny Azure portal,](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal)wiadomość e-mail z zaproszeniem jest wysyłana do gościa w procesie. Możesz również wysłać wiadomości e-mail z zaproszeniem, gdy [używasz programu PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell) do dodawania użytkowników-gości do katalogu. Oto opis doświadczenia gościa, gdy zrealizuje link w wiadomości e-mail.
+Po dodaniu użytkownika-gościa do katalogu przy [użyciu Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal)do gościa w procesie jest wysyłana wiadomość e-mail z zaproszeniem. Możesz również wysyłać wiadomości e-mail z zaproszeniem, gdy [korzystasz z programu PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell) , aby dodać użytkowników-Gości do katalogu. Poniżej znajduje się opis środowiska gościa, gdy korzystają z linku w wiadomości e-mail.
 
-1. Gość otrzymuje [wiadomość e-mail](https://docs.microsoft.com/azure/active-directory/b2b/invitation-email-elements) z zaproszeniem, która jest wysyłana z **zaproszeń firmy Microsoft**.
-2. Gość wybiera **wprowadzenie w** wiadomości e-mail.
-3. Jeśli gość nie ma konta usługi Azure AD, konta Microsoft (MSA) lub konta e-mail w organizacji federacyjnej, zostanie poproszony o utworzenie usługi MSA (chyba że funkcja [jednorazowego kodu](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) jest włączona, co nie wymaga msa).
-4. Gość jest prowadzony przez [doświadczenie zgody](#consent-experience-for-the-guest) opisane poniżej.
+1. Gość otrzymuje [wiadomość e-mail z zaproszeniem](https://docs.microsoft.com/azure/active-directory/b2b/invitation-email-elements) , która jest wysyłana z **zaproszeń firmy Microsoft**.
+2. Gość wybierze opcję **Akceptuj zaproszenie** w wiadomości e-mail.
+3. Gość będzie używać swoich własnych poświadczeń do logowania się do katalogu. Jeśli gość nie ma konta, które może być federacyjne dla katalogu i nie jest włączona funkcja [jednorazowego kodu dostępu (OTP) wiadomości e-mail](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) . Gość jest monitowany o utworzenie osobistego elementu [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) lub [konta samoobsługi usługi Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup). Szczegóły można znaleźć w [przepływie wykupu zaproszenia](#invitation-redemption-flow) .
+4. Gościa jest przeprowadzana [w opisany poniżej](#consent-experience-for-the-guest) sposób.
 
-## <a name="redemption-through-a-direct-link"></a>Odkupienie za pośrednictwem bezpośredniego łącza
+## <a name="redemption-through-a-direct-link"></a>Umorzenie za pośrednictwem bezpośredniego linku
 
-Alternatywą dla wiadomości e-mail z zaproszeniem można nadać gościowi bezpośredni link do aplikacji lub portalu. Najpierw należy dodać użytkownika-gościa do katalogu za pośrednictwem [witryny Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) lub [programu PowerShell.](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell) Następnie można użyć dowolnego z [konfigurowalnych sposobów wdrażania aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences)dla użytkowników, w tym bezpośrednich linków logowania. Gdy gość użyje bezpośredniego linku zamiast wiadomości e-mail z zaproszeniem, nadal będzie prowadzony przez środowisko zgody po raz pierwszy.
+Alternatywą dla wiadomości e-mail z zaproszeniem jest nadanie gościa bezpośredniego linku do aplikacji lub portalu. Najpierw musisz dodać użytkownika-gościa do katalogu za pośrednictwem [Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) lub [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Następnie możesz użyć dowolnie [dostosowywalnych metod wdrażania aplikacji dla użytkowników](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), w tym bezpośrednich linków logowania. Gdy gość korzysta ze bezpośredniego linku zamiast wiadomości e-mail z zaproszeniem, nadal będzie przeprowadzany po raz pierwszy.
 
 > [!IMPORTANT]
-> Bezpośrednie łącze musi być specyficzne dla dzierżawy. Innymi słowy musi zawierać identyfikator dzierżawy lub zweryfikowaną domenę, aby gość mógł być uwierzytelniany w dzierżawie, w której znajduje się udostępniona aplikacja. Wspólny adres https://myapps.microsoft.com URL, taki jak nie będzie działać dla gościa, ponieważ będzie przekierować do ich dzierżawy domowej do uwierzytelniania. Oto kilka przykładów bezpośrednich powiązań z kontekstem dzierżawy:
- > - Panel dostępu https://myapps.microsoft.com/?tenantid=&ltdo aplikacji: ;identyfikator dzierżawy&gt; 
- > - Panel dostępu do aplikacji dla https://myapps.microsoft.com/&ltzweryfikowanej domeny: ;zweryfikowana domena&gt;
- > - Witryna https://portal.azure.com/&ltAzure portal: ;identyfikator dzierżawy&gt;
- > - Indywidualna aplikacja: zobacz, jak korzystać z [bezpośredniego linku logowania](../manage-apps/end-user-experiences.md#direct-sign-on-links)
+> Link bezpośredni musi być specyficzny dla dzierżawy. Innymi słowy, musi zawierać identyfikator dzierżawy lub zweryfikowaną domenę, aby można było uwierzytelnić gościa w dzierżawie, gdzie znajduje się aplikacja udostępniona. Wspólny adres URL, https://myapps.microsoft.com taki jak nie będzie działał dla gościa, ponieważ zostanie przekierowany do dzierżawy domowej w celu uwierzytelnienia. Oto kilka przykładów bezpośrednich linków z kontekstem dzierżawy:
+ > - Panel dostępu do aplikacji https://myapps.microsoft.com/?tenantid=&lt:; Identyfikator dzierżawy&gt; 
+ > - Panel dostępu do aplikacji dla zweryfikowanej domeny https://myapps.microsoft.com/&lt:; zweryfikowana domena&gt;
+ > - Azure Portal: https://portal.azure.com/&lt; identyfikator dzierżawy&gt;
+ > - Poszczególna aplikacja: Zobacz, jak używać [linku bezpośredniego logowania](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
-Istnieją przypadki, w których wiadomość e-mail z zaproszeniem jest zalecana za pośrednictwem bezpośredniego łącza. Jeśli te specjalne przypadki są ważne dla Twojej organizacji, zalecamy zaproszenie użytkowników przy użyciu metod, które nadal wysyłają wiadomość e-mail z zaproszeniem:
- - Użytkownik nie ma konta usługi Azure AD, msa ani konta e-mail w organizacji federacyjnej. Jeśli nie używasz funkcji jednorazowego kodu dostępu, gość musi zrealizować wiadomość e-mail z zaproszeniem, aby przejść przez kroki tworzenia usługi MSA.
- - Czasami obiekt zaproszonego użytkownika może nie mieć adresu e-mail z powodu konfliktu z obiektem kontaktu (na przykład obiektem kontaktu programu Outlook). W takim przypadku użytkownik musi kliknąć adres URL realizacji w wiadomości e-mail z zaproszeniem.
- - Użytkownik może zalogować się przy za pomocą aliasu adresu e-mail, który został zaproszony. (Alias to dodatkowy adres e-mail skojarzony z kontem e-mail). W takim przypadku użytkownik musi kliknąć adres URL realizacji w wiadomości e-mail z zaproszeniem.
+Istnieją sytuacje, w których wiadomość e-mail z zaproszeniem zaleca się za pośrednictwem linku bezpośredniego. Jeśli te specjalne przypadki są ważne dla organizacji, zalecamy Zapraszanie użytkowników przy użyciu metod, które nadal wysyłają wiadomość e-mail z zaproszeniem:
+ - Użytkownik nie ma konta usługi Azure AD, elementu MSA ani konta e-mail w organizacji federacyjnej. Jeśli nie korzystasz z funkcji jednorazowego kodu dostępu, gość musi zrealizować wiadomość e-mail z zaproszeniem, aby zapoznać się z instrukcjami tworzenia konta MSA.
+ - Czasami obiekt zaproszony użytkownik może nie mieć adresu e-mail z powodu konfliktu z obiektem Contact (na przykład obiektem Contact programu Outlook). W takim przypadku użytkownik musi kliknąć adres URL wykupu w wiadomości e-mail z zaproszeniem.
+ - Użytkownik może zalogować się przy użyciu aliasu zaproszonego adresu e-mail. (Alias to dodatkowy adres e-mail skojarzony z kontem e-mail). W takim przypadku użytkownik musi kliknąć adres URL wykupu w wiadomości e-mail z zaproszeniem.
 
-## <a name="invitation-redemption-flow"></a>Przepływ wykupu zaproszenia
+## <a name="invitation-redemption-flow"></a>Przepływ wykupu zaproszeń
 
-Gdy użytkownik kliknie łącze **Zaakceptuj zaproszenie** w [wiadomości e-mail z zaproszeniem,](invitation-email-elements.md)usługa Azure AD automatycznie realizuje zaproszenie na podstawie przepływu realizacji, jak pokazano poniżej:
+Gdy użytkownik kliknie link **Zaakceptuj zaproszenie** w [wiadomości e-mail z zaproszeniem](invitation-email-elements.md), usługa Azure AD automatycznie zrealizuje zaproszenie na podstawie przepływu wykupu, jak pokazano poniżej:
 
-![Zrzut ekranu przedstawiający diagram przepływu realizacji](media/redemption-experience/invitation-redemption-flow.png)
+![Zrzut ekranu przedstawiający Diagram przepływu realizacji](media/redemption-experience/invitation-redemption-flow.png)
 
-1. Proces realizacji sprawdza, czy użytkownik ma istniejące osobiste [konto Microsoft (MSA).](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create)
+**Jeśli główna nazwa użytkownika (UPN) jest zgodna z istniejącym kontem usługi Azure AD i osobistym współdziałaniem MSA, użytkownik zostanie poproszony o wybranie konta, za pomocą którego chcesz zrealizować.*
 
-2. Jeśli administrator włączył [bezpośrednią federację,](direct-federation.md)usługa Azure AD sprawdza, czy sufiks domeny użytkownika jest zgodny z domeną skonfigurowanego dostawcy tożsamości SAML/WS-Fed i przekierowuje użytkownika do wstępnie skonfigurowanego dostawcy tożsamości.
+1. Usługa Azure AD wykonuje odnajdywanie na podstawie użytkownika w celu ustalenia, czy użytkownik istnieje w [istniejącej dzierżawie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b#easily-add-guest-users-in-the-azure-ad-portal).
 
-3. Jeśli administrator włączył [federację Google,](google-federation.md)usługa Azure AD sprawdza, czy sufiks domeny użytkownika jest gmail.com lub googlemail.com i przekierowuje użytkownika do Google.
+2. Jeśli administrator włączył [bezpośrednie Federacji](https://docs.microsoft.com/azure/active-directory/b2b/direct-federation), usługa Azure AD sprawdza, czy sufiks domeny użytkownika jest zgodny z domeną skonfigurowanego dostawcy tożsamości protokołu SAML/WS-karmionego i przekierowuje użytkownika do wstępnie skonfigurowanego dostawcy tożsamości.
 
-4. Usługa Azure AD wykonuje odnajdowanie oparte na u użytkownika, aby ustalić, czy użytkownik istnieje w [istniejącej dzierżawie usługi Azure AD.](what-is-b2b.md#easily-add-guest-users-in-the-azure-ad-portal)
+3. Jeśli administrator włączył usługę [Google Federation](https://docs.microsoft.com/azure/active-directory/b2b/google-federation), usługa Azure AD sprawdza, czy sufiks domeny użytkownika jest gmail.com lub googlemail.com i przekierowuje użytkownika do usługi Google.
+
+4. Proces wykupu sprawdza, czy użytkownik ma istniejące konto Microsoft osobiste [(MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
 
 5. Po zidentyfikowaniu **katalogu macierzystego** użytkownika użytkownik jest wysyłany do odpowiedniego dostawcy tożsamości w celu zalogowania się.  
 
-6. Jeśli kroki od 1 do 4 nie można znaleźć katalogu macierzystego dla zaproszonego użytkownika, usługa Azure AD określa, czy zapraszająca dzierżawa włączyła funkcję [jednorazowego kodu dostępu poczty e-mail (OTP)](one-time-passcode.md) dla gości.
+6. Jeśli kroki od 1 do 4 nie powiodło się znalezienie katalogu macierzystego dla zaproszonego użytkownika, usługa Azure AD określi, czy zapraszana dzierżawa włączyła funkcję [dostępu jednorazowego (OTP) wiadomości e-mail](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) dla Gości.
 
-7. Jeśli [włączona jest jednorazowa wiadomość e-mail dla gości,](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode)kod dostępu jest wysyłany do użytkownika za pośrednictwem zaproszonej wiadomości e-mail. Użytkownik pobierze i wprowadzi ten kod dostępu na stronie logowania usługi Azure AD.
+7. Jeśli [dla Gości zostanie włączona jednorazowy kod dostępu do wiadomości e-mail](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode#when-does-a-guest-user-get-a-one-time-passcode), kod dostępu zostanie wysłany do użytkownika za pośrednictwem zaproszonej wiadomości e-mail. Użytkownik będzie pobierać i wprowadzać ten kod dostępu na stronie logowania usługi Azure AD.
 
-8. Jeśli jednorazowy kod dostępu dla gości jest wyłączony, usługa Azure AD sprawdza sufiks domeny względem listy domen konsumenta obsługiwanej przez firmę Microsoft. Jeśli domena jest zgodna z dowolną domeną na liście domen konsumenta, zostanie wyświetlony monit o utworzenie osobistego konta Microsoft. Jeśli nie, użytkownik jest monitowany o utworzenie [konta samoobsługowego usługi Azure AD](../users-groups-roles/directory-self-service-signup.md) (konto wirusowe).
+8. Jeżeli jednorazowy kod dostępu wiadomości e-mail dla Gości jest wyłączony, usługa Azure AD sprawdza sufiks domeny w celu ustalenia, czy należy on do konta odbiorcy. Jeśli tak, użytkownik jest monitowany o utworzenie osobistego [konto Microsoft](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create). Jeśli nie, użytkownik jest monitowany o utworzenie [konta samoobsługi usługi Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup).
 
-9. Usługa Azure AD próbuje utworzyć konto samoobsługowe usługi Azure AD (konto wirusowe), weryfikując dostęp do poczty e-mail. Weryfikowanie konta odbywa się przez wysłanie kodu do wiadomości e-mail i o użytkownik pobrać i przesłać go do usługi Azure AD. Jednak jeśli dzierżawa zaproszonego użytkownika jest federacyjne lub jeśli AllowEmailVerifiedUsers pole jest ustawiona na false w dzierżawie zaproszonego użytkownika, użytkownik nie może zakończyć realizacji i przepływ powoduje błąd. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów ze współpracą usługi Azure Active Directory B2B](troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+9. Usługa Azure AD próbuje utworzyć [konto samoobsługi usługi Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup) , sprawdzając dostęp do wiadomości e-mail. Sprawdzanie, czy konto jest wykonywane przez wysłanie kodu do wiadomości e-mail i pobranie i przesłanie go do usługi Azure AD. Jeśli jednak dzierżawca zaproszonego użytkownika jest federacyjny lub jeśli pole AllowEmailVerifiedUsers jest ustawione na wartość false w dzierżawie zaproszonego użytkownika, użytkownik nie może zakończyć realizacji, a przepływ spowoduje wystąpienie błędu. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów Azure Active Directory współpracy B2B](https://docs.microsoft.com/azure/active-directory/b2b/troubleshoot#the-user-that-i-invited-is-receiving-an-error-during-redemption).
 
-10. Użytkownik jest monitowany o utworzenie osobistego konta Microsoft (MSA).
+10. Użytkownik jest monitowany o utworzenie osobistego [konto Microsoft (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
 
-11. Po uwierzytelnieniu do odpowiedniego dostawcy tożsamości użytkownik jest przekierowywał do usługi Azure AD, aby zakończyć [środowisko zgody.](redemption-experience.md#consent-experience-for-the-guest)  
+11. Po uwierzytelnieniu w prawidłowym dostawcy tożsamości użytkownik zostanie przekierowany do usługi Azure AD w celu ukończenia [tego działania](https://docs.microsoft.com/azure/active-directory/b2b/redemption-experience#consent-experience-for-the-guest).  
 
-W przypadku wykupów just-in-time (JIT), gdzie wykup odbywa się za pośrednictwem łącza aplikacji dzierżawionej, kroki od 8 do 10 nie są dostępne. Jeśli użytkownik osiągnie krok 6, a funkcja jednorazowego kodu e-mail nie jest włączona, użytkownik otrzyma komunikat o błędzie i nie może zrealizować zaproszenia. Aby temu zapobiec, administratorzy powinni [włączyć jednorazowy kod dostępu do poczty e-mail](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) lub upewnić się, że użytkownik kliknie łącze z zaproszeniem.
+W przypadku wykupu just-in-Time (JIT), gdy wykup odbywa się za pomocą linku aplikacji dzierżawców, kroki od 8 do 10 nie są dostępne. Jeśli użytkownik przejdzie do kroku 6, a funkcja jednorazowego kodu dostępu wiadomości E-mail nie jest włączona, użytkownik otrzyma komunikat o błędzie i nie będzie mógł zrealizować zaproszenia. Aby uniknąć tego błędu, Administratorzy powinni [włączyć jednorazowy kod dostępu wiadomości e-mail](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode#when-does-a-guest-user-get-a-one-time-passcode) lub upewnić się, że użytkownik kliknie link zaproszenia.
 
-## <a name="consent-experience-for-the-guest"></a>Zgoda dla gościa
+## <a name="consent-experience-for-the-guest"></a>Środowisko zgody gościa
 
-Gdy gość loguje się, aby uzyskać dostęp do zasobów w organizacji partnerskiej po raz pierwszy, jest prowadzony przez następujące strony. 
+Gdy gość loguje się w celu uzyskania dostępu do zasobów w organizacji partnerskiej po raz pierwszy, są one przekierowane przez następujące strony. 
 
-1. Gość przegląda stronę **Uprawnienia recenzji** opisującą zasady zachowania poufności informacji organizacji zapraszającej. Aby kontynuować, użytkownik musi **zaakceptować** korzystanie z jego informacji zgodnie z zasadami ochrony prywatności organizacji zapraszającej.
+1. Gość przegląda stronę **przeglądanie uprawnień** z opisem zasad zachowania poufności informacji w organizacji. Użytkownik musi **zaakceptować** użycie informacji zgodnie z zasadami zachowania poufności w organizacji zapraszania, aby kontynuować.
 
-   ![Zrzut ekranu przedstawiający stronę Uprawnienia recenzji](media/redemption-experience/review-permissions.png) 
+   ![Zrzut ekranu przedstawiający stronę przegląd uprawnień](media/redemption-experience/review-permissions.png) 
 
    > [!NOTE]
-   > Aby uzyskać informacje o tym, jak jako administrator dzierżawy możesz połączyć się z zasadami zachowania poufności informacji organizacji, zobacz [Instrukcje: Dodawanie informacji o ochronie prywatności organizacji w usłudze Azure Active Directory](https://aka.ms/adprivacystatement).
+   > Aby uzyskać informacje o tym, jak Administrator dzierżawy może połączyć się z zasadami zachowania poufności informacji w organizacji, zobacz [How to: Dodawanie informacji o ochronie prywatności organizacji w Azure Active Directory](https://aka.ms/adprivacystatement).
 
-2. Jeśli warunki użytkowania są skonfigurowane, gość otwiera i przegląda warunki użytkowania, a następnie wybiera **opcję Zaakceptuj**. 
+2. W przypadku skonfigurowania warunków użytkowania gość otwiera i przegląda warunki użytkowania, a następnie wybiera pozycję **Zaakceptuj**. 
 
    ![Zrzut ekranu przedstawiający nowe warunki użytkowania](media/redemption-experience/terms-of-use-accept.png) 
 
-   W obszarze **Zarządzanie** > **relacjami organizacyjnymi** > **można**skonfigurować warunki [użytkowania](../governance/active-directory-tou.md) .
+   Można skonfigurować [warunki użytkowania](../governance/active-directory-tou.md) w > temacie **Zarządzanie** > **relacjami organizacyjnymi****warunki użytkowania**.
 
-3. O ile nie określono inaczej, gość jest przekierowywał do panelu dostęp do aplikacji, który zawiera listę aplikacji, do których gość może uzyskać dostęp.
+3. O ile nie określono inaczej, Gość zostanie przekierowany do panelu dostępu do aplikacji, który zawiera listę aplikacji, do których gość może uzyskać dostęp.
 
-   ![Zrzut ekranu przedstawiający panel Dostęp do aplikacji](media/redemption-experience/myapps.png) 
+   ![Zrzut ekranu przedstawiający panel dostępu aplikacje](media/redemption-experience/myapps.png) 
 
-W katalogu zaproszenie gościa **zaakceptowane** wartość zmienia się na **Tak**. Jeśli utworzono msa, **źródło** gościa pokazuje **konto Microsoft**. Aby uzyskać więcej informacji na temat właściwości konta użytkownika gościa, zobacz [Właściwości użytkownika współpracy usługi Azure AD B2B](user-properties.md). 
+W katalogu wartość **zaakceptowana przez zaproszenie** gościa zmieni się na **tak**. Jeśli element MSA został utworzony, **Źródło** gościa pokazuje **konto Microsoft**. Aby uzyskać więcej informacji na temat właściwości konta użytkownika-gościa, zobacz [właściwości użytkownika współpracy B2B usługi Azure AD](user-properties.md). 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Czym jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
-- [Dodawanie użytkowników współpracy usługi Azure Active Directory B2B w witrynie Azure portal](add-users-administrator.md)
-- [W jaki sposób pracownicy informacji dodają użytkowników współpracy B2B do usługi Azure Active Directory?](add-users-information-worker.md)
-- [Dodawanie użytkowników współpracy usługi Azure Active Directory B2B przy użyciu programu PowerShell](customize-invitation-api.md#powershell)
-- [Opuszczanie organizacji jako użytkownika-gościa](leave-the-organization.md)
+- [Dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](add-users-administrator.md)
+- [Jak Pracownicy przetwarzający informacje mogą dodawać do Azure Active Directory użytkowników współpracy B2B?](add-users-information-worker.md)
+- [Dodawanie Azure Active Directory użytkowników współpracy B2B przy użyciu programu PowerShell](customize-invitation-api.md#powershell)
+- [Opuść organizację jako użytkownika-gościa](leave-the-organization.md)

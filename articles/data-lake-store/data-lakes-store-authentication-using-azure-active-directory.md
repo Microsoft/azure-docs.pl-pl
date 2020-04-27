@@ -1,6 +1,6 @@
 ---
-title: Uwierzytelnianie w usłudze Azure Data Lake Storage Gen1 przy użyciu usługi Azure Active Directory | Dokumenty firmy Microsoft
-description: Dowiedz się, jak uwierzytelniać się przy użyciu usługi Azure Data Lake Storage Gen1 przy użyciu usługi Azure Active Directory
+title: Uwierzytelnianie w Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory | Microsoft Docs
+description: Dowiedz się, jak uwierzytelniać się za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,40 +12,40 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: f83cf183bee930dd07c707b0eb49125cecd70b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60193598"
 ---
-# <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Uwierzytelnianie przy użyciu usługi Azure Data Lake Storage Gen1 przy użyciu usługi Azure Active Directory
+# <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Uwierzytelnianie za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory
 
-Usługa Azure Data Lake Storage Gen1 używa usługi Azure Active Directory do uwierzytelniania. Przed dokonaniem tworzenia aplikacji, która współpracuje z data lake storage gen1, należy zdecydować, jak uwierzytelnić aplikację za pomocą usługi Azure Active Directory (Azure AD).
+Azure Data Lake Storage Gen1 używa Azure Active Directory do uwierzytelniania. Przed utworzeniem aplikacji, która współpracuje z Data Lake Storage Gen1, należy zdecydować, jak uwierzytelnić aplikację przy użyciu Azure Active Directory (Azure AD).
 
 ## <a name="authentication-options"></a>Opcje uwierzytelniania
 
-* **Uwierzytelnianie użytkownika końcowego** — poświadczenia platformy Azure użytkownika końcowego są używane do uwierzytelniania przy użyciu usługi Data Lake Storage Gen1. Aplikacja utworzona do pracy z data lake storage gen1 monituje o te poświadczenia użytkownika. W rezultacie ten mechanizm uwierzytelniania jest *interaktywny,* a aplikacja działa w kontekście zalogowanego użytkownika. Aby uzyskać więcej informacji i instrukcji, zobacz [Uwierzytelnianie użytkownika końcowego dla usługi Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Uwierzytelnianie użytkownika końcowego** — poświadczenia platformy Azure użytkownika końcowego są używane do uwierzytelniania za pomocą Data Lake Storage Gen1. Aplikacja, którą tworzysz, z Data Lake Storage Gen1 monitowani o te poświadczenia użytkownika. W związku z tym mechanizm uwierzytelniania jest *interaktywny* , a aplikacja jest uruchamiana w kontekście zalogowanego użytkownika. Aby uzyskać więcej informacji i instrukcje, zobacz [uwierzytelnianie użytkowników końcowych w celu Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **Uwierzytelnianie usługi do usługi** — użyj tej opcji, jeśli chcesz, aby aplikacja uwierzytelniła się przy użyciu usługi Data Lake Storage Gen1. W takich przypadkach należy utworzyć aplikację usługi Azure Active Directory (AD) i użyć klucza z aplikacji usługi Azure AD do uwierzytelniania przy użyciu usługi Data Lake Storage Gen1. W rezultacie ten mechanizm uwierzytelniania *jest nieinterakcyjny*. Aby uzyskać więcej informacji i instrukcji, zobacz [Uwierzytelnianie usługi do usługi dla usługi Magazyn danych Gen1](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Uwierzytelnianie** między usługami — Użyj tej opcji, jeśli chcesz, aby aplikacja mogła uwierzytelnić się przy użyciu Data Lake Storage Gen1. W takich przypadkach należy utworzyć aplikację Azure Active Directory (AD) i użyć klucza z aplikacji usługi Azure AD do uwierzytelniania przy użyciu Data Lake Storage Gen1. W związku z tym mechanizm uwierzytelniania nie jest *interaktywny*. Aby uzyskać więcej informacji i instrukcje, zobacz temat [uwierzytelnianie między usługami dla Data Lake Storage Gen1](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
-W poniższej tabeli przedstawiono, jak mechanizmy uwierzytelniania użytkowników końcowych i usługi do usługi są obsługiwane dla usługi Data Lake Storage Gen1. Oto jak czytasz tabelę.
+W poniższej tabeli przedstawiono sposób obsługi mechanizmów uwierzytelniania użytkowników końcowych i usług w ramach usługi Data Lake Storage Gen1. Oto jak odczytać tabelę.
 
-* Symbol ✔* oznacza, że opcja uwierzytelniania jest obsługiwana i zawiera łącza do artykułu, który pokazuje, jak korzystać z opcji uwierzytelniania. 
+* Symbol ✔ * oznacza, że opcja uwierzytelniania jest obsługiwana i zawiera linki do artykułu, w którym pokazano, jak używać opcji uwierzytelniania. 
 * Symbol ✔ oznacza, że opcja uwierzytelniania jest obsługiwana. 
 * Puste komórki oznaczają, że opcja uwierzytelniania nie jest obsługiwana.
 
 
 |Użyj tej opcji uwierzytelniania z...                   |.NET         |Java     |PowerShell |Interfejs wiersza polecenia platformy Azure | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
-|Użytkownik końcowy (bez usługi MFA**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(przestarzałe)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
-|Użytkownik końcowy (z uwierzytelniać usługi MFA)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
-|Usługa do usługi (przy użyciu klucza klienta)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
-|Usługa do usługi (przy użyciu certyfikatu klienta) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
+|Użytkownik końcowy (bez usługi MFA * *)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔ *](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(przestarzałe)     |    **[✔ *](data-lake-store-end-user-authenticate-rest-api.md)**    |
+|Użytkownik końcowy (z usługą MFA)                           |    **[✔ *](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔ *](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔ *](data-lake-store-get-started-cli-2.0.md)**      |    **[✔ *](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
+|Service-to-Service (przy użyciu klucza klienta)         |    **[✔ *](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔ *](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔ *](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔ *](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
+|Service-to-Service (przy użyciu certyfikatu klienta) |    **[✔ *](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
-<i>* Kliknij symbol <b>✔.\* </b> To link.</i><br>
-<i>** MfA oznacza uwierzytelnianie wieloskładnikowe</i>
+<i>* Kliknij symbol <b>✔\* </b> . Jest to link.</i><br>
+<i>* * Uwierzytelnianie wieloskładnikowe oznacza usługi uwierzytelniania wieloskładnikowego</i>
 
-Zobacz [Scenariusze uwierzytelniania dla usługi Azure Active Directory,](../active-directory/develop/authentication-scenarios.md) aby uzyskać więcej informacji na temat używania usługi Azure Active Directory do uwierzytelniania.
+Aby uzyskać więcej informacji na temat używania Azure Active Directory do uwierzytelniania, zobacz [scenariusze uwierzytelniania dla Azure Active Directory](../active-directory/develop/authentication-scenarios.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

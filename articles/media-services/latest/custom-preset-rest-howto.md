@@ -1,6 +1,6 @@
 ---
-title: Kodowanie transformacji niestandardowej przy użyciu usługi Media Services w wersji 3 REST — Azure | Dokumenty firmy Microsoft
-description: W tym temacie pokazano, jak używać usługi Azure Media Services w wersji 3 do kodowania transformacji niestandardowej przy użyciu rest.
+title: Kodowanie przekształcenia niestandardowego przy użyciu Media Services wersja 3 REST — Azure | Microsoft Docs
+description: W tym temacie pokazano, jak używać Azure Media Services v3 do kodowania niestandardowej transformacji przy użyciu interfejsu REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,33 +13,33 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65761792"
 ---
-# <a name="how-to-encode-with-a-custom-transform---rest"></a>Jak zakodować za pomocą niestandardowego przekształcenia - REST
+# <a name="how-to-encode-with-a-custom-transform---rest"></a>Jak kodować przy użyciu niestandardowej transformacji
 
-Podczas kodowania za pomocą usługi Azure Media Services można szybko rozpocząć pracę z jednym z zalecanych wbudowanych ustawień wstępnych, na podstawie najlepszych rozwiązań branżowych, jak pokazano w samouczku [pliki przesyłania strumieniowego.](stream-files-tutorial-with-rest.md#create-a-transform) Można również utworzyć niestandardowe ustawienia predefiniowane, aby kierować określone wymagania dotyczące scenariusza lub urządzenia.
+Przy kodowaniu przy użyciu Azure Media Services można szybko rozpocząć pracę z jednym z zalecanych wbudowanych ustawień wstępnych, opartych na najlepszych rozwiązaniach branżowych, jak pokazano w samouczku [pliki przesyłania strumieniowego](stream-files-tutorial-with-rest.md#create-a-transform) . Możesz również utworzyć niestandardowe ustawienie wstępne, aby określić wymagania dotyczące określonego scenariusza lub urządzenia.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
-Podczas tworzenia niestandardowych ustawień predefiniowanych stosuje się następujące zagadnienia:
+Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następujące zagadnienia:
 
-* Wszystkie wartości wysokości i szerokości zawartości AVC muszą być wielokrotnością 4.
-* W usłudze Azure Media Services w wersji 3 wszystkie kodowanie bitów są w bitach na sekundę. Różni się to od ustawień wstępnych w naszych interfejsach API v2, które używały kilobitów na sekundę jako jednostki. Na przykład jeśli szybkość transmisji bitów w wersji 2 została określona jako 128 (kilobitów/sekundę), w wersji 3 zostanie ustawiona na 128000 (bity/sekundę).
+* Wszystkie wartości wysokości i szerokości dla zawartości AVC muszą być wielokrotnością 4.
+* W Azure Media Services V3 wszystkie szybkości transmisji bitów są w bitach na sekundę. Różni się to od ustawień predefiniowanych za pomocą naszych interfejsów API v2, które używały kilobitów/s jako jednostki. Na przykład, jeśli szybkość transmisji bitów w wersji 2 została określona jako 128 (kilobity/sekundę), w v3 zostanie ustawiona wartość 128000 (BITS/s).
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-- [Utwórz konto usługi Media Services](create-account-cli-how-to.md). <br/>Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta usługi Media Services. 
-- [Skonfiguruj listonosz dla wywołań interfejsu API REST usługi Azure Media Services](media-rest-apis-with-postman.md).<br/>Upewnij się, że postępuj zgodnie z ostatnim krokiem w temacie [Pobierz token usługi Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
+- [Utwórz konto Media Services](create-account-cli-how-to.md). <br/>Pamiętaj, aby zapamiętać nazwę grupy zasobów i nazwę konta Media Services. 
+- [Skonfiguruj funkcję publikowania dla Azure Media Services wywołań interfejsu API REST](media-rest-apis-with-postman.md).<br/>Pamiętaj, aby postępować zgodnie z ostatnim krokiem w temacie [pobieranie tokenu usługi Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
-## <a name="define-a-custom-preset"></a>Definiowanie ustawień niestandardowych
+## <a name="define-a-custom-preset"></a>Definiowanie niestandardowego ustawienia wstępnego
 
-Poniższy przykład definiuje treść żądania nowego przekształcenia. Definiujemy zestaw wyjść, które chcemy być generowane, gdy to przekształcenie jest używany. 
+W poniższym przykładzie zdefiniowano treść żądania nowej transformacji. Definiujemy zestaw danych wyjściowych, które mają być generowane, gdy zostanie użyte to przekształcenie. 
 
-W tym przykładzie najpierw dodajemy warstwę AacAudio do kodowania audio i dwie warstwy H264Video dla kodowania wideo. W warstwach wideo przypisujemy etykiety, aby mogły być używane w nazwach plików wyjściowych. Następnie chcemy, aby dane wyjściowe zawierały również miniatury. W poniższym przykładzie określamy obrazy w formacie PNG, generowane w 50% rozdzielczości wejściowego wideo i przy trzech sygnaturach czasowych — {25%, 50%, 75} długości wejściowego wideo. Na koniec określamy format plików wyjściowych - jeden dla wideo + audio, a drugi dla miniatur. Ponieważ mamy wiele H264Layers, musimy użyć makr, które produkują unikatowe nazwy na warstwę. Możemy użyć `{Label}` lub `{Bitrate}` makro, przykład pokazuje pierwszy.
+W tym przykładzie najpierw dodamy warstwę AacAudio dla kodowania audio i dwóch warstw H264Video dla kodowania wideo. W warstwach wideo przypiszemy etykiety, aby można było ich używać w nazwach plików wyjściowych. Następnie chcemy, aby dane wyjściowe zawierały także miniatury. W poniższym przykładzie określimy obrazy w formacie PNG, Wygenerowano na 50% rozdzielczości wejściowego filmu wideo oraz trzy sygnatury czasowe — {25%, 50%, 75} długości wejściowego wideo. Na koniec określimy format plików wyjściowych — jeden do wideo i audio, a drugi dla miniatur. Ponieważ mamy wiele H264Layers, musimy używać makr, które generują unikatowe nazwy na warstwę. Możemy użyć makra `{Label}` lub `{Bitrate}` , jak pokazano w przykładzie.
 
 ```json
 {
@@ -131,23 +131,23 @@ W tym przykładzie najpierw dodajemy warstwę AacAudio do kodowania audio i dwie
 
 ```
 
-## <a name="create-a-new-transform"></a>Tworzenie nowej transformacji  
+## <a name="create-a-new-transform"></a>Utwórz nowe przekształcenie  
 
-W tym przykładzie tworzymy **Transform,** który jest oparty na niestandardowe ustawienia predefiniowane zdefiniowane wcześniej. Podczas tworzenia transformacji należy najpierw użyć [Get,](https://docs.microsoft.com/rest/api/media/transforms/get) aby sprawdzić, czy już istnieje. Jeśli transform istnieje, należy go użyć ponownie. 
+W tym przykładzie utworzysz **transformację** opartą na niestandardowym ustawieniu wstępnym zdefiniowanym wcześniej. Podczas tworzenia transformacji należy najpierw użyć opcji [Get](https://docs.microsoft.com/rest/api/media/transforms/get) do sprawdzenia, czy już istnieje. Jeśli transformacja istnieje, użyj jej ponownie. 
 
-W pobranej kolekcji Listonosz wybierz pozycję **Przekształcenia i zadania tworzenia**->**lub aktualizowania transformacji**.
+W pobranej kolekcji programu Poster wybierz pozycję **transformacje i zadania**->**Utwórz lub zaktualizuj transformację**.
 
-Metoda żądania **PUT** HTTP jest podobna do:
+Metoda **Put** żądania HTTP jest podobna do:
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
 ```
 
-Wybierz kartę **Treść** i zastąp obiekt kodem json [zdefiniowanym wcześniej](#define-a-custom-preset). Aby program Media Services miał zastosowanie do określonego obrazu lub dźwięku, należy przesłać zadanie w ramach tego przekształcenia.
+Wybierz kartę **treść** i Zamień treść na [wcześniej zdefiniowany](#define-a-custom-preset)kod JSON. Aby Media Services zastosować transformację do określonego wideo lub audio, należy przesłać zadanie w ramach tej transformacji.
 
 Wybierz pozycję **Wyślij**. 
 
-Aby program Media Services miał zastosowanie do określonego obrazu lub dźwięku, należy przesłać zadanie w ramach tego przekształcenia. Aby uzyskać pełny przykład, który pokazuje, jak przesłać zadanie w ramach transformacji, zobacz [Samouczek: Przesyłanie strumieniowe plików wideo - REST](stream-files-tutorial-with-rest.md).
+Aby Media Services zastosować transformację do określonego wideo lub audio, należy przesłać zadanie w ramach tej transformacji. Aby zapoznać się z kompletnym przykładem, który pokazuje, jak przesłać zadanie w ramach przekształcenia, zobacz [Samouczek: przesyłanie strumieniowe plików wideo — REST](stream-files-tutorial-with-rest.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,90 +8,90 @@ ms.topic: overview
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3dd971cec33fa9f840a48e597fb3bed9a7965895
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261724"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160021"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop? 
 
-Pulpit wirtualny systemu Windows to usługa wirtualizacji pulpitu i aplikacji, która działa w chmurze.
+Windows Virtual Desktop to usługa wirtualizacji pulpitu i aplikacji działająca w chmurze.
 
-Oto, co możesz zrobić po uruchomieniu pulpitu wirtualnego systemu Windows na platformie Azure:
+Oto co można zrobić w przypadku uruchamiania pulpitu wirtualnego systemu Windows na platformie Azure:
 
-* Konfigurowanie wielosesyjnego wdrożenia systemu Windows 10, które zapewnia pełny system Windows 10 ze skalowalnością
-* Zwirtualizuj office 365 ProPlus i optymalizuj ją tak, aby działała w wirtualnych scenariuszach dla wielu użytkowników
-* Zapewnienie pulpitom wirtualnym systemu Windows 7 bezpłatnych rozszerzonych aktualizacji zabezpieczeń
-* Przenieś istniejące usługi pulpitu zdalnego (RDS) oraz pulpity i aplikacje systemu Windows Server na dowolnym komputerze
-* Wirtualizuj zarówno pulpity, jak i aplikacje
-* Zarządzanie pulpitami i aplikacjami dla systemów Windows 10, Windows Server i Windows 7 dzięki ujednoliconemu interfejsowi zarządzania
+* Konfigurowanie wdrożenia obejmującego wiele sesji systemu Windows 10, które zapewnia pełną skalowalność systemu Windows 10
+* Wirtualizacja pakietu Office 365 ProPlus i optymalizacja do działania w scenariuszach wirtualnych obejmujących wiele użytkowników
+* Udostępnianie pulpitów wirtualnych systemu Windows 7 z bezpłatnymi rozszerzonymi aktualizacjami zabezpieczeń
+* Przenoszenie istniejących Usługi pulpitu zdalnego (RDS) i komputerów stacjonarnych i aplikacji z systemem Windows Server do dowolnego komputera
+* Wirtualizacja zarówno komputerów stacjonarnych, jak i aplikacji
+* Zarządzanie komputerami stacjonarnymi i aplikacjami z systemem Windows 10, Windows Server i Windows 7 za pomocą ujednoliconego środowiska zarządzania
 
-## <a name="introductory-video"></a>Film wprowadzający
+## <a name="introductory-video"></a>Wstępne wideo
 
-Dowiedz się więcej o pulpicie wirtualnym systemu Windows, dlaczego jest unikatowy i co nowego w tym filmie:
+Dowiedz się więcej o usłudze Windows Virtual Desktop, dlaczego jest ona unikatowa i co nowego w tym filmie wideo:
 
 <br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
-Aby uzyskać więcej filmów o Windows Virtual Desktop, zobacz [naszą listę odtwarzania](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
+Aby uzyskać więcej filmów wideo dotyczących pulpitu wirtualnego systemu Windows, zobacz [nasze listy odtwarzania](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
 
 ## <a name="key-capabilities"></a>Najważniejsze możliwości
 
-Desktop wirtualny systemu Windows umożliwia skonfigurowanie skalowalnego i elastycznego środowiska:
+Za pomocą pulpitu wirtualnego systemu Windows można skonfigurować skalowalne i elastyczne środowisko:
 
 * Utwórz pełne środowisko wirtualizacji pulpitu w ramach subskrypcji platformy Azure bez konieczności uruchamiania dodatkowych serwerów bramy.
-* Publikowanie jak najwięcej pul hostów, jak trzeba, aby pomieścić różnych obciążeń.
-* Przynieś własny obraz dla obciążeń produkcyjnych lub testuj z galerii Azure.
-* Zmniejsz koszty dzięki łączonych zasobom wielosesyjnym. Dzięki nowej funkcji wielu sesji systemu Windows 10 Enterprise, która jest dostępna wyłącznie w przypadku pulpitu wirtualnego systemu Windows i hosta sesji pulpitu zdalnego (RDSH) w systemie Windows Server, można znacznie zmniejszyć liczbę narzutów na maszyny wirtualne i system operacyjny, jednocześnie zapewniając użytkownikom te same zasoby.
-* Zapewnij indywidualną własność za pośrednictwem osobistych (trwałych) komputerów stacjonarnych.
+* Publikuj tyle pul hostów, ile potrzebujesz do obsługi różnych obciążeń.
+* Korzystaj z własnego obrazu dla obciążeń produkcyjnych lub testów z galerii platformy Azure.
+* Obniż koszty dzięki zasobom w puli, wielu sesjach. Dzięki nowej funkcji wielosesyjnej systemu Windows 10 Enterprise na wyłączność dla pulpitu wirtualnego systemu Windows i roli hosta sesji Pulpit zdalny w systemie Windows Server można znacznie zmniejszyć liczbę maszyn wirtualnych i nakładów pracy systemu operacyjnego, jednocześnie dostarczając te same zasoby użytkownikom.
+* Udostępnianie poszczególnych własności za poorednictwem osobistych (trwałych) komputerów stacjonarnych.
 
 Pulpity wirtualne można wdrażać i zarządzać nimi:
 
-* Interfejsy programu Windows Virtual Desktop PowerShell i REST umożliwia konfigurowanie pul hostów, tworzenie grup aplikacji, przypisywanie użytkowników i publikowanie zasobów.
-* Publikuj pełne aplikacje stacjonarne lub pojedyncze aplikacje zdalne z jednej puli hostów, twórz poszczególne grupy aplikacji dla różnych grup użytkowników, a nawet przypisz użytkowników do wielu grup aplikacji, aby zmniejszyć liczbę obrazów.
-* Podczas zarządzania środowiskiem należy używać wbudowanego delegowanego dostępu do przypisywania ról i zbierania diagnostyki w celu zrozumienia różnych błędów konfiguracji lub użytkownika.
-* Użyj nowej usługi diagnostyki, aby rozwiązywać problemy z błędami.
-* Zarządzaj tylko obrazem i maszynami wirtualnymi, a nie infrastrukturą. Nie musisz osobiście zarządzać rolami pulpitu zdalnego, tak jak w przypadku usług pulpitu zdalnego, tylko maszynami wirtualnymi w subskrypcji platformy Azure.
+* Za pomocą programu PowerShell i interfejsów REST systemu Windows można skonfigurować pule hostów, tworzyć grupy aplikacji, przypisywać użytkowników i publikować zasoby.
+* Publikowanie pełnych pulpitów lub pojedynczych aplikacji zdalnych z jednej puli hostów, tworzenie pojedynczych grup aplikacji dla różnych zestawów użytkowników, a nawet przypisywanie użytkowników do wielu grup aplikacji w celu zmniejszenia liczby obrazów.
+* Podczas zarządzania środowiskiem użyj wbudowanego delegowanego dostępu, aby przypisać role i zbierać diagnostykę, aby poznać różne konfiguracje lub błędy użytkowników.
+* Użyj nowej usługi diagnostycznej do rozwiązywania problemów z błędami.
+* Zarządzaj obrazami i maszynami wirtualnymi, a nie z infrastrukturą. Nie musisz zarządzać rolami Pulpit zdalny, takimi jak w przypadku Usługi pulpitu zdalnego, tylko maszyn wirtualnych w ramach subskrypcji platformy Azure.
 
-Można również przypisać i połączyć użytkowników z pulpitami wirtualnymi:
+Możesz również przypisywać użytkowników i łączyć ich z pulpitami wirtualnymi:
 
-* Po przypisaniu użytkownicy mogą uruchomić dowolnego klienta pulpitu wirtualnego systemu Windows, aby połączyć użytkowników z opublikowanymi pulpitami i aplikacjami systemu Windows. Połącz się z dowolnego urządzenia za pośrednictwem aplikacji natywnej na urządzeniu lub klienta sieci Web HTML5 pulpitu wirtualnego systemu Windows.
-* Bezpiecznie ustanawiaj użytkowników za pośrednictwem odwrotnych połączeń z usługą, dzięki czemu nigdy nie trzeba pozostawiać otwartych portów przychodzących.
+* Po przypisaniu użytkownicy mogą uruchomić dowolnego klienta pulpitu wirtualnego systemu Windows, aby połączyć użytkowników z opublikowanymi pulpitami i aplikacjami systemu Windows. Połącz się z dowolnego urządzenia za pośrednictwem aplikacji natywnej na urządzeniu lub klienta sieci Web HTML5 programu Windows Virtual Desktop.
+* Bezpiecznie ustanawiaj użytkowników przez połączenia odwrotne do usługi, dzięki czemu nie musisz opuszczać żadnych otwartych portów przychodzących.
 
 ## <a name="requirements"></a>Wymagania
 
-Istnieje kilka rzeczy, które należy skonfigurować pulpit wirtualny systemu Windows i pomyślnie połączyć użytkowników z ich pulpitów systemu Windows i aplikacji.
+Istnieje kilka rzeczy potrzebnych do skonfigurowania pulpitu wirtualnego systemu Windows i pomyślnego połączenia użytkowników z komputerami stacjonarnymi i aplikacjami z systemem Windows.
 
-Planujemy dodać obsługę następujących os, więc upewnij się, że masz [odpowiednie licencje](https://azure.microsoft.com/pricing/details/virtual-desktop/) dla użytkowników na podstawie pulpitu i aplikacji, które zamierzasz wdrożyć:
+Planujemy dodanie obsługi następujących systemów operacyjnych, więc upewnij się, że masz [odpowiednie licencje](https://azure.microsoft.com/pricing/details/virtual-desktop/) dla użytkowników na podstawie pulpitu i aplikacji, które planujesz wdrożyć:
 
 |System operacyjny|Wymagana licencja|
 |---|---|
-|Windows 10 Enterprise multi-session lub Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Biznes<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Biznes<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|Licencja cal (RDS Client Access License) z pakietem Software Assurance|
+|Wiele sesji systemu Windows 10 Enterprise lub Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business<br>Windows E3, E5, A3, A5|
+|Windows Server 2012 R2, 2016, 2019|Licencja dostępu klienta usług pulpitu zdalnego z programem Software Assurance|
 
-Infrastruktura wymaga następujących elementów do obsługi pulpitu wirtualnego systemu Windows:
+Aby zapewnić obsługę pulpitu wirtualnego systemu Windows, Twoja infrastruktura wymaga następujących czynności:
 
-* Usługa [Azure Active Directory](/azure/active-directory/)
-* Usługa Active Directory systemu Windows Server jest synchronizowana z usługą Azure Active Directory. Można to skonfigurować za pomocą jednej z następujących czynności:
-  * Usługa Azure AD Connect (dla organizacji hybrydowych)
-  * Usługi domenowe usługi Azure AD (dla organizacji hybrydowych lub chmurowych)
-* Subskrypcja platformy Azure zawierająca sieć wirtualną zawierającą lub połączoną z usługą Active Directory Windows Server
+* [Azure Active Directory](/azure/active-directory/)
+* Active Directory systemu Windows Server synchronizacja z Azure Active Directory. Można to skonfigurować przy użyciu jednego z następujących elementów:
+  * Azure AD Connect (dla organizacji hybrydowych)
+  * Azure AD Domain Services (dla organizacji hybrydowych lub w chmurze)
+* Subskrypcja platformy Azure zawierająca sieć wirtualną, która zawiera lub jest połączona z systemem Windows Server Active Directory
   
-Maszyny wirtualne platformy Azure utworzone dla pulpitu wirtualnego systemu Windows muszą być:
+Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windows muszą być:
 
-* [Standardowa przyłączona do domeny](../active-directory-domain-services/active-directory-ds-comparison.md) lub [hybrydowa przyłączona do usługi AD](../active-directory/devices/hybrid-azuread-join-plan.md). Maszyny wirtualne nie mogą być przyłączone do usługi Azure AD.
+* [Standardowe przyłączone do domeny](../active-directory-domain-services/active-directory-ds-comparison.md) lub [hybrydowe usługi AD](../active-directory/devices/hybrid-azuread-join-plan.md). Maszyny wirtualne nie mogą być przyłączone do usługi Azure AD.
 * Uruchamianie jednego z następujących [obsługiwanych obrazów systemu operacyjnego](#supported-virtual-machine-os-images).
 
 >[!NOTE]
->Jeśli potrzebujesz subskrypcji platformy Azure, możesz [zarejestrować się w celu uzyskania miesięcznej bezpłatnej wersji próbnej.](https://azure.microsoft.com/free/) Jeśli używasz bezpłatnej wersji próbnej platformy Azure, należy użyć usług domenowych usługi Azure AD, aby zachować synchronizację usługi Active Directory systemu Windows Server z usługą Azure Active Directory.
+>Jeśli potrzebujesz subskrypcji platformy Azure, możesz [zarejestrować się w celu korzystania z miesięcznej bezpłatnej wersji próbnej](https://azure.microsoft.com/free/). W przypadku korzystania z bezpłatnej wersji próbnej platformy Azure należy używać Azure AD Domain Services, aby zapewnić synchronizację Active Directory systemu Windows Server z Azure Active Directory.
 
-Maszyny wirtualne platformy Azure utworzone dla pulpitu wirtualnego systemu Windows muszą mieć dostęp do następujących adresów URL:
+Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windows muszą mieć dostęp do następujących adresów URL:
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Tag usługi|
 |---|---|---|---|
-|*.wvd.microsoft.com|443|Ruch serwisowy|WindowsVirtualDesktop|
+|*. wvd.microsoft.com|443|Ruch usługi|WindowsVirtualDesktop|
 |mrsglobalsteus2prod.blob.core.windows.net|443|Aktualizacje stosu agenta i SXS|AzureCloud|
 |*.core.windows.net|443|Ruch agenta|AzureCloud|
 |*.servicebus.windows.net|443|Ruch agenta|AzureCloud|
@@ -100,43 +100,43 @@ Maszyny wirtualne platformy Azure utworzone dla pulpitu wirtualnego systemu Wind
 |kms.core.windows.net|1688|Aktywacja systemu Windows|Internet|
 
 >[!IMPORTANT]
->W większości przypadków zalecamy używanie tagów usługi zamiast adresów URL, aby zapobiec problemom z usługą. Odblokowanie tych adresów URL jest niezbędne do niezawodnego wdrożenia pulpitu wirtualnego systemu Windows. Zablokowanie dostępu do tych adresów URL nie jest obsługiwane i wpłynie na funkcjonalność usługi. Te adresy URL odpowiadają tylko witrynom i zasobom pulpitu wirtualnego systemu Windows i nie zawierają adresów URL innych usług, takich jak usługa Azure Active Directory.
+>Zalecamy używanie tagów usługi zamiast adresów URL w większości przypadków, aby zapobiec problemom z usługą. Odblokowywanie tych adresów URL jest niezbędne dla niezawodnego wdrożenia pulpitu wirtualnego systemu Windows. Blokowanie dostępu do tych adresów URL nie jest obsługiwane i wpłynie na funkcjonalność usługi. Te adresy URL odnoszą się tylko do witryn i zasobów pulpitu wirtualnego systemu Windows, a nie zawierają adresów URL dla innych usług, takich jak Azure Active Directory.
 
-W poniższej tabeli wymieniono opcjonalne adresy URL, do których maszyny wirtualne platformy Azure mogą mieć dostęp:
+W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wirtualne platformy Azure mogą mieć dostęp:
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Tag usługi|
 |---|---|---|---|
-|*.microsoftonline.com|443|Uwierzytelnianie w usługach MS Online|Brak|
-|*.events.data.microsoft.com|443|Usługa telemetrii|Brak|
-|www.msftconnecttest.com|443|Wykrywa, czy system operacyjny jest podłączony do Internetu|Brak|
-|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Brak|
-|login.windows.net|443|Logowanie do usług MS Online Services, Office 365|Brak|
-|*.sfx.ms|443|Aktualizacje oprogramowania klienckiego usługi OneDrive|Brak|
-|*.digicert.com|443|Sprawdzanie odwołania certyfikatu|Brak|
+|*.microsoftonline.com|443|Uwierzytelnianie w usługach MS online|Brak|
+|*. events.data.microsoft.com|443|Usługa telemetrii|Brak|
+|www.msftconnecttest.com|443|Wykrywa, czy system operacyjny jest połączony z Internetem|Brak|
+|*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Brak|
+|login.windows.net|443|Logowanie do usług MS online, Office 365|Brak|
+|*. sfx.ms|443|Aktualizacje oprogramowania klienckiego usługi OneDrive|Brak|
+|*. digicert.com|443|Sprawdzanie odwołania certyfikatu|Brak|
 
 
 >[!NOTE]
->Pulpit wirtualny systemu Windows nie ma obecnie listy zakresów adresów IP, które można umieszczać na białej liście, aby zezwolić na ruch sieciowy. Obsługujemy tylko białe listy określonych adresów URL w tej chwili.
+>Pulpit wirtualny systemu Windows nie ma obecnie listy zakresów adresów IP, które można dozwolonych, aby zezwalać na ruch sieciowy. W tej chwili obsługujemy tylko określone adresy URL listy dozwolonych.
 >
->Aby uzyskać listę adresów URL związanych z pakietem Office, w tym wymagane adresy URL związane z usługą Azure Active Directory, zobacz [Adresy URL i zakresy adresów IP usługi Office 365](/office365/enterprise/urls-and-ip-address-ranges).
+>Aby uzyskać listę adresów URL związanych z pakietem Office, w tym wymaganych adresów URL związanych z Azure Active Directory, zobacz [adresy URL i zakresy adresów IP usługi office 365](/office365/enterprise/urls-and-ip-address-ranges).
 >
->W przypadku adresów URL dotyczących ruchu usługowego należy użyć symbolu wieloznacznego (*). Jeśli wolisz nie używać * dla ruchu związanego z agentami, oto jak znaleźć adresy URL bez symboli wieloznacznych:
+>Należy użyć symbolu wieloznacznego (*) dla adresów URL związanych z ruchem usługi. Jeśli wolisz używać * w przypadku ruchu związanego z agentem, Oto jak znaleźć adresy URL bez symboli wieloznacznych:
 >
->1. Zarejestruj swoje maszyny wirtualne w puli hostów pulpitu wirtualnego systemu Windows.
->2. Otwórz **przeglądarkę zdarzeń** i przejdź do **programu Windows loguje** > **aplikację** > **WVD-Agent** i poszukaj identyfikatora zdarzenia 3702.
->3. Umieszczaj na białej liście adresy URL w obszarze Identyfikator zdarzenia 3702. Adresy URL w obszarze Event ID 3702 są specyficzne dla regionu. Musisz powtórzyć proces umieszczania na białej liście z odpowiednimi adresami URL dla każdego regionu, w którego chcesz wdrożyć maszyny wirtualne.
+>1. Zarejestruj maszyny wirtualne w puli hostów systemu Windows Virtual Desktop.
+>2. **Application** > Otwórz **Podgląd zdarzeń** i przejdź do **dziennika** > systemu Windows**WVD-Agent** i poszukaj zdarzenia o identyfikatorze 3702.
+>3. Dozwolonych adresy URL Znalezione w obszarze zdarzenia o IDENTYFIKATORze 3702. Adresy URL pod IDENTYFIKATORem zdarzenia 3702 są specyficzne dla regionu. Należy powtórzyć proces listy dozwolonych z odpowiednimi adresami URL dla każdego regionu, w którym mają zostać wdrożone maszyny wirtualne.
 
-Pulpit wirtualny systemu Windows obejmuje pulpity i aplikacje systemu Windows dostarczane użytkownikom oraz rozwiązanie do zarządzania, które jest hostowane jako usługa na platformie Azure przez firmę Microsoft. Komputery stacjonarne i aplikacje można wdrożyć na maszynach wirtualnych (VM) w dowolnym regionie platformy Azure, a rozwiązanie do zarządzania i dane dla tych maszyn wirtualnych będą znajdować się w Stanach Zjednoczonych. Może to spowodować transfer danych do Stanów Zjednoczonych.
+Pulpit wirtualny systemu Windows składa się z komputerów stacjonarnych i aplikacji z systemem Windows dostarczanych użytkownikom i rozwiązanie do zarządzania, które jest hostowane jako usługa na platformie Azure przez firmę Microsoft. Komputery stacjonarne i aplikacje można wdrażać na maszynach wirtualnych w dowolnym regionie świadczenia usługi Azure, a rozwiązanie do zarządzania i dane dla tych maszyn wirtualnych będą znajdować się w Stany Zjednoczone. Może to spowodować transfer danych do Stany Zjednoczone.
 
-Aby uzyskać optymalną wydajność, upewnij się, że sieć spełnia następujące wymagania:
+W celu uzyskania optymalnej wydajności upewnij się, że sieć spełnia następujące wymagania:
 
-* Opóźnienie w obie strony (RTT) z sieci klienta do regionu platformy Azure, w którym wdrożono pule hostów, powinno być mniejsze niż 150 ms.
-* Ruch sieciowy może przepływać poza granicami kraju/regionu, gdy maszyny wirtualne obsługujące komputery stacjonarne i aplikacje łączą się z usługą zarządzania.
-* Aby zoptymalizować pod kątem wydajności sieci, zaleca się, że maszyny wirtualne hosta sesji są kolokowane w tym samym regionie platformy Azure jako usługi zarządzania.
+* Opóźnienie rundy (RTT) od sieci klienta do regionu platformy Azure, w którym wdrożono pule hostów, powinno być mniejsze niż 150 MS.
+* Ruch sieciowy może przepływać poza granicami kraju/regionu, gdy maszyny wirtualne, które obsługują komputery stacjonarne i aplikacje, łączą się z usługą zarządzania.
+* Aby zoptymalizować pod kątem wydajności sieci, zalecamy zapoznanie się z maszynami wirtualnymi hosta sesji w tym samym regionie platformy Azure co usługa zarządzania.
 
-## <a name="supported-remote-desktop-clients"></a>Obsługiwani klienci pulpitu zdalnego
+## <a name="supported-remote-desktop-clients"></a>Obsługiwani klienci Pulpit zdalny
 
-Następujący klienci pulpitu zdalnego obsługują pulpit wirtualny systemu Windows:
+Następujący klienci Pulpit zdalny obsługują pulpit wirtualny systemu Windows:
 
 * [Pulpit systemu Windows](connect-windows-7-and-10.md)
 * [Sieć Web](connect-web.md)
@@ -145,55 +145,55 @@ Następujący klienci pulpitu zdalnego obsługują pulpit wirtualny systemu Wind
 * [Android (wersja zapoznawcza)](connect-android.md)
 
 > [!IMPORTANT]
-> Pulpit wirtualny systemu Windows nie obsługuje klienta usługi RemoteApp i połączenia pulpitu (RADC) ani klienta MSTSC (Remote Desktop Connection).
+> Pulpit wirtualny systemu Windows nie obsługuje klienta połączenia programów RemoteApp i pulpitu (RADC) ani klienta Podłączanie pulpitu zdalnego (MSTSC).
 
 > [!IMPORTANT]
-> Pulpit wirtualny systemu Windows obecnie nie obsługuje klienta pulpitu zdalnego ze Sklepu Windows. Obsługa tego klienta zostanie dodana w przyszłej wersji.
+> Pulpit wirtualny systemu Windows obecnie nie obsługuje klienta Pulpit zdalny ze sklepu Windows. Obsługa tego klienta zostanie dodana w przyszłym wydaniu.
 
-Klienci pulpitu zdalnego muszą mieć dostęp do następujących adresów URL:
+Klienci Pulpit zdalny muszą mieć dostęp do następujących adresów URL:
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Klienci|
 |---|---|---|---|
-|*.wvd.microsoft.com|443|Ruch serwisowy|Wszystkie|
+|*. wvd.microsoft.com|443|Ruch usługi|Wszystkie|
 |*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystkie|
-|go.microsoft.com|443|Microsoft FWLinks|Wszystkie|
-|aka.ms|443|Skracacz adresów URL firmy Microsoft|Wszystkie|
+|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystkie|
+|aka.ms|443|Shortener URL firmy Microsoft|Wszystkie|
 |docs.microsoft.com|443|Dokumentacja|Wszystkie|
 |privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystkie|
 |query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|
 
 >[!IMPORTANT]
->Otwarcie tych adresów URL jest niezbędne dla niezawodnego doświadczenia klienta. Zablokowanie dostępu do tych adresów URL nie jest obsługiwane i wpłynie na funkcjonalność usługi. Te adresy URL odpowiadają tylko witrynom i zasobom klienta i nie zawierają adresów URL innych usług, takich jak usługa Azure Active Directory.
+>Otwieranie tych adresów URL jest niezbędne dla niezawodnego środowiska klienta. Blokowanie dostępu do tych adresów URL nie jest obsługiwane i wpłynie na funkcjonalność usługi. Te adresy URL odnoszą się tylko do lokacji i zasobów klienta oraz nie obejmują adresów URL dla innych usług, takich jak Azure Active Directory.
 
 ## <a name="supported-virtual-machine-os-images"></a>Obsługiwane obrazy systemu operacyjnego maszyny wirtualnej
 
 Pulpit wirtualny systemu Windows obsługuje następujące obrazy systemu operacyjnego x64:
 
-* Windows 10 Enterprise multi-session, wersja 1809 lub nowsza
+* Wiele sesji systemu Windows 10 Enterprise, wersja 1809 lub nowsza
 * Windows 10 Enterprise, wersja 1809 lub nowsza
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Pulpit wirtualny systemu Windows nie obsługuje obrazów systemu operacyjnego X86 (32-bitowy), Windows 10 Enterprise N ani Windows 10 Enterprise KN. System Windows 7 nie obsługuje również żadnych rozwiązań profilu opartych na dyskach VHD lub VHDX hostowanych w zarządzanym usłudze Azure Storage ze względu na ograniczenie rozmiaru sektora.
+Pulpit wirtualny systemu Windows nie obsługuje obrazów systemu operacyjnego x86 (32-bitowych), Windows 10 Enterprise N lub Windows 10 Enterprise KN. System Windows 7 nie obsługuje również żadnych rozwiązań profilu opartych na dyskach VHD lub VHDX hostowanych w zarządzanym magazynie Azure z powodu ograniczenia rozmiaru sektora.
 
 Dostępne opcje automatyzacji i wdrażania zależą od wybranego systemu operacyjnego i wersji, jak pokazano w poniższej tabeli: 
 
-|System operacyjny|Galeria obrazów platformy Azure|Ręczne wdrażanie maszyny wirtualnej|Integracja szablonów usługi Azure Resource Manager|Aprowizuj pule hostów w portalu Azure Marketplace|Aktualizacje programu Windows Virtual Desktop Agent|
+|System operacyjny|Galeria obrazów platformy Azure|Ręczne wdrożenie maszyny wirtualnej|Integracja z szablonem Azure Resource Manager|Inicjowanie obsługi pul hostów w witrynie Azure Marketplace|Aktualizacje agenta pulpitu wirtualnego systemu Windows|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 multi-session, wersja 1903|Tak|Tak|Tak|Tak|Automatyczny|
-|Windows 10 multi-session, wersja 1809|Tak|Tak|Nie|Nie|Automatyczny|
-|Windows 10 Enterprise, wersja 1903|Tak|Tak|Tak|Tak|Automatyczny|
-|Windows 10 Enterprise, wersja 1809|Tak|Tak|Nie|Nie|Automatyczny|
-|Windows 7 Enterprise|Tak|Tak|Nie|Nie|Ręcznie|
-|Windows Server 2019|Tak|Tak|Nie|Nie|Automatyczny|
-|Windows Server 2016|Tak|Tak|Tak|Tak|Automatyczny|
-|Windows Server 2012 R2|Tak|Tak|Nie|Nie|Automatyczny|
+|Wiele sesji systemu Windows 10, wersja 1903|Yes|Yes|Yes|Yes|Automatyczny|
+|Wiele sesji systemu Windows 10, wersja 1809|Yes|Yes|Nie|Nie|Automatyczny|
+|Windows 10 Enterprise, wersja 1903|Yes|Yes|Yes|Yes|Automatyczny|
+|Windows 10 Enterprise, wersja 1809|Yes|Yes|Nie|Nie|Automatyczny|
+|Windows 7 Enterprise|Yes|Yes|Nie|Nie|Ręcznie|
+|Windows Server 2019|Yes|Yes|Nie|Nie|Automatyczny|
+|Windows Server 2016|Yes|Yes|Yes|Yes|Automatyczny|
+|Windows Server 2012 R2|Yes|Yes|Nie|Nie|Automatyczny|
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, musisz utworzyć dzierżawę. Aby dowiedzieć się więcej o tym, jak utworzyć dzierżawę, przejdź do samouczka tworzenia dzierżawy.
+Aby rozpocząć, musisz utworzyć dzierżawę. Aby dowiedzieć się więcej na temat tworzenia dzierżawy, przejdź do samouczka dotyczącego tworzenia dzierżawy.
 
 > [!div class="nextstepaction"]
 > [Tworzenie dzierżawy w usłudze Windows Virtual Desktop](tenant-setup-azure-active-directory.md)

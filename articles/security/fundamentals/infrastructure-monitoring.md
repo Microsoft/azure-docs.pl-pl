@@ -16,48 +16,48 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: af9c157b4644156edc6dcdb1b53c141263576500
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68727151"
 ---
 # <a name="azure-infrastructure-monitoring"></a>Monitorowanie infrastruktury platformy Azure   
 
-## <a name="configuration-and-change-management"></a>Zarządzanie konfiguracją i zmianami
-Platforma Azure co roku przegląda i aktualizuje ustawienia konfiguracji i konfiguracje linii bazowej sprzętu, oprogramowania i urządzeń sieciowych. Zmiany są opracowywane, testowane i zatwierdzane przed wejściem do środowiska produkcyjnego ze środowiska deweloperskiego i/lub testowego.
+## <a name="configuration-and-change-management"></a>Konfiguracja i zarządzanie zmianami
+Platforma Azure sprawdza i aktualizuje ustawienia konfiguracji oraz konfiguracje linii bazowej sprzętu, oprogramowania i urządzeń sieciowych. Zmiany są opracowywane, testowane i zatwierdzane przed wprowadzeniem środowiska produkcyjnego ze środowiska deweloperskiego i/lub testowego.
 
-Konfiguracje linii bazowej, które są wymagane dla usług opartych na platformie Azure są przeglądane przez zespół zabezpieczeń i zgodności platformy Azure oraz przez zespoły usług. Przegląd zespołu usługi jest częścią testowania, który występuje przed wdrożeniem ich usługi produkcyjnej.
+Konfiguracje bazowe wymagane dla usług opartych na systemie Azure są analizowane przez zespół ds. zabezpieczeń i zgodności platformy Azure oraz zespoły usług. Przegląd zespołu usługi jest częścią testów, które są wykonywane przed wdrożeniem ich usługi produkcyjnej.
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
-Zarządzanie aktualizacjami zabezpieczeń pomaga chronić systemy przed znanymi lukami w zabezpieczeniach. Platforma Azure używa zintegrowanych systemów wdrażania do zarządzania dystrybucją i instalacją aktualizacji zabezpieczeń oprogramowania firmy Microsoft. Platforma Azure może również korzystać z zasobów Centrum odpowiedzi zabezpieczeń firmy Microsoft (MSRC). MSRC identyfikuje, monitoruje, reaguje i usuwa zdarzenia związane z bezpieczeństwem i luki w zabezpieczeniach w chmurze przez całą dobę, każdego dnia roku.
+Zarządzanie aktualizacjami zabezpieczeń pomaga chronić systemy przed znanymi lukami w zabezpieczeniach. Platforma Azure używa zintegrowanych systemów wdrażania do zarządzania dystrybucją i instalacją aktualizacji zabezpieczeń oprogramowania firmy Microsoft. Platforma Azure umożliwia również rysowanie zasobów centrum Microsoft Security Response Center (MSRC). Centrum MSRC identyfikuje, monitoruje, reaguje na i rozwiązuje problemy związane z bezpieczeństwem oraz luki w zabezpieczeniach w chmurze dotyczące zegara, każdego dnia roku.
 
 ## <a name="vulnerability-scanning"></a>Skanowanie luk w zabezpieczeniach
-Skanowanie luk w zabezpieczeniach jest wykonywane w systemach operacyjnych serwerów, bazach danych i urządzeniach sieciowych. Skanowanie luk w zabezpieczeniach jest wykonywane co najmniej co kwartał. Platformy Azure zawiera umowy z niezależnymi rzeczoznawcami w celu przeprowadzenia testów penetracyjnych granicy platformy Azure. Ćwiczenia red-team są również rutynowo wykonywane, a wyniki są wykorzystywane do poprawy bezpieczeństwa.
+Skanowanie luk w zabezpieczeniach odbywa się w systemach operacyjnych serwera, bazach danych i urządzeniach sieciowych. Skanowanie w poszukiwaniu luk w zabezpieczeniach jest wykonywane co kwartał co najmniej. Kontrakty platformy Azure z niezależnymi ocenami umożliwiają przeprowadzenie testów penetracji granicy platformy Azure. Ćwiczenia z czerwonym zespołem są również wykonywane rutynowo, a wyniki są używane do ulepszania zabezpieczeń.
 
-## <a name="protective-monitoring"></a>Monitoring ochronny
-Zabezpieczenia platformy Azure zdefiniowały wymagania dotyczące aktywnego monitorowania. Zespoły serwisowe konfigurują aktywne narzędzia monitorowania zgodnie z tymi wymaganiami. Aktywne narzędzia monitorowania obejmują program Microsoft Monitoring Agent (MMA) i Program Operacyjny Centrum systemu. Te narzędzia są skonfigurowane w taki sposób, aby zapewniały alerty czasowe dla pracowników zabezpieczeń platformy Azure w sytuacjach wymagających natychmiastowych działań.
+## <a name="protective-monitoring"></a>Monitorowanie ochronne
+Zabezpieczenia platformy Azure mają zdefiniowane wymagania dotyczące aktywnego monitorowania. Zespoły usług konfigurują aktywne narzędzia monitorowania zgodnie z tymi wymaganiami. Aktywne narzędzia monitorowania obejmują Microsoft Monitoring Agent (MMA) i System Center Operations Manager. Te narzędzia są skonfigurowane do udostępniania alertów czasowych dla pracowników zabezpieczeń platformy Azure w sytuacjach, które wymagają natychmiastowego działania.
 
 ## <a name="incident-management"></a>Zarządzanie zdarzeniami
-Firma Microsoft implementuje proces zarządzania zdarzeniami zabezpieczeń w celu ułatwienia skoordynowanej reakcji na incydenty, jeśli wystąpią.
+Firma Microsoft implementuje proces zarządzania zdarzeniami zabezpieczeń, aby ułatwić skoordynowane reagowanie na zdarzenia.
 
-Jeśli firma Microsoft dowie się o nieautoryzowanym dostępie do danych klienta przechowywanych na jej sprzęcie lub w jego obiektach lub dowie się o nieautoryzowanym dostępie do takiego sprzętu lub urządzeń, co powoduje utratę, ujawnienie lub zmianę danych klienta, Firma Microsoft wykonuje następujące czynności:
+Jeśli firma Microsoft będzie wiedzieć, że nieautoryzowany dostęp do danych klienta, które są przechowywane w jego sprzęcie lub w jego obiektach, lub ma świadomość nieautoryzowany dostęp do tego sprzętu lub udogodnień, co spowodowało utratę, ujawnienie lub zmianę danych klienta, firma Microsoft podejmuje następujące działania:
 
-- Niezwłocznie powiadamia klienta o zdarzeniu związanym z zabezpieczeniami.
-- Niezwłocznie bada zdarzenie zabezpieczeń i dostarcza klientom szczegółowych informacji o incydencie zabezpieczeń.
-- Podejmuje rozsądne i szybkie kroki w celu złagodzenia skutków i zminimalizowania szkód wynikających z incydentu zabezpieczeń.
+- Bezzwłocznie powiadamia klienta o zdarzeniu zabezpieczeń.
+- Program natychmiast bada zdarzenie związane z zabezpieczeniami i dostarcza klientom szczegółowe informacje o zdarzeniu zabezpieczeń.
+- Podejmuje odpowiednie czynności i monity, aby ograniczyć efekty i zminimalizować wszelkie szkody wynikające ze zdarzenia zabezpieczeń.
 
-Ustanowiono strukturę zarządzania zdarzeniami, która definiuje role i przydziela obowiązki. Zespół zarządzania zdarzeniami zabezpieczeń platformy Azure jest odpowiedzialny za zarządzanie zdarzeniami związanymi z zabezpieczeniami, w tym eskalacją, i zapewnienie zaangażowania wyspecjalizowanych zespołów w razie potrzeby. Menedżerowie operacji platformy Azure są odpowiedzialni za nadzorowanie dochodzeń i rozwiązywania incydentów związanych z bezpieczeństwem i prywatnością.
+Została ustanowiona struktura zarządzania zdarzeniami, która definiuje role i przydziela obowiązki. Zespół zarządzania zdarzeniami zabezpieczeń platformy Azure jest odpowiedzialny za zarządzanie zdarzeniami bezpieczeństwa, w tym eskalacją i zapewnianie zaangażowania zespołów wyspecjalizowanych w razie potrzeby. Menedżerowie operacji platformy Azure są odpowiedzialni za nadzorowanie badań i rozwiązywania problemów dotyczących zabezpieczeń i ochrony prywatności.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o tym, co firma Microsoft robi, aby zabezpieczyć infrastrukturę platformy Azure, zobacz:
+Aby dowiedzieć się więcej na temat sposobu zabezpieczania infrastruktury platformy Azure przez firmę Microsoft, zobacz:
 
-- [Obiekty platformy Azure, pomieszczenia i zabezpieczenia fizyczne](physical-security.md)
+- [Funkcje platformy Azure, lokalne i zabezpieczenia fizyczne](physical-security.md)
 - [Dostępność infrastruktury platformy Azure](infrastructure-availability.md)
-- [Składniki i granice systemu informacyjnego platformy Azure](infrastructure-components.md)
+- [Składniki i granice systemu informacji platformy Azure](infrastructure-components.md)
 - [Architektura sieci platformy Azure](infrastructure-network.md)
 - [Sieć produkcyjna platformy Azure](production-network.md)
-- [Funkcje zabezpieczeń usługi Azure SQL Database](infrastructure-sql.md)
-- [Operacje produkcyjne i zarządzanie platformą Azure](infrastructure-operations.md)
+- [Azure SQL Database funkcje zabezpieczeń](infrastructure-sql.md)
+- [Operacje produkcyjne platformy Azure i zarządzanie nimi](infrastructure-operations.md)
 - [Integralność infrastruktury platformy Azure](infrastructure-integrity.md)
-- [Ochrona danych klientów platformy Azure](protection-customer-data.md)
+- [Ochrona danych klienta platformy Azure](protection-customer-data.md)

@@ -1,6 +1,6 @@
 ---
-title: Przekazywanie plików na konto programu Media Services przy użyciu platformy .NET | Dokumenty firmy Microsoft
-description: Dowiedz się, jak uzyskać zawartość multimedialną do usługi Media Services, tworząc i przekazując zasoby.
+title: Przekazywanie plików na konto Media Services przy użyciu platformy .NET | Microsoft Docs
+description: Dowiedz się, jak pobrać zawartość multimedialną do Media Services przez utworzenie i przekazanie zasobów.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,51 +15,51 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64869456"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Przekazywanie plików na konto usługi Media Services na platformie .NET 
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
-Za pomocą usługi Media Services można przekazać (lub pozyskać) pliki cyfrowe do elementu zawartości. Encja **Zasobów** może zawierać wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki podpisów kodowanych (oraz metadane dotyczące tych plików).  Po przesłaniu plików zawartość jest bezpiecznie przechowywana w chmurze w celu dalszego przetwarzania i przesyłania strumieniowego.
+Za pomocą usługi Media Services można przekazać (lub pozyskać) pliki cyfrowe do elementu zawartości. Jednostka **zasobu** może zawierać wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów (oraz metadane dotyczące tych plików).  Po przekazaniu plików zawartość jest bezpiecznie przechowywana w chmurze w celu dalszej przetwarzania i przesyłania strumieniowego.
 
-Pliki w elementach zawartości są nazywane **plikami elementów zawartości**. **AssetFile wystąpienie** i rzeczywisty plik multimedialny są dwa odrębne obiekty. AssetFile wystąpienie zawiera metadane dotyczące pliku multimedialnego, podczas gdy plik multimedialny zawiera rzeczywistą zawartość multimedialną.
+Pliki w elementach zawartości są nazywane **plikami elementów zawartości**. Wystąpienie **AssetFile** i rzeczywisty plik multimedialny są dwa odrębne obiekty. Wystąpienie AssetFile zawiera metadane dotyczące pliku nośnika, natomiast plik multimedialny zawiera rzeczywistą zawartość multimedialną.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Obowiązują następujące zastrzeżenia:
  
- * Usługa Media Services używa wartości właściwości IAssetFile.Name podczas tworzenia adresów URL zawartości przesyłanej strumieniowo (na przykład http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters).) Z tego powodu kodowanie procentowe jest niedozwolone. Wartość **Name** właściwości nie może mieć żadnego z następujących [znaków zarezerwowanych do kodowania procentowego:](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)!*'(;@&=+$,/?%#[]". Ponadto może istnieć tylko jeden '.' dla rozszerzenia nazwy pliku.
-* Długość nazwy nie powinna być większa niż 260 znaków.
+ * Media Services używa wartości właściwości IAssetFile.Name podczas kompilowania adresów URL dla zawartości przesyłania strumieniowego (na przykład http://{AMSAccount}. Origin. MediaServices. Windows. NET/{GUID}/{IAssetFile. Name}/streamingParameters). Z tego powodu nie jest dozwolone kodowanie procentowo. Wartość właściwości **name** nie może zawierać żadnego z następujących [znaków:%-Encoding](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters), które są zastrzeżone.! * ' ();: @ &= + $,/?% # [] ". Ponadto dla rozszerzenia nazwy pliku może istnieć tylko jeden ".".
+* Długość nazwy nie może przekraczać 260 znaków.
 * Istnieje limit maksymalnego rozmiaru pliku do przetwarzania w usłudze Media Services. Zobacz [ten](media-services-quotas-and-limitations.md) artykuł, aby uzyskać szczegółowe informacje na temat ograniczeń rozmiarów plików.
 * Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Więcej informacji znajduje się w [tym](media-services-dotnet-manage-entities.md#limit-access-policies) artykule.
 
 Podczas tworzenia zasobów można określić następujące opcje szyfrowania:
 
-* **None** — szyfrowanie nie jest stosowane. Jest to wartość domyślna. Podczas korzystania z tej opcji zawartość nie jest chroniona podczas przesyłania lub przechowywania w magazynie.
-  Jeśli planujesz dostarczyć MP4 przy użyciu pobierania progresywnego, użyj tej opcji: 
-* **CommonEncryption** — użyj tej opcji, jeśli przesyłasz zawartość, która została już zaszyfrowana i chroniona za pomocą wspólnego szyfrowania lub funkcji PlayReady DRM (na przykład płynne przesyłanie strumieniowe chronione za pomocą programu PlayReady DRM).
-* **EnvelopeEncrypted** — użyj tej opcji, jeśli przesyłasz HLS zaszyfrowane za pomocą AES. Należy pamiętać, że pliki muszą być zakodowane i zaszyfrowane za pomocą narzędzia Transform Manager.
-* **StorageEncrypted** — szyfruje wyczyszczaną zawartość lokalnie przy użyciu szyfrowania AES-256 bit, a następnie przekazuje ją do usługi Azure Storage, gdzie jest przechowywana zaszyfrowana w spoczynku. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a także opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest zabezpieczenie za pomocą silnego szyfrowania wysokiej jakości multimedialnych plików wejściowych przechowywanych na dysku.
+* **None** — szyfrowanie nie jest stosowane. Jest to wartość domyślna. W przypadku korzystania z tej opcji zawartość nie jest chroniona podczas przesyłania ani przechowywania w magazynie.
+  Jeśli planujesz dostarczanie plików MP4 przy użyciu pobierania progresywnego, Użyj tej opcji: 
+* **CommonEncryption** — Użyj tej opcji, jeśli przesyłasz zawartość, która została już zaszyfrowana i chroniona za pomocą technologii DRM Common Encryption lub PlayReady (na przykład Smooth Streaming chronione za pomocą technologii PlayReady DRM).
+* **EnvelopeEncrypted** — Użyj tej opcji, jeśli przekazujesz HLS szyfrowany przy użyciu algorytmu AES. Należy pamiętać, że pliki muszą być zakodowane i zaszyfrowane za pomocą narzędzia Transform Manager.
+* **StorageEncrypted** — szyfruje zawartość Wyczyść lokalnie przy użyciu szyfrowania AES-256 bit, a następnie przekazuje je do usługi Azure Storage, gdzie jest przechowywana w stanie spoczynku. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a także opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest zabezpieczenie za pomocą silnego szyfrowania wysokiej jakości multimedialnych plików wejściowych przechowywanych na dysku.
   
-    Usługi Media Services zapewniają szyfrowanie magazynu na dysku dla zasobów, a nie za przekrojowe, takie jak Digital Rights Manager (DRM).
+    Media Services zapewnia szyfrowanie magazynów na dysku dla zasobów, a nie za pośrednictwem programu, takiego jak Menedżer praw cyfrowych (DRM).
   
-    Jeśli element zawartości jest szyfrowany w magazynie, musisz skonfigurować zasady dostarczania elementu zawartości. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania zasobów](media-services-dotnet-configure-asset-delivery-policy.md).
+    Jeśli element zawartości jest szyfrowany w magazynie, musisz skonfigurować zasady dostarczania elementu zawartości. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania elementów zawartości](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Jeśli określisz, czy zasób ma być zaszyfrowany za pomocą opcji **CommonEncrypted** lub **EnvelopeEncrypted,** musisz skojarzyć zasób z **contentkeyem**. Aby uzyskać więcej informacji, zobacz [Jak utworzyć contentkey](media-services-dotnet-create-contentkey.md). 
+Jeśli określisz, że element zawartości ma być szyfrowany przy użyciu opcji **CommonEncrypted** lub opcji **EnvelopeEncrypted** , należy skojarzyć element zawartości z **ContentKey**. Aby uzyskać więcej informacji, zobacz [How to Create a ContentKey](media-services-dotnet-create-contentkey.md). 
 
-Jeśli określisz, czy zasób ma być zaszyfrowany za pomocą opcji **StorageEncrypted,** zestaw SDK usługi Media Services dla platformy .NET utworzy **klucz zawartości zaszyfrowanej pamięci StorageEncrypted** **ContentKey** dla zasobu.
+Jeśli określisz, że element zawartości ma być szyfrowany przy użyciu opcji **StorageEncrypted** Media Services, zestaw SDK dla platformy .NET utworzy **StorageEncrypted** **ContentKey** dla elementu zawartości.
 
-W tym artykule pokazano, jak używać sdk programu Media Services .NET oraz rozszerzeń SDK programu Media Services .NET do przekazywania plików do zasobu usługi Media Services.
+W tym artykule pokazano, jak używać programu Media Services .NET SDK, a Media Services także rozszerzeń zestawu .NET SDK do przekazywania plików do Media Services elementu zawartości.
 
-## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Przekazywanie pojedynczego pliku za pomocą pliku Media Services .NET SDK
+## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Przekazywanie jednego pliku z zestawem SDK Media Services .NET
 
-Poniższy kod używa platformy .NET do przekazania pojedynczego pliku. AccessPolicy i Lokalizator są tworzone i niszczone przez upload funkcji. 
+Poniższy kod używa platformy .NET do przekazania pojedynczego pliku. AccessPolicy i lokalizator są tworzone i niszczone przez funkcję upload. 
 
 ```csharp
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
@@ -85,20 +85,20 @@ Poniższy kod używa platformy .NET do przekazania pojedynczego pliku. AccessPol
 ```
 
 
-## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Przekazywanie wielu plików za pomocą zestawu SDK usługi Media Services .NET
-Poniższy kod pokazuje, jak utworzyć zasób i przekazać wiele plików.
+## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Przekazywanie wielu plików przy użyciu zestawu Media Services .NET SDK
+Poniższy kod przedstawia sposób tworzenia elementu zawartości i przekazywania wielu plików.
 
 Kod wykonuje następujące czynności:
 
-* Tworzy pusty zasób przy użyciu Metody CreateEmptyAsset zdefiniowanej w poprzednim kroku.
-* Tworzy **AccessPolicy** wystąpienie, które definiuje uprawnienia i czas trwania dostępu do zasobu.
-* Tworzy wystąpienie **lokalizatora,** które zapewnia dostęp do zasobu.
-* Tworzy **wystąpienie BlobTransferClient.** Ten typ reprezentuje klienta, który działa na obiektach blob platformy Azure. W tym przykładzie klient monitoruje postęp przekazywania. 
-* Wylicza pliki w określonym katalogu i tworzy **wystąpienie AssetFile** dla każdego pliku.
-* Przekazuje pliki do usługi Media Services przy użyciu **UploadAsync** metody. 
+* Tworzy pusty element zawartości przy użyciu metody CreateEmptyAsset zdefiniowanej w poprzednim kroku.
+* Tworzy wystąpienie **AccessPolicy** , które definiuje uprawnienia i czas trwania dostępu do elementu zawartości.
+* Tworzy wystąpienie **lokalizatora** , które zapewnia dostęp do zasobu.
+* Tworzy wystąpienie **BlobTransferClient** . Ten typ reprezentuje klienta, który działa w obiektach Blob platformy Azure. W tym przykładzie klient monitoruje postęp przekazywania. 
+* Wylicza pliki w określonym katalogu i tworzy wystąpienie **AssetFile** dla każdego pliku.
+* Przekazuje pliki do Media Services przy użyciu metody **UploadAsync** . 
 
 > [!NOTE]
-> Użyj UploadAsync metody, aby upewnić się, że wywołania nie są blokowane i pliki są przekazywane równolegle.
+> Użyj metody UploadAsync, aby upewnić się, że wywołania nie blokują, a pliki są przekazywane równolegle.
 > 
 > 
 
@@ -161,22 +161,22 @@ Kod wykonuje następujące czynności:
 ```
 
 
-Przesyłając dużą liczbę zasobów, należy wziąć pod uwagę następujące kwestie:
+Podczas przekazywania dużej liczby zasobów należy wziąć pod uwagę następujące kwestie:
 
-* Utwórz nowy obiekt **CloudMediaContext** na wątek. **CloudMediaContext** Klasa nie jest bezpieczne dla wątków.
-* Zwiększ NumberOfConcurrentTransfers z domyślnej wartości 2 do wyższej wartości, takiej jak 5. Ustawienie tej właściwości ma wpływ na wszystkie wystąpienia **CloudMediaContext**. 
-* Zachowaj ParallelTransferThreadCount na domyślnej wartości 10.
+* Utwórz nowy obiekt **CloudMediaContext** na wątek. Klasa **CloudMediaContext** nie jest bezpieczna wątkowo.
+* Zwiększ NumberOfConcurrentTransfers z wartości domyślnej 2 do wyższej wartości, np. 5. Ustawienie tej właściwości ma wpływ na wszystkie wystąpienia elementu **CloudMediaContext**. 
+* Pozostaw wartość domyślną ParallelTransferThreadCount.
 
-## <a name="ingesting-assets-in-bulk-using-media-services-net-sdk"></a><a id="ingest_in_bulk"></a>Zbiorcze pozyskiwania zasobów przy użyciu sdk usługi Media Services .NET
-Przekazywanie dużych plików zasobów może być wąskim gardłem podczas tworzenia zasobów. Pojmowanie zasobów zbiorczo lub zbiorczo pochłonie", obejmuje oddzielenie tworzenia zasobów od procesu przekazywania. Aby użyć podejścia pozyskiwania zbiorczego, należy utworzyć manifest (IngestManifest), który opisuje zasób i skojarzone z nim pliki. Następnie użyj metody przekazywania do przekazywania skojarzonych plików do kontenera obiektów blob manifestu. Usługi Microsoft Azure Media Services obserwuje kontener obiektów blob skojarzony z manifestem. Po przekazaniu pliku do kontenera obiektu blob usługa Microsoft Azure Media Services kończy tworzenie zasobu na podstawie konfiguracji zasobu w manifeście (IngestManifestAsset).
+## <a name="ingesting-assets-in-bulk-using-media-services-net-sdk"></a><a id="ingest_in_bulk"></a>Zbiorcze pozyskiwanie zasobów przy użyciu zestawu SDK Media Services .NET
+Przekazywanie dużych plików zasobów może stanowić wąskie gardło podczas tworzenia zasobów. Pozyskiwanie zasobów zbiorczo lub zbiorczo polega na rozdzieleniu tworzenia zasobów przy użyciu procesu przekazywania. Aby użyć podejścia do pozyskiwania zbiorczego, należy utworzyć manifest (IngestManifest), który opisuje element zawartości i skojarzone z nim pliki. Następnie użyj wybranej metody przekazywania, aby przekazać skojarzone pliki do kontenera obiektów BLOB manifestu. Microsoft Azure Media Services czujki kontenera obiektów BLOB skojarzonego z manifestem. Po przekazaniu pliku do kontenera obiektów BLOB Microsoft Azure Media Services wykonuje tworzenie zasobów na podstawie konfiguracji zasobu w manifeście (IngestManifestAsset).
 
-Aby utworzyć nowy IngestManifest, wywołać Create metody udostępniane przez IngestManifests kolekcji na CloudMediaContext. Ta metoda tworzy nowy IngestManifest o nazwie manifestu, który podasz.
+Aby utworzyć nowy IngestManifest, wywołaj metodę Create wyświetloną przez kolekcję IngestManifests na CloudMediaContext. Ta metoda tworzy nowy IngestManifest z podaną nazwą manifestu.
 
 ```csharp
     IIngestManifest manifest = context.IngestManifests.Create(name);
 ```
 
-Utwórz zasoby skojarzone z zbiorczym ingestmanifest. Skonfiguruj żądane opcje szyfrowania dla zasobu do zbiorczego pozyskiwania.
+Utwórz zasoby, które są skojarzone z IngestManifest zbiorczym. Skonfiguruj odpowiednie opcje szyfrowania dla zasobu do pozyskiwania zbiorczego.
 
 ```csharp
     // Create the assets that will be associated with this bulk ingest manifest
@@ -184,9 +184,9 @@ Utwórz zasoby skojarzone z zbiorczym ingestmanifest. Skonfiguruj żądane opcje
     IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
 ```
 
-IngestManifestAsset kojarzy zasób z zbiorczym ingestmanifest do zbiorczego pozyskiwania. Kojarzy również AssetFiles, który składa się na każdy zasób. Aby utworzyć zestaw IngestManifestAsset, należy użyć metody Utwórz w kontekście serwera.
+IngestManifestAsset kojarzy element zawartości z IngestManifest zbiorczo do pozyskiwania zbiorczego. Kojarzy ona również AssetFiles, które tworzą każdy element zawartości. Aby utworzyć IngestManifestAsset, użyj metody Create w kontekście serwera.
 
-W poniższym przykładzie pokazano dodanie dwóch nowych ingestmanifestAssets, które kojarzą dwa zasoby wcześniej utworzone do manifestu pozyskiwania zbiorczego. Każdy zestaw IngestManifestAsset kojarzy również zestaw plików, które są przekazywane dla każdego zasobu podczas zbiorczego pozyskiwania.  
+Poniższy przykład ilustruje dodanie dwóch nowych IngestManifestAssets, które kojarzą dwa elementy zawartości wcześniej utworzonych do manifestu pozyskiwania zbiorczego. Każdy IngestManifestAsset również kojarzy zbiór plików, które są przekazywane dla każdego elementu zawartości podczas zbiorczego pozyskiwania.  
 
 ```csharp
     string filename1 = _singleInputMp4Path;
@@ -197,9 +197,9 @@ W poniższym przykładzie pokazano dodanie dwóch nowych ingestmanifestAssets, k
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 ```
 
-Można użyć dowolnej aplikacji klienckiej o dużej szybkości, która umożliwia przekazywanie plików zasobów do identyfikatora URI kontenera magazynu obiektów blob dostarczonej przez właściwość **IIngestManifest.BlobStorageUriForUpload** właściwości ingestmanifest. 
+Można użyć dowolnej szybkiej aplikacji klienckiej, która umożliwia przekazywanie plików zasobów do identyfikatora URI kontenera magazynu obiektów BLOB dostarczonego przez właściwość **IIngestManifest. BlobStorageUriForUpload** IngestManifest. 
 
-Poniższy kod pokazuje, jak używać pliku .NET SDK do przekazywania plików zasobów.
+Poniższy kod pokazuje, jak używać zestawu .NET SDK do przekazywania plików zasobów.
 
 ```csharp
     static void UploadBlobFile(string containerName, string filename)
@@ -226,7 +226,7 @@ Poniższy kod pokazuje, jak używać pliku .NET SDK do przekazywania plików zas
     }
 ```
 
-Kod do przekazywania plików zasobów dla przykładu użytego w tym artykule jest pokazany w poniższym przykładzie kodu:
+Kod przekazywania plików zasobów dla przykładu użytego w tym artykule przedstawiono w poniższym przykładzie kodu:
 
 ```csharp
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
@@ -234,9 +234,9 @@ Kod do przekazywania plików zasobów dla przykładu użytego w tym artykule jes
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
 ```
 
-Można określić postęp pozyskiwania zbiorczego dla wszystkich zasobów skojarzonych z **IngestManifest,** sondując właściwość Statystyka **IngestManifest**. Aby zaktualizować informacje o postępie, należy użyć nowego **CloudMediaContext** za każdym razem, gdy sondujesz właściwość Statistics.
+Możesz określić postęp zbiorczego pozyskiwania dla wszystkich zasobów skojarzonych z **IngestManifest** przez sondowanie właściwości Statistics **IngestManifest**. Aby można było zaktualizować informacje o postępie, należy użyć nowego **CloudMediaContext** przy każdym sondowaniu właściwości statystyk.
 
-Poniższy przykład pokazuje sondowanie IngestManifest przez jego **identyfikator**.
+Poniższy przykład ilustruje sondowanie elementu IngestManifest przez jego **Identyfikator**.
 
 ```csharp
     static void MonitorBulkManifest(string manifestID)
@@ -273,8 +273,8 @@ Poniższy przykład pokazuje sondowanie IngestManifest przez jego **identyfikato
 ```
 
 
-## <a name="upload-files-using-net-sdk-extensions"></a>Przekazywanie plików przy użyciu rozszerzeń SDK .NET
-W poniższym przykładzie pokazano, jak przekazać pojedynczy plik przy użyciu rozszerzeń SDK .NET. W tym przypadku używana jest metoda **CreateFromFile,** ale dostępna jest również wersja asynchroniczna (**CreateFromFileAsync**). **CreateFromFile** Metoda pozwala określić nazwę pliku, opcja szyfrowania i wywołania zwrotnego w celu raportowania postępu przekazywania pliku.
+## <a name="upload-files-using-net-sdk-extensions"></a>Przekazywanie plików przy użyciu rozszerzeń zestawu .NET SDK
+Poniższy przykład przedstawia sposób przekazywania pojedynczego pliku przy użyciu rozszerzeń zestawu SDK platformy .NET. W takim przypadku używana jest metoda **CreateFromFile** , ale wersja asynchroniczna jest również dostępna (**CreateFromFileAsync**). Metoda **CreateFromFile** umożliwia określenie nazwy pliku, opcji szyfrowania i wywołania zwrotnego w celu raportowania postępu przekazywania pliku.
 
 ```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
@@ -293,7 +293,7 @@ W poniższym przykładzie pokazano, jak przekazać pojedynczy plik przy użyciu 
     }
 ```
 
-W poniższym przykładzie wywołuje funkcję UploadFile i określa szyfrowanie magazynu jako opcję tworzenia zasobów.  
+Poniższy przykład wywołuje funkcję UploadFile i określa szyfrowanie magazynu jako opcję tworzenia elementu zawartości.  
 
 ```csharp
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
@@ -312,7 +312,7 @@ Możesz także używać usługi Azure Functions do wyzwalania zadania kodowania 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Następny krok
-Teraz, gdy został przekazany zasób do usługi Media Services, przejdź do artykułu [Jak uzyskać procesor multimediów.][How to Get a Media Processor]
+Teraz, gdy element zawartości został przekazany do Media Services, przejdź do artykułu [jak uzyskać informacje o procesorze multimediów][How to Get a Media Processor] .
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68422919"
 ---
 # <a name="what-is-azure-relay"></a>Co to jest usługa Azure Relay?
@@ -58,7 +58,7 @@ Aby uzyskać szczegółowe informacje o protokole połączenia hybrydowego, zoba
 ## <a name="wcf-relay"></a>Przekaźnik WCF
 Przekaźnik WCF działa z pełnym programem .NET Framework i technologią WCF. Należy utworzyć połączenie między usługą lokalną i usługą przekaźnika przy użyciu zestawu powiązań „przekaźników” WCF. Powiązania przekaźników są mapowane na nowe elementy powiązania transportu przeznaczone do tworzenia składników kanału WCF, które integrują się w chmurze z usługą Service Bus. Aby uzyskać więcej informacji, zobacz [wprowadzenie do usługi WCF Relay](service-bus-relay-tutorial.md).
 
-## <a name="hybrid-connections-vs-wcf-relay"></a>Połączenia hybrydowe a przekaźnik WCF
+## <a name="hybrid-connections-vs-wcf-relay"></a>Połączenia hybrydowe a WCF Relay
 Zarówno połączenia hybrydowe, jak i przekaźniki WCF umożliwiają bezpieczne połączenie z zasobami istniejącymi w sieci firmowej. Użycie jednej lub drugiej zależy od Twoich konkretnych potrzeb zgodnie z opisem w poniższej tabeli:
 
 |  | Przekaźnik WCF | Połączenia hybrydowe |
@@ -67,7 +67,7 @@ Zarówno połączenia hybrydowe, jak i przekaźniki WCF umożliwiają bezpieczne
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
 | **Java script/Node.JS** | |x |
-| **Otwarty protokół oparty na standardach** | |x |
+| **Protokół otwarty oparty na standardach** | |x |
 | **Modele programowania RPC** | |x |
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Architektura: przetwarzanie przychodzących żądań przekaźnika
@@ -82,7 +82,7 @@ Na poniższym diagramie przedstawiono sposób obsługiwania przychodzących żą
 5. Brama przekierowuje żądanie połączenia do odpowiedniej bramy wspomnianej w magazynie bramy. 
 6. Brama wysyła żądanie do klienta nasłuchującego tej bramy, aby utworzyć tymczasowy kanał do węzła bramy, który znajduje się najbliżej klienta wysyłającego. 
 7. Klient nasłuchujący tworzy tymczasowy kanał w bramie znajdującej się najbliżej klienta wysyłającego. Po nawiązaniu połączenia między klientami za pośrednictwem bramy klienci mogą wymieniać między sobą komunikaty. 
-8. Brama przekazuje wszystkie wiadomości od klienta nasłuchiwania do klienta wysyłającego. 
+8. Brama przekazuje wszystkie komunikaty od klienta nasłuchiwania do klienta wysyłającego. 
 9. Brama przesyła dalej komunikaty z klienta wysyłającego do klienta nasłuchującego.  
 
 ## <a name="next-steps"></a>Następne kroki

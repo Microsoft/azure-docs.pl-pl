@@ -9,20 +9,20 @@ ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67183835"
 ---
-Jeśli Python napotka błąd podczas uruchamiania aplikacji, zostanie zwrócona tylko prosta strona błędu (np. "Strona nie może być wyświetlana, ponieważ wystąpił wewnętrzny błąd serwera.").
+Jeśli w języku Python wystąpi błąd podczas uruchamiania aplikacji, zostanie zwrócona tylko prosta strona błędu (np. "nie można wyświetlić strony, ponieważ wystąpił wewnętrzny błąd serwera").
 
 Aby przechwycić błędy aplikacji języka Python:
 
-1. W witrynie Azure portal w aplikacji sieci Web wybierz pozycję **Ustawienia**.
+1. W Azure Portal w aplikacji sieci Web wybierz pozycję **Ustawienia**.
 2. Na karcie **Ustawienia** wybierz pozycję **Ustawienia aplikacji**.
-3. W obszarze **Ustawienia aplikacji**wprowadź następującą parę klucz/wartość:
-    * Klawisz : WSGI_LOG
-    * Wartość : D:\home\site\wwwroot\logs.txt (wprowadź wybór nazwy pliku)
+3. W obszarze **Ustawienia aplikacji**Wprowadź następującą parę klucz/wartość:
+    * Klucz: WSGI_LOG
+    * Wartość: D:\home\site\wwwroot\logs.txt (Wprowadź wybraną nazwę pliku)
 
-Błędy powinny być teraz widoczne w pliku logs.txt w folderze wwwroot.
+W pliku logs. txt w folderze wwwroot powinny teraz pojawić się błędy.

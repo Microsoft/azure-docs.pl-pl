@@ -9,20 +9,20 @@ ms.date: 03/29/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 060bc1039982cc0a77214d5dbe2a08de7a839c84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67183710"
 ---
-Aby otworzyć bezpośrednią sesję SSH z kontenerem, aplikacja powinna być uruchomiona.
+Aby otworzyć bezpośrednią sesję SSH z kontenerem, należy uruchomić aplikację.
 
-Wklej następujący adres URL do \<przeglądarki i zastąp nazwę aplikacji> nazwą aplikacji:
+Wklej następujący adres URL do przeglądarki i Zastąp \<ciąg App-Name> nazwą swojej aplikacji:
 
 ```
 https://<app-name>.scm.azurewebsites.net/webssh/host
 ```
 
-Jeśli nie jesteś jeszcze uwierzytelniony, musisz uwierzytelnić się za pomocą subskrypcji platformy Azure, aby nawiązać połączenie. Po uwierzytelnieniu zobaczysz powłokę w przeglądarce, w której można uruchamiać polecenia wewnątrz kontenera.
+Jeśli nie masz jeszcze uwierzytelnienia, musisz uwierzytelnić się w ramach subskrypcji platformy Azure, aby nawiązać połączenie. Po uwierzytelnieniu zostanie wyświetlona powłoka w przeglądarce, w której można uruchamiać polecenia w kontenerze.
 
 ![Połączenie SSH](./media/app-service-web-ssh-connect-no-h/app-service-linux-ssh-connection.png)

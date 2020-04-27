@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 4b166af219c8983e5765ef4c884ced7eb0689f54
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 1cd536f4a7c3751e2b85f40e582c1eb1c5bf2c74
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106682"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160515"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Platforma handlowa firmy Microsoft — często zadawane pytania
 
@@ -57,8 +57,9 @@ Dzięki platformie Azure Marketplace klienci mogą odkrywać aplikacje techniczn
 Oferty portalu Azure Marketplace można zakupić w:
 
 * [Witryna sieci Web](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Azure Portal](https://portal.azure.com) <br>
-[!Note] Wymaga konta platformy Azure. Jeśli go nie masz, nastąpi przekierowanie do strony **Witamy** w usłudze Azure, aby ją utworzyć.  
+* [Azure Portal](https://portal.azure.com) <br> 
+>[!Note]
+>Wymaga konta platformy Azure. Jeśli go nie masz, nastąpi przekierowanie do strony **Witamy** w usłudze Azure, aby ją utworzyć.  
 * [Interfejs wiersza polecenia platformy Azure (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -336,7 +337,7 @@ Potencjalni klienci to klienci, którzy wdrażają produkty z portalu Marketplac
 
 **Gdzie mogę uzyskać pomoc w konfigurowaniu miejsca docelowego potencjalnego klienta?**
 
-Dowiedz się więcej w [centrum partnerskim — Pobierz](./partner-center-portal/commercial-marketplace-get-customer-leads.md) dokumentację dla klientów lub Prześlij zgłoszenie do [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) pomocy technicznej, wybierając typ oferty i zarządzanie potencjalnymi klientami.
+Dowiedz się więcej w [centrum partnerskim — Uzyskaj](./partner-center-portal/commercial-marketplace-get-customer-leads.md) dokumentację dotyczącą klientów lub Prześlij bilet pomocy technicznej za pomocą [pomocy i obsługi technicznej](https://partner.microsoft.com/support/v2/?stage=1) , wybierając typ oferty i zarządzanie potencjalnymi klientami.
 
 **Czy muszę skonfigurować miejsce docelowe potencjalnego klienta w celu opublikowania oferty w portalu Marketplace?**
 

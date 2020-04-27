@@ -1,6 +1,6 @@
 ---
 title: Często zadawane pytania dotyczące wydajności aplikacji
-description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące problemów z dostępnością, wydajnością i aplikacjami w usłudze Azure App Service.
+description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące dostępności, wydajności i problemów z aplikacjami w programie Azure App Service.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -9,107 +9,107 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259866"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159987"
 ---
-# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące wydajności aplikacji dla aplikacji sieci Web na platformie Azure
+# <a name="application-performance-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące wydajności aplikacji dla Web Apps na platformie Azure
 
 > [!NOTE]
-> Niektóre z poniższych wytycznych mogą działać tylko w usługach Windows lub Linux App Services. Na przykład usługi Linux App Services są domyślnie uruchamiane w trybie 64-bitowym.
+> Niektóre z poniższych wskazówek mogą funkcjonować tylko w systemie Windows lub Linux App Services. Na przykład system Linux App Services domyślnie uruchamiany w trybie 64-bitowym.
 >
 
-W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące problemów z wydajnością aplikacji dla [funkcji aplikacji w sieci Web usługi Azure App Service.](https://azure.microsoft.com/services/app-service/web/)
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące problemów z wydajnością aplikacji [Web Apps funkcji Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="why-is-my-app-slow"></a>Dlaczego moja aplikacja jest powolna?
 
-Wiele czynników może przyczynić się do powolnej wydajności aplikacji. Aby uzyskać szczegółowe kroki rozwiązywania problemów, zobacz [Rozwiązywanie problemów z powolną wydajnością aplikacji sieci Web](troubleshoot-performance-degradation.md).
+Wiele czynników może przyczynić się do spowolnienia wydajności aplikacji. Aby uzyskać szczegółowe instrukcje dotyczące rozwiązywania problemów, zobacz [Rozwiązywanie problemów z niską wydajnością aplikacji sieci Web](troubleshoot-performance-degradation.md).
 
-## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Jak rozwiązać problem ze scenariuszem wysokiego zużycia procesora?
+## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Jak mogę Rozwiązywanie problemów z dużym scenariuszem zużycia procesora CPU?
 
-W niektórych scenariuszach wysokiego zużycia procesora CPU aplikacja może naprawdę wymagać więcej zasobów obliczeniowych.W takim przypadku należy rozważyć skalowanie do wyższej warstwy usług, dzięki czemu aplikacja pobiera wszystkie zasoby, których potrzebuje. Innym razem wysokie zużycie procesora CPU może być spowodowane przez złą pętlę lub praktykę kodowania. Uzyskiwanie wglądu w to, co powoduje zwiększone zużycie procesora CPU jest procesem dwuczęściowym. Najpierw utwórz zrzut procesu, a następnie przeanalizuj zrzut procesu. Aby uzyskać więcej informacji, zobacz [Przechwytywanie i analizowanie pliku zrzutu pod kątem wysokiego zużycia procesora CPU dla aplikacji sieci Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+W przypadku niektórych dużych scenariuszy użycia procesora CPU aplikacja może naprawdę wymagać większej ilości zasobów obliczeniowych.W takim przypadku Rozważ przeskalowanie do wyższej warstwy usług, aby aplikacja mogła pobierać wszystkie potrzebne zasoby. Czasami duże użycie procesora CPU może być spowodowane przez złą pętlę lub przez zaawansowaną technikę kodowania. Uzyskanie wglądu w informacje o tym, co wyzwala użycie procesora CPU, jest procesem dwuetapowym. Najpierw Utwórz zrzut procesu, a następnie Przeanalizuj zrzut procesu. Aby uzyskać więcej informacji, zobacz [przechwytywanie i analizowanie pliku zrzutu w celu zapewnienia wysokiego użycia procesora CPU dla Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
-## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Jak rozwiązać problem ze scenariuszem wysokiego zużycia pamięci?
+## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Jak mogę Rozwiązywanie problemów dotyczących dużego użycia pamięci?
 
-W niektórych scenariuszach wysokiego zużycia pamięci aplikacja może naprawdę wymagać więcej zasobów obliczeniowych.W takim przypadku należy rozważyć skalowanie do wyższej warstwy usług, dzięki czemu aplikacja pobiera wszystkie zasoby, których potrzebuje. Innym razem błąd w kodzie może spowodować przeciek pamięci. Praktyka kodowania również może zwiększyć zużycie pamięci.Uzyskiwanie wglądu w to, co powoduje wysokie zużycie pamięci jest procesem dwuczęściowym. Najpierw utwórz zrzut procesu, a następnie przeanalizuj zrzut procesu. Diagnostyka awarii z Galerii rozszerzenia witryny azure można wydajnie wykonać oba te kroki. Aby uzyskać więcej informacji, zobacz [Przechwytywanie i analizowanie pliku zrzutu pod kątem przerywanej wysokiej pamięci dla aplikacji sieci Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+W niektórych dużych scenariuszach zużycia pamięci aplikacja może naprawdę wymagać większej ilości zasobów obliczeniowych.W takim przypadku Rozważ przeskalowanie do wyższej warstwy usług, aby aplikacja mogła pobierać wszystkie potrzebne zasoby. Czasami usterka w kodzie może spowodować przeciek pamięci. Sposób tworzenia kodu może również zwiększyć zużycie pamięci.Uzyskanie wglądu w informacje o tym, co wyzwala duże użycie pamięci, jest procesem dwuetapowym. Najpierw Utwórz zrzut procesu, a następnie Przeanalizuj zrzut procesu. Diagnostykę awarii z galerii rozszerzeń witryn Azure można efektywnie wykonać obie te czynności. Aby uzyskać więcej informacji, zobacz [przechwytywanie i analizowanie pliku zrzutu w celu przeprowadzenia sporadycznej dużej ilości pamięci dla Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
-## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Jak zautomatyzować aplikacje internetowe usługi App Service przy użyciu programu PowerShell?
+## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Jak mogę Automatyzowanie App Service aplikacji sieci Web przy użyciu programu PowerShell?
 
-Polecenia cmdlet programu PowerShell umożliwiają zarządzanie aplikacjami sieci Web usługi App Service i ich obsługę. W naszym wpisie w blogu [Automatyzuj aplikacje internetowe hostowane w usłudze Azure App Service przy użyciu programu PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)opisano, jak zautomatyzować wykonywanie poleceń cmdlet programu PowerShell opartych na usłudze Azure Resource Manager. Wpis w blogu zawiera również przykładowy kod dla różnych zadań zarządzania aplikacjami sieci Web. Aby uzyskać opisy i składnię wszystkich poleceń cmdlet aplikacji sieci Web usługi App Service, zobacz [Az.Websites](/powershell/module/az.websites).
+Za pomocą poleceń cmdlet programu PowerShell można zarządzać App Service aplikacjami sieci Web i obsługiwać je. W naszym wpisie w blogu [Automatyzowanie aplikacji sieci Web hostowanych w Azure App Service przy użyciu programu PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)opisujemy sposób używania poleceń cmdlet programu PowerShell opartych na Azure Resource Manager do automatyzowania typowych zadań. Wpis w blogu zawiera również przykładowy kod dla różnych zadań zarządzania aplikacjami sieci Web. Opisy i składnia wszystkich poleceń cmdlet App Service Web Apps można znaleźć w temacie [AZ. websites](/powershell/module/az.websites).
 
-## <a name="how-do-i-view-my-web-apps-event-logs"></a>Jak wyświetlić dzienniki zdarzeń aplikacji internetowej?
+## <a name="how-do-i-view-my-web-apps-event-logs"></a>Jak mogę wyświetlić dzienniki zdarzeń aplikacji sieci Web?
 
 Aby wyświetlić dzienniki zdarzeń aplikacji sieci Web:
 
-1. Zaloguj się na swojej [stronie internetowej Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. W menu wybierz polecenie **Dydug konsoli** > **CMD**.
-3. Wybierz folder **LogFiles.**
-4. Aby wyświetlić dzienniki zdarzeń, wybierz ikonę ołówka obok **pliku eventlog.xml**.
-5. Aby pobrać dzienniki, uruchom polecenie cmdlet programu PowerShell `Save-AzureWebSiteLog -Name webappname`.
+1. Zaloguj się do **witryny sieci Web kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+2. W menu wybierz kolejno polecenia **Debuguj konsolę** > **cmd**.
+3. Wybierz folder **LogFiles** .
+4. Aby wyświetlić dzienniki zdarzeń, wybierz ikonę ołówka obok pozycji **EventLog. XML**.
+5. Aby pobrać dzienniki, uruchom polecenie cmdlet `Save-AzureWebSiteLog -Name webappname`programu PowerShell.
 
-## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Jak przechwycić zrzut pamięci w trybie użytkownika mojej aplikacji internetowej?
+## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Jak mogę przechwycić zrzut pamięci w trybie użytkownika aplikacji sieci Web?
 
-Aby przechwycić zrzut pamięci w trybie użytkownika aplikacji sieci web:
+Aby przechwycić zrzut pamięci w trybie użytkownika aplikacji sieci Web:
 
-1. Zaloguj się na swojej [stronie internetowej Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. Wybierz menu **Eksploratora procesów.**
-3. Kliknij prawym przyciskiem myszy proces **w3wp.exe** lub proces WebJob.
-4. Wybierz **opcję Pobierz zrzut** > **pamięci Pełny zrzut**.
+1. Zaloguj się do **witryny sieci Web kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+2. Wybierz menu **Eksploratora procesów** .
+3. Kliknij prawym przyciskiem myszy proces **w3wp. exe** lub proces WebJob.
+4. Wybierz pozycję **Pobierz zrzut** > pamięci**pełny zrzut**.
 
-## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Jak wyświetlić informacje na poziomie procesu dla mojej aplikacji internetowej?
+## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Jak mogę wyświetlić informacje na poziomie procesu dla mojej aplikacji sieci Web?
 
-Dostępne są dwie opcje wyświetlania informacji na poziomie procesu dla aplikacji sieci web:
+Dostępne są dwie opcje wyświetlania informacji na poziomie procesu dla aplikacji sieci Web:
 
 *   W witrynie Azure Portal:
-    1. Otwórz **Eksploratora procesów** dla aplikacji sieci web.
-    2. Aby wyświetlić szczegóły, wybierz proces **w3wp.exe.**
-*   W konsoli Kudu:
-    1. Zaloguj się na swojej [stronie internetowej Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-    2. Wybierz menu **Eksploratora procesów.**
-    3. W przypadku procesu **w3wp.exe** wybierz opcję **Właściwości**.
+    1. Otwórz **Eksploratora procesów** dla aplikacji sieci Web.
+    2. Aby wyświetlić szczegóły, wybierz proces **w3wp. exe** .
+*   W konsoli kudu:
+    1. Zaloguj się do **witryny sieci Web kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+    2. Wybierz menu **Eksploratora procesów** .
+    3. W przypadku procesu **w3wp. exe** wybierz pozycję **Właściwości**.
 
-## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>Gdy przeglądam aplikację, widzę "Błąd 403 - Ta aplikacja internetowa jest zatrzymana." Jak rozwiązać ten problem?
+## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>Po przejściu do mojej aplikacji pojawia się komunikat "Błąd 403 — ta aplikacja sieci Web została zatrzymana". Jak rozwiązać ten problem?
 
-Może to spowodować trzy warunki:
+W przypadku tego błędu mogą wystąpić trzy warunki:
 
-* Aplikacja internetowa osiągnęła limit rozliczeń, a Twoja witryna została wyłączona.
-* Aplikacja internetowa została zatrzymana w portalu.
-* Aplikacja sieci web osiągnęła limit przydziału zasobów, który może mieć zastosowanie do planu usługi skalowania bezpłatnego lub udostępnionego.
+* Aplikacja sieci Web osiągnęła limit rozliczeniowy, a witryna została wyłączona.
+* Aplikacja sieci Web została zatrzymana w portalu.
+* Aplikacja sieci Web osiągnęła limit przydziału zasobów, który może być stosowany do planu usług w warstwie Bezpłatna lub współdzielona.
 
-Aby zobaczyć, co jest przyczyną błędu i rozwiązać problem, wykonaj kroki opisane w [aplikacji sieci Web: "Błąd 403 — ta aplikacja internetowa jest zatrzymana"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Aby zobaczyć, co jest przyczyną błędu i rozwiązać ten problem, wykonaj czynności opisane w [Web Apps: "błąd 403 — ta aplikacja sieci Web została zatrzymana"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
 
-## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Gdzie mogę dowiedzieć się więcej o przydziałach i limitach dla różnych planów usługi App Service?
+## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Gdzie można dowiedzieć się więcej o limitach przydziału i limitów dla różnych planów App Service?
 
-Aby uzyskać informacje o przydziałach i limitach, zobacz [Limity usługi app service](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
+Informacje o przydziałach i limitach można znaleźć w temacie [App Service limitów](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
-## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>Jak skrócić czas odpowiedzi dla pierwszego żądania po czasie bezczynnym?
+## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>Jak mogę skrócić czas odpowiedzi dla pierwszego żądania po czasie bezczynności?
 
-Domyślnie aplikacje sieci web są zwalniane, jeśli są bezczynne przez określony czas. W ten sposób system może oszczędzać zasoby. Wadą jest to, że odpowiedź na pierwsze żądanie po zwalnianiu aplikacji sieci web jest dłuższy, aby umożliwić aplikacji sieci web, aby załadować i rozpocząć wyświetlanie odpowiedzi. W planach usług podstawowych i standardowych można włączyć ustawienie **Zawsze włączone,** aby aplikacja była zawsze ładowana. Eliminuje to dłuższy czas ładowania po bezczynności aplikacji. Aby zmienić ustawienie **Zawsze włączone:**
+Domyślnie aplikacje sieci Web są zwalniane, jeśli są bezczynne przez określony czas. W ten sposób system może zaoszczędzić zasoby. Minusem polega na tym, że odpowiedź na pierwsze żądanie po wyładowaniu aplikacji sieci Web jest większa, co pozwala aplikacji sieci Web ładować i uruchamiać odpowiedzi. W planach usług w warstwach Podstawowa i Standardowa można włączyć ustawienie **zawsze włączone** , aby zachować zawsze załadowane aplikacje. Eliminuje to dłuższe czasy ładowania, gdy aplikacja jest bezczynna. Aby zmienić ustawienie **zawsze włączone** :
 
-1. W witrynie Azure portal przejdź do aplikacji sieci web.
+1. W Azure Portal przejdź do aplikacji sieci Web.
 2. Wybierz **konfigurację**
-3. Wybierz **pozycję Ustawienia ogólne**.
-4. W obszarze **Zawsze włączone**wybierz pozycję **Wł.**
+3. Wybierz pozycję **Ustawienia ogólne**.
+4. Dla opcji **zawsze włączone**wybierz pozycję **włączone**.
 
-## <a name="how-do-i-turn-on-failed-request-tracing"></a>Jak włączyć śledzenie żądań nie powiodło się?
+## <a name="how-do-i-turn-on-failed-request-tracing"></a>Jak mogę włączyć śledzenia nieudanych żądań?
 
-Aby włączyć śledzenie żądań nie powiodło się:
+Aby włączyć śledzenie nieudanych żądań:
 
-1. W witrynie Azure portal przejdź do aplikacji sieci web.
-3. Wybierz wszystkie**dzienniki diagnostyki** **ustawień** > .
-4. W przypadku **śledzenia żądań nie powiodło się**wybierz pozycję **On**.
-5. Wybierz **pozycję Zapisz**.
-6. W bloku aplikacji sieci Web wybierz pozycję **Narzędzia**.
-7. Wybierz **pozycję Visual Studio Online**.
-8. Jeśli ustawienie nie jest **włączone,** wybierz opcję **Włączone**.
-9. Wybierz **pozycję Przejdź**.
-10. Wybierz **web.config**.
-11. W pliku system.webServer dodaj tę konfigurację (aby przechwycić określony adres URL):
+1. W Azure Portal przejdź do aplikacji sieci Web.
+3. Wybierz kolejno pozycje **wszystkie ustawienia** > **dzienniki diagnostyki**.
+4. W przypadku **śledzenia nieudanych żądań**wybierz pozycję **włączone**.
+5. Wybierz pozycję **Zapisz**.
+6. W bloku aplikacja sieci Web wybierz pozycję **Narzędzia**.
+7. Wybierz pozycję **Visual Studio Online**.
+8. Jeśli to ustawienie nie jest **włączone**, wybierz pozycję **włączone**.
+9. Wybierz pozycję **Przejdź**.
+10. Wybierz **plik Web. config**.
+11. W obszarze System. WebServer Dodaj tę konfigurację (aby przechwycić określony adres URL):
 
     ```xml
     <system.webServer>
@@ -126,7 +126,7 @@ Aby włączyć śledzenie żądań nie powiodło się:
     </add> </traceFailedRequests>
     </tracing>
     ```
-12. Aby rozwiązać problemy z powolną wydajnością, dodaj tę konfigurację (jeśli żądanie przechwytywania trwa dłużej niż 30 sekund):
+12. Aby rozwiązać problemy związane z niską wydajnością, Dodaj tę konfigurację (Jeśli żądanie przechwytywania trwa dłużej niż 30 sekund):
     ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
@@ -141,51 +141,51 @@ Aby włączyć śledzenie żądań nie powiodło się:
     </add> </traceFailedRequests>
     </tracing>
     ```
-13. Aby pobrać ślady żądań, które nie powiodły się, przejdź do [witryny](https://portal.azure.com)sieci Web.
-15. Wybierz **narzędzia** > **Kudu** > **Go**.
-18. W menu wybierz polecenie **Dydug konsoli** > **CMD**.
-19. Zaznacz folder **LogFiles,** a następnie wybierz folder o nazwie, która zaczyna się od **W3SVC**.
+13. Aby pobrać ślady żądań zakończonych niepowodzeniem, w [portalu](https://portal.azure.com)przejdź do witryny sieci Web.
+15. Wybierz pozycję **Narzędzia** > **kudu** > **Przejdź**.
+18. W menu wybierz kolejno polecenia **Debuguj konsolę** > **cmd**.
+19. Wybierz folder **LogFiles** , a następnie wybierz folder o nazwie rozpoczynającej się od **W3SVC**.
 20. Aby wyświetlić plik XML, wybierz ikonę ołówka.
 
-## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>Widzę komunikat "Proces roboczy zażądał recyklingu z powodu limitu "Procent pamięci". Jak rozwiązać ten problem?
+## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>Wyświetlany jest komunikat "zażądano odtworzenia procesu roboczego z powodu limitu" procent pamięci ". Jak mogę rozwiązać ten problem?
 
-Maksymalna dostępna ilość pamięci dla procesu 32-bitowego (nawet w 64-bitowym systemie operacyjnym) wynosi 2 GB. Domyślnie proces roboczy jest ustawiony na 32-bitowy w usłudze App Service (w celu zapewnienia zgodności ze starszymi aplikacjami sieci web).
+Maksymalna dostępna ilość pamięci dla procesu 32-bitowego (nawet z 64-bitowym systemem operacyjnym) wynosi 2 GB. Domyślnie proces roboczy jest ustawiony na 32-bitowy w App Service (w celu zapewnienia zgodności ze starszymi aplikacjami sieci Web).
 
-Należy rozważyć przełączenie do procesów 64-bitowych, aby można było korzystać z dodatkowej pamięci dostępnej w roli składnika Web Worker. Spowoduje to uruchomienie aplikacji sieci web, więc odpowiednio zaplanować.
+Rozważ przełączenie na 64-bitowe procesów, aby można było korzystać z dodatkowej pamięci dostępnej w roli procesu roboczego sieci Web. Spowoduje to wyzwolenie ponownego uruchomienia aplikacji sieci Web, więc zaplanuj odpowiednią wartość.
 
-Należy również zauważyć, że środowisko 64-bitowe wymaga planu usługi Basic lub Standard. Plany bezpłatne i udostępnione zawsze są uruchamiane w środowisku 32-bitowym.
+Należy również zauważyć, że środowisko 64-bitowe wymaga planu usługi Basic lub standard. Plany bezpłatna i współdzielona są zawsze uruchamiane w środowisku 32-bitowym.
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie aplikacji sieci Web w usłudze App Service](configure-common.md).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie aplikacji sieci Web w App Service](configure-common.md).
 
-## <a name="why-does-my-request-time-out-after-230-seconds"></a>Dlaczego mój limit czasu żądania po 230 sekundach?
+## <a name="why-does-my-request-time-out-after-230-seconds"></a>Dlaczego moje żądanie przekroczyło limit czasu po 230 sekundach?
 
-Moduł równoważenia obciążenia platformy Azure ma domyślne ustawienie limitu czasu bezczynności na cztery minuty. Jest to zazwyczaj rozsądny termin odpowiedzi na żądanie internetowe. Jeśli aplikacja sieci Web wymaga przetwarzania w tle, zalecamy korzystanie z usługi Azure WebJobs. Aplikacja sieci Web platformy Azure może wywoływać webjobs i otrzymywać powiadomienia po zakończeniu przetwarzania w tle. Można wybrać jedną z wielu metod korzystania z funkcji WebJobs, w tym kolejek i wyzwalaczy.
+Azure Load Balancer ma domyślne ustawienia limitu czasu bezczynności wynoszące cztery minuty. Jest to zazwyczaj rozsądny limit czasu odpowiedzi dla żądania sieci Web. Jeśli aplikacja sieci Web wymaga przetwarzania w tle, zalecamy użycie Azure WebJobs. Aplikacja sieci Web platformy Azure może wywoływać Zadania WebJob i otrzymywać powiadomienia o zakończeniu przetwarzania w tle. Można wybierać spośród wielu metod do korzystania z zadań WebJob, w tym kolejek i wyzwalaczy.
 
-WebJobs jest przeznaczony do przetwarzania w tle. W umiejce webjob można wykonać tyle przetwarzania w tle, ile chcesz. Aby uzyskać więcej informacji na temat aplikacji WebJobs, zobacz [Uruchamianie zadań w tle za pomocą aplikacji WebJobs](webjobs-create.md).
+Zadania WebJob są przeznaczone do przetwarzania w tle. W ramach zadania WebJob można wykonać dowolną ilość przetwarzania w tle. Aby uzyskać więcej informacji o zadaniach WebJob, zobacz [Uruchamianie zadań w tle za pomocą zadań WebJob](webjobs-create.md).
 
-## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET podstawowe aplikacje, które są hostowane w usłudze App Service, czasami przestają odpowiadać. Jak rozwiązać ten problem?
+## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET Core aplikacje hostowane w App Service czasem nie odpowiadają. Jak mogę rozwiązać ten problem?
 
-Znany problem z wcześniejszą [wersją Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) może spowodować, że aplikacja ASP.NET Core 1.0, która jest hostowana w usłudze App Service, aby sporadycznie przestać odpowiadać. Może również pojawić się ten komunikat: "Określona aplikacja CGI napotkała błąd, a serwer zakończył proces."
+Znany problem z wcześniejszą [wersją Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) może spowodować, że aplikacja ASP.NET Core 1,0, która jest hostowana w App Service, aby sporadycznie przestać reagować. Ten komunikat może również zostać wyświetlony: "określona aplikacja CGI napotkała błąd i serwer zakończył proces".
 
-Ten problem został rozwiązany w kestrel wersji 1.0.2. Ta wersja jest zawarta w aktualizacji ASP.NET Core 1.0.3. Aby rozwiązać ten problem, upewnij się, że zaktualizowałeś zależności aplikacji, aby używać Kestrel 1.0.2. Alternatywnie można użyć jednego z dwóch obejść opisanych w poście w blogu [ASP.NET problemy z powolnym perfem Core 1.0 w aplikacjach sieci Web usługi App Service.](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites)
+Ten problem został rozwiązany w wersji Kestrel 1.0.2. Ta wersja jest uwzględniona w ASP.NET Core aktualizacji 1.0.3. Aby rozwiązać ten problem, upewnij się, że Twoje zależności aplikacji zostały zaktualizowane, tak aby korzystały z Kestrel 1.0.2. Alternatywnie możesz użyć jednego z dwóch obejść, które opisano w wpisie w blogu [ASP.NET Core 1,0 wolnych problemów z wydajności w aplikacjach App Service Web Apps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
 
 
-## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>Nie mogę znaleźć plików dziennika w strukturze plików mojej aplikacji internetowej. Jak je znaleźć?
+## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>Nie mogę znaleźć plików dziennika w strukturze plików mojej aplikacji sieci Web. Jak można je znaleźć?
 
-Jeśli używasz funkcji Lokalnej pamięci podręcznej usługi App Service, dotyczy to struktury folderów LogFiles i Data dla wystąpienia usługi App Service. Gdy używana jest lokalna pamięć podręczna, podfoldery są tworzone w folderach LogFiles i Data magazynu. Podfoldery używają wzorca nazewnictwa "unikatowy identyfikator" + sygnatura czasowa. Każdy podfolder odpowiada wystąpieniu maszyny Wirtualnej, w którym aplikacja sieci web jest uruchomiona lub została uruchomiona.
+W przypadku korzystania z funkcji lokalnej pamięci podręcznej App Service, ma to na przykład strukturę folderu LogFiles i foldery danych dla wystąpienia App Service. Gdy lokalna pamięć podręczna jest używana, podfoldery są tworzone w dziennikach i w folderach danych magazynu. Podfoldery używają wzorca nazewnictwa "unikatowy identyfikator" + sygnatura czasowa. Każdy podfolder odnosi się do wystąpienia maszyny wirtualnej, w którym działa aplikacja sieci Web lub która została uruchomiona.
 
-Aby ustalić, czy używasz lokalnej pamięci podręcznej, sprawdź kartę **ustawienia aplikacji** usługi App Service. Jeśli używana jest lokalna pamięć `WEBSITE_LOCAL_CACHE_OPTION` podręczna, ustawienie aplikacji jest ustawione na `Always`.
+Aby określić, czy korzystasz z lokalnej pamięci podręcznej, sprawdź kartę **Ustawienia aplikacji** App Service. Jeśli lokalna pamięć podręczna jest używana, ustawienie `WEBSITE_LOCAL_CACHE_OPTION` aplikacji jest ustawione na `Always`.
 
-Jeśli nie używasz lokalnej pamięci podręcznej i występuje ten problem, prześlij żądanie pomocy technicznej.
+Jeśli nie korzystasz z lokalnej pamięci podręcznej i występuje ten problem, Prześlij żądanie pomocy technicznej.
 
-## <a name="i-see-the-message-an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissions-how-do-i-resolve-this"></a>Widzę komunikat "Podjęto próbę uzyskania dostępu do gniazda w sposób zabroniony przez jego uprawnienia dostępu." Jak rozwiązać ten problem?
+## <a name="i-see-the-message-an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissions-how-do-i-resolve-this"></a>Zobaczym komunikat "podjęto próbę uzyskania dostępu do gniazda w sposób zabroniony przez jego uprawnienia dostępu". Jak rozwiązać ten problem?
 
-Ten błąd zazwyczaj występuje, jeśli wychodzące połączenia TCP w wystąpieniu maszyny Wirtualnej są wyczerpane. W usłudze app service limity są wymuszane dla maksymalnej liczby połączeń wychodzących, które mogą być wykonane dla każdego wystąpienia maszyny Wirtualnej. Aby uzyskać więcej informacji, zobacz [Limity liczbowe między wirtualnymi maszynami wirtualnymi](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits).
+Ten błąd występuje zazwyczaj, gdy wychodzące połączenia TCP w wystąpieniu maszyny wirtualnej zostaną wyczerpane. W App Service limity są wymuszane dla maksymalnej liczby połączeń wychodzących, które można wykonać dla każdego wystąpienia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [limity liczbowe między maszynami](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)wirtualnymi.
 
-Ten błąd może również wystąpić, jeśli spróbujesz uzyskać dostęp do adresu lokalnego z aplikacji. Aby uzyskać więcej informacji, zobacz [Żądania adresów lokalnych](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests).
+Ten błąd może również wystąpić, jeśli próbujesz uzyskać dostęp do adresu lokalnego z aplikacji. Aby uzyskać więcej informacji, zobacz [żądania adresów lokalnych](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests).
 
-Aby uzyskać więcej informacji na temat połączeń wychodzących w aplikacji sieci web, zobacz wpis w blogu dotyczący [połączeń wychodzących z witrynami sieci Web platformy Azure](https://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/).
+Aby uzyskać więcej informacji o połączeniach wychodzących w aplikacji sieci Web, zobacz wpis w blogu dotyczący [połączeń wychodzących z usługą Azure Websites](https://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/).
 
-## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Jak zdalnie debugować aplikację sieci Web usługi App Service za pomocą programu Visual Studio?
+## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Jak mogę użyć programu Visual Studio do zdalnego debugowania mojej aplikacji internetowej App Service?
 
-Aby uzyskać szczegółowy przewodnik, który pokazuje, jak debugować aplikację sieci web przy użyciu programu Visual Studio, zobacz [Zdalne debugowanie aplikacji sieci Web usługi App Service](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
+Aby uzyskać szczegółowy przewodnik, w którym pokazano, jak debugować aplikację sieci Web przy użyciu programu Visual Studio, zobacz [zdalne debugowanie aplikacji internetowej App Service](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).

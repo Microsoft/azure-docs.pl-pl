@@ -1,6 +1,6 @@
 ---
-title: Znane problemy z maszynami wirtualnymi z serii HB i HC — maszyny wirtualne platformy Azure | Dokumenty firmy Microsoft
-description: Dowiedz się więcej o znanych problemach z rozmiarami maszyn wirtualnych z serii HB na platformie Azure.
+title: Znane problemy z maszynami wirtualnymi z serii HB i HC — Virtual Machines platformy Azure | Microsoft Docs
+description: Poznaj znane problemy dotyczące rozmiarów maszyn wirtualnych z serii HB na platformie Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,35 +13,35 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
 ms.openlocfilehash: 8d4b57fb2fee3849e102868c86fe3cab465fc70d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67707792"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Znane problemy z maszynami wirtualnymi z serii HB i HC
 
-Ten artykuł zawiera najczęstsze problemy i rozwiązania podczas korzystania z maszyn wirtualnych serii HB i HC.
+Ten artykuł zawiera najczęstsze problemy i rozwiązania dotyczące korzystania z maszyn wirtualnych z serii HB i HC.
 
-## <a name="dram-on-hb-series"></a>DRAM w serii HB
+## <a name="dram-on-hb-series"></a>Pamięci DRAM w serii HB
 
-Maszyny wirtualne z serii HB mogą udostępniać tylko 228 GB pamięci RAM na maszynach wirtualnych gościa w tej chwili. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, aby zapobiec przypisywaniu stron do lokalnego pamięci DRAM w domenach AMD CCX (NUMA) zarezerwowanych dla maszyny Wirtualnej gościa.
+Maszyny wirtualne z serii HB mogą teraz uwidocznić 228 GB pamięci RAM na maszynach wirtualnych gościa. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, aby zapobiec przypisaniu stron do lokalnej pamięci DRAM w systemie AMD CCX (domeny NUMA) zarezerwowanych dla maszyny wirtualnej gościa.
 
 ## <a name="accelerated-networking"></a>Accelerated Networking
 
-Usługa Azure Accelerated Networking nie jest włączona w tej chwili, ale będzie w miarę postępów w okresie wersji zapoznawczej. Powiadomimy klientów, gdy ta funkcja jest obsługiwana.
+Usługa Azure przyspieszone sieci nie jest obecnie włączona, ale będzie postępować w okresie zapoznawczym. Klienci będą powiadamiani o tym, gdy ta funkcja jest obsługiwana.
 
-## <a name="qp0-access-restriction"></a>Ograniczenie dostępu qp0
+## <a name="qp0-access-restriction"></a>qp0 ograniczenia dostępu
 
-Aby zapobiec niskiemu poziomowi dostępu sprzętowego, który może spowodować luki w zabezpieczeniach, para kolejek 0 nie jest dostępna dla maszyn wirtualnych gości. Powinno to dotyczyć tylko akcji zwykle skojarzonych z administrowaniem kartą sieciową ConnectX-5 i uruchamianiem niektórych diagnostyki InfiniBand, takich jak ibdiagnet, ale nie z samymi aplikacjami użytkowników końcowych.
+Aby zapobiec dostępowi do sprzętu niskiego poziomu, który może spowodować powstanie luk w zabezpieczeniach, para kolejki 0 nie jest dostępna dla maszyn wirtualnych gościa. Powinno to mieć wpływ tylko na akcje zwykle skojarzone z administracją karty sieciowej ConnectX-5 i uruchamianie niektórych diagnostyki InfiniBand, takich jak ibdiagnet, ale nie samych aplikacji użytkowników końcowych.
 
-## <a name="ud-transport"></a>UD Transport
+## <a name="ud-transport"></a>Transport UD
 
-Po uruchomieniu seria HB i HC nie obsługuje dynamicznie połączonego transportu (DCT). Obsługa DCT będzie wdrażana w czasie. Obsługiwane są transporty niezawodnego połączenia (RC) i unreliable Datagram (UD).
+Podczas uruchamiania Seria HB-i HC nie obsługuje dynamicznego połączenia transportowego (DCT). Obsługa DCT zostanie wdrożona z upływem czasu. Obsługiwane są transporty niezawodnego połączenia (RC) i zawodnych datagramów (UD).
 
-## <a name="gss-proxy"></a>GSS Proxy
+## <a name="gss-proxy"></a>Serwer proxy GSS
 
-Serwer proxy GSS ma znany błąd w CentOS/RHEL 7.5, który może objawiać się jako znaczna wydajność i kara responsywności w przypadku użycia z NFS. Można to złagodzić za pomocą:
+Serwer proxy GSS ma znaną usterkę w CentOS/RHEL 7,5, która może zależeć od znacznej wydajności i szybkości reakcji w przypadku korzystania z systemu plików NFS. Można to ograniczyć przy użyciu:
 
 ```console
 sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
@@ -49,11 +49,11 @@ sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
 
 ## <a name="cache-cleaning"></a>Czyszczenie pamięci podręcznej
 
-W systemach HPC często warto wyczyścić pamięć po zakończeniu zadania, zanim następnemu użytkownikowi zostanie przypisany ten sam węzeł. Po uruchomieniu aplikacji w systemie Linux może się okazać, że dostępna pamięć zmniejsza się, podczas gdy pamięć buforowa wzrasta, mimo że nie są uruchomione żadne aplikacje.
+W systemach HPC często warto oczyścić pamięć po zakończeniu zadania przed przypisaniem kolejnego użytkownika do tego samego węzła. Po uruchomieniu aplikacji w systemie Linux może się okazać, że dostępna pamięć zmniejszy się, gdy pamięć buforu rośnie, mimo że nie są uruchomione żadne aplikacje.
 
 ![Zrzut ekranu przedstawiający wiersz polecenia](./media/known-issues/cache-cleaning-1.png)
 
-Użycie `numactl -H` pokaże, które NUMAnode(s) pamięć jest buforowana z (ewentualnie wszystkie). W systemie Linux użytkownicy mogą czyścić pamięci podręczne na trzy sposoby, aby przywrócić buforowaną lub buforowaną pamięć do "wolnej". Musisz być root lub mieć uprawnienia sudo.
+Przy `numactl -H` użyciu programu zostaną wyświetlone, które NUMAnode pamięci są buforowane (ewentualnie wszystkie). W systemie Linux użytkownicy mogą czyścić pamięć podręczną w trzech sposobach, aby przywrócić pamięć buforowaną lub buforowaną w pamięci podręcznej. Musisz być elementem głównym lub mieć uprawnienia sudo.
 
 ```console
 echo 1 > /proc/sys/vm/drop_caches [frees page-cache]
@@ -85,8 +85,8 @@ Podczas uruchamiania maszyny wirtualnej z serii HB w systemie Linux mogą pojawi
 [  0.004000] ---[ end trace 73fc0e0825d4ca1f ]---
 ```
 
-Można zignorować to ostrzeżenie. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, które zostaną omówione w czasie.
+Można zignorować to ostrzeżenie. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, które będzie dotyczyło w miarę upływu czasu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [obliczeniach o wysokiej wydajności na](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) platformie Azure.
+Dowiedz się więcej na temat [obliczeń o wysokiej wydajności](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) na platformie Azure.

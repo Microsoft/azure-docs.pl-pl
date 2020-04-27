@@ -1,6 +1,6 @@
 ---
-title: Debugowanie kodu usługi Azure Data Lake Analytics lokalnie
-description: Dowiedz się, jak używać narzędzi usługi Azure Data Lake Tools for Visual Studio do debugowania zadań U-SQL na lokalnej stacji roboczej.
+title: Debuguj kod Azure Data Lake Analytics lokalnie
+description: Dowiedz się, jak za pomocą Azure Data Lake Tools for Visual Studio debugować zadania U-SQL na lokalnej stacji roboczej.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -11,45 +11,45 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 0827311218202de447e5cf27356e00c4da020e94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61472995"
 ---
-# <a name="debug-azure-data-lake-analytics-code-locally"></a>Debugowanie kodu usługi Azure Data Lake Analytics lokalnie
+# <a name="debug-azure-data-lake-analytics-code-locally"></a>Debuguj kod Azure Data Lake Analytics lokalnie
 
-Narzędzia usługi Azure Data Lake Tools dla programu Visual Studio umożliwiają uruchamianie i debugowanie kodu usługi Azure Data Lake Analytics na lokalnej stacji roboczej, tak samo jak w usłudze Azure Data Lake Analytics.
+Za pomocą Azure Data Lake Tools for Visual Studio można uruchamiać i debugować kod Azure Data Lake Analytics na lokalnej stacji roboczej, podobnie jak w przypadku usługi Azure Data Lake Analytics.
 
-Dowiedz się, jak [uruchomić skrypt U-SQL na komputerze lokalnym.](data-lake-analytics-data-lake-tools-local-run.md)
+Dowiedz się, jak [uruchomić skrypt U-SQL na komputerze lokalnym](data-lake-analytics-data-lake-tools-local-run.md).
 
 ## <a name="debug-scripts-and-c-assemblies-locally"></a>Debugowanie skryptów i zestawów języka C# lokalnie
 
-Można debugować zestawy C# bez przesyłania i rejestrowania ich do usługi Azure Data Lake Analytics. Punkty przerwania można ustawić zarówno w pliku związanym z kodem, jak i w projekcie, do którego istnieje odwołanie.
+Można debugować zestawy języka C# bez przesyłania i rejestrowania ich w usłudze Azure Data Lake Analytics. Można ustawić punkty przerwania zarówno w pliku związanym z kodem, jak i w przywoływanym projekcie języka C#.
 
-### <a name="debug-local-code-in-a-code-behind-file"></a>Debugowanie kodu lokalnego w pliku związanym z kodem
+### <a name="debug-local-code-in-a-code-behind-file"></a>Debuguj kod lokalny w pliku związanym z kodem
 
 1. Ustaw punkty przerwania w pliku związanym z kodem.
-2. Wybierz **klawisz F5,** aby debugować skrypt lokalnie.
+2. Wybierz klawisz **F5** , aby debugować skrypt lokalnie.
 
 > [!NOTE]
-   > Poniższa procedura działa tylko w programie Visual Studio 2015. W starszych wersjach programu Visual Studio może być konieczne ręczne dodanie plików **PDB.**  
+   > Poniższa procedura działa tylko w programie Visual Studio 2015. W starszych wersjach programu Visual Studio może być konieczne ręczne dodanie plików **PDB** .  
    >
    >
 
-### <a name="debug-local-code-in-a-referenced-c-project"></a>Debugowanie kodu lokalnego w projekcie w języku C# przywołytym do wiadomości
+### <a name="debug-local-code-in-a-referenced-c-project"></a>Debuguj kod lokalny w przywoływanym projekcie języka C#
 
-1. Utwórz projekt zestawu języka C# i skompiluj go do wygenerowania wyjściowego pliku **DLL.**
-2. Zarejestruj plik **DLL** przy użyciu instrukcji U-SQL:
+1. Utwórz projekt zestawu języka C# i skompiluj go w celu wygenerowania wyjściowego pliku **dll** .
+2. Zarejestruj plik **dll** przy użyciu instrukcji języka U-SQL:
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
         
 3. Ustaw punkty przerwania w kodzie C#.
-4. Wybierz **klawisz F5,** aby debugować skrypt, odwołując się lokalnie do pliku **DLL** języka C#.
+4. Wybierz klawisz **F5** , aby debugować skrypt, odwołując się do pliku **dll** języka C# lokalnie.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Na przykład bardziej złożonej kwerendy zobacz [Analizowanie dzienników witryn sieci Web przy użyciu usługi Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-- Aby wyświetlić szczegóły zadania, zobacz [Korzystanie z funkcji Przeglądarka zadań i Widok zadań dla usługi Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
-- Aby użyć widoku wykonywania wierzchołków, zobacz [Użyj widoku wykonania wierzchołka w narzędziach usługi Data Lake dla programu Visual Studio.](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+- Przykład bardziej złożonej kwerendy znajduje się w temacie [Analizowanie dzienników witryn sieci Web przy użyciu Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- Aby wyświetlić szczegóły zadania, zobacz [Korzystanie z przeglądarki zadań i widoku zadań dla Azure Data Lake Analytics zadań](data-lake-analytics-data-lake-tools-view-jobs.md).
+- Aby skorzystać z widoku wykonywania wierzchołków, zobacz temat [Używanie widoku wykonywania wierzchołka w Data Lake narzędzia dla programu Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

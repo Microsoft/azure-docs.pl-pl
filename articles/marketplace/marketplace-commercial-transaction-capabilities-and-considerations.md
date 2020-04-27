@@ -1,239 +1,239 @@
 ---
-title: Komercyjne możliwości rynku microsoftu
-description: W tym artykule opisano zagadnienia dotyczące cen, rozliczeń, fakturowania i wypłat dla opcji transakcji w komercyjnym portalu microsoft.
+title: Komercyjne funkcje Transact Marketplace firmy Microsoft
+description: W tym artykule opisano zagadnienia dotyczące cen, rozliczeń, fakturowania i wypłat w przypadku opcji Transact Marketplace firmy Microsoft.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 7a0f0b96f8140118f1c74ecbd4368aac49d7ece6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: d3e3afecc441a010ff28ef8970a1da7b1e99ffc6
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684307"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160532"
 ---
-# <a name="commercial-marketplace-transact-capabilities"></a>Możliwości transakcji na rynku komercyjnym
+# <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
 
-W tym artykule omówiono następujące tematy związane z handlem dla komercyjnego portalu Microsoft Marketplace:
+W tym artykule omówiono następujące tematy związane z handlem dla portalu komercyjnego firmy Microsoft:
 
-* Odpowiedzialność za transakcje za różne opcje publikowania
-* Przegląd ogólny transakcji
-* Transact modele rozliczeń
-* Wymogi dotyczące transakcji
+* Odpowiedzialność za transakcję dla różnych opcji publikowania
+* Ogólne omówienie języka Transact
+* Modele rozliczeń Transact
+* Wymagania dotyczące języka Transact
 
 ## <a name="transactions-by-publishing-option"></a>Transakcje według opcji publikowania
 
-Wydawca lub firma Microsoft jest odpowiedzialna za zarządzanie transakcjami licencji na oprogramowanie dla ofert w komercyjnym rynku. Opcja publikowania wybrana dla oferty określi, kto zarządza transakcją. Zobacz [Określanie opcji publikowania,](./determine-your-listing-type.md#choose-a-publishing-option) aby uzyskać informacje o dostępności i wyjaśnieniach dotyczących każdej opcji publikowania.
+Wydawca lub firma Microsoft odpowiada za zarządzanie transakcjami licencji na oprogramowanie dla ofert w portalu komercyjnym. Opcja publikowania wybrana dla oferty określi, kto będzie zarządzać transakcją. Zobacz [Określanie opcji publikowania](./determine-your-listing-type.md#choose-a-publishing-option) pod kątem dostępności i wyjaśnień każdej opcji publikacji.
 
-### <a name="list-trial-and-byol-publishing-options"></a>Opcje publikowania listy, wersji próbnej i programu BYOL
+### <a name="list-trial-and-byol-publishing-options"></a>Opcje publikowania list, wersji próbnych i BYOL
 
-Wydawcy z istniejącymi funkcjami handlowymi mogą wybierać opcje publikowania listy, wersji próbnej i licencji własnej (BYOL) w celach promocyjnych i pozyskiwania użytkowników. Dzięki tym opcjom firma Microsoft nie uczestniczy bezpośrednio w transakcjach licencji na oprogramowanie wydawcy i nie ma skojarzonej opłaty transakcyjnej. Wydawcy są odpowiedzialni za obsługę wszystkich aspektów transakcji licencji na oprogramowanie, w tym między innymi: zamówienia, realizacji, pomiaru, rozliczeń, fakturowania, płatności i zbierania. Dzięki opcjom publikowania na liście i wersji próbnej wydawcy zachowują 100% opłat licencyjnych za oprogramowanie wydawcy pobranych od klienta.
+Wydawcy z istniejącymi możliwościami handlowymi mogą wybierać opcje wyświetlania listy, wersji próbnej i udostępniania licencji (BYOL) na potrzeby promocji i pozyskiwania użytkowników. Dzięki tym opcjom firma Microsoft nie uczestniczy bezpośrednio w transakcjach licencji na oprogramowanie wydawcy i nie ma żadnej skojarzonej opłaty za transakcje. Wydawca jest odpowiedzialny za obsługę wszystkich aspektów transakcji związanych z licencją na oprogramowanie, w tym między innymi: kolejności, realizacji, pomiaru, rozliczeń, fakturowania, płatności i kolekcji. Dzięki opcjom publikacji list i wersji próbnej wydawcy przechowują opłaty za licencje na oprogramowanie wydawcy 100% pobrane od klienta.
 
-### <a name="transact-publishing-option"></a>Opcja publikowania transakcji
+### <a name="transact-publishing-option"></a>Opcja publikowania Transact
 
-Opcja publikowania transakcji korzysta z możliwości handlu firmy Microsoft i zapewnia kompleksowe środowisko od odnajdywania i oceny do zakupu i implementacji. Oferty transakcji są rozliczane z istniejącą subskrypcją firmy Microsoft lub kartą kredytową, co umożliwia firmie Microsoft hostowanie transakcji w portalu cloud marketplace w imieniu wydawcy.
+Opcja publikowania Transact wykorzystuje możliwości firmy Microsoft w handlu i oferuje kompleksowe środowisko wykrywania i oceny do zakupu i implementacji. Oferty usługi Transact są rozliczane w oparciu o istniejącą subskrypcję firmy Microsoft lub kartę kredytową, co pozwala firmie Microsoft na hostowanie transakcji w chmurze w witrynie Marketplace w imieniu wydawcy.
 
-Opcję transakcji wybierz podczas tworzenia nowej oferty w Centrum partnerów. Na stronie **Ustawienia oferty** w obszarze **Szczegóły instalacji**wybierz opcję "Tak, chcę sprzedawać za pośrednictwem firmy Microsoft i mieć transakcje hosta firmy Microsoft w moim imieniu". Ta opcja będzie kazywać tylko wtedy, gdy transakcje są dostępne dla twojego typu oferty.
+Wybierz opcję Transact podczas tworzenia nowej oferty w centrum partnerskim. Na stronie **Konfiguracja oferty** w obszarze **szczegóły instalacji**wybierz pozycję "tak, chcę sprzedawać w firmie Microsoft i mieć transakcje hosta Microsoft w moim imieniu". Ta opcja będzie wyświetlana tylko wtedy, gdy dla typu oferty jest dostępna wartość Transact.
 
-## <a name="transact-general-overview"></a>Przegląd ogólny transakcji
+## <a name="transact-general-overview"></a>Ogólne omówienie języka Transact
 
-Korzystając z opcji publikowania transakcji, firma Microsoft umożliwia sprzedaż oprogramowania innych firm i wdrażanie niektórych typów ofert w ramach subskrypcji platformy Azure klienta. Przy wyborze modelu rozliczeniowego i typu oferty wydawca musi wziąć pod uwagę rozliczanie opłat za infrastrukturę oraz opłaty licencyjne wydawcy za własne oprogramowanie.
+W przypadku korzystania z opcji publikowania Transact firma Microsoft umożliwia sprzedaż oprogramowania innych firm oraz wdrażanie niektórych typów ofert do subskrypcji platformy Azure klienta. W przypadku wybrania modelu rozliczeń i typu oferty Wydawca musi rozważyć rozliczenie opłat za infrastrukturę oraz własne opłaty za korzystanie z licencjonowania oprogramowania.
 
-Opcja publikowania transakcji jest obecnie obsługiwana dla następujących typów ofert: Maszyny wirtualne, aplikacje platformy Azure i aplikacje SaaS.
+Opcja publikowania Transact jest obecnie obsługiwana dla następujących typów ofert: Virtual Machines, aplikacji platformy Azure i aplikacji SaaS.
 
-### <a name="billing-infrastructure-costs"></a>Koszty infrastruktury rozliczeniowej
+### <a name="billing-infrastructure-costs"></a>Koszty infrastruktury rozliczeń
 
-**Dla maszyn wirtualnych i aplikacji platformy Azure**
+**Dla Virtual Machines i aplikacji platformy Azure**
 
-W przypadku maszyn wirtualnych i aplikacji platformy Azure opłaty za użycie infrastruktury platformy Azure są rozliczane w ramach subskrypcji platformy Azure klienta. Opłaty za korzystanie z infrastruktury są wyceniane i prezentowane oddzielnie od opłat licencyjnych dostawcy oprogramowania na fakturze klienta.
+W przypadku Virtual Machines i aplikacji platformy Azure opłaty za użycie infrastruktury platformy Azure są naliczane zgodnie z subskrypcją platformy Azure klienta. Opłaty za użycie infrastruktury są wyceniane i prezentowane niezależnie od opłat za Licencjonowanie dostawcy oprogramowania na fakturze klienta.
 
 **Dla aplikacji SaaS**
 
-W przypadku aplikacji SaaS wydawca musi uwzględnić opłaty za korzystanie z infrastruktury platformy Azure i opłaty licencyjne za oprogramowanie jako element pojedynczego kosztu.  Jest on reprezentowany jako opłata ryczałtowa dla klienta. Użycie infrastruktury platformy Azure jest zarządzane i rozliczane bezpośrednio do partnera. Rzeczywiste opłaty za korzystanie z infrastruktury nie są widoczne dla klienta. Wydawcy zazwyczaj decydują się na powiązanie opłat za korzystanie z infrastruktury platformy Azure do cen licencji na oprogramowanie. Opłaty licencyjne za oprogramowanie nie są mierzone ani oparte na zużyciu.
+W przypadku aplikacji SaaS Wydawca musi uwzględnić opłaty za użycie infrastruktury platformy Azure oraz opłaty za licencję na oprogramowanie jako pojedynczy koszt.  Jest ona reprezentowana jako stała opłata dla klienta. Użycie infrastruktury platformy Azure jest zarządzane i rozliczane bezpośrednio do partnera. Klient nie widzi rzeczywistych opłat za użycie infrastruktury. Wydawcy zwykle wybierają opłaty za użycie infrastruktury platformy Azure do cen licencji na oprogramowanie. Opłaty za licencje na oprogramowanie nie są naliczane ani zużywane.
 
-## <a name="transact-billing-models"></a>Transact modele rozliczeń
+## <a name="transact-billing-models"></a>Modele rozliczeń Transact
 
-W zależności od użytej opcji transakcji opłaty licencyjne wydawcy mogą być przedstawione w następujący sposób:  
+W zależności od używanej opcji transakcji można przedstawić opłaty za licencję na oprogramowanie wydawcy w następujący sposób:  
 
-* Bezpłatnie: Bezpłatnie za licencje na oprogramowanie.
+* Bezpłatna: Brak opłat za licencje na oprogramowanie.
 
-* Przynieś własną licencję (BYOL): Wszelkie opłaty za licencje na oprogramowanie są zarządzane bezpośrednio między wydawcą a klientem. Firma Microsoft przechodzi tylko przez opłaty za korzystanie z infrastruktury platformy Azure. Dotyczy to tylko maszyn wirtualnych i aplikacji platformy Azure.
+* Bring your own license (BYOL): wszelkie stosowne opłaty za licencje na oprogramowanie są zarządzane bezpośrednio przez wydawcę i klienta. Firma Microsoft przechodzi wyłącznie przez opłaty za użycie infrastruktury platformy Azure. Dotyczy to tylko aplikacji Virtual Machines i platformy Azure.
 
-* Płatność zgodnie z rzeczywistym użyciem: opłaty licencyjne za oprogramowanie są przedstawiane jako stawka cenowa za godzinę (vCPU) na podstawie używanej infrastruktury platformy Azure. Dotyczy to tylko maszyn wirtualnych i aplikacji platformy Azure.
+* Płatność zgodnie z rzeczywistym użyciem: opłaty za licencje na oprogramowanie są prezentowane jako stawka cenowa za godzinę (vCPU) na podstawie używanej infrastruktury platformy Azure. Dotyczy to tylko aplikacji Virtual Machines i platformy Azure.
 
-* Ceny subskrypcji: opłaty licencyjne za oprogramowanie są przedstawiane jako opłata miesięczna lub roczna, opłata cykliczna rozliczana jako stawka zryczałtowana lub za miejsce. Dotyczy to tylko aplikacji SaaS i aplikacji platformy Azure — tylko aplikacje zarządzane.
+* Cennik subskrypcji: opłaty za licencje na oprogramowanie są prezentowane jako comiesięczne lub roczne, opłata cykliczna jest naliczana jako stała stawka lub za stanowisko. Dotyczy to tylko aplikacji SaaS i aplikacji platformy Azure.
 
-* Bezpłatna wersja próbna oprogramowania: Bezpłatnie za licencje na oprogramowanie przez 30 lub 90 dni.
+* Bezpłatna wersja próbna oprogramowania: Brak opłat za licencje na oprogramowanie przez 30 dni lub 90 dni.
 
-### <a name="free-and-bring-your-own-license-byol-pricing"></a>Darmowe ceny i bring-your-own-license (BYOL)
+### <a name="free-and-bring-your-own-license-byol-pricing"></a>Bezpłatna i dowolna cena licencji (BYOL)
 
-Podczas publikowania oferty transakcji bezpłatnej lub bezpłatnej licencji firma Microsoft nie odgrywa roli w ułatwianiu transakcji sprzedaży opłat licencyjnych za oprogramowanie. Podobnie jak na liście i wersjach próbnych, wydawca zachowuje 100% opłat licencyjnych za oprogramowanie.
+Przy publikowaniu oferty bezpłatnej licencji na swoją licencję firma Microsoft nie odgrywa roli w celu ułatwienia transakcji sprzedaży dla opłat za korzystanie z licencji na oprogramowanie. Podobnie jak w przypadku opcji publikowania listy i wersji próbnej, Wydawca zachowuje 100% opłat za licencje na oprogramowanie.
 
-### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Ceny płatności zgodnie z rzeczywistym użyciem i subskrypcje (oparte na witrynie)
+### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Płatność zgodnie z rzeczywistym użyciem i subskrypcja (oparta na witrynie)
 
-Podczas publikowania oferty transakcji płatności zgodnie z rzeczywistym ratami lub subskrypcji firma Microsoft udostępnia technologię i usługi przetwarzania zakupów licencji na oprogramowanie, zwrotów i naliczeń zwrotnych. W tym scenariuszu wydawca upoważnia firmę Microsoft do działania jako agent w tych celach. Wydawca zezwala firmie Microsoft na ułatwienie transakcji licencjonowania oprogramowania, zachowując jednocześnie ich wyznaczenie jako sprzedawcy, dostawcy, dystrybutora i licencjodawcy.
+Przy publikowaniu oferty transakcji płatność zgodnie z rzeczywistym użyciem lub subskrypcji firma Microsoft udostępnia technologię i usługi do przetwarzania zakupów, zwrotów i obciążeń zwrotnych licencji na oprogramowanie. W tym scenariuszu Wydawca autoryzuje firmę Microsoft do działania jako Agent w tym celu. Wydawca pozwala firmie Microsoft na ułatwienie transakcji licencjonowania oprogramowania przy zachowaniu ich wyznaczenia jako sprzedawcy, dostawcy, dystrybutora i licencjodawcy.
 
-Firma Microsoft umożliwia klientom zamawianie, licencjonowanie i korzystanie z oprogramowania wydawcy, zgodnie z warunkami zarówno komercyjnego portalu Marketplace firmy Microsoft, jak i umowy licencyjnej wydawcy. Wydawcy muszą przedstawić umowę licencyjną użytkownika końcowego lub wybrać [umowę standardową](./standard-contract.md) podczas tworzenia oferty.
+Firma Microsoft umożliwia klientom zamówienie, licencję i korzystanie z oprogramowania wydawcy, z uwzględnieniem warunków i postanowień firmy Microsoft komercyjnych Marketplace oraz umowy licencyjnej użytkownika oprogramowania wydawcy. Wydawcy muszą zapewnić swoją umowę licencyjną użytkownika końcowego lub wybrać [kontrakt standardowy](./standard-contract.md) podczas tworzenia oferty.
 
-### <a name="free-software-trials"></a>Wersje próbne wolnego oprogramowania
+### <a name="free-software-trials"></a>Bezpłatne wersje próbne oprogramowania
 
-W przypadku scenariuszy publikowania transakcji wydawca może udostępnić licencję na oprogramowanie bezpłatnie przez 30 dni lub 90 dni. Ta funkcja rabatowania nie obejmuje koszt użycia infrastruktury platformy Azure, który jest napędzany przez korzystanie z rozwiązania partnerskiego.
+W przypadku scenariuszy publikowania Transact Wydawca może bezpłatnie udostępnić licencję na oprogramowanie przez 30 dni lub 90 dni. Ta funkcja dyskontowania nie obejmuje kosztu użycia infrastruktury platformy Azure, który jest oparty na użyciu rozwiązania partnerskiego.
 
 ### <a name="private-offers"></a>Oferty prywatne
 
-Oprócz używania typów ofert i modeli rozliczeń do zarabiania na ofercie, wydawcy mogą dokonywać transakcji z ofertą prywatną, zawierającą wynegocjowane ceny specyficzne dla transakcji lub konfiguracje niestandardowe. Oferty prywatne są obsługiwane przez wszystkie 3 opcje publikowania transakcji.
+Oprócz korzystania z typów ofert i modeli rozliczeń w celu Zarabiaj oferty, wydawcy mogą wykonać transakcję prywatną, zakończyć z użyciem wynegocjowanych, cen specyficznych dla transakcji lub konfiguracji niestandardowych. Oferty prywatne są obsługiwane przez wszystkie 3 opcje publikowania Transact.
 
-Ta opcja umożliwia wyższe lub niższe ceny niż publicznie dostępna oferta. Oferty prywatne mogą być wykorzystane do rabatu lub dodania premii za ofertę. Oferty prywatne mogą być udostępniane jednemu lub większej liczbie klientów, wystawiając na biało ich subskrypcję platformy Azure na poziomie oferty.
+Ta opcja umożliwia korzystanie z wyższych lub niższych cen niż publicznie dostępna oferta. Oferty prywatne mogą służyć do rabatu lub dodania wersji Premium oferty. Oferty prywatne można udostępnić jednemu lub większej liczbie klientów, wymieniając swoją subskrypcję platformy Azure na poziomie oferty.
 
 
 ### <a name="examples"></a>Przykłady
 
 **Płatność zgodnie z rzeczywistym użyciem** 
 
-* Jeśli włączysz opcję Płatność zgodnie z rzeczywistymi przyuśmiań, masz następującą strukturę kosztów.
+* Jeśli włączysz opcję płatność zgodnie z rzeczywistym użyciem, będziesz mieć poniższą strukturę kosztów.
 
-|Koszt licencji  | $1.00 za godzinę  |
+|Koszt licencji  | $1,00 za godzinę  |
 |---------|---------|
-|Koszt użycia platformy Azure (D1/1-Core)    |   $0.14 za godzinę     |
-|*Klient jest rozliczany przez firmę Microsoft*    |  *$1.14 za godzinę*       |
+|Koszt użycia platformy Azure (D1/1-rdzeniowe)    |   $0,14 za godzinę     |
+|*Klient jest rozliczany przez firmę Microsoft*    |  *$1,14 za godzinę*       |
 
-* W tym scenariuszu microsoft rachunki $1.14 za godzinę za korzystanie z opublikowanego obrazu maszyny Wirtualnej.
+* W tym scenariuszu firma Microsoft rozlicza $1,14 za godzinę w celu użycia opublikowanego obrazu maszyny wirtualnej.
 
-|Rachunki Firmy Microsoft  | $1.14 za godzinę  |
+|Rachunki firmy Microsoft  | $1,14 za godzinę  |
 |---------|---------|
-|Microsoft płaci 80% kosztów licencji|   $0.80 za godzinę     |
-|Microsoft utrzymuje 20% kosztów licencji  |  $0.20 za godzinę       |
-|Firma Microsoft utrzymuje 100% kosztów użycia platformy Azure | $0.14 za godzinę |
+|Firma Microsoft płaci 80% kosztu licencji|   $0,80 za godzinę     |
+|Firma Microsoft utrzymuje 20% kosztów licencji  |  $0,20 za godzinę       |
+|Firma Microsoft utrzymuje 100% kosztów użycia platformy Azure | $0,14 za godzinę |
 
-**Przynieś własną licencję (BYOL)**
+**Korzystanie z własnej licencji (BYOL)**
 
-* Jeśli włączysz opcję BYOL, masz następującą strukturę kosztów.
+* Po włączeniu opcji BYOL będzie dostępna następująca struktura kosztów.
 
-|Koszt licencji  | Opłata licencyjna wynegocjowana i naliczona przez Ciebie  |
+|Koszt licencji  | Opłata licencyjna wynegocjowana i rozliczona przez użytkownika  |
 |---------|---------|
-|Koszt użycia platformy Azure (D1/1-Core)    |   $0.14 za godzinę     |
-|*Klient jest rozliczany przez firmę Microsoft*    |  *$0.14 za godzinę*       |
+|Koszt użycia platformy Azure (D1/1-rdzeniowe)    |   $0,14 za godzinę     |
+|*Klient jest rozliczany przez firmę Microsoft*    |  *$0,14 za godzinę*       |
 
-* W tym scenariuszu microsoft rachunki $0.14 za godzinę za korzystanie z opublikowanego obrazu maszyny Wirtualnej.
+* W tym scenariuszu firma Microsoft rozlicza $0,14 za godzinę w celu użycia opublikowanego obrazu maszyny wirtualnej.
 
-|Rachunki Firmy Microsoft  | $0.14 za godzinę  |
+|Rachunki firmy Microsoft  | $0,14 za godzinę  |
 |---------|---------|
-|Firma Microsoft zachowuje koszt użycia platformy Azure    |   $0.14 za godzinę     |
-|Firma Microsoft utrzymuje 0% kosztów licencji   |  $0.00 za godzinę       |
+|Firma Microsoft utrzymuje koszt użycia platformy Azure    |   $0,14 za godzinę     |
+|Firma Microsoft utrzymuje 0% kosztu licencji   |  $0,00 za godzinę       |
 
 **Subskrypcja aplikacji SaaS**
 
-Ta opcja musi być skonfigurowana do sprzedaży za pośrednictwem firmy Microsoft i może być wyceniana według stawki ryczałtowej lub na użytkownika w ujęciu miesięcznym lub rocznym.
-*    Jeśli włączysz opcję Sprzedaj za pośrednictwem firmy Microsoft dla oferty SaaS, masz następującą strukturę kosztów.
+Ta opcja musi być skonfigurowana do sprzedaży za pomocą firmy Microsoft i może być naliczana według stawki miesięcznej lub rocznej.
+*    Po włączeniu opcji sprzedaży za pomocą firmy Microsoft dla oferty SaaS będzie dostępna następująca struktura kosztów.
 
-|Koszt licencji       | $100.00 miesięcznie  |
+|Koszt licencji       | $100,00 miesięcznie  |
 |--------------|---------|
-|Koszt użycia platformy Azure (D1/1-Core)    | Rozliczane bezpośrednio wydawcy, a nie klientowi |
-|*Klient jest rozliczany przez firmę Microsoft*    |  *100,00 USD miesięcznie (uwaga: wydawca musi uwzględnić wszelkie poniesione lub przenoszone koszty infrastruktury w opłacie licencyjnej)*  |
+|Koszt użycia platformy Azure (D1/1-rdzeniowe)    | Rozliczana bezpośrednio z wydawcą, a nie klientem |
+|*Klient jest rozliczany przez firmę Microsoft*    |  *$100,00 miesięcznie (Uwaga: Wydawca musi uwzględnić koszty związane z infrastrukturą lub przekazaniem usługi w ramach opłaty licencyjnej)*  |
 
-* W tym scenariuszu Microsoft rozlicza $100.00 za licencję oprogramowania i wypłaca wydawcy $80.00.
-* Od maja 2019 r. do czerwca 2020 r. partnerzy, którzy zakwalifikowali się do obniżonej opłaty za usługę w marketplace, otrzymają obniżoną opłatę transakcyjną w ofertach SaaS. W tym scenariuszu Microsoft rozlicza $100.00 za licencję oprogramowania i wypłaca wydawcy $90.00.
+* W tym scenariuszu firma Microsoft Bills $100,00 na potrzeby licencji na oprogramowanie i płaci wydawcę $80,00.
+* Partnerzy, którzy zakwalifikowani do obniżonej opłaty za usługę Marketplace, będą widzieć obniżoną opłatę za transakcje w ofertach SaaS od maja 2019 do 2020 czerwca. W tym scenariuszu firma Microsoft Bills $100,00 na potrzeby licencji na oprogramowanie i płaci wydawcę $90,00.
 
-|Rachunki Firmy Microsoft  | $100.00 miesięcznie  |
+|Rachunki firmy Microsoft  | $100,00 miesięcznie  |
 |---------|---------|
-|Microsoft płaci 80% kosztów licencji <br> \*Microsoft płaci 90% kosztów licencji za wszystkie kwalifikowane aplikacje SaaS   |   $80.00 miesięcznie <br> \*$90.00 miesięcznie    |
-|Microsoft utrzymuje 20% kosztów licencji <br> \*Firma Microsoft przechowuje 10% kosztów licencji dla wszystkich kwalifikowanych aplikacji SaaS.  |  $20.00 miesięcznie <br> \*zł.     |
+|Firma Microsoft płaci 80% kosztu licencji <br> \*Firma Microsoft płaci 90% kosztu licencji dla wszystkich zakwalifikowanych aplikacji SaaS   |   $80,00 miesięcznie <br> \*$90,00 miesięcznie    |
+|Firma Microsoft utrzymuje 20% kosztów licencji <br> \*Firma Microsoft utrzymuje 10% kosztów licencji na wszystkie kwalifikowane aplikacje SaaS.  |  $20,00 miesięcznie <br> \*$10,00     |
 
-* **Obniżona opłata za usługę Marketplace:** W przypadku niektórych Produktów SaaS publikowanych w naszym portalu Marketplace Commercial Microsoft obniży opłatę za usługę Marketplace z 20% (zgodnie z opisem w Umowie wydawcy firmy Microsoft) do 10%.  Aby produkt został zakwalifikowany, co najmniej jeden z produktów musi zostać oznaczony przez firmę Microsoft jako gotowy do współsprzedania ip lub współsprzedaży IP. Aby otrzymać obniżoną opłatę za usługę w marketplace za miesiąc, uprawnienia muszą zostać spełnione co najmniej pięć (5) dni roboczych przed końcem poprzedniego miesiąca kalendarzowego. Obniżona opłata za usługę Marketplace nie będzie miała zastosowania do maszyn wirtualnych, aplikacji zarządzanych ani żadnych innych produktów udostępnianych za pośrednictwem naszego komercyjnego portalu Marketplace.  Ta obniżona opłata za usługę Marketplace będzie dostępna dla kwalifikowanych ofert, a opłaty licencyjne pobierane są przez firmę Microsoft między 1 maja 2019 r. a 30 czerwca 2020 r.  Po tym czasie opłata za usługę marketplace powróci do normalnej kwoty.
+* **Zmniejszona opłata za usługę Marketplace:** W przypadku niektórych produktów SaaS opublikowanych na naszej komercyjnej witrynie Marketplace firma Microsoft obniży opłatę za usługę Marketplace z 20% (zgodnie z opisem w umowie Microsoft Publisher) do 10%.  Aby produkt mógł kwalifikować się, co najmniej jeden z Twoich produktów musi być wyznaczone przez firmę Microsoft jako gotowy do użycia w przypadku współsprzedażowego adresu IP lub do współsprzedawanego adresu IP. Aby otrzymać obniżoną opłatę za usługę Marketplace w danym miesiącu, należy spełnić co najmniej pięć (5) dni roboczych przed końcem poprzedniego miesiąca kalendarzowego. Zmniejszona opłata za usługę Marketplace nie będzie stosowana do maszyn wirtualnych, zarządzanych aplikacji ani innych produktów udostępnianych za pośrednictwem komercyjnej witryny Marketplace.  Ta zmniejszona opłata za usługę Marketplace będzie dostępna dla kwalifikujących się ofert, a opłaty licencyjne zebrane przez firmę Microsoft od 1 maja 2019 do 30 czerwca 2020.  Po upływie tego czasu opłata za usługę portalu Marketplace powróci do normalnej kwoty.
 
-### <a name="customer-invoicing-payment-billing-and-collections"></a>Fakturowanie, płatność, rozliczenia i windykacja klientów
+### <a name="customer-invoicing-payment-billing-and-collections"></a>Faktury dla klientów, płatności, rozliczeń i kolekcji
 
 **Fakturowanie i płatność**
 
-Program Publisher może korzystać z preferowanej przez klienta metody fakturowania w celu zapewnienia opłat abonamentowych lub licencyjnych za oprogramowanie PAYGO.
+Wydawca może użyć preferowanej metody fakturowania klienta, aby dostarczyć subskrypcję lub PAYGO opłaty za licencję na oprogramowanie.
 
-**Umowa enterprise** 
+**Umowa Enterprise Agreement** 
 
-Jeśli preferowaną metodą fakturowania klienta jest umowa Microsoft Enterprise Agreement, opłaty licencyjne za oprogramowanie będą naliczane przy użyciu tej metody fakturowania jako wyszczególniony koszt, niezależnie od kosztów użycia specyficznych dla platformy Azure.
+Jeśli preferowana metoda fakturowania klienta jest Umowa Enterprise firmy Microsoft, opłaty za licencje na oprogramowanie będą naliczane przy użyciu tej metody fakturowania jako koszt określony, niezależnie od kosztów użycia specyficznych dla platformy Azure.
 
-**Karty kredytowe i faktura miesięczna** 
+**Karty kredytowe i Faktura miesięczna** 
 
-Klienci mogą również płacić kartą kredytową i fakturą miesięczną. W takim przypadku opłaty licencyjne za oprogramowanie będą naliczane tak samo, jak w scenariuszu umowy Enterprise Agreement, jako koszt wyszczególniony, niezależnie od kosztów użycia specyficznych dla platformy Azure.
+Klienci mogą również skorzystać z karty kredytowej i faktury miesięcznej. W tym przypadku opłaty za licencję na oprogramowanie będą rozliczane w taki sam sposób jak scenariusz Umowa Enterprise, jako koszt określony, niezależnie od kosztów użycia specyficznych dla platformy Azure.
 
-Na przykład, jeśli klient kupuje przy użyciu karty kredytowej:
+Na przykład jeśli klient kupił zakupy przy użyciu karty kredytowej:
 
 |Opis    |    Date  |
 |----------|----------|
-|Okres zamówienia   | 15 sierpnia 2018 - 30 sierpnia 2018 |
-|Zakończenie okresu (miesiąc)   | 30 sierpnia 2018 r. |
-|Data rozliczenia | 1 września 2018 r. |
-|Data płatności odbiorcy | 1 września 2018 r. |
-|Okres escrow (tylko karty kredytowe, 30 dni) | Wrzesień 1, 2018 - Wrzesień 30, 2018 |
-|Początek okresu zbiórki | 1 września 2018 r. |
-|Koniec okresu zbierania (maksymalnie 30 dni) | 30 września 2018 r. |
-|Data obliczania wypłaty (co miesiąc 15) | 1 października 2018 r. |
-|Data wypłaty | 15 października 2018 r. |
+|Okres zamówienia   | 15 sierpnia 2018 — 30 sierpnia, 2018 |
+|Zakończenie okresu (miesiąc)   | 30 sie 2018 |
+|Data rozliczenia | Września 1, 2018 |
+|Data płatności klienta | Września 1, 2018 |
+|Okres płatności (tylko karty kredytowe:, 30 dni) | Września 1, 2018 – września 30, 2018 |
+|Początek okresu zbierania | Września 1, 2018 |
+|Koniec okresu zbierania danych (maksymalnie 30 dni) | Września 30, 2018 |
+|Data wyliczenia wypłaty (co miesiąc 15) | 1 października 2018 |
+|Data wypłaty | 15 października 2018 |
 
-Jeśli klient kupuje przy użyciu umowy Enterprise Agreement:
+Jeśli klient kupuje przy użyciu Umowa Enterprise:
 
 | Opis |    Date  |
 |----------|----------|
-|Okres zamówienia | 15 sierpnia 2018 - 30 sierpnia 2018 |
-|Zakończenie kadencji (kwartał) | 30 września 2018 r. |
-|Data rozliczenia | 15 października 2018 r. |
-|Okres escrow (tylko karty kredytowe, 30 dni) | Nie dotyczy |
-|Początek okresu zbiórki | 15 października 2018 r. |
-|Koniec okresu zbierania (maksymalnie 90 dni) | 15 stycznia 2019 r. |
-|Data płatności odbiorcy | 30 grudnia 2018 r. |
-|Data obliczania wypłaty (co miesiąc 15) | 15 stycznia 2019 r. |
-|Data wypłaty | 15 lutego 2019 r. |
+|Okres zamówienia | 15 sierpnia 2018 — 30 sierpnia, 2018 |
+|Zakończenie okresu (kwartał) | Września 30, 2018 |
+|Data rozliczenia | 15 października 2018 |
+|Okres płatności (tylko karty kredytowe:, 30 dni) | Nie dotyczy |
+|Początek okresu zbierania | 15 października 2018 |
+|Koniec okresu zbierania danych (maksymalnie 90 dni) | 15 stycznia 2019 |
+|Data płatności klienta | 30 grudnia, 2018 |
+|Data wyliczenia wypłaty (co miesiąc 15) | 15 stycznia 2019 |
+|Data wypłaty | 15 lutego 2019 |
 
-**Darmowe kredyty i zobowiązania pieniężne** 
+**Bezpłatne kredyty i zobowiązania pieniężne** 
 
-Niektórzy klienci decydują się na przedpłatę platformy Azure z zobowiązaniem pieniężnym w umowie Enterprise Agreement lub otrzymali bezpłatne kredyty do użytku z platformą Azure. Mimo że te kredyty mogą być używane do płacenia za użycie platformy Azure, nie można ich używać do płacenia za opłaty licencyjne za oprogramowanie wydawcy.
+Niektórzy klienci wybierają przedpłatę platformy Azure z zobowiązaniem pieniężnym w Umowa Enterprise lub za bezpłatny kredyt na korzystanie z platformy Azure. Chociaż te kredyty mogą być używane do płacenia za użycie platformy Azure, nie mogą być używane do płacenia opłat za licencje na oprogramowanie wydawcy.
 
 **Rozliczenia i kolekcje** 
 
-Rozliczanie licencji na oprogramowanie programu Publisher jest prezentowane przy użyciu wybranej przez klienta metody fakturowania i jest zgodne z osią czasu fakturowania. Klienci bez umowy Enterprise Agreement są co miesiąc rozliczani za licencje na oprogramowanie w marketplace. Klienci z umową Enterprise Agreement są rozliczani co miesiąc za pomocą faktury prezentowanej kwartalnie.
+Rozliczanie licencji na oprogramowanie wydawcy jest prezentowane przy użyciu wybranej metody fakturowania przez klienta i według osi czasu fakturowania. Klienci bez Umowa Enterprise są rozliczani miesięcznie za licencje na oprogramowanie w portalu Marketplace. Klienci z Umowa Enterprise są rozliczani miesięcznie za pośrednictwem faktury prezentowanej kwartalnie.
 
-Po wybraniu modeli cen subskrypcji lub płatności zgodnie z rzeczywistym użyciem firma Microsoft działa jako agent wydawcy i jest odpowiedzialna za wszystkie aspekty rozliczeń, płatności i zbierania.
+W przypadku wybrania modeli cenowych subskrypcja lub płatność zgodnie z rzeczywistym użyciem firma Microsoft działa jako agent wydawcy i odpowiada za wszystkie aspekty rozliczeń, płatności i kolekcji.
 
-### <a name="publisher-payout-and-reporting"></a>Wypłaty i raportowanie przez wydawcę
+### <a name="publisher-payout-and-reporting"></a>Wypłata i raportowanie wydawcy
 
-* Wszelkie opłaty licencyjne za oprogramowanie pobierane przez firmę Microsoft jako agent podlegają opłacie transakcyjnej w wysokości 20%, chyba że określono inaczej i zostaną odjęte w momencie wypłaty przez wydawcę.
+* Wszelkie opłaty za licencje na oprogramowanie zebrane przez firmę Microsoft jako agent podlegają 20% opłatą za transakcję, chyba że określono inaczej i są one odejmowane w momencie wypłaty wydawcy.
 
-* Klienci zazwyczaj kupują za pomocą umowy Enterprise Agreement lub umowy płatności zgodnie z rzeczywistym użyciem karty kredytowej. Typ umowy określa rozliczenia, fakturowanie, zbieranie i terminy wypłat.
+* Klienci zazwyczaj kupują przy użyciu Umowa Enterprise lub z włączoną kartą kredytową płatność zgodnie z rzeczywistym użyciem. Typ umowy określa rozliczenia, fakturowanie, zbieranie i czas wypłaty.
 
 >[!NOTE]
->Wszystkie raporty i szczegółowe informacje dotyczące opcji publikowania transakcji są dostępne w sekcji Analytics w Centrum partnerów.
+>Wszystkie raporty i szczegółowe informacje dotyczące opcji publikowania Transact są dostępne za pośrednictwem sekcji Analiza w centrum partnerskim.
 
-#### <a name="billing-questions-and-support"></a>Pytania dotyczące rozliczeń i pomoc techniczna
+#### <a name="billing-questions-and-support"></a>Pytania i pomoc techniczna dotyczące rozliczeń
 
-Aby uzyskać więcej informacji i zasad prawnych, zobacz [Umowę wydawcy](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (dostępną w Centrum partnerów).
+Aby uzyskać więcej informacji i zasad prawnych, zobacz [umowę wydawcy](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (dostępną w centrum partnerskim).
 
-Aby uzyskać pomoc dotyczącą pytań dotyczących rozliczeń, skontaktuj się z [pomocą techniczną wydawcy portalu marketplace.](https://aka.ms/marketplacepublishersupport)
+Aby uzyskać pomoc dotyczącą pytań dotyczących rozliczeń, skontaktuj się z [pomocą techniczną wydawcy portalu Marketplace](https://partner.microsoft.com/support/v2/?stage=1).
 
-## <a name="transact-requirements"></a>Wymogi dotyczące transakcji
+## <a name="transact-requirements"></a>Wymagania dotyczące języka Transact
 
-Wymagania dotyczące transakcji dla różnych typów ofert są omówione w tej sekcji.
+Wymagania dotyczące różnych typów ofert są omówione w tej sekcji.
 
-### <a name="requirements-for-all-offer-types"></a>Wymagania dla wszystkich typów ofert
+### <a name="requirements-for-all-offer-types"></a>Wymagania dotyczące wszystkich typów ofert
 
-* Konto Microsoft i informacje finansowe są wymagane dla opcji publikowania transakcji, niezależnie od modelu cenowego oferty.
-* Obowiązkowe informacje finansowe obejmują konto wypłat i profil podatkowy.
+* Dla opcji publikowania Transact są wymagane konto Microsoft i informacje finansowe, niezależnie od modelu cen oferty.
+* Obowiązkowe informacje finansowe obejmują konto płatne i profil podatkowy.
 
-Aby uzyskać więcej informacji na temat konfigurowania tych kont, zobacz [Zarządzanie kontem w portalu partnerów](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)).
+Aby uzyskać więcej informacji na temat konfigurowania tych kont, zobacz [Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)).
 
-### <a name="requirements-for-specific-offer-types"></a>Wymagania dotyczące określonych typów ofert
+### <a name="requirements-for-specific-offer-types"></a>Wymagania dotyczące konkretnych typów ofert
 
-Opcja publikowania transakcji jest dostępna tylko do użycia z następującymi typami oferty portalu Marketplace:
+Opcja publikowania Transact jest dostępna tylko dla następujących typów ofert w portalu Marketplace:
 
 **Maszyna wirtualna** 
 
-Wybierz z bezpłatnych, bring-your-own-license lub pay-as-you-go-pricing modeli i przedstawić jako jednostki SKU zdefiniowane na poziomie oferty. Na rachunku za platformę Azure klienta firma Microsoft przedstawia opłaty licencyjne za oprogramowanie wydawcy oddzielnie od podstawowych opłat za infrastrukturę platformy Azure. Opłaty za infrastrukturę platformy Azure są oparte na korzystaniu z oprogramowania wydawcy.
+Wybierz opcję bezpłatna, Przenieś własną licencję lub model z płatność zgodnie z rzeczywistym użyciem, a także jako jednostki SKU zdefiniowane na poziomie oferty. Na rachunku na platformie Azure klienta firma Microsoft przedstawia opłaty za licencję na oprogramowanie wydawcy niezależnie od opłat związanych z infrastrukturą platformy Azure. Opłaty za infrastrukturę platformy Azure są oparte na oprogramowaniu wydawcy.
 
-**Aplikacje platformy Azure: szablon rozwiązania lub aplikacja zarządzana** 
+**Aplikacje platformy Azure: szablon rozwiązania lub zarządzana aplikacja** 
 
-Należy aprowizować jedną lub więcej maszyn wirtualnych i pobiera przez sumę ceny maszyny wirtualnej. W przypadku aplikacji zarządzanych w ramach jednego planu można wybrać zryczałtowaną subskrypcję miesięczną jako model cenowy zamiast cen maszyny wirtualnej. W niektórych przypadkach opłaty za użycie infrastruktury platformy Azure są przekazywane klientowi oddzielnie od opłat licencyjnych za oprogramowanie, ale na tym samym zestawieniu rozliczeniowym. Jeśli jednak skonfigurujesz ofertę aplikacji zarządzanej dla opłat za infrastrukturę isv, zasoby platformy Azure są naliczane wydawcy, a klient otrzymuje zryczałtowaną opłatę, która obejmuje koszt infrastruktury, licencji na oprogramowanie i usług zarządzania.
+Należy udostępnić co najmniej jedną maszynę wirtualną i pobrać sumę cen maszyn wirtualnych. W przypadku aplikacji zarządzanych w ramach jednego planu można wybrać jako model cenowy miesięczną subskrypcję ryczałtową, a zamiast cennika maszyny wirtualnej. W niektórych przypadkach opłaty za użycie infrastruktury platformy Azure są przesyłane do klienta oddzielnie od opłat za licencje na oprogramowanie, ale w tej samej zestawie rozliczeń. Jednak w przypadku skonfigurowania oferty zarządzanej aplikacji dla dostawców niezależnego dostawcy oprogramowania zasoby platformy Azure są rozliczane dla wydawcy, a klient otrzymuje stałą opłatę obejmującą koszt infrastruktury, licencje na oprogramowanie i usługi zarządzania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Przejrzyj wymagania dotyczące uprawnień w sekcji Opcje publikowania według typu oferty, aby sfinalizować wybór i konfigurację oferty.
-* Przejrzyj wzorce publikowania według witryny sklepowej, aby zapoznać się z przykładami, w jaki sposób rozwiązanie mapuje typ oferty i konfigurację.
+* Zapoznaj się z wymaganiami dotyczącymi kwalifikacji w sekcji Opcje publikowania według typu oferty, aby zakończyć wybór i konfigurację oferty.
+* Zapoznaj się z wzorcem publikowania według witryny sklepu, aby zapoznać się z przykładami dotyczącymi sposobu mapowania rozwiązania na typ oferty i konfigurację.

@@ -1,6 +1,6 @@
 ---
-title: Jak usunąć dostęp użytkownika do aplikacji | Dokumenty firmy Microsoft
-description: Dowiedz się, jak usunąć dostęp użytkownika do aplikacji
+title: Jak usunąć dostęp użytkownika do aplikacji | Microsoft Docs
+description: Informacje o usuwaniu dostępu użytkownika do aplikacji
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,10 +16,10 @@ ms.date: 10/17/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b69502995eff88df53af3671a8e611809f83e59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65826098"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Jak usunąć dostęp użytkownika do aplikacji
@@ -28,47 +28,47 @@ Ten artykuł pomaga zrozumieć, jak usunąć dostęp użytkownika do aplikacji.
 
 ## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Chcę usunąć przypisanie określonego użytkownika lub grupy do aplikacji
 
-Aby usunąć przypisanie użytkownika lub grupy do aplikacji, wykonaj kroki wymienione w [artykule Usuwanie przypisania użytkownika lub grupy z aplikacji przedsiębiorstwa w usłudze Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal)
+Aby usunąć przypisanie użytkownika lub grupy do aplikacji, postępuj zgodnie z instrukcjami podanymi w temacie [usuwanie przypisania użytkownika lub grupy z aplikacji przedsiębiorstwa w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artykule.
 
-## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Chcę wyłączyć cały dostęp do aplikacji dla każdego użytkownika
+## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Chcę wyłączyć dostęp do aplikacji dla każdego użytkownika
 
-Aby wyłączyć wszystkie logowania użytkowników do aplikacji, wykonaj kroki wymienione w [artykule Wyłącz logowanie użytkowników dla aplikacji dla przedsiębiorstwa w usłudze Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal)
+Aby wyłączyć wszystkie logowania użytkownika do aplikacji, wykonaj kroki opisane w artykule [wyłączanie logowania użytkownika dla aplikacji przedsiębiorstwa w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) .
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Chcę całkowicie usunąć aplikację
 
-Aby **usunąć aplikację,** postępuj zgodnie z poniższymi instrukcjami:
+Aby **usunąć aplikację**, wykonaj następujące instrukcje:
 
-1. Otwórz [**witrynę Azure portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator.**
+1. Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator.**
 
-2. Otwórz **rozszerzenie usługi Azure Active Directory,** klikając **pozycję Wszystkie usługi** u góry głównego menu nawigacji po lewej stronie.
+2. Otwórz **rozszerzenie Azure Active Directory** , klikając pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie.
 
-3. Wpisz **"Usługa Azure Active Directory"** w polu wyszukiwania filtru i wybierz element **usługi Azure Active Directory.**
+3. Wpisz ciąg **"Azure Active Directory**" w polu wyszukiwania filtru i wybierz element **Azure Active Directory** .
 
-4. Kliknij **polecenie Aplikacje przedsiębiorstwa** z menu nawigacji po lewej stronie usługi Azure Active Directory.
+4. Kliknij pozycję **aplikacje przedsiębiorstwa** w menu nawigacji po lewej stronie Azure Active Directory.
 
-5. Kliknij **pozycję Wszystkie aplikacje,** aby wyświetlić listę wszystkich aplikacji.
+5. Kliknij pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji.
 
-   * Jeśli nie widzisz aplikacji, która ma być pokazana w tym miejscu, użyj kontrolki **Filtruj** u góry **listy Wszystkie aplikacje** i ustaw opcję **Pokaż** na **Wszystkie aplikacje.**
+   * Jeśli nie widzisz aplikacji, która ma być wyświetlana w tym miejscu, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje** i ustaw opcję **Pokaż** na **wszystkie aplikacje.**
 
 6. Wybierz aplikację, którą chcesz usunąć.
 
-7. Po załadowaniu aplikacji kliknij ikonę **Usuń** z górnego okienka **Przegląd** aplikacji.
+7. Po załadowaniu aplikacji kliknij przycisk **Usuń** ikonę w okienku **Przegląd** górnej aplikacji.
 
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Chcę wyłączyć wszystkie przyszłe operacje zgody użytkownika do dowolnej aplikacji
+## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Chcę wyłączyć wszystkie przyszłe operacje wyrażania zgody użytkownika na dowolną aplikację
 
-Wyłączenie zgody użytkownika na cały katalog uniemożliwia użytkownikom końcowym wyrażenie zgody na dowolną aplikację. Administratorzy mogą nadal wyrażać zgodę w imieniu użytkownika. Aby uzyskać więcej informacji na temat zgody aplikacji i dlaczego możesz lub nie chcesz tego robić, przeczytaj [Opis zgody użytkownika i administratora](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Zobacz też uprawnienia [i zgoda](../develop/v2-permissions-and-consent.md).
+Wyłączenie zgody użytkownika na cały katalog uniemożliwi użytkownikom końcowym przesyłanie ich do żadnej aplikacji. Administratorzy mogą w dalszym ciągu wyrazić zgodę w imieniu użytkownika. Aby uzyskać więcej informacji o zgodzie aplikacji i o tym, dlaczego możesz lub nie chcieć tego zrobić, przeczytaj artykuł [Informacje o zgodzie użytkownika i administratora](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Zobacz również [uprawnienia i zgody](../develop/v2-permissions-and-consent.md).
 
-Aby **wyłączyć wszystkie przyszłe operacje zgody użytkownika w całym katalogu, postępuj**zgodnie z poniższymi instrukcjami:
+Aby **wyłączyć wszystkie przyszłe operacje wyrażania zgody użytkowników w całym katalogu**, wykonaj następujące instrukcje:
 
-1.  Otwórz [**witrynę Azure portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny.**
+1.  Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny.**
 
-2.  Otwieranie **rozszerzenia usługi Azure Active Directory** 
+2.  Otwórz **rozszerzenie Azure Active Directory** 
 
-3.  W menu **nawigacyjnym kliknij polecenie Aplikacje przedsiębiorstwa.**
+3.  Kliknij pozycję **aplikacje przedsiębiorstwa** w menu nawigacji.
 
-5.  Kliknij **pozycję Ustawienia użytkownika**.
+5.  Kliknij pozycję **Ustawienia użytkownika**.
 
-6.  Ustaw **użytkownicy mogą zezwolić aplikacjom na dostęp do danych firmy w ich imieniu,** przełącz się na **Nie** i kliknij przycisk Zapisz.
+6.  Ustawienie **Użytkownicy mogą zezwalać aplikacjom na dostęp do danych firmowych w ich imieniu** , przełączać się do **nie** i klikać przycisk Zapisz.
 
 
 ## <a name="next-steps"></a>Następne kroki

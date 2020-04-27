@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 8a287ec5cd33c9f2a96af7ad8162f7c8f54df118
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: fcede16619e8488796adc6f4c60af30643c1aadf
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134171"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160157"
 ---
 # <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>Zalety korzystania z Azure NetApp Files na potrzeby automatyzacji projektowania elektronicznego
 
@@ -77,9 +77,9 @@ Pełne obciążenie jest kombinacją współbieżnie uruchomionych funkcjonalnyc
 
 Faza funkcjonalna składa się z wstępnych specyfikacji i projektu logicznego. Faza fizyczna jest wykonywana, gdy projekt logiczny jest konwertowany na układ fizyczny. Podczas fazy wylogowania i przeprowadzenia taśmy testy końcowe są wykonywane, a projekt jest dostarczany do odlewu dla produkcji.  
 
-Fazy funkcjonalne obejmują kombinację sekwencyjnych i losowych operacji odczytu i zapisu. Fazy funkcjonalne to intensywnie korzystające z metadanych, takie jak pliki i wywołania dostępu. Mimo że operacje metadanych są skutecznie bez rozmiaru, operacje odczytu i zapisu mieszczą się w przedziale od 1 K do 16 K. Większość odczytów należy do zakresu od 4 do 16 K.  Większość zapisów ma 4 K lub mniej.  Fazy fizyczne składają się z operacji sekwencyjnego odczytu i zapisu w całości, z mieszaniną wielkości 32 K i 64 K.  
+Faza funkcjonalna obejmuje kombinację sekwencyjnych i losowych operacji we/wy odczytu i zapisu. Faza funkcjonalna to intensywność metadanych, taka jak pliki i wywołania dostępu. Mimo że operacje metadanych są skutecznie bez rozmiaru, operacje odczytu i zapisu mieszczą się w przedziale od 1 K do 16 K. Większość odczytów należy do zakresu od 4 do 16 K.  Większość zapisów ma 4 K lub mniej. Faza fizyczna składa się z operacji sekwencyjnego odczytu i zapisu w całości, z mieszaniną 32 K i 64 K.  
 
-Na wykresach powyżej większość przepływności pochodzi z sekwencyjnych etapów obciążenia. We/wy pochodzą z niewielkich faz funkcjonalnych i intensywnie korzystających z metadanych. Obie fazy są wykonywane równolegle. 
+Na wykresach powyżej większość przepływności pochodzi z kolejnej fazy fizycznej obciążenia. We/wy pochodzą z fazy działania z małą liczbą losową i intensywną. Obie fazy są wykonywane równolegle. 
 
 Podsumowując, można sparować usługę Azure COMPUTE with Azure NetApp Files for EDA, aby uzyskać skalowalną przepustowość. 
 

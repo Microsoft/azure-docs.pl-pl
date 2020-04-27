@@ -16,54 +16,54 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: ef81e74b07a351139aa8feefbdf1b89ea7e4994f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68727188"
 ---
 # <a name="azure-infrastructure-integrity"></a>Integralność infrastruktury platformy Azure
 
 ## <a name="software-installation"></a>Instalacja oprogramowania
-Wszystkie składniki w stosie oprogramowania, które są zainstalowane w środowisku platformy Azure są tworzone na zamówienie zgodnie z procesem rozwoju zabezpieczeń firmy Microsoft (SDL). Wszystkie składniki oprogramowania, w tym obrazy systemu operacyjnego (OS) i bazy danych SQL, są wdrażane w ramach procesu zarządzania zmianami i zarządzania wydaniami. System operacyjny uruchamiany we wszystkich węzłach jest dostosowaną wersją systemu Windows Server 2008 lub Windows Server 2012. Dokładna wersja jest wybierana przez kontroler sieci szkieletowej (FC) zgodnie z rolą, jaką zamierza odgrywać system operacyjny. Ponadto system operacyjny hosta nie zezwala na instalację nieautoryzowanych składników oprogramowania.
+Wszystkie składniki w stosie oprogramowania, które są zainstalowane w środowisku platformy Azure, są niestandardowe skompilowane po procesie Microsoft Security Development Lifecycle (SDL). Wszystkie składniki oprogramowania, w tym obrazy systemu operacyjnego (OS) i SQL Database, są wdrażane w ramach procesu zarządzania zmianami i Release Management. System operacyjny uruchomiony na wszystkich węzłach jest dostosowaną wersją systemu Windows Server 2008 lub Windows Server 2012. Dokładna wersja jest wybierana przez kontroler sieci szkieletowej (FC) zgodnie z rolą, która ma zostać odtworzona dla systemu operacyjnego. Ponadto system operacyjny hosta nie zezwala na instalację żadnych nieautoryzowanych składników oprogramowania.
 
-Niektóre składniki platformy Azure są wdrażane jako klienci platformy Azure na maszynie wirtualnej gościa uruchomionej w systemu operacyjnym gościa.
+Niektóre składniki platformy Azure są wdrażane jako klienci platformy Azure na maszynie wirtualnej gościa działającej w systemie operacyjnym gościa.
 
-## <a name="virus-scans-on-builds"></a>Skanowanie antywirusowe na kompilacjach
-Kompilacje składników oprogramowania platformy Azure (w tym systemu operacyjnego) muszą zostać poddane skanowaniu antywirusowemu, które korzysta z narzędzia antywirusowego endpoint protection. Każde skanowanie antywirusowe tworzy dziennik w powiązanym katalogu kompilacji, szczegółowo opisujący, co zostało zeskanowane i wyniki skanowania. Skanowanie antywirusowe jest częścią kodu źródłowego kompilacji dla każdego składnika na platformie Azure. Kod nie jest przenoszony do produkcji bez czystego i udanego skanowania antywirusowego. Jeśli zostaną odnotowane jakiekolwiek problemy, kompilacja zostanie zamrożona, a następnie przechodzi do zespołów zabezpieczeń w programie Microsoft Security, aby zidentyfikować, gdzie kod "nieuczciwych" wszedł do kompilacji.
+## <a name="virus-scans-on-builds"></a>Skanowanie wirusów w kompilacjach
+Kompilacje składnika oprogramowania platformy Azure (w tym systemu operacyjnego) muszą zostać przeskanowane przy użyciu narzędzia antywirusowego Endpoint Protection. Każde skanowanie antywirusowe tworzy dziennik w skojarzonym katalogu kompilacji, zawierający szczegóły dotyczące skanowania i wyników skanowania. Skanowanie antywirusowe jest częścią kodu źródłowego kompilacji dla każdego składnika na platformie Azure. Kod nie jest przenoszony do produkcji bez czystego i udanego skanowania antywirusowego. W przypadku wystąpienia jakichkolwiek problemów kompilacja zostaje zamrożona, a następnie przejdzie do zespołów zabezpieczeń w firmie Microsoft Security, aby określić, gdzie "nieautoryzowany" kod został wprowadzony.
 
 ## <a name="closed-and-locked-environment"></a>Zamknięte i zablokowane środowisko
-Domyślnie węzły infrastruktury platformy Azure i maszyny wirtualne gościa nie mają utworzonych na nich kont użytkowników. Ponadto domyślne konta administratora systemu Windows są również wyłączone. Administratorzy z pomocy technicznej platformy Azure na żywo mogą, przy odpowiednim uwierzytelnianiu, zalogować się do tych komputerów i administrować siecią produkcyjną platformy Azure w celu naprawy awaryjnej.
+Domyślnie węzły infrastruktury platformy Azure i maszyny wirtualne gościa nie mają utworzonych kont użytkownika. Ponadto domyślne konta administratorów systemu Windows również są wyłączone. Administratorzy usługi Azure Live Support mogą przy użyciu odpowiedniego uwierzytelniania zalogować się do tych maszyn i administrować siecią produkcyjną platformy Azure w celu naprawy awaryjnej.
 
 ## <a name="azure-sql-database-authentication"></a>Uwierzytelnianie w usłudze Azure SQL Database
-Podobnie jak w przypadku każdej implementacji programu SQL Server, zarządzanie kontem użytkownika musi być ściśle kontrolowane. Usługa Azure SQL Database obsługuje tylko uwierzytelnianie programu SQL Server. Aby uzupełnić model zabezpieczeń danych klienta, należy również używać kont użytkowników z silnymi hasłami i skonfigurowanych z określonymi prawami.
+Podobnie jak w przypadku każdej implementacji SQL Server, zarządzanie kontami użytkowników musi być ściśle kontrolowane. Azure SQL Database obsługuje tylko uwierzytelnianie SQL Server. Aby uzupełnić model zabezpieczeń danych klienta, należy również użyć kont użytkowników z silnymi hasłami i skonfigurować je przy użyciu określonych praw.
 
 ## <a name="acls-and-firewalls-between-the-microsoft-corporate-network-and-an-azure-cluster"></a>Listy ACL i zapory między siecią firmową firmy Microsoft a klastrem platformy Azure
-Listy kontroli dostępu (ACL) i zapory między platformą usług a siecią firmową firmy Microsoft chronią wystąpienia bazy danych SQL przed nieautoryzowanym dostępem do niejawnych informacji poufnych. Ponadto tylko użytkownicy z adresu IP waha się od sieci firmowej firmy Microsoft mogą uzyskać dostęp do punktu końcowego zarządzania platformą Windows Fabric.
+Listy kontroli dostępu (ACL) i zapory między platformą usługi i siecią firmową firmy Microsoft chronią wystąpienia SQL Database od nieautoryzowanego dostępu do niejawnego programu. Dodatkowo tylko użytkownicy z zakresów adresów IP z sieci firmowej firmy Microsoft mogą uzyskać dostęp do punktu końcowego zarządzania platformą Windows Fabric.
 
-## <a name="acls-and-firewalls-between-nodes-in-a-sql-database-cluster"></a>Listy ACL i zapory między węzłami w klastrze bazy danych SQL
-Jako dodatkową ochronę, w ramach obrony w strategii głębi, listy ACL i zapora zostały zaimplementowane między węzłami w klastrze bazy danych SQL. Cała komunikacja wewnątrz klastra platformy sieci szkieletowej systemu Windows, a także cały uruchomiony kod jest zaufany.
+## <a name="acls-and-firewalls-between-nodes-in-a-sql-database-cluster"></a>Listy ACL i zapory między węzłami w klastrze SQL Database
+Jako dodatkowa ochrona w ramach strategii obrony, listy ACL i zapory zostały zaimplementowane między węzłami w klastrze SQL Database. Cała komunikacja w ramach klastra platformy Windows Fabric oraz cały uruchomiony kod jest zaufana.
 
-## <a name="custom-monitoring-agents"></a>Niestandardowe środki monitorowania
-Baza danych SQL wykorzystuje niestandardowych agentów monitorowania (MA), nazywanych również watchdogs, do monitorowania kondycji klastra bazy danych SQL.
+## <a name="custom-monitoring-agents"></a>Agenci niestandardowego monitorowania
+SQL Database korzysta z niestandardowych agentów monitorowania (MAs), nazywanych również licznikami alarmowymi, do monitorowania kondycji klastra SQL Database.
 
 ## <a name="web-protocols"></a>Protokoły sieci Web
 
 ### <a name="role-instance-monitoring-and-restart"></a>Monitorowanie i ponowne uruchamianie wystąpienia roli
-Platforma Azure zapewnia, że wszystkie wdrożone, uruchomione role (internetowe lub role procesu roboczego przetwarzania zaplecza) podlegają ciągłemu monitorowaniu kondycji, aby zapewnić, że skutecznie i wydajnie dostarczają usługi, dla których zostały zainicjowane. Jeśli rola staje się w złej kondycji, przez błąd krytyczny w aplikacji, która jest hostowana lub podstawowy problem konfiguracji w samym wystąpieniu roli, FC wykrywa problem w wystąpieniu roli i inicjuje stan korekcyjny.
+System Azure zapewnia, że wszystkie wdrożone, uruchomione role (w sieci Web lub w celu przetwarzania zaplecza) są objęte monitorowaniem kondycji, aby zapewnić efektywne i wydajne dostarczanie usług, dla których Zainicjowano obsługę administracyjną. Jeśli rola stanie się zła w złej kondycji, na podstawie krytycznego błędu w aplikacji, która jest hostowana, lub podstawowego problemu konfiguracji w ramach samego wystąpienia roli, FC wykrywa problem w ramach wystąpienia roli i inicjuje stan naprawczy.
 
 ### <a name="compute-connectivity"></a>Łączność obliczeniowa
-Platforma Azure zapewnia, że wdrożona aplikacja lub usługa jest osiągalna za pośrednictwem standardowych protokołów opartych na sieci Web. Wirtualne wystąpienia ról internetowych z internetem mają zewnętrzną łączność z Internetem i są dostępne bezpośrednio przez użytkowników internetu. Aby chronić czułość i integralność operacji, które role robocze wykonują w imieniu publicznie dostępnych wystąpień wirtualnych ról sieci Web, wirtualne wystąpienia ról pracownika przetwarzania zaplecza mają zewnętrzną łączność z Internetem, ale nie mogą być bezpośrednio przez zewnętrznych użytkowników internetu.
+Platforma Azure zapewnia dostępność wdrożonej aplikacji lub usługi za pośrednictwem standardowych protokołów opartych na sieci Web. Wirtualne wystąpienia ról sieci Web dostępnych z Internetu mają zewnętrzną łączność z Internetem i są dostępne bezpośrednio dla użytkowników sieci Web. Aby chronić czułość i integralność operacji wykonywanych przez role procesów roboczych w imieniu wystąpień wirtualnych z publicznie dostępnymi wystąpieniami, wirtualne wystąpienia ról procesów roboczych przetwarzania zaplecza mają zewnętrzną łączność internetową, ale nie są dostępne bezpośrednio przez zewnętrznych użytkowników sieci Web.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o tym, co firma Microsoft robi, aby zabezpieczyć infrastrukturę platformy Azure, zobacz:
+Aby dowiedzieć się więcej na temat sposobu zabezpieczania infrastruktury platformy Azure przez firmę Microsoft, zobacz:
 
-- [Obiekty platformy Azure, pomieszczenia i zabezpieczenia fizyczne](physical-security.md)
+- [Funkcje platformy Azure, lokalne i zabezpieczenia fizyczne](physical-security.md)
 - [Dostępność infrastruktury platformy Azure](infrastructure-availability.md)
-- [Składniki i granice systemu informacyjnego platformy Azure](infrastructure-components.md)
+- [Składniki i granice systemu informacji platformy Azure](infrastructure-components.md)
 - [Architektura sieci platformy Azure](infrastructure-network.md)
 - [Sieć produkcyjna platformy Azure](production-network.md)
-- [Funkcje zabezpieczeń usługi Azure SQL Database](infrastructure-sql.md)
-- [Operacje produkcyjne i zarządzanie platformą Azure](infrastructure-operations.md)
+- [Azure SQL Database funkcje zabezpieczeń](infrastructure-sql.md)
+- [Operacje produkcyjne platformy Azure i zarządzanie nimi](infrastructure-operations.md)
 - [Monitorowanie infrastruktury platformy Azure](infrastructure-monitoring.md)
-- [Ochrona danych klientów platformy Azure](protection-customer-data.md)
+- [Ochrona danych klienta platformy Azure](protection-customer-data.md)

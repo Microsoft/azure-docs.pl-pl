@@ -1,6 +1,6 @@
 ---
-title: Diagnozowanie i rozwiązywanie problemów z zestawem async usługi Azure Cosmos DB Java Async
-description: Użyj funkcji, takich jak rejestrowanie po stronie klienta i innych narzędzi innych firm do identyfikowania, diagnozowania i rozwiązywania problemów z usługą Azure Cosmos DB.
+title: Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB Async SDK Java
+description: Korzystaj z funkcji, takich jak rejestrowanie po stronie klienta i innych narzędzi innych firm, aby identyfikować, diagnozować i rozwiązywać problemy Azure Cosmos DB.
 author: moderakh
 ms.service: cosmos-db
 ms.date: 04/30/2019
@@ -10,76 +10,76 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65519980"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Rozwiązywanie problemów podczas korzystania z zestawu Java Async SDK z kontami interfejsu API SQL usługi Azure Cosmos DB
-W tym artykule omówiono typowe problemy, obejścia, kroki diagnostyczne i narzędzia podczas korzystania z [zestawu Java Async SDK](sql-api-sdk-async-java.md) z kontami interfejsu API usługi Azure Cosmos DB SQL.
+W tym artykule opisano typowe problemy, obejścia, kroki diagnostyczne i narzędzia używane w przypadku korzystania z [asynchronicznego zestawu SDK Java](sql-api-sdk-async-java.md) z kontami interfejsu API SQL Azure Cosmos DB.
 Zestaw Java Async SDK zapewnia reprezentację logiczną po stronie klienta służącą do uzyskania dostępu do interfejsu API SQL usługi Azure Cosmos DB. W tym artykule opisano narzędzia i podejścia pomocne w przypadku napotkania jakichkolwiek problemów.
 
-Zacznij od tej listy:
+Rozpocznij od tej listy:
 
-* Zapoznaj się z [sekcją Typowe problemy i obejścia] w tym artykule.
-* Spójrz na SDK, który jest dostępny [open source na GitHub](https://github.com/Azure/azure-cosmosdb-java). Ma [sekcję problemów,](https://github.com/Azure/azure-cosmosdb-java/issues) która jest aktywnie monitorowana. Sprawdź, czy podobny problem z obejściem jest już zgłoszony.
-* Zapoznaj się ze [wskazówkami dotyczącymi skuteczności](performance-tips-async-java.md)i postępuj zgodnie z sugerowanymi praktykami.
-* Przeczytaj resztę tego artykułu, jeśli nie znalazłeś rozwiązania. Następnie zgłaskaj problem z [githubem](https://github.com/Azure/azure-cosmosdb-java/issues).
+* Zapoznaj się z sekcją [typowe problemy i obejścia] w tym artykule.
+* Zapoznaj się z zestawem SDK, który jest dostępny jako " [Open Source" w witrynie GitHub](https://github.com/Azure/azure-cosmosdb-java). Zawiera [sekcję problemy](https://github.com/Azure/azure-cosmosdb-java/issues) , która jest aktywnie monitorowana. Sprawdź, czy podobny problem z obejściem został już zgłoszony.
+* Zapoznaj się z [poradami dotyczącymi wydajności](performance-tips-async-java.md)i postępuj zgodnie z zaleceniami.
+* Zapoznaj się z resztą tego artykułu, jeśli nie odnaleziono rozwiązania. Następnie należy [rozwiązać problem](https://github.com/Azure/azure-cosmosdb-java/issues)z usługą GitHub.
 
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Typowe problemy i ich rozwiązania
 
-### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>Problemy z siecią, awaria limitu czasu odczytu netty, niska przepływność, duże opóźnienia
+### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>Problemy z siecią, Niepowodzenie przekroczenia limitu czasu odczytu z sieci, niska przepływność, duże opóźnienie
 
 #### <a name="general-suggestions"></a>Ogólne sugestie
-* Upewnij się, że aplikacja jest uruchomiona w tym samym regionie co konto usługi Azure Cosmos DB. 
-* Sprawdź użycie procesora CPU na hoście, na którym jest uruchomiona aplikacja. Jeśli użycie procesora CPU wynosi 90 procent lub więcej, uruchom aplikację na hoście z wyższą konfiguracją. Możesz też rozłożyć obciążenie na więcej maszyn.
+* Upewnij się, że aplikacja działa w tym samym regionie co konto Azure Cosmos DB. 
+* Sprawdź użycie procesora na hoście, na którym działa aplikacja. Jeśli użycie procesora CPU wynosi 90% lub więcej, uruchom aplikację na hoście o wyższej konfiguracji. Można też rozłożyć obciążenie na więcej maszyn.
 
 #### <a name="connection-throttling"></a>Ograniczanie połączeń
-Ograniczanie połączeń może się zdarzyć z powodu [limitu połączenia na komputerze-hoście] lub [wyczerpania portu Azure SNAT (PAT).]
+Możliwe jest ograniczenie połączenia z powodu [limitu połączeń na komputerze hosta lub w] [wyczerpaniu portów usługi Azure translator adresów sieciowych].
 
-##### <a name="connection-limit-on-a-host-machine"></a><a name="connection-limit-on-host"></a>Limit połączeń na komputerze-hoście
-Niektóre systemy Linux, takie jak Red Hat, mają górny limit całkowitej liczby otwartych plików. Gniazda w systemie Linux są implementowane jako pliki, więc liczba ta ogranicza całkowitą liczbę połączeń.
+##### <a name="connection-limit-on-a-host-machine"></a><a name="connection-limit-on-host"></a>Limit połączeń na komputerze hosta
+Niektóre systemy Linux, takie jak Red Hat, mają górny limit łącznej liczby otwartych plików. Gniazda w systemie Linux są zaimplementowane jako pliki, więc ta liczba ogranicza łączną liczbę połączeń.
 Uruchom następujące polecenie.
 
 ```bash
 ulimit -a
 ```
-Liczba maksymalnych dozwolonych otwartych plików, które są identyfikowane jako "nofile", musi być co najmniej dwukrotnie większa niż rozmiar puli połączeń. Aby uzyskać więcej informacji, zobacz [Porady dotyczące wydajności](performance-tips-async-java.md).
+Maksymalna dozwolona liczba otwartych plików, które są identyfikowane jako "nofile", musi mieć co najmniej dwa razy więcej rozmiaru puli połączeń. Aby uzyskać więcej informacji, zobacz [porady dotyczące wydajności](performance-tips-async-java.md).
 
-##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Wyczerpanie portu Azure SNAT (PAT)
+##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Wyczerpanie portów (z) na platformie Azure
 
-Jeśli aplikacja jest wdrażana na maszynach wirtualnych platformy Azure bez publicznego adresu IP, domyślnie [porty SNAT platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) ustanawiają połączenia z dowolnym punktem końcowym poza maszyną wirtualną. Liczba połączeń dozwolonych z maszyny Wirtualnej do punktu końcowego usługi Azure Cosmos DB jest ograniczona przez [konfigurację usługi Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Jeśli aplikacja jest wdrażana na platformie Azure Virtual Machines bez publicznego adresu IP, domyślnie [porty usługi Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) IPSec ustanawiają połączenia z dowolnym punktem końcowym poza maszyną wirtualną. Liczba połączeń dozwolonych między maszyną wirtualną a punktem końcowym Azure Cosmos DB jest ograniczona przez [konfigurację usługi Azure translatora adresów sieciowych](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
- Porty SNAT platformy Azure są używane tylko wtedy, gdy maszyna wirtualna ma prywatny adres IP, a proces z maszyny Wirtualnej próbuje połączyć się z publicznym adresem IP. Istnieją dwa obejścia, aby uniknąć ograniczenia usługi Azure SNAT:
+ Porty protokołu IPSec platformy Azure są używane tylko wtedy, gdy maszyna wirtualna ma prywatny adres IP, a proces z maszyny wirtualnej próbuje połączyć się z publicznym adresem IP. Istnieją dwa obejścia, aby uniknąć ograniczenia dotyczącego translatora adresów sieciowych platformy Azure:
 
-* Dodaj punkt końcowy usługi Usługi Azure Cosmos DB do podsieci sieci wirtualnej maszyn wirtualnych platformy Azure. Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Dodaj punkt końcowy usługi Azure Cosmos DB do podsieci sieci wirtualnej platformy Azure Virtual Machines. Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
 
-    Gdy punkt końcowy usługi jest włączony, żądania nie są już wysyłane z publicznego adresu IP do usługi Azure Cosmos DB. Zamiast tego są wysyłane tożsamości sieci wirtualnej i podsieci. Ta zmiana może spowodować spadek zapory, jeśli dozwolone są tylko publiczne serwery IP. Jeśli używasz zapory, po włączeniu punktu końcowego usługi, dodaj podsieć do zapory przy użyciu [list ACL sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
-* Przypisywanie publicznego adresu IP do maszyny Wirtualnej platformy Azure.
+    Po włączeniu punktu końcowego usługi żądania nie są już wysyłane z publicznego adresu IP do Azure Cosmos DB. Zamiast tego jest wysyłana tożsamość sieci wirtualnej i podsieci. Ta zmiana może spowodować, że Zapora spadnie, jeśli dozwolone są tylko publiczne adresy IP. Jeśli używasz zapory, po włączeniu punktu końcowego usługi Dodaj podsieć do zapory przy użyciu [list acl Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+* Przypisz publiczny adres IP do maszyny wirtualnej platformy Azure.
 
-##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Nie można dotrzeć do usługi — zapora
-``ConnectTimeoutException``oznacza, że sdk nie może dotrzeć do usługi.
-Podczas korzystania z trybu bezpośredniego może wystąpić błąd podobny do następującego:
+##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Nie można nawiązać połączenia z usługą — Zapora
+``ConnectTimeoutException``wskazuje, że zestaw SDK nie może nawiązać połączenia z usługą.
+W przypadku korzystania z trybu bezpośredniego może wystąpić błąd podobny do następującego:
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
 ```
 
-Jeśli masz zaporę uruchomiona na komputerze z aplikacją, zakres otwartych portów od 10 000 do 20 000, które są używane w trybie bezpośrednim.
-Należy również przestrzegać [limitu połączenia na komputerze-hoście](#connection-limit-on-host).
+Jeśli na maszynie aplikacji jest uruchomiona Zapora, Otwórz zakres portów od 10 000 do 20 000, który jest używany przez tryb bezpośredni.
+Należy również postępować zgodnie z [limitem połączeń na komputerze-hoście](#connection-limit-on-host).
 
 #### <a name="http-proxy"></a>Serwer proxy HTTP
 
-Jeśli używasz serwera proxy HTTP, upewnij się, że może on obsługiwać liczbę połączeń skonfigurowanych w pliku SDK `ConnectionPolicy`.
-W przeciwnym razie występują problemy z połączeniem.
+W przypadku korzystania z serwera proxy HTTP upewnij się, że może on obsługiwać liczbę połączeń skonfigurowanych w zestawie `ConnectionPolicy`SDK.
+W przeciwnym razie nastąpiły problemy z połączeniem.
 
-#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Nieprawidłowy wzorzec kodowania: blokowanie wątku we/wy Netty
+#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Nieprawidłowy wzorzec kodowania: blokowanie wielosieciowego wątku we/wy
 
-Zestaw SDK używa biblioteki we/wy [Netty](https://netty.io/) do komunikowania się z usługą Azure Cosmos DB. SDK ma interfejsy API Async i używa nieblokujące interfejsy API IO netty. Praca we/wy SDK jest wykonywana na wątkach IO Netty. Liczba wątków IO Netty jest skonfigurowana tak, aby była taka sama jak liczba rdzeni procesora komputera aplikacji. 
+Zestaw SDK używa biblioteki [we/wy w celu](https://netty.io/) komunikowania się z Azure Cosmos DB. Zestaw SDK ma asynchroniczne interfejsy API i używa nieblokowanych interfejsów API we/wy z sieci. Operacja we/wy zestawu SDK jest wykonywana w wątkach z dyskami we/wy. Liczba wątków sieci we/wy jest skonfigurowana tak samo jak liczba rdzeni procesora CPU maszyny aplikacji. 
 
-Wątki We/Wy Netty są przeznaczone do użycia tylko do pracy netty we/wy bez blokowania. Zestaw SDK zwraca wynik wywołania interfejsu API w jednym z wątków we/wysłudze Netty do kodu aplikacji. Jeśli aplikacja wykonuje długotrwałą operację po otrzymaniu wyników w wątku Netty, SDK może nie mieć wystarczającej liczby wątków we/wy, aby wykonać swoją wewnętrzną pracę we/wy. Takie kodowanie aplikacji może spowodować niską przepływność, duże opóźnienia i `io.netty.handler.timeout.ReadTimeoutException` błędy. Obejście jest, aby przełączyć wątek, gdy wiesz, że operacja wymaga czasu.
+Wątki we/wy są przeznaczone do użycia tylko dla nieblokujących sieci we/wy. Zestaw SDK zwraca wynik wywołania interfejsu API na jednym z wątków we/wy do kodu aplikacji. Jeśli aplikacja wykonuje długotrwałą operację po odebraniu wyników w wątku sieci, zestaw SDK może nie mieć wystarczającej liczby wątków we/wy do wykonania wewnętrznej operacji we/wy. Takie kodowanie aplikacji może spowodować niską przepływność, duże opóźnienia i `io.netty.handler.timeout.ReadTimeoutException` niepowodzenia. Obejście polega na przełączeniu wątku, gdy wiadomo, że operacja trwa.
 
-Na przykład spójrz na poniższy fragment kodu. Może wykonać długotrwałą pracę, która trwa więcej niż kilka milisekund w wątku Netty. Jeśli tak, w końcu można dostać się do stanu, w którym nie netty wątku we/wy jest obecny do przetwarzania pracy we/wy. W rezultacie otrzymasz błąd ReadTimeoutException.
+Na przykład zapoznaj się z poniższym fragmentem kodu. Można wykonywać długotrwałe zadania, które trwają więcej niż kilka milisekund w wątku. Jeśli tak, możesz przejść do stanu, w którym nie ma żadnego wątku we/wy w celu przetworzenia operacji we/wy. W związku z tym zostanie wyświetlony błąd ReadTimeoutException.
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -131,13 +131,13 @@ public void badCodeWithReadTimeoutException() throws Exception {
     assertThat(failureCount.get()).isGreaterThan(0);
 }
 ```
-   Obejście jest zmiana wątku, w którym wykonujesz pracę, która wymaga czasu. Zdefiniuj pojedyncze wystąpienie harmonogramu dla aplikacji.
+   Obejście polega na zmianie wątku, w którym wykonywane są zadania. Zdefiniuj pojedyncze wystąpienie harmonogramu dla swojej aplikacji.
    ```java
 // Have a singleton instance of an executor and a scheduler.
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
    ```
-   Może być konieczne wykonanie pracy, która wymaga czasu, na przykład, obliczeniowo ciężkiej pracy lub blokowania we/wy. W takim przypadku przełącz wątek `customScheduler` do procesu `.observeOn(customScheduler)` roboczego dostarczonego przez użytkownika przy użyciu interfejsu API.
+   Może być konieczne wykonanie zadań, które zajmują dużo czasu, na przykład obliczeniowe duże ilości pracy lub blokowanie operacji we/wy. W takim przypadku należy przełączyć wątek do procesu roboczego dostarczonego przez użytkownika `customScheduler` przy użyciu `.observeOn(customScheduler)` interfejsu API.
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
@@ -148,36 +148,36 @@ createObservable
             // ...
         );
 ```
-Za `observeOn(customScheduler)`pomocą , zwolnić netty wątku we/wy i przełączyć się do własnego wątku niestandardowego dostarczonych przez harmonogram niestandardowy. Ta modyfikacja rozwiązuje problem. Nie dostaniesz już `io.netty.handler.timeout.ReadTimeoutException` awarii.
+Przy użyciu `observeOn(customScheduler)`, należy wydać wątek we/wy na dysku i przełączyć się na własny niestandardowy wątek udostępniony przez niestandardowy harmonogram. Ta modyfikacja rozwiązuje problem. `io.netty.handler.timeout.ReadTimeoutException` Błąd nie zostanie już wyświetlony.
 
-### <a name="connection-pool-exhausted-issue"></a>Wyczerpany problem z pulą połączeń
+### <a name="connection-pool-exhausted-issue"></a>Problem z wyczerpaniem puli połączeń
 
-`PoolExhaustedException`jest awarią po stronie klienta. Ten błąd wskazuje, że obciążenie aplikacji jest wyższa niż to, co może obsługiwać pula połączeń SDK. Zwiększ rozmiar puli połączeń lub rozłóż obciążenie wielu aplikacji.
+`PoolExhaustedException`to błąd po stronie klienta. Ten błąd wskazuje, że obciążenie aplikacji jest większe niż to, co może obsłużyć pula połączeń zestawu SDK. Zwiększ rozmiar puli połączeń lub Rozpowszechnij obciążenie w wielu aplikacjach.
 
-### <a name="request-rate-too-large"></a>Stawka żądania jest zbyt duża
-Ten błąd jest awarią po stronie serwera. Oznacza to, że posunęła się aprowizowana przepływność. Ponów próbę później. Jeśli często pojawia się ten błąd, należy wziąć pod uwagę wzrost przepływności kolekcji.
+### <a name="request-rate-too-large"></a>Zbyt duży współczynnik żądań
+Ten błąd jest niepowodzeniem po stronie serwera. Oznacza to, że wykorzystano zainicjowaną przepływność. Spróbuj ponownie później. Jeśli ten błąd występuje często, należy rozważyć zwiększenie przepływności kolekcji.
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Niepowodzenie nawiązywania połączenia z emulatorem usługi Azure Cosmos DB
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Nie można nawiązać połączenia z emulatorem Azure Cosmos DB
 
-Certyfikat HTTPS emulatora usługi Azure Cosmos DB jest podpisany samodzielnie. Aby sdk działał z emulatorem, zaimportuj certyfikat emulatora do java truststore. Aby uzyskać więcej informacji, zobacz [Eksportowanie certyfikatów emulatora usługi Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
+Certyfikat HTTPS emulatora Azure Cosmos DB jest podpisany z podpisem własnym. Aby zestaw SDK działał z emulatorem, zaimportuj certyfikat emulatora do TrustStore języka Java. Aby uzyskać więcej informacji, zobacz [eksportowanie Azure Cosmos DB emulatora certyfikatów](local-emulator-export-ssl-certificates.md).
 
-### <a name="dependency-conflict-issues"></a>Problemy z konfliktem zależności
+### <a name="dependency-conflict-issues"></a>Problemy z konfliktami zależności
 
 ```console
 Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
 ```
 
-Powyższy wyjątek sugeruje, że masz zależność od starszej wersji RxJava lib (np. 1.2.2). Nasz SDK opiera się na RxJava 1.3.8, który ma interfejsy API nie są dostępne we wcześniejszej wersji RxJava. 
+Powyższy wyjątek sugeruje, że masz zależność od starszej wersji biblioteki RxJava (np. 1.2.2). Nasze zestawy SDK opierają się na RxJava 1.3.8, która ma interfejsy API niedostępne w starszej wersji programu RxJava. 
 
-Obejście dla takich issuses jest określenie, które inne zależności przynosi w RxJava-1.2.2 i wykluczyć przechodnie zależności na RxJava-1.2.2 i zezwolić cosmosDB SDK przynieść nowszą wersję.
+Obejście dla takich issuses polega na zidentyfikowaniu, która inna zależność znajduje się w RxJava-1.2.2 i wykluczać zależność przechodnią w RxJava-1.2.2 i Zezwalanie na CosmosDB zestawu SDK.
 
-Aby określić, która biblioteka przynosi w programie RxJava-1.2.2, uruchom następujące polecenie obok pliku pom.xml projektu:
+Aby określić, która biblioteka znajduje się w RxJava-1.2.2, uruchom następujące polecenie obok pliku Project pliku pom. XML:
 ```bash
 mvn dependency:tree
 ```
-Aby uzyskać więcej informacji, zobacz [przewodnik po drzewie zależności maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+Aby uzyskać więcej informacji, zobacz [Przewodnik drzewa zależności Maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
 
-Po zidentyfikowaniu RxJava-1.2.2 jest przechodnie zależności, które inne zależności projektu, można zmodyfikować zależność od tego lib w pliku pom i wykluczyć RxJava przechodnie zależności to:
+Po zidentyfikowaniu RxJava-1.2.2 jest zależność przechodnia, dla której jest inna zależność projektu, można zmodyfikować zależność od tej biblioteki w pliku pliku pom i wykluczyć RxJava przechodniej zależności:
 
 ```xml
 <dependency>
@@ -193,14 +193,14 @@ Po zidentyfikowaniu RxJava-1.2.2 jest przechodnie zależności, które inne zale
 </dependency>
 ```
 
-Aby uzyskać więcej informacji, zobacz [przewodnik wykluczają zależności przechodnie](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
+Aby uzyskać więcej informacji, zobacz [Przewodnik dotyczący wykluczania zależności przechodniej](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
 
 
-## <a name="enable-client-sdk-logging"></a><a name="enable-client-sice-logging"></a>Włączanie rejestrowania sdk klienta
+## <a name="enable-client-sdk-logging"></a><a name="enable-client-sice-logging"></a>Włącz rejestrowanie zestawu SDK klienta
 
-Java Async SDK używa SLF4j jako fasady rejestrowania, która obsługuje rejestrowanie do popularnych platform rejestrowania, takich jak log4j i logback.
+Asynchroniczny zestaw SDK Java używa SLF4j jako elewacji rejestrowania, która obsługuje logowanie do popularnych struktur rejestrowania, takich jak Log4J i logback.
 
-Na przykład, jeśli chcesz użyć log4j jako struktury rejestrowania, dodaj następujące libs w ścieżce klasy Java.
+Na przykład jeśli chcesz użyć Log4J jako struktury rejestrowania, Dodaj następujący libs w ścieżce klasy Java.
 
 ```xml
 <dependency>
@@ -215,7 +215,7 @@ Na przykład, jeśli chcesz użyć log4j jako struktury rejestrowania, dodaj nas
 </dependency>
 ```
 
-Dodam też log4j config.
+Dodaj również konfigurację Log4J.
 ```
 # this is a sample log4j configuration
 
@@ -233,25 +233,25 @@ log4j.appender.A1.layout=org.apache.log4j.PatternLayout
 log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 ```
 
-Aby uzyskać więcej informacji, zobacz [instrukcję rejestrowania sfl4j](https://www.slf4j.org/manual.html).
+Aby uzyskać więcej informacji, zobacz [Podręcznik rejestrowania sfl4j](https://www.slf4j.org/manual.html).
 
-## <a name="os-network-statistics"></a><a name="netstats"></a>Statystyki sieci systemu operacyjnego
-Uruchom polecenie netstat, aby zorientować się, ile połączeń `ESTABLISHED` `CLOSE_WAIT`jest w stanach takich jak i .
+## <a name="os-network-statistics"></a><a name="netstats"></a>Statystyka sieci systemu operacyjnego
+Uruchom polecenie netstat, aby poznać liczbę połączeń w Stanach, takich jak `ESTABLISHED` i. `CLOSE_WAIT`
 
 W systemie Linux można uruchomić następujące polecenie.
 ```bash
 netstat -nap
 ```
-Filtruj wynik tylko do połączeń z punktem końcowym usługi Azure Cosmos DB.
+Przefiltruj wynik wyłącznie do połączeń z punktem końcowym Azure Cosmos DB.
 
-Liczba połączeń z punktem końcowym usługi Azure Cosmos DB w `ESTABLISHED` stanie nie może być większa niż rozmiar puli skonfigurowanych połączeń.
+Liczba połączeń z punktem końcowym Azure Cosmos DB w `ESTABLISHED` stanie nie może być większa niż skonfigurowany rozmiar puli połączeń.
 
-Wiele połączeń z punktem końcowym usługi Azure Cosmos DB może być w `CLOSE_WAIT` stanie. Może być ich ponad 1000. Liczba, która jest wysoka, wskazuje, że połączenia są nawiązywały i szybko niszczone. Ta sytuacja może spowodować problemy. Aby uzyskać więcej informacji, zobacz [sekcję Typowe problemy i obejścia] problemu.
+Wiele połączeń z punktem końcowym Azure Cosmos DB może być w `CLOSE_WAIT` stanie. Może być większa niż 1 000. Duża liczba wskazuje, że połączenia są nawiązywane i szybko podłączane. Ta sytuacja może powodować problemy. Aby uzyskać więcej informacji, zobacz sekcję [typowe problemy i rozwiązania] .
 
  <!--Anchors-->
 [Typowe problemy i ich rozwiązania]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
-[Limit połączeń na komputerze-hoście]: #connection-limit-on-host
-[Wyczerpanie portu Azure SNAT (PAT)]: #snat
+[Limit połączeń na komputerze hosta]: #connection-limit-on-host
+[Wyczerpanie portów (z) na platformie Azure]: #snat
 
 

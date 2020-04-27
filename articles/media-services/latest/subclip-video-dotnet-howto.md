@@ -1,6 +1,6 @@
 ---
-title: Podkompaniuj klipsa wideo podczas kodowania za pomocą usługi Azure Media Services
-description: W tym temacie opisano sposób podpopinać klip wideo podczas kodowania za pomocą usługi Azure Media Services przy użyciu narzędzia .NET SDK
+title: Podcinanie wideo przy kodowaniu przy użyciu Azure Media Services
+description: W tym temacie opisano sposób podcinania wideo przy kodowaniu przy użyciu Azure Media Services za pomocą zestawu SDK platformy .NET
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,25 +14,25 @@ ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
 ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67305104"
 ---
-# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Subclip wideo podczas kodowania za pomocą usługi Media Services - .NET
+# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Podcinanie wideo przy kodowaniu przy użyciu Media Services-.NET
 
-Wideo można przycinać lub podklipować podczas kodowania go za pomocą [zadania](https://docs.microsoft.com/rest/api/media/jobs). Ta funkcja działa z dowolnego [przekształcenia,](https://docs.microsoft.com/rest/api/media/transforms) który jest zbudowany przy użyciu [wbudowanych wbudowanychstandardencoderpreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presetów lub [standardencoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presetów.
+Można przyciąć lub podciąć klip wideo przy kodowaniu przy użyciu [zadania](https://docs.microsoft.com/rest/api/media/jobs). Ta funkcja działa z dowolnym [przekształceniem](https://docs.microsoft.com/rest/api/media/transforms) utworzonym przy użyciu ustawień wstępnych [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) lub predefiniowanych ustawień [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) .
 
-Poniższy przykład języka C# tworzy zadanie, które przycina wideo w zasobie, jak przesyła zadanie kodowania. 
+Poniższy przykład w języku C# tworzy zadanie, które przycina wideo w elemencie zawartości, gdy przesyła zadanie kodowania. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby wykonać kroki opisane w tym temacie, należy:
 
 - [Tworzenie konta usługi Azure Media Services](create-account-cli-how-to.md)
-- Tworzenie przekształcenia oraz zasobów wejściowych i wyjściowych. Możesz zobaczyć, jak utworzyć transformuj i zasoby wejściowe i wyjściowe w [upload, kodowanie i strumieniowanie wideo za pomocą](stream-files-tutorial-with-api.md) samouczka .NET.
-- Przejrzyj temat [koncepcji kodowania.](encoding-concept.md)
+- Utwórz transformację oraz zasoby wejściowe i wyjściowe. Możesz zobaczyć, jak utworzyć zasoby przekształcenia i danych wejściowych i wyjściowych w [klipach wideo przekazywania, kodowania i przesyłania strumieniowego przy użyciu samouczka platformy .NET](stream-files-tutorial-with-api.md) .
+- Zapoznaj się z tematem [pojęć dotyczących kodowania](encoding-concept.md) .
 
 ## <a name="example"></a>Przykład
 
@@ -91,4 +91,4 @@ private static async Task<Job> JobWithBuiltInStandardEncoderWithSingleClipAsync(
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Jak zakodować za pomocą transformacji niestandardowej](customize-encoder-presets-how-to.md) 
+[Jak kodować przy użyciu przekształcenia niestandardowego](customize-encoder-presets-how-to.md) 

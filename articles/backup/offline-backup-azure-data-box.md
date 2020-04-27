@@ -1,31 +1,31 @@
 ---
-title: Tworzenie kopii zapasowej w trybie offline przy użyciu usługi Azure Data Box
-description: Dowiedz się, jak za pomocą usługi Azure Data Box do wysiewu dużych początkowych danych kopii zapasowej w trybie offline z agenta MARS do magazynu usług odzyskiwania.
+title: Kopia zapasowa offline przy użyciu Azure Data Box
+description: Dowiedz się, w jaki sposób można użyć Azure Data Box, aby wypełniać duże dane początkowej kopii zapasowej w trybie offline z agenta MARS do magazynu Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a031a8cac357e7d212f8f6a3a5dbec749fbccc21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672963"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160959"
 ---
-# <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Tworzenie kopii zapasowej w trybie online usługi Azure przy użyciu usługi Azure Data Box
+# <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup kopii zapasowej offline przy użyciu Azure Data Box
 
-Za pomocą [usługi Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) można zasiewać duże początkowe kopie zapasowe usług odzyskiwania platformy Microsoft Azure (MARS) w trybie offline (bez użycia sieci) w magazynie usług odzyskiwania. Ten proces oszczędza czas i przepustowość sieci, które w przeciwnym razie byłyby zużywane przenoszenie dużych ilości kopii zapasowych danych w trybie online za pośrednictwem sieci o dużym opóźnieniu. To ulepszenie jest obecnie w wersji zapoznawczej. Kopia zapasowa w trybie offline oparta na usłudze Azure Data Box zapewnia dwie wyraźne zalety w stosunku [do kopii zapasowej w trybie offline na podstawie usługi Import/Eksport platformy Azure:](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export)
+Za pomocą [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) można wypełniać duże początkowe kopie zapasowe Microsoft Azure Recovery Services (MARS) w trybie offline (bez użycia sieci) do magazynu Recovery Services. Ten proces oszczędza czas i przepustowość sieci, w przypadku których w przeciwnym razie można przenieść duże ilości danych kopii zapasowej w tryb online w sieci o dużej opóźnieniu. To ulepszenie jest obecnie dostępne w wersji zapoznawczej. Kopia zapasowa offline oparta na Azure Data Box zapewnia dwie różne zalety [tworzenia kopii zapasowych w trybie offline na podstawie usługi Azure Import/Export](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export):
 
-* Nie ma potrzeby zamawiania własnych dysków i łączników zgodnych z platformą Azure. Usługa Azure Data Box wysyła dyski skojarzone z wybraną jednostką [SKU pola danych](https://azure.microsoft.com/services/databox/data/).
-* Usługa Azure Backup (MARS Agent) może bezpośrednio zapisywać dane kopii zapasowej na obsługiwanych jednostkach SKU platformy Azure Data Box. Ta funkcja eliminuje potrzebę aprowizowania lokalizacji tymczasowej dla początkowych danych kopii zapasowej. Nie są również potrzebne narzędzia do formatowania i kopiowania tych danych na dyski.
+- Nie ma potrzeby pozyskiwania własnych dysków i łączników zgodnych z platformą Azure. Azure Data Box dostarcza dyski skojarzone z wybraną jednostką [SKU urządzenie Data Box](https://azure.microsoft.com/services/databox/data/).
+- Azure Backup (Agent MARS) może bezpośrednio zapisywać dane kopii zapasowej na obsługiwanych jednostkach SKU Azure Data Box. Ta funkcja eliminuje konieczność udostępniania lokalizacji tymczasowej dla danych początkowej kopii zapasowej. Nie są też potrzebne narzędzia do formatowania i kopiowania tych danych na dyski.
 
-## <a name="azure-data-box-with-the-mars-agent"></a>Skrzynka danych platformy Azure z agentem MARS
+## <a name="azure-data-box-with-the-mars-agent"></a>Azure Data Box z agentem MARS
 
-W tym artykule wyjaśniono, jak można użyć usługi Azure Data Box do wysiewu dużych początkowych danych kopii zapasowej w trybie offline z agenta MARS do magazynu usług odzyskiwania.
+W tym artykule wyjaśniono, jak można użyć Azure Data Box, aby wypełniać duże dane początkowej kopii zapasowej w trybie offline z agenta MARS do magazynu Recovery Services.
 
 ## <a name="supported-platforms"></a>Obsługiwane platformy
 
-Proces wysiewu danych z agenta MARS przy użyciu usługi Azure Data Box jest obsługiwany na następujących jednostkach SKU systemu Windows.
+Proces tworzenia inicjatora danych z agenta MARS przy użyciu Azure Data Box jest obsługiwany przez następujące jednostki SKU systemu Windows.
 
-| **System operacyjny**                                 | **Numer jednostki magazynowej**                                                      |
+| **System operacyjny**                                 | **Magazyn**                                                      |
 | -------------------------------------- | ------------------------------------------------------------ |
 | **Stacja robocza**                        |                                                              |
 | Windows 10 (wersja 64-bitowa)                     | Enterprise, Pro, Home                                       |
@@ -41,35 +41,35 @@ Proces wysiewu danych z agenta MARS przy użyciu usługi Azure Data Box jest obs
 | Windows Storage Server 2012 R2 (wersja 64-bitowa) | Standard, Workgroup, Essential                              |
 | Windows Storage Server 2012 (wersja 64-bitowa)    | Standard, Workgroup                                         |
 | Windows Server 2008 R2 z dodatkiem SP1 (wersja 64-bitowa)     | Standard, Enterprise, Datacenter, Foundation                |
-| Windows Server 2008 z dodatku SP2 64 bit        | Standard, Enterprise, Datacenter                            |
+| Windows Server 2008 z dodatkiem SP2 64 bit        | Standard, Enterprise, Datacenter                            |
 
-## <a name="backup-data-size-and-supported-data-box-skus"></a>Tworzenie kopii zapasowych rozmiarów danych i obsługiwane jednostki SKU data box
+## <a name="backup-data-size-and-supported-data-box-skus"></a>Rozmiar danych kopii zapasowych i obsługiwane urządzenie Data Box jednostek SKU
 
-| Rozmiar danych kopii zapasowej (po kompresji przez MARS)* na serwer | Obsługiwane jednostki SKU pola danych platformy Azure                                      |
+| Rozmiar danych kopii zapasowej (po kompresji przez MARS) * na serwer | Obsługiwana Azure Data Box jednostka SKU                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <=7,2 TB                                                    | [Dysk skrzynki danych platformy Azure](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| >7,2 TB i <=80 TB**                                      | [Skrzynka danych platformy Azure (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| <= 7,2 TB                                                    | [Dysk Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
+| >7,2 TB i <= 80 TB * *                                      | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
 
-*Typowe współczynniki kompresji wahają się od 10% do 20%. <br>
-**Jeśli spodziewasz się mieć więcej niż 80 TB początkowych [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)danych kopii zapasowej dla jednego serwera MARS, skontaktuj się z .
+* Typowe stawki kompresji różnią się od 10% do 20%. <br>
+* * Jeśli spodziewasz się, że dane początkowej kopii zapasowej jednego serwera MARS mają więcej niż 80 TB, [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)skontaktuj się z.
 
 >[!IMPORTANT]
->Początkowe dane kopii zapasowej z jednego serwera muszą znajdować się w jednym wystąpieniu usługi Azure Data Box lub dysku usługi Azure Data Box i nie mogą być współużytkowane między wieloma urządzeniami tego samego lub innego jednostki SKU. Ale urządzenie usługi Azure Data Box może zawierać początkowe kopie zapasowe z wielu serwerów.
+>Początkowe dane kopii zapasowej z pojedynczego serwera muszą być zawarte w pojedynczym wystąpieniu Azure Data Box lub Azure Data Box dysku i nie mogą być współużytkowane przez wiele urządzeń z tymi samymi lub różnymi jednostkami SKU. Jednak urządzenie Azure Data Box może zawierać początkowe kopie zapasowe z wielu serwerów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 ### <a name="azure-subscription-and-required-permissions"></a>Subskrypcja platformy Azure i wymagane uprawnienia
 
-* Proces wymaga subskrypcji platformy Azure.
-* Proces wymaga, aby użytkownik wyznaczony do wykonywania zasad tworzenia kopii zapasowych w trybie offline był właścicielem subskrypcji platformy Azure.
-* Zadanie Data Box i magazyn usług odzyskiwania (do którego dane muszą być rozstawione) muszą być w tych samych subskrypcji.
-* Firma Microsoft zaleca, aby konto magazynu docelowego skojarzone z zadaniem usługi Azure Data Box i magazynem usług odzyskiwania znajdują się w tym samym regionie. Nie jest to jednak konieczne.
+- Proces wymaga subskrypcji platformy Azure.
+- Proces wymaga, aby użytkownik wyznaczył przeprowadzenie zasad tworzenia kopii zapasowych w trybie offline jest właścicielem subskrypcji platformy Azure.
+- W ramach tych samych subskrypcji wymagane jest zadanie urządzenie Data Box i magazyn Recovery Services (do którego dane muszą zostać umieszczone w magazynie).
+- Zalecamy, aby docelowe konto magazynu skojarzone z zadaniem Azure Data Box i magazynem Recovery Services znajdują się w tym samym regionie. Nie jest to jednak konieczne.
 
-### <a name="get-azure-powershell-370"></a>Pobierz program Azure PowerShell 3.7.0
+### <a name="get-azure-powershell-370"></a>Pobierz Azure PowerShell 3.7.0
 
-*Jest to najważniejszy warunek wstępny procesu.* Przed zainstalowaniem programu Azure PowerShell w wersji 3.7.0 należy przeprowadzić następujące kontrole.
+*Jest to najważniejszy warunek wstępny dla procesu*. Przed zainstalowaniem Azure PowerShell w wersji 3.7.0 należy wykonać następujące testy.
 
-#### <a name="step-1-check-the-powershell-version"></a>Krok 1: Sprawdź wersję programu PowerShell
+#### <a name="step-1-check-the-powershell-version"></a>Krok 1. Sprawdzanie wersji programu PowerShell
 
 1. Otwórz program Windows PowerShell i uruchom następujące polecenie:
 
@@ -77,9 +77,9 @@ Proces wysiewu danych z agenta MARS przy użyciu usługi Azure Data Box jest obs
     Get-Module -ListAvailable AzureRM*
     ```
 
-1.  Jeśli na wyjściu wyświetlana jest wersja wyższa niż 3.7.0, wykonaj "Krok 2". W przeciwnym razie przejdź do "Kroku 3".
+1. Jeśli dane wyjściowe są wyświetlane w wersji wyższej niż 3.7.0, zrób "krok 2". W przeciwnym razie przejdź do kroku 3.
 
-#### <a name="step-2-uninstall-the-powershell-version"></a>Krok 2: Odinstalowanie wersji programu PowerShell
+#### <a name="step-2-uninstall-the-powershell-version"></a>Krok 2. Odinstalowywanie wersji programu PowerShell
 
 Odinstaluj bieżącą wersję programu PowerShell.
 
@@ -89,233 +89,233 @@ Odinstaluj bieżącą wersję programu PowerShell.
     foreach ($module in (Get-Module -ListAvailable AzureRM*).Name |Get-Unique)  { write-host "Removing Module $module" Uninstall-module $module }
     ```
 
-2. Aby zapewnić pomyślne usunięcie wszystkich modułów zależnych, uruchom następujące polecenie:
+2. Aby upewnić się, że wszystkie moduły zależne zostały pomyślnie usunięte, uruchom następujące polecenie:
 
     ```powershell
     Get-Module -ListAvailable AzureRM*
     ```
 
-#### <a name="step-3-install-powershell-version-370"></a>Krok 3: Instalowanie programu PowerShell w wersji 3.7.0
+#### <a name="step-3-install-powershell-version-370"></a>Krok 3. instalacja programu PowerShell w wersji 3.7.0
 
-Po sprawdzeniu, że nie ma żadnych modułów usługi AzureRM, zainstaluj wersję 3.7.0 przy użyciu jednej z następujących metod:
+Po zweryfikowaniu, że nie ma żadnych modułów AzureRM, Zainstaluj wersję 3.7.0, używając jednej z następujących metod:
 
-* Użyj [tego linku](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017)w usłudze GitHub .
+- W witrynie GitHub Użyj [tego linku](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 
 Możesz też:
 
-* Uruchom następujące polecenie w oknie programu PowerShell:
+- Uruchom następujące polecenie w oknie programu PowerShell:
 
     ```powershell
     Install-Module -Name AzureRM -RequiredVersion 3.7.0
     ```
 
-Program Azure PowerShell mógł również zostać zainstalowany przy użyciu pliku msi. Aby go usunąć, odinstaluj go za pomocą opcji **Odinstaluj programy** w Panelu sterowania.
+Azure PowerShell można również zainstalować przy użyciu pliku msi. Aby go usunąć, odinstaluj go za pomocą opcji **Odinstaluj programy** w panelu sterowania.
 
-### <a name="order-and-receive-the-data-box-device"></a>Zamawianie i odbieranie urządzenia Data Box
+### <a name="order-and-receive-the-data-box-device"></a>Zamówienie i odbieranie urządzenia urządzenie Data Box
 
-Proces tworzenia kopii zapasowej w trybie offline przy użyciu mars i usługi Azure Data Box wymaga urządzeń Data Box być w stanie dostarczone przed wyzwoleniem kopii zapasowej w trybie offline przy użyciu agenta MARS. Aby zamówić najbardziej odpowiednią jednostkę SKU dla danego zapotrzebowania, zobacz [Rozmiar danych kopii zapasowej i obsługiwane jednostki SKU data box](#backup-data-size-and-supported-data-box-skus). Wykonaj kroki opisane w [samouczku: Zamów dysk usługi Azure Data Box,](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) aby zamówić i odebrać urządzenia data box.
+Proces tworzenia kopii zapasowej w trybie offline przy użyciu usług MARS i Azure Data Box wymaga, aby urządzenia urządzenie Data Box były w stanie dostarczonym przed wywołaniem kopii zapasowej w trybie offline przy użyciu agenta MARS. Aby zamówić najbardziej odpowiednią jednostkę SKU dla danego wymagania, zobacz [rozmiar danych kopii zapasowej i obsługiwane urządzenie Data Box jednostek SKU](#backup-data-size-and-supported-data-box-skus). Wykonaj kroki opisane w [samouczku: Zamów dysk Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) , aby zamówić i odbierać urządzenie Data Box urządzeń.
 
 > [!IMPORTANT]
-> Nie wybieraj *blobStorage* dla **rodzaju konta**. Agent MARS wymaga konta, które obsługuje obiekty blob strony, który nie jest obsługiwany po *wybraniu blobStorage.* Wybierz **magazyn v2 (ogólnego przeznaczenia w wersji 2)** jako **rodzaj konta** podczas tworzenia konta magazynu docelowego dla zadania usługi Azure Data Box.
+> Nie wybieraj *BlobStorage* dla **rodzaju konta**. Agent MARS wymaga konta obsługującego stronicowe obiekty blob, które nie jest obsługiwane w przypadku wybrania *BlobStorage* . Wybierz pozycję **Storage v2 (ogólnego przeznaczenia w wersji 2)** jako **rodzaj konta** podczas tworzenia docelowego konta magazynu dla zadania Azure Data Box.
 
-![Wybieranie rodzaju konta w szczegółach wystąpienia](./media/offline-backup-azure-data-box/instance-details.png)
+![Wybierz rodzaj konta w szczegółach wystąpienia](./media/offline-backup-azure-data-box/instance-details.png)
 
-## <a name="install-and-set-up-the-mars-agent"></a>Instalowanie i konfigurowanie agenta MARS
+## <a name="install-and-set-up-the-mars-agent"></a>Instalowanie i Konfigurowanie agenta MARS
 
-1. Upewnij się, że odinstalowałeś wszystkie poprzednie instalacje agenta MARS.
-1. Pobierz najnowszy MARS Agent z [tej strony](https://aka.ms/azurebackup_agent).
-1. Uruchom *program MARSAgentInstaller.exe*i wykonaj *tylko* te czynności, aby zainstalować [i zarejestrować agenta](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) w magazynie usług odzyskiwania, w którym mają być przechowywane kopie zapasowe.
+1. Upewnij się, że odinstalowano wszystkie poprzednie instalacje agenta MARS.
+1. Pobierz najnowszego agenta MARS z [tej witryny sieci Web](https://aka.ms/azurebackup_agent).
+1. Uruchom program *plik marsagentinstaller. exe*i wykonaj *tylko* te czynności, aby [zainstalować i zarejestrować agenta](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) w magazynie Recovery Services, w którym mają być przechowywane kopie zapasowe.
 
    > [!NOTE]
-   > Magazyn usług odzyskiwania musi znajdować się w tej samej subskrypcji co zadanie azure data box.
+   > Magazyn Recovery Services musi znajdować się w tej samej subskrypcji co zadanie Azure Data Box.
 
-   Po zarejestrowaniu agenta w magazynie usług odzyskiwania wykonaj kroki opisane w następnych sekcjach.
+   Po zarejestrowaniu agenta w magazynie Recovery Services wykonaj kroki opisane w kolejnych sekcjach.
 
-## <a name="set-up-azure-data-box-devices"></a>Konfigurowanie urządzeń usługi Azure Data Box
+## <a name="set-up-azure-data-box-devices"></a>Konfigurowanie urządzeń Azure Data Box
 
-W zależności od zamówionej jednostki SKU usługi Azure Data Box wykonaj kroki opisane w odpowiednich sekcjach, które należy wykonać. Kroki pokazują, jak skonfigurować i przygotować urządzenia Data Box dla agenta MARS do identyfikacji i przesyłania początkowych danych kopii zapasowej.
+W zależności od zamówionej jednostki SKU Azure Data Box wykonaj kroki opisane w odpowiednich sekcjach poniżej. W tym kroku przedstawiono sposób konfigurowania i przygotowywania urządzenie Data Box urządzeń dla agenta MARS w celu identyfikowania i przesyłania danych początkowej kopii zapasowej.
 
-### <a name="set-up-azure-data-box-disks"></a>Konfigurowanie dysków usługi Azure Data Box
+### <a name="set-up-azure-data-box-disks"></a>Konfigurowanie dysków Azure Data Box
 
-Jeśli zamówiłeś jeden lub więcej dysków usługi Azure Data Box (do 8 TB każdy), wykonaj kroki wymienione tutaj, aby [rozpakować, połączyć i odblokować dysk Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up).
+Jeśli zostały uporządkowane co najmniej jeden Azure Data Box dysków (do 8 TB), wykonaj kroki opisane tutaj, aby [rozpakować, połączyć i odblokować dysk urządzenie Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up).
 
 >[!NOTE]
->Możliwe, że serwer z agentem MARS nie ma portu USB. W takiej sytuacji można połączyć dysk usługi Azure Data Box z innym serwerem lub klientem i udostępnić katalog główny urządzenia jako udział sieciowy.
+>Istnieje możliwość, że serwer z agentem MARS nie ma portu USB. W takiej sytuacji można połączyć Azure Data Box dysk z innym serwerem lub klientem i udostępnić katalog główny urządzenia jako udział sieciowy.
 
-### <a name="set-up-azure-data-box"></a>Konfigurowanie skrzynki danych platformy Azure
+### <a name="set-up-azure-data-box"></a>Skonfiguruj Azure Data Box
 
-Jeśli zamówiłeś wystąpienie usługi Azure Data Box (do 100 TB), wykonaj kroki opisane w tym miejscu, [aby skonfigurować wystąpienie pola danych](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up).
+Jeśli zamówiłeś wystąpienie Azure Data Box (do 100 TB), postępuj zgodnie z poniższymi instrukcjami, [Aby skonfigurować wystąpienie urządzenie Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up).
 
-#### <a name="mount-your-azure-data-box-instance-as-a-local-system"></a>Instalowanie wystąpienia usługi Azure Data Box jako systemu lokalnego
+#### <a name="mount-your-azure-data-box-instance-as-a-local-system"></a>Zainstaluj wystąpienie Azure Data Box jako system lokalny
 
-Agent MARS działa w kontekście systemu lokalnego, więc wymaga tego samego poziomu uprawnień, które mają być dostarczone do ścieżki instalacji, gdzie jest połączone wystąpienie usługi Azure Data Box. 
+Agent MARS działa w kontekście systemu lokalnego, dlatego wymaga podania tego samego poziomu uprawnień do ścieżki instalacji, w której jest połączone wystąpienie Azure Data Box.
 
-Aby upewnić się, że urządzenie Data Box można zamontować jako system lokalny przy użyciu protokołu NFS:
+Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować jako system lokalny przy użyciu protokołu NFS:
 
-1. Włącz klienta dla funkcji NFS na serwerze Windows, który ma zainstalowany agent MARS. Określ alternatywne źródło *WIM:D:\Sources\Install.wim:4*.
-1. Pobierz PSExec <https://download.sysinternals.com/files/PSTools.zip> z serwera z zainstalowanym agentem MARS.
-1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie z katalogiem zawierającym *plik PSExec.exe* jako bieżący katalog.
+1. Włącz klienta dla funkcji systemu plików NFS na serwerze z systemem Windows, na którym jest zainstalowany agent MARS. Określ alternatywny źródłowy *wim: D: \Sources\Install.wim: 4*.
+1. Pobierz PSExec z <https://download.sysinternals.com/files/PSTools.zip> serwera na serwer z zainstalowanym agentem Mars.
+1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie z katalogiem, który zawiera *PSExec. exe* jako bieżący katalog.
 
     ```cmd
     psexec.exe  -s  -i  cmd.exe
     ```
 
-   Okno polecenia, które zostanie otwarte w wyniku poprzedniego polecenia, znajduje się w kontekście systemu lokalnego. To okno polecenia służy do wykonywania kroków w celu zainstalowania udziału obiektów blob strony platformy Azure jako dysku sieciowego na serwerze Windows.
-1. Wykonaj kroki opisane w [obszarze Połącz z polem danych,](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) aby połączyć serwer z agentem MARS z urządzeniem Data Box za pośrednictwem systemu plików NFS. Uruchom następujące polecenie w wierszu polecenia system lokalny, aby zainstalować udział obiektów blob strony platformy Azure.
+   Okno polecenia otwierane w wyniku poprzedniego polecenia znajduje się w kontekście systemu lokalnego. Za pomocą tego okna polecenia można wykonać kroki instalacji udziału usługi Azure Page BLOB jako dysku sieciowego na serwerze z systemem Windows.
+1. Postępuj zgodnie z instrukcjami w temacie [Connect to urządzenie Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) , aby połączyć serwer z agentem Mars do urządzenia urządzenie Data Box za pośrednictwem systemu plików NFS. Uruchom następujące polecenie w wierszu polecenia systemu lokalnego, aby zainstalować udział obiektów BLOB na stronie platformy Azure.
 
     ```cmd
     mount -o nolock \\<DeviceIPAddress>\<StorageAccountName_PageBlob X:  
     ```
 
-   Po zamontowaniu udziału sprawdź, czy można uzyskać dostęp do X: z serwera. Jeśli to możliwe, przejdź do następnej sekcji tego artykułu.
+   Po zainstalowaniu udziału Sprawdź, czy możesz uzyskać dostęp do X: z serwera. Jeśli chcesz, przejdź do następnej sekcji tego artykułu.
 
-## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Przenoszenie danych początkowej kopii zapasowej na urządzenia usługi Azure Data Box
+## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Transferowanie danych początkowej kopii zapasowej do urządzeń Azure Data Box
 
 1. Otwórz aplikację **Microsoft Azure Backup** na serwerze.
-1. W okienku **Akcje** wybierz pozycję **Zaplanuj tworzenie kopii zapasowej**.
+1. W okienku **Akcje** wybierz pozycję **Zaplanuj kopię zapasową**.
 
-    ![Wybierz pozycję Zaplanuj tworzenie kopii zapasowych](./media/offline-backup-azure-data-box/schedule-backup.png)
+    ![Wybieranie harmonogramu kopii zapasowej](./media/offline-backup-azure-data-box/schedule-backup.png)
 
-1. Postępuj zgodnie z instrukcjami **kreatora planowania tworzenia kopii zapasowych**.
+1. Postępuj zgodnie z instrukcjami w **Kreatorze harmonogramu tworzenia kopii zapasowych**.
 
-1. Dodaj elementy, zaznaczając przycisk **Dodaj elementy.** Zachowaj całkowity rozmiar elementów w [granicach rozmiaru obsługiwanych przez jednostkę SKU usługi Azure Data Box,](#backup-data-size-and-supported-data-box-skus) którą zamówiłeś i odebrano.
+1. Dodaj elementy, wybierając przycisk **Dodaj elementy** . Zachowaj łączny rozmiar elementów w ramach [limitów rozmiaru obsługiwanych przez](#backup-data-size-and-supported-data-box-skus) zamówione i odebrane jednostki SKU Azure Data Box.
 
-    ![Dodawanie elementów do kopii zapasowej](./media/offline-backup-azure-data-box/add-items.png)
+    ![Dodaj elementy do kopii zapasowej](./media/offline-backup-azure-data-box/add-items.png)
 
-1. Wybierz odpowiedni harmonogram tworzenia kopii zapasowych i zasady przechowywania **plików i folderów** oraz **stanu systemu**. Stan systemu ma zastosowanie tylko do serwerów systemu Windows, a nie dla klientów systemu Windows.
-1. Na stronie **Kreatora wybieranie początkowego typu kopii zapasowej (pliki i foldery)** wybierz opcję **Transfer przy użyciu dysków microsoft azure data box** i wybierz pozycję **Dalej**.
+1. Wybierz odpowiednie harmonogramy i zasady przechowywania kopii zapasowych dla **plików i folderów** oraz **stanu systemu**. Stan systemu ma zastosowanie tylko do serwerów z systemem Windows, a nie dla klientów systemu Windows.
+1. Na stronie **Wybierz typ początkowej kopii zapasowej (pliki i foldery)** kreatora wybierz opcję **Transfer przy użyciu Microsoft Azure urządzenie Data Box dyski** i wybierz przycisk **dalej**.
 
-    ![Wybieranie początkowego typu kopii zapasowej](./media/offline-backup-azure-data-box/initial-backup-type.png)
+    ![Wybierz typ początkowej kopii zapasowej](./media/offline-backup-azure-data-box/initial-backup-type.png)
 
-1. Zaloguj się na platformie Azure, gdy zostanie wyświetlony monit przy użyciu poświadczeń użytkownika, które mają dostęp właściciela w ramach subskrypcji platformy Azure. Po osiągnięciu tego celu powinna zostać wyświetlona strona podobna do tej.
+1. Po wyświetleniu monitu zaloguj się do platformy Azure przy użyciu poświadczeń użytkownika mających dostęp właściciela do subskrypcji platformy Azure. Po pomyślnym wykonaniu tej czynności powinna zostać wyświetlona strona podobna do tej.
 
     ![Tworzenie zasobów i stosowanie wymaganych uprawnień](./media/offline-backup-azure-data-box/creating-resources.png)
 
-   Agent MARS następnie pobiera zadania data box w subskrypcji, które są w stanie Dostarczone.
+   Następnie Agent MARS pobiera urządzenie Data Box zadania w subskrypcji, które znajdują się w stanie dostarczone.
 
-    ![Pobieranie zadań pola danych dla identyfikatora subskrypcji](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
+    ![Pobierz zadania urządzenie Data Box dla identyfikatora subskrypcji](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Wybierz prawidłową kolejność pól danych, dla której został rozpakowany, połączony i odblokowany dysk data box. Wybierz **pozycję Dalej**.
+1. Wybierz poprawną kolejność urządzenie Data Box, dla której masz rozpakowane, połączono i odblokowano dysk urządzenie Data Box. Wybierz opcję **Dalej**.
 
-    ![Wybieranie zamówień pól danych](./media/offline-backup-azure-data-box/select-databox-order.png)
+    ![Wybierz zamówienia urządzenie Data Box](./media/offline-backup-azure-data-box/select-databox-order.png)
 
-1. Wybierz **pozycję Wykryj urządzenie** na stronie **Wykrywanie urządzenia pola danych.** Ta akcja sprawia, że agent MARS skanowania lokalnie dołączone dyski azure data box i wykryć je.
+1. Wybierz pozycję **Wykryj urządzenie** na stronie **wykrywania urządzeń urządzenie Data Box** . Ta akcja powoduje, że Agent MARS skanuje lokalnie dołączone dyski Azure Data Box i wykrywa je.
 
-    ![Wykrywanie urządzeń pola danych](./media/offline-backup-azure-data-box/databox-device-detection.png)
+    ![Wykrywanie urządzenia urządzenie Data Box](./media/offline-backup-azure-data-box/databox-device-detection.png)
 
-    Jeśli wystąpienie usługi Azure Data Box został połączony jako udział sieciowy (z powodu niedostępności portów USB lub zamówionych i zamontowanych urządzenia data box o pojemności 100 TB), wykrywanie na początku kończy się niepowodzeniem. Możesz wprowadzić ścieżkę sieciową do urządzenia Data Box.
+    Jeśli wystąpienie Azure Data Box zostało połączone jako udział sieciowy (z powodu niedostępności portów USB lub zamówione i zainstalowane urządzenie z 100-TB urządzenie Data Box), wykrywanie nie powiedzie się w pierwszej kolejności. Masz możliwość wprowadzenia ścieżki sieciowej do urządzenia urządzenie Data Box.
 
-    ![Wprowadzanie ścieżki sieciowej](./media/offline-backup-azure-data-box/enter-network-path.png)
+    ![Wprowadź ścieżkę sieciową](./media/offline-backup-azure-data-box/enter-network-path.png)
 
     >[!IMPORTANT]
-    > Podaj ścieżkę sieciową do katalogu głównego dysku usługi Azure Data Box. Ten katalog musi zawierać katalog o nazwie *PageBlob*.
+    > Podaj ścieżkę sieciową do katalogu głównego dysku Azure Data Box. Ten katalog musi zawierać katalog o nazwie *PageBlob*.
     >
-    >![Katalog główny dysku usługi Azure Data Box](./media/offline-backup-azure-data-box/root-directory.png)
+    >![Katalog główny Azure Data Box dysku](./media/offline-backup-azure-data-box/root-directory.png)
     >
-    >Jeśli na przykład ścieżka dysku `\\mydomain\myserver\disk1\` jest i *disk1* zawiera katalog o nazwie *PageBlob*, ścieżka `\\mydomain\myserver\disk1\`wprowadzona na stronie Kreatora agenta MARS jest .
+    >Na przykład `\\mydomain\myserver\disk1\` Jeśli ścieżka dysku to i *disk1* zawiera katalog o nazwie *PageBlob*, WPROWADZONA ścieżka na stronie kreatora agenta Mars to. `\\mydomain\myserver\disk1\`
     >
-    >Jeśli [skonfigurowanie urządzenia usługi Azure Data Box 100 TB,](#set-up-azure-data-box-devices)wprowadź `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` jako ścieżkę sieciową do urządzenia.
+    >W przypadku [skonfigurowania urządzenia z Azure Data Box 100 TB](#set-up-azure-data-box-devices)wpisz `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` jako ścieżkę sieciową do urządzenia.
 
-1. Wybierz **pozycję Dalej**i wybierz pozycję **Zakończ** na następnej stronie, aby zapisać zasady tworzenia kopii zapasowych i przechowywania z konfiguracją kopii zapasowej w trybie offline przy użyciu usługi Azure Data Box.
+1. Wybierz pozycję **dalej**, a następnie wybierz pozycję **Zakończ** na następnej stronie, aby zapisać zasady tworzenia kopii zapasowych i przechowywania z konfiguracją kopii zapasowej offline przy użyciu Azure Data Box.
 
-   Na poniższej stronie potwierdzono, że zasady zostały zapisane pomyślnie.
+   Poniższa Strona potwierdza, że zasady zostały pomyślnie zapisane.
 
-    ![Zasady zostały zapisane pomyślnie](./media/offline-backup-azure-data-box/policy-saved.png)
+    ![Zasady zostały pomyślnie zapisane](./media/offline-backup-azure-data-box/policy-saved.png)
 
-1. Wybierz **pozycję Zamknij** na poprzedniej stronie.
+1. Na poprzedniej stronie wybierz pozycję **Zamknij** .
 
-1. Wybierz **pozycję Sprzedaj teraz** w okienku **Akcje** konsoli agenta MARS. Wybierz **pozycję Zapas zapasowego** na stronie kreatora.
+1. Wybierz pozycję **Utwórz kopię zapasową teraz** w okienku **Akcje** konsoli agenta Mars. Wybierz pozycję **Utwórz kopię zapasową** na stronie kreatora.
 
     ![Kreator tworzenia kopii zapasowej teraz](./media/offline-backup-azure-data-box/backup-now.png)
 
-Agent MARS uruchamia wykonywanie kopii zapasowej danych wybranych na urządzeniu usługi Azure Data Box. Ten proces może potrwać od kilku godzin do kilku dni. Czas zależy od liczby plików i szybkości połączenia między serwerem z agentem MARS i dyskiem usługi Azure Data Box.
+Agent MARS rozpocznie tworzenie kopii zapasowych wybranych danych na urządzeniu Azure Data Box. Ten proces może potrwać od kilku godzin do kilku dni. Ilość czasu zależy od liczby plików i szybkości połączenia między serwerem a agentem MARS i dyskiem Azure Data Box.
 
-Po zakończeniu tworzenia kopii zapasowej danych na marsjańskim agencie zostanie wyświetlona strona podobna do tej.
+Po zakończeniu tworzenia kopii zapasowej danych na agencie MARS zostanie wyświetlona strona, która będzie podobna do tej.
 
-![Pokazano postęp tworzenia kopii zapasowej](./media/offline-backup-azure-data-box/backup-progress.png)
+![Pokazany postęp tworzenia kopii zapasowej](./media/offline-backup-azure-data-box/backup-progress.png)
 
 ## <a name="post-backup-steps"></a>Kroki po wykonaniu kopii zapasowej
 
-W tej sekcji opisano kroki, które należy wykonać po wykonaniu kopii zapasowej danych na dysku azure data box.
+W tej sekcji opisano kroki, które należy wykonać po pomyślnym wykonaniu kopii zapasowej danych Azure Data Box Disk.
 
-* Wykonaj kroki opisane w tym artykule, aby [wysłać dysk usługi Azure Data Box na platformę Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Jeśli użyto urządzenia usługi Azure Data Box o pojemności 100 TB, wykonaj następujące kroki, aby [wysłać urządzenie usługi Azure Data Box na platformę Azure.](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up)
+- Wykonaj kroki opisane w tym artykule, aby [dostarczyć Azure Data Box dysk do platformy Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Jeśli używasz urządzenia z systemem Azure Data Box 100 TB, wykonaj następujące kroki, aby [dostarczyć urządzenie Azure Data Box do platformy Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
 
-* [Monitorowanie zadania data box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) w witrynie Azure portal. Po zakończeniu zadania usługi Azure Data Box agent MARS automatycznie przenosi dane z konta magazynu do magazynu usług odzyskiwania w czasie następnej zaplanowanej kopii zapasowej. Następnie oznacza zadanie kopii zapasowej jako *Zadanie zakończone,* jeśli punkt odzyskiwania został pomyślnie utworzony.
+- [Monitoruj zadanie urządzenie Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) w Azure Portal. Po zakończeniu zadania Azure Data Box Agent MARS automatycznie przenosi dane z konta magazynu do magazynu Recovery Services w czasie następnej zaplanowanej kopii zapasowej. Oznacza to, że zadanie tworzenia kopii zapasowej zostanie oznaczone jako *ukończone* w przypadku pomyślnego utworzenia punktu odzyskiwania.
 
     >[!NOTE]
-    >Agent MARS wyzwala kopie zapasowe w czasie zaplanowanym podczas tworzenia zasad. Te zadania flagi "Oczekiwanie na zadanie usługi Azure Data Box do ukończenia" do czasu zakończenia zadania.
+    >Agent MARS wyzwala kopie zapasowe w planowanych godzinach podczas tworzenia zasad. Te zadania oznaczają flagę "Oczekiwanie na ukończenie zadania Azure Data Box, aż do momentu zakończenia zadania.
 
-* Po mars agent pomyślnie tworzy punkt odzyskiwania, który odpowiada początkowej kopii zapasowej, można usunąć konto magazynu lub określonej zawartości skojarzone z zadania Azure Data Box.
+- Po pomyślnym utworzeniu przez agenta MARS punktu odzyskiwania, który odnosi się do początkowej kopii zapasowej, można usunąć konto magazynu lub określoną zawartość skojarzoną z zadaniem Azure Data Box.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Agent kopii zapasowej platformy Microsoft Azure (MAB) tworzy aplikację usługi Azure Active Directory (Azure AD) dla Ciebie w dzierżawie. Ta aplikacja wymaga certyfikatu do uwierzytelniania, który jest tworzony i przekazywał podczas konfigurowania zasad rozmieszczania w trybie offline. Używamy programu Azure PowerShell do tworzenia i przekazywania certyfikatu do aplikacji usługi Azure AD.
+Agent Microsoft Azure Backup (MAB) tworzy aplikację Azure Active Directory (Azure AD) dla Ciebie w dzierżawie. Ta aplikacja wymaga certyfikatu do uwierzytelniania utworzonego i przekazanego podczas konfigurowania zasad rozmieszczania w trybie offline. Używamy Azure PowerShell do tworzenia i przekazywania certyfikatu do aplikacji usługi Azure AD.
 
 ### <a name="problem"></a>Problem
 
-Podczas konfigurowania kopii zapasowej w trybie offline, może napotkać problem z powodu błędu w powiększącym pliku cmdlet programu Azure PowerShell. Dodawanie wielu certyfikatów do tej samej aplikacji usługi Azure AD utworzonej przez agenta MAB może być niemożna dodać wielu certyfikatów. Ten problem będzie miał wpływ na ciebie, jeśli skonfigurowano zasady rozmieszczania w trybie offline dla tego samego lub innego serwera.
+Podczas konfigurowania kopii zapasowej w trybie offline może wystąpić problem z powodu błędu w poleceniu cmdlet Azure PowerShell. Dodanie wielu certyfikatów do tej samej aplikacji usługi Azure AD utworzonej przez agenta MAB może być niemożliwe. Ten problem będzie miał wpływ na użytkownika, jeśli skonfigurowano zasady umieszczania w trybie offline dla tego samego lub innego serwera.
 
-### <a name="verify-if-the-problem-is-caused-by-this-specific-root-cause"></a>Sprawdź, czy problem jest spowodowany przez tę konkretną przyczynę
+### <a name="verify-if-the-problem-is-caused-by-this-specific-root-cause"></a>Sprawdź, czy problem jest spowodowany przez tę konkretną przyczynę główną
 
-Aby sprawdzić, czy problem jest taki sam jak poprzednio opisany, wykonaj jedną z następujących czynności.
+Aby sprawdzić, czy Twój problem jest taki sam jak wcześniej opisany, wykonaj jedną z następujących czynności.
 
 #### <a name="step-1"></a>Krok 1
 
-Sprawdź, czy podczas konfigurowania kopii zapasowej w trybie offline w konsoli MAB jest wyświetlany następujący komunikat o błędzie.
+Sprawdź, czy podczas konfigurowania kopii zapasowej w trybie offline w konsoli MAB zostanie wyświetlony następujący komunikat o błędzie.
 
-![Nie można utworzyć zasad tworzenia kopii zapasowej w trybie offline dla bieżącego konta platformy Azure](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
+![Nie można utworzyć zasad kopii zapasowych offline dla bieżącego konta platformy Azure](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
 
 #### <a name="step-2"></a>Krok 2
 
-1. Otwórz folder **Temp** w ścieżce instalacji. Domyślną ścieżką folderu tymczasowego jest *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Poszukaj pliku *CBUICurr* i otwórz plik.
+1. Otwórz folder **temp** w ścieżce instalacji. Domyślna ścieżka folderu tymczasowego to *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Wyszukaj plik *CBUICurr* i Otwórz plik.
 
-1. W pliku *CBUICurr* przewiń do ostatniego wiersza i sprawdź, czy problem jest `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed`taki sam jak ten w tym komunikacie o błędzie: .
+1. W pliku *CBUICurr* przewiń do ostatniego wiersza i sprawdź, czy problem jest taki sam jak w przypadku tego komunikatu o błędzie: `Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId <some guid> is not allowed`.
 
 ### <a name="workaround"></a>Obejście
 
-Aby rozwiązać ten problem, wykonaj następujące czynności i spróbuj ponowić próbę konfiguracji zasad.
+Aby rozwiązać ten problem, należy wykonać następujące czynności, a następnie ponownie wykonać konfigurację zasad.
 
 #### <a name="step-1"></a>Krok 1
 
-Zaloguj się do programu PowerShell, który pojawia się w interfejsie użytkownika mab przy użyciu innego konta z dostępem administratora w subskrypcji, która będzie miała zadania importu lub eksportu utworzone.
+Zaloguj się do programu PowerShell, który jest wyświetlany w interfejsie użytkownika usługi MAB przy użyciu innego konta z dostępem administratora w ramach subskrypcji, która będzie miała utworzone zadanie importowania lub eksportowania.
 
 #### <a name="step-2"></a>Krok 2
 
-Jeśli żaden inny serwer nie ma skonfigurowania rozmieszczenia `AzureOfflineBackup_<Azure User Id>` w trybie offline i żaden inny serwer nie jest zależny od aplikacji, usuń tę aplikację. Wybierz **pozycję Rejestracje** > **aplikacji**usługi**Azure Portal Azure Active Directory** > .
+Jeśli żaden inny serwer nie ma skonfigurowanych wypełnień w trybie offline i żaden inny `AzureOfflineBackup_<Azure User Id>` serwer nie jest zależny od aplikacji, Usuń tę aplikację. Wybierz **Azure Portal** > **Azure Active Directory** > **rejestracje aplikacji**.
 
 >[!NOTE]
-> Sprawdź, czy `AzureOfflineBackup_<Azure User Id>` aplikacja nie ma żadnych innych rozmieszczenia w trybie offline skonfigurowane, a także jeśli żaden inny serwer nie jest zależny od tej aplikacji. Przejdź do**pozycji Klawisze** **ustawień** > w sekcji **Klucze publiczne.** Nie powinien mieć żadnych innych kluczy publicznych dodane. Zobacz poniższy zrzut ekranu w celu uzyskania odwołania.
+> Sprawdź, czy `AzureOfflineBackup_<Azure User Id>` aplikacja nie ma skonfigurowanych innych wypełnień w trybie offline, a także czy żaden inny serwer nie jest zależny od tej aplikacji. Przejdź do pozycji **Ustawienia** > **klucze** w sekcji **klucze publiczne** . Nie należy dodawać żadnych innych kluczy publicznych. Aby uzyskać informacje, zobacz poniższy zrzut ekranu.
 >
 >![Klucze publiczne](./media/offline-backup-azure-data-box/public-keys.png)
 
 #### <a name="step-3"></a>Krok 3
 
-Na serwerze, który próbujesz skonfigurować do wykonywania kopii zapasowej w trybie offline, wykonaj następujące akcje.
+Na serwerze, który próbujesz skonfigurować do tworzenia kopii zapasowych w trybie offline, wykonaj następujące czynności.
 
-1. Przejdź do karty **Zarządzanie aplikacją** > certyfikatu komputera**i** `CB_AzureADCertforOfflineSeeding_<ResourceId>`poszukaj certyfikatu o nazwie .
+1. Przejdź do karty **Zarządzanie certyfikatem komputera aplikacja** > **osobista** i poszukaj certyfikatu o nazwie `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
 
-2. Wybierz certyfikat, kliknij prawym przyciskiem myszy **pozycję Wszystkie zadania**i wybierz pozycję **Eksportuj** bez klucza prywatnego w formacie cer.
+2. Wybierz certyfikat, kliknij prawym przyciskiem myszy **wszystkie zadania**i wybierz opcję **Eksportuj** bez klucza prywatnego w formacie CER.
 
-3. Przejdź do aplikacji do tworzenia kopii zapasowych w trybie offline platformy Azure, o których mowa w kroku 2. Wybierz pozycję **Ustawienia** > **Przekaż klucz** > **publiczny**. Przekaż certyfikat wyeksportowany w poprzednim kroku.
+3. Przejdź do aplikacji usługi Azure offline Backup wymienionej w kroku 2. Wybierz pozycję **Ustawienia** > **klucze** > **Przekaż klucz publiczny**. Przekaż certyfikat wyeksportowany w poprzednim kroku.
 
-    ![Przekazywanie klucza publicznego](./media/offline-backup-azure-data-box/upload-public-key.png)
+    ![Przekaż klucz publiczny](./media/offline-backup-azure-data-box/upload-public-key.png)
 
-4. Na serwerze otwórz rejestr, wprowadzając **regedit** w oknie uruchomienia.
+4. Na serwerze otwórz rejestr, wprowadzając polecenie **regedit** w oknie uruchamiania.
 
-5. Przejdź do rejestru *Komputer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.* Kliknij prawym przyciskiem myszy **pozycję CloudBackupProvider**i `AzureADAppCertThumbprint_<Azure User Id>`dodaj nową wartość ciągu o nazwie .
+5. Przejdź do rejestru *komputer \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider.* Kliknij prawym przyciskiem myszy pozycję **CloudBackupProvider**, a następnie Dodaj nową wartość ciągu `AzureADAppCertThumbprint_<Azure User Id>`o nazwie.
 
     >[!NOTE]
-    > Aby uzyskać identyfikator użytkownika platformy Azure, wykonaj jedną z następujących akcji:
+    > Aby uzyskać identyfikator użytkownika platformy Azure, wykonaj jedną z następujących czynności:
     >
-    >* Z programu PowerShell połączonej `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` z platformą Azure uruchom polecenie.
-    > * Przejdź do ścieżki rejestru *Komputer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup* o nazwie *CurrentUserId*.
+    >- Z poziomu programu PowerShell połączonego z platformą `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` Azure Uruchom polecenie.
+    > - Przejdź do ścieżki `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` rejestru o nazwie *CurrentUserId*.
 
-6. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W wartości podaj odcisk palca certyfikatu wyeksportowanego w kroku 2. Kliknij przycisk **OK**.
+6. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 2. Kliknij przycisk **OK**.
 
-7. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat. Wybierz kartę **Szczegóły** i przewiń w dół, aż zobaczysz pole odcisku palca. Wybierz **opcję Odcisk palca**i skopiuj wartość.
+7. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat. Wybierz kartę **szczegóły** i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca**i skopiuj wartość.
 
-    ![Pole certyfikatu odcisk palca](./media/offline-backup-azure-data-box/thumbprint-field.png)
+    ![Pole odcisku palca certyfikatu](./media/offline-backup-azure-data-box/thumbprint-field.png)
 
 ## <a name="questions"></a>Pytania
 
-W przypadku jakichkolwiek pytań lub wyjaśnień [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)dotyczących jakichkolwiek problemów, z którymi się borykasz, skontaktuj się z .
+Aby dowiedzieć się więcej na temat pytań lub wyjaśnień dotyczących problemów, [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)skontaktuj się z firmą.

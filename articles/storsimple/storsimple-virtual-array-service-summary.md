@@ -1,6 +1,6 @@
 ---
-title: StorSimple Virtual Array service summary blade | Dokumenty firmy Microsoft
-description: W tym artykule opisano blok podsumowania usługi dla Menedżera urządzeń StorSimple i wyjaśniono, jak go używać do monitorowania kondycji tablicy wirtualnej StorSimple.
+title: Blok podsumowania usługi StorSimple Virtual Array | Microsoft Docs
+description: Opisuje blok podsumowania usługi StorSimple Menedżer urządzeń i wyjaśnia, jak go używać do monitorowania kondycji macierzy wirtualnej StorSimple.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,36 +15,36 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 9c05bddaeb3c34400db1ec75c624ef00a85d9444
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "64720712"
 ---
-# <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Użyj bloku podsumowania usługi dla Menedżera urządzeń StorSimple podłączonego do tablicy wirtualnej StorSimple
+# <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Korzystanie z bloku podsumowania usługi StorSimple Menedżer urządzeń połączony z StorSimple wirtualną macierzy
 ## <a name="overview"></a>Omówienie
-Blok podsumowania usługi dla Menedżera urządzeń StorSimple udostępnia widok podsumowania tablic wirtualnych StorSimple (znanych również jako lokalne urządzenia wirtualne lub urządzenia wirtualne StorSimple), które są podłączone do usługi, podświetlając te, które potrzebują systemu uwagę administratora. W tym samouczku przedstawiono bloku podsumowania usługi, wyjaśniono zawartość i funkcję oraz opisano zadania, które można wykonać z tego bloku.
+Blok podsumowania usługi dla StorSimple Menedżer urządzeń zawiera widok podsumowania macierzy wirtualnych StorSimple (znany również jako StorSimple lokalne urządzenia wirtualne lub urządzenia wirtualne), które są połączone z usługą, oraz wyróżni te, które wymagają uwagi administratora systemu. W tym samouczku przedstawiono blok podsumowania usługi, wyjaśniono zawartość i funkcję oraz opisano zadania, które można wykonać z tego bloku.
 
-![Pulpit nawigacyjny usługi](./media/storsimple-virtual-array-service-summary/service-blade.png)
+![Pulpit nawigacyjny usług](./media/storsimple-virtual-array-service-summary/service-blade.png)
 
-## <a name="management-commands-and-essentials"></a>Polecenia zarządzania i podstawowe elementy
-W storsimple podsumowanie bloku, można zobaczyć opcje zarządzania usługą StorSimple Device Manager, jak również tablice wirtualne zarejestrowane w tej usłudze. Polecenia zarządzania są widoczne w górnej części bloku i po lewej stronie.
+## <a name="management-commands-and-essentials"></a>Polecenia zarządzania i podstawowe informacje
+W bloku podsumowania StorSimple są wyświetlane opcje zarządzania usługą StorSimple Menedżer urządzeń oraz wirtualnymi tablicami zarejestrowanymi dla tej usługi. Zobaczysz polecenia zarządzania w górnej części bloku i po lewej stronie.
 
-Te opcje służy do wykonywania różnych operacji, takich jak dodawanie udziałów lub woluminów lub monitorować różne zadania uruchomione w tablicach wirtualnych.
+Te opcje służą do wykonywania różnych operacji, takich jak dodawanie udziałów lub woluminów lub monitorowanie różnych zadań uruchomionych w macierzach wirtualnych.
 
-Podstawowy obszar przechwytuje niektóre z ważnych właściwości, takich jak grupa zasobów, lokalizacja i subskrypcja, w której został utworzony Menedżer urządzeń StorSimple.
+Obszar podstawy przechwytuje niektóre ważne właściwości, takie jak, grupę zasobów, lokalizację i subskrypcję, w ramach której utworzono Menedżer urządzeń StorSimple.
 
-## <a name="storsimple-device-manager-service-summary"></a>Podsumowanie usługi StorSimple Device Manager
-* **Kafelek Alerty** zawiera migawkę wszystkich aktywnych alertów na wszystkich urządzeniach wirtualnych, pogrupowane według ważności alertu. Kliknięcie kafelka powoduje otwarcie bloku **Alerty,** w którym można kliknąć pojedynczy alert, aby wyświetlić dodatkowe szczegóły dotyczące tego alertu, w tym wszelkie zalecane akcje. Można również wyczyścić alert, jeśli problem został rozwiązany.
-* Kafelek **Capacity** wyświetla podstawowy magazyn, który jest aprowizowana i pozostają na wszystkich urządzeniach wirtualnych względem całkowitej pamięci masowej dostępnej na wszystkich urządzeniach wirtualnych. **Aprowizowana** dotyczy ilości magazynu, który jest przygotowany i przydzielony do użycia, **Remaining** odnosi się do pozostałej pojemności, które mogą być aprowizacji na wszystkich urządzeniach wirtualnych. **Pozostała pojemność warstwowa** to dostępna pojemność, która może być aprowizowana, w tym chmura, podczas gdy **pozostała lokalizacja** to pojemność pozostała na dyskach dołączonych do macierzy wirtualnych.
-* Na **wykresie Użycia** można wyświetlić odpowiednie metryki dla urządzeń wirtualnych. Można wyświetlić magazyn podstawowy używany na wszystkich urządzeniach wirtualnych, a także magazyn w chmurze używany przez urządzenia wirtualne w ciągu ostatnich 7 dni, domyślny okres czasu. Użyj opcji **Edytuj** w prawym górnym rogu wykresu, aby wybrać inną skalę czasu.
-* Kafelek **Urządzenia** zawiera podsumowanie liczby tablic wirtualnych w Menedżerze urządzeń StorSimple pogrupowanych według stanu urządzenia. Kliknij ten kafelek, aby otworzyć blok Listy **Urządzeń,** a następnie kliknij pojedyncze urządzenie, aby przejść do podsumowania urządzenia specyficznego dla urządzenia. Można również wykonać akcje specyficzne dla urządzenia z danego bloku podsumowania urządzenia. Aby uzyskać więcej informacji na temat bloku podsumowania urządzenia, przejdź do [bloku podsumowanie urządzenia](storsimple-virtual-array-device-summary.md).
+## <a name="storsimple-device-manager-service-summary"></a>Podsumowanie usługi StorSimple Menedżer urządzeń
+* Kafelek **alerty** zawiera migawkę wszystkich aktywnych alertów na wszystkich urządzeniach wirtualnych pogrupowanych według ważności alertu. Kliknięcie kafelka powoduje otwarcie bloku **alerty** , gdzie można kliknąć indywidualny alert, aby wyświetlić dodatkowe szczegóły dotyczące tego alertu, w tym wszystkie zalecane akcje. Możesz również wyczyścić alert, jeśli problem został rozwiązany.
+* Na kafelku **pojemność** są wyświetlane podstawowe magazyny, które są udostępniane i pozostałe dla wszystkich urządzeń wirtualnych względem całkowitej ilości dostępnego miejsca na wszystkich urządzeniach wirtualnych. **Przygotowana odnosi się** do ilości miejsca przeznaczonego do użycia i przystosowanego do użytku, **pozostała** odnosi się do pozostałej pojemności, która może być obsługiwana przez wszystkie urządzenia wirtualne. **Pozostała pojemność warstwowa** to dostępna pojemność, która może zostać zainicjowana, w tym w chmurze, a **pozostała wartość jest** równa pozostałej pojemności na dyskach dołączonych do macierzy wirtualnych.
+* Na wykresie **użycia** można zobaczyć odpowiednie metryki dla urządzeń wirtualnych. Można wyświetlić magazyn podstawowy używany na wszystkich urządzeniach wirtualnych, a także magazyn w chmurze zużyty przez urządzenia wirtualne w ciągu ostatnich 7 dni — domyślny okres. Użyj opcji **Edytuj** w prawym górnym rogu wykresu, aby wybrać inną skalę czasu.
+* Kafelek **urządzenia** zawiera podsumowanie liczby tablic wirtualnych w StorSimple Menedżer urządzeń pogrupowane według stanu urządzenia. Kliknij ten kafelek, aby otworzyć blok listy **urządzeń** , a następnie kliknij pojedyncze urządzenie, aby przejść do szczegółów dotyczących urządzenia. Można również wykonywać działania specyficzne dla urządzenia z danego bloku podsumowania urządzenia. Aby uzyskać więcej informacji na temat bloku podsumowanie urządzenia, przejdź do [bloku podsumowanie urządzenia](storsimple-virtual-array-device-summary.md).
 
 ## <a name="view-the-activity-logs"></a>Wyświetlanie dzienników aktywności
-Aby wyświetlić różne operacje wykonywane w Menedżerze urządzeń StorSimple, kliknij **łącze Dzienniki aktywności** po lewej stronie bloku podsumowania usługi StorSimple. Spowoduje to przejście do **bloku Dzienniki aktywności,** gdzie można wyświetlić podsumowanie ostatnich operacji przeprowadzonych.
+Aby wyświetlić różne operacje wykonywane w ramach StorSimple Menedżer urządzeń, kliknij link **dzienniki aktywności** po lewej stronie bloku podsumowania usługi StorSimple. Spowoduje to przejście do bloku **dzienniki aktywności** , w którym można zobaczyć podsumowanie ostatnich wykonywanych operacji.
 
 ![Dzienniki aktywności](./media/storsimple-virtual-array-service-summary/activity-log.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak [zarządzać tablicą wirtualną StorSimple za pomocą lokalnego interfejsu użytkownika sieci Web.](storsimple-ova-web-ui-admin.md)
+Dowiedz się [, jak zarządzać wirtualną tablicą StorSimple za pomocą lokalnego interfejsu użytkownika sieci Web](storsimple-ova-web-ui-admin.md).
 

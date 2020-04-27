@@ -1,6 +1,6 @@
 ---
-title: Wysyłanie lub odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu języka Python (najnowsze)
-description: Ten artykuł zawiera przewodnik do tworzenia aplikacji języka Python, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu najnowszego pakietu azure eventhub w wersji 5.
+title: Wysyłanie lub odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu języka Python (Najnowsza wersja)
+description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji w języku Python, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu najnowszego pakietu Azure-eventhub w wersji 5.
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -8,47 +8,47 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 352ff91bf26c7ff4f6945431fe6e1357f030e1db
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 6b16398c7c1fd53562df7e4ac8e801a8c97162f6
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477519"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159441"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Wysyłanie zdarzeń do lub odbieranie zdarzeń z centrów zdarzeń przy użyciu języka Python (usługa azure-eventhub w wersji 5)
-Ten przewodnik Szybki start pokazuje, jak wysyłać zdarzenia i odbierać zdarzenia z centrum zdarzeń przy użyciu pakietu **języka Azure Eventhub w wersji 5** języka Python.
+# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z centrów zdarzeń przy użyciu języka Python (Azure-eventhub w wersji 5)
+W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu pakietu języka Python **platformy Azure-eventhub w wersji 5** .
 
 > [!IMPORTANT]
-> Ten przewodnik Szybki start korzysta z najnowszego pakietu azure eventhub w wersji 5. Aby uzyskać szybki start, który używa starego pakietu azure eventhub w wersji 1, zobacz [Wysyłanie i odbieranie zdarzeń przy użyciu usługi azure-eventhub w wersji 1](event-hubs-python-get-started-send.md). 
+> Ten przewodnik Szybki Start używa najnowszego pakietu Azure-eventhub w wersji 5. Aby uzyskać szybki Start, który używa starego pakietu Azure-eventhub w wersji 1, zobacz [wysyłanie i odbieranie zdarzeń przy użyciu platformy Azure — eventhub w wersji 1](event-hubs-python-get-started-send.md). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Jeśli jesteś nowym użytkownikiem usługi Azure Event Hubs, zobacz [Omówienie centrów zdarzeń](event-hubs-about.md) przed rozpoczęciem tego przewodnika Szybki start. 
+Jeśli dopiero zaczynasz w usłudze Azure Event Hubs, zapoznaj się z tematem [Event Hubs Overview](event-hubs-about.md) przed wykonaniem tego przewodnika Szybki Start. 
 
 Do wykonania kroków tego przewodnika Szybki start niezbędne jest spełnienie następujących wymagań wstępnych:
 
-- **Subskrypcja platformy Microsoft Azure**. Aby korzystać z usług platformy Azure, w tym usługi Azure Event Hubs, potrzebujesz subskrypcji.  Jeśli nie masz istniejącego konta platformy Azure, możesz zarejestrować się w celu [uzyskania bezpłatnej wersji próbnej](https://azure.microsoft.com/free/) lub skorzystać z korzyści dla subskrybenta MSDN podczas [tworzenia konta.](https://azure.microsoft.com)
-- Python 2.7 lub 3.5 lub nowsza, z zainstalowanym i zaktualizowanym programem PIP.
-- Pakiet Języka Python dla centrów zdarzeń. 
+- **Subskrypcja Microsoft Azure**. Do korzystania z usług platformy Azure, w tym usługi Azure Event Hubs, potrzebna jest subskrypcja.  Jeśli nie masz istniejącego konta platformy Azure, możesz zarejestrować się w celu korzystania z [bezpłatnej wersji próbnej](https://azure.microsoft.com/free/) lub skorzystać z korzyści dla subskrybentów MSDN podczas [tworzenia konta](https://azure.microsoft.com).
+- Środowisko Python 2,7 lub 3,5 lub nowsze z zainstalowanym i zaktualizowanym programem PIP.
+- Pakiet języka Python dla Event Hubs. 
 
-    Aby zainstalować pakiet, uruchom to polecenie w wierszu polecenia, w który ma Pythona w swojej ścieżce:
+    Aby zainstalować pakiet, Uruchom to polecenie w wierszu polecenia zawierającym Język Python w ścieżce:
 
     ```cmd
     pip install azure-eventhub
     ```
 
-    Zainstaluj następujący pakiet do odbierania zdarzeń przy użyciu magazynu obiektów Blob platformy Azure jako magazynu punktu kontrolnego:
+    Zainstaluj następujący pakiet na potrzeby otrzymywania zdarzeń za pomocą usługi Azure Blob Storage jako magazynu punktów kontrolnych:
 
     ```cmd
     pip install azure-eventhub-checkpointstoreblob-aio
     ```
-- **Utwórz obszar nazw Centrów zdarzeń i centrum zdarzeń**. Pierwszym krokiem jest użycie [witryny Azure Portal](https://portal.azure.com) do utworzenia obszaru nazw typu Event Hubs i uzyskania poświadczeń zarządzania, których aplikacja potrzebuje do komunikowania się z centrum zdarzeń. Aby utworzyć przestrzeń nazw i centrum zdarzeń, wykonaj procedurę opisaną w [tym artykule](event-hubs-create.md). Następnie pobierz **ciąg połączenia dla obszaru nazw Centrum zdarzeń,** postępując zgodnie z instrukcjami z artykułu: [Pobierz parametry połączenia](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Ciąg połączenia należy użyć w dalszej części tego przewodnika Szybki start.
+- **Utwórz przestrzeń nazw Event Hubs i centrum zdarzeń**. Pierwszym krokiem jest użycie [Azure Portal](https://portal.azure.com) do utworzenia przestrzeni nazw typu Event Hubs i uzyskanie poświadczeń zarządzania wymaganych przez aplikację do komunikacji z centrum zdarzeń. Aby utworzyć przestrzeń nazw i centrum zdarzeń, wykonaj procedurę opisaną w [tym artykule](event-hubs-create.md). Następnie Pobierz **Parametry połączenia dla przestrzeni nazw Event Hubs** , wykonując instrukcje z artykułu: [pobieranie parametrów połączenia](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Parametry połączenia są używane w dalszej części tego przewodnika Szybki Start.
 
 ## <a name="send-events"></a>Wysyłanie zdarzeń
-W tej sekcji utworzysz skrypt języka Python, aby wysłać zdarzenia do centrum zdarzeń, które zostały utworzone wcześniej.
+W tej sekcji utworzysz skrypt języka Python służący do wysyłania zdarzeń do centrum zdarzeń utworzonego wcześniej.
 
-1. Otwórz swój ulubiony edytor Pythona, na przykład [Visual Studio Code](https://code.visualstudio.com/).
-2. Utwórz skrypt o nazwie *send.py*. Ten skrypt wysyła partię zdarzeń do centrum zdarzeń, które zostały utworzone wcześniej.
-3. Wklej następujący kod do *send.py:*
+1. Otwórz swój ulubiony Edytor Python, taki jak [Visual Studio Code](https://code.visualstudio.com/).
+2. Utwórz skrypt o nazwie *send.py*. Ten skrypt wysyła wsadowe zdarzenia do centrum zdarzeń utworzonego wcześniej.
+3. Wklej następujący kod do *send.py*:
 
     ```python
     import asyncio
@@ -78,33 +78,33 @@ W tej sekcji utworzysz skrypt języka Python, aby wysłać zdarzenia do centrum 
     ```
 
     > [!NOTE]
-    > Pełny kod źródłowy, w tym komentarze informacyjne, przejdź do [strony GitHub send_async.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py).
+    > Aby uzyskać pełny kod źródłowy, w tym komentarze informacyjne, przejdź do [strony send_async. PR serwisu GitHub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py).
     
 
 ## <a name="receive-events"></a>Odbieranie zdarzeń
-Ten przewodnik Szybki start używa magazynu obiektów Blob platformy Azure jako magazynu punktów kontrolnych. Magazyn punktu kontrolnego jest używany do utrwalania punktów kontrolnych (czyli ostatnio odczytu pozycji).  
+Ten przewodnik Szybki Start używa usługi Azure Blob Storage jako magazynu punktów kontrolnych. Magazyn punktów kontrolnych jest używany do utrwalania punktów kontrolnych (czyli ostatnich pozycji odczytu).  
 
 > [!NOTE]
-> Jeśli korzystasz z usługi Azure Stack Hub, ta platforma może obsługiwać inną wersję SDK obiektów blob magazynu niż te zwykle dostępne na platformie Azure. Na przykład jeśli korzystasz [z usługi Azure Stack Hub w wersji 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), najwyższą dostępną wersją usługi Storage jest wersja 2017-11-09. W takim przypadku oprócz następujących kroków w tej sekcji, należy również dodać kod do docelowej wersji interfejsu API usługi magazynu 2017-11-09. Na przykład, jak kierować określonej wersji interfejsu API magazynu, zobacz [synchroniczne](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) i [asynchroniczne](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) przykłady w usłudze GitHub. Aby uzyskać więcej informacji na temat wersji usługi Azure Storage obsługiwanych w usłudze Azure Stack Hub, zobacz [usługi Azure Stack Hub storage: Różnice i zagadnienia.](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences)
+> Jeśli korzystasz z usługi Azure Stack Hub, Ta platforma może obsługiwać inną wersję zestawu SDK obiektów BLOB Storage, która jest zazwyczaj dostępna na platformie Azure. Na przykład jeśli korzystasz z programu [Azure Stack Hub w wersji 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), najwyższa dostępna wersja usługi Storage to wersja 2017-11-09. W takim przypadku, oprócz kroków opisanych w tej sekcji, należy również dodać kod docelowy interfejsu API usługi Storage w wersji 2017-11-09. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz próbki [synchroniczne](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) i [asynchroniczne](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) w witrynie GitHub. Więcej informacji o wersjach usługi Azure Storage obsługiwanych w centrum Azure Stack można znaleźć w centrum [Azure Stack Storage: różnice i zagadnienia](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
 
 
-### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Tworzenie konta magazynu platformy Azure i kontenera obiektów blob
-Utwórz konto magazynu platformy Azure i kontener obiektów blob w nim, wykonując następujące kroki:
+### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Tworzenie konta usługi Azure Storage i kontenera obiektów BLOB
+Utwórz konto usługi Azure Storage i kontener obiektów blob, wykonując następujące czynności:
 
-1. [Tworzenie konta usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal)
+1. [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Tworzenie kontenera obiektów blob](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Pobierz ciąg połączenia z kontem magazynu](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
+3. [Pobierz parametry połączenia z kontem magazynu](../storage/common/storage-configure-connection-string.md)
 
-Pamiętaj, aby nagrać parametry połączenia i nazwę kontenera do późniejszego użycia w kodzie odbierania.
+Pamiętaj, aby zarejestrować parametry połączenia i nazwę kontenera do późniejszego użycia w kodzie odbioru.
 
 
-### <a name="create-a-python-script-to-receive-events"></a>Tworzenie skryptu języka Python w celu odbierania zdarzeń
+### <a name="create-a-python-script-to-receive-events"></a>Tworzenie skryptu w języku Python do odbierania zdarzeń
 
-W tej sekcji utworzysz skrypt języka Python, aby odbierać zdarzenia z centrum zdarzeń:
+W tej sekcji utworzysz skrypt języka Python do odbierania zdarzeń z centrum zdarzeń:
 
-1. Otwórz swój ulubiony edytor Pythona, na przykład [Visual Studio Code](https://code.visualstudio.com/).
+1. Otwórz swój ulubiony Edytor Python, taki jak [Visual Studio Code](https://code.visualstudio.com/).
 2. Utwórz skrypt o nazwie *recv.py*.
-3. Wklej następujący kod do *recv.py:*
+3. Wklej następujący kod do *recv.py*:
 
     ```python
     import asyncio
@@ -137,12 +137,12 @@ W tej sekcji utworzysz skrypt języka Python, aby odbierać zdarzenia z centrum 
     ```
 
     > [!NOTE]
-    > Pełny kod źródłowy wraz z dodatkowymi komentarzami informacyjnymi można znaleźć na [stronie GitHub recv_with_checkpoint_store_async.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/recv_with_checkpoint_store_async.py).
+    > Aby uzyskać pełny kod źródłowy, w tym dodatkowe komentarze informacyjne, przejdź do [strony recv_with_checkpoint_store_async serwisu GitHub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/recv_with_checkpoint_store_async.py).
 
 
-### <a name="run-the-receiver-app"></a>Uruchamianie aplikacji odbiorcy
+### <a name="run-the-receiver-app"></a>Uruchamianie aplikacji odbiornika
 
-Aby uruchomić skrypt, otwórz wiersz polecenia, który ma Pythona w swojej ścieżce, a następnie uruchom to polecenie:
+Aby uruchomić skrypt, Otwórz wiersz polecenia z językiem Python w swojej ścieżce, a następnie uruchom następujące polecenie:
 
 ```bash
 python recv.py
@@ -150,16 +150,16 @@ python recv.py
 
 ### <a name="run-the-sender-app"></a>Uruchamianie aplikacji nadawcy
 
-Aby uruchomić skrypt, otwórz wiersz polecenia, który ma Pythona w swojej ścieżce, a następnie uruchom to polecenie:
+Aby uruchomić skrypt, Otwórz wiersz polecenia z językiem Python w swojej ścieżce, a następnie uruchom następujące polecenie:
 
 ```bash
 python send.py
 ```
 
-Okno odbiornika powinny wyświetlać komunikaty, które zostały wysłane do centrum zdarzeń.
+W oknie odbiorcy powinny być wyświetlane komunikaty wysłane do centrum zdarzeń.
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku Szybki start zdarzenia zostały wysłane i odebrane asynchronicznie. Aby dowiedzieć się, jak synchronicznie wysyłać i odbierać zdarzenia, przejdź do [strony sync_samples GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples/sync_samples).
+W tym przewodniku Szybki Start zostały wysłane i odebrane zdarzenia asynchronicznie. Aby dowiedzieć się, jak wysyłać i odbierać zdarzenia synchronicznie, przejdź do [strony sync_samples usługi GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples/sync_samples).
 
-Dla wszystkich przykładów (zarówno synchroniczne i asynchroniczne) w usłudze GitHub, przejdź do [biblioteki klienta usługi Azure Event Hubs dla przykładów języka Python.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples)
+We wszystkich przykładach (synchronicznych i asynchronicznych) w witrynie GitHub przejdź do [biblioteki klienta Event Hubs platformy Azure, aby uzyskać przykłady dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples).
