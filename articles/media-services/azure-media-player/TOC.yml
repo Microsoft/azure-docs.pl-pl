@@ -34,6 +34,8 @@
       href: azure-media-player-localization.md
 - name: Samples
   items:
+    - name: Pokazy usługi Azure Media Player
+      href: demos.md
     - name: Przykłady usługi Azure Media Player
       href: 'https://github.com/Azure-Samples/azure-media-player-samples'
 - name: Dokumentacja

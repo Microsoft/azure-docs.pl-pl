@@ -1,0 +1,33 @@
+- name: Poufne przetwarzanie na platformie Azure
+  href: overview.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Tworzenie w witrynie Azure Portal
+      href: quick-create-portal.md
+    - name: Tworzenie za pomocą witryny Marketplace
+      href: quick-create-marketplace.md
+- name: Pojęcia
+  expanded: true
+  items:
+    - name: Rozwiązania na maszynach wirtualnych
+      href: virtual-machine-solutions.md
+- name: Zasoby
+  expanded: true
+  items:
+    - name: Często zadawane pytania
+      href: faq.md
+    - name: Opinia na temat poufnego przetwarzania
+      href: 'https://feedback.azure.com/forums/919792-azure-confidential-compute'
+    - name: Witryna StackOverflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-confidential-computing'
+    - name: Open Enclave SDK
+      href: 'https://aka.ms/oesdkGitHubRepo'
+    - name: Confidential Computing Consortium
+      href: 'https://confidentialcomputing.io/'
+    - name: Maszyny wirtualne na platformie Azure
+      href: 'https://docs.microsoft.com/azure/virtual-machines/'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2'
+    - name: Regiony
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines'

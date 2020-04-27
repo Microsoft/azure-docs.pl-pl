@@ -44,6 +44,9 @@
     - name: Wyświetlanie klientów i zarządzanie nimi
       displayName: my customers
       href: ./how-to/view-manage-customers.md
+    - name: Usuwanie dostępu do delegacji
+      displayName: 'delete, undelegate'
+      href: ./how-to/remove-delegation.md
     - name: Integracja z usługą Azure Monitor
       items:
         - name: Używanie dzienników usługi Azure Monitor na dużą skalę

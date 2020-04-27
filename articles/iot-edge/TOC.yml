@@ -168,13 +168,15 @@
         - name: Wdrażanie w dużej skali
           items:
             - name: Azure Portal
-              href: how-to-deploy-monitor.md
+              href: how-to-deploy-at-scale.md
             - name: Interfejs wiersza polecenia platformy Azure
-              href: how-to-deploy-monitor-cli.md
+              href: how-to-deploy-cli-at-scale.md
             - name: Visual Studio Code
-              href: how-to-deploy-monitor-vscode.md
+              href: how-to-deploy-vscode-at-scale.md
     - name: Monitorowanie i diagnozowanie wdrożeń
       items:
+        - name: Monitorowanie wdrożeń IoT Edge
+          href: how-to-monitor-iot-edge-deployments.md
         - name: Metody bezpośrednie agenta usługi Edge
           href: how-to-edgeagent-direct-method.md
     - name: Używanie urządzeń IoT Edge jako bram

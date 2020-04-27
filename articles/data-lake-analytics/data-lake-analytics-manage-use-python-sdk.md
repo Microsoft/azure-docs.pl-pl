@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie usługą Azure Data Lake Analytics przy użyciu języka Python
-description: W tym artykule opisano, jak używać języka Python do zarządzania kontami usługi Data Lake Analytics, źródłami danych, użytkownikami & zadaniami.
+title: Zarządzanie Azure Data Lake Analytics przy użyciu języka Python
+description: W tym artykule opisano, jak używać języka Python do zarządzania kontami Data Lake Analytics, źródłami danych, użytkownikami & zadaniami.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: matt1883
@@ -10,42 +10,42 @@ ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: d40658e1510c9ae8a2e3e1f865df7ac95f61abfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68355978"
 ---
-# <a name="manage-azure-data-lake-analytics-using-python"></a>Zarządzanie usługą Azure Data Lake Analytics przy użyciu języka Python
+# <a name="manage-azure-data-lake-analytics-using-python"></a>Zarządzanie Azure Data Lake Analytics przy użyciu języka Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-W tym artykule opisano sposób zarządzania kontami usługi Azure Data Lake Analytics, źródłami danych, użytkownikami i zadaniami przy użyciu języka Python.
+W tym artykule opisano sposób zarządzania kontami Azure Data Lake Analytics, źródłami danych, użytkownikami i zadaniami przy użyciu języka Python.
 
 ## <a name="supported-python-versions"></a>Obsługiwane wersje języka Python
 
 * Użyj 64-bitowej wersji języka Python.
-* Możesz użyć standardowej dystrybucji Pythona znajdującej się w **[Python.org pobrania](https://www.python.org/downloads/)**. 
-* Wielu programistów uważa, że wygodnie jest korzystać z **[dystrybucji Anaconda Python](https://www.anaconda.com/download/)**.  
-* Ten artykuł został napisany przy użyciu wersji Python 3.6 ze standardowej dystrybucji Pythona
+* Możesz użyć standardowej dystrybucji języka Python znalezionej podczas **[pobierania Python.org](https://www.python.org/downloads/)**. 
+* Wielu deweloperów może korzystać z dystrybucji w języku **[Python Anaconda](https://www.anaconda.com/download/)**.  
+* Ten artykuł został zapisany przy użyciu języka Python w wersji 3,6 ze standardowej dystrybucji w języku Python
 
 ## <a name="install-azure-python-sdk"></a>Instalowanie zestawu Azure Python SDK
 
 Zainstaluj następujące moduły:
 
-* Moduł **azure-mgmt-resource** zawiera inne moduły platformy Azure dla usługi Active Directory itp.
-* Moduł **magazynu azure-datalake** zawiera operacje systemu plików usługi Azure Data Lake Store. 
-* Moduł **azure-mgmt-datalake-store** zawiera operacje zarządzania kontem usługi Azure Data Lake Store.
-* Moduł **azure-mgmt-datalake-analytics** zawiera operacje usługi Azure Data Lake Analytics. 
+* Moduł **zarządzania platformy Azure** obejmuje inne moduły platformy azure dla Active Directory itd.
+* Moduł **Azure-datalake-Store** obejmuje operacje systemu plików Azure Data Lake Store. 
+* Moduł **Azure-Management-datalake-Store** obejmuje operacje zarządzania kontem Azure Data Lake Store.
+* Moduł **zarządzania usługą Azure — Usługa Data Lake Analytics** obejmuje operacje Azure Data Lake Analytics. 
 
-Najpierw upewnij się, `pip` że masz najnowsze, uruchamiając następujące polecenie:
+Najpierw upewnij się, że masz najnowszą `pip` wersję, uruchamiając następujące polecenie:
 
 ```
 python -m pip install --upgrade pip
 ```
 
-Ten dokument został `pip version 9.0.1`napisany przy użyciu .
+Ten dokument został zapisany przy `pip version 9.0.1`użyciu.
 
-Użyj następujących `pip` poleceń, aby zainstalować moduły z linii poleceń:
+Użyj następujących `pip` poleceń, aby zainstalować moduły z wiersza polecenia:
 
 ```
 pip install azure-mgmt-resource
@@ -54,7 +54,7 @@ pip install azure-mgmt-datalake-store
 pip install azure-mgmt-datalake-analytics
 ```
 
-## <a name="create-a-new-python-script"></a>Tworzenie nowego skryptu języka Python
+## <a name="create-a-new-python-script"></a>Utwórz nowy skrypt w języku Python
 
 Wklej następujący kod do skryptu:
 
@@ -95,15 +95,15 @@ import uuid
 import time
 ```
 
-Uruchom ten skrypt, aby sprawdzić, czy można zaimportować moduły.
+Uruchom ten skrypt, aby sprawdzić, czy moduły mogą być importowane.
 
 ## <a name="authentication"></a>Uwierzytelnianie
 
-### <a name="interactive-user-authentication-with-a-pop-up"></a>Interaktywne uwierzytelnianie użytkowników za pomocą wyskakujących okienka
+### <a name="interactive-user-authentication-with-a-pop-up"></a>Interaktywne uwierzytelnianie użytkowników przy użyciu okna podręcznego
 
 Ta metoda nie jest obsługiwana.
 
-### <a name="interactive-user-authentication-with-a-device-code"></a>Interaktywne uwierzytelnianie użytkownika za pomocą kodu urządzenia
+### <a name="interactive-user-authentication-with-a-device-code"></a>Interaktywne uwierzytelnianie użytkowników przy użyciu kodu urządzenia
 
 ```python
 user = input(
@@ -112,20 +112,20 @@ password = getpass.getpass()
 credentials = UserPassCredentials(user, password)
 ```
 
-### <a name="noninteractive-authentication-with-spi-and-a-secret"></a>Uwierzytelnianie nieinteraktywne za pomocą SPI i tajnego
+### <a name="noninteractive-authentication-with-spi-and-a-secret"></a>Uwierzytelnianie nieinteraktywne z użyciem SPI i wpisu tajnego
 
 ```python
 credentials = ServicePrincipalCredentials(
     client_id='FILL-IN-HERE', secret='FILL-IN-HERE', tenant='FILL-IN-HERE')
 ```
 
-### <a name="noninteractive-authentication-with-api-and-a-certificate"></a>Uwierzytelnianie nieinteraktywne za pomocą interfejsu API i certyfikatu
+### <a name="noninteractive-authentication-with-api-and-a-certificate"></a>Uwierzytelnianie nieinteraktywne z interfejsem API i certyfikatem
 
 Ta metoda nie jest obsługiwana.
 
 ## <a name="common-script-variables"></a>Typowe zmienne skryptów
 
-Zmienne te są używane w próbkach.
+Te zmienne są używane w przykładach.
 
 ```python
 subid = '<Azure Subscription ID>'
@@ -153,7 +153,7 @@ armGroupResult = resourceClient.resource_groups.create_or_update(
 
 ## <a name="create-data-lake-analytics-account"></a>Tworzenie konta usługi Data Lake Analytics
 
-Najpierw utwórz konto sklepu.
+Najpierw utwórz konto magazynu.
 
 ```python
 adlsAcctResult = adlsAcctClient.account.create(
@@ -164,7 +164,7 @@ adlsAcctResult = adlsAcctClient.account.create(
     )
 ).wait()
 ```
-Następnie utwórz konto ADLA, które używa tego magazynu.
+Następnie utwórz konto ADLA korzystające z tego magazynu.
 
 ```python
 adlaAcctResult = adlaAcctClient.account.create(
@@ -234,11 +234,11 @@ for r in recurrences:
 
 ## <a name="manage-compute-policies"></a>Zarządzanie zasadami obliczeniowymi
 
-Obiekt DataLakeAnalyticsAccountManagementClient udostępnia metody zarządzania zasadami obliczeniowymi dla konta usługi Data Lake Analytics.
+Obiekt DataLakeAnalyticsAccountManagementClient zawiera metody zarządzania zasadami obliczeniowymi dla konta Data Lake Analytics.
 
-### <a name="list-compute-policies"></a>Lista zasad obliczeniowych
+### <a name="list-compute-policies"></a>Wyświetl listę zasad obliczeniowych
 
-Poniższy kod pobiera listę zasad obliczeniowych dla konta usługi Data Lake Analytics.
+Poniższy kod pobiera listę zasad obliczeniowych dla konta Data Lake Analytics.
 
 ```python
 policies = adlaAccountClient.computePolicies.listByAccount(rg, adla)
@@ -247,9 +247,9 @@ for p in policies:
           p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
 ```
 
-### <a name="create-a-new-compute-policy"></a>Tworzenie nowej zasady obliczeniowej
+### <a name="create-a-new-compute-policy"></a>Tworzenie nowych zasad obliczeniowych
 
-Poniższy kod tworzy nową zasadę obliczeniową dla konta usługi Data Lake Analytics, ustawiając maksymalną liczbę jednostek analizy dostępną dla określonego użytkownika na 50, a minimalny priorytet zadania na 250.
+Poniższy kod tworzy nowe zasady obliczeń dla konta Data Lake Analytics, ustawiając maksymalną wartość dla określonego użytkownika na 50, a minimalny priorytet zadania na 250.
 
 ```python
 userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde"

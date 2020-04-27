@@ -24,6 +24,8 @@
       href: private-endpoint-overview.md
     - name: Usługa łącza prywatnego
       href: private-link-service-overview.md
+    - name: Integracja usługi DNS z prywatnym punktem końcowym
+      href: private-endpoint-dns.md
 - name: Instrukcje
   items:
     - name: Prywatne połączenie z kontem magazynu
@@ -66,7 +68,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
 - name: Zasoby
   items:
-    - name: Rozwijanie umiejętności dzięki Microsoft Learn
+    - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
@@ -76,7 +78,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
     - name: Opinie dotyczące sieci
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/private-link/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'

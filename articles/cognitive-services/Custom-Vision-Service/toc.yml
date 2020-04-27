@@ -13,30 +13,14 @@
       items:
         - name: Korzystanie z portalu internetowego
           href: getting-started-build-a-classifier.md
-        - name: Korzystanie z zestawu .NET SDK
-          href: csharp-tutorial.md
-        - name: Używanie zestawu Python SDK
-          href: python-tutorial.md
-        - name: Używanie zestawu Java SDK
-          href: java-tutorial.md
-        - name: Korzystanie z zestawu Node.js SDK
-          href: node-tutorial.md
-        - name: Korzystanie z zestawu Go SDK
-          href: go-tutorial.md
+        - name: Korzystanie z zestawu Custom Vision SDK
+          href: quickstarts/image-classification.md
     - name: Tworzenie detektora obiektu
       items:
         - name: Korzystanie z portalu internetowego
           href: get-started-build-detector.md
-        - name: Korzystanie z zestawu .NET SDK
-          href: csharp-tutorial-od.md
-        - name: Używanie zestawu Python SDK
-          href: python-tutorial-od.md
-        - name: Używanie zestawu Java SDK
-          href: java-tutorial-od.md
-        - name: Korzystanie z zestawu Node.js SDK
-          href: node-tutorial-object-detection.md
-        - name: Korzystanie z zestawu Go SDK
-          href: go-tutorial-object-detection.md
+        - name: Korzystanie z zestawu Custom Vision SDK
+          href: quickstarts/object-detection.md
 - name: Samouczki
   items:
     - name: Raportowanie stanów wizualizacji na urządzeniu IoT

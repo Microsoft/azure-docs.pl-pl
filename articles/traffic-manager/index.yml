@@ -11,12 +11,12 @@ metadata:
   author: rohinkoul
   ms.author: rohink
   ms.date: 08/19/2019
-  ms.openlocfilehash: eb0172894a1cc03e465ada78575c9b7b1f76141a
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 2159cd10327d5a2d58ed012d7e2572e9f8ec387b
+  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "76937996"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82130743"
 landingContent:
 - title: Informacje o usłudze Traffic Manager
   linkLists:
@@ -32,7 +32,7 @@ landingContent:
     links:
     - text: Rozszerzanie dostępności usługi i lokalizacji danych
       url: https://docs.microsoft.com/learn/modules/distribute-load-with-traffic-manager/
-- title: Wprowadzenie
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: quickstart
     links:
@@ -76,7 +76,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Włączanie rejestrowania diagnostycznego
+    - text: Włączanie rejestrowania zasobów
       url: traffic-manager-diagnostic-logs.md
     - text: Rozwiązywanie problemów z obniżonym stanem
       url: traffic-manager-troubleshooting-degraded.md

@@ -210,7 +210,7 @@
       items:
         - name: Konfigurowanie alertów na podstawie metryk
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
-        - name: Konfigurowanie alertów w oparciu o dziennik diagnostyczny
+        - name: Konfigurowanie alertów na podstawie dzienników zasobów
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Konfigurowanie przechwytywania pakietów
       href: packet-capture.md

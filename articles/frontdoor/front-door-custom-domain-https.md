@@ -1,6 +1,6 @@
 ---
-title: Samouczek — konfigurowanie protokołu HTTPS w domenie niestandardowej dla drzwi y frontowej platformy Azure | Dokumenty firmy Microsoft
-description: W tym samouczku dowiesz się, jak włączyć i wyłączyć protokół HTTPS w konfiguracji drzwi frontowych platformy Azure dla domeny niestandardowej.
+title: Samouczek — Konfigurowanie protokołu HTTPS w domenie niestandardowej dla drzwi frontonu platformy Azure | Microsoft Docs
+description: W tym samouczku dowiesz się, jak włączyć i wyłączyć protokół HTTPS w konfiguracji drzwi platformy Azure dla domeny niestandardowej.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: efe2c96c619aaf92efc5b4abf76b6b89c96ebd37
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878038"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160089"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w niestandardowej domenie usługi Front Door
 
 W tym samouczku przedstawiono, jak włączyć protokół HTTPS dla niestandardowej domeny skojarzonej z usługą Front Door w sekcji hostów frontonu. Dzięki użyciu protokołu HTTPS w domenie niestandardowej (na przykład https:\//www.contoso.com) zyskujesz pewność, że poufne dane są bezpiecznie dostarczane za pośrednictwem szyfrowania TLS/SSL, gdy są wysyłane przez Internet. Gdy przeglądarka internetowa łączy się z witryną internetową za pośrednictwem protokołu HTTPS, weryfikuje, czy certyfikat zabezpieczeń witryny internetowej jest poprawny i czy został wystawiony przez autentyczny urząd certyfikacji. Ten proces zapewnia bezpieczeństwo i chroni aplikacje internetowe przed atakami.
 
-Usługa Azure Front Door domyślnie obsługuje protokół HTTPS na domyślnej stronie hosta drzwiami frontowymi. Jeśli na przykład utworzysz usługę Front Door (taką jak https:\//contoso.azurefd.net), protokół HTTPS zostanie automatycznie włączony dla żądań kierowanych na adres https://contoso.azurefd.net. Jednak gdy dodasz domenę niestandardową „www.contoso.com”, musisz dodatkowo włączyć protokół HTTPS dla tego hosta frontonu.   
+Drzwi frontonu platformy Azure domyślnie obsługują protokół HTTPS w domyślnej nazwie hosta dla drzwi. Na przykład, jeśli utworzysz drzwi tylne (na `https://contoso.azurefd.net`przykład), protokół HTTPS jest automatycznie włączany dla żądań wysyłanych `https://contoso.azurefd.net`do usługi. Jednak gdy dodasz domenę niestandardową „www.contoso.com”, musisz dodatkowo włączyć protokół HTTPS dla tego hosta frontonu.   
 
 Niektóre z kluczowych atrybutów niestandardowej funkcji HTTPS to:
 
@@ -33,7 +33,7 @@ Niektóre z kluczowych atrybutów niestandardowej funkcji HTTPS to:
 
 - Dostępne jest kompletne zarządzanie certyfikatami: użytkownik obsługuje wszystkie operacje nabywania certyfikatów i zarządzania nimi. Certyfikaty są automatycznie aprowizowane i odnawiane przed wygaśnięciem ważności, co powoduje wyeliminowanie ryzyka przerwania działania usługi z powodu wygaśnięcia ważności certyfikatu.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Włączanie protokołu HTTPS w domenie niestandardowej
 > - Używanie certyfikatu zarządzanego przez usługę AFD 
@@ -50,12 +50,12 @@ Przed wykonaniem kroków opisanych w tym samouczku należy utworzyć usługę Fr
 
 ## <a name="tlsssl-certificates"></a>Certyfikaty TLS/SSL
 
-Aby włączyć protokół HTTPS do bezpiecznego dostarczania zawartości w domenie niestandardowej drzwiami frontowymi, należy użyć certyfikatu TLS/SSL. Można użyć certyfikatu zarządzanego przez usługi Azure Front Door lub użyć własnego certyfikatu.
+Aby włączyć protokół HTTPS w celu bezpiecznego dostarczania zawartości w domenie niestandardowej z przednim Drzwiem, należy użyć certyfikatu TLS/SSL. Możesz zdecydować się na użycie certyfikatu, który jest zarządzany przez usługę Azure front-drzwi lub użyć własnego certyfikatu.
 
 
 ### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Opcja 1 (ustawienie domyślne): użycie certyfikatu zarządzanego przez usługę Front Door
 
-Korzystając z certyfikatu zarządzanego przez usługi Azure Front Door, funkcję HTTPS można włączyć za pomocą zaledwie kilku kliknięć. Usługa Azure Front Door całkowicie obsługuje zadania zarządzania certyfikatami, takie jak zaopatrzenie i odnawianie. Po włączeniu funkcji proces rozpocznie się automatycznie. Jeśli domena niestandardowa jest już zamapowana do domyślnego hosta frontonu usługi Front Door (`{hostname}.azurefd.net`), nie są wymagane żadne dalsze działania. Usługa Front Door przetworzy kroki i wykona żądanie automatycznie. Jeśli jednak domena niestandardowa jest zmapowana w innej lokalizacji, należy użyć widomości e-mail, aby zweryfikować własność domeny.
+W przypadku korzystania z certyfikatu zarządzanego przez usługi platformy Azure, funkcja HTTPS można włączyć za pomocą zaledwie kilku kliknięć. Drzwi frontonu platformy Azure całkowicie obsługują zadania zarządzania certyfikatami, takie jak zaopatrzenie i odnawianie. Po włączeniu funkcji proces rozpocznie się automatycznie. Jeśli domena niestandardowa jest już zamapowana do domyślnego hosta frontonu usługi Front Door (`{hostname}.azurefd.net`), nie są wymagane żadne dalsze działania. Usługa Front Door przetworzy kroki i wykona żądanie automatycznie. Jeśli jednak domena niestandardowa jest zmapowana w innej lokalizacji, należy użyć widomości e-mail, aby zweryfikować własność domeny.
 
 Aby włączyć protokół HTTPS w domenie niestandardowej, wykonaj następujące kroki:
 
@@ -72,26 +72,26 @@ Aby włączyć protokół HTTPS w domenie niestandardowej, wykonaj następujące
 
 ### <a name="option-2-use-your-own-certificate"></a>Opcja 2: użycie własnego certyfikatu
 
-Możesz włączyć funkcję HTTPS przy użyciu własnego certyfikatu. Ten proces odbywa się dzięki integracji z usługą Azure Key Vault, umożliwiającą bezpieczne przechowywanie certyfikatów. Usługa Azure Front Door używa tego bezpiecznego mechanizmu, aby uzyskać certyfikat i wymaga kilku dodatkowych kroków. Podczas tworzenia certyfikatu TLS/SSL należy go utworzyć z dozwolonym urzędem certyfikacji(CA). W przeciwnym razie, jeśli skorzystasz z niedozwolonego urzędu certyfikacji, żądanie zostanie odrzucone. Aby uzyskać listę dozwolonych urzędów certyfikacji, zobacz [Dozwolone urzędy certyfikacji dotyczące włączania niestandardowego protokołu HTTPS w drzwiach frontowych platformy Azure](front-door-troubleshoot-allowed-ca.md).
+Możesz włączyć funkcję HTTPS przy użyciu własnego certyfikatu. Ten proces odbywa się dzięki integracji z usługą Azure Key Vault, umożliwiającą bezpieczne przechowywanie certyfikatów. Drzwi frontonu platformy Azure używają tego bezpiecznego mechanizmu do uzyskiwania certyfikatu i wymagają kilku dodatkowych kroków. Podczas tworzenia certyfikatu TLS/SSL należy go utworzyć z dozwolonym urzędem certyfikacji. W przeciwnym razie, jeśli skorzystasz z niedozwolonego urzędu certyfikacji, żądanie zostanie odrzucone. Aby uzyskać listę dozwolonych urzędów certyfikacji, zobacz [dozwolone urzędy certyfikacji na potrzeby włączania niestandardowego protokołu HTTPS w ramach zewnętrznych drzwi platformy Azure](front-door-troubleshoot-allowed-ca.md).
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Przygotowywanie certyfikatu i konta usługi Azure Key Vault
  
 1. Usługa Azure Key Vault: musisz mieć konto usługi Azure Key Vault uruchomione w ramach tej samej subskrypcji co usługa Front Door, dla której chcesz włączyć niestandardowy protokół HTTPS. Utwórz konto usługi Azure Key Vault, jeśli go nie masz.
 
 > [!WARNING]
-> Usługi Azure Front Door obecnie obsługuje tylko konta usługi Key Vault w tej samej subskrypcji co konfiguracja drzwiach frontowych. Wybranie usługi Key Vault z innej subskrypcji niż usługa Front Door spowoduje błąd.
+> Drzwi frontonu platformy Azure obecnie obsługują tylko Key Vault kont w tej samej subskrypcji co konfiguracja drzwi z przodu. Wybranie usługi Key Vault z innej subskrypcji niż usługa Front Door spowoduje błąd.
 
-2. Certyfikaty usługi Azure Key Vault: jeśli masz już certyfikat, możesz przekazać go bezpośrednio na konto usługi Azure Key Vault lub utworzyć nowy certyfikat bezpośrednio za pomocą usługi Azure Key Vault za pośrednictwem jednego z partnerskich urzędów certyfikacji, z którymi zintegrowana jest usługa Azure Key Vault. Przekaż certyfikat jako obiekt **certyfikatu,** a nie **jako tajny**.
-
-> [!NOTE]
-> W przypadku własnego certyfikatu TLS/SSL drzwiami frontowymi nie obsługują certyfikatów z algorytmami kryptografii EC.
-
-#### <a name="register-azure-front-door"></a>Rejestrowanie drzwi y frontowej platformy Azure
-
-Zarejestruj jednostkę usługi dla usługi Azure Front Door jako aplikację w usłudze Azure Active Directory za pośrednictwem programu PowerShell.
+2. Certyfikaty usługi Azure Key Vault: jeśli masz już certyfikat, możesz przekazać go bezpośrednio na konto usługi Azure Key Vault lub utworzyć nowy certyfikat bezpośrednio za pomocą usługi Azure Key Vault za pośrednictwem jednego z partnerskich urzędów certyfikacji, z którymi zintegrowana jest usługa Azure Key Vault. Przekaż swój certyfikat jako obiekt **certyfikatu** , a nie **wpis tajny**.
 
 > [!NOTE]
-> Ta akcja wymaga uprawnień administratora globalnego i musi być wykonana tylko **raz** na dzierżawę.
+> W przypadku własnego certyfikatu TLS/SSL nie są obsługiwane certyfikaty z algorytmami kryptografii.
+
+#### <a name="register-azure-front-door"></a>Zarejestruj drzwi frontonu platformy Azure
+
+Zarejestruj jednostkę usługi dla drzwi platformy Azure jako aplikację w Azure Active Directory za pomocą programu PowerShell.
+
+> [!NOTE]
+> Ta akcja wymaga uprawnień administratora globalnego i musi zostać wykonana tylko **raz** dla każdego dzierżawy.
 
 1. Jeśli to konieczne, zainstaluj program [Azure PowerShell](/powershell/azure/install-az-ps) za pomocą programu PowerShell na komputerze lokalnym.
 
@@ -99,23 +99,23 @@ Zarejestruj jednostkę usługi dla usługi Azure Front Door jako aplikację w us
 
      `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
-#### <a name="grant-azure-front-door-access-to-your-key-vault"></a>Udzielanie dostępu do drzwi y frontowej platformy Azure do magazynu kluczy
+#### <a name="grant-azure-front-door-access-to-your-key-vault"></a>Przyznaj dostęp do usługi Azure front-drzwi do Twojego magazynu kluczy
  
-Udziel uprawnienia usługi Azure Front Door, aby uzyskać dostęp do certyfikatów na koncie usługi Azure Key Vault.
+Przyznaj uprawnienie platformy Azure przed dostępem do certyfikatów na koncie Azure Key Vault.
 
 1. Na koncie magazynu kluczy w obszarze USTAWIENIA wybierz pozycję **Zasady dostępu**, a następnie wybierz pozycję **Dodaj nową**, aby utworzyć nową zasadę.
 
-2. W obszarze **Wybierz podmiot zabezpieczeń** wyszukaj wartość **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** i wybierz pozycję **Microsoft.Azure.Frontdoor**. Kliknij **pozycję Wybierz**.
+2. W obszarze **Wybierz podmiot zabezpieczeń** wyszukaj wartość **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** i wybierz pozycję **Microsoft.Azure.Frontdoor**. Kliknij przycisk **Wybierz**.
 
-3. W **obszarze Uprawnienia tajne**wybierz pozycję **Pobierz,** aby zezwolić drzwiom frontowym na pobranie certyfikatu.
+3. W obszarze **uprawnienia do klucza tajnego**wybierz pozycję **Pobierz** , aby umożliwić przednim drzwiom pobranie certyfikatu.
 
-4. W **obszarze Uprawnienia certyfikatu**wybierz pozycję **Pobierz,** aby zezwolić drzwiom frontowym na pobieranie certyfikatu.
+4. W obszarze **uprawnienia certyfikatu**wybierz pozycję **Pobierz** , aby umożliwić przednim drzwiom pobranie certyfikatu.
 
 5. Kliknij przycisk **OK**. 
 
-    Usługi Azure Front Door mogą teraz uzyskiwać dostęp do tego magazynu kluczy i certyfikatów przechowywanych w tym magazynie kluczy.
+    Dostępne są następujące Key Vault i certyfikaty, które są przechowywane w tym Key Vault.
  
-#### <a name="select-the-certificate-for-azure-front-door-to-deploy"></a>Wybierz certyfikat dla drzwi ami frontowymi platformy Azure do wdrożenia
+#### <a name="select-the-certificate-for-azure-front-door-to-deploy"></a>Wybierz certyfikat dla drzwi frontonu platformy Azure do wdrożenia
  
 1. Wróć do usługi Front Door w portalu. 
 
@@ -125,9 +125,9 @@ Udziel uprawnienia usługi Azure Front Door, aby uzyskać dostęp do certyfikat�
 
 3. W obszarze Typ zarządzania certyfikatami wybierz pozycję **Użyj własnego certyfikatu**. 
 
-4. Usługa Azure Front Door wymaga, aby subskrypcja konta usługi Key Vault była taka sama, jak w przypadku drzwi ekwiwalczy. Wybierz magazyn kluczy, certyfikat (klucz tajny) i wersję certyfikatu.
+4. Drzwi frontonu platformy Azure wymagają, aby subskrypcja konta Key Vault była taka sama jak w przypadku drzwi z przodu. Wybierz magazyn kluczy, certyfikat (klucz tajny) i wersję certyfikatu.
 
-    Drzwi frontowe platformy Azure zawierają następujące informacje: 
+    Z przodu platformy Azure są wyświetlane następujące informacje: 
     - Konta magazynów kluczy dla Twojego identyfikatora subskrypcji. 
     - Certyfikaty (klucze tajne) dla wybranego magazynu kluczy. 
     - Dostępne wersje certyfikatów. 
@@ -153,7 +153,7 @@ Rekord CNAME powinien mieć następujący format, gdzie *Nazwa* to nazwa domeny 
 
 Aby uzyskać więcej informacji na temat rekordów CNAME, zobacz [Tworzenie rekordu DNS CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
-Jeśli rekord CNAME na poprawny format, firma DigiCert weryfikuje nazwę domeny niestandardowej i tworzy dedykowany certyfikat dla nazwy domeny. Firma DigitCert nie wysyła weryfikacyjnej wiadomości e-mail i nie trzeba zatwierdzać swojego żądania. Certyfikat jest ważny przez rok i zostanie autoryzowany przed jego wygaśnięciem. Przejdź do sekcji [Oczekiwanie na propagację](#wait-for-propagation). 
+Jeśli rekord CNAME na poprawny format, firma DigiCert weryfikuje nazwę domeny niestandardowej i tworzy dedykowany certyfikat dla nazwy domeny. Firma DigitCert nie wysyła weryfikacyjnej wiadomości e-mail i nie trzeba zatwierdzać swojego żądania. Certyfikat jest ważny przez jeden rok i zostanie odnowiony przed jego wygaśnięciem. Przejdź do sekcji [Oczekiwanie na propagację](#wait-for-propagation). 
 
 Automatyczna walidacja przeważnie trwa kilka minut. Jeśli w ciągu godziny nie zobaczysz zweryfikowanej domeny, otwórz bilet pomocy technicznej.
 
@@ -176,7 +176,7 @@ webmaster@&lt;nazwa-domeny.com&gt;
 hostmaster@&lt;nazwa-domeny.com&gt;  
 postmaster@&lt;nazwa-domeny.com&gt;  
 
-W ciągu kilku minut otrzymasz wiadomość e-mail (podobną do poniższego przykładu) z prośbą o zatwierdzenie żądania. Jeśli używasz filtru spamu, dodaj admin@digicert.com go do listy dozwolonych. Jeśli w ciągu 24 godzin nie otrzymasz wiadomości e-mail, skontaktuj się z działem pomocy technicznej firmy Microsoft.
+W ciągu kilku minut otrzymasz wiadomość e-mail (podobną do poniższego przykładu) z prośbą o zatwierdzenie żądania. Jeśli używasz filtru spamu, Dodaj admin@digicert.com go do listy dozwolonych. Jeśli w ciągu 24 godzin nie otrzymasz wiadomości e-mail, skontaktuj się z działem pomocy technicznej firmy Microsoft.
 
 Po kliknięciu linku zatwierdzania następuje przekierowanie do formularza zatwierdzania online. Postępuj zgodnie z instrukcjami w formularzu. Dostępne są dwie opcje weryfikacji:
 
@@ -184,7 +184,7 @@ Po kliknięciu linku zatwierdzania następuje przekierowanie do formularza zatwi
 
 - Możesz zatwierdzać tylko nazwę określonego hosta używaną w tym żądaniu. W przypadku kolejnych żądań będzie wymagane dodatkowe zatwierdzanie.
 
-Po zatwierdzeniu firma DigiCert kończy tworzenie certyfikatu dla niestandardowej nazwy domeny. Certyfikat jest ważny przez rok i zostanie autoryzowany przed upływem czasu.
+Po zatwierdzeniu firma DigiCert kończy tworzenie certyfikatu dla niestandardowej nazwy domeny. Certyfikat jest ważny przez jeden rok i zostanie odnowiony przed jego wygaśnięciem.
 
 ## <a name="wait-for-propagation"></a>Oczekiwanie na propagację
 
@@ -224,7 +224,7 @@ W poprzednich krokach protokół HTTPS został włączony w domenie niestandardo
 
 ### <a name="disable-the-https-feature"></a>Wyłączanie funkcji protokołu HTTPS 
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do konfiguracji **usługi Azure Front Door.**
+1. W [Azure Portal](https://portal.azure.com)przejdź do konfiguracji **drzwi platformy Azure** .
 
 2. Na liście hostów serwera frontonu kliknij domenę niestandardową, dla której chcesz wyłączyć protokół HTTPS.
 
@@ -252,7 +252,7 @@ W poniższej tabeli przedstawiono postęp operacji w przypadku wyłączenia prot
 
 2. *Używasz protokołu TLS/SSL SNI, czy opartego na protokole IP?*
 
-    Usługa Azure Front Door używa protokołu SNI TLS/SSL.
+    Drzwi frontonu platformy Azure używają protokołu TLS/SSL SNI.
 
 3. *Co zrobić, jeśli nie otrzymam wiadomości e-mail weryfikującej domenę od firmy DigiCert?*
 
@@ -260,7 +260,7 @@ W poniższej tabeli przedstawiono postęp operacji w przypadku wyłączenia prot
 
 4. *Czy używanie certyfikatu SAN jest mniejsze bezpieczne niż certyfikatu dedykowanego?*
     
-    Certyfikat SAN działa zgodnie z tymi samymi standardami szyfrowania i zabezpieczeń, co certyfikat dedykowany. Wszystkie wystawione certyfikaty TLS/SSL używają protokołu SHA-256 w celu zwiększenia bezpieczeństwa serwera.
+    Certyfikat SAN działa zgodnie z tymi samymi standardami szyfrowania i zabezpieczeń, co certyfikat dedykowany. Wszystkie wystawione certyfikaty TLS/SSL używają algorytmu SHA-256 w celu zapewnienia bezpieczeństwa serwera rozszerzonego.
 
 5. *Czy muszę mieć rekord autoryzacji urzędu certyfikacji z moim dostawcą DNS?*
 

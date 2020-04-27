@@ -1,6 +1,6 @@
 ---
-title: Cennik usługi Azure Cloud Shell | Dokumenty firmy Microsoft
-description: Omówienie cen usługi Azure Cloud Shell
+title: Cennik Azure Cloud Shell | Microsoft Docs
+description: Przegląd cen Azure Cloud Shell
 services: ''
 documentationcenter: ''
 author: maertendMSFT
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
 ms.openlocfilehash: 2834bc7d9456c1177bdd2c235b8211a1edde6e42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60199418"
 ---
 # <a name="pricing"></a>Cennik
-Bash w Cloud Shell i PowerShell w Cloud Shell podlegają poniżej informacje.
+Bash w Cloud Shell i program PowerShell w Cloud Shell podlegają poniższym informacjom.
 
 ## <a name="compute-cost"></a>Koszt obliczeń
-Usługa Azure Cloud Shell działa na komputerze udostępnianym bezpłatnie przez platformę Azure, ale wymaga użycia udziału plików platformy Azure. 
+Azure Cloud Shell jest uruchamiany na maszynie udostępnionej bezpłatnie przez platformę Azure, ale wymaga użycia udziału plików platformy Azure. 
 
-## <a name="storage-cost"></a>Koszt magazynowania
-Usługa Cloud Shell wymaga zainstalowanego nowego lub istniejącego udziału usługi Azure Files w celu utrwalania plików w sesjach. Magazyn wiąże się z regularnymi kosztami.
+## <a name="storage-cost"></a>Koszt magazynu
+Cloud Shell wymaga zainstalowania nowego lub istniejącego udziału Azure Files w celu utrwalenia plików między sesjami. Magazyny wiążą się ze zwykłymi kosztami.
 
-Sprawdź [tutaj, aby uzyskać szczegółowe informacje na temat kosztów usługi Azure Files](https://azure.microsoft.com/pricing/details/storage/files/). 
+Sprawdź [tutaj, aby uzyskać szczegółowe informacje dotyczące Azure Files kosztów](https://azure.microsoft.com/pricing/details/storage/files/). 

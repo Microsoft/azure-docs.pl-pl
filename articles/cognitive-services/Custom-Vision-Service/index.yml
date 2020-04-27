@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 2e914cc8cf1951d5e725ac8ad34140103e599fcb
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 556af0c505197170a633cf1f949d87f5d2584690
+  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78204960"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82131322"
 landingContent:
 - title: Informacje o usłudze Custom Vision
   linkLists:
@@ -38,16 +38,8 @@ landingContent:
     links:
     - text: Korzystanie z portalu internetowego
       url: getting-started-build-a-classifier.md
-    - text: Korzystanie z zestawu .NET SDK
-      url: csharp-tutorial.md
-    - text: Używanie zestawu Python SDK
-      url: python-tutorial.md
-    - text: Używanie zestawu Java SDK
-      url: java-tutorial.md
-    - text: Korzystanie z zestawu Node.js SDK
-      url: node-tutorial.md
-    - text: Korzystanie z zestawu Go SDK
-      url: go-tutorial.md
+    - text: Korzystanie z zestawu Custom Vision SDK
+      url: quickstarts/image-classification.md
   - linkListType: how-to-guide
     links:
     - text: Używanie interfejsu API prognozowania
@@ -58,16 +50,8 @@ landingContent:
     links:
     - text: Korzystanie z portalu internetowego
       url: get-started-build-detector.md
-    - text: Korzystanie z zestawu .NET SDK
-      url: csharp-tutorial-od.md
-    - text: Używanie zestawu Python SDK
-      url: python-tutorial-od.md
-    - text: Używanie zestawu Java SDK
-      url: java-tutorial-od.md
-    - text: Korzystanie z zestawu Node.js SDK
-      url: node-tutorial-object-detection.md
-    - text: Korzystanie z zestawu Go SDK
-      url: go-tutorial-object-detection.md
+    - text: Korzystanie z zestawu Custom Vision SDK
+      url: quickstarts/object-detection.md
   - linkListType: tutorial
     links:
     - text: Detektor logo dla urządzeń przenośnych

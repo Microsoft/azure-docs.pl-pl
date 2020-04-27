@@ -10,12 +10,12 @@ metadata:
   author: malopMSFT
   ms.author: allensu
   ms.date: 09/16/2019
-  ms.openlocfilehash: 1674d92736f7808cd7fc5cc983bc72cea4126868
-  ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+  ms.openlocfilehash: c062c0aa38037485e6bd892b3dbce67160f64995
+  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/23/2020
-  ms.locfileid: "82100264"
+  ms.lasthandoff: 04/24/2020
+  ms.locfileid: "82127617"
 landingContent:
 - title: Informacje o łączu prywatnym platformy Azure
   linkLists:
@@ -29,6 +29,8 @@ landingContent:
     links:
     - text: Co to jest prywatny punkt końcowy?
       url: private-endpoint-overview.md
+    - text: Integracja usługi DNS z prywatnymi punktami końcowymi
+      url: private-endpoint-dns.md
   - linkListType: quickstart
     links:
     - text: Tworzenie prywatnego punktu końcowego

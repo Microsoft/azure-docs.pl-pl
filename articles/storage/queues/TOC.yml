@@ -206,8 +206,6 @@
       items:
         - name: Program PowerShell dla kolejek platformy Azure
           href: storage-powershell-how-to-use-queues.md
-        - name: Program PowerShell dla usługi Azure Storage
-          href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: 'Program PowerShell dla chmur Government, Niemcy i Chiny'
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Rozwiązywanie problemów
