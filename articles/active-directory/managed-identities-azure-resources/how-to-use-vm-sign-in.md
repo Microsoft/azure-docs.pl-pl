@@ -1,6 +1,6 @@
 ---
-title: Używanie tożsamości zarządzanych na maszynie Wirtualnej platformy Azure do logowania — usługa Azure AD
-description: Instrukcje krok po kroku i przykłady dotyczące używania tożsamości zarządzanych przez maszynę Wirtualną platformy Azure dla jednostki usługi zasobów platformy Azure dla logowania się klienta skryptu i dostępu do zasobów.
+title: Logowanie się do usługi Azure AD przy użyciu tożsamości zarządzanych na maszynie wirtualnej platformy Azure
+description: Instrukcje krok po kroku i przykłady dotyczące korzystania z tożsamości zarządzanych przez maszynę wirtualną platformy Azure dla jednostki usługi Azure Resources dla klienta skryptu i dostępu do zasobów.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,16 +16,16 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74547388"
 ---
-# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie Wirtualnej platformy Azure do logowania 
+# <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu logowania 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-Ten artykuł zawiera przykłady skryptów programu PowerShell i interfejsu wiersza polecenia do logowania przy użyciu tożsamości zarządzanych dla jednostki usługi zasobów platformy Azure oraz wskazówki dotyczące ważnych tematów, takich jak obsługa błędów.
+W tym artykule przedstawiono przykłady skryptów programu PowerShell i interfejsu wiersza polecenia do logowania przy użyciu tożsamości zarządzanych dla jednostki usługi Azure sources oraz wskazówki dotyczące ważnych tematów, takich jak obsługa błędów.
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
@@ -33,27 +33,27 @@ Ten artykuł zawiera przykłady skryptów programu PowerShell i interfejsu wiers
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Jeśli planujesz użyć przykładów interfejsu wiersza polecenia platformy Azure PowerShell lub platformy Azure w tym artykule, należy zainstalować najnowszą wersję [narzędzia Azure PowerShell](/powershell/azure/install-az-ps) lub [interfejsu wiersza polecenia platformy Azure.](https://docs.microsoft.com/cli/azure/install-azure-cli) 
+Jeśli planujesz Azure PowerShell używanie przykładów interfejsu wiersza polecenia platformy Azure w tym artykule, Zadbaj o zainstalowanie najnowszej wersji [Azure PowerShell](/powershell/azure/install-az-ps) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
-> - Cały przykładowy skrypt w tym artykule zakłada, że klient wiersza polecenia jest uruchomiony na maszynie Wirtualnej z tożsamościami zarządzanymi dla zasobów platformy Azure włączonych. Użyj funkcji maszyny Wirtualnej "Połącz" w witrynie Azure portal, aby zdalnie połączyć się z maszyną wirtualną. Aby uzyskać szczegółowe informacje na temat włączania tożsamości zarządzanych dla zasobów platformy Azure na maszynie Wirtualnej, zobacz [Konfigurowanie tożsamości zarządzanych dla zasobów platformy Azure na maszynie Wirtualnej przy użyciu portalu Azure](qs-configure-portal-windows-vm.md)lub jednego z artykułów wariantu (przy użyciu programu PowerShell, interfejsu wiersza polecenia, szablonu lub zestawu SDK platformy Azure). 
-> - Aby zapobiec błędom podczas dostępu do zasobów, tożsamość zarządzana maszyny Wirtualnej musi mieć co najmniej dostęp "Reader" w odpowiednim zakresie (maszyna wirtualna lub wyższa), aby zezwolić na operacje usługi Azure Resource Manager na maszynie Wirtualnej. Zobacz [Przypisywanie tożsamości zarządzanych dla zasobów platformy Azure dostępu do zasobu przy użyciu witryny Azure portal,](howto-assign-access-portal.md) aby uzyskać szczegółowe informacje.
+> - We wszystkich przykładowych skryptach w tym artykule przyjęto założenie, że klient wiersza polecenia działa na maszynie wirtualnej z włączonymi tożsamościami zarządzanymi dla zasobów platformy Azure. Użyj funkcji "Połącz" maszyny wirtualnej w Azure Portal, aby zdalnie nawiązać połączenie z maszyną wirtualną. Aby uzyskać szczegółowe informacje na temat włączania tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej, zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md)lub jednego z artykułów wariantów (przy użyciu programu PowerShell, interfejsu wiersza polecenia, szablonu lub zestawu Azure SDK). 
+> - Aby zapobiec wystąpieniu błędów podczas uzyskiwania dostępu do zasobów, zarządzana tożsamość maszyny wirtualnej musi mieć co najmniej dostęp do czytnika w odpowiednim zakresie (maszynie wirtualnej lub wyższej), aby umożliwić Azure Resource Manager operacji na maszynie wirtualnej. Aby uzyskać szczegółowe informacje [, zobacz Przypisywanie zarządzanych tożsamości dla zasobów platformy Azure do zasobu przy użyciu Azure Portal](howto-assign-access-portal.md) .
 
 ## <a name="overview"></a>Omówienie
 
-Tożsamości zarządzane dla zasobów platformy Azure udostępnia [obiekt jednostki usługi](../develop/developer-glossary.md#service-principal-object) , który jest [tworzony po włączeniu tożsamości zarządzanych dla zasobów platformy Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) na maszynie Wirtualnej. Podmiot usługi może mieć dostęp do zasobów platformy Azure i używany jako tożsamość przez klientów wiersza skryptu/polecenia do logowania się i dostępu do zasobów. Tradycyjnie, aby uzyskać dostęp do zabezpieczonych zasobów w ramach własnej tożsamości, klient skryptu musiałby:  
+Zarządzane tożsamości dla zasobów platformy Azure udostępniają [obiekt jednostki usługi](../develop/developer-glossary.md#service-principal-object) , który jest [tworzony po włączeniu zarządzanych tożsamości dla zasobów platformy Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) na maszynie wirtualnej. Jednostka usługi może uzyskać dostęp do zasobów platformy Azure i służyć jako tożsamość przez klientów z wierszem polecenia w celu logowania się i dostępu do zasobów. Tradycyjnie, aby uzyskać dostęp do zabezpieczonych zasobów w ramach własnej tożsamości, klient skryptów powinien:  
 
-   - być zarejestrowane i zgodę na usługę Azure AD jako poufne/internetowej aplikacji klienta
-   - zaloguj się pod jednostką usługi, używając poświadczeń aplikacji (które prawdopodobnie są osadzone w skrypcie)
+   - być zarejestrowane i wyrażane za pomocą usługi Azure AD jako aplikacji klienta poufnego/sieci Web
+   - Zaloguj się pod swoją jednostką usługi przy użyciu poświadczeń aplikacji (które mogą być osadzone w skrypcie).
 
-Za pomocą tożsamości zarządzanych dla zasobów platformy Azure klient skryptu nie musi już wykonywać, ponieważ może logować się w ramach zarządzanych tożsamości dla jednostki usługi zasobów platformy Azure. 
+W przypadku zarządzanych tożsamości dla zasobów platformy Azure klient skryptów nie musi już wykonywać żadnych czynności, ponieważ może się zalogować w ramach zarządzanych tożsamości dla jednostki usługi Azure Resources. 
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 Poniższy skrypt pokazuje, jak:
 
-1. Zaloguj się do usługi Azure AD w obszarze tożsamości zarządzanej maszyny Wirtualnej dla jednostki usługi zasobów platformy Azure  
-2. Wywołanie usługi Azure Resource Manager i uzyskać identyfikator jednostki usługi maszyny Wirtualnej. Cli zajmuje się zarządzaniem pozyskiwaniem/używaniem tokenów. Pamiętaj, aby zastąpić nazwę `<VM-NAME>`maszyny wirtualnej .  
+1. Zaloguj się do usługi Azure AD w obszarze zarządzana tożsamość maszyny wirtualnej dla jednostki usługi Azure Resources  
+2. Wywołaj Azure Resource Manager i Pobierz identyfikator jednostki usługi maszyny wirtualnej. Interfejs wiersza polecenia obsługuje zarządzanie uzyskaniem/użyciem tokenów automatycznie. Pamiętaj, aby zastąpić nazwę maszyny wirtualnej `<VM-NAME>`.  
 
    ```azurecli
    az login --identity
@@ -66,8 +66,8 @@ Poniższy skrypt pokazuje, jak:
 
 Poniższy skrypt pokazuje, jak:
 
-1. Zaloguj się do usługi Azure AD w obszarze tożsamości zarządzanej maszyny Wirtualnej dla jednostki usługi zasobów platformy Azure  
-2. Wywołanie polecenia cmdlet usługi Azure Resource Manager, aby uzyskać informacje o maszynie Wirtualnej. Program PowerShell zajmuje się zarządzaniem użyciem tokenu automatycznie.  
+1. Zaloguj się do usługi Azure AD w obszarze zarządzana tożsamość maszyny wirtualnej dla jednostki usługi Azure Resources  
+2. Wywołaj polecenie cmdlet Azure Resource Manager, aby uzyskać informacje o maszynie wirtualnej. Program PowerShell obsługuje automatyczne zarządzanie użyciem tokenów.  
 
    ```azurepowershell
    Add-AzAccount -identity
@@ -80,25 +80,25 @@ Poniższy skrypt pokazuje, jak:
 
 ## <a name="resource-ids-for-azure-services"></a>Identyfikatory zasobów dla usług platformy Azure
 
-Zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD,](services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) aby uzyskać listę zasobów obsługujących usługę Azure AD i przetestowanych przy użyciu tożsamości zarządzanych dla zasobów platformy Azure i ich odpowiednich identyfikatorów zasobów.
+Zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) , aby uzyskać listę zasobów, które obsługują usługę Azure AD i zostały przetestowane przy użyciu tożsamości zarządzanych dla zasobów platformy Azure oraz ich identyfikatorów zasobów.
 
 ## <a name="error-handling-guidance"></a>Wskazówki dotyczące obsługi błędów 
 
-Odpowiedzi, takie jak następujące mogą wskazywać, że tożsamość zarządzana maszyny Wirtualnej dla zasobów platformy Azure nie została poprawnie skonfigurowana:
+Odpowiedzi na przykład następujące mogą wskazywać, że zarządzana tożsamość maszyny wirtualnej dla zasobów platformy Azure nie została prawidłowo skonfigurowana:
 
-- Program PowerShell: *Invoke-WebRequest : Nie można połączyć się z serwerem zdalnym*
-- CLI: *MSI: Nie można pobrać `http://localhost:50342/oauth2/token` tokenu z powodu błędu 'HTTPConnectionPool(host='localhost', port=50342)* 
+- PowerShell: *Invoke-WebRequest: nie można nawiązać połączenia z serwerem zdalnym*
+- Interfejs wiersza polecenia: *MSI: nie można pobrać tokenu `http://localhost:50342/oauth2/token` z z powodu błędu "HTTPConnectionPool (host =" localhost ", port = 50342)* 
 
-Jeśli zostanie wyświetlony jeden z tych błędów, wróć do maszyny Wirtualnej platformy Azure w [witrynie Azure portal](https://portal.azure.com) i:
+Jeśli zostanie wyświetlony jeden z tych błędów, Wróć do maszyny wirtualnej platformy Azure w [Azure Portal](https://portal.azure.com) i:
 
-- Przejdź do strony **Tożsamość** i upewnij się, że **przypisany system** jest ustawiony na "Tak".
-- Przejdź do strony **Rozszerzenia** i upewnij się, że zarządzane tożsamości rozszerzenia zasobów platformy Azure **(planowane do wycofania w styczniu 2019 r.)** zostały pomyślnie wdrożone.
+- Przejdź do strony **tożsamość** i upewnij się, że **przypisany system** ma wartość "yes".
+- Przejdź do strony **rozszerzenia** i upewnij się, że zarządzane tożsamości dla rozszerzenia zasobów platformy Azure **(planowane do wycofania w styczniu 2019)** zostały pomyślnie wdrożone.
 
-Jeśli którakolwiek z nich jest niepoprawna, może być konieczne ponowne wdrożenie tożsamości zarządzanych zasobów platformy Azure w zasobie lub rozwiązanie problemu z niepowodzeniem wdrażania. Zobacz [Konfigurowanie tożsamości zarządzanych dla zasobów platformy Azure na maszynie Wirtualnej przy użyciu witryny Azure portal,](qs-configure-portal-windows-vm.md) jeśli potrzebujesz pomocy w konfiguracji maszyny Wirtualnej.
+Jeśli jeden z nich jest nieprawidłowy, może być konieczne ponowne wdrożenie zarządzanych tożsamości dla zasobów platformy Azure w ramach zasobu lub Rozwiązywanie problemów z błędem wdrożenia. Aby uzyskać pomoc dotyczącą konfiguracji maszyny wirtualnej [, zobacz Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby włączyć tożsamości zarządzane dla zasobów platformy Azure na maszynie Wirtualnej platformy Azure, zobacz [Konfigurowanie tożsamości zarządzanych dla zasobów platformy Azure na maszynie Wirtualnej platformy Azure przy użyciu programu PowerShell](qs-configure-powershell-windows-vm.md)lub [Konfigurowanie tożsamości zarządzanych dla zasobów platformy Azure na maszynie Wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](qs-configure-cli-windows-vm.md)
+- Aby włączyć zarządzane tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure, zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu programu PowerShell](qs-configure-powershell-windows-vm.md)lub [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy](qs-configure-cli-windows-vm.md) Azure
 
 
 

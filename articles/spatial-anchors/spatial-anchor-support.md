@@ -1,6 +1,6 @@
 ---
 title: Opcje pomocy technicznej
-description: Informacje na temat otwierania żądania za pomocą zespołu pomocy technicznej Azure Spatial Anchors.
+description: Informacje na temat sposobu otwierania żądania przy użyciu zespołu pomocy technicznej dla kotwic Azure.
 author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,45 +9,45 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 371cb9ade54da42af1ed75c3e9857b6d1a7a0f4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74276983"
 ---
-# <a name="azure-spatial-anchors-support-options"></a>Opcje obsługi zakotwiczeń przestrzennych platformy Azure
+# <a name="azure-spatial-anchors-support-options"></a>Opcje obsługi kotwic przestrzennych platformy Azure
 
-## <a name="open-a-tech-support-ticket"></a>Otwieranie biletu pomocy technicznej
+## <a name="open-a-tech-support-ticket"></a>Otwórz bilet pomocy technicznej
 
-Aby otworzyć bilet pomocy technicznej w witrynie Azure Portal for Azure Spatial Anchors:
+Aby otworzyć bilet pomocy technicznej w witrynie Azure Portal dla zakotwiczeń przestrzennych platformy Azure:
 
-1. Po otwarciu [portalu Azure](https://azure.microsoft.com/account/) wybierz ikonę pomocy z górnego paska menu, a następnie wybierz przycisk Pomoc **+ obsługa.**
+1. Po otwarciu [Azure Portal](https://azure.microsoft.com/account/) wybierz ikonę pomocy z górnego paska menu, a następnie wybierz przycisk **Pomoc i obsługa techniczna** .
 
-![Pomoc i pomoc techniczna witryny Azure portal](./media/spatial-anchor-support.png)
+![Azure Portal pomoc i obsługa techniczna](./media/spatial-anchor-support.png)
 
-1. Po otwarciu strony Pomocy + pomocy technicznej wybierz pozycję **+ Nowe żądanie pomocy technicznej**.
+1. Po otwarciu strony pomoc i obsługa techniczna wybierz pozycję **+ nowe żądanie obsługi**.
 
-![Nowa prośba o pomoc techniczną w portalu Azure](./media/spatial-anchor-support2.png)
+![Azure Portal nowe żądanie obsługi](./media/spatial-anchor-support2.png)
 
-1. Podczas wypełniania pól biletu pomocy technicznej:
+1. Podczas kończenia pól biletu pomocy technicznej:
 
 - Typ problemu: Techniczny
-- Usługa: Kotwice przestrzenne
+- Usługa: kotwice przestrzenne
 
-![Pola pomocy technicznej portalu platformy Azure](./media/spatial-anchor-support3.png)
+![Azure Portal pól biletu pomocy technicznej](./media/spatial-anchor-support3.png)
 
 ## <a name="community-support"></a>Pomoc techniczna w społeczności
 
-Aby uzyskać pomoc społeczności użytkowników, zobacz [Azure Spatial Anchors on Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors).
+Aby uzyskać pomoc techniczną dotyczącą społeczności użytkowników, zobacz [kotwice przestrzenne platformy Azure na Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors).
 
-## <a name="provide-content-feedback"></a>Przekazywanie opinii o zawartości
+## <a name="provide-content-feedback"></a>Podaj opinię dotyczącą zawartości
 
-Na dole każdego artykułu zawartości istnieje możliwość otwarcia problemu z usługą GitHub i przekazania opinii na temat zawartości dokumentacji kotwicy przestrzennej platformy Azure.
+W dolnej części każdego artykułu zawartości istnieje możliwość otwarcia problemu w usłudze GitHub i przedstawienia opinii na temat zawartości dokumentacji dotyczącej kotwicy przestrzennej platformy Azure.
 
 ## <a name="provide-product-feedback"></a>Przekazywanie opinii dotyczących produktów
 
-Aby przekazać opinię, udostępnij pomysł lub sugestię dotyczącą usługi Azure Spatial Anchors lub zagłosuj na pomysły przesłane przez inne osoby, odwiedź [forum opinii o zakotwiczeniu przestrzennym platformy Azure](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
+Aby przekazać Opinie, Podziel się pomysłem lub sugestią dla usługi zakotwiczenia w ramach platformy Azure lub zagłosować na pomysły, które zostały przesłane przez inne osoby, odwiedź [forum opinii o kotwicach przestrzennych platformy Azure](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Często zadawane pytania dotyczące zakotwiczeń przestrzennych platformy Azure można znaleźć na stronie [często zadawanych pytań.](spatial-anchor-faq.md)
+Często zadawane pytania dotyczące zakotwiczeń przestrzennych platformy Azure można znaleźć na stronie [często zadawanych](spatial-anchor-faq.md) pytań.

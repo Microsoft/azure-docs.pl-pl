@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie aplikacji SaaS do współpracy b2b — usługa Azure AD
+title: Konfigurowanie aplikacji SaaS na potrzeby współpracy B2B — Azure AD
 description: Przykłady kodu i programu PowerShell na potrzeby współpracy B2B w usłudze Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -13,94 +13,94 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c73a14c2a8cd063672bd0998368ca660f52cd5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74272948"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurowanie aplikacji SaaS na potrzeby współpracy B2B
 
-Współpraca b2b usługi Azure Active Directory (Azure AD) współpracuje z większością aplikacji integruj się z usługą Azure AD. W tej sekcji omówimy instrukcje konfigurowania niektórych popularnych aplikacji SaaS do użytku z usługą Azure AD B2B.
+Azure Active Directory (Azure AD) Współpraca B2B działa z większością aplikacji, które integrują się z usługą Azure AD. Ta sekcja zawiera instrukcje dotyczące konfigurowania niektórych popularnych aplikacji SaaS do użycia z usługą Azure AD B2B.
 
-Zanim spojrzysz na instrukcje dotyczące aplikacji, oto kilka reguł:
+Przed zapoznaj się z instrukcjami dotyczącymi aplikacji, poniżej przedstawiono niektóre reguły przewijania:
 
-* W przypadku większości aplikacji konfiguracja użytkownika musi odbywać się ręcznie. Oznacza to, że użytkownicy muszą być tworzone ręcznie w aplikacji, jak również.
+* W przypadku większości aplikacji Instalacja użytkownika musi nastąpić ręcznie. Oznacza to, że użytkownicy muszą być również utworzeni ręcznie w aplikacji.
 
-* W przypadku aplikacji obsługujących automatyczną konfigurację, takich jak Dropbox, z aplikacji tworzone są oddzielne zaproszenia. Użytkownicy muszą mieć pewność, że zaakceptują każde zaproszenie.
+* W przypadku aplikacji obsługujących automatyczną konfigurację, takich jak usługa Dropbox, w aplikacjach tworzone są oddzielne zaproszenia. Użytkownicy muszą mieć pewność, że zaakceptuje każde zaproszenie.
 
-* W atrybutach użytkownika, aby ograniczyć wszelkie problemy z zniekształconym dyskiem profilu użytkownika (UPD) w użytkownikach-gościach, należy zawsze ustawiać **identyfikator użytkownika** na **user.mail**.
+* W przypadku atrybutów użytkowników aby wyeliminować problemy z zniekształcona profilem użytkownika (UPD) w obszarze Użytkownicy-Goście, należy zawsze ustawić **Identyfikator użytkownika** na **User. mail**.
 
 
-## <a name="dropbox-business"></a>Dropbox Business
+## <a name="dropbox-business"></a>Usługa Dropbox
 
-Aby umożliwić użytkownikom logowanie się przy użyciu konta organizacji, należy ręcznie skonfigurować dropbox business tak, aby używał usługi Azure AD jako dostawcy tożsamości języka saml (NyL). Jeśli Dropbox Business nie został skonfigurowany do tego celu, nie może monitować ani w inny sposób zezwalać użytkownikom na logowanie się przy użyciu usługi Azure AD.
+Aby umożliwić użytkownikom logowanie się przy użyciu konta organizacji, musisz ręcznie skonfigurować usługę Dropbox, aby używać usługi Azure AD jako dostawcy tożsamości SAML (SAML). Jeśli usługa Dropbox nie została skonfigurowana w taki sposób, nie może monitować ani w inny sposób zezwalać użytkownikom na logowanie się za pomocą usługi Azure AD.
 
-1. Aby dodać aplikację Dropbox Business do usługi Azure AD, wybierz **pozycję Aplikacje przedsiębiorstwa** w lewym okienku, a następnie kliknij przycisk **Dodaj**.
+1. Aby dodać aplikację Dropbox do usługi Azure AD, wybierz pozycję **aplikacje dla przedsiębiorstw** w lewym okienku, a następnie kliknij przycisk **Dodaj**.
 
-   ![Przycisk "Dodaj" na stronie Aplikacje przedsiębiorstwa](media/configure-saas-apps/add-dropbox.png)
+   ![Przycisk "Dodaj" na stronie aplikacje dla przedsiębiorstw](media/configure-saas-apps/add-dropbox.png)
 
-2. W oknie **Dodaj aplikację** wprowadź **dropbox** w polu wyszukiwania, a następnie wybierz pozycję Dropbox **dla firm** na liście wyników.
+2. W oknie **Dodawanie aplikacji** wpisz **Dropbox** w polu wyszukiwania, a następnie na liście wyników wybierz pozycję **Dropbox dla firm** .
 
-   ![Wyszukaj "dropbox" na stronie Dodawanie aplikacji](media/configure-saas-apps/add-app-dialog.png)
+   ![Wyszukaj frazę "Dropbox" na stronie Dodawanie aplikacji](media/configure-saas-apps/add-app-dialog.png)
 
-3. Na stronie **Logowanie jednokrotne** wybierz pozycję **Logowanie jednokrotne** w lewym okienku, a następnie wprowadź **adres user.mail** w polu **Identyfikator użytkownika.** (Domyślnie jest skonfigurowana jako niania o wartości 100 000.)
+3. Na stronie **Logowanie** jednokrotne wybierz pozycję **Logowanie jednokrotne** w okienku po lewej stronie, a następnie wprowadź wartość **User. mail** w polu **Identyfikator użytkownika** . (Domyślnie ustawiono jako nazwę UPN).
 
    ![Konfigurowanie logowania jednokrotnego dla aplikacji](media/configure-saas-apps/configure-app-sso.png)
 
-4. Aby pobrać certyfikat używany do konfiguracji Dropbox, wybierz pozycję **Konfiguruj dropbox**, a następnie wybierz **pozycję SAML Single Sign On Service URL na** liście.
+4. Aby pobrać certyfikat do użycia na potrzeby konfiguracji usługi Dropbox, wybierz pozycję **Konfiguruj usługę Dropbox**, a następnie wybierz pozycję **adres URL logowania** jednokrotnego w usłudze SAML na liście.
 
-   ![Pobieranie certyfikatu dla konfiguracji Dropbox](media/configure-saas-apps/download-certificate.png)
+   ![Pobieranie certyfikatu dla konfiguracji usługi Dropbox](media/configure-saas-apps/download-certificate.png)
 
-5. Zaloguj się do Dropbox za pomocą adresu URL logowania na stronie **jednokrotnego logowania.**
+5. Zaloguj się do usługi Dropbox przy użyciu adresu URL logowania ze strony **logowania** jednokrotnego.
 
-   ![Zrzut ekranu przedstawiający stronę logowania dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Zrzut ekranu przedstawiający stronę logowania do usługi Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. W menu wybierz pozycję **Konsola administracyjna**.
 
    ![Link "Konsola administracyjna" w menu Dropbox](media/configure-saas-apps/dropbox-menu.png)
 
-7. W oknie dialogowym **Uwierzytelnianie** wybierz pozycję **Więcej**, przekaż certyfikat, a następnie w polu **Zaloguj adres URL** wprowadź adres URL logowania JEDNOkrotnego SAML.
+7. W oknie dialogowym **uwierzytelnianie** wybierz opcję **więcej**, Przekaż certyfikat, a następnie w polu **Zaloguj adres URL** wprowadź adres URL logowania jednokrotnego protokołu SAML.
 
-   ![Łącze "Więcej" w zwiniętym oknie dialogowym Uwierzytelnianie](media/configure-saas-apps/dropbox-auth-01.png)
+   ![Łącze "więcej" w oknie dialogowym zwiniętego uwierzytelniania](media/configure-saas-apps/dropbox-auth-01.png)
 
-   !["Adres URL logowania" w rozwiniętym oknie dialogowym Uwierzytelnianie](media/configure-saas-apps/paste-single-sign-on-URL.png)
+   !["Adres URL logowania" w oknie dialogowym rozszerzone uwierzytelnianie](media/configure-saas-apps/paste-single-sign-on-URL.png)
 
-8. Aby skonfigurować automatyczną konfigurację użytkownika w witrynie Azure portal, wybierz pozycję **Inicjowanie obsługi administracyjnej** w lewym okienku, wybierz pozycję **Automatycznie** w polu **Tryb inicjowania obsługi administracyjnej,** a następnie wybierz pozycję **Autoryzuj**.
+8. Aby skonfigurować automatyczne konfigurowanie użytkownika w Azure Portal, wybierz opcję **Inicjowanie obsługi** w lewym okienku, wybierz opcję **automatycznie** w polu **tryb aprowizacji** , a następnie wybierz pozycję **Autoryzuj**.
 
-   ![Konfigurowanie automatycznego inicjowania obsługi administracyjnej użytkowników w witrynie Azure portal](media/configure-saas-apps/set-up-automatic-provisioning.png)
+   ![Konfigurowanie automatycznego aprowizacji użytkowników w Azure Portal](media/configure-saas-apps/set-up-automatic-provisioning.png)
 
-Po skonfigurowaniu użytkowników gości lub członków w aplikacji Dropbox otrzymują oni osobne zaproszenie od Dropbox. Aby korzystać z logowania jednokrotnego w Dropbox, osoby zaproszone muszą zaakceptować zaproszenie, klikając w nim link.
+Po skonfigurowaniu w aplikacji usługi Dropbox osoby gościa lub członków będące oddzielnymi zaproszeniami od usługi Dropbox. Aby móc korzystać z logowania jednokrotnego w usłudze Dropbox, zapraszanie musi zaakceptować zaproszenie, klikając w nim link.
 
 ## <a name="box"></a>Box
-Można umożliwić użytkownikom uwierzytelnienie użytkowników-gości box z ich konta usługi Azure AD przy użyciu federacji, która jest oparta na protokole SAML. W tej procedurze należy przekazać metadane do Box.com.
+Można umożliwić użytkownikom uwierzytelnianie w polu gościa za pomocą konta usługi Azure AD za pomocą Federacji, która jest oparta na protokole SAML. Ta procedura polega na przekazaniu metadanych do Box.com.
 
 1. Dodaj aplikację Box z aplikacji dla przedsiębiorstw.
 
-2. Skonfiguruj logowanie jednokrotne w następującej kolejności:
+2. Skonfiguruj Logowanie jednokrotne w następującej kolejności:
 
    ![Zrzut ekranu przedstawiający ustawienia konfiguracji logowania jednokrotnego](media/configure-saas-apps/configure-box-sso.png)
 
-   a. W polu **Zaloguj się na adres URL** upewnij się, że adres URL logowania jest ustawiony odpowiednio dla Box w witrynie Azure portal. Ten adres URL to adres URL dzierżawy Box.com. Należy postępować zgodnie z *https://.box.com*konwencją nazewnictwa .  
-   **Identyfikator** nie ma zastosowania do tej aplikacji, ale nadal jest wyświetlany jako pole obowiązkowe.
+   a. Upewnij się, że adres URL logowania jest odpowiednio ustawiony dla pola Azure Portal w polu **adres URL logowania** . Ten adres URL jest adresem URL dzierżawy Box.com. Powinna być zgodna z Konwencją *https://.box.com*nazewnictwa.  
+   **Identyfikator** nie ma zastosowania do tej aplikacji, ale nadal pojawia się jako pole wymagane.
 
-   b. W polu **Identyfikator użytkownika** wprowadź **user.mail** (dla aplikacji SSO dla kont gości).
+   b. W polu **Identyfikator użytkownika** wprowadź wartość **User. mail** (w przypadku logowania jednokrotnego dla kont Gości).
 
-   d. W obszarze **Certyfikat podpisywania SAML**kliknij pozycję **Utwórz nowy certyfikat**.
+   c. W obszarze **certyfikat podpisywania SAML**kliknij pozycję **Utwórz nowy certyfikat**.
 
-   d. Aby rozpocząć konfigurowanie dzierżawy Box.com do używania usługi Azure AD jako dostawcy tożsamości, pobierz plik metadanych, a następnie zapisz go na dysku lokalnym.
+   d. Aby rozpocząć konfigurowanie dzierżawy Box.com do korzystania z usługi Azure AD jako dostawcy tożsamości, Pobierz plik metadanych, a następnie zapisz go na dysku lokalnym.
 
-   e. Przekaż plik metadanych do zespołu pomocy technicznej Box, który konfiguruje logowanie jednokrotne.
+   e. Prześlij dalej plik metadanych do zespołu pomocy technicznej usługi Box, który konfiguruje Logowanie jednokrotne.
 
-3. W przypadku automatycznej konfiguracji użytkownika usługi Azure AD w lewym okienku wybierz pozycję **Inicjowanie obsługi administracyjnej,** a następnie wybierz pozycję **Autoryzuj**.
+3. W przypadku automatycznego konfigurowania użytkowników w usłudze Azure AD w lewym okienku wybierz pozycję **Inicjowanie obsługi administracyjnej**, a następnie wybierz pozycję **Autoryzuj**.
 
-   ![Autoryzowanie usługi Azure AD do łączenia się z polem Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
+   ![Autoryzuj usługę Azure AD, aby połączyć się z usługą Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
-Podobnie jak osoby zaproszone do Dropbox, osoby zaproszone do boxu muszą zrealizować zaproszenie z aplikacji Box.
+Podobnie jak w przypadku zaproszonych usługi Dropbox, zapraszanie z Box musi zrealizować swoje zaproszenie z aplikacji Box.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz następujące artykuły dotyczące współpracy usługi Azure AD B2B:
+Zapoznaj się z następującymi artykułami dotyczącymi współpracy B2B w usłudze Azure AD:
 
 - [Czym jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
 - [Grupy dynamiczne i współpraca B2B](use-dynamic-groups.md)

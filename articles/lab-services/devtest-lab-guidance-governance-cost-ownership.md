@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie kosztami i własnością w laboratoriach devtest platformy Azure
-description: Ten artykuł zawiera informacje, które pomagają zoptymalizować pod kątem kosztów i wyrównać własność w całym środowisku.
+title: Zarządzanie kosztami i własnością w Azure DevTest Labs
+description: Ten artykuł zawiera informacje ułatwiające optymalizację kosztu i dostosowanie własności w środowisku.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,52 +14,52 @@ ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: b82d338f85f1b43712296ac7f27bdad55f8f1919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74561658"
 ---
-# <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Zarządzanie infrastrukturą laboratoriów testów dewiacyjnych platformy Azure — zarządzanie kosztami i własnością
-Koszty i własność są głównymi problemami, jeśli wziąć pod uwagę tworzenie środowisk deweloperskich i testowych. W tej sekcji znajdziesz informacje, które pomagają zoptymalizować pod kątem kosztów i wyrównać własność w całym środowisku.
+# <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Nadzór nad infrastrukturą Azure DevTest Labs — zarządzanie kosztami i własnością
+Koszt i własność to podstawowe zagadnienia, które należy wziąć pod uwagę podczas tworzenia środowisk deweloperskich i testowych. W tej sekcji znajdziesz informacje ułatwiające optymalizację kosztów i dostosowanie własności w środowisku.
 
-## <a name="optimize-for-cost"></a>Optymalizacja pod kątem kosztów
+## <a name="optimize-for-cost"></a>Optymalizuj pod kątem kosztów
 
 ### <a name="question"></a>Pytanie
-Jak zoptymalizować pod kątem kosztów w moim środowisku DevTest Labs?
+Jak mogę zoptymalizować się pod kątem kosztów w ramach mojego środowiska DevTest Labs?
 
 ### <a name="answer"></a>Odpowiedź
-Istnieje wiele wbudowanych funkcji DevTest Labs, które pomagają zoptymalizować pod kątem kosztów. Aby ograniczyć działania użytkowników, zobacz [artykuły dotyczące zarządzania kosztami, progów](devtest-lab-configure-cost-management.md) [i zasad.](devtest-lab-set-lab-policy.md) 
+Istnieje wiele wbudowanych funkcji DevTest Labs, które pomagają zoptymalizować się pod kątem kosztów. Aby ograniczyć działania użytkowników, zobacz artykuł [Zarządzanie kosztami, progi](devtest-lab-configure-cost-management.md) [i zasady](devtest-lab-set-lab-policy.md) . 
 
-Podczas korzystania z DevTest Labs dla obciążeń deweloperskich i testowych można rozważyć wykorzystanie [korzyści subskrypcji deweloperów/testów przedsiębiorstwa](https://azure.microsoft.com/offers/ms-azr-0148p/)w ramach umowy Enterprise Agreement. Alternatywnie, jeśli jesteś klientem Pay as you Go, możesz rozważyć [ofertę Płatności zgodnie z rzeczywistym życzeniem.](https://azure.microsoft.com/offers/ms-azr-0023p/)
+Gdy korzystasz z usługi DevTest Labs na potrzeby obciążeń deweloperskich i testowych, możesz rozważyć wykorzystanie [korzyści z subskrypcji Enterprise — tworzenie i testowanie](https://azure.microsoft.com/offers/ms-azr-0148p/)w ramach Umowa Enterprise. Alternatywnie, jeśli masz płatność zgodnie z rzeczywistym użyciem, warto wziąć pod uwagę [ofertę DevTest płatność zgodnie z oczekiwaniami](https://azure.microsoft.com/offers/ms-azr-0023p/).
 
 Takie podejście zapewnia wiele korzyści:
 
-- Specjalne niższe stawki za dewelopera/testowania na maszynach wirtualnych systemu Windows, usługach w chmurze, usługi HDInsight, app service i aplikacjach logiki
-- Stawki great enterprise agreement (EA) w innych usługach platformy Azure
-- Dostęp do ekskluzywnych obrazów deweloperskich/testowych w galerii, w tym systemów Windows 8.1 i Windows 10
+- Specjalne niższe stawki za tworzenie i testowanie w przypadku maszyn wirtualnych z systemem Windows, usług Cloud Services, HDInsight, App Service i Logic Apps
+- Wspaniałe stawki Umowa Enterprise (EA) na inne usługi platformy Azure
+- Dostęp do wyłącznego obrazu deweloperskiego/testowego w galerii, w tym Windows 8.1 i Windows 10
  
-Tylko aktywni subskrybenci programu Visual Studio (subskrypcje standardowe, roczne subskrypcje w chmurze i miesięczne subskrypcje w chmurze) mogą korzystać z zasobów platformy Azure uruchomionych w ramach subskrypcji dewelopera/testowego przedsiębiorstwa. Jednak użytkownicy końcowi mogą uzyskać dostęp do aplikacji, aby przekazać opinię lub wykonać testy akceptacji. Korzystanie z zasobów w ramach tej subskrypcji jest ograniczone do tworzenia i testowania aplikacji i nie jest oferowana żadna gwarancja czasu pracy.
+Tylko aktywni subskrybenci programu Visual Studio (Subskrypcje standardowe, roczne subskrypcje chmurowe i miesięczne subskrypcje chmury) mogą używać zasobów platformy Azure działających w ramach subskrypcji tworzenia i testowania w przedsiębiorstwie. Użytkownicy końcowi mogą jednak uzyskać dostęp do aplikacji w celu zapewnienia opinii lub przeprowadzenia testów akceptacji. Korzystanie z zasobów w ramach tej subskrypcji jest ograniczone do tworzenia i testowania aplikacji, a nie jest oferowana gwarancja czasu.
 
-Jeśli zdecydujesz się użyć oferty DevTest, należy pamiętać, że ta korzyść jest wyłącznie do tworzenia i testowania aplikacji. Użycie w ramach subskrypcji nie zawiera umowy SLA wspieranej finansowo, z wyjątkiem korzystania z usług Azure DevOps i HockeyApp.
+W przypadku podjęcia decyzji o skorzystaniu z oferty DevTest należy zauważyć, że ta korzyść dotyczy wyłącznie tworzenia i testowania aplikacji. Użycie w ramach subskrypcji nie jest objęte gwarantowaną finansowo umową SLA, z wyjątkiem używania usług Azure DevOps i HockeyApp.
 
-## <a name="define-a-role-based-access-across-your-organization"></a>Definiowanie dostępu opartego na rolach w całej organizacji
+## <a name="define-a-role-based-access-across-your-organization"></a>Definiowanie dostępu opartego na rolach w organizacji
 ### <a name="question"></a>Pytanie
-Jak zdefiniować kontrolę dostępu opartą na rolach dla moich środowisk DevTest Labs, aby upewnić się, że it może regulować, podczas gdy deweloperzy /test mogą wykonywać swoją pracę? 
+Jak mogę zdefiniować kontrolę dostępu opartą na rolach dla środowisk DevTest Labs, aby upewnić się, że mogą one być regulowane, gdy deweloperzy/testy mogą wykonywać swoje prace? 
 
 ### <a name="answer"></a>Odpowiedź
-Istnieje szeroki wzorzec, jednak szczegóły zależą od organizacji.
+Istnieje szeroki wzorzec, jednak szczegóły są zależne od organizacji.
 
-Centralna dział IT powinna posiadać tylko to, co jest konieczne, i umożliwiać zespołom projektowym i zespołowym posiadanie wymaganego poziomu kontroli. Zazwyczaj oznacza to, że centralna firma IT jest właścicielem subskrypcji i obsługuje podstawowe funkcje IT, takie jak konfiguracje sieci. Zestaw **właścicieli** subskrypcji powinien być mały. Ci właściciele mogą wyznaczyć dodatkowych właścicieli, gdy zajdzie taka potrzeba, lub zastosować zasady na poziomie subskrypcji, na przykład "Brak publicznego adresu IP".
+Centralna powinna być tylko to, co jest niezbędne, i umożliwia zespołom projektu i aplikacji posiadanie wymaganego poziomu kontroli. Zazwyczaj oznacza to, że Central IT jest właścicielem subskrypcji i obsługuje podstawowe funkcje IT, takie jak konfiguracje sieci. Zestaw **właścicieli** dla subskrypcji powinien być niewielki. Tacy właściciele mogą mianować dodatkowych właścicieli w razie potrzeby lub zastosować zasady na poziomie subskrypcji, na przykład "Brak publicznego adresu IP".
 
-Może istnieć podzbiór użytkowników, którzy wymagają dostępu w ramach subskrypcji, takich jak obsługa warstwy 1 lub warstwy 2. W takim przypadku zaleca się przyznanie tym użytkownikom dostępu **współautora,** aby mogli zarządzać zasobami, ale nie zapewniali dostępu użytkowników ani nie dostosowywali zasad.
+Może istnieć podzbiór użytkowników, którzy wymagają dostępu między subskrypcjami, takimi jak pomoc lub obsługa warstwy 2. W tym przypadku zalecamy nadanie tym użytkownikom dostępu **współautora** , aby mogli zarządzać zasobami, ale nie zapewniają dostępu użytkowników ani dostosowywać zasad.
 
-Zasób DevTest Labs powinien być własnością właścicieli, którzy znajdują się blisko zespołu projektu/aplikacji. To dlatego, że rozumieją swoje wymagania w zakresie maszyn i wymaganego oprogramowania. W większości organizacji właścicielem tego zasobu DevTest Labs jest zwykle potencjalny klient projektu/rozwoju. Ten właściciel może zarządzać użytkownikami i zasadami w środowisku laboratoryjnym i może zarządzać wszystkimi maszynami wirtualnymi w środowisku DevTest Labs.
+Zasób DevTest Labs powinien należeć do właścicieli, którzy znajdują się blisko zespołu projektu/aplikacji. Jest to spowodowane tym, że rozumieją one wymagania w zakresie maszyn i wymaganego oprogramowania. W większości organizacji właściciel tego zasobu DevTest Labs jest często liderem projektu/projektowania. Ten właściciel może zarządzać użytkownikami i zasadami w środowisku laboratoryjnym i może zarządzać wszystkimi maszynami wirtualnymi w środowisku DevTest Labs.
 
-Członkowie zespołu projektu/aplikacji powinny zostać dodane do roli Użytkownicy DevTest Labs. Ci użytkownicy mogą tworzyć maszyny wirtualne (zgodne z zasadami na poziomie laboratorium i subskrypcji). Mogą również zarządzać własnymi maszynami wirtualnymi. Nie mogą zarządzać maszynami wirtualnymi należącymi do innych użytkowników.
+Członków zespołu projektu/aplikacji należy dodać do roli użytkownicy DevTest Labs. Ci użytkownicy mogą tworzyć maszyny wirtualne (w trybie online z zasadami dotyczącymi poziomu laboratorium i subskrypcji). Mogą również zarządzać własnymi maszynami wirtualnymi. Nie mogą oni zarządzać maszynami wirtualnymi należącymi do innych użytkowników.
 
-Aby uzyskać więcej informacji, zobacz [szkieletu przedsiębiorstwa platformy Azure — dokumentacja zarządzania prescriptive subskrypcji.](/azure/architecture/cloud-adoption/appendix/azure-scaffold)
+Aby uzyskać więcej informacji, zobacz artykuł [Azure Enterprise szkielet —](/azure/architecture/cloud-adoption/appendix/azure-scaffold) dokumentacja dotycząca nadzoru subskrypcji.
 
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz [Zasady korporacyjne i zgodność](devtest-lab-guidance-governance-policy-compliance.md).
+Zobacz [zasady i zgodność firmy](devtest-lab-guidance-governance-policy-compliance.md).

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
 ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74560095"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Wprowadzenie do tematów usługi Service Bus
@@ -32,12 +32,12 @@ Ten samouczek obejmuje następujące kroki:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować [korzyści dla subskrybenta programu Visual Studio lub MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) lub założyć [bezpłatne konto.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
-2. Wykonaj kroki opisane w [przewodniku Szybki start: Użyj witryny Azure portal, aby utworzyć temat usługi Service Bus i subskrypcje tematu, aby](service-bus-quickstart-topics-subscriptions-portal.md) wykonać następujące zadania:
-    1. Tworzenie obszaru **nazw**usługi Service Bus .
-    2. Pobierz **ciąg połączenia**.
-    3. Utwórz **temat** w obszarze nazw.
-    4. Utwórz **jedną subskrypcję** tematu w obszarze nazw.
+1. Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści dla [subskrybentów programu Visual Studio lub MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Wykonaj kroki opisane w [przewodniku szybki start: użyj Azure Portal, aby utworzyć temat Service Bus i subskrypcje w temacie](service-bus-quickstart-topics-subscriptions-portal.md) , aby wykonać następujące zadania:
+    1. Utwórz **przestrzeń nazw**Service Bus.
+    2. Pobierz **Parametry połączenia**.
+    3. Utwórz **temat** w przestrzeni nazw.
+    4. Utwórz **jedną subskrypcję** w temacie w przestrzeni nazw.
 3. [Program Visual Studio 2017 Update 3 (wersja 15.3, 26730.01)](https://www.visualstudio.com/vs) lub nowszy.
 4. [Zestaw NET Core SDK](https://www.microsoft.com/net/download/windows), wersja 2.0 lub nowsza.
  
@@ -75,7 +75,7 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET C
     static ITopicClient topicClient;
     ``` 
 
-3. Zastąp `Main()` metodę następującą `Main` metodą asynchroniczna, która wysyła **komunikaty** asynchronicznie przy użyciu SendMessagesAsync metody, która zostanie dodana w następnym kroku. 
+3. Zastąp `Main()` metodę następującą metodą **asynchroniczną** `Main` , która wysyła komunikaty asynchronicznie przy użyciu metody SendMessagesAsync, która zostanie dodana w następnym kroku. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -188,7 +188,7 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET C
 
 ## <a name="receive-messages-from-the-subscription"></a>Odbieranie komunikatów z subskrypcji
 
-Aby odbierać wysłane wiadomości, utwórz inną aplikację konsoli .NET Core i zainstaluj pakiet **Microsoft.Azure.ServiceBus** NuGet, podobny do poprzedniej aplikacji nadawcy.
+Aby odebrać wysłane komunikaty, Utwórz kolejną aplikację konsolową platformy .NET Core i zainstaluj pakiet NuGet **Microsoft. Azure. ServiceBus** , podobny do poprzedniej aplikacji nadawcy.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Pisanie kodu w celu odbierania komunikatów z subskrypcji
 
@@ -210,7 +210,7 @@ Aby odbierać wysłane wiadomości, utwórz inną aplikację konsoli .NET Core i
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Zastąp `Main()` metodę następującą metodą **asynchronizową.** `Main` Wywołuje `RegisterOnMessageHandlerAndReceiveMessages()` metodę, która zostanie dodana w następnym kroku. 
+3. Zastąp `Main()` metodę następującą metodą **asynchroniczną** `Main` . Wywołuje `RegisterOnMessageHandlerAndReceiveMessages()` metodę, która zostanie dodana w następnym kroku. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -371,7 +371,7 @@ Aby odbierać wysłane wiadomości, utwórz inną aplikację konsoli .NET Core i
 Gratulacje! Za pomocą biblioteki .NET Standard utworzono teraz temat i subskrypcję, wysłano 10 komunikatów i odebrano te komunikaty.
 
 > [!NOTE]
-> Zasoby usługi Service Bus można zarządzać za pomocą [Eksploratora magistrali usług](https://github.com/paolosalvatori/ServiceBusExplorer/). Eksplorator usługi Service Bus umożliwia użytkownikom łączenie się z obszarem nazw usługi Service Bus i administrowanie jednostkami obsługi wiadomości w łatwy sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcje importu/eksportu lub możliwość testowania tematu, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
+> Za pomocą [eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/)można zarządzać zasobami Service Bus. Eksplorator Service Bus umożliwia użytkownikom łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów w prosty sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
 
 ## <a name="next-steps"></a>Następne kroki
 

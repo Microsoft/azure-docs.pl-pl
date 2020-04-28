@@ -1,6 +1,6 @@
 ---
-title: Co to jest delegowanie podsieci w sieci wirtualnej platformy Azure?
-description: Dowiedz się więcej o delegowaniu podsieci w sieci wirtualnej platformy Azure
+title: Co to jest delegowanie podsieci w usłudze Azure Virtual Network?
+description: Informacje na temat delegowania podsieci w usłudze Azure Virtual Network
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,54 +13,54 @@ ms.workload: infrastructure-services
 ms.date: 11/20/2019
 ms.author: kumud
 ms.openlocfilehash: b33ff808b802b6848e2d5debaf515a73bf21a1bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74281339"
 ---
 # <a name="what-is-subnet-delegation"></a>Co to jest delegowanie podsieci?
 
-Delegowanie podsieci umożliwia wyznaczenie określonej podsieci dla wybranej usługi PaaS platformy Azure, która musi zostać wstrzyknięta do sieci wirtualnej. Delegowanie podsieci zapewnia klientowi pełną kontrolę nad zarządzaniem integracją usług platformy Azure z ich sieciami wirtualnymi.
+Delegowanie podsieci pozwala wyznaczyć określoną podsieć dla wybranej usługi Azure PaaS, która musi zostać wprowadzona do sieci wirtualnej. Delegowanie podsieci zapewnia klientom pełną kontrolę nad zarządzaniem integracją usług platformy Azure z sieciami wirtualnymi.
 
-Po przekazaniu podsieci do usługi platformy Azure, można zezwolić tej usłudze do ustanowienia niektórych podstawowych reguł konfiguracji sieci dla tej podsieci, które pomagają usługi platformy Azure obsługiwać ich wystąpień w sposób stabilny. W rezultacie usługa platformy Azure może ustanowić pewne warunki przed lub po wdrożeniu, takie jak:
-- wdrożyć usługę w udostępnionej i dedykowanej podsieci.
-- dodać do usługi zestaw zasad intencji sieci po wdrożeniu, które jest wymagane do prawidłowego działania usługi.
+W przypadku delegowania podsieci do usługi platformy Azure można umożliwić tej usłudze ustanowienie niektórych podstawowych reguł konfiguracji sieci dla tej podsieci, co pomoże usłudze platformy Azure w stabilny sposób. W związku z tym usługa platformy Azure może ustalić niektóre warunki wstępne lub po wdrożeniu, takie jak:
+- Wdróż usługę w podsieci udostępnionej i dedykowanej.
+- Dodaj do usługi zestaw zasad określania wymagań sieciowych po wdrożeniu, który jest wymagany, aby usługa działała prawidłowo.
 
 ##  <a name="advantages-of-subnet-delegation"></a>Zalety delegowania podsieci
 
 Delegowanie podsieci do określonych usług zapewnia następujące korzyści:
 
-- pomaga wyznaczyć podsieć dla jednej lub więcej usług platformy Azure i zarządzać wystąpieniami w podsieci zgodnie z wymaganiami. Na przykład właściciel sieci wirtualnej może zdefiniować następujące dla delegowanej podsieci, aby lepiej zarządzać zasobami i uzyskać dostęp w następujący sposób:
-    - zasady filtrowania sieci z sieciowymi grupami zabezpieczeń.
-    - zasady routingu z trasami zdefiniowanymi przez użytkownika.
-    - integracji usług z konfiguracjami punktów końcowych usług.
-- pomaga wstrzyknąć usługom, aby lepiej zintegrować się z siecią wirtualną, definiując ich wstępne warunki wdrożeń w postaci zasad intencji sieci. Dzięki temu wszelkie działania, które mogą mieć wpływ na funkcjonowanie wtryskiwania usługi mogą być blokowane w PUT.
+- pomaga wyznaczyć podsieć dla jednej lub większej liczby usług platformy Azure i zarządzać wystąpieniami w podsieci zgodnie z wymaganiami. Na przykład właściciel sieci wirtualnej może zdefiniować następujące elementy dla delegowanej podsieci w celu lepszego zarządzania zasobami i dostępu w następujący sposób:
+    - zasady ruchu filtrowania sieci z sieciowymi grupami zabezpieczeń.
+    - zasady routingu ze zdefiniowanymi przez użytkownika trasami.
+    - Integracja usług z konfiguracjami punktów końcowych usługi.
+- ułatwia wstrzyknięcie usług w celu lepszego integrowania z siecią wirtualną przez definiowanie ich warunków wstępnych w postaci zasad dotyczących elementów sieciowych. Gwarantuje to, że wszystkie akcje, które mogą mieć wpływ na działanie wstrzykniętej usługi, można zablokować w miejscu.
 
 
 ## <a name="who-can-delegate"></a>Kto może delegować?
-Delegowanie podsieci jest ćwiczeniem, które właściciele sieci wirtualnej muszą wykonać w celu wyznaczenia jednej z podsieci dla określonej usługi Azure. Usługa Azure z kolei wdraża wystąpienia w tej podsieci do użycia przez obciążenia klientów.
+Delegowanie podsieci to ćwiczenie, które właściciele sieci wirtualnej muszą wykonać, aby wyznaczyć jedną z podsieci dla określonej usługi platformy Azure. Usługa platformy Azure z kolei wdraża wystąpienia w tej podsieci do użycia przez obciążenia klientów.
 
-## <a name="impact-of-subnet-delegation-on-your-subnet"></a>Wpływ delegowania podsieci na podsieci
-Każda usługa platformy Azure definiuje swój własny model wdrażania, gdzie można zdefiniować, jakie właściwości robią lub nie obsługują w podsieci delegowanej do celów iniekcji, takich jak:
-- współużytkowana podsieć z innymi usługami platformy Azure lub skalowanie maszyny wirtualnej / maszyny wirtualnej ustawiona w tej samej podsieci lub obsługuje tylko dedykowaną podsieć z tylko wystąpieniami tej usługi w niej.
-- obsługuje skojarzenie sieciowej sieciowej z podsiecią delegowanej.
-- obsługuje sieciowej sieciowej sieciowej skojarzonej z podsiecią delegowaną można również skojarzyć z dowolną inną podsiecią.
-- umożliwia skojarzenie tabeli marszruty z podsiecią delegowaną.
-- umożliwia powiązanie tabeli marszruty skojarzonej z podsiecią delegowaną z dowolną inną podsiecią.
-- określa minimalną liczbę adresów IP w delegowanej podsieci.
-- określa przestrzeń adresu IP w podsieci delegowanej z przestrzeni prywatnego adresu IP (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12).
-- określa, że niestandardowa konfiguracja DNS ma wpis dns platformy Azure.
+## <a name="impact-of-subnet-delegation-on-your-subnet"></a>Wpływ delegowania podsieci w podsieci
+Każda usługa systemu Azure definiuje własny model wdrażania, w którym można zdefiniować właściwości, które wykonują lub nie obsługują w delegowanej podsieci na potrzeby iniekcji, na przykład:
+- podsieć udostępniona z innymi usługami platformy Azure lub MASZYNami wirtualnymi/zestawami skalowania maszyn wirtualnych w tej samej podsieci lub obsługuje tylko dedykowaną podsieć z tylko wystąpieniami tej usługi.
+- obsługuje skojarzenie sieciowej grupy zabezpieczeń z delegowaną podsiecią.
+- obsługuje sieciowej grupy zabezpieczeń skojarzone z delegowaną podsiecią, można także skojarzyć z każdą inną podsiecią.
+- zezwala na skojarzenie tabeli tras z delegowaną podsiecią.
+- zezwala na skojarzenie tabeli tras skojarzonej z delegowaną podsiecią z inną podsiecią.
+- Określa minimalną liczbę adresów IP w delegowanej podsieci.
+- określa przestrzeń adresów IP w delegowanej podsieci, aby pochodzić z prywatnej przestrzeni adresowej IP (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12).
+- Określa, że niestandardowa konfiguracja DNS ma wpis Azure DNS.
 
-Usługi wstrzyknięte mogą również dodawać własne zasady w następujący sposób:
-- **Zasady zabezpieczeń:** Zbieranie reguł zabezpieczeń wymaganych do pracy danej usługi.
-- **Zasady tras:** Zbieranie tras wymaganych do pracy danej usługi.
+Wprowadzone usługi mogą również dodać własne zasady w następujący sposób:
+- **Zasady zabezpieczeń**: zbieranie reguł zabezpieczeń wymaganych przez daną usługę do pracy.
+- **Zasady tras**: Kolekcja tras wymaganych przez daną usługę do pracy.
 
-## <a name="what-subnet-delegation-does-not-do"></a>Nie wykonuje delegowania podsieci
+## <a name="what-subnet-delegation-does-not-do"></a>Co to jest delegowanie podsieci
 
-Usługi platformy Azure wstrzykowane do delegowanej podsieci nadal mają podstawowy zestaw właściwości, które są dostępne dla podsieci niedelegowanych, takich jak:
--  Usługi platformy Azure można wstrzyknąć wystąpień do podsieci klienta, ale nie może mieć wpływu na istniejące obciążenia.
--  Zasady lub trasy, które mają zastosowanie te usługi są elastyczne i mogą zostać zastąpione przez klienta.
+Usługi platformy Azure wprowadzane do delegowanej podsieci nadal mają podstawowy zestaw właściwości, które są dostępne dla podsieci niedelegowanych, takich jak:
+-  Usługi platformy Azure mogą wstrzyknąć wystąpienia do podsieci klienta, ale nie mogą mieć wpływu na istniejące obciążenia.
+-  Zasady lub trasy, które są stosowane przez te usługi, są elastyczne i mogą zostać zastąpione przez klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 

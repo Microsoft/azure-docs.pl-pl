@@ -1,287 +1,287 @@
 ---
-title: Użyj łącznika Ethereum Blockchain z aplikacjami Azure Logic Apps — usługa Azure Blockchain
-description: Użyj łącznika Ethereum Blockchain z usługą Azure Logic Apps, aby wyzwolić funkcje inteligentnego kontraktu i reagować na zdarzenia inteligentnego kontraktu.
+title: Używanie łącznika Ethereum łańcucha bloków z usługą Azure Logic Apps platformy Azure łańcucha bloków
+description: Użyj łącznika łańcucha bloków Ethereum z Azure Logic Apps, aby wyzwolić funkcje kontraktu inteligentnego i odpowiedzieć na zdarzenia inteligentne kontraktu.
 ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: chrisseg
 ms.openlocfilehash: 4a9acfd6098ed45fd92c7e3047b5d1446eeddbd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74325218"
 ---
-# <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Korzystanie ze łącznika Łańcucha bloków Ethereum z aplikacjami Azure Logic Apps
+# <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Używanie łącznika Ethereum łańcucha bloków z Azure Logic Apps
 
-Użyj [łącznika Łańcucha bloków Ethereum](https://docs.microsoft.com/connectors/blockchainethereum/) z [usługą Azure Logic Apps,](https://docs.microsoft.com/azure/logic-apps/) aby wykonywać akcje inteligentnego kontraktu i reagować na zdarzenia inteligentnego kontraktu. Załóżmy na przykład, że chcesz utworzyć mikrousługę opartą na rest, która zwraca informacje z księgi łańcucha bloków. Za pomocą aplikacji logiki, można zaakceptować żądania HTTP, które kwerendy informacji przechowywanych w księdze łańcucha bloków.
+Użyj [łącznika łańcucha bloków Ethereum](https://docs.microsoft.com/connectors/blockchainethereum/) z [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) , aby wykonywać inteligentne akcje kontraktowe i odpowiadać na zdarzenia inteligentnego kontraktu. Załóżmy na przykład, że chcesz utworzyć mikrousługi opartej na protokole REST, która zwraca informacje z księgi łańcucha bloków. Za pomocą aplikacji logiki można akceptować żądania HTTP, które wysyłają zapytania do informacji przechowywanych w księdze łańcucha bloków.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ukończ opcjonalny warunek wstępny [Przewodnika Szybki start: łączenie się z siecią konsorcjum usługi Azure Blockchain Service za pomocą programu Visual Studio Code.](connect-vscode.md) Przewodnik po przewodnikach umożliwia zainstalowanie [zestawu Azure Blockchain Development Kit dla Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) i skonfigurowanie środowiska programistycznego łańcucha bloków.
+Wykonaj opcjonalne wymagania wstępne [szybkiego startu: użyj Visual Studio Code, aby nawiązać połączenie z siecią konsorcjum usługi Azure łańcucha bloków](connect-vscode.md). Przewodnik Szybki Start przeprowadzi Cię przez instalację [usługi Azure łańcucha bloków Development Kit dla Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) i skonfigurowanie środowiska deweloperskiego łańcucha bloków.
 
 ## <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki
 
-Usługa Azure Logic Apps ułatwia planowanie i automatyzację procesów biznesowych i przepływów pracy, gdy trzeba zintegrować systemy i usługi. Najpierw należy utworzyć logikę, która używa łącznika Ethereum Blockchain.
+Azure Logic Apps pomaga zaplanować i zautomatyzować procesy biznesowe i przepływy pracy, gdy trzeba zintegrować systemy i usługi. Najpierw należy utworzyć logikę korzystającą z łącznika Ethereum łańcucha bloków.
 
 1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Utwórz zasób** > **Integracja** > **Aplikacja logiki**.
 1. W obszarze **Tworzenie aplikacji logiki**podaj szczegółowe informacje o tym, gdzie utworzyć aplikację logiki. Po zakończeniu wybierz pozycję **Utwórz**.
 
-    Aby uzyskać więcej informacji na temat tworzenia aplikacji logiki, zobacz [Tworzenie zautomatyzowanych przepływów pracy za pomocą usługi Azure Logic Apps](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
+    Aby uzyskać więcej informacji na temat tworzenia aplikacji logiki, zobacz [Tworzenie zautomatyzowanych przepływów pracy za pomocą Azure Logic Apps](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 1. Po wdrożeniu aplikacji przez platformę Azure wybierz zasób aplikacji logiki.
-1. W Projektancie aplikacji logiki w obszarze **Szablony**wybierz pozycję **Pusta aplikacja logiki**.
+1. W projektancie Logic Apps w obszarze **Szablony**wybierz pozycję **pusta aplikacja logiki**.
 
 Każda aplikacja logiki musi rozpoczynać się od wyzwalacza, który jest aktywowany w momencie wystąpienia konkretnego zdarzenia lub spełnienia określonego warunku. Po każdym aktywowaniu wyzwalacza aparat usługi Logic Apps tworzy wystąpienie aplikacji logiki uruchamiającej i wykonującej przepływ pracy.
 
-Złącze Ethereum Blockchain ma jeden wyzwalacz i kilka akcji. Który wyzwalacz lub akcja, którego używasz, zależy od scenariusza.
+Łącznik Ethereum łańcucha bloków ma jeden wyzwalacz i kilka akcji. Używany wyzwalacz lub akcja zależy od danego scenariusza.
 
 Jeśli przepływ pracy:
 
-* Wyzwala, gdy wystąpi zdarzenie w łańcuchu bloków, [Użyj wyzwalacza zdarzenia](#use-the-event-trigger).
-* Wysyła zapytania lub wdraża inteligentny kontrakt, [Użyj akcji](#use-actions).
-* Postępuje zgodnie ze typowym [scenariuszem Generowanie przepływu pracy przy użyciu zestawu dewelopera](#generate-a-workflow).
+* Wyzwalane, gdy wystąpi zdarzenie w łańcucha bloków, [Użyj wyzwalacza zdarzenia](#use-the-event-trigger).
+* Wykonuje zapytania lub wdraża inteligentne kontraktu, [Użyj akcji](#use-actions).
+* W ramach typowego scenariusza [Wygeneruj przepływ pracy za pomocą zestawu deweloperów](#generate-a-workflow).
 
-## <a name="use-the-event-trigger"></a>Użyj wyzwalacza zdarzenia
+## <a name="use-the-event-trigger"></a>Korzystanie z wyzwalacza zdarzeń
 
-Użyj wyzwalaczy zdarzeń Ethereum Blockchain, gdy chcesz, aby aplikacja logiki działała po wystąpieniu zdarzenia inteligentnego kontraktu. Na przykład chcesz wysłać wiadomość e-mail, gdy wywoływana jest funkcja inteligentnego kontraktu.
+Użyj wyzwalaczy zdarzeń Ethereum łańcucha bloków, jeśli chcesz, aby aplikacja logiki działała po wystąpieniu zdarzenia w ramach kontraktu inteligentnego. Na przykład, chcesz wysłać wiadomość e-mail, gdy wywoływana jest funkcja kontraktu inteligentnego.
 
-1. W projektancie aplikacji logiki wybierz łącznik Ethereum Blockchain.
-1. Na karcie **Wyzwalacze** wybierz pozycję **Po wystąpieniu zdarzenia inteligentnego kontraktu**.
-1. Zmień lub [utwórz połączenie interfejsu API](#create-an-api-connection) z usługą Azure Blockchain.
-1. Wprowadź szczegółowe informacje o umowie inteligentnej, którą chcesz sprawdzić pod kątem zdarzeń.
+1. W projektancie Logic Apps wybierz łącznik Ethereum łańcucha bloków.
+1. Na karcie **wyzwalacze** wybierz opcję **kiedy występuje wydarzenie inteligentne kontraktu**.
+1. Zmień lub [Utwórz połączenie interfejsu API](#create-an-api-connection) z usługą Azure łańcucha bloków.
+1. Wprowadź szczegóły dotyczące kontraktu inteligentnego, który ma być sprawdzany pod kątem zdarzeń.
 
-    ![Projektant aplikacji logiki z właściwościami wyzwalacza zdarzeń](./media/ethereum-logic-app/event-properties.png)
+    ![Projektant Logic Apps z właściwościami wyzwalacza zdarzeń](./media/ethereum-logic-app/event-properties.png)
 
     | Właściwość | Opis |
     |----------|-------------|
-    | **Umowa ABI** | Interfejs binarny aplikacji kontraktowej (ABI) definiuje interfejsy inteligentnego kontraktu. Aby uzyskać więcej informacji, zobacz [Get the contract ABI](#get-the-contract-abi). |
-    | **Inteligentny adres umowy** | Adres umowy to inteligentny adres docelowy kontraktu w łańcuchu bloków Ethereum. Aby uzyskać więcej informacji, zobacz [Get the contract address](#get-the-contract-address). |
-    | **Nazwa wydarzenia** | Wybierz zdarzenie inteligentnego kontraktu do sprawdzenia. Zdarzenie wyzwala aplikację logiki. |
-    | **Interwał** i **częstotliwość** | Wybierz, jak często chcesz sprawdzić, czy wydarzenie. |
+    | **ABI kontraktu** | Interfejs binarny aplikacji kontraktu (ABI) definiuje inteligentne interfejsy kontraktu. Aby uzyskać więcej informacji, zobacz artykuł [pobieranie kontraktu ABI](#get-the-contract-abi). |
+    | **Adres kontraktu inteligentnego** | Adres kontraktu jest adresem docelowym kontraktu inteligentnego na Ethereum łańcucha bloków. Aby uzyskać więcej informacji, zobacz [pobieranie adresu kontraktu](#get-the-contract-address). |
+    | **Nazwa zdarzenia** | Wybierz inteligentne zdarzenie kontraktu do sprawdzenia. Zdarzenie wyzwala aplikację logiki. |
+    | **Interwał** i **częstotliwość** | Wybierz, jak często chcesz sprawdzać obecność zdarzenia. |
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
-Aby ukończyć aplikację logiki, można dodać nowy krok, który wykonuje akcję na podstawie wyzwalacza zdarzenia Ethereum Blockchain. Na przykład wyślij wiadomość e-mail.
+Aby ukończyć aplikację logiki, można dodać nowy krok wykonujący akcję na podstawie wyzwalacza zdarzenia Ethereum łańcucha bloków. Na przykład Wyślij wiadomość e-mail.
 
 ## <a name="use-actions"></a>Korzystanie z akcji
 
-Użyj akcji Ethereum Blockchain, gdy chcesz, aby aplikacja logiki wykonała akcję w księdze blockchain. Na przykład chcesz utworzyć mikrousługę opartą na rest, która wywołuje funkcję inteligentnego kontraktu, gdy żądanie HTTP jest składane do aplikacji logiki.
+Użyj akcji Ethereum łańcucha bloków, jeśli chcesz, aby aplikacja logiki wykonywała akcję w księdze łańcucha bloków. Na przykład chcesz utworzyć mikrousługi opartej na protokole REST, która wywoła funkcję kontraktu inteligentnego, gdy żądanie HTTP zostanie wysłane do aplikacji logiki.
 
-Akcje łącznika wymagają wyzwalacza. Akcji łącznika łańcucha bloków Ethereum jako następny krok po wyzwalaczu, taki jak wyzwalacz żądania HTTP dla mikrousług.
+Akcje łącznika wymagają wyzwalacza. Możesz użyć akcji łącznika Ethereum łańcucha bloków jako następnego kroku po wyzwalaczu, takiego jak wyzwalacz żądania HTTP dla mikrousługi.
 
-1. W Projektancie aplikacji logiki wybierz pozycję **Nowy krok** po wyzwoleniu.
-1. Wybierz złącze Ethereum Blockchain.
+1. W projektancie Logic Apps wybierz pozycję **nowy krok** po wyzwalaczu.
+1. Wybierz łącznik Ethereum łańcucha bloków.
 1. Na karcie **Akcje** wybierz jedną z dostępnych akcji.
 
-    ![Projektant aplikacji logiki z właściwościami akcji](./media/ethereum-logic-app/action-properties.png)
+    ![Projektant Logic Apps z właściwościami akcji](./media/ethereum-logic-app/action-properties.png)
 
-1. Zmień lub [utwórz połączenie interfejsu API](#create-an-api-connection) z usługą Azure Blockchain.
-1. W zależności od wybranej akcji podaj następujące szczegóły dotyczące funkcji inteligentnego kontraktu.
+1. Zmień lub [Utwórz połączenie interfejsu API](#create-an-api-connection) z usługą Azure łańcucha bloków.
+1. W zależności od wybranej akcji podaj następujące informacje o funkcji kontraktu inteligentnego.
 
     | Właściwość | Opis |
     |----------|-------------|
-    | **Umowa ABI** | ABI umowy definiuje interfejsy inteligentnego kontraktu. Aby uzyskać więcej informacji, zobacz [Get the contract ABI](#get-the-contract-abi). |
-    | **Kod bajtowy kontraktu** | Skompilowany inteligentny kod bajtowy kontraktu. Aby uzyskać więcej informacji, zobacz [Get the contract bytecode](#get-the-contract-bytecode). |
-    | **Inteligentny adres umowy** | Adres umowy to inteligentny adres docelowy kontraktu w łańcuchu bloków Ethereum. Aby uzyskać więcej informacji, zobacz [Get the contract address](#get-the-contract-address). |
-    | **Nazwa funkcji inteligentnego kontraktu** | Wybierz nazwę funkcji inteligentnego kontraktu dla akcji. Lista jest wypełniana ze szczegółów w umowie ABI. |
+    | **ABI kontraktu** | ABI kontraktu definiuje inteligentne interfejsy kontraktu. Aby uzyskać więcej informacji, zobacz artykuł [pobieranie kontraktu ABI](#get-the-contract-abi). |
+    | **Kod bajtowy kontraktu** | Skompilowany kod bajtowy w postaci skompilowanej inteligentnej. Aby uzyskać więcej informacji, zobacz [pobieranie kodu bajtowego kontraktu](#get-the-contract-bytecode). |
+    | **Adres kontraktu inteligentnego** | Adres kontraktu jest adresem docelowym kontraktu inteligentnego na Ethereum łańcucha bloków. Aby uzyskać więcej informacji, zobacz [pobieranie adresu kontraktu](#get-the-contract-address). |
+    | **Nazwa funkcji kontraktu inteligentnego** | Wybierz nazwę funkcji kontraktu inteligentnego dla akcji. Lista zostanie wypełniona ze szczegółowych informacji w ABI kontraktu. |
 
-    Po wybraniu nazwy funkcji inteligentnego kontraktu mogą zostać wyświetlone wymagane pola dla parametrów funkcji. Wprowadź wartości lub zawartość dynamiczną wymaganą dla scenariusza.
+    Po wybraniu nazwy funkcji kontraktu inteligentnego może zostać wyświetlonych wymaganych pól parametrów funkcji. Wprowadź wartości lub zawartość dynamiczną wymaganą w danym scenariuszu.
 
-Teraz możesz korzystać z aplikacji logiki. Po wyzwoleniu zdarzenia aplikacji logiki uruchamia się akcja Ethereum Blockchain. Na przykład wyzwalacz żądania HTTP uruchamia akcję łańcucha bloków Ethereum, aby zbadać wartość stanu inteligentnego kontraktu. Ta kwerenda powoduje odpowiedź HTTP, która zwraca wartość.
+Możesz teraz korzystać z aplikacji logiki. Po wyzwoleniu zdarzenia aplikacji logiki zostanie uruchomione działanie Ethereum łańcucha bloków. Na przykład wyzwalacz żądania HTTP uruchamia akcję Ethereum łańcucha bloków, aby wykonać zapytanie o wartość stanu kontraktu inteligentnego. To zapytanie powoduje odpowiedź HTTP, która zwraca wartość.
 
 ## <a name="generate-a-workflow"></a>Generowanie przepływu pracy
 
-Zestaw Azure Blockchain Development Kit dla rozszerzenia kodu programu Visual Studio Ethereum może generować przepływy pracy aplikacji logiki dla typowych scenariuszy. Dostępne są cztery scenariusze:
+Zestaw Azure łańcucha bloków Development Kit dla rozszerzenia Ethereum Visual Studio Code może generować przepływy pracy aplikacji logiki dla typowych scenariuszy. Dostępne są cztery scenariusze:
 
-* Publikowanie danych w wystąpieniu bazy danych SQL usługi Azure
-* Publikowanie zdarzeń w wystąpieniu usługi Azure Event Grid lub usługi Azure Service Bus
+* Publikowanie danych w wystąpieniu Azure SQL Database
+* Publikowanie zdarzeń w wystąpieniu Azure Event Grid lub Azure Service Bus
 * Publikowanie raportów
-* Mikrousługa oparta na restiezacie
+* Mikrousługa oparta na protokole REST
 
- Zestaw Azure Blockchain Development Kit używa trufli, aby uprościć tworzenie łańcucha bloków. Aby wygenerować aplikację logiczną opartą na inteligentnym kontrakcie, potrzebujesz rozwiązania trufli dla inteligentnego kontraktu. Potrzebujesz również połączenia z siecią konsorcjum usługi Azure Blockchain Service. Aby uzyskać więcej informacji, zobacz [Łączenie się z siecią szybkiego startu sieci usługi Azure Blockchain Service za pomocą kodu programu Visual Studio.](connect-vscode.md)
+ Zestaw Azure łańcucha bloków Development Kit używa Truffle, aby uprościć programowanie łańcucha bloków. Aby wygenerować aplikację logiki na podstawie kontraktu inteligentnego, musisz mieć rozwiązanie Truffle dla kontraktu inteligentnego. Potrzebne jest również połączenie z siecią konsorcjum usługi Azure łańcucha bloków. Aby uzyskać więcej informacji, zobacz [używanie Visual Studio Code do nawiązywania połączenia z siecią Azure łańcucha bloków Service Consortium — szybki start](connect-vscode.md).
 
-Na przykład następujące kroki generują aplikację logiki opartej na rest na podstawie umowy inteligentnej programu Szybki start **HelloBlockchain:**
+Na przykład następujące kroki generują aplikację logiki mikrousług opartą na protokole REST na podstawie **HelloBlockchainego** przewodnika Szybki Start:
 
-1. Na pasku bocznym eksploratora kodu programu Visual Studio rozwiń folder **kontraktów** w rozwiązaniu.
-1. Kliknij prawym przyciskiem myszy **HelloBlockchain.sol** i wybierz polecenie **Generuj mikrousług dla inteligentnych kontraktów** z menu.
+1. Na pasku bocznym Eksploratora Visual Studio Code rozwiń folder **kontrakty** w rozwiązaniu.
+1. Kliknij prawym przyciskiem myszy **HelloBlockchain. peruwiański** i wybierz polecenie **Generuj mikrousługi dla inteligentnych kontraktów** z menu.
 
-    ![Okienko Kod programu Visual Studio z wyborem Generuj mikrousługi dla kontraktów inteligentnych](./media/ethereum-logic-app/generate-logic-app.png)
+    ![Visual Studio Code okienku z opcją Generuj mikrousługi dla wybranych kontraktów inteligentnych](./media/ethereum-logic-app/generate-logic-app.png)
 
-1. W palecie poleceń wybierz pozycję **Aplikacja logiki**.
-1. Wprowadź **adres umowy**. Aby uzyskać więcej informacji, zobacz [Get the contract address](#get-the-contract-address).
+1. W palecie poleceń wybierz pozycję **aplikacja logiki**.
+1. Wprowadź **adres kontraktu**. Aby uzyskać więcej informacji, zobacz [pobieranie adresu kontraktu](#get-the-contract-address).
 1. Wybierz subskrypcję platformy Azure i grupę zasobów dla aplikacji logiki.
 
-    Konfiguracja aplikacji logiki i pliki kodu są generowane w **katalogu generatedLogicApp.**
+    Pliki konfiguracji i kodu aplikacji logiki są generowane w katalogu **generatedLogicApp** .
 
-1. Wyświetl **wygenerowany katalogLogicApp/HelloBlockchain.** Istnieje plik JSON aplikacji logiki dla każdej funkcji inteligentnego kontraktu, zdarzenia i właściwości.
-1. Otwórz **generatedLogicApp/HelloBlockchain/Service/property. Plik RequestMessage.logicapp.json** i skopiuj zawartość.
+1. Wyświetl katalog **generatedLogicApp/HelloBlockchain** . Istnieje plik JSON aplikacji logiki dla każdej funkcji, zdarzenia i właściwości kontraktu inteligentnego.
+1. Otwórz **generatedLogicApp/HelloBlockchain/Service/Property. Plik RequestMessage. logicapp. JSON** i skopiuj zawartość.
 
     ![Plik JSON z kodem do skopiowania](./media/ethereum-logic-app/requestmessage.png)
 
-1. W aplikacji logiki wybierz widok **kodu aplikacji Logika**. Zastąp istniejący JSON wygenerowaną aplikacją logiki JSON.
+1. W aplikacji logiki wybierz pozycję **Widok kodu aplikacji logiki**. Zamień istniejący plik JSON na wygenerowany kod JSON aplikacji logiki.
 
-    ![Widok kodu aplikacji logiki z nowym kodem aplikacji zastąpione](./media/ethereum-logic-app/code-view.png)
+    ![Widok kodu aplikacji logiki z nowym zastąpionym kodem aplikacji](./media/ethereum-logic-app/code-view.png)
 
-1. Wybierz **projektanta,** aby przełączyć się do widoku projektanta.
-1. Aplikacja logiki zawiera podstawowe kroki dla scenariusza. Musisz jednak zaktualizować szczegóły konfiguracji łącznika Ethereum Blockchain.
-1. Wybierz krok **Połączenia** i zmień lub [utwórz połączenie interfejsu API z usługą](#create-an-api-connection) Azure Blockchain.
+1. Wybierz pozycję **Projektant** , aby przełączyć się do widoku projektanta.
+1. Aplikacja logiki zawiera podstawowe kroki dla scenariusza. Należy jednak zaktualizować szczegóły konfiguracji łącznika usługi Ethereum łańcucha bloków.
+1. Wybierz krok **połączenia** i Zmień lub [Utwórz połączenie interfejsu API](#create-an-api-connection) z usługą Azure łańcucha bloków.
 
-    ![Widok projektanta z wyborem Połączenia](./media/ethereum-logic-app/microservice-logic-app.png)
+    ![Widok projektanta z wybranym połączeniem](./media/ethereum-logic-app/microservice-logic-app.png)
 
-1. Teraz możesz korzystać z aplikacji logiki. Aby przetestować mikrousługę opartą na rest, wystaw żądanie HTTP POST do adresu URL żądania aplikacji logiki. Skopiuj zawartość **adresu URL HTTP POST** z kroku Po **odebraniu żądania HTTP.**
+1. Możesz teraz korzystać z aplikacji logiki. Aby przetestować mikrousługi oparte na protokole REST, wydaj żądanie HTTP POST na adres URL żądania aplikacji logiki. Skopiuj zawartość **adresu URL post protokołu HTTP** z kroku **po odebraniu żądania HTTP** .
 
-    ![Okienko Projektant aplikacji logiki z adresem URL POST HTTP](./media/ethereum-logic-app/post-url.png)
+    ![Logic Apps okienku projektanta z adresem URL POST protokołu HTTP](./media/ethereum-logic-app/post-url.png)
 
-1. Użyj cURL, aby utworzyć żądanie HTTP POST. Zastąp * \<adres URL\> * wpisu HTTP tekst zastępczy adresem URL z poprzedniego kroku.
+1. Użyj Zwinięciea, aby utworzyć żądanie HTTP POST. Zastąp tekst * \<zastępczy adres URL\> http post adresem* URL z poprzedniego kroku.
 
     ``` bash
     curl -d "{}" -H "Content-Type: application/json" -X POST "<HTTP POST URL>"
     ```
 
-    Polecenie cURL zwraca odpowiedź z aplikacji logiki. W takim przypadku odpowiedź jest dane wyjściowe z **RequestMessage** funkcji inteligentnego kontraktu.
+    Polecenie zwinięcie zwraca odpowiedź z aplikacji logiki. W takim przypadku odpowiedzią jest dane wyjściowe z funkcji **RequestMessage** Smart Contract.
 
-    ![Dane wyjściowe kodu z funkcji inteligentnego kontraktu RequestMessage](./media/ethereum-logic-app/curl.png)
+    ![Dane wyjściowe kodu z funkcji RequestMessage Smart Contract](./media/ethereum-logic-app/curl.png)
 
-Aby uzyskać więcej informacji na temat korzystania z zestawu deweloperskiego, zobacz [stronę wiki Azure Blockchain Development Kit for Ethereum](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki).
+Aby uzyskać więcej informacji na temat korzystania z zestawu Development Kit, zobacz [stronę typu wiki usługi Azure łańcucha bloków Development Kit](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki).
 
 ## <a name="create-an-api-connection"></a>Tworzenie połączenia interfejsu API
 
-Połączenie interfejsu API z łańcuchem bloków jest wymagane dla złącza Ethereum Blockchain. Łącznika interfejsu API można użyć dla wielu aplikacji logiki. Niektóre właściwości są wymagane, a inne zależą od scenariusza.
+Do łącznika łańcucha bloków Ethereum jest wymagane połączenie interfejsu API z łańcucha bloków. Łącznika interfejsu API można użyć dla wielu aplikacji logiki. Niektóre właściwości są wymagane, a inne zależą od danego scenariusza.
 
 > [!IMPORTANT]
-> Klucz prywatny lub adres konta i hasło są wymagane do tworzenia transakcji w łańcuchu bloków. Potrzebna jest tylko jedna forma uwierzytelniania. Nie musisz podawać zarówno klucza prywatnego, jak i szczegółów konta. Wykonywanie zapytań o kontrakty nie wymaga transakcji. Jeśli używasz akcji, które kwerendy stanu umowy, klucz prywatny lub adres konta i hasło nie są wymagane.
+> Do tworzenia transakcji na łańcucha bloków jest wymagany klucz prywatny lub konto i hasło. Wymagana jest tylko jedna forma uwierzytelniania. Nie musisz podawać zarówno klucza prywatnego, jak i szczegółów konta. Wykonywanie zapytań dotyczących kontraktów nie wymaga transakcji. Jeśli używasz akcji, które wykonują zapytania o stan kontraktu, klucz prywatny lub adres konta i hasło nie są wymagane.
 
-Aby ułatwić konfigurowanie połączenia z członkiem usługi Azure Blockchain, poniższa lista zawiera możliwe właściwości, które mogą być potrzebne w zależności od scenariusza.
+Aby ułatwić skonfigurowanie połączenia z członkiem usługi Azure łańcucha bloków, Poniższa lista zawiera możliwe właściwości, które mogą być potrzebne w zależności od danego scenariusza.
 
 | Właściwość | Opis |
 |----------|-------------|
 |**Nazwa połączenia** | Nazwa połączenia interfejsu API. Wymagany. |
-|**Punkt końcowy RPC Ethereum** | Adres HTTP węzła transakcji usługi Azure Blockchain Service. Wymagany. Aby uzyskać więcej informacji, zobacz [Pobierz punkt końcowy RPC](#get-the-rpc-endpoint). |
-|**Klucz prywatny** | Klucz prywatny konta Ethereum. Klucz prywatny lub adres konta i hasło są wymagane dla transakcji. Aby uzyskać więcej informacji, zobacz [Pobierz klucz prywatny](#get-the-private-key). |
-|**Adres konta** | Adres konta członkowskiego usługi Azure Blockchain Service. Klucz prywatny lub adres konta i hasło są wymagane dla transakcji. Aby uzyskać więcej informacji, zobacz [Get the account address](#get-the-account-address). |
-|**Hasło do konta** | Hasło konta jest ustawiane podczas tworzenia członka. Aby uzyskać informacje na temat resetowania hasła, zobacz [konto Ethereum](consortium.md#ethereum-account).|
+|**Punkt końcowy RPC Ethereum** | Adres HTTP węzła transakcji usługi Azure łańcucha bloków. Wymagany. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie punktu końcowego RPC](#get-the-rpc-endpoint). |
+|**Klucz prywatny** | Klucz prywatny konta Ethereum. Do transakcji są wymagane klucze prywatne lub adresy i hasła. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie klucza prywatnego](#get-the-private-key). |
+|**Adres konta** | Adres konta członka usługi Azure łańcucha bloków. Do transakcji są wymagane klucze prywatne lub adresy i hasła. Aby uzyskać więcej informacji, zobacz [pobieranie adresu konta](#get-the-account-address). |
+|**Hasło konta** | Hasło konta jest ustawiane podczas tworzenia elementu członkowskiego. Aby uzyskać informacje na temat resetowania hasła, zobacz [Ethereum Account (konto](consortium.md#ethereum-account)).|
 
-## <a name="get-the-rpc-endpoint"></a>Pobierz punkt końcowy RPC
+## <a name="get-the-rpc-endpoint"></a>Pobieranie punktu końcowego RPC
 
-Adres punktu końcowego RPC usługi Blockchain jest wymagany do nawiązania połączenia z siecią łańcucha bloków. Adres punktu końcowego można uzyskać przy użyciu zestawu Azure Blockchain Development Kit dla Ethereum lub witryny Azure portal.
+Adres punktu końcowego RPC usługi Azure łańcucha bloków Service jest wymagany do nawiązania połączenia z siecią łańcucha bloków. Adres punktu końcowego można uzyskać, korzystając z zestawu Azure łańcucha bloków Development Kit dla Ethereum lub Azure Portal.
 
-**Aby użyć zestawu deweloperskiego:**
+**Aby skorzystać z zestawu Development Kit:**
 
-1. W obszarze **Usługa Azure Blockchain** w programie Visual Studio Code kliknij prawym przyciskiem myszy konsorcjum.
-1. Wybierz **pozycję Kopiuj adres punktu końcowego RPC**.
+1. W obszarze **usługa Azure łańcucha bloków** w Visual Studio Code kliknij prawym przyciskiem myszy konsorcjum.
+1. Wybierz pozycję **Kopiuj adres punktu końcowego usługi RPC**.
 
-    ![Okienko Kod programu Visual Studio przedstawiające konsorcjum z wyborem adresu punktu końcowego kopiowania RPC](./media/ethereum-logic-app/devkit-rpc.png)
+    ![Okienko Visual Studio Code pokazujące konsorcjum z wybranym adresem punktu końcowego kopiowania RPC](./media/ethereum-logic-app/devkit-rpc.png)
 
-    Punkt końcowy RPC jest kopiowany do schowka.
+    Punkt końcowy RPC jest kopiowany do Schowka.
 
-**Aby korzystać z witryny Azure portal:**
+**Aby użyć Azure Portal:**
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-1. Przejdź do swojego członka usługi Azure Blockchain Service. Wybierz węzły transakcji i **domyślne łącze** węzła transakcji.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Przejdź do elementu członkowskiego usługi Azure łańcucha bloków. Wybierz pozycję **węzły transakcji** i domyślne łącze węzła transakcji.
 
-    ![Strona Węzły transakcji z zaznaczeniem (węzeł domyślny)](./media/ethereum-logic-app/transaction-nodes.png)
+    ![Strona węzłów transakcji z wyborem (domyślny węzeł)](./media/ethereum-logic-app/transaction-nodes.png)
 
-1. Wybierz **pozycję Parametry połączenia Klawisze** > **dostępu**.
-1. Skopiuj adres punktu końcowego z **protokołu HTTPS (klucz dostępu 1)** lub **HTTPS (klucz dostępu 2)**.
+1. Wybierz pozycję **Parametry** > połączenia**klucze dostępu**.
+1. Skopiuj adres punktu końcowego z **protokołu HTTPS (dostęp do klucza 1)** lub **https (dostęp do klucza 2)**.
 
-    ![Portal Azure z kluczami dostępu do ciągu połączenia](./media/ethereum-logic-app/connection-string.png)
+    ![Azure Portal z kluczami dostępu do parametrów połączenia](./media/ethereum-logic-app/connection-string.png)
 
-    Punkt końcowy RPC to adres URL HTTPS, który zawiera adres i klucz dostępu węzła transakcji członkowskiego usługi Azure Blockchain Service.
+    Punkt końcowy RPC to adres URL HTTPS, który zawiera adres i klucz dostępu węzła transakcji elementu członkowskiego usługi Azure łańcucha bloków.
 
 ## <a name="get-the-private-key"></a>Pobierz klucz prywatny
 
-Klucza prywatnego konta Ethereum można użyć do uwierzytelnienia podczas wysyłania transakcji do łańcucha bloków. Klucze publiczne i prywatne twojego konta Ethereum są generowane z 12-słownego mnemoni. Zestaw Azure Blockchain Development Kit for Ethereum generuje mnemonię podczas łączenia się z członkiem konsorcjum usługi Azure Blockchain Service. Adres punktu końcowego można uzyskać przy użyciu rozszerzenia zestawu deweloperskiego.
+Za pomocą klucza prywatnego konta Ethereum można uwierzytelniać się podczas wysyłania transakcji do łańcucha bloków. Klucze publiczne i prywatne konta usługi Ethereum są generowane na podstawie ciągu 12-słowa. Zestaw Azure łańcucha bloków Development Kit dla Ethereum generuje skrót po nawiązaniu połączenia z członkiem programu Azure łańcucha bloków Service Consortium. Adres punktu końcowego można uzyskać przy użyciu rozszerzenia Development Kit.
 
-1. W programie Visual Studio Code otwórz paletę poleceń (F1).
-1. Wybierz **narzędzie Azure Blockchain: Pobieranie klucza prywatnego**.
-1. Wybierz mnemonic zapisane podczas łączenia się z członkiem konsorcjum.
+1. W Visual Studio Code Otwórz paletę poleceń (F1).
+1. Wybierz pozycję **Azure łańcucha bloków: Pobierz klucz prywatny**.
+1. Wybierz skrót zapisany podczas nawiązywania połączenia z członkiem konsorcjum.
 
-    ![Paleta poleceń z opcją wyboru mnemonicznej](./media/ethereum-logic-app/private-key.png)
+    ![Paleta poleceń z opcją wyboru](./media/ethereum-logic-app/private-key.png)
 
-    Klucz prywatny zostanie skopiowany do schowka.
+    Klucz prywatny jest kopiowany do Schowka.
 
-## <a name="get-the-account-address"></a>Uzyskaj adres konta
+## <a name="get-the-account-address"></a>Pobierz adres konta
 
-Możesz użyć konta członkowskiego i hasła do uwierzytelniania podczas wysyłania transakcji do łańcucha bloków. Hasło jest ustawiane podczas tworzenia elementu członkowskiego.
+Przy wysyłaniu transakcji do łańcucha bloków można użyć konta i hasła elementu członkowskiego. Hasło jest ustawiane podczas tworzenia elementu członkowskiego.
 
-1. W witrynie Azure portal przejdź do strony przeglądu usługi Azure Blockchain Service.
-1. Skopiuj adres **konta członka.**
+1. W Azure Portal przejdź do strony Przegląd usługi Azure łańcucha bloków.
+1. Skopiuj adres **konta elementu członkowskiego** .
 
-    ![Strona przeglądowa z adresem konta członkowskiego](./media/ethereum-logic-app/member-account.png)
+    ![Strona przegląd z adresem konta elementu członkowskiego](./media/ethereum-logic-app/member-account.png)
 
-Aby uzyskać więcej informacji na temat adresu konta i hasła, zobacz [konto Ethereum](consortium.md#ethereum-account).
+Aby uzyskać więcej informacji na temat adresu i hasła konta, zobacz [Ethereum Account (konto](consortium.md#ethereum-account)).
 
-## <a name="get-the-contract-abi"></a>Uzyskaj kontrakt ABI
+## <a name="get-the-contract-abi"></a>Pobierz kontrakt ABI
 
-ABI umowy definiuje interfejsy inteligentnego kontraktu. Opisano w nim sposób interakcji z inteligentnym kontraktem. Kontrakt można uzyskać przy użyciu zestawu Azure Blockchain Development Kit for Ethereum. Można również uzyskać go z pliku metadanych umowy utworzonego przez kompilator Solidity.
+ABI kontraktu definiuje inteligentne interfejsy kontraktu. Opisuje sposób korzystania z kontraktu inteligentnego. Umowę ABI można uzyskać przy użyciu zestawu Azure łańcucha bloków Development Kit dla Ethereum. Można go również pobrać z pliku metadanych kontraktu utworzonego przez kompilator zapewniający trwałość.
 
-**Aby użyć zestawu deweloperskiego:**
+**Aby skorzystać z zestawu Development Kit:**
 
-Jeśli do utworzenia inteligentnego kontraktu użyto zestawu deweloperskiego lub trufli, możesz użyć rozszerzenia, aby skopiować kontrakt ABI do schowka.
+Jeśli używasz zestawu Development Kit lub Truffle do skompilowania swojego inteligentnego kontraktu, możesz użyć rozszerzenia, aby skopiować ABI kontraktu do Schowka.
 
-1. W okienku eksploratora kodu programu Visual Studio rozwiń folder **kompilacji/kontraktów** projektu Solidity.
-1. Kliknij prawym przyciskiem myszy plik JSON metadanych kontraktu. Nazwa pliku jest nazwą inteligentnego kontraktu, po której następuje rozszerzenie **.json.**
-1. Wybierz **pozycję Kopiuj umowę ABI**.
+1. W okienku Eksploratora Visual Studio Code rozwiń folder **kompilacja/kontrakty** w projekcie o trwałym stanie.
+1. Kliknij prawym przyciskiem myszy plik JSON metadanych kontraktu. Nazwa pliku jest nazwą kontraktu inteligentnego, po której następuje rozszerzenie **. JSON** .
+1. Wybierz pozycję **Kopiuj kontrakt ABI**.
 
-    ![Okienko Kod programu Visual Studio z zaznaczeniem ABI kopiowania umowy](./media/ethereum-logic-app/abi-devkit.png)
+    ![Visual Studio Code okienku z opcją Kopiuj kontrakt ABI](./media/ethereum-logic-app/abi-devkit.png)
 
-    Umowa ABI jest kopiowana do schowka.
+    ABI kontraktu jest kopiowany do Schowka.
 
 **Aby użyć pliku metadanych kontraktu:**
 
-1. Otwórz plik metadanych kontraktu zawarty w folderze **kompilacji/kontraktów** projektu Solidity. Nazwa pliku jest nazwą inteligentnego kontraktu, po której następuje rozszerzenie **.json.**
-1. Znajdź **sekcję abi** w pliku JSON.
-1. Skopiuj **tablicę Abi** JSON.
+1. Otwórz plik metadanych kontraktu znajdujący się w folderze **kompilacja/kontrakty** w projekcie o trwałym stanie. Nazwa pliku jest nazwą kontraktu inteligentnego, po której następuje rozszerzenie **. JSON** .
+1. Znajdź sekcję **ABI** w pliku JSON.
+1. Skopiuj tablicę JSON **ABI** .
 
     ![Kod ABI w pliku metadanych kontraktu](./media/ethereum-logic-app/abi-metadata.png)
 
-## <a name="get-the-contract-bytecode"></a>Pobierz kod bajtowy umowy
+## <a name="get-the-contract-bytecode"></a>Pobierz kod bajtowy kontraktu
 
-Bajtowy kod kontraktu jest skompilowanym inteligentnym kontraktem wykonywanym przez maszynę wirtualną Ethereum. Bajtowy kod umowy można uzyskać przy użyciu zestawu Azure Blockchain Development Kit for Ethereum. Można również uzyskać go z kompilatora solidity.
+Kod bajtowy kontraktu jest skompilowanym inteligentnym kontraktem wykonywanym przez maszynę wirtualną Ethereum. Kod bajtowy kontraktu można uzyskać przy użyciu zestawu Azure łańcucha bloków Development Kit dla Ethereum. Można go również uzyskać od kompilatora kryjącego.
 
-**Aby użyć zestawu deweloperskiego:**
+**Aby skorzystać z zestawu Development Kit:**
 
-Jeśli do utworzenia inteligentnego kontraktu użyto zestawu deweloperskiego lub trufli, można użyć rozszerzenia do skopiowania kodu bajtowego kontraktu do schowka.
+Jeśli używasz zestawu Development Kit lub Truffle do skompilowania swojego inteligentnego kontraktu, możesz użyć rozszerzenia, aby skopiować kod bajtowy kontraktu do Schowka.
 
-1. W okienku eksploratora kodu programu Visual Studio rozwiń folder **kompilacji/kontraktów** projektu Solidity.
-1. Kliknij prawym przyciskiem myszy plik JSON metadanych kontraktu. Nazwa pliku jest nazwą inteligentnego kontraktu, po której następuje rozszerzenie **.json.**
-1. Wybierz **opcję Kopiuj kod bajtowy kontraktu**.
+1. W okienku Eksploratora Visual Studio Code rozwiń folder **kompilacja/kontrakty** w projekcie o trwałym stanie.
+1. Kliknij prawym przyciskiem myszy plik JSON metadanych kontraktu. Nazwa pliku jest nazwą kontraktu inteligentnego, po której następuje rozszerzenie **. JSON** .
+1. Wybierz pozycję **Kopiuj kod bajtowy kontraktu**.
 
-    ![Okienko Kod programu Visual Studio z wyborem kopiuj kod bajtowy kontraktu](./media/ethereum-logic-app/bytecode-devkit.png)
+    ![Visual Studio Code okienku z opcją kopiowania kodu bajtowego kontraktu](./media/ethereum-logic-app/bytecode-devkit.png)
 
-    Bajtowy kod kontraktu jest kopiowany do schowka.
+    Kod bajtowy kontraktu jest kopiowany do Schowka.
 
 **Aby użyć pliku metadanych kontraktu:**
 
-1. Otwórz plik metadanych kontraktu zawarty w folderze **kompilacji/kontraktów** projektu Solidity. Nazwa pliku jest nazwą inteligentnego kontraktu, po której następuje rozszerzenie **.json.**
+1. Otwórz plik metadanych kontraktu znajdujący się w folderze **kompilacja/kontrakty** w projekcie o trwałym stanie. Nazwa pliku jest nazwą kontraktu inteligentnego, po której następuje rozszerzenie **. JSON** .
 1. Znajdź element **kodu bajtowego** w pliku JSON.
-1. Skopiuj wartość **kodu bajtowego.**
+1. Skopiuj wartość **kod bajtowy** .
 
-    ![Okienko Kod programu Visual Studio z kodem bajtowym w metadanych](./media/ethereum-logic-app/bytecode-metadata.png)
+    ![Visual Studio Code okienku z użyciem kodu bajtowego w metadanych](./media/ethereum-logic-app/bytecode-metadata.png)
 
-**Aby użyć kompilatora solidity:**
+**Aby użyć kompilatora do wypełniania:**
 
-Użyj polecenia, `solc --bin <smart contract>.sol` aby wygenerować kod bajtowy kontraktu.
+Użyj polecenia `solc --bin <smart contract>.sol` , aby wygenerować kod bajtowy kontraktu.
 
-## <a name="get-the-contract-address"></a>Uzyskaj adres umowy
+## <a name="get-the-contract-address"></a>Pobierz adres kontraktu
 
-Adres umowy to inteligentny adres docelowy kontraktu w łańcuchu bloków Ethereum. Ten adres służy do wysyłania transakcji lub kwerendy stanu inteligentnego kontraktu. Adres kontraktu można uzyskać z danych wyjściowych migracji trufli lub pliku metadanych kontraktu.
+Adres kontraktu jest adresem docelowym kontraktu inteligentnego na Ethereum łańcucha bloków. Ten adres jest używany do wysyłania transakcji lub stanu zapytania dla kontraktu inteligentnego. Adres kontraktu można uzyskać z danych wyjściowych migracji Truffle lub pliku metadanych kontraktu.
 
-**Aby użyć danych wyjściowych migracji trufli:**
+**Aby użyć Truffle migracji danych wyjściowych:**
 
-Trufla wyświetla adres kontraktu po wdrożeniu inteligentnego kontraktu. Skopiuj **adres umowy** z danych wyjściowych.
+Truffle wyświetla adres kontraktu po wdrożeniu kontraktu inteligentnego. Skopiuj **adres kontraktu** z danych wyjściowych.
 
-![Dane wyjściowe migracji trufli z adresem kontraktu w programie Visual Studio Code](./media/ethereum-logic-app/contract-address-truffle.png)
+![Truffle dane wyjściowe migracji z adresem kontraktu w Visual Studio Code](./media/ethereum-logic-app/contract-address-truffle.png)
 
 **Aby użyć pliku metadanych kontraktu:**
 
-1. Otwórz plik metadanych kontraktu zawarty w folderze **kompilacji/kontraktów** projektu Solidity. Nazwa pliku jest nazwą inteligentnego kontraktu, po której następuje rozszerzenie **.json.**
-1. Znajdź sekcję **sieci** w pliku JSON.
-1. Sieci prywatne są identyfikowane za pomocą identyfikatora sieci całkowitej. Znajdź wartość adresu w sekcji sieci.
-1. Skopiuj wartość **adresu.**
+1. Otwórz plik metadanych kontraktu znajdujący się w folderze **kompilacja/kontrakty** w projekcie o trwałym stanie. Nazwa pliku jest nazwą kontraktu inteligentnego, po której następuje rozszerzenie **. JSON** .
+1. Znajdź sekcję **Networks** w pliku JSON.
+1. Sieci prywatne są identyfikowane przez identyfikator sieci liczb całkowitych. Znajdź wartość adresu w sekcji Sieć.
+1. Skopiuj wartość **adresu** .
 
-![Metadane z wartością adresu w programie Visual Studio Code](./media/ethereum-logic-app/contract-address-metadata.png)
+![Metadane z wartością adresu w Visual Studio Code](./media/ethereum-logic-app/contract-address-metadata.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Obejrzyj typowe scenariusze w klipie wideo [Robienie więcej za pomocą aplikacji logiki](https://channel9.msdn.com/Shows/Blocktalk/Doing-more-with-Logic-Apps?term=logic%20apps%20blockchain&lang-en=true).
+Obejrzyj typowe scenariusze w filmie wideo, [wykonując więcej czynności w Logic Apps](https://channel9.msdn.com/Shows/Blocktalk/Doing-more-with-Logic-Apps?term=logic%20apps%20blockchain&lang-en=true).

@@ -1,6 +1,6 @@
 ---
-title: Zabezpieczenia warstwowe w wersji 1
-description: Dowiedz się, jak zaimplementować architekturę zabezpieczeń warstwowych w środowisku usługi app service. Ten doc jest dostępna tylko dla klientów, którzy używają starszej wersji ASE w wersji 1.
+title: Zabezpieczenia warstwowe v1
+description: Dowiedz się, jak zaimplementować warstwową architekturę zabezpieczeń w środowisku App Service. Ten dokument jest dostępny tylko dla klientów korzystających ze starszej wersji V1 ASE.
 author: stefsch
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.topic: article
@@ -8,52 +8,52 @@ ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74688797"
 ---
-# <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementowanie warstwowej architektury zabezpieczeń ze środowiskami usługi app service
-Ponieważ środowiska usługi app service zapewniają izolowane środowisko uruchomieniowe wdrożone w sieci wirtualnej, deweloperzy mogą utworzyć architekturę zabezpieczeń warstwowych, zapewniając różne poziomy dostępu do sieci dla każdej warstwy aplikacji fizycznych.
+# <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementowanie warstwowej architektury zabezpieczeń w środowiskach App Service
+Ponieważ środowiska App Service udostępniają izolowane środowisko uruchomieniowe wdrożone w sieci wirtualnej, deweloperzy mogą tworzyć warstwowe architektury zabezpieczeń zapewniające różne poziomy dostępu do sieci dla każdej warstwy fizycznej aplikacji.
 
-Typowym pragnieniem jest ukrycie zaplecza interfejsu API przed ogólnym dostępem do Internetu i zezwalanie tylko na wywoływanie interfejsów API przez nadrzędne aplikacje sieci web.  [Sieciowe grupy zabezpieczeń (NSG)][NetworkSecurityGroups] mogą być używane w podsieciach zawierających środowiska usługi app service w celu ograniczenia publicznego dostępu do aplikacji interfejsu API.
+Typowym pragnieniem jest ukrycie zaplecza interfejsu API z ogólnego dostępu do Internetu i Zezwalanie na wywoływanie interfejsów API przez nadrzędne aplikacje sieci Web.  [Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)][NetworkSecurityGroups] mogą być używane w podsieciach zawierających App Service środowiska w celu ograniczenia publicznego dostępu do aplikacji interfejsu API.
 
-Na poniższym diagramie przedstawiono przykładową architekturę z aplikacją opartą na webapi wdrożoną w środowisku usługi app service.  Trzy oddzielne wystąpienia aplikacji sieci web, wdrożone w trzech oddzielnych środowiskach usługi app service, nawiązują wywołania zaplecza do tej samej aplikacji WebAPI.
+Na poniższym diagramie przedstawiono przykładową architekturę z aplikacją opartą na WebAPI wdrożoną na App Service Environment.  Trzy oddzielne wystąpienia aplikacji sieci Web, wdrożone w trzech oddzielnych środowiskach App Service, wykonują wywołania zaplecza do tej samej aplikacji WebAPI.
 
-![Architektura konceptualna][ConceptualArchitecture] 
+![Architektura koncepcyjna][ConceptualArchitecture] 
 
-Zielone znaki plus wskazują, że grupa zabezpieczeń sieci w podsieci zawierającej "apiase" umożliwia przychodzące wywołania z nadrzędnych aplikacji sieci web, a także wywołania od siebie.  Jednak ta sama grupa zabezpieczeń sieci jawnie odmawia dostępu do ogólnego ruchu przychodzącego z Internetu. 
+Zielony znak plus wskazuje, że sieciowa Grupa zabezpieczeń w podsieci zawierającej "apiase" zezwala na wywołania przychodzące z nadrzędnych aplikacji sieci Web, jak również wywołania z samego siebie.  Jednak ta sama sieciowa Grupa zabezpieczeń jawnie nie zezwala na dostęp do ogólnego ruchu przychodzącego z Internetu. 
 
-Poniżej dalsza część artykułu Poniżej dalsza część artykułu Czynności niezbędne do skonfigurowania sieciowej grupy zabezpieczeń w podsieci zawierającej "apiase".
+W dalszej części tego artykułu przedstawiono kroki niezbędne do skonfigurowania sieciowej grupy zabezpieczeń w podsieci zawierającej "apiase".
 
-## <a name="determining-the-network-behavior"></a>Określanie zachowania sieciowego
-Aby wiedzieć, jakie reguły zabezpieczeń sieciowych są potrzebne, należy określić, którzy klienci sieciowi będą mogli dotrzeć do środowiska usługi app service zawierającego aplikację interfejsu API i którzy klienci będą blokowani.
+## <a name="determining-the-network-behavior"></a>Określanie zachowania sieci
+Aby dowiedzieć się, jakie reguły zabezpieczeń sieci są potrzebne, należy określić, którzy klienci sieci będą mogli dotrzeć do App Service Environment zawierającego aplikację interfejsu API, a klienci zostaną zablokowani.
 
-Ponieważ [sieciowe grupy zabezpieczeń (NSG)][NetworkSecurityGroups] są stosowane do podsieci, a środowiska usługi app service są wdrażane w podsieciach, reguły zawarte w sieciowej grupy zabezpieczeń mają zastosowanie do **wszystkich** aplikacji uruchomionych w środowisku usługi aplikacji.  Korzystając z przykładowej architektury dla tego artykułu, po zastosowaniu sieciowej grupy zabezpieczeń do podsieci zawierającej "apiase", wszystkie aplikacje uruchomione w środowisku usługi app service "apiase" będą chronione przez ten sam zestaw reguł zabezpieczeń. 
+Ze względu na to, że [sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń)][NetworkSecurityGroups] są stosowane do podsieci, a środowiska App Service są wdrażane w podsieciach, reguły zawarte w sieciowej grupy zabezpieczeń stosują się do **wszystkich** aplikacji uruchomionych na App Service Environment.  Korzystając z przykładowej architektury dla tego artykułu, po zastosowaniu sieciowej grupy zabezpieczeń do podsieci zawierającej "apiase" wszystkie aplikacje działające w App Service Environment "apiase" będą chronione przez ten sam zestaw reguł zabezpieczeń. 
 
-* **Określ wychodzący adres IP wywołań nadrzędnych:**  Jaki jest adres IP lub adresy nadrzędnych rozmówców?  Adresy te muszą być jawnie dozwolone dostęp w nsg.  Ponieważ wywołania między środowiskami usługi app service są uważane za wywołania "Internet", wychodzący adres IP przypisany do każdego z trzech środowisk usługi aplikacji nadrzędnych musi mieć dostęp w sieciowej strefy sieciowej dla podsieci "apiase".   Aby uzyskać więcej informacji na temat określania wychodzącego adresu IP dla aplikacji działających w środowisku usługi aplikacji, zobacz omówienie [architektury sieci.][NetworkArchitecture]
-* **Czy aplikacja interfejsu API zaplecza musi wywołać siebie?**  Czasami pomijane i subtelny punkt jest scenariusz, w którym aplikacja zaplecza musi wywołać siebie.  Jeśli aplikacja interfejsu API zaplecza w środowisku usługi aplikacji musi wywołać siebie, jest również traktowana jako wywołanie "Internet".  W przykładowej architekturze wymaga to zezwolenia na dostęp z wychodzącego adresu IP środowiska usługi app service "apiase".
+* **Określ wychodzący adres IP wywołujących obiektów nadrzędnych:**  Jaki jest adres IP lub adresy obiektów wywołujących w strumieniu nadrzędnym?  Te adresy muszą mieć jawnie dozwolony dostęp w sieciowej grupy zabezpieczeń.  Ponieważ wywołania między środowiskami App Service są traktowane jako wywołania "internetowe", wychodzący adres IP przypisany do każdego z trzech środowisk nadrzędnych App Service musi mieć dozwolony dostęp w sieciowej grupy zabezpieczeń dla podsieci "apiase".   Aby uzyskać więcej informacji na temat określania wychodzącego adresu IP dla aplikacji działających w App Service Environment, zobacz artykuł Omówienie [architektury sieci][NetworkArchitecture] .
+* **Czy aplikacja interfejsu API zaplecza musi być wywoływana sama?**  Czasami przebiegać i delikatny punkt jest scenariuszem, w którym aplikacja zaplecza musi sam wywołać.  Jeśli aplikacja interfejsu API zaplecza na App Service Environment musi wywołać sam siebie, jest również traktowana jako wywołanie "Internet".  W przykładowej architekturze wymaga to również zezwolenia na dostęp z wychodzącego adresu IP "apiase App Service Environment".
 
 ## <a name="setting-up-the-network-security-group"></a>Konfigurowanie sieciowej grupy zabezpieczeń
-Po znaniu zestawu wychodzących adresów IP następnym krokiem jest utworzenie sieciowej grupy zabezpieczeń.  Sieciowe grupy zabezpieczeń można tworzyć zarówno dla sieci wirtualnych opartych na Menedżerze zasobów, jak i klasycznych sieci wirtualnych.  Poniższe przykłady pokazują tworzenie i konfigurowanie sieciowej sieciowej sieciowej w klasycznej sieci wirtualnej przy użyciu programu Powershell.
+Po znalezieniu zestawu wychodzących adresów IP następnym krokiem jest utworzenie sieciowej grupy zabezpieczeń.  Sieciowe grupy zabezpieczeń można tworzyć zarówno dla sieci wirtualnych opartych na Menedżer zasobów, jak i klasycznych sieci wirtualnych.  W poniższych przykładach pokazano, jak utworzyć i skonfigurować sieciowej grupy zabezpieczeń w klasycznej sieci wirtualnej przy użyciu programu PowerShell.
 
-Dla architektury przykładu środowiska znajdują się w południowo-środkowej części USA, więc pusta grupa NSG jest tworzony w tym regionie:
+W przypadku architektury przykładowej środowiska znajdują się w Południowo-środkowe stany USA, więc w tym regionie jest tworzona pusta sieciowej grupy zabezpieczeń:
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 
-Najpierw jawna reguła zezwalania jest dodawana dla infrastruktury zarządzania platformy Azure, jak wspomniano w artykule na [temat ruchu przychodzącego][InboundTraffic] dla środowisk usługi app service.
+Najpierw dodawana jest jawna reguła zezwalania dla infrastruktury zarządzania systemu Azure, która została zapisana w artykule dotyczącym [ruchu przychodzącego][InboundTraffic] dla środowisk App Serviceych.
 
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 
-Następnie zostaną dodane dwie reguły zezwalają na wywołania HTTP i HTTPS z pierwszego środowiska usługi aplikacji nadrzędnej ("fe1ase").
+Następnie są dodawane dwie reguły zezwalające na wywołania HTTP i HTTPS z pierwszego nadrzędnego App Service Environment ("fe1ase").
 
     #Grant access to requests from the first upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe1ase" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe1ase" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '65.52.xx.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Spłukać i powtórzyć dla drugiego i trzeciego środowiska usługi aplikacji upstream ("fe2ase" i "fe3ase").
+Przepłukać i powtórz dla drugiego i trzeciego środowiska App Service nadrzędnego ("fe2ase" i "fe3ase").
 
     #Grant access to requests from the second upstream web front-end
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe2ase" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '191.238.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
@@ -63,31 +63,31 @@ Spłukać i powtórzyć dla drugiego i trzeciego środowiska usługi aplikacji u
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP fe3ase" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS fe3ase" -Type Inbound -Priority 700 -Action Allow -SourceAddressPrefix '23.98.abc.xyz'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Na koniec udzielić dostępu do wychodzącego adresu IP środowiska usługi app service interfejsu u zaplecza, dzięki czemu można wywołać z powrotem do siebie.
+Na koniec Udziel dostępu do wychodzącego adresu IP App Service Environment interfejsu API zaplecza, tak aby można było wywołać go ponownie.
 
     #Allow apps on the apiase environment to call back into itself
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP apiase" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTPS apiase" -Type Inbound -Priority 900 -Action Allow -SourceAddressPrefix '70.37.xyz.abc'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Żadne inne reguły zabezpieczeń sieciowych nie są wymagane, ponieważ każda grupa zabezpieczeń sieciowa ma zestaw reguł domyślnych, które domyślnie blokują dostęp przychodzący z Internetu.
+Nie są wymagane żadne inne reguły zabezpieczeń sieci, ponieważ każdy sieciowej grupy zabezpieczeń ma zestaw reguł domyślnych, które domyślnie blokują dostęp do ruchu przychodzącego z Internetu.
 
-Pełna lista reguł w sieciowej grupie zabezpieczeń przedstawiona jest poniżej.  Należy zauważyć, jak ostatnia reguła, która jest wyróżniona, blokuje dostęp przychodzący od wszystkich wywołujących, innych niż wywołujących, które zostały jawnie przyznane dostęp.
+Poniżej przedstawiono pełną listę reguł w sieciowej grupie zabezpieczeń.  Zwróć uwagę na to, jak Ostatnia reguła, która jest wyróżniona, blokuje dostęp przychodzący ze wszystkich wywołujących, innych niż wywołujący, którym udzielono jawnie dostępu.
 
 ![Konfiguracja sieciowej grupy zabezpieczeń][NSGConfiguration] 
 
-Ostatnim krokiem jest zastosowanie sieciowej sieciowej grupki sieciowej do podsieci, która zawiera środowisko usługi aplikacji "apiase".
+Ostatnim krokiem jest zastosowanie sieciowej grupy zabezpieczeń do podsieci zawierającej App Service Environment "apiase".
 
      #Apply the NSG to the backend API subnet
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'yourvnetnamehere' -SubnetName 'API-ASE-Subnet'
 
-Z sieciowej sieciowej stosowane do podsieci, tylko trzy środowiska usługi aplikacji nadrzędnego i środowiska usługi aplikacji zawierające zaplecza interfejsu API, mogą wywoływać w środowisku "apiase".
+Po zastosowaniu sieciowej grupy zabezpieczeń do podsieci, tylko trzy środowiska App Service nadrzędnego i App Service Environment zawierające zaplecza interfejsu API, mogą wywołać środowisko "apiase".
 
 ## <a name="additional-links-and-information"></a>Dodatkowe linki i informacje
 Informacje o [sieciowych grupach zabezpieczeń](../../virtual-network/security-overview.md).
 
-Opis [wychodzących adresów IP][NetworkArchitecture] i środowisk usługi app service.
+Informacje o [wychodzących adresach IP][NetworkArchitecture] i środowiskach App Service.
 
-[Porty sieciowe][InboundTraffic] używane przez środowiska usługi app service.
+[Porty sieciowe][InboundTraffic] używane przez środowiska App Service.
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

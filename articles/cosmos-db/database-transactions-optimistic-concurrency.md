@@ -1,6 +1,6 @@
 ---
-title: Transakcje bazy danych i optymistyczna kontrola współbieżności w usłudze Azure Cosmos DB
-description: W tym artykule opisano transakcje bazy danych i kontrolę współbieżności optymistycznej w usłudze Azure Cosmos DB
+title: Transakcje bazy danych i optymistyczna kontrola współbieżności w Azure Cosmos DB
+description: W tym artykule opisano transakcje bazy danych i optymistyczną kontrolę współbieżności w Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,60 +8,60 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74806528"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transakcje i optymistyczna kontrola współbieżności
 
-Transakcje bazy danych zapewniają bezpieczny i przewidywalny model programowania do czynienia z równoczesnych zmian danych. Tradycyjne relacyjne bazy danych, takie jak SQL Server, umożliwiają pisanie logiki biznesowej przy użyciu procedur przechowywanych i/lub wyzwalaczy, wysyłanie jej do serwera do wykonania bezpośrednio w silniku bazy danych. W przypadku tradycyjnych relacyjnych baz danych wymagane jest do czynienia z dwoma różnymi językami programowania (nietransakcyjnych) język programowania aplikacji, takich jak JavaScript, Python, C#, Java, itp.
+Transakcje bazy danych zapewniają bezpieczny i przewidywalny model programowania do obsługi równoczesnych zmian w danych. Tradycyjne relacyjne bazy danych, takie jak SQL Server, umożliwiają pisanie logiki biznesowej za pomocą procedur składowanych i/lub wyzwalaczy, wysyłać je do serwera w celu wykonania bezpośrednio w aparacie bazy danych. W przypadku tradycyjnych relacyjnych baz danych wymagane jest zaradzenie sobie z dwoma różnymi językami programowania (nietransakcyjnymi) językami programowania aplikacji, takimi jak JavaScript, Python, C#, Java itp. oraz transakcyjnym językiem programowania (na przykład T-SQL), który jest natywnie wykonywany przez bazę danych.
 
-Aparat bazy danych w usłudze Azure Cosmos DB obsługuje pełne acid (niepodzielność, spójność, izolacja, trwałość) zgodne transakcje z izolacją migawki. Wszystkie operacje bazy danych w zakresie [partycji logicznej](partition-data.md) kontenera są transakcyjnie wykonywane w ramach aparatu bazy danych, który jest obsługiwany przez replikę partycji. Operacje te obejmują zarówno zapisu (aktualizowanie jednego lub więcej elementów w partycji logicznej) i operacji odczytu. W poniższej tabeli przedstawiono różne operacje i typy transakcji:
+Aparat bazy danych w Azure Cosmos DB obsługuje transakcję zgodności z pełnym KWASem (niepodzielność, spójność, izolacja, trwałość) z izolacją migawki. Wszystkie operacje bazy danych w zakresie [partycji logicznej](partition-data.md) kontenera są transakcjami wykonywane w aparacie bazy danych hostowanym przez replikę partycji. Te operacje obejmują zarówno zapis (Aktualizacja co najmniej jednego elementu w ramach partycji logicznej), jak i operacje odczytu. W poniższej tabeli przedstawiono różne operacje i typy transakcji:
 
-| **Operacji**  | **Typ operacji** | **Transakcja pojedyncza lub wielouchowucheładowa** |
+| **Operacja**  | **Typ operacji** | **Pojedyncza lub wieloelementowa transakcja** |
 |---------|---------|---------|
-| Wstaw (bez wyzwalacza przed/słupka) | Zapisywanie | Transakcja pojedynczego towaru |
-| Wstaw (za pomocą wyzwalacza przed/słupka) | Pisanie i odczytywanie | Transakcja wielouchłowa |
-| Wymień (bez wyzwalacza przed/słupka) | Zapisywanie | Transakcja pojedynczego towaru |
-| Zamień (na wyzwalacz przed/post) | Pisanie i odczytywanie | Transakcja wielouchłowa |
-| Upsert (bez wyzwalacza przed/post) | Zapisywanie | Transakcja pojedynczego towaru |
-| Upsert (z wyzwalaczem przed/postem) | Pisanie i odczytywanie | Transakcja wielouchłowa |
-| Usuń (bez wyzwalacza przed/post) | Zapisywanie | Transakcja pojedynczego towaru |
-| Usuń (za pomocą wyzwalacza przed/wpis) | Pisanie i odczytywanie | Transakcja wielouchłowa |
-| Wykonywanie procedury składowanej | Pisanie i odczytywanie | Transakcja wielouchłowa |
-| System zainicjował wykonanie procedury scalania | Zapisywanie | Transakcja wielouchłowa |
-| System zainicjował wykonanie usuwania elementów na podstawie wygaśnięcia (TTL) towaru | Zapisywanie | Transakcja wielouchłowa |
-| Odczyt | Odczyt | Transakcja z jednym towarem |
-| Zestawienie zmian | Odczyt | Transakcja wielouchłowa |
-| Odczyt na paginated | Odczyt | Transakcja wielouchłowa |
-| Zapytanie nagiezonowe | Odczyt | Transakcja wielouchłowa |
-| Wykonywanie UDF jako część kwerendy na strony | Odczyt | Transakcja wielouchłowa |
+| Insert (bez wyzwalacza wstępnego/końcowego) | Zapisywanie | Transakcja pojedynczego elementu |
+| Insert (z wyzwalaczem poprzedzającym/post) | Zapisz i przeczytaj | Transakcja Wieloelementowa |
+| Replace (bez wyzwalacza wstępnego/końcowego) | Zapisywanie | Transakcja pojedynczego elementu |
+| Replace (z wyzwalaczem poprzedzającym/post) | Zapisz i przeczytaj | Transakcja Wieloelementowa |
+| Upsert (bez wyzwalacza wstępnego/końcowego) | Zapisywanie | Transakcja pojedynczego elementu |
+| Upsert (z wyzwalaczem poprzedzającym/post) | Zapisz i przeczytaj | Transakcja Wieloelementowa |
+| Usuń (bez wyzwalacza wstępnego/końcowego) | Zapisywanie | Transakcja pojedynczego elementu |
+| Usuń (z wyzwalaczem pre/post) | Zapisz i przeczytaj | Transakcja Wieloelementowa |
+| Wykonaj procedurę składowaną | Zapisz i przeczytaj | Transakcja Wieloelementowa |
+| System zainicjował wykonywanie procedury scalania | Zapisywanie | Transakcja Wieloelementowa |
+| System zainicjował wykonywanie usuwania elementów na podstawie wygaśnięcia (TTL) elementu | Zapisywanie | Transakcja Wieloelementowa |
+| Odczyt | Odczyt | Transakcja pojedynczego elementu |
+| Zestawienie zmian | Odczyt | Transakcja Wieloelementowa |
+| Odczyt podzielony na strony | Odczyt | Transakcja Wieloelementowa |
+| Zapytanie z podziałem na strony | Odczyt | Transakcja Wieloelementowa |
+| Wykonaj funkcję UDF w ramach zapytania z podziałem na strony | Odczyt | Transakcja Wieloelementowa |
 
-## <a name="multi-item-transactions"></a>Transakcje wielouchłowe
+## <a name="multi-item-transactions"></a>Transakcje wieloelementowe
 
-Usługa Azure Cosmos DB umożliwia pisanie [procedur przechowywanych, wyzwalaczy przed/post, zdefiniowanych przez użytkownika funkcji (UDF)](stored-procedures-triggers-udfs.md) i procedur scalania w języku JavaScript. Usługa Azure Cosmos DB natywnie obsługuje wykonywanie języka JavaScript wewnątrz aparatu bazy danych. Można zarejestrować procedury przechowywane, wyzwalacze przed/post, funkcje zdefiniowane przez użytkownika (UDFs) i procedury scalania w kontenerze, a później wykonać je transakcyjnie w ramach aparatu bazy danych usługi Azure Cosmos. Logika aplikacji pisania w języku JavaScript umożliwia naturalne wyrażenie przepływu sterowania, zmienne zakres, przypisanie i integracji wyjątków obsługi umamiwy w transakcjach bazy danych bezpośrednio w języku JavaScript.
+Azure Cosmos DB pozwala pisać [procedury składowane, wyzwalacze pre/post, funkcje zdefiniowane przez użytkownika (UDF)](stored-procedures-triggers-udfs.md) i procedury scalania w języku JavaScript. Azure Cosmos DB natywnie obsługuje wykonywanie kodu JavaScript wewnątrz aparatu bazy danych. Można rejestrować procedury składowane, wyzwalacze pre/post, funkcje zdefiniowane przez użytkownika (UDF) oraz procedury scalania w kontenerze, a następnie wykonywać je w sposób niefunkcjonalny w aparacie bazy danych Cosmos Azure. Pisanie logiki aplikacji w języku JavaScript umożliwia naturalne wyrażenie przepływu sterowania, zmiennej określania zakresu, przydziału i integracji wyjątków dla elementów podstawowych w ramach transakcji bazy danych bezpośrednio w języku JavaScript.
 
-Procedury przechowywane oparte na języku JavaScript, wyzwalacze, pliki UDF i procedury scalania są zawijane w ramach transakcji ACID otoczenia z izolacją migawki we wszystkich elementach w partycji logicznej. W trakcie jego wykonywania, jeśli program JavaScript zgłasza wyjątek, cała transakcja zostanie przerwana i wycofana. Powstały model programowania jest prosty, ale potężny. Deweloperzy JavaScript uzyskać trwały model programowania, podczas gdy nadal przy użyciu ich znanych konstrukcji językowych i pierwotnych biblioteki.
+Procedury składowane bazujące na języku JavaScript, wyzwalacze, UDF i procedury scalania są opakowane w obrębie transakcji otaczającej kwas z izolacją migawki dla wszystkich elementów w obrębie partycji logicznej. W trakcie wykonywania, jeśli program JavaScript zgłosi wyjątek, cała transakcja zostanie przerwana i wycofana. Model programowania wynikający z tego nie jest jeszcze zaawansowany. Deweloperzy języka JavaScript uzyskują trwały model programowania przy użyciu znanych konstrukcji językowych i elementów podstawowych biblioteki.
 
-Możliwość wykonywania języka JavaScript bezpośrednio w ramach aparatu bazy danych zapewnia wydajność i transakcyjne wykonywanie operacji bazy danych względem elementów kontenera. Ponadto ponieważ aparat bazy danych usługi Azure Cosmos natywnie obsługuje JSON i JavaScript, nie ma niezgodności impedancji między systemami typów aplikacji i bazy danych.
+Możliwość wykonywania kodu JavaScript bezpośrednio w aparacie bazy danych zapewnia wydajność i transakcyjne wykonywanie operacji bazy danych na elementach kontenera. Ponadto, ponieważ aparat bazy danych Azure Cosmos Database natywnie obsługuje kod JSON i kod JavaScript, nie występuje niezgodność między systemami typów aplikacji a bazą danych.
 
 ## <a name="optimistic-concurrency-control"></a>Optymistyczna kontrola współbieżności
 
-Optymistyczna kontrola współbieżności pozwala zapobiegać utraconym aktualizacjom i usuwaniu. Równoczesne, sprzeczne operacje są poddawane regularne pesymistyczne blokowanie aparatu bazy danych obsługiwanych przez partycję logiczną, która jest właścicielem elementu. Gdy dwie równoczesne operacje próbują zaktualizować najnowszą wersję elementu w partycji logicznej, jedna z nich wygra, a druga zakończy się niepowodzeniem. Jednak jeśli jedna lub dwie operacje próbujące jednocześnie zaktualizować ten sam element wcześniej odczytywał starszą wartość elementu, baza danych nie wie, czy poprzednio odczyt wartości przez jedną lub obie operacje powodujące konflikt był rzeczywiście najnowszą wartość elementu. Na szczęście tę sytuację można wykryć za pomocą **optymistycznego kontroli współbieżności (OCC)** przed pozwoleniem dwie operacje wprowadzić granicę transakcji wewnątrz aparatu bazy danych. OCC chroni dane przed przypadkowym zastąpieniem zmian wprowadzonych przez inne osoby. Zapobiega to również przypadkowemu zastąpieniu przez inne osoby własnych zmian.
+Optymistyczna kontrola współbieżności umożliwia Zapobieganie utracie aktualizacji i usunięć. Współbieżne operacje powodujące konflikt są uzależnione od zwykłego blokowania pesymistycznego aparatu bazy danych hostowanego przez partycję logiczną będącą właścicielem elementu. Gdy dwie operacje współbieżne będą próbowały zaktualizować najnowszą wersję elementu w ramach partycji logicznej, jeden z nich zostanie wygrany, a drugie zakończy się niepowodzeniem. Jeśli jednak jedna lub dwie operacje próbujące zaktualizować ten sam element wcześniej odczytały starszą wartość elementu, baza danych nie wie, czy poprzednio odczytana wartość przez jedną lub obie operacje powodujące konflikt były rzeczywiście ostatnią wartością elementu. Na szczęście tę sytuację można wykryć przy użyciu **optymistycznej kontroli współbieżności (OCC)** przed umożliwieniem, aby dwie operacje mogły wprowadzić granicę transakcji wewnątrz aparatu bazy danych. OCC chroni dane przed przypadkowym zastąpieniem zmian wprowadzonych przez inne osoby. Uniemożliwia to innym osobom przypadkowe zastąpienie własnych zmian.
 
-Równoczesne aktualizacje elementu są poddawane OCC przez warstwę protokołu komunikacyjnego usługi Azure Cosmos DB. Baza danych usługi Azure Cosmos zapewnia, że wersja po stronie klienta elementu, który aktualizujesz (lub usuwanie) jest taka sama jak wersja elementu w kontenerze usługi Azure Cosmos. Gwarantuje to, że zapisy są chronione przed nadpisywane przypadkowo przez zapisy innych i odwrotnie. W środowisku wielu użytkowników optymistyczny formant współbieżności chroni przed przypadkowym usunięciem lub zaktualizowaniem niewłaściwej wersji elementu. W związku z tym elementy są chronione przed niesławnymi problemami z "utraconą aktualizacją" lub "utraconym usunięciem".
+Współbieżne aktualizacje elementu są uzależnione od warstwy protokołu komunikacyjnego OCC przez Azure Cosmos DB. Usługa Azure Cosmos Database gwarantuje, że wersja elementu po stronie klienta aktualizowana (lub usuwana) jest taka sama jak wersja elementu w kontenerze usługi Azure Cosmos. Gwarantuje to, że zapisy są chronione przed przypadkowym zastąpieniem przez zapisy innych i na odwrót. W środowisku z obsługą kilku użytkowników optymistyczna kontrola współbieżności chroni przed przypadkowym usunięciem lub aktualizacją nieprawidłowej wersji elementu. W związku z tym elementy są chronione przed problemami z inFAMOUS "utraconej aktualizacji" lub "utracone usuwanie".
 
-Każdy element przechowywany w kontenerze usługi `_etag` Azure Cosmos ma właściwość zdefiniowaną przez system. Wartość `_etag` jest automatycznie generowana i aktualizowana przez serwer za każdym razem, gdy element jest aktualizowany. `_etag`może być używany z `if-match` nagłówkiem żądania dostarczonego przez klienta, aby umożliwić serwerowi podjęcie decyzji, czy element może być warunkowo zaktualizowany. Wartość nagłówka `if-match` jest zgodna z `_etag` wartością na serwerze, element jest następnie aktualizowany. Jeśli wartość nagłówka `if-match` żądania nie jest już aktualna, serwer odrzuca operację z komunikatem odpowiedzi "Błąd warunku wstępnego HTTP 412". Klient następnie można ponownie pobrać element, aby uzyskać bieżącą wersję elementu na serwerze lub zastąpić wersję `_etag` elementu na serwerze z własną wartością dla elementu. Ponadto może `_etag` służyć z `if-none-match` nagłówkiem, aby ustalić, czy refetch zasobu jest potrzebne.
+Każdy element przechowywany w kontenerze usługi Azure Cosmos ma właściwość zdefiniowaną przez `_etag` system. Wartość `_etag` jest automatycznie generowana i aktualizowana przez serwer za każdym razem, gdy element zostanie zaktualizowany. `_etag`może być używany z nagłówkiem żądania `if-match` dostarczonego przez klienta, aby umożliwić serwerowi podjęcie decyzji o tym, czy element może być aktualizowany warunkowo. Wartość `if-match` nagłówka jest zgodna z wartością `_etag` na serwerze, a następnie jest aktualizowana. Jeśli wartość nagłówka `if-match` żądania nie jest już aktualna, serwer odrzuca operację z komunikatem odpowiedzi "Niepowodzenie warunku wstępnego http 412". Następnie klient może ponownie pobrać element, aby uzyskać bieżącą wersję elementu na serwerze, lub zastąpić wersję elementu na serwerze własną `_etag` wartością dla tego elementu. Ponadto, można `_etag` użyć z `if-none-match` nagłówkiem, aby określić, czy konieczne jest ponowne pobranie zasobu.
 
-`_etag` Wartość elementu zmienia się za każdym razem, gdy element jest aktualizowany. W przypadku operacji `if-match` zastępowania towaru musi być jawnie wyrażona jako część opcji żądania. Na przykład zobacz przykładowy kod w [usłudze GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). `_etag`wartości są niejawnie sprawdzane dla wszystkich elementów pisemnych dotkniętych procedurą składowaną. Jeśli zostanie wykryty konflikt, procedura składowana wycofa transakcję i zda wyjątek. Za pomocą tej metody wszystkie lub nie zapisy w ramach procedury składowanej są stosowane niepodzielnie. Jest to sygnał do aplikacji, aby ponownie zastosować aktualizacje i ponów próbę oryginalnego żądania klienta.
+`_etag` Wartość elementu jest zmieniana za każdym razem, gdy element zostanie zaktualizowany. W przypadku operacji Zamień element `if-match` musi być jawnie wyrażona jako część opcji żądania. Aby zapoznać się z przykładem, zobacz przykładowy kod w usłudze [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). `_etag`wartości są niejawnie sprawdzane dla wszystkich elementów zapisanych przez procedurę składowaną. W przypadku wykrycia dowolnego konfliktu procedura składowana wycofa transakcję i zgłosi wyjątek. W przypadku tej metody wszystkie lub żadne zapisy w procedurze składowanej są stosowane niepodzielnie. Jest to sygnał do aplikacji w celu ponownego zastosowania aktualizacji i ponowienia próby oryginalnego żądania klienta.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o transakcjach bazy danych i optymistycznej kontroli współbieżności w następujących artykułach:
 
-- [Praca z bazami danych, kontenerami i elementami usługi Azure Cosmos](databases-containers-items.md)
+- [Praca z bazami danych usługi Azure Cosmos, kontenerami i elementami](databases-containers-items.md)
 - [Poziomy spójności](consistency-levels.md)
 - [Typy konfliktów i zasady ich rozwiązywania](conflict-resolution-policies.md)
-- [Procedury przechowywane, wyzwalacze i funkcje zdefiniowane przez użytkownika](stored-procedures-triggers-udfs.md)
+- [Procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika](stored-procedures-triggers-udfs.md)

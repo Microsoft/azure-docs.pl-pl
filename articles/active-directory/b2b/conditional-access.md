@@ -1,6 +1,6 @@
 ---
-title: Dostęp warunkowy dla użytkowników współpracy B2B — usługa Azure AD
-description: Współpraca usługi Azure Active Directory B2B obsługuje uwierzytelnianie wieloskładnikowe (MFA) w celu selektywnego dostępu do aplikacji firmowych
+title: Dostęp warunkowy dla użytkowników współpracy B2B — Azure AD
+description: Azure Active Directory współpracy B2B obsługuje uwierzytelnianie wieloskładnikowe (MFA) na potrzeby selektywnego dostępu do aplikacji firmowych
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,39 +12,39 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74272995"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Dostęp warunkowy dla użytkowników współpracy B2B
 
 ## <a name="multi-factor-authentication-for-b2b-users"></a>Uwierzytelnianie wieloskładnikowe dla użytkowników B2B
-Dzięki współpracy usługi Azure AD B2B organizacje mogą wymuszać zasady uwierzytelniania wieloskładnikowego (MFA) dla użytkowników B2B. Te zasady mogą być wymuszane na poziomie dzierżawy, aplikacji lub poszczególnych użytkowników, w taki sam sposób, w jaki są włączone dla pracowników pełnoetatowych i członków instytucji. Zasady usługi MFA są wymuszane w organizacji zasobów.
+Dzięki funkcji współpracy B2B usługi Azure AD organizacje mogą wymuszać zasady uwierzytelniania wieloskładnikowego (MFA) dla użytkowników B2B. Te zasady można wymusić na poziomie dzierżawy, aplikacji lub poszczególnych użytkowników w taki sam sposób, w jaki są one włączone dla pracowników i członków organizacji w pełnym czasie. Zasady usługi MFA są wymuszane w organizacji zasobów.
 
 Przykład:
-1. Administrator lub pracownik informacyjny w firmie A zaprasza użytkownika z firmy B do aplikacji *Foo* w firmie A.
-2. *Foo* aplikacji w firmie A jest skonfigurowany do wymagania mfa na dostęp.
-3. Gdy użytkownik z firmy B próbuje uzyskać dostęp do aplikacji *Foo* w dzierżawie firmy A, jest proszony o wykonanie wyzwania usługi MFA.
-4. Użytkownik może skonfigurować swoje usługi MFA w firmie A i wybiera opcję usługi MFA.
-5. Ten scenariusz działa dla dowolnej tożsamości (usługi Azure AD lub MSA, na przykład, jeśli użytkownicy w firmie B uwierzytelniają się przy użyciu identyfikatora społecznościowego)
-6. Firma A musi mieć wystarczające licencje usługi Azure AD w usłudze Premium, które obsługują usługę MFA. Użytkownik z firmy B zużywa tę licencję od firmy A.
+1. Administrator lub pracownik przetwarzający informacje w firmie A prosi użytkownika od firmy B do aplikacji *foo* w firmie a.
+2. Aplikacja *foo* w firmie A jest skonfigurowana tak, aby wymagać uwierzytelniania wieloskładnikowego w przypadku dostępu.
+3. Gdy użytkownik z firmy B próbuje uzyskać dostęp do aplikacji *foo* w dzierżawie firmy, zostanie poproszony o ukończenie wyzwania usługi MFA.
+4. Użytkownik może skonfigurować uwierzytelnianie wieloskładnikowe za pomocą firmy A i wybrać opcję MFA.
+5. Ten scenariusz działa w przypadku dowolnej tożsamości (Azure AD lub MSA, na przykład jeśli użytkownicy w firmie B uwierzytelniają się przy użyciu identyfikatora społecznościowego)
+6. Firma A musi dysponować wystarczającą licencją usługi Azure AD, która obsługuje uwierzytelnianie wieloskładnikowe. Użytkownik z firmy B używa tej licencji od firmy A.
 
-Zapraszanie najmu jest zawsze odpowiedzialny za usługi MFA dla użytkowników z organizacji partnerskiej, nawet jeśli organizacja partnerska ma możliwości usługi MFA.
+Dzierżawa zapraszana jest zawsze odpowiedzialna za usługę MFA dla użytkowników z organizacji partnerskiej, nawet jeśli organizacja partnerska ma możliwości usługi MFA.
 
-### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Konfigurowanie usługi MFA dla użytkowników współpracujących z B2B
-Aby dowiedzieć się, jak łatwo jest skonfigurować usługi MFA dla użytkowników współpracujących z B2B, zobacz, jak w poniższym klipie wideo:
+### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Konfigurowanie uwierzytelniania wieloskładnikowego dla użytkowników współpracy B2B
+Aby dowiedzieć się, jak łatwo jest skonfigurować uwierzytelnianie wieloskładnikowe dla użytkowników współpracy B2B, zobacz jak to zrobić:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
-### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>B2B użytkowników MFA doświadczenie do realizacji oferty
-Zapoznaj się z następującą animacją, aby zobaczyć doświadczenie realizacji:
+### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Środowisko MFA użytkowników B2B dla realizacji oferty
+Zapoznaj się z następującą animacją, aby zobaczyć środowisko wykupu:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
-### <a name="mfa-reset-for-b2b-collaboration-users"></a>Resetowanie usługi MFA dla użytkowników współpracy B2B
-Obecnie administrator może wymagać od użytkowników współpracy B2B ponownego sprawdzania się tylko przy użyciu następujących poleceń cmdlet programu PowerShell:
+### <a name="mfa-reset-for-b2b-collaboration-users"></a>Resetowanie MFA dla użytkowników współpracy B2B
+Obecnie administrator może wymagać, aby użytkownicy współpracy B2B mogli ponownie przeprowadzić weryfikację tylko przy użyciu następujących poleceń cmdlet programu PowerShell:
 
 1. Łączenie z usługą Azure AD
 
@@ -52,7 +52,7 @@ Obecnie administrator może wymagać od użytkowników współpracy B2B ponowneg
    $cred = Get-Credential
    Connect-MsolService -Credential $cred
    ```
-2. Uzyskaj wszystkim użytkownikom metody weryfikacji
+2. Pobierz wszystkich użytkowników z metodami weryfikacji
 
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
@@ -63,51 +63,51 @@ Obecnie administrator może wymagać od użytkowników współpracy B2B ponowneg
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
 
-3. Zresetuj metodę usługi MFA dla określonego użytkownika, aby wymagać od użytkownika współpracy B2B ponownego ustawienia metod sprawdzania. Przykład:
+3. Zresetuj metodę MFA dla określonego użytkownika, aby wymagać od użytkownika współpracy B2B, aby ponownie ustawił metody potwierdzania. Przykład:
 
    ```
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
    ```
 
-### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Dlaczego wykonujemy usługi MFA w dzierżawie zasobów?
+### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Dlaczego wykonujemy uwierzytelnianie wieloskładnikowe w dzierżawie zasobu?
 
-W bieżącej wersji usługi MFA jest zawsze w dzierżawie zasobów, ze względu na przewidywalność. Załóżmy na przykład, że użytkownik Contoso (Sally) jest zaproszony do firmy Fabrikam, a firma Fabrikam włączyła usługi MFA dla użytkowników B2B.
+W bieżącej wersji uwierzytelnianie wieloskładnikowe jest zawsze w dzierżawie zasobów z powodu przewidywalności. Załóżmy na przykład, że użytkownik contoso (Sally) jest zapraszany do firmy Fabrikam, a firma Fabrikam włączyła uwierzytelnianie wieloskładnikowe dla użytkowników B2B.
 
-Jeśli contoso ma zasady usługi MFA włączone dla aplikacji1, ale nie App2, a następnie jeśli przyjrzymy się contoso mfa oświadczenia w tokenie, możemy zobaczyć następujący problem:
+Jeśli firma Contoso ma włączone zasady MFA dla usługi APP1, ale nie APP2, wtedy, gdy w tokenie zostanie wyświetlona firma Contoso MFA, może zostać wyświetlony następujący problem:
 
-* Dzień 1: Użytkownik ma usługi MFA w programie Contoso i uzyskuje dostęp do aplikacji 1, a następnie nie ma dodatkowego monitu usługi MFA jest wyświetlany w programie Fabrikam.
+* Dzień 1: użytkownik ma usługę MFA w firmie Contoso i ma dostęp do usługi APP1, a w firmie Fabrikam nie jest wyświetlany dodatkowy monit usługi MFA.
 
-* Dzień 2: Użytkownik ma dostęp do aplikacji 2 w Contoso, więc teraz podczas uzyskiwania dostępu do usługi Fabrikam, muszą zarejestrować się w tym uwierzytelniania Wieloskładnikowego.
+* Dzień 2: użytkownik uzyskał dostęp do aplikacji 2 w firmie Contoso, więc teraz podczas uzyskiwania dostępu do firmy Fabrikam muszą oni zarejestrować się na potrzeby usługi MFA.
 
-Ten proces może być mylące i może prowadzić do spadku w zakończeniu logowania.
+Ten proces może być mylący i może prowadzić do porzucenia zaawansowania logowania.
 
-Ponadto nawet jeśli Contoso ma możliwości usługi MFA, nie zawsze jest tak, że firma Fabrikam ufa zasadom usługi Contoso MFA.
+Ponadto nawet jeśli firma Contoso ma funkcję MFA, nie zawsze jest to konieczne, a firma Fabrikam ufa zasadom usługi MFA firmy Contoso.
 
-Na koniec usługa MFA dzierżawy zasobów działa również dla msa i identyfikatorów społecznościowych oraz dla organizacji partnerów, które nie mają skonfigurowania usługi MFA.
+Na koniec uwierzytelnianie wieloskładnikowe dzierżawcy zasobów działa również w przypadku identyfikatorów kont MSA i społecznościowych oraz dla partnerów organizacje, dla których nie skonfigurowano usługi MFA.
 
-W związku z tym zalecenie dla usługi MFA dla użytkowników B2B jest zawsze wymagać usługi MFA w zapraszając dzierżawy. To wymaganie może prowadzić do podwójnego usługi MFA w niektórych przypadkach, ale gdy dostęp do zapraszając dzierżawy, środowisko użytkowników końcowych jest przewidywalne: Sally musi zarejestrować się dla usługi MFA z zapraszając dzierżawy.
+W związku z tym zalecenie dotyczące usługi MFA dla użytkowników B2B ma zawsze wymagać uwierzytelniania wieloskładnikowego w przypadku zapraszania dzierżawy. To wymaganie może prowadzić do podwójnej MFA w niektórych przypadkach, ale w przypadku uzyskiwania dostępu do dzierżawy zapraszanej środowisko użytkowników końcowych jest przewidywalne: Sally musi zarejestrować się w usłudze MFA przy użyciu zapraszanej dzierżawy.
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Dostęp warunkowy oparty na urządzeniach, lokalizacji i oparty na ryzyku dla użytkowników B2B
+### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Dostęp warunkowy oparty na urządzeniach, lokalizacjach i na podstawie ryzyka dla użytkowników B2B
 
-Gdy contoso włącza zasady dostępu warunkowego oparte na urządzeniach dla swoich danych firmowych, dostęp jest uniemożliwiony z urządzeń, które nie są zarządzane przez firmę Contoso i nie są zgodne z zasadami urządzeń Contoso.
+Gdy firma Contoso włącza zasady dostępu warunkowego opartego na urządzeniach dla danych firmowych, dostęp jest zablokowany przez urządzenia, które nie są zarządzane przez firmę Contoso i nie są zgodne z zasadami dotyczącymi urządzeń firmy Contoso.
 
-Jeśli urządzenie użytkownika B2B nie jest zarządzane przez firmę Contoso, dostęp użytkowników B2B z organizacji partnerskich jest zablokowany w dowolnym kontekście, w jakim te zasady są wymuszane. Jednak Contoso można utworzyć listy wykluczeń zawierające określonych użytkowników partnerskich, aby wykluczyć je z zasad dostępu warunkowego opartego na urządzeniu.
+Jeśli urządzenie użytkownika B2B nie jest zarządzane przez firmę Contoso, dostęp użytkowników B2B z organizacji partnerskich jest blokowany w kontekście, w którym te zasady są wymuszane. Firma Contoso może jednak utworzyć listę wykluczeń zawierającą określonych użytkowników partnerskich, aby wykluczyć je z zasad dostępu warunkowego opartego na urządzeniach.
 
 #### <a name="mobile-application-management-policies-for-b2b"></a>Zasady zarządzania aplikacjami mobilnymi dla B2B
 
-Zasady ochrony aplikacji dostępu warunkowego nie mogą być stosowane do użytkowników B2B, ponieważ organizacja zapraszająca nie ma wglądu w organizację domową użytkownika B2B.
+Zasady ochrony aplikacji dostępu warunkowego nie mogą być stosowane do użytkowników B2B, ponieważ zapraszana organizacja nie ma wglądu w organizację domową użytkownika B2B.
 
 #### <a name="location-based-conditional-access-for-b2b"></a>Dostęp warunkowy oparty na lokalizacji dla B2B
 
-Zasady dostępu warunkowego oparte na lokalizacji mogą być wymuszane dla użytkowników B2B, jeśli zapraszająca organizacja może utworzyć zaufany zakres adresów IP definiujący ich organizacje partnerskie.
+Zasady dostępu warunkowego oparte na lokalizacji mogą być wymuszane dla użytkowników B2B, jeśli zapraszana organizacja może utworzyć zakres zaufanego adresu IP, który definiuje ich organizacje partnerskie.
 
 #### <a name="risk-based-conditional-access-for-b2b"></a>Dostęp warunkowy oparty na ryzyku dla B2B
 
-Obecnie zasady logowania oparte na ryzyku nie mogą być stosowane do użytkowników B2B, ponieważ ocena ryzyka jest wykonywana w organizacji domowej użytkownika B2B.
+Obecnie zasady logowania oparte na ryzyku nie mogą być stosowane do użytkowników B2B, ponieważ Ocena ryzyka jest wykonywana w organizacji głównej użytkownika B2B.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz następujące artykuły dotyczące współpracy usługi Azure AD B2B:
+Zapoznaj się z następującymi artykułami dotyczącymi współpracy B2B w usłudze Azure AD:
 
 * [Czym jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
 * [Licencjonowanie funkcji współpracy B2B w usłudze Azure AD](licensing-guidance.md)

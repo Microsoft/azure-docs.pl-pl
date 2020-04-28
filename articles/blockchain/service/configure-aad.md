@@ -1,37 +1,37 @@
 ---
-title: Konfigurowanie dostępu usługi Azure Active Directory — usługa Azure Blockchain Service
-description: Jak skonfigurować usługę Azure Blockchain Service z dostępem usługi Azure Active Directory
+title: Konfigurowanie dostępu Azure Active Directory — usługa Azure łańcucha bloków
+description: Jak skonfigurować usługę Azure łańcucha bloków z dostępem Azure Active Directory
 ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74455842"
 ---
-# <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Jak skonfigurować dostęp usługi Azure Active Directory dla usługi Azure Blockchain
+# <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Jak skonfigurować Azure Active Directory dostępu do usługi Azure łańcucha bloków Service
 
-W tym artykule dowiesz się, jak udzielić dostępu i połączyć się z węzłami usługi Azure Blockchain przy użyciu identyfikatorów użytkowników, grup lub aplikacji usługi Azure Active Directory (Azure AD).
+W tym artykule dowiesz się, jak udzielić dostępu i nawiązać połączenie z węzłami usługi Azure łańcucha bloków za pomocą identyfikatorów użytkowników, grup i aplikacji Azure Active Directory (Azure AD).
 
-Usługa Azure AD zapewnia oparte na chmurze zarządzanie tożsamościami i umożliwia używanie jednej tożsamości w całym przedsiębiorstwie i uzyskiwanie dostępu do aplikacji na platformie Azure. Usługa Azure Blockchain service jest zintegrowana z usługą Azure AD i oferuje korzyści, takie jak federacja identyfikatorów, logowanie jednokrotne i uwierzytelnianie wieloskładnikowe.
+Usługa Azure AD zapewnia oparte na chmurze zarządzanie tożsamościami i umożliwia korzystanie z jednej tożsamości w całym przedsiębiorstwie i uzyskiwanie dostępu do aplikacji na platformie Azure. Usługa Azure łańcucha bloków Service jest zintegrowana z usługą Azure AD i oferuje korzyści, takie jak Federacja identyfikatorów, logowanie jednokrotne i uwierzytelnianie wieloskładnikowe.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Tworzenie członka łańcucha bloków przy użyciu witryny Azure portal](create-member.md)
+* [Tworzenie składowej łańcucha bloków przy użyciu Azure Portal](create-member.md)
 
 ## <a name="grant-access"></a>Udzielanie dostępu
 
-Można udzielić dostępu zarówno na poziomie elementu członkowskiego, jak i na poziomie węzła. Przyznanie praw dostępu na poziomie członkowskim z kolei zapewni dostęp do wszystkich węzłów w ramach elementu członkowskiego.
+Można udzielić dostępu zarówno na poziomie elementu członkowskiego, jak i na poziomie węzła. Przyznanie praw dostępu na poziomie elementu członkowskiego spowoduje przyznanie dostępu wszystkim węzłom w ramach elementu członkowskiego.
 
-### <a name="grant-member-level-access"></a>Przyznanie dostępu na poziomie członka
+### <a name="grant-member-level-access"></a>Przyznaj dostęp na poziomie elementu członkowskiego
 
-Aby udzielić uprawnień dostępu na poziomie elementu członkowskiego.
+Aby udzielić uprawnienia dostępu na poziomie elementu członkowskiego.
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-1. Przejdź do pozycji **Kontrola dostępu (IAM) > Dodaj > Dodaj przypisanie roli**.
-1. Wybierz rolę **Dostęp do węzła członkowskiego łańcucha bloków (wersja zapoznawcza)** i dodaj obiekt identyfikatora usługi Azure AD ID, do którego chcesz udzielić dostępu. Obiekt identyfikatora usługi Azure AD ID może być:
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Przejdź do **kontroli dostępu (IAM) > dodaj > Dodaj przypisanie roli**.
+1. Wybierz rolę **łańcucha bloków dostęp do węzła członkowskiego (wersja zapoznawcza)** i Dodaj obiekt usługi Azure AD ID, do którego chcesz udzielić dostępu. IDENTYFIKATORem obiektu usługi Azure AD może być:
 
     | Obiekt usługi Azure AD | Przykład |
     |-----------------|---------|
@@ -41,47 +41,47 @@ Aby udzielić uprawnień dostępu na poziomie elementu członkowskiego.
 
     ![Dodaj przypisanie roli](./media/configure-aad/add-role-assignment.png)
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
-### <a name="grant-node-level-access"></a>Udziel dostępu na poziomie węzła
+### <a name="grant-node-level-access"></a>Udzielanie dostępu na poziomie węzła
 
-Dostęp można udzielić na poziomie węzła, przechodząc do zabezpieczeń węzła i klikając nazwę węzła, do którego chcesz udzielić dostępu.
+Możesz udzielić dostępu na poziomie węzła, przechodząc do węzła zabezpieczenia i klikając nazwę węzła, do którego chcesz udzielić dostępu.
 
-Wybierz rolę Dostęp do węzła członkowskiego łańcucha bloków (wersja zapoznawcza) i dodaj obiekt identyfikatora usługi Azure AD ID, do którego chcesz udzielić dostępu.
+Wybierz rolę łańcucha bloków dostęp do węzła członkowskiego (wersja zapoznawcza) i Dodaj obiekt usługi Azure AD ID, do którego chcesz udzielić dostępu.
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie węzłów transakcji usługi Azure Blockchain Service](configure-transaction-nodes.md#azure-active-directory-access-control).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie węzłów transakcji usługi Azure łańcucha bloków](configure-transaction-nodes.md#azure-active-directory-access-control).
 
-## <a name="connect-using-azure-blockchain-connector"></a>Łączenie się przy użyciu usługi Azure Blockchain Connector
+## <a name="connect-using-azure-blockchain-connector"></a>Nawiązywanie połączenia przy użyciu łącznika usługi Azure łańcucha bloków
 
-Pobierz lub sklonuj usługę [Azure Blockchain Connector z usługi GitHub](https://github.com/Microsoft/azure-blockchain-connector/).
+Pobierz lub Sklonuj [Łącznik usługi Azure łańcucha bloków z witryny GitHub](https://github.com/Microsoft/azure-blockchain-connector/).
 
 ```bash
 git clone https://github.com/Microsoft/azure-blockchain-connector.git
 ```
 
-Postępuj zgodnie z sekcją Szybki start w **readme,** aby utworzyć łącznik z kodu źródłowego.
+Postępuj zgodnie z sekcją szybkiego startu w **pliku Readme** , aby skompilować łącznik z kodu źródłowego.
 
-### <a name="connect-using-an-azure-ad-user-account"></a>Łączenie się przy użyciu konta użytkownika usługi Azure AD
+### <a name="connect-using-an-azure-ad-user-account"></a>Nawiązywanie połączenia przy użyciu konta użytkownika usługi Azure AD
 
-1. Uruchom następujące polecenie, aby uwierzytelnić się przy użyciu konta użytkownika usługi Azure AD. Zastąp \<program\> myAADDirectory domeną usługi Azure AD. Na przykład `yourdomain.onmicrosoft.com`.
+1. Uruchom następujące polecenie, aby uwierzytelnić się przy użyciu konta użytkownika usługi Azure AD. \<Zastąp\> MyAADDirectory domeną usługi Azure AD. Na przykład `yourdomain.onmicrosoft.com`.
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
     ```
 
-1. Usługa Azure AD monituje o poświadczenia.
-1. Zaloguj się przy tym przy tym przy tym przy tym przyuślesz nazwę użytkownika i hasło.
-1. Po pomyślnym uwierzytelnieniu lokalny serwer proxy łączy się z węzłem łańcucha bloków. Teraz można dołączyć klienta Geth z lokalnym punktem końcowym.
+1. Usługa Azure AD będzie monitował o poświadczenia.
+1. Zaloguj się przy użyciu nazwy użytkownika i hasła.
+1. Po pomyślnym uwierzytelnieniu lokalny serwer proxy nawiązuje połączenie z węzłem łańcucha bloków. Teraz możesz dołączyć klienta Geth z lokalnym punktem końcowym.
 
     ```bash
     geth attach http://127.0.0.1:3100
     ```
 
-### <a name="connect-using-an-application-id"></a>Łączenie się przy użyciu identyfikatora aplikacji
+### <a name="connect-using-an-application-id"></a>Nawiązywanie połączenia przy użyciu identyfikatora aplikacji
 
-Wiele aplikacji uwierzytelnia się przy użyciu usługi Azure AD przy użyciu identyfikatora aplikacji zamiast konta użytkownika usługi Azure AD.
+Wiele aplikacji jest uwierzytelnianych za pomocą usługi Azure AD przy użyciu identyfikatora aplikacji zamiast konta użytkownika usługi Azure AD.
 
-Aby połączyć się z węzłem przy użyciu identyfikatora aplikacji, **zastąp kod aadauthcode** **aadclient**.
+Aby nawiązać połączenie z węzłem przy użyciu identyfikatora aplikacji, Zastąp **aadauthcode** z **aadclient**.
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aadclient -client-id <myClientID> -client-secret "<myClientSecret>" -tenant-id <myAADDirectory>
@@ -89,17 +89,17 @@ connector.exe -remote <myBlockchainEndpoint>  -method aadclient -client-id <myCl
 
 | Parametr | Opis |
 |-----------|-------------|
-| identyfikator dzierżawy | Domena usługi Azure AD, na przykład`yourdomain.onmicrosoft.com`
-| identyfikator klienta | Identyfikator klienta zarejestrowanej aplikacji w usłudze Azure AD
-| klucz tajny klienta | Klucz tajny klienta zarejestrowanej aplikacji w usłudze Azure AD
+| Identyfikator dzierżawy | Domena usługi Azure AD, na przykład`yourdomain.onmicrosoft.com`
+| Identyfikator klienta | Identyfikator klienta zarejestrowanej aplikacji w usłudze Azure AD
+| Klient-klucz tajny | Klucz tajny klienta zarejestrowanej aplikacji w usłudze Azure AD
 
-Aby uzyskać więcej informacji na temat rejestrowania aplikacji w usłudze Azure AD, zobacz [Jak: Użyj portalu do utworzenia aplikacji i jednostki usługi Azure AD, która może uzyskiwać dostęp do zasobów](../../active-directory/develop/howto-create-service-principal-portal.md)
+Aby uzyskać więcej informacji na temat rejestrowania aplikacji w usłudze Azure AD, zobacz [How to: Use the Portal to the Azure AD role and Service Principal, która może uzyskiwać dostęp do zasobów](../../active-directory/develop/howto-create-service-principal-portal.md)
 
-### <a name="connect-a-mobile-device-or-text-browser"></a>Podłączanie urządzenia przenośnego lub przeglądarki tekstowej
+### <a name="connect-a-mobile-device-or-text-browser"></a>Podłączanie urządzenia przenośnego lub przeglądarki tekstu
 
-W przypadku urządzenia przenośnego lub przeglądarki tekstowej, w której wyświetlanie wyskakujące okienka uwierzytelniania usługi Azure AD nie jest możliwe, usługa Azure AD generuje jednorazowy kod dostępu. Kod można skopiować i kontynuować uwierzytelnianie usługi Azure AD w innym środowisku.
+W przypadku urządzenia przenośnego lub przeglądarki opartej na tekście, w której nie można wyświetlić okna podręcznego uwierzytelniania usługi Azure AD, usługa Azure AD generuje jednorazowy kod dostępu. Możesz skopiować kod dostępu i kontynuować uwierzytelnianie usługi Azure AD w innym środowisku.
 
-Aby wygenerować kod dostępu, **zastąp kod aadauthcode** **aaddevice**. Zastąp \<program\> myAADDirectory domeną usługi Azure AD. Na przykład `yourdomain.onmicrosoft.com`.
+Aby wygenerować kod dostępu, Zastąp **aadauthcode** z **aaddevice**. \<Zastąp\> MyAADDirectory domeną usługi Azure AD. Na przykład `yourdomain.onmicrosoft.com`.
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>
@@ -107,4 +107,4 @@ connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAA
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat zabezpieczeń danych w usłudze Azure Blockchain, zobacz [Zabezpieczenia usługi Azure Blockchain Service](data-security.md).
+Aby uzyskać więcej informacji o zabezpieczeniach danych w usłudze Azure łańcucha bloków Service, zobacz [zabezpieczenia usługi Azure łańcucha bloków](data-security.md).

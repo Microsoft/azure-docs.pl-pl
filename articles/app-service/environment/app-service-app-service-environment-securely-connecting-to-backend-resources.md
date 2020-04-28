@@ -1,6 +1,6 @@
 ---
-title: Łączenie się z zapleczem v1
-description: Dowiedz się, jak bezpiecznie łączyć się z zasobami wewnętrznej bazy danych ze środowiska usługi app service. Ten doc jest dostępna tylko dla klientów, którzy używają starszej wersji ASE w wersji 1.
+title: Łączenie z zapleczem w wersji 1
+description: Dowiedz się, jak bezpiecznie łączyć się z zasobami zaplecza z poziomu App Service Environment. Ten dokument jest dostępny tylko dla klientów korzystających ze starszej wersji V1 ASE.
 author: stefsch
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.topic: article
@@ -8,78 +8,78 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 03f773e286697a12188f238cf2f422a18a20054f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687307"
 ---
-# <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Bezpieczne łączenie się z zasobami zaplecza ze środowiska usługi app service
-Ponieważ środowisko usługi aplikacji jest zawsze tworzone **w** sieci wirtualnej usługi Azure Resource Manager **lub** klasycznej [sieci wirtualnej][virtualnetwork]modelu wdrażania, połączenia wychodzące ze środowiska usługi app service do innych zasobów zaplecza mogą przepływać wyłącznie za pośrednictwem sieci wirtualnej.  Po ostatniej zmianie wprowadzonej w czerwcu 2016 r. środowiska ASE można również wdrożyć w sieciach wirtualnych korzystających z zakresów adresów publicznych lub przestrzeni adresowych RFC1918 (tj. adresów prywatnych).  
+# <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Bezpieczne nawiązywanie połączenia z zasobami zaplecza ze środowiska App Service
+Ponieważ App Service Environment jest zawsze **tworzona w sieci** wirtualnej Azure Resource Manager **lub** w klasycznej [sieci wirtualnej][virtualnetwork]modelu wdrożenia, połączenia wychodzące z App Service Environment do innych zasobów zaplecza mogą przepływać wyłącznie za pośrednictwem sieci wirtualnej.  W przypadku ostatniej zmiany wprowadzonej w czerwcu 2016 środowisk ASE można także wdrożyć do sieci wirtualnych, które korzystają z zakresów adresów publicznych lub przestrzeni adresów RFC1918 (np. adresów prywatnych).  
 
-Na przykład może istnieć sql server uruchomiony na klastrze maszyn wirtualnych z portem 1433 zablokowane.  Punktem końcowym może być ACLd zezwalać tylko na dostęp z innych zasobów w tej samej sieci wirtualnej.  
+Na przykład może istnieć SQL Server uruchomiony w klastrze maszyn wirtualnych z zablokowanym portem 1433.  Punkt końcowy może być ACLd, aby zezwalać na dostęp tylko z innych zasobów w tej samej sieci wirtualnej.  
 
-Innym przykładem poufnych punktów końcowych może działać lokalnie i być połączone z platformą Azure za pośrednictwem [połączenia lokacji do lokacji][SiteToSite] lub [usługi Azure ExpressRoute.][ExpressRoute]  W rezultacie tylko zasoby w sieciach wirtualnych połączonych z tunelami lokacja lokacja lub usługa ExpressRoute będą mogły uzyskiwać dostęp do lokalnych punktów końcowych.
+Innym przykładem, poufne punkty końcowe mogą działać lokalnie i być połączone z platformą Azure za pośrednictwem połączeń [między lokacjami lub][SiteToSite] [Azure ExpressRoute][ExpressRoute] .  W związku z tym tylko zasoby w sieciach wirtualnych podłączonych do tuneli typu lokacja-lokacja lub ExpressRoute będą mogły uzyskiwać dostęp do lokalnych punktów końcowych.
 
-We wszystkich tych scenariuszach aplikacje działające w środowisku usługi app service będą mogły bezpiecznie łączyć się z różnymi serwerami i zasobami.  Ruch wychodzący z aplikacji uruchomionych w środowisku usługi aplikacji do prywatnych punktów końcowych w tej samej sieci wirtualnej (lub połączonych z tą samą siecią wirtualną) będzie przepływał tylko przez sieć wirtualną.  Ruch wychodzący do prywatnych punktów końcowych nie będzie przepływał przez publiczny Internet.
+We wszystkich tych scenariuszach aplikacje działające na App Service Environment będą mogły bezpiecznie łączyć się z różnymi serwerami i zasobami.  Ruch wychodzący z aplikacji uruchamianych w App Service Environment do prywatnych punktów końcowych w tej samej sieci wirtualnej (lub połączony z tą samą siecią wirtualną) będzie przepływać tylko w sieci wirtualnej.  Ruch wychodzący do prywatnych punktów końcowych nie będzie przepływać przez publiczny Internet.
 
-Jedno zastrzeżenie dotyczy ruchu wychodzącego ze środowiska usługi app service do punktów końcowych w sieci wirtualnej.  Środowiska usługi aplikacji nie mogą dotrzeć do punktów końcowych maszyn wirtualnych znajdujących się w **tej samej** podsieci co środowisko usługi aplikacji.  Zwykle nie powinno to być problemem, o ile środowiska usługi app service są wdrażane w podsieci zarezerwowanej do wyłącznego użytku tylko przez środowisko usługi app service.
+Jedno zastrzeżenie dotyczy ruchu wychodzącego z App Service Environment do punktów końcowych w obrębie sieci wirtualnej.  Środowiska App Service nie mogą uzyskać dostępu do punktów końcowych maszyn wirtualnych znajdujących się w **tej samej** podsieci co App Service Environment.  Zwykle nie powinno to być problem, o ile środowiska App Service są wdrażane w podsieci zarezerwowanej do wyłącznego użytku przez App Service Environment.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Outbound Connectivity and DNS Requirements (Wymagania dotyczące łączności wychodzącej i systemu DNS)
-Aby środowisko usługi aplikacji działało poprawnie, wymaga dostępu wychodzącego do różnych punktów końcowych. Pełna lista zewnętrznych punktów końcowych używanych przez program ASE znajduje się w sekcji "Wymagana łączność sieciowa" [w artykule Konfiguracja sieci dla usługi ExpressRoute.](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity)
+Aby App Service Environment działała prawidłowo, wymaga dostępu wychodzącego do różnych punktów końcowych. Pełna lista zewnętrznych punktów końcowych używanych przez środowisko ASE znajduje się w sekcji "wymagana łączność sieciowa" w artykule [Konfiguracja sieci dla ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) .
 
-Środowiska usługi app service wymagają prawidłowej infrastruktury DNS skonfigurowanej dla sieci wirtualnej.  Jeśli z jakiegoś powodu konfiguracja DNS zostanie zmieniona po utworzeniu środowiska usługi aplikacji, deweloperzy mogą wymusić na środowisku usługi app service pobranie nowej konfiguracji DNS.  Wyzwalanie ponownego uruchamiania środowiska stopniowego przy użyciu ikony "Uruchom ponownie" znajdującej się w górnej części bloku zarządzania środowiskiem usługi app service w portalu spowoduje, że środowisko odbierze nową konfigurację DNS.
+Środowiska App Service wymagają prawidłowej infrastruktury DNS skonfigurowanej dla sieci wirtualnej.  Jeśli z jakiegoś powodu Konfiguracja DNS została zmieniona po utworzeniu App Service Environment, deweloperzy mogą wymusić App Service Environment do pobrania nowej konfiguracji DNS.  Wyzwalanie stopniowego ponownego uruchomienia środowiska przy użyciu ikony "restart" znajdującej się w górnej części bloku zarządzanie App Service Environment w portalu spowoduje pobranie nowej konfiguracji DNS.
 
-Zaleca się również, aby wszystkie niestandardowe serwery DNS w sieci wirtualnej były instalowane z wyprzedzeniem przed utworzeniem środowiska usługi app service.  Jeśli konfiguracja DNS sieci wirtualnej zostanie zmieniona podczas tworzenia środowiska usługi aplikacji, spowoduje to niepowodzenie procesu tworzenia środowiska usługi app service.  W podobnym duchu, jeśli niestandardowy serwer DNS istnieje na drugim końcu bramy sieci VPN, a serwer DNS jest nieosiągalny lub niedostępny, proces tworzenia środowiska usługi aplikacji również zakończy się niepowodzeniem.
+Zaleca się również, aby wszystkie niestandardowe serwery DNS w sieci wirtualnej były skonfigurowane przed upływem czasu przed utworzeniem App Service Environment.  Jeśli konfiguracja DNS sieci wirtualnej zostanie zmieniona podczas tworzenia App Service Environment, spowoduje to niepowodzenie procesu tworzenia App Service Environment.  W podobnej kombinacji, jeśli niestandardowy serwer DNS istnieje na drugim końcu bramy sieci VPN, a serwer DNS jest nieosiągalny lub niedostępny, proces tworzenia App Service Environment również zakończy się niepowodzeniem.
 
-## <a name="connecting-to-a-sql-server"></a>Łączenie się z programem SQL Server
-Wspólna konfiguracja programu SQL Server ma punkt końcowy nasłuchiwania na porcie 1433:
+## <a name="connecting-to-a-sql-server"></a>Nawiązywanie połączenia z SQL Server
+Wspólna konfiguracja SQL Server ma punkt końcowy nasłuchuje na porcie 1433:
 
-![Punkt końcowy programu SQL Server][SqlServerEndpoint]
+![SQL Server punkt końcowy][SqlServerEndpoint]
 
 Istnieją dwa podejścia do ograniczania ruchu do tego punktu końcowego:
 
-* [Listy kontroli dostępu do sieci][NetworkAccessControlLists] (sieci ACL)
+* [Listy Access Control sieci][NetworkAccessControlLists] (listy ACL sieci)
 * [Sieciowe grupy zabezpieczeń][NetworkSecurityGroups]
 
-## <a name="restricting-access-with-a-network-acl"></a>Ograniczanie dostępu za pomocą listy ACL sieciowej
-Port 1433 można zabezpieczyć za pomocą listy kontroli dostępu do sieci.  W poniższym przykładzie znajdują się adresy klientów pochodzące z sieci wirtualnej i blokuje dostęp do wszystkich innych klientów.
+## <a name="restricting-access-with-a-network-acl"></a>Ograniczanie dostępu za pomocą listy ACL sieci
+Port 1433 może być zabezpieczony przy użyciu listy kontroli dostępu do sieci.  Przykład poniżej dozwolonych adresy klientów pochodzące z sieci wirtualnej i blokuje dostęp do wszystkich innych klientów.
 
-![Przykład listy kontroli dostępu do sieci][NetworkAccessControlListExample]
+![Przykład listy Access Control sieciowych][NetworkAccessControlListExample]
 
-Wszystkie aplikacje uruchomione w środowisku usługi app service w tej samej sieci wirtualnej co SQL Server będą mogły łączyć się z wystąpieniem programu SQL Server przy użyciu wewnętrznego adresu IP **sieci wirtualnej** dla maszyny wirtualnej programu SQL Server.  
+Wszystkie aplikacje działające w App Service Environment w tej samej sieci wirtualnej co SQL Server będą mogły nawiązywać połączenia z wystąpieniem SQL Server przy użyciu **wewnętrznego** adresu IP wirtualnej dla SQL Server maszyny wirtualnej.  
 
-Przykładowy ciąg połączenia poniżej odwołuje się do programu SQL Server przy użyciu jego prywatnego adresu IP.
+Przykładowe parametry połączenia poniżej odwołują się do SQL Server przy użyciu swojego prywatnego adresu IP.
 
     Server=tcp:10.0.1.6;Database=MyDatabase;User ID=MyUser;Password=PasswordHere;provider=System.Data.SqlClient
 
-Mimo że maszyna wirtualna ma również publiczny punkt końcowy, próby połączenia przy użyciu publicznego adresu IP zostaną odrzucone z powodu listy ACL sieciowej. 
+Mimo że maszyna wirtualna ma publiczny punkt końcowy, a próby połączenia przy użyciu publicznego adresu IP zostaną odrzucone z powodu listy ACL sieci. 
 
-## <a name="restricting-access-with-a-network-security-group"></a>Ograniczanie dostępu za pomocą sieciowej grupy zabezpieczeń
-Alternatywne podejście do zabezpieczania dostępu jest z sieciową grupą zabezpieczeń.  Sieciowe grupy zabezpieczeń mogą być stosowane do poszczególnych maszyn wirtualnych lub do podsieci zawierającej maszyny wirtualne.
+## <a name="restricting-access-with-a-network-security-group"></a>Ograniczanie dostępu z sieciową grupą zabezpieczeń
+Alternatywnym podejściem do zabezpieczania dostępu jest Grupa zabezpieczeń sieci.  Sieciowe grupy zabezpieczeń można stosować do poszczególnych maszyn wirtualnych lub do podsieci zawierającej maszyny wirtualne.
 
 Najpierw należy utworzyć grupę zabezpieczeń sieci:
 
     New-AzureNetworkSecurityGroup -Name "testNSGexample" -Location "South Central US" -Label "Example network security group for an app service environment"
 
-Ograniczanie dostępu tylko do ruchu wewnętrznego sieci wirtualnej jest bardzo proste w sieci grupy zabezpieczeń.  Reguły domyślne w sieciowej grupie zabezpieczeń zezwalają na dostęp tylko od innych klientów sieci w tej samej sieci wirtualnej.
+Ograniczanie dostępu tylko do wewnętrznego ruchu sieciowego sieci wirtualnej jest bardzo proste w przypadku sieciowej grupy zabezpieczeń.  Reguły domyślne w sieciowej grupie zabezpieczeń zezwalają na dostęp tylko z innych klientów sieciowych w tej samej sieci wirtualnej.
 
-W rezultacie zablokowanie dostępu do programu SQL Server jest tak proste, jak zastosowanie sieciowej grupy zabezpieczeń z domyślnymi regułami do maszyn wirtualnych z uruchomionym programem SQL Server lub podsieci zawierającej maszyny wirtualne.
+W efekcie zablokowanie dostępu do SQL Server jest tak proste jak zastosowanie sieciowej grupy zabezpieczeń z jej domyślnymi regułami do maszyn wirtualnych z systemem SQL Server lub z podsiecią zawierającą maszyny wirtualne.
 
-Poniższy przykład dotyczy sieciowej grupy zabezpieczeń do podsieci zawierającej:
+W poniższym przykładzie zastosowano grupę zabezpieczeń sieci do podsieci zawierającej:
 
     Get-AzureNetworkSecurityGroup -Name "testNSGExample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-1'
 
-Wynik końcowy jest zestawem reguł zabezpieczeń, które blokują dostęp zewnętrzny, umożliwiając jednocześnie dostęp wewnętrzny sieci wirtualnej:
+Wynik końcowy to zestaw reguł zabezpieczeń, które blokują dostęp zewnętrzny, jednocześnie zapewniając dostęp wewnętrzny do sieci wirtualnej:
 
 ![Domyślne reguły zabezpieczeń sieci][DefaultNetworkSecurityRules]
 
 ## <a name="getting-started"></a>Wprowadzenie
-Aby rozpocząć korzystanie ze środowisk usługi App Service, zobacz [Wprowadzenie do środowiska usługi aplikacji][IntroToAppServiceEnvironment]
+Aby rozpocząć pracę z App Service środowiskami, zobacz [wprowadzenie do App Service Environment][IntroToAppServiceEnvironment]
 
-Aby uzyskać szczegółowe informacje dotyczące kontrolowania ruchu przychodzącego do środowiska usługi App Service, zobacz [Kontrolowanie ruchu przychodzącego do środowiska usługi aplikacji][ControlInboundASE]
+Aby uzyskać szczegółowe informacje na temat kontrolowania ruchu przychodzącego do App Service Environment, zobacz [sterowanie ruchem przychodzącym do App Service Environment][ControlInboundASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

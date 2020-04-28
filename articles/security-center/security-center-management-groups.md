@@ -1,6 +1,6 @@
 ---
-title: Uzyskaj wgląd w usługi Azure Security Center dla całej dzierżawy | Dokumenty firmy Microsoft
-description: W tym artykule wyjaśniono, jak zarządzać postawą zabezpieczeń na dużą skalę, stosując zasady do wszystkich subskrypcji połączonych z dzierżawą usługi Azure Active Directory.
+title: Uzyskaj widoczność dla całej dzierżawy dla Azure Security Center | Microsoft Docs
+description: W tym artykule wyjaśniono, jak zarządzać stan zabezpieczeń na dużą skalę, stosując zasady do wszystkich subskrypcji połączonych z dzierżawą Azure Active Directory.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,105 +14,105 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74559344"
 ---
-# <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Uzyskaj wgląd w usługi Azure Security Center dla całej dzierżawy
-W tym artykule wyjaśniono, jak zarządzać postawą zabezpieczeń organizacji na dużą skalę, stosując zasady zabezpieczeń do wszystkich subskrypcji platformy Azure połączonych z dzierżawą usługi Azure Active Directory.
+# <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Uzyskaj widoczność dla całej dzierżawy dla Azure Security Center
+W tym artykule wyjaśniono, jak zarządzać stan zabezpieczeń organizacji na dużą skalę, stosując zasady zabezpieczeń do wszystkich subskrypcji platformy Azure połączonych z dzierżawą Azure Active Directory.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Grupy zarządzania
-Grupy zarządzania platformy Azure umożliwiają efektywne zarządzanie dostępem, zasadami i raportowaniem grup subskrypcji, a także efektywne zarządzanie całą zasobą platformy Azure przez wykonywanie akcji w głównej grupie zarządzania. Każda dzierżawa usługi Azure AD otrzymuje jedną grupę zarządzania najwyższego poziomu o nazwie głównej grupy zarządzania. Główna grupa zarządzania jest wbudowana w hierarchię, aby wszystkie grupy zarządzania i subskrypcje pod nią podlegały. Ta grupa umożliwia stosowanie zasad globalnych i przypisań RBAC na poziomie katalogu. 
+Grupy zarządzania systemu Azure umożliwiają wydajne zarządzanie dostępem, zasadami i raportowaniem w grupach subskrypcji, a także efektywnie zarządzać całą infrastrukturą platformy Azure przez wykonywanie akcji w głównej grupie zarządzania. Każda dzierżawa usługi Azure AD ma jedną grupę zarządzania najwyższego poziomu nazywaną główną grupą zarządzania. Główna grupa zarządzania jest wbudowana w hierarchię, aby wszystkie grupy zarządzania i subskrypcje pod nią podlegały. Ta grupa umożliwia stosowanie globalnych zasad i przypisań RBAC na poziomie katalogu. 
 
-Główna grupa zarządzania jest tworzona automatycznie po wykonaniu dowolnej z następujących czynności: 
-1. Zgłoś użycie grup zarządzania platformy Azure, przechodząc do **grup zarządzania** w [witrynie Azure portal.](https://portal.azure.com)
-2. Tworzenie grupy zarządzania za pośrednictwem wywołania interfejsu API.
-3. Tworzenie grupy zarządzania za pomocą programu PowerShell.
+Główna Grupa zarządzania jest tworzona automatycznie podczas wykonywania jednej z następujących czynności: 
+1. Zezwól na korzystanie z grup zarządzania platformy Azure, przechodząc do **grupy zarządzania** w [Azure Portal](https://portal.azure.com).
+2. Utwórz grupę zarządzania za pośrednictwem wywołania interfejsu API.
+3. Utwórz grupę zarządzania przy użyciu programu PowerShell.
 
-Aby uzyskać szczegółowe omówienie grup zarządzania, zobacz [organizowanie zasobów za pomocą grup zarządzania platformy Azure](../azure-resource-manager/management-groups-overview.md) artykułu.
+Aby uzyskać szczegółowe omówienie grup zarządzania, zobacz artykuł [organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../azure-resource-manager/management-groups-overview.md) .
 
-## <a name="create-a-management-group-in-the-azure-portal"></a>Tworzenie grupy zarządzania w witrynie Azure portal
-Subskrypcje można organizować w grupy zarządzania i stosować zasady nadzoru do grup zarządzania. Wszystkie subskrypcje w grupie zarządzania automatycznie dziedziczą zasady zastosowane do tej grupy zarządzania. Chociaż grupy zarządzania nie są wymagane do wbudowanego centrum zabezpieczeń, zdecydowanie zaleca się utworzenie co najmniej jednej grupy zarządzania w celu utworzenia głównej grupy zarządzania. Po utworzeniu grupy wszystkie subskrypcje w ramach dzierżawy usługi Azure AD zostaną z nią połączone. Aby uzyskać instrukcje dotyczące programu PowerShell i innych informacji, zobacz [Tworzenie grup zarządzania zasobami i organizacją](../azure-resource-manager/management-groups-create.md).
+## <a name="create-a-management-group-in-the-azure-portal"></a>Utwórz grupę zarządzania w Azure Portal
+Subskrypcje można organizować w grupy zarządzania i stosować zasady zarządzania do grup zarządzania. Wszystkie subskrypcje w grupie zarządzania automatycznie dziedziczą zasady zastosowane do tej grupy zarządzania. Gdy grupy zarządzania nie są wymagane do dołączania Security Center, zdecydowanie zaleca się utworzenie co najmniej jednej grupy zarządzania w celu utworzenia głównej grupy zarządzania. Po utworzeniu grupy zostaną do niej połączone wszystkie subskrypcje w ramach dzierżawy usługi Azure AD. Aby uzyskać instrukcje dotyczące programu PowerShell i więcej informacji, zobacz [Tworzenie grup zarządzania na potrzeby zarządzania zasobami i organizacjami](../azure-resource-manager/management-groups-create.md).
 
  
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-2. Wybierz pozycję Wszystkie > **grupy zarządzania** **usługami**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Wybierz pozycję **wszystkie** > **grupy zarządzania**usług.
 3. Na stronie głównej wybierz pozycję **Nowa grupa zarządzania.** 
 
-    ![Główna grupa](./media/security-center-management-groups/main.png) 
+    ![Grupa główna](./media/security-center-management-groups/main.png) 
 4.  Wypełnij pole Identyfikator grupy zarządzania. 
-    - **Identyfikator grupy zarządzania** jest unikatowym identyfikatorem katalogu, który jest używany do przesyłania poleceń w tej grupie zarządzania. Ten identyfikator nie jest edytowalny po utworzeniu, ponieważ jest używany w całym systemie platformy Azure do identyfikowania tej grupy. 
-    - Pole nazwy wyświetlanej to nazwa wyświetlana w witrynie Azure portal. Oddzielna nazwa wyświetlana jest opcjonalnym polem podczas tworzenia grupy zarządzania i może zostać zmieniona w dowolnym momencie.  
+    - **Identyfikator grupy zarządzania** jest unikatowym identyfikatorem katalogu, który jest używany do przesyłania poleceń z tej grupy zarządzania. Tego identyfikatora nie można edytować po utworzeniu, ponieważ jest on używany w całym systemie Azure do identyfikowania tej grupy. 
+    - Pole Nazwa wyświetlana to nazwa wyświetlana w Azure Portal. Oddzielna nazwa wyświetlana jest polem opcjonalnym podczas tworzenia grupy zarządzania i można ją zmienić w dowolnym momencie.  
 
       ![Utwórz](./media/security-center-management-groups/create_context_menu.png)  
-5.  Wybierz pozycję **Zapisz**.
+5.  Wybierz pozycję **Zapisz**
 
-### <a name="view-management-groups-in-the-azure-portal"></a>Wyświetlanie grup zarządzania w witrynie Azure portal
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-2. Aby wyświetlić grupy zarządzania, wybierz **pozycję Wszystkie usługi** w menu głównym platformy Azure.
-3. W obszarze **Ogólne**wybierz pozycję **Grupy zarządzania**.
+### <a name="view-management-groups-in-the-azure-portal"></a>Wyświetlanie grup zarządzania w Azure Portal
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Aby wyświetlić grupy zarządzania, wybierz pozycję **wszystkie usługi** w menu głównym platformy Azure.
+3. W obszarze **Ogólne**wybierz pozycję **grupy zarządzania**.
 
     ![Tworzenie grupy zarządzania](./media/security-center-management-groups/all-services.png)
 
-## <a name="grant-tenant-level-visibility-and-the-ability-to-assign-policies"></a>Udziel widoczności na poziomie dzierżawy i możliwości przypisywania zasad
+## <a name="grant-tenant-level-visibility-and-the-ability-to-assign-policies"></a>Przyznaj widoczność na poziomie dzierżawy i możliwość przypisywania zasad
 
-Aby uzyskać wgląd w poziom zabezpieczeń wszystkich subskrypcji zarejestrowanych w dzierżawie usługi Azure AD, rola RBAC z wystarczającymi uprawnieniami do odczytu musi być przypisana do głównej grupy zarządzania.
+Aby uzyskać wgląd w stan zabezpieczeń wszystkich subskrypcji zarejestrowanych w dzierżawie usługi Azure AD, musi być przypisane rola RBAC z wystarczającymi uprawnieniami do odczytu w głównej grupie zarządzania.
 
-### <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Zwiększ poziom dostępu administratora globalnego w usłudze Azure Active Directory
-Administrator dzierżawy usługi Azure Active Directory nie ma bezpośredniego dostępu do subskrypcji platformy Azure. Jednak jako administrator katalogu mają prawo podnieść się do roli, która ma dostęp. Administrator dzierżawy usługi Azure AD musi podnieść się do administratora dostępu do użytkownika na poziomie głównej grupy zarządzania, aby można było przypisać role RBAC. Aby uzyskać instrukcje i dodatkowe informacje programu PowerShell, zobacz [Podnoszenie poziomu dostępu administratora globalnego w usłudze Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
+### <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Podnieś poziom dostępu dla administratora globalnego w Azure Active Directory
+Administrator dzierżawy Azure Active Directory nie ma bezpośredniego dostępu do subskrypcji platformy Azure. Jednak jako administrator katalogu mają prawo do podniesienia uprawnień do roli, która ma dostęp. Administrator dzierżawy usługi Azure AD musi podnieść się do administratora dostępu użytkowników na poziomie głównego grupy zarządzania, aby mogli przypisywać role RBAC. Instrukcje programu PowerShell i dodatkowe informacje znajdują się [w temacie Podnieś poziom dostępu dla administratora globalnego w Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
 
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) lub [centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) lub [Azure Active Directory centrum administracyjnego](https://aad.portal.azure.com).
 
-2. Na liście nawigacji kliknij pozycję **Usługa Azure Active Directory,** a następnie kliknij pozycję **Właściwości**.
+2. Na liście Nawigacja kliknij **Azure Active Directory** a następnie kliknij pozycję **Właściwości**.
 
    ![Właściwości usługi Azure AD — zrzut ekranu](./media/security-center-management-groups/aad-properties.png)
 
-3. W obszarze **Zarządzanie programem Access dla zasobów platformy Azure**ustaw przełącznik na **Tak**.
+3. W obszarze **Zarządzanie dostępem do zasobów platformy Azure**Ustaw przełącznik na **wartość tak**.
 
-   ![Administrator globalny może zarządzać subskrypcjami platformy Azure i grupami zarządzania — zrzut ekranu](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Administrator globalny może zarządzać subskrypcjami platformy Azure i Grupy zarządzania zrzutu ekranu](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - Po ustawieniu przełącznika na Tak, zostanie przypisana rola administratora dostępu użytkownika w usłudze Azure RBAC w zakresie głównym (/). Daje to uprawnienia do przypisywania ról we wszystkich subskrypcjach platformy Azure i grupach zarządzania skojarzonych z tym katalogiem usługi Azure AD. Ten przełącznik jest dostępny tylko dla użytkowników, którym przypisano rolę administratora globalnego w usłudze Azure AD.
+   - Po ustawieniu przełącznika na wartość tak przypiszesz rolę administratora dostępu użytkownika w usłudze Azure RBAC w zakresie głównym (/). To przyznaje uprawnienia do przypisywania ról we wszystkich subskrypcjach platformy Azure i grupach zarządzania skojarzonych z tym katalogiem usługi Azure AD. Ten przełącznik jest dostępny tylko dla użytkowników, którym przypisano rolę administratora globalnego w usłudze Azure AD.
 
-   - Po ustawieniu przełącznika na Nie, rola administratora dostępu użytkownika w usłudze Azure RBAC zostanie usunięta z konta użytkownika. Nie można już przypisywać ról we wszystkich subskrypcjach platformy Azure i grupach zarządzania skojarzonych z tym katalogiem usługi Azure AD. Możesz wyświetlać i zarządzać tylko subskrypcjami platformy Azure i grupami zarządzania, do których udzielono dostępu.
+   - Po ustawieniu przełącznika na wartość nie rola administratora dostępu użytkowników w usłudze Azure RBAC zostanie usunięta z konta użytkownika. Nie można już przypisywać ról we wszystkich subskrypcjach platformy Azure i grupach zarządzania skojarzonych z tym katalogiem usługi Azure AD. Można wyświetlać i zarządzać tylko subskrypcjami platformy Azure i grupami zarządzania, do których udzielono dostępu.
 
-4. Kliknij **przycisk Zapisz,** aby zapisać ustawienie.
+4. Kliknij przycisk **Zapisz** , aby zapisać ustawienia.
 
-    - To ustawienie nie jest właściwością globalną i dotyczy tylko aktualnie zalogowanego użytkownika.
+    - To ustawienie nie jest właściwością globalną i ma zastosowanie tylko do aktualnie zalogowanego użytkownika.
 
-5. Wykonaj zadania, które należy wykonać przy podwyższonym poziomie dostępu. Po zakończeniu ustaw przełącznik z powrotem na **Nie**.
+5. Wykonaj zadania, które trzeba wykonać w celu uzyskania dostępu z podwyższonym poziomem uprawnień. Gdy skończysz, ustaw przełącznik z powrotem na **nie**.
 
 
 ### <a name="assign-rbac-roles-to-users"></a>Przypisywanie ról RBAC do użytkowników
-Aby uzyskać wgląd do wszystkich subskrypcji, administratorzy dzierżawy muszą przypisać odpowiednią rolę RBAC do wszystkich użytkowników, których chcą zapewnić widoczność w całej dzierżawie, w tym siebie, na poziomie głównej grupy zarządzania. Zalecane role do przypisania to **Administrator zabezpieczeń** lub **Czytnik zabezpieczeń**. Ogólnie rzecz biorąc rola Administrator zabezpieczeń jest wymagana do stosowania zasad na poziomie głównym, podczas gdy program Security Reader wystarczy, aby zapewnić widoczność na poziomie dzierżawy. Aby uzyskać więcej informacji na temat uprawnień przyznanych przez te role, zobacz [opis roli wbudowanej administratora zabezpieczeń](../role-based-access-control/built-in-roles.md#security-admin) lub opis roli [wbudowanej czytnika zabezpieczeń](../role-based-access-control/built-in-roles.md#security-reader).
+Aby uzyskać wgląd w wszystkie subskrypcje, Administratorzy dzierżawy muszą przypisać odpowiednią rolę RBAC do wszystkich użytkowników, którzy chcą udzielić widoczności dla całej dzierżawy, w tym samych, na poziomie głównego grupy zarządzania. Zalecane role do przypisania są **administratora zabezpieczeń** lub **czytelnika zabezpieczeń**. Ogólnie rzecz biorąc, rola administratora zabezpieczeń jest wymagana do zastosowania zasad na poziomie głównym, podczas gdy czytelnik zabezpieczeń wystarcza do zapewnienia widoczności na poziomie dzierżawy. Więcej informacji o uprawnieniach przyznanych przez te role można znaleźć w [opisie wbudowanej roli administrator zabezpieczeń](../role-based-access-control/built-in-roles.md#security-admin) lub [Opis wbudowanej roli czytelnik zabezpieczeń](../role-based-access-control/built-in-roles.md#security-reader).
 
 
-#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Przypisywanie ról RBAC do użytkowników za pośrednictwem witryny Azure portal: 
+#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Przypisywanie ról RBAC użytkownikom za pomocą Azure Portal: 
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). 
-1. Aby wyświetlić grupy zarządzania, wybierz **pozycję Wszystkie usługi** w menu głównym platformy Azure, a następnie wybierz pozycję Grupy **zarządzania**.
-1.  Wybierz grupę zarządzania i kliknij **szczegóły**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
+1. Aby wyświetlić grupy zarządzania, wybierz pozycję **wszystkie usługi** w menu głównym platformy Azure, a następnie wybierz pozycję **grupy zarządzania**.
+1.  Wybierz grupę zarządzania i kliknij przycisk **szczegóły**.
 
-    ![Zrzut ekranu przedstawiający szczegóły grup zarządzania](./media/security-center-management-groups/management-group-details.PNG)
+    ![Zrzut ekranu szczegółów Grupy zarządzania](./media/security-center-management-groups/management-group-details.PNG)
  
-1. Następnie kliknij **pozycję Kontrola dostępu (IAM),** a następnie **przypisania ról**.
+1. Kliknij kolejno pozycje **Kontrola dostępu (IAM)** i **przypisania ról**.
 
-1. Kliknij **pozycję Dodaj przypisanie roli**.
+1. Kliknij pozycję **Dodaj przypisanie roli**.
 
 1. Wybierz rolę do przypisania i użytkownika, a następnie kliknij przycisk **Zapisz**.  
    
-   ![Zrzut ekranu przedstawiający rolę Dodaj program programu Security Reader](./media/security-center-management-groups/asc-security-reader.png)
+   ![Dodaj zrzut ekranu roli czytnika zabezpieczeń](./media/security-center-management-groups/asc-security-reader.png)
 
 
-#### <a name="assign-rbac-roles-to-users-with-powershell"></a>Przypisywanie ról RBAC do użytkowników programu PowerShell: 
+#### <a name="assign-rbac-roles-to-users-with-powershell"></a>Przypisywanie ról RBAC użytkownikom przy użyciu programu PowerShell: 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Zainstaluj [program Azure PowerShell](/powershell/azure/install-az-ps).
+1. Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Uruchom następujące polecenia: 
 
     ```azurepowershell
@@ -122,7 +122,7 @@ Aby uzyskać wgląd do wszystkich subskrypcji, administratorzy dzierżawy muszą
 
 3. Po wyświetleniu monitu zaloguj się przy użyciu poświadczeń administratora globalnego. 
 
-    ![Zrzut ekranu monitu o logowanie](./media/security-center-management-groups/azurerm-sign-in.PNG)
+    ![Zrzut ekranu z monitem logowania](./media/security-center-management-groups/azurerm-sign-in.PNG)
 
 4. Udziel uprawnień roli czytelnika, uruchamiając następujące polecenie:
 
@@ -137,56 +137,56 @@ Aby uzyskać wgląd do wszystkich subskrypcji, administratorzy dzierżawy muszą
     Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
-### <a name="open-or-refresh-security-center"></a>Otwieranie lub odświeżanie Centrum zabezpieczeń
-Po uzyskaniu podwyższonego poziomu dostępu otwórz lub odśwież usługę Azure Security Center, aby sprawdzić, czy masz wgląd we wszystkie subskrypcje w ramach dzierżawy usługi Azure AD. 
+### <a name="open-or-refresh-security-center"></a>Otwórz lub Odśwież Security Center
+Po uzyskaniu podwyższonego poziomu uprawnień Otwórz lub Odśwież Azure Security Center, aby sprawdzić, czy masz wgląd we wszystkie subskrypcje w ramach dzierżawy usługi Azure AD. 
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). 
-2. Upewnij się, że w ujrzesz wszystkie subskrypcje w selektorze subskrypcji, które chcesz wyświetlić w umykarze zabezpieczeń.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
+2. Upewnij się, że wybrano wszystkie subskrypcje w selektorze subskrypcji, które chcesz wyświetlić w Security Center.
 
-    ![Zrzut ekranu przedstawiający selektor subskrypcji](./media/security-center-management-groups/subscription-selector.png)
+    ![Zrzut ekranu selektora subskrypcji](./media/security-center-management-groups/subscription-selector.png)
 
-1. Wybierz **pozycję Wszystkie usługi** w menu głównym platformy Azure, a następnie wybierz pozycję Centrum **zabezpieczeń**.
-2. W **przeglądzie**znajduje się wykres pokrycia subskrypcji.
+1. Wybierz pozycję **wszystkie usługi** w menu głównym platformy Azure, a następnie wybierz pozycję **Security Center**.
+2. W **omówieniu**znajduje się wykres pokrycia subskrypcji.
 
     ![Zrzut ekranu przedstawiający wykres pokrycia subskrypcji](./media/security-center-management-groups/security-center-subscription-coverage.png)
 
-3. Kliknij **na Pokrycie,** aby wyświetlić listę subskrypcji objętych. 
+3. Kliknij pozycję **pokrycie** , aby wyświetlić listę pokrytych subskrypcji. 
 
-    ![Zrzut ekranu przedstawiający listę subskrypcji](./media/security-center-management-groups/security-center-coverage.png)
+    ![Zrzut ekranu listy pokrycia subskrypcji](./media/security-center-management-groups/security-center-coverage.png)
 
-### <a name="remove-elevated-access"></a>Usuwanie podwyższonego poziomu dostępu 
-Po przypisaniu ról RBAC do użytkowników administrator dzierżawy powinien usunąć się z roli administratora dostępu użytkownika.
+### <a name="remove-elevated-access"></a>Usuń dostęp z podwyższonym poziomem uprawnień 
+Po przypisaniu ról RBAC do użytkowników Administrator dzierżawy powinien usunąć siebie z roli administratora dostępu użytkownika.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) lub [centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) lub [Azure Active Directory centrum administracyjnego](https://aad.portal.azure.com).
 
-2. Na liście nawigacji kliknij pozycję **Usługa Azure Active Directory,** a następnie kliknij pozycję **Właściwości**.
+2. Na liście Nawigacja kliknij **Azure Active Directory** a następnie kliknij pozycję **Właściwości**.
 
-3. W obszarze **Administrator globalny może zarządzać subskrypcjami i grupami zarządzania platformy Azure**ustaw przełącznik na **Nie**.
+3. W obszarze **administrator globalny może zarządzać subskrypcjami i grupy zarządzania platformy Azure**, ustaw przełącznik na wartość **nie**.
 
-4. Kliknij **przycisk Zapisz,** aby zapisać ustawienie.
+4. Kliknij przycisk **Zapisz** , aby zapisać ustawienia.
 
 
 
 ## <a name="adding-subscriptions-to-a-management-group"></a>Dodawanie subskrypcji do grupy zarządzania
-Subskrypcje można dodawać do utworzonej grupy zarządzania. Te kroki nie są obowiązkowe dla uzyskania widoczności całej dzierżawy i globalnego zarządzania zasadami i dostępem.
+Możesz dodać subskrypcje do utworzonej grupy zarządzania. Te kroki nie są wymagane do uzyskania widoczności i globalnego zarządzania zasadami i dostępem na poziomie dzierżawy.
 
-1. W obszarze **Grupy zarządzania**wybierz grupę zarządzania, do jak chcesz dodać subskrypcję.
+1. W obszarze **grupy zarządzania**wybierz grupę zarządzania, do której chcesz dodać subskrypcję.
 
-    ![Wybierz grupę zarządzania, do jakaś subskrypcję](./media/security-center-management-groups/management-group-subscriptions.png)
+    ![Wybierz grupę zarządzania, do której chcesz dodać subskrypcję](./media/security-center-management-groups/management-group-subscriptions.png)
 
-2. Wybierz **pozycję Dodaj istniejący**.
+2. Wybierz pozycję **Dodaj istniejące**.
 
-    ![Dodawanie istniejących](./media/security-center-management-groups/add-existing.png)
+    ![Dodaj istniejące](./media/security-center-management-groups/add-existing.png)
 
-3. Wprowadź subskrypcję w obszarze **Dodaj istniejący zasób** i kliknij pozycję **Zapisz**.
+3. Wprowadź subskrypcję w obszarze **Dodaj istniejący zasób** , a następnie kliknij przycisk **Zapisz**.
 
-4. Powtarzaj kroki od 1 do 3, aż do dodasz wszystkie subskrypcje w zakresie.
+4. Powtórz kroki od 1 do 3 do momentu dodania wszystkich subskrypcji w zakresie.
 
    > [!NOTE]
-   > Grupy zarządzania mogą zawierać zarówno subskrypcje, jak i podrzędne grupy zarządzania. Po przypisaniu użytkownika rolę RBAC do nadrzędnej grupy zarządzania, dostęp jest dziedziczony przez subskrypcje podrzędnej grupy zarządzania. Zasady ustawione w nadrzędnej grupie zarządzania są również dziedziczone przez dzieci podrzędne. 
+   > Grupy zarządzania mogą zawierać zarówno subskrypcje, jak i podrzędne grupy zarządzania. Po przypisaniu użytkownika roli RBAC do nadrzędnej grupy zarządzania dostęp jest dziedziczony przez podrzędne subskrypcje grupy zarządzania. Zasady ustawione w nadrzędnej grupie zarządzania są również dziedziczone przez elementy podrzędne. 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule dowiesz się, jak uzyskać wgląd w całej dzierżawie dla usługi Azure Security Center. Aby dowiedzieć się więcej na temat usługi Security Center, zobacz następujące artykuły:
+W tym artykule przedstawiono, jak uzyskać widoczność dla Azure Security Center w całej dzierżawie. Aby dowiedzieć się więcej na temat usługi Security Center, zobacz następujące artykuły:
 
 > [!div class="nextstepaction"]
 > [Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure](security-center-monitoring.md)

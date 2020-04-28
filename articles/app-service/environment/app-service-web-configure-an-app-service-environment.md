@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie ase v1
-description: Konfiguracja, zarządzanie i monitorowanie środowiska usługi app service w wersji 1. Ten doc jest dostępna tylko dla klientów, którzy używają starszej wersji ASE w wersji 1.
+title: Konfigurowanie środowiska ASE v1
+description: Konfiguracja, zarządzanie i monitorowanie App Service Environment v1. Ten dokument jest dostępny tylko dla klientów korzystających ze starszej wersji V1 ASE.
 author: ccompy
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
@@ -8,184 +8,184 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687262"
 ---
-# <a name="configuring-an-app-service-environment-v1"></a>Konfigurowanie środowiska usługi aplikacji w wersji 1
+# <a name="configuring-an-app-service-environment-v1"></a>Konfigurowanie App Service Environment v1
 
 > [!NOTE]
-> Ten artykuł dotyczy środowiska usługi app service w wersji 1.  Istnieje nowsza wersja środowiska usługi app service, która jest łatwiejsza w użyciu i działa na bardziej zaawansowanej infrastruktury. Aby dowiedzieć się więcej o nowej wersji, zacznij od [wprowadzenia do środowiska usługi app service](intro.md).
+> Ten artykuł dotyczy App Service Environment v1.  Istnieje nowsza wersja App Service Environment ułatwiająca korzystanie z bardziej wydajną infrastrukturą. Aby dowiedzieć się więcej o nowej wersji, Zacznij od [wprowadzenia do App Service Environment](intro.md).
 > 
 
 ## <a name="overview"></a>Omówienie
-Na wysokim poziomie środowisko usługi Azure App Service składa się z kilku głównych składników:
+Na wysokim poziomie Azure App Service Environment składa się z kilku głównych składników:
 
-* Zasoby obliczeniowe uruchomione w usłudze hosta usługi App Service Environment
+* Zasoby obliczeniowe, które są uruchomione w App Service Environment hostowanej usłudze
 * Magazyn
-* Baza danych
-* Sieć wirtualna platformy Azure (VNet) klasyczna(V1) lub Menedżer zasobów(V2) 
-* Podsieć z uruchomiona w niej usługa hostowana w środowisku usługi app service
+* Baza danych programu
+* Klasyczny (v1) lub Menedżer zasobów (wersja 2) platformy Virtual Network Azure (Sieć wirtualna) 
+* Podsieć z uruchomioną App Service Environment usługą hostowaną
 
 ### <a name="compute-resources"></a>Zasoby obliczeniowe
-Zasoby obliczeniowe są używane dla czterech pul zasobów.  Każde środowisko usługi aplikacji (ASE) ma zestaw front ends i trzy możliwe pule procesów roboczych. Nie musisz używać wszystkich trzech pul procesów roboczych — jeśli chcesz, możesz użyć tylko jednego lub dwóch.
+Zasoby obliczeniowe są używane dla czterech pul zasobów.  Każdy App Service Environment (ASE) ma zestaw frontonów i trzy możliwe pule procesów roboczych. Nie musisz używać wszystkich trzech pul procesów roboczych — Jeśli chcesz, możesz użyć jednej lub dwóch.
 
-Hosty w pulach zasobów (frontonów i pracowników) nie są bezpośrednio dostępne dla dzierżawców. Nie można używać protokołu RDP (Remote Desktop Protocol), aby połączyć się z nimi, zmienić ich inicjowanie obsługi administracyjnej lub działać jako administrator na nich.
+Hosty w pulach zasobów (frontony i procesy robocze) nie są bezpośrednio dostępne dla dzierżawców. Nie można użyć Remote Desktop Protocol (RDP), aby połączyć się z nimi, zmienić ich aprowizacji lub działać jako administrator.
 
-Można ustawić ilość i rozmiar puli zasobów. W ASE masz cztery opcje rozmiaru, które są oznaczone od P1 do P4. Aby uzyskać szczegółowe informacje o tych rozmiarach i ich cenach, zobacz [Ceny usługi App Service](https://azure.microsoft.com/pricing/details/app-service/).
-Zmiana ilości lub rozmiaru jest nazywana operacją skalowania.  W ciągu jednego czasu może być kontynuowana tylko jedna operacja skalowania.
+Można ustawić ilość i rozmiar puli zasobów. W środowisku ASE są dostępne cztery opcje rozmiaru, które są oznaczone jako P1 przez P4. Aby uzyskać szczegółowe informacje o tych rozmiarach i ich cenach, zobacz [Cennik usługi App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Zmiana ilości lub rozmiaru jest nazywana operacją skalowania.  W danym momencie może istnieć tylko jedna operacja skalowania.
 
-**Front ends**: Front ends są punkty końcowe HTTP/HTTPS dla aplikacji, które są przechowywane w ASE. Nie uruchamiasz obciążeń na frontach.
+**Frontony**: frontony są punktami końcowymi protokołu HTTP/HTTPS dla aplikacji, które są przechowywane w środowisku ASE. Nie uruchamiasz obciążeń w frontonie.
 
-* Ase rozpoczyna się od dwóch P2s, co jest wystarczające dla obciążeń deweloperskich/testowych i obciążeń produkcyjnych niskiego poziomu. Zdecydowanie zaleca się P3 dla umiarkowanych do dużych obciążeń produkcyjnych.
-* W przypadku umiarkowanych do dużych obciążeń produkcyjnych zaleca się, aby mieć co najmniej cztery P3, aby upewnić się, że są wystarczające frontendy uruchomione po zaplanowaniu konserwacji. Zaplanowane czynności konserwacyjne będą sprowadzać jeden front end naraz. Zmniejsza to ogólną dostępną wydajność front-endu podczas prac konserwacyjnych.
-* Przednie końce mogą potrwać do godziny. 
-* Aby uzyskać dalsze dostrajanie skali, należy monitorować procent procesora CPU, procent pamięci i aktywne żądania metryki dla puli front-end. Jeśli procenty procesora CPU lub pamięci są powyżej 70 procent podczas uruchamiania P3s, dodaj więcej front ends. Jeśli wartość Aktywne żądania jest uśredniana do 15 000 do 20 000 żądań na frontonie, należy również dodać więcej front ends. Ogólnym celem jest utrzymanie procentów procesora CPU i pamięci poniżej 70%, a aktywne żądania średnio poniżej 15 000 żądań na frontonie podczas uruchamiania P3s.  
+* Środowisko ASE rozpoczyna się od dwóch P2S, co jest wystarczające do obciążeń deweloperskich i testowych oraz obciążeń produkcyjnych niskiego poziomu. Zdecydowanie zalecamy P3s dla średnich i dużych obciążeń produkcyjnych.
+* W przypadku średnich i dużych obciążeń produkcyjnych zaleca się, aby mieć co najmniej cztery P3s w celu zapewnienia wystarczającej liczby frontonów uruchomionych w przypadku wystąpienia zaplanowanej konserwacji. Zaplanowane działania konserwacyjne spowodują przełączenie jednego frontonu w danym momencie. Zmniejsza to ogólną dostępną pojemność frontonu podczas aktywności konserwacyjnej.
+* Zainicjowanie frontonu może potrwać do godziny. 
+* Aby kontynuować skalowanie w poziomie, należy monitorować wartości procentowe procesora CPU, procentu pamięci i aktywnych żądań dla puli frontonu. Jeśli wartości procentowe procesora CPU lub pamięci są powyżej 70% podczas uruchamiania P3s, Dodaj więcej frontonów. Jeśli wartość aktywnych żądań jest średnia na 15 000 do 20 000 żądań na fronton, należy również dodać więcej frontonów. Ogólnym celem jest utrzymywanie wartości procentowych procesora CPU i pamięci poniżej 70%, a aktywne żądania są uśredniane do poniżej 15 000 żądań na fronton, gdy korzystasz z usługi P3s.  
 
-**Pracownicy:** Pracownicy są tam, gdzie twoje aplikacje są faktycznie uruchamiane. Podczas skalowania w górę planów usługi app service, który używa pracowników w puli skojarzonych procesów roboczych.
+**Procesy robocze**: pracownicy są miejscem, w którym działają Twoje aplikacje. W przypadku skalowania w górę planów App Service, które używają procesów roboczych w puli skojarzonej z nimi.
 
-* Nie można od razu dodać pracowników. Ich dostarczenie może potrwać do godziny.
-* Skalowanie rozmiaru zasobu obliczeniowego dla dowolnej puli zajmie < 1 godzinę na domenę aktualizacji. Istnieje 20 domen aktualizacji w ASE. Jeśli skalowany rozmiar obliczeń puli procesów procesowych z 10 wystąpień, może potrwać do 10 godzin.
-* Jeśli zmienisz rozmiar zasobów obliczeniowych, które są używane w puli procesów roboczych, spowoduje to zimne uruchomienia aplikacji, które są uruchomione w tej puli procesów roboczych.
+* Nie można natychmiast dodać procesów roboczych. Udostępnienie może potrwać do godziny.
+* Skalowanie rozmiaru zasobów obliczeniowych dla dowolnej puli zajmie < 1 godzinę dla domeny aktualizacji. W środowisku ASE znajdują się 20 domen aktualizacji. W przypadku skalowania rozmiaru obliczeniowego puli procesów roboczych z 10 wystąpieniami ukończenie tego procesu może potrwać do 10 godzin.
+* Zmiana rozmiaru zasobów obliczeniowych używanych w puli procesów roboczych spowoduje zimne uruchomienie aplikacji, które są uruchomione w tej puli procesów roboczych.
 
-Najszybszym sposobem zmiany rozmiaru zasobów obliczeniowych puli procesów roboczych, w których nie są uruchomione żadne aplikacje, jest:
+Najszybszym sposobem zmiany rozmiaru zasobów obliczeniowych puli procesów roboczych, w których nie działa żadna aplikacja, jest:
 
-* Zmniejsz liczbę pracowników do 2.  Minimalna skala w dół w portalu wynosi 2. To zajmie kilka minut, aby zająćokować swoje wystąpienia. 
-* Wybierz nowy rozmiar obliczeń i liczbę wystąpień. Od tego miejsca zajmie to do 2 godzin.
+* Przeskaluj w dół liczbę procesów roboczych do 2.  Minimalna wielkość skalowania w dół w portalu wynosi 2. Cofnięcie przydziału wystąpień potrwa kilka minut. 
+* Wybierz nowy rozmiar i liczbę wystąpień obliczeniowych. Z tego miejsca zajmiemy do 2 godzin.
 
-Jeśli aplikacje wymagają większego rozmiaru zasobów obliczeniowych, nie możesz skorzystać z poprzednich wskazówek. Zamiast zmieniać rozmiar puli procesów roboczych, która hostuje te aplikacje, można wypełnić inną pulę procesów roboczych pracownikami o żądanym rozmiarze i przenieść aplikacje do tej puli.
+Jeśli aplikacje wymagają większego rozmiaru zasobów obliczeniowych, nie można korzystać z wcześniejszych wskazówek. Zamiast zmieniać rozmiar puli procesów roboczych, która obsługuje te aplikacje, można wypełnić inną pulę procesów roboczych pracownikami o żądanym rozmiarze i przenieść aplikacje do tej puli.
 
-* Utwórz dodatkowe wystąpienia wymaganego rozmiaru obliczeń w innej puli procesów roboczych. Zajmie to do godziny.
-* Ponownie przypisz plany usługi App Service, które obsługują aplikacje, które wymagają większego rozmiaru, do nowo skonfigurowanego puli pracowników. Jest to szybka operacja, która powinna potrwać mniej niż minutę.  
-* Skaluj w dół pierwszej puli procesów roboczych, jeśli nie są już potrzebne te nieużywane wystąpienia. Ta operacja trwa kilka minut.
+* Utwórz dodatkowe wystąpienia wymaganego rozmiaru obliczeniowego w innej puli procesów roboczych. Ukończenie tej czynności może potrwać do godziny.
+* Przypisz ponownie plany App Service, które obsługują aplikacje, które mają większy rozmiar, do nowo skonfigurowanej puli procesów roboczych. Jest to szybka operacja, którą należy wykonać krócej niż minutę.  
+* Skalowanie w dół pierwszej puli procesów roboczych, jeśli nie są już potrzebne nieużywane wystąpienia. Wykonanie tej operacji może potrwać kilka minut.
 
-**Skalowanie automatyczne:** Jednym z narzędzi, które mogą pomóc w zarządzaniu zużyciem zasobów obliczeniowych, jest skalowanie automatyczne. Można użyć skalowania automatycznego dla pule front-end lub roboczego. Można wykonywać takie czynności, jak zwiększanie wystąpień dowolnego typu basenu rano i zmniejszanie go wieczorem. A może można dodać wystąpienia, gdy liczba pracowników, które są dostępne w puli pracowników spada poniżej pewnego progu.
+**Skalowanie**automatyczne: jeden z narzędzi, które ułatwiają zarządzanie użyciem zasobów obliczeniowych, jest skalowaniem automatycznym. Skalowanie automatyczne można używać w przypadku pul frontonu lub procesów roboczych. Można wykonywać takie czynności, jak zwiększenie liczby wystąpień dowolnego typu puli rano i zmniejszenie jej w wieczór. Możesz też dodać wystąpienia, gdy liczba procesów roboczych, które są dostępne w puli procesu roboczego, spadnie poniżej określonego progu.
 
-Jeśli chcesz ustawić reguły skalowania automatycznego wokół metryk puli zasobów obliczeniowych, należy pamiętać o czasie wymaga, aby inicjowania obsługi administracyjnej. Aby uzyskać więcej informacji na temat skalowania automatycznego środowiska usługi app service, zobacz [Jak skonfigurować skalowanie automatyczne w środowisku usługi app service][ASEAutoscale].
+Jeśli chcesz ustawić reguły skalowania automatycznego wokół metryk puli zasobów obliczeniowych, należy pamiętać o czasie, który jest wymagany. Aby uzyskać więcej informacji na temat automatycznego skalowania środowisk App Service, zobacz [jak skonfigurować Skalowanie automatyczne w App Service Environment][ASEAutoscale].
 
 ### <a name="storage"></a>Magazyn
-Każdy ASE jest skonfigurowany z 500 GB pamięci masowej. Ta przestrzeń jest używana we wszystkich aplikacjach w ase. Ta przestrzeń dyskowa jest częścią ase i obecnie nie można przełączyć do korzystania z miejsca do magazynowania. Jeśli wprowadzasz zmiany w routingu sieci wirtualnej lub zabezpieczeń, musisz nadal zezwalać na dostęp do usługi Azure Storage — lub nie może działać środowisko ASE.
+Każde środowisko ASE jest skonfigurowane z 500 GB miejsca w magazynie. To miejsce jest używane we wszystkich aplikacjach w środowisku ASE. To miejsce do magazynowania jest częścią środowiska ASE i obecnie nie można go przełączyć do korzystania z miejsca do magazynowania. W przypadku wprowadzania zmian dotyczących routingu lub zabezpieczeń sieci wirtualnej należy nadal zezwolić na dostęp do usługi Azure Storage — lub środowisko ASE nie może działać.
 
 ### <a name="database"></a>baza danych
-Baza danych przechowuje informacje, które definiuje środowisko, a także szczegóły dotyczące aplikacji, które są uruchomione w nim. To też jest częścią subskrypcji platformy Azure. To nie jest coś, co masz bezpośrednią zdolność do manipulowania. Jeśli wprowadzasz zmiany w routingu sieci wirtualnej lub zabezpieczeń, musisz nadal zezwalać na dostęp do platformy AZURE SQL — lub nie może działać środowisko ASE.
+Baza danych zawiera informacje, które definiują środowisko, a także szczegółowe informacje o aplikacjach, które są w nim uruchomione. Jest to również część subskrypcji przechowywanej na platformie Azure. Nie jest to coś, że masz bezpośrednią zdolność do manipulowania. W przypadku wprowadzania zmian dotyczących routingu lub zabezpieczeń sieci wirtualnej należy nadal zezwolić na dostęp do usługi SQL Azure — lub środowisko ASE nie może działać.
 
-### <a name="network"></a>Network (Sieć)
-Sieci wirtualnej, która jest używana z ASE może być taki, który został złożony podczas tworzenia ASE lub jeden, który został złożony z wyprzedzeniem. Podczas tworzenia podsieci podczas tworzenia środowiska ASE wymusza ono na ase w tej samej grupie zasobów co sieć wirtualna. Jeśli potrzebujesz grupy zasobów używanej przez program ASE, aby była inna niż grupa sieci wirtualnej, należy utworzyć ase przy użyciu szablonu Menedżera zasobów.
+### <a name="network"></a>Sieć
+Sieć wirtualna, która jest używana z środowiskiem ASE, może być taka, która została utworzona podczas tworzenia środowiska ASE lub jednej wcześniej. Podczas tworzenia podsieci podczas tworzenia środowiska ASE środowisko ASE jest w tej samej grupie zasobów co sieć wirtualna. Jeśli potrzebujesz, aby grupa zasobów używana przez środowisko ASE była inna niż sieć wirtualna, należy utworzyć środowisko ASE przy użyciu szablonu usługi Resource Manager.
 
-Istnieją pewne ograniczenia dotyczące sieci wirtualnej, która jest używana dla środowiska ASE:
+Istnieją pewne ograniczenia dotyczące sieci wirtualnej, która jest używana w środowisku ASE:
 
 * Sieć wirtualna musi być regionalną siecią wirtualną.
-* Musi istnieć podsieć z 8 lub więcej adresów, gdzie jest wdrożony ase.
-* Po podsieci jest używany do hosta ASE, zakres adresu podsieci nie można zmienić. Z tego powodu zaleca się, że podsieć zawiera co najmniej 64 adresy, aby pomieścić wszelkie przyszłe ase wzrostu.
-* W podsieci nie może być nic innego, ale ase.
+* Musi być podsiecią zawierającą co najmniej 8 adresów, w których wdrożono środowisko ASE.
+* Gdy podsieć jest używana do hostowania środowiska ASE, nie można zmienić zakresu adresów podsieci. Z tego powodu zaleca się, aby podsieć zawierała co najmniej 64 adresów w celu uwzględnienia przyszłego wzrostu środowiska ASE.
+* W podsieci nie mogą znajdować się żadne inne elementy, ale środowisko ASE.
 
-W przeciwieństwie do usługi hosta, która zawiera środowisko ASE, [sieć wirtualna][virtualnetwork] i podsieć znajdują się pod kontrolą użytkownika.  Sieć wirtualną można administrować za pośrednictwem interfejsu użytkownika sieci wirtualnej lub programu PowerShell.  Ase można wdrożyć w sieci wirtualnej Klasycznego lub Menedżera zasobów.  Środowisko portalu i interfejsu API różnią się nieco między sieciami wirtualnymi Klasycznego i Menedżera zasobów, ale środowisko ŚRODOWISKA ASE jest takie samo.
+W przeciwieństwie do usługi hostowanej zawierającej środowisko ASE, [Sieć wirtualna][virtualnetwork] i podsieć są pod kontrolą użytkownika.  Siecią wirtualną można administrować za pomocą interfejsu użytkownika Virtual Network lub programu PowerShell.  Środowisko ASE można wdrożyć w środowisku klasycznym lub Menedżer zasobów sieci wirtualnej.  Środowisko portalu i interfejsu API są nieco inne niż klasyczne i Menedżer zasobów sieci wirtualnych, ale środowisko ASE jest takie samo.
 
-Sieć wirtualna, która jest używana do hosta ASE można użyć prywatnych adresów IP RFC1918 lub może używać publicznych adresów IP.  Jeśli chcesz użyć zakresu IP, który nie jest objęty RFC1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), należy utworzyć sieć wirtualną i podsieć do użycia przez ASE przed utworzeniem ASE.
+Sieć wirtualna, która jest używana do hostowania środowiska ASE, może używać prywatnych adresów IP RFC1918 lub używać publicznych adresów IP.  Jeśli chcesz użyć zakresu adresów IP, który nie jest objęty przez RFC1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), należy utworzyć sieć wirtualną i podsieci, które będą używane przez środowisko ASE przed tworzeniem środowiska ASE.
 
-Ponieważ ta funkcja umieszcza usługę Azure App Service w sieci wirtualnej, oznacza to, że aplikacje hostowane w środowisku ASE mogą teraz uzyskać dostęp do zasobów udostępnianych bezpośrednio za pośrednictwem usługi ExpressRoute lub wirtualnych sieci prywatnych (VPN) między lokacjami. Aplikacje, które znajdują się w środowisku usługi app service nie wymagają dodatkowych funkcji sieciowych, aby uzyskać dostęp do zasobów dostępnych dla sieci wirtualnej, która hostuje środowisko usługi App Service. Oznacza to, że nie trzeba używać integracji sieci wirtualnej lub połączeń hybrydowych, aby uzyskać dostęp do zasobów w sieci wirtualnej lub połączone z nią. Nadal można jednak użyć obu tych funkcji, aby uzyskać dostęp do zasobów w sieciach, które nie są połączone z siecią wirtualną.
+Ponieważ ta funkcja umieszcza Azure App Service w sieci wirtualnej, oznacza to, że aplikacje hostowane w środowisku ASE mogą teraz uzyskiwać dostęp do zasobów udostępnionych za pośrednictwem ExpressRoute lub bezpośrednio wirtualnych sieci prywatnych (VPN) typu lokacja-lokacja. Aplikacje znajdujące się w App Service Environment nie wymagają dodatkowych funkcji sieciowych w celu uzyskania dostępu do zasobów dostępnych dla sieci wirtualnej, która obsługuje App Service Environment. Oznacza to, że nie trzeba używać Integracja z siecią wirtualną ani Połączenia hybrydowe do uzyskiwania zasobów w sieci wirtualnej lub połączenia z nią. Można nadal używać obu tych funkcji, aby uzyskać dostęp do zasobów w sieciach, które nie są połączone z siecią wirtualną.
 
-Na przykład można użyć integracji sieci wirtualnej do integracji z siecią wirtualną, która jest w ramach subskrypcji, ale nie jest połączona z siecią wirtualną, w której znajduje się środowisko ASE. Nadal można również używać połączeń hybrydowych, aby uzyskać dostęp do zasobów, które znajdują się w innych sieciach, tak jak zwykle.  
+Można na przykład użyć usługi Integracja z siecią wirtualną do integracji z siecią wirtualną, która znajduje się w subskrypcji, ale nie jest połączona z siecią wirtualną, w której znajduje się środowisko ASE. Nadal można także używać Połączenia hybrydowe do uzyskiwania dostępu do zasobów, które znajdują się w innych sieciach, podobnie jak zwykle.  
 
-Jeśli sieć wirtualna jest skonfigurowana z siecią VPN usługi ExpressRoute, należy pamiętać o niektórych potrzebach routingu, które ma środowisko ASE. Istnieją konfiguracje trasy zdefiniowane przez użytkownika (UDR), które są niezgodne z ase. Aby uzyskać więcej informacji na temat uruchamiania środowiska ASE w sieci wirtualnej za pomocą usługi ExpressRoute, zobacz [Uruchamianie środowiska usługi app service w sieci wirtualnej za pomocą usługi ExpressRoute][ExpressRoute].
+Jeśli masz skonfigurowaną sieć wirtualną przy użyciu sieci VPN ExpressRoute, należy pamiętać, że niektóre z nich są wymagane. Istnieją konfiguracje tras zdefiniowanych przez użytkownika (UDR), które są niezgodne ze środowiskiem ASE. Aby uzyskać więcej informacji na temat uruchamiania środowiska ASE w sieci wirtualnej za pomocą ExpressRoute, zobacz [uruchamianie App Service Environment w sieci wirtualnej z ExpressRoute][ExpressRoute].
 
 #### <a name="securing-inbound-traffic"></a>Zabezpieczanie ruchu przychodzącego
-Istnieją dwie podstawowe metody kontrolowania ruchu przychodzącego do ase.  Sieciowych grup zabezpieczeń (NSG) można użyć do kontrolowania, jakie adresy IP mogą uzyskiwać dostęp do środowiska ASE, jak opisano w tym miejscu [Jak kontrolować ruch przychodzący w środowisku usługi app service,](app-service-app-service-environment-control-inbound-traffic.md) a także skonfigurować środowisko ASE za pomocą wewnętrznego modułu równoważenia obciążenia (ILB).  Te funkcje mogą być również używane razem, jeśli chcesz ograniczyć dostęp przy użyciu sieciowychg do ase ILB.
+Istnieją dwie podstawowe metody sterowania ruchem przychodzącym do środowiska ASE.  Za pomocą sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) można kontrolować adresy IP, które mogą uzyskiwać dostęp do środowiska ASE, zgodnie [z opisem w temacie Jak kontrolować ruch przychodzący w App Service Environment](app-service-app-service-environment-control-inbound-traffic.md) i można również skonfigurować środowisko ASE przy użyciu wewnętrznego Load BALANCER (ILB).  Te funkcje mogą być również używane razem, jeśli chcesz ograniczyć dostęp za pomocą sieciowych grup zabezpieczeń do ILB ASE.
 
-Podczas tworzenia ase, utworzy adres VIP w sieci wirtualnej.  Istnieją dwa typy VIP, zewnętrzne i wewnętrzne.  Po utworzeniu ASE z zewnętrznym VIP następnie aplikacje w ASE będą dostępne za pośrednictwem internet routable adres IP. Po wybraniu opcji Wewnętrzny program ASE zostanie skonfigurowany z równoważeniem obciążenia sieciowego i nie będzie bezpośrednio dostępny w Internecie.  Ase ILB nadal wymaga zewnętrznego adresu VIP, ale jest używany tylko do zarządzania platformy Azure i dostępu do konserwacji.  
+Podczas tworzenia środowiska ASE zostanie utworzony adres VIP w sieci wirtualnej.  Istnieją dwa typy adresów VIP — zewnętrzna i wewnętrzna.  Po utworzeniu środowiska ASE z zewnętrznym adresem VIP aplikacje w środowisku ASE będą dostępne za pośrednictwem adresu IP z obsługą Internetu. Po wybraniu opcji wewnętrzne środowisko ASE zostanie skonfigurowane z ILB i nie będzie bezpośrednio dostępne w Internecie.  ILB ASE nadal wymaga zewnętrznego adresu VIP, ale jest on używany tylko do zarządzania platformą Azure i dostępu do konserwacji.  
 
-Podczas tworzenia ase równoważenia obciążenia sieciowego należy podać poddomenę używaną przez ase ILB i będzie musiał zarządzać własnym DNS dla poddomeny, którą określisz.  Ponieważ można ustawić nazwę poddomeny, należy również zarządzać certyfikatem używanym do dostępu HTTPS.  Po utworzeniu ASE zostanie wyświetlony monit o dostarczenie certyfikatu.  Aby dowiedzieć się więcej na temat tworzenia i używania środowiska ASE równoważenia obciążenia wewnętrznego, można przeczytać [Przy użyciu wewnętrznego modułu równoważenia obciążenia ze środowiskiem usługi app service][ILBASE]. 
+Podczas tworzenia ILB środowiska ASE podano poddomenę używaną przez środowisko ILB ASE i będzie on musiał zarządzać własnym systemem DNS dla określonej domeny podrzędnej.  Ponieważ należy ustawić nazwę domeny podrzędnej, należy również zarządzać certyfikatem używanym do dostępu HTTPS.  Po utworzeniu środowiska ASE zostanie wyświetlony monit o podanie certyfikatu.  Aby dowiedzieć się więcej o tworzeniu i korzystaniu z ILB ASE do odczytu [przy użyciu wewnętrznego Load Balancer z App Service Environment][ILBASE]. 
 
 ## <a name="portal"></a>Portal
-Środowisko usługi App Service można zarządzać i monitorować je przy użyciu interfejsu użytkownika w witrynie Azure portal. Jeśli masz ASE, prawdopodobnie zobaczysz symbol usługi App Service na pasku bocznym. Ten symbol jest używany do reprezentowania środowisk usługi app service w witrynie Azure portal:
+App Service Environment można zarządzać i monitorować za pomocą interfejsu użytkownika w Azure Portal. Jeśli masz środowisko ASE, zobaczysz symbol App Service na pasku bocznym. Ten symbol jest używany do reprezentowania środowisk App Service w Azure Portal:
 
-![Symbol środowiska usługi aplikacji][1]
+![Symbol App Service Environment][1]
 
-Aby otworzyć interfejs użytkownika, który zawiera listę wszystkich środowisk usługi app service, można użyć ikony lub wybierz szewron (">" symbol) w dolnej części paska bocznego, aby wybrać środowiska usługi app service. Wybierając jeden z ases wymienionych, należy otworzyć interfejs użytkownika, który jest używany do monitorowania i zarządzania nim.
+Aby otworzyć interfejs użytkownika, który zawiera listę wszystkich środowisk App Service, możesz użyć ikony lub wybrać cudzysłów ostrokątny (">") w dolnej części paska bocznego, aby wybrać App Service środowiska. Wybierając jeden z środowisk ASE na liście, należy otworzyć interfejs użytkownika, który jest używany do monitorowania i zarządzania nim.
 
-![Interfejs użytkownika do monitorowania środowiska usługi app service i zarządzania nim][2]
+![Interfejs użytkownika do monitorowania App Service Environment i zarządzania nim][2]
 
-Ten pierwszy blok pokazuje niektóre właściwości ase, wraz z wykresu metryki na pulę zasobów. Niektóre właściwości, które są wyświetlane w **bloku Essentials** są również hiperłącza, które otworzą bloku, który jest skojarzony z nim. Na przykład można wybrać nazwę **sieci wirtualnej,** aby otworzyć interfejs użytkownika skojarzony z siecią wirtualną, w której działa środowisko ASE. **Plany usługi app service** i **aplikacje** każdy otworzyć bloków, które listy tych elementów, które znajdują się w ASE.  
+Ten pierwszy blok przedstawia niektóre właściwości środowiska ASE oraz wykres metryki dla puli zasobów. Niektóre właściwości, które są wyświetlane w bloku **podstawy** , są również hiperłączami, które spowodują otwarcie bloku, który jest skojarzony z nim. Na przykład możesz wybrać nazwę **Virtual Network** , aby otworzyć interfejs użytkownika skojarzony z siecią wirtualną, w której działa środowisko ASE. **App Service plany** i **aplikacje** każda z nich otwiera listę tych elementów, które znajdują się w środowisku ASE.  
 
 ### <a name="monitoring"></a>Monitorowanie
-Wykresy umożliwiają wyświetlanie różnych metryk wydajności w każdej puli zasobów. W przypadku puli front-end można monitorować średni procesor i pamięć. W przypadku pul procesów roboczych można monitorować ilość, która jest używana i ilość, która jest dostępna.
+Na wykresach można zobaczyć różne metryki wydajności w każdej puli zasobów. Dla puli frontonu można monitorować średni procesor CPU i pamięć. W przypadku pul procesów roboczych można monitorować użytą ilość i ilość, która jest dostępna.
 
-Wiele planów usługi app service można korzystać z pracowników w puli procesów procesowych. Obciążenie nie jest dystrybuowane w taki sam sposób, jak w przypadku serwerów frontonalnej, więc użycie procesora CPU i pamięci nie zapewniają wiele w sposób przydatnych informacji. Ważniejsze jest śledzenie liczby pracowników, których używałeś i którzy są dostępni — zwłaszcza jeśli zarządzasz tym systemem dla innych.  
+Wiele planów App Service może korzystać z pracowników w puli procesów roboczych. Obciążenie nie jest dystrybuowane w taki sam sposób, jak w przypadku serwerów frontonu, dlatego użycie procesora i pamięci nie zapewnia znacznie możliwości użytecznych informacji. Jest to ważniejsze śledzenie liczby używanych i dostępnych procesów roboczych — szczególnie w przypadku zarządzania tym systemem przez inne osoby.  
 
-Można również użyć wszystkich metryk, które mogą być śledzone na wykresach, aby skonfigurować alerty. Konfigurowanie alertów w tym miejscu działa tak samo jak w innych miejscach w usłudze App Service. Alert można ustawić z części Interfejsu użytkownika **alertów** lub z wiercenia w dowolnym interfejsie użytkownika metryk i wybierając **pozycję Dodaj alert**.
+Możesz również użyć wszystkich metryk, które mogą być śledzone na wykresach w celu skonfigurowania alertów. Konfigurowanie alertów w tym miejscu działa tak samo, jak w obszarze App Service. Można ustawić alert z części interfejsu użytkownika **alertów** lub przechodzenie do szczegółów dowolnego interfejsu użytkownika metryk i wybrać pozycję **Dodaj alert**.
 
 ![Interfejs użytkownika metryk][3]
 
-Metryki, które zostały właśnie omówione są metryki środowiska usługi app service. Istnieją również metryki, które są dostępne na poziomie planu usługi aplikacji. To jest, gdy monitorowanie procesora i pamięci ma wiele sensu.
+Omawiane metryki to App Service Environment metryki. Istnieją także metryki, które są dostępne na poziomie planu App Service. Jest to miejsce, w którym monitorowanie procesora CPU i pamięci sprawia dużo sensu.
 
-W ase wszystkie plany usługi app service są dedykowane plany usługi app service. Oznacza to, że tylko aplikacje, które są uruchomione na hostach przydzielonych do tego planu usługi app service są aplikacje w tym planie usługi app service. Aby wyświetlić szczegółowe informacje na temat planu usługi app service, należy wyświetlić plan usługi app service z dowolnej listy w interfejsie użytkownika ASE lub z **witryny Przeglądaj usługi aplikacji** (która zawiera listę wszystkich z nich).   
+W środowisku ASE wszystkie plany App Service są dedykowane App Service plany. Oznacza to, że jedynymi aplikacjami uruchomionymi na hostach przydzielonymi do tego planu App Service są aplikacje w tym App Service planie. Aby wyświetlić szczegółowe informacje na temat planu App Service, zapoznaj się z planem App Service na podstawie dowolnych list w interfejsie użytkownika środowiska ASE lub z **planów App Service przeglądania** (które wyświetla wszystkie z nich).   
 
 ### <a name="settings"></a>Ustawienia
-W bloku ASE znajduje się sekcja **Ustawienia,** która zawiera kilka ważnych możliwości:
+W bloku ASE istnieje sekcja **ustawień** , która zawiera kilka ważnych funkcji:
 
-**Właściwości ustawień:** > **Properties**Blok **Ustawienia** otwiera się automatycznie po wyświetleniu bloku ASE. U góry znajduje się **właściwości**. Istnieje wiele elementów tutaj, które są zbędne do tego, co widzisz w **Essentials**, ale to, co jest bardzo przydatne jest **wirtualny adres IP,** a także **wychodzące adresy IP**.
+**Settings** > **Właściwości**ustawień: blok **Ustawienia** zostanie automatycznie otwarty po wyświetleniu bloku środowiska ASE. U góry jest **Właściwości**. W tym miejscu znajduje się wiele elementów, które są nadmiarowe w programie **Essentials**, ale co jest bardzo przydatne w przypadku **wirtualnego adresu IP**, a także **wychodzących adresów IP**.
 
-![Ustawienia bloku i właściwości][4]
+![Blok ustawień i właściwości][4]
 
-**Ustawienia** > **adresy IP:** Podczas tworzenia aplikacji SSL (IP Secure Sockets Layer) w środowisku ASE potrzebny jest adres SSL IP. Aby uzyskać jeden, twój ASE potrzebuje adresów SSL IP, które jest właścicielem, które mogą być przydzielane. Po utworzeniu ASE ma jeden adres SSL IP w tym celu, ale można dodać więcej. Istnieje opłata za dodatkowe adresy SSL IP, jak pokazano w [cenniku usługi App Service][AppServicePricing] (w sekcji dotyczącej połączeń SSL). Dodatkową ceną jest cena IP SSL.
+**Settings** > **Adresy IP**ustawień: w przypadku tworzenia aplikacji SSL IP (SSL) w środowisku ASE wymagany jest adres połączenie SSL z adresu IP. Aby można było uzyskać ten element, środowisko ASE wymaga Połączenie SSL z adresu IP adresów, do których należy przydzielenia. Po utworzeniu środowisko ASE ma jeden adres Połączenie SSL z adresu IP do tego celu, ale możesz dodać więcej. Jest naliczana opłata za dodatkowe adresy Połączenie SSL z adresu IP, jak pokazano w [App Service cenach][AppServicePricing] (w sekcji połączeń SSL). Cena dodatkowa to Połączenie SSL z adresu IP cena.
 
-**Ustawienia** >  / **pul procesowych puli frontowego:** Każdy z tych bloków puli zasobów oferuje możliwość wyświetlanie informacji tylko na tej puli zasobów, oprócz zapewnienia formantów, aby w pełni skalować tę pulę zasobów.**Front End Pool**  
+**Zestawy frontonów**pul / **procesów roboczych**Pula: Każda z tych bloków puli zasobów umożliwia wyświetlanie informacji tylko dla tej puli zasobów, a także zapewnianie kontroli w celu pełnego skalowania tej puli zasobów.**Front End Pool** >   
 
-Blok podstawowy dla każdej puli zasobów zawiera wykres z metrykami dla tej puli zasobów. Podobnie jak w razie potrzeby w odniesieniu do wykresów z bloku ASE, można przejść do wykresu i skonfigurować alerty zgodnie z potrzebami. Ustawienie alertu z bloku ASE dla określonej puli zasobów robi to samo, co robi to z puli zasobów. W bloku **Ustawienia** puli procesów procesowych masz dostęp do wszystkich planów usługi aplikacji lub usługi app service, które są uruchomione w tej puli procesów roboczych.
+Blok podstawowy dla każdej puli zasobów zawiera wykres z metrykami dla tej puli zasobów. Podobnie jak w przypadku wykresów z bloku ASE, możesz przejść do wykresu i skonfigurować alerty zgodnie z potrzebami. Ustawienie alertu z bloku ASE dla określonej puli zasobów jest takie samo, jak w przypadku tej samej puli zasobów. W bloku **Ustawienia** puli procesów roboczych masz dostęp do wszystkich aplikacji lub planów App Service, które są uruchomione w tej puli procesów roboczych.
 
-![Interfejs użytkownika ustawień puli pracowników][5]
+![Interfejs użytkownika ustawień puli procesów roboczych][5]
 
 ### <a name="portal-scale-capabilities"></a>Możliwości skalowania portalu
-Istnieją trzy operacje skali:
+Istnieją trzy operacje skalowania:
 
-* Zmiana liczby adresów IP w ase, które są dostępne dla użycia protokołu IP SSL.
-* Zmiana rozmiaru zasobu obliczeniowego używanego w puli zasobów.
-* Zmiana liczby zasobów obliczeniowych, które są używane w puli zasobów, ręcznie lub za pomocą skalowania automatycznego.
+* Zmiana liczby adresów IP w środowisku ASE, które są dostępne do Połączenie SSL z adresu IP użycia.
+* Zmiana rozmiaru zasobu obliczeniowego, który jest używany w puli zasobów.
+* Zmiana liczby zasobów obliczeniowych, które są używane w puli zasobów ręcznie lub za pomocą skalowania automatycznego.
 
-W portalu istnieją trzy sposoby kontrolowania liczby serwerów, które mają w pulach zasobów:
+W portalu istnieją trzy sposoby kontrolowania liczby serwerów, które znajdują się w pulach zasobów:
 
-* Operacja skalowania od głównego ostrza ASE u góry. Można wprowadzić wiele zmian konfiguracji skalowania do pul front-end i procesów roboczych. Wszystkie są stosowane jako pojedyncza operacja.
-* Ręczna operacja skalowania z bloku **skalowania** indywidualnej puli zasobów, która znajduje się w obszarze **Ustawienia**.
-* Skalowanie automatyczne, które można skonfigurować z puli poszczególnych zasobów **skalowania** bloku.
+* Operacja skalowania z głównego bloku środowiska ASE w górnej części. Można wprowadzać zmiany konfiguracji wielu skalowania do pul frontonu i procesów roboczych. Są one stosowane w ramach jednej operacji.
+* Operacja skalowania ręcznego z **poziomu bloku** pojedynczej puli zasobów, która znajduje się w obszarze **Ustawienia**.
+* Skalowanie **Automatyczne** , które można skonfigurować z poziomu pojedynczego bloku puli zasobów.
 
-Aby użyć operacji skalowania na bloku ASE, przeciągnij suwak do żądanej ilości i zapisz. Ten interfejs użytkownika obsługuje również zmianę rozmiaru.  
+Aby użyć operacji skalowania w bloku ASE, przeciągnij suwak do odpowiedniej ilości i Zapisz. Ten interfejs użytkownika obsługuje również Zmienianie rozmiaru.  
 
-![Skalowanie interfejsu użytkownika][6]
+![Interfejs użytkownika skalowania][6]
 
-Aby użyć możliwości ręcznego lub skalowania automatycznego w określonej puli zasobów, przejdź odpowiednio do **sekcji Ustawienia** > **pul procesowych puli** **frontowego.** /  Następnie otwórz pulę, którą chcesz zmienić. Przejdź do **pozycji Skalowanie w** > **poziomie** ustawień lub **Skalowanie w** > **górę**. **Blok Skaluj w poziomie** umożliwia kontrolowanie ilości wystąpienia. **Skalowanie w górę** umożliwia kontrolowanie rozmiaru zasobu.  
+Aby użyć funkcji ręcznych lub skalowania automatycznego w określonej puli zasobów, przejdź do pozycji **Ustawienia** > **Pule procesów roboczych** **puli** / frontonu zgodnie z potrzebami. Następnie otwórz pulę, którą chcesz zmienić. Przejdź do pozycji **Ustawienia** > **Skaluj w poziomie lub** **Ustawienia** > **Skaluj w górę**. Blok **skalowanie w poziomie** pozwala sterować ilością wystąpień. **Skalowanie w górę** umożliwia sterowanie rozmiarem zasobów.  
 
-![Skalowanie ustawień interfejsu użytkownika][7]
+![Interfejs użytkownika ustawień skalowania][7]
 
-## <a name="fault-tolerance-considerations"></a>Względy odporności na uszkodzenia
-Można skonfigurować środowisko usługi app service, aby używać do 55 całkowitych zasobów obliczeniowych. Z tych 55 zasobów obliczeniowych tylko 50 może służyć do obsługi obciążeń. Powód jest dwojaki. Istnieje co najmniej 2 zasoby obliczeniowe front-end.  To pozostawia do 53 do obsługi alokacji puli pracowników. Aby zapewnić odporność na uszkodzenia, należy mieć dodatkowy zasób obliczeniowy, który jest przydzielany zgodnie z następującymi regułami:
+## <a name="fault-tolerance-considerations"></a>Uwagi dotyczące odporności na uszkodzenia
+App Service Environment można skonfigurować do korzystania z maksymalnie 55 całkowitej ilości zasobów obliczeniowych. Z tych zasobów obliczeniowych 55 można używać tylko 50 do hostowania obciążeń. Przyczyną tego jest dwa cele. Dostępne są co najmniej dwa zasoby obliczeniowe frontonu.  Powoduje to, że do obsługi alokacji puli procesów roboczych przyjdzie do 53. W celu zapewnienia odporności na uszkodzenia należy dysponować dodatkowym zasobem obliczeniowym przydzielonym zgodnie z następującymi regułami:
 
-* Każda pula procesów procesowych wymaga co najmniej 1 dodatkowego zasobu obliczeniowego, który nie jest dostępny do przypisania obciążenia.
-* Gdy ilość zasobów obliczeniowych w puli procesów procesowych przekracza określoną wartość, do odporności na uszkodzenia wymagany jest inny zasób obliczeniowy. Nie dotyczy to puli front-end.
+* Każda pula procesów roboczych wymaga co najmniej 1 dodatkowego zasobu obliczeniowego, który nie jest dostępny do przypisywania obciążenia.
+* Gdy ilość zasobów obliczeniowych w puli procesów roboczych przekracza określoną wartość, do odporności na uszkodzenia jest wymagany inny zasób obliczeniowy. Nie jest to przypadek w puli frontonu.
 
-W dowolnej puli pojedynczego procesu roboczego wymagania dotyczące tolerancji na uszkodzenia są określone dla danej wartości zasobów X przypisanych do puli procesów roboczych:
+W ramach jednej puli procesów roboczych wymagania dotyczące odporności na uszkodzenia są przeznaczone dla danej wartości X zasobów przypisanych do puli procesów roboczych:
 
-* Jeśli X jest między 2 i 20, ilość zasobów obliczeniowych użytecznych, które można użyć dla obciążeń jest X-1.
-* Jeśli X jest między 21 i 40, ilość zasobów obliczeniowych użytecznych, które można użyć dla obciążeń jest X-2.
-* Jeśli X jest między 41 i 53, ilość zasobów obliczeniowych użytecznych, które można użyć dla obciążeń jest X-3.
+* Jeśli X jest z zakresu od 2 do 20, ilość zasobów obliczeniowych, których można użyć do obciążeń, to X-1.
+* Jeśli X jest z zakresu od 21 do 40, ilość zasobów obliczeniowych, których można użyć do obciążeń, to X-2.
+* Jeśli X wynosi od 41 do 53, ilość zasobów obliczeniowych, których można użyć do obciążeń, to X-3.
 
-Minimalny rozmiar ma 2 serwery front-end i 2 pracowników.  Z powyższych stwierdzeń następnie, oto kilka przykładów do wyjaśnienia:  
+Minimalna wartość to 2 serwery frontonu i 2 procesy robocze.  Korzystając z powyższych instrukcji, poniżej przedstawiono kilka przykładów, które należy wyjaśnić:  
 
-* Jeśli masz 30 pracowników w jednej puli, a następnie 28 z nich może służyć do obsługi obciążeń.
-* Jeśli masz 2 pracowników w jednej puli, a następnie 1 może służyć do obsługi obciążeń.
-* Jeśli masz 20 pracowników w jednej puli, a następnie 19 może służyć do obsługi obciążeń.  
-* Jeśli masz 21 pracowników w jednej puli, nadal tylko 19 może służyć do obsługi obciążeń.  
+* Jeśli masz 30 procesów roboczych w pojedynczej puli, 28 z nich można używać do hostowania obciążeń.
+* Jeśli masz 2 procesy robocze w pojedynczej puli, to 1 może służyć do hostowania obciążeń.
+* Jeśli masz 20 procesów roboczych w pojedynczej puli, 19 może służyć do hostowania obciążeń.  
+* Jeśli masz 21 procesów roboczych w pojedynczej puli, nadal można używać tylko 19 do obsługi obciążeń.  
 
-Aspekt odporności na uszkodzenia jest ważny, ale należy o tym pamiętać podczas skalowania powyżej określonych progów. Jeśli chcesz dodać więcej pojemności będzie z 20 wystąpień, a następnie przejdź do 22 lub więcej, ponieważ 21 nie dodaje więcej pojemności. To samo dotyczy powyżej 40, gdzie następna liczba, która dodaje pojemność, wynosi 42.  
+Aspekt odporności na uszkodzenia jest istotny, ale należy go zachować na potrzeby skalowania powyżej pewnych progów. Jeśli chcesz zwiększyć pojemność przechodzącą z 20 wystąpień, przejdź do 22 lub nowszej, ponieważ 21 nie dodaje większej pojemności. Taka sama wartość ma miejsce powyżej 40, gdzie kolejny numer, który dodaje pojemność, to 42.  
 
-## <a name="deleting-an-app-service-environment"></a>Usuwanie środowiska usługi aplikacji
-Jeśli chcesz usunąć środowisko usługi app service, a następnie po prostu użyj **akcji Usuń** u góry bloku środowiska usługi app service. Po wykonaniu tej tej zgody zostanie wyświetlony monit o wprowadzenie nazwy środowiska usługi app service, aby potwierdzić, że naprawdę chcesz to zrobić. Należy zauważyć, że po usunięciu środowiska usługi aplikacji, należy usunąć całą zawartość w nim, jak również.  
+## <a name="deleting-an-app-service-environment"></a>Usuwanie App Service Environment
+Jeśli chcesz usunąć App Service Environment, po prostu Użyj akcji **Usuń** w górnej części bloku App Service Environment. Gdy to zrobisz, zostanie wyświetlony monit o wprowadzenie nazwy App Service Environment, aby potwierdzić, że naprawdę chcesz to zrobić. Należy pamiętać, że po usunięciu App Service Environment należy również usunąć całą jego zawartość.  
 
-![Usuwanie interfejsu użytkownika środowiska usługi aplikacji][9]  
+![Usuwanie App Service Environment interfejsu użytkownika][9]  
 
 ## <a name="getting-started"></a>Wprowadzenie
-Aby rozpocząć korzystanie ze środowisk usługi app service, zobacz [Jak utworzyć środowisko usługi app service](app-service-web-how-to-create-an-app-service-environment.md).
+Aby rozpocząć pracę z App Service środowiskami, zobacz [jak utworzyć App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

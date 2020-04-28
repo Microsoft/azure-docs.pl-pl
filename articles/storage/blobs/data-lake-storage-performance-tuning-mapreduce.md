@@ -1,6 +1,6 @@
 ---
-title: 'Dostrajanie wydajności: MapReduce, HDInsight & Azure Data Lake Storage Gen2 | Dokumenty firmy Microsoft'
-description: Wskazówki dotyczące dostrajania wydajności usługi Azure Data Lake Storage Gen2
+title: 'Dostrajanie wydajności: MapReduce, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
+description: Wskazówki dotyczące dostrajania wydajności Azure Data Lake Storage Gen2 MapReduce
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,112 +9,112 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: a3ea6858355d6cb921f629bf36134d96371f6244
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74327929"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Dostrajanie wydajności: MapReduce, HDInsight & Azure Data Lake Storage Gen2
 
-Zrozumienie czynników, które należy wziąć pod uwagę podczas dostrojenia wydajności zadań Redukcji mapy. W tym artykule omówiono szereg wskazówek dotyczących dostrajania wydajności.
+Informacje o czynnikach, które należy wziąć pod uwagę podczas dostrajania wydajności zadań zmniejszania mapy. W tym artykule omówiono zakres wytycznych dotyczących dostrajania wydajności.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Konto usługi Azure Data Lake Storage Gen2**. Aby uzyskać instrukcje dotyczące tworzenia jednego z nich, zobacz [Szybki start: Tworzenie konta magazynu usługi Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
-* **Klaster usługi Azure HDInsight** z dostępem do konta Data Lake Storage Gen2. Zobacz [Korzystanie z usługi Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
-* **Korzystanie MapReduce na HDInsight**.  Aby uzyskać więcej informacji, zobacz [Korzystanie z mapReduce w hadoop na HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
-* **Wskazówki dotyczące dostrajania wydajności w programie Data Lake Storage Gen2**.  Aby zapoznać się z ogólnymi pojęciami dotyczącymi wydajności, zobacz [Wskazówki dotyczące dostrajania wydajności magazynu w ułowia](data-lake-storage-performance-tuning-guidance.md) w u źródła danych
+* **Konto Azure Data Lake Storage Gen2**. Aby uzyskać instrukcje dotyczące sposobu tworzenia takiego elementu, zobacz [Szybki Start: Tworzenie konta magazynu Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+* **Klaster usługi Azure HDInsight** z dostępem do konta Data Lake Storage Gen2. Zobacz [używanie Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
+* **Korzystanie z usługi MapReduce w usłudze HDInsight**.  Aby uzyskać więcej informacji, zobacz [Korzystanie z MapReduce w usłudze Hadoop w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
+* **Wskazówki dotyczące dostrajania wydajności na Data Lake Storage Gen2**.  Ogólne pojęcia dotyczące wydajności znajdują się w temacie [Data Lake Storage Gen2 wskazówki dotyczące dostrajania wydajności](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parametry
 
-Podczas uruchamiania zadań MapReduce, oto parametry, które można skonfigurować w celu zwiększenia wydajności w programie Data Lake Storage Gen2:
+W przypadku uruchamiania zadań MapReduce poniżej przedstawiono parametry, które można skonfigurować w celu zwiększenia wydajności Data Lake Storage Gen2:
 
-* **Mapreduce.map.memory.mb** — ilość pamięci do przydzielenia każdemu maperowi
-* **Mapreduce.job.maps** — liczba zadań mapy na zadanie
-* **Mapreduce.reduce.memory.mb** — ilość pamięci do przydzielenia każdemu reduktorowi
-* **Mapreduce.job.reduces** — liczba zmniejszyć liczbę zadań na zadanie
+* **MapReduce. map. Memory. MB** — ilość pamięci do przydzielenia do każdego mapowania
+* **MapReduce. job. Maps** — liczba zadań mapy według zadania
+* **MapReduce. Zredukuj. Memory. MB** — ilość pamięci do przydzielenia każdemu obniżyć
+* **MapReduce. job. maleje** — liczba zadań zmniejszania według zadania
 
-**Mapreduce.map.memory / Mapreduce.reduce.memory** Liczba ta powinna być dostosowana w zależności od ilości pamięci potrzebnej do mapy i/lub zmniejszenia zadania.  Domyślne wartości mapreduce.map.memory i mapreduce.reduce.memory można przeglądać w Ambari za pośrednictwem konfiguracji przędzy.  W Ambari przejdź do YARN i wyświetl kartę Konfiguracje.  Zostanie wyświetlona pamięć YARN.  
+**MapReduce. map. Memory/MapReduce. Zmniejsz ilość pamięci** Tę liczbę należy dostosować w zależności od ilości pamięci wymaganej do zaplanowania i/lub zmniejszenia zadania.  Wartości domyślne MapReduce. map. Memory i MapReduce. redukować. Memory można wyświetlić w Ambari za pomocą konfiguracji przędzy.  W Ambari przejdź do PRZĘDZy i Wyświetl kartę konfiguracje.  Zostanie wyświetlona pamięć PRZĘDZy.  
 
-**Mapreduce.job.maps / Mapreduce.job.reduces** Określi to maksymalną liczbę maperów lub reduktorów, które mają zostać utworzone.  Liczba podziałów określi, ile maperów zostanie utworzonych dla zadania MapReduce.  W związku z tym można uzyskać mniej maperów niż wymagane, jeśli istnieje mniej podziałów niż liczba mapperów wymagane.       
+**MapReduce. job. Maps/MapReduce. job. Zmniejsz** Pozwoli to określić maksymalną liczbę odwzorów lub skróceniów, które mają zostać utworzone.  Liczba podziałów określi, ile mapowania zostanie utworzonych dla zadania MapReduce.  W związku z tym, możesz uzyskać mniejszą liczbę odwzorów niż zażądano, jeśli są mniejsze niż liczba żądanych odwzorowań.       
 
 ## <a name="guidance"></a>Wskazówki
 
 > [!NOTE]
-> Wskazówki w tym dokumencie przyjęto założenie, że aplikacja jest jedyną aplikacją działającą w klastrze.
+> W wytycznych w tym dokumencie przyjęto założenie, że aplikacja jest jedyną aplikacją uruchomioną w klastrze.
 
-**Krok 1: Określ liczbę uruchomionych zadań**
+**Krok 1. określenie liczby uruchomionych zadań**
 
-Domyślnie MapReduce użyje całego klastra dla zadania.  Można użyć mniej klastra przy użyciu mniej maperów niż istnieją dostępne kontenery.        
+Domyślnie MapReduce będzie używać całego klastra dla danego zadania.  Możesz użyć mniejszej ilości z klastra, używając mniej odwzorów niż dostępne kontenery.        
 
-**Krok 2: Ustaw mapreduce.map.memory/mapreduce.reduce.memory**
+**Krok 2: Ustawianie MapReduce. map. Memory/MapReduce. Zmniejsz ilość pamięci**
 
-Rozmiar pamięci dla mapy i zmniejszyć zadania będą zależeć od konkretnego zadania.  Można zmniejszyć rozmiar pamięci, jeśli chcesz zwiększyć współbieżność.  Liczba jednocześnie uruchomionych zadań zależy od liczby kontenerów.  Zmniejszając ilość pamięci na mapera lub reduktora, można utworzyć więcej kontenerów, które umożliwiają uruchamianie równocześnie większej liczby maperów lub reduktorów.  Zmniejszenie ilości pamięci zbyt dużo może spowodować, że niektóre procesy zabraknie pamięci.  Jeśli podczas uruchamiania zadania pojawia się błąd sterty, należy zwiększyć pamięć na mapera lub reduktora.  Należy wziąć pod uwagę, że dodanie większej liczby kontenerów spowoduje dodanie dodatkowych nakładów dla każdego dodatkowego kontenera, co może potencjalnie obniżyć wydajność.  Inną alternatywą jest uzyskanie większej ilości pamięci przy użyciu klastra, który ma większe ilości pamięci lub zwiększenie liczby węzłów w klastrze.  Więcej pamięci umożliwi więcej kontenerów do użycia, co oznacza większą współbieżność.  
+Rozmiar pamięci dla zadań mapowania i zmniejszania zależy od konkretnego zadania.  Aby zwiększyć współbieżność, można zmniejszyć rozmiar pamięci.  Liczba zadań wykonywanych współbieżnie zależy od liczby kontenerów.  Zmniejszając ilość pamięci na Maper lub zmniejszenie, można utworzyć więcej kontenerów, co umożliwia współbieżne uruchamianie większej liczby lub mniejszej liczby elementów.  Zmniejszenie ilości pamięci może spowodować, że niektóre procesy nie zapewnią ilości pamięci.  Jeśli podczas wykonywania zadania wystąpi błąd sterty, należy zwiększyć ilość pamięci na mapowanie lub zmniejszenie.  Należy wziąć pod uwagę, że dodanie kolejnych kontenerów spowoduje dodanie dodatkowych obciążeń dla każdego dodatkowego kontenera, co może spowodować spadek wydajności.  Kolejną alternatywą jest uzyskanie większej ilości pamięci przy użyciu klastra o większej ilości pamięci lub zwiększenie liczby węzłów w klastrze.  Większa ilość pamięci umożliwi użycie większej liczby kontenerów, co oznacza większą współbieżność.  
 
-**Krok 3: Określ całkowitą pamięć PRZĘDZY**
+**Krok 3. Określanie całkowitej ilości pamięci PRZĘDZy**
 
-Aby dostroić mapreduce.job.maps/mapreduce.job.reduces, należy wziąć pod uwagę ilość całkowitej pamięci YARN dostępnej do użycia.  Informacje te są dostępne w ambari.  Przejdź do pozycji YARN i wyświetl kartę Konfiguracje.  Pamięć YARN jest wyświetlana w tym oknie.  Należy pomnożyć pamięć YARN z liczbą węzłów w klastrze, aby uzyskać całkowitą pamięć YARN.
+Aby dostroić MapReduce. job. Maps/MapReduce. job. maleje, należy wziąć pod uwagę łączną ilość dostępnej pamięci PRZĘDZy do użycia.  Te informacje są dostępne w Ambari.  Przejdź do PRZĘDZy i Wyświetl kartę konfiguracje.  W tym oknie zostanie wyświetlona pamięć PRZĘDZy.  Należy pomnożyć pamięć PRZĘDZy z liczbą węzłów w klastrze, aby uzyskać łączną ilość pamięci PRZĘDZy.
 
     Total YARN memory = nodes * YARN memory per node
 
-Jeśli używasz pustego klastra, pamięć może być całkowita pamięć YARN dla klastra.  Jeśli inne aplikacje używają pamięci, można wybrać użycie tylko części pamięci klastra, zmniejszając liczbę maperów lub reduktorów do liczby kontenerów, których chcesz użyć.  
+Jeśli używasz pustego klastra, pamięć może być całkowitą ilością pamięci PRZĘDZy dla klastra.  Jeśli inne aplikacje używają pamięci, można użyć tylko części pamięci klastra, zmniejszając liczbę odwzorów lub mniejszą liczbę kontenerów, które mają być używane.  
 
-**Krok 4: Oblicz liczbę pojemników YARN**
+**Krok 4. Obliczanie liczby kontenerów PRZĘDZy**
 
-Kontenery PRZĘDZy dyktują ilość współbieżności dostępnej dla zadania.  Weź całkowitą pamięć YARN i podziel ją przez mapreduce.map.memory.  
+Kontenery PRZĘDZy określają ilość współbieżności dostępnej dla zadania.  Weź łączną ilość pamięci PRZĘDZy i Podziel ją przez MapReduce. map. Memory.  
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
 
-**Krok 5: Ustaw mapreduce.job.maps/mapreduce.job.reduces**
+**Krok 5. Ustawianie MapReduce. job. Maps/MapReduce. job. redukuje**
 
-Ustaw mapreduce.job.maps/mapreduce.job.reduces do co najmniej liczby dostępnych kontenerów.  Możesz eksperymentować dalej, zwiększając liczbę maperów i reduktorów, aby sprawdzić, czy uzyskasz lepszą wydajność.  Należy pamiętać, że więcej maperów będzie miało dodatkowe obciążenie, więc posiadanie zbyt wielu maperów może obniżyć wydajność.  
+Ustaw wartość MapReduce. job. Maps/MapReduce. job. zmniejsza się do co najmniej liczby dostępnych kontenerów.  Aby uzyskać lepszą wydajność, można eksperymentować przez zwiększenie liczby odwzorowań i elementów ograniczających.  Należy pamiętać, że więcej odwzorowań będzie miało dodatkowe obciążenie, tak że zbyt wiele mapowania może obniżyć wydajność.  
 
-Planowanie procesora CPU i izolacja procesora CPU są domyślnie wyłączone, więc liczba kontenerów YARN jest ograniczona przez pamięć.
+Planowanie procesora CPU i izolacja procesora CPU są domyślnie wyłączone, więc liczba kontenerów PRZĘDZy jest ograniczona przez pamięć.
 
 ## <a name="example-calculation"></a>Przykładowe obliczenie
 
-Załóżmy, że mamy klaster składający się z 8 węzłów D14 i chcemy uruchomić zadanie intensywnie we/wy.  Oto obliczenia, które powinieneś wykonać:
+Załóżmy, że mamy klaster składający się z 8 D14 węzłów i chcemy uruchomić zadanie intensywnie korzystające z operacji we/wy.  Poniżej przedstawiono obliczenia, które należy wykonać:
 
-**Krok 1: Określ liczbę uruchomionych zadań**
+**Krok 1. określenie liczby uruchomionych zadań**
 
-W tym przykładzie załóżmy, że nasze zadanie jest jedynym zadaniem, które jest uruchomione.  
+W tym przykładzie Załóżmy, że nasze zadanie jest jedynym uruchomionym zadaniem.  
 
-**Krok 2: Ustaw mapreduce.map.memory/mapreduce.reduce.memory**
+**Krok 2: Ustawianie MapReduce. map. Memory/MapReduce. Zmniejsz ilość pamięci**
 
-W tym przykładzie uruchamiamy zadanie intensywnie we/wy i decydujemy, że 3 GB pamięci dla zadań mapy będzie wystarczające.
+W tym przykładzie uruchomiono zadanie intensywnie korzystające z operacji we/wy i podjęto decyzję o tym, że WŁĄCZONĄ pamięci na potrzeby zadań związanych z mapowaniem będą wystarczające.
 
     mapreduce.map.memory = 3GB
 
-**Krok 3: Określ całkowitą pamięć PRZĘDZY**
+**Krok 3. Określanie całkowitej ilości pamięci PRZĘDZy**
 
     Total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
-**Krok 4: Oblicz numer pojemników YARN**
+**Krok 4. Obliczanie liczby kontenerów PRZĘDZy**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
-**Krok 5: Ustaw mapreduce.job.maps/mapreduce.job.reduces**
+**Krok 5. Ustawianie MapReduce. job. Maps/MapReduce. job. redukuje**
 
     mapreduce.map.jobs = 256
 
 ## <a name="examples-to-run"></a>Przykłady do uruchomienia
 
-Aby zademonstrować, jak MapReduce działa w u źródła danych Lake Storage Gen2, poniżej znajduje się przykładowy kod, który został uruchomiony w klastrze z następującymi ustawieniami:
+Aby zademonstrować, jak MapReduce działa na Data Lake Storage Gen2, poniżej przedstawiono przykładowy kod, który został uruchomiony w klastrze z następującymi ustawieniami:
 
-* 16 węzeł D14v2
-* Klaster Hadoop z hdi 3.6
+* 16 węzłów D14v2
+* Klaster Hadoop z systemem HDI 3,6
 
-Dla punktu wyjścia, oto kilka przykładowych poleceń do uruchamiania MapReduce Teragen, Terasort i Teravalidate.  Można dostosować te polecenia na podstawie zasobów.
+Oto kilka przykładowych poleceń do uruchomienia MapReduce Teragen, Terasort i Teravalidate.  Można dostosować te polecenia w zależności od zasobów.
 
-**Teragen ( Teragen )**
+**Teragen**
 
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 abfs://example/data/1TB-sort-input
 
-**Okręg wyborczy Terasort**
+**Terasort**
 
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 abfs://example/data/1TB-sort-input abfs://example/data/1TB-sort-output
 
-**Teravalidate (terawalidate)**
+**Teravalidate**
 
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 abfs://example/data/1TB-sort-output abfs://example/data/1TB-sort-validate

@@ -1,6 +1,6 @@
 ---
-title: Problemy z konfigurowaniem federacyjnego przysłowiowa dla aplikacji usługi Azure AD Gallery
-description: Rozwiązywanie niektórych typowych problemów, które mogą wystąpić podczas konfigurowania federacyjnego logowania jednokrotnego przy użyciu saml dla aplikacji wymienionych w Galerii aplikacji usługi Azure AD
+title: Problemy z konfigurowaniem federacyjnego logowania jednokrotnego dla aplikacji w galerii usługi Azure AD
+description: Rozwiązywanie niektórych typowych problemów, które mogą wystąpić podczas konfigurowania federacyjnego logowania jednokrotnego przy użyciu języka SAML dla aplikacji, które są wymienione w galerii aplikacji usługi Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,99 +16,99 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87c2497a781b0d46b3b2f1e281a3d7b327b60952
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74274655"
 ---
-# <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem z konfigurowaniem federacyjnego logowania jednokrotnego dla aplikacji usługi Azure AD Gallery
+# <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Wystąpił problem podczas konfigurowania federacyjnego logowania jednokrotnego dla aplikacji w galerii usługi Azure AD
 
-Jeśli wystąpi problem podczas konfigurowania aplikacji. Sprawdź, czy postępuje wszystkie kroki opisane w samouczku dla aplikacji. W konfiguracji aplikacji masz wbudowaną dokumentację dotyczącą konfigurowania aplikacji. Ponadto można uzyskać dostęp do [listy samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory, aby](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) uzyskać szczegółowe wskazówki krok po kroku.
+Jeśli wystąpi problem podczas konfigurowania aplikacji. Upewnij się, że wykonano wszystkie kroki samouczka dotyczące aplikacji. W konfiguracji aplikacji masz wbudowaną dokumentację dotyczącą konfigurowania aplikacji. Ponadto możesz uzyskać dostęp do [listy samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) , aby uzyskać szczegółowe wskazówki krok po kroku.
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Nie można dodać innego wystąpienia aplikacji
 
 Aby dodać drugie wystąpienie aplikacji, musisz mieć możliwość:
 
--   Skonfiguruj unikatowy identyfikator dla drugiego wystąpienia. Nie będzie można skonfigurować tego samego identyfikatora używanego dla pierwszego wystąpienia.
+-   Skonfiguruj unikatowy identyfikator drugiego wystąpienia. Nie będzie można skonfigurować tego samego identyfikatora, który jest używany dla pierwszego wystąpienia.
 
--   Skonfiguruj inny certyfikat niż używany w pierwszym wystąpieniu.
+-   Skonfiguruj inny certyfikat niż użyty dla pierwszego wystąpienia.
 
 Jeśli aplikacja nie obsługuje żadnego z powyższych. Następnie nie będzie można skonfigurować drugiego wystąpienia.
 
-## <a name="cant-add-the-identifier-or-the-reply-url"></a>Nie można dodać identyfikatora ani adresu URL odpowiedzi
+## <a name="cant-add-the-identifier-or-the-reply-url"></a>Nie można dodać identyfikatora lub adresu URL odpowiedzi
 
-Jeśli nie możesz skonfigurować identyfikatora lub adresu URL odpowiedzi, upewnij się, że wartości identyfikatora i adresu URL odpowiedzi są zgodne z wzorcami wstępnie skonfigurowanym dla aplikacji.
+Jeśli nie możesz skonfigurować identyfikatora lub adresu URL odpowiedzi, potwierdź, że wartości identyfikatorów i adresów URL odpowiedzi są zgodne ze wzorcem wstępnie skonfigurowanym dla aplikacji.
 
-Aby poznać wzorce wstępnie skonfigurowane dla aplikacji:
+Aby poznać wzorce, które zostały wstępnie skonfigurowane dla aplikacji:
 
-1. Otwórz [**witrynę Azure portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator.** Przejdź do kroku 7. Jeśli jesteś już w bloku konfiguracji aplikacji na platformie Azure AD.
+1. Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator.** Przejdź do kroku 7. Jeśli jesteś już w bloku konfiguracja aplikacji w usłudze Azure AD.
 
-2. Otwórz **rozszerzenie usługi Azure Active Directory,** klikając **pozycję Wszystkie usługi** u góry głównego menu nawigacji po lewej stronie.
+2. Otwórz **rozszerzenie Azure Active Directory** , klikając pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie.
 
-3. Wpisz **"Usługa Azure Active Directory"** w polu wyszukiwania filtru i wybierz element **usługi Azure Active Directory.**
+3. Wpisz ciąg **"Azure Active Directory**" w polu wyszukiwania filtru i wybierz element **Azure Active Directory** .
 
-4. kliknij polecenie **Aplikacje przedsiębiorstwa** z menu nawigacji po lewej stronie usługi Azure Active Directory.
+4. Kliknij pozycję **aplikacje przedsiębiorstwa** w menu nawigacji po lewej stronie Azure Active Directory.
 
-5. kliknij pozycję **Wszystkie aplikacje,** aby wyświetlić listę wszystkich aplikacji.
+5. Kliknij pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji.
 
-   * Jeśli nie widzisz aplikacji, która ma być pokazana w tym miejscu, użyj kontrolki **Filtruj** u góry **listy Wszystkie aplikacje** i ustaw opcję **Pokaż** na **Wszystkie aplikacje.**
+   * Jeśli nie widzisz aplikacji, która ma być wyświetlana w tym miejscu, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje** i ustaw opcję **Pokaż** na **wszystkie aplikacje.**
 
-6. Wybierz aplikację, którą chcesz skonfigurować logowanie jednokrotne.
+6. Wybierz aplikację, dla której chcesz skonfigurować Logowanie jednokrotne.
 
-7. Po załadowaniu aplikacji kliknij **logowanie jednokrotne** z menu nawigacji po lewej stronie aplikacji.
+7. Po załadowaniu aplikacji kliknij pozycję **Logowanie** jednokrotne w menu nawigacji po lewej stronie aplikacji.
 
-8. Z listy rozwijanej **Tryb** wybierz **opcję Logowanie oparte na SAML.**
+8. Wybierz pozycję **Logowanie oparte** na protokole SAML z listy rozwijanej **tryb** .
 
-9. Przejdź do pola tekstowego **Identyfikator** lub **Odpowiedz adres URL** w sekcji **Domena i adresy URL.**
+9. Przejdź do pola tekstowego **Identyfikator** lub **adres URL odpowiedzi** w **sekcji domena i adresy URL.**
 
-10. Istnieją trzy sposoby poznania obsługiwanych wzorców dla aplikacji:
+10. Istnieją trzy sposoby, aby poznać obsługiwane wzorce dla aplikacji:
 
-    * W polu tekstowym zobaczysz obsługiwany wzorzec(-y) jako przykład zastępczy: *Example:* <https://contoso.com>.
+    * W polu tekstowym widzisz obsługiwane wzorce jako przykład zastępczy *:* <https://contoso.com>.
 
-    * Jeśli wzorzec nie jest obsługiwany, podczas próby wprowadzenia wartości w polu tekstowym zostanie wyświetlony czerwony wykrzyknik. Po najechaniu kursorem myszy na czerwony wykrzyknik, zobaczysz obsługiwane wzorce.
+    * Jeśli wzorzec nie jest obsługiwany, zobaczysz czerwony wykrzyknik przy próbie wprowadzenia wartości w polu tekstowym. Jeśli umieścisz wskaźnik myszy nad czerwonym wykrzyknikiem, zobaczysz obsługiwane wzorce.
 
-    * W samouczku dla aplikacji można również uzyskać informacje o obsługiwanych wzorców. W obszarze **Konfigurowanie usługi Azure AD logowania jednokrotnego** sekcji. Przejdź do kroku, aby skonfigurować wartości w sekcji **Domena i adresy URL.**
+    * W samouczku dotyczącym aplikacji można także uzyskać informacje o obsługiwanych wzorcach. W sekcji Konfigurowanie logowania jednokrotnego w **usłudze Azure AD** . Przejdź do kroku, aby skonfigurować wartości w sekcji **domen i adresów URL** .
 
-Jeśli wartości nie są zgodne z wzorców wstępnie skonfigurowane w usłudze Azure AD. Możesz:
+Jeśli wartości nie są zgodne ze wzorcami wstępnie skonfigurowanymi w usłudze Azure AD. Można:
 
--   Praca z dostawcą aplikacji w celu uzyskania wartości zgodnych ze wzorcem wstępnie skonfigurowanym w usłudze Azure AD
+-   Współpraca z dostawcą aplikacji w celu uzyskania wartości zgodnych ze wzorcem wstępnie skonfigurowanym w usłudze Azure AD
 
--   Możesz też skontaktować się <aadapprequest@microsoft.com> z zespołem usługi Azure AD lub zostawić komentarz w samouczku, aby poprosić o aktualizację obsługiwanych wzorców dla aplikacji
+-   Możesz też skontaktować się z zespołem <aadapprequest@microsoft.com> usługi Azure AD lub pozostawić komentarz w samouczku, aby zażądać aktualizacji obsługiwanych wzorców dla aplikacji
 
-## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Gdzie ustawić format Identyfikator jednostki (identyfikator użytkownika)
+## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Gdzie ustawić format EntityID (identyfikator użytkownika)
 
-Nie będzie można wybrać formatu Identyfikator użytkownika , który usługa Azure AD wysyła do aplikacji w odpowiedzi po uwierzytelnieniu użytkownika.
+Nie będzie można wybrać formatu EntityID (identyfikator użytkownika), który usługa Azure AD wysyła do aplikacji w odpowiedzi po uwierzytelnieniu użytkownika.
 
-Usługa Azure AD wybierz format atrybutu NameID (identyfikator użytkownika) na podstawie wybranej wartości lub formatu żądanego przez aplikację w saml AuthRequest. Aby uzyskać więcej informacji, odwiedź artykuł [Protokół SAML logowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) w sekcji NameIDPolicy,
+Usługa Azure AD wybierz format atrybutu NameID (identyfikator użytkownika) w oparciu o wybraną wartość lub format żądany przez aplikację w elemencie SAML AuthRequest. Aby uzyskać więcej informacji, zapoznaj się z artykułem Logowanie jednokrotne logowania jednokrotnego [protokołu SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) w sekcji NameIDPolicy.
 
-## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Nie można znaleźć metadanych usługi Azure AD, aby zakończyć konfigurację za pomocą aplikacji
+## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Nie można znaleźć metadanych usługi Azure AD w celu ukończenia konfiguracji w aplikacji
 
 Aby pobrać metadane aplikacji lub certyfikat z usługi Azure AD, wykonaj następujące kroki:
 
-1. Otwórz [**witrynę Azure portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator.**
+1. Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator.**
 
-2. Otwórz **rozszerzenie usługi Azure Active Directory,** klikając **pozycję Wszystkie usługi** u góry głównego menu nawigacji po lewej stronie.
+2. Otwórz **rozszerzenie Azure Active Directory** , klikając pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie.
 
-3. Wpisz **"Usługa Azure Active Directory"** w polu wyszukiwania filtru i wybierz element **usługi Azure Active Directory.**
+3. Wpisz ciąg **"Azure Active Directory**" w polu wyszukiwania filtru i wybierz element **Azure Active Directory** .
 
-4. kliknij polecenie **Aplikacje przedsiębiorstwa** z menu nawigacji po lewej stronie usługi Azure Active Directory.
+4. Kliknij pozycję **aplikacje przedsiębiorstwa** w menu nawigacji po lewej stronie Azure Active Directory.
 
-5. kliknij pozycję **Wszystkie aplikacje,** aby wyświetlić listę wszystkich aplikacji.
+5. Kliknij pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji.
 
-   * Jeśli nie widzisz aplikacji, która ma być pokazana w tym miejscu, użyj kontrolki **Filtruj** u góry **listy Wszystkie aplikacje** i ustaw opcję **Pokaż** na **Wszystkie aplikacje.**
+   * Jeśli nie widzisz aplikacji, która ma być wyświetlana w tym miejscu, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje** i ustaw opcję **Pokaż** na **wszystkie aplikacje.**
 
-6. Wybierz aplikację skonfigurowaną logowanie jednokrotne.
+6. Wybierz aplikację, dla której skonfigurowano Logowanie jednokrotne.
 
-7. Po załadowaniu aplikacji kliknij **logowanie jednokrotne** z menu nawigacji po lewej stronie aplikacji.
+7. Po załadowaniu aplikacji kliknij pozycję **Logowanie** jednokrotne w menu nawigacji po lewej stronie aplikacji.
 
-8. Przejdź do sekcji **Saml Podpisywanie certyfikatów,** a następnie kliknij pozycję **Pobierz** wartość kolumny. W zależności od tego, co aplikacja wymaga konfigurowania logowania jednokrotnego, zostanie wyświetlone możliwe pobranie metadanych XML lub certyfikatu.
+8. Przejdź do sekcji **certyfikat podpisywania SAML** , a następnie kliknij pozycję **Pobierz** wartość kolumny. W zależności od tego, co aplikacja wymaga skonfigurowania logowania jednokrotnego, zobaczysz opcję pobrania XML metadanych lub certyfikatu.
 
-Usługa Azure AD nie udostępnia adresu URL, aby uzyskać metadane. Metadane można pobrać tylko jako plik XML.
+Usługa Azure AD nie udostępnia adresu URL do pobrania metadanych. Metadane można pobrać tylko jako plik XML.
 
-## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Nie wiem, jak dostosować oświadczenia SAML wysyłane do aplikacji
+## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Nie wiadomo, jak dostosować oświadczenia SAML wysyłane do aplikacji
 
-Aby dowiedzieć się, jak dostosować oświadczenia atrybutów SAML wysyłane do aplikacji, zobacz [Mapowanie oświadczeń w usłudze Azure Active Directory,](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) aby uzyskać więcej informacji.
+Aby dowiedzieć się, jak dostosować oświadczenia atrybutu SAML wysyłane do aplikacji, zobacz [Mapowanie oświadczeń w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) , aby uzyskać więcej informacji.
 
 ## <a name="next-steps"></a>Następne kroki
-[Zarządzanie aplikacjami za pomocą usługi Azure Active Directory](what-is-application-management.md)
+[Zarządzanie aplikacjami za pomocą Azure Active Directory](what-is-application-management.md)

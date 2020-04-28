@@ -1,6 +1,6 @@
 ---
-title: Opuszczanie organizacji jako użytkownik-gość — usługa Azure Active Directory
-description: Pokazuje, jak użytkownik-gość usługi Azure AD B2B może opuścić organizację za pomocą Panelu dostępu.
+title: Opuść organizację jako użytkownika-gościa — Azure Active Directory
+description: Pokazuje, w jaki sposób użytkownik systemu Azure AD B2B może opuścić organizację przy użyciu panelu dostępu.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,18 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bce67c81b924d768826402b707c41c085b7767b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74272494"
 ---
-# <a name="leave-an-organization-as-a-guest-user"></a>Opuszczanie organizacji jako użytkownika-gościa
+# <a name="leave-an-organization-as-a-guest-user"></a>Opuść organizację jako użytkownika-gościa
 
-Użytkownik-gość usługi Azure Active Directory (Azure AD) B2B może zdecydować o opuszczeniu organizacji w dowolnym momencie, jeśli nie musi już korzystać z aplikacji z tej organizacji ani utrzymywać żadnego skojarzenia. Użytkownik może opuścić organizację samodzielnie, bez konieczności kontaktowego się z administratorem.
+Azure Active Directory (Azure AD) użytkownik-Gość B2B może zdecydować się na pozostawienie organizacji w dowolnym momencie, jeśli nie muszą już korzystać z aplikacji z tej organizacji lub zachować żadnego skojarzenia. Użytkownik może samodzielnie opuścić organizację, bez konieczności kontaktowania się z administratorem.
 
 > [!NOTE]
-> Użytkownik-gość nie może opuścić organizacji, jeśli jego konto jest wyłączone w dzierżawie domowej lub dzierżawie zasobów. Jeśli ich konto jest wyłączone, użytkownik-gość będzie musiał skontaktować się z administratorem dzierżawy, który może usunąć konto gościa lub włączyć konto gościa, aby użytkownik mógł opuścić organizację.
+> Użytkownik-Gość nie może opuścić organizacji, jeśli konto jest wyłączone w dzierżawie głównej lub dzierżawie zasobów. Jeśli konto jest wyłączone, użytkownik będący gościem musi skontaktować się z administratorem dzierżawy, który może usunąć konto gościa lub włączyć konto gościa, aby użytkownik mógł opuścić organizację.
 
 ## <a name="leave-an-organization"></a>Opuszczanie organizacji
 
@@ -31,38 +31,38 @@ Aby opuścić organizację, wykonaj następujące kroki.
 
 1. Przejdź do strony profilu panelu dostępu, wykonując jedną z następujących czynności:
    
-   - W [witrynie Azure portal](https://portal.azure.com)kliknij swoją nazwę w prawym górnym rogu i wybierz pozycję **Wyświetl konto**.
-   - Otwórz [Panel dostępu](https://myapps.microsoft.com), kliknij swoje imię i nazwisko w prawym górnym rogu, a następnie obok **pozycji Organizacje**wybierz ikonę ustawień (bieg).
+   - W [Azure Portal](https://portal.azure.com)kliknij swoją nazwę w prawym górnym rogu i wybierz pozycję **Wyświetl konto**.
+   - Otwórz [panel dostępu](https://myapps.microsoft.com), kliknij swoją nazwę w prawym górnym rogu, a obok pozycji **organizacje**wybierz ikonę ustawień (koła zębatego).
  
-   ![Zrzut ekranu przedstawiający ustawienia użytkownika w Panelu programu Access](media/leave-the-organization/UserSettings.png) 
+   ![Zrzut ekranu przedstawiający ustawienia użytkownika w panelu dostępu](media/leave-the-organization/UserSettings.png) 
 
    > [!NOTE]
-   > Jeśli nie jesteś jeszcze zalogowany w organizacji, którą chcesz opuścić, w obszarze **Organizacje**kliknij łącze **Zaloguj się, aby pozostawić łącze organizacyjne** obok nazwy organizacji. Po zalogowaniu kliknij ponownie swoje imię i nazwisko w prawym górnym rogu i obok **pozycji Organizacje**wybierz ikonę ustawień (bieg).
+   > Jeśli jeszcze nie zalogowano się do organizacji, którą chcesz opuścić, w obszarze **organizacje**kliknij link Zaloguj się, **Aby opuścić organizację** obok nazwy organizacji. Po zalogowaniu kliknij swoją nazwę ponownie w prawym górnym rogu, a obok pozycji **organizacje**wybierz ikonę ustawień (koła zębatego).
 
-3. W obszarze **Organizacje**znajdź organizację, którą chcesz opuścić, i wybierz pozycję **Opuść organizację**.
+3. W obszarze **organizacje**Znajdź organizację, którą chcesz opuścić, a następnie wybierz pozycję **Opuść organizację**.
 
-   ![Zrzut ekranu przedstawiający opcję Zostaw organizację w interfejsie użytkownika](media/leave-the-organization/LeaveOrg.png)
+   ![Zrzut ekranu przedstawiający opcję Opuść organizację w interfejsie użytkownika](media/leave-the-organization/LeaveOrg.png)
 
-4. Gdy pojawi się prośba o potwierdzenie, wybierz **opcję Opuść**. 
+4. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **Pozostaw**. 
 
-## <a name="account-removal"></a>Usunięcie konta
+## <a name="account-removal"></a>Usuwanie konta
 
-Gdy użytkownik opuszcza organizację, konto użytkownika jest "nietrwale usunięte" w katalogu. Domyślnie obiekt użytkownika przenosi się do obszaru **Użytkownicy uszkadkieni w** usłudze Azure AD, ale nie jest trwale usuwany przez 30 dni. To nietremne usunięcie umożliwia administratorowi przywrócenie konta użytkownika (w tym grup i uprawnień), jeśli użytkownik złoży żądanie przywrócenia konta w ciągu 30-dniowego okresu.
+Gdy użytkownik opuści organizację, konto użytkownika jest "nietrwałe usunięte" w katalogu. Domyślnie obiekt użytkownika jest przenoszony do obszaru **usuniętych użytkowników** w usłudze Azure AD, ale nie jest on trwale usuwany przez 30 dni. To usuwanie nietrwałe umożliwia administratorowi przywrócenie konta użytkownika (w tym grup i uprawnień), jeśli użytkownik wysyła żądanie przywrócenia konta w ramach 30-dniowego okresu.
 
-W razie potrzeby administrator dzierżawy może trwale usunąć konto w dowolnym momencie w okresie 30 dni. W tym celu:
+W razie potrzeby Administrator dzierżawy może trwale usunąć konto w dowolnym momencie w okresie 30 dni. W tym celu:
 
-1. W [witrynie Azure portal](https://portal.azure.com)wybierz pozycję **Azure Active Directory**.
+1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Azure Active Directory**.
 2. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
-3. Wybierz pozycję **Usunięci użytkownicy**.
+3. Wybierz pozycję **usunięci użytkownicy**.
 4. Zaznacz pole wyboru obok usuniętego użytkownika, a następnie wybierz pozycję **Usuń trwale**.
 
-Jeśli trwale usuniesz użytkownika, ta akcja jest nieodwołalna.
+W przypadku trwałego usunięcia użytkownika Ta akcja jest nieodwołalna.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby zapoznać się z omówieniem usługi Azure AD B2B, zobacz [Co to jest współpraca usługi Azure AD B2B?](what-is-b2b.md)
+- Aby zapoznać się z omówieniem usługi Azure AD B2B, zobacz [co to jest współpraca B2B w usłudze Azure AD?](what-is-b2b.md)
 
 
 

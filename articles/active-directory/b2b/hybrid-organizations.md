@@ -1,6 +1,6 @@
 ---
 title: Współpraca B2B dla organizacji hybrydowych — Azure AD
-description: Zapewnij partnerom dostęp do zasobów lokalnych i chmurowych dzięki współpracy usługi Azure AD B2B.
+description: Zapewnianie partnerom dostępu do zasobów lokalnych i w chmurze przy użyciu funkcji współpracy B2B usługi Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,42 +12,42 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 427f7ad4d6a1b9839b1197ef9f7ca15400ea0f59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74272469"
 ---
-# <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Współpraca b2b usługi Azure Active Directory dla organizacji hybrydowych
+# <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Azure Active Directory współpracy B2B z organizacjami hybrydowymi
 
-Współpraca b2b usługi Azure Active Directory (Azure AD) ułatwia udzielanie partnerom zewnętrznym dostępu do aplikacji i zasobów w organizacji. Dotyczy to nawet w konfiguracji hybrydowej, gdzie masz zarówno zasobów lokalnych i opartych na chmurze. Nie ma znaczenia, czy obecnie zarządzasz kontami partnerów zewnętrznych lokalnie w lokalnym systemie tożsamości, czy zarządzasz kontami zewnętrznymi w chmurze jako użytkownik usługi Azure AD B2B. Teraz można udzielić tym użytkownikom dostępu do zasobów w obu lokalizacjach, przy użyciu tych samych poświadczeń logowania dla obu środowisk.
+Azure Active Directory (Azure AD) Współpraca B2B ułatwia udostępnianie partnerom zewnętrznym dostępu do aplikacji i zasobów w organizacji. Jest to prawdziwe nawet w konfiguracji hybrydowej, w której znajdują się zasoby lokalne i oparte na chmurze. Nie ma znaczenia, czy obecnie zarządzasz kontami zewnętrznych partnerów lokalnie w lokalnym systemie tożsamości, czy zarządzasz kontami zewnętrznymi w chmurze jako użytkownikami B2B usługi Azure AD. Teraz można przyznać tym użytkownikom dostęp do zasobów w dowolnej lokalizacji przy użyciu tych samych poświadczeń logowania w obu środowiskach.
 
-## <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-apps"></a>Przyznawanie użytkownikom B2B w usłudze Azure AD dostępu do aplikacji lokalnych
+## <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-apps"></a>Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD
 
-Jeśli Twoja organizacja korzysta z funkcji współpracy usługi Azure AD B2B, aby zaprosić użytkowników-gości z organizacji partnerskich do usługi Azure AD, możesz teraz zapewnić tym użytkownikom B2B dostęp do aplikacji lokalnych.
+Jeśli Twoja organizacja korzysta z funkcji współpracy B2B usługi Azure AD, aby zapraszać użytkowników-Gości od organizacji partnerskich do usługi Azure AD, możesz teraz udostępnić tym użytkownikom B2B dostęp do aplikacji lokalnych.
 
-W przypadku aplikacji korzystających z uwierzytelniania opartego na saml można udostępnić te aplikacje użytkownikom B2B za pośrednictwem witryny Azure portal przy użyciu serwera proxy aplikacji usługi Azure AD do uwierzytelniania.
+W przypadku aplikacji korzystających z uwierzytelniania opartego na protokole SAML można udostępnić te aplikacje użytkownikom B2B za pośrednictwem Azure Portal przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD do uwierzytelniania.
 
-W przypadku aplikacji korzystających ze zintegrowanego uwierzytelniania systemu Windows (IWA) z delegowaniem z ograniczeniami protokołu Kerberos (KCD) do uwierzytelniania należy również użyć serwera proxy usługi Azure AD. Jednak do autoryzacji do pracy, obiekt użytkownika jest wymagany w lokalnej usłudze Windows Server Active Directory. Istnieją dwie metody, których można użyć do tworzenia obiektów użytkownika lokalnego, które reprezentują użytkowników-gościa B2B.
+W przypadku aplikacji korzystających ze zintegrowanego uwierzytelniania systemu Windows (IWA) przy użyciu ograniczonego delegowania protokołu Kerberos (KCD) można również użyć serwera proxy usługi Azure AD. Jednak aby autoryzacja działała, wymagany jest obiekt użytkownika w lokalnym systemie Windows Server Active Directory. Istnieją dwie metody, których można użyć do tworzenia obiektów użytkowników lokalnych, które reprezentują użytkowników gościa B2B.
 
-- Dodatku SP1 dla programu Microsoft Identity Manager (MIM) 2016 i agenta zarządzania programem MIM dla programu Microsoft Graph.
-- Można użyć skryptu programu PowerShell. (To rozwiązanie nie wymaga mim.)
+- Do Microsoft Graph można użyć Microsoft Identity Manager (MIM) 2016 SP1 i agenta zarządzania programu MIM.
+- Możesz użyć skryptu programu PowerShell. (To rozwiązanie nie wymaga programu MIM).
 
-Aby uzyskać szczegółowe informacje na temat wdrażania tych rozwiązań, zobacz [Udzielanie użytkownikom B2B w usłudze Azure AD dostępu do aplikacji lokalnych.](hybrid-cloud-to-on-premises.md)
+Aby uzyskać szczegółowe informacje na temat sposobu implementowania tych rozwiązań, zobacz [udzielanie użytkownikom B2B w usłudze Azure AD dostępu do aplikacji lokalnych](hybrid-cloud-to-on-premises.md).
 
-## <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources"></a>Udzielanie lokalnie zarządzanym kontom partnerów dostępu do zasobów w chmurze
+## <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources"></a>Przyznaj lokalnym zarządzanym kontom partnerskim dostęp do zasobów w chmurze
 
-Przed usługą Azure AD organizacje z lokalnymi systemami tożsamości tradycyjnie zarządzały kontami partnerów w swoim katalogu lokalnym. Jeśli jesteś taką organizacją, chcesz mieć pewność, że twoi partnerzy nadal mają dostęp podczas przenoszenia aplikacji i innych zasobów do chmury. W idealnym przypadku chcesz, aby ci użytkownicy używali tego samego zestawu poświadczeń, aby uzyskać dostęp zarówno do zasobów w chmurze, jak i lokalnych. 
+Przed rozpoczęciem pracy z usługą Azure AD organizacje z lokalnymi systemami tożsamości mają tradycyjnie zarządzane konta partnerów w katalogu lokalnym. Jeśli jesteś organizacją, upewnij się, że partnerzy nadal mają dostęp podczas przenoszenia aplikacji i innych zasobów do chmury. Najlepiej, aby Ci użytkownicy mogli korzystać z tego samego zestawu poświadczeń w celu uzyskania dostępu do zasobów w chmurze i lokalnych. 
 
-Teraz oferujemy metody, w których można użyć usługi Azure AD Connect do synchronizacji tych kont lokalnych w chmurze jako "użytkownicy-goście", gdzie konta zachowują się tak samo jak użytkownicy usługi Azure AD B2B.
+Teraz oferujemy metody, w których można używać Azure AD Connect do synchronizowania tych kont lokalnych z chmurą jako "Gość", gdzie konta działają podobnie jak użytkownicy B2B usługi Azure AD.
 
-Aby chronić dane firmy, można kontrolować dostęp do odpowiednich zasobów i skonfigurować zasady autoryzacji, które traktują tych użytkowników-gościa inaczej niż twoich pracowników.
+Aby chronić dane firmy, możesz kontrolować dostęp do tylko odpowiednich zasobów i konfigurować zasady autoryzacji, które traktują tych użytkowników-Gości inaczej od pracowników.
 
-Aby uzyskać szczegółowe informacje na temat implementacji, zobacz [Udzielanie dostępu do zasobów w chmurze zarządzanych lokalnie kontach partnerów przy użyciu współpracy usługi Azure AD B2B.](hybrid-on-premises-to-cloud.md)
+Aby uzyskać szczegółowe informacje na temat implementacji, zobacz [udzielanie dostępu do zasobów w chmurze przy użyciu usługi Azure AD B2B](hybrid-on-premises-to-cloud.md).
  
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przyznawanie użytkownikom B2B w usłudze Azure AD dostępu do aplikacji lokalnych](hybrid-cloud-to-on-premises.md)
-- [Udzielanie dostępu do zasobów w chmurze zarządzanych lokalnie przez konta partnerów przy użyciu współpracy usługi Azure AD B2B](hybrid-on-premises-to-cloud.md)
+- [Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD](hybrid-cloud-to-on-premises.md)
+- [Przyznaj lokalnym zarządzanym kontom partnerskim dostęp do zasobów w chmurze przy użyciu funkcji współpracy B2B usługi Azure AD](hybrid-on-premises-to-cloud.md)
 
 

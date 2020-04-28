@@ -1,84 +1,84 @@
 ---
-title: Możliwość komponowania tokenów łańcucha bloków azure
-description: Możliwość tworzenia tokenów łańcucha bloków platformy Azure zapewnia elastyczność tworzenia tokenów dla zaawansowanych scenariuszy.
+title: Możliwości tworzenia tokenów łańcucha bloków platformy Azure
+description: Możliwość tworzenia tokenów łańcucha bloków na platformie Azure zapewnia elastyczność w tworzeniu tokenów dla zaawansowanych scenariuszy.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: brendal
 ms.openlocfilehash: a3fe1b290917de20b7c3af31fe386ed93580d850
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74325120"
 ---
-# <a name="azure-blockchain-tokens-composability"></a>Możliwość komponowania tokenów łańcucha bloków azure
+# <a name="azure-blockchain-tokens-composability"></a>Możliwości tworzenia tokenów łańcucha bloków platformy Azure
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-Możliwość komponowania tokenów zapewnia elastyczność tworzenia tokenów dla zaawansowanych scenariuszy. Może istnieć złożony scenariusz, którego nie można zaimplementować przy użyciu [czterech wstępnie utworzonych szablonów tokenów.](templates.md#base-token-types) Możliwości komponowania tokenu umożliwia projektowanie własnych szablonów tokenu przez dodanie lub usunięcie zdefiniowanych zachowań w celu utworzenia własnego szablonu tokenu. Podczas tworzenia nowego szablonu tokenu tokeny łańcucha bloków platformy Azure weryfikuje wszystkie reguły gramatyki tokenu. Skomponowane szablony są zapisywane w usłudze Azure Blockchain Tokens do wystawiania w połączonych sieciach łańcucha bloków.
+Możliwość tworzenia tokenów jest elastyczna, aby tworzyć tokeny dla zaawansowanych scenariuszy. Może istnieć złożony scenariusz, którego nie można zaimplementować przy użyciu [czterech wstępnie skompilowanych szablonów tokenów](templates.md#base-token-types). Możliwość tworzenia tokenów umożliwia projektowanie własnych szablonów tokenów przez dodanie lub usunięcie określonych zachowań w celu utworzenia własnego szablonu tokenu. Podczas tworzenia nowego szablonu tokenu tokeny usługi Azure łańcucha bloków sprawdza wszystkie reguły gramatyki tokenu. Szablony złożone są zapisywane w usłudze tokenów łańcucha bloków Azure w celu wystawiania w połączonych sieciach łańcucha bloków.
 
-Zachowania [tokenu](templates.md#token-behaviors) można użyć w poniższych sekcjach, aby zaprojektować szablon tokenu.
+Możesz użyć [zachowań tokenu](templates.md#token-behaviors) w poniższych sekcjach, aby zaprojektować szablon tokenu.
 
-## <a name="burnable-b"></a>Palne (b)
+## <a name="burnable-b"></a>Wypalanie (b)
 
-Możliwość usunięcia tokenów z dostaw.
+Możliwość usuwania tokenów z dostawy.
 
-Na przykład, gdy wymieniasz punkty karty kredytowej online na kartę upominkową, punkty karty kredytowej są spalane.
+Na przykład po zrealizowaniu punktów karty kredytowej w trybie online dla karty upominkowej punkty karty kredytowej są nagrane.
 
-## <a name="delegable-g"></a>Delegable (g)
+## <a name="delegable-g"></a>Delegowalne (g)
 
-Możliwość delegowania akcji podjętych na token, który jesteś właścicielem.
+Możliwość delegowania akcji podjętych na własnym tokenie.
 
-Pełnomocnik może wykonywać akcje jako właściciel tokenu. Na przykład można użyć tokenu delegable do zaimplementowania głosowania. Delegable token pozwala właściciel tokenu głosowania, aby ktoś inny głosować w ich imieniu.
+Delegat może wykonywać akcje jako właściciel tokenu. Na przykład można użyć tokenu delegowalne do zaimplementowania głosu. Token delegowalne umożliwia właścicielowi tokenu głosu, aby ktoś inny zagłosować w ich imieniu.
 
-## <a name="logable-l"></a>Logowanie (l)
+## <a name="logable-l"></a>Logable (l)
 
-Możliwość logowania.
+Możliwość rejestrowania.
 
-Na przykład można wydać token rejestrowania dla dystrybucji filmów do każdego teatru pokazującego określony film. Aby film miał być odtwarzany, program musi rejestrować transakcję dla każdego pokazu, ponieważ wypłaty tantiem są wyświetlane podczas uruchamiania filmu. Aktorzy budować można użyć tokenów filmu do sprawdzania poprawności wypłat na film pokazano na teatr w dystrybucji.
+Na przykład można wydać token logable dla dystrybucji filmów do każdego kina pokazującego konkretny film. W przypadku filmu, który ma być odtwarzany, Pokazywanie musi rejestrować transakcję dla każdego z nich, ponieważ wypłaty za tantiemy są pokazywane podczas uruchamiania filmu. Kompilacje aktorów mogą używać tokenów filmów do sprawdzania, czy wypłaty na film są widoczne dla każdego kina w dystrybucji.
 
-## <a name="mint-able-m"></a>Mięta (m)
+## <a name="mint-able-m"></a>Mennic — możliwość (m)
 
-Możliwość ceł dodatkowych żetonów dla klasy tokenu. Rola minter zawiera zachowanie mintable.
+Możliwość mennic dodatkowych tokenów dla klasy tokenów. Rola Minter obejmuje zachowanie mintable.
 
-Na przykład firma detaliczna, która chce zaimplementować program lojalnościowy, może używać tokenów ekgnacji dla swojego programu lojalnościowego. Mogą one mint dodatkowe punkty lojalnościowe dla swoich klientów, jak ich baza klientów rośnie.  
+Na przykład firma detaliczna, która chce zaimplementować program lojalnościowy, może używać tokenów mintable dla programu lojalnościowego. Mogą oni mennic dodatkowe punkty lojalnościowe dla swoich klientów w miarę wzrostu ich bazy klientów.  
 
-## <a name="non-subdividable-or-whole-d"></a>Nierozdzielne lub całe (~d)
+## <a name="non-subdividable-or-whole-d"></a>Bez podziału lub całości (~ d)
 
-Ograniczenie, aby zapobiec dzieleniu tokenu na mniejsze części.
+Ograniczenie, aby zapobiec poddzieleniu tokenu na mniejsze części.
 
-Na przykład pojedynczego obrazu artystycznego nie można podzielić na wiele mniejszych części. 
+Na przykład nie można podzielić pojedynczego elementu ozdobnego na kilka mniejszych części. 
 
-## <a name="non-transferable-t"></a>Niezbywalne (~t)
+## <a name="non-transferable-t"></a>Niezbywalne (~ t)
 
-Ograniczenie, aby zapobiec zmianie własności od początkowego właściciela tokenu.
+Ograniczenie, aby uniemożliwić zmianę własności od początkowego właściciela tokenu.
 
-Na przykład dyplom uniwersytecki jest tokenem niezbywalnym. Po wręczeniu dyplomu absolwentowi nie można go przenieść z absolwenta na inną osobę.
+Na przykład, dyplom University jest tokenem nieprzekazującym. Po nadaniu dyplomu do szkoły nie można jej przenieść z szkoły do innej osoby.
 
 ## <a name="roles-r"></a>Role (r)
 
 Możliwość definiowania ról w klasie szablonu tokenu dla określonych zachowań.
 
-Można podać listę nazw ról, które token obsługuje w czasie tworzenia tokenu. Po określeniu ról użytkownik może przypisać role do tych zachowań. Obecnie obsługiwane jest tylko rola minter.
+Możesz podać listę nazw ról, które token obsługuje w czasie tworzenia tokenu. Po określeniu ról użytkownik może przypisać role do tych zachowań. Obecnie obsługiwana jest tylko rola Minter.
 
-## <a name="singleton-s"></a>Singleton (s)
+## <a name="singleton-s"></a>Pojedyncze (s)
 
-Ograniczenie, aby zezwolić na dostawę jednego tokenu.
+Ograniczenie zezwalające na dostarczenie jednego tokenu.
 
-Na przykład artefakt muzeum jest token singleton. Artefakty muzealne są wyjątkowe. Token reprezentujący artefakt ma tylko jeden element w zasilaczu.
+Na przykład artefakt muzeów jest pojedynczym tokenem. Artefakty muzeów są unikatowe. Token reprezentujący artefakt ma tylko jeden element w dostawie.
 
-## <a name="subdividable-d"></a>Podział (d)
+## <a name="subdividable-d"></a>Poddzielenie (d)
 
-Możliwość podzielenia żetonu na mniejsze części.
+Możliwość dzielenia tokenu na mniejsze części.
 
-Na przykład dolara można podzielić na centy.
+Na przykład Dolar może być podzielony na centy.
 
-## <a name="transferable-t"></a>Zbywalne (t)
+## <a name="transferable-t"></a>Przetransferowane (t)
 
 Możliwość przeniesienia własności tokenu.
 
-Na przykład tytuł właściwości jest tokenem zbywalnym, który można przenieść z jednej osoby do drugiej, gdy nieruchomość jest sprzedawana.
+Na przykład tytuł właściwości jest tokenem możliwym do przeniesienia, który może zostać przesłany od jednej osoby do innej podczas sprzedaży właściwości.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [zarządzaniu kontem tokenów łańcucha bloków platformy Azure](account-management.md).
+Dowiedz się więcej na temat [zarządzania kontami usługi Azure łańcucha bloków Tokens](account-management.md).

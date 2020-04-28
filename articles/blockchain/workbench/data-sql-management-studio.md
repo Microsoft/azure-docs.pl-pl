@@ -1,20 +1,20 @@
 ---
-title: Zapytanie o dane programu Azure Blockchain Workbench przy użyciu programu SQL Server Management Studio
+title: Wykonywanie zapytań dotyczących danych usługi Azure łańcucha bloków Workbench przy użyciu SQL Server Management Studio
 description: Dowiedz się, jak nawiązać połączenie z bazą danych SQL usługi Azure Blockchain Workbench z poziomu programu SQL Server Management Studio.
 ms.date: 11/20/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 ms.openlocfilehash: f87d1880c90202fa26b0477e3b4dfbed5965bb82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74326035"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Korzystanie z danych usługi Azure Blockchain Workbench w programie SQL Server Management Studio
 
-Program Microsoft SQL Server Management Studio umożliwia szybkie pisanie i testowanie zapytań w witrynie SQL DB usługi Azure Blockchain Workbench. Ta sekcja zawiera przewodnik krok po kroku, jak połączyć się z bazą danych SQL programu Azure Blockchain Workbench z poziomu programu SQL Server Management Studio.
+Microsoft SQL Server Management Studio zapewnia możliwość szybkiego zapisywania i testowania zapytań względem bazy danych SQL usługi Azure łańcucha bloków Workbench. Ta sekcja zawiera przewodnik krok po kroku dotyczący sposobu nawiązywania połączenia z SQL Databaseem usługi Azure łańcucha bloków Workbench z poziomu SQL Server Management Studio.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,7 +38,7 @@ Program Microsoft SQL Server Management Studio umożliwia szybkie pisanie i test
       ![Lista baz danych](./media/data-sql-management-studio/db-list.png)
 
 5. Aby wyświetlić dane skojarzone z dowolnymi widokami bazy danych, możesz automatycznie wygenerować instrukcję select, wykonując następujące kroki.
-6. Kliknij prawym przyciskiem myszy dowolny z widoków bazy danych w Eksploratorze obiektów.
+6. Kliknij prawym przyciskiem myszy dowolny widok bazy danych w Eksplorator obiektów.
 7. Wybierz pozycję **Skrypt widoku jako**.
 8. Wybierz pozycję **SELECT to**.
 9. Wybierz pozycję **Nowe okno edytora zapytań**.

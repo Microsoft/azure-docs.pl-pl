@@ -1,6 +1,6 @@
 ---
-title: Przewodnik z operacjami nadzoru usługi Azure Active Directory
-description: W tym przewodniku dotyczącym operacji opisano kontrole i działania, które należy podjąć w celu zabezpieczenia zarządzania
+title: Przewodnik dotyczący referencyjnych operacji ładu Azure Active Directory
+description: W tym przewodniku odwołuje się opis operacji sprawdzania i działań, które należy wykonać w celu zabezpieczenia zarządzania nadzorem
 services: active-directory
 author: martincoetzer
 manager: daveba
@@ -12,135 +12,135 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 4826bcdc85e0c6189c51aa262014fe154bb479b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74535459"
 ---
-# <a name="azure-active-directory-governance-operations-reference-guide"></a>Przewodnik z operacjami nadzoru usługi Azure Active Directory
+# <a name="azure-active-directory-governance-operations-reference-guide"></a>Przewodnik dotyczący referencyjnych operacji ładu Azure Active Directory
 
-W tej sekcji [przewodnika odnośnych operacji usługi Azure AD](active-directory-ops-guide-intro.md) opisano kontrole i akcje, które należy podjąć w celu oceny i testowania dostępu przyznanego tożsamości nieuprzywilejowanych i uprzywilejowanych, inspekcji i kontroli zmian w środowisku.
+W tej części [przewodnika dotyczącego odwołań usługi Azure AD](active-directory-ops-guide-intro.md) opisano testy i akcje, które należy wykonać w celu oceny i zaświadczania dostępu, które nie są uprzywilejowane i uprzywilejowanych tożsamości, inspekcji i kontroli w środowisku.
 
 > [!NOTE]
-> Zalecenia te są aktualne na dzień publikacji, ale mogą się zmieniać w czasie. Organizacje powinny stale oceniać swoje praktyki w zakresie zarządzania w miarę rozwoju produktów i usług firmy Microsoft w miarę rozwoju w czasie.
+> Te zalecenia są aktualne w dniu opublikowania, ale mogą ulec zmianie w czasie. Organizacje powinny stale sprawdzać swoje praktyki nadzoru w miarę rozwoju produktów i usług firmy Microsoft.
 
-## <a name="key-operational-processes"></a>Kluczowe procesy operacyjne
+## <a name="key-operational-processes"></a>Najważniejsze procesy operacyjne
 
 ### <a name="assign-owners-to-key-tasks"></a>Przypisywanie właścicieli do kluczowych zadań
 
-Zarządzanie usługą Azure Active Directory wymaga ciągłego wykonywania kluczowych zadań operacyjnych i procesów, które mogą nie być częścią projektu wdrożenia. Nadal ważne jest, aby skonfigurować te zadania w celu optymalizacji środowiska. Do kluczowych zadań i ich zalecanych właścicieli należą:
+Zarządzanie Azure Active Directory wymaga ciągłego wykonywania kluczowych zadań operacyjnych i procesów, które mogą nie być częścią projektu wdrożenia. Nadal ważne jest, aby skonfigurować te zadania w celu zoptymalizowania środowiska. Najważniejsze zadania i ich zalecani właściciele obejmują:
 
 | Zadanie | Właściciel |
 | :- | :- |
-| Archiwizuj dzienniki inspekcji usługi Azure AD w systemie SIEM | Zespół operacyjny InfoSec |
-| Odnajdowanie aplikacji zarządzanych niezgodnie z przepisami | Zespół operacyjny IAM |
-| Regularne przeglądy dostępu do aplikacji | Zespół architektury InfoSec |
-| Regularne przeglądy dostępu do tożsamości zewnętrznych | Zespół architektury InfoSec |
-| Regularne przeglądanie, kto ma uprzywilejowane role | Zespół architektury InfoSec |
-| Definiowanie bram zabezpieczeń w celu aktywowania ról uprzywilejowanych | Zespół architektury InfoSec |
-| Regularne przeglądy dotacji na zgodę | Zespół architektury InfoSec |
-| Katalogi projektów i pakiety dostępu dla aplikacji i zasobów dla pracowników w organizacji | Właściciele aplikacji |
-| Definiowanie zasad zabezpieczeń w celu przypisywania użytkowników do pakietów dostępu | Zespół InfoSec + Właściciele aplikacji |
-| Jeśli zasady obejmują przepływy pracy zatwierdzania, regularnie sprawdzaj zatwierdzenia przepływu pracy | Właściciele aplikacji |
-| Przeglądanie wyjątków w zasadach zabezpieczeń, takich jak zasady dostępu warunkowego, przy użyciu przeglądów dostępu | Zespół operacyjny InfoSec |
+| Archiwizuj dzienniki inspekcji usługi Azure AD w systemie SIEM | Zespół ds. operacji InfoSec |
+| Odnajdywanie aplikacji, które są zarządzane z zachowaniem zgodności | Zespół operacji IAM |
+| Regularnie Przeglądaj dostęp do aplikacji | Zespół architektury InfoSec |
+| Regularnie Przeglądaj dostęp do tożsamości zewnętrznych | Zespół architektury InfoSec |
+| Regularnie sprawdzaj, kto ma uprzywilejowane role | Zespół architektury InfoSec |
+| Zdefiniuj bramy zabezpieczeń, aby aktywować role uprzywilejowane | Zespół architektury InfoSec |
+| Regularnie Przeglądaj dotacje | Zespół architektury InfoSec |
+| Projektowanie katalogów i pakietów dostępu dla aplikacji i zasobów w oparciu o pracowników w organizacji | Właściciele aplikacji |
+| Definiowanie zasad zabezpieczeń w celu przypisania użytkownikom dostępu do pakietów | Zespół ds. InfoSec i właściciele aplikacji |
+| Jeśli zasady obejmują przepływy pracy zatwierdzania, regularnie Przeglądaj zatwierdzenia przepływu pracy | Właściciele aplikacji |
+| Przeglądanie wyjątków w zasadach zabezpieczeń, takich jak zasady dostępu warunkowego, za pomocą przeglądów dostępu | Zespół ds. operacji InfoSec |
 
-Podczas przeglądania listy może okazać się konieczne przypisanie właściciela do zadań, w których brakuje właściciela, lub dostosowanie własności do zadań z właścicielami, które nie są zgodne z powyższymi zaleceniami.
+Podczas przeglądania listy może być konieczne przypisanie właściciela do zadań, w których brakuje właściciela, lub dostosować własność do zadań z właścicielami, które nie są wyrównane do powyższych zaleceń.
 
-#### <a name="owner-recommended-reading"></a>Właściciel zaleca czytanie
+#### <a name="owner-recommended-reading"></a>Odczytywanie zalecanego przez właściciela
 
 - [Przypisywanie ról administratorów w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
 - [Nadzór na platformie Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
 
 ### <a name="configuration-changes-testing"></a>Testowanie zmian konfiguracji
 
-Istnieją zmiany, które wymagają specjalnych zagadnień podczas testowania, od prostych technik, takich jak wdrażanie podzbiór docelowy użytkowników do wdrażania zmiany w dzierżawy testu równoległego. Jeśli strategia testowania nie została zaimplementowana, należy zdefiniować podejście testowe na podstawie wytycznych w poniższej tabeli:
+Istnieją zmiany, które wymagają specjalnych zagadnień podczas testowania, od prostych technik, takich jak przeprowadzenie docelowej podzbioru użytkowników w celu wdrożenia zmiany w równoległej dzierżawie testowej. Jeśli nie została zaimplementowana strategia testowania, należy zdefiniować podejście testowe na podstawie wytycznych w poniższej tabeli:
 
 | Scenariusz| Zalecenie |
 |-|-|
-|Zmiana typu uwierzytelniania z federacyjnego na PHS/PTA lub odwrotnie| Użyj [wdrożenia etapowego,](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) aby przetestować wpływ zmiany typu uwierzytelniania.|
-|Wdrażanie nowej zasady dostępu warunkowego (CA) lub zasad ochrony tożsamości|Utwórz nową zasadę urzędu certyfikacji i przypisz do użytkowników testowych.|
-|Dołączanie środowiska testowego aplikacji|Dodaj aplikację do środowiska produkcyjnego, ukryj ją w panelu MyApps i przypisz ją do użytkowników testowych podczas fazy zapewniania jakości .Add the application to a production environment, hide it from the MyApps panel, and assign it to test users during the quality assurance (QA) phase.|
-|Zmiana reguł synchronizacji|Wykonaj zmiany w testie usługi Azure AD Connect z tą samą konfiguracją, która jest obecnie w wersji produkcyjnej, znany również jako tryb przemieszczania i analizuj wyniki CSExport. Jeśli jest to spełnione, zamienić na produkcję, gdy jest gotowy.|
-|Zmiana marki|Testuj w oddzielnej dzierżawie testowej.|
-|Wdrażanie nowej funkcji|Jeśli funkcja obsługuje wdrożenie do docelowego zestawu użytkowników, zidentyfikuj użytkowników pilotażowych i skompiluj. Na przykład samoobsługowe resetowanie hasła i uwierzytelnianie wieloskładnikowe mogą być kierowane na określonych użytkowników lub grupy.|
-|Prześcij aplikację od lokalnego dostawcy tożsamości (IdP), na przykład usługi Active Directory, do usługi Azure AD|Jeśli aplikacja obsługuje wiele konfiguracji IdP, na przykład Salesforce, skonfiguruj zarówno i przetestować usługę Azure AD podczas okna zmiany (w przypadku, gdy aplikacja wprowadza stronę HRD). Jeśli aplikacja nie obsługuje wielu identyfikatorów, należy zaplanować testowanie podczas okna kontroli zmian i przestojów programu.|
-|Aktualizowanie reguł grupy dynamicznej|Utwórz równoległą grupę dynamiczną z nową regułą. Porównaj z obliczonym wynikiem, na przykład uruchom program PowerShell z tym samym warunkiem.<br>Jeśli test zda egzamin, zamienić miejsca, w których użyto starej grupy (jeśli jest to możliwe).|
-|Migracja licencji produktów|Zobacz [zmienianie licencji dla pojedynczego użytkownika w licencjonowanej grupie w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-change-licenses).|
-|Zmienianie reguł usług AD FS, takich jak Autoryzacja, Wydawanie, UWIERZYTELNIANIE WIELOSKŁADNIKIE|Użyj oświadczenia grupy, aby kierować reklamy na podzbiór użytkowników.|
-|Zmienianie środowiska uwierzytelniania usług AD FS lub podobnych zmian w całej farmie|Utwórz farmę równoległą o tej samej nazwie hosta, zaimplementuj zmiany konfiguracji, przetestuj z klientów przy użyciu pliku HOSTS, reguł routingu równoważenia obciążenia sieciowego lub podobnego routingu.<br>Jeśli platforma docelowa nie obsługuje plików HOSTS (na przykład urządzeń przenośnych), należy sterować zmianą.|
+|Zmiana typu uwierzytelniania z federacyjnego na PHS/PTA lub odwrotnie| Użyj [wdrożenia etapowego](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) , aby przetestować wpływ zmiany typu uwierzytelniania.|
+|Wdrażanie nowych zasad dostępu warunkowego (CA) lub zasad ochrony tożsamości|Utwórz nowe zasady urzędu certyfikacji i przypisz je do użytkowników testowych.|
+|Dołączanie środowiska testowego aplikacji|Dodaj aplikację do środowiska produkcyjnego, Ukryj ją z poziomu panelu Moje aplikacje i przypisz ją do użytkowników testowych w fazie oceny jakości (pytań i odpowiedzi).|
+|Zmiana reguł synchronizacji|Wykonaj zmiany w Azure AD Connect testowym z tą samą konfiguracją, która jest obecnie w środowisku produkcyjnym, znana także jako tryb przejściowy, i analizuj wyniki CSExport. Jeśli są spełnione, Zamień na produkcję produkcyjną, gdy jest gotowa.|
+|Zmiana marki|Przetestuj w oddzielnym dzierżawie testowej.|
+|Wdrażanie nowej funkcji|Jeśli funkcja obsługuje wdrażanie do docelowego zestawu użytkowników, zidentyfikuj użytkowników pilotażowych i skompiluj. Na przykład Samoobsługowe resetowanie hasła i uwierzytelnianie wieloskładnikowe mogą dotyczyć określonych użytkowników lub grup.|
+|Uruchomienie produkcyjne aplikację od lokalnego dostawcy tożsamości (dostawcy tożsamości), na przykład Active Directory, do usługi Azure AD|Jeśli aplikacja obsługuje wiele konfiguracji dostawcy tożsamości, na przykład usługi Salesforce, skonfiguruj jednocześnie i przetestuj usługę Azure AD podczas okna zmiany (Jeśli aplikacja wprowadza stronę HRD). Jeśli aplikacja nie obsługuje wielu dostawców tożsamości, Zaplanuj testowanie podczas okna kontroli zmian i przestoju programu.|
+|Aktualizuj reguły grupy dynamicznej|Utwórz równoległą grupę dynamiczną z nową regułą. Porównaj z obliczonym wynikiem, na przykład Uruchom program PowerShell z tym samym warunkiem.<br>W przypadku przebiegu testu zastępowanie miejsc, w których była używana stara Grupa (jeśli to możliwe).|
+|Migrowanie licencji produktu|Zapoznaj się z tematem [Zmienianie licencji dla pojedynczego użytkownika w grupie licencjonowanej w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-change-licenses).|
+|Zmień reguły AD FS, takie jak autoryzacja, wystawianie, MFA|Użyj żądania grupy, aby docelowa podzbiór użytkowników.|
+|Zmień środowisko uwierzytelniania AD FS lub podobne zmiany w całej farmie|Utwórz farmę równoległą o tej samej nazwie hosta, Implementuj zmiany konfiguracji, Testuj od klientów przy użyciu pliku HOSTs, reguł routingu NLB lub podobnego routingu.<br>Jeśli platforma docelowa nie obsługuje plików HOSTs (na przykład urządzenia przenośne), Zmień kontrolkę.|
 
 ## <a name="access-reviews"></a>Przeglądy dostępu
 
-### <a name="access-reviews-to-applications"></a>Dostęp do recenzji aplikacji
+### <a name="access-reviews-to-applications"></a>Przeglądy dostępu do aplikacji
 
-Z biegiem czasu użytkownicy mogą gromadzić dostęp do zasobów, gdy przemieszczają się po różnych zespołach i pozycjach. Ważne jest, aby właściciele zasobów regularnie przeglądali dostęp do aplikacji i usuwali uprawnienia, które nie są już potrzebne w całym cyklu życia użytkowników. [Przeglądy dostępu usługi](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) Azure AD umożliwiają organizacjom efektywne zarządzanie członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Właściciele zasobów powinni regularnie sprawdzać dostęp użytkowników, aby upewnić się, że tylko właściwi użytkownicy mają stały dostęp. W idealnym przypadku należy rozważyć użycie przeglądów dostępu usługi Azure AD dla tego zadania.
+W miarę upływu czasu użytkownicy mogą zbierać dostęp do zasobów w miarę ich poruszania się w różnych zespołach i pozycjach. Ważne jest, aby właściciele zasobów regularnie przeglądali dostęp do aplikacji i usuwali uprawnienia, które nie są już potrzebne w całym cyklu życia użytkowników. [Przeglądy dostępu](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) w usłudze Azure AD pozwalają organizacjom efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Właściciele zasobów powinni regularnie przeglądać dostęp użytkowników, aby upewnić się, że tylko odpowiednie osoby mają stały dostęp. W idealnym przypadku należy rozważyć użycie przeglądów dostępu do usługi Azure AD dla tego zadania.
 
-![Strona początkowa przeglądów programu Access](./media/active-directory-ops-guide/active-directory-ops-img15.png)
-
-> [!NOTE]
-> Każdy użytkownik, który wchodzi w interakcję z przeglądami dostępu, musi mieć płatną licencję usługi Azure AD Premium P2.
-
-### <a name="access-reviews-to-external-identities"></a>Dostęp do przeglądów tożsamości zewnętrznych
-
-Ważne jest, aby zachować dostęp do tożsamości zewnętrznych ograniczone tylko do zasobów, które są potrzebne, w czasie, który jest potrzebny. Ustanowienie regularnego procesu automatycznego przeglądu dostępu dla wszystkich tożsamości zewnętrznych i dostępu do aplikacji przy użyciu [przeglądów dostępu usługi](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)Azure AD . Jeśli proces już istnieje lokalnie, należy rozważyć użycie przeglądów dostępu usługi Azure AD. Gdy aplikacja jest wycofana lub nie jest już używana, usuń wszystkie tożsamości zewnętrzne, które miały dostęp do aplikacji.
+![Strona początkowa przeglądów dostępu](./media/active-directory-ops-guide/active-directory-ops-img15.png)
 
 > [!NOTE]
-> Każdy użytkownik, który wchodzi w interakcję z przeglądami dostępu, musi mieć płatną licencję usługi Azure AD Premium P2.
+> Każdy użytkownik, który współdziała z przeglądami dostępu, musi mieć płatną licencję Azure AD — wersja Premium P2.
+
+### <a name="access-reviews-to-external-identities"></a>Przeglądy dostępu do tożsamości zewnętrznych
+
+Należy zachować dostęp do tożsamości zewnętrznych ograniczonych tylko do zasobów, które są niezbędne, w czasie, gdy jest to konieczne. Ustanów zwykły zautomatyzowany proces przeglądu dostępu dla wszystkich tożsamości zewnętrznych i dostępu do aplikacji przy użyciu [przeglądów dostępu do](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)usługi Azure AD. Jeśli proces już istnieje w środowisku lokalnym, należy rozważyć użycie przeglądów dostępu do usługi Azure AD. Gdy aplikacja zostanie wycofana lub nie jest już używana, Usuń wszystkie tożsamości zewnętrzne, które miały dostęp do aplikacji.
+
+> [!NOTE]
+> Każdy użytkownik, który współdziała z przeglądami dostępu, musi mieć płatną licencję Azure AD — wersja Premium P2.
 
 ## <a name="privileged-account-management"></a>Zarządzanie kontami uprzywilejowanymi
 
 ### <a name="privileged-account-usage"></a>Użycie konta uprzywilejowanego
 
-Hakerzy często atakują konta administratorów i inne elementy uprzywilejowanego dostępu, aby szybko uzyskać dostęp do poufnych danych i systemów.Ponieważ użytkownicy z uprzywilejowanymi rolami mają tendencję do akumulacji w czasie, ważne jest, aby regularnie przeglądać i zarządzać dostępem administratora i zapewnić uprzywilejowany dostęp do zasobów usługi Azure AD i platformy Azure.
+Hakerzy często kierują konta administratora i inne elementy uprzywilejowanego dostępu, aby szybko uzyskać dostęp do poufnych danych i systemów.Ze względu na to, że użytkownicy z rolami uprzywilejowanymi mogą postępować w miarę upływu czasu, ważne jest, aby regularnie przeglądać i zarządzać dostępem administratorów oraz zapewniać uprzywilejowany dostęp do usługi Azure AD i zasobów platformy Azure.
 
-Jeśli w organizacji nie istnieje żaden proces zarządzania kontami uprzywilejowanymi lub obecnie administratorzy, którzy używają swoich zwykłych kont użytkowników do zarządzania usługami i zasobami, należy natychmiast rozpocząć korzystanie z oddzielnych kont, na przykład jednego dla zwykłych codziennych kont. działalności; drugi dla uprzywilejowanego dostępu i skonfigurowany z uwierzytelnianiem wieloskładnikowego. Jeszcze lepiej, jeśli twoja organizacja ma subskrypcję usługi Azure AD Premium P2, należy natychmiast wdrożyć [usługę Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure#license-requirements) (PIM). W tym samym tokenie należy również przejrzeć te konta uprzywilejowane i [przypisać mniej uprzywilejowane role,](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) jeśli ma to zastosowanie.
+Jeśli w Twojej organizacji nie istnieje żaden proces zarządzania kontami uprzywilejowanymi lub obecnie Administratorzy, którzy używają zwykłych kont użytkowników do zarządzania usługami i zasobami, należy od razu zacząć używać oddzielnych kont, na przykład na potrzeby zwykłych codziennych działań; druga dla uprzywilejowanego dostępu i skonfigurowana za pomocą usługi MFA. Jeszcze lepiej, jeśli Twoja organizacja ma Azure AD — wersja Premiumą subskrypcję P2, należy natychmiast wdrożyć [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure#license-requirements) (PIM). W tym samym tokenie należy również przejrzeć te konta uprzywilejowane i [przypisać im mniej uprzywilejowanych ról](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) , jeśli ma to zastosowanie.
 
-Innym aspektem uprzywilejowanego zarządzania kontem, który powinien zostać wdrożony, jest definiowanie [przeglądów dostępu](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) dla tych kont, ręcznie lub [zautomatyzowanych za pośrednictwem usługi PIM.](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review)
+Innym aspektem zarządzania kontami uprzywilejowanymi, które należy zaimplementować, jest zdefiniowanie [przeglądu dostępu](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) dla tych kont ręcznie lub [automatycznie za pomocą usługi PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review).
 
-#### <a name="privileged-account-management-recommended-reading"></a>Zaleca się czytanie uprzywilejowanego zarządzania kontem
+#### <a name="privileged-account-management-recommended-reading"></a>Zalecane odczytywanie przez zarządzanie kontami uprzywilejowanymi
 
-- [Role w zarządzania tożsamościami uprzywilejowanymi usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-roles)
+- [Role w Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-roles)
 
 ### <a name="emergency-access-accounts"></a>Konta dostępu awaryjnego
 
-Organizacje muszą utworzyć [konta awaryjne,](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) aby przygotować się do zarządzania usługą Azure AD w przypadkach, takich jak awarie uwierzytelniania, takie jak:
+Organizacje muszą utworzyć [konta awaryjne](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) , aby przygotować się do zarządzania usługą Azure AD w taki sposób, jak w przypadku awarii uwierzytelniania:
 
-- Składniki awarii infrastruktury uwierzytelniania (AD FS, lokalna usługa AD, usługa MFA)
-- Rotacja personelu administracyjnego
+- Składniki dotyczące przestojów infrastruktury uwierzytelniania (AD FS, lokalna usługa AD i usługi MFA)
+- Obrót personelu administracyjnego
 
-Aby zapobiec przypadkowemu zablokowaniu dzierżawy, ponieważ nie można zalogować się ani aktywować istniejącego konta indywidualnego użytkownika jako administratora, należy utworzyć dwa lub więcej kont awaryjnych i upewnić się, że są one implementowane i zgodne z [najlepszymi praktykami firmy Microsoft](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) i [procedurami łamania szkła](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency).
+Aby zapobiec przypadkowemu zablokowaniu dzierżawy, ponieważ nie można zalogować się lub aktywować konta indywidualnego użytkownika jako administrator, należy utworzyć co najmniej dwa konta awaryjne i upewnić się, że są one zaimplementowane i zgodne z [najlepszymi rozwiązaniami firmy Microsoft](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure) i [procedurami awarii](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency).
 
-### <a name="privileged-access-to-azure-ea-portal"></a>Uprzywilejowany dostęp do portalu EA platformy Azure
+### <a name="privileged-access-to-azure-ea-portal"></a>Dostęp uprzywilejowany do portalu Azure EA
 
-Portal [Azure Enterprise Agreement (Azure EA)](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) umożliwia tworzenie subskrypcji platformy Azure na przykładu umowy Enterprise Agreement, która jest potężną rolą w przedsiębiorstwie. Często uruchamia się ten portal, zanim jeszcze zostanie wprowadzony usługa Azure AD, konieczne jest użycie tożsamości usługi Azure AD do zablokowania jej, usunięcia kont osobistych z portalu, upewnienia się, że odpowiednie delegowanie jest na miejscu i zmniejszenia ryzyka blokady .
+[Portal Umowa Enterprise platformy Azure (Azure EA)](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) umożliwia tworzenie subskrypcji platformy Azure na podstawie Umowa Enterprise głównych, które są zaawansowaną rolą w przedsiębiorstwie. Przed rozpoczęciem pracy z usługą Azure AD często uruchamiana jest ponowna próba uruchomienia tego portalu, dlatego konieczne jest użycie tożsamości usługi Azure AD w celu jego zablokowania, usunięcia kont osobistych z portalu, upewnienia się, że odpowiednie delegowanie jest stosowane i ograniczenia ryzyka blokady.
 
-Aby było jasne, jeśli poziom autoryzacji portalu EA jest obecnie ustawiony na "tryb mieszany", należy usunąć wszystkie konta Microsoft ze wszystkich [uprzywilejowanych dostępów](https://support.skype.com/en/faq/FA12059/what-is-a-microsoft-account) w portalu EA i skonfigurować portal EA do używania tylko kont usługi Azure AD. Jeśli delegowane role portalu EA nie są skonfigurowane, należy również znaleźć i zaimplementować delegowane role dla działów i kont.
+Aby wyczyścić, jeśli poziom autoryzacji portalu EA jest obecnie ustawiony na wartość "tryb mieszany", należy usunąć wszystkie [konta Microsoft](https://support.skype.com/en/faq/FA12059/what-is-a-microsoft-account) ze wszystkich uprzywilejowanego dostępu w portalu EA i skonfigurować portal EA do korzystania tylko z kont usługi Azure AD. Jeśli delegowane role portalu EA nie są skonfigurowane, należy również znaleźć i zaimplementować delegowane role dla działów i kont.
 
-#### <a name="privileged-access-recommended-reading"></a>Zalecany odczyt dostępu uprzywilejowanego
+#### <a name="privileged-access-recommended-reading"></a>Zalecane odczytywanie uprzywilejowanego dostępu
 
 - [Uprawnienia ról administratorów w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
 
 ## <a name="entitlement-management"></a>Zarządzanie upoważnieniami
 
-[Zarządzanie uprawnieniami (EM)](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) umożliwia właścicielom aplikacji łączenie zasobów i przypisywanie ich do określonych person w organizacji (zarówno wewnętrznych, jak i zewnętrznych). Em umożliwia samoobsługowe rejestracje i delegowanie do właścicieli firm przy zachowaniu zasad zarządzania w celu udzielenia dostępu, ustawiania czasu trwania dostępu i zezwalania na zatwierdzanie przepływów pracy. 
+[Zarządzanie prawami (em)](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) umożliwia właścicielom aplikacji łączenie zasobów i przypisywanie ich do określonych osób w organizacji (zarówno wewnętrznych, jak i zewnętrznych). EM pozwala na samoobsługowe rejestrowanie i delegowanie do właścicieli firmy przy jednoczesnym zachowaniu zasad ładu w celu udzielania dostępu, ustawiania czasów trwania dostępu i zezwalania na przepływy pracy zatwierdzania. 
 
 > [!NOTE]
-> Usługa Azure AD Entitlement Management wymaga licencji usługi Azure AD Premium P2.
+> Zarządzanie prawami w usłudze Azure AD wymaga licencji na Azure AD — wersja Premium P2.
 
 ## <a name="summary"></a>Podsumowanie
 
-Istnieje osiem aspektów bezpiecznego zarządzania tożsamością. Ta lista pomoże Ci zidentyfikować akcje, które należy podjąć w celu oceny i testowania dostępu przyznanego tożsamościom nieuprzywilejowanym i uprzywilejowanym, inspekcji i kontroli zmian w środowisku.
+Istnieje osiem aspektów bezpiecznego zarządzania tożsamościami. Ta lista pomoże zidentyfikować działania, które należy podjąć w celu oceny i zaświadczania dostępu przydzielonego do nieuprzywilejowanych i uprzywilejowanych tożsamości, inspekcji i kontroli zmian w środowisku.
 
-- Przypisz właścicieli do kluczowych zadań.
-- Wdrożenie strategii testowania.
-- Korzystaj z przeglądów usługi Azure AD Access, aby skutecznie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról.
-- Ustanowienie regularnego, zautomatyzowanego procesu przeglądu dostępu dla wszystkich typów tożsamości zewnętrznych i dostępu do aplikacji.
-- Ustanowienie procesu przeglądu dostępu do regularnego przeglądania i zarządzania dostępem administratora i zapewnienia uprzywilejowanego dostępu do zasobów usługi Azure AD i platformy Azure tylko w czasie.
-- Aprowizuj konta awaryjne, które mają być przygotowane do zarządzania usługą Azure AD w przypadku nieoczekiwanych awarii.
-- Zablokuj dostęp do portalu Usługi Azure EA.
-- Zaimplementuj zarządzanie uprawnieniami, aby zapewnić zarządzany dostęp do kolekcji zasobów.
+- Przypisywanie właścicieli do kluczowych zadań.
+- Zaimplementuj strategię testowania.
+- Za pomocą przeglądów dostępu w usłudze Azure AD można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról.
+- Ustanów zwykły, zautomatyzowany proces przeglądu dostępu dla wszystkich typów tożsamości zewnętrznych i dostępu do aplikacji.
+- Ustanów proces przeglądu dostępu, aby regularnie przeglądać i zarządzać dostępem administratorów oraz zapewniać uprzywilejowany dostęp do usługi Azure AD i zasobów platformy Azure.
+- Zainicjuj obsługę kont awaryjnych, aby przygotować się do zarządzania usługą Azure AD w nieoczekiwany sposób.
+- Zablokuj dostęp do portalu Azure EA.
+- Zaimplementuj Zarządzanie prawami, aby zapewnić dostęp do kolekcji zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wprowadzenie do [kontroli i akcji operacyjnych usługi Azure AD](active-directory-ops-guide-ops.md).
+Rozpocznij pracę z [testami operacyjnymi i akcjami usługi Azure AD](active-directory-ops-guide-ops.md).

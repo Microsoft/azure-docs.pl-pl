@@ -1,41 +1,41 @@
 ---
-title: Magazyn automatycznego powiększania — narzędzie interfejsu wiersza polecenia platformy Azure — usługa Azure Database for PostgreSQL — pojedynczy serwer
-description: W tym artykule opisano, jak skonfigurować automatyczne powiększanie magazynu przy użyciu interfejsu wiersza polecenia platformy Azure w bazie danych azure dla postgreSQL — pojedynczy serwer.
+title: Magazyn z autoprzyrostem — interfejs wiersza polecenia platformy Azure — Azure Database for PostgreSQL — pojedynczy serwer
+description: W tym artykule opisano, jak skonfigurować funkcję autozwiększania magazynu przy użyciu interfejsu wiersza polecenia platformy Azure w ramach Azure Database for PostgreSQL-jednego serwera.
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 8/7/2019
 ms.openlocfilehash: b0dc2fbb168d9325439ee18a227f71a3b88ef9c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74767963"
 ---
-# <a name="auto-grow-azure-database-for-postgresql-storage---single-server-using-the-azure-cli"></a>Automatyczne powiększanie bazy danych platformy Azure dla magazynu PostgreSQL — pojedynczy serwer przy użyciu interfejsu wiersza polecenia platformy Azure
-W tym artykule opisano, jak skonfigurować usługę Azure Database dla magazynu serwera PostgreSQL, aby rosnąć bez wpływu na obciążenie.
+# <a name="auto-grow-azure-database-for-postgresql-storage---single-server-using-the-azure-cli"></a>Azure Database for PostgreSQL magazynowanie — pojedynczy serwer przy użyciu interfejsu wiersza polecenia platformy Azure
+W tym artykule opisano, jak można skonfigurować magazyn serwera Azure Database for PostgreSQL do wzrostu bez wpływu na obciążenie.
 
-Serwer [osiągający limit miejsca do magazynowania](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#reaching-the-storage-limit)jest ustawiony na tylko do odczytu. Jeśli automatyczne powiększanie magazynu jest włączona, a następnie dla serwerów z mniej niż 100 GB aprowizowanego miejsca, aprowizowana wielkość magazynu zwiększa się o 5 GB, gdy tylko wolny magazyn jest poniżej większej niż 1 GB lub 10% aprowizowanego magazynu. W przypadku serwerów z więcej niż 100 GB aprowizowanego miejsca do magazynowania rozmiar aprowizowanego magazynu zwiększa się o 5%, gdy ilość wolnego miejsca do magazynowania jest mniejsza niż 5% rozmiaru aprowizowanego magazynu. Maksymalne limity magazynowania określone [w tym miejscu](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage) mają zastosowanie.
+Serwer [osiągnięty limit magazynu](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#reaching-the-storage-limit)jest ustawiony na tylko do odczytu. Jeśli funkcja autozwiększania rozmiaru magazynu jest włączona, w przypadku serwerów o rozmiarze mniejszym niż 100 GB zainicjowany magazyn zostanie zwiększony o 5 GB, gdy tylko ilość wolnego miejsca w magazynie będzie mniejsza niż 1 GB lub 10% magazynu zasobów. W przypadku serwerów mających więcej niż 100 GB zasobów magazynowych zainicjowany rozmiar magazynu jest zwiększany o 5%, gdy ilość wolnego miejsca w magazynie jest mniejsza od 5% rozmiaru magazynu. Obowiązują maksymalne limity magazynu określone w [tym miejscu](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby ukończyć ten przewodnik, potrzebujesz:
-- Usługa [Azure Database dla serwera PostgreSQL](quickstart-create-server-database-azure-cli.md)
+Aby ukończyć ten przewodnik, musisz:
+- [Serwer Azure Database for PostgreSQL](quickstart-create-server-database-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> Ten przewodnik instrukcja wymaga użycia interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Aby potwierdzić wersję, w wierszu `az --version`polecenia interfejsu wiersza polecenia platformy Azure należy wprowadzić polecenie . Aby zainstalować lub uaktualnić, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+> Ten przewodnik zawiera informacje wymagające użycia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby potwierdzić wersję, w wierszu polecenia platformy Azure wpisz `az --version`polecenie. Aby zainstalować lub uaktualnić, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
-## <a name="enable-postgresql-server-storage-auto-grow"></a>Automatyczne zwiększanie pamięci masowej serwera PostgreSQL
+## <a name="enable-postgresql-server-storage-auto-grow"></a>Włącz funkcję autowzrostu magazynu serwera PostgreSQL
 
-Włącz magazyn automatycznego powiększania serwera na istniejącym serwerze za pomocą następującego polecenia:
+Włącz na istniejącym serwerze magazyn na serwerze, który jest powiększany, przy użyciu następującego polecenia:
 
 ```azurecli-interactive
 az postgres server update --name mydemoserver --resource-group myresourcegroup --auto-grow Enabled
 ```
 
-Włącz magazyn automatycznego powiększania serwera podczas tworzenia nowego serwera za pomocą następującego polecenia:
+Po utworzeniu nowego serwera przy użyciu następującego polecenia Włącz magazyn do ponownego zwiększania serwera:
 
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --auto-grow Enabled --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
@@ -43,4 +43,4 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver  
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz [się, jak tworzyć alerty dotyczące danych](howto-alert-on-metric.md).
+Dowiedz się więcej na temat [tworzenia alertów dotyczących metryk](howto-alert-on-metric.md).

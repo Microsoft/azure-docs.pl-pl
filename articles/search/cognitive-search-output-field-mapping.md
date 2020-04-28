@@ -1,7 +1,7 @@
 ---
-title: Mapowanie danych wejściowych na pola wyjściowe
+title: Mapuj dane wejściowe do pól wyjściowych
 titleSuffix: Azure Cognitive Search
-description: Wyodrębnij i wzbogać pola danych źródłowych i mapuj do pól wyjściowych w indeksie usługi Azure Cognitive Search.
+description: Wyodrębnij i Wzbogacaj pola danych źródłowych i Mapuj do pól wyjściowych w indeksie Wyszukiwanie poznawcze platformy Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,20 +9,20 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74280981"
 ---
-# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Jak mapować pola wzbogacone o AI do indeksu z wyszukujalnym
+# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Jak mapować pola wzbogacone AI na indeks wyszukiwania
 
-W tym artykule dowiesz się, jak mapować wzbogacone pola wejściowe do pól wyjściowych w indeksie z wyszukujalnym. Po [zdefiniowaniu zestawu umiejętności](cognitive-search-defining-skillset.md)należy zamapować pola wyjściowe dowolnej umiejętności, która bezpośrednio przyczynia się do wartości w danym polu w indeksie wyszukiwania. 
+Ten artykuł zawiera informacje na temat mapowania ulepszonych pól wejściowych do pól wyjściowych w indeksie, który można przeszukiwać. Po [zdefiniowaniu zestawu umiejętności](cognitive-search-defining-skillset.md)należy zamapować pola danych wyjściowych o wszelkie umiejętności, które bezpośrednio współtworzą wartości w danym polu w indeksie wyszukiwania. 
 
-Mapowania pól wyjściowych są wymagane do przenoszenia zawartości z wzbogaconych dokumentów do indeksu.  Wzbogacony dokument jest naprawdę drzewem informacji i mimo że istnieje obsługa złożonych typów w indeksie, czasami można przekształcić informacje z wzbogaconego drzewa w bardziej prosty typ (na przykład tablica ciągów). Mapowania pól wyjściowych umożliwiają wykonywanie przekształceń kształtów danych przez spłaszczenie informacji.
+Mapowania pól wyjściowych są wymagane do przeniesienia zawartości z ulepszonych dokumentów do indeksu.  Wzbogacony dokument jest w rzeczywistości drzewem informacji, a nawet w przypadku obsługi typów złożonych w indeksie czasami warto przekształcić informacje z wzbogaconego drzewa do bardziej prostego typu (na przykład tablicy ciągów). Mapowania pól wyjściowych umożliwiają wykonywanie transformacji kształtu danych przez spłaszczenie informacji.
 
 ## <a name="use-outputfieldmappings"></a>Użyj outputFieldMappings
-Aby zamapować `outputFieldMappings` pola, dodaj do definicji indeksatora, jak pokazano poniżej:
+Aby zmapować pola, Dodaj `outputFieldMappings` je do definicji indeksatora, jak pokazano poniżej:
 
 ```http
 PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -30,7 +30,7 @@ api-key: [admin key]
 Content-Type: application/json
 ```
 
-Treść wniosku jest skonstruowana w następujący sposób:
+Treść żądania jest uporządkowana w następujący sposób:
 
 ```json
 {
@@ -64,21 +64,21 @@ Treść wniosku jest skonstruowana w następujący sposób:
 }
 ```
 
-Dla każdego mapowania pól wyjściowych ustaw lokalizację danych w drzewie wzbogaconego dokumentu (sourceFieldName) i nazwę pola, do którego odwołuje się indeks (targetFieldName).
+Dla każdego mapowania pola danych wyjściowych Ustaw lokalizację danych w drzewie dokumentu wzbogaconego (sourceFieldName) i nazwę pola jako odwołanie w indeksie (targetFieldName).
 
 ## <a name="flattening-information-from-complex-types"></a>Spłaszczanie informacji z typów złożonych 
 
-Ścieżka w sourceFieldName może reprezentować jeden element lub wiele elementów. W powyższym ```/document/content/sentiment``` przykładzie reprezentuje pojedynczą ```/document/content/organizations/*/description``` wartość liczbową, podczas gdy reprezentuje kilka opisów organizacji. 
+Ścieżka w sourceFieldName może reprezentować jeden element lub wiele elementów. W powyższym przykładzie ```/document/content/sentiment``` reprezentuje pojedynczą wartość liczbową, ```/document/content/organizations/*/description``` a jednocześnie reprezentuje kilka opisów organizacji. 
 
-W przypadkach, gdy istnieje kilka elementów, są one "spłaszczone" do tablicy, która zawiera każdy z elementów. 
+W przypadkach, gdy istnieje kilka elementów, są one "spłaszczone" do tablicy zawierającej poszczególne elementy. 
 
-Bardziej konkretnie, w ```/document/content/organizations/*/description``` przykładzie dane w polu *opisy* będą wyglądać jak płaska tablica opisów, zanim zostanie zindeksowana:
+Dokładniej, na ```/document/content/organizations/*/description``` przykład dane w polu *opisy* będą wyglądały jak płaska tablica opisów przed rozpoczęciem indeksowania:
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
 
-Jest to ważna zasada, dlatego przedstawimy kolejny przykład. Wyobraź sobie, że masz tablicę typów złożonych jako część drzewa wzbogacania. Załóżmy, że istnieje element członkowski o nazwie customEntities, który ma tablicę złożonych typów, takich jak ten opisany poniżej.
+Jest to istotna zasada, więc zapewnimy kolejną przykład. Załóżmy, że masz tablicę typów złożonych jako część drzewa wzbogacania. Załóżmy, że istnieje element członkowski o nazwie customEntities, który ma tablicę typów złożonych, takich jak opisana poniżej.
 
 ```json
 "document/customEntities": 
@@ -109,9 +109,9 @@ Jest to ważna zasada, dlatego przedstawimy kolejny przykład. Wyobraź sobie, �
 ]
 ```
 
-Załóżmy, że indeks ma pole o nazwie "choroby" typu Kolekcja(Edm.String), w którym chcesz przechowywać każdą z nazw jednostek. 
+Załóżmy, że indeks ma pole o nazwie "choroby" typu kolekcja (EDM. String), gdzie chcesz przechowywać każdą z nazw jednostek. 
 
-Można to łatwo zrobić za\*pomocą symbolu " " w następujący sposób:
+Można to zrobić łatwo przy użyciu symbolu "\*" w następujący sposób:
 
 ```json
     "outputFieldMappings": [
@@ -122,13 +122,13 @@ Można to łatwo zrobić za\*pomocą symbolu " " w następujący sposób:
     ]
 ```
 
-Ta operacja będzie po prostu "spłaszczyć" każdą z nazw elementów customEntities w jednej tablicy ciągów w ten sposób:
+Ta operacja spowoduje po prostu "Spłaszcz" każdą z nazw elementów customEntities w jedną tablicę ciągów, takich jak:
 
 ```json
   "diseases" : ["heart failure","morquio"]
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Po zamapowania wzbogaconych pól na pola z wyszukujem można ustawić atrybuty pola dla każdego pola z wyszukujalnymi [jako część definicji indeksu](search-what-is-an-index.md).
+Po zmapowaniu ulepszonych pól do pól z możliwością wyszukiwania można ustawić atrybuty pola dla każdego z pól z możliwością wyszukiwania [jako część definicji indeksu](search-what-is-an-index.md).
 
-Aby uzyskać więcej informacji na temat mapowania pól, zobacz [Mapowania pól w indeksatorach usługi Azure Cognitive Search](search-indexer-field-mappings.md).
+Aby uzyskać więcej informacji na temat mapowania pól, zobacz [mapowania pól w usłudze Azure wyszukiwanie poznawcze indeksatory](search-indexer-field-mappings.md).

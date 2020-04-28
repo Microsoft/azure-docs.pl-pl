@@ -1,6 +1,6 @@
 ---
-title: Poznaj pojęcia dotyczące kodu Platformy Spark apache dla deweloperów U-SQL usługi Azure Data Lake Analytics.
-description: W tym artykule opisano pojęcia platformy Apache Spark, aby pomóc deweloperom U-SQL zrozumieć pojęcia kodu platformy Spark.
+title: Poznaj Apache Spark pojęcia dotyczące kodu dla deweloperów Azure Data Lake Analytics U-SQL.
+description: W tym artykule opisano Apache Spark pojęć, które pomagają deweloperom U-SQL zrozumieć koncepcje kodu platformy Spark.
 author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonh
@@ -9,104 +9,104 @@ ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ms.openlocfilehash: bdb38e36a9f1344a3adde15d349a2ec176c0fe95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74424007"
 ---
-# <a name="understand-apache-spark-code-for-u-sql-developers"></a>Zrozumienie kodu Platformy Spark apache dla deweloperów U-SQL
+# <a name="understand-apache-spark-code-for-u-sql-developers"></a>Informacje o kodzie Apache Spark dla deweloperów U-SQL
 
-Ta sekcja zawiera wskazówki wysokiego poziomu dotyczące przekształcania skryptów U-SQL do platformy Apache Spark.
+Ta sekcja zawiera ogólne wskazówki dotyczące przekształcania skryptów U-SQL na Apache Spark.
 
-- Zaczyna się od [porównania paradygmatów przetwarzania obu języków](#understand-the-u-sql-and-spark-language-and-processing-paradigms)
-- Zawiera wskazówki dotyczące:
-   - [Przekształcanie skryptów,](#transform-u-sql-scripts) w tym [wyrażeń zestawu wierszy](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions) języka U-SQL
-   - [Kod .NET](#transform-net-code)
+- Rozpoczyna się od [porównania z modelami przetwarzania dwóch języków](#understand-the-u-sql-and-spark-language-and-processing-paradigms)
+- Zawiera wskazówki dotyczące sposobu:
+   - [Przekształć skrypty](#transform-u-sql-scripts) , w tym [wyrażenia zestawu wierszy](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions) U-SQL
+   - [Kod platformy .NET](#transform-net-code)
    - [Typy danych](#transform-typed-values)
    - [Obiekty katalogu](#transform-u-sql-catalog-objects).
 
-## <a name="understand-the-u-sql-and-spark-language-and-processing-paradigms"></a>Zrozumienie języka U-SQL i Spark oraz paradygmatów przetwarzania
+## <a name="understand-the-u-sql-and-spark-language-and-processing-paradigms"></a>Objaśnienie języka U-SQL i i procesów przetwarzania
 
-Przed rozpoczęciem migracji skryptów U-SQL usługi Azure Data Lake Analytics do platformy Spark warto zapoznać się z ogólnym językiem i filozofiami przetwarzania obu systemów.
+Przed rozpoczęciem migrowania Azure Data Lake Analytics "U-SQL scripts do platformy Spark warto zrozumieć ogólne informacje o języku i filozofiami przetwarzania tych dwóch systemów.
 
-U-SQL jest sql-jak deklaratywny język kwerendy, który używa paradygmatu przepływu danych i pozwala łatwo osadzać i skalować w poziomie kodu użytkownika napisanego w .NET (na przykład C#), Python i R. Rozszerzenia użytkownika można zaimplementować proste wyrażenia lub funkcje zdefiniowane przez użytkownika, ale może również zapewnić użytkownikowi możliwość zaimplementowania tak zwanych operatorów zdefiniowanych przez użytkownika, które implementują operatorów niestandardowych do wykonywania przekształceń na poziomie zestawu wierszy, wyodrębnienia i zapisu danych wyjściowych.
+Skrypt U-SQL to deklaratywny język zapytań oparty na języku SQL, który używa modelu przepływu danych i umożliwia łatwe osadzanie i skalowanie kodu użytkownika pisanego w programie .NET (na przykład C#), Python i języka R. Rozszerzenia użytkownika mogą implementować proste wyrażenia lub funkcje zdefiniowane przez użytkownika, ale mogą także zapewnić użytkownikowi możliwość implementacji, tak zwane Operatory zdefiniowane przez użytkownika, które implementują operatory niestandardowe w celu wykonywania transformacji na poziomie zestawu wierszy, wyodrębniania i pisania danych wyjściowych.
 
-Spark to struktura skalowania w poziomie oferująca kilka powiązań językowych w scali, Java, Pythonie, .NET itp., w której przede wszystkim piszesz kod w jednym z tych języków, tworzysz abstrakcje danych o nazwie odporne rozproszone zestawy danych (RDD), ramki danych i zestawy danych oraz następnie użyj języka specyficznego dla domeny podobnej do LINQ (DSL), aby je przekształcić. Zapewnia również SparkSQL jako deklaratywny podjęzyk na abstrakcjach dataframe i zestaw danych. DSL zawiera dwie kategorie operacji, przekształcenia i akcje. Zastosowanie przekształceń do abstrakcji danych nie spowoduje wykonania transformacji, ale zamiast tego nagromadzenia planu wykonania, który zostanie przesłany do oceny za pomocą akcji (na przykład zapisanie wyniku w tymczasowej tabeli lub pliku lub wydrukowanie wynik).
+Platforma Spark jest strukturą skalowalną w poziomie oferującą kilka powiązań języka w Scala, Java, Python, .NET itp., w przypadku których przede wszystkim piszesz kod w jednym z tych języków, tworzenie abstrakcji danych o nazwie odpornych na błędy rozproszone zbiory (RDD), dataframes i DataSets, a następnie używanie języka specyficznego dla domeny (DSL) do przekształcania. Udostępnia również SparkSQL jako deklaratywny podjęzyk dla elementów DataSet i Abstracts Dataframe. DSL oferuje dwie kategorie operacji, transformacji i akcji. Zastosowanie transformacji do abstrakcji danych nie spowoduje wykonania transformacji, ale zamiast tego kompiluje plan wykonywania, który zostanie przesłany do oceny z akcją (na przykład zapisanie wyniku do tabeli tymczasowej lub pliku lub wydrukowanie wyniku).
 
-Tak więc podczas tłumaczenia skryptu U-SQL do programu Spark, trzeba będzie zdecydować, który język ma być używany do co najmniej generowania abstrakcji ramki danych (który jest obecnie najczęściej używane abstrakcji danych) i czy chcesz napisać deklaratywne przekształcenia przepływu danych przy użyciu DSL lub SparkSQL. W niektórych bardziej złożonych przypadkach może być konieczne podzielenie skryptu U-SQL na sekwencję platformy Spark i inne kroki zaimplementowane za pomocą usługi Azure Batch lub azure functions.
+W tym przypadku podczas tłumaczenia skryptu U-SQL do programu Spark należy zdecydować, który język ma być używany do co najmniej generowania abstrakcji ramki danych (która jest obecnie najczęściej używanym abstrakcją danych) i czy chcesz napisać deklaratywne przekształcenia przepływu danych przy użyciu języka DSL lub SparkSQL. W niektórych bardziej złożonych przypadkach może być konieczne podzielenie skryptu U-SQL na sekwencję platformy Spark i innych kroków wdrożonych przy użyciu Azure Batch lub Azure Functions.
 
-Ponadto usługa Azure Data Lake Analytics oferuje u-SQL w środowisku usługi zadań bez serwera, podczas gdy zarówno usługi Azure Databricks, jak i usługi Azure HDInsight oferują platformę Spark w formie usługi klastrowania. Podczas przekształcania aplikacji, należy wziąć pod uwagę implikacje teraz tworzenia, zmiany rozmiaru, skalowania i likwidacji klastrów.
+Ponadto Azure Data Lake Analytics oferuje język U-SQL w środowisku usługi zadań bezserwerowych, natomiast zarówno Azure Databricks, jak i usługa Azure HDInsight oferują platformę Spark w postaci usługi klastra. Podczas przekształcania aplikacji należy wziąć pod uwagę skutki tworzenia, ustalania rozmiarów, skalowania i likwidowania klastrów.
 
-## <a name="transform-u-sql-scripts"></a>Przekształcanie skryptów U-SQL
+## <a name="transform-u-sql-scripts"></a>Przekształć skrypty U-SQL
 
-Skrypty U-SQL wykonaj następujący wzorzec przetwarzania:
+Skrypty U-SQL są zgodne z następującym wzorcem przetwarzania:
 
-1. Dane są odczytywane z plików nieustrukturyzowanych, przy użyciu `EXTRACT` instrukcji, specyfikacji lokalizacji lub zestawu plików oraz wbudowanego lub zdefiniowanego przez użytkownika ekstraktora i żądanego schematu lub z tabel U-SQL (tabel zarządzanych lub zewnętrznych). Jest reprezentowana jako zestaw wierszy.
-2. Zestawy wierszy są przekształcane w wielu instrukcjach U-SQL, które stosują wyrażenia U-SQL do zestawów wierszy i tworzą nowe zestawy wierszy.
-3. Na koniec wynikowe zestawy wierszy są dane wyjściowe do plików przy użyciu `OUTPUT` instrukcji, która określa lokalizacje i wbudowany lub zdefiniowany przez użytkownika wynikowy lub do tabeli U-SQL.
+1. Dane są `EXTRACT` odczytywane z plików bez struktury, przy użyciu instrukcji, lokalizacji lub zestawu plików, oraz wbudowanego lub zdefiniowanego przez użytkownika ekstraktora oraz żądanego schematu lub z tabel U-SQL (tabel zarządzanych lub zewnętrznych). Jest reprezentowana jako zestaw wierszy.
+2. Zestawy wierszy są przekształcane w wiele instrukcji U-SQL, które stosują wyrażenia U-SQL do zestawów wierszy i tworzą nowe zestawy wierszy.
+3. Na koniec wynikowe zestawy wierszy są wyprowadzane do obu plików przy `OUTPUT` użyciu instrukcji, która określa lokalizacje i wbudowany lub zdefiniowany przez użytkownika element, lub tabelę U-SQL.
 
-Skrypt jest oceniany leniwie, co oznacza, że każdy krok wyodrębniania i transformacji składa się z drzewa wyrażeń i globalnie oceniane (przepływ danych).
+Skrypt jest oceniany jako opóźnieniem, co oznacza, że każdy krok wyodrębniania i przekształcania składa się z drzewa wyrażenia i oceniany globalnie (przepływu danych).
 
-Programy spark są podobne, ponieważ można użyć łączników Spark do odczytu danych i tworzenia ramek danych, a następnie zastosować przekształcenia na ramkach danych przy użyciu DSL podobnej do LINQ lub SparkSQL, a następnie zapisać wynik w plikach, tymczasowych tabelach Spark, niektórych typów języków programowania lub konsoli.
+Programy Spark są podobne w przypadku używania łączników platformy Spark do odczytywania danych i tworzenia ramek dataframes, a następnie stosowania przekształceń do ramek danych przy użyciu technologii LINQ, podobnie jak DSL lub SparkSQL, a następnie zapisania wyniku w plikach, tymczasowych tabelach Spark, niektórych typach języków programowania lub konsoli programu.
 
 ## <a name="transform-net-code"></a>Przekształcanie kodu platformy .NET
 
-Język wyrażenia U-SQL jest C# i oferuje wiele sposobów skalowania w poziomie niestandardowego kodu .NET.
+Język wyrażeń języka U-SQL to C# i oferuje różne sposoby skalowania niestandardowego kodu platformy .NET.
 
-Ponieważ spark obecnie nie obsługuje natywnie wykonywania kodu .NET, trzeba będzie albo przepisać wyrażenia do równoważnego wyrażenia Spark, Scala, Java lub Python lub znaleźć sposób wywołania kodu .NET. Jeśli skrypt korzysta z bibliotek platformy .NET, dostępne są następujące opcje:
+Ponieważ platforma Spark obecnie nie obsługuje wykonywania kodu platformy .NET, należy ponownie napisać wyrażenia do równoważnego wyrażenia Spark, Scala, Java lub Python lub znaleźć sposób wywoływania kodu platformy .NET. Jeśli skrypt korzysta z bibliotek platformy .NET, dostępne są następujące opcje:
 
-- Przetłumacz swój kod .NET na Scala lub Python.
-- Podziel skrypt U-SQL na kilka kroków, w których używasz procesów usługi Azure Batch do zastosowania przekształceń platformy .NET (jeśli można uzyskać dopuszczalną skalę)
-- Użyj powiązania języka .NET dostępnego w open source o nazwie Moebius. Ten projekt nie jest w stanie obsługiwanym.
+- Przetłumacz swój kod platformy .NET na Scala lub Python.
+- Podziel skrypt U-SQL na kilka kroków, w których używasz procesów Azure Batch, aby zastosować transformacje .NET (jeśli można uzyskać akceptowalną skalę)
+- Użyj powiązania języka platformy .NET dostępnego w środowisku typu open source o nazwie Moebius. Ten projekt nie jest w obsługiwanym stanie.
 
-W każdym przypadku, jeśli masz dużą ilość logiki platformy .NET w skryptach U-SQL, skontaktuj się z nami za pośrednictwem przedstawiciela konta Microsoft, aby uzyskać dalsze wskazówki.
+W każdym przypadku, jeśli masz dużą liczbę logiki .NET w skryptach U-SQL, skontaktuj się z nami za pomocą przedstawiciela konta Microsoft, aby uzyskać dalsze wskazówki.
 
-Poniższe szczegóły są dla różnych przypadków .NET i C# użycia w skryptach U-SQL.
+Poniżej znajdują się szczegółowe informacje dotyczące różnych przypadków użycia .NET i C# w skryptach języka U-SQL.
 
-### <a name="transform-scalar-inline-u-sql-c-expressions"></a>Przekształcanie scalar wbudowanych wyrażeń języka C# U-SQL
+### <a name="transform-scalar-inline-u-sql-c-expressions"></a>Przekształcanie skalarnych wyrażeń języka C# języka U-SQL
 
-Język wyrażenia U-SQL to C#. Wiele scalar wbudowanych wyrażeń U-SQL są implementowane natywnie dla poprawy wydajności, podczas gdy bardziej złożone wyrażenia mogą być wykonywane za pomocą wywoływania do platformy .NET.
+Język wyrażeń języka U-SQL to C#. Wiele wartości skalarnych wbudowanych wyrażeń U-SQL są implementowane natywnie w celu zwiększenia wydajności, podczas gdy bardziej złożone wyrażenia mogą być wykonywane przez wywołanie do programu .NET Framework.
 
-Platforma Spark ma swój własny język wyrażeń skalarnych (jako część DSL lub SparkSQL) i umożliwia wywoływanie funkcji zdefiniowanych przez użytkownika napisanych w jego języku hostingu.
+Platforma Spark ma własny język wyrażeń skalarnych (albo jako część DSL lub in SparkSQL) i umożliwia wywoływanie funkcji zdefiniowanych przez użytkownika w języku macierzystym.
 
-Jeśli masz wyrażenia skalarne w U-SQL, należy najpierw znaleźć najbardziej odpowiednie natywnie zrozumiałe wyrażenie skalarne Platformy Spark, aby uzyskać jak największą wydajność, a następnie mapować inne wyrażenia do zdefiniowanej przez użytkownika funkcji wybranego języka hostingu platformy Spark.
+Jeśli w języku U-SQL znajdują się wyrażenia skalarne, należy najpierw znaleźć najbardziej odpowiednie natywnie zrozumiałe wyrażenie skalarne platformy Spark, aby uzyskać największą wydajność, a następnie zamapować inne wyrażenia na funkcję zdefiniowaną przez użytkownika w języku hostingu platformy Spark.
 
-Należy pamiętać, że .NET i C# mają semantykę innego typu niż języki hostingu platformy Spark i dsl platformy Spark. Zobacz [poniżej,](#transform-typed-values) aby uzyskać więcej informacji na temat różnic systemowych typu.
+Należy pamiętać, że architektura .NET i C# ma inną semantykę typu niż języki hostingu platformy Spark i DSL. Więcej szczegółów na temat typów różnic systemowych można znaleźć [poniżej](#transform-typed-values) .
 
-### <a name="transform-user-defined-scalar-net-functions-and-user-defined-aggregators"></a>Przekształcanie zdefiniowanych przez użytkownika funkcji skalarnych .NET i agregatorów zdefiniowanych przez użytkownika
+### <a name="transform-user-defined-scalar-net-functions-and-user-defined-aggregators"></a>Przekształcanie skalarnych funkcji .NET zdefiniowanych przez użytkownika i agregatorów zdefiniowanych przez użytkownika
 
-U-SQL zapewnia sposoby wywoływania dowolnych funkcji skalarnych .NET i wywoływania agregatorów zdefiniowanych przez użytkownika zapisanych w programie .NET.
+Język U-SQL umożliwia wywoływanie dowolnych skalarnych funkcji .NET i wywoływanie agregatorów zdefiniowanych przez użytkownika w programie .NET.
 
-Spark oferuje również obsługę funkcji zdefiniowanych przez użytkownika i agregatorów zdefiniowanych przez użytkownika napisanych w większości języków hostingu, które mogą być wywoływane z dsl i sparksql spark.
+Platforma Spark oferuje również obsługę funkcji zdefiniowanych przez użytkownika i agregatorów zdefiniowanych przez użytkownika, które są zapisywane w większości języków hostingu, które mogą być wywoływane z linii DSL i SparkSQL platformy Spark.
 
-### <a name="transform-user-defined-operators-udos"></a>Przekształcanie operatorów zdefiniowanych przez użytkownika (UDO)
+### <a name="transform-user-defined-operators-udos"></a>Przekształcanie operatorów zdefiniowanych przez użytkownika (udo)
 
-U-SQL udostępnia kilka kategorii operatorów zdefiniowanych przez użytkownika (UDO), takich jak ekstraktory, wyjścia, reduktory, procesory, aplikacje i kombajny, które mogą być zapisywane w .NET (i - do pewnego stopnia - w Pythonie i R).
+Język U-SQL zawiera kilka kategorii operatorów zdefiniowanych przez użytkownika (udo), takich jak wyodrębnianie, wypełniania, stopki, procesory, appliers i łączenie, które mogą być napisywane w środowisku .NET (i-do pewnego stopnia w języku Python i R).
 
 Platforma Spark nie oferuje tego samego modelu rozszerzalności dla operatorów, ale ma równoważne możliwości dla niektórych.
 
-Spark odpowiednik ekstraktorów i outputters jest Łączniki Platformy Spark. Dla wielu ekstraktorów U-SQL może się okazać łącznika równoważne w społeczności Platformy Spark. Dla innych, trzeba będzie napisać łącznik niestandardowy. Jeśli ekstraktor U-SQL jest złożony i korzysta z kilku bibliotek .NET, może być lepiej zbudować łącznik w Scali, który używa interop do wywołania biblioteki .NET, która wykonuje rzeczywiste przetwarzanie danych. W takim przypadku należy wdrożyć środowisko uruchomieniowe .NET Core w klastrze platformy Spark i upewnić się, że biblioteki .NET, do których istnieją odwołania, są zgodne ze standardem .NET Standard 2.0.
+Platforma Spark równoważna z ekstraktorami i wyciągami to łączniki Spark. W przypadku wielu ekstrakcji U-SQL można znaleźć odpowiedni łącznik w społeczności platformy Spark. W przypadku innych użytkowników konieczne będzie napisanie łącznika niestandardowego. Jeśli wyekstraktor języka U-SQL jest skomplikowany i korzysta z kilku bibliotek .NET, warto utworzyć łącznik w Scala, który używa międzyoperacyjnego do wywołania biblioteki .NET, która wykonuje rzeczywiste przetwarzanie danych. W takim przypadku konieczne będzie wdrożenie środowiska uruchomieniowego .NET Core do klastra Spark i upewnienie się, że przywoływane biblioteki .NET są zgodne z .NET Standard 2,0.
 
-Inne typy UDO U-SQL będą musiały zostać przepisane przy użyciu funkcji zdefiniowanych przez użytkownika i agregatorów oraz semantycznie odpowiednich spark DLS lub SparkSQL wyrażenie. Na przykład procesor może być mapowany do SELECT różnych wywołań UDF, pakowane jako funkcja, która przyjmuje dataframe jako argument i zwraca dataframe.
+Inne typy udo języka U-SQL będą musiały być ponownie zapisywane przy użyciu funkcji zdefiniowanych przez użytkownika i agregatorów oraz semantycznie odpowiedniego wyrażenia Spark DLS lub SparkSQL. Na przykład procesora można zamapować na wybór różnych wywołań UDF, spakowanych jako funkcja, która pobiera ramkę danych jako argument i zwraca ramkę Dataframe.
 
-### <a name="transform-u-sqls-optional-libraries"></a>Przekształcanie bibliotek opcjonalnych języka U-SQL
+### <a name="transform-u-sqls-optional-libraries"></a>Przekształć opcjonalne biblioteki U-SQL
 
-U-SQL zapewnia zestaw bibliotek opcjonalnych i demo, które oferują [Python](data-lake-analytics-u-sql-python-extensions.md), [R](data-lake-analytics-u-sql-r-extensions.md), [JSON, XML, obsługa AVRO](https://github.com/Azure/usql/tree/master/Examples/DataFormats)i niektóre [funkcje usług kognitywnych.](data-lake-analytics-u-sql-cognitive.md)
+Język U-SQL zawiera zestaw opcjonalnych i demonstracyjnych bibliotek oferujących funkcje [Python](data-lake-analytics-u-sql-python-extensions.md), [R](data-lake-analytics-u-sql-r-extensions.md), [JSON, XML, Avro](https://github.com/Azure/usql/tree/master/Examples/DataFormats), a także niektóre [usługi poznawcze](data-lake-analytics-u-sql-cognitive.md).
 
-Spark oferuje własną integrację Języka Python i R, pySpark i SparkR odpowiednio i zapewnia łączniki do odczytu i zapisu JSON, XML i AVRO.
+Platforma Spark oferuje odpowiednio własną integrację języków Python i R, pySpark i Spark oraz udostępnia łączniki do odczytu i zapisu danych JSON, XML i AVRO.
 
-Jeśli chcesz przekształcić skrypt odwołujący się do bibliotek usług kognitywnych, zalecamy skontaktowanie się z nami za pośrednictwem przedstawiciela konta Microsoft.
+Jeśli musisz przekształcić skrypt odwołujący się do bibliotek usługi poznawczej, zalecamy skontaktowanie się z nami za pośrednictwem przedstawiciela konta Microsoft.
 
-## <a name="transform-typed-values"></a>Przekształcanie wpisanych wartości
+## <a name="transform-typed-values"></a>Przekształć wpisane wartości
 
-Ponieważ system typu U-SQL jest oparty na systemie typu .NET i Spark ma swój własny system typu, który ma wpływ na powiązanie języka hosta, należy upewnić się, że typy, na których działasz, są bliskie i dla niektórych typów zakresy typów, precyzja i/lub skala mogą się nieznacznie różnić. Ponadto U-SQL i Spark `null` traktować wartości inaczej.
+Ponieważ system typu U-SQL jest oparty na systemie typu .NET, a platforma Spark ma własny system typów, który ma wpływ na powiązanie języka hosta, należy upewnić się, że typy, na których pracujesz, są zamknięte i dla pewnych typów, zakresy typów, precyzja i/lub skala mogą być nieco inne. Ponadto wartości U-SQL i Spark traktują `null` w różny sposób.
 
 ### <a name="data-types"></a>Typy danych
 
-W poniższej tabeli przedstawiono równoważne typy w programach Spark, Scala i PySpark dla danego typu języka U-SQL.
+Poniższa tabela zawiera równoważne typy w Spark, Scala i PySpark dla danego typu U-SQL.
 
-| U-SQL | platforma Spark |  Scala | PySpark (pyspark) |
+| U-SQL | platforma Spark |  Scala | PySpark |
 | ------ | ------ | ------ | ------ |
 |`byte`       ||||
 |`sbyte`      |`ByteType` |`Byte` | `ByteType`|
@@ -130,94 +130,94 @@ W poniższej tabeli przedstawiono równoważne typy w programach Spark, Scala i 
 
 Aby uzyskać więcej informacji, zobacz:
 
-- [org.apache.spark.sql.types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
-- [Spark SQL i DataFrames Typy](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
-- [Typy wartości Scala](https://www.scala-lang.org/api/current/scala/AnyVal.html)
-- [pyspark.sql.types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
+- [org. Apache. Spark. SQL. Types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
+- [Typy Spark SQL i dataframes](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
+- [Scala — typy wartości](https://www.scala-lang.org/api/current/scala/AnyVal.html)
+- [pyspark. SQL. Types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
 
-### <a name="treatment-of-null"></a>Leczenie NULL
+### <a name="treatment-of-null"></a>Traktowanie wartości NULL
 
-W programie Spark typy na wartość domyślna zezwalają na wartości NULL, podczas gdy w języku U-SQL jawnie oznacza się skalarne, niebędące obiektami jako nullable. Podczas spark pozwala zdefiniować kolumnę jako nie można anulować, nie będzie wymuszać ograniczenia i [może prowadzić do złego wyniku](https://medium.com/@weshoffman/apache-spark-parquet-and-troublesome-nulls-28712b06f836).
+W platformie Spark, typy na domyślne zezwalają na wartości NULL w języku U-SQL, jawnie Oznacz skalarną, niebędącą obiektem jako wartość null. Chociaż platforma Spark umożliwia zdefiniowanie kolumny jako niedopuszczające wartości null, nie będzie wymuszać ograniczenia i [może prowadzić do nieprawidłowego wyniku](https://medium.com/@weshoffman/apache-spark-parquet-and-troublesome-nulls-28712b06f836).
 
-W spark null wskazuje, że wartość jest nieznany. Wartość spark NULL różni się od dowolnej wartości, w tym siebie. Porównania między dwiema wartościami spark NULL lub między wartością NULL a dowolną inną wartością zwracają wartość nieznaną, ponieważ wartość każdej wartości NULL jest nieznana.  
+W platformie Spark wartość NULL wskazuje, że wartość jest nieznana. Wartość NULL platformy Spark różni się od żadnej wartości, łącznie z tą samą. Porównania między dwoma wartościami NULL platformy Spark lub między wartością NULL a dowolną inną wartością zwraca nieznane, ponieważ wartość każdego z wartości NULL jest nieznana.  
 
-To zachowanie różni się od U-SQL, który następuje `null` Semantyka C#, gdzie różni się od dowolnej wartości, ale równa sobie.  
+To zachowanie różni się od języka U-SQL, który jest zgodny z semantyką C#, gdzie `null` różni się od dowolnej wartości, ale jest równe.  
 
-W ten sposób `SELECT` instrukcja SparkSQL, która `WHERE column_name = NULL` używa zwraca `column_name`zero wierszy, nawet jeśli istnieją wartości `column_name` NULL w `null`, podczas gdy w U-SQL, zwróci wiersze, gdzie jest ustawiona na . Podobnie Spark `SELECT` instrukcji, która `WHERE column_name != NULL` używa zwraca zero wierszy, nawet jeśli `column_name`istnieją wartości inne niż null w , podczas gdy w U-SQL, zwróci wiersze, które mają inne niż null. W związku z tym jeśli chcesz Semantyki sprawdzania null U-SQL, należy użyć [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) i [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) odpowiednio (lub ich odpowiednik DSL).
+W rezultacie instrukcja `SELECT` SparkSQL, która `WHERE column_name = NULL` używa zwraca zero wierszy nawet w przypadku wartości null w `column_name`, a w języku U-SQL zwraca wiersze, w `column_name` `null`których jest ustawiony. Podobnie instrukcja Spark `SELECT` , która używa `WHERE column_name != NULL` zwraca zero wierszy, nawet jeśli w `column_name`, w języku U-SQL, są wartości inne niż null, zwróci wiersze, które mają wartość różną od null. W takim przypadku, jeśli chcesz, aby semantyka sprawdzania wartości null w języku U-SQL, należy użyć odpowiednio [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) i [IsNotNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) (lub jego odpowiedniku DSL).
 
-## <a name="transform-u-sql-catalog-objects"></a>Przekształcanie obiektów katalogu U-SQL
+## <a name="transform-u-sql-catalog-objects"></a>Przekształcanie obiektów wykazu U-SQL
 
-Jedną z głównych różnic jest to, że skrypty U-SQL mogą korzystać z jego obiektów katalogu, z których wiele nie ma bezpośredniego odpowiednika Platformy Spark.
+Istotną różnicą jest to, że skrypty U-SQL mogą korzystać z obiektów wykazu, z których wiele nie ma bezpośredniego odpowiednika platformy Spark.
 
-Platforma Spark zapewnia obsługę koncepcji magazynu Hive Meta, głównie baz danych i tabel, dzięki czemu można mapować bazy danych i schematy U-SQL do baz danych hive i tabel U-SQL do tabel Platformy Spark (zobacz [Przenoszenie danych przechowywanych w tabelach U-SQL),](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)ale nie obsługuje widoków, funkcji o wartości tabeli (TVF), procedur przechowywanych, zestawów U-SQL, zewnętrznych źródeł danych itp.
+Platforma Spark zapewnia obsługę koncepcji metadanych magazynu Hive, głównie bazy danych i tabele, dzięki czemu można mapować bazy danych i schematy U-SQL do baz danych programu Hive oraz tabele U-SQL w tabelach platformy Spark (zobacz [przeniesienie danych przechowywanych w tabelach u-SQL](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)), ale nie ma żadnego wsparcia dla widoków, funkcji z wartościami przechowywanymi w tabeli (TVFs), procedur składowanych, zestawów U-SQL, zewnętrznych źródeł danych itp.
 
-Obiekty kodu U-SQL, takie jak widoki, pliki TVF, procedury przechowywane i zestawy, mogą być modelowane za pomocą funkcji kodu i bibliotek w programie Spark i odwoływane przy użyciu funkcji języka hosta i mechanizmów abstrakcji proceduralnej (na przykład poprzez importowanie python lub odwoływanie się do funkcji Scala).
+Obiekty kodu U-SQL, takie jak widoki, TVFs, procedury składowane i zestawy, można modelować za pomocą funkcji kodu i bibliotek w platformie Spark i przywoływanych przy użyciu funkcji języka hosta i mechanizmów abstrakcji procedur (na przykład za pośrednictwem importowania modułów Python lub odwoływania się do funkcji Scala).
 
-Jeśli katalog U-SQL został użyty do udostępniania danych i obiektów kodu w projektach i zespołach, należy użyć równoważnych mechanizmów udostępniania (na przykład Maven do udostępniania obiektów kodu).
+Jeśli do udostępniania danych i obiektów kodu między projektami i zespołami użyto wykazu U-SQL, równoważne mechanizmy udostępniania muszą być używane (na przykład Maven do udostępniania obiektów kodu).
 
-## <a name="transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions"></a>Przekształcanie wyrażeń zestawu wierszy U-SQL i wyrażeń skalarnych opartych na języku SQL
+## <a name="transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions"></a>Przekształć wyrażenia zestawu wierszy U-SQL i wyrażenia skalarne oparte na języku SQL
 
-Podstawowym językiem U-SQL jest przekształcanie zestawów wierszy i jest oparty na sql. Poniżej znajduje się niewyczerpywna lista najczęściej wyrażeń zestawu wierszy oferowanych w U-SQL:
+Język podstawowy języka U-SQL jest przekształcany w zestawy wierszy i jest oparty na SQL. Poniżej znajduje się niepełna lista najpopularniejszych wyrażeń zestawu wierszy oferowanych w języku U-SQL:
 
-- `SELECT`/`FROM`/`WHERE`/`GROUP BY`+Agregaty+`HAVING`/`ORDER BY`+`FETCH`
+- `SELECT`/`FROM`/`WHERE`/`GROUP BY`+ Agregaty +`HAVING`/`ORDER BY`+`FETCH`
 - `INNER`/`OUTER`/`CROSS`/`SEMI``JOIN` wyrażenia
 - `CROSS`/`OUTER``APPLY` wyrażenia
-- `PIVOT`/`UNPIVOT`Wyrażenia
-- `VALUES`konstruktor zestawu wierszy
+- `PIVOT`/`UNPIVOT`wyrażeń
+- `VALUES`Konstruktor zestawu wierszy
 
-- Ustawianie wyrażeń`UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
+- Ustaw wyrażenia`UNION`/`OUTER UNION`/`INTERSECT`/`EXCEPT`
 
-Ponadto U-SQL zapewnia wiele wyrażeń skalarnych opartych na języku SQL, takich jak
+Ponadto język U-SQL zawiera różne wyrażenia skalarne oparte na języku SQL, takie jak
 
-- `OVER`wyrażeń okiennych
-- szereg wbudowanych agregatorów i funkcji`SUM` `FIRST` rankingowych ( itp.)
-- Niektóre z najbardziej znanych wyrażeń `CASE` `LIKE`skalarnych `IN` `AND`SQL: , , (`NOT`) , `OR` itp.
+- `OVER`wyrażenia okna
+- różne wbudowane agregatory i funkcje klasyfikacji (`SUM` `FIRST` itd.)
+- Niektóre z najpopularniejszych wyrażeń skalarnych SQL: `CASE`, `LIKE`,,`NOT` `IN` `AND`, `OR` itd.
 
-Spark oferuje równoważne wyrażenia w formularzu DSL i SparkSQL dla większości z tych wyrażeń. Niektóre wyrażenia nie są obsługiwane natywnie w spark będą musiały być przepisane przy użyciu kombinacji natywnych wyrażeń Platformy Spark i wzorce semantycznie równoważne. Na przykład, `OUTER UNION` będzie musiał zostać przełożony na równoważną kombinację prognoz i związków.
+Platforma Spark oferuje równoważne wyrażenia w postaci DSL i SparkSQL w większości tych wyrażeń. Niektóre wyrażenia nie są obsługiwane natywnie w platformie Spark, muszą być ponownie napisywane przy użyciu kombinacji natywnych wyrażeń platformy Spark i semantycznie równoważnych wzorców. Na przykład konieczne `OUTER UNION` będzie przetłumaczenie na równoważną kombinację prognoz i Unii.
 
-Ze względu na różne obsługi wartości NULL sprzężenia U-SQL zawsze będzie pasować do wiersza, jeśli obie kolumny są porównywane zawierają wartość NULL, podczas gdy sprzężenie w programie Spark nie będzie zgodne z takimi kolumnami, chyba że jawne kontrole null są dodawane.
+Z powodu różnej obsługi wartości NULL, sprzężenie U-SQL będzie zawsze zgodne z wierszem, jeśli obie kolumny, które są porównywane, zawierają wartość NULL, podczas gdy sprzężenie w platformie Spark nie są zgodne z takimi kolumnami, chyba że zostaną dodane jawne sprawdzenia wartości null.
 
-## <a name="transform-other-u-sql-concepts"></a>Przekształcanie innych pojęć języka U-SQL
+## <a name="transform-other-u-sql-concepts"></a>Przekształć inne koncepcje U-SQL
 
-U-SQL oferuje również wiele innych funkcji i pojęć, takich jak zapytania federacyjne względem baz danych programu SQL Server, `OPTION` parametrów, zmiennych skalarnych i lambda, zmiennych systemowych, wskazówek.
+Język U-SQL oferuje również różne inne funkcje i koncepcje, takie jak zapytania federacyjne dotyczące SQL Server baz danych, parametrów, skalarnych i wyrażenia lambda, zmienne systemowe, `OPTION` wskazówki.
 
-### <a name="federated-queries-against-sql-server-databasesexternal-tables"></a>Zapytania federacyjne dotyczące baz danych programu SQL Server/tabel zewnętrznych
+### <a name="federated-queries-against-sql-server-databasesexternal-tables"></a>Zapytania federacyjne dotyczące baz danych SQL Server/tabel zewnętrznych
 
-U-SQL udostępnia źródło danych i tabele zewnętrzne, a także bezpośrednie zapytania względem usługi Azure SQL Database. Chociaż spark nie oferuje te same abstrakcje obiektów, zapewnia [łącznik platformy Spark dla usługi Azure SQL Database,](../sql-database/sql-database-spark-connector.md) który może służyć do kwerendy baz danych SQL.
+Język U-SQL udostępnia źródła danych i tabele zewnętrzne, a także bezpośrednie zapytania względem Azure SQL Database. Chociaż platforma Spark nie oferuje tych samych abstrakcyjnych obiektów, udostępnia [Łącznik Spark dla Azure SQL Database](../sql-database/sql-database-spark-connector.md) , który może służyć do wykonywania zapytań dotyczących baz danych SQL.
 
-### <a name="u-sql-parameters-and-variables"></a>Parametry i zmienne U-SQL
+### <a name="u-sql-parameters-and-variables"></a>Parametry U-SQL i zmienne
 
-Parametry i zmienne użytkownika mają równoważne pojęcia w spark i ich języków hostingu.
+Parametry i zmienne użytkownika mają równoważne koncepcje w usłudze Spark i ich języki hostingu.
 
-Na przykład w Scali można zdefiniować zmienną za pomocą słowa kluczowego: `var`
+Na przykład w Scala można zdefiniować zmienną za pomocą `var` słowa kluczowego:
 
 ```
 var x = 2 * 3;
 println(x)
 ```
 
-Zmienne systemowe U-SQL (zmienne `@@`zaczynające się od) można podzielić na dwie kategorie:
+Zmienne systemu U-SQL (zmienne zaczynające się `@@`od) można podzielić na dwie kategorie:
 
-- Ustawialne zmienne systemowe, które można ustawić na określone wartości, aby wpłynąć na zachowanie skryptów
-- Zmienne systemu informacyjnego, które pytają o informacje o systemie i poziomie zadania
+- Settable, zmienne systemowe, które można ustawić na określone wartości mające wpływ na zachowanie skryptów
+- Zmienne systemowe informacyjne, które zgłaszają informacje o poziomie systemu i zadania
 
-Większość zmiennych systemowych settable nie ma bezpośredniego odpowiednika w spark. Niektóre zmienne systemu informacyjnego mogą być modelowane przez przekazywanie informacji jako argumentów podczas wykonywania zadania, inne mogą mieć równoważną funkcję w języku hostingu platformy Spark.
+Większość zmiennych systemowych settable nie ma bezpośredniego odpowiednika w platformie Spark. Niektóre zmienne systemu informacyjnego można modelować przez przekazanie informacji jako argumentów podczas wykonywania zadania, inne mogą mieć równoważną funkcję w języku hostingu platformy Spark.
 
 ### <a name="u-sql-hints"></a>Wskazówki U-SQL
 
-U-SQL oferuje kilka sposobów składni, aby zapewnić wskazówki do optymalizatora kwerend i aparatu wykonywania:  
+Język U-SQL oferuje kilka składni sposobów udostępniania wskazówek do programu do optymalizacji zapytań i aparatu wykonywania:  
 
 - Ustawianie zmiennej systemowej U-SQL
-- klauzula `OPTION` skojarzona z wyrażeniem zestawu wierszy w celu dostarczenia wskazówki dotyczącej danych lub planu
-- wskazówka sprzężenia w składni wyrażenia sprzężenia (na przykład `BROADCASTLEFT`)
+- `OPTION` klauzula skojarzona z wyrażeniem zestawu wierszy w celu dostarczenia wskazówki dotyczącej danych lub planu
+- Wskazówka sprzężenia w składni wyrażenia sprzężenia (na przykład `BROADCASTLEFT`)
 
-Optymalizator zapytań oparty na kosztach firmy Spark ma własne możliwości dostarczania wskazówek i dostosowywania wydajności kwerendy. Zapoznaj się z odpowiednią dokumentacją.
+Optymalizator zapytań oparty na kosztach platformy Spark ma własne możliwości zapewniania wskazówek i dostrajania wydajności zapytań. Zapoznaj się z odpowiednią dokumentacją.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zrozumienie formatów danych platformy Spark dla deweloperów języka U-SQL](understand-spark-data-formats.md)
+- [Omówienie formatów danych platformy Spark dla deweloperów U-SQL](understand-spark-data-formats.md)
 - [Platforma .NET dla platformy Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
-- [Uaktualnianie rozwiązań do analizy dużych zbiorów danych z usługi Azure Data Lake Storage Gen1 do usługi Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
-- [Przekształcanie danych przy użyciu aktywności platformy Spark w usłudze Azure Data Factory](../data-factory/transform-data-using-spark.md)
-- [Przekształcanie danych przy użyciu działania gałęzi usługi Hadoop w usłudze Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
+- [Uaktualnij rozwiązania do analizy danych Big Data z Azure Data Lake Storage Gen1 do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
+- [Przekształcanie danych przy użyciu działania Spark w Azure Data Factory](../data-factory/transform-data-using-spark.md)
+- [Przekształcanie danych przy użyciu działania programu Hive platformy Hadoop w Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [Co to jest platforma Apache Spark w usłudze Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

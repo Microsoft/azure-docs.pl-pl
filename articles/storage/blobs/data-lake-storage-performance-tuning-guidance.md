@@ -1,6 +1,6 @@
 ---
-title: Optymalizacja usługi Azure Data Lake Storage Gen2 pod kątem wydajności | Dokumenty firmy Microsoft
-description: Wskazówki dotyczące dostrajania wydajności usługi Azure Data Lake Storage Gen2
+title: Optymalizacja Azure Data Lake Storage Gen2 pod kątem wydajności | Microsoft Docs
+description: Wskazówki dotyczące dostrajania wydajności Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,134 +9,134 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: f1a16228b72d7e0f45048669ade94a0c78d9ac52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74327941"
 ---
-# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optymalizacja usługi Azure Data Lake Storage Gen2 pod kątem wydajności
+# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optymalizowanie Azure Data Lake Storage Gen2 na potrzeby wydajności
 
-Usługa Azure Data Lake Storage Gen2 obsługuje wysoką przepływność dla intensywnej analizy we/wy i przenoszenia danych.  W umiar pamięci masowej usługi Data Lake Gen2 przy użyciu wszystkich dostępnych przepływności — ilość danych, które mogą być odczytywane lub zapisywane na sekundę — jest ważne, aby uzyskać najlepszą wydajność.  Osiąga się to poprzez wykonywanie jak największej liczby odczytów i zapisów równolegle, jak to możliwe.
+Azure Data Lake Storage Gen2 obsługuje wysoką przepływność na potrzeby analizy i przenoszenia danych intensywnie korzystających z operacji we/wy.  W Data Lake Storage Gen2 przy użyciu całej dostępnej przepływności — ilość danych, które można odczytać lub zapisać na sekundę — jest ważna, aby uzyskać najlepszą wydajność.  Można to osiągnąć, wykonując jednocześnie wiele operacji odczytu i zapisu.
 
-![Wydajność pamięci masowej Data Lake Gen2](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
+![Data Lake Storage Gen2 wydajność](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Data Lake Storage Gen2 można skalować, aby zapewnić niezbędną przepływność dla wszystkich scenariuszy analizy. Domyślnie konto Data Lake Storage Gen2 zapewnia automatycznie wystarczającą przepływność, aby zaspokoić potrzeby szerokiej kategorii przypadków użycia. W przypadkach, gdy klienci napotkają domyślny limit, konto Data Lake Storage Gen2 można skonfigurować w celu zapewnienia większej przepływności, kontaktując się z [pomocą techniczną platformy Azure.](https://azure.microsoft.com/support/faq/)
+Data Lake Storage Gen2 można skalować w celu zapewnienia odpowiedniej przepływności dla całego scenariusza analizy. Domyślnie konto Data Lake Storage Gen2 zapewnia automatycznie wystarczającą przepływność, aby sprostać wymaganiom szerokiej kategorii przypadków użycia. W przypadkach, w których klienci mają domyślnie uruchomiony limit, konto Data Lake Storage Gen2 można skonfigurować w celu zapewnienia większej przepływności, kontaktując się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="data-ingestion"></a>Wprowadzanie danych
 
-Podczas pozyskiwania danych z systemu źródłowego do usługi Data Lake Storage Gen2, należy wziąć pod uwagę, że sprzęt źródłowy, sprzęt sieci źródłowej i łączność sieciowa z data lake storage gen2 może być wąskim gardłem.  
+W przypadku pozyskiwania danych z systemu źródłowego do Data Lake Storage Gen2 należy pamiętać, że sprzęt źródłowy, sprzęt sieciowy i połączenie sieciowe, które mają Data Lake Storage Gen2 może być wąskim gardłem.  
 
-![Wydajność pamięci masowej Data Lake Gen2](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![Data Lake Storage Gen2 wydajność](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
-Ważne jest, aby upewnić się, że te czynniki nie mają wpływu na przenoszenie danych.
+Ważne jest, aby upewnić się, że te czynniki nie wpływają na przeniesienie danych.
 
 ### <a name="source-hardware"></a>Sprzęt źródłowy
 
-Niezależnie od tego, czy używasz maszyn lokalnych, czy maszyn wirtualnych na platformie Azure, należy starannie wybrać odpowiedni sprzęt. W przypadku sprzętu z dysku źródłowego preferuj dyski SSD od dysków twardych i wybierz sprzęt dyskowy z szybszymi wrzecionami. W przypadku sprzętu sieci źródłowej użyj najszybszych kart sieciowych.  Na platformie Azure zaleca się maszyny wirtualne usługi Azure D14, które mają odpowiednio zaawansowany sprzęt dyskowy i sieciowy.
+Niezależnie od tego, czy używasz lokalnych maszyn i maszyn wirtualnych na platformie Azure, należy starannie wybrać odpowiedni sprzęt. W przypadku sprzętu dysku źródłowego Preferuj dysków SSD HDD i wybieraj sprzęt dyskowy z szybszymi wrzecionami. W przypadku sprzętowego sprzętu sieciowego Użyj najszybszych kart sieciowych.  Na platformie Azure zalecamy korzystanie z maszyn wirtualnych usługi Azure D14, które mają odpowiednio zaawansowane sprzęty dyskowe i sieciowe.
 
-### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Łączność sieciowa z pamięcią danych Data Lake Storage Gen2
+### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Łączność sieciowa z Data Lake Storage Gen2
 
-Łączność sieciowa między danymi źródłowymi a programem Data Lake Storage Gen2 może czasami być wąskim gardłem. Gdy dane źródłowe są lokalne, należy rozważyć użycie dedykowanego łącza za pomocą [usługi Azure ExpressRoute.](https://azure.microsoft.com/services/expressroute/) Jeśli dane źródłowe znajdują się na platformie Azure, wydajność będzie najlepsza, gdy dane znajdują się w tym samym regionie platformy Azure, co konto Data Lake Storage Gen2.
+Połączenie sieciowe między danymi źródłowymi a Data Lake Storage Gen2 może czasami stanowić wąskie gardło. Jeśli dane źródłowe są lokalne, należy rozważyć użycie dedykowanego linku z [usługą Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Jeśli dane źródłowe są na platformie Azure, wydajność będzie najlepsza, gdy dane będą znajdować się w tym samym regionie platformy Azure co konto Data Lake Storage Gen2.
 
-### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Konfigurowanie narzędzi pozyskiwania danych w celu maksymalnej równoległości
+### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Konfigurowanie narzędzi pozyskiwania danych w celu uzyskania maksymalnej przetwarzanie równoległe
 
-Po usunięciu problemu z powyższymi wąskimi gardłami sprzętu źródłowego i łączności sieciowej można przystąpić do konfigurowania narzędzi pozyskiwania. W poniższej tabeli podsumowano kluczowe ustawienia kilku popularnych narzędzi pozyskiwania i przedstawiono szczegółowe artykuły dostrajania wydajności dla nich.  Aby dowiedzieć się więcej o tym, którego narzędzia użyć w scenariuszu, odwiedź ten [artykuł](data-lake-storage-data-scenarios.md).
+Po rozwiązaniu problemów ze źródłem zasobów sprzętowych i połączeń sieciowych można przystąpić do konfigurowania narzędzi do pozyskiwania. Poniższa tabela zawiera podsumowanie najważniejszych ustawień dla kilku popularnych narzędzi do pozyskiwania i zawiera szczegółowe artykuły dotyczące dostrajania wydajności.  Aby dowiedzieć się więcej na temat tego, którego narzędzia użyć w danym scenariuszu, odwiedź ten [artykuł](data-lake-storage-data-scenarios.md).
 
 | Narzędzie               | Ustawienia     | Więcej szczegółów                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| DistCp (distcp)            | -m (mapper)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies (Kopia równoległa)    | [Link](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (maper)    |   [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| Pomocą distcp            | -m (mapowanie)   | [Łącze](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies    | [Łącze](../../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | FS. Azure. Block. size,-m (Maper)    |   [Łącze](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Struktura zestawu danych
 
-Gdy dane są przechowywane w programie Data Lake Storage Gen2, rozmiar pliku, liczba plików i struktura folderów mają wpływ na wydajność.  W poniższej sekcji opisano najlepsze rozwiązania w tych obszarach.  
+Gdy dane są przechowywane w Data Lake Storage Gen2, rozmiar pliku, liczba plików i struktura folderów mają wpływ na wydajność.  W poniższej sekcji opisano najlepsze rozwiązania w tych obszarach.  
 
 ### <a name="file-size"></a>Rozmiar pliku
 
-Zazwyczaj aparaty analityczne, takie jak HDInsight i Usługi Azure Data Lake Analytics mają obciążenie dla plików. Jeśli przechowujesz dane jak najwięcej małych plików, może to negatywnie wpłynąć na wydajność. Ogólnie rzecz biorąc, zorganizuj dane w większe pliki o większym rozmiarze, aby uzyskać lepszą wydajność (rozmiar od 256 MB do 100 GB). Niektóre aparaty i aplikacje mogą mieć problemy z wydajnym przetwarzaniem plików o rozmiarze większym niż 100 GB.
+Zwykle aparaty analityczne, takie jak HDInsight i Azure Data Lake Analytics, mają narzuty za pliki. Jeśli dane są przechowywane jako wiele małych plików, może to negatywnie wpłynąć na wydajność. Ogólnie rzecz biorąc, Organizuj dane w pliki o większym rozmiarze, aby uzyskać lepszą wydajność (od 256 do 100 GB rozmiaru). Niektóre aparaty i aplikacje mogą mieć problemy z wydajnym przetwarzaniem plików o rozmiarze większym niż 100 GB.
 
-Czasami potoki danych mają ograniczoną kontrolę nad nieprzetworzonymi danymi, które mają wiele małych plików. Zaleca się, aby "gotowania" proces, który generuje większe pliki do użycia w dalszych aplikacji.
+Czasami potoki danych mają ograniczoną kontrolę nad danymi nieprzetworzonymi, które zawierają wiele małych plików. Zaleca się, aby proces "gotowania" generował większe pliki do użycia w aplikacjach podrzędnych.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organizowanie danych szeregów czasowych w folderach
 
-W przypadku obciążeń hive przycinanie partycji danych szeregów czasowych może pomóc niektórym kwerendom w odczytie tylko podzbioru danych, co zwiększa wydajność.    
+W przypadku obciążeń platformy Hive oczyszczanie partycji danych szeregów czasowych może pomóc niektórym kwerendom odczytywać tylko podzbiór danych, które zwiększają wydajność.    
 
-Te potoki, które pozyskiwania danych szeregów czasowych, często umieszczają swoje pliki z bardzo ustrukturyzowanym nazewnictwem dla plików i folderów. Poniżej znajduje się bardzo częsty przykład, który widzimy dla danych, które są uporządkowane według daty:
+Te potoki, które pobierają dane szeregów czasowych, często umieszczają pliki z bardzo strukturalną nazewnictwem plików i folderów. Poniżej znajduje się bardzo typowy przykład dla danych, które są uporządkowane według daty:
 
     \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
 
-Należy zauważyć, że informacje o datetime są wyświetlane zarówno jako foldery, jak i w nazwach plików.
+Zwróć uwagę, że informacje o dacie i godzinie są wyświetlane zarówno jako foldery, jak i w nazwie pliku.
 
-W przypadku daty i godziny, poniżej znajduje się wspólny wzorzec
+W przypadku daty i godziny następujący wzorzec jest typowym wzorcem
 
     \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
 
-Ponownie, wybór dokonany w organizacji folderów i plików powinien zoptymalizować pod kątem większych rozmiarów plików i rozsądnej liczby plików w każdym folderze.
+Po ponownym wyborze z folderu i organizacji plików należy zoptymalizować dla większych rozmiarów plików i rozsądnej liczby plików w poszczególnych folderach.
 
-## <a name="optimizing-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight"></a>Optymalizacja zadań intensywnie korzystających z we/wy w przypadku obciążeń hadoop i spark w programie HDInsight
+## <a name="optimizing-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight"></a>Optymalizowanie zadań intensywnie korzystających z operacji we/wy na obciążeniach Hadoop i Spark w usłudze HDInsight
 
-Praca należy do jednej z trzech następujących kategorii:
+Zadania należą do jednej z następujących trzech kategorii:
 
-* **Procesor intensywnie.**  Te zadania mają długi czas obliczeń przy minimalnych czasach we/wy.  Przykłady obejmują uczenie maszynowe i zadania przetwarzania języka naturalnego.  
-* **Pamięć intensywnie.**  Te zadania używają dużo pamięci.  Przykłady obejmują PageRank i zadania analizy w czasie rzeczywistym.  
-* **Intensywnie we/wy.**  Te zadania spędzają większość czasu na wykonywaniu we/wy.  Typowym przykładem jest zadanie kopiowania, które wykonuje tylko operacje odczytu i zapisu.  Inne przykłady obejmują zadania przygotowania danych, które odczytują dużo danych, wykonuje transformację niektórych danych, a następnie zapisuje dane z powrotem do magazynu.  
+* **Intensywność procesora CPU.**  Te zadania mają długotrwałe czasy obliczeń z minimalnymi liczbami operacji we/wy.  Przykłady obejmują zadania uczenia maszynowego i przetwarzania języka naturalnego.  
+* **Duże ilości pamięci.**  Te zadania korzystają z dużej ilości pamięci.  Przykłady obejmują zadania analizy PageRank i w czasie rzeczywistym.  
+* **Intensywna operacja we/wy.**  Te zadania spędzają większość czasu na wykonywanie operacji we/wy.  Typowym przykładem jest zadanie kopiowania, które wykonuje tylko operacje odczytu i zapisu.  Inne przykłady obejmują zadania przygotowywania danych, które odczytują dużo danych, wykonują transformację danych, a następnie zapisują dane z powrotem do magazynu.  
 
-Poniższe wskazówki mają zastosowanie tylko do zadań intensywnie korzystających z we/wy.
+Poniższe wskazówki dotyczą wyłącznie zadań intensywnie korzystających z operacji we/wy.
 
 ## <a name="general-considerations"></a>Zagadnienia ogólne
 
-Zadanie, które odczytuje lub zapisuje aż 100 MB w jednej operacji, ale bufor o tym rozmiarze może naruszyć wydajność.
-Aby zoptymalizować wydajność, spróbuj zachować rozmiar operacji we/wy między 4 MB a 16 MB.
+Możesz mieć zadanie odczytujące lub zapisu do 100 MB w jednej operacji, ale bufor tego rozmiaru może naruszyć wydajność.
+Aby zoptymalizować wydajność, spróbuj zachować rozmiar operacji we/wy z zakresu od 4 do 16 MB.
 
-### <a name="general-considerations-for-an-hdinsight-cluster"></a>Uwagi ogólne dotyczące klastra USŁUGI HDInsight
+### <a name="general-considerations-for-an-hdinsight-cluster"></a>Ogólne zagadnienia dotyczące klastra usługi HDInsight
 
-* **Wersje HDInsight.** Aby uzyskać najlepszą wydajność, użyj najnowszej wersji programu HDInsight.
-* **Regionów.** Umieść konto Data Lake Storage Gen2 w tym samym regionie co klaster HDInsight.  
+* **Wersje usługi HDInsight.** Aby uzyskać najlepszą wydajność, użyj najnowszej wersji usługi HDInsight.
+* **Regionach.** Umieść konto Data Lake Storage Gen2 w tym samym regionie, w którym znajduje się klaster usługi HDInsight.  
 
-Klaster HDInsight składa się z dwóch węzłów głównego i niektórych węzłów procesu roboczego. Każdy węzeł procesu roboczego zawiera określoną liczbę rdzeni i pamięci, która jest określana przez typ maszyny Wirtualnej.  Podczas uruchamiania zadania YARN jest negocjatorem zasobów, który przydziela dostępną pamięć i rdzenie do tworzenia kontenerów.  Każdy kontener uruchamia zadania potrzebne do wykonania zadania.  Kontenery działają równolegle do szybkiego przetwarzania zadań. W związku z tym wydajność jest lepsza, uruchamiając jak najwięcej kontenerów równoległych, jak to możliwe.
+Klaster HDInsight An składa się z dwóch węzłów głównych i niektórych węzłów procesu roboczego. Każdy węzeł procesu roboczego zapewnia określoną liczbę rdzeni i pamięci, która jest określana przez typ maszyny wirtualnej.  Podczas uruchamiania zadania, PRZĘDZa to negocjowanie zasobów, który przydziela dostępną pamięć i rdzenie do tworzenia kontenerów.  Każdy kontener uruchamia zadania, które są konieczne do ukończenia zadania.  Kontenery są uruchamiane równolegle w celu szybkiego przetwarzania zadań. W związku z tym wydajność można zwiększyć, uruchamiając jako możliwy do tego wiele kontenerów równoległych.
 
-Istnieją trzy warstwy w klastrze HDInsight, które można dostroić, aby zwiększyć liczbę kontenerów i używać wszystkich dostępnych przepływności.  
+W klastrze usługi HDInsight znajdują się trzy warstwy, które można dostrajać, aby zwiększyć liczbę kontenerów i korzystać z całej dostępnej przepływności.  
 
 * **Warstwa fizyczna**
-* **Warstwa przędzy**
+* **Warstwa PRZĘDZy**
 * **Warstwa obciążenia**
 
 ### <a name="physical-layer"></a>Warstwa fizyczna
 
-**Uruchom klaster z większą liczrą węzłów i/lub większymi maszynami wirtualnymi.**  Większy klaster umożliwi uruchomienie większej liczby kontenerów YARN, jak pokazano na poniższym rysunku.
+**Uruchom klaster z większą liczbą węzłów i/lub maszynami wirtualnymi o większej wielkości.**  Większy klaster umożliwi Ci uruchamianie więcej kontenerów PRZĘDZy, jak pokazano na poniższej ilustracji.
 
-![Wydajność pamięci masowej Data Lake Gen2](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![Data Lake Storage Gen2 wydajność](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
-**Używaj maszyn wirtualnych z większą przepustowością sieci.**  Przepustowość sieci może być wąskim gardłem, jeśli przepustowość sieci jest mniejsza niż przepustowość usługi Data Lake Storage Gen2.  Różne maszyny wirtualne będą miały różne rozmiary przepustowości sieci.  Wybierz typ maszyny Wirtualnej, który ma największą możliwą przepustowość sieci.
+**Używaj maszyn wirtualnych z większą przepustowością sieci.**  Przepustowość sieci może stanowić wąskie gardło, jeśli przepustowość sieci jest mniejsza niż Data Lake Storage Gen2 przepływność.  Różne maszyny wirtualne będą miały różne rozmiary przepustowości sieci.  Wybierz typ maszyny wirtualnej, który ma największą możliwą przepustowość sieci.
 
-### <a name="yarn-layer"></a>Warstwa przędzy
+### <a name="yarn-layer"></a>Warstwa PRZĘDZy
 
-**Użyj mniejszych pojemników na przędzę.**  Zmniejsz rozmiar każdego kontenera YARN, aby utworzyć więcej kontenerów z taką samą ilością zasobów.
+**Używaj mniejszych kontenerów PRZĘDZy.**  Zmniejsz rozmiar każdego kontenera PRZĘDZy, aby utworzyć więcej kontenerów z taką samą ilością zasobów.
 
-![Wydajność pamięci masowej Data Lake Gen2](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![Data Lake Storage Gen2 wydajność](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
-W zależności od obciążenia zawsze będzie minimalny rozmiar kontenera YARN, który jest potrzebny. Jeśli wybierzesz zbyt mały kontener, zadania będą działać na problemy z braku pamięci. Zazwyczaj pojemniki YARN nie powinny być mniejsze niż 1 GB. Często można zobaczyć pojemniki 3GB YARN. W przypadku niektórych obciążeń mogą być potrzebne większe kontenery YARN.  
+W zależności od obciążenia będzie zawsze wymagany minimalny rozmiar kontenera PRZĘDZy. W przypadku wybrania zbyt małego kontenera zadania będą działać w przypadku problemów z brakiem pamięci. Zwykle kontenery PRZĘDZy nie powinny być mniejsze niż 1 GB. Typowym sposobem jest zobaczenie kontenerów PRZĘDZy WŁĄCZONĄ. W przypadku niektórych obciążeń może zajść potrzeba większego kontenera PRZĘDZy.  
 
-**Zwiększ rdzenie na pojemnik YARN.**  Zwiększ liczbę rdzeni przydzielonych do każdego kontenera, aby zwiększyć liczbę równoległych zadań uruchamianych w każdym kontenerze.  Działa to w przypadku aplikacji, takich jak Spark, które uruchamiają wiele zadań na kontener.  Dla aplikacji, takich jak Hive, które uruchamiają pojedynczy wątek w każdym kontenerze, lepiej jest mieć więcej kontenerów, a nie więcej rdzeni na kontener.
+**Zwiększ liczbę rdzeni na kontener PRZĘDZy.**  Zwiększ liczbę rdzeni przypisanych do każdego kontenera, aby zwiększyć liczbę zadań równoległych, które są uruchamiane w każdym kontenerze.  Działa to w przypadku aplikacji, takich jak platforma Spark, które uruchamiają wiele zadań na kontener.  W przypadku aplikacji, takich jak Hive uruchamiających pojedynczy wątek w każdym kontenerze, lepiej jest umieścić więcej kontenerów, a nie więcej rdzeni na kontener.
 
 ### <a name="workload-layer"></a>Warstwa obciążenia
 
-**Użyj wszystkich dostępnych pojemników.**  Ustaw liczbę zadań, aby były równe lub większe niż liczba dostępnych kontenerów, tak aby wszystkie zasoby były wykorzystywane.
+**Użyj wszystkich dostępnych kontenerów.**  Ustaw liczbę zadań, która ma być równa lub większa niż liczba dostępnych kontenerów w celu wykorzystania wszystkich zasobów.
 
-![Wydajność pamięci masowej Data Lake Gen2](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![Data Lake Storage Gen2 wydajność](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
-**Nieudane zadania są kosztowne.** Jeśli każde zadanie ma dużą ilość danych do przetworzenia, a następnie niepowodzenie zadania powoduje kosztowne ponowienie próby.  Dlatego lepiej jest utworzyć więcej zadań, z których każdy przetwarza niewielką ilość danych.
+**Zadania zakończone niepowodzeniem są kosztowne.** Jeśli każde zadanie zawiera dużą ilość danych do przetworzenia, wówczas niepowodzenie zadania skutkuje kosztowną ponowną próbą.  W związku z tym lepiej jest utworzyć więcej zadań, z których każdy przetwarza niewielką ilość danych.
 
-Oprócz ogólnych wytycznych powyżej, każda aplikacja ma różne parametry dostępne do strojenia dla tej konkretnej aplikacji. W poniższej tabeli wymieniono niektóre parametry i łącza, aby rozpocząć dostrajanie wydajności dla każdej aplikacji.
+Oprócz ogólnych wytycznych, każda aplikacja ma inne parametry dostępne do dostrajania dla tej konkretnej aplikacji. W poniższej tabeli przedstawiono niektóre parametry i linki umożliwiające rozpoczęcie pracy z dostrajaniem wydajności dla każdej aplikacji.
 
 | Obciążenie | Parametr do ustawiania zadań |
 |----------|------------------------|
-| [Usługa Spark w usłudze HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>Wykonawcy num</li><li>Wykonawca-pamięć</li><li>Rdzenie executor</li></ul> |
-| [Gałąź na HDInsight](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |
-| [MapReduce na HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.zmniejsza</li></ul> |
-| [Usługa Storm w usłudze HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Liczba procesów roboczych</li><li>Liczba wystąpień wykonawcy wylewki</li><li>Liczba wystąpień wykonawcy śrub </li><li>Liczba zadań wylewki</li><li>Liczba zadań śrubowych</li></ul>|
+| [Usługa Spark w usłudze HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>NUM-wykonawcy</li><li>Wykonawca pamięci</li><li>Program wykonujący rdzenie</li></ul> |
+| [Usługa Hive w usłudze HDInsight](data-lake-storage-performance-tuning-hive.md) | <ul><li>Hive. tez. Container. size</li></ul> |
+| [MapReduce w usłudze HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>MapReduce. map. Memory</li><li>MapReduce. job. Maps</li><li>MapReduce. Zmniejsz ilość pamięci</li><li>MapReduce. job. Zmniejsz</li></ul> |
+| [Usługa Storm w usłudze HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Liczba procesów roboczych</li><li>Liczba wystąpień programu wykonującego elementu Spout</li><li>Liczba wystąpień programu wykonującego Piorun </li><li>Liczba zadań elementu Spout</li><li>Liczba zadań obiektu Piorun</li></ul>|
 
-## <a name="see-also"></a>Zobacz też
-* [Omówienie usługi Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
+## <a name="see-also"></a>Zobacz także
+* [Omówienie Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

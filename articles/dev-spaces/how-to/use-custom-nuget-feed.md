@@ -5,23 +5,23 @@ author: zr-msft
 ms.author: zarhoads
 ms.date: 07/17/2019
 ms.topic: conceptual
-description: Użyj niestandardowego źródła danych NuGet, aby uzyskać dostęp do pakietów NuGet i używać ich w obszarze deweloperów platformy Azure.
-keywords: Docker, Kubernetes, Azure, AKS, Usługa kontenera azure, kontenery
+description: Użyj niestandardowego źródła danych NuGet, aby uzyskać dostęp do pakietów NuGet i korzystać z nich w obszarze dev platformy Azure.
+keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
 manager: gwallace
 ms.openlocfilehash: 39984a3b3a1be64a497fb8088559ccfcdee4f1c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74325726"
 ---
-# <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Używanie niestandardowego źródła danych NuGet w usługach Azure Dev Spaces
+# <a name="use-a-custom-nuget-feed-with-azure-dev-spaces"></a>Użyj niestandardowego źródła danych NuGet z Azure Dev Spaces
 
-Źródło danych NuGet zapewnia wygodny sposób, aby uwzględnić źródła pakietów w projekcie. Usługa Azure Dev Spaces musi uzyskać dostęp do tego źródła danych, aby zależności były poprawnie zainstalowane w kontenerze platformy Docker.
+Źródło danych NuGet zapewnia wygodny sposób dołączania źródeł pakietów do projektu. Azure Dev Spaces musi uzyskać dostęp do tego kanału informacyjnego, aby można było poprawnie zainstalować zależności w kontenerze platformy Docker.
 
-## <a name="set-up-a-nuget-feed"></a>Konfigurowanie źródła danych NuGet
+## <a name="set-up-a-nuget-feed"></a>Skonfiguruj źródło danych NuGet
 
-Dodaj [odwołanie do pakietu](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) dla `*.csproj` zależności w `PackageReference` pliku w węźle. Przykład:
+Dodaj [odwołanie do pakietu](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) dla zależności w `*.csproj` pliku w `PackageReference` węźle. Przykład:
 
 ```xml
 <ItemGroup>
@@ -31,7 +31,7 @@ Dodaj [odwołanie do pakietu](https://docs.microsoft.com/nuget/consume-packages/
 </ItemGroup>
 ```
 
-Utwórz plik [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) w folderze `packageSources` `packageSourceCredentials` projektu i ustaw sekcje i sekcje dla źródła danych NuGet. Sekcja `packageSources` zawiera adres URL pliku danych, który musi być dostępny z klastra AKS. Są `packageSourceCredentials` poświadczenia dostępu do źródła danych. Przykład:
+Utwórz plik [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) w folderze projektu i ustaw sekcje `packageSources` i `packageSourceCredentials` dla źródła danych NuGet. `packageSources` Sekcja zawiera adres URL źródła danych, który musi być dostępny z klastra AKS. `packageSourceCredentials` Są to poświadczenia do uzyskiwania dostępu do źródła danych. Przykład:
 
 ```xml
 <packageSources>
@@ -46,17 +46,17 @@ Utwórz plik [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-con
 </packageSourceCredentials>
 ```
 
-Zaktualizuj pliki dockerfiles, aby skopiować `NuGet.Config` plik do obrazu. Przykład:
+Zaktualizuj wieloetapowe dockerfile, `NuGet.Config` aby skopiować plik do obrazu. Przykład:
 
 ```console
 COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]
 ```
 
 > [!TIP]
-> W systemie `NuGet.Config` `Nuget.Config`Windows `nuget.config` , i wszystkie działa jako prawidłowe nazwy plików. W systemie `NuGet.Config` Linux tylko prawidłowa nazwa pliku dla tego pliku. Ponieważ usługa Azure Dev Spaces korzysta z platformy `NuGet.Config`Docker i Linux, ten plik musi mieć nazwę . Nazewnictwo można naprawić ręcznie `dotnet restore --configfile nuget.config`lub po uruchomieniu .
+> W systemie Windows `NuGet.Config`, `Nuget.Config`,, `nuget.config` i wszystkie działają jako prawidłowe nazwy plików. W systemie Linux jest `NuGet.Config` tylko prawidłową nazwą pliku dla tego pliku. Ponieważ Azure Dev Spaces używa platform Docker i Linux, ten plik musi mieć `NuGet.Config`nazwę. Nazwę można naprawić ręcznie lub przez uruchomienie `dotnet restore --configfile nuget.config`.
 
 
-Jeśli używasz Git, nie należy mieć poświadczenia dla źródła danych NuGet w kontroli wersji. Dodaj `NuGet.Config` do `.gitignore` projektu, aby `NuGet.Config` plik nie został dodany do kontroli wersji. Usługa Azure Dev Spaces będzie wymagać tego pliku podczas procesu kompilacji obrazu `.gitignore` `.dockerignore` kontenera, ale domyślnie jest zgodna z regułami zdefiniowanymi w synchronizacji i podczas synchronizacji. Aby zmienić wartość domyślną i zezwolić witrynie Azure Dev Spaces na `NuGet.Config` synchronizowanie pliku, zaktualizuj `azds.yaml` plik:
+Jeśli używasz usługi git, nie musisz mieć poświadczeń dla źródła danych NuGet w kontroli wersji. Dodaj `NuGet.Config` do `.gitignore` projektu, tak aby `NuGet.Config` plik nie został dodany do kontroli wersji. Azure Dev Spaces będzie potrzebował tego pliku podczas procesu kompilowania obrazu kontenera, ale domyślnie uwzględnia reguły zdefiniowane w `.gitignore` i `.dockerignore` podczas synchronizacji. Aby zmienić ustawienie domyślne i Zezwalaj Azure Dev Spaces na synchronizowanie `NuGet.Config` pliku, zaktualizuj `azds.yaml` plik:
 
 ```yaml
 build:
@@ -65,10 +65,10 @@ ignore:
 - "!NuGet.Config"
 ```
 
-Jeśli nie używasz Git, możesz pominąć ten krok.
+Jeśli nie korzystasz z usługi git, możesz pominąć ten krok.
 
-Przy następnym uruchomieniu `azds up` lub `F5` trafieniu w programie Visual Studio Code lub `NuGet.Config` Visual Studio usługa Azure Dev Spaces zsynchronizuje plik, aby zainstalować zależności pakietów.
+Przy następnym uruchomieniu `azds up` lub trafieniu `F5` w programie Visual Studio Code lub Visual Studio, Azure dev Spaces zsynchronizuje `NuGet.Config` plik, użyje go do zainstalowania zależności pakietów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [NuGet i jak to działa](https://docs.microsoft.com/nuget/what-is-nuget).
+Dowiedz się więcej o [NuGet i sposobie jego działania](https://docs.microsoft.com/nuget/what-is-nuget).

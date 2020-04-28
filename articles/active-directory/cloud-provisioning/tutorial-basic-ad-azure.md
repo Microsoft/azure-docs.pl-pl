@@ -1,5 +1,5 @@
 ---
-title: Samouczek — podstawowa usługa Active Directory lokalna i środowisko usługi Azure AD.
+title: Samouczek — podstawowe Active Directory środowiska lokalnego i usługi Azure AD.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,19 +11,19 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 356a05d4d92f17ceb66ff0208153ec3eac736757
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74793900"
 ---
-# <a name="tutorial-basic-active-directory-environment"></a>Samouczek: Podstawowe środowisko usługi Active Directory
+# <a name="tutorial-basic-active-directory-environment"></a>Samouczek: podstawowe środowisko Active Directory
 
-W tym samouczku można utworzyć podstawowe środowisko usługi Active Directory. 
+Ten samouczek przeprowadzi Cię przez proces tworzenia podstawowego środowiska Active Directory. 
 
 ![Utwórz](media/tutorial-single-forest/diagram1.png)
 
-Można użyć środowiska utworzonego w samouczku, aby przetestować różne aspekty scenariuszy tożsamości hybrydowej i będzie warunkiem wstępnym dla niektórych samouczków.  Jeśli masz już istniejące środowisko usługi Active Directory, możesz użyć go jako substytutu.  Te informacje są dostarczane osobom, które nie zaczynają od niczego.
+Możesz użyć środowiska utworzonego w samouczku, aby przetestować różne aspekty scenariuszy tożsamości hybrydowych i będzie to konieczne w przypadku niektórych samouczków.  Jeśli masz już istniejące Środowisko Active Directory, możesz użyć go jako substytutu.  Te informacje są udostępniane osobom, które nie zaczynają się od niczego.
 
 Ten samouczek składa się z
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -32,17 +32,17 @@ Poniżej przedstawiono wymagania wstępne niezbędne do wykonania kroków tego s
 - [Zewnętrzna karta sieciowa](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) umożliwiająca maszynie wirtualnej komunikację z Internetem.
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free)
 - Kopia systemu Windows Server 2016
-- [Microsoft .NET framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
+- [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)
 
 > [!NOTE]
 > W tym samouczku używane są skrypty programu PowerShell w celu jak najszybszego utworzenia środowiska samouczka.  W każdym ze skryptów są używane zmienne zadeklarowane na początku skryptu.  Można i należy zmienić te zmienne na zgodne z używanym środowiskiem.
 >
->Skrypty używane utworzyć ogólne środowisko usługi Active Directory przed zainstalowaniem agenta inicjowania obsługi administracyjnej w chmurze usługi Azure AD Connect.  Są one odpowiednie dla wszystkich samouczków.
+>Skrypty używane do tworzenia ogólnego środowiska Active Directory przed zainstalowaniem agenta aprowizacji Azure AD Connect w chmurze.  Są one odpowiednie dla wszystkich samouczków.
 >
 > Kopie skryptów programu PowerShell używanych w tym samouczku są dostępne w usłudze GitHub — [tutaj](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
-Pierwszą rzeczą, którą należy zrobić, aby nasze środowisko tożsamości hybrydowej jest uruchomiony jest utworzenie maszyny wirtualnej, która będzie używana jako nasz lokalny serwer usługi Active Directory.  Wykonaj następujące czynności:
+W pierwszej kolejności, w której należy wykonać nasze hybrydowe środowisko tożsamości, należy utworzyć maszynę wirtualną, która będzie używana jako serwer lokalnego Active Directory.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
 2. Uruchom następujący skrypt.
@@ -82,12 +82,12 @@ Aby zakończyć tworzenie maszyny wirtualnej, należy zakończyć instalację sy
 5. Kliknij pozycję **Zainstaluj teraz**.
 6. Wprowadź klucz licencji i kliknij przycisk **Dalej**.
 7. Zaznacz opcję **Akceptuję postanowienia licencyjne, a następnie kliknij przycisk **Dalej**.
-8. Wybierz **opcję Niestandardowe: Zainstaluj tylko system Windows (zaawansowane)**
-9. Kliknij **przycisk Dalej**
+8. Wybierz **niestandardowe: tylko Zainstaluj system Windows (Zaawansowane)**
+9. Kliknij przycisk **dalej** .
 10. Po zakończeniu instalacji uruchom ponownie maszynę wirtualną, zaloguj się i uruchom aktualizacje systemu Windows, aby upewnić się, że maszyna wirtualna została zaktualizowana.  Zainstaluj najnowsze aktualizacje.
 
 ## <a name="install-active-directory-prerequisites"></a>Instalowanie wymagań wstępnych usługi Active Directory
-Teraz, gdy masz maszynę wirtualną, musisz wykonać kilka czynności przed zainstalowaniem usługi Active Directory.  Oznacza to, że należy zmienić nazwę maszyny wirtualnej, ustawić statyczny adres IP i informacje DNS oraz zainstalować narzędzia administracji serwera zdalnego.   Wykonaj następujące czynności:
+Teraz, gdy masz już maszynę wirtualną, przed zainstalowaniem Active Directory należy wykonać kilka czynności.  Oznacza to, że należy zmienić nazwę maszyny wirtualnej, ustawić statyczny adres IP i informacje DNS oraz zainstalować narzędzia administracji zdalnej serwera.   Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
 2. Uruchom następujący skrypt.
@@ -123,7 +123,7 @@ Teraz, gdy masz maszynę wirtualną, musisz wykonać kilka czynności przed zain
     ```
 
 ## <a name="create-a-windows-server-ad-environment"></a>Tworzenie środowiska usługi Windows Server AD
-Teraz, gdy maszyna wirtualna została utworzona i została zmieniona i ma statyczny adres IP, możesz zainstalować i skonfigurować Usługi domenowe Active Directory.  Wykonaj następujące czynności:
+Teraz, gdy masz utworzoną maszynę wirtualną, a jej nazwa została zmieniona i ma statyczny adres IP, możesz go zainstalować i skonfigurować Active Directory Domain Services.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
 2. Uruchom następujący skrypt.
@@ -154,7 +154,7 @@ Teraz, gdy maszyna wirtualna została utworzona i została zmieniona i ma statyc
     ```
 
 ## <a name="create-a-windows-server-ad-user"></a>Tworzenie użytkownika usługi Windows Server AD
-Teraz, gdy masz nasze środowisko usługi Active Directory, musisz mieć konto testowe.  To konto zostanie utworzone w lokalnym środowisku usługi AD, a następnie zsynchronizowane z usługą Azure AD.  Wykonaj następujące czynności:
+Teraz, gdy masz nasze środowisko Active Directory, musisz być kontem testowym.  To konto zostanie utworzone w lokalnym środowisku usługi AD, a następnie zsynchronizowane z usługą Azure AD.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
 2. Uruchom następujący skrypt.
@@ -194,18 +194,18 @@ Teraz, gdy masz nasze środowisko usługi Active Directory, musisz mieć konto t
 
 
 ## <a name="create-an-azure-ad-tenant"></a>Tworzenie dzierżawy usługi Azure AD
-Teraz musisz utworzyć dzierżawę usługi Azure AD, aby można było zsynchronizować naszych użytkowników z chmurą.  Aby utworzyć nową dzierżawę usługi Azure AD, wykonaj następujące czynności.
+Teraz musisz utworzyć dzierżawę usługi Azure AD, aby umożliwić synchronizację naszych użytkowników z chmurą.  Aby utworzyć nową dzierżawę usługi Azure AD, wykonaj następujące czynności.
 
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta z subskrypcją platformy Azure.
 2. Wybierz **ikonę plusa (+)** i wyszukaj ciąg **Azure Active Directory**.
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
-4. Wybierz **pozycję Utwórz**.</br>
+4. Wybierz przycisk **Utwórz**.</br>
 ![Tworzenie](media/tutorial-single-forest/create1.png)</br>
 5. Podaj **nazwę organizacji** wraz z **początkową nazwą domeny**. Następnie wybierz pozycję **Utwórz**. Spowoduje to utworzenie katalogu.
 6. Po zakończeniu kliknij link **tutaj**, aby zarządzać katalogiem.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Tworzenie administratora globalnego w usłudze Azure AD
-Teraz, gdy masz dzierżawę usługi Azure AD, utworzysz konto administratora globalnego.  Aby utworzyć konto administratora globalnego, wykonaj następujące czynności.
+Teraz, gdy masz już dzierżawę usługi Azure AD, utworzysz konto administratora globalnego.  Aby utworzyć konto administratora globalnego, wykonaj następujące czynności.
 
 1.  W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.</br>
 ![Tworzenie](media/tutorial-single-forest/administrator1.png)</br>
@@ -215,10 +215,10 @@ Teraz, gdy masz dzierżawę usługi Azure AD, utworzysz konto administratora glo
 4. Po zakończeniu otwórz nowe okno przeglądarki internetowej i zaloguj się na stronie myapps.microsoft.com przy użyciu nowego konta administratora globalnego oraz hasła tymczasowego.
 5. Zmień hasło administratora globalnego na inne, które zapamiętasz.
 
-## <a name="optional--additional-server-and-forest"></a>Opcjonalnie: Dodatkowy serwer i las
-Poniżej znajduje się opcjonalna sekcja, która zawiera kroki do tworzenia dodatkowego serwera i lub lasu.  Może to być używane w niektórych bardziej zaawansowanych samouczków, takich jak [Pilot for Azure AD Connect do inicjowania obsługi administracyjnej w chmurze.](tutorial-pilot-aadc-aadccp.md)
+## <a name="optional--additional-server-and-forest"></a>Opcjonalnie: dodatkowy serwer i Las
+Poniżej znajduje się sekcja opcjonalna, która zawiera instrukcje tworzenia dodatkowego serwera i lasu.  Ta wartość może być używana w niektórych bardziej zaawansowanych samouczkach, takich jak [pilotaż dla Azure AD Connect na potrzeby aprowizacji w chmurze](tutorial-pilot-aadc-aadccp.md).
 
-Jeśli potrzebujesz tylko dodatkowego serwera, możesz zatrzymać się po kroku — **Utwórz maszynę wirtualną** i dołącz do serwera do istniejącej domeny, która została utworzona powyżej.  
+Jeśli potrzebujesz tylko dodatkowego serwera, możesz zatrzymać po kroku — **Tworzenie maszyny wirtualnej** i dołączyć serwer do istniejącej domeny, która została utworzona powyżej.  
 
 ### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -269,12 +269,12 @@ Aby zakończyć tworzenie maszyny wirtualnej, należy zakończyć instalację sy
 5. Kliknij pozycję **Zainstaluj teraz**.
 6. Wprowadź klucz licencji i kliknij przycisk **Dalej**.
 7. Zaznacz opcję **Akceptuję postanowienia licencyjne, a następnie kliknij przycisk **Dalej**.
-8. Wybierz **opcję Niestandardowe: Zainstaluj tylko system Windows (zaawansowane)**
-9. Kliknij **przycisk Dalej**
+8. Wybierz **niestandardowe: tylko Zainstaluj system Windows (Zaawansowane)**
+9. Kliknij przycisk **dalej** .
 10. Po zakończeniu instalacji uruchom ponownie maszynę wirtualną, zaloguj się i uruchom aktualizacje systemu Windows, aby upewnić się, że maszyna wirtualna została zaktualizowana.  Zainstaluj najnowsze aktualizacje.
 
 ### <a name="install-active-directory-prerequisites"></a>Instalowanie wymagań wstępnych usługi Active Directory
-Teraz, gdy masz maszynę wirtualną, musisz wykonać kilka czynności przed zainstalowaniem usługi Active Directory.  Oznacza to, że należy zmienić nazwę maszyny wirtualnej, ustawić statyczny adres IP i informacje DNS oraz zainstalować narzędzia administracji serwera zdalnego.   Wykonaj następujące czynności:
+Teraz, gdy masz już maszynę wirtualną, przed zainstalowaniem Active Directory należy wykonać kilka czynności.  Oznacza to, że należy zmienić nazwę maszyny wirtualnej, ustawić statyczny adres IP i informacje DNS oraz zainstalować narzędzia administracji zdalnej serwera.   Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
 2. Uruchom następujący skrypt.
@@ -324,7 +324,7 @@ Teraz, gdy masz maszynę wirtualną, musisz wykonać kilka czynności przed zain
     Restart-Computer
     ```
 ### <a name="create-a-windows-server-ad-environment"></a>Tworzenie środowiska usługi Windows Server AD
-Teraz, gdy maszyna wirtualna została utworzona i została zmieniona i ma statyczny adres IP, możesz zainstalować i skonfigurować Usługi domenowe Active Directory.  Wykonaj następujące czynności:
+Teraz, gdy masz utworzoną maszynę wirtualną, a jej nazwa została zmieniona i ma statyczny adres IP, możesz go zainstalować i skonfigurować Active Directory Domain Services.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
 2. Uruchom następujący skrypt.
@@ -370,7 +370,7 @@ Teraz, gdy maszyna wirtualna została utworzona i została zmieniona i ma statyc
     ```
 
 ### <a name="create-a-windows-server-ad-user"></a>Tworzenie użytkownika usługi Windows Server AD
-Teraz, gdy masz nasze środowisko usługi Active Directory, musisz mieć konto testowe.  To konto zostanie utworzone w lokalnym środowisku usługi AD, a następnie zsynchronizowane z usługą Azure AD.  Wykonaj następujące czynności:
+Teraz, gdy masz nasze środowisko Active Directory, musisz być kontem testowym.  To konto zostanie utworzone w lokalnym środowisku usługi AD, a następnie zsynchronizowane z usługą Azure AD.  Wykonaj następujące czynności:
 
 1. Otwórz program PowerShell ISE jako administrator.
 2. Uruchom następujący skrypt.
@@ -409,7 +409,7 @@ Teraz, gdy masz nasze środowisko usługi Active Directory, musisz mieć konto t
     ```
 
 ## <a name="conclusion"></a>Podsumowanie
-Teraz masz środowisko, które może służyć do istniejących samouczków i przetestować dodatkowe funkcje zapewnia aprowizacji w chmurze.
+Teraz masz środowisko, którego można użyć do istniejących samouczków i przetestowania dodatkowych funkcji zapewniania obsługi administracyjnej w chmurze.
 
 ## <a name="next-steps"></a>Następne kroki 
 

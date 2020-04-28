@@ -1,6 +1,6 @@
 ---
-title: Udzielanie użytkownikom B2B dostępu do aplikacji lokalnych — usługa Azure AD
-description: Pokazuje, jak przyznać użytkownikom chmury B2B dostęp do aplikacji lokalnych dzięki współpracy usługi Azure AD B2B.
+title: Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych — Azure AD
+description: Pokazuje, w jaki sposób udostępnić użytkownikom usługi Cloud B2B dostęp do aplikacji lokalnych przy użyciu funkcji współpracy B2B w usłudze Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,79 +12,79 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 098f464b6af5f10866403e1cd1549d571d883ac1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74272796"
 ---
-# <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznawanie użytkownikom B2B w usłudze Azure AD dostępu do aplikacji lokalnych
+# <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD
 
-Jako organizacja korzystająca z funkcji współpracy B2B usługi Azure Active Directory (Azure AD) do zapraszania użytkowników-gości z organizacji partnerskich do usługi Azure AD, możesz teraz zapewnić tym użytkownikom B2B dostęp do aplikacji lokalnych. Te aplikacje lokalne mogą używać uwierzytelniania opartego na SAML lub zintegrowanego uwierzytelniania systemu Windows (IWA) z delegowaniem z ograniczeniami protokołu Kerberos (KCD).
+Jako organizacja, która używa funkcji współpracy B2B Azure Active Directory (Azure AD), aby zapraszać użytkowników-Gości od organizacji partnerskich do usługi Azure AD, możesz teraz udostępnić tym użytkownikom B2B dostęp do aplikacji lokalnych. Te aplikacje lokalne mogą korzystać z uwierzytelniania opartego na języku SAML lub zintegrowanego uwierzytelniania systemu Windows (IWA) przy użyciu ograniczonego delegowania protokołu Kerberos (KCD).
 
 ## <a name="access-to-saml-apps"></a>Dostęp do aplikacji SAML
 
-Jeśli aplikacja lokalna korzysta z uwierzytelniania opartego na SAML, możesz łatwo udostępnić te aplikacje użytkownikom współpracy usługi Azure AD B2B za pośrednictwem witryny Azure portal.
+Jeśli aplikacja lokalna korzysta z uwierzytelniania opartego na protokole SAML, możesz łatwo udostępnić te aplikacje użytkownikom współpracy B2B usługi Azure AD za pośrednictwem Azure Portal.
 
-Należy wykonać obie czynności:
+Należy wykonać obie następujące czynności:
 
-- Zintegruj aplikację SAML przy użyciu szablonu aplikacji spoza galerii, zgodnie z opisem w [konfigurowanie logowania jednokrotnego do aplikacji, które nie znajdują się w galerii aplikacji usługi Azure Active Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Pamiętaj, aby zwrócić uwagę na to, czego używasz do wartości **adresu URL logowania.**
--  Użyj usługi Azure AD Application Proxy, aby opublikować aplikację lokalną, z **usługą Azure Active Directory** skonfigurowany jako źródło uwierzytelniania. Aby uzyskać instrukcje, zobacz [Publikowanie aplikacji przy użyciu serwera proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-publish-azure-portal.md). 
+- Zintegruj aplikację SAML przy użyciu szablonu aplikacji spoza galerii, zgodnie z opisem w temacie Konfigurowanie logowania jednokrotnego [do aplikacji, które nie znajdują się w galerii aplikacji Azure Active Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Zwróć uwagę na to, co jest używane dla wartości **adresu URL logowania** .
+-  Użyj usługi Azure serwer proxy aplikacji usługi Azure AD, aby opublikować aplikację lokalną z **Azure Active Directory** skonfigurowanym jako źródło uwierzytelniania. Aby uzyskać instrukcje, zobacz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-publish-azure-portal.md). 
 
-   Podczas konfigurowania ustawienia **Adres url wewnętrzny** użyj adresu URL logowania określonego w szablonie aplikacji spoza galerii. W ten sposób użytkownicy mogą uzyskać dostęp do aplikacji spoza granicy organizacji. Serwer proxy aplikacji wykonuje logowanie jednokrotne SAML dla aplikacji lokalnej.
+   Podczas konfigurowania ustawienia **wewnętrznego adresu URL** należy użyć adresu URL logowania określonego w szablonie aplikacji spoza galerii. Dzięki temu użytkownicy będą mogli uzyskać dostęp do aplikacji spoza granicy organizacji. Serwer proxy aplikacji wykonuje Logowanie jednokrotne SAML dla aplikacji lokalnej.
  
-   ![Pokazuje wewnętrzny adres URL i uwierzytelnianie ustawień aplikacji lokalnej](media/hybrid-cloud-to-on-premises/OnPremAppSettings.PNG)
+   ![Pokazuje wewnętrzny adres URL i uwierzytelnianie lokalnych ustawień aplikacji](media/hybrid-cloud-to-on-premises/OnPremAppSettings.PNG)
 
 ## <a name="access-to-iwa-and-kcd-apps"></a>Dostęp do aplikacji IWA i KCD
 
-Aby zapewnić użytkownikom B2B dostęp do aplikacji lokalnych zabezpieczonych za pomocą zintegrowanego uwierzytelniania systemu Windows i delegowania z ograniczeniami protokołu Kerberos, potrzebne są następujące składniki:
+Aby zapewnić użytkownikom B2B dostęp do aplikacji lokalnych zabezpieczonych przy użyciu zintegrowanego uwierzytelniania systemu Windows i ograniczonego delegowania protokołu Kerberos, potrzebne są następujące składniki:
 
-- **Uwierzytelnianie za pośrednictwem serwera proxy aplikacji usługi Azure AD**. Użytkownicy B2B muszą mieć możliwość uwierzytelniania w aplikacji lokalnej. Aby to zrobić, należy opublikować aplikację lokalną za pośrednictwem serwera proxy aplikacji usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Wprowadzenie do serwera proxy aplikacji i instalowanie łącznika](../manage-apps/application-proxy-enable.md) i publikowania aplikacji przy użyciu serwera proxy aplikacji usługi Azure [AD](../manage-apps/application-proxy-publish-azure-portal.md).
-- **Autoryzacja za pośrednictwem obiektu użytkownika B2B w katalogu lokalnym**. Aplikacja musi mieć możliwość przeprowadzania kontroli dostępu użytkowników i udzielania dostępu do odpowiednich zasobów. IWA i KCD wymagają obiektu użytkownika w lokalnej usłudze Windows Server Active Directory w celu ukończenia tej autoryzacji. Jak opisano w [jak działa logowanie jednokrotne za pomocą KCD,](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)serwer proxy aplikacji potrzebuje tego obiektu użytkownika do personifikacji użytkownika i uzyskania tokenu Kerberos do aplikacji. 
+- **Uwierzytelnianie za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD**. Użytkownicy B2B muszą mieć możliwość uwierzytelnienia w aplikacji lokalnej. W tym celu należy opublikować aplikację lokalną za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z serwerem proxy aplikacji i Instalowanie łącznika](../manage-apps/application-proxy-enable.md) oraz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-publish-azure-portal.md).
+- **Autoryzacja za pośrednictwem obiektu użytkownika B2B w katalogu lokalnym**. Aplikacja musi być w stanie wykonywać sprawdzenia dostępu użytkowników i udzielić dostępu do odpowiednich zasobów. IWA i KCD wymagają obiektu użytkownika w lokalnym systemie Windows Server Active Directory, aby ukończyć tę autoryzację. Zgodnie z opisem w temacie [jak działa Logowanie jednokrotne za pomocą KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), serwer proxy aplikacji potrzebuje tego obiektu użytkownika, aby personifikować użytkownika i uzyskać token Kerberos do aplikacji. 
 
    W przypadku scenariusza użytkownika B2B dostępne są dwie metody, których można użyć do utworzenia obiektów użytkownika-gościa, które są wymagane do autoryzacji w katalogu lokalnym:
 
-   - Microsoft Identity Manager (MIM) i agent zarządzania programem MIM dla programu Microsoft Graph. 
-   - [Skrypt programu PowerShell](#create-b2b-guest-user-objects-through-a-script-preview). Korzystanie ze skryptu jest bardziej odciążone rozwiązanie, które nie wymaga mim. 
+   - Microsoft Identity Manager (MIM) i agent zarządzania programu MIM dla Microsoft Graph. 
+   - [Skrypt programu PowerShell](#create-b2b-guest-user-objects-through-a-script-preview). Użycie skryptu jest bardziej lekkim rozwiązaniem, które nie wymaga programu MIM. 
 
-Poniższy diagram zawiera omówienie wysokiego poziomu, jak usługi Azure AD Application Proxy i generowania obiektu użytkownika B2B w katalogu lokalnym współpracują ze sobą, aby udzielić użytkownikom B2B dostępu do lokalnych aplikacji IWA i KCD. Ponumerowane kroki są szczegółowo opisane poniżej diagramu.
+Na poniższym diagramie przedstawiono ogólne omówienie sposobu, w jaki usługa Azure serwer proxy aplikacji usługi Azure AD i generowanie obiektu użytkownika B2B w katalogu lokalnym współpracują ze sobą, aby umożliwić użytkownikom B2B dostęp do lokalnych aplikacji IWA i KCD. Ponumerowane kroki opisano szczegółowo poniżej diagramu.
 
-![Diagram rozwiązań skryptów MIM i B2B](media/hybrid-cloud-to-on-premises/MIMScriptSolution.PNG)
+![Diagram rozwiązań skryptów programu MIM i B2B](media/hybrid-cloud-to-on-premises/MIMScriptSolution.PNG)
 
-1.  Użytkownik z organizacji partnerskiej (dzierżawy firmy Fabrikam) jest zapraszany do dzierżawy contoso.
-2.  Obiekt użytkownika-gościa jest tworzony w dzierżawie Contoso (na przykład obiekt użytkownika o numerze@contoso.onmicrosoft.comUPN guest_fabrikam.com#EXT# ).
-3.  Gość programu Fabrikam jest importowany z programu Contoso za pośrednictwem programu MIM lub skryptu programu B2B PowerShell.
-4.  Reprezentacja lub "footprint" obiektu użytkownika gościa programu Fabrikam (Gość#EXT#) jest tworzony w katalogu lokalnym, Contoso.com, za pośrednictwem programu MIM lub za pośrednictwem skryptu programu B2B PowerShell.
-5.  Użytkownik-gość uzyskuje dostęp do aplikacji lokalnej, app.contoso.com.
-6.  Żądanie uwierzytelnienia jest autoryzowane za pośrednictwem serwera proxy aplikacji przy użyciu delegowania ograniczonego protokołu Kerberos. 
-7.  Ponieważ obiekt użytkownika gościa istnieje lokalnie, uwierzytelnianie zakończy się pomyślnie.
+1.  Użytkownik z organizacji partnerskiej (dzierżawa firmy Fabrikam) jest zapraszany do dzierżawy firmy Contoso.
+2.  Obiekt użytkownika-gościa jest tworzony w dzierżawie contoso (na przykład obiekt użytkownika z nazwą UPN guest_fabrikam. com # EXT #@contoso.onmicrosoft.com).
+3.  Gość Fabrikam jest zaimportowany z firmy Contoso za pośrednictwem programu MIM lub skryptu B2B.
+4.  Reprezentacja lub "powierzchnia" obiektu użytkownika-gościa firmy Fabrikam (gość # EXT #) jest tworzona w katalogu lokalnym, Contoso.com, za pomocą programu MIM lub za pomocą skryptu B2B programu PowerShell.
+5.  Użytkownik-Gość uzyskuje dostęp do aplikacji lokalnej, app.contoso.com.
+6.  Żądanie uwierzytelnienia jest autoryzowane za pośrednictwem serwera proxy aplikacji przy użyciu ograniczonego delegowania protokołu Kerberos. 
+7.  Ponieważ obiekt użytkownika-Gość istnieje lokalnie, uwierzytelnianie zakończyło się pomyślnie.
 
 ### <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
 
-Lokalne obiekty użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Przykład:
+Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Przykład:
 
-- Zasady uwierzytelniania wieloskładnikowego (MFA) dla użytkownika gościa można skonfigurować, tak aby usługa MFA była używana podczas uwierzytelniania serwera proxy aplikacji. Aby uzyskać więcej informacji, zobacz [Dostęp warunkowy dla użytkowników współpracy B2B](conditional-access.md).
-- Wszelkie sponsoring, przeglądy dostępu, weryfikacje kont itp., które są wykonywane na użytkowników B2B w chmurze, mają zastosowanie do użytkowników lokalnych. Na przykład jeśli użytkownik w chmurze zostanie usunięty za pośrednictwem zasad zarządzania cyklem życia, użytkownik lokalny jest również usuwany przez synchronizację MIM lub za pośrednictwem synchronizacji usługi Azure AD Connect. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa za pomocą przeglądów dostępu usługi Azure AD](../governance/manage-guest-access-with-access-reviews.md).
+- Można skonfigurować zasady uwierzytelniania wieloskładnikowego (MFA) dla użytkownika-gościa, aby funkcja MFA była używana podczas uwierzytelniania serwera proxy aplikacji. Aby uzyskać więcej informacji, zobacz [dostęp warunkowy dla użytkowników współpracy B2B](conditional-access.md).
+- Wszystkie sponsorzy, przeglądy dostępu, weryfikacje kont itp., które są wykonywane na użytkownikach w chmurze, mają zastosowanie do użytkowników lokalnych. Na przykład jeśli użytkownik chmury zostanie usunięty w ramach zasad zarządzania cyklem życia, użytkownik lokalny zostanie również usunięty przez program MIM Sync lub za pomocą synchronizacji Azure AD Connect. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa za pomocą przeglądów dostępu w usłudze Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
-### <a name="create-b2b-guest-user-objects-through-mim"></a>Tworzenie obiektów użytkownika-gościa B2B za pomocą mimu
+### <a name="create-b2b-guest-user-objects-through-mim"></a>Tworzenie obiektów użytkownika gościa B2B za poorednictwem programu MIM
 
-Aby uzyskać informacje dotyczące używania programu MIM 2016 z dodatkiem Service Pack 1 i agenta zarządzania programem MIM dla programu Microsoft Graph do tworzenia obiektów użytkowników-gościa w katalogu lokalnym, zobacz [Współpraca między firmami usługi Azure AD (B2B) z dodatkiem SP1 programu Microsoft Identity Manager (MIM) 2016 za pomocą serwera proxy aplikacji platformy Azure](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
+Informacje o sposobach korzystania z programu MIM 2016 z dodatkiem Service Pack 1 i agenta zarządzania programu MIM dla Microsoft Graph tworzenia obiektów użytkowników Gości w katalogu lokalnym można znaleźć w temacie [współpraca między firmami (B2B) w usłudze Azure AD z programem Microsoft Identity Manager (MIM) 2016 z dodatkiem SP1 przy użyciu serwera proxy aplikacji platformy Azure](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
-### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>Tworzenie obiektów użytkownika-gościa B2B za pomocą skryptu (wersja zapoznawcza)
+### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>Tworzenie obiektów użytkownika gościa B2B za pomocą skryptu (wersja zapoznawcza)
 
-Dostępny jest przykładowy skrypt programu PowerShell, którego można użyć jako punktu wyjścia do tworzenia obiektów użytkownika-gościa w lokalnej usłudze Active Directory.
+Dostępny jest przykładowy skrypt programu PowerShell, którego można użyć jako punktu wyjścia do tworzenia obiektów użytkownika-Gości w lokalnym Active Directory.
 
-Skrypt i plik Readme można pobrać z [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=51495). Wybierz **skrypt i readme, aby przyciągnąć użytkowników usługi Azure AD B2B na plik prem.zip.**
+Skrypt i plik Readme można pobrać z [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=51495). Wybierz **skrypt i plik Readme, aby ściągnąć plik on-Prem. zip użytkowników B2B usługi Azure AD** .
 
-Przed użyciem skryptu należy zapoznać się z wymaganiami wstępnymi i ważnymi zagadnieniami w skojarzonym pliku Readme. Ponadto należy zrozumieć, że skrypt jest udostępniany tylko jako przykład. Zespół deweloperów lub partner musi dostosować i przejrzeć skrypt przed jego uruchomieniem.
+Przed użyciem skryptu upewnij się, że zawarto przegląd wymagań wstępnych i ważnych zagadnień w skojarzonym pliku Readme. Należy również zrozumieć, że skrypt jest udostępniany tylko jako przykład. Twój zespół programistyczny lub partner musi dostosować i przejrzeć skrypt przed jego uruchomieniem.
 
 ## <a name="license-considerations"></a>Zagadnienia dotyczące licencji
 
-Upewnij się, że masz odpowiednie licencje dostępu klienta (CAL) dla zewnętrznych użytkowników-gości, którzy uzyskują dostęp do aplikacji lokalnych. Aby uzyskać więcej informacji, zobacz sekcję "Łączniki zewnętrzne" w sekcji [Licencje dostępu klienta i licencje zarządzania](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx). Skonsultuj się z przedstawicielem firmy Microsoft lub lokalnym sprzedawcą w sprawie konkretnych potrzeb licencyjnych.
+Upewnij się, że masz odpowiednie licencje dostępu klienta (CAL) dla użytkowników zewnętrznych, którzy uzyskują dostęp do aplikacji lokalnych. Aby uzyskać więcej informacji, zobacz sekcję "łączniki zewnętrzne" [licencji dostępu klienta i licencji zarządzania](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx). Skontaktuj się z przedstawicielem firmy Microsoft lub lokalnym odsprzedawcą w odniesieniu do konkretnych potrzeb dotyczących licencjonowania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Współpraca b2b usługi Azure Active Directory dla organizacji hybrydowych](hybrid-organizations.md)
+- [Azure Active Directory współpracy B2B z organizacjami hybrydowymi](hybrid-organizations.md)
 
-- Aby zapoznać się z omówieniem usługi Azure AD Connect, zobacz [Integrowanie katalogów lokalnych z usługą Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+- Aby zapoznać się z omówieniem Azure AD Connect, zobacz [integrowanie katalogów lokalnych z Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

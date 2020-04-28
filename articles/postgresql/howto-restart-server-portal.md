@@ -1,51 +1,51 @@
 ---
-title: Uruchom ponownie serwer — witryna Azure portal — usługa Azure Database for PostgreSQL — single server
-description: W tym artykule opisano, jak można ponownie uruchomić usługę Azure Database for PostgreSQL — pojedynczy serwer przy użyciu witryny Azure portal.
+title: Uruchom ponownie serwer-Azure Portal-Azure Database for PostgreSQL — pojedynczy serwer
+description: W tym artykule opisano, jak można ponownie uruchomić pojedynczy serwer Azure Database for PostgreSQL przy użyciu Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 52ffb3943e6e3f209fd236216cc44026dff59dad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74770088"
 ---
-# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Uruchom ponownie usługę Azure Database for PostgreSQL — pojedynczy serwer przy użyciu witryny Azure portal
-W tym temacie opisano, jak można ponownie uruchomić usługę Azure Database dla serwera PostgreSQL. Może być konieczne ponowne uruchomienie serwera ze względu na konserwację, co powoduje krótką awarię podczas wykonywania operacji przez serwer.
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Uruchom ponownie Azure Database for PostgreSQL — pojedynczy serwer przy użyciu Azure Portal
+W tym temacie opisano, jak można ponownie uruchomić serwer Azure Database for PostgreSQL. Może być konieczne ponowne uruchomienie serwera ze względów konserwacyjnych, co powoduje krótkie przestoje, gdy serwer wykona operację.
 
-Ponowne uruchomienie serwera zostanie zablokowane, jeśli usługa jest zajęta. Na przykład usługa może przetwarzać wcześniej żądaną operację, taką jak skalowanie owo wirtualnych.
+Ponowne uruchomienie serwera zostanie zablokowane, jeśli usługa jest zajęta. Na przykład usługa może przetwarzać wcześniej żądaną operację, taką jak skalowanie rdzeni wirtualnych.
  
-Czas wymagany do ukończenia ponownego uruchomienia zależy od procesu odzyskiwania PostgreSQL. Aby skrócić czas ponownego uruchomienia, zaleca się zminimalizowanie aktywności występującej na serwerze przed ponownym uruchomieniem.
+Czas wymagany do ukończenia ponownego uruchomienia zależy od procesu odzyskiwania PostgreSQL. Aby skrócić czas ponownego uruchomienia, zalecamy zminimalizowanie liczby działań występujących na serwerze przed ponownym uruchomieniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby ukończyć ten przewodnik, potrzebujesz:
-- Usługa [Azure Database dla serwera PostgreSQL](quickstart-create-server-database-portal.md)
+Aby ukończyć ten przewodnik, musisz:
+- [Serwer Azure Database for PostgreSQL](quickstart-create-server-database-portal.md)
 
-## <a name="perform-server-restart"></a>Uruchom ponownie serwer
+## <a name="perform-server-restart"></a>Wykonaj ponowne uruchomienie serwera
 
-Następujące kroki ponownego uruchomienia serwera PostgreSQL:
+Wykonaj następujące kroki, aby ponownie uruchomić serwer PostgreSQL:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)wybierz swoją usługę Azure Database dla serwera PostgreSQL.
+1. W [Azure Portal](https://portal.azure.com/)wybierz serwer Azure Database for PostgreSQL.
 
-2. Na pasku narzędzi strony **Przegląd** serwera kliknij przycisk **Uruchom ponownie**.
+2. Na pasku narzędzi na stronie **Przegląd** serwera kliknij pozycję **Uruchom ponownie**.
 
-   ![Usługa Azure Database for PostgreSQL — omówienie — przycisk Uruchom ponownie](./media/howto-restart-server-portal/2-server.png)
+   ![Azure Database for PostgreSQL — przegląd — przycisk ponownego uruchamiania](./media/howto-restart-server-portal/2-server.png)
 
-3. Kliknij **przycisk Tak,** aby potwierdzić ponowne uruchomienie serwera.
+3. Kliknij przycisk **tak** , aby potwierdzić ponowne uruchomienie serwera.
 
-   ![Usługa Azure Database for PostgreSQL — ponowne uruchomienie potwierdzania](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![Azure Database for PostgreSQL — Potwierdź ponowne uruchomienie](./media/howto-restart-server-portal/3-restart-confirm.png)
 
-4. Należy zauważyć, że stan serwera zmienia się na "Ponowne uruchomienie".
+4. Zwróć uwagę, że stan serwera zmieni się na "ponowne uruchomienie".
 
-   ![Usługa Azure Database for PostgreSQL — stan ponownego uruchamiania](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![Azure Database for PostgreSQL — stan ponownego uruchomienia](./media/howto-restart-server-portal/4-restarting-status.png)
 
-5. Upewnij się, że ponowne uruchomienie serwera zakończyło się pomyślnie.
+5. Potwierdzenie ponownego uruchomienia serwera zakończyło się pomyślnie.
 
-   ![Usługa Azure Database for PostgreSQL — powodzenie ponownego uruchamiania](./media/howto-restart-server-portal/5-restart-success.png)
+   ![Azure Database for PostgreSQL — pomyślne ponowne uruchomienie](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz [się, jak ustawić parametry w usłudze Azure Database dla postgreSQL](howto-configure-server-parameters-using-portal.md)
+Dowiedz się więcej [na temat sposobu ustawiania parametrów w Azure Database for PostgreSQL](howto-configure-server-parameters-using-portal.md)

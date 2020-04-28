@@ -1,49 +1,49 @@
 ---
-title: Opcje wdrażania kontenerów systemu Linux
-description: Zdecyduj między niestandardowym wdrażaniem kontenera platformy Docker, wielokontenerową i wbudowaną strukturą aplikacji dla usługi App Service w systemie Linux.
-keywords: azure app service, aplikacja internetowa, Linux, oss
+title: Opcje wdrażania dla kontenerów systemu Linux
+description: Zdecyduj między niestandardowym wdrożeniem kontenera platformy Docker, wielokontenerem i wbudowaną strukturą aplikacji dla App Service w systemie Linux.
+keywords: usługa Azure App Service, aplikacja sieci Web, system Linux, usługa OSS
 author: msangapu-msft
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 7c4025e393c196fb98455bac26e94e5f252840b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687513"
 ---
-# <a name="custom-image-multi-container-or-built-in-platform-image"></a>Niestandardowy obraz, wielokontensja lub wbudowany obraz platformy?
+# <a name="custom-image-multi-container-or-built-in-platform-image"></a>Obraz niestandardowy, wiele kontenerów lub wbudowanego obrazu platformy?
 
-[Usługa App Service w systemie Linux](app-service-linux-intro.md) oferuje trzy różne ścieżki do publikowania aplikacji w sieci Web:
+[App Service w systemie Linux](app-service-linux-intro.md) oferuje trzy różne ścieżki umożliwiające opublikowanie aplikacji w sieci Web:
 
-- **Niestandardowe wdrożenie obrazu:**"Dockerize" aplikacji do obrazu platformy Docker, który zawiera wszystkie pliki i zależności w pakiecie gotowym do uruchomienia.
-- **Wdrożenie wielu kontenerów:**"Dockerize" aplikacji w wielu kontenerach przy użyciu pliku konfiguracji docker compose.
-- **Wdrażanie aplikacji z wbudowanym obrazem platformy:** Nasze wbudowane obrazy platformy zawierają typowe środowiska wykonawcze aplikacji internetowej i zależności, takie jak Node i PHP. Użyj jednej z [metod wdrażania usługi Azure App Service,](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) aby wdrożyć aplikację w magazynie aplikacji sieci web, a następnie użyj wbudowanego obrazu platformy, aby go uruchomić.
+- **Wdrożenie obrazu niestandardowego**: "przekształcać" aplikacji do obrazu platformy Docker, który zawiera wszystkie pliki i zależności w gotowym do uruchomienia pakiecie.
+- **Wdrożenie z wieloma kontenerami**: "przekształcać" aplikację w wielu kontenerach przy użyciu pliku konfiguracji Docker Compose.
+- **Wdrażanie aplikacji z wbudowanym obrazem platformy**: wbudowane obrazy platformy zawierają wspólne środowiska uruchomieniowe i zależności aplikacji sieci Web, takie jak Node i php. Użyj jednej z [Azure App Service metod wdrażania](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) , aby wdrożyć aplikację w magazynie aplikacji sieci Web, a następnie użyj wbudowanego obrazu platformy do jego uruchomienia.
 
-## <a name="which-method-is-right-for-your-app"></a>Która metoda jest odpowiednia dla Twojej aplikacji? 
+## <a name="which-method-is-right-for-your-app"></a>Która metoda jest odpowiednia dla aplikacji? 
 
-Głównymi czynnikami, które należy wziąć pod uwagę, są:
+Podstawowe czynniki, które należy wziąć pod uwagę:
 
-- **Dostępność platformy Docker w przepływie pracy deweloperów:** Niestandardowe tworzenie obrazów wymaga podstawowej wiedzy na temat przepływu pracy tworzenia platformy Docker. Wdrożenie niestandardowego obrazu w aplikacji sieci web wymaga publikacji obrazu niestandardowego na hoście repozytorium, takim jak Centrum platformy Docker. Jeśli znasz program Docker i możesz dodać zadania platformy Docker do przepływu pracy kompilacji lub jeśli już publikujesz aplikację jako obraz platformy Docker, obraz niestandardowy jest prawie na pewno najlepszym wyborem.
-- **Architektura wielowarstwowa:** Wdrażanie wielu kontenerów, takich jak warstwa aplikacji sieci web i warstwa interfejsu API, aby oddzielić możliwości przy użyciu wielu kontenerów. 
-- **Wydajność aplikacji:** Zwiększ wydajność aplikacji wielokontenerowej przy użyciu warstwy pamięci podręcznej, takiej jak Redis. Wybierz multi-container, aby to osiągnąć.
-- **Unikatowe wymagania dotyczące środowiska uruchomieniowego:** wbudowane obrazy platformy są zaprojektowane tak, aby zaspokoić potrzeby większości aplikacji internetowych, ale są ograniczone w ich możliwości dostosowania. Aplikacja może mieć unikatowe zależności lub inne wymagania środowiska wykonawczego, które przekraczają to, co są w stanie wbudowane obrazy.
-- **Wymagania dotyczące kompilacji:** dzięki [ciągłego wdrażania](../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)możesz uruchomić aplikację na platformie Azure bezpośrednio z kodu źródłowego. Nie jest wymagany proces kompilacji lub publikacji zewnętrznej. Istnieje jednak ograniczenie możliwości dostosowywania i dostępności narzędzi kompilacji w silniku wdrażania [Kudu.](https://github.com/projectkudu/kudu/wiki) Aplikacja może przerastać możliwości Kudu, ponieważ rośnie w jego zależności lub wymagania dotyczące logiki kompilacji niestandardowej.
-- **Wymagania dotyczące odczytu/zapisu**dysku: Wszystkie aplikacje internetowe są przydzielane woluminowi pamięci masowej dla zawartości sieci Web. Ten wolumin, wspierany przez usługę `/home` Azure Storage, jest zainstalowany w systemie plików aplikacji. W przeciwieństwie do plików w systemie plików kontenera pliki w woluminie zawartości są dostępne we wszystkich wystąpieniach skali aplikacji, a modyfikacje będą zachowywać się między ponownym uruchomieniem aplikacji. Jednak opóźnienie dysku woluminu zawartości jest wyższa i bardziej zmienna niż opóźnienie lokalnego systemu plików kontenera, a na dostęp mogą mieć wpływ uaktualnienia platformy, nieplanowane przestoje i problemy z łącznością sieciową. Aplikacje, które wymagają dużego dostępu tylko do odczytu do plików zawartości, mogą korzystać z niestandardowego wdrażania obrazów, które umieszcza pliki w systemie plików obrazów, a nie w woluminie zawartości.
-- **Tworzenie użycia zasobów:** Gdy aplikacja jest wdrażana ze źródła, skrypty wdrażania uruchamiane przez Kudu używają tych samych zasobów obliczeniowych i magazynowych planu usługi app service, co uruchomiona aplikacja. Wdrożenia dużych aplikacji mogą zużywać więcej zasobów lub czasu niż jest to pożądane. W szczególności wiele przepływów pracy wdrażania generuje dużą aktywność dysku na woluminie zawartości aplikacji, który nie jest zoptymalizowany pod kątem takiej aktywności. Niestandardowy obraz dostarcza wszystkie pliki i zależności aplikacji do platformy Azure w jednym pakiecie bez konieczności dodatkowych transferów plików lub akcji wdrażania.
-- **Potrzeba szybkiej iteracji:** Dockerizing aplikacji wymaga dodatkowych kroków kompilacji. Aby zmiany zostały wprowadzone, należy wypchnąć nowy obraz do repozytorium z każdą aktualizacją. Te aktualizacje są następnie ściągane do środowiska platformy Azure. Jeśli jeden z wbudowanych kontenerów spełnia potrzeby aplikacji, wdrażanie ze źródła może oferować szybszy przepływ pracy deweloperów.
+- **Dostępność platformy Docker w przepływie pracy deweloperskiej**: niestandardowe programowanie obrazów wymaga podstawowej znajomości przepływu pracy programowania platformy Docker. Wdrożenie obrazu niestandardowego w aplikacji internetowej wymaga publikacji obrazu niestandardowego na hoście repozytorium, takim jak Docker Hub. Jeśli znasz platformę Docker i możesz dodać zadania platformy Docker do przepływu pracy kompilacji lub jeśli aplikacja jest już publikowana jako obraz platformy Docker, obraz niestandardowy prawie najlepiej nadaje się do wyboru.
+- **Architektura wielowarstwowa**: Wdróż wiele kontenerów, takich jak warstwa aplikacji sieci Web i warstwa interfejsu API, aby oddzielić możliwości przy użyciu wielu kontenerów. 
+- **Wydajność aplikacji**: zwiększenie wydajności aplikacji wielokontenera przy użyciu warstwy pamięci podręcznej, takiej jak Redis. Wybierz pozycję wiele kontenerów, aby to osiągnąć.
+- **Unikatowe wymagania dotyczące środowiska uruchomieniowego**: wbudowane obrazy platformy są przeznaczone do zaspokajania potrzeb większości aplikacji sieci Web, ale są ograniczone w ich szerszym. Twoja aplikacja może mieć unikatowe zależności lub inne wymagania dotyczące środowiska uruchomieniowego, które przekraczają możliwości programu.
+- **Wymagania dotyczące kompilacji**: Dzięki [ciągłemu wdrażaniu](../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)aplikacja może zostać uruchomiona na platformie Azure bezpośrednio z poziomu kodu źródłowego. Nie jest wymagany żaden zewnętrzny proces kompilacji ani publikacji. Istnieje jednak ograniczenie szerszym i dostępności narzędzi do kompilacji w ramach aparatu wdrażania [kudu](https://github.com/projectkudu/kudu/wiki) . Twoja aplikacja może skalowalność kudu możliwości w miarę rozwoju ich zależności lub wymagań dla niestandardowej logiki kompilacji.
+- **Wymagania dotyczące odczytu/zapisu na dysku**: wszystkie aplikacje sieci Web są przydzielono woluminowi magazynu dla zawartości sieci Web. Ten wolumin, objęty usługą Azure Storage, jest instalowany `/home` w systemie plików aplikacji. W przeciwieństwie do plików w systemie plików kontenera pliki w woluminie zawartości są dostępne we wszystkich wystąpieniach skalowania aplikacji, a modyfikacje będą zachowywane między ponownymi uruchomieniami aplikacji. Opóźnienie dysku woluminu zawartości jest jednak większe i bardziej zmienne niż opóźnienie lokalnego systemu plików kontenera, a dostęp może mieć wpływ na uaktualnienia platformy, nieplanowany przestój i problemy z łącznością sieciową. Aplikacje wymagające dużego dostępu tylko do odczytu do plików zawartości mogą korzystać z niestandardowego wdrożenia obrazu, które umieszcza pliki w systemie plików obrazów zamiast na woluminie zawartości.
+- **Kompilowanie użycia zasobów**: po wdrożeniu aplikacji ze źródła skrypty wdrażania uruchamiane przez kudu używają tego samego App Service Planuj zasoby obliczeniowe i magazynowe jako działającą aplikację. Duże wdrożenia aplikacji mogą zużywać więcej zasobów lub czasu. W szczególności wiele przepływów pracy wdrożenia generuje aktywność dysku w woluminie zawartości aplikacji, która nie jest zoptymalizowana pod kątem tego działania. Obraz niestandardowy zapewnia wszystkie pliki i zależności aplikacji na platformie Azure w jednym pakiecie bez potrzeby dodatkowych transferów plików ani akcji wdrażania.
+- **Potrzeba szybkiej iteracji**: Dockerizing aplikacja wymaga dodatkowych kroków kompilacji. Aby zmiany zaczęły obowiązywać, należy wypchnąć nowy obraz do repozytorium z każdą aktualizacją. Te aktualizacje są następnie ściągane do środowiska platformy Azure. Jeśli jeden z kontenerów wbudowanych spełnia potrzeby aplikacji, wdrożenie ze źródła może oferować szybszy przepływ pracy programistycznej.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Kontener niestandardowy:
 * [Uruchamianie niestandardowego kontenera](quickstart-docker-go.md)
 
-Pojemnik wielowykonakowy:
-* [Tworzenie aplikacji wielokontensjasowej](quickstart-multi-container.md)
+Wiele kontenerów:
+* [Tworzenie aplikacji z wieloma kontenerami](quickstart-multi-container.md)
 
-Następujące artykuły rozpoczynają pracę z usługą App Service w systemie Linux z wbudowanym obrazem platformy:
+Poniższe artykuły zawierają wprowadzenie do App Service w systemie Linux z wbudowanym obrazem platformy:
 
 * [.NET Core](quickstart-dotnetcore.md)
 * [PHP](quickstart-php.md)
