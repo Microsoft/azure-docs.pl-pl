@@ -1,29 +1,29 @@
 ---
-title: Jak wyświetlić zagregowany stan jednostek usługi Azure Service
-description: W tym artykule opisano sposób wykonywania zapytań, wyświetlania i oceny zagregowanego kondycji jednostek usługi Azure Service za pośrednictwem zapytań dotyczących kondycji i ogólnych zapytań.
+title: Jak wyświetlić zagregowaną kondycję jednostek usługi Azure Service Fabric
+description: Opisuje sposób wykonywania zapytań, wyświetlania i szacowania zagregowanych kondycji jednostek Service Fabric platformy Azure za pomocą zapytań dotyczących kondycji i ogólnych zapytań.
 author: oanapl
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464133"
 ---
-# <a name="view-service-fabric-health-reports"></a>Wyświetlanie raportów kondycji sieci szkieletowej usług
-Usługa Azure Service Fabric wprowadza [model kondycji](service-fabric-health-introduction.md) z jednostkami kondycji, na których składniki systemu i watchdogs mogą zgłaszać lokalne warunki, które monitorują. [Magazyn kondycji](service-fabric-health-introduction.md#health-store) agreguje wszystkie dane dotyczące kondycji, aby ustalić, czy jednostki są w dobrej kondycji.
+# <a name="view-service-fabric-health-reports"></a>Wyświetlanie raportów o kondycji Service Fabric
+Usługa Azure Service Fabric wprowadza [model kondycji](service-fabric-health-introduction.md) z jednostkami kondycji, na których składniki systemowe i alarmy mogą raportować lokalne warunki, które są monitorowane. [Magazyn kondycji](service-fabric-health-introduction.md#health-store) agreguje wszystkie dane dotyczące kondycji, aby określić, czy jednostki są w dobrej kondycji.
 
-Klaster jest automatycznie wypełniany raportami kondycji wysyłanymi przez składniki systemu. Dowiedz się więcej na [temat Używanie raportów kondycji systemu do rozwiązywania problemów](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+Klaster jest automatycznie wypełniany raportami kondycji wysyłanymi przez składniki systemowe. Więcej informacji można znaleźć w tematach [dotyczących rozwiązywania problemów przy użyciu raportów kondycji systemu](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Sieci szkieletowej usług zapewnia wiele sposobów, aby uzyskać zagregowane kondycji jednostek:
+Service Fabric zapewnia wiele sposobów uzyskania zagregowanej kondycji jednostek:
 
-* [Eksplorator sieci szkieletowej usług](service-fabric-visualizing-your-cluster.md) lub inne narzędzia do wizualizacji
-* Kwerendy dotyczące kondycji (za pośrednictwem programu PowerShell, interfejsu API lub REST)
-* Ogólne kwerendy, które zwracają listę jednostek, które mają kondycję jako jedną z właściwości (za pośrednictwem programu PowerShell, interfejsu API lub REST)
+* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) lub inne narzędzia do wizualizacji
+* Zapytania dotyczące kondycji (za poorednictwem programu PowerShell, interfejsu API lub REST)
+* Ogólne zapytania, które zwracają listę jednostek, które mają kondycję jako jedną z właściwości (za pomocą programu PowerShell, interfejsu API lub REST)
 
-Aby zademonstrować te opcje, użyjmy klastra lokalnego z pięcioma węzłami i [aplikacją fabric:/WordCount](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). Aplikacja **fabric:/WordCount** zawiera dwie usługi domyślne, `WordCountServiceType`usługę stanową typu i `WordCountWebServiceType`usługę bezstanową typu . Zmieniłem `ApplicationManifest.xml` wymagać siedem replik docelowych dla usługi stanowej i jednej partycji. Ponieważ w klastrze znajduje się tylko pięć węzłów, składniki systemu zgłaszają ostrzeżenie na partycji usługi, ponieważ jest poniżej liczby docelowej.
+Aby zademonstrować te opcje, użyjmy lokalnego klastra z pięcioma węzłami i [sieci szkieletowej:/WORDCOUNT](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). Aplikacja **sieci szkieletowej:/WORDCOUNT** zawiera dwie domyślne usługi, stanowe usługi typu `WordCountServiceType`i bezstanową usługę typu `WordCountWebServiceType`. Zmieniono żądanie, `ApplicationManifest.xml` aby wymagało siedmiu replik docelowych dla usługi stanowej i jednej partycji. Ze względu na to, że w klastrze znajduje się tylko pięć węzłów, składniki systemowe zgłaszają ostrzeżenie na partycji usługi, ponieważ jest niższa od liczby docelowej.
 
 ```xml
 <Service Name="WordCountService">
@@ -33,61 +33,61 @@ Aby zademonstrować te opcje, użyjmy klastra lokalnego z pięcioma węzłami i 
 </Service>
 ```
 
-## <a name="health-in-service-fabric-explorer"></a>Eksplorator sieci szkieletowej kondycji usług
-Eksplorator sieci szkieletowej usług zapewnia wizualny widok klastra. Na poniższej ilustracji widać, że:
+## <a name="health-in-service-fabric-explorer"></a>Kondycja w Service Fabric Explorer
+Service Fabric Explorer udostępnia widok wizualizacji klastra. Na poniższej ilustracji widać, że:
 
-* Szkielet **aplikacji:/WordCount** jest czerwony (w błąd), ponieważ ma zdarzenie błędu zgłoszone przez **MyWatchdog** dla **właściwości Dostępność**.
-* Jedna z jego usług, **fabric:/WordCount/WordCountService** jest żółta (w ostrzeżeniu). Usługa jest skonfigurowana z siedmioma replikami, a klaster ma pięć węzłów, więc nie można umieścić dwóch replik. Chociaż nie jest pokazany tutaj, partycja usługi jest żółta z powodu raportu systemowego z `System.FM` informacją, że `Partition is below target replica or instance count`. Żółta partycja wyzwala żółtą usługę.
-* Klaster jest czerwony z powodu czerwonej aplikacji.
+* **Sieć szkieletowa aplikacji:/WORDCOUNT** jest czerwona (w przypadku błędu), ponieważ zawiera zdarzenie błędu zgłoszone przez **telealarmy** dla **dostępności**właściwości.
+* Jedna z jej usług, **Sieć szkieletowa:/WORDCOUNT/usługi wordcountservice uległa** jest żółta (w ostrzeżeniu). Usługa jest skonfigurowana z siedmiu replik, a klaster ma pięć węzłów, więc nie można umieścić dwóch replik. Chociaż nie jest to tutaj widoczne, partycja usługi jest żółta ze względu na Raport `System.FM` systemowy `Partition is below target replica or instance count`informujący o tym, że. Żółta partycja wyzwala żółtą usługę.
+* Ten klaster jest czerwony ze względu na czerwoną aplikację.
 
-Ocena używa domyślnych zasad z manifestu klastra i manifestu aplikacji. Są to surowe zasady i nie tolerują żadnej porażki.
+Ocena używa domyślnych zasad z manifestu klastra i manifestu aplikacji. Są to ścisłe zasady i nie dopuszczają żadnego błędu.
 
-Widok klastra za pomocą Eksploratora sieci szkieletowej usług:
+Widok klastra z Service Fabric Explorer:
 
-![Widok klastra za pomocą Eksploratora sieci szkieletowej usług.][1]
+![Widok klastra z Service Fabric Explorer.][1]
 
 [1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
 
 > [!NOTE]
-> Dowiedz się więcej o [Eksploratorze sieci szkieletowej usług](service-fabric-visualizing-your-cluster.md).
+> Przeczytaj więcej na temat [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 >
 >
 
 ## <a name="health-queries"></a>Zapytania dotyczące kondycji
-Sieci szkieletowej usług udostępnia kwerendy kondycji dla każdego z obsługiwanych [typów jednostek](service-fabric-health-introduction.md#health-entities-and-hierarchy). Można uzyskać do nich dostęp za pośrednictwem interfejsu API, przy użyciu metod na [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), polecenia cmdlet programu PowerShell i REST. Te kwerendy zwracają pełne informacje o kondycji jednostki: zagregowany stan kondycji, zdarzenia kondycji jednostki, stany kondycji dziecka (w stosownych przypadkach), oceny w złej kondycji (gdy jednostka nie jest w dobrej kondycji) i statystyki zdrowia dzieci (gdy w stosownych przypadkach).
+Service Fabric udostępnia zapytania dotyczące kondycji dla każdego z obsługiwanych [typów jednostek](service-fabric-health-introduction.md#health-entities-and-hierarchy). Dostęp do nich uzyskuje się za pośrednictwem interfejsu API, przy użyciu metod w [FabricClient. HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), poleceń cmdlet programu POWERSHELL i REST. Te zapytania zwracają kompletne informacje o kondycji jednostki: zagregowany stan kondycji, zdarzenia kondycji jednostki, podrzędne Stany kondycji (gdy ma to zastosowanie), oceny w złej kondycji (gdy jednostka nie jest w dobrej kondycji) i podrzędne statystyki kondycji (jeśli ma to zastosowanie).
 
 > [!NOTE]
-> Jednostka kondycji jest zwracana, gdy jest w pełni wypełniona w magazynie kondycji. Jednostka musi być aktywna (nie usunięta) i mieć raport systemowy. Jego jednostki nadrzędne w łańcuchu hierarchii muszą również zawierać raporty systemowe. Jeśli którykolwiek z tych warunków nie są spełnione, zapytania kondycji zwraca [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) z [FabricErrorCode,](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` który pokazuje, dlaczego jednostka nie jest zwracana.
+> Jednostka kondycji jest zwracana, gdy jest w pełni wypełniana w magazynie kondycji. Jednostka musi być aktywna (nieusunięta) i mieć Raport systemowy. Jego jednostki nadrzędne w łańcuchu hierarchii również muszą zawierać Raporty systemowe. Jeśli którykolwiek z tych warunków nie zostanie spełniony, zapytania o kondycji zwracają element [fabricexception](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) z [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` , który pokazuje, dlaczego jednostka nie została zwrócona.
 >
 >
 
-Kwerendy kondycji należy przekazać w identyfikatorze jednostki, który zależy od typu jednostki. Kwerendy akceptują opcjonalne parametry zasad kondycji. Jeśli nie określono żadnych zasad kondycji, [zasady kondycji](service-fabric-health-introduction.md#health-policies) z klastra lub manifestu aplikacji są używane do oceny. Jeśli manifesty nie zawierają definicji dla zasad kondycji, domyślne zasady kondycji są używane do oceny. Domyślne zasady kondycji nie tolerują żadnych błędów. Kwerendy akceptują również filtry do zwracania tylko częściowe elementy podrzędne lub zdarzenia — te, które są zgodne z określonymi filtrami. Inny filtr pozwala na wyłączenie statystyk podrzędnych.
+Zapytania o kondycję muszą być przekazywane w identyfikatorze jednostki, który zależy od typu jednostki. Zapytania akceptują opcjonalne parametry zasad dotyczących kondycji. Jeśli nie określono żadnych zasad dotyczących kondycji, do oceny są używane [zasady dotyczące kondycji](service-fabric-health-introduction.md#health-policies) z klastra lub manifestu aplikacji. Jeśli manifesty nie zawierają definicji zasad dotyczących kondycji, do oceny są używane domyślne zasady dotyczące kondycji. Domyślne zasady kondycji nie dopuszczają żadnych błędów. Zapytania akceptują również filtry zwracające tylko częściowe elementy podrzędne lub zdarzenia — te, które respektują określone filtry. Inny filtr umożliwia wykluczenie statystyk podrzędnych.
 
 > [!NOTE]
-> Filtry wyjściowe są stosowane po stronie serwera, więc rozmiar odpowiedzi wiadomości jest zmniejszony. Zaleca się użycie filtrów wyjściowych w celu ograniczenia zwracanych danych, a nie stosowania filtrów po stronie klienta.
+> Filtry wyjściowe są stosowane po stronie serwera, więc rozmiar odpowiedzi komunikatu jest zmniejszany. Zalecamy użycie filtrów wyjściowych w celu ograniczenia zwracanych danych, a nie zastosowania filtrów po stronie klienta.
 >
 >
 
 Kondycja jednostki zawiera:
 
-* Zagregowany stan kondycji jednostki. Obliczane przez magazyn kondycji na podstawie raportów kondycji jednostki, stanów kondycji dziecka (w stosownych przypadkach) i zasad kondycji. Dowiedz się więcej o [ocenie kondycji jednostki](service-fabric-health-introduction.md#health-evaluation).  
-* Zdarzenia kondycji w jednostce.
-* Kolekcja stanów kondycji wszystkich elementów podrzędnych dla jednostek, które mogą mieć elementy podrzędne. Stany kondycji zawierają identyfikatory jednostek i stan kondycji zagregowane. Aby uzyskać pełny stan zdrowia dla dziecka, wywołaj kondycję kwerendy dla typu jednostki podrzędnej i przekaż identyfikator podrzędny.
-* Oceny w złej kondycji, które wskazują na raport, który wyzwolił stan jednostki, jeśli jednostka nie jest w dobrej kondycji. Oceny są cykliczne, zawierające oceny kondycji dzieci, które wyzwoliły bieżący stan kondycji. Na przykład watchdog zgłosił błąd repliki. Kondycja aplikacji pokazuje niezdrową ocenę z powodu usługi w złej kondycji; usługa jest w złej kondycji z powodu partycji w błąd; partycja jest w złej kondycji z powodu repliki w błąd; replika jest w złej kondycji ze względu na raport kondycji błędu watchdog.
-* Statystyki kondycji dla wszystkich typów elementów podrzędnych jednostek, które mają elementy podrzędne. Na przykład kondycja klastra pokazuje całkowitą liczbę aplikacji, usług, partycji, replik i wdrożonych jednostek w klastrze. Kondycja usługi pokazuje całkowitą liczbę partycji i replik w ramach określonej usługi.
+* Zagregowany stan kondycji jednostki. Obliczane przez magazyn kondycji na podstawie raportów kondycji jednostki, podrzędnych Stanów kondycji (jeśli dotyczy) i zasad dotyczących kondycji. Przeczytaj więcej na temat [oceny kondycji jednostek](service-fabric-health-introduction.md#health-evaluation).  
+* Zdarzenia dotyczące kondycji w jednostce.
+* Kolekcja Stanów kondycji wszystkich elementów podrzędnych dla jednostek, które mogą mieć elementy podrzędne. Stany kondycji zawierają identyfikatory jednostek i zagregowany stan kondycji. Aby uzyskać pełną kondycję dla elementu podrzędnego, należy wywołać kondycję zapytania dla typu jednostki podrzędnej i przekazać identyfikator podrzędny.
+* Oceny złej kondycji wskazujące na raport, który wyzwolił stan jednostki, jeśli jednostka nie jest w dobrej kondycji. Obliczenia są cykliczne, zawierające oceny kondycji dzieci, które wyzwoliły bieżący stan kondycji. Na przykład licznik alarm zgłosił błąd dla repliki. Kondycja aplikacji pokazuje ocenę złej kondycji z powodu usługi złej kondycji; Usługa jest w złej kondycji z powodu błędu partycji. partycja jest w złej kondycji ze względu na błędną replikę. Replika jest w złej kondycji ze względu na raport o kondycji błędów licznika alarmów.
+* Statystyki kondycji dla wszystkich typów elementów podrzędnych obiektów, które mają elementy podrzędne. Na przykład kondycja klastra pokazuje całkowitą liczbę aplikacji, usług, partycji, replik i wdrożonych jednostek w klastrze. Kondycja usługi pokazuje łączną liczbę partycji i replik w ramach określonej usługi.
 
-## <a name="get-cluster-health"></a>Uzyskaj kondycję klastra
-Zwraca kondycję jednostki klastra i zawiera stany kondycji aplikacji i węzłów (elementy podrzędne klastra). Dane wejściowe:
+## <a name="get-cluster-health"></a>Pobierz kondycję klastra
+Zwraca kondycję jednostki klastra i zawiera Stany kondycji aplikacji i węzłów (elementy podrzędne klastra). Dane wejściowe:
 
-* [Opcjonalnie] Zasady kondycji klastra używane do oceny węzłów i zdarzeń klastra.
-* [Opcjonalnie] Mapa zasad kondycji aplikacji z zasadami kondycji używanymi do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń, węzłów i aplikacji, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia, węzły i aplikacje są używane do oceny kondycji zagregowane jednostki, niezależnie od filtru.
-* [Opcjonalnie] Filtruj, aby wykluczyć statystyki kondycji.
-* [Opcjonalnie] Filtrowanie w celu uwzględnienia w statystykach kondycji sieci szkieletowej:/Statystyki kondycji systemu. Ma zastosowanie tylko wtedy, gdy statystyki dotyczące zdrowia nie są wykluczone. Domyślnie statystyki kondycji obejmują tylko statystyki dla aplikacji użytkownika, a nie aplikacji systemowej.
+* Obowiązkowe Zasady kondycji klastra używane do szacowania węzłów i zdarzeń klastra.
+* Obowiązkowe Mapa zasad kondycji aplikacji z zasadami kondycji używanymi do przesłania zasad manifestu aplikacji.
+* Obowiązkowe Filtry dla zdarzeń, węzłów i aplikacji, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia, węzły i aplikacje są używane do oszacowania zagregowanej kondycji jednostki, niezależnie od filtra.
+* Obowiązkowe Filtr, aby wykluczyć statystyki kondycji.
+* Obowiązkowe Filtr w celu uwzględnienia statystyk kondycji systemu w statystykach kondycji. Dotyczy tylko sytuacji, gdy statystyki kondycji nie są wykluczone. Domyślnie statystyki kondycji obejmują tylko statystyki dla aplikacji użytkownika, a nie do aplikacji systemowej.
 
-### <a name="api"></a>interfejs API
-Aby uzyskać kondycję `FabricClient` klastra, należy utworzyć i wywołać [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) metody na jego **HealthManager**.
+### <a name="api"></a>Interfejs API
+Aby uzyskać kondycję klastra, Utwórz `FabricClient` i Wywołaj metodę [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) na swoim serwerze **kondycji**.
 
 Następujące wywołanie pobiera kondycję klastra:
 
@@ -95,7 +95,7 @@ Następujące wywołanie pobiera kondycję klastra:
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-Poniższy kod pobiera kondycję klastra przy użyciu niestandardowych zasad kondycji klastra i filtrów dla węzłów i aplikacji. Określa, że statystyki kondycji obejmują statystyki tkaniny:/System. Tworzy [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), który zawiera informacje wejściowe.
+Poniższy kod pobiera kondycję klastra przy użyciu niestandardowych zasad dotyczących kondycji klastra i filtrów dla węzłów i aplikacji. Określa, że statystyki kondycji obejmują statystykę sieci szkieletowej:/System. Tworzy [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), który zawiera informacje wejściowe.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -127,11 +127,11 @@ ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby uzyskać kondycję klastra jest [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Najpierw należy połączyć się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Polecenie cmdlet umożliwiające uzyskanie kondycji klastra to [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Najpierw Połącz się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-Stan klastra to pięć węzłów, aplikacja systemowa i fabric:/WordCount skonfigurowane zgodnie z opisem.
+Stan klastra to pięć węzłów, aplikacja systemowa i sieć szkieletowa:/WordCount skonfigurowane zgodnie z opisem.
 
-Następujące polecenie cmdlet pobiera kondycję klastra przy użyciu domyślnych zasad kondycji. Zagregowany stan kondycji jest ostrzeżenie, ponieważ fabric:/WordCount aplikacja jest w ostrzeżeniu. Należy zauważyć, jak oceny w złej kondycji zawierają szczegółowe informacje na temat warunków, które wyzwoliły zagregowane kondycji.
+Poniższe polecenie cmdlet pobiera kondycję klastra przy użyciu domyślnych zasad kondycji. Zagregowany stan kondycji to ostrzeżenie, ponieważ aplikacja sieci szkieletowej:/WordCount jest w ostrzeżeniu. Zwróć uwagę na to, jak oceny złej kondycji zawierają szczegóły dotyczące warunków, które wyzwoliły zagregowany stan kondycji.
 
 ```xml
 PS D:\ServiceFabric> Get-ServiceFabricClusterHealth
@@ -188,7 +188,7 @@ HealthStatistics        :
                           Application           : 0 Ok, 1 Warning, 0 Error
 ```
 
-Następujące polecenie cmdlet programu PowerShell pobiera kondycję klastra przy użyciu zasad aplikacji niestandardowej. Filtruje wyniki, aby uzyskać tylko aplikacje i węzły w błąd lub ostrzeżenie. W rezultacie żadne węzły nie są zwracane, ponieważ wszystkie są w dobrej kondycji. Tylko aplikacja fabric:/WordCount jest zgodna z filtrem aplikacji. Ponieważ zasady niestandardowe określa, aby uznać ostrzeżenia za błędy dla aplikacji fabric:/WordCount, aplikacja jest oceniana jako błąd, a więc jest klastra.
+Następujące polecenie cmdlet programu PowerShell pobiera kondycję klastra przy użyciu niestandardowych zasad aplikacji. Filtruje wyniki, aby uzyskać tylko aplikacje i węzły z błędem lub ostrzeżeniem. W związku z tym nie są zwracane żadne węzły, ponieważ są one w dobrej kondycji. Tylko aplikacja Fabric:/WordCount uwzględnia filtr aplikacji. Ponieważ zasady niestandardowe określają, że są uwzględniane ostrzeżenia jako błędy dla aplikacji sieci szkieletowej:/WordCount, aplikacja jest szacowana jako błąd i dlatego jest klastrem.
 
 ```powershell
 PS D:\ServiceFabric> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
@@ -225,25 +225,25 @@ HealthEvents            : None
 ```
 
 ### <a name="rest"></a>REST
-Kondycję klastra można uzyskać za pomocą [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) lub [żądania POST,](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) które zawiera zasady dotyczące kondycji opisane w treści.
+Kondycję klastra można uzyskać za pomocą [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) lub [żądania post](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) , które zawiera zasady dotyczące kondycji opisane w treści.
 
-## <a name="get-node-health"></a>Uzyskaj kondycję węzła
+## <a name="get-node-health"></a>Pobierz kondycję węzła
 Zwraca kondycję jednostki węzła i zawiera zdarzenia kondycji zgłoszone w węźle. Dane wejściowe:
 
-* [Wymagane] Nazwa węzła, który identyfikuje węzeł.
-* [Opcjonalnie] Ustawienia zasad kondycji klastra używane do oceny kondycji.
-* [Opcjonalnie] Filtry dla zdarzeń, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane do oceny kondycji zagregowane jednostki, niezależnie od filtru.
+* Potrzeb Nazwa węzła, który identyfikuje węzeł.
+* Obowiązkowe Ustawienia zasad kondycji klastra służące do oszacowania kondycji.
+* Obowiązkowe Filtry dla zdarzeń, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane do obliczania kondycji zagregowanej jednostki, niezależnie od filtru.
 
-### <a name="api"></a>interfejs API
-Aby uzyskać kondycję węzła `FabricClient` za pośrednictwem interfejsu API, należy utworzyć i wywołać [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) metody na jego HealthManager.
+### <a name="api"></a>Interfejs API
+Aby uzyskać kondycję węzłów za pomocą interfejsu API, `FabricClient` Utwórz i Wywołaj metodę [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) na swoim serwerze kondycji.
 
-Następujący kod pobiera kondycję węzła dla określonej nazwy węzła:
+Poniższy kod pobiera kondycję węzła dla określonej nazwy węzła:
 
 ```csharp
 NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-Poniższy kod pobiera kondycję węzła dla określonej nazwy węzła i przekazuje w filtrze zdarzeń i zasadach niestandardowych za pośrednictwem [NodeHealthQueryDescription:](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription)
+Poniższy kod pobiera kondycję węzła dla określonej nazwy węzła i przekazuje je do filtru zdarzeń i zasad niestandardowych za pomocą [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
@@ -256,7 +256,7 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby uzyskać kondycję węzła jest [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Najpierw należy połączyć się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Polecenie cmdlet do pobierania kondycji węzła to [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Najpierw Połącz się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 Następujące polecenie cmdlet pobiera kondycję węzła przy użyciu domyślnych zasad kondycji:
 
 ```powershell
@@ -294,18 +294,18 @@ _Node_0                     Ok
 ```
 
 ### <a name="rest"></a>REST
-Można uzyskać kondycję węzła z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) lub [żądania POST,](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) który zawiera zasady kondycji opisane w treści.
+Kondycję węzła można uzyskać za pomocą [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) lub [żądania post](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) , które zawiera zasady dotyczące kondycji opisane w treści.
 
-## <a name="get-application-health"></a>Uzyskaj kondycję aplikacji
-Zwraca kondycję jednostki aplikacji. Zawiera stany kondycji wdrożonej aplikacji i usługi podrzędnych. Dane wejściowe:
+## <a name="get-application-health"></a>Pobierz kondycję aplikacji
+Zwraca kondycję jednostki aplikacji. Zawiera Stany kondycji wdrożonej aplikacji i elementów podrzędnych usługi. Dane wejściowe:
 
-* [Wymagane] Nazwa aplikacji (URI), która identyfikuje aplikację.
-* [Opcjonalnie] Zasady kondycji aplikacji używane do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń, usług i wdrożonych aplikacji, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia, usługi i wdrożone aplikacje są używane do oceny kondycji zagregowane jednostki, niezależnie od filtru.
-* [Opcjonalnie] Filtruj, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji obejmują ok, ostrzeżenie i liczbę błędów dla wszystkich elementów podrzędnych aplikacji: usługi, partycje, repliki, wdrożone aplikacje i wdrożone pakiety usług.
+* Potrzeb Nazwa aplikacji (URI) identyfikująca aplikację.
+* Obowiązkowe Zasady dotyczące kondycji aplikacji używane do przesłania zasad manifestu aplikacji.
+* Obowiązkowe Filtry dla zdarzeń, usług i wdrożonych aplikacji, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia, usługi i wdrożone aplikacje są używane do obliczania kondycji zagregowanej jednostki, niezależnie od filtra.
+* Obowiązkowe Filtr, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji obejmują wartość OK, ostrzeżenie i liczbę błędów dla wszystkich elementów podrzędnych aplikacji: usługi, partycje, repliki, wdrożone aplikacje i wdrożone pakiety usług.
 
-### <a name="api"></a>interfejs API
-Aby uzyskać kondycję `FabricClient` aplikacji, należy utworzyć i wywołać [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) metody na jego HealthManager.
+### <a name="api"></a>Interfejs API
+Aby uzyskać kondycję aplikacji, Utwórz `FabricClient` i Wywołaj metodę [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) na swoim serwerze kondycji.
 
 Poniższy kod pobiera kondycję aplikacji dla określonej nazwy aplikacji (URI):
 
@@ -313,7 +313,7 @@ Poniższy kod pobiera kondycję aplikacji dla określonej nazwy aplikacji (URI):
 ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-Poniższy kod pobiera kondycję aplikacji dla określonej nazwy aplikacji (URI), z filtrami i zasadami niestandardowymi określonymi za pośrednictwem [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
+Poniższy kod pobiera kondycję aplikacji dla określonej nazwy aplikacji (URI) z filtrami i zasadami niestandardowymi określonymi za pośrednictwem [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -342,9 +342,9 @@ ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplic
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby uzyskać kondycję aplikacji jest [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Najpierw należy połączyć się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Polecenie cmdlet umożliwiające uzyskanie kondycji aplikacji to [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Najpierw Połącz się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-Następujące polecenie cmdlet zwraca kondycję aplikacji **fabric:/WordCount:**
+Następujące polecenie cmdlet zwraca kondycję **sieci szkieletowej:/WORDCOUNT** :
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount
@@ -412,7 +412,7 @@ HealthStatistics                :
                                   DeployedApplication   : 5 Ok, 0 Warning, 0 Error
 ```
 
-Następujące polecenie cmdlet programu PowerShell przechodzi w zasadach niestandardowych. Filtruje również elementy podrzędne i wydarzenia.
+Następujące polecenie cmdlet programu PowerShell kończy się w zasadach niestandardowych. Filtruje również elementy podrzędne i zdarzenia.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesFilter Error -EventsFilter Error -DeployedApplicationsFilter Error -ExcludeHealthStatistics
@@ -440,26 +440,26 @@ HealthEvents                    : None
 ```
 
 ### <a name="rest"></a>REST
-Można uzyskać kondycję aplikacji z [żądaniem GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) lub [żądaniem POST,](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) które zawiera zasady kondycji opisane w treści.
+Kondycję aplikacji można uzyskać za pomocą [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) lub [żądania post](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) , które zawiera zasady dotyczące kondycji opisane w treści.
 
-## <a name="get-service-health"></a>Uzyskaj kondycję usługi
-Zwraca kondycję jednostki usługi. Zawiera stany kondycji partycji. Dane wejściowe:
+## <a name="get-service-health"></a>Pobierz kondycję usługi
+Zwraca kondycję jednostki usługi. Zawiera Stany kondycji partycji. Dane wejściowe:
 
-* [Wymagane] Nazwa usługi (URI), która identyfikuje usługę.
-* [Opcjonalnie] Zasady kondycji aplikacji używane do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń i partycji, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i partycje są używane do oceny kondycji zagregowane jednostki, niezależnie od filtru.
-* [Opcjonalnie] Filtruj, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji pokazują ok, ostrzeżenie i liczbę błędów dla wszystkich partycji i replik usługi.
+* Potrzeb Nazwa usługi (URI) identyfikująca usługę.
+* Obowiązkowe Zasady dotyczące kondycji aplikacji używane do przesłania zasad manifestu aplikacji.
+* Obowiązkowe Filtry zdarzeń i partycji, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i partycje są używane do oszacowania zagregowanej kondycji jednostki, niezależnie od filtra.
+* Obowiązkowe Filtr, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji wyświetlają wartość OK, ostrzeżenie i licznik błędów dla wszystkich partycji i replik usługi.
 
-### <a name="api"></a>interfejs API
-Aby uzyskać kondycję usługi za `FabricClient` pośrednictwem interfejsu API, należy utworzyć i wywołać [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) metody na jego HealthManager.
+### <a name="api"></a>Interfejs API
+Aby uzyskać kondycję usługi za pomocą interfejsu API, `FabricClient` Utwórz i Wywołaj metodę [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) na swoim serwerze kondycji.
 
-Poniższy przykład pobiera kondycję usługi o określonej nazwie usługi (URI):
+Poniższy przykład pobiera kondycję usługi z określoną nazwą usługi (URI):
 
 ```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-Poniższy kod pobiera kondycję usługi dla określonej nazwy usługi (URI), określając filtry i zasady niestandardowe za pośrednictwem [ServiceHealthQueryDescription:](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription)
+Poniższy kod pobiera kondycję usługi dla określonej nazwy usługi (URI), określając filtry i zasady niestandardowe za pośrednictwem [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -472,7 +472,7 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby uzyskać kondycję usługi jest [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Najpierw należy połączyć się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Polecenie cmdlet umożliwiające uzyskanie kondycji usługi to [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Najpierw Połącz się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
 Następujące polecenie cmdlet pobiera kondycję usługi przy użyciu domyślnych zasad kondycji:
 
@@ -512,27 +512,27 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Kondycję usługi można uzyskać za pomocą [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) lub [żądania POST,](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) które zawiera zasady kondycji opisane w treści.
+Kondycję usługi można uzyskać za pomocą [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) lub [żądania post](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) , które zawiera zasady dotyczące kondycji opisane w treści.
 
-## <a name="get-partition-health"></a>Uzyskaj kondycję partycji
-Zwraca kondycję jednostki partycji. Zawiera stany kondycji repliki. Dane wejściowe:
+## <a name="get-partition-health"></a>Pobierz kondycję partycji
+Zwraca kondycję jednostki partycji. Zawiera ona Stany kondycji repliki. Dane wejściowe:
 
-* [Wymagane] Identyfikator partycji (GUID), który identyfikuje partycję.
-* [Opcjonalnie] Zasady kondycji aplikacji używane do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń i replik, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i repliki są używane do oceny kondycji zagregowane jednostki, niezależnie od filtru.
-* [Opcjonalnie] Filtruj, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji pokazują, ile replik jest w stanie ok, ostrzeżenie i błędy.
+* Potrzeb Identyfikator partycji (GUID) identyfikujący partycję.
+* Obowiązkowe Zasady dotyczące kondycji aplikacji używane do przesłania zasad manifestu aplikacji.
+* Obowiązkowe Filtry zdarzeń i replik, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i repliki są używane do oszacowania zagregowanej kondycji jednostki, niezależnie od filtra.
+* Obowiązkowe Filtr, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji pokazują, ile replik jest prawidłowych, ostrzeżeń i Stanów błędów.
 
-### <a name="api"></a>interfejs API
-Aby uzyskać kondycję partycji `FabricClient` za pośrednictwem interfejsu API, należy utworzyć i wywołać [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) metody na jego HealthManager. Aby określić parametry opcjonalne, utwórz [partitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+### <a name="api"></a>Interfejs API
+Aby uzyskać kondycję partycji za pomocą interfejsu API, `FabricClient` Utwórz i Wywołaj metodę [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) na swoim serwerze kondycji. Aby określić parametry opcjonalne, Utwórz [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby uzyskać kondycję partycji jest [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Najpierw należy połączyć się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Polecenie cmdlet pobierania kondycji partycji to [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Najpierw Połącz się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-Następujące polecenie cmdlet pobiera kondycję dla wszystkich partycji **sieci szkieletowej:/WordCount/WordCountService** usługi i filtruje stany kondycji repliki:
+Poniższe polecenie cmdlet pobiera kondycję wszystkich partycji **sieci szkieletowej:/WORDCOUNT/usługi wordcountservice uległa** i filtruje stan kondycji repliki:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
@@ -604,26 +604,26 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Można uzyskać kondycję partycji z [żądania GET](/rest/api/servicefabric/sfclient-api-getpartitionhealth) lub [żądania POST,](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) który zawiera zasady kondycji opisane w treści.
+Kondycję partycji można uzyskać za pomocą [żądania GET](/rest/api/servicefabric/sfclient-api-getpartitionhealth) lub [żądania post](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) , które zawiera zasady dotyczące kondycji opisane w treści.
 
 ## <a name="get-replica-health"></a>Pobierz kondycję repliki
-Zwraca kondycję repliki usługi stanowej lub wystąpienia usługi bezstanowej. Dane wejściowe:
+Zwraca prawidłowość repliki usługi stanowej lub wystąpienia usługi bezstanowej. Dane wejściowe:
 
-* [Wymagane] Identyfikator partycji (GUID) i identyfikator repliki identyfikujące replikę.
-* [Opcjonalnie] Parametry zasad kondycji aplikacji używane do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane do oceny kondycji zagregowane jednostki, niezależnie od filtru.
+* Potrzeb Identyfikator partycji (GUID) i identyfikator repliki, która identyfikuje replikę.
+* Obowiązkowe Parametry zasad dotyczących kondycji aplikacji używane do przesłania zasad manifestu aplikacji.
+* Obowiązkowe Filtry dla zdarzeń, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane do obliczania kondycji zagregowanej jednostki, niezależnie od filtru.
 
-### <a name="api"></a>interfejs API
-Aby uzyskać kondycję repliki za `FabricClient` pośrednictwem interfejsu API, należy utworzyć i wywołać [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) metody na jego HealthManager. Aby określić parametry zaawansowane, należy użyć [funkcji ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
+### <a name="api"></a>Interfejs API
+Aby uzyskać kondycję repliki za pomocą interfejsu API, Utwórz `FabricClient` i Wywołaj metodę [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) na swoim serwerze kondycji. Aby określić parametry zaawansowane, użyj [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby uzyskać kondycję repliki jest [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Najpierw należy połączyć się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Polecenie cmdlet umożliwiające uzyskanie kondycji repliki to [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Najpierw Połącz się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-Następujące polecenie cmdlet pobiera kondycję repliki podstawowej dla wszystkich partycji usługi:
+Poniższe polecenie cmdlet pobiera kondycję repliki podstawowej dla wszystkich partycji usługi:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
@@ -647,18 +647,18 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Można uzyskać kondycję repliki z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) lub [żądania POST,](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) który zawiera zasady kondycji opisane w treści.
+Kondycję repliki można uzyskać za pomocą [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) lub [żądania post](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) , które zawiera zasady dotyczące kondycji opisane w treści.
 
-## <a name="get-deployed-application-health"></a>Uzyskaj wdrożoną aplikację kondycji
-Zwraca kondycję aplikacji wdrożonej w jednostce węzła. Zawiera wdrożone stany kondycji pakietu usługi. Dane wejściowe:
+## <a name="get-deployed-application-health"></a>Pobierz kondycję wdrożonej aplikacji
+Zwraca kondycję aplikacji wdrożonej w jednostce węzła. Zawiera wdrożone Stany kondycji pakietów usługi. Dane wejściowe:
 
-* [Wymagane] Nazwa aplikacji (URI) i nazwa węzła (ciąg), które identyfikują wdrożoną aplikację.
-* [Opcjonalnie] Zasady kondycji aplikacji używane do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń i wdrożonych pakietów usług, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i wdrożone pakiety usług są używane do oceny kondycji zagregowane jednostki, niezależnie od filtru.
-* [Opcjonalnie] Filtruj, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji pokazują liczbę wdrożonych pakietów usług w ok, ostrzeżenie i stan kondycji błędów.
+* Potrzeb Nazwa aplikacji (URI) i nazwa węzła (ciąg), które identyfikują wdrożoną aplikację.
+* Obowiązkowe Zasady dotyczące kondycji aplikacji używane do przesłania zasad manifestu aplikacji.
+* Obowiązkowe Filtry zdarzeń i wdrożonych pakietów usług, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i wdrożone pakiety usług są używane do obliczania kondycji zagregowanej jednostki, niezależnie od filtra.
+* Obowiązkowe Filtr, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji przedstawiają liczbę wdrożonych pakietów usługi w Stanach prawidłowy, ostrzegawczy i kondycji błędów.
 
-### <a name="api"></a>interfejs API
-Aby uzyskać kondycję aplikacji wdrożonej w węźle `FabricClient` za pośrednictwem interfejsu API, utwórz i wywołaj metodę [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) na jego HealthManager. Aby określić parametry opcjonalne, należy użyć [pliku DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
+### <a name="api"></a>Interfejs API
+Aby uzyskać kondycję aplikacji wdrożonej w węźle za pomocą interfejsu API, Utwórz `FabricClient` i Wywołaj metodę [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) na swoim serwerze kondycji. Aby określić parametry opcjonalne, użyj [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -666,9 +666,9 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby uzyskać wdrożony kondycję aplikacji jest [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Najpierw należy połączyć się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Aby dowiedzieć się, gdzie aplikacja jest wdrażana, uruchom [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) i spójrz na wdrożone dzieci aplikacji.
+Polecenie cmdlet umożliwiające uzyskanie wdrożonej kondycji aplikacji to [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Najpierw Połącz się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Aby dowiedzieć się, gdzie jest wdrożona aplikacja, uruchom polecenie [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) i poszukaj elementów podrzędnych wdrożonych aplikacji.
 
-Następujące polecenie cmdlet pobiera kondycję **aplikacji fabric:/WordCount** wdrożonej w **_Node_2**.
+Poniższe polecenie cmdlet pobiera kondycję aplikacji **sieci szkieletowej:/WORDCOUNT** wdrożoną na **_Node_2**.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_0
@@ -706,17 +706,17 @@ HealthStatistics                   :
 ```
 
 ### <a name="rest"></a>REST
-Można uzyskać wdrożony kondycję aplikacji z [żądaniem GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) lub [żądaniem POST,](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) które zawiera zasady kondycji opisane w treści.
+Możesz uzyskać wdrożoną kondycję aplikacji za pomocą [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) lub [żądania post](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) , które zawiera zasady dotyczące kondycji opisane w treści.
 
-## <a name="get-deployed-service-package-health"></a>Uzyskaj kondycję wdrożonego pakietu usług
-Zwraca kondycję wdrożonej jednostki pakietu usług. Dane wejściowe:
+## <a name="get-deployed-service-package-health"></a>Pobierz kondycję wdrożonego pakietu usługi
+Zwraca kondycję wdrożonej jednostki pakietu usługi. Dane wejściowe:
 
-* [Wymagane] Nazwa aplikacji (URI), nazwa węzła (ciąg) i nazwa manifestu usługi (ciąg), które identyfikują wdrożony pakiet usług.
-* [Opcjonalnie] Zasady kondycji aplikacji używane do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane do oceny kondycji zagregowane jednostki, niezależnie od filtru.
+* Potrzeb Nazwa aplikacji (URI), nazwa węzła (ciąg) i nazwa manifestu usługi (ciąg), które identyfikują wdrożony pakiet usługi.
+* Obowiązkowe Zasady dotyczące kondycji aplikacji używane do przesłania zasad manifestu aplikacji.
+* Obowiązkowe Filtry dla zdarzeń, które określają, które wpisy są interesujące i powinny być zwracane w wyniku (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane do obliczania kondycji zagregowanej jednostki, niezależnie od filtru.
 
-### <a name="api"></a>interfejs API
-Aby uzyskać kondycję wdrożonego pakietu usługi za `FabricClient` pośrednictwem interfejsu API, należy utworzyć i wywołać [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) metody na jego HealthManager. Aby określić parametry opcjonalne, należy użyć [pliku DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
+### <a name="api"></a>Interfejs API
+Aby uzyskać kondycję wdrożonego pakietu usługi za pomocą interfejsu API, Utwórz `FabricClient` i Wywołaj metodę [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) na swoim serwerze kondycji. Aby określić parametry opcjonalne, użyj [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -724,9 +724,9 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby uzyskać wdrożony pakiet usług kondycji jest [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Najpierw należy połączyć się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Aby zobaczyć, gdzie jest wdrażana aplikacja, uruchom [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) i przyjrzyj się wdrożonym aplikacjom. Aby zobaczyć, które pakiety usług znajdują się w aplikacji, spójrz na wdrożony pakiet usług podrzędnych w [danych wyjściowych Get-ServiceFabricDeployedApplicationHealth.](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps)
+Polecenie cmdlet pobrania kondycji pakietu wdrożonej usługi ma wartość [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Najpierw Połącz się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) . Aby zobaczyć, gdzie wdrożono aplikację, uruchom polecenie [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) i przyjrzyj się wdrożonym aplikacjom. Aby zobaczyć, które pakiety usługi znajdują się w aplikacji, zapoznaj się ze wdrożonymi elementami podrzędnymi pakietu usług w danych wyjściowych [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) .
 
-Następujące polecenie cmdlet pobiera kondycję pakietu usługi **WordCountServicePkg** aplikacji **fabric:/WordCount** wdrożonej w **_Node_2**. Jednostka ma **raporty System.Hosting** dla pomyślnej aktywacji pakietu usługi i punktu wejścia oraz pomyślnej rejestracji typu usługi.
+Poniższe polecenie cmdlet pobiera kondycję pakietu usługi **WordCountServicePkg** z aplikacji **sieci szkieletowej:/WORDCOUNT** wdrożoną na **_Node_2**. Jednostka zawiera raporty **System. hostowania** dotyczące pomyślnej aktywacji pakietu i punktu wejścia oraz pomyślnej rejestracji typu usługi.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
@@ -776,42 +776,42 @@ HealthEvents               :
 ```
 
 ### <a name="rest"></a>REST
-Można uzyskać wdrożony kondycję pakietu usługi z [żądaniem GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) lub [żądaniem POST,](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) które zawiera zasady kondycji opisane w treści.
+Możesz uzyskać wdrożoną kondycję pakietu usługi za pomocą [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) lub [żądania post](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) , które zawiera zasady dotyczące kondycji opisane w treści.
 
-## <a name="health-chunk-queries"></a>Kwerendy fragmentów kondycji
-Kwerendy fragment kondycji mogą zwracać wielopoziomowe elementy podrzędne klastra (rekursywnie) na filtry wejściowe. Obsługuje zaawansowane filtry, które pozwalają na dużą elastyczność w wyborze dzieci do zwrotu. Filtry można określić elementy podrzędne według unikatowego identyfikatora lub innych identyfikatorów grupy i/lub stanów kondycji. Domyślnie nie są uwzględniane żadne dzieci, w przeciwieństwie do poleceń kondycji, które zawsze zawierają dzieci pierwszego poziomu.
+## <a name="health-chunk-queries"></a>Zapytania dotyczące fragmentów kondycji
+Zapytania dotyczące fragmentów kondycji mogą zwracać wielopoziomowe elementy klastra (cyklicznie) dla filtrów wejściowych. Obsługuje Zaawansowane filtry, które umożliwiają dużą elastyczność w wyborze elementów podrzędnych do zwrócenia. Filtry mogą określać elementy podrzędne według unikatowego identyfikatora lub innych identyfikatorów grup i/lub Stanów kondycji. Domyślnie żadne elementy podrzędne nie są uwzględniane, w przeciwieństwie do poleceń kondycji, które zawsze zawierają elementy podrzędne pierwszego poziomu.
 
-[Kwerendy kondycji](service-fabric-view-entities-aggregated-health.md#health-queries) zwracają tylko elementy podrzędne pierwszego poziomu określonej jednostki na wymagane filtry. Aby uzyskać dzieci dziewiętna, należy wywołać dodatkowe interfejsy API kondycji dla każdej jednostki zainteresowania. Podobnie, aby uzyskać kondycję określonych jednostek, należy wywołać jeden interfejs API kondycji dla każdej żądanej jednostki. Zaawansowane filtrowanie kwerendy fragmentu umożliwia żądanie wielu interesujących elementów w jednej kwerendzie, minimalizując rozmiar wiadomości i liczbę wiadomości.
+[Zapytania dotyczące kondycji](service-fabric-view-entities-aggregated-health.md#health-queries) zwracają tylko elementy podrzędne pierwszego poziomu określonej jednostki dla wymaganych filtrów. Aby uzyskać elementy podrzędne elementów podrzędnych, należy wywołać dodatkowe interfejsy API kondycji dla każdej interesującej Cię jednostki. Podobnie w celu uzyskania kondycji określonych jednostek należy wywołać jeden interfejs API kondycji dla każdej żądanej jednostki. Filtrowanie zaawansowane zapytania fragmentu umożliwia zażądanie wielu interesujących elementów w jednym zapytaniu, co minimalizuje rozmiar wiadomości i liczbę komunikatów.
 
-Wartość kwerendy fragmentu jest, że można uzyskać stan kondycji dla większej liczby jednostek klastra (potencjalnie wszystkie jednostki klastra, począwszy od wymaganego katalogu głównego) w jednym wywołaniu. Można wyrazić złożone zapytania dotyczące kondycji, takie jak:
+Wartość zapytania fragmentu polega na tym, że można uzyskać stan kondycji większej liczby jednostek klastra (potencjalnie wszystkie jednostki klastra zaczynające się w wymaganym katalogu głównym) w jednym wywołaniu. Możliwe jest wyrażenie złożonej kwerendy dotyczącej kondycji, na przykład:
 
-* Zwraca tylko aplikacje w błąd, a dla tych aplikacji obejmują wszystkie usługi w ostrzeżenie lub błąd. W przypadku zwróconych usług uwzględnij wszystkie partycje.
-* Zwraca tylko kondycję czterech aplikacji, określonych przez ich nazwy.
-* Zwracanie tylko kondycji aplikacji żądanego typu aplikacji.
-* Zwraca wszystkie wdrożone jednostki w węźle. Zwraca wszystkie aplikacje, wszystkie wdrożone aplikacje w określonym węźle i wszystkie wdrożone pakiety usług w tym węźle.
-* Zwraca wszystkie repliki przez pomyłkę. Zwraca wszystkie aplikacje, usługi, partycje i tylko repliki w błąd.
-* Zwróć wszystkie aplikacje. Dla określonej usługi obejmują wszystkie partycje.
+* Zwróć tylko aplikacje z błędami, a dla tych aplikacji są dostępne wszystkie usługi z ostrzeżeniem lub błędem. W przypadku zwracanych usług Uwzględnij wszystkie partycje.
+* Zwróć tylko kondycję czterech aplikacji, które są określone przez ich nazwy.
+* Zwróć tylko kondycję aplikacji żądanego typu aplikacji.
+* Zwróć wszystkie wdrożone jednostki w węźle. Zwraca wszystkie aplikacje, wszystkie wdrożone aplikacje w określonym węźle i wszystkie wdrożone pakiety usługi w tym węźle.
+* Zwróć wszystkie repliki z błędami. Zwraca wszystkie aplikacje, usługi, partycje i tylko repliki z błędami.
+* Zwróć wszystkie aplikacje. W przypadku określonej usługi Dołącz wszystkie partycje.
 
-Obecnie kwerenda fragment kondycji jest widoczna tylko dla jednostki klastra. Zwraca fragment kondycji klastra, który zawiera:
+Obecnie zapytanie dotyczące fragmentu kondycji jest widoczne tylko dla jednostki klastra. Zwraca fragment kondycji klastra, który zawiera następujące:
 
-* Klaster zagregowany stan kondycji.
-* Lista fragmentów stanu kondycji węzłów, które respektują filtry wejściowe.
-* Lista fragmentów stanu kondycji aplikacji, które przestrzegają filtrów wejściowych. Każdy fragment stanu kondycji aplikacji zawiera listę fragmentów ze wszystkimi usługami, które szanują filtry wejściowe i listę fragmentów ze wszystkimi wdrożonymi aplikacjami, które respektują filtry. To samo dotyczy dzieki usług i wdrożonych aplikacji. W ten sposób wszystkie jednostki w klastrze mogą być potencjalnie zwracane, jeśli jest to wymagane, w sposób hierarchiczny.
+* Zagregowany stan kondycji klastra.
+* Lista fragmentów stanu kondycji węzłów odnoszących się do filtrów wejściowych.
+* Lista fragmentów stanu kondycji aplikacji, które respektują filtry wejściowe. Każdy fragment stanu kondycji aplikacji zawiera listę fragmentów z wszystkimi usługami, które respektują filtry wejściowe i listę fragmentów ze wszystkimi wdrożonymi aplikacjami, które respektują filtry. Ta sama dla elementów podrzędnych usług i wdrożonych aplikacji. W ten sposób wszystkie jednostki w klastrze mogą być potencjalnie zwracane, jeśli będzie to wymagane, w sposób hierarchiczny.
 
-### <a name="cluster-health-chunk-query"></a>Kwerenda fragmentu kondycji klastra
-Zwraca kondycję jednostki klastra i zawiera hierarchiczne fragmenty stanu kondycji wymaganych obrażeń od strony podrzędnej. Dane wejściowe:
+### <a name="cluster-health-chunk-query"></a>Zapytanie dotyczące fragmentu kondycji klastra
+Zwraca kondycję jednostki klastra i zawiera fragmenty hierarchicznych Stanów kondycji wymaganych elementów podrzędnych. Dane wejściowe:
 
-* [Opcjonalnie] Zasady kondycji klastra używane do oceny węzłów i zdarzeń klastra.
-* [Opcjonalnie] Mapa zasad kondycji aplikacji z zasadami kondycji używanymi do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla węzłów i aplikacji, które określają, które wpisy są interesujące i powinny być zwracane w wyniku. Filtry są specyficzne dla jednostki/grupy jednostek lub mają zastosowanie do wszystkich jednostek na tym poziomie. Lista filtrów może zawierać jeden filtr ogólny i/lub filtry dla określonych identyfikatorów do jednostek drobnoziarnistych zwracanych przez kwerendę. Jeśli puste, dzieci nie są zwracane domyślnie.
-  Dowiedz się więcej o filtrach na [nodehealthstatefilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) i [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). Filtry aplikacji można rekursywnie określić zaawansowane filtry dla dzieci.
+* Obowiązkowe Zasady kondycji klastra używane do szacowania węzłów i zdarzeń klastra.
+* Obowiązkowe Mapa zasad kondycji aplikacji z zasadami kondycji używanymi do przesłania zasad manifestu aplikacji.
+* Obowiązkowe Filtry dla węzłów i aplikacji, które określają, które wpisy są interesujące i powinny być zwracane w wyniku. Filtry są specyficzne dla jednostki/grupy jednostek lub mają zastosowanie do wszystkich jednostek na tym poziomie. Lista filtrów może zawierać jeden filtr ogólny i/lub filtry dla określonych identyfikatorów w celu uściślenia jednostek zwracanych przez zapytanie. Jeśli puste, elementy podrzędne nie są zwracane domyślnie.
+  Przeczytaj więcej na temat filtrów w [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) i [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). Filtry aplikacji mogą rekursywnie określić filtry zaawansowane dla elementów podrzędnych.
 
-Wynik fragmentu obejmuje elementy podrzędne, które respektują filtry.
+Wynik fragmentu zawiera elementy podrzędne, które respektują filtry.
 
-Obecnie kwerenda fragmentu nie zwraca ocen w złej kondycji lub zdarzeń jednostki. Te dodatkowe informacje można uzyskać przy użyciu istniejącej kwerendy kondycji klastra.
+Obecnie zapytanie fragmentu nie zwraca ocen w złej kondycji ani zdarzeń jednostek. Dodatkowe informacje można uzyskać przy użyciu istniejącej kwerendy kondycji klastra.
 
-### <a name="api"></a>interfejs API
-Aby uzyskać fragment kondycji `FabricClient` klastra, należy utworzyć i wywołać [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) metody na jego **HealthManager**. Można przekazać w [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) do opisania zasad kondycji i filtrów zaawansowanych.
+### <a name="api"></a>Interfejs API
+Aby uzyskać fragment kondycji klastra, Utwórz `FabricClient` i Wywołaj metodę [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) na swoim serwerze **kondycji**. Można przekazać w [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) , aby opisać zasady dotyczące kondycji i filtry zaawansowane.
 
 Poniższy kod pobiera fragment kondycji klastra z filtrami zaawansowanymi.
 
@@ -857,9 +857,9 @@ var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDe
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby uzyskać kondycję klastra jest [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Najpierw należy połączyć się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+Polecenie cmdlet umożliwiające uzyskanie kondycji klastra to [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Najpierw Połącz się z klastrem przy użyciu polecenia cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-Poniższy kod pobiera węzły tylko wtedy, gdy są one w błąd, z wyjątkiem określonego węzła, który powinien być zawsze zwracany.
+Poniższy kod pobiera węzły tylko wtedy, gdy występują błędy z wyjątkiem określonego węzła, który powinien być zawsze zwracany.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -885,7 +885,7 @@ NodeHealthStateChunks        :
 ApplicationHealthStateChunks : None
 ```
 
-Następujące polecenie cmdlet pobiera fragment klastra z filtrami aplikacji.
+Poniższe polecenie cmdlet pobiera fragment klastra z filtrami aplikacji.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -951,7 +951,7 @@ ApplicationHealthStateChunks :
                                         HealthState           : Error
 ```
 
-Następujące polecenie cmdlet zwraca wszystkie wdrożone jednostki w węźle.
+Poniższe polecenie cmdlet zwraca wszystkie wdrożone jednostki w węźle.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -1007,54 +1007,54 @@ ApplicationHealthStateChunks :
 ```
 
 ### <a name="rest"></a>REST
-Można uzyskać fragment kondycji klastra z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) lub [żądania POST,](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) który zawiera zasady kondycji i zaawansowane filtry opisane w treści.
+Można pobrać fragment kondycji klastra z [żądaniem Get](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) lub [żądanie post](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) , które zawiera zasady dotyczące kondycji i filtry zaawansowane opisane w treści.
 
 ## <a name="general-queries"></a>Zapytania ogólne
-Kwerendy ogólne zwracają listę jednostek sieci szkieletowej usług określonego typu. Są one udostępniane za pośrednictwem interfejsu API (za pomocą metod na **FabricClient.QueryManager**), polecenia cmdlet programu PowerShell i REST. Te kwerendy agregują podkemiecje z wielu składników. Jednym z nich jest [magazyn kondycji](service-fabric-health-introduction.md#health-store), który wypełnia stan zagregowanego kondycji dla każdego wyniku kwerendy.  
+Ogólne zapytania zwracają listę Service Fabric jednostek określonego typu. Są one udostępniane za pośrednictwem interfejsu API (przy użyciu metod w **FabricClient. querymanager**), poleceń cmdlet programu POWERSHELL i REST. Te zapytania agregują podzapytania z wielu składników. Jeden z nich to [Magazyn kondycji](service-fabric-health-introduction.md#health-store), który wypełnia zagregowany stan kondycji dla każdego wyniku zapytania.  
 
 > [!NOTE]
-> Zapytania ogólne zwracają zagregowany stan kondycji jednostki i nie zawierają bogatych danych kondycji. Jeśli jednostka nie jest w dobrej kondycji, można wykonać z zapytań dotyczących kondycji, aby uzyskać wszystkie informacje o kondycji, w tym zdarzenia, stany kondycji dziecka i oceny w złej kondycji.
+> Ogólne zapytania zwracają zagregowany stan kondycji jednostki i nie zawierają rozbudowanych danych dotyczących kondycji. Jeśli jednostka nie jest w dobrej kondycji, możesz wykonać zapytania o kondycję, aby uzyskać wszystkie informacje o kondycji, w tym zdarzenia, podrzędne Stany kondycji i oceny złej kondycji.
 >
 >
 
-Jeśli ogólne kwerendy zwracają nieznany stan kondycji dla jednostki, jest możliwe, że magazyn kondycji nie ma pełnych danych o jednostce. Jest również możliwe, że podkwerendy do magazynu kondycji nie powiodło się (na przykład wystąpił błąd komunikacji lub magazyn kondycji został ograniczony). Wykonaj kwerendę kondycji dla jednostki. Jeśli podkwerendy napotkały błędy przejściowe, takie jak problemy z siecią, to zapytanie uzupełniające może zakończyć się pomyślnie. Może również dać więcej szczegółów z magazynu kondycji o tym, dlaczego jednostka nie jest narażona.
+Jeśli ogólne zapytania zwracają nieznany stan kondycji dla jednostki, istnieje możliwość, że magazyn kondycji nie ma kompletnych danych dotyczących jednostki. Istnieje również możliwość, że podzapytanie do magazynu kondycji nie powiodło się (na przykład wystąpił błąd komunikacji lub włączono ograniczenie magazynu kondycji). Wykonaj zapytanie o kondycję dla jednostki. Jeśli podzapytanie napotkało błędy przejściowe, takie jak problemy z siecią, wykonanie tej czynności może powieść się. Może również dawać więcej szczegółowych informacji z magazynu kondycji, dlaczego jednostka nie została ujawniona.
 
-Kwerendy, które zawierają **HealthState** dla jednostek są:
+Zapytania zawierające wartość **HealthState** dla jednostek są następujące:
 
-* Lista węzłów: zwraca węzły listy w klastrze (stronicowa).
-  * INTERFEJS API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
+* Lista węzłów: zwraca węzły listy w klastrze (stronicowane).
+  * Interfejs API: [FabricClient. QueryClient. GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
-* Lista aplikacji.
-  * INTERFEJS API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
+* Lista aplikacji: zwraca listę aplikacji w klastrze (stronicowana).
+  * Interfejs API: [FabricClient. QueryClient. GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
-* Lista usług.
-  * INTERFEJS API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
+* Lista usług: zwraca listę usług w aplikacji (stronicowana).
+  * Interfejs API: [FabricClient. QueryClient. GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
-* Lista partycji: Zwraca listę partycji w usłudze (stronicowa).
-  * INTERFEJS API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
+* Lista partycji: zwraca listę partycji w usłudze (stronicowana).
+  * Interfejs API: [FabricClient. QueryClient. GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
-* Lista replik: Zwraca listę replik na partycji (stronicowanych).
-  * INTERFEJS API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
+* Lista replik: zwraca listę replik w partycji (stronicowanej).
+  * Interfejs API: [FabricClient. QueryClient. GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
 * Lista wdrożonych aplikacji: zwraca listę wdrożonych aplikacji w węźle.
-  * INTERFEJS API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
+  * Interfejs API: [FabricClient. QueryClient. GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
-* Lista wdrożonych pakietów usług: zwraca listę pakietów usług w wdrożonej aplikacji.
-  * INTERFEJS API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
+* Lista wdrożonych pakietów usługi: zwraca listę pakietów usługi w wdrożonej aplikacji.
+  * Interfejs API: [FabricClient. QueryClient. GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Niektóre zapytania zwracają wyniki sstronicowanych. Zwracanie tych zapytań jest listą pochodzącą z [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Jeśli wyniki nie pasują do wiadomości, zwracana jest tylko strona i ContinuationToken, który śledzi, gdzie wyliczenie zatrzymane. Kontynuuj wywoływanie tej samej kwerendy i przekazuje w tokenie kontynuacji z poprzedniej kwerendy, aby uzyskać następne wyniki.
+> Niektóre zapytania zwracają stronicowane wyniki. Zwrot tych zapytań jest listą pochodną [\<PagedList T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Jeśli wyniki nie pasują do wiadomości, zwracana jest tylko strona i ContinuationToken, która śledzi, gdzie Wyliczenie zostało zatrzymane. Kontynuuj wywoływanie tego samego zapytania i przekaż token kontynuacji z poprzedniego zapytania, aby uzyskać następne wyniki.
 
 ### <a name="examples"></a>Przykłady
-Następujący kod pobiera w złej kondycji aplikacji w klastrze:
+Poniższy kod pobiera aplikacje w złej kondycji w klastrze:
 
 ```csharp
 var applications = fabricClient.QueryManager.GetApplicationListAsync().Result.Where(
   app => app.HealthState == HealthState.Error);
 ```
 
-Następujące polecenie cmdlet pobiera szczegóły aplikacji dla aplikacji fabric:/WordCount. Należy zauważyć, że stan kondycji jest ostrzeżenie.
+Następujące polecenie cmdlet pobiera szczegóły aplikacji sieci szkieletowej:/WordCount. Zwróć uwagę, że stan kondycji to ostrzeżenie.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
@@ -1074,7 +1074,7 @@ ApplicationParameters  : { "WordCountWebService_InstanceCount" = "1";
                          [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"}]" }
 ```
 
-Następujące polecenie cmdlet pobiera usługi ze stanem błędu kondycji:
+Następujące polecenie cmdlet pobiera usługi ze stanem kondycji błędu:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Error"}
@@ -1090,14 +1090,14 @@ ServiceStatus          : Active
 HealthState            : Error
 ```
 
-## <a name="cluster-and-application-upgrades"></a>Uaktualnienia klastra i aplikacji
-Podczas monitorowanego uaktualnienia klastra i aplikacji usługa Service Fabric sprawdza kondycję, aby upewnić się, że wszystko pozostaje w dobrej kondycji. Jeśli jednostka jest w złej kondycji, jak oceniane przy użyciu skonfigurowanych zasad kondycji, uaktualnienie stosuje zasady specyficzne dla uaktualnienia, aby określić następną akcję. Uaktualnienie może zostać wstrzymane, aby umożliwić interakcję z użytkownikiem (takie jak naprawienie warunków błędu lub zmiana zasad) lub może automatycznie przywrócić poprzednią dobrą wersję.
+## <a name="cluster-and-application-upgrades"></a>Uaktualnianie klastra i aplikacji
+Podczas monitorowania uaktualnienia klastra i aplikacji Service Fabric sprawdza kondycję, aby upewnić się, że wszystko pozostaje w dobrej kondycji. Jeśli jednostka jest w złej kondycji zgodnie z oceną przy użyciu skonfigurowanych zasad dotyczących kondycji, uaktualnienie stosuje zasady specyficzne dla uaktualnienia, aby określić następną akcję. Uaktualnienie może być wstrzymane, aby zezwolić na interakcję użytkownika (np. naprawianie warunków błędów lub zmiana zasad) lub automatyczne wycofanie do poprzedniej prawidłowej wersji.
 
-Podczas uaktualniania *klastra* można uzyskać stan uaktualnienia klastra. Stan uaktualnienia obejmuje oceny w złej kondycji, które wskazują, co jest w złej kondycji w klastrze. Jeśli uaktualnienie zostanie wycofane z powodu problemów ze zdrowiem, stan uaktualnienia zapamiętuje ostatnie przyczyny w złej kondycji. Te informacje mogą pomóc administratorom zbadać, co poszło nie tak po uaktualnieniu wycofane lub zatrzymane.
+Podczas uaktualniania *klastra* można uzyskać stan uaktualnienia klastra. Stan uaktualnienia obejmuje ocenę złej kondycji, co wskazuje na to, co jest złej kondycji w klastrze. Jeśli uaktualnienie zostanie wycofane ze względu na problemy z kondycją, stan uaktualnienia dotyczy ostatnich nieprawidłowych przyczyn. Te informacje mogą pomóc administratorom w zbadaniu, co poszło źle po zakończeniu uaktualnienia lub zatrzymaniu go.
 
-Podobnie podczas uaktualniania *aplikacji* wszelkie oceny w złej kondycji są zawarte w stanie uaktualnienia aplikacji.
+Podobnie podczas uaktualniania *aplikacji* wszystkie oceny w złej kondycji są zawarte w stanie uaktualnienia aplikacji.
 
-Poniżej przedstawiono stan uaktualnienia aplikacji dla zmodyfikowanej sieci szkieletowej:/WordCount aplikacji. Watchdog zgłosił błąd w jednej ze swoich replik. Uaktualnienie jest wycofywanie, ponieważ kontrole kondycji nie są przestrzegane.
+Poniżej przedstawiono stan uaktualnienia aplikacji dla zmodyfikowanej aplikacji sieci szkieletowej:/WordCount. Licznik alarm zgłosił błąd dla jednej z jej replik. Uaktualnianie jest wycofywane z powodu nieprzestrzegania kontroli kondycji.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
@@ -1151,12 +1151,12 @@ ForceRestart                  : False
 UpgradeReplicaSetCheckTimeout : 00:15:00
 ```
 
-Dowiedz się więcej o [uaktualnieniu aplikacji sieci szkieletowej usług](service-fabric-application-upgrade.md).
+Dowiedz się więcej o [uaktualnianiu aplikacji Service Fabric](service-fabric-application-upgrade.md).
 
-## <a name="use-health-evaluations-to-troubleshoot"></a>Rozwiązywanie problemów z ocenami kondycji
-Zawsze, gdy występuje problem z klastra lub aplikacji, spójrz na kondycję klastra lub aplikacji, aby wskazać, co jest nie tak. Oceny w złej kondycji zawierają szczegółowe informacje o tym, co wyzwoliło bieżący stan w złej kondycji. W razie potrzeby można przejść do szczegółów w złej kondycji jednostek podrzędnych, aby zidentyfikować przyczynę.
+## <a name="use-health-evaluations-to-troubleshoot"></a>Korzystanie z ocen kondycji w celu rozwiązywania problemów
+Za każdym razem, gdy występuje problem z klastrem lub aplikacją, Sprawdź kondycję klastra lub aplikacji, aby ustalić, co jest błędne. Oceny złej kondycji zawierają szczegółowe informacje o tym, co wyzwoliło bieżący stan złej kondycji. Jeśli chcesz, możesz przejść do szczegółów jednostek podrzędnych w złej kondycji, aby zidentyfikować główną przyczynę.
 
-Rozważmy na przykład aplikację w złej kondycji, ponieważ istnieje raport o błędzie na jednej z jego replik. Następujące polecenie cmdlet programu Powershell pokazuje niezdrowe oceny:
+Rozważmy na przykład, że aplikacja jest w złej kondycji, ponieważ na jednej z jej replik występuje raport o błędach. Następujące polecenie cmdlet programu PowerShell pokazuje oceny złej kondycji:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount -EventsFilter None -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -1184,7 +1184,7 @@ DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
 
-Możesz spojrzeć na replikę, aby uzyskać więcej informacji:
+Aby uzyskać więcej informacji, możesz zapoznać się z repliką:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricReplicaHealth -ReplicaOrInstanceId 131444422260002646 -PartitionId af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -1223,17 +1223,17 @@ HealthEvents          :
 ```
 
 > [!NOTE]
-> Oceny w złej kondycji pokazują pierwszą przyczynę jednostki jest oceniany do bieżącego stanu kondycji. Może istnieć wiele innych zdarzeń, które wyzwalają ten stan, ale nie są one odzwierciedlane w ocenach. Aby uzyskać więcej informacji, przejdź do szczegółów jednostek kondycji, aby dowiedzieć się wszystkie raporty w złej kondycji w klastrze.
+> Oceny złej kondycji przedstawiają pierwszy powód, w którym jednostka jest oceniana jako bieżący stan kondycji. Może istnieć wiele innych zdarzeń wyzwalających ten stan, ale nie są one odzwierciedlone w obliczeniach. Aby uzyskać więcej informacji, przejdź do szczegółów jednostek kondycji, aby ustalić wszystkie raporty w złej kondycji w klastrze.
 >
 >
 
 ## <a name="next-steps"></a>Następne kroki
 [Używanie raportów kondycji systemu do rozwiązywania problemów](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Dodawanie niestandardowych raportów kondycji sieci szkieletowej usług](service-fabric-report-health.md)
+[Dodawanie niestandardowych raportów o kondycji Service Fabric](service-fabric-report-health.md)
 
 [Jak raportować i sprawdzać kondycję usługi](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Lokalne monitorowanie i diagnozowanie usług](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Uaktualnienie aplikacji sieci szkieletowej usług](service-fabric-application-upgrade.md)
+[Service Fabric uaktualniania aplikacji](service-fabric-application-upgrade.md)

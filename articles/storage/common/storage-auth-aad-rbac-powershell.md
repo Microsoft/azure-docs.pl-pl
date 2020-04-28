@@ -1,7 +1,7 @@
 ---
-title: Przypisywanie roli RBAC w celu uzyskania dostępu do danych za pomocą programu PowerShell
+title: Przypisywanie roli RBAC na potrzeby dostępu do danych przy użyciu programu PowerShell
 titleSuffix: Azure Storage
-description: Dowiedz się, jak za pomocą programu PowerShell przypisywać uprawnienia do podmiotu zabezpieczeń usługi Azure Active Directory za pomocą kontroli dostępu opartej na rolach (RBAC). Usługa Azure Storage obsługuje wbudowane i niestandardowe role RBAC do uwierzytelniania za pośrednictwem usługi Azure AD.
+description: Informacje dotyczące przypisywania uprawnień do Azure Active Directory podmiotu zabezpieczeń z kontrolą dostępu opartą na rolach (RBAC) przy użyciu programu PowerShell. Usługa Azure Storage obsługuje wbudowane i niestandardowe role RBAC do uwierzytelniania za pośrednictwem usługi Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,19 +11,19 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 1413035c879198cf333aeeb5d8fe993162939172
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75460586"
 ---
-# <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Przypisywanie roli RBAC w celu uzyskania dostępu do danych obiektów blob i kolejek za pomocą programu PowerShell
+# <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Używanie programu PowerShell do przypisywania roli RBAC na potrzeby dostępu do danych obiektów blob i kolejek
 
-Usługa Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (RBAC).](../../role-based-access-control/overview.md) Usługa Azure Storage definiuje zestaw wbudowanych ról RBAC, które obejmują typowe zestawy uprawnień używanych do uzyskiwania dostępu do kontenerów lub kolejek.
+Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych zasobów za pośrednictwem [kontroli dostępu opartej na rolach (RBAC)](../../role-based-access-control/overview.md). Usługa Azure Storage definiuje zestaw wbudowanych ról RBAC, które obejmują typowe zestawy uprawnień używane do uzyskiwania dostępu do kontenerów lub kolejek.
 
-Gdy rola RBAC jest przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure udziela dostępu do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp może być ograniczony do poziomu subskrypcji, grupy zasobów, konta magazynu lub pojedynczego kontenera lub kolejki. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem, grupą, jednostką usługi aplikacji lub [tożsamością zarządzaną dla zasobów platformy Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
+Gdy rola RBAC jest przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure przyznaje dostęp do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp można ograniczyć do poziomu subskrypcji, grupy zasobów, konta magazynu lub pojedynczego kontenera lub kolejki. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem, grupą, główną usługą aplikacji lub [zarządzaną tożsamością dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-W tym artykule opisano sposób używania programu Azure PowerShell do listy wbudowanych ról RBAC i przypisywania ich do użytkowników. Aby uzyskać więcej informacji na temat korzystania z programu Azure PowerShell, zobacz [Omówienie programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+W tym artykule opisano, jak za pomocą Azure PowerShell utworzyć listę wbudowanych ról RBAC i przypisać je do użytkowników. Aby uzyskać więcej informacji o korzystaniu z Azure PowerShell, zobacz [omówienie Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,19 +31,19 @@ W tym artykule opisano sposób używania programu Azure PowerShell do listy wbud
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Określanie zakresu zasobów
+## <a name="determine-resource-scope"></a>Określ zakres zasobów
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## <a name="list-available-rbac-roles"></a>Lista dostępnych ról RBAC
+## <a name="list-available-rbac-roles"></a>Wyświetl dostępne role RBAC
 
-Aby wyświetlić listę dostępnych wbudowanych ról RBAC za pomocą programu Azure PowerShell, użyj polecenia [Get-AzRoleDefinition:](/powershell/module/az.resources/get-azroledefinition)
+Aby wyświetlić listę dostępnych wbudowanych ról RBAC z Azure PowerShell, użyj polecenia [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) :
 
 ```powershell
 Get-AzRoleDefinition | FT Name, Description
 ```
 
-Zobaczysz wbudowane role danych usługi Azure Storage wymienione wraz z innymi wbudowanymi rolami platformy Azure:
+Zostaną wyświetlone wbudowane role danych usługi Azure Storage wraz z innymi wbudowanymi rolami platformy Azure:
 
 ```Example
 Storage Blob Data Contributor             Allows for read, write and delete access to Azure Storage blob containers and data
@@ -57,17 +57,17 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ## <a name="assign-an-rbac-role-to-a-security-principal"></a>Przypisywanie roli RBAC do podmiotu zabezpieczeń
 
-Aby przypisać rolę RBAC do podmiotu zabezpieczeń, należy użyć polecenia [New-AzRoleAssignment.](/powershell/module/az.resources/new-azroleassignment) Format polecenia może się różnić w zależności od zakresu przypisania. Aby uruchomić polecenie, musisz mieć przypisaną rolę Właściciela lub Współautora w odpowiednim zakresie. Poniższe przykłady pokazują, jak przypisać rolę do użytkownika w różnych zakresach, ale można użyć tego samego polecenia, aby przypisać rolę do dowolnego podmiotu zabezpieczeń.
+Aby przypisać rolę RBAC do podmiotu zabezpieczeń, użyj polecenia [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Format polecenia może różnić się w zależności od zakresu przypisania. Aby uruchomić polecenie, musisz mieć przypisaną rolę właściciela lub współautora w odpowiednim zakresie. W poniższych przykładach pokazano, jak przypisać rolę do użytkownika w różnych zakresach, ale można użyć tego samego polecenia, aby przypisać rolę do dowolnego podmiotu zabezpieczeń.
 
 ### <a name="container-scope"></a>Zakres kontenera
 
-Aby przypisać rolę o zakresie do kontenera, należy określić ciąg `--scope` zawierający zakres kontenera dla parametru. Zakres kontenera jest w formie:
+Aby przypisać rolę do zakresu kontenera, Określ ciąg zawierający zakres kontenera dla `--scope` parametru. Zakres dla kontenera ma postać:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-Poniższy przykład przypisuje **rolę współautora danych obiektu Blob magazynu** do użytkownika, o zakresie do kontenera o nazwie *sample-container*. Pamiętaj, aby zastąpić wartości przykładowe i zastępcze w nawiasach własnymi wartościami: 
+Poniższy przykład przypisuje rolę **współautor danych obiektów blob magazynu** użytkownikowi w zakresie kontenera o nazwie *Sample-Container*. Pamiętaj o zamianie wartości przykładowych i symboli zastępczych w nawiasach z własnymi wartościami: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -77,13 +77,13 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="queue-scope"></a>Zakres kolejki
 
-Aby przypisać rolę o zakresie do kolejki, należy określić ciąg `--scope` zawierający zakres kolejki dla parametru. Zakres kolejki jest w formularzu:
+Aby przypisać rolę do zakresu kolejki, Określ ciąg zawierający zakres kolejki dla `--scope` parametru. Zakres dla kolejki ma postać:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
 ```
 
-Poniższy przykład przypisuje do użytkownika rolę **Współautora danych kolejki magazynu,** która jest o zakresie do kolejki o nazwie *kolejka próbek*. Pamiętaj, aby zastąpić wartości przykładowe i zastępcze w nawiasach własnymi wartościami: 
+Poniższy przykład przypisuje rolę **współautor danych kolejki magazynu** użytkownikowi z zakresu kolejki o nazwie *przykład-Queue*. Pamiętaj o zamianie wartości przykładowych i symboli zastępczych w nawiasach z własnymi wartościami: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -93,13 +93,13 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="storage-account-scope"></a>Zakres konta magazynu
 
-Aby przypisać rolę o zakresie do konta magazynu, należy określić `--scope` zakres zasobu konta magazynu dla parametru. Zakres konta magazynu jest w formularzu:
+Aby przypisać rolę do zakresu konta magazynu, określ zakres zasobów konta magazynu dla `--scope` parametru. Zakres dla konta magazynu ma postać:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-W poniższym przykładzie pokazano, jak zakres **roli czytnika danych obiektów blob magazynu** do użytkownika na poziomie konta magazynu. Pamiętaj, aby zastąpić wartości przykładowe własnymi wartościami: 
+Poniższy przykład pokazuje, jak określić zakres roli **czytnika danych obiektów blob magazynu** dla użytkownika na poziomie konta magazynu. Pamiętaj, aby zastąpić przykładowe wartości własnymi wartościami: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -109,7 +109,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="resource-group-scope"></a>Zakres grupy zasobów
 
-Aby przypisać rolę o zakresie do grupy zasobów, należy określić `--resource-group` nazwę grupy zasobów lub identyfikator parametru. Poniższy przykład przypisuje rolę **czytnika danych kolejki magazynu** do użytkownika na poziomie grupy zasobów. Pamiętaj, aby zastąpić wartości przykładowe i zastępcze w nawiasach własnymi wartościami: 
+Aby przypisać rolę objętą zakresem do grupy zasobów, określ nazwę lub identyfikator grupy zasobów dla `--resource-group` parametru. Poniższy przykład przypisuje rolę **czytnika danych kolejki magazynu** użytkownikowi na poziomie grupy zasobów. Pamiętaj, aby zastąpić przykładowe wartości i wartości symboli zastępczych w nawiasach własnymi wartościami: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -119,13 +119,13 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="subscription-scope"></a>Zakres subskrypcji
 
-Aby przypisać rolę o zakresie do subskrypcji, należy określić zakres subskrypcji dla parametru. `--scope` Zakres subskrypcji jest w formie:
+Aby przypisać rolę objętą zakresem subskrypcji, określ zakres subskrypcji dla `--scope` parametru. Zakres subskrypcji ma postać:
 
 ```
 /subscriptions/<subscription>
 ```
 
-W poniższym przykładzie pokazano, jak przypisać rolę **czytnika danych obiektów blob magazynu** do użytkownika na poziomie konta magazynu. Pamiętaj, aby zastąpić wartości przykładowe własnymi wartościami: 
+Poniższy przykład pokazuje, jak przypisać rolę **czytnika danych obiektu blob magazynu** do użytkownika na poziomie konta magazynu. Pamiętaj, aby zastąpić przykładowe wartości własnymi wartościami: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `

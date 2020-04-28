@@ -1,75 +1,75 @@
 ---
-title: Tworzenie oddziałów równoległych lub dołączanie do nich dla akcji w przepływach pracy
-description: Dowiedz się, jak tworzyć lub scalać równoległe gałęzie uruchamiania dla niezależnych akcji przepływu pracy w usłudze Azure Logic Apps
+title: Tworzenie i dołączanie równoległych gałęzi dla akcji w przepływach pracy
+description: Dowiedz się, jak tworzyć lub scalać równoległe gałęzie działające dla niezależnych działań przepływu pracy w Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: c0b1519992ba930382a1987aed185ef3c92eded4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75453433"
 ---
-# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Tworzenie oddziałów równoległych lub dołączanie do nich dla akcji przepływu pracy w usłudze Azure Logic Apps
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Utwórz lub Przyłącz gałęzie równoległe dla akcji przepływu pracy w Azure Logic Apps
 
-Domyślnie akcje w przepływach pracy aplikacji logiki są uruchamiane sekwencyjnie. Aby wykonać niezależne akcje w tym samym czasie, można utworzyć [równoległe gałęzie](#parallel-branches), a następnie [połączyć te gałęzie](#join-branches) później w przepływie. 
+Domyślnie akcje w przepływach pracy aplikacji logiki działają sekwencyjnie. Aby wykonać niezależne akcje w tym samym czasie, można utworzyć [gałęzie równoległe](#parallel-branches), a następnie [dołączyć te gałęzie](#join-branches) później w przepływie. 
 
 > [!TIP] 
-> Jeśli masz wyzwalacz, który odbiera tablicę i chcesz uruchomić przepływ pracy dla każdego elementu tablicy, możesz *dyskutować o* tej tablicy za pomocą [właściwości wyzwalacza **SplitOn** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+> Jeśli masz wyzwalacz, który odbiera tablicę i chcesz uruchomić przepływ pracy dla każdego elementu tablicy, możesz *departia* tę tablicę za pomocą [Właściwości wyzwalacza **SplitOn** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). 
 
-* Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="parallel-branches"></a>
 
-## <a name="add-parallel-branch"></a>Dodawanie gałęzi równoległej
+## <a name="add-parallel-branch"></a>Dodaj gałąź równoległą
 
-Aby uruchomić niezależne kroki w tym samym czasie, można dodać równoległe gałęzie obok istniejącego kroku. 
+Aby uruchomić niezależne kroki w tym samym czasie, można dodać gałęzie równoległe obok istniejącego kroku. 
 
-![Uruchamianie kroków równolegle](media/logic-apps-control-flow-branches/parallel.png)
+![Równoległe wykonywanie kroków](media/logic-apps-control-flow-branches/parallel.png)
 
-Aplikacja logiki czeka na zakończenie wszystkich gałęzi przed kontynuowaniem przepływu pracy. Gałęzie równoległe są `runAfter` uruchamiane tylko wtedy, gdy ich wartości właściwości są zgodne ze stanem gotowego kroku nadrzędnego. Na przykład `branchAction1` oba `branchAction2` i są ustawione `parentAction` do uruchamiania tylko wtedy, gdy kończy się ze stanem. `Succeeded`
+Aplikacja logiki czeka na zakończenie wszystkich gałęzi przed kontynuowaniem przepływu pracy. Gałęzie równoległe są uruchamiane `runAfter` tylko wtedy, gdy ich wartości właściwości pasują do stanu gotowego kroku nadrzędnego. `branchAction1` Na przykład oba `branchAction2` i są ustawione do uruchamiania tylko po `parentAction` zakończeniu z `Succeeded` stanem.
 
 > [!NOTE]
-> Przed rozpoczęciem aplikacja logiki musi mieć już krok, w którym można dodać równoległe gałęzie.
+> Przed rozpoczęciem aplikacja logiki musi już mieć krok, w którym można dodać gałęzie równoległe.
 
-1. W <a href="https://portal.azure.com" target="_blank">witrynie Azure portal</a>otwórz aplikację logiki w logice App Designer.
+1. W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. Przesuń wskaźnik myszy nad strzałką nad krokiem, w którym chcesz dodać równoległe gałęzie. Wybierz **plus** wyświetlony znak**+** plus ( ), a następnie wybierz pozycję **Dodaj gałąź równoległą**. 
+1. Umieść wskaźnik myszy nad strzałką powyżej kroku, w którym chcesz dodać gałęzie równoległe. Wybierz wyświetlony znak **Plus** (**+**), a następnie wybierz pozycję **Dodaj gałąź równoległą**. 
 
-   ![Dodawanie gałęzi równoległej](media/logic-apps-control-flow-branches/add-parallel-branch.png)
+   ![Dodaj gałąź równoległą](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
-1. W polu wyszukiwania znajdź i wybierz odpowiednią akcję.
+1. W polu wyszukiwania Znajdź i wybierz żądaną akcję.
 
-   ![Znajdowanie i wybieranie żądanej akcji](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   ![Znajdź i wybierz żądaną akcję](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
-   Wybrana akcja jest teraz wyświetlana w gałęzi równoległej, na przykład:
+   Wybrana akcja będzie teraz widoczna w gałęzi równoległej, na przykład:
 
-   ![Znajdowanie i wybieranie żądanej akcji](media/logic-apps-control-flow-branches/added-parallel-branch.png)
+   ![Znajdź i wybierz żądaną akcję](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Teraz w każdej gałęzi równoległej dodaj żądane kroki. Aby dodać kolejną akcję do gałęzi, przesuń wskaźnik pod akcją, w której chcesz dodać akcję sekwencyjną. Wybierz **plus** wyświetlony**+** znak plus ( ), a następnie wybierz pozycję **Dodaj akcję**.
+1. Teraz w każdej gałęzi równoległej Dodaj odpowiednie kroki. Aby dodać kolejną akcję do gałęzi, Przenieś wskaźnik pod akcję, w której chcesz dodać akcję sekwencyjną. Wybierz wyświetlony **plus** znak plus**+**(), a następnie wybierz pozycję **Dodaj akcję**.
 
-   ![Dodawanie akcji sekwencyjnej do gałęzi równoległej](media/logic-apps-control-flow-branches/add-sequential-action.png)
+   ![Dodawanie sekwencyjnej akcji do gałęzi równoległej](media/logic-apps-control-flow-branches/add-sequential-action.png)
 
-1. W polu wyszukiwania znajdź i wybierz odpowiednią akcję.
+1. W polu wyszukiwania Znajdź i wybierz żądaną akcję.
 
-   ![Znajdowanie i wybieranie akcji sekwencyjnej](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+   ![Znajdź i wybierz akcję sekwencyjną](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
 
-   Wybrana akcja jest teraz wyświetlana w bieżącej gałęzi, na przykład:
+   Wybrana akcja będzie teraz wyświetlana w bieżącej gałęzi, na przykład:
 
-   ![Znajdowanie i wybieranie akcji sekwencyjnej](media/logic-apps-control-flow-branches/added-sequential-action.png)
+   ![Znajdź i wybierz akcję sekwencyjną](media/logic-apps-control-flow-branches/added-sequential-action.png)
 
-Aby scalić gałęzie z powrotem, [dołącz do równoległych gałęzi](#join-branches). 
+Aby scalić gałęzie ze sobą, [Dołącz do gałęzi równoległych](#join-branches). 
 
 <a name="parallel-json"></a>
 
-## <a name="parallel-branch-definition-json"></a>Definicja gałęzi równoległej (JSON)
+## <a name="parallel-branch-definition-json"></a>Parallel — definicja gałęzi (JSON)
 
 Jeśli pracujesz w widoku kodu, możesz zdefiniować strukturę równoległą w definicji JSON aplikacji logiki, na przykład:
 
@@ -109,29 +109,29 @@ Jeśli pracujesz w widoku kodu, możesz zdefiniować strukturę równoległą w 
 
 <a name="join-branches"></a>
 
-## <a name="join-parallel-branches"></a>Łączenie równoległych gałęzi
+## <a name="join-parallel-branches"></a>Dołącz gałęzie równoległe
 
-Aby scalić równoległe gałęzie, wystarczy dodać krok u dołu pod wszystkimi gałęziami. Ten krok jest uruchamiany po zakończeniu wszystkich gałęzi równoległych.
+Aby scalić rozgałęzienia równoległe, wystarczy dodać krok u dołu w obszarze wszystkich gałęzi. Ten krok jest uruchamiany po zakończeniu wszystkich gałęzi równoległych.
 
-![Łączenie równoległych gałęzi](media/logic-apps-control-flow-branches/join.png)
+![Dołącz gałęzie równoległe](media/logic-apps-control-flow-branches/join.png)
 
-1. W [witrynie Azure portal](https://portal.azure.com)znajdź i otwórz aplikację logiki w logice App Designer. 
+1. W [Azure Portal](https://portal.azure.com)Znajdź i Otwórz aplikację logiki w Projektancie aplikacji logiki. 
 
-1. W obszarze równoległych gałęzi, do których chcesz dołączyć, wybierz pozycję **Nowy krok**. 
+1. W obszarze gałęzie równoległe, które chcesz dołączyć, wybierz pozycję **nowy krok**. 
 
-   ![Dodaj krok do dołączenia](media/logic-apps-control-flow-branches/add-join-step.png)
+   ![Dodaj krok do przyłączenia](media/logic-apps-control-flow-branches/add-join-step.png)
 
-1. W polu wyszukiwania znajdź i wybierz odpowiednią akcję jako krok, który łączy gałęzie.
+1. W polu wyszukiwania Znajdź i wybierz żądaną akcję jako krok dołączania gałęzi.
 
-   ![Znajdowanie i wybieranie akcji, która łączy równoległe gałęzie](media/logic-apps-control-flow-branches/join-steps.png)
+   ![Znajdź i wybierz akcję sprzęgającą gałęzie równoległe](media/logic-apps-control-flow-branches/join-steps.png)
 
-   Gałęzie równoległe są teraz scalane.
+   Gałęzie równoległe są teraz scalone.
 
-   ![Dołączył do oddziałów](media/logic-apps-control-flow-branches/joined-branches.png)
+   ![Przyłączone gałęzie](media/logic-apps-control-flow-branches/joined-branches.png)
 
 <a name="join-json"></a>
 
-## <a name="join-definition-json"></a>Definicja sprzężenia (JSON)
+## <a name="join-definition-json"></a>Join — definicja (JSON)
 
 Jeśli pracujesz w widoku kodu, możesz zdefiniować strukturę sprzężenia w definicji JSON aplikacji logiki, na przykład:
 
@@ -184,11 +184,11 @@ Jeśli pracujesz w widoku kodu, możesz zdefiniować strukturę sprzężenia w d
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
 * Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Aby przesłać lub zagłosować na funkcje i sugestie, odwiedź [witrynę opinii użytkowników usługi Azure Logic Apps](https://aka.ms/logicapps-wish).
+* Aby przesłać funkcje i sugestie lub zagłosować na nie, odwiedź [witrynę opinii o Azure Logic Apps użytkownika](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Uruchamianie kroków na podstawie warunku (instrukcje warunkowe)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Uruchamianie kroków na podstawie różnych wartości (instrukcje switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Uruchamianie i powtarzanie kroków (pętli)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Uruchamianie kroków na podstawie stanu akcji zgrupowanych (zakresy)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Wykonaj kroki na podstawie warunku (instrukcje warunkowe)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Wykonaj kroki na podstawie różnych wartości (przełącznik instrukcji switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Uruchom i powtórz kroki (pętle)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Wykonaj kroki na podstawie pogrupowanego stanu akcji (zakresy)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

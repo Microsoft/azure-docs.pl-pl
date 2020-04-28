@@ -1,23 +1,23 @@
 ---
-title: Bezpieczna komunikacja serwisowa oparta na WCF
-description: Dowiedz się, jak zabezpieczyć komunikację opartą na WCF dla niezawodnych usług, które są uruchomione w klastrze sieci szkieletowej usług Azure.
+title: Zabezpieczanie komunikacji z usługą opartą na WCF
+description: Dowiedz się, jak zabezpieczyć komunikację opartą na WCF dla niezawodnych usług, które działają w klastrze Service Fabric platformy Azure.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ca5eafa4612503a13f80b7f238e4827979c0358b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614166"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Bezpieczna komunikacja oparta na WCF dla usługi
-Bezpieczeństwo jest jednym z najważniejszych aspektów komunikacji. Struktura aplikacji niezawodne usługi zawiera kilka wstępnie utworzonych stosów komunikacji i narzędzi, których można użyć w celu zwiększenia bezpieczeństwa. W tym artykule o tym, jak poprawić bezpieczeństwo podczas korzystania z komunikacji zdalnej usługi.
+Bezpieczeństwo jest jednym z najważniejszych aspektów komunikacji. Platforma aplikacji Reliable Services zawiera kilka wstępnie utworzonych stosów i narzędzi do komunikacji, których można użyć w celu zwiększenia bezpieczeństwa. W tym artykule omówiono sposób ulepszania zabezpieczeń w przypadku korzystania z usług zdalnych.
 
-Używamy istniejącego [przykładu,](service-fabric-reliable-services-communication-wcf.md) który wyjaśnia, jak skonfigurować stos komunikacji oparty na WCF dla niezawodnych usług. Aby zabezpieczyć usługę podczas korzystania z stosu komunikacji opartego na WCF, wykonaj następujące kroki:
+Korzystamy z istniejącego [przykładu](service-fabric-reliable-services-communication-wcf.md) , w którym wyjaśniono, jak skonfigurować oparty na WCF stos komunikacji dla niezawodnych usług. Aby zabezpieczyć usługę w przypadku korzystania ze stosu komunikacji opartego na WCF, wykonaj następujące kroki:
 
-1. Dla usługi należy pomóc zabezpieczyć odbiornik komunikacji WCF`WcfCommunicationListener`( ) który tworzysz. Aby to zrobić, `CreateServiceReplicaListeners` zmodyfikuj metodę.
+1. W przypadku usługi należy pomóc w zabezpieczeniu utworzonego odbiornika komunikacji WCF (`WcfCommunicationListener`). W tym celu należy zmodyfikować `CreateServiceReplicaListeners` metodę.
 
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -54,7 +54,7 @@ Używamy istniejącego [przykładu,](service-fabric-reliable-services-communicat
         return b;
     }
     ```
-2. W kliencie `WcfCommunicationClient` klasa, która została utworzona w poprzednim [przykładzie](service-fabric-reliable-services-communication-wcf.md) pozostaje niezmieniona. Ale musisz zastąpić `CreateClientAsync` `WcfCommunicationClientFactory`metodę:
+2. W przypadku klienta `WcfCommunicationClient` Klasa, która została utworzona w poprzednim [przykładzie](service-fabric-reliable-services-communication-wcf.md) , pozostaje niezmieniona. Ale należy zastąpić `CreateClientAsync` metodę `WcfCommunicationClientFactory`:
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -104,7 +104,7 @@ Używamy istniejącego [przykładu,](service-fabric-reliable-services-communicat
     }
     ```
 
-    Służy `SecureWcfCommunicationClientFactory` do tworzenia klienta komunikacji`WcfCommunicationClient`WCF ( ). Użyj klienta do wywoływania metod usługi.
+    Służy `SecureWcfCommunicationClientFactory` do tworzenia klienta komunikacyjnego WCF (`WcfCommunicationClient`). Użyj klienta, aby wywołać metody usługi.
 
     ```csharp
     IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
@@ -120,4 +120,4 @@ Używamy istniejącego [przykładu,](service-fabric-reliable-services-communicat
         client => client.Channel.Add(2, 3)).Result;
     ```
 
-W następnym kroku przeczytaj [interfejs API sieci Web z owin w reliable services](service-fabric-reliable-services-communication-webapi.md).
+W następnym kroku Przeczytaj [internetowy interfejs API z Owin w Reliable Services](service-fabric-reliable-services-communication-webapi.md).

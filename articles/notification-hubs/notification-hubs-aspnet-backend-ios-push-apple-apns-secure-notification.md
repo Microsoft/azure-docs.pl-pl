@@ -1,6 +1,6 @@
 ---
-title: Usługi Azure Notification Hubs Secure Push dla systemu iOS
-description: Dowiedz się, jak wysyłać bezpieczne powiadomienia wypychane do aplikacji na iOS z platformy Azure. Przykłady kodu napisane w językach Objective-C i C#.
+title: Azure Notification Hubs bezpieczne wypychanie dla systemu iOS
+description: Dowiedz się, jak wysyłać bezpieczne powiadomienia wypychane do aplikacji systemu iOS z platformy Azure. Przykłady kodu w języku C i C#.
 documentationcenter: ios
 author: sethmanheim
 manager: femila
@@ -17,13 +17,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 96d1dd514f6fb9c11d7194714337583d6b4387cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75530752"
 ---
-# <a name="azure-notification-hubs-secure-push"></a>Bezpieczne wypychanie w centrach powiadomień platformy Azure
+# <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs bezpieczne wypychanie
 
 > [!div class="op_single_selector"]
 > * [Aplikacje uniwersalne systemu Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
@@ -32,47 +32,47 @@ ms.locfileid: "75530752"
 
 ## <a name="overview"></a>Omówienie
 
-Obsługa powiadomień wypychanych na platformie Microsoft Azure umożliwia dostęp do łatwej w użyciu, wieloplatformowej, skalowej w poziomie infrastruktury push, co znacznie upraszcza wdrażanie powiadomień wypychanych zarówno dla aplikacji konsumenckich, jak i korporacyjnych dla urządzeń przenośnych Platformy.
+Obsługa powiadomień wypychanych w programie Microsoft Azure pozwala uzyskać dostęp do łatwej w skalowaniu infrastruktury wypychanej z obsługą wielu platform, która znacznie upraszcza implementację powiadomień wypychanych zarówno dla aplikacji dla klientów, jak i dla przedsiębiorstw dla platform mobilnych.
 
-Ze względu na ograniczenia regulacyjne lub zabezpieczeń czasami aplikacja może chcieć dołączyć coś w powiadomieniu, które nie mogą być przesyłane za pośrednictwem standardowej infrastruktury powiadomień wypychanych. W tym samouczku opisano sposób osiągnięcia tego samego środowiska, wysyłając poufne informacje za pośrednictwem bezpiecznego, uwierzytelnionego połączenia między urządzeniem klienckim a zapleczem aplikacji.
+Ze względu na ograniczenia prawne lub zabezpieczenia czasami aplikacja może chcieć uwzględnić coś w powiadomieniu, którego nie można przesłać za pomocą standardowej infrastruktury powiadomień wypychanych. W tym samouczku opisano sposób osiągnięcia tego samego środowiska przez wysyłanie poufnych informacji za pomocą bezpiecznego, uwierzytelnionego połączenia między urządzeniem klienckim a zaplecze aplikacji.
 
 Na wysokim poziomie przepływ jest następujący:
 
-1. Back-end aplikacji:
-   * Przechowuje bezpieczne ładunku w bazie danych zaplecza.
-   * Wysyła identyfikator tego powiadomienia do urządzenia (nie są wysyłane żadne bezpieczne informacje).
-2. Aplikacja na urządzeniu, po otrzymaniu powiadomienia:
-   * Urządzenie styka się z zapleczem, żądając bezpiecznego ładunku.
-   * Aplikacja może wyświetlić ładunek jako powiadomienie na urządzeniu.
+1. Zaplecze aplikacji:
+   * Przechowuje bezpieczny ładunek w bazie danych zaplecza.
+   * Wysyła identyfikator tego powiadomienia do urządzenia (żadne zabezpieczone informacje nie są wysyłane).
+2. Aplikacja na urządzeniu podczas otrzymywania powiadomienia:
+   * Urządzenie kontaktuje się z wewnętrzną prośbą o bezpieczny ładunek.
+   * Aplikacja może wyświetlać ładunek jako powiadomienie na urządzeniu.
 
-Należy pamiętać, że w poprzednim przepływie (i w tym samouczku) zakładamy, że urządzenie przechowuje token uwierzytelniania w magazynie lokalnym, po zalogowaniu się użytkownika. Gwarantuje to bezproblemowe środowisko, ponieważ urządzenie może pobrać bezpieczny ładunek powiadomienia przy użyciu tego tokenu. Jeśli aplikacja nie przechowuje tokenów uwierzytelniania na urządzeniu lub jeśli te tokeny mogą wygasnąć, aplikacja urządzenia po otrzymaniu powiadomienia powinna wyświetlić ogólne powiadomienie z monitem o uruchomienie aplikacji. Następnie aplikacja uwierzytelnia użytkownika i wyświetla ładunek powiadomień.
+Należy pamiętać, że w poprzednim przepływie (i w tym samouczku) przyjęto założenie, że urządzenie przechowuje token uwierzytelniania w magazynie lokalnym, po zalogowaniu się użytkownika. Gwarantuje to bezproblemowe działanie, ponieważ urządzenie może pobrać bezpieczny ładunek powiadomienia przy użyciu tego tokenu. Jeśli aplikacja nie przechowuje tokenów uwierzytelniania na urządzeniu lub jeśli te tokeny mogą wygasnąć, aplikacja urządzenia po odebraniu powiadomienia powinna wyświetlić ogólne powiadomienie z monitem użytkownika o uruchomienie aplikacji. Następnie aplikacja uwierzytelnia użytkownika i wyświetla ładunek powiadomienia.
 
-Ten samouczek Bezpiecznego wypychania pokazuje, jak bezpiecznie wysłać powiadomienie wypychanego. Samouczek opiera się na podziale [Powiadom użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) samouczka, więc należy wykonać kroki w tym samouczku pierwszy.
+Ten samouczek bezpiecznego wypychania pokazuje, jak bezpiecznie wysyłać powiadomienia wypychane. Samouczek jest oparty na samouczku [Powiadamianie użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) , dlatego należy najpierw wykonać kroki opisane w tym samouczku.
 
 > [!NOTE]
-> W tym samouczku przyjęto założenie, że centrum powiadomień zostało utworzone i skonfigurowane zgodnie z opisem w [artykule Wprowadzenie do centrów powiadomień (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+> W tym samouczku przyjęto założenie, że utworzono i skonfigurowano centrum powiadomień zgodnie z opisem w [wprowadzenie z Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-ios-project"></a>Modyfikowanie projektu systemu iOS
 
-Teraz, gdy zmodyfikowano zaplecza aplikacji, aby wysłać tylko *identyfikator* powiadomienia, należy zmienić aplikację systemu iOS do obsługi tego powiadomienia i oddzwonić zaplecza, aby pobrać bezpieczną wiadomość, która ma być wyświetlana.
+Po zmodyfikowaniu zaplecza aplikacji w celu wysłania tylko *identyfikatora* powiadomienia należy zmienić aplikację dla systemu iOS, aby obsługiwała to powiadomienie, i wywoływać zaplecze w celu pobrania bezpiecznej wiadomości do wyświetlenia.
 
-Aby osiągnąć ten cel, musimy napisać logikę, aby pobrać bezpieczną zawartość z zaplecza aplikacji.
+Aby osiągnąć ten cel, należy napisać logikę, aby pobrać bezpieczną zawartość z zaplecza aplikacji.
 
-1. W `AppDelegate.m`obszarze , upewnij się, że aplikacja rejestruje się dla powiadomień dyskretnych, aby przetwarzała identyfikator powiadomień wysłany z wewnętrznej bazy danych. Dodaj `UIRemoteNotificationTypeNewsstandContentAvailability` opcję w didFinishLaunchingWithOptions:
+1. W `AppDelegate.m`programie upewnij się, że aplikacja jest zarejestrowana na potrzeby powiadomień dyskretnych, aby przetworzyć identyfikator powiadomienia, który został wysłany z zaplecza. Dodaj `UIRemoteNotificationTypeNewsstandContentAvailability` opcję w didFinishLaunchingWithOptions:
 
     ```objc
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
     ```
-2. W `AppDelegate.m` sekcji dodaj implementacji u góry z następującą deklaracją:
+2. W sekcji `AppDelegate.m` Dodaj implementację u góry z następującą deklaracją:
 
     ```objc
     @interface AppDelegate ()
     - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
     @end
     ```
-3. Następnie dodaj w sekcji implementacji następujący kod, `{back-end endpoint}` zastępując symbol zastępczy punktem końcowym dla zaplecza uzyskanego wcześniej:
+3. Następnie Dodaj do sekcji implementacji następujący kod, zastępując symbol zastępczy `{back-end endpoint}` punktem końcowym, który został uzyskany wcześniej:
 
     ```objc
     NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
@@ -119,14 +119,14 @@ Aby osiągnąć ten cel, musimy napisać logikę, aby pobrać bezpieczną zawart
     }
     ```
 
-    Ta metoda wywołuje zaplecze aplikacji, aby pobrać zawartość powiadomień przy użyciu poświadczeń przechowywanych w preferencjach udostępnionych.
+    Ta metoda wywołuje zaplecze aplikacji, aby pobrać zawartość powiadomienia przy użyciu poświadczeń przechowywanych w preferencjach udostępnionych.
 
-4. Teraz musimy obsłużyć przychodzące powiadomienie i użyć powyższej metody, aby pobrać zawartość do wyświetlenia. Najpierw musimy włączyć aplikację na iOS, aby działać w tle podczas odbierania powiadomienia wypychanego. W **programie XCode**wybierz projekt aplikacji w lewym panelu, a następnie kliknij główny obiekt docelowy aplikacji w sekcji **Obiekty docelowe** z centralnego okienka.
-5. Następnie kliknij kartę **Możliwości** u góry centralnego okienka i zaznacz pole wyboru **Powiadomienia zdalne.**
+4. Teraz musimy obsługiwać przychodzące powiadomienie i korzystać z powyższej metody w celu pobrania zawartości do wyświetlenia. Najpierw należy włączyć uruchamianie aplikacji systemu iOS w tle podczas otrzymywania powiadomień wypychanych. W **Xcode**wybierz projekt aplikacji w panelu po lewej stronie, a następnie kliknij swój główny obiekt docelowy aplikacji w sekcji **obiekty docelowe** w środkowym okienku.
+5. Następnie kliknij kartę **możliwości** w górnej części okienka środkowe, a następnie zaznacz pole wyboru **powiadomienia zdalne** .
 
     ![][IOS1]
 
-6. W `AppDelegate.m` dodaj następującą metodę obsługi powiadomień wypychanych:
+6. W `AppDelegate.m` obszarze Dodaj następującą metodę do obsługi powiadomień wypychanych:
 
     ```objc
     -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
@@ -151,14 +151,14 @@ Aby osiągnąć ten cel, musimy napisać logikę, aby pobrać bezpieczną zawart
     }
     ```
 
-    Należy zauważyć, że zaleca się obsługiwanie przypadków braku właściwości nagłówka uwierzytelniania lub odrzucenia przez zaplecze. Specyficzne postępowanie w tych przypadkach zależy głównie od środowiska użytkownika docelowego. Jedną z opcji jest wyświetlenie powiadomienia z ogólnym monitem dla użytkownika do uwierzytelniania, aby pobrać rzeczywiste powiadomienie.
+    Należy pamiętać, że zaleca się obsługę przypadków braku właściwości nagłówka uwierzytelniania lub odrzucenia przez zaplecze. Konkretna obsługa tych przypadków zależy głównie od środowiska użytkownika docelowego. Jedną z opcji jest wyświetlenie powiadomienia z ogólnym monitem użytkownika o uwierzytelnienie w celu pobrania rzeczywistego powiadomienia.
 
-## <a name="run-the-application"></a>Uruchamianie aplikacji
+## <a name="run-the-application"></a>Uruchom aplikację
 
 Aby uruchomić aplikację, wykonaj następujące czynności:
 
-1. W xcode uruchom aplikację na fizycznym urządzeniu z systemem iOS (powiadomienia wypychania nie będą działać w symulatorze).
-2. W interfejsie użytkownika aplikacji dla systemu iOS wprowadź nazwę użytkownika i hasło. Mogą to być dowolny ciąg, ale muszą być tej samej wartości.
-3. W interfejsie użytkownika aplikacji dla systemu iOS kliknij pozycję **Zaloguj się**. Następnie kliknij przycisk **Wyślij wypychanie**. Bezpieczne powiadomienie powinno być wyświetlane w Centrum powiadomień.
+1. W programie XCode Uruchom aplikację na fizycznym urządzeniu z systemem iOS (powiadomienia wypychane nie będą działać w symulatorze).
+2. W interfejsie użytkownika aplikacji systemu iOS wprowadź nazwę użytkownika i hasło. Mogą to być dowolne ciągi, ale muszą mieć tę samą wartość.
+3. W interfejsie użytkownika aplikacji systemu iOS kliknij pozycję **Zaloguj**. Następnie kliknij pozycję **Wyślij wypychanie**. Powinno zostać wyświetlone bezpieczne powiadomienie wyświetlane w centrum powiadomień.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

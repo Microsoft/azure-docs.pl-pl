@@ -1,27 +1,27 @@
 ---
 title: Określanie zmiennych środowiskowych dla usług
-description: Pokazuje, jak używać zmiennych środowiskowych dla aplikacji w sieci szkieletowej usług
+description: Pokazuje, jak używać zmiennych środowiskowych dla aplikacji w Service Fabric
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: f4c4f2a1c140e3d0f181c4fd55482056f9f91b62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614319"
 ---
-# <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Jak określić zmienne środowiskowe dla usług w sieci szkieletowej usług
+# <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Jak określić zmienne środowiskowe dla usług w Service Fabric
 
-W tym artykule pokazano, jak określić zmienne środowiskowe dla usługi lub kontenera w sieci szkieletowej usług.
+W tym artykule opisano sposób określania zmiennych środowiskowych dla usługi lub kontenera w Service Fabric.
 
 ## <a name="procedure-for-specifying-environment-variables-for-services"></a>Procedura określania zmiennych środowiskowych dla usług
 
-W tym przykładzie można ustawić zmienną środowiskową dla kontenera. W artykule przyjęto założenie, że masz już manifest aplikacji i usługi.
+W tym przykładzie ustawisz zmienną środowiskową dla kontenera. W tym artykule założono, że masz już manifest aplikacji i usługi.
 
-1. Otwórz plik ServiceManifest.xml.
-2. W `CodePackage` elemencie `EnvironmentVariables` dodaj nowy `EnvironmentVariable` element i element dla każdej zmiennej środowiskowej.
+1. Otwórz plik servicemanifest. XML.
+2. W `CodePackage` elemencie Dodaj nowy `EnvironmentVariables` element i `EnvironmentVariable` element dla każdej zmiennej środowiskowej.
 
     ```xml
     <CodePackage Name="MyCode" Version="CodeVersion1">
@@ -33,9 +33,9 @@ W tym przykładzie można ustawić zmienną środowiskową dla kontenera. W arty
     </CodePackage>
     ```
 
-   Zmienne środowiskowe mogą być zastąpione w manifeście aplikacji.
+   Zmienne środowiskowe można przesłonić w manifeście aplikacji.
 
-3. Aby zastąpić zmienne środowiskowe w manifeście `EnvironmentOverrides` aplikacji, należy użyć elementu.
+3. Aby zastąpić zmienne środowiskowe w manifeście aplikacji, użyj `EnvironmentOverrides` elementu.
 
     ```xml
       <ServiceManifestImport>
@@ -46,9 +46,9 @@ W tym przykładzie można ustawić zmienną środowiskową dla kontenera. W arty
       </ServiceManifestImport>
     ```
 
-## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Dynamiczne określanie zmiennych środowiskowych przy użyciu kompozycji dokowane
+## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Dynamiczne określanie zmiennych środowiskowych za pomocą Docker Compose
 
-Sieci szkieletowej usług obsługuje możliwość [korzystania z dokowania compose dla wdrożenia](service-fabric-docker-compose.md#supported-compose-directives). Redagowanie plików może pozyskiwać zmienne środowiskowe z powłoki. To zachowanie może służyć do dynamicznego zastępowanie żądanych wartości środowiska:
+Service Fabric obsługuje możliwość [użycia Docker Compose do wdrożenia](service-fabric-docker-compose.md#supported-compose-directives). Pliki redagowania mogą źródłowe zmienne środowiskowe z powłoki. To zachowanie może służyć do dynamicznego podstawiania żądanych wartości środowiska:
 
 ```yml
 environment:
@@ -56,6 +56,6 @@ environment:
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o niektórych podstawowych pojęciach, które zostały omówione w tym artykule, zobacz [Zarządzanie aplikacjami dla wielu środowisk artykułów](service-fabric-manage-multiple-environment-app-configuration.md).
+Aby dowiedzieć się więcej na temat podstawowych pojęć omówionych w tym artykule, zobacz [artykuł Zarządzanie aplikacjami dla wielu środowisk](service-fabric-manage-multiple-environment-app-configuration.md).
 
-Aby uzyskać informacje o innych funkcjach zarządzania aplikacjami dostępnych w programie Visual Studio, zobacz [Zarządzanie aplikacjami sieci szkieletowej usług w programie Visual Studio.](service-fabric-manage-application-in-visual-studio.md)
+Aby uzyskać informacje na temat innych funkcji zarządzania aplikacjami, które są dostępne w programie Visual Studio, zobacz [Zarządzanie aplikacjami Service Fabric w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md).

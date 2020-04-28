@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie danymi, arkuszami i tabelami w aplikacji Excel Online
-description: Zarządzanie danymi w arkuszach i tabelach w aplikacji Excel Online dla Firm lub w aplikacji Excel Online dla usługi OneDrive przy użyciu aplikacji Azure Logic Apps
+title: Zarządzanie danymi, arkuszami i tabelami w usłudze Excel Online
+description: Zarządzanie danymi w arkuszach i tabelach w usłudze Excel Online dla firm lub Excel Online dla usługi OneDrive przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,64 +8,64 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75445886"
 ---
-# <a name="manage-excel-online-data-with-azure-logic-apps"></a>Zarządzanie danymi aplikacji Excel Online za pomocą aplikacji Azure Logic Apps
+# <a name="manage-excel-online-data-with-azure-logic-apps"></a>Zarządzanie danymi w usłudze Excel Online za pomocą Azure Logic Apps
 
-Za [pomocą aplikacji Azure Logic Apps](../logic-apps/logic-apps-overview.md) i łącznika usługi Excel Online dla [Firm](/connectors/excelonlinebusiness/) lub [łącznika aplikacji Excel Online dla usługi OneDrive](/connectors/excelonline/) można tworzyć zautomatyzowane zadania i przepływy pracy na podstawie danych w aplikacji Excel Online dla Firm lub w usłudze OneDrive. Ten łącznik udostępnia akcje ułatwiające pracę z danymi i zarządzanie arkuszami kalkulacyjnymi, na przykład:
+Za pomocą usługi [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i łącznika usługi [Excel Online dla firm](/connectors/excelonlinebusiness/) lub [programu Excel Online for OneDrive](/connectors/excelonline/) można tworzyć automatyczne zadania i przepływy pracy oparte na danych w usłudze Excel Online dla firm lub w usłudze OneDrive. Ten łącznik zawiera akcje pomagające w pracy z danymi i zarządzaniu arkuszami kalkulacyjnymi, na przykład:
 
-* Tworzenie nowych arkuszy i tabel.
-* Pobierz arkusze, tabele i wiersze i zarządzaj nimi.
+* Utwórz nowe arkusze i tabele.
+* Pobierz arkusze, tabele i wiersze oraz zarządzaj nimi.
 * Dodaj pojedyncze wiersze i kolumny kluczy.
 
-Następnie można użyć danych wyjściowych z tych akcji z akcjami dla innych usług. Jeśli na przykład używasz akcji, która tworzy arkusze co tydzień, możesz użyć innej akcji, która wysyła wiadomość e-mail z potwierdzeniem przy użyciu łącznika programu Office 365 Outlook.
+Następnie można użyć danych wyjściowych z tych akcji z akcjami dla innych usług. Na przykład jeśli używasz akcji, która tworzy arkusze w każdym tygodniu, możesz użyć innej akcji, która wysyła wiadomość e-mail z potwierdzeniem za pomocą łącznika Office 365 Outlook.
 
-Jeśli jesteś nowy w aplikacjach logiki, sprawdź [Co to jest usługa Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> Łączniki [aplikacji Excel Online dla Firm](/connectors/excelonlinebusiness/) i Aplikacji Excel Online dla usługi [OneDrive](/connectors/excelonline/) współpracują z aplikacjami logiki azure i różnią się od [łącznika programu Excel dla usługi PowerApps](/connectors/excel/).
+> Łączniki [programu Excel Online dla firm](/connectors/excelonlinebusiness/) i [programu Excel Online dla usługi OneDrive](/connectors/excelonline/) współpracują z Azure Logic Apps i różnią się od [łącznika programu Excel w usłudze powerapps](/connectors/excel/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* [Konto usługi Office 365](https://www.office.com/) dla konta służbowego lub osobistego konta Microsoft
+* [Konto usługi Office 365](https://www.office.com/) dla Twojego konta służbowego lub osobistego konto Microsoft
 
-  Dane programu Excel mogą istnieć jako plik csv (CSV) oddzielony przecinkami w folderze magazynu, na przykład w usłudze OneDrive. 
-  Można również użyć tego samego pliku CSV ze [złączem pliku płaskiego](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
+  Dane programu Excel mogą istnieć jako plik wartości rozdzielanych przecinkami (CSV) w folderze magazynu, na przykład w usłudze OneDrive. 
+  Można również użyć tego samego pliku CSV z łącznikiem o [płaskim pliku](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
 
-* Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Aplikacja logiki, w której chcesz uzyskać dostęp do danych aplikacji Excel Online. Ten łącznik zawiera tylko akcje, więc aby uruchomić aplikację logiki, wybierz oddzielny wyzwalacz, na przykład wyzwalacz **cyklu.**
+* Aplikacja logiki, w której chcesz uzyskać dostęp do danych usługi Excel Online. Ten łącznik zawiera tylko akcje, więc aby uruchomić aplikację logiki, wybierz oddzielny wyzwalacz, na przykład wyzwalacz **cykliczny** .
 
-## <a name="add-excel-action"></a>Dodawanie akcji programu Excel
+## <a name="add-excel-action"></a>Dodaj akcję programu Excel
 
-1. W [witrynie Azure portal](https://portal.azure.com)otwórz aplikację logiki w projektancie aplikacji logiki, jeśli nie jest jeszcze otwarty.
+1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki, jeśli nie została jeszcze otwarta.
 
-1. W obszarze wyzwalacza wybierz pozycję **Nowy krok**.
+1. W obszarze wyzwalacza wybierz pozycję **nowy krok**.
 
-1. W polu wyszukiwania wpisz "excel" jako filtr. W obszarze listy akcje wybierz odpowiednią akcję.
+1. W polu wyszukiwania wprowadź ciąg "Excel" jako filtr. Na liście Akcje wybierz żądaną akcję.
 
    > [!NOTE]
-   > Projektant aplikacji logiki nie można załadować tabel, które mają 100 lub więcej kolumn. Jeśli to możliwe, zmniejsz liczbę kolumn w wybranej tabeli, aby projektant mógł załadować tabelę.
+   > Projektant aplikacji logiki nie może załadować tabel, które mają 100 lub więcej kolumn. Jeśli to możliwe, zmniejsz liczbę kolumn w zaznaczonej tabeli, aby projektant mógł załadować tabelę.
 
-1. Jeśli zostanie wyświetlony monit, zaloguj się do konta usługi Office 365.
+1. Jeśli zostanie wyświetlony monit, zaloguj się do konta Office 365.
 
-   Poświadczenia autoryzują aplikację logiki do tworzenia połączenia z aplikacją Excel Online i uzyskiwania dostępu do danych.
+   Twoje poświadczenia autoryzują aplikację logiki, aby utworzyć połączenie z usługą Excel Online i uzyskać dostęp do danych.
 
-1. Kontynuuj dostarczanie szczegółów niezbędnych do wybranej akcji i tworzenie przepływu pracy aplikacji logiki.
+1. Kontynuuj dostarczanie niezbędnych szczegółów wybranej akcji i kompilowanie przepływu pracy aplikacji logiki.
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne, takie jak wyzwalacze, akcje i limity, zgodnie z opisem plików OpenAPI łącznika (dawniej Swagger), zobacz następujące strony odwołania do łącznika:
+Aby uzyskać szczegółowe informacje techniczne, takie jak wyzwalacze, akcje i limity, zgodnie z opisem w plikach OpenAPI łącznika (dawniej Swagger), zobacz następujące strony referencyjne łącznika:
 
-* [Excel Online dla Firm](/connectors/excelonlinebusiness/)
-* [Aplikacja Excel Online dla usługi OneDrive](/connectors/excelonline/)
+* [Excel Online dla firm](/connectors/excelonlinebusiness/)
+* [Excel Online dla usługi OneDrive](/connectors/excelonline/)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o innych [łącznikach aplikacji logiki](../connectors/apis-list.md)
+* Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)

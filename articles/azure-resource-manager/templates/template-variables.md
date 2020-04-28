@@ -1,24 +1,24 @@
 ---
 title: Zmienne w szablonach
-description: W tym artykule opisano sposób definiowania zmiennych w szablonie usługi Azure Resource Manager.
+description: Opisuje sposób definiowania zmiennych w szablonie Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75483819"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Zmienne w szablonie usługi Azure Resource Manager
+# <a name="variables-in-azure-resource-manager-template"></a>Zmienne w Azure Resource Manager szablonie
 
-W tym artykule opisano sposób definiowania i używania zmiennych w szablonie usługi Azure Resource Manager. Aby uprościć szablon, używasz zmiennych. Zamiast powtarzać skomplikowane wyrażenia w całym szablonie, należy zdefiniować zmienną zawierającą skomplikowane wyrażenie. Następnie odwołujesz się do tej zmiennej w razie potrzeby w całym szablonie.
+W tym artykule opisano sposób definiowania i używania zmiennych w szablonie Azure Resource Manager. Do uproszczenia szablonu używane są zmienne. Zamiast powtarzać skomplikowane wyrażenia w całym szablonie, należy zdefiniować zmienną, która zawiera wyrażenie złożone. Następnie należy odwołać się do tej zmiennej w zależności od potrzeb w szablonie.
 
-Menedżer zasobów rozpoznaje zmienne przed rozpoczęciem operacji wdrażania. Wszędzie tam, gdzie zmienna jest używana w szablonie, Menedżer zasobów zastępuje ją wartością rozwiązaną.
+Menedżer zasobów rozpoznaje zmienne przed rozpoczęciem operacji wdrażania. Wszędzie tam, gdzie zmienna jest używana w szablonie, Menedżer zasobów zastępuje ją rozwiązanymi wartościami.
 
 ## <a name="define-variable"></a>Zdefiniuj zmienną
 
-W poniższym przykładzie przedstawiono definicję zmiennej. Tworzy wartość ciągu dla nazwy konta magazynu. Używa kilku funkcji szablonu, aby uzyskać wartość parametru i łączy ją z unikatowym ciągiem.
+W poniższym przykładzie przedstawiono definicję zmiennej. Tworzy wartość ciągu dla nazwy konta magazynu. Używa kilka funkcji szablonu do uzyskania wartości parametru i łączy ją z unikatowym ciągiem.
 
 ```json
 "variables": {
@@ -26,11 +26,11 @@ W poniższym przykładzie przedstawiono definicję zmiennej. Tworzy wartość ci
 },
 ```
 
-Nie można użyć funkcji [odwołania](template-functions-resource.md#reference) ani żadnej z funkcji [listy](template-functions-resource.md#list) w sekcji zmiennych. Te funkcje uzyskać stan środowiska wykonawczego zasobu i nie można wykonać przed wdrożeniem, gdy zmienne są rozpoznawane.
+Nie można użyć funkcji [Reference](template-functions-resource.md#reference) ani żadnej z funkcji [list](template-functions-resource.md#list) w sekcji zmienne. Te funkcje uzyskują stan środowiska uruchomieniowego zasobu i nie można ich wykonać przed wdrożeniem, gdy zmienne są rozwiązane.
 
 ## <a name="use-variable"></a>Użyj zmiennej
 
-W szablonie odwołujesz się do wartości parametru przy użyciu funkcji [zmiennych.](template-functions-deployment.md#variables) W poniższym przykładzie pokazano, jak używać zmiennej dla właściwości zasobu.
+W szablonie należy odwołać się do wartości parametru za pomocą funkcji [zmienne](template-functions-deployment.md#variables) . Poniższy przykład pokazuje, jak używać zmiennej dla właściwości zasobu.
 
 ```json
 "resources": [
@@ -44,7 +44,7 @@ W szablonie odwołujesz się do wartości parametru przy użyciu funkcji [zmienn
 
 ## <a name="configuration-variables"></a>Zmienne konfiguracyjne
 
-Można zdefiniować zmienne, które przechowują powiązane wartości do konfigurowania środowiska. Zmienną definiuje się jako obiekt z wartościami. W poniższym przykładzie pokazano obiekt, który przechowuje wartości dla dwóch środowisk - **test** i **prod**.
+Można zdefiniować zmienne, które przechowują powiązane wartości w celu skonfigurowania środowiska. Zmienna jest definiowana jako obiekt z wartościami. Poniższy przykład pokazuje obiekt, który przechowuje wartości dla dwóch środowisk — **test** i **prod**.
 
 ```json
 "variables": {
@@ -61,7 +61,7 @@ Można zdefiniować zmienne, które przechowują powiązane wartości do konfigu
 },
 ```
 
-W parametrach należy utworzyć wartość wskazującą, których wartości konfiguracji użyć.
+W parametrach można utworzyć wartość wskazującą, które wartości konfiguracji mają być używane.
 
 ```json
 "parameters": {
@@ -75,7 +75,7 @@ W parametrach należy utworzyć wartość wskazującą, których wartości konfi
 },
 ```
 
-Aby pobrać ustawienia dla określonego środowiska, należy użyć zmiennej i parametru razem.
+Aby pobrać ustawienia dla określonego środowiska, użyj razem zmiennej i parametru.
 
 ```json
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
@@ -83,15 +83,15 @@ Aby pobrać ustawienia dla określonego środowiska, należy użyć zmiennej i p
 
 ## <a name="example-templates"></a>Przykładowe szablony
 
-Poniższe przykłady pokazują scenariusze przy użyciu zmiennych.
+W poniższych przykładach pokazano scenariusze dotyczące używania zmiennych.
 
 |Szablon  |Opis  |
 |---------|---------|
-| [definicje zmiennych](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Pokazuje różne typy zmiennych. Szablon nie wdraża żadnych zasobów. Konstruuje wartości zmiennych i zwraca te wartości. |
-| [zmienna konfiguracja](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstruje użycie zmiennej definiującej wartości konfiguracyjne. Szablon nie wdraża żadnych zasobów. Konstruuje wartości zmiennych i zwraca te wartości. |
-| [reguły zabezpieczeń sieci](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) i [plik parametrów](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Konstruuje tablicę w odpowiednim formacie do przypisywania reguł zabezpieczeń do sieciowej grupy zabezpieczeń. |
+| [Definicje zmiennych](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Pokazuje różne typy zmiennych. Szablon nie wdraża żadnych zasobów. Konstruuje wartości zmiennych i zwraca te wartości. |
+| [Zmienna konfiguracyjna](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstruje użycie zmiennej, która definiuje wartości konfiguracyjne. Szablon nie wdraża żadnych zasobów. Konstruuje wartości zmiennych i zwraca te wartości. |
+| [reguły zabezpieczeń sieciowych](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) i [plik parametrów](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Konstruuje tablicę w prawidłowym formacie do przypisywania reguł zabezpieczeń do sieciowej grupy zabezpieczeń. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o dostępnych właściwościach zmiennych, zobacz [Opis struktury i składni szablonów usługi Azure Resource Manager](template-syntax.md).
-* Aby uzyskać zalecenia dotyczące tworzenia zmiennych, zobacz [Najlepsze rozwiązania - zmienne](template-best-practices.md#variables).
+* Aby dowiedzieć się więcej o dostępnych właściwościach zmiennych, zobacz [Opis struktury i składni szablonów Azure Resource Manager](template-syntax.md).
+* Aby zapoznać się z zaleceniami dotyczącymi tworzenia zmiennych, zobacz [najlepsze rozwiązania — zmienne](template-best-practices.md#variables).

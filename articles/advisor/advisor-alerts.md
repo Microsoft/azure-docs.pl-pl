@@ -1,74 +1,74 @@
 ---
-title: Tworzenie alertów usługi Azure Advisor dla nowych zaleceń
-description: Tworzenie alertów usługi Azure Advisor dla nowych zaleceń
+title: Tworzenie alertów Azure Advisor dla nowych zaleceń
+description: Utwórz alerty Azure Advisor dla nowego zalecenia
 ms.topic: article
 ms.date: 09/09/2019
 ms.openlocfilehash: 07cbc57ef718b6cac104d2b5238ff4e3196f197a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75443153"
 ---
-# <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Tworzenie alertów usługi Azure Advisor na nowych zaleceniach 
+# <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Tworzenie alertów Azure Advisor na temat nowych zaleceń 
 
-W tym artykule pokazano, jak skonfigurować alert dla nowych zaleceń z usługi Azure Advisor przy użyciu witryny Azure portal i szablonów usługi Azure Resource Manager. 
+W tym artykule opisano sposób konfigurowania alertu dotyczącego nowych zaleceń z Azure Advisor przy użyciu szablonów Azure Portal i Azure Resource Manager. 
 
-Za każdym razem, gdy usługa Azure Advisor wykryje nowe zalecenie dla jednego z zasobów, zdarzenie jest przechowywane w [dzienniku aktywności platformy Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) Alerty dla tych zdarzeń z usługi Azure Advisor można skonfigurować przy użyciu środowiska tworzenia alertów specyficznych dla zalecenia. Można wybrać subskrypcję i opcjonalnie grupę zasobów, aby określić zasoby, na których mają być odbierane alerty. 
+Za każdym razem, gdy Azure Advisor wykryje nowe zalecenie dla jednego z zasobów, zdarzenie jest przechowywane w [dzienniku aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). Alerty dotyczące tych zdarzeń można skonfigurować w Azure Advisor przy użyciu funkcji tworzenia alertów specyficznych dla zalecenia. Możesz wybrać subskrypcję i opcjonalnie grupę zasobów, aby określić zasoby, dla których chcesz otrzymywać alerty. 
 
-Można również określić typy zaleceń przy użyciu następujących właściwości:
+Możesz również określić typy zaleceń, korzystając z następujących właściwości:
 
 * Kategoria
 * Poziom wpływu
-* Typ rekomendacji
+* Typ zalecenia
 
-Można również skonfigurować akcję, która będzie mieć miejsce, gdy alert jest wyzwalany przez:  
+Możesz również skonfigurować akcję, która będzie wykonywana po wyzwoleniu alertu przez:  
 
 * Wybieranie istniejącej grupy akcji
 * Tworzenie nowej grupy akcji
 
-Aby dowiedzieć się więcej o grupach akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md).
+Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md).
 
 > [!NOTE] 
-> Alerty klasyfikatora są obecnie dostępne tylko dla zaleceń dotyczących wysokiej dostępności, wydajności i kosztów. Zalecenia dotyczące zabezpieczeń nie są obsługiwane. 
+> Alerty usługi Advisor są obecnie dostępne tylko w celu uzyskania wysokiej dostępności, wydajności i zaleceń dotyczących kosztów. Zalecenia dotyczące zabezpieczeń nie są obsługiwane. 
 
 ## <a name="in-the-azure-portal"></a>W witrynie Azure Portal
 1. W **portalu**wybierz pozycję **Azure Advisor**.
 
-    ![Doradca platformy Azure w portalu](./media/advisor-alerts/create1.png)
+    ![Azure Advisor w portalu](./media/advisor-alerts/create1.png)
 
-2. W sekcji **Monitorowanie** w menu po lewej stronie wybierz pozycję **Alerty**. 
+2. W sekcji **monitorowanie** w menu po lewej stronie wybierz pozycję **alerty**. 
 
-    ![Alerty w programie Advisor](./media/advisor-alerts/create2.png)
+    ![Alerty w usłudze Advisor](./media/advisor-alerts/create2.png)
 
-3. Wybierz **pozycję Nowy alert doradcy**.
+3. Wybierz pozycję **Nowy alert usługi Advisor**.
 
-    ![Alert nowego doradcy](./media/advisor-alerts/create3.png)
+    ![Alert dotyczący nowego klasyfikatora](./media/advisor-alerts/create3.png)
 
-4. W sekcji **Zakres** wybierz subskrypcję i opcjonalnie grupę zasobów, na której chcesz otrzymywać alerty. 
+4. W sekcji **zakres** wybierz subskrypcję i opcjonalnie grupę zasobów, w której chcesz otrzymywać alerty. 
 
-    ![Zakres alertu doradcy](./media/advisor-alerts/create4.png)
+    ![Zakres alertów klasyfikatora](./media/advisor-alerts/create4.png)
 
-5. W sekcji **Warunek** wybierz metodę, której chcesz użyć do skonfigurowania alertu. Jeśli chcesz otrzymywać alerty dotyczące wszystkich zaleceń dotyczących określonej kategorii i/lub poziomu wpływu, wybierz opcję **Kategoria i poziom wpływu**. Jeśli chcesz otrzymywać alerty dotyczące wszystkich zaleceń określonego typu, wybierz **opcję Typ rekomendacji**.
+5. W sekcji **warunek** wybierz metodę, która ma być używana do konfigurowania alertu. Jeśli chcesz otrzymywać alerty dotyczące wszystkich zaleceń dla konkretnej kategorii i/lub poziomu wpływu, wybierz **kategorię i poziom wpływu**. Jeśli chcesz otrzymywać alerty dotyczące wszystkich zaleceń określonego typu, wybierz pozycję **typ rekomendacji**.
 
-    ![Warunek alertu usługi Azure Advisor](./media/advisor-alerts/create5.png)
+    ![Azure Advisor warunek alertu](./media/advisor-alerts/create5.png)
 
-6. W zależności od wybranej opcji Konfiguruj według, można określić kryteria. Jeśli chcesz wszystkie zalecenia, po prostu pozostaw pozostałe pola puste. 
+6. W zależności od wybranej opcji konfigurowania przez użytkownika będzie można określić kryteria. Jeśli chcesz uzyskać wszystkie zalecenia, po prostu pozostaw pozostałe pola puste. 
 
-    ![Grupa akcji alertów doradcy](./media/advisor-alerts/create6.png)
+    ![Grupa akcji alertu klasyfikatora](./media/advisor-alerts/create6.png)
 
-7. W sekcji **Grupy akcji** wybierz pozycję **Dodaj istniejącą,** aby użyć już utworzonej grupy akcji, lub wybierz pozycję **Utwórz nowy,** aby skonfigurować nową [grupę akcji](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). 
+7. W sekcji **grupy akcji** wybierz pozycję **Dodaj istniejący** , aby użyć grupy akcji, która została już utworzona, lub wybierz pozycję **Utwórz nową** , aby skonfigurować nową [grupę akcji](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). 
 
-    ![Alert klasyfikatora dodaj istniejące](./media/advisor-alerts/create7.png)
+    ![Alert klasyfikatora — Dodawanie istniejących](./media/advisor-alerts/create7.png)
 
-8. W sekcji Szczegóły alertu nadaj alertowi nazwę i krótki opis. Jeśli chcesz, aby alert był włączony, po ustawieniu wyboru opcji **Tak** **po utworzeniu pozostaw regułę Włącz.** Następnie wybierz grupę zasobów, w aby zapisać alert. Nie wpłynie to na zakres kierowania zalecenia. 
+8. W sekcji Szczegóły alertu nadaj Alertowi nazwę i Krótki opis. Jeśli chcesz, aby alert był włączony, pozostaw **regułę Włącz po** wybraniu pozycji **tak**. Następnie wybierz grupę zasobów, w której ma zostać zapisany alert. Nie wpłynie to na zakres docelowy zalecenia. 
 
-    ![Baner doradcy platformy Azure](./media/advisor-alerts/create8.png)
+    ![Transparent Azure Advisor](./media/advisor-alerts/create8.png)
 
 
-## <a name="with-an-azure-resource-manager-template"></a>Z szablonem usługi Azure Resource Manager
+## <a name="with-an-azure-resource-manager-template"></a>Z szablonem Azure Resource Manager
 
-Ten szablon Menedżera zasobów tworzy alert rekomendacji i nową grupę akcji.
+Ten Menedżer zasobów szablon tworzy alert rekomendacji i nową grupę akcji.
 
 ```json
 {
@@ -166,15 +166,15 @@ Ten szablon Menedżera zasobów tworzy alert rekomendacji i nową grupę akcji.
   ```
 
 ## <a name="configure-recommendation-alerts-to-use-a-webhook"></a>Konfigurowanie alertów rekomendacji do używania elementu webhook
-W tej sekcji pokazano, jak skonfigurować alerty usługi Azure Advisor do wysyłania danych rekomendacji za pośrednictwem łączy webhook do istniejących systemów. 
+W tej sekcji przedstawiono sposób konfigurowania alertów Azure Advisor w celu wysyłania danych rekomendacji za poorednictwem elementów webhook do istniejących systemów. 
 
-Alerty można skonfigurować, aby otrzymywać powiadomienia, gdy masz nowe zalecenie doradcy dotyczące jednego z zasobów. Te alerty mogą powiadamiać użytkownika za pośrednictwem poczty e-mail lub wiadomości tekstowej, ale mogą być również używane do integracji z istniejącymi systemami za pośrednictwem elementu webhook. 
+Możesz skonfigurować alerty, które będą powiadamiane, gdy masz nowe zalecenie klasyfikatora dotyczące jednego z zasobów. Te alerty mogą powiadamiać użytkownika za pośrednictwem poczty e-mail lub wiadomości SMS, ale mogą być również używane do integracji z istniejącymi systemami za pośrednictwem elementu webhook. 
 
 
-### <a name="using-the-advisor-recommendation-alert-payload"></a>Korzystanie z ładunku alertu alertu zalecenia doradcy
-Jeśli chcesz zintegrować alerty Advisor do własnych systemów przy użyciu elementu webhook, należy przeanalizować ładunek JSON, który jest wysyłany z powiadomienia. 
+### <a name="using-the-advisor-recommendation-alert-payload"></a>Korzystanie z ładunku alertu rekomendacji klasyfikatora
+Jeśli chcesz zintegrować alerty usługi Advisor z własnymi systemami przy użyciu elementu webhook, musisz przeanalizować ładunek JSON, który jest wysyłany z powiadomienia. 
 
-Podczas konfigurowania grupy akcji dla tego alertu, należy wybrać, czy chcesz użyć wspólnego schematu alertu. Jeśli wybierzesz wspólny schemat alertu, ładunek będzie wyglądał następująco: 
+Po skonfigurowaniu grupy akcji dla tego alertu należy wybrać, czy chcesz użyć typowego schematu alertu. Jeśli wybierzesz Schemat typowego alertu, Twój ładunek będzie wyglądać następująco: 
 
 ```json
 {  
@@ -223,7 +223,7 @@ Podczas konfigurowania grupy akcji dla tego alertu, należy wybrać, czy chcesz 
 }
   ```
 
-Jeśli nie używasz wspólnego schematu, ładunek wygląda następująco: 
+Jeśli nie używasz wspólnego schematu, ładunek będzie wyglądać następująco: 
 
 ```json
 {  
@@ -268,32 +268,32 @@ Jeśli nie używasz wspólnego schematu, ładunek wygląda następująco:
 }
 ```
 
-W każdym schemacie można zidentyfikować zdarzenia rekomendacji advisor, wyszukując **eventSource** is `Recommendation` i **operationName** jest `Microsoft.Advisor/recommendations/available/action`.
+W obu schematach można zidentyfikować zdarzenia rekomendacji klasyfikatora, szukając elementu **EventSource** `Recommendation` , a **OperationName** jest `Microsoft.Advisor/recommendations/available/action`.
 
-Niektóre z innych ważnych pól, których warto użyć, to: 
+Oto niektóre z innych ważnych pól, których warto użyć: 
 
-* *alertTargetIDs* (w schemacie wspólnym) lub *resourceId* (starszy schemat)
-* *zalecenieTyp*
-* *nazwa rekomendacji*
-* *rekomendacja Kategoria*
-* *rekomendacjaNawpływ*
-* *rekomendacjaResourceLink*
+* *alertTargetIDs* (we wspólnym schemacie) lub *ResourceID* (starszy schemat)
+* *Rekomendacja*
+* *Rekomendacja*
+* *recommendationCategory*
+* *recommendationImpact*
+* *recommendationResourceLink*
 
 
 ## <a name="manage-your-alerts"></a>Zarządzanie alertami 
 
-Z usługi Azure Advisor można edytować, usuwać lub wyłączać i włączać alerty rekomendacji. 
+W Azure Advisor można edytować, usuwać lub wyłączać i włączać alerty dotyczące zaleceń. 
 
 1. W **portalu**wybierz pozycję **Azure Advisor**.
 
-    ![Baner doradcy platformy Azure](./media/advisor-alerts/create1.png)
+    ![Transparent Azure Advisor](./media/advisor-alerts/create1.png)
 
-2. W sekcji **Monitorowanie** w menu po lewej stronie wybierz pozycję **Alerty**.
+2. W sekcji **monitorowanie** w menu po lewej stronie wybierz pozycję **alerty**.
 
-    ![Baner doradcy platformy Azure](./media/advisor-alerts/create2.png)
+    ![Transparent Azure Advisor](./media/advisor-alerts/create2.png)
 
 3. Aby edytować alert, kliknij nazwę alertu, aby otworzyć alert i edytować pola, które chcesz edytować.
 
-4. Aby usunąć, włączyć lub wyłączyć alert, kliknij elipsę na końcu wiersza, a następnie wybierz akcję, którą chcesz podjąć.
+4. Aby usunąć, włączyć lub wyłączyć alert, kliknij wielokropek na końcu wiersza, a następnie wybierz akcję, którą chcesz wykonać.
  
 

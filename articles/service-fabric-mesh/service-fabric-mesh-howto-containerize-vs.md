@@ -1,15 +1,15 @@
 ---
 title: Konteneryzowanie istniejącej aplikacji .NET dla usługi Service Fabric Mesh
-description: Dodaj obsługę aranżacji kontenerów sieci szkieletowej usługi do ASP.NET i projektów konsoli, które używają pełnej platformy .NET.
+description: Dodaj obsługę aranżacji kontenera Service Fabric siatki do projektów ASP.NET i konsolowych, które korzystają z pełnego programu .NET Framework.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
 ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75462035"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Konteneryzowanie istniejącej aplikacji .NET dla usługi Service Fabric Mesh

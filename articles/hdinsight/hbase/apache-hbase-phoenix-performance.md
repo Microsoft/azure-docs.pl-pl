@@ -1,6 +1,6 @@
 ---
-title: Wydajność usługi Phoenix w usłudze Azure HDInsight
-description: Najważniejsze wskazówki dotyczące optymalizacji wydajności usługi Apache Phoenix dla klastrów usługi Azure HDInsight
+title: Wydajność Phoenix w usłudze Azure HDInsight
+description: Najlepsze rozwiązania w celu zoptymalizowania wydajności Apache Phoenix klastrów usługi Azure HDInsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,224 +9,224 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
 ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75552648"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Najlepsze rozwiązania w zakresie wydajności dla rozwiązania Apache Phoenix
 
-Najważniejszym aspektem wydajności [Apache Phoenix](https://phoenix.apache.org/) jest optymalizacja podstawowej [Apache HBase](https://hbase.apache.org/). Phoenix tworzy relacyjny model danych na bazie HBase, który konwertuje zapytania SQL na operacje HBase, takie jak skanowanie. Projekt schematu tabeli, wybór i kolejność pól w kluczu podstawowym i użycie indeksów mają wpływ na wydajność phoenix.
+Najważniejszym aspektem [Apache Phoenix](https://phoenix.apache.org/) wydajności jest zoptymalizowanie podstawowej platformy [Apache HBase](https://hbase.apache.org/). Phoenix tworzy relacyjny model danych korzystającego HBase, który konwertuje zapytania SQL na operacje HBase, takie jak skanowanie. Projekt schematu tabeli, wybór i kolejność pól w kluczu podstawowym oraz użycie indeksów wszystkie wpływają na wydajność w Phoenix.
 
 ## <a name="table-schema-design"></a>Projekt schematu tabeli
 
-Podczas tworzenia tabeli w Phoenix, że tabela jest przechowywana w tabeli HBase. Tabela HBase zawiera grupy kolumn (rodzin kolumn), które są dostępne razem. Wiersz w tabeli Phoenix to wiersz w tabeli HBase, w którym każdy wiersz składa się z komórek wersjonatowanych skojarzonych z jedną lub kilkoma kolumnami. Logicznie rzecz biorąc pojedynczy wiersz Bazy danych HBase jest kolekcją par klucz-wartość, z których każda ma tę samą wartość klucza wiersza. Oznacza to, że każda para klucza wartości ma atrybut klucza wiersza, a wartość tego atrybutu klucza wiersza jest taka sama dla określonego wiersza.
+Podczas tworzenia tabeli w Phoenix, ta tabela jest przechowywana w tabeli HBase. Tabela HBase zawiera grupy kolumn (rodziny kolumn), do których uzyskuje się dostęp ze sobą. Wiersz w tabeli Phoenix jest wierszem w tabeli HBase, gdzie każdy wiersz składa się z komórek z wersjami skojarzonych z co najmniej jedną kolumną. Logicznie, pojedynczy wiersz HBase jest kolekcją par klucz-wartość, z których każda ma tę samą wartość rowkey. Oznacza to, że każda para klucz-wartość ma atrybut rowkey, a wartość tego atrybutu rowkey jest taka sama dla konkretnego wiersza.
 
-Projekt schematu tabeli Phoenix zawiera projekt klucza podstawowego, projekt rodziny kolumn, projekt poszczególnych kolumn i sposób podziału danych.
+Projekt schematu tabeli Phoenix obejmuje projekt klucza podstawowego, projekt rodziny kolumn, projekt poszczególnych kolumn i sposób partycjonowania danych.
 
 ### <a name="primary-key-design"></a>Projekt klucza podstawowego
 
-Klucz podstawowy zdefiniowany w tabeli w Phoenix określa sposób przechowywania danych w kluczu wiersza podstawowej tabeli HBase. W HBase jedynym sposobem uzyskania dostępu do określonego wiersza jest z rowkey. Ponadto dane przechowywane w tabeli HBase są sortowane według klucza wiersza. Phoenix tworzy wartość rowkey przez łączenie wartości każdej z kolumn w wierszu, w kolejności, w jakiej są zdefiniowane w kluczu podstawowym.
+Klucz podstawowy zdefiniowany w tabeli w Phoenix określa, jak dane są przechowywane w rowkey źródłowej tabeli HBase. W programie HBase jedynym sposobem uzyskania dostępu do określonego wiersza jest rowkey. Ponadto dane przechowywane w tabeli HBase są sortowane według rowkey. Phoenix kompiluje wartość rowkey, łącząc wartości każdej kolumny w wierszu w kolejności, w jakiej są zdefiniowane w kluczu podstawowym.
 
-Na przykład tabela kontaktów ma imię, nazwisko, numer telefonu i adres, wszystkie w tej samej rodzinie kolumn. Klucz podstawowy można zdefiniować na podstawie rosnącego numeru sekwencjonowego:
+Na przykład tabela kontaktów ma imię i nazwisko, nazwisko, numer telefonu i adres, wszystkie w tej samej rodzinie kolumn. Można zdefiniować klucz podstawowy w oparciu o rosnący numer sekwencyjny:
 
-|klucz wiersza|       adres|   phone| firstName| lastName|
+|rowkey|       adres|   phone| firstName| lastName|
 |------|--------------------|--------------|-------------|--------------|
-|  1000|1111 Dr. San Gabriel|1-425-000-0002|    John|Dole (dole)|
-|  8396|5415 Dr. San Gabriel|1-230-555-0191|  Calvin|Raji|
+|  1000|1111 San Gabriel Dr.|1-425-000-0002|    Michał|Dole|
+|  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
-Jednak jeśli często kwerendy przez lastName ten klucz podstawowy może nie działać dobrze, ponieważ każda kwerenda wymaga pełnego skanowania tabeli, aby odczytać wartość co lastName. Zamiast tego można zdefiniować klucz podstawowy w kolumnach lastName, firstName i social security number. Ta ostatnia kolumna ma na celu odróżnienie dwóch mieszkańców pod tym samym adresem o tej samej nazwie, takich jak ojciec i syn.
+Jeśli jednak często wykonujesz zapytania według nazwiska, ten klucz podstawowy może nie działać prawidłowo, ponieważ każde zapytanie wymaga pełnego skanowania tabeli, aby odczytać wartość każdego lastName. Zamiast tego można zdefiniować klucz podstawowy w kolumnach lastName, firstName i numer ubezpieczenia społecznego. W tej ostatniej kolumnie można odróżnić dwa rezydentów pod tym samym adresem o tej samej nazwie, na przykład ojciec i syn.
 
-|klucz wiersza|       adres|   phone| firstName| lastName| socialSecurityNum |
+|rowkey|       adres|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  1000|1111 Dr. San Gabriel|1-425-000-0002|    John|Dole (dole)| 111 |
-|  8396|5415 Dr. San Gabriel|1-230-555-0191|  Calvin|Raji| 222 |
+|  1000|1111 San Gabriel Dr.|1-425-000-0002|    Michał|Dole| 111 |
+|  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
-Z tym nowym kluczem podstawowym klucze wiersza generowane przez Phoenix będzie:
+Przy użyciu nowego klucza podstawowego klucze wierszy generowane przez Phoenix byłyby następujące:
 
-|klucz wiersza|       adres|   phone| firstName| lastName| socialSecurityNum |
+|rowkey|       adres|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 Dr. San Gabriel|1-425-000-0002|    John|Dole (dole)| 111 |
-|  Raji-Calvin-222|5415 Dr. San Gabriel|1-230-555-0191|  Calvin|Raji| 222 |
+|  Dole-Jan-111|1111 San Gabriel Dr.|1-425-000-0002|    Michał|Dole| 111 |
+|  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
-W pierwszym wierszu powyżej dane dla klucza wiersza są reprezentowane w sposób pokazany:
+W pierwszym wierszu powyżej dane dla rowkey są reprezentowane w sposób pokazany:
 
-|klucz wiersza|       key|   value|
+|rowkey|       key|   value|
 |------|--------------------|---|
-|  Dole-John-111|adres |1111 Dr. San Gabriel|  
-|  Dole-John-111|phone |1-425-000-0002|  
-|  Dole-John-111|firstName |John|  
-|  Dole-John-111|lastName |Dole (dole)|  
-|  Dole-John-111|socialSecurityNum |111|
+|  Dole-Jan-111|adres |1111 San Gabriel Dr.|  
+|  Dole-Jan-111|phone |1-425-000-0002|  
+|  Dole-Jan-111|firstName |Michał|  
+|  Dole-Jan-111|lastName |Dole|  
+|  Dole-Jan-111|socialSecurityNum |111|
 
-Ten klucz wiersza przechowuje teraz zduplikowaną kopię danych. Należy wziąć pod uwagę rozmiar i liczbę kolumn, które zostaną uwzględnione w kluczu podstawowym, ponieważ ta wartość jest uwzględniana w każdej komórce w podstawowej tabeli HBase.
+Ta rowkey teraz przechowuje zduplikowaną kopię danych. Należy wziąć pod uwagę rozmiar i liczbę kolumn uwzględnionych w kluczu podstawowym, ponieważ ta wartość jest uwzględniana w każdej komórce w źródłowej tabeli HBase.
 
-Ponadto, jeśli klucz podstawowy ma wartości, które są monotonicznie rosnące, należy utworzyć stół z *zasobnikami soli,* aby uniknąć tworzenia hotspotów zapisu - zobacz [Dane partycji](#partition-data).
+Ponadto, jeśli klucz podstawowy ma wartości, które są monotonicznie, należy utworzyć tabelę z *pakietami soli* , aby uniknąć tworzenia hotspotów zapisu — zobacz [dane partycji](#partition-data).
 
-### <a name="column-family-design"></a>Projekt rodziny kolumn
+### <a name="column-family-design"></a>Projektowanie rodziny kolumn
 
 Jeśli niektóre kolumny są dostępne częściej niż inne, należy utworzyć wiele rodzin kolumn, aby oddzielić często używane kolumny od rzadko używanych kolumn.
 
-Ponadto jeśli niektóre kolumny mają tendencję do uzyskiwania dostępu razem, umieść te kolumny w tej samej rodzinie kolumn.
+Ponadto, jeśli pewne kolumny mają być dostępne razem, należy umieścić te kolumny w tej samej rodzinie kolumn.
 
-### <a name="column-design"></a>Projekt kolumny
+### <a name="column-design"></a>Projektowanie kolumn
 
-* Zachowaj kolumny VARCHAR poniżej około 1 MB ze względu na koszty we/wy dużych kolumn. Podczas przetwarzania zapytań HBase materializuje komórki w całości przed wysłaniem ich do klienta, a klient odbiera je w całości przed przekazaniem ich do kodu aplikacji.
-* Przechowuj wartości kolumn przy użyciu kompaktowego formatu, takiego jak protobuf, Avro, msgpack lub BSON. JSON nie jest zalecane, ponieważ jest większy.
-* Należy wziąć pod uwagę kompresji danych przed magazynem, aby zmniejszyć opóźnienia i koszty we/wy.
+* Przechowuj kolumny VARCHAR w obszarze około 1 MB z powodu kosztów we/wy dużych kolumn. Podczas przetwarzania zapytań HBase materializuje komórki w całości przed wysłaniem ich do klienta, a klient otrzymuje je w pełni przed przekazaniem ich do kodu aplikacji.
+* Przechowuj wartości kolumn przy użyciu formatu kompaktowego, takiego jak protobuf, Avro, msgpack lub BSON. KOD JSON nie jest zalecany, ponieważ jest większy.
+* Rozważ kompresję danych przed magazynem, aby zmniejszyć opóźnienia i koszty operacji we/wy.
 
 ### <a name="partition-data"></a>Partycjonowanie danych
 
-Phoenix umożliwia kontrolowanie liczby regionów, w których dane są dystrybuowane, co może znacznie zwiększyć wydajność odczytu/zapisu. Podczas tworzenia tabeli Phoenix można sól lub wstępnie podzielić dane.
+Phoenix pozwala kontrolować liczbę regionów, w których są dystrybuowane dane, co może znacząco zwiększyć wydajność odczytu i zapisu. Podczas tworzenia tabeli w Phoenix można wyciągać lub wstępnie podzielić dane.
 
-Aby sól tabeli podczas tworzenia, należy określić liczbę wiadra soli:
+Aby przeprowadzić solenie tabeli podczas jej tworzenia, określ liczbę zasobników soli:
 
     CREATE TABLE CONTACTS (...) SALT_BUCKETS = 16
 
-To solenie dzieli tabelę wzdłuż wartości kluczy podstawowych, wybierając wartości automatycznie. 
+Ta sól dzieli tabelę na wartości kluczy podstawowych, wybierając wartości automatycznie. 
 
-Aby kontrolować, gdzie występują podziały tabeli, można wstępnie podzielić tabelę, podając wartości zakresu, wzdłuż których występuje podział. Na przykład, aby utworzyć tabelę podzieloną wzdłuż trzech regionów:
+Aby kontrolować miejsce, w którym występuje podział tabeli, można wstępnie podzielić tabelę, podając wartości zakresu, na których występuje podział. Na przykład, aby utworzyć tabelę podzieloną na trzy regiony:
 
     CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
 
 ## <a name="index-design"></a>Projekt indeksu
 
-Indeks Phoenix to tabela bazy danych HBase, która przechowuje kopię niektórych lub wszystkich danych z tabeli indeksowanych. Indeks zwiększa wydajność dla określonych typów zapytań.
+Indeks Phoenix jest tabelą HBase, która przechowuje kopię niektórych lub wszystkich danych z tabeli indeksowanej. Indeks poprawia wydajność dla określonych typów zapytań.
 
-Jeśli zdefiniowano wiele indeksów, a następnie kwerenda tabeli, Phoenix automatycznie wybiera najlepszy indeks dla kwerendy. Indeks podstawowy jest tworzony automatycznie na podstawie wybranych kluczy podstawowych.
+Jeśli zdefiniowano wiele indeksów, a następnie kwerenda tabeli, Phoenix automatycznie wybiera najlepszy indeks zapytania. Indeks podstawowy jest tworzony automatycznie w oparciu o wybrane klucze podstawowe.
 
-W przypadku przewidywanych zapytań można również utworzyć indeksy pomocnicze, określając ich kolumny.
+W przypadku zaplanowanych zapytań można również utworzyć indeksy pomocnicze, określając ich kolumny.
 
 Podczas projektowania indeksów:
 
-* Utwórz tylko potrzebne indeksy.
-* Ogranicz liczbę indeksów w często aktualizowanych tabelach. Aktualizacje tabeli przekładają się na zapisy zarówno do tabeli głównej, jak i tabel indeksu.
+* Należy tworzyć tylko potrzebne indeksy.
+* Ogranicz liczbę indeksów w często aktualizowanych tabelach. Aktualizacje tabeli przekładają się na zapisy zarówno w tabeli głównej, jak i w tabelach indeksów.
 
 ## <a name="create-secondary-indexes"></a>Tworzenie indeksów pomocniczych
 
-Indeksy pomocnicze można poprawić wydajność odczytu, obracając, co byłoby pełne skanowanie tabeli w wyszukiwanie punktów, kosztem miejsca do magazynowania i szybkość zapisu. Indeksy pomocnicze mogą być dodawane lub usuwane po utworzeniu tabeli i nie wymagają zmian w istniejących kwerendach — kwerendy po prostu działają szybciej. W zależności od potrzeb należy rozważyć utworzenie indeksów objętych, indeksy funkcjonalne lub obu.
+Indeksy pomocnicze mogą zwiększyć wydajność odczytu przez włączenie pełnego skanowania tabeli w celu przeszukiwania punktów, koszt miejsca do magazynowania i szybkość zapisywania. Indeksy pomocnicze mogą być dodawane lub usuwane po utworzeniu tabeli i nie wymagają wprowadzania zmian w istniejących zapytaniach — zapytania działają szybciej. W zależności od potrzeb należy rozważyć utworzenie indeksów pokrytych, indeksów funkcjonalnych lub obu.
 
-### <a name="use-covered-indexes"></a>Używanie indeksów objętych gwarancją
+### <a name="use-covered-indexes"></a>Użyj indeksów uwzględnionych
 
-Indeksy objęte są indeksy, które zawierają dane z wiersza oprócz wartości, które są indeksowane. Po znalezieniu żądanego wpisu indeksu nie ma potrzeby uzyskiwania dostępu do tabeli podstawowej.
+Indeksy objęte usługą są indeksami, które zawierają dane z wiersza oprócz wartości, które są indeksowane. Po znalezieniu żądanego wpisu indeksu nie ma potrzeby uzyskiwania dostępu do tabeli podstawowej.
 
-Na przykład w przykładowej tabeli kontaktów można utworzyć indeks pomocniczy tylko w kolumnie socialSecurityNum. Ten indeks pomocniczy przyspieszy kwerendy, które filtrują według wartości socialSecurityNum, ale pobieranie innych wartości pól będzie wymagało innego odczytu względem tabeli głównej.
+Przykładowo w przykładowej tabeli kontaktów można utworzyć indeks pomocniczy tylko dla kolumny socialSecurityNum. Ten indeks pomocniczy przyspieszy zapytania, które są filtrowane według wartości socialSecurityNum, ale pobieranie innych wartości pól wymaga innego odczytania względem głównej tabeli.
 
-|klucz wiersza|       adres|   phone| firstName| lastName| socialSecurityNum |
+|rowkey|       adres|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 Dr. San Gabriel|1-425-000-0002|    John|Dole (dole)| 111 |
-|  Raji-Calvin-222|5415 Dr. San Gabriel|1-230-555-0191|  Calvin|Raji| 222 |
+|  Dole-Jan-111|1111 San Gabriel Dr.|1-425-000-0002|    Michał|Dole| 111 |
+|  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
-Jednak jeśli zazwyczaj chcesz wyszukać imię i lastName biorąc pod uwagę socialSecurityNum, można utworzyć indeks objęte, który zawiera firstName i lastName jako rzeczywiste dane w tabeli indeksu:
+Jeśli jednak zazwyczaj chcesz wyszukać imię i nazwisko socialSecurityNum, możesz utworzyć indeks pokryty, który zawiera imię i nazwisko, jako rzeczywiste dane w tabeli indeksów:
 
     CREATE INDEX ssn_idx ON CONTACTS (socialSecurityNum) INCLUDE(firstName, lastName);
 
-Ten objęty indeks umożliwia następujące zapytanie do uzyskania wszystkich danych tylko przez odczyt z tabeli zawierającej indeks pomocniczy:
+Ten indeks objęty usługą umożliwia pozyskanie wszystkich danych z tabeli zawierającej indeks pomocniczy przy użyciu następującej kwerendy:
 
     SELECT socialSecurityNum, firstName, lastName FROM CONTACTS WHERE socialSecurityNum > 100;
 
 ### <a name="use-functional-indexes"></a>Używanie indeksów funkcjonalnych
 
-Indeksy funkcjonalne umożliwiają utworzenie indeksu dla dowolnego wyrażenia, które ma być używane w kwerendach. Gdy masz indeks funkcjonalny w miejscu i kwerendy używa tego wyrażenia, indeks może służyć do pobierania wyników, a nie tabeli danych.
+Indeksy funkcjonalne umożliwiają utworzenie indeksu dla dowolnego wyrażenia, które ma być używane w zapytaniach. Gdy masz indeks funkcjonalny, a zapytanie używa tego wyrażenia, indeks może być używany do pobierania wyników, a nie tabeli danych.
 
-Na przykład można utworzyć indeks, aby umożliwić wyszukiwanie bez uwzględniania wielkości liter na połączone imię i nazwisko osoby:
+Można na przykład utworzyć indeks, aby zezwolić na wyszukiwanie bez uwzględniania wielkości liter w połączeniu z imię i nazwisko osoby:
 
      CREATE INDEX FULLNAME_UPPER_IDX ON "Contacts" (UPPER("firstName"||' '||"lastName"));
 
-## <a name="query-design"></a>Projekt kwerendy
+## <a name="query-design"></a>Projekt zapytania
 
-Główne zagadnienia w projekcie kwerendy to:
+Główne zagadnienia dotyczące projektowania zapytań to:
 
-* Zrozumieć plan kwerend i zweryfikować jego oczekiwane zachowanie.
-* Dołącz wydajnie.
+* Zapoznaj się z planem zapytania i sprawdź jego oczekiwane zachowanie.
+* Wydajnie Dołącz.
 
-### <a name="understand-the-query-plan"></a>Opis planu kwerend
+### <a name="understand-the-query-plan"></a>Opis planu zapytania
 
-W [programie SQLLine](http://sqlline.sourceforge.net/)użyj funkcji WYJAŚNIJ, a następnie kwerendy SQL, aby wyświetlić plan operacji, które phoenix będzie wykonywać. Sprawdź, czy plan:
+W elemencie [SqlLine](http://sqlline.sourceforge.net/)Użyj wyjaśnień i zapytania SQL, aby wyświetlić plan operacji wykonywanych przez Phoenix. Sprawdź, czy plan:
 
 * W razie potrzeby używa klucza podstawowego.
 * Używa odpowiednich indeksów pomocniczych, a nie tabeli danych.
-* Używa skanowania zakresu lub pomijania skanowania, gdy tylko jest to możliwe, a nie skanowania tabeli.
+* Używa skanowania zakresu lub POMIJAj skanowanie wszędzie tam, gdzie to możliwe, a nie na SKANOWAniu tabeli.
 
 #### <a name="plan-examples"></a>Przykłady planu
 
-Na przykład załóżmy, że masz tabelę o nazwie FLIGHTS, która przechowuje informacje o opóźnieniu lotu.
+Załóżmy na przykład, że masz tabelę o nazwie loty, która przechowuje informacje o opóźnieniu lotów.
 
-Aby wybrać wszystkie loty z `19805`samolotem linii lotniczych , gdzie airlineid jest polem, które nie znajduje się w kluczu podstawowym lub w dowolnym indeksie:
+Aby wybrać wszystkie loty z airlineid `19805`, gdzie airlineid to pole, które nie znajduje się w kluczu podstawowym lub w dowolnym indeksie:
 
     select * from "FLIGHTS" where airlineid = '19805';
 
-Uruchom polecenie explain w następujący sposób:
+Uruchom polecenie Wyjaśnij w następujący sposób:
 
     explain select * from "FLIGHTS" where airlineid = '19805';
 
-Plan kwerend wygląda następująco:
+Plan zapytania wygląda następująco:
 
     CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN FULL SCAN OVER FLIGHTS
         SERVER FILTER BY AIRLINEID = '19805'
 
-W tym planie zanotuj frazę FULL SCAN OVER FLIGHTS. Ta fraza wskazuje, że wykonanie wykonuje skanowanie tabeli we wszystkich wierszach w tabeli, a nie przy użyciu bardziej wydajnej opcji SKANOWANIA zakresu lub POMIJANIA SKANOWANIA.
+W tym planie należy zwrócić uwagę na pełne skanowanie fraz za pośrednictwem lotów. Ta fraza wskazuje, że wykonanie przeskanuje tabelę nad wszystkimi wierszami w tabeli, zamiast korzystać z bardziej wydajnego skanowania zakresu lub opcji skanowania.
 
-Teraz, powiedzmy, że chcesz zapytać o loty w dniu `AA` 2 stycznia 2014 dla przewoźnika, gdzie jego flightnum był większy niż 1. Załóżmy, że kolumny rok, miesiąc, miesiąc, przewoźnik i flightnum istnieją w tabeli przykładowej i są częścią złożonego klucza podstawowego. Kwerenda będzie wyglądać w następujący sposób:
+Teraz Załóżmy, że chcesz wykonać zapytanie dotyczące lotów 2 stycznia 2014 dla przewoźnika `AA` , gdzie jego flightnum była większa niż 1. Załóżmy, że kolumny Year, month, dayOfMonth, Key i flightnum istnieją w przykładowej tabeli i są częścią złożonego klucza podstawowego. Zapytanie będzie wyglądać następująco:
 
     select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
 
-Przeanalizujmy plan dla tej kwerendy za pomocą:
+Sprawdźmy plan dla tego zapytania przy użyciu:
 
     explain select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
 
-Powstały plan jest:
+Plan wynikający z tego:
 
     CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
 
-Wartości w nawiasach kwadratowych są zakresem wartości dla kluczy podstawowych. W takim przypadku wartości zakresu są ustalane z rokiem 2014, miesiącem 1 i miesiącem 2, ale`*`pozwalają na wartości dla flightnum, zaczynając od 2 i na górze ( ). Ten plan kwerend potwierdza, że klucz podstawowy jest używany zgodnie z oczekiwaniami.
+Wartości w nawiasach kwadratowych są zakresem wartości kluczy podstawowych. W takim przypadku wartości zakresu są stałe z rokiem 2014, month 1 i dayOfMonth 2, ale zezwalają na wartości flightnum, zaczynając od 2 i w górę (`*`). Ten plan zapytania potwierdza, że klucz podstawowy jest używany zgodnie z oczekiwaniami.
 
-Następnie utwórz indeks w tabeli LOTY o nazwie, `carrier2_idx` która znajduje się tylko w polu przewoźnika. Indeks ten obejmuje również flightdate, tailnum, origin i flightnum jako objęte kolumny, których dane są również przechowywane w indeksie.
+Następnie utwórz indeks w tabeli loty o nazwie `carrier2_idx` , która znajduje się tylko w polu przewoźnik. Ten indeks zawiera także flightdate, tailnum, Origin i flightnum jako kolumny omówione, których dane są również przechowywane w indeksie.
 
     CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
 
-Załóżmy, że chcesz uzyskać przewoźnika wraz z flightdate i tailnum, jak w poniższej kwerendzie:
+Załóżmy, że chcesz uzyskać przewoźnika wraz z flightdate i tailnum, tak jak w poniższym zapytaniu:
 
     explain select carrier,flightdate,tailnum from "FLIGHTS" where carrier = 'AA';
 
-Powinien zostać wyświetlony ten indeks używany:
+Powinien zostać wyświetlony następujący indeks:
 
     CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER CARRIER2_IDX ['AA']
 
-Aby uzyskać pełną listę elementów, które mogą pojawić się w wynikach planu wyjaśnienia, zobacz sekcję Wyjaśnij plany w [Przewodniku dostrajania Apache Phoenix](https://phoenix.apache.org/tuning_guide.html).
+Aby zapoznać się z pełną listą elementów, które mogą pojawić się w wynikach planu wyjaśnień, zobacz sekcję "wyjaśnienia planów" w [przewodniku dostrajania Apache Phoenix](https://phoenix.apache.org/tuning_guide.html).
 
-### <a name="join-efficiently"></a>Efektywne dołączanie
+### <a name="join-efficiently"></a>Wydajne przyłączanie
 
-Ogólnie rzecz biorąc, chcesz uniknąć sprzężenia, chyba że jedna strona jest mała, szczególnie w przypadku częstych zapytań.
+Ogólnie rzecz biorąc, chcesz uniknąć sprzężeń, chyba że jedna strona jest mała, szczególnie w przypadku częstych zapytań.
 
-Jeśli to konieczne, można wykonać `/*+ USE_SORT_MERGE_JOIN */` duże sprzężenia z podpowiedzią, ale duże sprzężenie jest kosztowną operacją na ogromną liczbę wierszy. Jeśli ogólny rozmiar wszystkich tabel po prawej stronie przekracza dostępnej `/*+ NO_STAR_JOIN */` pamięci, użyj wskazówki.
+W razie potrzeby można wykonywać duże sprzężenia ze `/*+ USE_SORT_MERGE_JOIN */` wskazówką, ale duże sprzężenie jest kosztowną operacją w porównaniu z ogromną liczbą wierszy. Jeśli całkowity rozmiar wszystkich tabel po prawej stronie przekroczy dostępną pamięć, użyj `/*+ NO_STAR_JOIN */` wskazówki.
 
 ## <a name="scenarios"></a>Scenariusze
 
 W poniższych wytycznych opisano niektóre typowe wzorce.
 
-### <a name="read-heavy-workloads"></a>Obciążenia z dużą wysoką łańszeń odczytu
+### <a name="read-heavy-workloads"></a>Obciążenia z dużą ilością odczytu
 
-W przypadku przypadków użycia intensywnie odczytu upewnij się, że używasz indeksów. Ponadto, aby zaoszczędzić obciążenie czasu odczytu, należy rozważyć utworzenie indeksów objętych.
+W przypadku przypadków użycia z dużym obciążeniem upewnij się, że używasz indeksów. Dodatkowo, aby zaoszczędzić czas odczytu, rozważ utworzenie indeksów pokrytych.
 
-### <a name="write-heavy-workloads"></a>Obciążenia związane z zapisami
+### <a name="write-heavy-workloads"></a>Obciążenia o dużych możliwościach zapisu
 
-W przypadku obciążeń o dużej wydajności, w których klucz podstawowy jest monotonicznie zwiększa, należy utworzyć zasobniki soli, aby uniknąć punktów aktywnych zapisu, kosztem ogólnej przepływności odczytu z powodu dodatkowych potrzebnych skanów. Ponadto, korzystając z usługi UPSERT do zapisywania dużej liczby rekordów, należy wyłączyć autoCommit i wy partii rekordy.
+W przypadku obciążeń intensywnie korzystających z zapisu, w których klucz podstawowy jest monotonicznie rosnący, Utwórz zasobniki soli, aby uniknąć konieczności zapisu hotspotów, kosztem ogólnej przepływności odczytu z powodu dodatkowych koniecznych skanowania. Ponadto w przypadku używania UPSERT do zapisywania dużej liczby rekordów należy wyłączyć funkcję automatycznego zatwierdzania i wsadowe rekordy.
 
 ### <a name="bulk-deletes"></a>Usuwanie zbiorcze
 
-Podczas usuwania dużego zestawu danych włącz autoCommit przed wydaniem kwerendy DELETE, aby klient nie musiał zapamiętywać kluczy wierszy dla wszystkich usuniętych wierszy. AutoCommit uniemożliwia klientowi buforowanie wierszy, których dotyczy delete, dzięki czemu Phoenix może usunąć je bezpośrednio na serwerach regionu bez kosztu zwrócenia ich do klienta.
+Podczas usuwania dużego zestawu danych należy włączyć funkcję automatycznego zatwierdzania przed wygenerowaniem zapytania usuwania, aby klient nie musiał pamiętać kluczy wierszy dla wszystkich usuniętych wierszy. Automatyczne zatwierdzanie uniemożliwia klientowi buforowanie wierszy, których dotyczy usunięcie, dzięki czemu w Phoenix można je usunąć bezpośrednio na serwerach regionów bez kosztów powrotu ich do klienta.
 
 ### <a name="immutable-and-append-only"></a>Niezmienne i tylko do dołączania
 
-Jeśli scenariusz sprzyja szybkości zapisu nad integralnością danych, należy rozważyć wyłączenie dziennika zapisu z wyprzedzeniem podczas tworzenia tabel:
+Jeśli Twój Scenariusz preferuje przyspieszenie zapisu przez integralność danych, rozważ wyłączenie zapisu z wyprzedzeniem podczas tworzenia tabel:
 
     CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
 
-Aby uzyskać szczegółowe informacje na temat tej i innych opcji, zobacz [Apache Phoenix Grammar](https://phoenix.apache.org/language/index.html#options).
+Aby uzyskać szczegółowe informacje na temat tego i innych opcji, zobacz [Apache Phoenix gramatyki](https://phoenix.apache.org/language/index.html#options).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Apache Phoenix Tuning Przewodnik](https://phoenix.apache.org/tuning_guide.html)
+* [Przewodnik dostrajania Apache Phoenix](https://phoenix.apache.org/tuning_guide.html)
 * [Indeksy pomocnicze](https://phoenix.apache.org/secondary_indexing.html)

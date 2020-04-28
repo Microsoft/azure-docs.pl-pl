@@ -1,50 +1,50 @@
 ---
 title: Dane osobowe
-description: Dowiedz się, jak zarządzać danymi osobowymi skojarzonymi z operacjami usługi Azure Resource Manager.
+description: Dowiedz się, jak zarządzać danymi osobowymi skojarzonymi z Azure Resource Manager operacjami.
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.openlocfilehash: 22cfc1b6096980f3d10db404a1c4e02f2de355d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75485262"
 ---
-# <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Zarządzanie danymi osobowymi skojarzonymi z usługą Azure Resource Manager
+# <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Zarządzanie danymi osobowymi skojarzonymi z Azure Resource Manager
 
-Aby uniknąć ujawniania poufnych informacji, usuń wszelkie informacje osobiste podane we wdrożeniach, grupach zasobów lub tagach. Usługa Azure Resource Manager udostępnia operacje, które umożliwiają zarządzanie danymi osobistymi, które mogą być podane we wdrożeniach, grupach zasobów lub tagach.
+Aby uniknąć ujawniania poufnych informacji, Usuń wszelkie dane osobowe, które mogą być podane we wdrożeniach, grupach zasobów lub tagach. Azure Resource Manager zawiera operacje umożliwiające zarządzanie danymi osobowymi, które mogą być udostępniane w ramach wdrożeń, grup zasobów lub tagów.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="delete-personal-data-in-deployment-history"></a>Usuwanie danych osobowych w historii wdrażania
+## <a name="delete-personal-data-in-deployment-history"></a>Usuwanie danych osobowych w historii wdrożenia
 
-W przypadku wdrożeń Menedżer zasobów zachowuje wartości parametrów i komunikaty o stanie w historii wdrażania. Te wartości utrzymują się do momentu usunięcia wdrożenia z historii. Aby sprawdzić, czy podano dane osobowe w tych wartościach, wyświetl listę wdrożeń. Jeśli znajdziesz dane osobowe, usuń wdrożenia z historii.
+W przypadku wdrożeń Menedżer zasobów zachowuje wartości parametrów i komunikatów o stanie w historii wdrażania. Te wartości są zachowywane do momentu usunięcia wdrożenia z historii. Aby sprawdzić, czy w tych wartości zostały podane dane osobowe, Wyświetl listę wdrożeń. Jeśli znajdziesz dane osobowe, Usuń wdrożenia z historii.
 
-Aby wyświetlić listę **wdrożeń** w historii, należy użyć:
+Aby wyświetlić listę **wdrożeń** w historii, użyj:
 
 * [Lista według grupy zasobów](/rest/api/resources/deployments/listbyresourcegroup)
 * [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
-* [lista wdrożeń grupy az](/cli/azure/group/deployment#az-group-deployment-list)
+* [AZ Group Deployment list](/cli/azure/group/deployment#az-group-deployment-list)
 
-Aby usunąć **wdrożenia** z historii, należy użyć:
+Aby usunąć **wdrożenia** z historii, użyj:
 
 * [Usuwanie](/rest/api/resources/deployments/delete)
-* [Usuń-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
-* [Usuwanie wdrożenia grupy az](/cli/azure/group/deployment#az-group-deployment-delete)
+* [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
+* [AZ Group Deployment Delete](/cli/azure/group/deployment#az-group-deployment-delete)
 
-## <a name="delete-personal-data-in-resource-group-names"></a>Usuwanie danych osobowych w nazwach grup zasobów
+## <a name="delete-personal-data-in-resource-group-names"></a>Usuń dane osobowe z nazw grup zasobów
 
-Nazwa grupy zasobów będzie się powtarzać do momentu usunięcia grupy zasobów. Aby sprawdzić, czy dane osobowe podane są w nazwach, wyświetl listę grup zasobów. Jeśli znajdziesz dane osobowe, [przenieś zasoby](move-resource-group-and-subscription.md) do nowej grupy zasobów i usuń grupę zasobów z danymi osobowymi w nazwie.
+Nazwa grupy zasobów będzie trwała do momentu usunięcia grupy zasobów. Aby sprawdzić, czy w nazwach zostały podane dane osobowe, Wyświetl listę grup zasobów. Jeśli znajdziesz dane osobowe, [Przenieś zasoby](move-resource-group-and-subscription.md) do nowej grupy zasobów, a następnie Usuń grupę zasobów z danymi osobowymi w nazwie.
 
-Aby wyświetlić listę **grup zasobów,** należy użyć:
+Aby wyświetlić listę **grup zasobów**, użyj:
 
-* [Listy](/rest/api/resources/resourcegroups/list)
+* [Staw](/rest/api/resources/resourcegroups/list)
 * [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup)
-* [az lista grup](/cli/azure/group#az-group-list)
+* [AZ Group list](/cli/azure/group#az-group-list)
 
-Aby usunąć **grupy zasobów,** użyj:
+Aby usunąć **grupy zasobów**, użyj:
 
 * [Usuwanie](/rest/api/resources/resourcegroups/delete)
 * [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
@@ -52,19 +52,19 @@ Aby usunąć **grupy zasobów,** użyj:
 
 ## <a name="delete-personal-data-in-tags"></a>Usuwanie danych osobowych w tagach
 
-Nazwy znaczników i wartości utrzymują się do momentu usunięcia lub zmodyfikowania znacznika. Aby sprawdzić, czy w tagach podano dane osobowe, wyświetl znaczniki. Jeśli znajdziesz dane osobowe, usuń tagi.
+Tagi i nazwy są zachowywane do momentu usunięcia lub zmodyfikowania znacznika. Aby sprawdzić, czy w tagach zostały podane dane osobowe, Wyświetl Tagi. Jeśli znajdziesz dane osobowe, Usuń Tagi.
 
-Aby wyświetlić **znaczniki,** użyj:
+Aby wyświetlić listę **tagów**, użyj:
 
-* [Listy](/rest/api/resources/tags/list)
-* [Get-AzTag (Get-AzTag)](/powershell/module/az.resources/Get-AzTag)
-* [az lista znaczników](/cli/azure/tag#az-tag-list)
+* [Staw](/rest/api/resources/tags/list)
+* [Get-AzTag](/powershell/module/az.resources/Get-AzTag)
+* [AZ tag list](/cli/azure/tag#az-tag-list)
 
-Aby usunąć **znaczniki,** użyj:
+Aby usunąć **Tagi**, użyj:
 
 * [Usuwanie](/rest/api/resources/tags/delete)
-* [Usuń-AzTag](/powershell/module/az.resources/Remove-AzTag)
-* [az tag delete az tag delete az](/cli/azure/tag#az-tag-delete)
+* [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
+* [Wyczyść tag Delete](/cli/azure/tag#az-tag-delete)
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby zapoznać się z omówieniem usługi Azure Resource Manager, zobacz [Co to jest Menedżer zasobów?](overview.md)
+* Aby zapoznać się z omówieniem Azure Resource Manager, zobacz [co to jest Menedżer zasobów?](overview.md)

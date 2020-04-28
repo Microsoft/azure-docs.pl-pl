@@ -1,29 +1,29 @@
 ---
-title: Zarządzanie zasobami — azure powershell
-description: Zarządzanie zasobami za pomocą programu Azure PowerShell i usługi Azure Resource Manager. Pokazuje, jak wdrażać i usuwać zasoby.
+title: Zarządzanie zasobami — Azure PowerShell
+description: Użyj Azure PowerShell i Azure Resource Manager do zarządzania zasobami. Pokazuje, jak wdrażać i usuwać zasoby.
 author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: de6f24ea66ef41b5ee4bfdda5948de9639f10a51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75485405"
 ---
-# <a name="manage-azure-resources-by-using-azure-powershell"></a>Zarządzanie zasobami platformy Azure przy użyciu programu Azure PowerShell
+# <a name="manage-azure-resources-by-using-azure-powershell"></a>Zarządzanie zasobami platformy Azure przy użyciu Azure PowerShell
 
-Dowiedz się, jak zarządzać zasobami platformy Azure w usłudze Azure PowerShell za [pomocą usługi Azure Resource Manager.](overview.md) Aby zarządzać grupami zasobów, zobacz [Zarządzanie grupami zasobów platformy Azure przy użyciu programu Azure PowerShell](manage-resource-groups-powershell.md).
+Dowiedz się, jak używać usługi Azure PowerShell z [Azure Resource Manager](overview.md) do zarządzania zasobami platformy Azure. Aby zarządzać grupami zasobów, zobacz [Zarządzanie grupami zasobów platformy Azure przy użyciu Azure PowerShell](manage-resource-groups-powershell.md).
 
-Inne artykuły na temat zarządzania zasobami:
+Inne artykuły dotyczące zarządzania zasobami:
 
-- [Zarządzanie zasobami platformy Azure przy użyciu witryny Azure portal](manage-resources-portal.md)
+- [Zarządzanie zasobami platformy Azure przy użyciu Azure Portal](manage-resources-portal.md)
 - [Zarządzanie zasobami platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](manage-resources-cli.md)
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>Wdrażanie zasobów w istniejącej grupie zasobów
 
-Zasoby platformy Azure można wdrożyć bezpośrednio przy użyciu programu Azure PowerShell lub wdrożyć szablon Usługi Resource Manager w celu utworzenia zasobów platformy Azure.
+Zasoby platformy Azure można wdrażać bezpośrednio przy użyciu Azure PowerShell lub wdrożyć szablon Menedżer zasobów w celu utworzenia zasobów platformy Azure.
 
 ### <a name="deploy-a-resource"></a>Wdrażanie zasobu
 
@@ -46,7 +46,7 @@ $ctx = $storageAccount.Context
 
 ### <a name="deploy-a-template"></a>Wdrażanie szablonu
 
-Poniższy skrypt tworzy wdrożenie szablonu przewodnika Szybki start w celu utworzenia konta magazynu. Aby uzyskać więcej informacji, zobacz [Szybki start: Tworzenie szablonów usługi Azure Resource Manager przy użyciu programu Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+Poniższy skrypt tworzy szablon szybkiego startu, aby utworzyć konto magazynu. Aby uzyskać więcej informacji, zobacz [Szybki Start: tworzenie Azure Resource Manager szablonów przy użyciu Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -55,7 +55,7 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templat
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -Location $location
 ```
 
-Aby uzyskać więcej informacji, zobacz [Wdrażanie zasobów za pomocą szablonów Usługi Resource Manager i programu Azure PowerShell](../templates/deploy-powershell.md).
+Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Azure PowerShell](../templates/deploy-powershell.md).
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Wdrażanie grupy zasobów i zasobów
 
@@ -63,11 +63,11 @@ Można utworzyć grupę zasobów i wdrożyć zasoby w grupie. Aby uzyskać więc
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Wdrażanie zasobów w wielu subskrypcjach lub grupach zasobów
 
-Zazwyczaj wszystkie zasoby w szablonie można wdrożyć w jednej grupie zasobów. Istnieją jednak scenariusze, w których chcesz wdrożyć zestaw zasobów razem, ale umieścić je w różnych grupach zasobów lub subskrypcji. Aby uzyskać więcej informacji, zobacz [Wdrażanie zasobów platformy Azure w wielu subskrypcjach lub grupach zasobów](../templates/cross-resource-group-deployment.md).
+Zwykle wszystkie zasoby w szablonie są wdrażane w jednej grupie zasobów. Istnieją jednak scenariusze, w których należy wspólnie wdrożyć zestaw zasobów, ale umieścić je w różnych grupach zasobów lub subskrypcjach. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w wielu subskrypcjach lub grupach zasobów](../templates/cross-resource-group-deployment.md).
 
 ## <a name="delete-resources"></a>Usuwanie zasobów
 
-W poniższym skrypcie pokazano, jak usunąć konto magazynu.
+Poniższy skrypt pokazuje, jak usunąć konto magazynu.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -76,11 +76,11 @@ $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 Remove-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName
 ```
 
-Aby uzyskać więcej informacji o tym, jak usługa Azure Resource Manager zamawia usuwanie zasobów, zobacz [Usuwanie grupy zasobów usługi Azure Resource Manager](delete-resource-group.md).
+Aby uzyskać więcej informacji na temat sposobu, w jaki Azure Resource Manager kolejności usuwania zasobów, zobacz [Azure Resource Manager Usuwanie grupy zasobów](delete-resource-group.md).
 
 ## <a name="move-resources"></a>Przenoszenie zasobów
 
-W poniższym skrypcie pokazano, jak usunąć konto magazynu z jednej grupy zasobów do innej grupy zasobów.
+Poniższy skrypt pokazuje, jak usunąć konto magazynu z jednej grupy zasobów do innej grupy zasobów.
 
 ```azurepowershell-interactive
 $srcResourceGroupName = Read-Host -Prompt "Enter the source Resource Group name"
@@ -95,7 +95,7 @@ Aby uzyskać więcej informacji, zobacz [Move resources to new resource group or
 
 ## <a name="lock-resources"></a>Blokowanie zasobów
 
-Blokowanie uniemożliwia innym użytkownikom w organizacji przypadkowe usunięcie lub zmodyfikowanie krytycznych zasobów, takich jak subskrypcja platformy Azure, grupa zasobów lub zasób. 
+Blokowanie uniemożliwia innym użytkownikom w organizacji przypadkowe usuwanie lub modyfikowanie krytycznych zasobów, takich jak subskrypcja platformy Azure, Grupa zasobów lub zasób. 
 
 Poniższy skrypt blokuje konto magazynu, aby nie można było usunąć konta.
 
@@ -129,15 +129,15 @@ Aby uzyskać więcej informacji, zobacz [Lock resources with Azure Resource Mana
 
 ## <a name="tag-resources"></a>Tagowanie zasobów
 
-Oznaczanie pomaga logicznie organizować grupę zasobów i zasoby. Aby uzyskać więcej informacji, zobacz [Organizowanie zasobów platformy Azure za pomocą tagów](tag-resources.md#powershell).
+Tagowanie pomaga w logicznym organizowaniu grupy zasobów i zasobów. Aby uzyskać więcej informacji, zobacz [Używanie tagów do organizowania zasobów platformy Azure](tag-resources.md#powershell).
 
 ## <a name="manage-access-to-resources"></a>Zarządzanie dostępem do zasobów
 
-[Kontrola dostępu oparta na rolach (RBAC)](../../role-based-access-control/overview.md) to sposób zarządzania dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem przy użyciu funkcji RBAC i programu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+[Kontrola dostępu oparta na rolach (RBAC)](../../role-based-access-control/overview.md) umożliwia zarządzanie dostępem do zasobów na platformie Azure. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem przy użyciu RBAC i Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o usłudze Azure Resource Manager, zobacz [Omówienie usługi Azure Resource Manager](overview.md).
-- Aby poznać składnię szablonu Menedżera zasobów, zobacz [Opis struktury i składni szablonów usługi Azure Resource Manager](../templates/template-syntax.md).
-- Aby dowiedzieć się, jak tworzyć szablony, zobacz [samouczki krok po kroku](/azure/azure-resource-manager/).
-- Aby wyświetlić schematy szablonów usługi Azure Resource Manager, zobacz [odwołanie do szablonu](/azure/templates/).
+- Aby dowiedzieć się Azure Resource Manager, zobacz [Omówienie usługi Azure Resource Manager](overview.md).
+- Aby poznać składnię szablonu Menedżer zasobów, zobacz [Opis struktury i składni Azure Resource Manager szablonów](../templates/template-syntax.md).
+- Aby dowiedzieć się, jak opracowywać szablony, zobacz [Samouczki krok po kroku](/azure/azure-resource-manager/).
+- Aby wyświetlić Azure Resource Manager Schematy szablonów, zobacz [Dokumentacja szablonu](/azure/templates/).

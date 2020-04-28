@@ -1,6 +1,6 @@
 ---
-title: Często zadawane pytania dotyczące ochrony tożsamości w usłudze Azure Active Directory
-description: Często zadawane pytania Dotyczące usługi Azure AD Identity Protection
+title: Często zadawane pytania dotyczące ochrony tożsamości w programie Azure Active Directory
+description: Często zadawane pytania Azure AD Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -12,90 +12,90 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75443574"
 ---
-# <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Często zadawane pytania Ochrona tożsamości w usłudze Azure Active Directory
+# <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Często zadawane pytania dotyczące ochrony tożsamości w programie Azure Active Directory
 
-## <a name="dismiss-user-risk-known-issues"></a>Odrzuć znane problemy związane z ryzykiem użytkownika
+## <a name="dismiss-user-risk-known-issues"></a>Odrzuć znane problemy dotyczące ryzyka związanego z użytkownikiem
 
-**Odrzuć ryzyko użytkownika** w klasycznej ochronie tożsamości ustawia aktora w historii ryzyka użytkownika w usłudze Identity Protection na **platformie Azure AD.**
+**Odrzucanie ryzyka użytkownika** w ramach klasycznej ochrony tożsamości ustawia aktora w historii ryzyka użytkownika w usłudze **Azure AD**.
 
-**Odrzuć ryzyko użytkownika** w ochronie tożsamości ustawia aktora w historii ryzyka użytkownika w ochronie tożsamości na ** \<\>nazwę administratora z hiperłączem wskazującym ostrze użytkownika**.
+**Odrzucanie ryzyka użytkownika** w ramach ochrony tożsamości ustawia aktora w historii ryzyka użytkownika w usłudze Identity Protection na ** \<nazwę administratora z hiperłączem wskazującym na blok\>użytkownika**.
 
-Istnieje bieżący znany problem powodujący opóźnienie w przepływie zwolnienia ryzyka użytkownika. Jeśli masz "Zasady dotyczące ryzyka użytkownika", ta zasada przestanie obowiązywać do zwolnionych użytkowników w ciągu kilku minut od kliknięcia przycisku "Odrzuć ryzyko użytkownika". Istnieją jednak znane opóźnienia z UX odświeżając "Stan ryzyka" zwolnionych użytkowników. Aby obejść ten problem, odśwież stronę na poziomie przeglądarki, aby wyświetlić najnowszy użytkownik "Stan ryzyka".
+Istnieje obecnie znany problem powodujący opóźnienie w przepływie nieprzerwanego ryzyka dla użytkownika. Jeśli masz "zasady ryzyka dla użytkowników", te zasady przestaną być stosowane do odrzuconych użytkowników w ciągu kilku minut od kliknięcia pozycji "Odrzuć ryzyko użytkownika". Istnieją jednak znane opóźnienia w przypadku, gdy środowisko użytkownika odświeża "stan ryzyka" odrzuconych użytkowników. Aby obejść ten element, należy odświeżyć stronę na poziomie przeglądarki, aby zobaczyć najnowszego stanu zagrożenia użytkownika.
 
 ## <a name="risky-users-report-known-issues"></a>Ryzykowni użytkownicy zgłaszają znane problemy
 
-W kwerendach w polu **nazwy użytkownika** rozróżniana jest wielkość liter, podczas gdy w kwerendach w polu **Nazwa** wielkość liter jest niezależna od wielkości liter.
+W zapytaniach w polu Nazwa **użytkownika** jest rozróżniana wielkość liter, podczas gdy zapytania w polu **Nazwa** to Case-niezależny od.
 
-Przełączanie **Pokaż daty jako** ukrywa **ryzyko ostatnia aktualizacja** kolumny. Aby odczytać kolumnę, kliknij **kolumny** w górnej części bloku Użytkownicy ryzykowni.
+Przełączenie **Pokaż daty jako** Ukrycie kolumny **Ostatnia aktualizacja ryzyka** . Aby odczytać kolumnę, kliknij **kolumny** w górnej części bloku ryzykownych użytkowników.
 
-**Odrzuć wszystkie zdarzenia** w klasycznej ochronie tożsamości ustawia stan wykrywania ryzyka na **Zamknięte (rozwiązane)**.
+**Odrzuć wszystkie zdarzenia** z klasycznej ochrony tożsamości ustawia stan wykrycia ryzyka **zamknięte (rozwiązane)**.
 
-## <a name="risky-sign-ins-report-known-issues"></a>Ryzykowne logowania zgłaszają znane problemy
+## <a name="risky-sign-ins-report-known-issues"></a>Ryzykowne logowania zgłaszają problemy
 
-**Rozwiązanie** w sprawie wykrywania ryzyka ustawia stan **Użytkownicy przekazywany mfa napędzany przez zasady oparte na ryzyku**.
+**Rozwiązywanie problemów** związanych z wykrywaniem ryzyka ustawia stan na **użytkowników, którzy przechodzą przez zasady oparte na ryzyku**.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-### <a name="why-is-a-user-is-at-risk"></a>Dlaczego użytkownik jest zagrożony?
+### <a name="why-is-a-user-is-at-risk"></a>Dlaczego użytkownik jest narażony na ryzyko?
 
-Jeśli jesteś klientem usługi Azure AD Identity Protection, przejdź do [widoku użytkowników ryzykownych](howto-identity-protection-investigate-risk.md#risky-users) i kliknij na użytkownika zagrożonego. W szufladzie u dołu zakładka "Historia ryzyka" wyświetli wszystkie zdarzenia, które doprowadziły do zmiany ryzyka użytkownika. Aby wyświetlić wszystkie ryzykowne logowania użytkownika, kliknij "Ryzykowne logowania użytkownika". Aby wyświetlić wszystkie wykrywanie ryzyka dla tego użytkownika, kliknij "Wykrywanie ryzyka użytkownika".
+Jeśli jesteś klientem Azure AD Identity Protection, przejdź do widoku [ryzykowne użytkownicy](howto-identity-protection-investigate-risk.md#risky-users) i kliknij użytkownika o podwyższonym ryzyku. W szufladzie na dole karta "Historia ryzyka" będzie zawierać wszystkie zdarzenia, które doprowadziły do zmiany ryzyka użytkownika. Aby wyświetlić wszystkie ryzykowne logowania dla użytkownika, kliknij pozycję ryzykowne logowania użytkownika. Aby wyświetlić wszystkie wykrycia ryzyka dla tego użytkownika, kliknij pozycję wykrycia ryzyka użytkownika.
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Jak mogę uzyskać raport wykrywania określonego typu?
 
-Przejdź do widoku i filtrowania wykrywania ryzyka według "Typu wykrywania". Następnie można pobrać ten raport w pliku . CSV lub . JSON za pomocą przycisku **Pobierz** u góry. Aby uzyskać więcej informacji, zobacz artykuł [Jak: Badanie ryzyka](howto-identity-protection-investigate-risk.md#risk-detections).
+Przejdź do widoku wykrywania ryzyka i przefiltruj według typu wykrywania. Następnie można pobrać ten raport z programu. Wolumin CSV lub. Format JSON przy użyciu przycisku **Pobierz** znajdującego się u góry. Aby uzyskać więcej informacji, zobacz artykuł [How to: badanie ryzyka](howto-identity-protection-investigate-risk.md#risk-detections).
 
 ### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>Dlaczego nie mogę ustawić własnych poziomów ryzyka dla każdego wykrywania ryzyka?
 
-Poziomy ryzyka w ochronie tożsamości są oparte na precyzji wykrywania i są obsługiwane przez nasze nadzorowane uczenie maszynowe. Aby dostosować środowisko, jakie użytkownicy są prezentowane, administrator może uwzględnić/wykluczyć niektórych użytkowników /grup z zasad ryzyka ryzyka użytkownika i logowania.
+Poziomy ryzyka związane z ochroną tożsamości są oparte na dokładności wykrywania i obsługiwane przez naszą nadzorowany Uczenie maszynowe. Aby dostosować środowisko, które są prezentowane użytkownikom, administrator może uwzględnić/wykluczyć niektórych użytkowników/grupy z zasad ryzyka użytkownika i logowania.
 
-### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Dlaczego lokalizacja logowania nie jest zgodna z miejscem, z którego użytkownik naprawdę się zalogował?
+### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Dlaczego lokalizacja logowania jest niezgodna z miejscem, w którym użytkownik rzeczywiście się zalogował?
 
-Mapowanie geolokalizacji IP jest wyzwaniem dla całej branży. Jeśli uważasz, że lokalizacja wymieniona w raporcie logowania nie jest zgodna z rzeczywistą lokalizacją, skontaktuj się z pomocą techniczną firmy Microsoft. 
+Mapowanie geolokalizacji IP jest wyzwaniem obejmującym cały branżę. Jeśli uważasz, że lokalizacja wymieniona w raporcie logowania nie jest zgodna z rzeczywistą lokalizacją, skontaktuj się z pomocą techniczną firmy Microsoft. 
 
-### <a name="how-can-i-close-specific-risk-detections-like-i-did-in-the-old-ui"></a>Jak mogę zamknąć konkretne wykrywanie ryzyka, tak jak w starym interfejsie użytkownika?
+### <a name="how-can-i-close-specific-risk-detections-like-i-did-in-the-old-ui"></a>Jak mogę zamknąć określone wykrycia ryzyka, jak w starym interfejsie użytkownika?
 
-Możesz przekazać opinię na temat wykrywania ryzyka, potwierdzając połączone logowanie jako zagrożone lub bezpieczne. Informacje zwrotne podane na logowanie spływa do wszystkich wykrywania dokonanego na tym logowanie. Jeśli chcesz zamknąć wykrywania, które nie są połączone z logowania, można podać tę opinię na poziomie użytkownika. Aby uzyskać więcej informacji, zobacz artykuł [Jak: Przekazywanie opinii o ryzyku w usłudze Azure AD Identity Protection](howto-identity-protection-risk-feedback.md).
+Aby przesłać opinię na temat wykrywania ryzyka, można potwierdzić, że zalogowanie zostało naruszone lub bezpieczne. Opinie nadawane na zalogowaniu Trickles się na wszystkie wykrycia związane z tym logowaniem. Jeśli chcesz zamknąć wykrywania, które nie są połączone z logowaniem, możesz podać tę opinię na poziomie użytkownika. Aby uzyskać więcej informacji, zobacz artykuł [jak: wyrażanie opinii o ryzyku w Azure AD Identity Protection](howto-identity-protection-risk-feedback.md).
 
-### <a name="how-far-can-i-go-back-in-time-to-understand-whats-going-on-with-my-user"></a>Jak daleko mogę cofnąć się w czasie, aby zrozumieć, co dzieje się z moim użytkownikiem?
+### <a name="how-far-can-i-go-back-in-time-to-understand-whats-going-on-with-my-user"></a>Jak daleko można wrócić w czasie, aby zrozumieć, co się dzieje z moim użytkownikiem?
 
-- Widok [ryzykownych użytkowników](howto-identity-protection-investigate-risk.md#risky-users) pokazuje, że użytkownik stoi na podstawie wszystkich wcześniejszych logów. 
-- Widok [ryzykownych logów](howto-identity-protection-investigate-risk.md#risky-sign-ins) pokazuje oznaki ryzyka w ciągu ostatnich 30 dni. 
-- Widok [wykrywania ryzyka](howto-identity-protection-investigate-risk.md#risk-detections) pokazuje wykrywanie ryzyka wykonane w ciągu ostatnich 90 dni.
+- Widok [ryzykownych użytkowników](howto-identity-protection-investigate-risk.md#risky-users) przedstawia ryzyko związane z ryzykiem użytkownika w oparciu o wszystkie przeszłe logowania. 
+- W widoku [ryzykownych](howto-identity-protection-investigate-risk.md#risky-sign-ins) logowań w ciągu ostatnich 30 dni są wyświetlane objawy ryzyka. 
+- W widoku [wykrycia ryzyka](howto-identity-protection-investigate-risk.md#risk-detections) są wyświetlane wykrycia ryzyka w ciągu ostatnich 90 dni.
 
-### <a name="how-can-i-learn-more-about-a-specific-detection"></a>Jak mogę dowiedzieć się więcej o konkretnym wykrywaniu?
+### <a name="how-can-i-learn-more-about-a-specific-detection"></a>Jak można dowiedzieć się więcej na temat konkretnego wykrywania?
 
-Wszystkie wykrywanie ryzyka są udokumentowane w artykule [Co to jest ryzyko](concept-identity-protection-risks.md#risk-types-and-detection). Możesz najechać kursorem na symbol (i) obok wykrywania w witrynie Azure portal, aby dowiedzieć się więcej o wykrywaniu.
+Wszystkie wykrycia ryzyka są udokumentowane w artykule [co to jest ryzykowne](concept-identity-protection-risks.md#risk-types-and-detection). Aby dowiedzieć się więcej o wykrywaniu, możesz umieścić wskaźnik myszy nad symbolem (i) obok wykrywania na Azure Portal.
 
-### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Jak działają mechanizmy sprzężenia zwrotnego w ochronie tożsamości?
+### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Jak działają mechanizmy przesyłania opinii w ramach ochrony tożsamości?
 
-**Potwierdź naruszenie** (podczas logowania) — informuje usługę Azure AD Identity Protection, że logowanie nie zostało wykonane przez właściciela tożsamości i wskazuje naruszenie zabezpieczeń.
+**Potwierdź naruszenie zabezpieczeń** (w przypadku logowania) — informuje Azure AD Identity Protection, że logowanie nie zostało wykonane przez właściciela tożsamości i wskazuje na naruszenie zabezpieczeń.
 
-- Po otrzymaniu tej opinii przenosimy stan logowania i ryzyka użytkownika do **potwierdzonego naruszenia** i poziomu ryzyka do **wysokiego.**
+- Po otrzymaniu opinii o stanie zalogować się i zagrożeniu użytkownika w celu **potwierdzenia bezpieczeństwa** i **wysokiego**poziomu ryzyka.
 
-- Ponadto dostarczamy informacje do naszych systemów uczenia maszynowego w celu przyszłych ulepszeń w ocenie ryzyka.
-
-    > [!NOTE]
-    > Jeśli użytkownik został już naprawiony, nie **klikaj przycisku Potwierdź,** ponieważ przenosi stan logowania i ryzyka użytkownika do **potwierdzonego naruszenia zabezpieczeń** i poziomu ryzyka do **wysokiego**.
-
-**Potwierdź bezpieczne** (przy logowaniu) — informuje usługę Azure AD Identity Protection, że logowanie zostało wykonane przez właściciela tożsamości i nie wskazuje naruszenia zabezpieczeń.
-
-- Po otrzymaniu tej opinii przenosimy stan ryzyka logowania (nie użytkownika) do **potwierdzonego bezpieczeństwa,** a poziom ryzyka do **-**.
-
-- Ponadto dostarczamy informacje do naszych systemów uczenia maszynowego w celu przyszłych ulepszeń w ocenie ryzyka.
+- Ponadto firma Microsoft udostępnia informacje o naszych systemach uczenia maszynowego na potrzeby przyszłych ulepszeń oceny ryzyka.
 
     > [!NOTE]
-    > Jeśli uważasz, że użytkownik nie jest zagrożona, należy użyć **odrzucić ryzyko użytkownika** na poziomie użytkownika zamiast przy użyciu **Potwierdzone bezpieczne** na poziomie logowania. A **Odrzuć ryzyko użytkownika** na poziomie użytkownika zamyka ryzyko użytkownika i wszystkie wcześniejsze ryzykowne logowania i wykrywanie ryzyka.
+    > Jeśli użytkownik jest już korygowany, nie klikaj przycisku **Potwierdź złamane zabezpieczenia** , ponieważ przeniesie stan zagrożenia logowania i użytkownika w celu **potwierdzenia** , że poziom zagrożenia został naruszony i podwyższonego poziomu ryzyka na **wysoki**.
 
-### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Dlaczego widzę użytkownika z niskim (lub wyższym) wynikiem ryzyka, nawet jeśli w ucho.
+**Potwierdź bezpieczne** (w przypadku logowania) — informuje Azure AD Identity Protection, że logowanie zostało wykonane przez właściciela tożsamości i nie wskazuje na naruszenie zabezpieczeń.
 
-Biorąc pod uwagę, że ryzyko użytkownika ma charakter kumulatywny i nie wygasa, użytkownik może mieć ryzyko użytkownika niskie lub wyższe, nawet jeśli nie ma ostatnio żadnych ryzykownych logów lub wykrywania ryzyka pokazano w ochronie tożsamości. Taka sytuacja może się zdarzyć, jeśli tylko złośliwe działanie użytkownika miało miejsce poza ramy czasowe, dla których przechowujemy szczegóły ryzykownych logowania i wykrywania ryzyka. Nie wygasamy ryzyko użytkownika, ponieważ złe podmioty były znane pozostać w środowisku klientów ponad 140 dni za zagrożone tożsamości przed rozkręceniem ich ataku. Klienci mogą przejrzeć oś czasu ryzyka użytkownika, aby zrozumieć, dlaczego użytkownik jest zagrożony, przechodząc do:`Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
+- Po otrzymaniu tej opinii przeniesiemy stan ryzyka logowania (nie użytkownika), aby **potwierdzić bezpieczny** i poziom ryzyka do **-**.
 
-### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Dlaczego logowanie ma wynik "ryzyka logowania (agregacji)" wysoki, gdy wykrywania skojarzone z nim są niskiego lub średniego ryzyka?
+- Ponadto firma Microsoft udostępnia informacje o naszych systemach uczenia maszynowego na potrzeby przyszłych ulepszeń oceny ryzyka.
 
-Wynik wysokiego ryzyka zagregowanego może być oparty na innych funkcjach logowania lub na fakcie, że dla tego logowania zostało wystrzelonych więcej niż jedno wykrycie. I odwrotnie, logowanie może mieć ryzyko logowania (agregacja) medium, nawet jeśli wykrywania skojarzone z logowania są wysokiego ryzyka. 
+    > [!NOTE]
+    > Jeśli uważasz, że użytkownik nie zostanie naruszony, użyj opcji **Odrzuć ryzyko** dla użytkownika na poziomie użytkownika, a nie za pomocą **potwierdzonego bezpiecznego** na poziomie logowania. **Ryzyko odrzucania użytkowników** na poziomie użytkownika powoduje zamknięcie ryzyka użytkownika i wszystkich wcześniejszych zagrożeń związanych z logowaniem i wykryciem ryzyka.
+
+### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Dlaczego widzę użytkownika o niskim lub wyższym stopniu ryzyka, nawet jeśli nie są wyświetlane ryzykowne logowania ani wykrycia ryzyka w usłudze Identity Protection?
+
+Ze względu na to, że ryzyko związane z użytkownikiem ma charakter zbiorczy i nie wygasa, użytkownik może mieć ryzyko związane z niską lub wyższą konfiguracją, nawet jeśli nie ma żadnych ostatnich ryzykownych logowań ani wykrytych zagrożeń. Taka sytuacja może wystąpić, jeśli jedyne złośliwe działanie użytkownika miało miejsce poza przedziałem czasu, w którym przechowywane są szczegóły ryzykownych logowań i zagrożeń. Nie wygasa to ryzyka dla użytkowników, ponieważ wiadomo, że złe osoby, które pozostały w środowisku klienta przez 140 dni przed przystąpieniem do naruszenia tożsamości. Klienci mogą przeglądać oś czasu ryzyka użytkownika, aby zrozumieć, dlaczego użytkownik jest narażony na ryzyko:`Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
+
+### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Dlaczego logowanie ma wynik "ryzyko związane z logowaniem (zagregowany)" o wysokim stopniu, gdy powiązane z nim środki wykrywania mają niski lub średniego ryzyka?
+
+Wysoki zagregowany wskaźnik ryzyka może opierać się na innych funkcjach logowania lub w przypadku, gdy wygenerowane jest więcej niż jedno wykrycie dla tego logowania. Z drugiej strony Logowanie może mieć ryzyko związane z logowaniem (zagregowany), nawet jeśli wykrycie skojarzone z logowaniem ma wysokie ryzyko. 

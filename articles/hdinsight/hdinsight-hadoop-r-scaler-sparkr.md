@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z programu ScaleR i SparkR w usłudze Azure HDInsight
-description: Używanie scaler i sparkr do manipulowania danymi i tworzenia modeli za pomocą usług ML w usłudze Azure HDInsight
+title: Używanie skalowania i platformy Spark z usługą Azure HDInsight
+description: Używanie skalowania i platformy Spark na potrzeby manipulowania danymi i tworzenia modeli przy użyciu usług ML w usłudze Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
 ms.openlocfilehash: 5989692aeb59c7394299b4cb2474b244818895b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75500079"
 ---
-# <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Łączenie scaler i sparkr w hdinsight
+# <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Łączenie narzędzi do skalowania i platformy Spark w usłudze HDInsight
 
-W tym dokumencie pokazano, jak przewidzieć opóźnienia przylotu lotu przy użyciu modelu regresji logistycznej **ScaleR.** W przykładzie użyto danych opóźnienia lotu i pogody, przyłączonych za pomocą **programu SparkR**.
+W tym dokumencie przedstawiono sposób przewidywania opóźnień przybycia lotów przy użyciu modelu regresji logistycznej **skalowania** . W przykładzie użyto opóźnień i danych pogody, które są sprzężone przy użyciu **platformy Spark**.
 
-Mimo że oba pakiety są uruchamiane na silniku wykonywania platformy Spark apache Hadoop, są blokowane udostępnianie danych w pamięci, ponieważ każdy z nich wymaga własnych sesji platformy Spark. Dopóki ten problem nie zostanie rozwiązany w nadchodzącej wersji serwera ML, obejście polega na zachowaniu nienakładających się sesji platformy Spark i wymianie danych za pośrednictwem plików pośrednich. Instrukcje tutaj pokazują, że te wymagania są proste do osiągnięcia.
+Mimo że oba pakiety działają w aparacie wykonywania Spark Apache Hadoop, są blokowane z udostępniania danych w pamięci, ponieważ każdy z nich wymaga odpowiednich sesji platformy Spark. Dopóki ten problem nie zostanie rozwiązany w przyszłej wersji ML Server, obejście tego problemu będzie obsługiwać nienakładające się sesje platformy Spark oraz wymieniać dane za pośrednictwem plików pośrednich. Instrukcje te pokazują, że te wymagania są bezpośrednie do osiągnięcia.
 
-Ten przykład został początkowo udostępniony w przemówieniu na Strata 2016 przez Mario Inchiosa i Roni Burd. Możesz znaleźć tę [rozmowę](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop)w Building a Scalable Data Science Platform with R .
+Ten przykład został początkowo udostępniony w porozmawiać o stratach 2016 przez Mario Inchiosa i Roni burd. Możesz to sprawdzić, [tworząc skalowalną platformę do nauki o danych w języku R](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop).
 
-Kod został pierwotnie napisany dla serwera ML uruchomionego na platformie Spark w klastrze USŁUGI HDInsight na platformie Azure. Ale pojęcie mieszania użycia SparkR i ScaleR w jednym skrypcie jest również prawidłowa w kontekście środowisk lokalnych.
+Kod został pierwotnie zapisany dla ML Server działającego w usłudze Spark w klastrze usługi HDInsight na platformie Azure. Jednak pojęcie dotyczące mieszania użycia platformy Spark i skalowania w jednym skrypcie jest również prawidłowe w kontekście środowisk lokalnych.
 
-Kroki w tym dokumencie zakładają, że masz pośredni poziom znajomości języka R i są biblioteki [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) ml serwera. Zostaniesz wprowadzony do [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) podczas przechodzenia przez ten scenariusz.
+W procedurach przedstawionych w tym dokumencie przyjęto założenie, że masz pośredni poziom wiedzy o języku R i jest to biblioteka [skalowania](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) ml Server. W tym scenariuszu nastąpiło wprowadzenie do [platformy Spark](https://spark.apache.org/docs/2.1.0/sparkr.html) .
 
-## <a name="the-airline-and-weather-datasets"></a>Zestawy danych dotyczących linii lotniczych i pogody
+## <a name="the-airline-and-weather-datasets"></a>Zestawy danych linii lotniczych i pogody
 
-Dane lotu są dostępne w [archiwach rządowych USA.](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236) Jest również dostępny jako zip z [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+Dane dotyczące lotu są dostępne z [archiwów rządowych Stanów Zjednoczonych](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Jest on również dostępny jako plik zip z [AirOnTimeCSV. zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Dane pogodowe można pobrać jako pliki zip w postaci surowej, według miesiąca, z [repozytorium National Oceanic and Atmospheric Administration](https://www.ncdc.noaa.gov/orders/qclcd/). W tym przykładzie pobierz dane za maj 2007 – grudzień 2012. Użyj co godzinę plików `YYYYMMMstation.txt` danych i pliku w każdym z zamków.
+Dane o pogodzie mogą być pobierane jako pliki zip w postaci nieprzetworzonej według miesiąca, z [krajowego repozytorium administracji oceanicznej i atmosferycznej](https://www.ncdc.noaa.gov/orders/qclcd/). Na potrzeby tego przykładu Pobierz dane dla maja 2007 – grudzień 2012. Użyj godzinnych plików danych i `YYYYMMMstation.txt` plików w ramach każdego z Zips.
 
 ## <a name="setting-up-the-spark-environment"></a>Konfigurowanie środowiska Spark
 
@@ -80,7 +80,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Następnie dodaj `Spark_Home` do ścieżki wyszukiwania pakietów R. Dodanie go do ścieżki wyszukiwania umożliwia użycie sparkr i zainicjowanie sesji SparkR:
+Następnie Dodaj `Spark_Home` do ścieżki wyszukiwania dla pakietów języka R. Dodanie go do ścieżki wyszukiwania umożliwia korzystanie z programu Spark i Inicjowanie sesji platformy Spark:
 
 ```
 #..setup for use of SparkR  
@@ -101,20 +101,20 @@ sc <- sparkR.init(
 sqlContext <- sparkRSQL.init(sc)
 ```
 
-## <a name="preparing-the-weather-data"></a>Przygotowywanie danych pogodowych
+## <a name="preparing-the-weather-data"></a>Przygotowywanie danych pogody
 
-Aby przygotować dane pogodowe, podstaw go do kolumn potrzebnych do modelowania: 
+Aby przygotować dane pogodowe, podzbiór do kolumn wymaganych do modelowania: 
 
-- "Widoczność"
+- Propagowan
 - "DryBulbCelsius"
 - "DewPointCelsius"
-- "WzględnaOść"
-- "Prędkość wiatru"
-- "Wysokościomierz"
+- "RelativeHumidity"
+- "WindSpeed"
+- "Altimeter"
 
-Następnie dodaj kod lotniska skojarzony ze stacją pogodową i przekonwertuj pomiary z czasu lokalnego na UTC.
+Następnie Dodaj kod lotniska skojarzony z stacją pogody i przekonwertuj miary z czasu lokalnego na UTC.
 
-Rozpocznij od utworzenia pliku, aby zmapować informacje o stacji meteorologicznej (WBAN) na kod lotniska. Poniższy kod odczytuje każdy z godzinnych plików surowych danych pogodowych, podzbiory do kolumn, których potrzebujemy, scala plik mapowania stacji meteorologicznych, dostosowuje daty pomiarów do czasu UTC, a następnie zapisuje nową wersję pliku:
+Zacznij od utworzenia pliku w celu zamapowania informacji o stacji pogody (WBAN) na kod lotniska. Poniższy kod odczytuje wszystkie godziny nieprzetworzonych plików danych pogody, podzestawy do kolumn, których potrzebujemy, Scala plik mapowania stacji pogody, dostosowuje daty pomiarów do czasu UTC, a następnie zapisuje nową wersję pliku:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
@@ -192,9 +192,9 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
            transformObjects = list(wbanToAirIDAndTZDF1 = wbanToAirIDAndTZDF))
 ```
 
-## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importowanie danych linii lotniczych i pogodowych do ram danych platformy Spark
+## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importowanie danych linii lotniczych i pogody do ramek dataframes
 
-Teraz używamy sparkr [read.df()](https://spark.apache.org/docs/latest/api/R/read.df.html) funkcja importowania danych pogody i linii lotniczych do Spark DataFrames. Ta funkcja, podobnie jak wiele innych metod Platformy Spark, jest wykonywana leniwie, co oznacza, że są one w kolejce do wykonania, ale nie są wykonywane, dopóki nie jest wymagane.
+Teraz używamy funkcji Spark [. DF ()](https://spark.apache.org/docs/latest/api/R/read.df.html) do zaimportowania danych pogody i linii lotniczych do ramek dataframes. Ta funkcja, podobnie jak wiele innych metod Spark, jest wykonywana opóźnieniem, co oznacza, że są umieszczane w kolejce do wykonania, ale nie wykonywane do momentu, gdy są wymagane.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -216,9 +216,9 @@ weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv
                      header = "true", inferSchema = "true")
 ```
 
-## <a name="data-cleansing-and-transformation"></a>Oczyszczanie i przekształcanie danych
+## <a name="data-cleansing-and-transformation"></a>Czyszczenie i Przekształcanie danych
 
-Następnie wykonujemy pewne oczyszczanie danych linii lotniczych, które zaimportowaliśmy, aby zmienić nazwę kolumn. Zachowujemy tylko potrzebne zmienne i okrągłe zaplanowane godziny odlotów do najbliższej godziny, aby umożliwić połączenie z najnowszymi danymi pogodowymi przy wyjeździe:
+Następnie wykonamy pewne czynności w odniesieniu do danych linii lotniczych, które zostały zaimportowane, aby zmienić nazwy kolumn. Przechowujemy tylko zmienne, które są konieczne, i zaokrąglić zaplanowane przejściu w dół do najbliższej godziny, aby umożliwić scalanie z najnowszymi danymi pogody przy wyjściu:
 
 ```
 logmsg('clean the airline data') 
@@ -246,7 +246,7 @@ coltypes(airDF) <- c("character", "integer", "integer", "integer", "integer", "c
 airDF$CRSDepTime <- floor(airDF$CRSDepTime / 100)
 ```
 
-Teraz wykonujemy podobne operacje na danych pogodowych:
+Teraz wykonujemy podobne operacje na danych pogody:
 
 ```
 # Average weather readings by hour
@@ -265,9 +265,9 @@ weatherDF <- rename(weatherDF,
 )
 ```
 
-## <a name="joining-the-weather-and-airline-data"></a>Dołączanie do danych pogodowych i lotniczych
+## <a name="joining-the-weather-and-airline-data"></a>Sprzęganie danych pogody i linii lotniczych
 
-Teraz używamy sparkr [join()](https://spark.apache.org/docs/latest/api/R/join.html) funkcji do lewego zewnętrznego połączenia linii lotniczej i danych pogodowych przez odlot AirportID i datetime. Sprzężenie zewnętrzne pozwala nam zachować wszystkie rekordy danych linii lotniczych, nawet jeśli nie ma pasujących danych pogodowych. Po sprzężenie usuwamy niektóre zbędne kolumny i zmieniamy nazwę zachowanych kolumn, aby usunąć przychodzący prefiks DataFrame wprowadzony przez sprzężenie.
+Teraz korzystamy z funkcji [joinobject ()](https://spark.apache.org/docs/latest/api/R/join.html) , aby wykonać lewe sprzężenie zewnętrzne danych linii lotniczych i pogodowych przez wyruszenie AirportID i DateTime. Sprzężenie zewnętrzne pozwala nam zachować wszystkie rekordy danych linii lotniczych nawet wtedy, gdy nie ma żadnych pasujących danych pogody. Po przyłączeniu usuniemy pewne nadmiarowe kolumny i zmienimy nazwy przechowywanych kolumn w celu usunięcia prefiksu przychodzącej ramki danych wprowadzonego przez sprzężenie.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -298,7 +298,7 @@ joinedDF2 <- rename(joinedDF1,
 )
 ```
 
-W podobny sposób dołączamy do danych pogodowych i lotniczych opartych na przylocie AirportID i datetime:
+W podobny sposób dołączymy dane pogodowe i lotnicze w oparciu o AirportID przybycia i datę i godzinę:
 
 ```
 logmsg('Join airline data with weather at Destination Airport')
@@ -329,9 +329,9 @@ joinedDF5 <- rename(joinedDF4,
                     )
 ```
 
-## <a name="save-results-to-csv-for-exchange-with-scaler"></a>Zapisywanie wyników w pliku CSV w celu wymiany z Programem ScaleR
+## <a name="save-results-to-csv-for-exchange-with-scaler"></a>Zapisz wyniki w formacie CSV dla programu Exchange za pomocą narzędzia skalowanie
 
-To kończy sprzężenia musimy zrobić z SparkR. Zapisujemy dane z końcowego elementu Spark DataFrame "joinedDF5" do pliku CSV w celu wprowadzenia do ScaleR, a następnie zamykamy sesję SparkR. Wyraźnie mówimy SparkR, aby zapisać wynikowy CSV w 80 oddzielnych partycjach, aby umożliwić wystarczające równoległości w przetwarzaniu ScaleR:
+Kończy to sprzężenia, które musimy wykonać przy użyciu platformy Spark. Zapisujemy dane z ostatecznej platformy Spark Dataframe "joinedDF5" do pliku CSV, aby uzyskać dane wejściowe do skalowania, a następnie zamknąć sesję platformy Spark. Firma Microsoft jawnie informuje platformę Spark, aby zapisywał wynikowy plik CSV w 80 oddzielnych partycjach w celu zapewnienia wystarczającej równoległości w przetwarzaniu:
 
 ```
 logmsg('output the joined data from Spark to CSV') 
@@ -347,9 +347,9 @@ sparkR.stop()
 rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 ```
 
-## <a name="import-to-xdf-for-use-by-scaler"></a>Importowanie do XDF do użytku przez SkalR
+## <a name="import-to-xdf-for-use-by-scaler"></a>Importuj do XDF do użycia przez program skaler
 
-Możemy użyć pliku CSV połączonych linii lotniczych i danych pogodowych, jak jest do modelowania za pośrednictwem źródła danych tekstowych ScaleR. Ale najpierw importujemy go do XDF, ponieważ jest bardziej wydajny podczas uruchamiania wielu operacji w zestawie danych:
+W przypadku modelowania za pośrednictwem źródła danych tekstowych skalowania możemy użyć pliku CSV z dołączonymi danymi linii lotniczych i pogody. Jednak najpierw importuje go do XDF, ponieważ jest bardziej wydajny podczas uruchamiania wielu operacji na zestawie danych:
 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
@@ -432,9 +432,9 @@ finalData <- RxXdfData(file.path(dataDir, "joined5XDF"), fileSystem = hdfsFS)
 
 ```
 
-## <a name="splitting-data-for-training-and-test"></a>Dzielenie danych do treningu i testowania
+## <a name="splitting-data-for-training-and-test"></a>Dzielenie danych do szkolenia i testowania
 
-Używamy rxDataStep, aby podzielić dane z 2012 r. do testowania i zachować resztę do treningu:
+Korzystamy z rxDataStep, aby podzielić dane 2012 do testowania i zachować resztę do szkoleń:
 
 ```
 # split out the training data
@@ -457,9 +457,9 @@ rxGetInfo(trainDS)
 rxGetInfo(testDS)
 ```
 
-## <a name="train-and-test-a-logistic-regression-model"></a>Szkolenie i testowanie modelu regresji logistycznej
+## <a name="train-and-test-a-logistic-regression-model"></a>Uczenie i testowanie modelu regresji logistycznej
 
-Teraz jesteśmy gotowi zbudować model. Aby zobaczyć wpływ danych pogodowych na opóźnienie w czasie przybycia, używamy procedury regresji logistycznej ScaleR. Używamy go do modelowania, czy opóźnienie przylotu przekraczające 15 minut zależy od pogody na lotniskach odlotów i przylotów:
+Teraz jesteśmy gotowi do skompilowania modelu. Aby zobaczyć wpływ danych pogodowych na opóźnienie w czasie nadejścia, użyjemy procedury regresji logistycznej dla skalowania. Używamy go do modelowania, czy opóźnienie przybycia większe niż 15 minut ma wpływ na Pogoda na lotniskach wyjścia i przybycia:
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -479,7 +479,7 @@ logitModel <- rxLogit(formula, data = trainDS, maxIterations = 3)
 base::summary(logitModel)
 ```
 
-Teraz zobaczmy, jak to robi na danych testowych, dokonując niektórych prognoz i patrząc na ROC i AUC.
+Teraz zobaczmy, jak to robi na danych testowych, wykonując pewne przewidywania i sprawdzając ROC i AUC.
 
 ```
 # Predict over test data (Logistic Regression).
@@ -504,9 +504,9 @@ logitAuc
 plot(logitRoc)
 ```
 
-## <a name="scoring-elsewhere"></a>Punktacja gdzie indziej
+## <a name="scoring-elsewhere"></a>Ocenianie w innym miejscu
 
-Możemy również użyć modelu do oceniania danych na innej platformie. Zapisując go w pliku RDS, a następnie przesyłając i importując ten rds do docelowego środowiska oceniania, takiego jak MIcrosoft SQL Server R Services. Ważne jest, aby upewnić się, że poziomy współczynnika danych, które mają być oceniane, są zgodne z poziomami, na których został zbudowany model. To dopasowanie można osiągnąć przez wyodrębnianie i zapisywanie informacji kolumny skojarzonych z `rxCreateColInfo()` danymi modelowania za pomocą funkcji ScaleR, a następnie stosując te informacje kolumny do źródła danych wejściowych do przewidywania. W poniższej części zapisujemy kilka wierszy testowego zestawu danych i wyodrębniamy i używamy informacji o kolumnie z tego przykładu w skrypcie przewidywania:
+Możemy również użyć modelu do oceniania danych na innej platformie. Zapisanie go do pliku usług pulpitu zdalnego, a następnie przetransferowanie i importowanie tego pulpitu zdalnego do docelowego środowiska oceniania, takiego jak MIcrosoft SQL Server R Services. Ważne jest, aby zapewnić, że poziomy współczynnika danych mają być oceniane jako zgodne z tymi, na których modelu został skompilowany. Takie dopasowanie można osiągnąć poprzez wyodrębnienie i zapisanie informacji o kolumnach skojarzonych z danymi modelowania za pośrednictwem `rxCreateColInfo()` funkcji skalowania, a następnie zastosowanie informacji o tej kolumnie do źródła danych wejściowych w celu przewidywania. W poniższym przykładzie zapiszemy kilka wierszy zestawu danych testowych i wyodrębnisz i użyjesz informacji o kolumnie z tego przykładu w skrypcie przewidywania:
 
 ```
 # save the model and a sample of the test dataset 
@@ -531,16 +531,16 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym artykule pokazano, jak można połączyć użycie sparkr do manipulowania danymi z ScaleR do tworzenia modelu w Platformie Iskrowej Hadoop. W tym scenariuszu wymaga obsługi oddzielnych sesji Platformy Spark, uruchamiania tylko jednej sesji naraz i wymiany danych za pośrednictwem plików CSV. Chociaż ten proces powinien być jeszcze łatwiejszy w nadchodzącej wersji usług ML Services, gdy sparkr i ScaleR mogą udostępniać sesję platformy Spark i udostępniać elementy Spark DataFrames.
+W tym artykule pokazano, jak można połączyć korzystanie z platformy Spark w celu manipulowania danymi za pomocą skalowania w celu rozwoju modelu w usłudze Hadoop Spark. W tym scenariuszu należy zachować oddzielne sesje platformy Spark, uruchamiać tylko jedną sesję i wymieniać dane przy użyciu plików CSV. Chociaż nie jest to proste, ten proces powinien być jeszcze łatwiejszy w przyszłych wydaniach usługi ML, gdy platforma Spark i program do skalowania mogą współużytkować sesję platformy Spark i współużytkować w nim ramki danych Spark.
 
-## <a name="next-steps-and-more-information"></a>Kolejne kroki i więcej informacji
+## <a name="next-steps-and-more-information"></a>Następne kroki i więcej informacji
 
-- Aby uzyskać więcej informacji na temat korzystania z serwera ML w programie Apache Spark, zobacz [Przewodnik Wprowadzenie](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- Aby uzyskać więcej informacji na temat używania ML Server na Apache Spark, zobacz [Przewodnik wprowadzający](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
-- Aby uzyskać informacje na temat usług ML w programie HDInsight, zobacz [Omówienie usług ML w programie HDInsight](r-server/r-server-overview.md).
+- Aby uzyskać informacje dotyczące usługi ML w usłudze HDInsight, zobacz [Omówienie usług w usłudze ml w usłudze HDInsight](r-server/r-server-overview.md).
 
-Aby uzyskać więcej informacji na temat korzystania z SparkR, zobacz:
+Aby uzyskać więcej informacji na temat korzystania z platformy Spark, zobacz:
 
-- [Dokument Apache SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html).
+- [Dokument platformy Apache Spark](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [SparkR Przegląd](https://docs.databricks.com/spark/latest/sparkr/overview.html) z Databricks.
+- [Omówienie platformy Spark](https://docs.databricks.com/spark/latest/sparkr/overview.html) z poziomu kostek.

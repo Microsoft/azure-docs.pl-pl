@@ -1,13 +1,13 @@
 ---
-title: Tworzenie aplikacji kontenera usługi Azure service w systemie Linux
+title: Tworzenie aplikacji kontenera Service Fabric platformy Azure w systemie Linux
 description: Utwórz swoją pierwszą aplikację kontenera systemu Linux w usłudze Azure Service Fabric. Zbuduj obraz Docker za pomocą własnej aplikacji, wypchnij obraz do rejestru kontenerów, skompiluj i wdróż aplikację kontenera usługi Service Fabric.
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457960"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Linux
@@ -18,11 +18,11 @@ ms.locfileid: "75457960"
 Uruchomienie istniejącej aplikacji w kontenerze systemu Linux w klastrze usługi Service Fabric nie wymaga dokonywania żadnych zmian w aplikacji. W tym artykule przedstawiono proces tworzenia obrazu Docker zawierającego aplikację internetową w języku Python na platformie [Flask](http://flask.pocoo.org/) oraz wdrażania go w klastrze usługi Service Fabric. Będziesz również udostępniać aplikację skonteneryzowaną za pomocą usługi [Azure Container Registry](/azure/container-registry/). W tym artykule przyjęto założenie, że masz podstawową wiedzą dotyczącą platformy Docker. Aby uzyskać informacje dotyczące platformy Docker, przeczytaj artykuł [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Przegląd platformy Docker).
 
 > [!NOTE]
-> Ten artykuł dotyczy środowiska programistycznego systemu Linux.  Środowisko uruchomieniowe klastra sieci szkieletowej usług i środowisko uruchomieniowe platformy Docker muszą być uruchomione na tym samym systemie operacyjnym.  Nie można uruchomić kontenerów systemu Linux w klastrze systemu Windows.
+> Ten artykuł ma zastosowanie w środowisku deweloperskim systemu Linux.  Środowisko uruchomieniowe klastra Service Fabric i środowisko uruchomieniowe platformy Docker musi być uruchomione w tym samym systemie operacyjnym.  Nie można uruchomić kontenerów systemu Linux w klastrze z systemem Windows.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Komputer dewelopera z następującym oprogramowaniem:
-  * [Zestaw SDK sieci szkieletowej usług i narzędzia](service-fabric-get-started-linux.md).
+  * [Service Fabric zestaw SDK i narzędzia](service-fabric-get-started-linux.md).
   * [Docker CE dla systemu Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Interfejs wiersza polecenia usługi Service Fabric](service-fabric-cli.md)
 
@@ -113,7 +113,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 Parametr *name* umożliwia nadanie nazwy działającemu kontenerowi (zamiast identyfikatora kontenera).
 
-Nawiąż połączenie z działającym kontenerem. Otwórz przeglądarkę internetową wskazującą adres IP zwrócony na porcie 4000, na przykład "http:\//localhost:4000". W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
+Nawiąż połączenie z działającym kontenerem. Otwórz przeglądarkę internetową, wskazując adres IP zwrócony na porcie 4000, na przykład "http:\//localhost: 4000". W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
 
 ![Hello World!][hello-world]
 
@@ -132,9 +132,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>Wypychanie obrazu do rejestru kontenerów
 Po sprawdzeniu, że aplikacja działa na platformie Docker, wypchnij obraz do rejestru w usłudze Azure Container Registry.
 
-Uruchom, `docker login` aby zalogować się do rejestru kontenerów przy użyciu [poświadczeń rejestru](../container-registry/container-registry-authentication.md).
+Uruchom `docker login` , aby zalogować się do rejestru kontenerów przy użyciu [poświadczeń rejestru](../container-registry/container-registry-authentication.md).
 
-Poniższy przykład przekazuje identyfikator i hasło [nazwy głównej usługi](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory. Na przykład nazwę główną usługi można było przypisać do rejestru dla scenariusza automatyzacji. Możesz też zalogować się przy użyciu nazwy użytkownika i hasła rejestru.
+Poniższy przykład przekazuje identyfikator i hasło [nazwy głównej usługi](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory. Na przykład nazwę główną usługi można było przypisać do rejestru dla scenariusza automatyzacji. Możesz też zalogować się przy użyciu nazwy użytkownika i hasła do rejestru.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -165,16 +165,16 @@ Ponieważ ten obraz ma zdefiniowany punkt wejścia obciążenia, nie musisz jawn
 
 Określ liczbę wystąpień jako „1”.
 
-Określ mapowanie portów w odpowiednim formacie. W tym artykule należy ```80:4000``` podać jako mapowanie portów. W ten sposób skonfigurowano, że wszelkie przychodzące żądania przychodzące do portu 4000 na komputerze-hoście są przekierowywane do portu 80 w kontenerze.
+Określ mapowanie portu w odpowiednim formacie. W tym artykule należy podać ```80:4000``` jako mapowanie portów. W tym celu skonfigurowano, że wszystkie żądania przychodzące kierowane do portu 4000 na komputerze hosta są przekierowywane do portu 80 w kontenerze.
 
 ![Generator Yeoman usługi Service Fabric dla kontenerów][sf-yeoman]
 
 ## <a name="configure-container-repository-authentication"></a>Konfigurowanie uwierzytelniania repozytorium kontenerów
 
-Zobacz [Uwierzytelnianie repozytorium kontenerów,](configure-container-repository-credentials.md)aby dowiedzieć się, jak skonfigurować różne typy uwierzytelniania do pobierania obrazów kontenera.
+Zobacz [uwierzytelnianie repozytorium kontenerów](configure-container-repository-credentials.md), aby dowiedzieć się, jak skonfigurować różne typy uwierzytelniania na potrzeby pobierania obrazów kontenerów.
 
 ## <a name="configure-isolation-mode"></a>Konfigurowanie trybu izolacji
-W wersji środowiska uruchomieniowego 6.3 izolacja maszyny Wirtualnej jest obsługiwana dla kontenerów systemu Linux, a tym samym obsługuje dwa tryby izolacji dla kontenerów: proces i funkcja Hyper-V. W trybie izolacji funkcji Hyper-V jądra są izolowane między każdym kontenerem a hostem kontenera. Izolacja funkcji Hyper-V jest implementowana przy użyciu [clear containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Tryb izolacji jest określony dla klastrów systemu Linux w elemencie `ServicePackageContainerPolicy` w pliku manifestu aplikacji. Tryby izolacji, które można określić, to `process`, `hyperv` i `default`. Domyślnym jest tryb izolacji procesu. Poniższy fragment kodu przedstawia sposób określania trybu izolacji w pliku manifestu aplikacji.
+W przypadku wersji 6,3 środowiska uruchomieniowego izolacja maszyny wirtualnej jest obsługiwana w przypadku kontenerów systemu Linux, w związku z czym obsługa dwóch trybów izolacji dla kontenerów: proces i funkcja Hyper-V. W trybie izolacji funkcji Hyper-V jądra są izolowane między poszczególnymi kontenerami i hostami kontenerów. Izolacja funkcji Hyper-V jest implementowana przy użyciu [czystych kontenerów](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Tryb izolacji jest określony dla klastrów systemu Linux w `ServicePackageContainerPolicy` elemencie w pliku manifestu aplikacji. Tryby izolacji, które można określić, to `process`, `hyperv` i `default`. Wartość domyślna to tryb izolacji procesu. Poniższy fragment kodu przedstawia sposób określania trybu izolacji w pliku manifestu aplikacji.
 
 ```xml
 <ServiceManifestImport>
@@ -208,7 +208,7 @@ W wersji środowiska uruchomieniowego 6.3 izolacja maszyny Wirtualnej jest obsł
 
 Począwszy od wersji 6.1, usługa Service Fabric automatycznie integruje zdarzenia [funkcji HEALTHCHECK platformy Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) z raportem o kondycji systemu. Oznacza to, że jeśli w kontenerze włączono funkcję **HEALTHCHECK**, usługa Service Fabric będzie raportować kondycję przy każdej zmianie stanu kondycji kontenera zgłoszonej przez platformę Docker. Raport kondycji **OK** pojawi się w narzędziu [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), gdy wartość *health_status* będzie równa *healthy*, a raport **OSTRZEŻENIE** pojawi się, gdy wartość *health_status* będzie równa *unhealthy*. 
 
-Począwszy od najnowszej wersji odświeżania wersji 6.4, można określić, że oceny docker HEALTHCHECK powinny być zgłaszane jako błąd. Jeśli ta opcja jest włączona, raport **o** kondycji OK pojawi się, gdy *health_status* jest w *dobrej kondycji,* a **błąd** pojawi się, gdy *health_status* jest *w złej kondycji*.
+Począwszy od najnowszej wersji odświeżania programu v 6.4, można określić, że oceny Docker HEALTHCHECK powinny być zgłaszane jako błąd. Jeśli ta opcja jest włączona, zostanie wyświetlony **Raport kondycji prawidłowy,** gdy *health_status* jest w *dobrej* kondycji i pojawi się **komunikat o błędzie** , gdy *health_status* jest w złej *kondycji*.
 
 Instrukcja **HEALTHCHECK** wskazująca rzeczywisty test wykonywany w celu monitorowania kondycji kontenera musi występować w pliku Dockerfile używanym podczas generowania obrazu kontenera.
 
@@ -232,11 +232,11 @@ Możesz skonfigurować zachowanie funkcji **HEALTHCHECK** dla każdego kontenera
     </Policies>
 </ServiceManifestImport>
 ```
-Domyślnie *IncludeDockerHealthStatusInSystemHealthReport* jest ustawiona na **true**, *RestartContainerOnUnhealthyDockerHealthStatus* jest ustawiona na **false**, i *TreatContainerUnhealthyStatusAsError* jest ustawiona na **false**. 
+Domyślnie *IncludeDockerHealthStatusInSystemHealthReport* ma wartość **true**, *wartość restartcontaineronunhealthydockerhealthstatus* ma wartość **false**, a *TreatContainerUnhealthyStatusAsError* jest ustawiona na **wartość false**. 
 
 Jeśli wartość *RestartContainerOnUnhealthyDockerHealthStatus* jest ustawiona na **true**, kontener wielokrotnie raportujący złą kondycję jest uruchamiany ponownie (potencjalnie w innych węzłach).
 
-Jeśli *TreatContainerUnhealthyStatusAsError* jest ustawiona na **true**, raporty o kondycji **BŁĄD** pojawią się, gdy *health_status* kontenera jest *w złej kondycji*.
+Jeśli *TreatContainerUnhealthyStatusAsError* ma **wartość true**, raporty kondycji **błędów** pojawią się, gdy *health_status* kontenera jest w *złej kondycji*.
 
 Aby wyłączyć integrację funkcji **HEALTHCHECK** dla całego klastra usługi Service Fabric, należy ustawić wartość [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) na **false**.
 
@@ -249,16 +249,16 @@ Połącz się z lokalnym klastrem usługi Service Fabric.
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Użyj skryptu instalacji dostarczonego https://github.com/Azure-Samples/service-fabric-containers/ w szablonach, aby skopiować pakiet aplikacji do magazynu obrazów klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.
+Użyj skryptu instalacji podanego w szablonach https://github.com/Azure-Samples/service-fabric-containers/ w programie, aby skopiować pakiet aplikacji do magazynu obrazów klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.
 
 
 ```bash
 ./install.sh
 ```
 
-Otwórz przeglądarkę i przejdź do Eksploratora sieci szkieletowej usług pod adresem http:\//localhost:19080/Explorer (zastąp localhost prywatnym adresem IP maszyny Wirtualnej, jeśli używasz usługi Vagrant w systemie Mac OS X). Rozwiń węzeł Aplikacje i zwróć uwagę, że istnieje teraz wpis dla danego typu aplikacji i inny wpis dla pierwszego wystąpienia tego typu.
+Otwórz przeglądarkę i przejdź do Service Fabric Explorer przy użyciu protokołu HTTP\/:/localhost: 19080/Explorer (Zastąp localhost jako prywatny adres IP maszyny wirtualnej, jeśli używany jest program Vagrant on Mac OS X). Rozwiń węzeł Aplikacje i zwróć uwagę, że istnieje teraz wpis dla danego typu aplikacji i inny wpis dla pierwszego wystąpienia tego typu.
 
-Nawiąż połączenie z działającym kontenerem. Otwórz przeglądarkę internetową wskazującą adres IP zwrócony na porcie 4000, na przykład "http:\//localhost:4000". W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
+Nawiąż połączenie z działającym kontenerem. Otwórz przeglądarkę internetową, wskazując adres IP zwrócony na porcie 4000, na przykład "http:\//localhost: 4000". W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
 
 ![Hello World!][hello-world]
 

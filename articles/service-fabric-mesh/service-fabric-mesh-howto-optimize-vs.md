@@ -1,15 +1,15 @@
 ---
-title: Optymalizuj program Visual Studio pod kątem siatki sieci szkieletowej usług Azure
+title: Optymalizacja siatki programu Visual Studio dla usługi Azure Service Fabric
 description: W tym artykule przedstawiono, jak zoptymalizować wydajność programu Visual Studio pod kątem projektów usługi Service Fabric Mesh, tak aby uruchomienie pierwszego debugowania (F5) trwało znacznie krócej.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 40c4e9972a3d83a5dd8247bacac12e9d67a15f66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75497980"
 ---
 # <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Optymalizacja wydajności programu Visual Studio dla projektów usługi Service Fabric Mesh
@@ -18,7 +18,7 @@ W tym artykule przedstawiono, jak zoptymalizować wydajność programu Visual St
 
 ## <a name="change-visual-studio-settings"></a>Zmienianie ustawień programu Visual Studio
  
-W programie Visual Studio w obszarze **Narzędzia** > **narzędzia narzędzia**  > **sieci szkieletowej narzędzia sieci szkieletowej** > narzędzia ogólne narzędzia sieci**szkieletowej**narzędzia ogólne można dostosować następujące ustawienia:
+W programie Visual Studio w obszarze **Narzędzia** > **Opcje**  > **Service Fabric siatka narzędzia** > **Ogólne**można dostosować następujące ustawienia:
 
 - Ustawienie **Ściągaj wymagane obrazy platformy Docker przy ładowaniu projektu** umożliwia szybsze rozpoczęcie pierwszego debugowania (F5) przez uruchomienie procesu pobierania obrazu podczas ładowania projektu.  
 - Ustawienie **Wdróż aplikację przy otwieraniu projektu** umożliwia szybsze rozpoczęcie pierwszego debugowania (F5) przez uruchomienie procesu wdrażania przy otwieraniu projektu.  

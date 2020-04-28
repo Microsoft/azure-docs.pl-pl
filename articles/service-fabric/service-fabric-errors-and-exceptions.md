@@ -1,42 +1,42 @@
 ---
-title: Zgłaszane typowe wyjątki FabricClient
-description: W tym artykule opisano typowe wyjątki i błędy, które mogą być generowane przez interfejsy API FabricClient podczas wykonywania operacji zarządzania aplikacjami i klastrami.
+title: Zgłoszono typowe wyjątki FabricClient
+description: Opisuje typowe wyjątki i błędy, które mogą być zgłaszane przez interfejsy API FabricClient podczas wykonywania operacji zarządzania aplikacjami i klastrami.
 author: oanapl
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: oanapl
 ms.openlocfilehash: 9ad3097a490d4728e05ea90652c17c24b79cac2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457933"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Typowe wyjątki i błędy podczas pracy z interfejsami API FabricClient
-Interfejsy API [fabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) umożliwiają administratorom klastrów i aplikacji wykonywanie zadań administracyjnych w aplikacji, usłudze lub klastrze sieci szkieletowej usług. Na przykład wdrażanie, uaktualnianie i usuwanie aplikacji, sprawdzanie kondycji klastra lub testowanie usługi. Deweloperzy aplikacji i administratorzy klastrów mogą używać interfejsów API FabricClient do tworzenia narzędzi do zarządzania klastrem sieci szkieletowej usług i aplikacjami.
+Interfejsy API [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) umożliwiają administratorom klastrów i aplikacji wykonywanie zadań administracyjnych na Service Fabric aplikacji, usługi lub klastra. Na przykład wdrażanie, uaktualnianie i usuwanie aplikacji, sprawdzanie kondycji klastra lub Testowanie usługi. Deweloperzy aplikacji i Administratorzy klastrów mogą używać interfejsów API FabricClient, aby opracowywać narzędzia do zarządzania klastrem Service Fabric i aplikacjami.
 
-Istnieje wiele różnych typów operacji, które mogą być wykonywane przy użyciu FabricClient.  Każda metoda może zgłaszać wyjątki dla błędów z powodu niepoprawnych danych wejściowych, błędów środowiska uruchomieniowego lub przejściowych problemów z infrastrukturą.  Zobacz dokumentację odwołania interfejsu API, aby dowiedzieć się, które wyjątki są generowane przez określoną metodę. Istnieją pewne wyjątki, jednak, które mogą być generowane przez wiele różnych interfejsów API [FabricClient.](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) W poniższej tabeli wymieniono wyjątki, które są wspólne dla interfejsów API FabricClient.
+Istnieje wiele różnych typów operacji, które można wykonać za pomocą FabricClient.  Każda metoda może generować wyjątki dla błędów z powodu nieprawidłowych danych wejściowych, błędów środowiska uruchomieniowego lub przejściowych problemów z infrastrukturą.  Zapoznaj się z dokumentacją interfejsu API, aby sprawdzić, które wyjątki są zgłaszane przez określoną metodę. Istnieją jednak pewne wyjątki, które mogą być zgłaszane przez wiele różnych interfejsów API [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) . Poniższa tabela zawiera listę wyjątków wspólnych dla interfejsów API FabricClient.
 
-| Wyjątek | Rzucony, gdy |
+| Wyjątek | Zgłaszane, gdy |
 | --- |:--- |
-| [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception) |[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) Obiekt jest w stanie zamkniętym. Zutylizuj używany obiekt [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) i skondycjuj tworzenie wystąpienia nowego obiektu [FabricClient.](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) |
-| [System.timeoutexception](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception) |Limit czasu operacji. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) jest zwracany, gdy operacja trwa więcej niż MaxOperationTimeout, aby zakończyć. |
-| [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception) |Sprawdzanie dostępu dla operacji nie powiodło się. E_ACCESSDENIED jest zwracany. |
-| [System.Fabric.FabricEkception](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |Wystąpił błąd środowiska uruchomieniowego podczas wykonywania operacji. Każda z FabricClient metody potencjalnie throw [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception), [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception.ErrorCode) właściwość wskazuje dokładną przyczynę wyjątku. Kody błędów są zdefiniowane w wyliczeniu [FabricErrorCode.](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) |
-| [System.Fabric.FabricPrzeientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception) |Operacja nie powiodła się z powodu stanu błędu przejściowego pewnego rodzaju. Na przykład operacja może zakończyć się niepowodzeniem, ponieważ kworum replik jest tymczasowo nie osiągalne. Wyjątki przejściowe odpowiadają nieudanym operacjom, które można ponowić. |
+| [System. Fabric. FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception) |Obiekt [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) jest w stanie zamkniętym. Usuń obiekt [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) , którego używasz, i Utwórz wystąpienie nowego obiektu [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) . |
+| [System. TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception) |Przekroczono limit czasu operacji. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) jest zwracany, gdy operacja zajmuje więcej niż MaxOperationTimeout. |
+| [System. UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception) |Sprawdzanie dostępu dla operacji nie powiodło się. E_ACCESSDENIED jest zwracana. |
+| [System. Fabric. Fabricexception](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |Wystąpił błąd środowiska uruchomieniowego podczas wykonywania operacji. Dowolna metoda FabricClient może potencjalnie zgłosić wyjątek [sieci szkieletowej](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception), a właściwość [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception.ErrorCode) wskazuje dokładną przyczynę wyjątku. Kody błędów są zdefiniowane w wyliczeniu [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) . |
+| [System. Fabric. FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception) |Operacja nie powiodła się z powodu warunku błędu przejściowego pewnego rodzaju. Na przykład operacja może zakończyć się niepowodzeniem, ponieważ kworum replik jest tymczasowo nieosiągalne. Przejściowe wyjątki odpowiadają operacji zakończonych niepowodzeniem, które można ponowić. |
 
-Niektóre typowe [błędy FabricErrorCode,](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) które mogą być zwracane w [FabricException:](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception)
+Niektóre typowe błędy [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) , które mogą zostać zwrócone w sieci [szkieletowej](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception):
 
-| Błąd | Warunek |
+| Error | Warunek |
 | --- |:--- |
-| KomunikacjaError |Błąd komunikacji spowodował niepowodzenie operacji, ponów próbę wykonania operacji. |
+| CommunicationError |Błąd komunikacji spowodował niepowodzenie operacji, spróbuj ponownie wykonać operację. |
 | InvalidCredentialType |Typ poświadczeń jest nieprawidłowy. |
-| Typ odnajdowania inwalidówX509 |X509FindType jest nieprawidłowy. |
-| InvalidX509Lokalizacja magazynu |Lokalizacja sklepu X509 jest nieprawidłowa. |
-| InvalidX509Sklepname |Nazwa sklepu X509 jest nieprawidłowa. |
-| InvalidX509Thumbprint |Ciąg odcisku palca certyfikatu X509 jest nieprawidłowy. |
-| Nieprawidłowy poziom ochrony |Poziom ochrony jest nieprawidłowy. |
-| InvalidX509Sklep |Nie można otworzyć magazynu certyfikatów X509. |
-| InvalidSubjectName (Nieprawidłowa nazwa |Nazwa podmiotu jest nieprawidłowa. |
-| InvalidAllowedCommonNameList |Format wspólnego ciągu listy nazw jest nieprawidłowy. Powinna to być lista oddzielona przecinkami. |
+| InvalidX509FindType |X509FindType jest nieprawidłowy. |
+| InvalidX509StoreLocation |Lokalizacja magazynu x509 jest nieprawidłowa. |
+| InvalidX509StoreName |Nazwa magazynu x509 jest nieprawidłowa. |
+| InvalidX509Thumbprint |Ciąg odcisku palca certyfikatu x509 jest nieprawidłowy. |
+| InvalidProtectionLevel |Poziom ochrony jest nieprawidłowy. |
+| InvalidX509Store |Nie można otworzyć magazynu certyfikatów x509. |
+| InvalidSubjectName |Nazwa podmiotu jest nieprawidłowa. |
+| InvalidAllowedCommonNameList |Format ciągu listy typowych nazw jest nieprawidłowy. Powinna to być lista rozdzielona przecinkami. |
 

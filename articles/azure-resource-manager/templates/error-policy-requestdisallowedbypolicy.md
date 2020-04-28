@@ -1,24 +1,24 @@
 ---
 title: RequestDisallowedByPolicy error (Błąd RequestDisallowedByPolicy)
-description: Opisuje przyczynę błędu RequestDisallowedByPolicy podczas wdrażania zasobów za pomocą usługi Azure Resource Manager.
+description: Opisuje przyczynę błędu RequestDisallowedByPolicy podczas wdrażania zasobów przy użyciu Azure Resource Manager.
 author: genlin
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 41581ba48da2f2e717c5abf2a749f8fd2b86ac06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75477670"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Błąd RequestDisallowedByPolicy z zasadami zasobów platformy Azure
 
-W tym artykule opisano przyczynę requestdisallowedByPolicy błąd, zapewnia również rozwiązanie tego błędu.
+W tym artykule opisano przyczynę błędu RequestDisallowedByPolicy i przedstawiono w nim również rozwiązanie tego błędu.
 
 ## <a name="symptom"></a>Objaw
 
-Podczas wdrażania może pojawić się błąd **RequestDisallowedByPolicy,** który uniemożliwia tworzenie zasobów. W poniższym przykładzie pokazano błąd:
+Podczas wdrażania może zostać wyświetlony błąd **RequestDisallowedByPolicy** , który uniemożliwia tworzenie zasobów. Poniższy przykład pokazuje błąd:
 
 ```json
 {
@@ -31,13 +31,13 @@ Podczas wdrażania może pojawić się błąd **RequestDisallowedByPolicy,** kt�
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Aby pobrać szczegółowe informacje o zasadach, które zablokowały wdrożenie, użyj jednej z następujących metod:
+Aby pobrać szczegóły dotyczące zasad, które zablokowały wdrożenie, należy użyć jednej z następujących metod:
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-W programie PowerShell podaj `Id` identyfikator zasad jako parametr, aby pobrać szczegółowe informacje o zasadach, które zablokowały wdrożenie.
+W programie PowerShell podaj identyfikator zasad jako `Id` parametr, aby pobrać szczegóły dotyczące zasad, które zablokowały wdrożenie.
 
 ```powershell
 (Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
@@ -45,7 +45,7 @@ W programie PowerShell podaj `Id` identyfikator zasad jako parametr, aby pobrać
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-W usłudze Azure CLI podaj nazwę definicji zasad:
+W interfejsie wiersza polecenia platformy Azure Podaj nazwę definicji zasad:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -53,8 +53,8 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Rozwiązanie
 
-Ze względów bezpieczeństwa lub zgodności administratorzy subskrypcji mogą przypisywać zasady ograniczające sposób wdrażania zasobów. Na przykład subskrypcja może mieć zasady, które uniemożliwiają tworzenie publicznych adresów IP, grup zabezpieczeń sieci, tras zdefiniowanych przez użytkownika lub tabel tras. Komunikat o błędzie w **symptomy** sekcji pokazuje nazwę zasad.
-Aby rozwiązać ten problem, przejrzyj zasady zasobów i określ, jak wdrożyć zasoby zgodne z tymi zasadami.
+Aby zapewnić bezpieczeństwo lub zgodność, Administratorzy subskrypcji mogą przypisywać zasady ograniczające sposób wdrażania zasobów. Na przykład Twoja subskrypcja może mieć zasady, które uniemożliwiają tworzenie publicznych adresów IP, sieciowych grup zabezpieczeń, tras zdefiniowanych przez użytkownika lub tabel tras. Komunikat o błędzie w sekcji **objawy** zawiera nazwę zasad.
+Aby rozwiązać ten problem, przejrzyj zasady zasobów i określ sposób wdrażania zasobów, które są zgodne z tymi zasadami.
 
 Aby uzyskać więcej informacji zobacz następujące artykuły:
 

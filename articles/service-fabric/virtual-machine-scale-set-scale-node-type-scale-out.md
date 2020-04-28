@@ -1,22 +1,22 @@
 ---
-title: Dodawanie typu węzła do klastra sieci szkieletowej usług Azure
-description: Dowiedz się, jak skalować w poziomie klaster sieci szkieletowej usług, dodając zestaw skalowania maszyny wirtualnej.
+title: Dodawanie typu węzła do klastra usługi Azure Service Fabric
+description: Dowiedz się, jak skalować w poziomie klaster Service Fabric, dodając zestaw skalowania maszyn wirtualnych.
 ms.topic: article
 ms.date: 02/13/2019
 ms.openlocfilehash: 1e7bae89561d43d717eb4d15e95183761b077443
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75463979"
 ---
-# <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Skalowanie klastra sieci szkieletowej usług przez dodanie zestawu skalowania maszyny wirtualnej
-W tym artykule opisano sposób skalowania klastra sieci szkieletowej usług Azure przez dodanie nowego typu węzła do istniejącego klastra. Klaster sieci szkieletowej usług to połączony z siecią zestaw maszyn wirtualnych lub fizycznych, na których mikrousługi są wdrażane i zarządzane. Maszyna lub maszyna wirtualna, która jest częścią klastra jest nazywany węzłem. Zestawy skalowania maszyny wirtualnej to zasób obliczeniowy platformy Azure używany do wdrażania i zarządzania kolekcją maszyn wirtualnych jako zestaw. Każdy typ węzła zdefiniowany w klastrze platformy Azure jest [łączona jako oddzielny zestaw skalowania.](service-fabric-cluster-nodetypes.md) Każdy typ węzła można następnie zarządzać oddzielnie. Po utworzeniu klastra sieci szkieletowej usług można skalować klaster w poziomie, dodając nowy typ węzła (zestaw skalowania maszyny wirtualnej) do istniejącego klastra.  Klaster można skalować w dowolnym momencie, nawet gdy obciążenia są uruchomione w klastrze.  W miarę skalowania klastra aplikacje są również skalowane automatycznie.
+# <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Skalowanie klastra Service Fabric przez dodanie zestawu skalowania maszyn wirtualnych
+W tym artykule opisano sposób skalowania klastra Service Fabric platformy Azure przez dodanie nowego typu węzła do istniejącego klastra. Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który służy do wdrażania kolekcji maszyn wirtualnych jako zestawu i zarządzania nią. Każdy typ węzła, który jest zdefiniowany w klastrze platformy Azure [, jest ustawiany jako oddzielny zestaw skalowania](service-fabric-cluster-nodetypes.md). Każdy typ węzła może być następnie zarządzany osobno. Po utworzeniu klastra Service Fabric można skalować klaster w poziomie, dodając nowy typ węzła (zestaw skalowania maszyn wirtualnych) do istniejącego klastra.  Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze.  W miarę skalowania klastra aplikacje są automatycznie skalowane.
 
 ## <a name="add-an-additional-scale-set-to-an-existing-cluster"></a>Dodawanie dodatkowego zestawu skalowania do istniejącego klastra
-Dodawanie nowego typu węzła (który jest wspierany przez zestaw skalowania maszyny wirtualnej) do istniejącego klastra jest podobny do [uaktualniania typu węzła podstawowego,](service-fabric-scale-up-node-type.md)z tą różnicą, że nie będzie używać tego samego NodeTypeRef; oczywiście nie będzie wyłączanie żadnych aktywnie używanych zestawów skalowania maszyny wirtualnej i nie utracisz dostępności klastra, jeśli nie zaktualizujesz typu węzła podstawowego. 
+Dodanie nowego typu węzła (który jest obsługiwany przez zestaw skalowania maszyn wirtualnych) do istniejącego klastra jest podobne do [uaktualnienia podstawowego typu węzła](service-fabric-scale-up-node-type.md), z tą różnicą, że nie będzie można używać tego samego NodeTypeRef; Oczywiście nie należy wyłączać żadnych aktywnie używanych zestawów skalowania maszyn wirtualnych i nie utracisz dostępności klastra, jeśli nie zaktualizujesz podstawowego typu węzła. 
 
-Właściwość NodeTypeRef jest zadeklarowana we właściwościach rozszerzenia sieci szkieletowej usługi zestawem maszyn wirtualnych:
+Właściwość NodeTypeRef jest zadeklarowana w ramach zestawu skalowania maszyn wirtualnych Service Fabric właściwości rozszerzenia:
 ```json
 <snip>
 "publisher": "Microsoft.Azure.ServiceFabric",
@@ -28,7 +28,7 @@ Właściwość NodeTypeRef jest zadeklarowana we właściwościach rozszerzenia 
 <snip>
 ```
 
-Ponadto należy dodać ten nowy typ węzła do zasobu klastra sieci szkieletowej usług:
+Ponadto trzeba będzie dodać ten nowy typ węzła do zasobu klastra Service Fabric:
 
 ```json
 <snip>
@@ -53,9 +53,9 @@ Ponadto należy dodać ten nowy typ węzła do zasobu klastra sieci szkieletowej
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak [skalować typ węzła podstawowego](service-fabric-scale-up-node-type.md)
+* Dowiedz się [, jak skalować w górę typ węzła podstawowego](service-fabric-scale-up-node-type.md)
 * Dowiedz się więcej o [skalowalności aplikacji](service-fabric-concepts-scalability.md).
-* [Skalowanie klastra platformy Azure w lub na zewnątrz](service-fabric-tutorial-scale-cluster.md).
-* [Skalowanie klastra platformy Azure programowo](service-fabric-cluster-programmatic-scaling.md) przy użyciu płynnego zestawu SDK obliczeń platformy Azure.
-* [Skalowanie autonomicznego klastra w lub na zewnątrz](service-fabric-cluster-windows-server-add-remove-nodes.md).
+* [Skalowanie klastra platformy Azure w poziomie lub na zewnątrz](service-fabric-tutorial-scale-cluster.md).
+* [Programowo Skaluj klaster platformy Azure](service-fabric-cluster-programmatic-scaling.md) przy użyciu zestawu Azure COMPUTE SDK.
+* [Skalowanie klastra autonomicznego w poziomie lub na zewnątrz](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

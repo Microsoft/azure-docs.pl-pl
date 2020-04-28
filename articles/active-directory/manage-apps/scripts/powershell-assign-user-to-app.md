@@ -1,6 +1,6 @@
 ---
-title: Przykład programu PowerShell — przypisywanie użytkownika do aplikacji proxy aplikacji
-description: Przykład programu PowerShell, który przypisuje użytkownika do aplikacji proxy aplikacji usługi Azure Active Directory (Azure AD).
+title: Przykład programu PowerShell — Przypisywanie użytkownika do aplikacji serwera proxy aplikacji
+description: Przykład programu PowerShell przypisujący użytkownika do aplikacji serwera proxy aplikacji Azure Active Directory (Azure AD).
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42667ebdfc37b679d56421e3a82d4a6aaaed8fdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75483338"
 ---
-# <a name="assign-a-user-to-a-specific-azure-ad-application-proxy-application"></a>Przypisywanie użytkownika do określonej aplikacji serwera proxy aplikacji usługi Azure AD
+# <a name="assign-a-user-to-a-specific-azure-ad-application-proxy-application"></a>Przypisywanie użytkownika do określonej aplikacji serwer proxy aplikacji usługi Azure AD platformy Azure
 
-Ten przykład skryptu programu PowerShell umożliwia przypisanie użytkownika do określonej aplikacji serwera proxy aplikacji usługi Azure AD.
+Ten przykładowy skrypt programu PowerShell umożliwia przypisanie użytkownika do określonej aplikacji serwer proxy aplikacji usługi Azure AD platformy Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ Ten przykład skryptu programu PowerShell umożliwia przypisanie użytkownika do
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Ten przykład wymaga [modułu AzureAD V2 PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) lub [wersji preview modułu AzureAD V2 for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Ten przykład wymaga [AzureAD v2 PowerShell for Graph module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) lub [AzureAD v2 PowerShell dla programu Graph (wersja zapoznawcza](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) ) (AzureADPreview).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -43,6 +43,6 @@ Ten przykład wymaga [modułu AzureAD V2 PowerShell for Graph](https://docs.micr
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat modułu programu Azure AD PowerShell, zobacz [omówienie modułu programu Azure AD PowerShell.](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)
+Aby uzyskać więcej informacji na temat modułu Azure AD PowerShell, zobacz [Omówienie modułu programu Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-Aby zapoznać się z innymi przykładami programu PowerShell dla serwera proxy aplikacji, zobacz [przykłady programu Azure AD PowerShell dla serwera proxy aplikacji usługi Azure AD](../application-proxy-powershell-samples.md).
+Aby poznać inne przykłady programu PowerShell dla serwera proxy aplikacji, zobacz [przykłady programu Azure AD PowerShell dla usługi azure serwer proxy aplikacji usługi Azure AD](../application-proxy-powershell-samples.md).

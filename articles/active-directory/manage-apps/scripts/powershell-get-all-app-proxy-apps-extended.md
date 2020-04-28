@@ -1,6 +1,6 @@
 ---
-title: Przykład programu PowerShell — lista rozszerzonych informacji dla aplikacji proxy aplikacji
-description: Przykład programu PowerShell zawierający listę wszystkich aplikacji proxy aplikacji usługi Azure Active Directory (Azure AD) wraz z identyfikatorem aplikacji (identyfikatorem aplikacji), nazwą (DisplayName), zewnętrznym adresem URL (ExternalUrl), wewnętrznym adresem URL (InternalUrl) i typem uwierzytelniania ( ExternalAuthenticationType).
+title: Przykład programu PowerShell — rozszerzone informacje dotyczące aplikacji serwera proxy aplikacji
+description: Przykład programu PowerShell, który wyświetla listę wszystkich aplikacji serwera proxy aplikacji Azure Active Directory (Azure AD) wraz z IDENTYFIKATORem aplikacji (AppId), nazwą (DisplayName), zewnętrznym adresem URL (ExternalUrl), wewnętrznym adresem URL (InternalUrl) i typem uwierzytelniania (ExternalAuthenticationType).
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f58de8c081dbb0323a2d9638777e29d879172072
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75482142"
 ---
-# <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Pobierz wszystkie aplikacje proxy aplikacji i listę rozszerzonych informacji
+# <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Pobierz wszystkie aplikacje serwera proxy aplikacji i Wyświetl informacje rozszerzone
 
-W tym przykładzie skryptu programu PowerShell są wyświetlane informacje o wszystkich aplikacjach proxy aplikacji usługi Azure Active Directory (Azure AD), w tym o identyfikatorze aplikacji (AppId), nazwie (DisplayName), zewnętrznym adresie URL (ExternalUrl), wewnętrznym adresie URL (InternalUrl) i typ uwierzytelniania (ExternalAuthenticationType).
+Ten przykładowy skrypt programu PowerShell zawiera listę informacji na temat wszystkich aplikacji serwera proxy aplikacji Azure Active Directory (Azure AD), w tym identyfikatora aplikacji (AppId), nazwy (DisplayName), zewnętrznego adresu URL (ExternalUrl), wewnętrznego adresu URL (InternalUrl) i typu uwierzytelniania (ExternalAuthenticationType).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ W tym przykładzie skryptu programu PowerShell są wyświetlane informacje o wsz
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Ten przykład wymaga [modułu AzureAD V2 PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) lub [wersji preview modułu AzureAD V2 for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Ten przykład wymaga [AzureAD v2 PowerShell for Graph module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) lub [AzureAD v2 PowerShell dla programu Graph (wersja zapoznawcza](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) ) (AzureADPreview).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -39,12 +39,12 @@ Ten przykład wymaga [modułu AzureAD V2 PowerShell for Graph](https://docs.micr
 
 | Polecenie | Uwagi |
 |---|---|
-|[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Pobiera jednostki usługi. |
+|[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Pobiera nazwę główną usługi. |
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Pobiera aplikację usługi Azure AD. |
-|[Get-AzureADApplicationProxyAplikacja](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Pobiera aplikację skonfigurowaną dla serwera proxy aplikacji w usłudze Azure AD. |
+|[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Pobiera aplikację skonfigurowaną dla serwera proxy aplikacji w usłudze Azure AD. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat modułu programu Azure AD PowerShell, zobacz [omówienie modułu programu Azure AD PowerShell.](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)
+Aby uzyskać więcej informacji na temat modułu Azure AD PowerShell, zobacz [Omówienie modułu programu Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-Aby zapoznać się z innymi przykładami programu PowerShell dla serwera proxy aplikacji, zobacz [przykłady programu Azure AD PowerShell dla serwera proxy aplikacji usługi Azure AD](../application-proxy-powershell-samples.md).
+Aby poznać inne przykłady programu PowerShell dla serwera proxy aplikacji, zobacz [przykłady programu Azure AD PowerShell dla usługi azure serwer proxy aplikacji usługi Azure AD](../application-proxy-powershell-samples.md).

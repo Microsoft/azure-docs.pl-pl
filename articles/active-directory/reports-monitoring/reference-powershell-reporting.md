@@ -1,6 +1,6 @@
 ---
-title: Polecenia cmdlet usługi Azure AD PowerShell do raportowania | Dokumenty firmy Microsoft
-description: Odwołanie do poleceń cmdlet programu Azure AD PowerShell do raportowania.
+title: Polecenia cmdlet programu PowerShell usługi Azure AD dla raportowania | Microsoft Docs
+description: Informacje o poleceniach cmdlet programu PowerShell usługi Azure AD na potrzeby raportowania.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,73 +18,73 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2192c472e00d123780ec6bc5574e7b9fe326258b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75495309"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Polecenia cmdlet programu PowerShell usługi Azure AD do raportowania
 
 > [!NOTE] 
-> Te polecenia cmdlet programu Powershell obecnie działają tylko z modułem [usługi Azure AD Preview.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Należy pamiętać, że moduł podglądu nie jest sugerowany do użytku produkcyjnego. 
+> Te polecenia cmdlet programu PowerShell działają obecnie tylko z modułem [wersji zapoznawczej usługi Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) . Należy pamiętać, że moduł w wersji zapoznawczej nie jest sugerowany do użycia w środowisku produkcyjnym. 
 
-Aby zainstalować publiczną wersję zapoznawczą, należy użyć następujących czynności. 
+Aby zainstalować publiczną wersję zapoznawczą, użyj poniższego programu. 
 
 ```powershell
 Install-module AzureADPreview
 ```
-Aby uzyskać więcej infromation na temat łączenia się z usługą Azure AD za pomocą programu PowerShell, zobacz artykuł [Azure AD Powershell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+Aby uzyskać więcej informacji na temat nawiązywania połączenia z usługą Azure AD przy użyciu programu PowerShell, zobacz artykuł [Azure AD PowerShell dla programu Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
-Dzięki raportom usługi Azure Active Directory (Azure AD) można uzyskać szczegółowe informacje na temat działań wokół wszystkich operacji zapisu w twoim kierunku (dzienniki inspekcji) i dane uwierzytelniania (dzienniki logowania). Chociaż informacje są dostępne przy użyciu interfejsu API programu MS Graph, teraz można pobrać te same dane przy użyciu poleceń cmdlet programu Azure AD PowerShell do raportowania.
+Dzięki raportom Azure Active Directory (Azure AD) możesz uzyskać szczegółowe informacje o działaniach związanych ze wszystkimi operacjami zapisu w Twoim kierunku (dzienniki inspekcji) i danych uwierzytelniania (dzienniki logowania). Chociaż informacje są dostępne za pomocą programu MS interfejs API programu Graph, teraz można pobrać te same dane przy użyciu poleceń cmdlet programu PowerShell usługi Azure AD na potrzeby raportowania.
 
-W tym artykule przedstawiono omówienie poleceń cmdlet programu PowerShell, które mają być używane do dzienników inspekcji i dzienników logowania.
+Ten artykuł zawiera omówienie poleceń cmdlet programu PowerShell, które mają być używane na potrzeby dzienników inspekcji i dzienników logowania.
 
 ## <a name="audit-logs"></a>Dzienniki inspekcji
 
-[Dzienniki inspekcji](concept-audit-logs.md) zapewniają identyfikowalność za pośrednictwem dzienników dla wszystkich zmian wykonywanych przez różne funkcje w usłudze Azure AD. Przykłady dzienników inspekcji obejmują zmiany wprowadzone do wszystkich zasobów w usłudze Azure AD, takie jak dodawanie lub usuwanie użytkowników, aplikacji, grup, ról i zasad.
+[Dzienniki inspekcji](concept-audit-logs.md) zapewniają możliwość śledzenia za pomocą dzienników dla wszystkich zmian wykonywanych przez różne funkcje w ramach usługi Azure AD. Przykłady dzienników inspekcji obejmują zmiany wprowadzone w zasobach w usłudze Azure AD, takie jak dodawanie lub usuwanie użytkowników, aplikacji, grup, ról i zasad.
 
-Dostęp do dzienników inspekcji można uzyskać przy użyciu polecenia cmdlet "Get-AzureADAuditDirectoryLogs.You get access to the audit logs using the 'Get-AzureADAuditDirectoryLogs cmdlet.
+Dostęp do dzienników inspekcji uzyskuje się za pomocą polecenia cmdlet Get-AzureADAuditDirectoryLogs.
 
 
 | Scenariusz                      | Polecenie programu PowerShell |
 | :--                           | :--                |
-| Nazwa wyświetlana aplikacji      | Get-AzureADAuditDirectoryLogs -Filter "initiatedBy/app/displayName eq 'Azure AD Cloud Sync'" |
-| Kategoria                      | Get-AzureADAuditDirectoryLogs -Filter "kategoria eq 'Zarządzanie aplikacjami'" |
-| Data działania Godzina            | Get-AzureADAuditDirectoryLogs -Filter "activityDateTime gt 2019-04-18" |
-| Wszystkie powyższe              | Get-AzureADAuditDirectoryLogs -Filter "initiatedBy/app/displayName eq 'Azure AD Cloud Sync' i kategoria eq 'Zarządzanie aplikacjami' i activityDateTime gt 2019-04-18"|
+| Nazwa wyświetlana aplikacji      | Get-AzureADAuditDirectoryLogs-Filter "initiatedBy/App/displayName EQ" Azure AD Cloud Sync "" |
+| Kategoria                      | Get-AzureADAuditDirectoryLogs-Filter "" Kategoria EQ "zarządzania aplikacjami" " |
+| Data i godzina działania            | Get-AzureADAuditDirectoryLogs-Filter "activityDateTime gt 2019-04-18" |
+| Wszystkie powyższe              | Get-AzureADAuditDirectoryLogs-Filter "initiatedBy/App/displayName EQ" Azure AD Cloud Sync ", a następnie kategorii" Application Management "i activityDateTime gt 2019-04-18"|
 
 
 Na poniższej ilustracji przedstawiono przykład tego polecenia. 
 
-![Przycisk "Podsumowanie danych"](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![Przycisk "podsumowanie danych"](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
 ## <a name="sign-in-logs"></a>Dzienniki logowania
 
-Dzienniki [logowania](concept-sign-ins.md) zawierają informacje o użyciu zarządzanych aplikacji i działań logowania użytkownika.
+Dzienniki [logowania](concept-sign-ins.md) zawierają informacje dotyczące użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
 
-Otrzymasz dostęp do dzienników logowania przy użyciu polecenia cmdlet Get-AzureADAuditSignInLogs.
+Dostęp do dzienników logowania można uzyskać za pomocą polecenia cmdlet "Get-AzureADAuditSignInLogs".
 
 
 | Scenariusz                      | Polecenie programu PowerShell |
 | :--                           | :--                |
-| Nazwa wyświetlana użytkownika             | Get-AzureADAuditSignInLogs -Filter "userDisplayName eq 'Timothy Perkins'" |
-| Utwórz godzinę daty              | Get-AzureADAuditSignInLogs -Filter "createdDateTime gt 2019-04-18T17:30:00.0Z" (Wszystko od 17:30 w dniu 18.04.18) |
-| Stan                        | Get-AzureADAuditSignInLogs -Filter "status/errorCode eq 50105" |
-| Nazwa wyświetlana aplikacji      | Get-AzureADAuditSignInLogs -Filter "appDisplayName eq 'StoreFrontStudio [wsfed enabled]'" |
-| Wszystkie powyższe              | Get-AzureADAuditSignInLogs -Filter "userDisplayName eq 'Timothy Perkins' i status/errorCode ne 0 i appDisplayName eq 'StoreFrontStudio [wsfed enabled]'" |
+| Nazwa wyświetlana użytkownika             | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ" Tymotka Perkins "" |
+| Data i godzina utworzenia              | Get-AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (wszystko od 5:30 PM na 4/18) |
+| Stan                        | Get-AzureADAuditSignInLogs-Filter "status/errorCode EQ 50105" |
+| Nazwa wyświetlana aplikacji      | Get-AzureADAuditSignInLogs-Filter "appDisplayName EQ" StoreFrontStudio [wsfed Enabled] "" |
+| Wszystkie powyższe              | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ" Tymotka Perkins "i status/errorCode ne 0 i appDisplayName EQ" StoreFrontStudio [wsfed Enabled] "" |
 
 
 Na poniższej ilustracji przedstawiono przykład tego polecenia. 
 
-![Przycisk "Podsumowanie danych"](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![Przycisk "podsumowanie danych"](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie raportów usługi Azure AD](overview-reports.md).
-- [Raport dzienników inspekcji](concept-audit-logs.md). 
-- [Programowy dostęp do raportów usługi Azure AD](concept-reporting-api.md)
+- [Przegląd raportów usługi Azure AD](overview-reports.md).
+- [Raport dotyczący dzienników inspekcji](concept-audit-logs.md). 
+- [Programistyczny dostęp do raportów usługi Azure AD](concept-reporting-api.md)

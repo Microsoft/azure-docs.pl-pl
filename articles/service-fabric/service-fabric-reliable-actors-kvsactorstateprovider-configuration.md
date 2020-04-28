@@ -1,67 +1,67 @@
 ---
-title: Zmienianie ustawień aplikacji KVSActorStateProvider
-description: Dowiedz się więcej o konfigurowaniu stanowych podmiotów usługi Azure Service fabric typu KVSActorStateProvider.
+title: Zmień ustawienia dostawcy KVSActorStateProvider
+description: Dowiedz się więcej na temat konfigurowania Service Fabric stanowych aktorów typu dostawcy KVSActorStateProvider.
 author: sumukhs
 ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609778"
 ---
-# <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Konfigurowanie niezawodnych aktorów - KVSActorStateProvider
-Domyślną konfigurację programu KVSActorStateProvider można zmodyfikować, zmieniając plik settings.xml wygenerowany w katalogu głównym pakietu programu Microsoft Visual Studio w folderze Config dla określonego aktora.
+# <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Konfigurowanie Reliable Actors--dostawcy KVSActorStateProvider
+Domyślną konfigurację dostawcy KVSActorStateProvider można zmodyfikować, zmieniając plik Settings. XML, który jest generowany w katalogu głównym pakietu Microsoft Visual Studio w folderze config dla określonego aktora.
 
-Środowisko uruchomieniowe sieci szkieletowej usług Azure wyszukuje wstępnie zdefiniowane nazwy sekcji w pliku settings.xml i zużywa wartości konfiguracji podczas tworzenia podstawowych składników środowiska uruchomieniowego.
+Środowisko uruchomieniowe Azure Service Fabric wyszukuje wstępnie zdefiniowane nazwy sekcji w pliku Settings. XML i zużywa wartości konfiguracyjne podczas tworzenia podstawowych składników środowiska uruchomieniowego.
 
 > [!NOTE]
-> **Nie** należy usuwać ani modyfikować nazw sekcji następujących konfiguracji w pliku settings.xml, który jest generowany w rozwiązaniu programu Visual Studio.
+> Nie usuwaj ani **nie** Modyfikuj nazw sekcji następujących konfiguracji w pliku Settings. XML, który jest generowany w rozwiązaniu programu Visual Studio.
 > 
 > 
 
 ## <a name="replicator-security-configuration"></a>Konfiguracja zabezpieczeń replikatora
-Konfiguracje zabezpieczeń replikatora służą do zabezpieczania kanału komunikacyjnego używanego podczas replikacji. Oznacza to, że usługi nie widzą wzajemnego ruchu replikacji, zapewniając, że dane, które są udostępniane jako wysoce dostępne, są również bezpieczne.
-Domyślnie pusta sekcja konfiguracji zabezpieczeń uniemożliwia bezpieczeństwo replikacji.
+Konfiguracje zabezpieczeń replikatora służą do zabezpieczenia kanału komunikacyjnego, który jest używany podczas replikacji. Oznacza to, że usługi nie widzą żadnego ruchu związanego z replikacją, zapewniając, że dane, które są wykonywane o wysokiej dostępności, również są bezpieczne.
+Domyślnie pusta sekcja konfiguracji zabezpieczeń uniemożliwia zabezpieczenia replikacji.
 
 > [!IMPORTANT]
-> W węzłach systemu Linux certyfikaty muszą być sformatowane w formacie PEM. Aby dowiedzieć się więcej o lokalizowaniu i konfigurowaniu certyfikatów dla systemu Linux, zobacz [Konfigurowanie certyfikatów w systemie Linux](./service-fabric-configure-certificates-linux.md). 
+> W węzłach systemu Linux certyfikaty muszą mieć format PEM. Aby dowiedzieć się więcej na temat lokalizowania i konfigurowania certyfikatów dla systemu Linux, zobacz [Konfigurowanie certyfikatów w systemie Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
 ### <a name="section-name"></a>Nazwa sekcji
-&lt;ActorName&gt;ServiceReplicatorSecurityConfig
+&lt;&gt;ServiceReplicatorSecurityConfig aktora
 
 ## <a name="replicator-configuration"></a>Konfiguracja replikatora
-Konfiguracje replikatora skonfigurować replikatora, który jest odpowiedzialny za uczynienie stan dostawcy stanu aktora wysoce niezawodne.
-Domyślna konfiguracja jest generowana przez szablon programu Visual Studio i powinna wystarczyć. W tej sekcji o mówi o dodatkowych konfiguracjach, które są dostępne do strojenia replikatora.
+Konfiguracje replikatora konfiguruje Replikator, który jest odpowiedzialny za zapewnianie niezawodnego stanu dostawcy stanu aktora.
+Konfiguracja domyślna jest generowana przez szablon programu Visual Studio i powinna być wystarczająca. W tej sekcji omówiono dodatkowe konfiguracje, które są dostępne w celu dostrojenia replikatora.
 
 ### <a name="section-name"></a>Nazwa sekcji
-&lt;ActorName&gt;ServiceReplicatorConfig
+&lt;&gt;ServiceReplicatorConfig aktora
 
 ### <a name="configuration-names"></a>Nazwy konfiguracji
 | Nazwa | Jednostka | Wartość domyślna | Uwagi |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval (W przypadku danych: BatchAcknowledgementInterval) |Sekundy |0.015 |Okres, dla którego replikator w pomocniczej czeka po otrzymaniu operacji przed wysłaniem potwierdzenia do podstawowego. Wszelkie inne potwierdzenia, które mają być wysyłane do operacji przetworzonych w tym przedziale czasu są wysyłane jako jedna odpowiedź. |
-| ReplicatorEndpoint (Punkt replikatora) |Nie dotyczy |Brak domyślnego parametru wymaganego |Adres IP i port, które replikator podstawowy/pomocniczy będzie używany do komunikowania się z innymi replikatorami w zestawie replik. Powinno to odwoływać się do punktu końcowego zasobu TCP w manifeście usługi. Zapoznaj się [z zasobów manifestu usługi,](service-fabric-service-manifest-resources.md) aby dowiedzieć się więcej o definiowaniu zasobów punktu końcowego w manifeście usługi. |
-| Ponowne próbyInterwalne |Sekundy |5 |Okres, po którym replikator ponownie przesyła wiadomość, jeśli nie otrzyma potwierdzenia dla operacji. |
-| Rozmiar MaxReplicationMessageSize |Bajty |50 MB |Maksymalny rozmiar danych replikacji, które mogą być przesyłane w jednej wiadomości. |
-| Maksymalna liczba aplikacji MaxPrimaryReplicationQueueSize |Liczba operacji |1024 |Maksymalna liczba operacji w kolejce podstawowej. Operacja jest zwalniana po tym, jak replikator podstawowy otrzyma potwierdzenie od wszystkich replikatorów pomocniczych. Wartość ta musi być większa niż 64 i moc 2. |
-| MaxSecondaryReplicationQueueSize |Liczba operacji |2048 |Maksymalna liczba operacji w kolejce pomocniczej. Operacja jest zwalniana po udostępnieniu jej stanu wysoce dostępne za pośrednictwem trwałości. Wartość ta musi być większa niż 64 i moc 2. |
+| BatchAcknowledgementInterval |Sekundy |0,015 |Okres, przez który Replikator w dodatkowej chwili czeka po odebraniu operacji przed wysłaniem potwierdzenia do elementu podstawowego. Wszystkie inne potwierdzenia do wysłania dla operacji przetworzonych w ramach tego interwału są wysyłane jako jedna odpowiedź. |
+| ReplicatorEndpoint |Nie dotyczy |Brak domyślnego parametru--Required |Adres IP i port, które będą używane przez Replikator podstawowy/pomocniczy do komunikowania się z innymi replikatorami w zestawie replik. Powinno to odwoływać się do punktu końcowego zasobu TCP w manifeście usługi. Zapoznaj się z informacjami o [zasobach manifestu usługi](service-fabric-service-manifest-resources.md) , aby dowiedzieć się więcej na temat definiowania zasobów punktu końcowego w manifeście usługi. |
+| RetryInterval |Sekundy |5 |Okres, po którym Replikator ponownie przesyła komunikat, jeśli nie otrzyma potwierdzenia dla operacji. |
+| MaxReplicationMessageSize |Bajty |50 MB |Maksymalny rozmiar danych replikacji, które mogą być przesyłane w jednej wiadomości. |
+| MaxPrimaryReplicationQueueSize |Liczba operacji |1024 |Maksymalna liczba operacji w kolejce głównej. Operacja jest zwalniana, gdy podstawowy Replikator otrzyma potwierdzenie ze wszystkich dodatkowych replik. Ta wartość musi być większa niż 64 i potęgą 2. |
+| MaxSecondaryReplicationQueueSize |Liczba operacji |2048 |Maksymalna liczba operacji w kolejce pomocniczej. Operacja zostanie zwolniona po przeprowadzeniu wysokiej dostępności stanu przez trwałość. Ta wartość musi być większa niż 64 i potęgą 2. |
 
-## <a name="store-configuration"></a>Konfiguracja sklepu
-Konfiguracje magazynu są używane do konfigurowania magazynu lokalnego, który jest używany do utrwalania stanu, który jest replikowany.
-Domyślna konfiguracja jest generowana przez szablon programu Visual Studio i powinna wystarczyć. W tej sekcji o mówi o dodatkowych konfiguracjach, które są dostępne do strojenia magazynu lokalnego.
+## <a name="store-configuration"></a>Konfiguracja magazynu
+Konfiguracje magazynu są używane do konfigurowania lokalnego magazynu, który jest używany do utrwalania replikowanego stanu.
+Konfiguracja domyślna jest generowana przez szablon programu Visual Studio i powinna być wystarczająca. W tej sekcji omówiono dodatkowe konfiguracje, które są dostępne do dostrajania magazynu lokalnego.
 
 ### <a name="section-name"></a>Nazwa sekcji
-&lt;ActorName&gt;ServiceLocalStoreConfig
+&lt;&gt;ServiceLocalStoreConfig aktora
 
 ### <a name="configuration-names"></a>Nazwy konfiguracji
 | Nazwa | Jednostka | Wartość domyślna | Uwagi |
 | --- | --- | --- | --- |
-| MaxAsyncCommitDelayInMilliseconds |Milisekund |200 |Ustawia maksymalny interwał wsadowego dla trwałych zatwierdzeń magazynu lokalnego. |
-| Strony MaxVer |Liczba stron |16384 |Maksymalna liczba stron wersji w lokalnej bazie danych magazynu. Określa maksymalną liczbę transakcji pozostających do spłaty. |
+| MaxAsyncCommitDelayInMilliseconds |) |200 |Ustawia maksymalny interwał wsadowy dla zatwierdzeń trwałego magazynu lokalnego. |
+| MaxVerPages |Liczba stron |16384 |Maksymalna liczba stron wersji w lokalnej bazie danych magazynu. Określa maksymalną liczbę zaległych transakcji. |
 
 ## <a name="sample-configuration-file"></a>Przykładowy plik konfiguracji
 ```xml
@@ -86,6 +86,6 @@ Domyślna konfiguracja jest generowana przez szablon programu Visual Studio i po
 </Settings>
 ```
 ## <a name="remarks"></a>Uwagi
-Parametr BatchAcknowledgementInterval steruje opóźnieniem replikacji. Wartość "0" powoduje najniższe możliwe opóźnienie, kosztem przepływności (ponieważ więcej komunikatów potwierdzenia musi być wysyłanych i przetwarzanych, z których każdy zawiera mniej potwierdzeń).
-Im większa wartość batchacknowledgementInterval, tym wyższa całkowita przepływność replikacji, kosztem wyższego opóźnienia operacji. To bezpośrednio przekłada się na opóźnienie zatwierdzania transakcji.
+Parametr BatchAcknowledgementInterval steruje opóźnieniem replikacji. Wartość "0" skutkuje najniższym możliwym opóźnieniem, kosztem przepływności (w przypadku, gdy więcej komunikatów potwierdzających musi być wysłanych i przetwarzanych, z których każda zawiera mniejszą liczbę potwierdzeń).
+Im większa wartość BatchAcknowledgementInterval, tym wyższa ogólna przepływność replikacji, koszt opóźnienia operacji. Jest to bezpośrednio tłumaczone na opóźnienie zatwierdzeń transakcji.
 

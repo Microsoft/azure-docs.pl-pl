@@ -1,84 +1,84 @@
 ---
-title: Tworzenie zmiennych i zarządzanie nimi do przechowywania i przekazywania wartości
-description: Dowiedz się, jak przechowywać wartości, zarządzać nimi i przekazywać je przy użyciu zmiennych w zautomatyzowanych zadaniach i przepływie pracy utworzonym za pomocą aplikacji Azure Logic Apps
+title: Twórz zmienne do przechowywania i przekazywania wartości oraz zarządzaj nimi
+description: Dowiedz się, jak przechowywać, zarządzać, używać i przekazywać wartości przy użyciu zmiennych w zautomatyzowanych zadaniach i przepływie pracy, które tworzysz przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75456700"
 ---
-# <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Przechowywanie wartości i zarządzanie nimi przy użyciu zmiennych w usłudze Azure Logic Apps
+# <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Przechowywanie wartości i zarządzanie nimi przy użyciu zmiennych w Azure Logic Apps
 
-W tym artykule pokazano, jak tworzyć i pracować ze zmiennymi, które są używane do przechowywania wartości w aplikacji logiki. Na przykład zmienne mogą pomóc w śledzeniu liczby uruchomień pętli. Aby iterować za pomocą tablicy lub sprawdzić tablicę dla określonego elementu, można użyć zmiennej, aby odwołać się do numeru indeksu dla każdego elementu tablicy.
+W tym artykule przedstawiono sposób tworzenia i pracy ze zmiennymi używanymi do przechowywania wartości w aplikacji logiki. Na przykład zmienne mogą pomóc w śledzeniu, ile razy działa pętla. Aby wykonać iterację tablicy lub sprawdzić tablicę dla określonego elementu, można użyć zmiennej, aby odwołać się do numeru indeksu dla każdego elementu tablicy.
 
-Można tworzyć zmienne dla typów danych, takich jak liczba całkowita, float, logiczny, ciąg, tablica i obiekt. Po utworzeniu zmiennej można wykonywać inne zadania, na przykład:
+Można tworzyć zmienne dla typów danych, takich jak liczba całkowita, zmiennoprzecinkowa, wartość logiczna, ciąg, tablica i obiekt. Po utworzeniu zmiennej można wykonać inne zadania, na przykład:
 
-* Pobierz lub odwołaj się do wartości zmiennej.
-* Zwiększ lub zmniejsz zmienną o stałą wartość, zwana również *przyrostem* i *dekrementem*.
+* Pobierz lub odwołuje się do wartości zmiennej.
+* Zwiększ lub Zmniejsz zmienną przez wartość stałą, znaną również jako *Zwiększ* i *Zmniejsz*.
 * Przypisz inną wartość do zmiennej.
-* Wstaw lub *dołącz* wartość zmiennej jako ostatni raz w ciągu lub tablicy.
+* Wstaw lub *Dołącz* wartość zmiennej jako ostatnią godzinę w ciągu lub tablicy.
 
-Zmienne istnieją i są globalne tylko w wystąpieniu aplikacji logiki, która je tworzy. Ponadto utrzymują się w dowolnej iteracji pętli wewnątrz wystąpienia aplikacji logiki. Podczas odwoływania się do zmiennej należy użyć nazwy zmiennej jako tokenu, a nie nazwy akcji, która jest zwykłym sposobem odwoływania się do danych wyjściowych akcji.
+Zmienne istnieją i są globalne tylko w ramach wystąpienia aplikacji logiki, które je tworzy. Ponadto zachowują się one między iteracjami pętli wewnątrz wystąpienia aplikacji logiki. Podczas odwoływania się do zmiennej, użyj nazwy zmiennej jako tokenu, a nie nazwy akcji, która jest zwykłym sposobem odwoływania się do danych wyjściowych akcji.
 
 > [!IMPORTANT]
-> Domyślnie cykle w pętli "Dla każdego" są uruchamiane równolegle. W przypadku używania zmiennych w pętlach uruchom pętlę [sekwencyjnie,](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) aby zmienne zwracać przewidywalne wyniki.
+> Domyślnie cykle w pętli "for each" są uruchamiane równolegle. W przypadku używania zmiennych w pętlach Uruchom pętlę [sekwencyjnie](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) , aby zmienne zwracały przewidywalne wyniki.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się, aby korzystać z bezpłatnego konta platformy Azure.](https://azure.microsoft.com/free/)
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się, aby skorzystać z bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* Aplikacja logiki, w której chcesz utworzyć zmienną
+* Aplikacja logiki, w której ma zostać utworzona zmienna
 
-  Jeśli jesteś nowy w aplikacjach logiki, sprawdź [Co to jest usługa Azure Logic Apps?](../logic-apps/logic-apps-overview.md) i Szybki [start: Utwórz pierwszą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Jeśli dopiero zaczynasz tworzyć aplikacje Logic Apps, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md) i [Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * [Wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-concepts) jako pierwszy krok w aplikacji logiki
 
-  Aby można było dodać akcje do tworzenia i pracy ze zmiennymi, aplikacja logiki musi rozpocząć się od wyzwalacza.
+  Aby można było dodać akcje do tworzenia i pracy ze zmiennymi, aplikacja logiki musi rozpoczynać się od wyzwalacza.
 
 <a name="create-variable"></a>
 
-## <a name="initialize-variable"></a>Inicjowanie zmiennej
+## <a name="initialize-variable"></a>Zainicjuj zmienną
 
-Można utworzyć zmienną i zadeklarować jej typ danych i wartość początkową — wszystko w ramach jednej akcji w aplikacji logiki. Zmienne można deklarować tylko na poziomie globalnym, a nie w zakresach, warunkach i pętlach.
+Można utworzyć zmienną i zadeklarować jej typ danych i wartość początkową — wszystko w ramach jednej akcji w aplikacji logiki. Można zadeklarować zmienne tylko na poziomie globalnym, a nie w obrębie zakresów, warunków i pętli.
 
-1. W [witrynie Azure portal](https://portal.azure.com) lub visual studio otwórz aplikację logiki w projektancie aplikacji logiki.
+1. W [Azure Portal](https://portal.azure.com) lub w programie Visual Studio Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-   W tym przykładzie użyto witryny Azure portal i aplikacji logiki z istniejącym wyzwalaczem.
+   W tym przykładzie zastosowano Azure Portal i aplikację logiki z istniejącym wyzwalaczem.
 
 1. W aplikacji logiki w kroku, w którym chcesz dodać zmienną, wykonaj jedną z następujących czynności: 
 
-   * Aby dodać akcję w ostatnim kroku, wybierz pozycję **Nowy krok**.
+   * Aby dodać akcję w ostatnim kroku, wybierz pozycję **nowy krok**.
 
      ![Dodawanie akcji](./media/logic-apps-create-variables-store-values/add-action.png)
 
-   * Aby dodać akcję między krokami, przesuń wskaźnik myszy**+** na strzałkę łączącą, tak aby pojawił się znak plus ( ). Zaznacz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
+   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak plus**+**(). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
-1. W obszarze **Wybierz akcję**w polu `variables` wyszukiwania wprowadź jako filtr. Z listy akcji wybierz pozycję **Inicjuj zmienną**.
+1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `variables` jako filtr. Z listy Akcje wybierz pozycję **zainicjuj zmienną**.
 
    ![Wybierz akcję](./media/logic-apps-create-variables-store-values/select-initialize-variable-action.png)
 
-1. Podaj te informacje o zmiennej, jak opisano poniżej:
+1. Podaj te informacje o zmiennej, zgodnie z poniższym opisem:
 
    | Właściwość | Wymagany | Wartość |  Opis |
    |----------|----------|-------|--------------|
-   | **Nazwa** | Tak | <*nazwa zmiennej*> | Nazwa zmiennej do przyrostu |
-   | **Typ** | Tak | <*zmienny typ*> | Typ danych dla zmiennej |
-   | **Wartość** | Nie | <*wartość początkowa*> | Początkowa wartość zmiennej <p><p>**Wskazówka:** Chociaż jest to opcjonalne, ustaw tę wartość jako najlepszą praktykę, aby zawsze znać wartość początkową zmiennej. |
+   | **Nazwa** | Tak | <*Nazwa zmiennej*> | Nazwa zmiennej do zwiększenia |
+   | **Typ** | Tak | <*Typ zmiennej*> | Typ danych dla zmiennej. |
+   | **Wartościami** | Nie | <*wartość początkowa*> | Początkowa wartość zmiennej <p><p>**Porada**: Chociaż opcjonalna, ustaw tę wartość jako najlepsze rozwiązanie, aby zawsze znać wartość początkową dla zmiennej. |
    |||||
 
    Przykład:
 
-   ![Inicjowanie zmiennej](./media/logic-apps-create-variables-store-values/initialize-variable.png)
+   ![Zainicjuj zmienną](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-1. Teraz kontynuuj dodawanie żądanych akcji. Po zakończeniu na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
+1. Teraz Kontynuuj dodawanie żądanych akcji. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
-Jeśli przełączysz się z projektanta do edytora widoku kodu, w tym miejscu jest sposób, w jaki akcja **Inicjuj zmienną** pojawia się w definicji aplikacji logiki, która jest w formacie JavaScript Object Notation (JSON):If you switch from the designer to the code view editor, here is the way that the Initialize variable action appears in your logic app definition, which is in JavaScript Object Notation (JSON) format:
+Jeśli przełączysz projektanta z edytorem widoku kodu, w tym miejscu zostanie wyświetlona Akcja **zainicjuj zmienną** w definicji aplikacji logiki, która jest w formacie JavaScript Object Notation (JSON):
 
 ```json
 "actions": {
@@ -97,9 +97,9 @@ Jeśli przełączysz się z projektanta do edytora widoku kodu, w tym miejscu je
 ```
 
 > [!NOTE]
-> Mimo że akcja **inicjuj zmienną** ma sekcję, `variables` która jest skonstruowana jako tablica, akcja może utworzyć tylko jedną zmienną naraz. Każda nowa zmienna wymaga pojedynczej akcji **inicjuj zmienną.**
+> Chociaż Akcja **zainicjuj zmienną** ma `variables` sekcję, która jest strukturą jako tablicą, akcja może utworzyć tylko jedną zmienną jednocześnie. Każda nowa zmienna wymaga pojedynczej akcji **inicjowania zmiennej** .
 
-Oto przykłady dla niektórych innych typów zmiennych:
+Oto przykłady dla innych typów zmiennych:
 
 *Zmienna ciągu*
 
@@ -137,7 +137,7 @@ Oto przykłady dla niektórych innych typów zmiennych:
 },
 ```
 
-*Tablica z całkowitej liczby*
+*Tablica z liczbami całkowitymi*
 
 ```json
 "actions": {
@@ -175,11 +175,11 @@ Oto przykłady dla niektórych innych typów zmiennych:
 
 <a name="get-value"></a>
 
-## <a name="get-the-variables-value"></a>Uzyskaj wartość zmiennej
+## <a name="get-the-variables-value"></a>Pobierz wartość zmiennej
 
-Aby pobrać lub odwołać się do zawartości zmiennej, można również użyć [funkcji variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) w projektancie aplikacji logiki i edytorze widoku kodu. Podczas odwoływania się do zmiennej należy użyć nazwy zmiennej jako tokenu, a nie nazwy akcji, która jest zwykłym sposobem odwoływania się do danych wyjściowych akcji.
+Aby pobrać lub odwołać się do zawartości zmiennej, można również użyć [funkcji zmienne ()](../logic-apps/workflow-definition-language-functions-reference.md#variables) w Projektancie aplikacji logiki i edytorze widoku kodu. W przypadku odwoływania się do zmiennej Użyj nazwy zmiennej jako tokenu, a nie nazwy akcji, która jest zwykłym sposobem odwoływania się do danych wyjściowych akcji.
 
-Na przykład to wyrażenie pobiera elementy ze zmiennej tablicy [utworzonej wcześniej w tym artykule](#append-value) przy użyciu `variables()` funkcji. Funkcja `string()` zwraca zawartość zmiennej w formacie ciągu:`"1, 2, 3, red"`
+Na przykład to wyrażenie Pobiera elementy z zmiennej tablicowej [utworzonej wcześniej w tym artykule](#append-value) przy użyciu `variables()` funkcji. `string()` Funkcja zwraca zawartość zmiennej w formacie ciągu:`"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -187,37 +187,37 @@ Na przykład to wyrażenie pobiera elementy ze zmiennej tablicy [utworzonej wcze
 
 <a name="increment-value"></a>
 
-## <a name="increment-variable"></a>Zmienna przyrostu 
+## <a name="increment-variable"></a>Zwiększ zmienną 
 
-Aby zwiększyć lub *zwiększyć* zmienną o stałą wartość, dodaj akcję **zmiennej przyrostu** do aplikacji logiki. Ta akcja działa tylko ze zmiennymi całkowitymi i zmiennymi zmiennymi zmiennymi zmiennymi zmiennymi zmiennymi.
+Aby *zwiększyć lub zwiększyć* zmienną przez wartość stałą, Dodaj akcję **zwiększania zmiennej** do aplikacji logiki. Ta akcja działa tylko w przypadku zmiennych liczb całkowitych i zmiennoprzecinkowych.
 
-1. W projektancie aplikacji logiki w kroku, w którym chcesz zwiększyć istniejącą zmienną, wybierz pozycję **Nowy krok**. 
+1. W Projektancie aplikacji logiki w kroku, w którym chcesz zwiększyć istniejącą zmienną, wybierz pozycję **nowy krok**. 
 
-   Na przykład ta aplikacja logiki ma już wyzwalacz i akcję, która utworzyła zmienną. Dodaj więc nową akcję w następujących krokach:
+   Na przykład ta aplikacja logiki ma już wyzwalacz i akcję, która utworzyła zmienną. Dodaj nową akcję w ramach następujących kroków:
 
    ![Dodawanie akcji](./media/logic-apps-create-variables-store-values/add-increment-variable-action.png)
 
-   Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy na strzałkę łączącą, aby pojawić się znak plus (+). Zaznacz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak plus (+). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
-1. W polu wyszukiwania wpisz jako filtr "zmienna przyrostowa". Na liście akcji wybierz **zmienną Przyrost**.
+1. W polu wyszukiwania wprowadź wartość "zmienna przyrostowa" jako filtr. Na liście Akcje wybierz pozycję **Zwiększ wartość zmiennej**.
 
-   ![Wybierz akcję "Zmienna przyrostu"](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
+   ![Wybierz akcję "Zwiększ zmienną"](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
 
-1. Podaj te informacje, aby zwiększać zmienną:
+1. Podaj te informacje w celu zwiększenia wartości zmiennej:
 
    | Właściwość | Wymagany | Wartość |  Opis |
    |----------|----------|-------|--------------|
-   | **Nazwa** | Tak | <*nazwa zmiennej*> | Nazwa zmiennej do przyrostu |
-   | **Wartość** | Nie | <*wartość przyrostu*> | Wartość używana do zwiększania zmiennej. Wartość domyślna to jedna. <p><p>**Wskazówka:** Chociaż opcjonalne, ustawić tę wartość jako najlepsze rozwiązanie, dzięki czemu zawsze znasz określoną wartość dla zwiększania zmiennej. |
+   | **Nazwa** | Tak | <*Nazwa zmiennej*> | Nazwa zmiennej do zwiększenia |
+   | **Wartościami** | Nie | <*wartość przyrostu*> | Wartość używana do zwiększania wartości zmiennej. Wartość domyślna to 1. <p><p>**Porada**: Chociaż opcjonalna, ustaw tę wartość jako najlepsze rozwiązanie, aby zawsze znać konkretną wartość zwiększania zmiennej. |
    ||||
 
    Przykład:
 
    ![Przykład wartości przyrostu](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
-1. Po zakończeniu na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
+1. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
-Jeśli przełączysz się z projektanta do edytora widoku kodu, oto sposób, w jaki akcja **zmiennej przyrostu** pojawia się wewnątrz definicji aplikacji logiki, która jest w formacie JSON:
+Jeśli przełączysz projektanta z edytorem widoku kodu, Oto sposób, w jaki Akcja **zmiennej przyrostowej** jest wyświetlana w definicji aplikacji logiki, która jest w formacie JSON:
 
 ```json
 "actions": {
@@ -234,53 +234,53 @@ Jeśli przełączysz się z projektanta do edytora widoku kodu, oto sposób, w j
 
 ## <a name="example-create-loop-counter"></a>Przykład: Tworzenie licznika pętli
 
-Zmienne są często używane do zliczania liczby uruchomień pętli. W tym przykładzie pokazano, jak tworzyć i używać zmiennych dla tego zadania, tworząc pętlę, która zlicza załączniki w wiadomości e-mail.
+Zmienne są często używane do zliczania, ile razy działa pętla. Ten przykład pokazuje, jak tworzyć i używać zmiennych dla tego zadania, tworząc pętlę, która zlicza załączniki w wiadomości e-mail.
 
-1. W witrynie Azure portal utwórz pustą aplikację logiki. Dodaj wyzwalacz, który sprawdza dostępność nowych wiadomości e-mail i wszelkich załączników.
+1. W Azure Portal Utwórz pustą aplikację logiki. Dodaj wyzwalacz, który sprawdza, czy są nowe wiadomości e-mail i załączniki.
 
-   W tym przykładzie użyto wyzwalacza programu Office 365 Outlook dla **po nadejściu nowej wiadomości e-mail**. Ten wyzwalacz można skonfigurować tak, aby uruchamiał się tylko wtedy, gdy wiadomość e-mail ma załączniki. Można jednak użyć dowolnego łącznika, który sprawdza dostępność nowych wiadomości e-mail z załącznikami, takich jak łącznik Outlook.com.
+   W tym przykładzie do **momentu odebrania nowej wiadomości e-mail**zostaje użyty wyzwalacz Office 365 Outlook. Można skonfigurować ten wyzwalacz do uruchamiania tylko wtedy, gdy wiadomość e-mail ma załączniki. Można jednak użyć dowolnego łącznika, który wyszukuje nowe wiadomości e-mail z załącznikami, takich jak łącznik Outlook.com.
 
-1. W wyzwalaczu, aby sprawdzić załączniki i przekazać te załączniki do przepływu pracy aplikacji logiki, wybierz **opcję Tak** dla tych właściwości:
+1. Aby sprawdzić załączniki i przekazać te załączniki do przepływu pracy aplikacji logiki, wybierz pozycję **tak** dla tych właściwości:
 
    * **Zawiera załącznik**
    * **Uwzględnij załączniki**
 
-   ![Sprawdzanie i dołączanie załączników](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
+   ![Sprawdź, czy istnieją załączniki i Dołącz do nich](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 
-1. Dodaj [akcję **Inicjuj zmienną** ](#create-variable). Utwórz zmienną całkowitą `Count` o nazwie o zerowej wartości początkowej.
+1. Dodaj akcję [ **zainicjuj zmienną** ](#create-variable). Utwórz zmienną całkowitą o nazwie `Count` o zerowej wartości początkowej.
 
-   ![Dodaj akcję dla "Inicjuj zmienną"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
+   ![Dodaj akcję dla "Initialize variable"](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-1. Aby przełączać się między każdym załącznikiem, dodaj *a dla każdej* pętli.
+1. Aby przechodzić przez każdy załącznik, Dodaj pętlę *for each* .
 
-   1. W obszarze Akcji **Inicjuj zmienną** wybierz pozycję **Nowy krok**.
+   1. W akcji **Inicjuj zmienną** wybierz pozycję **nowy krok**.
 
-   1. W obszarze **Wybierz akcję**wybierz pozycję **Wbudowane**. W polu wyszukiwania `for each` wprowadź jako filtr wyszukiwania i wybierz pozycję **Dla każdego**.
+   1. W obszarze **Wybierz akcję**wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `for each` wartość jako filtr wyszukiwania, a następnie wybierz pozycję **dla każdej z nich**.
 
-      ![Dodaj pętlę "dla każdego"](./media/logic-apps-create-variables-store-values/add-loop.png)
+      ![Dodaj pętlę "for each"](./media/logic-apps-create-variables-store-values/add-loop.png)
 
-1. W pętli kliknij wewnątrz pola **Wybierz dane wyjściowe z poprzednich kroków.** Po wyświetleniu dynamicznej listy zawartości wybierz pozycję **Załączniki**.
+1. W pętli kliknij wewnątrz pola **Wybierz dane wyjściowe z poprzednich kroków** . Gdy zostanie wyświetlona lista zawartości dynamicznej, wybierz pozycję **załączniki**.
 
    ![Wybieranie pozycji „Załączniki”](./media/logic-apps-create-variables-store-values/select-attachments.png)
 
-   **Właściwość Załączniki** przekazuje tablicę, która ma załączniki wiadomości e-mail z danych wyjściowych wyzwalacza, do pętli.
+   Właściwość **załączniki** przekazuje tablicę, która zawiera załączniki wiadomości e-mail z danych wyjściowych wyzwalacza do pętli.
 
-1. W obszarze **Dla każdej** pętli wybierz pozycję **Dodaj akcję**.
+1. W pętli **for each** wybierz pozycję **Dodaj akcję**.
 
-   ![Wybierz "Dodaj akcję"](./media/logic-apps-create-variables-store-values/add-action-2.png)
+   ![Wybierz pozycję "Dodaj akcję"](./media/logic-apps-create-variables-store-values/add-action-2.png)
 
-1. W polu wyszukiwania wpisz jako filtr "zmienna przyrostowa". Z listy akcji wybierz **zmienną Przyrost**.
+1. W polu wyszukiwania wprowadź wartość "zmienna przyrostowa" jako filtr. Z listy Akcje wybierz pozycję **Zwiększ wartość zmiennej**.
 
    > [!NOTE]
-   > Upewnij się, że akcja **zmiennej przyrostu** pojawia się wewnątrz pętli. Jeśli akcja pojawi się poza pętlą, przeciągnij akcję do pętli.
+   > Upewnij się, że w pętli występuje Akcja **zmiennej przyrostowej** . Jeśli akcja pojawia się poza pętlą, przeciągnij akcję do pętli.
 
-1. W akcji **Zmienna przyrostowa** z listy **Nazwa** wybierz zmienną **Count.**
+1. W akcji **zmiennej przyrostowej** z listy **Nazwa** wybierz zmienną **Count** .
 
    ![Wybierz zmienną "Count"](./media/logic-apps-create-variables-store-values/add-increment-variable-example.png)
 
-1. W obszarze pętli dodaj dowolną akcję, która wysyła ci liczbę załączników. W akcji uwzględnij wartość ze zmiennej **Count,** na przykład:
+1. W obszarze pętla Dodaj wszystkie akcje, które wysyłają liczbę załączników. W akcji Uwzględnij wartość ze zmiennej **Count** , na przykład:
 
-   ![Dodawanie akcji, która wysyła wyniki](./media/logic-apps-create-variables-store-values/send-email-results.png)
+   ![Dodaj akcję, która wysyła wyniki](./media/logic-apps-create-variables-store-values/send-email-results.png)
 
 1. Zapisz aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
@@ -288,13 +288,13 @@ Zmienne są często używane do zliczania liczby uruchomień pętli. W tym przyk
 
 1. Jeśli aplikacja logiki nie jest włączona, w menu aplikacji logiki wybierz pozycję **Przegląd**. Na pasku narzędzi wybierz pozycję **Włącz**.
 
-1. Na pasku narzędzi Projektanta aplikacji logiki wybierz pozycję **Uruchom**. Ten krok ręcznie uruchamia aplikację logiki.
+1. Na pasku narzędzi projektanta aplikacji logiki wybierz pozycję **Uruchom**. Ten krok polega na ręcznym uruchomieniu aplikacji logiki.
 
-1. Wyślij wiadomość e-mail z co najmniej jednym załącznikiem na konto e-mail użyte w tym przykładzie.
+1. Wyślij wiadomość e-mail z co najmniej jednym załącznikiem do konta e-mail użytego w tym przykładzie.
 
-   Ten krok uruchamia wyzwalacz aplikacji logiki, który tworzy i uruchamia wystąpienie dla przepływu pracy aplikacji logiki. W rezultacie aplikacja logiki wysyła wiadomość lub wiadomość e-mail z numerem załączników w wysłanej wiadomości e-mail.
+   Ten krok wyzwala wyzwalacz aplikacji logiki, który tworzy i uruchamia wystąpienie dla przepływu pracy aplikacji logiki. W efekcie aplikacja logiki wyśle wiadomość e-mail z komunikatem o liczbie załączników wysłanych wiadomości e-mail.
 
-Jeśli przełączysz się z projektanta do edytora widoku kodu, oto sposób, że **dla każdej** pętli pojawia się wraz z akcji **zmiennej przyrost** wewnątrz definicji aplikacji logiki, który jest w formacie JSON.
+Jeśli przełączysz projektanta z edytorem widoku kodu, Oto, jak zostanie wyświetlona pętla **for each** wraz z akcją **zwiększania zmiennej** wewnątrz definicji aplikacji logiki, która jest w formacie JSON.
 
 ```json
 "actions": {
@@ -320,19 +320,19 @@ Jeśli przełączysz się z projektanta do edytora widoku kodu, oto sposób, że
 
 <a name="decrement-value"></a>
 
-## <a name="decrement-variable"></a>Zmienna dekrementacji
+## <a name="decrement-variable"></a>Zmniejsz zmienną
 
-Aby zmniejszyć lub *zmniejszyć* zmienną o stałą wartość, wykonaj kroki [zwiększania zmiennej,](#increment-value) z tą różnicą, że zamiast tego znajdziesz i wybierz akcję **zmiennej Decrement.** Ta akcja działa tylko ze zmiennymi całkowitymi i zmiennymi zmiennymi zmiennymi zmiennymi zmiennymi zmiennymi.
+Aby zmniejszyć lub *zmniejszyć* zmienną przez wartość stałą, wykonaj kroki w celu [zwiększenia zmiennej](#increment-value) , z wyjątkiem tego, że zamiast tego można znaleźć i wybrać akcję **Zmniejsz zmienną** . Ta akcja działa tylko w przypadku zmiennych liczb całkowitych i zmiennoprzecinkowych.
 
-Oto właściwości akcji **zmiennej Decrement:**
+Poniżej przedstawiono właściwości akcji **zmniejszania zmiennej** :
 
 | Właściwość | Wymagany | Wartość |  Opis |
 |----------|----------|-------|--------------|
-| **Nazwa** | Tak | <*nazwa zmiennej*> | Nazwa zmiennej do dekrementacji | 
-| **Wartość** | Nie | <*wartość przyrostu*> | Wartość zmniejszania zmiennej. Wartość domyślna to jedna. <p><p>**Wskazówka:** Chociaż opcjonalne, ustawić tę wartość jako najlepsze rozwiązanie, dzięki czemu zawsze znasz określoną wartość dla zmniejszania zmiennej. |
+| **Nazwa** | Tak | <*Nazwa zmiennej*> | Nazwa zmiennej do zmniejszenia | 
+| **Wartościami** | Nie | <*wartość przyrostu*> | Wartość zmniejszania zmiennej. Wartość domyślna to 1. <p><p>**Porada**: Chociaż opcjonalna, ustaw tę wartość jako najlepsze rozwiązanie, aby zawsze znać konkretną wartość zmniejszenia wartości zmiennej. |
 ||||| 
 
-Jeśli przełączysz się z projektanta do edytora widoku kodu, oto sposób, w jaki akcja **zmiennej dekrementu** pojawia się wewnątrz definicji aplikacji logiki, która jest w formacie JSON.
+Jeśli przełączysz projektanta z edytorem widoku kodu, w tym miejscu zostanie wyświetlona Akcja **Zmniejsz zmienną** w definicji aplikacji logiki, która jest w formacie JSON.
 
 ```json
 "actions": {
@@ -351,30 +351,30 @@ Jeśli przełączysz się z projektanta do edytora widoku kodu, oto sposób, w j
 
 ## <a name="set-variable"></a>Ustaw zmienną
 
-Aby przypisać inną wartość do istniejącej zmiennej, wykonaj kroki [zwiększające zmienną,](#increment-value) z tą różnicą, że:
+Aby przypisać inną wartość do istniejącej zmiennej, postępuj zgodnie z instrukcjami, aby [zwiększyć zmienną](#increment-value) z wyjątkiem tego, że:
 
-1. Zamiast tego znajdź i wybierz akcję **Ustaw zmienną.**
+1. W zamian Znajdź i wybierz akcję **Ustaw zmienną** .
 
-1. Podaj nazwę i wartość zmiennej, którą chcesz przypisać. Zarówno nowa wartość, jak i zmienna muszą mieć ten sam typ danych. Wartość jest wymagana, ponieważ ta akcja nie ma wartości domyślnej.
+1. Podaj nazwę zmiennej i wartość, którą chcesz przypisać. Obie nowe wartości i zmienne muszą mieć ten sam typ danych. Wartość jest wymagana, ponieważ ta akcja nie ma wartości domyślnej.
 
-Oto właściwości akcji **Ustaw zmienną:**
+Poniżej przedstawiono właściwości dla akcji **Ustaw zmienną** :
 
 | Właściwość | Wymagany | Wartość |  Opis |
 |----------|----------|-------|--------------|
-| **Nazwa** | Tak | <*nazwa zmiennej*> | Nazwa zmiennej, która ma się zmienić |
-| **Wartość** | Tak | <*nowa wartość*> | Wartość, którą chcesz przypisać zmienną. Oba muszą mieć ten sam typ danych. |
+| **Nazwa** | Tak | <*Nazwa zmiennej*> | Nazwa zmiennej do zmiany |
+| **Wartościami** | Tak | <*Nowa wartość*> | Wartość, do której ma zostać przypisana zmienna. Oba muszą mieć ten sam typ danych. |
 ||||| 
 
 > [!NOTE]
-> O ile zmienne nie są zwiększane lub zmniejszane, zmiana zmiennych wewnątrz pętli *może* spowodować nieoczekiwane wyniki, ponieważ pętle są uruchamiane równolegle lub jednocześnie domyślnie. W takich przypadkach spróbuj skonfigurować pętlę do uruchamiania sekwencyjnie. Na przykład, jeśli chcesz odwołać się do wartości zmiennej wewnątrz pętli i oczekiwać tej samej wartości na początku i na końcu tego wystąpienia pętli, wykonaj następujące kroki, aby zmienić sposób działania pętli: 
+> O ile nie są zwiększane ani zmniejszane zmienne, zmiana zmiennych wewnątrz pętli *może* spowodować nieoczekiwane wyniki, ponieważ pętle są uruchamiane równolegle lub współbieżnie, domyślnie. W takich przypadkach spróbuj ustawić pętlę, aby uruchamiała się sekwencyjnie. Na przykład, gdy chcesz odwołać się do wartości zmiennej wewnątrz pętli i spodziewać się na początku i na końcu tego wystąpienia pętli, wykonaj następujące kroki, aby zmienić sposób działania pętli: 
 >
-> 1. W prawym górnym rogu pętli wybierz przycisk wielokropek (**...**), a następnie wybierz **pozycję Ustawienia**.
+> 1. W prawym górnym rogu pętli wybierz przycisk wielokropka (**...**), a następnie wybierz pozycję **Ustawienia**.
 > 
-> 2. W obszarze **Kontrola współbieżności**zmień ustawienie **Domyślne zastępowanie** na **Włączone**.
+> 2. W obszarze **Kontrola współbieżności**Zmień ustawienie **domyślne Przesłoń** na **włączone**.
 >
-> 3. Przeciągnij suwak **Stopień równoległości** do **1**.
+> 3. Przeciągnij suwak **stopień równoległości** na **1**.
 
-Jeśli przełączysz się z projektanta do edytora widoku kodu, oto sposób, że **akcja Ustaw zmienną** pojawia się wewnątrz definicji aplikacji logiki, która jest w formacie JSON. W tym `Count` przykładzie zmienia bieżącą wartość zmiennej na inną wartość.
+Jeśli przełączysz projektanta z edytorem widoku kodu, Oto sposób, w jaki Akcja **Ustaw zmienną** pojawia się w definicji aplikacji logiki, która jest w formacie JSON. Ten przykład zmienia bieżącą `Count` wartość zmiennej na inną wartość.
 
 ```json
 "actions": {
@@ -406,24 +406,24 @@ Jeśli przełączysz się z projektanta do edytora widoku kodu, oto sposób, że
 
 ## <a name="append-to-variable"></a>Dołącz do zmiennej
 
-Dla zmiennych, które przechowują ciągi lub tablice, można wstawić lub *dołączyć* wartość zmiennej jako ostatni element w tych ciągów lub tablic. Można wykonać kroki zwiększania zmiennej, z tą [różnicą,](#increment-value) że zamiast tego wykonaj następujące kroki: 
+W przypadku zmiennych, które przechowują ciągi lub tablice, można wstawić lub *dołączyć* wartość zmiennej jako ostatni element w tych ciągach lub tablicach. Można postępować zgodnie z instrukcjami, aby [zwiększyć zmienną](#increment-value) , z tą różnicą, że w zamian wykonaj następujące czynności: 
 
-1. Znajdź i wybierz jedną z tych akcji na podstawie tego, czy zmienna jest ciągiem, czy tablicą: 
+1. Znajdź i wybierz jedną z tych akcji w zależności od tego, czy zmienna jest ciągiem lub tablicą: 
 
-   * **Dołączanie do zmiennej ciągu**
-   * **Dołączanie do zmiennej tablicowej** 
+   * **Dołącz do zmiennej ciągu**
+   * **Dołącz do zmiennej tablicowej** 
 
-1. Podaj wartość do doskładniania jako ostatni element w ciągu lub tablicy. Ta wartość jest wymagana.
+1. Podaj wartość, która ma zostać dołączona jako ostatni element w ciągu lub tablicy. Ta wartość jest wymagana.
 
-Oto właściwości akcji **Dołącz do...**
+Poniżej przedstawiono właściwości **dołączania do...** akcje:
 
 | Właściwość | Wymagany | Wartość |  Opis |
 |----------|----------|-------|--------------|
-| **Nazwa** | Tak | <*nazwa zmiennej*> | Nazwa zmiennej, która ma się zmienić |
-| **Wartość** | Tak | <*wartość dołączania*> | Wartość, którą chcesz dołączyć, która może mieć dowolny typ |
+| **Nazwa** | Tak | <*Nazwa zmiennej*> | Nazwa zmiennej do zmiany |
+| **Wartościami** | Tak | <*Dołącz wartość*> | Wartość, która ma zostać dołączona, która może mieć dowolny typ |
 |||||
 
-Jeśli przełączysz się z projektanta do edytora widoku kodu, oto sposób, w jaki akcja **dołączania do zmiennej tablicy** pojawia się wewnątrz definicji aplikacji logiki, która jest w formacie JSON. W tym przykładzie tworzy zmienną tablicową i dodaje inną wartość jako ostatni element w tablicy. Wynik jest zaktualizowaną zmienną zawierającą tę tablicę:`[1,2,3,"red"]`
+Jeśli przełączysz projektanta z edytorem widoku kodu, w tym miejscu zostanie wyświetlona Akcja **Dołącz do zmiennej tablicowej** w definicji aplikacji logiki, która jest w formacie JSON. Ten przykład tworzy zmienną tablicową i dodaje kolejną wartość jako ostatni element w tablicy. Wynik jest zaktualizowaną zmienną, która zawiera tę tablicę:`[1,2,3,"red"]`
 
 ```json
 "actions": {
@@ -453,4 +453,4 @@ Jeśli przełączysz się z projektanta do edytora widoku kodu, oto sposób, w j
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [łącznikach aplikacji logiki](../connectors/apis-list.md)
+* Więcej informacji na temat [łączników Logic Apps](../connectors/apis-list.md)

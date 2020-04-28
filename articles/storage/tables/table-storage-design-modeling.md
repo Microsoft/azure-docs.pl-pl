@@ -1,6 +1,6 @@
 ---
-title: Modelowanie relacji w projekcie usługi Azure Table Storage | Dokumenty firmy Microsoft
-description: Poznaj proces modelowania podczas projektowania rozwiązania do przechowywania tabel.
+title: Relacje modelowania w projekcie usługi Azure Table Storage | Microsoft Docs
+description: Zapoznaj się z procesem modelowania podczas projektowania rozwiązania do magazynowania tabel.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -9,36 +9,36 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457567"
 ---
 # <a name="modeling-relationships"></a>Modelowanie relacji
-W tym artykule omówiono proces modelowania, aby ułatwić projektowanie rozwiązań magazynu tabel platformy Azure.
+W tym artykule omówiono proces modelowania ułatwiający projektowanie rozwiązań usługi Azure Table Storage.
 
-Tworzenie modeli domen jest kluczowym krokiem w projektowaniu złożonych systemów. Zazwyczaj proces modelowania służy do identyfikowania jednostek i relacji między nimi jako sposób na zrozumienie domeny biznesowej i poinformowanie o projekcie systemu. W tej sekcji skupiono się na tym, jak można przetłumaczyć niektóre typowe typy relacji znalezione w modelach domen na projekty usługi tabel. Proces mapowania z logicznego modelu danych do fizycznego modelu danych opartego na nosql różni się od procesu używanego podczas projektowania relacyjnej bazy danych. Projekt relacyjnych baz danych zazwyczaj zakłada proces normalizacji danych zoptymalizowany pod kątem minimalizacji nadmiarowości i deklaratywną funkcję wykonywania zapytań, która abstrakcji jak implementacja jak działa bazy danych.  
+Tworzenie modeli domen to kluczowy etap projektowania złożonych systemów. Zazwyczaj proces modelowania jest używany do identyfikowania jednostek i relacji między nimi w celu zrozumienia domeny biznesowej i poinformowania o projekcie systemu. Ta sekcja koncentruje się na sposobach przekształcania niektórych typowych typów relacji znalezionych w modelach domen na projekty dla Table service. Proces mapowania z logicznego modelu danych na fizyczny model danych oparty na NoSQL różni się od tego, który jest używany podczas projektowania relacyjnej bazy danych. Projekt relacyjnych baz danych zazwyczaj przyjmuje proces normalizacji danych zoptymalizowany pod kątem minimalizowania nadmiarowości — oraz możliwość wykonywania zapytań deklaratywnych, która stanowi streszczenie sposobu działania bazy danych.  
 
-## <a name="one-to-many-relationships"></a>Relacje jeden-do-wielu
-Relacje jeden-do-wielu między obiektami domeny biznesowej występują często: na przykład jeden dział ma wielu pracowników. Istnieje kilka sposobów, aby zaimplementować relacje jeden do wielu w usłudze tabeli każdy z zalet i wad, które mogą być istotne dla określonego scenariusza.  
+## <a name="one-to-many-relationships"></a>Relacje jeden do wielu
+Relacja jeden do wielu między obiektami domeny biznesowej występuje często: na przykład jeden dział ma wielu pracowników. Istnieje kilka sposobów implementacji relacji jeden-do-wielu w Table service każdy ze specjalistami i wadami, które mogą mieć zastosowanie w konkretnym scenariuszu.  
 
-Rozważmy przykład dużej korporacji wielonarodowej z dziesiątkami tysięcy działów i jednostek pracowniczych, w których każdy dział ma wielu pracowników, a każdy pracownik jest związany z jednym konkretnym działem. Jednym z podejść jest przechowywanie oddzielnych jednostek działu i pracowników, takich jak te:  
+Rozważmy przykład dużej firmy wielonarodowej z dziesiątki tysięcy działów i jednostek pracowników, gdzie każdy dział ma wielu pracowników i każdego pracownika jako skojarzony z jednym określonym działem. Jednym z metod jest przechowywanie oddzielnych jednostek działu i pracowników, takich jak następujące:  
 
 
-![Oddzielne działy i jednostki pracowników sklepu](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
+![Przechowywanie odrębnych jednostek działu i pracowników](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
 
-W tym przykładzie pokazano niejawną relację jeden do wielu między typami na podstawie **partitionKey** wartości. Każdy dział może mieć wielu pracowników.  
+Ten przykład pokazuje niejawną relację "jeden do wielu" między typami opartymi na wartości **PartitionKey** . Każdy dział może mieć wielu pracowników.  
 
-W tym przykładzie pokazano również jednostki działu i jego powiązanych jednostek pracowników w tej samej partycji. Można użyć różnych partycji, tabel, a nawet kont magazynu dla różnych typów jednostek.  
+Ten przykład pokazuje również jednostkę działu i powiązane jednostki pracowników w tej samej partycji. Można użyć różnych partycji, tabel, a nawet kont magazynu dla różnych typów jednostek.  
 
-Alternatywnym podejściem jest denormalize danych i przechowywania tylko jednostek pracowników z zdezormalizowane dane działu, jak pokazano w poniższym przykładzie. W tym konkretnym scenariuszu to zdenormalizowane podejście może nie być najlepsze, jeśli masz wymóg, aby móc zmienić szczegóły kierownika działu, ponieważ w tym celu należy zaktualizować każdego pracownika w dziale.  
+Alternatywnym podejściem jest denormalizowanie danych i przechowywanie tylko jednostek pracowników z nieznormalizowanymi danymi działu, jak pokazano w poniższym przykładzie. W tym konkretnym scenariuszu takie nieznormalizowane podejście może nie być najlepszym rozwiązaniem, jeśli istnieje wymóg, aby można było zmienić szczegóły menedżera działu, ponieważ w tym celu należy zaktualizować każdego pracownika w dziale.  
 
-![Jednostka pracownika](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
+![Jednostka Employee](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
 
 Aby uzyskać więcej informacji, zobacz [wzorzec denormalizacji](table-storage-design-patterns.md#denormalization-pattern) w dalszej części tego przewodnika.  
 
-W poniższej tabeli podsumowano zalety i minusy każdego z rozwiązań opisanych powyżej w celu przechowywania jednostek pracowników i działów, które mają relację jeden do wielu. Należy również wziąć pod uwagę, jak często można oczekiwać, aby wykonać różne operacje: może być dopuszczalne, aby mieć projekt, który zawiera kosztowną operację, jeśli ta operacja występuje rzadko.  
+Poniższa tabela zawiera podsumowanie specjalistów i wad każdego z podejść przedstawionych powyżej do przechowywania jednostek pracowników i działów, które mają relację jeden do wielu. Należy również wziąć pod uwagę, jak często mają być wykonywane różne operacje: może być możliwe posiadanie projektu, który obejmuje kosztowną operację, jeśli ta operacja jest wykonywana tylko rzadko.  
 
 <table>
 <tr>
@@ -50,15 +50,15 @@ W poniższej tabeli podsumowano zalety i minusy każdego z rozwiązań opisanych
 <td>Oddzielne typy jednostek, ta sama partycja, ta sama tabela</td>
 <td>
 <ul>
-<li>Można zaktualizować jednostkę działu za pomocą jednej operacji.</li>
-<li>Za pomocą EUWT można zachować spójność, jeśli masz obowiązek modyfikowania jednostki działu przy każdej aktualizacji/wstawiania/usuwania jednostki pracownika. Na przykład, jeśli zachowasz liczbę pracowników działów dla każdego działu.</li>
+<li>Można zaktualizować jednostkę działu przy użyciu jednej operacji.</li>
+<li>Można użyć EGT, aby zachować spójność, jeśli istnieje potrzeba modyfikacji jednostki działu przy każdej aktualizacji/wstawieniu/usunięciu jednostki pracownika. Na przykład w przypadku utrzymania liczby pracowników działu dla poszczególnych działów.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Może być konieczne pobranie zarówno pracownika, jak i jednostki działu dla niektórych działań klienta.</li>
-<li>Operacje magazynowania odbywa się w tej samej partycji. Przy dużych wolumenach transakcji może to spowodować hotspot.</li>
-<li>Nie można przenieść pracownika do nowego działu przy użyciu EUWT.</li>
+<li>Może być konieczne pobranie pracownika i jednostki działu dla niektórych działań klientów.</li>
+<li>Operacje magazynu są wykonywane w tej samej partycji. W przypadku dużych ilości transakcji może to spowodować powstanie punktu aktywnego.</li>
+<li>Nie można przenieść pracownika do nowego działu przy użyciu EGT.</li>
 </ul>
 </td>
 </tr>
@@ -66,58 +66,58 @@ W poniższej tabeli podsumowano zalety i minusy każdego z rozwiązań opisanych
 <td>Oddzielne typy jednostek, różne partycje lub tabele lub konta magazynu</td>
 <td>
 <ul>
-<li>Można zaktualizować jednostkę działu lub jednostkę pracownika za pomocą jednej operacji.</li>
-<li>Przy dużych wolumenach transakcji może to pomóc rozłożyć obciążenie na więcej partycji.</li>
+<li>Można zaktualizować jednostkę działu lub jednostkę pracownika przy użyciu jednej operacji.</li>
+<li>W przypadku dużych ilości transakcji może to ułatwić rozproszenie obciążenia na więcej partycji.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Może być konieczne pobranie zarówno pracownika, jak i jednostki działu dla niektórych działań klienta.</li>
-<li>Egt nie można używać do zachowania spójności podczas aktualizowania/wstawiania/usuwania pracownika i aktualizowania działu. Na przykład aktualizowanie liczby pracowników w encji działu.</li>
-<li>Nie można przenieść pracownika do nowego działu przy użyciu EUWT.</li>
+<li>Może być konieczne pobranie pracownika i jednostki działu dla niektórych działań klientów.</li>
+<li>Nie można użyć EGTs, aby zachować spójność podczas aktualizowania/wstawiania/usuwania pracownika i aktualizowania działu. Na przykład w jednostce działu można aktualizować liczbę pracowników.</li>
+<li>Nie można przenieść pracownika do nowego działu przy użyciu EGT.</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Denormalize do pojedynczego typu jednostki</td>
+<td>Denormalizowanie do typu pojedynczej jednostki</td>
 <td>
 <ul>
-<li>Wszystkie potrzebne informacje można pobrać za pomocą jednego żądania.</li>
+<li>Wszystkie potrzebne informacje można pobrać przy użyciu pojedynczego żądania.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Utrzymanie spójności może być kosztowne, jeśli konieczne jest zaktualizowanie informacji o dziale (wymagałoby to aktualizacji wszystkich pracowników w dziale).</li>
+<li>Zachowanie spójności może być kosztowne, jeśli trzeba zaktualizować informacje działu (wymaga to zaktualizowania wszystkich pracowników w dziale).</li>
 </ul>
 </td>
 </tr>
 </table>
 
-Sposób wyboru między tymi opcjami i które z zalet i wad są najbardziej znaczące, zależy od konkretnych scenariuszy aplikacji. Na przykład, jak często modyfikujesz jednostki działu; wykonaj wszystkie zapytania pracowników potrzebują dodatkowych informacji działowych; jak blisko jesteś do limitów skalowalności na partycjach lub koncie magazynu?  
+Wybór między tymi opcjami oraz to, które z zalet i wad są najbardziej znaczące, zależy od konkretnych scenariuszy aplikacji. Na przykład jak często modyfikujesz jednostki działu; wszystkie zapytania pracowników potrzebują dodatkowych informacji działu; jak blisko ograniczeń skalowalności w partycjach lub na koncie magazynu?  
 
-## <a name="one-to-one-relationships"></a>Relacje jeden-do-jednego
-Modele domeny mogą zawierać relacje jeden-do-jednego między jednostkami. Jeśli trzeba zaimplementować relację jeden do jednego w usłudze tabel, należy również wybrać sposób łączenia dwóch powiązanych jednostek, gdy trzeba pobrać je zarówno. To łącze może być niejawne, oparte na konwencji w wartościach klucza lub jawne przez przechowywanie łącza w postaci **PartitionKey** i **RowKey** wartości w każdej jednostce do jej jednostki pokrewnej. Aby zapoznać się z kwestią, czy encje pokrewne należy [przechowywać](#one-to-many-relationships)w tej samej partycji, zobacz sekcję Relacje jeden do wielu .  
+## <a name="one-to-one-relationships"></a>Relacje jeden do jednego
+Modele domeny mogą zawierać relacje jeden do jednego między jednostkami. Jeśli zachodzi potrzeba zaimplementowania relacji jeden-do-jednego w Table service, należy również wybrać, jak połączyć dwie powiązane jednostki, gdy trzeba je pobrać. Ten link może być niejawny, na podstawie Konwencji w wartościach klucza lub jawnie przez przechowywanie linku w postaci wartości **PartitionKey** i **RowKey** w każdej jednostce względem powiązanej jednostki. Aby zapoznać się z omówieniem, czy należy przechowywać powiązane jednostki w tej samej partycji, zobacz [relacje jeden do wielu](#one-to-many-relationships).  
 
-Istnieją również zagadnienia dotyczące implementacji, które mogą prowadzić do zaimplementowania relacji jeden-do-jednego w usłudze tabeli:  
+Istnieją także uwagi dotyczące implementacji, które mogą prowadzić do wdrożenia relacji jeden-do-jednego w Table service:  
 
-* Obsługa dużych elementów (aby uzyskać więcej informacji, zobacz [Wzorzec dużych elementów).](table-storage-design-patterns.md#large-entities-pattern)  
-* Implementowanie kontroli dostępu (aby uzyskać więcej informacji, zobacz Kontrolowanie dostępu za pomocą podpisów dostępu współdzielonego).  
+* Obsługa dużych jednostek (Aby uzyskać więcej informacji, zobacz [wzorzec dużych jednostek](table-storage-design-patterns.md#large-entities-pattern)).  
+* Implementowanie kontroli dostępu (Aby uzyskać więcej informacji, zobacz Kontrolowanie dostępu za pomocą sygnatur dostępu współdzielonego).  
 
 ## <a name="join-in-the-client"></a>Dołącz do klienta
-Chociaż istnieją sposoby modelowania relacji w usłudze tabel, nie należy zapominać, że dwa główne powody korzystania z usługi tabeli są skalowalność i wydajność. Jeśli okaże się, że modelowanie wielu relacji, które zagrażają wydajności i skalowalności rozwiązania, należy zadać sobie pytanie, czy jest to konieczne do utworzenia wszystkich relacji danych w projekcie tabeli. Możesz uprościć projekt i poprawić skalowalność i wydajność rozwiązania, jeśli pozwolisz aplikacji klienckiej wykonać wszelkie niezbędne sprzężenia.  
+Chociaż istnieją metody do modelowania relacji w Table service, nie należy zapominać, że dwa podstawowe przyczyny używania Table service są skalowalne i wydajnościowe. Jeśli okaże się, że modelowanie ma wiele relacji, które naruszają wydajność i skalowalność rozwiązania, należy poproszony o to, jeśli konieczne jest skompilowanie wszystkich relacji danych w projekcie tabeli. Może być możliwe uproszczenie projektowania i zwiększenie skalowalności i wydajności rozwiązania, Jeśli zezwolisz aplikacji klienckiej na wykonywanie dowolnych koniecznych sprzężeń.  
 
-Na przykład jeśli masz małe tabele, które zawierają dane, które nie zmieniają się często, następnie można pobrać te dane raz i pamięci podręcznej na kliencie. Może to uniknąć powtarzających się objazdów, aby pobrać te same dane. W przykładach przyjrzeliśmy się w tym przewodniku, zestaw działów w małej organizacji może być mały i zmieniać rzadko co czyni go dobrym kandydatem dla danych, które aplikacja kliencka można pobrać raz i pamięci podręcznej jako wyszukiwania danych.  
+Na przykład jeśli masz małe tabele zawierające dane, które nie zmieniają się często, możesz pobrać te dane raz i umieścić je w pamięci podręcznej na kliencie. Może to uniknąć powtarzanych roundtrip, aby pobrać te same dane. W przykładach, które zostały przedstawione w tym przewodniku, zestaw działów w małej organizacji może być niewielki i często zmieniany, dzięki czemu jest to dobry kandydat dla danych, które aplikacja kliencka może pobrać raz i buforować jako dane wyszukiwania.  
 
 ## <a name="inheritance-relationships"></a>Relacje dziedziczenia
-Jeśli aplikacja kliencka używa zestawu klas, które stanowią część relacji dziedziczenia do reprezentowania jednostek biznesowych, można łatwo utrwalić te jednostki w usłudze tabel. Na przykład może mieć następujący zestaw klas zdefiniowanych w aplikacji klienckiej, gdzie **Osoba** jest klasą abstrakcyjną.
+Jeśli aplikacja kliencka korzysta z zestawu klas, które stanowią część relacji dziedziczenia reprezentującej jednostki biznesowe, można łatwo utrzymać te jednostki w Table service. Na przykład w aplikacji klienckiej można określić następujący zestaw klas, gdzie **osoba** jest klasą abstrakcyjną.
 
-![Klasa osoba abstrakcyjna](media/storage-table-design-guide/storage-table-design-IMAGE03.png)
+![Klasa osoby abstrakcyjnej](media/storage-table-design-guide/storage-table-design-IMAGE03.png)
 
-Można utrwalić wystąpienia dwóch konkretnych klas w table service przy użyciu pojedynczej person tabeli przy użyciu jednostek w tym wyglądać następująco:  
+Można utrzymywać wystąpienia dwóch konkretnych klas w Table service przy użyciu pojedynczej tabeli osób, która będzie wyglądać następująco:  
 
 ![Tabela osób](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-Aby uzyskać więcej informacji na temat pracy z wieloma typami jednostek w tej samej tabeli w kodzie klienta, zobacz sekcję Praca z heterogenicznych typów jednostek w dalszej części tego przewodnika. Zawiera przykłady rozpoznawania typu jednostki w kodzie klienta.  
+Więcej informacji o pracy z wieloma typami jednostek w tej samej tabeli w kodzie klienta znajduje się w sekcji Praca z typami jednostek heterogenicznych w dalszej części tego przewodnika. Zawiera przykłady sposobu rozpoznawania typu jednostki w kodzie klienta.  
 
 
 ## <a name="next-steps"></a>Następne kroki

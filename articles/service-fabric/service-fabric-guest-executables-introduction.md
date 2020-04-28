@@ -1,43 +1,43 @@
 ---
-title: Pakowanie istniejącego pliku wykonywalnego do sieci szkieletowej usług Azure
-description: Dowiedz się więcej o pakowaniu istniejącej aplikacji jako pliku wykonywalnego gościa, dzięki czemu można ją wdrożyć w klastrze sieci szkieletowej usług.
+title: Pakowanie istniejącego pliku wykonywalnego na platformę Azure Service Fabric
+description: Dowiedz się więcej o pakowaniu istniejącej aplikacji jako pliku wykonywalnego gościa, dzięki czemu można ją wdrożyć w klastrze Service Fabric.
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457833"
 ---
-# <a name="deploy-an-existing-executable-to-service-fabric"></a>Wdrażanie istniejącego pliku wykonywalnego w sieci szkieletowej usług
-Można uruchomić dowolnego typu kodu, takich jak Node.js, Java lub C++ w usłudze Azure Service Fabric jako usługi. Sieć szkieletowa usług odnosi się do tego typu usług jako pliki wykonywalne gościa.
+# <a name="deploy-an-existing-executable-to-service-fabric"></a>Wdróż istniejący plik wykonywalny w Service Fabric
+Można uruchomić dowolny typ kodu, taki jak Node. js, Java lub C++ na platformie Azure Service Fabric jako usługa. Service Fabric odnosi się do tych typów usług jako plików wykonywalnych gościa.
 
-Pliki wykonywalne gościa są traktowane przez sieć szkieletową usług jak usługi bezstanowe. W rezultacie są one umieszczane w węzłach w klastrze, na podstawie dostępności i innych metryk. W tym artykule opisano sposób pakowania i wdrażania pliku wykonywalnego gościa w klastrze sieci szkieletowej usług przy użyciu programu Visual Studio lub narzędzia wiersza polecenia.
+Pliki wykonywalne gościa są traktowane Service Fabric jak usługi bezstanowe. W związku z tym są one umieszczane w węzłach w klastrze, na podstawie dostępności i innych metryk. W tym artykule opisano, jak spakować i wdrożyć plik wykonywalny gościa w klastrze Service Fabric przy użyciu programu Visual Studio lub narzędzia wiersza polecenia.
 
-## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>Korzyści z uruchamiania pliku wykonywalnego gościa w sieci szkieletowej usług
-Istnieje kilka zalet uruchamiania pliku wykonywalnego gościa w klastrze sieci szkieletowej usług:
+## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>Zalety uruchamiania pliku wykonywalnego gościa w Service Fabric
+Istnieje kilka zalet, aby uruchomić plik wykonywalny gościa w klastrze Service Fabric:
 
-* Wysoka dostępność. Aplikacje uruchamiane w sieci szkieletowej usług są udostępniane jako wysoce dostępne. Sieci szkieletowej usług zapewnia, że wystąpienia aplikacji są uruchomione.
-* Monitorowanie stanu zdrowia. Monitorowanie kondycji sieci szkieletowej usługi wykrywa, czy aplikacja jest uruchomiona i dostarcza informacji diagnostycznych, jeśli wystąpi błąd.   
-* Zarządzanie cyklem życia aplikacji. Oprócz zapewnienia uaktualnień bez przestojów, usługa Service Fabric zapewnia automatyczne wycofywanie do poprzedniej wersji, jeśli podczas uaktualniania jest zgłaszane zdarzenie dotyczące złego stanu zdrowia.    
-* Gęstość. Można uruchomić wiele aplikacji w klastrze, co eliminuje potrzebę uruchamiania każdej aplikacji na własnym sprzęcie.
-* Wykrywalność: Za pomocą REST można wywołać usługę nazewnictwa sieci szkieletowej usług, aby znaleźć inne usługi w klastrze. 
+* Wysoka dostępność. Aplikacje działające w Service Fabric są wykonywane o wysokiej dostępności. Service Fabric zapewnia, że wystąpienia aplikacji są uruchomione.
+* Monitorowanie kondycji. Service Fabric monitorowania kondycji wykrywa, czy aplikacja jest uruchomiona i zawiera informacje diagnostyczne w przypadku wystąpienia błędu.   
+* Zarządzanie cyklem życia aplikacji. Oprócz udostępniania uaktualnień bez przestojów Service Fabric zapewnia automatyczne wycofanie do poprzedniej wersji, jeśli podczas uaktualniania zgłoszono złe zdarzenie kondycji.    
+* Gęstooci. W klastrze można uruchamiać wiele aplikacji, co eliminuje konieczność uruchamiania poszczególnych aplikacji na własnym sprzęcie.
+* Wykrywalność: przy użyciu REST można wywołać usługę nazewnictwa Service Fabric, aby znaleźć inne usługi w klastrze. 
 
 ## <a name="samples"></a>Samples
-* [Przykład do pakowania i wdrażania pliku wykonywalnego gościa](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Próbka dwóch plików wykonywalnych gościa (C# i nodejs) komunikujących się za pośrednictwem usługi nazewnictwa przy użyciu rest](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Przykład dla pakowania i wdrażania pliku wykonywalnego gościa](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Przykład dwóch plików wykonywalnych gościa (C# i NodeJS) komunikujących się za pośrednictwem usługi nazewnictwa przy użyciu REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
-## <a name="overview-of-application-and-service-manifest-files"></a>Omówienie plików manifestów aplikacji i usług
-W ramach wdrażania pliku wykonywalnego gościa warto zrozumieć model pakowania i wdrażania sieci szkieletowej usług, jak opisano w [modelu aplikacji.](service-fabric-application-model.md) Model pakowania sieci szkieletowej usług opiera się na dwóch plikach XML: manifestach aplikacji i usługi. Definicja schematu plików ApplicationManifest.xml i ServiceManifest.xml jest instalowana przy sdk sieci szkieletowej usług w *języku C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+## <a name="overview-of-application-and-service-manifest-files"></a>Omówienie plików manifestu aplikacji i usługi
+W ramach wdrażania pliku wykonywalnego gościa warto zrozumieć Service Fabric pakowanie i model wdrażania zgodnie z opisem w artykule [model aplikacji](service-fabric-application-model.md). Model pakietów Service Fabric opiera się na dwóch plikach XML: w manifestach aplikacji i usług. Definicja schematu dla plików ApplicationManifest. XML i servicemanifest. XML jest instalowana z zestawem SDK Service Fabric w *folderze C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-* **Manifest aplikacji** Manifest aplikacji jest używany do opisania aplikacji. Wyświetla listę usług, które tworzą go i inne parametry, które są używane do definiowania, jak jeden lub więcej usług powinny być wdrożone, takich jak liczba wystąpień.
+* **Manifest aplikacji** Manifest aplikacji jest używany do opisywania aplikacji. Zawiera on listę usług, które go tworzą, oraz inne parametry, które są używane do definiowania, jak należy wdrożyć co najmniej jedną usługę, na przykład liczbę wystąpień.
 
-  W sieci szkieletowej usług aplikacja jest jednostką wdrażania i uaktualniania. Aplikację można uaktualnić jako pojedynczą jednostkę, w której zarządzane są potencjalne awarie i potencjalne wycofywanie. Sieci szkieletowej usług gwarantuje, że proces uaktualniania zakończy się pomyślnie lub, jeśli uaktualnienie nie powiedzie się, nie pozostawia aplikacji w stanie nieznanym lub niestabilnym.
-* **Manifest usługi** Manifest usługi opisuje składniki usługi. Zawiera dane, takie jak nazwa i typ usługi oraz jego kod i konfiguracja. Manifest usługi zawiera również niektóre dodatkowe parametry, które mogą służyć do konfigurowania usługi po jej wdrożeniu.
+  W Service Fabric aplikacja jest jednostką wdrożenia i uaktualnienia. Aplikację można uaktualnić jako pojedynczą jednostkę, w której są zarządzane potencjalne błędy i potencjalne wycofywanie. Service Fabric gwarantuje, że proces uaktualniania zakończy się pomyślnie lub, Jeśli uaktualnienie nie powiedzie się, nie opuszcza aplikacji w stanie nieznany lub niestabilny.
+* **Manifest usługi** Manifest usługi opisuje składniki usługi. Obejmuje to dane, takie jak nazwa i typ usługi oraz jej kod i konfiguracja. Manifest usługi zawiera również kilka dodatkowych parametrów, których można użyć do skonfigurowania usługi po jej wdrożeniu.
 
 ## <a name="application-package-file-structure"></a>Struktura pliku pakietu aplikacji
-Aby wdrożyć aplikację do sieci szkieletowej usług, aplikacja powinna być zgodna ze wstępnie zdefiniowaną strukturą katalogów. Poniżej przedstawiono przykład tej struktury.
+Aby wdrożyć aplikację do Service Fabric, aplikacja powinna być zgodna ze wstępnie zdefiniowaną strukturą katalogów. Poniżej przedstawiono przykład tej struktury.
 
 ```
 |-- ApplicationPackageRoot
@@ -51,22 +51,22 @@ Aby wdrożyć aplikację do sieci szkieletowej usług, aplikacja powinna być zg
     |-- ApplicationManifest.xml
 ```
 
-ApplicationPackageRoot zawiera plik ApplicationManifest.xml, który definiuje aplikację. Podkatalog dla każdej usługi zawartej w aplikacji jest używany do zawierania wszystkich artefaktów, które wymaga usługi. Te podkatalogi są ServiceManifest.xml i, zazwyczaj, następujące:
+ApplicationPackageRoot zawiera plik ApplicationManifest. XML, który definiuje aplikację. Podkatalog dla każdej usługi zawartej w aplikacji jest używany do przechowywania wszystkich artefaktów wymaganych przez usługę. Te podkatalogi to servicemanifest. XML i zazwyczaj:
 
 * *Kod*. Ten katalog zawiera kod usługi.
-* *Config*. Ten katalog zawiera plik Settings.xml (i inne pliki w razie potrzeby), do których usługa może uzyskać dostęp w czasie wykonywania w celu pobrania określonych ustawień konfiguracji.
-* *Dane*. Jest to dodatkowy katalog do przechowywania dodatkowych danych lokalnych, które mogą być potrzebne usługi. Dane powinny być używane do przechowywania tylko danych tymczasowych. Sieci szkieletowej usług nie kopiuje ani nie replikuje zmian w katalogu danych, jeśli usługa musi zostać przeniesiona (na przykład podczas pracy awaryjnej).
+* *Konfiguracja*. Ten katalog zawiera plik Settings. XML (i inne pliki, w razie potrzeby), do którego usługa może uzyskać dostęp w czasie wykonywania w celu pobrania określonych ustawień konfiguracji.
+* *Dane*. Jest to dodatkowy katalog do przechowywania dodatkowych danych lokalnych, których może potrzebować usługa. Dane powinny być używane do przechowywania tylko danych tymczasowych. Service Fabric nie kopiuje ani nie replikuje zmian do katalogu danych, jeśli usługa musi zostać przeniesiona (na przykład podczas pracy w trybie failover).
 
 > [!NOTE]
-> Nie musisz tworzyć `config` katalogów, `data` jeśli ich nie potrzebujesz.
+> Nie trzeba tworzyć katalogów `config` i `data` , jeśli nie są one potrzebne.
 >
 >
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły, aby uzyskać powiązane informacje i zadania.
+Zapoznaj się z następującymi artykułami dotyczącymi pokrewnych informacji i zadań.
 * [Wdrażanie aplikacji wykonywalnej gościa](service-fabric-deploy-existing-app.md)
 * [Wdrażanie wielu aplikacji wykonywalnych gości](service-fabric-deploy-multiple-apps.md)
 * [Tworzenie pierwszej aplikacji wykonywalnej gościa przy użyciu programu Visual Studio](quickstart-guest-app.md)
-* [Przykład do pakowania i wdrażania pliku wykonywalnego gościa,](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)w tym link do wstępnej wersji narzędzia do pakowania
-* [Próbka dwóch plików wykonywalnych gościa (C# i nodejs) komunikujących się za pośrednictwem usługi nazewnictwa przy użyciu rest](https://github.com/Azure-Samples/service-fabric-containers)
+* [Przykład dotyczący pakowania i wdrażania pliku wykonywalnego gościa](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), w tym link do wersji wstępnej narzędzia pakowanie
+* [Przykład dwóch plików wykonywalnych gościa (C# i NodeJS) komunikujących się za pośrednictwem usługi nazewnictwa przy użyciu REST](https://github.com/Azure-Samples/service-fabric-containers)
 

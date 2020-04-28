@@ -1,6 +1,6 @@
 ---
-title: Globalna sieć firmy Microsoft — Platforma Azure
-description: W tym artykule opisano, jak firma Microsoft tworzy szybką i niezawodną sieć globalną
+title: Sieć globalna firmy Microsoft — Azure
+description: Opisuje, w jaki sposób firma Microsoft tworzy swoją szybką i niezawodną sieć globalną
 services: networking
 documentationcenter: ''
 author: KumudD
@@ -14,61 +14,61 @@ ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
 ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75453071"
 ---
 # <a name="microsoft-global-network"></a>Globalna sieć firmy Microsoft
 
-Microsoft jest właścicielem i operatorem jednej z największych sieci szkieletowych na świecie. Ta globalna i wyrafinowana architektura, obejmująca ponad 100 000 mil, łączy nasze centra danych i klientów. 
+Firma Microsoft jest właścicielem i obsługuje jedną z największych sieci szkieletowych na świecie. Ta globalna i rozbudowana architektura obejmująca ponad 100 000 kilometrów łączy nasze centra danych i klientów. 
  
-Każdego dnia klienci na całym świecie łączą się i przekazują biliony żądań do platformy Microsoft Azure, Bing, Dynamics 365, Office 365, XBox i wielu innych. Niezależnie od typu, klienci oczekują natychmiastowej niezawodności i responsywności naszych usług. 
+Codziennie klienci na całym świecie łączą i przekazują biliony żądań do Microsoft Azure, Bing, Dynamics 365, Office 365, XBox i wielu innych. Niezależnie od typu klienci oczekują natychmiastowej niezawodności i czasu reakcji z naszych usług. 
  
-[Globalna sieć firmy Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) jest centralną częścią zapewniania wspaniałych rażeń z chmury. Łącząc nasze [centra danych](https://azure.microsoft.com/global-infrastructure/) firmy Microsoft w 54 regionach platformy Azure i dużej siatce węzłów brzegowych strategicznie rozmieszczonych na całym świecie, nasza globalna sieć oferuje zarówno dostępność, pojemność, jak i elastyczność, aby sprostać każdemu zapotrzebowaniu.
+[Sieć globalna firmy Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) jest centralną częścią dostarczania doskonałego środowiska w chmurze. Dzięki połączeniu naszych [centrów danych](https://azure.microsoft.com/global-infrastructure/) firmy Microsoft w regionach platformy Azure w wysokości 54 i dużych oczkach, które są dostosowywane strategicznie na całym świecie, Nasza sieć globalna oferuje dostępność, pojemność i elastyczność, aby sprostać wymaganiom.
 
 ![Globalna sieć firmy Microsoft](./media/microsoft-global-network/microsoft-global-wan.png)
  
-## <a name="get-the-premium-cloud-network"></a>Pobierz sieć chmurową premium
+## <a name="get-the-premium-cloud-network"></a>Pobierz sieć w chmurze w warstwie Premium
  
-Wybór [najlepszego możliwego środowiska](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) jest łatwy w korzystaniu z chmury firmy Microsoft. Od momentu, gdy ruch klientów wchodzi do naszej globalnej sieci za pośrednictwem naszych strategicznie rozmieszczonych węzłów brzegowych, Twoje dane przemieszczają się po zoptymalizowanych trasach z prędkością zbliżoną do światła. Zapewnia to optymalne opóźnienie dla najlepszej wydajności. Te węzły brzegowe, połączone z ponad 3500 unikalnymi partnerami internetowymi (rówieśnikami) za pośrednictwem tysięcy połączeń w ponad 145 lokalizacjach, stanowią podstawę naszej strategii połączeń wzajemnych. 
+W przypadku korzystania z chmury firmy Microsoft można łatwo wybrać [najlepsze możliwe środowisko](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) . Od momentu, gdy ruch klientów przejdzie do naszej sieci globalnej za pośrednictwem strategicznie rozmieszczonych węzłów brzegowych, dane są przesyłane przez zoptymalizowane trasy w najbliższym tempie. Zapewnia to optymalny czas oczekiwania na najlepszą wydajność. Te węzły brzegowe, wszystkie połączone z ponad 3500 unikatowymi partnerami internetowymi (równorzędnymi) za pomocą tysięcy połączeń w więcej niż 145 lokalizacjach, stanowią podstawę naszej strategii połączeń. 
  
-Niezależnie od tego, czy chodzi o połączenie z Londynu do Tokio, czy z Waszyngtonu do Los Angeles, wydajność sieci jest określana ilościowo i ma na to wpływ takie rzeczy, jak opóźnienie, jitter, utrata pakietów i przepustowość.  W firmie Microsoft preferujemy bezpośrednie połączenia między sobą w przeciwieństwie do łączy tranzytowych, dzięki czemu ruch odpowiedzi jest symetryczny i pomaga utrzymać przeskoki, strony równorzędne i ścieżki tak krótkie i proste, jak to możliwe. 
+Bez względu na to, czy jest nawiązywane połączenie z Warszawy do Tokio, czy z Waszyngton DC do Los Angeles, wydajność sieci jest określana i wpływa na takie elementy, jak opóźnienia, wahania, utrata pakietów i przepływność.  Firma Microsoft zaleca, aby używać bezpośrednich połączeń z przeciwieństwem do przesyłania linków, dzięki czemu ruch związany z odpowiedzią jest symetryczny i pomaga w zachowaniu przeskoków, stron i ścieżek komunikacji równorzędnej jako krótkich i prostych, jak to możliwe. 
 
-Na przykład, jeśli użytkownik w Londynie próbuje uzyskać dostęp do usługi w Tokio, a następnie ruch internetowy wchodzi na jedną z naszych krawędzi w Londynie, przechodzi przez Microsoft WAN przez Francję, nasze ścieżki Trans-Arabia między Europą i Indiami, a następnie do Japonii, gdzie usługa jest hostowana. Ruch odpowiedzi jest symetryczny. Jest to czasami określane jako [routing zimnych ziemniaków,](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) co oznacza, że ruch pozostaje w sieci Microsoft tak długo, jak to możliwe, zanim go oddamy.  
+Na przykład, jeśli użytkownik w Londynie próbuje uzyskać dostęp do usługi w Tokio, ruch internetowy przechodzi przez firmę Microsoft do systemu, w którym znajduje się jedna z naszych brzegów w Londynie, przejdzie do sieci WAN, w której znajdują się ścieżki Trans-Saudyjska między Europą a Indie, a następnie do Japonii, gdzie usługa jest hostowana. Ruch odpowiedzi jest symetryczny. Jest to czasami nazywane [routingiem zimnej ziemniaka](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , co oznacza, że ruch w sieci firmy Microsoft jest dłuższy niż to możliwe.  
   
-Tak, to oznacza, że każdy i cały ruch podczas korzystania z usług firmy Microsoft? Tak, wszelki ruch między centrami danych, w ramach platformy Microsoft Azure lub między usługami firmy Microsoft, takimi jak maszyny wirtualne, Office 365, XBox, DC SQL, Magazyn i sieci wirtualne, jest kierowany w naszej globalnej sieci i nigdy przez publiczny Internet, aby zapewnić optymalny wydajności i integralności.  
+Czy oznacza to, że to wszystko i cały ruch w przypadku korzystania z usług firmy Microsoft? Tak, cały ruch między centrami danych, w Microsoft Azure lub między usługami firmy Microsoft, takimi jak Virtual Machines, Office 365, XBox, SQL baz danych, Storage i Virtual Networks, jest kierowany w naszej sieci globalnej i nigdy nie przez publiczny Internet, aby zapewnić optymalną wydajność i integralność.  
  
-Ogromne inwestycje w przepustowość światłowodów i różnorodność w ścieżkach metra, lądowych i podwodnych mają kluczowe znaczenie dla utrzymania spójnego i wysokiego poziomu usług, a jednocześnie napędzają ekstremalny rozwój naszych usług w chmurze i online. Najnowsze dodatki do naszej globalnej sieci to kabel podmorski [MAREA,](https://www.submarinecablemap.com/#/submarine-cable/marea) pierwszy w branży Open Line System (OLS) nad podmorską, między Bilbao, Hiszpanią i Virginia Beach, Virginia, USA, a także [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) między Nowym Jorkiem, USA i Dublinem, Irlandią i [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) między Tokio, Japonią i Portland, Oregon, USA. 
- 
-
-## <a name="our-network-is-your-network"></a>Nasza sieć to Twoja sieć
-
-Włożyliśmy dwie dekady doświadczenia, wraz z ogromnymi inwestycjami w sieć, aby zapewnić optymalną wydajność przez cały czas. Firmy mogą w pełni korzystać z naszych zasobów sieciowych i tworzyć zaawansowane architektury nakładek na wierzchu. 
- 
-Platforma Microsoft Azure oferuje najbogatsze portfolio usług i możliwości, umożliwiając klientom szybkie i łatwe tworzenie, rozszerzanie i spełnianie wymagań sieciowych w dowolnym miejscu. Nasza rodzina usług łączności obejmuje komunikację równorzędną sieci wirtualnych między regionami, hybrydową i w chmurze architekturę typu "punkt-lokacja" i lokacja, a także globalne scenariusze tranzytu adresów IP.  W przypadku przedsiębiorstw, które chcą połączyć własne centrum danych lub sieć z platformą Azure lub klientów z ogromnymi potrzebami pozyskiwania lub przesyłania danych, [usługi ExpressRoute](../expressroute/expressroute-introduction.md)i [ExpressRoute Direct](../expressroute/expressroute-erdirect-about.md) udostępniają opcje przepustowości do 100 Gb/s bezpośrednio do globalnej sieci firmy Microsoft w lokalizacjach komunikacji równorzędnej na całym świecie.  
- 
-[Usługa ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) została zaprojektowana w taki sposób, aby uzupełnić implementację sieci WAN dostawcy usług i połączyć witryny lokalne na całym świecie. Jeśli prowadzisz operację globalną, możesz użyć usługi ExpressRoute Global Reach w połączeniu z preferowanymi i lokalnymi dostawcami usług, aby połączyć wszystkie witryny globalne za pomocą sieci globalnej firmy Microsoft. Rozszerzenie nowej sieci w chmurze (WAN) o dużą liczbę lokacji w oddziałach można osiągnąć za pośrednictwem wirtualnej sieci WAN platformy Azure, która umożliwia bezproblemowe łączenie oddziałów z globalną siecią firmy Microsoft za pomocą urządzenia SDWAN & VPN (czyli sprzętu lokalnego klienta lub CPE) z wbudowaną łatwością użycia oraz automatyczną łącznością i zarządzaniem konfiguracją. 
- 
-[Globalna komunikacja równorzędna sieci wirtualnej](../virtual-network/virtual-network-peering-overview.md) umożliwia klientom bezproblemowe łączenie dwóch lub więcej sieci wirtualnych platformy Azure w różnych regionach. Po wzniebowtęglowane sieci wirtualne są wyświetlane jako jeden. Ruch między maszynami wirtualnymi w sieciach wirtualnych równorzędnych jest kierowany za pośrednictwem infrastruktury szkieletowej firmy Microsoft, podobnie jak ruch jest kierowany między maszynami wirtualnymi w tej samej sieci wirtualnej — tylko za pośrednictwem prywatnych adresów IP. 
+Duże inwestycje w pojemność i różnorodność w sieciach Metro, lądowych i podmorski mają kluczowe znaczenie dla nas, aby zachować spójny i wysoki poziom usług, jednocześnie dostarczając jednocześnie paliwo do najwyższej ilości naszych chmur i Usługi online. Najnowsze dodatki do naszej sieci globalnej to nasz kabel podmorski [Marea](https://www.submarinecablemap.com/#/submarine-cable/marea) , pierwszy otwarty system line (OLS) firmy Subsea, między Bilbao, Hiszpania i Wirginia sekwencje, WIRGINIA, USA, a także [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) między Nowym Jorku, USA i Dublin, Irlandia i [Nowy krzyżyk (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) między Tokio, Japonia i Warszawa, Oregon, USA. 
  
 
-## <a name="well-managed-using-software-defined-innovation"></a>Dobrze zarządzane przy użyciu innowacji definiowanych programowo
+## <a name="our-network-is-your-network"></a>Nasza sieć to sieć
 
-Firma Microsoft, prowadząc jedną z wiodących chmur na świecie, zdobyła wiele wglądu i doświadczenia w budowaniu i zarządzaniu wydajną infrastrukturą globalną.  
+Wprowadziliśmy dwa dekady środowiska, a także duże inwestycje w sieć, aby zapewnić optymalną wydajność przez cały czas. Firmy mogą w pełni korzystać z zasobów sieciowych i tworzyć zaawansowane architektury nakładki na górze. 
  
-Przestrzegamy solidnych zasad operacyjnych: 
+Microsoft Azure oferuje bogatsze portfolio usług i możliwości, dzięki czemu klienci mogą szybko i łatwo tworzyć, rozwijać i zaspokajać wymagania sieciowe w dowolnym miejscu. Nasza rodzina usług łączności obejmuje wirtualne sieci równorzędne między regionami, hybrydową i architekturą typu punkt-lokacja i lokacja-lokacja, a także scenariusze globalne przesyłania adresów IP.  W przypadku przedsiębiorstw, które chcą połączyć własne centrum danych lub sieci z platformą Azure lub klienci z ogromnymi potrzebami pozyskiwania lub tranzytu, [ExpressRoute](../expressroute/expressroute-introduction.md), a [ExpressRoute Direct](../expressroute/expressroute-erdirect-about.md) udostępniają opcje do 100 GB/s, bezpośrednio do sieci globalnej firmy Microsoft w lokalizacjach komunikacji równorzędnej na całym świecie.  
  
-- Użyj najlepszego w swojej klasie sprzętu przełączającego w różnych warstwach sieci.  
-- Wdrażanie nowych funkcji bez wpływu na użytkowników końcowych.  
-- Aktualizacje są dostępne w bezpieczny i niezawodny sposób w całej flocie, tak szybko, jak to możliwe. Godziny zamiast tygodni.  
-- Korzystaj z głębokich danych telemetrycznych w skali chmury i w pełni zautomatyzowanego ograniczania błędów.  
-- Użyj ujednoliconej i zdefiniowanej programowo technologii sieciowej, aby sterować wszystkimi elementami sprzętowymi w sieci.  Eliminacja powielania działań i zmniejsza liczbę awarii. 
+[ExpressRoute Global REACH](../expressroute/expressroute-global-reach.md) jest zaprojektowana w celu uzupełnienia implementacji sieci WAN dostawcy usług i łączenia lokacji lokalnych na całym świecie. Jeśli uruchamiasz operację globalną, możesz użyć ExpressRoute Global Reach w połączeniu z preferowanymi i lokalnymi dostawcami usług, aby połączyć wszystkie lokacje globalne przy użyciu sieci globalnej firmy Microsoft. Rozszerzanie nowej sieci w chmurze (WAN) w taki sposób, aby obejmowała dużą liczbę rozgałęzień, można osiągnąć za pośrednictwem wirtualnej sieci WAN platformy Azure, która umożliwia bezproblemowe łączenie gałęzi z siecią globalną firmy Microsoft za pomocą SDWAN & urządzeń sieci VPN (czyli sprzętu lokalnego klienta lub CPE) z wbudowanym łatwośćiem korzystania z funkcji i zautomatyzowanej łączności i zarządzania konfiguracją. 
  
-Zasady te mają zastosowanie do wszystkich warstw sieci: od hosta Interfejsu Sieciowego, platformy przełączania, funkcji sieciowych w centrum danych, takich jak moduły równoważenia obciążenia, aż po sieć WAN z naszą platformą inżynierii ruchu i naszymi sieciami optycznymi.  
+[Globalna komunikacja równorzędna](../virtual-network/virtual-network-peering-overview.md) sieci wirtualnych umożliwia klientom bezproblemowe łączenie się z co najmniej co najmniej z siecią wirtualną platformy Azure. Po nawiązaniu połączenia równorzędnego sieci wirtualne są wyświetlane jako jedna. Ruch między maszynami wirtualnymi w wirtualnych sieciach równorzędnych odbywa się za pomocą infrastruktury sieci szkieletowej firmy Microsoft, podobnie jak ruch jest kierowany między maszynami wirtualnymi w tej samej sieci wirtualnej — tylko za pomocą prywatnych adresów IP. 
  
-Wykładniczy rozwój platformy Azure i jej sieci osiągnął punkt, w którym ostatecznie zdaliśmy sobie sprawę, że nie można już polegać na ludzkiej intuicji do zarządzania globalnymi operacjami sieciowymi. Aby spełnić potrzebę weryfikacji długich, średnich i krótkoterminowych zmian w sieci, opracowaliśmy platformę do syntetycznego odzwierciedlania i emulowania naszej sieci produkcyjnej. Możliwość tworzenia lustrzanych środowisk i uruchamiania milionów symulacji, pozwala nam przetestować zmiany oprogramowania i sprzętu oraz ich wpływ, zanim zdążymy je na naszą platformę produkcyjną i sieć. 
+
+## <a name="well-managed-using-software-defined-innovation"></a>Dobre zarządzanie przy użyciu innowacji zdefiniowanych programowo
+
+W przypadku korzystania z jednej z wiodących chmur na świecie firma Microsoft zyskała wiele szczegółowych informacji i umożliwia tworzenie infrastruktury globalnej o wysokiej wydajności oraz zarządzanie nią.  
+ 
+Stosujemy się do niezawodnego zestawu zasad operacyjnych: 
+ 
+- Korzystaj z najlepszej jakości sprzętu do przełączania w różnych warstwach sieci.  
+- Wdrażaj nowe funkcje z zerowym wpływem na użytkowników końcowych.  
+- Aktualizacje są bezpiecznie i niezawodne w całej flotie, tak szybko, jak to możliwe. Godziny zamiast tygodni.  
+- Korzystaj ze szczegółowych danych telemetrycznych w skali chmury i w pełni zautomatyzowanego łagodzenia błędów.  
+- Używaj ujednoliconej i zdefiniowanej programowo technologii sieci do kontrolowania wszystkich elementów sprzętowych w sieci.  Eliminowanie duplikowanie i zmniejszanie błędów. 
+ 
+Te zasady mają zastosowanie do wszystkich warstw sieci: z interfejsu sieciowego hosta, przełączania platformy, funkcji sieciowych w centrum danych, takich jak moduły równoważenia obciążenia, w całości do sieci WAN przy użyciu naszej platformy inżynierii ruchu i naszych sieci optycznych.  
+ 
+Wykładniczy wzrost liczby platform Azure i jej sieci osiągnęło punkt, w którym ostatecznie zakończył się, że Intuition przez człowieka nie mogą już być używane do zarządzania globalnymi operacjami sieciowymi. Aby spełnić wymagania dotyczące długotrwałych, średnich i krótkoterminowych zmian w sieci, opracowano platformę do dublowania i emulowania naszej sieci produkcyjnej syntetycznie. Możliwość tworzenia dublowanych środowisk i uruchamiania milionów symulacji pozwala na testowanie zmian oprogramowania i sprzętu oraz ich wpływu przed przekazaniem ich do naszej platformy produkcyjnej i sieci. 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Dowiedz się więcej o usługach sieciowych dostarczanych na platformie Azure](https://azure.microsoft.com/product-categories/networking/)
+- [Dowiedz się więcej na temat usług sieciowych oferowanych na platformie Azure](https://azure.microsoft.com/product-categories/networking/)

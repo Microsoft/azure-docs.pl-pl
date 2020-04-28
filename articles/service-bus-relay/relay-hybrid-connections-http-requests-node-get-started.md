@@ -1,5 +1,5 @@
 ---
-title: Połączenia hybrydowe usługi Azure Relay — żądania HTTP w węźle
+title: Azure Relay Połączenia hybrydowe — żądania HTTP w węźle
 description: Napisz aplikację konsolową Node.js do obsługi żądań HTTP połączeń hybrydowych usługi Azure Relay w środowisku Node.
 services: service-bus-relay
 documentationcenter: node
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
 ms.openlocfilehash: d71386b86bf7133bb73ddce2e65c3b88743009ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75462027"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Wprowadzenie do żądań HTTP połączeń hybrydowych usługi Relay w środowisku Node
@@ -36,8 +36,8 @@ W tym przewodniku Szybki start wykonasz następujące kroki:
 5. Uruchamianie aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- [Node.js](https://nodejs.org/en/).
-- Subskrypcja platformy Azure. Jeśli go nie masz, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+- [Node. js](https://nodejs.org/en/).
+- Subskrypcja platformy Azure. Jeśli go nie masz, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="create-a-namespace-using-the-azure-portal"></a>Tworzenie przestrzeni nazw za pomocą usługi Azure Portal
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

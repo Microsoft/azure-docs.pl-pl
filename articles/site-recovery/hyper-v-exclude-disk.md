@@ -1,48 +1,48 @@
 ---
-title: Wykluczanie dysków maszyn wirtualnych funkcji Hyper V z odzyskiwania po awarii na platformę Azure za pomocą usługi Azure Site Recovery
-description: Jak wykluczyć dyski maszyn wirtualnych funkcji Hyper-V z replikacji na platformę Azure za pomocą usługi Azure Site Recovery.
+title: Wyklucz maszyny wirtualne funkcji Hyper-V z odzyskiwania po awarii na platformę Azure za pomocą Azure Site Recovery
+description: Jak wykluczać dyski maszyny wirtualnej funkcji Hyper-V z replikacji na platformę Azure przy użyciu Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.topic: conceptual
 ms.author: mayg
 ms.date: 11/12/2019
 ms.openlocfilehash: 50fb6da2905b2ae27547f25cce3d7a76ca7976b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75498139"
 ---
 # <a name="exclude-disks-from-replication"></a>Wykluczanie dysków z replikacji
 
-W tym artykule opisano sposób wykluczania dysków podczas replikowania maszyn wirtualnych z programem Hyper V na platformie Azure. Można wykluczyć dyski z replikacji z kilku powodów:
+W tym artykule opisano sposób wykluczania dysków podczas replikowania maszyn wirtualnych funkcji Hyper-V na platformę Azure. Możesz chcieć wykluczyć dyski z replikacji z kilku powodów:
 
-- Upewnij się, że nieistotne dane ubijane na wykluczonym dysku nie są replikowane.
-- Zoptymalizuj przepustowość używanej replikacji lub zasoby po stronie docelowej, wykluczając dyski, których nie trzeba replikować.
-- Oszczędzaj zasoby magazynu i sieci, nie replikując danych, które nie są potrzebne.
+- Upewnij się, że nieważne dane zmienione na wykluczonym dysku nie są replikowane.
+- Zoptymalizuj wykorzystaną przepustowość replikacji lub zasoby po stronie docelowej, wykluczając dyski, które nie są potrzebne do replikacji.
+- Zapisz magazyn i zasoby sieciowe, nie usuwając niepotrzebnych danych.
 
 Przed wykluczeniem dysków z replikacji:
 
-- [Dowiedz się więcej](exclude-disks-replication.md) o wykluczaniu dysków.
-- Przejrzyj [typowe scenariusze wykluczeń](exclude-disks-replication.md#typical-scenarios) i [przykłady,](exclude-disks-replication.md#example-1-exclude-the-sql-server-tempdb-disk) które pokazują, jak wykluczenie dysku wpływa na replikację, tryb failover i powrót po awarii.
+- [Dowiedz się więcej](exclude-disks-replication.md) na temat wykluczania dysków.
+- Przejrzyj [typowe scenariusze wykluczania](exclude-disks-replication.md#typical-scenarios) i [przykłady](exclude-disks-replication.md#example-1-exclude-the-sql-server-tempdb-disk) , które pokazują, jak wykluczenie dysku wpływa na replikację, pracę w trybie failover i powrót po awarii.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
 Przed rozpoczęciem należy zwrócić uwagę na następujące kwestie:
 
-- **Replikacja:** Domyślnie wszystkie dyski na komputerze są replikowane.
-- **Typ dysku:**
+- **Replikacja**: Domyślnie wszystkie dyski na maszynie są replikowane.
+- **Typ dysku**:
     - Dyski podstawowe można wykluczyć z replikacji.
     - Nie możesz wykluczać dysków systemu operacyjnego.
-    - Nie zalecamy wykluczania dysków dynamicznych. Usługa Site Recovery nie może zidentyfikować, który dysk VHD jest podstawowy lub dynamiczny w maszynie wirtualnej gościa.  Jeśli nie wykluczysz wszystkich zależnych dysków woluminów dynamicznych, chroniony dysk dynamiczny stanie się dyskiem awaryjnym na nieudanej maszynie wirtualnej, a dane na tym dysku nie są dostępne.
-- **Dodawanie/usuwanie/wykluczanie dysków:** Po włączeniu replikacji nie można dodawać/usuwać/wykluczać dysków do replikacji. Jeśli chcesz dodać/usunąć lub wykluczyć dysk, musisz wyłączyć ochronę maszyny Wirtualnej, a następnie włączyć ją ponownie.
-- **Praca awaryjna:** Po przełączeniu w tryb failover, jeśli aplikacje awaryjne muszą wykluczyć dyski, aby działać, należy utworzyć te dyski ręcznie. Alternatywnie można zintegrować automatyzacji platformy Azure do planu odzyskiwania, aby utworzyć dysk podczas pracy awaryjnej komputera.
-- **Powrót po awarii:** Po awarii po powrocie do lokacji lokalnej po przełączeniu w tryb failover dyski utworzone ręcznie na platformie Azure nie są po awarii. Na przykład jeśli w pracy awaryjnej na trzech dyskach i utworzyć dwa dyski bezpośrednio na maszynie Wirtualnej platformy Azure, tylko trzy dyski, które zostały przejęte awaryjnie są następnie po awarii z powrotem. Nie można dołączyć dysków, które zostały utworzone ręcznie w powiększenie zwrotnym lub w odwrotnej replikacji maszyn wirtualnych.
+    - Nie zalecamy wykluczania dysków dynamicznych. Site Recovery nie może zidentyfikować wirtualnego dysku twardego w warstwie Podstawowa lub dynamiczna na maszynie wirtualnej gościa.  Jeśli nie wykluczasz wszystkich zależnych dysków woluminu dynamicznego, chroniony dysk dynamiczny będzie uszkodzonym dyskiem maszyny wirtualnej w trybie failover, a dane na tym dysku są niedostępne.
+- **Dodawanie/usuwanie/wykluczanie dysków**: po włączeniu replikacji nie można dodawać/usuwać/wykluczać dysków na potrzeby replikacji. Jeśli chcesz dodać/usunąć lub wykluczyć dysk, musisz wyłączyć ochronę maszyny wirtualnej, a następnie włączyć ją ponownie.
+- **Tryb failover**: po przejściu do trybu failover aplikacje nie potrzebują dysków wykluczonych, aby można było wykonać te dyski ręcznie. Alternatywnie możesz zintegrować usługę Azure Automation w planie odzyskiwania, aby utworzyć dysk podczas pracy maszyny w trybie failover.
+- **Powrót po awarii**: po powrocie po awarii do lokacji lokalnej po zakończeniu pracy w trybie failover dyski utworzone ręcznie na platformie Azure nie będą ponownie działać. Jeśli na przykład przeniesiesz trzy dyski do trybu failover i utworzysz dwa dyski bezpośrednio na maszynie wirtualnej platformy Azure, tylko trzy dyski, które przechodzą w tryb failover, zakończą się niepowodzeniem. Nie można dołączyć dysków utworzonych ręcznie podczas powrotu po awarii ani replikacji odwrotnej maszyn wirtualnych.
 
 ## <a name="exclude-disks"></a>Wykluczanie dysków
 
-1. Aby wykluczyć dyski po [włączeniu replikacji](site-recovery-hyper-v-site-to-azure.md) maszyny wirtualnej funkcji Hyper-V, po wybraniu maszyn wirtualnych, które chcesz replikować, na stronie Włącz**właściwości** >  **replikacji** > **Konfiguruj** przejrzyj kolumnę **Dyski do replikacji.** Domyślnie wszystkie dyski są wybierane do replikacji.
-2. Jeśli nie chcesz replikować określonego dysku, w **folderze Dyski, aby replikować wyczyść** zaznaczenie dla wszystkich dysków, które chcesz wykluczyć. 
+1. Aby wykluczyć dyski po [włączeniu replikacji](site-recovery-hyper-v-site-to-azure.md) dla maszyny wirtualnej funkcji Hyper-V, po wybraniu maszyn wirtualnych, które mają być replikowane, **Enable replication** > **Properties** > **na stronie** Włączanie właściwości replikacji należy przejrzeć kolumny **dyski do replikacji** . Domyślnie do replikacji są wybierane wszystkie dyski.
+2. Jeśli nie chcesz replikować określonego dysku, w obszarze **dyski do replikacji** wyczyść zaznaczenie dla wszystkich dysków, które chcesz wykluczyć. 
 
     ![Wykluczanie dysków z replikacji](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)
 

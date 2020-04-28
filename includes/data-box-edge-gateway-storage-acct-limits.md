@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
 ms.openlocfilehash: a3928ac4caca5247dcacc639698a7a7bb49826a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75469319"
 ---
-Oto limity rozmiaru danych, które są kopiowane do konta magazynu. Upewnij się, że przesyłane dane są zgodne z tymi limitami. Aby uzyskać najbardziej aktualne informacje na temat tych limitów, zobacz [Cele skalowalności i wydajności dla przestrzeni magazynowej obiektów Blob](../articles/storage/blobs/scalability-targets.md) oraz [cele dotyczące skalowalności i wydajności usług Azure Files.](../articles/storage/files/storage-files-scale-targets.md)
+Poniżej przedstawiono limity rozmiaru danych kopiowanych na konto magazynu. Upewnij się, że przekazane dane są zgodne z tymi limitami. Aby uzyskać najbardziej aktualne informacje dotyczące tych limitów, zobacz [elementy docelowe skalowalności i wydajności dla magazynu obiektów BLOB](../articles/storage/blobs/scalability-targets.md) i [Azure Files skalowalności i wydajności](../articles/storage/files/storage-files-scale-targets.md).
 
-| Rozmiar danych skopiowanych do konta magazynu platformy Azure                      | Limit domyślny          |
+| Rozmiar danych kopiowanych na konto usługi Azure Storage                      | Limit domyślny          |
 |---------------------------------------------------------------------|------------------------|
-| Blokuj obiekt blob i obiekt blob strony                                            | 500 TB na konto magazynu|
+| Blokowy obiekt BLOB i stronicowe obiekty blob                                            | 500 TB na konto magazynu|

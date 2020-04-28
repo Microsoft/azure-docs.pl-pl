@@ -1,48 +1,48 @@
 ---
-title: Model aplikacji sieci szkieletowej usług Azure
-description: Jak modelować i opisywać aplikacje i usługi w sieci szkieletowej usług Azure przy użyciu plików manifestu aplikacji i usług.
+title: Model aplikacji Service Fabric platformy Azure
+description: Jak modelować i opisywać aplikacje i usługi na platformie Azure Service Fabric przy użyciu plików manifestu aplikacji i usługi.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7179686b7d4ef2df267cb95ece8f83d5fb7682b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551883"
 ---
-# <a name="model-an-application-in-service-fabric"></a>Modelowanie aplikacji w sieci szkieletowej usług
-Ten artykuł zawiera omówienie modelu aplikacji usługi Azure Service Fabric i jak zdefiniować aplikację i usługę za pomocą plików manifestu.
+# <a name="model-an-application-in-service-fabric"></a>Modelowanie aplikacji w Service Fabric
+Ten artykuł zawiera omówienie modelu aplikacji Service Fabric platformy Azure oraz sposób definiowania aplikacji i usługi za pośrednictwem plików manifestu.
 
-## <a name="understand-the-application-model"></a>Opis modelu aplikacji
-Aplikacja jest kolekcją usług składowych, które wykonują określone funkcje lub funkcje. Usługa wykonuje pełną i autonomiczną funkcję i może uruchamiać i uruchamiać niezależnie od innych usług.  Usługa składa się z kodu, konfiguracji i danych. Dla każdej usługi kod składa się z plików binarnych wykonywalnych, konfiguracja składa się z ustawień usługi, które mogą być ładowane w czasie wykonywania, a dane składają się z dowolnych danych statycznych, które mają być używane przez usługę. Każdy składnik w tym hierarchicznym modelu aplikacji można wersjonować i uaktualniać niezależnie.
+## <a name="understand-the-application-model"></a>Omówienie modelu aplikacji
+Aplikacja jest kolekcją usług składowych, które wykonują określoną funkcję lub funkcje. Usługa wykonuje kompletną i autonomiczną funkcję, która może być uruchamiana i uruchamiana niezależnie od innych usług.  Usługa składa się z kodu, konfiguracji i danych. W przypadku każdej usługi kod składa się z wykonywalnych plików binarnych, konfiguracja składa się z ustawień usługi, które mogą być ładowane w czasie wykonywania, a dane składają się z dowolnych danych statycznych, które mają być używane przez usługę. Każdy składnik w tym hierarchicznym modelu aplikacji może być w wersji i uaktualniony niezależnie.
 
-![Model aplikacji sieci szkieletowej usług][appmodel-diagram]
+![Model aplikacji Service Fabric][appmodel-diagram]
 
-Typ aplikacji jest kategoryzacją aplikacji i składa się z pakietu typów usług. Typ usługi jest kategoryzacją usługi. Kategoryzacja może mieć różne ustawienia i konfiguracje, ale podstawowe funkcje pozostają takie same. Wystąpienia usługi są różne odmiany konfiguracji usługi tego samego typu usługi.  
+Typ aplikacji jest kategoryzacją aplikacji i składa się z pakietu typów usług. Typ usługi jest kategoryzacją usługi. Kategoryzacja może mieć różne ustawienia i konfiguracje, ale podstawowe funkcje pozostają takie same. Wystąpienia usługi są różnymi wariantami konfiguracji usług tego samego typu usługi.  
 
-Klasy (lub "typy") aplikacji i usług są opisane za pomocą plików XML (manifesty aplikacji i manifesty usług).  Manifesty opisują aplikacje i usługi i są szablonami, dla których można utworzyć wystąpienia aplikacji z magazynu obrazów klastra.  Manifesty są szczegółowo opisane w [manifestach aplikacji i usług](service-fabric-application-and-service-manifests.md). Definicja schematu pliku ServiceManifest.xml i ApplicationManifest.xml jest instalowana z zestawem SDK sieci szkieletowej usług i narzędziami do *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. Schemat XML jest udokumentowany w [dokumentacji schematu ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
+Klasy (lub "typy") aplikacji i usług są opisane za poorednictwem plików XML (manifestów aplikacji i manifestów usługi).  Manifesty opisują aplikacje i usługi oraz szablony, dla których można utworzyć wystąpienie aplikacji z magazynu obrazów klastra.  Manifesty są szczegółowo omówione w [manifestach aplikacji i usług](service-fabric-application-and-service-manifests.md). Definicja schematu dla pliku servicemanifest. XML i ApplicationManifest. XML jest instalowana z zestawem SDK Service Fabric i narzędziami do *folderu C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. Schemat XML jest udokumentowany w [dokumentacji schematu ServiceFabricServiceModel. xsd](service-fabric-service-model-schema.md).
 
-Kod dla różnych wystąpień aplikacji są uruchamiane jako oddzielne procesy, nawet jeśli są obsługiwane przez ten sam węzeł sieci szkieletowej usług. Ponadto cykl życia każdego wystąpienia aplikacji można zarządzać (na przykład uaktualniony) niezależnie. Na poniższym diagramie przedstawiono, jak typy aplikacji składają się z typów usług, które z kolei składają się z pakietów kodu, konfiguracji i danych. Aby uprościć diagram, `ServiceType4` wyświetlane są tylko pakiety kodu/config/data, chociaż każdy typ usługi będzie zawierał niektóre lub wszystkie te typy pakietów.
+Kod dla różnych wystąpień aplikacji jest uruchamiany jako osobne procesy nawet w przypadku hostowania tego samego węzła Service Fabric. Ponadto cykl życia każdego wystąpienia aplikacji może być zarządzany (na przykład uaktualniony) niezależnie od siebie. Na poniższym diagramie przedstawiono, jak typy aplikacji składają się z typów usług, które z kolei składają się na kod, konfigurację i pakiety danych. Aby uprościć diagram, wyświetlane są tylko pakiety Code/config/Data `ServiceType4` dla programu, chociaż każdy typ usługi będzie zawierać niektóre lub wszystkie typy pakietów.
 
-![Typy aplikacji sieci szkieletowej usług i typy usług][cluster-imagestore-apptypes]
+![Service Fabric typów aplikacji i typów usług][cluster-imagestore-apptypes]
 
-Może istnieć jedno lub więcej wystąpień typu usługi aktywnych w klastrze. Na przykład wystąpienia usługi stanowej lub repliki osiągnąć wysoką niezawodność przez replikowanie stanu między replikami znajdujących się w różnych węzłach w klastrze. Replikacja zasadniczo zapewnia nadmiarowość dla usługi, które mają być dostępne, nawet jeśli jeden węzeł w klastrze nie powiedzie się. [Usługa podzielona na partycje](service-fabric-concepts-partitioning.md) dodatkowo dzieli swój stan (i wzorce dostępu do tego stanu) między węzłami w klastrze.
+W klastrze może istnieć co najmniej jedno wystąpienie typu usługi. Na przykład wystąpienia usługi stanowej lub repliki mają wysoką niezawodność dzięki replikacji stanu między replikami znajdującymi się w różnych węzłach w klastrze. Replikacja zasadniczo zapewnia nadmiarowość do dostępności usługi, nawet jeśli jeden węzeł w klastrze ulegnie awarii. Podzielona na [partycje usługa](service-fabric-concepts-partitioning.md) dodatkowo dzieli stan (i wzorce dostępu do tego stanu) między węzłami w klastrze.
 
-Na poniższym diagramie przedstawiono relację między aplikacjami i wystąpień usługi, partycje i repliki.
+Na poniższym diagramie przedstawiono relację między aplikacjami i wystąpieniami usług, partycjami i replikami.
 
-![Partycje i repliki w usłudze][cluster-application-instances]
+![Partycje i repliki w ramach usługi][cluster-application-instances]
 
 > [!TIP]
-> Układ aplikacji w klastrze można wyświetlić za pomocą narzędzia Eksploratora sieci szkieletowej usług dostępnego pod adresem http://&lt;yourclusteraddress&gt;:19080/Explorer. Aby uzyskać więcej informacji, zobacz [Wizualizacja klastra za pomocą Eksploratora sieci szkieletowej usług](service-fabric-visualizing-your-cluster.md).
+> Układ aplikacji w klastrze można wyświetlić za pomocą narzędzia Service Fabric Explorer dostępnego pod adresem http://&lt;yourclusteraddress&gt;: 19080/Explorer. Aby uzyskać więcej informacji, zobacz [wizualizowanie klastra przy użyciu Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 > 
 > 
 
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [skalowalności aplikacji](service-fabric-concepts-scalability.md).
-- Dowiedz się więcej o [stanie](service-fabric-concepts-state.md)usługi, [partycjonowaniu](service-fabric-concepts-partitioning.md)i [dostępności](service-fabric-availability-services.md).
-- Przeczytaj o tym, jak aplikacje i usługi są definiowane w [manifestach aplikacji i usług](service-fabric-application-and-service-manifests.md).
-- [Modele hostingu aplikacji](service-fabric-hosting-model.md) opisują relację między replikami (lub wystąpieniami) wdrożonego procesu usługi i hosta usługi.
+- Dowiedz się więcej o [stanie](service-fabric-concepts-state.md)usług, [partycjonowaniu](service-fabric-concepts-partitioning.md)i [dostępności](service-fabric-availability-services.md).
+- Przeczytaj o sposobie definiowania aplikacji i usług w [manifestach aplikacji i usług](service-fabric-application-and-service-manifests.md).
+- [Modele hostingu aplikacji](service-fabric-hosting-model.md) opisują relację między replikami (lub wystąpieniami) wdrożonej usługi i procesu hosta usługi.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

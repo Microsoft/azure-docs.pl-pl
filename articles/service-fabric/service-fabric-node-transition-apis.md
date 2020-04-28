@@ -1,59 +1,59 @@
 ---
-title: Uruchamianie i zatrzymywania węzłów klastra
-description: Dowiedz się, jak używać iniekcji błędów do testowania aplikacji sieci szkieletowej usług przez uruchamianie i zatrzymywanie węzłów klastra.
+title: Uruchamianie i zatrzymywanie węzłów klastra
+description: Dowiedz się, jak używać iniekcji błędów do testowania aplikacji Service Fabric przez uruchamianie i zatrzymywanie węzłów klastra.
 author: LMWF
 ms.topic: conceptual
 ms.date: 6/12/2017
 ms.author: lemai
 ms.openlocfilehash: 8f2eefec94ad4763a054ee089b17232c41e642dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609795"
 ---
-# <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Zastępowanie interfejsów API węzła start i zatrzymania interfejsami API przejścia węzła
+# <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Zastępowanie węzła początkowego i Zatrzymaj interfejsy API węzła przy użyciu interfejsu API przejścia węzła
 
-## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>Do czego działają interfejsy API węzła zatrzymania i węzła startowego?
+## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>Co robią interfejsy API Zatrzymaj węzeł i węzeł uruchamiania?
 
-Interfejs API węzła zatrzymania (zarządzany: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) zatrzymuje węzeł sieci szkieletowej usług.  Węzeł sieci szkieletowej usług jest procesem, a nie maszyną wirtualną lub maszyną — maszyna wirtualna lub maszyna będzie nadal uruchomiona.  Dla pozostałej części dokumentu "węzeł" będzie oznaczać węzeł sieci szkieletowej usług.  Zatrzymywanie węzła umieszcza go w stanie *zatrzymania,* gdzie nie jest członkiem klastra i nie może obsługiwać usług, symulując w ten sposób *węzeł w dół.*  Jest to przydatne do wstrzykiwania błędów do systemu, aby przetestować aplikację.  Interfejs API węzła startowego (zarządzany: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) odwraca interfejs API węzła zatrzymania, który przywraca węzeł do stanu normalnego.
+Interfejs API zatrzymania węzła (Managed: [StopNodeAsync ()][stopnode], PowerShell: [stop-ServiceFabricNode][stopnodeps]) zatrzymuje węzeł Service Fabric.  Węzeł Service Fabric to proces, a nie maszyna wirtualna lub maszyna — maszyna wirtualna lub maszyna nadal będzie działać.  W pozostałej części dokumentu "Node" będzie oznaczać Service Fabric węzła.  Zatrzymywanie węzła powoduje zatrzymanie w stanie *zatrzymania* , w którym nie jest elementem członkowskim klastra i nie może hostować usług, co symuluje węzeł *w dół* .  Jest to przydatne w przypadku wstrzykiwania błędów do systemu w celu przetestowania aplikacji.  Interfejs API uruchamiania węzła (Managed: [StartNodeAsync ()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) Odwraca działanie interfejsu API zatrzymania węzła, co powoduje przywrócenie stanu węzła do normalnego.
 
-## <a name="why-are-we-replacing-these"></a>Dlaczego je zastępujemy?
+## <a name="why-are-we-replacing-these"></a>Dlaczego zamieniamy te?
 
-Jak opisano wcześniej, *zatrzymany* węzeł sieci szkieletowej usług jest węzłem celowo kierowane przy użyciu interfejsu API węzła zatrzymania.  Węzeł *w dół* jest węzłem, który jest wyłączony z dowolnego innego powodu (na przykład maszyna wirtualna lub maszyna jest wyłączona).  W interfejsie API zatrzymania węzła system nie udostępnia informacji w celu rozróżnienia między *węzłami zatrzymanymi* i *węzłami w dół.*
+Jak opisano wcześniej, *zatrzymany* węzeł Service Fabric jest węzłem celowym przeznaczonym do użycia interfejsu API zatrzymania węzła.  Węzeł *w dół* jest węzłem, który nie działa z innych przyczyn (na przykład maszyna wirtualna lub maszyna jest wyłączona).  W przypadku interfejsu API Zatrzymaj węzeł System nie ujawnia informacji do rozróżnienia między *zatrzymanymi* węzłami i węzłami *w dół* .
 
-Ponadto niektóre błędy zwracane przez te interfejsy API nie są tak opisowe, jak mogłyby być.  Na przykład wywołanie interfejsu API zatrzymania węzła w już *zatrzymanym* węźle zwróci błąd *InvalidAddress*.  To doświadczenie można poprawić.
+Ponadto niektóre błędy zwrócone przez te interfejsy API nie są tak, jak to możliwe.  Na przykład wywołanie interfejsu API Zatrzymaj węzeł na już *zatrzymanym* węźle zwróci błąd *InvalidAddress*.  To środowisko może być udoskonalone.
 
-Ponadto czas trwania węzła jest zatrzymany dla jest "nieskończony", dopóki nie zostanie wywołany interfejs API węzła startowego.  Odkryliśmy, że może to powodować problemy i może być podatne na błędy.  Na przykład widzieliśmy problemy, w których użytkownik wywołał interfejs API zatrzymania węzła w węźle, a następnie zapomniał o tym.  Później nie było jasne, czy węzeł został *zamknięty* lub *zatrzymany*.
-
-
-## <a name="introducing-the-node-transition-apis"></a>Przedstawiamy interfejsy API przejścia węzła
-
-Rozwiązaliśmy te problemy powyżej w nowym zestawie interfejsów API.  Nowy interfejs API przejścia węzła (zarządzany: [StartNodeTransitionAsync()][snt]) może służyć do przejścia węzła sieci szkieletowej usług do stanu *zatrzymanego* lub przejścia go ze stanu *zatrzymanego* do normalnego stanu.  Należy pamiętać, że "Start" w nazwie interfejsu API nie odnosi się do uruchamiania węzła.  Odnosi się do rozpoczęcia operacji asynchroniiowej, że system będzie wykonywany do przejścia węzła do stanu *zatrzymanego* lub uruchomionego.
-
-**Użycia**
-
-Jeśli interfejs API przejścia węzła nie zgłasza wyjątek podczas wywoływania, system zaakceptował operację asynchronizacyjną i wykona ją.  Pomyślne wywołanie nie oznacza, że operacja została jeszcze zakończona.  Aby uzyskać informacje o bieżącym stanie operacji, należy wywołać interfejs API postępu przejścia węzła (zarządzany: [GetNodeTransitionProgressAsync()][gntp]) z identyfikatorem guid używanym podczas wywoływania interfejsu API przejścia węzła dla tej operacji.  Interfejs API postępu przejścia węzła zwraca obiekt NodeTransitionProgress.  Właściwość State tego obiektu określa bieżący stan operacji.  Jeśli stan jest "Uruchomiony", a następnie operacja jest wykonywana.  Jeśli jest zakończona, operacja została zakończona bez błędu.  Jeśli jest uszkodzony, wystąpił problem z wykonaniem operacji.  Właściwość Exception właściwości Result będzie wskazywać, co było problemem.  Zobacz https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate więcej informacji na temat State właściwości i "Przykładowe użycie" poniżej przykłady kodu.
+Ponadto czas, przez jaki węzeł jest zatrzymany, ma wartość "nieskończone" do momentu wywołania interfejsu API uruchamiania węzła.  Znaleźliśmy, że może to spowodować problemy i może być podatna na błędy.  Na przykład pojawiły się problemy, w których użytkownik wywołał interfejs API Zatrzymaj węzeł w węźle, a następnie go zapomniano.  Później nie było jasne, jeśli węzeł został *wyłączony* lub *zatrzymany*.
 
 
-**Rozróżnianie między zatrzymanym węzłem a węzłem w dół** Jeśli węzeł zostanie *zatrzymany* przy użyciu interfejsu API przejścia węzła, dane wyjściowe kwerendy węzła (zarządzane: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) pokażą, że ten węzeł ma wartość właściwości *IsStopped* true.  Należy zauważyć, że różni się to od wartości *NodeStatus* właściwości, która powie *Down*.  Jeśli *Właściwość NodeStatus* ma wartość *W dół*, ale *IsStopped* jest false, węzeł nie został zatrzymany przy użyciu interfejsu API przejścia węzła i jest *w dół* z innego powodu.  Jeśli *Właściwość IsStopped* jest true, a *Właściwość NodeStatus* jest *w dół,* a następnie został zatrzymany przy użyciu interfejsu API przejścia węzła.
+## <a name="introducing-the-node-transition-apis"></a>Wprowadzenie do interfejsów API przejścia węzła
 
-Uruchomienie *zatrzymanego* węzła przy użyciu interfejsu API przejścia węzła spowoduje ponowne przywrócenie go do działania jako zwykły członek klastra.  Dane wyjściowe interfejsu API kwerendy węzła będą wyświetlane *isstopped* jako false i *NodeStatus* jako coś, co nie jest w dół (na przykład w górę).
+Te problemy zostały opisane powyżej w nowym zestawie interfejsów API.  Nowy interfejs API przejścia węzła (zarządzany: [StartNodeTransitionAsync ()][snt]) może służyć do przechodzenia do stanu *zatrzymanego* węzła Service Fabric lub przechodzenia z stanu *zatrzymanego* do normalnego.  Należy pamiętać, że "Start" w nazwie interfejsu API nie odwołuje się do uruchamiania węzła.  Odnosi się do rozpoczęcia operacji asynchronicznej wykonywanej przez system w celu przejścia węzła do stanu *zatrzymania* lub uruchomienia.
+
+**Wykorzystywani**
+
+Jeśli interfejs API przejścia węzła nie zgłasza wyjątku po wywołaniu, system zaakceptował operację asynchroniczną i wykona ją.  Pomyślne wywołanie nie oznacza, że operacja została jeszcze zakończona.  Aby uzyskać informacje o bieżącym stanie operacji, Wywołaj interfejs API postępu przejścia węzła (zarządzany: [GetNodeTransitionProgressAsync ()][gntp]) z identyfikatorem GUID używanym podczas wywoływania interfejsu API przejścia węzła dla tej operacji.  Interfejs API postępu przejścia węzła zwraca obiekt NodeTransitionProgress.  Właściwość stanu tego obiektu określa bieżący stan operacji.  Jeśli stan to "uruchomiona", wykonywana jest operacja.  Jeśli zostanie ukończona, operacja zakończyła się bez błędu.  Jeśli jest to błąd, wystąpił problem podczas wykonywania operacji.  Właściwość wyjątku właściwości wyniku wskazuje, co to jest problem.  Zobacz https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate , aby uzyskać więcej informacji na temat właściwości State oraz poniższej sekcji "Przykładowe użycie" dla przykładów kodu.
 
 
-**Ograniczony czas trwania** Podczas korzystania z interfejsu API przejścia węzła, aby zatrzymać węzeł, jeden z wymaganych parametrów, *stopNodeDurationInSeconds*, reprezentuje czas w sekundach, aby zatrzymać *węzeł*.  Ta wartość musi znajdować się w dozwolonym zakresie, który ma co najmniej 600 i maksymalnie 14400.  Po upływie tego czasu węzeł automatycznie uruchomi się ponownie w stanie Up.  Zapoznaj się z przykładem 1 poniżej, aby uzyskać przykład użycia.
+**Rozróżnianie między zatrzymanym węzłem a węzłem w dół** Jeśli węzeł zostanie *zatrzymany* przy użyciu interfejsu API przejścia węzła, dane wyjściowe zapytania węzła (zarządzane: [GetNodeListAsync ()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) będą pokazywały, że ten węzeł ma właściwość *iszatrzymania* o wartości true.  Należy zauważyć, że różni się od wartości właściwości *NodeStatus* , która zostanie wyświetlona *.*  Jeśli właściwość *NodeStatus* ma wartość " *Down*", ale *iszatrzymana* jest false, węzeł nie został zatrzymany przy użyciu interfejsu API przejścia węzła i *nie jest z innego powodu.*  Jeśli właściwość *Iszatrzymana* ma wartość true, a właściwość *NodeStatus* nie *działa, to*została zatrzymana przy użyciu interfejsu API przejścia węzła.
 
-> [!WARNING]
-> Należy unikać mieszania interfejsów API przejścia węzła i interfejsów API węzła zatrzymania i węzła startowego.  Zalecenie jest użycie tylko interfejsu API przejścia węzła.  > Jeśli węzeł został już zatrzymany przy użyciu interfejsu API węzła zatrzymania, należy najpierw uruchomić przy użyciu interfejsu API węzła startowego przed użyciem interfejsów API przejścia > węzła.
+Uruchomienie *zatrzymanego* węzła przy użyciu interfejsu API przejścia węzła zwróci go, aby ponownie działać jako normalny element członkowski klastra.  W danych wyjściowych interfejsu API zapytania węzła zostanie wyświetlony komunikat *Iszatrzymany* jako FAŁSZ i *NodeStatus* jako coś, który nie jest wyłączony (na przykład w górę).
+
+
+**Ograniczony czas trwania** W przypadku korzystania z interfejsu API przejścia węzła do zatrzymania węzła jeden z wymaganych parametrów, *stopNodeDurationInSeconds*, reprezentuje czas (w sekundach) *zatrzymania*węzła.  Ta wartość musi mieścić się w dozwolonym zakresie, który ma wartość minimalną 600 i maksymalnie 14400.  Po upływie tego czasu węzeł zostanie automatycznie uruchomiony ponownie w stanie up.  Przykład użycia można znaleźć w przykładzie 1 poniżej.
 
 > [!WARNING]
-> Wywołania interfejsów API przejścia wielu węzłów nie mogą być nawiązywane równolegle w tym samym węźle.  W takiej sytuacji interfejs API przejścia węzła będzie > zgłosić FabricException z errorcode wartość właściwości NodeTransitionInProgress.  Po przejściu węzła w określonym węźle > zostało uruchomione, należy poczekać, aż operacja osiągnie stan terminalu (Zakończone, Uszkodzony lub ForceCancelled) przed rozpoczęciem > nowe przejście w tym samym węźle.  Równoległe wywołania przejścia węzła w różnych węzłach są dozwolone.
+> Unikaj mieszania interfejsów API przejścia węzła i węzła Zatrzymaj i interfejsów API węzła uruchomieniowego.  Zalecenie polega na użyciu tylko interfejsu API przejścia węzła.  >, jeśli węzeł został już zatrzymany przy użyciu interfejsu API Zatrzymaj węzła, powinien zostać uruchomiony przy użyciu interfejsu API uruchamiania węzła najpierw przed użyciem interfejsów API przejścia węzła >.
+
+> [!WARNING]
+> Nie można jednocześnie wykonać wielu wywołań interfejsów API przejścia węzła w tym samym węźle.  W takiej sytuacji interfejs API przechodzenia węzłów będzie > zgłaszać element Fabricexception z wartością właściwości ErrorCode równą NodeTransitionInProgress.  Gdy przejście węzła w określonym węźle > zostało uruchomione, należy poczekać, aż operacja osiągnie stan terminalu (ukończono, błąd lub ForceCancelled) przed rozpoczęciem > nowym przeniesieniu w tym samym węźle.  Równoległe wywołania przejścia węzła w różnych węzłach są dozwolone.
 
 
 #### <a name="sample-usage"></a>Przykładowe użycie
 
 
-**Przykład 1** — poniższy przykład używa interfejsu API przejścia węzła, aby zatrzymać węzeł.
+**Przykład 1** — Poniższy przykład używa interfejsu API przejścia węzła, aby zatrzymać węzeł.
 
 ```csharp
         // Helper function to get information about a node
@@ -155,7 +155,7 @@ Uruchomienie *zatrzymanego* węzła przy użyciu interfejsu API przejścia węz�
         }
 ```
 
-**Przykład 2** — poniższy przykład uruchamia *zatrzymany* węzeł.  Używa niektórych metod pomocnika z pierwszej próbki.
+**Przykład 2** — następujący przykład uruchamia *zatrzymany* węzeł.  Używa ona niektórych metod pomocnika z pierwszego przykładu.
 
 ```csharp
         static async Task StartNodeAsync(FabricClient fc, string nodeName)
@@ -198,7 +198,7 @@ Uruchomienie *zatrzymanego* węzła przy użyciu interfejsu API przejścia węz�
         }
 ```
 
-**Przykład 3** — poniższa próbka pokazuje nieprawidłowe użycie.  To użycie jest niepoprawne, ponieważ *stopDurationInSeconds* zapewnia jest większa niż dozwolony zakres.  Ponieważ StartNodeTransitionAsync() zakończy się niepowodzeniem z błędem oś czasu krytycznego, operacja nie została zaakceptowana i interfejs API postępu nie powinien być wywoływany.  W tym przykładzie użyto niektórych metod pomocnika z pierwszej próbki.
+**Przykład 3** — następujący przykład pokazuje nieprawidłowe użycie.  To użycie jest nieprawidłowe, ponieważ wartość *stopDurationInSeconds* jest większa niż dozwolony zakres.  Ponieważ StartNodeTransitionAsync () zakończy się niepowodzeniem z powodu błędu krytycznego, operacja nie została zaakceptowana, a interfejs API postępu nie powinien zostać wywołany.  W tym przykładzie zastosowano niektóre metody pomocnika z pierwszego przykładu.
 
 ```csharp
         static async Task StopNodeWithOutOfRangeDurationAsync(FabricClient fc, string nodeName)
@@ -229,7 +229,7 @@ Uruchomienie *zatrzymanego* węzła przy użyciu interfejsu API przejścia węz�
         }
 ```
 
-**Przykład 4** — w poniższym przykładzie przedstawiono informacje o błędzie, które zostaną zwrócone z interfejsu API postępu przejścia węzła, gdy operacja zainicjowana przez interfejs API przejścia węzła zostanie zaakceptowana, ale nie powiedzie się później podczas wykonywania.  W przypadku niepowodzenia, ponieważ interfejs API przejścia węzła próbuje uruchomić węzeł, który nie istnieje.  W tym przykładzie użyto niektórych metod pomocnika z pierwszej próbki.
+**Przykład 4** — Poniższy przykład pokazuje informacje o błędzie, które zostaną zwrócone z interfejsu API postępu przejścia węzła, gdy operacja zainicjowana przez interfejs API przejścia węzła zostanie zaakceptowana, ale zostanie uruchomiona później podczas wykonywania.  W przypadku nie jest to możliwe, ponieważ interfejs API przejścia węzła próbuje uruchomić węzeł, który nie istnieje.  W tym przykładzie zastosowano niektóre metody pomocnika z pierwszego przykładu.
 
 ```csharp
         static async Task StartNodeWithNonexistentNodeAsync(FabricClient fc)

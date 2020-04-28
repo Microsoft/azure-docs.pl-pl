@@ -1,6 +1,6 @@
 ---
-title: (PRZESTARZAŁE) Zabezpieczenia kontenerów w usłudze kontenerów platformy Azure
-description: Zagadnienia dotyczące zabezpieczania kontenerów platformy Docker wdrożonych w usłudze azure container service i powiązanych usługach platformy Azure.
+title: PRZESTARZAŁE Zabezpieczenia kontenera w Azure Container Service
+description: Zagadnienia dotyczące zabezpieczania kontenerów platformy Docker wdrożonych w Azure Container Service i powiązanych usługach platformy Azure.
 author: sauryadas
 ms.service: container-service
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/28/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: d90d872175febf775e7d0892e133883f1a8ff8a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75552392"
 ---
-# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(PRZESTARZAŁE) Zabezpieczanie kontenerów platformy Docker w usłudze kontenerów platformy Azure
+# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>PRZESTARZAŁE Zabezpieczanie kontenerów platformy Docker w Azure Container Service
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -53,7 +53,7 @@ Gdy aplikacja jest wdrażana w środowisku produkcyjnym, niezbędne jest skonfig
 ## <a name="host-level-container-isolation"></a>Izolacja kontenera na poziomie hosta
 Aplikacje kontenera wdrażane przez klienta w zasobach platformy Azure są wdrażane na poziomie subskrypcji w grupach zasobów i nie są dostępne w wielu dzierżawach. Oznacza to, że jeśli klient udostępnia subskrypcję innym osobom, nie można utworzyć granic między dwoma wdrożeniami w tej samej subskrypcji. W związku z tym zabezpieczenia na poziomie kontenera nie są gwarantowane. 
 
-Bardzo ważne jest również zrozumienie, że kontenery współużytkują jądro i zasoby hosta (w usłudze Azure Container Service jest to maszyna wirtualna platformy Azure w klastrze). Z tego względu kontenery działające w środowisku produkcyjnym muszą być uruchamiane w trybie użytkownika bez uprawnień. Uruchamianie kontenera przy użyciu uprawnień głównych może naruszyć bezpieczeństwo całego środowiska. W przypadku dostępu na poziomie katalogu głównego do kontenera haker może uzyskać dostęp do pełnych uprawnień głównych na hoście. Dodatkowo ważne jest, aby uruchamiać kontenery w systemach plików tylko do odczytu. Zapobiegnie to sytuacjom, w których osoba z prawami dostępu do kontenera, którego bezpieczeństwo zostało naruszone, będzie pisać złośliwe skrypty w systemie plików i uzyskiwać dostęp do innych plików. Podobnie ważne jest ograniczenie zasobów (np. pamięci, procesora i przepustowości sieci) przydzielanych do kontenera. Pomaga to zapobiec hakerom z hogging zasobów i prowadzenia nielegalnych działań, takich jak oszustwa kart kredytowych lub wydobycia monet bitowych, które mogłyby zapobiec innych kontenerów z systemem na hoście lub klastrze.
+Bardzo ważne jest również zrozumienie, że kontenery współużytkują jądro i zasoby hosta (w usłudze Azure Container Service jest to maszyna wirtualna platformy Azure w klastrze). Z tego względu kontenery działające w środowisku produkcyjnym muszą być uruchamiane w trybie użytkownika bez uprawnień. Uruchamianie kontenera przy użyciu uprawnień głównych może naruszyć bezpieczeństwo całego środowiska. W przypadku dostępu na poziomie katalogu głównego do kontenera haker może uzyskać dostęp do pełnych uprawnień głównych na hoście. Dodatkowo ważne jest, aby uruchamiać kontenery w systemach plików tylko do odczytu. Zapobiegnie to sytuacjom, w których osoba z prawami dostępu do kontenera, którego bezpieczeństwo zostało naruszone, będzie pisać złośliwe skrypty w systemie plików i uzyskiwać dostęp do innych plików. Podobnie ważne jest ograniczenie zasobów (np. pamięci, procesora i przepustowości sieci) przydzielanych do kontenera. Pozwala to zapobiec hakerom z zasobów zapobiegają one zajmowaniu i nielegalnym działaniom, takim jak oszustwa kart kredytowych lub wykorzystaniu bitowego monety, co może uniemożliwić uruchamianie innych kontenerów na hoście lub w klastrze.
 
 ## <a name="orchestrator-considerations"></a>Zagadnienia dotyczące koordynatora
 

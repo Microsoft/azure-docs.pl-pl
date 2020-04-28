@@ -1,80 +1,80 @@
 ---
-title: Dane modelu i partycji w usłudze Azure Cosmos DB z przykładem ze świata rzeczywistego
-description: Dowiedz się, jak modelować i partycjonować przykład rzeczywistych przy użyciu interfejsu API rdzenia usługi Azure Cosmos DB
+title: Modelowanie i partycjonowanie danych na Azure Cosmos DB z rzeczywistym przykładem
+description: Dowiedz się, jak modelować i dzielić na partycje rzeczywisty przykład przy użyciu podstawowego interfejsu API Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.openlocfilehash: 10f8ffd90215a21ca03e112aea463d444c623d06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75445389"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Jak modelować i partycjonować dane w usłudze Azure Cosmos DB przy użyciu przykładu wziętego z życia
 
-W tym artykule opiera się na kilku pojęciach usługi Azure Cosmos DB, takich jak [modelowanie danych,](modeling-data.md) [partycjonowanie](partitioning-overview.md)i [aprowizowana przepływność,](request-units.md) aby zademonstrować, jak rozwiązać problem projektowania danych w świecie rzeczywistym.
+W tym artykule opisano kilka Azure Cosmos DB pojęć, takich jak [Modelowanie danych](modeling-data.md), [partycjonowanie](partitioning-overview.md)i [przepływność](request-units.md) , aby zademonstrować, jak można zrealizować rzeczywiste ćwiczenie projektowania danych.
 
-Jeśli zwykle pracujesz z relacyjnych baz danych, prawdopodobnie zostały utworzone nawyki i intuicje na temat sposobu projektowania modelu danych. Ze względu na określone ograniczenia, ale także unikatowe zalety usługi Azure Cosmos DB, większość z tych najlepszych rozwiązań nie przekłada się dobrze i może przeciągnąć cię do nieoptymalnych rozwiązań. Celem tego artykułu jest, aby poprowadzić Cię przez cały proces modelowania rzeczywistych przypadków użycia w usłudze Azure Cosmos DB, od modelowania elementów do kolokacji jednostek i partycjonowania kontenera.
+Jeśli zwykle pracujesz z relacyjnymi bazami danych, prawdopodobnie skompilowano nawyki i intuitions na temat projektowania modelu danych. Ze względu na określone ograniczenia, ale również unikatowe siły Azure Cosmos DB, większość tych najlepszych rozwiązań nie jest dobrze przeważnie i może przeciągać Cię do nieoptymalnych rozwiązań. Celem tego artykułu jest przeprowadzenie przez cały proces modelowania rzeczywistych przypadków użycia na Azure Cosmos DB z modelowania elementów na potrzeby przenoszenia jednostek i partycjonowania kontenerów.
 
 ## <a name="the-scenario"></a>Scenariusz
 
-W tym ćwiczeniu rozważymy domenę platformy blogowej, na której *użytkownicy* mogą tworzyć *posty.* Użytkownicy mogą również *lubić* i dodawać *komentarze* do tych postów.
+W tym ćwiczeniu będziemy traktować domenę platformy do obsługi blogów, w której *Użytkownicy* mogą tworzyć *wpisy*. Użytkownicy *mogą również dodawać* *Komentarze* do tych wpisów.
 
 > [!TIP]
-> Wyróżniliśmy kilka słów *kursywą*; te słowa identyfikują rodzaj "rzeczy" nasz model będzie musiał manipulować.
+> Niektóre słowa są wyróżnione *kursywą*. te słowa identyfikują rodzaj "rzeczy", które będą musiały manipulować naszym modelem.
 
-Dodanie kolejnych wymagań do naszej specyfikacji:
+Dodawanie większej liczby wymagań do naszej specyfikacji:
 
-- Na pierwszej stronie jest wyświetlany kanał ostatnio utworzonych postów,
-- Możemy pobrać wszystkie posty dla użytkownika, wszystkie komentarze do posta i wszystkie polubienia dla posta,
-- Posty są zwracane z nazwą użytkownika ich autorów i liczyć, ile komentarzy i polubień mają,
-- Komentarze i polubienia są również zwracane z nazwą użytkownika użytkowników, którzy je stworzyli,
-- Gdy są wyświetlane jako listy, posty muszą jedynie przedstawiać skrócone podsumowanie ich zawartości.
+- Na pierwszej stronie jest wyświetlany kanał informacyjny ostatnio utworzonych wpisów,
+- Możemy pobrać wszystkie wpisy dla użytkownika, wszystkie komentarze dla wpisu i wszystkie polubienia dla wpisu,
+- Wpisy są zwracane wraz z nazwą użytkownika autorów oraz liczbą komentarzy i polubień,
+- Komentarze i polubienia są również zwracane z nazwą użytkownika, którzy je utworzyły,
+- Gdy są wyświetlane jako listy, wpisy muszą zawierać skrócone podsumowanie ich zawartości.
 
 ## <a name="identify-the-main-access-patterns"></a>Identyfikowanie głównych wzorców dostępu
 
-Na początek nadajemy pewną strukturę naszej wstępnej specyfikacji, identyfikując wzorce dostępu naszego rozwiązania. Podczas projektowania modelu danych dla usługi Azure Cosmos DB, ważne jest, aby zrozumieć, które żądania naszego modelu będą musiały służyć, aby upewnić się, że model będzie skutecznie obsługiwać te żądania.
+Aby rozpocząć, firma Microsoft udostępnia pewną strukturę do wstępnej specyfikacji przez zidentyfikowanie wzorców dostępu rozwiązania. Projektując model danych dla Azure Cosmos DB, ważne jest, aby zrozumieć, które żądania musi spełniać nasz model, aby upewnić się, że model będzie obsługiwał te żądania efektywnie.
 
-Aby ułatwić ogólny proces do naśladowania, kategoryzujemy te różne żądania jako polecenia lub kwerendy, pożyczając niektóre słownictwo z [CQRS,](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation) gdzie polecenia są żądania zapisu (czyli intencje aktualizacji systemu) i kwerendy są żądaniami tylko do odczytu.
+Aby uprościć cały proces, należy klasyfikować te różne żądania jako polecenia lub zapytania, a także zażyczać niektórych słownictwa od [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_segregation) , gdzie polecenia są żądaniami zapisu (to jest, intencje aktualizacji systemu) i zapytania są żądaniami tylko do odczytu.
 
-Oto lista żądań, które nasza platforma będzie musiała ujawnić:
+Poniżej znajduje się lista żądań, które będą musiały uwidocznić nasze platformy:
 
 - **[C1]** Tworzenie/edytowanie użytkownika
-- **[Q1]** Pobieranie użytkownika
-- **[C2]** Tworzenie/edytowanie wpisu
-- **[II kw.]** Pobieranie wpisu
-- **[Q3]** Wyświetlanie wpisów użytkownika w krótkiej formie
-- **[C3]** Tworzenie komentarza
-- **[Q4]** Wyświetlanie komentarzy do posta
-- **[C4]** Jak post
-- **[Q5]** Wyświetlanie polubień posta
-- **[Q6]** Lista *x* najnowszych postów utworzonych w formie krótkiej (kanał)
+- **[Q1]** Pobierz użytkownika
+- **[C2]** Utwórz/Edytuj wpis
+- **[Q2]** Pobieranie wpisu
+- **[Q3]** Wyświetlanie listy wpisów użytkownika w postaci krótkiej
+- **[C3]** Utwórz komentarz
+- **[4 kwartale]** Wyświetlanie listy komentarzy dotyczących wpisów
+- **[C4]** Jak wpis
+- **[Q5]** Wyświetlanie polubień wpisu
+- **[Q6]** Lista *x* najnowszych wpisów utworzonych w formie krótkiej (Źródło danych)
 
-Na tym etapie nie pomyśleliśmy o szczegółach tego, co będzie zawierać każda jednostka (użytkownik, post itp.). Ten krok jest zwykle jednym z pierwszych, które należy rozwiązać podczas projektowania przeciwko relacyjnego sklepu, ponieważ musimy dowiedzieć się, jak te podmioty będą tłumaczyć pod względem tabel, kolumn, kluczy obcych itp. Jest znacznie mniej obawy z bazy danych dokumentów, które nie wymusza żadnego schematu w zapisie.
+Na tym etapie nie podaliśmy szczegółowych informacji o tym, co obejmuje każdy podmiot (użytkownik, wpis itp.). Ten krok zazwyczaj należy do pierwszej z nich, aby zostać zaprojektowany podczas projektowania względem relacyjnego magazynu, ponieważ musimy ustalić, w jaki sposób te jednostki zostaną przetłumaczone w postaci tabel, kolumn, kluczy obcych itp. Jest to znacznie mniejsze zagadnienie związane z bazą danych dokumentów, która nie wymusza żadnego schematu przy zapisie.
 
-Głównym powodem, dla którego ważne jest, aby zidentyfikować nasze wzorce dostępu od początku, jest to, że ta lista żądań będzie naszym zestawem testów. Za każdym razem, gdy iterujemy nasz model danych, przejdziemy przez każde z żądań i sprawdzimy jego wydajność i skalowalność.
+Głównym powodem, dlaczego ważne jest zidentyfikowanie wzorców dostępu od początku, jest to spowodowane tym, że ta lista żądań ma być naszym zestawem testów. Za każdym razem, gdy przejdziemy do iteracji nad modelem danych, wyślemy poszczególne żądania i sprawdza jego wydajność i skalowalność.
 
 ## <a name="v1-a-first-version"></a>V1: Pierwsza wersja
 
-Zaczynamy od dwóch `users` `posts`pojemników: i .
+Zaczynamy od dwóch kontenerów `users` : `posts`i.
 
 ### <a name="users-container"></a>Kontener Użytkownicy
 
-Ten kontener przechowuje tylko elementy użytkownika:
+W tym kontenerze są przechowywane tylko elementy użytkownika:
 
     {
       "id": "<user-id>",
       "username": "<username>"
     }
 
-Dzielimy ten `id`kontener według , co oznacza, że każda partycja logiczna w tym kontenerze będzie zawierać tylko jeden element.
+Ten kontener jest podzielony przez `id`, co oznacza, że każda partycja logiczna w tym kontenerze będzie zawierać tylko jeden element.
 
-### <a name="posts-container"></a>Kontener słupków
+### <a name="posts-container"></a>Kontener ogłoszeń
 
-Ten kontener obsługuje posty, komentarze i polubienia:
+Ten kontener zawiera wpisy, komentarze i polubienia:
 
     {
       "id": "<post-id>",
@@ -103,146 +103,146 @@ Ten kontener obsługuje posty, komentarze i polubienia:
       "creationDate": "<like-creation-date>"
     }
 
-Dzielimy ten `postId`kontener według , co oznacza, że każda partycja logiczna w tym kontenerze będzie zawierać jeden post, wszystkie komentarze do tego postu i wszystkie polubienia dla tego postu.
+Ten kontener jest podzielony przez `postId`, co oznacza, że każda partycja logiczna w tym kontenerze będzie zawierać jeden wpis, a wszystkie komentarze dla tego wpisu i wszystkie polubienia dla tego wpisu.
 
-Należy zauważyć, że `type` wprowadziliśmy właściwość w elementach przechowywanych w tym kontenerze, aby odróżnić trzy typy jednostek, które hostuje ten kontener.
+Należy zauważyć, że wprowadzono `type` właściwość w elementach przechowywanych w tym kontenerze w celu rozróżnienia między trzema typami jednostek, które są hostem tego kontenera.
 
-Ponadto wybraliśmy odwołanie się do powiązanych danych zamiast osadzać je (sprawdź [tę sekcję,](modeling-data.md) aby uzyskać szczegółowe informacje na temat tych pojęć), ponieważ:
+Ponadto w przypadku wybrania odwołań do powiązanych danych zamiast osadzania ich (szczegółowe informacje o tych pojęciach można znaleźć w [tej sekcji](modeling-data.md) ), ponieważ:
 
-- nie ma górnego limitu liczby postów, które użytkownik może utworzyć,
-- stanowiska mogą być dowolnie długie,
-- nie ma górnego limitu liczby komentarzy i polubień posta,
-- chcemy mieć możliwość dodania komentarza lub polu znienajścia do posta bez konieczności aktualizowania samego posta.
+- nie istnieje górny limit liczby ogłoszeń, które użytkownik może utworzyć,
+- wpisy mogą być arbitralnie długie,
+- nie ma górnego limitu liczby komentarzy i polubienia wpisu,
+- chcemy mieć możliwość dodawania komentarza lub przypominania wpisu, bez konieczności aktualizowania samego wpisu.
 
-## <a name="how-well-does-our-model-perform"></a>Jak dobrze radzi sobie nasz model?
+## <a name="how-well-does-our-model-perform"></a>Jak dobrze działa nasz model?
 
-Nadszedł czas, aby ocenić wydajność i skalowalność naszej pierwszej wersji. Dla każdego z wcześniej zidentyfikowanych żądań mierzymy jego opóźnienie i liczbę jednostek żądań, z których korzysta. Ten pomiar jest wykonywany na fikcyjnym zestawie danych zawierającym 100 000 użytkowników z 5 do 50 postów na użytkownika oraz do 25 komentarzy i 100 polubień na post.
+Teraz można ocenić wydajność i skalowalność naszej pierwszej wersji. Dla każdego identyfikowanego wcześniej żądania mierzy swoje opóźnienie i liczbę jednostek żądań, których używa. Ta wartość jest wykonywana względem fikcyjnego zestawu danych zawierającego 100 000 użytkowników z 5 do 50 wpisów na użytkownika oraz do 25 komentarzy i 100 polubień na wpis.
 
-### <a name="c1-createedit-a-user"></a>[C1] Tworzenie/edytowanie użytkownika
+### <a name="c1-createedit-a-user"></a>C1 Tworzenie/edytowanie użytkownika
 
-To żądanie jest proste do zaimplementowania, `users` jak po prostu utworzyć lub zaktualizować element w kontenerze. Żądania będą ładnie rozłożone na wszystkich `id` partycjach dzięki kluczowi partycji.
+To żądanie jest proste do wdrożenia podczas tworzenia lub aktualizowania elementu w `users` kontenerze. Żądania będą dobrze rozłożyć na wszystkie partycje, `id` dzięki czemu klucz partycji.
 
-![Zapisywanie pojedynczego elementu w kontenerze użytkowników](./media/how-to-model-partition-example/V1-C1.png)
+![Pisanie pojedynczego elementu w kontenerze Użytkownicy](./media/how-to-model-partition-example/V1-C1.png)
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 7 ms | 5.71 ru | ✅ |
+| 7 MS | 5,71 RU | ✅ |
 
-### <a name="q1-retrieve-a-user"></a>[Q1] Pobieranie użytkownika
+### <a name="q1-retrieve-a-user"></a>Pierwszym Pobierz użytkownika
 
-Pobieranie użytkownika odbywa się przez odczytanie `users` odpowiedniego elementu z kontenera.
+Pobieranie użytkownika odbywa się przez odczytanie odpowiedniego elementu z `users` kontenera.
 
-![Pobieranie pojedynczego elementu z kontenera użytkowników](./media/how-to-model-partition-example/V1-Q1.png)
+![Pobieranie pojedynczego elementu z kontenera Użytkownicy](./media/how-to-model-partition-example/V1-Q1.png)
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 2 ms | 1 ru | ✅ |
+| 2 MS | 1 RU | ✅ |
 
-### <a name="c2-createedit-a-post"></a>[C2] Tworzenie/edytowanie wpisu
+### <a name="c2-createedit-a-post"></a>C2 Utwórz/Edytuj wpis
 
-Podobnie jak **[C1]**, musimy tylko `posts` napisać do kontenera.
+Podobnie jak w przypadku **[C1]**, chcemy zapisywać do `posts` kontenera.
 
-![Zapisywanie pojedynczego elementu w kontenerze wpisów](./media/how-to-model-partition-example/V1-C2.png)
+![Pisanie pojedynczego elementu w kontenerze ogłoszeń](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 9 ms. | 8,76 ru | ✅ |
+| 9 MS | 8,76 RU | ✅ |
 
-### <a name="q2-retrieve-a-post"></a>[II kw.] Pobieranie wpisu
+### <a name="q2-retrieve-a-post"></a>Q2 Pobieranie wpisu
 
-Zaczynamy od pobrania odpowiedniego dokumentu `posts` z kontenera. Ale to nie wystarczy, zgodnie z naszą specyfikacją musimy również agregować nazwę użytkownika autora posta i liczbę komentarzy i liczby polubień tego posta, co wymaga wydania 3 dodatkowych zapytań SQL.
+Rozpoczynamy od pobrania odpowiedniego dokumentu z `posts` kontenera. Ale nie jest to wystarczające, zgodnie z naszymi specyfikacjami, należy również agregować nazwę użytkownika autora i liczbę komentarzy oraz liczbę polubień tego wpisu, które wymagają 3 dodatkowych zapytań SQL do wystawienia.
 
-![Pobieranie wpisu i agregowanie dodatkowych danych](./media/how-to-model-partition-example/V1-Q2.png)
+![Pobieranie wpisu post i agregowanie danych dodatkowych](./media/how-to-model-partition-example/V1-Q2.png)
 
-Każdy z dodatkowych filtrów zapytań na klucz partycji odpowiedniego kontenera, który jest dokładnie to, co chcemy zmaksymalizować wydajność i skalowalność. Ale w końcu musimy wykonać cztery operacje, aby zwrócić pojedynczy post, więc poprawimy to w następnej iteracji.
+Każdy z dodatkowych zapytań filtruje klucz partycji odpowiedniego kontenera, co dokładnie ma na celu zmaksymalizowanie wydajności i skalowalności. Jednak chcemy wykonać cztery operacje, aby zwrócić pojedynczy wpis, więc poprawimy to w następnej iteracji.
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 9 ms. | 19.54 ru. | ⚠ |
+| 9 MS | 19,54 RU | ⚠ |
 
-### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Wyświetlanie wpisów użytkownika w krótkiej formie
+### <a name="q3-list-a-users-posts-in-short-form"></a>Kwartał Wyświetlanie listy wpisów użytkownika w postaci krótkiej
 
-Najpierw musimy pobrać żądane wpisy z zapytaniem SQL, które pobiera wpisy odpowiadające określonemu użytkownikowi. Ale musimy również wydać dodatkowe zapytania, aby agregować nazwę użytkownika autora i liczbę komentarzy i polubień.
+Najpierw musimy pobrać żądane wpisy z użyciem zapytania SQL pobierającego wpisy odpowiadające temu użytkownikowi. Jednak musimy również wydać dodatkowe zapytania, aby agregować nazwę użytkownika autora oraz liczbę komentarzy i polubień.
 
-![Pobieranie wszystkich wpisów dla użytkownika i agregowanie jego dodatkowych danych](./media/how-to-model-partition-example/V1-Q3.png)
+![Pobieranie wszystkich wpisów dla użytkownika i agregowanie ich dodatkowych danych](./media/how-to-model-partition-example/V1-Q3.png)
 
 Ta implementacja przedstawia wiele wad:
 
-- zapytania agregujące liczbę komentarzy i polubień muszą być wystawione dla każdego posta zwróconego przez pierwsze zapytanie,
-- kwerenda główna nie filtruje klucza `posts` partycji kontenera, co prowadzi do przeskanowania wentylatora i partycji w kontenerze.
+- zapytania agregujące liczby komentarzy i polubień muszą być wystawione dla każdego wpisu zwróconego przez pierwsze zapytanie,
+- główne zapytanie nie odfiltruje klucza partycji `posts` kontenera, co prowadzi do skanowania w poziomie wentylatorów i partycji w ramach kontenera.
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 130 ms | 619.41 ru | ⚠ |
+| 130 MS | 619,41 RU | ⚠ |
 
-### <a name="c3-create-a-comment"></a>[C3] Tworzenie komentarza
+### <a name="c3-create-a-comment"></a>C3 Utwórz komentarz
 
-Komentarz jest tworzony przez zapisanie `posts` odpowiedniego elementu w kontenerze.
+Komentarz jest tworzony przez zapisanie odpowiedniego elementu w `posts` kontenerze.
 
-![Zapisywanie pojedynczego elementu w kontenerze wpisów](./media/how-to-model-partition-example/V1-C2.png)
+![Pisanie pojedynczego elementu w kontenerze ogłoszeń](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 7 ms | 8.57 RU | ✅ |
+| 7 MS | 8,57 RU | ✅ |
 
-### <a name="q4-list-a-posts-comments"></a>[Q4] Wyświetlanie komentarzy do posta
+### <a name="q4-list-a-posts-comments"></a>Kwartale Wyświetlanie listy komentarzy dotyczących wpisów
 
-Zaczynamy od zapytania, które pobiera wszystkie komentarze do tego postu i po raz kolejny musimy również zbiorczo nazwy użytkowników oddzielnie dla każdego komentarza.
+Zaczynamy od zapytania, które pobiera wszystkie komentarze dla tego wpisu, i ponownie musimy agregować nazwy użytkowników osobno dla każdego komentarza.
 
-![Pobieranie wszystkich komentarzy do posta i agregowanie ich dodatkowych danych](./media/how-to-model-partition-example/V1-Q4.png)
+![Pobieranie wszystkich komentarzy dla wpisu i agregowanie ich dodatkowych danych](./media/how-to-model-partition-example/V1-Q4.png)
 
-Mimo że kwerenda główna nie filtruje klucz partycji kontenera, agregowanie nazw użytkowników oddzielnie penalizuje ogólną wydajność. Poprawimy to później.
+Mimo że zapytanie główne wykonuje filtrowanie według klucza partycji kontenera, agregowanie nazw użytkowników jest karane za ogólną wydajność. Poprawimy to później.
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 23 ms. | 27.72 RU | ⚠ |
+| 23 MS | 27,72 RU | ⚠ |
 
-### <a name="c4-like-a-post"></a>[C4] Jak post
+### <a name="c4-like-a-post"></a>C4 Jak wpis
 
-Podobnie jak **[C3]**, tworzymy `posts` odpowiedni element w kontenerze.
+Podobnie jak w przypadku **[C3]**, tworzymy odpowiadający element w `posts` kontenerze.
 
-![Zapisywanie pojedynczego elementu w kontenerze wpisów](./media/how-to-model-partition-example/V1-C2.png)
+![Pisanie pojedynczego elementu w kontenerze ogłoszeń](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 6 ms | 7.05 RU | ✅ |
+| 6 MS | 7,05 RU | ✅ |
 
-### <a name="q5-list-a-posts-likes"></a>[Q5] Wyświetlanie polubień posta
+### <a name="q5-list-a-posts-likes"></a>[Q5] Wyświetlanie polubień wpisu
 
-Podobnie jak **[Q4]**, zapytania lubi dla tego postu, a następnie agregować ich nazwy użytkowników.
+Podobnie jak w przypadku **[4 kwartale]**, będziemy wysyłać zapytania dotyczące polubień dla tego wpisu, a następnie agregować ich nazwy użytkowników.
 
-![Pobieranie wszystkich polubień posta i agregowanie ich dodatkowych danych](./media/how-to-model-partition-example/V1-Q5.png)
+![Pobieranie wszystkich polubień dla wpisu i agregowania ich dodatkowych danych](./media/how-to-model-partition-example/V1-Q5.png)
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 59 ms. | 58,92 ru | ⚠ |
+| 59 MS | 58,92 RU | ⚠ |
 
-### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Lista x najnowszych postów utworzonych w formie krótkiej (kanał)
+### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Lista x najnowszych wpisów utworzonych w formie krótkiej (Źródło danych)
 
-Pobieramy najnowsze posty, odwołując się do `posts` kontenera posortowanego według malejącej daty utworzenia, a następnie agregujemy nazwy użytkowników i liczby komentarzy i polubień dla każdego z postów.
+Pobieramy najnowsze wpisy, wykonując zapytania dotyczące `posts` kontenera posortowanego według malejącej daty utworzenia, a następnie agregowania nazw użytkowników i liczby komentarzy oraz polubień dla każdego z nich.
 
 ![Pobieranie najnowszych wpisów i agregowanie ich dodatkowych danych](./media/how-to-model-partition-example/V1-Q6.png)
 
-Po raz kolejny nasze początkowe zapytanie nie `posts` filtruje klucza partycji kontenera, co powoduje kosztowne wyjście z wentylatora. Ten jest jeszcze gorszy, ponieważ kierujemy się na znacznie `ORDER BY` większy zestaw wyników i sortujemy wyniki za pomocą klauzuli, co czyni go droższym pod względem jednostek żądań.
+Po ponownym uruchomieniu zapytanie początkowe nie odfiltruje klucza partycji `posts` kontenera, co wyzwala kosztowny wentylator. Ta wartość jest jeszcze gorsza, ponieważ docelowo znacznie większy zestaw wyników i posortujesz `ORDER BY` wyniki z klauzulą, co sprawia, że jest to droższe względem jednostek żądania.
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 306 ms. | 2063,54 ru. | ⚠ |
+| 306 MS | 2063,54 RU | ⚠ |
 
-## <a name="reflecting-on-the-performance-of-v1"></a>Refleksja nad wydajnością V1
+## <a name="reflecting-on-the-performance-of-v1"></a>Odzwierciedlanie wydajności wersji 1
 
-Patrząc na problemy z wydajnością, z którymi mieliśmy do czynienia w poprzedniej sekcji, możemy zidentyfikować dwie główne klasy problemów:
+Analizując problemy z wydajnością w poprzedniej sekcji, możemy identyfikować dwie główne klasy problemów:
 
-- niektóre żądania wymagają wydania wielu zapytań w celu zebrania wszystkich danych, które musimy zwrócić,
-- Niektóre zapytania nie filtrują klucza partycji kontenerów, które są kierowane, co prowadzi do fan-out, który utrudnia naszą skalowalność.
+- niektóre żądania wymagają wystawienia wielu zapytań w celu zebrania wszystkich danych, które muszą zostać zwrócone,
+- Niektóre zapytania nie filtrują klucza partycji docelowych kontenerów, co prowadzi do wentylatorów, które utrudniają naszą skalowalność.
 
-Rozwiążmy każdy z tych problemów, zaczynając od pierwszego.
+Rozwiążmy wszystkie te problemy, rozpoczynając od pierwszej.
 
-## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: Wprowadzenie denormalizacji w celu optymalizacji zapytań odczytu
+## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: wprowadzenie denormalizacji w celu zoptymalizowania zapytań odczytu
 
-Powodem, dla którego musimy wystawiać dodatkowe żądania w niektórych przypadkach, jest to, że wyniki początkowego żądania nie zawierają wszystkich danych, które musimy zwrócić. Podczas pracy z nierelacyjnego magazynu danych, takich jak Usługi Azure Cosmos DB, tego rodzaju problem jest często rozwiązywane przez denormalizing danych w naszym zestawie danych.
+Powód, dla którego musimy wydać dodatkowe żądania w niektórych przypadkach wynika z faktu, że wyniki żądania wstępnego nie zawierają wszystkich danych, które muszą zostać zwrócone. Podczas pracy z nierelacyjnym magazynem danych, takim jak Azure Cosmos DB, ten rodzaj problemu jest często rozwiązywany przez denormalizację danych w naszym zestawie danych.
 
-W naszym przykładzie modyfikujemy elementy postu, aby dodać nazwę użytkownika autora postu, liczbę komentarzy i liczbę polubień:
+W naszym przykładzie modyfikujemy elementy post, aby dodać nazwę użytkownika autora wpisu, liczbę komentarzy i liczbę polubień:
 
     {
       "id": "<post-id>",
@@ -257,7 +257,7 @@ W naszym przykładzie modyfikujemy elementy postu, aby dodać nazwę użytkownik
       "creationDate": "<post-creation-date>"
     }
 
-Modyfikujemy również komentarz i polu jak elementy, aby dodać nazwę użytkownika, który je utworzył:
+Modyfikujemy również komentarz i podobne elementy, aby dodać nazwę użytkownika, który je utworzył:
 
     {
       "id": "<comment-id>",
@@ -278,11 +278,11 @@ Modyfikujemy również komentarz i polu jak elementy, aby dodać nazwę użytkow
       "creationDate": "<like-creation-date>"
     }
 
-### <a name="denormalizing-comment-and-like-counts"></a>Denormalizing komentarz i jak liczy
+### <a name="denormalizing-comment-and-like-counts"></a>Denormalizacja komentarza i liczby takich jak Count
 
-Co chcemy osiągnąć jest to, że za każdym razem, gdy `commentCount` dodajemy `likeCount` komentarz lub podobne, możemy również zwiększyć lub w odpowiednim poście. Ponieważ `posts` nasz kontener jest `postId`podzielony na partycje przez , nowy element (komentarz lub jak) i jego odpowiedni post siedzieć w tej samej partycji logicznej. W rezultacie możemy użyć [procedury składowanej](stored-procedures-triggers-udfs.md) do wykonania tej operacji.
+To, co chcemy osiągnąć, `commentCount` `likeCount` to przy każdym dodawaniu komentarza lub podobnej wartości. Gdy `posts` kontener jest partycjonowany przez `postId`, nowy element (komentarz lub podobny) i odpowiadający mu wpis znajduje się w tej samej partycji logicznej. W związku z tym można użyć [procedury składowanej](stored-procedures-triggers-udfs.md) do wykonania tej operacji.
 
-Teraz podczas tworzenia komentarza (**[C3]**), zamiast po prostu `posts` dodając nowy element w kontenerze, wywołujemy następującą procedurę składowaną w tym kontenerze:
+Teraz podczas tworzenia komentarza (**[C3]**) zamiast tylko dodawania nowego elementu w `posts` kontenerze wywoływana została następująca procedura składowana w tym kontenerze:
 
 ```javascript
 function createComment(postId, comment) {
@@ -311,24 +311,24 @@ function createComment(postId, comment) {
 }
 ```
 
-Ta procedura składowana przyjmuje identyfikator postu i treść nowego komentarza jako parametry, a następnie:
+Ta procedura składowana przyjmuje identyfikator wpisu i treść nowego komentarza jako parametry, a następnie:
 
-- pobiera post
-- zwiększa`commentCount`
-- zastępuje post
+- Pobiera wpis
+- zwiększa wartość`commentCount`
+- zastępuje wpis
 - dodaje nowy komentarz
 
-Ponieważ procedury przechowywane są wykonywane jako transakcje niepodzielne, jest gwarantowane, że wartość `commentCount` i rzeczywista liczba komentarzy zawsze pozostanie zsynchronizowana.
+Ponieważ procedury składowane są wykonywane jako transakcje niepodzielne, gwarantowane jest, `commentCount` że wartość i rzeczywista liczba komentarzy będą zawsze zsynchronizowane.
 
-Oczywiście nazywamy podobną procedurę składowaną podczas dodawania `likeCount`nowych lubi zwiększać .
+Oczywiście wywołujemy podobną procedurę przechowywaną podczas dodawania nowych polubień `likeCount`, aby zwiększyć.
 
 ### <a name="denormalizing-usernames"></a>Denormalizacja nazw użytkowników
 
-Nazwy użytkowników wymagają innego podejścia, ponieważ użytkownicy nie tylko siedzą w różnych partycjach, ale w innym kontenerze. Gdy musimy zdenormalować dane między partycjami i kontenerami, możemy użyć źródła kanału informacyjnego zmiany kontenera [źródłowego.](change-feed.md)
+Nazwy użytkowników wymagają innego podejścia, ponieważ użytkownicy nie tylko znajdują się w różnych partycjach, ale w innym kontenerze. Gdy musimy deznormalizować dane między partycjami i kontenerami, możemy użyć [kanału informacyjnego zmiany](change-feed.md)kontenera źródłowego.
 
-W naszym przykładzie używamy pliku `users` danych o zmianie kontenera, aby reagować za każdym razem, gdy użytkownicy aktualizują swoje nazwy użytkowników. W takim przypadku możemy propagować zmiany, wywołując `posts` inną procedurę składowaną w kontenerze:
+W naszym przykładzie używamy kanału informacyjnego zmiany `users` kontenera do reagowania, gdy użytkownicy zaktualizują swoje nazwy użytkownika. W takim przypadku propagowanie zmiany przez wywołanie innej procedury składowanej w `posts` kontenerze:
 
-![Denormalizing nazwy użytkowników w kontenerze postów](./media/how-to-model-partition-example/denormalization-1.png)
+![Denormalizowanie nazw użytkowników do kontenera ogłoszeń](./media/how-to-model-partition-example/denormalization-1.png)
 
 ```javascript
 function updateUsernames(userId, username) {
@@ -352,68 +352,68 @@ function updateUsernames(userId, username) {
 }
 ```
 
-Ta procedura składowana przyjmuje identyfikator użytkownika i nową nazwę użytkownika użytkownika jako parametry, a następnie:
+Ta procedura składowana Pobiera identyfikator użytkownika i nową nazwę użytkownika jako parametry, a następnie:
 
-- pobiera wszystkie elementy pasujące `userId` do (które mogą być posty, komentarze, lub lubi)
+- Pobiera wszystkie elementy pasujące do `userId` (które mogą być ogłoszeniami, komentarzami lub polubieniem)
 - dla każdego z tych elementów
   - zastępuje`userUsername`
-  - zastępuje przedmiot
+  - zamienia element
 
 > [!IMPORTANT]
-> Ta operacja jest kosztowne, ponieważ wymaga tej procedury `posts` składowanej, które mają być wykonywane na każdej partycji kontenera. Zakładamy, że większość użytkowników wybiera odpowiednią nazwę użytkownika podczas rejestracji i nigdy jej nie zmieni, więc ta aktualizacja będzie działać bardzo rzadko.
+> Ta operacja jest kosztowna, ponieważ wymaga wykonania tej procedury składowanej na każdej partycji `posts` kontenera. Przyjęto założenie, że większość użytkowników wybierze odpowiednią nazwę użytkownika podczas rejestracji i nie zmieni się, więc ta aktualizacja będzie działać bardzo rzadko.
 
-## <a name="what-are-the-performance-gains-of-v2"></a>Jakie są przyrosty wydajności V2?
+## <a name="what-are-the-performance-gains-of-v2"></a>Jakie są zyski z wydajności w wersji 2?
 
-### <a name="q2-retrieve-a-post"></a>[II kw.] Pobieranie wpisu
+### <a name="q2-retrieve-a-post"></a>Q2 Pobieranie wpisu
 
-Teraz, gdy nasza denormalizacja jest na miejscu, musimy tylko pobrać jeden element do obsługi tego żądania.
+Teraz, gdy nasza została normalizacja, musimy tylko pobrać pojedynczy element, aby obsłużyć to żądanie.
 
-![Pobieranie pojedynczego elementu z kontenera słupków](./media/how-to-model-partition-example/V2-Q2.png)
+![Pobieranie pojedynczego elementu z kontenera ogłoszeń](./media/how-to-model-partition-example/V2-Q2.png)
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 2 ms | 1 ru | ✅ |
+| 2 MS | 1 RU | ✅ |
 
-### <a name="q4-list-a-posts-comments"></a>[Q4] Wyświetlanie komentarzy do posta
+### <a name="q4-list-a-posts-comments"></a>Kwartale Wyświetlanie listy komentarzy dotyczących wpisów
 
-W tym miejscu ponownie możemy oszczędzić dodatkowe żądania, które pobrane nazwy użytkowników i kończy się z jednej kwerendy, która filtruje na klucz partycji.
+W tym miejscu możemy wykonać zapasowe dodatkowe żądania, które pomogły pobrać nazwy użytkowników i zakończyć działanie za pomocą pojedynczego zapytania, które filtruje klucz partycji.
 
-![Pobieranie wszystkich komentarzy do posta](./media/how-to-model-partition-example/V2-Q4.png)
+![Pobieranie wszystkich komentarzy dla wpisu](./media/how-to-model-partition-example/V2-Q4.png)
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 4 ms | 7.72 RU | ✅ |
+| 4 MS | 7,72 RU | ✅ |
 
-### <a name="q5-list-a-posts-likes"></a>[Q5] Wyświetlanie polubień posta
+### <a name="q5-list-a-posts-likes"></a>[Q5] Wyświetlanie polubień wpisu
 
-Dokładnie taka sama sytuacja podczas wystawiania polubień.
+Dokładna sytuacja podczas wyświetlania listy polubień.
 
-![Pobieranie wszystkich polubień posta](./media/how-to-model-partition-example/V2-Q5.png)
+![Pobieranie wszystkich polubień dla wpisu](./media/how-to-model-partition-example/V2-Q5.png)
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 4 ms | 8,92 ru | ✅ |
+| 4 MS | 8,92 RU | ✅ |
 
-## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Upewnianie się, że wszystkie żądania są skalowalne
+## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Sprawdzanie, czy wszystkie żądania są skalowalne
 
-Patrząc na naszą ogólną poprawę wydajności, nadal istnieją dwa żądania, które nie zostały w pełni zoptymalizowane: **[Q3]** i **[Q6]**. Są to żądania obejmujące kwerendy, które nie filtrują klucza partycji kontenerów, które są kierowane.
+Analizując nasze Ogólne ulepszenia wydajności, nadal istnieją dwa żądania, które nie zostały w pełni zoptymalizowane: **[Q3]** i **[Q6]**. Są to żądania dotyczące zapytań, które nie filtrują w kluczu partycji docelowych kontenerów.
 
-### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Wyświetlanie wpisów użytkownika w krótkiej formie
+### <a name="q3-list-a-users-posts-in-short-form"></a>Kwartał Wyświetlanie listy wpisów użytkownika w postaci krótkiej
 
-To żądanie już korzysta z ulepszeń wprowadzonych w wersji 2, co oszczędza dodatkowe zapytania.
+To żądanie już korzysta z ulepszeń wprowadzonych w wersji 2, które zapasowe dodatkowych zapytań.
 
 ![Pobieranie wszystkich wpisów dla użytkownika](./media/how-to-model-partition-example/V2-Q3.png)
 
-Ale pozostałe zapytanie nadal nie filtruje klucza partycji kontenera. `posts`
+Mimo że pozostałe zapytanie nie jest filtrowane w kluczu partycji `posts` kontenera.
 
-Sposób myślenia o tej sytuacji jest rzeczywiście prosty:
+Sposób, w jaki można myśleć o tej sytuacji, jest w rzeczywistości prosty:
 
-1. To żądanie *musi* filtrować na `userId` ponieważ chcemy pobrać wszystkie posty dla konkretnego użytkownika
-1. Nie działa dobrze, ponieważ jest wykonywany `posts` względem kontenera, który nie jest podzielony na partycje przez`userId`
-1. Stwierdzając oczywiste, że rozwiązalibyśmy nasz problem z wydajnością, wykonując to żądanie względem kontenera, który *jest*`userId`
-1. Okazuje się, że mamy już taki `users` pojemnik: pojemnik!
+1. To żądanie *musi* odfiltrować się `userId` , ponieważ chcemy pobrać wszystkie wpisy dla określonego użytkownika
+1. Nie działa prawidłowo, ponieważ jest wykonywane względem `posts` kontenera, który nie jest partycjonowany przez`userId`
+1. Mówiąc oczywisty, możemy rozwiązać problem z wydajnością, wykonując to żądanie w odniesieniu do kontenera, który *jest* partycjonowany przez`userId`
+1. Spowoduje to wymuszenie takiego kontenera: `users` Container!
 
-Więc wprowadzamy drugi poziom denormalizacji, powielając `users` całe słupki do kontenera. W ten sposób skutecznie otrzymujemy kopię naszych postów, tylko podzielonych na partycje wzdłuż `userId`różnych wymiarów, dzięki czemu są bardziej wydajne, aby odzyskać przez ich .
+Dlatego wprowadzamy drugi poziom denormalizacji przez duplikowanie całych wpisów do `users` kontenera. Dzięki temu będziemy efektywnie uzyskać kopię naszych wpisów, które są podzielone na partycje w różnych wymiarach, co sprawia, że są one wydajniejsze do pobrania `userId`.
 
 `users` Kontener zawiera teraz 2 rodzaje elementów:
 
@@ -439,30 +439,30 @@ Więc wprowadzamy drugi poziom denormalizacji, powielając `users` całe słupki
 
 Należy pamiętać, że:
 
-- wprowadziliśmy pole `type` w elemencie użytkownika, aby odróżnić użytkowników od postów,
-- dodaliśmy również `userId` pole w elemencie użytkownika, `id` które jest nadmiarowe `users` z polem, `userId` ale `id` jest wymagane, ponieważ kontener jest teraz podzielony na partycje przez (a nie tak jak poprzednio)
+- w elemencie User wprowadzono `type` pole umożliwiające odróżnienie użytkowników od wpisów,
+- Dodaliśmy także `userId` pole do elementu użytkownika, które jest nadmiarowe z `id` polem, ale jest wymagane, ponieważ `users` kontener jest teraz podzielony przez `userId` (i nie `id` jak wcześniej)
 
-Aby osiągnąć tę denormalizację, ponownie używamy kanału zmian. Tym razem reagujemy na źródło `posts` danych kontenera, aby wysłać `users` dowolny nowy lub zaktualizowany wpis do kontenera. A ponieważ lista postów nie wymaga zwrotu pełnej zawartości, możemy je obciąć w procesie.
+W celu osiągnięcia tej denormalizacji ponownie użyjemy źródła zmian. Tym razem będziemy reagować na kanał informacyjny zmiany `posts` kontenera w celu wysłania nowych lub zaktualizowanych wpisów do `users` kontenera. Ponieważ listy ogłoszeń nie wymagają zwrócenia pełnej zawartości, można je obciąć w procesie.
 
-![Denormalizacja wpisów w kontenerze użytkowników](./media/how-to-model-partition-example/denormalization-2.png)
+![Denormalizowanie wpisów do kontenera Użytkownicy](./media/how-to-model-partition-example/denormalization-2.png)
 
-Możemy teraz kierować nasze `users` zapytanie do kontenera, filtrowanie klucza partycji kontenera.
+Teraz można kierować zapytania do `users` kontenera, filtrując klucz partycji kontenera.
 
 ![Pobieranie wszystkich wpisów dla użytkownika](./media/how-to-model-partition-example/V3-Q3.png)
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 4 ms | 6.46 Ru | ✅ |
+| 4 MS | 6,46 RU | ✅ |
 
-### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Lista x najnowszych postów utworzonych w formie krótkiej (kanał)
+### <a name="q6-list-the-x-most-recent-posts-created-in-short-form-feed"></a>[Q6] Lista x najnowszych wpisów utworzonych w formie krótkiej (Źródło danych)
 
-Mamy do czynienia z podobną sytuacją tutaj: nawet po oszczędzaniu dodatkowych zapytań pozostawionych niepotrzebne przez denormalization wprowadzone w wersji 2, pozostałe zapytanie nie filtruje na klucz partycji kontenera:
+Firma Microsoft musi obsłużyć podobną sytuację tutaj: nawet po podzieleniu dodatkowych zapytań pozostawionych niepotrzebnie przez denormalizację wprowadzonej w wersji 2, pozostałe zapytanie nie filtruje klucza partycji kontenera:
 
 ![Pobieranie najnowszych wpisów](./media/how-to-model-partition-example/V2-Q6.png)
 
-Zgodnie z tym samym podejściem maksymalizacji wydajności i skalowalności tego żądania wymaga, aby uderzył tylko w jedną partycję. Jest to możliwe, ponieważ musimy zwrócić tylko ograniczoną liczbę przedmiotów; w celu zapełnienia naszej platformy blogów stronie głównej, musimy tylko uzyskać 100 najnowszych postów, bez konieczności paginate przez cały zestaw danych.
+Postępując zgodnie z tym samym podejściem, Maksymalizacja wydajności i skalowalności tego żądania wymaga, aby trafili tylko jedną partycję. Jest to konieczne, ponieważ należy zwrócić tylko ograniczoną liczbę elementów. Aby wypełnić naszą stronę główną platformy do obsługi blogów, wystarczy uzyskać 100 najnowszych wpisów, bez konieczności umieszczania ich w całym zestawie danych.
 
-Aby zoptymalizować to ostatnie żądanie, wprowadzamy do naszego projektu trzeci kontener, w całości przeznaczony do obsługi tego żądania. Denormalize nasze posty `feed` do tego nowego pojemnika:
+Aby zoptymalizować to ostatnie żądanie, wprowadzimy trzeci kontener do naszego projektu, całkowicie dedykowany do obsługi tego żądania. Denormalizuje nasze wpisy do nowego `feed` kontenera:
 
     {
       "id": "<post-id>",
@@ -477,13 +477,13 @@ Aby zoptymalizować to ostatnie żądanie, wprowadzamy do naszego projektu trzec
       "creationDate": "<post-creation-date>"
     }
 
-Ten kontener jest `type`podzielony na partycje przez , który zawsze będzie `post` w naszych elementach. Dzięki temu wszystkie elementy w tym kontenerze będą siedzieć w tej samej partycji.
+Ten kontener jest podzielony na partycje `type`, które zawsze będą znajdować `post` się w naszych elementach. Pozwoli to zagwarantować, że wszystkie elementy w tym kontenerze będą się w tej samej partycji.
 
-Aby osiągnąć denormalizacji, musimy po prostu podłączyć do rurociągu źródła zmian, które wcześniej wprowadziliśmy, aby wysłać słupki do tego nowego kontenera. Jedną z ważnych rzeczy, o których należy pamiętać, jest to, że musimy upewnić się, że przechowujemy tylko 100 najnowszych postów; w przeciwnym razie zawartość kontenera może rosnąć poza maksymalny rozmiar partycji. Odbywa się to przez wywołanie [post-trigger](stored-procedures-triggers-udfs.md#triggers) za każdym razem, gdy dokument jest dodawany w kontenerze:
+Aby osiągnąć denormalizację, trzeba tylko podpiąć do potoku źródła zmian, który został wcześniej przesłany w celu wysłania wpisów do nowego kontenera. Ważną kwestią jest to, że musimy mieć pewność, że przechowujemy tylko 100 najnowszych wpisów; w przeciwnym razie zawartość kontenera może być większa niż maksymalny rozmiar partycji. Jest to realizowane przez wywołanie [wyzwalacza po](stored-procedures-triggers-udfs.md#triggers) każdym dodaniu dokumentu do kontenera:
 
-![Denormalizacja słupków do pojemnika na paszę](./media/how-to-model-partition-example/denormalization-3.png)
+![Denormalizowanie wpisów do kontenera kanału informacyjnego](./media/how-to-model-partition-example/denormalization-3.png)
 
-Oto treść post-trigger, który obcina kolekcję:
+Oto treść wyzwalacza końcowego, który obcina kolekcję:
 
 ```javascript
 function truncateFeed() {
@@ -530,49 +530,49 @@ function truncateFeed() {
 }
 ```
 
-Ostatnim krokiem jest przekierowanie naszego `feed` zapytania do naszego nowego kontenera:
+Ostatnim krokiem jest przekierowanie zapytania do naszego nowego `feed` kontenera:
 
 ![Pobieranie najnowszych wpisów](./media/how-to-model-partition-example/V3-Q6.png)
 
-| **Opóźnienie** | **Opłata RU** | **Wydajność** |
+| **Opóźnienie** | **Opłata za RU** | **Wydajność** |
 | --- | --- | --- |
-| 9 ms. | 16.97 RU | ✅ |
+| 9 MS | 16,97 RU | ✅ |
 
 ## <a name="conclusion"></a>Podsumowanie
 
-Przyjrzyjmy się ogólnym ulepszeniom wydajności i skalowalności, które wprowadziliśmy w różnych wersjach naszego projektu.
+Przyjrzyjmy się ogólnym ulepszonym funkcjom dotyczącym wydajności i skalowalności w różnych wersjach tego projektu.
 
-| | Wersja 1 | Wersja 2 | Wersja V3 |
+| | Wersja 1 | Wersja 2 | Czytanie |
 | --- | --- | --- | --- |
-| **[C1]** | 7 ms / 5,71 RU | 7 ms / 5,71 RU | 7 ms / 5,71 RU |
-| **[Q1]** | 2 ms / 1 RU | 2 ms / 1 RU | 2 ms / 1 RU |
-| **[C2]** | 9 ms / 8,76 RU | 9 ms / 8,76 RU | 9 ms / 8,76 RU |
-| **[II kw.]** | 9 ms / 19,54 RU | 2 ms / 1 RU | 2 ms / 1 RU |
-| **[Q3]** | 130 ms / 619,41 RU | 28 ms / 201.54 RU | 4 ms / 6,46 RU |
-| **[C3]** | 7 ms / 8,57 RU | 7 ms / 15,27 RU | 7 ms / 15,27 RU |
-| **[Q4]** | 23 ms / 27,72 RU | 4 ms / 7,72 RU | 4 ms / 7,72 RU |
-| **[C4]** | 6 ms / 7,05 RU | 7 ms / 14,67 RU | 7 ms / 14,67 RU |
-| **[Q5]** | 59 ms / 58,92 RU | 4 ms / 8,92 RU | 4 ms / 8,92 RU |
-| **[Q6]** | 306 ms / 2063.54 RU | 83 ms / 532,33 RU | 9 ms / 16,97 RU |
+| **C1** | 7 MS/5,71 RU | 7 MS/5,71 RU | 7 MS/5,71 RU |
+| **Pierwszym** | 2 MS/1 RU | 2 MS/1 RU | 2 MS/1 RU |
+| **C2** | 9 MS/8,76 RU | 9 MS/8,76 RU | 9 MS/8,76 RU |
+| **Q2** | 9 MS/19,54 RU | 2 MS/1 RU | 2 MS/1 RU |
+| **Kwartał** | 130 MS/619,41 RU | 28 MS/201,54 RU | 4 MS/6,46 RU |
+| **C3** | 7 MS/8,57 RU | 7 MS/15,27 RU | 7 MS/15,27 RU |
+| **Kwartale** | 23 MS/27,72 RU | 4 MS/7,72 RU | 4 MS/7,72 RU |
+| **C4** | 6 MS/7,05 RU | 7 MS/14,67 RU | 7 MS/14,67 RU |
+| **[Q5]** | 59 MS/58,92 RU | 4 MS/8,92 RU | 4 MS/8,92 RU |
+| **[Q6]** | 306 MS/2063,54 RU | 83 MS/532,33 RU | 9 MS/16,97 RU |
 
-### <a name="we-have-optimized-a-read-heavy-scenario"></a>Zoptymalizowaliśmy scenariusz
+### <a name="we-have-optimized-a-read-heavy-scenario"></a>Zoptymalizowany jest scenariusz z przeczytaniem i dużym obciążeniem
 
-Być może zauważyliście, że skoncentrowaliśmy nasze wysiłki na poprawie wydajności żądań odczytu (zapytań) kosztem żądań zapisu (poleceń). W wielu przypadkach operacje zapisu wyzwalają teraz kolejne denormalizacji za pomocą źródeł danych zmian, co sprawia, że są one bardziej kosztowne pod względem obliczeniowym i dłużej się zmaterializują.
+Być może zauważono, że firma Microsoft dąży do osiągnięcia poprawy wydajności żądań odczytu (zapytań) przy kosztach żądań zapisu (polecenia). W wielu przypadkach operacje zapisu teraz wyzwalają kolejną denormalizację za poorednictwem źródeł zmian, co sprawia, że są one bardziej kosztowne i nie zmaterializowania.
 
-Jest to uzasadnione faktem, że platforma blogowa (podobnie jak większość aplikacji społecznościowych) jest intensywna odczytu, co oznacza, że ilość żądań odczytu, które musi obsługiwać, jest zwykle rzędu wielkości wyższe niż ilość żądań zapisu. Warto więc, aby żądania zapisu były droższe do wykonania, aby umożliwić tańsze i lepszą wydajność żądań odczytu.
+Jest to uzasadnione faktem, że platforma do obsługi blogów (podobnie jak większość aplikacji społecznościowych) jest w dużym stopniu odczytywana, co oznacza, że ilość żądań odczytu, które mają być objęte, jest zazwyczaj kolejnością o wielkości większej niż liczba żądań zapisu. Dlatego warto mieć pewność, że żądania zapisu są droższe do wykonania, aby żądania odczytu były tańsze i lepsze.
 
-Jeśli spojrzymy na najbardziej ekstremalną optymalizację, jaką zrobiliśmy, **[Q6]** przeszedł z ponad 2000 r., do zaledwie 17 procesorów; osiągnęliśmy to poprzez denormalizację słupków kosztem około 10 zł za sztukę. Ponieważ służylibyśmy o wiele więcej żądań paszy niż tworzenie lub aktualizowanie postów, koszt tej denormalizacji jest znikomy, biorąc pod uwagę ogólne oszczędności.
+Jeśli przejdziemy do najwyższej najwyższej optymalizacji, **[Q6]** przeprowadzono od 2000 + jednostek ru do zaledwie 17 jednostek ru; osiągnięto, że przez denormalizowanie wpisów na koszt około 10 jednostek ru na element. Ponieważ będziemy korzystać z większej liczby żądań kanału informacyjnego niż tworzenie lub aktualizowanie wpisów, koszt tej denormalizacji jest nieznaczny, biorąc pod uwagę ogólne oszczędności.
 
-### <a name="denormalization-can-be-applied-incrementally"></a>Denormalizacja może być stosowana stopniowo
+### <a name="denormalization-can-be-applied-incrementally"></a>Denormalizację można zastosować przyrostowo
 
-Ulepszenia skalowalności, które zostały zbadane w tym artykule obejmują denormalization i powielania danych w zestawie danych. Należy zauważyć, że optymalizacje te nie muszą być wprowadzone w dniu 1. Kwerendy, które filtrują klucze partycji działają lepiej na dużą skalę, ale zapytania między partycjami mogą być całkowicie dopuszczalne, jeśli są wywoływane rzadko lub względem ograniczonego zestawu danych. Jeśli dopiero budujesz prototyp lub wprowadzasz na rynek produkt z niewielką i kontrolowaną bazą użytkowników, prawdopodobnie możesz oszczędzić te ulepszenia na później; Ważne jest zatem [monitorowanie](use-metrics.md) wydajności modelu, aby można było zdecydować, czy i kiedy nadszedł czas, aby je wprowadzić.
+Ulepszenia skalowalności omówione w tym artykule obejmują denormalizację i duplikowanie danych w zestawie danych. Należy zauważyć, że te optymalizacje nie muszą być wprowadzane w miejscu 1. Zapytania filtrujące klucze partycji działają lepiej na dużą skalę, ale zapytania między partycjami mogą być całkowicie akceptowalne, jeśli są wywoływane rzadko lub z ograniczonym zestawem danych. Jeśli właśnie tworzysz prototyp lub uruchamiasz produkt z niewielką i kontrolowaną bazą użytkowników, możesz zastanowić się nad tymi ulepszeniami w przyszłości. Ważne jest, aby [monitorować](use-metrics.md) wydajność modelu, aby można było określić, czy i kiedy czas ma być przydany do nich.
 
-Źródło danych ze zmian, których używamy do dystrybucji aktualizacji do innych kontenerów, przechowuje wszystkie te aktualizacje. Dzięki temu można zażądać wszystkich aktualizacji od czasu utworzenia kontenera i widoków zdenormalizowanej jako jednorazowej operacji nadrabiania zaległości, nawet jeśli system ma już dużo danych.
+Kanał informacyjny zmiany używany do dystrybuowania aktualizacji do innych kontenerów trwale przechowuje wszystkie aktualizacje. Dzięki temu można żądać wszystkich aktualizacji od momentu utworzenia kontenera i nieznormalizowanych widoków jako jednorazowej operacji przechwytywania, nawet jeśli system ma już wiele danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po tym wprowadzeniu do praktycznego modelowania danych i partycjonowania warto zapoznać się z następującymi artykułami, aby przejrzeć pojęcia, które omówiliśmy:
+Po tym wprowadzeniu do praktycznego modelowania i partycjonowania danych warto zapoznać się z następującymi artykułami, aby przejrzeć omówione koncepcje:
 
 - [Praca z bazami danych, kontenerami i elementami](databases-containers-items.md)
 - [Partitioning in Azure Cosmos DB (Partycjonowanie w usłudze Azure Cosmos DB)](partitioning-overview.md)
-- [Zmiana kanału informacyjnego w usłudze Azure Cosmos DB](change-feed.md)
+- [Źródło zmian w Azure Cosmos DB](change-feed.md)

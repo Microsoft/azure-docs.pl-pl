@@ -1,6 +1,6 @@
 ---
-title: Transformacje inicjowania obsługi administracyjnej w chmurze usługi Azure AD Connect
-description: W tym artykule opisano sposób używania przekształceń do zmiany domyślnych mapowań atrybutów.
+title: Azure AD Connect przekształcenia aprowizacji w chmurze
+description: W tym artykule opisano sposób użycia transformacji w celu zmiany domyślnych mapowań atrybutów.
 author: billmath
 ms.author: billmath
 manager: davba
@@ -9,32 +9,32 @@ ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: ec12927b40096b7ff04fae6b7cbc69a7bc11e8f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75549299"
 ---
 # <a name="transformations"></a>Przekształcenia
 
-Dzięki transformacji można zmienić domyślne zachowanie sposobu synchronizacji atrybutu z usługą Azure Active Directory (Azure AD) przy użyciu inicjowania obsługi administracyjnej w chmurze.
+Za pomocą transformacji można zmienić domyślne zachowanie tego, jak atrybut jest synchronizowany z Azure Active Directory (Azure AD) przy użyciu aprowizacji w chmurze.
 
-Aby wykonać to zadanie, należy edytować schemat, a następnie ponownie przesłać go za pośrednictwem żądania sieci web.
+Aby wykonać to zadanie, należy edytować schemat, a następnie przesłać go ponownie za pośrednictwem żądania sieci Web.
 
-Aby uzyskać więcej informacji na temat atrybutów inicjowania obsługi administracyjnej w chmurze, zobacz [Opis schematu usługi Azure AD](concept-attributes.md).
+Aby uzyskać więcej informacji na temat atrybutów aprowizacji w chmurze, zobacz [Omówienie schematu usługi Azure AD](concept-attributes.md).
 
 
-## <a name="retrieve-the-schema"></a>Pobieranie schematu
-Aby pobrać schemat, wykonaj kroki opisane w [widoku schematu](concept-attributes.md#view-the-schema). 
+## <a name="retrieve-the-schema"></a>Pobierz schemat
+Aby pobrać schemat, wykonaj kroki opisane w temacie [Wyświetl schemat](concept-attributes.md#view-the-schema). 
 
-## <a name="custom-attribute-mapping"></a>Niestandardowe mapowanie atrybutów
-Aby dodać niestandardowe mapowanie atrybutów, wykonaj następujące kroki.
+## <a name="custom-attribute-mapping"></a>Mapowanie atrybutów niestandardowych
+Aby dodać niestandardowe Mapowanie atrybutów, wykonaj następujące kroki.
 
-1. Skopiuj schemat do edytora tekstu lub kodu, takiego jak [Visual Studio Code](https://code.visualstudio.com/).
+1. Skopiuj schemat do tekstu lub edytora kodu, takiego jak [Visual Studio Code](https://code.visualstudio.com/).
 1. Zlokalizuj obiekt, który chcesz zaktualizować w schemacie.
 
    ![Obiekt w schemacie](media/how-to-transformation/transform1.png)</br>
-1. Znajdź kod `ExtensionAttribute3` w obiekcie użytkownika.
+1. Znajdź kod dla `ExtensionAttribute3` obiektu użytkownika.
 
     ```
                             {
@@ -62,7 +62,7 @@ Aby dodać niestandardowe mapowanie atrybutów, wykonaj następujące kroki.
                                 }
                             },
     ```
-1. Edytuj kod tak, aby atrybut firmy `ExtensionAttribute3`był mapowany na .
+1. Edytuj kod, tak aby atrybut Company został zamapowany na `ExtensionAttribute3`.
 
    ```
                                     {
@@ -90,25 +90,25 @@ Aby dodać niestandardowe mapowanie atrybutów, wykonaj następujące kroki.
                                         }
                                     },
    ```
- 1. Skopiuj schemat z powrotem do Eksploratora wykresu, zmień **typ żądania** na **PUT**i wybierz polecenie **Uruchom kwerendę**.
+ 1. Skopiuj schemat z powrotem do Eksploratora grafów, Zmień **Typ żądania** na **Put**i wybierz pozycję **Uruchom zapytanie**.
 
     ![Uruchamianie zapytania](media/how-to-transformation/transform2.png)
 
- 1. Teraz w witrynie Azure portal przejdź do konfiguracji inicjowania obsługi administracyjnej w chmurze i wybierz pozycję **Uruchom ponownie aprowizacji.**
+ 1. Teraz w Azure Portal przejdź do konfiguracji aprowizacji w chmurze, a następnie wybierz pozycję **Uruchom ponownie Inicjowanie obsługi administracyjnej**.
 
-    ![Ponowne uruchamianie obsługi administracyjnej](media/how-to-transformation/transform3.png)
+    ![Ponowne uruchamianie aprowizacji](media/how-to-transformation/transform3.png)
 
- 1. Po chwili sprawdź, czy atrybuty są wypełniane, uruchamiając `https://graph.microsoft.com/beta/users/{Azure AD user UPN}`następującą kwerendę w Eksploratorze wykresu: .
- 1. Teraz powinna zostać wyświetlna wartość.
+ 1. Za chwilę Sprawdź, czy atrybuty są wypełniane, uruchamiając następujące zapytanie w Eksploratorze grafu: `https://graph.microsoft.com/beta/users/{Azure AD user UPN}`.
+ 1. Powinna zostać wyświetlona wartość.
 
-    ![Pojawia się wartość](media/how-to-transformation/transform4.png)
+    ![Zostanie wyświetlona wartość](media/how-to-transformation/transform4.png)
 
-## <a name="custom-attribute-mapping-with-function"></a>Niestandardowe mapowanie atrybutów z funkcją
-W przypadku bardziej zaawansowanego mapowania można użyć funkcji, które umożliwiają manipulowanie danymi i tworzenie wartości atrybutów dostosowanych do potrzeb organizacji.
+## <a name="custom-attribute-mapping-with-function"></a>Mapowanie atrybutów niestandardowych za pomocą funkcji
+Aby uzyskać bardziej zaawansowane mapowanie, można użyć funkcji, które umożliwiają manipulowanie danymi i tworzenie wartości atrybutów, aby odpowiadały potrzebom organizacji.
 
-Aby wykonać to zadanie, wykonaj poprzednie kroki, a następnie edytuj funkcję, która jest używana do konstruowania wartości końcowej.
+Aby wykonać to zadanie, wykonaj poprzednie kroki, a następnie Edytuj funkcję, która jest używana do konstruowania wartości końcowej.
 
-Aby uzyskać informacje na temat składni i przykładów wyrażeń, zobacz [Pisanie wyrażeń dla mapowań atrybutów w usłudze Azure Active Directory](reference-expressions.md).
+Aby uzyskać informacje na temat składni i Przykłady wyrażeń, zobacz [Pisanie wyrażeń pod kątem mapowań atrybutów w Azure Active Directory](reference-expressions.md).
 
 
 ## <a name="next-steps"></a>Następne kroki 

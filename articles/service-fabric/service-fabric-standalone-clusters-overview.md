@@ -1,67 +1,67 @@
 ---
-title: Informacje o klastrach autonomicznej sieci szkieletowej usług
-description: Klastry sieci szkieletowej usług działają w systemach Windows Server i Linux, co oznacza, że będziesz mógł wdrażać i hostować aplikacje sieci szkieletowej usług w dowolnym miejscu, w którym można uruchomić system Windows Server lub Linux.
+title: Omówienie autonomicznych klastrów Service Fabric
+description: Klastry Service Fabric są uruchamiane w systemach Windows Server i Linux, co oznacza, że będzie można wdrażać i hostować aplikacje Service Fabric wszędzie tam, gdzie będzie można uruchamiać system Windows Server lub Linux.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: e8912ef5bc0fd6009443b736031fc9af57ab6c5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75465644"
 ---
-# <a name="overview-of-service-fabric-standalone-clusters"></a>Omówienie autonomicznych klastrów sieci szkieletowej usług
+# <a name="overview-of-service-fabric-standalone-clusters"></a>Omówienie Service Fabric klastrów autonomicznych
 
-Klaster sieci szkieletowej usług to połączony z siecią zestaw maszyn wirtualnych lub fizycznych, na których mikrousługi są wdrażane i zarządzane. Maszyna lub maszyna wirtualna, która jest częścią klastra jest nazywany węzłem klastra. Klastry można skalować do tysięcy węzłów. Jeśli dodasz nowe węzły do klastra, sieci szkieletowej usług równoważe repliki partycji usługi i wystąpienia w zwiększonej liczbie węzłów. Ogólna wydajność aplikacji poprawia i rywalizacji o dostęp do pamięci zmniejsza. Jeśli węzły w klastrze nie są używane efektywnie, można zmniejszyć liczbę węzłów w klastrze. Sieci szkieletowej usług ponownie równoważy repliki partycji i wystąpień w całej zmniejszonej liczby węzłów, aby lepiej wykorzystać sprzęt w każdym węźle.
+Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem klastra. Klastry mogą być skalowane do tysięcy węzłów. Jeśli dodasz nowe węzły do klastra, Service Fabric ponownie zrównoważą repliki partycji usługi i wystąpienia w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji i wystąpienia na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle.
 
 Typ węzła definiuje rozmiar, liczbę i właściwości zestawu węzłów w klastrze. Następnie każdy typ węzła może być niezależnie skalowany w górę lub w dół oraz może mieć różne zestawy otwartych portów i różne metryki pojemności. Typy węzłów służą do definiowania ról zestawu węzłów klastra, takich jak „fronton” lub „zaplecze”. Klaster może mieć więcej niż jeden typ węzła, ale podstawowy typ węzła musi obejmować co najmniej pięć maszyn wirtualnych w przypadku klastrów produkcyjnych (lub co najmniej trzy maszyny wirtualne w przypadku klastrów testowych). [Usługi systemowe Service Fabric](service-fabric-technical-overview.md#system-services) są umieszczane w węzłach podstawowego typu.
 
-Proces tworzenia klastra sieci szkieletowej usług lokalnie jest podobny do procesu tworzenia klastra w dowolnej wybranej chmurze za pomocą zestawu maszyn wirtualnych. Początkowe kroki do inicjowania obsługi administracyjnej maszyn wirtualnych są regulowane przez dostawcę chmury lub środowiska lokalnego, którego używasz. Po włączeniu zestawu maszyn wirtualnych z włączoną łącznością sieciową kroki konfigurowania pakietu sieci szkieletowej usług, edytowania ustawień klastra i uruchamiania skryptów tworzenia i zarządzania klastrem są identyczne. Dzięki temu twoja wiedza i doświadczenie w obsłudze klastrów sieci szkieletowej usług i zarządzaniu nimi są zbywalne, gdy zdecydujesz się kierować reklamy na nowe środowiska hostingowe.
+Proces tworzenia klastra Service Fabric lokalnie jest podobny do procesu tworzenia klastra w dowolnej wybranej chmurze z zestawem maszyn wirtualnych. Początkowe kroki w celu aprowizacji maszyn wirtualnych podlegają dostawcy usług w chmurze lub środowisku lokalnym, z którego korzystasz. Po włączeniu zestawu maszyn wirtualnych z włączoną łącznością sieciową między nimi należy wykonać kroki konfigurowania pakietu Service Fabric, edytowania ustawień klastra i uruchamiania skryptów tworzenia klastra i zarządzania nimi. Zapewnia to, że wiedza i doświadczenie związane z działaniem i zarządzaniem klastrami Service Fabric jest możliwe do przetransferowania w przypadku wybrania opcji ukierunkowanych na nowe środowiska hostingu.
 
 ## <a name="cluster-security"></a>Zabezpieczenia klastra
-Klaster sieci szkieletowej usług jest zasobem, który jesteś właścicielem.  Użytkownik jest odpowiedzialny za zabezpieczenie klastrów, aby zapobiec łączeniu się z nimi nieautoryzowanym użytkownikom. Bezpieczny klaster jest szczególnie ważne podczas uruchamiania obciążeń produkcyjnych w klastrze.
+Klaster Service Fabric jest posiadanym zasobem.  Użytkownik jest odpowiedzialny za zabezpieczanie klastrów w celu zapobiegania łączeniu się z nimi nieautoryzowanych użytkowników. Bezpieczny klaster jest szczególnie ważny w przypadku uruchamiania obciążeń produkcyjnych w klastrze.
 
 ### <a name="node-to-node-security"></a>Zabezpieczenia między węzłami
-Zabezpieczenia między węzłami zabezpieczają komunikację między maszynami wirtualnymi lub komputerami w klastrze. Ten scenariusz zabezpieczeń gwarantuje, że tylko komputery, które są upoważnione do przyłączenia się do klastra mogą uczestniczyć w hostowania aplikacji i usług w klastrze. Usługa Service Fabric używa certyfikatów X.509 do zabezpieczenia klastra i zapewnienia funkcji zabezpieczeń aplikacji.  Certyfikat klastra jest wymagany do zabezpieczenia ruchu klastra i zapewnienia uwierzytelniania klastra i serwera.  Certyfikaty z podpisem własnym mogą być używane dla klastrów testowych, ale certyfikat z zaufanego urzędu certyfikacji powinien być używany do zabezpieczania klastrów produkcyjnych.
+Zabezpieczenia między węzłami zabezpieczają komunikację między maszynami wirtualnymi lub komputerami w klastrze. Ten scenariusz zabezpieczeń zapewnia, że tylko komputery autoryzowane do dołączenia do klastra mogą uczestniczyć w aplikacjach i usługach obsługujących klaster. Service Fabric używa certyfikatów X. 509 w celu zabezpieczenia klastra i zapewnienia funkcji zabezpieczeń aplikacji.  Certyfikat klastra jest wymagany do zabezpieczenia ruchu klastra i zapewnienia uwierzytelniania klastra i serwera.  Do klastrów testowych można używać certyfikatów z podpisem własnym, ale do zabezpieczania klastrów produkcyjnych należy używać certyfikatu z zaufanego urzędu certyfikacji.
 
-Zabezpieczenia systemu Windows można również włączyć dla autonomicznego klastra systemu Windows. Jeśli masz systemy Windows Server 2012 R2 i Windows Active Directory, zaleca się używanie zabezpieczeń systemu Windows z grupowymi kontami usług zarządzanych. W przeciwnym razie należy użyć zabezpieczeń systemu Windows z kontami systemu Windows.
+Zabezpieczenia systemu Windows można również włączyć dla autonomicznego klastra systemu Windows. Jeśli masz systemy Windows Server 2012 R2 i Windows Active Directory, zalecamy użycie zabezpieczeń systemu Windows z kontami usług zarządzanymi przez grupę. W przeciwnym razie Użyj zabezpieczeń systemu Windows z kontami systemu Windows.
 
-Aby uzyskać więcej informacji, przeczytaj informacje [o zabezpieczeniach między węzłami](service-fabric-cluster-security.md#node-to-node-security)
+Aby uzyskać więcej informacji, zapoznaj się z tematem [zabezpieczenia między węzłami](service-fabric-cluster-security.md#node-to-node-security)
 
-### <a name="client-to-node-security"></a>Zabezpieczenia między klientami
-Zabezpieczenia klient-węzeł uwierzytelniają klientów i pomagają w zabezpieczeniu komunikacji między klientem a poszczególnymi węzłami w klastrze. Ten typ zabezpieczeń pomaga zapewnić, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do klastra i aplikacji wdrożonych w klastrze. Klienci są jednoznacznie identyfikowani za pomocą poświadczeń zabezpieczeń certyfikatu X.509. Dowolnej liczby opcjonalnych certyfikatów klienta można używać do uwierzytelniania klientów administratora lub użytkowników za pomocą klastra.
+### <a name="client-to-node-security"></a>Zabezpieczenia między klientem a węzłem
+Zabezpieczenia klienta w węźle uwierzytelniają klientów i pomagają w zabezpieczaniu komunikacji między klientem a poszczególnymi węzłami w klastrze. Ten typ zabezpieczeń pomaga upewnić się, że tylko autoryzowani użytkownicy mają dostęp do klastra i aplikacji wdrożonych w klastrze. Klienci są jednoznacznie identyfikowani przy użyciu swoich poświadczeń zabezpieczeń certyfikatu X. 509. Dowolna liczba opcjonalnych certyfikatów klienta może służyć do uwierzytelniania klientów administratorów lub użytkowników z klastrem.
 
-Oprócz certyfikatów klientów usługę Azure Active Directory można również skonfigurować do uwierzytelniania klientów za pomocą klastra.
+Oprócz certyfikatów klienta Azure Active Directory można również skonfigurować tak, aby uwierzytelniać klientów w klastrze.
 
-Aby uzyskać więcej informacji, przeczytaj informacje [o zabezpieczeniach między klientami](service-fabric-cluster-security.md#client-to-node-security)
+Aby uzyskać więcej informacji, zapoznaj się z artykułem [Zabezpieczenia klienta-węzła](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control-rbac"></a>Kontrola dostępu oparta na rolach (RBAC)
-Usługa Sieci szkieletowej obsługuje również kontrolę dostępu, aby ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników. Pomaga to uczynić klaster bardziej bezpieczne. Dwa typy kontroli dostępu są obsługiwane dla klientów, którzy łączą się z klastrem: rola administratora i rola użytkownika.  
+Service Fabric obsługuje również kontrolę dostępu, aby ograniczyć dostęp do niektórych operacji klastra dla różnych grup użytkowników. Dzięki temu klaster jest bezpieczniejszy. Obsługiwane są dwa typy kontroli dostępu dla klientów łączących się z klastrem: rola administratora i rola użytkownika.  
 
-Aby uzyskać więcej informacji, przeczytaj [artykuł Kontrola dostępu oparta na rolach (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Aby uzyskać więcej informacji, Przeczytaj [Access Control oparte na rolach (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
 ## <a name="scaling"></a>Skalowanie
 
-Wymagania aplikacji zmieniają się wraz z czasem. Może być konieczne zwiększenie zasobów klastra w celu zaspokojenia zwiększonego obciążenia aplikacji lub ruchu sieciowego lub zmniejszenia zasobów klastra w przypadku spadku popytu. Po utworzeniu klastra sieci szkieletowej usług można skalować klaster w poziomie (zmieniać liczbę węzłów) lub w pionie (zmienić zasoby węzłów). Klaster można skalować w dowolnym momencie, nawet gdy obciążenia są uruchomione w klastrze. W miarę skalowania klastra aplikacje są również skalowane automatycznie.
+Wymagania aplikacji zmieniają się w miarę upływu czasu. Może być konieczne zwiększenie zasobów klastra w celu spełnienia zwiększonych obciążeń aplikacji lub ruchu sieciowego albo zmniejszenie zasobów klastra po spadku popytu. Po utworzeniu klastra Service Fabric można skalować klaster w poziomie (zmienić liczbę węzłów) lub w pionie (zmienić zasoby węzłów). Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze. W miarę skalowania klastra aplikacje są automatycznie skalowane.
 
-Aby uzyskać więcej informacji, zobacz [Skalowanie klastrów autonomicznych](service-fabric-cluster-scaling-standalone.md).
+Aby uzyskać więcej informacji, zobacz [skalowanie klastrów autonomicznych](service-fabric-cluster-scaling-standalone.md).
 
-## <a name="upgrading"></a>Uaktualnianie
+## <a name="upgrading"></a>Unowocześnieni
 
-Klaster autonomiczny jest zasobem, który jest całkowicie własnością. Użytkownik jest odpowiedzialny za łatanie bazowego systemu operacyjnego i inicjowanie uaktualnień sieci szkieletowej. Klaster można ustawić tak, aby odbierał automatyczne uaktualnienia środowiska uruchomieniowego, gdy firma Microsoft wyda nową wersję, lub wybrać obsługiwaną wersję środowiska uruchomieniowego. Oprócz uaktualnień sieci szkieletowej można również załatać system operacyjny i zaktualizować konfigurację klastra, taką jak certyfikaty lub porty aplikacji. 
+Autonomiczny klaster jest zasobem, który jesteś całkowicie własnym. Użytkownik jest odpowiedzialny za stosowanie poprawek do podstawowego systemu operacyjnego i Inicjowanie uaktualnień sieci szkieletowej. Można ustawić, aby klaster otrzymywał aktualizacje automatycznego środowiska uruchomieniowego, gdy firma Microsoft wyprowadzi nową wersję, lub wybrać wybraną obsługiwaną wersję środowiska uruchomieniowego. Oprócz uaktualnień sieci szkieletowej można również zastosować poprawki do systemu operacyjnego i zaktualizować konfigurację klastra, na przykład certyfikaty lub porty aplikacji. 
 
-Aby uzyskać więcej informacji, zobacz [Uaktualnianie klastrów autonomicznych](service-fabric-cluster-upgrade-standalone.md).
+Aby uzyskać więcej informacji, przeczytaj temat [uaktualnianie klastrów autonomicznych](service-fabric-cluster-upgrade-standalone.md).
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
-Można tworzyć klastry na maszynach wirtualnych lub komputerach z tymi systemami operacyjnymi (Linux nie jest jeszcze obsługiwany):
+Możesz tworzyć klastry na maszynach wirtualnych lub komputerach z tymi systemami operacyjnymi (system Linux nie jest jeszcze obsługiwany):
 
 * Windows Server 2012 R2
 * Windows Server 2016 
 * Windows Server 2019
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [zabezpieczaniu](service-fabric-cluster-security.md), [skalowaniu](service-fabric-cluster-scaling-standalone.md)i [uaktualnianiu](service-fabric-cluster-upgrade-standalone.md) klastrów autonomicznych.
+Przeczytaj więcej na temat [zabezpieczania](service-fabric-cluster-security.md), [skalowania](service-fabric-cluster-scaling-standalone.md)i [uaktualniania](service-fabric-cluster-upgrade-standalone.md) klastrów autonomicznych.
 
-Dowiedz się więcej o [opcjach pomocy technicznej sieci szkieletowej](service-fabric-support.md)usług .
+Dowiedz się więcej o [opcjach pomocy technicznej Service Fabric](service-fabric-support.md).

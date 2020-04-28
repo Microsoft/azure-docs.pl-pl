@@ -1,39 +1,39 @@
 ---
-title: Optymalizuj koszty i usługi RU/s w celu uruchamiania zapytań w usłudze Azure Cosmos DB
-description: Dowiedz się, jak oceniać opłaty jednostkowe żądań dla kwerendy i optymalizować kwerendę pod względem wydajności i kosztów.
+title: Optymalizuj koszt i RU/s, aby uruchamiać zapytania w Azure Cosmos DB
+description: Dowiedz się, jak oszacować opłaty jednostkowe żądań dla zapytania i zoptymalizować zapytanie pod względem wydajności i kosztów.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75445129"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów zapytania w usłudze Azure Cosmos DB
 
 Usługa Azure Cosmos DB oferuje bogaty zestaw operacji bazy danych, w tym zapytania relacyjne i hierarchiczne, które działają na elementach w kontenerze. Koszt związany z każdą z tych operacji zależy od procesora, danych We/Wy i pamięci wymaganej do wykonania danej operacji. Nie myśl o zasobach sprzętowych i zarządzaniu nimi — zamiast tego pomyśl o jednostce żądania (RU) jako pojedynczej mierze zasobów wymaganych do wykonywania różnych operacji bazy danych i obsługiwania żądań. W tym artykule opisano, jak oszacować opłaty za jednostki żądania dla zapytania i jak zoptymalizować zapytanie pod względem wydajności i kosztów. 
 
-Zapytania w usłudze Azure Cosmos DB są zazwyczaj uporządkowane od najszybszych/najbardziej wydajnych do wolniejszych/mniej wydajnych pod względem przepływności w następujący sposób:  
+Zapytania w Azure Cosmos DB są zwykle uporządkowane od najszybszego/najbardziej wydajnego do wolniejszego/mniej wydajnego w zakresie przepływności w następujący sposób:  
 
-* GET operacji na jeden klucz partycji i klucz elementu.
+* Pobierz operację na pojedynczym kluczu partycji i kluczu elementu.
 
 * Zapytanie z klauzulą filtru w ramach jednego klucza partycji.
 
-* Kwerenda bez klauzuli filtru równości lub zakresu na dowolnej właściwości.
+* Kwerenda bez klauzuli filtru równości lub zakresu dla każdej właściwości.
 
 * Zapytanie bez filtrów.
 
-Kwerendy, które odczytują dane z jednej lub więcej partycji, ponoszą większe opóźnienia i zużywają większą liczbę jednostek żądań. Ponieważ każda partycja ma automatyczne indeksowanie dla wszystkich właściwości, kwerenda może być skutecznie obsługiwana z indeksu. Można wprowadzać kwerendy, które używają wielu partycji szybciej przy użyciu opcji równoległości. Aby dowiedzieć się więcej na temat partycjonowania i kluczy partycji, zobacz [Partycjonowanie w usłudze Azure Cosmos DB](partitioning-overview.md).
+Zapytania odczytujące dane z co najmniej jednej partycji powodują wyższe opóźnienia i zużywają większą liczbę jednostek żądania. Ponieważ każda partycja ma Automatyczne indeksowanie wszystkich właściwości, zapytanie może być obsługiwane efektywnie z indeksu. Można tworzyć zapytania, które używają wielu partycji szybciej, przy użyciu opcji równoległości. Aby dowiedzieć się więcej na temat partycjonowania i kluczy partycji, zobacz [partycjonowanie w Azure Cosmos DB](partitioning-overview.md).
 
-## <a name="evaluate-request-unit-charge-for-a-query"></a>Ocena opłaty jednostkowej żądania dla kwerendy
+## <a name="evaluate-request-unit-charge-for-a-query"></a>Oceń opłatę jednostkową żądania dla zapytania
 
-Po zapisaniu niektórych danych w kontenerach usługi Azure Cosmos, można użyć Eksploratora danych w witrynie Azure portal do konstruowania i uruchamiania zapytań. Można również uzyskać koszt zapytań przy użyciu eksploratora danych. Ta metoda daje poczucie rzeczywistych opłat związanych z typowych zapytań i operacji, które obsługuje system.
+Po zapisaniu danych w kontenerach usługi Azure Cosmos można użyć Eksplorator danych w Azure Portal do konstruowania i uruchamiania zapytań. Koszt zapytań można również uzyskać za pomocą Eksploratora danych. Ta metoda zapewnia zrozumienie rzeczywistych opłat związanych z typowymi zapytaniami i operacjami obsługiwanymi przez system.
 
-Można również uzyskać koszt zapytań programowo przy użyciu SDK. Aby zmierzyć obciążenie każdej operacji, takich jak tworzenie, `x-ms-request-charge` aktualizowanie lub usuwanie, sprawdź nagłówek podczas korzystania z interfejsu API REST. Jeśli używasz .NET lub Java SDK, `RequestCharge` właściwość jest równoważną właściwością, aby uzyskać opłatę za żądanie i ta właściwość jest obecna w ResourceResponse lub FeedResponse.
+Koszt zapytań można również uzyskać programowo przy użyciu zestawów SDK. Aby zmierzyć obciążenie związane z dowolną operacją, taką jak tworzenie, aktualizowanie lub usuwanie, `x-ms-request-charge` należy przeprowadzić inspekcję nagłówka podczas korzystania z interfejsu API REST. Jeśli używasz platformy .NET lub zestawu Java SDK, `RequestCharge` właściwość jest równoważną właściwością do uzyskania opłaty za żądanie, a ta właściwość jest obecna w ResourceResponse lub FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -51,15 +51,15 @@ while (queryable.HasMoreResults)
      }
 ```
 
-## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Czynniki wpływające na obciążenie jednostkowe żądania zapytania
+## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Czynniki wpływające na opłatę jednostkową żądania dla zapytania
 
-Jednostki żądań dla kwerend są zależne od wielu czynników. Na przykład liczba załadowanych/zwróconych elementów usługi Azure Cosmos, liczba wyszukiwań względem indeksu, czas kompilacji kwerendy itp. Usługa Azure Cosmos DB gwarantuje, że ta sama kwerenda podczas wykonywania na tych samych danych zawsze będzie zużywać taką samą liczbę jednostek żądań, nawet w przypadku powtórzeń wykonania. Profil kwerendy przy użyciu metryk wykonywania kwerendy daje dobry pomysł, jak jednostki żądania są wydawane.  
+Jednostki żądań dla zapytań są zależne od wielu czynników. Na przykład liczba załadowanych/zwróconych elementów usługi Azure Cosmos, liczba wyszukiwań względem indeksu, czas kompilacji zapytania itd. szczegóły. Azure Cosmos DB gwarantuje, że to samo zapytanie wykonywane na tych samych danych zawsze będzie używać tej samej liczby jednostek żądania nawet z powtarzanymi wykonaniami. Profil zapytania korzystający z metryk wykonywania zapytania daje dobry pomysł na to, jak jednostki żądań są zużywane.  
 
-W niektórych przypadkach może zostać wyświetlona sekwencja odpowiedzi 200 i 429 i jednostek żądań zmiennych w stronicowanym wykonaniu kwerend, to znaczy, że kwerendy będą uruchamiane tak szybko, jak to możliwe na podstawie dostępnych jednostek RU. Może się pojawić wykonanie kwerendy podzielić się na wiele stron/rund między serwerem a klientem. Na przykład 10 000 elementów może zostać zwróconych jako wiele stron, z których każda jest obciążona na podstawie obliczeń wykonanych dla tej strony. Po zsumować na tych stronach, należy uzyskać taką samą liczbę uli, jak można uzyskać dla całej kwerendy.  
+W niektórych przypadkach może zostać wyświetlona sekwencja odpowiedzi 200 i 429 oraz zmienne jednostki żądań w wykonaniu stronicowanej kwerendy, czyli ponieważ zapytania będą uruchamiane tak szybko, jak to możliwe, na podstawie dostępnych jednostek ru. Może zostać wyświetlony podział zapytania na wiele stron/rundy między serwerem a klientem. Na przykład 10 000 elementy mogą być zwracane jako wiele stron, z których każda jest naliczana na podstawie obliczeń wykonanych dla tej strony. Po rozpoczęciu sumowania na tych stronach należy uzyskać taką samą liczbę jednostek ru jak w przypadku całego zapytania.  
 
 ## <a name="metrics-for-troubleshooting"></a>Metryki dotyczące rozwiązywania problemów
 
-Wydajność i przepływność używane przez kwerendy, funkcje zdefiniowane przez użytkownika (UDFs) zależy głównie od treści funkcji. Najprostszym sposobem, aby dowiedzieć się, ile czasu wykonanie kwerendy jest spędzane w UDF i liczba identyfikatorów obiektów innych niż używane, jest włączenie metryk kwerendy. Jeśli używasz .NET SDK, oto przykładowe metryki kwerendy zwracane przez zestaw SDK:
+Wydajność i przepływność zużywane przez zapytania, funkcje zdefiniowane przez użytkownika (UDF) głównie zależą od treści funkcji. Najprostszym sposobem, aby dowiedzieć się, ile czasu wykonanie zapytania w systemie UDF i ile jednostek ru zużyto, jest przez włączenie metryk zapytania. Jeśli używasz zestawu SDK platformy .NET, poniżej przedstawiono przykładowe metryki zapytań zwrócone przez zestaw SDK:
 
 ```bash
 Retrieved Document Count                 :               1              
@@ -85,30 +85,30 @@ Total Query Execution Time               :   �
     Request Charge                       :            3.19 RUs  
 ```
 
-## <a name="best-practices-to-cost-optimize-queries"></a>Najważniejsze wskazówki dotyczące optymalizacji kosztów kwerend 
+## <a name="best-practices-to-cost-optimize-queries"></a>Najlepsze rozwiązania dotyczące kosztu optymalizacji zapytań 
 
-Należy wziąć pod uwagę następujące najlepsze rozwiązania podczas optymalizacji kwerend pod kątem kosztów:
+Podczas optymalizowania zapytań dotyczących kosztów należy wziąć pod uwagę następujące najlepsze rozwiązania:
 
-* **Kololokuj wiele typów jednostek**
+* **Lokalizowanie wielu typów jednostek**
 
-   Spróbuj współlokować wiele typów jednostek w ramach jednej lub mniejszej liczby kontenerów. Ta metoda daje korzyści nie tylko z punktu widzenia cen, ale także dla wykonywania zapytań i transakcji. Zapytania są ograniczone do jednego kontenera; i niepodzielnych transakcji za pośrednictwem wielu rekordów za pośrednictwem procedur/wyzwalaczy przechowywane są ograniczone do klucza partycji w jednym kontenerze. Kolokowanie jednostek w tym samym kontenerze może zmniejszyć liczbę podróży w obie strony sieci, aby rozwiązać relacje między rekordami. Dlatego zwiększa wydajność end-to-end, umożliwia transakcje niepodzielne za pośrednictwem wielu rekordów dla większego zestawu danych, a w rezultacie obniża koszty. Jeśli kolocacja wielu typów jednostek w ramach jednej lub mniejszej liczby kontenerów jest trudna dla twojego scenariusza, zwykle dlatego, że migrujesz istniejącą aplikację i nie chcesz wprowadzać żadnych zmian w kodzie — należy rozważyć inicjowanie obsługi administracyjnej przepływności na poziomie bazy danych.  
+   Spróbuj zlokalizować wiele typów jednostek w jednej lub mniejszej liczbie kontenerów. Ta metoda daje korzyści nie tylko z perspektywy cenowej, ale również dla wykonywania zapytań i transakcji. Zapytania są objęte zakresem jednego kontenera; i niepodzielne transakcje dla wielu rekordów za pośrednictwem procedur składowanych/wyzwalaczy są ograniczone do klucza partycji w ramach jednego kontenera. Współlokalizowanie jednostek w tym samym kontenerze może zmniejszyć liczbę podróży w sieci, aby rozwiązać relacje między rekordami. Zwiększa to wydajność, co umożliwia wykonywanie transakcji niepodzielnych za pośrednictwem wielu rekordów dla większego zestawu danych, a w efekcie obniża koszty. Jeśli współlokalizowanie wielu typów jednostek w jednej lub mniejszej liczbie kontenerów jest trudne dla danego scenariusza, zazwyczaj ze względu na to, że przeprowadzasz migrację istniejącej aplikacji i nie chcesz wprowadzać żadnych zmian w kodzie — należy wziąć pod uwagę przepływność aprowizacji na poziomie bazy danych.  
 
-* **Mierzenie i dostrajanie dla niższych jednostek żądań/drugie użycie**
+* **Mierzenie i dostrajanie dla niższych jednostek żądań/drugiego użycia**
 
-   Złożoność kwerendy wpływa na liczbę jednostek żądań (RUs) są używane dla operacji. Liczba predykatów, charakter predykatów, liczba plików UDF i rozmiar zestawu danych źródłowych. Wszystkie te czynniki wpływają na koszt operacji kwerendy. 
+   Złożoność zapytania wpływa na liczbę jednostek żądań (jednostek ru) używanych do operacji. Liczba predykatów, charakter predykatów, liczba UDF i rozmiar zestawu danych źródłowych. Wszystkie te czynniki wpływają na koszt operacji związanych z wykonywaniem zapytań. 
 
-   Opłata za żądanie zwrócona w nagłówku żądania wskazuje koszt danej kwerendy. Na przykład jeśli kwerenda zwraca 1000 elementów 1 KB, koszt operacji wynosi 1000. W związku z tym w ciągu jednej sekundy serwer honoruje tylko dwa takie żądania przed ograniczeniem szybkości kolejnych żądań. Aby uzyskać więcej informacji, zobacz artykuł [jednostek żądań](request-units.md) i kalkulator jednostki żądania. 
+   Opłata za żądanie zwrócona w nagłówku żądania wskazuje koszt danego zapytania. Na przykład, jeśli zapytanie zwraca elementy 1000 1-KB, koszt operacji wynosi 1000. W związku z tym w ciągu jednej sekundy serwer honoruje tylko dwa takie żądania przed szybkością ograniczania kolejnych żądań. Aby uzyskać więcej informacji, zobacz artykuł [jednostki żądań](request-units.md) i Kalkulator jednostek żądania. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnie możesz dowiedzieć się więcej o optymalizacji kosztów w usłudze Azure Cosmos DB, aby uzyskać następujące artykuły:
+Następnie możesz dowiedzieć się więcej o optymalizacji kosztów w Azure Cosmos DB z następującymi artykułami:
 
-* Dowiedz się więcej o [tym, jak działa cennik usługi Azure Cosmos](how-pricing-works.md)
-* Dowiedz się więcej o [optymalizacji pod kątem rozwoju i testowania](optimize-dev-test.md)
-* Dowiedz się więcej o [opisie rachunku za usługę Azure Cosmos DB](understand-your-bill.md)
-* Dowiedz się więcej o [optymalizacji kosztów przepływności](optimize-cost-throughput.md)
-* Dowiedz się więcej o [optymalizacji kosztów magazynowania](optimize-cost-storage.md)
-* Dowiedz się więcej o [optymalizacji kosztów odczytów i zapisów](optimize-cost-reads-writes.md)
-* Dowiedz się więcej o [optymalizowaniu kosztów wieloregionowych kont usługi Azure Cosmos](optimize-cost-regions.md)
-* Dowiedz się więcej o [pojemności zarezerwowanej usługi Azure Cosmos DB](cosmos-db-reserved-capacity.md)
+* Dowiedz się więcej o tym, [jak działa Cennik platformy Azure Cosmos](how-pricing-works.md)
+* Dowiedz się więcej [na temat optymalizacji na potrzeby programowania i testowania](optimize-dev-test.md)
+* Dowiedz się więcej o [zrozumieniu Azure Cosmos DB rachunku](understand-your-bill.md)
+* Dowiedz się więcej na temat [optymalizowania kosztu przepływności](optimize-cost-throughput.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów magazynu](optimize-cost-storage.md)
+* Dowiedz się więcej o [optymalizowaniu kosztów operacji odczytu i zapisu](optimize-cost-reads-writes.md)
+* Dowiedz się więcej [na temat optymalizowania kosztów kont usługi Azure Cosmos w wielu regionach](optimize-cost-regions.md)
+* Dowiedz się więcej o [zarezerwowanej pojemności Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 

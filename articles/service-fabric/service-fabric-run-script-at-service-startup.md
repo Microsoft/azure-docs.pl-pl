@@ -1,24 +1,24 @@
 ---
-title: Uruchamianie skryptu po uruchomieniu usługi Azure Service Fabric
-description: Dowiedz się, jak skonfigurować zasady dla punktu wejścia konfiguracji usługi sieci szkieletowej usług i uruchomić skrypt w czasie uruchamiania usługi.
+title: Uruchom skrypt po uruchomieniu usługi Service Fabric platformy Azure
+description: Dowiedz się, jak skonfigurować zasady dla punktu wejścia Instalatora usługi Service Fabric i uruchomić skrypt podczas uruchamiania usługi.
 author: athinanthny
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464273"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Uruchamianie skryptu uruchamiania usługi za pomocą użytkownika lokalnego lub konta systemowego
-Przed uruchomieniem pliku wykonywalnego usługi sieci szkieletowej usług może być konieczne uruchomienie pracy konfiguracyjnej lub konfiguracyjnej.  Na przykład konfigurowanie zmiennych środowiskowych. Można określić skrypt do uruchomienia przed uruchomieniem pliku wykonywalnego usługi w manifeście usługi dla usługi. Konfigurując zasady RunAs dla punktu wejścia konfiguracji usługi, można zmienić konto, na którym działa plik wykonywalny instalatora.  Oddzielny punkt wejścia instalacji umożliwia uruchamianie konfiguracji o wysokich uprawnieniach przez krótki okres czasu, dzięki czemu plik wykonywalny hosta usługi nie musi działać z wysokimi uprawnieniami przez dłuższy czas.
+Przed uruchomieniem pliku wykonywalnego usługi Service Fabric może być konieczne uruchomienie instalacji lub konfiguracji.  Na przykład Konfigurowanie zmiennych środowiskowych. Możesz określić skrypt do uruchomienia przed uruchomieniem pliku wykonywalnego usługi w manifeście usługi dla usługi. Konfigurując zasady RunAs dla punktu wejścia Instalatora usługi, można zmienić konto, w którym jest uruchamiany plik wykonywalny Instalatora.  Oddzielny punkt wejścia Instalatora umożliwia uruchamianie konfiguracji o wysokim poziomie uprawnień przez krótki czas, dzięki czemu plik wykonywalny hosta usługi nie musi działać z wysokim poziomem uprawnień przez dłuższy czas.
 
-Punkt wejścia instalatora **(SetupEntryPoint** w [manifeście usługi)](service-fabric-application-and-service-manifests.md)jest uprzywilejowanym punktem wejścia, który domyślnie jest uruchamiany z tymi samymi poświadczeniami co sieć szkieletowa usług (zazwyczaj konto *usługi sieciowej)* przed jakimkolwiek innym punktem wejścia. Plik wykonywalny określony przez **entrypoint** jest zazwyczaj długo działającym hostem usługi. Plik wykonywalny **EntryPoint** jest uruchamiany po pomyślnym zamknięciu pliku wykonywalnego **SetupEntryPoint.** Wynikowy proces jest monitorowany i uruchamiany ponownie i rozpoczyna się od **instalatora,** jeśli kiedykolwiek zakończy się lub ulegnie awarii. 
+Punkt wejścia Instalatora (**SetupEntryPoint** w [manifeście usługi](service-fabric-application-and-service-manifests.md)) to uprzywilejowany punkt wejścia, który domyślnie jest uruchamiany z tymi samymi poświadczeniami co Service Fabric (zazwyczaj konto *NetworkService* ) przed jakimkolwiek innym punktem wejścia. Plik wykonywalny określony przez **punkt wejścia** jest zwykle długotrwałym hostem usługi. Plik wykonywalny **punktu wejścia** jest uruchamiany po pomyślnym zamknięciu pliku wykonywalnego **SetupEntryPoint** . Proces wynikający z tego procesu jest monitorowany i uruchamiany ponownie z **SetupEntryPoint** , jeśli kiedykolwiek się zakończy lub ulegnie awarii. 
 
 ## <a name="configure-the-service-setup-entry-point"></a>Konfigurowanie punktu wejścia usługi instalatora
-Poniżej przedstawiono prosty przykład manifestu usługi dla usługi bezstanowej, który określa skrypt instalacyjny *MySetup.bat* w usłudze **SetupEntryPoint**.  **Argumenty** są używane do przekazywania argumentów do skryptu po jego uruchomieniu.
+Poniżej znajduje się prosty przykład manifestu usługi dla bezstanowej usługi, która określa skrypt instalacyjny Setup *. bat* w **SetupEntryPoint**usługi.  **Argumenty** są używane do przekazywania argumentów do skryptu podczas jego uruchamiania.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -57,11 +57,11 @@ Poniżej przedstawiono prosty przykład manifestu usługi dla usługi bezstanowe
   </Resources>
 </ServiceManifest>
 ```
-## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Konfigurowanie zasad dla punktu wejścia konfiguracji usługi
-Domyślnie plik wykonywalny punktu wejścia instalatora usługi jest uruchamiany w tych samych poświadczeniach co sieć szkieletowa usług (zazwyczaj konto *Usługi sieciowej).*  W manifeście aplikacji można zmienić uprawnienia zabezpieczeń do uruchamiania skryptu startowego na lokalnym koncie systemowym lub koncie administratora.
+## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Konfigurowanie zasad dla punktu wejścia Instalatora usługi
+Domyślnie plik wykonywalny punktu wejścia Instalatora usługi jest uruchamiany w ramach tych samych poświadczeń co Service Fabric (zazwyczaj konto *NetworkService* ).  W manifeście aplikacji można zmienić uprawnienia zabezpieczeń, aby uruchomić skrypt uruchamiania w ramach lokalnego konta systemowego lub konta administratora.
 
 ### <a name="configure-the-policy-by-using-a-local-system-account"></a>Konfigurowanie zasad przy użyciu lokalnego konta systemowego
-W poniższym przykładzie manifestu aplikacji pokazano, jak skonfigurować punkt wejścia konfiguracji usługi do uruchamiania w ramach konta administratora użytkownika (SetupAdminUser).
+Poniższy przykład manifestu aplikacji pokazuje, jak skonfigurować punkt wejścia Instalatora usługi do uruchomienia w ramach konta administratora użytkownika (SetupAdminUser).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -95,12 +95,12 @@ W poniższym przykładzie manifestu aplikacji pokazano, jak skonfigurować punkt
 </ApplicationManifest>
 ```
 
-Najpierw należy utworzyć sekcję **Zleceniodawców** o nazwie użytkownika, taką jak SetupAdminUser. Konto użytkownika SetupAdminUser jest członkiem grupy systemowej Administratorzy.
+Najpierw utwórz sekcję **podmiotów zabezpieczeń** z nazwą użytkownika, taką jak SetupAdminUser. Konto użytkownika SetupAdminUser jest członkiem grupy systemowej Administratorzy.
 
-Następnie w sekcji **ServiceManifestImport** skonfiguruj zasady, aby zastosować tego podmiotu do **SetupEntryPoint**. Ta zasada informuje sieci szkieletowej usług, że po uruchomieniu pliku **MySetup.bat** należy uruchomić jako SetupAdminUser (z uprawnieniami administratora). Ponieważ *zasady nie* zostały zastosowane do głównego punktu wejścia, kod w **myServiceHost.exe** jest uruchamiany w ramach konta **networkservice** systemu. Jest to domyślne konto, które wszystkie punkty wejścia usługi są uruchamiane jako.
+Następnie w sekcji **ServiceManifestImport** Skonfiguruj zasady służące do zastosowania tego podmiotu zabezpieczeń do **SetupEntryPoint**. Te zasady mówią, Service Fabric, że kiedy plik **Setup. bat** zostanie uruchomiony, powinien działać jako SetupAdminUser (z uprawnieniami administratora). Ponieważ zasady *nie* zostały zastosowane do głównego punktu wejścia, kod w **MyServiceHost. exe** jest uruchamiany w ramach konta **NetworkService** systemu. Jest to domyślne konto, na którym są uruchamiane wszystkie punkty wejścia usługi.
 
-### <a name="configure-the-policy-by-using-local-system-accounts"></a>Konfigurowanie zasad przy użyciu lokalnych kont systemowych
-Często zaleca się uruchamianie skryptu startowego przy użyciu lokalnego konta systemowego, a nie konta administratora. Uruchamianie zasad RunAs jako członka grupy Administratorzy zazwyczaj nie działa dobrze, ponieważ komputery mają domyślnie włączoną kontrolę dostępu użytkownika(UAC). W takich przypadkach zaleca się uruchomienie setupentrypoint jako localsystem, a nie jako użytkownik lokalny dodany do grupy Administratorzy. W poniższym przykładzie pokazano ustawienie, że program SetupEntryPoint ma być uruchamiany jako system lokalny:
+### <a name="configure-the-policy-by-using-local-system-accounts"></a>Konfigurowanie zasad przy użyciu kont systemu lokalnego
+Często zaleca się uruchomienie skryptu uruchamiania przy użyciu lokalnego konta systemowego, a nie konta administratora. Uruchamianie zasad RunAs jako członek grupy Administratorzy zwykle nie działa prawidłowo, ponieważ komputery mają domyślnie włączoną funkcję User Access Control (UAC). W takich przypadkach zaleca się uruchomienie SetupEntryPoint jako LocalSystem, a nie jako użytkownika lokalnego dodanego do grupy administratorów. W poniższym przykładzie przedstawiono ustawienie SetupEntryPoint do uruchamiania jako LocalSystem:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -131,18 +131,18 @@ Często zaleca się uruchamianie skryptu startowego przy użyciu lokalnego konta
 ```
 
 > [!NOTE]
-> W przypadku klastrów systemu Linux, aby uruchomić usługę lub punkt wejścia instalacji jako **główny,** można określić **Typ konta** jako **System lokalny**.
+> W przypadku klastrów systemu Linux w celu uruchomienia usługi lub punktu wejścia Instalatora jako **katalogu głównego**można określić wartość **AccountType** jako **System lokalny**.
 
-## <a name="run-a-script-from-the-setup-entry-point"></a>Uruchamianie skryptu z punktu wejścia instalatora
-Teraz dodaj skrypt rozruchowy do projektu, aby uruchomić je w ramach uprawnień administratora. 
+## <a name="run-a-script-from-the-setup-entry-point"></a>Uruchamianie skryptu z punktu wejścia Instalatora
+Teraz Dodaj skrypt uruchamiania do projektu, aby uruchomić go z uprawnieniami administratora. 
 
-W programie Visual Studio kliknij prawym przyciskiem myszy projekt usługi i dodaj nowy plik o nazwie *MySetup.bat*.
+W programie Visual Studio kliknij prawym przyciskiem myszy projekt usługi i Dodaj nowy plik o nazwie Moja *Setup. bat*.
 
-Następnie upewnij się, że plik *MySetup.bat* znajduje się w pakiecie usługi. Domyślnie tak nie jest. Wybierz plik, kliknij prawym przyciskiem myszy, aby uzyskać menu kontekstowe, a następnie wybierz polecenie **Właściwości**. W oknie dialogowym Właściwości upewnij się, że **funkcja Kopiowanie do katalogu wyjściowego** jest ustawiona na **Kopiowanie, jeśli jest nowsza**. Zobacz poniższy zrzut ekranu.
+Następnie upewnij się, że plik *websetup. bat* został uwzględniony w pakiecie usługi. Domyślnie nie jest to. Zaznacz plik, kliknij prawym przyciskiem myszy, aby uzyskać menu kontekstowe, a następnie wybierz polecenie **Właściwości**. W oknie dialogowym właściwości upewnij się, że w polu **Kopiuj do katalogu wyjściowego** jest ustawiona wartość **Kopiuj, jeśli nowszy**. Zobacz poniższy zrzut ekranu.
 
-![Plik wsadowy Programu Visual Studio CopyToOutput dla pliku wsadowego programu SetupEntryPoint][image1]
+![Plik wsadowy programu Visual Studio CopyToOutput for SetupEntryPoint][image1]
 
-Teraz edytuj plik *MySetup.bat* i dodaj następujące polecenia, ustaw zmienną środowiskową systemu i wyjmij plik tekstowy:
+Teraz Edytuj plik *. bat* i Dodaj następujące polecenia Ustaw zmienną środowiskową systemową i Wyprowadź plik tekstowy:
 
 ```
 REM Set a system environment variable. This requires administrator privilege
@@ -154,29 +154,29 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ```
 
-Następnie skompiluj i wdrażaj rozwiązanie w lokalnym klastrze deweloperów. Po uruchomieniu usługi, jak pokazano w [Eksploratorze sieci szkieletowej usług,](service-fabric-visualizing-your-cluster.md)widać, że plik MySetup.bat zakończył się pomyślnie na dwa sposoby. Otwórz wiersz polecenia programu PowerShell i wpisz:
+Następnie Skompiluj i Wdróż rozwiązanie w lokalnym klastrze projektowym. Po uruchomieniu usługi, jak pokazano w [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), można zobaczyć, że plik Setup. bat zakończył się pomyślnie na dwa sposoby. Otwórz wiersz polecenia programu PowerShell i wpisz:
 
 ```
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ```
 
-Następnie zanotuj nazwę węzła, w którym usługa została wdrożona i uruchomiona w [Eksploratorze sieci szkieletowej usług](service-fabric-visualizing-your-cluster.md). Na przykład węzeł 2. Następnie przejdź do folderu roboczego wystąpienia aplikacji, aby znaleźć plik out.txt, który pokazuje wartość **TestVariable**. Na przykład jeśli ta usługa została wdrożona w węźle 2, możesz przejść do tej ścieżki dla **MyApplicationType:**
+Następnie należy zwrócić uwagę na nazwę węzła, w którym usługa została wdrożona i uruchomiona w [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Na przykład węzeł 2. Następnie przejdź do folderu workowego wystąpienia aplikacji, aby znaleźć plik. txt, który pokazuje wartość **pliku TestVariable**. Na przykład jeśli ta usługa została wdrożona do węzła 2, można przejść do tej ścieżki dla elementu **Webapplicationtype**:
 
 ```
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ```
 
-## <a name="run-powershell-commands-from-a-setup-entry-point"></a>Uruchamianie poleceń programu PowerShell z punktu wejścia instalatora
-Aby uruchomić program PowerShell z punktu **SetupEntryPoint,** można uruchomić program **PowerShell.exe** w pliku wsadowym wskazującym plik programu PowerShell. Najpierw dodaj plik programu PowerShell do projektu usługi — na przykład **MySetup.ps1**. Pamiętaj, aby ustawić *copy if nowsze* właściwości, tak aby plik jest również zawarte w pakiecie usługi. W poniższym przykładzie przedstawiono przykładowy plik wsadowy uruchamiany plik programu PowerShell o nazwie MySetup.ps1, który ustawia zmienną środowiskową systemu o nazwie **TestVariable**.
+## <a name="run-powershell-commands-from-a-setup-entry-point"></a>Uruchamianie poleceń programu PowerShell z punktu wejścia Instalatora
+Aby uruchomić program PowerShell z punktu **SetupEntryPoint** , można uruchomić **PowerShell. exe** w pliku wsadowym, który wskazuje plik programu PowerShell. Najpierw Dodaj plik programu PowerShell do projektu usługi — na przykład **ps1**. Pamiętaj, aby ustawić właściwość *Copy If nowszej* , tak aby plik został również uwzględniony w pakiecie usługi. Poniższy przykład przedstawia przykładowy plik wsadowy, który uruchamia plik programu PowerShell o nazwie websetup. ps1, który ustawia zmienną środowiskową systemową o nazwie **pliku TestVariable**.
 
-MySetup.bat, aby uruchomić plik programu PowerShell:
+Plik. bat do uruchomienia pliku programu PowerShell:
 
 ```
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ```
 
-W pliku programu PowerShell dodaj następujące elementy, aby ustawić zmienną środowiskową systemu:
+W pliku programu PowerShell Dodaj następujące polecenie, aby ustawić zmienną środowiskową system:
 
 ```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
@@ -184,7 +184,7 @@ W pliku programu PowerShell dodaj następujące elementy, aby ustawić zmienną 
 ```
 
 > [!NOTE]
-> Domyślnie po uruchomieniu pliku wsadowego, patrzy na folder aplikacji o nazwie **pracy** dla plików. W takim przypadku, gdy działa MySetup.bat, chcemy to znaleźć plik MySetup.ps1 w tym samym folderze, który jest **folderem pakietu kodu** aplikacji. Aby zmienić ten folder, ustaw folder roboczy:
+> Domyślnie po uruchomieniu pliku wsadowego sprawdzany jest folder aplikacji o nazwie **Work** for Files. W takim przypadku, gdy uruchomimy polecenie my Setup. bat, chcemy znaleźć plik my Setup. ps1 w tym samym folderze, który jest folderem **pakietu kodu** aplikacji. Aby zmienić ten folder, ustaw folder roboczy:
 > 
 > 
 
@@ -197,15 +197,15 @@ W pliku programu PowerShell dodaj następujące elementy, aby ustawić zmienną 
 </SetupEntryPoint>
 ```
 
-## <a name="debug-a-startup-script-locally-using-console-redirection"></a>Debugowanie skryptu startowego lokalnie przy użyciu przekierowania konsoli
-Od czasu do czasu jest to przydatne do celów debugowania, aby zobaczyć dane wyjściowe konsoli z uruchamiania skryptu konfiguracji. Zasady przekierowania konsoli można ustawić w punkcie wejścia instalatora w manifeście usługi, który zapisuje dane wyjściowe w pliku. Dane wyjściowe pliku są zapisywane w folderze aplikacji **nazywanym logiem** w węźle klastra, w którym aplikacja jest wdrażana i uruchamiana. 
+## <a name="debug-a-startup-script-locally-using-console-redirection"></a>Lokalne debugowanie skryptu uruchomieniowego przy użyciu przekierowania konsoli
+Czasami jest to przydatne w celu debugowania, aby zobaczyć dane wyjściowe konsoli z uruchamiania skryptu instalacyjnego. Zasady przekierowywania konsoli można ustawić w punkcie wejścia Instalatora w manifeście usługi, który zapisuje dane wyjściowe do pliku. Plik wyjściowy jest zapisywana w folderze aplikacji o nazwie **log** w węźle klastra, w którym aplikacja została wdrożona i uruchomiona. 
 
 > [!WARNING]
-> Nigdy nie używaj zasad przekierowania konsoli w aplikacji, która jest wdrażana w produkcji, ponieważ może to mieć wpływ na proces pracy awaryjnej aplikacji. *Użyj* tego tylko do lokalnych celów rozwoju i debugowania.  
+> Nigdy nie należy używać zasad przekierowania konsoli w aplikacji wdrożonej w środowisku produkcyjnym, ponieważ może to mieć wpływ na tryb failover aplikacji. Służy on *tylko* do lokalnego projektowania i debugowania.  
 > 
 > 
 
-Poniższy przykład manifestu usługi pokazuje ustawienie przekierowania konsoli z wartością FileRetentionCount:
+Poniższy przykład manifestu usługi pokazuje ustawienie przekierowania konsoli o wartości FileRetentionCount:
 
 ```xml
 <SetupEntryPoint>
@@ -217,21 +217,21 @@ Poniższy przykład manifestu usługi pokazuje ustawienie przekierowania konsoli
 </SetupEntryPoint>
 ```
 
-Jeśli teraz zmienisz plik MySetup.ps1, aby napisać polecenie **Echo,** zostanie ono wpisane do pliku wyjściowego do celów debugowania:
+Jeśli teraz zmienisz plik websetup. ps1 w celu zapisania polecenia **echo** , spowoduje to zapis do pliku wyjściowego na potrzeby debugowania:
 
 ```
 Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ```
 
 > [!WARNING]
-> Po debugowaniu skryptu należy natychmiast usunąć tę zasadę przekierowania konsoli.
+> Po debugowaniu skryptu natychmiast usuń te zasady przekierowywania konsoli.
 
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się więcej o zabezpieczeniach aplikacji i usług](service-fabric-application-and-service-security.md)
-* [Opis modelu aplikacji](service-fabric-application-model.md)
+* [Informacje o zabezpieczeniach aplikacji i usług](service-fabric-application-and-service-security.md)
+* [Omówienie modelu aplikacji](service-fabric-application-model.md)
 * [Określanie zasobów w manifeście usługi](service-fabric-service-manifest-resources.md)
 * [Wdrażanie aplikacji](service-fabric-deploy-remove-applications.md)
 

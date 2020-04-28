@@ -1,7 +1,7 @@
 ---
-title: Przykładowe zasady zarządzania interfejsami API — generowanie podpisu dostępu współdzielonego
+title: Przykładowe zasady zarządzania interfejsem API — generowanie sygnatury dostępu współdzielonego
 titleSuffix: Azure API Management
-description: Przykład zasad zarządzania interfejsami API platformy Azure — pokazuje, jak wygenerować podpis dostępu współdzielonego przy użyciu wyrażeń i przesłać żądanie do magazynu platformy Azure za pomocą zasad ponownego zapisywania uri.Azure Management policy — pokazuje, jak wygenerować podpis dostępu współdzielonego przy użyciu wyrażeń i przesłać żądanie do magazynu platformy Azure z zasadami ponownego zapisu uri.
+description: Przykład zasad usługi Azure API Management — pokazuje, jak wygenerować sygnaturę dostępu współdzielonego przy użyciu wyrażeń i przesłać żądanie do usługi Azure Storage za pomocą zasad ponownego zapisywania identyfikatorów URI.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,25 +14,25 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f003bc268af6b7f8bd6b046ae84734dbefeac28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442458"
 ---
-# <a name="generate-shared-access-signature"></a>Generowanie podpisu dostępu współdzielonego
+# <a name="generate-shared-access-signature"></a>Generowanie sygnatury dostępu współdzielonego
 
-W tym artykule przedstawiono przykład zasad zarządzania interfejsami API platformy Azure, który pokazuje, jak wygenerować [podpis dostępu współdzielonego](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) przy użyciu wyrażeń i przesłać żądanie do magazynu platformy Azure z zasadami ponownego zapisywania uri. Aby ustawić lub edytować kod zasad, wykonaj czynności opisane w [załączniku Do konfigurowania lub edytowania zasad](../set-edit-policies.md). Aby zobaczyć inne przykłady, zobacz [przykłady zasad](../policy-samples.md).
+W tym artykule przedstawiono przykład zasad usługi Azure API Management, który pokazuje, jak wygenerować [sygnaturę dostępu współdzielonego](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) przy użyciu wyrażeń i przesłać żądanie do usługi Azure Storage przy użyciu zasad ponownego zapisywania identyfikatorów URI. Aby ustawić lub edytować kod zasad, wykonaj kroki opisane w sekcji [Ustawianie lub edytowanie zasad](../set-edit-policies.md). Aby zapoznać się z innymi przykładami, zobacz [przykłady zasad](../policy-samples.md).
 
 ## <a name="policy"></a>Zasady
 
-Wklej kod do bloku **przychodzącego.**
+Wklej kod do bloku **przychodzącego** .
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Generate Shared Access Signature and forward request to Azure storage.policy.xml)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o zasadach APIM:
+Dowiedz się więcej na temat zasad APIMymi:
 
 + [Zasady transformacji](../api-management-transformation-policies.md)
 + [Przykłady zasad](../policy-samples.md)

@@ -1,5 +1,5 @@
 ---
-title: Usługi Azure Notification Hubs Secure Push dla systemu Windows
+title: Azure Notification Hubs bezpieczne wypychanie dla systemu Windows
 description: Dowiedz się, jak wysyłać bezpieczne powiadomienia wypychane na platformie Azure. Przykłady kodu napisane w języku C# z użyciem interfejsu API programu .NET.
 documentationcenter: windows
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75530735"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Bezpieczne wypychanie powiadomień z usługi Azure Notification Hubs
@@ -32,37 +32,37 @@ ms.locfileid: "75530735"
 
 ## <a name="overview"></a>Omówienie
 
-Obsługa powiadomień wypychanych na platformie Microsoft Azure umożliwia dostęp do łatwej w użyciu, wieloplatformowej, skalowej w poziomie infrastruktury push, co znacznie upraszcza wdrażanie powiadomień wypychanych zarówno dla aplikacji konsumenckich, jak i korporacyjnych dla urządzeń przenośnych Platformy.
+Obsługa powiadomień wypychanych w programie Microsoft Azure pozwala uzyskać dostęp do łatwej w skalowaniu infrastruktury wypychanej z obsługą wielu platform, która znacznie upraszcza implementację powiadomień wypychanych zarówno dla aplikacji dla klientów, jak i dla przedsiębiorstw dla platform mobilnych.
 
-Ze względu na ograniczenia regulacyjne lub zabezpieczeń czasami aplikacja może chcieć dołączyć coś w powiadomieniu, które nie mogą być przesyłane za pośrednictwem standardowej infrastruktury powiadomień wypychanych. W tym samouczku opisano sposób osiągnięcia tego samego środowiska, wysyłając poufne informacje za pośrednictwem bezpiecznego, uwierzytelnionego połączenia między urządzeniem klienckim a zapleczem aplikacji.
+Ze względu na ograniczenia prawne lub zabezpieczenia czasami aplikacja może chcieć uwzględnić coś w powiadomieniu, którego nie można przesłać za pomocą standardowej infrastruktury powiadomień wypychanych. W tym samouczku opisano sposób osiągnięcia tego samego środowiska przez wysyłanie poufnych informacji za pomocą bezpiecznego, uwierzytelnionego połączenia między urządzeniem klienckim a zaplecze aplikacji.
 
 Na wysokim poziomie przepływ jest następujący:
 
-1. Back-end aplikacji:
-   * Przechowuje bezpieczne ładunku w bazie danych zaplecza.
-   * Wysyła identyfikator tego powiadomienia do urządzenia (nie są wysyłane żadne bezpieczne informacje).
-2. Aplikacja na urządzeniu, po otrzymaniu powiadomienia:
-   * Urządzenie styka się z zapleczem, żądając bezpiecznego ładunku.
-   * Aplikacja może wyświetlić ładunek jako powiadomienie na urządzeniu.
+1. Zaplecze aplikacji:
+   * Przechowuje bezpieczny ładunek w bazie danych zaplecza.
+   * Wysyła identyfikator tego powiadomienia do urządzenia (żadne zabezpieczone informacje nie są wysyłane).
+2. Aplikacja na urządzeniu podczas otrzymywania powiadomienia:
+   * Urządzenie kontaktuje się z wewnętrzną prośbą o bezpieczny ładunek.
+   * Aplikacja może wyświetlać ładunek jako powiadomienie na urządzeniu.
 
-Należy pamiętać, że w poprzednim przepływie (i w tym samouczku) zakładamy, że urządzenie przechowuje token uwierzytelniania w magazynie lokalnym, po zalogowaniu się użytkownika. Gwarantuje to całkowicie bezproblemowe środowisko, ponieważ urządzenie może pobrać bezpieczny ładunek powiadomienia przy użyciu tego tokenu. Jeśli aplikacja nie przechowuje tokenów uwierzytelniania na urządzeniu lub jeśli te tokeny mogą wygasnąć, aplikacja urządzenia po otrzymaniu powiadomienia powinna wyświetlić ogólne powiadomienie z monitem o uruchomienie aplikacji. Następnie aplikacja uwierzytelnia użytkownika i wyświetla ładunek powiadomień.
+Należy pamiętać, że w poprzednim przepływie (i w tym samouczku) przyjęto założenie, że urządzenie przechowuje token uwierzytelniania w magazynie lokalnym, po zalogowaniu się użytkownika. Gwarantuje to całkowite bezproblemowe działanie, ponieważ urządzenie może pobrać bezpieczny ładunek powiadomienia przy użyciu tego tokenu. Jeśli aplikacja nie przechowuje tokenów uwierzytelniania na urządzeniu lub jeśli te tokeny mogą wygasnąć, aplikacja urządzenia po odebraniu powiadomienia powinna wyświetlić ogólne powiadomienie z monitem użytkownika o uruchomienie aplikacji. Następnie aplikacja uwierzytelnia użytkownika i wyświetla ładunek powiadomienia.
 
-Ten samouczek Bezpiecznego wypychania pokazuje, jak bezpiecznie wysłać powiadomienie wypychanego. Samouczek opiera się na podziale [Powiadom użytkowników](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) samouczka, więc należy wykonać kroki w tym samouczku pierwszy.
+Ten samouczek bezpiecznego wypychania pokazuje, jak bezpiecznie wysyłać powiadomienia wypychane. Samouczek jest oparty na samouczku [Powiadamianie użytkowników](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) , dlatego należy najpierw wykonać kroki opisane w tym samouczku.
 
 > [!NOTE]
-> W tym samouczku przyjęto założenie, że centrum powiadomień zostało utworzone i skonfigurowane zgodnie z opisem w [artykule Wprowadzenie do centrów powiadomień (Sklep Windows)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-> Należy również pamiętać, że system Windows Phone 8.1 wymaga poświadczeń systemu Windows (nie windows phone) i że zadania w tle nie działają w systemie Windows Phone 8.0 lub Silverlight 8.1. W przypadku aplikacji ze Sklepu Windows powiadomienia można otrzymywać za pomocą zadania w tle tylko wtedy, gdy aplikacja jest włączona na ekranie blokady (kliknij to pole wyboru w Appmanifest).
+> W tym samouczku przyjęto założenie, że utworzono i skonfigurowano centrum powiadomień zgodnie z opisem w [wprowadzenie z Notification Hubs (Sklep Windows)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+> Należy również pamiętać, że Windows Phone 8,1 wymaga poświadczeń systemu Windows (nie Windows Phone), a zadania w tle nie działają na Windows Phone 8,0 lub Silverlight 8,1. W przypadku aplikacji ze sklepu Windows można otrzymywać powiadomienia za pośrednictwem zadania w tle tylko wtedy, gdy aplikacja jest włączona na ekranie blokady (kliknij pole wyboru w Appmanifest).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
-## <a name="modify-the-windows-phone-project"></a>Modyfikowanie projektu systemu Windows Phone
+## <a name="modify-the-windows-phone-project"></a>Modyfikuj projekt Windows Phone
 
-1. W projekcie **NotifyUserWindowsPhone** dodaj następujący kod, aby App.xaml.cs, aby zarejestrować zadanie w tle wypychania. Dodaj poniższy wiersz kodu na końcu metody `OnLaunched()`:
+1. W projekcie **NotifyUserWindowsPhone** Dodaj następujący kod do App.XAML.cs, aby zarejestrować zadanie wypychania w tle. Dodaj poniższy wiersz kodu na końcu metody `OnLaunched()`:
 
     ```csharp
     RegisterBackgroundTask();
     ```
-2. Nadal w App.xaml.cs, dodać następujący kod natychmiast `OnLaunched()` po metodzie:
+2. Nadal w App.xaml.cs, Dodaj następujący kod bezpośrednio po `OnLaunched()` metodzie:
 
     ```csharp
     private async void RegisterBackgroundTask()
@@ -79,7 +79,7 @@ Ten samouczek Bezpiecznego wypychania pokazuje, jak bezpiecznie wysłać powiado
         }
     }
     ```
-3. Dodaj następujące `using` instrukcje u góry pliku App.xaml.cs:
+3. Dodaj następujące `using` instrukcje w górnej części pliku App.XAML.cs:
 
     ```csharp
     using Windows.Networking.PushNotifications;
@@ -87,16 +87,16 @@ Ten samouczek Bezpiecznego wypychania pokazuje, jak bezpiecznie wysłać powiado
     ```
 4. W menu **Plik** programu Visual Studio kliknij polecenie **Zapisz wszystko**.
 
-## <a name="create-the-push-background-component"></a>Tworzenie komponentu Wypychanie tła
+## <a name="create-the-push-background-component"></a>Tworzenie składnika tła wypychania
 
-Następnym krokiem jest utworzenie komponentu tło wypychania.
+Następnym krokiem jest utworzenie składnika w tle.
 
-1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy węzeł najwyższego poziomu rozwiązania **(Rozwiązanie SecurePush** w tym przypadku), a następnie kliknij polecenie **Dodaj**, a następnie kliknij polecenie **Nowy projekt**.
-2. Rozwiń pozycję **Aplikacje ze Sklepu**, a następnie kliknij pozycję **Aplikacje systemu Windows Phone**, a następnie kliknij pozycję Składnik środowiska wykonawczego systemu Windows **(Windows Phone)**. Nazwij projekt **PushBackgroundComponent**, a następnie kliknij przycisk **OK,** aby utworzyć projekt.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy węzeł najwyższego poziomu rozwiązania (w tym przypadku**rozwiązanie SecurePush** ), a następnie kliknij pozycję **Dodaj**, a następnie kliknij pozycję **Nowy projekt**.
+2. Rozwiń węzeł **aplikacje ze sklepu**, a następnie kliknij pozycję **Windows Phone aplikacje**, a następnie kliknij pozycję **składnik środowisko wykonawcze systemu Windows (Windows Phone)**. Nazwij projekt **PushBackgroundComponent**, a następnie kliknij przycisk **OK** , aby utworzyć projekt.
 
     ![][12]
-3. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **PushBackgroundComponent (Windows Phone 8.1),** a następnie kliknij polecenie **Dodaj**, a następnie kliknij polecenie **Klasa**. Nazwij `PushBackgroundTask.cs`nową klasę . Kliknij **przycisk Dodaj,** aby wygenerować klasę.
-4. Zastąp całą `PushBackgroundComponent` zawartość definicji obszaru nazw następującym kodem, zastępując symbol zastępczy `{back-end endpoint}` punktem końcowym zaplecza uzyskanym podczas wdrażania zaplecza:
+3. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **PushBackgroundComponent (Windows Phone 8,1)** , a następnie kliknij pozycję **Dodaj**, a następnie kliknij pozycję **Klasa**. Nadaj nazwę nowej klasie `PushBackgroundTask.cs`. Kliknij przycisk **Dodaj** , aby wygenerować klasę.
+4. Zastąp całą zawartość definicji `PushBackgroundComponent` przestrzeni nazw następującym kodem, zastępując symbol zastępczy `{back-end endpoint}` punktem końcowym uzyskanym podczas wdrażania zaplecza:
 
     ```csharp
     public sealed class Notification
@@ -142,12 +142,12 @@ Następnym krokiem jest utworzenie komponentu tło wypychania.
             }
         }
     ```
-5. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **PushBackgroundComponent (Windows Phone 8.1),** a następnie kliknij polecenie **Zarządzaj pakietami NuGet**.
+5. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **PushBackgroundComponent (Windows Phone 8,1)** , a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
 6. Po lewej stronie kliknij opcję **Online**.
 7. W polu **Wyszukaj** wpisz ciąg **Klient HTTP**.
-8. Na liście wyników kliknij pozycję **Biblioteki klientów HTTP firmy Microsoft,** a następnie kliknij pozycję **Zainstaluj**. Ukończ instalację.
-9. W polu **Wyszukaj** w menedżerze pakietów NuGet wpisz ciąg **Json.net**. Zainstaluj pakiet **Json.NET,** a następnie zamknij okno Menedżera pakietów NuGet.
-10. W górnej `using` części pliku dodaj `PushBackgroundTask.cs` następujące instrukcje:
+8. Na liście wyników kliknij pozycję **biblioteki klienta http firmy Microsoft**, a następnie kliknij przycisk **Instaluj**. Ukończ instalację.
+9. W polu **Wyszukaj** w menedżerze pakietów NuGet wpisz ciąg **Json.net**. Zainstaluj pakiet **JSON.NET** , a następnie zamknij okno Menedżera pakietów NuGet.
+10. Dodaj następujące `using` instrukcje w górnej części `PushBackgroundTask.cs` pliku:
 
     ```csharp
     using Windows.ApplicationModel.Background;
@@ -159,25 +159,25 @@ Następnym krokiem jest utworzenie komponentu tło wypychania.
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
-11. W Eksploratorze rozwiązań w projekcie **NotifyUserWindowsPhone (Windows Phone 8.1)** kliknij prawym przyciskiem myszy **pozycję Odwołania**, a następnie kliknij polecenie **Dodaj odwołanie...**. W oknie dialogowym Menedżer odwołań zaznacz pole obok pozycji **PushBackgroundComponent**, a następnie kliknij przycisk **OK**.
-12. W Eksploratorze rozwiązań kliknij dwukrotnie **pozycję Package.appxmanifest** w projekcie **NotifyUserWindowsPhone (Windows Phone 8.1).** W obszarze Powiadomienia ustaw **wyskakujące wyskakujące** na **Tak**. **Notifications**
+11. W Eksplorator rozwiązań w projekcie **NotifyUserWindowsPhone (Windows Phone 8,1)** kliknij prawym przyciskiem myszy pozycję **odwołania**, a następnie kliknij pozycję **Dodaj odwołanie...**. W oknie dialogowym Menedżer odwołań zaznacz pole wyboru obok pozycji **PushBackgroundComponent**, a następnie kliknij przycisk **OK**.
+12. W Eksplorator rozwiązań kliknij dwukrotnie pozycję **Package. appxmanifest** w projekcie **NotifyUserWindowsPhone (Windows Phone 8,1)** . W obszarze **powiadomienia**ustaw opcję **wyskakujący z możliwością** **tak**.
 
     ![][3]
-13. Nadal w **Package.appxmanifest**, kliknij menu **Deklaracje** u góry. W menu **rozwijanym Dostępne deklaracje** kliknij pozycję **Zadania w tle**, a następnie kliknij pozycję **Dodaj**.
-14. W **Package.appxmanifest**, w obszarze **Właściwości**, zaznacz **powiadomienie push**.
-15. W **obszarze Package.appxmanifest**w obszarze **Ustawienia aplikacji**wpisz **PushBackgroundComponent.PushBackgroundTask** w polu **Punkt wejścia.**
+13. Nadal w **pakiecie Package. appxmanifest**kliknij menu **deklaracji** w górnej części strony. Na liście **dostępnych deklaracji** kliknij pozycję **zadania w tle**, a następnie kliknij przycisk **Dodaj**.
+14. W **Package. appxmanifest**, w obszarze **Właściwości**, zaznacz opcję **powiadomień wypychanych**.
+15. W **pakiecie Package. appxmanifest**w obszarze **Ustawienia aplikacji**wpisz **PushBackgroundComponent. PushBackgroundTask** w polu **punkt wejścia** .
 
     ![][13]
 16. W menu **Plik** kliknij polecenie **Zapisz wszystko**.
 
-## <a name="run-the-application"></a>Uruchamianie aplikacji
+## <a name="run-the-application"></a>Uruchom aplikację
 
 Aby uruchomić aplikację, wykonaj następujące czynności:
 
-1. W programie Visual Studio uruchom aplikację interfejsu API sieci Web **aplikacji AppBackend.** Zostanie wyświetlona ASP.NET strona internetowa.
-2. W programie Visual Studio uruchom aplikację **NotifyUserWindowsPhone (Windows Phone 8.1)** Windows Phone. Emulator systemu Windows Phone uruchamia i ładuje aplikację automatycznie.
-3. W interfejsie użytkownika aplikacji **NotifyUserWindowsPhone** wprowadź nazwę użytkownika i hasło. Mogą to być dowolny ciąg, ale muszą być tej samej wartości.
-4. W interfejsie użytkownika aplikacji **NotifyUserWindowsPhone** kliknij pozycję **Zaloguj się i zarejestruj**. Następnie kliknij przycisk **Wyślij wypychanie**.
+1. W programie Visual Studio Uruchom aplikację internetowego interfejsu API **AppBackend** . Zostanie wyświetlona strona sieci Web ASP.NET.
+2. W programie Visual Studio Uruchom aplikację Windows Phone **NotifyUserWindowsPhone (Windows Phone 8,1)** . Emulator Windows Phone uruchamia i ładuje aplikację automatycznie.
+3. W interfejsie użytkownika aplikacji **NotifyUserWindowsPhone** wprowadź nazwę użytkownika i hasło. Mogą to być dowolne ciągi, ale muszą mieć tę samą wartość.
+4. W interfejsie użytkownika aplikacji **NotifyUserWindowsPhone** kliknij pozycję **Zaloguj się i zarejestruj**. Następnie kliknij pozycję **Wyślij wypychanie**.
 
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
