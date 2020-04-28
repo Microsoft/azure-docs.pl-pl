@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 21bcaf8636638153ad5e5659ef3e1bff0631d9b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430957"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866252"
 ---
 # <a name="certificate-creation-methods"></a>Metody tworzenia certyfikatów
 
@@ -80,10 +80,10 @@ Adresowalny klucz i klucz tajny otrzymują swoje atrybuty z atrybutów certyfika
 ## <a name="partnered-ca-providers"></a>Dostawcy współpracujących urzędów certyfikacji
 Tworzenie certyfikatów można wykonać ręcznie lub za pomocą wystawcy "Self". Key Vault współpracuje również z niektórymi dostawcami wystawców, aby uprościć tworzenie certyfikatów. Następujące typy certyfikatów można zamówić dla magazynu kluczy z tymi dostawcami wystawców partnerów.  
 
-|Dostawca|Typ certyfikatu|  
-|--------------|----------------------|  
-|DigiCert|Key Vault oferuje certyfikaty OV lub EV SSL z DigiCert|
-|GlobalSign|Key Vault oferuje certyfikaty OV lub EV SSL z GlobalSign|
+|Dostawca|Typ certyfikatu|Konfiguracja konfiguracji  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault oferuje certyfikaty OV lub EV SSL z DigiCert| [Przewodnik integracji](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|GlobalSign|Key Vault oferuje certyfikaty OV lub EV SSL z GlobalSign| [Przewodnik integracji](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  Wystawca certyfikatu jest jednostką reprezentowaną w usłudze Azure Key Vault (KV) jako zasób CertificateIssuer. Służy do dostarczania informacji o źródle certyfikatu KV; nazwa wystawcy, dostawca, poświadczenia i inne szczegóły administracyjne.
 

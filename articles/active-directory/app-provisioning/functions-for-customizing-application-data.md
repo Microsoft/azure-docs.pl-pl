@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc41a18063202bfefb9ddf7238de17fc691984af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 28e591234e28770a90bed827e4d36c6342661dd1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77612143"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866603"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Pisanie wyrażeń na potrzeby mapowania atrybutów w usłudze Azure Active Directory
 Podczas konfigurowania inicjowania obsługi administracyjnej do aplikacji SaaS, jednym z typów mapowań atrybutów, które można określić jest mapowanie wyrażeń. W tym celu należy napisać wyrażenie podobne do skryptu, które umożliwia przekształcenie danych użytkowników w formaty, które są bardziej akceptowalne dla aplikacji SaaS.
@@ -38,7 +38,7 @@ Składnia wyrażeń dla mapowań atrybutów przypomina funkcje języka Visual Ba
 * W przypadku stałych ciągów, jeśli potrzebujesz ukośnika odwrotnego ( \ ) lub cudzysłowu ( " ) w ciągu, musi on zostać zmieniony z symbolem ukośnika odwrotnego ( \ ). Na przykład: "Nazwa \\firmy:\\"Contoso ""
 
 ## <a name="list-of-functions"></a>Lista funkcji
-&nbsp; [Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [Count](#count) [BitAnd](#bitand) &nbsp; &nbsp; &nbsp; [CStr](#cstr) [CBool](#cbool) &nbsp; &nbsp; &nbsp; [Coalesce](#coalesce) &nbsp; &nbsp; [ConvertToBase64](#converttobase64) &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; Dołącz BitAnd &nbsp; &nbsp; CBool &nbsp; &nbsp; Coalesce &nbsp; ConvertToBase64 ConvertToUTF8Hex Count CStr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Guid](#guid) &nbsp; &nbsp; &nbsp; [IIF](#iif) &nbsp; &nbsp; [InStr](#instr) &nbsp; [DateFromNum](#datefromnum) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [IsNull](#isnull) [IsNullOrEmpty](#isnullorempty) DateFromNum &nbsp;FormatDateTime &nbsp; Guid &nbsp; &nbsp; IIF &nbsp; InStr &nbsp; IsNull IsNullOrEmpty &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [IsPresent](#ispresent) &nbsp; &nbsp; &nbsp; &nbsp; [IsString](#isstring) &nbsp; &nbsp; &nbsp; [Join](#join) [Item](#item) &nbsp; [Mid](#mid) [Left](#left) [Not](#not) [NormalizeDiacritics](#normalizediacritics) IsString &nbsp; Element &nbsp; Join &nbsp; Left &nbsp; Mid &nbsp; NormalizeDiacritics Nie &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; [Split](#split) &nbsp; &nbsp; &nbsp; &nbsp; [Replace](#replace) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [RemoveDuplicates](#removeduplicates) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) UsuńZduplika zamień SelectUniqueValue [SingleAppRoleAssignment Split](#singleapproleassignment) &nbsp; &nbsp; &nbsp; [ StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Word](#word) [Switch](#switch) &nbsp; &nbsp; [ToLower](#tolower) &nbsp; [ToUpper](#toupper) Switch&nbsp; &nbsp; &nbsp; ToLower&nbsp; ToUpper&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+[Append](#append) &nbsp; &nbsp; [Left](#left) &nbsp; [Count](#count) &nbsp; &nbsp; [Join](#join) &nbsp; [Replace](#replace) [Item](#item) &nbsp; [Mid](#mid) &nbsp; [Not](#not) [BitAnd](#bitand) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [IIF](#iif) &nbsp; &nbsp; [CStr](#cstr) &nbsp; &nbsp; [InStr](#instr) &nbsp; &nbsp; [Guid](#guid) &nbsp; &nbsp; [Coalesce](#coalesce) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [CBool](#cbool) &nbsp; &nbsp; &nbsp; [IsPresent](#ispresent) &nbsp; [IsString](#isstring) &nbsp; [DateFromNum](#datefromnum) &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; [ConvertToBase64](#converttobase64) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [IsNull](#isnull) &nbsp; [RemoveDuplicates](#removeduplicates) [SelectUniqueValue](#selectuniquevalue) [IsNullOrEmpty](#isnullorempty) &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) Dołącz BitAnd &nbsp; &nbsp; &nbsp; &nbsp; CBool &nbsp; &nbsp; &nbsp; &nbsp; Coalesce &nbsp; &nbsp; &nbsp; &nbsp; ConvertToBase64 &nbsp; &nbsp; ConvertToUTF8Hex &nbsp; Count &nbsp; CStr &nbsp; &nbsp; &nbsp; DateFromNum &nbsp; FormatDateTime &nbsp; &nbsp; &nbsp; Guid IIF InStr &nbsp; IsNull IsNullIsty &nbsp; IsPresent IsString Item &nbsp; Join Left Mid NormalizeDiacritics Not RemoveDuplicates Replace SelectUniqueValue &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; [Word](#word) [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; Split&nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper) [Switch](#switch) [ToLower](#tolower) StripSpaces Przełącz&nbsp; się doNiejsa doupper word&nbsp; &nbsp;
 
 ---
 ### <a name="append"></a>Append
@@ -174,7 +174,7 @@ Zwraca wartość "cn=Joe,dc=contoso,dc=com"
 
 | Nazwa | Wymagane/ powtarzanie | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **value** |Wymagany | Data | Data usługi AD do przekonwertowania na typ DateTime |
+| **value** |Wymagany | Date | Data usługi AD do przekonwertowania na typ DateTime |
 
 **Przykład:**<br>
 DateFromNum([lastLogonTimestamp])                                                                                                   
@@ -469,11 +469,11 @@ Zastępuje wartości w ciągu. Działa inaczej w zależności od podanych parame
 
 **Opis:**<br> Wymaga co najmniej dwóch argumentów, które są regułami generowania unikatowych wartości zdefiniowanych przy użyciu wyrażeń. Funkcja ocenia każdą regułę, a następnie sprawdza wartość wygenerowaną pod kątem unikatowości w docelowej aplikacji/katalogu. Pierwszą znalezioną unikatową wartością będzie ta zwrócona. Jeśli wszystkie wartości już istnieją w docelowych, wpis zostanie zdeesowany i powód zostanie zarejestrowany w dziennikach inspekcji. Nie ma górnej granicy liczby argumentów, które mogą być dostarczone.
 
-> [!NOTE]
-> - Jest to funkcja najwyższego poziomu, nie może być zagnieżdżona.
-> - Tej funkcji nie można zastosować do atrybutów, które mają pasujące pierwszeństwo.  
-> - Ta funkcja jest przeznaczona tylko do tworzenia wpisu. Podczas używania go z atrybutem ustaw właściwość **Zastosuj mapowanie** **na Tylko podczas tworzenia obiektu**.
-> - Ta funkcja jest obecnie obsługiwana tylko dla "Workday to Active Directory User Provisioning". Nie można używać z innymi aplikacjami inicjowania obsługi administracyjnej. 
+
+ - Jest to funkcja najwyższego poziomu, nie może być zagnieżdżona.
+ - Tej funkcji nie można zastosować do atrybutów, które mają pasujące pierwszeństwo.   
+ - Ta funkcja jest przeznaczona tylko do tworzenia wpisu. Podczas używania go z atrybutem ustaw właściwość **Zastosuj mapowanie** **na Tylko podczas tworzenia obiektu**.
+ - Ta funkcja jest obecnie obsługiwana tylko dla "Workday to Active Directory User Provisioning". Nie można używać z innymi aplikacjami inicjowania obsługi administracyjnej. 
 
 
 **Parametry:**<br> 

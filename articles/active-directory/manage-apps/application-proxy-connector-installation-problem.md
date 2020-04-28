@@ -1,6 +1,6 @@
 ---
-title: Problem z instalacją łącznika agenta proxy aplikacji | Dokumenty firmy Microsoft
-description: Jak rozwiązywać problemy, które mogą wystąpić podczas instalowania łącznika agenta agenta proxy aplikacji
+title: Problem z instalowaniem łącznika agenta serwera proxy aplikacji | Microsoft Docs
+description: Jak rozwiązywać problemy, które można napotkać podczas instalowania łącznika agenta serwera proxy aplikacji
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,58 +16,58 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d773e6302edf0b799e6dfccc702750a9cc74f60
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1f73d46b612c1dcf94554e10b4820c3f2442248f
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406699"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82172410"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem z instalacją łącznika agenta serwera proxy aplikacji
 
-Łącznik serwera proxy aplikacji AAD firmy Microsoft to wewnętrzny składnik domeny, który używa połączeń wychodzących do ustanawiania łączności z dostępnego punktu końcowego w chmurze z domeną wewnętrzną.
+Łącznik serwera proxy aplikacji usługi Microsoft AAD to wewnętrzny składnik domeny, który używa połączeń wychodzących do nawiązywania łączności z punktu końcowego dostępnego w chmurze do domeny wewnętrznej.
 
-## <a name="general-problem-areas-with-connector-installation"></a>Ogólne obszary problemowe z instalacją łącznika
+## <a name="general-problem-areas-with-connector-installation"></a>Ogólne obszary problemów z instalacją łącznika
 
-Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zwykle jeden z następujących obszarów:
+Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zazwyczaj jeden z następujących obszarów:
 
-1.  **Łączność** — aby zakończyć pomyślną instalację, nowy łącznik musi zarejestrować i ustanowić przyszłe właściwości zaufania. Odbywa się to przez połączenie z usługą serwera proxy aplikacji AAD w chmurze.
+1.  **Łączność** — aby ukończyć pomyślną instalację, nowy łącznik musi zarejestrować i ustanowić przyszłe właściwości zaufania. W tym celu należy nawiązać połączenie z usługą serwera proxy aplikacji usługi AAD.
 
-2.  **Trust Establishment** — nowy łącznik tworzy certyfikat z podpisem własnym i rejestruje się w usłudze w chmurze.
+2.  **Ustanowienie zaufania** — nowy łącznik tworzy certyfikat z podpisem własnym i rejestruje usługę w chmurze.
 
-3.  **Uwierzytelnianie administratora** — podczas instalacji użytkownik musi podać poświadczenia administratora, aby ukończyć instalację łącznika.
+3.  **Uwierzytelnianie administratora** — w trakcie instalacji użytkownik musi podać poświadczenia administratora, aby zakończyć instalację łącznika.
 
 > [!NOTE]
-> Dzienniki instalacji łącznika można znaleźć w folderze %TEMP% i mogą pomóc w dostarczeniu dodatkowych informacji na temat przyczyn awarii instalacji.
+> Dzienniki instalacji łącznika znajdują się w folderze% TEMP% i mogą pomóc w określeniu dodatkowych informacji na temat tego, co powoduje błąd instalacji.
 
-## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Weryfikowanie łączności z usługą serwera proxy aplikacji w chmurze i stroną Microsoft Login
+## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Weryfikowanie łączności z usługą serwera proxy aplikacji w chmurze i stroną logowania firmy Microsoft
 
-**Cel:** Sprawdź, czy komputer łącznika może łączyć się z punktem końcowym rejestracji serwera proxy aplikacji AAD, a także ze stroną logowania firmy Microsoft.
+**Cel:** Sprawdź, czy komputer łącznika może nawiązać połączenie z punktem końcowym rejestracji serwera proxy aplikacji usługi AAD, a także stroną logowania firmy Microsoft.
 
-1.  Na serwerze łączników uruchom test portu za pomocą [usługi telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) lub innego narzędzia do testowania portów w celu sprawdzenia, czy porty 443 i 80 są otwarte.
+1.  Na serwerze łącznika Uruchom test portu przy użyciu programu [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) lub innego narzędzia do testowania portów, aby sprawdzić, czy porty 443 i 80 są otwarte.
 
-2.  Jeśli którykolwiek z tych portów nie powiedzie się, sprawdź, czy serwer proxy zapory lub wewnętrznej bazy danych ma dostęp do wymaganych domen i portów zobacz, [Przygotuj środowisko lokalne](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
+2.  Jeśli którykolwiek z tych portów nie powiedzie się, sprawdź, czy zapora lub serwer proxy zaplecza ma dostęp do wymaganych domen i portów, zobacz [Przygotowywanie środowiska lokalnego](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-3.  Otwórz przeglądarkę (oddzielną kartę) i przejdź `https://login.microsoftonline.com`do następującej strony internetowej: , upewnij się, że możesz zalogować się do tej strony.
+3.  Otwórz przeglądarkę (osobna karta) i przejdź do następującej strony sieci Web: `https://login.microsoftonline.com`upewnij się, że możesz zalogować się na tej stronie.
 
-## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-certificate"></a>Weryfikowanie obsługi składników komputera i zaplecza dla certyfikatu zaufania serwera proxy aplikacji
+## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-certificate"></a>Sprawdź, czy maszyny i składniki zaplecza obsługują certyfikat zaufania serwera proxy aplikacji
 
-**Cel:** Sprawdź, czy komputer łącznika, serwer proxy wewnętrznej bazy danych i zapora mogą obsługiwać certyfikat utworzony przez łącznik dla przyszłego zaufania i czy certyfikat jest prawidłowy.
+**Cel:** Sprawdź, czy maszyna łącznika, serwer proxy zaplecza i Zapora mogą obsługiwać certyfikat utworzony przez łącznik na potrzeby przyszłego zaufania i czy certyfikat jest prawidłowy.
 
 >[!NOTE]
->Łącznik próbuje utworzyć certyfikat SHA512, który jest obsługiwany przez TLS1.2. Jeśli komputer lub zapora wewnętrznej bazy danych i serwer proxy nie obsługuje protokołu TLS1.2, instalacja nie powiedzie się.
+>Łącznik próbuje utworzyć certyfikat SHA512, który jest obsługiwany przez protokół TLS 1.2. Jeśli maszyna lub Zapora zaplecza i serwer proxy nie obsługują protokołu TLS 1.2, instalacja nie powiedzie się.
 >
 >
 
-**Zapoznaj się z wymaganymi wymaganiami wstępnymi:**
+**Przejrzyj wymagane wymagania wstępne:**
 
-1.  Sprawdź, czy urządzenie obsługuje protokół TLS1.2 — wszystkie wersje systemu Windows po 2012 R2 powinny obsługiwać protokół TLS 1.2. Jeśli urządzenie złącza pochodzi z wersji 2012 R2 lub wcześniejszej, upewnij się, że na urządzeniu są zainstalowane następujące kb:<https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Sprawdź, czy maszyna obsługuje protokół TLS 1.2 — wszystkie wersje systemu Windows po 2012 R2 powinny obsługiwać protokół TLS 1,2. Jeśli komputer łącznika pochodzi z wersji 2012 R2 lub starszej, upewnij się, że na maszynie jest zainstalowany następujący artykułów bazy wiedzy:<https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
-2.  Skontaktuj się z administratorem sieci i poproś o sprawdzenie, czy serwer proxy i zapora wewnętrznej bazy danych nie blokują sha512 dla ruchu wychodzącego.
+2.  Skontaktuj się z administratorem sieci i poproś o zweryfikowanie, czy serwer proxy zaplecza i Zapora nie blokują SHA512 dla ruchu wychodzącego.
 
 **Aby zweryfikować certyfikat klienta:**
 
-Sprawdź odcisk palca bieżącego certyfikatu klienta. Magazyn certyfikatów można znaleźć w pliku %ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
+Sprawdź odcisk palca bieżącego certyfikatu klienta. Magazyn certyfikatów można znaleźć w%ProgramData%\microsoft\Microsoft serwerze proxy aplikacji usługi AAD Connector\Config\TrustSettings.xml
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -79,50 +79,50 @@ Sprawdź odcisk palca bieżącego certyfikatu klienta. Magazyn certyfikatów mo�
 </ConnectorTrustSettingsFile>
 ```
 
-Oto możliwe wartości i znaczenia **IsInUserStore:**
+Oto możliwe wartości **IsInUserStore** i znaczenia:
 
-- **false** — certyfikat klienta został utworzony podczas instalacji lub rejestracji zainicjowanej przez polecenie Register-AppProxyConnector. Jest on przechowywany w osobistym pojemniku w magazynie certyfikatów komputera lokalnego. 
+- **Fałsz** — certyfikat klienta został utworzony podczas instalacji lub rejestracji zainicjowanej przez polecenie Register-AppProxyConnector. Jest on przechowywany w kontenerze osobistym w magazynie certyfikatów komputera lokalnego. 
 
-Wykonaj czynności, aby zweryfikować certyfikat:
+Postępuj zgodnie z instrukcjami, aby zweryfikować certyfikat:
 
-1. Uruchom **plik certlm.msc**
-2. W konsoli zarządzania rozwiń kontener osobisty i kliknij certyfikaty
-3. Znajdź certyfikat wystawiony przez **connectorregistrationca.msappproxy.net**
+1. Uruchom **certlm. msc**
+2. W konsoli zarządzania rozwiń kontener osobisty i kliknij pozycję Certyfikaty.
+3. Lokalizowanie certyfikatu wystawionego przez **connectorregistrationca.msappproxy.NET**
 
 - **true** — automatycznie odnowiony certyfikat jest przechowywany w kontenerze osobistym w magazynie certyfikatów użytkownika usługi sieciowej. 
 
-Wykonaj czynności, aby zweryfikować certyfikat:
+Postępuj zgodnie z instrukcjami, aby zweryfikować certyfikat:
 
-1. Pobierz [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Wyodrębnij [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) z pakietu i uruchom **psexec -i -u "nt authority\network service" cmd.exe** z wiersza polecenia z podwyższonym poziomem uprawnień.
-3. Uruchom **plik certmgr.msc** w nowo wyświetlonym wierszu polecenia
-2. W konsoli zarządzania rozwiń kontener osobisty i kliknij certyfikaty
-3. Znajdź certyfikat wystawiony przez **connectorregistrationca.msappproxy.ne
+1. Pobierz [program PsTools. zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
+2. Wyodrębnij [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) z pakietu i uruchom **PsExec-i-u "NT AUTHORITY\NETWORK Service" cmd. exe** z wiersza polecenia z podwyższonym poziomem uprawnień.
+3. Uruchom **certmgr. msc** w nowo wyświetlonym wierszu polecenia
+2. W konsoli zarządzania rozwiń kontener osobisty i kliknij pozycję Certyfikaty.
+3. Lokalizowanie certyfikatu wystawionego przez **connectorregistrationca.msappproxy.NET**
 
 **Aby odnowić certyfikat klienta:**
 
-Jeśli łącznik nie jest podłączony do usługi przez kilka miesięcy, jego certyfikaty mogą być nieaktualne. Niepowodzenie odnowienia certyfikatu prowadzi do wygasłego certyfikatu. Dzięki temu usługa łącznika przestaje działać. Zdarzenie 1000 jest rejestrowane w dzienniku administratora łącznika:
+Jeśli łącznik nie jest połączony z usługą przez kilka miesięcy, jego certyfikaty mogą być nieaktualne. Niepowodzenie odnowienia certyfikatu prowadzi do wygasłego certyfikatu. Dzięki temu usługa łącznika przestanie działać. Zdarzenie 1000 jest rejestrowane w dzienniku administratora łącznika:
 
-"Ponowna rejestracja łącznika nie powiodła się: certyfikat zaufania łącznika wygasł. Uruchom polecenie cmdlet Register-AppProxyConnector programu PowerShell na komputerze, na którym jest uruchomiony łącznik, aby ponownie zarejestrować łącznik."
+"Ponowna rejestracja łącznika nie powiodła się: certyfikat zaufania łącznika wygasł. Uruchom polecenie cmdlet programu PowerShell Register-AppProxyConnector na komputerze, na którym jest uruchomiony łącznik, aby ponownie zarejestrować łącznik ".
 
-W takim przypadku odinstaluj i zainstaluj ponownie łącznik, aby wyzwolić rejestrację lub można uruchomić następujące polecenia programu PowerShell:
+W takim przypadku Odinstaluj i ponownie zainstaluj łącznik, aby wyzwolić rejestrację, lub uruchom następujące polecenia programu PowerShell:
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Aby dowiedzieć się więcej o poleceniu Register-AppProxyConnector, zobacz [Tworzenie skryptu instalacji nienadzorowanego dla łącznika serwera proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+Aby dowiedzieć się więcej na temat polecenia Register-AppProxyConnector, zobacz [Tworzenie skryptu instalacji nienadzorowanej dla łącznika usługi Azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
 
-## <a name="verify-admin-is-used-to-install-the-connector"></a>Sprawdź, czy administrator jest używany do zainstalowania łącznika
+## <a name="verify-admin-is-used-to-install-the-connector"></a>Sprawdź, czy administrator służy do instalowania łącznika
 
-**Cel:** Sprawdź, czy użytkownik, który próbuje zainstalować łącznik, jest administratorem z poprawnymi poświadczeniami. Obecnie użytkownik musi być co najmniej administratorem aplikacji, aby instalacja powiodła się.
+**Cel:** Sprawdź, czy użytkownik, który próbuje zainstalować łącznik, jest administratorem z prawidłowymi poświadczeniami. Obecnie aby instalacja się powiodła, użytkownik musi być co najmniej administratorem aplikacji.
 
 **Aby sprawdzić, czy poświadczenia są poprawne:**
 
-Połącz `https://login.microsoftonline.com` się z tymi samymi poświadczeniami i użyj ich. Upewnij się, że logowanie zakończyło się pomyślnie. Możesz sprawdzić rolę użytkownika, przechodząc do **usługi Azure Active Directory Użytkownicy**  - &gt; **i grupy**  - &gt; **Wszyscy użytkownicy**. 
+Połącz się `https://login.microsoftonline.com` z tymi samymi poświadczeniami i używaj tych samych poświadczeń. Upewnij się, że logowanie zakończyło się pomyślnie. Rolę użytkownika można sprawdzić, przechodząc do **Azure Active Directory**  - &gt; **użytkowników i grup**  - &gt; **Wszyscy użytkownicy**. 
 
-Wybierz konto użytkownika, a następnie "Rola katalogu" w menu wynikowym. Sprawdź, czy wybrana rola to "Administrator aplikacji". Jeśli nie możesz uzyskać dostępu do żadnej ze stron w tych krokach, nie masz wymaganej roli.
+Wybierz konto użytkownika, a następnie "rola katalogu" w menu wyników. Sprawdź, czy wybrana rola to "Administrator aplikacji". Jeśli nie możesz uzyskać dostępu do żadnych stron w ramach tych kroków, nie masz wymaganej roli.
 
 ## <a name="next-steps"></a>Następne kroki
-[Opis łączników serwera proxy aplikacji usługi Azure AD](application-proxy-connectors.md)
+[Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure](application-proxy-connectors.md)

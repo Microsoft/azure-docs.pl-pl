@@ -1,6 +1,6 @@
 ---
-title: Samouczek rotacji pojedynczego użytkownika/pojedynczego hasła
-description: Ten samouczek służy do automatyzacji obracania klucza tajnego dla zasobów korzystających z uwierzytelniania pojedynczego użytkownika/pojedynczego hasła.
+title: Samouczek rotacji pojedynczego użytkownika/jednego hasła
+description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak zautomatyzować rotację klucza tajnego dla zasobów korzystających z uwierzytelniania pojedynczego użytkownika/jednego hasła.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,49 +10,49 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 70eb2449c5c54750831c30ff7d5c948173a38594
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f9c0dca29d173eb2c7893a20b2ab41dd31522e1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81423306"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183215"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-single-usersingle-password-authentication"></a>Automatyzacja rotacji klucza tajnego dla zasobów korzystających z uwierzytelniania pojedynczego użytkownika/pojedynczego hasła
+# <a name="automate-the-rotation-of-a-secret-for-resources-that-use-single-usersingle-password-authentication"></a>Automatyzowanie rotacji klucza tajnego dla zasobów korzystających z uwierzytelniania pojedynczego użytkownika/jednego hasła
 
-Najlepszym sposobem uwierzytelniania w usługach platformy Azure jest użycie [tożsamości zarządzanej,](../general/managed-identity.md)ale istnieją pewne scenariusze, w których nie jest to możliwe. W takich przypadkach używane są klucze dostępu lub wpisy tajne. Należy okresowo obracać klucze dostępu lub wpisy tajne.
+Najlepszym sposobem na uwierzytelnianie w usługach platformy Azure jest użycie [tożsamości zarządzanej](../general/managed-identity.md), ale istnieje kilka scenariuszy, w których nie jest to opcja. W tych przypadkach są używane klucze dostępu lub wpisy tajne. Należy okresowo obracać klucze dostępu lub wpisy tajne.
 
-W tym samouczku pokazano, jak zautomatyzować okresowy obrót wpisów tajnych dla baz danych i usług, które używają uwierzytelniania pojedynczego użytkownika/pojedynczego hasła. W szczególności ten samouczek obraca hasła programu SQL Server przechowywane w usłudze Azure Key Vault przy użyciu funkcji wyzwalane przez powiadomienie usługi Azure Event Grid:
+W tym samouczku pokazano, jak zautomatyzować okresowe rotacje wpisów tajnych dla baz danych i usług korzystających z uwierzytelniania pojedynczego użytkownika/jednego hasła. W tym samouczku zaprojektowano SQL Server haseł przechowywanych w Azure Key Vault przy użyciu funkcji wyzwalanej przez powiadomienie Azure Event Grid:
 
-![Diagram rozwiązania obrotu](../media/rotate1.png)
+![Diagram rozwiązania rotacji](../media/rotate1.png)
 
-1. Trzydzieści dni przed datą wygaśnięcia klucza magazyn kluczy publikuje zdarzenie "bliski wygaśnięcia" w uszmia zdarzenia.
-1. Usługa Event Grid sprawdza subskrypcje zdarzeń i używa protokołu HTTP POST do wywoływania punktu końcowego aplikacji funkcji subskrybowanego do zdarzenia.
-1. Aplikacja funkcji odbiera tajne informacje, generuje nowe losowe hasło i tworzy nową wersję klucza tajnego z nowym hasłem w Key Vault.
-1. Aplikacja funkcji aktualizuje SQL Server z nowym hasłem.
+1. 30 dni przed datą wygaśnięcia wpisu tajnego Key Vault opublikuje zdarzenie "niedługo wygasnąć", aby Event Grid.
+1. Event Grid sprawdza subskrypcje zdarzeń i używa POST protokołu HTTP w celu wywołania punktu końcowego aplikacji funkcji subskrybowanego dla zdarzenia.
+1. Aplikacja funkcji otrzymuje informacje o kluczu tajnym, generuje nowe hasło losowe i tworzy nową wersję dla wpisu tajnego z nowym hasłem w Key Vault.
+1. Aplikacja funkcji aktualizuje SQL Server przy użyciu nowego hasła.
 
 > [!NOTE]
-> Może wystąpić opóźnienie między krokami 3 i 4. W tym czasie klucz tajny w magazynie kluczy nie będzie mógł uwierzytelnić się w programie SQL Server. W przypadku niepowodzenia dowolnego z kroków, usługa Siatki zdarzeń ponawia ponawia ponawia się przez dwie godziny.
+> Może wystąpić opóźnienie między krokami 3 i 4. W tym czasie wpis tajny w Key Vault nie będzie mógł uwierzytelnić się w SQL Server. W przypadku awarii któregokolwiek z tych kroków Event Grid ponownych prób przez dwie godziny.
 
-## <a name="create-a-key-vault-and-sql-server-instance"></a>Tworzenie magazynu kluczy i wystąpienia programu SQL Server
+## <a name="create-a-key-vault-and-sql-server-instance"></a>Tworzenie magazynu kluczy i wystąpienia SQL Server
 
-Pierwszym krokiem jest utworzenie magazynu kluczy oraz wystąpienia i bazy danych programu SQL Server oraz przechowywanie hasła administratora programu SQL Server w programie Key Vault.
+Pierwszym krokiem jest utworzenie magazynu kluczy oraz wystąpienia SQL Server i bazy danych oraz przechowywanie SQL Server hasło administratora w Key Vault.
 
-W tym samouczku użyto istniejącego szablonu usługi Azure Resource Manager do tworzenia składników. Kod można znaleźć tutaj: [Przykład szablonu podstawowego tajnego obrotu](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/arm-templates).
+W tym samouczku do tworzenia składników jest wykorzystywany istniejący szablon Azure Resource Manager. Kod można znaleźć tutaj: [przykładowy szablon rotacji podstawowych wpisów tajnych](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/arm-templates).
 
-1. Wybierz łącze wdrażania szablonu platformy Azure:
+1. Wybierz link wdrożenie szablonu platformy Azure:
 <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Finitial-setup%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
-1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nowy**. Nazwij grupę **simplerotation**.
+1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**. Nadaj grupie nazwę **simplerotation**.
 1. Wybierz pozycję **Kup**.
 
     ![Tworzenie grupy zasobów](../media/rotate2.png)
 
-Będziesz teraz mieć magazyn kluczy, wystąpienie programu SQL Server i bazę danych SQL. Tę konfigurację można zweryfikować w platformie Azure CLI, uruchamiając następujące polecenie:
+Teraz masz Magazyn kluczy, wystąpienie SQL Server i bazę danych SQL. Tę konfigurację można sprawdzić w interfejsie wiersza polecenia platformy Azure, uruchamiając następujące polecenie:
 
 ```azurecli
 az resource list -o table
 ```
 
-Wynik będzie wyglądać coś następującego wyjścia:
+Wynik będzie wyglądać następująco:
 
 ```console
 Name                     ResourceGroup         Location    Type                               Status
@@ -64,27 +64,27 @@ simplerotation-sql/master  simplerotation      eastus      Microsoft.Sql/servers
 
 ## <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
-Następnie utwórz aplikację funkcji z tożsamością zarządzaną przez system, oprócz innych wymaganych składników.
+Następnie Utwórz aplikację funkcji z tożsamością zarządzaną przez system, a także z innymi wymaganymi składnikami.
 
 Aplikacja funkcji wymaga następujących składników:
-- Plan usługi aplikacji platformy Azure
+- Plan Azure App Service
 - Konto magazynu
-- Zasady dostępu do wpisów tajnych w uchodźczynie za pośrednictwem tożsamości zarządzanej przez aplikację funkcji
+- Zasady dostępu do uzyskiwania dostępu do wpisów tajnych w Key Vault za pośrednictwem tożsamości zarządzanej aplikacji funkcji
 
-1. Wybierz łącze wdrażania szablonu platformy Azure:
+1. Wybierz link wdrożenie szablonu platformy Azure:
 <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Ffunction-app%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
-1. Na liście **Grupa zasobów** wybierz **simplerotation**.
+1. Na liście **Grupa zasobów** wybierz pozycję **simplerotation**.
 1. Wybierz pozycję **Kup**.
 
    ![Wybierz zakup](../media/rotate3.png)
 
-Po wykonaniu powyższych kroków będziesz mieć konto magazynu, farmę serwerów i aplikację funkcji. Tę konfigurację można zweryfikować w platformie Azure CLI, uruchamiając następujące polecenie:
+Po wykonaniu powyższych kroków będziesz mieć konto magazynu, farmę serwerów i aplikację funkcji. Tę konfigurację można sprawdzić w interfejsie wiersza polecenia platformy Azure, uruchamiając następujące polecenie:
 
 ```azurecli
 az resource list -o table
 ```
 
-Wynik będzie wyglądać mniej więcej tak, jak następujące dane wyjściowe:
+Wyniki będą wyglądać podobnie jak następujące dane wyjściowe:
 
 ```console
 Name                     ResourceGroup         Location    Type                               Status
@@ -97,14 +97,14 @@ simplerotation-plan        simplerotation       eastus      Microsoft.Web/server
 simplerotation-fn          simplerotation       eastus      Microsoft.Web/sites
 ```
 
-Aby uzyskać informacje na temat tworzenia aplikacji funkcji i używania tożsamości zarządzanej w celu uzyskania dostępu do usługi Key Vault, zobacz [Tworzenie aplikacji funkcji z portalu Azure](../../azure-functions/functions-create-function-app-portal.md) i [zapewnianie uwierzytelniania usługi Key Vault z tożsamością zarządzaną](../general/managed-identity.md).
+Aby uzyskać informacje na temat sposobu tworzenia aplikacji funkcji i używania tożsamości zarządzanej do uzyskiwania dostępu do Key Vault, zobacz [Tworzenie aplikacji funkcji na podstawie Azure Portal](../../azure-functions/functions-create-function-app-portal.md) i [udostępnianie Key Vault uwierzytelniania przy użyciu tożsamości zarządzanej](../general/managed-identity.md).
 
-### <a name="rotation-function"></a>Obrót, funkcja
-Funkcja używa zdarzenia do wyzwalania rotacji klucza tajnego przez aktualizację usługi Key Vault i bazy danych SQL.
+### <a name="rotation-function"></a>Funkcja rotacji
+Funkcja używa zdarzenia do wyzwalania rotacji wpisu tajnego przez aktualizację Key Vault i bazy danych SQL.
 
-#### <a name="function-trigger-event"></a>Zdarzenie wyzwalania funkcji
+#### <a name="function-trigger-event"></a>Zdarzenie wyzwalacza funkcji
 
-Ta funkcja odczytuje dane zdarzeń i uruchamia logikę obrotu:
+Ta funkcja odczytuje dane zdarzenia i uruchamia logikę obrotu:
 
 ```csharp
 public static class SimpleRotationEventHandler
@@ -125,8 +125,8 @@ public static class SimpleRotationEventHandler
 }
 ```
 
-#### <a name="secret-rotation-logic"></a>Logika rotacji tajnej
-Ta metoda rotacji odczytuje informacje bazy danych z klucza tajnego, tworzy nową wersję klucza tajnego i aktualizuje bazę danych o nowy klucz tajny:
+#### <a name="secret-rotation-logic"></a>Logika rotacji wpisów tajnych
+Ta metoda rotacji odczytuje informacje o bazie danych z wpisu tajnego, tworzy nową wersję wpisu tajnego i aktualizuje bazę danych przy użyciu nowego klucza tajnego:
 
 ```csharp
 public class SecretRotator
@@ -170,16 +170,16 @@ public class SecretRotator
     }
 }
 ```
-Pełny kod można znaleźć na [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/rotation-function).
+Kompletny kod można znaleźć w witrynie [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/rotation-function).
 
-#### <a name="function-deployment"></a>Wdrażanie funkcji
+#### <a name="function-deployment"></a>Wdrożenie funkcji
 
-1. Pobierz plik zip aplikacji funkcji z [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip).
+1. Pobierz plik zip aplikacji funkcji z usługi [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip).
 
-1. Przekaż plik simplerotationsample-fn.zip do usługi Azure Cloud Shell.
+1. Przekaż plik simplerotationsample-Fn. zip do Azure Cloud Shell.
 
-   ![Prześlij plik](../media/rotate4.png)
-1. Użyj tego polecenia interfejsu wiersza polecenia platformy Azure, aby wdrożyć plik zip w aplikacji funkcji:
+   ![Przekaż plik](../media/rotate4.png)
+1. Użyj tego polecenia platformy Azure w celu wdrożenia pliku zip w aplikacji funkcji:
 
    ```azurecli
    az functionapp deployment source config-zip -g simplerotation -n simplerotation-fn --src /home/{firstname e.g jack}/simplerotationsample-fn.zip
@@ -187,86 +187,86 @@ Pełny kod można znaleźć na [GitHub](https://github.com/jlichwa/azure-keyvaul
 
 Po wdrożeniu funkcji powinny zostać wyświetlone dwie funkcje w obszarze simplerotation-fn:
 
-![SimpleRotation i SimpleRotationHttpTest funkcje](../media/rotate5.png)
+![Funkcje SimpleRotation i SimpleRotationHttpTest](../media/rotate5.png)
 
-## <a name="add-an-event-subscription-for-the-secretnearexpiry-event"></a>Dodawanie subskrypcji wydarzenia dla zdarzenia SecretNearExpiry
+## <a name="add-an-event-subscription-for-the-secretnearexpiry-event"></a>Dodawanie subskrypcji zdarzeń dla zdarzenia SecretNearExpiry
 
 Skopiuj `eventgrid_extension` klucz aplikacji funkcji:
 
    ![Wybieranie ustawień aplikacji funkcji](../media/rotate6.png)
 
-   ![eventgrid_extension klucz](../media/rotate7.png)
+   ![klucz eventgrid_extension](../media/rotate7.png)
 
-Użyj skopiowanego `eventgrid_extension` klucza i identyfikatora subskrypcji w następującym poleceniu, aby utworzyć subskrypcję usługi Event Grid dla `SecretNearExpiry` zdarzeń:
+Użyj skopiowanego `eventgrid_extension` klucza i identyfikatora subskrypcji w poniższym poleceniu, aby utworzyć subskrypcję Event Grid dla `SecretNearExpiry` zdarzeń:
 
 ```azurecli
 az eventgrid event-subscription create --name simplerotation-eventsubscription --source-resource-id "/subscriptions/<subscription-id>/resourceGroups/simplerotation/providers/Microsoft.KeyVault/vaults/simplerotation-kv" --endpoint "https://simplerotation-fn.azurewebsites.net/runtime/webhooks/EventGrid?functionName=SimpleRotation&code=<extension-key>" --endpoint-type WebHook --included-event-types "Microsoft.KeyVault.SecretNearExpiry"
 ```
 
-## <a name="add-the-secret-to-key-vault"></a>Dodawanie klucza tajnego do magazynu kluczy
-Ustaw zasady dostępu, aby przyznawać użytkownikom uprawnienia do *zarządzania wpisami tajnymi:*
+## <a name="add-the-secret-to-key-vault"></a>Dodaj klucz tajny do Key Vault
+Ustaw zasady dostępu, aby przyznać użytkownikom uprawnienia do zarządzania wpisami *tajnymi* :
 
 ```azurecli
 az keyvault set-policy --upn <email-address-of-user> --name simplerotation-kv --secret-permissions set delete get list
 ```
 
-Utwórz nowy klucz tajny ze znacznikami zawierającymi źródło danych bazy danych SQL i identyfikator użytkownika. Dołącz datę wygaśnięcia ustawioną na jutro.
+Utwórz nowy wpis tajny za pomocą tagów zawierających źródło danych SQL Database i identyfikator użytkownika. Uwzględnij datę wygaśnięcia ustawioną na jutro.
 
 ```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
 az keyvault secret set --name sqluser --vault-name simplerotation-kv --value "Simple123" --tags "UserID=azureuser" "DataSource=simplerotation-sql.database.windows.net" --expires $tomorrowDate
 ```
 
-Utworzenie klucza tajnego z krótką datą `SecretNearExpiry` wygaśnięcia natychmiast opublikuje zdarzenie, które z kolei wyzwoli funkcję obracania klucza tajnego.
+Utworzenie klucza tajnego z krótką datą wygaśnięcia spowoduje natychmiastowe opublikowanie `SecretNearExpiry` zdarzenia, co spowoduje wyzwolenie funkcji na rotację klucza tajnego.
 
 ## <a name="test-and-verify"></a>Testowanie i weryfikowanie
-Po kilku minutach `sqluser` sekret powinien automatycznie się obracać.
+Po kilku minutach `sqluser` klucz tajny powinien zostać automatycznie obrócony.
 
-Aby sprawdzić, czy klucz tajny został obrócony, przejdź do **funkcji Key Vault** > **Secrets:**
+Aby sprawdzić, czy klucz tajny został obrócony, przejdź do **Key Vault** > wpisów**tajnych**:
 
-![Przejdź do sekretów](../media/rotate8.png)
+![Przejdź do wpisów tajnych](../media/rotate8.png)
 
-Otwórz klucz tajny **sqluser** i wyświetl oryginalne i obrócone wersje:
+Otwórz klucz tajny **sqluser** i wyświetl wersje oryginalne i obrócone:
 
 ![Otwórz klucz tajny sqluser](../media/rotate9.png)
 
 ### <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
-Aby zweryfikować poświadczenia SQL, utwórz aplikację sieci web. Ta aplikacja sieci web otrzyma klucz tajny z usługi Key Vault, wyodrębni informacje o bazie danych SQL i poświadczenia z klucza tajnego i przetestuje połączenie z programem SQL Server.
+Aby zweryfikować poświadczenia SQL, Utwórz aplikację internetową. Ta aplikacja internetowa pobierze klucz tajny z Key Vault, wyodrębni informacje o bazie danych SQL i poświadczenia z klucza tajnego i przetestuje połączenie z SQL Server.
 
-Aplikacja sieci web wymaga następujących składników:
-- Aplikacja internetowa z tożsamością zarządzaną systemem
-- Zasady dostępu do wpisów tajnych w programie Key Vault za pośrednictwem tożsamości zarządzanej w aplikacji sieci Web
+Aplikacja sieci Web wymaga następujących składników:
+- Aplikacja internetowa z tożsamością zarządzaną przez system
+- Zasady dostępu do uzyskiwania dostępu do wpisów tajnych w Key Vault przez tożsamość zarządzaną przez aplikację sieci Web
 
-1. Wybierz łącze wdrażania szablonu platformy Azure:
+1. Wybierz link wdrożenie szablonu platformy Azure:
 <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fweb-app%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
-1. Wybierz **grupę zasobów simplerotation.**
+1. Wybierz grupę zasobów **simplerotation** .
 1. Wybierz pozycję **Kup**.
 
 ### <a name="deploy-the-web-app"></a>Wdrażanie aplikacji sieci Web
 
-Kod źródłowy aplikacji internetowej można znaleźć w [serwisie GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp).
+Kod źródłowy aplikacji sieci Web można znaleźć w witrynie [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp).
 
-Aby wdrożyć aplikację sieci web, wykonaj następujące kroki:
+Aby wdrożyć aplikację sieci Web, wykonaj następujące kroki:
 
-1. Pobierz plik zip aplikacji funkcji z [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip).
-1. Przekaż plik simplerotationsample-app.zip do usługi Azure Cloud Shell.
-1. Użyj tego polecenia interfejsu wiersza polecenia platformy Azure, aby wdrożyć plik zip w aplikacji funkcji:
+1. Pobierz plik zip aplikacji funkcji z usługi [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip).
+1. Przekaż plik simplerotationsample-App. zip do Azure Cloud Shell.
+1. Użyj tego polecenia platformy Azure w celu wdrożenia pliku zip w aplikacji funkcji:
 
    ```azurecli
    az webapp deployment source config-zip -g simplerotation -n simplerotation-app --src /home/{firstname e.g jack}/simplerotationsample-app.zip
    ```
 
-### <a name="open-the-web-app"></a>Otwieranie aplikacji internetowej
+### <a name="open-the-web-app"></a>Otwieranie aplikacji sieci Web
 
 Przejdź do wdrożonej aplikacji i wybierz adres URL:
  
 ![Wybierz adres URL](../media/rotate10.png)
 
-Powinna zostać wyświetlone wygenerowana wartość tajnego z wartością połączoną z bazą danych true.
+Gdy aplikacja zostanie otwarta w przeglądarce, zostanie wyświetlona **wartość wygenerowanego klucza tajnego** i **połączona wartość bazy danych** *true*.
 
 ## <a name="learn-more"></a>Dowiedz się więcej
 
-- Omówienie: [Monitorowanie magazynu kluczy za pomocą usługi Azure Event Grid (wersja zapoznawcza)](../general/event-grid-overview.md)
-- Jak: [Odbieranie wiadomości e-mail po zmianie klucza tajnego magazynu](../general/event-grid-logicapps.md)
-- [Schemat zdarzeń usługi Azure Event Grid dla usługi Azure Key Vault (wersja zapoznawcza)](../../event-grid/event-schema-key-vault.md)
+- Przegląd: [monitorowanie Key Vault z Azure Event Grid (wersja zapoznawcza)](../general/event-grid-overview.md)
+- Instrukcje: [otrzymywanie wiadomości e-mail po zmianie wpisu tajnego magazynu kluczy](../general/event-grid-logicapps.md)
+- [Schemat zdarzeń Azure Event Grid dla Azure Key Vault (wersja zapoznawcza)](../../event-grid/event-schema-key-vault.md)

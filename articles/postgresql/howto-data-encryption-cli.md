@@ -1,139 +1,139 @@
 ---
-title: Szyfrowanie danych — Azure CLI — dla usługi Azure Database for PostgreSQL — pojedynczy serwer
-description: Dowiedz się, jak skonfigurować szyfrowanie danych dla usługi Azure Database dla pojedynczego serwera postgreSQL i zarządzać nimi przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Szyfrowanie danych — interfejs wiersza polecenia platformy Azure — dla Azure Database for PostgreSQL — pojedynczy serwer
+description: Dowiedz się, jak skonfigurować szyfrowanie danych dla Azure Database for PostgreSQL jednego serwera i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: fcdd7c13c9e0a5f9e858309bea50bb0264b7b301
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 77c464f51bd17921052b3ae1e9fefb49e777d6c2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460685"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181909"
 ---
-# <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Szyfrowanie danych dla usługi Azure Database dla pojedynczego serwera PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Szyfrowanie danych dla Azure Database for PostgreSQL jednego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Dowiedz się, jak skonfigurować szyfrowanie danych dla usługi Azure Database dla pojedynczego serwera PostgreSQL za pomocą interfejsu wiersza polecenia platformy Azure i zarządzać nimi.
+Dowiedz się, jak skonfigurować szyfrowanie danych i zarządzać nimi Azure Database for PostgreSQL jednym serwerze przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="prerequisites-for-azure-cli"></a>Wymagania wstępne dotyczące interfejsu wiersza polecenia platformy Azure
 
-* Musisz mieć subskrypcję platformy Azure i być administratorem w tej subskrypcji.
-* Utwórz magazyn kluczy i klucz do użycia dla klucza zarządzanego przez klienta. Włącz również ochronę przed przeczyszczaniem i usuwanie nietrwałe w magazynie kluczy.
+* Musisz mieć subskrypcję platformy Azure i być administratorem tej subskrypcji.
+* Utwórz magazyn kluczy i klucz do użycia dla klucza zarządzanego przez klienta. Włącz również ochronę przed czyszczeniem i usuwanie nietrwałe w magazynie kluczy.
 
     ```azurecli-interactive
     az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
     ```
 
-* W utworzonej usługi Azure Key Vault utwórz klucz, który będzie używany do szyfrowania danych usługi Azure Database dla serwera PostgreSQL Single.
+* W utworzonym Azure Key Vault Utwórz klucz, który będzie używany do szyfrowania danych na Azure Database for PostgreSQL pojedynczym serwerze.
 
     ```azurecli-interactive
     az keyvault key create --name <key_name> -p software --vault-name <vault_name>
     ```
 
-* Aby użyć istniejącego magazynu kluczy, musi mieć następujące właściwości, aby użyć go jako klucza zarządzanego przez klienta:
+* Aby można było użyć istniejącego magazynu kluczy, musi on mieć następujące właściwości, aby użyć go jako klucza zarządzanego przez klienta:
   * [Usuwanie nietrwałe](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Czyszczenie chronione](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [Przeczyść chronione](../key-vault/general/overview-soft-delete.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
 
-* Klucz musi mieć następujące atrybuty, aby użyć go jako klucza zarządzanego przez klienta:
-  * Brak daty ważności
-  * Nie wyłączono
-  * Wykonywanie operacji **get,** **wrap** i **unwrapuj**
+* Klucz musi mieć następujące atrybuty do użycia jako klucz zarządzany przez klienta:
+  * Brak daty wygaśnięcia
+  * Niewyłączone
+  * Wykonywanie operacji **Get**, **zawijania** i **odpakowania**
 
-## <a name="set-the-right-permissions-for-key-operations"></a>Ustawianie odpowiednich uprawnień dla operacji kluczy
+## <a name="set-the-right-permissions-for-key-operations"></a>Ustaw odpowiednie uprawnienia dla operacji Key
 
-1. Istnieją dwa sposoby uzyskiwania tożsamości zarządzanej dla usługi Azure Database dla serwera PostgreSQL Single.
+1. Istnieją dwa sposoby uzyskania tożsamości zarządzanej dla Azure Database for PostgreSQL jednego serwera.
 
-    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Utwórz nową usługę Azure Database dla serwera MySQL z tożsamością zarządzaną.
+    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Utwórz nowy serwer Azure Database for MySQL z tożsamością zarządzaną.
 
     ```azurecli-interactive
     az postgres server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
     ```
 
-    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Zaktualizuj istniejącą usługę Azure Database for MySQL server, aby uzyskać tożsamość zarządzaną.
+    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Zaktualizuj istniejący serwer Azure Database for MySQL, aby uzyskać zarządzaną tożsamość.
 
     ```azurecli-interactive
     az postgres server update –name <server name>  -g <resoure_group> --assign-identity
     ```
 
-2. Ustaw **uprawnienia klucza** **(Pobierz**, **Zawijaj,** **Rozpaj)** dla **głównego zobowiązanego**, który jest nazwą serwera PostgreSQL Single server.
+2. Ustaw **uprawnienia klucza** (**pobieranie**, **Zawijanie**, **odpakowywanie) dla** **podmiotu zabezpieczeń**, który jest nazwą serwera PostgreSQL jednego serwera.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>
     ```
 
-## <a name="set-data-encryption-for-azure-database-for-postgresql-single-server"></a>Ustawianie szyfrowania danych dla usługi Azure Database dla pojedynczego serwera PostgreSQL
+## <a name="set-data-encryption-for-azure-database-for-postgresql-single-server"></a>Ustawianie szyfrowania danych dla Azure Database for PostgreSQL pojedynczego serwera
 
-1. Włącz szyfrowanie danych dla usługi Azure Database dla pojedynczego serwera PostgreSQL przy użyciu klucza utworzonego w usłudze Azure Key Vault.
+1. Włącz szyfrowanie danych dla Azure Database for PostgreSQL pojedynczego serwera przy użyciu klucza utworzonego w Azure Key Vault.
 
     ```azurecli-interactive
     az postgres server key create –name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Kluczowy adres URL:https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Adres URL klucza:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
-## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Używanie szyfrowania danych do przywracania lub repliki serwerów
+## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Korzystanie z szyfrowania danych dla serwerów przywracania lub repliki
 
-Po usłudze Azure Database for PostgreSQL Single server jest szyfrowany za pomocą klucza zarządzanego klienta przechowywane w key vault, każda nowo utworzona kopia serwera jest również szyfrowana. Tę nową kopię można wykonać za pomocą operacji lokalnego lub przywracania geograficznego lub za pośrednictwem operacji repliki (lokalnej/międzyregionowej). Tak więc dla zaszyfrowanego serwera postgreSql single serwer, można użyć następujących kroków, aby utworzyć zaszyfrowany serwer przywrócony.
+Po zaszyfrowaniu pojedynczego serwera Azure Database for PostgreSQL z kluczem zarządzanym przez klienta przechowywanego w Key Vault, nowo utworzona kopia serwera zostanie również zaszyfrowana. Tę nową kopię można wykonać za pomocą operacji w trybie lokalnym lub z możliwością przywracania geograficznego albo za pomocą operacji repliki (lokalnej/obejmującej wiele regionów). W przypadku zaszyfrowanego serwera PostgreSQL Single Server można wykonać poniższe kroki, aby utworzyć zaszyfrowany przywrócony serwer.
 
-### <a name="creating-a-restoredreplica-server"></a>Tworzenie przywróconego/repliki serwera
+### <a name="creating-a-restoredreplica-server"></a>Tworzenie serwera przywróconego/repliki
 
   *  [Tworzenie serwera przywracania](howto-restore-server-cli.md) 
-  *  [Tworzenie serwera replik odczytu](howto-read-replicas-cli.md) 
+  *  [Tworzenie serwera repliki odczytu](howto-read-replicas-cli.md) 
 
-### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Po przywróceniu serwera ponownie zdeterminuj szyfrowanie danych przywróconego serwera
+### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Po przywróceniu serwera ponownie Zweryfikuj szyfrowanie danych na przywróconym serwerze
 
     ```azurecli-interactive
     az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
     ```
 
-## <a name="additional-capability-for-the-key-being-used-for-the-azure-database-for-postgresql-single-server"></a>Dodatkowa możliwość klucza używanego dla usługi Azure Database dla pojedynczego serwera PostgreSQL
+## <a name="additional-capability-for-the-key-being-used-for-the-azure-database-for-postgresql-single-server"></a>Dodatkowa możliwość dla klucza używanego dla Azure Database for PostgreSQL pojedynczego serwera
 
-### <a name="get-the-key-used"></a>Zastosuj klucz
+### <a name="get-the-key-used"></a>Pobierz klucz używany
 
     ```azurecli-interactive
     az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
-### <a name="list-the-key-used"></a>Wyświetl listę użytego klucza
+### <a name="list-the-key-used"></a>Wyświetlenie używanego klucza
 
     ```azurecli-interactive
     az postgres server key list --name  <server name>  -g <resource_group>
     ```
 
-### <a name="drop-the-key-being-used"></a>Upuść używany klucz
+### <a name="drop-the-key-being-used"></a>Usuń używany klucz
 
     ```azurecli-interactive
     az postgres server key delete -g <resource_group> --kid <key url> 
     ```
-## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Włączanie szyfrowania danych za pomocą szablonu usługi Azure Resource Manager
+## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Używanie szablonu Azure Resource Manager do włączania szyfrowania danych
 
-Oprócz witryny Azure portal można również włączyć szyfrowanie danych na jednym serwerze usługi Azure Database dla postgreSQL przy użyciu szablonów usługi Azure Resource Manager dla nowego i istniejącego serwera.
+Oprócz Azure Portal można również włączyć szyfrowanie danych na Azure Database for PostgreSQL pojedynczym serwerze przy użyciu szablonów Azure Resource Manager dla nowego i istniejącego serwera.
 
 ### <a name="for-a-new-server"></a>Dla nowego serwera
 
-Użyj jednego ze wstępnie utworzonych szablonów usługi Azure Resource Manager, aby aprowizować serwer z włączonym szyfrowaniem danych: [Przykład z szyfrowaniem danych](https://github.com/Azure/azure-postgresql/tree/master/arm-templates/ExampleWithDataEncryption)
+Użyj jednego z wstępnie utworzonych szablonów Azure Resource Manager, aby zainicjować obsługę serwera z włączonym szyfrowaniem danych: [przykład z szyfrowaniem danych](https://github.com/Azure/azure-postgresql/tree/master/arm-templates/ExampleWithDataEncryption)
 
-Ten szablon usługi Azure Resource Manager tworzy usługę Azure Database dla pojedynczego serwera PostgreSQL i używa **keyvault** i **key** przekazywane jako parametry, aby włączyć szyfrowanie danych na serwerze.
+Ten Azure Resource Manager szablon tworzy Azure Database for PostgreSQL pojedynczy serwer i używa **magazynu** **kluczy i klucza** , który został przesłany jako parametry, aby umożliwić szyfrowanie danych na serwerze.
 
 ### <a name="for-an-existing-server"></a>Dla istniejącego serwera
-Ponadto można użyć szablonów usługi Azure Resource Manager, aby włączyć szyfrowanie danych na istniejących serwerach usługi Azure Database dla pojedynczych serwerów PostgreSQL.
+Ponadto można użyć szablonów Azure Resource Manager, aby włączyć szyfrowanie danych na istniejących Azure Database for PostgreSQL pojedynczych serwerach.
 
-* Przekaż identyfikator zasobu klucza usługi Azure Key Vault, `Uri` który został skopiowany wcześniej pod właściwością w obiekcie właściwości.
+* Przekaż identyfikator zasobu klucza Azure Key Vault, który został wcześniej skopiowany we `Uri` właściwości obiektu właściwości.
 
-* Użyj *wersji interfejsu API 2020-01-01-preview.*
+* Użyj *2020-01-01-Preview* jako wersji interfejsu API.
 
 ```json
 {
@@ -244,4 +244,4 @@ Ponadto można użyć szablonów usługi Azure Resource Manager, aby włączyć 
 
 ## <a name="next-steps"></a>Następne kroki
 
- Aby dowiedzieć się więcej na temat szyfrowania danych, zobacz [Usługa Azure Database for PostgreSQL Single server data encryption with customer-managed key](concepts-data-encryption-postgresql.md).
+ Aby dowiedzieć się więcej na temat szyfrowania danych, zobacz [Azure Database for PostgreSQL szyfrowanie danych na jednym serwerze z kluczem zarządzanym przez klienta](concepts-data-encryption-postgresql.md).

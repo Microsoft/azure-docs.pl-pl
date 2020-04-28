@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0708f0674633ddfee8b84388a2d96f2a04636
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bfb0cc61b61328df86c27498a1007f2372fb9548
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74899983"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867443"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Co to jest usługa Azure AD Privileged Identity Management?
 
@@ -50,9 +50,7 @@ Po skonfigurowaniu zarządzania tożsamościami uprzywilejowanymi w menu nawigac
 
 ## <a name="who-can-do-what"></a>Kto może co zrobić?
 
-Jeśli jesteś pierwszą osobą, która korzysta z zarządzania tożsamościami uprzywilejowanymi, automatycznie w katalogu automatycznie przypisano role [Administratora zabezpieczeń](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) i [Administratora ról uprzywilejowanych.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
-
-W przypadku ról usługi Azure AD w dziale Zarządzanie tożsamościami uprzywilejowanymi tylko użytkownik, który jest w roli Administrator ról uprzywilejowanych, może zarządzać przydziałami dla innych administratorów. Można [udzielić dostępu innym administratorom do zarządzania zarządzaniem tożsamościami uprzywilejowanymi](pim-how-to-give-access-to-pim.md). Administratorzy globalni, administratorzy zabezpieczeń, czytniki globalne i czytniki zabezpieczeń mogą również wyświetlać przypisania do ról usługi Azure AD w dziale Zarządzanie tożsamościami uprzywilejowanymi.
+W przypadku ról usługi Azure AD w dziale Zarządzanie tożsamościami uprzywilejowanymi tylko użytkownik, który jest administratorem ról uprzywilejowanych lub administratorem globalnym, może zarządzać przydziałami dla innych administratorów. Można [udzielić dostępu innym administratorom do zarządzania zarządzaniem tożsamościami uprzywilejowanymi](pim-how-to-give-access-to-pim.md). Administratorzy globalni, administratorzy zabezpieczeń, czytniki globalne i czytniki zabezpieczeń mogą również wyświetlać przypisania do ról usługi Azure AD w dziale Zarządzanie tożsamościami uprzywilejowanymi.
 
 W przypadku ról zasobów platformy Azure w dziale Zarządzanie tożsamościami uprzywilejowanymi tylko administrator subskrypcji, właściciel zasobu lub administrator programu User Access mogą zarządzać przydziałami dla innych administratorów. Użytkownicy, którzy są administratorami ról uprzywilejowanych, administratorami zabezpieczeń lub czytnikami zabezpieczeń, nie mają domyślnie dostępu do wyświetlania przypisań do ról zasobów platformy Azure w dziale Zarządzanie tożsamościami uprzywilejowanymi.
 

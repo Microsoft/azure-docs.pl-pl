@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: c5ea32fb198a61391e1be3648d1d2d2e829a7214
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137267"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186445"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf
 
@@ -33,6 +33,9 @@ W tym samouczku wdrażamy maszynę wirtualną z systemem Linux z systemem operac
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
+> [!NOTE]  
+> Jeśli chcesz przeprowadzić migrację klasycznych reguł alertów i użyć istniejącej maszyny wirtualnej z systemem Linux, **upewnij się,** że maszyna wirtualnych ma ustawioną tożsamość przypisaną do systemu.
+
 Utwórz nową maszynę wirtualną z systemem Linux: 
 
 1. Wybierz opcję **Utwórz zasób** w okienku nawigacji po lewej stronie. 
@@ -41,7 +44,7 @@ Utwórz nową maszynę wirtualną z systemem Linux:
 1. Podaj nazwę maszyny wirtualnej, taką jak **MyTelegrafVM**.  
 1. Pozostaw typ dysku jako dysk **SSD**. Podaj **nazwę użytkownika**, taką jak **azureuser**. 
 1. W obszarze **Typ uwierzytelniania**wybierz pozycję **hasło**. Następnie wprowadź hasło, które będzie używane później do protokołu SSH do tej maszyny wirtualnej. 
-1. Wybierz opcję **utworzenia nowej grupy zasobów**. Podaj nazwę **, na przykład.** Wybierz **lokalizację**. Następnie wybierz przycisk **OK**. 
+1. Wybierz opcję **utworzenia nowej grupy zasobów**. Podaj nazwę **, na przykład.** Wybierz **lokalizację**. Następnie wybierz pozycję **OK**. 
 
     ![Tworzenie maszyny wirtualnej z systemem Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
@@ -108,7 +111,7 @@ Teraz agent będzie zbierać metryki z każdej z określonych wtyczek wejściowy
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Wykreśl metryki telegraf w Azure Portal 
 
-1. Otwórz witrynę [Azure Portal](https://portal.azure.com). 
+1. Otwórz [witrynę Azure Portal](https://portal.azure.com). 
 
 1. Przejdź do karty nowy **monitor** . Następnie wybierz pozycję **metryki**.  
 

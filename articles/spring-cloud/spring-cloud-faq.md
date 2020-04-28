@@ -1,126 +1,130 @@
 ---
-title: Często zadawane pytania dotyczące usługi Azure Spring Cloud | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Spring Cloud.
+title: Często zadawane pytania dotyczące chmury wiosennej platformy Azure | Microsoft Docs
+description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące chmury wiosennej platformy Azure.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 62623bcadb35f21117ddc2601195e34598c2dff5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95260d9a15fdc32c9fddccbcf63ae9fa564fd36a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298770"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176774"
 ---
-# <a name="azure-spring-cloud-faq"></a>Często zadawane pytania dotyczące chmury wiosennej platformy Azure
+# <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
-Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Spring Cloud. 
+Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące chmury wiosennej platformy Azure.
 
 ## <a name="general"></a>Ogólne
 
-### <a name="why-azure-spring-cloud"></a>Dlaczego Azure Spring Cloud?
+### <a name="why-azure-spring-cloud"></a>Dlaczego chmura sprężynowa platformy Azure?
 
-Usługa Azure Spring Cloud zapewnia platformę jako usługę (PaaS) dla deweloperów Spring Cloud. Usługa Azure Spring Cloud zarządza infrastrukturą aplikacji, dzięki czemu można skupić się na kodzie aplikacji i logice biznesowej. Podstawowe funkcje wbudowane w usługę Azure Spring Cloud obejmują Eureka, serwer konfiguracyjny, serwer rejestru usług, usługę pivotal build service, wdrożenia blue-green i inne. Ta usługa umożliwia również deweloperom powiązanie swoich aplikacji z innymi usługami platformy Azure, takimi jak Usługa Azure Cosmos DB, usługa Azure Database for MySQL i Azure Cache for Redis.
+Chmura Wiosnowa platformy Azure udostępnia platformę jako usługę (PaaS) dla deweloperów chmury z chmurą. Chmura sprężynowa platformy Azure zarządza infrastrukturą aplikacji, dzięki czemu możesz skupić się na kodzie aplikacji i logice biznesowej. Podstawowe funkcje wbudowane w chmurę Azure wiosną obejmują: Eureka, config Server, serwer rejestru usług, przestawianie usług kompilacji, tworzenie niebieskich i zielonych wdrożeń. Ta usługa umożliwia również deweloperom powiązanie aplikacji z innymi usługami platformy Azure, takimi jak Azure Cosmos DB, Azure Database for MySQL i pamięć podręczna Azure dla Redis.
 
-Usługa Azure Spring Cloud usprawnia diagnostykę aplikacji dla deweloperów i operatorów, integrując usługę Azure Monitor, usługa Application Insights i usługa Log Analytics.
+Chmura sprężynowa platformy Azure rozszerza środowisko diagnostyki aplikacji dla deweloperów i operatorów przez integrację Azure Monitor, Application Insights i Log Analytics.
 
-### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Jakie plany usług oferuje usługa Azure Spring Cloud?
+### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Jakie plany usług są oferowane przez chmurę Azure ze sprężyną?
 
-Usługa Azure Spring Cloud oferuje jeden plan usługi w okresie wersji zapoznawczej.  Wdrożenie w chmurze Spring Cloud zawiera 16 rdzeni vCPU i 32 gigabajty (GB) pamięci.  Górna granica dla każdego wystąpienia mikrousług w ramach wdrożenia jest 4 rdzenie vCPU z 8 GB pamięci.
+Chmura Wiosenna Azure oferuje jeden plan usługi w okresie zapoznawczym.  Wdrożenie z chmurą wiosenną zawiera 16 rdzeni vCPU i 32 gigabajtów (GB) pamięci.  Górna granica każdego wystąpienia mikrousług w ramach wdrożenia wynosi 4 vCPU rdzeni z 8 GB pamięci.
 
 Zasób | Kwota
 ------- | -------
-Wystąpienia aplikacji na aplikację Spring | 20
-Całkowita liczba wystąpień aplikacji na wystąpienie usługi Azure Spring Cloud | 500
-Wystąpienia usługi Azure Spring Cloud na region na subskrypcję | 10
-Trwałe woluminy | 10 x 50 GBytów
+Wystąpienia aplikacji na wiosnę | 20
+Łączna liczba wystąpień aplikacji na usługę Azure sprężynowego wystąpienia usługi w chmurze | 500
+Wystąpienia usługi w chmurze ze sprężyną na platformie Azure na region na subskrypcję | 10
+Trwałe woluminy | 10 x 50 GBytes
 
-\*_Aby podnieść limit, otwórz [bilet pomocy technicznej](https://azure.microsoft.com/support/faq/)._
+\*_Aby podnieść limit, Otwórz [bilet pomocy technicznej](https://azure.microsoft.com/support/faq/)._
 
-Aby uzyskać więcej informacji, zobacz [Często zadawane pytania dotyczące pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/).
+Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/).
 
-### <a name="how-secure-is-azure-spring-cloud"></a>Jak bezpieczna jest usługa Azure Spring Cloud?
+### <a name="how-secure-is-azure-spring-cloud"></a>Jak bezpieczny jest chmura Wiosenna platformy Azure?
 
-Bezpieczeństwo i prywatność są jednymi z najważniejszych priorytetów dla klientów platformy Azure i usługi Azure Spring Cloud. Platforma Azure pomaga zapewnić, że tylko klienci mają dostęp do danych aplikacji, dzienników lub konfiguracji, bezpiecznie szyfrując wszystkie te dane. Wszystkie wystąpienia usługi w usłudze Azure Spring Cloud są odizolowane od siebie.
+Bezpieczeństwo i ochrona prywatności należą do najważniejszych priorytetów dla klientów korzystających z platformy Azure i usługi Azure wiosny Cloud. System Azure pomaga upewnić się, że tylko klienci mają dostęp do danych, dzienników lub konfiguracji aplikacji, bezpiecznie szyfrując wszystkie te dane. Wszystkie wystąpienia usługi w chmurze Azure wiosennej są odizolowane od siebie nawzajem.
 
-Usługa Azure Spring Cloud zapewnia pełne zarządzanie tls/SSL i certyfikatami.
+Chmura sprężynowa platformy Azure zapewnia pełną obsługę protokołów TLS/SSL i zarządzania certyfikatami.
 
-Krytyczne poprawki zabezpieczeń dla środowiska wykonawczego OpenJDK i Spring Cloud są stosowane do usługi Azure Spring Cloud tak szybko, jak to możliwe.
+Krytyczne poprawki zabezpieczeń dla środowisk uruchomieniowych w chmurze OpenJDK i wiosny są stosowane do chmury wiosennej platformy Azure najszybciej, jak to możliwe.
 
-### <a name="in-which-regions-is-azure-spring-cloud-available"></a>W jakich regionach jest dostępna usługa Azure Spring Cloud?
+### <a name="in-which-regions-is-azure-spring-cloud-available"></a>W jakich regionach jest dostępna chmura Wiosenna platformy Azure?
 
 Wschodnie stany USA, zachodnie stany USA 2, Europa Zachodnia i Azja Południowo-Wschodnia.
 
-### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Jakie są znane ograniczenia usługi Azure Spring Cloud?
+### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Jakie są znane ograniczenia chmury wiosennej platformy Azure?
 
-Podczas wersji zapoznawczej usługa Azure Spring Cloud ma następujące znane ograniczenia:
+W wersji zapoznawczej chmura sprężynowa platformy Azure ma następujące znane ograniczenia:
 
-* `spring.application.name`zostanie zastąpiona przez nazwę aplikacji, która jest używana do tworzenia każdej aplikacji.
-* `server.port`nie jest dozwolone w pliku konfiguracyjnym z repozytorium Git. Dodanie go do pliku konfiguracyjnego prawdopodobnie spowoduje, że aplikacja będzie nieosiągalna z innych aplikacji lub Internetu.
-* Szablony witryny Azure portal i usługi Azure Resource Manager nie obsługują przekazywania pakietów aplikacji. Pakiety aplikacji można przekazać tylko przez wdrożenie aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure.
-* Aby dowiedzieć się więcej o ograniczeniach przydziału, zobacz [Jakie plany usług oferuje usługa Azure Spring Cloud?](#what-service-plans-does-azure-spring-cloud-offer)
+* `spring.application.name`zostanie przesłonięty przez nazwę aplikacji, która jest używana do tworzenia każdej aplikacji.
+* `server.port`nie jest dozwolone w pliku konfiguracji z repozytorium git. Dodanie go do pliku konfiguracji prawdopodobnie spowoduje niedostępność aplikacji z innych aplikacji lub Internetu.
+* Szablony Azure Portal i Azure Resource Manager nie obsługują przekazywania pakietów aplikacji. Pakiety aplikacji można przekazywać tylko przez wdrożenie aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure.
+* Aby dowiedzieć się więcej o ograniczeniach przydziałów, zobacz [jakie plany usługi są oferowane w chmurze Azure wiosennej?](#what-service-plans-does-azure-spring-cloud-offer).
 
-### <a name="how-can-i-provide-feedback-and-report-issues"></a>Jak mogę przekazać opinię i zgłosić problemy?
+### <a name="how-can-i-provide-feedback-and-report-issues"></a>Jak mogę przekazać Opinie i zgłosić problemy?
 
-Jeśli wystąpią jakiekolwiek problemy z usługą Azure Spring Cloud, utwórz [żądanie pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) Aby przesłać żądanie funkcji lub przekazać opinię, przejdź do [usługi Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
+Jeśli wystąpią problemy z chmurą Azure wiosną, Utwórz [żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Aby przesłać żądanie funkcji lub przekazać opinię, przejdź do obszaru [opinii na platformie Azure](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## <a name="development"></a>Opracowywanie zawartości
 
-### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>Jestem deweloperem Spring Cloud, ale nowym na platformie Azure. Jaki jest najszybszy sposób, abym dowiedział się, jak opracować aplikację Usługi Azure Spring Cloud?
+### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>Jestem deweloperem chmury w chmurze, ale nowym na platformie Azure. Co to jest najszybszy sposób, aby dowiedzieć się, jak utworzyć aplikację w chmurze ze sprężyną Azure?
 
-Aby uzyskać najszybszy sposób rozpoczęcia pracy z usługą Azure Spring Cloud, postępuj zgodnie z instrukcjami w [przewodniku Szybki start: Uruchom aplikację usługi Azure Spring Cloud przy użyciu portalu Azure.](spring-cloud-quickstart-launch-app-portal.md)
+Aby szybko rozpocząć pracę z chmurą wiosenną platformy Azure, postępuj zgodnie z instrukcjami w [przewodniku szybki start: uruchamianie aplikacji w chmurze ze sprężyną Azure przy użyciu Azure Portal](spring-cloud-quickstart-launch-app-portal.md).
 
-### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Jakie środowisko wykonawcze Java obsługuje usługa Azure Spring Cloud?
+### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Jakie środowisko uruchomieniowe języka Java obsługuje chmurę Azure?
 
-Usługa Azure Spring Cloud obsługuje programy Java 8 i 11.
+Chmura sprężynowa platformy Azure obsługuje środowisko Java 8 i 11.
 
-### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Gdzie mogę wyświetlić dzienniki aplikacji i metryki aplikacji Spring Cloud?
+### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Gdzie mogę wyświetlić sprężynowe dzienniki i metryki aplikacji w chmurze?
 
-Znajdź metryki na karcie Omówienie aplikacji i na karcie [Monitor platformy Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics)
+Znajdź metryki na karcie Przegląd aplikacji i karcie [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) .
 
-Usługa Azure Spring Cloud obsługuje eksportowanie dzienników i metryk aplikacji w chmurze Spring Cloud do usługi Azure Storage, EventHub i [usługi Log Analytics.](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries) Nazwa tabeli w usłudze Log Analytics to *AppPlatformLogsforSpring*. Aby dowiedzieć się, jak go włączyć, zobacz [Usługi diagnostyczne](diagnostic-services.md).
+Chmura sprężynowa platformy Azure obsługuje eksportowanie dzienników aplikacji i metryk w chmurze z usługą Azure Storage, centrum EventHub i [log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). Nazwa tabeli w Log Analytics to *AppPlatformLogsforSpring*. Aby dowiedzieć się, jak włączyć tę funkcję, zobacz [usługi diagnostyczne](diagnostic-services.md).
 
-### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Czy usługa Azure Spring Cloud obsługuje śledzenie rozproszone?
+### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Czy chmura Wiosenna platformy Azure obsługuje śledzenie rozproszone?
 
-Tak. Aby uzyskać więcej informacji, zobacz [Samouczek: Korzystanie z śledzenia rozproszonego z usługą Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md).
+Tak. Aby uzyskać więcej informacji, zobacz [Samouczek: używanie rozproszonego śledzenia w chmurze Azure wiosennej](spring-cloud-tutorial-distributed-tracing.md).
 
-### <a name="what-resource-types-does-service-binding-support"></a>Jakie typy zasobów obsługuje powiązanie usługi?
+### <a name="what-resource-types-does-service-binding-support"></a>Jakie typy zasobów obsługuje usługa powiązania usługi?
 
-Obecnie obsługiwane są trzy usługi: Usługa Azure Cosmos DB, usługa Azure Database for MySQL i Azure Cache for Redis.
+Obecnie są obsługiwane trzy usługi: Azure Cosmos DB, Azure Database for MySQL i pamięć podręczna platformy Azure dla Redis.
 
-### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Czy mogę wyświetlać, dodawać lub przenosić woluminy trwałe z wewnątrz moich aplikacji?
+### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Czy mogę wyświetlać, dodawać i przenosić woluminy trwałe z wewnątrz aplikacji?
 
 Tak.
 
-## <a name="deployment"></a>wdrażania
+### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Czy po usunięciu/przeniesieniu wystąpienia usługi w chmurze Azure wiosny czy zasoby rozszerzeń będą również usuwane lub przenoszone?
 
-### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Czy usługa Azure Spring Cloud obsługuje wdrożenie w niebiesko-zielonej chmurze?
+Jest to zależne od logiki dostawców zasobów, do których należą zasoby rozszerzenia. Zasoby rozszerzenia `Microsoft.AppPlatform` wystąpienia nie należą do tej samej przestrzeni nazw, więc zachowania różnią się w zależności od różnych dostawców zasobów. Na przykład operacja usuwania/przenoszenia nie zostanie przeniesiona do zasobów **ustawień diagnostycznych** . Jeśli nowe wystąpienie chmury Azure wiosny jest obsługiwane przy użyciu tego samego identyfikatora zasobu, który został usunięty, lub jeśli poprzednie wystąpienie chmury sieci platformy Azure zostanie przeniesione z powrotem, poprzednie zasoby **ustawień diagnostycznych** kontynuują jego rozszerzanie.
+
+## <a name="deployment"></a>Wdrożenie
+
+### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Czy usługa Azure Wiosenna Cloud obsługuje wdrożenie Blue-Green?
 Tak. Aby uzyskać więcej informacji, zobacz [Konfigurowanie środowiska przejściowego](spring-cloud-howto-staging-environment.md).
 
-### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>Czy mogę uzyskać dostęp do kubernetes do manipulowania kontenerami aplikacji?
+### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>Czy mogę uzyskać dostęp do programu Kubernetes w celu manipulowania kontenerami aplikacji?
 
-Nie.  Usługa Azure Spring Cloud wyodrębnia dewelopera z podstawowej architektury, umożliwiając skoncentrowanie się na kodzie aplikacji i logice biznesowej.
+Nie.  Chmura ze sprężyną platformy Azure jest abstrakcyjna dla deweloperów z podstawowej architektury, co pozwala skoncentrować się na kodzie aplikacji i logice biznesowej.
 
-### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Czy usługa Azure Spring Cloud obsługuje kontenery tworzenia ze źródła?
+### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Czy chmura sprężynowa platformy Azure obsługuje tworzenie kontenerów ze źródła?
 
-Tak. Aby uzyskać więcej informacji, zobacz [Uruchamianie aplikacji Spring Cloud z kodu źródłowego](spring-cloud-launch-from-source.md).
+Tak. Aby uzyskać więcej informacji, zobacz [Uruchamianie aplikacji w chmurze wiosny z poziomu kodu źródłowego](spring-cloud-launch-from-source.md).
 
-### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Czy usługa Azure Spring Cloud obsługuje skalowanie automatyczne w wystąpieniach aplikacji?
+### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Czy chmura sprężynowa platformy Azure obsługuje skalowanie automatyczne w wystąpieniach aplikacji?
 
 Nie.
 
-### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>Jakie są najlepsze rozwiązania dotyczące migracji istniejących mikrousług Spring Cloud do usługi Azure Spring Cloud?
+### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>Jakie są najlepsze rozwiązania dotyczące migrowania istniejących mikrousług w chmurze do usługi Azure wiosny?
 
-Podczas migracji istniejących mikrousług Spring Cloud do usługi Azure Spring Cloud warto przestrzegać następujących najlepszych rozwiązań:
-* Wszystkie zależności aplikacji muszą zostać rozwiązane.
-* Przygotuj wpisy konfiguracji, zmienne środowiskowe i parametry JVM, aby można je porównać z wdrożeniem w usłudze Azure Spring Cloud.
-* Jeśli chcesz używać powiązania usługi, przejdź przez usługi platformy Azure i upewnij się, że masz ustawione odpowiednie uprawnienia dostępu.
-* Zaleca się usunięcie lub wyłączenie wszelkich usług osadzonych, które mogą kolidować z usługami zarządzanymi przez usługę Azure Spring Cloud, takimi jak nasza usługa odnajdowania usług, serwer konfiguracji itd.
-* Zalecamy korzystanie z oficjalnych, stabilnych bibliotek Pivotal Spring. Nieoficjalne, beta lub rozwidlane wersje bibliotek Pivotal Spring nie obsługują umowy dotyczącej poziomu usług (SLA).
+Podczas migrowania istniejących mikrousług w chmurze wiosny do chmury wiosennej platformy Azure dobrym pomysłem jest przestrzeganie następujących najlepszych rozwiązań:
+* Należy rozwiązać wszystkie zależności aplikacji.
+* Przygotuj wpisy konfiguracji, zmienne środowiskowe i JVM parametry, aby można było je porównać z wdrożeniem w chmurze Azure wiosennej.
+* Jeśli chcesz użyć powiązania usługi, przejdź przez usługi platformy Azure i upewnij się, że ustawiono odpowiednie uprawnienia dostępu.
+* Zalecamy usunięcie lub wyłączenie usług osadzonych, które mogą powodować konflikt z usługami zarządzanymi przez chmurę z usługą Azure wiosną, taką jak nasza usługa odnajdowania usług, serwer konfiguracji i tak dalej.
+* Zalecamy używanie oficjalnych, stabilnych bibliotek sprężyny Pivot. Wersje nieoficjalne, beta lub rozwidlenia z nieoficjalnymi wersjami bibliotek sprężynowych nie są objęte umową dotyczącą poziomu usług.
 
-Po migracji należy monitorować metryki procesora/pamięci RAM i ruch sieciowy, aby upewnić się, że wystąpienia aplikacji są odpowiednio skalowane.
+Po migracji Monitoruj metryki procesora/pamięci RAM i ruch sieciowy, aby upewnić się, że wystąpienia aplikacji są odpowiednio skalowane.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli masz dalsze pytania, zapoznaj się z [przewodnikiem rozwiązywania problemów](spring-cloud-troubleshoot.md)z usługą Azure Spring Cloud .
+Jeśli masz więcej pytań, zobacz [Przewodnik rozwiązywania problemów z chmurą Azure wiosną](spring-cloud-troubleshoot.md).

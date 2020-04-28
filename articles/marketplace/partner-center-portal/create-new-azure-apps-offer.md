@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: a62551b31c51836dfa50534ee6db907c8a4e111a
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 516ebce176f53a0495ea493f5327658162e7ea9e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730614"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867280"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -221,6 +221,9 @@ W sekcji **Kontakt pomocy technicznej** należy również podać adres URL pomoc
 
 W tej sekcji możesz podać logo i obrazy, które będą używane podczas wyświetlania oferty klientowi. Wszystkie obrazy muszą być w formacie png.
 
+>[!Note]
+>Jeśli masz problem z przekazywaniem plików, upewnij się, https://upload.xboxlive.com że sieć lokalna nie blokuje usługi używanej przez Centrum partnerów.
+
 #### <a name="store-logos"></a>Logo sklepu
 
 Podaj logo swojej oferty w trzech rozmiarach: **Mały (48 x 48),** **Średni (90 X 90)** i **Duży (216 x 216)**.
@@ -355,7 +358,7 @@ Jeśli masz już ustawione ceny planu w dolarach amerykańskich (USD) i dodasz i
 
 Podaj cenę miesięczną dla tego planu.  Ta cena jest dodatkiem do dowolnej infrastruktury platformy Azure lub kosztów oprogramowania zgodnie z rzeczywistym użyciem poniesionych przez zasoby wdrożone przez to rozwiązanie.
 
-Ceny ustalone w walucie lokalnej (USD = Dolar amerykański) są przeliczane na walutę lokalną wszystkich wybranych rynków przy użyciu bieżących kursów wymiany dostępnych podczas konfiguracji. Sprawdź te ceny przed opublikowaniem, eksportując arkusz kalkulacyjny cen i przeglądając cenę na każdym rynku. Jeśli chcesz ustawić ceny niestandardowe na poszczególnych rynkach, zmodyfikuj i zaimportuj arkusz kalkulacyjny cen. 
+Ceny ustalone w USD (USD = Dolar amerykański) są przeliczane na walutę lokalną wszystkich wybranych rynków przy użyciu bieżących kursów wymiany po zapisaniu. Sprawdź te ceny przed opublikowaniem, eksportując arkusz kalkulacyjny cen i przeglądając cenę na każdym rynku. Jeśli chcesz ustawić ceny niestandardowe na poszczególnych rynkach, zmodyfikuj i zaimportuj arkusz kalkulacyjny cen. 
 
 >[!Note]
 >Aby włączyć eksport danych cenowych, należy najpierw zapisać zmiany cen.
@@ -397,7 +400,16 @@ Wszystkie pakiety planu aplikacji platformy Azure muszą zawierać `.zip` te dwa
 
 * Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
+Maksymalne obsługiwane rozmiary plików to:
+
+* Do 1 Gb w `.zip` łącznej skompresowanej wielkości archiwum
+
+* Do 1 Gb dla każdego nieskompresowanego pliku w archiwum `.zip`  
+
 Wszystkie nowe oferty aplikacji platformy Azure muszą również zawierać identyfikator GUID [atrybucji klienta partnera platformy Azure.](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution)
+
+>[!Note]
+>Jeśli masz problem z przekazywaniem plików, upewnij się, https://upload.xboxlive.com że sieć lokalna nie blokuje usługi używanej przez Centrum partnerów.
 
 ### <a name="previously-published-packages"></a>Wcześniej opublikowane pakiety 
 

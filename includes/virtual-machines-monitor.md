@@ -1,19 +1,21 @@
 ---
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 09/30/2019
 ms.author: cynthn
-ms.openlocfilehash: fbc6889507e58c4721597a1108337fcb1f8756a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: feea9696316723a2750be6fc1e13001224320324
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75752453"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865626"
 ---
 Ze znacznym wzrostem maszyn wirtualnych hostowanych na platformie Azure ważne jest identyfikowanie problemów z wydajnością i kondycją, które mają wpływ na aplikacje i usługi infrastruktury, które obsługują. Podstawowe monitorowanie jest dostarczane domyślnie z platformą Azure przez typy metryki użycia procesora CPU, wykorzystania dysku, wykorzystania pamięci i ruchu sieciowego zebrane przez hipernadzorca hosta. Dodatkowe dane metryki i dziennika mogą być zbierane przy użyciu [rozszerzeń](../articles/virtual-machines/windows/extensions-features.md) do konfigurowania diagnostyki na maszynach wirtualnych z systemu operacyjnego gościa.
 
-Aby wykrywać i pomagać w diagnozowaniu problemów z wydajnością i kondycją systemu operacyjnego gościa, składników aplikacji sieci Web opartych na platformie .NET lub Java działających wewnątrz maszyny Wirtualnej, usługa Azure Monitor zapewnia scentralizowane monitorowanie z kompleksowymi funkcjami, takimi jak usługa Azure Monitor dla maszyn wirtualnych i Usługi Application Insights.
+Aby wykryć i pomóc w diagnozowaniu problemów z wydajnością i kondycją w systemie operacyjnym gościa, składnikach aplikacji sieci Web opartych na platformie .NET lub Java działających wewnątrz maszyny wirtualnej, usługa Azure Monitor zapewnia scentralizowane monitorowanie za pomocą kompleksowych funkcji, takich jak usługa Azure Monitor dla maszyn wirtualnych i usługa Application Insights.
 
 ## <a name="diagnostics-and-metrics"></a>Diagnostyka i metryki 
 
@@ -68,7 +70,7 @@ Oto niektóre czynności, które można wykonać za pomocą dzienników diagnost
 
 Aby uzyskać wgląd w aplikację lub usługę obsługiwaną przez zestawy skalowania maszyny wirtualnej platformy Azure i maszyny wirtualnej, identyfikacja problemów z systemem operacyjnym gościa lub obciążeniem uruchomionym na maszynie wirtualnej, aby zrozumieć, czy ma to wpływ na dostępność lub wydajność aplikacji lub jest to problem z aplikacją, włącz zarówno [usługę Azure Monitor dla maszyn wirtualnych,](../articles/azure-monitor/insights/vminsights-overview.md) jak i usługę Application [Insights.](../articles/azure-monitor/app/app-insights-overview.md)
 
-Usługa Azure Monitor dla maszyn wirtualnych monitoruje maszyny wirtualne platformy Azure na dużą skalę, analizując wydajność i kondycję maszyn wirtualnych z systemem Windows i Linux, w tym różne procesy i wzajemnie powiązane zależności od innych zasobów i procesów zewnętrznych. Odkrywa. Zawiera kilka wykresów skuteczności trendu, aby pomóc podczas badania problemów i oceny pojemności maszyn wirtualnych. Mapa zależności pokazuje monitorowane i niemonitorowane maszyny, nieudane i aktywne połączenia sieciowe między procesami a tymi komputerami oraz pokazuje wykresy trendów ze standardowymi metrykami połączenia sieciowego. W połączeniu ze aplikacją Insights można monitorować aplikację i przechwytywać dane telemetryczne, takie jak żądania HTTP, wyjątki itp., dzięki czemu można skorelować problemy między maszynami wirtualnymi a aplikacją. Skonfiguruj [alerty usługi Azure Monitor,](../articles/azure-monitor/platform/alerts-overview.md) aby ostrzegać o ważnych warunkach wykrytych na podstawie danych monitorowania zebranych przez usługę Azure Monitor dla maszyn wirtualnych.
+Usługa Azure Monitor dla maszyn wirtualnych monitoruje maszyny wirtualne platformy Azure na dużą skalę, analizując wydajność i kondycję maszyn wirtualnych z systemem Windows i Linux, w tym różne procesy i wzajemnie powiązane zależności od innych zasobów i procesów zewnętrznych, które odkrywa. Zawiera kilka wykresów skuteczności trendu, aby pomóc podczas badania problemów i oceny pojemności maszyn wirtualnych. Mapa zależności pokazuje monitorowane i niemonitorowane maszyny, nieudane i aktywne połączenia sieciowe między procesami a tymi komputerami oraz pokazuje wykresy trendów ze standardowymi metrykami połączenia sieciowego. W połączeniu ze aplikacją Insights można monitorować aplikację i przechwytywać dane telemetryczne, takie jak żądania HTTP, wyjątki itp., dzięki czemu można skorelować problemy między maszynami wirtualnymi a aplikacją. Skonfiguruj [alerty usługi Azure Monitor,](../articles/azure-monitor/platform/alerts-overview.md) aby ostrzegać o ważnych warunkach wykrytych na podstawie danych monitorowania zebranych przez usługę Azure Monitor dla maszyn wirtualnych.
 
 ## <a name="next-steps"></a>Następne kroki
 

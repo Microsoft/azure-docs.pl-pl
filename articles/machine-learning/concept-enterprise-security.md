@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 3765c70b27fb98518f71a55f00acfe5b831044ec
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146671"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188399"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -44,7 +44,7 @@ Azure Machine Learning obsługuje dwie formy uwierzytelniania dla usług sieci W
 
 |Metoda uwierzytelniania|Opis|Azure Container Instances|AKS|
 |---|---|---|---|
-|Klucz|Klucze są statyczne i nie muszą być odświeżane. Klucze można generować ponownie ręcznie.|Domyślnie wyłączone| Domyślnie włączone|
+|Key|Klucze są statyczne i nie muszą być odświeżane. Klucze można generować ponownie ręcznie.|Domyślnie wyłączone| Domyślnie włączone|
 |Token|Tokeny wygasają po upływie określonego czasu i wymagają odświeżenia.| Niedostępne| Domyślnie wyłączone |
 
 Aby zapoznać się z przykładami kodu, zobacz [sekcję uwierzytelnianie usługi sieci Web](how-to-setup-authentication.md#web-service-authentication).
@@ -78,7 +78,7 @@ W poniższej tabeli wymieniono niektóre główne operacje Azure Machine Learnin
 Jeśli wbudowane role nie spełniają Twoich potrzeb, można utworzyć role niestandardowe. Role niestandardowe są obsługiwane tylko w przypadku operacji w obszarze roboczym i środowisko obliczeniowe usługi Machine Learning. Role niestandardowe mogą mieć uprawnienia do odczytu, zapisu lub usuwania w obszarze roboczym i w zasobie obliczeniowym w tym obszarze roboczym. Rolę można udostępnić na określonym poziomie obszaru roboczego, na określonym poziomie grupy zasobów lub na określonym poziomie subskrypcji. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i rolami w obszarze roboczym Azure Machine Learning](how-to-assign-roles.md).
 
 > [!WARNING]
-> Azure Machine Learning nie jest obecnie obsługiwana w przypadku współpracy między firmami i Azure Active Directory.
+> Azure Machine Learning jest obsługiwana z Azure Active Directory współpracy między firmami, ale obecnie nie jest obsługiwana w przypadku Azure Active Directory współpracy między firmami.
 
 ### <a name="securing-compute-targets-and-data"></a>Zabezpieczanie obiektów docelowych obliczeń i danych
 
@@ -385,10 +385,7 @@ Oto szczegółowe informacje:
 
 * [Zabezpieczanie Azure Machine Learning usług sieci Web przy użyciu protokołu TLS](how-to-secure-web-service.md)
 * [Korzystanie z modelu Machine Learning wdrożonego jako usługa sieci Web](how-to-consume-web-service.md)
-* [Jak uruchamiać przewidywania wsadowe](how-to-use-parallel-run-step.md)
-* [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)
-* [Zbieranie danych dla modeli w środowisku produkcyjnym](how-to-enable-data-collection.md)
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Używanie Azure Machine Learning z zaporą platformy Azure](how-to-access-azureml-behind-firewall.md)
 * [Korzystanie z Azure Machine Learning z platformą Azure Virtual Network](how-to-enable-virtual-network.md)
 * [Najlepsze rozwiązania dotyczące kompilowania systemów rekomendacji](https://github.com/Microsoft/Recommenders)
 * [Kompilowanie interfejsu API rekomendacji w czasie rzeczywistym na platformie Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

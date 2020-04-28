@@ -1,6 +1,6 @@
 ---
-title: Słowniczek dewelopera platformy tożsamości firmy Microsoft | Azure
-description: Lista terminów dla często używanych koncepcji i funkcji dewelopera platformy tożsamości firmy Microsoft.
+title: Microsoft Identity platform Developer słownik | Azure
+description: Lista warunków dotyczących często używanych koncepcji i funkcji dla deweloperów platformy Microsoft Identity.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,215 +8,223 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2019
+ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: ce98d2db86c87ac6aa8fa4872bc076714467d32f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9709cd3b6036b384fd9212a522c191d0695b9bb4
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263051"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161728"
 ---
-# <a name="microsoft-identity-platform-developer-glossary"></a>Glosariusz dewelopera platformy tożsamości firmy Microsoft
+# <a name="microsoft-identity-platform-developer-glossary"></a>Słownik oprogramowania Microsoft Identity platform dla deweloperów
 
-Ten artykuł zawiera definicje niektórych podstawowych pojęć dewelopera i terminologii, które są przydatne podczas nauki o tworzeniu aplikacji przy użyciu platformy tożsamości firmy Microsoft.
+Ten artykuł zawiera definicje niektórych podstawowych pojęć i terminologii dla deweloperów, które są przydatne podczas uczenia się o tworzeniu aplikacji przy użyciu platformy tożsamości firmy Microsoft.
 
 ## <a name="access-token"></a>token dostępu
 
-Typ [tokenu zabezpieczającego](#security-token) wystawionego przez [serwer autoryzacji](#authorization-server)i używanego przez [aplikację kliencką](#client-application) w celu uzyskania dostępu do [chronionego serwera zasobów](#resource-server). Zazwyczaj w postaci [tokenu JSON Web Token (JWT)][JWT]token uosabia autoryzacji udzielonej klientowi przez [właściciela zasobu,](#resource-owner)dla żądanego poziomu dostępu. Token zawiera wszystkie odpowiednie [oświadczenia](#claim) dotyczące tematu, dzięki czemu aplikacja kliencka używać go jako forma poświadczeń podczas uzyskiwania dostępu do danego zasobu. Eliminuje to również potrzebę właściciela zasobu do udostępnienia poświadczeń do klienta.
+Typ [tokenu zabezpieczającego](#security-token) wystawionego przez [serwer autoryzacji](#authorization-server)i używany przez [aplikację kliencką](#client-application) w celu uzyskania dostępu do [chronionego serwera zasobów](#resource-server). Zwykle w postaci [tokenu sieci Web JSON (JWT)][JWT]token uwzględnia autoryzację przydaną klientowi przez [właściciela zasobu](#resource-owner)dla żądanego poziomu dostępu. Token zawiera wszystkie odpowiednie [oświadczenia](#claim) dotyczące tematu, umożliwiając aplikacji klienckiej używanie jej jako poświadczeń podczas uzyskiwania dostępu do danego zasobu. Eliminuje to również potrzebę, aby właściciel zasobu mógł ujawnić poświadczenia klientowi.
 
-Tokeny dostępu są czasami określane jako "Użytkownik + aplikacja" lub "Tylko do aplikacji", w zależności od poświadczeń reprezentowanych. Na przykład, gdy aplikacja kliencka używa:
+Tokeny dostępu są prawidłowe tylko przez krótki czas i nie można ich odwołać. Po wystawieniu tokenu dostępu serwer autoryzacji może także wydać [token odświeżenia](#refresh-token) . Tokeny odświeżania są zazwyczaj udostępniane tylko dla poufnych aplikacji klienckich.
 
-* [Udzielenie autoryzacji "Kod autoryzacji",](#authorization-grant)użytkownik końcowy uwierzytelnia się najpierw jako właściciel zasobu, delegując klientowi autoryzację dostępu do zasobu. Klient uwierzytelnia się później podczas uzyskiwania tokenu dostępu. Token może czasami być określany bardziej szczegółowo jako token "Użytkownik+aplikacja", ponieważ reprezentuje zarówno użytkownika, który autoryzował aplikację kliencką, jak i aplikację.
-* ["Poświadczenia klienta" autoryzacji udzielić,](#authorization-grant)klient zapewnia wyłączne uwierzytelnianie, działając bez uwierzytelniania/autoryzacji właściciela zasobu, więc token może czasami być określane jako token "Tylko do aplikacji".
+Tokeny dostępu są czasami określane jako "użytkownik + aplikacja" lub "tylko aplikacja", w zależności od reprezentowanego poświadczenia. Na przykład, gdy aplikacja kliencka używa programu:
 
-Aby uzyskać więcej informacji, zobacz [odwołanie do tokenów platformy tożsamości firmy Microsoft.][AAD-Tokens-Claims]
+* ["Kod autoryzacji"](#authorization-grant), użytkownik końcowy najpierw uwierzytelnia się jako właściciel zasobu, delegując autoryzację do klienta w celu uzyskania dostępu do zasobu. Klient jest uwierzytelniany w późniejszym czasie podczas uzyskiwania tokenu dostępu. Token może być czasami określany jako token "User + App", ponieważ reprezentuje zarówno użytkownika, który ma autoryzowaną aplikację kliencką, jak i aplikację.
+* ["Poświadczenia klienta" udzielenie autoryzacji](#authorization-grant), klient zapewnia uwierzytelnianie pojedyncze, działające bez uwierzytelniania/autoryzacji właściciela zasobu, więc token może być nazywany tokenem "tylko aplikacja".
+
+Aby uzyskać więcej informacji, zobacz [Informacje o tokenach platformy tożsamości firmy Microsoft][AAD-Tokens-Claims] .
 
 ## <a name="application-id-client-id"></a>Identyfikator aplikacji (identyfikator klienta)
 
-Unikatowy identyfikator usługi Azure AD problemy z rejestracją aplikacji, która identyfikuje określonej aplikacji i skojarzonych konfiguracji. Ten identyfikator aplikacji[(identyfikator klienta)](https://tools.ietf.org/html/rfc6749#page-15)jest używany podczas wykonywania żądań uwierzytelniania i jest dostarczany do bibliotek uwierzytelniania w czasie tworzenia. Identyfikator aplikacji (identyfikator klienta) nie jest kluczem tajnym.
+Unikatowy identyfikator dotyczący rejestracji aplikacji, który identyfikuje konkretną aplikację i skojarzone konfiguracje, w usłudze Azure AD. Ten identyfikator aplikacji ([Identyfikator klienta](https://tools.ietf.org/html/rfc6749#page-15)) jest używany podczas wykonywania żądań uwierzytelniania i jest dostarczany do bibliotek uwierzytelniania w czasie projektowania. Identyfikator aplikacji (identyfikator klienta) nie jest wpisem tajnym.
 
 ## <a name="application-manifest"></a>manifest aplikacji
 
-Funkcja udostępniana przez [portal Azure][AZURE-portal], który tworzy reprezentację JSON konfiguracji tożsamości aplikacji, używany jako mechanizm do aktualizowania skojarzonych [jednostek aplikacji][Graph-App-Resource] i [ServicePrincipal.][Graph-Sp-Resource] Aby uzyskać więcej [informacji, zobacz Opis manifestu aplikacji usługi Azure Active Directory.][AAD-App-Manifest]
+Funkcja udostępniona przez [Azure Portal][AZURE-portal], która tworzy reprezentację w formacie JSON konfiguracji tożsamości aplikacji, używaną jako mechanizm do aktualizowania skojarzonej z nią jednostek [aplikacji][Graph-App-Resource] i obiektów [serviceprincipal][Graph-Sp-Resource] . Aby uzyskać więcej informacji [, zobacz Opis manifestu aplikacji Azure Active Directory][AAD-App-Manifest] .
 
-## <a name="application-object"></a>obiekt aplikacji
+## <a name="application-object"></a>Obiekt aplikacji
 
-Po zarejestrowaniu/zaktualizowaniu aplikacji w [witrynie Azure portal][AZURE-portal]portal tworzy/aktualizuje zarówno obiekt aplikacji, jak i odpowiedni [obiekt jednostkowy usługi](#service-principal-object) dla tej dzierżawy. Obiekt aplikacji *definiuje* konfigurację tożsamości aplikacji globalnie (we wszystkich dzierżawach, do których ma dostęp), zapewniając szablon, z którego *pochodzą* jej odpowiednie obiekty głównej usługi do użytku lokalnego w czasie wykonywania (w określonej dzierżawie).
+Po zarejestrowaniu/zaktualizowaniu aplikacji w [Azure Portal][AZURE-portal]Portal tworzy/aktualizuje obiekt aplikacji i odpowiadający mu [obiekt głównej usługi](#service-principal-object) dla tej dzierżawy. Obiekt aplikacji *definiuje* konfigurację tożsamości aplikacji globalnie (w przypadku wszystkich dzierżawców, w których ma dostęp), dostarczając szablon, z którego odpowiadające mu obiekty główne usługi są *wyprowadzane* lokalnie w czasie wykonywania (w określonej dzierżawie).
 
-Aby uzyskać więcej informacji, zobacz [Obiekty głównej aplikacji i usługi][AAD-App-SP-Objects].
+Aby uzyskać więcej informacji, zobacz [obiekty główne aplikacji i usługi][AAD-App-SP-Objects].
 
 ## <a name="application-registration"></a>rejestracja aplikacji
 
-Aby umożliwić aplikacji integrację z funkcjami zarządzania tożsamościami i dostępem i delegowaniem do usługi Azure AD, musi ona być zarejestrowana w [dzierżawie](#tenant)usługi Azure AD. Podczas rejestrowania aplikacji w usłudze Azure AD udostępniasz konfigurację tożsamości dla aplikacji, umożliwiając jej integrację z usługą Azure AD i korzystanie z funkcji, takich jak:
+Aby umożliwić aplikacji integrację z funkcjami zarządzania tożsamościami i dostępem do usługi Azure AD oraz ich delegowanie, należy ją zarejestrować w [dzierżawie](#tenant)usługi Azure AD. Po zarejestrowaniu aplikacji w usłudze Azure AD udostępniamy konfigurację tożsamości dla aplikacji, umożliwiając jej integrację z usługą Azure AD i używanie takich funkcji jak:
 
-* Niezawodne zarządzanie logiem jednokrotnym przy użyciu usługi Azure AD Identity Management i implementacji protokołu [OpenID Connect][OpenIDConnect]
-* Pośredniczył dostęp do [chronionych zasobów](#resource-server) przez [aplikacje klienckie,](#client-application)za pośrednictwem [serwera autoryzacji](#authorization-server) OAuth 2.0
-* [Ramy zgody](#consent) na zarządzanie dostępem klienta do chronionych zasobów na podstawie autoryzacji właściciela zasobów.
+* Niezawodne zarządzanie logowaniem jednokrotnym przy użyciu usługi Azure AD Identity Management i implementacji protokołu [OpenID Connect Connect][OpenIDConnect]
+* Dostęp przez brokera do [chronionych zasobów](#resource-server) przez [aplikacje klienckie](#client-application)za pośrednictwem [serwera autoryzacji](#authorization-server) OAuth 2,0
+* [Struktura wyrażania zgody](#consent) na zarządzanie dostępem klientów do chronionych zasobów w oparciu o autoryzację właściciela zasobu.
 
-Aby uzyskać więcej informacji, zobacz [Integrowanie aplikacji z usługą Azure Active Directory.][AAD-Integrating-Apps]
+Aby uzyskać więcej informacji, zobacz [Integrowanie aplikacji z Azure Active Directory][AAD-Integrating-Apps] .
 
 ## <a name="authentication"></a>uwierzytelnianie
 
-Akt zakwestionowania strony dla uzasadnionych poświadczeń, stanowią podstawę do utworzenia podmiotu zabezpieczeń, który ma być używany do kontroli tożsamości i dostępu. Na przykład podczas [udzielania autoryzacji OAuth2](#authorization-grant) uwierzytelnianie strony wypełnia rolę [właściciela zasobu](#resource-owner) lub [aplikacji klienckiej](#client-application), w zależności od użytej dotacji.
+Czynność zaskarżenia strony dla uprawnionych poświadczeń, która stanowi podstawę do utworzenia podmiotu zabezpieczeń, który ma być używany na potrzeby tożsamości i kontroli dostępu. Podczas [udzielania autoryzacji OAuth2](#authorization-grant) na przykład uwierzytelnianie strony wypełnia rolę [właściciela zasobu](#resource-owner) lub [aplikacji klienckiej](#client-application), w zależności od używanej dotacji.
 
 ## <a name="authorization"></a>autoryzacja
 
-Akt udzielania uwierzytelnionego uprawnienia głównego zabezpieczeń, aby coś zrobić. Istnieją dwa główne przypadki użycia w modelu programowania w usłudze Azure AD:
+Czynność udzielenia uprawnienia uwierzytelnionego podmiotu zabezpieczeń. Istnieją dwa główne przypadki użycia w modelu programowania w usłudze Azure AD:
 
-* Podczas przepływu [udzielania dotacji autoryzacji OAuth2:](#authorization-grant) gdy [właściciel zasobu](#resource-owner) udziela autoryzacji [aplikacji klienckiej,](#client-application)umożliwiając klientowi dostęp do zasobów właściciela zasobu.
-* Podczas dostępu do zasobów przez klienta: zgodnie z implementacji przez [serwer zasobów](#resource-server), przy użyciu wartości [oświadczeń](#claim) obecnych w [tokenie dostępu](#access-token) do podejmowania decyzji kontroli dostępu na ich podstawie.
+* Podczas przepływu [przyznawania autoryzacji OAuth2](#authorization-grant) : gdy [właściciel zasobu](#resource-owner) przyznaje autoryzację [aplikacji klienckiej](#client-application), zezwolenie klientowi na dostęp do zasobów właściciela zasobu.
+* Podczas uzyskiwania dostępu do zasobów przez klienta: zgodnie z implementacją [serwera zasobów](#resource-server), za pomocą wartości [roszczeń](#claim) zawartych w [tokenie dostępu](#access-token) w celu podejmowania decyzji dotyczących kontroli dostępu.
 
-## <a name="authorization-code"></a>kod autoryzacyjny
+## <a name="authorization-code"></a>kod autoryzacji
 
-Krótkotrwały "token" dostarczony do [aplikacji klienckiej](#client-application) przez [punkt końcowy autoryzacji,](#authorization-endpoint)jako część przepływu "kodu autoryzacji", jeden z czterech dotacji [autoryzacji](#authorization-grant)OAuth2. Kod jest zwracany do aplikacji klienckiej w odpowiedzi na uwierzytelnianie [właściciela zasobu,](#resource-owner)wskazując, że właściciel zasobu przekazał autoryzację dostępu do żądanych zasobów. W ramach przepływu kod jest później wymieniany na [token dostępu.](#access-token)
+Krótko mówiąc "token" dostarczony do [aplikacji klienckiej](#client-application) przez [punkt końcowy autoryzacji](#authorization-endpoint)w ramach przepływu "kod autoryzacji", jeden z czterech OAuth2 [autoryzacji](#authorization-grant). Kod jest zwracany do aplikacji klienckiej w odpowiedzi na uwierzytelnianie [właściciela zasobu](#resource-owner), wskazując właścicielowi zasobu delegowane autoryzację w celu uzyskania dostępu do żądanych zasobów. W ramach przepływu kod jest później zrealizowany dla [tokenu dostępu](#access-token).
 
 ## <a name="authorization-endpoint"></a>punkt końcowy autoryzacji
 
-Jeden z punktów końcowych zaimplementowanych przez [serwer autoryzacji](#authorization-server), używany do interakcji z [właścicielem zasobu](#resource-owner) w celu zapewnienia [dotacji autoryzacji](#authorization-grant) podczas przepływu udzielania autoryzacji OAuth2. W zależności od używanego przepływu dotacji autoryzacji rzeczywista dotacja może się różnić, w tym [kod autoryzacji](#authorization-code) lub [token zabezpieczający.](#security-token)
+Jeden z punktów końcowych wdrożonych przez [serwer autoryzacji](#authorization-server)używany do współdziałania z [właścicielem zasobu](#resource-owner) , aby zapewnić [udzielenie autoryzacji](#authorization-grant) w ramach przepływu OAuth2a autoryzacji. W zależności od użytego przepływu przydzielenia uprawnień rzeczywisty przydzielony udział może się różnić, łącznie z [kodem autoryzacji](#authorization-code) lub [tokenem zabezpieczeń](#security-token).
 
-Zobacz OAuth2 specyfikacji [dotacji i sekcji][OAuth2-AuthZ-Grant-Types] punktów końcowych [autoryzacji][OAuth2-AuthZ-Endpoint] i [OpenIDConnect specyfikacji,][OpenIDConnect-AuthZ-Endpoint] aby uzyskać więcej informacji.
+Aby uzyskać więcej informacji, zobacz sekcję Określanie [typów autoryzacji][OAuth2-AuthZ-Grant-Types] i [punktów końcowych][OAuth2-AuthZ-Endpoint] autoryzacji specyfikacji OAuth2 oraz [specyfikację OpenIDConnect][OpenIDConnect-AuthZ-Endpoint] .
 
-## <a name="authorization-grant"></a>udzielenie zezwolenia
+## <a name="authorization-grant"></a>przyznawanie autoryzacji
 
-Poświadczenie reprezentujące [autoryzację](#authorization) [właściciela zasobu](#resource-owner) dostępu do chronionych zasobów, udzieloną [aplikacji klienckiej](#client-application). Aplikacja kliencka może użyć jednego z [czterech typów dotacji zdefiniowanych przez platformę autoryzacji OAuth2][OAuth2-AuthZ-Grant-Types] w celu uzyskania dotacji, w zależności od typu klienta/wymagań: "udzielenie kodu autoryzacji", "udzielenie poświadczeń klienta", "niejawne udzielanie dotacji" i "udzielanie poświadczeń hasła właściciela zasobu". Poświadczenie zwrócone do klienta jest [token dostępu](#access-token)lub [kod autoryzacji](#authorization-code) (wymieniane później na token dostępu), w zależności od typu dotacji autoryzacji używane.
+Poświadczenie reprezentujące [autoryzację](#authorization) [właściciela zasobu](#resource-owner) w celu uzyskania dostępu do chronionych zasobów przyznanych [aplikacji klienckiej](#client-application). Aplikacja kliencka może używać jednego z [czterech typów dotacji zdefiniowanych przez strukturę autoryzacji OAuth2][OAuth2-AuthZ-Grant-Types] w celu uzyskania dotacji, w zależności od typu klienta/wymagań: "przyznanie kodu autoryzacji", "przyznanie poświadczeń klienta", "niejawne przyznanie" i "przyznanie poświadczeń hasła właściciela zasobu". Poświadczenie zwrócone do klienta to [token dostępu](#access-token)lub [kod autoryzacji](#authorization-code) (wymieniany później dla tokenu dostępu), w zależności od typu używanego przyznanych autoryzacji.
 
 ## <a name="authorization-server"></a>serwer autoryzacji
 
-Zgodnie z definicją [w ramach autoryzacji OAuth2][OAuth2-Role-Def], serwer odpowiedzialny za wystawianie tokenów dostępu do [klienta](#client-application) po pomyślnym uwierzytelnieniu [właściciela zasobu](#resource-owner) i uzyskaniu jego autoryzacji. [Aplikacja kliencka](#client-application) współdziała z serwerem autoryzacji w czasie wykonywania za pośrednictwem swoich [punktów końcowych autoryzacji](#authorization-endpoint) i [tokenów,](#token-endpoint) zgodnie z [certyfikatem autoryzacji](#authorization-grant)zdefiniowanej OAuth2.
+Zgodnie z definicją w [strukturze autoryzacji OAuth2][OAuth2-Role-Def], serwer odpowiedzialny za wystawianie tokenów dostępu do [klienta](#client-application) po pomyślnym uwierzytelnieniu [właściciela zasobu](#resource-owner) i uzyskaniu jego autoryzacji. [Aplikacja kliencka](#client-application) współdziała z serwerem autoryzacji w środowisku uruchomieniowym za pośrednictwem punktów końcowych [autoryzacji](#authorization-endpoint) i [tokenów](#token-endpoint) zgodnie z OAuth2 określonymi [dotacjami autoryzacji](#authorization-grant).
 
-W przypadku integracji aplikacji platformy tożsamości firmy Microsoft platforma tożsamości firmy Microsoft implementuje rolę serwera autoryzacji dla aplikacji usługi Azure AD i interfejsów API usługi Firmy Microsoft, na przykład [interfejsów API programu Microsoft Graph][Microsoft-Graph].
+W przypadku integracji aplikacji platformy tożsamości firmy Microsoft platforma Microsoft Identity implementuje rolę serwera autoryzacji dla aplikacji usługi Azure AD i interfejsów API usługi firmy Microsoft, na przykład [Microsoft Graph interfejsów API][Microsoft-Graph].
 
-## <a name="claim"></a>Roszczenia
+## <a name="claim"></a>rozpatrywan
 
-[Token zabezpieczający](#security-token) zawiera oświadczenia, które dostarczają potwierdzeń dotyczących jednej jednostki (takiej jak [aplikacja kliencka](#client-application) lub [właściciel zasobu)](#resource-owner)innej encji (takiej jak [serwer zasobów).](#resource-server) Oświadczenia to pary nazw i wartości, które przekazują fakty dotyczące tematu tokenu (na przykład podmiot zabezpieczeń uwierzytelniony przez [serwer autoryzacji).](#authorization-server) Oświadczenia obecne w danym tokenie są zależne od kilku zmiennych, w tym typu tokenu, typu poświadczenia używanego do uwierzytelniania podmiotu, konfiguracji aplikacji itp.
+[Token zabezpieczający](#security-token) zawiera oświadczenia, które zapewniają potwierdzenia dotyczące jednej jednostki (na przykład [aplikacji klienckiej](#client-application) lub [właściciela zasobu](#resource-owner)) do innej jednostki (na przykład [serwera zasobów](#resource-server)). Oświadczenia są parami nazw/wartości, które przekazują fakty dotyczące podmiotu tokenu (na przykład podmiot zabezpieczeń, który został uwierzytelniony przez [serwer autoryzacji](#authorization-server)). Oświadczenia obecne w danym tokenie są zależne od kilku zmiennych, w tym typu tokenu, typu poświadczenia używanego do uwierzytelniania podmiotu, konfiguracji aplikacji itp.
 
-Zobacz [odwołanie tokenu platformy tożsamości firmy Microsoft, aby][AAD-Tokens-Claims] uzyskać więcej informacji.
+Aby uzyskać więcej informacji, zobacz [Informacje o tokenach platformy tożsamości firmy Microsoft][AAD-Tokens-Claims] .
 
-## <a name="client-application"></a>aplikacja kliencka
+## <a name="client-application"></a>Aplikacja kliencka
 
-Zgodnie z definicją [w ramach autoryzacji OAuth2][OAuth2-Role-Def], aplikacja, która sprawia, że żądania chronionych zasobów w imieniu [właściciela zasobu](#resource-owner). Termin "klient" nie oznacza żadnych szczególnych cech implementacji sprzętu (na przykład, czy aplikacja jest wykonywana na serwerze, pulpicie lub innych urządzeniach).
+Zgodnie z definicją w [strukturze autoryzacji OAuth2][OAuth2-Role-Def], aplikacja, która udostępnia chronione żądania zasobów w imieniu [właściciela zasobu](#resource-owner). Termin "klient" nie oznacza żadnych konkretnych charakterystyk implementacji sprzętu (np. czy aplikacja jest uruchamiana na serwerze, na komputerze, na innym urządzeniu).
 
-Aplikacja kliencka żąda [autoryzacji](#authorization) od właściciela zasobu do udziału w [przepływie udzielania autoryzacji OAuth2](#authorization-grant) i może uzyskiwać dostęp do interfejsów API/danych w imieniu właściciela zasobu. Struktura autoryzacji OAuth2 [definiuje dwa typy klientów][OAuth2-Client-Types], "poufne" i "publiczne", w oparciu o zdolność klienta do zachowania poufności swoich poświadczeń. Aplikacje mogą implementować [klienta sieci web (poufne),](#web-client) który działa na serwerze sieci web, [natywny klient (publiczny)](#native-client) zainstalowany na urządzeniu lub [klient oparty na agencie użytkownika (publiczny),](#user-agent-based-client) który działa w przeglądarce urządzenia.
+Aplikacja kliencka żąda [autoryzacji](#authorization) od właściciela zasobu do udziału w przepływie [autoryzacji OAuth2](#authorization-grant) i może uzyskać dostęp do interfejsów API/danych w imieniu właściciela zasobu. Platforma autoryzacji OAuth2 [definiuje dwa typy klientów][OAuth2-Client-Types], "poufne" i "publiczne", w oparciu o zdolność klienta do zachowania poufności poświadczeń. Aplikacje mogą implementować [klienta sieci Web (poufne)](#web-client) działającego na serwerze sieci Web, [klienta natywnego (publicznego)](#native-client) zainstalowanego na urządzeniu lub [klienta opartego na agencie użytkownika (publicznego)](#user-agent-based-client) , który działa w przeglądarce urządzenia.
 
-## <a name="consent"></a>Zgody
+## <a name="consent"></a>posiadacz
 
-Proces uzyskiwania autoryzacji [aplikacji klienckiej](#client-application) [przez właściciela zasobu](#resource-owner) w celu uzyskania dostępu do chronionych zasobów w ramach określonych [uprawnień](#permissions)w imieniu właściciela zasobu. W zależności od uprawnień wymaganych przez klienta, administrator lub użytkownik zostanie poproszony o zgodę na dostęp odpowiednio do ich organizacji/danych indywidualnych. Uwaga: w scenariuszu [wielu dzierżawców](#multi-tenant-application) [jednostki usługi](#service-principal-object) aplikacji jest również rejestrowana w dzierżawie użytkownika wyrażającego zgodę.
+Proces [właściciel zasobu](#resource-owner) udzielający autoryzacji dla [aplikacji klienckiej](#client-application)w celu uzyskania dostępu do chronionych zasobów w ramach określonych [uprawnień](#permissions)w imieniu właściciela zasobu. W zależności od uprawnień wymaganych przez klienta administrator lub użytkownik zostanie poproszony o zgodę na zezwolenie na dostęp do ich organizacji/poszczególnych danych. Należy pamiętać, że w scenariuszu z [wieloma dzierżawcami](#multi-tenant-application) nazwa [główna usługi](#service-principal-object) aplikacji jest również rejestrowana w dzierżawie użytkownika, który wyraził zgodę.
 
-Zobacz [ramy zgody, aby](consent-framework.md) uzyskać więcej informacji.
+Aby uzyskać więcej informacji, zobacz [platformę wyrażania zgody](consent-framework.md) .
 
-## <a name="id-token"></a>Token identyfikatora
+## <a name="id-token"></a>Identyfikator tokenu
 
-[Token zabezpieczający](#security-token) [OpenID Connect][OpenIDConnect-ID-Token] dostarczony przez punkt końcowy [autoryzacji serwera autoryzacji,](#authorization-server) [authorization endpoint](#authorization-endpoint)który zawiera [oświadczenia](#claim) dotyczące uwierzytelniania [właściciela zasobu](#resource-owner)użytkownika końcowego. Podobnie jak token dostępu, tokeny identyfikatorów są również reprezentowane jako podpisany cyfrowo [token JSON Web Token (JWT).][JWT] W przeciwieństwie do tokenu dostępu jednak oświadczenia tokenu identyfikatora nie są używane do celów związanych z dostępem do zasobów, a w szczególności kontroli dostępu.
+[Token zabezpieczający](#security-token) [OpenID Connect Connect][OpenIDConnect-ID-Token] dostarczony przez [punkt końcowy autoryzacji](#authorization-endpoint) [serwera autoryzacji](#authorization-server) , który zawiera [oświadczenia](#claim) dotyczące uwierzytelniania [właściciela zasobu](#resource-owner)użytkownika końcowego. Podobnie jak token dostępu, tokeny identyfikatora są również reprezentowane jako cyfrowy [token sieci Web JSON (JWT)][JWT]. W przeciwieństwie do tokenu dostępu, oświadczenia tokenu identyfikatora nie są używane do celów związanych z dostępem do zasobów i w specjalnej kontroli dostępu.
 
-Zobacz [odwołanie tokenu platformy tożsamości firmy Microsoft, aby][AAD-Tokens-Claims] uzyskać więcej informacji.
+Aby uzyskać więcej informacji, zobacz [Informacje o tokenach platformy tożsamości firmy Microsoft][AAD-Tokens-Claims] .
 
 ## <a name="microsoft-identity-platform"></a>Platforma tożsamości firmy Microsoft
 
-Platforma tożsamości firmy Microsoft to unowocześnienie platformy deweloperów i usługi tożsamości Azure Active Directory (Azure AD). Dzięki niej deweloperzy mogą tworzyć aplikacje, które logują użytkowników przy użyciu wszystkich tożsamości firmy Microsoft i uzyskują tokeny do wywoływania programu Microsoft Graph, innych interfejsów API firmy Microsoft lub interfejsów API opracowanych przez deweloperów. Jest to w pełni funkcjonalna platforma, która składa się z usługi uwierzytelniania, bibliotek, rejestracji i konfiguracji aplikacji, pełnej dokumentacji dewelopera, przykładów kodu i innej zawartości dewelopera. Platforma tożsamości firmy Microsoft obsługuje standardowe protokoły branżowe, takie jak OAuth 2.0 i OpenID Connect. Zobacz [informacje o platformie tożsamości firmy Microsoft,](about-microsoft-identity-platform.md) aby uzyskać więcej informacji.
+Platforma tożsamości firmy Microsoft to unowocześnienie platformy deweloperów i usługi tożsamości Azure Active Directory (Azure AD). Dzięki niej deweloperzy mogą tworzyć aplikacje, które logują użytkowników przy użyciu wszystkich tożsamości firmy Microsoft i uzyskują tokeny do wywoływania programu Microsoft Graph, innych interfejsów API firmy Microsoft lub interfejsów API opracowanych przez deweloperów. Jest to w pełni funkcjonalna platforma, która obejmuje usługę uwierzytelniania, biblioteki, rejestrację i konfigurację aplikacji, pełną dokumentację dla deweloperów, przykłady kodu i inną zawartość dla deweloperów. Platforma tożsamości firmy Microsoft obsługuje standardowe protokoły branżowe, takie jak OAuth 2.0 i OpenID Connect. Aby uzyskać więcej informacji, zobacz [Informacje o platformie Microsoft Identity platform](about-microsoft-identity-platform.md) .
 
-## <a name="multi-tenant-application"></a>aplikacja wielodostępna
+## <a name="multi-tenant-application"></a>Aplikacja wielodostępna
 
-Klasa aplikacji, która umożliwia logowanie i [zgody](#consent) przez użytkowników aprowied w dowolnej [dzierżawy](#tenant)usługi Azure AD, w tym dzierżawy innych niż ten, w którym klient jest zarejestrowany. [Natywne aplikacje klienckie](#native-client) są domyślnie wielodostępne, podczas gdy [klient sieci web](#web-client) i aplikacje [zasób sieci web/interfejs API](#resource-server) mają możliwość wyboru między pojedynczą lub wielodostępną. Z drugiej strony aplikacja sieci web zarejestrowana jako pojedyncza dzierżawa zezwalałaby tylko na logowania z kont użytkowników aprowizowanych w tej samej dzierżawie, co ta, w której aplikacja jest zarejestrowana.
+Klasa aplikacji, która umożliwia logowanie i [zgodę](#consent) użytkowników zainicjowanych w dowolnej [dzierżawie](#tenant)usługi Azure AD, w tym dzierżawców innych niż te, w których zarejestrowano klienta. [Natywne aplikacje klienckie](#native-client) mają domyślnie wiele dzierżawców, natomiast [Klient sieci Web](#web-client) i aplikacje [sieci Web/interfejsy API](#resource-server) umożliwiają wybranie jednej lub wielu dzierżawców. Z kolei aplikacja sieci Web zarejestrowana w ramach jednej dzierżawy zezwala tylko na logowanie z kont użytkowników, które są obsługiwane w tej samej dzierżawie, co w przypadku, gdy aplikacja jest zarejestrowana.
 
-Zobacz [Jak zalogować się dowolny użytkownik usługi Azure AD przy użyciu wzorca aplikacji z wieloma dzierżawami, aby][AAD-Multi-Tenant-Overview] uzyskać więcej informacji.
+Aby uzyskać więcej informacji [, zobacz Jak zalogować się do dowolnego użytkownika usługi Azure AD za pomocą wzorca aplikacji wielodostępnych][AAD-Multi-Tenant-Overview] .
 
-## <a name="native-client"></a>klient macierzysty
+## <a name="native-client"></a>Klient natywny
 
-Typ [aplikacji klienckiej,](#client-application) która jest instalowana natywnie na urządzeniu. Ponieważ cały kod jest wykonywany na urządzeniu, jest uważany za klienta "publicznego" ze względu na jego niezdolność do przechowywania poświadczeń prywatnie/poufnie. Zobacz [OAuth2 typy klientów i profile, aby][OAuth2-Client-Types] uzyskać więcej informacji.
+Typ [aplikacji klienckiej](#client-application) zainstalowanej natywnie na urządzeniu. Ponieważ cały kod jest wykonywany na urządzeniu, jest uznawany za "publiczny" klient z powodu niezdolności do prywatnego przechowywania poświadczeń. Aby uzyskać więcej informacji [, zobacz Typy i profile klientów OAuth2][OAuth2-Client-Types] .
 
-## <a name="permissions"></a>Uprawnienia
+## <a name="permissions"></a>uprawnienia
 
-[Aplikacja kliencka](#client-application) uzyskuje dostęp do [serwera zasobów,](#resource-server) deklarując żądania uprawnień. Dostępne są dwa typy:
+[Aplikacja kliencka](#client-application) uzyskuje dostęp do [serwera zasobów](#resource-server) , deklarując żądania uprawnień. Dostępne są dwa typy:
 
-* Uprawnienia "Delegowane", które określają dostęp [oparty na zakresie](#scopes) przy użyciu autoryzacji delegowanej od właściciela [zasobu](#resource-owner)zalogowanych, są przedstawiane zasobowi w czasie wykonywania jako [oświadczenia "scp"](#claim) w [tokenie dostępu](#access-token)klienta .
-* Uprawnienia "Application", które określają dostęp [oparty na rolach](#roles) przy użyciu poświadczeń/tożsamości aplikacji klienckiej, są przedstawiane zasobowi w czasie wykonywania jako [oświadczenia "role"](#claim) w tokenie dostępu klienta.
+* Uprawnienia "delegowane", które określają dostęp [oparty na zakresie](#scopes) przy użyciu delegowanej autoryzacji z zalogowanego [właściciela zasobu](#resource-owner), są przedstawiane zasobowi w czasie wykonywania jako [oświadczenie "SCP"](#claim) w [tokenie dostępu](#access-token)klienta.
+* Uprawnienia "aplikacja", które określają dostęp [oparty na rolach](#roles) przy użyciu poświadczeń/tożsamości aplikacji klienta, są przedstawiane zasobowi w czasie wykonywania jako [oświadczenia "role"](#claim) w tokenie dostępu klienta.
 
-Mają one również powierzchnię podczas procesu [zgody,](#consent) dając administratorowi lub właścicielowi zasobu możliwość udzielenia/odmowy klientowi dostępu do zasobów w dzierżawie.
+Są one również używane podczas procesu [wyrażania zgody](#consent) , dzięki czemu administrator lub właściciel zasobu mogą udzielić/odmówić dostępu klientowi do zasobów w swojej dzierżawie.
 
-Żądania uprawnień są konfigurowane na stronie **uprawnień interfejsu API** dla aplikacji w [witrynie Azure portal,][AZURE-portal]wybierając żądane "Uprawnienia delegowane" i "Uprawnienia aplikacji" (te ostatnie wymagają członkostwa w roli administratora globalnego). Ponieważ [klient publiczny](#client-application) nie może bezpiecznie obsługiwać poświadczeń, może żądać tylko uprawnień delegowanych, podczas gdy [klient poufny](#client-application) ma możliwość żądania uprawnień delegowanych i aplikacji. [Obiekt aplikacji](#application-object) klienta przechowuje zadeklarowane uprawnienia we [właściwości requiredResourceAccess][Graph-App-Resource].
+Żądania uprawnień są konfigurowane na stronie **uprawnienia interfejsu API** dla aplikacji w [Azure Portal][AZURE-portal], wybierając odpowiednie "delegowane uprawnienia" i "uprawnienia aplikacji" (ta ostatnia wymaga członkostwa w roli administratora globalnego). Ponieważ [Klient publiczny](#client-application) nie może bezpiecznie zachować poświadczeń, może zażądać tylko uprawnień delegowanych, natomiast [Klient poufny](#client-application) ma możliwość żądania zarówno delegowania, jak i dostępu do aplikacji. [Obiekt aplikacji](#application-object) klienta przechowuje zadeklarowane uprawnienia we [Właściwości requiredResourceAccess][Graph-App-Resource].
 
-## <a name="resource-owner"></a>właściciel zasobu
+## <a name="refresh-token"></a>Odśwież token
 
-Zgodnie z definicją [w ramach autoryzacji OAuth2][OAuth2-Role-Def], jednostka zdolna do udzielania dostępu do chronionego zasobu. Gdy właścicielem zasobu jest osoba, jest on określany jako użytkownik końcowy. Na przykład, gdy [aplikacja kliencka](#client-application) chce uzyskać dostęp do skrzynki pocztowej użytkownika za pośrednictwem [interfejsu API programu Microsoft Graph,][Microsoft-Graph]wymaga to uprawnień właściciela zasobu skrzynki pocztowej.
+Typ [tokenu zabezpieczającego](#security-token) wystawionego przez [serwer autoryzacji](#authorization-server)i używany przez [aplikację kliencką](#client-application) do żądania nowego [tokenu dostępu](#access-token) przed wygaśnięciem tokenu dostępu. Zwykle w postaci [tokenu sieci Web JSON (JWT)][JWT].
+
+W przeciwieństwie do tokenów dostępu można odwołać tokeny odświeżania. Jeśli aplikacja kliencka próbuje zażądać nowego tokenu dostępu przy użyciu tokenu odświeżenia, który został odwołany, serwer autoryzacji odmówi żądania, a aplikacja kliencka nie będzie już miała uprawnienia dostępu do [serwera zasobów](#resource-server) w imieniu [właściciela zasobu](#resource-owner).
+
+## <a name="resource-owner"></a>Właściciel zasobu
+
+Zgodnie z definicją w [ramach platformy autoryzacji OAuth2][OAuth2-Role-Def]jednostka może udzielić dostępu do chronionego zasobu. Gdy właścicielem zasobu jest osoba, jest ona określana jako użytkownik końcowy. Na przykład gdy [aplikacja kliencka](#client-application) chce uzyskać dostęp do skrzynki pocztowej użytkownika za pośrednictwem [interfejsu API Microsoft Graph][Microsoft-Graph], wymaga uprawnień od właściciela zasobu skrzynki pocztowej.
 
 ## <a name="resource-server"></a>serwer zasobów
 
-Zgodnie z definicją [w ramach autoryzacji OAuth2][OAuth2-Role-Def], serwer, który obsługuje chronione zasoby, zdolne do akceptowania i odpowiadania na żądania chronionych zasobów przez [aplikacje klienckie,](#client-application) które prezentują [token dostępu](#access-token). Znany również jako chroniony serwer zasobów lub aplikacja zasobów.
+Zgodnie z definicją w [strukturze autoryzacji OAuth2][OAuth2-Role-Def]serwer, który hostuje chronione zasoby, może akceptować i odpowiadać na żądania zasobów chronionych przez [aplikacje klienckie](#client-application) , które składają [token dostępu](#access-token). Znany również jako chroniony serwer zasobów lub aplikacja zasobów.
 
-Serwer zasobów udostępnia interfejsy API i wymusza dostęp do chronionych zasobów za pośrednictwem [zakresów](#scopes) i [ról,](#roles)przy użyciu struktury autoryzacji OAuth 2.0. Przykłady obejmują [interfejs API programu Microsoft Graph,][Microsoft-Graph] który zapewnia dostęp do danych dzierżawy usługi Azure AD i interfejsy API usługi Office 365, które zapewniają dostęp do danych, takich jak poczta i kalendarz. 
+Serwer zasobów udostępnia interfejsy API i wymusza dostęp do zasobów chronionych przez [zakresy](#scopes) i [role](#roles)przy użyciu platformy autoryzacji OAuth 2,0. Przykłady obejmują [interfejs api Microsoft Graph][Microsoft-Graph] , który zapewnia dostęp do danych dzierżawy usługi Azure AD, oraz interfejsy API pakietu Office 365 zapewniające dostęp do danych, takich jak poczta i kalendarz.
 
-Podobnie jak aplikacja kliencka, konfiguracja tożsamości aplikacji zasobów jest ustanawiana za pomocą [rejestracji](#application-registration) w dzierżawie usługi Azure AD, zapewniając obiekt główny aplikacji i usługi. Niektóre interfejsy API dostarczone przez firmę Microsoft, takie jak interfejs API programu Microsoft Graph, mają wstępnie zarejestrowane jednostki usługi udostępnione we wszystkich dzierżawach podczas inicjowania obsługi administracyjnej.
+Podobnie jak aplikacja kliencka, Konfiguracja tożsamości aplikacji zasobów jest ustanawiana za pośrednictwem [rejestracji](#application-registration) w dzierżawie usługi Azure AD, dostarczając zarówno obiekt główny aplikacji, jak i obiektu usługi. Niektóre interfejsy API udostępniane przez firmę Microsoft, takie jak interfejs API Microsoft Graph, mają wstępnie zarejestrowane jednostki usługi udostępniane we wszystkich dzierżawcach podczas aprowizacji.
 
 ## <a name="roles"></a>role
 
-Podobnie jak [zakresy,](#scopes)role umożliwiają [serwerowi zasobów](#resource-server) regulowanie dostępu do chronionych zasobów. Istnieją dwa typy: rola "użytkownik" implementuje kontrolę dostępu opartą na rolach dla użytkowników/grup, które wymagają dostępu do zasobu, podczas gdy rola "aplikacja" implementuje to samo dla [aplikacji klienckich,](#client-application) które wymagają dostępu.
+Podobnie jak [zakresy](#scopes), role umożliwiają [serwerowi zasobów](#resource-server) zarządzanie dostępem do chronionych zasobów. Istnieją dwa typy: rola "użytkownik" implementuje kontrolę dostępu opartą na rolach dla użytkowników/grup, które wymagają dostępu do zasobu, podczas gdy rola "aplikacja" implementuje te same dla [aplikacji klienckich](#client-application) , które wymagają dostępu.
 
-Role są ciągami zdefiniowanymi przez zasoby (na przykład "Osoba zatwierdzająca wydatek", "Tylko do odczytu", "Directory.ReadWrite.All"), zarządzane w [witrynie Azure portal][AZURE-portal] za pośrednictwem [manifestu aplikacji](#application-manifest)zasobu i przechowywane we właściwości [appRoles][Graph-Sp-Resource]zasobu. Portal Azure jest również używany do przypisywania użytkowników do ról "użytkownik" i konfigurowania [uprawnień aplikacji](#permissions) klienckiej w celu uzyskania dostępu do roli "aplikacji".
+Role są ciągami zdefiniowanymi przez zasób (na przykład "osoba zatwierdzająca wydatki", "tylko do odczytu", "katalog. ReadWrite. wszystkie"), zarządzane w [Azure Portal][AZURE-portal] za pośrednictwem [manifestu aplikacji](#application-manifest)zasobu i przechowywane we [Właściwości appRoles][Graph-Sp-Resource]zasobu. Azure Portal jest również używany do przypisywania użytkowników do ról "użytkownika" i konfigurowania [uprawnień aplikacji](#permissions) klienckich w celu uzyskania dostępu do roli "aplikacja".
 
-Aby uzyskać szczegółowe omówienie ról aplikacji udostępnianych przez interfejs API programu Microsoft Graph, zobacz [Zakresy uprawnień interfejsu API programu Graph][Graph-Perm-Scopes]. Aby zapoznać się z przykładem implementacji krok po kroku, zobacz [Zarządzanie dostępem przy użyciu funkcji RBAC i witryny Azure portal.][AAD-RBAC]
+Aby uzyskać szczegółową dyskusję na temat ról aplikacji udostępnianych przez interfejs API Microsoft Graph, zobacz [interfejs API programu Graph zakresów uprawnień][Graph-Perm-Scopes]. Aby zapoznać się z przykładem implementacji krok po kroku, zobacz [Zarządzanie dostępem przy użyciu RBAC i Azure Portal][AAD-RBAC].
 
 ## <a name="scopes"></a>scopes
 
-Podobnie jak [role,](#roles)zakresy umożliwiają [serwerowi zasobów](#resource-server) regulowanie dostępu do chronionych zasobów. Zakresy są używane do implementowania kontroli dostępu [opartej na zakresie][OAuth2-Access-Token-Scopes] dla [aplikacji klienckiej,](#client-application) która otrzymała delegowany dostęp do zasobu przez jego właściciela.
+Podobnie jak w przypadku [ról](#roles), zakresy zapewniają sposób, aby [serwer zasobów](#resource-server) zarządzał dostępem do chronionych zasobów. Zakresy są używane do implementowania kontroli dostępu [opartej na zakresie][OAuth2-Access-Token-Scopes] , dla [aplikacji klienckiej](#client-application) , która udzieliła delegowanego dostępu do zasobu przez jego właściciela.
 
-Zakresy są ciągami zdefiniowanymi przez zasoby (na przykład "Mail.Read", "Directory.ReadWrite.All"), zarządzanych w [portalu Azure][AZURE-portal] za pośrednictwem [manifestu aplikacji](#application-manifest)zasobu i przechowywanych we właściwości [oauth2Permissions zasobu.][Graph-Sp-Resource] Portal Azure jest również używany do konfigurowania aplikacji klienckiej [delegowanych uprawnień](#permissions) dostępu do zakresu.
+Zakresy są ciągami zdefiniowanymi przez zasób (na przykład "mail. Read", "Directory. ReadWrite. All"), które są zarządzane w [Azure Portal][AZURE-portal] za pośrednictwem [manifestu aplikacji](#application-manifest)zasobu i przechowywane we [Właściwości oauth2Permissions][Graph-Sp-Resource]zasobu. Azure Portal jest również używany do konfigurowania [uprawnień delegowanych](#permissions) aplikacji klienckich w celu uzyskania dostępu do zakresu.
 
-Najlepszym rozwiązaniem konwencji nazewnictwa, jest użycie formatu "resource.operation.constraint". Aby uzyskać szczegółowe omówienie zakresów udostępnianych przez interfejs API programu Microsoft Graph, zobacz [Zakresy uprawnień interfejsu API programu Graph][Graph-Perm-Scopes]. Aby uzyskać zakresy udostępniane przez usługi Office 365, zobacz [Odwołanie do uprawnień interfejsu API usługi Office 365][O365-Perm-Ref].
+Najlepszym rozwiązaniem konwencji nazewnictwa jest użycie formatu "Resource. Operation. Constraint". Aby uzyskać szczegółowe omówienie zakresów udostępnianych przez interfejs Microsoft Graph API, zobacz [interfejs API programu Graph zakresów uprawnień][Graph-Perm-Scopes]. W przypadku zakresów udostępnianych przez usługi Office 365 zapoznaj się z tematem [Dokumentacja dotycząca uprawnień interfejsu API pakietu office 365][O365-Perm-Ref].
 
 ## <a name="security-token"></a>token zabezpieczający
 
-Podpisany dokument zawierający oświadczenia, takie jak token OAuth2 lub twierdzenie SAML 2.0. W przypadku [przyznania autoryzacji](#authorization-grant)OAuth2 [token dostępu](#access-token) (OAuth2) i [token identyfikatora](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) są typami tokenów zabezpieczających, które są implementowane jako [token sieci Web JSON (JWT).][JWT]
+Podpisany dokument zawierający oświadczenia, takie jak token OAuth2 lub potwierdzenie SAML 2,0. W przypadku [przyznania autoryzacji](#authorization-grant)OAuth2 [token dostępu](#access-token) (OAuth2), [token odświeżania](#refresh-token)i [token identyfikatora](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) są typami tokenów zabezpieczających, które są implementowane jako [token sieci Web JSON (JWT)][JWT].
 
-## <a name="service-principal-object"></a>główny obiekt usługi
+## <a name="service-principal-object"></a>Obiekt główny usługi
 
-Po zarejestrowaniu/zaktualizowaniu aplikacji w [witrynie Azure portal][AZURE-portal]portal tworzy/aktualizuje zarówno [obiekt aplikacji,](#application-object) jak i odpowiedni obiekt jednostkowy usługi dla tej dzierżawy. Obiekt aplikacji *definiuje* konfigurację tożsamości aplikacji globalnie (we wszystkich dzierżawach, do których przyznano dostęp skojarzonej aplikacji) i jest szablonem, z którego *pochodzą odpowiadające* jej obiekty główne usługi do użytku lokalnego w czasie wykonywania (w określonej dzierżawie).
+Po zarejestrowaniu/zaktualizowaniu aplikacji w [Azure Portal][AZURE-portal]Portal tworzy/aktualizuje [obiekt aplikacji](#application-object) i odpowiadający mu obiekt głównej usługi dla tej dzierżawy. Obiekt aplikacji *definiuje* konfigurację tożsamości aplikacji globalnie (dla wszystkich dzierżawców, do których skojarzona aplikacja została udzielona dostęp) i jest szablonem, z którego są *wyprowadzane* odpowiednie obiekty główne usługi do użytku lokalnego w czasie wykonywania (w określonej dzierżawie).
 
-Aby uzyskać więcej informacji, zobacz [Obiekty głównej aplikacji i usługi][AAD-App-SP-Objects].
+Aby uzyskać więcej informacji, zobacz [obiekty główne aplikacji i usługi][AAD-App-SP-Objects].
 
 ## <a name="sign-in"></a>sign-in
 
-Proces aplikacji [klienckiej](#client-application) inicjującej uwierzytelnianie użytkownika końcowego i przechwytywania powiązanego stanu w celu uzyskania [tokenu zabezpieczającego](#security-token) i określania zakresu sesji aplikacji do tego stanu. Stan może zawierać artefakty, takie jak informacje o profilu użytkownika i informacje pochodzące z oświadczeń tokenu.
+Proces [aplikacji klienckiej](#client-application) inicjującej uwierzytelnianie użytkowników końcowych i przechwytujący stan związany z uzyskaniem [tokenu zabezpieczającego](#security-token) i określanie zakresu sesji aplikacji do tego stanu. Stan może zawierać artefakty, takie jak informacje o profilu użytkownika i informacje pochodzące z oświadczeń tokenów.
 
-Funkcja logowania aplikacji jest zwykle używana do implementacji logowania jednokrotnego.The sign-in function of an application is typically used to implement single-sign-on (SSO). Może być również poprzedzona funkcją "zarejestruj się", jako punkt wejścia dla użytkownika końcowego, aby uzyskać dostęp do aplikacji (przy pierwszym logowaniu). Funkcja rejestracji służy do zbierania i utrwalania dodatkowego stanu specyficznego dla użytkownika i może wymagać [zgody użytkownika.](#consent)
+Funkcja logowania aplikacji jest zwykle używana do implementowania logowania jednokrotnego (SSO). Może być również poprzedzona przez funkcję "rejestracji", jako punkt wejścia dla użytkownika końcowego, aby uzyskać dostęp do aplikacji (przy pierwszym logowaniu). Funkcja rejestracji służy do zbierania i utrwalania dodatkowego stanu specyficznego dla użytkownika i może wymagać [zgody użytkownika](#consent).
 
 ## <a name="sign-out"></a>wylogowanie
 
-Proces nieuwierzycia użytkownika końcowego, odłączanie stanu użytkownika skojarzonego z sesją [aplikacji klienckiej](#client-application) podczas [logowania](#sign-in)
+Proces uwierzytelniania użytkownika końcowego, odłączania stanu użytkownika skojarzonego z sesją [aplikacji klienta](#client-application) podczas [logowania](#sign-in)
 
-## <a name="tenant"></a>Dzierżawy
+## <a name="tenant"></a>dzierżaw
 
-Wystąpienie katalogu usługi Azure AD jest określane jako dzierżawa usługi Azure AD. Oferuje on kilka funkcji, w tym:
+Wystąpienie katalogu usługi Azure AD nazywa się dzierżawą usługi Azure AD. Udostępnia ona kilka funkcji, w tym:
 
-* usługa rejestru dla zintegrowanych aplikacji
+* Usługa rejestru dla zintegrowanych aplikacji
 * uwierzytelnianie kont użytkowników i zarejestrowanych aplikacji
-* Punkty końcowe REST wymagane do obsługi różnych protokołów, w tym OAuth2 i SAML, w tym [punktu końcowego autoryzacji,](#authorization-endpoint) [tokenu końcowego](#token-endpoint) i "wspólnego" punktu końcowego używanego przez [aplikacje z wieloma dzierżawami.](#multi-tenant-application)
+* Punkty końcowe REST są wymagane do obsługi różnych protokołów, w tym OAuth2 i SAML, w tym [punkt końcowy autoryzacji](#authorization-endpoint), [punkt końcowy tokenu](#token-endpoint) i punkt końcowy "Common" używany przez [aplikacje](#multi-tenant-application)wielodostępne.
 
-Dzierżawy usługi Azure AD są tworzone/skojarzone z subskrypcjami platformy Azure i usługi Office 365 podczas rejestracji, zapewniając funkcje zarządzania dostępem do tożsamości & dla subskrypcji. Administratorzy subskrypcji platformy Azure mogą również tworzyć dodatkowe dzierżawy usługi Azure AD za pośrednictwem witryny Azure portal. Zobacz [Jak uzyskać dzierżawę usługi Azure Active Directory, aby][AAD-How-To-Tenant] uzyskać szczegółowe informacje na temat różnych sposobów uzyskiwania dostępu do dzierżawy. Zobacz, [jak subskrypcje platformy Azure są skojarzone z usługą Azure Active Directory,][AAD-How-Subscriptions-Assoc] aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami a dzierżawą usługi Azure AD.
+Dzierżawy usługi Azure AD są tworzone/skojarzone z subskrypcjami platformy Azure i pakietu Office 365 podczas tworzenia konta, zapewniając & funkcje zarządzania dostępem dla subskrypcji. Administratorzy subskrypcji platformy Azure mogą również tworzyć dodatkowe dzierżawy usługi Azure AD za pośrednictwem Azure Portal. Zobacz, [jak uzyskać dzierżawę Azure Active Directory][AAD-How-To-Tenant] , aby uzyskać szczegółowe informacje na temat różnych sposobów uzyskiwania dostępu do dzierżawy. Zobacz, [jak subskrypcje platformy Azure są skojarzone z Azure Active Directory][AAD-How-Subscriptions-Assoc] , aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami a dzierżawą usługi Azure AD.
 
 ## <a name="token-endpoint"></a>punkt końcowy tokenu
 
-Jeden z punktów końcowych zaimplementowanych przez [serwer autoryzacji](#authorization-server) do obsługi [autoryzacji](#authorization-grant)OAuth2 udziela . W zależności od dotacji może służyć do uzyskania [tokenu dostępu](#access-token) (i powiązanego tokenu "odświeżania") do [klienta](#client-application)lub [tokenu identyfikatora,](#id-token) gdy jest używany z protokołem [OpenID Connect.][OpenIDConnect]
+Jeden z punktów końcowych wdrożonych przez [serwer autoryzacji](#authorization-server) do obsługi OAuth2 [autoryzacji](#authorization-grant). W zależności od grantu można go użyć w celu uzyskania [tokenu dostępu](#access-token) (i powiązanego tokenu "Refresh") z [klientem](#client-application)lub [tokenem ID](#id-token) , gdy jest używany z protokołem [Connect OpenID Connect][OpenIDConnect] .
 
-## <a name="user-agent-based-client"></a>Klient oparty na agencie użytkownika
+## <a name="user-agent-based-client"></a>Klient oparty na agencie
 
-Typ [aplikacji klienckiej,](#client-application) która pobiera kod z serwera sieci web i wykonuje w ramach agenta użytkownika (na przykład przeglądarki sieci web), takich jak aplikacja jednostronicowa (SPA). Ponieważ cały kod jest wykonywany na urządzeniu, jest uważany za klienta "publicznego" ze względu na jego niezdolność do przechowywania poświadczeń prywatnie/poufnie. Aby uzyskać więcej informacji, zobacz [Typy i profile klientów OAuth2][OAuth2-Client-Types].
+Typ [aplikacji klienckiej](#client-application) pobierającej kod z serwera sieci Web i wykonywany w ramach agenta użytkownika (na przykład przeglądarki sieci Web), takiego jak aplikacja jednostronicowa (Spa). Ponieważ cały kod jest wykonywany na urządzeniu, jest uznawany za "publiczny" klient z powodu niezdolności do prywatnego przechowywania poświadczeń. Aby uzyskać więcej informacji, zobacz [OAuth2 Client Types and Profile][OAuth2-Client-Types].
 
-## <a name="user-principal"></a>główny użytkownik
+## <a name="user-principal"></a>Nazwa główna użytkownika
 
-Podobnie jak obiekt jednostkowy usługi jest używany do reprezentowania wystąpienia aplikacji, główny obiekt użytkownika jest inny typ podmiotu zabezpieczeń, który reprezentuje użytkownika. [Typ zasobu użytkownika][Graph-User-Resource] programu Microsoft Graph definiuje schemat obiektu użytkownika, w tym właściwości związane z użytkownikiem, takie jak imię i nazwisko, nazwa główna użytkownika, członkostwo w roli katalogu itp. Zapewnia to konfigurację tożsamości użytkownika dla usługi Azure AD w celu ustanowienia podmiotu zabezpieczeń użytkownika w czasie wykonywania. Podmiot zabezpieczeń użytkownika jest używany do reprezentowania uwierzytelnionego użytkownika do logowania jednokrotnego, delegowania [zgody](#consent) na nagrywanie, podejmowanie decyzji dotyczących kontroli dostępu itp.
+Podobnie jak w przypadku użycia obiektu jednostki usługi do reprezentowania wystąpienia aplikacji, obiekt główny użytkownika jest innym typem podmiotu zabezpieczeń, który reprezentuje użytkownika. [Typ zasobu użytkownika][Graph-User-Resource] Microsoft Graph definiuje schemat dla obiektu użytkownika, w tym właściwości związane z użytkownikiem, takie jak imię i nazwisko, główna nazwa użytkownika, członkostwo w roli katalogu itp. Zapewnia to konfigurację tożsamości użytkownika dla usługi Azure AD w celu ustanowienia podmiotu użytkownika w czasie wykonywania. Podmiot zabezpieczeń jest używany do reprezentowania uwierzytelnionego użytkownika do logowania jednokrotnego, rejestrowania delegowania [zgody](#consent) , podejmowania decyzji dotyczących kontroli dostępu itp.
 
-## <a name="web-client"></a>klient internetowy
+## <a name="web-client"></a>Klient sieci Web
 
-Typ [aplikacji klienckiej,](#client-application) która wykonuje cały kod na serwerze sieci web i może działać jako klient "poufny" bezpiecznie przechowując swoje poświadczenia na serwerze. Aby uzyskać więcej informacji, zobacz [Typy i profile klientów OAuth2][OAuth2-Client-Types].
+Typ [aplikacji klienckiej](#client-application) , która wykonuje cały kod na serwerze sieci Web i może pełnić funkcję "poufnego" klienta przez bezpieczne przechowywanie jego poświadczeń na serwerze. Aby uzyskać więcej informacji, zobacz [OAuth2 Client Types and Profile][OAuth2-Client-Types].
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Przewodnik dewelopera platformy tożsamości firmy Microsoft][AAD-Dev-Guide] jest stroną docelową używaną do wszystkich tematów związanych z rozwojem platformy tożsamości firmy Microsoft, w tym omówienie [integracji aplikacji][AAD-How-To-Integrate] i podstaw [uwierzytelniania platformy tożsamości firmy Microsoft i obsługiwanych scenariuszy uwierzytelniania.][AAD-Auth-Scenarios] Możesz również znaleźć przykłady kodu & samouczki dotyczące szybkiego uruchamiania na [GitHubie.](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=)
+[Przewodnik dewelopera platformy tożsamości firmy Microsoft][AAD-Dev-Guide] jest stroną docelową dla wszystkich tematów związanych z programowaniem na platformie Microsoft Identity, w tym omówienie [integracji aplikacji][AAD-How-To-Integrate] oraz podstawy [uwierzytelniania platformy tożsamości firmy Microsoft i obsługiwanych scenariuszy uwierzytelniania][AAD-Auth-Scenarios]. Możesz również znaleźć przykłady kodu, & samouczki, jak szybko rozpocząć pracę w serwisie [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
-Skorzystaj z poniższej sekcji komentarzy, aby przekazać opinię i pomóc uściślić i ukształtować tę zawartość, w tym prośby o nowe definicje lub zaktualizowanie istniejących!
+Poniższa sekcja komentarzy zawiera informacje zwrotne i pomoc w zakresie ulepszania i kształtowania zawartości, w tym żądania dotyczące nowych definicji lub aktualizowania istniejących.
 
 <!--Image references-->
 

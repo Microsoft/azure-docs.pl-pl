@@ -1,148 +1,151 @@
 ---
-title: Praca z bazami danych, kontenerami i elementami w usłudze Azure Cosmos DB
-description: W tym artykule opisano sposób tworzenia i używania baz danych, kontenerów i elementów w usłudze Azure Cosmos DB.
+title: Pracuj z bazami danych, kontenerami i elementami w Azure Cosmos DB
+description: W tym artykule opisano sposób tworzenia i używania baz danych, kontenerów i elementów w programie Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 43a842c3b6d6d421eca4196c7f3facc7876318cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3874bbe7a5830b0a80b658ac32952fe8985c1c3
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246788"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161694"
 ---
-# <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Praca z bazami danych, kontenerami i elementami w usłudze Azure Cosmos DB
+# <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Pracuj z bazami danych, kontenerami i elementami w Azure Cosmos DB
 
-Po utworzeniu [konta usługi Azure Cosmos DB](account-overview.md) w ramach subskrypcji platformy Azure można zarządzać danymi na koncie, tworząc bazy danych, kontenery i elementy. W tym artykule opisano każdą z tych jednostek. 
+Po utworzeniu [konta Azure Cosmos DB](account-overview.md) w ramach subskrypcji platformy Azure Możesz zarządzać danymi na swoim koncie przez tworzenie baz danych, kontenerów i elementów. W tym artykule opisano każdą z tych jednostek. 
 
-Na poniższej ilustracji przedstawiono hierarchię różnych jednostek na koncie usługi Azure Cosmos DB:
+Na poniższej ilustracji przedstawiono hierarchię różnych jednostek w ramach konta Azure Cosmos DB:
 
 ![Jednostki kont usługi Azure Cosmos](./media/databases-containers-items/cosmos-entities.png)
 
 ## <a name="azure-cosmos-databases"></a>Bazy danych usługi Azure Cosmos
 
-Można utworzyć jedną lub wiele baz danych usługi Azure Cosmos w ramach konta. Baza danych jest analogiczna do obszaru nazw. Baza danych jest jednostką zarządzania dla zestawu kontenerów usługi Azure Cosmos. W poniższej tabeli pokazano, jak baza danych usługi Azure Cosmos jest mapowana na różne jednostki specyficzne dla interfejsu API:
+Na koncie można utworzyć jedną lub wiele baz danych usługi Azure Cosmos. Baza danych jest analogiczna do przestrzeni nazw. Baza danych to jednostka zarządzania dla zestawu kontenerów usługi Azure Cosmos. W poniższej tabeli przedstawiono sposób mapowania bazy danych usługi Azure Cosmos do różnych jednostek specyficznych dla interfejsu API:
 
 | Jednostka usługi Azure Cosmos | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- |
-|Baza danych usługi Azure Cosmos | baza danych | Przestrzeń kluczy | baza danych | baza danych | Nie dotyczy |
+|Baza danych Cosmos Azure | baza danych | Przestrzeń kluczy | baza danych | baza danych | Nie dotyczy |
 
 > [!NOTE]
-> Na kontach interfejsu API tabeli podczas tworzenia pierwszej tabeli domyślna baza danych jest automatycznie tworzona na koncie usługi Azure Cosmos.
+> Przy tworzeniu pierwszej tabeli przy użyciu kont interfejs API tabel domyślna baza danych zostanie automatycznie utworzona na koncie usługi Azure Cosmos.
 
-### <a name="operations-on-an-azure-cosmos-database"></a>Operacje w bazie danych usługi Azure Cosmos
+### <a name="operations-on-an-azure-cosmos-database"></a>Operacje w bazie danych Azure Cosmos
 
-Możesz wchodzić w interakcje z bazą danych usługi Azure Cosmos za pomocą interfejsów API usługi Azure Cosmos, zgodnie z opisem w poniższej tabeli:
+Możesz korzystać z usługi Azure Cosmos Database za pomocą interfejsów API usługi Azure Cosmos, zgodnie z opisem w poniższej tabeli:
 
 | Operacja | Interfejs wiersza polecenia platformy Azure | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- | --- |
-|Wyliczaj wszystkie bazy danych| Tak | Tak | Tak (baza danych jest mapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
-|Odczyt bazy danych| Tak | Tak | Tak (baza danych jest mapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
-|Tworzenie nowej bazy danych| Tak | Tak | Tak (baza danych jest mapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
-|Aktualizuj bazę danych| Tak | Tak | Tak (baza danych jest mapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
+|Wylicz wszystkie bazy danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
+|Odczytaj bazę danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
+|Utwórz nową bazę danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
+|Aktualizowanie bazy danych| Tak | Tak | Tak (baza danych jest zamapowana na przestrzeń kluczy) | Tak | Nie dotyczy | Nie dotyczy |
 
 
 ## <a name="azure-cosmos-containers"></a>Kontenery usługi Azure Cosmos
 
-Kontener usługi Azure Cosmos jest jednostką skalowalności zarówno dla aprowizowanej przepływności i magazynu. Kontener jest podzielony na partycje poziome, a następnie replikowany w wielu regionach. Elementy, które można dodać do kontenera i przepływności, które można aprowizować na nim są automatycznie dystrybuowane między zestaw partycji logicznych na podstawie klucza partycji. Aby dowiedzieć się więcej o partycjonowaniu i kluczach partycji, zobacz [Dane partycji](partition-data.md). 
+Kontener usługi Azure Cosmos jest jednostką skalowalności dla zainicjowanej przepływności i magazynu. Kontener jest podzielony na partycje w poziomie, a następnie replikowany w wielu regionach. Elementy dodawane do kontenera i przepływność, które można na nim udostępnić, są automatycznie dystrybuowane w zestawie partycji logicznych na podstawie klucza partycji. Aby dowiedzieć się więcej na temat partycjonowania i kluczy partycji, zobacz [dane partycji](partition-data.md). 
 
-Podczas tworzenia kontenera usługi Azure Cosmos można skonfigurować przepływność w jednym z następujących trybów:
+Podczas tworzenia kontenera usługi Azure Cosmos należy skonfigurować przepływność w jednym z następujących trybów:
 
-* **Tryb przepływności aprowizowanej dedykowanej aprowizowanej:** przepływność aprowizowana w kontenerze jest zarezerwowana wyłącznie dla tego kontenera i jest wspierana przez ławy SLA. Aby dowiedzieć się więcej, zobacz [Jak aprowizować przepływność w kontenerze usługi Azure Cosmos.](how-to-provision-container-throughput.md)
+* **Dedykowany Tryb przepływności**: przepustowość zainicjowana w kontenerze jest zarezerwowana wyłącznie dla tego kontenera i jest obsługiwana przez umowy SLA. Aby dowiedzieć się więcej, zobacz [jak zainicjować przepływność na kontenerze usługi Azure Cosmos](how-to-provision-container-throughput.md).
 
-* **Tryb przepływności udostępnionej aprowizowanej:** Te kontenery współużytkują aprowizowaną przepływność z innymi kontenerami w tej samej bazie danych (z wyłączeniem kontenerów, które zostały skonfigurowane z dedykowaną aprowizowaną przepływnością). Innymi słowy aprowizowana przepływność w bazie danych jest współużytkowana przez wszystkie kontenery przepływności współużytkowanej. Aby dowiedzieć się więcej, zobacz [Jak aprowizować przepływność w bazie danych usługi Azure Cosmos.](how-to-provision-database-throughput.md)
+* **Udostępniony Tryb przepływności**: te kontenery udostępniają przepływność administracyjną z innymi kontenerami w tej samej bazie danych (z wyjątkiem kontenerów, które zostały skonfigurowane z dedykowaną elastyczną przepustowością). Innymi słowy, zainicjowana przepływność w bazie danych jest współużytkowana przez wszystkie kontenery "udostępnione przepływność". Aby dowiedzieć się więcej, zobacz [jak zainicjować przepływność w bazie danych Azure Cosmos](how-to-provision-database-throughput.md).
 
 > [!NOTE]
-> Przepływność współużytkowana i dedykowana można skonfigurować tylko podczas tworzenia bazy danych i kontenera. Aby przełączyć się z trybu dedykowanej przepływności do trybu udostępnionej przepływności (i na odwrót) po utworzeniu kontenera, należy utworzyć nowy kontener i zmigrować dane do nowego kontenera. Dane można migrować przy użyciu funkcji kanału informacyjnego usługi Azure Cosmos DB.
+> Można skonfigurować udostępnioną i dedykowaną przepływność tylko podczas tworzenia bazy danych i kontenera. Aby przełączyć się z trybu dedykowanej przepływności do trybu udostępnionej przepływności (i na odwrót) po utworzeniu kontenera, należy utworzyć nowy kontener i zmigrować dane do nowego kontenera. Dane można migrować za pomocą funkcji Azure Cosmos DB ze źródłem zmian.
 
-Kontener usługi Azure Cosmos można skalować elastycznie, niezależnie od tego, czy tworzysz kontenery przy użyciu dedykowanych lub udostępnionych trybów aprowizowanej przepływności.
+Kontener usługi Azure Cosmos może być elastycznie skalowany, niezależnie od tego, czy tworzysz kontenery za pomocą dedykowanych, czy udostępnionych trybów przepływności.
 
-Kontener usługi Azure Cosmos jest kontenerem elementów od innych niż schemat. Elementy w kontenerze mogą mieć dowolne schematy. Na przykład element reprezentujący osobę i element reprezentujący samochód można umieścić w *tym samym kontenerze*. Domyślnie wszystkie elementy dodawane do kontenera są automatycznie indeksowane bez konieczności jawnego zarządzania indeksem lub schematem. Zachowanie indeksowania można dostosować, konfigurując [zasady indeksowania](index-overview.md) w kontenerze. 
+Kontenerem usługi Azure Cosmos jest kontener Schema-niezależny od elementów. Elementy w kontenerze mogą zawierać dowolne schematy. Na przykład element, który reprezentuje osobę i element reprezentujący samochód, można umieścić w tym *samym kontenerze*. Domyślnie wszystkie elementy dodawane do kontenera są automatycznie indeksowane bez konieczności jawnego indeksowania lub zarządzania schematem. Można dostosować zachowanie indeksowania przez skonfigurowanie [zasad indeksowania](index-overview.md) w kontenerze. 
 
-Można ustawić [czas na czas na żywo (TTL)](time-to-live.md) dla wybranych elementów w kontenerze usługi Azure Cosmos lub dla całego kontenera bezpiecznie przeczyścić te elementy z systemu. Usługa Azure Cosmos DB automatycznie usuwa elementy po ich wygaśnięciu. Gwarantuje również, że kwerenda wykonywana w kontenerze nie zwraca wygasłych elementów w ramach stałej bound. Aby dowiedzieć się więcej, zobacz [Konfigurowanie czasu wygaśnięcia w kontenerze](how-to-time-to-live.md).
+Możesz ustawić [czas wygaśnięcia (TTL)](time-to-live.md) dla wybranych elementów w kontenerze usługi Azure Cosmos lub dla całego kontenera, aby bezpiecznie przeczyścić te elementy z systemu. Azure Cosmos DB automatycznie usuwa elementy po ich wygaśnięciu. Gwarantuje również, że zapytanie wykonywane na kontenerze nie zwraca elementów wygasłych w ramach ustalonego powiązania. Aby dowiedzieć się więcej, zobacz [Konfigurowanie czasu wygaśnięcia w kontenerze](how-to-time-to-live.md).
 
-Można użyć [źródła danych zmiany,](change-feed.md) aby subskrybować dziennik operacji, który jest zarządzany dla każdej partycji logicznej kontenera. Plik danych można posuwu danych wejściowych dla zmian udostępnia dziennik wszystkich aktualizacji wykonywanych w kontenerze, wraz z obrazami przed i po elementach. Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji reaktywnych przy użyciu kanału informacyjnego zmian](serverless-computing-database.md). Można również skonfigurować czas przechowywania pliku danych o zmianach przy użyciu zasad pliku danych o zmianach w kontenerze. 
+Możesz użyć [kanału informacyjnego zmiany](change-feed.md) , aby subskrybować dziennik operacji, który jest zarządzany dla każdej partycji logicznej kontenera. Kanał informacyjny zmiany zapewnia dziennik wszystkich aktualizacji wykonanych w kontenerze wraz z obrazami przed i po. Aby uzyskać więcej informacji, zobacz [Tworzenie reaktywnych aplikacji przy użyciu źródła zmian](serverless-computing-database.md). Możesz również skonfigurować czas przechowywania dla kanału informacyjnego zmiany za pomocą zasad źródła zmian w kontenerze.
 
-Można zarejestrować [procedury przechowywane, wyzwalacze, funkcje zdefiniowane przez użytkownika (UDFs)](stored-procedures-triggers-udfs.md)i [procedury scalania](how-to-manage-conflicts.md) kontenera usługi Azure Cosmos. 
+Można rejestrować [procedury składowane, wyzwalacze, funkcje zdefiniowane przez użytkownika (UDF)](stored-procedures-triggers-udfs.md)i [procedury scalania](how-to-manage-conflicts.md) dla kontenera usługi Azure Cosmos.
 
-Można określić [unikatowe ograniczenie klucza](unique-keys.md) w kontenerze usługi Azure Cosmos. Tworząc unikatową zasadę klucza, należy zapewnić unikatowość jednej lub więcej wartości na klucz partycji logicznej. Jeśli tworzysz kontener przy użyciu unikatowych zasad klucza, nie można tworzyć żadnych nowych lub zaktualizowanych elementów z wartościami, które powielają wartości określone przez ograniczenie klucza unikatowego. Aby dowiedzieć się więcej, zobacz [Unikatowe ograniczenia klucza](unique-keys.md).
+Możesz określić [unikatowe ograniczenie klucza](unique-keys.md) w kontenerze usługi Azure Cosmos. Tworząc unikatowe Zasady kluczy, można zapewnić unikatowość jednej lub więcej wartości na klucz partycji logicznej. W przypadku utworzenia kontenera przy użyciu unikatowych zasad kluczy nie można utworzyć nowych lub zaktualizowanych elementów z wartościami, które duplikują wartości określone przez ograniczenie UNIQUE Key. Aby dowiedzieć się więcej, zobacz [unikalne ograniczenia klucza](unique-keys.md).
 
-Kontener usługi Azure Cosmos specjalizuje się w jednostkach specyficznych dla interfejsu API, jak pokazano w poniższej tabeli:
+Kontener usługi Azure Cosmos jest wyspecjalizowany w jednostkach specyficznych dla interfejsu API, jak pokazano w poniższej tabeli:
 
 | Jednostka usługi Azure Cosmos | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- |
 |Kontener usługi Azure Cosmos | Kontener | Tabela | Collection | Graph | Tabela |
 
+> [!NOTE]
+> Podczas tworzenia kontenerów upewnij się, że nie utworzysz dwóch kontenerów o takiej samej nazwie, ale o innej wielkości liter. Wynika to z faktu, że niektóre części platformy Azure nie uwzględniają wielkości liter. może to spowodować pomylenie/kolizję danych telemetrycznych i akcji w kontenerach z takimi nazwami.
+
 ### <a name="properties-of-an-azure-cosmos-container"></a>Właściwości kontenera usługi Azure Cosmos
 
-Kontener usługi Azure Cosmos ma zestaw właściwości zdefiniowanych przez system. W zależności od używanego interfejsu API niektóre właściwości mogą nie być bezpośrednio udostępniane. W poniższej tabeli opisano listę właściwości zdefiniowanych przez system:
+Kontener usługi Azure Cosmos ma zestaw właściwości zdefiniowanych przez system. W zależności od używanego interfejsu API niektóre właściwości mogą nie być bezpośrednio uwidocznione. W poniższej tabeli opisano listę właściwości zdefiniowanych przez system:
 
-| Właściwość zdefiniowana przez system | Generowane przez system lub konfigurowalne przez użytkownika | Przeznaczenie | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
+| Właściwość zdefiniowana przez system | Generowane przez system lub użytkownik — konfigurowalne | Przeznaczenie | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_rid | Generowane przez system | Unikatowy identyfikator kontenera | Tak | Nie | Nie | Nie | Nie |
-|\_Etag | Generowane przez system | Znacznik encji używany do kontroli współbieżności optymistycznej | Tak | Nie | Nie | Nie | Nie |
-|\_Ts | Generowane przez system | Ostatnio aktualizowany znacznik czasu kontenera | Tak | Nie | Nie | Nie | Nie |
-|\_Własny | Generowane przez system | Adresowalny identyfikator URI kontenera | Tak | Nie | Nie | Nie | Nie |
-|id | Konfigurowane przez użytkownika | Zdefiniowana przez użytkownika unikatowa nazwa kontenera | Tak | Tak | Tak | Tak | Tak |
-|indeksowaniePolityka | Konfigurowane przez użytkownika | Umożliwia zmianę ścieżki indeksu, typu indeksu i trybu indeksu | Tak | Nie | Nie | Nie | Tak |
-|TimeToLive | Konfigurowane przez użytkownika | Umożliwia automatyczne usuwanie elementów z kontenera po upływie określonego czasu. Aby uzyskać szczegółowe informacje, zobacz [Czas na żywo](time-to-live.md). | Tak | Nie | Nie | Nie | Tak |
-|zmianaFeedPolicy | Konfigurowane przez użytkownika | Służy do odczytywania zmian wprowadzonych do elementów w kontenerze. Aby uzyskać szczegółowe informacje, zobacz [Zmienianie kanału informacyjnego](change-feed.md). | Tak | Nie | Nie | Nie | Tak |
-|uniqueKeyPolicy | Konfigurowane przez użytkownika | Służy do zapewnienia unikatowości jednej lub więcej wartości w partycji logicznej. Aby uzyskać więcej informacji, zobacz [Unikatowe ograniczenia klucza](unique-keys.md). | Tak | Nie | Nie | Nie | Tak |
+|\_element ETag | Generowane przez system | Tag jednostki używany do optymistycznej kontroli współbieżności | Tak | Nie | Nie | Nie | Nie |
+|\_TS | Generowane przez system | Ostatnia aktualizacja sygnatury czasowej kontenera | Tak | Nie | Nie | Nie | Nie |
+|\_automatycznej | Generowane przez system | Adres URI adresu URL kontenera | Tak | Nie | Nie | Nie | Nie |
+|id | Użytkownik — konfigurowalne | Unikatowa nazwa kontenera zdefiniowana przez użytkownika | Tak | Tak | Tak | Tak | Tak |
+|indexingPolicy | Użytkownik — konfigurowalne | Zapewnia możliwość zmiany ścieżki indeksu, typu indeksu i trybu indeksowania | Tak | Nie | Nie | Nie | Tak |
+|TimeToLive | Użytkownik — konfigurowalne | Zapewnia możliwość automatycznego usuwania elementów z kontenera po upływie określonego czasu. Aby uzyskać szczegółowe informacje, zobacz [Time to Live](time-to-live.md). | Tak | Nie | Nie | Nie | Tak |
+|changeFeedPolicy | Użytkownik — konfigurowalne | Służy do odczytywania zmian wprowadzonych do elementów w kontenerze. Aby uzyskać szczegółowe informacje, zobacz [Zmienianie źródła danych](change-feed.md). | Tak | Nie | Nie | Nie | Tak |
+|uniqueKeyPolicy | Użytkownik — konfigurowalne | Służy do zapewnienia unikatowości jednej lub więcej wartości w partycji logicznej. Aby uzyskać więcej informacji, zobacz [unikalne ograniczenia klucza](unique-keys.md). | Tak | Nie | Nie | Nie | Tak |
 
-### <a name="operations-on-an-azure-cosmos-container"></a>Operacje w kontenerze usługi Azure Cosmos
+### <a name="operations-on-an-azure-cosmos-container"></a>Operacje na kontenerze usługi Azure Cosmos
 
-Kontener usługi Azure Cosmos obsługuje następujące operacje podczas korzystania z dowolnego interfejsu API usługi Azure Cosmos:
+Kontener usługi Azure Cosmos obsługuje następujące operacje, gdy używasz dowolnego z interfejsów API platformy Azure Cosmos:
 
 | Operacja | Interfejs wiersza polecenia platformy Azure | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- | --- |
-| Wyliczaj kontenery w bazie danych | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
-| Odczytanie kontenera | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
-| Tworzenie nowego kontenera | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
+| Wyliczanie kontenerów w bazie danych | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
+| Odczytywanie kontenera | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
+| Utwórz nowy kontener | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
 | Aktualizowanie kontenera | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
 | Usuwanie kontenera | Tak | Tak | Tak | Tak | Nie dotyczy | Nie dotyczy |
 
 ## <a name="azure-cosmos-items"></a>Elementy usługi Azure Cosmos
 
-W zależności od używanego interfejsu API element usługi Azure Cosmos może reprezentować dokument w kolekcji, wiersz w tabeli lub węzeł lub krawędź na wykresie. W poniższej tabeli przedstawiono mapowanie jednostek specyficznych dla interfejsu API do elementu usługi Azure Cosmos:
+W zależności od używanego interfejsu API element platformy Azure Cosmos może reprezentować dokument w kolekcji, wiersz w tabeli lub węzeł lub krawędź wykresu. W poniższej tabeli przedstawiono mapowanie jednostek specyficznych dla interfejsu API do elementu usługi Azure Cosmos:
 
 | Jednostka Cosmos | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- |
 |Element usługi Azure Cosmos | Dokument | Wiersz | Dokument | Węzeł lub krawędź | Element |
 
-### <a name="properties-of-an-item"></a>Właściwości towaru
+### <a name="properties-of-an-item"></a>Właściwości elementu
 
-Każdy element usługi Azure Cosmos ma następujące właściwości zdefiniowane przez system. W zależności od używanego interfejsu API niektóre z nich mogą nie być bezpośrednio udostępniane.
+Każdy element usługi Azure Cosmos ma następujące właściwości zdefiniowane przez system. W zależności od używanego interfejsu API niektóre z nich mogą nie być bezpośrednio uwidocznione.
 
-| Właściwość zdefiniowana przez system | Generowane przez system lub konfigurowalne przez użytkownika| Przeznaczenie | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
+| Właściwość zdefiniowana przez system | Generowane przez system lub użytkownik — konfigurowalne| Przeznaczenie | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_rid | Generowane przez system | Unikatowy identyfikator elementu | Tak | Nie | Nie | Nie | Nie |
-|\_Etag | Generowane przez system | Znacznik encji używany do kontroli współbieżności optymistycznej | Tak | Nie | Nie | Nie | Nie |
-|\_Ts | Generowane przez system | Sygnatura czasowa ostatniej aktualizacji elementu | Tak | Nie | Nie | Nie | Nie |
-|\_Własny | Generowane przez system | Adresowalny identyfikator URI elementu | Tak | Nie | Nie | Nie | Nie |
-|id | Albo | Unikatowa nazwa zdefiniowana przez użytkownika w partycji logicznej. | Tak | Tak | Tak | Tak | Tak |
+|\_element ETag | Generowane przez system | Tag jednostki używany do optymistycznej kontroli współbieżności | Tak | Nie | Nie | Nie | Nie |
+|\_TS | Generowane przez system | Sygnatura czasowa ostatniej aktualizacji elementu | Tak | Nie | Nie | Nie | Nie |
+|\_automatycznej | Generowane przez system | Adres URI adresu dla elementu | Tak | Nie | Nie | Nie | Nie |
+|id | Żadnego | Unikatowa nazwa zdefiniowana przez użytkownika w partycji logicznej. | Tak | Tak | Tak | Tak | Tak |
 |Dowolne właściwości zdefiniowane przez użytkownika | Zdefiniowane przez użytkownika | Właściwości zdefiniowane przez użytkownika reprezentowane w reprezentacji natywnej interfejsu API (w tym JSON, BSON i CQL) | Tak | Tak | Tak | Tak | Tak |
 
 > [!NOTE]
-> Unikatowość `id` właściwości jest wymuszana tylko w ramach każdej partycji logicznej. Wiele dokumentów może `id` mieć tę samą właściwość z różnymi wartościami klucza partycji.
+> Unikatowość `id` właściwości jest wymuszana tylko w obrębie każdej partycji logicznej. Wiele dokumentów może mieć taką samą `id` właściwość z różnymi wartościami klucza partycji.
 
-### <a name="operations-on-items"></a>Operacje na towarach
+### <a name="operations-on-items"></a>Operacje na elementach
 
-Elementy usługi Azure Cosmos obsługują następujące operacje. Do wykonania operacji można użyć dowolnego interfejsu API usługi Azure Cosmos.
+Elementy usługi Azure Cosmos obsługują następujące operacje. Aby wykonać operacje, można użyć dowolnego interfejsu API usługi Azure Cosmos.
 
 | Operacja | Interfejs wiersza polecenia platformy Azure | Interfejs API SQL | Interfejs API rozwiązania Cassandra | Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB | Interfejs API języka Gremlin | Interfejs API tabel |
 | --- | --- | --- | --- | --- | --- | --- |
-| Wstawianie, zamienianie, usuwanie, upsert, odczyt | Nie | Tak | Tak | Tak | Tak | Tak |
+| Wstawianie, zastępowanie, usuwanie, Upsert, odczyt | Nie | Tak | Tak | Tak | Tak | Tak |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tych zadaniach i pojęciach:
+Dowiedz się więcej na temat tych zadań i koncepcji:
 
 * [Aprowizowanie przepływności dla bazy danych usługi Azure Cosmos DB](how-to-provision-database-throughput.md)
 * [Aprowizowanie przepływności dla kontenera usługi Azure Cosmos](how-to-provision-container-throughput.md)
-* [Praca z partycjami logicznymi](partition-data.md)
+* [Pracuj z partycjami logicznymi](partition-data.md)
 * [Konfigurowanie czasu wygaśnięcia w kontenerze usługi Azure Cosmos](how-to-time-to-live.md)
-* [Tworzenie aplikacji reaktywnych przy użyciu kanału informacyjnego zmian](change-feed.md)
-* [Konfigurowanie unikatowego ograniczenia klucza w kontenerze usługi Azure Cosmos](unique-keys.md)
+* [Tworzenie aplikacji reaktywnych za pomocą kanału zmiany](change-feed.md)
+* [Konfigurowanie ograniczenia UNIQUE Key w kontenerze usługi Azure Cosmos](unique-keys.md)

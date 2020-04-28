@@ -1,6 +1,6 @@
 ---
-title: Przekazywanie dysku VHD na platformę Azure lub kopiowanie dysku w różnych regionach — usługa Azure PowerShell
-description: Dowiedz się, jak przekazać dysk VHD na dysk zarządzany platformy Azure i skopiować dysk zarządzany w różnych regionach za pomocą programu Azure PowerShell za pośrednictwem bezpośredniego przekazywania.
+title: Przekaż dysk VHD do platformy Azure lub skopiuj go między regionami — Azure PowerShell
+description: Dowiedz się, jak przekazać dysk VHD do dysku zarządzanego platformy Azure i skopiować dysk zarządzany między regionami przy użyciu Azure PowerShell za pośrednictwem bezpośredniego przekazywania.
 author: roygara
 ms.author: rogarana
 ms.date: 03/27/2020
@@ -8,45 +8,45 @@ ms.topic: article
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 7c66507989357569828d4ef933cfdca735f71570
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 6242baf5a541231d367d456450388ef455312780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085415"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182518"
 ---
-# <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Przekazywanie dysku VHD na platformę Azure lub kopiowanie dysku zarządzanego do innego regionu — Azure PowerShell
+# <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Przekaż dysk VHD do platformy Azure lub skopiuj go do innego regionu — Azure PowerShell
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Pobierz najnowszą [wersję AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
-- [Zainstaluj moduł programu Azure PowerShell](/powershell/azure/install-Az-ps).
-- Jeśli zamierzasz przekazać dysk VHD z lokalnego: dysk VHD o stałym rozmiarze, który [został przygotowany dla platformy Azure,](prepare-for-upload-vhd-image.md)przechowywany lokalnie.
-- Lub dysku zarządzanego na platformie Azure, jeśli zamierzasz wykonać akcję kopiowania.
+- Pobierz najnowszą [wersję programu AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
+- [Zainstaluj moduł Azure PowerShell](/powershell/azure/install-Az-ps).
+- Jeśli zamierzasz przekazać dysk VHD ze swojego miejsca lokalnego: dysk VHD o stałym rozmiarze [przygotowany dla platformy Azure](prepare-for-upload-vhd-image.md), przechowywany lokalnie.
+- Lub dysk zarządzany na platformie Azure, jeśli zamierzasz wykonać akcję kopiowania.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Jeśli wolisz przekazać dyski za pośrednictwem interfejsu użytkownika, możesz to zrobić za pomocą Eksploratora usługi Azure Storage. Aby uzyskać szczegółowe informacje, zobacz: [Zarządzanie dyskami zarządzanymi platformy Azure za pomocą Eksploratora usługi Azure](disks-use-storage-explorer-managed-disks.md)
+Jeśli wolisz przekazywać dyski za pośrednictwem graficznego interfejsu użytkownika, możesz to zrobić za pomocą Eksplorator usługi Azure Storage. Aby uzyskać szczegółowe informacje, zobacz [Eksplorator usługi Azure Storage zarządzania usługą Azure Managed disks](disks-use-storage-explorer-managed-disks.md) .
 
-Aby przekazać dysk VHD na platformę Azure, musisz utworzyć pusty dysk zarządzany, który jest skonfigurowany dla tego procesu przekazywania. Przed utworzeniem jednego z nich, istnieje kilka dodatkowych informacji, które należy wiedzieć o tych dyskach.
+Aby przekazać dysk VHD na platformę Azure, musisz utworzyć pusty dysk zarządzany skonfigurowany dla tego procesu przekazywania. Przed utworzeniem jednego z tych dysków należy zapoznać się z dodatkowymi informacjami.
 
-Ten rodzaj dysku zarządzanego ma dwa unikatowe stany:
+Ten rodzaj dysku zarządzanego ma dwa unikatowe Stany:
 
-- ReadToUpload, co oznacza, że dysk jest gotowy do odbierania przekazywania, ale nie [zabezpieczono podpis dostępu](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) został wygenerowany.
-- ActiveUpload, co oznacza, że dysk jest gotowy do odbierania przekazywania i sygnatury dostępu Współdzielonego został wygenerowany.
+- ReadToUpload, co oznacza, że dysk jest gotowy do odebrania przekazania, ale nie Wygenerowano [sygnatury bezpiecznego dostępu](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS).
+- ActiveUpload, co oznacza, że dysk jest gotowy do odebrania przekazywania i Wygenerowano sygnaturę dostępu współdzielonego.
 
 > [!NOTE]
-> W każdym z tych stanów dysk zarządzany będzie rozliczany według [standardowych cen dysku twardego](https://azure.microsoft.com/pricing/details/managed-disks/), niezależnie od rzeczywistego typu dysku. Na przykład P10 będą rozliczane jako S10. Będzie to prawdą, dopóki nie `revoke-access` zostanie wywołana na dysku zarządzanym, który jest wymagany do podłączenia dysku do maszyny Wirtualnej.
+> W każdym z tych stanów dysk zarządzany jest rozliczany zgodnie ze [standardowymi cenami](https://azure.microsoft.com/pricing/details/managed-disks/)dysków twardych, niezależnie od rzeczywistego typu dysku. Na przykład P10 będzie rozliczany jako S10. Ta wartość będzie prawdziwa do `revoke-access` momentu wywołania na dysku zarządzanym, który jest wymagany w celu dołączenia dysku do maszyny wirtualnej.
 
-## <a name="create-an-empty-managed-disk"></a>Tworzenie pustego dysku zarządzanego
+## <a name="create-an-empty-managed-disk"></a>Utwórz pusty dysk zarządzany
 
-Zanim będzie można utworzyć pusty standardowy dysk twardy do przesyłania, będziesz potrzebować rozmiaru pliku VHD, który chcesz przekazać, w bajtach. Przykładowy kod dostanie to za Ciebie, ale aby `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`zrobić to sam, możesz użyć: . Ta wartość jest używana podczas określania **parametru -UploadSizeInBytes.**
+Aby można było utworzyć pusty dysk twardy w celu przeładowania, potrzebny będzie rozmiar pliku wirtualnego dysku twardego, który ma zostać przekazany w bajtach. Przykładowy kod uzyskasz dla Ciebie, ale aby zrobić to samodzielnie, możesz użyć: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Ta wartość jest używana podczas określania parametru **-UploadSizeInBytes** .
 
-Teraz na lokalnej powłoce utwórz pusty standardowy dysk twardy do przekazywania, określając ustawienie **Przekazywanie** w parametrze **-CreateOption,** a także parametr **-UploadSizeInBytes** w poleceniu [New-AzDiskConfig.](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) Następnie zadzwoń do [new-AzDisk,](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) aby utworzyć dysk.
+Teraz w lokalnej powłoce Utwórz pusty standardowy dysk twardy do przekazania przez określenie ustawienia **przekazywania** w parametrze **-i** parametru, a także parametru **-UploadSizeInBytes** w poleceniu cmdlet [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Następnie Wywołaj polecenie [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) , aby utworzyć dysk.
 
-Zamień `<yourdiskname>`, `<yourresourcegroupname>`a `<yourregion>` następnie uruchom następujące polecenia:
+`<yourdiskname>`Zastąp `<yourresourcegroupname>`,, `<yourregion>` a następnie uruchom następujące polecenia:
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -56,11 +56,11 @@ $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -Upload
 New-AzDisk -ResourceGroupName '<yourresourcegroupname' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
-Jeśli chcesz przesłać ssd premium lub standardowy SSD, zastąp **Standard_LRS** **Premium_LRS** lub **StandardSSD_LRS**. Dyski ultra nie są jeszcze obsługiwane.
+Jeśli chcesz przekazać dysk SSD w warstwie Premium lub dysk SSD w warstwie Standardowa, Zastąp **Standard_LRS** z **Premium_LRS** lub **StandardSSD_LRS**. Dyski Ultra nie są jeszcze obsługiwane.
 
-Po utworzeniu pustego dysku zarządzanego skonfigurowanego dla procesu przekazywania można przekazać do niego dysk wirtualny. Aby przekazać dysk VHD na dysk, musisz zapisywać sas, dzięki czemu można odwoływać się do niego jako miejsce docelowe przekazywania.
+Teraz, gdy został utworzony pusty dysk zarządzany skonfigurowany dla procesu przekazywania, można przekazać do niego dysk VHD. Aby przekazać dysk VHD do dysku, musisz mieć zapisywalne sygnatury dostępu współdzielonego, aby można było odwołać się do niego jako miejsce docelowe przekazywania.
 
-Aby wygenerować zapisywalny sygnatura dostępu Współdzielonego pustego dysku zarządzanego, zastąp `<yourdiskname>`i `<yourresourcegroupname>`użyj następujących poleceń:
+Aby wygenerować zapisywalne SYGNATURy dostępu do pustego dysku zarządzanego `<yourdiskname>`, `<yourresourcegroupname>`zastąp je, a następnie użyj następujących poleceń:
 
 ```powershell
 $diskSas = Grant-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -DurationInSecond 86400 -Access 'Write'
@@ -70,19 +70,19 @@ $disk = Get-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<your
 
 ## <a name="upload-a-vhd"></a>Przekazywanie wirtualnego dysku twardego
 
-Teraz, gdy masz sygnatury dostępu Współdzielonego dla pustego dysku zarządzanego, można go użyć do skonfigurowania dysku zarządzanego jako miejsca docelowego polecenia przekazywania.
+Teraz, gdy masz sygnaturę dostępu współdzielonego dla pustego dysku zarządzanego, możesz użyć jej do ustawienia dysku zarządzanego jako miejsca docelowego dla polecenia przekazywania.
 
-Użyj AzCopy v10, aby przekazać lokalny plik VHD na dysk zarządzany, określając wygenerowany identyfikator URI sygnatury dostępu Współdzielonego.
+Za pomocą AzCopy v10 Przekaż swój lokalny plik VHD na dysk zarządzany, określając wygenerowany identyfikator URI sygnatury dostępu współdzielonego.
 
-To przesyłanie ma taką samą przepustowość jak równoważny [standardowy dysk twardy](disks-types.md#standard-hdd). Na przykład jeśli masz rozmiar, który odpowiada S4, będziesz miał przepływność do 60 MiB/s. Ale jeśli masz rozmiar, który odpowiada S70, będziesz miał przepustowość do 500 MiB / s.
+To przekazywanie ma taką samą przepływność jak odpowiednik [standardowego dysku twardego](disks-types.md#standard-hdd). Na przykład jeśli masz rozmiar, który jest równa S4, będziesz mieć przepływność do 60 MiB/s. Ale jeśli masz rozmiar, który jest równa S70, będziesz mieć przepływność do 500 MiB/s.
 
 ```
-AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
+AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
-Po zakończeniu przekazywania i nie trzeba już zapisywać więcej danych na dysku, odwołać sygnaturę dostępu Współdzielonego. Odwołanie sygnatury dostępu Współdzielonego spowoduje zmianę stanu dysku zarządzanego i umożliwi dołączenie dysku do maszyny Wirtualnej.
+Po zakończeniu przekazywania i nie musisz już pisać więcej danych na dysku, odwołaj sygnaturę dostępu współdzielonego. Odwoływanie sygnatury dostępu współdzielonego spowoduje zmianę stanu dysku zarządzanego i umożliwi dołączenie dysku do maszyny wirtualnej.
 
-Zamień `<yourdiskname>`i `<yourresourcegroupname>`, a następnie uruchom następujące polecenie:
+`<yourdiskname>`Zastąp `<yourresourcegroupname>`, a następnie uruchom następujące polecenie:
 
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
@@ -90,14 +90,14 @@ Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<you
 
 ## <a name="copy-a-managed-disk"></a>Kopiowanie dysku zarządzanego
 
-Bezpośrednie przekazywanie upraszcza również proces kopiowania dysku zarządzanego. Można skopiować w tym samym regionie lub skopiować dysk zarządzany do innego regionu.
+Bezpośrednie przekazywanie upraszcza również proces kopiowania dysku zarządzanego. Można wykonać kopię w tym samym regionie lub skopiować dysk zarządzany do innego regionu.
 
-Skrypt obserwowany zrobi to za Ciebie, proces jest podobny do kroków opisanych wcześniej, z pewnymi różnicami, ponieważ pracujesz z istniejącym dyskiem.
+Wykonanie poniższej skryptu spowoduje to, że proces jest podobny do opisanego wcześniej procedury, z pewnymi różnicami, ponieważ pracujesz z istniejącym dyskiem.
 
 > [!IMPORTANT]
-> Należy dodać przesunięcie 512, gdy udostępniasz rozmiar dysku w bajtach dysku zarządzanego z platformy Azure. Dzieje się tak, ponieważ platforma Azure pomija stopki podczas zwracania rozmiaru dysku. Kopia zakończy się niepowodzeniem, jeśli tego nie zrobisz. Poniższy skrypt już to robi za Ciebie.
+> Należy dodać przesunięcie 512, gdy podajesz rozmiar dysku w bajtach dysku zarządzanego na platformie Azure. Wynika to z faktu, że platforma Azure pomija stopkę podczas zwracania rozmiaru dysku. Kopia nie powiedzie się, jeśli to zrobisz. Poniższy skrypt już robi to za Ciebie.
 
-`<sourceResourceGroupHere>`Zastąp `<targetDiskNameHere>` `<targetResourceGroupHere>`, `<yourOSTypeHere>` `<sourceDiskNameHere>` `<yourTargetLocationHere>` , , i (przykładem wartości lokalizacji będzie uswest2) wartościami, a następnie uruchom następujący skrypt w celu skopiowania dysku zarządzanego.
+Zastąp `<sourceResourceGroupHere>`wartości `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` i `<yourTargetLocationHere>` (przykładem wartości lokalizacji byłaby uswest2) wartościami, a następnie uruchom poniższy skrypt w celu skopiowania dysku zarządzanego.
 
 ```powershell
 
@@ -129,6 +129,6 @@ Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po pomyślnym przekazaniu dysku wirtualnego na dysk zarządzany można dołączyć dysk do maszyny Wirtualnej i rozpocząć jej używanie.
+Teraz, gdy wirtualny dysk twardy został pomyślnie przekazany do dysku zarządzanego, możesz dołączyć dysk do maszyny wirtualnej i zacząć z niego korzystać.
 
-Aby dowiedzieć się, jak dołączyć dysk danych do maszyny Wirtualnej, zobacz nasz artykuł na ten temat: [Dołączanie dysku z danymi do maszyny Wirtualnej systemu Windows za pomocą programu PowerShell](attach-disk-ps.md). Aby użyć dysku jako dysku systemu operacyjnego, zobacz [Tworzenie maszyny Wirtualnej systemu Windows z dysku specjalistycznego](create-vm-specialized.md#create-the-new-vm).
+Aby dowiedzieć się, jak dołączyć dysk danych do maszyny wirtualnej, zapoznaj się z artykułem na temat: [dołączanie dysku danych do maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell](attach-disk-ps.md). Aby użyć dysku jako dysku systemu operacyjnego, zobacz [Tworzenie maszyny wirtualnej z systemem Windows na podstawie wyspecjalizowanego dysku](create-vm-specialized.md#create-the-new-vm).

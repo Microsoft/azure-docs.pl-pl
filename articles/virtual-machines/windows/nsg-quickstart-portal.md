@@ -1,24 +1,18 @@
 ---
 title: Otwieranie portów na maszynę wirtualną przy użyciu witryny Azure portal
-description: Dowiedz się, jak otworzyć port / utworzyć punkt końcowy dla maszyny Wirtualnej systemu Windows przy użyciu modelu wdrażania menedżera zasobów w witrynie Azure Portal
-services: virtual-machines-windows
-documentationcenter: ''
+description: Dowiedz się, jak otworzyć port / utworzyć punkt końcowy dla maszyny Wirtualnej systemu Windows przy użyciu portalu Azure Portal
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1844236a77b688819832b3fe0bf6736beea4bfae
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75371415"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865484"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Jak otworzyć porty na maszynie wirtualnej za pomocą witryny Azure portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -31,7 +25,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 1. Wyszukaj i wybierz grupę zasobów maszyny Wirtualnej, wybierz pozycję **Dodaj**, a następnie wyszukaj i wybierz pozycję **Grupa zabezpieczeń Sieć**.
 
-2. Wybierz **pozycję Utwórz**.
+2. Wybierz pozycję **Utwórz**.
 
     Zostanie otwarte okno **Tworzenie sieciowej grupy zabezpieczeń.**
 

@@ -1,28 +1,28 @@
 ---
-title: Zarządzanie tworzeniem kopii zapasowej udziału plików platformy Azure za pomocą interfejsu API rest
-description: Dowiedz się, jak używać interfejsu API REST do zarządzania i monitorowania udziałów plików platformy Azure, które są archiwizowane przez usługę Azure Backup.
+title: Zarządzanie kopią zapasową udziału plików platformy Azure za pomocą interfejsu API REST
+description: Dowiedz się, jak używać interfejsu API REST do zarządzania udziałami plików platformy Azure, których kopie zapasowe są tworzone przez Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 9d29b226aff568c91de8e1f19ddc0c64f8169e4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444734"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184915"
 ---
-# <a name="manage-azure-file-share-backup-with-rest-api"></a>Zarządzanie tworzeniem kopii zapasowej udziału plików platformy Azure za pomocą interfejsu API REST
+# <a name="manage-azure-file-share-backup-with-rest-api"></a>Zarządzanie kopią zapasową udziału plików platformy Azure za pomocą interfejsu API REST
 
-W tym artykule wyjaśniono, jak wykonywać zadania związane z zarządzaniem i monitorowaniem udziałów plików platformy Azure, które są archiwizowane przez [usługę Azure Backup.](https://docs.microsoft.com/azure/backup/backup-overview)
+W tym artykule opisano sposób wykonywania zadań związanych z zarządzaniem udziałami plików platformy Azure, których kopie zapasowe są tworzone przez [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
 
 ## <a name="monitor-jobs"></a>Monitorowanie zadań
 
-Usługa Azure Backup wyzwala zadania, które są uruchamiane w tle. Obejmuje to scenariusze, takie jak wyzwalanie kopii zapasowej, przywracanie operacji i wyłączanie kopii zapasowej. Te zadania mogą być śledzone przy użyciu ich identyfikatorów.
+Usługa Azure Backup wyzwala zadania uruchamiane w tle. Obejmuje to takie scenariusze jak wyzwalanie kopii zapasowych, operacje przywracania i wyłączanie tworzenia kopii zapasowych. Te zadania mogą być śledzone przy użyciu ich identyfikatorów.
 
 ### <a name="fetch-job-information-from-operations"></a>Pobieranie informacji o zadaniu z operacji
 
-Operacja, taka jak wyzwalanie kopii zapasowej zawsze zwróci jobID w odpowiedzi.
+Operacja, taka jak wyzwalanie kopii zapasowej, zawsze zwróci identyfikator jobID w odpowiedzi.
 
-Na przykład ostateczna odpowiedź operacji [interfejsu API interfejsu REST kopii zapasowej wyzwalacza](backup-azure-file-share-rest-api.md#trigger-an-on-demand-backup-for-file-share) jest następująca:
+Na przykład ostateczną odpowiedzią operacji [interfejsu API Rest tworzenia kopii zapasowej wyzwalacza](backup-azure-file-share-rest-api.md#trigger-an-on-demand-backup-for-file-share) jest następująca:
 
 ```json
 {
@@ -38,7 +38,7 @@ Na przykład ostateczna odpowiedź operacji [interfejsu API interfejsu REST kopi
 }
 ```
 
-Zadanie tworzenia kopii zapasowej udziału plików platformy Azure jest identyfikowane przez pole **jobId** i może być śledzone zgodnie z [tym,](https://docs.microsoft.com/rest/api/backup/jobdetails/) co wspomniano w tym miejscu przy użyciu żądania GET.
+Zadanie tworzenia kopii zapasowej udziału plików platformy Azure jest identyfikowane za pomocą pola **jobId** i może być śledzone w sposób opisany w [tym miejscu](https://docs.microsoft.com/rest/api/backup/jobdetails/) przy użyciu żądania GET.
 
 ### <a name="tracking-the-job"></a>Śledzenie zadania
 
@@ -46,7 +46,7 @@ Zadanie tworzenia kopii zapasowej udziału plików platformy Azure jest identyfi
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-{jobName} jest "jobId" wymienionych powyżej. Odpowiedź jest zawsze "200 OK" z polem **stanu** wskazującym stan zadania. Po zakończeniu "Zakończone" lub "CompletedWithWarnings", **extendedInfo** sekcji ujawnia więcej szczegółów na temat zadania.
+{JobName} jest "jobId" wymienionym powyżej. Odpowiedź jest zawsze "200 OK" z polem **stanu** wskazującym stan zadania. Po "ukończeniu" lub "CompletedWithWarnings" sekcja **extendedInfo** zawiera więcej informacji o zadaniu.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupJobs/e2ca2cf4-2eb9-4d4b-b16a-8e592d2a658b?api-version=2019-05-13'
@@ -56,11 +56,11 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 Nazwa  | Typ  |  Opis
 --- | --- | ----
-200 ok. |  Źródło pracy  | OK
+200 OK |  JobResource  | OK
 
 #### <a name="response-example"></a>Przykład odpowiedzi
 
-Po przesłaniu *identyfikatora GET* URI zwracana jest odpowiedź 200.
+Po przesłaniu *identyfikatora URI zostanie* zwrócona odpowiedź 200.
 
 ```http
 HTTP/1.1" 200
@@ -109,11 +109,11 @@ HTTP/1.1" 200
 }
 ```
 
-## <a name="modify-policy"></a>Modyfikowanie zasad
+## <a name="modify-policy"></a>Modyfikuj zasady
 
-Aby zmienić zasady, za pomocą których jest chroniony udział plików, można użyć tego samego formatu, co włączenie ochrony. Wystarczy podać nowy identyfikator zasad w zasadach żądania i przesłać żądanie.
+Aby zmienić zasady, przy użyciu których udział plików jest chroniony, można użyć tego samego formatu co włączenie ochrony. Po prostu podaj nowy identyfikator zasad w zasadach żądań i prześlij żądanie.
 
-Na przykład: Aby zmienić zasady ochrony *testshare* z *schedule1* do *schedule2*, podaj *identyfikator schedule2* w treści żądania.
+Na przykład: Aby zmienić zasady ochrony *testshare* z *schedule1* na *schedule2*, podaj identyfikator *schedule2* w treści żądania.
 
 ```json
 {
@@ -125,9 +125,9 @@ Na przykład: Aby zmienić zasady ochrony *testshare* z *schedule1* do *schedule
 }
 ```
 
-## <a name="stop-protection-but-retain-existing-data"></a>Zatrzymaj ochronę, ale zachowaj istniejące dane
+## <a name="stop-protection-but-retain-existing-data"></a>Zatrzymaj ochronę, ale Zachowaj istniejące dane
 
-Można usunąć ochronę w chronionym udziale plików, ale zachować dane, których kopię zapasową już wykonano. Aby to zrobić, usuń zasady w treści żądania używane do[włączania kopii zapasowej](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) i przesłać żądanie. Po usunięciu skojarzenia z zasadami kopie zapasowe nie są już wyzwalane i nie są tworzone żadne nowe punkty odzyskiwania.
+Ochronę chronionego udziału plików można usunąć, ale zachowano już kopię zapasową danych. Aby to zrobić, Usuń zasady w treści żądania użytej do[włączenia tworzenia kopii zapasowej](backup-azure-file-share-rest-api.md#enable-backup-for-the-file-share) i przesyłania żądania. Po usunięciu skojarzenia z zasadami kopie zapasowe nie są już wyzwalane i nie są tworzone żadne nowe punkty odzyskiwania.
 
 ```json
 {
@@ -142,7 +142,7 @@ Można usunąć ochronę w chronionym udziale plików, ale zachować dane, któr
 
 ### <a name="sample-response"></a>Przykładowa odpowiedź
 
-Zatrzymanie ochrony dla udziału plików jest operacją asynchronizacyjną. Operacja tworzy inną operację, która musi być śledzona. Zwraca dwie odpowiedzi: 202 (Zaakceptowane) podczas tworzenia innej operacji i 200 po zakończeniu tej operacji.
+Zatrzymywanie ochrony udziału plików jest operacją asynchroniczną. Operacja tworzy inną operację, która musi być śledzona. Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja, i 200 po zakończeniu tej operacji.
 
 Nagłówek odpowiedzi po pomyślnym zaakceptowaniu operacji:
 
@@ -166,7 +166,7 @@ msrest.http_logger :     'Azure-AsyncOperation': 'https://management.azure.com/S
 'Content-Length': '0'
 ```
 
-Następnie śledź wynikową operację przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia GET:
+Następnie Śledź wyniki operacji przy użyciu nagłówka lokalizacji lub nagłówka Azure-AsyncOperation za pomocą polecenia GET:
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupoperations/b300922a-ad9c-4181-b4cd-d42ea780ad77?api-version=2016-12-01
@@ -188,17 +188,17 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 }
 ```
 
-## <a name="stop-protection-and-delete-data"></a>Zatrzymywać ochronę i usuwać dane
+## <a name="stop-protection-and-delete-data"></a>Zatrzymywanie ochrony i usuwanie danych
 
-Aby usunąć ochronę w chronionym udziale plików i usunąć dane kopii zapasowej, wykonaj operację usuwania, jak opisano [tutaj](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Aby usunąć ochronę chronionego udziału plików i usunąć również dane kopii zapasowej, wykonaj operację usuwania w sposób opisany [tutaj](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-Parametry {containerName} i {protectedItemName} są ustawione [w tym miejscu.](restore-azure-file-share-rest-api.md#fetch-containername-and-protecteditemname)
+Parametry {ContainerName} i {protectedItemName} zostały ustawione w [tym miejscu](restore-azure-file-share-rest-api.md#fetch-containername-and-protecteditemname).
 
-Poniższy przykład wyzwala operację, aby zatrzymać ochronę udziału plików *testshare* chronione za pomocą *azurefilesvault*.
+Poniższy przykład wyzwala operację, aby zatrzymać ochronę udziału plików *testshare* chronionego za pomocą usługi *azurefilesvault*.
 
 ```http
 DELETE https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;AzureFiles;testvault2/protectedItems/azurefileshare;testshare?api-version=2016-12-01
@@ -206,9 +206,9 @@ DELETE https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f4
 
 ### <a name="responses"></a>Odpowiedzi
 
-Ochrona przed usunięciem jest operacją asynchronizacyjną. Operacja tworzy inną operację, która musi być śledzona oddzielnie.
-Zwraca dwie odpowiedzi: 202 (Zaakceptowane) po utworzeniu innej operacji i 204 (NoContent) po zakończeniu tej operacji.
+Usuwanie ochrony jest operacją asynchroniczną. Operacja tworzy inną operację, która musi być śledzona oddzielnie.
+Zwraca dwie odpowiedzi: 202 (zaakceptowane), gdy tworzona jest inna operacja i 204 (NoContent) po zakończeniu tej operacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak [rozwiązywać problemy podczas konfigurowania kopii zapasowej dla udziałów plików platformy Azure.](troubleshoot-azure-files.md)
+* Dowiedz się, jak [rozwiązywać problemy podczas konfigurowania kopii zapasowej dla udziałów plików platformy Azure](troubleshoot-azure-files.md).

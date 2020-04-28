@@ -1,7 +1,7 @@
 ---
-title: Odzyskiwanie po awarii i przewijanie awaryjne konta magazynu (wersja zapoznawcza)
+title: Tryb failover odzyskiwania po awarii i konta magazynu (wersja zapoznawcza)
 titleSuffix: Azure Storage
-description: Usługa Azure Storage obsługuje pracę awaryjną konta (w wersji zapoznawczej) dla kont magazynu geograficznie nadmiarowego. Dzięki pracy awaryjnej konta można zainicjować proces pracy awaryjnej dla konta magazynu, jeśli podstawowy punkt końcowy stanie się niedostępny.
+description: Usługa Azure Storage obsługuje tryb failover (wersja zapoznawcza) konta magazynu geograficznie nadmiarowego. Korzystając z trybu failover konta, można zainicjować proces trybu failover dla konta magazynu, jeśli podstawowy punkt końcowy stanie się niedostępny.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,175 +10,175 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7340f419912324e488dc38e5aa0d884b150a44b7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79365371"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176383"
 ---
-# <a name="disaster-recovery-and-account-failover-preview"></a>Odzyskiwanie po awarii i przewijanie awaryjne konta (wersja zapoznawcza)
+# <a name="disaster-recovery-and-account-failover-preview"></a>Odzyskiwanie po awarii i tryb failover konta (wersja zapoznawcza)
 
-Firma Microsoft dokłada wszelkich starań, aby usługi platformy Azure były zawsze dostępne. Mogą jednak wystąpić nieplanowane przerwy w dostawie usług. Jeśli aplikacja wymaga odporności, firma Microsoft zaleca użycie magazynu geograficznie nadmiarowego, aby dane były kopiowane do drugiego regionu. Ponadto klienci powinni mieć plan odzyskiwania po awarii w miejscu do obsługi awarii usługi regionalnej. Ważną częścią planu odzyskiwania po awarii przygotowuje się do awaryjnego do pomocniczego punktu końcowego w przypadku, gdy podstawowy punkt końcowy staje się niedostępny.
+Firma Microsoft dąży do zapewnienia, że usługi platformy Azure są zawsze dostępne. Może jednak wystąpić nieplanowana awaria usługi. Jeśli aplikacja wymaga odporności, firma Microsoft zaleca korzystanie z magazynu geograficznie nadmiarowego, dzięki czemu dane są kopiowane do drugiego regionu. Ponadto klienci powinni mieć plan odzyskiwania po awarii na potrzeby obsługi regionalnej awarii usługi. Ważna część planu odzyskiwania po awarii jest przygotowywana do przełączenia w tryb failover do pomocniczego punktu końcowego w przypadku, gdy podstawowy punkt końcowy stał się niedostępny.
 
-Usługa Azure Storage obsługuje pracę awaryjną konta (w wersji zapoznawczej) dla kont magazynu geograficznie nadmiarowego. Dzięki pracy awaryjnej konta można zainicjować proces pracy awaryjnej dla konta magazynu, jeśli podstawowy punkt końcowy stanie się niedostępny. Przewijalnia awaryjna aktualizuje pomocniczy punkt końcowy, aby stał się podstawowym punktem końcowym dla konta magazynu. Po zakończeniu pracy awaryjnej klienci mogą rozpocząć zapisywanie w nowym podstawowym punkcie końcowym.
+Usługa Azure Storage obsługuje tryb failover (wersja zapoznawcza) konta magazynu geograficznie nadmiarowego. Korzystając z trybu failover konta, można zainicjować proces trybu failover dla konta magazynu, jeśli podstawowy punkt końcowy stanie się niedostępny. Tryb failover aktualizuje pomocniczy punkt końcowy, aby stał się podstawowym punktem końcowym dla konta magazynu. Po zakończeniu pracy w trybie failover klienci mogą rozpocząć zapisywanie do nowego podstawowego punktu końcowego.
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
-W tym artykule opisano pojęcia i proces związany z pracą awaryjną konta i omówiono sposób przygotowania konta magazynu do odzyskiwania z najmniejszą ilością wpływu na klienta. Aby dowiedzieć się, jak zainicjować tryb failover konta w witrynie Azure portal lub programie PowerShell, zobacz [Inicjowanie pracy awaryjnej konta (wersja zapoznawcza)](storage-initiate-account-failover.md).
+W tym artykule opisano koncepcje i procesy związane z trybem failover konta oraz omówiono sposób przygotowania konta magazynu do odzyskania przy minimalnym wpływie na klienta. Aby dowiedzieć się, jak zainicjować tryb failover konta w Azure Portal lub PowerShell, zobacz [inicjowanie trybu failover konta (wersja zapoznawcza)](storage-initiate-account-failover.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="choose-the-right-redundancy-option"></a>Wybierz odpowiednią opcję nadmiarowości
+## <a name="choose-the-right-redundancy-option"></a>Wybierz opcję z odpowiednią nadmiarowością
 
-Usługa Azure Storage przechowuje wiele kopii konta magazynu, aby zapewnić trwałość i wysoką dostępność. Opcja nadmiarowości wybrana dla konta zależy od stopnia odporności, którego potrzebujesz. Aby chronić przed regionalnymi awariami, wybierz magazyn geograficznie nadmiarowy, z opcją dostępu do odczytu lub bez opcji z regionu pomocniczego:  
+Usługa Azure Storage obsługuje wiele kopii konta magazynu w celu zapewnienia trwałości i wysokiej dostępności. Wybrana opcja nadmiarowości dla konta zależy od stopnia odporności. Aby chronić przed awarią regionalną, wybierz magazyn Geograficznie nadmiarowy z lub bez opcji dostępu do odczytu z regionu pomocniczego:  
 
-**Magazyn geograficznie nadmiarowy (GRS) lub magazyn geograficzny nadmiarowy (GZRS) (wersja zapoznawcza)** kopiuje dane asynchronicznie w dwóch regionach geograficznych oddalonych od siebie o co najmniej setki mil. Jeśli region podstawowy cierpi na awarię, region pomocniczy służy jako nadmiarowe źródło danych. Można zainicjować pracy awaryjnej, aby przekształcić pomocniczy punkt końcowy do podstawowego punktu końcowego.
+**Magazyn Geograficznie nadmiarowy (GRS) lub strefa Geograficznie nadmiarowy (GZRS) (wersja zapoznawcza)** kopiuje dane asynchronicznie w dwóch regionach geograficznych, które są co najmniej setkami kilometrów. Jeśli region podstawowy cierpi na awarię, region pomocniczy służy jako nadmiarowe źródło danych. Możesz zainicjować tryb failover, aby przekształcić pomocniczy punkt końcowy w podstawowy punkt końcowy.
 
-**Magazyn geograficzny dostępu do odczytu (RA-GRS) lub magazyn geograficzny dostępu do odczytu (RA-GZRS) (wersja zapoznawcza)** zapewnia magazyn geograficznie nadmiarowy z dodatkową zaletą dostępu do odczytu do pomocniczego punktu końcowego. Jeśli wystąpi awaria w podstawowym punkcie końcowym, aplikacje skonfigurowane dla RA-GRS i zaprojektowane z myślą o wysokiej dostępności mogą nadal odczytywać z pomocniczego punktu końcowego. Firma Microsoft zaleca RA-GRS dla maksymalnej odporności aplikacji.
+**Magazyn Geograficznie nadmiarowy dostępny do odczytu (RA-GRS) lub strefa geograficzna z dostępem do odczytu — nadmiarowy magazyn (Ra-GZRS) (wersja zapoznawcza)** zapewnia magazyn Geograficznie nadmiarowy z dodatkową korzyścią dostępu do odczytu do pomocniczego punktu końcowego. W przypadku wystąpienia awarii podstawowego punktu końcowego aplikacje skonfigurowane dla usługi RA-GRS i zaprojektowane pod kątem wysokiej dostępności mogą nadal czytać z pomocniczego punktu końcowego. Firma Microsoft zaleca, aby dla aplikacji uzyskać maksymalną odporność na GRS.
 
-Aby uzyskać więcej informacji na temat nadmiarowości w usłudze Azure Storage, zobacz [Nadmiarowość usługi Azure Storage](storage-redundancy.md).
+Aby uzyskać więcej informacji o nadmiarowości w usłudze Azure Storage, zobacz [nadmiarowość usługi Azure Storage](storage-redundancy.md).
 
 > [!WARNING]
-> Magazyn geograficznie nadmiarowy niesie ze sobą ryzyko utraty danych. Dane są kopiowane do pomocniczego regionu asynchronicznie, co oznacza, że występuje opóźnienie między kiedy dane zapisywane w regionie podstawowym jest zapisywany w regionie pomocniczym. W przypadku awarii operacje zapisu do podstawowego punktu końcowego, które nie zostały jeszcze skopiowane do pomocniczego punktu końcowego zostaną utracone.
+> Magazyn Geograficznie nadmiarowy wykonuje ryzyko utraty danych. Dane są kopiowane do regionu pomocniczego asynchronicznie, co oznacza, że istnieje opóźnienie między zapisaniem danych w regionie podstawowym do regionu pomocniczego. W przypadku awarii operacje zapisu w podstawowym punkcie końcowym, które nie zostały jeszcze skopiowane do pomocniczego punktu końcowego, zostaną utracone.
 
 ## <a name="design-for-high-availability"></a>Projektowanie na potrzeby wysokiej dostępności
 
-Ważne jest, aby zaprojektować aplikację pod kątem wysokiej dostępności od samego początku. Zapoznaj się z tymi zasobami platformy Azure, aby uzyskać wskazówki dotyczące projektowania aplikacji i planowania odzyskiwania po awarii:
+Ważne jest, aby zaprojektować aplikację pod kątem wysokiej dostępności od początku. Zapoznaj się z tymi zasobami platformy Azure, aby uzyskać wskazówki dotyczące projektowania aplikacji i planowania odzyskiwania po awarii:
 
-- [Projektowanie aplikacji odpornych na platformę Azure:](/azure/architecture/checklist/resiliency-per-service)omówienie kluczowych koncepcji projektowania aplikacji o wysokiej dostępności na platformie Azure.
-- [Lista kontrolna dostępności:](/azure/architecture/checklist/resiliency-per-service)lista kontrolna do sprawdzania, czy aplikacja implementuje najlepsze rozwiązania w zakresie projektowania dotyczące wysokiej dostępności.
-- [Projektowanie aplikacji o wysokiej dostępności przy użyciu RA-GRS](storage-designing-ha-apps-with-ragrs.md): Wskazówki projektowe dla aplikacji budowlanych, aby skorzystać z RA-GRS.
-- [Samouczek: Tworzenie aplikacji o wysokiej dostępności z magazynu obiektów Blob:](../blobs/storage-create-geo-redundant-storage.md)Samouczek, który pokazuje, jak utworzyć aplikację o wysokiej dostępności, która automatycznie przełącza się między punktami końcowymi, gdy symulowane są błędy i odzyskiwanie. 
+- [Projektowanie odpornych aplikacji na platformę Azure](/azure/architecture/checklist/resiliency-per-service): przegląd najważniejszych pojęć dotyczących tworzenia aplikacji o wysokiej dostępności na platformie Azure.
+- [Lista kontrolna dostępności](/azure/architecture/checklist/resiliency-per-service): Lista kontrolna służąca do sprawdzania, czy aplikacja implementuje najlepsze rozwiązania w zakresie projektowania wysokiej dostępności.
+- [Projektowanie aplikacji o wysokiej dostępności przy użyciu usługi RA-GRS](storage-designing-ha-apps-with-ragrs.md): wskazówki dotyczące projektowania do kompilowania aplikacji w celu skorzystania z usługi RA-GRS.
+- [Samouczek: Tworzenie aplikacji o wysokiej dostępności przy użyciu magazynu obiektów BLOB](../blobs/storage-create-geo-redundant-storage.md): samouczek pokazujący sposób tworzenia aplikacji o wysokiej dostępności, która automatycznie przełącza się między punktami końcowymi w miarę awarii i odzyskiwania. 
 
-Ponadto należy pamiętać o tych najlepszych praktyk dotyczących utrzymania wysokiej dostępności danych usługi Azure Storage:
+Ponadto należy pamiętać o najlepszych rozwiązaniach dotyczących utrzymania wysokiej dostępności dla danych usługi Azure Storage:
 
-- **Dyski:** Użyj [usługi Azure Backup,](https://azure.microsoft.com/services/backup/) aby wykonać kopię zapasową dysków maszyn wirtualnych używanych przez maszyny wirtualne platformy Azure. Należy również rozważyć użycie [usługi Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) do ochrony maszyn wirtualnych w przypadku awarii regionalnej.
-- **Blokowe obiekty blob:** Włącz [usuwanie nietrwałe,](../blobs/storage-blob-soft-delete.md) aby chronić przed usunięciami i zastąpień na poziomie obiektu, lub skopiuj blokowe obiekty blob do innego konta magazynu w innym regionie przy użyciu [programu AzCopy,](storage-use-azcopy.md) [azure powershell](storage-powershell-guide-full.md)lub [biblioteki przenoszenia danych platformy Azure.](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-- **Pliki:** Użyj [AzCopy](storage-use-azcopy.md) lub [Azure PowerShell,](storage-powershell-guide-full.md) aby skopiować pliki do innego konta magazynu w innym regionie.
-- **Tabele:** użyj [AzCopy](storage-use-azcopy.md) do eksportowania danych tabeli do innego konta magazynu w innym regionie.
+- **Dyski:** Użyj [Azure Backup](https://azure.microsoft.com/services/backup/) , aby utworzyć kopię zapasową dysków maszyny wirtualnej używanych przez maszyny wirtualne platformy Azure. Należy również rozważyć użycie [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) do ochrony maszyn wirtualnych w przypadku awarii regionalnej.
+- **Blokowe obiekty blob:** Włącz opcję [usuwania nietrwałego](../blobs/storage-blob-soft-delete.md) , aby chronić przed usuwaniem na poziomie obiektów i zastępowaniem, lub kopiować blokowe obiekty blob na inne konto magazynu w innym regionie przy użyciu [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/)lub [biblioteki przenoszenia danych platformy Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+- **Pliki:** Użyj [AzCopy](storage-use-azcopy.md) lub [Azure PowerShell](/powershell/module/az.storage/) , aby skopiować pliki do innego konta magazynu w innym regionie.
+- **Tabele:** Użyj [AzCopy](storage-use-azcopy.md) , aby wyeksportować dane tabeli do innego konta magazynu w innym regionie.
 
-## <a name="track-outages"></a>Śledzenie przestojów
+## <a name="track-outages"></a>Śledź przerwy
 
-Klienci mogą subskrybować [pulpit nawigacyjny kondycji usługi Azure,](https://azure.microsoft.com/status/) aby śledzić kondycję i stan usługi Azure Storage i innych usług platformy Azure.
+Klienci mogą subskrybować [pulpit nawigacyjny Azure Service Health](https://azure.microsoft.com/status/) , aby śledzić kondycję i stan usługi Azure Storage i innych usług platformy Azure.
 
-Firma Microsoft zaleca również zaprojektowanie aplikacji w celu przygotowania się na błędy zapisu. Aplikacja powinna uwidaczniać błędy zapisu w sposób, który ostrzega o możliwości awarii w regionie podstawowym.
+Firma Microsoft zaleca również zaprojektowanie aplikacji w celu przygotowania się do wystąpienia błędów zapisu. Aplikacja powinna ujawniać błędy zapisu w taki sposób, aby ostrzegał o możliwości przestoju w regionie podstawowym.
 
-## <a name="understand-the-account-failover-process"></a>Opis procesu pracy awaryjnej konta
+## <a name="understand-the-account-failover-process"></a>Opis procesu przełączania do trybu failover dla konta
 
-Funkcja pracy awaryjnej konta zarządzanego przez klienta (wersja zapoznawcza) umożliwia niepowodzenie całego konta magazynu w regionie pomocniczym, jeśli podstawowy stanie się niedostępny z jakiegokolwiek powodu. Po wymuszenie pracy awaryjnej do regionu pomocniczego, klienci mogą rozpocząć zapisywanie danych do pomocniczego punktu końcowego po zakończeniu pracy awaryjnej. Przewija się w błąd zwykle trwa około godziny.
+Tryb failover konta zarządzanego przez klienta (wersja zapoznawcza) umożliwia niepowodzenie całego konta magazynu w odniesieniu do regionu pomocniczego, jeśli podstawowy serwer stał się niedostępny z jakiegokolwiek powodu. Po wymuszeniu przejścia w tryb failover do regionu pomocniczego klienci mogą rozpocząć zapisywanie danych do pomocniczego punktu końcowego po zakończeniu pracy w trybie failover. Przełączenie w tryb failover trwa zwykle o godzinę.
 
 ### <a name="how-an-account-failover-works"></a>Na czym polega przełączanie konta w tryb failover
 
-W normalnych warunkach klient zapisuje dane na koncie usługi Azure Storage w regionie podstawowym, a te dane są kopiowane asynchronicznie do regionu pomocniczego. Na poniższej ilustracji przedstawiono scenariusz, w którym region podstawowy jest dostępny:
+W normalnych warunkach klient zapisuje dane na koncie usługi Azure Storage w regionie podstawowym, a dane są kopiowane asynchronicznie do regionu pomocniczego. Na poniższej ilustracji przedstawiono scenariusz, w którym jest dostępny region podstawowy:
 
 ![Klienci zapisują dane na koncie magazynu w regionie podstawowym](media/storage-disaster-recovery-guidance/primary-available.png)
 
-Jeśli podstawowy punkt końcowy staje się niedostępny z jakiegokolwiek powodu, klient nie jest już w stanie zapisać na koncie magazynu. Na poniższej ilustracji przedstawiono scenariusz, w którym podstawowy stał się niedostępny, ale nie doszło jeszcze do odzyskania:
+Jeśli podstawowy punkt końcowy jest niedostępny z jakiegoś powodu, klient nie będzie już mógł zapisywać na koncie magazynu. Na poniższej ilustracji przedstawiono scenariusz, w którym podstawowy stał się niedostępny, ale nie wystąpiło jeszcze odzyskiwanie:
 
-![Podstawowy jest niedostępny, więc klienci nie mogą zapisywać danych](media/storage-disaster-recovery-guidance/primary-unavailable-before-failover.png)
+![Podstawowa jest niedostępna, dlatego klienci nie mogą zapisywać danych](media/storage-disaster-recovery-guidance/primary-unavailable-before-failover.png)
 
-Klient inicjuje od pracy awaryjnej konta do pomocniczego punktu końcowego. Proces pracy awaryjnej aktualizuje wpis DNS dostarczony przez usługę Azure Storage, dzięki czemu pomocniczy punkt końcowy staje się nowym podstawowym punktem końcowym dla konta magazynu, jak pokazano na poniższej ilustracji:
+Klient inicjuje przejście w tryb failover konta do pomocniczego punktu końcowego. Proces trybu failover aktualizuje wpis DNS udostępniony przez usługę Azure Storage, aby pomocniczy punkt końcowy stał się nowym podstawowym punktem końcowym dla konta magazynu, jak pokazano na poniższej ilustracji:
 
-![Klient inicjuje przekonywowanie konta do pomocniczego punktu końcowego](media/storage-disaster-recovery-guidance/failover-to-secondary.png)
+![Klient inicjuje przejście w tryb failover konta do pomocniczego punktu końcowego](media/storage-disaster-recovery-guidance/failover-to-secondary.png)
 
-Dostęp do zapisu jest przywracany dla kont GRS i RA-GRS po zaktualizowaniu wpisu DNS i przekierowaniu żądań do nowego podstawowego punktu końcowego. Istniejące punkty końcowe usługi magazynowania dla obiektów blob, tabel, kolejek i plików pozostają takie same po przemijaniu awaryjnym.
+Dostęp do zapisu jest przywracany dla kont GRS i RA-GRS po aktualizacji wpisu DNS, a żądania są kierowane do nowego podstawowego punktu końcowego. Istniejące punkty końcowe usługi magazynu dla obiektów blob, tabel, kolejek i plików pozostają takie same po przejściu w tryb failover.
 
 > [!IMPORTANT]
-> Po zakończeniu pracy awaryjnej konto magazynu jest skonfigurowane jako lokalnie nadmiarowe w nowym podstawowym punkcie końcowym. Aby wznowić replikację do nowej pomocniczej, skonfiguruj konto tak, aby ponownie używało magazynu geograficznie nadmiarowego (RA-GRS lub GRS).
+> Po zakończeniu pracy w trybie failover konto magazynu zostanie skonfigurowane jako lokalnie nadmiarowy w nowym podstawowym punkcie końcowym. Aby wznowić replikację do nowego elementu pomocniczego, skonfiguruj konto, aby ponownie używać magazynu geograficznie nadmiarowego (RA-GRS lub GRS).
 >
-> Należy pamiętać, że konwersja konta LRS na RA-GRS lub GRS wiąże się z kosztem. Ten koszt ma zastosowanie do aktualizowania konta magazynu w nowym regionie podstawowym, aby używać RA-GRS lub GRS po przemijeniu awaryjnym.  
+> Należy pamiętać, że przekonwertowanie konta LRS na RA-GRS lub GRS ponosi koszt. Ten koszt dotyczy aktualizacji konta magazynu w nowym regionie podstawowym do korzystania z RA-GRS lub GRS po przejściu do trybu failover.  
 
-### <a name="anticipate-data-loss"></a>Przewidywanie utraty danych
+### <a name="anticipate-data-loss"></a>Oczekiwanie na utratę danych
 
 > [!CAUTION]
-> Przewijanie awaryjne konta zwykle wiąże się z utratą danych. Ważne jest, aby zrozumieć konsekwencje inicjowania pracy awaryjnej konta.  
+> Przełączenie w tryb failover jest zazwyczaj związane z utratą danych. Ważne jest, aby zrozumieć implikacje inicjowania trybu failover konta.  
 
-Ponieważ dane są zapisywane asynchronicznie z regionu podstawowego do regionu pomocniczego, zawsze występuje opóźnienie przed zapisem w regionie podstawowym jest kopiowany do regionu pomocniczego. Jeśli region podstawowy stanie się niedostępny, najnowsze zapisy mogą nie zostać jeszcze skopiowane do regionu pomocniczego.
+Ponieważ dane są zapisywane asynchronicznie z regionu podstawowego do regionu pomocniczego, zawsze jest opóźnienie, zanim zapis do regionu podstawowego zostanie skopiowany do regionu pomocniczego. Jeśli region podstawowy przestanie być dostępny, najnowsze zapisy mogły jeszcze nie zostać skopiowane do regionu pomocniczego.
 
-Po wymuszenie pracy awaryjnej, wszystkie dane w regionie podstawowym zostaną utracone, ponieważ region pomocniczy staje się nowym regionem podstawowym, a konto magazynu jest skonfigurowane jako lokalnie zbędne. Wszystkie dane już skopiowane do pomocniczego jest zachowywany, gdy nastąpi przewijenie awaryjne. Jednak wszystkie dane zapisane do podstawowego, który nie został również skopiowany do pomocniczego jest tracona trwale.
+Po wymuszeniu przejścia w tryb failover wszystkie dane w regionie podstawowym zostaną utracone, ponieważ region pomocniczy stał się nowym regionem podstawowym, a konto magazynu jest skonfigurowane do lokalnego nadmiarowego. Wszystkie dane, które zostały już skopiowane do pomocniczej, są utrzymywane w przypadku przejścia w tryb failover. Jednak wszystkie dane zapisywane w podstawowym, które nie zostały również skopiowane do pomocniczej, zostaną trwale utracone.
 
-**Właściwość Czas ostatniej synchronizacji** wskazuje ostatni czas, w której dane z regionu podstawowego są gwarantowane, że zostały zapisane w regionie pomocniczym. Wszystkie dane zapisane przed ostatnim czasem synchronizacji są dostępne w drugorzędnym, podczas gdy dane zapisane po ostatnim czasie synchronizacji mogą nie zostać zapisane w pomocniczym i mogą zostać utracone. Użyj tej właściwości w przypadku awarii, aby oszacować kwotę utraty danych, które mogą wystąpić w wyniku zainicjowania pracy awaryjnej konta.
+Właściwość **czas ostatniej synchronizacji** wskazuje, że ostatni czas, w którym dane z regionu podstawowego ma zostać zapisany w regionie pomocniczym. Wszystkie dane zapisywane przed upływem czasu ostatniej synchronizacji są dostępne na serwerze pomocniczym, a dane zapisywane po ostatniej synchronizacji mogą nie zostać zapisaną na pomocniczą i mogą zostać utracone. Użyj tej właściwości w przypadku przestoju, aby oszacować ilość utraconych danych, które mogą zostać naliczone przez zainicjowanie konta w trybie failover.
 
-Najlepszym rozwiązaniem jest zaprojektowanie aplikacji, aby można było użyć czasu ostatniej synchronizacji do oceny oczekiwanej utraty danych. Na przykład jeśli rejestrujesz wszystkie operacje zapisu, następnie można porównać czas ostatnich operacji zapisu do ostatniego czasu synchronizacji, aby ustalić, które zapisy nie zostały zsynchronizowane z pomocniczym.
+Najlepszym rozwiązaniem jest zaprojektowanie aplikacji tak, aby można było użyć czasu ostatniej synchronizacji do oszacowania oczekiwanej utraty danych. Na przykład, Jeśli rejestrujesz wszystkie operacje zapisu, można porównać czas ostatniej operacji zapisu w czasie ostatniej synchronizacji, aby określić, które zapisy nie zostały zsynchronizowane z serwerem pomocniczym.
 
-### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Należy zachować ostrożność w przypadku powrotu do pierwotnego
+### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Należy zachować ostrożność w przypadku powrotu po awarii do oryginalnego podstawowego
 
-Po przejściu w stan fail over z regionu podstawowego do pomocniczego, konto magazynu jest skonfigurowany jako lokalnie nadmiarowe w nowym regionie podstawowym. Konto można ponownie skonfigurować pod kątem nadmiarowości geograficznej, aktualizując je w celu użycia grs lub RA-GRS. Gdy konto jest ponownie skonfigurowane do nadmiarowości geograficznej po przełączeniu w błąd, nowy region podstawowy natychmiast rozpoczyna kopiowanie danych do nowego regionu pomocniczego, który był podstawowym przed pierwotnym przejściem w stan failover. Jednak może upłynąć trochę czasu, zanim istniejące dane w podstawowym jest w pełni skopiowany do nowego pomocniczego.
+Po przełączeniu w tryb failover z poziomu podstawowego do regionu pomocniczego konto magazynu zostanie skonfigurowane jako lokalnie nadmiarowy w nowym regionie podstawowym. Można ponownie skonfigurować konto dla nadmiarowości geograficznej przez zaktualizowanie go do korzystania z usługi GRS lub RA-GRS. Gdy konto zostanie ponownie skonfigurowane pod kątem nadmiarowości geograficznej po przejściu w tryb failover, nowy region podstawowy natychmiast rozpocznie kopiowanie danych do nowego regionu pomocniczego, który był podstawą przed pierwotnym trybem failover. Jednak może upłynąć trochę czasu, zanim istniejące dane w podstawowym są w całości kopiowane do nowej pomocniczej.
 
-Po ponownym skonfigurowaniu konta magazynu pod kątem nadmiarowości geograficznej możliwe jest zainicjowanie innej pracy awaryjnej z nowego podstawowego z powrotem do nowej pomocniczej. W takim przypadku oryginalny region podstawowy przed przewijaniem awaryjnym staje się ponownie regionem podstawowym i jest skonfigurowany jako lokalnie nadmiarowy. Wszystkie dane w regionie podstawowym po przegubie awaryjnym (oryginalny pomocniczy) są następnie tracone. Jeśli większość danych na koncie magazynu nie została skopiowana do nowej pomocniczej przed powrotem po awarii, może dopłynąć poważna utrata danych.
+Po ponownym skonfigurowaniu konta magazynu pod kątem nadmiarowości geograficznej możliwe jest zainicjowanie kolejnej pracy w trybie failover z powrotem do nowego elementu pomocniczego. W takim przypadku pierwotny region podstawowy przed przełączeniem w tryb failover będzie ponownie regionem podstawowym i zostanie skonfigurowany do lokalnego nadmiarowego. Wszystkie dane w regionie podstawowym w trybie failover (oryginalna wersja pomocnicza) są następnie tracone. Jeśli większość danych na koncie magazynu nie została skopiowana do nowego elementu pomocniczego przed powrotem po awarii, możesz ponieść znaczną utratę danych.
 
-Aby uniknąć utraty danych głównych, sprawdź wartość **last sync time** właściwości przed niepowodzeniem z powrotem. Porównaj czas ostatniej synchronizacji z ostatnimi czasami, w których dane zostały zapisane w nowej podstawowej, aby ocenić oczekiwaną utratę danych. 
+Aby uniknąć poważnej utraty danych, należy sprawdzić wartość właściwości **czas ostatniej synchronizacji** przed powrotem po awarii. Porównaj czas ostatniej synchronizacji z ostatnim czasem zapisania danych w nowym podstawowym celu oszacowania oczekiwanej utraty danych. 
 
 ## <a name="initiate-an-account-failover"></a>Inicjowanie trybu failover konta
 
-Możesz zainicjować przebłaję konta z witryny Azure portal, PowerShell, Interfejsu wiersza polecenia platformy Azure lub interfejsu API dostawcy zasobów usługi Azure Storage. Aby uzyskać więcej informacji na temat inicjowania pracy awaryjnej, zobacz [Inicjowanie pracy awaryjnej konta (wersja zapoznawcza)](storage-initiate-account-failover.md).
+Konto można zainicjować w trybie failover z poziomu Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub interfejsu API dostawcy zasobów usługi Azure Storage. Aby uzyskać więcej informacji na temat inicjowania trybu failover, zobacz [Inicjowanie konta trybu failover (wersja zapoznawcza)](storage-initiate-account-failover.md).
 
-## <a name="about-the-preview"></a>Informacje o podglądzie
+## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
 
-Funkcja pracy awaryjnej konta jest dostępna w wersji zapoznawczej dla wszystkich klientów korzystających z grs lub RA-GRS z wdrożeniami usługi Azure Resource Manager. Obsługiwane są typy kont magazynu ogólnego przeznaczenia w wersji 1, ogólnego przeznaczenia w wersji 2 i magazynu obiektów Blob. Przewijenie awaryjne konta jest obecnie dostępne we wszystkich regionach publicznych. Opcja pracy awaryjnej konta nie jest obecnie dostępna w chmurach suwerennych/krajowych.
+Tryb failover konta jest dostępny w wersji zapoznawczej dla wszystkich klientów korzystających z usługi GRS lub RA-GRS z wdrożeniami Azure Resource Manager. Obsługiwane są tylko typy kont ogólnego przeznaczenia w wersji 1, ogólnego przeznaczenia w wersji 2 i BLOB Storage. Tryb failover konta jest obecnie dostępny we wszystkich regionach publicznych. Praca w trybie failover nie jest dostępna w chmurach suwerennych/krajowych.
 
-Wersja zapoznawcza jest przeznaczona tylko do użytku nieprodukcyjnego. Umowy o poziomie usług produkcyjnych (SLA) nie są obecnie dostępne.
+Wersja zapoznawcza jest przeznaczona wyłącznie do użytku nieprodukcyjnego. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.
 
 ### <a name="additional-considerations"></a>Dodatkowe zagadnienia
 
-Przejrzyj dodatkowe zagadnienia opisane w tej sekcji, aby dowiedzieć się, jak mogą mieć wpływ na aplikacje i usługi po wymuszenie pracy awaryjnej w okresie podglądu.
+Zapoznaj się z dodatkowymi zagadnieniami opisanymi w tej sekcji, aby zrozumieć, w jaki sposób można mieć wpływ na aplikacje i usługi w przypadku wymuszenia przejścia w tryb failover w okresie zapoznawczym
 
 #### <a name="storage-account-containing-archived-blobs"></a>Konto magazynu zawierające zarchiwizowane obiekty blob
 
-Konta magazynu zawierające zarchiwizowane obiekty blob obsługują konto w trybie failover. Po zakończeniu pracy awaryjnej, aby przekonwertować konto z powrotem do GRS lub RA-GRS wszystkie zarchiwizowane obiekty blob muszą być najpierw nawodnione do warstwy online.
+Konta magazynu zawierające zarchiwizowane obiekty blob obsługują tryb failover konta. Po zakończeniu pracy w trybie failover w celu przekonwertowania konta z powrotem do GRS lub RA-GRS wszystkie zarchiwizowane obiekty blob muszą zostać najpierw przekształcone w warstwę online.
 
 #### <a name="storage-resource-provider"></a>Dostawca zasobów magazynu
 
-Po zakończeniu pracy awaryjnej klienci mogą ponownie odczytywać i zapisywać dane usługi Azure Storage w nowym regionie podstawowym. Jednak dostawca zasobów usługi Azure Storage nie działa w miejscu fail over, więc operacje zarządzania zasobami nadal muszą odbywać się w regionie podstawowym. Jeśli region podstawowy jest niedostępny, nie będzie można wykonywać operacji zarządzania na koncie magazynu.
+Po zakończeniu pracy w trybie failover klienci mogą ponownie odczytywać i zapisywać dane usługi Azure Storage w nowym regionie podstawowym. Jednak dostawca zasobów usługi Azure Storage nie przełączy się w tryb failover, więc operacje zarządzania zasobami muszą być nadal wykonywane w regionie podstawowym. Jeśli region podstawowy jest niedostępny, nie będzie możliwe wykonywanie operacji zarządzania na koncie magazynu.
 
-Ponieważ dostawca zasobów usługi Azure Storage nie działa w miejscu failover, [Location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) właściwość zwróci oryginalną lokalizację podstawową po zakończeniu pracy awaryjnej.
+Ponieważ dostawca zasobów usługi Azure Storage nie przejdzie w tryb failover, właściwość [Location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) zwróci oryginalną lokalizację główną po zakończeniu pracy awaryjnej.
 
 #### <a name="azure-virtual-machines"></a>Maszyny wirtualne platformy Azure
 
-Maszyny wirtualne platformy Azure (maszyny wirtualne) nie działają w trybie failover w ramach pracy awaryjnej konta. Jeśli region podstawowy staje się niedostępny, a po awarii do regionu pomocniczego, należy ponownie utworzyć wszystkie maszyny wirtualne po przełączeniu wznawienie w przypadku pracy awaryjnej. Ponadto istnieje potencjalna utrata danych skojarzona z przewijanym w błąd kontem. Firma Microsoft zaleca następujące [wskazówki](../../virtual-machines/windows/manage-availability.md) dotyczące wysokiej dostępności i [odzyskiwania po awarii](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) specyficzne dla maszyn wirtualnych na platformie Azure.
+Usługi Azure Virtual Machines (VM) nie są przełączane w tryb failover w ramach pracy awaryjnej konta. Jeśli region podstawowy stał się niedostępny i przejdziesz w tryb failover do regionu pomocniczego, należy ponownie utworzyć wszystkie maszyny wirtualne po przejściu w tryb pracy awaryjnej. Ponadto istnieje potencjalna utrata danych skojarzona z trybem failover konta. Firma Microsoft zaleca następujące wskazówki dotyczące [wysokiej dostępności](../../virtual-machines/windows/manage-availability.md) i [odzyskiwania po awarii](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) dotyczące maszyn wirtualnych na platformie Azure.
 
 #### <a name="azure-unmanaged-disks"></a>Dyski niezarządzane platformy Azure
 
-Najlepszym rozwiązaniem jest zalecana konwersja dysków niezarządzanych na dyski zarządzane. Jednak jeśli trzeba wykonać w stan failover konto, które zawiera dyski niezarządzane dołączone do maszyn wirtualnych platformy Azure, należy zamknąć maszynę wirtualną przed zainicjowaniem pracy awaryjnej.
+Najlepszym rozwiązaniem jest to, że firma Microsoft zaleca konwersję dysków niezarządzanych na dyski zarządzane. Jeśli jednak zachodzi potrzeba przełączenia konta zawierającego dyski niezarządzane dołączone do maszyn wirtualnych platformy Azure, należy zamknąć maszynę wirtualną przed zainicjowaniem trybu failover.
 
-Dyski niezarządzane są przechowywane jako obiekty blob stron w usłudze Azure Storage. Gdy maszyna wirtualna jest uruchomiona na platformie Azure, wszystkie dyski niezarządzane dołączone do maszyny Wirtualnej są dzierżawione. Nie można kontynuować pracy awaryjnej konta, gdy istnieje dzierżawa obiektu blob. Aby wykonać przemieścić w pełnienia pracy awaryjnej, wykonaj następujące kroki:
+Dyski niezarządzane są przechowywane jako stronicowe obiekty blob w usłudze Azure Storage. Gdy maszyna wirtualna jest uruchomiona na platformie Azure, wszystkie dyski niezarządzane dołączone do maszyny wirtualnej są dzierżawione. Nie można przeprowadzić przejścia w tryb failover dla konta, gdy istnieje dzierżawa w obiekcie blob. Aby przeprowadzić przejście w tryb failover, wykonaj następujące kroki:
 
-1. Przed rozpoczęciem należy zwrócić uwagę na nazwy dysków niezarządzanych, ich numery jednostek logicznych (LUN) i maszynę wirtualną, do której są dołączone. Dzięki temu ułatwi ponowne podłączenie dysków po przekroczeniu trybu failover.
+1. Przed rozpoczęciem należy zwrócić uwagę na nazwy wszystkich dysków niezarządzanych, ich numerów jednostek logicznych (LUN) oraz maszynę wirtualną, do której są dołączone. Wykonanie tej czynności ułatwi ponowne dołączenie dysków po przejściu do trybu failover.
 2. Zamknij maszynę wirtualną.
-3. Usuń maszynę wirtualną, ale zachowaj pliki VHD dla dysków niezarządzanych. Zanotuj czas, w którym usunięto maszynę wirtualną.
-4. Poczekaj, aż **czas ostatniej synchronizacji** został zaktualizowany i jest późniejszy niż czas, w którym usunięto maszynę wirtualną. Ten krok jest ważne, ponieważ jeśli pomocniczy punkt końcowy nie został w pełni zaktualizowany z plików VHD, gdy nastąpi przepełnienie awaryjne, maszyna wirtualna może nie działać poprawnie w nowym regionie podstawowym.
-5. Inicjowanie pracy awaryjnej konta.
-6. Poczekaj, aż przewijanie awaryjne konta zostanie ukończone, a region pomocniczy stanie się nowym regionem podstawowym.
-7. Utwórz maszynę wirtualną w nowym regionie podstawowym i ponownie dołącz veds.
+3. Usuń maszynę wirtualną, ale Zachowaj pliki VHD dla dysków niezarządzanych. Zanotuj godzinę usunięcia maszyny wirtualnej.
+4. Poczekaj na zaktualizowanie **czasu ostatniej synchronizacji** i jest późniejsza niż godzina usunięcia maszyny wirtualnej. Ten krok jest ważny, ponieważ jeśli pomocniczy punkt końcowy nie został w pełni zaktualizowany przy użyciu plików VHD w przypadku przełączenia w tryb failover, maszyna wirtualna może nie działać poprawnie w nowym regionie podstawowym.
+5. Zainicjuj tryb failover konta.
+6. Poczekaj na zakończenie pracy w trybie failover konta i region pomocniczy staje się nowym regionem podstawowym.
+7. Utwórz maszynę wirtualną w nowym regionie podstawowym i ponownie podłącz wirtualne dyski twarde.
 8. Uruchom nową maszynę wirtualną.
 
-Należy pamiętać, że wszystkie dane przechowywane na dysku tymczasowym zostaną utracone po zamknięciu maszyny Wirtualnej.
+Należy pamiętać, że wszystkie dane przechowywane na dysku tymczasowym zostaną utracone podczas zamykania maszyny wirtualnej.
 
-### <a name="unsupported-features-and-services"></a>Nieobsługiwały funkcje i usługi
+### <a name="unsupported-features-and-services"></a>Nieobsługiwane funkcje i usługi
 
-Następujące funkcje i usługi nie są obsługiwane w przypadku pracy awaryjnej konta w wersji zapoznawczej:
+Następujące funkcje i usługi nie są obsługiwane w przypadku przełączania do trybu failover dla konta w wersji zapoznawczej:
 
-- Usługa Azure File Sync nie obsługuje pracy awaryjnej konta magazynu. Kont magazynu zawierających udziały plików platformy Azure używane jako punkty końcowe w chmurze w usłudze Azure File Sync nie należy przełączać w tryb failover. Wykonanie tej operacji spowoduje, że synchronizacja przestanie działać, a także może spowodować nieoczekiwaną utratę danych w przypadku nowych plików warstwowych.
-- Konta magazynu ADLS Gen2 (konta z włączoną hierarchiczną przestrzenią nazw) nie są obecnie obsługiwane.
-- Nie można pozycyjnie konta magazynu zawierającego obiekty BLOB bloku premium. Konta magazynu obsługujące obiekty blob bloku premium nie obsługują obecnie nadmiarowości geograficznej.
-- Nie można zakończyć niepowodzeniem konta magazynu zawierającego wszystkie kontenery obsługujące [zasady niezmienności WORM.](../blobs/storage-blob-immutable-storage.md) Odblokowane/zablokowane zasady przechowywania w oparciu o czas lub zasady blokady prawnej zapobiegają pracy awaryjnej w celu zachowania zgodności.
-- Po zakończeniu pracy awaryjnej następujące funkcje mogą przestać działać, jeśli pierwotnie włączono: [subskrypcje zdarzeń,](../blobs/storage-blob-event-overview.md) [zmień kanał informacyjny,](../blobs/storage-blob-change-feed.md) [zasady cyklu życia](../blobs/storage-lifecycle-management-concepts.md)i [rejestrowanie analizy magazynu.](storage-analytics-logging.md)
+- Azure File Sync nie obsługuje trybu failover dla konta magazynu. Kont magazynu zawierających udziały plików platformy Azure używane jako punkty końcowe w chmurze w usłudze Azure File Sync nie należy przełączać w tryb failover. Wykonanie tej operacji spowoduje, że synchronizacja przestanie działać, a także może spowodować nieoczekiwaną utratę danych w przypadku nowych plików warstwowych.
+- ADLS Gen2 konta magazynu (konta z włączoną hierarchiczną przestrzenią nazw) nie są w tej chwili obsługiwane.
+- Nie można przełączyć konta magazynu zawierającego blokowe obiekty blob w warstwie Premium. Konta magazynu obsługujące blokowe obiekty blob w warstwie Premium nie obsługują obecnie nadmiarowości geograficznej.
+- Nie można przełączyć do trybu failover konta magazynu zawierającego wszystkie kontenery z włączonymi [zasadami niezmiennościymi](../blobs/storage-blob-immutable-storage.md) . Odblokowanie/blokowanie oparte na czasie lub zasady wstrzymania w trybie failover w celu zachowania zgodności.
+- Po zakończeniu pracy w trybie failover następujące funkcje mogą przestać działać, jeśli zostały pierwotnie włączone: [subskrypcje zdarzeń](../blobs/storage-blob-event-overview.md), [Źródło zmian](../blobs/storage-blob-change-feed.md), [zasady cyklu życia](../blobs/storage-lifecycle-management-concepts.md)i [Rejestrowanie analityka magazynu](storage-analytics-logging.md).
 
-## <a name="copying-data-as-an-alternative-to-failover"></a>Kopiowanie danych jako alternatywy dla pracy awaryjnej
+## <a name="copying-data-as-an-alternative-to-failover"></a>Kopiowanie danych jako alternatywy dla trybu failover
 
-Jeśli konto magazynu jest skonfigurowany dla RA-GRS, a następnie masz dostęp do odczytu do danych przy użyciu pomocniczego punktu końcowego. Jeśli wolisz nie awaryjnie w przypadku awarii w regionie podstawowym, można użyć narzędzi, takich jak [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)lub [biblioteki przenoszenia danych platformy Azure,](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) aby skopiować dane z konta magazynu w regionie pomocniczym do innego konta magazynu w regionie, którego nie zmieniono. Następnie można skierować aplikacje do tego konta magazynu dla dostępności odczytu i zapisu.
+Jeśli konto magazynu jest skonfigurowane dla usługi RA-GRS, masz dostęp do odczytu danych przy użyciu pomocniczego punktu końcowego. Jeśli wolisz przejść do trybu failover w przypadku awarii w regionie podstawowym, możesz użyć narzędzi, takich jak [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/)lub [Biblioteka przenoszenia danych platformy Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) , aby skopiować dane z konta magazynu w regionie pomocniczym do innego konta magazynu w nienaruszonym regionie. Następnie możesz wskazać swoje aplikacje na tym koncie magazynu, aby uzyskać dostęp do odczytu i zapisu.
 
 > [!CAUTION]
-> Praca awaryjna konta nie powinna być używana jako część strategii migracji danych.
+> Nie należy używać konta w trybie failover w ramach strategii migracji danych.
 
 
-## <a name="microsoft-managed-failover"></a>Przewija się w pełni w stanie failover zarządzanym przez firmę Microsoft
+## <a name="microsoft-managed-failover"></a>Tryb failover zarządzany przez firmę Microsoft
 
-W ekstremalnych okolicznościach, gdy region jest tracony z powodu poważnej awarii, firma Microsoft może zainicjować regionalną usługę failover. W takim przypadku nie jest wymagane żadne działanie z Twojej strony. Dopóki usługa trybu failover zarządzanego przez firmę Microsoft nie zostanie ukończona, nie będziesz mieć dostępu do zapisu do konta magazynu. Aplikacje można odczytać z regionu pomocniczego, jeśli konto magazynu jest skonfigurowany dla RA-GRS. 
+W skrajnych okolicznościach, gdy region zostanie utracony ze względu na znaczną awarię, firma Microsoft może zainicjować regionalną pracę w trybie failover. W takim przypadku nie jest wymagana żadna akcja z Twojej strony. Do momentu ukończenia pracy w trybie failover zarządzanej przez firmę Microsoft nie będziesz mieć dostępu do zapisu na koncie magazynu. Aplikacje mogą odczytywać z regionu pomocniczego, jeśli konto magazynu jest skonfigurowane dla usługi RA-GRS. 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Inicjowanie pracy awaryjnej konta (wersja zapoznawcza)](storage-initiate-account-failover.md)
+- [Inicjowanie trybu failover konta (wersja zapoznawcza)](storage-initiate-account-failover.md)
 - [Projektowanie wysoko dostępnych aplikacji przy użyciu magazynu RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Samouczek: Tworzenie aplikacji o wysokiej dostępności z pamięcią blob](../blobs/storage-create-geo-redundant-storage.md) 
+- [Samouczek: Tworzenie aplikacji o wysokiej dostępności przy użyciu magazynu obiektów BLOB](../blobs/storage-create-geo-redundant-storage.md) 

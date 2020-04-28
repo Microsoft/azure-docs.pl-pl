@@ -1,216 +1,216 @@
 ---
-title: Tworzenie kopii zapasowej w trybie źródłowym w trybie offline za pomocą usługi Azure Import/Export
-description: Dowiedz się, jak za pomocą usługi Azure Backup wysyłać dane poza siecią przy użyciu usługi Azure Import/Export. W tym artykule opisano rozmieszczanie w trybie offline początkowych danych kopii zapasowej przy użyciu usługi Azure Import/Export.
+title: Tworzenie kopii zapasowej w trybie offline za pomocą usługi Azure Import/Export
+description: Dowiedz się, jak za pomocą usługi Azure Import/Export korzystać z Azure Backup do wysyłania danych z sieci. W tym artykule opisano umieszczanie w trybie offline początkowych danych kopii zapasowej za pomocą usługi Azure Import/Export.
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 1359616e074f36a1324a418d5b2c889076ced52d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 642787e17f347bf8233e50c65d26a1661b08fcfb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206762"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183895"
 ---
-# <a name="offline-backup-workflow-in-azure-backup"></a>Przepływ pracy tworzenia kopii zapasowych w trybie offline w kopii zapasowej platformy Azure
+# <a name="offline-backup-workflow-in-azure-backup"></a>Przepływ pracy kopii zapasowej offline w Azure Backup
 
-Usługa Azure Backup ma kilka wbudowanych wydajności, które pozwalają zaoszczędzić koszty sieci i magazynu podczas początkowych pełnych kopii zapasowych danych na platformie Azure. Początkowe pełne kopie zapasowe zazwyczaj przesyłają duże ilości danych i wymagają większej przepustowości sieci w porównaniu do kolejnych kopii zapasowych, które przesyłają tylko różnice/przyrosty. W procesie rozmieszczania w trybie offline usługa Azure Backup może używać dysków do przekazywania danych kopii zapasowej w trybie offline na platformę Azure.
+Azure Backup ma kilka wbudowanych wydajności, które oszczędzają koszty związane z siecią i magazynem podczas wstępnej pełnej kopii zapasowej danych na platformie Azure. Wstępne pełne kopie zapasowe zwykle przesyłają duże ilości danych i wymagają większej przepustowości sieci w porównaniu z kolejnymi kopiami zapasowymi, które przesyłają tylko różnice/przyrosty. W procesie umieszczania w trybie offline, Azure Backup mogą używać dysków do przekazywania danych kopii zapasowej w trybie offline do platformy Azure.
 
-Proces rozmieszczania usługi Azure Backup w trybie offline jest ściśle zintegrowany z [usługą Azure Import/Export.](../storage/common/storage-import-export-service.md) Za pomocą tej usługi można przenieść dane początkowej kopii zapasowej na platformę Azure przy użyciu dysków. Jeśli masz terabajty (TBs) początkowych danych kopii zapasowej, które muszą być przesyłane za pośrednictwem sieci o dużym opóźnieniu i niskiej przepustowości, można użyć przepływu pracy rozmieszczania w trybie offline do wysłania początkowej kopii zapasowej na jednym lub kilku dyskach twardych do centrum danych platformy Azure. Poniższy obraz zawiera omówienie kroków w przepływie pracy.
+Azure Backup proces rozsadzenia w trybie offline jest ściśle zintegrowany z [usługą Azure Import/Export](../storage/common/storage-import-export-service.md). Za pomocą tej usługi można transferować dane początkowej kopii zapasowej do platformy Azure przy użyciu dysków. Jeśli masz terabajty (TBs) początkowych danych kopii zapasowej, które muszą być transferowane za pośrednictwem sieci o dużej opóźnieniu i o niskiej przepustowości, możesz użyć przepływu pracy w trybie offline do wysłania początkowej kopii zapasowej na co najmniej jednym dysku twardym do centrum danych platformy Azure. Poniższy obraz zawiera przegląd kroków w przepływie pracy.
 
-  ![Omówienie procesu przepływu pracy importowania w trybie offline](./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png)
+  ![Przegląd procesu przepływu pracy importowania w trybie offline](./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png)
 
 Proces tworzenia kopii zapasowej w trybie offline obejmuje następujące kroki:
 
-1. Zamiast wysyłać dane kopii zapasowej za pośrednictwem sieci, zapisz dane kopii zapasowej w lokalizacji przejściowej.
-1. Narzędzie *AzureOfflineBackupDiskPrep* służy do zapisywania danych w lokalizacji tymczasowej na co najmniej jednym dysku sata.
-1. W ramach prac przygotowawczych *narzędzie AzureOfflineBackupDiskPrep* tworzy zadanie importowania platformy Azure. Wyślij dyski SATA do najbliższego centrum danych platformy Azure i odwołaj się do zadania importu, aby połączyć działania.
-1. W centrum danych platformy Azure dane na dyskach są kopiowane do konta magazynu platformy Azure.
-1. Usługa Azure Backup kopiuje dane kopii zapasowej z konta magazynu do magazynu usług odzyskiwania, a przyrostowe kopie zapasowe są zaplanowane.
+1. Zamiast wysyłać dane kopii zapasowej za pośrednictwem sieci, Zapisz dane kopii zapasowej w lokalizacji tymczasowej.
+1. Użyj narzędzia *AzureOfflineBackupDiskPrep* , aby zapisać dane w lokalizacji tymczasowej do co najmniej jednego dysku SATA.
+1. W ramach pracy przygotowawczej narzędzie *AzureOfflineBackupDiskPrep* tworzy zadanie importu platformy Azure. Wyślij dyski SATA do najbliższego centrum danych platformy Azure i odwołuje się do zadania importowania, aby połączyć działania.
+1. W centrum danych Azure dane na dyskach są kopiowane do konta usługi Azure Storage.
+1. Azure Backup kopiuje dane kopii zapasowej z konta magazynu do magazynu Recovery Services, a przyrostowe kopie zapasowe są zaplanowane.
 
 ## <a name="supported-configurations"></a>Obsługiwane konfiguracje
 
-Następujące funkcje lub obciążenia usługi Azure Backup obsługują tworzenie kopii zapasowych w trybie offline:
+Następujące Azure Backup funkcje lub obciążenia obsługują użycie kopii zapasowej offline w programie:
 
 > [!div class="checklist"]
 >
-> * Tworzenie kopii zapasowych plików i folderów za pomocą agenta usług odzyskiwania platformy Microsoft Azure (MARS), nazywanego również agentem tworzenia kopii zapasowych platformy Azure.
+> * Tworzenie kopii zapasowych plików i folderów za pomocą agenta Microsoft Azure Recovery Services (MARS), nazywanego również agentem Azure Backup.
 > * Tworzenie kopii zapasowych wszystkich obciążeń i plików za pomocą programu System Center Data Protection Manager (DPM).
-> * Tworzenie kopii zapasowych wszystkich obciążeń i plików za pomocą programu Microsoft Azure Backup Server.
- 
+> * Tworzenie kopii zapasowych wszystkich obciążeń i plików z Microsoft Azure Backup Server.
+
    > [!NOTE]
-   > Kopia zapasowa w trybie offline nie jest obsługiwana w przypadku kopii zapasowych stanu systemu wykonywanych przy użyciu agenta usługi Azure Backup Agent.
+   > Kopia zapasowa offline nie jest obsługiwana w przypadku kopii zapasowych stanu systemu wykonywanych przy użyciu agenta Azure Backup.
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
   > [!NOTE]
-  > Poniższe wymagania wstępne i przepływ pracy dotyczą tylko kopii zapasowej plików i folderów w trybie offline przy użyciu [najnowszego agenta usług Azure Recovery Services Agent](https://aka.ms/azurebackup_agent). Aby wykonać kopie zapasowe w trybie offline dla obciążeń przy użyciu programu System Center DPM lub serwera kopii zapasowej platformy Azure, zobacz [Przepływ pracy tworzenia kopii zapasowych w trybie offline dla programu DPM i serwera kopii zapasowych Platformy Azure](backup-azure-backup-server-import-export-.md).
+  > Poniższe wymagania wstępne i przepływ pracy dotyczą tylko kopii zapasowych plików i folderów w trybie offline przy użyciu [najnowszego agenta Recovery Services platformy Azure](https://aka.ms/azurebackup_agent). Aby wykonywać kopie zapasowe offline dla obciążeń przy użyciu programu System Center DPM lub Azure Backup Server, zobacz [przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server](backup-azure-backup-server-import-export-.md).
 
-Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej w trybie offline należy wykonać następujące wymagania wstępne:
+Przed rozpoczęciem przepływu pracy tworzenia kopii zapasowej offline wykonaj następujące wymagania wstępne:
 
-* Tworzenie [skarbca usług odzyskiwania](backup-azure-recovery-services-vault-overview.md). Aby utworzyć przechowalnię, wykonaj czynności opisane w [10.](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
-* Upewnij się, że tylko [najnowsza wersja agenta kopii zapasowej platformy Azure](https://aka.ms/azurebackup_agent) jest zainstalowana na kliencie systemu Windows Server lub Windows, stosownie do przypadku, a komputer jest zarejestrowany w przechowalni usług odzyskiwania.
-* Program Azure PowerShell 3.7.0 jest wymagany na komputerze z uruchomionym agentem tworzenia kopii zapasowych platformy Azure. Pobierz i [zainstaluj wersję programu Azure PowerShell w wersji 3.7.0](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
-* Na komputerze z uruchomionym agentem tworzenia kopii zapasowych platformy Azure upewnij się, że jest zainstalowany program Microsoft Edge lub Internet Explorer 11, a język JavaScript jest włączony.
-* Utwórz konto magazynu platformy Azure w tej samej subskrypcji co magazyn usług odzyskiwania.
-* Upewnij się, że masz [uprawnienia niezbędne](../active-directory/develop/howto-create-service-principal-portal.md) do utworzenia aplikacji usługi Azure Active Directory. Przepływ pracy kopii zapasowej w trybie offline tworzy aplikację usługi Azure Active Directory w ramach subskrypcji skojarzonej z kontem magazynu platformy Azure. Celem aplikacji jest zapewnienie usługi Azure Backup z bezpiecznym i ograniczonym dostępem do usługi Azure Import/Export, która jest wymagana dla przepływu pracy tworzenia kopii zapasowych w trybie offline.
-* Zarejestruj dostawcę zasobów *Microsoft.ImportExport* w ramach subskrypcji zawierającej konto magazynu platformy Azure. Aby zarejestrować dostawcę zasobów:
-    1. W menu głównym wybierz pozycję **Subskrypcje**.
-    1. Jeśli subskrybujesz wiele subskrypcji, wybierz subskrypcję, której zamierzasz użyć do tworzenia kopii zapasowych w trybie offline. Jeśli używasz tylko jednej subskrypcji, zostanie wyświetlona subskrypcja.
-    1. W menu subskrypcji wybierz **pozycję Dostawcy zasobów,** aby wyświetlić listę dostawców.
-    1. Na liście dostawców przewiń w dół do *witryny Microsoft.ImportExport*. Jeśli **stan** nie jest **zarejestrowany,** wybierz pozycję **Zarejestruj**.
+* Utwórz [magazyn Recovery Services](backup-azure-recovery-services-vault-overview.md). Aby utworzyć magazyn, wykonaj kroki opisane w temacie [Tworzenie magazynu Recovery Services](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault).
+* Upewnij się, że tylko [Najnowsza wersja agenta Azure Backup](https://aka.ms/azurebackup_agent) jest zainstalowana w systemie Windows Server lub kliencie systemu Windows, w zależności od tego, czy komputer jest zarejestrowany w magazynie Recovery Services.
+* Na komputerze z uruchomionym agentem Azure Backup jest wymagane Azure PowerShell 3.7.0. Pobierz i [Zainstaluj wersję 3.7.0 Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
+* Na komputerze z uruchomionym agentem Azure Backup upewnij się, że jest zainstalowany program Microsoft Edge lub Internet Explorer 11, a język JavaScript jest włączony.
+* Utwórz konto usługi Azure Storage w tej samej subskrypcji co magazyn Recovery Services.
+* Upewnij się, że masz odpowiednie [uprawnienia](../active-directory/develop/howto-create-service-principal-portal.md) do tworzenia aplikacji Azure Active Directory. Przepływ pracy kopii zapasowej offline tworzy aplikację Azure Active Directory w subskrypcji skojarzonej z kontem usługi Azure Storage. Celem aplikacji jest zapewnienie Azure Backup z bezpiecznym i dostępnym zakresem do usługi Azure Import/Export, która jest wymagana dla przepływu pracy kopii zapasowej offline.
+* Zarejestruj dostawcę zasobów *Microsoft. ImportExport* z subskrypcją zawierającą konto usługi Azure Storage. Aby zarejestrować dostawcę zasobów:
+    1. W menu głównym wybierz pozycję **subskrypcje**.
+    1. Jeśli subskrybujesz wiele subskrypcji, wybierz subskrypcję, która ma być używana do tworzenia kopii zapasowych w trybie offline. Jeśli używasz tylko jednej subskrypcji, Twoja subskrypcja zostanie wyświetlona.
+    1. W menu subskrypcja wybierz pozycję **dostawcy zasobów** , aby wyświetlić listę dostawców.
+    1. Na liście dostawców przewiń w dół do *Microsoft. ImportExport*. Jeśli **stan** to **NotRegistered**, wybierz pozycję **zarejestruj**.
 
         ![Rejestrowanie dostawcy zasobów](./media/backup-azure-backup-import-export/registerimportexport.png)
 
-* Zostanie utworzona lokalizacja przejściowa, która może być udziałem sieciowym lub dowolnym dodatkowym dyskiem na komputerze, wewnętrznym lub zewnętrznym, z wystarczającą ilością miejsca na dysku do przechowywania początkowej kopii. Na przykład jeśli chcesz zrobić z powrotem do kopii zapasowej serwer plików o rozmiarze 500 GB, upewnij się, że obszar przemieszczania ma co najmniej 500 GB. (Mniejsza ilość jest używana z powodu kompresji.)
-* Podczas wysyłania dysków na platformę Azure należy używać tylko 2,5-calowych dysków SSD lub 2,5-calowych lub 3,5-calowych wewnętrznych dysków twardych SATA II/III. Można używać dysków twardych o pojemności do 10 TB. Sprawdź [dokumentację usługi importu/eksportu platformy Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) dla najnowszego zestawu dysków obsługiwanych przez usługę.
-* Dyski SATA muszą być podłączone do komputera (nazywanego *kopią komputera),* z którego wykonywana jest kopia danych kopii zapasowej z lokalizacji przejściowej na dyski SATA. Upewnij się, że funkcja BitLocker jest włączona na komputerze kopii.
+* Tworzona jest lokalizacja tymczasowa, która może być udziałem sieciowym lub dodatkowym dyskiem na komputerze, wewnętrznym lub zewnętrznym, z wystarczającą ilością miejsca na dysku do przechowywania kopii początkowej. Na przykład jeśli chcesz utworzyć kopię zapasową serwera plików 500-GB, upewnij się, że obszar przejściowy jest co najmniej 500 GB. (Mniejsza ilość jest używana z powodu kompresji).
+* W przypadku wysyłania dysków na platformę Azure należy użyć tylko 2,5-calowego dysku SSD lub 2,5 3,5-calowych dysków twardych SATA II/III. Możesz użyć dysków twardych o pojemności do 10 TB. Zapoznaj się z [dokumentacją usługi Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) , aby zapoznać się z najnowszym zestawem dysków obsługiwanych przez usługę.
+* Dyski SATA muszą być połączone z komputerem (nazywanym *komputerem kopiującym*), z którego są wykonywane kopie kopii zapasowych z lokalizacji tymczasowej do dysków SATA. Upewnij się, że funkcja BitLocker jest włączona na komputerze kopiowania.
 
 ## <a name="workflow"></a>Przepływ pracy
 
-W tej sekcji opisano przepływ pracy tworzenia kopii zapasowych w trybie offline, dzięki czemu dane mogą być dostarczane do centrum danych platformy Azure i przekazywane do usługi Azure Storage. Jeśli masz pytania dotyczące usługi importowania lub dowolnego aspektu procesu, zobacz [dokumentację omówienia usługi importu/eksportu platformy Azure](../storage/common/storage-import-export-service.md).
+W tej sekcji opisano przepływ pracy tworzenia kopii zapasowych w trybie offline, dzięki czemu można dostarczać dane do centrum danych platformy Azure i przekazywać je do usługi Azure Storage. Jeśli masz pytania dotyczące usługi import lub dowolnego aspektu procesu, zobacz [dokumentację usługi Azure Import/Export — Omówienie](../storage/common/storage-import-export-service.md).
 
-## <a name="initiate-offline-backup"></a>Inicjowanie kopii zapasowej w trybie offline
+## <a name="initiate-offline-backup"></a>Inicjowanie kopii zapasowej offline
 
-1. Po zaplanowaniu kopii zapasowej na Agent usług odzyskiwania, zostanie wyświetlona ta strona.
+1. Po zaplanowaniu kopii zapasowej w agencie Recovery Services zostanie wyświetlona ta strona.
 
-    ![Strona importu](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
+    ![Strona importowania](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-1. Wybierz opcję **Transfer używając własnych dysków**.
+1. Wybierz opcję **transfer przy użyciu moich własnych dysków**.
 
     > [!NOTE]
-    > Użyj opcji Azure Data Box, aby przenieść dane początkowej kopii zapasowej w trybie offline. Ta opcja pozwala zaoszczędzić nakład pracy wymagany do zakupu własnych dysków zgodnych z platformą Azure. Zapewnia on opatentowane przez firmę Microsoft, bezpieczne i zabezpieczone przed manipulacją urządzenia Azure Data Box, do których dane kopii zapasowej mogą być bezpośrednio zapisywane przez agenta usług odzyskiwania.
+    > Użyj opcji Azure Data Box, aby przetransferować dane początkowej kopii zapasowej do trybu offline. Ta opcja umożliwia zaoszczędzenie nakładu pracy wymaganego do pozyskiwania własnych dysków zgodnych z platformą Azure. Zapewnia ona urządzenia firmowe, bezpieczne i Tamperproof Azure Data Box, do których dane kopii zapasowej mogą być bezpośrednio zapisywane przez Recovery Services agenta.
 
-1. Wybierz **przycisk Dalej**i dokładnie wypełnij pola.
+1. Wybierz pozycję Dalej, a **następnie**Wypełnij pola uważnie.
 
     ![Wprowadź szczegóły dysku](./media/backup-azure-backup-import-export/your-disk-details.png)
 
-   Wypełniane pola to:
+   Wypełnij pola:
 
-    * **Lokalizacja tymczasowa:** Tymczasowa lokalizacja magazynu, do której zapisywana jest początkowa kopia zapasowa. Lokalizacja przemieszczania może znajdować się na udziale sieciowym lub komputerze lokalnym. Jeśli komputer kopiowania i komputer źródłowy są różne, określ pełną ścieżkę sieciową lokalizacji przejściowej.
-    * **Konto usługi Azure Resource Manager Storage:** Nazwa konta magazynu typu Menedżer zasobów (ogólnego przeznaczenia w wersji 1 lub ogólnego przeznaczenia w wersji 2) w dowolnej subskrypcji platformy Azure.
-    * **Kontener usługi Azure Storage:** Nazwa docelowego obiektu blob magazynu na koncie magazynu platformy Azure, w którym dane kopii zapasowej są importowane przed skopiowaniem do magazynu usług odzyskiwania.
-    * **Identyfikator subskrypcji platformy Azure:** identyfikator subskrypcji platformy Azure, w którym jest tworzone konto magazynu platformy Azure.
-    * **Nazwa zadania importu platformy Azure:** unikatowa nazwa, za pomocą której usługa Azure Import/Export i usługa Azure Backup śledzą transfer danych wysyłanych na dyski na platformę Azure.
+    * **Lokalizacja tymczasowa**: tymczasowa lokalizacja przechowywania, w której zapisano początkową kopię zapasową. Tymczasowa lokalizacja może znajdować się w udziale sieciowym lub na komputerze lokalnym. Jeśli komputer kopii i komputer źródłowy są inne, określ pełną ścieżkę sieciową lokalizacji tymczasowej.
+    * **Azure Resource Manager konto magazynu**: Nazwa Menedżer zasobówgo konta magazynu (ogólnego przeznaczenia w wersji 1 lub 2) w dowolnej subskrypcji platformy Azure.
+    * **Kontener usługi Azure Storage**: Nazwa docelowego obiektu blob magazynu na koncie usługi Azure Storage, do którego importowane są dane kopii zapasowej przed skopiowaniem do magazynu Recovery Services.
+    * **Identyfikator subskrypcji platformy Azure**: Identyfikator subskrypcji platformy Azure, w której tworzone jest konto usługi Azure Storage.
+    * **Nazwa zadania importowania platformy Azure**: unikatowa nazwa, za pomocą której usługa Azure Import/Export i Azure Backup śledzi transfer danych wysyłanych na dyskach na platformę Azure.
   
-   Po wypełnieniu pól wybierz pozycję **Dalej**. Zapisz informacje o **lokalizacji tymczasowej** i **nazwie zadania importu platformy Azure.** Jest to wymagane do przygotowania dysków.
+   Po wypełnieniu pól wybierz pozycję **dalej**. Zapisz **lokalizację przemieszczania** i informacje o **nazwie zadania importowania platformy Azure** . Jest to wymagane do przygotowania dysków.
 
-1. Po wyświetleniu monitu zaloguj się do subskrypcji platformy Azure. Musisz zalogować się, aby usługa Azure Backup mogła utworzyć aplikację usługi Azure Active Directory. Wprowadź wymagane uprawnienia dostępu do usługi Azure Import/Export.
+1. Po wyświetleniu monitu zaloguj się do subskrypcji platformy Azure. Musisz się zalogować, aby Azure Backup mógł utworzyć aplikację Azure Active Directory. Wprowadź wymagane uprawnienia, aby uzyskać dostęp do usługi Azure Import/Export.
 
     ![Strona logowania do subskrypcji platformy Azure](./media/backup-azure-backup-import-export/azure-login.png)
 
-1. Zakończ przepływ pracy. Na konsoli agenta tworzenia kopii zapasowych platformy Azure wybierz pozycję **Utwórz kopię zapasową teraz**.
+1. Zakończ przepływ pracy. W konsoli agenta Azure Backup wybierz pozycję **Wykonaj kopię zapasową teraz**.
 
-    ![Sprzedaj zapasy teraz](./media/backup-azure-backup-import-export/backupnow.png)
+    ![Wykonaj kopię zapasową teraz](./media/backup-azure-backup-import-export/backupnow.png)
 
-1. Na stronie **Potwierdzenie** kreatora wybierz pozycję **Zapas utworu .** Początkowa kopia zapasowa jest zapisywana w obszarze przemieszczania w ramach instalacji.
+1. Na stronie **potwierdzenie** kreatora wybierz pozycję **Utwórz kopię zapasową**. Początkowa kopia zapasowa jest zapisywana w obszarze tymczasowym w ramach instalacji.
 
-   ![Potwierdź, że jesteś gotowy do utworzenia kopii zapasowej teraz](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
+   ![Potwierdź, że wszystko jest gotowe do wykonania kopii zapasowej teraz](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
-    Po zakończeniu operacji lokalizacja przemieszczania jest gotowa do użycia do przygotowania dysku.
+    Po zakończeniu operacji lokalizacja tymczasowa jest gotowa do użycia podczas przygotowywania dysku.
 
-   ![Strona Kreatora tworzenia kopii zapasowych teraz](./media/backup-azure-backup-import-export/opbackupnow.png)
+   ![Strona Kreatora tworzenia kopii zapasowej teraz](./media/backup-azure-backup-import-export/opbackupnow.png)
 
-## <a name="prepare-sata-drives-and-ship-to-azure"></a>Przygotowywanie dysków SATA i wysyłka na platformę Azure
+## <a name="prepare-sata-drives-and-ship-to-azure"></a>Przygotowanie dysków SATA i dostarczenie do platformy Azure
 
-Narzędzie *AzureOfflineBackupDiskPrep* przygotowuje dyski SATA, które są wysyłane do najbliższego centrum danych platformy Azure. To narzędzie jest dostępne w katalogu instalacji agenta usługi Azure Backup Agent w następującej ścieżce:
+Narzędzie *AzureOfflineBackupDiskPrep* przygotowuje dyski SATA, które są wysyłane do najbliższego centrum danych platformy Azure. To narzędzie jest dostępne w katalogu instalacji agenta Azure Backup w następującej ścieżce:
 
 ```*\Microsoft Azure Recovery Services Agent\Utils\\*```
 
-1. Przejdź do katalogu i skopiuj katalog *AzureOfflineBackupDiskPrep* na inny komputer, na którym są połączone dyski SATA. Na komputerze z podłączonymi dyskami SATA upewnij się, że:
+1. Przejdź do katalogu i Skopiuj katalog *AzureOfflineBackupDiskPrep* do innego komputera, na którym są połączone stacje dysków SATA. Na komputerze z podłączonymi dyskami SATA upewnij się, że:
 
-   * Komputer kopii może uzyskać dostęp do lokalizacji tymczasowej dla przepływu pracy rozmieszczania w trybie offline przy użyciu tej samej ścieżki sieciowej, która została udostępniona w przepływie pracy w sekcji "Inicjuj kopię zapasową w trybie offline".
-   * Funkcja BitLocker jest włączona na komputerze kopii.
-   * Jest zainstalowany program Azure PowerShell 3.7.0.
-   * Zainstalowane są najnowsze zgodne przeglądarki (Microsoft Edge lub Internet Explorer 11), a także włączono obsługę języka JavaScript.
-   * Komputer kopii może uzyskać dostęp do witryny Azure portal. W razie potrzeby komputer kopii może być taki sam jak komputer źródłowy.
+   * Komputer kopiowania może uzyskać dostęp do lokalizacji tymczasowej dla przepływu pracy w trybie offline przy użyciu tej samej ścieżki sieciowej, która została podana w przepływie pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline".
+   * Funkcja BitLocker jest włączona na komputerze kopiowania.
+   * Zainstalowano Azure PowerShell 3.7.0.
+   * Są zainstalowane najnowsze zgodne przeglądarki (Microsoft Edge lub Internet Explorer 11), a język JavaScript jest włączony.
+   * Komputer kopiowania może uzyskać dostęp do Azure Portal. W razie potrzeby komputer kopii może być taki sam jak komputer źródłowy.
 
      > [!IMPORTANT]
-     > Jeśli komputer źródłowy jest maszyną wirtualną, komputer kopii musi być inny serwer fizyczny lub komputer kliencki z komputera źródłowego.
+     > Jeśli komputer źródłowy jest maszyną wirtualną, komputer do kopiowania musi być innym serwerem fizycznym lub komputerem klienckim z komputera źródłowego.
 
-1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień na komputerze kopii z katalogiem narzędzi *AzureOfflineBackupDiskPrep* jako bieżącym katalogiem. Uruchom następujące polecenie:
+1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień na komputerze kopiowania przy użyciu katalogu narzędzi *AzureOfflineBackupDiskPrep* jako bieżący katalog. Uruchom następujące polecenie:
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
     | Parametr | Opis |
     | --- | --- |
-    | s:&lt;*Ścieżka lokalizacji tymczasowej*&gt; |To obowiązkowe dane wejściowe są używane do zapewnienia ścieżki do lokalizacji przejściowej wprowadzonej w przepływie pracy w sekcji "Inicjuj kopię zapasową w trybie offline". |
-    | p:&lt;*Ścieżka do PublishSettingsFile*&gt; |To opcjonalne dane wejściowe jest używany do zapewnienia ścieżki do pliku ustawień publikowania platformy Azure, który został wprowadzony w przepływie pracy w sekcji "Inicjuj kopię zapasową w trybie offline". |
+    | s:&lt;*ścieżka lokalizacji tymczasowej*&gt; |To obowiązkowe dane wejściowe są używane w celu zapewnienia ścieżki do lokalizacji tymczasowej wprowadzonej w przepływie pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline". |
+    | p:&lt;*ścieżka do PublishSettingsFile*&gt; |To opcjonalne dane wejściowe są używane w celu zapewnienia ścieżki do pliku ustawień publikowania platformy Azure wprowadzonego w przepływie pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline". |
 
-    Po uruchomieniu polecenia narzędzie żąda wyboru zadania importu platformy Azure, które odpowiada dyskom, które muszą być przygotowane. Jeśli tylko jedno zadanie importu jest skojarzone z podanej lokalizacji tymczasowej, zostanie wyświetlona strona taka jak ta.
+    Po uruchomieniu polecenia Narzędzie żąda wyboru zadania importowania platformy Azure odpowiadającego dyskom, które muszą zostać przygotowane. Jeśli tylko jedno zadanie importu jest skojarzone z podaną lokalizacją przemieszczania, zobaczysz stronę podobną do tej.
 
-    ![Wprowadzanie narzędzia przygotowania dysku platformy Azure](./media/backup-azure-backup-import-export/diskprepconsole0_1.png) <br/>
+    ![Dane wejściowe narzędzia przygotowywania dysku platformy Azure](./media/backup-azure-backup-import-export/diskprepconsole0_1.png) <br/>
 
-1. Wprowadź literę dysku bez końcowego dwukropka dla zainstalowanego dysku, który chcesz przygotować do przeniesienia na platformę Azure.
-1. Po wyświetleniu monitu podaj potwierdzenie formatowania dysku.
+1. Wprowadź literę dysku bez kropki końcowej dla zainstalowanego dysku, który ma zostać przygotowany do przeniesienia na platformę Azure.
+1. Potwierdź formatowanie dysku po wyświetleniu monitu.
 1. Zostanie wyświetlony monit o zalogowanie się do subskrypcji platformy Azure. Wprowadź poświadczenia.
 
     ![Logowanie do subskrypcji platformy Azure](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
-    Następnie narzędzie rozpoczyna przygotowywanie dysku i kopiowanie danych kopii zapasowej. Może być konieczne dołączenie dodatkowych dysków po wyświetleniu monitu przez narzędzie w przypadku, gdy podany dysk nie ma wystarczającej ilości miejsca na dane kopii zapasowej. <br/>
+    Następnie narzędzie rozpocznie przygotowanie dysku i skopiowanie danych kopii zapasowej. Może być konieczne dołączenie dodatkowych dysków po wyświetleniu monitu przez narzędzie w przypadku, gdy udostępniony dysk nie ma wystarczającej ilości miejsca na dane kopii zapasowej. <br/>
 
-    Po pomyślnym wykonaniu narzędzia wiersz polecenia zawiera trzy informacje:
+    Po pomyślnym wykonaniu tego narzędzia wiersz polecenia zawiera trzy informacje:
 
-   1. Co najmniej jeden dysk, który podałeś, jest przygotowany do wysyłki na platformę Azure.
-   1. Otrzymasz potwierdzenie utworzenia zadania importu. Zadanie importu używa podanej nazwy.
-   1. Narzędzie wyświetla adres wysyłki dla centrum danych platformy Azure.
+   1. Co najmniej jeden z podanych dysków jest przygotowywany do wysyłania do platformy Azure.
+   1. Otrzymasz potwierdzenie, że zadanie importowania zostało utworzone. Zadanie importowania używa podanej nazwy.
+   1. Narzędzie wyświetla adres wysyłkowy centrum danych platformy Azure.
 
       ![Przygotowanie dysku platformy Azure zakończone](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 1. Po zakończeniu wykonywania polecenia można zaktualizować informacje o wysyłce.
 
-1. Wyślij dyski na adres podany przez narzędzie. Zachowaj numer śledzenia do wykorzystania w przyszłości.
+1. Wyślij dyski na adres dostarczony przez to narzędzie. Zachowaj numer śledzenia do użytku w przyszłości.
 
    > [!IMPORTANT]
-   > Żadne dwa zadania importu platformy Azure nie mogą mieć tego samego numeru śledzenia. Upewnij się, że dyski przygotowane przez narzędzie w ramach jednego zadania importu platformy Azure są wysyłane razem w jednym pakiecie i że istnieje jeden unikatowy numer śledzenia dla pakietu. Nie łącz dysków przygotowanych jako część oddzielnych zadań importowania platformy Azure w jednym pakiecie.
+   > Żadne dwa zadania importowania platformy Azure nie mogą mieć tego samego numeru śledzenia. Upewnij się, że dyski przygotowane przez narzędzie w ramach pojedynczego zadania importowania platformy Azure są dostarczane razem w jednym pakiecie i że istnieje jeden unikatowy numer śledzenia dla pakietu. Nie łącz dysków przygotowanych w ramach oddzielnych zadań importowania platformy Azure w jednym pakiecie.
 
-## <a name="update-shipping-details-on-the-azure-import-job"></a>Aktualizowanie szczegółów wysyłki w zadaniu importu platformy Azure
+## <a name="update-shipping-details-on-the-azure-import-job"></a>Aktualizowanie szczegółów wysyłki w ramach zadania importowania platformy Azure
 
-Poniższa procedura aktualizuje szczegóły wysyłki zadania importu platformy Azure. Informacje te obejmują szczegółowe informacje na temat:
+Poniższa procedura umożliwia zaktualizowanie informacji o wysyłce zadania importowania platformy Azure. Informacje te zawierają szczegółowe informacje na temat:
 
-* Nazwa operatora, który dostarcza dyski na platformę Azure.
-* Zwrot szczegółów wysyłki dysków.
+* Nazwa operatora dostarczającego dyski do platformy Azure.
+* Zwróć szczegóły dotyczące wysyłki dla dysków.
 
 1. Zaloguj się do subskrypcji platformy Azure.
-1. W menu głównym wybierz pozycję **Wszystkie usługi**. W oknie dialogowym **Wszystkie usługi** wprowadź pozycję **Importuj**. Po wyświetleniu opcji **Importuj/eksportuj zadania**wybierz je.
+1. W menu głównym wybierz pozycję **wszystkie usługi**. W oknie dialogowym **wszystkie usługi** wprowadź **Import**. Po wyświetleniu **zadań Importuj/Eksportuj**wybierz ją.
 
     ![Wprowadź informacje o wysyłce](./media/backup-azure-backup-import-export/search-import-job.png)<br/>
 
-    Zostanie otwarte menu **Zaimportuj/eksportuj zadania** i zostanie wyświetlona lista wszystkich zadań importu/eksportu w wybranej subskrypcji.
+    Zostanie otwarte menu **zadania importu/eksportu** i zostanie wyświetlona lista wszystkich zadań importu/eksportu w wybranej subskrypcji.
 
 1. Jeśli masz wiele subskrypcji, wybierz subskrypcję używaną do importowania danych kopii zapasowej. Następnie wybierz nowo utworzone zadanie importu, aby otworzyć jego szczegóły.
 
-    ![Przejrzyj informacje o wysył](./media/backup-azure-backup-import-export/import-job-found.png)<br/>
+    ![Przejrzyj informacje o wysyłce](./media/backup-azure-backup-import-export/import-job-found.png)<br/>
 
-1. W menu **Ustawienia** zadania importu wybierz polecenie **Zarządzaj informacjami o wysyłce**. Wprowadź szczegóły wysyłki zwrotnej.
+1. W menu **Ustawienia** zadania importowania wybierz pozycję **Zarządzaj informacjami o wysyłce**. Wprowadź szczegóły dotyczące wysyłki zwrotnej.
 
-    ![Przechowuj informacje o wysyłce](./media/backup-azure-backup-import-export/shipping-info.png)<br/>
+    ![Informacje o wysyłce magazynu](./media/backup-azure-backup-import-export/shipping-info.png)<br/>
 
-1. Jeśli masz numer śledzenia od przewoźnika, wybierz baner na stronie Przegląd zadań importu platformy Azure i wprowadź następujące szczegóły.
+1. Jeśli numer śledzenia jest używany przez firmę wysyłkową, wybierz transparent na stronie Przegląd zadania importowania platformy Azure i wprowadź następujące szczegóły.
 
    > [!IMPORTANT]
-   > Upewnij się, że informacje o operatorze i numer śledzenia zostały zaktualizowane w ciągu dwóch tygodni od utworzenia zadania importowania platformy Azure. Nie zweryfikowanie tych informacji w ciągu dwóch tygodni może spowodować usunięcie zadania i nieprzetwochanie dysków.
+   > Upewnij się, że informacje o operatorze i numer śledzenia zostały zaktualizowane w ciągu dwóch tygodni od utworzenia zadania importowania platformy Azure. Niepowodzenie weryfikacji tych informacji w ciągu dwóch tygodni może skutkować usunięciem zadania i nieprzetwarzaniem dysków.
 
-   ![Alert aktualizacji informacji śledzenia](./media/backup-azure-backup-import-export/joboverview.png)<br/>
+   ![Alert dotyczący aktualizacji informacji śledzenia](./media/backup-azure-backup-import-export/joboverview.png)<br/>
 
    ![Informacje o przewoźniku i numer śledzenia](./media/backup-azure-backup-import-export/tracking-info.png)
 
-### <a name="time-to-process-the-drives"></a>Czas na przetworzenie dysków
+### <a name="time-to-process-the-drives"></a>Czas do przetworzenia dysków
 
-Czas potrzebny do przetworzenia zadania importu platformy Azure jest różny. Czas procesu zależy od takich czynników, jak czas wysyłki, typ zadania, typ i rozmiar kopiowanych danych oraz rozmiaru dostarczonych dysków. Usługa Importu/Eksportu platformy Azure nie ma umowy SLA. Po odebraniu dysków usługa stara się wykonać kopię zapasową danych na koncie magazynu platformy Azure w ciągu 7 do 10 dni.
+Czas przetwarzania zadania importowania platformy Azure różni się. Czas procesu jest oparty na czynnikach, takich jak czas dostawy, typ zadania, typ i rozmiar kopiowanych danych oraz rozmiar podanego dysku. Usługa Azure Import/Export nie ma umowy SLA. Po odebraniu dysków usługa dokłada starań, aby zakończyć kopiowanie danych kopii zapasowej na konto usługi Azure Storage w ciągu 7 do 10 dni.
 
-### <a name="monitor-azure-import-job-status"></a>Monitorowanie stanu zadania importu platformy Azure
+### <a name="monitor-azure-import-job-status"></a>Monitoruj stan zadania importowania platformy Azure
 
-Stan zadania importowania można monitorować za pomocą witryny Azure portal. Przejdź do strony **Importowanie/Eksportowanie zadań** i wybierz zadanie. Aby uzyskać więcej informacji na temat stanu zadań importowania, zobacz [Co to jest usługa Import/Eksportowanie platformy Azure?](../storage/common/storage-import-export-service.md).
+Stan zadania importowania można monitorować z Azure Portal. Przejdź do strony **Importowanie/Eksportowanie zadań** i wybierz zadanie. Aby uzyskać więcej informacji na temat stanu zadań importowania, zobacz [co to jest usługa Azure Import/Export?](../storage/common/storage-import-export-service.md).
 
-### <a name="finish-the-workflow"></a>Zakończenie przepływu pracy
+### <a name="finish-the-workflow"></a>Kończenie przepływu pracy
 
-Po pomyślnym zakończeniu zadania importowania początkowe dane kopii zapasowej są dostępne na koncie magazynu. W czasie następnej zaplanowanej kopii zapasowej usługa Azure Backup kopiuje zawartość danych z konta magazynu do magazynu usług odzyskiwania.
+Po pomyślnym zakończeniu zadania importowania dane początkowej kopii zapasowej są dostępne na koncie magazynu. W czasie następnej zaplanowanej kopii zapasowej Azure Backup kopiuje zawartość danych z konta magazynu do magazynu Recovery Services.
 
-   ![Kopiowanie danych do magazynu usług odzyskiwania](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
+   ![Kopiowanie danych do magazynu Recovery Services](./media/backup-azure-backup-import-export/copyingfromstorageaccounttoazurebackup.png)<br/>
 
-W czasie następnej zaplanowanej kopii zapasowej usługa Azure Backup wykonuje przyrostową kopię zapasową.
+W czasie następnej zaplanowanej kopii zapasowej Azure Backup wykonuje przyrostową kopię zapasową.
 
 ### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -218,4 +218,4 @@ Po zakończeniu początkowej kopii zapasowej można bezpiecznie usunąć dane za
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać jakiekolwiek pytania dotyczące przepływu pracy usługi Import/Eksportowanie platformy Azure, zobacz [Przekazywanie danych do magazynu obiektów Blob za pomocą usługi Importowanie/Eksportowanie platformy Microsoft Azure.](../storage/common/storage-import-export-service.md)
+* Aby uzyskać odpowiedzi na pytania dotyczące przepływu pracy usługi Azure Import/Export, zobacz [Używanie usługi Microsoft Azure Import/Export do transferowania danych do magazynu obiektów BLOB](../storage/common/storage-import-export-service.md).

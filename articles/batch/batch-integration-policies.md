@@ -4,12 +4,12 @@ description: Azure Policy to usługa platformy Azure służąca do tworzenia, pr
 ms.topic: article
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74c087031a024b0c50d6c40057a4e2eda554be6f
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: a160de1277afea026a16f470c8f76cdc2ec1733f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116081"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184269"
 ---
 # <a name="integration-with-azure-policy"></a>Integracja z usługą Azure Policy
 
@@ -26,7 +26,7 @@ Definicje zasad opisują warunki, które muszą zostać spełnione. Warunek por�
 
 Zasoby wymagane przez zadanie wsadowe obejmują: konto, węzeł obliczeniowy, pulę, zadanie i zadanie. Aby uzyskać dostęp do określonych właściwości dla tych zasobów, należy użyć aliasów właściwości. Dowiedz się więcej o [aliasach](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
-Aby upewnić się, że znasz bieżące aliasy i zapoznaj się z zasobami i zasadami, użyj rozszerzenia zasad platformy Azure dla Visual Studio Code. Można ją zainstalować na wszystkich platformach obsługiwanych przez Visual Studio Code. Ta obsługa obejmuje systemy Windows, Linux i macOS. Zobacz [wskazówki dotyczące instalacji](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode).
+Aby upewnić się, że znasz bieżące aliasy i zapoznaj się z zasobami i zasadami, użyj rozszerzenia Azure Policy Visual Studio Code. Można ją zainstalować na wszystkich platformach obsługiwanych przez Visual Studio Code. Ta obsługa obejmuje systemy Windows, Linux i macOS. Zobacz [wskazówki dotyczące instalacji](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode).
 
 
 

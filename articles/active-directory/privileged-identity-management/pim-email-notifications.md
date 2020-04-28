@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 01/05/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee5f2edbae28276f8485ae774a5b1c52e1af2fd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 201abd24bc4056337f1ffecd2dabd002ae352c74
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72756400"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866422"
 ---
 # <a name="email-notifications-in-pim"></a>Powiadomienia e-mail w pim
 
@@ -50,9 +50,9 @@ Kto odbiera te wiadomości e-mail dla ról usługi Azure AD zależy od roli, zda
 
 | Użytkownik | Aktywacja roli oczekuje na zatwierdzenie | Żądanie aktywacji roli zostało zakończone | Funkcja PIM jest włączona |
 | --- | --- | --- | --- |
-| Administrator ról uprzywilejowanych</br>(Aktywowany/Kwalifikujący się) | Tak</br>(tylko wtedy, gdy nie określono jawnych osób zatwierdzających) | Tak* | Tak |
-| Administrator zabezpieczeń</br>(Aktywowany/Kwalifikujący się) | Nie | Tak* | Tak |
-| Administrator globalny</br>(Aktywowany/Kwalifikujący się) | Nie | Tak* | Tak |
+| Administrator ról uprzywilejowanych</br>(Aktywowany/Kwalifikujący się) | Yes</br>(tylko wtedy, gdy nie określono jawnych osób zatwierdzających) | Tak* | Yes |
+| Administrator zabezpieczeń</br>(Aktywowany/Kwalifikujący się) | Nie | Tak* | Yes |
+| Administrator globalny</br>(Aktywowany/Kwalifikujący się) | Nie | Tak* | Yes |
 
 \*Jeśli [ustawienie **Powiadomienia** ](pim-how-to-change-default-settings.md#notifications) jest ustawione na **Włącz**.
 
@@ -76,6 +76,18 @@ Wiadomość e-mail zawiera cztery kafelki:
 | **Przypisania ról poza usługą PIM** | Ile razy użytkownikom przypisano stałą rolę poza zarządzaniem tożsamościami uprzywilejowanymi (wewnątrz usługi Azure AD). |
 
 Omówienie **najlepszych ról** sekcji zawiera listę pięciu pierwszych ról w dzierżawie na podstawie całkowitej liczby stałych i kwalifikujących się administratorów dla każdej roli. Łącze **Podejmij akcję** otwiera [kreatora usługi PIM,](pim-security-wizard.md) w którym można konwertować stałych administratorów na uprawnionych administratorów w partiach.
+
+## <a name="email-timing-for-activation-approvals"></a>Czas wiadomości e-mail dla zatwierdzania aktywacji
+
+Gdy użytkownicy aktywują swoją rolę, a ustawienie roli wymaga zatwierdzenia, osoby zatwierdzające otrzymają trzy wiadomości e-mail do każdego zatwierdzenia:
+
+- Żądanie zatwierdzenia lub odrzucenia żądania aktywacji użytkownika (wysłanego przez aparat zatwierdzania żądań)
+- Żądanie użytkownika jest zatwierdzone (wysyłane przez aparat zatwierdzania żądań)
+- Rola użytkownika jest aktywowana (wysyłana przez zarządzanie tożsamościami uprzywilejowanymi)
+
+Pierwsze dwa e-maile wysyłane przez aparat zatwierdzania żądań mogą być opóźnione. Obecnie 90% e-maili trwa od trzech do dziesięciu minut, ale dla 1% klientów może być znacznie dłuższa, do piętnastu minut.
+
+Jeśli żądanie zatwierdzenia zostanie zatwierdzone w witrynie Azure portal przed wysłaniem pierwszej wiadomości e-mail, pierwsza wiadomość e-mail nie będzie już wyzwalana, a inni osoby zatwierdzające nie zostaną powiadomione pocztą e-mail o żądaniu zatwierdzenia. Może się wydawać, że nie dostali wiadomości e-mail, ale jest to oczekiwane zachowanie.
 
 ## <a name="pim-emails-for-azure-resource-roles"></a>Wiadomości e-mail usługi PIM dla ról zasobów platformy Azure
 

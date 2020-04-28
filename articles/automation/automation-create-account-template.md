@@ -1,68 +1,73 @@
 ---
-title: Tworzenie konta usługi Automation za pomocą szablonów usługi Azure Resource Manager | Dokumenty firmy Microsoft
-description: Szablon usługi Azure Resource Manager służy do tworzenia konta usługi Azure Automation.
+title: Utwórz konto usługi Automation za pomocą szablonów Azure Resource Manager | Microsoft Docs
+description: Aby utworzyć konto Azure Automation, można użyć szablonu Azure Resource Manager.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/15/2020
-ms.openlocfilehash: efe51fbada8ac70b24c16a5c7c1e0e91879e5e9f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.date: 04/24/2020
+ms.openlocfilehash: 431b89df0ce06736a2e76e58797ded65751bb404
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618687"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165828"
 ---
-# <a name="create-automation-account-using-azure-resource-manager-template"></a>Tworzenie konta automatyzacji przy użyciu szablonu usługi Azure Resource Manager
+# <a name="create-automation-account-using-azure-resource-manager-template"></a>Utwórz konto usługi Automation przy użyciu szablonu Azure Resource Manager
 
-Za pomocą [szablonów usługi Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) można utworzyć konto usługi Azure Automation w grupie zasobów. Ten artykuł zawiera przykładowy szablon, który automatyzuje następujące elementy:
+Za pomocą [szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) można utworzyć konto Azure Automation w grupie zasobów. Ten artykuł zawiera przykładowy szablon, który automatyzuje następujące czynności:
 
-* Tworzenie obszaru roboczego usługi Azure Monitor Log Analytics.
-* Tworzenie konta usługi Azure Automation.
-* Łączy konto automatyzacji z obszarem roboczym usługi Log Analytics.
+* Tworzenie obszaru roboczego Log Analytics Azure Monitor.
+* Tworzenie konta Azure Automation.
+* Łączy konto usługi Automation z obszarem roboczym Log Analytics.
 
-Szablon nie automatyzuje dołączania jednej lub więcej maszyn wirtualnych platformy Azure lub innych niż Azure lub rozwiązań. 
+Szablon nie automatyzuje dołączania do co najmniej jednej maszyny wirtualnej lub maszyn wirtualnych platformy Azure ani rozwiązań. 
 
 >[!NOTE]
->Tworzenie konta Uruchamianie automatyzacji jako nie jest obsługiwane podczas korzystania z szablonu usługi Azure Resource Manager. Aby utworzyć konto Uruchom jako ręcznie z portalu lub za pomocą programu PowerShell, zobacz [Zarządzanie kontem uruchom jako](manage-runas-account.md).
+>Tworzenie konta Uruchom jako usługi Automation jest nieobsługiwane w przypadku używania szablonu Azure Resource Manager. Aby ręcznie utworzyć konto Uruchom jako w portalu lub za pomocą programu PowerShell, zobacz [Zarządzanie kontem Uruchom jako](manage-runas-account.md).
 
 ## <a name="api-versions"></a>Wersje interfejsu API
 
-W poniższej tabeli wymieniono wersję interfejsu API dla zasobów używanych w tym przykładzie.
+W poniższej tabeli wymieniono wersje interfejsu API dla zasobów używanych w tym przykładzie.
 
-| Zasób | Typ zasobu | Wersja API |
+| Zasób | Typ zasobu | Wersja interfejsu API |
 |:---|:---|:---|
-| Workspace | obszary robocze | 2017-03-15-podgląd |
+| Workspace | obszary robocze | 2017-03-15 — wersja zapoznawcza |
 | Konto usługi Automation | automation | 2015-10-31 | 
 
 ## <a name="before-using-the-template"></a>Przed użyciem szablonu
 
-Jeśli zdecydujesz się zainstalować i używać programu PowerShell lokalnie, ten artykuł wymaga modułu Az programu Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu programu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure. W programie Azure PowerShell wdrożenie używa [new-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten artykuł będzie wymagał Azure PowerShell AZ module. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu programu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure. W przypadku Azure PowerShell wdrożenie używa polecenie [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia lokalnie, ten artykuł wymaga, aby uruchomić interfejsu wiersza polecenia platformy Azure w wersji 2.1.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). W przypadku interfejsu wiersza polecenia platformy Azure to wdrożenie używa [tworzenia wdrożenia grupy az.](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.1.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). W przypadku korzystania z interfejsu wiersza polecenia platformy Azure w tym wdrożeniu zostanie użyte polecenie [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
-Szablon JSON jest skonfigurowany tak, aby monitować o:
+Szablon JSON jest skonfigurowany tak, aby monitował o:
 
 * Nazwa obszaru roboczego
-* Region, w który ma powstać obszar roboczy w
-* Nazwa konta automatyzacji
-* Region, w który ma utworzyć konto w
+* Region, w którym ma zostać utworzony obszar roboczy
+* Nazwa konta usługi Automation
+* Region, w którym ma zostać utworzone konto
 
-Szablon JSON określa wartość domyślną dla innych parametrów, które prawdopodobnie będą używane jako standardowa konfiguracja w twoim środowisku. Szablon można przechowywać na koncie magazynu platformy Azure w celu uzyskania dostępu współużytkowego w organizacji. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [Wdrażanie zasobów za pomocą szablonów Usługi Resource Manager i interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md).
+Następujące parametry w szablonie mają ustawioną wartość domyślną Log Analytics obszarze roboczym:
 
-Następujące parametry w szablonie są ustawiane z wartością domyślną dla obszaru roboczego usługi Log Analytics:
-
-* sku - domyślnie nowa warstwa cenowa Per-GB wydana w modelu cenowym z kwietnia 2018 r.
-* przechowywanie danych — domyślnie trzydzieści dni
-* rezerwacja pojemności — domyślnie 100 GB
+* jednostka SKU — wartość domyślna to nowa warstwa cenowa według GB wydana w modelu cen z kwietnia 2018
+* przechowywanie danych — wartość domyślna to 30 dni.
+* Rezerwacja pojemności — wartość domyślna to 100 GB
 
 >[!WARNING]
->Jeśli tworzenie lub konfigurowanie obszaru roboczego usługi Log Analytics w ramach subskrypcji, która wybrała nowy model cenowy z kwietnia 2018 r., jedyną prawidłową warstwą cenową usługi Log Analytics jest **PerGB2018**.
+>W przypadku tworzenia lub konfigurowania obszaru roboczego Log Analytics w ramach subskrypcji, która została wybrana w nowym modelu cen 2018 kwietnia, jedyną prawidłową warstwą cenową Log Analytics jest **PerGB2018**.
 >
 
->[!NOTE]
->Przed użyciem tego szablonu przejrzyj [dodatkowe szczegóły,](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) aby w pełni zrozumieć opcje konfiguracji obszaru roboczego, takie jak tryb kontroli dostępu, warstwa cenowa, retencja i poziom rezerwacji pojemności. Jeśli jesteś nowy w dziennikach usługi Azure Monitor i nie wdrożyłeś już obszaru roboczego, zapoznaj się ze wskazówkami dotyczącymi [projektowania obszaru roboczego,](../azure-monitor/platform/design-logs-deployment.md) aby dowiedzieć się więcej o kontroli dostępu i zrozumieniu strategii wdrażania projektowania, które zalecana jest dla twojej organizacji.
+Szablon JSON określa wartość domyślną dla innych parametrów, które mogą być używane jako Standardowa konfiguracja w danym środowisku. Szablon można przechowywać na koncie usługi Azure Storage w celu uzyskania dostępu współdzielonego w organizacji. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md).
+
+Należy zapoznać się z poniższymi szczegółami konfiguracji, jeśli jesteś nowym użytkownikiem Azure Automation i Azure Monitor, aby uniknąć błędów podczas próby utworzenia, skonfigurowania i użycia obszaru roboczego Log Analytics połączonego z nowym kontem usługi Automation.
+
+* Zapoznaj się z [dodatkowymi szczegółami](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) , aby w pełni zrozumieć opcje konfiguracji obszaru roboczego, takie jak tryb kontroli dostępu, warstwa cenowa, przechowywanie i poziom rezerwacji pojemności.
+
+* Ponieważ tylko niektóre regiony są obsługiwane do łączenia obszaru roboczego Log Analytics i konta usługi Automation w ramach subskrypcji, przejrzyj [mapowania obszaru roboczego](how-to/region-mappings.md) , aby określić Obsługiwane regiony w tekście lub w pliku parametrów.
+
+* Jeśli dopiero zaczynasz korzystać z dzienników Azure Monitor i nie wdrożono już obszaru roboczego, zapoznaj się ze wskazówkami dotyczącymi [projektowania obszaru roboczego](../azure-monitor/platform/design-logs-deployment.md) , aby dowiedzieć się więcej na temat kontroli dostępu, a następnie zapoznaj się z strategiami implementacji projektu zalecanymi dla Twojej organizacji.
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 
@@ -112,32 +117,6 @@ Następujące parametry w szablonie są ustawiane z wartością domyślną dla o
         },
         "location": {
             "type": "string",
-            "allowedValues": [
-                "australiacentral",
-                "australiaeast",
-                "australiasoutheast",
-                "brazilsouth",
-                "canadacentral",
-                "centralindia",
-                "centralus",
-                "eastasia",
-                "eastus",
-                "eastus2",
-                "francecentral",
-                "japaneast",
-                "koreacentral",
-                "northcentralus",
-                "northeurope",
-                "southafricanorth",
-                "southcentralus",
-                "southeastasia",
-                "uksouth",
-                "ukwest",
-                "westcentralus",
-                "westeurope",
-                "westus",
-                "westus2"
-            ],
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
@@ -307,11 +286,11 @@ Następujące parametry w szablonie są ustawiane z wartością domyślną dla o
     }
     ```
 
-2. Edytuj szablon, aby spełnić wymagania. Należy rozważyć utworzenie [pliku parametrów Menedżera zasobów](../azure-resource-manager/templates/parameter-files.md) zamiast przekazywania parametrów jako wartości wbudowanych.
+2. Edytuj szablon w celu spełnienia wymagań. Rozważ utworzenie [pliku parametrów Menedżer zasobów](../azure-resource-manager/templates/parameter-files.md) zamiast przekazywania parametrów jako wartości wbudowanych.
 
-3. Zapisz ten plik jako deployAzAutomationAccttemplate.json w folderze lokalnym.
+3. Zapisz ten plik jako deployAzAutomationAccttemplate. JSON w folderze lokalnym.
 
-4. Wszystko jest teraz gotowe do wdrożenia tego szablonu. Można użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Po wyświetleniu monitu o podanie nazwy konta obszaru roboczego i usługi Automation podaj nazwę, która jest globalnie unikatowa we wszystkich subskrypcjach platformy Azure.
+4. Wszystko jest teraz gotowe do wdrożenia tego szablonu. Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Po wyświetleniu monitu o nazwę obszaru roboczego i konta usługi Automation Podaj nazwę globalnie unikatową we wszystkich subskrypcjach platformy Azure.
 
     **PowerShell**
 
@@ -325,10 +304,10 @@ Następujące parametry w szablonie są ustawiane z wartością domyślną dla o
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployAzAutomationAccttemplate.json
     ```
 
-    Wdrożenie może potrwać kilka minut. Po zakończeniu zostanie wyświetlony komunikat podobny do następującego, który zawiera wynik:
+    Wdrożenie może potrwać kilka minut. Po zakończeniu zostanie wyświetlony komunikat podobny do następującego:
 
     ![Przykładowy wynik po zakończeniu wdrażania](media/automation-create-account-template/template-output.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy masz konto automatyzacji, możesz tworzyć elementy runbook i automatyzować procesy ręczne.
+Teraz, gdy masz już konto usługi Automation, możesz tworzyć elementy Runbook i zautomatyzować procesy ręczne.

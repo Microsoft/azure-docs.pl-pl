@@ -1,6 +1,6 @@
 ---
 title: Wywoływanie interfejsu API sieci Web z aplikacji sieci Web — platforma tożsamości firmy Microsoft | Azure
-description: Dowiedz się, jak utworzyć aplikację sieci Web, która wywołuje internetowe interfejsy API (wywoływanie chronionego interfejsu API sieci Web)
+description: Dowiedz się, jak utworzyć aplikację sieci Web, która wywołuje interfejsy API sieci Web (wywołując chroniony internetowy interfejs API)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,20 +11,24 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c07241345a724e4489fb137cfe862cde6518b318
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 84df33137566445015848655cfecb87ba67ef123
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868714"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181685"
 ---
-# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Aplikacja internetowa wywołująca internetowe interfejsy API: wywoływanie internetowego interfejsu API
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: wywoływanie interfejsu API sieci Web
 
-Teraz, gdy masz token, można wywołać chroniony interfejs API sieci web.
+Teraz, gdy masz token, możesz wywołać chroniony internetowy interfejs API.
+
+## <a name="call-a-protected-web-api"></a>Wywoływanie chronionego internetowego interfejsu API
+
+Wywoływanie chronionego internetowego interfejsu API zależy od języka i struktury wyboru:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Oto uproszczony kod działania `HomeController`. Ten kod pobiera token do wywołania programu Microsoft Graph. Kod został dodany, aby pokazać, jak wywołać Microsoft Graph jako interfejs API REST. Adres URL interfejsu API programu Microsoft Graph znajduje się w pliku appsettings.json i jest odczytywany w zmiennej o nazwie: `webOptions`
+Oto uproszczony kod dla akcji `HomeController`. Ten kod pobiera token do wywołania Microsoft Graph. Dodano kod, aby pokazać, jak wywołać Microsoft Graph jako interfejs API REST. Adres URL Microsoft Graph interfejsu API jest dostępny w pliku appSettings. JSON i odczytywany w zmiennej o nazwie `webOptions`:
 
 ```json
 {
@@ -40,48 +44,33 @@ Oto uproszczony kod działania `HomeController`. Ten kod pobiera token do wywoł
 ```csharp
 public async Task<IActionResult> Profile()
 {
- var application = BuildConfidentialClientApplication(HttpContext, HttpContext.User);
- string accountIdentifier = claimsPrincipal.GetMsalAccountId();
- string loginHint = claimsPrincipal.GetLoginHint();
+ // Acquire the access token.
+ string[] scopes = new string[]{"user.read"};
+ string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
- // Get the account.
- IAccount account = await application.GetAccountAsync(accountIdentifier);
+ // Use the access token to call a protected web API.
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ 
+  var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
 
- // Special case for guest users, because the guest ID / tenant ID are not surfaced.
- if (account == null)
- {
-  var accounts = await application.GetAccountsAsync();
-  account = accounts.FirstOrDefault(a => a.Username == loginHint);
- }
+  if (response.StatusCode == HttpStatusCode.OK)
+  {
+   var content = await response.Content.ReadAsStringAsync();
 
- AuthenticationResult result;
- result = await application.AcquireTokenSilent(new []{"user.read"}, account)
-                            .ExecuteAsync();
- var accessToken = result.AccessToken;
+   dynamic me = JsonConvert.DeserializeObject(content);
+   return me;
+  }
 
- // Calls the web API (Microsoft Graph in this case).
- HttpClient httpClient = new HttpClient();
- httpClient.DefaultRequestHeaders.Authorization =
-     new AuthenticationHeaderValue(Constants.BearerAuthorizationScheme,accessToken);
- var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
-
- if (response.StatusCode == HttpStatusCode.OK)
- {
-  var content = await response.Content.ReadAsStringAsync();
-
-  dynamic me = JsonConvert.DeserializeObject(content);
-  return me;
- }
-
- ViewData["Me"] = me;
- return View();
+  ViewData["Me"] = me;
+  return View();
 }
 ```
 
 > [!NOTE]
-> Można użyć tej samej zasady, aby wywołać dowolny internetowy interfejs API.
+> Tej samej zasady można użyć do wywołania dowolnego internetowego interfejsu API.
 >
-> Większość interfejsów API sieci Web platformy Azure zapewniają zestaw SDK, który upraszcza wywoływanie interfejsu API. Dotyczy to również programu Microsoft Graph. W następnym artykule dowiesz się, gdzie znaleźć samouczek ilustruje użycie interfejsu API.
+> Większość interfejsów API sieci Web platformy Azure udostępnia zestaw SDK, który upraszcza wywoływanie interfejsu API. Jest to również prawdziwe Microsoft Graph. W następnym artykule dowiesz się, gdzie znaleźć samouczek, który ilustruje użycie interfejsu API.
 
 # <a name="java"></a>[Java](#tab/java)
 

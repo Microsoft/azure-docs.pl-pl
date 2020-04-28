@@ -1,20 +1,20 @@
 ---
 title: Rozwiązywanie problemów z wdrożeniami
-description: Dowiedz się, jak monitorować wdrożenia szablonów usługi Azure Resource Manager i rozwiązywać go. Pokazuje dzienniki aktywności i historię wdrażania.
+description: Dowiedz się, jak monitorować wdrożenia szablonów Azure Resource Manager i rozwiązywać problemy. Pokazuje dzienniki aktywności i historię wdrożenia.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 737e8a247a232278db73de716647fc5bb890fe39
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239250"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185000"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Samouczek: Rozwiązywanie problemów z wdrożeniami szablonów ARM
 
-Dowiedz się, jak rozwiązywać problemy z błędami wdrażania szablonów usługi Azure Resource Manager (ARM). W tym samouczku skonfigurujesz dwa błędy w szablonie i dowiesz się, jak korzystać z dzienników aktywności i historii wdrażania, aby rozwiązać problemy.
+Dowiedz się, jak rozwiązywać problemy z błędami wdrażania szablonu Azure Resource Manager (ARM). W tym samouczku skonfigurujesz dwa błędy w szablonie i dowiesz się, jak korzystać z dzienników aktywności i historii wdrażania, aby rozwiązać problemy.
 
 Istnieją dwa typy błędów związanych z wdrażaniem szablonu:
 
@@ -26,45 +26,45 @@ Oba rodzaje błędów zwracają kod błędu, którego należy użyć do rozwiąz
 Ten samouczek obejmuje następujące zadania:
 
 > [!div class="checklist"]
-> * Tworzenie problematycznego szablonu
-> * Rozwiązywanie problemów z błędami weryfikacji
-> * Usuwanie błędów związanych z wdrażaniem
-> * Oczyszczanie zasobów
+> - Tworzenie problematycznego szablonu
+> - Rozwiązywanie problemów z błędami weryfikacji
+> - Usuwanie błędów związanych z wdrażaniem
+> - Oczyszczanie zasobów
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
-* Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [Tworzenie szablonów ARM za pomocą programu Visual Studio](use-vs-code-to-create-template.md).
+- Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [używanie Visual Studio Code do tworzenia szablonów ARM](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Tworzenie problematycznego szablonu
 
-Otwórz szablon o nazwie [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Tworzenie standardowego konta magazynu) w obszarze [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/) i skonfiguruj dwa problemy z szablonem.
+Otwórz szablon o nazwie [Utwórz konto magazynu w warstwie Standardowa](https://azure.microsoft.com/resources/templates/101-storage-account-create/) na podstawie [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/)i skonfiguruj dwa problemy z szablonami.
 
-1. W programie Visual Studio Code wybierz pozycję **Plik**>**otwórz plik**.
+1. W obszarze Visual Studio Code wybierz pozycję **plik**>**Otwórz plik**.
 2. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Wybierz pozycję **Open (Otwórz)**, aby otworzyć plik.
 4. Zmień wiersz **apiVersion** na następujący:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
+
     - Ciąg **apiVersion1** to nieprawidłowa nazwa elementu. Jest to błąd weryfikacji.
     - Zmień wersję interfejsu API na „2018-07-01”.  Jest to błąd wdrażania.
 
-5. Wybierz **opcję Zapisz plik,**>**Save As** aby zapisać plik jako **azuredeploy.json** na komputerze lokalnym.
+5. Wybierz pozycję **plik**>**Zapisz jako,** aby zapisać plik AS **azuredeploy. JSON** na komputerze lokalnym.
 
 ## <a name="troubleshoot-the-validation-error"></a>Rozwiązywanie problemów z błędami weryfikacji
 
-Zapoznaj się sekcją [Wdrażanie szablonu](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template), aby wdrożyć szablon.
+Zapoznaj się sekcją [Wdrażanie szablonu](template-tutorial-create-multiple-instances.md#deploy-the-template), aby wdrożyć szablon.
 
 Otrzymasz mniej więcej taki komunikat o błędzie z poziomu powłoki:
 
@@ -78,7 +78,7 @@ Użyj programu Visual Studio Code, aby naprawić ten problem, zmieniając nazwę
 
 ## <a name="troubleshoot-the-deployment-error"></a>Rozwiązywanie problemów związanych z błędami wdrażania
 
-Zapoznaj się sekcją [Wdrażanie szablonu](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template), aby wdrożyć szablon.
+Zapoznaj się sekcją [Wdrażanie szablonu](template-tutorial-create-multiple-instances.md#deploy-the-template), aby wdrożyć szablon.
 
 Otrzymasz mniej więcej taki komunikat o błędzie z poziomu powłoki:
 
@@ -93,7 +93,7 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 
 Błąd wdrażania można odnaleźć w witrynie Azure Portal, korzystając z następującej procedury:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Otwórz grupę zasobów, wybierając pozycję **Grupa zasobów**, a następnie wybierz nazwę grupy zasobów. Zostanie wyświetlony komunikat **1 niepowodzenie** w obszarze **Wdrożenia**.
 
     ![Samouczek dotyczący rozwiązywania problemów w usłudze Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
@@ -107,8 +107,8 @@ Błąd wdrażania można odnaleźć w witrynie Azure Portal, korzystając z nast
 
 Ten błąd można również znaleźć w dzienniku aktywności:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
-2. Wybierz **pozycję Monitoruj** > **dziennik aktywności**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Wybierz pozycję **Monitoruj** > **Dziennik aktywności**.
 3. Użyj filtrów, aby znaleźć dziennik.
 
     ![Samouczek dotyczący rozwiązywania problemów w usłudze Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
@@ -121,11 +121,11 @@ Aby zapoznać się z listą typowych błędów, zobacz [Troubleshoot common Azur
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
-1. W witrynie Azure portal wybierz **grupę zasobów** z lewego menu.
+1. Z Azure Portal z menu po lewej stronie wybierz pozycję **Grupa zasobów** .
 2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**.
 3. Wybierz nazwę grupy zasobów.  W grupie zasobów zostanie wyświetlonych łącznie sześć zasobów.
-4. Wybierz **pozycję Usuń grupę zasobów** z górnego menu.
+4. W górnym menu wybierz pozycję **Usuń grupę zasobów** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak rozwiązywać problemy z błędami wdrażania szablonów ARM.  Aby uzyskać więcej informacji, zobacz [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md) (Rozwiązywanie typowych błędów z wdrożeniem na platformie Azure w usłudze Azure Resource Manager).
+W tym samouczku przedstawiono sposób rozwiązywania problemów z wdrażaniem szablonów ARM.  Aby uzyskać więcej informacji, zobacz [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md) (Rozwiązywanie typowych błędów z wdrożeniem na platformie Azure w usłudze Azure Resource Manager).

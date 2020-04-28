@@ -1,5 +1,5 @@
 ---
-title: Dodawanie funkcji CRUD do aplikacji kątowej za pomocą interfejsu API usługi Azure Cosmos DB dla usługi MongoDB
+title: Dodawanie funkcji CRUD do aplikacji kątowej za pomocą interfejsu API Azure Cosmos DB dla MongoDB
 description: Część 6 z serii samouczków o tworzeniu aplikacji bazy danych MongoDB przy użyciu usługi Angular i języka Node dla usługi Azure Cosmos DB przy użyciu dokładnie tych samych interfejsów API, które były używane dla bazy danych MongoDB
 author: johnpapa
 ms.service: cosmos-db
@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 0c39ffe40a490ee23ac65f892c46fba2578bce74
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 103545225b15a74d8c2ea0be5e88caa18f3c31cc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441100"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184779"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — dodawanie funkcji CRUD do aplikacji
 
@@ -86,7 +86,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
 5. Sprawdź, czy wszystko działa, uruchamiając aplikację. W programie Visual Studio Code zapisz wszystkie zmiany wybierz przycisk **Debuguj** (Debuguj) ![Ikona Debug (Debuguj) w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) po lewej stronie, a następnie wybierz przycisk **Start Debugging** (Rozpocznij debugowanie) ![Ikona Start Debugging (Rozpocznij debugowanie) w programie Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
-6. Teraz wróć do przeglądarki internetowej i otwórz kartę Narzędzia programistyczne > Sieć, naciskając klawisz F12 w przypadku większości komputerów. Przejdź [http://localhost:3000](http://localhost:3000) do, aby obserwować połączenia nawiązywać za pośrednictwem sieci.
+6. Teraz wróć do przeglądarki internetowej i otwórz kartę Narzędzia programistyczne > Sieć, naciskając klawisz F12 w przypadku większości komputerów. Przejdź do adresu `http://localhost:3000`, aby obejrzeć wywołania wykonywane w sieci.
 
     ![Karta Sieć w przeglądarce Chrome z widoczną aktywnością sieci](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 

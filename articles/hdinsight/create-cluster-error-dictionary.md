@@ -1,6 +1,6 @@
 ---
-title: Usługa Azure HDInsight Tworzenie klastra — słownik błędów
-description: Dowiedz się, jak rozwiązywać problemy z błędami występującymi podczas tworzenia klastrów usługi Azure HDInsight
+title: Azure HDInsight — Tworzenie klastra — słownik błędów
+description: Informacje o rozwiązywaniu problemów występujących podczas tworzenia klastrów usługi Azure HDInsight
 author: karkrish
 ms.author: v-todmc
 ms.reviewer: hrasheed
@@ -8,95 +8,95 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 803783eddfbffd5c3dbab7353ee00dd7f11a09e5
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618899"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186638"
 ---
-# <a name="azure-hdinsight-cluster-creation-errors"></a>Usługa Azure HDInsight: błędy tworzenia klastra
+# <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Błędy tworzenia klastra
 
-W tym artykule opisano rozwiązania problemów z błędami, które mogą wystąpić podczas tworzenia klastrów.
+W tym artykule opisano rozwiązania błędów, które mogą występować podczas tworzenia klastrów.
 
 > [!NOTE]
-> Pierwsze trzy błędy opisane w tym artykule są błędy sprawdzania poprawności. Mogą one wystąpić, gdy produkt usługi Azure HDInsight używa **CsmDocument_2_0** klasy.
+> Pierwsze trzy błędy opisane w tym artykule są błędami walidacji. Mogą występować, gdy produkt Azure HDInsight używa klasy **CsmDocument_2_0** .
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument 'CsmDocument_2_0' nie powiodło się sprawdzanie poprawności
+## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument "CsmDocument_2_0" nie powiodła się Walidacja
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
-"Lokalizacja akcji skryptu nie może\<uzyskać\>dostępu do identyfikatora URI: adres URL AKCJI SKRYPTU"
+"Nie można uzyskać dostępu do lokalizacji akcji skryptu\<URI: adres\>URL akcji skryptu"
 
 #### <a name="error-message"></a>Komunikat o błędzie
 
-"Serwer zdalny zwrócił błąd: (404) Nie znaleziono."
+"Serwer zdalny zwrócił błąd: (404) nie znaleziono".
 
 ### <a name="cause"></a>Przyczyna
 
-Usługa HDInsight nie może uzyskać dostępu do adresu URL akcji skryptu podanego w ramach żądania Utwórz klaster. Usługa odbiera poprzedni komunikat o błędzie podczas próby uzyskania dostępu do akcji skryptu.
+Usługa HDInsight nie może uzyskać dostępu do adresu URL akcji skryptu podanego w ramach żądania utworzenia klastra. Usługa otrzymuje poprzedni komunikat o błędzie, gdy próbuje uzyskać dostęp do akcji skryptu.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-- W przypadku adresu URL HTTP lub HTTPS sprawdź adres URL, próbując przejść do niego z okna przeglądarki incognito.
-- W przypadku adresu URL WASB upewnij się, że skrypt istnieje na koncie magazynu, który podałeś w żądaniu. Upewnij się również, że klucz magazynu dla tego konta magazynu jest poprawny.
+- W przypadku adresu URL HTTP lub HTTPS Sprawdź adres URL, próbując przejść do niego z okna przeglądarki incognito.
+- W przypadku adresu URL WASB upewnij się, że skrypt istnieje na koncie magazynu podanym w żądaniu. Upewnij się również, że klucz magazynu dla tego konta magazynu jest prawidłowy.
 - W przypadku adresu URL ADLS upewnij się, że skrypt istnieje na koncie magazynu.
 
 ---
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument 'CsmDocument_2_0' nie powiodło się sprawdzanie poprawności
+## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument "CsmDocument_2_0" nie powiodła się Walidacja
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
-"Lokalizacja akcji skryptu nie może \<uzyskać dostępu\>do identyfikatora URI: SCRIPT_ACTION_URL "
+"Nie można uzyskać dostępu do lokalizacji akcji skryptu \<URI\>: SCRIPT_ACTION_URL"
 
 #### <a name="error-message"></a>Komunikat o błędzie
 
-"Podany skrypt identyfikatora \<URI\> SCRIPT_URI jest w ADLS, ale ten klaster nie ma głównego magazynu usługi data lake"
+"Podany identyfikator URI \<skryptu SCRIPT_URI\> jest w ADLS, ale ten klaster nie ma podmiotu zabezpieczeń Data Lake Storage"
 
 ### <a name="cause"></a>Przyczyna
 
-Usługa HDInsight nie może uzyskać dostępu do adresu URL akcji skryptu podanego w ramach żądania Utwórz klaster. Usługa odbiera poprzedni komunikat o błędzie podczas próby uzyskania dostępu do akcji skryptu.
+Usługa HDInsight nie może uzyskać dostępu do adresu URL akcji skryptu podanego w ramach żądania utworzenia klastra. Usługa otrzymuje poprzedni komunikat o błędzie, gdy próbuje uzyskać dostęp do akcji skryptu.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Dodaj odpowiednie konto usługi Azure Data Lake Storage Gen 1 do klastra. Dodaj również jednostkę usługi, która uzyskuje dostęp do konta Usługi Data Lake Storage Gen 1 do klastra.
+Dodaj odpowiednie konto Azure Data Lake Storage Gen 1 do klastra. Należy również dodać nazwę główną usługi, która uzyskuje dostęp do tego konta Data Lake Storage Gen 1 do klastra.
 
 ---
 
-## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument 'CsmDocument_2_0' nie powiodło się sprawdzanie poprawności
+## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Kod błędu: DeploymentDocument "CsmDocument_2_0" nie powiodła się Walidacja
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
-"Rozmiar maszyny\<Wirtualnej '\>CUSTOMER_SPECIFIED_VM_SIZE ' pod warunkiem, że w\<żądaniu jest nieprawidłowy lub nie obsługiwane dla roli ' ROLE\>'. Prawidłowe wartości \<to:\>VALID_VM_SIZE_FOR_ROLE ."
+"Rozmiar maszyny wirtualnej\<"\>CUSTOMER_SPECIFIED_VM_SIZE "podany w żądaniu jest nieprawidłowy lub nie jest obsługiwany dla\<roli"\>rola ". Prawidłowe wartości to: \<VALID_VM_SIZE_FOR_ROLE\>".
 
 ### <a name="cause"></a>Przyczyna
 
-Określony rozmiar maszyny wirtualnej nie jest dozwolony dla roli. Ten błąd może wystąpić, ponieważ wartość rozmiaru maszyny Wirtualnej nie działa zgodnie z oczekiwaniami lub nie jest odpowiedni dla roli komputera.
+Określony rozmiar maszyny wirtualnej nie jest dozwolony dla tej roli. Ten błąd może wystąpić, ponieważ wartość rozmiaru maszyny wirtualnej nie działa zgodnie z oczekiwaniami lub nie jest odpowiednia dla roli komputera.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Komunikat o błędzie zawiera listę prawidłowych wartości rozmiaru maszyny Wirtualnej. Wybierz jedną z tych wartości i ponów próbę żądania Utwórz klaster.
+Komunikat o błędzie zawiera listę prawidłowych wartości dla rozmiaru maszyny wirtualnej. Wybierz jedną z tych wartości i ponów próbę utworzenia żądania klastra.
 
 ---
 
 ## <a name="error-codeinvalidvirtualnetworkid"></a>Kod błędu: InvalidVirtualNetworkId  
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
-"Identyfikator VirtualNetworkId jest nieprawidłowy. VirtualNetworkId\<' USER_VIRTUALNETWORKID\>'*"
+"VirtualNetworkId jest nieprawidłowy. VirtualNetworkId "\<USER_VIRTUALNETWORKID\>" * "
 
 ### <a name="cause"></a>Przyczyna
 
-Wartość **VirtualNetworkId** określona podczas tworzenia klastra nie jest w poprawnym formacie.
+Wartość **VirtualNetworkId** określona podczas tworzenia klastra nie ma poprawnego formatu.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Upewnij się, że **virtualnetworkid** i podsieci wartości są w prawidłowym formacie. Aby uzyskać wartość **VirtualNetworkId:**
+Upewnij się, że wartości **VirtualNetworkId** i podsieci mają poprawny format. Aby uzyskać wartość **VirtualNetworkId** :
 
 1. Przejdź do witryny Azure Portal.
 1. Wybierz sieć wirtualną.
-1. Wybierz pozycję menu **Właściwości.** Wartość właściwości **ResourceID** jest wartością **VirtualNetworkId.**
+1. Wybierz element menu **Właściwości** . Wartość właściwości **ResourceID** jest wartością **VirtualNetworkId** .
 
 Oto przykład identyfikatora sieci wirtualnej:
 
@@ -106,135 +106,135 @@ Oto przykład identyfikatora sieci wirtualnej:
 
 ## <a name="error-code-customizationfailederrorcode"></a>Kod błędu: CustomizationFailedErrorCode
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
-"Wdrożenie klastra nie powiodło się z powodu błędu w akcji skryptu niestandardowego. Nieudane akcje: \<SCRIPT_NAME\>, Przejdź do interfejsu użytkownika Ambari, aby dodatkowo debugować błąd."
+"Wdrożenie klastra nie powiodło się z powodu błędu w akcji skryptu niestandardowego. Akcje zakończone \<niepowodzeniem\>: SCRIPT_NAME, przejdź do interfejsu użytkownika Ambari, aby kontynuować debugowanie błędu ".
 
 ### <a name="cause"></a>Przyczyna
 
-Skrypt niestandardowy podany podczas żądania Utwórz klaster jest wykonywany po pomyślnym wdrożeniu klastra. Ten kod błędu wskazuje, że podczas wykonywania skryptu \<niestandardowego\>o nazwie SCRIPT_NAME wystąpił błąd.
+Skrypt niestandardowy dostarczony podczas żądania utworzenia klastra jest wykonywany po pomyślnym wdrożeniu klastra. Ten kod błędu wskazuje, że wystąpił błąd podczas wykonywania niestandardowego skryptu o nazwie \<SCRIPT_NAME\>.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Ponieważ skrypt jest skryptem niestandardowym, zaleca się rozwiązanie problemu i ponowne uruchomienie skryptu, jeśli to konieczne. Aby rozwiązać problem z błędem skryptu, sprawdź dzienniki w folderze /var/lib/ambari-agent/* . Możesz też otworzyć stronę **Operacje** w interfejsie użytkownika ambari, a następnie wybrać operację **run_customscriptaction,** aby wyświetlić szczegóły błędu.
+Skrypt jest skryptem niestandardowym, dlatego zalecamy rozwiązanie problemu i ponowne uruchomienie skryptu w razie potrzeby. Aby rozwiązać problem z błędem skryptu, zapoznaj się z dziennikami w folderze/var/lib/Ambari-Agent/*. Lub Otwórz stronę **operacje** w interfejsie użytkownika Ambari, a następnie wybierz operację **run_customscriptaction** , aby wyświetlić szczegóły błędu.
 
 ---
 
 ## <a name="error-codeinvaliddocumenterrorcode"></a>Kod błędu: InvalidDocumentErrorCode
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
-"Wersja \<\> \<schematu META_STORE_TYPE\> Metastore METASTORE_MAJOR_VERSION w bazie \<danych DATABASE_NAME\> jest niezgodna \<z wersją\>klastra CLUSTER_VERSION "
+\<"\> META_STORE_TYPE wersji \<schematu magazynu metadanych METASTORE_MAJOR_VERSION\> w database_name \<\> bazy danych jest niezgodna z wersją \<klastra\>CLUSTER_VERSION"
 
 ### <a name="cause"></a>Przyczyna
 
-Niestandardowy magazyn metasewalczy jest niezgodny z wybraną wersją klastra HDInsight. Obecnie klastry HDInsight 4.0 obsługują tylko metastore w wersji 3.0 lub nowszej, podczas gdy klastry HDInsight 3.6 nie obsługują metastore w wersji 3.0 i nowszej.
+Niestandardowy magazyn metadanych jest niezgodny z wybraną wersją klastra usługi HDInsight. Obecnie klastry usługi HDInsight 4,0 obsługują tylko usługi magazynu metadanych w wersji 3,0 lub nowszej, natomiast klastry usługi HDInsight 3,6 nie obsługują magazynu metadanych w wersji 3,0 lub nowszej.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Używaj tylko wersji metastore, które obsługuje wersja klastra HDInsight. Jeśli nie określisz niestandardowego magazynu metastore, usługa HDInsight wewnętrznie utworzy magazyn metasklepu, a następnie usunie go po usunięciu klastra.
+Używaj tylko wersji magazynu metadanych obsługiwanej przez wersję klastra usługi HDInsight. Jeśli nie określisz niestandardowego magazynu metadanych, Usługa HDInsight wewnętrznie tworzy magazyn metadanych, a następnie usuwa go po usunięciu klastra.
 
 ---
 
 ## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Kod błędu: FailedToConnectWithClusterErrorCode 
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
-"Nie można połączyć się z punktem końcowym zarządzania klastrem w celu wykonania operacji skalowania. Sprawdź, czy reguły zabezpieczeń sieciowych nie blokują zewnętrznego dostępu do klastra i czy można pomyślnie uzyskać dostęp do interfejsu użytkownika Menedżera klastra (Ambari).
+"Nie można nawiązać połączenia z punktem końcowym zarządzania klastrem w celu wykonania operacji skalowania. Sprawdź, czy reguły zabezpieczeń sieci nie blokują dostępu zewnętrznego do klastra i czy można pomyślnie uzyskać dostęp do interfejsu użytkownika Menedżera klastra (Ambari).
 
 ### <a name="cause"></a>Przyczyna
 
-Reguła zapory w sieciowej grupie zabezpieczeń (NSG) blokuje komunikację klastra z krytycznymi usługami kondycji i zarządzania platformy Azure.
+Reguła zapory w sieciowej grupie zabezpieczeń (sieciowej grupy zabezpieczeń) blokuje komunikację z klastrem przy użyciu krytycznych usług zarządzania kondycją platformy Azure.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Jeśli planujesz używać sieciowych grup zabezpieczeń do kontrolowania ruchu sieciowego, przed zainstalowaniem usługi HDInsight należy podjąć następujące czynności:
+Jeśli planujesz użyć grup zabezpieczeń sieci do kontrolowania ruchu sieciowego, przed zainstalowaniem usługi HDInsight wykonaj następujące czynności:
 
-- Zidentyfikuj region platformy Azure, który ma być używany dla usługi HDInsight.
-- Zidentyfikuj adresy IP wymagane przez hdinsight. Aby uzyskać więcej informacji, zobacz [Adresy IP zarządzania usługą HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
-  - Utwórz lub zmodyfikuj sieciowe grupy zabezpieczeń podsieci, w której zamierzasz zainstalować usługę HDInsight.
-  - W przypadku sieciowych grup zabezpieczeń zezwalaj na ruch przychodzący na porcie 443 z adresów IP. Ta konfiguracja gwarantuje, że usługi zarządzania hdinsight mogą dotrzeć do klastra spoza sieci wirtualnej.
+- Określ region platformy Azure, który ma być używany przez usługę HDInsight.
+- Zidentyfikuj adresy IP wymagane przez usługi HDInsight. Aby uzyskać więcej informacji, zobacz [Adresy IP zarządzania usługą HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+  - Utwórz lub zmodyfikuj sieciowe grupy zabezpieczeń dla podsieci, w której ma zostać zainstalowana Usługa HDInsight.
+  - W przypadku sieciowych grup zabezpieczeń Zezwalaj na ruch przychodzący na porcie 443 z adresów IP. Ta konfiguracja zapewnia, że usługi zarządzania usługą HDInsight mogą dotrzeć do klastra spoza sieci wirtualnej.
 
 ---
 
 ## <a name="error-code-storagepermissionsblockedformsi"></a>Kod błędu: StoragePermissionsBlockedForMsi
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
-"Tożsamość zarządzana nie ma uprawnień do konta magazynu. Sprawdź, czy rola "Właściciel danych obiektu blob magazynu" jest przypisana do tożsamości zarządzanej dla konta magazynu. Magazyn: \</subscriptions/ Subscription\> ID /resourceGroups/\< Resource Group Name\> /providers/Microsoft.Storage/storageAccounts/Storage \<Account Name\>, Managed Identity: /subscriptions/ \<Subscription ID\> /resourceGroups/ /Resource\< Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\>"
+"Zarządzana tożsamość nie ma uprawnień na koncie magazynu. Sprawdź, czy rola "właściciel danych obiektów blob magazynu" jest przypisana do zarządzanej tożsamości dla konta magazynu. Magazyn: identyfikator \<\> subskrypcji/subscriptions//ResourceGroups/\< \> nazwa grupy zasobów/Providers/Microsoft.Storage/storageAccounts/ \<,\>nazwa konta magazynu, tożsamość zarządzana \<:/subscriptions/\> Identyfikator subskrypcji\< /resourceGroups//nazwa\> grupy \<zasobów/Providers/Microsoft.ManagedIdentity/userAssignedIdentities/nazwa\>tożsamości zarządzanej przez użytkownika "
 
 ### <a name="cause"></a>Przyczyna
 
-Nie podałeś uprawnień wymaganych do zarządzania tożsamością. Tożsamość zarządzana przypisana przez użytkownika nie ma roli współautora magazynu obiektów Blob na koncie magazynu usługi Azure Data Lake Storage Gen2.
+Nie podano uprawnień wymaganych do zarządzania tożsamościami. Tożsamość zarządzana przypisana przez użytkownika nie ma roli współautor Blob Storage na koncie magazynu Azure Data Lake Storage Gen2.
 
 ### <a name="resolution"></a>Rozwiązanie
 
 1. Otwórz witrynę Azure Portal.
 1. Przejdź do swojego konta magazynu.
-1. Poszukaj **pod kontrolą dostępu (IAM)**.
-1. Upewnij się, że użytkownik ma przypisaną rolę współautora danych obiektu blob magazynu lub właściciela obiektu blob magazynu.
+1. Poszukaj w obszarze **Access Control (IAM)**.
+1. Upewnij się, że użytkownik ma rolę współautor danych obiektów blob magazynu lub przypisaną rolę właściciela danych obiektu blob magazynu.
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie uprawnień dla tożsamości zarządzanej na koncie Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ---
 
-## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>Kod błędu: InvalidNetworkSecuritySecurityRules
+## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>Kod błędu: InvalidNetworkSecurityGroupSecurityRules
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
-"Reguły zabezpieczeń w sieciowej grupie\<zabezpieczeń\>\> /subskrypcje/ SubscriptionID /resourceGroups/<Nazwa grupy\<zasobów domyślna/providers/Microsoft.Network/networkSecurityGroups/ Nazwa\> \<sieciowej\>grupy zabezpieczeń\<skonfigurowana\> z podsiecią /subskrypcje/ Identyfikator subskrypcji /resourceGroup nazwa grupy zasobów\<RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/ Virtual Network Name\>/subnets/\<Nazwa podsieci nie\> zezwala na wymaganą łączność przychodzącą i/lub wychodzącą. Aby uzyskać więcej informacji, odwiedź stronę [Planowanie sieci wirtualnej dla usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)lub skontaktuj się z pomocą techniczną."
+"Reguły zabezpieczeń w sieciowej grupie zabezpieczeń/subscriptions/\<Identyfikator subskrypcji\>/ResourceGroups/<nazwa grupy zasobów\> domyślne/dostawcy/Microsoft. Network/networkSecurityGroups/\<Network Security Group\> skonfigurowany z podsiecią/subscriptions/\<identyfikator\>subskrypcji\</ResourceGroups/nazwa grupy\> zasobów RG-westeurope-VNET-TomTom-default/Providers/Microsoft. Network/\<virtualNetworks/\>Virtual Network\<Name/Subnets/\> nazwa podsieci nie zezwala na wymaganą łączność przychodzącą i/lub wychodzącą. Aby uzyskać więcej informacji, odwiedź stronę [Planowanie sieci wirtualnej dla usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)lub skontaktuj się z pomocą techniczną.
 
 ### <a name="cause"></a>Przyczyna
 
-Jeśli sieciowe grupy zabezpieczeń lub trasy zdefiniowane przez użytkownika (UDR) kontrolują ruch przychodzący do klastra USŁUGI HDInsight, upewnij się, że klaster może komunikować się z krytycznymi usługami kondycji i zarządzania platformy Azure.
+Jeśli sieciowe grupy zabezpieczeń lub trasy zdefiniowane przez użytkownika (UDR) kontrolują ruch przychodzący do klastra usługi HDInsight, należy się upewnić, że klaster może komunikować się z krytycznymi usługami Azure Health i Management.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Jeśli planujesz używać sieciowych grup zabezpieczeń do kontrolowania ruchu sieciowego, przed zainstalowaniem usługi HDInsight należy podjąć następujące czynności:
+Jeśli planujesz użyć grup zabezpieczeń sieci do kontrolowania ruchu sieciowego, przed zainstalowaniem usługi HDInsight wykonaj następujące czynności:
 
-- Zidentyfikuj region platformy Azure, którego zamierzasz użyć dla usługi HDInsight, i utwórz bezpieczną listę adresów IP dla swojego regionu. Aby uzyskać więcej informacji, zobacz [Usługi w zakresie kondycji i zarządzania: Określone regiony](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions).
-- Zidentyfikuj adresy IP, których wymaga usługa HDInsight. Aby uzyskać więcej informacji, zobacz [Adresy IP zarządzania hdinsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
-- Utwórz lub zmodyfikuj sieciowe grupy zabezpieczeń podsieci, w której zamierzasz zainstalować usługę HDInsight. W przypadku sieciowych grup zabezpieczeń zezwalaj na ruch przychodzący na porcie 443 z adresów IP. Ta konfiguracja gwarantuje, że usługi zarządzania hdinsight mogą dotrzeć do klastra spoza sieci wirtualnej.
+- Określ region platformy Azure, który ma być używany na potrzeby usługi HDInsight, i Utwórz bezpieczną listę adresów IP dla danego regionu. Aby uzyskać więcej informacji, zobacz temat [usługi kondycji i zarządzania: określone regiony](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions).
+- Zidentyfikuj adresy IP wymagane przez usługi HDInsight. Aby uzyskać więcej informacji, zobacz [adresy IP zarządzania usługą HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+- Utwórz lub zmodyfikuj sieciowe grupy zabezpieczeń dla podsieci, w której ma zostać zainstalowana Usługa HDInsight. W przypadku sieciowych grup zabezpieczeń Zezwalaj na ruch przychodzący na porcie 443 z adresów IP. Ta konfiguracja zapewnia, że usługi zarządzania usługą HDInsight mogą dotrzeć do klastra spoza sieci wirtualnej.
 
 ---
 
-## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>Kod błędu: instalacja klastra nie może zainstalować składników na co najmniej jednym hostie
+## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>Kod błędu: Instalator klastra nie może zainstalować składników na jednym lub większej liczbie hostów
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
-"Instalacja klastra nie może zainstalować składników na co najmniej jednym hostie. Ponów próbę złożenia wniosku."
+"Instalator klastra nie może zainstalować składników na co najmniej jednym hoście. Spróbuj ponownie wykonać żądanie. "
 
 ### <a name="cause"></a>Przyczyna 
 
-Zazwyczaj ten błąd jest generowany, gdy występuje przejściowy problem lub awaria platformy Azure.
+Zazwyczaj ten błąd jest generowany, gdy występuje problem przejściowy lub awaria platformy Azure.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Sprawdź stronę [stanu platformy Azure](https://status.azure.com) pod kątem wszelkich awarii platformy Azure, które mogą mieć wpływ na wdrożenie klastra. Jeśli nie ma żadnych awarii, ponów próbę wdrożenia klastra.
+Sprawdź na stronie [stanu platformy Azure](https://status.azure.com) ewentualne przestoje związane z platformą Azure, które mogą mieć wpływ na wdrożenie klastra. Jeśli nie ma przerwy w działaniu, ponów próbę wdrożenia klastra.
 
 ---
 
 ## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Kod błędu: FailedToConnectWithClusterErrorCode
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
-Nie można połączyć się z punktem końcowym zarządzania klastrem. Spróbuj ponownie później.
+Nie można nawiązać połączenia z punktem końcowym zarządzania klastrem. Spróbuj ponownie później.
 
 ### <a name="cause"></a>Przyczyna
 
-Usługa HDInsight nie może połączyć się z klastrem podczas próby utworzenia klastra
+Usługa HDInsight nie może nawiązać połączenia z klastrem podczas próby utworzenia klastra
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Jeśli używasz niestandardowej sieci wirtualnej grupy zabezpieczeń (NSG) i tras zdefiniowanych przez użytkownika (UDR), upewnij się, że klaster może komunikować się z usługami zarządzania HDInsight. Aby uzyskać dodatkowe informacje, zobacz [adresy IP zarządzania hdinsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+Jeśli używasz niestandardowej grupy zabezpieczeń sieci wirtualnej (sieciowych grup zabezpieczeń) i tras zdefiniowanych przez użytkownika (UDR), upewnij się, że klaster może komunikować się z usługami HDInsight Management. Aby uzyskać dodatkowe informacje, zobacz [adresy IP zarządzania usługą HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Kod błędu: Wdrożenia nie powiodły się z<Resource URI>powodu naruszenia zasad: "Zasób" został niedozwolony przez zasady. Identyfikatory zasad: "[{"policyAssignment":{"name":"<Policy Name> ","id":"/providers/Microsoft.Management/managementGroups/<Management Group Name> providers/Microsoft.Authorization/policyAssignments/<Policy Name>"},"policyDefinition":<Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Kod błędu: wdrożenia nie powiodły się z powodu naruszenia zasad: "<Resource URI>zasób" "jest niedozwolony przez zasady. Identyfikatory zasad: "[{" policyAssignment ": {" name ":"<Policy Name> "," ID ":"/Providers/Microsoft.Management/managementGroups/<Management Group Name> Providers/Microsoft. Authorization/policyAssignments<Policy Name>/"}," policyDefinition ":<Policy Definition>
 
 ### <a name="cause"></a>Przyczyna
 
-Zasady platformy Azure oparte na subskrypcji mogą odmówić utworzenia publicznych adresów IP. Do utworzenia klastra usługi HDInsight wymagane są dwa publiczne adresy IP.
+Zasady platformy Azure oparte na subskrypcjach mogą odmówić tworzenia publicznych adresów IP. Do utworzenia klastra usługi HDInsight wymagane są dwa publiczne adresy IP.
 
 Następujące zasady mają zazwyczaj wpływ na tworzenie klastra:
 
@@ -244,10 +244,10 @@ Następujące zasady mają zazwyczaj wpływ na tworzenie klastra:
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Usuń lub wyłącz zasady platformy Azure oparte na subskrypcji podczas tworzenia klastra USŁUGI HDInsight.
+Usuń lub Wyłącz przypisanie Azure Policy opartego na subskrypcji podczas tworzenia klastra usługi HDInsight.
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat rozwiązywania problemów z błędami podczas tworzenia [klastra, zobacz Rozwiązywanie problemów z błędami tworzenia klastra za pomocą usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).
+Aby uzyskać więcej informacji na temat rozwiązywania problemów podczas tworzenia klastra, zobacz [Rozwiązywanie problemów z błędami tworzenia klastra za pomocą usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).

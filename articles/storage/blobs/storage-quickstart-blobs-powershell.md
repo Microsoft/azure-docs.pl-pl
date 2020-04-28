@@ -1,5 +1,5 @@
 ---
-title: Szybki start — tworzenie obiektu blob za pomocą programu PowerShell
+title: Szybki Start — Tworzenie obiektu BLOB przy użyciu programu PowerShell
 titleSuffix: Azure Storage
 description: W tym przewodniku Szybki start program Azure PowerShell jest używany w ramach magazynu obiektów (blob). Następnie przy użyciu programu PowerShell przekażesz obiekt blob do usługi Azure Storage, pobierzesz obiekt blob i wyświetlisz obiekty blob w kontenerze.
 services: storage
@@ -9,14 +9,14 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: 3b005bc359b3c1b0cafe663b7ce2b599b10973a1
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: bca04317acf589e8bae46f086c6c79dfc82152a8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474005"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176655"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Szybki start: przekazywanie, pobieranie i wyświetlanie listy obiektów blob za pomocą programu PowerShell
+# <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Szybki Start: przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą programu PowerShell
 
 Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi. Tworzenie zasobów platformy Azure lub zarządzanie nimi może odbywać się w wierszu polecenia programu PowerShell lub za pośrednictwem skryptów. Ten przewodnik zawiera opis sposobu użycia programu PowerShell do transferowania plików między dyskiem lokalnym i usługą Azure Blob Storage.
 
@@ -49,7 +49,7 @@ Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob
 
 Aby przekazać plik do blokowego obiektu blob, pobierz odwołanie do kontenera i uzyskaj odwołanie do blokowego obiektu blob w tym kontenerze. Po uzyskaniu odwołania do obiektu blob możesz przekazać do niego dane przy użyciu polecenia [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent). Ta operacja tworzy obiekt blob, jeśli nie istnieje, lub zastępuje obiekt blob, jeśli istnieje.
 
-Poniższe przykłady prześledą *image001.jpg* i *Image002.png* z folderu *D:\\_TestImages* na dysku lokalnym do utworzonego kontenera.
+Poniższe przykłady umożliwiają przekazanie *przekazanie image001. jpg* i *Image002. png* z folderu *D\\: _TestImages* na dysku lokalnym do utworzonego kontenera.
 
 ```powershell
 # upload a file
@@ -79,7 +79,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 Pobierz obiekty blob na swój dysk twardy. Dla każdego obiektu blob, który chcesz pobrać, określ nazwę i wywołaj polecenie [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent), aby pobrać obiekt blob.
 
-W tym przykładzie pobiera obiekty blob do *D:\\_TestImages\Downloads* na dysku lokalnym. 
+Ten przykład umożliwia pobranie obiektów BLOB do *D\\: _TestImages \downloads* na dysku lokalnym. 
 
 ```powershell
 # download first blob
@@ -97,9 +97,9 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>Transfer danych przy użyciu narzędzia AzCopy
 
-Narzędzie wiersza polecenia AzCopy oferuje wydajny, skryptowy transfer danych dla usługi Azure Storage. Za pomocą programu AzCopy można przesyłać dane do i z magazynu obiektów Blob i usługi Azure Files. Aby uzyskać więcej informacji na temat AzCopy v10, najnowszej wersji programu AzCopy, zobacz [Wprowadzenie do AzCopy](../common/storage-use-azcopy-v10.md). Aby dowiedzieć się więcej na temat korzystania z pamięci AzCopy w wersji 10 z magazynem obiektów Blob, zobacz [Przenoszenie danych za pomocą magazynu AzCopy i Blob](../common/storage-use-azcopy-blobs.md).
+Narzędzie wiersza polecenia AzCopy oferuje wysoce wydajny, oparty na skryptach transfer danych dla usługi Azure Storage. Można użyć AzCopy do transferowania danych do i z usługi BLOB Storage i Azure Files. Aby uzyskać więcej informacji na temat AzCopy V10, najnowszej wersji programu AzCopy, zobacz [wprowadzenie do AzCopy](../common/storage-use-azcopy-v10.md). Aby dowiedzieć się więcej o korzystaniu z usługi AzCopy V10 z usługą BLOB Storage, zobacz [transfer danych za pomocą AzCopy i BLOB Storage](../common/storage-use-azcopy-blobs.md).
 
-W poniższym przykładzie użyto AzCopy do przekazania pliku lokalnego do obiektu blob. Pamiętaj, aby zastąpić przykładowe wartości własnymi wartościami:
+Poniższy przykład używa AzCopy do przekazania pliku lokalnego do obiektu BLOB. Pamiętaj, aby zastąpić przykładowe wartości własnymi wartościami:
 
 ```powershell
 azcopy login
@@ -116,10 +116,10 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start przeprowadzono transfer plików między dyskiem lokalnym a usługą Azure Blob Storage. Aby dowiedzieć się więcej o pracy z magazynem obiektów blob przy użyciu programu PowerShell, przejdź do artykułu Jak używać programu Azure PowerShell z usługą Azure Storage.
+W tym przewodniku szybki start przeniesiono pliki między lokalnym systemem plików i magazynem obiektów blob platformy Azure. Aby dowiedzieć się więcej na temat pracy z usługą BLOB Storage za pomocą programu PowerShell, Eksploruj Azure PowerShell przykłady dla usługi BLOB Storage.
 
 > [!div class="nextstepaction"]
-> [Używanie programu Azure PowerShell z usługą Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Przykłady programu Azure PowerShell dla usługi Azure Blob Storage](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Dokumentacja poleceń cmdlet programu PowerShell dla usługi Microsoft Azure Storage
 

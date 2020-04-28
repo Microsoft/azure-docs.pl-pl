@@ -1,25 +1,19 @@
 ---
 title: Migrowanie do Menedżera zasobów za pomocą programu PowerShell
 description: W tym artykule oprzeszona jest migracja zasobów usługi IaaS obsługiwana przez platformę, takich jak maszyny wirtualne(VM), sieci wirtualne i konta magazynu z klasycznego do usługi Azure Resource Manager przy użyciu poleceń programu Azure PowerShell
-services: virtual-machines-windows
-documentationcenter: ''
 author: tanmaygore
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 2b3dff9b-2e99-4556-acc5-d75ef234af9c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 12a77c4c21a26f1ec52bb3ffdc312df56d3c4537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 314d7a4725709f00ba5cdbf54595857502bc5805
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249973"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865944"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrowanie zasobów usługi IaaS z klasycznego do usługi Azure Resource Manager przy użyciu programu PowerShell
 
@@ -60,7 +54,7 @@ Aby uzyskać instrukcje instalacji, zobacz [Jak zainstalować i skonfigurować p
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Krok 3: Upewnij się, że jesteś administratorem subskrypcji
 Aby przeprowadzić tę migrację, należy dodać jako współadministrator dla subskrypcji w [witrynie Azure portal](https://portal.azure.com).
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. W menu **Centrum** wybierz polecenie **Subskrypcja**. Jeśli go nie widzisz, wybierz pozycję **Wszystkie usługi**.
 3. Znajdź odpowiedni wpis subskrypcji, a następnie przyjrzyj się pole **mojemu roli.** Dla coadministrator, wartość powinna być _konto admin_.
 

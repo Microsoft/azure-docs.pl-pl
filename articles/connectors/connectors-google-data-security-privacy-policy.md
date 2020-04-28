@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: 01121612c5574544ef6985d33f56f3e334f8d37c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8c2ef8d174e8449b88f2257074bee69c3f45c6d9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82120654"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181943"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Zasady zabezpieczeń i ochrony danych dla łączników Google w Azure Logic Apps
 
@@ -34,13 +34,13 @@ Jeśli masz aplikacje logiki korzystające z łącznika usługi Gmail, otrzymasz
 
 W ramach tych zasad, jeśli używasz konta użytkownika usługi Gmail, możesz użyć łącznika usługi Gmail z tylko określonymi usługami zatwierdzonymi przez firmę Google, które mogą ulec zmianie. Nasze zespoły inżynieryjne kontynuują pracę z firmą Google, aby dodać do niej więcej usług. Obecnie poniżej przedstawiono wyzwalacze, akcje i łączniki zatwierdzone przez firmę Google, których można użyć w tym samym przepływie pracy aplikacji logiki przy użyciu łącznika usługi Gmail w przypadku korzystania z konta użytkownika usługi Gmail:
 
-* Logic Apps wbudowane wyzwalacze i akcje: dane wsadowe, kontrolki, operacje na danych, Data/godzina, prosty plik, ciecz, żądanie, harmonogram, zmienne i XML
+* Logic Apps wbudowane wyzwalacze i akcje: dane wsadowe, kontrolki, operacje na danych, Data/godzina, plik prosty, HTTP, Liquid, żądanie, harmonogram, zmienne i XML
 
 * Usługi Google Services: Gmail, Kalendarz Google, kontakty Google, dysk Google, Arkusze Google i zadania Google
 
 * Zatwierdzone usługi firmy Microsoft: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive i SharePoint Online
 
-* Łączniki dla źródeł danych zarządzanych przez klienta: FTP, HTTP, RSS, SFTP, SMTP i SQL Server
+* Łączniki dla źródeł danych zarządzanych przez klienta: FTP, RSS, SFTP, SMTP i SQL Server
 
 Aby uzyskać najnowsze informacje, zapoznaj się z [dokumentacją techniczną łącznika usługi Gmail](https://docs.microsoft.com/connectors/gmail/).
 

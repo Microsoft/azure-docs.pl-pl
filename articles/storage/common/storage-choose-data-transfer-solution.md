@@ -1,6 +1,6 @@
 ---
-title: Wybierz rozwiązanie platformy Azure do przesyłania danych| Dokumenty firmy Microsoft
-description: Dowiedz się, jak wybrać rozwiązanie platformy Azure do przesyłania danych na podstawie rozmiarów danych i dostępnej przepustowości sieci w danym środowisku
+title: Wybierz rozwiązanie platformy Azure na potrzeby transferu danych | Microsoft Docs
+description: Dowiedz się, jak wybrać rozwiązanie platformy Azure na potrzeby transferu danych w oparciu o rozmiary danych i dostępną przepustowość sieci w danym środowisku
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,78 +8,78 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: ada96d0d4b167e30cb6e271aa02d0d399a9ae7d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df261dbf8af8ffdb4ccb10626594626150245748
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78303090"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176400"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Wybieranie rozwiązania platformy Azure do transferu danych
 
-Ten artykuł zawiera omówienie niektórych typowych rozwiązań transferu danych platformy Azure. W tym artykule znajdują się również łącza do zalecanych opcji w zależności od przepustowości sieci w danym środowisku i rozmiaru danych, które mają zostać przesłane.
+Ten artykuł zawiera omówienie niektórych typowych rozwiązań do transferu danych na platformie Azure. Artykuł zawiera również instrukcje dotyczące zalecanych opcji w zależności od przepustowości sieci w danym środowisku oraz wielkości danych, które mają być transferowane.
 
-## <a name="types-of-data-movement"></a>Rodzaje przenoszenia danych
+## <a name="types-of-data-movement"></a>Typy przenoszenia danych
 
-Przesyłanie danych może być w trybie offline lub za pośrednictwem połączenia sieciowego. Wybierz rozwiązanie w zależności od:
+Transfer danych może być w trybie offline lub za pośrednictwem połączenia sieciowego. Wybierz rozwiązanie w zależności od:
 
-- **Rozmiar danych** — rozmiar danych przeznaczonych do przesyłania,
-- **Częstotliwość transferu** - jednorazowe lub okresowe połkowanie danych oraz
-- **Sieć** — przepustowość dostępna do przesyłania danych w danym środowisku.
+- **Rozmiar danych** — rozmiar danych przeznaczonych do przeniesienia,
+- **Częstotliwość transferu** — jednorazowe lub okresowe wprowadzanie danych i
+- **Sieć** — przepustowość dostępna na potrzeby transferu danych w danym środowisku.
 
-Przenoszenie danych może być następujących typów:
+Przenoszenie danych może mieć następujące typy:
 
-- **Transfer offline przy użyciu urządzeń dostarczanych** — używaj fizycznych urządzeń dostarczanych, gdy chcesz wykonywać jednorazowy transfer danych zbiorczych w trybie offline. Firma Microsoft wysyła dysk lub bezpieczne specjalistyczne urządzenie. Alternatywnie można kupić i wysłać własne dyski. Skopiuj dane na urządzenie, a następnie wyślij je na platformę Azure, gdzie dane są przekazywane.  Dostępne opcje dla tej sprawy to Data Box Disk, Data Box, Data Box Heavy i Import/Export (użyj własnych dysków).
+- **Transfer w trybie offline przy użyciu urządzeń z możliwością przewoźnicy** — umożliwia korzystanie z fizycznych urządzeń do przesyłania w trybie offline jednorazowych transferów danych. Firma Microsoft wysyła dysk lub bezpieczne wyspecjalizowane urządzenie. Alternatywnie możesz kupić i dostarczyć własne dyski. Kopiujesz dane do urządzenia, a następnie wysyłasz je do platformy Azure, w której dane są przekazywane.  Dostępne opcje w tym przypadku to Data Box Disk, urządzenie Data Box, Data Box Heavy i importowania/eksportowania (używaj własnych dysków).
 
-- **Transfer sieciowy** — przesyłasz dane na platformę Azure za pośrednictwem połączenia sieciowego. Można to zrobić na wiele sposobów.
+- **Transfer sieciowy** — przenosisz dane na platformę Azure za pośrednictwem połączenia sieciowego. Można to zrobić na wiele sposobów.
 
-    - **Interfejs graficzny** — jeśli od czasu do czasu przesyłasz tylko kilka plików i nie musisz zautomatyzować transferu danych, możesz wybrać narzędzie interfejsu graficznego, takie jak Azure Storage Explorer lub narzędzie do eksploracji opartej na sieci Web w witrynie Azure portal.
-    - **Przesyłanie skryptów lub programowe** — możesz użyć zoptymalizowanych narzędzi programowych, które dostarczamy lub bezpośrednio wywoływać nasze interfejsy API/SDK REST. Dostępne narzędzia do skryptów to AzCopy, Azure PowerShell i Azure CLI. W przypadku interfejsu programowego użyj jednego z SDK dla .NET, Java, Python, Node/JS, C++, Go, PHP lub Ruby.
-    - **Urządzenia lokalne** — dostarczamy urządzenie fizyczne lub wirtualne, które znajduje się w centrum danych i optymalizuje transfer danych za pośrednictwem sieci. Urządzenia te zapewniają również lokalną pamięć podręczną często używanych plików. Urządzeniem fizycznym jest data box edge, a urządzeniem wirtualnym jest brama pola danych. Oba działają na stałe w twoim lokalu i łączą się z platformą Azure za pośrednictwem sieci.
-    - **Potok danych zarządzanych** — można skonfigurować potok w chmurze, aby regularnie przesyłać pliki między kilkoma usługami platformy Azure, lokalnie lub kombinacją dwóch. Użyj usługi Azure Data Factory, aby skonfigurować potoki danych i zarządzać nimi, a także przenosić i przekształcać dane do analizy.
+    - **Interfejs graficzny** — Jeśli okresowo przesyłasz zaledwie kilka plików i nie musisz zautomatyzować transferu danych, możesz wybrać narzędzie interfejsu graficznego, takie jak Eksplorator usługi Azure Storage lub narzędzie eksploracji oparte na sieci Web w programie Azure Portal.
+    - **Skryptowy lub przenoszony przez skrypty** — możesz używać zoptymalizowanych narzędzi programistycznych udostępnianych przez nas lub bezpośrednio wywoływać interfejsy API REST/zestawy SDK. Dostępne narzędzia skryptowe to AzCopy, Azure PowerShell i interfejs wiersza polecenia platformy Azure. Dla interfejsu programistycznego Użyj jednego z zestawów SDK dla platformy .NET, Java, Python, Node/JS, C++, go, PHP lub Ruby.
+    - **Urządzenia lokalne** — udostępniamy urządzenia fizyczne lub wirtualne, które znajdują się w centrum danych, a następnie optymalizują transfer przy użyciu sieci. Te urządzenia zapewniają również lokalną pamięć podręczną często używanych plików. Urządzenie fizyczne jest Data Box Edge, a urządzenie wirtualne jest Data Box Gateway. Obie działają trwale w Twoim środowisku lokalnym i łączą się z platformą Azure za pośrednictwem sieci.
+    - **Potok danych zarządzanych** — można skonfigurować potok w chmurze do regularnego transferu plików między kilkoma usługami platformy Azure, lokalnymi lub kombinacją dwóch. Użyj Azure Data Factory, aby skonfigurować potoki danych i zarządzać nimi, oraz przenosić i przekształcać dane w celu analizy.
 
-Poniższa wizualizacja ilustruje wskazówki dotyczące wyboru różnych narzędzi transferu danych platformy Azure w zależności od przepustowości sieci dostępnej do przesyłania, rozmiaru danych przeznaczonego do transferu i częstotliwości transferu.
+W poniższej wizualizacji przedstawiono wskazówki pozwalające wybrać różne narzędzia transferu danych platformy Azure w zależności od przepustowości sieci dostępnej do transferu, rozmiaru danych przeznaczonego do transferu oraz częstotliwości transferu.
 
-![Narzędzia do przesyłania danych platformy Azure](media/storage-choose-data-transfer-solution/azure-data-transfer-options-3.png)
+![Narzędzia transferu danych platformy Azure](media/storage-choose-data-transfer-solution/azure-data-transfer-options-3.png)
 
-**Górne limity urządzeń transferu w trybie offline — Dysk pola danych, Data Box i Data Box Heavy można rozszerzyć, składając wiele zamówień typu urządzenia.*
+**Górne limity urządzeń transferu w trybie offline — Data Box Disk, urządzenie Data Box i Data Box Heavy można rozszerzyć, umieszczając wiele zamówień typu urządzenia.*
 
-## <a name="selecting-a-data-transfer-solution"></a>Wybieranie rozwiązania do przesyłania danych
+## <a name="selecting-a-data-transfer-solution"></a>Wybieranie rozwiązania do transferu danych
 
-Odpowiedz na następujące pytania, aby ułatwić wybór rozwiązania do transferu danych:
+Odpowiedz na następujące pytania, aby pomóc wybrać rozwiązanie do transferu danych:
 
-- Czy dostępna przepustowość sieci jest ograniczona lub nie istnieje i chcesz przesyłać duże zestawy danych?
+- Czy dostępna przepustowość sieci jest ograniczona lub nieistniejąca i chcesz przenieść duże zestawy danych?
   
-    Jeśli tak, zobacz: [Scenariusz 1: Przenoszenie dużych zestawów danych bez przepustowości sieci lub przy niskiej przepustowości sieci](storage-solution-large-dataset-low-network.md).
-- Czy chcesz przesyłać duże zestawy danych przez sieć i masz umiarkowaną lub wysoką przepustowość sieci?
+    Jeśli tak, zobacz: [scenariusz 1: transfer dużych zestawów danych z niewielką przepustowością sieci](storage-solution-large-dataset-low-network.md).
+- Czy chcesz transferować duże zestawy danych przez sieć i masz umiarkowaną przepustowość sieci?
 
-    Jeśli tak, zobacz: [Scenariusz 2: Przenoszenie dużych zestawów danych o umiarkowanej do wysokiej przepustowości sieci](storage-solution-large-dataset-moderate-high-network.md).
-- Czy chcesz od czasu do czasu przesłać tylko kilka plików przez sieć?
+    Jeśli tak, zobacz: [Scenariusz 2: transfer dużych zestawów danych z umiarkowaną do dużej przepustowości sieci](storage-solution-large-dataset-moderate-high-network.md).
+- Czy chcesz czasami przenieść kilka plików za pośrednictwem sieci?
 
-    Jeśli tak, zobacz [Scenariusz 3: Przesyłanie małych zestawów danych o ograniczonej do umiarkowanej przepustowości sieci](storage-solution-small-dataset-low-moderate-network.md).
-- Szukasz transferu danych w czasie w regularnych odstępach czasu?
+    Jeśli tak, zobacz [Scenariusz 3: transfer małych zestawów danych z ograniczoną do umiarkowanej przepustowości sieci](storage-solution-small-dataset-low-moderate-network.md).
+- Czy szukasz w regularnych odstępach czasu na transfer danych z punktu widzenia?
 
-    Jeśli tak, użyj opcji skryptowych/programowych opisanych w [scenariuszu 4: Okresowe przesyłanie danych](storage-solution-periodic-data-transfer.md).
-- Szukasz ciągłego, ciągłego transferu danych?
+    Jeśli tak, użyj opcji skryptowych/programistycznych opisanych w [scenariuszu 4: okresowe transfery danych](storage-solution-periodic-data-transfer.md).
+- Czy szukasz ciągłego transferu danych w toku?
 
-    Jeśli tak, użyj opcji w [scenariuszu 4: Okresowe przesyłanie danych](storage-solution-periodic-data-transfer.md).
+    Jeśli tak, użyj opcji w [scenariuszu 4: okresowe transfery danych](storage-solution-periodic-data-transfer.md).
 
-## <a name="data-transfer-feature-in-azure-portal"></a>Funkcja transferu danych w witrynie Azure portal
+## <a name="data-transfer-feature-in-azure-portal"></a>Funkcja transferu danych w Azure Portal
 
-Możesz również przejść do konta usługi Azure Storage w witrynie Azure portal i wybrać funkcję **transferu danych.** Podaj przepustowość sieci w danym środowisku, rozmiar danych, które chcesz przesłać, oraz częstotliwość transferu danych. Zobaczysz optymalne rozwiązania transferu danych odpowiadające podanym informacjom. 
+Możesz również przejść do konta usługi Azure Storage w Azure Portal i wybrać funkcję **transferu danych** . Podaj przepustowość sieci w środowisku, rozmiar danych, które chcesz przenieść, oraz częstotliwość transferu danych. Zobaczysz optymalne rozwiązania dotyczące transferu danych odpowiadające danym, które zostały podane przez Ciebie. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Pobierz wprowadzenie do Eksploratora usługi Azure Storage](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [Przeczytaj przegląd AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
-- [Korzystanie z programu Azure PowerShell z usługą Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full)
-- [Szybki start: tworzenie, pobieranie i wystawianie obiektów blob za pomocą interfejsu wiersza polecenia platformy Azure](../blobs/storage-quickstart-blobs-cli.md)
+- [Zapoznaj się z wprowadzeniem do Eksplorator usługi Azure Storage](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
+- [Zapoznaj się z omówieniem AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
+- [Szybki Start: przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą programu PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+- [Szybki Start: Tworzenie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure](../blobs/storage-quickstart-blobs-cli.md)
 - Dowiedz się więcej:
 
-    - [Azure Data Box, Azure Data Box Disk i Azure Data Box Heavy dla transferów w trybie offline.](https://docs.microsoft.com/azure/databox/)
-    - [Usługa Azure Data Box Gateway i azure data box edge dla transferów online](https://docs.microsoft.com/azure/databox-online/).
-- [Dowiedz się, czym jest usługa Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
-- Przesyłanie danych za pomocą interfejsów API REST
+    - [Azure Data Box, Azure Data Box Disk i Azure Data Box Heavy do transferów w trybie offline](https://docs.microsoft.com/azure/databox/).
+    - [Azure Data Box Gateway i Azure Data Box Edge do transferów online](https://docs.microsoft.com/azure/databox-online/).
+- [Dowiedz się, co to jest Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
+- Transferowanie danych za pomocą interfejsów API REST
 
-    - [W .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
+    - [W programie .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
     - [W języku Java](https://docs.microsoft.com/java/api/overview/azure/storage)

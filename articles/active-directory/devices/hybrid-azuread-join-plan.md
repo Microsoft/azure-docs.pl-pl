@@ -1,5 +1,5 @@
 ---
-title: Planowanie hybrydowego sprzężenia usługi Azure Active Directory — usługa Azure Active Directory
+title: Planowanie sprzężenia Azure Active Directory hybrydowego — Azure Active Directory
 description: Dowiedz się, jak skonfigurować urządzenia dołączone hybrydowo do usługi Azure Active Directory.
 services: active-directory
 ms.service: active-directory
@@ -11,124 +11,124 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152ff52ce52b573d7f24cbb2fafc944b1794f6d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22ab3e7403069ed1b579631b88c2ac2c41191ecd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129255"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181328"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Jak: Planowanie implementacji dołączania do hybrydowej usługi Azure Active Directory
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrukcje: planowanie implementacji dołączania hybrydowego Azure Active Directory
 
-W podobny sposób do użytkownika urządzenie jest inną podstawową tożsamością, którą chcesz chronić i używać do ochrony zasobów w dowolnym czasie i z dowolnej lokalizacji. Ten cel można osiągnąć, wprowadzając tożsamości urządzeń i zarządzając nimi w usłudze Azure AD przy użyciu jednej z następujących metod:
+Podobnie jak w przypadku użytkownika, urządzenie jest kolejną tożsamością podstawową, która ma być chroniona, i używanie jej do ochrony zasobów w dowolnym momencie i z dowolnej lokalizacji. Aby osiągnąć ten cel, można przełączać tożsamości urządzeń i zarządzać nimi w usłudze Azure AD przy użyciu jednej z następujących metod:
 
 - Dołączenie do usługi Azure AD
 - Dołączenie hybrydowe do usługi Azure AD
 - Rejestracja w usłudze Azure AD
 
-Przenosząc urządzenia do usługi Azure AD, można zmaksymalizować wydajność użytkowników dzięki zastosowaniu logowania jednokrotnego (SSO) w zasobach chmury i zasobach lokalnych. Jednocześnie można zabezpieczyć dostęp do zasobów w chmurze i lokalnych za pomocą [dostępu warunkowego.](../active-directory-conditional-access-azure-portal.md)
+Przenosząc urządzenia do usługi Azure AD, można zmaksymalizować wydajność użytkowników dzięki zastosowaniu logowania jednokrotnego (SSO) w zasobach chmury i zasobach lokalnych. W tym samym czasie można zabezpieczyć dostęp do zasobów w chmurze i lokalnych przy użyciu [dostępu warunkowego](../active-directory-conditional-access-azure-portal.md).
 
-Jeśli masz lokalne środowisko usługi Active Directory (AD) i chcesz dołączyć do komputerów przyłączonych do domeny usługi AD do usługi Azure AD, możesz to osiągnąć, wykonując hybrydowe sprzężenie usługi Azure AD. Ten artykuł zawiera powiązane kroki, aby zaimplementować hybrydowe sprzężenie usługi Azure AD w twoim środowisku. 
+Jeśli masz lokalne środowisko Active Directory (AD) i chcesz dołączyć komputery przyłączone do domeny usługi AD do usługi Azure AD, możesz to zrobić, wykonując sprzężenie hybrydowe usługi Azure AD. Ten artykuł zawiera powiązane kroki umożliwiające zaimplementowanie hybrydowego sprzężenia usługi Azure AD w środowisku. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule założono, że znasz [wprowadzenie do zarządzania tożsamościami urządzeń w usłudze Azure Active Directory](../device-management-introduction.md).
+W tym artykule założono, że znasz już [wprowadzenie do zarządzania tożsamościami urządzeń w Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
 > Minimalna wymagana wersja kontrolera domeny dla hybrydowego sprzężenia usługi Azure AD systemu Windows 10 to Windows Server 2008 R2.
 
-## <a name="plan-your-implementation"></a>Zaplanuj swoją implementację
+## <a name="plan-your-implementation"></a>Planowanie implementacji
 
-Aby zaplanować hybrydową implementację usługi Azure AD, należy zapoznać się z:
+Aby zaplanować implementację hybrydowej usługi Azure AD, zapoznaj się z:
 
 |   |   |
 | --- | --- |
-| ![Zaznacz][1] | Przeglądanie obsługiwanych urządzeń |
-| ![Zaznacz][1] | Przejrzyj rzeczy, które powinieneś wiedzieć |
+| ![Zaznacz][1] | Przejrzyj obsługiwane urządzenia |
+| ![Zaznacz][1] | Przejrzyj interesujące Cię rzeczy |
 | ![Zaznacz][1] | Przeglądanie kontrolowanej weryfikacji hybrydowego sprzężenia usługi Azure AD |
-| ![Zaznacz][1] | Wybierz scenariusz na podstawie infrastruktury tożsamości |
-| ![Zaznacz][1] | Przeglądanie lokalnej obsługi sieci UPN usługi AD dla hybrydowego sprzężenia usługi Azure AD |
+| ![Zaznacz][1] | Wybierz swój scenariusz w oparciu o infrastrukturę tożsamości |
+| ![Zaznacz][1] | Zapoznaj się z lokalną obsługą UPN usługi AD na potrzeby hybrydowego dołączania do usługi Azure AD |
 
-## <a name="review-supported-devices"></a>Przeglądanie obsługiwanych urządzeń
+## <a name="review-supported-devices"></a>Przejrzyj obsługiwane urządzenia
 
-Hybrydowe sprzężenie usługi Azure AD obsługuje szeroką gamę urządzeń z systemem Windows. Ponieważ konfiguracja urządzeń ze starszymi wersjami systemu Windows wymaga dodatkowych lub różnych kroków, obsługiwane urządzenia są pogrupowane w dwie kategorie:
+Sprzężenie hybrydowe usługi Azure AD obsługuje szeroką gamę urządzeń z systemem Windows. Ponieważ konfiguracja urządzeń ze starszymi wersjami systemu Windows wymaga dodatkowych lub różnych kroków, obsługiwane urządzenia są pogrupowane w dwie kategorie:
 
 ### <a name="windows-current-devices"></a>Bieżące urządzenia z systemem Windows
 
 - Windows 10
 - Windows Server 2016
-  - **Uwaga:** Klienci chmury krajowej platformy Azure wymagają wersji 1809
+  - **Uwaga**: klienci chmury krajowej platformy Azure wymagają wersji 1809
 - Windows Server 2019
 
-W przypadku urządzeń z systemem operacyjnym Windows dla komputerów stacjonarnych obsługiwana wersja jest wymieniona w tym artykule [Informacje o wersji systemu Windows 10](/windows/release-information/). Najlepszym rozwiązaniem jest zalecana przez firmę Microsoft uaktualnienie do najnowszej wersji systemu Windows 10.
+W przypadku urządzeń z systemem operacyjnym Windows dla komputerów stacjonarnych obsługiwana wersja jest wymieniona w tym artykule [Informacje o wersji systemu Windows 10](/windows/release-information/). Najlepszym rozwiązaniem, firma Microsoft zaleca uaktualnienie do najnowszej wersji systemu Windows 10.
 
-### <a name="windows-down-level-devices"></a>Urządzenia z systemem Windows w dół
+### <a name="windows-down-level-devices"></a>Urządzenia niskiego poziomu systemu Windows
 
 - Windows 8.1
-- Obsługa systemu Windows 7 zakończyła się 14 stycznia 2020 roku. Aby uzyskać więcej informacji, zobacz [Pomoc techniczna dla systemu Windows 7 została zakończona](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
+- Obsługa systemu Windows 7 zakończyła się 14 stycznia 2020. Aby uzyskać więcej informacji, zobacz [Pomoc techniczna dla systemu Windows 7 została zakończona](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2. Aby uzyskać informacje dotyczące pomocy technicznej w systemach Windows Server 2008 i 2008 R2, zobacz [Przygotowanie do zakończenia pomocy technicznej dla systemu Windows Server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
+- Windows Server 2008 R2. Informacje o pomocy technicznej dotyczące systemów Windows Server 2008 i 2008 R2 znajdują się w temacie [przygotowanie do systemu Windows server 2008 End of support](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
-Jako pierwszy krok planowania należy przejrzeć środowisko i określić, czy trzeba obsługiwać urządzenia z systemem Windows w dół.
+Jako pierwszy krok planowania należy przejrzeć środowisko i określić, czy należy obsługiwać urządzenia niskiego poziomu systemu Windows.
 
-## <a name="review-things-you-should-know"></a>Przejrzyj rzeczy, które powinieneś wiedzieć
+## <a name="review-things-you-should-know"></a>Przejrzyj interesujące Cię rzeczy
 
 ### <a name="unsupported-scenarios"></a>Nieobsługiwane scenariusze
-- Hybrydowe sprzężenie usługi AD nie jest obecnie obsługiwane, jeśli środowisko składa się z jednego lasu usługi AD synchronizującego dane tożsamości z więcej niż jedną dzierżawą usługi Azure AD.
+- Sprzężenie hybrydowe usługi Azure AD nie jest obecnie obsługiwane, jeśli środowisko składa się z jednego lasu usługi Active Directory, który synchronizuje dane tożsamości z więcej niż jedną dzierżawą usługi Azure AD.
 
-- Hybrydowe sprzężenie usługi AD nie jest obsługiwane w systemie Windows Server z rolą kontrolera domeny.Hybrid Azure AD join is not supported for Windows Server running the Domain Controller (DC) role.
+- Hybrydowe dołączanie usługi Azure AD nie jest obsługiwane w przypadku systemu Windows Server z uruchomioną rolą kontrolera domeny (DC).
 
-- Hybrydowe sprzężenie usługi AD nie jest obsługiwane na urządzeniach z systemem Windows w dół podczas korzystania z roamingu poświadczeń lub profilu użytkownika mobilnego lub profilu obowiązkowego.
+- Funkcja hybrydowego przyłączania do usługi Azure AD nie jest obsługiwana na urządzeniach niskiego poziomu systemu Windows podczas korzystania z roamingu poświadczeń lub roamingu profilu użytkownika lub profilu obowiązkowego.
 
-- Server Core OS nie obsługuje żadnego typu rejestracji urządzenia.
+- Podstawowe systemy operacyjne serwera nie obsługują żadnego typu rejestracji urządzeń.
 
-### <a name="os-imaging-considerations"></a>Zagadnienia dotyczące obrazowania systemu operacyjnego
-- Jeśli korzystasz z narzędzia przygotowania systemu (Sysprep) i jeśli używasz obrazu **sprzed systemu Windows 10 1809** do instalacji, upewnij się, że obraz nie pochodzi z urządzenia, które jest już zarejestrowane w usłudze Azure AD jako hybrydowe sprzężenie usługi AZURE AD.
+### <a name="os-imaging-considerations"></a>Zagadnienia dotyczące tworzenia obrazu systemu operacyjnego
+- Jeśli korzystasz z narzędzia przygotowywania systemu (Sysprep) i używasz obrazu **sprzed systemu Windows 10 1809** do instalacji, upewnij się, że obraz nie pochodzi z urządzenia, które jest już zarejestrowane w usłudze Azure AD jako sprzężenie hybrydowe usługi Azure AD.
 
-- Jeśli korzystasz z migawki maszyny wirtualnej (VM) w celu utworzenia dodatkowych maszyn wirtualnych, upewnij się, że migawka nie pochodzi z maszyny wirtualnej, która jest już zarejestrowana w usłudze Azure AD jako sprzężenie usługi Hybrid Azure AD.
+- Jeśli korzystasz z migawki maszyny wirtualnej w celu utworzenia dodatkowych maszyn wirtualnych, upewnij się, że migawka nie pochodzi z maszyny wirtualnej, która jest już zarejestrowana w usłudze Azure AD jako sprzężenie hybrydowe usługi Azure AD.
 
-- Jeśli używasz [ujednoliconego filtru zapisu](/windows-hardware/customize/enterprise/unified-write-filter) i podobnych technologii, które wyczyszczają zmiany na dysku po ponownym uruchomieniu komputera, muszą zostać zastosowane po przyłączeniu do usługi Hybrid Azure AD. Włączenie takich technologii przed zakończeniem hybrydowego sprzężenia usługi Azure AD spowoduje, że urządzenie zostanie odłączone przy każdym ponownym uruchomieniu komputera
+- Jeśli używasz [ujednoliconego filtru zapisu](/windows-hardware/customize/enterprise/unified-write-filter) i podobnych technologii, które usuwają zmiany na dysku po ponownym uruchomieniu, muszą one być stosowane po przyłączeniu urządzenia do hybrydowej usługi Azure AD. Włączenie takich technologii przed ukończeniem hybrydowego sprzężenia usługi Azure AD spowoduje odłączenie urządzenia do każdego ponownego uruchomienia
 
-### <a name="handling-devices-with-azure-ad-registered-state"></a>Obsługa urządzeń w stanie zarejestrowanym w usłudze Azure AD
-Jeśli urządzenia przyłączone do domeny systemu Windows 10 są [zarejestrowane w](overview.md#getting-devices-in-azure-ad) usłudze Azure AD w dzierżawie, może to prowadzić do podwójnego stanu przyłączonych do usługi Azure AD i urządzenia zarejestrowanego w usłudze Azure AD. Zalecamy uaktualnienie do systemu Windows 10 1803 (z zastosowaną aktualizacją KB4489894) lub wyższym, aby automatycznie rozwiązać ten scenariusz. W wersjach sprzed 1803 r. należy ręcznie usunąć stan rejestracji usługi Azure AD przed włączeniem hybrydowego sprzężenia usługi AZURE AD. W 1803 i powyżej wydania, następujące zmiany zostały wprowadzone w celu uniknięcia tego stanu podwójnego:
+### <a name="handling-devices-with-azure-ad-registered-state"></a>Obsługa urządzeń z zarejestrowanym stanem usługi Azure AD
+Jeśli urządzenia przyłączone do domeny systemu Windows 10 są zarejestrowane w dzierżawie [usługi Azure AD](overview.md#getting-devices-in-azure-ad) , może to doprowadzić do podwójnego stanu hybrydowego przyłączonego do usługi Azure AD i zarejestrowanego urządzenia usługi Azure AD. Zalecamy uaktualnienie do systemu Windows 10 1803 (z zastosowaniem programu KB4489894) lub nowszego, aby automatycznie rozwiązać ten scenariusz. W wersjach wcześniejszych niż 1803 należy ręcznie usunąć zarejestrowany stan usługi Azure AD przed włączeniem hybrydowego sprzężenia usługi Azure AD. W 1803 i nowszych wersjach wprowadzono następujące zmiany, aby uniknąć tego podwójnego stanu:
 
-- Każdy istniejący stan zarejestrowany usługi Azure AD dla użytkownika zostanie automatycznie usunięty <i>po tym, jak urządzenie zostanie przyłączone do usługi Hybrid Azure AD i zaloguje się tym samym użytkownikiem.</i> Na przykład jeśli użytkownik A miał stan zarejestrowany usługi Azure AD na urządzeniu, podwójny stan dla użytkownika A jest czyszczony tylko wtedy, gdy użytkownik A loguje się do urządzenia. Jeśli na tym samym urządzeniu jest wielu użytkowników, stan podwójny jest czyszczony indywidualnie, gdy ci użytkownicy się logują.
-- Możesz uniemożliwić urządzeniu przyłączonemu do domeny zarejestrowanie usługi Azure AD przez dodanie tego klucza rejestru — HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
-- W systemie Windows 10 1803, jeśli masz skonfigurowany windows hello dla firm, użytkownik musi ponownie skonfigurować Windows Hello for Business po oczyszczeniu stanu podwójnego. Ten problem został rozwiązany z KB4512509
+- Wszystkie istniejące zarejestrowane w usłudze Azure AD stan użytkownika zostaną automatycznie usunięte <i>po przyłączeniu urządzenia do hybrydowej usługi Azure AD i tego samego użytkownika</i>. Na przykład jeśli użytkownik ma zarejestrowany stan usługi Azure AD na urządzeniu, podwójny stan dla użytkownika A zostanie oczyszczony tylko wtedy, gdy użytkownik loguje się do urządzenia. Jeśli na tym samym urządzeniu istnieje wielu użytkowników, podwójny stan jest czyszczony indywidualnie, gdy użytkownicy zalogują się.
+- Aby uniemożliwić urządzeniu przyłączonym do domeny usługę Azure AD, Dodaj następującą wartość rejestru do HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin" = DWORD: 00000001.
+- W systemie Windows 10 1803, jeśli masz skonfigurowaną usługi Windows Hello dla firm, użytkownik musi zmienić konfigurację usługi Windows Hello dla firm po oczyszczeniu podwójnego stanu. Ten problem został rozwiązany z KB4512509
 
 > [!NOTE]
-> Urządzenie zarejestrowane w usłudze Azure AD nie zostanie automatycznie usunięte, jeśli jest zarządzane przez usługę Intune.
+> Zarejestrowane urządzenie usługi Azure AD nie zostanie automatycznie usunięte, jeśli jest zarządzane przez usługę Intune.
 
 ### <a name="additional-considerations"></a>Dodatkowe zagadnienia
-- Jeśli środowisko korzysta z infrastruktury pulpitu wirtualnego (VDI), zobacz [Tożsamość urządzenia i wirtualizacja pulpitu](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- Jeśli środowisko używa infrastruktury pulpitów wirtualnych (VDI), zobacz [tożsamość urządzenia i Wirtualizacja pulpitu](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
-- Hybrydowe sprzężenie usługi Azure AD jest obsługiwane dla modułu TPM 2.0 zgodnego ze standardem FIPS i nie jest obsługiwane dla modułu TPM 1.2. Jeśli twoje urządzenia mają zgodny z FIPS moduł TPM 1.2, należy je wyłączyć przed przystąpieniem do usługi Azure Hybrid. Firma Microsoft nie udostępnia żadnych narzędzi do wyłączania trybu FIPS dla modułów TPM, ponieważ jest on zależny od producenta modułu TPM. Aby uzyskać pomoc techniczną, skontaktuj się ze swoim sprzętowym oem. 
+- Hybrydowe dołączanie usługi Azure AD jest obsługiwane w przypadku modułu TPM zgodnego ze standardem FIPS 2,0 i nie jest obsługiwane dla modułu TPM 1,2 Jeśli urządzenia są zgodne ze standardem FIPS 1,2, należy je wyłączyć przed przejściem do hybrydowego sprzężenia usługi Azure AD. Firma Microsoft nie udostępnia żadnych narzędzi do wyłączania trybu FIPS dla moduły TPM, ponieważ jest on zależny od producenta modułu TPM. Aby uzyskać pomoc techniczną, skontaktuj się z producentem OEM. 
 
-- Począwszy od wersji systemu Windows 10 1903, TPM 1.2 nie są używane z hybrydowym sprzężeniem usługi Azure AD, a urządzenia z tymi modułami TPM będą traktowane tak, jakby nie miały modułu TPM.
+- Począwszy od wersji Windows 10 1903, moduły TPM 1,2 nie są używane z hybrydowym sprzężeniem usługi Azure AD, a urządzenia z tymi moduły TPM będą uważane za niemające modułu TPM.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Przeglądanie kontrolowanej weryfikacji hybrydowego sprzężenia usługi Azure AD
 
-Gdy wszystkie wymagania wstępne są w miejscu, urządzenia z systemem Windows automatycznie zarejestruje się jako urządzenia w dzierżawie usługi Azure AD. Stan tych tożsamości urządzeń w usłudze Azure AD jest określany jako hybrydowe sprzężenie usługi Azure AD. Więcej informacji na temat pojęć omówionych w tym artykule można znaleźć w artykule [Wprowadzenie do zarządzania tożsamościami urządzeń w usłudze Azure Active Directory](overview.md).
+Gdy wszystkie wymagania wstępne są stosowane, urządzenia z systemem Windows będą automatycznie rejestrowane jako urządzenia w dzierżawie usługi Azure AD. Stan tych tożsamości urządzeń w usłudze Azure AD jest określany jako sprzężenie hybrydowe usługi Azure AD. Więcej informacji na temat pojęć uwzględnionych w tym artykule można znaleźć w artykule [wprowadzenie do zarządzania tożsamościami urządzeń w Azure Active Directory](overview.md).
 
-Organizacje mogą chcieć wykonać kontrolowane sprawdzanie poprawności hybrydowego sprzężenia usługi Azure AD przed włączeniem jej w całej organizacji naraz. Przejrzyj [artykuł kontrolowane sprawdzanie poprawności hybrydowej usługi Azure AD join,](hybrid-azuread-join-control.md) aby dowiedzieć się, jak to zrobić.
+Organizacje mogą chcieć przeprowadzić kontrolowane sprawdzenie poprawności hybrydowego sprzężenia usługi Azure AD przed włączeniem jej w całej organizacji. Zapoznaj się z artykułem [Sprawdzanie poprawności funkcji dołączania hybrydowego usługi Azure AD](hybrid-azuread-join-control.md) , aby zrozumieć, jak to zrobić.
 
-## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Wybierz scenariusz na podstawie infrastruktury tożsamości
+## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Wybierz swój scenariusz w oparciu o infrastrukturę tożsamości
 
-Hybrydowe sprzężenie usługi Azure AD działa zarówno ze środowiskami zarządzanymi, jak i federowanymi w zależności od tego, czy sieć UPN jest rutowalna, czy nie rutowalna. Zobacz dolnej części strony dla tabeli na obsługiwane scenariusze.  
+Sprzężenie hybrydowe usługi Azure AD współdziała z systemami, zarządzanymi i federacyjnymi, w zależności od tego, czy nazwa UPN jest w trakcie routingu czy bez obsługi routingu. W dolnej części strony tabeli zapoznaj się z obsługiwanymi scenariuszami.  
 
 ### <a name="managed-environment"></a>Środowisko zarządzane
 
-Zarządzane środowisko można wdrożyć za pomocą [synchronizacji skrótów haseł (PHS)](/azure/active-directory/hybrid/whatis-phs) lub [uwierzytelniania przekazywanego (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) z [bezproblemowym logowaniem jednokrotnym.](/azure/active-directory/hybrid/how-to-connect-sso)
+Środowisko zarządzane można wdrożyć przy użyciu opcji [Synchronizacja skrótów haseł (PHS)](/azure/active-directory/hybrid/whatis-phs) lub [uwierzytelnianie przekazywane (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) z [bezproblemowym logowaniem jednokrotnym](/azure/active-directory/hybrid/how-to-connect-sso).
 
-Te scenariusze nie wymagają konfigurowania serwera federacyjnego do uwierzytelniania.
+Te scenariusze nie wymagają konfigurowania serwera federacyjnego na potrzeby uwierzytelniania.
 
-### <a name="federated-environment"></a>Sfederowane środowisko
+### <a name="federated-environment"></a>Środowisko federacyjne
 
-Środowisko federacyjne powinno mieć dostawcę tożsamości, który obsługuje następujące wymagania. Jeśli masz środowisko federacyjne korzystające z usług federacyjnych Active Directory (AD FS), poniższe wymagania są już obsługiwane.
+Środowisko federacyjne powinno mieć dostawcę tożsamości, który obsługuje poniższe wymagania. Jeśli masz środowisko federacyjne wykorzystujące Active Directory Federation Services (AD FS), poniższe wymagania są już obsługiwane.
 
-- **WIAORMULTIAUTHN twierdzenie:** To oświadczenie jest wymagane do hybrydowego sprzężenia usługi Azure AD dla urządzeń w dół systemu Windows.
-- **Protokół WS-Trust:** Ten protokół jest wymagany do uwierzytelniania obecnych hybrydowych urządzeń platformy Azure AD z usługą Azure AD. Podczas korzystania z usług AD FS należy włączyć następujące punkty końcowe WS-Trust:`/adfs/services/trust/2005/windowstransport`  
+- **WIAORMULTIAUTHN:** To żądanie jest wymagane do hybrydowego przyłączenia do usługi Azure AD dla urządzeń niższego poziomu systemu Windows.
+- **Protokół WS-Trust:** Ten protokół jest wymagany do uwierzytelniania bieżących urządzeń przyłączonych hybrydowo usługi Azure AD za pomocą usługi Azure AD. W przypadku korzystania z AD FS należy włączyć następujące punkty końcowe protokołu WS-Trust:`/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -136,42 +136,42 @@ Te scenariusze nie wymagają konfigurowania serwera federacyjnego do uwierzyteln
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Zarówno **adfs/services/trust/2005/windowstransport** lub **adfs/services/trust/13/windowstransport** powinny być włączone tylko jako punkty końcowe skierowane do intranetu i NIE mogą być udostępniane jako punkty końcowe skierowane do ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web. Aby dowiedzieć się więcej na temat wyłączania punktów końcowych systemu Windows w systemie WS-Trust, zobacz [Wyłączanie punktów końcowych systemu Windows w systemie WS-Trust w serwerze proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Punkty końcowe są włączone za pośrednictwem konsoli zarządzania usługami AD FS w obszarze**Punkty końcowe** **usługi** > .
+> **Usługi ADFS/Services/Trust/2005/windowstransport** lub **ADFS/Services/Trust/13/windowstransport** powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i nie mogą być udostępniane jako punkty końcowe dla ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web. Aby dowiedzieć się więcej na temat wyłączania punktów końcowych usługi WS-Trust systemu Windows, zobacz temat [wyłączanie punktów końcowych systemu Windows WS-Trust na serwerze proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Punkty końcowe można sprawdzić za pomocą konsoli zarządzania AD FS w obszarze**punkty końcowe** **usługi** > .
 
 > [!NOTE]
 > Usługa Azure AD nie obsługuje kart inteligentnych ani certyfikatów w domenach zarządzanych.
 
-Począwszy od wersji 1.1.819.0, program Azure AD Connect zapewnia kreator umożliwiający konfigurowanie dołączania hybrydowego do usługi Azure AD. Kreator pozwala znacznie uprościć proces konfiguracji. Jeśli zainstalowanie wymaganej wersji usługi Azure AD Connect nie jest opcją, zobacz, [jak ręcznie skonfigurować rejestrację urządzenia](hybrid-azuread-join-manual.md). 
+Począwszy od wersji 1.1.819.0, program Azure AD Connect zapewnia kreator umożliwiający konfigurowanie dołączania hybrydowego do usługi Azure AD. Kreator pozwala znacznie uprościć proces konfiguracji. Jeśli instalacja wymaganej wersji Azure AD Connect nie jest opcją dla Ciebie, zobacz [Ręczne konfigurowanie rejestracji urządzeń](hybrid-azuread-join-manual.md). 
 
-Na podstawie scenariusza, który pasuje do infrastruktury tożsamości, zobacz:
+W zależności od scenariusza, który jest zgodny z infrastrukturą tożsamości, zobacz:
 
-- [Konfigurowanie hybrydowego sprzężenia usługi Azure Active Directory dla środowiska federacyjnego](hybrid-azuread-join-federated-domains.md)
-- [Konfigurowanie hybrydowego sprzężenia usługi Azure Active Directory dla środowiska zarządzanego](hybrid-azuread-join-managed-domains.md)
+- [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska federacyjnego](hybrid-azuread-join-federated-domains.md)
+- [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska zarządzanego](hybrid-azuread-join-managed-domains.md)
 
-## <a name="review-on-premises-ad-users-upn-support-for-hybrid-azure-ad-join"></a>Przeglądanie lokalnej pomocy technicznej sieci UPN użytkowników usług AD dla hybrydowego dołączania do usługi AD
+## <a name="review-on-premises-ad-users-upn-support-for-hybrid-azure-ad-join"></a>Zapoznaj się z lokalną obsługą UPN lokalnych użytkowników usługi AD w celu dołączania hybrydowej usługi Azure AD
 
-Czasami lokalne sieci UPN użytkowników usług AD mogą się różnić od sieci UPN usługi Azure AD. W takich przypadkach sprzężenie hybrydowe usługi Azure AD systemu Windows 10 zapewnia ograniczoną obsługę lokalnych sieci UPN ad na podstawie [metody uwierzytelniania,](/azure/security/fundamentals/choose-ad-authn)typu domeny i wersji systemu Windows 10. Istnieją dwa typy lokalnych sieci UPN ad, które mogą istnieć w twoim środowisku:
+Czasami nazwy UPN lokalnych użytkowników usługi AD mogą różnić się od nazw UPN usługi Azure AD. W takich przypadkach hybrydowe dołączenie usługi Azure AD systemu Windows 10 zapewnia ograniczoną obsługę lokalnych nazw UPN usługi AD na podstawie [metody uwierzytelniania](/azure/security/fundamentals/choose-ad-authn), typu domeny i wersji systemu Windows 10. Istnieją dwa typy lokalnych nazw UPN usługi AD, które mogą istnieć w Twoim środowisku:
 
-- Nazwa UPN użytkowników routingu: routingowa nazwa UPN ma prawidłową zweryfikowaną domenę zarejestrowaną u rejestratora domen. Jeśli na przykład contoso.com jest domeną podstawową w usłudze Azure AD, contoso.org jest domeną podstawową w lokalnej usłudze AD należącej do firmy Contoso i [zweryfikowaną w usłudze Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
-- Nazwa UPN użytkowników nierozerwalnych: nierutowalna nazwa UPN nie ma zweryfikowanej domeny. Ma zastosowanie tylko w sieci prywatnej organizacji. Na przykład jeśli contoso.com jest domeną podstawową w usłudze Azure AD, contoso.local jest domeną podstawową w lokalnej usłudze AD, ale nie jest weryfikowalną domeną w Internecie i jest używana tylko w sieci contoso.
+- Nazwa UPN użytkowników z obsługą routingu: nazwa UPN z routingiem ma poprawną zweryfikowaną domenę, która jest zarejestrowana w rejestratorze domeny. Na przykład jeśli contoso.com jest domeną podstawową w usłudze Azure AD, contoso.org jest domeną podstawową w lokalnej usłudze AD należącej do firmy Contoso i [zweryfikowaną w usłudze Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
+- Nazwa UPN użytkowników bez obsługi routingu: nazwa UPN bez routingu nie ma zweryfikowanej domeny. Ma to zastosowanie tylko w sieci prywatnej organizacji. Na przykład jeśli contoso.com jest domeną podstawową w usłudze Azure AD, contoso. local jest domeną podstawową w lokalnej usłudze AD, ale nie jest domeną zweryfikowaną w Internecie i używaną tylko w sieci firmy Contoso.
 
 > [!NOTE]
-> Informacje zawarte w tej sekcji dotyczą tylko lokalnej sieci UPN użytkowników. Nie ma zastosowania do sufiksu domeny komputera lokalnego (przykład: computer1.contoso.local).
+> Informacje przedstawione w tej sekcji dotyczą tylko lokalnej nazwy UPN użytkownika. Nie ma zastosowania do sufiksu domeny komputera lokalnego (przykład: Komputer1. contoso. local).
 
-W poniższej tabeli przedstawiono szczegółowe informacje na temat obsługi lokalnych sieci UPN ad w usłudze Windows 10 Hybrid Azure AD join
+Poniższa tabela zawiera szczegółowe informacje na temat pomocy technicznej dotyczącej lokalnych nazw UPN w systemie Windows 10 hybrydowego sprzężenia usługi Azure AD
 
-| Typ lokalnej sieci UPN usługi AD | Typ domeny | Wersja systemu Windows 10 | Opis |
+| Typ lokalnej nazwy UPN usługi AD | Typ domeny | Wersja systemu Windows 10 | Opis |
 | ----- | ----- | ----- | ----- |
-| Routingu | Federacyjni | Od wersji 1703 | Ogólnie dostępne |
-| Nie rutowalne | Federacyjni | Od wersji 1803 | Ogólnie dostępne |
-| Routingu | Zarządzani | Od wersji 1803 | Ogólnie dostępne odwzwiaźne SSPR usługi Ad w usłudze Windows lockscreen nie są obsługiwane |
-| Nie rutowalne | Zarządzani | Nieobsługiwane | |
+| Wzajemn | Federacyjni | Od wersji 1703 | Ogólnie dostępne |
+| Bez obsługi routingu | Federacyjni | Od wersji 1803 | Ogólnie dostępne |
+| Wzajemn | Zarządzani | Od wersji 1803 | Ogólnie dostępna usługa Azure AD SSPR w systemie Windows ekranu blokady nie jest obsługiwana |
+| Bez obsługi routingu | Zarządzani | Nieobsługiwane | |
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie hybrydowego sprzężenia usługi Azure Active Directory dla środowiska](hybrid-azuread-join-federated-domains.md)
-> federacyjnego[Konfigurowanie hybrydowego sprzężenia usługi Azure Active Directory dla środowiska zarządzanego](hybrid-azuread-join-managed-domains.md)
+> [Skonfiguruj sprzężenie hybrydowe Azure Active Directory dla środowiska](hybrid-azuread-join-federated-domains.md)
+> federacyjnego[Skonfiguruj sprzężenie Azure Active Directory hybrydowego dla środowiska zarządzanego](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png

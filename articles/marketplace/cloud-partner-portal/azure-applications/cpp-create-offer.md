@@ -7,29 +7,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: dsindona
-ms.openlocfilehash: 823c9cbe8c850fbc4170a5734305f9cc5e45be83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 405593a97571ac5be351011890d162b5c0396966
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285286"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865573"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
-W tym artykule opisano sposób tworzenia i publikowania wpisu oferty aplikacji platformy Azure dla portalu Azure Marketplace. Każda oferta jest wyświetlana jako jej własna jednostka w portalu Azure Marketplace i składa się z następujących grup zasobów i usług pomocniczych: szczegóły oferty, jednostki SKU, artefakty marketingowe i informacje o pomocy technicznej.
+[Portal partnerów w chmurze](https://cloudpartner.azure.com/) nie obsługuje już tworzenia ofert aplikacji platformy Azure i zarządzania nimi. Zamiast tego ta funkcja została przeniesiona do [portalu Centrum partnerów](https://partner.microsoft.com/)firmy Microsoft . Aby uzyskać więcej informacji, zobacz [Tworzenie oferty aplikacji platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer).
 
-## <a name="new-offer-form"></a>Formularz Nowa oferta
-
-Zaloguj się do [portalu cloud partner,](https://cloudpartner.azure.com/)a następnie wybierz **+ Nowa oferta** na pasku menu po lewej stronie. W menu Nowa oferta wybierz pozycję **Usługi Azure Applications,** aby wyświetlić formularz **Nowa oferta** i rozpocząć proces definiowania zasobów dla nowej oferty.
-
-![Nowy formularz oferty](./media/azure-new-managedapp-offer.png)
-
-## <a name="next-steps"></a>Następne kroki
-
-Strona Nowa oferta zawiera zestaw kart i pól formularzy, których użyjesz do utworzenia nowej oferty. W poniższych artykułach wyjaśniono, jak zdefiniować grupy zasobów i usługi pomocnicze dla nowej oferty.
-
-* [Karta ustawień oferty](./cpp-offer-settings-tab.md)
-* [Karta jednostek SKU](./cpp-skus-tab.md)
-* [Karta Wersja testowa](./cpp-testdrive-tab.md)
-* [Karta platformy handlowej](./cpp-marketplace-tab.md)
-* [Karta pomocy technicznej](./cpp-support-tab.md)
+Przed utworzeniem nowej oferty aplikacji platformy Azure należy zapoznać [się z artykułem Tworzenie konta Centrum partnerów,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) a następnie otworzyć [pulpit nawigacyjny portalu komercyjnego w portalu Marketplace](https://partner.microsoft.com/dashboard/directory) z zaznaczoną stroną **Przegląd.** Postępuj zgodnie z instrukcjami w [Tworzenie oferty aplikacji platformy Azure,](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer) aby utworzyć ofertę.
