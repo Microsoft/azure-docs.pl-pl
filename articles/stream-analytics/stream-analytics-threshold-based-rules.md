@@ -1,48 +1,48 @@
 ---
-title: Konfigurowalne reguły oparte na progach w usłudze Azure Stream Analytics
-description: W tym artykule opisano, jak używać danych referencyjnych do osiągnięcia rozwiązania alertów, które ma konfigurowalne reguły oparte na progu w usłudze Azure Stream Analytics.
+title: Konfigurowalne reguły oparte na progach w Azure Stream Analytics
+description: W tym artykule opisano sposób korzystania z danych referencyjnych w celu uzyskania rozwiązania do obsługi alertów, które ma konfigurowalne reguły oparte na progach w Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 94fdddf11acb6763ed98a4b7e17304fbde0e25dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75369715"
 ---
-# <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Przetwarzanie konfigurowalnych reguł opartych na progach w usłudze Azure Stream Analytics
-W tym artykule opisano, jak używać danych referencyjnych do uzyskania rozwiązania alertów, które używa konfigurowalnych reguł opartych na progach w usłudze Azure Stream Analytics.
+# <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Przetwarzaj konfigurowalne reguły oparte na progach w Azure Stream Analytics
+W tym artykule opisano sposób korzystania z danych referencyjnych w celu uzyskania rozwiązania do obsługi alertów, które używa konfigurowalnych reguł opartych na progach w Azure Stream Analytics.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scenariusz: Alerty oparte na regulowanych progach reguł
-Może być konieczne uzyskanie alertu jako dane wyjściowe, gdy przychodzące przesyłane strumieniowo zdarzenia osiągnęły określoną wartość lub gdy zagregowana wartość oparta na przychodzących zdarzeniach przesyłanych strumieniowo przekracza określony próg. Można łatwo skonfigurować kwerendę usługi Stream Analytics, która porównała wartość z statycznym progiem, który jest stały i z góry określony. Stały próg może być zakodowany na stałe w składni zapytania przesyłania strumieniowego przy użyciu prostych porównań numerycznych (większa niż, mniej niż i równości).
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scenariusz: generowanie alertów na podstawie regulowanych progów reguł
+Może być konieczne wygenerowanie alertu jako danych wyjściowych, gdy przychodzące zdarzenia strumieniowe osiągną pewną wartość lub gdy zagregowana wartość oparta na przychodzących zdarzeniach przesyłanych strumieniowo przekracza określony próg. Można to łatwo skonfigurować Stream Analytics kwerendę, która porówna wartość ze statycznym progiem, który jest stały i wstępnie określony. Stała wartość progowa może być sztywno zakodowana w składni zapytania przesyłania strumieniowego przy użyciu prostych porównań liczbowych (większe niż, mniejsze niż i równość).
 
-W niektórych przypadkach wartości progowe muszą być łatwiej konfigurowalne bez edytowania składni kwerendy za każdym razem, gdy zmienia się wartość progowa. W innych przypadkach może być konieczne wiele urządzeń lub użytkowników przetworzonych przez tę samą kwerendę z każdego z nich o różnych wartości progowych na każdym rodzaju urządzenia. 
+W niektórych przypadkach wartości progowe muszą być łatwiejsze do skonfigurowania bez konieczności edytowania składni zapytania przy każdej zmianie wartości progowej. W innych przypadkach może być konieczne posiadanie wielu urządzeń lub użytkowników przetwarzanych przez to samo zapytanie, które mają różne wartości progowe na poszczególnych typach urządzeń. 
 
-Ten wzorzec może służyć do dynamicznego konfigurowania progów, selektywnego wybierania rodzaju urządzenia, którego próg jest stosowany przez filtrowanie danych wejściowych, i selektywnego wybierania pól, które mają zostać uwzględnione w danych wyjściowych.
+Ten wzorzec może służyć do dynamicznego konfigurowania progów, selektywnego wybierania rodzaju urządzenia stosowanego przez filtrowanie danych wejściowych i selektywnego wybierania pól do uwzględnienia w danych wyjściowych.
 
-## <a name="recommended-design-pattern"></a>Zalecany wzór projektu
-Użyj danych wejściowych odniesienia do zadania usługi Stream Analytics jako odnośnika progów alertów:
-- Przechowuj wartości progowe w danych referencyjnych, po jednej wartości na klucz.
-- Dołącz zdarzenia wejściowe danych przesyłania strumieniowego do danych referencyjnych w kolumnie klucza.
-- Użyj wartości klucza z danych referencyjnych jako wartości progowej.
+## <a name="recommended-design-pattern"></a>Zalecany Wzorzec projektowy
+Użyj danych referencyjnych do zadania Stream Analytics jako wyszukiwania progów alertu:
+- Przechowuj wartości progowe w danych referencyjnych, jedną wartość na klucz.
+- Dołącz zdarzenia wejściowe danych przesyłania strumieniowego do danych referencyjnych w kolumnie klucz.
+- Użyj wartości ustalonej z danych referencyjnych jako wartości progowej.
 
-## <a name="example-data-and-query"></a>Przykładowe dane i kwerenda
-W tym przykładzie alerty są generowane, gdy agregacja przesyłania strumieniowego danych z urządzeń w oknie minutowym odpowiada określonym wartościom w regule podanej jako dane referencyjne.
+## <a name="example-data-and-query"></a>Przykładowe dane i zapytanie
+W tym przykładzie alerty są generowane, gdy agregowanie danych przesyłanych strumieniowo z urządzeń w długim okresie minuty jest zgodne z określonymi wartościami w regule dostarczonej jako dane referencyjne.
 
-W kwerendzie dla każdego identyfikatora urządzenia i każdego identyfikatora metryki pod identyfikatorem deviceId można skonfigurować od 0 do 5 wymiarów do GRUPY WEDŁUG. Tylko zdarzenia o odpowiednich wartościach filtru są grupowane. Po zgrupowane, okna agregaty Min, Max, Avg, są obliczane w 60-sekundowym oknie tumbling. Filtry na zagregowane wartości są następnie obliczane zgodnie ze skonfigurowanym progiem w odwołaniu, aby wygenerować zdarzenie wyjściowe alertu.
+W zapytaniu dla każdego elementu deviceId i każdej metryki w obszarze deviceId można skonfigurować od 0 do 5 wymiarów w grupie według. Grupowane są tylko zdarzenia z odpowiednimi wartościami filtru. Po zgrupowaniu okna zagregowane wartości min, Max i AVG są obliczane w 60-sekundowym oknie wirowania. Filtry wartości zagregowanych są następnie obliczane zgodnie ze skonfigurowanym progiem w odwołaniu w celu wygenerowania zdarzenia wyjściowego alertu.
 
-Na przykład załóżmy, że istnieje zadanie usługi Stream Analytics, które ma dane referencyjne o nazwie **reguły**i przesyłanie strumieniowe danych wejściowych o nazwie **metryki**. 
+Załóżmy na przykład, że istnieje zadanie Stream Analytics, które ma referencyjne dane wejściowe danych o nazwie **Rules**, i dane wejściowe przesyłania strumieniowego o nazwie **Metrics**. 
 
 ## <a name="reference-data"></a>Dane referencyjne
-W tym przykładzie dane referencyjne pokazuje, jak reguła oparta na progu może być reprezentowana. Plik JSON przechowuje dane referencyjne i jest zapisywany w magazynie obiektów blob platformy Azure, a ten kontener magazynu obiektów blob jest używany jako dane wejściowe danych referencyjnych o nazwie **reguły**. Można zastąpić ten plik JSON i zastąpić konfigurację reguły w miarę upływu czasu, bez zatrzymywania lub uruchamiania zadania przesyłania strumieniowego.
+Te przykładowe dane referencyjne pokazują, jak można przedstawić regułę opartą na progach. Plik JSON zawiera dane referencyjne i jest zapisywany w usłudze Azure Blob Storage, a kontener magazynu obiektów BLOB jest używany jako dane wejściowe danych referencyjnych o nazwie **Rules**. Można zastąpić ten plik JSON i zamienić konfigurację reguły na czas, bez zatrzymywania lub uruchamiania zadania przesyłania strumieniowego.
 
-- Przykładowa reguła jest używana do reprezentowania regulowanego alertu, gdy procesor `90` CPU przekracza (średnia jest większa lub równa) procent wartości. Pole `value` można konfigurować w razie potrzeby.
-- Zwróć uwagę, że reguła ma pole **operatora,** które jest dynamicznie interpretowane w składni kwerendy później `AVGGREATEROREQUAL`. 
-- Reguła filtruje dane na określonym `2` kluczu wymiaru z wartością `C1`. Inne pola są pusty ciąg, co wskazuje, aby nie filtrować strumienia wejściowego przez te pola zdarzeń. W razie potrzeby można skonfigurować dodatkowe reguły procesora CPU w celu filtrowania innych pasujących pól.
-- Nie wszystkie kolumny mają być uwzględnione w zdarzeniu alertu danych wyjściowych. W takim `includedDim` przypadku `2` numer klucza jest włączony `TRUE` w celu reprezentowania tego pola numer 2 danych zdarzeń w strumieniu zostaną uwzględnione w kwalifikujących się zdarzeniach wyjściowych. Pozostałe pola nie są uwzględniane w danych wyjściowych alertów, ale listę pól można dostosować.
+- Przykładowa reguła jest używana do reprezentowania regulowanego alertu, gdy procesor CPU przekracza (średnia jest większa lub równa) `90` wartości procentowej. `value` Pole można skonfigurować zgodnie z wymaganiami.
+- Zwróć uwagę, że reguła ma pole **operatora** , które jest dynamicznie interpretowane w składni zapytania w `AVGGREATEROREQUAL`dalszej części. 
+- Reguła filtruje dane w określonym kluczu `2` wymiaru o wartości. `C1` Inne pola są pustym ciągiem, co oznacza, że nie można filtrować strumienia wejściowego według tych pól zdarzeń. Można skonfigurować dodatkowe reguły procesora, aby odfiltrować inne dopasowane pola zgodnie z wymaganiami.
+- Nie wszystkie kolumny są uwzględniane w wyjściowym zdarzeniu alertu. W takim przypadku numer `includedDim` `2` klucza jest włączony, `TRUE` aby reprezentować, że pole numer 2 danych zdarzenia w strumieniu zostanie uwzględnione w kwalifikujących się zdarzeniach wyjściowych. Pozostałe pola nie są uwzględniane w danych wyjściowych alertu, ale można dostosować listę pól.
 
 
 ```json
@@ -70,8 +70,8 @@ W tym przykładzie dane referencyjne pokazuje, jak reguła oparta na progu może
 }
 ```
 
-## <a name="example-streaming-query"></a>Przykładowa kwerenda strumieniowa
-W tym przykładzie kwerenda usługi Stream Analytics łączy dane referencyjne **reguł** z powyższego przykładu do strumienia wejściowego danych o nazwie **metryki**.
+## <a name="example-streaming-query"></a>Przykładowe zapytanie przesyłania strumieniowego
+Ten przykład Stream Analytics zapytanie sprzęga dane referencyjne **reguł** z powyższego przykładu do strumienia wejściowego danych o nazwie **Metrics**.
 
 ```sql
 WITH transformedInput AS
@@ -131,14 +131,14 @@ HAVING
     )
 ```
 
-## <a name="example-streaming-input-event-data"></a>Przykład przesyłania strumieniowego danych zdarzeń wejściowych
-W tym przykładzie dane JSON reprezentuje **dane wejściowe metryki,** który jest używany w powyższej kwerendy przesyłania strumieniowego. 
+## <a name="example-streaming-input-event-data"></a>Przykładowe dane wejściowe zdarzenia przesyłania strumieniowego
+Te przykładowe dane JSON reprezentują dane wejściowe **metryk** , które są używane w powyższym zapytaniu przesyłania strumieniowego. 
 
-- Trzy przykładowe zdarzenia są wyświetlane w ciągu `T14:50`1 minuty, wartość. 
-- Wszystkie trzy mają `deviceId` `978648`tę samą wartość .
-- Wartości metryki procesora CPU `98` `95`różnią `80` się w każdym zdarzeniu, , odpowiednio. Tylko pierwsze dwa przykładowe zdarzenia przekraczają regułę alertu procesora CPU ustanowioną w regule.
-- Pole includeDim w regule alertu było kluczem numer 2. Odpowiednie pole klucza 2 w `NodeName`przykładowych zdarzeniach nosi nazwę . Trzy przykładowe zdarzenia `N024` `N024`mają `N014` wartości , i odpowiednio. W danych wyjściowych widać `N024` tylko węzeł, ponieważ jest to tylko dane, które spełnia kryteria alertu dla wysokiego procesora CPU. `N014`nie spełnia wysokiego progu procesora.
-- Reguła alertu jest `filter` skonfigurowana z tylko na klucz numer `cluster` 2, który odpowiada polu w przykładowych zdarzeń. Trzy przykładowe zdarzenia `C1` mają wartość i odpowiadają kryteriom filtru.
+- Trzy przykładowe zdarzenia są wymienione w 1-minutowym przedziale `T14:50`czasu, wartość. 
+- Wszystkie trzy mają tę samą `deviceId` wartość `978648`.
+- Wartości metryk procesora CPU różnią się w zależności `98`od `95`zdarzenia `80` , odpowiednio. Tylko pierwsze dwa Przykładowe zdarzenia przekraczają regułę alertu procesora CPU ustanowioną w regule.
+- Pole includeDim w regule alertu było kluczem nr 2. Odpowiednie pole klucz 2 w zdarzeniach przykładowych ma nazwę `NodeName`. Trzy przykładowe zdarzenia mają odpowiednio wartości `N024`, `N024`, i `N014` . W danych wyjściowych zobaczysz tylko węzeł `N024` , który jest jedynymi danymi, które pasują do kryteriów alertów dla wysokiego procesora. `N014`nie spełnia wysokiego progu procesora CPU.
+- Reguła alertu ma skonfigurowany `filter` tylko dla klucza o numerze 2, który odnosi się do `cluster` pola w przykładowych zdarzeniach. Trzy przykładowe zdarzenia wszystkie mają wartość `C1` i pasują do kryteriów filtrowania.
 
 ```json
 {
@@ -282,7 +282,7 @@ W tym przykładzie dane JSON reprezentuje **dane wejściowe metryki,** który je
 ```
 
 ## <a name="example-output"></a>Przykładowe dane wyjściowe
-W tym przykładzie danych wyjściowych JSON pokazuje pojedyncze zdarzenie alertu został wyprodukowany na podstawie reguły progu procesora cpu zdefiniowane w danych referencyjnych. Zdarzenie wyjściowe zawiera nazwę alertu, a także zagregowane (średnia, min, maks.) rozważanych pól. Dane zdarzenia wyjściowego obejmują wartość `NodeName` `N024` klucza pola 2 ze względu na konfigurację reguły. (JSON został zmieniony, aby pokazać podziały wierszy dla czytelności.)
+Te przykładowe dane wyjściowe JSON pokazują pojedyncze zdarzenie alertu na podstawie reguły progu procesora zdefiniowanej w danych referencyjnych. Zdarzenie wyjściowe zawiera nazwę alertu, a także zagregowaną (średnią, minimalną, maksymalną) pól branych pod uwagę. Dane wyjściowe zdarzenia zawierają wartość `NodeName` `N024` klucza pola numer 2 ze względu na konfigurację reguły. (Kod JSON został zmieniony, aby pokazać podziały wierszy w celu zapewnienia czytelności).
 
 ```JSON
 {"time":"2018-05-01T02:03:00.0000000Z","deviceid":"978648","ruleid":1234,"metric":"CPU",

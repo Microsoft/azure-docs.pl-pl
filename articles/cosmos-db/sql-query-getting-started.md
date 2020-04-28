@@ -1,33 +1,33 @@
 ---
-title: Wprowadzenie do zapytań SQL w usłudze Azure Cosmos DB
-description: Dowiedz się, jak używać zapytań SQL do wykonywania zapytań o dane z usługi Azure Cosmos DB. Możesz przekazać przykładowe dane do kontenera w usłudze Azure Cosmos DB i zbadać je.
+title: Wprowadzenie do zapytań SQL w Azure Cosmos DB
+description: Dowiedz się, jak używać zapytań SQL do wykonywania zapytań dotyczących danych z Azure Cosmos DB. Przykładowe dane można przekazać do kontenera w Azure Cosmos DB i wykonać zapytanie.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
 ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873339"
 ---
 # <a name="getting-started-with-sql-queries"></a>Wprowadzenie do zapytań SQL
 
-Konta interfejsu API usługi Azure Cosmos DB SQL obsługują kwerendy elementów przy użyciu języka sql (Structured Query Language) jako języka zapytań JSON. Cele projektowe języka zapytań usługi Azure Cosmos DB mają na celu:
+Azure Cosmos DB konta interfejsu API SQL obsługują wykonywanie zapytań dotyczących elementów przy użyciu Structured Query Language (SQL) jako języka zapytań JSON. Celem projektowania języka zapytań Azure Cosmos DB jest:
 
-* Obsługa języka SQL, jednego z najbardziej znanych i popularnych języków zapytań, zamiast wymyślania nowego języka zapytań. SQL zapewnia formalny model programowania dla zapytań rozszerzonych za pośrednictwem elementów JSON.  
+* Obsługa języka SQL, jednego z najpopularniejszych i popularnych języków zapytań zamiast tworzenia nowych języków zapytań. SQL zawiera formalny model programowania dla zaawansowanych zapytań dotyczących elementów JSON.  
 
-* Użyj modelu programowania JavaScript jako podstawy dla języka zapytań. System typu JavaScript, ocena wyrażenia i wywołanie funkcji są katalogami głównych interfejsu API SQL. Te katalogi główne zapewniają naturalny model programowania dla funkcji, takich jak projekcje relacyjne, hierarchiczna nawigacja między elementami JSON, sprzężenia samosieci, zapytania przestrzenne i wywołanie funkcji zdefiniowanych przez użytkownika (UDF) napisanych w całości w języku JavaScript.
+* Używaj modelu programowania JavaScript jako podstawy dla języka zapytań. System typów języka JavaScript, obliczanie wyrażeń i wywołania funkcji są katalogami głównymi interfejsu API SQL. Te katalogi główne zapewniają naturalny model programowania dla funkcji, takich jak relacyjne projekcje, hierarchiczne Nawigowanie między elementami JSON, samosprzężenia, zapytania przestrzenne i wywołania funkcji zdefiniowanych przez użytkownika (UDF), które są zapisywane w całości w języku JavaScript.
 
 ## <a name="upload-sample-data"></a>Przekazywanie przykładowych danych
 
-Na koncie usługi SQL API Cosmos `Families`DB utwórz kontener o nazwie . Utwórz dwa proste elementy JSON w kontenerze. Można uruchomić większość przykładowych zapytań w docs kwerendy usługi Azure Cosmos DB przy użyciu tego zestawu danych.
+Na koncie Cosmos DB interfejsu API SQL Utwórz kontener o nazwie `Families`. Utwórz dwa proste elementy JSON w kontenerze. Większość przykładowych zapytań można uruchomić w Azure Cosmos DB dokumentach zapytań przy użyciu tego zestawu danych.
 
 ### <a name="create-json-items"></a>Tworzenie elementów JSON
 
-Poniższy kod tworzy dwa proste elementy JSON o rodzinach. Proste elementy JSON dla rodzin Andersen i Wakefield obejmują rodziców, dzieci i ich zwierzęta domowe, adres i informacje rejestracyjne. Pierwszy element ma ciągi, liczby, wartości logiczne, tablice i właściwości zagnieżdżone.
+Poniższy kod tworzy dwa proste elementy JSON dotyczące rodzin. Proste elementy JSON dla rodzin Andersen i Wakefield obejmują rodzice, dzieci i informacje o rejestracji. Pierwszy element zawiera ciągi, liczby, wartości logiczne, tablice i właściwości zagnieżdżone.
 
 
 ```json
@@ -52,7 +52,7 @@ Poniższy kod tworzy dwa proste elementy JSON o rodzinach. Proste elementy JSON 
 }
 ```
 
-Drugi element używa `givenName` `familyName` i zamiast `firstName` `lastName`i .
+`givenName` Drugi element używa `familyName` i zamiast `firstName` i. `lastName`
 
 ```json
 {
@@ -84,11 +84,11 @@ Drugi element używa `givenName` `familyName` i zamiast `firstName` `lastName`i 
 }
 ```
 
-### <a name="query-the-json-items"></a>Kwerenda elementów JSON
+### <a name="query-the-json-items"></a>Wykonywanie zapytań dotyczących elementów JSON
 
-Wypróbuj kilka zapytań dotyczących danych JSON, aby zrozumieć niektóre z kluczowych aspektów języka zapytań SQL usługi Azure Cosmos DB.
+Wypróbuj kilka zapytań dotyczących danych JSON, aby poznać niektóre kluczowe aspekty języka zapytań SQL Azure Cosmos DB.
 
-Poniższa kwerenda zwraca `id` elementy, `AndersenFamily`w których pole jest zgodne . Ponieważ jest to `SELECT *` kwerenda, dane wyjściowe kwerendy jest kompletnym elementem JSON. Aby uzyskać więcej informacji na temat składni SELECT, zobacz [instrukcja SELECT](sql-query-select.md). 
+Poniższe zapytanie zwraca elementy, w których pole `id` jest zgodne `AndersenFamily`. Ponieważ jest to `SELECT *` zapytanie, dane wyjściowe zapytania są kompletnym elementem JSON. Aby uzyskać więcej informacji na temat składni SELECT, zobacz [SELECT Statement](sql-query-select.md). 
 
 ```sql
     SELECT *
@@ -96,7 +96,7 @@ Poniższa kwerenda zwraca `id` elementy, `AndersenFamily`w których pole jest zg
     WHERE f.id = "AndersenFamily"
 ```
 
-Wyniki kwerendy są następujące: 
+Wyniki zapytania są następujące: 
 
 ```json
     [{
@@ -118,7 +118,7 @@ Wyniki kwerendy są następujące:
     }]
 ```
 
-Następujące zapytanie formatuje dane wyjściowe JSON do innego kształtu. Kwerenda projektuje nowy `Family` obiekt JSON `Name` z `City`dwoma zaznaczonymi polami i , gdy miasto adresu jest takie samo jak stan. "NY, NY" pasuje do tej sprawy.
+Poniższe zapytanie umożliwia przeformatowanie danych wyjściowych JSON do innego kształtu. Zapytanie projektuje nowy obiekt JSON `Family` z dwoma wybranymi polami `Name` i `City`, gdy miasto adresu jest taka sama jak stan. "NY, NY" pasuje do tego przypadku.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -126,7 +126,7 @@ Następujące zapytanie formatuje dane wyjściowe JSON do innego kształtu. Kwer
     WHERE f.address.city = f.address.state
 ```
 
-Wyniki kwerendy są następujące:
+Wyniki zapytania są następujące:
 
 ```json
     [{
@@ -137,7 +137,7 @@ Wyniki kwerendy są następujące:
     }]
 ```
 
-Poniższa kwerenda zwraca wszystkie imiona dzieci `id` w `WakefieldFamily`rodzinie, których dopasowania , uporządkowane według miasta.
+Następujące zapytanie zwraca wszystkie nazwy elementów podrzędnych w rodzinie, których `id` dopasowania `WakefieldFamily`są uporządkowane według miasta.
 
 ```sql
     SELECT c.givenName
@@ -158,18 +158,18 @@ Wyniki są następujące:
 
 ## <a name="remarks"></a>Uwagi
 
-W poprzednich przykładach pokazano kilka aspektów języka zapytań usługi Cosmos DB:  
+W powyższych przykładach przedstawiono kilka aspektów języka zapytań Cosmos DB:  
 
-* Ponieważ sql api działa na wartości JSON, zajmuje się jednostkami w kształcie drzewa zamiast wierszy i kolumn. Można odwołać się do węzłów drzewa na `Node1.Node2.Node3…..Nodem`dowolnej dowolnej głębokości, jak `<table>.<column>` , podobnie jak odwołanie dwuczęściowe w ANSI SQL.
+* Ponieważ interfejs API SQL działa na wartościach JSON, zajmuje on się jednostkami w kształcie drzewa zamiast wierszy i kolumn. Możesz odwoływać się do węzłów drzewa na dowolnym dowolnym poziomie, na `Node1.Node2.Node3…..Nodem`przykład, podobnie jak `<table>.<column>` w przypadku odwołania DWUCZĘŚCIOWEGO w języku SQL ANSI.
 
-* Ponieważ język kwerendy działa z danymi bez schematu, system typów musi być powiązany dynamicznie. To samo wyrażenie może spowodować uzyskiwanie różnych typów w różnych elementach. Wynik kwerendy jest prawidłową wartością JSON, ale nie jest gwarantowana być schematu stałego.  
+* Ponieważ język zapytań działa z danymi bez schematu, system typu musi być powiązany dynamicznie. To samo wyrażenie może spowodować uzyskiwanie różnych typów w różnych elementach. Wynikiem zapytania jest prawidłowa wartość JSON, ale nie ma gwarancji, że jest to stała schemat.  
 
-* Usługa Azure Cosmos DB obsługuje tylko ścisłe elementy JSON. System typów i wyrażenia są ograniczone do czynienia tylko z typami JSON. Aby uzyskać więcej informacji, zobacz [specyfikację JSON](https://www.json.org/).  
+* Usługa Azure Cosmos DB obsługuje tylko ścisłe elementy JSON. System typów i wyrażenia są ograniczone do obsługi tylko typów JSON. Aby uzyskać więcej informacji, zobacz [specyfikację JSON](https://www.json.org/).  
 
-* Kontener usługi Cosmos jest kolekcją wolnego od schematu elementów JSON. Relacje wewnątrz i między elementami kontenera są niejawnie przechwytywane przez hermetyzacja, a nie przez klucz podstawowy i relacje klucza obcego. Ta funkcja jest ważna dla sprzężeń wewnątrzunijnych omówionych w dalszej części tego artykułu.
+* Kontener Cosmos to niezależna od schematu Kolekcja elementów JSON. Relacje między elementami kontenera i między nimi są niejawnie przechwytywane przez zawieranie, a nie według klucza podstawowego i relacji klucza obcego. Ta funkcja jest ważna dla sprzężeń wewnątrz elementu omówionych w dalszej części tego artykułu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Wprowadzenie do usługi Azure Cosmos DB](introduction.md)
 - [Przykłady dla platformy .NET w usłudze Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Klauzula SELECT](sql-query-select.md)
+- [SELECT — klauzula](sql-query-select.md)

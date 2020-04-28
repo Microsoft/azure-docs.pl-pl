@@ -1,6 +1,6 @@
 ---
-title: Tworzenie lub wstawianie danych do interfejsu API cassandra usługi Azure Cosmos DB z platformy Spark
-description: W tym artykule opisano, jak wstawić przykładowe dane do tabel interfejsu API usługi Azure Cosmos DB Cassandra
+title: Tworzenie lub wstawianie danych do Azure Cosmos DB interfejs API Cassandra z platformy Spark
+description: W tym artykule szczegółowo opisano sposób wstawiania przykładowych danych do tabel interfejs API Cassandra Azure Cosmos DB
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -9,17 +9,17 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 3eb23a3d8b1098110bd8b75faa22cc483637d183
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442118"
 ---
-# <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Tworzenie/wstawianie danych do interfejsu API cassandra usługi Azure Cosmos DB z platformy Spark
+# <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Tworzenie/Wstawianie danych do Azure Cosmos DB interfejs API Cassandra z platformy Spark
  
-W tym artykule opisano sposób wstawiania przykładowych danych do tabeli w interfejsie API Cassandra usługi Azure Cosmos DB z platformy Spark.
+W tym artykule opisano sposób wstawiania przykładowych danych do tabeli w Azure Cosmos DB interfejs API Cassandra z platformy Spark.
 
-## <a name="cassandra-api-configuration"></a>Konfiguracja interfejsu API Cassandra
+## <a name="cassandra-api-configuration"></a>Konfiguracja interfejs API Cassandra
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -45,9 +45,9 @@ spark.conf.set("spark.cassandra.concurrent.reads", "512")
 spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
-## <a name="dataframe-api"></a>Interfejs API dla ram danych
+## <a name="dataframe-api"></a>Interfejs API Dataframe
 
-### <a name="create-a-dataframe-with-sample-data"></a>Tworzenie elementu dataframe z przykładowymi danymi
+### <a name="create-a-dataframe-with-sample-data"></a>Tworzenie ramki danych z przykładowymi danymi
 
 ```scala
 // Generate a dataframe containing five records
@@ -67,11 +67,11 @@ booksDF.show
 ```
 
 > [!NOTE]
-> Funkcja "Utwórz, jeśli nie istnieje", na poziomie wiersza nie jest jeszcze obsługiwana.
+> Funkcja "Utwórz, jeśli nie istnieje" na poziomie wiersza nie jest jeszcze obsługiwana.
 
-### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Utrwalić się w interfejsie API Cassandra usługi Azure Cosmos DB
+### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Nie Azure Cosmos DB interfejs API Cassandra
 
-Podczas zapisywania danych można również ustawić ustawienia zasad czas do żywo i spójności, jak pokazano w poniższym przykładzie:
+Podczas zapisywania danych można również ustawić ustawienia czasu wygaśnięcia i zasad spójności, jak pokazano w następującym przykładzie:
 
 ```scala
 //Persist
@@ -83,18 +83,18 @@ booksDF.write
 ```
 
 > [!NOTE]
-> Czas wygaśnięcia na poziomie kolumny nie jest jeszcze obsługiwany.
+> Czas TTL na poziomie kolumny nie jest jeszcze obsługiwany.
 
-#### <a name="validate-in-cqlsh"></a>Sprawdź poprawność w cqlsh
+#### <a name="validate-in-cqlsh"></a>Weryfikuj w cqlsh
 
 ```sql
 use books_ks;
 select * from books;
 ```
 
-## <a name="resilient-distributed-database-rdd-api"></a>Interfejs API odpornej rozproszonej bazy danych (RDD)
+## <a name="resilient-distributed-database-rdd-api"></a>Interfejs API rozproszonej bazy danych (RDD)
 
-### <a name="create-a-rdd-with-sample-data"></a>Tworzenie rdd z przykładowymi danymi
+### <a name="create-a-rdd-with-sample-data"></a>Tworzenie RDD z przykładowymi danymi
 ```scala
 //Delete records created in the previous section 
 val cdbConnector = CassandraConnector(sc)
@@ -114,11 +114,11 @@ booksRDD.take(2).foreach(println)
 ```
 
 > [!NOTE]
-> Tworzenie, jeśli nie istnieje funkcjonalność nie jest jeszcze obsługiwana.
+> Tworzenie funkcji, jeśli nie istnieje, nie jest jeszcze obsługiwana.
 
-### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Utrwalić się w interfejsie API Cassandra usługi Azure Cosmos DB
+### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Nie Azure Cosmos DB interfejs API Cassandra
 
-Podczas zapisywania danych w interfejsie API Cassandra można również ustawić ustawienia zasad czas do żywo i spójności, jak pokazano w poniższym przykładzie:
+Podczas zapisywania danych w interfejs API Cassandra można również ustawić ustawienia czasu wygaśnięcia i zasad spójności, jak pokazano w następującym przykładzie:
 
 ```scala
 import com.datastax.spark.connector.writer._
@@ -127,7 +127,7 @@ import com.datastax.spark.connector.writer._
 booksRDD.saveToCassandra("books_ks", "books", SomeColumns("book_id", "book_author", "book_name", "book_pub_year"),writeConf = WriteConf(ttl = TTLOption.constant(900000),consistencyLevel = ConsistencyLevel.ALL))
 ```
 
-#### <a name="validate-in-cqlsh"></a>Sprawdź poprawność w cqlsh
+#### <a name="validate-in-cqlsh"></a>Weryfikuj w cqlsh
 
 ```sql
 use books_ks;
@@ -136,11 +136,11 @@ select * from books;
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po wstawieniu danych do tabeli interfejsu API usługi Azure Cosmos DB Cassandra przejdź do następujących artykułów, aby wykonać inne operacje na danych przechowywanych w interfejsie API Cassandra usługi Cosmos DB:
+Po wstawieniu danych do tabeli Azure Cosmos DB interfejs API Cassandra, aby wykonać inne operacje na danych przechowywanych w Cosmos DB interfejs API Cassandra, należy przejoć do następujących artykułów:
  
 * [Operacje odczytu](cassandra-spark-read-ops.md)
 * [Operacje upsert](cassandra-spark-upsert-ops.md)
-* [Usuwanie operacji](cassandra-spark-delete-ops.md)
+* [Operacje usuwania](cassandra-spark-delete-ops.md)
 * [Operacje agregacji](cassandra-spark-aggregation-ops.md)
-* [Operacje kopiowania tabeli](cassandra-spark-table-copy-ops.md)
+* [Operacje kopiowania tabel](cassandra-spark-table-copy-ops.md)
 

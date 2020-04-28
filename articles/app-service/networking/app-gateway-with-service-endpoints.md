@@ -1,6 +1,6 @@
 ---
-title: Integracja bramy aplikacji z punktami końcowymi usługi — usługa Azure App Service | Dokumenty firmy Microsoft
-description: W tym artykule opisano, jak brama aplikacji integruje się z usługą Azure App Service zabezpieczona za pomocą punktów końcowych usługi.
+title: Application Gateway integrację z punktami końcowymi usługi — Azure App Service | Microsoft Docs
+description: Opisuje, w jaki sposób Application Gateway integruje się z Azure App Service zabezpieczonymi punktami końcowymi usługi.
 services: app-service
 documentationcenter: ''
 author: madsd
@@ -15,75 +15,75 @@ ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
 ms.openlocfilehash: 5e32baa10e98f0f57a861f8cebfb7506ad615631
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74980064"
 ---
-# <a name="application-gateway-integration-with-service-endpoints"></a>Integracja bramy aplikacji z punktami końcowymi usługi
-Istnieją trzy odmiany usługi App Service, które wymagają nieco innej konfiguracji integracji z usługą Azure Application Gateway. Odmiany obejmują regularne App Service — znany również jako wielodostępne, wewnętrzny moduł równoważenia obciążenia (ILB) App Service Environment (ASE) i zewnętrznego środowiska ASE. W tym artykule omówimy sposób konfigurowania go za pomocą usługi App Service (wielu dzierżawców) i omówi zagadnienia dotyczące równoważenia obciążenia sieciowego i zewnętrznego programu ASE.
+# <a name="application-gateway-integration-with-service-endpoints"></a>Application Gateway integrację z punktami końcowymi usługi
+Istnieją trzy różnice App Service, które wymagają nieco innej konfiguracji integracji z usługą Azure Application Gateway. Różnice obejmują regularne App Service — nazywane również wieloma dzierżawcami, wewnętrznymi Load Balancer (ILB) App Service Environment (ASE) i zewnętrznym środowiskiem ASE. W tym artykule opisano sposób konfigurowania tego programu przy użyciu App Service (wiele dzierżawców) i omówienia zagadnień dotyczących ILB oraz zewnętrznego środowiska ASE.
 
-## <a name="integration-with-app-service-multi-tenant"></a>Integracja z usługą App Service (wielodostępna)
-Usługa app service (wielodostępna) ma publiczny punkt końcowy skierowany do Internetu. Za pomocą punktów końcowych usługi można zezwolić na ruch tylko z określonej [podsieci](../../virtual-network/virtual-network-service-endpoints-overview.md) w ramach sieci wirtualnej platformy Azure i zablokować wszystko inne. W poniższym scenariuszu użyjemy tej funkcji, aby upewnić się, że wystąpienie usługi App Service może odbierać ruch tylko z określonego wystąpienia bramy aplikacji.
+## <a name="integration-with-app-service-multi-tenant"></a>Integracja z usługą App Service (wiele dzierżawców)
+App Service (wiele dzierżawców) ma publiczny internetowy punkt końcowy. Za pomocą [punktów końcowych usługi](../../virtual-network/virtual-network-service-endpoints-overview.md) można zezwalać na ruch tylko z określonej podsieci w ramach usługi Azure Virtual Network i blokować wszystkie inne elementy. W poniższym scenariuszu ta funkcja zostanie użyta w celu upewnienia się, że wystąpienie App Service może odbierać tylko ruch z określonego wystąpienia Application Gateway.
 
-![Integracja bramy aplikacji z usługą App Service](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+![Application Gateway integrację z usługą App Service](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
 
-Istnieją dwie części tej konfiguracji oprócz tworzenia usługi app service i bramy aplikacji. Pierwsza część włącza punkty końcowe usługi w podsieci sieci wirtualnej, w której wdrożono bramę aplikacji. Punkty końcowe usługi zapewni cały ruch sieciowy opuszczający podsieć w kierunku usługi App Service zostaną oznaczone określonym identyfikatorem podsieci. Drugą częścią jest ustawienie ograniczenia dostępu określonej aplikacji sieci web, aby upewnić się, że dozwolony jest tylko ruch oznaczony tym identyfikatorem określonej podsieci. Można go skonfigurować przy użyciu różnych narzędzi w zależności od preferencji.
+Istnieją dwie części tej konfiguracji Oprócz tworzenia App Service i Application Gateway. Pierwsza część włącza punkty końcowe usługi w podsieci Virtual Network, w której wdrożono Application Gateway. Punkty końcowe usługi zapewniają, że cały ruch sieciowy opuszczający podsieć do App Service zostanie oznaczony określonym IDENTYFIKATORem podsieci. Druga część to ustawienie ograniczenia dostępu do określonej aplikacji sieci Web, aby upewnić się, że dozwolony jest tylko ruch oznaczony przy użyciu tego konkretnego identyfikatora podsieci. Można go skonfigurować przy użyciu różnych narzędzi w zależności od preferencji.
 
 ## <a name="using-azure-portal"></a>Korzystanie z witryny Azure Portal
-Za pomocą witryny Azure Portal wykonaj cztery kroki, aby aprowizować i skonfigurować konfigurację. Jeśli masz istniejące zasoby, możesz pominąć pierwsze kroki.
-1. Tworzenie usługi app service przy użyciu jednego z przewodników Szybki start w dokumentacji usługi App Service, na przykład [.Net Core Quickstart](../../app-service/app-service-web-get-started-dotnet.md)
-2. Utwórz bramę aplikacji przy użyciu [programu Szybki start portalu](../../application-gateway/quick-create-portal.md), ale pomiń sekcję Dodaj obiekty docelowe wewnętrznej bazy danych.
-3. Skonfiguruj [usługę App Service jako wewnętrznej bazy danych w bramie aplikacji](../../application-gateway/configure-web-app-portal.md), ale pomiń sekcję Ogranicz dostęp.
-4. Na koniec utwórz [ograniczenie dostępu przy użyciu punktów końcowych usługi](../../app-service/app-service-ip-restrictions.md#service-endpoints).
+W przypadku Azure Portal należy wykonać cztery kroki, aby zainicjować i skonfigurować konfigurację. Jeśli masz istniejące zasoby, możesz pominąć pierwsze kroki.
+1. Utwórz App Service przy użyciu jednego z przewodników szybki start w dokumentacji App Service, na przykład [.NET Core szybki start](../../app-service/app-service-web-get-started-dotnet.md)
+2. Utwórz Application Gateway za pomocą [przewodnika Szybki Start dla portalu](../../application-gateway/quick-create-portal.md), ale Pomiń sekcję Dodawanie elementów docelowych zaplecza.
+3. Skonfiguruj [App Service jako zaplecze w Application Gateway](../../application-gateway/configure-web-app-portal.md), ale Pomiń sekcję ograniczanie dostępu.
+4. Na koniec Utwórz [ograniczenie dostępu za pomocą punktów końcowych usługi](../../app-service/app-service-ip-restrictions.md#service-endpoints).
 
-Teraz można uzyskać dostęp do usługi App Service za pośrednictwem bramy aplikacji, ale jeśli spróbujesz uzyskać dostęp bezpośrednio do usługi App Service, powinien pojawić się błąd HTTP 403 wskazujący, że witryna sieci Web została zatrzymana.
+Teraz możesz uzyskiwać dostęp do App Service za pośrednictwem Application Gateway, ale jeśli spróbujesz uzyskać bezpośrednio dostęp do App Service, należy otrzymać błąd HTTP 403 wskazujący, że witryna sieci Web jest zatrzymana.
 
-![Integracja bramy aplikacji z usługą App Service](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![Application Gateway integrację z usługą App Service](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Korzystanie z szablonu usługi Azure Resource Manager
-[Szablon wdrażania Menedżera zasobów][template-app-gateway-app-service-complete] będzie aprowizować pełny scenariusz. Scenariusz składa się z wystąpienia usługi App Service zablokowane z punktów końcowych usługi i ograniczenia dostępu do odbierania tylko ruch z bramy aplikacji. Szablon zawiera wiele ustawień domyślnych inteligentnych i unikatowe poprawki dodane do nazw zasobów, aby były proste. Aby je zastąpić, musisz sklonować repozytorium lub pobrać szablon i edytować go. 
+[Szablon wdrożenia Menedżer zasobów][template-app-gateway-app-service-complete] będzie inicjować cały scenariusz. Scenariusz składa się z wystąpienia App Service zablokowanego za pomocą punktów końcowych usługi i ograniczenia dostępu, aby odbierać tylko ruch z Application Gateway. Szablon zawiera wiele inteligentnych ustawień domyślnych i unikatowych przyrostków dodawanych do nazw zasobów, które mają być proste. Aby je zastąpić, należy sklonować repozytorium lub pobrać szablon i edytować go. 
 
-Aby zastosować szablon, można użyć przycisku Wdrażanie na platformie Azure znajdującego się w opisie szablonu lub użyć odpowiedniego programu PowerShell/CLI.
+Aby zastosować szablon, można użyć przycisku Wdróż na platformie Azure znajdującego się w opisie szablonu lub użyć odpowiedniego programu PowerShell/interfejsu wiersza polecenia.
 
 ## <a name="using-azure-command-line-interface"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
-Przykład [interfejsu wiersza polecenia platformy Azure](../../app-service/scripts/cli-integrate-app-service-with-application-gateway.md) będzie aprowizować usługę app service zablokowane z punktów końcowych usługi i ograniczenia dostępu do odbierania tylko ruch z bramy aplikacji. Jeśli wystarczy wyizolować ruch do istniejącej usługi App Service z istniejącej bramy aplikacji, następujące polecenie jest wystarczające.
+W [przykładzie interfejsu wiersza polecenia platformy Azure](../../app-service/scripts/cli-integrate-app-service-with-application-gateway.md) zostanie zainicjowana App Service zablokowany za pomocą punktów końcowych usługi i ograniczenia dostępu, aby odbierać tylko ruch z Application Gateway. Jeśli konieczne jest izolowanie ruchu tylko do istniejącego App Service z istniejących Application Gateway, wystarczające jest następujące polecenie.
 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-group myRG --name myWebApp --rule-name AppGwSubnet --priority 200 --subnet mySubNetName --vnet-name myVnetName
 ```
 
-W konfiguracji domyślnej polecenie zapewni zarówno konfigurację konfiguracji punktu końcowego usługi w podsieci, jak i ograniczenie dostępu w usłudze app service.
+W domyślnej konfiguracji polecenie zapewni zarówno konfigurację konfiguracji punktu końcowego usługi w podsieci, jak i ograniczenia dostępu w App Service.
 
-## <a name="considerations-for-ilb-ase"></a>Zagadnienia dotyczące ASE ILB
-Środowisko ASE równoważenia obciążenia sieciowego nie jest narażony na dostęp do Internetu, a ruch między wystąpieniem a bramą aplikacji jest już izolowany w sieci wirtualnej. Poniższy [przewodnik instrukcje](../environment/integrate-with-application-gateway.md) konfiguruje ase równoważenia obciążenia i integruje go z bramą aplikacji przy użyciu witryny Azure portal. 
+## <a name="considerations-for-ilb-ase"></a>Zagadnienia dotyczące programu ILB ASE
+ILB ASE nie jest narażony na Internet i ruch między wystąpieniem, a Application Gateway jest już izolowany do Virtual Network. Poniższy [Przewodnik](../environment/integrate-with-application-gateway.md) po konfiguracji programu ILB ASE i integruje go z Application Gateway przy użyciu Azure Portal. 
 
-Jeśli chcesz upewnić się, że tylko ruch z podsieci bramy aplikacji dociera do ase, można skonfigurować grupę zabezpieczeń sieci (NSG), które mają wpływ na wszystkie aplikacje sieci web w ASE. W przypadku sieciowej sieciowej można określić zakres adresów IP podsieci i opcjonalnie porty (80/443). Upewnij się, że nie zastąpisz [wymaganych reguł sieciowej sieciowej sieciowej dla](../environment/network-info.md#network-security-groups) ase działać poprawnie.
+Jeśli chcesz upewnić się, że tylko ruch z podsieci Application Gateway osiągnie środowisko ASE, możesz skonfigurować grupę zabezpieczeń sieci (sieciowej grupy zabezpieczeń), która ma wpływ na wszystkie aplikacje sieci Web w środowisku ASE. W przypadku sieciowej grupy zabezpieczeń można określić zakres adresów IP podsieci i opcjonalnie porty (80/443). Upewnij się, że nie zastąpisz [wymaganych reguł sieciowej grupy zabezpieczeń](../environment/network-info.md#network-security-groups) dla środowiska ASE, aby działały prawidłowo.
 
-Aby wyizolować ruch do pojedynczej aplikacji sieci web, musisz użyć ograniczeń dostępu opartych na protokãoła ip, ponieważ punkty końcowe usługi nie będą działać dla usługi ASE. Adres IP powinien być prywatnym adresem IP wystąpienia bramy aplikacji.
+Aby izolować ruch do pojedynczej aplikacji sieci Web, należy użyć ograniczeń dostępu opartych na protokole IP, ponieważ punkty końcowe usługi nie będą działały w środowisku ASE. Adres IP powinien być prywatnym adresem IP wystąpienia Application Gateway.
 
-## <a name="considerations-for-external-ase"></a>Zagadnienia dotyczące zewnętrznego ASE
-Zewnętrzna usługa ASE ma publiczny moduł równoważenia obciążenia, taki jak usługa aplikacji z wieloma dzierżawcami. Punkty końcowe usługi nie działają dla ase i dlatego trzeba będzie używać ograniczeń dostępu opartego na adresie IP przy użyciu publicznego adresu IP wystąpienia bramy aplikacji. Aby utworzyć zewnętrzny ase przy użyciu portalu Azure, możesz śledzić ten [szybki start](../environment/create-external-ase.md)
+## <a name="considerations-for-external-ase"></a>Zagadnienia dotyczące zewnętrznego środowiska ASE
+Zewnętrzne środowisko ASE ma publiczny, dostępny moduł równoważenia obciążenia, taki jak App Service wielodostępności. Punkty końcowe usługi nie działają w środowisku ASE i dlatego należy używać ograniczeń dostępu opartych na protokole IP przy użyciu publicznego adresu IP wystąpienia Application Gateway. Aby utworzyć zewnętrzny środowisko ASE przy użyciu Azure Portal, możesz wykonać czynności opisane w tym [przewodniku szybki start](../environment/create-external-ase.md)
 
-[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2/ "Szablon usługi Azure Resource Manager dla pełnego scenariusza"
+[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2/ "Szablon Azure Resource Manager na potrzeby pełnego scenariusza"
 
-## <a name="considerations-for-kuduscm-site"></a>Uwagi dotyczące strony kudu/scm
-Witryna scm, znana również jako kudu, jest witryną administratora, która istnieje dla każdej aplikacji internetowej. Nie można odwrócić serwera proxy witryny scm i najprawdopodobniej chcesz również zablokować ją na poszczególne adresy IP lub określoną podsieć.
+## <a name="considerations-for-kuduscm-site"></a>Zagadnienia dotyczące witryny kudu/SCM
+Witryna SCM, znana również jako kudu, jest witryną administracyjną, która istnieje dla każdej aplikacji sieci Web. Zwrotny serwer proxy lokacji SCM nie jest możliwy i najprawdopodobniej Zablokuj go do poszczególnych adresów IP lub określonej podsieci.
 
-Jeśli chcesz używać tych samych ograniczeń dostępu co lokacja główna, możesz dziedziczyć ustawienia za pomocą następującego polecenia.
+Jeśli chcesz użyć tych samych ograniczeń dostępu co w przypadku lokacji głównej, możesz odziedziczyć ustawienia za pomocą następującego polecenia.
 
 ```azurecli-interactive
 az webapp config access-restriction set --resource-group myRG --name myWebApp --use-same-restrictions-for-scm-site
 ```
 
-Jeśli chcesz ustawić indywidualne ograniczenia dostępu dla witryny scm, możesz dodać ograniczenia dostępu, korzystając z flagi --scm-site, jak pokazano poniżej.
+Jeśli chcesz ustawić indywidualne ograniczenia dostępu dla witryny SCM, możesz dodać ograniczenia dostępu przy użyciu flagi--SCM-site, jak pokazano poniżej.
 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-group myRG --name myWebApp --scm-site --rule-name KudoAccess --priority 200 --ip-address 208.130.0.0/16
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat środowiska usługi app service, zobacz [dokumentację środowiska usługi app service](https://docs.microsoft.com/azure/app-service/environment).
+Aby uzyskać więcej informacji na temat App Service Environment, zobacz [dokumentację dotyczącą App Service Environment](https://docs.microsoft.com/azure/app-service/environment).
 
-Aby jeszcze bardziej zabezpieczyć aplikację sieci Web, informacje o Zaporze aplikacji sieci Web w bramie aplikacji można znaleźć w [dokumentacji zapory aplikacji sieci Web platformy Azure](../../web-application-firewall/ag/ag-overview.md).
+Aby dodatkowo zabezpieczyć aplikację sieci Web, informacje o zaporze aplikacji sieci Web na Application Gateway można znaleźć w [dokumentacji zapory aplikacji sieci Web platformy Azure](../../web-application-firewall/ag/ag-overview.md).

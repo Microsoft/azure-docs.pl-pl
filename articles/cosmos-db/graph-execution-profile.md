@@ -1,6 +1,6 @@
 ---
-title: Użyj profilu wykonania do oceny zapytań w interfejsie API gremlin usługi Azure Cosmos DB
-description: Dowiedz się, jak rozwiązywać problemy i ulepszać zapytania gremlin przy użyciu kroku profilu wykonywania.
+title: Użyj profilu wykonywania, aby oszacować zapytania w Azure Cosmos DB interfejsie API Gremlin
+description: Dowiedz się, jak rozwiązywać problemy i ulepszać zapytania Gremlin przy użyciu kroku profilu wykonania.
 services: cosmos-db
 author: luisbosquez
 manager: kfile
@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
 ms.openlocfilehash: 5705ef4fb6aa895009d554617c968543cc3fcd63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75441848"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Jak użyć kroku profilu wykonywania do oceny zapytań aparatu Gremlin
 
 Ten artykuł zawiera omówienie sposobu użycia kroku profilu wykonywania dla baz danych grafów interfejsu API Gremlin usługi Azure Cosmos DB. Ten krok zawiera istotne informacje dotyczące rozwiązywania problemów i optymalizacji zapytań oraz jest zgodny z dowolnymi zapytaniami Gremlin, które można wykonać względem konta interfejsu API Gremlin usługi Cosmos DB.
 
-Aby użyć tego kroku, `executionProfile()` wystarczy dołączyć wywołanie funkcji na końcu kwerendy Gremlin. **Twoje zapytanie Gremlin zostanie wykonane,** a wynik operacji zwróci obiekt odpowiedzi JSON z profilem wykonywania kwerendy.
+Aby użyć tego kroku, wystarczy dołączyć wywołanie `executionProfile()` funkcji na końcu zapytania Gremlin. **Zapytanie Gremlin zostanie wykonane** , a wynik operacji zwróci obiekt odpowiedzi JSON z profilem wykonywania zapytania.
 
 Przykład:
 
@@ -32,18 +32,18 @@ Przykład:
     g.V('mary').out().executionProfile()
 ```
 
-Po wywołaniu `executionProfile()` kroku odpowiedzi będzie obiekt JSON, który zawiera wykonywany krok Gremlin, całkowity czas, jaki zajęło i tablicy operatorów środowiska wykonawczego usługi Cosmos DB, które wyniku instrukcji.
+Po wywołaniu `executionProfile()` kroku odpowiedź będzie obiektem JSON, który obejmuje wykonany krok Gremlin, łączny czas trwania i tablicę operatorów środowiska uruchomieniowego Cosmos DB, do których prowadzi instrukcja.
 
 > [!NOTE]
-> Ta implementacja dla profilu wykonania nie jest zdefiniowana w specyfikacji Apache Tinkerpop. Jest specyficzne dla implementacji interfejsu API usługi Azure Cosmos DB Gremlin.
+> Ta implementacja profilu wykonywania nie została zdefiniowana w specyfikacji Apache Tinkerpop. Jest to specyficzne dla Azure Cosmos DB implementacji interfejsu API Gremlin.
 
 
 ## <a name="response-example"></a>Przykład odpowiedzi
 
-Poniżej znajduje się przykład z adnotacjami danych wyjściowych, które zostaną zwrócone:
+Poniżej znajduje się przykładowe adnotacje danych wyjściowych, które zostaną zwrócone:
 
 > [!NOTE]
-> W tym przykładzie jest adnotacjami z komentarzami, które wyjaśniają ogólną strukturę odpowiedzi. Rzeczywiste wykonanieProdusz profil nie będzie zawierać żadnych komentarzy.
+> Ten przykład zawiera adnotacje z komentarzami wyjaśniającymi ogólną strukturę odpowiedzi. Rzeczywista odpowiedź executionProfile nie będzie zawierać żadnych komentarzy.
 
 ```json
 [
@@ -134,50 +134,50 @@ Poniżej znajduje się przykład z adnotacjami danych wyjściowych, które zosta
 ```
 
 > [!NOTE]
-> Krok executionProfile wykona kwerendę Gremlin. Obejmuje to `addV` `addE`lub kroki, które spowoduje utworzenie i zatwierdzi zmiany określone w kwerendzie. W rezultacie jednostki żądania generowane przez zapytanie Gremlin również zostaną obciążone.
+> Krok executionProfile spowoduje wykonanie zapytania Gremlin. Obejmuje to kroki `addV` lub `addE`, które spowodują utworzenie i zatwierdzi zmiany określone w zapytaniu. W efekcie jednostki żądań wygenerowane przez zapytanie Gremlin również będą obciążane opłatami.
 
-## <a name="execution-profile-response-objects"></a>Obiekty odpowiedzi profilu wykonania
+## <a name="execution-profile-response-objects"></a>Obiekty odpowiedzi profilu wykonywania
 
-Odpowiedź funkcji executionProfile() daje hierarchię obiektów JSON o następującej strukturze:
-  - **Obiekt operacji Gremlin:** Reprezentuje całą operację Gremlin, która została wykonana. Zawiera następujące właściwości.
+Odpowiedź funkcji executionProfile () zwróci hierarchię obiektów JSON o następującej strukturze:
+  - **Obiekt operacji Gremlin**: reprezentuje całą operację Gremlin, która została wykonana. Zawiera następujące właściwości.
     - `gremlin`: Jawna instrukcja Gremlin, która została wykonana.
-    - `totalTime`: Czas, w milisekundach, że wykonanie kroku poniesione. 
-    - `metrics`: Tablica zawierająca każdy operator środowiska wykonawczego usługi Cosmos DB, które zostały wykonane w celu spełnienia kwerendy. Ta lista jest sortowana w kolejności wykonania.
+    - `totalTime`: Czas (w milisekundach) wykonywania kroku. 
+    - `metrics`: Tablica zawierająca każdy Cosmos DB operatory środowiska uruchomieniowego, które zostały wykonane w celu spełnienia zapytania. Ta lista jest posortowana w kolejności wykonywania.
     
-  - **Operatory środowiska uruchomieniowego usługi Cosmos DB:** Reprezentuje każdy ze składników całej operacji Gremlin. Ta lista jest sortowana w kolejności wykonania. Każdy obiekt zawiera następujące właściwości:
-    - `name`: Nazwa operatora. Jest to typ kroku, który został oceniony i wykonany. Więcej informacji w poniższej tabeli.
-    - `time`: Ilość czasu, w milisekundach, który wziął dany operator.
-    - `annotations`: Zawiera dodatkowe informacje, specyficzne dla operatora, który został wykonany.
-    - `annotations.percentTime`: Procent całkowitego czasu wykonania określonego operatora.
-    - `counts`: Liczba obiektów, które zostały zwrócone z warstwy magazynu przez ten operator. Jest to zawarte `counts.resultCount` w wartości skalarnej wewnątrz.
+  - **Operatory środowiska uruchomieniowego Cosmos DB**: reprezentuje każdy składnik całej operacji Gremlin. Ta lista jest posortowana w kolejności wykonywania. Każdy obiekt zawiera następujące właściwości:
+    - `name`: Nazwa operatora. Jest to typ kroku, który został oceniony i wykonany. Więcej informacji można znaleźć w poniższej tabeli.
+    - `time`: Ilość czasu (w milisekundach), jaką zajęł dany operator.
+    - `annotations`: Zawiera dodatkowe informacje specyficzne dla operatora, który został wykonany.
+    - `annotations.percentTime`: Procent łącznego czasu, jaki zajęło wykonanie określonego operatora.
+    - `counts`: Liczba obiektów, które zostały zwrócone z warstwy magazynu przez ten operator. Ta wartość jest zawarta w wartości `counts.resultCount` skalarnej w.
     - `storeOps`: Reprezentuje operację magazynu, która może obejmować jedną lub wiele partycji.
-    - `storeOps.fanoutFactor`: Reprezentuje liczbę partycji, do których dostęp ma ta określona operacja magazynowania.
-    - `storeOps.count`: Reprezentuje liczbę wyników zwróconych przez tę operację magazynu.
-    - `storeOps.size`: Reprezentuje rozmiar w bajtach wyniku danej operacji magazynowania.
+    - `storeOps.fanoutFactor`: Przedstawia liczbę partycji, do których uzyskuje dostęp do tej konkretnej operacji magazynu.
+    - `storeOps.count`: Przedstawia liczbę wyników zwracanych przez tę operację magazynu.
+    - `storeOps.size`: Reprezentuje rozmiar w bajtach wyniku danej operacji magazynu.
 
-Operator środowiska wykonawczego Cosmos DB Gremlin|Opis
+Cosmos DB — operator środowiska uruchomieniowego Gremlin|Opis
 ---|---
-`GetVertices`| Ten krok uzyskuje zestaw obiektów z warstwy trwałości. 
-`GetEdges`| Ten krok uzyskuje krawędzie, które przylegają do zestawu wierzchołków. Ten krok może spowodować jedną lub wiele operacji magazynu.
-`GetNeighborVertices`| Ten krok uzyskuje wierzchołki, które są połączone z zestawem krawędzi. Krawędzie zawierają klucze partycji i identyfikatory zarówno ich wierzchołków źródłowych i docelowych.
-`Coalesce`| Ten krok uwzględnia oceny dwóch operacji, `coalesce()` gdy krok Gremlin jest wykonywany.
-`CartesianProductOperator`| Ten krok oblicza produkt kartezjański między dwoma zestawami danych. Zwykle wykonywane za każdym `to()` razem, gdy predykaty lub `from()` są używane.
-`ConstantSourceOperator`| Ten krok oblicza wyrażenie do uzyskania stałej wartości w wyniku.
-`ProjectOperator`| Ten krok przygotowuje i serializuje odpowiedź przy użyciu wyniku poprzednich operacji.
-`ProjectAggregation`| Ten krok przygotowuje i serializuje odpowiedź dla operacji agregacji.
+`GetVertices`| Ten krok uzyskuje predykat zestawu obiektów z warstwy trwałości. 
+`GetEdges`| Ten krok umożliwia uzyskanie krawędzi sąsiadujących z zestawem wierzchołków. Ten krok może skutkować jedną lub wieloma operacjami magazynu.
+`GetNeighborVertices`| Ten krok umożliwia uzyskanie wierzchołków, które są połączone z zestawem krawędzi. Krawędzie zawierają klucze partycji i identyfikatory obu wierzchołków źródłowych i docelowych.
+`Coalesce`| Ten krok polega na ocenie dwóch operacji za każdym razem `coalesce()` , gdy zostanie wykonany krok Gremlin.
+`CartesianProductOperator`| Ten krok obliczy produkt kartezjańskiego między dwoma zestawami danych. Zwykle wykonywane za każdym razem, `to()` gdy `from()` predykaty lub są używane.
+`ConstantSourceOperator`| Ten krok oblicza wyrażenie, aby utworzyć jako wynik wartość stałą.
+`ProjectOperator`| Ten krok przygotowuje i serializować odpowiedź przy użyciu wyniku poprzednich operacji.
+`ProjectAggregation`| Ten krok przygotowuje i serializować odpowiedź dla operacji agregowania.
 
 > [!NOTE]
-> Lista ta będzie nadal aktualizowana w miarę dodawania nowych operatorów.
+> Ta lista będzie nadal aktualizowana w miarę dodawania nowych operatorów.
 
-## <a name="examples-on-how-to-analyze-an-execution-profile-response"></a>Przykłady sposobu analizowania odpowiedzi profilu wykonania
+## <a name="examples-on-how-to-analyze-an-execution-profile-response"></a>Przykłady dotyczące analizowania odpowiedzi profilu wykonywania
 
-Poniżej przedstawiono przykłady typowych optymalizacji, które można zauważyć przy użyciu odpowiedzi profilu wykonania:
-  - Ślepe zapytanie wentylatora.
+Poniżej przedstawiono przykłady typowych optymalizacji, które można wycofać za pomocą odpowiedzi profilu wykonywania:
+  - Zapytanie o wentylatory niewidome.
   - Niefiltrowane zapytanie.
 
-### <a name="blind-fan-out-query-patterns"></a>Ślepe wzorce zapytań wentylatora
+### <a name="blind-fan-out-query-patterns"></a>Nieniewidome wzorce zapytań
 
-Załóżmy następującą odpowiedź profilu wykonania z **wykresu podzielonego na partycje:**
+Załóżmy, że następująca odpowiedź profilu wykonania z **partycjonowanego wykresu**:
 
 ```json
 [
@@ -218,18 +218,18 @@ Załóżmy następującą odpowiedź profilu wykonania z **wykresu podzielonego 
 ]
 ```
 
-Można z niego wyciągnąć następujące wnioski:
-- Kwerenda jest pojedynczym odnośnym identyfikatorem, ponieważ `g.V('id')`instrukcja Gremlin podąża za wzorcem .
-- Sądząc z `time` metryki, opóźnienie tego zapytania wydaje się być wysokie, ponieważ jest [więcej niż 10ms dla pojedynczej operacji odczytu punktu.](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide)
-- Jeśli spojrzymy `storeOps` na obiekt, widzimy, że `fanoutFactor` jest `5`, co oznacza, że [5 partycji](https://docs.microsoft.com/azure/cosmos-db/partition-data) były dostępne przez tę operację.
+Następujące wnioski można wykonać z tego:
+- Zapytanie jest wyszukiwaniem pojedynczego identyfikatora, ponieważ instrukcja Gremlin jest zgodna ze wzorcem `g.V('id')`.
+- Oceniania z `time` metryki, opóźnienie tego zapytania jest wysokie, ponieważ jest ono [większe niż 10 ms dla operacji odczytu punktu](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
+- Jeśli przejdziemy do `storeOps` obiektu, zobaczymy, że `fanoutFactor` jest to `5`, co oznacza, że do tej operacji uzyskuje się dostęp do [5 partycji](https://docs.microsoft.com/azure/cosmos-db/partition-data) .
 
-Na wniosek tej analizy możemy ustalić, że pierwsze zapytanie uzyskuje dostęp do większej liczby partycji niż jest to konieczne. Można rozwiązać ten problem, określając klucz partycjonowania w kwerendzie jako predykat. Doprowadzi to do mniejszego opóźnienia i mniejszego kosztu na kwerendę. Dowiedz się więcej o [partycjonowaniu wykresów](graph-partitioning.md). Bardziej optymalną kwerendą byłoby `g.V('tt0093640').has('partitionKey', 't1001')`.
+W ramach tej analizy możemy określić, że pierwsze zapytanie uzyskuje dostęp do większej liczby partycji niż jest to konieczne. Można to rozwiązać przez określenie klucza partycjonowania w zapytaniu jako predykatu. Pozwoli to zmniejszyć opóźnienia i obsłużyć mniej kosztów na zapytanie. Dowiedz się więcej o [partycjonowaniu grafów](graph-partitioning.md). Bardziej optymalne może być `g.V('tt0093640').has('partitionKey', 't1001')`zapytanie.
 
 ### <a name="unfiltered-query-patterns"></a>Niefiltrowane wzorce zapytań
 
-Porównaj następujące dwie odpowiedzi profilu wykonania. Dla uproszczenia te przykłady użyć jednego wykresu partycjonowane.
+Porównaj poniższe dwa odpowiedzi dotyczące profilu wykonania. Dla uproszczenia w poniższych przykładach użyto pojedynczego wykresu partycjonowanego.
 
-Ta pierwsza kwerenda pobiera wszystkie wierzchołki z etykietą, `tweet` a następnie uzyskuje ich sąsiednich wierzchołków:
+Pierwsze zapytanie pobiera wszystkie wierzchołki z etykietą `tweet` , a następnie uzyskuje sąsiadujące wierzchołki:
 
 ```json
 [
@@ -306,7 +306,7 @@ Ta pierwsza kwerenda pobiera wszystkie wierzchołki z etykietą, `tweet` a nast�
 ]
 ```
 
-Zwróć uwagę na profil tej samej kwerendy, ale teraz z dodatkowym filtrem , `has('lang', 'en')`przed eksplorowanie sąsiednich wierzchołków:
+Zwróć uwagę na profil tego samego zapytania, ale teraz z dodatkowym filtrem `has('lang', 'en')`, przed eksplorowaniem sąsiednich wierzchołków:
 
 ```json
 [
@@ -383,10 +383,10 @@ Zwróć uwagę na profil tej samej kwerendy, ale teraz z dodatkowym filtrem , `h
 ]
 ```
 
-Te dwa zapytania osiągnęły ten sam wynik, jednak pierwszy z nich będzie wymagać więcej jednostek żądania, ponieważ potrzebne do iteracji większego początkowego zestawu danych przed zapytaniem sąsiednich elementów. Możemy zobaczyć wskaźniki tego zachowania podczas porównywania następujących parametrów z obu odpowiedzi:
-- Wartość `metrics[0].time` jest wyższa w pierwszej odpowiedzi, co wskazuje, że ten pojedynczy krok trwało dłużej, aby rozwiązać.
-- Wartość `metrics[0].counts.resultsCount` jest wyższa również w pierwszej odpowiedzi, co wskazuje, że początkowy roboczy zestaw danych był większy.
+Te dwa zapytania osiągnęły ten sam wynik, ale pierwszy z nich będzie wymagał większej liczby jednostek żądań, ponieważ wymagało to iteracji większego początkowego zestawu danych przed wysłaniem zapytania do sąsiadujących elementów. Wskaźniki tego zachowania można zobaczyć, porównując następujące parametry z obu odpowiedzi:
+- `metrics[0].time` Wartość jest wyższa w pierwszej odpowiedzi, co oznacza, że ten pojedynczy krok trwał dłużej.
+- `metrics[0].counts.resultsCount` Wartość jest większa, jak również w pierwszej odpowiedzi, co oznacza, że początkowy roboczy zestaw danych był większy.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [obsługiwanych funkcjach Gremlin](gremlin-support.md) w usłudze Azure Cosmos DB. 
-* Dowiedz się więcej o [interfejsie API Gremlin w usłudze Azure Cosmos DB](graph-introduction.md).
+* Dowiedz się więcej o [obsługiwanych funkcjach Gremlin](gremlin-support.md) w Azure Cosmos DB. 
+* Dowiedz się więcej o [interfejsie API Gremlin w Azure Cosmos DB](graph-introduction.md).

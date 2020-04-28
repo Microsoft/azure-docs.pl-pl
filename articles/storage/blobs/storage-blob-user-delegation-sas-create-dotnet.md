@@ -1,7 +1,7 @@
 ---
-title: Użyj platformy .NET do utworzenia sygnatury dostępu Współdzielonego delegowania użytkowników dla kontenera lub obiektu blob
+title: Korzystanie z platformy .NET do tworzenia sygnatury dostępu współdzielonego użytkownika dla kontenera lub obiektu BLOB
 titleSuffix: Azure Storage
-description: Dowiedz się, jak utworzyć sygnatury dostępu Współdzielonego delegowania użytkowników przy użyciu poświadczeń usługi Azure Active Directory przy użyciu biblioteki klienta platformy .NET dla usługi Azure Storage.
+description: Dowiedz się, jak utworzyć sygnaturę dostępu współdzielonego delegowania użytkowników z poświadczeniami Azure Active Directory przy użyciu biblioteki klienckiej platformy .NET dla usługi Azure Storage.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,31 +11,31 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: 385d2c3b88bc2e4d653dae2dc9670cb9e9388faf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "75371840"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Tworzenie sygnatury dostępu Współdzielonego delegowania użytkowników dla kontenera lub obiektu blob za pomocą platformy .NET
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Tworzenie sygnatury dostępu współdzielonego użytkownika dla kontenera lub obiektu BLOB przy użyciu platformy .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-W tym artykule pokazano, jak używać poświadczeń usługi Azure Active Directory (Azure AD) do tworzenia sygnatury dostępu Współdzielonego delegowania użytkowników dla kontenera lub obiektu blob z biblioteką klienta usługi Azure Storage dla platformy .NET.
+W tym artykule pokazano, jak używać poświadczeń usługi Azure Active Directory (Azure AD) do tworzenia sygnatury dostępu współdzielonego użytkownika dla kontenera lub obiektu BLOB za pomocą biblioteki klienta usługi Azure Storage dla platformy .NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="assign-rbac-roles-for-access-to-data"></a>Przypisywanie ról RBAC w celu uzyskania dostępu do danych
+## <a name="assign-rbac-roles-for-access-to-data"></a>Przypisywanie ról RBAC na potrzeby dostępu do danych
 
-Gdy podmiot zabezpieczeń usługi Azure AD próbuje uzyskać dostęp do danych obiektów blob, ten podmiot zabezpieczeń musi mieć uprawnienia do zasobu. Niezależnie od tego, czy podmiot zabezpieczeń jest tożsamością zarządzaną na platformie Azure, czy kontem użytkownika usługi Azure AD z kodem w środowisku deweloperskim, podmiot zabezpieczeń musi mieć przypisaną rolę RBAC, która udziela dostępu do danych obiektów blob w usłudze Azure Storage. Aby uzyskać informacje dotyczące przypisywania uprawnień za pośrednictwem funkcji RBAC, zobacz sekcję **"Przypisywanie ról RBAC dla praw dostępu** w [obszarze Autoryzowanie dostępu do obiektów blob i kolejek platformy Azure przy użyciu usługi Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+Gdy podmiot zabezpieczeń usługi Azure AD próbuje uzyskać dostęp do danych obiektów blob, musi mieć uprawnienia do tego zasobu. Niezależnie od tego, czy podmiot zabezpieczeń jest tożsamością zarządzaną na platformie Azure, czy konto użytkownika usługi Azure AD z uruchomionym kodem w środowisku deweloperskim, podmiot zabezpieczeń musi mieć przypisaną rolę RBAC, która przyznaje dostęp do danych obiektów BLOB w usłudze Azure Storage. Informacje o przypisywaniu uprawnień za pośrednictwem RBAC zawiera sekcja zatytułowana **Przypisywanie ról RBAC dla praw dostępu** w artykule [Autoryzuj dostęp do obiektów blob i kolejek platformy Azure przy użyciu Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-Aby dowiedzieć się więcej o tym, jak uwierzytelniać się przy użyciu biblioteki klienta usługi Azure Identity z usługi Azure Storage, zobacz sekcję **"Uwierzytelnij za pomocą biblioteki tożsamości platformy Azure** w [obszarze Autoryzowanie dostępu do obiektów blob i kolejek za pomocą usługi Azure Active Directory i tożsamości zarządzanych dla zasobów platformy Azure.](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)
+Aby dowiedzieć się więcej o sposobie uwierzytelniania przy użyciu biblioteki klienta tożsamości platformy Azure z usługi Azure Storage, zapoznaj się z sekcją **uwierzytelnianie przy użyciu biblioteki tożsamości platformy Azure** w artykule [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu tożsamości Azure Active Directory i zarządzanych dla zasobów platformy Azure](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
 
 ## <a name="add-using-directives"></a>Dodawanie dyrektyw using
 
-Dodaj następujące `using` dyrektywy do kodu, aby użyć bibliotek klienta usługi Azure Identity i Usługi Azure Storage.
+Dodaj następujące `using` dyrektywy do kodu, aby użyć tożsamości platformy Azure i bibliotek klienckich usługi Azure Storage.
 
 ```csharp
 using System;
@@ -48,11 +48,11 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 ```
 
-## <a name="get-an-authenticated-token-credential"></a>Uzyskaj uwierzytelnione poświadczenia tokenu
+## <a name="get-an-authenticated-token-credential"></a>Pobieranie poświadczeń uwierzytelnionego tokenu
 
-Aby uzyskać poświadczenia tokenu, których kod może używać do autoryzowania żądań do usługi Azure Storage, utwórz wystąpienie klasy [DefaultAzureCredential.](/dotnet/api/azure.identity.defaultazurecredential)
+Aby uzyskać poświadczenia tokenu, których kod może użyć do autoryzacji żądań do usługi Azure Storage, Utwórz wystąpienie klasy [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) .
 
-Poniższy fragment kodu pokazuje, jak uzyskać uwierzytelnione poświadczenia tokenu i użyć go do utworzenia klienta usługi dla magazynu obiektów Blob:
+Poniższy fragment kodu przedstawia sposób pobierania poświadczeń tokenu uwierzytelnionego i używania go do tworzenia klienta usługi dla magazynu obiektów blob:
 
 ```csharp
 // Construct the blob endpoint from the account name.
@@ -63,18 +63,18 @@ BlobServiceClient blobClient = new BlobServiceClient(new Uri(blobEndpoint),
                                                      new DefaultAzureCredential());
 ```
 
-## <a name="get-the-user-delegation-key"></a>Pobierz klucz delegowania użytkowników
+## <a name="get-the-user-delegation-key"></a>Pobierz klucz delegowania użytkownika
 
-Każdy sas jest podpisany za pomocą klucza. Aby utworzyć sygnaturę dostępu Współdzielonego delegowania użytkowników, należy najpierw zażądać klucza delegowania użytkowników, który jest następnie używany do podpisywania sygnatury dostępu Współdzielonego. Klucz delegowania użytkowników jest analogiczna do klucza konta używanego do podpisywania sygnatury dostępu Współdzielonego usługi lub sygnatury dostępu Współdzielonego konta, z tą różnicą, że opiera się na poświadczeniach usługi Azure AD. Gdy klient żąda klucza delegowania użytkownika przy użyciu tokenu OAuth 2.0, usługa Azure Storage zwraca klucz delegowania użytkownika w imieniu użytkownika.
+Każde sygnatura dostępu współdzielonego jest podpisana przy użyciu klucza. Aby utworzyć sygnaturę dostępu współdzielonego delegowania użytkowników, musisz najpierw zażądać klucza delegowania użytkownika, który jest następnie używany do podpisywania sygnatury dostępu współdzielonego. Klucz delegowania użytkownika jest analogiczny do klucza konta używanego do podpisywania sygnatury dostępu współdzielonego usługi lub konta SAS, z tą różnicą, że używa poświadczeń usługi Azure AD. Gdy klient zażąda klucza delegowania użytkownika przy użyciu tokenu OAuth 2,0, usługa Azure Storage zwraca klucz delegowania użytkownika w imieniu użytkownika.
 
-Po uzyskaniu klucza delegowania użytkownika można użyć tego klucza do utworzenia dowolnej liczby podpisów dostępu współdzielonego delegowania użytkowników przez cały okres istnienia klucza. Klucz delegowania użytkownika jest niezależny od tokenu OAuth 2.0 używanego do jego uzyskania, więc token nie musi być odnawiany, o ile klucz jest nadal ważny. Można określić, że klucz jest ważny przez okres do 7 dni.
+Po uzyskaniu klucza delegowania użytkownika można użyć tego klucza do utworzenia dowolnej liczby sygnatur dostępu współdzielonego delegowania użytkowników w okresie istnienia klucza. Klucz delegowania użytkownika jest niezależny od tokenu OAuth 2,0 użytego do jego uzyskania, więc token nie musi być odnawiany, dopóki klucz jest nadal ważny. Możesz określić, że klucz jest ważny przez okres do 7 dni.
 
 Użyj jednej z następujących metod, aby zażądać klucza delegowania użytkownika:
 
-- [Klucz GetUserDelegationKey](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkey)
+- [GetUserDelegationKey](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkey)
 - [GetUserDelegationKeyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getuserdelegationkeyasync)
 
-Poniższy fragment kodu pobiera klucz delegowania użytkownika i zapisuje jego właściwości:
+Poniższy fragment kodu Pobiera klucz delegowania użytkownika i zapisuje jego właściwości:
 
 ```csharp
 // Get a user delegation key for the Blob service that's valid for seven days.
@@ -92,9 +92,9 @@ Console.WriteLine("Key signed service: {0}", key.SignedService);
 Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 ```
 
-## <a name="create-the-sas-token"></a>Tworzenie tokenu sygnatury dostępu Współdzielonego
+## <a name="create-the-sas-token"></a>Tworzenie tokenu sygnatury dostępu współdzielonego
 
-Poniższy fragment kodu pokazuje utworzyć nowy [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) i podać parametry dla sygnatury dostępu Współdzielonego delegowania użytkownika. Fragment kodu następnie wywołuje [ToSasQueryParameters,](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) aby uzyskać ciąg tokenu sygnatury dostępu Współdzielonego. Na koniec kod tworzy pełny identyfikator URI, w tym adres zasobu i token sygnatury dostępu Współdzielonego.
+Poniższy fragment kodu przedstawia tworzenie nowego [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) i podanie parametrów dla delegowania dla delegatów użytkowników. Fragment kodu wywoła następnie [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) , aby uzyskać ciąg tokenu sygnatury dostępu współdzielonego. Na koniec kod kompiluje pełny identyfikator URI, w tym adres zasobu i token sygnatury dostępu współdzielonego.
 
 ```csharp
 // Create a SAS token that's valid for one hour.
@@ -123,9 +123,9 @@ UriBuilder fullUri = new UriBuilder()
 };
 ```
 
-## <a name="example-get-a-user-delegation-sas"></a>Przykład: Pobierz sygnaturę dostępu Współdzielonego delegowania użytkowników
+## <a name="example-get-a-user-delegation-sas"></a>Przykład: pobieranie sygnatury dostępu współdzielonego użytkownika
 
-Poniższa przykładowa metoda pokazuje pełny kod do uwierzytelniania podmiotu zabezpieczeń i tworzenia sygnatury dostępu Współdzielonego delegowania użytkowników:
+Poniższa przykładowa Metoda przedstawia pełen kod uwierzytelniania podmiotu zabezpieczeń i tworzenia sygnatury dostępu współdzielonego delegowania użytkownika:
 
 ```csharp
 async static Task<Uri> GetUserDelegationSasBlob(string accountName, string containerName, string blobName)
@@ -183,9 +183,9 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
 }
 ```
 
-## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>Przykład: Odczyt obiektu blob z sygnaturą dostępu Współdzielonego delegowania użytkowników
+## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>Przykład: odczytywanie obiektu BLOB z delegowaniem przez użytkownika
 
-Poniższy przykład testuje sygnatury dostępu Współdzielonego delegowania użytkownika utworzone w poprzednim przykładzie z symulowanej aplikacji klienckiej. Jeśli sygnatury dostępu Współdzielonego jest prawidłowy, aplikacja kliencka jest w stanie odczytać zawartość obiektu blob. Jeśli sygnatury dostępu Współdzielonego jest nieprawidłowy, na przykład jeśli wygasł, usługa Azure Storage zwraca kod błędu 403 (zabronione).
+Poniższy przykład sprawdza, czy w poprzednim przykładzie utworzono sygnaturę dostępu współdzielonego delegowania użytkownika z symulowanej aplikacji klienckiej. Jeśli sygnatura dostępu współdzielonego jest prawidłowa, aplikacja kliencka może odczytać zawartość obiektu BLOB. Jeśli sygnatura dostępu współdzielonego jest nieprawidłowa, na przykład jeśli wygasła, usługa Azure Storage zwraca kod błędu 403 (dostęp zabroniony).
 
 ```csharp
 private static async Task ReadBlobWithSasAsync(Uri sasUri)
@@ -235,8 +235,8 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage przy użyciu sygnatur dostępu współdzielonego (SAS)](../common/storage-sas-overview.md)
+- [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](../common/storage-sas-overview.md)
 - [Pobierz operację klucza delegowania użytkownika](/rest/api/storageservices/get-user-delegation-key)
-- [Tworzenie sygnatury dostępu Współdzielonego delegowania użytkowników (INTERFEJS API REST)](/rest/api/storageservices/create-user-delegation-sas)
+- [Tworzenie sygnatury dostępu współdzielonego (API REST) delegowania użytkownika](/rest/api/storageservices/create-user-delegation-sas)

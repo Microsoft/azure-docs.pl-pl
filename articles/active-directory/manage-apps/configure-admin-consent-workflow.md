@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie przepływu pracy zgody administratora — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Dowiedz się, jak skonfigurować sposób żądania dostępu użytkowników końcowych do aplikacji wymagających zgody administratora.
+title: Konfigurowanie przepływu pracy zgody administratora — Azure Active Directory | Microsoft Docs
+description: Dowiedz się, jak skonfigurować sposób, w jaki użytkownicy końcowi zażądają dostępu do aplikacji, które wymagają zgody administratora.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,150 +13,150 @@ ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430201"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Konfigurowanie przepływu pracy zgody administratora (wersja zapoznawcza)
 
-W tym artykule opisano sposób włączania funkcji przepływu pracy zgody administratora (wersja zapoznawcza), która umożliwia użytkownikom końcowym żądanie dostępu do aplikacji wymagających zgody administratora.
+W tym artykule opisano sposób włączania funkcji przepływu pracy zgody administratora (wersja zapoznawcza), która umożliwia użytkownikom końcowym żądanie dostępu do aplikacji, które wymagają zgody administratora.
 
-Bez przepływu pracy zgody administratora użytkownik w dzierżawie, w której jest wyłączona zgoda użytkownika, zostanie zablokowany podczas próby uzyskania dostępu do dowolnej aplikacji, która wymaga uprawnień dostępu do danych organizacji. Użytkownik zobaczy ogólny komunikat o błędzie informujący, że jest nieupoważniony, aby uzyskać dostęp do aplikacji i powinien poprosić administratora o pomoc. Ale często użytkownik nie wie, z kim się skontaktować, więc albo zrezygnować lub utworzyć nowe konto lokalne w aplikacji. Nawet gdy administrator jest powiadamiany, nie zawsze istnieje usprawniony proces, aby pomóc administratorowi udzielić dostępu i powiadomić ich użytkowników.
+Bez przepływu pracy zgody administratora użytkownik w dzierżawie, na którym jest wyłączana zgoda użytkownika, zostanie zablokowany, gdy spróbuje uzyskać dostęp do dowolnej aplikacji, która wymaga uprawnień dostępu do danych organizacji. Użytkownik widzi ogólny komunikat o błędzie z informacją, że nie ma autoryzacji do uzyskania dostępu do aplikacji i powinien poprosił administratora o pomoc. Jednak często użytkownik nie wie, kto kontaktuje się z nim, aby w aplikacji albo utworzyć nowe konto lokalne. Nawet gdy administrator zostanie powiadomiony, nie zawsze jest to usprawniony proces, który pomaga administratorowi udzielić dostępu i powiadomić ich użytkowników.
  
-Przepływ pracy zgody administratora daje administratorom bezpieczny sposób udzielania dostępu do aplikacji, które wymagają zatwierdzenia przez administratora. Gdy użytkownik próbuje uzyskać dostęp do aplikacji, ale nie może udzielić zgody, może wysłać żądanie zatwierdzenia administratora. Żądanie jest wysyłane pocztą e-mail do administratorów, którzy zostali wyznaczeni jako recenzenci. Recenzent podejmuje działania w żądaniu, a użytkownik jest powiadamiany o akcji.
+Przepływ pracy zgody administratora zapewnia administratorom bezpieczny sposób udzielania dostępu do aplikacji, które wymagają zatwierdzenia przez administratora. Gdy użytkownik próbuje uzyskać dostęp do aplikacji, ale nie może zapewnić zgody, może wysłać żądanie zatwierdzenia przez administratora. Żądanie jest wysyłane za pośrednictwem poczty e-mail do administratorów, którzy zostali wyznaczeni jako recenzenci. Recenzent wykonuje akcję na żądanie, a użytkownik jest powiadamiany o akcji.
 
-Aby zatwierdzać żądania, recenzent musi być administratorem globalnym, administratorem aplikacji w chmurze lub administratorem aplikacji. Recenzent musi mieć już przypisaną jedną z tych ról administratora; po prostu wyznaczanie ich jako recenzenta nie podnosi ich uprawnień.
+Aby można było zatwierdzić żądania, Recenzent musi być administratorem globalnym, administratorem aplikacji w chmurze lub administratorem aplikacji. Recenzent musi mieć już jedną z tych przypisanych ról administratora; po prostu wyznaczanie ich jako recenzenta nie Podnieś poziomu uprawnień.
 
 ## <a name="enable-the-admin-consent-workflow"></a>Włączanie przepływu pracy zgody administratora
 
 Aby włączyć przepływ pracy zgody administratora i wybrać recenzentów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) jako administrator globalny.
-2. Kliknij **pozycję Wszystkie usługi** u góry menu nawigacji po lewej stronie. Zostanie otwarte **rozszerzenie usługi Azure Active Directory.**
-3. W polu wyszukiwania filtru wpisz **"Azure Active Directory**" i wybierz element **usługi Azure Active Directory.**
-4. W menu nawigacyjnym kliknij polecenie **Aplikacje przedsiębiorstwa**. 
-5. W obszarze **Zarządzanie**wybierz **pozycję Ustawienia użytkownika**.
-6. W obszarze **Żądania zgody administratora (Wersja zapoznawcza)** **ustaw, że użytkownicy mogą żądać zgody administratora do aplikacji, na które nie mogą wyrazić zgody** na **Tak**.
+2. Kliknij pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie. Zostanie otwarte **rozszerzenie Azure Active Directory** .
+3. W polu wyszukiwania filtru wpisz "**Azure Active Directory**" i wybierz element **Azure Active Directory** .
+4. W menu nawigacji kliknij pozycję **aplikacje dla przedsiębiorstw**. 
+5. W obszarze **Zarządzaj**wybierz pozycję **Ustawienia użytkownika**.
+6. W obszarze **prośby o zgodę administratora (wersja zapoznawcza)** ustaw, aby **użytkownicy mogli żądać zgody administratora na aplikacje, których nie mogą wyrazić zgody** na **wartość tak**.
 
    ![Konfigurowanie ustawień przepływu pracy zgody administratora](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
 6. Skonfiguruj następujące ustawienia:
 
-   * **Wybierz użytkowników, aby przejrzeć żądania zgody administratora**. Wybierz recenzentów dla tego przepływu pracy z zestawu użytkowników, którzy mają administratora globalnego, administratora aplikacji w chmurze i administratora aplikacji role.
-   * **Wybrani użytkownicy będą otrzymywać powiadomienia e-mail o żądaniach**. Włączanie lub wyłączanie powiadomień e-mail do recenzentów podczas składania żądania.  
-   * **Wybrani użytkownicy otrzymają przypomnienia o wygaśnięciu żądania**. Włącz lub wyłącz powiadomienia e-mail z przypomnieniem do recenzentów, gdy żądanie wkrótce wygaśnie.  
-   * **Wniosek o zgodę wygasa po (dniach)**. Określ, jak długo żądania pozostają ważne.
+   * **Wybierz pozycję Użytkownicy, aby przejrzeć żądania zgody administratora**. Wybierz recenzentów tego przepływu pracy z zestawu użytkowników, którzy mają role Administrator globalny, administrator aplikacji w chmurze i administrator aplikacji.
+   * **Wybrani użytkownicy będą otrzymywać powiadomienia e-mail o żądaniach**. Włącza lub wyłącza powiadomienia e-mail dla recenzentów po wysłaniu żądania.  
+   * **Wybrani użytkownicy otrzymają przypomnienia o wygaśnięciu żądania**. Włącz lub Wyłącz powiadomienia e-mail z przypomnieniem dla recenzentów, gdy żądanie wkrótce wygaśnie.  
+   * **Żądanie zgody wygasa po (w dniach)**. Określ, jak długo żądania pozostają ważne.
 
-7. Wybierz **pozycję Zapisz**. Włączenie tej funkcji może potrwać do godziny.
+7. Wybierz pozycję **Zapisz**. Włączenie tej funkcji może potrwać do godziny.
 
 > [!NOTE]
-> Recenzentów dla tego przepływu pracy można dodać lub usunąć, modyfikując listę **Recenzentów żądań zgody administratora wybierz.** Należy zauważyć, że bieżące ograniczenie tej funkcji jest, że recenzenci mogą zachować możliwość przeglądania żądań, które zostały złożone, gdy zostały one wyznaczone jako recenzent.
+> Możesz dodawać lub usuwać recenzentów tego przepływu pracy, modyfikując listę **Wybierz recenzentów żądań zgody administratora** . Należy zauważyć, że bieżące ograniczenie tej funkcji polega na tym, że Recenzenci mogą zachować możliwość przeglądania żądań, które zostały wprowadzone, gdy zostały wyszukane jako recenzent.
 
 ## <a name="how-users-request-admin-consent"></a>Jak użytkownicy żądają zgody administratora
 
-Po włączeniu przepływu pracy zgody administratora użytkownicy mogą zażądać zatwierdzenia przez administratora aplikacji, na którą mają nieautoryzowane zgody. W poniższych krokach opisano środowisko użytkownika podczas żądania zatwierdzenia. 
+Po włączeniu przepływu pracy zgody administratora użytkownicy mogą zażądać zatwierdzenia przez administratora dla aplikacji, do której nie ma zgody. Poniższe kroki opisują środowisko użytkownika podczas żądania zatwierdzenia. 
 
 1. Użytkownik próbuje zalogować się do aplikacji.
 
-2. Zostanie wyświetlony komunikat **Wymagane zatwierdzenie.** Użytkownik wpisuje uzasadnienie potrzeby dostępu do aplikacji, a następnie wybiera **opcję Zażądaj zatwierdzenia**.
+2. Zostanie wyświetlony komunikat **wymagane zatwierdzenie** . Użytkownik wpisuje uzasadnienie dostępu do aplikacji, a następnie wybiera **żądanie zatwierdzenia**.
 
-   ![Prośba i uzasadnienie użytkownika zgody administratora](media/configure-admin-consent-workflow/end-user-justification.png)
+   ![Prośba o zgodę administratora i uzasadnienie](media/configure-admin-consent-workflow/end-user-justification.png)
 
-3. Wiadomość **wysłana żądanie** potwierdza, że żądanie zostało przesłane do administratora. Jeśli użytkownik wyśle kilka żądań, tylko pierwsze żądanie jest przesyłane do administratora.
+3. Wiadomość **wysłana przez żądanie** potwierdza, że żądanie zostało przesłane do administratora. Jeśli użytkownik wyśle kilka żądań, tylko pierwsze żądanie zostanie przesłane do administratora.
 
-   ![Prośba i uzasadnienie użytkownika zgody administratora](media/configure-admin-consent-workflow/end-user-sent-request.png)
+   ![Prośba o zgodę administratora i uzasadnienie](media/configure-admin-consent-workflow/end-user-sent-request.png)
 
- 4. Użytkownik otrzymuje powiadomienie e-mail, gdy jego żądanie zostanie zatwierdzone, odrzucone lub zablokowane. 
+ 4. Użytkownik otrzymuje wiadomość e-mail z powiadomieniem, gdy żądanie zostanie zatwierdzone, odrzucone lub zablokowane. 
 
-## <a name="review-and-take-action-on-admin-consent-requests"></a>Przeglądanie i podejmowanie działań w sprawie żądań zgody administratora
+## <a name="review-and-take-action-on-admin-consent-requests"></a>Przejrzyj prośby o zgodę administratora i podejmij działania
 
 Aby przejrzeć żądania zgody administratora i podjąć działania:
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) jako jeden z zarejestrowanych recenzentów przepływu pracy zgody administratora.
-2. Wybierz **pozycję Wszystkie usługi** w górnej części menu nawigacji po lewej stronie. Zostanie otwarte **rozszerzenie usługi Azure Active Directory.**
-3. W polu wyszukiwania filtru wpisz **"Azure Active Directory**" i wybierz element **usługi Azure Active Directory.**
-4. W menu nawigacyjnym kliknij polecenie **Aplikacje przedsiębiorstwa**.
-5. W obszarze **Aktywność**wybierz pozycję **Żądania zgody administratora (Wersja zapoznawcza)**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako jeden z zarejestrowanych recenzentów przepływu pracy zgody administratora.
+2. Wybierz pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie. Zostanie otwarte **rozszerzenie Azure Active Directory** .
+3. W polu wyszukiwania filtru wpisz "**Azure Active Directory**" i wybierz element **Azure Active Directory** .
+4. W menu nawigacji kliknij pozycję **aplikacje dla przedsiębiorstw**.
+5. W obszarze **działanie**wybierz pozycję **żądania zgody administratora (wersja zapoznawcza)**.
 
    > [!NOTE]
-   > Recenzenci zobaczą tylko żądania administratora, które zostały utworzone po tym, jak zostały wyznaczone jako recenzent.
+   > Recenzenci będą widzieć tylko żądania administratora, które zostały utworzone po wyznaczeniu przez Ciebie jako recenzenta.
 
 1. Wybierz żądaną aplikację.
-2. Przejrzyj szczegóły dotyczące żądania:  
+2. Przejrzyj szczegółowe informacje na temat żądania:  
 
-   * Aby zobaczyć, kto i dlaczego żąda dostępu, wybierz kartę **Żądanie według.**
-   * Aby zobaczyć, jakie uprawnienia są wymagane przez aplikację, wybierz **pozycję Przejrzyj uprawnienia i zgodę**.
+   * Aby zobaczyć, kto żąda dostępu i dlaczego, wybierz kartę **żądane przez** .
+   * Aby sprawdzić, jakie uprawnienia są wymagane przez aplikację, wybierz pozycję **Przejrzyj uprawnienia i wyrażanie zgody**.
 
-8. Oceń wniosek i podejmij odpowiednie działania:
+8. Oceń żądanie i podejmij odpowiednie działanie:
 
-   * **Zatwierdź żądanie**. Aby zatwierdzić żądanie, udziel zgody administratora aplikacji. Po zatwierdzeniu żądania wszyscy żądacze są powiadamiani o przyznaniu im dostępu.  
-   * **Odmów żądania**. Aby odrzucić żądanie, należy podać uzasadnienie, które zostanie dostarczone do wszystkich żądań. Po odrzuceniu żądania wszyscy żądacze są powiadamiani, że odmówiono im dostępu do aplikacji. Odmowa żądania nie uniemożliwi użytkownikom ponownego żądania zgody administratora aplikacji w przyszłości.  
-   * **Zablokuj żądanie**. Aby zablokować żądanie, należy podać uzasadnienie, które zostanie dostarczone do wszystkich żądań. Po zablokowaniu żądania wszyscy żądacze są powiadamiani, że odmówiono im dostępu do aplikacji. Blokowanie żądania tworzy obiekt jednostkowy usługi dla aplikacji w dzierżawie w stanie wyłączonym. Użytkownicy nie będą mogli żądać zgody administratora aplikacji w przyszłości.
+   * **Zatwierdź żądanie**. Aby zatwierdzić żądanie, Udziel uprawnienia administratora aplikacji. Po zatwierdzeniu żądania wszyscy osoby żądające zostaną powiadomieni o udzieleniu im dostępu.  
+   * **Odmów żądania**. Aby odmówić żądania, należy podać uzasadnienie, które zostanie przekazane wszystkim zleceniodawcom. Po odmowie żądania wszystkie osoby żądające zostaną powiadomione o odmowie dostępu do aplikacji. Odrzucenie żądania nie uniemożliwi użytkownikom powtórnego żądania zgody administratora na aplikację w przyszłości.  
+   * **Zablokuj żądanie**. Aby zablokować żądanie, należy podać uzasadnienie, które zostanie przekazane wszystkim zleceniodawcom. Po zablokowaniu żądania wszystkie osoby żądające otrzymają powiadomienie o odmowie dostępu do aplikacji. Zablokowanie żądania powoduje utworzenie obiektu jednostki usługi dla aplikacji w dzierżawie w stanie wyłączenia. Użytkownicy nie będą mogli prosić o zgodę administratora aplikacji w przyszłości.
  
 ## <a name="email-notifications"></a>Powiadomienia e-mail
  
-Jeśli jest skonfigurowana, wszyscy recenzenci otrzymają powiadomienia e-mail, gdy:
+W przypadku skonfigurowania wszyscy recenzenci otrzymają powiadomienia e-mail, gdy:
 
 * Utworzono nowe żądanie
-* Wniosek wygasł
+* Żądanie wygasło
 * Żądanie zbliża się do daty wygaśnięcia  
  
-Żądacze otrzymają powiadomienia e-mail, gdy:
+Osoby żądające otrzymają powiadomienia e-mail, gdy:
 
-* Przedkładają oni nowy wniosek o dostęp
-* Ich wniosek wygasł
-* Ich wniosek został odrzucony lub zablokowany
-* Ich wniosek został zatwierdzony
+* Przesyłają one nowe żądanie dostępu
+* Ich żądanie wygasło
+* Żądanie zostało odrzucone lub zablokowane
+* Żądanie zostało zatwierdzone
  
 ## <a name="audit-logs"></a>Dzienniki inspekcji 
  
 W poniższej tabeli przedstawiono scenariusze i wartości inspekcji dostępne dla przepływu pracy zgody administratora. 
 
 > [!NOTE]
-> Kontekst użytkownika aktora inspekcji jest obecnie brakuje we wszystkich scenariuszach. Jest to znane ograniczenie w wersji zapoznawczej.
+> W wszystkich scenariuszach nie ma obecnie kontekstu użytkownika dotyczącego inspekcji. Jest to znane ograniczenie w wersji zapoznawczej.
 
 
-|Scenariusz  |Usługa audytu  |Kategorii inspekcji  |Działanie inspekcji  |Aktor inspekcji  |Ograniczenia dziennika inspekcji  |
+|Scenariusz  |Usługa inspekcji  |Kategorii inspekcji  |Inspekcja aktywności  |Aktor inspekcji  |Ograniczenia dziennika inspekcji  |
 |---------|---------|---------|---------|---------|---------|
-|Administrator włączający przepływ pracy żądania zgody        |Przeglądy dostępu           |UserManagement (UserManagement)           |Tworzenie szablonu zasad nadzoru          |Kontekst aplikacji            |Obecnie nie można znaleźć kontekstu użytkownika            |
-|Administrator wyłącza przepływ pracy żądania zgody       |Przeglądy dostępu           |UserManagement (UserManagement)           |Usuwanie szablonu zasad nadzoru          |Kontekst aplikacji            |Obecnie nie można znaleźć kontekstu użytkownika           |
-|Administrator aktualizujący konfiguracje przepływu pracy zgody        |Przeglądy dostępu           |UserManagement (UserManagement)           |Aktualizowanie szablonu zasad nadzoru          |Kontekst aplikacji            |Obecnie nie można znaleźć kontekstu użytkownika           |
-|Użytkownik końcowy tworzący żądanie zgody administratora dla aplikacji       |Przeglądy dostępu           |Zasady         |Utwórz żądanie           |Kontekst aplikacji            |Obecnie nie można znaleźć kontekstu użytkownika           |
-|Recenzenci zatwierdzający żądanie zgody administratora       |Przeglądy dostępu           |UserManagement (UserManagement)           |Zatwierdzanie wszystkich żądań w przepływie biznesowym          |Kontekst aplikacji            |Obecnie nie można znaleźć kontekstu użytkownika ani identyfikatora aplikacji, któremu udzielono zgody administratora.           |
-|Recenzenci odmawiający żądania zgody administratora       |Przeglądy dostępu           |UserManagement (UserManagement)           |Zatwierdzanie wszystkich żądań w przepływie biznesowym          |Kontekst aplikacji            | Obecnie nie można znaleźć kontekstu użytkownika aktora, który odmówił żądania zgody administratora          |
+|Administrator włączania przepływu pracy żądania zgody        |Przeglądy dostępu           |UserManagement           |Utwórz szablon zasad ładu          |Kontekst aplikacji            |Obecnie nie można znaleźć kontekstu użytkownika            |
+|Administrator wyłączający przepływ pracy żądania zgody       |Przeglądy dostępu           |UserManagement           |Usuń szablon zasad ładu          |Kontekst aplikacji            |Obecnie nie można znaleźć kontekstu użytkownika           |
+|Administrator zaktualizował konfiguracje przepływu pracy zgody        |Przeglądy dostępu           |UserManagement           |Aktualizuj szablon zasad ładu          |Kontekst aplikacji            |Obecnie nie można znaleźć kontekstu użytkownika           |
+|Użytkownik końcowy tworzy żądanie zgody administratora dla aplikacji       |Przeglądy dostępu           |Zasady         |Utwórz żądanie           |Kontekst aplikacji            |Obecnie nie można znaleźć kontekstu użytkownika           |
+|Recenzenci zatwierdzający żądanie zgody administratora       |Przeglądy dostępu           |UserManagement           |Zatwierdź wszystkie żądania w usłudze Flow          |Kontekst aplikacji            |Obecnie nie można znaleźć kontekstu użytkownika lub identyfikatora aplikacji, dla którego udzielono zgody administratora.           |
+|Recenzenci odmawiają żądania zgody administratora       |Przeglądy dostępu           |UserManagement           |Zatwierdź wszystkie żądania w usłudze Flow          |Kontekst aplikacji            | Obecnie nie można znaleźć kontekstu użytkownika aktora, który odmówił żądania zgody administratora          |
 
-## <a name="faq"></a>Najczęściej zadawane pytania 
+## <a name="faq"></a>Często zadawane pytania 
 
-**Włączyłem ten przepływ pracy, ale podczas testowania funkcji, dlaczego nie widzę nowego monitu "Wymagane zatwierdzenie", który pozwala mi zażądać dostępu?**
+**Po włączeniu tego przepływu pracy, ale podczas testowania funkcji, dlaczego nie mogę zobaczyć nowego monitu o zatwierdzenie, które umożliwia mi żądanie dostępu?**
 
-Po włączeniu tej funkcji może upłynąć do 60 minut, aby użytkownicy końcowi zobaczyli aktualizację. Można sprawdzić, czy konfiguracja została poprawnie zaa ukonwersji, wyświetlając `https://graph.microsoft.com/beta/settings` wartość **EnableAdminConsentRequests** w interfejsie API.
+Po włączeniu tej funkcji może upłynąć do 60 minut, zanim użytkownicy końcowi zobaczą aktualizację. Aby sprawdzić, czy konfiguracja została prawidłowo przeprowadzona, można wyświetlić wartość **EnableAdminConsentRequests** w `https://graph.microsoft.com/beta/settings` interfejsie API.
 
-**Dlaczego jako recenzent nie widzę wszystkich oczekujących żądań?**
+**Dlaczego nie widzę wszystkich oczekujących żądań jako recenzenta?**
 
-Recenzenci mogą zobaczyć tylko żądania administratora, które zostały utworzone po ich wyznaczeniu jako recenzenta. Jeśli więc zostałeś niedawno dodany jako recenzent, nie zobaczysz żadnych żądań utworzonych przed przypisaniem.
+Recenzenci mogą przeglądać tylko te żądania, które zostały utworzone po wyznaczeniu ich jako recenzenta. Dlatego jeśli niedawno dodano Cię jako recenzenta, nie zobaczysz żadnych żądań, które zostały utworzone przed przypisaniem.
 
-**Dlaczego jako recenzent widzę wiele żądań dla tej samej aplikacji?**
+**Dlaczego jako recenzent widzimy wiele żądań dla tej samej aplikacji?**
   
-Jeśli deweloper aplikacji skonfigurował swoją aplikację do używania statycznej i dynamicznej zgody na żądanie dostępu do danych użytkownika końcowego, zobaczysz dwa żądania zgody administratora. Jedno żądanie reprezentuje uprawnienia statyczne, a drugie reprezentuje uprawnienia dynamiczne.
+Jeśli deweloper aplikacji skonfigurował aplikację do używania statycznej i dynamicznej zgody na żądanie dostępu do danych użytkownika końcowego, zobaczysz dwie żądania zgody administratora. Jedno żądanie reprezentuje uprawnienia statyczne, a drugi reprezentuje uprawnienia dynamiczne.
 
-**Czy jako z żądaniem mogę sprawdzić status mojej prośby?**  
+**Czy jako obiekt żądający można sprawdzić stan mojego żądania?**  
 
-Nie, na razie żądacze mogą otrzymywać aktualizacje tylko za pośrednictwem powiadomień e-mail.
+Nie. obecnie osoby żądające mogą pobierać aktualizacje za pośrednictwem powiadomień e-mail.
 
-**Czy jako recenzent można zatwierdzić wniosek, ale nie dla wszystkich?**
+**Czy jako recenzent jest możliwe zatwierdzenie aplikacji, ale nie dla wszystkich?**
  
-Jeśli obawiasz się o udzielenie zgody administratora i umożliwienie wszystkim użytkownikom w dzierżawie korzystania z aplikacji, zaleca się odrzucenie żądania. Następnie ręcznie udziel zgody administratora, ograniczając dostęp do aplikacji, wymagając przypisania użytkownika i przypisując użytkowników lub grupy do aplikacji. Aby uzyskać więcej informacji, zobacz [Metody przypisywania użytkowników i grup](methods-for-assigning-users-and-groups.md).
+Jeśli chodzi o przyznanie zgody administratora i zezwolenie wszystkim użytkownikom w dzierżawie na korzystanie z aplikacji, zalecamy odrzucenie żądania. Następnie ręcznie Udziel zgody administratora przez ograniczenie dostępu do aplikacji przez wymaganie przypisania użytkownika i przypisanie użytkowników lub grup do aplikacji. Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](methods-for-assigning-users-and-groups.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat zgody na aplikacje, zobacz [Framework zgody usługi Azure Active Directory](../develop/consent-framework.md).
+Aby uzyskać więcej informacji na temat wyrażania zgody na aplikacje, zobacz [Azure Active Directory](../develop/consent-framework.md).
 
-[Konfigurowanie sposobu wyrażania zgody użytkowników końcowych na aplikacje](configure-user-consent.md)
+[Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje](configure-user-consent.md)
 
-[Udzielanie zgody administratora dla całej dzierżawy na aplikację](grant-admin-consent.md)
+[Przyznaj administratorowi zgodę na dostęp do aplikacji](grant-admin-consent.md)
 
 [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/active-directory-v2-scopes.md)
 
-[Usługa Azure AD w przepływie stosuPrzepełnienie](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Usługa Azure AD w systemie StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

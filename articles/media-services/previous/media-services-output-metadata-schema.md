@@ -1,6 +1,6 @@
 ---
-title: Schemat metadanych danych wyjściowych usługi Azure Media Services | Dokumenty firmy Microsoft
-description: Ten artykuł zawiera omówienie schematu metadanych danych wyjściowych usługi Azure Media Services.
+title: Schemat metadanych danych wyjściowych Azure Media Services | Microsoft Docs
+description: Ten artykuł zawiera omówienie schematu metadanych danych wyjściowych Azure Media Services.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,150 +15,150 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 3f0c6b60e2be625d1f869c3eda4acb9dfd3c6e9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74886816"
 ---
-# <a name="output-metadata"></a>Metadane danych wyjściowych
+# <a name="output-metadata"></a>Metadane wyjściowe
 ## <a name="overview"></a>Omówienie
-Zadanie kodowania jest skojarzone z zasobem wejściowym (lub zasobami), na którym chcesz wykonać niektóre zadania kodowania. Na przykład zakodowanie pliku MP4 do adaptacyjnych zestawów szybkości transmisji bitów H.264 MP4; utworzyć miniaturę; utworzyć nakładki. Po zakończeniu zadania jest produkowany zasób wyjściowy.  Zasób wyjściowy zawiera wideo, audio, miniatury itp. Zasób wyjściowy zawiera również plik z metadanymi dotyczącymi zasobu wyjściowego. Nazwa pliku XML metadanych ma następujący &lt;format:&gt;source_file_name _manifest.xml (na przykład BigBuckBunny_manifest.xml).  
+Zadanie kodowania jest skojarzone z wejściowym zasobem (lub zasobami), na którym mają zostać wykonane pewne zadania kodowania. Na przykład Koduj plik MP4 do H. 264 zestawy adaptacyjnej szybkości transmisji bitów. Utwórz miniaturę; Utwórz nakładki. Po zakończeniu zadania tworzony jest wyjściowy element zawartości.  Element zawartości wyjściowej zawiera wideo, audio, miniatury itp. Wyjściowy element zawartości zawiera również plik z metadanymi dotyczącymi wyjściowego elementu zawartości. Nazwa pliku XML metadanych ma następujący format: &lt;source_file_name&gt;_manifest. xml (na przykład BigBuckBunny_manifest. xml).  
 
-Usługi Media Services nie skanują z wyprzedzeniem zasobów wejściowych w celu wygenerowania metadanych. Wejściowe metadane są generowane tylko jako artefakt, gdy wejściowy zasób jest przetwarzany w zadaniu. W związku z tym ten artefakt jest zapisywany do wyjściowego zasobu. Różne narzędzia są używane do generowania metadanych dla zasobów wejściowych i zasobów wyjściowych. W związku z tym metadane wejściowe ma nieco inny schemat niż metadane wyjściowe.
+Media Services nie skanuje wstępnie emptively zasobów wejściowych w celu wygenerowania metadanych. Metadane wejściowe są generowane tylko jako artefakt, gdy wejściowy element zawartości jest przetwarzany w zadaniu. W związku z tym ten artefakt jest zapisywana w elemencie zawartości wyjściowej. Do generowania metadanych dla wejściowych zasobów i elementów zawartości wyjściowej są używane różne narzędzia. W związku z tym metadane wejściowe mają nieco inny schemat niż metadane wyjściowe.
 
-Jeśli chcesz sprawdzić plik metadanych, możesz **SAS** utworzyć lokalizator sygnatury dostępu Współdzielonego i pobrać plik na komputer lokalny.  
+Jeśli chcesz przejrzeć plik metadanych, możesz utworzyć lokalizator **sygnatury dostępu współdzielonego** i pobrać plik na komputer lokalny.  
 
-W tym artykule omówiono elementy i typy schematu XML, na którym opiera się metada wyjściowa (source_file_name&lt;&gt;_manifest.xml). Aby uzyskać informacje o pliku zawierającym metadane dotyczące zasobu wejściowego, zobacz Metadane wejściowe.  
+W tym artykule omówiono elementy i typy schematu XML, na których bazuje dane wyjściowe metada&lt;(&gt;source_file_name _manifest. xml). Aby uzyskać informacje o pliku zawierającym metadane dotyczące danych wejściowych, zobacz metadane wejściowe.  
 
 Pełny kod schematu i przykład XML można znaleźć na końcu tego artykułu.  
 
 ## <a name="assetfiles-root-element"></a><a name="AssetFiles"></a>Element główny AssetFiles
-Zbieranie wpisów AssetFile dla zadania kodowania.  
+Kolekcja wpisów AssetFile dla zadania kodowania.  
 
 ### <a name="child-elements"></a>Elementy podrzędne
 | Nazwa | Opis |
 | --- | --- |
-| **Plik aktywów**<br/><br/> minOccurs="0" maxOccurs="1" |AssetFile element, który jest częścią AssetFiles kolekcji. |
+| **AssetFile**<br/><br/> minOccurs = "0" maxOccurs = "1" |Element AssetFile, który jest częścią kolekcji AssetFiles. |
 
-## <a name="assetfile-element"></a><a name="AssetFile"></a>Element Pliku aktywów
-Przykład XML można znaleźć w [przykładzie XML](#xml).  
+## <a name="assetfile-element"></a><a name="AssetFile"></a>AssetFile, element
+[Przykład](#xml)XML XML przykładu.  
 
 ### <a name="attributes"></a>Atrybuty
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Nazwa**<br/><br/> Wymagany |**xs:ciąg znaków** |Nazwa pliku zasobu multimedialnego. |
-| **Rozmiar**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:long** |Rozmiar pliku zasobu w bajtach. |
-| **Czas trwania**<br/><br/> Wymagany |**xs:czas trwania** |Czas odtwarzania zawartości. |
+| **Nazwa**<br/><br/> Wymagany |**XS: ciąg** |Nazwa pliku zasobów nośnika. |
+| **Rozmiar**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: Long** |Rozmiar pliku zasobów w bajtach. |
+| **Czas trwania**<br/><br/> Wymagany |**XS: czas trwania** |Czas trwania odtwarzania zawartości. |
 
 ### <a name="child-elements"></a>Elementy podrzędne
 | Nazwa | Opis |
 | --- | --- |
-| **Źródeł** |Kolekcja plików multimedialnych wejściowych/źródłowych, który został przetworzony w celu wytworzenia tego pliku assetfile. Aby uzyskać więcej informacji, zobacz Element źródła. |
-| **VideoTracks (Śledzenie wideo)**<br/><br/> minOccurs="0" maxOccurs="1" |Każdy fizyczny AssetFile może zawierać w nim zero lub więcej utworów wideo przeplatane do odpowiedniego formatu kontenera. Aby uzyskać więcej informacji, zobacz VideoTracks element. |
-| **AudioTracks (AudioTracks)**<br/><br/> minOccurs="0" maxOccurs="1" |Każdy fizyczny AssetFile może zawierać w nim zero lub więcej ścieżek audio przeplatane do odpowiedniego formatu kontenera. Jest to zbiór wszystkich tych ścieżek audio. Aby uzyskać więcej informacji, zobacz AudioTracks element. |
+| **Źródeł** |Kolekcja plików nośnika danych wejściowych/źródłowych, które zostały przetworzone w celu utworzenia tego AssetFile. Aby uzyskać więcej informacji, zobacz element źródłowy. |
+| **VideoTracks**<br/><br/> minOccurs = "0" maxOccurs = "1" |Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek wideo z przeplotem do odpowiedniego formatu kontenera. Aby uzyskać więcej informacji, zobacz VideoTracks element. |
+| **AudioTracks**<br/><br/> minOccurs = "0" maxOccurs = "1" |Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek audio przeplatanych w odpowiedni format kontenera. To jest kolekcja wszystkich ścieżek audio. Aby uzyskać więcej informacji, zobacz AudioTracks element. |
 
-## <a name="sources-element"></a><a name="Sources"></a>Element źródła
-Kolekcja plików multimedialnych wejściowych/źródłowych, który został przetworzony w celu wytworzenia tego pliku assetfile.  
+## <a name="sources-element"></a><a name="Sources"></a>Element sources
+Kolekcja plików nośnika danych wejściowych/źródłowych, które zostały przetworzone w celu utworzenia tego AssetFile.  
 
-Przykład XML można znaleźć w [przykładzie XML](#xml).  
+[Przykład](#xml)XML XML przykładu.  
 
 ### <a name="child-elements"></a>Elementy podrzędne
 | Nazwa | Opis |
 | --- | --- |
-| **Źródła**<br/><br/> minOccurs="1" maxOccurs="bez ograniczeń" |Plik wejściowy/źródłowy używany podczas generowania tego zasobu. Aby uzyskać więcej informacji, zobacz Element źródła. |
+| **Element źródłowy**<br/><br/> minOccurs = "1" maxOccurs = "niepowiązane" |Plik wejściowy/źródłowy używany podczas generowania tego elementu zawartości. Aby uzyskać więcej informacji, zobacz element źródłowy. |
 
 ## <a name="source-element"></a><a name="Source"></a>Element źródłowy
-Plik wejściowy/źródłowy używany podczas generowania tego zasobu.  
+Plik wejściowy/źródłowy używany podczas generowania tego elementu zawartości.  
 
-Przykład XML można znaleźć w [przykładzie XML](#xml).  
-
-### <a name="attributes"></a>Atrybuty
-| Nazwa | Typ | Opis |
-| --- | --- | --- |
-| **Nazwa**<br/><br/> Wymagany |**xs:ciąg znaków** |Nazwa pliku źródłowego. |
-
-## <a name="videotracks-element"></a><a name="VideoTracks"></a>Element VideoTracks
-Każdy fizyczny AssetFile może zawierać w nim zero lub więcej utworów wideo przeplatane do odpowiedniego formatu kontenera. **VideoTracks** element reprezentuje kolekcję wszystkich ścieżek wideo.  
-
-Przykład XML można znaleźć w [przykładzie XML](#xml).  
-
-### <a name="child-elements"></a>Elementy podrzędne
-| Nazwa | Opis |
-| --- | --- |
-| **Śledzenie wideo**<br/><br/> minOccurs="1" maxOccurs="bez ograniczeń" |Określona ścieżka wideo w nadrzędnym pliku assetfile. Aby uzyskać więcej informacji, zobacz VideoTrack element. |
-
-## <a name="videotrack-element"></a><a name="VideoTrack"></a>Element VideoTrack
-Określona ścieżka wideo w nadrzędnym pliku assetfile.  
-
-Przykład XML można znaleźć w [przykładzie XML](#xml).  
+[Przykład](#xml)XML XML przykładu.  
 
 ### <a name="attributes"></a>Atrybuty
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Identyfikator**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:int** |Indeks zerowy tej ścieżki wideo. **Uwaga:**  Ten **identyfikator** niekoniecznie jest identyfikatorem trackid używanym w pliku MP4. |
-| **Fourcc**<br/><br/> Wymagany |**xs:ciąg znaków** |Kodek wideo Kodek FourCC. |
-| **Profil** |**xs:ciąg znaków** |profil H264 (dotyczy tylko kodeka H264). |
-| **Poziom** |**xs:ciąg znaków** |poziom H264 (dotyczy tylko kodeka H264). |
-| **impulsów**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:int** |Zakodowana szerokość wideo w pikselach. |
-| **Wysokość**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:int** |Zakodowana wysokość wideo w pikselach. |
-| **DisplayAspectRatioNumerator**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:double** |Licznik proporcji ekranu wideo. |
-| **DisplayAspectRatioDenominator**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:double** |Mianownik proporcji ekranu wideo. |
-| **Framerate**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:dziesiętny** |Zmierzona liczba klatek na sekundę wideo w formacie .3f. |
-| **Ramka docelowa**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:dziesiętny** |Predefiniowana docelowa liczba klatek na sekundę wideo w formacie .3f. |
-| **Bitrate**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:int** |Średnia szybkość transmisji bitów wideo w kilobitach na sekundę, obliczona na podstawie pliku zasobów. Zlicza tylko ładunek strumienia elementarnego i nie obejmuje narzutów opakowania. |
-| **Docelowa szybkość**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:int** |Docelowa średnia szybkość transmisji bitów dla tej ścieżki wideo, zgodnie z żądaniem za pomocą ustawień predefiniowanych kodowania, w kilobitach na sekundę. |
-| **Maksymalna liczba bitów**<br/><br/> minWłącznie ="0" |**xs:int** |Maksymalna średnia szybkość transmisji bitów GOP dla tego utworu wideo, w kilobitach na sekundę. |
+| **Nazwa**<br/><br/> Wymagany |**XS: ciąg** |Nazwa wejściowego pliku źródłowego. |
 
-## <a name="audiotracks-element"></a><a name="AudioTracks"></a>Element AudioTracks
-Każdy fizyczny AssetFile może zawierać w nim zero lub więcej ścieżek audio przeplatane do odpowiedniego formatu kontenera. **AudioTracks** element reprezentuje kolekcję wszystkich tych ścieżek audio.  
+## <a name="videotracks-element"></a><a name="VideoTracks"></a>VideoTracks, element
+Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek wideo z przeplotem do odpowiedniego formatu kontenera. Element **VideoTracks** reprezentuje kolekcję wszystkich ścieżek wideo.  
 
-Przykład XML można znaleźć w [przykładzie XML](#xml).  
+[Przykład](#xml)XML XML przykładu.  
 
 ### <a name="child-elements"></a>Elementy podrzędne
 | Nazwa | Opis |
 | --- | --- |
-| **AudioTrack (AudioTrack)**<br/><br/> minOccurs="1" maxOccurs="bez ograniczeń" |Określona ścieżka audio w pliku nadrzędnym AssetFile. Aby uzyskać więcej informacji, zobacz AudioTrack element. |
+| **VideoTrack**<br/><br/> minOccurs = "1" maxOccurs = "niepowiązane" |Określona ścieżka wideo w AssetFile nadrzędnym. Aby uzyskać więcej informacji, zobacz VideoTrack element. |
 
-## <a name="audiotrack-element"></a><a name="AudioTrack"></a>Element AudioTrack
-Określona ścieżka audio w pliku nadrzędnym AssetFile.  
+## <a name="videotrack-element"></a><a name="VideoTrack"></a>VideoTrack, element
+Określona ścieżka wideo w AssetFile nadrzędnym.  
 
-Przykład XML można znaleźć w [przykładzie XML](#xml).  
+[Przykład](#xml)XML XML przykładu.  
 
 ### <a name="attributes"></a>Atrybuty
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Identyfikator**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:int** |Indeks zerowy tej ścieżki dźwiękowej. **Uwaga:**  Niekoniecznie jest to TrackID używany w pliku MP4. |
-| **Kodek** |**xs:ciąg znaków** |Ciąg kodeka ścieżki dźwiękowej. |
-| **Koderweryjda** |**xs:ciąg znaków** |Opcjonalny ciąg wersji kodera, wymagany dla EAC3. |
-| **Kanały**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:int** |Liczba kanałów audio. |
-| **SamplingRate (Szybkość próbkowania)**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:int** |Częstotliwość próbkowania dźwięku w próbkach/s lub Hz. |
-| **Bitrate**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:int** |Średnia szybkość transmisji bitów audio w bitach na sekundę, obliczona na podstawie pliku assetfile. Zlicza tylko ładunek strumienia elementarnego i nie obejmuje narzutów opakowania. |
-| **BitsPerSample (BitsPerSample)**<br/><br/> minWłącznie ="0"<br/><br/> Wymagany |**xs:int** |Bity na próbkę dla typu formatu wFormatTag. |
+| **#C1**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: int** |Indeks tej ścieżki wideo liczony od zera. **Uwaga:**  Ten **Identyfikator** nie musi być TrackID używany w pliku MP4. |
+| **FourCC**<br/><br/> Wymagany |**XS: ciąg** |Kod kodera-dekoder wideo FourCC. |
+| **Profil** |**XS: ciąg** |Profil wielokrotna H264 (dotyczy tylko kodera-dekoder wielokrotna H264). |
+| **Poziom** |**XS: ciąg** |Poziom wielokrotna H264 (dotyczy tylko wielokrotna H264 Codec). |
+| **impulsów**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: int** |Zakodowana Szerokość wideo (w pikselach). |
+| **Proporcj**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: int** |Zakodowana wysokość wideo w pikselach. |
+| **DisplayAspectRatioNumerator**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: Double** |Licznik współczynnik proporcji wyświetlania wideo. |
+| **DisplayAspectRatioDenominator**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: Double** |Mianownik współczynnika proporcji wyświetlania wideo. |
+| **Framerate**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: decimal** |Mierzona szybkość klatek wideo w formacie. 3F. |
+| **TargetFramerate**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: decimal** |Wstępnie ustawiona docelowa szybkość klatek wideo w formacie. 3F. |
+| **Multimedia**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: int** |Średnia szybkość transmisji bitów wideo w kilobitach na sekundę, obliczona na podstawie AssetFile. Zlicza tylko podstawowy ładunek strumienia i nie uwzględnia obciążenia opakowania. |
+| **TargetBitrate**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: int** |Przekieruj średnią szybkość transmisji bitów dla tej ścieżki wideo, zgodnie z żądaniem ustawienia wstępnego kodowania, w kilobitach na sekundę. |
+| **MaxGOPBitrate**<br/><br/> minInclusive = "0" |**XS: int** |Maksymalna grupę GOP średnia szybkość transmisji bitów dla tej ścieżki wideo (w kilobitach na sekundę). |
+
+## <a name="audiotracks-element"></a><a name="AudioTracks"></a>AudioTracks, element
+Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek audio przeplatanych w odpowiedni format kontenera. Element **AudioTracks** reprezentuje kolekcję wszystkich ścieżek audio.  
+
+[Przykład](#xml)XML XML przykładu.  
 
 ### <a name="child-elements"></a>Elementy podrzędne
 | Nazwa | Opis |
 | --- | --- |
-| **LoudnessMeteringParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Parametry wyniku pomiaru głośności. Aby uzyskać więcej informacji, zobacz LoudnessMeteringResultParameters element. |
+| **AudioTrack**<br/><br/> minOccurs = "1" maxOccurs = "niepowiązane" |Określona ścieżka audio w AssetFile nadrzędnym. Aby uzyskać więcej informacji, zobacz AudioTrack element. |
 
-## <a name="loudnessmeteringresultparameters-element"></a><a name="LoudnessMeteringResultParameters"></a>LoudnessMeteringResultParametr element
+## <a name="audiotrack-element"></a><a name="AudioTrack"></a>AudioTrack, element
+Określona ścieżka audio w AssetFile nadrzędnym.  
+
+[Przykład](#xml)XML XML przykładu.  
+
+### <a name="attributes"></a>Atrybuty
+| Nazwa | Typ | Opis |
+| --- | --- | --- |
+| **#C1**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: int** |Indeks tej ścieżki audio liczony od zera. **Uwaga:**  Nie jest to konieczne TrackID w pliku MP4. |
+| **Wymaga** |**XS: ciąg** |Ciąg Codec ścieżki audio. |
+| **EncoderVersion** |**XS: ciąg** |Opcjonalny ciąg wersji kodera wymagany dla EAC3. |
+| **Kanały**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: int** |Liczba kanałów audio. |
+| **SamplingRate**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: int** |Częstotliwość próbkowania audio w próbkach/s lub Hz. |
+| **Multimedia**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: int** |Średnia szybkość transmisji bitów audio w bitach na sekundę, obliczona na podstawie AssetFile. Zlicza tylko podstawowy ładunek strumienia i nie uwzględnia obciążenia opakowania. |
+| **BitsPerSample**<br/><br/> minInclusive = "0"<br/><br/> Wymagany |**XS: int** |Bity na próbkę dla typu formatu wFormatTag. |
+
+### <a name="child-elements"></a>Elementy podrzędne
+| Nazwa | Opis |
+| --- | --- |
+| **LoudnessMeteringResultParameters**<br/><br/> minOccurs = "0" maxOccurs = "1" |Parametry wyniku pomiaru głośności. Aby uzyskać więcej informacji, zobacz LoudnessMeteringResultParameters element. |
+
+## <a name="loudnessmeteringresultparameters-element"></a><a name="LoudnessMeteringResultParameters"></a>LoudnessMeteringResultParameters, element
 Parametry wyniku pomiaru głośności.  
 
-Przykład XML można znaleźć w [przykładzie XML](#xml).  
+[Przykład](#xml)XML XML przykładu.  
 
 ### <a name="attributes"></a>Atrybuty
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **DPLMVersionInformation (Informacje o DPLMVersionInformation)** |**xs:ciąg znaków** |**Dolby** profesjonalny sposób pomiaru głośności wersja zestawu do pomiaru. |
-| **DialogNormalizacja**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Wymagany |**xs:int** |DialogNormalization generowane przez DPLM, wymagane, gdy LoudnessMetering jest ustawiony |
-| **ZintegrowanaLuść**<br/><br/> minInclusive="-70" maxInclusive="10"<br/><br/> Wymagany |**xs:float** |Zintegrowana głośność |
-| **Zintegrowanajspódność**<br/><br/> Wymagany |**xs:ciąg znaków** |Zintegrowana jednostka głośności. |
-| **Zintegrowanametoda łępieniagów**<br/><br/> Wymagany |**xs:ciąg znaków** |Identyfikator gating |
-| **ZintegrowanaLoudnessSpeechPercentage**<br/><br/> minWłączny ="0" maxInclusive="100" |**xs:float** |Zawartość mowy w programie jako procent. |
-| **SamplePeak (właśc.**<br/><br/> Wymagany |**xs:float** |Szczytowa wartość próbki bezwzględnej, od czasu zresetowania lub od czasu ostatniego wyczyszczenie, na kanał.  Jednostki są dBFS. |
-| **SamplePeakJednostka**<br/><br/> fixed="dBFS"<br/><br/> Wymagany |**xs:anySimpleType** |Przykładowa jednostka piku. |
-| **TruePeak (TruePeak)**<br/><br/> Wymagany |**xs:float** |Maksymalna rzeczywista wartość szczytowa, zgodnie z ITU-R BS.1770-2, od resetu lub od czasu ostatniego wyczyszczenie, na kanał. Jednostki są dBTP. |
-| **TruePeakJednostka**<br/><br/> fixed="dBTP"<br/><br/> Wymagany |**xs:anySimpleType** |Prawdziwa jednostka szczytowa. |
+| **DPLMVersionInformation** |**XS: ciąg** |Wersja zestawu do rozwoju pomiaru głośności w programie **Dolby** Professional. |
+| **DialogNormalization**<br/><br/> minInclusive = "-31" maxInclusive = "-1"<br/><br/> Wymagany |**XS: int** |DialogNormalization generowany przez DPLM, wymagany, gdy ustawiono LoudnessMetering |
+| **IntegratedLoudness**<br/><br/> minInclusive = "-70" maxInclusive = "10"<br/><br/> Wymagany |**XS: float** |Zintegrowane głośność |
+| **IntegratedLoudnessUnit**<br/><br/> Wymagany |**XS: ciąg** |Jednostka zintegrowanego rozgłośności. |
+| **IntegratedLoudnessGatingMethod**<br/><br/> Wymagany |**XS: ciąg** |Identyfikator kontroli |
+| **IntegratedLoudnessSpeechPercentage**<br/><br/> minInclusive = "0" maxInclusive = "100" |**XS: float** |Zawartość mowy w programie w postaci wartości procentowej. |
+| **SamplePeak**<br/><br/> Wymagany |**XS: float** |Szczytowa wartość próbki bezwzględnej od momentu zresetowania lub od momentu ostatniego wyczyszczenia na kanał.  Jednostki są dBFS. |
+| **SamplePeakUnit**<br/><br/> FIXED = "dBFS"<br/><br/> Wymagany |**XS: anySimpleType** |Przykładowa jednostka szczytu. |
+| **TruePeak**<br/><br/> Wymagany |**XS: float** |Maksymalna prawdziwa wartość szczytowa, tak jak w przypadku ITU-R BS. 1770-2, od momentu zresetowania lub od momentu ostatniego wyczyszczenia na kanał. Jednostki są dBTP. |
+| **TruePeakUnit**<br/><br/> FIXED = "dBTP"<br/><br/> Wymagany |**XS: anySimpleType** |Rzeczywista jednostka szczytu. |
 
 ## <a name="schema-code"></a>Kod schematu
     <?xml version="1.0" encoding="utf-8"?>  

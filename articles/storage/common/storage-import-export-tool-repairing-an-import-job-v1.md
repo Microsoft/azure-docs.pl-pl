@@ -1,6 +1,6 @@
 ---
-title: Naprawianie zadania importowania/eksportowania platformy Azure — wersja 1 | Dokumenty firmy Microsoft
-description: Dowiedz się, jak naprawić zadanie importu, które zostało utworzone i uruchomione przy użyciu usługi Azure Import/Export.
+title: Naprawianie zadania importowania/eksportowania platformy Azure — Wersja 1 | Microsoft Docs
+description: Dowiedz się, jak naprawić zadanie importu, które zostało utworzone i uruchomione za pomocą usługi Azure Import/Export.
 author: twooley
 services: storage
 ms.service: storage
@@ -9,47 +9,47 @@ ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: f5db321d8c4a6e42591a82b0ed8eb6bc6e93bad4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74973887"
 ---
 # <a name="repairing-an-import-job"></a>Naprawianie zadania importu
-Usługa importu/eksportu platformy Microsoft Azure może nie zostać skopiowana do usługi obiektów Blob systemu Windows Azure. Oto niektóre przyczyny awarii:  
+Usługa Microsoft Azure Import/Export może nie kopiować niektórych plików lub części pliku do Blob service platformy Microsoft Azure. Niektóre przyczyny niepowodzenia obejmują:  
   
 -   Uszkodzone pliki  
   
 -   Uszkodzone dyski  
   
--   Klucz konta magazynu został zmieniony podczas przenoszenia pliku.  
+-   Klucz konta magazynu został zmieniony, gdy plik był transferowany.  
   
-Narzędzie importu/eksportu platformy Microsoft Azure można uruchomić za pomocą plików dziennika kopiowania zadania importu, a narzędzie przekaże brakujące pliki (lub części pliku) na konto magazynu systemu Windows Azure, aby zakończyć zadanie importowania.  
+Narzędzie Microsoft Azure Import/Export można uruchomić za pomocą plików dziennika kopiowania zadania importowania, a narzędzie przekazuje brakujące pliki (lub części pliku) do konta usługi Microsoft Azure Storage, aby zakończyć zadanie importowania.  
   
-## <a name="repairimport-parameters"></a>Parametry narzędzia RepairImport
+## <a name="repairimport-parameters"></a>Parametry RepairImport
 
-Za pomocą **narzędzia RepairImport**można określić następujące parametry: 
+Następujące parametry można określić za pomocą **RepairImport**: 
   
 |||  
 |-|-|  
-|**/r:**<Plik naprawy\>|**Wymagane.** Ścieżka do pliku naprawy, który śledzi postęp naprawy i pozwala na wznowienie przerwanej naprawy. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po uruchomieniu naprawy dla danego dysku, przekazać w ścieżce do pliku naprawy, który jeszcze nie istnieje. Aby wznowić przerwaną naprawę, należy przekazać nazwę istniejącego pliku naprawy. Należy zawsze określić plik naprawy odpowiadający dyskowi docelowemu.|  
-|**/logdir:**<LogDirectory\>|**Opcjonalne.** Katalog dziennika. Pełne pliki dziennika są zapisywane w tym katalogu. Jeśli nie określono katalogu dziennika, bieżący katalog jest używany jako katalog dziennika.|  
-|**/d:**<dyrektorów docelowych\>|**Wymagane.** Co najmniej jeden katalog rozdzielony średnikami zawierający oryginalne pliki, które zostały zaimportowane. Dysk importu może być również używany, ale nie jest wymagany, jeśli dostępne są alternatywne lokalizacje oryginalnych plików.|  
-|**/bk:**<Klawiszu funkcji BitLocker\>|**Opcjonalne.** Należy określić klawisz BitLocker, jeśli narzędzie ma odblokować zaszyfrowany dysk, na którym są dostępne oryginalne pliki.|  
-|**/sn:**<StorageAccountName\>|**Wymagane.** Nazwa konta magazynu dla zadania importu.|  
-|**/sk:**<StorageAccountKey\>|**Wymagane** wtedy i tylko wtedy, gdy nie określono sygnatury dostępu Współdzielonego kontenera. Klucz konta magazynu dla zadania importu.|  
-|**/csas:**<ContainerSas\>|**Wymagane** wtedy i tylko wtedy, gdy nie określono klucza konta magazynu. Sygnatura dostępu do kontenera do uzyskiwania dostępu do obiektów blob skojarzonych z zadaniem importu.|  
-|**/CopyLogFile:**<DriveCopyLogFile\>|**Wymagane.** Ścieżka do pliku dziennika kopiowania dysku (pełny dziennik lub dziennik błędów). Plik jest generowany przez usługę importu/eksportu systemu Windows Azure i można go pobrać z magazynu obiektów blob skojarzonego z zadaniem. Plik dziennika kopiowania zawiera informacje o nieudanych obiektach blob lub plikach, które mają zostać naprawione.|  
-|**/PathMapFile:**<Pliku Mapy DrivePath\>|**Opcjonalne.** Ścieżka do pliku tekstowego, który może służyć do rozwiązywania niejasności, jeśli masz wiele plików o tej samej nazwie, które zostały zaimportowania w tym samym zadaniu. Przy pierwszym uruchomieniu narzędzia można wypełnić ten plik wszystkimi niejednoznacznymi nazwami. Kolejne przebiegi narzędzia używają tego pliku, aby rozwiązać niejednoznaczności.|  
+|**/r:**<RepairFile\>|**Wymagane.** Ścieżka do pliku naprawy, która śledzi postęp naprawy i pozwala na wznowienie przerwanej naprawy. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po rozpoczęciu naprawy danego dysku Przekaż ścieżkę do pliku naprawy, który jeszcze nie istnieje. Aby wznowić przerwaną naprawę, należy przekazać nazwę istniejącego pliku naprawy. Należy zawsze określić plik naprawy odpowiadający dyskowi docelowemu.|  
+|**/logdir:**<LogDirectory\>|**Obowiązkowe.** Katalog dzienników. Pełne pliki dziennika są zapisywane w tym katalogu. Jeśli nie określono katalogu dziennika, bieżący katalog jest używany jako katalog dziennika.|  
+|**/d:**<TargetDirectories\>|**Wymagane.** Jeden lub więcej katalogów rozdzielonych średnikami, które zawierają oryginalne pliki, które zostały zaimportowane. Można również użyć dysku importu, ale nie jest to wymagane, jeśli są dostępne alternatywne lokalizacje plików oryginalnych.|  
+|**/BK:**<BitLockerKey\>|**Obowiązkowe.** Jeśli chcesz, aby narzędzie odblokowało zaszyfrowany dysk, na którym są dostępne pliki oryginalne, należy określić klucz funkcji BitLocker.|  
+|**/SN:**<StorageAccountName\>|**Wymagane.** Nazwa konta magazynu dla zadania importu.|  
+|**/sk:**<StorageAccountKey\>|**Wymagane** , jeśli i tylko wtedy, gdy nie określono sygnatury dostępu współdzielonego kontenera. Klucz konta magazynu dla zadania importu.|  
+|**/CSAS:**<ContainerSas\>|**Wymagane** , jeśli i tylko wtedy, gdy nie określono klucza konta magazynu. Kontener SAS kontenera do uzyskiwania dostępu do obiektów BLOB skojarzonych z zadaniem importu.|  
+|**/CopyLogFile:**<DriveCopyLogFile\>|**Wymagane.** Ścieżka do pliku dziennika kopiowania dysku (pełny dziennik lub dziennik błędów). Plik jest generowany przez usługę Import/Export systemu Windows Azure i można go pobrać z magazynu obiektów BLOB skojarzonego z zadaniem. Plik dziennika kopiowania zawiera informacje dotyczące niezakończonych obiektów blob lub plików, które mają zostać naprawione.|  
+|**/PathMapFile:**<DrivePathMapFile\>|**Obowiązkowe.** Ścieżka do pliku tekstowego, który może służyć do rozwiązywania niejasności w przypadku wielu plików o tej samej nazwie, która została zaimportowana w ramach tego samego zadania. Gdy narzędzie jest uruchamiane po raz pierwszy, może wypełnić ten plik wszystkimi niejednoznacznymi nazwami. Kolejne uruchomienia narzędzia używają tego pliku do rozwiązania niejasności.|  
   
-## <a name="using-the-repairimport-command"></a>Korzystanie z polecenia RepairImport  
-Aby naprawić importowane dane, przesyłając strumieniowo dane za pośrednictwem sieci, należy określić `/d` katalogi zawierające oryginalne pliki importowane przy użyciu parametru. Należy również określić plik dziennika kopiowania pobrany z konta magazynu. Typowy wiersz polecenia do naprawy zadania importu z częściowymi błędami wygląda następująco:  
+## <a name="using-the-repairimport-command"></a>Przy użyciu polecenia RepairImport  
+Aby naprawić dane importu przez przesyłanie strumieniowe danych za pośrednictwem sieci, należy określić katalogi zawierające oryginalne pliki, które zostały zaimportowane przy użyciu `/d` parametru. Należy również określić plik dziennika kopiowania pobrany z konta magazynu. Typowy wiersz polecenia służący do naprawy zadania importu z błędami częściowymi wygląda następująco:  
   
 ```  
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log  
 ```  
   
-W poniższym przykładzie pliku dziennika kopiowania jeden fragment pliku 64-K został uszkodzony na dysku, który został wysłany do zadania importu. Ponieważ jest to jedyny błąd wskazany, pozostałe obiekty blob w zadaniu zostały pomyślnie zaimportowane.  
+W poniższym przykładzie pliku dziennika kopiowania 1 64-K część pliku została uszkodzona na dysku, który został dostarczony dla zadania importu. Ponieważ jest to jedyny wskazany błąd, pozostałe obiekty blob w zadaniu zostały pomyślnie zaimportowane.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -68,38 +68,38 @@ W poniższym przykładzie pliku dziennika kopiowania jeden fragment pliku 64-K z
 </DriveLog>  
 ```
   
-Gdy ten dziennik kopiowania jest przekazywany do narzędzia Azure Import/Export Tool, narzędzie próbuje zakończyć importowanie dla tego pliku, kopiując brakującą zawartość w sieci. Zgodnie z powyższym przykładem narzędzie `\animals\koala.jpg` wyszukuje `C:\Users\bob\Pictures` oryginalny `X:\BobBackup\photos`plik w dwóch katalogach i . Jeśli plik `C:\Users\bob\Pictures\animals\koala.jpg` istnieje, narzędzie Importu/Eksportu platformy Azure kopiuje brakujący `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`zakres danych do odpowiedniego obiektu blob .  
+Gdy ten dziennik kopiowania jest przesyłany do narzędzia Azure Import/Export, Narzędzie próbuje zakończyć importowanie dla tego pliku przez skopiowanie brakującej zawartości w sieci. W powyższym przykładzie narzędzie szuka oryginalnego pliku `\animals\koala.jpg` w dwóch katalogach `C:\Users\bob\Pictures` i. `X:\BobBackup\photos` Jeśli plik `C:\Users\bob\Pictures\animals\koala.jpg` istnieje, narzędzie Azure Import/Export kopiuje brakujący zakres danych do odpowiedniego obiektu BLOB `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
   
-## <a name="resolving-conflicts-when-using-repairimport"></a>Rozwiązywanie konfliktów podczas korzystania z narzędzia RepairImport  
-W niektórych sytuacjach narzędzie może nie być w stanie znaleźć lub otworzyć niezbędnego pliku z jednego z następujących powodów: nie można odnaleźć pliku, plik jest niedostępny, nazwa pliku jest niejednoznaczna lub zawartość pliku nie jest już poprawna.  
+## <a name="resolving-conflicts-when-using-repairimport"></a>Rozwiązywanie konfliktów podczas korzystania z RepairImport  
+W niektórych sytuacjach narzędzie może nie być w stanie znaleźć lub otworzyć wymaganego pliku z jednego z następujących powodów: nie można odnaleźć pliku, plik nie jest dostępny, nazwa pliku jest niejednoznaczna lub zawartość pliku nie jest już poprawna.  
   
-Niejednoznaczny błąd może wystąpić, jeśli narzędzie próbuje `\animals\koala.jpg` zlokalizować i istnieje plik `C:\Users\bob\pictures` o `X:\BobBackup\photos`tej nazwie pod obiema i . Oznacza to, `C:\Users\bob\pictures\animals\koala.jpg` `X:\BobBackup\photos\animals\koala.jpg` że oba i istnieją na dyskach zadań importu.  
+Może wystąpić niejednoznaczny błąd, jeśli narzędzie próbuje zlokalizować `\animals\koala.jpg` i istnieje plik o tej nazwie w ramach obu `C:\Users\bob\pictures` i. `X:\BobBackup\photos` Oznacza to, że `C:\Users\bob\pictures\animals\koala.jpg` zarówno `X:\BobBackup\photos\animals\koala.jpg` , jak i istnieją na dyskach zadań importowania.  
   
-Opcja `/PathMapFile` umożliwia rozwiązanie tych błędów. Można określić nazwę pliku, który zawiera listę plików, których narzędzie nie było w stanie poprawnie zidentyfikować. W poniższym przykładzie wiersza polecenia jest wypełniany: `9WM35C2V_pathmap.txt`  
+`/PathMapFile` Opcja pozwala rozwiązać te błędy. Możesz określić nazwę pliku, który zawiera listę plików, które narzędzie nie mogło prawidłowo zidentyfikować. Poniższy przykład wiersza polecenia wypełnia `9WM35C2V_pathmap.txt`:  
   
 ```
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log /PathMapFile:C:\WAImportExport\9WM35C2V_pathmap.txt  
 ```
   
-Narzędzie zapisze problematyczne ścieżki plików `9WM35C2V_pathmap.txt`do , po jednej w każdym wierszu. Na przykład plik może zawierać następujące wpisy po uruchomieniu polecenia:  
+Następnie narzędzie zapisze problematyczne ścieżki plików do `9WM35C2V_pathmap.txt`, po jednym w każdym wierszu. Na przykład po uruchomieniu polecenia plik może zawierać następujące wpisy:  
  
 ```
 \animals\koala.jpg  
 \animals\kangaroo.jpg  
 ```
   
- Dla każdego pliku na liście należy spróbować zlokalizować i otworzyć plik, aby upewnić się, że jest on dostępny dla narzędzia. Jeśli chcesz wyraźnie poinformować narzędzie, gdzie można znaleźć plik mapy ścieżki, możesz zmodyfikować plik mapy ścieżki i dodać ścieżkę do każdego pliku w tym samym wierszu, oddzieloną znakiem karty:  
+ Dla każdego pliku na liście należy spróbować zlokalizować i otworzyć plik, aby upewnić się, że jest on dostępny dla narzędzia. Jeśli chcesz wypowiedzieć narzędzie jawnie, gdzie znaleźć plik, możesz zmodyfikować plik mapy ścieżki i dodać ścieżkę do każdego pliku w tym samym wierszu, oddzielone znakiem tabulacji:  
   
 ```
 \animals\koala.jpg           C:\Users\bob\Pictures\animals\koala.jpg  
 \animals\kangaroo.jpg        X:\BobBackup\photos\animals\kangaroo.jpg  
 ```
   
-Po udostępnieniu niezbędnych plików narzędziu lub zaktualizowaniu pliku mapy ścieżki można ponownie uruchomić narzędzie, aby zakończyć proces importowania.  
+Po udostępnieniu niezbędnych plików dla narzędzia lub zaktualizowaniu pliku mapy ścieżki możesz ponownie uruchomić narzędzie, aby zakończyć proces importowania.  
   
 ## <a name="next-steps"></a>Następne kroki
  
-* [Konfigurowanie narzędzia Importu/Eksportu platformy Azure](storage-import-export-tool-setup-v1.md)   
+* [Konfigurowanie narzędzia Azure Import/Export](storage-import-export-tool-setup-v1.md)   
 * [Przygotowywanie dysków twardych do zadania importu](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Sprawdzanie stanu zadania za pomocą plików dziennika kopiowania](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Naprawianie zadania eksportu](../storage-import-export-tool-repairing-an-export-job-v1.md)   

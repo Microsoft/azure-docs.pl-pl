@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z magazynu lokalnego urządzenia usługi IoT Edge z modułu — Usługa Azure IoT Edge | Dokumenty firmy Microsoft
-description: Użyj zmiennych środowiskowych i utwórz opcje, aby umożliwić dostęp modułu do lokalnej pamięci masowej urządzenia Usługi IoT Edge.
+title: Użyj magazynu lokalnego urządzenia IoT Edge z poziomu modułu Azure IoT Edge | Microsoft Docs
+description: Użyj zmiennych środowiskowych i Utwórz opcje, aby umożliwić dostęp modułu do magazynu lokalnego IoT Edge urządzenia.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,28 +9,28 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75434518"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Zapewnianie modułom dostępu do magazynu lokalnego na urządzeniu
 
-Oprócz przechowywania danych przy użyciu usług magazynu platformy Azure lub w magazynie kontenerów urządzenia można również poświęcić magazyn na samym urządzeniu usługi Host IoT Edge, aby zwiększyć niezawodność, szczególnie podczas pracy w trybie offline.
+Oprócz przechowywania danych przy użyciu usług Azure Storage lub magazynu kontenerów na urządzeniu można również przeznaczyć magazyn na hoście IoT Edge samo urządzenie w celu zwiększenia niezawodności, szczególnie w przypadku działania w trybie offline.
 
-## <a name="link-module-storage-to-device-storage"></a>Łączenie pamięci masowej modułów z pamięcią urządzenia
+## <a name="link-module-storage-to-device-storage"></a>Łączenie magazynu modułów z magazynem urządzeń
 
-Aby włączyć łącze z magazynu modułu do magazynu w systemie hosta, należy utworzyć zmienną środowiskową dla modułu, która wskazuje folder magazynu w kontenerze. Następnie użyj opcji tworzenia, aby powiązać ten folder magazynu z folderem na komputerze-hoście.
+Aby włączyć łącze z magazynu modułów do magazynu w systemie hosta, należy utworzyć zmienną środowiskową dla modułu, która wskazuje folder magazynu w kontenerze. Następnie użyj opcji tworzenia, aby powiązać ten folder magazynu z folderem na komputerze-hoście.
 
-Na przykład jeśli chcesz włączyć centrum usługi IoT Edge do przechowywania wiadomości w magazynie lokalnym urządzenia i pobrać je później, można skonfigurować zmienne środowiskowe i opcje tworzenia w witrynie Azure portal w **ustawieniach środowiska wykonawczego** sekcji.
+Na przykład jeśli chcesz włączyć Centrum IoT Edge do przechowywania wiadomości w lokalnym magazynie urządzenia i pobrać je później, możesz skonfigurować zmienne środowiskowe i opcje tworzenia w Azure Portal w sekcji **Ustawienia środowiska uruchomieniowego** .
 
-1. Dla centrum IoT Edge i agenta usługi IoT Edge należy dodać zmienną środowiskową o nazwie **storageFolder,** która wskazuje katalog w module.
-1. W przypadku koncentratora usługi IoT Edge i agenta usługi IoT Edge należy dodać powiązania w celu połączenia katalogu lokalnego na komputerze-hoście z katalogiem w module. Przykład:
+1. W przypadku agentów IoT Edge Hub i IoT Edge Dodaj zmienną środowiskową o nazwie **storageFolder** , która wskazuje katalog w module.
+1. Dla Centrum IoT Edge i agenta IoT Edge Dodaj powiązania, aby połączyć katalog lokalny na komputerze hosta z katalogiem w module. Przykład:
 
    ![Dodawanie opcji tworzenia i zmiennych środowiskowych dla magazynu lokalnego](./media/how-to-access-host-storage-from-module/offline-storage.png)
 
-Lub można skonfigurować magazyn lokalny bezpośrednio w manifeście wdrażania. Przykład:
+Lub można skonfigurować magazyn lokalny bezpośrednio w manifeście wdrożenia. Przykład:
 
 ```json
 "systemModules": {
@@ -70,19 +70,19 @@ Lub można skonfigurować magazyn lokalny bezpośrednio w manifeście wdrażania
 }
 ```
 
-Zastąp `<HostStoragePath>` i `<ModuleStoragePath>` ścieżkę przechowywania hosta i modułu; obie wartości muszą być ścieżką bezwzględną.
+Zamień `<HostStoragePath>` i `<ModuleStoragePath>` na ścieżkę magazynu hosta i modułu; obie wartości muszą być ścieżką bezwzględną.
 
-Na przykład w systemie `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` Linux oznacza, że katalog **/etc/iotedge/storage** w systemie hosta jest mapowany do katalogu **/iotedge/storage/** w kontenerze. W systemie Windows, jako `"Binds":["C:\\temp:C:\\contemp"]` inny przykład, oznacza, że katalog **\\C: temp** w systemie hosta jest mapowany do katalogu **C:\\contemp** w kontenerze.
+Na przykład w systemie Linux `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` oznacza, że katalog **/etc/iotedge/Storage** w systemie hosta jest mapowany do katalogu **/iotedge/Storage/** w kontenerze. W systemie Windows inny przykład oznacza, `"Binds":["C:\\temp:C:\\contemp"]` że katalog **c:\\temp** w systemie hosta jest mapowany do katalogu **c:\\** , w którym znajduje się w kontenerze.
 
-Ponadto na urządzeniach z systemem Linux upewnij się, że profil użytkownika modułu ma wymagane uprawnienia do odczytu, zapisu i wykonywania do katalogu systemu hosta. Wracając do wcześniejszego przykładu włączania usługi IoT Edge hub do przechowywania wiadomości w magazynie lokalnym urządzenia, należy udzielić uprawnień do jego profilu użytkownika, UID 1000. (Agent usługi IoT Edge działa jako katalog główny, więc nie potrzebuje dodatkowych uprawnień). Istnieje kilka sposobów zarządzania uprawnieniami do katalogów `chown` w systemach Linux, `chmod` w tym używanie do zmiany właściciela katalogu, a następnie zmienianie uprawnień, takich jak:
+Ponadto na urządzeniach z systemem Linux upewnij się, że profil użytkownika dla modułu ma wymagane uprawnienia Odczyt, zapis i wykonywanie do katalogu systemu hosta. Powracanie do wcześniejszego przykładu włączenia IoT Edge centrum do przechowywania wiadomości w lokalnym magazynie urządzenia, należy przyznać uprawnienia do jego profilu użytkownika, UID 1000. (Agent IoT Edge działa jako element główny, więc nie potrzebuje dodatkowych uprawnień). Istnieje kilka sposobów zarządzania uprawnieniami katalogu w systemach Linux, w tym przy użyciu `chown` programu, zmiana właściciela katalogu, a `chmod` następnie zmiana uprawnień, takich jak:
 
 ```bash
 sudo chown 1000 <HostStoragePath>
 sudo chmod 700 <HostStoragePath>
 ```
 
-Więcej informacji na temat tworzenia opcji można znaleźć w [docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+Więcej informacji o opcjach tworzenia można znaleźć w dokumentacji [platformy Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać dodatkowy przykład uzyskiwania dostępu do magazynu hosta z modułu, zobacz [Przechowywanie danych na krawędzi za pomocą usługi Azure Blob Storage w usłudze IoT Edge.](how-to-store-data-blob.md)
+Aby uzyskać dodatkowy przykład uzyskiwania dostępu do magazynu hosta z modułu, zobacz temat [Zapisywanie danych na krawędzi za pomocą usługi Azure Blob Storage w IoT Edge](how-to-store-data-blob.md).

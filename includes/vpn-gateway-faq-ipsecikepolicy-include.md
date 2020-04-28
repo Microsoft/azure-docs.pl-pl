@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,14 +9,14 @@ ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74903096"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Czy niestandardowe zasady protokołu IPsec/IKE są obsługiwane na wszystkich jednostkach SKU bramy sieci VPN platformy Azure?
-Niestandardowe zasady IPsec/IKE są obsługiwane we wszystkich jednostkach SKU platformy Azure z wyjątkiem podstawowej jednostki SKU.
+Niestandardowe zasady protokołu IPsec/IKE są obsługiwane we wszystkich jednostkach SKU platformy Azure z wyjątkiem podstawowej jednostki SKU.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Ile zasad można określić dla połączenia?
 Można określić tylko ***jedną*** kombinację zasad dla danego połączenia.
@@ -42,7 +42,7 @@ W poniższej tabeli wymieniono obsługiwane algorytmy kryptograficzne i siły kl
 > [!IMPORTANT]
 > 1. DHGroup2048 i PFS2048 są takie same jak grupa Diffie’ego-Hellmana**14** w funkcji PFS protokołów IKE i IPsec. Pełną listę mapowań można znaleźć w sekcji dotyczącej [grup Diffie’ego-Hellmana](#DH).
 > 2. W przypadku algorytmów GCMAES należy określić ten sam algorytm GCMAES i długość klucza na potrzeby integralności i szyfrowania IPsec.
-> 3. Okres istnienia SA trybu głównego IKEv2 został ustalony na 28 800 sekund w bramkach sieci Vpn platformy Azure.
+> 3. Okres istnienia skojarzenia zabezpieczeń trybu głównego protokołu IKEv2 jest ustalony na 28 800 sekund na bramach sieci VPN platformy Azure.
 > 4. Okresy istnienia skojarzeń zabezpieczeń QM to parametry opcjonalne. Jeśli żaden nie został określony, są używane wartości domyślne 27 000 sekund (7,5 godz.) i 102400000 KB (102 GB).
 > 5. UsePolicyBasedTrafficSelector to parametr opcji połączenia. Zobacz kolejny element często zadawanych pytań dla elementu „UsePolicyBasedTrafficSelectors”
 
@@ -103,17 +103,17 @@ Tak. Tunel połączenia między sieciami wirtualnymi zawiera dwa zasoby połącz
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>Czy niestandardowe zasady protokołu IPsec/IKE działają dla połączenia ExpressRoute?
 Nie. Zasady protokołu IPsec/IKE działają tylko dla połączeń sieci VPN S2S i połączeń między sieciami wirtualnymi za pośrednictwem bram sieci VPN platformy Azure.
 
-### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Jak utworzyć połączenia z typem protokołu IKEv1 lub IKEv2?
-Połączenia IKEv1 można tworzyć na wszystkich jednostkach SKU typu SIECI VPN typu RouteBased, z wyjątkiem podstawowej jednostki SKU. Podczas tworzenia połączeń można określić typ protokołu połączenia IKEv1 lub IKEv2. Jeśli nie określisz typu protokołu połączenia, W stosownych przypadkach jest używana opcja domyślna IKEv2. Aby uzyskać więcej informacji, zobacz dokumentację [polecenia cmdlet programu PowerShell.](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) W przypadku typów jednostek SKU i obsługi protokołu IKEv1/IKEv2 zobacz [Łączenie bram z urządzeniami sieci VPN opartymi na zasadach](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Jak mogę utworzyć połączenia z typem protokołu IKEv1 lub IKEv2?
+Połączenia protokołu IKEv1 można tworzyć dla wszystkich jednostek SKU typu sieci VPN RouteBased, z wyjątkiem podstawowej jednostki SKU. Podczas tworzenia połączeń można określić typ protokołu połączenia IKEv1 lub IKEv2. Jeśli nie określisz typu protokołu połączenia, w razie potrzeby zostanie użyta opcja IKEv2. Aby uzyskać więcej informacji, zobacz dokumentację [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) . W przypadku typów jednostek SKU i obsługi protokołu IKEv1/IKEv2 zobacz [łączenie bram z urządzeniami sieci VPN opartymi na zasadach](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
-### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Czy tranzyt między połączeniami IKEv1 i IKEv2 jest dozwolony?
-Tak. Obsługiwane jest przesyłanie między połączeniami IKEv1 i IKEv2.
+### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Czy między połączeniami protokołu IKEv1 i IKEv2 jest dozwolony transfer?
+Tak. Przesyłanie między połączeniami IKEv1 i IKEv2 jest obsługiwane.
 
-### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>Czy mogę mieć połączenia lokacja-lokacja IKEv1 w podstawowych jednostkach SKU typu RouteBased VPN?
-Nie. Podstawowa jednostka SKU nie obsługuje tego.
+### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>Czy można korzystać z połączeń typu lokacja-lokacja protokołu IKEv1 dla podstawowych jednostek SKU z RouteBased sieci VPN?
+Nie. Podstawowa jednostka SKU nie obsługuje tej funkcji.
 
-### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>Czy można zmienić typ protokołu połączenia po utworzeniu połączenia (IKEv1 na IKEv2 i odwrotnie)?
-Nie. Po utworzeniu połączenia nie można zmienić protokołów IKEv1/IKEv2. Należy usunąć i ponownie utworzyć nowe połączenie z żądanym typem protokołu.
+### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>Czy mogę zmienić typ protokołu połączenia po utworzeniu połączenia (IKEv1 do IKEv2 i odwrotnie)?
+Nie. Po utworzeniu połączenia nie można zmienić protokołów IKEv1/IKEv2. Należy usunąć i utworzyć ponownie nowe połączenie z żądanym typem protokołu.
 
 ### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Gdzie można znaleźć więcej informacji o konfiguracji protokołu IPsec?
-Zobacz [Konfigurowanie zasad Protokołu IPsec/IKE dla połączeń S2S lub sieci wirtualnej z siecią wirtualną](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)
+Zobacz [Konfigurowanie zasad protokołu IPSec/IKE dla połączeń S2S lub VNET-to-VNET](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

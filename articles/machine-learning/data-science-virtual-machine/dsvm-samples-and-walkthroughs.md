@@ -1,7 +1,7 @@
 ---
-title: Przykładowe programy & wskazówki dotyczące uczenia maszynowego
+title: Przykładowe programy & podprzewodniki dotyczące ML
 titleSuffix: Azure Data Science Virtual Machine
-description: Za pomocą tych przykładów i instruktajów dowiedz się, jak obsługiwać typowe zadania i scenariusze za pomocą maszyny wirtualnej nauki o danych.
+description: Za pomocą tych przykładów i przewodników dowiesz się, jak obsługiwać typowe zadania i scenariusze przy użyciu Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: machine-learning
@@ -11,87 +11,87 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74900051"
 ---
-# <a name="samples-on-azure-data-science-virtual-machines"></a>Przykłady na maszynach wirtualnych do nauki o danych platformy Azure
+# <a name="samples-on-azure-data-science-virtual-machines"></a>Przykłady dotyczące Virtual Machines analizy danych na platformie Azure
 
-Maszyny wirtualne do nauki o danych platformy Azure (DSVM) zawierają kompleksowy zestaw przykładowego kodu. Te przykłady obejmują notesy jupyter i skrypty w językach takich jak Python i R.
+Usługa Azure Data Science Virtual Machines (DSVMs) zawiera kompleksowy zestaw przykładowego kodu. Te przykłady obejmują notesy Jupyter i skrypty w językach takich jak Python i R.
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat uruchamiania notesów Jupyter na maszynach wirtualnych do nauki o danych, zobacz sekcję [Dostęp jupyter.](#access-jupyter)
+> Więcej informacji o sposobach uruchamiania notesów Jupyter na maszynach wirtualnych do nauki o danych znajduje się w sekcji [dostęp do Jupyter](#access-jupyter) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby uruchomić te przykłady, musisz aprowizować maszynę wirtualną nauki o danych. Zobacz szybki start dla [Windows](./provision-vm.md) i [Ubuntu](./dsvm-ubuntu-intro.md).
+Aby można było uruchomić te przykłady, musisz mieć zainicjowany Data Science Virtual Machine. Zobacz Przewodniki Szybki Start dla [systemu Windows](./provision-vm.md) i [Ubuntu](./dsvm-ubuntu-intro.md).
 
 ## <a name="available-samples"></a>Dostępne przykłady
-| Kategoria próbek | Opis | Lokalizacje |
+| Kategoria przykładów | Opis | Lokalizacje |
 | ------------- | ------------- | ------------- |
-| Język R  | Przykłady ilustrują scenariusze, takie jak łączenie się z magazynami danych w chmurze opartych na platformie Azure i jak porównać usługi Open source R i Microsoft Machine Learning Server. Wyjaśniają również, jak operacjonalizacji modeli na microsoft machine learning server i SQL Server. <br/> [Język R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
-| Język Python  | Przykłady wyjaśniają scenariusze, takie jak łączenie się z magazynami danych w chmurze opartych na platformie Azure i jak pracować z usługą Azure Machine Learning.  <br/> [Język Python](#python-language) | <br/>`~notebooks` <br/><br/>|
-| Język Julia  | Zawiera szczegółowy opis kreślenia i uczenia głębokiego w Julii. Wyjaśnia również, jak wywołać C i Python z Julia. <br/> [Język Julia](#julia-language) |<br/> W systemie Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> W systemie Linux:<br/> `~notebooks/julia`<br/><br/> |
-| Azure Machine Learning  | Ilustruje sposób tworzenia modeli uczenia maszynowego i uczenia głębokiego za pomocą uczenia maszynowego. Wdrażaj modele w dowolnym miejscu. Korzystaj z automatycznego uczenia maszynowego i inteligentnego dostrajania hiperparametrycznego. Należy również korzystać z zarządzania modelami i szkoleń rozproszonych. <br/> [Uczenie maszynowe](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
-| Notebooki PyTorch  | Próbki uczenia głębokiego korzystające z sieci neuronowych opartych na PyTorch. Notebooki wahają się od początkujących do zaawansowanych scenariuszy.  <br/> [Notebooki PyTorch](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
-| TensorFlow  |  Wiele przykładów sieci neuronowych i technik zaimplementowanych przy użyciu struktury TensorFlow. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
-| Zestaw narzędzi usług Microsoft Cognitive <br/>   | Próbki uczenia głębokiego opublikowane przez zespół Cognitive Toolkit w firmie Microsoft.  <br/> [Zestaw narzędzi usług Cognitive](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> W systemie Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
-| Caffe2 | Próbki uczenia głębokiego korzystające z sieci neuronowych opartych na caffe2. Kilka notebooków zapozna użytkowników z Caffe2 i jak go skutecznie używać. Przykłady obejmują wstępne przetwarzanie obrazu i tworzenie zestawu danych. Obejmują one również regresji i jak używać wstępnie przeszkolonych modeli. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
-| H2o   | Przykłady oparte na języku Python, które używają H2O dla rzeczywistych scenariuszy problemów. <br/> [H2o](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
-| Język SparkML  | Przykłady korzystające z funkcji zestawu narzędzi Apache Spark MLLib za pośrednictwem pySpark i MMLSpark: Microsoft Machine Learning for Apache Spark on Apache Spark 2.x.  <br/> [Język SparkML](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
-| XGBoost | Standardowe przykłady uczenia maszynowego w XGBoost dla scenariuszy, takich jak klasyfikacja i regresja. <br/> [XGBoost (XGBoost)](#xgboost) | <br/>W systemie Windows:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
+| Język R  | Przykłady ilustrują scenariusze, takie jak nawiązywanie połączenia z magazynami danych w chmurze opartymi na platformie Azure i porównywanie języka R i Microsoft Machine Learning Server typu open source. Wyjaśniono także, jak operacjonalizować modele na Microsoft Machine Learning Server i SQL Server. <br/> [Język R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
+| Język Python  | Przykłady wyjaśniają scenariusze, takie jak nawiązywanie połączenia z magazynami danych w chmurze opartymi na platformie Azure i jak korzystać z Azure Machine Learning.  <br/> [Język Python](#python-language) | <br/>`~notebooks` <br/><br/>|
+| Język Julia  | Zawiera szczegółowy opis wykreślania i uczenia głębokiego w Julia. Wyjaśniono również, jak wywoływać C i Python z Julia. <br/> [Język Julia](#julia-language) |<br/> W systemie Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> W systemie Linux:<br/> `~notebooks/julia`<br/><br/> |
+| Azure Machine Learning  | Ilustruje sposób tworzenia modeli uczenia maszynowego i uczenia głębokiego przy użyciu Machine Learning. Wdrażaj modele w dowolnym miejscu. Użyj zautomatyzowanej uczenia maszynowego i inteligentnego dostrajania parametrów. Należy również użyć zarządzania modelami i szkolenia rozproszonego. <br/> [Usługa Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
+| Notesy PyTorch  | Przykłady głębokiej uczenia, które używają sieci neuronowych opartych na PyTorch. Notesy przedziały od początku do zaawansowanych scenariuszy.  <br/> [Notesy PyTorch](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
+| TensorFlow  |  Wiele przykładów i technik sieci neuronowych zaimplementowanych przy użyciu platformy TensorFlow. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
+| Zestaw narzędzi usług Microsoft Cognitive <br/>   | Przykłady głębokiej uczenia opublikowane przez zespół Cognitive Toolkit w firmie Microsoft.  <br/> [Zestaw narzędzi usług Cognitive](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> W systemie Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
+| Caffe2 | Przykłady głębokiej uczenia, które używają sieci neuronowych opartych na Caffe2. Kilka notesów umożliwia zapoznanie się z programem Caffe2 i korzystanie z niego efektywnie. Przykłady obejmują przetwarzanie wstępne obrazu i tworzenie zestawu danych. Obejmują one również regresję i sposób korzystania z modeli. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
+| H2O   | Przykłady bazujące na języku Python, które wykorzystują program H2O dla rzeczywistych scenariuszy problemów. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
+| Język SparkML  | Przykłady korzystające z funkcji zestawu narzędzi Apache Spark MLLib za pomocą pySpark i MMLSpark: Microsoft Machine Learning dla Apache Spark na Apache Spark 2. x.  <br/> [Język SparkML](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
+| XGBoost | Standardowe przykłady uczenia maszynowego w XGBoost na potrzeby scenariuszy, takich jak klasyfikowanie i regresja. <br/> [XGBoost](#xgboost) | <br/>W systemie Windows:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
 
 <br/>
 
-## <a name="access-jupyter"></a>Dostęp Jupyter 
+## <a name="access-jupyter"></a>Dostęp do Jupyter 
 
-Aby uzyskać dostęp do jupytera, wybierz ikonę **Jupyter** w menu pulpitu lub aplikacji. Można również uzyskać dostęp do Jupyter na linuxowej wersji DSVM. Aby uzyskać zdalny dostęp z `https://<Full Domain Name or IP Address of the DSVM>:8000` przeglądarki internetowej, przejdź do Ubuntu.
+Aby uzyskać dostęp do Jupyter, wybierz ikonę **Jupyter** w menu pulpitu lub aplikacji. Możesz również uzyskać dostęp do Jupyter w wersji systemu Linux DSVM. Aby uzyskać dostęp zdalnie z przeglądarki sieci Web, przejdź `https://<Full Domain Name or IP Address of the DSVM>:8000` do strony w witrynie Ubuntu.
 
-Aby dodać wyjątki i udostępnić dostęp Jupyter za pośrednictwem przeglądarki, skorzystaj z następujących wskazówek:
+Aby dodać wyjątki i udostępnić Jupyter dostęp za pośrednictwem przeglądarki, Skorzystaj z następujących wskazówek:
 
 
 ![Włącz wyjątek Jupyter](./media/ubuntu-jupyter-exception.png)
 
 
-Zaloguj się przy użyciu tego samego hasła, którego używasz do logowania się do maszyny wirtualnej nauki o danych.
+Zaloguj się przy użyciu tego samego hasła, którego używasz do logowania się do Data Science Virtual Machine.
 <br/>
 
-**Jupyter domu**
-<br/>![Jupyter domu](./media/jupyter-home.png)<br/>
+**Strona główna Jupyter**
+<br/>![Strona główna Jupyter](./media/jupyter-home.png)<br/>
 
 ## <a name="r-language"></a>Język R 
-<br/>![Próbki R](./media/r-language-samples.png)<br/>
+<br/>![Przykłady języka R](./media/r-language-samples.png)<br/>
 
 ## <a name="python-language"></a>Język Python
 <br/>![Przykłady w języku Python](./media/python-language-samples.png)<br/>
 
 ## <a name="julia-language"></a>Język Julia 
-<br/>![Julia próbki](./media/julia-samples.png)<br/>
+<br/>![Przykłady Julia](./media/julia-samples.png)<br/>
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning 
-<br/>![Przykłady usługi Azure Machine Learning](./media/azureml-samples.png)<br/>
+<br/>![Przykłady Azure Machine Learning](./media/azureml-samples.png)<br/>
 
 ## <a name="pytorch"></a>PyTorch
-<br/>![Próbki PyTorch](./media/pytorch-samples.png)<br/>
+<br/>![Przykłady PyTorch](./media/pytorch-samples.png)<br/>
 
 ## <a name="tensorflow"></a>TensorFlow 
-<br/>![Próbki TensorFlow](./media/tensorflow-samples.png)<br/>
+<br/>![Przykłady TensorFlow](./media/tensorflow-samples.png)<br/>
 
 
 ## <a name="cntk"></a>CNTK 
-<br/>![Próbki CNTK](./media/cntk-samples.png)<br/>
+<br/>![Przykłady CNTK](./media/cntk-samples.png)<br/>
 
 
 ## <a name="caffe2"></a>Caffe2 
-<br/>![próbki caffe2](./media/caffe2-samples.png)<br/>
+<br/>![Przykłady caffe2](./media/caffe2-samples.png)<br/>
 
-## <a name="h2o"></a>H2o 
-<br/>![Próbki H2O](./media/h2o-samples.png)<br/>
+## <a name="h2o"></a>H2O 
+<br/>![H2O — przykłady](./media/h2o-samples.png)<br/>
 
-## <a name="sparkml"></a>SparkML (Iskra ML) 
-<br/>![Próbki sparkML](./media/sparkml-samples.png)<br/>
+## <a name="sparkml"></a>SparkML 
+<br/>![Przykłady SparkML](./media/sparkml-samples.png)<br/>
 
 ## <a name="xgboost"></a>XGBoost 
-<br/>![Próbki XGBoost](./media/xgboost-samples.png)<br/>
+<br/>![Przykłady XGBoost](./media/xgboost-samples.png)<br/>
 

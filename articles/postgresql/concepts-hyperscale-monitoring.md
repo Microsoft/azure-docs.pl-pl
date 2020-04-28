@@ -1,45 +1,45 @@
 ---
-title: Monitoruj i dostrajaj — Hiperskala (Citus) — usługa Azure Database for PostgreSQL
-description: W tym artykule opisano funkcje monitorowania i dostrajania w usłudze Azure Database for PostgreSQL — Hiperskala (Citus)
+title: Monitorowanie i dostrajanie-skalowanie (Citus) — Azure Database for PostgreSQL
+description: W tym artykule opisano funkcje monitorowania i dostrajania w Azure Database for PostgreSQL-Citus
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d2e9fcd6f6292c1da76e725e90deda4547b3682d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74975520"
 ---
-# <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitorowanie i dostrajanie usługi Azure Database dla postgreSQL — hiperskali (Citus)
+# <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Monitorowanie i dostrajanie Azure Database for PostgreSQL-ze skalowaniem (Citus)
 
-Monitorowanie danych dotyczących serwerów pomaga w rozwiązywaniu problemów i optymalizacji pod kątem obciążenia. Hiperskala (Citus) zapewnia różne opcje monitorowania, aby zapewnić wgląd w zachowanie węzłów w grupie serwerów.
+Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i optymalizację w obciążeniu. Funkcja Citus) oferuje różne opcje monitorowania, które umożliwiają wgląd w zachowanie węzłów w grupie serwerów.
 
 ## <a name="metrics"></a>Metryki
 
-Hiperskala (Citus) udostępnia metryki dla każdego węzła w grupie serwerów. Metryki dają wgląd w zachowanie obsługi zasobów. Każda metryka jest emitowana z częstotliwością jednominutową i ma do 30 dni historii.
+Funkcja Citus) udostępnia metryki dla każdego węzła w grupie serwerów. Metryki zapewniają wgląd w zachowanie obsługi zasobów. Każda Metryka jest emitowana z częstotliwością jednej minuty i ma do 30 dni historii.
 
-Oprócz wyświetlania wykresów metryk można skonfigurować alerty. Aby uzyskać wskazówki krok po kroku, zobacz [Jak skonfigurować alerty](howto-hyperscale-alert-on-metric.md).  Inne zadania obejmują konfigurowanie akcji zautomatyzowanych, uruchamianie zaawansowanej analizy i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie metryk platformy Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Oprócz wyświetlania wykresów metryk można skonfigurować alerty. Aby uzyskać wskazówki krok po kroku, zobacz [jak skonfigurować alerty](howto-hyperscale-alert-on-metric.md).  Inne zadania obejmują Konfigurowanie zautomatyzowanych akcji, uruchamianie zaawansowanej analizy i archiwizowanie historii. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-### <a name="list-of-metrics"></a>Lista danych
+### <a name="list-of-metrics"></a>Lista metryk
 
-Te metryki są dostępne dla węzłów hiperskali (Citus):
+Te metryki są dostępne dla węzłów ze skalowaniem (Citus):
 
-|Metryka|Metryka Nazwa wyświetlana|Jednostka|Opis|
+|Metryka|Nazwa wyświetlana metryki|Jednostka|Opis|
 |---|---|---|---|
 |active_connections|Aktywne połączenia|Liczba|Liczba aktywnych połączeń z serwerem.|
-|cpu_percent|Procent procesora|Wartość procentowa|Procent procesora CPU w użyciu.|
-|Iops|Liczba operacji we/wy na sekundę|Liczba|Zobacz [definicji IOPS](../virtual-machines/linux/premium-storage-performance.md#iops) i [przepustowość hiperskala](concepts-hyperscale-configuration-options.md)|
+|cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Procent użycia procesora CPU.|
+|Wejścia|Liczba operacji we/wy na sekundę|Liczba|Zobacz [definicję IOPS](../virtual-machines/linux/premium-storage-performance.md#iops) i [przepływność w ramach skalowania](concepts-hyperscale-configuration-options.md)|
 |memory_percent|Procent pamięci|Wartość procentowa|Procent używanej pamięci.|
-|network_bytes_ingress|Sieć — wejście|Bajty|W sieci w różnych aktywnych połączeniach.|
-|network_bytes_egress|Sieć — wyjście|Bajty|Wyjście sieciowe w aktywnych połączeniach.|
-|storage_percent|Procent magazynowania|Wartość procentowa|Procent miejsca używanego z maksymalnego wartości serwera.|
-|storage_used|Używany magazyn|Bajty|Ilość używanego miejsca. Magazyn używany przez usługę może zawierać pliki bazy danych, dzienniki transakcji i dzienniki serwera.|
+|network_bytes_ingress|Sieć — wejście|Bajty|Sieć w ramach aktywnych połączeń.|
+|network_bytes_egress|Sieć — wyjście|Bajty|Nawiązywanie połączeń sieciowych między aktywnymi połączeniami.|
+|storage_percent|Procent miejsca do magazynowania|Wartość procentowa|Wartość procentowa używanej przestrzeni dyskowej poza maksymalną.|
+|storage_used|Używany magazyn|Bajty|Ilość używanej pamięci masowej. Magazyn używany przez usługę może obejmować pliki bazy danych, dzienniki transakcji i Dzienniki serwera.|
 
-Platforma Azure nie dostarcza żadnych metryk agregacji dla klastra jako całości, ale metryki dla wielu węzłów można umieścić na tym samym wykresie.
+Platforma Azure nie udostępnia zagregowanych metryk dla klastra jako całości, ale metryki dla wielu węzłów można umieścić na tym samym grafie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz, [jak skonfigurować alerty, aby](howto-hyperscale-alert-on-metric.md) uzyskać wskazówki dotyczące tworzenia alertu na metryki.
+- Zobacz [jak skonfigurować alerty](howto-hyperscale-alert-on-metric.md) , aby uzyskać wskazówki dotyczące tworzenia alertu dotyczącego metryki.

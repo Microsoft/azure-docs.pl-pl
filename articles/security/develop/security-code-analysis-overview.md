@@ -1,6 +1,6 @@
 ---
 title: Omówienie dokumentacji analizy kodu zabezpieczeń firmy Microsoft
-description: Ten artykuł zawiera omówienie rozszerzenia Analizy kodu zabezpieczeń firmy Microsoft
+description: Ten artykuł zawiera Omówienie rozszerzenia Microsoft Security code Analysis
 author: vharindra
 manager: sukhans
 ms.author: terrylan
@@ -13,105 +13,105 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 963bc909b69962cded0a50d717e3a653d3d69769
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74851472"
 ---
-# <a name="about-microsoft-security-code-analysis"></a>Analiza kodu zabezpieczeń firmy Microsoft — informacje
+# <a name="about-microsoft-security-code-analysis"></a>Informacje o analizie kodu zabezpieczeń firmy Microsoft
 
-Dzięki rozszerzeniu analizy kodu zabezpieczeń firmy Microsoft zespoły mogą dodawać analizę kodu zabezpieczeń do potoków ciągłej integracji i dostarczania usługi Azure DevOps (CI/CD). Ta analiza jest zalecana przez ekspertów z programu [Secure Development Lifecycle (SDL)](https://www.microsoft.com/securityengineering/sdl/practices) firmy Microsoft.
+Dzięki rozszerzeniu Microsoft Security code Analysis zespoły mogą dodać analizę kodu zabezpieczeń do potoków ciągłej integracji i dostarczania (CI/CD) usługi Azure DevOps. Ta analiza jest zalecana przez specjalistów [ds. bezpieczeństwa](https://www.microsoft.com/securityengineering/sdl/practices) w firmie Microsoft.
 
-Spójny środowisko użytkownika upraszcza zabezpieczenia, ukrywając złożoność uruchomionych narzędzi. Dzięki dostarczaniu narzędzi opartych na nugetze zespoły nie muszą już zarządzać instalacją lub aktualizacją narzędzi. Dzięki interfejsom wiersza polecenia i podstawowych interfejsów do tworzenia zadań wszyscy użytkownicy mogą mieć tyle kontroli nad narzędziami, ile chcą.
+Spójne środowisko użytkownika upraszcza zabezpieczenia, ukrywając złożoność uruchamiania narzędzi. W przypadku dostarczania narzędzi przez narzędzia NuGet zespoły nie muszą już zarządzać instalacją ani aktualizacją narzędzi. Przy użyciu zarówno wiersza polecenia, jak i podstawowych interfejsów dla zadań kompilacji, wszyscy użytkownicy mogą mieć dowolną kontrolę nad narzędziami.
 
-Zespoły mogą również korzystać z zaawansowanych funkcji postprzetworzenia, takich jak:
+Zespoły mogą również korzystać z zaawansowanych możliwości dostosujesz, takich jak:
 
 - Publikowanie dzienników do przechowywania.
-- Generowanie zasysanych raportów skoncentrowanych na deweloperach.
+- Generowanie raportów ukierunkowanych na dewelopera.
 - Konfigurowanie podziałów kompilacji na testach regresji.
 
-## <a name="why-should-i-use-microsoft-security-code-analysis"></a>Dlaczego warto korzystać z analizy kodu zabezpieczeń firmy Microsoft?
+## <a name="why-should-i-use-microsoft-security-code-analysis"></a>Dlaczego należy używać analizy kodu zabezpieczeń firmy Microsoft?
 
-### <a name="security-simplified"></a>Bezpieczeństwo uproszczone
+### <a name="security-simplified"></a>Uproszczone zabezpieczenia
 
-Dodawanie narzędzi analizy kodu zabezpieczeń firmy Microsoft do potoku devops platformy Azure jest tak proste, jak dodawanie nowych zadań. Dostosuj zadania lub użyj ich domyślnego zachowania. Zadania uruchamiane w ramach potoku azure DevOps i tworzenia dzienników, które szczegółowo wiele rodzajów wyników.
+Dodawanie narzędzi do analizy kodu zabezpieczeń firmy Microsoft do potoku usługi Azure DevOps jest tak proste jak dodanie nowych zadań. Dostosuj zadania lub użyj ich domyślnych zachowań. Zadania są uruchamiane jako część potoku usługi Azure DevOps i tworzą dzienniki zawierające szczegółowe informacje o różnych typach wyników.
 
 ### <a name="clean-builds"></a>Czyste kompilacje
 
-Po rozwiązaniu początkowych problemów zgłoszonych przez narzędzia, można skonfigurować rozszerzenie do podziału kompilacji na nowe problemy.Konfigurowanie ciągłej integracji opiera się na każdym żądaniu ściągnięcia jest łatwe.
+Po rozwiązaniu problemów początkowych raportowanych przez narzędzia można skonfigurować rozszerzenie, aby przerwać kompilacje w nowych problemach.Skonfigurowanie kompilacji ciągłej integracji dla każdego żądania ściągnięcia jest proste.
 
-### <a name="set-it-and-forget-it"></a>Ustaw go i zapomnij
+### <a name="set-it-and-forget-it"></a>Ustaw ją i zapomnij
 
-Domyślnie zadania kompilacji i narzędzia pozostają aktualne. Jeśli istnieje zaktualizowana wersja narzędzia, nie musisz go pobierać i instalować. Rozszerzenie zajmuje się aktualizacją dla Ciebie.
+Domyślnie zadania i narzędzia kompilacji są aktualne. Jeśli istnieje zaktualizowana wersja narzędzia, nie musisz go pobrać i zainstalować. Rozszerzenie zajmuje się aktualizacją.
 
 ### <a name="under-the-hood"></a>Kulisy
 
 Zadania kompilacji rozszerzenia ukrywają złożoność:
-  - Uruchamianie narzędzi analizy statycznej zabezpieczeń.
-  - Przetwarzanie wyników z plików dziennika, aby utworzyć raport podsumowania lub przerwać kompilację.
+  - Uruchamianie narzędzi do statycznej analizy zabezpieczeń.
+  - Przetwarzanie wyników z plików dziennika w celu utworzenia raportu podsumowującego lub przerwania kompilacji.
 
-## <a name="microsoft-security-code-analysis-tool-set"></a>Zestaw narzędzi analizy kodu zabezpieczeń firmy Microsoft
+## <a name="microsoft-security-code-analysis-tool-set"></a>Zestaw narzędzi do analizy kodu zabezpieczeń firmy Microsoft
 
-Rozszerzenie Analizy kodu zabezpieczeń firmy Microsoft umożliwia łatwe udostępnianie najnowszych wersji ważnych narzędzi analitycznych. Rozszerzenie obejmuje zarówno narzędzia zarządzane przez firmę Microsoft, jak i narzędzia typu open source.
+Rozszerzenie Microsoft Security code Analysis zapewnia, że najnowsze wersje ważnych narzędzi analitycznych są łatwo dostępne dla Ciebie. Rozszerzenie obejmuje zarówno narzędzia zarządzane przez firmę Microsoft, jak i narzędzia Open Source.
 
-Narzędzia te są automatycznie pobierane do agenta hostowanego w chmurze po użyciu odpowiedniego zadania kompilacji do skonfigurowania i uruchomienia potoku.
+Te narzędzia są automatycznie pobierane do agenta hostowanego w chmurze po użyciu odpowiedniego zadania kompilacji do skonfigurowania i uruchomienia potoku.
 
-W tej sekcji wymieniono zestaw narzędzi, które są obecnie dostępne w rozszerzeniu. Uważaj na dodanie więcej narzędzi. Ponadto wyślij nam swoje sugestie dotyczące narzędzi, które chcesz nam dodać.
+Ta sekcja zawiera zestaw narzędzi, które są obecnie dostępne w rozszerzeniu. Zobacz, aby dowiedzieć się więcej o większej liczbie narzędzi. Wyślij nam swoje sugestie dotyczące narzędzi, które chcesz dodać.
 
 ### <a name="anti-malware-scanner"></a>Skaner chroniący przed złośliwym oprogramowaniem
 
-Zadanie kompilacji skanera przed złośliwym oprogramowaniem jest teraz zawarte w rozszerzeniu Analizy kodu zabezpieczeń firmy Microsoft. To zadanie musi być uruchomione na agencie kompilacji, który ma już zainstalowany program Windows Defender. Aby uzyskać więcej informacji, zobacz witrynę windows defender w [witrynie sieci Web](https://aka.ms/defender).
+Zadanie kompilacji skanera chroniącego przed złośliwym oprogramowaniem jest teraz dołączone do rozszerzenia Microsoft Security code Analysis. To zadanie musi być uruchomione na agencie kompilacji, na którym zainstalowano już usługę Windows Defender. Aby uzyskać więcej informacji, zobacz [witrynę sieci Web usługi Windows Defender](https://aka.ms/defender).
 
-### <a name="binskim"></a>BinSkim (Binskim)
+### <a name="binskim"></a>BinSkim
 
-BinSkim to lekki skaner przenośny plik wykonywalny (PE), który sprawdza poprawność ustawień kompilatora, ustawień konsolidatora i innych właściwości plików binarnych istotnych dla zabezpieczeń. To zadanie kompilacji udostępnia otokę wiersza polecenia wokół aplikacji konsoli binskim.exe. BinSkim jest narzędziem typu open source. Aby uzyskać więcej informacji, zobacz [BinSkim na GitHub](https://github.com/Microsoft/binskim).
+BinSkim jest przenośnym skanerem plików wykonywalnych (PE), który weryfikuje ustawienia kompilatora, ustawienia konsolidatora i inne cechy charakterystyczne dla bezpieczeństwa plików binarnych. To zadanie kompilacji udostępnia otokę wiersza polecenia wokół aplikacji konsolowej binskim. exe. BinSkim to narzędzie Open Source. Aby uzyskać więcej informacji, zobacz [BinSkim w witrynie GitHub](https://github.com/Microsoft/binskim).
 
 ### <a name="credential-scanner"></a>Skaner poświadczeń
 
-Hasła i inne wpisy tajne przechowywane w kodzie źródłowym są poważnym problemem. Skaner poświadczeń jest zastrzeżonym narzędziem do analizy statycznej, które pomaga rozwiązać ten problem. Narzędzie wykrywa poświadczenia, wpisy tajne, certyfikaty i inną zawartość wrażliwą w kodzie źródłowym i danych wyjściowych kompilacji.
+Hasła i inne wpisy tajne przechowywane w kodzie źródłowym są istotnym problemem. Skaner poświadczeń jest zastrzeżonym narzędziem do analizy statycznej, które pomaga w rozwiązaniu tego problemu. Narzędzie wykrywa poświadczenia, wpisy tajne, certyfikaty i inną poufną zawartość w kodzie źródłowym i w danych wyjściowych kompilacji.
 
-### <a name="microsoft-security-risk-detection"></a>Wykrywanie zagrożeń bezpieczeństwa firmy Microsoft
+### <a name="microsoft-security-risk-detection"></a>Wykrywanie zagrożeń zabezpieczeń firmy Microsoft
 
-Microsoft Security Risk Detection (MSRD) to usługa oparta na chmurze do testowania rozmytego. Identyfikuje możliwe do wykorzystania błędy bezpieczeństwa w oprogramowaniu. Ta usługa wymaga osobnej subskrypcji i aktywacji. Aby uzyskać więcej informacji, zobacz [Centrum deweloperów MSRD](https://docs.microsoft.com/security-risk-detection/).
+Wykrywanie zagrożeń zabezpieczeń firmy Microsoft (MSRD) to usługa oparta na chmurze służąca do testowania rozmytego. Identyfikuje ona luki w zabezpieczeniach w oprogramowaniu. Ta usługa wymaga oddzielnej subskrypcji i aktywacji. Aby uzyskać więcej informacji, zobacz [Centrum deweloperów MSRD](https://docs.microsoft.com/security-risk-detection/).
 
 ### <a name="roslyn-analyzers"></a>Analizatory Roslyn
 
-Roslyn Analyzers to zintegrowane z kompilatorem narzędzie firmy Microsoft do statycznej analizy zarządzanego kodu C# i Visual Basic. Aby uzyskać więcej informacji, zobacz [analizatory oparte na roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/).
+Analizatory Roslyn to narzędzie zintegrowane z kompilatorem firmy Microsoft służące do statycznej analizy kodu zarządzanego C# i Visual Basic. Aby uzyskać więcej informacji, zobacz [analizatory oparte na Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/).
 
-### <a name="tslint"></a>TSLint (własn.
+### <a name="tslint"></a>TSLint
 
-TSLint to rozszerzalne narzędzie do analizy statycznej, które sprawdza kod TypeScript pod kątem czytelności, łatwości konserwacji i błędów w funkcjonalności. Jest szeroko wspierany przez nowoczesnych redaktorów i systemy kompilacji. Można go dostosować za pomocą własnych reguł, konfiguracji i formaterów. TSLint jest narzędziem typu open source. Aby uzyskać więcej informacji, zobacz [TSLint na GitHub](https://github.com/palantir/tslint).
+TSLint to rozszerzalne narzędzie do analizy statycznej, które sprawdza kod języka TypeScript pod kątem czytelności, łatwość utrzymania i błędów w funkcji. Jest ona szeroko obsługiwana przez nowoczesne edytory i systemy kompilacji. Można dostosować ją przy użyciu własnych reguł lint, konfiguracji i programu formatującego. TSLint to narzędzie Open Source. Aby uzyskać więcej informacji, zobacz [TSLint w witrynie GitHub](https://github.com/palantir/tslint).
 
 ## <a name="analysis-and-post-processing-of-results"></a>Analiza i przetwarzanie końcowe wyników
 
-Rozszerzenie Analizy kodu zabezpieczeń firmy Microsoft ma również trzy zadania postprocessing. Te zadania ułatwiają analizowanie wyników znalezionych przez zadania narzędzia zabezpieczeń. Po dodaniu do potoku te zadania zwykle są zgodne ze wszystkimi innymi zadaniami narzędzia.
+Rozszerzenie Microsoft Security code Analysis Extension zawiera również trzy dostosujesz zadania. Te zadania pomagają analizować wyniki znalezione przez zadania narzędzi zabezpieczeń. Po dodaniu do potoku te zadania zwykle wykonują wszystkie pozostałe zadania narzędzia.
 
 ### <a name="publish-security-analysis-logs"></a>Publikowanie dzienników analizy zabezpieczeń
 
-Zadanie kompilacji Dzienniki analizy zabezpieczeń publikowania zachowuje pliki dziennika narzędzi zabezpieczeń, które są uruchamiane podczas kompilacji. Możesz przeczytać te dzienniki do badania i obserwacji.
+Zadanie kompilacji dzienniki analizy zabezpieczeń zachowuje pliki dziennika narzędzi zabezpieczeń, które są uruchamiane podczas kompilacji. Te dzienniki można odczytać w celu zbadania i kontynuacji.
 
-Można opublikować pliki dziennika do artefaktów platformy Azure jako plik zip. Można również skopiować je do dostępnego udziału plików z prywatnego agenta kompilacji.
+Pliki dziennika można opublikować do Azure Artifacts jako plik. zip. Możesz również skopiować je do dostępnego udziału plików z prywatnego agenta kompilacji.
 
-### <a name="security-report"></a>Raport zabezpieczeń
+### <a name="security-report"></a>Raport o zabezpieczeniach
 
-Zadanie kompilacji raportu zabezpieczeń analizuje pliki dziennika. Pliki te są tworzone przez narzędzia zabezpieczeń, które są uruchamiane podczas kompilacji. Zadanie kompilacji następnie tworzy pojedynczy plik raportu podsumowania. Ten plik zawiera wszystkie problemy znalezione przez narzędzia analityczne.
+Zadanie kompilacji raportu zabezpieczeń analizuje pliki dziennika. Te pliki są tworzone przez narzędzia zabezpieczeń, które są uruchamiane podczas kompilacji. Następnie zadanie kompilacji tworzy pojedynczy plik raportu podsumowującego. Ten plik przedstawia wszystkie problemy znalezione przez narzędzia do analizy.
 
-To zadanie można skonfigurować tak, aby raportować wyniki dla określonych narzędzi lub dla wszystkich narzędzi. Można również wybrać poziom problemu do raportu, takich jak tylko błędy lub zarówno błędy i ostrzeżenia.
+To zadanie można skonfigurować w celu raportowania wyników dla określonych narzędzi lub dla wszystkich narzędzi. Możesz również wybrać poziom problemu, który ma być raportowany, na przykład tylko błędy lub błędy i ostrzeżenia.
 
-### <a name="post-analysis-build-break"></a>Po analizie (podział kompilacji)
+### <a name="post-analysis-build-break"></a>Po analizie (przerwanie kompilacji)
 
-Za pomocą zadania kompilacji po analizie można wstrzyknąć podział kompilacji, który celowo powoduje niepowodzenie kompilacji. Wstrzyknąć przerwę kompilacji, jeśli jeden lub więcej narzędzi analitycznych zgłosić problemy w kodzie.
+Za pomocą zadania kompilacji po analizie można wstrzyknąć przerwanie kompilacji, co spowoduje niepowodzenie kompilacji. Wprowadzasz przerwanie kompilacji, jeśli co najmniej jeden z narzędzi analitycznych zgłosi problemy w kodzie.
 
-Można skonfigurować to zadanie, aby przerwać kompilację w przypadku problemów znalezionych przez określone narzędzia lub wszystkie narzędzia. Można również skonfigurować go na podstawie ważności znalezionych problemów, takich jak błędy lub ostrzeżenia.
+Można skonfigurować to zadanie, aby przerwać kompilację pod kątem problemów znalezionych przez określone narzędzia lub wszystkie narzędzia. Można ją również skonfigurować na podstawie ważności znalezionych problemów, takich jak błędy lub ostrzeżenia.
 
 >[!NOTE]
->Zgodnie z projektem każde zadanie kompilacji powiedzie się, jeśli zadanie zakończy się pomyślnie. Jest to prawdą, czy narzędzie znajdzie problemy, dzięki czemu kompilacja można uruchomić do zakończenia, umożliwiając wszystkie narzędzia do uruchomienia.
+>Zgodnie z projektem każde zadanie kompilacji powiedzie się, jeśli zadanie zakończy się pomyślnie. Jest to prawdą niezależnie od tego, czy narzędzie wykryje problemy, dzięki czemu kompilacja może zostać uruchomiona, umożliwiając wykonanie wszystkich narzędzi.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Instrukcje dotyczące dołączania i instalowania kodu zabezpieczeń firmy Microsoft można znaleźć w naszym [podręczniku dołączania i instalacji.](security-code-analysis-onboard.md)
+Aby uzyskać instrukcje na temat sposobu dołączania i instalowania analizy kodu zabezpieczeń firmy Microsoft, zapoznaj się z naszym przewodnikiem dotyczącym dołączania [i instalacji](security-code-analysis-onboard.md).
 
-Aby uzyskać więcej informacji na temat konfigurowania zadań [kompilacji,](security-code-analysis-customize.md) zobacz nasz przewodnik konfiguracji lub [przewodnik konfiguracji YAML](yaml-configuration.md).
+Aby uzyskać więcej informacji na temat konfigurowania zadań kompilacji, zobacz nasze [Przewodnik po konfiguracji](security-code-analysis-customize.md) lub [Przewodnik po konfiguracji YAML](yaml-configuration.md).
 
-Jeśli masz dalsze pytania dotyczące rozszerzenia i oferowanych narzędzi, sprawdź naszą [stronę FAQ.](security-code-analysis-faq.md)
+Jeśli masz więcej pytań na temat rozszerzenia i oferowanych narzędzi, zapoznaj się z naszą [stroną często zadawanych pytań](security-code-analysis-faq.md).

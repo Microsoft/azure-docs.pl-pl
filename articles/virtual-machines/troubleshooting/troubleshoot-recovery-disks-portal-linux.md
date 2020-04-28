@@ -1,6 +1,6 @@
 ---
-title: Używanie maszyny wirtualnej z systemem Linux do rozwiązywania problemów w witrynie Azure portal | Dokumenty firmy Microsoft
-description: Dowiedz się, jak rozwiązywać problemy z maszyną wirtualną systemu Linux, łącząc dysk systemu operacyjnego z maszyną wirtualną odzyskiwania przy użyciu witryny Azure portal
+title: Użyj maszyny wirtualnej rozwiązywania problemów z systemem Linux w Azure Portal | Microsoft Docs
+description: Dowiedz się, jak rozwiązywać problemy z maszyną wirtualną z systemem Linux, łącząc dysk systemu operacyjnego z MASZYNą wirtualną odzyskiwania przy użyciu Azure Portal
 services: virtual-machines-linux
 documentationCenter: ''
 author: genlin
@@ -13,54 +13,54 @@ ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
 ms.openlocfilehash: e45de5c12f0d93645a0b1253acf8300527cafdbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75374645"
 ---
-# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Linux, dołączając dysk systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu witryny Azure portal
-Jeśli maszyna wirtualna systemu Linux (VM) napotka błąd rozruchu lub dysku, może być konieczne wykonanie kroków rozwiązywania problemów na samym wirtualnym dysku twardym. Typowym przykładem może być `/etc/fstab` nieprawidłowy wpis, który uniemożliwia maszynie wirtualnej pomyślne uruchomienie. W tym artykule opisano, jak używać witryny Azure Portal do łączenia wirtualnego dysku twardego z inną maszyną wirtualną z systemem Linux w celu naprawienia błędów, a następnie ponownego utworzenia oryginalnej maszyny Wirtualnej.
+# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Rozwiązywanie problemów z maszyną wirtualną z systemem Linux przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure Portal
+Jeśli maszyna wirtualna z systemem Linux napotyka błąd rozruchu lub dysku, może być konieczne wykonanie kroków rozwiązywania problemów na wirtualnym dysku twardym. Typowym przykładem może być nieprawidłowy wpis w `/etc/fstab` programie, który uniemożliwia pomyślne uruchomienie maszyny wirtualnej. W tym artykule szczegółowo opisano sposób używania Azure Portal do łączenia wirtualnego dysku twardego z inną maszyną wirtualną z systemem Linux w celu usunięcia błędów, a następnie ponownego utworzenia oryginalnej maszyny wirtualnej.
 
 ## <a name="recovery-process-overview"></a>Omówienie procesu odzyskiwania
 Proces rozwiązywania problemów jest następujący:
 
-1. Zatrzymaj maszynę wirtualną, na które dotyczy problem.
-1. Zrób migawkę dla dysku systemu operacyjnego maszyny Wirtualnej.
-1. Utwórz wirtualny dysk twardy z migawki.
-1. Podłącz i zamontuj wirtualny dysk twardy na innej maszynie wirtualnej systemu Windows w celu rozwiązywania problemów.
-1. Nawiąż połączenie z maszyną wirtualną rozwiązywania problemów. Edytuj pliki lub uruchom dowolne narzędzia, aby rozwiązać problemy na oryginalnym wirtualnym dysku twardym.
+1. Zatrzymaj zaatakowaną maszynę wirtualną.
+1. Utwórz migawkę dysku systemu operacyjnego maszyny wirtualnej.
+1. Utwórz wirtualny dysk twardy na podstawie migawki.
+1. Dołącz i Zainstaluj wirtualny dysk twardy na innej maszynie wirtualnej z systemem Windows w celu rozwiązywania problemów.
+1. Nawiąż połączenie z maszyną wirtualną rozwiązywania problemów. Edytuj pliki lub Uruchom dowolne narzędzia, aby rozwiązać problemy dotyczące oryginalnego wirtualnego dysku twardego.
 1. Odłącz wirtualny dysk twardy od maszyny wirtualnej rozwiązywania problemów.
-1. Zamień dysk systemu operacyjnego na maszynę wirtualną.
+1. Zamień dysk systemu operacyjnego dla maszyny wirtualnej.
 
 > [!NOTE]
-> Ten artykuł nie dotyczy maszyny Wirtualnej z dyskiem niezarządzanym.
+> Ten artykuł nie ma zastosowania do maszyny wirtualnej z dyskiem niezarządzanym.
 
 ## <a name="determine-boot-issues"></a>Określanie problemów z rozruchem
-Sprawdź diagnostyki rozruchu i zrzut ekranu maszyny Wirtualnej, aby ustalić, dlaczego maszyna wirtualna nie jest w stanie uruchomić poprawnie. Typowym przykładem może być `/etc/fstab`nieprawidłowy wpis w programie lub podstawowy wirtualny dysk twardy, który zostanie usunięty lub przeniesiony.
+Sprawdź zrzut ekranu diagnostyki rozruchu i maszyny wirtualnej, aby określić, dlaczego nie można prawidłowo uruchomić maszyny wirtualnej. Typowym przykładem może być nieprawidłowy wpis w `/etc/fstab`programie lub dysk twardy, który jest usuwany lub przenoszony.
 
-Wybierz maszynę wirtualną w portalu, a następnie przewiń w dół do sekcji **Pomoc techniczna + Rozwiązywanie problemów.** Kliknij **pozycję Diagnostyka rozruchu,** aby wyświetlić komunikaty konsoli przesyłane strumieniowo z maszyny Wirtualnej. Przejrzyj dzienniki konsoli, aby sprawdzić, czy można ustalić, dlaczego maszyna wirtualna napotyka problem. W poniższym przykładzie przedstawiono maszynę wirtualną zablokowaną w trybie konserwacji, która wymaga ręcznej interakcji:
+Wybierz maszynę wirtualną w portalu, a następnie przewiń w dół do sekcji **Pomoc techniczna i rozwiązywanie problemów** . Kliknij pozycję **Diagnostyka rozruchu** , aby wyświetlić komunikaty konsoli przesyłane strumieniowo z maszyny wirtualnej. Przejrzyj dzienniki konsoli, aby sprawdzić, czy można ustalić przyczynę wystąpienia problemu z maszyną wirtualną. W poniższym przykładzie pokazano zablokowaną maszynę wirtualną w trybie konserwacji, która wymaga interakcji ręcznej:
 
-![Wyświetlanie dzienników konsoli diagnostyki rozruchu maszyny Wirtualnej](./media/troubleshoot-recovery-disks-portal-linux/boot-diagnostics-error.png)
+![Wyświetlanie dzienników konsoli diagnostyki rozruchu maszyny wirtualnej](./media/troubleshoot-recovery-disks-portal-linux/boot-diagnostics-error.png)
 
-Można również kliknąć **zrzut ekranu** w górnej części dziennika diagnostyki rozruchu, aby pobrać przechwytywanie zrzutu ekranu maszyny Wirtualnej.
+Możesz również kliknąć **zrzut ekranu** w górnej części dziennika diagnostyki rozruchu, aby pobrać przechwytywanie zrzutu ekranu maszyny wirtualnej.
 
-## <a name="take-a-snapshot-of-the-os-disk"></a>Tworzenie migawki dysku systemu operacyjnego
-Migawka to pełna kopia wirtualnego dysku twardego (VHD) tylko do odczytu. Zaleca się, aby czysto zamknąć maszynę wirtualną przed wykonaniem migawki, aby wyczyścić wszystkie procesy, które są w toku. Aby wykonać migawkę dysku systemu operacyjnego, wykonaj następujące kroki:
+## <a name="take-a-snapshot-of-the-os-disk"></a>Utwórz migawkę dysku systemu operacyjnego
+Migawka to pełna kopia tylko do odczytu wirtualnego dysku twardego (VHD). Zalecamy wyczyszczenie maszyny wirtualnej przed wykonaniem migawki, aby wyczyścić wszystkie procesy, które są w toku. Aby wykonać migawkę dysku systemu operacyjnego, wykonaj następujące kroki:
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com). Wybierz **maszyny wirtualne** z paska bocznego, a następnie wybierz maszynę wirtualną, która ma problem.
-1. W lewym okienku wybierz pozycję **Dyski**, a następnie wybierz nazwę dysku systemu operacyjnego.
-    ![Obraz dotyczący nazwy dysku systemu operacyjnego](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
-1. Na stronie **Przegląd** dysku systemu operacyjnego wybierz pozycję **Utwórz migawkę**.
-1. Utwórz migawkę w tym samym miejscu co dysk systemu operacyjnego.
+1. Przejdź do [Azure Portal](https://portal.azure.com). Wybierz pozycję **maszyny wirtualne** z paska bocznego, a następnie wybierz maszynę wirtualną, która ma problem.
+1. W okienku po lewej stronie wybierz pozycję **dyski**, a następnie wybierz nazwę dysku systemu operacyjnego.
+    ![Obraz przedstawiający nazwę dysku systemu operacyjnego](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
+1. Na stronie **Przegląd** dysku systemu operacyjnego, a następnie wybierz pozycję **Utwórz migawkę**.
+1. Utwórz migawkę w tej samej lokalizacji, w której znajduje się dysk systemu operacyjnego.
 
-## <a name="create-a-disk-from-the-snapshot"></a>Tworzenie dysku na podstawie migawki
-Aby utworzyć dysk z migawki, wykonaj następujące kroki:
+## <a name="create-a-disk-from-the-snapshot"></a>Utwórz dysk na podstawie migawki
+Aby utworzyć dysk na podstawie migawki, wykonaj następujące kroki:
 
-1. Wybierz **powłokę chmury** z witryny Azure portal.
+1. Wybierz **Cloud Shell** z Azure Portal.
 
-    ![Obraz o otwartej powłoce chmury](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
-1. Uruchom następujące polecenia programu PowerShell, aby utworzyć dysk zarządzany z migawki. Należy zastąpić te przykładowe nazwy odpowiednimi nazwami.
+    ![Obraz informacji o otwartych Cloud Shell](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
+1. Uruchom następujące polecenia programu PowerShell, aby utworzyć dysk zarządzany na podstawie migawki. Te przykładowe nazwy należy zastąpić odpowiednimi nazwami.
 
     ```powershell
     #Provide the name of your resource group
@@ -90,24 +90,24 @@ Aby utworzyć dysk z migawki, wykonaj następujące kroki:
      
     New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
     ```
-3. Jeśli polecenia zostaną uruchomione pomyślnie, nowy dysk zostanie wyświetlony w podanej grupie zasobów.
+3. Jeśli polecenia zostaną wykonane pomyślnie, zobaczysz nowy dysk w podanej grupie zasobów.
 
-## <a name="attach-disk-to-another-vm"></a>Dołączanie dysku do innej maszyny Wirtualnej
-W kolejnych kilku krokach należy użyć innej maszyny Wirtualnej do rozwiązywania problemów. Po dołączeniu dysku do maszyny wirtualnej do rozwiązywania problemów można przeglądać i edytować zawartość dysku. Ten proces umożliwia skorygowanie błędów konfiguracji lub przejrzenie dodatkowych plików dziennika aplikacji lub systemu. Aby dołączyć dysk do innej maszyny Wirtualnej, wykonaj następujące kroki:
+## <a name="attach-disk-to-another-vm"></a>Dołącz dysk do innej maszyny wirtualnej
+W następnych kilku krokach do rozwiązywania problemów służy inna maszyna wirtualna. Po dołączeniu dysku do maszyny wirtualnej rozwiązywania problemów można przeglądać i edytować zawartość tego dysku. Ten proces umożliwia poprawienie wszystkich błędów konfiguracji lub przejrzenie dodatkowych plików dziennika aplikacji lub systemu. Aby dołączyć dysk do innej maszyny wirtualnej, wykonaj następujące kroki:
 
-1. Wybierz grupę zasobów z portalu, a następnie wybierz maszynę wirtualną do rozwiązywania problemów. Wybierz pozycję **Dyski**, wybierz pozycję **Edytuj**, a następnie kliknij pozycję **Dodaj dysk danych:**
+1. Wybierz grupę zasobów z portalu, a następnie wybierz maszynę wirtualną rozwiązywania problemów. Wybierz pozycję **dyski**, wybierz pozycję **Edytuj**, a następnie kliknij pozycję **Dodaj dysk danych**:
 
-    ![Dołączanie istniejącego dysku w portalu](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
+    ![Dołącz istniejący dysk w portalu](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. Na liście **Dyski danych** wybierz dysk systemu operacyjnego zidentyfikowanej maszyny wirtualnej. Jeśli dysk systemu operacyjnego nie jest widoczny, upewnij się, że rozwiązywanie problemów z maszyną wirtualną i dyskiem systemu operacyjnego znajduje się w tym samym regionie (lokalizacji). 
-3. Wybierz **pozycję Zapisz,** aby zastosować zmiany.
+2. Z listy **dyski danych** wybierz dysk systemu operacyjnego zidentyfikowanej maszyny wirtualnej. Jeśli nie widzisz dysku systemu operacyjnego, upewnij się, że Rozwiązywanie problemów z maszyną wirtualną i dyskiem systemu operacyjnego znajduje się w tym samym regionie (lokalizacja). 
+3. Wybierz pozycję **Zapisz** , aby zastosować zmiany.
 
-## <a name="mount-the-attached-data-disk"></a>Zamontowanie dołączonego dysku danych
+## <a name="mount-the-attached-data-disk"></a>Instalowanie dołączonego dysku z danymi
 
 > [!NOTE]
-> Poniższe przykłady szczegółowo kroki wymagane na maszynie wirtualnej Ubuntu. Jeśli używasz innej dystrybucji Linuksa, takiej jak Red Hat Enterprise Linux `mount` lub SUSE, lokalizacje i polecenia plików dziennika mogą być nieco inne. Odpowiednie zmiany w poleceniach można znaleźć w dokumentacji określonej dystrybucji.
+> W poniższych przykładach szczegółowo opisano kroki wymagane na maszynie wirtualnej Ubuntu. Jeśli używasz innego dystrybucji systemu Linux, takiego jak Red Hat Enterprise Linux lub SUSE, lokalizacje i `mount` polecenia w pliku dziennika mogą być nieco inne. Zapoznaj się z dokumentacją dotyczącą określonych dystrybucji, aby uzyskać odpowiednie zmiany w poleceniach.
 
-1. SSH do maszyny Wirtualnej rozwiązywania problemów przy użyciu odpowiednich poświadczeń. Jeśli ten dysk jest pierwszym dyskiem danych dołączonym do maszyny `/dev/sdc`wirtualnej do rozwiązywania problemów, prawdopodobnie jest połączony z programem . Służy `dmseg` do listy dołączonych dysków:
+1. Użyj odpowiednich poświadczeń protokołu SSH do rozwiązywania problemów z maszyną wirtualną. Jeśli ten dysk jest pierwszym dyskiem danych dołączonym do maszyny wirtualnej rozwiązywania problemów, prawdopodobnie jest `/dev/sdc`on połączony z. Użyj `dmseg` , aby wyświetlić listę dołączonych dysków:
 
     ```bash
     dmesg | grep SCSI
@@ -122,60 +122,60 @@ W kolejnych kilku krokach należy użyć innej maszyny Wirtualnej do rozwiązywa
     [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
     ```
 
-    W poprzednim przykładzie dysk systemu operacyjnego znajduje się na `/dev/sda` dysku tymczasowym dla każdej maszyny Wirtualnej jest na poziomie `/dev/sdb`. Jeśli masz wiele dysków z danymi, powinny one być na `/dev/sdd`, `/dev/sde`i tak dalej.
+    W poprzednim przykładzie dysk systemu operacyjnego jest na `/dev/sda` dysku, a dysk tymczasowy podany dla każdej maszyny wirtualnej ma wartość `/dev/sdb`. Jeśli masz wiele dysków danych, powinny one znajdować się `/dev/sdd`w `/dev/sde`, i tak dalej.
 
-2. Utwórz katalog, aby zainstalować istniejący wirtualny dysk twardy. Poniższy przykład tworzy katalog `troubleshootingdisk`o nazwie:
+2. Utwórz katalog, aby zainstalować istniejący wirtualny dysk twardy. Poniższy przykład tworzy katalog o nazwie `troubleshootingdisk`:
 
     ```bash
     sudo mkdir /mnt/troubleshootingdisk
     ```
 
-3. Jeśli masz wiele partycji na istniejącym wirtualnym dysku twardym, zainstaluj wymaganą partycję. W poniższym przykładzie montuje `/dev/sdc1`się pierwszą partycję podstawową w:
+3. Jeśli masz wiele partycji na istniejącym wirtualnym dysku twardym, zainstaluj wymaganą partycję. W poniższym przykładzie jest instalowana Pierwsza partycja podstawowa w `/dev/sdc1`:
 
     ```bash
     sudo mount /dev/sdc1 /mnt/troubleshootingdisk
     ```
 
     > [!NOTE]
-    > Najlepszym rozwiązaniem jest instalowanie dysków danych na maszynach wirtualnych na platformie Azure przy użyciu uniwersalnego unikatowego identyfikatora (UUID) wirtualnego dysku twardego. W tym krótkim scenariuszu rozwiązywania problemów montaż wirtualnego dysku twardego przy użyciu UUID nie jest konieczne. Jednak w normalnym użyciu `/etc/fstab` edycja do zainstalowania wirtualnych dysków twardych przy użyciu nazwy urządzenia, a nie UUID może spowodować, że maszyna wirtualna nie może uruchomić.
+    > Najlepszym rozwiązaniem jest zainstalowanie dysków z danymi na maszynach wirtualnych na platformie Azure przy użyciu uniwersalnego identyfikatora UUID dla wirtualnego dysku twardego. W przypadku tego krótkiego scenariusza rozwiązywania problemów zainstalowanie wirtualnego dysku twardego przy użyciu identyfikatora UUID nie jest konieczne. Jednak w normalnych warunkach Edycja `/etc/fstab` w celu zainstalowania wirtualnych dysków twardych przy użyciu nazwy urządzenia zamiast identyfikatora UUID może spowodować niepowodzenie rozruchu maszyny wirtualnej.
 
 
-## <a name="fix-issues-on-original-virtual-hard-disk"></a>Rozwiązywanie problemów z oryginalnym wirtualnym dyskiem twardym
-Po zamontowaniu istniejącego wirtualnego dysku twardego można teraz wykonać wszelkie czynności konserwacyjne i rozwiązywanie problemów zgodnie z potrzebami. Po usunięciu problemów wykonaj następujące kroki.
+## <a name="fix-issues-on-original-virtual-hard-disk"></a>Rozwiązywanie problemów dotyczących oryginalnego wirtualnego dysku twardego
+Po zainstalowaniu istniejącego wirtualnego dysku twardego można wykonać wszelkie czynności konserwacyjne i rozwiązywania problemów zgodnie z wymaganiami. Po usunięciu problemów wykonaj następujące kroki.
 
-## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Odmontuj i odłącz oryginalny wirtualny dysk twardy
-Po usunięciu błędów odłącz istniejący wirtualny dysk twardy od maszyny wirtualnej do rozwiązywania problemów. Nie można używać wirtualnego dysku twardego z żadną inną maszyną wirtualną, dopóki nie zostanie zwolniona dzierżawa dołączająca wirtualny dysk twardy do maszyny wirtualnej do rozwiązywania problemów.
+## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Odinstalowywanie i odłączanie oryginalnego wirtualnego dysku twardego
+Po rozwiązaniu błędów Odłącz istniejący wirtualny dysk twardy z maszyny wirtualnej rozwiązywania problemów. Nie można użyć wirtualnego dysku twardego z żadną inną maszyną wirtualną, dopóki dzierżawa nie dołączy wirtualnego dysku twardego do maszyny wirtualnej rozwiązywania problemów.
 
-1. Od sesji SSH do rozwiązywania problemów z maszyną wirtualną odinstaluj istniejący wirtualny dysk twardy. Najpierw zmień katalog nadrzędny dla punktu instalacji:
+1. Odinstaluj istniejący wirtualny dysk twardy z sesji SSH do rozwiązywania problemów z maszyną wirtualną. Najpierw Zmień katalog nadrzędny dla punktu instalacji:
 
     ```bash
     cd /
     ```
 
-    Teraz odinstaluj istniejący wirtualny dysk twardy. Poniższy przykład odinstalowuje `/dev/sdc1`urządzenie w:
+    Odinstaluj już istniejący wirtualny dysk twardy. Poniższy przykład Odinstalowuje urządzenie w `/dev/sdc1`:
 
     ```bash
     sudo umount /dev/sdc1
     ```
 
-2. Teraz odłącz wirtualny dysk twardy od maszyny Wirtualnej. Wybierz maszynę wirtualną w portalu i kliknij pozycję **Dyski**. Wybierz istniejący wirtualny dysk twardy, a następnie kliknij przycisk **Odłącz**:
+2. Teraz Odłącz wirtualny dysk twardy od maszyny wirtualnej. Wybierz maszynę wirtualną w portalu, a następnie kliknij pozycję **dyski**. Wybierz istniejący wirtualny dysk twardy, a następnie kliknij przycisk **Odłącz**:
 
-    ![Odłącz istniejące wirtualne dyski twarde](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
+    ![Odłącz istniejący wirtualny dysk twardy](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
     Poczekaj, aż maszyna wirtualna pomyślnie odłączy dysk danych przed kontynuowaniem.
 
-## <a name="swap-the-os-disk-for-the-vm"></a>Zamiana dysku systemu operacyjnego na maszynę wirtualną
+## <a name="swap-the-os-disk-for-the-vm"></a>Wymiana dysku systemu operacyjnego dla maszyny wirtualnej
 
-Usługa Azure portal obsługuje teraz zmianę dysku systemu operacyjnego maszyny Wirtualnej. W tym celu wykonaj następujące kroki:
+Azure Portal teraz obsługuje zmianę dysku systemu operacyjnego maszyny wirtualnej. W tym celu wykonaj następujące czynności:
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com). Wybierz **maszyny wirtualne** z paska bocznego, a następnie wybierz maszynę wirtualną, która ma problem.
-1. W lewym okienku wybierz pozycję **Dyski**, a następnie wybierz pozycję **Zamień dysk systemu operacyjnego**.
-        ![Obraz dotyczący dysku swap os w witrynie Azure portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
+1. Przejdź do [Azure Portal](https://portal.azure.com). Wybierz pozycję **maszyny wirtualne** z paska bocznego, a następnie wybierz maszynę wirtualną, która ma problem.
+1. W okienku po lewej stronie wybierz pozycję **dyski**, a następnie wybierz pozycję **Zamień dysk systemu operacyjnego**.
+        ![Obraz dotyczący wymiany dysku systemu operacyjnego w Azure Portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
-1. Wybierz nowy naprawiony dysk, a następnie wpisz nazwę maszyny Wirtualnej, aby potwierdzić zmianę. Jeśli dysk nie jest widoczny na liście, odczekaj 10 ~ 15 minut po odłączeniu dysku od maszyny Wirtualnej do rozwiązywania problemów. Upewnij się również, że dysk znajduje się w tym samym miejscu co maszyna wirtualna.
+1. Wybierz nowy dysk, który został naprawiony, a następnie wpisz nazwę maszyny wirtualnej, aby potwierdzić zmianę. Jeśli dysk nie jest wyświetlany na liście, odczekaj 10% minut po odłączeniu dysku od maszyny wirtualnej rozwiązywania problemów. Upewnij się również, że dysk znajduje się w tej samej lokalizacji co maszyna wirtualna.
 1. Wybierz przycisk OK.
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli masz problemy z połączeniem się z maszyną [wirtualną, zobacz Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną platformy Azure.](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Aby uzyskać problemy z uzyskiwaniem dostępu do aplikacji uruchomionych na maszynie wirtualnej, zobacz [Rozwiązywanie problemów z łącznością aplikacji na maszynie Wirtualnej z systemem Linux](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Jeśli masz problemy z nawiązywaniem połączenia z maszyną wirtualną, zobacz [Rozwiązywanie problemów z połączeniami SSH z maszyną wirtualną platformy Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Problemy z uzyskiwaniem dostępu do aplikacji uruchomionych na maszynie wirtualnej można znaleźć [w temacie Rozwiązywanie problemów z łącznością aplikacji na maszynie wirtualnej z systemem Linux](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Aby uzyskać więcej informacji na temat korzystania z Menedżera zasobów, zobacz [Omówienie usługi Azure Resource Manager](../../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Aby uzyskać więcej informacji o korzystaniu z Menedżer zasobów, zobacz [Azure Resource Manager omówienie](../../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

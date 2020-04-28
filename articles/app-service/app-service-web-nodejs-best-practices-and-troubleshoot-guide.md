@@ -1,6 +1,6 @@
 ---
-title: Najważniejsze wskazówki dotyczące aplikacji Node.js i rozwiązywanie problemów
-description: Zapoznaj się z najlepszymi rozwiązaniami i krokami rozwiązywania problemów dla aplikacji Node.js uruchomionych w usłudze Azure App Service.
+title: Najlepsze rozwiązania dotyczące środowiska Node. js i rozwiązywanie problemów
+description: Poznaj najlepsze rozwiązania i kroki rozwiązywania problemów z aplikacjami Node. js uruchomionymi w programie Azure App Service.
 author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
@@ -9,58 +9,58 @@ ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430561"
 ---
-# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Przewodnik po najlepszych rozwiązaniach i rozwiązywaniu problemów z aplikacjami węzłów w usłudze Azure App Service Windows
+# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Najlepsze rozwiązania i wskazówki dotyczące rozwiązywania problemów z aplikacjami węzłów w systemie Azure App Service Windows
 
-W tym artykule poznasz najważniejsze wskazówki i kroki rozwiązywania problemów dla [aplikacji węzłów uruchomionych](app-service-web-get-started-nodejs.md) w usłudze Azure App Service (z [iisnode).](https://github.com/azure/iisnode)
+W tym artykule przedstawiono najlepsze rozwiązania i kroki rozwiązywania problemów z [aplikacjami węzłów](app-service-web-get-started-nodejs.md) uruchomionymi na Azure App Service (z [programu iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
-> Należy zachować ostrożność podczas korzystania z kroków rozwiązywania problemów w witrynie produkcyjnej. Zaleca się rozwiązywanie problemów z aplikacją w konfiguracji nieprodukcyjnej, na przykład miejsca przejściowego i po rozwiązaniu problemu, zamienić miejsce przejściowe z gniazdem produkcyjnym.
+> Należy zachować ostrożność podczas korzystania z kroków rozwiązywania problemów w witrynie produkcyjnej. Zalecenie polega na rozwiązywaniu problemów z aplikacją w konfiguracji nieprodukcyjnej, na przykład w miejscu przejściowym i po rozwiązaniu problemu, zamiany miejsca przejściowego z miejscem produkcyjnym.
 >
 
-## <a name="iisnode-configuration"></a>Konfiguracja usługi IISNODE
+## <a name="iisnode-configuration"></a>Konfiguracja programu IISNODE
 
-Ten [plik schematu](https://github.com/Azure/iisnode/blob/master/src/config/iisnode_schema_x64.xml) zawiera wszystkie ustawienia, które można skonfigurować dla iisnode. Niektóre ustawienia, które są przydatne dla aplikacji:
+Ten [plik schematu](https://github.com/Azure/iisnode/blob/master/src/config/iisnode_schema_x64.xml) przedstawia wszystkie ustawienia, które można skonfigurować dla programu iisnode. Niektóre ustawienia, które są przydatne dla aplikacji:
 
 ### <a name="nodeprocesscountperapplication"></a>nodeProcessCountPerApplication
 
-To ustawienie steruje liczbą procesów węzłów uruchamianych dla aplikacji IIS. Wartość domyślna to 1. Można uruchomić dowolną liczbę node.exes jako liczbę vCPU maszyny Wirtualnej, zmieniając wartość na 0. Zalecana wartość wynosi 0 dla większości aplikacji, dzięki czemu można używać wszystkich procesorów wirtualnych na komputerze. Node.exe jest jednowątkowy, więc jeden node.exe zużywa maksymalnie 1 procesora wirtualnego. Aby uzyskać maksymalną wydajność z aplikacji węzła, należy użyć wszystkich procesorów wirtualnych.
+To ustawienie określa liczbę procesów węzłów, które są uruchamiane dla aplikacji IIS. Wartość domyślna to 1. Jako liczbę vCPU maszyny wirtualnej można uruchomić dowolną liczbę Node. exe, zmieniając wartość na 0. Zalecana wartość to 0 dla większości aplikacji, dzięki czemu można używać wszystkich procesorów wirtualnych vCPU na maszynie. Node. exe jest jednowątkowy, więc jeden Node. exe zużywa maksymalnie 1 vCPU. Aby uzyskać maksymalną wydajność aplikacji węzła, należy użyć wszystkich procesorów wirtualnych vCPU.
 
-### <a name="nodeprocesscommandline"></a>węzełProcessCommandLine
+### <a name="nodeprocesscommandline"></a>nodeProcessCommandLine
 
-To ustawienie steruje ścieżką do pliku node.exe. Tę wartość można ustawić tak, aby wskazywała wersję node.exe.
+To ustawienie steruje ścieżką do pliku Node. exe. Możesz ustawić tę wartość, aby wskazywała wersję pliku Node. exe.
 
 ### <a name="maxconcurrentrequestsperprocess"></a>maxConcurrentRequestsPerProcess
 
-To ustawienie steruje maksymalną liczbą równoczesnych żądań wysyłanych przez iisnode do każdego pliku node.exe. W usłudze Azure App Service wartością domyślną jest Infinite. Można skonfigurować wartość w zależności od liczby żądań aplikacji odbiera i jak szybko aplikacja przetwarza każde żądanie.
+To ustawienie określa maksymalną liczbę równoczesnych żądań wysyłanych przez programu iisnode do każdego pliku Node. exe. Na Azure App Service wartość domyślna to nieskończoność. Można skonfigurować wartość w zależności od liczby żądań odbieranych przez aplikację oraz szybkości przetwarzania poszczególnych żądań przez aplikację.
 
 ### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
 
-To ustawienie steruje maksymalną liczbą ponownych prób iisnode nawiązywanie połączenia na nazwanym potoku w celu wysłania żądań do pliku node.exe. To ustawienie w połączeniu z namedPipeConnectionRetryDelay określa całkowity limit czasu każdego żądania w iisnode. Wartość domyślna to 200 w usłudze Azure App Service. Całkowity limit czasu w sekundach = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+To ustawienie określa maksymalną liczbę przypadków programu iisnode ponownych prób nawiązania połączenia w nazwanym potoku w celu wysłania żądań do pliku Node. exe. To ustawienie w połączeniu z namedPipeConnectionRetryDelay określa łączny limit czasu dla każdego żądania w ramach programu iisnode. Wartość domyślna to 200 w Azure App Service. Łączny limit czasu w sekundach = \* (maxNamedPipeConnectionRetry namedPipeConnectionRetryDelay)/1000
 
-### <a name="namedpipeconnectionretrydelay"></a>nazwaPipeConnectionRetryDelay
+### <a name="namedpipeconnectionretrydelay"></a>namedPipeConnectionRetryDelay
 
-To ustawienie steruje czasem (w ms) iisnode czeka między każdym ponowić próbę wysłania żądania do node.exe za pomocą nazwanego potoku. Wartość domyślna to 250 ms.
-Całkowity limit czasu w sekundach = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+To ustawienie Steruje ilością czasu (w MS) programu iisnode czeka między kolejnymi próbami wysłania żądania do pliku Node. exe przez nazwany potok. Wartość domyślna to 250 MS.
+Łączny limit czasu w sekundach = \* (maxNamedPipeConnectionRetry namedPipeConnectionRetryDelay)/1000
 
-Domyślnie całkowity limit czasu w iisnode w usłudze \* Azure App Service wynosi 200 250 ms = 50 sekund.
+Domyślnie łączny limit czasu w programu iisnode na Azure App Service to 200 \* 250 ms = 50 sekund.
 
-### <a name="logdirectory"></a>dziennikDirectory
+### <a name="logdirectory"></a>logDirectory
 
-To ustawienie steruje katalogiem, w którym iisnode loguje stdout/stderr. Wartością domyślną jest iisnode, która jest względem głównego katalogu skryptów (katalogu, w którym znajduje się główny serwer.js)
+To ustawienie określa katalog, w którym programu iisnode rejestruje stdout/stderr. Wartość domyślna to programu iisnode, która jest względna w stosunku do głównego katalogu skryptów (znajdującego się w katalogu głównym serwera. js)
 
-### <a name="debuggerextensiondll"></a>debugerExtensionDll
+### <a name="debuggerextensiondll"></a>debuggerExtensionDll
 
-To ustawienie określa, jakiej wersji iisnode node-inspector używa podczas debugowania aplikacji węzła. Obecnie iisnode-inspector-0.7.3.dll i iisnode-inspector.dll są tylko dwiema prawidłowymi wartościami dla tego ustawienia. Wartością domyślną jest iisnode-inspector-0.7.3.dll. Wersja iisnode-inspector-0.7.3.dll używa node-inspector-0.7.3 i używa gniazd internetowych. Włącz gniazda sieci web w aplikacji WebApp platformy Azure, aby używać tej wersji. Zobacz <https://ranjithblogs.azurewebsites.net/?p=98> więcej szczegółów na temat konfigurowania iisnode do korzystania z nowego inspektora węzła.
+To ustawienie określa, która wersja inspektora Node-programu iisnode używa podczas debugowania aplikacji węzła. Obecnie tylko dwa prawidłowe wartości dla tego ustawienia to iisnode-Inspector-0.7.3. dll i iisnode-Inspector. dll. Wartość domyślna to iisnode-Inspector-0.7.3. dll. Wersja iisnode-Inspector-0.7.3. dll używa programu Node-Inspector-0.7.3 i używa gniazd sieci Web. Włącz gniazda sieci Web w usłudze Azure webapp, aby korzystać z tej wersji. Aby <https://ranjithblogs.azurewebsites.net/?p=98> uzyskać więcej informacji na temat konfigurowania programu iisnode do korzystania z nowego kontrolera węzłów, zobacz.
 
-### <a name="flushresponse"></a>flushResponse (odpowiadanie na opróżnienie)
+### <a name="flushresponse"></a>flushResponse
 
-Domyślne zachowanie usługi IIS jest, że buforuje dane odpowiedzi do 4 MB przed opróżnieniem lub do końca odpowiedzi, w zależności od tego, co nastąpi wcześniej. iisnode oferuje ustawienie konfiguracji w celu zastąpienia tego zachowania: aby opróżnić fragment treści jednostki odpowiedzi, gdy tylko iisnode otrzyma go z node.exe, musisz ustawić iisnode/@flushResponse atrybut w web.config na "true":
+Domyślne zachowanie usług IIS polega na tym, że buforuje dane odpowiedzi do 4 MB przed ich opróżnianiem lub do końca odpowiedzi, w zależności od tego, co nastąpi wcześniej. programu iisnode oferuje ustawienie konfiguracji do przesłonięcia tego zachowania: Aby opróżnić fragment treści jednostki odpowiedzi, gdy tylko programu iisnode odbierze go z pliku Node. exe, należy ustawić iisnode/@flushResponse atrybut w pliku Web. config na wartość "true":
 
 ```xml
 <configuration>
@@ -71,9 +71,9 @@ Domyślne zachowanie usługi IIS jest, że buforuje dane odpowiedzi do 4 MB prze
 </configuration>
 ```
 
-Włącz opróżnianie każdego fragmentu treści jednostki odpowiedzi dodaje obciążenie wydajności, które zmniejsza przepływność systemu o ~5% (od wersji 0.1.13). Najlepiej, aby zakres tego ustawienia tylko do punktów końcowych, które `<location>` wymagają przesyłania strumieniowego odpowiedzi (na przykład przy użyciu elementu w web.config)
+Włączenie opróżniania każdego fragmentu treści jednostki odpowiedzi powoduje narzutowanie wydajności, co zmniejsza przepływność systemu przez ~ 5% (od v 0.1.13). Najlepszy zakres tego ustawienia dotyczy tylko punktów końcowych, które wymagają przesyłania strumieniowego odpowiedzi (na przykład `<location>` przy użyciu elementu w pliku Web. config).
 
-Oprócz tego dla aplikacji strumieniowych należy również ustawić responseBufferLimit obsługi iisnode do 0.
+Oprócz tego w przypadku aplikacji przesyłanych strumieniowo należy również ustawić responseBufferLimit obsługi programu iisnode na 0.
 
 ```xml
 <handlers>
@@ -81,49 +81,49 @@ Oprócz tego dla aplikacji strumieniowych należy również ustawić responseBuf
 </handlers>
 ```
 
-### <a name="watchedfiles"></a>watchedFiles (pliki obserwowane)
+### <a name="watchedfiles"></a>watchedFiles
 
-Średnik oddzielone listę plików, które są obserwowane pod kątem zmian. Wszelkie zmiany w pliku powoduje, że aplikacja do recyklingu. Każdy wpis składa się z opcjonalnej nazwy katalogu oraz wymaganej nazwy pliku, które są względem katalogu, w którym znajduje się główny punkt wejścia aplikacji. Symbole wieloznaczne są dozwolone tylko w części nazwy pliku. Wartością domyślną jest `*.js;iisnode.yml`.
+Rozdzielana średnikami lista plików, które są oglądane pod kątem zmian. Wszelkie zmiany w pliku powodują odzyskanie aplikacji. Każdy wpis składa się z opcjonalnej nazwy katalogu, a także wymaganej nazwy pliku, odnoszącej się do katalogu, w którym znajduje się główny punkt wejścia aplikacji. Symbole wieloznaczne są dozwolone tylko w części nazwy pliku. Wartością domyślną jest `*.js;iisnode.yml`.
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-Wartość domyślna to false. Jeśli ta opcja jest włączona, aplikacja węzła może połączyć\_\_się z nazwanym potokiem (zmienną środowiskową IISNODE CONTROL PIPE) i wysłać komunikat "recykling". Powoduje to, że w3wp do recyklingu z wdziękiem.
+Wartość domyślna to false. Jeśli ta funkcja jest włączona, aplikacja węzła może nawiązać połączenie z nazwanym potokiem\_(zmienna środowiskowa potoku sterowania programu iisnode\_) i wysłać komunikat "Odtwórz ponownie". Powoduje to, że w3wp jest bezpiecznie odtwarzany.
 
-### <a name="idlepageouttimeperiod"></a>IdlePageOutTimePeriod
+### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-Wartość domyślna to 0, co oznacza, że ta funkcja jest wyłączona. Po ustawieniu wartości większej niż 0, iisnode będzie strona wszystkie procesy podrzędne co "idlePageOutTimePeriod" w milisekundach. Zapoznaj się [z dokumentacją,](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) aby dowiedzieć się, co oznacza page out. To ustawienie jest przydatne w przypadku aplikacji, które zużywają dużą ilość pamięci i chcą od czasu do czasu przestronicować pamięć na dysku, aby zwolnić pamięć RAM.
+Wartość domyślna to 0, co oznacza, że ta funkcja jest wyłączona. Po ustawieniu na wartość większą niż 0, programu iisnode będzie stronicować wszystkie procesy podrzędne w każdym z elementów podrzędnych w milisekundach. Zapoznaj się z [dokumentacją](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) , aby dowiedzieć się, co oznacza strona. To ustawienie jest przydatne w przypadku aplikacji, które zużywają duże ilości pamięci i chcą stronicować pamięć na dysk sporadycznie, aby zwolnić pamięć RAM.
 
 > [!WARNING]
-> Należy zachować ostrożność podczas włączania następujących ustawień konfiguracji w aplikacjach produkcyjnych. Zaleca się, aby nie włączać ich w zastosowaniach produkcyjnych na żywo.
+> Podczas włączania następujących ustawień konfiguracji w aplikacjach produkcyjnych należy zachować ostrożność. Zaleca się, aby nie włączać ich na aktywnych aplikacjach produkcyjnych.
 >
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-Wartość domyślna to false. Jeśli ustawiona na true, iisnode `iisnode-debug` dodaje nagłówek odpowiedzi `iisnode-debug` HTTP do każdej odpowiedzi HTTP, która wysyła wartość nagłówka jest adresem URL. Poszczególne fragmenty informacji diagnostycznych można uzyskać, patrząc na fragment adresu URL, jednak wizualizacja jest dostępna przez otwarcie adresu URL w przeglądarce.
+Wartość domyślna to false. W przypadku ustawienia wartości true programu iisnode dodaje nagłówek `iisnode-debug` odpowiedzi HTTP do każdej odpowiedzi HTTP, która wysyła wartość `iisnode-debug` nagłówka, jest adresem URL. Poszczególne fragmenty informacji diagnostycznych można uzyskać, przeglądając fragment adresu URL, jednak Wizualizacja jest dostępna, otwierając adres URL w przeglądarce.
 
-### <a name="loggingenabled"></a>logowanieWzdłuż
+### <a name="loggingenabled"></a>loggingEnabled
 
-To ustawienie steruje rejestrowaniem stdout i stderr przez iisnode. Iisnode przechwytuje stdout/stderr z procesów węzłów uruchamia i zapisuje do katalogu określonego w ustawieniu "logDirectory". Po włączeniu tej funkcji aplikacja zapisuje dzienniki do systemu plików i w zależności od ilości rejestrowania wykonywane przez aplikację, może to mieć wpływ na wydajność.
+To ustawienie steruje rejestrowaniem stdout i stderr przez programu iisnode. Programu iisnode przechwytuje stdout/stderr z procesów węzłów, które są uruchamiane i zapisuje w katalogu określonym w ustawieniu "logDirectory". Gdy ta funkcja jest włączona, aplikacja zapisuje dzienniki w systemie plików i w zależności od liczby dzienników wykonywanej przez aplikację może mieć wpływ na wydajność.
 
-### <a name="deverrorsenabled"></a>devErrorsEnabled devErrorsEnabled devErrorsEnabled devEr
+### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-Wartość domyślna to false. Po ustawieniu na wartość true iisnode wyświetla w przeglądarce kod stanu HTTP i kod błędu Win32. Kod win32 jest pomocny w debugowaniu niektórych typów problemów.
+Wartość domyślna to false. Po ustawieniu na wartość true programu iisnode wyświetla kod stanu HTTP i kod błędu Win32 w przeglądarce. Kod Win32 jest przydatny w debugowaniu niektórych typów problemów.
 
-### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debugowanieEnabled (nie włączaj w miejscu produkcji na żywo)
+### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (nie włączaj w witrynie produkcyjnej na żywo)
 
-To ustawienie steruje funkcją debugowania. Iisnode jest zintegrowany z inspektorem węzła. Włączenie tego ustawienia umożliwia debugowanie aplikacji węzła. Po włączeniu tego ustawienia iisnode tworzy pliki inspektora węzłów w katalogu "debugerVirtualDir" w pierwszym żądaniu debugowania do aplikacji węzła. Inspektora węzłów można załadować, `http://yoursite/server.js/debug`wysyłając żądanie do . Segment adresu URL debugowania można kontrolować za pomocą ustawienia "debuggerPathSegment". Domyślnie debuggerPathSegment='debug'. Można ustawić `debuggerPathSegment` identyfikator GUID, na przykład, tak, że jest trudniejsze do wykrycia przez innych.
+To ustawienie steruje funkcją debugowania. Programu iisnode jest zintegrowany z inspektorem węzłów. Włączenie tego ustawienia umożliwia debugowanie aplikacji węzła. Po włączeniu tego ustawienia programu iisnode tworzy pliki inspektora Node w katalogu "debuggerVirtualDir" podczas pierwszego żądania debugowania do aplikacji węzła. Możesz załadować Inspektor węzła, wysyłając żądanie do `http://yoursite/server.js/debug`. Można kontrolować segment debugowania adresu URL za pomocą ustawienia "debuggerPathSegment". Domyślnie debuggerPathSegment = "debug". Można na przykład `debuggerPathSegment` ustawić identyfikator GUID, aby był trudniejszy do odnalezienia przez inne osoby.
 
-Przeczytaj [aplikacje Debugowania node.js w systemie Windows,](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) aby uzyskać więcej informacji na temat debugowania.
+Przeczytaj artykuł [debugowanie aplikacji node. js w systemie Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) , aby uzyskać więcej informacji na temat debugowania.
 
-## <a name="scenarios-and-recommendationstroubleshooting"></a>Scenariusze i zalecenia/rozwiązywanie problemów
+## <a name="scenarios-and-recommendationstroubleshooting"></a>Scenariusze i zalecenia/Rozwiązywanie problemów
 
-### <a name="my-node-application-is-making-excessive-outbound-calls"></a>Moja aplikacja węzła jest wykonywanie nadmiernych połączeń wychodzących
+### <a name="my-node-application-is-making-excessive-outbound-calls"></a>Aplikacja My Node udostępnia zbyt duże wywołania wychodzące
 
-Wiele aplikacji będzie chciał nawiązywać połączenia wychodzące w ramach ich regularnej pracy. Na przykład po wejściu żądania aplikacja węzła będzie chciał skontaktować się z interfejsem API REST w innym miejscu i uzyskać pewne informacje do przetworzenia żądania. Należy użyć agenta keep alive podczas wykonywania wywołań http lub https. Można użyć modułu agentkeepalive jako agenta keep alive podczas wykonywania tych wywołań wychodzących.
+Wiele aplikacji chce nawiązać połączenia wychodzące w ramach zwykłych operacji. Na przykład w przypadku zgłoszenia żądania w aplikacji węzła warto skontaktować się z interfejsem API REST w innym miejscu i uzyskać informacje dotyczące przetwarzania żądania. Podczas wykonywania wywołań http lub https warto używać agenta Keep Alive. Podczas wykonywania tych wywołań wychodzących można użyć modułu agentkeepalive jako agenta Keep Alive.
 
-Moduł agentkeepalive zapewnia, że gniazda są ponownie na maszynie wirtualnej aplikacji sieci Web platformy Azure. Tworzenie nowego gniazda dla każdego żądania wychodzącego dodaje obciążenie do aplikacji. Posiadanie gniazda ponownego użycia aplikacji dla żądań wychodzących gwarantuje, że aplikacja nie przekracza maxSockets, które są przydzielane na maszynę wirtualną. Zalecenie dotyczące usługi Azure App Service jest ustawienie agentKeepAlive maxSockets wartość w sumie (4 wystąpienia node.exe \* 40 maxSockets/instance) 160 gniazd na maszynę wirtualną.
+Moduł agentkeepalive gwarantuje, że gniazda są ponownie używane na maszynie wirtualnej usługi Azure WEBAPP. Utworzenie nowego gniazda dla każdego żądania wychodzącego powoduje dodanie narzutu do aplikacji. Gdy aplikacja ponownie używa gniazd do żądań wychodzących, zapewnia, że aplikacja nie przekroczy maxSockets przyznanych na maszynę wirtualną. Zalecenie dotyczące Azure App Service polega na ustawieniu wartości maxSockets agentKeepAlive na łączną liczbę wystąpień węzła Node. exe \* 40 maxSockets/instance) 160 Sockets na maszynę wirtualną.
 
-Przykładowa [konfiguracja agentKeepALive:](https://www.npmjs.com/package/agentkeepalive)
+Przykładowa konfiguracja [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) :
 
 ```nodejs
 let keepaliveAgent = new Agent({
@@ -135,17 +135,17 @@ let keepaliveAgent = new Agent({
 ```
 
 > [!IMPORTANT]
-> W tym przykładzie przyjęto założenie, że masz 4 node.exe uruchomiony na maszynie wirtualnej. Jeśli masz inną liczbę node.exe uruchomiony na maszynie Wirtualnej, należy odpowiednio zmodyfikować ustawienie maxSockets.
+> W tym przykładzie przyjęto założenie, że na maszynie wirtualnej jest uruchomiony 4 Node. exe. Jeśli na maszynie wirtualnej jest uruchomiona inna liczba węzłów Node. exe, należy odpowiednio zmodyfikować ustawienie maxSockets.
 >
 
-#### <a name="my-node-application-is-consuming-too-much-cpu"></a>Moja aplikacja węzła zużywa zbyt dużo procesora
+#### <a name="my-node-application-is-consuming-too-much-cpu"></a>Aplikacja My Node zużywa zbyt dużo czasu procesora
 
-Możesz otrzymać zalecenie z usługi Azure App Service w portalu dotyczące wysokiego zużycia procesora. Można również skonfigurować monitory do oglądania dla [niektórych metryk](web-sites-monitor.md). Podczas sprawdzania użycia procesora CPU na [pulpicie nawigacyjnym portalu Azure](../azure-monitor/app/web-monitor-performance.md)sprawdź wartości MAX dla procesora CPU, aby nie przegapić wartości szczytowych.
-Jeśli uważasz, że aplikacja zużywa zbyt dużo procesora CPU i nie można wyjaśnić, dlaczego, można profilu aplikacji węzła, aby dowiedzieć się.
+Użytkownik może otrzymać zalecenie dotyczące Azure App Service w portalu dotyczące wysokiego użycia procesora CPU. Możesz również skonfigurować monitory do oglądania określonych [metryk](web-sites-monitor.md). Podczas sprawdzania użycia procesora na [pulpicie nawigacyjnym witryny Azure Portal](../azure-monitor/app/web-monitor-performance.md)Sprawdź wartości maksymalne dla procesora, aby nie trafiać wartości szczytu.
+Jeśli uważasz, że aplikacja zużywa zbyt dużo czasu procesora i nie możesz wyjaśnić, dlaczego można profilować aplikację węzła, aby się dowiedzieć.
 
-#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilowanie aplikacji węzła w usłudze Azure App Service za pomocą programu V8-Profiler
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilowanie aplikacji node na Azure App Service za pomocą narzędzia V8-Profiler
 
-Załóżmy na przykład, że masz aplikację hello world, którą chcesz profilować w następujący sposób:
+Załóżmy na przykład, że masz aplikację Hello World, którą chcesz profilować w następujący sposób:
 
 ```nodejs
 const http = require('http');
@@ -166,16 +166,16 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Przejdź do witryny konsoli debugowania`https://yoursite.scm.azurewebsites.net/DebugConsole`
+Przejdź do lokacji konsoli debugowania`https://yoursite.scm.azurewebsites.net/DebugConsole`
 
-Przejdź do katalogu wwwroot. Zostanie wyświetlony wiersz polecenia, jak pokazano w poniższym przykładzie:
+Przejdź do katalogu site/wwwroot. Zobaczysz wiersz polecenia, jak pokazano w następującym przykładzie:
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
 Uruchom polecenie `npm install v8-profiler`.
 
-To polecenie instaluje profiler v8 w katalogu modułów węzłów\_i wszystkie jego zależności.
-Teraz edytuj plik server.js, aby profilować aplikację.
+To polecenie instaluje V8-Profiler w katalogu modułów\_węzła i wszystkie jego zależności.
+Teraz edytuj serwer. js, aby profilować aplikację.
 
 ```nodejs
 const http = require('http');
@@ -201,79 +201,79 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Poprzedni kod profiluje writeconsolelog funkcji, a następnie zapisuje dane wyjściowe profilu do pliku "profile.cpuprofile" w witrynie wwwroot. Wyślij żądanie do aplikacji. Widzisz plik "profil.cpuprofile" utworzony pod witryną wwwroot.
+Poprzedni kod profiluje funkcję WriteConsoleLog, a następnie zapisuje dane wyjściowe profilu do pliku "Profile. cpuprofile" w lokalizacji wwwroot. Wyślij żądanie do aplikacji. Zostanie wyświetlony plik "profil. cpuprofile" utworzony w witrynie wwwroot.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-Pobierz ten plik i otwórz go za pomocą Narzędzi Chrome F12. Naciśnij klawisz F12 w Chrome, a następnie wybierz kartę **Profile.** Wybierz przycisk **Wczytaj.** Wybierz pobrany plik profilu profile.cpu. Kliknij na właśnie załadowany profil.
+Pobierz ten plik i otwórz go za pomocą narzędzi Chrome F12 Tools. Naciśnij klawisz F12 w przeglądarce Chrome, a następnie wybierz kartę **Profile** . Wybierz przycisk **Załaduj** . Wybierz pobrany plik profile. cpuprofile. Kliknij właśnie załadowany profil.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
-Widać, że 95% czasu została wykorzystana przez WriteConsoleLog funkcji. Dane wyjściowe pokazują również dokładne numery wierszy i pliki źródłowe, które spowodowały problem.
+Można zobaczyć, że przez funkcję WriteConsoleLog wykorzystano 95% czasu. W danych wyjściowych znajdują się również dokładne numery wierszy i pliki źródłowe, które spowodowały problem.
 
-### <a name="my-node-application-is-consuming-too-much-memory"></a>Moja aplikacja węzła zużywa zbyt dużo pamięci
+### <a name="my-node-application-is-consuming-too-much-memory"></a>Aplikacja mojego węzła zużywa zbyt dużo pamięci
 
-Jeśli aplikacja zużywa zbyt dużo pamięci, zostanie wyświetlonego w portalu powiadomienie z usługi Azure App Service o wysokim zużyciu pamięci. Monitory można skonfigurować do oglądania niektórych [wskaźników](web-sites-monitor.md). Podczas sprawdzania użycia pamięci na [pulpicie nawigacyjnym portalu Azure](../azure-monitor/app/web-monitor-performance.md)należy sprawdzić wartości MAX dla pamięci, aby nie przegapić wartości szczytowych.
+Jeśli aplikacja zużywa zbyt dużo pamięci, zobaczysz powiadomienie z Azure App Service w portalu dotyczące wysokiego użycia pamięci. Można skonfigurować monitory do oglądania określonych [metryk](web-sites-monitor.md). Sprawdzając użycie pamięci na [pulpicie nawigacyjnym witryny Azure Portal](../azure-monitor/app/web-monitor-performance.md), pamiętaj o sprawdzeniu maksymalnej wartości pamięci, aby nie trafiać wartości szczytu.
 
-#### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Wykrywanie wycieków i diff sterty dla node.js
+#### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Wykrywanie przecieków i różnica sterty dla środowiska Node. js
 
-Można użyć [node-memwatch,](https://github.com/lloyd/node-memwatch) aby ułatwić identyfikację przecieków pamięci.
-Można zainstalować `memwatch` podobnie jak v8-profiler i edytować kod do przechwytywania i różnice sterty do identyfikacji przecieków pamięci w aplikacji.
+Aby ułatwić identyfikację przecieków pamięci, można użyć [węzła Node-memwatch](https://github.com/lloyd/node-memwatch) .
+Możesz zainstalować `memwatch` tak samo jak V8-Profiler i edytować swój kod, aby przechwytywać i różnicować sterty w celu zidentyfikowania przecieków pamięci w aplikacji.
 
-### <a name="my-nodeexes-are-getting-killed-randomly"></a>Mój node.exe są coraz zabitych losowo
+### <a name="my-nodeexes-are-getting-killed-randomly"></a>Moje węzły Node. exe są ciągle zabijane
 
-Istnieje kilka powodów, dla których node.exe jest zamykany losowo:
+Istnieje kilka powodów, dla których plik Node. exe jest wyłączany losowo:
 
-1. Aplikacja zgłasza nieprzechoczone wyjątki —\\\\sprawdź d: home LogFiles\\Application\\logging-errors.txt pliku szczegółów na wyjątek. Ten plik ma śledzenia stosu, aby pomóc debugowania i naprawić aplikację.
-2. Aplikacja zużywa zbyt dużo pamięci, co wpływa na inne procesy od rozpoczęcia. Jeśli całkowita pamięć maszyny Wirtualnej jest bliska 100%, node.exe może zostać zabity przez menedżera procesów. Menedżer procesów zabija niektóre procesy, aby inne procesy otrzymały szansę na wykonanie pracy. Aby rozwiązać ten problem, profilu aplikacji przecieków pamięci. Jeśli aplikacja wymaga dużych ilości pamięci, skalowanie do większej maszyny Wirtualnej (co zwiększa pamięci RAM dostępne dla maszyny Wirtualnej).
+1. Aplikacja zgłasza nieprzechwycone wyjątki — Sprawdź d\\: Home\\LogFiles pliku\\Application\\Logging-Errors. txt, aby uzyskać szczegółowe informacje na temat zgłoszonego wyjątku. Ten plik ma ślad stosu, który ułatwia debugowanie i poprawianie aplikacji.
+2. Aplikacja zużywa zbyt dużo pamięci, co wpływa na inne procesy od rozpoczęcia. Jeśli całkowita ilość pamięci maszyny wirtualnej jest bliska 100%, może to spowodować przerwanie przez Menedżera procesów pliku Node. exe. Menedżer procesów kasuje niektóre procesy, aby umożliwić innym procesom uzyskanie pewnych zadań. Aby rozwiązać ten problem, należy profilować aplikację pod kątem przecieków pamięci. Jeśli aplikacja wymaga dużej ilości pamięci, można skalować w górę do większej maszyny wirtualnej (co zwiększa ilość pamięci RAM dostępnej dla maszyny wirtualnej).
 
-### <a name="my-node-application-does-not-start"></a>Moja aplikacja węzła nie uruchamia się
+### <a name="my-node-application-does-not-start"></a>Nie uruchomiono aplikacji My Node
 
-Jeśli aplikacja zwraca 500 błędów po uruchomieniu, może istnieć kilka powodów:
+Jeśli aplikacja zwróci błędy 500 podczas uruchamiania, może istnieć kilka przyczyn:
 
-1. Plik Node.exe nie jest obecny we właściwej lokalizacji. Sprawdź ustawienie nodeProcessCommandLine.
-2. Główny plik skryptu nie jest obecny we właściwej lokalizacji. Sprawdź web.config i upewnij się, że nazwa głównego pliku skryptu w sekcji obsługi jest zgodna z głównym plikiem skryptu.
-3. Konfiguracja web.config nie jest poprawna – sprawdź nazwy/wartości ustawień.
-4. Cold Start — uruchomienie aplikacji trwa zbyt długo. Jeśli aplikacja trwa dłużej niż (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000 sekund, iisnode zwraca błąd 500. Zwiększ wartości tych ustawień, aby dopasować czas rozpoczęcia aplikacji, aby zapobiec iisnode z limitu czasu i zwracania błędu 500.
+1. W poprawnej lokalizacji nie ma pliku Node. exe. Sprawdź ustawienie nodeProcessCommandLine.
+2. Główny plik skryptu nie znajduje się w prawidłowej lokalizacji. Sprawdź plik Web. config i upewnij się, że nazwa głównego pliku skryptu w sekcji obsługi jest zgodna z głównym plikiem skryptu.
+3. Konfiguracja pliku Web. config jest niepoprawna — Sprawdź nazwy ustawień/wartości.
+4. Zimna — uruchamianie aplikacji trwa zbyt długo. Jeśli aplikacja trwa dłużej niż (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay)/1000 sekund, programu iisnode zwraca błąd 500. Zwiększ wartości tych ustawień, aby dopasować czas rozpoczęcia aplikacji, aby zapobiec przekroczeniu limitu czasu programu iisnode i zwróceniem błędu 500.
 
-### <a name="my-node-application-crashed"></a>Moja aplikacja węzła uległa awarii
+### <a name="my-node-application-crashed"></a>Aplikacja mojego węzła uległa awarii
 
-Aplikacja zgłasza nieprzechoczone wyjątki `d:\\home\\LogFiles\\Application\\logging-errors.txt` — sprawdź plik, aby uzyskać szczegółowe informacje na temat wyjątku. Ten plik ma śledzenia stosu, aby pomóc zdiagnozować i naprawić aplikację.
+Aplikacja zgłasza nieprzechwycone wyjątki — Sprawdź `d:\\home\\LogFiles\\Application\\logging-errors.txt` plik, aby uzyskać szczegółowe informacje na temat zgłoszonego wyjątku. Ten plik ma ślad stosu, który pomaga zdiagnozować i naprawić aplikację.
 
-### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>Uruchomienie aplikacji dla mojego węzła zajmuje zbyt dużo czasu (Cold Start)
+### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>Uruchamianie aplikacji w węźle trwa zbyt wiele czasu (zimny start)
 
-Częstą przyczyną długich czasów uruchamiania aplikacji jest\_duża liczba plików w modułach węzłów. Aplikacja próbuje załadować większość z tych plików podczas uruchamiania. Domyślnie, ponieważ pliki są przechowywane w udziale sieciowym w usłudze Azure App Service, ładowanie wielu plików może zająć trochę czasu.
-Oto kilka rozwiązań, które przyspieszają ten proces:
+Typową przyczyną długotrwałych czasów uruchamiania aplikacji jest duża liczba plików w modułach węzła\_. Aplikacja próbuje załadować większość z tych plików podczas uruchamiania. Domyślnie, ponieważ pliki są przechowywane w udziale sieciowym na Azure App Service, ładowanie wielu plików może zająć dużo czasu.
+Niektóre rozwiązania, które umożliwiają szybsze wykonywanie tego procesu:
 
-1. Upewnij się, że masz strukturę zależności płaskich i nie ma zduplikowanych zależności za pomocą npm3 do zainstalowania modułów.
-2. Spróbuj z opóźnieniem\_załadować moduły węzłów i nie ładować wszystkie moduły na początku aplikacji. Do modułów z opóźnieniem obciążenia, wywołanie require('module') powinny być wykonane, gdy rzeczywiście potrzebujesz modułu w ramach funkcji przed pierwszym wykonaniem kodu modułu.
-3. Usługa Azure App Service oferuje funkcję o nazwie lokalnej pamięci podręcznej. Ta funkcja kopiuje zawartość z udziału sieciowego na dysk lokalny na maszynie wirtualnej. Ponieważ pliki są lokalne, czas\_ładowania modułów węzłów jest znacznie szybszy.
+1. Upewnij się, że masz płaską strukturę zależności i nie ma zduplikowanych zależności przy użyciu npm3 do zainstalowania modułów.
+2. Spróbuj ponownie załadować moduły węzła\_i nie ładować wszystkich modułów podczas uruchamiania aplikacji. Do modułów ładowania z opóźnieniem, wywołanie wymagane ("module") powinno zostać wykonane, gdy w rzeczywistości wymaga modułu w funkcji przed pierwszym wykonaniem kodu modułu.
+3. Azure App Service oferuje funkcję o nazwie lokalna pamięć podręczna. Ta funkcja kopiuje zawartość z udziału sieciowego na dysk lokalny na maszynie wirtualnej. Ponieważ pliki są lokalne, czas ładowania modułów węzła\_jest znacznie szybszy.
 
-## <a name="iisnode-http-status-and-substatus"></a>IISNODE http status i podstat
+## <a name="iisnode-http-status-and-substatus"></a>PROGRAMU IISNODE stanu HTTP i podstanu
 
-`cnodeconstants` [Plik źródłowy](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) zawiera listę wszystkich możliwych kombinacji stanu/podstatu, które iisnode może powrócić z powodu błędu.
+`cnodeconstants` [Plik źródłowy](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) zawiera listę wszystkich możliwych kombinacji stanu/podstanu programu iisnode może zwrócić z powodu błędu.
 
-Włącz FREB dla aplikacji, aby zobaczyć kod błędu win32 (upewnij się, że freb jest włączony tylko w zakładach nieprodukcyjnych ze względu na wydajność).
+Włącz FREB dla aplikacji, aby zobaczyć kod błędu Win32 (Upewnij się, że FREB jest włączona tylko w witrynach nieprodukcyjnych ze względu na wydajność).
 
-| Stan http | Podstatus http | Możliwy powód? |
+| Stan http | Podstan http | Możliwe przyczyny? |
 | --- | --- | --- |
-| 500 |1000 |Wystąpił problem z wysłaniem żądania do aplikacji IISNODE — sprawdź, czy uruchomiono plik node.exe. Node.exe mógł ulec awarii podczas uruchamiania. Sprawdź konfigurację web.config pod kątem błędów. |
-| 500 |1001 |- Win32Error 0x2 - Aplikacja nie odpowiada na adres URL. Sprawdź reguły przepisywania adresów URL lub sprawdź, czy aplikacja express ma zdefiniowane poprawne trasy. - Win32Error 0x6d — nazwany potok jest zajęty — node.exe nie akceptuje żądań, ponieważ potok jest zajęty. Sprawdź wysokie zużycie procesora. - Inne błędy - sprawdź, czy node.exe uległ awarii. |
-| 500 |1002 |Node.exe crashed –\\sprawdź\\d:\\strona główna LogFiles logging-errors.txt dla śledzenia stosu. |
+| 500 |1000 |Wystąpił problem podczas wysyłania żądania do programu IISNODE — Sprawdź, czy uruchomiono plik Node. exe. Program Node. exe mógł ulec awarii podczas uruchamiania. Sprawdź, czy konfiguracja pliku Web. config ma błędy. |
+| 500 |1001 |-Win32Error 0x2-aplikacja nie odpowiada na adres URL. Sprawdź reguły ponownego zapisywania adresów URL lub sprawdź, czy aplikacja Express ma zdefiniowane poprawne trasy. -Win32Error 0x6d — nazwany potok jest zajęty — Node. exe nie akceptuje żądań, ponieważ potok jest zajęty. Sprawdź duże użycie procesora CPU. -Inne błędy — Sprawdź, czy awaria pliku Node. exe. |
+| 500 |1002 |Node. exe uległ awarii — Sprawdź d:\\Home\\LogFiles\\Logging-Errors. txt na potrzeby śledzenia stosu. |
 | 500 |1003 |Problem z konfiguracją potoku — konfiguracja nazwanego potoku jest niepoprawna. |
-| 500 |1004-1018 |Wystąpił błąd podczas wysyłania żądania lub przetwarzania odpowiedzi na adres/z pliku node.exe. Sprawdź, czy plik node.exe uległ awarii. sprawdź\\d:\\strona\\główna LogFiles log-errors.txt dla śledzenia stosu. |
-| 503 |1000 |Za mało pamięci, aby przydzielić więcej nazwanych połączeń potoku. Sprawdź, dlaczego aplikacja zużywa tyle pamięci. Sprawdź wartość ustawienia maxConcurrentRequestsPerProcess. Jeśli nie jest nieskończona i masz wiele żądań, należy zwiększyć tę wartość, aby zapobiec temu błędowi. |
-| 503 |1001 |Nie można wysłać żądania do pliku node.exe, ponieważ aplikacja jest przetwarzana. Po recyklingu aplikacji wnioski powinny być doręczane normalnie. |
-| 503 |1002 |Sprawdź kod błędu win32 z rzeczywistej przyczyny — nie można wysłać żądania do pliku node.exe. |
-| 503 |1003 |Nazwany potok jest zbyt zajęty — sprawdź, czy node.exe zużywa nadmierny procesor CPU |
+| 500 |1004-1018 |Wystąpił błąd podczas wysyłania żądania lub przetwarzania odpowiedzi do/z pliku Node. exe. Sprawdź, czy w pliku Node. exe wystąpiła awaria. Check d:\\Home\\LogFiles\\Logging-Errors. txt na potrzeby śledzenia stosu. |
+| 503 |1000 |Za mało pamięci, aby przydzielić więcej połączeń nazwanych potoków. Sprawdź, Dlaczego aplikacja zużywa tyle pamięci. Sprawdź wartość ustawienia maxConcurrentRequestsPerProcess. Jeśli nie jest to nieskończoność i masz wiele żądań, zwiększ tę wartość, aby uniknąć tego błędu. |
+| 503 |1001 |Nie można wysłać żądania do pliku Node. exe, ponieważ trwa odtwarzanie aplikacji. Po odtworzeniu aplikacji należy normalnie obsłużyć żądania. |
+| 503 |1002 |Sprawdź kod błędu Win32 dla rzeczywistej przyczyny — nie można wysłać żądania do pliku Node. exe. |
+| 503 |1003 |Nazwany potok jest zbyt zajęty — Sprawdź, czy Node. exe zużywa nadmierny procesor CPU |
 
-Node.exe ma ustawienie `NODE_PENDING_PIPE_INSTANCES`o nazwie . W usłudze Azure App Service ta wartość jest ustawiona na 5000. Co oznacza, że node.exe może akceptować 5000 żądań naraz na nazwanym potoku. Ta wartość powinna być wystarczająco dobra dla większości aplikacji węzłów uruchomionych w usłudze Azure App Service. Nie powinieneś widzieć 503.1003 w usłudze Azure App Service ze względu na wysoką wartość`NODE_PENDING_PIPE_INSTANCES`
+Plik NODE. exe ma wywołane `NODE_PENDING_PIPE_INSTANCES`ustawienie. Na Azure App Service wartość ta jest równa 5000. Oznacza to, że Node. exe może akceptować 5000 żądań jednocześnie w nazwanym potoku. Ta wartość powinna być wystarczająca dla większości aplikacji węzłów działających na Azure App Service. 503,1003 na Azure App Service ze względu na wysoką wartość dla`NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Więcej zasobów
 
-Skorzystaj z tych łączy, aby dowiedzieć się więcej o aplikacjach node.js w usłudze Azure App Service.
+Skorzystaj z poniższych linków, aby dowiedzieć się więcej na temat aplikacji node. js na Azure App Service.
 
-* [Rozpoczynanie pracy z aplikacjami internetowymi środowiska Node.js w usłudze Azure App Service](app-service-web-get-started-nodejs.md)
+* [Get started with Node.js web apps in Azure App Service (Rozpoczynanie pracy z aplikacjami internetowymi Node.js w usłudze Azure App Service)](app-service-web-get-started-nodejs.md)
 * [How to debug a Node.js web app in Azure App Service (Jak debugować aplikację internetową Node.js w usłudze Azure App Service)](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Using Node.js Modules with Azure applications (Używanie modułów Node.js z aplikacjami platformy Azure)](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js (Aplikacje internetowe w usłudze Azure App Service: Node.js)](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)

@@ -1,6 +1,6 @@
 ---
-title: Jak przyciąć klipy wideo za pomocą media encoder Standard — Azure | Dokumenty firmy Microsoft
-description: Przycinanie to proces wybierania prostokątnego okna w ramce wideo i kodowania tylko pikseli w tym oknie. W tym artykule pokazano, jak przycinać filmy za pomocą media encoder standard.
+title: Jak przyciąć wideo przy użyciu Media Encoder Standard — Azure | Microsoft Docs
+description: Przycinanie jest procesem wyboru prostokątnego okna wewnątrz ramki wideo i kodowania tylko pikseli w tym oknie. W tym artykule przedstawiono sposób przycinania wideo przy użyciu Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -15,32 +15,32 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 059816284e39c65bb772bd02f066d73da624722f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74887768"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Przycinanie wideo za pomocą usługi Media Encoder Standard  
 
-Do przycinania wejściowego wideo wideo można użyć media encoder Standard (MES). Przycinanie to proces wybierania prostokątnego okna w ramce wideo i kodowania tylko pikseli w tym oknie. Poniższy diagram pomaga zilustrować proces.
+Za pomocą Media Encoder Standard (MES) można przyciąć dane wejściowe wideo. Przycinanie jest procesem wyboru prostokątnego okna wewnątrz ramki wideo i kodowania tylko pikseli w tym oknie. Poniższy diagram ułatwia zilustrowanie tego procesu.
 
-![Przycinanie klipu wideo](./media/media-services-crop-video/media-services-crop-video01.png)
+![Przycinanie wideo](./media/media-services-crop-video/media-services-crop-video01.png)
 
-Załóżmy, że na wejściu jest film o rozdzielczości 1920x1080 pikseli (proporcje 16:9), ale ma czarne paski (pola filarów) po lewej i prawej stronie, dzięki czemu tylko okno 4:3 lub 1440x1080 pikseli zawiera aktywny film wideo. Za pomocą mes do przycinania lub edytowania czarnych pasków i kodowania regionu 1440x1080.
+Załóżmy, że masz jako dane wejściowe wideo, które ma rozdzielczość 1920 x 1080 pikseli (współczynnik proporcji 16:9), ale ma czarne słupki (pola filaru) po lewej i prawej stronie, tak aby tylko okno 4:3 lub piksele 1440x1080 zawierały aktywne wideo. Za pomocą MES można przyciąć lub edytować czarne paski oraz zakodować region 1440x1080.
 
-Przycinanie w mes jest etapem przetwarzania wstępnego, więc parametry przycinania w ustawieniach kodowania mają zastosowanie do oryginalnego wideo wejściowego. Kodowanie jest kolejnym etapem, a ustawienia szerokości/wysokości mają zastosowanie do *wstępnie przetworzonego* wideo, a nie do oryginalnego wideo. Podczas projektowania ustawień wstępnych należy wykonać następujące czynności: (a) wybrać parametry kadrowania na podstawie oryginalnego wejściowego wideo oraz (b) wybrać ustawienia kodowania na podstawie przyciętego wideo. Jeśli ustawienia kodowania nie są zgodne z przyciętym filmem, dane wyjściowe nie będą zgodne z oczekiwaniami.
+Przycinanie w MES jest etapem przetwarzania wstępnego, dlatego parametry przycinania w ustawieniach wstępnych kodowania mają zastosowanie do oryginalnego wejściowego wideo. Kodowanie jest kolejnym etapem, a ustawienia szerokość/wysokość mają zastosowanie do *wstępnie przetworzonego* wideo, a nie do oryginalnego wideo. Podczas projektowania ustawień wstępnych należy wykonać następujące czynności: (a) wybrać parametry przycinania na podstawie oryginalnego wejściowego wideo i (b) wybrać ustawienia kodowania na podstawie przyciętego wideo. Jeśli ustawienia kodowania nie są zgodne z przyciętym wideo, dane wyjściowe nie będą oczekiwane.
 
-W [poniższym](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) temacie pokazano, jak utworzyć zadanie kodowania za pomocą usługi MES i jak określić niestandardowe ustawienia predefiniowane dla zadania kodowania. 
+W [poniższym](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) temacie pokazano, jak utworzyć zadanie kodowania przy użyciu MES i jak określić niestandardowe ustawienia wstępne dla zadania kodowania. 
 
-## <a name="creating-a-custom-preset"></a>Tworzenie ustawień niestandardowych
+## <a name="creating-a-custom-preset"></a>Tworzenie niestandardowego ustawienia wstępnego
 W przykładzie pokazanym na diagramie:
 
-1. Oryginalne wejście to 1920x1080
-2. Musi być przycięty do wyjścia 1440x1080, który jest wyśrodkowany w ramce wejściowej
-3. Oznacza to przesunięcie X (1920 – 1440)/2 = 240, a przesunięcie Y o zero
-4. Szerokość i wysokość prostokąta Crop to odpowiednio 1440 i 1080
-5. Na etapie kodowania, poprosić jest do produkcji trzech warstw, są rozdzielczości 1440x1080, 960x720 i 480x360, odpowiednio
+1. Oryginalne dane wejściowe to 1920 x 1080
+2. Musi być przycięty do danych wyjściowych 1440x1080, które są wyśrodkowane w ramce wejściowej
+3. Oznacza to, że X przesunięcie (1920 – 1440)/2 = 240 i przesunięcie Y równe zero
+4. Szerokość i wysokość prostokąta kadrowania są odpowiednio 1440 i 1080.
+5. Na etapie kodowania poproszonym jest wygenerowanie trzech warstw — odpowiednio rozdzielczości 1440x1080, 960x720 i 480x360
 
 ### <a name="json-preset"></a>Ustawienia wstępne JSON
     {
@@ -128,19 +128,19 @@ W przykładzie pokazanym na diagramie:
 
 
 ## <a name="restrictions-on-cropping"></a>Ograniczenia dotyczące przycinania
-Funkcja przycinania ma być ręczna. Należy załadować wejściowy film wideo do odpowiedniego narzędzia do edycji, które pozwala wybrać klatki zainteresowania, ustawić kursor, aby określić przesunięcia prostokąta przycinania, aby określić ustawienie kodowania, które jest dostrojone dla danego wideo, itp. Ta funkcja nie jest przeznaczona do włączania takich rzeczy jak: automatyczne wykrywanie i usuwanie czarnych obramowań skrzynki pocztowej / pillarbox w wejściowym filmie wideo.
+Funkcja przycinania ma być ręczna. Konieczne będzie załadowanie wejściowego wideo do odpowiedniego narzędzia do edycji, które pozwala wybrać interesujące Cię ramki, ustawić kursor, aby określić przesunięcia dla prostokąta przycinania, aby określić ustawienie wstępne kodowania, które jest dostrojone dla danego wideo itd. Ta funkcja nie jest przeznaczona do włączania takich elementów, jak: automatyczne wykrywanie i usuwanie obramowań letterbox/pillarbox w wejściowym wideo.
 
-Następujące ograniczenia mają zastosowanie do operacji przycinania. Jeśli nie są one spełnione, zakodowanie Task może zakończyć się niepowodzeniem lub spowodować nieoczekiwane dane wyjściowe.
+Poniższe ograniczenia dotyczą funkcji przycinania. Jeśli nie są spełnione, zadanie kodowania może zakończyć się niepowodzeniem lub generować nieoczekiwane dane wyjściowe.
 
-1. Współrzędne i rozmiar prostokąta Kadrowanie muszą zmieścić się w wejściowym filmie wideo
-2. Jak wspomniano powyżej, wysokość & szerokości w ustawieniach kodowania musi odpowiadać przyciętemu wideo
-3. Przycinanie dotyczy filmów zarejestrowanych w trybie poziomym (tj. nie dotyczy filmów nagranych za pomocą smartfona trzymanego pionowo lub w trybie pionowym)
-4. Najlepiej sprawdza się w przypadku progresywnego wideo przechwyconego z pikselami kwadratowymi
+1. Współrzędne i rozmiar prostokąta kadrowania muszą pasować do wejściowego wideo
+2. Jak wspomniano powyżej, Szerokość & wysokość w ustawieniach kodowania musi odpowiadać wideo z przyciętym
+3. Przycinanie dotyczy wideo przechwytywane w trybie poziomym (tj. nie dotyczy filmów wideo zarejestrowanych przy użyciu telefonu smartphone w trybie pionowym lub w pionie).
+4. Najlepiej sprawdza się w przypadku progresywnego wideo przechwytywanego przy użyciu pikseli kwadratowych
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Następny krok
-Zobacz ścieżki szkoleniowe usługi Azure Media Services, aby dowiedzieć się więcej o wspaniałych funkcjach oferowanych przez usługę AMS.  
+Zobacz ścieżki uczenia Azure Media Services, aby uzyskać informacje na temat doskonałych funkcji oferowanych przez AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

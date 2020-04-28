@@ -1,5 +1,5 @@
 ---
-title: Wysoka dostępność dzięki apache kafka — usługa Azure HDInsight
+title: Wysoka dostępność dzięki Apache Kafka usługi Azure HDInsight
 description: Dowiedz się, jak zapewnić wysoką dostępność dzięki platformie Apache Kafka w usłudze Azure HDInsight. Dowiedz się, jak przeprowadzić ponowne równoważenie replik partycji na platformie Kafka, tak aby znajdowały się one w różnych domenach błędów w regionie świadczenia usługi Azure, który udostępnia usługę HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
 ms.openlocfilehash: a90be471ca068869ee26fb02bba77dfdd476a44e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435285"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Wysoka dostępność danych dzięki platformie Apache Kafka w usłudze HDInsight
 
-Dowiedz się, jak skonfigurować repliki partycji dla tematów apache platformy Kafka, aby korzystać z podstawowej konfiguracji stojaka sprzętowego. Ta konfiguracja zapewnia dostępność danych przechowywanych na platformie Apache Kafka w usłudze HDInsight.
+Dowiedz się, jak skonfigurować repliki partycji dla Apache Kafka tematów, aby wykorzystać podstawową konfigurację stojaka sprzętowego. Ta konfiguracja zapewnia dostępność danych przechowywanych na platformie Apache Kafka w usłudze HDInsight.
 
-## <a name="fault-and-update-domains-with-apache-kafka"></a>Usterka i aktualizowanie domen za pomocą apache kafka
+## <a name="fault-and-update-domains-with-apache-kafka"></a>Błędy i aktualizowanie domen przy użyciu Apache Kafka
 
 Domena błędów to logiczna grupa bazowego sprzętu w centrum danych platformy Azure. Wszystkie domeny błędów korzystają ze wspólnego źródła zasilania i przełącznika sieciowego. Maszyny wirtualne i dyski zarządzane, które implementują węzły w klastrze usługi HDInsight są rozdzielone między te domeny błędów. Taka architektura ogranicza wpływ potencjalnych awarii sprzętu fizycznego.
 
@@ -43,15 +43,15 @@ Aby zapewnić najwyższą dostępność danych na platformie Kafka, należy stos
 
 Jeśli musisz wybrać region, który zawiera tylko dwie domeny błędów, użyj współczynnika replikacji o wartości 4, aby równomiernie rozłożyć repliki na dwie domeny błędów.
 
-Na przykład tworzenia tematów i ustawiania współczynnika replikacji zobacz [Start z apache Kafka w dokumencie HDInsight.](apache-kafka-get-started.md)
+Przykład tworzenia tematów i ustawiania współczynnika replikacji znajdują się w dokumencie [Rozpocznij od Apache Kafka w usłudze HDInsight](apache-kafka-get-started.md) .
 
 ## <a name="how-to-rebalance-partition-replicas"></a>Jak zastosować ponowne równoważenie replik partycji
 
-Narzędzie [równoważenia partycji Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) umożliwia ponowne zrównoważenie wybranych tematów. Narzędzie to należy uruchomić w sesji połączenia SSH z węzłem głównym klastra Kafka.
+Użyj [Narzędzia do ponownego równoważenia Apache Kafka partycji](https://github.com/hdinsight/hdinsight-kafka-tools) , aby ponownie zrównoważyć wybrane tematy. Narzędzie to należy uruchomić w sesji połączenia SSH z węzłem głównym klastra Kafka.
 
 Aby uzyskać więcej informacji dotyczących nawiązywania połączenia z usługą HDInsight przy użyciu protokołu SSH, zobacz dokument [Używanie protokołu SSH z usługą HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Skalowalność Apache Kafka na HDInsight](apache-kafka-scalability.md)
-* [Dublowanie z Apache Kafka na HDInsight](apache-kafka-mirroring.md)
+* [Skalowalność Apache Kafka w usłudze HDInsight](apache-kafka-scalability.md)
+* [Dublowanie przy użyciu Apache Kafka w usłudze HDInsight](apache-kafka-mirroring.md)

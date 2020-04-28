@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do funkcji geoprzestrzennych usługi Azure Stream Analytics
-description: W tym artykule opisano funkcje geoprzestrzenne, które są używane w zadaniach usługi Azure Stream Analytics.
+title: Wprowadzenie do Azure Stream Analytics funkcji geoprzestrzennych
+description: W tym artykule opisano funkcje geograficzne, które są używane w Azure Stream Analytics zadaniach.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -8,31 +8,31 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426221"
 ---
-# <a name="introduction-to-stream-analytics-geospatial-functions"></a>Wprowadzenie do funkcji geoprzestrzennych usługi Stream Analytics
+# <a name="introduction-to-stream-analytics-geospatial-functions"></a>Wprowadzenie do Stream Analytics funkcji geoprzestrzennych
 
-Funkcje geoprzestrzenne w usłudze Azure Stream Analytics umożliwiają analizę w czasie rzeczywistym na przesyłaniu strumieniowe danych geoprzestrzennych. Za pomocą zaledwie kilku wierszy kodu można opracować rozwiązanie klasy produkcyjnej dla złożonych scenariuszy. 
+Funkcje geoprzestrzenne w Azure Stream Analytics włączają analizę w czasie rzeczywistym w przypadku przesyłania strumieniowego danych geoprzestrzennych. Za pomocą zaledwie kilku wierszy kodu możesz opracować rozwiązanie klasy produkcyjnej dla złożonych scenariuszy. 
 
-Przykłady scenariuszy, które mogą korzystać z funkcji geoprzestrzennych obejmują:
+Przykładowe scenariusze, które mogą korzystać z funkcji geoprzestrzennych, to m.in.:
 
-* Udostępnianie przejazdów
+* Udostępnianie przez jadące
 * Zarządzanie flotą
 * Śledzenie zasobów
-* Ogrodzenia geograficzne
-* Śledzenie telefonu w różnych witrynach komórkowych
+* Ogrodzenie geograficzne
+* Śledzenie telefonów w witrynach komórkowych
 
-Stream Analytics Query Language ma siedem wbudowanych funkcji geoprzestrzennych: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS**i **ST_WITHIN**.
+Język zapytań Stream Analytics ma siedem wbudowanych funkcji geoprzestrzennych: **CreateLineString**, **CreatePoint**dołączenia, tworzenie **wielokąta**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS**i **ST_WITHIN**.
 
 ## <a name="createlinestring"></a>CreateLineString
 
-Funkcja `CreateLineString` akceptuje punkty i zwraca GeoJSON LineString, który może być kreślony jako wiersz na mapie. Aby utworzyć linestring, musisz mieć co najmniej dwa punkty. Punkty LineString zostaną połączone w kolejności.
+`CreateLineString` Funkcja akceptuje punkty i zwraca LineString GEOJSON, który można wykreślić jako linię na mapie. Musisz mieć co najmniej dwa punkty, aby utworzyć LineString. Punkty LineString zostaną połączone w pożądanej kolejności.
 
-Poniższa kwerenda `CreateLineString` używa do utworzenia LineString przy użyciu trzech punktów. Pierwszy punkt jest tworzony na podstawie przesyłania strumieniowego danych wejściowych, podczas gdy pozostałe dwa są tworzone ręcznie.
+Poniższe zapytanie używa `CreateLineString` do tworzenia LineString przy użyciu trzech punktów. Pierwszy punkt jest tworzony na podstawie danych wejściowych przesyłanych strumieniowo, a pozostałe dwa są tworzone ręcznie.
 
 ```SQL 
 SELECT  
@@ -40,26 +40,26 @@ SELECT
 FROM input  
 ```  
 
-### <a name="input-example"></a>Przykład wejścia  
+### <a name="input-example"></a>Przykład danych wejściowych  
   
-|Szerokość geograficzna|Długość geograficzna|  
+|rodziny|Długość geograficzna|  
 |--------------|---------------|  
-|3.0|-10.2|  
-|-87.33|20.2321|  
+|3.0|-10,2|  
+|-87,33|20,2321|  
   
-### <a name="output-example"></a>Przykład wyjścia  
+### <a name="output-example"></a>Przykład danych wyjściowych  
 
- {"type" : "LineString", "coordinates" : [ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5] ]}
+ {"Type": "LineString", "współrzędne": [[-10,2, 3,0], [10,0, 10,0], [10,5, 10,5]]}
 
- {"type" : "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
+ {"Type": "LineString", "współrzędne": [[20,2321,-87,33], [10,0, 10,0], [10,5, 10,5]]}
 
-Aby dowiedzieć się więcej, odwiedź odwołanie [CreateLineString.](https://docs.microsoft.com/stream-analytics-query/createlinestring)
+Aby dowiedzieć się więcej, odwiedź odwołanie [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) .
 
 ## <a name="createpoint"></a>CreatePoint
 
-Funkcja `CreatePoint` akceptuje szerokość i długość geograficzną i zwraca punkt GeoJSON, który może być wykreślony na mapie. Szerokości i długości geograficzne muszą być rodzajem danych **float.**
+`CreatePoint` Funkcja akceptuje szerokość geograficzną i długość i zwraca punkt GEOJSON, który można wykreślić na mapie. Latitudes i Długość geograficzna muszą być typu **zmiennoprzecinkowego** .
 
-Poniższa przykładowa `CreatePoint` kwerenda używa do utworzenia punktu przy użyciu szerokości i długości geograficznych z przesyłania strumieniowego danych wejściowych.
+Poniższe przykładowe zapytanie używa `CreatePoint` do tworzenia punktu przy użyciu Latitudes i długości geograficznej danych wejściowych przesyłanych strumieniowo.
 
 ```SQL 
 SELECT  
@@ -67,26 +67,26 @@ SELECT
 FROM input 
 ```  
 
-### <a name="input-example"></a>Przykład wejścia  
+### <a name="input-example"></a>Przykład danych wejściowych  
   
-|Szerokość geograficzna|Długość geograficzna|  
+|rodziny|Długość geograficzna|  
 |--------------|---------------|  
-|3.0|-10.2|  
-|-87.33|20.2321|  
+|3.0|-10,2|  
+|-87,33|20,2321|  
   
-### <a name="output-example"></a>Przykład wyjścia
+### <a name="output-example"></a>Przykład danych wyjściowych
   
- {"type" : "Point", "coordinates" : [-10.2, 3.0]}  
+ {"Type": "Point", "współrzędne": [-10,2, 3,0]}  
   
- {"type" : "Point", "coordinates" : [20.2321, -87.33]}  
+ {"Type": "Point", "współrzędne": [20,2321,-87,33]}  
 
-Aby dowiedzieć się więcej, odwiedź odwołanie [do programu CreatePoint.](https://docs.microsoft.com/stream-analytics-query/createpoint)
+Aby dowiedzieć się więcej, odwiedź odwołanie do [punktu](https://docs.microsoft.com/stream-analytics-query/createpoint) .
 
 ## <a name="createpolygon"></a>CreatePolygon
 
-Funkcja `CreatePolygon` akceptuje punkty i zwraca rekord wielokąta GeoJSON. Kolejność punktów musi być zgodna z orientacją pierścienia po prawej stronie lub przeciwnie do ruchu wskazówek zegara. Wyobraź sobie chodzenie z jednego punktu do drugiego w kolejności, w jakiej zostały zgłoszone. Środek wielokąta będzie pozostawiony przez cały czas.
+`CreatePolygon` Funkcja akceptuje punkty i zwraca rekord wielokąta GEOJSON. Kolejność punktów musi następować po prawej stronie lub w prawo. Wyobraź sobie, że jest to idące od jednego punktu do drugiego w kolejności, w jakiej zostały zgłoszone. Środek wielokąta będzie znajdował się w lewej i cały czas.
 
-Poniższa przykładowa `CreatePolygon` kwerenda używa do utworzenia wielokąta z trzech punktów. Pierwsze dwa punkty są tworzone ręcznie, a ostatni punkt jest tworzony na podstawie danych wejściowych.
+Poniższe przykładowe zapytanie używa `CreatePolygon` do tworzenia wielokąta z trzech punktów. Pierwsze dwa punkty są tworzone ręcznie, a ostatni punkt jest tworzony na podstawie danych wejściowych.
 
 ```SQL 
 SELECT  
@@ -94,26 +94,26 @@ SELECT
 FROM input  
 ```  
 
-### <a name="input-example"></a>Przykład wejścia  
+### <a name="input-example"></a>Przykład danych wejściowych  
   
-|Szerokość geograficzna|Długość geograficzna|  
+|rodziny|Długość geograficzna|  
 |--------------|---------------|  
-|3.0|-10.2|  
-|-87.33|20.2321|  
+|3.0|-10,2|  
+|-87,33|20,2321|  
   
-### <a name="output-example"></a>Przykład wyjścia  
+### <a name="output-example"></a>Przykład danych wyjściowych  
 
- {"type" : "Polygon", "coordinates" : [[-10.2, 3.0], [10.0, 10.0], [10.5, 10.5], [-10.2, 3.0] ]]}
+ {"Type": "Wielokąt", "współrzędne": [[[-10,2, 3,0], [10,0, 10,0], [10,5, 10,5], [-10,2, 3,0]]]}
  
- {"type" : "Polygon", "coordinates" : [[20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
+ {"Type": "Wielokąt", "współrzędne": [[[20,2321,-87,33], [10,0, 10,0], [10,5, 10,5], [20,2321,-87,33]]]}
 
-Aby dowiedzieć się więcej, odwiedź odwołanie [CreatePolygon.](https://docs.microsoft.com/stream-analytics-query/createpolygon)
+Aby dowiedzieć się więcej, odwiedź odwołanie do [wielokąta](https://docs.microsoft.com/stream-analytics-query/createpolygon) .
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
-Funkcja `ST_DISTANCE` zwraca odległość między dwoma punktami w metrach. 
+`ST_DISTANCE` Funkcja zwraca odległość między dwoma punktami w licznikach. 
 
-Poniższa kwerenda `ST_DISTANCE` służy do generowania zdarzenia, gdy stacja benzynowa znajduje się mniej niż 10 km od samochodu.
+Poniższe zapytanie używa `ST_DISTANCE` do generowania zdarzenia, gdy stacja gazowa jest mniejsza niż 10 km od samochodu.
 
 ```SQL
 SELECT Cars.Location, Station.Location 
@@ -121,12 +121,12 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-Aby dowiedzieć się więcej, odwiedź [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) referencyjne.
+Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) .
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
-Funkcja `ST_OVERLAPS` porównuje dwa wielokąty. Jeśli wielokąty nakładają się na siebie, funkcja zwraca wartość 1. Funkcja zwraca wartość 0, jeśli wielokąty nie nakładają się na siebie. 
+`ST_OVERLAPS` Funkcja porównuje dwa wielokąty. Jeśli wielokąty nakładają się, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli wielokąty nie nakładają się. 
 
-Poniższa kwerenda `ST_OVERLAPS` używa do generowania zdarzenia, gdy budynek znajduje się w strefie możliwego zalewania.
+Poniższe zapytanie używa `ST_OVERLAPS` do generowania zdarzenia, gdy kompilacja znajduje się w możliwej oblewania strefy.
 
 ```SQL
 SELECT Building.Polygon, Building.Polygon 
@@ -134,7 +134,7 @@ FROM Building b
 JOIN Flooding f ON ST_OVERLAPS(b.Polygon, b.Polygon) 
 ```
 
-Poniższa przykładowa kwerenda generuje zdarzenie, gdy burza zmierza w kierunku samochodu.
+Poniższe przykładowe zapytanie generuje zdarzenie, gdy burza jest skierowana do samochodu.
 
 ```SQL
 SELECT Cars.Location, Storm.Course
@@ -142,12 +142,12 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-Aby dowiedzieć się więcej, odwiedź [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) referencyjne.
+Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) .
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
-Funkcja `ST_INTERSECTS` porównuje dwa LineString. Jeśli LineString przecinają się, funkcja zwraca wartość 1. Funkcja zwraca wartość 0, jeśli linestring nie przecinają się.
+`ST_INTERSECTS` Funkcja porównuje dwie LineString. Jeśli LineString Intersect, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli LineString nie przecina.
 
-Poniższa przykładowa `ST_INTERSECTS` kwerenda służy do określenia, czy droga utwardzona przecina polną drogę.
+Poniższe przykładowe zapytanie używa `ST_INTERSECTS` do określenia, czy ukryte Road przecina drogę.
 
 ```SQL 
 SELECT  
@@ -155,25 +155,25 @@ SELECT
 FROM input  
 ```  
 
-### <a name="input-example"></a>Przykład wejścia  
+### <a name="input-example"></a>Przykład danych wejściowych  
   
-|centrum danychObejm|burzaObszer|  
+|datacenterArea|stormArea|  
 |--------------------|---------------|  
-|{"type":"LineString", "coordinates": [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{"type":"LineString", "coordinates": [ [0.0, 10.0], [0.0, 0.0], [0.0, -10.0] ]}|  
-|{"type":"LineString", "coordinates": [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{"type":"LineString", "coordinates": [ [-10.0, 10.0], [0.0, 10.0], [10.0, 10.0] ]}|  
+|{"Type": "LineString", "współrzędne": [[-10,0, 0,0], [0,0, 0,0], [10,0, 0,0]]}|{"Type": "LineString", "współrzędne": [[0,0, 10,0], [0,0, 0,0], [0,0,-10,0]]}|  
+|{"Type": "LineString", "współrzędne": [[-10,0, 0,0], [0,0, 0,0], [10,0, 0,0]]}|{"Type": "LineString", "współrzędne": [[-10,0, 10,0], [0,0, 10,0], [10,0, 10,0]]}|  
   
-### <a name="output-example"></a>Przykład wyjścia  
+### <a name="output-example"></a>Przykład danych wyjściowych  
 
  1  
   
  0  
 
-Aby dowiedzieć się więcej, odwiedź [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) referencyjne.
+Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) .
 
 ## <a name="st_within"></a>ST_WITHIN
-Funkcja `ST_WITHIN` określa, czy punkt lub wielokąt znajduje się w obrębie wielokąta. Jeśli wielokąt zawiera punkt lub wielokąt, funkcja powróci 1. Funkcja zwróci 0, jeśli punkt lub wielokąt nie znajduje się w zadeklarowanym wielokąta.
+`ST_WITHIN` Funkcja określa, czy punkt lub Wielokąt znajduje się w obrębie wielokąta. Jeśli Wielokąt zawiera punkt lub Wielokąt, funkcja zwróci wartość 1. Funkcja zwróci wartość 0, jeśli punkt lub Wielokąt nie znajdują się w obrębie zadeklarowanego wielokąta.
 
-Poniższa przykładowa `ST_WITHIN` kwerenda używa do określenia, czy punkt docelowy dostawy znajduje się w danym wielokącie magazynu.
+Poniższy Przykładowa kwerenda służy `ST_WITHIN` do określenia, czy punkt docelowy dostawy znajduje się w obrębie danego wielokąta magazynu.
 
 ```SQL 
 SELECT  
@@ -181,24 +181,24 @@ SELECT
 FROM input 
 ```  
 
-### <a name="input-example"></a>Przykład wejścia  
+### <a name="input-example"></a>Przykład danych wejściowych  
   
-|dostarczanieSestynacja|Magazynu|  
+|deliveryDestination|hurtowni|  
 |-------------------------|---------------|  
-|{"type":"Point", "współrzędne": [76.6, 10.1]}|{"type":"Polygon", "coordinates": [ [0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 10.0], [0.0, 0.0] ]}|  
-|{"type":"Point", "współrzędne": [15.0, 15.0]}|{"type":"Polygon", "coordinates": [ [10.0, 10.0], [20.0, 10.0], [20.0, 20.0], [10.0, 20.0], [10.0, 10.0] ]}|  
+|{"Type": "Point", "współrzędne": [76,6, 10,1]}|{"Type": "Wielokąt", "współrzędne": [[0,0, 0,0], [10,0, 0,0], [10,0, 10,0], [0,0, 10,0], [0,0, 0,0]]}|  
+|{"Type": "Point", "współrzędne": [15,0, 15,0]}|{"Type": "Wielokąt", "współrzędne": [[10,0, 10,0], [20,0, 10,0], [20,0, 20,0], [10,0, 20,0], [10,0, 10,0]]}|  
   
-### <a name="output-example"></a>Przykład wyjścia  
+### <a name="output-example"></a>Przykład danych wyjściowych  
 
  0  
   
  1  
 
-Aby dowiedzieć się więcej, odwiedź [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) referencyjne.
+Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
+* [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

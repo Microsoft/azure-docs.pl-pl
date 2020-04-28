@@ -1,6 +1,6 @@
 ---
-title: Łącza na stronie nie działają w przypadku aplikacji proxy aplikacji
-description: Jak rozwiązywać problemy z uszkodzonymi łączami w aplikacjach usługi Proxy aplikacji zintegrowanych z usługą Azure AD
+title: Linki na stronie nie działają w przypadku aplikacji serwera proxy aplikacji
+description: Jak rozwiązywać problemy z przerwanymi łączami w aplikacjach serwera proxy aplikacji zintegrowanych z usługą Azure AD
 services: active-directory
 author: msmimart
 ms.service: active-directory
@@ -12,38 +12,38 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca782b5a190704911472d70c414d12afa7e558f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430243"
 ---
-# <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Łącza na stronie nie działają w przypadku aplikacji proxy aplikacji
+# <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Linki na stronie nie działają w przypadku aplikacji serwera proxy aplikacji
 
-Ten artykuł ułatwia rozwiązywanie problemów, dlaczego łącza w aplikacji serwera proxy aplikacji usługi Azure Active Directory nie działają poprawnie.
+Ten artykuł pomaga w rozwiązywaniu problemów z tym, dlaczego linki w aplikacji serwer proxy aplikacji usługi Azure Active Directory nie działają prawidłowo.
 
 ## <a name="overview"></a>Omówienie 
-Po opublikowaniu aplikacji Proxy aplikacji jedynymi łączami, które działają domyślnie w aplikacji, są łącza do miejsc docelowych zawartych w opublikowanym głównym adresie URL. Łącza w aplikacjach nie działają, wewnętrzny adres URL aplikacji prawdopodobnie nie zawiera wszystkich miejsc docelowych łączy w aplikacji.
+Po opublikowaniu aplikacji serwera proxy aplikacji jedynymi łączami, które działają domyślnie w aplikacji, są linki do miejsc docelowych zawartych w opublikowanym głównym adresie URL. Linki w aplikacjach nie działają, wewnętrzny adres URL aplikacji prawdopodobnie nie obejmuje wszystkich miejsc docelowych linków w aplikacji.
 
-**Dlaczego tak się dzieje?** Po kliknięciu łącza w aplikacji serwer proxy aplikacji próbuje rozpoznać adres URL jako wewnętrzny adres URL w tej samej aplikacji lub jako zewnętrznie dostępny adres URL. Jeśli łącze wskazuje wewnętrzny adres URL, który nie znajduje się w tej samej aplikacji, nie należy do żadnego z tych zasobników i powoduje nie znaleziony błąd.
+**Dlaczego tak się dzieje?** Po kliknięciu linku w aplikacji serwer proxy aplikacji próbuje rozpoznać adres URL jako wewnętrzny adres URL w tej samej aplikacji lub jako zewnętrzny dostęp do adresu URL. Jeśli link wskazuje na wewnętrzny adres URL, który nie znajduje się w tej samej aplikacji, nie należy do żadnego z tych zasobników i nie spowoduje błędu.
 
-## <a name="ways-you-can-resolve-broken-links"></a>Sposoby rozwiązywania uszkodzonych łączy
+## <a name="ways-you-can-resolve-broken-links"></a>Sposoby rozpoznawania uszkodzonych linków
 
-Istnieją trzy sposoby rozwiązania tego problemu. Poniższe opcje są wymienione w rosnącej złożoności.
+Istnieją trzy sposoby rozwiązania tego problemu. Poniższe opcje są wymienione w temacie zwiększającym złożoność.
 
-1.  Upewnij się, że wewnętrzny adres URL jest katalogiem głównym, który zawiera wszystkie odpowiednie łącza dla aplikacji. Dzięki temu wszystkie łącza mają być rozpoznawane jako zawartość opublikowana w tej samej aplikacji.
+1.  Upewnij się, że wewnętrzny adres URL jest katalogiem głównym zawierającym wszystkie odpowiednie linki dla aplikacji. Dzięki temu wszystkie linki mają być rozpoznawane jako zawartość opublikowana w ramach tej samej aplikacji.
 
-    Jeśli zmienisz wewnętrzny adres URL, ale nie chcesz zmieniać strony docelowej dla użytkowników, zmień adres URL strony głównej na wcześniej opublikowany wewnętrzny adres URL. Można to zrobić, przechodząc do "Azure&gt; Active Directory" — rejestracje aplikacji —&gt; wybierz aplikację — znakowanie.&gt; W sekcji znakowanie zobaczysz pole "Adres URL strony głównej", które możesz dostosować do żądanej strony docelowej. Jeśli nadal używasz starszych rejestracji aplikacji doświadczenie właściwości kartę będzie wyświetlać szczegóły "Adres URL strony głównej". 
+    Jeśli zmienisz wewnętrzny adres URL, ale nie chcesz zmienić strony docelowej dla użytkowników, Zmień adres URL strony głównej na wcześniej opublikowany wewnętrzny adres URL. Można to zrobić, przechodząc do "Azure Active Directory" —&gt; Rejestracja aplikacji —&gt; wybierz&gt; znakowanie aplikacji. W sekcji znakowania zobaczysz pole "adres URL strony głównej", które można dostosować do żądanej strony docelowej. Jeśli nadal korzystasz ze starszej wersji Rejestracje aplikacji, na karcie właściwości zostanie wyświetlony szczegółowy adres URL strony głównej. 
     
     > [!IMPORTANT]
-    > Aby wprowadzić powyższe zmiany, wymagane są prawa do modyfikowania obiektów aplikacji w usłudze Azure AD. Użytkownik musi być przypisany administrator [aplikacji](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) roli, która przyznaje prawa modyfikacji aplikacji w usłudze Azure AD do użytkownika.
+    > W celu wprowadzenia powyższych zmian wymagane są uprawnienia do modyfikowania obiektów aplikacji w usłudze Azure AD. Użytkownik musi mieć przypisaną rolę [administratora aplikacji](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) , która przyznaje użytkownikowi uprawnienia modificaion do aplikacji w usłudze Azure AD.
     >
 
-2.  Jeśli aplikacje używają w pełni kwalifikowanych nazw domen (FQDN), do publikowania aplikacji należy publikować [aplikacje za pomocą domen niestandardowych.](application-proxy-configure-custom-domain.md) Ta funkcja umożliwia ten sam adres URL, który ma być używany zarówno wewnętrznie, jak i zewnętrznie.
+2.  Jeśli aplikacje używają w pełni kwalifikowanych nazw domen (FQDN), użyj [domen niestandardowych](application-proxy-configure-custom-domain.md) do publikowania aplikacji. Ta funkcja umożliwia użycie tego samego adresu URL zarówno wewnętrznie, jak i zewnętrznie.
 
-    Ta opcja gwarantuje, że łącza w aplikacji są dostępne zewnętrznie za pośrednictwem serwera proxy aplikacji, ponieważ łącza w aplikacji do wewnętrznych adresów URL są również rozpoznawane zewnętrznie. Wszystkie linki nadal muszą należeć do opublikowanej aplikacji. Jednak za pomocą tej opcji łącza nie muszą należeć do tej samej aplikacji i mogą należeć do wielu aplikacji.
+    Ta opcja zapewnia, że linki w aplikacji są dostępne zewnętrznie za pomocą serwera proxy aplikacji, ponieważ linki w aplikacji do wewnętrznych adresów URL są również rozpoznawane zewnętrznie. Wszystkie linki nadal muszą należeć do opublikowanej aplikacji. Jednak w przypadku tej opcji linki nie muszą należeć do tej samej aplikacji i mogą należeć do wielu aplikacji.
 
-3.  Jeśli żadna z tych opcji nie jest możliwa, istnieje wiele opcji włączania tłumaczenia linków wbudowanych. Opcje te obejmują korzystanie z zarządzanej przeglądarki usługi Intune, rozszerzenia Moje aplikacje lub przy użyciu ustawienia tłumaczenia łącza w aplikacji. Aby dowiedzieć się więcej o każdej z tych opcji i jak je włączyć, zobacz [Przekierowywanie linków zakodowanych na stałe dla aplikacji opublikowanych za pomocą serwera proxy aplikacji usługi Azure AD](application-proxy-configure-hard-coded-link-translation.md).
+3.  Jeśli żadna z tych opcji nie jest osiągalna, istnieje wiele opcji włączania tłumaczenia linków wbudowanych. Te opcje obejmują korzystanie z rozszerzenia Intune Managed Browser, moje aplikacje lub z użyciem ustawienia tłumaczenia linku w aplikacji. Aby dowiedzieć się więcej o każdej z tych opcji i sposobach ich włączania, zobacz [redirect stałe links for Apps opublikowanych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="next-steps"></a>Następne kroki
 [Praca z istniejącymi lokalnymi serwerami proxy](application-proxy-configure-connectors-with-proxy-servers.md)

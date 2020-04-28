@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie środowiska wykonawczego integracji usługi Azure SSIS przy użyciu programu PowerShell
-description: Ten skrypt programu PowerShell tworzy środowisko uruchomieniowe integracji platformy Azure-SSIS, które można uruchamiać pakiety SSIS w chmurze.
+title: Wdrażanie środowiska Azure SSIS Integration Runtime przy użyciu programu PowerShell
+description: Ten skrypt programu PowerShell tworzy środowisko Azure-SSIS Integration Runtime, które może uruchamiać pakiety usług SSIS w chmurze.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -11,15 +11,15 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c6d9a9299fa25013a440ee6ac45f5eae407225b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74929818"
 ---
-# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>Skrypt programu PowerShell — wdrażanie środowiska wykonawczego integracji usługi Azure-SSIS
+# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>Skrypt programu PowerShell — wdrażanie środowiska Azure-SSIS Integration Runtime
 
-Ten przykładowy skrypt programu PowerShell tworzy środowisko uruchomieniowe integracji platformy Azure-SSIS, które można uruchomić pakiety SSIS na platformie Azure.  
+Ten przykładowy skrypt programu PowerShell tworzy środowisko Azure-SSIS Integration Runtime, które może uruchamiać pakiety usług SSIS na platformie Azure.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -49,10 +49,10 @@ W tym skrypcie użyto następujących poleceń:
 | Polecenie | Uwagi |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [Zestaw-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Tworzenie fabryki danych. |
-| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | Tworzy środowisko uruchomieniowe integracji platformy Azure-SSIS, które może uruchamiać pakiety SSIS w chmurze |
-| [Czas uruchamiania AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Uruchamia środowisko uruchomieniowe integracji azure-SSIS. |
-| [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Pobiera informacje o środowiskou wykonywania integracji azure-SSIS. |
+| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Tworzenie fabryki danych. |
+| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | Tworzy środowisko Azure-SSIS Integration Runtime, które może uruchamiać pakiety usług SSIS w chmurze |
+| [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Uruchamia środowisko Azure-SSIS Integration Runtime. |
+| [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Pobiera informacje o środowisku Azure-SSIS Integration Runtime. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||
 
@@ -60,4 +60,4 @@ W tym skrypcie użyto następujących poleceń:
 
 Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Dodatkowe przykłady skryptów usługi Azure Data Factory PowerShell można znaleźć w [przykładach usługi Azure Data Factory PowerShell.](../samples-powershell.md)
+Dodatkowe przykłady skryptów programu Azure Data Factory PowerShell można znaleźć w [przykładach Azure Data Factory programu PowerShell](../samples-powershell.md).

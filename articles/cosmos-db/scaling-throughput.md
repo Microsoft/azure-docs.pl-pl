@@ -1,6 +1,6 @@
 ---
-title: Skalowanie przepływności w usłudze Azure Cosmos DB
-description: W tym artykule opisano, jak usługa Azure Cosmos DB skaluje przepływność w różnych regionach, w których jest aprowied konta usługi Azure Cosmos.
+title: Skalowanie przepływności w Azure Cosmos DB
+description: W tym artykule opisano, jak Azure Cosmos DB skaluje przepływność w różnych regionach, w których zainicjowano konto usługi Azure Cosmos.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,37 +8,37 @@ ms.date: 12/02/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 440f23afcd08326261be30432ad1f0ecb16f55fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873509"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Globalne skalowanie aprowizowanej przepływności 
 
-W usłudze Azure Cosmos DB aprowizowana przepływność jest reprezentowana jako jednostki żądań/sekundę (RU/s lub liczba mnoga. Programy RU mierzą koszt operacji odczytu i zapisu względem kontenera usługi Cosmos, jak pokazano na poniższej ilustracji:
+W Azure Cosmos DB, obsługiwana przepływność jest reprezentowana jako jednostki żądań na sekundę (RU/s lub w formacie plural jednostek ru). Jednostek ru Zmierz koszt operacji odczytu i zapisu w kontenerze Cosmos, jak pokazano na poniższej ilustracji:
 
 ![Jednostki żądania](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
-Można aprowizować procesory WUS w kontenerze usługi Cosmos lub w bazie danych usługi Cosmos. Obiekty RU aprowizacji w kontenerze są dostępne wyłącznie dla operacji wykonywanych w tym kontenerze. Obiekty RU aprowizowane w bazie danych są współużytkowane przez wszystkie kontenery w tej bazie danych (z wyjątkiem kontenerów z wyłącznie przypisanymi procesorami RU).
+Można udostępnić jednostek RU w kontenerze Cosmos lub bazie danych Cosmos. Jednostek ru udostępniane w kontenerze są dostępne wyłącznie dla operacji wykonywanych w tym kontenerze. Jednostek ru udostępniane w bazie danych są współdzielone przez wszystkie kontenery w tej bazie danych (z wyjątkiem kontenerów z wyłącznie przypisanymi jednostek ru).
 
-W przypadku elastycznego skalowania aprowizowanej przepływności można zwiększyć lub zmniejszyć aprowizowaną platformę RU/s w dowolnym momencie. Aby uzyskać więcej informacji, zobacz [Instrukcje aprowizowania przepływności](set-throughput.md) i elastycznie skalować kontenery i bazy danych usługi Cosmos. W przypadku globalnej przepływności skalowania można w dowolnym momencie dodać lub usunąć regiony z konta usługi Cosmos. Aby uzyskać więcej informacji, zobacz [Dodawanie/usuwanie regionów z konta bazy danych](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Kojarzenie wielu regionów z kontem usługi Cosmos jest ważne w wielu scenariuszach — aby osiągnąć małe opóźnienia i [wysoką dostępność](high-availability.md) na całym świecie.
+W celu elastycznego skalowania przepływności aprowizacji można w dowolnym momencie zwiększyć lub zmniejszyć liczbę zainicjowanych jednostek RU/s. Aby uzyskać więcej informacji, zobacz artykuł [jak zapewnić przepływność](set-throughput.md) i elastyczne skalowanie kontenerów Cosmos oraz baz danych. Aby globalnie skalować przepływność, możesz w dowolnym momencie dodać lub usunąć regiony z konta usługi Cosmos. Aby uzyskać więcej informacji, zobacz [Dodawanie/usuwanie regionów z konta bazy danych](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Kojarzenie wielu regionów z kontem Cosmos jest ważne w wielu scenariuszach — w celu osiągnięcia małych opóźnień i [wysokiej dostępności](high-availability.md) na całym świecie.
 
-## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>Sposób dystrybucji przepływności aprowizowanej w różnych regionach
+## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>Sposób dystrybuowania przepływności w różnych regionach
 
-Jeśli aprowizować *'R'* RUs w kontenerze usługi Cosmos (lub bazy danych), Usługi Cosmos DB zapewnia, że *"R"* RUS są dostępne w *każdym* regionie skojarzonym z kontem usługi Cosmos. Za każdym razem, gdy dodasz nowy region do swojego konta, usługa Cosmos DB automatycznie udostępnia *program RUs w* nowo dodanym regionie. Operacje wykonywane względem kontenera usługi Cosmos są gwarantowane, aby uzyskać *"R"* RUs w każdym regionie. Nie można selektywnie przypisać procesorów RU do określonego regionu. Programy administracyjne aprowizacji w kontenerze usługi Cosmos (lub bazy danych) są aprowizacji we wszystkich regionach skojarzonych z kontem usługi Cosmos.
+Jeśli zainicjujesz jednostek ru *"r"* w kontenerze Cosmos (lub bazie danych), Cosmos DB zapewnia dostępność *"r"* jednostek RU w *każdym* regionie skojarzonym z Twoim kontem Cosmos. Za każdym razem, gdy dodasz nowy region do konta, Cosmos DB automatycznie inicjuje jednostek ru *"R"* w nowo dodanym regionie. Operacje wykonywane względem kontenera Cosmos są gwarantowane w celu uzyskania jednostek ru *"R"* w każdym regionie. Nie można wybiórczo przypisywać jednostek ru do określonego regionu. Obsługa jednostek RU w kontenerze Cosmos (lub bazie danych) jest obsługiwana we wszystkich regionach skojarzonych z Twoim kontem Cosmos.
 
-Zakładając, że kontener usługi Cosmos jest skonfigurowany z *"R"* RUs i istnieją *regiony "N"* skojarzone z kontem usługi Cosmos, a następnie:
+Przy założeniu, że kontener Cosmos jest skonfigurowany przy użyciu *elementu "R"* jednostek ru, a istnieją regiony *"N"* skojarzone z kontem Cosmos, wówczas:
 
-- Jeśli konto Cosmos jest skonfigurowane z jednym regionem zapisu, całkowita liczba jednostek RR dostępnych globalnie w kontenerze = *R* x *N*.
+- W przypadku skonfigurowania konta Cosmos z jednym regionem zapisu całkowita jednostek ru dostępna globalnie w kontenerze = *R* x *N*.
 
-- Jeśli konto Usługi Cosmos jest skonfigurowane z wieloma regionami zapisu, całkowita liczba obiektów obiektów użytkownika dostępna globalnie w kontenerze = *R* x (*N*+1). Dodatkowe *jednostek RI* są automatycznie aprowizowane do przetwarzania konfliktów aktualizacji i ruchu anty-entropii w regionach.
+- Jeśli konto Cosmos jest skonfigurowane z wieloma regionami zapisu, łączna jednostek ru dostępna globalnie w kontenerze = *R* x (*N*+ 1). Dodatkowe jednostek ru *języka R* są automatycznie inicjowane w celu przetworzenia konfliktów aktualizacji i ruchu antyentropii w regionach.
 
-Wybór [modelu spójności](consistency-levels.md) wpływa również na przepływność. Można uzyskać około 2 x odczytu przepływności dla bardziej zrelaksowany poziom spójności (np. *sesja,* *spójny prefiks* i *spójność ostateczna)* w porównaniu do silniejszych poziomów spójności (np. *ograniczone nieaktualność* lub *silne* spójności).
+Wybór [modelu spójności](consistency-levels.md) wpływa również na przepływność. Możesz uzyskać około 2x przepływność odczytu dla bardziej swobodnych poziomów spójności (np. *sesji*, *spójnego prefiksu* i spójności *ostatecznej* ) w porównaniu z silniejszymi poziomami spójności (np. *z ograniczeniami nieodświeżonymi* lub *silną* spójnością).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnie możesz dowiedzieć się, jak skonfigurować przepływność w kontenerze lub bazie danych:
+Następnie można dowiedzieć się, jak skonfigurować przepływność na kontenerze lub w bazie danych:
 
-* [Pobierz i ustaw przepływność kontenerów i baz danych](set-throughput.md) 
+* [Pobieranie i Ustawianie przepływności dla kontenerów i baz danych](set-throughput.md) 
 

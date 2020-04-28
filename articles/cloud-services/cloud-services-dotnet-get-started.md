@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
 ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386735"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
@@ -31,7 +31,7 @@ Ta aplikacja to reklamowa tablica ogłoszeń. Aby utworzyć reklamę, użytkowni
 
 Aplikacja korzysta z [przetwarzania kolejkowego](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern), aby przekazać obciążające procesor zadania związane z tworzeniem miniatur do procesu zaplecza.
 
-## <a name="alternative-architecture-app-service-and-webjobs"></a>Architektura alternatywna: App Service i WebJobs
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Architektura alternatywna: App Service i Zadania WebJob
 Ten samouczek pokazuje, jak uruchamiać fronton i zaplecze w usłudze w chmurze Azure. Alternatywą jest uruchomienie frontonu w usłudze [Azure App Service](/azure/app-service/) i używanie funkcji zadań [WebJob](https://go.microsoft.com/fwlink/?LinkId=390226) dla zaplecza. Aby zapoznać się z samouczkiem korzystającym z zadań WebJob, zobacz artykuł [Wprowadzenie do zestawu SDK zadań WebJob na platformie Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Informacje o wybieraniu usług najlepiej spełniających potrzeby scenariusza zawiera artykuł [Porównanie usług Azure App Service, Cloud Services i Virtual Machines](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>Zawartość
@@ -47,7 +47,7 @@ W samouczku przyjęto założenie, że znasz [podstawowe pojęcia dotyczące us�
 
 Aplikację można uruchomić lokalnie bez subskrypcji platformy Azure, ale będzie ona potrzebna w celu wdrożenia aplikacji w chmurze. Jeśli nie masz konta, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) lub [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-Instrukcje samouczka działają z dowolnym z następujących produktów:
+Instrukcje dotyczące samouczka współpracują z dowolnym z następujących produktów:
 
 * Program Visual Studio 2013
 * Visual Studio 2015
@@ -229,7 +229,7 @@ Parametry połączenia konta magazynu platformy Azure dla projektu roli Sieć We
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy pozycję **ContosoAdsWeb** w obszarze **Role** w projekcie **ContosoAdsCloudService**, a następnie kliknij polecenie **Właściwości**.
 
     ![Właściwości roli](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Kliknij kartę **Ustawienia.** W polu rozwijany **Konfiguracja usługi** wybierz pozycję **Chmura**.
+2. Kliknij kartę **Ustawienia** . W polu listy rozwijanej **Konfiguracja usługi** wybierz pozycję **chmura**.
 
     ![Konfiguracja chmury](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Wybierz wpis **StorageConnectionString**. Na prawym końcu wiersza pojawi się przycisk z wielokropkiem (**...**). Kliknij przycisk z wielokropkiem, aby otworzyć okno dialogowe **Tworzenie parametrów połączenia konta usługi Storage**.
@@ -353,7 +353,7 @@ Po utworzeniu rozwiązania można przejrzeć kod unikatowy dla projektów usług
 6. Znajdź pakiet NuGet *Microsoft.WindowsAzure.ConfigurationManager*, a następnie zainstaluj go w projekcie roli Proces roboczy.
 
 ### <a name="set-project-references"></a>Ustawianie odwołań do projektu
-1. W projekcie ContosoAdsWeb ustaw odwołanie do projektu ContosoAdsCommon. Kliknij prawym przyciskiem myszy projekt ContosoAdsWeb, a następnie kliknij polecenie **Odwołania** - **Dodaj odwołania**. W oknie dialogowym **Menedżer odwołań** wybierz pozycję **Rozwiązanie — projekty** w lewym okienku, wybierz pozycję **ContosoAdsCommon**, a następnie kliknij przycisk **OK**.
+1. W projekcie ContosoAdsWeb ustaw odwołanie do projektu ContosoAdsCommon. Kliknij prawym przyciskiem myszy projekt ContosoAdsWeb, a następnie kliknij pozycję **odwołania** - **Dodaj odwołania**. W oknie dialogowym **Menedżer odwołań** wybierz pozycję **Rozwiązanie — projekty** w lewym okienku, wybierz pozycję **ContosoAdsCommon**, a następnie kliknij przycisk **OK**.
 2. W projekcie ContosoAdsWorker ustaw odwołanie do projektu ContosoAdsCommon.
 
     Projekt ContosoAdsCommon będzie zawierać klasę kontekstu i model danych platformy Entity Framework, które będą używane dla frontonu i zaplecza.
@@ -398,7 +398,7 @@ W tej sekcji będziesz konfigurować parametry połączenia usługi Azure Storag
 ### <a name="add-code-files"></a>Dodawanie plików kodu
 W tej sekcji skopiujesz pliki kodu z pobranego rozwiązania do nowego rozwiązania. W poniższych sekcjach zostaną również pokazane i objaśnione części tego kodu.
 
-Aby dodać pliki do projektu lub folderu, kliknij prawym przyciskiem myszy projekt lub folder, a następnie kliknij polecenie **Dodaj** - **istniejący element**. Wybierz pliki, a następnie kliknij pozycję **Dodaj**. Jeśli pojawi się pytanie, czy chcesz zastąpić istniejące pliki, kliknij pozycję **Tak**.
+Aby dodać pliki do projektu lub folderu, kliknij prawym przyciskiem myszy projekt lub folder, a następnie kliknij pozycję **Dodaj** - **istniejący element**. Wybierz pliki, a następnie kliknij pozycję **Dodaj**. Jeśli pojawi się pytanie, czy chcesz zastąpić istniejące pliki, kliknij pozycję **Tak**.
 
 1. W projekcie ContosoAdsCommon usuń plik *Class1.cs* i dodaj w jego miejsce pliki *Ad.cs* i *ContosoAdscontext.cs* z pobranego projektu.
 2. W projekcie ContosoAdsWeb dodaj poniższe pliki z pobranego projektu.
@@ -696,7 +696,7 @@ public override void Run()
 }
 ```
 
-Po każdej iteracji pętli, jeśli żaden komunikat nie zostanie znaleziony w kolejce, program zostanie uśpiony na sekundę. Zapobiega to nadmiernemu wykorzystaniu czasu procesora CPU oraz ponoszeniu zbyt wysokich kosztów transakcji magazynu powiązanych z rolą Proces roboczy. Zespół doradczy klientów firmy Microsoft opowiada historię o deweloperze, który zapomniał o tym, wdrożył aplikację i wyjechał na urlop. Kiedy wrócili, ich nadzór kosztował więcej niż wakacje.
+Po każdej iteracji pętli, jeśli żaden komunikat nie zostanie znaleziony w kolejce, program zostanie uśpiony na sekundę. Zapobiega to nadmiernemu wykorzystaniu czasu procesora CPU oraz ponoszeniu zbyt wysokich kosztów transakcji magazynu powiązanych z rolą Proces roboczy. Zespół doradczy klientów firmy Microsoft opowiada historię o deweloperze, który zapomniał o tym, wdrożył aplikację i wyjechał na urlop. Po ich przekroczeniu koszt nadzoru jest wyższy niż urlop.
 
 Czasami zawartość komunikatu w kolejce może powodować wystąpienie błędu podczas przetwarzania. Jest to tzw. *skażony komunikat*. Jeśli właśnie zarejestrowano błąd i ponownie uruchomiono pętlę, można w nieskończoność ponawiać próby przetworzenia takiego komunikatu.  Z tego względu blok catch zawiera instrukcję if, która sprawdza, ile razy aplikacja próbowała przetworzyć bieżący komunikat. Jeśli ta liczba przekracza 5, komunikat jest usuwany z kolejki.
 
@@ -774,7 +774,7 @@ Więcej informacji zawierają następujące zasoby:
 
 * [Azure Cloud Services, część 1: wprowadzenie](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Jak zarządzać usługami Cloud Services](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](https://docs.microsoft.com/azure/storage/)
+* [Usługa Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Jak wybrać dostawcę usług w chmurze](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
 

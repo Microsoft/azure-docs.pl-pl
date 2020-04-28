@@ -1,6 +1,6 @@
 ---
 title: Przekształcanie danych w chmurze za pomocą programu PowerShell
-description: Ten skrypt programu PowerShell przekształca dane w chmurze, uruchamiając program Spark w klastrze platformy Azure HDInsight Spark.
+description: Ten skrypt programu PowerShell przekształca dane w chmurze przez uruchomienie programu Spark w klastrze Azure HDInsight Spark.
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74932064"
 ---
-# <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Skrypt programu PowerShell — przekształcanie danych w chmurze przy użyciu usługi Azure Data Factory
+# <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Skrypt programu PowerShell — Przekształcanie danych w chmurze przy użyciu Azure Data Factory
 
-Ten przykładowy skrypt programu PowerShell tworzy potok, który przekształca dane w chmurze, uruchamiając program Spark w klastrze platformy Azure HDInsight Spark. 
+Ten przykładowy skrypt programu PowerShell tworzy potok, który przekształca dane w chmurze przez uruchomienie programu Spark w klastrze Azure HDInsight Spark. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Konto usługi Azure Storage**. Utwórz skrypt języka Python i plik wejściowy i przekaż je do magazynu platformy Azure. Dane wyjściowe programu platformy Spark są przechowywane na tym koncie magazynu. Klaster platformy Spark na żądanie używa tego samego konta magazynu, jako swojego podstawowego magazynu.  
+* **Konto usługi Azure Storage**. Utwórz skrypt w języku Python i plik wejściowy, a następnie Przekaż je do usługi Azure Storage. Dane wyjściowe programu platformy Spark są przechowywane na tym koncie magazynu. Klaster platformy Spark na żądanie używa tego samego konta magazynu, jako swojego podstawowego magazynu.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Przekazywanie skryptu w języku Python do konta usługi Blob Storage
-1. Utwórz plik języka Python o nazwie **WordCount_Spark.py** z następującą zawartością: 
+1. Utwórz plik w języku Python o nazwie **WordCount_Spark. PR** z następującą zawartością: 
 
     ```python
     import sys
@@ -54,7 +54,7 @@ Ten przykładowy skrypt programu PowerShell tworzy potok, który przekształca d
     if __name__ == "__main__":
         main()
     ```
-2. Zamień ** &lt;storageAccountName&gt; ** na nazwę swojego konta usługi Azure Storage. Następnie zapisz plik. 
+2. Zastąp ** &lt;storageAccountName&gt; ** nazwą konta usługi Azure Storage. Następnie zapisz plik. 
 3. W usłudze Azure Blob Storage utwórz kontener o nazwie **adftutorial**, jeśli nie istnieje. 
 4. Utwórz folder o nazwie **spark**.
 5. Utwórz podfolder o nazwie **script** w folderze **spark**. 
@@ -63,12 +63,12 @@ Ten przykładowy skrypt programu PowerShell tworzy potok, który przekształca d
 
 ### <a name="upload-the-input-file"></a>Przekazywanie pliku wejściowego
 1. Utwórz plik o nazwie **minecraftstory.txt** zawierający tekst. Program platformy Spark zlicza liczbę słów w tym tekście. 
-2. Utwórz podfolder `inputfiles` o `spark` nazwie w folderze kontenera obiektów blob. 
+2. Utwórz podfolder o nazwie `inputfiles` w `spark` folderze kontenera obiektów BLOB. 
 3. Przekaż `minecraftstory.txt` do podfolderu `inputfiles`. 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 > [!IMPORTANT]
-> Ten skrypt tworzy pliki JSON definiujące jednostki Data Factory (usługa połączona, zestaw danych i potok) na dysku twardym w c:\ Folder.
+> Ten skrypt tworzy pliki JSON, które definiują Data Factory jednostki (połączone usługi, zestawy danych i potok) na dysku twardym w c:\ system32\drivers\etc.
 
 [!code-powershell[main](../../../powershell_scripts/data-factory/transform-data-using-spark/transform-data-using-spark.ps1 "Transform data using Spark")]
 
@@ -92,11 +92,11 @@ W tym skrypcie użyto następujących poleceń:
 | Polecenie | Uwagi |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [Zestaw-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Tworzenie fabryki danych. |
-| [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/set-Azdatafactoryv2linkedservice) | Tworzy usługę połączony w fabryce danych. Połączona usługa łączy magazyn danych lub obliczeń z fabryką danych. |
-| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/set-Azdatafactoryv2pipeline) | Tworzy potok w fabryce danych. Potok zawiera co najmniej jedną operację, która wykonuje określoną operację. W tym potoku spark działania przekształca dane przez uruchomienie programu w klastrze platformy Azure HDInsight Spark. |
-| [Invoke-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/invoke-Azdatafactoryv2pipeline) | Tworzy przebieg dla potoku. Innymi słowy uruchamia potoku. |
-| [Get-AzDataFactoryV2AktypcjaRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Pobiera szczegółowe informacje na temat uruchamiania działania (przebiegu działania) w potoku. 
+| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Tworzenie fabryki danych. |
+| [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/set-Azdatafactoryv2linkedservice) | Tworzy połączoną usługę w fabryce danych. Połączona usługa łączy magazyn danych lub dane obliczeniowe z fabryką danych. |
+| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/set-Azdatafactoryv2pipeline) | Tworzy potok w fabryce danych. Potok zawiera jedną lub więcej działań, które wykonują określoną operację. W tym potoku działanie Spark przekształca dane przez uruchomienie programu w klastrze Azure HDInsight Spark. |
+| [Invoke-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/invoke-Azdatafactoryv2pipeline) | Tworzy przebieg dla potoku. Innymi słowy, uruchamia potok. |
+| [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Pobiera szczegółowe informacje o przebiegu działania (przebieg działania) w potoku. 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||
 
@@ -104,4 +104,4 @@ W tym skrypcie użyto następujących poleceń:
 
 Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Dodatkowe przykłady skryptów usługi Azure Data Factory PowerShell można znaleźć w [przykładach usługi Azure Data Factory PowerShell.](../samples-powershell.md)
+Dodatkowe przykłady skryptów programu Azure Data Factory PowerShell można znaleźć w [przykładach Azure Data Factory programu PowerShell](../samples-powershell.md).

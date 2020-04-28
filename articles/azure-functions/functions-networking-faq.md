@@ -1,70 +1,70 @@
 ---
-title: Często zadawane pytania dotyczące sieci w usłudze Azure Functions
-description: Odpowiedzi na niektóre z najczęstszych pytań i scenariuszy dotyczących sieci za pomocą usługi Azure Functions.
+title: Często zadawane pytania dotyczące sieci w Azure Functions
+description: Odpowiedzi na niektóre często zadawane pytania i scenariusze dotyczące sieci z Azure Functions.
 author: alexkarcher-msft
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
 ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75409528"
 ---
-# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Często zadawane pytania dotyczące sieci w usłudze Azure Functions
+# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Często zadawane pytania dotyczące sieci w Azure Functions
 
-W tym artykule wymieniono często zadawane pytania dotyczące sieci w usłudze Azure Functions. Aby uzyskać bardziej kompleksowe omówienie, zobacz [Opcje sieci funkcji](functions-networking-options.md).
+Ten artykuł zawiera listę często zadawanych pytań dotyczących sieci w Azure Functions. Aby zapoznać się z bardziej szczegółowym omówieniem, zobacz [Functions Options](functions-networking-options.md).
 
-## <a name="how-do-i-set-a-static-ip-in-functions"></a>Jak ustawić statyczny adres IP w funkcjiach?
+## <a name="how-do-i-set-a-static-ip-in-functions"></a>Jak mogę ustawić statyczny adres IP w funkcjach?
 
-Wdrażanie funkcji w środowisku usługi aplikacji jest obecnie jedynym sposobem, aby mieć statyczny przychodzący i wychodzący adres IP dla funkcji. Aby uzyskać szczegółowe informacje na temat korzystania ze środowiska usługi app service, zacznij od artykułu [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia ze środowiskiem usługi app service](../app-service/environment/create-ilb-ase.md).
+Wdrożenie funkcji w App Service Environment jest obecnie jedynym sposobem posiadania statycznego przychodzącego i wychodzącego adresu IP dla funkcji. Aby uzyskać szczegółowe informacje na temat używania App Service Environment, Zacznij od artykułu [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z App Service Environment](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Jak ograniczyć dostęp do Internetu do mojej funkcji?
+## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Jak mogę ograniczyć dostęp do Internetu do funkcji My?
 
 Dostęp do Internetu można ograniczyć na kilka sposobów:
 
-* [Ograniczenia adresów IP:](../app-service/app-service-ip-restrictions.md)Ogranicz ruch przychodzący do aplikacji funkcji według zakresu ADRESÓW IP.
-    * W obszarze Ograniczenia adresów IP można również skonfigurować [punkty końcowe usługi,](../virtual-network/virtual-network-service-endpoints-overview.md)które ograniczają funkcję do akceptowania tylko ruchu przychodzącego z określonej sieci wirtualnej.
-* Usunięcie wszystkich wyzwalaczy HTTP. W przypadku niektórych aplikacji wystarczy po prostu uniknąć wyzwalaczy HTTP i użyć dowolnego innego źródła zdarzeń, aby wyzwolić funkcję.
+* [Ograniczenia adresów IP](../app-service/app-service-ip-restrictions.md): ograniczanie ruchu przychodzącego do aplikacji funkcji według zakresu adresów IP.
+    * W obszarze Ograniczenia adresów IP można również skonfigurować [punkty końcowe usługi](../virtual-network/virtual-network-service-endpoints-overview.md), które ograniczają funkcję do akceptowania ruchu przychodzącego z określonej sieci wirtualnej.
+* Usuwanie wszystkich wyzwalaczy HTTP. W przypadku niektórych aplikacji wystarczy uniknąć wyzwalacza protokołu HTTP i użyć innych źródeł zdarzeń do wyzwolenia funkcji.
 
-Należy pamiętać, że edytor portalu Azure wymaga bezpośredniego dostępu do uruchomionej funkcji. Wszelkie zmiany kodu za pośrednictwem witryny Azure portal będzie wymagać urządzenia, którego używasz do przeglądania portalu, aby jego adres IP białej listy. Ale nadal można używać niczego w zakładce funkcji platformy z ograniczeniami sieciowymi.
+Należy pamiętać, że Edytor Azure Portal wymaga bezpośredniego dostępu do uruchomionej funkcji. Wszelkie zmiany kodu za pośrednictwem Azure Portal będą wymagały, aby urządzenie używane do przeglądania portalu miało listy dozwolonych IP. Można jednak nadal korzystać ze wszystkich elementów na karcie funkcje platformy z ograniczeniami sieci.
 
-## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Jak ograniczyć aplikację funkcji do sieci wirtualnej?
+## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Jak mogę ograniczyć moją aplikację funkcji do sieci wirtualnej?
 
-Ruch **przychodzący** aplikacji jest w stanie ograniczyć do sieci wirtualnej przy użyciu [punktów końcowych usługi](./functions-networking-options.md#private-site-access). Ta konfiguracja nadal umożliwia aplikacji funkcji wykonywanie połączeń wychodzących do Internetu.
+Można ograniczyć ruch **przychodzący** dla aplikacji funkcji do sieci wirtualnej za pomocą [punktów końcowych usługi](./functions-networking-options.md#private-site-access). Ta konfiguracja nadal umożliwia aplikacji funkcji wykonywanie wywołań wychodzących do Internetu.
 
-Jedynym sposobem, aby całkowicie ograniczyć funkcję, tak, że cały ruch przepływa przez sieć wirtualną jest użycie wewnętrznie równoważącego obciążenia środowiska usługi app service. Ta opcja wdraża witrynę w dedykowanej infrastrukturze w sieci wirtualnej i wysyła wszystkie wyzwalacze i ruch za pośrednictwem sieci wirtualnej. 
+Jedynym sposobem, aby całkowicie ograniczyć funkcję, która powoduje, że cały ruch przesyłany przez sieć wirtualną ma używać wewnętrznego równoważenia obciążenia App Service Environment. Ta opcja wdraża lokację w dedykowanej infrastrukturze w sieci wirtualnej i wysyła wszystkie wyzwalacze i ruch przez sieć wirtualną. 
 
-Aby uzyskać szczegółowe informacje na temat korzystania ze środowiska usługi app service, zacznij od artykułu [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia ze środowiskiem usługi app service](../app-service/environment/create-ilb-ase.md).
+Aby uzyskać szczegółowe informacje na temat używania App Service Environment, Zacznij od artykułu [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z App Service Environment](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Jak uzyskać dostęp do zasobów w sieci wirtualnej z aplikacji funkcji?
+## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Jak mogę uzyskać dostęp do zasobów w sieci wirtualnej z aplikacji funkcji?
 
-Dostęp do zasobów w sieci wirtualnej można uzyskać za pomocą uruchomionej funkcji przy użyciu integracji sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Integracja sieci wirtualnej](functions-networking-options.md#virtual-network-integration).
+Możesz uzyskać dostęp do zasobów w sieci wirtualnej z działającej funkcji przy użyciu integracji sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [integracja z siecią wirtualną](functions-networking-options.md#virtual-network-integration).
 
-## <a name="how-do-i-access-resources-protected-by-service-endpoints"></a>Jak uzyskać dostęp do zasobów chronionych przez punkty końcowe usługi?
+## <a name="how-do-i-access-resources-protected-by-service-endpoints"></a>Jak mogę zasobów dostępu chronionych przez punkty końcowe usługi?
 
-Za pomocą integracji sieci wirtualnej można uzyskać dostęp do zasobów zabezpieczonych przez punkt końcowy usługi z uruchomionej funkcji. Aby uzyskać więcej informacji, zobacz [integracja sieci wirtualnej](functions-networking-options.md#virtual-network-integration).
+Korzystając z integracji z siecią wirtualną, można uzyskać dostęp do zasobów zabezpieczonych za pomocą punktów końcowych z działającej funkcji. Aby uzyskać więcej informacji, zobacz [integracja z siecią wirtualną](functions-networking-options.md#virtual-network-integration).
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Jak wyzwolić funkcję z zasobu w sieci wirtualnej?
 
 Można zezwolić na wywoływanie wyzwalaczy HTTP z sieci wirtualnej przy użyciu [punktów końcowych usługi](./functions-networking-options.md#private-site-access). 
 
-Można również wyzwolić funkcję ze wszystkich innych zasobów w sieci wirtualnej, wdrażając aplikację funkcji do planu Premium, planu usługi app service lub środowiska usługi aplikacji. Więcej informacji można znaleźć w [wyzwalaczach sieci wirtualnej innych](./functions-networking-options.md#virtual-network-triggers-non-http) niż HTTP
+Możesz również wyzwolić funkcję ze wszystkich innych zasobów w sieci wirtualnej, wdrażając aplikację funkcji do planu Premium, planu App Service lub App Service Environment. Aby uzyskać więcej informacji, zobacz [wyzwalacze sieci wirtualnej inne niż http](./functions-networking-options.md#virtual-network-triggers-non-http)
 
-## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Jak wdrożyć aplikację funkcji w sieci wirtualnej?
+## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Jak mogę wdrożyć aplikację funkcji w sieci wirtualnej?
 
-Wdrażanie w środowisku usługi aplikacji jest jedynym sposobem, aby utworzyć aplikację funkcji, która jest całkowicie wewnątrz sieci wirtualnej. Aby uzyskać szczegółowe informacje na temat używania wewnętrznego modułu równoważenia obciążenia ze środowiskiem usługi app service, zacznij od artykułu [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia ze środowiskiem usługi app service](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+Wdrożenie do App Service Environment jest jedynym sposobem tworzenia aplikacji funkcji, która znajduje się w całości w sieci wirtualnej. Aby uzyskać szczegółowe informacje na temat używania wewnętrznego modułu równoważenia obciążenia z App Service Environment, Zacznij od artykułu [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z App Service Environment](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
-W przypadku scenariuszy, w których potrzebny jest tylko jednokierunkowy dostęp do zasobów sieci wirtualnej lub mniej kompleksowej izolacji sieci, zobacz [omówienie sieci funkcji](functions-networking-options.md).
+W przypadku scenariuszy, w których potrzebujesz tylko jednokierunkowego dostępu do zasobów sieci wirtualnej lub mniej kompleksowej izolacji sieci, zobacz [Omówienie usługi Functions](functions-networking-options.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o sieci i funkcjach: 
+Aby dowiedzieć się więcej na temat sieci i funkcji: 
 
-* [Postępuj zgodnie z samouczkiem na temat rozpoczynania integracji z siecią wirtualną](./functions-create-vnet.md)
-* [Dowiedz się więcej o opcjach sieci w usłudze Azure Functions](./functions-networking-options.md)
-* [Dowiedz się więcej o integracji sieci wirtualnej z usługą App Service i funkcjami](../app-service/web-sites-integrate-with-vnet.md)
+* [Postępuj zgodnie z samouczkiem dotyczącym rozpoczynania pracy z integracją z siecią wirtualną](./functions-create-vnet.md)
+* [Dowiedz się więcej o opcjach sieciowych w Azure Functions](./functions-networking-options.md)
+* [Dowiedz się więcej o integracji z siecią wirtualną za pomocą App Service i funkcji](../app-service/web-sites-integrate-with-vnet.md)
 * [Dowiedz się więcej o sieciach wirtualnych na platformie Azure](../virtual-network/virtual-networks-overview.md)
-* [Włącz więcej funkcji sieciowych i kontroluj za pomocą środowisk usługi app service](../app-service/environment/intro.md)
+* [Włączanie większej liczby funkcji sieciowych i kontroli w środowiskach App Service](../app-service/environment/intro.md)

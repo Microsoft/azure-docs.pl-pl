@@ -1,6 +1,6 @@
 ---
-title: Dodawanie lub usuwanie grupy z innej grupy — usługi Azure AD
-description: Instrukcje dotyczące dodawania lub usuwania grupy z innej grupy przy użyciu usługi Azure Active Directory.
+title: Dodawanie lub usuwanie grupy z innej grupy — Azure AD
+description: Instrukcje dotyczące dodawania lub usuwania grupy z innej grupy przy użyciu Azure Active Directory.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,58 +14,58 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 830bf7134b3a8b0425c53673a1347dd77897a5bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75423033"
 ---
-# <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Dodawanie lub usuwanie grupy z innej grupy przy użyciu usługi Azure Active Directory
-Ten artykuł ułatwia dodawanie i usuwanie grupy z innej grupy przy użyciu usługi Azure Active Directory.
+# <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Dodawanie lub usuwanie grupy z innej grupy przy użyciu Azure Active Directory
+Ten artykuł pomaga w dodawaniu i usuwaniu grupy z innej grupy przy użyciu Azure Active Directory.
 
 >[!Note]
->Jeśli próbujesz usunąć grupę nadrzędną, zobacz [Jak zaktualizować lub usunąć grupę i jej członków](active-directory-groups-delete-group.md).
+>Jeśli próbujesz usunąć grupę nadrzędną, zobacz [jak zaktualizować lub usunąć grupę i jej członków](active-directory-groups-delete-group.md).
 
 ## <a name="add-a-group-to-another-group"></a>Dodawanie grupy do innej grupy
-Istniejącą grupę zabezpieczeń można dodać do innej istniejącej grupy zabezpieczeń (znanej również jako grupy zagnieżdżone), tworząc grupę członkowek (podgrupę) i grupę nadrzędną. Grupa członków dziedziczy atrybuty i właściwości grupy nadrzędnej, oszczędzając czas konfiguracji.
+Istniejącą grupę zabezpieczeń można dodać do innej istniejącej grupy zabezpieczeń (znanej również jako grupy zagnieżdżone), tworząc grupę członkowską (podgrupę) i grupę nadrzędną. Grupa członkowska dziedziczy atrybuty i właściwości grupy nadrzędnej, oszczędzając czas konfiguracji.
 
 >[!Important]
->Obecnie nie obsługujemy:<ul><li>Dodawanie grup do grupy zsynchronizowanej z lokalną usługą Active Directory.</li><li>Dodawanie grup zabezpieczeń do grup usługi Office 365.</li><li>Dodawanie grup usługi Office 365 do grup zabezpieczeń lub innych grup usługi Office 365.</li><li>Przypisywanie aplikacji do grup zagnieżdżonych.</li><li>Stosowanie licencji do grup zagnieżdżonych.</li><li>Dodawanie grup dystrybucyjnych w scenariuszach zagnieżdżania.</li></ul>
+>Obecnie nie obsługujemy:<ul><li>Dodawanie grup do grupy synchronizowanej z Active Directoryami lokalnymi.</li><li>Dodawanie grup zabezpieczeń do grup pakietu Office 365.</li><li>Dodawanie grup pakietu Office 365 do grup zabezpieczeń lub innych grup pakietu Office 365.</li><li>Przypisywanie aplikacji do grup zagnieżdżonych.</li><li>Stosowanie licencji do grup zagnieżdżonych.</li><li>Dodawanie grup dystrybucyjnych w scenariuszach zagnieżdżania.</li></ul>
 
-### <a name="to-add-a-group-as-a-member-of-another-group"></a>Aby dodać grupę jako członka innej grupy
+### <a name="to-add-a-group-as-a-member-of-another-group"></a>Aby dodać grupę jako element członkowski innej grupy
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu konta administratora globalnego dla katalogu.
 
-2. Wybierz **pozycję Azure Active Directory**, a następnie wybierz pozycję **Grupy**.
+2. Wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **grupy**.
 
-3. Na stronie **Grupy — wszystkie grupy** wyszukaj i wybierz grupę, która ma zostać członkiem innej grupy. W tym ćwiczeniu używamy **zasady MDM —** grupa Zachód.
+3. Na stronie **grupy — wszystkie grupy** Wyszukaj i wybierz grupę, która ma zostać członkiem innej grupy. W tym ćwiczeniu używana jest Grupa **zasad zarządzania urządzeniami przenośnymi** .
 
     >[!Note]
-    >Grupę można dodać jako członka tylko do jednej grupy naraz. Ponadto pole **Wybierz grupę** filtruje wyświetlanie na podstawie dopasowania wpisu do dowolnej części nazwy użytkownika lub urządzenia. Jednak symbole wieloznaczne nie są obsługiwane.
+    >Grupę możesz dodać jako członka tylko do jednej grupy jednocześnie. Ponadto pole **Wybierz grupę** filtruje ekran w oparciu o pasujący wpis do dowolnej części nazwy użytkownika lub urządzenia. Jednak symbole wieloznaczne nie są obsługiwane.
 
-    ![Grupy — strona Wszystkie grupy z wybraną zasadą MDM — grupa zachodnia](media/active-directory-groups-membership-azure-portal/group-all-groups-screen.png)
+    ![Grupy — wszystkie grupy Strona z zasadami zarządzania urządzeniami przenośnymi — wybrana grupa Zachodnia](media/active-directory-groups-membership-azure-portal/group-all-groups-screen.png)
 
-4. Na stronie **Zasady MDM — Zachód — Członkostwo w grupach** wybierz pozycję **Członkostwo w grupach**, wybierz pozycję **Dodaj**, znajdź grupę, do której chcesz być twoją grupą, a następnie wybierz pozycję **Wybierz**. W tym ćwiczeniu używamy **zasad MDM — wszystkie** grupy organizacyjnej.
+4. Na stronie **zasady zarządzania urządzeniami przenośnymi-zachodnie grupy członkostwa** wybierz pozycję **członkostwa w grupie**, wybierz pozycję **Dodaj**, Znajdź grupę, do której należy Grupa, a następnie wybierz **pozycję Wybierz**. W tym ćwiczeniu korzystamy z **zasad zarządzania urządzeniami przenośnymi — wszystkie grupy organizacji** .
 
-    **Zasady MDM —** grupa Zachód jest teraz członkiem zasad MDM — wszystkie grupy **organizacyjnej,** dziedzicząc wszystkie właściwości i konfigurację zasad MDM — Wszystkie grupy organizacyjnej.
+    **Zasady zarządzania urządzeniami przenośnymi — West** jest teraz członkiem **zasad zarządzania urządzeniami przenośnymi — wszystkie grupy organizacyjne** , które dziedziczą wszystkie właściwości i konfigurację zasad zarządzania urządzeniami przenośnymi — wszystkie grupy organizacji.
 
     ![Tworzenie członkostwa w grupie przez dodanie grupy do innej grupy](media/active-directory-groups-membership-azure-portal/group-add-group-membership.png)
 
-5. Przejrzyj stronę **zasady MDM — Zachodnie — członkostwo w grupach,** aby wyświetlić relację grupy i członka.
+5. Przejrzyj stronę **zasady zarządzania urządzeniami przenośnymi-zachodnie grupy członkostwa** , aby wyświetlić relacje między grupami i członkami.
 
-6. Aby uzyskać bardziej szczegółowy widok relacji grupy i członka, wybierz nazwę grupy **(zasady MDM — wszystkie org)** i zapoznaj się z **zasadami MDM —** szczegóły strony zachodniej.
+6. Aby uzyskać bardziej szczegółowy widok relacji grupy i elementu członkowskiego, wybierz nazwę grupy (**zasady zarządzania urządzeniami przenośnymi — cała organizacja**) i zapoznaj się z **zasadami zarządzania urządzeniami przenośnymi —** informacje o stronie zachodniej.
 
 ## <a name="remove-a-group-from-another-group"></a>Usuwanie grupy z innej grupy
-Istniejącą grupę zabezpieczeń można usunąć z innej grupy zabezpieczeń. Jednak usunięcie grupy usuwa również wszystkie dziedziczone atrybuty i właściwości dla jej członków.
+Istnieje możliwość usunięcia istniejącej grupy zabezpieczeń z innej grupy zabezpieczeń. Jednak usunięcie grupy spowoduje również usunięcie wszystkich dziedziczonych atrybutów i właściwości elementów członkowskich.
 
-### <a name="to-remove-a-member-group-from-another-group"></a>Aby usunąć grupę członków z innej grupy
-1. Na stronie **Grupy — wszystkie grupy** wyszukaj i wybierz grupę, która ma zostać usunięta jako członek innej grupy. W tym ćwiczeniu ponownie używamy **zasady MDM —** grupa Zachód.
+### <a name="to-remove-a-member-group-from-another-group"></a>Aby usunąć grupę członkowską z innej grupy
+1. Na stronie **grupy — wszystkie grupy** Wyszukaj i wybierz grupę, która ma zostać usunięta jako członek innej grupy. W tym ćwiczeniu będziemy ponownie używać grupy **zasad zarządzania urządzeniami przenośnymi** .
 
-2. Na stronie **Omówienie zasad MDM — Przegląd zachód** wybierz pozycję **Członkostwo w grupach**.
+2. Na stronie **Przegląd zasad zarządzania urządzeniami przenośnymi** wybierz pozycję **członkostwa w grupie**.
 
-3. Wybierz **zasady MDM — wszystkie** grupy organizacyjne z **zasady MDM — Zachód — Członkostwo w grupie,** a następnie wybierz pozycję **Usuń** z zasad MDM — szczegóły strony **zachodniej.**
+3. Wybierz pozycję **zasady zarządzania urządzeniami przenośnymi — wszystkie grupy organizacji** na stronie **zasady zarządzania urządzeniami przenośnymi-zachodnie grupy członkostwa** , a następnie wybierz pozycję **Usuń** z szczegółów na stronie **zasady zarządzania urządzeniami przenośnymi** .
 
-    ![Strona członkostwa w grupie z informacjami o członkostwie i stronie grupy](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
+    ![Strona przynależności do grupy pokazująca zarówno element członkowski, jak i grupę szczegóły](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
@@ -74,10 +74,10 @@ Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
 - [Tworzenie grupy podstawowej i dodawanie członków](active-directory-groups-create-azure-portal.md)
 
-- [Dodawanie lub usuwanie członków z grupy](active-directory-groups-members-azure-portal.md)
+- [Dodawanie lub usuwanie elementów członkowskich z grupy](active-directory-groups-members-azure-portal.md)
 
 - [Edytowanie ustawień grupy](active-directory-groups-settings-azure-portal.md)
 
 - [Using a group to manage access to SaaS applications (Używanie grupy do zarządzania dostępem do aplikacji SaaS)](../users-groups-roles/groups-saasapps.md)
 
-- [Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w usłudze Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)
+- [Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w programie Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)

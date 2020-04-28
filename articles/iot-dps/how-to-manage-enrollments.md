@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie rejestracjami urządzeń dla usługi inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub w witrynie Azure portal
-description: Jak zarządzać rejestracjami urządzeń dla usługi inicjowania obsługi urządzeń (DPS) w witrynie Azure Portal
+title: Zarządzanie rejestracjami urządzeń dla IoT Hub Device Provisioning Service platformy Azure w Azure Portal
+description: Jak zarządzać rejestracjami urządzeń dla usługi Device Provisioning Service (DPS) w witrynie Azure Portal
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -9,67 +9,67 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974942"
 ---
-# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Jak zarządzać rejestracjami urządzeń za pomocą usługi Azure Portal
+# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Jak zarządzać rejestracjami urządzeń za pomocą witryny Azure Portal
 
-*Rejestracja urządzenia* tworzy rekord pojedynczego urządzenia lub grupy urządzeń, które w pewnym momencie mogą zarejestrować się w usłudze inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub. Rekord rejestracji zawiera początkową żądaną konfigurację dla urządzeń w ramach tej rejestracji, w tym żądaną ioT hub. W tym artykule pokazano, jak zarządzać rejestracjami urządzeń dla usługi inicjowania obsługi administracyjnej.
+*Rejestracja urządzenia* powoduje utworzenie rekordu jednego urządzenia lub grupy urządzeń, które mogą być w pewnym momencie zarejestrowane w usłudze Azure IoT Hub Device Provisioning Service. Rekord rejestracji zawiera początkową wymaganą konfigurację dla urządzeń w ramach rejestracji, łącznie z żądanym Centrum IoT Hub. W tym artykule opisano sposób zarządzania rejestracjami urządzeń dla usługi aprowizacji.
 
 
-## <a name="create-a-device-enrollment"></a>Tworzenie rejestracji urządzenia
+## <a name="create-a-device-enrollment"></a>Tworzenie rejestracji urządzeń
 
-Istnieją dwa sposoby rejestrowania urządzeń za pomocą usługi inicjowania obsługi administracyjnej:
+Istnieją dwa sposoby rejestrowania urządzeń przy użyciu usługi aprowizacji:
 
-* **Grupa Rejestracji** to wpis dla grupy urządzeń, które mają wspólny mechanizm zaświadczania certyfikatów X.509, podpisany tym samym certyfikatem podpisywania, który może być [certyfikatem głównym](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) lub [certyfikatem pośrednim,](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate)używanym do tworzenia certyfikatu urządzenia na urządzeniu fizycznym. Zaleca się używanie grupy rejestracji dla dużej liczby urządzeń, które współużytkują żądaną konfigurację początkową lub dla urządzeń przechodzących do tej samej dzierżawy. Należy zauważyć, że jako grupy rejestracji można rejestrować tylko urządzenia *korzystające*z mechanizmu zaświadczania X.509. 
+* **Grupa rejestracji** to wpis dla grupy urządzeń, który udostępnia wspólny mechanizm zaświadczania certyfikatów X. 509 podpisany przez ten sam certyfikat podpisywania, który może być [certyfikatem głównym](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) lub [certyfikatem pośrednim](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), używanym do tworzenia certyfikatu urządzenia na urządzeniu fizycznym. Zalecamy używanie grupy rejestracji dla dużej liczby urządzeń, które współużytkują żądaną konfigurację początkową, lub dla urządzeń, które przechodzą do tej samej dzierżawy. Należy pamiętać, że można rejestrować tylko urządzenia korzystające z mechanizmu zaświadczania X. 509 jako *grupy rejestracji*. 
 
-    Grupę rejestracji w portalu można utworzyć dla grupy urządzeń, wykonując następujące czynności:
+    W portalu można utworzyć grupę rejestracji dla grupy urządzeń, wykonując następujące czynności:
 
-  1. Zaloguj się do witryny Azure portal i kliknij pozycję **Wszystkie zasoby** z menu po lewej stronie.  
-  1. Kliknij usługę inicjowania obsługi administracyjnej urządzeń, do której chcesz zarejestrować urządzenie, z listy zasobów.  
+  1. Zaloguj się do Azure Portal i kliknij pozycję **wszystkie zasoby** w menu po lewej stronie.  
+  1. Kliknij usługę Device Provisioning, z której chcesz zarejestrować urządzenie na liście zasobów.  
   1. W usłudze aprowizacji:  
-     a. Kliknij **pozycję Zarządzaj rejestracjami**, a następnie wybierz kartę **Grupy rejestracji.**  
+     a. Kliknij pozycję **Zarządzanie rejestracjami**, a następnie wybierz kartę **grupy rejestracji** .  
      b. Kliknij przycisk **Dodaj** na górze.  
-     d. Po wyświetleniu panelu "Dodaj grupę rejestracji" wprowadź informacje dotyczące wpisu listy rejestracji.  Wymagana jest **nazwa grupy.** Wybierz również "CA lub Intermediate" dla **typu certyfikatu**i przekaż główny **certyfikat podstawowy** dla grupy urządzeń.  
-     d. Kliknij przycisk **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji nazwa grupy powinna być wyświetlana na karcie **Grupy rejestracji.**  
+     c. Po wyświetleniu panelu "Dodaj grupę rejestracji" Wprowadź informacje dotyczące wpisu listy rejestracji.  **Nazwa grupy** jest wymagana. W polu **Typ certyfikatu**wybierz również pozycję "ca lub pośredni" i przekaż główny **certyfikat podstawowy** dla grupy urządzeń.  
+     d. Kliknij przycisk **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji powinna zostać wyświetlona nazwa grupy wyświetlana na karcie **grupy rejestracji** .  
 
      [![Grupa rejestracji w portalu](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
-* **Rejestracja indywidualna** to wpis dla jednego urządzenia, które może się zarejestrować. Poszczególne rejestracje mogą używać certyfikatów x509 lub tokenów Sygnatury dostępu Współdzielonego (z fizycznego lub wirtualnego modułu TPM) jako mechanizmów zaświadczania. Zaleca się używanie poszczególnych rejestracji dla urządzeń, które wymagają unikatowych konfiguracji początkowych lub dla urządzeń, które mogą używać tokenów sygnatury dostępu Współdzielonego tylko za pośrednictwem modułu TPM lub wirtualnego modułu TPM jako mechanizmu zaświadczania. W przypadku rejestracji indywidualnych można określić identyfikatory urządzeń wymaganego centrum IoT.
+* **Rejestracja indywidualna** to wpis dla jednego urządzenia, które może się zarejestrować. Rejestracje indywidualne mogą używać certyfikatów x509 lub tokenów sygnatury dostępu współdzielonego (z poziomu fizycznego lub wirtualnego modułu TPM) jako mechanizmów zaświadczania. Zalecamy używanie indywidualnych rejestracji dla urządzeń, które wymagają unikatowej konfiguracji początkowej, lub dla urządzeń, które mogą używać tylko tokenów SAS za pośrednictwem modułu TPM lub wirtualnego modułu TPM jako mechanizmu zaświadczania. W przypadku rejestracji indywidualnych można określić identyfikatory urządzeń wymaganego centrum IoT.
 
-    Rejestrację indywidualną można utworzyć w portalu, wykonując następujące czynności:
+    Możesz utworzyć rejestrację indywidualną w portalu, wykonując następujące czynności:
 
-    1. Zaloguj się do witryny Azure portal i kliknij pozycję **Wszystkie zasoby** z menu po lewej stronie.
-    1. Kliknij usługę inicjowania obsługi administracyjnej urządzeń, do której chcesz zarejestrować urządzenie, z listy zasobów.
+    1. Zaloguj się do Azure Portal i kliknij pozycję **wszystkie zasoby** w menu po lewej stronie.
+    1. Kliknij usługę Device Provisioning, z której chcesz zarejestrować urządzenie na liście zasobów.
     1. W usłudze aprowizacji:  
-       a. Kliknij **pozycję Zarządzaj rejestracjami**, a następnie wybierz kartę **Rejestracje indywidualne.**  
+       a. Kliknij pozycję **Zarządzanie rejestracjami**, a następnie wybierz kartę **rejestracje indywidualne** .  
        b. Kliknij przycisk **Dodaj** na górze.   
-       d. Po wyświetleniu panelu "Dodaj rejestrację" wprowadź informacje dotyczące wpisu listy rejestracji. Najpierw wybierz **mechanizm** zaświadczania dla urządzenia (X.509 lub TPM). Zaświadczenie X.509 wymaga przesłania **certyfikatu podstawowego** typu liść dla urządzenia. Moduł TPM wymaga wprowadzenia **klucza zaświadczania** i **identyfikatora rejestracji** urządzenia.  
-       d. Kliknij przycisk **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji urządzenie powinno być widoczne na karcie **Rejestracje indywidualne.**  
+       c. Po wyświetleniu panelu "Dodaj rejestrację" Wprowadź informacje dotyczące wpisu listy rejestracji. Najpierw wybierz **mechanizm** zaświadczania dla urządzenia (X. 509 lub moduł TPM). Zaświadczanie X. 509 wymaga przekazania **podstawowego certyfikatu** liścia dla urządzenia. Moduł TPM wymaga wprowadzenia **klucza zaświadczania** i **identyfikatora rejestracji** dla urządzenia.  
+       d. Kliknij przycisk **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji urządzenie zostanie wyświetlone na karcie **indywidualne rejestracje** .  
 
        [![Rejestracja indywidualna w portalu](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
 ## <a name="update-an-enrollment-entry"></a>Aktualizowanie wpisu rejestracji
-Istniejący wpis rejestracji w portalu można zaktualizować, wykonując następujące czynności:
+Istniejący wpis rejestracji można zaktualizować w portalu, wykonując następujące czynności:
 
-1. Otwórz usługę inicjowania obsługi urządzeń w witrynie Azure portal i kliknij pozycję **Zarządzaj rejestracjami**. 
-1. Przejdź do wpisu rejestracji, który chcesz zmodyfikować. Kliknij wpis, który otworzy podsumowanie informacji o rejestracji urządzenia. 
-1. Na tej stronie można zmodyfikować elementy inne niż typ zabezpieczeń i poświadczenia, takie jak centrum IoT, z którego urządzenie powinno być połączone, a także identyfikator urządzenia. Można również zmodyfikować początkowy stan bliźniaczej reprezentacji urządzenia. 
-1. Po zakończeniu kliknij przycisk **Zapisz,** aby zaktualizować rejestrację urządzenia. 
+1. Otwórz usługę Device Provisioning w Azure Portal a następnie kliknij pozycję **Zarządzaj rejestracjami**. 
+1. Przejdź do wpisu rejestracji, który chcesz zmodyfikować. Kliknij wpis, aby otworzyć podsumowanie informacji o rejestracji urządzenia. 
+1. Na tej stronie można modyfikować elementy inne niż typ zabezpieczeń i poświadczenia, takie jak centrum IoT, z którym urządzenie powinno być połączone, a także identyfikator urządzenia. Można również zmodyfikować stan początkowy dwuosiowy urządzenia. 
+1. Po zakończeniu kliknij przycisk **Zapisz** , aby zaktualizować rejestrację urządzenia. 
 
     ![Aktualizowanie rejestracji w portalu](./media/how-to-manage-enrollments/update-enrollment.png)
 
 ## <a name="remove-a-device-enrollment"></a>Usuwanie rejestracji urządzenia
-W przypadkach, gdy urządzenia nie muszą być aprowiedny do dowolnego centrum IoT hub, można usunąć powiązany wpis rejestracji w portalu, wykonując następujące kroki:
+W przypadkach, gdy urządzenia nie muszą być obsługiwane w żadnym Centrum IoT Hub, można usunąć powiązane wpisy rejestracji w portalu, wykonując następujące czynności:
 
-1. Otwórz usługę inicjowania obsługi urządzeń w witrynie Azure portal i kliknij pozycję **Zarządzaj rejestracjami**. 
-1. Przejdź do wpisu rejestracji, który chcesz usunąć, i wybierz go. 
-1. Kliknij przycisk **Usuń** u góry, a następnie wybierz pozycję **Tak** po wyświetleniu monitu o potwierdzenie. 
-1. Po zakończeniu akcji zostanie usunięty wpis z listy rejestracji urządzeń. 
+1. Otwórz usługę Device Provisioning w Azure Portal a następnie kliknij pozycję **Zarządzaj rejestracjami**. 
+1. Przejdź do i wybierz wpis rejestracji, który chcesz usunąć. 
+1. Kliknij przycisk **Usuń** u góry, a następnie wybierz pozycję **tak** po wyświetleniu monitu o potwierdzenie. 
+1. Po zakończeniu akcji zobaczysz, że wpis został usunięty z listy rejestracji urządzeń. 
  
     ![Usuwanie rejestracji w portalu](./media/how-to-manage-enrollments/remove-enrollment.png)
 

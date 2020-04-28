@@ -1,6 +1,6 @@
 ---
-title: Zbieranie szczegółowych informacji o wszystkich maszynach wirtualnych w ramach subskrypcji za pomocą programu PowerShell
-description: Zbieranie szczegółowych informacji o wszystkich maszynach wirtualnych w ramach subskrypcji za pomocą programu PowerShell
+title: Zbieranie szczegółowych informacji o wszystkich maszynach wirtualnych w ramach subskrypcji przy użyciu programu PowerShell
+description: Zbieranie szczegółowych informacji o wszystkich maszynach wirtualnych w ramach subskrypcji przy użyciu programu PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: v-miegge
@@ -16,15 +16,15 @@ ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
 ms.openlocfilehash: 237081380445f2b2e4168ee3afe9a3ed7544fc89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74900201"
 ---
-# <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Zbieranie szczegółowych informacji o wszystkich maszynach wirtualnych w ramach subskrypcji za pomocą programu PowerShell
+# <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Zbieranie szczegółowych informacji o wszystkich maszynach wirtualnych w ramach subskrypcji przy użyciu programu PowerShell
 
-Ten skrypt tworzy plik csv zawierający nazwę maszyny Wirtualnej, nazwę grupy zasobów, region, sieć wirtualną, podsieć, prywatny adres IP, typ systemu operacyjnego i publiczny adres IP maszyn wirtualnych w dostarczonej subskrypcji.
+Ten skrypt tworzy plik CSV, który zawiera nazwę maszyny wirtualnej, nazwę grupy zasobów, region, Virtual Network, podsieć, prywatny adres IP, typ systemu operacyjnego i publiczny adres IP maszyn wirtualnych w podanej subskrypcji.
 
 Jeśli nie masz [subskrypcji platformy Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
@@ -32,7 +32,7 @@ Jeśli nie masz [subskrypcji platformy Azure](https://docs.microsoft.com/azure/g
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również uruchomić usługę Cloud Shell w [https://shell.azure.com/powershell](https://shell.azure.com/powershell)osobnej karcie przeglądarki, przechodząc do . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -70,12 +70,12 @@ $report | Export-CSV "$home/$reportName"
 ```
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
-Ten skrypt używa następujących poleceń do utworzenia eksportu csv szczegółów maszyn wirtualnych w ramach subskrypcji. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
+Ten skrypt używa następujących poleceń w celu utworzenia eksportu CSV szczegółów dotyczących maszyn wirtualnych w ramach subskrypcji. Każde polecenie w tabeli stanowi link do dokumentacji polecenia.
 
 |Polecenie|Uwagi|
 |-|-|
-|[Wybierz-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|Ustawia dzierżawy, subskrypcji i środowiska dla poleceń cmdlet do użycia w bieżącej sesji.|
-|[Get-AzVM ( Get-AzVM )](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|Pobiera właściwości maszyny wirtualnej.|
+|[SELECT-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|Ustawia dzierżawcę, subskrypcję i środowisko dla poleceń cmdlet, które mają być używane w bieżącej sesji.|
+|[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|Pobiera właściwości maszyny wirtualnej.|
 |[Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzPublicIpAddress)|Pobiera publiczny adres IP.|
 |[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzNetworkInterface)|Pobiera interfejs sieciowy.|
 

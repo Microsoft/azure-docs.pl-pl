@@ -1,6 +1,6 @@
 ---
-title: Prześlij oferty pracy Apache Hadoop w HDInsight
-description: Prześlij zadania Apache Hadoop w usłudze Azure HDInsight przy użyciu zestawu Microsoft .NET SDK, curl lub PowerShell
+title: Przesyłanie Apache Hadoop zadań w usłudze HDInsight
+description: Przesyłanie Apache Hadoop zadań w usłudze Azure HDInsight przy użyciu zestawu Microsoft .NET SDK, zwinięcie lub programu PowerShell
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,37 +9,37 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: 1cdee99378feb381d75edef0d150089132d1bbc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435693"
 ---
-# <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Prześlij oferty pracy Apache Hadoop w HDInsight
+# <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Przesyłanie Apache Hadoop zadań w usłudze HDInsight
 
-Zadania apache Hadoop można przesłać w usłudze Azure HDInsight przy użyciu zestawu SDK platformy Microsoft .NET dla usługi HDInsight, curl lub programu Azure PowerShell.
+Możesz przesłać Apache Hadoop zadania w usłudze Azure HDInsight przy użyciu zestawu SDK Microsoft .NET dla usługi HDInsight, zwinięcie lub Azure PowerShell.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
-- **.NET SDK**:
+- **zestaw SDK platformy .NET**:
 
-  - [Tworzenie aplikacji net uwierzytelniania nieinterakcyjnego](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
-  - [Uruchamianie zapytań gałęzi Apache przy użyciu sdk HDInsight .NET](apache-hadoop-use-hive-dotnet-sdk.md)
-  - [Uruchamianie zadań Apache Sqoop przy użyciu pliku .NET SDK dla apache Hadoop w funkcji HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
-  - [Uruchamianie zadań MapReduce przy użyciu sdk HDInsight .NET](apache-hadoop-use-mapreduce-dotnet-sdk.md)
+  - [Tworzenie aplikacji .NET nieinterakcyjnego uwierzytelniania](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+  - [Uruchamianie zapytań Apache Hive przy użyciu zestawu .NET SDK usługi HDInsight](apache-hadoop-use-hive-dotnet-sdk.md)
+  - [Uruchamianie zadań Apache Sqoop przy użyciu zestawu .NET SDK dla Apache Hadoop w usłudze HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
+  - [Uruchamianie zadań MapReduce przy użyciu zestawu .NET SDK usługi HDInsight](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- **zwijanie**:
+- **zwinięcie**:
 
-  - [Uruchamianie zapytań ula Apache z Apache Hadoop w HDInsight przy użyciu curl](apache-hadoop-use-hive-curl.md)
-  - [Uruchom apache sqoop zadania z Apache Hadoop w HDInsight za pomocą curl](apache-hadoop-use-sqoop-curl.md)
-  - [Uruchamianie zadań MapReduce z Apache Hadoop w HDInsight za pomocą curl](apache-hadoop-use-mapreduce-curl.md)
+  - [Uruchamianie zapytań Apache Hive z Apache Hadoop w usłudze HDInsight przy użyciu zapełnienia](apache-hadoop-use-hive-curl.md)
+  - [Uruchamianie zadań Apache Sqoop za pomocą Apache Hadoop w usłudze HDInsight przy użyciu programu zwinięcie](apache-hadoop-use-sqoop-curl.md)
+  - [Uruchamianie zadań MapReduce w Apache Hadoop usłudze HDInsight za pomocą zapełnienia](apache-hadoop-use-mapreduce-curl.md)
 
-- **Program PowerShell**:
+- Program **PowerShell**:
 
-  - [Uruchamianie zapytań gałęzi Apache przy użyciu programu PowerShell](apache-hadoop-use-hive-powershell.md)
-  - [Użyj Apache Sqoop z Apache Hadoop w HDInsight](apache-hadoop-use-sqoop-powershell.md)
-  - [Uruchamianie zadań MapReduce z Apache Hadoop w programie HDInsight przy użyciu programu PowerShell](apache-hadoop-use-mapreduce-powershell.md)
+  - [Uruchamianie zapytań Apache Hive przy użyciu programu PowerShell](apache-hadoop-use-hive-powershell.md)
+  - [Korzystanie z usługi Apache Sqoop z usługą Apache Hadoop w usłudze HDInsight](apache-hadoop-use-sqoop-powershell.md)
+  - [Uruchamianie zadań MapReduce w Apache Hadoop usłudze HDInsight przy użyciu programu PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Dokumentacja usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)

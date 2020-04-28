@@ -5,22 +5,22 @@ ms.service: expressroute
 ms.topic: include
 ms.author: cherylmc
 ms.openlocfilehash: f04861d55c9cea3c79f4983f7be2e1f5a3c6d864
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74926219"
 ---
-Zainstaluj najnowsze wersje modułów programu PowerShell usługi Azure Service Management (SM) i modułu Usługi ExpressRoute. Nie można używać środowiska Usługi Azure CloudShell do uruchamiania modułów SM.
+Zainstaluj najnowsze wersje modułów programu PowerShell dla usługi Azure Service Management (SM) i modułu ExpressRoute. Do uruchamiania modułów SM nie można używać środowiska CloudShell platformy Azure.
 
-1. Użyj instrukcji w [instalowaniu modułu zarządzania usługami,](/powershell/azure/servicemanagement/install-azure-ps) aby zainstalować moduł zarządzania usługami Azure. Jeśli masz już zainstalowany moduł Az lub RM, należy użyć '-AllowClobber'.
-2. Zaimportuj zainstalowane moduły. Korzystając z poniższego przykładu, dostosuj ścieżkę, aby odzwierciedlić lokalizację i wersję zainstalowanych modułów programu PowerShell.
+1. Aby zainstalować moduł zarządzania usługami platformy Azure, wykonaj instrukcje opisane w artykule [Instalowanie modułu zarządzania usługami](/powershell/azure/servicemanagement/install-azure-ps) . Jeśli masz już zainstalowany moduł AZ lub RM, upewnij się, że używasz elementu "-AllowClobber".
+2. Zaimportuj zainstalowane moduły. W poniższym przykładzie Dostosuj ścieżkę, aby odzwierciedlić lokalizację i wersję zainstalowanych modułów programu PowerShell.
 
    ```powershell
    Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
    Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
    ```
-3. Aby zalogować się do konta platformy Azure, otwórz konsolę programu PowerShell z podwyższonymi prawami i połącz się z kontem. Poniższy przykład ułatwia łączenie się przy użyciu modułu Zarządzanie usługami:
+3. Aby zalogować się do konta platformy Azure, Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień i Połącz się ze swoim kontem. Skorzystaj z następującego przykładu, aby nawiązać połączenie przy użyciu modułu zarządzania usługami:
 
    ```powershell
    Add-AzureAccount

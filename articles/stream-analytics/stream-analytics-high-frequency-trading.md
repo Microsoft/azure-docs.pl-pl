@@ -1,5 +1,5 @@
 ---
-title: Handel o wysokiej częstotliwości za pomocą usługi Azure Stream Analytics
+title: Handel o wysokiej częstotliwości przy użyciu Azure Stream Analytics
 description: Sposób przeprowadzania szkolenia i oceniania modelu regresji liniowej w ramach zadania usługi Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 06a4bdb8a8ee5d458347d30b53f740952151799e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426206"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Symulacja transakcji o wysokiej częstotliwości za pomocą usługi Stream Analytics
@@ -450,9 +450,9 @@ SELECT
 FROM simulation /* output trade simulation to PBI */
 ```
 
-![Zagosi wizualizację wykresu usługi Power BI](./media/stream-analytics-high-frequency-trading/trades-power-bi-chart.png)
+![Wizualizacja Power BI wykresu](./media/stream-analytics-high-frequency-trading/trades-power-bi-chart.png)
 
-![Wizualizacja wykresu usługi Power BI PNL](./media/stream-analytics-high-frequency-trading/pnl-power-bi-chart.png)
+![Wizualizacja wykresu Power BI PNL](./media/stream-analytics-high-frequency-trading/pnl-power-bi-chart.png)
 
 
 ## <a name="summary"></a>Podsumowanie

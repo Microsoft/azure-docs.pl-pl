@@ -1,24 +1,24 @@
 ---
-title: Tworzenie kopii zapasowych i przywracanie podmiotów sieci szkieletowej usług Azure
-description: Dowiedz się, jak zaimplementować tworzenie kopii zapasowych i przywracanie w podmiotach sieci szkieletowej usług Azure.
+title: Tworzenie kopii zapasowych i przywracanie uczestników Service Fabric platformy Azure
+description: Dowiedz się, jak zaimplementować tworzenie kopii zapasowych i przywracanie w aktorach Service Fabric platformy Azure.
 author: vturecek
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vturecek
 ms.openlocfilehash: 41ba3f9c7d362756b800005d0c140c23dd96caa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75370463"
 ---
-# <a name="implement-reliable-actors-backup-and-restore"></a>Implementowanie kopii zapasowych i przywracania niezawodnych aktorów
+# <a name="implement-reliable-actors-backup-and-restore"></a>Implementowanie Reliable Actors kopii zapasowej i przywracania
 
 > [!NOTE]
-> Firma Microsoft zaleca użycie [okresowej kopii zapasowej i przywracania](service-fabric-backuprestoreservice-quickstart-azurecluster.md) do konfigurowania kopii zapasowej danych niezawodnych usług stanowych i wiarygodnych aktorów. 
+> Firma Microsoft zaleca używanie [okresowych kopii zapasowych i przywracania](service-fabric-backuprestoreservice-quickstart-azurecluster.md) w celu konfigurowania kopii zapasowych danych o niezawodnych usługach stanowych i Reliable Actors. 
 > 
 
-W poniższym przykładzie usługa aktora niestandardowego udostępnia metodę do utworzenia kopii zapasowej danych aktora, korzystając z odbiornika komunikacji zdalnej już obecnego w: `ActorService`
+W poniższym przykładzie usługa aktora niestandardowego uwidacznia metodę tworzenia kopii zapasowych danych aktora, wykorzystując odbiornik komunikacji zdalnej już obecny w `ActorService`:
 
 ```csharp
 public interface IMyActorService : IService
@@ -94,7 +94,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
 }
 ```
 
-W tym `IMyActorService` przykładzie jest kontrakt komunikacji `IService` zdalnej, który `Service` implementuje (C#) `MyActorService`i (Java), a następnie jest implementowany przez . Dodając ten kontrakt komunikacji zdalnej, metody są `IMyActorService` teraz również dostępne dla klienta, `ActorServiceProxy`tworząc serwer proxy komunikacji zdalnej za pośrednictwem:
+W tym przykładzie `IMyActorService` jest kontraktem komunikacji zdalnej, który implementuje `IService` (C#) i `Service` (Java), a następnie jest zaimplementowany przez `MyActorService`. Po dodaniu tego kontraktu usług zdalnych dostępne są `IMyActorService` teraz metody dla klienta, tworząc serwer proxy komunikacji zdalnej za pośrednictwem `ActorServiceProxy`:
 
 ```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
@@ -109,12 +109,12 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-Aby uzyskać więcej informacji na temat wiarygodnych aktorów, przeczytaj następujące artykuły:
+Aby uzyskać więcej informacji na temat Reliable Actors, przeczytaj następujące artykuły:
 * [Zarządzanie stanem aktora](service-fabric-reliable-actors-state-management.md)
-* [Cykl życia aktora i wyrzucanie elementów bezużytecznych](service-fabric-reliable-actors-lifecycle.md)
-* [Dokumentacja referencyjna interfejsu API podmiotów](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Cykl życia aktora i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)
+* [Dokumentacja referencyjna interfejsu API aktorów](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Przykładowy kod platformy .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Przykładowy kod java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Przykładowy kod w języku Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

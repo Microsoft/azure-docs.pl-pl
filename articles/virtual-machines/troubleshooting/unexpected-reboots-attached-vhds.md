@@ -1,7 +1,7 @@
 ---
-title: Rozwiązywanie problemów z nieoczekiwanym ponownym uruchomieniem maszyn wirtualnych za pomocą dołączonych identyfikatorów VHD na maszynach wirtualnych platformy Azure | Dokumenty firmy Microsoft
-description: Jak rozwiązać problem nieoczekiwanych ponownych rozruchów maszyn wirtualnych.
-keywords: połączenie ssh odmówił, błąd ssh, azure ssh, połączenie SSH nie powiodło się
+title: Rozwiązywanie nieoczekiwanych ponownych uruchomień maszyn wirtualnych z dołączonymi dyskami VHD na maszynach wirtualnych Azure | Microsoft Docs
+description: Jak rozwiązywać problemy z nieoczekiwanym ponownym uruchomieniem maszyn wirtualnych.
+keywords: odmówiono połączenia SSH, błąd SSH, usługa Azure SSH, Niepowodzenie połączenia SSH
 services: virtual-machines
 author: genlin
 manager: dcscontentpm
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 3a06db1afd130d936af868d0d20632c3ec4fbfd2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75358530"
 ---
-# <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Rozwiązywanie problemów z nieoczekiwanym ponownym uruchomieniem maszyn wirtualnych za pomocą dołączonych wirtualnych
+# <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Rozwiązywanie nieoczekiwanych ponownych uruchomień maszyn wirtualnych z dołączonymi dyskami VHD
 
-Jeśli maszyna wirtualna platformy Azure (VM) ma dużą liczbę dołączonych identyfikatorów wirtualnych, które znajdują się na tym samym koncie magazynu, można przekroczyć cele skalowalności dla konta magazynu indywidualnego, powodując nieoczekiwane ponowne uruchomienie maszyny Wirtualnej. Sprawdź metryki minut dla konta magazynu **(TotalRequests**/**TotalIngress**/**TotalEgress)** dla skoków, które przekraczają cele skalowalności dla konta magazynu. Zobacz [metryki pokaż wzrost PercentThrottlingError](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#metrics-show-an-increase-in-PercentThrottlingError) pomocy w określaniu, czy dławienie wystąpiło na koncie magazynu.
+Jeśli maszyna wirtualna platformy Azure ma dużą liczbę dołączonych wirtualnych dysków twardych, które znajdują się na tym samym koncie magazynu, może przekroczyć elementy docelowe skalowalności dla poszczególnych kont magazynu, co spowoduje nieoczekiwane ponowne uruchomienie maszyny wirtualnej. Sprawdź metryki minut dla konta magazynu (**TotalRequests**/**TotalIngress**/**TotalEgress**), które przekraczają elementy docelowe skalowalności dla konta magazynu. Zobacz [metryki pokazują wzrost wzrost percentthrottlingerror,](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#metrics-show-an-increase-in-PercentThrottlingError) Aby uzyskać pomoc w ustaleniu, czy na koncie magazynu nastąpiło ograniczenie przepustowości.
 
-Ogólnie rzecz biorąc każda pojedyncza operacja wejścia lub wyjścia na dysku VHD z maszyny wirtualnej tłumaczy **się na Pobierz stronę** lub Umieść operacje **strony** na podstawowym stronicowym obiekcie blob. W związku z tym można użyć szacowane we/wy dla danego środowiska, aby dostroić liczbę dysków wirtualnych, które można mieć na jednym koncie magazynu na podstawie określonego zachowania aplikacji. Firma Microsoft zaleca posiadanie 40 lub mniej dysków na jednym koncie magazynu. Aby uzyskać więcej informacji na temat celów skalowalności dla standardowych kont magazynu, zobacz [Cele skalowalności dla standardowych kont magazynu](../../storage/common/scalability-targets-standard-account.md). Aby uzyskać więcej informacji na temat celów skalowalności dla kont magazynu obiektów blob strony premium, zobacz [Cele skalowalności dla kont magazynu obiektów blob strony premium](../../storage/blobs/scalability-targets-premium-page-blobs.md).
+Ogólnie rzecz biorąc każda operacja wejścia lub wyjścia na wirtualnym dysku twardym z maszyny wirtualnej tłumaczy się, aby **pobrać** operacje na stronie lub **umieścić stronę** na bazowym obiekcie blob strony. W związku z tym możesz użyć szacowanej liczby IOPS dla danego środowiska, aby dostroić, ile wirtualnych dysków twardych może znajdować się na jednym koncie magazynu na podstawie określonego zachowania aplikacji. Firma Microsoft zaleca korzystanie z 40 lub mniej dysków na jednym koncie magazynu. Aby uzyskać więcej informacji o skalowalności dla kont magazynu w warstwie Standardowa, zobacz [elementy docelowe skalowalności dla kont magazynu w warstwie Standardowa](../../storage/common/scalability-targets-standard-account.md). Aby uzyskać więcej informacji na temat celów skalowalności dla kont usługi BLOB Storage na stronie Premium, zobacz [elementy docelowe skalowalności dla kont usługi BLOB Storage na stronie Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md).
 
-Jeśli przekraczasz cele skalowalności dla konta magazynu, umieść dyski VHD na wielu kontach magazynu, aby zmniejszyć aktywność na każdym koncie.
+W przypadku przekroczenia celów skalowalności dla konta magazynu należy umieścić dyski VHD na wielu kontach magazynu, aby zmniejszyć aktywność poszczególnych kont.

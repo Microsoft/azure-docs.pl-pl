@@ -1,35 +1,35 @@
 ---
-title: Stałe SQL w usłudze Azure Cosmos DB
-description: Dowiedz się, jak stałe kwerendy SQL w usłudze Azure Cosmos DB są używane do reprezentowania określonej wartości danych
+title: Stałe SQL w Azure Cosmos DB
+description: Dowiedz się, w jaki sposób stałe zapytań SQL w Azure Cosmos DB są używane do reprezentowania określonej wartości danych
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873424"
 ---
-# <a name="azure-cosmos-db-sql-query-constants"></a>Stałe zapytań SQL usługi Azure Cosmos DB SQL  
+# <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB stałe zapytania SQL  
 
- Stała, znana również jako wartość literału lub skalarna, jest symbolem reprezentującym określoną wartość danych. Format stałej zależy od typu danych wartości, które reprezentuje.  
+ Stała, znana również jako literał lub wartość skalarna, jest symbolem, który reprezentuje konkretną wartość danych. Format stałej zależy od typu danych wartości, która reprezentuje.  
   
  **Obsługiwane typy danych skalarnych:**  
   
 |**Typ**|**Kolejność wartości**|  
 |-|-|  
-|**Niezdefiniowane**|Pojedyncza wartość: **niezdefiniowana**|  
+|**Niezdefiniowane**|Pojedyncza wartość: **undefined**|  
 |**Null**|Pojedyncza wartość: **null**|  
 |**Wartość logiczna**|Wartości: **false**, **true**.|  
-|**Numer**|Podwójna precyzja zmiennoprzecinkowej liczby, standard IEEE 754.|  
-|**Ciąg**|Sekwencja zero lub więcej znaków Unicode. Ciągi muszą być ujęte w cudzysłowie pojedyncze lub podwójne.|  
-|**Tablicy**|Sekwencja zero lub więcej elementów. Każdy element może być wartością dowolnego typu danych skalarnych, z wyjątkiem **niezdefiniowanego**.|  
-|**Obiektu**|Nieurządzony zestaw par zero lub więcej nazw/wartości. Nazwa jest ciągiem Unicode, wartość może być dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
+|**Liczba**|Liczba zmiennoprzecinkowa podwójnej precyzji, IEEE 754 Standard.|  
+|**Ciąg**|Sekwencja zero lub więcej znaków Unicode. Ciągi muszą być ujęte w pojedyncze lub podwójne cudzysłowy.|  
+|**Macierzy**|Sekwencja zero lub więcej elementów. Każdy element może być wartością dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
+|**Stream**|Zestaw nieuporządkowany zero lub więcej par nazwa/wartość. Nazwa jest ciągiem Unicode, wartość może być dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
   
-## <a name="syntax"></a><a name="bk_syntax"></a>Składni
+## <a name="syntax"></a><a name="bk_syntax"></a>Obowiązuje
   
 ```sql  
 <constant> ::=  
@@ -59,15 +59,15 @@ ms.locfileid: "74873424"
   
 ```  
   
-##  <a name="arguments"></a><a name="bk_arguments"></a>Argumenty
+##  <a name="arguments"></a><a name="bk_arguments"></a>Argumentu
   
 * `<undefined_constant>; Undefined`  
   
-  Reprezentuje niezdefiniowana wartość typu Undefined.  
+  Reprezentuje niezdefiniowaną wartość typu undefined.  
   
 * `<null_constant>; null`  
   
-  Reprezentuje wartość **null** typu **Null**.  
+  Reprezentuje wartość **null** **typu null**.  
   
 * `<boolean_constant>`  
   
@@ -75,11 +75,11 @@ ms.locfileid: "74873424"
   
 * `false`  
   
-  Reprezentuje **wartość false** typu Boolean.  
+  Reprezentuje **fałszywą** wartość typu Boolean.  
   
 * `true`  
   
-  Reprezentuje **prawdziwą** wartość typu Boolean.  
+  Reprezentuje wartość **true** typu Boolean.  
   
 * `<number_constant>`  
   
@@ -87,11 +87,11 @@ ms.locfileid: "74873424"
   
 * `decimal_literal`  
   
-  Literały dziesiętne to liczby reprezentowane przy użyciu notacji dziesiętnej lub notacji naukowej.  
+  Literały dziesiętne to liczby reprezentowane przy użyciu notacji dziesiętnej lub notacji wykładniczej.  
   
 * `hexadecimal_literal`  
   
-  Szesnastkowe literały to liczby reprezentowane przy użyciu prefiksu "0x", po którym następuje jedna lub więcej cyfr szesnastkowych.  
+  Literały szesnastkowe to liczby reprezentowane przy użyciu prefiksu "0x", po którym następuje co najmniej jedna cyfra szesnastkowa.  
   
 * `<string_constant>`  
   
@@ -99,22 +99,22 @@ ms.locfileid: "74873424"
   
 * `string _literal`  
   
-  Literały ciągów to ciągi Unicode reprezentowane przez sekwencję zero lub więcej znaków Unicode lub sekwencji ucieczki. Literały ciągów są ujęte w pojedyncze cudzysłowy (apostrof: ' ) lub cudzysłowy (cudzysłów: ").  
+  Literały ciągu są ciągami Unicode reprezentowanymi przez sekwencję zero lub więcej znaków Unicode lub sekwencji unikowych. Literały ciągu są ujęte w apostrofy (apostrof: ') lub podwójne cudzysłowy (cudzysłów: ").  
   
-  Dozwolone są następujące sekwencje uchyłków:  
+  Dozwolone są następujące sekwencje ucieczki:  
   
 |**Sekwencja ucieczki**|**Opis**|**znak Unicode**|  
 |-|-|-|  
-|\\'|apostrof (')|U+0027|  
-|\\"|cudzysłów (")|U+0022|  
-|\\\ |rewers\\solidus ( )|U+005C|  
-|\\/|solidus (/)|U+002F|  
-|\b|Backspace|U+0008|  
-|\f|pasza formularzy|U+000C|  
-|\n|posuw liniowy|U+000A|  
-|\r|powrót karetki|U +000D|  
-|\t|Zakładka|U+0009|  
-|\uXXXX|Znak Unicode zdefiniowany przez 4 cyfry szesnastkowe.|U+XXXX|  
+|\\'|apostrof (')|U + 0027|  
+|\\"|cudzysłów (")|U + 0022|  
+|\\\ |odwrócony ukośnik (\\)|U + 005C|  
+|\\/|Solid (/)|U + 002F|  
+|\b|Backspace|U + 0008|  
+|\f|kanał informacyjny formularza|U + 000C|  
+|\n|kanał informacyjny wiersza|U + 000A|  
+|\r|powrót karetki|U + 000D|  
+|\t|tabulator|U + 0009|  
+|\uXXXX|Znak Unicode zdefiniowany przez 4 cyfry szesnastkowe.|U + XXXX|  
 
 ## <a name="next-steps"></a>Następne kroki
 

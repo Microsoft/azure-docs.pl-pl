@@ -1,33 +1,33 @@
 ---
-title: Komunikacji zdalnej usługi przy użyciu języka Java w sieci szkieletowej usług Azure
-description: Komunikacji zdalnej sieci szkieletowej usług umożliwia klientom i usługom komunikowanie się z usługami Java przy użyciu zdalnego wywołania procedury.
+title: Komunikacja zdalna usługi przy użyciu języka Java na platformie Azure Service Fabric
+description: Service Fabric komunikacja zdalna umożliwia klientom i usługom komunikowanie się z usługami Java przy użyciu zdalnego wywołania procedury.
 author: PavanKunapareddyMSFT
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: eef63d7a2c8a4b15938dfbffd7db5f9d1b22d426
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426636"
 ---
-# <a name="service-remoting-in-java-with-reliable-services"></a>Obsługa zdalna usługi w języku Java z niezawodnymi usługami
+# <a name="service-remoting-in-java-with-reliable-services"></a>Komunikacja zdalna usługi w języku Java z Reliable Services
 > [!div class="op_single_selector"]
 > * [C# w systemie Windows](service-fabric-reliable-services-communication-remoting.md)
 > * [Java w systemie Linux](service-fabric-reliable-services-communication-remoting-java.md)
 >
 >
 
-W przypadku usług, które nie są powiązane z określonym protokołem komunikacyjnym lub stosem, takich jak WebAPI, Windows Communication Foundation (WCF) lub inne, struktura niezawodnych usług zapewnia mechanizm komunikacji zdalnej, aby szybko i łatwo skonfigurować zdalne wywołania procedury Usług.  W tym artykule omówiono sposób konfigurowania zdalnych wywołań procedur dla usług napisanych w języku Java.
+W przypadku usług, które nie są powiązane z określonym protokołem lub stosem komunikacyjnym, takim jak WebAPI, Windows Communication Foundation (WCF) lub inne, struktura Reliable Services udostępnia mechanizm komunikacji zdalnej, który umożliwia szybkie i łatwe konfigurowanie zdalnych wywołań procedur dla usług.  W tym artykule omówiono sposób konfigurowania wywołań procedur zdalnych dla usług zapisanych w języku Java.
 
 ## <a name="set-up-remoting-on-a-service"></a>Konfigurowanie komunikacji zdalnej w usłudze
 Konfigurowanie komunikacji zdalnej dla usługi odbywa się w dwóch prostych krokach:
 
-1. Utwórz interfejs dla usługi do zaimplementowania. Ten interfejs definiuje metody, które są dostępne dla zdalnego wywołania procedury w usłudze. Metody muszą być zwracające zadania metody asynchroniczne. Interfejs musi `microsoft.serviceFabric.services.remoting.Service` zostać zaimplementował, aby zasygnalizować, że usługa ma interfejs komunikacji zdalnej.
-2. Użyj odbiornika komunikacji zdalnej w usłudze. Jest to `CommunicationListener` implementacja, która zapewnia możliwości komunikacji zdalnej. `FabricTransportServiceRemotingListener`może służyć do tworzenia odbiornika komunikacji zdalnej przy użyciu domyślnego protokołu transportu komunikacji zdalnej.
+1. Utwórz interfejs do wdrożenia usługi. Ten interfejs definiuje metody, które są dostępne dla zdalnego wywołania procedury w usłudze. Metody muszą być zwracanymi metodami asynchronicznymi. Interfejs musi implementować `microsoft.serviceFabric.services.remoting.Service` , aby sygnalizować, że usługa ma interfejs komunikacji zdalnej.
+2. Użyj odbiornika komunikacji zdalnej w usłudze. Jest to `CommunicationListener` implementacja, która udostępnia możliwości komunikacji zdalnej. `FabricTransportServiceRemotingListener`może służyć do tworzenia odbiornika usług zdalnych przy użyciu domyślnego protokołu transportowego komunikacji zdalnej.
 
-Na przykład następująca usługa bezstanowa udostępnia pojedynczą metodę, aby uzyskać "Hello World" za pomocą zdalnego wywołania procedury.
+Na przykład następująca usługa bezstanowa udostępnia pojedynczą metodę, aby uzyskać "Hello world" za pośrednictwem zdalnego wywołania procedury.
 
 ```java
 import java.util.ArrayList;
@@ -62,12 +62,12 @@ class MyServiceImpl extends StatelessService implements MyService {
 ```
 
 > [!NOTE]
-> Argumenty i typy zwracane w interfejsie usługi mogą być typumi proste, złożone lub niestandardowe, ale muszą być serializowalne.
+> Argumenty i zwracane typy w interfejsie usługi mogą być dowolnego typu prostego, złożonego lub niestandardowego, ale muszą być możliwe do serializacji.
 >
 >
 
-## <a name="call-remote-service-methods"></a>Wywoływanie zdalnych metod serwisu
-Wywoływanie metod w usłudze przy użyciu stosu komunikacji zdalnej odbywa `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` się przy użyciu lokalnego serwera proxy do usługi za pośrednictwem klasy. Metoda `ServiceProxyBase` tworzy lokalny serwer proxy przy użyciu tego samego interfejsu, który implementuje usługa. Za pomocą tego serwera proxy można po prostu zdalnie wywoływać metody w interfejsie.
+## <a name="call-remote-service-methods"></a>Wywoływanie metod usługi zdalnej
+Wywoływanie metod w ramach usługi przy użyciu stosu zdalnego jest realizowane przy użyciu lokalnego serwera proxy do usługi za pośrednictwem `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` klasy. `ServiceProxyBase` Metoda tworzy lokalny serwer proxy przy użyciu tego samego interfejsu, który implementuje usługa. Za pomocą tego serwera proxy można po prostu wywołać metody w interfejsie.
 
 ```java
 
@@ -77,25 +77,25 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 
 ```
 
-Struktura komunikacji zdalnej propaguje wyjątki zgłaszane do usługi do klienta. Tak logiki obsługi wyjątków `ServiceProxyBase` na kliencie przy użyciu można bezpośrednio obsługiwać wyjątki, które zgłasza usługa.
+Struktura komunikacji zdalnej propaguje wyjątki zgłoszone przez usługę do klienta programu. Logika obsługi wyjątków na kliencie przy użyciu programu `ServiceProxyBase` może bezpośrednio obsługiwać wyjątki zgłaszane przez usługę.
 
 ## <a name="service-proxy-lifetime"></a>Okres istnienia serwera proxy usługi
-Tworzenie ServiceProxy jest lekką operacją, dzięki czemu można utworzyć dowolną liczbę. Wystąpienia serwera proxy usługi mogą być ponownie używane tak długo, jak są potrzebne. Jeśli zdalne wywołanie procedury zgłasza wyjątek, nadal można ponownie użyć tego samego wystąpienia serwera proxy. Każdy ServiceProxy zawiera klienta komunikacji używane do wysyłania wiadomości przez sieć. Podczas wywoływania wywołań zdalnych wykonywane są kontrole wewnętrzne w celu ustalenia, czy klient komunikacji jest prawidłowy. Na podstawie wyników tych kontroli klient komunikacji jest odtworzony w razie potrzeby. W związku z tym w przypadku wystąpienia wyjątku `ServiceProxy`nie trzeba ponownie utworzyć .
+Tworzenie ServiceProxy jest operacją uproszczoną, więc można utworzyć dowolną liczbę potrzebną. Wystąpienia serwera proxy usługi mogą być ponownie używane, o ile są one zbędne. Jeśli zdalne wywołanie procedury zgłasza wyjątek, nadal można użyć tego samego wystąpienia serwera proxy. Każdy serwer ServiceProxy zawiera klienta komunikacyjnego służącego do wysyłania komunikatów przez sieć. Podczas wywoływania wywołań zdalnych testy wewnętrzne są wykonywane w celu ustalenia, czy klient komunikacyjny jest prawidłowy. W zależności od wyników tych testów klient komunikacyjny zostanie odtworzony w razie konieczności. W związku z tym, jeśli wystąpi wyjątek, nie trzeba ponownie tworzyć `ServiceProxy`.
 
-### <a name="serviceproxyfactory-lifetime"></a>Okres istnienia ServiceProxyFactory
-[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) to fabryka, która tworzy serwer proxy dla różnych interfejsów komunikacji zdalnej. Jeśli używasz `ServiceProxyBase.create` interfejsu API do tworzenia `FabricServiceProxyFactory`serwera proxy, a następnie framework tworzy .
-Jest to przydatne do utworzenia ręcznie, gdy trzeba zastąpić [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) właściwości.
-Fabryka jest kosztowną operacją. `FabricServiceProxyFactory`utrzymuje pamięć podręczną klientów komunikacji.
-Najlepszym rozwiązaniem jest `FabricServiceProxyFactory` buforowanie tak długo, jak to możliwe.
+### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory okres istnienia
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) to fabryka, która tworzy serwer proxy dla różnych interfejsów komunikacji zdalnej. Jeśli używasz interfejsu API `ServiceProxyBase.create` do tworzenia serwera proxy, platforma utworzy `FabricServiceProxyFactory`.
+Warto utworzyć je ręcznie, gdy zachodzi potrzeba zastąpienia właściwości [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) .
+Fabryka jest kosztowną operacją. `FabricServiceProxyFactory`obsługuje pamięć podręczną klientów komunikacyjnych.
+Najlepszym rozwiązaniem jest buforowanie `FabricServiceProxyFactory` tak długo, jak to możliwe.
 
-## <a name="remoting-exception-handling"></a>Obsługa wyjątków komunikacji zdalnej
-Wszystkie zdalne wyjątek zgłoszony przez interfejs API usługi, są wysyłane z powrotem do klienta jako RuntimeException lub FabricException.
+## <a name="remoting-exception-handling"></a>Obsługa wyjątków zdalnych
+Wszystkie wyjątki zdalne zgłoszone przez interfejs API usługi są odsyłane do klienta jako RuntimeException lub Fabricexception.
 
-ServiceProxy obsługuje wszystkie wyjątek trybu failover dla partycji usługi, dla czego jest tworzony dla. Ponownie rozpoznaje punkty końcowe, jeśli istnieje wyjątki trybu failover(wyjątki nieprzemijające) i ponawia ponawia wywołanie z poprawnym punktem końcowym. Liczba ponownych prób dla trybu failover Wyjątek jest nieokreślony.
-W przypadku przejściowych znikomości, tylko ponawia wywołanie.
+Usługa ServiceProxy obsługuje wszystkie wyjątki trybu failover dla partycji usługi, dla której została utworzona. Powoduje to ponowne rozpoznanie punktów końcowych, jeśli występują wyjątki trybu failover (wyjątki nieprzejściowe) i ponawianie próby wywołania z prawidłowym punktem końcowym. Liczba ponownych prób dla wyjątku trybu failover jest nieokreślona.
+W przypadku TransientExceptions jest to tylko ponowna próba wywołania.
 
-Domyślne parametry ponawiania próby są provied przez [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
-Można skonfigurować te wartości, przekazując OperationRetrySettings obiektu do ServiceProxyFactory konstruktora.
+Domyślne parametry ponowień są dostarczają przez [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Można skonfigurować te wartości, przekazując obiekt OperationRetrySettings do konstruktora ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Zabezpieczanie komunikacji dla niezawodnych usług](service-fabric-reliable-services-secure-communication-java.md)
+* [Zabezpieczanie komunikacji dla Reliable Services](service-fabric-reliable-services-secure-communication-java.md)

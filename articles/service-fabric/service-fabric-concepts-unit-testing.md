@@ -1,60 +1,60 @@
 ---
-title: Testowanie usług stanowych jednostek w sieci szkieletowej usług Azure
-description: Dowiedz się więcej o pojęciach i praktykach testowania jednostek usługi stanowe usługi sieci szkieletowej.
+title: Usługi stanowe testowania jednostkowego na platformie Azure Service Fabric
+description: Poznaj koncepcje i praktyki testowania jednostkowego Service Fabric usług stanowych.
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75433906"
 ---
-# <a name="unit-testing-stateful-services-in-service-fabric"></a>Jednostkowe testowanie usług stanowych w sieci szkieletowej usług
+# <a name="unit-testing-stateful-services-in-service-fabric"></a>Testy jednostkowe usług stanowych w Service Fabric
 
-W tym artykule opisano pojęcia i praktyki jednostki testowania usługi sieci szkieletowej usługi stanowe. Testowanie jednostek w ramach sieci szkieletowej usług zasługuje na własne uwagi ze względu na fakt, że kod aplikacji aktywnie działa w wielu różnych kontekstach. W tym artykule opisano praktyki stosowane w celu zapewnienia, że kod aplikacji jest objęty każdym z różnych kontekstów, które można uruchomić.
+W tym artykule omówiono koncepcje i praktyki testowania jednostkowego Service Fabric usług stanowych. Testy jednostkowe w ramach Service Fabric nie zapełnią swoich zagadnień ze względu na fakt, że kod aplikacji aktywnie działa w wielu różnych kontekstach. W tym artykule opisano praktyki, które są używane do zapewnienia, że kod aplikacji jest objęty każdym z różnych kontekstów, które można uruchomić.
 
-## <a name="unit-testing-and-mocking"></a>Testowanie jednostkowe i szyderstwo
-Testowanie jednostkowe w kontekście tego artykułu jest automatyczne testowanie, które mogą być wykonywane w kontekście karty wyników testów, takich jak MSTest lub NUnit. Testy jednostkowe w tym artykule nie wykonują operacji względem zasobu zdalnego, takiego jak baza danych lub interfejs API RESTFUL. Te zasoby zdalne powinny być wyśmiewane. Szydercze w kontekście tego artykułu będzie fałszywe, rekord i kontrolować wartości zwracane dla zasobów zdalnych.
+## <a name="unit-testing-and-mocking"></a>Testowanie jednostkowe i ich symulacja
+Testy jednostkowe w kontekście tego artykułu są zautomatyzowanymi testami, które mogą być wykonywane w kontekście modułu uruchamiającego testy, takiego jak MSTest lub NUnit. Testy jednostkowe w tym artykule nie wykonują operacji na zasobach zdalnych, takich jak baza danych lub interfejs API RESTFul. Te zasoby zdalne powinny być makietą. Imitacja w kontekście tego artykułu spowoduje sfałszowanie, zapisanie i kontrolowanie wartości zwracanych dla zasobów zdalnych.
 
-### <a name="service-fabric-considerations"></a>Zagadnienia dotyczące sieci szkieletowej usług
-Jednostka testowania usługi stanowej sieci szkieletowej usługi ma kilka zagadnień. Po pierwsze kod usługi jest wykonywany w wielu węzłach, ale w ramach różnych ról. Testy jednostkowe należy ocenić kod w ramach każdej roli, aby osiągnąć pełne pokrycie. Różne role będą podstawowe, aktywne pomocnicze, bezczynne pomocnicze i nieznany. Rola None zazwyczaj nie wymaga specjalnego pokrycia, ponieważ sieci szkielet usług uznaje tę rolę za nieprawidłową lub nullową usługę. Po drugie, każdy węzeł zmieni swoją rolę w danym momencie. Aby osiągnąć pełne pokrycie, ścieżka wykonywania kodu powinna być testowana z występującymi zmianami ról.
+### <a name="service-fabric-considerations"></a>Zagadnienia dotyczące Service Fabric
+Testowanie jednostkowe Service Fabric stanowej usługi ma kilka zagadnień. Po pierwsze kod usługi jest wykonywany na wielu węzłach, ale pod różnymi rolami. Testy jednostkowe powinny oszacować kod w każdej roli w celu osiągnięcia pełnego pokrycia. Różne role to podstawowa, aktywna pomocnicza, pomocnicza wartość bezczynna i nieznana. Rola brak zazwyczaj nie wymaga specjalnego pokrycia, ponieważ Service Fabric uważa, że ta rola jest równa void lub null. Po drugie każdy węzeł zmieni swoją rolę w danym punkcie. Aby osiągnąć pełny zakres, należy przetestować ścieżkę wykonywania kodu ze zmianami roli.
 
-## <a name="why-unit-test-stateful-services"></a>Dlaczego jednostki test usług stanowych? 
-Testowanie jednostek stanowych usług może pomóc odkryć niektóre typowe błędy, które są wykonane, które niekoniecznie zostaną przechwycone przez konwencjonalne aplikacji lub specyficzne dla domeny badania jednostki. Na przykład jeśli usługa stanowa ma dowolny stan w pamięci, ten typ testowania można sprawdzić, czy ten stan w pamięci jest synchronizowany między każdą repliką. Ten typ testowania można również sprawdzić, czy usługa stanowa odpowiada tokeny anulowania przekazywane przez aranżacji sieci szkieletowej usługi odpowiednio. Po wyzwoleniu anulowania usługa powinna zatrzymać wszelkie długotrwałe i/lub asynchroniczne operacje.  
+## <a name="why-unit-test-stateful-services"></a>Dlaczego testy jednostkowe są usługi stanowe? 
+Usługi stanowe testowania jednostkowego mogą pomóc w rozwróceniu niektórych typowych błędów, które nie powinny być przechwytywane przez konwencjonalne aplikacje lub testy jednostkowe specyficzne dla domeny. Jeśli na przykład usługa stanowa ma dowolny stan w pamięci, testowanie tego typu może sprawdzić, czy ten stan w pamięci jest zsynchronizowany dla każdej repliki. Ten typ testowania może również sprawdzić, czy usługa stanowa reaguje na tokeny anulowania, które zostały odpowiednio przesłane przez Service Fabric aranżację. W przypadku wyzwolenia operacji anulowania usługa powinna zatrzymać wszystkie długotrwałe operacje wykonywane i/lub asynchroniczne.  
 
-## <a name="common-practices"></a>Wspólne praktyki
+## <a name="common-practices"></a>Typowe praktyki
 
-W poniższej sekcji zaleca się najbardziej typowe praktyki dotyczące testowania jednostkowego usługi stanowej. Zaleca się również, co ma być konieczności szydercze warstwy ściśle wyrównać do aranżacji sieci szkieletowej usług i zarządzania stanem. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) od 3.3.0 lub nowszej jest jedną z takich bibliotek, która zapewnia funkcji szyderczy zalecane i wynika z praktyk opisanych poniżej.
+W poniższej sekcji przedstawiono najczęstsze praktyki testowania jednostkowego usługi stanowej. Zalecane jest również, aby warstwa imitacji była ściśle wyrównana do Service Fabric aranżacji i zarządzania stanem. Funkcja [servicefabric. makiety](https://www.nuget.org/packages/ServiceFabric.Mocks/) w postaci 3.3.0 lub nowszej jest jedną z tych bibliotek, która zapewnia zalecaną funkcję tworzenia i postępuje zgodnie z poniższymi wskazówkami.
 
-### <a name="arrangement"></a>Układ
+### <a name="arrangement"></a>Szkic
 
-#### <a name="use-multiple-service-instances"></a>Używanie wielu wystąpień usługi
-Testy jednostkowe należy wykonać wiele wystąpień usługi stanowej. Symuluje to, co faktycznie dzieje się w klastrze, w którym usługa Sieci szkieletowej zapewnia wiele replik uruchomionych usługi w różnych węzłach. Każde z tych wystąpień będzie jednak wykonywane w innym kontekście. Podczas uruchamiania testu, każde wystąpienie powinny być zagruntowane z konfiguracji roli oczekiwane w klastrze. Na przykład jeśli oczekuje się, że usługa ma docelowy rozmiar repliki 3, sieci szkieletowej usług będzie aprowizować trzy repliki w różnych węzłach. Jednym z nich jest podstawowy, a pozostałe dwa są Active Secondary's.
+#### <a name="use-multiple-service-instances"></a>Korzystanie z wielu wystąpień usługi
+Testy jednostkowe powinny wykonywać wiele wystąpień usługi stanowej. Symuluje to, co się dzieje w klastrze, gdzie Service Fabric Inicjuje obsługę wielu replik z uruchomioną usługą w różnych węzłach. Każde z tych wystąpień będzie jednak wykonywane w innym kontekście. Podczas wykonywania testu każde wystąpienie powinno być zależeć od konfiguracji roli oczekiwanej w klastrze. Na przykład jeśli oczekuje się, że usługa ma docelowy rozmiar repliki 3, Service Fabric będzie inicjować trzy repliki w różnych węzłach. Jednym z nich jest podstawowa, a druga dwie są aktywne.
 
-W większości przypadków ścieżka wykonywania usługi będzie się nieznacznie różnić dla każdej z tych ról. Na przykład jeśli usługa nie powinna akceptować żądań z Active Secondary, usługa może mieć czek dla tego przypadku, aby zgłosić wyjątek informacyjny, który wskazuje, że żądanie zostało podjęte w pomocniczej. Mając wiele wystąpień pozwoli tej sytuacji do testowania.
+W większości przypadków ścieżka wykonywania usługi różni się nieco dla każdej z tych ról. Jeśli na przykład usługa nie powinna akceptować żądań z aktywnej pomocniczej usługi, może ona sprawdzić, czy jest to przypadek, aby zgłosić wyjątek, który wskazuje, że żądanie zostało podjęte na serwerze pomocniczym. Przetestowanie tej sytuacji w wielu wystąpieniach będzie możliwe.
 
-Ponadto o wiele wystąpień umożliwia testy, aby przełączyć role każdego z tych wystąpień, aby sprawdzić odpowiedzi są spójne pomimo zmian roli.
+Ponadto, jeśli wiele wystąpień umożliwia testom przełączanie ról każdego z tych wystąpień w celu sprawdzenia, czy odpowiedzi są spójne, pomimo zmiany roli.
 
 #### <a name="mock-the-state-manager"></a>Makieta menedżera stanu
-Menedżer stanu powinny być traktowane jako zdalnego zasobu i w związku z tym wyśmiewane. Podczas szydzenia menedżera stanu, musi istnieć kilka podstawowych magazynu w pamięci do śledzenia, co jest zapisywane w menedżerze stanu, dzięki czemu można go odczytać i zweryfikować. Prosty sposób, aby to osiągnąć jest utworzenie makiety wystąpień każdego z typów niezawodnych kolekcji. W ramach tych makiet użyj typu danych, który ściśle jest zgodny z operacjami wykonywanymi względem tej kolekcji. Poniżej przedstawiono niektóre sugerowane typy danych dla każdego wiarygodnego
+Menedżer stanu powinien być traktowany jako zasób zdalny i z tego powodu. Podczas imitacji menedżera stanu musi być używany magazyn w pamięci do śledzenia informacji zapisanych w Menedżerze Stanów, tak aby można go było odczytać i zweryfikować. Prostym sposobem na osiągnięcie tego jest utworzenie wystąpień makiety dla każdego typu niezawodnych kolekcji. W ramach tych imitacji należy użyć typu danych, który jest ściśle wyrównany do operacji wykonywanych względem tej kolekcji. Poniżej przedstawiono kilka sugerowanych typów danych dla każdej niezawodnej kolekcji
 
-- IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue\<T> -> System.Collections.Generic.Queue\<T>
-- IReliableConcurrentQueue\<T> -> System.Collections.Concurrent.ConcurrentQueue\<T>
+- IReliableDictionary<TKey, TValue>-> system. Collections. współbieżne. ConcurrentDictionary<TKey, TValue>
+- IReliableQueue\<t>-> system. Collections. Generic.\<Queue T>
+- IReliableConcurrentQueue\<t>-> system. Collections. współbieżne\<. ConcurrentQueue T>
 
 #### <a name="many-state-manager-instances-single-storage"></a>Wiele wystąpień Menedżera stanu, pojedynczy magazyn
-Jak wspomniano wcześniej, Menedżer stanu i niezawodne kolekcje powinny być traktowane jako zdalnego zasobu. W związku z tym te zasoby powinny i będą szydzi w ramach testów jednostkowych. Jednak podczas uruchamiania wielu wystąpień usługi stanowej będzie wyzwaniem, aby zachować każdy szyderczy menedżer stanu w synchronizacji w różnych wystąpieniach usługi stanowej. Gdy usługa stanowa jest uruchomiona w klastrze, sieci szkieletowej usług zajmuje się utrzymaniem menedżera stanu każdej repliki pomocniczej zgodne z repliki podstawowej. W związku z tym testy powinny zachowywać się tak samo, aby mogły symulować zmiany roli.
+Jak wspomniano wcześniej, Menedżer stanu i niezawodne kolekcje powinny być traktowane jako zasób zdalny. W związku z tym te zasoby powinny i zostaną zamakietne w ramach testów jednostkowych. Jednak w przypadku uruchamiania wielu wystąpień usługi stanowej będzie to wyzwanie, aby zapewnić, że każdy z nich zostanie zsynchronizowany przez różne wystąpienia usługi stanowej. Gdy usługa stanowa jest uruchomiona w klastrze, Service Fabric dba o utrzymywanie zgodności każdego menedżera stanu repliki pomocniczej z repliką podstawową. W związku z tym testy powinny zachowywać się tak samo, aby mogły symulować zmiany ról.
 
-Prosty sposób tej synchronizacji można osiągnąć, jest użycie wzorca singleton dla obiektu źródłowego, który przechowuje dane zapisane w każdej niezawodnej kolekcji. Na przykład, jeśli usługa stanowa `IReliableDictionary<string, string>`używa pliku . Menedżer stanu makiety powinien `IReliableDictionary<string, string>`zwrócić makietę . Ten makieta `ConcurrentDictionary<string, string>` może używać do śledzenia par klucz/wartość napisane. Powinien `ConcurrentDictionary<string, string>` być singleton używane przez wszystkie wystąpienia menedżerów stanu przekazywane do usługi.
+Prostą metodą tej synchronizacji jest użycie pojedynczego wzorca dla obiektu źródłowego, który przechowuje dane zapisane w każdej niezawodnej kolekcji. Na przykład jeśli usługa stanowa używa programu `IReliableDictionary<string, string>`. Menedżer stanu makiety powinien zwrócić makietę `IReliableDictionary<string, string>`. Ten makieta może używać `ConcurrentDictionary<string, string>` do śledzenia par klucz/wartość, które są zapisywane. `ConcurrentDictionary<string, string>` Powinien być pojedynczym używanym przez wszystkie wystąpienia menedżerów Stanów, które zostały przesłane do usługi.
 
-#### <a name="keep-track-of-cancellation-tokens"></a>Śledzenie tokenów anulowania
-Tokeny anulowania są ważnym, ale często pomijanym aspektem usług stanowych. Gdy usługa Service Fabric uruchamia replikę podstawową dla usługi stanowej, udostępniany jest token anulowania. Ten token anulowania jest przeznaczony do sygnalizowania do usługi, gdy zostanie usunięty lub obniżona do innej roli. Usługa stanowa powinna zatrzymać wszelkie długotrwałe lub asynchroniczne operacje, dzięki czemu sieci szkieletowej usług można ukończyć przepływ pracy zmiany roli.
+#### <a name="keep-track-of-cancellation-tokens"></a>Śledź tokeny anulowania
+Tokeny anulowania są istotnie, ale ogólnie niespotykanym aspektem usług stanowych. Gdy Service Fabric uruchamia replikę podstawową dla usługi stanowej, zostanie podany token anulowania. Ten token anulowania jest przeznaczony do sygnalizowania usługi po jej usunięciu lub obniżeniu do innej roli. Usługa stanowa powinna zatrzymać wszystkie operacje długotrwałe lub asynchroniczne, aby Service Fabric mógł ukończyć przepływ pracy zmiany roli.
 
-Podczas uruchamiania testów jednostkowych wszystkie tokeny anulowania, które są dostarczane do RunAsync, ChangeRoleAsync, OpenAsync i CloseAsync powinny być przechowywane podczas wykonywania testu. Przytrzymanie tych tokenów pozwoli test symulować zamknięcie lub degradacji usługi i sprawdzić, czy usługa reaguje odpowiednio.
+Podczas uruchamiania testów jednostkowych wszystkie tokeny anulowania, które są dostarczane do RunAsync, ChangeRoleAsync, OpenAsync i CloseAsync, powinny być przechowywane podczas wykonywania testu. Przechowywanie na te tokeny umożliwi testowi zasymulowanie wyłączenia lub obniżenia działania usługi oraz zweryfikowanie odpowiedniej odpowiedzi usługi.
 
-#### <a name="test-end-to-end-with-mocked-remote-resources"></a>Testowanie end-to-end z szyderczych zasobów zdalnych
-Testy jednostkowe należy wykonać jak najwięcej kodu aplikacji, które można zmodyfikować stan usługi stanowej, jak to możliwe. Zaleca się, aby testy były bardziej end-to-end w przyrodzie. Tylko kpiny, które istnieją są do rejestrowania, symulowania i/lub weryfikacji interakcji zdalnych zasobów. Obejmuje to interakcje z Menedżerem stanu i niezawodne kolekcje. Poniższy fragment kodu jest przykładem korniszonu dla testu, który pokazuje kompleksowe testowanie:
+#### <a name="test-end-to-end-with-mocked-remote-resources"></a>Kompleksowe testowanie kompleksowych zasobów zdalnych
+Testy jednostkowe powinny być wykonywane ze zbyt dużą ilością kodu aplikacji, która może zmienić stan usługi stanowej. Zaleca się, aby testy były bardziej kompleksowe. Jedyne ślady, które istnieją, służą do rejestrowania, symulowania i/lub weryfikowania interakcji z zasobami zdalnymi. Obejmuje to interakcje z menedżerem stanu i niezawodnymi kolekcjami. Poniższy fragment kodu stanowi przykład Gherkin dla testu, który pokazuje kompleksowe testowanie:
 
 ```
     Given stateful service named "fabric:/MyApp/MyService" is created
@@ -68,48 +68,48 @@ Testy jednostkowe należy wykonać jak najwięcej kodu aplikacji, które można 
     Then the request should should return the "John Smith" employee
 ```
 
-Ten test potwierdza, że dane przechwycone na jednej replice jest dostępna dla repliki pomocniczej, gdy jest promowany do podstawowego. Zakładając, że kolekcja niezawodne jest magazynem kopii zapasowych dla danych pracownika, Aa potencjalny błąd, który może zostać przechwycony z tego testu jest, jeśli kod aplikacji nie został wykonany `CommitAsync` w transakcji, aby zapisać nowego pracownika. W takim przypadku drugie żądanie uzyskania pracowników nie zwróci pracownika dodanego przez pierwsze żądanie.
+Ten test potwierdza, że dane przechwytywane z jednej repliki są dostępne w replice pomocniczej po podwyższeniu poziomu do podstawowej. Przy założeniu, że niezawodna kolekcja jest magazynem zapasowym danych pracownika, nie można wychwycić potencjalnej awarii, która może zostać przechwycona przez `CommitAsync` ten test, jeśli kod aplikacji nie został wykonany w transakcji w celu zapisania nowego pracownika. W takim przypadku drugie żądanie pobrania pracowników nie zwróci pracownika dodanego przez pierwsze żądanie.
 
-### <a name="acting"></a>Działając
-#### <a name="mimic-service-fabric-replica-orchestration"></a>Aranżacja repliki sieci szkieletowej mimic service
-Podczas zarządzania wieloma wystąpieniami usługi, testy należy zainicjować i zniszczyć te usługi w taki sam sposób jak aranżacji sieci szkieletowej usług. Na przykład, gdy usługa jest tworzona na nowej repliki podstawowej, sieć szkieletowa usług wywoła CreateServiceReplicaListener, OpenAsync, ChangeRoleAsync i RunAsync. Zdarzenia cyklu życia są udokumentowane w następujących artykułach:
+### <a name="acting"></a>Pośrednicząc
+#### <a name="mimic-service-fabric-replica-orchestration"></a>Naśladowanie Service Fabric aranżacji repliki
+Podczas zarządzania wieloma wystąpieniami usług testy powinny inicjować i dzielić te usługi w taki sam sposób jak w przypadku Service Fabric aranżacji. Na przykład gdy usługa jest tworzona w nowej replice podstawowej, Service Fabric wywoła CreateServiceReplicaListener, OpenAsync, ChangeRoleAsync i RunAsync. Zdarzenia cyklu życia są udokumentowane w następujących artykułach:
 
 - [Uruchamianie usługi stanowej](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
-- [Stanowe zamknięcie usługi](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
-- [Zamiany podstawowe usługi stanowej](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
+- [Wyłączenie usługi stanowej](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
+- [Podstawowe swapy usługi stanowej](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
 
-#### <a name="run-replica-role-changes"></a>Uruchamianie zmian roli repliki
-Testy jednostkowe należy zmienić role wystąpień usługi w taki sam sposób jak aranżacji sieci szkieletowej usług. Maszyna stanu roli jest udokumentowana w następującym artykule:
+#### <a name="run-replica-role-changes"></a>Uruchom zmiany roli repliki
+Testy jednostkowe powinny zmieniać role wystąpień usługi w taki sam sposób, jak w przypadku aranżacji Service Fabric. Komputer stanu roli jest udokumentowany w następującym artykule:
 
-[Maszyna stanu roli repliki](service-fabric-concepts-replica-lifecycle.md#replica-role)
+[Maszyna stanu repliki](service-fabric-concepts-replica-lifecycle.md#replica-role)
 
-Symulowanie zmian ról jest jednym z bardziej krytycznych aspektów testowania i może odkryć problemy, w których stan repliki nie są ze sobą spójne. Niespójny stan repliki może wystąpić z powodu przechowywania stanu w pamięci w zmiennych wystąpienia na poziomie statycznym lub klasy. Przykładami mogą być tokeny anulowania, wyliczenia i obiekty konfiguracji/wartości. Zapewni to również, że usługa jest respektowanie tokenów anulowania dostarczonych podczas RunAsync, aby umożliwić zmianę roli występuje. Symulowanie zmiany roli można również odkryć problemy, które mogą pojawić się, jeśli kod nie jest napisany, aby umożliwić wywołanie RunAsync wiele razy.
+Symulowanie zmian ról jest jednym z bardziej krytycznych aspektów testowania i może odkrywać problemy, w których stan repliki nie jest spójny ze sobą. Niespójny stan repliki może wystąpić z powodu przechowywania stanu w pamięci w zmiennych wystąpieniach statycznych lub na poziomie klasy. Przykładami mogą być tokeny anulowania, wyliczenia i obiekty/wartości konfiguracji. Zapewni to również, że usługa szanuje tokeny anulowania podane podczas RunAsync, aby umożliwić zmianę roli. Symulowanie zmian ról może również obejmować problemy, które mogą wystąpić, jeśli kod nie zostanie zapisany, aby umożliwić RunAsync wiele razy.
 
-#### <a name="cancel-cancellation-tokens"></a>Anuluj tokeny anulowania
-Powinny istnieć testy jednostkowe, w których token anulowania dostarczony do RunAsync zostanie anulowany. Umożliwi to test, aby sprawdzić, czy usługa bezpiecznie zamyka. Podczas tego zamknąć wszelkie długotrwałe lub asynchroniczne operacje powinny zostać zatrzymane. Przykład długotrwałego procesu, który może istnieć w usłudze jest taki, który nasłuchuje wiadomości w kolejce niezawodne. Może to istnieć bezpośrednio w RunAsync lub wątku w tle. Implementacja powinna zawierać logikę do zamykania operacji, jeśli ten token anulowania zostanie anulowany.
+#### <a name="cancel-cancellation-tokens"></a>Anulowanie tokenów anulowania
+Powinny istnieć testy jednostkowe, w których token anulowania podany dla RunAsync został anulowany. Pozwoli to testowi na sprawdzenie, czy usługa jest bezpiecznie zamykana. Podczas tego zamykania należy zatrzymać wszystkie długotrwałe operacje wykonywane lub asynchroniczne. Przykładem długotrwałego procesu, który może istnieć w usłudze, jest taka, która nasłuchuje komunikatów w niezawodnym kolejce. Może ona istnieć bezpośrednio w RunAsync lub wątku w tle. Implementacja powinna uwzględniać logikę kończenia operacji, jeśli ten token anulowania został anulowany.
 
-Jeśli usługi stanowe korzystają z dowolnej pamięci podręcznej lub stanu w pamięci, który powinien istnieć tylko na podstawowym, powinny być usuwane w tej chwili. Ma to na celu zapewnienie, że ten stan jest spójny, jeśli węzeł staje się podstawowym ponownie później. Testowanie anulowania pozwoli testowi sprawdzić, czy ten stan jest usuwany prawidłowo.
+Jeśli usługi stanowe korzystają z dowolnej pamięci podręcznej lub stanu w pamięci, która powinna istnieć tylko na serwerze podstawowym, należy ją usunąć. Jest to konieczne, aby upewnić się, że ten stan jest spójny, jeśli węzeł ponownie stanie się później. Testowanie anulowania zezwoli na sprawdzenie, czy ten stan zostanie prawidłowo usunięty.
 
-#### <a name="execute-requests-against-multiple-replicas"></a>Wykonywanie żądań względem wielu replik
-Assert testy należy wykonać to samo żądanie dla różnych replik. Po sparowaniu ze zmianami ról można odkryć problemy ze spójnością. Przykładowy test może wykonać następujące kroki:
-1. Wykonywanie żądania zapisu względem bieżącej podstawowej
-2. Wykonanie żądania odczytu, które zwraca dane zapisane w kroku 1 względem bieżącego podstawowego
-3. Podwyższanie poziomu pomocniczego do podstawowego. Powinno to również obniżyć obecną pierwotną do drugorzędną
-4. Wykonaj to samo żądanie odczytu z kroku 2 względem nowego pomocniczego.
+#### <a name="execute-requests-against-multiple-replicas"></a>Żądania wykonania dla wielu replik
+Testy potwierdzenia powinny wykonywać te same żądania względem różnych replik. W przypadku sparowania ze zmianami ról można odzyskać problemy ze spójnością. Przykładowy test może wykonać następujące czynności:
+1. Wykonaj żądanie zapisu względem bieżącego elementu podstawowego
+2. Wykonaj żądanie odczytu, które zwraca dane zapisywane w kroku 1 względem bieżącego elementu podstawowego
+3. Podnieś poziom pomocniczy do podstawowego. Powinno to również obniżyć poziom bieżącego podstawowego do pomocniczego
+4. Wykonaj to samo żądanie odczytu z kroku 2 dla nowego pomocniczego.
 
-W ostatnim kroku test może potwierdzić, że zwrócone dane są spójne. Potencjalny problem, który może to odkryć jest, że dane zwracane przez usługę może być w pamięci, ale ostatecznie wspierane przez kolekcję niezawodne. Te dane w pamięci mogą nie być poprawnie zsynchronizowane z tym, co istnieje w niezawodnej kolekcji.
+W ostatnim kroku test może postanowić, że zwrócone dane są spójne. Potencjalnym problemem, który może się nie pokryć, jest to, że dane zwracane przez usługę mogą znajdować się w pamięci, ale są ostatecznie obsługiwane przez niezawodną kolekcję. Dane znajdujące się w pamięci mogą nie zostać prawidłowo zsynchronizowane z tym, co istnieje w niezawodnej kolekcji.
 
-Dane w pamięci jest zwykle używany do tworzenia indeksów pomocniczych lub agregacji danych, które istnieją w niezawodnej kolekcji.
+Dane znajdujące się w pamięci są zwykle używane do tworzenia indeksów pomocniczych lub agregacji danych, które istnieją w niezawodnej kolekcji.
 
-### <a name="asserting"></a>Potwierdzające
-#### <a name="ensure-responses-match-across-replicas"></a>Upewnij się, że odpowiedzi są zgodne z replikami
-Testy jednostkowe należy potwierdzić, że odpowiedź dla danego żądania jest spójne w wielu replikach po przejściu do podstawowego. Może to powierzchni potencjalnych problemów, gdzie dane dostarczone w odpowiedzi nie jest wspierany przez kolekcji niezawodne lub przechowywane w pamięci bez mechanizmu synchronizacji tych danych między replikami. Zapewni to, że usługa wysyła z powrotem spójne odpowiedzi po ponownej równoważenia sieci szkieletowej usług lub awaryjnie do nowej repliki podstawowej.
+### <a name="asserting"></a>Zostanie poproszony
+#### <a name="ensure-responses-match-across-replicas"></a>Upewnij się, że odpowiedzi są zgodne między replikami
+Testy jednostkowe powinny mieć na celu potwierdzenie, że odpowiedź dla danego żądania jest spójna w wielu replikach po przejściu na podstawową. Może to powodować potencjalne problemy, w przypadku których dane podane w odpowiedzi nie są obsługiwane przez niezawodną kolekcję lub są przechowywane w pamięci bez mechanizmu synchronizowania danych między replikami. Dzięki temu usługa będzie wysyłać spójne odpowiedzi po Service Fabric zrównoważenia lub przełączeniu w tryb failover do nowej repliki podstawowej.
 
-#### <a name="verify-service-respects-cancellation"></a>Weryfikowanie, że usługa respektuje anulowanie
-Długotrwałe lub asynchroniczne procesy, które powinny zostać zakończone po anulowaniu tokenu anulowania, powinny zostać zweryfikowane, że faktycznie zostały zakończone po anulowaniu. Zapewni to, że pomimo repliki zmiany ról, procesy, które nie są przeznaczone do utrzymania uruchomiony na repliki innych niż podstawowe zatrzymać przed zakończeniem przejścia. Może to również odkryć problemy, w których taki proces blokuje ukończenie żądania zmiany roli lub zamknięcia z sieci szkieletowej usług.
+#### <a name="verify-service-respects-cancellation"></a>Weryfikacja anulowania usługi
+Długotrwałe lub asynchroniczne procesy, które powinny zostać zakończone, gdy token anulowania zostanie anulowany powinien zostać zweryfikowany, że faktycznie zakończy się po anulowaniu. Zapewni to, że mimo że repliki zmienią role, procesy, które nie są przeznaczone do uruchamiania w replice innej niż podstawowa, zostaną zatrzymane przed zakończeniem przejścia. Może to również obejmować problemy, w których taki proces blokuje zmianę roli lub żądanie zamknięcia z Service Fabric od zakończenia.
 
-#### <a name="verify-which-replicas-should-serve-requests"></a>Sprawdzanie, które repliki powinny obsługiwać żądania
-Testy powinny potwierdzać oczekiwane zachowanie, jeśli żądanie jest kierowane do repliki innych niż podstawowe. Sieci szkieletowej usług zapewnia możliwość mają repliki pomocnicze obsługują żądania. Jednak zapisuje do kolekcji niezawodne mogą wystąpić tylko z repliki podstawowej. Jeśli aplikacja ma na celu tylko repliki podstawowe do obsługi żądań lub tylko podzbiór żądań mogą być obsługiwane przez pomocnicze, a następnie testy powinny potwierdzić oczekiwane zachowanie zarówno w przypadkach dodatnich i negatywnych. Przypadek ujemny jest żądanie jest kierowane do repliki, która nie powinna obsługiwać żądania i dodatni jest odwrotnie.
+#### <a name="verify-which-replicas-should-serve-requests"></a>Sprawdź, które repliki powinny obpracować żądania
+Testy powinny mieć na celu potwierdzenie oczekiwanego zachowania, jeśli żądanie jest kierowane do repliki innej niż podstawowa. Service Fabric zapewnia możliwość obsługi żądań przez repliki pomocnicze. Jednak operacje zapisu w niezawodnych kolekcjach mogą wystąpić tylko w replice podstawowej. Jeśli aplikacja zaproponuje tylko repliki podstawowe do obsługi żądań lub tylko podzbiór żądań może być obsługiwany przez pomocniczą, wówczas testy powinny mieć wpływ na oczekiwane zachowanie zarówno dla przypadków dodatnich, jak i ujemnych. Negatywny przypadek, w którym żądanie jest kierowane do repliki, która nie powinna obsłużyć żądania, a dodatnia jest odwrotna.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak [przetestować usługi stanowe.](service-fabric-how-to-unit-test-stateful-services.md)
+Dowiedz się, jak [jednostkowo przetestować usługi stanowe](service-fabric-how-to-unit-test-stateful-services.md).

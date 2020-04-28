@@ -1,64 +1,64 @@
 ---
-title: Zaawansowane skalowanie automatyczne przy użyciu maszyn wirtualnych platformy Azure
-description: Używa Zestawów skalowania Menedżera zasobów i maszyn wirtualnych z wieloma regułami i profilami, które wysyłają adresy URL poczty e-mail i elementów webhook z akcjami skalowania.
+title: Zaawansowane automatyczne skalowanie przy użyciu usługi Azure Virtual Machines
+description: Używa Menedżer zasobów i VM Scale Sets z wieloma regułami i profilami, które wysyłają wiadomości e-mail i wywołują adresy URL elementu webhook z akcjami skalowania.
 ms.topic: conceptual
 ms.date: 02/22/2016
 ms.subservice: autoscale
 ms.openlocfilehash: e22806ff94ce2eb830bb6918bfc7f80e5ad3ba0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75364224"
 ---
-# <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Zaawansowana konfiguracja skalowania automatycznego przy użyciu szablonów Menedżera zasobów dla zestawów skalowania maszyn wirtualnych
-Można skalować i skalować w poziomie w zestawach skalowania maszyny wirtualnej na podstawie progów metryk wydajności, harmonogramu cyklicznego lub określonej daty. Można również skonfigurować powiadomienia e-mail i webhook dla akcji skalowania. W tym przewodniku przedstawiono przykład konfigurowania wszystkich tych obiektów przy użyciu szablonu Menedżera zasobów w zestawie skalowania maszyny Wirtualnej.
+# <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Zaawansowana konfiguracja automatycznego skalowania przy użyciu Menedżer zasobów szablonów dla VM Scale Sets
+Możesz skalować w poziomie i skalować w Virtual Machine Scale Sets na podstawie progów metryk wydajności, harmonogramu cyklicznego lub określonego dnia. Możesz również skonfigurować powiadomienia e-mail i elementy webhook dla akcji skalowania. W tym instruktażu przedstawiono przykład konfigurowania wszystkich tych obiektów przy użyciu szablonu Menedżer zasobów na zestawie skalowania maszyn wirtualnych.
 
 > [!NOTE]
-> W tym przewodniku wyjaśniono kroki dotyczące zestawów skalowania maszyn wirtualnych, te same informacje dotyczą skalowania automatycznego [usługi w chmurze,](https://azure.microsoft.com/services/cloud-services/) [usługi app service - aplikacje sieci Web](https://azure.microsoft.com/services/app-service/web/)i usługi [zarządzania interfejsami API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Dla prostego ustawienia skalowania w/wymetrycznego w zestawie skalowania maszyny Wirtualnej na podstawie prostej metryki wydajności, takiej jak procesor, należy zapoznać się z dokumentami systemu [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) i [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
+> W tym instruktażu wyjaśniono kroki VM Scale Sets, te same informacje dotyczą skalowania automatycznego [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/)i [API Management usług](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) dla prostego ustawienia skalowania w poziomie w zestawie skalowania maszyn wirtualnych na podstawie prostej METRYKI wydajności, takiej jak procesor CPU, można znaleźć w dokumentach [systemu](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) i Windows.
 >
 >
 
 ## <a name="walkthrough"></a>Przewodnik
-W tym instruktażu używamy [Eksploratora zasobów platformy Azure](https://resources.azure.com/) do konfigurowania i aktualizowania ustawienia skalowania automatycznego dla zestawu skalowania. Eksplorator zasobów platformy Azure to prosty sposób zarządzania zasobami platformy Azure za pomocą szablonów usługi Resource Manager. Jeśli jesteś nowym użytkownikem narzędzia Azure Resource Explorer, przeczytaj [to wprowadzenie](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
+W tym instruktażu użyjemy [Azure Resource Explorer](https://resources.azure.com/) , aby skonfigurować i zaktualizować ustawienia automatycznego skalowania dla zestawu skalowania. Azure Resource Explorer to prosty sposób na zarządzanie zasobami platformy Azure za pośrednictwem Menedżer zasobów szablonów. Jeśli jesteś nowym narzędziem Azure Resource Explorer, Przeczytaj [to wprowadzenie](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
 
-1. Wdrażanie nowego zestawu skalowania z podstawowym ustawieniem skalowania automatycznego. W tym artykule użyto tego z Galerii Szybki start platformy Azure, która ma zestaw skalowania systemu Windows z podstawowym szablonem skalowania automatycznego. Zestawy skalowania Linuksa działają w ten sam sposób.
-2. Po utworzeniu zestawu skalowania przejdź do zasobu zestawu skalowania z Eksploratora zasobów platformy Azure. W węźle Microsoft.Insights są widoczne następujące informacje.
+1. Wdróż nowy zestaw skalowania z podstawowym ustawieniem automatycznego skalowania. W tym artykule jest używany jeden z galerii szybkiego startu platformy Azure z zestawem skalowania systemu Windows z podstawowym szablonem skalowania automatycznego. Zestawy skalowania systemu Linux działają w ten sam sposób.
+2. Po utworzeniu zestawu skalowania przejdź do zasobu zestawu skalowania z Azure Resource Explorer. W węźle Microsoft. Insights są wyświetlane następujące informacje:
 
     ![Eksplorator platformy Azure](media/autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
-    Wykonanie szablonu utworzyło domyślne ustawienie skalowania automatycznego o nazwie **"autoscalewad"**. Po prawej stronie można wyświetlić pełną definicję tego ustawienia skalowania automatycznego. W takim przypadku domyślne ustawienie skalowania automatycznego jest zawiera regułę skalowania w poziomie i skalowania w poziomie opartą na procesorze CPU%.  
+    Wykonanie szablonu spowodowało utworzenie domyślnego ustawienia automatycznego skalowania o nazwie **"autoscalewad"**. Po prawej stronie można wyświetlić pełną definicję tego ustawienia skalowania automatycznego. W takim przypadku domyślne ustawienie automatycznego skalowania jest zgodne z procesorem CPU% skalowalnym w poziomie i regułą skalowania w poziomie.  
 
-3. Teraz możesz dodać więcej profili i reguł na podstawie harmonogramu lub określonych wymagań. Tworzymy ustawienie skalowania automatycznego z trzema profilami. Aby zrozumieć profile i reguły w skalowaniu automatycznym, zapoznaj się [z najlepszymi praktykami skalowania automatycznego](autoscale-best-practices.md).  
+3. Teraz można dodać więcej profilów i reguł na podstawie harmonogramu lub określonych wymagań. Utworzymy ustawienie skalowania automatycznego z trzema profilami. Aby zrozumieć profile i reguły w funkcji automatycznego skalowania, zapoznaj się z [najlepszymi rozwiązaniami skalowania automatycznego](autoscale-best-practices.md).  
 
-    | Profile & Regulamin | Opis |
+    | Profile & reguł | Opis |
     |--- | --- |
-    | **Profil** |**Oparte na wydajności/metryce** |
-    | Reguła |Liczba komunikatów kolejki usługi Service Bus > x |
-    | Reguła |Liczba komunikatów kolejki usługi Service Bus < y |
-    | Reguła |CPU% > n |
-    | Reguła |CPU% < p |
-    | **Profil** |**Poranne godziny w dni powszednie (bez reguł)** |
-    | **Profil** |**Dzień premiery produktu (bez reguł)** |
+    | **Profil** |**Wydajność/oparta na metrykach** |
+    | Reguła |Liczba komunikatów w kolejce Service Bus > x |
+    | Reguła |Liczba komunikatów w kolejce Service Bus < y |
+    | Reguła |Procesor% > n |
+    | Reguła |Procesor CPU% < p |
+    | **Profil** |**Dni tygodnia rano (bez reguł)** |
+    | **Profil** |**Dzień uruchamiania produktu (brak reguł)** |
 
-4. Oto hipotetyczny scenariusz skalowania, którego używamy do tego przejścia.
+4. Oto hipotetyczny scenariusz skalowania, który jest używany do tego przewodnika.
 
-   * **Oparte na obciążeniu** — chcę skalować w poziomie lub w oparciu o obciążenie aplikacji hostowane w zestawie skalowania.*
-   * **Rozmiar kolejki komunikatów** — używam kolejki magistrali usług dla wiadomości przychodzących do mojej aplikacji. Używam kolejki liczby wiadomości i CPU% i skonfigurować domyślny profil, aby wyzwolić akcję skalowania, jeśli jeden z liczby wiadomości lub cpu osiągnie próg.\*
-   * **Poranek i dzień** - chcę cotygodniowy powtarzający się profil "poranek dnia" o nazwie "Godziny poranne w dni powszednie". Na podstawie danych historycznych wiem, że lepiej jest mieć określoną liczbę wystąpień maszyn wirtualnych do obsługi obciążenia mojej aplikacji w tym czasie.\*
-   * **Daty specjalne** - dodałem profil "Dzień premiery produktu". Planuję z wyprzedzeniem konkretne daty, więc moja aplikacja jest gotowa do obsługi obciążenia ze względu ogłoszeń marketingowych i kiedy umieszczamy nowy produkt w aplikacji.\*
-   * *Dwa ostatnie profile mogą również mieć inne reguły oparte na wydajności. W takim przypadku postanowiłem nie mieć jednego i zamiast polegać na domyślnych regułach opartych na wydajności. Reguły są opcjonalne dla profilów cyklicznych i opartych na dacie.*
+   * **Załaduj na** zewnątrz — chcę skalować w poziomie lub w oparciu o obciążenie aplikacji hostowanej w zestawie skalowania. *
+   * **Rozmiar kolejki komunikatów** — używam kolejki Service Bus dla wiadomości przychodzących do mojej aplikacji. Użycie liczby komunikatów w kolejce i procesora CPU (%) i skonfigurowanie profilu domyślnego do wyzwalania akcji skalowania, jeśli liczba komunikatów lub procesor CPU trafi próg.\*
+   * **Czas tygodnia i dzień** — chcę tygodniowo cyklicznie "godzina" profilu na podstawie "o nazwie" dzień tygodnia rano ". Na podstawie danych historycznych wiemy, że lepiej jest mieć pewną liczbę wystąpień maszyn wirtualnych do obsługi obciążenia aplikacji w tym czasie.\*
+   * **Specjalne daty** — dodano profil "dzień uruchamiania produktu". Planuję w odniesieniu do określonych dat, aby moja aplikacja była gotowa do obsłużenia anonsów marketingu z załadowaniami i wprowadzenia nowego produktu w aplikacji.\*
+   * *Ostatnie dwa profile mogą także mieć inne reguły oparte na metryki wydajności. W tym przypadku zdecydowałem się, że nie mam takiego i zamiast tego opierają się na domyślnych regułach opartych na metrykach wydajności. Reguły są opcjonalne dla profilów cyklicznych i opartych na dacie.*
 
-     Priorytetyzacja profili i reguł aparatu w skali automatycznej jest również przechwytywany w [artykule najważniejsze wskazówki dotyczące skalowania automatycznego.](autoscale-best-practices.md)
-     Aby uzyskać listę typowych metryk skalowania automatycznego, zapoznaj się [z typowymi metrykami skalowania automatycznego](autoscale-common-metrics.md)
+     Priorytetyzacja profilów i reguł w aparacie skalowania automatycznego jest również przechwytywana w artykule [najlepsze rozwiązania dotyczące skalowania](autoscale-best-practices.md) automatycznego.
+     Aby uzyskać listę typowych metryk skalowania automatycznego, zapoznaj się z [typowymi metrykami skalowania automatycznego](autoscale-common-metrics.md)
 
-5. Upewnij się, że jesteś w trybie **odczytu/zapisu** w Eksploratorze zasobów
+5. Upewnij się, że korzystasz z trybu **odczytu/zapisu** w Eksplorator zasobów
 
-    ![Skalowanie automatyczne, domyślne ustawienie skalowania automatycznego](media/autoscale-virtual-machine-scale-sets/autoscalewad.png)
+    ![Autoscalewad, domyślne ustawienie automatycznego skalowania](media/autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
-6. Kliknij pozycję Edytuj. **Zastąp** element "profile" w ustawieniu skalowania automatycznego następującą konfiguracją:
+6. Kliknij pozycję Edytuj. **Zastąp** element "Profile" w ustawieniu automatycznego skalowania następującym konfiguracją:
 
-    ![Profile](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![Profil](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {
@@ -190,14 +190,14 @@ W tym instruktażu używamy [Eksploratora zasobów platformy Azure](https://reso
             }
           }
     ```
-    Aby uzyskać obsługiwane pola i ich wartości, zobacz [Dokumentacja interfejsu API REST w automatycznym skalowaniu](https://msdn.microsoft.com/library/azure/dn931928.aspx). Teraz ustawienie skalowania automatycznego zawiera trzy profile wyjaśnione wcześniej.
+    Aby poznać obsługiwane pola i ich wartości, zobacz [dokumentację interfejsu API REST skalowania automatycznego](https://msdn.microsoft.com/library/azure/dn931928.aspx). Teraz Twoje ustawienie skalowania automatycznego zawiera trzy profile opisane wcześniej.
 
-7. Na koniec przyjrzyj się sekcji **powiadomień skalowania** automatycznego. Powiadomienia skalowania automatycznego umożliwiają zrobienie trzech czynności po pomyślnym wyzwoleniu skalowania w poziomie lub w akcji.
-   - Powiadamianie administratora i współadministratorów subskrypcji
-   - Wysyłanie wiadomości e-mail do zestawu użytkowników
-   - Wyzwalanie połączenia elementu webhook. Po uruchomieniu ten element webhook wysyła metadane dotyczące warunku skalowania automatycznego i zasobu zestawu skalowania. Aby dowiedzieć się więcej o ładunku elementu webhook skalowania automatycznego, zobacz [Konfigurowanie elementu Webhook & powiadomienia e-mail dla skalowania automatycznego](autoscale-webhook-email.md).
+7. Na koniec zapoznaj się z sekcją **powiadomienia** skalowania automatycznego. Powiadomienia skalowania automatycznego umożliwiają wykonywanie trzech czynności w przypadku pomyślnego wyzwolenia skalowania w poziomie lub akcji.
+   - Powiadom administratora i współadministratora subskrypcji
+   - Wyślij pocztą e-mail zestaw użytkowników
+   - Wyzwalanie wywołania elementu webhook. Po uruchomieniu ten element webhook wysyła metadane dotyczące warunku skalowania automatycznego i zasobu zestawu skalowania. Aby dowiedzieć się więcej o ładunku elementu webhook automatycznego skalowania, zobacz [Konfigurowanie elementu webhook & powiadomienia e-mail dla skalowania automatycznego](autoscale-webhook-email.md).
 
-   Dodaj następujące elementy do ustawienia Skalowanie automatyczne, zastępując element **powiadomienia,** którego wartość jest zerowa
+   Dodaj następujący element do ustawienia skalowania automatycznego zamieniania elementu **powiadomienia** , którego wartość jest równa null.
 
    ```
    "notifications": [
@@ -225,23 +225,23 @@ W tym instruktażu używamy [Eksploratora zasobów platformy Azure](https://reso
 
    ```
 
-   Naciśnij przycisk **Umieść** w Eksploratorze zasobów, aby zaktualizować ustawienie skalowania automatycznego.
+   Przycisk **Put** trafij w Eksplorator zasobów, aby zaktualizować ustawienie skalowania automatycznego.
 
-Zaktualizowano ustawienie skalowania automatycznego w zestawie skalowania maszyny Wirtualnej, aby zawierało wiele profilów skalowania i powiadomień o skali.
+Zmieniono ustawienie skalowania automatycznego w zestawie skalowania maszyn wirtualnych w celu uwzględnienia wielu profilów skalowania i powiadomień dotyczących skalowania.
 
 ## <a name="next-steps"></a>Następne kroki
-Skorzystaj z tych łączy, aby dowiedzieć się więcej o skalowaniu automatycznym.
+Skorzystaj z tych linków, aby dowiedzieć się więcej o automatycznym skalowaniu.
 
-[Funkcja Rozwiązywanie problemów z zestawami skalowania maszyn wirtualnych](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+[Rozwiązywanie problemów z automatycznym skalowaniem za pomocą Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
-[Typowe metryki skalowania automatycznego](autoscale-common-metrics.md)
+[Typowe metryki automatycznego skalowania](autoscale-common-metrics.md)
 
-[Najważniejsze wskazówki dotyczące skalowania automatycznego platformy Azure](autoscale-best-practices.md)
+[Najlepsze rozwiązania dotyczące automatycznego skalowania na platformie Azure](autoscale-best-practices.md)
 
-[Zarządzanie skalowaniem automatycznym za pomocą programu PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Zarządzanie automatycznym skalowaniem przy użyciu programu PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 
-[Zarządzanie skalowaniem automatycznym przy użyciu interfejsu wiersza polecenia](cli-samples.md#autoscale)
+[Zarządzanie funkcją automatycznego skalowania przy użyciu interfejsu wiersza polecenia](cli-samples.md#autoscale)
 
-[Konfigurowanie & powiadomień e-mail dla aplikacji Webhook dla skalowania automatycznego](autoscale-webhook-email.md)
+[Konfigurowanie elementu webhook & powiadomienia E-mail na potrzeby automatycznego skalowania](autoscale-webhook-email.md)
 
-Odwołanie do [szablonu Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)
+Dokumentacja szablonu [Microsoft. Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

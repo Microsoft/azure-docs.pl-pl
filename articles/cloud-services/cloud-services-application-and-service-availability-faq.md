@@ -1,7 +1,7 @@
 ---
 title: Często zadawane pytania dotyczące dostępności aplikacji i usług
 titleSuffix: Azure Cloud Services
-description: W tym artykule wymieniono często zadawane pytania dotyczące dostępności aplikacji i usług dla usług w chmurze platformy Microsoft Azure.
+description: Ten artykuł zawiera listę często zadawanych pytań dotyczących dostępności aplikacji i usług dla Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -16,34 +16,34 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386922"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemy z dostępnością aplikacji i usług dla usług w chmurze Azure: często zadawane pytania (często zadawane pytania)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemy z dostępnością aplikacji i usług dla platformy Azure Cloud Services: często zadawane pytania
 
-Ten artykuł zawiera często zadawane pytania dotyczące problemów z dostępnością aplikacji i usług dla [usług w chmurze platformy Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Informacje o rozmiarach można również zapoznać się ze [stroną Rozmiar maszyny Wirtualnej usług w chmurze.](cloud-services-sizes-specs.md)
+W tym artykule opisano często zadawane pytania dotyczące problemów z dostępnością aplikacji i usług w programie [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Informacje o rozmiarze można także znaleźć na [stronie Cloud Services rozmiaru maszyny wirtualnej](cloud-services-sizes-specs.md) .
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>Moja rola została poddana recyklingowi. Czy została wdrożona aktualizacja dla mojej usługi w chmurze?
-Mniej więcej raz w miesiącu firma Microsoft wydaje nową wersję systemu operacyjnego gościa dla maszyn wirtualnych paas platformy Windows azure.System operacyjny gościa jest tylko jedną taką aktualizację w potoku. Na wydanie może mieć wpływ wiele innych czynników. Ponadto platforma Azure działa na setkach tysięcy maszyn. W związku z tym nie można przewidzieć dokładną datę i godzinę, kiedy role zostaną ponownie uruchomione. Aktualizujemy kanał RSS aktualizacji systemu operacyjnego gościa o najnowsze informacje, które mamy, ale należy wziąć pod uwagę, że zgłoszony czas jest przybliżoną wartością. Zdajemy sobie sprawę, że jest to problematyczne dla klientów i pracujemy nad planem ograniczenia lub precyzyjnego ponownego uruchomienia czasu.
+## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>Moja rola została odtworzona. Czy była dostępna aktualizacja dla mojej usługi w chmurze?
+Około miesiąca firma Microsoft udostępnia nową wersję systemu operacyjnego gościa dla maszyn wirtualnych PaaS platformy Microsoft Azure.System operacyjny gościa to tylko jedna taka aktualizacja w potoku. Na wydanie może mieć wpływ wiele innych czynników. Ponadto platforma Azure działa na setkach tysięcy maszyn. W związku z tym nie można przewidzieć dokładnej daty i godziny ponownego uruchomienia ról. Aktualizujemy kanał informacyjny RSS systemu operacyjnego gościa z najnowszymi informacjami, które mamy, ale należy wziąć pod uwagę, że raportowany czas musi być przybliżoną wartością. Mamy świadomość, że jest to problematyczne dla klientów i pracujemy nad planem w celu ograniczenia lub precyzyjnego ponownego uruchomienia.
 
-Aby uzyskać pełne informacje na temat ostatnich aktualizacji systemu operacyjnego gościa, zobacz [Wersje systemu operacyjnego gościa platformy Azure i macierz zgodności SDK.](cloud-services-guestos-update-matrix.md)
+Aby uzyskać szczegółowe informacje na temat ostatnich aktualizacji systemu operacyjnego gościa, zobacz [wersje systemu operacyjnego gościa platformy Azure i macierz zgodności zestawu SDK](cloud-services-guestos-update-matrix.md).
 
-Aby uzyskać przydatne informacje na temat ponownego uruchamiania i wskaźników do szczegółów technicznych aktualizacji systemu operacyjnego gościa i hosta, zobacz wpis msdn [wystąpienie roli blogu restartuje się z powodu uaktualnień systemu operacyjnego](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
+Aby uzyskać przydatne informacje dotyczące ponownego uruchamiania i wskaźników do szczegółowych informacji technicznych dotyczących aktualizacji systemu operacyjnego gościa i hosta, zobacz [Ponowne uruchamianie wystąpienia roli w blogu MSDN z powodu uaktualnień systemu operacyjnego](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
 
-## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Dlaczego pierwsze żądanie do mojej usługi w chmurze po zakończeniu usługi jest bezczynne przez pewien czas dłużej niż zwykle?
-Gdy serwer sieci Web odbiera pierwsze żądanie, najpierw ponownie kompiluje kod, a następnie przetwarza żądanie. Dlatego pierwsze żądanie trwa dłużej niż inne. Domyślnie pula aplikacji zostanie zamknięta w przypadku braku aktywności użytkownika. Pula aplikacji będzie również domyślnie przetwarzać co 1740 minut (29 godzin).
+## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Dlaczego pierwsze żądanie do mojej usługi w chmurze, gdy usługa jest bezczynna, trwa dłużej niż zwykle?
+Gdy serwer sieci Web otrzymuje pierwsze żądanie, najpierw ponownie skompiluje kod, a następnie przetworzy żądanie. Dlatego pierwsze żądanie trwa dłużej niż inne. Domyślnie Pula aplikacji jest zamykana w przypadku nieaktywności użytkownika. Pula aplikacji również będzie odtwarzana domyślnie co 1 740 minut (29 godzin).
 
-Pule aplikacji internetowych usług informacyjnych (IIS) mogą być okresowo poddawanym recyklingowi, aby uniknąć niestabilnych stanów, które mogą prowadzić do awarii aplikacji, zawieszenia lub przecieków pamięci.
+Pule aplikacji Internet Information Services (IIS) mogą być okresowo odtwarzane w celu uniknięcia niestabilnych Stanów, które mogą prowadzić do awarii aplikacji, zawieszenia lub przecieków pamięci.
 
-Poniższe dokumenty pomogą Ci zrozumieć i złagodzić ten problem:
-* [Mocowanie powolnego obciążenia początkowego dla iis](https://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
-* [Pierwsze żądanie aplikacji internetowej usług IIS 7.5 po bardzo powolnym recyklingu w puli aplikacji](https://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
+Następujące dokumenty ułatwią zrozumienie i rozwiązanie tego problemu:
+* [Naprawianie wolnego początkowej ładowania dla usług IIS](https://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
+* [Pierwsze żądanie aplikacji sieci Web usług IIS 7,5 po powolnej odtworzeniu puli aplikacji](https://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
 
-Jeśli chcesz zmienić domyślne zachowanie usług IIS, należy użyć zadań uruchamiania, ponieważ jeśli ręcznie zastosujesz zmiany do wystąpień roli sieci Web, zmiany zostaną ostatecznie utracone.
+Jeśli chcesz zmienić domyślne zachowanie usług IIS, musisz użyć zadań uruchamiania, ponieważ w przypadku ręcznego zastosowania zmian w wystąpieniach roli sieci Web zmiany zostaną ostatecznie utracone.
 
-Aby uzyskać więcej informacji, zobacz [Jak skonfigurować i uruchomić zadania uruchamiania usługi w chmurze](cloud-services-startup-tasks.md).
+Aby uzyskać więcej informacji, zobacz [jak skonfigurować i uruchomić zadania uruchamiania dla usługi w chmurze](cloud-services-startup-tasks.md).

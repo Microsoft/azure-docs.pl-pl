@@ -1,69 +1,69 @@
 ---
-title: Wyświetlanie usługi Azure Monitor dla wdrożeń kontenerów (wersja zapoznawcza) | Dokumenty firmy Microsoft
-description: W tym artykule opisano widok w czasie rzeczywistym wdrożenia kubernetes bez użycia kubectl w usłudze Azure Monitor dla kontenerów.
+title: Wyświetl Azure Monitor dla wdrożeń kontenerów (wersja zapoznawcza) | Microsoft Docs
+description: W tym artykule opisano widok Kubernetes wdrożeń w czasie rzeczywistym bez użycia polecenia kubectl w Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75404776"
 ---
-# <a name="how-to-view-deployments-preview-in-real-time"></a>Jak wyświetlić wdrożenia (wersja zapoznawcza) w czasie rzeczywistym
+# <a name="how-to-view-deployments-preview-in-real-time"></a>Jak wyświetlać wdrożenia (wersja zapoznawcza) w czasie rzeczywistym
 
-W usłudze Azure Monitor dla kontenerów funkcja wyświetlania wdrożeń (wersja zapoznawcza) emuluje bezpośredni dostęp do obiektów wdrażania usługi Kubernetes w czasie rzeczywistym, ujawniając polecenia `kubeclt get deployments` i. `kubectl describe deployment {your deployment}` 
-
->[!NOTE]
->Klastry AKS włączone jako [klastry prywatne](https://azure.microsoft.com/updates/aks-private-cluster/) nie są obsługiwane za pomocą tej funkcji. Ta funkcja polega na bezpośrednim uzyskiwaniu dostępu do interfejsu API kubernetes za pośrednictwem serwera proxy z przeglądarki. Włączenie zabezpieczeń sieciowych w celu zablokowania interfejsu API usługi Kubernetes z tego serwera proxy spowoduje zablokowanie tego ruchu. 
+Za pomocą Azure Monitor dla kontenerów Funkcja Wyświetl wdrożenia (wersja zapoznawcza) emuluje bezpośredni dostęp do obiektów wdrożenia Kubernetes w czasie rzeczywistym `kubeclt get deployments` przez `kubectl describe deployment {your deployment}` udostępnienie poleceń i. 
 
 >[!NOTE]
->Ta funkcja jest dostępna we wszystkich regionach platformy Azure, w tym w chinach platformy Azure. Obecnie nie jest dostępna w usłudze Azure US Government.
+>Klastry AKS włączone jako [klastry prywatne](https://azure.microsoft.com/updates/aks-private-cluster/) są nieobsługiwane w przypadku tej funkcji. Ta funkcja wykorzystuje bezpośrednio dostęp do interfejsu API Kubernetes za pośrednictwem serwera proxy z przeglądarki. Włączenie zabezpieczeń sieci w celu blokowania interfejsu API Kubernetes z tego serwera proxy spowoduje zablokowanie tego ruchu. 
 
-Aby dowiedzieć się więcej, zapoznaj się z dokumentacją programu Kubernetes dotyczącą [wdrożeń](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). 
+>[!NOTE]
+>Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w tym na platformie Azure (Chiny). Nie jest ona obecnie dostępna w systemie Azure dla instytucji rządowych USA.
+
+Aby dowiedzieć się więcej, zapoznaj się z dokumentacją Kubernetes dotyczącą [wdrożeń](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). 
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Funkcja Live Data (wersja zapoznawcza) umożliwia bezpośredni dostęp do interfejsu API usługi Kubernetes, a dodatkowe informacje o modelu uwierzytelniania można znaleźć [tutaj](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+Funkcja dane dynamiczne (wersja zapoznawcza) bezpośrednio uzyskuje dostęp do interfejsu API Kubernetes. dodatkowe informacje o modelu uwierzytelniania można znaleźć [tutaj](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-Funkcja Wdrożenia (wersja zapoznawcza) wykonuje jednorazowe (odświeżalne) obciążenie `/apis/apps/v1/deployments`względem punktu końcowego wdrożeń . Umożliwia wybranie danego wdrożenia i załadowanie szczegółów opisu dla tego `/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}`konkretnego wdrożenia względem punktu końcowego wdrożenia. 
+Funkcja wdrożenia (wersja zapoznawcza) wykonuje jednorazowe (odświeżane) obciążenie w punkcie końcowym `/apis/apps/v1/deployments`wdrożenia. Umożliwia wybranie danego wdrożenia i załadowanie szczegółowych informacji o tym konkretnym wdrożeniu do punktu końcowego `/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}`wdrożenia. 
 
-Wybranie **opcji Odśwież** w lewym górnym rogu strony powoduje odświeżenie listy wdrożeniowej. Symuluje ponowne `kubectl` uruchomienie polecenia. 
+Wybranie opcji **Odśwież** w lewym górnym rogu strony spowoduje odświeżenie listy wdrożenia. To symuluje ponowne uruchomienie `kubectl` polecenia. 
 
 >[!IMPORTANT]
->Żadne dane nie są przechowywane na stałe podczas pracy tej funkcji. Wszystkie informacje przechwycone podczas sesji są usuwane po zamknięciu przeglądarki lub odejściu od niej.  
+>Podczas wykonywania tej funkcji żadne dane nie są trwale przechowywane. Wszystkie informacje przechwycone podczas sesji są usuwane, gdy zamkniesz przeglądarkę lub opuścisz ją.  
 
 >[!NOTE]
->Nie można przypiąć danych live data (w wersji zapoznawczej) z konsoli do pulpitu nawigacyjnego platformy Azure.
+>Nie można przypiąć danych na żywo (wersja zapoznawcza) z konsoli programu do pulpitu nawigacyjnego platformy Azure.
 
-## <a name="deployments-describe"></a>Wdrożeń opisać
+## <a name="deployments-describe"></a>Opis wdrożeń
 
-Aby wyświetlić opis szczegółów wdrożenia, które `kubectl describe deployment`jest równoważne , wykonaj następujące kroki.
+Aby wyświetlić szczegółowe informacje dotyczące wdrożenia, które jest równoważne z `kubectl describe deployment`, wykonaj następujące czynności.
 
-1. W witrynie Azure portal przejdź do grupy zasobów klastra AKS i wybierz zasób usługi AKS.
+1. W Azure Portal przejdź do grupy zasobów klastra AKS i wybierz zasób AKS.
 
-2. Na pulpicie nawigacyjnym klastra AKS w obszarze **Monitorowanie** po lewej stronie wybierz pozycję **Insights**. 
+2. Na pulpicie nawigacyjnym klastra AKS, w obszarze **monitorowanie** po lewej stronie, wybierz pozycję **szczegółowe informacje**. 
 
-3. Wybierz kartę **Wdrożenia (podgląd).**
+3. Wybierz kartę **wdrożenia (wersja zapoznawcza)** .
 
-    ![Widok wdrożenia w witrynie Azure portal](./media/container-insights-livedata-deployments/deployment-view.png)
+    ![Widok wdrożeń w Azure Portal](./media/container-insights-livedata-deployments/deployment-view.png)
 
-Widok zawiera listę wszystkich uruchomionych wdrożeń wraz z obszarem nazw i `kubectl get deployments –all-namespaces`innymi szczegółowymi informacjami, emulując wykonanie polecenia . Wyniki można sortować, wybierając jedną z kolumn. 
+Widok przedstawia listę wszystkich uruchomionych wdrożeń wraz z obszarem nazw i innymi szczegółowymi informacjami, które emulują wykonywanie polecenia `kubectl get deployments –all-namespaces`. Wyniki można sortować, wybierając jedną z kolumn. 
 
 ![Szczegóły okienka właściwości wdrożenia](./media/container-insights-livedata-deployments/deployment-properties-pane-details.png)
 
-Po wybraniu wdrożenia z listy okienko właściwości jest automatycznie wyświetlane po prawej stronie strony. Pokazuje informacje związane z wybranym wdrożeniem, które `kubectl describe deployment {deploymentName}`można wyświetlić po uruchomieniu polecenia . Być może zauważyłeś, że w opisie informacji brakuje pewnych szczegółów. Przede wszystkim brakuje **szablonu.** Wybranie karty **Raw** umożliwia przejście do szczegółów describe nieprzeswojonych.  
+Po wybraniu wdrożenia z listy okienko właściwości zostanie automatycznie wyświetlone po prawej stronie. Zawiera informacje dotyczące wybranego wdrożenia, które można wyświetlić, jeśli uruchomiono polecenie `kubectl describe deployment {deploymentName}`. Być może zauważono, że w opisie informacji brakuje pewnych szczegółów. W szczególności brakuje **szablonu** . Wybranie zakładki **RAW** pozwala przejść do szczegółów nieanalizowanych opisów.  
 
-![Szczegóły nieprzetworzonego okienka właściwości wdrożeń](./media/container-insights-livedata-deployments/deployment-properties-pane-raw.png)
+![Szczegóły szczegółów okienka właściwości wdrożenia](./media/container-insights-livedata-deployments/deployment-properties-pane-raw.png)
 
-Podczas przeglądania szczegółów wdrożenia, można zobaczyć dzienniki kontenerów i zdarzenia w czasie rzeczywistym. Wybierz **opcję Pokaż konsolę na żywo,** a okienko konsoli Dane na żywo (wersja zapoznawcza) pojawi się poniżej siatki danych wdrożeń, w której można wyświetlać dane dziennika na żywo w strumieniu ciągłym. Jeśli wskaźnik stanu pobierania pokazuje zielony znacznik wyboru, który znajduje się po prawej stronie okienka, oznacza to, że dane mogą być pobierane i rozpoczyna przesyłanie strumieniowe do konsoli.
+Podczas przeglądania szczegółów wdrożenia można zobaczyć dzienniki kontenerów i zdarzenia w czasie rzeczywistym. Wybierz pozycję **Pokaż konsolę na żywo** i konsolę dane dynamiczne (wersja zapoznawcza) pojawi się poniżej siatki wdrożenia, w której można wyświetlić dane dziennika na żywo w strumieniu ciągłym. Jeśli wskaźnik stanu pobierania zawiera zielony znacznik wyboru, który znajduje się po prawej stronie okienka, oznacza to, że dane mogą być pobierane i rozpoczyna przesyłanie strumieniowe do konsoli programu.
 
-Można również filtrować według zdarzeń obszaru nazw lub poziomu klastra. Aby dowiedzieć się więcej o wyświetlaniu danych w czasie rzeczywistym w konsoli, zobacz [Wyświetlanie danych na żywo (w wersji zapoznawczej) za pomocą usługi Azure Monitor dla kontenerów](container-insights-livedata-overview.md). 
+Można również filtrować według przestrzeni nazw lub zdarzeń na poziomie klastra. Aby dowiedzieć się więcej na temat wyświetlania danych w czasie rzeczywistym w konsoli programu, zobacz [Wyświetlanie danych na żywo (wersja zapoznawcza) za pomocą Azure monitor dla kontenerów](container-insights-livedata-overview.md). 
 
-![Wdrożenia wyświetlą dane na żywo w konsoli](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
+![Wdrożenia wyświetlanie danych na żywo w konsoli](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby kontynuować naukę korzystania z usługi Azure Monitor i monitorować inne aspekty klastra usługi AKS, zobacz [Wyświetlanie kondycji usługi Azure Kubernetes.](container-insights-analyze.md)
+- Aby kontynuować uczenie się, jak używać Azure Monitor i monitorować inne aspekty klastra AKS, zobacz [Wyświetlanie usługi Azure Kubernetes Service Health](container-insights-analyze.md).
 
-- Wyświetlanie [przykładów zapytań dziennika,](container-insights-log-search.md#search-logs-to-analyze-data) aby wyświetlić wstępnie zdefiniowane kwerendy i przykłady do tworzenia alertów, wizualizacji lub wykonywania dalszej analizy klastrów.
+- Wyświetl [przykłady zapytań dzienników](container-insights-log-search.md#search-logs-to-analyze-data) , aby wyświetlić wstępnie zdefiniowane zapytania i przykłady do tworzenia alertów, wizualizacji lub przeprowadzenia dalszej analizy klastrów.

@@ -5,24 +5,24 @@ ms.topic: include
 ms.date: 11/08/2019
 ms.author: tamram
 ms.openlocfilehash: 2ed88d8abb7cbe96093b68d89030e6e464a35541
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "75392411"
 ---
 | Zasób | Środowisko docelowe        |
 |----------|---------------|
-| Maksymalny rozmiar pojedynczego kontenera obiektów blob | Tak samo jak maksymalna pojemność konta magazynu |
-| Maksymalna liczba bloków w bloku blob lub dołącz obiekt blob | 50 000 bloków |
-| Maksymalny rozmiar bloku w bloku blob | 100 MiB |
-| Maksymalny rozmiar bloku blob | 50 000 X 100 MiB (około 4,75 TiB) |
-| Maksymalny rozmiar bloku w doliczanym bloku blob | 4 MiB |
-| Maksymalny rozmiar dołączanego obiektu blob | 50 000 x 4 MiB (około 195 GiB) |
-| Maksymalny rozmiar obiektu blob strony | 8 TiB |
-| Maksymalna liczba przechowywanych zasad dostępu na kontener obiektu blob | 5 |
-|Stawka żądania docelowego dla pojedynczego obiektu blob | Do 500 żądań na sekundę |
-|Przepływność docelowa dla pojedynczego obiektu blob | Do 60 MiB na sekundę |
-|Przepływność docelowa dla pojedynczego bloku blob |Do limitów transferu danych przychodzących/wychodzących konta magazynu<sup>1</sup> |
+| Maksymalny rozmiar pojedynczego kontenera obiektów BLOB | Taka sama jak Maksymalna pojemność konta magazynu |
+| Maksymalna liczba bloków w blokowym obiekcie blob lub dołączeniu obiektu BLOB | bloki 50 000 |
+| Maksymalny rozmiar bloku w blokowym obiekcie blob | 100 MiB |
+| Maksymalny rozmiar bloku obiektu BLOB | 50 000 X 100 MiB (około 4,75 TiB) |
+| Maksymalny rozmiar bloku w obiekcie blob dołączania | 4 MiB |
+| Maksymalny rozmiar obiektu BLOB dołączania | 50 000 x 4 MiB (około 195 GiB) |
+| Maksymalny rozmiar obiektu BLOB stronicowania | 8 TiB |
+| Maksymalna liczba przechowywanych zasad dostępu dla kontenera obiektów BLOB | 5 |
+|Docelowa stawka żądania dla pojedynczego obiektu BLOB | Do 500 żądań na sekundę |
+|Docelowa przepływność dla jednostronicowego obiektu BLOB | Do 60 MiB na sekundę |
+|Docelowa przepływność dla pojedynczego bloku obiektu BLOB |Limity ruchu przychodzącego/wychodzącego do konta magazynu<sup>1</sup> |
 
-<sup>1</sup> Przepływność dla pojedynczego obiektu blob zależy od kilku czynników, w tym, ale nie ograniczając się do: współbieżność, rozmiar żądania, warstwa wydajności, szybkość źródła przekazywania i miejsce docelowe dla pobrań. Aby skorzystać z ulepszeń wydajności [bloków bloków o wysokiej przepływie,](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)przekaż większe obiekty blob lub bloki. W szczególności wywołać [Put Blob](/rest/api/storageservices/put-blob) lub [Put Block](/rest/api/storageservices/put-block) operacji o rozmiarze obiektu blob lub bloku, który jest większy niż 4 MiB dla standardowych kont magazynu. W przypadku obiektów blob bloku w wersji premium lub kont magazynu Usługi Data Lake Storage Gen2 należy użyć rozmiaru bloku lub obiektu blob większego niż 256 KiB.
+<sup>1</sup> przepływność dla pojedynczego obiektu BLOB zależy od kilku czynników, w tym między innymi: współbieżność, rozmiar żądania, warstwa wydajności, szybkość źródła dla przekazywania i miejsce docelowe do pobrania. Aby wykorzystać ulepszenia wydajności [blokowych obiektów BLOB o wysokiej przepływności](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/), Przekaż większe obiekty blob lub bloki. W celu wywołaj operację [Put obiektu BLOB](/rest/api/storageservices/put-blob) lub [Put blok](/rest/api/storageservices/put-block) z rozmiarem obiektu BLOB lub bloku, który jest większy niż 4 MIB dla kont magazynu w warstwie Standardowa. W przypadku blokowych obiektów BLOB w warstwie Premium lub dla kont magazynu Data Lake Storage Gen2 Użyj rozmiaru bloku lub obiektu BLOB, który jest większy niż 256 KiB.

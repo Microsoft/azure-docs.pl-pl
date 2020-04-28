@@ -1,6 +1,6 @@
 ---
-title: Tworzenie danych wejściowych usługi Azure Media Services z adresu URL HTTPS | Dokumenty firmy Microsoft
-description: W tym temacie pokazano, jak utworzyć dane wejściowe usługi Azure Media Services z adresu URL HTTPS.
+title: Utwórz Azure Media Services dane wejściowe zadania na podstawie adresu URL HTTPS | Microsoft Docs
+description: W tym temacie pokazano, jak utworzyć Azure Media Services dane wejściowe zadania na podstawie adresu URL HTTPS.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,22 +12,22 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: a3d4568dd237491f28ae2880bdd78dd236870c3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74899827"
 ---
-# <a name="create-a-job-input-from-an-https-url"></a>Tworzenie danych wejściowych zadania z adresu URL HTTPS
+# <a name="create-a-job-input-from-an-https-url"></a>Utwórz dane wejściowe zadania na podstawie adresu URL HTTPS
 
-W przypadku usługi Media Services 3 po przesłaniu zadań w celu przetworzenia wideo należy poinformować usługę Media Services o tym, gdzie można znaleźć wejściowe wideo. Jedną z możliwości jest określenie adresu URL protokołu HTTPS jako danych wejściowych zadania (jak pokazano w tym przykładzie). Pamiętaj, że obecnie usługa AMS w wersji 3 nie obsługuje fragmentarycznego kodowania transferu za pośrednictwem adresów URL HTTPS. Pełny przykład można znaleźć w tym [przykładzie github](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
+W przypadku usługi Media Services 3 po przesłaniu zadań w celu przetworzenia wideo należy poinformować usługę Media Services o tym, gdzie można znaleźć wejściowe wideo. Jedną z możliwości jest określenie adresu URL protokołu HTTPS jako danych wejściowych zadania (jak pokazano w tym przykładzie). Pamiętaj, że obecnie usługa AMS w wersji 3 nie obsługuje fragmentarycznego kodowania transferu za pośrednictwem adresów URL HTTPS. Aby zapoznać się z pełnymi przykładami, zobacz ten [przykład serwisu GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 > [!TIP]
-> Przed rozpoczęciem tworzenia, przegląd [tworzenie za pomocą interfejsów API usługi Media Services w wersji 3](media-services-apis-overview.md) (zawiera informacje na temat uzyskiwania dostępu do interfejsów API, konwencje nazewnictwa, itp.)
+> Przed rozpoczęciem opracowywania, zobacz [Tworzenie aplikacji przy użyciu interfejsów api Media Services v3](media-services-apis-overview.md) (w tym informacje na temat uzyskiwania dostępu do interfejsów API, konwencji nazewnictwa itp.).
 
-## <a name="net-sample"></a>Próbka .NET
+## <a name="net-sample"></a>Przykład platformy .NET
 
-Poniższy kod pokazuje, jak utworzyć zadanie z wejściem adresu URL HTTPS.
+Poniższy kod przedstawia sposób tworzenia zadania z danymi wejściowymi HTTPS adresu URL.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-quickstarts/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs#SubmitJob)]
 
@@ -37,4 +37,4 @@ Zobacz [Kody błędów](https://docs.microsoft.com/rest/api/media/jobs/get#jober
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie danych wejściowych zadania z pliku lokalnego](job-input-from-local-file-how-to.md).
+[Utwórz dane wejściowe zadania z pliku lokalnego](job-input-from-local-file-how-to.md).

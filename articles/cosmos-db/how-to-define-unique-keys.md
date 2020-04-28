@@ -1,47 +1,47 @@
 ---
 title: Definiowanie unikatowych kluczy dla kontenera usługi Azure Cosmos
-description: Dowiedz się, jak zdefiniować unikatowe klucze kontenera usługi Azure Cosmos przy użyciu witryny Azure portal, PowerShell, .Net, Java i różnych innych zestawów SDK.
+description: Dowiedz się, jak definiować unikatowe klucze dla kontenera usługi Azure Cosmos za pomocą Azure Portal, programu PowerShell, platformy .NET, środowiska Java i różnych zestawów SDK.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74872115"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definiowanie unikatowych kluczy dla kontenera usługi Azure Cosmos
 
-W tym artykule przedstawiono różne sposoby definiowania [unikatowych kluczy](unique-keys.md) podczas tworzenia kontenera usługi Azure Cosmos. Obecnie można wykonać tę operację za pomocą witryny Azure portal lub za pośrednictwem jednego z zestawów SDK.
+W tym artykule przedstawiono różne sposoby definiowania [unikatowych kluczy](unique-keys.md) podczas tworzenia kontenera usługi Azure Cosmos. Obecnie jest możliwe wykonanie tej operacji przy użyciu Azure Portal lub jednego z zestawów SDK.
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. [Utwórz nowe konto usługi Azure Cosmos](create-sql-api-dotnet.md#create-account) lub wybierz istniejące.
+1. [Utwórz nowe konto usługi Azure Cosmos](create-sql-api-dotnet.md#create-account) lub Wybierz istniejące.
 
-1. Otwórz okienko **Eksploratora danych** i wybierz kontener, nad który chcesz pracować.
+1. Otwórz okienko **Eksplorator danych** i wybierz kontener, w którym chcesz korzystać.
 
-1. Kliknij **nowy kontener**.
+1. Kliknij pozycję **nowy kontener**.
 
-1. W oknie dialogowym **Dodawanie kontenera** kliknij przycisk **+ Dodaj unikatowy klucz,** aby dodać unikatowy wpis klucza.
+1. W oknie dialogowym **Dodawanie kontenera** kliknij pozycję **+ Dodaj unikatowy klucz** , aby dodać unikatowy wpis klucza.
 
-1. Wprowadź ścieżkę(-y) unikatowego ograniczenia klucza
+1. Wprowadź ścieżki unikatowego klucza ograniczenia
 
-1. W razie potrzeby dodaj więcej unikatowych wpisów kluczy, klikając **+ Dodaj unikatowy klucz**
+1. W razie konieczności Dodaj więcej unikatowych wpisów kluczy, klikając pozycję **+ Dodaj klucz unikatowy** .
 
-    ![Zrzut ekranu przedstawiający unikatowy wpis ograniczenia klucza w witrynie Azure portal](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    ![Zrzut ekranu wpisu ograniczenia klucza unikatowego na Azure Portal](./media/how-to-define-unique-keys/unique-keys-portal.png)
 
-## <a name="use-powershell"></a>Korzystanie z programu Powershell
+## <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
-Aby utworzyć kontener z unikatowymi kluczami zobacz, [Utwórz kontener usługi Azure Cosmos z unikatowym kluczem i ttl](manage-with-powershell.md#create-container-unique-key-ttl)
+Aby utworzyć kontener z unikatowymi kluczami, zobacz [Tworzenie kontenera usługi Azure Cosmos z unikatowym kluczem i czasem wygaśnięcia](manage-with-powershell.md#create-container-unique-key-ttl)
 
-## <a name="use-the-net-sdk-v2"></a>Korzystanie z pliku .NET SDK V2
+## <a name="use-the-net-sdk-v2"></a>Korzystanie z zestawu .NET SDK V2
 
-Podczas tworzenia nowego kontenera przy użyciu [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) `UniqueKeyPolicy` obiekt może służyć do definiowania unikatowych ograniczeń klucza.
+Podczas tworzenia nowego kontenera przy użyciu [zestawu .NET SDK V2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) `UniqueKeyPolicy` obiekt może służyć do definiowania unikatowych ograniczeń klucza.
 
 ```csharp
 client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), new DocumentCollection
@@ -59,9 +59,9 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 });
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Użyj pliku .NET SDK V3
+## <a name="use-the-net-sdk-v3"></a>Korzystanie z zestawu .NET SDK v3
 
-Podczas tworzenia nowego kontenera przy użyciu [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)użyj interfejsu API SDK, aby zadeklarować unikatowe klucze w zwięzły i czytelny sposób.
+Podczas tworzenia nowego kontenera przy użyciu [zestawu .NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)Użyj interfejsu API Fluent zestawu SDK, aby zadeklarować unikatowe klucze w zwięzły i czytelny sposób.
 
 ```csharp
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
@@ -76,9 +76,9 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
     .CreateIfNotExistsAsync();
 ```
 
-## <a name="use-the-java-sdk"></a>Korzystanie z sdk Java
+## <a name="use-the-java-sdk"></a>Korzystanie z zestawu SDK języka Java
 
-Podczas tworzenia nowego kontenera przy użyciu java `UniqueKeyPolicy` [SDK,](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)obiekt może służyć do definiowania unikatowych ograniczeń klucza.
+Podczas tworzenia nowego kontenera przy użyciu [zestawu SDK języka Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) `UniqueKeyPolicy` obiekt może służyć do definiowania unikatowych ograniczeń klucza.
 
 ```java
 // create a new DocumentCollection object
@@ -113,9 +113,9 @@ container.setUniqueKeyPolicy(uniqueKeyPolicy);
 client.createCollection(String.format("/dbs/%s", "database"), container, null);
 ```
 
-## <a name="use-the-nodejs-sdk"></a>Korzystanie z sdk node.js
+## <a name="use-the-nodejs-sdk"></a>Korzystanie z zestawu SDK środowiska Node. js
 
-Podczas tworzenia nowego kontenera przy użyciu [node.js SDK](https://www.npmjs.com/package/@azure/cosmos) `UniqueKeyPolicy` obiekt może służyć do definiowania unikatowych ograniczeń klucza.
+Podczas tworzenia nowego kontenera przy użyciu [zestawu SDK środowiska Node. js](https://www.npmjs.com/package/@azure/cosmos) `UniqueKeyPolicy` obiekt może służyć do definiowania unikatowych ograniczeń klucza.
 
 ```javascript
 client.database('database').containers.create({
@@ -129,9 +129,9 @@ client.database('database').containers.create({
 });
 ```
 
-## <a name="use-the-python-sdk"></a>Korzystanie z modułu SDK języka Python
+## <a name="use-the-python-sdk"></a>Używanie zestawu Python SDK
 
-Podczas tworzenia nowego kontenera przy użyciu [SDK języka Python,](https://pypi.org/project/azure-cosmos/)unikatowe ograniczenia klucza można określić jako część słownika przekazywane jako parametr.
+Podczas tworzenia nowego kontenera przy użyciu [zestawu SDK języka Python](https://pypi.org/project/azure-cosmos/)można określić unikalne ograniczenia klucza jako część słownika przekazaną jako parametr.
 
 ```python
 client.CreateContainer('dbs/' + config['DATABASE'], {
@@ -147,5 +147,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [partycjonowaniu](partition-data.md)
-- Dowiedz [się, jak działa indeksowanie](index-overview.md)
+- Dowiedz się więcej na temat [partycjonowania](partition-data.md)
+- Zapoznaj się z [działaniem indeksowania](index-overview.md)

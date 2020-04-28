@@ -1,25 +1,25 @@
 ---
-title: Sparametryzowane zapytania w usłudze Azure Cosmos DB
-description: Dowiedz się, jak zapytania sparametryzowane SQL zapewniają niezawodną obsługę i ucieczkę od danych wejściowych użytkownika oraz zapobiegają przypadkowemu narażeniu danych za pomocą iniekcji SQL.
+title: Zapytania sparametryzowane w Azure Cosmos DB
+description: Dowiedz się, w jaki sposób zapytania parametryczne SQL zapewniają niezawodne obsługiwanie i ucieczki danych wejściowych użytkownika, i Zapobiegaj przypadkowemu narażeniu danych przez wstrzyknięcie kodu SQL.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
 ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74870823"
 ---
-# <a name="parameterized-queries-in-azure-cosmos-db"></a>Sparametryzowane zapytania w usłudze Azure Cosmos DB
+# <a name="parameterized-queries-in-azure-cosmos-db"></a>Zapytania sparametryzowane w Azure Cosmos DB
 
-Usługa Cosmos DB obsługuje zapytania z parametrami wyrażonymi przez znane @ notacji. Sparametryzowany SQL zapewnia niezawodną obsługę i ucieczkę od danych wejściowych użytkownika i zapobiega przypadkowemu narażeniu danych za pomocą iniekcji SQL.
+Cosmos DB obsługuje zapytania z parametrami wyrażonymi przez znajomą @ Notation. Sparametryzowane SQL zapewnia niezawodną obsługę i ucieczkę danych wejściowych użytkownika i zapobiega przypadkowemu narażeniu danych przez iniekcję SQL.
 
 ## <a name="examples"></a>Przykłady
 
-Na przykład można napisać `lastName` kwerendę, `address.state` która przyjmuje i jako parametry `lastName` `address.state` i wykonać go dla różnych wartości i na podstawie danych wejściowych użytkownika.
+Można na przykład napisać zapytanie, które `lastName` przyjmuje i `address.state` jako parametry, i wykonać je dla różnych wartości `lastName` i `address.state` na podstawie danych wejściowych użytkownika.
 
 ```sql
     SELECT *
@@ -27,7 +27,7 @@ Na przykład można napisać `lastName` kwerendę, `address.state` która przyjm
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 ```
 
-Następnie można wysłać to żądanie do usługi Cosmos DB jako sparametryzowane zapytanie JSON, takie jak następujące:
+Następnie można wysłać to żądanie do Cosmos DB jako sparametryzowane zapytanie JSON podobne do następujących:
 
 ```sql
     {
@@ -39,7 +39,7 @@ Następnie można wysłać to żądanie do usługi Cosmos DB jako sparametryzowa
     }
 ```
 
-W poniższym przykładzie ustawia argument TOP z kwerendą sparametryzowaną: 
+Poniższy przykład ustawia argument TOP z zapytaniem sparametryzowanym: 
 
 ```sql
     {
@@ -50,7 +50,7 @@ W poniższym przykładzie ustawia argument TOP z kwerendą sparametryzowaną:
     }
 ```
 
-Wartości parametrów mogą być dowolną prawidłową JSON: ciągi, liczby, wartości logiczne, null, parzyste tablice lub zagnieżdżone JSON. Ponieważ usługa Cosmos DB jest bez schematu, parametry nie są sprawdzane względem dowolnego typu.
+Wartości parametrów mogą być dowolnymi prawidłowymi wartościami JSON: String, Numbers, Boolean, null, tablice parzyste lub zagnieżdżony kod JSON. Ponieważ Cosmos DB jest bez schematu, parametry nie są sprawdzane względem żadnego typu.
 
 
 ## <a name="next-steps"></a>Następne kroki

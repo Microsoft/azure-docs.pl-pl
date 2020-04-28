@@ -1,6 +1,6 @@
 ---
-title: 'Usługa Azure Premium Storage: Projektowanie pod kątem wydajności na maszynach wirtualnych z systemem Windows | Dokumenty firmy Microsoft'
-description: Projektowanie aplikacji o wysokiej wydajności przy użyciu dysków zarządzanych ssd w wersji Premium platformy Azure. Magazyn w wersji Premium oferuje wysokowydajną obsługę dysku o niskim opóźnieniu dla obciążeń intensywnie korzystających z we/wy uruchomionych na maszynach wirtualnych platformy Azure.
+title: 'Azure Premium Storage: projektowanie pod kątem wydajności na maszynach wirtualnych z systemem Windows | Microsoft Docs'
+description: Projektuj aplikacje o wysokiej wydajności przy użyciu dysków zarządzanych w usłudze Azure Premium SSD. Premium Storage oferuje wysoką wydajność, obsługę dysków o niskich opóźnieniach dla obciążeń intensywnie korzystających z operacji we/wy działających na platformie Azure Virtual Machines.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
@@ -8,31 +8,31 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 12fb94bb4f98bde5c70343f18762cefe1ab120f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75371341"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Usługa Azure premium storage: projektowanie dla wysokiej wydajności
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: projektowanie pod kątem wysokiej wydajności
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 
 > [!NOTE]
-> Czasami to, co wydaje się być problem z wydajnością dysku jest rzeczywiście wąskie gardło sieci. W takich sytuacjach należy zoptymalizować [wydajność sieci.](../../virtual-network/virtual-network-optimize-network-bandwidth.md)
+> Czasami problem z wydajnością dysku to w rzeczywistości wąskie gardło sieci. W takich sytuacjach należy zoptymalizować [wydajność sieci](../../virtual-network/virtual-network-optimize-network-bandwidth.md).
 >
-> Jeśli szukasz porównania dysku, zobacz nasz artykuł na [benchmarking dysku](disks-benchmarks.md).
+> Jeśli chcesz przeprowadzić test porównawczy dysku, zapoznaj się z artykułem dotyczącym [tworzenia wzorców na dysku](disks-benchmarks.md).
 >
-> Jeśli maszyna wirtualna obsługuje przyspieszoną sieć, upewnij się, że jest włączona. Jeśli nie jest włączona, można go włączyć na już wdrożonych maszynach wirtualnych zarówno w [systemie Windows,](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) jak i [linux](../../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
+> Jeśli maszyna wirtualna obsługuje przyspieszone sieci, należy upewnić się, że jest ona włączona. Jeśli nie jest włączona, można ją włączyć dla już wdrożonych maszyn wirtualnych w [systemach Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) i [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Przed rozpoczęciem, jeśli jesteś nowy w magazynie w wersji Premium, najpierw przeczytaj [wybierz typ dysku platformy Azure dla maszyn wirtualnych IaaS](disks-types.md) i cele [skalowalności dla kont magazynu obiektów blob strony premium.](../../storage/blobs/scalability-targets-premium-page-blobs.md)
+Przed rozpoczęciem, jeśli dopiero zaczynasz Premium Storage, najpierw Przeczytaj artykuł [Wybieranie typu dysku platformy Azure dla maszyn wirtualnych IaaS](disks-types.md) i [elementów docelowych skalowalności dla kont usługi BLOB Storage na stronie Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md).
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
 
-Jeśli szukasz porównania dysku, zobacz nasz artykuł na [benchmarking dysku](disks-benchmarks.md).
+Jeśli chcesz przeprowadzić test porównawczy dysku, zapoznaj się z artykułem dotyczącym [tworzenia wzorców na dysku](disks-benchmarks.md).
 
-Dowiedz się więcej o dostępnych typach dysków: [wybierz typ dysku](disks-types.md)  
+Dowiedz się więcej na temat dostępnych typów dysków: [Wybierz typ dysku](disks-types.md)  
 
-W przypadku użytkowników programu SQL Server przeczytaj artykuły na temat najlepszych rozwiązań dotyczących wydajności programu SQL Server:
+Aby uzyskać SQL Server użytkowników, przeczytaj artykuły dotyczące najlepszych rozwiązań w zakresie wydajności dla SQL Server:
 
-* [Najważniejsze wskazówki dotyczące wydajności programu SQL Server na maszynach wirtualnych platformy Azure](sql/virtual-machines-windows-sql-performance.md)
-* [Usługa Azure Premium Storage zapewnia najwyższą wydajność programu SQL Server na maszynie Wirtualnej platformy Azure](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Najlepsze rozwiązania dotyczące wydajności SQL Server na platformie Azure Virtual Machines](sql/virtual-machines-windows-sql-performance.md)
+* [Usługa Azure Premium Storage zapewnia najwyższą wydajność SQL Server na maszynie wirtualnej platformy Azure](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

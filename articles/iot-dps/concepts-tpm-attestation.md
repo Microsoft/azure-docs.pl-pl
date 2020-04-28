@@ -1,6 +1,6 @@
 ---
-title: Usługa inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub — zaświadczanie tpm
-description: Ten artykuł zawiera omówienie koncepcyjne przepływu zaświadczania modułu TPM przy użyciu usługi inicjowania obsługi administracyjnej urządzeń IoT (DPS).
+title: Azure IoT Hub Device Provisioning Service — zaświadczanie modułu TPM
+description: Ten artykuł zawiera omówienie koncepcji przepływu zaświadczania modułu TPM przy użyciu usługi IoT Device Provisioning Service (DPS).
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -9,63 +9,63 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74975282"
 ---
 # <a name="tpm-attestation"></a>Poświadczanie za pomocą modułu TPM
 
-Usługa inicjowania obsługi administracyjnej urządzeń w centrum IoT hub jest usługą pomocniczą dla usługi IoT Hub, której używasz do konfigurowania obsługi administracyjnej urządzeń bezdotykowych do określonego centrum IoT Hub. Dzięki usłudze aprowizacji urządzeń można aprowizować miliony urządzeń w bezpieczny sposób.
+IoT Hub Device Provisioning Service to usługa pomocnika dla IoT Hub, która służy do konfigurowania aprowizacji urządzeń bez dotyku do określonego Centrum IoT Hub. Za pomocą usługi Device Provisioning można w bezpieczny sposób udostępnić miliony urządzeń.
 
-W tym artykule opisano proces zaświadczania tożsamości podczas korzystania z modułu [TPM](./concepts-device.md). Moduł TPM oznacza moduł zaufanej platformy i jest typem sprzętowego modułu zabezpieczeń (HSM). W tym artykule założono, że używasz dyskretnego, firmware lub zintegrowanego modułu TPM. Emulowane programowo moduły TPM doskonale nadają się do prototypowania lub testowania, ale nie zapewniają takiego samego poziomu bezpieczeństwa, jak dyskretne, firmware lub zintegrowane moduły TPM. Nie zaleca się używania programowych programów TPM w produkcji. Aby uzyskać więcej informacji na temat typów modułów TPM, zobacz [Krótkie wprowadzenie do modułu TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+W tym artykule opisano proces zaświadczania tożsamości podczas korzystania z [modułu TPM](./concepts-device.md). Moduł TPM ma moduł TPM i jest typem sprzętowego modułu zabezpieczeń (HSM). W tym artykule przyjęto założenie, że używasz dyskretnego, oprogramowania układowego lub zintegrowanego modułu TPM. Emulowane moduły TPM oprogramowania są dobrze dopasowane do prototypowania lub testowania, ale nie zapewniają tego samego poziomu zabezpieczeń, takiego jak dyskretny, oprogramowanie układowe lub zintegrowane moduły TPM do. Nie zalecamy korzystania z moduły TPM oprogramowania w środowisku produkcyjnym. Aby uzyskać więcej informacji na temat typów moduły TPM, zobacz [krótkie wprowadzenie do modułu TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
-Ten artykuł dotyczy tylko urządzeń korzystających z modułu TPM 2.0 z obsługą kluczy HMAC i ich kluczami uzupełniającymi. Nie jest przeznaczony dla urządzeń używających certyfikatów X.509 do uwierzytelniania. Moduł TPM jest ogólnobranżowym standardem ISO od Trusted Computing Group, a więcej o tpm można przeczytać w [pełnej specyfikacji modułu TPM 2.0](https://trustedcomputinggroup.org/tpm-library-specification/) lub [specyfikacji ISO/IEC 11889.](https://www.iso.org/standard/66510.html) W tym artykule przyjęto również założenie, że znasz pary kluczy publicznych i prywatnych oraz sposób ich użycia do szyfrowania.
+Ten artykuł dotyczy tylko urządzeń korzystających z modułu TPM 2,0 z obsługą klucza HMAC oraz ich kluczy poręczenia. Nie dotyczy to urządzeń korzystających z certyfikatów X. 509 na potrzeby uwierzytelniania. Moduł TPM jest standardem ISO opartym na całej branży, a na podstawie Trusted Computing Group można dowiedzieć się więcej na temat modułu TPM i uzyskać [pełną specyfikację modułu tpm 2,0](https://trustedcomputinggroup.org/tpm-library-specification/) lub [specyfikację ISO/IEC 11889](https://www.iso.org/standard/66510.html). W tym artykule założono również, że znasz pary kluczy publicznych i prywatnych oraz jak są one używane do szyfrowania.
 
-SDK urządzeń inicjowania obsługi urządzeń aprowizujących urządzenia obsługują wszystko, co jest opisane w tym artykule dla Ciebie. Nie ma potrzeby implementowania niczego dodatkowego, jeśli używasz sdków na swoich urządzeniach. Ten artykuł pomaga zrozumieć koncepcyjnie, co dzieje się z układem zabezpieczeń modułu TPM, gdy urządzenie jest wymagane i dlaczego jest tak bezpieczne.
+Zestawy SDK urządzeń usługi Device Provisioning Service obsługują wszystkie elementy, które zostały opisane w tym artykule. Nie ma potrzeby implementowania żadnych dodatkowych informacji w przypadku używania zestawów SDK na urządzeniach. Ten artykuł pomaga zrozumieć koncepcje, co się dzieje z Twoim układem zabezpieczeń modułu TPM, gdy urządzenie jest używane i dlaczego jest bezpieczne.
 
 ## <a name="overview"></a>Omówienie
 
-TPM używać czegoś, co nazywa klucz poręczenia (EK) jako bezpieczny katalog główny zaufania. EK jest unikalny dla modułu TPM i jego zmiana zasadniczo zmienia urządzenie na nowe.
+Moduły TPM używają elementu o nazwie Key poręczenia jako bezpiecznego certyfikatu głównego zaufania. Klucz PORĘCZenia jest unikatowy dla modułu TPM i zmiana go zasadniczo zmienia urządzenie w nowe.
 
-Istnieje inny typ klucza, który mają TPM, zwany kluczem głównym magazynu (SRK). SRK może być generowany przez właściciela modułu TPM po przejmuje na własność modułu TPM. Przejęcie na własność modułu TPM jest specyficzny dla modułu TPM, mówiąc "ktoś ustawia hasło na modułie HSM". Jeśli urządzenie TPM jest sprzedawane nowemu właścicielowi, nowy właściciel może przejąć na własność moduł TPM, aby wygenerować nowy SRK. Nowa generacja SRK zapewnia, że poprzedni właściciel nie może używać modułu TPM. Ponieważ SRK jest unikatowy dla właściciela modułu TPM, SRK może służyć do uszczelniania danych do modułu TPM dla tego właściciela. SRK zapewnia piaskownicy dla właściciela do przechowywania kluczy i zapewnia możliwość odwołania dostępu, jeśli urządzenie lub moduł TPM jest sprzedawany. To jak przeprowadzka do nowego domu: przejęcie własności zmienia zamki na drzwiach i niszczy wszystkie meble pozostawione przez poprzednich właścicieli (SRK), ale nie można zmienić adresu domu (EK).
+Istnieje inny typ klucza, który moduły TPM, nazywany kluczem głównym magazynu (SRK). Klucz główny magazynowania może zostać wygenerowany przez właściciela modułu TPM po przeprowadzeniu własności modułu TPM. Przejęcie własności modułu TPM jest specyficznym dla modułu TPM sposobem wymawiania "ktoś ustawia hasło w module HSM". Jeśli urządzenie TPM zostanie sprzedane nowemu właścicielowi, nowy właściciel może przejąć do niego własność modułu TPM w celu wygenerowania nowego klucza magazynowania. Nowa generacja klucza magazynowania gwarantuje, że poprzedni właściciel nie może użyć modułu TPM. Ponieważ główny klucz magazynowania jest unikatowy dla właściciela modułu TPM, może służyć do pieczętowania danych w module TPM dla tego właściciela. Klucz główny magazynowania udostępnia piaskownicę do przechowywania swoich kluczy i zapewnia dostęp do revocability, jeśli jest sprzedawany urządzenie lub moduł TPM. Jest to podobne do nowego domu: przyjęcie własności powoduje zmianę blokad w drzwiach i zniszczenie wszystkich mebli pozostawionych przez poprzednich właścicieli (SRK), ale nie można zmienić adresu domu (EK).
 
-Po skonfigurowaniu i przygotowaniu urządzenia do użycia będzie ono dostępne zarówno EK, jak i SRK.
+Gdy urządzenie zostanie skonfigurowane i będzie gotowe do użycia, będzie miało on dostęp do klucza poręczenia i magazynowania.
 
-![Przejęcie na własność modułu TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
+![Przejmowanie własności modułu TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-Jedna uwaga dotycząca przejęcia na własność modułu TPM: Przejęcie na własność modułu TPM zależy od wielu rzeczy, w tym od producenta modułu TPM, zestawu używanych narzędzi modułu TPM i systemu operacyjnego urządzenia. Postępuj zgodnie z instrukcjami odpowiednimi dla systemu, aby przejąć na własność.
+Jedna Uwaga dotycząca przejmowania własności modułu TPM: przejęcie własności modułu TPM zależy od wielu rzeczy, takich jak producent modułu TPM, zestaw używanych narzędzi TPM i system operacyjny urządzenia. Postępuj zgodnie z instrukcjami dotyczącymi systemu, aby przejąć własność.
 
-Usługa inicjowania obsługi administracyjnej urządzeń używa publicznej części EK (EK_pub) do identyfikowania i rejestrowania urządzeń. Dostawca urządzenia może odczytać EK_pub podczas produkcji lub ostatecznego testowania i przekazać EK_pub do usługi inicjowania obsługi administracyjnej, dzięki czemu urządzenie zostanie rozpoznane po nawiązaniu połączenia z aprowizyją. Usługa inicjowania obsługi administracyjnej urządzeń nie sprawdza srk lub właściciela, więc "wyczyszczenie" modułu TPM usuwa dane klienta, ale EK (i inne dane dostawcy) jest zachowywany i urządzenie będzie nadal rozpoznawane przez usługę inicjowania obsługi urządzeń, gdy łączy się z aprowizją.
+Usługa Device Provisioning używa publicznej części PORĘCZenia (EK_pub) do identyfikowania i rejestrowania urządzeń. Dostawca urządzenia może odczytywać EK_pub podczas produkcji lub testowania końcowego i przekazywać EK_pub do usługi aprowizacji, aby urządzenie było rozpoznawane po nawiązaniu połączenia z usługą. Usługa Device Provisioning nie sprawdza dostawcy magazynowania (SRK) ani właściciela, więc "czyszczenie" modułu TPM powoduje wymazanie danych klienta, ale niezależność (i inne dane dostawcy) jest zachowywana, a urządzenie jest nadal rozpoznawane przez usługę Device Provisioning, gdy nawiąże połączenie z udostępnianiem.
 
 ## <a name="detailed-attestation-process"></a>Szczegółowy proces zaświadczania
 
-Gdy urządzenie z modułem TPM po raz pierwszy łączy się z usługą inicjowania obsługi administracyjnej urządzeń, usługa najpierw sprawdza podane EK_pub względem EK_pub przechowywane na liście rejestracji. Jeśli EK_pubs nie są zgodne, urządzenie nie może być aprowizować. Jeśli EK_pubs są zgodne, usługa wymaga, aby urządzenie udowodniło własność prywatnej części EK poprzez wyzwanie typu nonce, które jest bezpiecznym wyzwaniem używanym do udowodnienia tożsamości. Usługa inicjowania obsługi administracyjnej urządzeń generuje urządzenie typu nonce, a następnie szyfruje go za pomocą SRK, a następnie EK_pub, które są dostarczane przez urządzenie podczas początkowego wywołania rejestracji. Moduł TPM zawsze zapewnia bezpieczeństwo prywatnej części EK. Zapobiega to podrabianiu i zapewnia, że tokeny SAS są bezpiecznie aprowizacji do autoryzowanych urządzeń.
+Gdy urządzenie z modułem TPM po raz pierwszy łączy się z usługą Device Provisioning, usługa najpierw sprawdzi podane EK_pub względem EK_pub przechowywanego na liście rejestracji. Jeśli EK_pubs nie są zgodne, urządzenie nie może inicjować obsługi administracyjnej. Jeśli EK_pubs są zgodne, usługa wymaga, aby urządzenie pokazało własność prywatnej części PORĘCZenia za pośrednictwem żądania nonce, które jest bezpiecznym wyzwaniem do udowodnienia tożsamości. Usługa Device Provisioning generuje identyfikator jednorazowy, a następnie szyfruje go za pomocą klucza głównego magazynowania, a następnie EK_pub, z których oba są dostarczane przez urządzenie podczas początkowego wywołania rejestracji. Moduł TPM zawsze utrzymuje prywatną część klucza Secure. Zapobiega to fałszowaniu i gwarantuje, że tokeny sygnatury dostępu współdzielonego są bezpiecznie obsługiwane na autoryzowanych urządzeniach.
 
-Przejdźmy szczegółowo przez proces zaświadczania.
+Przechodźmy szczegółowo w procesie zaświadczania.
 
-### <a name="device-requests-an-iot-hub-assignment"></a>Urządzenie żąda przypisania usługi IoT Hub
+### <a name="device-requests-an-iot-hub-assignment"></a>Urządzenie żąda przypisania IoT Hub
 
-Najpierw urządzenie łączy się z usługą inicjowania obsługi administracyjnej urządzeń i żąda ich udostępnienia. W ten sposób urządzenie udostępnia usługę z identyfikatorem rejestracji, zakresem identyfikatora oraz EK_pub i SRK_pub z modułu TPM. Usługa przekazuje zaszyfrowane nonce z powrotem do urządzenia i prosi urządzenie, aby odszyfrować nonce i użyć go do podpisania tokenu Sygnatury dostępu Współdzielonego, aby połączyć się ponownie i zakończyć inicjowanie obsługi administracyjnej.
+Najpierw urządzenie nawiązuje połączenie z usługą Device Provisioning i żąda do aprowizacji. W takim przypadku urządzenie udostępnia usługę z IDENTYFIKATORem rejestracji, zakresem identyfikatorów oraz EK_pub i SRK_pub z modułu TPM. Usługa przekazuje zaszyfrowany identyfikator jednorazowy do urządzenia i prosi urządzenie o odszyfrowanie tego identyfikatora i użycie go do podpisania tokenu sygnatury dostępu współdzielonego w celu ponownego nawiązania połączenia i zakończenia aprowizacji.
 
-![Inicjowanie obsługi administracyjnej żądań urządzeń](./media/concepts-tpm-attestation/step-one-request-provisioning.png)
+![Inicjowanie obsługi żądań urządzeń](./media/concepts-tpm-attestation/step-one-request-provisioning.png)
 
-### <a name="nonce-challenge"></a>Wyzwanie nonce
+### <a name="nonce-challenge"></a>Żądanie nonce
 
-Urządzenie pobiera nonce i używa prywatnych części EK i SRK do odszyfrowania nonce do modułu TPM; kolejność szyfrowania nonce delegatów zaufania z EK, który jest niezmienny, do SRK, które można zmienić, jeśli nowy właściciel przejmuje na własność modułu TPM.
+Urządzenie przyjmuje identyfikator jednorazowy i używa prywatnych części klucza poręczenia i klucza głównego, aby odszyfrować identyfikator jednorazowy do modułu TPM; kolejność szyfrowania nonce delegata zaufania od klucza poręczenia, który jest niezmienny, do klucza magazynowania, który można zmienić, jeśli nowy właściciel przejmuje własność modułu TPM.
 
-![Odszyfrowywanie nonce](./media/concepts-tpm-attestation/step-two-nonce.png)
+![Odszyfrowywanie identyfikatora jednorazowego](./media/concepts-tpm-attestation/step-two-nonce.png)
 
-### <a name="validate-the-nonce-and-receive-credentials"></a>Sprawdzanie poprawności żyli i odbierania poświadczeń
+### <a name="validate-the-nonce-and-receive-credentials"></a>Weryfikowanie identyfikatora jednorazowego i odbieranie poświadczeń
 
-Urządzenie może następnie podpisać token sygnatury dostępu Współdzielonego przy użyciu odszyfrowanego urządzenia bnego i ponownie ustanowić połączenie z usługą inicjowania obsługi administracyjnej urządzeń przy użyciu podpisanego tokenu sygnatury dostępu Współdzielonego. Po zakończeniu wyzwania Nonce usługa umożliwia aprowizję urządzenia.
+Urządzenie może następnie podpisać token sygnatury dostępu współdzielonego przy użyciu odszyfrowanego identyfikatora jednorazowego i ponownie nawiązać połączenie z usługą Device Provisioning przy użyciu sygnatury sygnatury dostępu współdzielonego. Po zakończeniu żądania nonce Usługa umożliwia obsługę administracyjną urządzenia.
 
-![Urządzenie przywraca połączenie z usługą inicjowania obsługi administracyjnej urządzeń w celu zweryfikowanie własności EK](./media/concepts-tpm-attestation/step-three-validation.png)
+![Urządzenie ponownie nawiązuje połączenie z usługą Device Provisioning w celu potwierdzenia własności PORĘCZenia](./media/concepts-tpm-attestation/step-three-validation.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz urządzenie łączy się z Centrum IoT Hub i zapewniasz bezpieczeństwo, wiedząc, że klucze twoich urządzeń są bezpiecznie przechowywane. Teraz, gdy wiesz, jak usługa inicjowania obsługi administracyjnej urządzeń bezpiecznie weryfikuje tożsamość urządzenia za pomocą modułu TPM, zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej:
+Teraz urządzenie nawiązuje połączenie z usługą IoT Hub i zatrzymasz bezpieczeństwo w wiedzy, że klucze urządzeń są bezpiecznie przechowywane. Teraz, gdy już wiesz, jak usługa Device Provisioning bezpiecznie weryfikuje tożsamość urządzenia przy użyciu modułu TPM, zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej:
 
-* [Dowiedz się więcej o wszystkich pojęciach dotyczących automatycznego inicjowania obsługi administracyjnej](./concepts-auto-provisioning.md)
-* [Wprowadzenie do pracy przy użyciu automatycznego inicjowania obsługi administracyjnej](./quick-setup-auto-provision.md) przy użyciu sks do dbania o przepływ.
+* [Dowiedz się więcej na temat wszystkich koncepcji związanych z obsługą administracyjną](./concepts-auto-provisioning.md)
+* Rozpocznij [pracę z obsługą automatyczne](./quick-setup-auto-provision.md) przy użyciu zestawów SDK, aby zachować ostrożność przepływu.

@@ -1,6 +1,6 @@
 ---
-title: H264 Standard kodera multideklasy 4K — Azure | Dokumenty firmy Microsoft
-description: W tym artykule przedstawiono omówienie ustawienia predefiniowanego zadania Media Encoder Standard **H264 Multiple Bitrate 4K.**
+title: Wielokrotna H264 wiele szybkości transmisji bitów 4K Media Encoder Standard wstępnie zdefiniowanej platformy Azure | Microsoft Docs
+description: Artykuł zawiera omówienie Media Encoder Standard **wielokrotna H264 wielu szybkości transmisji bitów KB/4** .
 author: Juliako
 manager: femila
 editor: ''
@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74887021"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>Wielokrotna szybkość transmisji bitów H264 4K
-`Media Encoder Standard`definiuje zestaw ustawień predefiniowanych kodowania, których można używać podczas tworzenia zadań kodowania. Można użyć a, `preset name` aby określić, w jakim formacie chcesz zakodować plik multimedialny. Można też utworzyć własne ustawienia predefiniowane oparte na języku JSON lub XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie należy przekazać niestandardowe ustawienia predefiniowane do kodera. Aby uzyskać listę wszystkich predefiniowanych `Media Encoder Standard` nazw obsługiwanych przez ten koder, zobacz [Presety zadań dla standardu kodera multimediów](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definiuje zestaw ustawień predefiniowanych kodowania, których można użyć podczas tworzenia zadań kodowania. Możesz użyć, `preset name` aby określić format, w którym chcesz kodować plik multimedialny. Można też tworzyć własne ustawienia predefiniowane JSON lub XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie można przekazać niestandardowe ustawienie wstępne do kodera. Aby uzyskać listę wszystkich wstępnie zdefiniowanych nazw obsługiwanych przez ten `Media Encoder Standard` koder, zobacz [Ustawienia wstępne zadań dla Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- W tym `H264 Multiple Bitrate 4K` temacie przedstawiono ustawienia predefiniowane w formacie XML i JSON.  
+ W tym temacie przedstawiono `H264 Multiple Bitrate 4K` ustawienia wstępne w formacie XML i JSON.  
   
- To ustawienie wstępne tworzy zestaw 12 plików MP4 wyrównanych do GOP, od 20000 kb/s do 1000 kb/s, oraz stereofoniczny dźwięk AAC. Aby uzyskać szczegółowe informacje na temat profilu, szybkości transmisji bitów, częstotliwości próbkowania itp. Aby uzyskać wyjaśnienia, co oznacza każdy element w tych ustawieniach predefiniowanych i prawidłowe wartości dla każdego elementu, zobacz temat [schematu Standardowy koder nośnika.](media-services-mes-schema.md)  
-  
-> [!NOTE]
->  Powinieneś otrzymać typ jednostki zarezerwowanej premium z kodami 4K. Aby uzyskać więcej informacji, zobacz [Jak skalować kodowanie](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+ To ustawienie wstępne tworzy zestaw 12 grupę GOP wyrównanych plików MP4 z zakresu od 20000 KB/s do 1000 KB/s oraz stereo AAC audio. Aby uzyskać szczegółowe informacje na temat profilu, szybkości transmisji bitów, częstotliwości próbkowania itp., zapoznaj się z kodem XML lub JSON zdefiniowanym poniżej. Aby dowiedzieć się, co oznacza każdy element w tych ustawieniach wstępnych, i prawidłowe wartości dla każdego elementu, zobacz temat [schemat Media Encoder Standard](media-services-mes-schema.md) .  
   
 > [!NOTE]
->  Modyfikując `Width` wartości `Height` i wartości między warstwami, upewnij się, że współczynnik proporcji pozostaje spójny. Na przykład: 1920x1080, 1280x720, 1080x576, 640x360. Nie należy używać kombinacji współczynników proporcji, takich jak: 1280x720, 720x480, 640x360.  
+>  Należy uzyskać typ jednostki zarezerwowanej Premium z kodowaniem 4K. Aby uzyskać więcej informacji, zobacz [Jak skalować kodowanie](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+  
+> [!NOTE]
+>  Podczas modyfikowania wartości `Width` i `Height` w warstwach upewnij się, że współczynnik proporcji pozostaje spójny. Na przykład: 1920 x 1080, 1280x720, 1080x576, 640 x 360. Nie należy używać kombinacji proporcji, takich jak: 1280x720, 720x480, 640 x 360.  
   
  XML  
   

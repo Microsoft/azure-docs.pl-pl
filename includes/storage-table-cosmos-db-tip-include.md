@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 3f04c763f807acbf038e2bfa3ccbd3a2a5ef91b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "75351190"
 ---
 > [!TIP]
-> Zawartość tego artykułu dotyczy oryginalnej usługi Azure Table Storage. Jednak istnieje teraz oferta premium dla magazynu tabel: interfejs API tabeli usługi Azure Cosmos DB. Ten interfejs API oferuje zoptymalizowane pod kątem przepływności tabele, dystrybucję globalną i automatyczne indeksy pomocnicze. Istnieją pewne [różnice funkcji między interfejsem API tabel w usłudze Azure Cosmos DB i magazynie tabel platformy Azure.](../articles/cosmos-db/faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior) Aby uzyskać więcej informacji i wypróbować środowisko premium, zobacz [Interfejs API tabeli usługi Azure Cosmos DB](https://aka.ms/premiumtables). 
+> Zawartość tego artykułu dotyczy oryginalnej usługi Azure Table Storage. Dostępna jest teraz Oferta Premium dla usługi Table Storage: interfejs API tabel Azure Cosmos DB. Ten interfejs API oferuje tabele zoptymalizowane pod kątem przepływności, globalną dystrybucję i automatyczne indeksy pomocnicze. Istnieją pewne [różnice między interfejs API tabel w Azure Cosmos DB i Azure Table Storage](../articles/cosmos-db/faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior). Aby uzyskać więcej informacji i wypróbować środowisko Premium, zobacz [Azure Cosmos DB interfejs API tabel](https://aka.ms/premiumtables). 
 >

@@ -1,6 +1,6 @@
 ---
-title: Jak sklonować centrum Usługi Azure IoT
-description: Jak sklonować centrum Usługi Azure IoT
+title: Jak sklonować usługę Azure IoT Hub
+description: Jak sklonować usługę Azure IoT Hub
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,122 +8,122 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75429155"
 ---
-# <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Jak sklonować centrum Usługi Azure IoT hub do innego regionu
+# <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Jak sklonować usługę Azure IoT Hub do innego regionu
 
-W tym artykule omówiono sposoby klonowania centrum IoT Hub i przedstawiono kilka pytań, na które należy odpowiedzieć przed rozpoczęciem. Oto kilka powodów, dla których warto sklonować centrum IoT Hub:
+W tym artykule przedstawiono sposoby klonowania IoT Hub i podano pytania, które należy odpowiedzieć przed rozpoczęciem. Oto kilka powodów, dla których warto sklonować Centrum IoT:
  
-* Przenosisz firmę z jednego regionu do drugiego, na przykład z Europy do Ameryki Północnej (lub odwrotnie) i chcesz, aby twoje zasoby i dane były geograficznie blisko nowej lokalizacji, więc musisz przenieść centrum.
+* Przenosisz firmę z jednego regionu do innego, na przykład z Europy do Ameryka Północna (lub na odwrót), i chcesz, aby zasoby i dane były geograficznie blisko nowej lokalizacji, więc musisz przenieść centrum.
 
 * Konfigurujesz centrum dla środowiska deweloperskiego i produkcyjnego.
 
-* Chcesz wykonać niestandardową implementację wysokiej dostępności wielu centrów. Aby uzyskać więcej informacji, zobacz [jak osiągnąć przekrojowe przekrojowe sekcję WYSOKIEJ dostępności usługi IoT Hub o wysokiej dostępności i odzyskiwanie po awarii](iot-hub-ha-dr.md#achieve-cross-region-ha).
+* Chcesz wykonać niestandardową implementację wysokiej dostępności na wiele centrów. Aby uzyskać więcej informacji, zobacz [sekcję jak osiągnąć międzyregionową HA IoT Hub wysokiej dostępności i odzyskiwania po awarii](iot-hub-ha-dr.md#achieve-cross-region-ha).
 
-* Chcesz zwiększyć liczbę [partycji](iot-hub-scaling.md#partitions) skonfigurowanych dla koncentratora. Jest to ustawiane przy pierwszym utworzeniu koncentratora i nie można go zmienić. Można użyć informacji w tym artykule do sklonowania centrum i po utworzeniu klonu, zwiększyć liczbę partycji.
+* Chcesz zwiększyć liczbę [partycji](iot-hub-scaling.md#partitions) skonfigurowanych dla centrum. Ta wartość jest ustawiana podczas pierwszego tworzenia centrum i nie można jej zmienić. Korzystając z informacji podanych w tym artykule, można sklonować centrum i po utworzeniu klonu zwiększyć liczbę partycji.
 
-Aby sklonować koncentrator, potrzebujesz subskrypcji z dostępem administracyjnym do oryginalnego koncentratora. Nowe centrum można umieścić w nowej grupie zasobów i regionie w tej samej subskrypcji co oryginalne centrum, a nawet w nowej subskrypcji. Po prostu nie można użyć tej samej nazwy, ponieważ nazwa centrum musi być unikatowa globalnie.
+Aby sklonować centrum, potrzebna jest subskrypcja z dostępem administracyjnym do oryginalnego centrum. Nowe centrum można umieścić w nowej grupie zasobów i regionie, w tej samej subskrypcji co oryginalne centrum, a nawet w nowej subskrypcji. Nie można użyć tej samej nazwy, ponieważ nazwa centrum musi być globalnie unikatowa.
 
 > [!NOTE]
-> W tej chwili nie ma żadnej funkcji dostępnej do automatycznego klonowania centrum IoT Hub. Jest to przede wszystkim proces ręczny, a zatem jest dość podatny na błędy. Złożoność klonowania koncentratora jest wprost proporcjonalna do złożoności koncentratora. Na przykład klonowanie centrum IoT hub bez routingu wiadomości jest dość proste. Jeśli dodasz routing wiadomości jako tylko jedną złożoność, klonowanie koncentratora staje się co najmniej o rząd wielkości bardziej skomplikowane. Jeśli również przenieść zasoby używane do routingu punktów końcowych, jest to inna kolejność magniture bardziej skomplikowane. 
+> Obecnie nie jest dostępna funkcja klonowania Centrum IoT Hub automatycznie. Jest to przede wszystkim proces ręczny i dlatego jest dość podatne na błędy. Złożoność klonowania centrum jest bezpośrednio proporcjonalna do złożoności centrum. Na przykład klonowanie Centrum IoT bez routingu wiadomości jest dość proste. Po dodaniu routingu wiadomości jako tylko jednej złożoności klonowanie centrum będzie miało co najmniej kolejność bardziej skomplikowane. Jeśli również przeniesiesz zasoby używane dla punktów końcowych routingu, jest to kolejna kolejność magniture bardziej skomplikowane. 
 
 ## <a name="things-to-consider"></a>Rzeczy do rozważenia
 
-Istnieje kilka rzeczy, które należy wziąć pod uwagę przed sklonowaniem centrum IoT hub.
+Przed sklonowaniem Centrum IoT należy wziąć pod uwagę kilka kwestii.
 
-* Upewnij się, że wszystkie funkcje dostępne w oryginalnej lokalizacji są również dostępne w nowej lokalizacji. Niektóre usługi są w wersji zapoznawczej i nie wszystkie funkcje są dostępne wszędzie.
+* Upewnij się, że wszystkie funkcje dostępne w oryginalnej lokalizacji są również dostępne w nowej lokalizacji. Niektóre usługi są w wersji zapoznawczej, a nie wszystkie funkcje są dostępne wszędzie.
 
-* Nie należy usuwać oryginalnych zasobów przed utworzeniem i weryfikacją sklonowanej wersji. Po usunięciu koncentratora usługa ta zniknie na zawsze i nie ma możliwości jego odzyskania w celu sprawdzenia ustawień lub danych, aby upewnić się, że koncentrator jest poprawnie replikowany.
+* Nie usuwaj oryginalnych zasobów przed utworzeniem i zweryfikowaniem sklonowanej wersji. Po usunięciu centrum zostanie ono usunięte w nieskończoność i nie ma możliwości odzyskania go, aby sprawdzić ustawienia lub dane, aby upewnić się, że koncentrator jest replikowany prawidłowo.
 
-* Wiele zasobów wymaga globalnie unikatowych nazw, więc należy użyć różnych nazw dla sklonowanych wersji. Należy również użyć innej nazwy dla grupy zasobów, do której należy sklonowane centrum. 
+* Wiele zasobów wymaga globalnie unikatowych nazw, dlatego należy użyć różnych nazw dla sklonowanych wersji. Należy również użyć innej nazwy dla grupy zasobów, do której należy sklonowany centrum. 
 
-* Dane dla oryginalnego centrum IoT hub nie są migrowane. Obejmuje to komunikaty telemetryczne, polecenia z chmury do urządzenia (C2D) oraz informacje związane z zadaniami, takie jak harmonogramy i historia. Metryki i wyniki rejestrowania również nie są migrowane. 
+* Nie przeprowadzono migracji danych dla oryginalnego Centrum IoT Hub. Dotyczy to komunikatów telemetrycznych, poleceń z chmury do urządzeń (C2D) i informacji związanych z zadaniami, takich jak harmonogramy i historia. Nie są również migrowane wyniki pomiarów i rejestrowania. 
 
-* W przypadku danych lub wiadomości kierowanych do usługi Azure Storage można pozostawić dane na oryginalnym koncie magazynu, przenieść te dane do nowego konta magazynu w nowym regionie lub pozostawić stare dane w miejscu i utworzyć nowe konto magazynu w nowej lokalizacji dla nowych danych. Aby uzyskać więcej informacji na temat przenoszenia danych w magazynie obiektów Blob, zobacz [Wprowadzenie do azcopy](../storage/common/storage-use-azcopy-v10.md).
+* W przypadku danych lub komunikatów kierowanych do usługi Azure Storage można pozostawić dane na oryginalnym koncie magazynu, przenieść je na nowe konto magazynu w nowym regionie lub pozostawić stare dane oraz utworzyć nowe konto magazynu w nowej lokalizacji dla nowych danych. Aby uzyskać więcej informacji na temat przemieszczania danych w usłudze BLOB Storage, zobacz Wprowadzenie [do AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
-* Nie można migrować danych dla centrów zdarzeń oraz tematów i kolejek usługi Service Bus. Jest to dane w czasie i nie jest przechowywany po wiadomości są przetwarzane.
+* Nie można migrować danych dla Event Hubs i dla Service Bus tematów i kolejek. Jest to dane wskazywane w czasie i nie są przechowywane po przetworzeniu komunikatów.
 
-* Należy zaplanować przestoje dla migracji. Klonowanie urządzeń do nowego koncentratora wymaga czasu. Jeśli używasz metody Import/Eksport, testy porównawcze wykazały, że przeniesienie 500 000 urządzeń może potrwać około dwóch godzin i cztery godziny na przeniesienie miliona urządzeń. 
+* Należy zaplanować przestój dla migracji. Trwa klonowanie urządzeń do nowego centrum. Jeśli używasz metody Import/Export, testowanie testów porównawczych wykazało, że może upłynąć około dwóch godzin, aby przenieść 500 000 urządzeń i cztery godziny na przeniesienie milionów urządzeń. 
 
-* Urządzenia można kopiować do nowego koncentratora bez wyłączania i zmieniania urządzeń. 
+* Urządzenia można skopiować do nowego centrum bez zamykania lub zmiany urządzeń. 
 
-    * Jeśli urządzenia zostały pierwotnie aprowizować przy użyciu dps, ponowne inicjowanie obsługi administracyjnej im aktualizuje informacje o połączeniu przechowywane w każdym urządzeniu. 
+    * Jeśli urządzenia zostały pierwotnie zainicjowane przy użyciu usługi DPS, ponowne Inicjowanie obsługi administracyjnej aktualizuje informacje o połączeniu przechowywane na poszczególnych urządzeniach. 
     
-    * W przeciwnym razie należy użyć importu/eksportu metody, aby przenieść urządzenia, a następnie urządzenia muszą być zmodyfikowane, aby użyć nowego koncentratora. Na przykład można skonfigurować urządzenie do korzystania z nazwy hosta Usługi IoT Hub z bliźniaczej reprezentacji żądane właściwości. Urządzenie weźmie tę nazwę hosta Usługi IoT Hub, odłączy urządzenie od starego koncentratora i ponownie połączy go z nowym.
+    * W przeciwnym razie należy użyć metody Import/Export w celu przeniesienia urządzeń, a następnie należy zmodyfikować urządzenia, aby korzystały z nowego centrum. Na przykład można skonfigurować urządzenie, aby korzystało z nazwy hosta IoT Hub z żądanych właściwości z przędzą. Urządzenie podejmie IoT Hub nazwę hosta, odłączy urządzenie ze starego centrum i ponownie nawiąże połączenie z nowym.
     
-* Należy zaktualizować wszystkie używane certyfikaty, aby można było ich używać z nowymi zasobami. Prawdopodobnie centrum jest zdefiniowane w tabeli DNS — konieczne będzie zaktualizowanie tych informacji DNS.
+* Należy zaktualizować wszystkie używane certyfikaty, aby można było używać ich z nowymi zasobami. Istnieje również możliwość, że centrum zostało zdefiniowane w tabeli DNS w innym miejscu — należy zaktualizować te informacje DNS.
 
 ## <a name="methodology"></a>Metodologia
 
-Jest to ogólna metoda, którą zaleca się do przenoszenia centrum IoT hub z jednego regionu do drugiego. W przypadku routingu wiadomości zakłada się, że zasoby nie są przenoszone do nowego regionu. Aby uzyskać więcej informacji, zobacz [sekcję Routing wiadomości](#how-to-handle-message-routing).
+Jest to ogólna Metoda, która zalecamy przeniesienie Centrum IoT z jednego regionu do innego. W przypadku routingu wiadomości zakłada się, że zasoby nie są przenoszone do nowego regionu. Aby uzyskać więcej informacji, zobacz [sekcję dotyczącą routingu komunikatów](#how-to-handle-message-routing).
 
-   1. Eksportuj centrum i jego ustawienia do szablonu Menedżera zasobów. 
+   1. Wyeksportuj centrum i jego ustawienia do szablonu Menedżer zasobów. 
    
-   1. Wprowadzać niezbędne zmiany w szablonie, takie jak aktualizowanie wszystkich wystąpień nazwy i lokalizacji sklonowanego koncentratora. W przypadku wszystkich zasobów w szablonie używanym do routingu punktów końcowych wiadomości należy zaktualizować klucz w szablonie dla tego zasobu.
+   1. Wprowadź niezbędne zmiany w szablonie, takie jak aktualizowanie wszystkich wystąpień nazwy i lokalizacji sklonowanego centrum. W przypadku wszystkich zasobów w szablonie używanym do punktów końcowych routingu wiadomości zaktualizuj klucz w szablonie dla tego zasobu.
    
-   1. Zaimportuj szablon do nowej grupy zasobów w nowej lokalizacji. Spowoduje to utworzenie klona.
+   1. Zaimportuj szablon do nowej grupy zasobów w nowej lokalizacji. Spowoduje to utworzenie klonu.
 
-   1. Debugowanie w razie potrzeby. 
+   1. Debuguj zgodnie z wymaganiami. 
    
-   1. Dodaj wszystko, co nie zostało wyeksportowane do szablonu. 
+   1. Dodaj wszystkie elementy, które nie zostały wyeksportowane do szablonu. 
    
-       Na przykład grupy odbiorców nie są eksportowane do szablonu. Należy ręcznie dodać grupy odbiorców do szablonu lub użyć [witryny Azure portal](https://portal.azure.com) po utworzeniu centrum. Istnieje przykład dodawania jednej grupy odbiorców do szablonu w [artykule Konfigurowanie routingu wiadomości usługi IoT Hub za pomocą szablonu usługi Azure Resource Manager.](tutorial-routing-config-message-routing-rm-template.md)
+       Na przykład grupy konsumentów nie są eksportowane do szablonu. Musisz ręcznie dodać grupy konsumentów do szablonu lub użyć [Azure Portal](https://portal.azure.com) po utworzeniu centrum. Istnieje przykład dodawania jednej grupy odbiorców do szablonu w artykule [Użyj szablonu Azure Resource Manager, aby skonfigurować IoT Hub Routing komunikatów](tutorial-routing-config-message-routing-rm-template.md).
        
-   1. Skopiuj urządzenia z oryginalnego koncentratora do klonu. Jest to opisane w sekcji [Zarządzanie urządzeniami zarejestrowanymi w centrum IoT hub](#managing-the-devices-registered-to-the-iot-hub).
+   1. Skopiuj urządzenia z oryginalnego centrum do klonowania. Zostało to omówione w sekcji [Zarządzanie urządzeniami zarejestrowanymi w usłudze IoT Hub](#managing-the-devices-registered-to-the-iot-hub).
 
 ## <a name="how-to-handle-message-routing"></a>Jak obsługiwać routing wiadomości
 
-Jeśli koncentrator używa [routingu niestandardowego,](iot-hub-devguide-messages-read-custom.md)eksportowanie szablonu dla koncentratora zawiera konfigurację routingu, ale nie obejmuje samych zasobów. Należy wybrać, czy zasoby marszruty mają zostać przeniesione do nowej lokalizacji, czy pozostawić je na swoim miejscu i nadal używać ich "tak, jak jest". 
+Jeśli koncentrator używa [niestandardowego routingu](iot-hub-devguide-messages-read-custom.md), wyeksportowanie szablonu centrum obejmuje konfigurację routingu, ale nie obejmuje samych zasobów. Musisz wybrać, czy chcesz przenieść zasoby routingu do nowej lokalizacji, czy pozostawić je w miejscu i kontynuować ich używanie "zgodnie z oczekiwaniami". 
 
-Załóżmy na przykład, że masz centrum w zachodnie stany USA, które kieruje wiadomości do konta magazynu (również w zachodnie stany USA) i chcesz przenieść centrum do wschodnich stanów USA. Możesz przenieść centrum i nadal kierować wiadomości na konto magazynu w zachodnie stany USA lub przenieść centrum, a także przenieść konto magazynu. Może to być mały wynik wykonania z routingu wiadomości do zasobów punktu końcowego w innym regionie.
+Załóżmy na przykład, że masz centrum w regionie zachodnie stany USA, które rozsyła komunikaty do konta magazynu (również w zachodnich Stanach Zjednoczonych) i chcesz przenieść centrum do regionu Wschodnie stany USA. Możesz przenieść centrum i nadal kierować komunikaty do konta magazynu w regionie zachodnie stany USA lub przenieść centrum, a także przenieść konto magazynu. W innym regionie może wystąpić niewielka wydajność komunikatów routingu do zasobów punktów końcowych.
 
-Można przenieść koncentrator, który używa routingu wiadomości dość łatwo, jeśli nie można również przenieść zasoby używane dla punktów końcowych routingu. 
+Centrum, które korzysta z routingu wiadomości, można łatwo przenieść, jeśli nie będzie też można przenieść zasobów używanych dla punktów końcowych routingu. 
 
-Jeśli koncentrator używa routingu wiadomości, masz dwie możliwości. 
+Jeśli centrum używa routingu komunikatów, dostępne są dwie opcje. 
 
-1. Przenieś zasoby używane dla punktów końcowych marszruty do nowej lokalizacji.
+1. Przenieś zasoby używane dla punktów końcowych routingu do nowej lokalizacji.
 
-    * Należy utworzyć nowe zasoby samodzielnie w [witrynie Azure portal](https://portal.azure.com) lub za pomocą szablonów Usługi Resource Manager. 
+    * Nowe zasoby należy tworzyć ręcznie w [Azure Portal](https://portal.azure.com) lub przy użyciu szablonów Menedżer zasobów. 
 
-    * Należy zmienić nazwę wszystkich zasobów podczas tworzenia ich w nowej lokalizacji, ponieważ mają one globalnie unikatowe nazwy. 
+    * Należy zmienić nazwy wszystkich zasobów podczas ich tworzenia w nowej lokalizacji, ponieważ mają one unikatowe nazwy. 
      
     * Przed utworzeniem nowego centrum należy zaktualizować nazwy zasobów i klucze zasobów w szablonie nowego centrum. Zasoby powinny być obecne podczas tworzenia nowego centrum.
 
-1. Nie należy przenosić zasobów używanych dla punktów końcowych routingu. Użyj ich "na miejscu".
+1. Nie przenoś zasobów używanych dla punktów końcowych routingu. Użyj ich "w miejscu".
 
-   * W kroku, w którym edytujesz szablon, należy pobrać klucze dla każdego zasobu routingu i umieścić je w szablonie przed utworzeniem nowego centrum. 
+   * W kroku, w którym edytujesz szablon, musisz pobrać klucze dla każdego zasobu routingu i umieścić je w szablonie przed utworzeniem nowego centrum. 
 
-   * Centrum nadal odwołuje się do oryginalnych zasobów routingu i kieruje do nich wiadomości zgodnie z konfiguracją.
+   * Centrum nadal odwołuje się do oryginalnych zasobów routingu i kieruje do nich komunikaty zgodnie z konfiguracją.
 
-   * Będzie miał mały wynik trafiony, ponieważ centrum i routingu zasobów punktu końcowego nie są w tej samej lokalizacji.
+   * Zostanie osiągnięta Mała wydajność, ponieważ zasoby centrum i routingu nie znajdują się w tej samej lokalizacji.
 
 ## <a name="prepare-to-migrate-the-hub-to-another-region"></a>Przygotowanie do migracji centrum do innego regionu
 
 Ta sekcja zawiera szczegółowe instrukcje dotyczące migracji centrum.
 
-### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Znajdź oryginalne centrum i wyeksportuj je do szablonu zasobu.
+### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Znajdź oryginalny centrum i wyeksportuj go do szablonu zasobu.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com). 
+1. Zaloguj się do [Azure Portal](https://portal.azure.com). 
 
-1. Przejdź do **grupy zasobów** i wybierz grupę zasobów zawierającą koncentrator, który chcesz przenieść. Można również przejść do **zasobów** i znaleźć centrum w ten sposób. Wybierz koncentrator.
+1. Przejdź do pozycji **grupy zasobów** i wybierz grupę zasobów zawierającą centrum, które chcesz przenieść. Możesz również przejść do **zasobów** i znaleźć centrum. Wybierz centrum.
 
-1. Z listy właściwości i ustawień centrum wybierz **pozycję Eksportuj szablon.** 
+1. Wybierz pozycję **Eksportuj szablon** z listy właściwości i ustawień centrum. 
 
-   ![Zrzut ekranu przedstawiający polecenie eksportowania szablonu dla Centrum IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-export-template.png)
+   ![Zrzut ekranu przedstawiający polecenie eksportowania szablonu dla IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-export-template.png)
 
-1. Wybierz **pobierz,** aby pobrać szablon. Zapisz plik w miejscu, w których możesz go ponownie znaleźć. 
+1. Wybierz pozycję **Pobierz** , aby pobrać szablon. Zapisz plik w miejscu, w którym można go znaleźć ponownie. 
 
-   ![Zrzut ekranu przedstawiający polecenie pobierania szablonu dla centrum IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-download-template.png)
+   ![Zrzut ekranu przedstawiający polecenie pobierania szablonu dla IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-download-template.png)
 
 ### <a name="view-the-template"></a>Wyświetlanie szablonu 
 
-1. Przejdź do folderu Pobrane (lub do folderu użytego podczas eksportowania szablonu) i znajdź plik zip. Otwórz plik zip i znajdź `template.json`plik o nazwie . Zaznacz go, a następnie wybierz klawisze Ctrl+C, aby skopiować szablon. Przejdź do innego folderu, który nie znajduje się w pliku zip i wklej plik (Ctrl+V). Teraz możesz go edytować.
+1. Przejdź do folderu pliki do pobrania (lub do folderu, który został użyty podczas eksportowania szablonu) i Znajdź plik zip. Otwórz plik zip i Znajdź plik o nazwie `template.json`. Wybierz go, a następnie naciśnij klawisze CTRL + C, aby skopiować szablon. Przejdź do innego folderu, który nie znajduje się w pliku zip, i wklej plik (Ctrl + V). Teraz można go edytować.
  
-    Poniższy przykład dotyczy centrum ogólnego bez konfiguracji routingu. Jest to centrum warstwy S1 (z 1 jednostką) o nazwie **ContosoTestHub29358** w regionie **westus**. Oto wyeksportowany szablon.
+    Poniższy przykład dotyczy centrum ogólnego bez konfiguracji routingu. Jest to koncentrator warstwy S1 (z 1 jednostką) o nazwie **ContosoTestHub29358** w regionie **zachodnie**. Oto wyeksportowany szablon.
 
     ``` json
     {
@@ -233,11 +233,11 @@ Ta sekcja zawiera szczegółowe instrukcje dotyczące migracji centrum.
 
 ### <a name="edit-the-template"></a>Edytowanie szablonu 
 
-Musisz wprowadzić pewne zmiany, zanim będzie można użyć szablonu do utworzenia nowego centrum w nowym regionie. Użyj [programu VS Code](https://code.visualstudio.com) lub edytora tekstu, aby edytować szablon.
+Musisz wprowadzić pewne zmiany, zanim będzie można użyć szablonu do utworzenia nowego centrum w nowym regionie. Aby edytować szablon, użyj [vs Code](https://code.visualstudio.com) lub edytora tekstów.
 
-#### <a name="edit-the-hub-name-and-location"></a>Edytowanie nazwy i lokalizacji centrum
+#### <a name="edit-the-hub-name-and-location"></a>Edytuj nazwę i lokalizację centrum
 
-1. Usuń sekcję parametrów u góry - znacznie prostsze jest użycie nazwy koncentratora, ponieważ nie będziemy mieć wielu parametrów. 
+1. Usuń sekcję parametrów u góry — znacznie łatwiej jest użyć nazwy centrum, ponieważ nie będziemy mieć wielu parametrów. 
 
     ``` json
         "parameters": {
@@ -248,9 +248,9 @@ Musisz wprowadzić pewne zmiany, zanim będzie można użyć szablonu do utworze
         },
     ```
 
-1. Zmień nazwę, aby użyć rzeczywistej (nowej) nazwy, zamiast pobierać ją z parametru (który został usunięty w poprzednim kroku). 
+1. Zmień nazwę, tak aby używała rzeczywistej nazwy (nowej), zamiast pobierać ją z parametru (który został usunięty w poprzednim kroku). 
 
-    W przypadku nowego koncentratora użyj nazwy oryginalnego koncentratora oraz *klonu* ciągu, aby uzupełnić nową nazwę. Zacznij od wyczyszcząc nazwę i lokalizację koncentratora.
+    Dla nowego centrum Użyj nazwy oryginalnego centrum oraz *klona* ciągu, aby utworzyć nową nazwę. Zacznij od oczyszczenia nazwy centrum i lokalizacji.
     
     Stara wersja:
 
@@ -266,9 +266,9 @@ Musisz wprowadzić pewne zmiany, zanim będzie można użyć szablonu do utworze
     "location": "eastus",
     ```
 
-    Następnie okaże się, że wartości **ścieżki** zawierają starą nazwę koncentratora. Zmień je, aby użyć nowego. Są to wartości ścieżki w obszarze **eventHubEndpoints** o nazwie **events** and **OperationsMonitoringEvents**.
+    Następnie sprawdź, czy wartości **Path** zawierają starą nazwę centrum. Zmień je, aby użyć nowej. Są to wartości ścieżki w obszarze **eventHubEndpoints** o nazwie **Events** i **OperationsMonitoringEvents**.
 
-    Po zakończeniu sekcja punktów końcowych centrum zdarzeń powinna wyglądać następująco:
+    Gdy skończysz, sekcja punkty końcowe centrum zdarzeń powinna wyglądać następująco:
 
     ``` json
     "eventHubEndpoints": {
@@ -296,11 +296,11 @@ Musisz wprowadzić pewne zmiany, zanim będzie można użyć szablonu do utworze
 
 #### <a name="update-the-keys-for-the-routing-resources-that-are-not-being-moved"></a>Aktualizowanie kluczy dla zasobów routingu, które nie są przenoszone
 
-Podczas eksportowania szablonu Menedżera zasobów dla koncentratora, który ma skonfigurowany routing, zobaczysz, że klucze dla tych zasobów nie są podane w wyeksportowanym szablonie - ich umieszczenie jest oznaczone gwiazdkami. Należy je wypełnić, przechodząc do tych zasobów w portalu i pobierając klucze **przed** zaimportowanie nowego szablonu centrum i utworzenie centrum. 
+Po wyeksportowaniu szablonu Menedżer zasobów dla centrum z skonfigurowanym routingiem zobaczysz, że klucze tych zasobów nie są dostarczane w wyeksportowanym szablonie — ich umieszczenie jest wskazywane przez gwiazdki. Należy je wypełnić, przechodząc do tych zasobów w portalu i pobierając klucze **przed** zaimportowaniem szablonu nowego centrum i utworzeniem centrum. 
 
-1. Pobierz klucze wymagane dla dowolnego zasobu routingu i umieść je w szablonie. Klucze można pobrać z zasobu w [witrynie Azure portal](https://portal.azure.com). 
+1. Pobierz klucze wymagane dla dowolnego z zasobów routingu i umieść je w szablonie. Możesz pobrać klucze z zasobu w [Azure Portal](https://portal.azure.com). 
 
-   Na przykład jeśli wysyłasz wiadomości do kontenera magazynu, znajdź konto magazynu w portalu. W sekcji Ustawienia wybierz pozycję **Klawisze dostępu**, a następnie skopiuj jeden z klawiszy. Oto jak wygląda klucz podczas pierwszego eksportowania szablonu:
+   Na przykład, jeśli przesyłasz komunikaty do kontenera magazynu, Znajdź konto magazynu w portalu. W sekcji Ustawienia wybierz pozycję **klucze dostępu**, a następnie skopiuj jeden z kluczy. Oto, jak wygląda klucz podczas pierwszego eksportowania szablonu:
 
    ```json
    "connectionString": "DefaultEndpointsProtocol=https;
@@ -308,9 +308,9 @@ Podczas eksportowania szablonu Menedżera zasobów dla koncentratora, który ma 
    "containerName": "fabrikamresults",
    ```
 
-1. Po pobraniu klucza konta dla konta magazynu umieść go `AccountKey=****` w szablonie w klauzuli w miejscu gwiazdek. 
+1. Po pobraniu klucza konta dla konta magazynu umieść go w szablonie w klauzuli `AccountKey=****` w miejscu gwiazdki. 
 
-1. W przypadku kolejek magistrali usług pobierz klucz dostępu udostępnionego pasujący do sharedaccessKeyName. Oto klucz i `SharedAccessKeyName` w json:
+1. W przypadku kolejek usługi Service Bus Pobierz klucz dostępu współdzielonego pasujący do SharedAccessKeyName. Oto klucz i `SharedAccessKeyName` kod JSON:
 
    ```json
    "connectionString": "Endpoint=sb://fabrikamsbnamespace1234.servicebus.windows.net:5671/;
@@ -319,51 +319,51 @@ Podczas eksportowania szablonu Menedżera zasobów dla koncentratora, który ma 
    EntityPath=fabrikamsbqueue1234",
    ```
 
-1. To samo dotyczy tematów usługi Service Bus i połączeń Centrum zdarzeń.
+1. To samo dotyczy tematów Service Bus i połączeń centrów zdarzeń.
 
-#### <a name="create-the-new-routing-resources-in-the-new-location"></a>Tworzenie nowych zasobów routingu w nowej lokalizacji
+#### <a name="create-the-new-routing-resources-in-the-new-location"></a>Utwórz nowe zasoby routingu w nowej lokalizacji
 
-Ta sekcja ma zastosowanie tylko w przypadku przenoszenia zasobów używanych przez koncentrator dla punktów końcowych routingu.
+Ta sekcja ma zastosowanie tylko w przypadku przesuwania zasobów używanych przez centrum dla punktów końcowych routingu.
 
-Jeśli chcesz przenieść zasoby routingu, musisz ręcznie skonfigurować zasoby w nowej lokalizacji. Zasoby routingu można utworzyć za pomocą [portalu Azure](https://portal.azure.com)lub wyeksportować szablon Menedżera zasobów dla każdego z zasobów używanych przez routing wiadomości, edytowanie ich i importowanie. Po skonfigurowaniu zasobów można zaimportować szablon koncentratora (który zawiera konfigurację routingu).
+Jeśli chcesz przenieść zasoby routingu, musisz ręcznie skonfigurować zasoby w nowej lokalizacji. Możesz utworzyć zasoby routingu za pomocą [Azure Portal](https://portal.azure.com)lub wyeksportować szablon Menedżer zasobów dla każdego z zasobów używanych przez routing wiadomości, edytując je i importując. Po skonfigurowaniu zasobów można zaimportować szablon centrum (obejmujący konfigurację routingu).
 
-1. Utwórz każdy zasób używany przez marszrutę. Można to zrobić ręcznie za pomocą [witryny Azure portal](https://portal.azure.com)lub utworzyć zasoby przy użyciu szablonów Menedżera zasobów. Jeśli chcesz użyć szablonów, są to kroki, które należy wykonać:
+1. Utwórz każdy zasób używany przez Routing. Można to zrobić ręcznie przy użyciu [Azure Portal](https://portal.azure.com)lub utworzyć zasoby przy użyciu szablonów Menedżer zasobów. Jeśli chcesz używać szablonów, wykonaj następujące czynności:
 
-    1. Dla każdego zasobu używanego przez marszrutę wyeksportuj go do szablonu Menedżera zasobów.
+    1. Dla każdego zasobu używanego w ramach routingu wyeksportuj go do szablonu Menedżer zasobów.
     
     1. Zaktualizuj nazwę i lokalizację zasobu. 
 
-    1. Zaktualizuj wszelkie odsyłacze między zasobami. Na przykład jeśli tworzysz szablon dla nowego konta magazynu, musisz zaktualizować nazwę konta magazynu w tym szablonie i każdy inny szablon, który odwołuje się do niego. W większości przypadków sekcja routingu w szablonie dla centrum jest jedynym innym szablonem, który odwołuje się do zasobu. 
+    1. Zaktualizuj wszystkie odwołania krzyżowe do zasobów. Na przykład jeśli utworzysz szablon dla nowego konta magazynu, musisz zaktualizować nazwę konta magazynu w tym szablonie i dowolny inny szablon, który odwołuje się do niego. W większości przypadków sekcja Routing w szablonie centrum jest jedynym innym szablonem, który odwołuje się do zasobu. 
 
-    1. Importuj każdy z szablonów, który wdraża każdy zasób.
+    1. Zaimportuj każdy z szablonów, który wdraża każdy zasób.
 
-    Po skonfigurowaniu i uruchomieniu zasobów używanych przez marszrutę można kontynuować.
+    Po skonfigurowaniu i uruchomieniu zasobów używanych przez usługę Routing można kontynuować.
 
-1. W szablonie dla centrum IoT zmienić nazwę każdego z zasobów routingu na jego nową nazwę i zaktualizować lokalizację w razie potrzeby. 
+1. W szablonie Centrum IoT Zmień nazwę każdego z zasobów routingu na nową nazwę i w razie potrzeby zaktualizuj lokalizację. 
 
-Teraz masz szablon, który utworzy nowy koncentrator, który wygląda prawie dokładnie tak, jak stare centrum, w zależności od tego, jak zdecydowałeś się obsłużyć routingu.
+Teraz masz szablon, który spowoduje utworzenie nowego centrum, które będzie wyglądało niemal dokładnie tak samo jak w przypadku starego centrum, w zależności od tego, jak postanowiono obsługiwać Routing.
 
-## <a name="move----create-the-new-hub-in-the-new-region-by-loading-the-template"></a>Przenieś - utwórz nowe centrum w nowym regionie, ładując szablon
+## <a name="move----create-the-new-hub-in-the-new-region-by-loading-the-template"></a>Przenieś — Utwórz nowe centrum w nowym regionie, ładując szablon
 
-Utwórz nowe centrum w nowej lokalizacji przy użyciu szablonu. Jeśli masz zasoby routingu, które mają być przeniesione, zasoby powinny być skonfigurowane w nowej lokalizacji i odwołania w szablonie zaktualizowane do dopasowania. Jeśli nie przenosisz zasobów routingu, powinny one znajdować się w szablonie ze zaktualizowanymi kluczami.
+Utwórz nowe centrum w nowej lokalizacji przy użyciu szablonu. W przypadku zasobów routingu, które mają zostać przeniesione, zasoby powinny zostać skonfigurowane w nowej lokalizacji, a odwołania w szablonie zaktualizowane do dopasowania. Jeśli nie przenosisz zasobów routingu, powinny one znajdować się w szablonie z zaktualizowanymi kluczami.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
 1. Wybierz pozycję **Utwórz zasób**. 
 
-1. W polu wyszukiwania umieść w polu "wdrożenie szablonu" i wybierz enter.
+1. W polu wyszukiwania wprowadź ciąg "wdrożenie szablonu" i wybierz polecenie wprowadź.
 
-1. Wybierz **wdrożenie szablonu (wdrażanie przy użyciu szablonów niestandardowych).** Spowoduje to przejście do ekranu dla wdrożenia szablonu. Wybierz **pozycję Utwórz**. Zostanie wyświetlony następujący ekran:
+1. Wybierz pozycję **wdrożenie szablonu (Wdróż przy użyciu szablonów niestandardowych)**. Spowoduje to przejście do ekranu dla Template deployment. Wybierz przycisk **Utwórz**. Zostanie wyświetlony następujący ekran:
 
    ![Zrzut ekranu przedstawiający polecenie tworzenia własnego szablonu](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
-1. Wybierz **pozycję Zbuduj własny szablon w edytorze,** który umożliwia przesłanie szablonu z pliku. 
+1. Wybierz opcję **Kompiluj własny szablon w edytorze**, który umożliwia przekazywanie szablonu z pliku. 
 
-1. Wybierz **pozycję Załaduj plik**. 
+1. Wybierz pozycję **Załaduj plik**. 
 
-   ![Zrzut ekranu przedstawiający polecenie przesyłania pliku szablonu](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
+   ![Zrzut ekranu przedstawiający polecenie przekazania pliku szablonu](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
 
-1. Wyszukaj nowy edytowany szablon i wybierz go, a następnie wybierz pozycję **Otwórz**. Ładuje szablon w oknie edycji. Wybierz **pozycję Zapisz**. 
+1. Wyszukaj nowy edytowany szablon i zaznacz go, a następnie wybierz pozycję **Otwórz**. Ładuje szablon w oknie edycji. Wybierz pozycję **Zapisz**. 
 
    ![Zrzut ekranu przedstawiający ładowanie szablonu](./media/iot-hub-how-to-clone/iot-hub-loading-template.png)
 
@@ -371,71 +371,71 @@ Utwórz nowe centrum w nowej lokalizacji przy użyciu szablonu. Jeśli masz zaso
 
    **Subskrypcja**: wybierz subskrypcję do użycia.
 
-   **Grupa zasobów**: utwórz nową grupę zasobów w nowej lokalizacji. Jeśli masz już nową konfigurację, możesz ją wybrać zamiast tworzyć nową.
+   **Grupa zasobów**: Utwórz nową grupę zasobów w nowej lokalizacji. Jeśli masz już nową konfigurację, możesz ją wybrać zamiast tworzyć nowe.
 
-   **Lokalizacja:** Jeśli wybrano istniejącą grupę zasobów, zostanie ono wypełnione, aby dopasować lokalizację grupy zasobów. Jeśli utworzono nową grupę zasobów, będzie to jej lokalizacja.
+   **Lokalizacja**: w przypadku wybrania istniejącej grupy zasobów jest ona wypełniana w celu dopasowania do lokalizacji grupy zasobów. Jeśli została utworzona nowa grupa zasobów, będzie ona jej lokalizacją.
 
-   **Zgadzam się pole wyboru:** to w zasadzie mówi, że zgadzasz się zapłacić za zasób (s) tworzysz.
+   **Zgadzam się pole wyboru**: oznacza to, że wyrażasz zgodę na zapłacenie za tworzone zasoby.
 
-1. Wybierz przycisk **Zakup.**
+1. Wybierz przycisk **Kup** .
 
-Portal sprawdza teraz szablon i wdraża sklonowane centrum. Jeśli masz dane konfiguracji routingu, zostaną one uwzględnione w nowym koncentratorze, ale wskaż zasoby w poprzedniej lokalizacji.
+Portal teraz sprawdza poprawność szablonu i wdraża sklonowane centrum. Jeśli masz dane konfiguracji routingu, zostaną one uwzględnione w nowym centrum, ale będą wskazywały zasoby w poprzedniej lokalizacji.
 
-## <a name="managing-the-devices-registered-to-the-iot-hub"></a>Zarządzanie urządzeniami zarejestrowanymi w centrum IoT
+## <a name="managing-the-devices-registered-to-the-iot-hub"></a>Zarządzanie urządzeniami zarejestrowanymi w usłudze IoT Hub
 
-Teraz, gdy klon jest uruchomiony, musisz skopiować wszystkie urządzenia z oryginalnego koncentratora do klonu. 
+Po ukończeniu klonowania i uruchomienia należy skopiować wszystkie urządzenia z oryginalnego centrum do klona. 
 
-Istnieje wiele sposobów, aby to osiągnąć. Pierwotnie używano [usługi inicjowania obsługi administracyjnej (DPS)](/azure/iot-dps/about-iot-dps)do aprowizowania urządzeń lub nie. Jeśli tak, to nie jest trudne. Jeśli nie, może to być bardzo skomplikowane. 
+Istnieje wiele sposobów osiągnięcia tego celu. Pierwotnie była używana [Usługa Device Provisioning (DPS)](/azure/iot-dps/about-iot-dps)do udostępniania urządzeń lub nie została ona zastosowana. Jeśli tak, to nie jest trudne. Jeśli tego nie zrobiono, może to być bardzo skomplikowane. 
 
-Jeśli nie używasz DPS do aprowizowania urządzeń, możesz pominąć następną sekcję i zacząć od [za pomocą importu/eksportu, aby przenieść urządzenia do nowego koncentratora](#using-import-export-to-move-the-devices-to-the-new-hub).
+Jeśli nie korzystasz z usługi DPS do aprowizacji urządzeń, możesz pominąć następną sekcję i rozpocząć korzystanie z usługi [Import/Export w celu przeniesienia urządzeń do nowego centrum](#using-import-export-to-move-the-devices-to-the-new-hub).
 
-## <a name="using-dps-to-re-provision-the-devices-in-the-new-hub"></a>Używanie dps do ponownego aprowizowania urządzeń w nowym koncentratorze
+## <a name="using-dps-to-re-provision-the-devices-in-the-new-hub"></a>Ponowne Inicjowanie obsługi administracyjnej urządzeń w nowym centrum przy użyciu usługi DPS
 
-Aby użyć dps do przeniesienia urządzeń do nowej lokalizacji, zobacz [Jak ponownie aprowizować urządzenia](../iot-dps/how-to-reprovision.md). Po zakończeniu możesz wyświetlić urządzenia w [witrynie Azure portal](https://portal.azure.com) i sprawdzić, czy znajdują się w nowej lokalizacji.
+Aby użyć funkcji DPS do przenoszenia urządzeń do nowej lokalizacji, zobacz [jak ponownie zainicjować obsługę administracyjną urządzeń](../iot-dps/how-to-reprovision.md). Po zakończeniu możesz wyświetlić urządzenia w [Azure Portal](https://portal.azure.com) i sprawdzić, czy znajdują się one w nowej lokalizacji.
 
-Przejdź do nowego centrum za pomocą [witryny Azure Portal](https://portal.azure.com). Wybierz koncentrator, a następnie wybierz pozycję **Urządzenia IoT**. Widoczne są urządzenia, które zostały ponownie aprowizowane do sklonowanego koncentratora. Można również wyświetlić właściwości sklonowanego koncentratora. 
+Przejdź do nowego centrum przy użyciu [Azure Portal](https://portal.azure.com). Wybierz centrum, a następnie wybierz pozycję **urządzenia IoT**. Na sklonowanym centrum są wyświetlane urządzenia, które zostały wstępnie zainicjowane. Możesz również wyświetlić właściwości sklonowanego centrum. 
 
-Jeśli zaimplementowano routing, należy przetestować i upewnij się, że wiadomości są kierowane do zasobów poprawnie.
+Jeśli wdrożono usługę Routing, przetestuj ją i upewnij się, że komunikaty są poprawnie kierowane do zasobów.
 
-### <a name="committing-the-changes-after-using-dps"></a>Zatwierdzanie zmian po użyciu DPS
+### <a name="committing-the-changes-after-using-dps"></a>Zatwierdzanie zmian po użyciu usługi DPS
 
 Ta zmiana została zatwierdzona przez usługę DPS.
 
-### <a name="rolling-back-the-changes-after-using-dps"></a>Wycofywanie zmian po użyciu DPS. 
+### <a name="rolling-back-the-changes-after-using-dps"></a>Wycofywanie zmian po użyciu usługi DPS. 
 
-Jeśli chcesz wycofać zmiany, ponownie aprowizować urządzenia z nowego koncentratora do starego.
+Aby wycofać zmiany, należy ponownie zainicjować obsługę administracyjną urządzeń z nowego centrum.
 
-Teraz zakończono migrację koncentratora i jego urządzeń. Możesz przejść do [clean-up](#clean-up).
+Teraz zakończono Migrowanie centrum i jego urządzeń. Możesz pominąć, aby [oczyścić](#clean-up).
 
-## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>Przenoszenie urządzeń do nowego koncentratora za pomocą importu i eksportu
+## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>Przenoszenie urządzeń do nowego centrum przy użyciu polecenia Import-Export
 
-Aplikacja jest przeznaczona dla platformy .NET Core, dzięki czemu można ją uruchomić w systemie Windows lub Linux. Można pobrać przykład, pobrać parametry połączenia, ustawić flagi, dla których bitów chcesz uruchomić i uruchomić go. Można to zrobić bez otwierania kodu.
+Aplikacja jest przeznaczona dla platformy .NET Core, więc można ją uruchomić w systemie Windows lub Linux. Możesz pobrać przykład, pobrać parametry połączenia, ustawić flagi, dla których mają być uruchamiane usługi, i uruchomić je. Można to zrobić bez konieczności otwierania kodu.
 
-### <a name="downloading-the-sample"></a>Pobieranie próbki
+### <a name="downloading-the-sample"></a>Pobieranie przykładu
 
-1. Użyj przykładów języka IoT C# z tej strony: [Przykłady usługi Azure IoT dla języka C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/). Pobierz plik zip i rozpaj go na komputerze. 
+1. Na tej stronie są używane przykłady IoT C#: [przykłady usługi Azure IoT dla języka c#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/). Pobierz plik zip i rozpakuj go na komputerze. 
 
-1. Odpowiedni kod znajduje się w ./iot-hub/Samples/service/ImportExportDevicesSample. Aby uruchomić aplikację, nie trzeba wyświetlać ani edytować kodu.
+1. Odpowiedni kod jest w./iot-hub/Samples/service/ImportExportDevicesSample. Nie musisz wyświetlać ani edytować kodu w celu uruchomienia aplikacji.
 
-1. Aby uruchomić aplikację, należy określić trzy parametry połączenia i pięć opcji. Przekazujesz te dane jako argumenty wiersza polecenia lub używasz zmiennych środowiskowych lub użyj kombinacji tych dwóch. Będziemy przekazywać opcje jako argumenty wiersza polecenia, a parametry połączenia jako zmienne środowiskowe. 
+1. Aby uruchomić aplikację, określ trzy parametry połączenia i pięć opcji. Te dane są przekazywane jako argumenty wiersza polecenia lub używane są zmienne środowiskowe lub używają kombinacji dwóch. Będziemy przekazywać opcje w jako argumenty wiersza polecenia i parametry połączenia jako zmienne środowiskowe. 
 
-   Powodem tego jest to, że parametry połączenia są długie i niezgrabne i mało prawdopodobne, aby zmienić, ale można zmienić opcje i uruchomić aplikację więcej niż jeden raz. Aby zmienić wartość zmiennej środowiskowej, należy zamknąć okno polecenia i Visual Studio lub VS Code, niezależnie od tego, co używasz. 
+   Przyczyną tego problemu jest to, że parametry połączenia są długie i nieuzasadnione i nie można ich zmienić, ale może zajść potrzeba zmiany opcji i uruchomienia aplikacji więcej niż raz. Aby zmienić wartość zmiennej środowiskowej, należy zamknąć okno poleceń i program Visual Studio lub VS Code, w zależności od tego, co jest używane. 
 
 ### <a name="options"></a>Opcje
 
-Oto pięć opcji określonych podczas uruchamiania aplikacji. Umieścimy je w wierszu polecenia w ciągu minuty.
+Poniżej przedstawiono pięć opcji, które można określić podczas uruchamiania aplikacji. Umieścimy je w wierszu polecenia w ciągu minuty.
 
-*   **addDevices** (argument 1) - ustaw tę wartość na true, jeśli chcesz dodać urządzenia wirtualne, które są generowane dla Ciebie. Są one dodawane do centrum źródłowego. Ponadto ustaw **numToAdd** (argument 2), aby określić liczbę urządzeń, które chcesz dodać. Maksymalna liczba urządzeń, które można zarejestrować w centrum jest milion. Celem tej opcji jest testowanie — można wygenerować określoną liczbę urządzeń, a następnie skopiować je do innego koncentratora.
+*   adddevices (argument 1) — Ustaw tę wartość na **true (prawda** ), jeśli chcesz dodać urządzenia wirtualne, które są dla Ciebie generowane. Są one dodawane do centrum źródłowego. Ponadto ustaw **numToAdd** (argument 2), aby określić liczbę urządzeń, które chcesz dodać. Maksymalna liczba urządzeń, które można zarejestrować w centrum, to 1 000 000. Celem tej opcji jest testowanie — można wygenerować określoną liczbę urządzeń, a następnie skopiować je do innego centrum.
 
-*   **copyDevices** (argument 3) -- ustaw to na true, aby skopiować urządzenia z jednego koncentratora do drugiego. 
+*   **copyDevices** (argument 3) — Ustaw tę wartość na true, aby skopiować urządzenia z jednego koncentratora do drugiego. 
 
-*   **deleteSourceDevices** (argument 4) -- ustaw to na true, aby usunąć wszystkie urządzenia zarejestrowane w centrum źródłowym. Zalecamy oczekiwanie, aż masz pewność, że wszystkie urządzenia zostały przeniesione przed uruchomieniem tego. Po usunięciu urządzeń nie można ich odzyskać.
+*   **deleteSourceDevices** (argument 4) — Ustaw tę wartość na true, aby usunąć wszystkie urządzenia zarejestrowane w centrum źródłowym. Zalecamy oczekiwanie na przekazanie wszystkich urządzeń przed jej uruchomieniem. Po usunięciu urządzeń nie można ich odzyskać.
 
-*   **deleteDestDevices** (argument 5) -- ustaw to na true, aby usunąć wszystkie urządzenia zarejestrowane w centrum docelowym (klon). Możesz to zrobić, jeśli chcesz skopiować urządzenia więcej niż jeden raz. 
+*   **deleteDestDevices** (argument 5) — Ustaw tę wartość na true, aby usunąć wszystkie urządzenia zarejestrowane w centrum docelowym (klon). Można to zrobić, jeśli chcesz skopiować urządzenia więcej niż raz. 
 
-Podstawowym poleceniem będzie *dotnet run* -- to mówi .NET do utworzenia lokalnego pliku csproj, a następnie uruchomić go. Przed uruchomieniem należy dodać argumenty wiersza polecenia na końcu. 
+Polecenie podstawowe zostanie uruchomione w środowisku *dotnet* -— spowoduje to nakazanie .NET do utworzenia lokalnego pliku csproj, a następnie uruchomienie go. Przed uruchomieniem należy dodać do końca argumenty wiersza polecenia. 
 
-Wiersz polecenia będzie wyglądał jak w następujących przykładach:
+Wiersz polecenia będzie wyglądać następująco:
 
 ``` console 
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
@@ -449,15 +449,15 @@ Wiersz polecenia będzie wyglądał jak w następujących przykładach:
     dotnet run false 0 true false false 
 ```
 
-### <a name="using-environment-variables-for-the-connection-strings"></a>Używanie zmiennych środowiskowych dla ciągów połączeń
+### <a name="using-environment-variables-for-the-connection-strings"></a>Używanie zmiennych środowiskowych dla parametrów połączenia
 
-1. Aby uruchomić przykład, potrzebujesz parametry połączenia do starych i nowych centrów IoT i do konta magazynu, którego można użyć dla tymczasowych plików roboczych. Będziemy przechowywać wartości dla nich w zmiennych środowiskowych.
+1. Aby uruchomić przykład, potrzebne są parametry połączenia z starymi i nowymi centrami IoT oraz do konta magazynu, którego można użyć dla tymczasowych plików roboczych. Te wartości są przechowywane w zmiennych środowiskowych.
 
-1. Aby uzyskać wartości ciągu połączenia, zaloguj się do [witryny Azure Portal](https://portal.azure.com). 
+1. Aby uzyskać wartości parametrów połączenia, zaloguj się do [Azure Portal](https://portal.azure.com). 
 
-1. Umieść parametry połączenia w miejscu, w jakim można je odzyskać, na przykład NotePad. Jeśli skopiujesz następujące, można wkleić parametry połączenia bezpośrednio tam, gdzie idą. Nie dodawaj spacji wokół znaku równości ani nie zmienia nazwy zmiennej. Ponadto nie trzeba podwójnych cudzysłowów wokół ciągów połączeń. Jeśli umieścisz cudzysłowy wokół ciągu połączenia konta magazynu, nie będzie działać.
+1. Umieść parametry połączenia w miejscu, w którym można je pobrać, takich jak Notatnik. W przypadku skopiowania następujących danych można wkleić parametry połączenia bezpośrednio tam, gdzie się znajdują. Nie dodawaj spacji wokół znaku równości lub zmienia nazwę zmiennej. Ponadto nie są wymagane podwójne cudzysłowy wokół parametrów połączenia. Jeśli umieścisz cudzysłowy wokół parametrów połączenia konta magazynu, nie będzie to możliwe.
 
-   W systemie Windows w ten sposób ustawiasz zmienne środowiskowe:
+   W przypadku systemu Windows jest to sposób ustawiania zmiennych środowiskowych:
 
    ``` console  
    SET IOTHUB_CONN_STRING=<put connection string to original IoT Hub here>
@@ -465,7 +465,7 @@ Wiersz polecenia będzie wyglądał jak w następujących przykładach:
    SET STORAGE_ACCT_CONN_STRING=<put connection string to the storage account here>
    ```
  
-   W przypadku systemu Linux w ten sposób definiujesz zmienne środowiskowe:
+   W systemie Linux jest to sposób definiowania zmiennych środowiskowych:
 
    ``` console  
    export IOTHUB_CONN_STRING="<put connection string to original IoT Hub here>"
@@ -473,30 +473,30 @@ Wiersz polecenia będzie wyglądał jak w następujących przykładach:
    export STORAGE_ACCT_CONN_STRING="<put connection string to the storage account here>"
    ```
 
-1. Dla ciągów połączeń centrum IoT przejdź do każdego koncentratora w portalu. Można wyszukiwać w **zasobach** dla centrum. Jeśli znasz grupę zasobów, możesz przejść do **grup zasobów**, wybierz grupę zasobów, a następnie wybierz centrum z listy zasobów w tej grupie zasobów. 
+1. W przypadku parametrów połączenia usługi IoT Hub przejdź do poszczególnych centrów w portalu. Można wyszukiwać **zasoby** centrum. Jeśli znasz grupę zasobów, możesz przejść do pozycji **grupy zasobów**, wybrać grupę zasobów, a następnie wybrać centrum z listy zasobów należących do tej grupy zasobów. 
 
-1. Wybierz **pozycję Zasady dostępu współdzielonego** w ustawieniach centrum, a następnie wybierz **iothubowner** i skopiuj jeden z ciągów połączeń. Zrób to samo dla centrum docelowego. Dodaj je do odpowiednich poleceń SET.
+1. Wybierz pozycję **zasady dostępu współdzielonego** z ustawień centrum, a następnie wybierz pozycję **iothubowner** i skopiuj jeden z parametrów połączenia. Wykonaj te same czynności dla koncentratora docelowego. Dodaj je do odpowiednich poleceń SET.
 
-1. Dla ciągu połączenia konta magazynu znajdź konto magazynu w **zasobach** lub w jego **grupie zasobów** i otwórz je. 
+1. W polu Parametry połączenia konta magazynu Znajdź konto magazynu w obszarze **zasoby** lub w **grupie zasobów** , a następnie otwórz je. 
    
-1. W sekcji Ustawienia wybierz pozycję **Klawisze dostępu** i skopiuj jeden z ciągów połączeń. Umieść ciąg połączenia w pliku tekstowym dla odpowiedniego polecenia SET. 
+1. W sekcji Ustawienia wybierz pozycję **klucze dostępu** i skopiuj jeden z parametrów połączenia. Umieść parametry połączenia w pliku tekstowym dla odpowiedniego polecenia SET. 
 
-Teraz masz zmienne środowiskowe w pliku z poleceniami SET i wiesz, jakie są twoje argumenty wiersza polecenia. Uruchommy próbkę.
+Teraz masz zmienne środowiskowe w pliku z poleceniami SET i wiesz, co to są argumenty wiersza polecenia. Uruchommy przykład.
 
 ### <a name="running-the-sample-application-and-using-command-line-arguments"></a>Uruchamianie przykładowej aplikacji i używanie argumentów wiersza polecenia
 
-1. Otwórz okno wiersza polecenia. Wybierz pozycję Windows `command prompt` i wpisz, aby uzyskać okno wiersza polecenia.
+1. Otwórz okno wiersza polecenia. Wybierz pozycję Windows i wpisz `command prompt` , aby wyświetlić okno wiersza polecenia.
 
-1. Skopiuj polecenia, które ustawiają zmienne środowiskowe po jednym naraz, i wklej je do okna wiersza polecenia i wybierz pozycję Enter. Po zakończeniu wpisz `SET` w oknie wiersza polecenia, aby wyświetlić zmienne środowiskowe i ich wartości. Po skopiowaniu ich do okna wiersza polecenia nie trzeba ich ponownie kopiować, chyba że otworzysz nowe okno wiersza polecenia.
+1. Skopiuj polecenia, które ustawiają zmienne środowiskowe, pojedynczo i wklej je do okna wiersza polecenia, a następnie wybierz klawisz ENTER. Po zakończeniu wpisz `SET` w oknie wiersza polecenia, aby wyświetlić zmienne środowiskowe i ich wartości. Po skopiowaniu ich do okna wiersza polecenia nie trzeba ich kopiować ponownie, chyba że zostanie otwarte nowe okno wiersza polecenia.
 
-1. W oknie wiersza polecenia zmieniaj katalogi, dopóki nie znajdujesz się w pliku ./ImportExportDevicesSample (gdzie istnieje plik ImportExportDevicesSample.csproj). Następnie wpisz następujące polecenie i dołącz argumenty wiersza polecenia.
+1. W oknie wiersza polecenia Zmień katalogi do momentu, w którym znajduje się w./ImportExportDevicesSample (gdzie istnieje plik ImportExportDevicesSample. csproj). Następnie wpisz następujące polecenie i Uwzględnij argumenty wiersza polecenia.
 
     ``` console
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
     dotnet run arg1 arg2 arg3 arg4 arg5
     ```
 
-    Polecenie dotnet tworzy i uruchamia aplikację. Ponieważ są przekazywanie w opcjach po uruchomieniu aplikacji, można zmienić ich wartości przy każdym uruchomieniu aplikacji. Na przykład można uruchomić go raz i utworzyć nowe urządzenia, a następnie uruchomić go ponownie i skopiować te urządzenia do nowego koncentratora i tak dalej. Można również wykonać wszystkie kroki w tym samym przebiegu, chociaż nie zaleca się usuwania żadnych urządzeń, dopóki nie masz pewności, że skończysz z klonowaniem. Oto przykład, który tworzy 1000 urządzeń, a następnie kopiuje je do innego koncentratora.
+    Polecenie dotnet kompiluje i uruchamia aplikację. Ponieważ podczas uruchamiania aplikacji nastąpi przekazanie opcji, możesz zmienić wartości przy każdym uruchomieniu aplikacji. Możesz na przykład uruchomić go raz i utworzyć nowe urządzenia, a następnie uruchomić go ponownie i skopiować te urządzenia do nowego centrum i tak dalej. Możesz również wykonać wszystkie kroki w tym samym przebiegu, chociaż nie zalecamy usuwania żadnych urządzeń, dopóki nie masz pewności, że zakończysz klonowanie. Oto przykład, który tworzy 1000 urządzeń, a następnie kopiuje je do innego centrum.
 
     ``` console
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
@@ -508,7 +508,7 @@ Teraz masz zmienne środowiskowe w pliku z poleceniami SET i wiesz, jakie są tw
     dotnet run false 0 true false false 
     ```
 
-    Po sprawdzeniu, czy urządzenia zostały pomyślnie skopiowane, można usunąć urządzenia z centrum źródłowego w ten sposób:
+    Po sprawdzeniu, czy urządzenia zostały pomyślnie skopiowane, można je usunąć z centrum źródłowego w następujący sposób:
 
    ``` console
    // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
@@ -518,7 +518,7 @@ Teraz masz zmienne środowiskowe w pliku z poleceniami SET i wiesz, jakie są tw
 
 ### <a name="running-the-sample-application-using-visual-studio"></a>Uruchamianie przykładowej aplikacji przy użyciu programu Visual Studio
 
-1. Jeśli chcesz uruchomić aplikację w programie Visual Studio, zmień bieżący katalog na folder, w którym znajduje się plik IoTHubServiceSamples.sln. Następnie uruchom to polecenie w oknie wiersza polecenia, aby otworzyć rozwiązanie w programie Visual Studio. Należy to zrobić w tym samym oknie polecenia, w którym ustawiono zmienne środowiskowe, aby te zmienne były znane.
+1. Jeśli chcesz uruchomić aplikację w programie Visual Studio, Zmień bieżący katalog na folder, w którym znajduje się plik IoTHubServiceSamples. sln. Następnie Uruchom to polecenie w oknie wiersza polecenia, aby otworzyć rozwiązanie w programie Visual Studio. Należy to zrobić w tym samym oknie poleceń, w którym są ustawiane zmienne środowiskowe, więc te zmienne są znane.
 
    ``` console       
    IoTHubServiceSamples.sln
@@ -526,7 +526,7 @@ Teraz masz zmienne środowiskowe w pliku z poleceniami SET i wiesz, jakie są tw
     
 1. Kliknij prawym przyciskiem myszy projekt *ImportExportDevicesSample* i wybierz pozycję **Ustaw jako projekt startowy**.    
     
-1. Ustaw zmienne u góry Program.cs w folderze ImportExportDevicesSample dla pięciu opcji.
+1. Ustaw zmienne w górnej części elementu Program.cs w folderze ImportExportDevicesSample, aby wyświetlić pięć opcji.
 
    ``` csharp
    // Add randomly created devices to the source hub.
@@ -541,64 +541,64 @@ Teraz masz zmienne środowiskowe w pliku z poleceniami SET i wiesz, jakie są tw
    private static bool deleteDestDevices = false;
    ```
 
-1. Wybierz F5, aby uruchomić aplikację. Po zakończeniu pracy można wyświetlić wyniki.
+1. Wybierz klawisz F5, aby uruchomić aplikację. Po zakończeniu działania można wyświetlić wyniki.
 
 ### <a name="view-the-results"></a>Wyświetlanie wyników 
 
-Możesz wyświetlić urządzenia w [witrynie Azure portal](https://portal.azure.com) i sprawdzić, czy znajdują się w nowej lokalizacji.
+Możesz wyświetlić urządzenia w [Azure Portal](https://portal.azure.com) i sprawdzić, czy znajdują się one w nowej lokalizacji.
 
-1. Przejdź do nowego centrum za pomocą [witryny Azure Portal](https://portal.azure.com). Wybierz koncentrator, a następnie wybierz pozycję **Urządzenia IoT**. Zobaczysz urządzenia skopiowane ze starego koncentratora do sklonowanego koncentratora. Można również wyświetlić właściwości sklonowanego koncentratora. 
+1. Przejdź do nowego centrum przy użyciu [Azure Portal](https://portal.azure.com). Wybierz centrum, a następnie wybierz pozycję **urządzenia IoT**. Na sklonowanym centrum są widoczne właśnie skopiowane urządzenia ze starego centrum. Możesz również wyświetlić właściwości sklonowanego centrum. 
 
-1. Sprawdź błędy importu/eksportu, przechodząc do konta magazynu platformy Azure `devicefiles` w [witrynie Azure portal](https://portal.azure.com) i szukając w kontenerze `ImportErrors.log`dla . Jeśli ten plik jest pusty (rozmiar wynosi 0), nie wystąpiły żadne błędy. Jeśli spróbujesz zaimportować to samo urządzenie więcej niż raz, odrzuca urządzenie po raz drugi i dodaje komunikat o błędzie do pliku dziennika.
+1. Sprawdź błędy importowania/eksportowania, przechodząc do konta usługi Azure Storage w [Azure Portal](https://portal.azure.com) i szukając `devicefiles` kontenera `ImportErrors.log`. Jeśli ten plik jest pusty (rozmiar wynosi 0), nie wystąpiły żadne błędy. Próba zaimportowania tego samego urządzenia więcej niż raz powoduje odrzucanie urządzenia po raz drugi i dodanie komunikatu o błędzie do pliku dziennika.
 
 ### <a name="committing-the-changes"></a>Zatwierdzanie zmian 
 
-W tym momencie centrum zostało skopiowane do nowej lokalizacji i zmigrowane urządzenia do nowego klonu. Teraz musisz wprowadzić zmiany, aby urządzenia działały z sklonowanym koncentratorem.
+W tym momencie masz skopiowane centrum do nowej lokalizacji i zmigrowane urządzenia do nowego klonu. Teraz musisz wprowadzić zmiany, aby urządzenia działały ze sklonowanym centrum.
 
-Aby zatwierdzić zmiany, oto kroki, które należy wykonać: 
+Aby zatwierdzić zmiany, poniżej przedstawiono kroki, które należy wykonać: 
 
-* Zaktualizuj każde urządzenie, aby zmienić nazwę hosta usługi IoT Hub, aby wskazać nazwę hosta usługi IoT Hub na nowe centrum. Należy to zrobić przy użyciu tej samej metody, która została użyta podczas pierwszej inicjowania obsługi administracyjnej urządzenia.
+* Zaktualizuj każde urządzenie, aby zmienić nazwę hosta IoT Hub tak, aby wskazywała nazwę hosta IoT Hub do nowego centrum. Należy to zrobić przy użyciu tej samej metody, która została użyta podczas pierwszej aprowizacji urządzenia.
 
-* Zmień wszystkie aplikacje, które odnoszą się do starego koncentratora, aby wskazać nowy koncentrator.
+* Zmień wszystkie aplikacje odwołujące się do starego centrum, aby wskazywały nowe centrum.
 
-* Po zakończeniu nowy koncentrator powinien być uruchomiony. Stary koncentrator nie powinien mieć żadnych aktywnych urządzeń i być w stanie rozłączenia. 
+* Po zakończeniu nowe centrum powinno działać i działać. Stare centrum nie powinno mieć aktywnych urządzeń i znajdować się w stanie odłączonym. 
 
 ### <a name="rolling-back-the-changes"></a>Wycofywanie zmian
 
-Jeśli zdecydujesz się wycofać zmiany, oto kroki do wykonania:
+Jeśli zdecydujesz się wycofać zmiany, poniżej przedstawiono kroki, które należy wykonać:
 
-* Zaktualizuj każde urządzenie, aby zmienić nazwa hosta usługi IoT Hub, aby wskazać nazwa hosta usługi IoT Hub dla starego koncentratora. Należy to zrobić przy użyciu tej samej metody, która została użyta podczas pierwszej inicjowania obsługi administracyjnej urządzenia.
+* Zaktualizuj każde urządzenie, aby zmienić nazwę hosta IoT Hub, aby wskazywała nazwę hosta IoT Hub dla starego centrum. Należy to zrobić przy użyciu tej samej metody, która została użyta podczas pierwszej aprowizacji urządzenia.
 
-* Zmień wszystkie aplikacje, które odnoszą się do nowego koncentratora, aby wskazać stare centrum. Na przykład jeśli korzystasz z usługi Azure Analytics, może być konieczne ponowne skonfigurowanie [danych wejściowych usługi Azure Stream Analytics.](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub)
+* Zmień wszystkie aplikacje odwołujące się do nowego centrum, aby wskazywały na stare centrum. Na przykład jeśli korzystasz z usługi Azure Analytics, może być konieczne ponowne skonfigurowanie [danych wejściowych Azure Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
 
-* Usuń nowy koncentrator. 
+* Usuń nowe centrum. 
 
-* Jeśli masz zasoby routingu, konfiguracja na starym koncentratorze powinna nadal wskazywać poprawną konfigurację routingu i powinna pracować z tymi zasobami po ponownym uruchomieniu koncentratora.
+* Jeśli masz zasoby routingu, konfiguracja w starym centrum powinna nadal wskazywać poprawną konfigurację routingu i powinna współpracować z tymi zasobami po ponownym uruchomieniu centrum.
 
 ### <a name="checking-the-results"></a>Sprawdzanie wyników 
 
-Aby sprawdzić wyniki, zmień rozwiązanie IoT, aby wskazać centrum w nowej lokalizacji i uruchom go. Innymi słowy wykonaj te same akcje z nowym koncentratorem, który został wykonany z poprzednim koncentratorem i upewnij się, że działają poprawnie. 
+Aby sprawdzić wyniki, Zmień rozwiązanie IoT w taki sposób, aby wskazywało centrum w nowej lokalizacji, i uruchom je. Innymi słowy należy wykonać te same czynności z nowym koncentratorem, który został wykonany przy użyciu poprzedniego centrum i upewnić się, że działają prawidłowo. 
 
-Jeśli zaimplementowano routing, należy przetestować i upewnij się, że wiadomości są kierowane do zasobów poprawnie.
+Jeśli wdrożono usługę Routing, przetestuj ją i upewnij się, że komunikaty są poprawnie kierowane do zasobów.
 
-## <a name="clean-up"></a>Oczyszczanie
+## <a name="clean-up"></a>Czyszczenie
 
-Nie sprzątaj, dopóki nie masz pewności, że nowy koncentrator jest uruchomiony, a urządzenia działają poprawnie. Należy również przetestować routingu, jeśli używasz tej funkcji. Gdy wszystko będzie gotowe, wyczyść stare zasoby, wykonując następujące czynności:
+Nie czyść do momentu, gdy nie jest to naprawdę konieczne, aby nowe centrum było uruchomione i działały prawidłowo. Pamiętaj również, aby przetestować Routing, jeśli używasz tej funkcji. Gdy wszystko będzie gotowe, Wyczyść stare zasoby, wykonując następujące czynności:
 
-* Jeśli jeszcze tego nie zrobiłeś, usuń stary koncentrator. Spowoduje to usunięcie wszystkich aktywnych urządzeń z koncentratora.
+* Jeśli jeszcze tego nie zrobiono, usuń stare centrum. Spowoduje to usunięcie wszystkich aktywnych urządzeń z centrum.
 
-* Jeśli masz zasoby routingu, które zostały przeniesione do nowej lokalizacji, można usunąć stare zasoby routingu.
+* Jeśli masz zasoby routingu, które zostały przeniesione do nowej lokalizacji, możesz usunąć ze starych zasobów routingu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Sklonowałeś centrum IoT hub do nowego koncentratora w nowym regionie wraz z urządzeniami. Aby uzyskać więcej informacji na temat wykonywania operacji zbiorczych w rejestrze tożsamości w Centrum IoT, zobacz [Zbiorcze importowanie i eksportowanie tożsamości urządzeń usługi IoT Hub.](iot-hub-bulk-identity-mgmt.md)
+Usunięto Centrum IoT Hub do nowego centrum w nowym regionie, dokończ pracę z urządzeniami. Aby uzyskać więcej informacji na temat wykonywania operacji zbiorczych w rejestrze tożsamości w IoT Hub, zobacz artykuł [Importowanie i eksportowanie IoT Hub tożsamości urządzeń zbiorczo](iot-hub-bulk-identity-mgmt.md).
 
-Aby uzyskać więcej informacji na temat usługi IoT Hub i rozwoju centrum, zobacz następujące artykuły.
+Aby uzyskać więcej informacji na temat IoT Hub i programowania dla centrum, zobacz następujące artykuły.
 
-* [Przewodnik dla deweloperów usługi IoT Hub](iot-hub-devguide.md)
+* [Przewodnik dewelopera IoT Hub](iot-hub-devguide.md)
 
-* [Samouczek routingu usługi IoT Hub](tutorial-routing.md)
+* [Samouczek routingu IoT Hub](tutorial-routing.md)
 
-* [Omówienie zarządzania urządzeniami w centrum IoT](iot-hub-device-management-overview.md)
+* [IoT Hub zarządzanie urządzeniami — Omówienie](iot-hub-device-management-overview.md)
 
-* Jeśli chcesz wdrożyć przykładową aplikację, zobacz [wdrożenie aplikacji .NET Core](https://docs.microsoft.com/dotnet/core/deploying/index).
+* Jeśli chcesz wdrożyć przykładową aplikację, zobacz [wdrażanie aplikacji .NET Core](https://docs.microsoft.com/dotnet/core/deploying/index).

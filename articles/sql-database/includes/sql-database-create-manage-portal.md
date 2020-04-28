@@ -6,28 +6,28 @@ ms.topic: include
 ms.date: 08/23/2019
 ms.author: sstein
 ms.openlocfilehash: 2a8b9322f7c03d76cd8a31c832c343cde9e2e355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74935821"
 ---
-## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Tworzenie zasobów SQL platformy Azure i zarządzanie nimi za pomocą witryny Azure portal
+## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Tworzenie zasobów usługi Azure SQL i zarządzanie nimi za pomocą Azure Portal
 
-Portal Azure zawiera jedną stronę, na której można zarządzać [wszystkimi zasobami SQL platformy Azure,](https://go.microsoft.com/fwlink/?linkid=2100641) w tym maszynami wirtualnymi SQL.
+Azure Portal zawiera jedną stronę, na której można zarządzać [wszystkimi zasobami usługi Azure SQL, w](https://go.microsoft.com/fwlink/?linkid=2100641) tym maszynami wirtualnymi SQL.
 
-Aby uzyskać dostęp do strony **zasobów SQL platformy Azure,** z menu portalu Azure wybierz sql **azure** lub wyszukaj i wybierz **sql azure** na dowolnej stronie.
+Aby uzyskać dostęp do strony **zasobów SQL platformy Azure** , w menu Azure Portal wybierz pozycję **Azure SQL** lub Wyszukaj, a następnie wybierz pozycję **Azure SQL** na dowolnej stronie.
 
 > [!NOTE]
 > **Usługa Azure SQL** zapewnia szybki i łatwy sposób dostępu do wszystkich baz danych SQL, pul elastycznych, serwerów baz danych, wystąpień zarządzanych SQL i maszyn wirtualnych SQL. Usługa Azure SQL nie jest usługą ani zasobem. 
 
-Aby zarządzać istniejącymi zasobami, wybierz żądany element na liście. Aby utworzyć nowe zasoby SQL platformy Azure, wybierz pozycję **+ Dodaj**. 
+Aby zarządzać istniejącymi zasobami, wybierz żądany element z listy. Aby utworzyć nowe zasoby Azure SQL, wybierz pozycję **+ Dodaj**. 
 
-![Strona portalu SQL platformy Azure](../media/sql-database-technical-overview/add-azure-sql-resources.png)
+![Strona portalu Azure SQL](../media/sql-database-technical-overview/add-azure-sql-resources.png)
 
-Po wybraniu **+ Dodaj**, wyświetl dodatkowe informacje o różnych opcjach, wybierając **pozycję Pokaż szczegóły** na dowolnym kafelku.
+Po wybraniu **+ Dodaj**Wyświetl dodatkowe informacje o różnych opcjach, wybierając pozycję **Pokaż szczegóły** na dowolnym kafelku.
 
-![szczegóły kafelka baz danych](../media/sql-database-technical-overview/single-sql-database-deployment-options.png)
+![Szczegóły kafelka bazy danych](../media/sql-database-technical-overview/single-sql-database-deployment-options.png)
 
 Aby uzyskać szczegółowe informacje, zobacz:
 

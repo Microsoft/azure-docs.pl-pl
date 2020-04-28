@@ -1,6 +1,6 @@
 ---
-title: Uruchom apache Hadoop MapReduce przykłady na HDInsight - Azure
-description: Rozpocznij korzystanie z mapReduce próbek w plikach jar zawarte w HDInsight. Użyj SSH, aby połączyć się z klastrem, a następnie użyj polecenia Hadoop do uruchamiania przykładowych zadań.
+title: Uruchamianie Apache Hadoop przykładów MapReduce w usłudze HDInsight — Azure
+description: Rozpocznij korzystanie z przykładów MapReduce w plikach jar zawartych w usłudze HDInsight. Użyj protokołu SSH do nawiązania połączenia z klastrem, a następnie użyj polecenia Hadoop do uruchomienia przykładowych zadań.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,64 +9,64 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
 ms.openlocfilehash: 58f7d99af638c8d03bbce46b7fcf8204aaca11d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435750"
 ---
-# <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Uruchamianie przykładów mapReduce zawartych w hdinsight
+# <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Uruchamianie przykładów MapReduce zawartych w usłudze HDInsight
 
 [!INCLUDE [samples-selector](../../../includes/hdinsight-run-samples-selector.md)]
 
-Dowiedz się, jak uruchomić przykłady MapReduce zawarte w Apache Hadoop w programie HDInsight.
+Dowiedz się, jak uruchamiać przykłady MapReduce dołączone do Apache Hadoop w usłudze HDInsight.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Klaster Apache Hadoop w programie HDInsight. Zobacz [Wprowadzenie do HDInsight w systemie Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Klaster Apache Hadoop w usłudze HDInsight. Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="the-mapreduce-examples"></a>Przykłady MapReduce
 
-Próbki znajdują się w klastrze HDInsight w punkcie `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`. Kod źródłowy dla tych przykładów znajduje się `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`w klastrze HDInsight w programie .
+Przykłady znajdują się w klastrze usługi HDInsight pod `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`adresem. Kod źródłowy tych przykładów znajduje się w klastrze usługi HDInsight pod adresem `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
 Następujące przykłady są zawarte w tym archiwum:
 
-|Sample |Opis |
+|Przykład |Opis |
 |---|---|
-|suma słów|Zlicza wyrazy w plikach wejściowych.|
+|aggregatewordcount|Zlicza wyrazy w plikach wejściowych.|
 |aggregatewordhist|Oblicza histogram słów w plikach wejściowych.|
-|Bbp|Używa Bailey-Borwein-Plouffe do obliczania dokładnych cyfr Pi.|
-|dbcount (liczba dbcount)|Zlicza dzienniki odsłon przechowywane w bazie danych.|
-|distbbp ( distbbp )|Używa formuły typu BBP do obliczania dokładnych bitów Pi.|
+|bbp|Używa Bailey-Borwein-Plouffe, aby obliczyć dokładne cyfry liczby pi.|
+|dbcount|Zlicza dzienniki pageview przechowywane w bazie danych.|
+|distbbp|Używa formuły typu BBP, aby obliczyć dokładne bity liczby pi.|
 |grep|Zlicza dopasowania wyrażenia regularnego w danych wejściowych.|
-|join|Wykonuje sprzężenie za posortowane, równo podzielone na partycje zestawy danych.|
-|multifilewc|Liczy słowa z kilku plików.|
-|pentomino|Program układania płytek w celu znalezienia rozwiązań problemów pentomino.|
-|Pi|Szacuje Pi metodą quasi-Monte Carlo.|
+|join|Wykonuje sprzężenie przez posortowane, równo partycjonowane zestawy danych.|
+|multifilewc|Zlicza wyrazy z kilku plików.|
+|pentomino|Program do rozmieszczania kafelków, aby znaleźć rozwiązania do pentomino problemów.|
+|przetwarzania|Szacuje pi przy użyciu metody quasi-Monte Carlo.|
 |randomtextwriter|Zapisuje 10 GB losowych danych tekstowych na węzeł.|
-|randomwriter|Zapisuje 10 GB losowych danych na węzeł.|
-|wtórnyort|Definiuje sortowanie pomocnicze do fazy redukcji.|
-|sort|Sortuje dane napisane przez moduł zapisujący losowo.|
-|Sudoku|Solver sudoku.|
-|teragen|Generowanie danych dla terasort.|
-|terasort ( terasort )|Uruchom terasort.|
-|terawalidate|Sprawdzanie wyników terasort.|
-|Wordcount|Zlicza wyrazy w plikach wejściowych.|
-|słowomean|Zlicza średnią długość wyrazów w plikach wejściowych.|
-|wordmedian (wordmedian)|Zlicza średnią długość wyrazów w plikach wejściowych.|
+|randomwriter|Zapisuje 10 GB danych losowych na węzeł.|
+|secondarysort|Definiuje dodatkowe sortowanie do fazy zmniejszania.|
+|sort|Sortuje dane zapisywane przez losowy moduł zapisujący.|
+|sudoku|Sudoku.|
+|teragen|Generuj dane dla terasort.|
+|terasort|Uruchom terasort.|
+|teravalidate|Sprawdzanie wyników terasort.|
+|WORDCOUNT|Zlicza wyrazy w plikach wejściowych.|
+|wordmean|Zlicza średnią długość wyrazów w plikach wejściowych.|
+|wordmedian|Zlicza średnią długość wyrazów w plikach wejściowych.|
 |wordstandarddeviation|Zlicza odchylenie standardowe długości wyrazów w plikach wejściowych.|
 
-## <a name="run-the-wordcount-example"></a>Uruchamianie przykładu wordcount
+## <a name="run-the-wordcount-example"></a>Uruchamianie przykładu WORDCOUNT
 
-1. Połącz się z HDInsight za pomocą SSH. Zamień `CLUSTER` nazwę klastra, a następnie wprowadź następujące polecenie:
+1. Nawiązywanie połączenia z usługą HDInsight przy użyciu protokołu SSH. Zamień `CLUSTER` na nazwę klastra, a następnie wprowadź następujące polecenie:
 
     ```cmd
     ssh sshuser@CLUSTER-ssh.azurehdinsight.net
     ```
 
-2. W sesji SSH użyj następującego polecenia, aby wyświetlić listę próbek:
+2. W sesji SSH Użyj następującego polecenia, aby wyświetlić listę przykładów:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -74,7 +74,7 @@ Następujące przykłady są zawarte w tym archiwum:
 
     To polecenie generuje listę przykładów z poprzedniej sekcji tego dokumentu.
 
-3. Użyj następującego polecenia, aby uzyskać pomoc dotyczącą określonego przykładu. W takim przypadku **przykładowy licznik słów:**
+3. Użyj poniższego polecenia, aby uzyskać pomoc dotyczącą konkretnego przykładu. W tym przypadku przykład **WORDCOUNT** :
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
@@ -86,18 +86,18 @@ Następujące przykłady są zawarte w tym archiwum:
     Usage: wordcount <in> [<in>...] <out>
     ```
 
-    Ten komunikat wskazuje, że można podać kilka ścieżek wejściowych dla dokumentów źródłowych. Końcowa ścieżka jest, gdzie dane wyjściowe (liczba słów w dokumentach źródłowych) jest przechowywany.
+    Ten komunikat oznacza, że można podać kilka ścieżek wejściowych dla dokumentów źródłowych. Końcowa ścieżka to miejsce, w którym przechowywane są dane wyjściowe (liczba wyrazów w dokumentach źródłowych).
 
-4. Poniższe elementy służą do zliczania wszystkich słów w notesach Leonarda da Vinci, które są dostarczane jako przykładowe dane w klastrze:
+4. Użyj następujących elementów, aby obliczyć wszystkie słowa w notesach Leonardo da Vinci, które są dostarczane jako przykładowe dane do klastra:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
     ```
 
-    Dane wejściowe dla `/example/data/gutenberg/davinci.txt`tego zadania jest odczytywany z . Dane wyjściowe w `/example/data/davinciwordcount`tym przykładzie są przechowywane w pliku . Obie ścieżki znajdują się w domyślnym magazynie klastra, a nie w lokalnym systemie plików.
+    Dane wejściowe dla tego zadania są odczytywane z `/example/data/gutenberg/davinci.txt`. Dane wyjściowe tego przykładu są przechowywane `/example/data/davinciwordcount`w. Obie ścieżki znajdują się w domyślnym magazynie dla klastra, a nie w lokalnym systemie plików.
 
    > [!NOTE]  
-   > Jak wspomniano w pomocy dla wordcount próbki, można również określić wiele plików wejściowych. Na przykład `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` można policzyć wyrazy zarówno w davinci.txt i ulysses.txt.
+   > Jak wskazano w pomocy dla przykładu WORDCOUNT, można również określić wiele plików wejściowych. Załóżmy na przykład `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` , że liczba wyrazów w obu DaVinci. txt i Ulysses. txt.
 
 5. Po zakończeniu zadania użyj następującego polecenia, aby wyświetlić dane wyjściowe:
 
@@ -105,24 +105,24 @@ Następujące przykłady są zawarte w tym archiwum:
     hdfs dfs -cat /example/data/davinciwordcount/*
     ```
 
-    To polecenie łączy wszystkie pliki wyjściowe produkowane przez zadanie. Wyświetla dane wyjściowe do konsoli. Dane wyjściowe będą podobne do następującego tekstu:
+    To polecenie łączy wszystkie pliki wyjściowe wytwarzane przez zadanie. Dane wyjściowe są wyświetlane w konsoli programu. Dane wyjściowe będą podobne do następującego tekstu:
 
         zum     1
         zur     1
         zwanzig 1
         zweite  1
 
-    Każdy wiersz reprezentuje wyraz i ile razy wystąpił w danych wejściowych.
+    Każdy wiersz reprezentuje słowo i liczbę przypadków, w których wystąpiły dane wejściowe.
 
 ## <a name="the-sudoku-example"></a>Przykład Sudoku
 
-[Sudoku](https://en.wikipedia.org/wiki/Sudoku) to logiczna układanka składająca się z dziewięciu siatek 3x3. Niektóre komórki w siatce mają liczby, podczas gdy inne są puste, a celem jest rozwiązanie pustych komórek. Poprzedni link zawiera więcej informacji na temat układanki, ale celem tego przykładu jest rozwiązanie dla pustych komórek. Więc nasze dane wejściowe powinny być plikiem, który jest w następującym formacie:
+[Sudoku](https://en.wikipedia.org/wiki/Sudoku) to logika logiki składająca się z dziewięciu siatek 3x3. Niektóre komórki w siatce mają liczby, a inne są puste i celem jest rozwiązanie dla pustych komórek. Poprzedni link zawiera więcej informacji na temat układanki, ale celem tego przykładu jest rozwiązanie dla pustych komórek. Dlatego nasze dane wejściowe powinny być plikami w następującym formacie:
 
-* Dziewięć wierszy po dziewięć kolumn
-* Każda kolumna może zawierać `?` liczbę lub (co wskazuje pustą komórkę)
-* Komórki są oddzielone spacją
+* Dziewięć wierszy dziewięciu kolumn
+* Każda kolumna może zawierać liczbę lub `?` (która wskazuje pustą komórkę)
+* Komórki są rozdzielone spacjami
 
-Istnieje pewien sposób konstruowania zagadek Sudoku; nie można powtórzyć liczby w kolumnie lub wierszu. Istnieje przykład w klastrze HDInsight, który jest prawidłowo skonstruowany. Znajduje się `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` w i zawiera następujący tekst:
+Istnieje pewien sposób konstruowania Sudoku układanki; nie można powtórzyć liczby w kolumnie lub wierszu. Istnieje przykład w klastrze usługi HDInsight, który jest prawidłowo skonstruowany. Znajduje się on pod `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` adresem i zawiera następujący tekst:
 
     8 5 ? 3 9 ? ? ? ?
     ? ? 2 ? ? ? ? ? ?
@@ -134,13 +134,13 @@ Istnieje pewien sposób konstruowania zagadek Sudoku; nie można powtórzyć lic
     ? ? ? ? ? ? 2 ? ?
     ? ? ? ? 4 5 ? 7 8
 
-Aby uruchomić ten przykładowy problem w przykładzie Sudoku, użyj następującego polecenia:
+Aby uruchomić ten przykładowy problem za pomocą przykładu Sudoku, użyj następującego polecenia:
 
 ```bash
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
 ```
 
-Wyniki są podobne do następującego tekstu:
+Wyniki wyglądają podobnie do następującego tekstu:
 
     8 5 1 3 9 2 6 4 7
     4 3 2 6 7 8 1 9 5
@@ -152,45 +152,45 @@ Wyniki są podobne do następującego tekstu:
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## <a name="pi--example"></a>Przykład Pi (π)
+## <a name="pi--example"></a>Przykład PI (π)
 
-Próbka pi wykorzystuje metodę statystyczną (quasi-Monte Carlo) do oszacowania wartości pi. Punkty są umieszczane losowo w kwadracie jednostki. Kwadrat zawiera również okrąg. Prawdopodobieństwo, że punkty mieszczą się w okręgu, jest równe obszarowi okręgu, pi/4. Wartość pi można oszacować na podstawie wartości 4R. R jest stosunkiem liczby punktów znajdujących się wewnątrz okręgu do całkowitej liczby punktów znajdujących się w obrębie kwadratu. Im większa próbka użytych punktów, tym lepsze jest oszacowanie.
+Przykład pi używa metody statystycznej (quasi-Monte Carlo) do oszacowania wartości liczby pi. Punkty są umieszczane losowo w kwadracie Unit. Kwadrat zawiera również okrąg. Prawdopodobieństwo, że punkty mieszczą się w okręgu, jest równe powierzchni okręgu, PI/4. Wartość pi można oszacować na podstawie wartości 4R. R jest stosunkiem liczby punktów, które znajdują się w okręgu, do całkowitej liczby punktów w kwadracie. Im większy przykład używanych punktów, tym lepsze jest oszacowanie.
 
-Aby uruchomić ten przykład, użyj następującego polecenia. To polecenie używa 16 map z 10,000,000 próbek każdy do oszacowania wartości pi:
+Użyj następującego polecenia, aby uruchomić ten przykład. To polecenie używa 16 map z 10 000 000 próbek każdego do oszacowania wartości pi:
 
 ```bash
 yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 ```
 
-Wartość zwracana przez to polecenie jest podobna do **wartości 3.1415915500000000000000000000000.** W przypadku odwołań pierwsze 10 miejsc po przecinku pi to 3.1415926535.
+Wartość zwracana przez to polecenie jest podobna do **3.14159155000000000000**. W przypadku odwołań pierwsze 10 miejsc dziesiętnych Pi to 3,1415926535.
 
-## <a name="10-gb-graysort-example"></a>Przykład GraySort 10 GB
+## <a name="10-gb-graysort-example"></a>przykład 10 GB GraySort
 
-GraySort jest sortem odniesienia. Metryka jest szybkość sortowania (TB/minute), który jest osiągany podczas sortowania dużych ilości danych, zwykle minimum 100 TB.
+GraySort jest sortowaniem porównawczym. Metryka jest szybkością sortowania (TB/minutę), która jest osiągana podczas sortowania dużych ilości danych, zazwyczaj minimum 100 TB.
 
-W tym przykładzie użyto skromnych 10 GB danych, dzięki czemu można je uruchomić stosunkowo szybko. Wykorzystuje aplikacje MapReduce opracowane przez Owena O'Malleya i Aruna Murthy'ego. W 2009 r. wnioski te uzyskały roczny wskaźnik sortowania terabajtów ogólnego przeznaczenia ("Daytona"), z szybkością 0,578 TB/min (100 TB w 173 minuty). Aby uzyskać więcej informacji na temat tego i innych testów porównawczych sortowania, zobacz witrynę [Sort benchmark.](https://sortbenchmark.org/)
+Ten przykład używa umiarkowanie 10 GB danych, aby można go było uruchomić stosunkowo szybko. Używa aplikacji MapReduce opracowanych przez Owen O'Malley i Arun Murthy. Te aplikacje zdobyły roczny wynik sortowania ("Daytona") terabajt w 2009 z częstotliwością 0,578 TB/min (100 TB w ciągu 173 minut). Aby uzyskać więcej informacji na temat tego i innych testów porównawczych, zobacz stronę [porównawczą sortowania](https://sortbenchmark.org/) .
 
-W tym przykładzie użyto trzech zestawów programów MapReduce:
+Ten przykład używa trzech zestawów programów MapReduce:
 
-* **TeraGen**: Program MapReduce, który generuje wiersze danych do sortowania
+* **TeraGen**: program MapReduce, który generuje wiersze danych do sortowania
 
-* **TeraSort**: Próbki danych wejściowych i używa MapReduce do sortowania danych w całkowitej kolejności
+* **TeraSort**: próbkuje dane wejściowe i używa MapReduce do sortowania danych w całkowitej kolejności
 
-    TeraSort jest standardowym sortem MapReduce, z wyjątkiem niestandardowego partycjonowania. Partycjonujący używa posortowane listy N-1 próbkowane klucze, które definiują zakres kluczy dla każdego zmniejszenia. W szczególności wszystkie klucze takie jak, że próbka[i-1] <= klucz < próbki[i] są wysyłane w celu zmniejszenia i. Ten partycjoner gwarantuje, że wyjścia reduce i są mniejsze niż wyjście reduce i + 1.
+    TeraSort jest standardowym sortowaniem MapReduce, z wyjątkiem niestandardowych partycji. Program Partitioner używa posortowanej listy kluczy próbkowanych N-1, które definiują zakres kluczy dla każdego zmniejszenia. W szczególności wszystkie klucze takie jak przykład [i-1] <= Key < przykład [i] są wysyłane, aby zmniejszyć i. Ta partycja gwarantuje, że dane wyjściowe zmniejszenia i są mniejsze niż wyniki zmniejszenia i + 1.
 
-* **TeraValidate:** Program MapReduce, który sprawdza, czy dane wyjściowe są posortowane globalnie
+* **TeraValidate**: program MapReduce, który sprawdza, czy dane wyjściowe są sortowane globalnie
 
-    Tworzy jedną mapę na plik w katalogu wyjściowym, a każda mapa zapewnia, że każdy klucz jest mniejszy lub równy poprzedniemu. Funkcja mapy generuje rekordy pierwszego i ostatniego klucza każdego pliku. Funkcja reduce zapewnia, że pierwszy klucz pliku i jest większy niż ostatni klucz pliku i-1. Wszelkie problemy są zgłaszane jako dane wyjściowe fazy redukcji, z kluczami, które są nie w porządku.
+    Tworzy jedną mapę na plik w katalogu wyjściowym, a każda Mapa gwarantuje, że każdy klucz jest mniejszy lub równy poprzedniemu. Funkcja map generuje rekordy z pierwszego i ostatniego klucza każdego pliku. Funkcja Zmniejsz zapewnia, że pierwszy klucz pliku jest większy niż ostatni klucz pliku i-1. Wszelkie problemy są raportowane jako dane wyjściowe fazy zmniejszania z nieuporządkowanymi kluczami.
 
-Aby wygenerować dane, posortować, a następnie sprawdzić poprawność danych wyjściowych, należy wykonać następujące czynności:
+Wykonaj następujące kroki, aby wygenerować dane, sortować, a następnie sprawdzić poprawność danych wyjściowych:
 
-1. Wygeneruj 10 GB danych, które są przechowywane w `/example/data/10GB-sort-input`domyślnym magazynie klastra HDInsight pod adresem:
+1. Wygeneruj 10 GB danych, które są przechowywane w domyślnym magazynie klastra usługi HDInsight w lokalizacji `/example/data/10GB-sort-input`:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
     ```
 
-    Informuje `-Dmapred.map.tasks` Hadoop, ile zadań mapy do wykorzystania dla tego zadania. Ostatnie dwa parametry poinstruują zadanie, aby utworzyć 10 GB danych i zapisać je w . `/example/data/10GB-sort-input`
+    Wskazuje `-Dmapred.map.tasks` , ile zadań mapy ma używać dla tego zadania. Ostatnie dwa parametry instruują zadanie, aby utworzyć 10 GB danych i przechowywać ją w lokalizacji `/example/data/10GB-sort-input`.
 
 2. Użyj następującego polecenia, aby posortować dane:
 
@@ -198,9 +198,9 @@ Aby wygenerować dane, posortować, a następnie sprawdzić poprawność danych 
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
     ```
 
-    Informuje `-Dmapred.reduce.tasks` Hadoop, ile zmniejszyć zadania do wykorzystania w zadaniu. Ostatnie dwa parametry to tylko lokalizacje wejściowe i wyjściowe danych.
+    Zawiera `-Dmapred.reduce.tasks` informacje o tym, jak wiele zmniejszy zadania do użycia w ramach zadania. Ostatnie dwa parametry są tylko lokalizacjami wejściowymi i wyjściowymi danych.
 
-3. Aby sprawdzić poprawność danych generowanych przez sortowanie, należy użyć następujących właściwości:
+3. Aby sprawdzić dane wygenerowane przez sortowanie, wykonaj następujące czynności:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
@@ -208,7 +208,7 @@ Aby wygenerować dane, posortować, a następnie sprawdzić poprawność danych 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Z tego artykułu dowiesz się, jak uruchomić przykłady dołączone do klastrów HDInsight opartych na systemie Linux. Aby uzyskać samouczki dotyczące korzystania z pig, hive i MapReduce z HDInsight, zobacz następujące tematy:
+W tym artykule przedstawiono sposób uruchamiania przykładów dołączonych do klastrów usługi HDInsight opartych na systemie Linux. Samouczki dotyczące używania świń, Hive i MapReduce z usługą HDInsight można znaleźć w następujących tematach:
 
-* [Użyj Apache Hive z Apache Hadoop na HDInsight](hdinsight-use-hive.md)
-* [Użyj MapReduce z Apache Hadoop na HDInsight](hdinsight-use-mapreduce.md)
+* [Używanie Apache Hive z Apache Hadoop w usłudze HDInsight](hdinsight-use-hive.md)
+* [Używanie MapReduce z usługą Apache Hadoop w usłudze HDInsight](hdinsight-use-mapreduce.md)

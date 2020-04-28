@@ -1,6 +1,6 @@
 ---
-title: Opis monitorowania zadań w usłudze Azure Stream Analytics
-description: W tym artykule opisano sposób monitorowania zadań usługi Azure Stream Analytics w witrynie Azure portal.
+title: Informacje o monitorowaniu zadań w Azure Stream Analytics
+description: W tym artykule opisano sposób monitorowania Azure Stream Analytics zadań w Azure Portal.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,60 +9,60 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
 ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75431653"
 ---
-# <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Opis monitorowania zadań usługi Stream Analytics i monitorowania zapytań
+# <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informacje o monitorowaniu zadań Stream Analytics i sposobach monitorowania zapytań
 
-## <a name="introduction-the-monitor-page"></a>Wprowadzenie: Strona monitora
-Portal Azure powierzchnie kluczowych metryk wydajności, które mogą służyć do monitorowania i rozwiązywania problemów z kwerendą i wydajnością zadania. Aby wyświetlić te dane, przejdź do zadania usługi Stream Analytics, które Chcesz zobaczyć metryki i wyświetlić sekcję **Monitorowanie** na stronie Przegląd.  
+## <a name="introduction-the-monitor-page"></a>Wprowadzenie: Strona monitorowanie
+Azure Portal prezentuje kluczowe metryki wydajności, których można użyć do monitorowania i rozwiązywania problemów z zapytaniami i wydajnością zadań. Aby wyświetlić te metryki, przejdź do Stream Analytics zadania, w którym widzisz metryki, i Wyświetl sekcję **monitorowanie** na stronie Przegląd.  
 
-![Łącze monitorowania zadań usługi Usługi Stream Analytics](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
+![Link monitorowania zadania Stream Analytics](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
-Okno pojawi się w sposób pokazany:
+Okno zostanie wyświetlone w sposób pokazany:
 
-![Pulpit nawigacyjny monitorowania zadań usługi Usługi Stream Analytics](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+![Pulpit nawigacyjny monitorowania zadania Stream Analytics](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
-## <a name="metrics-available-for-stream-analytics"></a>Dane dostępne dla usługi Stream Analytics
+## <a name="metrics-available-for-stream-analytics"></a>Metryki dostępne dla Stream Analytics
 | Metryka                 | Definicja                               |
 | ---------------------- | ---------------------------------------- |
-| Zaległe zdarzenia wejściowe       | Liczba zdarzeń wejściowych, które są zaległe. Wartość niezerowa dla tej metryki oznacza, że zadanie nie jest w stanie nadążyć za liczbą zdarzeń przychodzących. Jeśli ta wartość jest powoli rośnie lub konsekwentnie niezerować, należy skalować w poziomie zadania. Możesz dowiedzieć się więcej, odwiedzając [zrozumieć i dostosować jednostki przesyłania strumieniowego](stream-analytics-streaming-unit-consumption.md). |
-| Błędy konwersji danych | Liczba zdarzeń wyjściowych, których nie można przekonwertować na oczekiwany schemat wyjściowy. Zasady błędów można zmienić na "Upuść", aby upuścić zdarzenia, które napotykają ten scenariusz. |
-| Zdarzenia wczesnego wprowadzania       | Zdarzenia, których sygnatura czasowa aplikacji jest wcześniejsza niż czas przybycia o więcej niż 5 minut. |
-| Nieudane żądania funkcji | Liczba nieudanych wywołań funkcji usługi Azure Machine Learning (jeśli jest obecna). |
-| Zdarzenia funkcji        | Liczba zdarzeń wysłanych do funkcji usługi Azure Machine Learning (jeśli jest obecna). |
-| Żądania funkcji      | Liczba wywołań funkcji usługi Azure Machine Learning (jeśli jest obecna). |
-| Błędy deserializacji danych wejściowych       | Liczba zdarzeń wejściowych, których nie można zdesenializować.  |
-| Bajty zdarzenia wejściowego      | Ilość danych odebranych przez zadanie usługi Stream Analytics w bajtach. To może służyć do sprawdzania poprawności, że zdarzenia są wysyłane do źródła wejściowego. |
-| Zdarzenia wejściowe           | Liczba rekordów zdań z zdarzeń wejściowych. Ta liczba nie obejmuje przychodzących zdarzeń, które powodują błędy deserializacji. |
-| Odebrane źródła wejściowe       | Liczba wiadomości odebranych przez zadanie. W przypadku Centrum zdarzeń komunikat jest pojedynczym EventData. W przypadku obiektów blob wiadomość jest pojedynczym obiektem blob. Należy pamiętać, że źródła wejściowe są liczone przed deserializacji. Jeśli występują błędy deserializacji, źródła wejściowe mogą być większe niż zdarzenia wejściowe. W przeciwnym razie może być mniejsza lub równa zdarzeń wejściowych, ponieważ każda wiadomość może zawierać wiele zdarzeń. |
-| Zdarzenia późnego wprowadzania      | Zdarzenia, które dotarły później niż skonfigurowane okno tolerancji późnego przybycia. Dowiedz się więcej o [zagadnieniach dotyczących zamówień zdarzeń usługi Azure Stream Analytics.](stream-analytics-out-of-order-and-late-events.md) |
-| Zdarzenia poza kolejnością    | Liczba zdarzeń odebranych poza kolejnością, które zostały usunięte lub podane skorygowany sygnatura czasowa, na podstawie zasad zamawiania zdarzeń. Może mieć na to wpływ konfiguracja ustawienia okna tolerancja poza kolejnością. |
-| Zdarzenia wyjściowe          | Ilość danych wysyłanych przez zadanie usługi Stream Analytics do obiektu docelowego danych wyjściowych w liczbie zdarzeń. |
-| Błędy środowiska uruchomieniowego         | Całkowita liczba błędów związanych z przetwarzaniem zapytań (z wyłączeniem błędów znalezionych podczas pozyskiwania zdarzeń lub wyprowadzania wyników) |
-| Wykorzystanie SU %       | Wykorzystanie jednostek przesyłania strumieniowego przypisanych do zadania na karcie Skalowanie zadania. Jeśli wskaźnik ten osiągnie 80% lub powyżej, istnieje duże prawdopodobieństwo, że przetwarzanie zdarzeń może być opóźnione lub zatrzymane. |
-| Opóźnienie znaku wodnego       | Maksymalne opóźnienie znaku wodnego we wszystkich partycjach wszystkich wyjść w zadaniu. |
+| Zaległe zdarzenia wejściowe       | Liczba zarejestrowanych zdarzeń wejściowych. Wartość różna od zera dla tej metryki oznacza, że zadanie nie jest w stanie zachować liczby zdarzeń przychodzących. Jeśli ta wartość jest powoli zwiększana lub konsekwentnie różna od zera, należy przeskalować zadanie. Więcej informacji można znaleźć w [opisie i dostosowaniu jednostek przesyłania strumieniowego](stream-analytics-streaming-unit-consumption.md). |
+| Błędy konwersji danych | Liczba zdarzeń wyjściowych, których nie można przekonwertować na oczekiwany schemat wyjściowy. Zasady błędów można zmienić na "Drop", aby porzucić zdarzenia, które napotykają ten scenariusz. |
+| Wczesne zdarzenia wejściowe       | Zdarzenia, których sygnatura czasowa aplikacji jest wcześniejsza niż ich czas przybycia o więcej niż 5 minut. |
+| Nieudane żądania funkcji | Liczba wywołań funkcji zakończonych niepowodzeniem Azure Machine Learning (jeśli istnieją). |
+| Zdarzenia funkcji        | Liczba zdarzeń wysyłanych do funkcji Azure Machine Learning (jeśli istnieje). |
+| Żądania funkcji      | Liczba wywołań funkcji Azure Machine Learning (jeśli istnieje). |
+| Błędy deserializacji danych wejściowych       | Liczba zdarzeń wejściowych, których nie można zdeserializować.  |
+| Bajty zdarzeń wejściowych      | Ilość danych odebranych przez zadanie Stream Analytics w bajtach. Można go użyć do sprawdzenia, czy zdarzenia są wysyłane do źródła danych wejściowych. |
+| Zdarzenia wejściowe           | Liczba rekordów deserializowanych ze zdarzeń wejściowych. Ta liczba nie obejmuje zdarzeń przychodzących, które powodują błędy deserializacji. |
+| Odebrane źródła danych wejściowych       | Liczba komunikatów odebranych przez zadanie. W przypadku usługi Event Hub komunikat to pojedynczy EventData. W przypadku obiektu BLOB komunikat jest pojedynczym obiektem BLOB. Należy pamiętać, że źródła danych wejściowych są zliczane przed deserializacji. Jeśli występują błędy deserializacji, źródła danych wejściowych mogą być większe niż zdarzenia wejściowe. W przeciwnym razie może być mniejsze niż lub równe zdarzenia wejściowe, ponieważ każdy komunikat może zawierać wiele zdarzeń. |
+| Opóźnione zdarzenia wejściowe      | Zdarzenia, które dotarły później niż skonfigurowane okno tolerancji opóźnionego przybycia. Dowiedz się więcej na temat [zagadnień dotyczących kolejności zdarzeń Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md) . |
+| Zdarzenia poza kolejnością    | Liczba zdarzeń odebranych poza kolejnością, które zostały usunięte lub uzyskały skorygowaną sygnaturę czasową, na podstawie zasad określania kolejności zdarzeń. Może to mieć wpływ na konfigurację ustawienia okna tolerancja poza kolejnością. |
+| Zdarzenia wyjściowe          | Ilość danych wysyłanych przez zadanie Stream Analytics do elementu docelowego danych wyjściowych, w liczbie zdarzeń. |
+| Błędy środowiska uruchomieniowego         | Łączna liczba błędów związanych z przetwarzaniem zapytań (z wyjątkiem błędów znalezionych podczas pozyskiwania zdarzeń lub wyprowadzania wyników) |
+| Użycie SU%       | Wykorzystanie jednostek przesyłania strumieniowego przypisanych do zadania z karty skala zadania. Jeśli ten wskaźnik osiągnie 80%, lub powyżej, istnieje wysokie prawdopodobieństwo, że przetwarzanie zdarzeń może być opóźnione lub zatrzymane w toku. |
+| Opóźnienie znaku wodnego       | Maksymalne opóźnienie dla wszystkich partycji wszystkich danych wyjściowych w zadaniu. |
 
-Za pomocą tych danych można [monitorować wydajność zadania usługi Stream Analytics.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor) 
+Możesz użyć tych metryk do [monitorowania wydajności zadania Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). 
 
-## <a name="customizing-monitoring-in-the-azure-portal"></a>Dostosowywanie monitorowania w witrynie Azure portal
-Typ wykresu, wyświetlane dane i zakres czasu można dostosować w ustawieniach edytuj wykres. Aby uzyskać szczegółowe informacje, zobacz [Jak dostosować monitorowanie](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+## <a name="customizing-monitoring-in-the-azure-portal"></a>Dostosowywanie monitorowania w Azure Portal
+Możesz dostosować typ wykresu, pokazywane metryki i zakres czasu w ustawieniach edycji wykresu. Aby uzyskać szczegółowe informacje, zobacz [How to Dostosowywanie monitorowania](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-  ![Wykres czasu monitorowania zapytań usługi Stream Analytics](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![Wykres Stream Analytics czasu monitora zapytania](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 
 ## <a name="latest-output"></a>Najnowsze dane wyjściowe
-Innym interesującym punktem danych do monitorowania zadania jest czas ostatniego wyjścia, pokazany na stronie Przegląd.
-Tym razem jest to czas aplikacji (tj. czas przy użyciu sygnatury czasowej z danych zdarzeń) najnowszych danych wyjściowych zadania.
+Innym interesującym punktem danych do monitorowania zadania jest czas ostatniego wyjścia przedstawiony na stronie Przegląd.
+Jest to czas aplikacji (tj. czas, który używa sygnatury czasowej z danych zdarzenia) najnowszych danych wyjściowych zadania.
 
 ## <a name="get-help"></a>Uzyskiwanie pomocy
 Aby uzyskać dalszą pomoc, skorzystaj z naszego [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
+* [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

@@ -1,7 +1,7 @@
 ---
-title: Tworzenie sygnatury dostępu Współdzielonego delegowania użytkowników dla kontenera lub obiektu blob za pomocą interfejsu wiersza polecenia platformy Azure
+title: Używanie interfejsu wiersza polecenia platformy Azure do tworzenia sygnatury dostępu współdzielonego użytkownika dla kontenera lub obiektu BLOB
 titleSuffix: Azure Storage
-description: Dowiedz się, jak utworzyć sygnatury dostępu Współdzielonego delegowania użytkowników przy użyciu poświadczeń usługi Azure Active Directory przy użyciu interfejsu wiersza polecenia platformy Azure.
+description: Dowiedz się, jak utworzyć sygnaturę dostępu współdzielonego użytkownika z poświadczeniami Azure Active Directory przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,39 +11,39 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "75371993"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Tworzenie sygnatury dostępu Współdzielonego delegowania użytkowników dla kontenera lub obiektu blob za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Tworzenie sygnatury dostępu współdzielonego użytkownika dla kontenera lub obiektu BLOB za pomocą interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-W tym artykule pokazano, jak używać poświadczeń usługi Azure Active Directory (Azure AD) do tworzenia sygnatury dostępu Współdzielonego delegowania użytkowników dla kontenera lub obiektu blob z interfejsem wiersza polecenia platformy Azure.
+W tym artykule pokazano, jak używać poświadczeń usługi Azure Active Directory (Azure AD) do tworzenia sygnatury dostępu współdzielonego użytkownika dla kontenera lub obiektu BLOB za pomocą interfejsu wiersza polecenia platformy Azure.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## <a name="install-the-latest-version-of-the-azure-cli"></a>Zainstalowanie najnowszej wersji interfejsu wiersza polecenia platformy Azure
 
-Aby użyć interfejsu wiersza polecenia platformy Azure do zabezpieczenia sygnatury dostępu Współdzielonego za pomocą poświadczeń usługi Azure AD, najpierw upewnij się, że zainstalowano najnowszą wersję interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Aby użyć interfejsu wiersza polecenia platformy Azure do zabezpieczenia sygnatury dostępu współdzielonego przy użyciu poświadczeń usługi Azure AD, najpierw upewnij się, że zainstalowano najnowszą wersję interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-Aby utworzyć sygnatury dostępu Współdzielonego delegowania użytkowników przy użyciu interfejsu wiersza polecenia platformy Azure, upewnij się, że zainstalowano wersję 2.0.78 lub nowszą. Aby sprawdzić zainstalowaną wersję, użyj `az --version` polecenia.
+Aby utworzyć delegata delegowania użytkowników przy użyciu interfejsu wiersza polecenia platformy Azure, upewnij się, że zainstalowano wersję 2.0.78 lub nowszą. Aby sprawdzić zainstalowaną wersję, użyj `az --version` polecenia.
 
-## <a name="sign-in-with-azure-ad-credentials"></a>Logowanie się przy użyciu poświadczeń usługi Azure AD
+## <a name="sign-in-with-azure-ad-credentials"></a>Zaloguj się przy użyciu poświadczeń usługi Azure AD
 
 Zaloguj się do interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz temat [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli).
 
-## <a name="assign-permissions-with-rbac"></a>Przypisywanie uprawnień za pomocą funkcji RBAC
+## <a name="assign-permissions-with-rbac"></a>Przypisywanie uprawnień przy użyciu RBAC
 
-Aby utworzyć sygnatury dostępu Współdzielonego delegowania użytkowników z usługi Azure PowerShell, konto usługi Azure AD używane do logowania się do interfejsu wiersza polecenia platformy Azure musi być przypisane roli, która zawiera akcję **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** To uprawnienie umożliwia kontu usługi Azure AD żądanie *klucza delegowania użytkownika.* Klucz delegowania użytkowników służy do podpisywania sygnatury dostępu Współdzielonego delegowania użytkowników. Rola zapewniająca akcję **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** musi być przypisana na poziomie konta magazynu, grupy zasobów lub subskrypcji.
+Aby można było utworzyć sygnaturę dostępu współdzielonego delegowania użytkownika z Azure PowerShell, konto usługi Azure AD używane do logowania się do interfejsu wiersza polecenia platformy Azure musi mieć przypisaną rolę obejmującą akcję **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . To uprawnienie umożliwia kontu usługi Azure AD zażądanie *klucza delegowania użytkownika*. Klucz delegowania użytkownika służy do podpisywania sygnatury dostępu współdzielonego delegowania użytkownika. Rola dostarczająca akcję **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** musi być przypisana na poziomie konta magazynu, grupy zasobów lub subskrypcji.
 
-Jeśli nie masz wystarczających uprawnień do przypisywania ról RBAC do podmiotu zabezpieczeń usługi Azure AD, może być konieczne zwrócenie się do właściciela konta lub administratora o przypisanie niezbędnych uprawnień.
+Jeśli nie masz wystarczających uprawnień do przypisywania ról RBAC do podmiotu zabezpieczeń usługi Azure AD, może być konieczne poproszenie właściciela konta lub administratora, aby przypisał odpowiednie uprawnienia.
 
-Poniższy przykład przypisuje **rolę współautora danych obiektu Blob magazynu,** która obejmuje akcję **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** Rola jest o zakresie na poziomie konta magazynu.
+Poniższy przykład przypisuje rolę **współautor danych obiektów blob magazynu** , która obejmuje akcję **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Rola jest objęta zakresem na poziomie konta magazynu.
 
-Pamiętaj, aby zastąpić wartości zastępcze w nawiasach kątowych własnymi wartościami:
+Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
 
 ```azurecli-interactive
 az role assignment create \
@@ -52,23 +52,23 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Aby uzyskać więcej informacji na temat wbudowanych ról, które obejmują akcję **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey,** zobacz [Wbudowane role zasobów platformy Azure](../../role-based-access-control/built-in-roles.md).
+Aby uzyskać więcej informacji na temat wbudowanych ról zawierających akcję **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** , zobacz [wbudowane role dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md).
 
-## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Zabezpieczanie sygnatury dostępu Współdzielonego za pomocą poświadczeń usługi Azure AD
+## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Zabezpieczanie sygnatury dostępu współdzielonego przy użyciu poświadczeń usługi Azure AD
 
-Podczas tworzenia sygnatury dostępu Współdzielonego delegowania użytkownika za pomocą interfejsu wiersza polecenia platformy Azure klucz delegowania użytkownika, który jest używany do podpisywania sygnatury dostępu Współdzielonego jest tworzony dla Ciebie niejawnie. Czas rozpoczęcia i czas wygaśnięcia określony dla sygnatury dostępu Współdzielonego są również używane jako czas rozpoczęcia i czasu wygaśnięcia klucza delegowania użytkownika.
+Gdy tworzysz sygnaturę dostępu współdzielonego użytkownika przy użyciu interfejsu wiersza polecenia platformy Azure, klucz delegowania użytkownika używany do podpisywania sygnatury dostępu współdzielonego jest tworzony niejawnie. Czas rozpoczęcia i czas wygaśnięcia określony dla sygnatury dostępu współdzielonego są również używane jako czas rozpoczęcia i czas wygaśnięcia klucza delegowania użytkownika.
 
-Ponieważ maksymalny interwał, w którym klucz delegowania użytkownika jest prawidłowy, wynosi 7 dni od daty rozpoczęcia, należy określić czas wygaśnięcia sygnatury dostępu Współdzielonego, który znajduje się w ciągu 7 dni od godziny rozpoczęcia. Sygnatura dostępu Współdzielonego jest nieprawidłowa po wygaśnięciu klucza delegowania użytkownika, więc sygnatury dostępu Współdzielonego z czasem wygaśnięcia większym niż 7 dni będzie nadal ważny tylko przez 7 dni.
+Ze względu na to, że maksymalny interwał ważności klucza delegowania użytkownika wynosi 7 dni od daty rozpoczęcia, należy określić czas wygaśnięcia dla sygnatury dostępu współdzielonego w ciągu 7 dni od czasu rozpoczęcia. Sygnatura dostępu współdzielonego jest nieprawidłowa po wygaśnięciu klucza delegowania użytkownika, więc sygnatura dostępu współdzielonego o godzinie przekraczającej 7 dni będzie nadal ważna tylko przez 7 dni.
 
-Podczas tworzenia sygnatury `--auth-mode login` `--as-user parameters` dostępu Współdzielonego delegowania użytkownika, i są wymagane. Określ *logowanie* dla parametru, `--auth-mode` tak aby żądania wykonane w usłudze Azure Storage były autoryzowane przy użyciu poświadczeń usługi Azure AD. Określ `--as-user` parametr, aby wskazać, że zwracany sygnatura dostępu Współdzielonego powinna być sygnaturą dostępu Współdzielonego delegowania użytkowników.
+W `--auth-mode login` przypadku tworzenia sygnatury dostępu współdzielonego `--as-user parameters` użytkownika wymagane są i. Określ *nazwę logowania* dla `--auth-mode` parametru, aby żądania kierowane do usługi Azure Storage były autoryzowane przy użyciu poświadczeń usługi Azure AD. Określ `--as-user` parametr wskazujący, że zwracany sygnatura dostępu współdzielonego powinien być sygnaturą dostępu współdzielonego delegowaną przez użytkownika.
 
-### <a name="create-a-user-delegation-sas-for-a-container"></a>Tworzenie sygnatury dostępu Współdzielonego delegowania użytkowników dla kontenera
+### <a name="create-a-user-delegation-sas-for-a-container"></a>Tworzenie sygnatury dostępu współdzielonego użytkownika dla kontenera
 
-Aby utworzyć sygnatury dostępu Współdzielonego delegowania użytkowników dla kontenera z interfejsem wiersza polecenia platformy Azure, wywołanie [polecenia az storage container generate-sas.](/cli/azure/storage/container#az-storage-container-generate-sas)
+Aby utworzyć sygnaturę dostępu współdzielonego delegowania użytkowników dla kontenera za pomocą interfejsu wiersza polecenia platformy Azure, wywołaj polecenie [AZ Storage Container Generate-SAS](/cli/azure/storage/container#az-storage-container-generate-sas) .
 
-Obsługiwane uprawnienia do delegowania użytkownika Sygnatury dostępu Współdzielonego w kontenerze obejmują Dodawanie, Tworzenie, Usuwanie, Lista, Odczyt i Zapis. Uprawnienia można określić pojedynczo lub połączyć. Aby uzyskać więcej informacji na temat tych uprawnień, zobacz [Tworzenie sygnatury dostępu Współdzielonego delegowania użytkowników](/rest/api/storageservices/create-user-delegation-sas).
+Uprawnienia obsługiwane w przypadku delegowania SYGNATURy dostępu użytkownika w kontenerze obejmują dodawanie, tworzenie, usuwanie, wyświetlanie, Odczyt i zapis. Uprawnienia można określić pojedynczo lub łącznie. Aby uzyskać więcej informacji o tych uprawnieniach, zobacz [Tworzenie skojarzeń zabezpieczeń delegowania użytkownika](/rest/api/storageservices/create-user-delegation-sas).
 
-Poniższy przykład zwraca token sygnatury dostępu Współdzielonego delegowania użytkownika dla kontenera. Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami:
+Poniższy przykład zwraca token użytkownika delegowania sygnatury dostępu współdzielonego dla kontenera. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
 ```azurecli-interactive
 az storage container generate-sas \
@@ -80,19 +80,19 @@ az storage container generate-sas \
     --as-user
 ```
 
-Zwrócony token sygnatury dostępu Współdzielonego delegowania użytkowników będzie podobny do:
+Zwrócony token sygnatury dostępu współdzielonego użytkownika będzie podobny do:
 
 ```
 se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26T18%3A01%3A22Z&ske=2019-07-27T00%3A00%3A00Z&sks=b&skv=2018-11-09&sig=<signature>
 ```
 
-### <a name="create-a-user-delegation-sas-for-a-blob"></a>Tworzenie sygnatury dostępu Współdzielonego delegowania użytkowników dla obiektu blob
+### <a name="create-a-user-delegation-sas-for-a-blob"></a>Tworzenie sygnatury dostępu współdzielonego użytkownika dla obiektu BLOB
 
-Aby utworzyć sygnatury dostępu Współdzielonego delegowania użytkownika dla obiektu blob z interfejsu wiersza polecenia interfejsu wiersza polecenia platformy Azure, wywołanie polecenia [az storage generate-sas.](/cli/azure/storage/blob#az-storage-blob-generate-sas)
+Aby utworzyć sygnaturę dostępu współdzielonego dla delegowania użytkowników dla obiektu BLOB za pomocą interfejsu wiersza polecenia platformy Azure, wywołaj polecenie [AZ Storage BLOB Generate-SAS](/cli/azure/storage/blob#az-storage-blob-generate-sas) .
 
-Obsługiwane uprawnienia do delegowania użytkownika Sygnatury dostępu Współdzielonego w obiekcie blob obejmują Dodawanie, Tworzenie, Usuwanie, Odczyt i Zapis. Uprawnienia można określić pojedynczo lub połączyć. Aby uzyskać więcej informacji na temat tych uprawnień, zobacz [Tworzenie sygnatury dostępu Współdzielonego delegowania użytkowników](/rest/api/storageservices/create-user-delegation-sas).
+Obsługiwane uprawnienia do delegowania przez użytkownika funkcji sygnatury dostępu współdzielonego w obiekcie blob obejmują dodawanie, tworzenie, usuwanie, Odczyt i zapis. Uprawnienia można określić pojedynczo lub łącznie. Aby uzyskać więcej informacji o tych uprawnieniach, zobacz [Tworzenie skojarzeń zabezpieczeń delegowania użytkownika](/rest/api/storageservices/create-user-delegation-sas).
 
-Następująca składnia zwraca sygnaturę dostępu Współdzielonego delegowania użytkowników dla obiektu blob. W przykładzie `--full-uri` określa parametr, który zwraca identyfikator URI obiektu blob z tokenem sygnatury dostępu Współdzielonego. Pamiętaj, aby zastąpić wartości zastępcze w nawiasach własnymi wartościami:
+Poniższa składnia zwraca sygnaturę dostępu współdzielonego delegowania użytkownika dla obiektu BLOB. W przykładzie określono `--full-uri` parametr, który zwraca identyfikator URI obiektu BLOB z dołączonym tokenem SAS. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
 ```azurecli-interactive
 az storage blob generate-sas \
@@ -106,7 +106,7 @@ az storage blob generate-sas \
     --full-uri
 ```
 
-Zwrócony identyfikator URI delegowania użytkowników będzie podobny do:
+Zwrócony identyfikator URI sygnatury dostępu współdzielonego użytkownika będzie wyglądać podobnie do:
 
 ```
 https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-08-03&sp=rw&sv=2018-11-09&sr=b&skoid=<skoid>&sktid=<sktid>&skt=2019-08-02T2
@@ -114,13 +114,13 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 ```
 
 > [!NOTE]
-> Sygnatura dostępu Współdzielonego delegowania użytkowników nie obsługuje definiowania uprawnień za pomocą zasad dostępu przechowywanego.
+> Sygnatura dostępu współdzielonego użytkownika nie obsługuje definiowania uprawnień z przechowywanymi zasadami.
 
-## <a name="revoke-a-user-delegation-sas"></a>Odwoływanie delegowania użytkownika SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO
+## <a name="revoke-a-user-delegation-sas"></a>Odwoływanie sygnatury dostępu współdzielonego użytkownika
 
-Aby odwołać sygnaturę dostępu Współdzielonego delegowania użytkownika z interfejsu wiersza polecenia interfejsu wiersza polecenia platformy Azure, [wywołanie polecenia odwołania kluczy magazynu az.](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) To polecenie odwołuje wszystkie klucze delegowania użytkowników skojarzone z określonym kontem magazynu. Wszelkie podpisy dostępu współdzielonego skojarzone z tymi kluczami są unieważniane.
+Aby odwołać sygnaturę dostępu współdzielonego delegowania użytkownika z interfejsu wiersza polecenia platformy Azure, wywołaj polecenie [AZ Storage account REVOKE-delegowanie-Keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) . To polecenie odwołuje wszystkie klucze delegowania użytkowników skojarzone z określonym kontem magazynu. Wszystkie sygnatury dostępu współdzielonego skojarzone z tymi kluczami są unieważnione.
 
-Pamiętaj, aby zastąpić wartości zastępcze w nawiasach kątowych własnymi wartościami:
+Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach ostrych własnymi wartościami:
 
 ```azurecli-interactive
 az storage account revoke-delegation-keys \
@@ -129,9 +129,9 @@ az storage account revoke-delegation-keys \
 ```
 
 > [!IMPORTANT]
-> Zarówno klucz delegowania użytkownika, jak i przypisania roli RBAC są buforowane przez usługę Azure Storage, więc może wystąpić opóźnienie między rozpoczęciem procesu odwołania a nieprawidłowym identyfikatorem sygnatury dostępu Współdzielonego delegacji istniejącego użytkownika.
+> Zarówno przypisanie klucza delegowania użytkownika, jak i roli RBAC są buforowane przez usługę Azure Storage, dzięki czemu może wystąpić opóźnienie między zainicjowaniem procesu odwoływania a istniejącym skojarzeniem SAS delegowania użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie sygnatury dostępu Współdzielonego delegowania użytkowników (INTERFEJS API REST)](/rest/api/storageservices/create-user-delegation-sas)
+- [Tworzenie sygnatury dostępu współdzielonego (API REST) delegowania użytkownika](/rest/api/storageservices/create-user-delegation-sas)
 - [Pobierz operację klucza delegowania użytkownika](/rest/api/storageservices/get-user-delegation-key)

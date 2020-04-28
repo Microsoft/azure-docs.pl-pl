@@ -1,6 +1,6 @@
 ---
-title: Określ klucz dostarczony przez klienta w żądaniu magazynu obiektów Blob za pomocą platformy .NET — Usługa Azure Storage
-description: Dowiedz się, jak określić klucz dostarczony przez klienta w żądaniu magazynu obiektów Blob przy użyciu platformy .NET.
+title: Określ klucz dostarczony przez klienta w żądaniu usługi BLOB Storage za pomocą platformy .NET — Azure Storage
+description: Dowiedz się, jak określić klucz dostarczony przez klienta w żądaniu usługi BLOB Storage przy użyciu platformy .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,25 +10,25 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: ea8254f108aed9d40e6970a27409035b1e10ab41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74807004"
 ---
-# <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Określ klucz dostarczony przez klienta w żądaniu magazynu obiektów Blob za pomocą platformy .NET
+# <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Określ klucz dostarczony przez klienta w żądaniu do magazynu obiektów BLOB za pomocą platformy .NET
 
-Klienci żądani względem usługi Azure Blob Storage mają możliwość podania klucza szyfrowania dla pojedynczego żądania. Włączenie klucza szyfrowania w żądaniu zapewnia szczegółową kontrolę nad ustawieniami szyfrowania dla operacji magazynu obiektów Blob. Klucze dostarczone przez klienta (wersja zapoznawcza) mogą być przechowywane w usłudze Azure Key Vault lub w innym magazynie kluczy.
+Klienci, którzy wysyłają żądania do usługi Azure Blob Storage, mają możliwość zapewnienia klucza szyfrowania dla pojedynczego żądania. Dołączenie klucza szyfrowania żądania zapewnia szczegółową kontrolę nad ustawieniami szyfrowania operacji usługi BLOB Storage. Klucze dostarczone przez klienta (wersja zapoznawcza) mogą być przechowywane w Azure Key Vault lub w innym magazynie kluczy.
 
-W tym artykule pokazano, jak określić klucz dostarczony przez klienta w żądaniu z .NET.
+W tym artykule pokazano, jak określić klucz dostarczony przez klienta na żądanie przy użyciu platformy .NET.
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-Aby dowiedzieć się więcej o tym, jak uwierzytelniać się przy użyciu biblioteki klienta usługi Azure Identity z usługi Azure Storage, zobacz sekcję **"Uwierzytelnij za pomocą biblioteki tożsamości platformy Azure** w [obszarze Autoryzowanie dostępu do obiektów blob i kolejek za pomocą usługi Azure Active Directory i tożsamości zarządzanych dla zasobów platformy Azure.](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)
+Aby dowiedzieć się więcej o sposobie uwierzytelniania przy użyciu biblioteki klienta tożsamości platformy Azure z usługi Azure Storage, zapoznaj się z sekcją **uwierzytelnianie przy użyciu biblioteki tożsamości platformy Azure** w artykule [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu tożsamości Azure Active Directory i zarządzanych dla zasobów platformy Azure](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
 
-## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>Przykład: przekazywanie obiektu blob za pomocą klucza dostarczonego przez klienta
+## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>Przykład: Użyj klucza dostarczonego przez klienta do przekazania obiektu BLOB
 
-Poniższy przykład tworzy klucz dostarczony przez klienta i używa tego klucza do przekazania obiektu blob. Kod przekazuje blok, a następnie zatwierdza listę zablokowanych, aby napisać obiekt blob do usługi Azure Storage.
+Poniższy przykład tworzy klucz dostarczony przez klienta i używa tego klucza do przekazania obiektu BLOB. Kod przekazuje blok, a następnie zatwierdza listę zablokowanych w celu zapisania obiektu BLOB w usłudze Azure Storage.
 
 ```csharp
 async static Task UploadBlobWithClientKey(string accountName, string containerName,
@@ -74,5 +74,5 @@ async static Task UploadBlobWithClientKey(string accountName, string containerNa
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szyfrowanie usługi Azure Storage dla danych w stanie spoczynku](../common/storage-service-encryption.md)
-- [Autoryzuj dostęp do obiektów blob i kolejek za pomocą usługi Azure Active Directory i tożsamości zarządzanych dla zasobów platformy Azure](../common/storage-auth-aad-msi.md)
+- [Szyfrowanie usługi Azure Storage dla danych magazynowanych](../common/storage-service-encryption.md)
+- [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu tożsamości Azure Active Directory i zarządzanych dla zasobów platformy Azure](../common/storage-auth-aad-msi.md)

@@ -1,5 +1,5 @@
 ---
-title: Połączenia hybrydowe usługi Azure Relay — websockets w węźle
+title: Azure Relay Połączenia hybrydowe — obiekty WebSockets w węźle
 description: Napisz aplikację konsolową w środowisku Node.js do obsługi obiektów WebSocket połączeń hybrydowych usługi Azure Relay
 services: service-bus-relay
 documentationcenter: node
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 818db4db082a441877b573fd52361e63becce374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75352671"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Wprowadzenie do obiektów WebSocket połączeń hybrydowych usługi Relay w środowisku Node.js
@@ -37,8 +37,8 @@ W tym przewodniku Szybki start wykonasz następujące kroki:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Node.js](https://nodejs.org/en/).
-- Subskrypcja platformy Azure. Jeśli go nie masz, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+- [Node. js](https://nodejs.org/en/).
+- Subskrypcja platformy Azure. Jeśli go nie masz, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="create-a-namespace"></a>Tworzenie przestrzeni nazw
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

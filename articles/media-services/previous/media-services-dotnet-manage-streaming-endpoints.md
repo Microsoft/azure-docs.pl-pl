@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie punktami końcowymi przesyłania strumieniowego za pomocą sdk .NET. | Microsoft Docs
-description: W tym artykule pokazano, jak zarządzać punktami końcowymi przesyłania strumieniowego za pomocą witryny Azure portal.
+title: Zarządzanie punktami końcowymi przesyłania strumieniowego za pomocą zestawu .NET SDK. | Microsoft Docs
+description: W tym artykule pokazano, jak zarządzać punktami końcowymi przesyłania strumieniowego za pomocą Azure Portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,43 +16,43 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74901277"
 ---
-# <a name="manage-streaming-endpoints-with-net-sdk"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego za pomocą sdk .NET  
+# <a name="manage-streaming-endpoints-with-net-sdk"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego za pomocą zestawu .NET SDK  
 
 >[!NOTE]
->Zapoznaj się z [omówieniem](media-services-streaming-endpoints-overview.md) artykułu. Ponadto, przegląd [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Zapoznaj się z artykułem [Przegląd](media-services-streaming-endpoints-overview.md) . Sprawdź również [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-Kod w tym artykule pokazuje, jak wykonać następujące zadania przy użyciu narzędzia Azure Media Services .NET SDK:
+W tym artykule przedstawiono sposób wykonywania następujących zadań przy użyciu zestawu SDK programu Azure Media Services .NET:
 
-- Sprawdź domyślny punkt końcowy przesyłania strumieniowego.
-- Utwórz/dodaj nowy punkt końcowy przesyłania strumieniowego.
+- Badanie domyślnego punktu końcowego przesyłania strumieniowego.
+- Utwórz/Dodaj nowy punkt końcowy przesyłania strumieniowego.
 
-    Możesz mieć wiele punktów końcowych przesyłania strumieniowego, jeśli planujesz mieć różne sieci CDN lub sieć CDN i bezpośredni dostęp.
+    Jeśli planujesz korzystać z różnych sieci CDN lub sieci CDN i bezpośredniego dostępu, możesz potrzebować wielu punktów końcowych przesyłania strumieniowego.
 
     > [!NOTE]
-    > Naliczane są tylko wtedy, gdy punkt końcowy przesyłania strumieniowego jest w stanie uruchomionym.
+    > Opłaty są naliczane tylko wtedy, gdy punkt końcowy przesyłania strumieniowego jest w stanie uruchomienia.
     
 - Zaktualizuj punkt końcowy przesyłania strumieniowego.
     
-    Pamiętaj, aby wywołać funkcję Update().
+    Upewnij się, że jest wywoływana funkcja Update ().
 
 - Usuń punkt końcowy przesyłania strumieniowego.
 
     >[!NOTE]
     >Nie można usunąć domyślnego punktu końcowego przesyłania strumieniowego.
 
-Aby uzyskać informacje dotyczące skalowania punktu końcowego przesyłania strumieniowego, zobacz [ten](media-services-portal-scale-streaming-endpoints.md) artykuł.
+Informacje o sposobie skalowania punktu końcowego przesyłania strumieniowego znajdują się w [tym](media-services-portal-scale-streaming-endpoints.md) artykule.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
 Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu informacji dotyczących połączenia, zgodnie z opisem w sekcji [Projektowanie usługi Media Services na platformie .NET](media-services-dotnet-how-to-use.md). 
 
-## <a name="add-code-that-manages-streaming-endpoints"></a>Dodawanie kodu zarządzającego punktami końcowymi przesyłania strumieniowego
+## <a name="add-code-that-manages-streaming-endpoints"></a>Dodaj kod zarządzający punktami końcowymi przesyłania strumieniowego
     
 Zastąp kod w Program.cs następującym kodem:
 

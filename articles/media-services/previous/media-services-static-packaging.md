@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z pakietu Azure Media Packager do wykonywania statycznych zadań pakowania | Dokumenty firmy Microsoft
-description: W tym temacie przedstawiono różne zadania, które są wykonywane za pomocą pakietu Azure Media Packager.
+title: Korzystanie z funkcji pakowania multimediów platformy Azure w celu wykonywania statycznych zadań tworzenia pakietów | Microsoft Docs
+description: W tym temacie przedstawiono różne zadania, które są wykonywane przy użyciu Pakowarki multimediów platformy Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,50 +15,50 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.openlocfilehash: e99d72a0bce51d5d61e5f248f5ba279afe13a405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74970129"
 ---
-# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Używanie pakietu Azure Media Packager do wykonywania statycznych zadań pakowania  
+# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Korzystanie z funkcji pakowania multimediów platformy Azure w celu wykonywania statycznych zadań tworzenia pakietów  
 
 > [!NOTE]
-> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Sprawdź najnowszą wersję usługi [Media Services w wersji 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji z wersji 2 do v3](../latest/migrate-from-v2-to-v3.md)
+> Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 
 ## <a name="overview"></a>Omówienie
 
-Aby dostarczać cyfrowe wideo przez Internet, należy skompresować nośniki. Cyfrowe pliki wideo są duże i mogą być zbyt duże, aby można je było wyświetlać przez Internet lub urządzenia klientów, aby mogły je prawidłowo wyświetlać. Kodowanie to proces kompresji wideo i audio, dzięki czemu klienci mogą wyświetlać multimedia. Po zakodowanie wideo można go umieścić w różnych kontenerach plików. Proces umieszczania zakodowanych nośników w pojemniku nazywa się pakowaniem. Na przykład można wziąć plik MP4 i przekonwertować go na smooth streaming lub zawartość HLS przy użyciu pakietu Azure Media Packager. 
+Aby można było dostarczyć cyfrowe wideo przez Internet, należy skompresować multimedia. Cyfrowe pliki wideo są duże i mogą być zbyt duże, aby można je było dostarczać przez Internet lub na urządzeniach klientów, aby były wyświetlane prawidłowo. Kodowanie to proces kompresowania wideo i audio, dzięki czemu klienci mogą wyświetlać multimedia. Po zakodowaniu wideo można je umieścić w różnych kontenerach plików. Proces umieszczania zakodowanego nośnika w kontenerze nazywa się opakowaniem. Na przykład można zastosować plik MP4 i przekonwertować go do Smooth Streaming lub HLS zawartości przy użyciu funkcji Pakowarka multimediów platformy Azure. 
 
-Usługa Media Services obsługuje dynamiczne i statyczne opakowania. Podczas korzystania z opakowań statycznych należy utworzyć kopię zawartości w każdym formacie wymaganym przez klientów. Dzięki dynamicznemu pakowaniu wystarczy utworzyć zasób zawierający zestaw adaptacyjnych plików MP4 z szybkością transmisji bitów lub płynne przesyłanie strumieniowe. Następnie, na podstawie określonego formatu w żądaniu manifestu lub fragmentu, serwer przesyłania strumieniowego na żądanie zapewnia, że użytkownicy otrzymują strumień w wybranym protokole. Dzięki temu wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services utworzy oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
-
-> [!NOTE]
-> Zaleca się stosowanie [dynamicznego opakowania.](media-services-dynamic-packaging-overview.md)
-> 
-> 
-
-Istnieją jednak pewne scenariusze, które wymagają pakowania statycznego: 
-
-* Sprawdzanie poprawności adaptacyjnych plików MP4 z szybkością transmisji bitów zakodowanych za pomocą zewnętrznych koderów (na przykład przy użyciu koderów innych firm).
-
-Można również użyć opakowania statycznego do wykonywania następujących zadań: Jednak zaleca się użycie szyfrowania dynamicznego.
-
-* Korzystanie z szyfrowania statycznego w celu ochrony smooth i MPEG DASH z PlayReady
-* Używanie szyfrowania statycznego do ochrony HLSv3 za pomocą AES-128
-* Używanie szyfrowania statycznego do ochrony HLSv3 za pomocą PlayReady
-
-## <a name="validating-adaptive-bitrate-mp4s-encoded-with-external-encoders"></a>Sprawdzanie poprawności adaptacyjnych plików MP4 z szybkością transmisji bitów zakodowanych za pomocą enkoderów zewnętrznych
-Jeśli chcesz użyć zestawu adaptacyjnych plików MP4 o adaptacyjnej szybkości transmisji bitów (z szybkością wielu bitów), które nie zostały zakodowane za pomocą koderów media services, należy sprawdzić poprawność plików przed dalszym przetwarzaniem. Pakiet usług Media Services packageer może sprawdzić poprawność zasobu, który zawiera zestaw plików MP4 i sprawdzić, czy zasób może być spakowany do smooth streaming lub HLS. Jeśli zadanie sprawdzania poprawności nie powiedzie się, zadanie, które było przetwarzanie zadania kończy się z błędem. Kod XML definiujący predefiniowane dla zadania sprawdzania poprawności można znaleźć w [predefiniowane zadanie dla pakietu azure media packager](https://msdn.microsoft.com/library/azure/hh973635.aspx) artykułu.
+Media Services obsługuje dynamiczne i statyczne pakowanie. W przypadku używania statycznego opakowania należy utworzyć kopię zawartości w każdym formacie wymaganym przez klientów. W przypadku dynamicznego tworzenia pakietów wystarczy utworzyć element zawartości zawierający zestaw plików MP4 lub Smooth Streaming z adaptacyjną szybkością transmisji bitów. Następnie na podstawie określonego formatu w żądaniu manifestu lub fragmentu serwer przesyłania strumieniowego na żądanie zapewnia, że użytkownicy odbierają strumień w wybranym protokole. Dzięki temu wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services utworzy oraz udostępni właściwą odpowiedź na podstawie żądań klienta.
 
 > [!NOTE]
-> Użyj media Encoder Standard do produkcji lub Media Services Packager do sprawdzania poprawności zawartości w celu uniknięcia problemów ze środowiska wykonawczego. Jeśli serwer przesyłania strumieniowego na żądanie nie może przeanalizować plików źródłowych w czasie wykonywania, zostanie wyświetlony błąd HTTP 1.1 "415 Nieobsługiwowany typ nośnika". Wielokrotne powodowanie, że serwer nie może przeanalizować plików źródłowych, wpływa na wydajność serwera przesyłania strumieniowego na żądanie i może zmniejszyć przepustowość dostępną do obsługi innych żądań. Usługa Azure Media Services oferuje umowę dotyczącą poziomu usług (SLA) w swoich usługach przesyłania strumieniowego na żądanie; jednak ta umowy SLA nie może być honorowana, jeśli serwer jest nadużywany w sposób opisany powyżej.
+> Zaleca się użycie dynamicznego tworzenia [pakietów](media-services-dynamic-packaging-overview.md).
 > 
 > 
 
-W tej sekcji pokazano, jak przetworzyć zadanie sprawdzania poprawności. Pokazuje również, jak wyświetlić stan i komunikat o błędzie zadania, który kończy się z JobStatus.Error.
+Istnieją jednak pewne scenariusze wymagające statycznego tworzenia pakietów: 
 
-Aby sprawdzić poprawność plików MP4 za pomocą programu Media Services Packager, należy utworzyć własny plik manifestu (.ism) i przekazać go wraz z plikami źródłowymi na konto usługi Media Services. Poniżej znajduje się przykład pliku .ism produkowanego przez Media Encoder Standard. W nazwach plików rozróżniana jest wielkość liter. Upewnij się również, że tekst w pliku .ism jest zakodowany za pomocą utf-8.
+* Weryfikowanie adaptacyjnej szybkości transmisji bitów pliki MP4 zakodowanej za pomocą koderów zewnętrznych (na przykład za pomocą koderów innych firm).
+
+Można również użyć statycznego pakowania do wykonywania następujących zadań: zaleca się jednak korzystanie z szyfrowania dynamicznego.
+
+* Używanie szyfrowania statycznego do ochrony gładkich i MPEG KRESek przy użyciu oprogramowania PlayReady
+* Używanie szyfrowania statycznego do ochrony HLSv3 za pomocą algorytmu AES-128
+* Używanie statycznego szyfrowania do ochrony HLSv3 za pomocą oprogramowania PlayReady
+
+## <a name="validating-adaptive-bitrate-mp4s-encoded-with-external-encoders"></a>Weryfikowanie adaptacyjnej szybkości transmisji bitów pliki MP4 zakodowanej za pomocą koderów zewnętrznych
+Jeśli chcesz użyć zestawu plików MP4 z adaptacyjną szybkością transmisji bitów (o większej szybkości transmisji bitów), które nie zostały zakodowane za pomocą koderów Media Services, należy sprawdzić poprawność plików przed przetworzeniem. Pakowarka Media Services może sprawdzić poprawność elementu zawartości, który zawiera zestaw plików MP4, i sprawdzić, czy element zawartości może być spakowany do Smooth Streaming lub HLS. Jeśli zadanie sprawdzania poprawności zakończy się niepowodzeniem, zadanie, które przetworzył zadanie, zakończy się z błędem. KOD XML, który definiuje ustawienie wstępne dla zadania walidacji, można znaleźć w artykule [Ustawienia wstępne zadania dotyczącego usługi Azure Media Pakowarka](https://msdn.microsoft.com/library/azure/hh973635.aspx) .
+
+> [!NOTE]
+> Użyj Media Encoder Standard, aby utworzyć Media Services lub przetworzyć zawartość w celu uniknięcia problemów w czasie wykonywania. Jeśli serwer przesyłania strumieniowego na żądanie nie może przeanalizować plików źródłowych w czasie wykonywania, zostanie wyświetlony komunikat o błędzie HTTP 1,1 "415 nieobsługiwany typ nośnika". Wielokrotne spowodowanie niepowodzenia analizy plików źródłowych przez serwer nie ma wpływu na wydajność serwera przesyłania strumieniowego na żądanie i może zmniejszyć przepustowość dostępną dla innych żądań. Azure Media Services oferuje Umowa dotycząca poziomu usług (SLA) w swoich usługach przesyłania strumieniowego na żądanie; Jednakże umowy SLA nie można uznać, jeśli serwer jest nieużywany w sposób opisany powyżej.
+> 
+> 
+
+W tej sekcji pokazano, jak przetwarzać zadanie walidacji. Przedstawiono w nim również sposób wyświetlania stanu i komunikatu o błędzie zadania, które kończy się na JobStatus. Error.
+
+Aby sprawdzić poprawność plików MP4 przy użyciu Pakowarki Media Services, należy utworzyć własny plik manifestu (. ISM) i przekazać go wraz z plikami źródłowymi do konta Media Services. Poniżej znajduje się przykład pliku ISM utworzonego przez Media Encoder Standard. W nazwach plików jest rozróżniana wielkość liter. Upewnij się również, że tekst w pliku ISM został zakodowany przy użyciu kodowania UTF-8.
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -81,9 +81,9 @@ Aby sprawdzić poprawność plików MP4 za pomocą programu Media Services Packa
     </smil>
 ```
 
-Po uzyskaniu adaptacyjnego zestawu MP4 z szybkością transmisji bitów możesz skorzystać z dynamicznego pakowania. Dynamic Packaging umożliwia dostarczanie strumieni w określonym protokole bez dalszego pakowania. Aby uzyskać więcej informacji, zobacz [dynamiczne opakowanie](media-services-dynamic-packaging-overview.md).
+Po zastosowaniu zestawu plików MP4 z adaptacyjną szybkością transmisji bitów można korzystać z funkcji dynamicznego tworzenia pakietów. Dynamiczne pakowanie pozwala dostarczać strumienie w określonym protokole bez dalszej pakowania. Aby uzyskać więcej informacji, zobacz [dynamiczne pakowanie](media-services-dynamic-packaging-overview.md).
 
-Poniższy przykład kodu używa rozszerzenia SDK usługi Azure Media Services .NET.  Pamiętaj, aby zaktualizować kod, aby wskazać folder, w którym znajdują się wejściowe pliki MP4 i plik .ism. A także do miejsca, w którym znajduje się plik MediaPackager_ValidateTask.xml. Ten plik XML jest zdefiniowany w [predefiniowane zadanie dla pakietu Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx) artykułu.
+Poniższy przykład kodu używa rozszerzeń zestawu .NET SDK Azure Media Services.  Upewnij się, że Zaktualizowano kod w taki sposób, aby wskazywał folder, w którym znajdują się dane wejściowe plików MP4 i ISM. A także miejscu, w którym znajduje się plik MediaPackager_ValidateTask. XML. Ten plik XML jest zdefiniowany w artykule [Ustawienia wstępne zadania dotyczącego usługi Azure Media Pakowarka](https://msdn.microsoft.com/library/azure/hh973635.aspx) .
 
 ```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
@@ -258,23 +258,23 @@ Poniższy przykład kodu używa rozszerzenia SDK usługi Azure Media Services .N
     }
 ```
 
-## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>Korzystanie z szyfrowania statycznego w celu ochrony smooth i MPEG DASH z PlayReady
-Jeśli chcesz chronić zawartość za pomocą PlayReady, masz możliwość użycia [szyfrowania dynamicznego](media-services-protect-with-playready-widevine.md) (zalecana opcja) lub szyfrowania statycznego (zgodnie z opisem w tej sekcji).
+## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>Używanie szyfrowania statycznego do ochrony gładkich i MPEG KRESek przy użyciu oprogramowania PlayReady
+Jeśli chcesz chronić zawartość za pomocą oprogramowania PlayReady, masz możliwość korzystania z [szyfrowania dynamicznego](media-services-protect-with-playready-widevine.md) (opcja zalecana) lub szyfrowania statycznego (zgodnie z opisem w tej sekcji).
 
-Przykład w tej sekcji koduje plik antresoli (w tym przypadku MP4) do adaptacyjnych plików MP4 o szybkości transmisji bitów. Następnie pakuje mp4 do Smooth Streaming, a następnie szyfruje Smooth Streaming z PlayReady. W rezultacie można przesyłać strumieniowo płynne przesyłanie strumieniowe lub MPEG DASH.
+W przykładzie w tej sekcji kodujemy plik Mezzanine (w tym przypadku MP4) do plików MP4 z adaptacyjną szybkością transmisji bitów. Następnie pakiety pliki MP4 do Smooth Streaming, a następnie szyfruje Smooth Streaming za pomocą oprogramowania PlayReady. W wyniku można przesyłać strumieniowo Smooth Streaming lub MPEG.
 
-Usługa Media Services udostępnia teraz usługę dostarczania licencji Microsoft PlayReady. W przykładzie w tym artykule pokazano, jak skonfigurować usługę dostarczania licencji Usługi Media Services PlayReady (zobacz ConfigureLicenseDeliveryService metoda zdefiniowana w kodzie poniżej). Aby uzyskać więcej informacji na temat usługi dostarczania licencji Programu Media Services PlayReady, zobacz Korzystanie z usługi [szyfrowania dynamicznego PlayReady i usługi dostarczania licencji](media-services-protect-with-playready-widevine.md).
+Media Services teraz udostępnia usługę do dostarczania licencji platformy Microsoft PlayReady. W przykładzie w tym artykule przedstawiono sposób konfigurowania usługi dostarczania licencji programu Media Services PlayReady (patrz metoda ConfigureLicenseDeliveryService zdefiniowana w poniższym kodzie). Aby uzyskać więcej informacji na temat Media Services usługi dostarczania licencji PlayReady, zobacz [Korzystanie z szyfrowania dynamicznego i usługi dostarczania licencji PlayReady](media-services-protect-with-playready-widevine.md).
 
 > [!NOTE]
-> Aby dostarczyć MPEG DASH zaszyfrowane za pomocą PlayReady, upewnij się, że należy użyć opcji CENC, ustawiając useSencBox i adjustSubSamples właściwości (opisane w [ustawieniach zadań dla szyfrowania multimediów Azure)](https://msdn.microsoft.com/library/azure/hh973610.aspx) do true.  
+> Aby dostarczyć PAUZę MPEG zaszyfrowaną przy użyciu oprogramowania PlayReady, upewnij się, że używasz opcji CENC przez ustawienie właściwości useSencBox i adjustSubSamples (opisane w artykule [Ustawienia wstępne zadania dla usługi Azure Media szyfrującej](https://msdn.microsoft.com/library/azure/hh973610.aspx) ) na wartość true.  
 > 
 > 
 
-Pamiętaj, aby zaktualizować poniższy kod, aby wskazać folder, w którym znajduje się wejściowy plik MP4.
+Upewnij się, że Zaktualizowano następujący kod, aby wskazywał folder, w którym znajduje się wejściowy plik MP4.
 
-A także tam, gdzie znajdują się pliki MediaPackager_MP4ToSmooth.xml i MediaEncryptor_PlayReadyProtection.xml. MediaPackager_MP4ToSmooth.xml jest zdefiniowany w [ustawieniach predefiniowanych zadań dla pakietu Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx) i MediaEncryptor_PlayReadyProtection.xml jest zdefiniowany w [predefiniowane zadanie dla narzędzia Azure Media Encryptor](https://msdn.microsoft.com/library/azure/hh973610.aspx) artykułu. 
+A także lokalizacji plików MediaPackager_MP4ToSmooth. XML i MediaEncryptor_PlayReadyProtection. XML. Plik MediaPackager_MP4ToSmooth. XML jest definiowany we wstępnie zdefiniowanym [zadaniu dla Pakowarki multimediów platformy Azure](https://msdn.microsoft.com/library/azure/hh973635.aspx) , a plik MediaEncryptor_PlayReadyProtection. XML jest zdefiniowany w obszarze [Ustawienia wstępne zadania dla elementu szyfrującego multimediów platformy Azure](https://msdn.microsoft.com/library/azure/hh973610.aspx) . 
 
-W przykładzie zdefiniowano metodę UpdatePlayReadyConfigurationXMLFile, której można użyć do dynamicznej aktualizacji pliku MediaEncryptor_PlayReadyProtection.xml. Jeśli masz dostępny materiał siewny klucza, można użyć CommonEncryption.GeneratePlayReadyContentKey metody do generowania klucza zawartości na podstawie keySeedValue i KeyId wartości.
+W przykładzie zdefiniowano metodę UpdatePlayReadyConfigurationXMLFile, która służy do dynamicznego aktualizowania pliku MediaEncryptor_PlayReadyProtection. XML. Jeśli masz dostęp do klucza, możesz użyć metody CommonEncryption. GeneratePlayReadyContentKey, aby wygenerować klucz zawartości na podstawie wartości keySeedValue i KeyId.
 
 ```csharp
     using System;
@@ -711,17 +711,17 @@ W przykładzie zdefiniowano metodę UpdatePlayReadyConfigurationXMLFile, której
     }
 ```
 
-## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>Używanie szyfrowania statycznego do ochrony HLSv3 za pomocą AES-128
-Jeśli chcesz zaszyfrować hls za pomocą AES-128, masz do wyboru użycie szyfrowania dynamicznego (zalecana opcja) lub szyfrowania statycznego (jak pokazano w tej sekcji). Jeśli zdecydujesz się na użycie szyfrowania dynamicznego, zobacz [Korzystanie z usługi szyfrowania dynamicznego aes-128 i dostarczania kluczy](media-services-protect-with-aes128.md).
+## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>Używanie szyfrowania statycznego do ochrony HLSv3 za pomocą algorytmu AES-128
+Jeśli chcesz zaszyfrować HLS za pomocą algorytmu AES-128, masz możliwość korzystania z szyfrowania dynamicznego (opcja zalecana) lub szyfrowania statycznego (jak pokazano w tej sekcji). Jeśli zdecydujesz się na korzystanie z szyfrowania dynamicznego, zobacz [Korzystanie z szyfrowania dynamicznego AES-128 i usługi dostarczania kluczy](media-services-protect-with-aes128.md).
 
 > [!NOTE]
-> Aby przekonwertować zawartość na HLS, musisz najpierw przekonwertować/ zakodować zawartość na Smooth Streaming.
-> Ponadto dla HLS, aby uzyskać zaszyfrowane za pomocą usługi AES upewnij się, aby ustawić następujące właściwości w pliku MediaPackager_SmoothToHLS.xml: ustaw właściwość encrypt true, ustawić wartość klucza i wartość keyuri, aby wskazać serwer authentication\autoryzacji.
-> Usługa Media Services tworzy plik klucza i umieszcza go w kontenerze zasobów. Należy skopiować plik /asset-containerguid/*.key na serwer (lub utworzyć własny plik klucza), a następnie usunąć plik *.key z kontenera zasobu.
+> Aby przekonwertować zawartość na HLS, należy najpierw skonwertować/zakodować zawartość do Smooth Streaming.
+> Ponadto, aby HLS szyfrowany przy użyciu algorytmu AES, upewnij się, że w pliku MediaPackager_SmoothToHLS. XML ustawiono następujące właściwości: Ustaw właściwość Zaszyfruj na wartość true, ustaw wartość klucza i wartość keyuri, aby wskazywały serwerowi authentication\authorization.
+> Media Services tworzy plik klucza i umieszcza go w kontenerze zasobów. Należy skopiować plik/Asset-containerguid/*. Key na serwer (lub utworzyć własny plik klucza), a następnie usunąć plik *. Key z kontenera zasobów.
 > 
 > 
 
-Przykład w tej sekcji koduje plik antresoli (w tym przypadku MP4) do wielobitowych plików MP4, a następnie pakiety PLIKÓW MP4 do smooth streaming. Następnie pakiety Smooth Streaming do HTTP Live Streaming (HLS) zaszyfrowane za pomocą zaawansowanego standardu szyfrowania (AES) 128-bitowego szyfrowania strumienia. Pamiętaj, aby zaktualizować poniższy kod, aby wskazać folder, w którym znajduje się wejściowy plik MP4. A także tam, gdzie znajdują się pliki konfiguracyjne MediaPackager_MP4ToSmooth.xml i MediaPackager_SmoothToHLS.xml. Definicję tych plików można znaleźć w artykule [Ustawienia predefiniowane zadań dla pakietu Azure Media Packager.](https://msdn.microsoft.com/library/azure/hh973635.aspx)
+W przykładzie w tej sekcji kodujemy plik Mezzanine (w tym przypadku MP4) do plików MP4 o wieloszybkości transmisji bitów, a następnie pakiety pliki MP4 do Smooth Streaming. Następnie pakiety Smooth Streaming do HTTP Live Streaming (HLS) zaszyfrowane przy użyciu szyfrowania strumienia Advanced Encryption Standard (AES) 128-bitowego. Upewnij się, że Zaktualizowano następujący kod, aby wskazywał folder, w którym znajduje się wejściowy plik MP4. A także lokalizacji plików konfiguracji MediaPackager_MP4ToSmooth. XML i MediaPackager_SmoothToHLS. XML. Definicje tych plików można znaleźć w artykule [Ustawienia wstępne zadania dotyczącego usługi Azure Media Pakowarka](https://msdn.microsoft.com/library/azure/hh973635.aspx) .
 
 ```csharp
     using System;
@@ -997,19 +997,19 @@ Przykład w tej sekcji koduje plik antresoli (w tym przypadku MP4) do wielobitow
     }
 ```
 
-## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>Używanie szyfrowania statycznego do ochrony HLSv3 za pomocą PlayReady
-Jeśli chcesz chronić zawartość za pomocą PlayReady, masz możliwość użycia [szyfrowania dynamicznego](media-services-protect-with-playready-widevine.md) (zalecana opcja) lub szyfrowania statycznego (zgodnie z opisem w tej sekcji).
+## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>Używanie statycznego szyfrowania do ochrony HLSv3 za pomocą oprogramowania PlayReady
+Jeśli chcesz chronić zawartość za pomocą oprogramowania PlayReady, masz możliwość korzystania z [szyfrowania dynamicznego](media-services-protect-with-playready-widevine.md) (opcja zalecana) lub szyfrowania statycznego (zgodnie z opisem w tej sekcji).
 
 > [!NOTE]
-> Aby chronić zawartość za pomocą PlayReady, musisz najpierw przekonwertować/ zakodować zawartość w formacie Smooth Streaming.
+> W celu ochrony zawartości przy użyciu oprogramowania PlayReady należy najpierw skonwertować/zakodować zawartość w formacie Smooth Streaming.
 > 
 > 
 
-Przykład w tej sekcji koduje plik antresoli (w tym przypadku MP4) do wielobitowych plików MP4. Następnie pakuje mp4 do Smooth Streaming i szyfruje Smooth Streaming z PlayReady. Aby utworzyć http live streaming (HLS) zaszyfrowane za pomocą PlayReady, PlayReady Smooth Streaming zasobu musi być spakowane do HLS. W tym artykule pokazano, jak wykonać wszystkie te kroki.
+W przykładzie w tej sekcji kodujemy plik Mezzanine (w tym przypadku MP4) do plików MP4 o wieloszybkości transmisji bitów. Następnie pakiety pliki MP4 do Smooth Streaming i szyfruje Smooth Streaming za pomocą oprogramowania PlayReady. Aby generować HTTP Live Streaming (HLS) zaszyfrowane za pomocą oprogramowania PlayReady, należy spakować zasób Smooth Streaming PlayReady do HLS. W tym artykule pokazano, jak wykonać wszystkie te kroki.
 
-Usługa Media Services udostępnia teraz usługę dostarczania licencji Microsoft PlayReady. W przykładzie w tym artykule pokazano, jak skonfigurować usługę dostarczania licencji Usługi Media Services PlayReady (zobacz **ConfigureLicenseDeliveryService** metoda zdefiniowana w kodzie poniżej). 
+Media Services teraz udostępnia usługę do dostarczania licencji platformy Microsoft PlayReady. W przykładzie w tym artykule przedstawiono sposób konfigurowania usługi dostarczania licencji programu Media Services PlayReady (patrz metoda **ConfigureLicenseDeliveryService** zdefiniowana w poniższym kodzie). 
 
-Pamiętaj, aby zaktualizować poniższy kod, aby wskazać folder, w którym znajduje się wejściowy plik MP4. A także do miejsca, w którym znajdują się pliki MediaPackager_MP4ToSmooth.xml, MediaPackager_SmoothToHLS.xml i MediaEncryptor_PlayReadyProtection.xml. MediaPackager_MP4ToSmooth.xml i MediaPackager_SmoothToHLS.xml są zdefiniowane w [ustawieniach predefiniowanych zadań dla pakietu Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx) i MediaEncryptor_PlayReadyProtection.xml jest zdefiniowany w [predefiniowane zadanie dla narzędzia Azure Media Encryptor](https://msdn.microsoft.com/library/azure/hh973610.aspx) artykułu.
+Upewnij się, że Zaktualizowano następujący kod, aby wskazywał folder, w którym znajduje się wejściowy plik MP4. A także lokalizacji plików MediaPackager_MP4ToSmooth. XML, MediaPackager_SmoothToHLS. XML i MediaEncryptor_PlayReadyProtection. XML. MediaPackager_MP4ToSmooth. XML i MediaPackager_SmoothToHLS. XML są zdefiniowane w [ustawieniu wstępnym zadania Pakowarki multimediów platformy Azure](https://msdn.microsoft.com/library/azure/hh973635.aspx) , a plik MediaEncryptor_PlayReadyProtection. XML jest definiowany we wstępnie zdefiniowanym [zadaniu w artykule dotyczącym usługi Azure Media szyfrujące](https://msdn.microsoft.com/library/azure/hh973610.aspx) .
 
 ```csharp
     using System;
@@ -1481,7 +1481,7 @@ Pamiętaj, aby zaktualizować poniższy kod, aby wskazać folder, w którym znaj
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
 
-* Widevine jest usługą świadczoną przez Google Inc. i podlega warunkom korzystania z usługi oraz Polityce prywatności Firmy Google, Inc.
+* Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

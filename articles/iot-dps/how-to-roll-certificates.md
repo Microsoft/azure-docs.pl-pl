@@ -1,6 +1,6 @@
 ---
-title: Wprowadzanie certyfikatów X.509 w usłudze inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub
-description: Jak przetaczają certyfikaty X.509 za pomocą wystąpienia usługi obsługi urządzeń (DPS)
+title: Wycofaj certyfikaty X. 509 na platformie Azure IoT Hub Device Provisioning Service
+description: Jak wycofać certyfikaty X. 509 za pomocą wystąpienia usługi Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -8,209 +8,209 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974891"
 ---
-# <a name="how-to-roll-x509-device-certificates"></a>Jak rolka certyfikatów urządzeń X.509
+# <a name="how-to-roll-x509-device-certificates"></a>Jak wycofać certyfikaty urządzeń X. 509
 
-Podczas cyklu życia rozwiązania IoT należy rolki certyfikatów. Dwa główne powody stopniowego sprawdzania certyfikatów to naruszenie zabezpieczeń i wygaśnięcie certyfikatów. 
+W trakcie cyklu życia rozwiązania IoT konieczne będzie wycofanie certyfikatów. Dwa główne przyczyny certyfikatów kroczących byłyby naruszenia zabezpieczeń i wygaśnięcia certyfikatów. 
 
-Certyfikaty stopniowe to najlepsze rozwiązanie w zakresie zabezpieczeń, które pomagają zabezpieczyć system w przypadku naruszenia zabezpieczeń. W ramach [metodologii zakładania naruszenia](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf)firma Microsoft opowiada się za koniecznością wprowadzenia reaktywnych procesów zabezpieczeń wraz ze środkami zapobiegawczymi. Stopniowanie certyfikatów urządzeń powinno być uwzględnione w ramach tych procesów zabezpieczeń. Częstotliwość, w której certyfikaty są przerzucone, będzie zależeć od potrzeb w zakresie zabezpieczeń rozwiązania. Klienci korzystający z rozwiązań obejmujących bardzo wrażliwe dane mogą codziennie przeprowadzać certyfikaty, podczas gdy inni co kilka lat rolują swoje certyfikaty.
+Certyfikaty kroczące to najlepsze rozwiązanie w zakresie zabezpieczeń, które pomaga w zabezpieczeniu systemu w przypadku naruszenia. W ramach zamierzonej [metodologii](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), firma Microsoft zaleca, aby procesy dotyczące ponownego aktywnej ochrony były stosowane wraz ze środkami zapobiegawczymi. Należy uwzględnić w tych procesach zabezpieczeń następujące urządzenia. Częstotliwość wycofywania certyfikatów zależy od potrzeb związanych z bezpieczeństwem rozwiązania. Klienci z rozwiązaniami obejmującymi wysoce poufne dane mogą codziennie wycofać certyfikat, podczas gdy inne przydzielą swoje certyfikaty co dwa lata.
 
-Certyfikaty urządzeń stopniowych będą obejmować aktualizowanie certyfikatu przechowywanego na urządzeniu i centrum IoT Hub. Następnie urządzenie może ponownie aprowizować się za pomocą centrum IoT przy użyciu [normalnej automatycznej inicjowania obsługi administracyjnej](concepts-auto-provisioning.md) za pomocą usługi inicjowania obsługi administracyjnej urządzeń.
+Wycofywane certyfikaty urządzeń będą wymagały zaktualizowania certyfikatu przechowywanego na urządzeniu i centrum IoT. Następnie urządzenie może ponownie zainicjować obsługę administracyjną w usłudze IoT Hub przy użyciu zwykłej [obsługi administracyjnej](concepts-auto-provisioning.md) w usłudze Device Provisioning.
 
 
-## <a name="obtain-new-certificates"></a>Uzyskiwanie nowych certyfikatów
+## <a name="obtain-new-certificates"></a>Uzyskaj nowe certyfikaty
 
-Istnieje wiele sposobów uzyskiwania nowych certyfikatów dla urządzeń IoT. Obejmują one uzyskiwanie certyfikatów z fabryki urządzeń, generowanie własnych certyfikatów i zarządzanie tworzeniem certyfikatów przez firmę trzecią. 
+Istnieje wiele sposobów uzyskiwania nowych certyfikatów dla urządzeń IoT. Obejmują one Uzyskiwanie certyfikatów z fabryki urządzeń, generowanie własnych certyfikatów oraz zarządzanie tworzeniem certyfikatów przez inną firmę. 
 
-Certyfikaty są podpisywane przez siebie nawzajem w celu utworzenia łańcucha zaufania od certyfikatu głównego urzędu certyfikacji do [certyfikatu typu liść](concepts-security.md#end-entity-leaf-certificate). Certyfikat podpisywania to certyfikat używany do podpisywania certyfikatu liścia na końcu łańcucha zaufania. Certyfikat podpisywania może być certyfikatem głównego urzędu certyfikacji lub certyfikatem pośrednim w łańcuchu zaufania. Aby uzyskać więcej informacji, zobacz [X.509 certyfikaty](concepts-security.md#x509-certificates).
+Certyfikaty są podpisane przez siebie, aby utworzyć łańcuch zaufania z certyfikatu głównego urzędu certyfikacji do [certyfikatu liścia](concepts-security.md#end-entity-leaf-certificate). Certyfikat podpisywania to certyfikat używany do podpisywania certyfikatu liścia na końcu łańcucha zaufania. Certyfikat podpisywania może być certyfikatem głównego urzędu certyfikacji lub certyfikatem pośrednim w łańcuchu zaufania. Aby uzyskać więcej informacji, zobacz [certyfikaty X. 509](concepts-security.md#x509-certificates).
  
-Istnieją dwa różne sposoby uzyskania certyfikatu podpisywania. Pierwszym sposobem, który jest zalecany dla systemów produkcyjnych, jest zakup certyfikatu podpisywania od głównego urzędu certyfikacji (CA). W ten sposób łańcuchy zabezpieczeń w dół do zaufanego źródła. 
+Istnieją dwa różne sposoby uzyskiwania certyfikatu podpisywania. Pierwszy sposób, który jest zalecany w przypadku systemów produkcyjnych, polega na zakupie certyfikatu podpisywania od głównego urzędu certyfikacji (CA). Dzięki temu łańcuch zabezpieczeń jest podłączany do zaufanego źródła. 
 
-Drugim sposobem jest utworzenie własnych certyfikatów X.509 za pomocą narzędzia takiego jak OpenSSL. Takie podejście jest idealne do testowania certyfikatów X.509, ale zapewnia kilka gwarancji dotyczących zabezpieczeń. Firma Microsoft zaleca używanie tej metody tylko do testowania, chyba że użytkownik jest przygotowany do działania jako własny dostawca urzędu certyfikacji.
+Drugi sposób polega na utworzeniu własnych certyfikatów X. 509 przy użyciu narzędzia, takiego jak OpenSSL. Takie podejście jest doskonałe do testowania certyfikatów X. 509, ale zapewnia pewne gwarancje związane z bezpieczeństwem. Zalecamy używanie tego podejścia wyłącznie do testowania, chyba że przygotowano do działania jako własny dostawca urzędu certyfikacji.
  
 
-## <a name="roll-the-certificate-on-the-device"></a>Rolka certyfikatu na urządzeniu
+## <a name="roll-the-certificate-on-the-device"></a>Wycofaj certyfikat na urządzeniu
 
-Certyfikaty na urządzeniu powinny być zawsze przechowywane w bezpiecznym miejscu, takim jak [sprzętowy moduł zabezpieczeń (HSM).](concepts-device.md#hardware-security-module) Sposób, w jaki rolka certyfikaty urządzeń będzie zależeć od tego, jak zostały one utworzone i zainstalowane w urządzeniach w pierwszej kolejności. 
+Certyfikaty na urządzeniu powinny być zawsze przechowywane w bezpiecznym miejscu, na przykład [sprzętowego modułu zabezpieczeń (HSM)](concepts-device.md#hardware-security-module). Sposób rzutowania certyfikatów urządzeń będzie zależeć od tego, jak zostały utworzone i zainstalowane na urządzeniach w pierwszej kolejności. 
 
-Jeśli certyfikaty zostały odebrane przez stronę trzecią, należy sprawdzić, w jaki sposób zwijają swoje certyfikaty. Proces ten może być zawarty w porozumieniu z nimi lub może być odrębną usługą, którą oferują. 
+Jeśli masz certyfikaty od innych firm, musisz przyjrzeć się sposobom ich wycofywania certyfikatów. Ten proces może być uwzględniony w rozmieszczeniu lub może być osobnym oferowaną przez niego usługą. 
 
-Jeśli zarządzasz własnymi certyfikatami urządzeń, musisz utworzyć własny potok do aktualizowania certyfikatów. Upewnij się, że zarówno stare, jak i nowe certyfikaty liści mają taką samą nazwę pospolitą (CN). Dzięki tej samej cn urządzenie może ponownie aprowizji się bez tworzenia zduplikowany rekord rejestracji. 
+Jeśli zarządzasz własnymi certyfikatami urządzeń, musisz utworzyć własny potok do aktualizowania certyfikatów. Upewnij się, że zarówno stare, jak i nowe certyfikaty liścia mają tę samą nazwę pospolitą (CN). Mając tę samą wartość CN, urządzenie może ponownie inicjować udostępnianie bez tworzenia duplikatu rekordu rejestracji. 
 
 
-## <a name="roll-the-certificate-in-the-iot-hub"></a>Rolka certyfikatu w centrum IoT
+## <a name="roll-the-certificate-in-the-iot-hub"></a>Wycofaj certyfikat w centrum IoT Hub
 
-Certyfikat urządzenia można ręcznie dodać do centrum IoT hub. Certyfikat można również zautomatyzować przy użyciu wystąpienia usługi inicjowania obsługi administracyjnej urządzeń. W tym artykule zakładamy, że wystąpienie usługi inicjowania obsługi administracyjnej urządzeń jest używane do obsługi automatycznego inicjowania obsługi administracyjnej.
+Certyfikat urządzenia można dodać ręcznie do centrum IoT Hub. Certyfikat może być również zautomatyzowany przy użyciu wystąpienia usługi Device Provisioning. W tym artykule przyjęto założenie, że wystąpienie usługi Device Provisioning Service jest używane do obsługi autoaprowizacji.
 
-Gdy urządzenie jest początkowo aprowizacji za pośrednictwem automatycznej inicjowania obsługi administracyjnej, uruchamia się i kontaktuje się z usługą inicjowania obsługi administracyjnej. Usługa inicjowania obsługi administracyjnej odpowiada, wykonując sprawdzanie tożsamości przed utworzeniem tożsamości urządzenia w centrum IoT hub przy użyciu certyfikatu liścia urządzenia jako poświadczenia. Usługa inicjowania obsługi administracyjnej następnie informuje urządzenie, do którego centrum IoT jest przypisane, a urządzenie używa swojego certyfikatu liścia do uwierzytelniania i łączenia się z centrum IoT hub. 
+Gdy urządzenie jest początkowo obsługiwane przez funkcję samoobsługowego inicjowania obsługi administracyjnej, wykonuje jego rozruch i kontaktuje się z usługą aprowizacji. Usługa aprowizacji odpowiada przed utworzeniem tożsamości urządzenia w usłudze IoT Hub przy użyciu certyfikatu liścia urządzenia jako poświadczenia. Usługa aprowizacji informuje następnie urządzenie, do którego jest przypisany Centrum IoT Hub, a następnie urządzenie używa certyfikatu liścia do uwierzytelniania i nawiązywania połączenia z usługą IoT Hub. 
 
-Po wprowadzeniu nowego certyfikatu liścia do urządzenia nie może już łączyć się z centrum IoT hub, ponieważ używa nowego certyfikatu do nawiązania połączenia. Centrum IoT rozpoznaje tylko urządzenie ze starym certyfikatem. Wynikiem próby połączenia urządzenia będzie "nieautoryzowany" błąd połączenia. Aby rozwiązać ten błąd, należy zaktualizować wpis rejestracji dla urządzenia, aby uwzględnić nowy certyfikat typu liść urządzenia. Następnie usługa inicjowania obsługi administracyjnej może zaktualizować informacje rejestru urządzenia Usługi IoT Hub zgodnie z potrzebami, gdy urządzenie jest ponownie aprowizacji. 
+Po przeprowadzeniu nowego certyfikatu liścia do urządzenia nie może on już nawiązać połączenia z usługą IoT Hub, ponieważ używa nowego certyfikatu do nawiązania połączenia. Centrum IoT rozpoznaje tylko urządzenie ze starym certyfikatem. Wynik próby połączenia urządzenia będzie nieautoryzowany. Aby rozwiązać ten problem, należy zaktualizować wpis rejestracji dla urządzenia w celu uwzględnienia nowego certyfikatu liścia urządzenia. Następnie usługa aprowizacji może zaktualizować informacje rejestru urządzenia IoT Hub w miarę potrzeb, gdy urządzenie zostanie ponownie zainicjowane. 
 
-Jednym z możliwych wyjątków od tego błędu połączenia będzie scenariusz, w którym utworzono [grupę rejestracji](concepts-service.md#enrollment-group) dla urządzenia w usłudze inicjowania obsługi administracyjnej. W takim przypadku, jeśli nie są toczenia certyfikatów głównych lub pośrednich w łańcuchu zaufania certyfikatów urządzenia, urządzenie zostanie rozpoznane, jeśli nowy certyfikat jest częścią łańcucha zaufania zdefiniowanego w grupie rejestracji. Jeśli ten scenariusz powstaje w reakcji na naruszenie zabezpieczeń, należy co najmniej czarnej listy certyfikatów określonych urządzeń w grupie, które są uważane za naruszone. Aby uzyskać więcej informacji, zobacz [Czarna lista określonych urządzeń w grupie rejestracji](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Jednym z możliwych wyjątków dla tego błędu połączenia jest scenariusz, w którym utworzono [grupę rejestracji](concepts-service.md#enrollment-group) dla urządzenia w usłudze aprowizacji. W takim przypadku, jeśli nie powrócisz certyfikatów głównych lub pośrednich w łańcuchu certyfikatów urządzenia zaufania, urządzenie zostanie rozpoznane, jeśli nowy certyfikat jest częścią łańcucha zaufania zdefiniowanego w grupie rejestracyjnej. Jeśli ten scenariusz występuje jako reakcja na naruszenie zabezpieczeń, należy przynajmniej odszukać określonych certyfikatów urządzeń w grupie, które są uważane za naruszone. Aby uzyskać więcej informacji, zobacz Lista [zabronionych urządzeń w grupie rejestracji](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
 
-Aktualizowanie wpisów rejestracji dla certyfikatów walcowanych odbywa się na stronie **Zarządzanie rejestracjami.** Aby uzyskać dostęp do tej strony, wykonaj następujące czynności:
+Aktualizowanie wpisów rejestracji dla wycofanych certyfikatów jest realizowane na stronie **Zarządzanie rejestracjami** . Aby uzyskać dostęp do tej strony, wykonaj następujące kroki:
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) i przejdź do wystąpienia usługi inicjowania obsługi administracyjnej urządzeń usługi usługi usługi IoT Hub, które ma wpis rejestracji dla urządzenia.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do wystąpienia IoT Hub Device Provisioning Service, które ma wpis rejestracji dla Twojego urządzenia.
 
 2. Kliknij pozycję **Zarządzanie rejestracjami**.
 
     ![Zarządzanie rejestracjami](./media/how-to-roll-certificates/manage-enrollments-portal.png)
 
 
-Sposób obsługi aktualizowania wpisu rejestracji zależy od tego, czy używasz rejestracji indywidualnych, czy rejestracji grupowych. Również zalecane procedury różnią się w zależności od tego, czy certyfikaty są stopniowane z powodu naruszenia zabezpieczeń lub wygaśnięcia certyfikatu. W poniższych sekcjach opisano sposób obsługi tych aktualizacji.
+Sposób obsługi aktualizacji wpisu rejestracji zależy od tego, czy są używane indywidualne rejestracje, czy też rejestracje grup. Ponadto zalecane procedury różnią się w zależności od tego, czy certyfikaty są wycofywane z powodu naruszenia zabezpieczeń, czy wygaśnięcia certyfikatu. W poniższych sekcjach opisano, jak obsługiwać te aktualizacje.
 
 
 ## <a name="individual-enrollments-and-security-breaches"></a>Indywidualne rejestracje i naruszenia zabezpieczeń
 
-Jeśli certyfikaty są stopniowe w odpowiedzi na naruszenie zabezpieczeń, należy użyć następujące podejście, które usuwa bieżący certyfikat natychmiast:
+W przypadku wycofywania certyfikatów w odpowiedzi na naruszenie zabezpieczeń należy zastosować następujące podejście, które powoduje natychmiastowe usunięcie bieżącego certyfikatu:
 
-1. Kliknij **pozycję Rejestracje indywidualne**i kliknij pozycję Identyfikator rejestracji na liście. 
+1. Kliknij pozycję **rejestracje indywidualne**i kliknij wpis Identyfikator rejestracji na liście. 
 
-2. Kliknij przycisk **Usuń bieżący certyfikat,** a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat, który ma zostać przekazany dla wpisu rejestracji. Kliknij **przycisk Zapisz** po zakończeniu.
+2. Kliknij przycisk **Usuń bieżące certyfikaty** , a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Po zakończeniu kliknij przycisk **Zapisz** .
 
-    Te kroki należy wykonać dla certyfikatu podstawowego i pomocniczego, jeśli oba są zagrożone.
+    Te kroki należy wykonać dla certyfikatu podstawowego i pomocniczego, jeśli oba zabezpieczenia zostały naruszone.
 
-    ![Zarządzanie indywidualnymi rejestracjami](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+    ![Zarządzanie rejestracjami indywidualnymi](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
-3. Po usunięciu certyfikatu, którego bezpieczeństwo zostało usunięte z usługi inicjowania obsługi administracyjnej, certyfikat może nadal służyć do nawiązywania połączeń urządzeń z centrum IoT hub, o ile istnieje tam rejestracja urządzenia. Możesz rozwiązać ten problem na dwa sposoby: 
+3. Po usunięciu złamanego certyfikatu z usługi aprowizacji można nadal używać certyfikatu do nawiązywania połączeń urządzeń z Centrum IoT Hub, o ile istnieje tam jego Rejestracja. Można rozwiązać te dwa sposoby: 
 
-    Pierwszym sposobem byłoby ręczne przejście do centrum IoT hub i natychmiastowe usunięcie rejestracji urządzenia skojarzonej z certyfikatem, który został naruszony. Następnie, gdy urządzenie ponownie zaszei się z zaktualizowanym certyfikatem, zostanie utworzona nowa rejestracja urządzenia.     
+    Pierwszym sposobem jest ręczne przechodzenie do centrum IoT Hub i natychmiastowe usunięcie rejestracji urządzenia skojarzonej z naruszonym certyfikatem. Po ponownym zarejestrowaniu urządzenia z zaktualizowanym certyfikatem zostanie utworzona nowa Rejestracja urządzenia.     
 
-    ![Usuwanie rejestracji urządzeń centrum IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+    ![Usuwanie rejestracji urządzeń w usłudze IoT Hub](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
-    Drugim sposobem byłoby użycie obsługi ponownego obsługi do ponownego obsługi urządzenia do tego samego centrum IoT hub. Takie podejście może służyć do zastąpienia certyfikatu rejestracji urządzenia w centrum IoT hub. Aby uzyskać więcej informacji, zobacz [Jak ponownie aprowizji urządzeń](how-to-reprovision.md).
+    Druga metoda umożliwia ponowne Inicjowanie obsługi administracyjnej urządzenia w tym samym centrum IoT Hub. Takie podejście może służyć do zastępowania certyfikatu rejestracji urządzenia w usłudze IoT Hub. Aby uzyskać więcej informacji, zobacz [jak ponownie zainicjować obsługę urządzeń](how-to-reprovision.md).
 
-## <a name="individual-enrollments-and-certificate-expiration"></a>Rejestracje indywidualne i wygaśnięcie certyfikatu
+## <a name="individual-enrollments-and-certificate-expiration"></a>Rejestracje indywidualne i wygaśnięcie certyfikatów
 
-Jeśli certyfikaty są stopniowe do obsługi wygaśnięcia certyfikatów, należy użyć konfiguracji certyfikatu pomocniczego w następujący sposób, aby skrócić czas przestojów dla urządzeń próbujących aprowizować.
+Jeśli aktualizujesz certyfikaty, aby obsługiwać wygaśnięcia certyfikatów, należy użyć dodatkowej konfiguracji certyfikatu w następujący sposób, aby ograniczyć przestoje dla urządzeń, które próbują zainicjować obsługę administracyjną.
 
-Później, gdy certyfikat pomocniczy również zbliża się do wygaśnięcia i musi zostać zwinięty, można obrócić do przy użyciu konfiguracji podstawowej. Obracanie między certyfikatami podstawowymi i pomocniczymi w ten sposób skraca przestoje urządzeń próbujących aprowizować.
+Później, gdy certyfikat pomocniczy zbliża się również do wygaśnięcia i musi zostać przeniesiona, można obrócić do korzystania z konfiguracji podstawowej. Obracanie między głównymi i dodatkowymi certyfikatami w ten sposób zmniejsza czas przestoju w przypadku urządzeń, które próbują zainicjować obsługę administracyjną.
 
 
-1. Kliknij **pozycję Rejestracje indywidualne**i kliknij pozycję Identyfikator rejestracji na liście. 
+1. Kliknij pozycję **rejestracje indywidualne**i kliknij wpis Identyfikator rejestracji na liście. 
 
-2. Kliknij **pozycję Certyfikat pomocniczy,** a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat, który ma zostać przekazany dla wpisu rejestracji. Kliknij przycisk **Zapisz**.
+2. Kliknij pozycję **certyfikat pomocniczy** , a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Kliknij przycisk **Zapisz**.
 
-    ![Zarządzanie poszczególnymi rejestracjami przy użyciu certyfikatu pomocniczego](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
+    ![Zarządzanie rejestracjami indywidualnymi przy użyciu certyfikatu pomocniczego](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
-3. Później, gdy certyfikat podstawowy wygasł, wróć i usuń ten certyfikat podstawowy, klikając przycisk **Usuń bieżący certyfikat.**
+3. Później, po wygaśnięciu certyfikatu podstawowego, wróć i Usuń ten certyfikat podstawowy, klikając przycisk **Usuń bieżący certyfikat** .
 
 ## <a name="enrollment-groups-and-security-breaches"></a>Grupy rejestracji i naruszenia zabezpieczeń
 
-Aby zaktualizować rejestrację grupy w odpowiedzi na naruszenie zabezpieczeń, należy użyć jednego z następujących metod, które natychmiast usuną bieżący główny urząd certyfikacji lub certyfikat pośredni.
+Aby zaktualizować rejestrację grupy w odpowiedzi na naruszenie zabezpieczeń, należy zastosować jedną z następujących metod, która spowoduje natychmiastowe usunięcie bieżącego głównego urzędu certyfikacji lub certyfikatu pośredniego.
 
-#### <a name="update-compromised-root-ca-certificates"></a>Aktualizowanie certyfikatów głównego urzędu certyfikacji, których bezpieczeństwo zostało naruszone
+#### <a name="update-compromised-root-ca-certificates"></a>Aktualizuj naruszone certyfikaty głównego urzędu certyfikacji
 
-1. Kliknij kartę **Certyfikaty** dla wystąpienia usługi inicjowania obsługi administracyjnej urządzeń.
+1. Kliknij kartę **Certyfikaty** dla wystąpienia usługi Device Provisioning.
 
-2. Kliknij naruszony certyfikat na liście, a następnie kliknij przycisk **Usuń.** Potwierdź usunięcie, wprowadzając nazwę certyfikatu i kliknij przycisk **OK**. Powtórz ten proces dla wszystkich certyfikatów, których bezpieczeństwo zostało naruszone.
+2. Kliknij na liście certyfikat z naruszeniem zabezpieczeń, a następnie kliknij przycisk **Usuń** . Potwierdź usunięcie, wprowadzając nazwę certyfikatu, a następnie kliknij przycisk **OK**. Powtórz ten proces dla wszystkich certyfikatów z naruszeniem zabezpieczeń.
 
-    ![Usuwanie głównego certyfikatu urzędu certyfikacji](./media/how-to-roll-certificates/delete-root-cert.png)
+    ![Usuń certyfikat głównego urzędu certyfikacji](./media/how-to-roll-certificates/delete-root-cert.png)
 
-3. Wykonaj kroki opisane w [temacie Konfigurowanie zweryfikowanych certyfikatów urzędu certyfikacji](how-to-verify-certificates.md) w celu dodawania i weryfikowania nowych certyfikatów głównych urzędów certyfikacji.
+3. Wykonaj kroki opisane w sekcji [Konfigurowanie zweryfikowanych certyfikatów urzędu certyfikacji](how-to-verify-certificates.md) , aby dodać i zweryfikować nowe certyfikaty głównego urzędu certyfikacji.
 
-4. Kliknij kartę **Zarządzanie rejestracjami** dla wystąpienia usługi inicjowania obsługi administracyjnej urządzeń, a następnie kliknij listę **Grupy rejestracji.** Kliknij nazwę grupy rejestracji na liście.
+4. Kliknij kartę **Zarządzanie rejestracjami** dla wystąpienia usługi Device Provisioning Service, a następnie kliknij listę **grupy rejestracji** . Kliknij nazwę grupy rejestracyjnej na liście.
 
-5. Kliknij pozycję **Certyfikat urzędu certyfikacji**i wybierz nowy główny certyfikat urzędu certyfikacji. Następnie kliknij przycisk **Zapisz**. 
+5. Kliknij pozycję **certyfikat urzędu certyfikacji**, a następnie wybierz nowy certyfikat głównego urzędu certyfikacji. Następnie kliknij przycisk **Zapisz**. 
 
-    ![Wybieranie nowego głównego certyfikatu urzędu certyfikacji](./media/how-to-roll-certificates/select-new-root-cert.png)
+    ![Wybierz nowy certyfikat głównego urzędu certyfikacji](./media/how-to-roll-certificates/select-new-root-cert.png)
 
-6. Po usunięciu certyfikatu, którego bezpieczeństwo zostało usunięte z usługi inicjowania obsługi administracyjnej, certyfikat może nadal służyć do nawiązywania połączeń urządzeń z centrum IoT hub, o ile istnieje tam rejestracja urządzeń. Możesz rozwiązać ten problem na dwa sposoby: 
+6. Po usunięciu złamanego certyfikatu z usługi aprowizacji można nadal używać certyfikatu do nawiązywania połączeń urządzeń z Centrum IoT Hub, o ile istnieją tam zarejestrowane urządzenia. Można rozwiązać te dwa sposoby: 
 
-    Pierwszym sposobem byłoby ręczne przejście do centrum IoT hub i natychmiastowe usunięcie rejestracji urządzenia skojarzonej z certyfikatem, który został naruszony. Następnie, gdy urządzenia ponownie udostępnić zaktualizowane certyfikaty, zostanie utworzona nowa rejestracja urządzenia dla każdego z nich.     
+    Pierwszym sposobem jest ręczne przechodzenie do centrum IoT Hub i natychmiastowe usunięcie rejestracji urządzenia skojarzonej z naruszonym certyfikatem. Po ponownym zainicjowaniu urządzeń z zaktualizowanymi certyfikatami dla każdej z nich zostanie utworzona nowa Rejestracja urządzenia.     
 
-    ![Usuwanie rejestracji urządzeń centrum IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+    ![Usuwanie rejestracji urządzeń w usłudze IoT Hub](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
-    Drugim sposobem byłoby użycie obsługi ponownego obsługi administracyjnej w celu ponownego obsługi urządzeń do tego samego centrum IoT hub. Takie podejście może służyć do zastępowania certyfikatów dla rejestracji urządzeń w centrum IoT hub. Aby uzyskać więcej informacji, zobacz [Jak ponownie aprowizji urządzeń](how-to-reprovision.md).
-
-
-
-#### <a name="update-compromised-intermediate-certificates"></a>Aktualizacja certyfikatów pośrednich, których bezpieczeństwo zostało naruszone
-
-1. Kliknij **pozycję Grupy rejestracji**, a następnie kliknij nazwę grupy na liście. 
-
-2. Kliknij pozycję **Certyfikat pośredni**i **usuń bieżący certyfikat**. Kliknij ikonę folderu, aby przejść do nowego certyfikatu pośredniego, który ma zostać przekazany dla grupy rejestracji. Po zakończeniu **kliknij pozycję Zapisz.** Te kroki powinny zostać wykonane dla certyfikatu podstawowego i pomocniczego, jeśli oba są zagrożone.
-
-    Ten nowy certyfikat pośredni powinien być podpisany przez zweryfikowany certyfikat głównego urzędu certyfikacji, który został już dodany do usługi inicjowania obsługi administracyjnej. Aby uzyskać więcej informacji, zobacz [X.509 certyfikaty](concepts-security.md#x509-certificates).
-
-    ![Zarządzanie indywidualnymi rejestracjami](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
+    Druga metoda umożliwia ponowne Inicjowanie obsługi administracyjnej urządzeń w tym samym centrum IoT Hub. Takie podejście może służyć do zastępowania certyfikatów dla rejestracji urządzeń w usłudze IoT Hub. Aby uzyskać więcej informacji, zobacz [jak ponownie zainicjować obsługę urządzeń](how-to-reprovision.md).
 
 
-3. Po usunięciu certyfikatu, którego bezpieczeństwo zostało usunięte z usługi inicjowania obsługi administracyjnej, certyfikat może nadal służyć do nawiązywania połączeń urządzeń z centrum IoT hub, o ile istnieje tam rejestracja urządzeń. Możesz rozwiązać ten problem na dwa sposoby: 
 
-    Pierwszym sposobem byłoby ręczne przejście do centrum IoT hub i natychmiastowe usunięcie rejestracji urządzenia skojarzonej z certyfikatem, który został naruszony. Następnie, gdy urządzenia ponownie udostępnić zaktualizowane certyfikaty, zostanie utworzona nowa rejestracja urządzenia dla każdego z nich.     
+#### <a name="update-compromised-intermediate-certificates"></a>Aktualizowanie naruszonych certyfikatów pośrednich
 
-    ![Usuwanie rejestracji urządzeń centrum IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+1. Kliknij pozycję **grupy rejestracji**, a następnie kliknij nazwę grupy na liście. 
 
-    Drugim sposobem byłoby użycie obsługi ponownego obsługi administracyjnej w celu ponownego obsługi urządzeń do tego samego centrum IoT hub. Takie podejście może służyć do zastępowania certyfikatów dla rejestracji urządzeń w centrum IoT hub. Aby uzyskać więcej informacji, zobacz [Jak ponownie aprowizji urządzeń](how-to-reprovision.md).
+2. Kliknij pozycję **certyfikat pośredni**i **Usuń bieżący certyfikat**. Kliknij ikonę folderu, aby przejść do nowego certyfikatu pośredniego, który ma zostać przekazany do grupy rejestracji. Po zakończeniu kliknij przycisk **Zapisz** . Te kroki należy wykonać zarówno dla certyfikatu podstawowego, jak i pomocniczego, jeśli oba zabezpieczenia zostały naruszone.
+
+    Ten nowy certyfikat pośredni powinien być podpisany przez zweryfikowany certyfikat głównego urzędu certyfikacji, który został już dodany do usługi aprowizacji. Aby uzyskać więcej informacji, zobacz [certyfikaty X. 509](concepts-security.md#x509-certificates).
+
+    ![Zarządzanie rejestracjami indywidualnymi](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
+
+
+3. Po usunięciu złamanego certyfikatu z usługi aprowizacji można nadal używać certyfikatu do nawiązywania połączeń urządzeń z Centrum IoT Hub, o ile istnieją tam zarejestrowane urządzenia. Można rozwiązać te dwa sposoby: 
+
+    Pierwszym sposobem jest ręczne przechodzenie do centrum IoT Hub i natychmiastowe usunięcie rejestracji urządzenia skojarzonej z naruszonym certyfikatem. Po ponownym zainicjowaniu urządzeń z zaktualizowanymi certyfikatami dla każdej z nich zostanie utworzona nowa Rejestracja urządzenia.     
+
+    ![Usuwanie rejestracji urządzeń w usłudze IoT Hub](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    Druga metoda umożliwia ponowne Inicjowanie obsługi administracyjnej urządzeń w tym samym centrum IoT Hub. Takie podejście może służyć do zastępowania certyfikatów dla rejestracji urządzeń w usłudze IoT Hub. Aby uzyskać więcej informacji, zobacz [jak ponownie zainicjować obsługę urządzeń](how-to-reprovision.md).
 
 
 ## <a name="enrollment-groups-and-certificate-expiration"></a>Grupy rejestracji i wygaśnięcie certyfikatu
 
-W przypadku stopniowego sprawdzania certyfikatów w celu obsługi wygaśnięcia certyfikatów należy użyć konfiguracji certyfikatu pomocniczego w następujący sposób, aby zapewnić brak przestojów dla urządzeń próbujących aprowizować.
+W przypadku wycofywania certyfikatów do obsługi wygaśnięć certyfikatów należy użyć dodatkowej konfiguracji certyfikatu w następujący sposób, aby zapewnić Brak przestoju dla urządzeń, które próbują zainicjować obsługę administracyjną.
 
-Później, gdy certyfikat pomocniczy również zbliża się do wygaśnięcia i musi zostać zwinięty, można obrócić do przy użyciu konfiguracji podstawowej. Obracanie między certyfikatami podstawowymi i pomocniczymi w ten sposób zapewnia brak przestojów dla urządzeń próbujących aprowizować. 
+Później, gdy certyfikat pomocniczy zbliża się również do wygaśnięcia i musi zostać przeniesiona, można obrócić do korzystania z konfiguracji podstawowej. Obracanie między głównymi i dodatkowymi certyfikatami w ten sposób nie zapewnia przestoju dla urządzeń, które próbują zainicjować obsługę administracyjną. 
 
-#### <a name="update-expiring-root-ca-certificates"></a>Aktualizowanie wygasających certyfikatów głównego urzędu certyfikacji
+#### <a name="update-expiring-root-ca-certificates"></a>Aktualizowanie certyfikatów głównego urzędu certyfikacji
 
-1. Wykonaj kroki opisane w [temacie Konfigurowanie zweryfikowanych certyfikatów urzędu certyfikacji](how-to-verify-certificates.md) w celu dodawania i weryfikowania nowych certyfikatów głównych urzędów certyfikacji.
+1. Wykonaj kroki opisane w sekcji [Konfigurowanie zweryfikowanych certyfikatów urzędu certyfikacji](how-to-verify-certificates.md) , aby dodać i zweryfikować nowe certyfikaty głównego urzędu certyfikacji.
 
-2. Kliknij kartę **Zarządzanie rejestracjami** dla wystąpienia usługi inicjowania obsługi administracyjnej urządzeń, a następnie kliknij listę **Grupy rejestracji.** Kliknij nazwę grupy rejestracji na liście.
+2. Kliknij kartę **Zarządzanie rejestracjami** dla wystąpienia usługi Device Provisioning Service, a następnie kliknij listę **grupy rejestracji** . Kliknij nazwę grupy rejestracyjnej na liście.
 
-3. Kliknij pozycję **Certyfikat urzędu certyfikacji**i wybierz nowy certyfikat głównego urzędu certyfikacji w konfiguracji **certyfikatu pomocniczego.** Następnie kliknij przycisk **Zapisz**. 
+3. Kliknij pozycję **certyfikat urzędu certyfikacji**i wybierz nowy certyfikat głównego urzędu certyfikacji w ramach konfiguracji **certyfikatu pomocniczego** . Następnie kliknij przycisk **Zapisz**. 
 
-    ![Wybieranie nowego głównego certyfikatu urzędu certyfikacji](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+    ![Wybierz nowy certyfikat głównego urzędu certyfikacji](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. Później po wygaśnięciu certyfikatu podstawowego kliknij kartę **Certyfikaty** dla wystąpienia usługi inicjowania obsługi administracyjnej urządzeń. Kliknij wygasły certyfikat na liście, a następnie kliknij przycisk **Usuń.** Potwierdź usunięcie, wprowadzając nazwę certyfikatu i kliknij przycisk **OK**.
+4. Później po wygaśnięciu certyfikatu podstawowego kliknij kartę **Certyfikaty** dla wystąpienia usługi Device Provisioning. Kliknij na liście certyfikat wygasły, a następnie kliknij przycisk **Usuń** . Potwierdź usunięcie, wprowadzając nazwę certyfikatu, a następnie kliknij przycisk **OK**.
 
-    ![Usuwanie głównego certyfikatu urzędu certyfikacji](./media/how-to-roll-certificates/delete-root-cert.png)
-
-
-
-#### <a name="update-expiring-intermediate-certificates"></a>Aktualizacja wygasających certyfikatów pośrednich
+    ![Usuń certyfikat głównego urzędu certyfikacji](./media/how-to-roll-certificates/delete-root-cert.png)
 
 
-1. Kliknij **pozycję Grupy rejestracji**i kliknij nazwę grupy na liście. 
 
-2. Kliknij **pozycję Certyfikat pomocniczy,** a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat, który ma zostać przekazany dla wpisu rejestracji. Kliknij przycisk **Zapisz**.
-
-    Ten nowy certyfikat pośredni powinien być podpisany przez zweryfikowany certyfikat głównego urzędu certyfikacji, który został już dodany do usługi inicjowania obsługi administracyjnej. Aby uzyskać więcej informacji, zobacz [X.509 certyfikaty](concepts-security.md#x509-certificates).
-
-   ![Zarządzanie poszczególnymi rejestracjami przy użyciu certyfikatu pomocniczego](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
-
-3. Później, gdy certyfikat podstawowy wygasł, wróć i usuń ten certyfikat podstawowy, klikając przycisk **Usuń bieżący certyfikat.**
+#### <a name="update-expiring-intermediate-certificates"></a>Aktualizacja certyfikatów pośrednich
 
 
-## <a name="reprovision-the-device"></a>Ponowne nadarzenie obsługi administracyjnej urządzenia
+1. Kliknij pozycję **grupy rejestracji**, a następnie kliknij nazwę grupy na liście. 
 
-Po wprowadzeniu certyfikatu zarówno na urządzeniu, jak i w usłudze inicjowania obsługi administracyjnej urządzenia, urządzenie może ponownie aprowizować się, kontaktując się z usługą inicjowania obsługi administracyjnej urządzeń. 
+2. Kliknij pozycję **certyfikat pomocniczy** , a następnie kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Kliknij przycisk **Zapisz**.
 
-Jednym z łatwych sposobów programowania urządzeń do ponownego obsługi administracyjnej jest zaprogramowanie urządzenia do kontaktu z usługą inicjowania obsługi administracyjnej, aby przejść przez przepływ inicjowania obsługi administracyjnej, jeśli urządzenie otrzyma "nieautoryzowany" błąd podczas próby połączenia się z centrum IoT hub.
+    Ten nowy certyfikat pośredni powinien być podpisany przez zweryfikowany certyfikat głównego urzędu certyfikacji, który został już dodany do usługi aprowizacji. Aby uzyskać więcej informacji, zobacz [certyfikaty X. 509](concepts-security.md#x509-certificates).
 
-Innym sposobem jest, aby stare i nowe certyfikaty były ważne dla krótkiego nakładania się i używać centrum IoT hub do wysyłania polecenia do urządzeń, aby ponownie zarejestrować je za pośrednictwem usługi inicjowania obsługi administracyjnej, aby zaktualizować informacje o połączeniu usługi IoT Hub. Ponieważ każde urządzenie może przetwarzać polecenia inaczej, trzeba będzie zaprogramować urządzenie, aby wiedzieć, co zrobić, gdy polecenie jest wywoływane. Istnieje kilka sposobów sterowania urządzeniem za pośrednictwem usługi IoT Hub i zalecamy zainicjowanie procesu przy użyciu [bezpośrednich metod](../iot-hub/iot-hub-devguide-direct-methods.md) lub [zadań.](../iot-hub/iot-hub-devguide-jobs.md)
+   ![Zarządzanie rejestracjami indywidualnymi przy użyciu certyfikatu pomocniczego](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
-Po zakończeniu ponownego inicjowania obsługi administracyjnej urządzenia będą mogły łączyć się z centrum IoT Hub przy użyciu nowych certyfikatów.
+3. Później, po wygaśnięciu certyfikatu podstawowego, wróć i Usuń ten certyfikat podstawowy, klikając przycisk **Usuń bieżący certyfikat** .
 
 
-## <a name="blacklist-certificates"></a>Certyfikaty czarnej listy
+## <a name="reprovision-the-device"></a>Ponowne Inicjowanie obsługi urządzenia
 
-W odpowiedzi na naruszenie zabezpieczeń może być konieczne wpisywać certyfikat urządzenia na czarną listę. Aby wpisać certyfikat urządzenia na czarną listę, wyłącz wpis rejestracji dla urządzenia docelowego/certyfikatu. Aby uzyskać więcej informacji, zobacz czarnej listy urządzeń w [zarządzaniu wyrejestrowania](how-to-revoke-device-access-portal.md) artykułu.
+Po przeprowadzeniu tego certyfikatu zarówno na urządzeniu, jak i w usłudze Device Provisioning urządzenie może zostać ponownie zainicjowane przez skontaktowanie się z usługą Device Provisioning. 
 
-Gdy certyfikat zostanie uwzględniony jako część wyłączonego wpisu rejestracji, wszelkie próby zarejestrowania się w centrum IoT przy użyciu tych certyfikatów nie powiodą się, nawet jeśli jest włączony jako część innego wpisu rejestracji.
+Jednym z łatwych w obsłudze urządzeń programistycznych jest zaprogramowanie urządzenia w celu skontaktowania się z usługą aprowizacji w celu przechodzenia przez proces aprowizacji w przypadku, gdy urządzenie otrzyma komunikat o błędzie "nieautoryzowane" podczas próby nawiązania połączenia z Centrum IoT Hub.
+
+Innym sposobem, aby stare i nowe certyfikaty były prawidłowe dla krótkiego nakładania się, i użyć Centrum IoT do wysłania polecenia do urządzeń w celu ponownego zarejestrowania się za pośrednictwem usługi aprowizacji w celu zaktualizowania IoT Hub informacji o połączeniu. Ponieważ poszczególne urządzenia mogą przetwarzać polecenia inaczej, należy zaprogramować urządzenie, aby dowiedzieć się, co należy zrobić, gdy polecenie jest wywoływane. Istnieje kilka sposobów, aby można było wykonać polecenie na urządzeniu za pośrednictwem IoT Hub i zalecamy użycie [bezpośrednich metod](../iot-hub/iot-hub-devguide-direct-methods.md) lub [zadań](../iot-hub/iot-hub-devguide-jobs.md) do zainicjowania procesu.
+
+Po zakończeniu ponownej aprowizacji urządzenia będą mogły nawiązywać połączenia z IoT Hub przy użyciu nowych certyfikatów.
+
+
+## <a name="blacklist-certificates"></a>Listy zablokowanych certyfikatów
+
+W odpowiedzi na naruszenie zabezpieczeń może być konieczne odinstalowanie certyfikatu urządzenia. Aby zabroniony certyfikat urządzenia, wyłącz wpis rejestracyjny dla urządzenia docelowego/certyfikatu. Aby uzyskać więcej informacji, zobacz sekcję zabronione urządzenia w artykule [Zarządzanie odrejestrowaniem](how-to-revoke-device-access-portal.md) .
+
+Po dołączeniu certyfikatu jako części wyłączonego wpisu rejestracji wszystkie próby zarejestrowania się w usłudze IoT Hub przy użyciu tych certyfikatów będą kończyć się niepowodzeniem nawet wtedy, gdy zostanie on włączony w ramach innego wpisu rejestracji.
  
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o certyfikatach X.509 w usłudze inicjowania obsługi administracyjnej urządzeń, zobacz [Zabezpieczenia](concepts-security.md) 
-- Aby dowiedzieć się, jak wykonać dowód posiadania certyfikatów urzędu certyfikacji X.509 za pomocą usługi inicjowania obsługi administracyjnej urządzeń usługi Azure IoT Hub, zobacz [Jak zweryfikować certyfikaty](how-to-verify-certificates.md)
-- Aby dowiedzieć się, jak utworzyć grupę rejestracji za pomocą portalu, zobacz [Zarządzanie rejestracjami urządzeń za pomocą witryny Azure Portal](how-to-manage-enrollments.md).
+- Aby dowiedzieć się więcej o certyfikatach X. 509 w usłudze Device Provisioning, zobacz [zabezpieczenia](concepts-security.md) 
+- Aby dowiedzieć się, jak zrobić dowód posiadania dla certyfikatów urzędu certyfikacji X. 509 za pomocą usługi Azure IoT Hub Device Provisioning Service, zobacz [jak weryfikować certyfikaty](how-to-verify-certificates.md) .
+- Aby dowiedzieć się, jak utworzyć grupę rejestracji przy użyciu portalu, zobacz [Zarządzanie rejestracjami urządzeń za pomocą Azure Portal](how-to-manage-enrollments.md).
 
 
 
