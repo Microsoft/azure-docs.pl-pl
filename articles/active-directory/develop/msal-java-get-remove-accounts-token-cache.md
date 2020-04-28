@@ -1,7 +1,7 @@
 ---
-title: Uzyskaj & usuń konta z pamięci podręcznej tokenów (MSAL4j) | Azure
+title: Pobierz & usunąć konta z pamięci podręcznej tokenów (MSAL4j) | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak wyświetlać i usuwać konta z pamięci podręcznej tokenów przy użyciu biblioteki uwierzytelniania firmy Microsoft dla środowiska Java.
+description: Dowiedz się, jak wyświetlać i usuwać konta z pamięci podręcznej tokenów przy użyciu biblioteki uwierzytelniania firmy Microsoft dla języka Java.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -14,19 +14,19 @@ ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.openlocfilehash: 2b138678b186cc41b76254658ad604c2da2d76c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76696201"
 ---
-# <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Pobierz i usuń konta z pamięci podręcznej tokenów przy użyciu usługi MSAL dla języka Java
+# <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Pobieranie i usuwanie kont z pamięci podręcznej tokenów przy użyciu programu MSAL for Java
 
-Msal dla języka Java domyślnie zapewnia pamięć podręczną tokenów w pamięci. Pamięć podręczna tokenu w pamięci trwa czas trwania wystąpienia aplikacji.
+MSAL for Java domyślnie udostępnia pamięć podręczną tokenów w pamięci. Pamięć podręczna tokenów w pamięci jest okresem trwania wystąpienia aplikacji.
 
 ## <a name="see-which-accounts-are-in-the-cache"></a>Zobacz, które konta znajdują się w pamięci podręcznej
 
-Możesz sprawdzić, jakie konta znajdują `PublicClientApplication.getAccounts()` się w pamięci podręcznej, wywołując, jak pokazano w poniższym przykładzie:
+Możesz sprawdzić, jakie konta znajdują się w pamięci podręcznej, wywołując `PublicClientApplication.getAccounts()` , jak pokazano w następującym przykładzie:
 
 ```java
 PublicClientApplication pca = new PublicClientApplication.Builder(
@@ -39,7 +39,7 @@ Set<IAccount> accounts = pca.getAccounts().join();
 
 ## <a name="remove-accounts-from-the-cache"></a>Usuwanie kont z pamięci podręcznej
 
-Aby usunąć konto z pamięci podręcznej, znajdź konto, `PublicClientApplicatoin.removeAccount()` które należy usunąć, a następnie zadzwoń, jak pokazano w poniższym przykładzie:
+Aby usunąć konto z pamięci podręcznej, Znajdź konto, które należy usunąć, a następnie Wywołaj metodę `PublicClientApplicatoin.removeAccount()` , jak pokazano w poniższym przykładzie:
 
 ```java
 Set<IAccount> accounts = pca.getAccounts().join();
@@ -53,4 +53,4 @@ pca.removeAccount(accountToBeRemoved).join();
 
 ## <a name="learn-more"></a>Dowiedz się więcej
 
-Jeśli używasz msal dla języka Java, dowiedz się więcej o [serializacji niestandardowej pamięci podręcznej tokenów w msal dla języka Java](msal-java-token-cache-serialization.md).
+Jeśli używasz programu MSAL for Java, Dowiedz się więcej o [serializacji niestandardowego buforu tokenów w MSAL for Java](msal-java-token-cache-serialization.md).

@@ -1,6 +1,6 @@
 ---
-title: Odwołanie do biblioteki klienta funkcji zdefiniowanych przez użytkownika — Usługi Azure Digital Twins | Dokumenty firmy Microsoft
-description: Dokumentacja referencyjna biblioteki klienta zdefiniowanych przez usługę Azure Digital Twins.
+title: Funkcje zdefiniowane przez użytkownika Dokumentacja biblioteki klienta — Azure Digital bliźniaczych reprezentacji | Microsoft Docs
+description: Dokumentacja biblioteki klienta funkcji zdefiniowanych przez użytkownika w usłudze Azure Digital bliźniaczych reprezentacji.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,43 +10,127 @@ ms.topic: article
 ms.date: 01/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: bd6095daca51ddca0cfb4b34ca86e763df9a3d02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76276812"
 ---
-# <a name="user-defined-functions-client-library-reference"></a>Odwołanie do biblioteki klienta funkcji zdefiniowanych przez użytkownika
+# <a name="user-defined-functions-client-library-reference"></a>Dokumentacja biblioteki klienta funkcji zdefiniowanych przez użytkownika
 
-Ten dokument zawiera informacje referencyjne dla biblioteki klienta funkcji zdefiniowanych przez użytkownika usługi Azure Digital Twins.
+Ten dokument zawiera informacje referencyjne dotyczące biblioteki klienta usługi Azure Digital bliźniaczych reprezentacji zdefiniowanej przez użytkownika.
 
-## <a name="helper-methods"></a>Metody pomocnicze
+## <a name="helper-methods"></a>Metody pomocnika
 
-Biblioteka klienta definiuje metody pomocnicze dla często używanych operacji.
+Biblioteka klienta definiuje metody pomocnika dla często używanych operacji.
 
-### <a name="getspacemetadataid--space"></a>getSpaceMetadata(id) ⇒`space`
+### <a name="getspacemetadataid--space"></a>getSpaceMetadata (ID) ⇒`space`
 
-Biorąc pod uwagę identyfikator spacji, ta funkcja pobiera spację z wykresu.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ---------- | ------------------- | ------------ |
-| *Identyfikator*  | `guid` | Identyfikator miejsca |
-
-### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒`sensor`
-
-Biorąc pod uwagę identyfikator czujnika, funkcja ta pobiera czujnik z wykresu.
+Po otrzymaniu identyfikatora przestrzeni funkcja ta pobiera miejsce z grafu.
 
 **Rodzaj**: funkcja globalna
 
 | Parametr  | Typ                | Opis  |
 | ---------- | ------------------- | ------------ |
-| *Identyfikator*  | `guid` | Identyfikator czujnika |
+| *#c1*  | `guid` | Identyfikator przestrzeni |
 
-### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒`device`
+### <a name="getsensormetadataid--sensor"></a>getSensorMetadata (ID) ⇒`sensor`
 
-Biorąc pod uwagę identyfikator urządzenia, ta funkcja pobiera urządzenie z wykresu.
+Podanym identyfikatorem czujnika, ta funkcja pobiera czujnik z grafu.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ---------- | ------------------- | ------------ |
+| *#c1*  | `guid` | Identyfikator czujnika |
+
+### <a name="getdevicemetadataid--device"></a>getDeviceMetadata (ID) ⇒`device`
+
+Po otrzymaniu identyfikatora urządzenia ta funkcja pobiera urządzenie z grafu.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *#c1* | `guid` | Identyfikator urządzenia |
+
+### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue (sensorId, dataType) ⇒`value`
+
+Uwzględniając identyfikator czujnika i jego typ danych, ta funkcja pobiera bieżącą wartość dla tego czujnika.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *sensorId*  | `guid` | Identyfikator czujnika |
+| *Typu*  | `string` | Typ danych czujnika |
+
+### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue (spaceId, valueName) ⇒`value`
+
+Uwzględniając identyfikator przestrzeni i nazwę wartości, ta funkcja pobiera bieżącą wartość dla tej właściwości przestrzeni.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *spaceId*  | `guid` | Identyfikator przestrzeni |
+| *valueName* | `string` | Nazwa właściwości obszaru |
+
+### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues (sensorId, dataType) ⇒`value[]`
+
+Uwzględniając identyfikator czujnika i jego typ danych, ta funkcja pobiera wartości historyczne dla tego czujnika.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *sensorId* | `guid` | Identyfikator czujnika |
+| *Typu* | `string` | Typ danych czujnika |
+
+### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues (spaceId, dataType) ⇒`value[]`
+
+Uwzględniając identyfikator przestrzeni i nazwę wartości, ta funkcja pobiera wartości historyczne dla tej właściwości w miejscu.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *spaceId* | `guid` | Identyfikator przestrzeni |
+| *valueName* | `string` | Nazwa właściwości obszaru |
+
+### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒`space[]`
+
+Po otrzymaniu identyfikatora przestrzeni funkcja ta pobiera spacje podrzędne dla tego obszaru nadrzędnego.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *spaceId* | `guid` | Identyfikator przestrzeni |
+
+### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒`sensor[]`
+
+Po otrzymaniu identyfikatora przestrzeni funkcja ta pobiera czujniki podrzędne dla tego obszaru nadrzędnego.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *spaceId* | `guid` | Identyfikator przestrzeni |
+
+### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒`device[]`
+
+Po otrzymaniu identyfikatora przestrzeni funkcja ta pobiera urządzenia podrzędne dla tego obszaru nadrzędnego.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *spaceId* | `guid` | Identyfikator przestrzeni |
+
+### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors (deviceId) ⇒`sensor[]`
+
+Po otrzymaniu identyfikatora urządzenia ta funkcja pobiera czujniki podrzędne dla tego urządzenia nadrzędnego.
 
 **Rodzaj**: funkcja globalna
 
@@ -54,103 +138,19 @@ Biorąc pod uwagę identyfikator urządzenia, ta funkcja pobiera urządzenie z w
 | ------ | ------------------- | ------------ |
 | *Identyfikator* | `guid` | Identyfikator urządzenia |
 
-### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue(sensorId, dataType) ⇒`value`
-
-Biorąc pod uwagę identyfikator czujnika i jego typ danych, ta funkcja pobiera bieżącą wartość dla tego czujnika.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *sensorId*  | `guid` | Identyfikator czujnika |
-| *Datatype*  | `string` | Typ danych czujnika |
-
-### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue(spaceId, valueName) ⇒`value`
-
-Biorąc pod uwagę identyfikator spacji i nazwę wartości, ta funkcja pobiera bieżącą wartość dla tej właściwości spacji.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *spaceId (ida przestrzeni)*  | `guid` | Identyfikator miejsca |
-| *valueName* | `string` | Nazwa właściwości spacji |
-
-### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues(sensorId, dataType) ⇒`value[]`
-
-Biorąc pod uwagę identyfikator czujnika i jego typ danych, ta funkcja pobiera wartości historyczne dla tego czujnika.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *sensorId* | `guid` | Identyfikator czujnika |
-| *Datatype* | `string` | Typ danych czujnika |
-
-### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues(spaceId, dataType) ⇒`value[]`
-
-Biorąc pod uwagę identyfikator spacji i nazwę wartości, ta funkcja pobiera wartości historyczne dla tej właściwości w spacji.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *spaceId (ida przestrzeni)* | `guid` | Identyfikator miejsca |
-| *valueName* | `string` | Nazwa właściwości spacji |
-
-### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒`space[]`
-
-Biorąc pod uwagę identyfikator spacji, ta funkcja pobiera przestrzenie podrzędne dla tego obszaru nadrzędnego.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *spaceId (ida przestrzeni)* | `guid` | Identyfikator miejsca |
-
-### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒`sensor[]`
-
-Biorąc pod uwagę identyfikator miejsca, ta funkcja pobiera czujniki podrzędne dla tej przestrzeni nadrzędnej.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *spaceId (ida przestrzeni)* | `guid` | Identyfikator miejsca |
-
-### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒`device[]`
-
-Biorąc pod uwagę identyfikator miejsca, ta funkcja pobiera urządzenia podrzędne dla tego obszaru nadrzędnego.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *spaceId (ida przestrzeni)* | `guid` | Identyfikator miejsca |
-
-### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒`sensor[]`
-
-Biorąc pod uwagę identyfikator urządzenia, ta funkcja pobiera czujniki podrzędne dla tego urządzenia nadrzędnego.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *deviceId* | `guid` | Identyfikator urządzenia |
-
 ### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒`space`
 
-Biorąc pod uwagę identyfikator spacji, ta funkcja pobiera jego przestrzeni nadrzędnej.
+Po otrzymaniu identyfikatora przestrzeni funkcja ta pobiera miejsce nadrzędne.
 
 **Rodzaj**: funkcja globalna
 
 | Parametr  | Typ                | Opis  |
 | ------ | ------------------- | ------------ |
-| *childSpaceId (ida przestrzeni podrzędnej)* | `guid` | Identyfikator miejsca |
+| *childSpaceId* | `guid` | Identyfikator przestrzeni |
 
 ### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒`space`
 
-Biorąc pod uwagę identyfikator czujnika, ta funkcja pobiera swoją przestrzeń nadrzędną.
+Przy podanym identyfikatorze czujnika ta funkcja pobiera miejsce nadrzędne.
 
 **Rodzaj**: funkcja globalna
 
@@ -160,17 +160,17 @@ Biorąc pod uwagę identyfikator czujnika, ta funkcja pobiera swoją przestrzeń
 
 ### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒`space`
 
-Biorąc pod uwagę identyfikator urządzenia, ta funkcja pobiera jego przestrzeni nadrzędnej.
+Po otrzymaniu identyfikatora urządzenia ta funkcja pobiera miejsce nadrzędne.
 
 **Rodzaj**: funkcja globalna
 
 | Parametr  | Typ                | Opis  |
 | ------ | ------------------- | ------------ |
-| *childDeviceId (ida podrzędna)* | `guid` | Identyfikator urządzenia |
+| *childDeviceId* | `guid` | Identyfikator urządzenia |
 
 ### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒`space`
 
-Biorąc pod uwagę identyfikator czujnika, ta funkcja pobiera swoje urządzenie nadrzędne.
+Podanym identyfikatorem czujnika, ta funkcja pobiera urządzenie nadrzędne.
 
 **Rodzaj**: funkcja globalna
 
@@ -178,88 +178,88 @@ Biorąc pod uwagę identyfikator czujnika, ta funkcja pobiera swoje urządzenie 
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | Identyfikator czujnika |
 
-### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty(spaceId, propertyName) ⇒`extendedProperty`
+### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty (spaceId, propertyName) ⇒`extendedProperty`
 
-Biorąc pod uwagę identyfikator spacji, ta funkcja pobiera właściwość i jej wartość z spacji.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *spaceId (ida przestrzeni)* | `guid` | Identyfikator miejsca |
-| *Propertyname* | `string` | Nazwa właściwości spacji |
-
-### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty(sensorId, propertyName) ⇒`extendedProperty`
-
-Biorąc pod uwagę identyfikator czujnika, ta funkcja pobiera właściwość i jej wartość z czujnika.
+Po otrzymaniu identyfikatora przestrzeni funkcja ta pobiera właściwość i jej wartość z obszaru.
 
 **Rodzaj**: funkcja globalna
 
 | Parametr  | Typ                | Opis  |
 | ------ | ------------------- | ------------ |
-| *sensorId* | `guid` | Identyfikator czujnika |
-| *Propertyname* | `string` | Nazwa właściwości czujnika |
+| *spaceId* | `guid` | Identyfikator przestrzeni |
+| *Funkcja* | `string` | Nazwa właściwości obszaru |
 
-### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty(deviceId, nazwa właściwości) ⇒`extendedProperty`
+### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty (sensorId, propertyName) ⇒`extendedProperty`
 
-Biorąc pod uwagę identyfikator urządzenia, ta funkcja pobiera właściwość i jej wartość z urządzenia.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *deviceId* | `guid` | Identyfikator urządzenia |
-| *Propertyname* | `string` | Nazwa właściwości urządzenia |
-
-### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue(sensorId, dataType, wartość)
-
-Ta funkcja ustawia wartość obiektu czujnika o danym typie danych.
+Podanym identyfikatorem czujnika, ta funkcja pobiera właściwość i jej wartość z czujnika.
 
 **Rodzaj**: funkcja globalna
 
 | Parametr  | Typ                | Opis  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Identyfikator czujnika |
-| *Datatype*  | `string` | Typ danych czujnika |
+| *Funkcja* | `string` | Nazwa właściwości czujnika |
+
+### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty (deviceId, propertyName) ⇒`extendedProperty`
+
+Po otrzymaniu identyfikatora urządzenia ta funkcja pobiera właściwość i jej wartość z urządzenia.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *Identyfikator* | `guid` | Identyfikator urządzenia |
+| *Funkcja* | `string` | Nazwa właściwości urządzenia |
+
+### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue (sensorId, typ danych, wartość)
+
+Ta funkcja ustawia wartość dla obiektu czujnika o danym typie danych.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *sensorId* | `guid` | Identyfikator czujnika |
+| *Typu*  | `string` | Typ danych czujnika |
 | *value*  | `string` | Wartość |
 
-### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue(spaceId, dataType, value)
+### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue (spaceId, typ danych, wartość)
 
-Ta funkcja ustawia wartość obiektu spacji o danym typie danych.
+Ta funkcja ustawia wartość w obiekcie Space o danym typie danych.
 
 **Rodzaj**: funkcja globalna
 
 | Parametr  | Typ                | Opis  |
 | ------ | ------------------- | ------------ |
-| *spaceId (ida przestrzeni)* | `guid` | Identyfikator miejsca |
-| *Datatype* | `string` | Typ danych |
+| *spaceId* | `guid` | Identyfikator przestrzeni |
+| *Typu* | `string` | Typ danych |
 | *value* | `string` | Wartość |
 
-### <a name="logmessage"></a>dziennik(wiadomość)
+### <a name="logmessage"></a>Dziennik (komunikat)
 
-Ta funkcja rejestruje następujący komunikat w funkcji zdefiniowanej przez użytkownika.
-
-**Rodzaj**: funkcja globalna
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *Komunikat* | `string` | Wiadomość do zarejestrowania |
-
-### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification(topologyObjectId, topologyObjectType, ładunek)
-
-Ta funkcja wysyła niestandardowe powiadomienie do wysłania.
+Ta funkcja rejestruje następujący komunikat w ramach funkcji zdefiniowanej przez użytkownika.
 
 **Rodzaj**: funkcja globalna
 
 | Parametr  | Typ                | Opis  |
 | ------ | ------------------- | ------------ |
-| *topologiaObjectId*  | `guid` | Identyfikator obiektu wykresu. Przykładami są spacja, czujnik i identyfikator urządzenia.|
-| *topologiaTyp*  | `string` | Przykładami są czujnik i urządzenie.|
-| *payload*  | `string` | Ładunek JSON, który ma zostać wysłany wraz z powiadomieniem. |
+| *Komunikat* | `string` | Komunikat do zarejestrowania |
 
-## <a name="return-types"></a>Typy zwrotów
+### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification (topologyObjectId, topologyObjectType, ładunek)
 
-Modele odpowiedzi zwrócone z metod pomocnika referencyjnego klienta są opisane poniżej.
+Ta funkcja wysyła powiadomienie niestandardowe do wysłania.
+
+**Rodzaj**: funkcja globalna
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *topologyObjectId*  | `guid` | Identyfikator obiektu grafu. Przykłady to spacja, czujnik i identyfikator urządzenia.|
+| *topologyObjectType*  | `string` | Przykłady to czujnik i urządzenie.|
+| *payload*  | `string` | Ładunek JSON do wysłania z powiadomieniem. |
+
+## <a name="return-types"></a>Typy zwracane
+
+Modele odpowiedzi zwrócone z metod pomocnika odwołań klienta zostały opisane poniżej.
 
 ### <a name="space"></a>Miejsce
 
@@ -274,45 +274,45 @@ Modele odpowiedzi zwrócone z metod pomocnika referencyjnego klienta są opisane
 }
 ```
 
-### <a name="space-methods"></a>Metody kosmiczne
+### <a name="space-methods"></a>Metody spacji
 
-#### <a name="parent--space"></a>Rodzic() ⇒`space`
+#### <a name="parent--space"></a>Element nadrzędny () ⇒`space`
 
-Ta funkcja zwraca przestrzeń nadrzędną bieżącej przestrzeni.
+Ta funkcja zwraca przestrzeń nadrzędną bieżącego obszaru.
 
-#### <a name="childsensors--sensor"></a>Czujniki podrzędne() ⇒`sensor[]`
+#### <a name="childsensors--sensor"></a>ChildSensors() ⇒`sensor[]`
 
-Ta funkcja zwraca czujniki podrzędne bieżącej przestrzeni.
+Ta funkcja zwraca czujniki podrzędne bieżącego obszaru.
 
-#### <a name="childdevices--device"></a>Dzieci() ⇒`device[]`
+#### <a name="childdevices--device"></a>ChildDevices() ⇒`device[]`
 
-Ta funkcja zwraca urządzenia podrzędne bieżącej przestrzeni.
+Ta funkcja zwraca urządzenia podrzędne bieżącego obszaru.
 
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(nazwa właściwości) ⇒`extendedProperty`
+#### <a name="extendedpropertypropertyname--extendedproperty"></a>Właściwość rozszerzona (propertyName) ⇒`extendedProperty`
 
-Ta funkcja zwraca właściwość rozszerzoną i jej wartość dla bieżącego miejsca.
-
-| Parametr  | Typ                | Opis  |
-| ------ | ------------------- | ------------ |
-| *Propertyname* | `string` | Nazwa właściwości rozszerzonej |
-
-#### <a name="valuevaluename--value"></a>Wartość(nazwa wartości) ⇒`value`
-
-Ta funkcja zwraca wartość bieżącego spacji.
+Ta funkcja zwraca właściwość rozszerzoną i jej wartość dla bieżącego obszaru.
 
 | Parametr  | Typ                | Opis  |
 | ------ | ------------------- | ------------ |
-| *valueName* | `string` | Nazwa wartości |
+| *Funkcja* | `string` | Nazwa właściwości rozszerzonej |
 
-#### <a name="historyvaluename--value"></a>Historia(valueName) ⇒`value[]`
+#### <a name="valuevaluename--value"></a>Wartość (valueName) ⇒`value`
 
-Ta funkcja zwraca wartości historyczne bieżącej przestrzeni.
+Ta funkcja zwraca wartość bieżącego obszaru.
 
 | Parametr  | Typ                | Opis  |
 | ------ | ------------------- | ------------ |
 | *valueName* | `string` | Nazwa wartości |
 
-#### <a name="notifypayload"></a>Powiadamianie (ładunek)
+#### <a name="historyvaluename--value"></a>Historia (valueName) ⇒`value[]`
+
+Ta funkcja zwraca wartości historyczne bieżącego obszaru.
+
+| Parametr  | Typ                | Opis  |
+| ------ | ------------------- | ------------ |
+| *valueName* | `string` | Nazwa wartości |
+
+#### <a name="notifypayload"></a>Powiadom (ładunek)
 
 Ta funkcja wysyła powiadomienie z określonym ładunkiem.
 
@@ -340,23 +340,23 @@ Ta funkcja wysyła powiadomienie z określonym ładunkiem.
 
 ### <a name="device-methods"></a>Metody urządzenia
 
-#### <a name="parent--space"></a>Rodzic() ⇒`space`
+#### <a name="parent--space"></a>Element nadrzędny () ⇒`space`
 
 Ta funkcja zwraca przestrzeń nadrzędną bieżącego urządzenia.
 
-#### <a name="childsensors--sensor"></a>Czujniki podrzędne() ⇒`sensor[]`
+#### <a name="childsensors--sensor"></a>ChildSensors() ⇒`sensor[]`
 
 Ta funkcja zwraca czujniki podrzędne bieżącego urządzenia.
 
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(nazwa właściwości) ⇒`extendedProperty`
+#### <a name="extendedpropertypropertyname--extendedproperty"></a>Właściwość rozszerzona (propertyName) ⇒`extendedProperty`
 
 Ta funkcja zwraca właściwość rozszerzoną i jej wartość dla bieżącego urządzenia.
 
 | Parametr  | Typ                | Opis  |
 | ------ | ------------------- | ------------ |
-| *Propertyname* | `string` | Nazwa właściwości rozszerzonej |
+| *Funkcja* | `string` | Nazwa właściwości rozszerzonej |
 
-#### <a name="notifypayload"></a>Powiadamianie (ładunek)
+#### <a name="notifypayload"></a>Powiadom (ładunek)
 
 Ta funkcja wysyła powiadomienie z określonym ładunkiem.
 
@@ -388,31 +388,31 @@ Ta funkcja wysyła powiadomienie z określonym ładunkiem.
 
 ### <a name="sensor-methods"></a>Metody czujników
 
-#### <a name="space--space"></a>Spacja() ⇒`space`
+#### <a name="space--space"></a>Space () ⇒`space`
 
 Ta funkcja zwraca przestrzeń nadrzędną bieżącego czujnika.
 
-#### <a name="device--device"></a>Urządzenie() ⇒`device`
+#### <a name="device--device"></a>Urządzenie () ⇒`device`
 
 Ta funkcja zwraca urządzenie nadrzędne bieżącego czujnika.
 
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(nazwa właściwości) ⇒`extendedProperty`
+#### <a name="extendedpropertypropertyname--extendedproperty"></a>Właściwość rozszerzona (propertyName) ⇒`extendedProperty`
 
 Ta funkcja zwraca właściwość rozszerzoną i jej wartość dla bieżącego czujnika.
 
 | Parametr  | Typ                | Opis  |
 | ------ | ------------------- | ------------ |
-| *Propertyname* | `string` | Nazwa właściwości rozszerzonej |
+| *Funkcja* | `string` | Nazwa właściwości rozszerzonej |
 
-#### <a name="value--value"></a>Wartość() ⇒`value`
+#### <a name="value--value"></a>Wartość () ⇒`value`
 
 Ta funkcja zwraca wartość bieżącego czujnika.
 
-#### <a name="history--value"></a>Historia() ⇒`value[]`
+#### <a name="history--value"></a>Historia () ⇒`value[]`
 
 Ta funkcja zwraca wartości historyczne bieżącego czujnika.
 
-#### <a name="notifypayload"></a>Powiadamianie (ładunek)
+#### <a name="notifypayload"></a>Powiadom (ładunek)
 
 Ta funkcja wysyła powiadomienie z określonym ładunkiem.
 
@@ -441,8 +441,8 @@ Ta funkcja wysyła powiadomienie z określonym ładunkiem.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [funkcjach zdefiniowanych przez użytkownika usługi Azure Digital Twins](./concepts-user-defined-functions.md).
+- Dowiedz się więcej o [funkcjach zdefiniowanych przez użytkownika w usłudze Azure Digital bliźniaczych reprezentacji](./concepts-user-defined-functions.md).
 
-- Dowiedz [się, jak tworzyć funkcje zdefiniowane przez użytkownika](./how-to-user-defined-functions.md).
+- Dowiedz się [, jak tworzyć funkcje zdefiniowane przez użytkownika](./how-to-user-defined-functions.md).
 
-- Dowiedz [się, jak debugować funkcje zdefiniowane przez użytkownika](./how-to-diagnose-user-defined-functions.md).
+- Dowiedz się [, jak debugować funkcje zdefiniowane przez użytkownika](./how-to-diagnose-user-defined-functions.md).

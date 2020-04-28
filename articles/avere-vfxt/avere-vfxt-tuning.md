@@ -1,54 +1,54 @@
 ---
-title: Dostrajanie klastra Avere vFXT — platforma Azure
-description: Omówienie ustawień niestandardowych w celu optymalizacji wydajności w aplikacji Avere vFXT for Azure
+title: Dostrajanie klastra avere vFXT — platforma Azure
+description: Omówienie ustawień niestandardowych w celu zoptymalizowania wydajności w programie avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76152939"
 ---
 # <a name="cluster-tuning"></a>Dostosowywanie klastra
 
-Większość klastrów vFXT może korzystać z niestandardowych ustawień wydajności. Te ustawienia ułatwiają klastrowi najlepszą pracę z określonym przepływem pracy, zestawem danych i narzędziami.
+Większość klastrów vFXT może korzystać z niestandardowych ustawień wydajności. Te ustawienia pomagają, aby klaster działał najlepiej z określonym przepływem pracy, zestawem danych i narzędziami.
 
-To dostosowanie należy wykonać z pomocą przedstawiciela pomocy technicznej, ponieważ może to obejmować konfigurowanie funkcji, które nie są dostępne w Panelu sterowania Avere.
+Takie dostosowanie powinno odbywać się z pomocą techniczną, ponieważ może to dotyczyć konfigurowania funkcji, które nie są dostępne w panelu sterowania avere.
 
-W tej sekcji opisano niektóre strojenie niestandardowe, które można wykonać.
+W tej sekcji opisano niektóre niestandardowe dostrajania, które można wykonać.
 
 ## <a name="general-optimizations"></a>Optymalizacje ogólne
 
 Te zmiany mogą być zalecane na podstawie jakości zestawu danych lub stylu przepływu pracy.
 
-* Jeśli obciążenie jest dużo zapisu, należy zwiększyć rozmiar pamięci podręcznej zapisu z domyślnej 20%.
-* Jeśli zestaw danych obejmuje wiele małych plików, zwiększ limit liczby plików w pamięci podręcznej klastra.
-* Jeśli praca polega na kopiowaniu lub przenoszeniu danych między dwoma repozytoriami, dostosuj liczbę wątków używanych do przenoszenia danych:
-  * Aby zwiększyć szybkość, można zwiększyć liczbę równoległych wątków używanych.
-  * Jeśli wolumin magazynu zaplecza staje się przeciążony, może być konieczne zmniejszenie liczby używanych równoległych wątków.
-* Jeśli klaster buforuje dane dla głównego filera korzystającego z list ACL NFSv4, włącz buforowanie trybu dostępu, aby usprawnić autoryzację plików dla określonych klientów.
+* Jeśli obciążenie ma duże możliwości zapisu, należy zwiększyć rozmiar pamięci podręcznej zapisu z wartości domyślnej 20%.
+* Jeśli zestaw danych zawiera wiele małych plików, zwiększ limit liczby plików pamięci podręcznej klastra.
+* Jeśli prace obejmują kopiowanie lub przeniesienie danych między dwoma repozytoriami, Dostosuj liczbę wątków używanych do przeniesienia danych:
+  * Aby zwiększyć szybkość, można zwiększyć liczbę używanych wątków równoległych.
+  * Jeśli wolumin magazynu zaplecza zostanie przeciążony, może być konieczne zmniejszenie liczby użytych wątków równoległych.
+* Jeśli klaster buforuje dane dla podstawowego pliku, który używa list ACL NFSv4, Włącz buforowanie trybu dostępu, aby usprawnić autoryzację plików dla określonych klientów.
 
-## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Optymalizacje serwera NAS w chmurze lub bramy w chmurze
+## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Optymalizacje NAS lub Cloud Gateway w chmurze
 
-W scenariuszu serwera NAS lub bramy w chmurze klaster vFXT zapewnia dostęp do kontenera w chmurze w stylu NAS. Aby korzystać z wyższych szybkości danych między klastrem vFXT a magazynem w chmurze, przedstawiciel może zalecić zmianę ustawień, aby bardziej agresywnie wypychać dane do woluminu magazynu z pamięci podręcznej. Przykład:
+W scenariuszu serwera NAS lub bramy w chmurze klaster vFXT zapewnia dostęp w stylu NAS do kontenera chmury. Aby wykorzystać wyższe szybkości danych między klastrem vFXT i magazynem w chmurze, przedstawiciel może zalecić zmianę ustawień w celu bardziej agresywnego wypychania danych do woluminu magazynu z pamięci podręcznej. Przykład:
 
-* Zwiększenie liczby połączeń TCP między klastrem a kontenerem magazynu
+* Zwiększ liczbę połączeń TCP między klastrem a kontenerem magazynu
 
-## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Chmura pęknięcie lub hybrydowe optymalizacje WAN
+## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Przenoszenie w chmurze lub hybrydowe optymalizacje sieci WAN
 
-W scenariuszu tworzenia warstwy w chmurze lub scenariuszu optymalizacji sieci WAN magazynu hybrydowego klaster vFXT zapewnia integrację między chmurą a lokalnym magazynem sprzętu. Te zmiany mogą być pomocne:
+W scenariuszu obejmującym scalanie w chmurze lub hybrydowe scenariusze optymalizacji sieci WAN klaster vFXT zapewnia integrację między lokalnym magazynem sprzętowym a chmurowym. Te zmiany mogą być przydatne:
 
-* Zwiększenie liczby dozwolonych połączeń TCP między klastrem a głównym filerem
-* Włącz ustawienie Optymalizacji sieci WAN dla zdalnego rejestratora rdzenia (to ustawienie może być używane dla zdalnego lokalnego filera lub filera z rdzeniem chmury w innym regionie platformy Azure).
-* Zwiększanie rozmiaru buforu gniazda TCP<sup>*</sup>
-* Włącz ustawienie "zawsze do przodu", aby zmniejszyć nadmiarowo buforowane pliki<sup>*</sup>
+* Zwiększ liczbę połączeń TCP dozwolonych między klastrem a podstawowym plikiem
+* Włącz ustawienie optymalizacji sieci WAN dla zdalnego pliku podstawowego. to ustawienie może być używane w przypadku zdalnego lokalnego pliku lub pliku w chmurze w innym regionie świadczenia usługi Azure.
+* Zwiększ rozmiar buforu gniazda TCP<sup>*</sup>
+* Włącz ustawienie "Zawsze przesyłaj dalej", aby zmniejszyć ilość plików buforowanych w pamięci podręcznej<sup>*</sup>
 
-<sup>*</sup>Te korekty mogą nie dotyczyć wszystkich systemów, w zależności od obciążenia i wymagań dotyczących wydajności.
+<sup>*</sup>Te zmiany mogą nie dotyczyć wszystkich systemów, w zależności od potrzeb obciążenia i wydajności.
 
-## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Pomóż zoptymalizować avere vFXT na platformie Azure
+## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Pomóż zoptymalizować swój avere vFXT dla platformy Azure
 
-Aby skontaktować się z pracownikami pomocy technicznej w sprawie tych optymalizacji, skorzystaj z procedury [opisanej](avere-vfxt-open-ticket.md)w temacie Uzyskaj pomoc dotyczącą systemu .
+Aby skontaktować się z personelem pomocy technicznej na temat tych optymalizacji, użyj procedury opisanej w artykule [Uzyskiwanie pomocy](avere-vfxt-open-ticket.md)dotyczącej systemu.

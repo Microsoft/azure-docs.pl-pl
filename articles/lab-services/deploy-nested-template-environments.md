@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie zagnieżdżonych środowisk szablonów w laboratoriach devtest platformy Azure
-description: Dowiedz się, jak wdrożyć zagnieżdżone szablony usługi Azure Resource Manager w celu zapewnienia środowisk w laboratoriach devtest platformy Azure.
+title: Wdróż zagnieżdżone środowiska szablonów w Azure DevTest Labs
+description: Dowiedz się, jak wdrożyć zagnieżdżone szablony Azure Resource Manager, aby zapewnić środowiska z Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,21 +13,21 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: e83bc4e77a44f20d55fa3b56bc81aefd1d25bb03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76168818"
 ---
-# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Wdrażanie zagnieżdżonych szablonów usługi Azure Resource Manager do testowania środowisk
-Wdrożenie zagnieżdżone umożliwia wykonywanie innych szablonów usługi Azure Resource Manager z poziomu głównego szablonu Menedżera zasobów. Umożliwia rozkład wdrożenia do zestawu szablonów docelowych i specyficznych dla celu. Zapewnia korzyści w zakresie testowania, ponownego użycia i czytelności. Artykuł [Korzystanie z połączonych szablonów podczas wdrażania zasobów platformy Azure](../azure-resource-manager/templates/linked-templates.md) zawiera dobre omówienie tego rozwiązania z kilkoma przykładami kodu. Ten artykuł zawiera przykład, który jest specyficzny dla usługi Azure DevTest Labs. 
+# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Wdróż zagnieżdżone szablony Azure Resource Manager dla środowisk testowych
+Wdrożenie zagnieżdżone umożliwia wykonywanie innych szablonów Azure Resource Manager z poziomu szablonu Menedżer zasobów głównego. Pozwala to na rozmieszczenie wdrożenia w zestaw szablonów przeznaczonych dla konkretnych celów. Zapewnia ona korzyści z testowania, ponownego użycia i czytelności. W [przypadku wdrażania zasobów platformy Azure za pomocą połączonych szablonów](../azure-resource-manager/templates/linked-templates.md) znajduje się dobry przegląd tego rozwiązania z kilkoma przykładami kodu. W tym artykule przedstawiono przykład, który jest specyficzny dla Azure DevTest Labs. 
 
-## <a name="key-parameters"></a>Kluczowe parametry
-Chociaż można utworzyć własny szablon Menedżera zasobów od podstaw, zaleca się użycie [projektu Grupy zasobów platformy Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) w programie Visual Studio, co ułatwia tworzenie i debugowanie szablonów. Po dodaniu zagnieżdżonego zasobu wdrożenia do azuredeploy.json program Visual Studio dodaje kilka elementów, aby uczynić szablon bardziej elastycznym. Elementy te obejmują podfolder z pomocniczym plikiem szablonu i parametrów, nazwy zmiennych w głównym pliku szablonu i dwa parametry lokalizacji przechowywania nowych plików. **_artifactsLocation** i **_artifactsLocationSasToken** są kluczowe parametry, które devtest labs używa. 
+## <a name="key-parameters"></a>Parametry klucza
+Chociaż możesz utworzyć własny szablon Menedżer zasobów od podstaw, zalecamy użycie [projektu grupy zasobów platformy Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) w programie Visual Studio, co ułatwia tworzenie i debugowanie szablonów. Po dodaniu zagnieżdżonego zasobu wdrożenia do azuredeploy. JSON program Visual Studio dodaje kilka elementów, aby uczynić szablon bardziej elastycznym. Te elementy obejmują podfolder z szablonem pomocniczym i plikiem parametrów, nazwami zmiennych w głównym pliku szablonu i dwa parametry lokalizacji przechowywania dla nowych plików. **_ArtifactsLocation** i **_artifactsLocationSasToken** są kluczowymi parametrami, z których korzysta DevTest Labs. 
 
-Jeśli nie znasz sposobu, w jaki laboratoria DevTest współpracują ze środowiskami, zobacz [Tworzenie środowisk wielu maszyn wirtualnych i zasobów PaaS za pomocą szablonów usługi Azure Resource Manager.](devtest-lab-create-environment-from-arm.md) Szablony są przechowywane w repozytorium połączonym z laboratorium w DevTest Labs. Podczas tworzenia nowego środowiska z tych szablonów, pliki są przenoszone do kontenera usługi Azure Storage w laboratorium. Aby móc identyfikować i kopiować zagnieżdżone pliki, DevTest Labs identyfikuje _artifactsLocation i _artifactsLocationSasToken parametry oraz kopiuje podfoldery do kontenera magazynu. Następnie automatycznie wstawia lokalizację i token sygnatury dostępu współdzielonego (SaS) do parametrów. 
+Jeśli nie wiesz, jak współpracuje DevTest Labs z środowiskami, zobacz [Tworzenie środowisk wielu maszyn wirtualnych i zasobów PaaS przy użyciu szablonów Azure Resource Manager](devtest-lab-create-environment-from-arm.md). Szablony są przechowywane w repozytorium połączonym z laboratorium w DevTest Labs. Po utworzeniu nowego środowiska z tymi szablonami pliki są przenoszone do kontenera usługi Azure Storage w laboratorium. Aby można było identyfikować i kopiować pliki zagnieżdżone, DevTest Labs identyfikuje parametry _artifactsLocation i _artifactsLocationSasToken i kopiuje podfoldery do kontenera magazynu. Następnie automatycznie wstawia do parametrów lokalizację i token sygnatury dostępu współdzielonego (SaS). 
 
-## <a name="nested-deployment-example"></a>Przykład wdrożenia zagnieżdżonego
+## <a name="nested-deployment-example"></a>Przykład zagnieżdżonego wdrożenia
 Oto prosty przykład wdrożenia zagnieżdżonego:
 
 ```json
@@ -66,17 +66,17 @@ Oto prosty przykład wdrożenia zagnieżdżonego:
 "outputs": {}
 ```
 
-Folder w repozytorium zawierający ten szablon ma `nestedtemplates` podfolder z plikami **NestOne.json** i **NestOne.parameters.json**. W **pliku azuredeploy.json**identyfikator URI dla szablonu jest budowany przy użyciu lokalizacji artefaktów, zagnieżdżonego folderu szablonu, nazwy pliku szablonu zagnieżdżonego. Podobnie identyfikator URI dla parametrów jest zbudowany przy użyciu lokalizacji artefaktów, zagnieżdżonego folderu szablonu i pliku parametrów dla szablonu zagnieżdżonego. 
+Folder w repozytorium zawierającym ten szablon ma podfolder `nestedtemplates` Files **NestOne. JSON** i **NestOne. Parameters. JSON**. W pliku **azuredeploy. JSON**identyfikator URI dla szablonu jest tworzony przy użyciu lokalizacji artefaktów, zagnieżdżony folder szablonów, zagnieżdżona nazwa szablonu. Podobnie identyfikatory URI parametrów są kompilowane przy użyciu lokalizacji artefaktów, zagnieżdżonego folderu szablonów i pliku parametrów dla szablonu zagnieżdżonego. 
 
-Oto obraz tej samej struktury projektu w programie Visual Studio: 
+Poniżej znajduje się obraz tej samej struktury projektu w programie Visual Studio: 
 
 ![Struktura projektu w programie Visual Studio](./media/deploy-nested-template-environments/visual-studio-project-structure.png)
 
-Można dodać dodatkowe foldery w folderze podstawowym, ale nie głębiej niż jeden poziom. 
+Możesz dodać dodatkowe foldery w folderze podstawowym, ale nie są one bardziej szczegółowe niż jeden poziom. 
 
 ## <a name="next-steps"></a>Następne kroki
-Szczegółowe informacje na temat środowisk można znaleźć w następujących artykułach: 
+Szczegółowe informacje o środowiskach można znaleźć w następujących artykułach: 
 
 - [Tworzenie środowisk z wieloma maszynami wirtualnymi i zasobów PaaS za pomocą szablonów usługi Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
-- [Konfigurowanie i używanie środowisk publicznych w laboratoriach devtest azure](devtest-lab-configure-use-public-environments.md)
-- [Łączenie środowiska z siecią wirtualną laboratorium w laboratorium Azure DevTest Labs](connect-environment-lab-virtual-network.md)
+- [Konfigurowanie i używanie środowisk publicznych w programie Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
+- [Podłącz środowisko do sieci wirtualnej laboratorium w Azure DevTest Labs](connect-environment-lab-virtual-network.md)

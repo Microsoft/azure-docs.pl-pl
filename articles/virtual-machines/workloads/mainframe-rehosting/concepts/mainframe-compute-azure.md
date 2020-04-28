@@ -1,138 +1,138 @@
 ---
-title: Przenoszenie obliczeń komputera mainframe na maszyny wirtualne platformy Azure
-description: Zasoby obliczeniowe platformy Azure porównują się korzystnie do pojemności komputerów mainframe, dzięki czemu można migrować i modernizować aplikacje IBM z14.
+title: Przenoszenie zasobów obliczeniowych komputerów mainframe do usługi Azure Virtual Machines
+description: Zasoby obliczeniowe platformy Azure porównują favorably z pojemnością komputera mainframe, dzięki czemu można migrować i unowocześnieniować aplikacje IBM z14.
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76288935"
 ---
-# <a name="move-mainframe-compute-to-azure"></a>Przenoszenie obliczeń komputera mainframe na platformę Azure
+# <a name="move-mainframe-compute-to-azure"></a>Przenoszenie obliczeń mainframe na platformę Azure
 
-Komputery mainframe cieszą się renomą wysokiej niezawodności i dostępności oraz nadal są zaufanym kręgosłupem wielu przedsiębiorstw. Często uważa się, że mają prawie nieograniczoną skalowalność i moc obliczeniową. Jednak niektóre przedsiębiorstwa przerosły możliwości największych dostępnych komputerów mainframe. Jeśli brzmi to jak Ty, platforma Azure oferuje elastyczność, zasięg i oszczędność infrastruktury.
+Komputery mainframe mają reputację wysokiej niezawodności i dostępności i nadal są zaufanymi szkieletami wielu przedsiębiorstw. Często są uważane za praktycznie nieograniczoną skalowalność i moc obliczeniową. Jednak niektóre przedsiębiorstwa pomogły obrosnąć możliwości największych dostępnych komputerów mainframe. Jeśli te dźwięki są takie same, platforma Azure oferuje elastyczność, zasięg i oszczędności infrastruktury.
 
-Aby uruchamiać obciążenia komputerów mainframe na platformie Microsoft Azure, musisz wiedzieć, jak możliwości obliczeniowe komputera mainframe są porównywane z platformą Azure. Na podstawie ibm z14 mainframe (najbardziej aktualny model w tym piśmie), w tym artykule opisano, jak uzyskać porównywalne wyniki na platformie Azure.
+Aby uruchamiać obciążenia mainframe na Microsoft Azure, musisz wiedzieć, jak możliwości obliczeniowe komputera mainframe są porównywane z platformą Azure. W tym artykule opisano, jak uzyskać porównywalne wyniki na platformie Azure w oparciu o mainframe firmy IBM z14 (najbardziej aktualny model w przypadku tego zapisu).
 
-Aby rozpocząć, należy wziąć pod uwagę środowiska obok siebie. Na poniższej ilustracji porównano środowisko komputera mainframe do uruchamiania aplikacji ze środowiskiem hostingu platformy Azure.
+Aby rozpocząć, należy rozważyć środowiska obok siebie. Poniższy rysunek zawiera porównanie środowiska mainframe na potrzeby uruchamiania aplikacji w środowisku hostingu platformy Azure.
 
-![Usługi platformy Azure i środowiska emulacji oferują porównywalną pomoc techniczną i usprawniają migrację](media/mainframe-compute-azure.png)
+![Usługi platformy Azure i środowiska emulacji oferują porównywalną pomoc techniczną i upraszczają migrację](media/mainframe-compute-azure.png)
 
-Moc komputerów mainframe jest często używana do przetwarzania transakcji online (OLTP), które obsługują miliony aktualizacji dla tysięcy użytkowników. Aplikacje te często używają oprogramowania do przetwarzania transakcji, obsługi ekranu i wprowadzania formularzy. Mogą oni korzystać z systemu kontroli informacji o klientach (CICS), systemu zarządzania informacjami (IMS) lub pakietu interfejsu transakcji (TIP).
+Możliwości komputerów mainframe są często używane w systemach przetwarzania transakcji online (OLTP), które obsługują miliony aktualizacji tysięcy użytkowników. Te aplikacje często używają oprogramowania do przetwarzania transakcji, obsługi ekranu i wprowadzania tekstu. Mogą korzystać z systemu kontroli informacji o klientach (CICS), systemu zarządzania informacjami (ISP) lub pakietu interfejsu transakcji (TIP).
 
-Jak pokazano na rysunku, emulator modułu TPM na platformie Azure może obsługiwać obciążenia CICS i IMS. Emulator systemu wsadowego na platformie Azure pełni rolę języka kontroli zadań (JCL). Dane mainframe są migrowane do baz danych platformy Azure, takich jak usługa Azure SQL Database. Usługi platformy Azure lub inne oprogramowanie hostowane w maszynach wirtualnych platformy Azure może służyć do zarządzania systemem.
+Jak widać na ilustracji, Emulator modułu TPM na platformie Azure może obsłużyć obciążenia CICS i IMS. Emulator systemu wsadowego na platformie Azure wykonuje rolę języka kontroli zadań (JCL). Dane mainframe są migrowane do baz danych platformy Azure, takich jak Azure SQL Database. Usługi platformy Azure lub inne oprogramowanie hostowane w usłudze Azure Virtual Machines mogą służyć do zarządzania systemem.
 
-## <a name="mainframe-compute-at-a-glance"></a>Obliczenia mainframe w skrócie
+## <a name="mainframe-compute-at-a-glance"></a>Szybkie obliczanie komputera mainframe
 
-W modelu głównym z14 procesory są rozmieszczone w maksymalnie czterech *szufladach.* *Szuflada* jest po prostu klastrem procesorów i chipsetów. Każda szuflada może mieć sześć aktywnych układów procesora centralnego (CP), a każda CP ma 10 układów kontrolera systemu (SC). W terminologii Intel x86 na szufladę przypada sześć gniazd, 10 rdzeni na gniazdo i cztery szuflady. Ta architektura zapewnia odpowiednik 24 gniazd i 240 rdzeni, maksymalnie dla z14.
+W z14 mainframe, procesory są rozmieszczone w maksymalnie czterech *szufladach*. *Szuflada* to po prostu klaster procesorów i układów. Każda szuflada może mieć sześć mikroprocesorów aktywnych procesorów (CP), a każdy z nich ma 10 mikroukładów kontrolera systemowego. W terminologii Intel x86 istnieje sześć gniazd na szufladę, 10 rdzeni na gniazdo i cztery szuflady. Ta architektura zapewnia sztywny odpowiednik 24 gniazd i 240 rdzeni, maksimum dla z14.
 
-Szybki Z14 CP ma taktowanie 5,2 GHz. Zazwyczaj z14 jest dostarczany ze wszystkimi CPs w polu. Są one aktywowane w razie potrzeby. Klient jest często naliczany przez co najmniej cztery godziny czasu obliczeniowego miesięcznie pomimo rzeczywistego użycia.
+Szybki z14 CP ma szybkość zegara 5,2 GHz. Zazwyczaj z14 jest dostarczany ze wszystkimi CPs w polu. Są one aktywowane zgodnie z wymaganiami. Klient jest często obciążany przez co najmniej cztery godziny obliczeń na miesiąc, pomimo faktycznego użycia.
 
-Procesor typu mainframe można skonfigurować jako jeden z następujących typów:
+Procesor mainframe można skonfigurować jako jeden z następujących typów:
 
-- Procesor ogólnego przeznaczenia (GP)
-- System ze Zintegrowanym Procesorem Informacyjnym (zIIP)
-- Zintegrowany procesor Facility for Linux (IFL)
-- Procesor wspomagania systemu (SAP)
-- Zintegrowany procesor sprzęgający (ICF)
+- Procesor Ogólnego przeznaczenia (GP)
+- System z zintegrowanym procesorem informacji (zIIP)
+- Procesor zintegrowany z systemem Linux (IFL)
+- Procesor pomocy systemu (SAP)
+- Zintegrowany procesor funkcji sprzęgania (ICF)
 
-## <a name="scaling-mainframe-compute-up-and-out"></a>Skalowanie obliczeń mainframe w górę i na zewnątrz
+## <a name="scaling-mainframe-compute-up-and-out"></a>Skalowanie obliczeń komputera mainframe w górę i w dół
 
-Komputery mainframe IBM oferują możliwość skalowania do 240 rdzeni (obecny rozmiar z14 dla jednego systemu). Ponadto komputery mainframe IBM mogą być skalowane w poziomie za pomocą funkcji zwanej urządzeniem sprzęgało (CF). Cf umożliwia wielu systemom mainframe dostęp do tych samych danych jednocześnie. Za pomocą cf, mainframe Parallel Sysplex technologii grupowania procesorów mainframe w klastrach. Podczas pisania tego przewodnika funkcja Parallel Sysplex obsługiwała 32 grupy po 64 procesory. W ten sposób można zgrupować do 2048 procesorów w celu skalowania w poziomie pojemności obliczeniowej.
+Systemy mainframe firmy IBM umożliwiają skalowanie do 240 rdzeni (bieżący rozmiar z14 dla pojedynczego systemu). Ponadto Komputery mainframe firmy IBM można skalować w poziomie za pomocą funkcji zwanej obiektem sprzęgającym (CF). CF umożliwia wielu systemom mainframe dostęp do tych samych danych jednocześnie. Korzystając z CF, Komputery mainframe Parallel Sysplex Technology groups. Po napisaniu tego przewodnika funkcja Parallel Sysplex obsługuje grupy 32 procesorów 64. Do 2 048 procesorów można grupować w ten sposób w celu skalowania wydajności obliczeniowej.
 
-Cf umożliwia klastrom obliczeniowym udostępnianie danych z bezpośrednim dostępem. Służy do blokowania informacji, informacji o pamięci podręcznej i listy udostępnionych zasobów danych. Równoległy Sysplex przy użyciu jednego lub więcej plików CF można traktować jako "wspólne wszystko" skalowania w poziomie klastra obliczeniowego. Aby uzyskać więcej informacji na temat tych funkcji, zobacz [Parallel Sysplex w systemie IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) w witrynie internetowej IBM.
+CF umożliwia Klastrom obliczeniowym udostępnianie danych za pomocą bezpośredniego dostępu. Jest on używany do blokowania informacji, pamięci podręcznej i listy udostępnionych zasobów danych. Sysplex równoległy przy użyciu co najmniej jednego CFsu można traktować jako klaster obliczeniowy skalowalny w poziomie. Aby uzyskać więcej informacji o tych funkcjach, zobacz [Parallel Sysplex on the IBM z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) w witrynie sieci Web firmy IBM.
 
-Aplikacje mogą korzystać z tych funkcji, aby zapewnić zarówno wydajność skalowa w poziomie, jak i wysoką dostępność. Aby uzyskać informacje o tym, jak cics może korzystać z równoległego sysplexu z systemem CF, pobierz ibm [CICS i](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) redbook Ds.
+Aplikacje mogą korzystać z tych funkcji w celu zapewnienia wydajności skalowalności i wysokiej dostępności. Aby uzyskać informacje o tym, jak CICS może używać równoległych Sysplex z CF, Pobierz [IBM CICS i obiekt sprzęgający: poza podstawowymi](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) metodami.
 
-## <a name="azure-compute-at-a-glance"></a>Informacje obliczeniowe platformy Azure w skrócie
+## <a name="azure-compute-at-a-glance"></a>Usługa Azure COMPUTE w skrócie
 
-Niektórzy ludzie błędnie myślą, że serwery oparte na Intelu nie są tak potężne jak komputery mainframe. Jednak nowe systemy oparte na rdzeniu, oparte na intelu, mają tyle samo mocy obliczeniowej, co komputery mainframe. W tej sekcji opisano opcje infrastruktury platformy Azure jako usługi (IaaS) do przetwarzania i przechowywania. Platforma Azure udostępnia również opcje platformy jako usługi (PaaS), ale w tym artykule skupiono się na opcjach IaaS, które zapewniają porównywalną pojemność komputera mainframe.
+Niektórzy z nich uważali, że serwery z technologią Intel nie są tak wydajne jak Komputery mainframe. Jednak nowe komputery z systemami opartymi na architekturze Intel mają takie same możliwości obliczeniowe jak Komputery mainframe. W tej sekcji opisano opcje "infrastruktura jako usługa" platformy Azure (IaaS) na potrzeby przetwarzania i magazynowania. Platforma Azure udostępnia również opcje platformy jako usługi (PaaS), ale ten artykuł koncentruje się na opcjach IaaS, które zapewniają porównywalną pojemność komputera mainframe.
 
-Maszyny wirtualne platformy Azure zapewniają moc obliczeniową w zakresie rozmiarów i typów. Na platformie Azure wirtualny procesor (vCPU) w przybliżeniu odpowiada rdzeniu na mainframe.
+Platforma Azure Virtual Machines zapewnia moc obliczeniową w różnych rozmiarach i typach. Na platformie Azure wirtualne użycie procesora (vCPU) jest w przybliżeniu równe rdzeniu na komputerze mainframe.
 
-Obecnie zakres rozmiarów maszyny wirtualnej platformy Azure zapewnia od 1 do 128 procesorów wirtualnych. Typy maszyn wirtualnych są zoptymalizowane pod kątem określonych obciążeń. Na przykład na poniższej liście przedstawiono typy maszyn wirtualnych (bieżący na czas pisania) i ich zalecane zastosowania:
+Obecnie zakres rozmiarów maszyn wirtualnych platformy Azure zapewnia od 1 do 128 procesorów wirtualnych vCPU. Typy maszyn wirtualnych są zoptymalizowane pod kątem określonych obciążeń. Na przykład na poniższej liście przedstawiono typy maszyn wirtualnych (bieżące w przypadku tego zapisu) i ich Zalecane zastosowania:
 
 | Rozmiar     | Typ i opis                                                                 |
 |----------|--------------------------------------------------------------------------------------|
-| Seria D | Ogólnego przeznaczenia z 64 vCPU i prędkością zegara do 3,5 GHz                           |
-| Seria E | Pamięć zoptymalizowana z maksymalnie 64 procesorami wirtualnymi                                                 |
-| Seria F | Możliwość obliczenia zoptymalizowana pod kątem do 64 procesorów wirtualnych i taktowania 3..7 GHz                       |
-| Seria H | Zoptymalizowany pod kątem zastosowań obliczeniowych o wysokiej wydajności (HPC)                          |
-| Seria L | Pamięć masowa zoptymalizowana pod kątem aplikacji o wysokiej przepływności wspieranych przez bazy danych, takie jak NoSQL |
-| Seria M | Maszyny wirtualne zoptymalizowane pod kątem mocy obliczeniowej i pamięci z maksymalnie 128 procesorami wirtualnymi                        |
+| Seria D | Ogólnego przeznaczenia z 64 vCPU i maksymalnie 3,5 częstotliwości zegara                           |
+| Seria E | Zoptymalizowane pod kątem pamięci z maksymalnie 64 procesorów wirtualnych vCPU                                                 |
+| Seria F | Obliczenia zoptymalizowane pod kątem maksymalnie 64 procesorów wirtualnych vCPU i 3.. 7 GHz                       |
+| Seria H | Optymalizacja pod kątem aplikacji obliczeniowych o wysokiej wydajności (HPC)                          |
+| Seria L | Magazyn zoptymalizowany pod kątem aplikacji o wysokiej przepływności, które są objęte bazami danych, takimi jak NoSQL |
+| Seria M | Największe maszyny wirtualne obliczeniowe i zoptymalizowane pod kątem pamięci z maksymalnie 128 procesorów wirtualnych vCPU                        |
 
-Aby uzyskać szczegółowe informacje na temat dostępnych maszyn wirtualnych, zobacz [Seria maszyn wirtualnych](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
+Aby uzyskać szczegółowe informacje o dostępnych maszynach wirtualnych, zobacz [serie maszyn wirtualnych](https://azure.microsoft.com/pricing/details/virtual-machines/series/).
 
-Mainframe z14 może mieć do 240 rdzeni. Jednak komputery główne z14 prawie nigdy nie używają wszystkich rdzeni dla pojedynczej aplikacji lub obciążenia. Zamiast tego mainframe segreguje obciążenia na partycje logiczne (LPARs), a LPARs mają oceny — MIPS (miliony instrukcji na sekundę) lub MSU (Million Service Unit). Podczas określania porównywalnego rozmiaru maszyny Wirtualnej potrzebne do uruchomienia obciążenia mainframe na platformie Azure, współczynnik w klasyfikacji MIPS (lub MSU).
+Z14 mainframe może mieć do 240 rdzeni. Jednak Komputery mainframe z14 niemal nigdy nie używają wszystkich rdzeni dla jednej aplikacji lub obciążenia. Zamiast tego Komputery mainframe dzielą obciążenia na partycje logiczne (LPARs), a LPARs mają klasyfikacje — MIPS (miliony instrukcji na sekundę) lub MSU (mln jednostek usługi). Podczas określania porównywalnego rozmiaru maszyny wirtualnej, który jest wymagany do uruchomienia obciążenia komputera mainframe na platformie Azure, należy wziąć pod uwagę klasyfikację MIPS (lub MSU).
 
-Oto ogólne szacunki:
+Poniżej przedstawiono ogólne oszacowania:
 
--   150 MIPS na procesor wirtualny
+-   150 MIPS na vCPU
 
--   1000 MIPS na procesor
+-   1 000 MIPS na procesor
 
-Aby określić poprawny rozmiar maszyny Wirtualnej dla danego obciążenia w LPAR, najpierw zoptymalizuj maszynę wirtualną pod kątem obciążenia. Następnie należy określić liczbę potrzebnych procesorów wirtualnych. Konserwatywne oszacowanie wynosi 150 MIPS na procesor wirtualny. Na podstawie tego szacunku, na przykład, maszyna wirtualna z serii F z 16 procesorami wirtualnymi może z łatwością obsługiwać obciążenie IBM Db2 pochodzące z lparu z 2400 MIPS.
+Aby określić prawidłowy rozmiar maszyny wirtualnej dla danego obciążenia w LPAR, najpierw Zoptymalizuj maszynę wirtualną dla obciążenia. Następnie określ wymaganą liczbę procesorów wirtualnych vCPU. Szacunkowa ocena to 150 MIPS na vCPU. Na przykład na podstawie tego szacunku maszyna wirtualna z serii F z 16 procesorów wirtualnych vCPU może łatwo obsłużyć obciążenie IBM DB2 pochodzące z LPAR z obsługą funkcji 2 400 MIPS.
 
-## <a name="azure-compute-scale-up"></a>Skalowanie obliczeń platformy Azure w górę
+## <a name="azure-compute-scale-up"></a>Skalowanie obliczeniowe platformy Azure — w górę
 
-Maszyny wirtualne z serii M można skalować do 128 procesorów wirtualnych (w momencie pisania tego artykułu). Przy użyciu konserwatywnego oszacowania 150 MIPS na procesor wirtualny, maszyna wirtualna serii M odpowiada około 19 000 MIPS. Ogólna zasada szacowania MIPS dla modelu mainframe wynosi 1000 MIPS na procesor. Model mainframe z14 może mieć do 24 procesorów i zapewnia około 24 000 MIPS dla jednego systemu mainframe.
+Maszyny wirtualne serii M można skalować w górę do 128 procesorów wirtualnych vCPU (w momencie zapisania tego artykułu). Przy użyciu zachowawczego oszacowania 150 MIPS na vCPU, maszyna wirtualna serii M jest równa około 19 000 MIPS. Ogólna zasada szacowania MIPS dla komputera mainframe to 1 000 MIPS na procesor. Z14 mainframe może mieć do 24 procesorów i zapewnić około 24 000 MIPS dla jednego systemu mainframe.
 
-Największa pojedyncza klatka główna z14 ma około 5000 MIPS więcej niż największa maszyna wirtualna dostępna na platformie Azure. Jednak należy porównać sposób wdrażania obciążeń. Jeśli system mainframe ma zarówno aplikację, jak i relacyjną bazę danych, są one zazwyczaj wdrażane na tej samej fizycznej ramie mainframe — każda we własnym LPAR. To samo rozwiązanie na platformie Azure jest często wdrażane przy użyciu jednej maszyny Wirtualnej dla aplikacji i oddzielnej maszyny Wirtualnej o odpowiednim rozmiarze dla bazy danych.
+Największy z14 mainframe ma około 5 000 MIPS więcej niż największą maszynę wirtualną dostępną na platformie Azure. Należy pamiętać, że należy porównać sposób wdrażania obciążeń. Jeśli system mainframe ma zarówno aplikację, jak i relacyjną bazę danych, są one zwykle wdrażane na tym samym fizycznym komputerze mainframe — każdy w osobnym LPAR. To samo rozwiązanie na platformie Azure jest często wdrażane przy użyciu jednej maszyny wirtualnej dla aplikacji oraz oddzielnej, odpowiednio dopasowanej maszyny wirtualnej dla bazy danych.
 
-Jeśli na przykład system vCPU M64 obsługuje aplikację, a dla bazy danych jest używany procesor wirtualny M96, potrzeba około 150 procesorów wirtualnych , czyli około 24 000 mipsów, jak pokazano na poniższej ilustracji.
+Na przykład jeśli system M64 vCPU obsługuje aplikację, a M96 vCPU jest używany dla bazy danych, około 150 procesorów wirtualnych vCPU jest konieczna — lub około 24 000 MIPS, jak pokazano na poniższej ilustracji.
 
-![Porównanie wdrożeń obciążeń 24 000 MIPS](media/mainframe-compute-mips.png)
+![Porównywanie wdrożeń obciążeń 24 000 MIPS](media/mainframe-compute-mips.png)
 
-Podejście polega na migracji LPARs do poszczególnych maszyn wirtualnych. Następnie platforma Azure łatwo skaluje się do rozmiaru wymaganego dla większości aplikacji, które są wdrażane w jednym systemie mainframe.
+Podejście polega na migracji LPARs do poszczególnych maszyn wirtualnych. Następnie system Azure można łatwo skalować do rozmiaru wymaganego dla większości aplikacji wdrożonych w jednym systemie mainframe.
 
-## <a name="azure-compute-scale-out"></a>Skalowanie w poziomie obliczeń platformy Azure
+## <a name="azure-compute-scale-out"></a>Skalowanie obliczeniowe na platformie Azure
 
-Jedną z zalet rozwiązania opartego na platformie Azure jest możliwość skalowania w poziomie. Skalowanie sprawia, że prawie nieograniczona pojemność obliczeniowa jest dostępna dla aplikacji. Platforma Azure obsługuje wiele metod skalowania w poziomie mocy obliczeniowej:
+Jedną z zalet rozwiązań opartych na platformie Azure jest możliwość skalowania w poziomie. Skalowanie sprawia, że dla aplikacji jest dostępna niemal nieograniczona pojemność obliczeniowa. Platforma Azure obsługuje wiele metod skalowania mocy obliczeniowej:
 
-- **Równoważenie obciążenia w klastrze.** W tym scenariuszu aplikacja może użyć [modułu równoważenia obciążenia](/azure/load-balancer/load-balancer-overview) lub menedżera zasobów, aby rozłożyć obciążenie między wiele maszyn wirtualnych w klastrze. Jeśli wymagana jest większa pojemność obliczeniowa, do klastra dodawane są dodatkowe maszyny wirtualne.
+- **Równoważenie obciążenia w klastrze.** W tym scenariuszu aplikacja może użyć [modułu równoważenia obciążenia](/azure/load-balancer/load-balancer-overview) lub Menedżera zasobów, aby rozłożyć obciążenie między wieloma maszynami wirtualnymi w klastrze. Jeśli wymagana jest większa pojemność obliczeniowa, do klastra dodawane są dodatkowe maszyny wirtualne.
 
-- **Zestawy skalowania maszyny wirtualnej.** W tym scenariuszu serii aplikacji można skalować do dodatkowych [zasobów obliczeniowych](/azure/virtual-machine-scale-sets/overview) na podstawie użycia maszyny Wirtualnej. Gdy popyt spada, liczba maszyn wirtualnych w zestawie skalowania może również spaść, zapewniając efektywne wykorzystanie mocy obliczeniowej.
+- **Zestawy skalowania maszyn wirtualnych.** W tym scenariuszu pierścieniowym aplikacja może skalować do dodatkowych [zasobów obliczeniowych](/azure/virtual-machine-scale-sets/overview) na podstawie użycia maszyny wirtualnej. Gdy zajdzie taka potrzeba, liczba maszyn wirtualnych w zestawie skalowania może również się nie pomniejszać, co zapewnia efektywne wykorzystanie mocy obliczeniowej.
 
-- **Skalowanie PaaS.** Usługa Azure PaaS oferuje skalowanie zasobów obliczeniowych. Na przykład [usługa Azure Service Fabric](/azure/service-fabric/service-fabric-overview) przydziela zasoby obliczeniowe, aby sprostać wzrostowi liczby żądań.
+- **Skalowanie PaaS.** Oferty usługi Azure PaaS umożliwiają skalowanie zasobów obliczeniowych. Na przykład [platforma Azure Service Fabric](/azure/service-fabric/service-fabric-overview) przydziela zasoby obliczeniowe w celu osiągnięcia wzrostu liczby żądań.
 
-- **Klastry kubernetes.** Aplikacje na platformie Azure mogą używać [klastrów Kubernetes](/azure/aks/concepts-clusters-workloads) dla usług obliczeniowych dla określonych zasobów. Usługa Azure Kubernetes Service (AKS) to usługa zarządzana, która organizuje węzły, pule i klastry kubernetes na platformie Azure.
+- **Klastry Kubernetes.** Aplikacje na platformie Azure mogą używać [klastrów Kubernetes](/azure/aks/concepts-clusters-workloads) dla usług obliczeniowych dla określonych zasobów. Azure Kubernetes Service (AKS) to usługa zarządzana, która organizuje węzły, pule i klastry Kubernetes na platformie Azure.
 
-Aby wybrać odpowiednią metodę skalowania zasobów obliczeniowych w poziomie, należy zrozumieć, jak różnią się platformy Azure i mainframes. Kluczem jest sposób i czy dane są współużytkowane przez zasoby obliczeniowe. Na platformie Azure dane (domyślnie) nie są zazwyczaj współużytkowane przez wiele maszyn wirtualnych. Jeśli udostępnianie danych jest wymagane przez wiele maszyn wirtualnych w klastrze obliczeniowym skalowawczym w poziomie, udostępnione dane muszą znajdować się w zasobie obsługującym tę funkcję. Na platformie Azure udostępnianie danych obejmuje magazyn, jak w poniższej sekcji omówiono.
+Aby wybrać odpowiednią metodę skalowania zasobów obliczeniowych, ważne jest, aby zrozumieć, w jaki sposób platforma Azure i Komputery mainframe różnią się. Klucz polega na tym, czy dane są współużytkowane przez zasoby obliczeniowe. Na platformie Azure dane (domyślnie) nie są zazwyczaj udostępniane przez wiele maszyn wirtualnych. Jeśli udostępnianie danych jest wymagane przez wiele maszyn wirtualnych w klastrze obliczeniowym skalowalnym w poziomie, udostępnione dane muszą znajdować się w zasobie, który obsługuje tę funkcję. W przypadku usługi Azure Data Sharing obejmuje magazyn, jak opisano w poniższej sekcji.
 
-## <a name="azure-compute-optimization"></a>Optymalizacja obliczeń platformy Azure
+## <a name="azure-compute-optimization"></a>Optymalizacja obliczeń na platformie Azure
 
-Można zoptymalizować każdą warstwę przetwarzania w architekturze platformy Azure. Użyj najbardziej odpowiedniego typu maszyn wirtualnych i funkcji dla każdego środowiska. Na poniższej ilustracji przedstawiono jeden potencjalny wzorzec wdrażania maszyn wirtualnych na platformie Azure do obsługi aplikacji CICS, która używa db2. W lokacji głównej maszyny wirtualne produkcyjne, przedprodukcyjne i testujące są wdrażane z wysoką dostępnością. Lokacja dodatkowa służy do tworzenia kopii zapasowych i odzyskiwania po awarii.
+Każdą warstwę przetwarzania można zoptymalizować w architekturze platformy Azure. Używaj najbardziej odpowiedniego typu maszyn wirtualnych i funkcji dla każdego środowiska. Na poniższej ilustracji przedstawiono jeden potencjalny wzorzec wdrażania maszyn wirtualnych na platformie Azure w celu obsługi aplikacji CICS, która korzysta z bazy danych DB2. W lokacji głównej wdrożenia maszyn wirtualnych, produkcji wstępnej i testowania są wdrażane z wysoką dostępnością. Lokacja dodatkowa służy do tworzenia kopii zapasowych i odzyskiwania po awarii.
 
-Każda warstwa może również zapewnić odpowiednie usługi odzyskiwania po awarii. Na przykład maszyny wirtualne produkcji i bazy danych może wymagać odzyskiwania na gorąco lub ciepło, podczas gdy rozwój i testowanie maszyn wirtualnych obsługuje odzyskiwanie przeziębienie.
+Każda warstwa może również zapewnić odpowiednie usługi odzyskiwania po awarii. Na przykład maszyny wirtualne z maszynami wirtualnymi i bazami danych mogą wymagać odzyskiwania gorącego lub ciepłego, podczas gdy maszyny wirtualne do tworzenia i testowania obsługują zimne odzyskiwanie.
 
 ![Wdrożenie o wysokiej dostępności, które obsługuje odzyskiwanie po awarii](media/mainframe-compute-dr.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Migracja komputera mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Ponowne hostowanie pulpitu głównego na maszynach wirtualnych platformy Azure](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Rehostowanie komputera mainframe na platformie Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Przenoszenie magazynu mainframe na platformę Azure](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>Zasoby IBM
 
-- [Równoległy sysplex w ibm z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS i urządzenie sprzęgało: poza podstawami](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
-- [Tworzenie wymaganych użytkowników dla instalacji funkcji pureScale Db2](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
-- [Db2icrt — polecenie Utwórz wystąpienie](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Rozwiązanie do klastrowej bazy danych Db2 pureScale](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Równoległa Sysplex na IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
+- [IBM CICS i funkcja sprzęgania: poza podstawowymi](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [Tworzenie wymaganych użytkowników dla instalacji funkcji programu DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+- [Db2icrt — Utwórz wystąpienie polecenia](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+- [Rozwiązanie klastrowanej bazy danych DB2 pureScale](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government
 
-- [Chmura microsoft azure dla instytucji rządowych dla aplikacji mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
+- [Microsoft Azure Government w chmurze dla aplikacji dla komputerów mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
 - [Microsoft i FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
 
 ### <a name="more-migration-resources"></a>Więcej zasobów migracji
 
-- [Przewodnik po wirtualnym centrum danych azure i przeniesieniu](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
+- [Przewodnik po podnoszenia i przesunięć wirtualnego centrum danych platformy Azure](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
 - [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

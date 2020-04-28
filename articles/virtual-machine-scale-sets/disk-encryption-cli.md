@@ -1,6 +1,6 @@
 ---
-title: Szyfruj dyski dla zestawów skalowania platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
-description: Dowiedz się, jak używać programu Azure PowerShell do szyfrowania wystąpień maszyn wirtualnych i dołączonych dysków w zestawie skalowania maszyny wirtualnej systemu Windows
+title: Szyfrowanie dysków dla zestawów skalowania platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
+description: Dowiedz się, jak używać Azure PowerShell do szyfrowania wystąpień maszyn wirtualnych i dołączonych dysków w zestawie skalowania maszyn wirtualnych z systemem Windows
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 557d5c023acbc7987d58c9e78bfe11e25f314879
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76279080"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Szyfruj system operacyjny i dołączone dyski danych w zestawie skalowania maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Szyfrowanie systemu operacyjnego i dołączonych dysków danych w zestawie skalowania maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
 
-Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. Ten przewodnik Szybki start pokazuje, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia i szyfrowania zestawu skalowania maszyny wirtualnej. Aby uzyskać więcej informacji na temat stosowania szyfrowania dysku Azure do zestawu skalowania maszyny wirtualnej, zobacz [Szyfrowanie dysków platformy Azure dla zestawów skalowania maszyn wirtualnych](disk-encryption-overview.md).
+Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku szybki start pokazano, jak utworzyć i zaszyfrować zestaw skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji na temat stosowania szyfrowania dysków Azure do zestawu skalowania maszyn wirtualnych, zobacz [Azure Disk Encryption Virtual Machine Scale Sets](disk-encryption-overview.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia lokalnie, ten samouczek wymaga, aby uruchomić interfejsu wiersza polecenia platformy Azure w wersji 2.0.31 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.31 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Tworzenie zestawu skalowania
 
-Zanim będzie można utworzyć zestaw skalowania, utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus:*
+Zanim będzie można utworzyć zestaw skalowania, utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Teraz utwórz zestaw skalowania maszyn wirtualnych przy użyciu polecenia [az vmss create](/cli/azure/vmss). Poniższy przykład tworzy zestaw skalowania o nazwie *myScaleSet*, który jest skonfigurowany do automatycznej aktualizacji w miarę stosowania zmian, a następnie generuje klucze SSH, jeśli nie istnieją, w lokalizacji *~/.ssh/id_rsa*. Dysk danych o 32 Gb jest dołączony do każdego wystąpienia maszyny Wirtualnej, a [niestandardowe rozszerzenie skryptu](../virtual-machines/linux/extensions-customscript.md) platformy Azure służy do przygotowania dysków danych z [zestawem rozszerzeń az vmss:](/cli/azure/vmss/extension)
+Teraz utwórz zestaw skalowania maszyn wirtualnych przy użyciu polecenia [az vmss create](/cli/azure/vmss). Poniższy przykład tworzy zestaw skalowania o nazwie *myScaleSet*, który jest skonfigurowany do automatycznej aktualizacji w miarę stosowania zmian, a następnie generuje klucze SSH, jeśli nie istnieją, w lokalizacji *~/.ssh/id_rsa*. Do każdego wystąpienia maszyny wirtualnej jest dołączony dysk z danymi o 32 GB danych, a [rozszerzenie niestandardowego skryptu](../virtual-machines/linux/extensions-customscript.md) platformy Azure służy do przygotowywania dysków danych przy użyciu [opcji AZ VMSS Extension Set](/cli/azure/vmss/extension):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk
@@ -56,11 +56,11 @@ az vmss extension set \
 
 Utworzenie i skonfigurowanie wszystkich zasobów zestawu skalowania i maszyn wirtualnych trwa kilka minut.
 
-## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Tworzenie magazynu kluczy platformy Azure włączonego do szyfrowania dysku
+## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Tworzenie magazynu kluczy platformy Azure z włączoną funkcją szyfrowania dysków
 
-Usługa Azure Key Vault może przechowywać klucze, wpisy tajne lub hasła, które umożliwiają bezpieczne implementowanie ich w aplikacjach i usługach. Klucze kryptograficzne są przechowywane w usłudze Azure Key Vault przy użyciu ochrony oprogramowania lub można importować lub generować klucze w sprzętowych modułach zabezpieczeń (HSM) certyfikowanych zgodnie ze standardami FIPS 140-2 poziomu 2. Te klucze kryptograficzne są używane do szyfrowania i odszyfrowywania dysków wirtualnych dołączonych do maszyny Wirtualnej. Zachowujesz kontrolę nad tymi kluczami kryptograficznymi i możesz kontrolować ich użycie.
+Azure Key Vault mogą przechowywać klucze, wpisy tajne lub hasła, które umożliwiają bezpieczne wdrażanie ich w aplikacjach i usługach. Klucze kryptograficzne są przechowywane w Azure Key Vault przy użyciu ochrony oprogramowania lub można importować lub generować klucze w sprzętowych modułach zabezpieczeń (sprzętowych modułów zabezpieczeń) z certyfikatem standardu FIPS 140-2 Level 2. Te klucze kryptograficzne są używane do szyfrowania i odszyfrowywania dysków wirtualnych dołączonych do maszyny wirtualnej. Zachowujesz kontrolę nad tymi kluczami kryptograficznymi i można przeprowadzić inspekcję ich użycia.
 
-Zdefiniuj własne unikatowe *keyvault_name*. Następnie utwórz keyvault z [az keyvault utworzyć](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) w tej samej subskrypcji i regionu co zestaw skalowania i ustawić *--enabled-for-disk-szyfrowanie* zasady dostępu.
+Zdefiniuj własne unikatowe *keyvault_name*. Następnie utwórz magazyn kluczy za pomocą [AZ kluczy Create](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) w tej samej subskrypcji i regionie, w której znajduje się zestaw skalowania, a następnie ustaw zasady dostępu *--Enabled-on-Encryption* .
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -70,11 +70,11 @@ keyvault_name=myuniquekeyvaultname
 az keyvault create --resource-group myResourceGroup --name $keyvault_name --enabled-for-disk-encryption
 ```
 
-### <a name="use-an-existing-key-vault"></a>Korzystanie z istniejącego magazynu kluczy
+### <a name="use-an-existing-key-vault"></a>Użyj istniejącego Key Vault
 
-Ten krok jest wymagany tylko wtedy, gdy masz istniejącą przechowalnię kluczy, której chcesz używać z szyfrowaniem dysku. Pomiń ten krok, jeśli w poprzedniej sekcji utworzono magazyn kluczy.
+Ten krok jest wymagany tylko w przypadku istniejących Key Vault, które mają być używane z szyfrowaniem dysków. Pomiń ten krok, jeśli utworzono Key Vault w poprzedniej sekcji.
 
-Zdefiniuj własne unikatowe *keyvault_name*. Następnie zaktualizuj funkcję KeyVault za pomocą [aktualizacji az keyvault](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) i ustaw zasady dostępu do *szyfrowania --enabled-for-disk-encryption.*
+Zdefiniuj własne unikatowe *keyvault_name*. Następnie Zaktualizowano Magazyn kluczy za pomocą opcji [AZ Disk Update](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) i ustawienia zasad dostępu *--Enabled-for-Encryption* .
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -86,7 +86,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Włącz szyfrowanie
 
-Aby zaszyfrować wystąpienia maszyn wirtualnych w zestawie skalowania, najpierw uzyskaj informacje o identyfikatorze zasobu usługi Key Vault za pomocą [programu AZ keyvault show](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Zmienne te są używane do rozpoczęcia procesu szyfrowania z [szyfrowaniem az vmss umożliwiają:](/cli/azure/vmss/encryption#az-vmss-encryption-enable)
+Aby zaszyfrować wystąpienia maszyn wirtualnych w zestawie skalowania, najpierw Uzyskaj pewne informacje o IDENTYFIKATORze zasobu Key Vault przy użyciu [AZ klucza magazynu show](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Te zmienne są używane do uruchamiania procesu szyfrowania za pomocą [AZ VMSS Encryption Enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -102,11 +102,11 @@ az vmss encryption enable \
 
 Rozpoczęcie procesu szyfrowania może potrwać minutę lub dwie.
 
-Ponieważ zestaw skalowania jest zasadą uaktualniania w zestawie skalowania utworzonym we wcześniejszym kroku jest ustawiona na *automatyczną,* wystąpienia maszyny Wirtualnej automatycznie rozpoczynają proces szyfrowania. W przypadku zestawów skalowania, w których zasady uaktualniania mają być ręczne, uruchom zasady szyfrowania w wystąpieniach maszyn wirtualnych z [wystąpieniami aktualizacji az vmss](/cli/azure/vmss#az-vmss-update-instances).
+Ponieważ zestaw skalowania jest ustawiony na zasady uaktualniania zestawu skalowania utworzonego w ramach wcześniejszego kroku, jest ustawiany na *automatyczny*, wystąpienia maszyn wirtualnych automatycznie uruchamiają proces szyfrowania. W przypadku zestawów skalowania, w których zasady uaktualniania są ręczne, należy uruchomić zasady szyfrowania dla wystąpień maszyn wirtualnych za pomocą [AZ VMSS Update-Instances](/cli/azure/vmss#az-vmss-update-instances).
 
-### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Włącz szyfrowanie przy użyciu KEK do zawijania klucza
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Włącz szyfrowanie przy użyciu KEK, aby zawijać klucz
 
-Można również użyć klucza szyfrowania klucza dla zwiększenia zabezpieczeń podczas szyfrowania zestawu skalowania maszyny wirtualnej.
+Klucz szyfrowania klucza można także użyć, aby zwiększyć bezpieczeństwo podczas szyfrowania zestawu skalowania maszyn wirtualnych.
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -123,20 +123,20 @@ az vmss encryption enable \
 ```
 
 > [!NOTE]
->  Składnią wartości parametru disk-encryption-keyvault jest pełny ciąg identyfikatora:</br>
-/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
-> Składnia wartości parametru klucza szyfrowania klucza jest pełnym identyfikatorem URI do KEK, jak w:</br>
-https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
+>  Składnia wartości parametru dysk-szyfrowanie-kluczy jest pełnym ciągiem identyfikatora:</br>
+/subscriptions/[Identyfikator subskrypcji — identyfikator GUID]/resourceGroups/[Resource-Group-Name]/providers/Microsoft.KeyVault/vaults/[nazwa magazynu kluczy]</br></br>
+> Składnia wartości parametru klucz-szyfrowanie-klucz jest pełnym identyfikatorem URI KEK w programie:</br>
+https://[nazwa magazynu kluczy]. magazyn. Azure. NET/Keys/[kekname]/[KEK-Unique-ID]
 
-## <a name="check-encryption-progress"></a>Sprawdzanie postępu szyfrowania
+## <a name="check-encryption-progress"></a>Sprawdź postęp szyfrowania
 
-Aby sprawdzić stan szyfrowania dysku, użyj [programu szyfrowania az vmss:](/cli/azure/vmss/encryption#az-vmss-encryption-show)
+Aby sprawdzić stan szyfrowania dysku, użyj [AZ VMSS Encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show):
 
 ```azurecli-interactive
 az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 ```
 
-Gdy wystąpienia maszyn wirtualnych są szyfrowane, kod stanu raportuje *EncryptionState/encrypted,* jak pokazano w poniższym przykładzie danych wyjściowych:
+Gdy wystąpienia maszyn wirtualnych są szyfrowane, kod stanu raportuje *EncryptionState/szyfrowany*, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```bash
 [
@@ -165,7 +165,7 @@ Gdy wystąpienia maszyn wirtualnych są szyfrowane, kod stanu raportuje *Encrypt
 
 ## <a name="disable-encryption"></a>Wyłącz szyfrowanie
 
-Jeśli nie chcesz już używać zaszyfrowanych dysków wystąpień maszyn wirtualnych, możesz wyłączyć szyfrowanie za pomocą [szyfrowania az vmss, które wyłącza się](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) w następujący sposób:
+Jeśli nie chcesz już używać szyfrowanych wystąpień maszyn wirtualnych, możesz wyłączyć szyfrowanie za pomocą [AZ VMSS Encryption Disable](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) w następujący sposób:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
@@ -173,6 +173,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Następne kroki
 
-- W tym artykule użyto interfejsu wiersza polecenia platformy Azure do szyfrowania zestawu skalowania maszyny wirtualnej. Można również użyć [szablonów](disk-encryption-azure-resource-manager.md) [programu Azure PowerShell](disk-encryption-powershell.md) lub Usługi Azure Resource Manager .
-- Jeśli chcesz, aby szyfrowanie dysków platformy Azure było stosowane po zainicjowaniu obsługi administracyjnej innego rozszerzenia, możesz użyć [sekwencjonowania rozszerzeń](virtual-machine-scale-sets-extension-sequencing.md). 
-- Przykład kompleksowego pliku wsadowego dla szyfrowania dysku danych zestawu skalowania linuksa można znaleźć [tutaj](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). W tym przykładzie tworzy grupę zasobów, zestaw skalowania systemu Linux, instaluje dysk danych 5 GB i szyfruje zestaw skalowania maszyny wirtualnej.
+- W tym artykule użyto interfejsu wiersza polecenia platformy Azure w celu zaszyfrowania zestawu skalowania maszyn wirtualnych. Możesz również użyć szablonów [Azure PowerShell](disk-encryption-powershell.md) lub [Azure Resource Manager](disk-encryption-azure-resource-manager.md).
+- Jeśli chcesz, aby Azure Disk Encryption zastosowały się po zainicjowaniu innego rozszerzenia, możesz użyć [sekwencjonowania rozszerzeń](virtual-machine-scale-sets-extension-sequencing.md). 
+- Przykład kompleksowego pliku wsadowego dla szyfrowania dysku danych zestawu skalowania systemu Linux można znaleźć [tutaj](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Ten przykład tworzy grupę zasobów, zestaw skalowania systemu Linux, instaluje dysk danych 5 GB i szyfruje zestaw skalowania maszyn wirtualnych.

@@ -1,7 +1,7 @@
 ---
-title: Msal dla iOS & różnice w systemie macOS | Azure
+title: MSAL dla systemu iOS & macOS różnice | Azure
 titleSuffix: Microsoft identity platform
-description: W tym artykule opisano różnice między użyciem biblioteki uwierzytelniania firmy Microsoft (MSAL) między systemami iOS i macOS.
+description: Opisuje różnice użycia biblioteki uwierzytelniania firmy Microsoft (MSAL) między systemami iOS i macOS.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,47 +14,47 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 62b79ee7398286b8e6c8ed8612bd001595e1f6ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77084968"
 ---
 # <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>Biblioteka uwierzytelniania firmy Microsoft dla systemów iOS i macOS — różnice
 
-W tym artykule wyjaśniono różnice w funkcjonalności między biblioteką uwierzytelniania firmy Microsoft (MSAL) dla systemu iOS i macOS.
+W tym artykule opisano różnice w działaniu między biblioteką uwierzytelniania firmy Microsoft (MSAL) dla systemów iOS i macOS.
 
 > [!NOTE]
-> Na komputerze Mac usługa MSAL obsługuje tylko aplikacje systemu macOS.
+> Na komputerze Mac MSAL obsługuje tylko aplikacje macOS.
 
 ## <a name="general-differences"></a>Ogólne różnice
 
-MSAL dla systemu macOS jest podzbiorem funkcji dostępnych dla systemu iOS.
+MSAL for macOS to podzbiór funkcji dostępnych dla systemu iOS.
 
-MsAL dla systemu macOS nie obsługuje:
+MSAL dla macOS nie obsługuje:
 
-- różnych typów przeglądarek, takich jak `ASWebAuthenticationSession`, `SFAuthenticationSession`, `SFSafariViewController`.
-- uwierzytelnianie obsługiwane przez brokera za pośrednictwem aplikacji Microsoft Authenticator nie jest obsługiwane dla systemu macOS.
+- różne typy przeglądarek, takie `ASWebAuthenticationSession`jak `SFAuthenticationSession`, `SFSafariViewController`,.
+- uwierzytelnianie przez brokera za pośrednictwem aplikacji Microsoft Authenticator nie jest obsługiwane w przypadku macOS.
 
-Udostępnianie pęku kluczy między aplikacjami tego samego wydawcy jest bardziej ograniczone w systemie macOS 10.14 lub starszym. Użyj [list kontroli dostępu,](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) aby określić ścieżki do aplikacji, które powinny współużytkować pęk kluczy. Użytkownik może zobaczyć dodatkowe monity o pęk kluczy.
+Udostępnianie łańcucha kluczy między aplikacjami z tego samego wydawcy jest bardziej ograniczone na macOS 10,14 i starszych. Użyj [list kontroli dostępu](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) , aby określić ścieżki do aplikacji, które powinny korzystać z łańcucha kluczy. Użytkownik może zobaczyć dodatkowe wiersze łańcucha kluczy.
 
-W systemie macOS 10.15+ zachowanie usługi MSAL jest takie samo w systemie iOS i macOS. Usługa MSAL używa [grup dostępu do pęku kluczy](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) do udostępniania pęku kluczy. 
+W przypadku macOS 10.15 +, zachowanie MSAL jest takie samo jak w przypadku systemów iOS i macOS. MSAL używa [grup dostępu pęku kluczy](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) do udostępniania łańcucha kluczy. 
 
-### <a name="conditional-access-authentication-differences"></a>Różnice uwierzytelniania dostępu warunkowego
+### <a name="conditional-access-authentication-differences"></a>Różnice dotyczące uwierzytelniania dostępu warunkowego
 
-W scenariuszach dostępu warunkowego będzie mniej monitów użytkownika podczas korzystania z usługi MSAL dla systemu iOS. Dzieje się tak, ponieważ system iOS używa aplikacji brokera (Microsoft Authenticator), która w niektórych przypadkach neguje konieczność monitu użytkownika.
+W przypadku scenariuszy dostępu warunkowego w przypadku korzystania z usługi MSAL dla systemu iOS będą wyświetlane mniejsze monity użytkownika. Wynika to z faktu, że system iOS używa aplikacji brokera (Microsoft Authenticator), która wyklucza konieczność monitowania użytkownika w niektórych przypadkach.
 
-### <a name="project-setup-differences"></a>Różnice konfiguracji projektu
+### <a name="project-setup-differences"></a>Różnice w konfiguracji projektu
 
-**Macos**
+**macOS**
 
-- Podczas konfigurowania projektu w systemie macOS upewnij się, że aplikacja jest podpisana przy zastosowaniu prawidłowego certyfikatu dewelopera lub produkcyjnego. MSAL nadal działa w trybie niepodpisanym, ale będzie zachowywać się inaczej w odniesieniu do trwałości pamięci podręcznej. Aplikacja powinna być uruchamiana tylko do celów debugowania. Jeśli rozpowszechniasz aplikację bez znaku, będzie to:
-1. W 10.14 i wcześniejszych msal poprosi użytkownika o hasło pęku kluczy przy każdym ponownym uruchomieniu aplikacji.
-2. W 10.15+, MSAL poprosi użytkownika o poświadczenia dla każdego nabycia tokenu. 
+- Podczas konfigurowania projektu w programie macOS upewnij się, że aplikacja jest podpisana przy użyciu prawidłowego certyfikatu programistycznego lub produkcyjnego. MSAL nadal działa w trybie bez znaku, ale zadziała inaczej w odniesieniu do trwałości pamięci podręcznej. Aplikacja powinna być uruchamiana tylko bez znaku na potrzeby debugowania. Jeśli aplikacja jest dystrybuowana bez znaku, będzie:
+1. W dniu 10,14 i wcześniejszych MSAL wyświetli monit o podanie hasła pęku kluczy przy każdym ponownym uruchomieniu aplikacji.
+2. W programie 10.15 + MSAL monituje użytkownika o podanie poświadczeń dla każdego przejęcia tokenu. 
 
-- Aplikacje systemu macOS nie muszą implementować wywołania AppDelegate.
+- aplikacje macOS nie muszą implementować wywołania AppDelegate.
 
 **iOS**
 
-- Istnieją dodatkowe kroki, aby skonfigurować projekt do obsługi przepływu brokera uwierzytelniania. Kroki są wywoływane w samouczku.
-- Projekty iOS muszą rejestrować niestandardowe schematy w info.plist. Nie jest to wymagane w systemie macOS.
+- Aby skonfigurować projekt do obsługi przepływu brokera uwierzytelniania, należy wykonać dodatkowe czynności. Kroki są wywoływane w samouczku.
+- projekty systemu iOS muszą rejestrować niestandardowe schematy w info. plist. Nie jest to wymagane w macOS.

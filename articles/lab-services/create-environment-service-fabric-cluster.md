@@ -1,6 +1,6 @@
 ---
-title: Tworzenie środowiska klastra sieci szkieletowej usług w laboratoriach devtest azure
-description: Dowiedz się, jak utworzyć środowisko z samodzielnym klastrem sieci szkieletowej usług oraz uruchomić i zatrzymać klaster przy użyciu harmonogramów.
+title: Tworzenie środowiska klastra Service Fabric w programie Azure DevTest Labs
+description: Dowiedz się, jak utworzyć środowisko z niezależnym klastrem Service Fabric i uruchomić i zatrzymać klaster przy użyciu harmonogramów.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: EMaher
@@ -15,120 +15,120 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: enewman
 ms.openlocfilehash: 71793b81d8735c80881fc25a9b7ec31bc4fc6762
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76170337"
 ---
-# <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Tworzenie środowiska z samodzielnym klastrem sieci szkieletowej usług w laboratoriach devtest azure
-Ten artykuł zawiera informacje dotyczące tworzenia środowiska z samodzielnym klastrem sieci szkieletowej usług w laboratoriach DevTest azure. 
+# <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Tworzenie środowiska z niezależnym klastrem Service Fabric w programie Azure DevTest Labs
+Ten artykuł zawiera informacje dotyczące sposobu tworzenia środowiska z niezależnym klastrem Service Fabric w programie Azure DevTest Labs. 
 
 ## <a name="overview"></a>Omówienie
-Laboratoria DevTest mogą tworzyć samodzielne środowiska testowe zdefiniowane przez szablony usługi Azure Resource Management. Te środowiska zawierają zarówno zasoby IaaS, takie jak maszyny wirtualne, jak i zasoby PaaS, takie jak sieć szkieletowa usług. DevTest Labs umożliwia zarządzanie maszynami wirtualnymi w środowisku, zapewniając polecenia do sterowania maszynami wirtualnymi. Te polecenia umożliwiają uruchamianie lub zatrzymywania maszyny wirtualnej zgodnie z harmonogramem. Podobnie DevTest Labs może również pomóc w zarządzaniu klastrami sieci szkieletowej usług w środowisku. Klaster sieci szkieletowej usług można uruchomić lub zatrzymać w środowisku ręcznie lub za pomocą harmonogramu.
+DevTest Labs mogą tworzyć własne środowiska testowe zdefiniowane przez szablony zarządzania zasobami platformy Azure. Te środowiska zawierają zarówno zasoby IaaS, jak maszyny wirtualne, jak i zasoby PaaS, takie jak Service Fabric. DevTest Labs umożliwia zarządzanie maszynami wirtualnymi w środowisku przez dostarczanie poleceń do sterowania maszynami wirtualnymi. Te polecenia umożliwiają uruchamianie lub zatrzymywanie maszyny wirtualnej zgodnie z harmonogramem. Podobnie DevTest Labs mogą także ułatwić zarządzanie klastrami Service Fabric w środowisku. Klaster Service Fabric można uruchomić lub zatrzymać w środowisku ręcznie lub za pomocą harmonogramu.
 
 ## <a name="create-a-service-fabric-cluster"></a>Tworzenie klastra usługi Service Fabric
-Klastry sieci szkieletowej usług są tworzone przy użyciu środowisk w laboratoriach DevTest. Każde środowisko jest definiowane przez szablon usługi Azure Resource Manager w repozytorium Git. [Publiczne repozytorium Git](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) dla laboratoriów DevTest labs zawiera szablon Menedżera zasobów w celu utworzenia klastra sieci szkieletowej usług w folderze [ServiceFabric-Cluster.](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) 
+Klastry Service Fabric są tworzone przy użyciu środowisk w DevTest Labs. Każde środowisko jest definiowane przez szablon Azure Resource Manager w repozytorium git. [Publiczne repozytorium git](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) dla DevTest Labs zawiera szablon Menedżer zasobów, aby utworzyć klaster Service Fabric w folderze [servicefabric-Cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) . 
 
-1. Najpierw utwórz laboratorium w laboratorium usługi Azure DevTest Labs przy użyciu instrukcji w [następującym](devtest-lab-create-lab.md)artykule: Tworzenie laboratorium . Należy zauważyć, że opcja **Środowiska publiczne** jest domyślnie **włączone.** 
-2. Upewnij się, że dostawca sieci szkieletowej usług jest zarejestrowany dla subskrypcji, wykonując następujące kroki:
-    1. Wybierz **subskrypcje** w lewym menu nawigacyjnym i wybierz **subskrypcję**
-    2. Na stronie **Subskrypcja** wybierz pozycję **Dostawcy zasobów** w sekcji **Ustawienia** w menu po lewej stronie. 
-    3. Jeśli **microsoft.ServiecFabric** nie jest zarejestrowany, **wybierz**zarejestruj . 
-3. Na stronie **Laboratorium DevTest** dla laboratorium wybierz pozycję **+ Dodaj** na pasku narzędzi. 
+1. Najpierw utwórz laboratorium w Azure DevTest Labs przy użyciu instrukcji przedstawionych w następującym artykule: [Tworzenie laboratorium](devtest-lab-create-lab.md). Należy zauważyć, że opcja **środowiska publiczne** jest domyślnie **włączona** . 
+2. Upewnij się, że dostawca Service Fabric został zarejestrowany dla Twojej subskrypcji, wykonując następujące czynności:
+    1. Wybierz pozycję **subskrypcje** w menu nawigacji po lewej stronie i wybierz swoją **subskrypcję**
+    2. Na stronie **subskrypcja** wybierz pozycję **dostawcy zasobów** w sekcji **Ustawienia** w menu po lewej stronie. 
+    3. Jeśli **Microsoft. ServiecFabric** nie jest zarejestrowany, wybierz pozycję **zarejestruj**. 
+3. Na stronie **laboratorium DevTest** dla laboratorium wybierz pozycję **+ Dodaj** na pasku narzędzi. 
     
     ![Przycisk Dodaj na pasku narzędzi](./media/create-environment-service-fabric-cluster/add-button.png)
-3. Na stronie **Wybieranie strony podstawowej** wybierz pozycję **Klaster laboratorium sieci szkieletowej** usług na liście. 
+3. Na stronie **Wybierz bazę** wybierz z listy pozycję **klaster laboratorium Service Fabric** . 
 
-    ![Wybierz klaster laboratorium sieci szkieletowej usług na liście](./media/create-environment-service-fabric-cluster/select-service-fabric-cluster.png)
+    ![Wybierz z listy klaster Service Fabric Lab](./media/create-environment-service-fabric-cluster/select-service-fabric-cluster.png)
 4. Na stronie **Konfigurowanie ustawień** wykonaj następujące czynności: 
-    1. Określ **nazwę** **środowiska klastra**. Jest to nazwa grupy zasobów na platformie Azure, w której ma zostać utworzony klaster sieci szkieletowej usług. 
-    2. Wybierz **system operacyjny dla** maszyn wirtualnych klastra. Wartość domyślna to: **Windows**.
+    1. Określ **nazwę** **środowiska**klastra. Jest to nazwa grupy zasobów na platformie Azure, w której ma zostać utworzony klaster Service Fabric. 
+    2. Wybierz **system operacyjny** dla maszyn wirtualnych klastra. Wartość domyślna to: **Windows**.
     3. Określ nazwę **administratora** klastra. 
-    4. Określ **hasło** administratora. 
-    5. W przypadku **certyfikatu**wprowadź informacje o certyfikacie jako ciąg zakodowany w bazie Base64. Aby utworzyć certyfikat, wykonaj następujące czynności:
-        1. Pobierz plik **Create-ClusterCertificate.ps1** z [repozytorium Git](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster). Alternatywnie należy sklonować repozytorium na komputerze. 
+    4. Określ **hasło** dla administratora. 
+    5. Dla **certyfikatu**wprowadź informacje o certyfikacie jako ciąg szyfrowany algorytmem Base64. Aby utworzyć certyfikat, wykonaj następujące czynności:
+        1. Pobierz plik **Create-ClusterCertificate. ps1** z [repozytorium git](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster). Alternatywnie Sklonuj repozytorium na komputerze. 
         2. Uruchom program **PowerShell**. 
-        3. Uruchom plik **ps1** za `.\Create-ClusterCertificate.ps1`pomocą polecenia . W notatniku zostanie wyświetlony plik tekstowy z informacjami potrzebnymi do wypełnienia pól związanych z certyfikatami na tej stronie. . 
-    6. Wprowadź **hasło certyfikatu**.
+        3. Uruchom plik **ps1** za pomocą polecenia `.\Create-ClusterCertificate.ps1`. Zostanie wyświetlony plik tekstowy otwarty w programie Notepad z informacjami potrzebnymi do wypełnienia pól związanych z certyfikatem na tej stronie. . 
+    6. Wprowadź **hasło dla certyfikatu**.
     7. Określ **odcisk palca** certyfikatu.
-    8. Wybierz **pozycję Dodaj** na stronie **Konfigurowanie ustawień.** 
+    8. Na stronie **Konfigurowanie ustawień** wybierz pozycję **Dodaj** . 
 
         ![Konfigurowanie ustawień klastra](./media/create-environment-service-fabric-cluster/configure-settings.png)
-5. Po utworzeniu klastra zostanie wyświetlana grupa zasobów o nazwie środowiska podanego w poprzednim kroku. Po rozwinięciu zobaczysz klaster sieci szkieletowej usług w nim. Jeśli stan grupy zasobów jest zablokowany w **temacie Tworzenie**, wybierz **pozycję Odśwież** na pasku narzędzi. Środowisko **klastra sieci szkieletowej usług** tworzy klaster 1-węzłowy 5 węzłów w systemie Linux lub Windows.
+5. Po utworzeniu klastra zostanie wyświetlona Grupa zasobów o nazwie środowiska podanej w poprzednim kroku. Po rozwinięciu zostanie wyświetlony klaster Service Fabric. Jeśli stan grupy zasobów jest zablokowany podczas **tworzenia**, wybierz pozycję **Odśwież** na pasku narzędzi. Środowisko **klastra Service Fabric** tworzy klaster 5-węzłowy 1-NodeType w systemie Linux lub Windows.
 
-    W poniższym przykładzie **mysfabricclusterrg** jest nazwą grupy zasobów, która jest tworzona specjalnie dla klastra sieci szkieletowej usług. Należy pamiętać, że środowiska laboratoryjne są samodzielne w grupie zasobów, w której są tworzone. Oznacza to, że szablon definiujący środowisko, które może uzyskiwać dostęp tylko do zasobów w nowo utworzonej grupie zasobów lub [sieciach wirtualnych skonfigurowanych do użycia przez laboratorium.](devtest-lab-configure-vnet.md) Ten przykład powyżej tworzy wszystkie wymagane zasoby w tej samej grupie zasobów.
+    W poniższym przykładzie **mysfabricclusterrg** jest nazwą grupy zasobów, która została utworzona dla klastra Service Fabric. Należy pamiętać, że środowiska laboratoryjne są samodzielne w grupie zasobów, w której zostały utworzone. Oznacza to, że szablon definiujący środowisko, w którym można uzyskać dostęp tylko do zasobów w nowo utworzonej grupie zasobów lub [sieci wirtualnych skonfigurowanych do użycia w laboratorium](devtest-lab-configure-vnet.md). Ten przykład powyżej tworzy wszystkie wymagane zasoby w tej samej grupie zasobów.
 
-    ![Utworzony klaster](./media/create-environment-service-fabric-cluster/cluster-created.png)
+    ![Utworzono klaster](./media/create-environment-service-fabric-cluster/cluster-created.png)
 
-## <a name="start-or-stop-the-cluster"></a>Uruchamianie lub zatrzymywania klastra
-Klaster można uruchomić lub zatrzymać na samej stronie Laboratorium DevTest lub na stronie Klastra sieci szkieletowej usług udostępnianej przez devtest labs. 
+## <a name="start-or-stop-the-cluster"></a>Uruchamianie lub zatrzymywanie klastra
+Klaster można uruchomić lub zatrzymać ze strony laboratorium DevTest albo ze strony klastra Service Fabric dostarczonej przez DevTest Labs. 
 
-### <a name="from-the-devtest-lab-page"></a>Na stronie Laboratorium DevTest
-Można uruchomić lub zatrzymać klaster na stronie Laboratorium DevTest dla laboratorium. 
+### <a name="from-the-devtest-lab-page"></a>Na stronie laboratorium DevTest
+Możesz uruchomić lub zatrzymać klaster na stronie laboratorium DevTest dla laboratorium. 
 
-1. Wybierz **trzy kropki (...)** dla klastra sieci szkieletowej usług, jak pokazano na poniższej ilustracji: 
+1. Wybierz **trzy kropki (...)** dla klastra Service Fabric, jak pokazano na poniższej ilustracji: 
 
-    ![Polecenia uruchamiania i zatrzymywania klastra](./media/create-environment-service-fabric-cluster/start-stop-on-devtest-lab-page.png)
+    ![Uruchamianie i zatrzymywanie poleceń klastra](./media/create-environment-service-fabric-cluster/start-stop-on-devtest-lab-page.png)
 
-2. W menu kontekstowym są widoczne dwa polecenia, aby **uruchomić** i **zatrzymać** klaster. Polecenie start uruchamia wszystkie węzły w klastrze. Polecenie stop zatrzymuje wszystkie węzły w klastrze. Po zatrzymaniu klastra sam klaster sieci szkieletowej usług pozostaje w stanie gotowości, ale żadne węzły nie są dostępne, dopóki polecenie start nie zostanie ponownie wyeksuowane w klastrze w laboratorium.
+2. Do **uruchamiania** i **zatrzymywania** klastra są widoczne dwa polecenia w menu kontekstowym. Polecenie Uruchom uruchamia wszystkie węzły w klastrze. Polecenie Stop zatrzymuje wszystkie węzły w klastrze. Gdy klaster zostanie zatrzymany, klaster Service Fabric pozostaje w stanie gotowości, ale nie są dostępne żadne węzły, dopóki polecenie Uruchom nie zostanie ponownie wystawione w klastrze w środowisku laboratoryjnym.
 
-    Istnieje kilka zagadnień, które należy zwrócić uwagę podczas korzystania z klastra sieci szkieletowej usług w środowisku testowym. Może upłynąć trochę czasu, aby klaster sieci szkieletowej usług w pełni nawodnienia po ponownym uruchomieniu węzłów. Aby zachować dane od zamknięcia do uruchomienia, dane muszą być zapisywane na dysku zarządzanym dołączonym do maszyny wirtualnej. Istnieją wpływy na wydajność podczas korzystania z dołączonego dysku zarządzanego, więc jest zalecane tylko dla środowisk testowych. Jeśli dysk używany do przechowywania danych nie jest wspierany, dane są tracone po wydaniu polecenia stop w klastrze.
+    Istnieje kilka kwestii, które należy wziąć pod uwagę podczas korzystania z klastra Service Fabric w środowisku testowym. Może upłynąć trochę czasu, zanim klaster Service Fabric będzie w pełni liofilizowany po ponownym uruchomieniu węzłów. Aby zachować dane z zamykania do uruchamiania, dane muszą zostać zapisane na dysku zarządzanym dołączonym do maszyny wirtualnej. Istnieją konsekwencje dotyczące wydajności podczas korzystania z dołączonego dysku zarządzanego, więc jest to zalecane tylko w środowiskach testowych. Jeśli dysk używany do przechowywania danych nie jest objęty kopią zapasową, dane zostaną utracone po wydaniu polecenia zatrzymania w klastrze.
 
-### <a name="from-the-service-fabric-cluster-page"></a>Na stronie Klaster sieci szkieletowej usług 
+### <a name="from-the-service-fabric-cluster-page"></a>Na stronie klastra Service Fabric 
 Istnieje inny sposób uruchamiania lub zatrzymywania klastra. 
 
-1. Wybierz klaster sieci szkieletowej usług w widoku drzewa na stronie Laboratorium DevTest. 
+1. Wybierz klaster Service Fabric w widoku drzewa na stronie laboratorium DevTest Lab. 
 
-    ![Wybieranie klastra](./media/create-environment-service-fabric-cluster/select-cluster.png)
+    ![Wybierz klaster](./media/create-environment-service-fabric-cluster/select-cluster.png)
 
-2. Na stronie **Klaster sieci szkieletowej usług** klastra na pasku narzędzi są widoczne polecenia uruchamiania lub zatrzymywania klastra. 
+2. Na stronie **klaster Service Fabric** klastra zobaczysz polecenia na pasku narzędzi, aby uruchomić lub zatrzymać klaster. 
 
-    ![Uruchamianie lub zatrzymywania poleceń na stronie Klaster sieci szkieletowej usług](./media/create-environment-service-fabric-cluster/start-stop-on-cluster-page.png)
+    ![Uruchamianie lub zatrzymywanie poleceń na stronie klastra Service Fabric](./media/create-environment-service-fabric-cluster/start-stop-on-cluster-page.png)
 
 ## <a name="configure-auto-startup-and-auto-shutdown-schedule"></a>Konfigurowanie harmonogramu automatycznego uruchamiania i automatycznego zamykania
-Klastry sieci szkieletowej usług można również uruchomić lub zatrzymać zgodnie z harmonogramem. To środowisko jest podobne do środowiska dla maszyn wirtualnych w laboratorium. Aby zaoszczędzić pieniądze, domyślnie każdy klaster utworzony w laboratorium jest automatycznie zamykany w czasie zdefiniowanym przez [zasady zamykania](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy)laboratorium . Można zastąpić, określając, czy klaster powinien zostać zamknięty, czy określając czas zamykania klastra. 
+Klastry Service Fabric można także uruchamiać lub zatrzymywać zgodnie z harmonogramem. To środowisko jest podobne do środowiska w przypadku maszyn wirtualnych w środowisku laboratoryjnym. Aby zaoszczędzić pieniądze, domyślnie każdy klaster utworzony w laboratorium jest automatycznie zamykany w czasie zdefiniowanym przez [zasady zamykania](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy)laboratorium. Można przesłonić, określając, czy klaster powinien być wyłączony, czy przez określenie czasu, w którym klaster jest wyłączony. 
 
 ![Istniejące harmonogramy automatycznego uruchamiania i automatycznego zamykania](./media/create-environment-service-fabric-cluster/existing-schedules.png)
 
-### <a name="opt-in-to-the-auto-start-schedule"></a>Zapisz się do harmonogramu automatycznego uruchamiania
-Aby zapisać się do harmonogramu uruchamiania, wykonaj następujące czynności:
+### <a name="opt-in-to-the-auto-start-schedule"></a>Zacznij korzystać z harmonogramu Autostart
+Aby zrezygnować z harmonogramu uruchamiania, wykonaj następujące czynności:
 
-1. Wybierz **autostart** w menu po lewej stronie
-2. Wybierz **pozycję Włącz,** aby **zezwolić na zaplanowanie automatycznego uruchamiania klastra sieci szkieletowej tej sieci**szkieletowej. Ta strona jest włączona tylko wtedy, gdy właściciel laboratorium zezwolił użytkownikom na automatyczne uruchamianie ich maszyn wirtualnych lub klastrów sieci szkieletowej usług.
+1. Wybierz pozycję **Uruchom ponownie** w menu po lewej stronie
+2. Wybierz **On** opcję włączone **, aby zezwolić na planowanie automatycznego uruchamiania tego klastra usługi Service Fabric**. Ta strona jest włączona tylko wtedy, gdy właściciel laboratorium zezwoli użytkownikom na Autouruchamianie ich maszyn wirtualnych lub klastrów Service Fabric.
 3. Wybierz pozycję **Zapisz** na pasku narzędzi. 
 
-    ![Automatyczna strona gwiazdkowa](./media/create-environment-service-fabric-cluster/set-auto-start-settings.png)
+    ![Strona Autotekstu](./media/create-environment-service-fabric-cluster/set-auto-start-settings.png)
 
-### <a name="configure-auto-shutdown-settings"></a>Konfigurowanie ustawień automatycznego zamykania 
-Aby zmienić ustawienia zamknięcia systemu, wykonaj następujące czynności:
+### <a name="configure-auto-shutdown-settings"></a>Skonfiguruj ustawienia automatycznego zamykania 
+Aby zmienić ustawienia dotyczące zamykania, wykonaj następujące czynności:
 
-1. Wybierz **opcję Automatyczne zamykanie** w menu po lewej stronie. 
-2. Na tej stronie możesz zrezygnować z automatycznego zamykania, wybierając **opcję Wyłącz** dla **włączone .** 
-3. Jeśli wybrano **opcję Włącz** dla **włączone,** wykonaj następujące czynności:
-    1. Określ **godzinę** zamknięcia systemu.
-    2. Określ **strefę czasową** dla czasu. 
-    3. Określ, czy devtest labs ma wysyłać **powiadomienia** przed automatycznym zamknięciem. 
-    4. Jeśli dla opcji powiadomienia wybrano **opcję Tak,** określ adres URL i/lub **adres e-mail** elementu **Webhook,** aby wysyłać powiadomienia. 
+1. W menu po lewej stronie wybierz pozycję **automatyczne zamykanie** . 
+2. **Na tej**stronie możesz zrezygnować z automatycznego zamykania, wybierając pozycję **wyłączone** . 
+3. Jeśli **wybrano opcję** **włączone**, wykonaj następujące kroki:
+    1. Określ **godzinę** zamknięcia.
+    2. Określ **strefę** czasową. 
+    3. Określ, czy DevTest Labs mają wysyłać **powiadomienia** przed automatycznym zamknięciem. 
+    4. W przypadku wybrania opcji **tak** w polu powiadomienia Określ **adres URL elementu webhook** i/lub **adres e-mail** do wysyłania powiadomień. 
     5. Wybierz pozycję **Zapisz** na pasku narzędzi.
 
-        ![Automatyczne zamykanie strony](./media/create-environment-service-fabric-cluster/auto-shutdown-settings.png)
+        ![Automatycznie Zamknij stronę](./media/create-environment-service-fabric-cluster/auto-shutdown-settings.png)
 
-## <a name="to-view-nodes-in-the-service-fabric-cluster"></a>Aby wyświetlić węzły w klastrze sieci szkieletowej usług
-Strona klastra sieci szkieletowej usług, które zostały wyświetlone w krokach wcześniej jest specyficzna dla DevTest Labs strony. Nie pokazuje węzłów w klastrze. Aby wyświetlić więcej informacji o klastrze, wykonaj następujące kroki:
+## <a name="to-view-nodes-in-the-service-fabric-cluster"></a>Aby wyświetlić węzły w klastrze Service Fabric
+Strona klastra Service Fabric, która była widoczna w pozostałej części kroków, jest specyficzna dla strony DevTest Labs. Nie pokazuje on węzłów w klastrze. Aby wyświetlić więcej informacji na temat klastra, wykonaj następujące kroki:
 
-1. Na stronie **Laboratorium testów deweloperskich** dla laboratorium wybierz **grupę zasobów** w widoku drzewa w sekcji Moje maszyny **wirtualne.**
+1. Na stronie **laboratorium DevTest** dla laboratorium wybierz **grupę zasobów** w widoku drzewa w sekcji **moje maszyny wirtualne** .
 
     ![Wybieranie grupy zasobów](./media/create-environment-service-fabric-cluster/select-resource-group.png)
-2. Na stronie **Grupa zasobów** na liście są widoczne wszystkie zasoby w grupie zasobów. Wybierz **klaster sieci szkieletowej usług** z listy. 
+2. Na stronie **Grupa zasobów** są wyświetlane wszystkie zasoby w grupie zasobów na liście. Wybierz z listy **klaster Service Fabric** . 
 
-    ![Wybieranie klastra na liście](./media/create-environment-service-fabric-cluster/select-cluster-resource-group-page.png)
-3. Zostanie wyświetlona strona **Klaster sieci szkieletowej** usług dla klastra. Jest to strona, która zapewnia sieci szkieletowej usług. Zobaczysz wszystkie informacje o klastrach, takie jak węzły, typy węzłów itp.
+    ![Wybierz klaster na liście](./media/create-environment-service-fabric-cluster/select-cluster-resource-group-page.png)
+3. Zostanie wyświetlona strona **Service Fabric klastra** dla klastra. Jest to strona dostarczana przez Service Fabric. Zobaczysz wszystkie informacje o klastrach, takie jak węzły, typy węzłów itd.
 
-    ![Strona główna klastra sieci szkieletowej usług](./media/create-environment-service-fabric-cluster/service-fabric-cluster-page.png)
+    ![Strona główna klastra Service Fabric](./media/create-environment-service-fabric-cluster/service-fabric-cluster-page.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Szczegółowe informacje na temat środowisk można znaleźć w następujących artykułach: 
+Szczegółowe informacje o środowiskach można znaleźć w następujących artykułach: 
 
 - [Tworzenie środowisk z wieloma maszynami wirtualnymi i zasobów PaaS za pomocą szablonów usługi Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
-- [Konfigurowanie i używanie środowisk publicznych w laboratoriach devtest azure](devtest-lab-configure-use-public-environments.md)
+- [Konfigurowanie i używanie środowisk publicznych w programie Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)

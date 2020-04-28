@@ -1,7 +1,7 @@
 ---
-title: Przekazywanie stanu niestandardowego w żądaniach uwierzytelniania (MSAL.js) | Azure
+title: Przekaż stan niestandardowy w żądaniach uwierzytelniania (MSAL. js) | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak przekazać niestandardową wartość parametru stanu w żądaniu uwierzytelniania przy użyciu biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js).
+description: Dowiedz się, jak przekazać niestandardową wartość parametru stanu w żądaniu uwierzytelniania przy użyciu biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL. js).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,17 +14,17 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1c05956f83ad3a6491627be8916fac2c8be2b7ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77084934"
 ---
-# <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Przekazywanie stanu niestandardowego w żądaniach uwierzytelniania przy użyciu pliku MSAL.js
+# <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Przekazywanie stanu niestandardowego w żądaniach uwierzytelniania przy użyciu MSAL. js
 
-Parametr *state,* zgodnie z definicją OAuth 2.0, jest uwzględniony w żądaniu uwierzytelniania i jest również zwracany w odpowiedzi tokenu, aby zapobiec atakom fałszerstwa żądań między lokacjami. Domyślnie biblioteka uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js) przekazuje losowo wygenerowaną unikatową wartość parametru *stanu* w żądaniach uwierzytelniania.
+Parametr *State* , zdefiniowany przez OAuth 2,0, jest uwzględniony w żądaniu uwierzytelniania i jest również zwracany w odpowiedzi tokenu, aby zapobiec atakom na fałszerstwo żądań między lokacjami. Domyślnie Biblioteka uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL. js) przekazuje losowo wygenerowane unikatowe wartości parametru *stanu* w żądaniach uwierzytelniania.
 
-Parametr stanu może również służyć do kodowania informacji o stanie aplikacji przed przekierowaniem. Stan użytkownika w aplikacji, na przykład strona lub widok, na której się znajdował, można przekazać jako dane wejściowe do tego parametru. Biblioteka MSAL.js umożliwia przekazywanie stanu niestandardowego `Request` jako parametru stanu w obiekcie:
+Parametru stanu można także użyć do kodowania informacji o stanie aplikacji przed przekierowaniem. Można przekazać stan użytkownika w aplikacji, na przykład stronę lub widok, jako dane wejściowe tego parametru. Biblioteka MSAL. js umożliwia przekazanie stanu niestandardowego jako parametru stanu w `Request` obiekcie:
 
 ```javascript
 // Request type
@@ -45,11 +45,11 @@ export type AuthenticationParameters = {
 ```
 
 > [!Note]
-> Jeśli chcesz pominąć token w pamięci podręcznej i przejść do `forceRefresh` serwera, przekaż w wartości logicznej do AuthenticationParameters obiektu używanego do żądania logowania/tokenu.
-> `forceRefresh`nie powinny być używane domyślnie, ze względu na wpływ na wydajność aplikacji.
-> Poleganie na pamięci podręcznej zapewni użytkownikom lepsze środowisko.
-> Pomijanie pamięci podręcznej powinny być używane tylko w scenariuszach, w których wiesz, że aktualnie buforowane dane nie mają aktualnych informacji.
-> Takie jak narzędzie administrator, który dodaje role do użytkownika, który musi uzyskać nowy token ze zaktualizowanymi rolami.
+> Jeśli chcesz pominąć buforowany token i przejść do serwera, przekaż wartość Boolean `forceRefresh` do obiektu AuthenticationParameters używanego do wykonywania żądania logowania/tokenu.
+> `forceRefresh`nie powinno być używane domyślnie z powodu wpływu na wydajność aplikacji.
+> Korzystanie z pamięci podręcznej umożliwi użytkownikom lepsze środowisko pracy.
+> Pomijanie pamięci podręcznej powinno być używane tylko w scenariuszach, w których wiadomo, że aktualnie buforowane dane nie mają aktualnych informacji.
+> Takie jak narzędzie administracyjne, które dodaje role do użytkownika, który musi uzyskać nowy token ze zaktualizowanymi rolami.
 
 Przykład:
 
@@ -62,7 +62,7 @@ let loginRequest = {
 myMSALObj.loginPopup(loginRequest);
 ```
 
-Przekazany w stanie jest dołączany do unikatowego identyfikatora GUID ustawionego przez msal.js podczas wysyłania żądania. Po zwróceniu odpowiedzi msal.js sprawdza dopasowanie stanu, a następnie zwraca `Response` niestandardowe przekazywane w stanie w obiekcie jako `accountState`.
+Przesłany stan jest dołączany do unikatowego identyfikatora GUID ustawionego przez MSAL. js podczas wysyłania żądania. Po zwróceniu odpowiedzi MSAL. js sprawdza zgodność stanu, a następnie zwraca niestandardową przekazaną w `Response` obiekcie jako. `accountState`
 
 ```javascript
 export type AuthResponse = {
@@ -78,4 +78,4 @@ export type AuthResponse = {
 };
 ```
 
-Aby dowiedzieć się więcej, przeczytaj o [tworzeniu aplikacji jednostronicowej (SPA)](scenario-spa-overview.md) przy użyciu pliku MSAL.js.
+Aby dowiedzieć się więcej, Przeczytaj o [kompilowaniu aplikacji jednostronicowej (Spa)](scenario-spa-overview.md) przy użyciu MSAL. js.

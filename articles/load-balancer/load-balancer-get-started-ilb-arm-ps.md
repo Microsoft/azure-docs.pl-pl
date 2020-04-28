@@ -1,5 +1,5 @@
 ---
-title: Tworzenie wewnętrznego modułu równoważenia obciążenia platformy Azure przy użyciu programu PowerShell
+title: Tworzenie wewnętrznego Load Balancer platformy Azure przy użyciu programu PowerShell
 titleSuffix: Azure Load Balancer
 description: Dowiedz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia przy użyciu modułu Azure PowerShell z usługą Azure Resource Manager
 services: load-balancer
@@ -14,19 +14,19 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76045472"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia przy użyciu modułu Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [Powershell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
-> * [Szablonu](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+> * [Szablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -48,7 +48,7 @@ Aby wdrożyć moduł równoważenia obciążenia, muszą zostać utworzone nast�
 * Konfiguracja sondy: sondy stanu kondycji maszyn wirtualnych.
 * Reguły NAT dla ruchu przychodzącego: reguły portów dla bezpośredniego dostępu do maszyn wirtualnych.
 
-Aby uzyskać więcej informacji na temat składników modułu równoważenia obciążenia, zobacz [Składniki modułu równoważenia obciążenia platformy Azure](concepts-limitations.md#load-balancer-components).
+Aby uzyskać więcej informacji na temat składników usługi równoważenia obciążenia, zobacz [Azure Load Balancer Components](concepts-limitations.md#load-balancer-components).
 
 Poniższe kroki przedstawiają sposób konfigurowania modułu równoważenia obciążenia między dwiema maszynami wirtualnymi.
 
@@ -251,7 +251,7 @@ Po utworzeniu maszyny wirtualnej należy dodać interfejs sieciowy.
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>Krok 1. Zapisywanie zasobów modułu równoważenia obciążenia
 
-Zapisz zasób modułu równoważenia obciążenia w zmiennej (jeśli jeszcze nie zostało to zrobione). Używamy nazwy zmiennej **$lb**. W przypadku wartości atrybutów w skrypcie należy użyć nazw zasobów modułu równoważenia obciążenia utworzonych w poprzednich krokach.
+Zapisz zasób modułu równoważenia obciążenia w zmiennej (jeśli jeszcze nie zostało to zrobione). Używamy nazwy zmiennej **$lb**. W przypadku wartości atrybutów w skrypcie Użyj nazw zasobów usługi równoważenia obciążenia, które zostały utworzone w poprzednich krokach.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG

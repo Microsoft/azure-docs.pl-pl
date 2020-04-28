@@ -1,7 +1,7 @@
 ---
-title: Uzyskaj token z pamięci podręcznej (MSAL.NET)
+title: Pozyskiwanie tokenu z pamięci podręcznej (MSAL.NET)
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak po cichu uzyskać token dostępu (z pamięci podręcznej tokenów) przy użyciu biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET).
+description: Dowiedz się, jak uzyskać token dostępu dyskretnie (z pamięci podręcznej tokenów) przy użyciu biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,19 +14,19 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 90189a1d7fd6421b7a24940e8c6ed615fa0df6d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77084839"
 ---
-# <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Pobierz token z pamięci podręcznej tokenu przy użyciu MSAL.NET
+# <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Pobieranie tokenu z pamięci podręcznej tokenów przy użyciu MSAL.NET
 
-Po nabyciu tokenu dostępu przy użyciu biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET) token jest buforowany. Gdy aplikacja potrzebuje tokenu, należy `AcquireTokenSilent` najpierw wywołać metodę, aby sprawdzić, czy dopuszczalne token jest w pamięci podręcznej. W wielu przypadkach jest możliwe uzyskanie innego tokenu z więcej zakresów na podstawie tokenu w pamięci podręcznej. Istnieje również możliwość odświeżenia tokenu, gdy zbliża się do wygaśnięcia (ponieważ pamięć podręczna tokenu zawiera również token odświeżania).
+Gdy uzyskujesz token dostępu przy użyciu biblioteki uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET), token jest buforowany. Gdy aplikacja wymaga tokenu, powinna najpierw wywołać `AcquireTokenSilent` metodę, aby sprawdzić, czy akceptowalny token znajduje się w pamięci podręcznej. W wielu przypadkach możliwe jest uzyskanie innego tokenu z większą liczbą zakresów na podstawie tokenu w pamięci podręcznej. Istnieje również możliwość odświeżenia tokenu, gdy zbliża się do wygaśnięcia (ponieważ pamięć podręczna tokenów zawiera również token odświeżania).
 
-Zalecany wzorzec `AcquireTokenSilent` jest najpierw wywołać metodę.  Jeśli `AcquireTokenSilent` nie powiedzie się, a następnie uzyskać token przy użyciu innych metod.
+Zalecany wzorzec polega na wywołaniu metody jako `AcquireTokenSilent` pierwszej.  Jeśli `AcquireTokenSilent` to się nie powiedzie, uzyskaj token przy użyciu innych metod.
 
-W poniższym przykładzie aplikacja najpierw próbuje uzyskać token z pamięci podręcznej tokenu.  Jeśli `MsalUiRequiredException` wyjątek, aplikacja uzyskuje token interaktywnie. 
+W poniższym przykładzie aplikacja najpierw próbuje uzyskać token z pamięci podręcznej tokenów.  Jeśli `MsalUiRequiredException` wystąpi wyjątek, aplikacja uzyskuje token interaktywnie. 
 
 ```csharp
 AuthenticationResult result = null;

@@ -1,51 +1,51 @@
 ---
 title: Przenoszenie magazynu mainframe do usługi Azure Storage
-description: Masowo skalowalne zasoby magazynu platformy Azure mogą pomóc organizacjom opartym na komputerach typu mainframe w migracji i modernizacji aplikacji IBM z14.
+description: Wysoce skalowalne zasoby usługi Azure Storage mogą pomóc organizacjom opartym na mainframe, migrowaniu i modernizacji aplikacji IBM z14.
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: 86419811cdf2c11204caae0ca5bf6f65fba063d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76288918"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Przenoszenie magazynu mainframe na platformę Azure
 
-Aby uruchamiać obciążenia komputerów mainframe na platformie Microsoft Azure, musisz wiedzieć, jak możliwości komputera mainframe są porównywane z platformą Azure. Masowo skalowalne zasoby magazynu mogą pomóc organizacjom rozpocząć modernizację bez porzucania aplikacji, na których polegają.
+Aby uruchamiać obciążenia mainframe na Microsoft Azure, musisz wiedzieć, jak możliwości komputera mainframe są porównywane z platformą Azure. Wysoce skalowalne zasoby magazynu mogą pomóc organizacjom rozpocząć modernizację bez opuszczania aplikacji, z których korzystają.
 
-Platforma Azure zapewnia funkcje podobne do modelu mainframe i pojemność pamięci masowej, która jest porównywalna z systemami ibm z14 (najbardziej aktualny model w tym piśmie). W tym artykule dowiesz się, jak uzyskać porównywalne wyniki na platformie Azure.
+System Azure oferuje funkcje podobne do komputera typu mainframe i pojemność magazynu, które są porównywalne z systemami opartymi na systemie IBM z14 (najbardziej bieżącym modelem w przypadku tego zapisu). W tym artykule przedstawiono, jak uzyskać porównywalne wyniki na platformie Azure.
 
-## <a name="mainframe-storage-at-a-glance"></a>Pamięć masowa mainframe w skrócie
+## <a name="mainframe-storage-at-a-glance"></a>Magazyn mainframe w skrócie
 
-Ibm mainframe charakteryzuje pamięć masową na dwa sposoby. Pierwszym z nich jest urządzenie pamięci masowej z dostępem bezpośrednim (DASD). Drugi to magazyn sekwencyjny. Do zarządzania magazynem komputer mainframe udostępnia podsystem zarządzania magazynowaniem obiektów danych (DFSMS). Zarządza dostępem do danych do różnych urządzeń pamięci masowej.
+IBM mainframe charakteryzuje magazyn na dwa sposoby. Pierwszy to urządzenie magazynu bezpośredniego dostępu (DASD). Drugi to magazyn sekwencyjny. W celu zarządzania magazynem program mainframe zapewnia podsystem zarządzania magazynem (DFSMS). Umożliwia ona zarządzanie dostępem do danych do różnych urządzeń magazynujących.
 
-[DASD](https://en.wikipedia.org/wiki/Direct-access_storage_device) odnosi się do oddzielnego urządzenia do dodatkowego (nie w pamięci) magazynu, który umożliwia unikatowy adres do bezpośredniego dostępu do danych. Pierwotnie termin DASD odnosił się do wirujących dysków, bębnów magnetycznych lub komórek danych. Jednak teraz termin ten może mieć również zastosowanie do półprzewodnikowych urządzeń pamięci masowej (SSD), sieci magazynowania (SAN), sieciowej pamięci masowej (NAS) i napędów optycznych. Na potrzeby tego dokumentu dasd odnosi się do dysków wirujących, sanów san i dysków SSD.
+[DASD](https://en.wikipedia.org/wiki/Direct-access_storage_device) odnosi się do oddzielnego urządzenia dla magazynu pomocniczego (nie znajdującego się w pamięci), który umożliwia używanie unikatowego adresu do bezpośredniego dostępu do danych. Pierwotnie termin DASD zastosowany do obracających się dysków, bębnów magnetycznych lub komórek danych. Teraz termin ten może również dotyczyć urządzeń magazynu półprzewodnikowego (dysków SSD), sieci magazynowania (San), magazynu podłączonego do sieci (NAS) i dysków optycznych. Na potrzeby tego dokumentu DASD odnoszą się do obracających się dysków, sieci SAN i dysków SSD.
 
-W przeciwieństwie do pamięci DASD sekwencyjne przechowywanie na mainframe odnosi się do urządzeń, takich jak napędy taśmowe, gdzie dane są dostępne od punktu wyjścia, a następnie odczytywane lub zapisywane w wierszu.
+W przeciwieństwie do magazynu DASD, sekwencyjny magazyn na komputerze mainframe odnosi się do urządzeń, takich jak stacje taśm, do których dane są dostępne z punktu początkowego, a następnie odczytywane lub zapisywane w wierszu.
 
-Urządzenia pamięci masowej są zazwyczaj podłączane za pomocą połączenia światłowodowego (FICON) lub są dostępne bezpośrednio na magistrali IO komputera mainframe za pomocą [hipersockets](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.znetwork/znetwork_85.htm), technologii IBM do szybkiej komunikacji między partycjami na serwerze z hipernadzorcą.
+Urządzenia magazynujące są zwykle dołączane przy użyciu połączenia Fiber (FICON) lub są dostępne bezpośrednio na magistrali we/wy komputera mainframe przy użyciu [HiperSockets](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.znetwork/znetwork_85.htm), technologii firmy IBM do szybkiej komunikacji między partycjami na serwerze z funkcją hypervisor.
 
-Większość systemów mainframe dzieli pamięć masową na dwa typy:
+Większość systemów mainframe oddziela magazyn do dwóch typów:
 
-- Do codziennych operacji potrzebna jest *pamięć masowa online* (znana również jako pamięć gorąca). W tym celu zwykle używany jest magazyn DASD. Jednak sekwencyjne przechowywanie, takie jak codzienne kopie zapasowe taśmy (logiczne lub fizyczne), może być również używane w tym celu.
+- *Magazyn online* (jest również znany jako magazyn gorąca) jest wymagany na potrzeby codziennych operacji. Magazyn DASD jest zwykle używany w tym celu. W tym celu można również użyć magazynu sekwencyjnego, takiego jak codzienne kopie zapasowe na taśmach (logiczny lub fizyczny).
 
-- *Przechowywanie archiwów* (znane również jako chłodnia) nie jest gwarantowane do zamontowania w danym momencie. Zamiast tego jest zamontowany i dostępny w razie potrzeby. Magazyn archiwum jest często implementowany przy użyciu sekwencyjnych kopii zapasowych na taśmach (logicznych lub fizycznych) do przechowywania.
+- Nie ma gwarancji, że *Magazyn archiwum* (znany również jako chłodny magazyn) nie zostanie zainstalowany w danym momencie. Zamiast tego jest on instalowany i dostępny w razie konieczności. Magazyn archiwalny jest często implementowany przy użyciu sekwencyjnych kopii zapasowych na taśmach (logicznych lub fizycznych) dla magazynu.
 
-## <a name="mainframe-versus-io-latency-and-iops"></a>Mainframe a opóźnienie we/wy i we/wy
+## <a name="mainframe-versus-io-latency-and-iops"></a>Opóźnienie i czas operacji we/wy na sekundę
 
-Komputery mainframe są często używane w aplikacjach, które wymagają wysokiej wydajności we/wy i małych opóźnień we/wy. Mogą to zrobić za pomocą połączeń FICON z urządzeniami We/Wy i HiperSockets. Gdy HiperSockets są używane do łączenia aplikacji i urządzeń bezpośrednio do kanału IO komputera mainframe, można osiągnąć opóźnienie w mikrosekundach.
+Komputery mainframe często są używane w przypadku aplikacji wymagających wysokiej wydajności operacji we/wy i niskiego opóźnienia we/wy. Można to zrobić przy użyciu połączeń FICON z urządzeniami we/wy i HiperSockets. Gdy HiperSockets są używane do łączenia aplikacji i urządzeń bezpośrednio z kanałem we/wy komputera mainframe, można osiągnąć opóźnienie w mikrosekundach.
 
-## <a name="azure-storage-at-a-glance"></a>Magazyn platformy Azure w skrócie
+## <a name="azure-storage-at-a-glance"></a>Usługa Azure Storage w skrócie
 
-Opcje infrastruktury platformy Azure jako usługi[(IaaS)](https://azure.microsoft.com/overview/what-is-iaas/)dla magazynu zapewniają porównywalną pojemność komputera mainframe.
+Opcje infrastruktura jako usługa ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)) platformy Azure dla magazynu zapewniają porównywalną pojemność komputera mainframe.
 
-Firma Microsoft oferuje magazyn o wartości petabajtów dla aplikacji hostowanych na platformie Azure i masz kilka opcji magazynu. Obejmują one od magazynu SSD dla wysokiej wydajności do niedrogiego magazynu obiektów blob do masowego przechowywania i archiwów. Ponadto platforma Azure udostępnia opcję nadmiarowości danych dla magazynu — co wymaga więcej wysiłku, aby skonfigurować w środowisku mainframe.
+Firma Microsoft oferuje petabajtów magazyn dla aplikacji hostowanych na platformie Azure i ma kilka opcji magazynu. Te zakresy z magazynu SSD w celu zapewnienia wysokiej wydajności magazynu obiektów BLOB o niskich kosztach na potrzeby magazynu i archiwów pamięci masowej. Ponadto platforma Azure zapewnia opcję nadmiarowości danych dla magazynu, co zwiększa nakład pracy w celu skonfigurowania w środowisku mainframe.
 
-Usługa Azure storage jest dostępna jako [dyski Azure Disks](/azure/virtual-machines/windows/managed-disks-overview), [Usługi Azure Files](/azure/storage/files/storage-files-introduction)i obiekty [blob platformy Azure,](/azure/storage/blobs/storage-blobs-overview) jak podsumowuje poniższa tabela. Dowiedz się więcej o [tym, kiedy używać każdego](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+Usługa Azure Storage jest dostępna jako Azure [disks](/azure/virtual-machines/windows/managed-disks-overview), [Azure Files](/azure/storage/files/storage-files-introduction)i [Azure Blobs](/azure/storage/blobs/storage-blobs-overview) , jak w poniższej tabeli podsumowano. Dowiedz się więcej o tym [, kiedy korzystać z każdego z nich](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 <!-- markdownlint-disable MD033 -->
 
@@ -57,74 +57,74 @@ Usługa Azure storage jest dostępna jako [dyski Azure Disks](/azure/virtual-mac
 <tr><td>Azure Files
 </td>
 <td>
-Zapewnia interfejs SMB, biblioteki klienckie i interfejs <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">REST,</a> który umożliwia dostęp z dowolnego miejsca do przechowywanych plików.
+Udostępnia interfejs SMB, biblioteki klienta i interfejs <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">rest</a> , który umożliwia dostęp z dowolnego miejsca do przechowywanych plików.
 </td>
 <td><ul>
-<li>Podnieś i przenieś aplikację do chmury, gdy aplikacja używa natywnych interfejsów API systemu plików do udostępniania danych między nią a innymi aplikacjami uruchomionymi na platformie Azure.</li>
-<li>Przechowywanie narzędzi deweloperskich i debugowania, które muszą być dostępne z wielu maszyn wirtualnych.</li>
+<li>Podnieś i przenieś aplikację do chmury, gdy aplikacja używa natywnych interfejsów API systemu plików do udostępniania danych między nimi a innymi aplikacjami uruchomionymi na platformie Azure.</li>
+<li>Przechowuj narzędzia do programowania i debugowania, które muszą być dostępne z wielu maszyn wirtualnych.</li>
 </ul>
 </td>
 </tr>
 <tr><td>Obiekty blob platformy Azure
 </td>
-<td>Udostępnia biblioteki klientów i interfejs <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">REST,</a> który umożliwia przechowywanie danych bez struktury i uzyskiwanie do nich dostępu na masową skalę w blokowych obiektach blob. Obsługuje również <a href="/azure/storage/blobs/data-lake-storage-introduction">usługi Azure Data Lake Storage Gen2</a> dla rozwiązań do analizy dużych zbiorów danych dla przedsiębiorstw.
+<td>Zapewnia biblioteki klienckie i interfejs <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">rest</a> , który umożliwia przechowywanie i dostęp do danych bez struktury w dużej skali w blokowych obiektach Blob. Program obsługuje również <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> w przypadku rozwiązań do analizy danych Big Data w przedsiębiorstwie.
 </td>
 <td><ul>
-<li>Obsługa scenariuszy przesyłania strumieniowego i dostępu losowego w aplikacji.</li>
-<li>Mieć dostęp do danych aplikacji z dowolnego miejsca.</li>
-<li>Tworzenie aplikacji enterprise data lake na platformie Azure i przeprowadzanie analizy dużych zbiorów danych.</li>
+<li>Obsługuje scenariusze przesyłania strumieniowego i dostępu swobodnego w aplikacji.</li>
+<li>Dostęp do danych aplikacji z dowolnego miejsca.</li>
+<li>Utwórz usługę Data Lake w przedsiębiorstwie na platformie Azure i wykonaj analizę danych Big Data.</li>
 </ul></td>
 </tr>
 <tr><td>Azure Disks
 </td>
-<td>Udostępnia biblioteki klienckie i interfejs <a href="https://docs.microsoft.com/rest/api/compute/disks">REST,</a> który umożliwia trwałe przechowywanie danych i uzyskiwanie do nich dostępu z dołączonego wirtualnego dysku twardego.
+<td>Zapewnia biblioteki klienckie i interfejs <a href="https://docs.microsoft.com/rest/api/compute/disks">rest</a> , który umożliwia trwałe przechowywanie danych i uzyskiwanie do nich dostępu z dołączonego wirtualnego dysku twardego.
 </td>
 <td><ul>
-<li>Udźwignie i przesuń aplikacje korzystające z natywnych interfejsów API systemu plików do odczytu i zapisu danych na dyskach trwałych.</li>
-<li>Przechowywanie danych, które nie są wymagane do uzyskania dostępu spoza maszyny Wirtualnej, do której jest dołączony dysk.</li>
+<li>Podnieś i Przenieś aplikacje, które używają natywnych interfejsów API systemu plików do odczytu i zapisu danych na dyskach trwałych.</li>
+<li>Przechowuj dane, które nie są wymagane, aby uzyskać do nich dostęp spoza maszyny wirtualnej, do której dysk jest podłączony.</li>
 </ul></td>
 </tr>
 </tbody>
 </table>
 <!-- markdownlint-enable MD033 -->
 
-## <a name="azure-hot-online-and-cold-archive-storage"></a>Pamięć masowa azure hot (online) i cold (archiwum)
+## <a name="azure-hot-online-and-cold-archive-storage"></a>Magazyn Azure gorąca (online) i zimny (Archiwum)
 
-Typ magazynu dla danego systemu zależy od wymagań systemu, w tym rozmiaru magazynu, przepływności i usług We/Wy. W przypadku magazynu typu DASD na mainframe aplikacje na platformie Azure zazwyczaj używają magazynu dysku Azure Disks. W przypadku magazynu archiwum mainframe magazyn obiektów blob jest używany na platformie Azure.
+Typ magazynu dla danego systemu zależy od wymagań systemu, w tym rozmiaru magazynu, przepływności i liczby operacji we/wy na sekundę. W przypadku magazynu typu DASD na komputerze mainframe aplikacje na platformie Azure zwykle korzystają z magazynu dyskowego platformy Azure. W przypadku magazynu archiwum typu mainframe magazyn obiektów BLOB jest używany na platformie Azure.
 
-Dyski SSD zapewniają najwyższą wydajność magazynu na platformie Azure. Dostępne są następujące opcje (od zapisu tego dokumentu):
+Dysków SSD zapewniają najwyższą wydajność magazynu na platformie Azure. Dostępne są następujące opcje (w przypadku pisania tego dokumentu):
 
 | Typ         | Rozmiar           | Liczba operacji we/wy na sekundę                  |
 |--------------|----------------|-----------------------|
-| Dysk SSD w warstwie Ultra    | 4 GB do 64 TB  | Od 1200 do 160 000 we/wy |
-| Dysk SSD w warstwie Premium  | 32 GB do 32 TB | Od 12 do 15 000 IOPS     |
-| Dysk SSD w warstwie Standardowa | 32 GB do 32 TB | Od 12 do 2000 we/wy      |
+| Dysk SSD w warstwie Ultra    | 4 GB do 64 TB  | 1 200 do 160 000 operacji we/wy |
+| Dysk SSD w warstwie Premium  | 32 GB do 32 TB | od 12 do 15 000 operacji we/wy     |
+| Dysk SSD w warstwie Standardowa | 32 GB do 32 TB | od 12 do 2 000 operacji we/wy      |
 
-Magazyn obiektów Blob zapewnia największą ilość magazynu na platformie Azure. Oprócz rozmiaru magazynu platforma Azure oferuje zarówno magazyn zarządzany, jak i niezarządzany. Dzięki zarządzanej przestrzeni dyskowej platforma Azure zajmuje się zarządzaniem podstawowymi kontami magazynu. W przypadku magazynu niezarządzanego użytkownik bierze odpowiedzialność za konfigurowanie kont magazynu platformy Azure o odpowiednim rozmiarze, aby spełnić wymagania dotyczące magazynu.
+Usługa BLOB Storage zapewnia największą ilość miejsca w magazynie na platformie Azure. Oprócz rozmiaru magazynu platforma Azure oferuje magazyn zarządzany i niezarządzany. Dzięki magazynowi zarządzanemu platforma Azure obsługuje zarządzanie podstawowymi kontami magazynu. W przypadku magazynu niezarządzanego użytkownik jest odpowiedzialny za skonfigurowanie kont usługi Azure Storage o odpowiednim rozmiarze w celu spełnienia wymagań dotyczących magazynu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Migracja komputera mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Ponowne hostowanie pulpitu głównego na maszynach wirtualnych platformy Azure](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Przenoszenie obliczeń komputera mainframe na platformę Azure](mainframe-compute-Azure.md)
-- [Decydowanie o tym, kiedy mają być używane obiekty blob azure, pliki platformy Azure lub dyski platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
-- [Standardowe dyski zarządzane SSD dla obciążeń maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)
+- [Rehostowanie komputera mainframe na platformie Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Przenoszenie obliczeń mainframe na platformę Azure](mainframe-compute-Azure.md)
+- [Podejmowanie decyzji o tym, kiedy korzystać z obiektów blob platformy Azure, Azure Files lub dysków platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
+- [SSD w warstwie Standardowa Managed Disks dla obciążeń maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)
 
 ### <a name="ibm-resources"></a>Zasoby IBM
 
-- [Równoległy sysplex w ibm z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS i urządzenie sprzęgało: poza podstawami](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
-- [Tworzenie wymaganych użytkowników dla instalacji funkcji pureScale Db2](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
-- [Db2icrt — polecenie Utwórz wystąpienie](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Rozwiązanie do klastrowej bazy danych Db2 pureScale](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Równoległa Sysplex na IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
+- [IBM CICS i funkcja sprzęgania: poza podstawowymi](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [Tworzenie wymaganych użytkowników dla instalacji funkcji programu DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+- [Db2icrt — Utwórz wystąpienie polecenia](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+- [Rozwiązanie klastrowanej bazy danych DB2 pureScale](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government
 
-- [Chmura microsoft azure dla instytucji rządowych dla aplikacji mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
+- [Microsoft Azure Government w chmurze dla aplikacji dla komputerów mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
 - [Microsoft i FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
 
 ### <a name="more-migration-resources"></a>Więcej zasobów migracji
 
-- [Przewodnik po wirtualnym centrum danych azure i przeniesieniu](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
+- [Przewodnik po podnoszenia i przesunięć wirtualnego centrum danych platformy Azure](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
 - [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

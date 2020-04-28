@@ -1,6 +1,6 @@
 ---
-title: Tworzenie strategii zarządzania elastyczną kontrolą dostępu — Usługa Azure AD
-description: Niniejszy dokument zawiera wytyczne dotyczące strategii, które organizacja powinna przyjąć w celu zapewnienia odporności w celu zmniejszenia ryzyka blokady podczas nieprzewidzianych zakłóceń
+title: Tworzenie odpornej strategii zarządzania kontrolą dostępu — Azure AD
+description: Ten dokument zawiera wskazówki dotyczące strategii podejmowanych przez organizację w celu zapewnienia odporności na zmniejszenie ryzyka związanego z blokadą w przypadku nieprzewidzianych przerw w działaniu
 services: active-directory
 author: martincoetzer
 manager: daveba
@@ -13,122 +13,122 @@ ms.date: 01/29/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ca5817e744ff81efcd549bc328d7ce5eeedb2d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76908738"
 ---
-# <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Tworzenie strategii zarządzania elastyczną kontrolą dostępu za pomocą usługi Azure Active Directory
+# <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Utwórz odporną strategię zarządzania kontrolą dostępu za pomocą Azure Active Directory
 
 >[!NOTE]
-> The information contained in this document represents the current view of Microsoft Corporation on the issues discussed as of the date of publication. Ponieważ firma Microsoft musi reagować na zmieniające się warunki rynkowe, nie powinna być interpretowana jako zobowiązanie ze strony firmy Microsoft, a firma Microsoft nie może zagwarantować dokładności jakichkolwiek informacji przedstawionych po dacie publikacji.
+> The information contained in this document represents the current view of Microsoft Corporation on the issues discussed as of the date of publication. Ponieważ firma Microsoft musi reagować na zmieniające się warunki rynkowe, nie powinna być interpretowana jako zobowiązanie w ramach firmy Microsoft, a firma Microsoft nie gwarantuje dokładności informacji przedstawionych po dacie publikacji.
 
-Organizacje, które korzystają z jednej kontroli dostępu, takiej jak uwierzytelnianie wieloskładnikowe (MFA) lub pojedyncza lokalizacja sieciowa w celu zabezpieczenia swoich systemów informatycznych, są podatne na błędy dostępu do swoich aplikacji i zasobów, jeśli ta pojedyncza kontrola dostępu stanie się niedostępna lub nieprawidłowo skonfigurowane. Na przykład klęska żywiołowa może spowodować niedostępność dużych segmentów infrastruktury telekomunikacyjnej lub sieci firmowych. Takie zakłócenie może uniemożliwić użytkownikom końcowym i administratorom zalogowanie się.
+Organizacje korzystające z pojedynczej kontroli dostępu, takie jak uwierzytelnianie wieloskładnikowe (MFA) lub pojedynczej lokalizacji sieciowej, w celu zabezpieczenia systemów IT są podatne na dostęp do błędów w aplikacjach i zasobach, jeśli ta pojedyncza kontrola dostępu będzie niedostępna lub nieprawidłowo skonfigurowana. Na przykład klęska żywiołowa może skutkować niedostępnością dużych segmentów infrastruktury telekomunikacyjnej lub sieci firmowych. Takie zakłócenia może uniemożliwić użytkownikom końcowym i administratorom możliwość zalogowania się.
 
-Ten dokument zawiera wskazówki dotyczące strategii, które organizacja powinna przyjąć w celu zapewnienia odporności w celu zmniejszenia ryzyka blokady podczas nieprzewidzianych zakłóceń w następujących scenariuszach:
+Niniejszy dokument zawiera wskazówki dotyczące strategii podejmowanych przez organizację w celu zapewnienia odporności na zmniejszenie ryzyka związanego z blokadą w przypadku nieprzewidzianych przerw w następujących scenariuszach:
 
- 1. Organizacje mogą zwiększyć swoją odporność, aby zmniejszyć ryzyko blokady **przed zakłóceniem,** implementując strategie łagodzenia zmiany klimatu lub plany awaryjne.
- 2. Organizacje mogą nadal uzyskiwać dostęp do aplikacji i zasobów, które wybierają **podczas przerw,** dzięki wprowadzonym strategiom łagodzenia zmiany klimatu i planom awaryjnym.
- 3. Organizacje powinny upewnić się, że zachowują informacje, takie jak dzienniki, **po zakłóceniu** i przed wycofaniem wszelkich zaimplementowanych przez nieprzewidzianych sytuacji.
- 4. Organizacje, które nie wdrożyły strategii zapobiegania lub alternatywnych planów, mogą być w stanie wdrożyć **opcje awaryjne,** aby poradzić sobie z zakłóceniami.
+ 1. Organizacje mogą zwiększyć odporność, aby zmniejszyć ryzyko związane z blokadą **przed zakłóceniami** przez implementację strategii ograniczenia lub planów awaryjnych.
+ 2. Organizacje mogą nadal uzyskiwać dostęp do aplikacji i zasobów, które wybierają **podczas przerw** w działaniu, stosując strategie zaradcze i plany awaryjne.
+ 3. Organizacje powinny upewnić się, że zachowują informacje, takie jak dzienniki, **po przerwie** i przed wycofaniem wszelkich zaimplementowanych przez nie zdarzeń.
+ 4. Organizacje, które nie wdrożyły strategii zapobiegania lub alternatywne plany mogą być w stanie zaimplementować **Opcje awaryjne** , aby rozwiązać problem.
 
 ## <a name="key-guidance"></a>Najważniejsze wskazówki
 
-W tym dokumencie znajdują się cztery kluczowe dania na wynos:
+W tym dokumencie znajdują się cztery kluczowe wnioski:
 
-* Unikaj blokady administratora, korzystając z kont dostępu awaryjnego.
-* Implementowanie usługi MFA przy użyciu dostępu warunkowego (CA), a nie usługi MFA dla użytkownika.
-* Ograniczanie blokady użytkownika przy użyciu wielu formantów dostępu warunkowego (CA).
-* Załagodzić blokadę użytkownika przez inicjowanie obsługi administracyjnej wiele metod uwierzytelniania lub ich odpowiedników dla każdego użytkownika.
+* Należy unikać blokowania administratorów przy użyciu kont dostępu awaryjnego.
+* Implementowanie usługi MFA przy użyciu dostępu warunkowego (CA), a nie usługi MFA dla poszczególnych użytkowników.
+* Ograniczanie blokady użytkownika przy użyciu wielu kontrolek dostępu warunkowego (CA).
+* Ograniczanie blokady użytkownika przez inicjowanie obsługi wielu metod uwierzytelniania lub odpowiedników dla każdego użytkownika.
 
-## <a name="before-a-disruption"></a>Przed zakłóceniem
+## <a name="before-a-disruption"></a>Przed zakłóceniami
 
-Łagodzenie rzeczywistych zakłóceń musi być głównym celem organizacji w radzeniu sobie z problemami kontroli dostępu, które mogą wystąpić. Łagodzenie obejmuje planowanie rzeczywistego zdarzenia oraz strategie wdrażania, aby upewnić się, że kontrola dostępu i operacje nie są naruszone podczas przerw.
+Zmniejszenie rzeczywistej przerwy w działaniu musi być podstawowym punktem działania organizacji w zakresie rozwiązywania problemów z kontrolą dostępu. Środki zaradcze obejmują planowanie rzeczywistego zdarzenia oraz implementowanie strategii, aby upewnić się, że kontrolki dostępu i operacje nie mają wpływu na przerwy.
 
-### <a name="why-do-you-need-resilient-access-control"></a>Dlaczego potrzebna jest odporna kontrola dostępu?
+### <a name="why-do-you-need-resilient-access-control"></a>Dlaczego potrzebujesz odpornej kontroli dostępu?
 
- Tożsamość to płaszczyzna kontrolna użytkowników uzyskujących dostęp do aplikacji i zasobów. System tożsamości kontroluje użytkowników i na jakich warunkach, takich jak kontrola dostępu lub wymagania uwierzytelniania, użytkownicy uzyskują dostęp do aplikacji. Jeśli jedno lub więcej wymagań dotyczących uwierzytelniania lub kontroli dostępu nie jest dostępnych do uwierzytelniania przez użytkowników z powodu nieprzewidzianych okoliczności, organizacje mogą wystąpić z jednym lub jednym z następujących problemów:
+ Tożsamość jest płaszczyzną kontroli użytkowników, którzy uzyskują dostęp do aplikacji i zasobów. System tożsamości decyduje, którzy użytkownicy i w jakich warunkach, takich jak kontrola dostępu lub wymagania uwierzytelniania, uzyskują dostęp do aplikacji. Jeśli co najmniej jedno wymaganie uwierzytelniania lub kontroli dostępu nie jest dostępne dla użytkowników do uwierzytelnienia z powodu nieprzewidzianych okoliczności, organizacje mogą napotkać jeden lub oba z następujących problemów:
 
-* **Blokada administratora:** Administratorzy nie mogą zarządzać dzierżawą ani usługami.
-* **Blokada użytkownika:** Użytkownicy nie mogą uzyskiwać dostępu do aplikacji ani zasobów.
+* **Blokada administratora:** Administratorzy nie mogą zarządzać dzierżawcą ani usługami.
+* **Blokada użytkownika:** Użytkownicy nie mogą uzyskać dostępu do aplikacji ani zasobów.
 
-### <a name="administrator-lockout-contingency"></a>Nieprzewidziane blokady administratora
+### <a name="administrator-lockout-contingency"></a>Sytuacje awaryjne blokady administratora
 
-Aby odblokować dostęp administratora do dzierżawy, należy utworzyć konta dostępu awaryjnego. Te konta dostępu awaryjnego, znane również jako konta *typu break glass,* umożliwiają dostęp do zarządzania konfiguracją usługi Azure AD, gdy normalne procedury dostępu do konta uprzywilejowanego nie są dostępne. Zgodnie z [zaleceniami dotyczącymi dostępu awaryjnego]( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)należy utworzyć co najmniej dwa konta dostępu awaryjnego.
+Aby odblokować dostęp administratora do dzierżawy, należy utworzyć konta dostępu awaryjnego. Te konta dostępu awaryjnego, nazywane również kontami *ze szkłami* , umożliwiają dostęp do zarządzania konfiguracją usługi Azure AD, gdy nie są dostępne normalne procedury dostępu do konta uprzywilejowanego. Po [zaleceń dotyczących konta dostępu awaryjnego]( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)należy utworzyć co najmniej dwa konta dostępu awaryjnego.
 
 ### <a name="mitigating-user-lockout"></a>Ograniczanie blokady użytkownika
 
- Aby zmniejszyć ryzyko blokady użytkownika, należy użyć zasad dostępu warunkowego z wieloma formantami, aby dać użytkownikom możliwość wyboru sposobu uzyskiwania dostępu do aplikacji i zasobów. Dając użytkownikowi wybór między, na przykład, logowanie się za pomocą usługi MFA **lub** logowanie się z zarządzanego urządzenia **lub** logowanie się z sieci firmowej, jeśli jeden z formantów dostępu jest niedostępny, użytkownik ma inne opcje, aby kontynuować pracę.
+ Aby zmniejszyć ryzyko związane z blokadą użytkownika, należy użyć zasad dostępu warunkowego z wieloma kontrolkami, aby umożliwić użytkownikom wybór sposobu uzyskiwania dostępu do aplikacji i zasobów. Przez umożliwienie użytkownikowi wyboru między, na przykład zalogowanie się za pomocą usługi MFA **lub** zalogowanie się z urządzenia zarządzanego **lub** zalogowanie się z sieci firmowej, jeśli jedna z kontroli dostępu jest niedostępna, użytkownik ma inne opcje, aby kontynuować pracę.
 
 #### <a name="microsoft-recommendations"></a>Zalecenia firmy Microsoft
 
-Uwzględnij następujące kontrolki dostępu w istniejących zasadach dostępu warunkowego dla organizacji:
+Uwzględnij następujące kontrolki dostępu do istniejących zasad dostępu warunkowego dla organizacji:
 
-1. Aprowizuj wiele metod uwierzytelniania dla każdego użytkownika, który polega na różnych kanałach komunikacji, na przykład aplikacji Microsoft Authenticator (internetowej), tokenie OATH (generowanym na urządzeniu) i SMS (telefonicznym).
-2. Wdrażanie funkcji Windows Hello dla firm na urządzeniach z systemem Windows 10 w celu spełnienia wymagań usługi MFA bezpośrednio z logowania się na urządzeniu.
-3. Korzystanie z zaufanych urządzeń za pośrednictwem urządzeń [przyłączu hybrydowego usługi Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview) lub [zarządzanych usług Microsoft Intune](https://docs.microsoft.com/intune/planning-guide). Zaufane urządzenia poprawią środowisko użytkownika, ponieważ samo zaufane urządzenie może spełnić wymagania dotyczące silnego uwierzytelniania zasad bez wyzwania usługi MFA dla użytkownika. Usługa MFA będzie następnie wymagana podczas rejestrowania nowego urządzenia i uzyskiwania dostępu do aplikacji lub zasobów z niezaufanych urządzeń.
-4. Użyj zasad opartych na ryzyku ochrony tożsamości usługi Azure AD, które uniemożliwiają dostęp, gdy użytkownik lub logowanie jest zagrożone zamiast stałych zasad usługi MFA.
+1. Zainicjuj obsługę wielu metod uwierzytelniania dla każdego użytkownika, który korzysta z różnych kanałów komunikacyjnych, na przykład aplikacji Microsoft Authenticator (internetowej), tokenu OATH (wygenerowanego na urządzeniu) i wiadomości SMS (telephonic).
+2. Wdróż usługę Windows Hello dla firm na urządzeniach z systemem Windows 10, aby spełnić wymagania usługi MFA bezpośrednio po zalogowaniu się do urządzenia.
+3. Używaj zaufanych urządzeń za pośrednictwem [sprzężenia hybrydowego usługi Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview) lub [Microsoft Intune zarządzanych urządzeń](https://docs.microsoft.com/intune/planning-guide). Zaufane urządzenia będą ulepszać środowisko użytkownika, ponieważ zaufane urządzenie może spełnić wymagania dotyczące silnych uwierzytelnień zasad bez wyzwania usługi MFA dla użytkownika. Uwierzytelnianie wieloskładnikowe będzie wymagane podczas rejestrowania nowego urządzenia i uzyskiwania dostępu do aplikacji lub zasobów z niezaufanych urządzeń.
+4. Użyj zasad opartych na ryzyku usługi Azure AD Identity Protection, które uniemożliwiają dostęp, gdy użytkownik lub logowanie jest zagrożone w przypadku stałych zasad usługi MFA.
 
 >[!NOTE]
-> Zasady oparte na ryzyku wymagają licencji [usługi Azure AD Premium P2.](https://azure.microsoft.com/pricing/details/active-directory/)
+> Zasady oparte na ryzyku wymagają licencji na [Azure AD — wersja Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) .
 
-W poniższym przykładzie opisano zasady, które należy utworzyć, aby zapewnić elastyczną kontrolę dostępu dla użytkownika, aby uzyskać dostęp do swoich aplikacji i zasobów. W tym przykładzie będzie wymagać grupy zabezpieczeń **AppUsers** z użytkowników docelowych, które mają być dostępne, grupa o nazwie **CoreAdmins** z podstawowych administratorów i grupy o nazwie **EmergencyAccess** z kont dostępu awaryjnego.
-Ten przykładowy zestaw zasad zapewni wybranym użytkownikom w **użyczeń aplikacji**dostęp do wybranych aplikacji, jeśli łączą się z zaufanego urządzenia lub zapewniają silne uwierzytelnianie, na przykład uwierzytelnianie wieloskładnikowe. Nie obejmuje kont awaryjnych i podstawowych administratorów.
+W poniższym przykładzie opisano zasady, które należy utworzyć, aby zapewnić odporną kontrolę dostępu dla użytkownika w celu uzyskania dostępu do aplikacji i zasobów. W tym przykładzie musisz mieć grupę zabezpieczeń **AppUsers** z użytkownikami docelowymi, do których chcesz udzielić dostępu, grupę o nazwie **CoreAdmins** z podstawowymi administratorami oraz grupę o nazwie **EmergencyAccess** z kontami dostępu awaryjnego.
+Ten przykładowy zestaw zasad będzie przyznawać wybranym użytkownikom w **AppUsers**, dostęp do wybranych aplikacji, jeśli nawiązują połączenie z zaufanego urządzenia lub zapewniają silne uwierzytelnianie, na przykład MFA. Wyklucza to konta awaryjne i administratorów podstawowych.
 
-**Zasady ograniczania ryzyka urzędu certyfikacji ustawione:**
+**Zestaw zasad ograniczenia urzędu certyfikacji:**
 
-* Zasady 1: Blokowanie dostępu do osób spoza grup docelowych
-  * Użytkownicy i grupy: uwzględnij wszystkich użytkowników. Wyklucz AppUsers, CoreAdmins i EmergencyAccess
-  * Aplikacje w chmurze: uwzględnij wszystkie aplikacje
-  * Warunki: (Brak)
-  * Kontrola nad dotacjami: blok
-* Zasady 2: Udziel dostępu do aplikacji Użytkownicy, którzy wymagają usługi MFA lub zaufanego urządzenia.
-  * Użytkownicy i grupy: uwzględnij użytkowników aplikacji. Wyklucz CoreAdmins i EmergencyAccess
-  * Aplikacje w chmurze: uwzględnij wszystkie aplikacje
-  * Warunki: (Brak)
-  * Kontrola nad przyznaniem dotacji: Udziel dostępu, wymagaj uwierzytelniania wieloskładnikowego, wymagaj zgodności urządzenia. W przypadku wielu formantów: wymagaj jednego z wybranych formantów.
+* Zasady 1: Blokuj dostęp do osób poza grupami docelowymi
+  * Użytkownicy i grupy: Uwzględnij wszystkich użytkowników. Wyklucz AppUsers, CoreAdmins i EmergencyAccess
+  * Aplikacje w chmurze: Uwzględnij wszystkie aplikacje
+  * Warunki: (brak)
+  * Udziel kontroli: blok
+* Zasady 2: udzielanie dostępu do AppUsers wymagające uwierzytelniania wieloskładnikowego lub zaufanego urządzenia.
+  * Użytkownicy i grupy: Uwzględnij AppUsers. Wyklucz CoreAdmins i EmergencyAccess
+  * Aplikacje w chmurze: Uwzględnij wszystkie aplikacje
+  * Warunki: (brak)
+  * Udziel kontroli: Udziel dostępu, wymagaj uwierzytelniania wieloskładnikowego, Wymagaj zgodności urządzenia. Dla wielu kontrolek: Wymagaj jednej z wybranych kontrolek.
 
-### <a name="contingencies-for-user-lockout"></a>Nieprzewidziane sytuacje blokady użytkownika
+### <a name="contingencies-for-user-lockout"></a>Sytuacje awaryjne dla blokady użytkownika
 
-Alternatywnie organizacja może również tworzyć zasady awaryjne. Aby utworzyć zasady awaryjne, należy zdefiniować kryteria kompromisu między ciągłością działania, kosztem operacyjnym, kosztami finansowymi i zagrożeniami bezpieczeństwa. Na przykład zasady awaryjne można aktywować tylko dla podzbioru użytkowników, dla podzbioru aplikacji, dla podzbioru klientów lub z podzbioru lokalizacji. Zasady awaryjne dadzą administratorom i użytkownikom końcowym dostęp do aplikacji i zasobów podczas przerwy, gdy nie zaimplementowano metody ograniczania ryzyka.
-Zrozumienie ekspozycji podczas zakłóceń pomaga zmniejszyć ryzyko i jest kluczową częścią procesu planowania. Aby utworzyć plan awaryjny, należy najpierw określić następujące wymagania biznesowe organizacji:
+Alternatywnie organizacja może również tworzyć zasady awaryjne. Aby utworzyć zasady awaryjne, należy zdefiniować kryteria kompromisu między ciągłością biznesową, kosztami operacyjnymi, kosztami finansowymi i zagrożeniami bezpieczeństwa. Na przykład można aktywować zasady awaryjne tylko dla podzbioru użytkowników, dla podzestawu aplikacji, dla podzestawu klientów lub z podzestawu lokalizacji. Zasady awaryjne zapewniają administratorom i użytkownikom końcowym dostęp do aplikacji i zasobów, podczas gdy nie zaimplementowano metody zaradczej.
+Zrozumienie narażenia użytkownika podczas przerw w działaniu pomaga ograniczyć ryzyko i stanowić krytyczną część procesu planowania. W celu utworzenia planu awaryjnego należy najpierw określić następujące wymagania biznesowe organizacji:
 
-1. Określ swoje aplikacje o znaczeniu krytycznym z wyprzedzeniem: Jakie są aplikacje, do których musisz udzielić dostępu, nawet przy niższym ryzyku/bezpieczeństwie? Stwórz listę tych aplikacji i upewnij się, że inni interesariusze (firma, bezpieczeństwo, prawnicy, przywództwo) zgadzają się, że jeśli cała kontrola dostępu zniknie, te aplikacje nadal muszą być uruchamiane. Prawdopodobnie skończysz z kategoriami:
-   * **Aplikacje o znaczeniu krytycznym kategorii 1,** które nie mogą być niedostępne dłużej niż kilka minut, na przykład aplikacje, które bezpośrednio wpływają na przychody organizacji.
-   * **Kategoria 2 Ważne aplikacje,** które firma musi być dostępna w ciągu kilku godzin.
-   * **Aplikacje o niskim priorytecie kategorii 3,** które mogą wytrzymać kilkudniowe zakłócenia.
-2. W przypadku aplikacji w kategorii 1 i 2 firma Microsoft zaleca wstępnie zaplanować, jakiego typu poziom dostępu ma zostać dozwolony:
-   * Czy chcesz zezwolić na pełny dostęp lub sesję z ograniczeniami, na przykład ograniczanie pobierania?
-   * Czy chcesz zezwolić na dostęp do części aplikacji, ale nie do całej aplikacji?
-   * Czy chcesz zezwolić pracownikowi na dostęp do informacji i zablokować dostęp administratora do czasu przywrócenia kontroli dostępu?
-3. W przypadku tych aplikacji firma Microsoft zaleca również zaplanowanie, które drogi dostępu zostaną celowo otwarte, a które zostaną zamknięte:
-   * Czy chcesz zezwolić przeglądarce na dostęp i blokowanie klientów bogatych, którzy mogą zapisywać dane w trybie offline?
-   * Czy chcesz zezwolić na dostęp tylko użytkownikom w sieci firmowej i zablokować zewnętrznych użytkowników?
-   * Czy chcesz zezwolić na dostęp z niektórych krajów lub regionów tylko podczas zakłóceń?
-   * Czy chcesz, aby zasady dotyczące zasad awaryjnych, zwłaszcza w przypadku aplikacji o znaczeniu krytycznym, zakończyły się niepowodzeniem lub zakończyły się powodzeniem, jeśli alternatywna kontrola dostępu nie jest dostępna?
+1. Od razu Ustal swoje aplikacje o krytycznym znaczeniu: Jakie są aplikacje, do których musisz mieć dostęp, nawet z niższym ryzykiem/stan zabezpieczeń? Utwórz listę tych aplikacji i upewnij się, że inni uczestnicy projektu (Business, Security, prawny i lider) zgadzają się, że jeśli cała kontrola dostępu zostanie przesunięta, te aplikacje nadal muszą być dalej uruchamiane. Najkorzystniej będzie można zakończyć z użyciem kategorii:
+   * **Aplikacje o znaczeniu krytycznym kategorii 1** , które nie mogą być niedostępne przez więcej niż kilka minut, na przykład aplikacje, które bezpośrednio wpływają na przychód organizacji.
+   * **Kategoria 2 ważne aplikacje** , które firma musi być dostępna w ciągu kilku godzin.
+   * **Kategorie 3 aplikacje o niskim priorytecie** , które mogą wytrzymać zakłócenia przez kilka dni.
+2. W przypadku aplikacji w kategorii 1 i 2 Firma Microsoft zaleca wstępne zaplanowanie typu dostępu, który ma być dozwolony:
+   * Czy chcesz zezwolić na pełny dostęp lub sesję z ograniczeniami, np. ograniczanie pobierania?
+   * Czy chcesz zezwolić na dostęp do części aplikacji, ale nie całej aplikacji?
+   * Czy chcesz zezwolić na dostęp pracownika do informacji i zablokować dostęp administratora do momentu przywrócenia kontroli dostępu?
+3. W przypadku tych aplikacji firma Microsoft zaleca także zaplanowanie, które drogi dostępu zostaną świadomie otwarte i które zostaną zamknięte:
+   * Czy chcesz zezwolić na dostęp tylko do przeglądarki i blokować rozbudowani Klienci, którzy mogą zapisywać dane w trybie offline?
+   * Czy chcesz zezwolić na dostęp tylko użytkownikom należącym do sieci firmowej i nie blokować użytkowników poza użytkownikami?
+   * Czy chcesz zezwolić na dostęp z określonych krajów lub regionów tylko w trakcie przerw w działaniu?
+   * Czy chcesz, aby zasady dotyczące zasad awaryjnych, szczególnie w przypadku aplikacji o znaczeniu krytycznym, kończyły się niepowodzeniem lub pomyślnie, jeśli alternatywna kontrola dostępu nie jest dostępna?
 
 #### <a name="microsoft-recommendations"></a>Zalecenia firmy Microsoft
 
-Zasady dostępu warunkowego awaryjnego to **wyłączone zasady,** które pomijają usługi Azure MFA, usługi MFA innych firm, oparte na ryzyku lub na urządzeniach. Następnie, gdy organizacja zdecyduje się aktywować plan awaryjny, administratorzy mogą włączyć zasady i wyłączyć regularne zasady oparte na kontroli.
+Zasady awaryjnego dostępu warunkowego to **wyłączone zasady** , które pomijają mechanizmy uwierzytelniania wieloskładnikowego Azure MFA, uwierzytelnianie wieloskładnikowe innych firm, oparte na ryzyku lub oparte na urządzeniach. Następnie, gdy organizacja zdecyduje się aktywować plan awaryjny, Administratorzy mogą włączyć zasady i wyłączyć regularne zasady oparte na kontroli.
 
 >[!IMPORTANT]
-> Wyłączenie zasad, które wymuszają bezpieczeństwo użytkowników, nawet tymczasowo, zmniejszy postawę zabezpieczeń, gdy plan awaryjny jest w miejscu.
+> Wyłączenie zasad, które wymuszają zabezpieczenia dla użytkowników, nawet tymczasowo, zmniejszy stan bezpieczeństwa w trakcie planowania awaryjnego.
 
-* Skonfiguruj zestaw zasad rezerwowych, jeśli zakłócenie w jednym typie poświadczeń lub jeden mechanizm kontroli dostępu wpływa na dostęp do aplikacji. Skonfiguruj zasady w stanie wyłączonym, który wymaga sprzężenia domeny jako formantu, jako kopii zapasowej dla aktywnej zasady, która wymaga dostawcy usługi MFA innej firmy.
-* Zmniejsz ryzyko zgadywania haseł przez złych aktorów, gdy usługa MFA nie jest wymagana, postępując zgodnie z praktykami zawartymi w opracowaniu zawierającym [wskazówki dotyczące haseł.](https://aka.ms/passwordguidance)
-* Wdrażanie [samoobsługowego resetowania haseł usługi Azure AD (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) i [ochrony hasłem usługi Azure AD,](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) aby upewnić się, że użytkownicy nie używają wspólnego hasła i terminów, które chcesz zablokować.
-* Użyj zasad, które ograniczają dostęp w aplikacjach, jeśli określony poziom uwierzytelniania nie zostanie osiągnięty, zamiast po prostu wrócić do pełnego dostępu. Przykład:
-  * Konfigurowanie zasad tworzenia kopii zapasowych, które wysyłają oświadczenie o ograniczonej sesji do programów Exchange i SharePoint.
-  * Jeśli twoja organizacja korzysta z programu Microsoft Cloud App Security, należy rozważyć powrót do zasad, które angażują MCAS, a następnie MCAS zezwala na dostęp tylko do odczytu, ale nie jest przekazywany.
-* Nazwij swoje zasady, aby upewnić się, że łatwo je znaleźć podczas zakłóceń. Podaj następujące elementy w nazwie zasad:
+* Skonfiguruj zestaw zasad powrotu, jeśli zakłócenia w jednym typie poświadczeń lub jeden mechanizm kontroli dostępu ma wpływ na dostęp do aplikacji. Skonfiguruj zasady w stanie wyłączonym, które wymagają przyłączenia do domeny jako kontrolki jako kopii zapasowej aktywnej zasady, która wymaga dostawcy MFA innej firmy.
+* Ogranicz ryzyko nieprawidłowych uczestników odgadnąć hasła, gdy uwierzytelnianie wieloskładnikowe nie jest wymagane, postępując zgodnie z zasadami [zawartymi w dokumencie wytyczne dotyczące haseł](https://aka.ms/passwordguidance) .
+* Wdróż funkcję samoobsługowego [resetowania haseł (SSPR) usługi Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) i [Ochrona hasłem w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) , aby upewnić się, że użytkownicy nie używają typowych haseł i postanowień do zaświadczenia.
+* Użyj zasad, które ograniczają dostęp w aplikacjach, jeśli nie zostanie osiągnięty określony poziom uwierzytelniania zamiast po prostu z powrotem do pełnego dostępu. Przykład:
+  * Skonfiguruj zasady tworzenia kopii zapasowych, które wysyłają do programów Exchange i SharePoint żądania ograniczonej sesji.
+  * Jeśli Twoja organizacja używa Microsoft Cloud App Security, rozważ powracanie do zasad, które angażują MCAS, a następnie MCAS zezwala na dostęp tylko do odczytu, ale nie do przekazywania.
+* Nazwij swoje zasady, aby upewnić się, że można je łatwo znaleźć w trakcie przerw w działaniu. Uwzględnij następujące elementy w nazwie zasad:
   * *Numer etykiety* dla zasad.
-  * Tekst do pokazania, ta zasada dotyczy tylko sytuacji awaryjnych. Na przykład: **WŁĄCZ W NAGŁYCH WYPADKACH**
-  * *Zakłócenia,* które stosuje się do. Na przykład: **Podczas zakłóceń usługi MFA**
-  * *Numer sekwencyjny,* aby wyświetlić kolejność, w której należy aktywować zasady.
-  * *Aplikacje,* do które się odnosi.
-  * *Formanty,* które będą stosowane.
-  * *Warunki, jakich* to wymaga.
+  * Tekst do wyświetlenia. Ta zasada dotyczy tylko sytuacji awaryjnych. Na przykład: **Włącz w sytuacjach awaryjnych**
+  * *Zakłócenia* , do którego odnosi się. Na przykład: **podczas przerw w** działaniu usługi MFA
+  * *Numer sekwencyjny* pokazujący kolejność, w której należy aktywować zasady.
+  * *Aplikacje* , do których odnosi się.
+  * *Kontrolki* , które mają zastosowanie.
+  * *Warunki* , które wymaga.
   
 Ten standard nazewnictwa dla zasad awaryjnych będzie następujący: 
 
@@ -136,129 +136,129 @@ Ten standard nazewnictwa dla zasad awaryjnych będzie następujący:
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-Poniższy przykład: **Przykład A — zasady urzędu certyfikacji awaryjnego w celu przywrócenia dostępu do aplikacji współpracy o znaczeniu krytycznym**— jest typowym awaryjnym przypadkiem korporacyjnym. W tym scenariuszu organizacja zazwyczaj wymaga usługi MFA dla wszystkich usług Exchange Online i usługi SharePoint Dostęp online, a zakłócenia w tym przypadku jest dostawcą usługi MFA dla klienta ma awarię (czy usługi Azure MFA, dostawcy usługi MFA w środowisku lokalnym lub usługi MFA innych firm). Ta zasada zmniejsza tę awarię, zezwalając określonym użytkownikom docelowym na dostęp do tych aplikacji z zaufanych urządzeń z systemem Windows tylko wtedy, gdy uzyskują dostęp do aplikacji z ich zaufanej sieci firmowej. Będzie również wykluczyć konta awaryjne i podstawowych administratorów z tych ograniczeń. Użytkownicy kierowani uzyskają następnie dostęp do usługi Exchange Online i usługi SharePoint Online, podczas gdy inni użytkownicy nadal nie będą mieli dostępu do aplikacji z powodu awarii. W tym przykładzie będzie wymagać nazwanej lokalizacji **sieciowej CorpNetwork** i grupy zabezpieczeń **ContingencyAccess** z użytkownikami docelowymi, grupy o nazwie **CoreAdmins** z podstawowymi administratorami oraz grupy o nazwie **EmergencyAccess** z kontami dostępu awaryjnego. Nieprzewidziane wymaga czterech zasad, aby zapewnić pożądany dostęp. 
+Poniższy przykład: **przykładowo zasady dotyczące zasad urzędu certyfikacji w celu przywrócenia dostępu do aplikacji do współpracy o znaczeniu krytycznym**są typowymi zagrożeniami firmowymi. W tym scenariuszu Organizacja zwykle wymaga uwierzytelniania wieloskładnikowego dla wszystkich usług Exchange Online i SharePoint Online, a w takim przypadku zakłócenia jest w tym przypadku dostawcą usługi MFA dla klienta jest przestój (czy usługa Azure MFA, lokalny dostawca MFA, czy MFA innej firmy). Te zasady ograniczają tę awarię przez umożliwienie określonym użytkownikom mającym dostęp do tych aplikacji z zaufanych urządzeń z systemem Windows tylko wtedy, gdy uzyskują oni dostęp do aplikacji z ich zaufanej sieci firmowej. Spowoduje to również Wykluczenie kont awaryjnych i administratorów podstawowych z tych ograniczeń. Użytkownicy dokierowany do usługi Exchange Online i SharePoint Online będą mogli uzyskiwać dostęp do aplikacji, a inni użytkownicy nadal nie będą mieli dostępu do nich z powodu przestoju. Ten przykład wymaga, aby nazwana lokalizacja sieciowa **CorpNetwork** i Grupa zabezpieczeń **ContingencyAccess** z użytkownikami docelowymi, Grupa o nazwie **CoreAdmins** z podstawowymi administratorami i Grupa o nazwie **EmergencyAccess** z kontami dostępu awaryjnego. Sytuacje awaryjne wymagają czterech zasad, aby zapewnić żądany dostęp. 
 
-**Przykład A — zasady urzędu certyfikacji awaryjnego w celu przywrócenia dostępu do aplikacji współpracy o znaczeniu krytycznym:**
+**Przykład: zasady urzędu certyfikacji awaryjnej umożliwiające przywrócenie dostępu do aplikacji do współpracy o kluczowym znaczeniu.**
 
-* Zasady 1: Wymagaj urządzeń przyłączonych do domeny dla programu Exchange i sharepoint
-  * Nazwa: EM001 - WŁĄCZ W NAGŁYCH WYPADKACH: Zakłócenia usługi MFA[1/4] - Program Exchange SharePoint — wymaga hybrydowego dołączania do usługi Azure AD
-  * Użytkownicy i grupy: uwzględnij awaryjneaccess. Wyklucz CoreAdmins i EmergencyAccess
-  * Aplikacje w chmurze: exchange online i sharepoint online
-  * Warunki: Dowolny
-  * Kontrola nad przyznaniem dotacji: wymagaj przyłączanych do domeny
-  * Stan: Wyłączone
-* Zasady 2: Blokowanie platform innych niż Windows
-  * Nazwa: EM002 - WŁĄCZ W NAGŁYCH WYPADKACH: Zakłócenia MFA[2/4] - Exchange SharePoint - Blok dostępu z wyjątkiem systemu Windows
-  * Użytkownicy i grupy: uwzględnij wszystkich użytkowników. Wyklucz CoreAdmins i EmergencyAccess
-  * Aplikacje w chmurze: exchange online i sharepoint online
-  * Warunki: Platforma urządzeń obejmuje wszystkie platformy, wyklucz windowsa
-  * Kontrola nad dotacjami: blok
-  * Stan: Wyłączone
-* Zasady 3: Blokowanie sieci innych niż CorpNetwork
-  * Nazwa: EM003 - WŁĄCZ W NAGŁYCH WYPADKACH: Zakłócenia MFA[3/4] - Exchange SharePoint - Blok dostępu z wyjątkiem sieci firmowej
-  * Użytkownicy i grupy: uwzględnij wszystkich użytkowników. Wyklucz CoreAdmins i EmergencyAccess
-  * Aplikacje w chmurze: exchange online i sharepoint online
-  * Warunki: Lokalizacje Obejmują dowolną lokalizację, wyklucz corpnetwork
-  * Kontrola nad dotacjami: blok
-  * Stan: Wyłączone
-* Polityka 4: Blokowanie EAS jawnie
-  * Nazwa: EM004 - WŁĄCZ W NAGŁYCH WYPADKACH: Zakłócenia MFA[4/4] - Exchange - Block EAS dla wszystkich użytkowników
-  * Użytkownicy i grupy: uwzględnij wszystkich użytkowników
-  * Aplikacje w chmurze: uwzględnij usługę Exchange Online
-  * Warunki: Aplikacje klienckie: Exchange Active Sync
-  * Kontrola nad dotacjami: blok
-  * Stan: Wyłączone
+* Zasady 1: Wymagaj urządzeń przyłączonych do domeny dla programów Exchange i SharePoint
+  * Name: EM001 — Włącz w sytuacjach AWARYJNych: zakłócenia MFA [1/4] — Exchange SharePoint — wymaga sprzężenia hybrydowego usługi Azure AD
+  * Użytkownicy i grupy: Uwzględnij ContingencyAccess. Wyklucz CoreAdmins i EmergencyAccess
+  * Aplikacje w chmurze: Exchange Online i SharePoint Online
+  * Warunki: dowolne
+  * Udziel kontroli: Wymagaj przyłączenia do domeny
+  * Stan: wyłączone
+* Zasady 2: Blokuj platformy inne niż Windows
+  * Name: EM002 — Włącz w sytuacjach AWARYJNych: zakłócenia MFA [2/4] — Exchange SharePoint — Blokuj dostęp z wyjątkiem systemu Windows
+  * Użytkownicy i grupy: Uwzględnij wszystkich użytkowników. Wyklucz CoreAdmins i EmergencyAccess
+  * Aplikacje w chmurze: Exchange Online i SharePoint Online
+  * Warunki: platforma urządzeń obejmuje wszystkie platformy, wykluczanie okien
+  * Udziel kontroli: blok
+  * Stan: wyłączone
+* Zasady 3: Blokuj sieci inne niż CorpNetwork
+  * Name: EM003 — Włącz w sytuacjach AWARYJNych: zakłócenia MFA [3/4] — Exchange SharePoint — Blokuj dostęp z wyjątkiem sieci firmowej
+  * Użytkownicy i grupy: Uwzględnij wszystkich użytkowników. Wyklucz CoreAdmins i EmergencyAccess
+  * Aplikacje w chmurze: Exchange Online i SharePoint Online
+  * Warunki: lokalizacje zawierają dowolną lokalizację, wyklucza CorpNetwork
+  * Udziel kontroli: blok
+  * Stan: wyłączone
+* Zasady 4: Blokuj jawnie blokadę EAS
+  * Name: EM004 — Włącz w sytuacjach AWARYJNych: zakłócenia MFA [4/4] — program Exchange — Blokuj program EAS dla wszystkich użytkowników
+  * Użytkownicy i grupy: Uwzględnij wszystkich użytkowników
+  * Aplikacje w chmurze: Dołącz do usługi Exchange Online
+  * Warunki: aplikacje klienckie: Exchange Active Sync
+  * Udziel kontroli: blok
+  * Stan: wyłączone
 
 Kolejność aktywacji:
 
-1. Wyklucz awaryjneaccess, CoreAdmins i EmergencyAccess z istniejących zasad usługi MFA. Sprawdź, czy użytkownik w programie ContingencyAccess może uzyskać dostęp do usługi SharePoint Online i usługi Exchange Online.
-2. Włącz zasady 1: Sprawdź, czy użytkownicy na urządzeniach przyłączonych do domeny, którzy nie znajdują się w grupach wykluczeń, mogą uzyskiwać dostęp do usług Exchange Online i usługi SharePoint Online. Sprawdź, czy użytkownicy w grupie Wyklucz mogą uzyskiwać dostęp do usługi SharePoint Online i Exchange z dowolnego urządzenia.
-3. Włącz zasady 2: Sprawdź, czy użytkownicy, którzy nie należą do grupy wykluczeń, nie mogą uzyskać dostępu do usługi SharePoint Online i usługi Exchange Online ze swoich urządzeń przenośnych. Sprawdź, czy użytkownicy w grupie Wyklucz mogą uzyskiwać dostęp do programu SharePoint i programu Exchange z dowolnego urządzenia (Windows/iOS/Android).
-4. Włącz zasady 3: Sprawdź, czy użytkownicy, którzy nie należą do grup wykluczeń, nie mogą uzyskać dostępu do programu SharePoint i programu Exchange poza siecią firmową, nawet na komputerze przyłączanym do domeny. Sprawdź, czy użytkownicy w grupie Wyklucz mogą uzyskiwać dostęp do programu SharePoint i programu Exchange z dowolnej sieci.
-5. Włącz zasady 4: Sprawdź, czy wszyscy użytkownicy nie mogą uzyskać usługi Exchange Online z natywnych aplikacji pocztowych na urządzeniach przenośnych.
-6. Wyłącz istniejące zasady usługi MFA dla usług SharePoint Online i Exchange Online.
+1. Wyklucz ContingencyAccess, CoreAdmins i EmergencyAccess z istniejących zasad usługi MFA. Sprawdź, czy użytkownik w usłudze ContingencyAccess może uzyskać dostęp do usługi SharePoint Online i Exchange Online.
+2. Włączanie zasad 1: weryfikowanie użytkowników na urządzeniach przyłączonych do domeny, które nie znajdują się w grupach wykluczonych, można uzyskać dostęp do usługi Exchange Online i SharePoint Online. Sprawdź, czy użytkownicy w grupie wykluczeń mogą uzyskiwać dostęp do usługi SharePoint Online i programu Exchange z dowolnego urządzenia.
+3. Włącz zasady 2: Sprawdź, czy użytkownicy, którzy nie znajdują się w grupie wykluczeń, nie mogą przejść do usługi SharePoint Online i Exchange Online z urządzeń przenośnych. Sprawdź, czy użytkownicy w grupie wykluczeń mogą uzyskiwać dostęp do programu SharePoint i programu Exchange z dowolnego urządzenia (Windows/iOS/Android).
+4. Włącz zasady 3: Sprawdź, czy użytkownicy, którzy nie znajdują się w grupach wykluczeń, nie mogą uzyskać dostępu do programu SharePoint i programu Exchange z sieci firmowej nawet z przyłączonym do domeny komputerem. Sprawdź, czy użytkownicy w grupie wykluczeń mogą uzyskiwać dostęp do programu SharePoint i programu Exchange z dowolnej sieci.
+5. Włącz zasady 4: Upewnij się, że wszyscy użytkownicy nie mogą uzyskać usługi Exchange Online z natywnych aplikacji poczty na urządzeniach przenośnych.
+6. Wyłącz istniejące zasady MFA dla usługi SharePoint Online i Exchange Online.
 
-W tym następnym przykładzie **przykład B — awaryjne zasady urzędu certyfikacji, aby umożliwić mobilny dostęp do Salesforce**, dostęp aplikacji firmy jest przywracany. W tym scenariuszu klient zazwyczaj wymaga, aby ich pracownicy sprzedaży dostęp do Salesforce (skonfigurowany do logowania jednokrotnego za pomocą usługi Azure AD) z urządzeń przenośnych, aby były dozwolone tylko ze zgodnych urządzeń. Zakłócenie w tym przypadku jest to, że istnieje problem z oceną zgodności urządzenia i awaria dzieje się w newralgicznym czasie, gdy zespół sprzedaży potrzebuje dostępu do Salesforce, aby zamknąć transakcje. Te zasady awaryjne zapewnią krytycznym użytkownikom dostęp do Salesforce z urządzenia mobilnego, dzięki czemu będą mogli nadal zamykać transakcje i nie zakłócać działalności. W tym przykładzie **SalesforceContingency** zawiera wszystkich pracowników sprzedaży, którzy muszą zachować dostęp i **SalesAdmins** zawiera niezbędnych administratorów Salesforce.
+W tym następnym przykładzie **przykład B — Zasady bezawaryjnego urzędu certyfikacji, aby umożliwić dostęp mobilny do usługi Salesforce**, przywracany jest dostęp do aplikacji biznesowej. W tym scenariuszu klient zazwyczaj wymaga, aby pracownicy sprzedaży mogli uzyskiwać dostęp do usług Salesforce (skonfigurowanych do logowania jednokrotnego przy użyciu usługi Azure AD) z urządzeń przenośnych wyłącznie z poziomu zgodnych urządzeń. Zakłócenia w tym przypadku polega na tym, że występuje problem z ocenami zgodności urządzeń i przestojem, gdy zespół sprzedaży potrzebuje dostępu do usługi Salesforce, aby zamknąć oferty. Te zasady awaryjne umożliwią użytkownikom dostęp do usług Salesforce z urządzenia przenośnego, aby mogli nadal zamykać oferty i nie zakłócać działania firmy. W tym przykładzie **SalesforceContingency** zawiera wszystkich pracowników działu sprzedaży, którzy muszą zachować dostęp, a **SalesAdmins** zawiera niezbędnych administratorów usługi Salesforce.
 
-**Przykład B — zasady urzędu certyfikacji awaryjnego:**
+**Przykład B — Zasady urzędu certyfikacji awaryjnej:**
 
-* Zasady 1: Blokowanie wszystkich osób nie należy do zespołu SalesContingency
-  * Nazwa: EM001 - WŁĄCZ W NAGŁYCH WYPADKACH: Zakłócenia zgodności z urządzeniami[1/2] - Salesforce - Blokuj wszystkich użytkowników z wyjątkiem SalesforceContingency
-  * Użytkownicy i grupy: uwzględnij wszystkich użytkowników. Wyklucz SalesAdmins i SalesforceContingency
+* Zasady 1: Blokuj wszystkie osoby niebędące członkami zespołu SalesContingency
+  * Name: EM001 — Włącz w sytuacjach AWARYJNych: zakłócenia zgodności urządzenia [1/2] — Salesforce — Blokuj wszystkich użytkowników z wyjątkiem SalesforceContingency
+  * Użytkownicy i grupy: Uwzględnij wszystkich użytkowników. Wyklucz SalesAdmins i SalesforceContingency
   * Aplikacje w chmurze: Salesforce.
   * Warunki: Brak
-  * Kontrola nad dotacjami: blok
-  * Stan: Wyłączone
-* Polityka 2: Blokowanie zespołu sprzedaży z dowolnej platformy innej niż mobilna (w celu zmniejszenia powierzchni ataku)
-  * Nazwa: EM002 - ENABLE IN EMERGENCY: Device Compliance Disruption[2/2] - Salesforce - Blokuj wszystkie platformy z wyjątkiem iOS i Android
-  * Użytkownicy i grupy: uwzględnij SalesforceContingency. Wyklucz SalesAdmins
+  * Udziel kontroli: blok
+  * Stan: wyłączone
+* Zasady 2: Blokuj zespół ds. sprzedaży na dowolnej platformie niż mobilny (aby zmniejszyć powierzchnię ataku)
+  * Name: EM002 — Włącz w sytuacjach AWARYJNych: zakłócenia zgodności urządzenia [2/2]-Salesforce — Blokuj wszystkie platformy z wyjątkiem systemów iOS i Android
+  * Użytkownicy i grupy: Uwzględnij SalesforceContingency. Wyklucz SalesAdmins
   * Aplikacje w chmurze: Salesforce
-  * Warunki: Platforma urządzeń obejmuje wszystkie platformy, wyklucz iOS i Android
-  * Kontrola nad dotacjami: blok
-  * Stan: Wyłączone
+  * Warunki: platforma urządzeń obejmuje wszystkie platformy, Wyklucz systemy iOS i Android
+  * Udziel kontroli: blok
+  * Stan: wyłączone
 
 Kolejność aktywacji:
 
-1. Wyklucz SalesAdmins i SalesforceContingency z istniejących zasad zgodności urządzeń dla Salesforce. Sprawdź, czy użytkownik w grupie SalesforceContingency może uzyskać dostęp do salesforce.
-2. Włącz zasady 1: Sprawdź, czy użytkownicy spoza SalesContingency nie mogą uzyskać dostępu do Salesforce. Sprawdź, czy użytkownicy w SalesAdmins i SalesforceContingency mogą uzyskać dostęp do Salesforce.
-3. Włącz zasady 2: Sprawdź, czy użytkownicy w grupie SalesContingency nie mogą uzyskiwać dostępu do salesforce z ich laptopów z systemem Windows/Mac, ale nadal mogą uzyskiwać dostęp z urządzeń przenośnych. Sprawdź SalesAdmin nadal można uzyskać dostęp Salesforce z dowolnego urządzenia.
-4. Wyłącz istniejące zasady zgodności urządzeń dla Salesforce.
+1. Wyklucz SalesAdmins i SalesforceContingency z istniejących zasad zgodności urządzeń dla usługi Salesforce. Sprawdź, czy użytkownik w grupie SalesforceContingency może uzyskać dostęp do usługi Salesforce.
+2. Włączanie zasad 1: Upewnij się, że użytkownicy spoza SalesContingency nie mogą uzyskać dostępu do usługi Salesforce. Sprawdź, czy użytkownicy w SalesAdmins i SalesforceContingency mogą uzyskiwać dostęp do usługi Salesforce.
+3. Włącz zasady 2: Sprawdź, czy użytkownicy w grupie SalesContingency nie mogą uzyskać dostępu do usługi Salesforce ze swoich laptopów systemu Windows/Mac, ale nadal mogą uzyskać dostęp z urządzeń przenośnych. Sprawdź, czy SalesAdmin nadal może uzyskiwać dostęp do usług Salesforce z dowolnego urządzenia.
+4. Wyłącz istniejące zasady zgodności urządzeń dla usługi Salesforce.
 
-### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Wdrażanie synchronizacji skrótów haseł, nawet jeśli jesteś sfederowany lub korzystasz z uwierzytelniania przekazywanego
+### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Wdróż synchronizację skrótów haseł, nawet jeśli jesteś federacyjnym lub użyciem uwierzytelniania przekazywanego
 
-Blokada użytkownika może również wystąpić, jeśli spełnione są następujące warunki:
+Blokada użytkownika może również wystąpić, jeśli są spełnione następujące warunki:
 
-- Organizacja używa rozwiązania tożsamości hybrydowej z uwierzytelnianiem przekazu lub federacją.
-- Lokalne systemy tożsamości (takie jak usługa Active Directory, usługi AD FS lub składnik zależny) są niedostępne. 
+- Twoja organizacja korzysta z rozwiązania do tworzenia tożsamości hybrydowej z uwierzytelnianiem przekazywanym lub federacyjnym.
+- Lokalne systemy tożsamości (takie jak Active Directory, AD FS lub składnik zależny) są niedostępne. 
  
-Aby być bardziej odporne, organizacja powinna [włączyć synchronizację skrótów haseł,](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)ponieważ umożliwia [przełączanie się do przy użyciu synchronizacji skrótów haseł,](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) jeśli lokalne systemy tożsamości są wyłączone.
+Aby bardziej odporne na błędy, organizacja powinna [włączyć funkcję synchronizacji skrótów haseł](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), ponieważ umożliwia [przełączenie na korzystanie z synchronizacji skrótów haseł](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) , jeśli lokalne systemy tożsamości nie działają.
 
 #### <a name="microsoft-recommendations"></a>Zalecenia firmy Microsoft
- Włącz synchronizację skrótów haseł za pomocą kreatora usługi Azure AD Connect, niezależnie od tego, czy organizacja używa uwierzytelniania federacyjnego, czy uwierzytelniania przekazywanego.
+ Włącz synchronizację skrótów haseł przy użyciu kreatora Azure AD Connect, niezależnie od tego, czy organizacja używa uwierzytelniania federacyjnego, czy przekazującego.
 
 >[!IMPORTANT]
-> Nie jest wymagane, aby przekonwertować użytkowników z uwierzytelniań sfederowanych do uwierzytelniania zarządzanego do korzystania z synchronizacji skrótów haseł.
+> Nie jest wymagane przekonwertowanie użytkowników z federacyjnego na uwierzytelnianie zarządzane, aby można było używać synchronizacji skrótów haseł.
 
-## <a name="during-a-disruption"></a>Podczas zakłóceń
+## <a name="during-a-disruption"></a>W trakcie przerwy
 
-Jeśli zdecydujesz się na wdrożenie planu łagodzenia, będzie można automatycznie przetrwać pojedyncze zakłócenia kontroli dostępu. Jeśli jednak zdecydujesz się utworzyć plan awaryjny, będziesz mógł aktywować zasady awaryjne podczas zakłóceń kontroli dostępu:
+Jeśli zdecydujesz się na wdrożenie planu zaradczego, będzie można automatycznie przetrwać pojedyncze zakłócenia kontroli dostępu. Jednak jeśli wybrano opcję utworzenia planu awaryjnego, podczas przerw w kontroli dostępu będzie można aktywować zasady awaryjne:
 
-1. Włącz zasady awaryjne, które zapewniają użytkownikom docelowym dostęp do określonych aplikacji z określonych sieci.
-2. Wyłącz regularne zasady oparte na kontroli.
+1. Włącz zasady awaryjne, które przydzielą użytkownikom skierowanym dostęp do określonych aplikacji, z określonych sieci.
+2. Wyłącz zasady regularnej kontroli.
 
 ### <a name="microsoft-recommendations"></a>Zalecenia firmy Microsoft
 
-W zależności od tego, które środki zaradcze lub nieprzewidziane są używane podczas zakłóceń, organizacja może udzielać dostępu tylko za pomocą haseł. Żadne zabezpieczenie nie stanowi znacznego zagrożenia dla bezpieczeństwa, które należy starannie rozważyć. Organizacje muszą:
+W zależności od tego, które środki zaradcze lub sytuacje awaryjne są używane w trakcie przerw w działaniu, organizacja może udzielić dostępu tylko za pomocą hasła. Żadne zabezpieczenia nie są istotnym zagrożeniem bezpieczeństwa, które należy starannie odważyć. Organizacje muszą:
 
-1. W ramach strategii kontroli zmian dokumentuj każdą zmianę i poprzedni stan, aby móc wycofać wszelkie nieprzewidziane rozwiązania, gdy tylko kontrole dostępu będą w pełni operacyjne.
-2. Załóżmy, że złośliwi aktorzy będą próbować zbierać hasła za pomocą ataków typu spray has lub phishing podczas wyłączania usługi MFA. Ponadto złe podmioty mogą już mieć hasła, które wcześniej nie udzieliły dostępu do żadnego zasobu, który można podjąć podczas tego okna. W przypadku użytkowników krytycznych, takich jak kadra kierownicza, można częściowo ograniczyć to ryzyko, resetując ich hasła przed wyłączeniem usługi MFA dla nich.
-3. Zarchiwizuj wszystkie działania logowania, aby zidentyfikować, kto uzyskuje dostęp do tego, co w czasie, gdy usługa MFA została wyłączona.
-4. [Klasyfikowanie wszystkich przypadków wykrywania ryzyka zgłoszonych](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) w tym oknie.
+1. W ramach strategii kontroli zmian należy udokumentować każdą zmianę i poprzedni stan, aby móc wycofać wszystkie sytuacje awaryjne, które zostały wdrożone natychmiast po w pełni funkcjonalnej kontroli dostępu.
+2. Załóżmy, że złośliwe osoby będą próbować zebrać hasła przy użyciu napylania hasła lub ataków wyłudzania podczas wyłączania usługi MFA. W przypadku nieprawidłowych aktorów mogą już znajdować się hasła, które wcześniej nie miały dostępu do żadnych zasobów, które mogą być podejmowane w tym oknie. W przypadku użytkowników o znaczeniu krytycznym, takich jak kierownicy, można częściowo wyeliminować to zagrożenie przez zresetowanie haseł przed wyłączeniem uwierzytelniania MFA.
+3. Archiwizuj wszystkie działania związane z logowaniem, aby identyfikować, kto ma dostęp do tego, co w czasie została wyłączona.
+4. [Klasyfikacja wszystkie wykrycia ryzyka zgłoszone](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) w tym oknie.
 
-## <a name="after-a-disruption"></a>Po zakłóceniu
+## <a name="after-a-disruption"></a>Po przerwie
 
-Cofnij zmiany wprowadzone w ramach aktywowanego planu awaryjnego po przywróceniu usługi, która spowodowała zakłócenia. 
+Cofnij zmiany wprowadzone w ramach aktywowanego planu awaryjnego po przywróceniu usługi, która spowodowała zakłócenie. 
 
-1. Włącz regularne zasady
+1. Włącz zasady regularne
 2. Wyłącz zasady awaryjne. 
-3. Wycofaj wszelkie inne zmiany wprowadzone i udokumentowane podczas zakłóceń.
-4. Jeśli użyto konta dostępu awaryjnego, pamiętaj, aby ponownie wygenerować poświadczenia i fizycznie zabezpieczyć szczegóły nowych poświadczeń w ramach procedur konta dostępu awaryjnego.
-5. Kontynuuj [klasyfikowanie wszystkich wykrywania ryzyka zgłoszonych](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) po zakłóceniu podejrzanej aktywności.
-6. Odwołaj wszystkie tokeny odświeżania, które zostały wydane [przy użyciu programu PowerShell,](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) aby kierować reklamy na zestaw użytkowników. Odwoływanie wszystkich tokenów odświeżania jest ważne dla uprzywilejowanych kont używanych podczas zakłóceń i wykonanie tego spowoduje, że zmusi je do ponownego uwierzytelnienia i spełnienia kontroli przywróconych zasad.
+3. Wycofaj wszystkie inne zmiany wprowadzone i udokumentowane podczas przerw w działaniu.
+4. Jeśli używasz konta dostępu awaryjnego, pamiętaj, aby ponownie wygenerować poświadczenia i fizycznie zabezpieczyć szczegóły nowych poświadczeń w ramach procedur konta dostępu awaryjnego.
+5. Kontynuuj [Klasyfikacja wszystkie wykrycia ryzyka zgłoszone](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) po przerwie dla podejrzanych działań.
+6. Odwołaj wszystkie tokeny odświeżania, które zostały wystawione [przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) , aby wskazać zestaw użytkowników. Odwoływanie wszystkich tokenów odświeżania jest ważne dla kont uprzywilejowanych używanych w trakcie przerw w działaniu, co spowoduje wymuszenie ponownego uwierzytelnienia i spełnienia kontroli przywróconych zasad.
 
 ## <a name="emergency-options"></a>Opcje awaryjne
 
- W przypadku sytuacji awaryjnej i organizacji nie wcześniej zaimplementować środki zaradcze lub plan awaryjny, a następnie postępuj zgodnie z zaleceniami w [sekcji Awaryjne dla blokady użytkownika,](#contingencies-for-user-lockout) jeśli już używają zasad dostępu warunkowego do wymuszania usługi MFA.
-Jeśli organizacja korzysta ze starszych zasad usługi MFA dla użytkowników, można rozważyć następującą alternatywę:
+ W przypadku sytuacji awaryjnej i organizacja nie wdrożyła wcześniej planu ograniczenia lub gotowości, następnie postępuj zgodnie z zaleceniami w sekcji [sytuacje awaryjne dla blokady użytkownika](#contingencies-for-user-lockout) , jeśli już używają zasad dostępu warunkowego do wymuszania uwierzytelniania MFA.
+Jeśli Twoja organizacja korzysta ze starszych zasad usługi MFA dla użytkownika, możesz rozważyć następujące alternatywy:
 
-1. Jeśli masz wychodzący adres IP sieci firmowej, możesz dodać je jako zaufane adresy IP, aby włączyć uwierzytelnianie tylko w sieci firmowej.
-   1. Jeśli nie masz spisu wychodzących adresów IP lub wymagane jest włączenie dostępu wewnątrz i na zewnątrz sieci firmowej, możesz dodać całą przestrzeń adresową IPv4 jako zaufane adresy IP, określając 0.0.0.0/1 i 128.0.0.0/1.
+1. W przypadku wychodzącego adresu IP sieci firmowej można je dodać jako zaufane adresy IP, aby umożliwić uwierzytelnianie tylko w sieci firmowej.
+   1. Jeśli nie masz spisu wychodzących adresów IP lub musisz włączyć dostęp wewnątrz i na zewnątrz sieci firmowej, możesz dodać całą przestrzeń adresową IPv4 jako zaufane adresy IP, określając 0.0.0.0/1 i 128.0.0.0/1.
 
 >[!IMPORTANT]
- > Jeśli poszerzysz zaufane adresy IP, aby odblokować dostęp, nie zostaną wygenerowane wykrywanie ryzyka związane z adresami IP (na przykład niemożliwe podróżowanie lub nieznane lokalizacje).
+ > W przypadku rozszerzenia zaufanych adresów IP w celu odblokowania dostępu, wykrywanie ryzyka skojarzone z adresami IP (na przykład niemożliwa podróż lub nieznane lokalizacje) nie zostaną wygenerowane.
 
 >[!NOTE]
- > Konfigurowanie [zaufanych usług IP](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) dla usługi Azure MFA jest dostępne tylko z [licencjami usługi Azure AD Premium.](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing)
+ > Konfigurowanie [zaufanych adresów IP](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) dla usługi Azure MFA jest możliwe tylko przy użyciu [licencji Azure AD — wersja Premium](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).
 
 ## <a name="learn-more"></a>Dowiedz się więcej
 
@@ -266,8 +266,8 @@ Jeśli organizacja korzysta ze starszych zasad usługi MFA dla użytkowników, m
 * [Zarządzanie kontami administracyjnymi dostępu awaryjnego w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [konfigurowanie nazwanych lokalizacji w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
-* [Jak skonfigurować urządzenia połączone z hybrydową usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
+* [Jak skonfigurować dołączone urządzenia hybrydowe Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Przewodnik wdrażania funkcji Windows Hello dla firm](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Wskazówki dotyczące haseł — Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Jakie są warunki w usłudze Azure Active Directory Dostęp warunkowy?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [Co to są formanty dostępu w usłudze Azure Active Directory Dostęp warunkowy?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [Jakie są warunki Azure Active Directory dostępu warunkowego?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [Co to są kontrole dostępu w Azure Active Directory dostęp warunkowy?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

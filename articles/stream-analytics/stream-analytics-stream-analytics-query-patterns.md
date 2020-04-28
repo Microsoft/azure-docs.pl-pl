@@ -1,6 +1,6 @@
 ---
-title: Typowe wzorce zapytań w usłudze Azure Stream Analytics
-description: W tym artykule opisano kilka typowych wzorców zapytań i projektów, które są przydatne w zadaniach usługi Azure Stream Analytics.
+title: Typowe wzorce zapytań w Azure Stream Analytics
+description: W tym artykule opisano kilka typowych wzorców zapytań i projektów, które są przydatne w Azure Stream Analytics zadaniach.
 services: stream-analytics
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
@@ -9,43 +9,43 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.openlocfilehash: aa8bd6e89dd47c4e972a860691d1bc3779ba5bc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75982310"
 ---
-# <a name="common-query-patterns-in-azure-stream-analytics"></a>Typowe wzorce zapytań w usłudze Azure Stream Analytics
+# <a name="common-query-patterns-in-azure-stream-analytics"></a>Typowe wzorce zapytań w Azure Stream Analytics
 
-Zapytania w usłudze Azure Stream Analytics są wyrażone w języku zapytań podobnych do SQL. Konstrukcje języka są udokumentowane w przewodniku [odwzłacza języka zapytań usługi Stream Analytics.](/stream-analytics-query/stream-analytics-query-language-reference) 
+Zapytania w Azure Stream Analytics są wyrażane w języku zapytań przypominającym język SQL. Konstrukcje językowe są udokumentowane w podręczniku [Skorowidz języka zapytań Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference) . 
 
-Projekt kwerendy można wyrazić prostą logikę przekazywania, aby przenieść dane zdarzeń z jednego strumienia wejściowego do magazynu danych wyjściowych lub można wykonać dopasowanie wzorca bogatego i analizy czasowej do obliczania agregatów w różnych oknach czasu, jak w [kompilacji rozwiązania IoT przy użyciu przewodnika Usługi Stream Analytics.](stream-analytics-build-an-iot-solution-using-stream-analytics.md) Można dołączyć dane z wielu danych wejściowych, aby połączyć zdarzenia przesyłania strumieniowego i można wykonać wyszukiwania względem statycznych danych referencyjnych, aby wzbogacić wartości zdarzeń. Można również zapisywać dane do wielu wyjść.
+W projekcie zapytania można jasno utworzyć prostą logikę przekazującą, aby przenieść dane zdarzenia z jednego strumienia wejściowego do wyjściowego magazynu danych. może to spowodować rozbudowane dopasowanie wzorców i analizy czasowej w celu obliczenia agregacji w różnych oknach czasu, jak w przypadku [tworzenia rozwiązania IoT za pomocą](stream-analytics-build-an-iot-solution-using-stream-analytics.md) przewodnika Stream Analytics. Można przyłączyć dane z wielu wejść do łączenia zdarzeń przesyłania strumieniowego, a także odszukać statyczne dane referencyjne w celu wzbogacania wartości zdarzeń. Możesz również zapisywać dane w wielu danych wyjściowych.
 
-W tym artykule przedstawiono rozwiązania do kilku typowych wzorców zapytań na podstawie rzeczywistych scenariuszy.
+W tym artykule przedstawiono rozwiązania kilku typowych wzorców zapytań w oparciu o rzeczywiste scenariusze.
 
 ## <a name="supported-data-formats"></a>Obsługiwane formaty danych
 
-Usługa Azure Stream Analytics obsługuje przetwarzanie zdarzeń w formatach danych CSV, JSON i Avro.
+Azure Stream Analytics obsługuje przetwarzanie zdarzeń w formatach danych CSV, JSON i Avro.
 
-Zarówno JSON, jak i Avro mogą zawierać złożone typy, takie jak zagnieżdżone obiekty (rekordy) lub tablice. Aby uzyskać więcej informacji na temat pracy z tych złożonych typów danych, zobacz [analizowanie JSON i AVRO](stream-analytics-parsing-json.md) data article.
+Zarówno kod JSON, jak i Avro mogą zawierać złożone typy, takie jak obiekty zagnieżdżone (rekordy) lub tablice. Aby uzyskać więcej informacji na temat pracy z tymi złożonymi typami danych, zapoznaj się z artykułem [Analizowanie danych JSON i Avro](stream-analytics-parsing-json.md) .
 
 ## <a name="simple-pass-through-query"></a>Proste zapytanie przekazywane
 
-Proste zapytanie przekazywane może służyć do kopiowania danych strumienia wejściowego do danych wyjściowych. Na przykład jeśli strumień danych zawierających informacje o pojeździe w czasie rzeczywistym musi zostać zapisany w bazie danych SQL do analizy listów, proste zapytanie przekazywane wykona zadanie.
+Proste zapytanie przekazywane może służyć do kopiowania danych strumienia wejściowego do danych wyjściowych. Na przykład, jeśli strumień danych zawierający informacje o pojeździe w czasie rzeczywistym muszą zostać zapisane w bazie danych SQL na potrzeby analizy liter, zadanie zostanie przetworzone przez proste zapytanie przekazujące.
 
-**Wejście**:
-
-| Marka | Time | Waga |
-| --- | --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |"1000" |
-| Make1 (Dokonać) |2015-01-01T00:00:02.0000000Z |"2000" |
-
-**Wyjście:**
+**Dane wejściowe**:
 
 | Marka | Time | Waga |
 | --- | --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |"1000" |
-| Make1 (Dokonać) |2015-01-01T00:00:02.0000000Z |"2000" |
+| Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
+| Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
+
+**Dane wyjściowe**:
+
+| Marka | Time | Waga |
+| --- | --- | --- |
+| Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
+| Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
 
 **Zapytanie**:
 
@@ -56,23 +56,23 @@ INTO Output
 FROM Input
 ```
 
-Kwerenda **SELECT** * projektuje wszystkie pola zdarzenia przychodzącego i wysyła je do danych wyjściowych. W ten sam sposób **select** może być również używany do projekcji tylko wymagane pola z danych wejściowych. W tym przykładzie, jeśli polecenie *Make* and *Time* jest jedynym wymaganym polem do zapisania, pola te można określić w instrukcji **SELECT.**
+Kwerenda **SELECT** * tworzy projekty wszystkich pól zdarzenia przychodzącego i wysyła je do danych wyjściowych. W ten sam sposób **Wybierz opcję** można również użyć do tylko pól wymaganych przez projekt z danych wejściowych. W tym przykładzie, jeśli *Marka* i *czas* są jedynymi wymaganymi polami do zapisania, te pola można określić w instrukcji **SELECT** .
 
-**Wejście**:
+**Dane wejściowe**:
 
 | Marka | Time | Waga |
 | --- | --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |1000 |
-| Make1 (Dokonać) |2015-01-01T00:00:02.0000000Z |2000 |
-| Make2 (Make2) |2015-01-01T00:00:04.0000000Z |1500 |
+| Make1 |2015-01-01T00:00:01.0000000 Z |1000 |
+| Make1 |2015-01-01T00:00:02.0000000 Z |2000 |
+| Make2 |2015-01-01T00:00:04.0000000 Z |1500 |
 
-**Wyjście:**
+**Dane wyjściowe**:
 
 | Marka | Time |
 | --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |
-| Make1 (Dokonać) |2015-01-01T00:00:02.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:04.0000000Z |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make1 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:04.0000000 Z |
 
 **Zapytanie**:
 
@@ -84,22 +84,22 @@ FROM Input
 ```
 ## <a name="data-aggregation-over-time"></a>Agregacja danych w czasie
 
-Aby obliczyć informacje w danym oknie czasu, dane mogą być agregowane razem. W tym przykładzie liczba jest obliczany w ciągu ostatnich 10 minut czasu dla każdego konkretnego samochodu zrobić.
+W celu obliczenia informacji w przedziale czasu dane można agregować jednocześnie. W tym przykładzie liczba jest obliczana w ciągu ostatnich 10 minut czasu dla każdego określonego samochodu.
 
-**Wejście**:
+**Dane wejściowe**:
 
 | Marka | Time | Waga |
 | --- | --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |1000 |
-| Make1 (Dokonać) |2015-01-01T00:00:02.0000000Z |2000 |
-| Make2 (Make2) |2015-01-01T00:00:04.0000000Z |1500 |
+| Make1 |2015-01-01T00:00:01.0000000 Z |1000 |
+| Make1 |2015-01-01T00:00:02.0000000 Z |2000 |
+| Make2 |2015-01-01T00:00:04.0000000 Z |1500 |
 
-**Wyjście:**
+**Dane wyjściowe**:
 
 | Marka | Liczba |
 | --- | --- |
-| Make1 (Dokonać) | 2 |
-| Make2 (Make2) | 1 |
+| Make1 | 2 |
+| Make2 | 1 |
 
 **Zapytanie**:
 
@@ -114,28 +114,28 @@ GROUP BY
     TumblingWindow(second, 10)
 ```
 
-Ta agregacja grupuje samochody według *Make* i liczy je co 10 sekund. Wyjście ma *Make* and *Count* samochodów, które przeszły przez opłaty drogowe.
+Ta agregacja grupuje samochody według *marki* i liczy je co 10 sekund. Dane wyjściowe zawierają *Marka* i *liczbę* samochodów, za pomocą których nastąpiło połączenie.
 
-TumblingWindow jest funkcją okna używane do grupowania zdarzeń razem. Agregacja może być stosowana we wszystkich zgrupowanych zdarzeniach. Aby uzyskać więcej informacji, zobacz [funkcje okna](stream-analytics-window-functions.md).
+TumblingWindow to funkcja okienkowa służąca do grupowania zdarzeń razem. Agregację można zastosować dla wszystkich pogrupowanych zdarzeń. Aby uzyskać więcej informacji, zobacz [Windowing Functions](stream-analytics-window-functions.md).
 
-Aby uzyskać więcej informacji na temat agregacji, zapoznaj się z [funkcjami agreguuu .](/stream-analytics-query/aggregate-functions-azure-stream-analytics)
+Aby uzyskać więcej informacji na temat agregacji, zobacz [funkcje agregujące](/stream-analytics-query/aggregate-functions-azure-stream-analytics).
 
 ## <a name="data-conversion"></a>Konwersja danych
 
-Dane mogą być rzutowe w czasie rzeczywistym przy użyciu **metody CAST.** Na przykład masę samochodu można przekonwertować z typu **nvarchar(max)** na typ **bigint** i być używana w obliczeniach liczbowych.
+Dane mogą być rzutowane w czasie rzeczywistym za pomocą metody **Cast** . Na przykład wagi samochodu mogą być konwertowane z typu **nvarchar (max)** na typ **bigint** i używane w obliczeniach liczbowych.
 
-**Wejście**:
+**Dane wejściowe**:
 
 | Marka | Time | Waga |
 | --- | --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |"1000" |
-| Make1 (Dokonać) |2015-01-01T00:00:02.0000000Z |"2000" |
+| Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
+| Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
 
-**Wyjście:**
+**Dane wyjściowe**:
 
 | Marka | Waga |
 | --- | --- |
-| Make1 (Dokonać) |3000 |
+| Make1 |3000 |
 
 **Zapytanie**:
 
@@ -150,28 +150,28 @@ GROUP BY
     TumblingWindow(second, 10)
 ```
 
-Użyj instrukcji **CAST,** aby określić jej typ danych. Zobacz listę obsługiwanych typów danych w [typach danych (Usługa Azure Stream Analytics).](/stream-analytics-query/data-types-azure-stream-analytics)
+Użyj instrukcji **Cast** , aby określić typ danych. Zapoznaj się z listą obsługiwanych typów danych w [typach danych (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics).
 
 Aby uzyskać więcej informacji na temat [funkcji konwersji danych](/stream-analytics-query/conversion-functions-azure-stream-analytics).
 
-## <a name="string-matching-with-like-and-not-like"></a>Dopasowanie ciągów z LIKE i NOT LIKE
+## <a name="string-matching-with-like-and-not-like"></a>Ciąg pasujący do typu LIKE i NOT LIKE
 
-**LIKE** i **NOT LIKE** może służyć do sprawdzenia, czy pole pasuje do określonego wzorca. Na przykład można utworzyć filtr, aby zwrócić tylko tablice rejestracyjne, które zaczynają się od litery "A" i kończą na numerze 9.
+**Podobnie jak** i **nie podoba** się, można użyć do sprawdzenia, czy pole pasuje do określonego wzorca. Na przykład można utworzyć filtr w celu zwrócenia tylko płyt z licencjami, które zaczynają się od litery "A" i kończą się cyfrą 9.
 
-**Wejście**:
-
-| Marka | License_plate | Time |
-| --- | --- | --- |
-| Make1 (Dokonać) |Abc-123 |2015-01-01T00:00:01.0000000Z |
-| Make2 (Make2) |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Make3 (Make3) |Abc-369 |2015-01-01T00:00:03.0000000Z |
-
-**Wyjście:**
+**Dane wejściowe**:
 
 | Marka | License_plate | Time |
 | --- | --- | --- |
-| Make2 (Make2) |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Make3 (Make3) |Abc-369 |2015-01-01T00:00:03.0000000Z |
+| Make1 |ABC-123 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
+| Make3 |ABC-369 |2015-01-01T00:00:03.0000000 Z |
+
+**Dane wyjściowe**:
+
+| Marka | License_plate | Time |
+| --- | --- | --- |
+| Make2 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
+| Make3 |ABC-369 |2015-01-01T00:00:03.0000000 Z |
 
 **Zapytanie**:
 
@@ -184,26 +184,26 @@ WHERE
     License_plate LIKE 'A%9'
 ```
 
-Instrukcja **LIKE** służy do sprawdzania wartości pola **License_plate.** Powinien zaczynać się od litery "A", a następnie mieć dowolny ciąg znaków zero lub więcej, kończąc na numerze 9.
+Użyj instrukcji **like** , aby sprawdzić wartość pola **License_plate** . Powinna zaczynać się literą "A", a następnie zawierać dowolny ciąg składający się z zero lub więcej znaków, kończący się cyfrą 9.
 
 ## <a name="specify-logic-for-different-casesvalues-case-statements"></a>Określanie logiki dla różnych przypadków/wartości (instrukcje CASE)
 
-**Instrukcje CASE** mogą dostarczać różnych obliczeń dla różnych pól, na podstawie określonego kryterium. Na przykład przypisz pas "A" do samochodów *Typu Make1* i pas "B" do każdej innej produkcji.
+Instrukcje **Case** mogą udostępniać różne obliczenia dla różnych pól w oparciu o określone kryterium. Na przykład Przypisz Tor "A" do samochodów *Make1* i Lane "B" do innych.
 
-**Wejście**:
+**Dane wejściowe**:
 
 | Marka | Time |
 | --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:02.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:03.0000000Z |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:03.0000000 Z |
 
-**Wyjście:**
+**Dane wyjściowe**:
 
 | Marka |Dispatch_to_lane | Time |
 | --- | --- | --- |
-| Make1 (Dokonać) |"A" |2015-01-01T00:00:01.0000000Z |
-| Make2 (Make2) |"B" |2015-01-01T00:00:02.0000000Z |
+| Make1 |Z |2015-01-01T00:00:01.0000000 Z |
+| Make2 |B |2015-01-01T00:00:02.0000000 Z |
 
 **Rozwiązanie 2.**
 
@@ -219,39 +219,39 @@ FROM
     Input TIMESTAMP BY Time
 ```
 
-Wyrażenie **CASE** porównuje wyrażenie z zestawem prostych wyrażeń w celu określenia jego wyniku. W tym przykładzie pojazdy *Make1* są wysyłane do pasa "A", podczas gdy pojazdy innych czynów zostaną przypisane do pasa "B".
+Wyrażenie **Case** porównuje wyrażenie z zestawem prostych wyrażeń, aby określić jego wynik. W tym przykładzie pojazdy *Make1* są wysyłane do toru "A", a wszystkie inne marki mają przypisany Tor "B".
 
-Aby uzyskać więcej informacji, zapoznaj się z [wyrażeniem sprawy](/stream-analytics-query/case-azure-stream-analytics).
+Aby uzyskać więcej informacji, zobacz [wyrażenie CASE](/stream-analytics-query/case-azure-stream-analytics).
 
 ## <a name="send-data-to-multiple-outputs"></a>Wysyłanie danych do wielu wyjść
 
-Wiele **instrukcji SELECT** może służyć do wyprowadzania danych do różnych zlewów wyjściowych. Na przykład jeden **SELECT** można wyprowadzić alert oparty na progu, podczas gdy inny może wyprowadzać zdarzenia do magazynu obiektów blob.
+Można użyć wielu instrukcji **SELECT** do wyprowadzania danych do różnych ujścia danych wyjściowych. Na przykład jeden **wybór** może wyprowadzić alert oparty na progu, podczas gdy inny może generować zdarzenia do magazynu obiektów BLOB.
 
-**Wejście**:
-
-| Marka | Time |
-| --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |
-| Make1 (Dokonać) |2015-01-01T00:00:02.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:01.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:02.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:03.0000000Z |
-
-**Wyjście ArchiveOutput**:
+**Dane wejściowe**:
 
 | Marka | Time |
 | --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |
-| Make1 (Dokonać) |2015-01-01T00:00:02.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:01.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:02.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:03.0000000Z |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make1 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:03.0000000 Z |
 
-**Alert wyjściowyUchłna:**
+**ArchiveOutput wyjściowy**:
+
+| Marka | Time |
+| --- | --- |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make1 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:03.0000000 Z |
+
+**AlertOutput wyjściowy**:
 
 | Marka | Time | Liczba |
 | --- | --- | --- |
-| Make2 (Make2) |2015-01-01T00:00:10.0000000Z |3 |
+| Make2 |2015-01-01T00:00:10.0000000 Z |3 |
 
 **Zapytanie**:
 
@@ -278,9 +278,9 @@ HAVING
     [Count] >= 3
 ```
 
-Into **INTO** Klauzula informuje usługi Stream Analytics, które z wyjść do zapisania danych. Pierwszy **SELECT** definiuje kwerendę przekazującą, która odbiera dane z danych wejściowych i wysyła je do danych wyjściowych o nazwie **ArchiveOutput**. Drugie zapytanie wykonuje kilka prostych agregacji i filtrowania przed wysłaniem wyników do niższego wyjścia systemu ostrzegania o nazwie **AlertOutput**.
+Klauzula **into** informuje Stream Analytics, do których danych wyjściowych należy zapisywać dane. Pierwszy **wybór** definiuje kwerendę przekazującą, która odbiera dane z danych wejściowych i wysyła je do danych wyjściowych o nazwie **ArchiveOutput**. Drugie zapytanie wykonuje pewne proste agregacje i filtrowanie przed wysłaniem wyników do wyjściowego wyjścia systemu o nazwie **AlertOutput**.
 
-Należy zauważyć, że **with** klauzuli może służyć do definiowania wielu bloków podduszu. Ta opcja ma tę zaletę, że można otworzyć mniej czytników do źródła wejściowego.
+Należy zauważyć, że klauzula **with** może służyć do definiowania wielu bloków podzapytań. W przypadku tej opcji można otworzyć mniejszą liczbę czytelników do źródła danych wejściowych.
 
 **Zapytanie**:
 
@@ -306,30 +306,30 @@ GROUP BY
 HAVING [Count] >= 3
 ```
 
-Aby uzyskać więcej informacji, zapoznaj się [ **z klauzulą WITH** ](/stream-analytics-query/with-azure-stream-analytics).
+Aby uzyskać więcej informacji, zapoznaj się z [klauzulą **with** ](/stream-analytics-query/with-azure-stream-analytics).
 
-## <a name="count-unique-values"></a>Zliczanie unikatowych wartości
+## <a name="count-unique-values"></a>Zlicz unikatowe wartości
 
-**LICZBA** i **DISTINCT** może służyć do zliczania liczby unikatowych wartości pól, które pojawiają się w strumieniu w przedziale czasu. Można utworzyć zapytanie, aby obliczyć, ile unikalnych *samochodów* przeszło przez punkt poboru opłat w oknie 2-sekundowym.
+**Liczba** i **różne** mogą służyć do zliczania wartości unikatowych pól, które pojawiają się w strumieniu w przedziale czasu. Zapytanie można utworzyć, aby obliczyć, *ile unikatowych* przepływów samochodów przechodzą przez połączenie płatne w 2-sekundowym oknie.
 
-**Wejście**:
+**Dane wejściowe**:
 
 | Marka | Time |
 | --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |
-| Make1 (Dokonać) |2015-01-01T00:00:02.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:01.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:02.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:03.0000000Z |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make1 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:03.0000000 Z |
 
-**Dane wyjściowe:**
+**Rozdzielczości**
 
 | Count_make | Time |
 | --- | --- |
-| 2 |2015-01-01T00:00:02.000Z |
-| 1 |2015-01-01T00:00:04.000Z |
+| 2 |2015-01-01T00:00:02.000 Z |
+| 1 |2015-01-01T00:00:04.000 Z |
 
-**Kwerendy:**
+**Dotyczących**
 
 ```SQL
 SELECT
@@ -340,25 +340,25 @@ GROUP BY
      TumblingWindow(second, 2)
 ```
 
-**COUNT(DISTINCT Make)** zwraca liczbę odrębnych wartości w kolumnie **Make** w przedziale czasu.
-Aby uzyskać więcej informacji, zobacz [funkcja agregująca **COUNT** ](/stream-analytics-query/count-azure-stream-analytics).
+**Licznik (różne marki)** zwraca liczbę unikatowych wartości w kolumnie **Utwórz** w przedziale czasu.
+Aby uzyskać więcej informacji, zapoznaj się z [funkcją agregującą **Count** ](/stream-analytics-query/count-azure-stream-analytics).
 
-## <a name="calculation-over-past-events"></a>Obliczanie zdarzeń z przeszłości
+## <a name="calculation-over-past-events"></a>Obliczenia względem przeszłych zdarzeń
 
-Funkcja **LGD** może służyć do analizowania przeszłych zdarzeń w przedziale czasu i porównywania ich z bieżącym zdarzeniem. Na przykład, obecna produkcja samochodu może być wyprowadzana, jeśli różni się od ostatniego samochodu, który przeszedł przez opłatę.
+Funkcja **lag** może służyć do przeglądania przeszłych zdarzeń w przedziale czasu i porównywania ich z bieżącym zdarzeniem. Na przykład bieżące działanie samochodu może zostać wystawione, jeśli różni się od ostatniego samochodu, za pośrednictwem którego nastąpiło połączenie.
 
-**Wejście**:
-
-| Marka | Time |
-| --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |
-| Make2 (Make2) |2015-01-01T00:00:02.0000000Z |
-
-**Wyjście:**
+**Dane wejściowe**:
 
 | Marka | Time |
 | --- | --- |
-| Make2 (Make2) |2015-01-01T00:00:02.0000000Z |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
+
+**Dane wyjściowe**:
+
+| Marka | Time |
+| --- | --- |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
 
 **Zapytanie**:
 
@@ -372,32 +372,32 @@ WHERE
     LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 ```
 
-Użyj **LAG,** aby zajrzeć do strumienia wejściowego jedno zdarzenie z powrotem, pobieranie *Make* wartość i porównując go do *Make* wartość bieżącego zdarzenia i wyjście zdarzenia.
+Użyj **opóźnienia** , aby wejść do strumienia wejściowego o jedno zdarzenie z powrotem, pobierając wartość *Utwórz* i porównując ją *z wartością w* bieżącym zdarzeniu i wyjściowym zdarzenia.
 
-Więcej informacji można znaleźć w [**LGD**](/stream-analytics-query/lag-azure-stream-analytics).
+Aby uzyskać więcej informacji, zapoznaj się z [**opóźnieniem**](/stream-analytics-query/lag-azure-stream-analytics).
 
 ## <a name="retrieve-the-first-event-in-a-window"></a>Pobieranie pierwszego zdarzenia w oknie
 
-**IsFirst** może służyć do pobierania pierwszego zdarzenia w oknie czasu. Na przykład wyprowadzanie pierwszych informacji o samochodzie co 10 minut.
+Nie można użyć elementu **isfirst** do pobrania pierwszego zdarzenia w przedziale czasu. Na przykład umieszczanie pierwszego samochodu w każdym 10-minutowym przedziale czasu.
 
-**Wejście**:
-
-| License_plate | Marka | Time |
-| --- | --- | --- |
-| DXE 5291 |Make1 (Dokonać) |2015-07-27T00:00:05.0000000Z |
-| YZK 5704 |Make3 (Make3) |2015-07-27T00:02:17.0000000Z |
-| RMV 8282 |Make1 (Dokonać) |2015-07-27T00:05:01.0000000Z |
-| YHN 6970 |Make2 (Make2) |2015-07-27T00:06:00.0000000Z |
-| VFE 1616 |Make2 (Make2) |2015-07-27T00:09:31.0000000Z |
-| QYF 9358 |Make1 (Dokonać) |2015-07-27T00:12:02.0000000Z |
-| MDR 6128 |Make4 (Make4) |2015-07-27T00:13:45.0000000Z |
-
-**Wyjście:**
+**Dane wejściowe**:
 
 | License_plate | Marka | Time |
 | --- | --- | --- |
-| DXE 5291 |Make1 (Dokonać) |2015-07-27T00:00:05.0000000Z |
-| QYF 9358 |Make1 (Dokonać) |2015-07-27T00:12:02.0000000Z |
+| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
+| YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
+| RMV 8282 |Make1 |2015-07-27T00:05:01.0000000 Z |
+| YHN 6970 |Make2 |2015-07-27T00:06:00.0000000 Z |
+| VFE 1616 |Make2 |2015-07-27T00:09:31.0000000 Z |
+| QYF 9358 |Make1 |2015 — 07-27T00:12:02.0000000 Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
+
+**Dane wyjściowe**:
+
+| License_plate | Marka | Time |
+| --- | --- | --- |
+| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
+| QYF 9358 |Make1 |2015 — 07-27T00:12:02.0000000 Z |
 
 **Zapytanie**:
 
@@ -412,17 +412,17 @@ WHERE
     IsFirst(minute, 10) = 1
 ```
 
-**IsFirst** może również partycjonować dane i obliczyć pierwsze zdarzenie do każdego konkretnego samochodu *Make* znaleźć co 10 minut interwału.
+**Isfirst** może również podzielić dane na partycje i obliczyć pierwsze zdarzenie do każdego *określonego samochodu,* co jest dostępne co 10 minut.
 
-**Wyjście:**
+**Dane wyjściowe**:
 
 | License_plate | Marka | Time |
 | --- | --- | --- |
-| DXE 5291 |Make1 (Dokonać) |2015-07-27T00:00:05.0000000Z |
-| YZK 5704 |Make3 (Make3) |2015-07-27T00:02:17.0000000Z |
-| YHN 6970 |Make2 (Make2) |2015-07-27T00:06:00.0000000Z |
-| QYF 9358 |Make1 (Dokonać) |2015-07-27T00:12:02.0000000Z |
-| MDR 6128 |Make4 (Make4) |2015-07-27T00:13:45.0000000Z |
+| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
+| YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
+| YHN 6970 |Make2 |2015-07-27T00:06:00.0000000 Z |
+| QYF 9358 |Make1 |2015 — 07-27T00:12:02.0000000 Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
 
 **Zapytanie**:
 
@@ -437,30 +437,30 @@ WHERE
     IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 ```
 
-Aby uzyskać więcej informacji, zobacz [**IsFirst**](/stream-analytics-query/isfirst-azure-stream-analytics).
+Aby uzyskać więcej informacji, zobacz [**isfirst**](/stream-analytics-query/isfirst-azure-stream-analytics).
 
-## <a name="return-the-last-event-in-a-window"></a>Zwracanie ostatniego zdarzenia w oknie
+## <a name="return-the-last-event-in-a-window"></a>Zwróć ostatnie zdarzenie w oknie
 
-Ponieważ zdarzenia są używane przez system w czasie rzeczywistym, nie ma żadnej funkcji, która może określić, czy zdarzenie będzie ostatnim, które pojawi się w tym oknie czasu. Aby to osiągnąć, strumień wejściowy musi być połączony z innym, gdzie czas zdarzenia jest maksymalny czas dla wszystkich zdarzeń w tym oknie.
+Ponieważ zdarzenia są używane przez system w czasie rzeczywistym, nie istnieje funkcja, która może określić, czy zdarzenie będzie ostatnim, aby dotrzeć do tego okna. Aby to osiągnąć, strumień wejściowy musi być przyłączony do innego, gdzie czas zdarzenia jest maksymalny dla wszystkich zdarzeń w tym oknie.
 
-**Wejście**:
-
-| License_plate | Marka | Time |
-| --- | --- | --- |
-| DXE 5291 |Make1 (Dokonać) |2015-07-27T00:00:05.0000000Z |
-| YZK 5704 |Make3 (Make3) |2015-07-27T00:02:17.0000000Z |
-| RMV 8282 |Make1 (Dokonać) |2015-07-27T00:05:01.0000000Z |
-| YHN 6970 |Make2 (Make2) |2015-07-27T00:06:00.0000000Z |
-| VFE 1616 |Make2 (Make2) |2015-07-27T00:09:31.0000000Z |
-| QYF 9358 |Make1 (Dokonać) |2015-07-27T00:12:02.0000000Z |
-| MDR 6128 |Make4 (Make4) |2015-07-27T00:13:45.0000000Z |
-
-**Wyjście:**
+**Dane wejściowe**:
 
 | License_plate | Marka | Time |
 | --- | --- | --- |
-| VFE 1616 |Make2 (Make2) |2015-07-27T00:09:31.0000000Z |
-| MDR 6128 |Make4 (Make4) |2015-07-27T00:13:45.0000000Z |
+| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
+| YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
+| RMV 8282 |Make1 |2015-07-27T00:05:01.0000000 Z |
+| YHN 6970 |Make2 |2015-07-27T00:06:00.0000000 Z |
+| VFE 1616 |Make2 |2015-07-27T00:09:31.0000000 Z |
+| QYF 9358 |Make1 |2015 — 07-27T00:12:02.0000000 Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
+
+**Dane wyjściowe**:
+
+| License_plate | Marka | Time |
+| --- | --- | --- |
+| VFE 1616 |Make2 |2015-07-27T00:09:31.0000000 Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
 
 **Zapytanie**:
 
@@ -486,31 +486,31 @@ FROM
     AND Input.Time = LastInWindow.LastEventTime
 ```
 
-Pierwszy krok w kwerendzie znajduje maksymalną sygnaturę czasową w oknach 10-minutowych, czyli sygnaturę czasową ostatniego zdarzenia dla tego okna. Drugi krok łączy wyniki pierwszej kwerendy z oryginalnego strumienia, aby znaleźć zdarzenie, które pasują do ostatnich sygnatur czasowych w każdym oknie. 
+Pierwszy krok zapytania znajduje maksymalną sygnaturę czasową w 10-minutowym systemie Windows, czyli sygnaturę czasową ostatniego zdarzenia dla tego okna. Drugi krok sprzęga wyniki pierwszego zapytania z oryginalnym strumieniem, aby znaleźć zdarzenie zgodne z ostatnimi sygnaturami czasowymi w poszczególnych oknach. 
 
-**DATEDIFF** jest funkcją specyficzną dla daty, która porównuje i zwraca różnicę czasu między dwoma polami DateTime, aby uzyskać więcej informacji, zapoznaj się z [funkcjami daty](https://docs.microsoft.com/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
+**DateDiff** jest funkcją specyficzną dla daty, która porównuje i zwraca różnicę czasu między dwoma polami DateTime, aby uzyskać więcej informacji, zapoznaj się z [funkcjami daty](https://docs.microsoft.com/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
 
-Więcej informacji na temat dołączania do strumieni można znaleźć w [**łączeniu**](/stream-analytics-query/join-azure-stream-analytics).
+Aby uzyskać więcej informacji na temat sprzęgania strumieni, zapoznaj się z tematem [**Join**](/stream-analytics-query/join-azure-stream-analytics).
 
 
 ## <a name="correlate-events-in-a-stream"></a>Skorelowanie zdarzeń w strumieniu
 
-Skorelowanie zdarzeń w tym samym strumieniu można wykonać, patrząc na zdarzenia z przeszłości przy użyciu funkcji **LGD.** Na przykład wyjście może być generowane za każdym razem, gdy dwa kolejne samochody z tego samego *Make* przechodzą przez opłatę za przejazd przez ostatnie 90 sekund.
+Zdarzenia skorelowane w tym samym strumieniu mogą być wykonywane przez przeglądanie przeszłych zdarzeń przy użyciu funkcji **lag** . Na przykład dane wyjściowe można generować za każdym razem, gdy dwa kolejne samochody z tego *samego* przechodzą przez połączenie płatne przez ostatnie 90 sekund.
 
-**Wejście**:
+**Dane wejściowe**:
 
 | Marka | License_plate | Time |
 | --- | --- | --- |
-| Make1 (Dokonać) |Abc-123 |2015-01-01T00:00:01.0000000Z |
-| Make1 (Dokonać) |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Make2 (Make2) |DEF-987 |2015-01-01T00:00:03.0000000Z |
-| Make1 (Dokonać) |GHI-345 |2015-01-01T00:00:04.0000000Z |
+| Make1 |ABC-123 |2015-01-01T00:00:01.0000000 Z |
+| Make1 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |DEF-987 |2015-01-01T00:00:03.0000000 Z |
+| Make1 |GHI-345 |2015-01-01T00:00:04.0000000 Z |
 
-**Wyjście:**
+**Dane wyjściowe**:
 
 | Marka | Time | Current_car_license_plate | First_car_license_plate | First_car_time |
 | --- | --- | --- | --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:02.0000000Z |AAA-999 |Abc-123 |2015-01-01T00:00:01.0000000Z |
+| Make1 |2015-01-01T00:00:02.0000000 Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000 Z |
 
 **Zapytanie**:
 
@@ -527,26 +527,26 @@ WHERE
     LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 ```
 
-**Funkcja LGD** może zajrzeć do strumienia wejściowego jedno zdarzenie z powrotem i pobrać *Make* wartość, porównując, że z *Make* wartość bieżącego zdarzenia.  Po spełnieniu warunku dane z poprzedniego zdarzenia mogą być rzutowane przy użyciu **LGD** w instrukcji **SELECT.**
+Funkcja **lag** może odszukać strumień wejściowy po jednym zdarzeniu i pobrać wartość *Make* , porównując ją z wartością *Make* bieżącego zdarzenia.  Po spełnieniu warunku dane z poprzedniego zdarzenia mogą być rzutowane przy użyciu **opóźnienia** w instrukcji **SELECT** .
 
-Więcej informacji można znaleźć w [LGD](/stream-analytics-query/lag-azure-stream-analytics).
+Aby uzyskać więcej informacji, zapoznaj się z [opóźnieniem](/stream-analytics-query/lag-azure-stream-analytics).
 
-## <a name="detect-the-duration-between-events"></a>Wykrywanie czasu trwania zdarzeń
+## <a name="detect-the-duration-between-events"></a>Wykrywanie czasu trwania między zdarzeniami
 
-Czas trwania zdarzenia można obliczyć, patrząc na ostatnie zdarzenie Start po odebraniu zdarzenia End. Ta kwerenda może być przydatna do określenia czasu spędzanego przez użytkownika na stronie lub funkcji.
+Czas trwania zdarzenia może być obliczany przez wyszukanie ostatniego zdarzenia uruchomienia po odebraniu zdarzenia końcowego. To zapytanie może być przydatne do określenia czasu poświęcanego użytkownikowi na stronę lub funkcję.
 
-**Wejście**:  
+**Dane wejściowe**:  
 
 | Użytkownik | Funkcja | Wydarzenie | Time |
 | --- | --- | --- | --- |
-| user@location.com |Właściwymenu |Rozpoczęcie |2015-01-01T00:00:01.0000000Z |
-| user@location.com |Właściwymenu |End |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Uruchamianie |2015-01-01T00:00:01.0000000 Z |
+| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000 Z |
 
-**Wyjście:**  
+**Dane wyjściowe**:  
 
 | Użytkownik | Funkcja | Czas trwania |
 | --- | --- | --- |
-| user@location.com |Właściwymenu |7 |
+| user@location.com |RightMenu |7 |
 
 **Zapytanie**:
 
@@ -563,30 +563,30 @@ WHERE
     Event = 'end'
 ```
 
-**Funkcja LAST** może służyć do pobierania ostatniego zdarzenia w określonym warunku. W tym przykładzie warunek jest zdarzeniem typu Start, partycjonowanie wyszukiwania według **użytkownika i funkcji.** W ten sposób każdy użytkownik i funkcja jest traktowana niezależnie podczas wyszukiwania zdarzenia Start. **LIMIT CZAS TRWANIA** ogranicza wyszukiwanie z powrotem w czasie do 1 godziny między End i Start zdarzeń.
+**Ostatnia** funkcja może służyć do pobierania ostatniego zdarzenia w określonym warunku. W tym przykładzie warunek to zdarzenie typu Start, partycjonowanie wyszukiwania według **partycji przez** użytkownika i funkcję. W ten sposób każdy użytkownik i funkcja jest traktowana niezależnie podczas wyszukiwania zdarzenia uruchomienia. **Limit czasu trwania** umożliwia przeszukiwanie z powrotem do 1 godziny między zdarzeniami końcowymi i początkowymi.
 
 ## <a name="detect-the-duration-of-a-condition"></a>Wykrywanie czasu trwania warunku
 
-W przypadku warunków obejmujących wiele zdarzeń funkcja **LGD** może służyć do identyfikowania czasu trwania tego warunku. Załóżmy na przykład, że błąd spowodował, że wszystkie samochody mają nieprawidłową wagę (powyżej 20 000 funtów) i czas trwania tego błędu musi zostać obliczony.
+W przypadku warunków obejmujących wiele zdarzeń funkcja **lag** może służyć do identyfikowania czasu trwania tego warunku. Załóżmy na przykład, że usterka spowodowała, że wszystkie samochody mają niepoprawną wagę (powyżej 20 000 funtów), a czas trwania tego błędu musi być obliczany.
 
-**Wejście**:
+**Dane wejściowe**:
 
 | Marka | Time | Waga |
 | --- | --- | --- |
-| Make1 (Dokonać) |2015-01-01T00:00:01.0000000Z |2000 |
-| Make2 (Make2) |2015-01-01T00:00:02.0000000Z |25 000 |
-| Make1 (Dokonać) |2015-01-01T00:00:03.0000000Z |26000 |
-| Make2 (Make2) |2015-01-01T00:00:04.0000000Z |25 000 |
-| Make1 (Dokonać) |2015-01-01T00:00:05.0000000Z |26000 |
-| Make2 (Make2) |2015-01-01T00:00:06.0000000Z |25 000 |
-| Make1 (Dokonać) |2015-01-01T00:00:07.0000000Z |26000 |
-| Make2 (Make2) |2015-01-01T00:00:08.0000000Z |2000 |
+| Make1 |2015-01-01T00:00:01.0000000 Z |2000 |
+| Make2 |2015-01-01T00:00:02.0000000 Z |25 000 |
+| Make1 |2015-01-01T00:00:03.0000000 Z |26000 |
+| Make2 |2015-01-01T00:00:04.0000000 Z |25 000 |
+| Make1 |2015-01-01T00:00:05.0000000 Z |26000 |
+| Make2 |2015-01-01T00:00:06.0000000 Z |25 000 |
+| Make1 |2015-01-01T00:00:07.0000000 Z |26000 |
+| Make2 |2015-01-01T00:00:08.0000000 Z |2000 |
 
-**Wyjście:**
+**Dane wyjściowe**:
 
 | Start_fault | End_fault |
 | --- | --- |
-| 2015-01-01T00:00:02.000Z |2015-01-01T00:00:07.000Z |
+| 2015-01-01T00:00:02.000 Z |2015-01-01T00:00:07.000 Z |
 
 **Zapytanie**:
 
@@ -608,15 +608,15 @@ WHERE
     [weight] < 20000
     AND previous_weight > 20000
 ```
-Pierwsza instrukcja **SELECT** koreluje bieżący pomiar masy z poprzednim pomiarem, wyświetlając go razem z bieżącym pomiarem. Drugi **SELECT** spogląda wstecz na ostatnie zdarzenie, w którym *previous_weight* jest mniejsza niż 20000, gdzie bieżąca waga jest mniejsza niż 20000, a *previous_weight* bieżącego wydarzenia była większa niż 20000.
+Pierwsza instrukcja **SELECT** korelacji bieżącym pomiarem wagi z poprzednią pomiarem, projekcję razem z bieżącą pomiar. Druga **opcja** powoduje powracanie do ostatniego zdarzenia, gdzie *previous_weight* jest mniejsza niż 20000, gdzie bieżąca waga jest mniejsza niż 20000, a *previous_weight* bieżącego zdarzenia był większy niż 20000.
 
-End_fault jest bieżącym zdarzeniem nieukadłym, w którym poprzednie zdarzenie było wadliwe, a Start_fault jest ostatnim zdarzeniem nieukadłym wcześniej.
+End_fault to bieżące niewadliwe zdarzenie, w przypadku którego poprzednie zdarzenie było nieuszkodzone, a Start_fault to ostatnie niewadliwe zdarzenie.
 
-## <a name="periodically-output-values"></a>Okresowo wartości wyjściowe
+## <a name="periodically-output-values"></a>Okresowe wartości wyjściowe
 
-W przypadku zdarzeń nieregularnych lub brakujących, regularne dane wyjściowe interwału mogą być generowane z danych bardziej rozrzedzonych. Na przykład wygeneruj zdarzenie co 5 sekund, które zgłasza ostatnio widziany punkt danych.
+W przypadku nietypowych lub brakujących zdarzeń dane wyjściowe w regularnych odstępach czasu mogą być generowane na podstawie bardziej rozrzedzonych danych wejściowych. Na przykład Wygeneruj zdarzenie co 5 sekund, które raportuje ostatnio widziany punkt danych.
 
-**Wejście**:
+**Dane wejściowe**:
 
 | Time | Wartość |
 | --- | --- |
@@ -627,20 +627,20 @@ W przypadku zdarzeń nieregularnych lub brakujących, regularne dane wyjściowe 
 | "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
 
-**Wyjście (pierwsze 10 rzędów):**
+**Dane wyjściowe (pierwsze 10 wierszy)**:
 
-| Window_end | Last_event. Czas | Last_event. Wartość |
+| Window_end | Last_event. Pierwszym | Last_event. Wartościami |
 | --- | --- | --- |
-| 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
-| 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
-| 2014-01-01T14:01:10.000Z |2014-01-01T14:01:10.000Z |3 |
-| 2014-01-01T14:01:15.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:20.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:25.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5 |
-| 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6 |
-| 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
-| 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
+| 2014-01-01T14:01:00.000 Z |2014-01-01T14:01:00.000 Z |1 |
+| 2014-01-01T14:01:05.000 Z |2014-01-01T14:01:05.000 Z |2 |
+| 2014-01-01T14:01:10.000 Z |2014-01-01T14:01:10.000 Z |3 |
+| 2014-01-01T14:01:15.000 Z |2014-01-01T14:01:15.000 Z |4 |
+| 2014-01-01T14:01:20.000 Z |2014-01-01T14:01:15.000 Z |4 |
+| 2014-01-01T14:01:25.000 Z |2014-01-01T14:01:15.000 Z |4 |
+| 2014-01-01T14:01:30.000 Z |2014-01-01T14:01:30.000 Z |5 |
+| 2014-01-01T14:01:35.000 Z |2014-01-01T14:01:35.000 Z |6 |
+| 2014-01-01T14:01:40.000 Z |2014-01-01T14:01:35.000 Z |6 |
+| 2014-01-01T14:01:45.000 Z |2014-01-01T14:01:35.000 Z |6 |
 
 **Zapytanie**:
 
@@ -654,31 +654,31 @@ GROUP BY
     HOPPINGWINDOW(second, 300, 5)
 ```
 
-Ta kwerenda generuje zdarzenia co 5 sekund i wyprowadza ostatnie zdarzenie, które zostało odebrane wcześniej. Czas trwania **HOPPINGWINDOW** określa, jak daleko wstecz kwerendy wygląda, aby znaleźć najnowsze zdarzenie.
+To zapytanie generuje zdarzenia co 5 sekund i wyświetla ostatnie zdarzenie, które zostało odebrane wcześniej. Czas trwania **HOPPINGWINDOW** określa, jak daleko odbędzie się zapytanie, aby znaleźć najnowsze zdarzenie.
 
-Aby uzyskać więcej informacji, zobacz [Okno Hopping](/stream-analytics-query/hopping-window-azure-stream-analytics).
+Aby uzyskać więcej informacji, zapoznaj się z [oknem przeskoku](/stream-analytics-query/hopping-window-azure-stream-analytics).
 
-## <a name="process-events-with-independent-time-substreams"></a>Przetwarzanie zdarzeń z niezależnym czasem (pod strumienie)
+## <a name="process-events-with-independent-time-substreams"></a>Przetwarzaj zdarzenia o niezależnym czasie (w podstrumieniach)
 
-Zdarzenia mogą pojawić się późno lub poza kolejnością z powodu pochylenia zegara między producentami zdarzeń, pochylenia zegara między partycjami lub opóźnienia sieci.
-Na przykład zegar urządzenia *tollid* 2 znajduje się pięć sekund za *TollID* 1, a zegar urządzenia *tollid* 3 jest dziesięć sekund za *TollID* 1. Obliczenia mogą odbywać się niezależnie dla każdej opłaty drogowej, biorąc pod uwagę tylko własne dane zegara jako sygnaturę czasową.
+Zdarzenia mogą być opóźnione lub nieaktualne z powodu pochylenia zegara między producentami zdarzeń, nachylenia zegara między partycjami lub opóźnienia sieci.
+Na przykład zegar urządzenia dla *TollID* 2 ma pięć sekund w tle *TollID* 1, a zegar urządzenia dla *TollID* 3 to dziesięć sekund za *TollID* 1. Obliczenia mogą być wykonywane niezależnie dla każdego naliczania opłat, biorąc pod uwagę tylko własne dane zegara jako sygnaturę czasową.
 
-**Wejście**:
+**Dane wejściowe**:
 
-| Tablica licencyjna | Marka | Time | TollID (opłata drogowaID) |
+| LicensePlate | Marka | Time | TollID |
 | --- | --- | --- | --- |
-| DXE 5291 |Make1 (Dokonać) |2015-07-27T00:00:01.0000000Z | 1 |
-| YHN 6970 |Make2 (Make2) |2015-07-27T00:00:05.0000000Z | 1 |
-| QYF 9358 |Make1 (Dokonać) |2015-07-27T00:00:01.0000000Z | 2 |
-| GXF 9462 |Make3 (Make3) |2015-07-27T00:00:04.0000000Z | 2 |
-| VFE 1616 |Make2 (Make2) |2015-07-27T00:00:10.0000000Z | 1 |
-| RMV 8282 |Make1 (Dokonać) |2015-07-27T00:00:03.0000000Z | 3 |
-| MDR 6128 |Make3 (Make3) |2015-07-27T00:00:11.0000000Z | 2 |
-| YZK 5704 |Make4 (Make4) |2015-07-27T00:00:07.0000000Z | 3 |
+| DXE 5291 |Make1 |2015-07-27T00:00:01.0000000 Z | 1 |
+| YHN 6970 |Make2 |2015-07-27T00:00:05.0000000 Z | 1 |
+| QYF 9358 |Make1 |2015-07-27T00:00:01.0000000 Z | 2 |
+| GXF 9462 |Make3 |2015-07-27T00:00:04.0000000 Z | 2 |
+| VFE 1616 |Make2 |2015-07-27T00:00:10.0000000 Z | 1 |
+| RMV 8282 |Make1 |2015-07-27T00:00:03.0000000 Z | 3 |
+| MDR 6128 |Make3 |2015-07-27T00:00:11.0000000 Z | 2 |
+| YZK 5704 |Make4 |2015-07-27T00:00:07.0000000 Z | 3 |
 
-**Wyjście:**
+**Dane wyjściowe**:
 
-| TollID (opłata drogowaID) | Liczba |
+| TollID | Liczba |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |
@@ -698,28 +698,28 @@ FROM input
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ```
 
-Klauzula **TIMESTAMP OVER BY** analizuje każdą oś czasu urządzenia niezależnie przy użyciu pod strumieni. Zdarzenie wyjściowe dla każdego *identyfikatora tollid* jest generowane podczas obliczania, co oznacza, że zdarzenia są w porządku w odniesieniu do każdego *identyfikatora TollID,* a nie są zmieniane tak, jakby wszystkie urządzenia były na tym samym zegarze.
+Klauzula **timestamp over by** sprawdza na każdej osi czasu niezależnie od tego, czy są używane podstrumienie. Zdarzenie wyjściowe dla każdego *TollID* jest generowane w miarę ich obliczania, co oznacza, że zdarzenia są wykonywane w kolejności w odniesieniu do każdego *TollIDu* , a nie w kolejności, w jakiej wszystkie urządzenia były w tym samym zegarze.
 
-Aby uzyskać więcej informacji, zobacz [TIMESTAMP BY OVER](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering).
+Aby uzyskać więcej informacji, zapoznaj się z [sygnaturą czasową](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering).
 
-## <a name="remove-duplicate-events-in-a-window"></a>Usuwanie zduplikowanych zdarzeń w oknie
+## <a name="remove-duplicate-events-in-a-window"></a>Usuń zduplikowane zdarzenia w oknie
 
-Podczas wykonywania operacji, takich jak obliczanie średnich zdarzeń w danym oknie czasu, zduplikowane zdarzenia powinny być filtrowane. W poniższym przykładzie drugie zdarzenie jest duplikatem pierwszego.
+Podczas wykonywania operacji, takich jak Obliczanie średniej wartości dla zdarzeń w danym przedziale czasu, należy filtrować powtarzające się zdarzenia. W poniższym przykładzie drugie zdarzenie jest duplikatem pierwszego.
 
-**Wejście**:  
+**Dane wejściowe**:  
 
 | DeviceId | Time | Atrybut | Wartość |
 | --- | --- | --- | --- |
-| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
-| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
-| 2 |2018-07-27T00:00:01.0000000Z |Temperatura |40 |
-| 1 |2018-07-27T00:00:05.0000000Z |Temperatura |60 |
-| 2 |2018-07-27T00:00:05.0000000Z |Temperatura |50 |
-| 1 |2018-07-27T00:00:10.0000000Z |Temperatura |100 |
+| 1 |2018 R-07-27T00:00:01.0000000 Z |Temperatura |50 |
+| 1 |2018 R-07-27T00:00:01.0000000 Z |Temperatura |50 |
+| 2 |2018 R-07-27T00:00:01.0000000 Z |Temperatura |40 |
+| 1 |2018 R-07-27T00:00:05.0000000 Z |Temperatura |60 |
+| 2 |2018 R-07-27T00:00:05.0000000 Z |Temperatura |50 |
+| 1 |2018 R-07-27T00:00:10.0000000 Z |Temperatura |100 |
 
-**Wyjście:**  
+**Dane wyjściowe**:  
 
-| Średnia Wartość | DeviceId |
+| AverageValue | DeviceId |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
@@ -747,32 +747,32 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**FUNKCJA LICZ(CZAS ODRĘBNY)** zwraca liczbę odrębnych wartości w kolumnie Czas w przedziale czasu. Dane wyjściowe pierwszego kroku mogą być następnie używane do obliczania średniej dla urządzenia, odrzucając duplikaty.
+**Licznik (DISTINCT Time)** zwraca liczbę unikatowych wartości w kolumnie Time w przedziale czasu. Dane wyjściowe pierwszego kroku można następnie użyć do obliczenia średniej dla każdego urządzenia, przez odrzucenie duplikatów.
 
-Aby uzyskać więcej informacji, zobacz [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics).
+Aby uzyskać więcej informacji, zobacz [Count (DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics).
 
-## <a name="session-windows"></a>Sesja systemu Windows
+## <a name="session-windows"></a>Okna sesji
 
-Okno sesji to okno, które rozwija się w miarę występowania zdarzeń i zamyka się do obliczenia, jeśli żadne zdarzenie nie zostanie odebrane po określonym czasie lub jeśli okno osiągnie maksymalny czas trwania.
-To okno jest szczególnie przydatne podczas obliczania danych interakcji użytkownika. Okno rozpoczyna się, gdy użytkownik rozpoczyna interakcję z systemem i zamyka się, gdy nie są obserwowane żadne zdarzenia, co oznacza, że użytkownik przestał wchodzić w interakcje.
-Na przykład użytkownik wchodzi w interakcję ze stroną sieci web, na której jest rejestrowana liczba kliknięć, okno sesji może służyć do dowiedzieć się, jak długo użytkownik wchodził w interakcję z witryną.
+Okno sesji to okno, które ciągle rozszerza się po wystąpieniu zdarzeń i jest zamykane w celu obliczenia, jeśli nie otrzymano żadnego zdarzenia po upływie określonego czasu lub gdy okno osiągnie maksymalny czas trwania.
+To okno jest szczególnie przydatne podczas obliczania danych interakcji użytkownika. Okno jest uruchamiane, gdy użytkownik rozpoczyna pracę z systemem i zamyka się, gdy nie zaobserwowano więcej zdarzeń, co oznacza, że użytkownik zatrzymał działanie.
+Na przykład użytkownik korzysta z strony sieci Web, w której zarejestrowano liczbę kliknięć, a okno sesji może służyć do określenia, jak długo użytkownik współdziała z lokacją.
 
-**Wejście**:
+**Dane wejściowe**:
 
 | User_id | Time | Adres URL |
 | --- | --- | --- |
-| 0 | 2017-01-26T00:00:00.0000000Z | "www.example.com/a.html" |
-| 0 | 2017-01-26T00:00:20.0000000Z | "www.example.com/b.html" |
-| 1 | 2017-01-26T00:00:55.0000000Z | "www.example.com/c.html" |
-| 0 | 2017-01-26T00:01:10.0000000Z | "www.example.com/d.html" |
-| 1 | 2017-01-26T00:01:15.0000000Z | "www.example.com/e.html" |
+| 0 | 2017 — 01-26T00:00:00.0000000 Z | "www.example.com/a.html" |
+| 0 | 2017 — 01-26T00:00:20.0000000 Z | "www.example.com/b.html" |
+| 1 | 2017 — 01-26T00:00:55.0000000 Z | "www.example.com/c.html" |
+| 0 | 2017 — 01-26T00:01:10.0000000 Z | "www.example.com/d.html" |
+| 1 | 2017 — 01-26T00:01:15.0000000 Z | "www.example.com/e.html" |
 
-**Wyjście:**
+**Dane wyjściowe**:
 
 | User_id | StartTime | EndTime | Duration_in_seconds |
 | --- | --- | --- | --- |
-| 0 | 2017-01-26T00:00:00.0000000Z | 2017-01-26T00:01:10.0000000Z | 70 |
-| 1 | 2017-01-26T00:00:55.0000000Z | 2017-01-26T00:01:15.0000000Z | 20 |
+| 0 | 2017 — 01-26T00:00:00.0000000 Z | 2017 — 01-26T00:01:10.0000000 Z | 70 |
+| 1 | 2017 — 01-26T00:00:55.0000000 Z | 2017 — 01-26T00:01:15.0000000 Z | 20 |
 
 **Zapytanie**:
 
@@ -788,23 +788,23 @@ GROUP BY
     SessionWindow(minute, 1, 60) OVER (PARTITION BY user_id)
 ```
 
-**Select** projektuje dane istotne dla interakcji użytkownika, wraz z czasem trwania interakcji. Grupowanie danych według użytkownika i **SessionWindow,** który zamyka się, jeśli nie interakcja odbywa się w ciągu 1 minuty, z maksymalnym rozmiarem okna 60 minut.
+**Wybierz** projekty, które są istotne dla interakcji użytkownika, wraz z czasem trwania interakcji. Grupowanie danych według użytkownika i **SessionWindow** , które są zamykane w przypadku braku interakcji w ciągu 1 minuty, o maksymalnym rozmiarze okna wynoszącym 60 minut.
 
-Aby uzyskać więcej informacji na temat **SessionWindow**, zobacz [Okno sesji](/stream-analytics-query/session-window-azure-stream-analytics) .
+Aby uzyskać więcej informacji na temat **SessionWindow**, zobacz [okno sesji](/stream-analytics-query/session-window-azure-stream-analytics) .
 
-## <a name="language-extensibility-with-user-defined-function-in-javascript-and-c"></a>Rozszerzalność języka za pomocą funkcji zdefiniowanej przez użytkownika w językach JavaScript i C #
+## <a name="language-extensibility-with-user-defined-function-in-javascript-and-c"></a>Rozszerzalność języka z funkcją zdefiniowaną przez użytkownika w językach JavaScript i C #
 
-Język zapytań usługi Azure Stream Analytics można rozszerzyć o funkcje niestandardowe napisane w języku JavaScript lub C#. Funkcje zdefiniowane przez użytkownika (UDF) to obliczenia niestandardowe/złożone, których nie można łatwo wyrazić przy użyciu języka **SQL.** Te pliki UDF można zdefiniować raz i używać wiele razy w ramach kwerendy. Na przykład UDF może służyć do konwersji szesnastkowej wartości *nvarchar(max)* na wartość *bigint.*
+Język zapytań Azure Stream Analytics można rozszerzyć za pomocą funkcji niestandardowych zapisanych w języku JavaScript lub C#. Funkcje zdefiniowane przez użytkownika (UDF) to niestandardowe/złożone obliczenia, których nie można łatwo wyrazić przy użyciu języka **SQL** . Te UDF można definiować raz i wielokrotnie używać w ramach zapytania. Na przykład można użyć funkcji UDF do przekonwertowania szesnastkowej wartości *nvarchar (max)* na wartość *bigint* .
 
-**Wejście**:
+**Dane wejściowe**:
 
-| Device_id | HexValue (Wartość hex) |
+| Device_id | HexValue |
 | --- | --- |
-| 1 | "B4" |
-| 2 | "11B" |
+| 1 | B4 |
+| 2 | 11b |
 | 3 | "121" |
 
-**Wyjście:**
+**Dane wyjściowe**:
 
 | Device_id | Wartość dziesiętna |
 | --- | --- |
@@ -834,31 +834,31 @@ From
     Input
 ```
 
-Funkcja zdefiniowana przez użytkownika obliczy wartość *bigint* z HexValue na każdym zużytym zdarzeniu.
+Funkcja zdefiniowana przez użytkownika będzie obliczać wartość *bigint* z HexValue przy każdym wykorzystanym zdarzeniu.
 
 Aby uzyskać więcej informacji, zobacz [JavaScript](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) i [C#](/azure/stream-analytics/stream-analytics-edge-csharp-udf).
 
-## <a name="advanced-pattern-matching-with-match_recognize"></a>Zaawansowane dopasowanie wzoru z MATCH_RECOGNIZE
+## <a name="advanced-pattern-matching-with-match_recognize"></a>Zaawansowane dopasowywanie do wzorca przy użyciu MATCH_RECOGNIZE
 
 **MATCH_RECOGNIZE** jest zaawansowanym mechanizmem dopasowywania wzorców, który może służyć do dopasowania sekwencji zdarzeń do dobrze zdefiniowanego wzorca wyrażenia regularnego.
-Na przykład bankomat jest monitorowany w czasie rzeczywistym pod kątem awarii, podczas pracy bankomatu, jeśli istnieją dwa kolejne komunikaty ostrzegawcze, które administrator musi otrzymywać powiadomienia.
+Na przykład usługa ATM jest monitorowana w czasie rzeczywistym w przypadku awarii w trakcie działania sieci ATM, jeśli istnieją dwa kolejne komunikaty ostrzegawcze, których administrator musi zostać powiadomiony.
 
-**Wejście**:
+**Dane wejściowe**:
 
 | ATM_id | Operation_id | Return_Code | Time |
 | --- | --- | --- | --- |
-| 1 | "Wprowadzanie Pin" | "Sukces" | 2017-01-26T00:10:00.0000000Z |
-| 2 | "Otwarcie gniazda pieniędzy" | "Sukces" | 2017-01-26T00:10:07.0000000Z |
-| 2 | "Zamknięcie slotu pieniędzy" | "Sukces" | 2017-01-26T00:10:11.0000000Z |
-| 1 | "Wprowadzanie ilości wypłaty" | "Sukces" | 2017-01-26T00:10:08.0000000Z |
-| 1 | "Otwarcie gniazda pieniędzy" | "Ostrzeżenie" | 2017-01-26T00:10:14.0000000Z |
-| 1 | "Drukowanie salda bankowego" | "Ostrzeżenie" | 2017-01-26T00:10:19.0000000Z |
+| 1 | "Wprowadzanie numeru PIN" | Prawnego | 2017 — 01-26T00:10:00.0000000 Z |
+| 2 | "Otwieranie gniazda pieniężnego" | Prawnego | 2017 — 01-26T00:10:07.0000000 Z |
+| 2 | "Zamykające gniazdo pieniężne" | Prawnego | 2017 — 01-26T00:10:11.0000000 Z |
+| 1 | "Wprowadzanie wycofania ilości" | Prawnego | 2017 — 01-26T00:10:08.0000000 Z |
+| 1 | "Otwieranie gniazda pieniężnego" | Wyświetlania | 2017 — 01-26T00:10:14.0000000 Z |
+| 1 | "Drukowanie salda banku" | Wyświetlania | 2017 — 01-26T00:10:19.0000000 Z |
 
-**Wyjście:**
+**Dane wyjściowe**:
 
 | ATM_id | First_Warning_Operation_id | Warning_Time |
 | --- | --- | --- |
-| 1 | "Otwarcie gniazda pieniędzy" | 2017-01-26T00:10:14.0000000Z |
+| 1 | "Otwieranie gniazda pieniężnego" | 2017 — 01-26T00:10:14.0000000 Z |
 
 ```SQL
 SELECT *
@@ -878,38 +878,38 @@ MATCH_RECOGNIZE (
 ) AS patternMatch
 ```
 
-Ta kwerenda pasuje do co najmniej dwóch kolejnych zdarzeń awarii i generuje alarm, gdy spełnione są warunki.
-**PATTERN** definiuje wyrażenie regularne, które ma być używane w dopasowaniu, w tym przypadku dowolną liczbę udanych operacji, po których następuje co najmniej dwa kolejne błędy.
-Powodzenie i niepowodzenie są definiowane przy użyciu wartości Return_Code, a po spełnieniu warunku **środki** są rzutowane z *ATM_id*, pierwszą operacją ostrzegania i pierwszym czasem ostrzeżenia.
+To zapytanie dopasowuje co najmniej dwa kolejne zdarzenia błędów i generuje alarm w przypadku spełnienia warunków.
+**Wzorzec** definiuje wyrażenie regularne, które ma być używane na potrzeby dopasowywania, w tym przypadku dowolną liczbę operacji zakończonych powodzeniem, po których następuje co najmniej dwa kolejne błędy.
+Pomyślne i Niepowodzenie są definiowane przy użyciu wartości Return_Code i po spełnieniu warunku **miary** są rzutowane z *ATM_id*, pierwszą operacją ostrzegawczą i pierwszym ostrzeżeniem.
 
 Aby uzyskać więcej informacji, zobacz [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 
-## <a name="geofencing-and-geospatial-queries"></a>Geofencing i zapytania geoprzestrzenne
-Usługa Azure Stream Analytics udostępnia wbudowane funkcje geoprzestrzenne, które mogą służyć do implementowania scenariuszy, takich jak zarządzanie flotą, udostępnianie przejazdów, połączone samochody i śledzenie zasobów.
-Dane geoprzestrzenne mogą być pozyskiwania w formatach GeoJSON lub WKT jako część strumienia zdarzeń lub danych referencyjnych.
-Na przykład firma specjalizująca się w produkcji maszyn do drukowania paszportów, dzierżawi swoje maszyny rządom i konsulatom. Lokalizacja tych maszyn jest ściśle kontrolowana, aby uniknąć niewłaściwego umieszczenia i ewentualnego wykorzystania do podrabiania paszportów. Każda maszyna jest wyposażona w moduł śledzący GPS, który informacje są przekazywane z powrotem do zadania usługi Azure Stream Analytics.
-Producent chciałby śledzić lokalizację tych maszyn i być powiadamiany, jeśli jeden z nich opuści autoryzowany obszar, w ten sposób mogą zdalnie wyłączyć, powiadomić władze i pobrać sprzęt.
+## <a name="geofencing-and-geospatial-queries"></a>Geoogrodzenie i zapytania geograficzne
+Azure Stream Analytics udostępnia wbudowane funkcje geoprzestrzenne, które mogą służyć do implementowania scenariuszy takich jak zarządzanie flotą, udostępnianie samochodu, samochody połączone i śledzenie zasobów.
+Dane geograficzne można pozyskać w formatach GeoJSON lub WKT w ramach strumienia zdarzeń lub danych referencyjnych.
+Na przykład firma wyspecjalizowana na maszynach produkcyjnych do drukowania paszportów, wydzierżawiania ich maszynom rządowym i konsulatom. Lokalizacja tych maszyn jest silnie kontrolowana, aby uniknąć nieodpowiedniego umieszczenia i możliwego użycia w celu podrabiania paszportów. Każdy komputer jest wyposażony w moduł śledzący GPS, a informacje są przekazywane z powrotem do zadania Azure Stream Analytics.
+Produkcja chce śledzić lokalizację tych maszyn i otrzymywać alerty, jeśli jeden z nich opuszcza autoryzowany obszar, w ten sposób można je zdalnie wyłączyć, urzędy alertów i pobrać sprzęt.
 
-**Wejście**:
+**Dane wejściowe**:
 
 | Equipment_id | Equipment_current_location | Time |
 | --- | --- | --- |
-| 1 | "POINT(-122.13288797982818 47.64082002051315)" | 2017-01-26T00:10:00.0000000Z |
-| 1 | "POINT(-122.13307252987875 47.64081350934929)" | 2017-01-26T00:11:00.0000000Z |
-| 1 | "POINT(-122.13308862313283 47.6406508603241)" | 2017-01-26T00:12:00.0000000Z |
-| 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000Z |
+| 1 | "POINT (-122.13288797982818 47.64082002051315)" | 2017 — 01-26T00:10:00.0000000 Z |
+| 1 | "POINT (-122.13307252987875 47.64081350934929)" | 2017 — 01-26T00:11:00.0000000 Z |
+| 1 | "POINT (-122.13308862313283 47.6406508603241)" | 2017 — 01-26T00:12:00.0000000 Z |
+| 1 | "POINT (-122.13341048821462 47.64043760861279)" | 2017 — 01-26T00:13:00.0000000 Z |
 
-**Dane referencyjne:**
+**Dane wejściowe odwołania**:
 
 | Equipment_id | Equipment_lease_location |
 | --- | --- |
-| 1 | "POLYGON((-122.13326028450979 47.6409833866794,-122.13261655434621 47.6409833866794,-122.13261655543462 1 47.64061471602751,-122.13326028450979 47.64061471602751,-122.13326028450979 47.6409833866794)" |
+| 1 | "WIELOKĄT ((-122.13326028450979 47.6409833866794,-122.13261655434621 47.6409833866794,-122.13261655434621 47.64061471602751,-122.13326028450979 47.64061471602751,-122.13326028450979 47.6409833866794))" |
 
-**Wyjście:**
+**Dane wyjściowe**:
 
 | Equipment_id | Equipment_alert_location | Time |
 | --- | --- | --- |
-| 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000Z |
+| 1 | "POINT (-122.13341048821462 47.64043760861279)" | 2017 — 01-26T00:13:00.0000000 Z |
 
 ```SQL
 SELECT
@@ -924,16 +924,16 @@ JOIN
         ST_WITHIN(input.Equipment_currenct_location, referenceInput.Equipment_lease_location) = 1
 ```
 
-Zapytanie umożliwia producentowi automatyczne monitorowanie lokalizacji maszyn, uzyskiwanie alertów, gdy maszyna opuszcza dozwoloną geofence. Wbudowana funkcja geoprzestrzenna umożliwia użytkownikom korzystanie z danych GPS w ramach zapytania bez bibliotek innych firm.
+Zapytanie umożliwia producentowi automatyczne monitorowanie lokalizacji maszyn, otrzymywanie alertów, gdy maszyna opuszcza dozwolony ogranicznik. Wbudowana funkcja geoprzestrzenna umożliwia użytkownikom używanie danych GPS w ramach zapytania bez bibliotek innych firm.
 
-Aby uzyskać więcej informacji, zapoznaj się [z geofencing i scenariuszy agregacji geoprzestrzennej z usługi Azure Stream Analytics](geospatial-scenarios.md) artykułu.
+Aby uzyskać więcej informacji, zapoznaj się z [scenariuszami geoprzestrzennymi i agregacjami geograficznymi przy użyciu Azure Stream Analytics](geospatial-scenarios.md) artykułu.
 
 ## <a name="get-help"></a>Uzyskiwanie pomocy
 
-Aby uzyskać dalszą pomoc, wypróbuj nasze [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Aby uzyskać dalszą pomoc, wypróbuj nasze [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
+* [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

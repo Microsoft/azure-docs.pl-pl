@@ -1,81 +1,81 @@
 ---
-title: Scenariusze aplikacji i projektowanie
-description: Omówienie kategorii aplikacji w chmurze w sieci szkieletowej usług. W tym artykule omówiono projekt aplikacji, który używa usług stanowych i bezstanowych.
+title: Scenariusze i projektowanie aplikacji
+description: Omówienie kategorii aplikacji w chmurze w Service Fabric. Omawia projekt aplikacji, który korzysta z usług stanowych i bezstanowych.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: sfrev
 ms.openlocfilehash: 0aeb8ab2923915befdd11f96025687be3b3c4ff9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76024743"
 ---
-# <a name="service-fabric-application-scenarios"></a>Scenariusze aplikacji sieci szkieletowej usług
+# <a name="service-fabric-application-scenarios"></a>Scenariusze aplikacji Service Fabric
 
-Usługa Azure Service Fabric oferuje niezawodną i elastyczną platformę, na której można pisać i uruchamiać wiele typów aplikacji i usług biznesowych. Te aplikacje i mikrousługi mogą być bezstanowe lub stanowe i są zrównoważone zasobami na maszynach wirtualnych, aby zmaksymalizować wydajność.
+Usługa Azure Service Fabric oferuje niezawodną i elastyczną platformę, w której można pisać i uruchamiać wiele rodzajów aplikacji i usług firmy. Te aplikacje i mikrousługi mogą być bezstanowe lub stanowe i są zrównoważone przez zasoby na maszynach wirtualnych w celu zmaksymalizowania wydajności.
 
-Unikatowa architektura sieci szkieletowej usług umożliwia wykonywanie analizy danych w czasie zbliżonym do rzeczywistego, obliczeń w pamięci, transakcji równoległych i przetwarzania zdarzeń w aplikacjach. Aplikacje można łatwo skalować w zależności od zmieniających się wymagań dotyczących zasobów.
+Unikatowa architektura Service Fabric umożliwia wykonywanie analizy danych niemal w czasie rzeczywistym, obliczeń w pamięci, transakcji równoległych i przetwarzania zdarzeń w aplikacjach. Możesz łatwo skalować aplikacje w zależności od zmieniających się wymagań dotyczących zasobów.
 
-Aby uzyskać wskazówki dotyczące projektowania aplikacji, przeczytaj [architekturę mikrousług w sieci szkieletowej usług Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) i [najważniejsze wskazówki dotyczące projektowania aplikacji przy użyciu sieci szkieletowej usług.](service-fabric-best-practices-applications.md)
+Aby uzyskać wskazówki dotyczące projektowania dotyczące tworzenia aplikacji, Przeczytaj [architekturę mikrousług na platformie Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) i [najlepsze rozwiązania dotyczące projektowania aplikacji przy użyciu Service Fabric](service-fabric-best-practices-applications.md).
 
-Należy rozważyć użycie platformy sieci szkieletowej usług dla następujących typów aplikacji:
+Rozważ użycie Service Fabric platformy dla następujących typów aplikacji:
 
-* **Gromadzenie, przetwarzanie danych i IoT:** Sieci szkieletowej usług obsługuje dużą skalę i ma małe opóźnienia za pośrednictwem swoich usług stanowych. Może pomóc w przetwarzaniu danych na milionach urządzeń, na których dane dla urządzenia i obliczeń są współlokowane.
+* **Zbieranie i przetwarzanie danych oraz IoT**: Service Fabric obsługuje dużą skalę i ma małe opóźnienia w ramach usług stanowych. Może ona pomóc w przetwarzaniu danych na milionach urządzeń, gdzie znajdują się dane dotyczące urządzenia i obliczenia.
 
-    Klienci, którzy zbudowali usługi IoT za pomocą service fabric to [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [PCL Construction](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure), [BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [Schneider Electric](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)i [Mesh Systems](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
+    Klienci, którzy korzystali z usługi IoT Services przy użyciu Service Fabric obejmują systemy [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [PCL](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure), [BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [Schneider elektryczny](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)i [siatkowe](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
 
-* **Aplikacje interaktywne oparte na grach i sesjach:** sieci szkieletowej usług jest przydatne, jeśli aplikacja wymaga odczytów i zapisów o małym opóźnieniu, takich jak gry online lub wiadomości błyskawiczne. Sieć szkieletowa usług umożliwia tworzenie tych interaktywnych, stanowych aplikacji bez konieczności tworzenia oddzielnego magazynu lub pamięci podręcznej. Odwiedź [rozwiązania dla gier platformy Azure,](https://azure.microsoft.com/solutions/gaming/) aby uzyskać wskazówki dotyczące projektowania dotyczące korzystania z sieci [szkieletowej usług w usługach gier.](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf)
+* **Gry i interaktywne aplikacje oparte na sesji**: Service Fabric jest przydatne, jeśli aplikacja wymaga operacji odczytu i zapisu o małym opóźnieniu, na przykład w grach online lub w wiadomościach błyskawicznych. Service Fabric umożliwia tworzenie tych interaktywnych, stanowych aplikacji bez konieczności tworzenia oddzielnego magazynu lub pamięci podręcznej. Odwiedź witrynę [Azure gier Solutions](https://azure.microsoft.com/solutions/gaming/) , aby uzyskać wskazówki dotyczące projektowania [Service Fabric w usługach gier](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
 
-    Klienci, którzy stworzyli usługi gier to [Next Games](https://customers.microsoft.com/story/next-games-media-telecommunications-azure) i [Digamore](https://customers.microsoft.com/story/digamore-entertainment-scores-with-a-new-gaming-platform-based-on-azure-service-fabric/). Klienci, którzy zbudowali interaktywne sesje obejmują [Honeywell z Hololens](https://customers.microsoft.com/story/honeywell-manufacturing-hololens).
+    Klienci, którzy korzystali z wbudowanych usług gier, obejmują [kolejne gry](https://customers.microsoft.com/story/next-games-media-telecommunications-azure) i [Digamore](https://customers.microsoft.com/story/digamore-entertainment-scores-with-a-new-gaming-platform-based-on-azure-service-fabric/). Klienci z utworzonymi sesjami interaktywnymi obejmują [Honeywell z usługą HoloLens](https://customers.microsoft.com/story/honeywell-manufacturing-hololens).
 
-* **Analiza danych i przetwarzanie przepływu pracy:** Aplikacje, które muszą niezawodnie przetwarzać zdarzenia lub strumienie danych korzystają ze zoptymalizowanych odczytów i zapisów w sieci szkieletowej usług. Usługa Sieci szkieletowej obsługuje również potoki przetwarzania aplikacji, gdzie wyniki muszą być wiarygodne i przekazywane do następnego etapu przetwarzania bez żadnych strat. Potoki te obejmują systemy transakcyjne i finansowe, w których spójność danych i gwarancje obliczeniowe są niezbędne.
+* **Analiza danych i przetwarzanie przepływu pracy**: aplikacje, które muszą w niezawodny sposób przetwarzać zdarzenia lub strumienie danych, z zoptymalizowanych odczytów i zapisów w Service Fabric. Service Fabric obsługuje także potoki przetwarzania aplikacji, w których wyniki muszą być niezawodne i przesyłane do następnego etapu przetwarzania bez utraty. Te potoki obejmują systemy transakcyjne i finansowe, w których są niezbędne gwarancje spójności danych i obliczeń.
 
-    Klienci, którzy stworzyli usługi przepływu pracy biznesowej to [Zeiss Group,](https://customers.microsoft.com/story/zeiss-group-focuses-on-azure-service-fabric-for-key-integration-platform) [Quorum Business Solutions](https://customers.microsoft.com/en-us/story/quorum-business-solutions-expand-energy-managemant-solutions-using-azure-service-fabric)i [Société General](https://customers.microsoft.com/en-us/story/societe-generale-speeds-real-time-market-quotes-using-azure-service-fabric).
+    Klienci, którzy mają wbudowaną służbowe usługi workflow, obejmują [grupę Zeiss](https://customers.microsoft.com/story/zeiss-group-focuses-on-azure-service-fabric-for-key-integration-platform), [rozwiązania biznesowe kworum](https://customers.microsoft.com/en-us/story/quorum-business-solutions-expand-energy-managemant-solutions-using-azure-service-fabric)i [Société General](https://customers.microsoft.com/en-us/story/societe-generale-speeds-real-time-market-quotes-using-azure-service-fabric).
 
-* **Obliczanie danych:** Sieci szkieletowej usług umożliwia tworzenie aplikacji stanowych, które wykonują intensywne obliczenia danych. Sieci szkieletowej usług umożliwia kolokacji przetwarzania (obliczeń) i danych w aplikacjach. 
+* **Obliczanie danych**: Service Fabric umożliwia tworzenie aplikacji stanowych, które wykonują intensywne obliczanie danych. Service Fabric umożliwia wspólnej lokalizacji przetwarzania (obliczeń) i danych w aplikacjach. 
 
-   Zwykle, gdy aplikacja wymaga dostępu do danych, opóźnienie sieci skojarzone z zewnętrzną pamięcią podręczną danych lub warstwą magazynu ogranicza czas obliczeń. Usługi stanowej sieci szkieletowej usług eliminują to opóźnienie, umożliwiając bardziej zoptymalizowane odczyty i zapisy.
+   Zwykle, gdy aplikacja wymaga dostępu do danych, opóźnienie sieci skojarzone z zewnętrzną pamięcią podręczną danych lub warstwą magazynowania ogranicza czas obliczeń. Stanowe Service Fabric usługi eliminują takie opóźnienie, co pozwala na bardziej zoptymalizowane odczyty i zapisy.
 
-   Rozważmy na przykład aplikację, która wykonuje niemal w czasie rzeczywistym wybór rekomendacji dla klientów, z wymaganiem czasu podróży w obie strony mniejsze niż 100 milisekund. Charakterystyka opóźnienia i wydajności usług sieci szkieletowej usług zapewniają użytkownikowi responsywne środowisko w porównaniu ze standardowym modelem implementacji konieczności pobierania niezbędnych danych z magazynu zdalnego. System jest bardziej responsywny, ponieważ obliczenia wyboru rekomendacji są współlokowane z danymi i regułami.
+   Rozważmy na przykład aplikację, która wykonuje niemal wybrane rekomendacje w czasie rzeczywistym dla klientów, z wymaganiami dotyczącymi czasu rundy wynoszącą mniej niż 100 milisekund. Charakterystyka opóźnień i wydajności usług Service Fabric Services zapewnia użytkownikom środowisko reagowania w porównaniu z standardowym modelem implementacji, który wymaga pobrania niezbędnych danych z magazynu zdalnego. System ma więcej odpowiedzi, ponieważ Obliczanie wyboru rekomendacji jest wspólnie zlokalizowane z danymi i regułami.
 
-    Klienci, którzy zbudowali usługi obliczeniowe to [Solidsoft Reply](https://customers.microsoft.com/story/solidsoft-reply-platform-powers-e-verification-of-pharmaceuticals) i [Infosupport](https://customers.microsoft.com/story/service-fabric-customer-profile-info-support-and-fudura).
+    Klienci, którzy korzystali z usług obliczeniowych, obejmują [odpowiedzi Solidsoft](https://customers.microsoft.com/story/solidsoft-reply-platform-powers-e-verification-of-pharmaceuticals) i [Infosupport](https://customers.microsoft.com/story/service-fabric-customer-profile-info-support-and-fudura).
 
-* **Usługi o wysokiej dostępności:** Usługa Service Fabric zapewnia szybkie przełączenie w błąd przez utworzenie wielu replik usługi pomocniczej. Jeśli węzeł, proces lub pojedyncza usługa ulegnie awarii z powodu sprzętu lub innego błędu, jedna z replik pomocniczych jest promowana do repliki podstawowej z minimalną utratą usługi.
+* **Usługi o wysokiej dostępności**: Service Fabric zapewnia szybką pracę w trybie failover przez utworzenie wielu replik usług dodatkowych. Jeśli węzeł, proces lub indywidualna usługa ulegnie awarii z powodu sprzętu lub innego błędu, jedna z replik pomocniczych jest podwyższana do repliki podstawowej z minimalną utratą usługi.
 
-* **Skalowalne usługi:** Poszczególne usługi mogą być podzielone na partycje, co pozwala na skalowanie stanu w poziomie w klastrze. Poszczególne usługi mogą być również tworzone i usuwane na bieżąco. Można skalować w poziomie usług z kilku wystąpień w kilku węzłach do tysięcy wystąpień w wielu węzłach, a następnie skalować je ponownie w razie potrzeby. Sieci szkieletowej usług można użyć do tworzenia tych usług i zarządzania ich pełne cykle życia.
+* **Skalowalne usługi**: poszczególne usługi mogą być podzielone na partycje, co umożliwia skalowanie w poziomie w klastrze. Poszczególne usługi mogą być również tworzone i usuwane na bieżąco. Usługi można skalować w poziomie z kilku wystąpień w kilku węzłach do tysięcy wystąpień w wielu węzłach, a następnie skalować je ponownie w razie potrzeby. Za pomocą Service Fabric można kompilować te usługi i zarządzać pełnymi cyklami życia.
 
-## <a name="application-design-case-studies"></a>Studia przypadków projektowania aplikacji
+## <a name="application-design-case-studies"></a>Analizy przypadków projektowania aplikacji
 
-Studia przypadków, które pokazują, jak sieci szkieletowej usług jest używany do [projektowania](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) aplikacji są publikowane w historie klienta i [mikrousług w](https://azure.microsoft.com/solutions/microservice-applications/) witrynach platformy Azure.
+Analizy przypadków pokazujące, w jaki sposób Service Fabric jest używany do projektowania aplikacji, jest publikowana na [historiech](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) i [mikrousługach klientów w witrynach platformy Azure](https://azure.microsoft.com/solutions/microservice-applications/) .
 
 ## <a name="designing-applications-composed-of-stateless-and-stateful-microservices"></a>Projektowanie aplikacji składających się z mikrousług bezstanowych i stanowych
 
-Tworzenie aplikacji za pomocą ról procesu roboczego usług Azure Cloud Services jest przykładem usługi bezstanowej. Z drugiej strony stanowe mikrousługi zachowują ich stan autorytatywny poza żądanie i jego odpowiedzi. Ta funkcja zapewnia wysoką dostępność i spójność stanu za pośrednictwem prostych interfejsów API, które zapewniają gwarancje transakcyjne wspierane przez replikację.
+Tworzenie aplikacji za pomocą ról procesów roboczych platformy Azure Cloud Services jest przykładem usługi bezstanowej. Z kolei mikrousługi stanowe utrzymują stan autorytatywny poza żądaniem i odpowiedzią. Ta funkcja zapewnia wysoką dostępność i spójność stanu za pomocą prostych interfejsów API, które zapewniają gwarancje transakcyjne obsługiwane przez replikację.
 
-Usługi stanowe w sieci szkieletowej usług przynoszą wysoką dostępność do wszystkich typów aplikacji, nie tylko baz danych i innych magazynów danych. Jest to naturalny postęp. Aplikacje zostały już przeniesione z korzystania z czysto relacyjnych baz danych dla wysokiej dostępności do baz danych NoSQL. Teraz same aplikacje mogą mieć ich "gorący" stan i dane zarządzane w nich dla dodatkowego wzrostu wydajności bez utraty niezawodności, spójności lub dostępności.
+Usługi stanowe w Service Fabric zapewniają wysoką dostępność dla wszystkich typów aplikacji, a nie tylko baz danych i innych magazynów danych. Jest to naturalne postępy. Aplikacje zostały już przeniesione z używania czystych relacyjnych baz danych w celu zapewnienia wysokiej dostępności do baz danych NoSQL. Teraz aplikacje mogą mieć swój stan "gorąca" i zarządzane przez nie dane w celu uzyskania dodatkowych korzyści z wydajności bez utraty niezawodności, spójności i dostępności.
 
-Podczas tworzenia aplikacji, które składają się z mikrousług, zazwyczaj masz kombinację bezstanowych aplikacji sieci web (takich jak ASP.NET i Node.js) wywoływania do bezstanowych i stanowych usług biznesowych warstwy środkowej. Wszystkie aplikacje i usługi są wdrażane w tym samym klastrze sieci szkieletowej usług za pomocą poleceń wdrażania sieci szkieletowej usług. Każda z tych usług jest niezależna pod względem skali, niezawodności i użycia zasobów. Ta niezależność poprawia elastyczność i elastyczność w rozwoju i zarządzaniu cyklem życia.
+Podczas kompilowania aplikacji, które składają się z mikrousług, zazwyczaj istnieje kombinacja bezstanowych aplikacji sieci Web (takich jak ASP.NET i Node. js) wywołujących bezstanowe i stanowe usługi warstwy środkowej. Wszystkie aplikacje i usługi są wdrażane w tym samym klastrze Service Fabric za pomocą poleceń wdrażania Service Fabric. Każda z tych usług jest niezależna w odniesieniu do skalowalności, niezawodności i użycia zasobów. Ta niezależność zwiększa elastyczność i elastyczność w zakresie programowania i zarządzania cyklem życia.
 
-Mikrousługi stanowe upraszczają projekty aplikacji, ponieważ usuwają potrzebę dodatkowych kolejek i pamięci podręcznych, które tradycyjnie były wymagane do spełnienia wymagań dotyczących dostępności i opóźnień aplikacji czysto bezstanowych. Ponieważ usługi stanowe mają wysoką dostępność i małe opóźnienia, istnieje mniej szczegółów do zarządzania w aplikacji.
+Mikrousługi stanowe upraszczają projekty aplikacji, ponieważ usuwają potrzebę dodatkowych kolejek i pamięci podręcznych, które tradycyjnie nie są wymagane do rozwiązania wymagań dotyczących dostępności i opóźnień w przypadku aplikacji czystych bezstanowych. Ze względu na to, że usługi stanowe mają wysoką dostępność i małe opóźnienia, w aplikacji można zarządzać mniej więcej.
 
-Na poniższych diagramach przedstawiono różnice między projektowaniem aplikacji, która jest bezstanowa i jeden, który jest stanowy. Korzystając z modeli programowania [niezawodne usługi](service-fabric-reliable-services-introduction.md) i [niezawodne podmioty,](service-fabric-reliable-actors-introduction.md) usługi stanowe zmniejszają złożoność aplikacji, osiągając jednocześnie wysoką przepustowość i małe opóźnienia.
+Poniższe diagramy ilustrują różnice między projektowaniem aplikacji, która jest bezstanowa i jednego ze stanowych. Dzięki wykorzystaniu modeli programowania [Reliable Services](service-fabric-reliable-services-introduction.md) i [Reliable Actors](service-fabric-reliable-actors-introduction.md) , usługi stanowe zmniejszają złożoność aplikacji przy jednoczesnym osiągnięciu dużej przepływności i małych opóźnień.
 
-Oto przykładowa aplikacja, która korzysta z ![usług bezstanowych: aplikacja, która korzysta z usług bezstanowych][Image1]
+Oto przykładowa aplikacja korzystająca z usług bezstanowych: ![aplikacja, która korzysta z usług bezstanowych][Image1]
 
-Oto przykładowa aplikacja, która korzysta z ![usług stanowych: aplikacja, która korzysta z usług stanowych][Image2]
+Oto przykładowa aplikacja korzystająca z usług stanowych ![: aplikacja, która korzysta z usług stanowych][Image2]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Rozpocznij tworzenie usług bezstanowych i stanowych za pomocą [niezawodnych usług](service-fabric-reliable-services-quick-start.md) sieci szkieletowej usług i modeli programowania [Reliable Actors.](service-fabric-reliable-actors-get-started.md)
-* Odwiedź Centrum architektury platformy Azure, aby uzyskać wskazówki dotyczące [tworzenia mikrousług na platformie Azure.](https://docs.microsoft.com/azure/architecture/microservices/)
-* Przejdź do [aplikacji sieci szkieletowej usługi Azure i najlepszych rozwiązań klastra,](service-fabric-best-practices-overview.md) aby uzyskać wskazówki dotyczące projektowania aplikacji.
+* Zacznij tworzyć bezstanowe i stanowe usługi przy użyciu Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md) i [Reliable Actors](service-fabric-reliable-actors-get-started.md) modelami programowania.
+* Odwiedź Centrum architektury platformy Azure, aby uzyskać wskazówki dotyczące [tworzenia mikrousług na platformie Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+* Przejdź do [platformy Azure Service Fabric aplikacji i najlepszych](service-fabric-best-practices-overview.md) rozwiązań dotyczących projektowania aplikacji.
 
 * Zobacz też:
   * [Informacje o mikrousługach](service-fabric-overview-microservices.md)
   * [Definiowanie stanu usługi i zarządzanie nim](service-fabric-concepts-state.md)
   * [Dostępność usług](service-fabric-availability-services.md)
-  * [Usługi skalowania](service-fabric-concepts-scalability.md)
+  * [Skalowanie usług](service-fabric-concepts-scalability.md)
   * [Usługi partycji](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.png

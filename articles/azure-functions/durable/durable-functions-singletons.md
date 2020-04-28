@@ -1,26 +1,26 @@
 ---
-title: Singletons dla trwałych funkcji — Azure
-description: Jak używać singletons w rozszerzenie funkcje trwałe dla usługi Azure Functions.
+title: Pojedyncze dla Durable Functions — Azure
+description: Jak użyć pojedynczych w rozszerzeniu Durable Functions Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4eff7c4c91ed664fcf1f4fc7a8be2d43d24e5c6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76262813"
 ---
-# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Koordynatorzy singleton w funkcjach trwałych (usługi Azure)
+# <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Pojedyncze Koordynatory w Durable Functions (Azure Functions)
 
-W przypadku zadań w tle często należy upewnić się, że tylko jedno wystąpienie określonego koordynatora działa w danym momencie. Można zapewnić tego rodzaju zachowanie singleton w [funkcji trwałych,](durable-functions-overview.md) przypisując identyfikator określonego wystąpienia do koordynatora podczas tworzenia go.
+W przypadku zadań w tle często trzeba upewnić się, że tylko jedno wystąpienie określonego programu Orchestrator działa w danym momencie. Ten rodzaj zachowań można zapewnić w [Durable Functions](durable-functions-overview.md) przez przypisanie określonego identyfikatora wystąpienia do koordynatora podczas jego tworzenia.
 
-## <a name="singleton-example"></a>Przykład Singleton
+## <a name="singleton-example"></a>Pojedynczy przykład
 
-W poniższym przykładzie przedstawiono funkcję wyzwalacza HTTP, która tworzy aranżację zadania w tle singleton. Kod zapewnia, że istnieje tylko jedno wystąpienie dla określonego identyfikatora wystąpienia.
+Poniższy przykład pokazuje funkcję wyzwalacza HTTP, która tworzy pojedynczą aranżację zadania w tle. Kod gwarantuje, że istnieje tylko jedno wystąpienie dla określonego identyfikatora wystąpienia.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -52,11 +52,11 @@ public static async Task<HttpResponseMessage> RunSingle(
 ```
 
 > [!NOTE]
-> Poprzedni kod języka C# jest dla funkcji trwałych 2.x. W przypadku funkcji trwałych 1.x należy `OrchestrationClient` użyć `DurableClient` atrybutu zamiast atrybutu `DurableOrchestrationClient` i zamiast `IDurableOrchestrationClient`parametru . Aby uzyskać więcej informacji na temat różnic między wersjami, zobacz [wersje funkcji trwałych](durable-functions-versions.md) artykułu.
+> Poprzedni kod w języku C# jest przeznaczony dla Durable Functions 2. x. W przypadku `OrchestrationClient` Durable Functions 1. x należy użyć atrybutu zamiast `DurableClient` atrybutu i należy użyć typu `DurableOrchestrationClient` parametru zamiast. `IDurableOrchestrationClient` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-**funkcja.json**
+**Function. JSON**
 
 ```json
 {
@@ -83,7 +83,7 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-**indeks.js**
+**index. js**
 
 ```javascript
 const df = require("durable-functions");
@@ -114,14 +114,14 @@ module.exports = async function(context, req) {
 
 ---
 
-Domyślnie identyfikatory wystąpień są losowo generowanymi identyfikatorami GUID. W poprzednim przykładzie identyfikator wystąpienia jest jednak przekazywany w danych trasy z adresu URL. Wywołanie `GetStatusAsync`kodu (C#) lub `getStatus` (JavaScript), aby sprawdzić, czy wystąpienie o określonym identyfikatorze jest już uruchomione. Jeśli takie wystąpienie nie jest uruchomione, nowe wystąpienie jest tworzony z tym identyfikatorem.
+Domyślnie identyfikatory wystąpień są losowo generowanymi identyfikatorami GUID. W poprzednim przykładzie jednak identyfikator wystąpienia jest przesyłany w danych trasy z adresu URL. Kod wywołuje `GetStatusAsync`(C#) lub `getStatus` (JavaScript), aby sprawdzić, czy wystąpienie o określonym identyfikatorze jest już uruchomione. Jeśli takie wystąpienie nie jest uruchomione, zostanie utworzone nowe wystąpienie o tym IDENTYFIKATORze.
 
 > [!NOTE]
-> Istnieje potencjalna kondycja wyścigu w tej próbce. Jeśli dwa wystąpienia **HttpStartSingle** wykonać jednocześnie, oba wywołania funkcji zgłosi sukces, ale tylko jedno wystąpienie aranżacji faktycznie rozpocznie. W zależności od wymagań, może to mieć niepożądane skutki uboczne. Z tego powodu ważne jest, aby upewnić się, że żadne dwa żądania można wykonać tę funkcję wyzwalacza jednocześnie.
+> W tym przykładzie istnieje potencjalny warunek wyścigu. Jeśli dwa wystąpienia **HttpStartSingle** wykonywane współbieżnie, oba wywołania funkcji będą zgłaszać sukces, ale w rzeczywistości zostanie uruchomione tylko jedno wystąpienie aranżacji. W zależności od wymagań może to mieć niepożądane skutki uboczne. Z tego powodu ważne jest, aby upewnić się, że żadne dwa żądania nie mogą wykonać tej funkcji wyzwalacza współbieżnie.
 
-Szczegóły implementacji funkcji koordynatora w rzeczywistości nie mają znaczenia. Może to być regularna funkcja aranżatora, która uruchamia się i uzupełnia, lub może to być taka, która działa wiecznie (czyli [Wieczna Orkiestracja).](durable-functions-eternal-orchestrations.md) Ważne jest to, że istnieje tylko jeden przypadek uruchomiony w czasie.
+Szczegóły implementacji funkcji programu Orchestrator nie mają znaczenia. Może to być zwykła funkcja programu Orchestrator, która uruchamia się i kończy, lub może być taka, która działa w nieskończoność (czyli [aranżacja Eternal](durable-functions-eternal-orchestrations.md)). Ważnym punktem jest to, że w danym momencie jest uruchomione tylko jedno wystąpienie.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o natywnych funkcjach HTTP aranżacji](durable-functions-http-features.md)
+> [Dowiedz się więcej na temat natywnych funkcji protokołu HTTP dla aranżacji](durable-functions-http-features.md)

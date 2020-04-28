@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie Jive do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a Jive.
+title: 'Samouczek: Konfigurowanie Jive dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Jive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,92 +16,92 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602eed65745eea1fd9096508c442a27ea79bcba9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057738"
 ---
-# <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Jive do automatycznego inicjowania obsługi administracyjnej przez użytkowników
+# <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Jive na potrzeby automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest pokazanie kroki, które należy wykonać w Jive i usługi Azure AD, aby automatycznie aprowizować i de-provision kont użytkowników z usługi Azure AD do Jive.
+Celem tego samouczka jest przedstawienie czynności, które należy wykonać w Jive i usłudze Azure AD w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników z usługi Azure AD do Jive.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku zakłada, że masz już następujące elementy:
+Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
 
-*   Dzierżawa usługi Azure Active directory.
-*   Jive jednokrotny znak na włączonej subskrypcji.
+*   Dzierżawa usługi Azure Active Directory.
+*   Subskrypcja z włączonym logowaniem jednokrotnym (Jive).
 *   Konto użytkownika w Jive z uprawnieniami administratora zespołu.
 
 ## <a name="assigning-users-to-jive"></a>Przypisywanie użytkowników do Jive
 
-Usługa Azure Active Directory używa pojęcia o nazwie "przydziały", aby określić, którzy użytkownicy powinni otrzymać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi administracyjnej konta użytkownika tylko użytkownicy i grupy, które zostały "przypisane" do aplikacji w usłudze Azure AD jest synchronizowana.
+Azure Active Directory używa koncepcji o nazwie "przydziały", aby określić, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi kont użytkowników są synchronizowane tylko użytkownicy i grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem usługi inicjowania obsługi administracyjnej należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji Jive. Po podjęciu decyzji możesz przypisać tych użytkowników do aplikacji Jive, postępując zgodnie z instrukcjami tutaj:
+Przed skonfigurowaniem i włączeniem usługi aprowizacji należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji Jive. Po ustaleniu tych użytkowników możesz przypisać je do aplikacji Jive, postępując zgodnie z poniższymi instrukcjami:
 
-[Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-jive"></a>Ważne wskazówki dotyczące przypisywania użytkowników do Jive
 
-*   Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do Jive do testowania konfiguracji inicjowania obsługi administracyjnej. Dodatkowi użytkownicy i/lub grupy mogą być przypisane później.
+*   Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do Jive w celu przetestowania konfiguracji aprowizacji. Dodatkowych użytkowników i/lub grupy można przypisywać później.
 
-*   Podczas przypisywania użytkownika do Jive należy wybrać prawidłową rolę użytkownika. Rola "Dostęp domyślny" nie działa w przypadku inicjowania obsługi administracyjnej.
+*   Podczas przypisywania użytkownika do Jive należy wybrać prawidłową rolę użytkownika. Rola "dostęp domyślny" nie działa w przypadku aprowizacji.
 
-## <a name="enable-user-provisioning"></a>Włączanie inicjowania obsługi administracyjnej użytkowników
+## <a name="enable-user-provisioning"></a>Włącz Inicjowanie obsługi użytkowników
 
-W tej sekcji przewodnik po połączeniu usługi Azure AD z interfejsem API inicjowania obsługi administracyjnej konta Jive i konfigurowaniu usługi inicjowania obsługi administracyjnej w celu tworzenia, aktualizowania i wyłączania przypisanych kont użytkowników w jive na podstawie przypisania użytkownika i grupy w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprowizacji usługi Azure AD do konta użytkownika Jive, a następnie Konfigurując usługę aprowizacji do tworzenia, aktualizowania i wyłączania przypisanych kont użytkowników w usłudze Jive na podstawie przypisywania użytkowników i grup w usłudze Azure AD.
 
 > [!TIP]
-> Można również włączyć samoosticie oparte na SAML logowania jednokrotnego dla Jive, postępując zgodnie z instrukcjami podanymi w [witrynie Azure portal.](https://portal.azure.com) Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje wzajemnie się uzupełniają.
+> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML dla Jive, postępując zgodnie z instrukcjami podanymi w [Azure Portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji, chociaż te dwie funkcje napadają nawzajem.
 
-### <a name="to-configure-user-account-provisioning"></a>Aby skonfigurować inicjowanie obsługi administracyjnej kont użytkowników:
+### <a name="to-configure-user-account-provisioning"></a>Aby skonfigurować Inicjowanie obsługi konta użytkownika:
 
-Celem tej sekcji jest określenie sposobu włączania obsługi administracyjnej kont użytkowników usługi Active Directory do Jive.
-W ramach tej procedury są wymagane, aby zapewnić token zabezpieczający użytkownika, które należy zażądać od Jive.com.
+Celem tej sekcji jest zaprojektowanie sposobu włączania obsługi administracyjnej użytkowników Active Directory kont użytkowników w usłudze Jive.
+W ramach tej procedury konieczne jest podanie tokenu zabezpieczającego użytkownika potrzebnego do żądania od Jive.com.
 
-1. W [witrynie Azure portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory > Enterprise Apps > wszystkie aplikacje.**
+1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje** .
 
-1. Jeśli jive został już skonfigurowany do logowania jednokrotnego, wyszukaj wystąpienie Jive'a za pomocą pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i wyszukaj **Jive** w galerii aplikacji. Wybierz Jive z wyników wyszukiwania i dodaj go do listy aplikacji.
+1. Jeśli już skonfigurowano Jive do logowania jednokrotnego, Wyszukaj wystąpienie elementu Jive przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj **Jive** w galerii aplikacji. Wybierz pozycję Jive z wyników wyszukiwania, a następnie dodaj ją do listy aplikacji.
 
-1. Wybierz wystąpienie Jive, a następnie wybierz kartę **Inicjowanie obsługi administracyjnej.**
+1. Wybierz wystąpienie elementu Jive, a następnie wybierz kartę **Inicjowanie obsługi** .
 
-1. Ustaw **tryb inicjowania obsługi administracyjnej** na **Automatyczny**. 
+1. Ustaw **tryb aprowizacji** na **automatyczny**. 
 
-    ![Inicjowania obsługi](./media/jive-provisioning-tutorial/provisioning.png)
+    ![aprowizacji](./media/jive-provisioning-tutorial/provisioning.png)
 
-1. W sekcji **Poświadczenia administratora** podaj następujące ustawienia konfiguracji:
+1. W sekcji **poświadczenia administratora** podaj następujące ustawienia konfiguracji:
    
-    a. W pole **tekstowym Nazwa użytkownika administratora Jive** wpisz nazwę konta Jive, do których przypisano profil **Administratora systemu** w Jive.com.
+    a. W polu tekstowym **Nazwa użytkownika administratora Jive** wpisz nazwę konta Jive z profilem **administratora systemu** w Jive.com przypisanym.
    
-    b. W polach **tekstowych "Hasło administratora Jive"** wpisz hasło dla tego konta.
+    b. W polu tekstowym **hasło administratora Jive** wpisz hasło dla tego konta.
    
-    d. W polach **tekstowych adresu URL dzierżawy Jive** wpisz adres URL dzierżawy Jive.
+    c. W polu tekstowym **adres URL dzierżawy Jive** wpisz adres URL dzierżawy Jive.
       
       > [!NOTE]
-      > Adres URL dzierżawy Jive to adres URL używany przez organizację do logowania się do Jive.  
-      > Zazwyczaj adres URL ma następujący format: **www.\< organizacji\>.jive.com**.          
+      > Adres URL dzierżawy Jive jest adresem URL używanym przez organizację do logowania się do Jive.  
+      > Zazwyczaj adres URL ma następujący format: **www.\< Organizacja\>. Jive.com**.          
 
-1. W witrynie Azure portal kliknij pozycję **Testuj połączenie,** aby upewnić się, że usługa Azure AD może łączyć się z aplikacją Jive.
+1. W Azure Portal kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją Jive.
 
-1. Wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej w polu **Wiadomości e-mail z powiadomieniem,** i zaznacz pole wyboru poniżej.
+1. Wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji w polu **E-mail powiadomienia** , a następnie zaznacz pole wyboru poniżej.
 
-1. Kliknij **pozycję Zapisz.**
+1. Kliknij przycisk **Zapisz.**
 
-1. W sekcji Mapowania wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory z Jive.Under** the Mappings section, select Synchronize Azure Active Directory Users to Jive.
+1. W sekcji mapowania wybierz pozycję **synchronizuj Azure Active Directory użytkowników do Jive.**
 
-1. W sekcji **Mapowania atrybutów** przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Jive. Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Jive dla operacji aktualizacji. Wybierz przycisk Zapisz, aby zatwierdzić wszelkie zmiany.
+1. W sekcji **mapowania atrybutów** Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Jive. Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie Jive for Updates. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
 
-1. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla języka Jive, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji Ustawienia
+1. Aby włączyć usługę Azure AD Provisioning dla usługi Jive, Zmień **stan aprowizacji** na **włączone** w sekcji Ustawienia.
 
-1. Kliknij **pozycję Zapisz.**
+1. Kliknij przycisk **Zapisz.**
 
-Rozpoczyna początkową synchronizację wszystkich użytkowników i/lub grup przypisanych do Jive w sekcji Użytkownicy i grupy. Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które występują co około 40 minut, o ile usługa jest uruchomiona. Za pomocą sekcji **Szczegóły synchronizacji** można monitorować postęp i obserwować łącza do dzienników aktywności inicjowania obsługi administracyjnej, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji Jive.
+Rozpocznie się początkową synchronizację wszystkich użytkowników i/lub grup przypisanych do Jive w sekcji Użytkownicy i grupy. Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa jest uruchomiona. Za pomocą sekcji **szczegóły synchronizacji** można monitorować postęp i wykonywać linki do dzienników aktywności aprowizacji, które opisują wszystkie akcje wykonywane przez usługę aprowizacji w aplikacji Jive.
 
-Aby uzyskać więcej informacji na temat sposobu zapoznania się z dziennikami inicjowania obsługi administracyjnej usługi Azure AD, zobacz [Raportowanie automatycznego inicjowania obsługi administracyjnej konta użytkownika.](../app-provisioning/check-status-user-account-provisioning.md)
+Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji dla przedsiębiorstw](tutorial-list.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurowanie logowania jednokrotnego](jive-tutorial.md)

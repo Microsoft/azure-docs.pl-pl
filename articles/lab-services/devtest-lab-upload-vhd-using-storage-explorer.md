@@ -1,6 +1,6 @@
 ---
-title: Przekazywanie pliku VHD do laboratoriów devtest platformy Azure przy użyciu Eksploratora magazynu
-description: Przekazywanie pliku VHD do konta magazynu laboratorium przy użyciu Eksploratora usługi Microsoft Azure Storage Explorer
+title: Przekaż plik VHD do Azure DevTest Labs przy użyciu Eksplorator usługi Storage
+description: Przekaż plik VHD do konta magazynu laboratorium przy użyciu Eksplorator usługi Microsoft Azure Storage
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,67 +15,67 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: defafdd5809b7e537b3b9abb78f8cb63d0033c16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76170373"
 ---
-# <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Przekazywanie pliku VHD do konta magazynu laboratorium przy użyciu Eksploratora usługi Microsoft Azure Storage Explorer
+# <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Przekaż plik VHD do konta magazynu laboratorium przy użyciu Eksplorator usługi Microsoft Azure Storage
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-W laboratoriach DevTest Azure pliki VHD mogą być używane do tworzenia obrazów niestandardowych, które są używane do inicjowania obsługi administracyjnej maszyn wirtualnych. W tym artykule pokazano, jak użyć [Eksploratora usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) do przekazania pliku VHD na konto magazynu w laboratorium. Po przesłaniu pliku VHD w [sekcji Następne kroki](#next-steps) wymieniono kilka artykułów ilustrujących sposób tworzenia niestandardowego obrazu z przesłanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [Wprowadzenie do dysków zarządzanych](../virtual-machines/linux/managed-disks-overview.md)
+W Azure DevTest Labs pliki VHD mogą służyć do tworzenia obrazów niestandardowych, które są używane do obsługi maszyn wirtualnych. W tym artykule pokazano, jak za pomocą [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) przekazywać plik VHD do konta magazynu laboratorium. Po przekazaniu pliku VHD [sekcja następne kroki](#next-steps) zawiera listę artykułów, które ilustrują, jak utworzyć obraz niestandardowy na podstawie przekazanego pliku VHD. Aby uzyskać więcej informacji na temat dysków i dysków VHD na platformie Azure, zobacz [wprowadzenie do usługi Managed disks](../virtual-machines/linux/managed-disks-overview.md)
 
 ## <a name="step-by-step-instructions"></a>Instrukcje krok po kroku
 
-Poniższe kroki przebiegają przez przekazywanie pliku VHD do DevTest Labs przy użyciu [Eksploratora Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+Poniższe kroki przeprowadzą Cię przez proces przekazywania pliku VHD do DevTest Labs przy użyciu [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-1. [Pobierz i zainstaluj najnowszą wersję Eksploratora magazynu Microsoft Azure](https://www.storageexplorer.com).
+1. [Pobierz i zainstaluj najnowszą wersję Eksplorator usługi Microsoft Azure Storage](https://www.storageexplorer.com).
 
-1. Pobierz nazwę konta magazynu laboratorium przy użyciu witryny Azure portal:
+1. Pobierz nazwę konta magazynu laboratorium przy użyciu Azure Portal:
 
-    1. Zaloguj się do [Portalu Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+    1. Zaloguj się w witrynie [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
     
-    1. Wybierz **pozycję Wszystkie usługi**, a następnie wybierz z listy pozycję **DevTest Labs.**
+    1. Wybierz pozycję **wszystkie usługi**, a następnie z listy wybierz pozycję **DevTest Labs** .
     
-    1. Z listy laboratoriów wybierz żądane laboratorium.  
+    1. Z listy laboratoriów wybierz odpowiednie laboratorium.  
     
-    1. Na bloku laboratorium wybierz opcję **Konfiguracja**. 
+    1. W bloku laboratorium wybierz pozycję **Konfiguracja**. 
     
-    1. W bloku **Konfiguracji** laboratorium wybierz opcję **Obrazy niestandardowe (VED)**.
+    1. W bloku **Konfiguracja** laboratorium wybierz pozycję **obrazy niestandardowe (VHD)**.
     
-    1. W bloku **Obrazy niestandardowe** wybierz **pozycję +Dodaj**. 
+    1. W bloku **obrazy niestandardowe** wybierz pozycję **+ Dodaj**. 
     
-    1. Na **bloku Obraz niestandardowy** wybierz pozycję **VHD**.
+    1. W bloku **obrazu niestandardowego** wybierz pozycję **wirtualny dysk twardy**.
     
-    1. Na bloku **VHD** wybierz **pozycję Przekaż dysk VHD za pomocą programu PowerShell**.
+    1. W bloku **wirtualnego dysku twardego** wybierz pozycję **Przekaż dysk VHD przy użyciu programu PowerShell**.
     
-        ![Przekazywanie dysku VHD za pomocą programu PowerShell][0]
+        ![Przekazywanie wirtualnego dysku twardego przy użyciu programu PowerShell][0]
     
-    1. Przekaż obraz przy użyciu bloku **programu PowerShell** wyświetla wywołanie polecenia cmdlet **Add-AzureVhd.** Pierwszy parametr (*Miejsce docelowe*) zawiera nazwę konta magazynu dla laboratorium w następującym formacie:
+    1. Blok **przekazywanie obrazu przy użyciu programu PowerShell** wyświetla wywołanie polecenia cmdlet **Add-AzureVhd** . Pierwszy parametr (*miejsce docelowe*) zawiera nazwę konta magazynu dla laboratorium w następującym formacie:
     
         `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...`
 
-    1. Zanotuj nazwę konta magazynu, która jest używana w późniejszych krokach.
+    1. Zanotuj nazwę konta magazynu, która jest używana w dalszych krokach.
     
-1. Połącz się z kontem subskrypcji platformy Azure przy użyciu Eksploratora magazynu.
+1. Połącz się z kontem subskrypcji platformy Azure przy użyciu Eksplorator usługi Storage.
 
     > [!TIP] 
     > 
-    > Eksplorator magazynu obsługuje kilka opcji połączenia. W tej sekcji przedstawiono łączenie się z kontem magazynu skojarzonym z subskrypcją platformy Azure. Aby wyświetlić inne opcje połączenia obsługiwane przez Eksploratora magazynu, zapoznaj się z tym artykułem [Wprowadzenie do Eksploratora magazynu](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+    > Eksplorator usługi Storage obsługuje kilka opcji połączeń. W tej sekcji przedstawiono łączenie się z kontem magazynu skojarzonym z subskrypcją platformy Azure. Aby wyświetlić inne opcje połączenia obsługiwane przez Eksplorator usługi Storage, zapoznaj się z artykułem [wprowadzenie](../vs-azure-tools-storage-manage-with-storage-explorer.md)do usługi Eksplorator usługi Storage.
  
     1. Otwórz Eksploratora usługi Storage.
     
-    1. W Eksploratorze magazynu wybierz **pozycję Ustawienia konta platformy Azure**. 
+    1. W Eksplorator usługi Storage wybierz pozycję **Ustawienia konta platformy Azure**. 
     
         ![Ustawienia konta platformy Azure][1]
     
-    1. W lewym okienku są wyświetlane konta Microsoft, do których się zalogowano. Aby połączyć się z innym kontem, wybierz pozycję **Dodaj konto** i postępuj zgodnie z instrukcjami wyświetlanymi w oknach dialogowych, aby zalogować się przy użyciu konta Microsoft skojarzonego z co najmniej jedną aktywną subskrypcją platformy Azure.
+    1. W okienku po lewej stronie zostaną wyświetlone konta Microsoft, do których się zalogowano. Aby połączyć się z innym kontem, wybierz pozycję **Dodaj konto** i postępuj zgodnie z instrukcjami wyświetlanymi w oknach dialogowych, aby zalogować się przy użyciu konta Microsoft skojarzonego z co najmniej jedną aktywną subskrypcją platformy Azure.
     
         ![Dodaj konto][2]
     
-    1. Po pomyślnym zalogowaniu się przy użyciu konta Microsoft w okienku po lewej stronie zostaną wyświetlone wszystkie subskrypcje platformy Azure skojarzone z tym kontem. Wybierz subskrypcję platformy Azure, przy użyciu której chcesz pracować, a następnie wybierz przycisk **Zastosuj**. (Wybranie **opcji Wszystkie subskrypcje** powoduje przełączenie wyboru wszystkich lub żadnej z wymienionych subskrypcji platformy Azure).
+    1. Po pomyślnym zalogowaniu się przy użyciu konta Microsoft w okienku po lewej stronie zostaną wyświetlone wszystkie subskrypcje platformy Azure skojarzone z tym kontem. Wybierz subskrypcję platformy Azure, przy użyciu której chcesz pracować, a następnie wybierz przycisk **Zastosuj**. (Wybranie opcji **wszystkie subskrypcje** powoduje przełączenie zaznaczenia wszystkich lub żadnej z wymienionych subskrypcji platformy Azure).
     
         ![Wybieranie subskrypcji platformy Azure][3]
     
@@ -85,46 +85,46 @@ Poniższe kroki przebiegają przez przekazywanie pliku VHD do DevTest Labs przy 
 
 1. Znajdź konto magazynu laboratorium:
 
-    1. W lewym okienku Eksploratora magazynu znajdź i rozwiń węzeł subskrypcji platformy Azure, która jest właścicielem laboratorium.
+    1. W okienku Eksplorator usługi Storage lewe zlokalizuj i rozwiń węzeł subskrypcji platformy Azure, która jest właścicielem laboratorium.
     
-    1. W obszarze węzła subskrypcji rozwiń węzeł **Konta magazynu**.
+    1. W węźle subskrypcja rozwiń węzeł **konta magazynu**.
 
-    1. Rozwiń węzeł konta magazynu laboratorium, aby wyświetlić węzły **kontenerów obiektów Blob,** **udziałów plików,** **kolejek**i **tabel.**
+    1. Rozwiń węzeł konta magazynu laboratorium, aby wyświetlić węzły dla **kontenerów obiektów BLOB**, **udziałów plików**, **kolejek**i **tabel**.
     
-    1. Rozwiń węzeł **Kontenery obiektów blob.**
+    1. Rozwiń węzeł **kontenery obiektów BLOB** .
     
-    1. Wybierz kontener obiektów blob przekazywania, aby wyświetlić jego zawartość w prawym okienku.
+    1. Wybierz kontener obiektów BLOB przekazywania, aby wyświetlić jego zawartość w okienku po prawej stronie.
         
-        ![Prześlij katalog][5]
+        ![Przekaż katalog][5]
 
-1. Przekaż plik VHD za pomocą Eksploratora magazynu:
+1. Przekaż plik VHD przy użyciu Eksplorator usługi Storage:
 
-    1. W prawym okienku Eksplorator magazynu powinna zostać wyświetleni lista obiektów blob w kontenerze obiektów blob **przekazywania** konta magazynu laboratorium. Na pasku narzędzi edytora obiektów blob wybierz pozycję **Przekaż** 
+    1. W okienku Eksplorator usługi Storage po prawej stronie powinna zostać wyświetlona lista obiektów BLOB w kontenerze obiektów BLOB **przekazywania** dla konta magazynu laboratorium. Na pasku narzędzi Edytora obiektów BLOB wybierz pozycję **Przekaż** . 
         
         ![Przycisk Przekaż][6]
     
-    1. Z menu rozwijanego **Przesyłanie** wybierz pozycję **Przekaż pliki...**.
+    1. Z menu rozwijanego **Przekaż** wybierz pozycję **Przekaż pliki.**...
     
-    1. W oknie dialogowym **Przekazywanie plików** wybierz wielokropek.
+    1. W oknie dialogowym **przekazywanie plików** wybierz wielokropek.
         
         ![Wybierz plik][8]  
 
-    1. W oknie dialogowym **Wybieranie plików do przekazania** przejdź do żądanego pliku VHD, wybierz go, a następnie wybierz pozycję **Otwórz**.
+    1. W oknie dialogowym **Wybieranie plików do przekazania** przejdź do żądanego pliku VHD, zaznacz go, a następnie wybierz pozycję **Otwórz**.
     
-    1. Po powrocie do okna dialogowego **Przekazywanie plików** zmień **typ obiektu Blob** na **Obiekt Blob strony**.
+    1. Po zwróceniu do okna dialogowego **przekazywanie plików** Zmień **Typ obiektu BLOB** na **stronicowy obiekt BLOB**.
     
-    1. Wybierz **pozycję Przekaż**.
+    1. Wybierz pozycję **Przekaż**.
 
         ![Wybierz plik][9]  
     
-    1. W okienku **Dziennik aktywności** Eksploratora magazynu jest wyświetlany stan pobierania (wraz z łączami do anulowania przekazywania). Proces przesyłania pliku VHD może być długi w zależności od rozmiaru pliku VHD i szybkości połączenia. 
+    1. W okienku **Dziennik aktywności** Eksplorator usługi Storage zostanie wyświetlony stan pobierania (wraz z linkami w celu anulowania przekazywania). Proces przekazywania pliku VHD może być długi w zależności od rozmiaru pliku VHD i szybkości połączenia. 
 
-        ![Stan pliku przekazywania][10]  
+        ![Stan przekazywania pliku][10]  
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie niestandardowego obrazu w laboratoriach devtest azure z pliku VHD przy użyciu portalu Azure](devtest-lab-create-template.md)
-- [Tworzenie niestandardowego obrazu w laboratoriach devtest platformy Azure na podstawie pliku VHD przy użyciu programu PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+- [Tworzenie niestandardowego obrazu w Azure DevTest Labs z pliku VHD przy użyciu Azure Portal](devtest-lab-create-template.md)
+- [Tworzenie niestandardowego obrazu w Azure DevTest Labs z pliku VHD przy użyciu programu PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
 
 [0]: ./media/devtest-lab-upload-vhd-using-storage-explorer/upload-image-using-psh.png
 [1]: ./media/devtest-lab-upload-vhd-using-storage-explorer/settings-icon.png

@@ -1,7 +1,7 @@
 ---
-title: Logowanie do aplikacji MSAL | Azure
+title: Logowanie w aplikacjach MSAL | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się więcej o logowaniu w aplikacjach Biblioteki uwierzytelniania Firmy Microsoft (MSAL).
+description: Dowiedz się więcej o rejestrowaniu w aplikacjach Microsoft Authentication Library (MSAL).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,44 +14,44 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 58697cc535357710c6889f05060b5e04e129ae7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77084891"
 ---
-# <a name="logging-in-msal-applications"></a>Logowanie do aplikacji MSAL
+# <a name="logging-in-msal-applications"></a>Logowanie w aplikacjach MSAL
 
-Aplikacje biblioteki uwierzytelniania firmy Microsoft (MSAL) generują komunikaty dziennika, które mogą pomóc w diagnozowaniu problemów. Aplikacja może skonfigurować rejestrowanie za pomocą kilku wierszy kodu i mieć niestandardową kontrolę nad poziomem szczegółowości i tym, czy dane osobiste i organizacyjne są rejestrowane. Zaleca się utworzenie wywołania zwrotnego rejestrowania MSAL i zapewnienie użytkownikom możliwości przesyłania dzienników, gdy mają problemy z uwierzytelnianiem.
+Aplikacje Microsoft Authentication Library (MSAL) generują komunikaty dziennika, które mogą pomóc zdiagnozować problemy. Aplikacja może skonfigurować rejestrowanie z kilkoma wierszami kodu i mieć kontrolę niestandardową na poziomie szczegółowości oraz o tym, czy dane osobiste i organizacyjne są rejestrowane. Zalecamy utworzenie wywołania zwrotnego rejestrowania MSAL i udostępnienie użytkownikom przesyłania dzienników w przypadku problemów z uwierzytelnianiem.
 
 ## <a name="logging-levels"></a>Poziomy rejestrowania
 
-MSAL zapewnia kilka poziomów szczegółowości rejestrowania:
+MSAL zapewnia kilka poziomów rejestrowania szczegółów:
 
-- Błąd: wskazuje, że coś poszło nie tak i został wygenerowany błąd. Służy do debugowania i identyfikowania problemów.
-- Ostrzeżenie: Nie musi być błąd lub błąd, ale są przeznaczone do diagnostyki i wskazywania problemów.
-- Informacje: MSAL będzie rejestrować zdarzenia przeznaczone do celów informacyjnych niekoniecznie przeznaczone do debugowania.
-- Pełne: Domyślnie. MSAL rejestruje pełne szczegóły zachowania biblioteki.
+- Błąd: wskazuje, że wystąpił problem i został wygenerowany błąd. Służy do debugowania i identyfikowania problemów.
+- Ostrzeżenie: niekoniecznie Wystąpił błąd lub błąd, ale są one przeznaczone do diagnostyki i lokalizowania problemów.
+- Informacja: MSAL będzie rejestrować zdarzenia przeznaczone do celów informacyjnych niekoniecznie do debugowania.
+- Verbose: domyślne. MSAL rejestruje szczegółowe informacje o zachowaniu biblioteki.
 
 ## <a name="personal-and-organizational-data"></a>Dane osobowe i organizacyjne
 
-Domyślnie rejestrator MSAL nie przechwytuje żadnych bardzo poufnych danych osobistych lub organizacyjnych. Biblioteka udostępnia opcję włączania rejestrowania danych osobistych i organizacyjnych, jeśli zdecydujesz się to zrobić.
+Domyślnie Rejestrator MSAL nie przechwytuje żadnych wysoce poufnych danych osobistych lub organizacji. Biblioteka zawiera opcję włączenia rejestrowania danych osobowych i organizacji w przypadku podjęcia decyzji.
 
-Aby uzyskać szczegółowe informacje na temat rejestrowania MSAL w określonym języku, wybierz kartę pasującą do twojego języka:
+Aby uzyskać szczegółowe informacje o rejestrowaniu MSAL w określonym języku, wybierz kartę pasującą do języka:
 
 ## <a name="net"></a>[.NET](#tab/dotnet)
 
-## <a name="logging-in-msalnet"></a>Logowanie do MSAL.NET
+## <a name="logging-in-msalnet"></a>Logowanie w MSAL.NET
 
  > [!NOTE]
- > Zobacz [wiki MSAL.NET, aby](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) zapoznać się z próbkami rejestrowania MSAL.NET i nie tylko.
+ > Zobacz [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) , aby poznać przykłady rejestrowania MSAL.NET i nie tylko.
 
-W msal 3.x rejestrowanie jest ustawiane dla `.WithLogging` aplikacji podczas tworzenia aplikacji przy użyciu modyfikatora konstruktora. Ta metoda przyjmuje parametry opcjonalne:
+W MSAL 3. x rejestrowanie jest ustawione na aplikację przy tworzeniu aplikacji przy użyciu modyfikatora `.WithLogging` konstruktora. Ta metoda pobiera parametry opcjonalne:
 
-- `Level`pozwala zdecydować, który poziom rejestrowania chcesz. Ustawienie go na Błędy spowoduje tylko błędy
-- `PiiLoggingEnabled`umożliwia rejestrowanie danych osobistych i organizacyjnych, jeśli jest ustawiona na true. Domyślnie jest to ustawiona na false, dzięki czemu aplikacja nie rejestruje danych osobowych.
-- `LogCallback`jest ustawiona na delegata, który wykonuje rejestrowanie. Jeśli `PiiLoggingEnabled` jest to prawda, ta metoda otrzyma `containsPii` wiadomości dwa razy: raz z parametrem jest równy false i wiadomości bez danych osobowych, a po raz drugi z `containsPii` parametrem równa true i wiadomość może zawierać dane osobowe. W niektórych przypadkach (gdy wiadomość nie zawiera danych osobowych), wiadomość będzie taka sama.
-- `DefaultLoggingEnabled`umożliwia domyślne rejestrowanie dla platformy. Domyślnie jest false. Jeśli ustawisz go na true używa śledzenia zdarzeń w aplikacjach pulpitu/platformy uniwersalnej systemu Windows, NSLog na iOS i logcat na Androida.
+- `Level`umożliwia wybór żądanego poziomu rejestrowania. Ustawienie na błędy spowoduje tylko błędy
+- `PiiLoggingEnabled`umożliwia rejestrowanie danych osobistych i organizacji, jeśli ustawiono wartość true. Domyślnie to ustawienie ma wartość FAŁSZ, aby aplikacja nie rejestrował danych osobowych.
+- `LogCallback`jest ustawiony na delegata, który wykonuje rejestrowanie. Jeśli `PiiLoggingEnabled` ma wartość true, ta metoda otrzyma komunikaty dwa razy: jeden z `containsPii` parametrem jest równa false, a komunikat bez danych osobowych, a drugi `containsPii` parametr ma wartość true, a komunikat może zawierać dane osobowe. W niektórych przypadkach (gdy wiadomość nie zawiera danych osobowych), komunikat będzie taki sam.
+- `DefaultLoggingEnabled`Włącza rejestrowanie domyślne dla platformy. Domyślnie jest to wartość false. Jeśli ustawisz ją na wartość true, używa ona śledzenia zdarzeń w aplikacjach Desktop/platformy UWP, NSLog w systemach iOS i Logcat w systemie Android.
 
 ```csharp
 class Program
@@ -82,14 +82,14 @@ class Program
 
 ## <a name="android"></a>[Android](#tab/android)
 
-## <a name="logging-in-msal-for-android-using-java"></a>Logowanie do msal dla systemu Android przy użyciu oprogramowania Java
+## <a name="logging-in-msal-for-android-using-java"></a>Logowanie w MSAL dla systemu Android przy użyciu języka Java
 
-Włącz logowanie podczas tworzenia aplikacji, tworząc wywołanie zwrotne rejestrowania. Wywołanie zwrotne przyjmuje następujące parametry:
+Włącz logowanie przy tworzeniu aplikacji przez utworzenie wywołania zwrotnego rejestrowania. Wywołanie zwrotne przyjmuje następujące parametry:
 
-- `tag`jest ciągiem przekazanym do wywołania zwrotnego przez bibliotekę. Jest skojarzony z wpisem dziennika i może służyć do sortowania wiadomości rejestrowania.
-- `logLevel`pozwala zdecydować, który poziom rejestrowania chcesz. Obsługiwane poziomy dziennika `Error`to: `Warning` `Info`, `Verbose`, , i .
+- `tag`jest ciągiem przesłanym do wywołania zwrotnego przez bibliotekę. Jest ona skojarzona z wpisem dziennika i może służyć do sortowania komunikatów rejestrowania.
+- `logLevel`umożliwia wybór żądanego poziomu rejestrowania. Obsługiwane poziomy dzienników to `Error`:, `Warning`, `Info`i. `Verbose`
 - `message`jest zawartością wpisu dziennika.
-- `containsPII`określa, czy rejestrowane są wiadomości zawierające dane osobowe, czy dane organizacyjne. Domyślnie jest to ustawione na false, dzięki czemu aplikacja nie rejestruje danych osobowych. Jeśli `containsPII` `true`tak, ta metoda otrzyma wiadomości dwa `containsPII` razy: `false` raz `message` z parametrem ustawionym na `containsPii` i `true` bez danych osobowych, a po raz drugi z parametrem ustawionym na i wiadomość może zawierać dane osobowe. W niektórych przypadkach (gdy wiadomość nie zawiera danych osobowych), wiadomość będzie taka sama.
+- `containsPII`Określa, czy komunikaty zawierające dane osobowe lub dane organizacji są rejestrowane. Domyślnie to ustawienie ma wartość FAŁSZ, aby aplikacja nie rejestrował danych osobowych. Jeśli `containsPII` jest `true`, ta metoda otrzyma komunikaty dwa razy: jeden z `containsPII` parametrem ustawionym na `false` `message` , bez danych osobowych, a drugi raz z `containsPii` parametrem ustawionym na `true` , a komunikat może zawierać dane osobowe. W niektórych przypadkach (gdy wiadomość nie zawiera danych osobowych), komunikat będzie taki sam.
 
 ```java
 private StringBuilder mLogs;
@@ -105,8 +105,8 @@ Logger.getInstance().setExternalLogger(new ILoggerCallback()
 });
 ```
 
-Domyślnie rejestrator MSAL nie przechwytuje żadnych osobistych informacji umożliwiających identyfikację ani informacji umożliwiających identyfikację organizacji.
-Aby umożliwić rejestrowanie danych osobowych lub informacji umożliwiających identyfikację organizacji:
+Domyślnie Rejestrator MSAL nie będzie przechwytywać informacji osobistych ani informacji o organizacji.
+Aby włączyć rejestrowanie informacji osobistych lub informacji o organizacji:
 
 ```java
 Logger.getInstance().setEnablePII(true);
@@ -118,20 +118,20 @@ Aby wyłączyć rejestrowanie danych osobowych i danych organizacji:
 Logger.getInstance().setEnablePII(false);
 ```
 
-Domyślnie rejestrowanie do logcat jest wyłączone. Aby włączyć:
+Domyślnie logowanie do Logcat jest wyłączone. Aby włączyć:
 
 ```java
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
-## <a name="javascript"></a>[Javascript](#tab/javascript)
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
- Włącz rejestrowanie w pliku MSAL.js (JavaScript), przekazując obiekt rejestratora podczas konfiguracji tworzenia `UserAgentApplication` wystąpienia. Ten obiekt rejestratora ma następujące właściwości:
+ Włącz rejestrowanie w MSAL. js (JavaScript) przez przekazanie obiektu rejestratora podczas konfiguracji w celu utworzenia `UserAgentApplication` wystąpienia. Ten obiekt rejestratora ma następujące właściwości:
 
-- `localCallback`: wywołanie zwrotne wystąpienie, które mogą być dostarczone przez dewelopera do korzystania i publikowania dzienników w sposób niestandardowy. Zaimplementuj localCallback metody w zależności od tego, jak chcesz przekierować dzienniki.
-- `level`(opcjonalnie): konfigurowalny poziom dziennika. Obsługiwane poziomy dziennika `Error`to: `Warning` `Info`, `Verbose`, , i . Wartość domyślna to `Info`.
-- `piiLoggingEnabled`(opcjonalnie): jeśli ustawiona jest wartość true, rejestruje dane osobiste i organizacyjne. Domyślnie jest to false, dzięki czemu aplikacja nie rejestruje danych osobowych. Dzienniki danych osobistych nigdy nie są zapisywane w domyślnych wyjściach, takich jak Console, Logcat lub NSLog.
-- `correlationId`(opcjonalnie): unikatowy identyfikator, używany do mapowania żądania z odpowiedzią do celów debugowania. Domyślnie identyfikator GUID W WERSJI 4 RFC4122 (128 bitów).
+- `localCallback`: wystąpienie wywołania zwrotnego, które może zostać dostarczone przez dewelopera do korzystania z dzienników i publikowania ich w niestandardowy sposób. Zaimplementuj metodę localCallback w zależności od tego, jak chcesz przekierować dzienniki.
+- `level`(opcjonalnie): konfigurowalny poziom rejestrowania. Obsługiwane poziomy dzienników to `Error`:, `Warning`, `Info`i. `Verbose` Wartość domyślna to `Info`.
+- `piiLoggingEnabled`(opcjonalnie): w przypadku ustawienia wartości true program rejestruje dane osobiste i organizacyjne. Domyślnie jest to wartość false, aby aplikacja nie rejestrował danych osobowych. Osobiste dzienniki danych nigdy nie są zapisywane w domyślnych danych wyjściowych, takich jak Console, Logcat lub NSLog.
+- `correlationId`(opcjonalnie): unikatowy identyfikator używany do mapowania żądania z odpowiedzią na potrzeby debugowania. Wartość domyślna to RFC4122 w wersji 4 GUID (128 bitów).
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -156,11 +156,11 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-## <a name="objective-c"></a>[Cel C](#tab/objc)
+## <a name="objective-c"></a>[Obiektowy C](#tab/objc)
 
-## <a name="msal-for-ios-and-macos-logging-objc"></a>MSAL dla iOS i macOS rejestrowania ObjC
+## <a name="msal-for-ios-and-macos-logging-objc"></a>MSAL dla systemu iOS i rejestrowania macOS — ObjC
 
-Ustaw wywołanie zwrotne, aby przechwycić rejestrowanie MSAL i włączyć go do rejestrowania własnej aplikacji. Podpis wywołania zwrotnego wygląda następująco:
+Ustaw wywołanie zwrotne, aby przechwycić MSAL rejestrowanie i dołączyć je do rejestrowania własnych aplikacji. Podpis dla wywołania zwrotnego wygląda następująco:
 
 ```objc
 /*!
@@ -194,7 +194,7 @@ Przykład:
 
 ### <a name="personal-data"></a>Dane osobowe
 
-Domyślnie msal nie przechwytuje ani nie rejestruje żadnych danych osobowych.Default, MSAL doesn't capture or log any personal data (PII). Biblioteka umożliwia deweloperom aplikacji, aby włączyć to za pośrednictwem właściwości w MSALLogger klasy. Po włączeniu `pii.Enabled`aplikacja ponosi odpowiedzialność za bezpieczne obchodzenie się z bardzo wrażliwymi danymi i przestrzeganie wymogów regulacyjnych.
+Domyślnie MSAL nie przechwytują ani nie rejestruje żadnych danych osobowych. Biblioteka umożliwia deweloperom aplikacji włączenie tej właściwości w klasie MSALLogger. Po włączeniu `pii.Enabled`aplikacja jest odpowiedzialna za bezpieczne obsługiwanie bardzo poufnych danych i spełnianie wymagań prawnych.
 
 ```objc
 // By default, the `MSALLogger` doesn't capture any PII
@@ -208,14 +208,14 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 ### <a name="logging-levels"></a>Poziomy rejestrowania
 
-Aby ustawić poziom rejestrowania podczas logowania przy użyciu usługi MSAL dla systemu iOS i macOS, należy użyć jednej z następujących wartości:
+Aby ustawić poziom rejestrowania podczas rejestrowania przy użyciu MSAL dla systemów iOS i macOS, użyj jednej z następujących wartości:
 
 |Poziom  |Opis |
 |---------|---------|
-| `MSALLogLevelNothing`| Wyłączanie wszystkich rejestrowania |
-| `MSALLogLevelError` | Poziom domyślny, drukuje informacje tylko wtedy, gdy wystąpią błędy |
+| `MSALLogLevelNothing`| Wyłącz wszystkie rejestrowanie |
+| `MSALLogLevelError` | Poziom domyślny, drukuje informacje tylko w przypadku wystąpienia błędów |
 | `MSALLogLevelWarning` | Ostrzeżenia |
-| `MSALLogLevelInfo` |  Punkty wejścia biblioteki z parametrami i różnymi operacjami pęku kluczy |
+| `MSALLogLevelInfo` |  Punkty wejścia biblioteki, z parametrami i różnymi operacjami łańcucha kluczy |
 |`MSALLogLevelVerbose`     |  Śledzenie interfejsu API |
 
 Przykład:
@@ -226,19 +226,19 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
  ### <a name="log-message-format"></a>Format komunikatu dziennika
 
-Część komunikatów msal dziennik jest w formacie`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+Część komunikatów dziennika MSAL jest w formacie`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Przykład:
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
-Podanie identyfikatorów korelacji i sygnatur czasowych są przydatne do śledzenia problemów. Informacje o identyfikatorze sygnatury czasowej i identyfikatorze korelacji są dostępne w komunikacie dziennika. Jedynym niezawodnym miejscem do ich pobrania jest z msal rejestrowania wiadomości.
+Przekazywanie identyfikatorów korelacji i sygnatur czasowych jest przydatne w przypadku śledzenia problemów. W komunikacie dziennika są dostępne informacje o sygnaturze czasowej i IDENTYFIKATORze korelacji. Jedyną niezawodnym miejscem, w którym można je pobrać, jest MSAL komunikaty rejestrowania.
 
 ## <a name="swift"></a>[Swift](#tab/swift)
 
-## <a name="msal-for-ios-and-macos-logging-swift"></a>MSAL dla iOS i macOS rejestrowania Swift
+## <a name="msal-for-ios-and-macos-logging-swift"></a>MSAL dla systemu iOS i rejestrowania macOS — SWIFT
 
-Ustaw wywołanie zwrotne, aby przechwycić rejestrowanie MSAL i włączyć go do rejestrowania własnej aplikacji. Podpis (reprezentowany w języku Objective-C) dla wywołania zwrotnego wygląda następująco:
+Ustaw wywołanie zwrotne, aby przechwycić MSAL rejestrowanie i dołączyć je do rejestrowania własnych aplikacji. Sygnatura (reprezentowana w zamierzeniu-C) dla wywołania zwrotnego wygląda następująco:
 
 ```objc
 /*!
@@ -271,7 +271,7 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 
 ### <a name="personal-data"></a>Dane osobowe
 
-Domyślnie msal nie przechwytuje ani nie rejestruje żadnych danych osobowych.Default, MSAL doesn't capture or log any personal data (PII). Biblioteka umożliwia deweloperom aplikacji, aby włączyć to za pośrednictwem właściwości w MSALLogger klasy. Po włączeniu `pii.Enabled`aplikacja ponosi odpowiedzialność za bezpieczne obchodzenie się z bardzo wrażliwymi danymi i przestrzeganie wymogów regulacyjnych.
+Domyślnie MSAL nie przechwytują ani nie rejestruje żadnych danych osobowych. Biblioteka umożliwia deweloperom aplikacji włączenie tej właściwości w klasie MSALLogger. Po włączeniu `pii.Enabled`aplikacja jest odpowiedzialna za bezpieczne obsługiwanie bardzo poufnych danych i spełnianie wymagań prawnych.
 
 ```swift
 // By default, the `MSALLogger` doesn't capture any PII
@@ -285,14 +285,14 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 ### <a name="logging-levels"></a>Poziomy rejestrowania
 
-Aby ustawić poziom rejestrowania podczas logowania przy użyciu usługi MSAL dla systemu iOS i macOS, należy użyć jednej z następujących wartości:
+Aby ustawić poziom rejestrowania podczas rejestrowania przy użyciu MSAL dla systemów iOS i macOS, użyj jednej z następujących wartości:
 
 |Poziom  |Opis |
 |---------|---------|
-| `MSALLogLevelNothing`| Wyłączanie wszystkich rejestrowania |
-| `MSALLogLevelError` | Poziom domyślny, drukuje informacje tylko wtedy, gdy wystąpią błędy |
+| `MSALLogLevelNothing`| Wyłącz wszystkie rejestrowanie |
+| `MSALLogLevelError` | Poziom domyślny, drukuje informacje tylko w przypadku wystąpienia błędów |
 | `MSALLogLevelWarning` | Ostrzeżenia |
-| `MSALLogLevelInfo` |  Punkty wejścia biblioteki z parametrami i różnymi operacjami pęku kluczy |
+| `MSALLogLevelInfo` |  Punkty wejścia biblioteki, z parametrami i różnymi operacjami łańcucha kluczy |
 |`MSALLogLevelVerbose`     |  Śledzenie interfejsu API |
 
 Przykład:
@@ -303,21 +303,21 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 ### <a name="log-message-format"></a>Format komunikatu dziennika
 
-Część komunikatów msal dziennik jest w formacie`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+Część komunikatów dziennika MSAL jest w formacie`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Przykład:
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
-Podanie identyfikatorów korelacji i sygnatur czasowych są przydatne do śledzenia problemów. Informacje o identyfikatorze sygnatury czasowej i identyfikatorze korelacji są dostępne w komunikacie dziennika. Jedynym niezawodnym miejscem do ich pobrania jest z msal rejestrowania wiadomości.
+Przekazywanie identyfikatorów korelacji i sygnatur czasowych jest przydatne w przypadku śledzenia problemów. W komunikacie dziennika są dostępne informacje o sygnaturze czasowej i IDENTYFIKATORze korelacji. Jedyną niezawodnym miejscem, w którym można je pobrać, jest MSAL komunikaty rejestrowania.
 
 ## <a name="java"></a>[Java](#tab/java)
 
-## <a name="msal-for-java-logging"></a>MSAL do rejestrowania języka Java
+## <a name="msal-for-java-logging"></a>MSAL na potrzeby rejestrowania w języku Java
 
-Msal for Java umożliwia korzystanie z biblioteki rejestrowania, z której już korzystasz z aplikacji, o ile jest zgodna z SLF4J. MSAL for Java używa [prostego rejestrowania fasady dla java](http://www.slf4j.org/) (SLF4J) jako prostej fasady lub abstrakcji dla różnych struktur rejestrowania, takich jak [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) i [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J umożliwia użytkownikowi podłączenie żądanej struktury rejestrowania w czasie wdrażania.
+Program MSAL for Java umożliwia korzystanie z biblioteki rejestrowania, która jest już używana z aplikacją, pod warunkiem, że jest ona zgodna z SLF4J. MSAL for Java używa [prostego rejestrowania zaufana fasady for Java](http://www.slf4j.org/) (SLF4J) jako prostej elewacji lub abstrakcji dla różnych platform rejestrowania, takich jak [Java. util. Logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) i [Log4J](https://logging.apache.org/log4j/2.x/). SLF4J umożliwia użytkownikowi Podłączanie żądanej struktury rejestrowania w czasie wdrażania.
 
-Na przykład, aby użyć logback jako struktury rejestrowania w aplikacji, należy dodać zależność Logback do pliku Maven pom dla aplikacji:
+Na przykład, aby użyć Logback jako struktury rejestrowania w aplikacji, Dodaj zależność Logback do pliku Maven pliku pom dla aplikacji:
 
 ```xml
 <dependency>
@@ -327,7 +327,7 @@ Na przykład, aby użyć logback jako struktury rejestrowania w aplikacji, nale�
 </dependency>
 ```
 
-Następnie dodaj plik konfiguracyjny Logback:
+Następnie Dodaj plik konfiguracji Logback:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -336,13 +336,13 @@ Następnie dodaj plik konfiguracyjny Logback:
 </configuration>
 ```
 
-SLF4J automatycznie wiąże się z logback w czasie wdrażania. Dzienniki MSAL zostaną zapisane na konsoli.
+SLF4J automatycznie wiąże się z Logback w czasie wdrażania. Dzienniki MSAL zostaną zapisane w konsoli programu.
 
-Instrukcje dotyczące wiązania z innymi strukturami rejestrowania można znaleźć w [instrukcji obsługi SLF4J.](http://www.slf4j.org/manual.html)
+Instrukcje dotyczące tworzenia powiązań z innymi platformami rejestrowania można znaleźć w [podręczniku SLF4J](http://www.slf4j.org/manual.html).
 
-### <a name="personal-and-organization-information"></a>Informacje osobiste i organizacyjne
+### <a name="personal-and-organization-information"></a>Informacje osobiste i organizacja
 
-Domyślnie rejestrowanie MSAL nie przechwytuje ani nie rejestruje żadnych danych osobistych ani organizacyjnych. W poniższym przykładzie rejestrowanie danych osobistych lub organizacyjnych jest domyślnie wyłączone:
+Domyślnie rejestrowanie MSAL nie przechwytuje ani nie rejestruje żadnych danych osobowych ani organizacji. W poniższym przykładzie rejestrowanie danych osobistych lub organizacji jest domyślnie wyłączone:
 
 ```java
     PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
@@ -350,9 +350,9 @@ Domyślnie rejestrowanie MSAL nie przechwytuje ani nie rejestruje żadnych danyc
             .build();
 ```
 
-Włącz rejestrowanie danych osobistych i `logPii()` organizacyjnych, ustawiając na konstruktorze aplikacji klienckich. Jeśli włączysz rejestrowanie danych osobistych lub organizacyjnych, aplikacja musi ponosić odpowiedzialność za bezpieczne przetwarzanie wysoce poufnych danych i spełnianie wszelkich wymogów prawnych.
+Włącz osobiste i organizacyjne rejestrowanie danych przez ustawienie `logPii()` w konstruktorze aplikacji klienta. Jeśli włączysz dane osobiste lub organizacyjne, Twoja aplikacja musi podjąć odpowiedzialność za bezpieczne obsługiwanie danych o wysokiej dostępności i spełniających wymagania prawne.
 
-W poniższym przykładzie jest włączone rejestrowanie danych osobistych lub organizacyjnych:
+W poniższym przykładzie jest włączone rejestrowanie danych osobistych lub organizacji:
 
 ```java
 PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
@@ -363,32 +363,32 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
 
 ## <a name="python"></a>[Python](#tab/python)
 
-## <a name="msal-for-python-logging"></a>MSAL dla rejestrowania języka Python
+## <a name="msal-for-python-logging"></a>MSAL na potrzeby rejestrowania w języku Python
 
-Logowanie w programie MSAL Python korzysta ze standardowego mechanizmu rejestrowania języka Python, na przykład `logging.info("msg")` rejestrowanie MSAL można skonfigurować w następujący sposób (i zobaczyć je w akcji w [username_password_sample):](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)
+Logowanie w MSAL Python korzysta ze standardowego mechanizmu rejestrowania języka Python, na `logging.info("msg")` przykład można skonfigurować rejestrowanie MSAL w następujący sposób (i zobaczyć w działaniu w [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
 
 ### <a name="enable-debug-logging-for-all-modules"></a>Włącz rejestrowanie debugowania dla wszystkich modułów
 
-Domyślnie rejestrowanie w dowolnym skrypcie języka Python jest wyłączone. Jeśli chcesz włączyć rejestrowanie debugowania dla wszystkich modułów w całym skrypcie Języka Python, użyj:
+Domyślnie rejestrowanie w dowolnym skrypcie języka Python jest wyłączone. Jeśli chcesz włączyć rejestrowanie debugowania dla wszystkich modułów w całym skrypcie języka Python, użyj:
 
 ```python
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-### <a name="silence-only-msal-logging"></a>Wyciszenie tylko rejestrowania MSAL
+### <a name="silence-only-msal-logging"></a>Wyciszenie tylko MSAL rejestrowania
 
-Aby wyciszyć tylko rejestrowanie biblioteki MSAL, umożliwiając rejestrowanie debugowania we wszystkich innych modułach w skrypcie języka Python, wyłącz rejestrator używany przez msal python:
+Aby wyciszyć tylko rejestrowanie biblioteki MSAL, jednocześnie włączając rejestrowanie debugowania we wszystkich innych modułach w skrypcie języka Python, wyłącz Rejestrator używany przez język MSAL Python:
 
 ```Python
 logging.getLogger("msal").setLevel(logging.WARN)
 ```
 
-### <a name="personal-and-organizational-data-in-python"></a>Dane osobiste i organizacyjne w języku Python
+### <a name="personal-and-organizational-data-in-python"></a>Dane osobowe i organizacyjne w języku Python
 
-Usługa MSAL dla języka Python nie rejestruje danych osobowych ani danych organizacji. Nie ma właściwości, aby włączyć lub wyłączyć rejestrowanie danych osobowych lub organizacji.
+MSAL dla języka Python nie rejestruje danych osobowych ani danych organizacji. Nie ma właściwości umożliwiającej włączenie lub wyłączenie rejestrowania danych osobowych lub organizacji.
 
-Możesz użyć standardowego rejestrowania języka Python, aby rejestrować, co chcesz, ale jesteś odpowiedzialny za bezpieczne przetwarzanie poufnych danych i przestrzeganie wymagań regulacyjnych.
+Możesz użyć standardowego rejestrowania w języku Python, aby zalogować się, ale użytkownik jest odpowiedzialny za bezpieczne obsługiwanie danych poufnych i spełnienie wymagań prawnych.
 
-Aby uzyskać więcej informacji na temat logowania w Pythonie, zapoznaj się z Owaniem Pythona [HOWTO](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
+Aby uzyskać więcej informacji na temat rejestrowania w języku Python, zapoznaj się z artykułem rejestrowanie w języku Python [porady](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
 
 ---

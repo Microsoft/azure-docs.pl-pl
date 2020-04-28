@@ -1,32 +1,32 @@
 ---
-title: Avere vFXT — obejście problemu niebędącego właścicielem — Azure
-description: Obejście umożliwiające użytkownikom bez uprawnień właściciela subskrypcji wdrożenie usługi Avere vFXT for Azure
+title: Avere vFXT niebędącego właścicielem — Azure
+description: Obejście, aby umożliwić użytkownikom bez uprawnień właściciela subskrypcji wdrażanie avere vFXT dla platformy Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 1b411fe465a67f8ea5421ac0dc93348b4e92e8ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76153279"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Autoryzowanie osób niebędących właścicielami do wdrożenia systemu Avere vFXT
 
-Te instrukcje są obejściem, które umożliwia użytkownikowi bez uprawnień właściciela subskrypcji utworzenie systemu Avere vFXT for Azure.
+Te instrukcje to obejście, które umożliwia użytkownikowi bez uprawnień właściciela subskrypcji tworzenie avere vFXT dla systemu Azure.
 
-(Zalecanym sposobem wdrożenia systemu VFXT Avere jest wykonanie kroków tworzenia przez użytkownika z uprawnieniami właściciela, jak wyjaśniono w [instrukcji Przygotuj do utworzenia avere vFXT.)](avere-vfxt-prereqs.md)  
+(Zalecanym sposobem wdrożenia systemu avere vFXT jest posiadanie użytkownikowi z uprawnieniami właściciela wykonania kroków tworzenia, zgodnie z opisem w sekcji [przygotowanie do utworzenia avere vFXT](avere-vfxt-prereqs.md).)  
 
-Obejście polega na utworzeniu dodatkowej roli dostępu, która daje użytkownikom wystarczające uprawnienia do zainstalowania klastra. Rola musi zostać utworzona przez właściciela subskrypcji, a właściciel musi przypisać ją do odpowiednich użytkowników.
+Obejście obejmuje utworzenie dodatkowej roli dostępu zapewniającej użytkownikom wystarczające uprawnienia do instalacji klastra. Rola musi być utworzona przez właściciela subskrypcji, a właściciel musi przypisać go do odpowiednich użytkowników.
 
-Właściciel subskrypcji musi również [zaakceptować warunki użytkowania](avere-vfxt-prereqs.md) obrazu rynku Avere vFXT.
+Właściciel subskrypcji musi również [zaakceptować warunki użytkowania](avere-vfxt-prereqs.md) obrazu witryny Marketplace avere vFXT.
 
 > [!IMPORTANT]
-> Wszystkie te kroki muszą być podjęte przez użytkownika z uprawnieniami właściciela w subskrypcji, która będzie używana dla klastra.
+> Wszystkie te kroki muszą zostać wykonane przez użytkownika z uprawnieniami właściciela do subskrypcji, która będzie używana w klastrze.
 
-1. Skopiuj te wiersze i `averecreatecluster.json`zapisz je w pliku (na przykład ). Użyj identyfikatora subskrypcji `AssignableScopes` w instrukcji.
+1. Skopiuj te wiersze i Zapisz je w pliku (na przykład `averecreatecluster.json`). Użyj identyfikatora subskrypcji w `AssignableScopes` instrukcji.
 
    ```json
    {
@@ -68,12 +68,12 @@ Właściciel subskrypcji musi również [zaakceptować warunki użytkowania](ave
     az role definition create --role-definition ./averecreatecluster.json
     ```
 
-1. Przypisz tę rolę do użytkownika, który utworzy klaster:
+1. Przypisz tę rolę użytkownikowi, który utworzy klaster:
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-Po zakończeniu tego procesu rola daje każdemu użytkownikowi przypisane go następujące uprawnienia do subskrypcji:
+Po zakończeniu tego procesu rola udzieli każdemu użytkownikowi przypisanemu mu następujących uprawnień:
 
-* Tworzenie i konfigurowanie infrastruktury sieciowej
+* Tworzenie i Konfigurowanie infrastruktury sieciowej
 * Tworzenie kontrolera klastra
 * Uruchamianie skryptów tworzenia klastra z kontrolera klastra w celu utworzenia klastra

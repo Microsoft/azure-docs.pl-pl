@@ -1,28 +1,28 @@
 ---
-title: Podorganizacje dla trwałych funkcji — Azure
-description: Jak wywołać aranżacji z aranżacji w rozszerzenie funkcje trwałe dla usługi Azure Functions.
+title: Podaranżacje dla Durable Functions — Azure
+description: Jak wywoływać aranżacje z aranżacji w rozszerzeniu Durable Functions Azure Functions.
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d4d599063f727510cbf504ea3d121bdabfe001c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76261521"
 ---
-# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Podaranżacji w funkcji trwałych (usługi Azure)
+# <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Organizowanie podrzędne w Durable Functions (Azure Functions)
 
-Oprócz wywoływania funkcji działania, funkcje orkiestratora można wywołać inne funkcje orkiestratora. Na przykład można utworzyć większą aranżację z biblioteki mniejszych funkcji aranżatora. Lub można uruchomić wiele wystąpień funkcji orkiestratora równolegle.
+Oprócz wywoływania funkcji działania, funkcje programu Orchestrator mogą wywoływać inne funkcje programu Orchestrator. Można na przykład utworzyć większą organizację poza biblioteką mniejszych funkcji programu Orchestrator. Można też uruchomić wiele wystąpień funkcji programu Orchestrator równolegle.
 
-Funkcja koordynatora może wywołać inną `CallSubOrchestratorAsync` funkcję `CallSubOrchestratorWithRetryAsync` koordynatora przy użyciu `callSubOrchestrator` lub `callSubOrchestratorWithRetry` metod w .NET lub lub metody w języku JavaScript. W artykule [& compensation obsługi błędów](durable-functions-error-handling.md#automatic-retry-on-failure) zawiera więcej informacji na temat automatycznego ponawiania prób.
+Funkcja programu Orchestrator może wywoływać inną funkcję programu Orchestrator `CallSubOrchestratorAsync` przy użyciu `CallSubOrchestratorWithRetryAsync` metod w programie .NET `callSubOrchestrator` lub `callSubOrchestratorWithRetry` metod w języku JavaScript. W artykule dotyczącym [obsługi błędów & wynagrodzenie](durable-functions-error-handling.md#automatic-retry-on-failure) zawiera więcej informacji na temat automatycznego ponawiania próby.
 
-Funkcje podaranżatora zachowują się podobnie jak funkcje działania z perspektywy wywołującego. Mogą zwracać wartość, zgłaszać wyjątek i mogą być oczekiwane przez nadrzędną funkcję koordynatora. 
+Funkcje programu sub-Orchestrator zachowują się podobnie jak funkcje działania z perspektywy obiektu wywołującego. Mogą zwrócić wartość, zgłosić wyjątek i może oczekiwać przez nadrzędną funkcję programu Orchestrator. 
 ## <a name="example"></a>Przykład
 
-Poniższy przykład ilustruje scenariusz IoT ("Internet rzeczy"), w którym istnieje wiele urządzeń, które muszą być aprowizacji. Następująca funkcja reprezentuje przepływ pracy inicjowania obsługi administracyjnej, który musi zostać wykonany dla każdego urządzenia:
+Poniższy przykład ilustruje scenariusz IoT ("Internet rzeczy"), w którym istnieje wiele urządzeń, które muszą być obsługiwane. Poniższa funkcja reprezentuje przepływ pracy aprowizacji, który należy wykonać dla każdego urządzenia:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -43,7 +43,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -66,11 +66,11 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Ta funkcja koordynatora może być używana jako — jest dla jednorazowego inicjowania obsługi administracyjnej urządzenia lub może być częścią większej aranżacji. W tym ostatnim przypadku nadrzędna funkcja koordynatora `DeviceProvisioningOrchestration` może `CallSubOrchestratorAsync` planować wystąpienia `callSubOrchestrator` korzystania z interfejsu API (.NET) lub (JavaScript).
+Ta funkcja programu Orchestrator może być używana jako — dla jednorazowej aprowizacji urządzeń lub może być częścią większej aranżacji. W tym drugim przypadku nadrzędna funkcja programu Orchestrator może planować wystąpienia `DeviceProvisioningOrchestration` przy użyciu `CallSubOrchestratorAsync` interfejsu API (.NET `callSubOrchestrator` ) lub (JavaScript).
 
-Oto przykład, który pokazuje, jak uruchomić wiele funkcji koordynatora równolegle.
+Oto przykład, w którym pokazano, jak uruchomić wiele funkcji programu Orchestrator równolegle.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -94,9 +94,9 @@ public static async Task ProvisionNewDevices(
 ```
 
 > [!NOTE]
-> Poprzednie przykłady języka C# są dla funkcji trwałych 2.x. W przypadku funkcji trwałych 1.x należy używać `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext`. Aby uzyskać więcej informacji na temat różnic między wersjami, zobacz [wersje funkcji trwałych](durable-functions-versions.md) artykułu.
+> Poprzednie przykłady w języku C# są przeznaczone dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast. `IDurableOrchestrationContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -123,7 +123,7 @@ module.exports = df.orchestrator(function*(context) {
 ---
 
 > [!NOTE]
-> Podaranżacji muszą być zdefiniowane w tej samej aplikacji funkcji jako nadrzędnej aranżacji. Jeśli chcesz wywołać i czekać na aranżacji w innej aplikacji funkcji, należy rozważyć użycie wbudowanej obsługi interfejsów API HTTP i http 202 sondowania wzorca konsumenta. Aby uzyskać więcej informacji, zobacz temat [Funkcje HTTP.](durable-functions-http-features.md)
+> Podaranżacje muszą być zdefiniowane w tej samej aplikacji funkcji co w przypadku aranżacji nadrzędnej. Jeśli konieczne jest wywołanie i oczekiwanie na aranżację w innej aplikacji funkcji, należy rozważyć użycie wbudowanej obsługi interfejsów API protokołu HTTP i wzorca klienta sondowania HTTP 202. Aby uzyskać więcej informacji, zobacz temat [funkcje protokołu HTTP](durable-functions-http-features.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

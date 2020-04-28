@@ -1,7 +1,7 @@
 ---
-title: Wizualizuj dzienniki przepływu NSG - elastyczny stos
+title: Wizualizacja dzienników przepływu sieciowej grupy zabezpieczeń — elastyczny stos
 titleSuffix: Azure Network Watcher
-description: Zarządzanie dziennikami przepływu grupy zabezpieczeń sieciowych i analizowanie ich na platformie Azure przy użyciu funkcji Kontrola sieci i stos elastyczny.
+description: Zarządzanie i analizowanie dzienników przepływu sieciowych grup zabezpieczeń na platformie Azure przy użyciu Network Watcher i elastycznego stosu.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,39 +13,39 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: e567994038fb4f71ef86dc577760ecf4699a0b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840642"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Wizualizowanie dzienników przepływu sieciowych grup zabezpieczeń usługi Azure Network Watcher przy użyciu narzędzi open source
 
-Dzienniki przepływu sieciowej grupy zabezpieczeń zawierają informacje, które mogą być używane, rozumieją ruch IP przychodzących i wychodzących w sieciowych grupach zabezpieczeń. Te dzienniki przepływu pokazują przepływy wychodzące i przychodzące na podstawie reguły, karta sieciowa, do którą ma zastosowanie przepływ, 5 informacji o krocie przepływu (adres IP źródła/miejsca docelowego, port źródłowy/docelowy, protokół) oraz jeśli ruch był dozwolony lub odrzucany.
+Dzienniki przepływu sieciowych grup zabezpieczeń zawierają informacje, które mogą być używane do obsługi ruchu przychodzącego i wychodzącego IP w sieciowych grupach zabezpieczeń. Te dzienniki przepływu pokazują przepływy wychodzące i przychodzące dla każdej reguły, karta sieciowa przepływu ma zastosowanie do, 5 informacji o kolekcji przepływu (źródłowy/docelowy adres IP, port źródłowy/docelowy, protokół) i jeśli ruch był dozwolony lub zabroniony.
 
-Te dzienniki przepływu może być trudne do ręcznej analizy i uzyskać szczegółowe informacje z. Istnieje jednak kilka narzędzi open source, które mogą pomóc w wizualizacji tych danych. Ten artykuł zapewni rozwiązanie do wizualizacji tych dzienników przy użyciu stosu elastycznego, który pozwoli ci szybko indeksować i wizualizować dzienniki przepływu na pulpicie nawigacyjnym Kibana.
+Te dzienniki przepływu mogą być trudne do ręcznego analizowania i uzyskiwania szczegółowych informacji z programu. Istnieje jednak kilka narzędzi open source, które mogą ułatwić wizualizację tych danych. W tym artykule podano rozwiązanie do wizualizacji tych dzienników przy użyciu elastycznego stosu, co umożliwi szybkie indeksowanie i wizualizację dzienników przepływów na pulpicie nawigacyjnym Kibana.
 
 > [!Warning]  
-> Poniższe kroki działają z dziennikami przepływu w wersji 1. Aby uzyskać szczegółowe informacje, zobacz [Wprowadzenie do rejestrowania przepływu dla grup zabezpieczeń sieci .](network-watcher-nsg-flow-logging-overview.md) Poniższe instrukcje nie będą działać z wersją 2 plików dziennika, bez modyfikacji.
+> Poniższe kroki współpracują z dziennikami przepływów w wersji 1. Aby uzyskać szczegółowe informacje, zobacz [wprowadzenie do rejestrowania przepływów dla sieciowych grup zabezpieczeń](network-watcher-nsg-flow-logging-overview.md). Poniższe instrukcje nie będą działały z wersją 2 plików dziennika bez modyfikacji.
 
 ## <a name="scenario"></a>Scenariusz
 
-W tym artykule firma Microsoft skonfigurujemy rozwiązanie, które pozwoli ci wizualizować dzienniki przepływu sieciowej grupy zabezpieczeń przy użyciu stosu elastycznego.  Wtyczka wejściowa Logstash uzyska dzienniki przepływu bezpośrednio z obiektu blob magazynu skonfigurowanego do przechowywania dzienników przepływu. Następnie za pomocą stosu elastycznego dzienniki przepływu zostaną zindeksowane i wykorzystane do utworzenia pulpitu nawigacyjnego Kibana do wizualizacji informacji.
+W tym artykule skonfigurujemy rozwiązanie, które umożliwi wizualizację dzienników przepływu sieciowych grup zabezpieczeń przy użyciu elastycznego stosu.  Wtyczka wejściowa logstash uzyska dzienniki przepływów bezpośrednio z obiektu blob magazynu skonfigurowanego dla zawierającego dzienniki przepływów. Następnie przy użyciu elastycznego stosu dzienniki przepływu będą indeksowane i używane do tworzenia pulpitu nawigacyjnego Kibana w celu wizualizacji informacji.
 
 ![scenariusz][scenario]
 
 ## <a name="steps"></a>Kroki
 
-### <a name="enable-network-security-group-flow-logging"></a>Włączanie rejestrowania przepływu sieciowej grupy zabezpieczeń
-W tym scenariuszu musi być włączone rejestrowanie przepływu sieciowej grupy zabezpieczeń na co najmniej jednej sieciowej grupie zabezpieczeń na koncie. Instrukcje dotyczące włączania dzienników przepływu zabezpieczeń sieciowych można znaleźć w artykule [Wprowadzenie do rejestrowania przepływu dla grup zabezpieczeń sieciowych](network-watcher-nsg-flow-logging-overview.md).
+### <a name="enable-network-security-group-flow-logging"></a>Włącz rejestrowanie przepływu sieciowych grup zabezpieczeń
+W tym scenariuszu należy włączyć rejestrowanie przepływu sieciowej grupy zabezpieczeń dla co najmniej jednej sieciowej grupy zabezpieczeń na Twoim koncie. Instrukcje dotyczące włączania dzienników przepływu zabezpieczeń sieci znajdują się w następującym artykule [wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń](network-watcher-nsg-flow-logging-overview.md).
 
-### <a name="set-up-the-elastic-stack"></a>Konfigurowanie stosu elastycznego
-Łącząc dzienniki przepływu sieciowej sieciowej z elastycznym stosem, możemy utworzyć pulpit nawigacyjny Kibana, który pozwala nam wyszukiwać, wykresować, analizować i czerpać wnioski z naszych dzienników.
+### <a name="set-up-the-elastic-stack"></a>Konfigurowanie elastycznego stosu
+Łącząc dzienniki przepływu sieciowej grupy zabezpieczeń z elastycznym stosem, możemy utworzyć pulpit nawigacyjny Kibana, co umożliwia nam wyszukiwanie, Graph, analizowanie i uzyskiwanie szczegółowych informacji z naszych dzienników.
 
 #### <a name="install-elasticsearch"></a>Zainstaluj Elasticsearch
 
-1. Stos elastyczny z wersji 5.0 i nowszych wymaga java 8. Uruchom polecenie, `java -version` aby sprawdzić wersję. Jeśli nie masz zainstalowanej oprogramowania Java, zapoznaj się z dokumentacją dotyczącą [zestawów JDK z suppored platformy Azure.](https://aka.ms/azure-jdks)
-2. Pobierz odpowiedni pakiet binarny dla swojego systemu:
+1. Stos elastyczny z wersji 5,0 i nowszej wymaga języka Java 8. Uruchom polecenie `java -version` , aby sprawdzić wersję. Jeśli nie masz zainstalowanego języka Java, zapoznaj się z dokumentacją na [platformie Azure-Suppored zestawy JDK](https://aka.ms/azure-jdks).
+2. Pobierz poprawny pakiet binarny dla Twojego systemu:
 
    ```bash
    curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
@@ -53,15 +53,15 @@ W tym scenariuszu musi być włączone rejestrowanie przepływu sieciowej grupy 
    sudo /etc/init.d/elasticsearch start
    ```
 
-   Inne metody instalacji można znaleźć na [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
+   Inne metody instalacji można znaleźć w [instalacji Elasticsearch](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
-3. Sprawdź, czy Elasticsearch działa za pomocą polecenia:
+3. Sprawdź, czy Elasticsearch działa z poleceniem:
 
     ```bash
     curl http://127.0.0.1:9200
     ```
 
-    Powinna zostać wyświetlna odpowiedź podobna do tej:
+    Powinna zostać wyświetlona odpowiedź podobna do tej:
 
     ```json
     {
@@ -78,17 +78,17 @@ W tym scenariuszu musi być włączone rejestrowanie przepływu sieciowej grupy 
     }
     ```
 
-Dalsze instrukcje dotyczące instalacji wyszukiwania elastycznego można znaleźć w [instrukcji instalacji](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
+Aby uzyskać więcej informacji na temat instalowania wyszukiwania elastycznego, zapoznaj się z [instrukcjami instalacji](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
 
-### <a name="install-logstash"></a>Instalowanie programu Logstash
+### <a name="install-logstash"></a>Zainstaluj logstash
 
-1. Aby zainstalować program Logstash, uruchom następujące polecenia:
+1. Aby zainstalować logstash, uruchom następujące polecenia:
 
     ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-2. Następnie musimy skonfigurować Logstash, aby uzyskać dostęp i przeanalizować dzienniki przepływu. Utwórz plik logstash.conf przy użyciu:
+2. Następnie musimy skonfigurować logstash, aby uzyskać dostęp i analizować dzienniki przepływów. Utwórz plik logstash. conf przy użyciu:
 
     ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -157,17 +157,17 @@ Dalsze instrukcje dotyczące instalacji wyszukiwania elastycznego można znaleź
    }  
    ```
 
-Dalsze instrukcje dotyczące instalacji logstash można znaleźć w [oficjalnej dokumentacji.](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
+Dalsze instrukcje dotyczące instalowania logstash można znaleźć w [oficjalnej dokumentacji](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 
-### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Instalowanie wtyczki wejściowej Logstash dla magazynu obiektów blob platformy Azure
+### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Zainstaluj wtyczkę wejściową logstash dla usługi Azure Blob Storage
 
-Ta wtyczka Logstash pozwoli Ci bezpośrednio uzyskać dostęp do dzienników przepływu z ich wyznaczonego konta pamięci masowej. Aby zainstalować tę wtyczkę, z domyślnego katalogu instalacyjnego Logstash (w tym przypadku /usr/share/logstash/bin) uruchom polecenie:
+Ta wtyczka logstash umożliwia bezpośredni dostęp do dzienników przepływu ze wskazanych kont magazynu. Aby zainstalować tę wtyczkę, z domyślnego katalogu instalacji logstash (w tym przypadku/usr/share/logstash/bin) Uruchom polecenie:
 
 ```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
-Aby uruchomić logstash uruchom polecenie:
+Aby rozpocząć logstash, uruchom polecenie:
 
 ```bash
 sudo /etc/init.d/logstash start
@@ -175,7 +175,7 @@ sudo /etc/init.d/logstash start
 
 Aby uzyskać więcej informacji na temat tej wtyczki, zapoznaj się z [dokumentacją](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
-### <a name="install-kibana"></a>Instalowanie Kibana
+### <a name="install-kibana"></a>Zainstaluj Kibana
 
 1. Uruchom następujące polecenia, aby zainstalować Kibana:
 
@@ -184,66 +184,66 @@ Aby uzyskać więcej informacji na temat tej wtyczki, zapoznaj się z [dokumenta
    tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
    ```
 
-2. Aby uruchomić Kibana użyj poleceń:
+2. Aby uruchomić Kibana, Użyj poleceń:
 
    ```bash
    cd kibana-5.2.0-linux-x86_64/
    ./bin/kibana
    ```
 
-3. Aby wyświetlić interfejs internetowy Kibana, przejdź do`http://localhost:5601`
-4. W tym scenariuszu wzorzec indeksu używany dla dzienników przepływu jest "nsg-flow-logs". Możesz zmienić wzorzec indeksu w sekcji "dane wyjściowe" pliku logstash.conf.
-5. Jeśli chcesz zdalnie wyświetlić pulpit nawigacyjny Kibana, utwórz przychodzącą regułę nsg umożliwiającą dostęp do **portu 5601**.
+3. Aby wyświetlić interfejs sieci Web Kibana, przejdź do`http://localhost:5601`
+4. W tym scenariuszu wzorzec indeksu używany do rejestrowania przepływu to "sieciowej grupy zabezpieczeń-Flow-Logs". Wzorzec indeksu można zmienić w sekcji "output" pliku logstash. conf.
+5. Jeśli chcesz zdalnie wyświetlić pulpit nawigacyjny Kibana, Utwórz regułę sieciowej grupy zabezpieczeń dla ruchu przychodzącego zezwalającą na dostęp do **portu 5601**.
 
 ### <a name="create-a-kibana-dashboard"></a>Tworzenie pulpitu nawigacyjnego Kibana
 
-Przykładowy pulpit nawigacyjny do wyświetlania trendów i szczegółów w alertach jest wyświetlany na poniższym obrazie:
+Przykładowy pulpit nawigacyjny do wyświetlania trendów i szczegółów w alertach przedstawiono na poniższej ilustracji:
 
 ![rysunek 1][1]
 
-Pobierz [plik pulpitu nawigacyjnego,](https://aka.ms/networkwatchernsgflowlogdashboard) [plik wizualizacji](https://aka.ms/networkwatchernsgflowlogvisualizations)i [zapisany plik wyszukiwania](https://aka.ms/networkwatchernsgflowlogsearch).
+Pobierz [plik pulpitu nawigacyjnego](https://aka.ms/networkwatchernsgflowlogdashboard), [plik wizualizacji](https://aka.ms/networkwatchernsgflowlogvisualizations)i [zapisany plik wyszukiwania](https://aka.ms/networkwatchernsgflowlogsearch).
 
-Na karcie **Zarządzanie** w kibanie przejdź do pozycji Zapisane obiekty i zaimportuj wszystkie trzy pliki. **Saved Objects** Następnie na karcie **Pulpit nawigacyjny** można otworzyć i załadować przykładowy pulpit nawigacyjny.
+Na karcie **Zarządzanie** w programie Kibana przejdź do pozycji **zapisane obiekty** i zaimportuj wszystkie trzy pliki. Następnie na karcie **pulpit nawigacyjny** możesz otworzyć i załadować przykładowy pulpit nawigacyjny.
 
-Możesz również tworzyć własne wizualizacje i pulpity nawigacyjne dostosowane do danych, które cię interesują. Przeczytaj więcej o tworzeniu wizualizacji Kibana z [oficjalnej dokumentacji](https://www.elastic.co/guide/en/kibana/current/visualize.html)Kibana .
+Możesz również tworzyć własne wizualizacje i pulpity nawigacyjne dostosowane do metryk własnych zainteresowań. Dowiedz się więcej na temat tworzenia wizualizacji Kibana z [oficjalnej dokumentacji](https://www.elastic.co/guide/en/kibana/current/visualize.html)programu Kibana.
 
-### <a name="visualize-nsg-flow-logs"></a>Wizualizuj dzienniki przepływu nsg
+### <a name="visualize-nsg-flow-logs"></a>Wizualizacja dzienników przepływu sieciowej grupy zabezpieczeń
 
-Przykładowy pulpit nawigacyjny zawiera kilka wizualizacji dzienników przepływu:
+Przykładowy pulpit nawigacyjny zawiera kilka wizualizacji dzienników przepływów:
 
-1. Przepływy według decyzji/kierunku w czasie — wykresy szeregów czasowych pokazujące liczbę przepływów w okresie. Można edytować jednostkę czasu i zakresu obu tych wizualizacji. Przepływy według decyzji pokazuje proporcję zezwalania lub odrzucać decyzje podjęte, podczas gdy przepływy według kierunku pokazuje proporcję ruchu przychodzącego i wychodzącego. Dzięki tym wizualizacjom możesz sprawdzić trendy ruchu w czasie i wyszukać wszelkie kolce lub nietypowe wzorce.
+1. Przepływy według decyzji/kierunku na wykresach szeregów czasowych przedstawiające liczbę przepływów w danym okresie. Można edytować jednostkę czasu i zakres obu tych wizualizacji. Przepływy według decyzji przedstawiają liczbę podjętych decyzji dotyczących zezwalania lub odmowy, podczas gdy przepływy według kierunku pokazują udział ruchu przychodzącego i wychodzącego. Te wizualizacje umożliwiają Badanie trendów ruchu w czasie i wyszukiwanie wszelkich skoków lub nietypowych wzorców.
 
-   ![rysunek2][2]
+   ![Rysunek 2][2]
 
-2. Przepływy według portu docelowego/źródłowego — wykresy kołowe przedstawiające podział przepływów do odpowiednich portów. W tym widoku można zobaczyć najczęściej używane porty. Jeśli klikniesz określony port w obrębie wykresu kołowego, reszta pulpitu nawigacyjnego zostanie odfiltrowane do przepływów tego portu.
+2. Przepływy według portów docelowy/źródłowy — wykresy kołowe pokazujące podział przepływów na odpowiednie porty. Dzięki temu widokowi można zobaczyć najczęściej używane porty. Jeśli klikniesz określony port na wykresie kołowym, pozostała część pulpitu nawigacyjnego zostanie odfiltrowana do przepływów tego portu.
 
-   ![rysunek3][3]
+   ![figure3][3]
 
-3. Liczba przepływów i najwcześniejszy czas dziennika — metryki pokazujące liczbę zarejestrowanych przepływów i datę przechwycenia najwcześniejszego dziennika.
+3. Liczba przepływów i Najwcześniejszy czas dziennika — metryki pokazujące liczbę zarejestrowanych przepływów oraz datę najwcześniejszego przechwycenia dziennika.
 
-   ![rysunek4][4]
+   ![figure4][4]
 
-4. Przepływy przez nsg i reguły - wykres słupkowy pokazujący rozkład przepływów w obrębie każdej sieciowej grupy zabezpieczeń, a także rozkład reguł w ramach każdej sieciowej grupy zabezpieczeń. W tym miejscu można zobaczyć, które nsg i reguły generowane najwięcej ruchu.
+4. Przepływy według sieciowej grupy zabezpieczeń i reguły — wykres słupkowy przedstawiający rozkład przepływów w poszczególnych sieciowej grupy ZABEZPIECZEŃach, a także rozkład reguł w ramach każdego sieciowej grupy ZABEZPIECZEŃu. W tym miejscu możesz zobaczyć, które sieciowej grupy zabezpieczeń i reguły wygenerowały najwięcej ruchu.
 
-   ![rysunek5][5]
+   ![figure5][5]
 
-5. 10 najlepszych adresów IP źródłowych/docelowych — wykresy słupkowe przedstawiające 10 najlepszych adresów IP źródłowych i docelowych. Możesz dostosować te wykresy, aby wyświetlać mniej lub bardziej najpopularniejsze ustawienia IP. W tym miejscu można zobaczyć najczęściej występujących adresów IP, jak również decyzji ruchu (zezwalaj lub zaprzeczaj) podejmowane w stosunku do każdego adresu IP.
+5. 10 pierwszych źródłowych i docelowych adresów IP — wykresy słupkowe pokazujące 10 źródłowych i docelowych adresów IP. Można dostosować te wykresy, aby pokazać więcej lub mniej najpopularniejszych adresów IP. W tym miejscu można zobaczyć najczęściej występujące adresy IP, a także decyzję o ruchu (Zezwalaj lub Odmów) na każdym z adresów IP.
 
-   ![rysunek6][6]
+   ![figure6][6]
 
-6. Krotek przepływu — w tej tabeli przedstawiono informacje zawarte w każdej krotki przepływu, a także odpowiadające jej NGS i reguły.
+6. Kolekcje przepływów — w tej tabeli przedstawiono informacje zawarte w każdej kolekcji przepływów, a także odpowiadające jej przyrządy i zasady.
 
-   ![rysunek7][7]
+   ![figure7][7]
 
-Korzystając z paska zapytań w górnej części pulpitu nawigacyjnego, można filtrować pulpit nawigacyjny na podstawie dowolnego parametru przepływów, takiego jak identyfikator subskrypcji, grupy zasobów, reguła lub inna zmienna zainteresowania. Więcej informacji na temat zapytań i filtrów Kibana można znaleźć w [oficjalnej dokumentacji](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
+Korzystając z paska zapytania w górnej części pulpitu nawigacyjnego, można filtrować pulpit nawigacyjny na podstawie dowolnego parametru przepływów, takich jak identyfikator subskrypcji, grupy zasobów, reguła lub jakakolwiek inna interesująca zmienna. Aby uzyskać więcej informacji o zapytaniach i filtrach Kibana, zapoznaj się z [oficjalną dokumentacją](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
 ## <a name="conclusion"></a>Podsumowanie
 
-Łącząc dzienniki przepływu sieciowej grupy zabezpieczeń z elastycznym stosem, wymyśliliśmy zaawansowany i konfigurowalny sposób wizualizacji naszego ruchu sieciowego. Te pulpity nawigacyjne umożliwiają szybkie uzyskiwanie i udostępnianie szczegółowych informacji na temat ruchu sieciowego, a także filtrowanie i badanie wszelkich potencjalnych anomalii. Korzystając z kibana, możesz dostosować te pulpity nawigacyjne i tworzyć specjalne wizualizacje, aby spełnić wszelkie potrzeby w zakresie bezpieczeństwa, inspekcji i zgodności.
+Łącząc dzienniki przepływu sieciowych grup zabezpieczeń z elastycznym stosem, mamy zaawansowaną i dostosowywalną metodę wizualizacji ruchu w sieci. Te pulpity nawigacyjne umożliwiają szybkie uzyskiwanie i udostępnianie szczegółowych informacji o ruchu sieciowym, a także filtrowanie i badanie wszelkich potencjalnych anomalii. Za pomocą Kibana można dostosować te pulpity nawigacyjne i utworzyć konkretne wizualizacje w celu spełnienia wszelkich potrzeb związanych z zabezpieczeniami, inspekcją i zgodnością.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak wizualizować dzienniki przepływu sieciowych sieci płciowych za pomocą usługi Power BI, odwiedzając [wizualizuj dzienniki przepływów sieciowych sieciowych za pomocą usługi Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Dowiedz się, jak wizualizować dzienniki przepływu sieciowej grupy zabezpieczeń za pomocą Power BI, odwiedzając [wizualizacje sieciowej grupy zabezpieczeń przepływy dzienników z Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: Tworzenie niestandardowego obrazu z pliku VHD przy użyciu programu Azure PowerShell
-description: Automatyzacja tworzenia niestandardowego obrazu w laboratorium devtest platformy Azure z pliku VHD przy użyciu programu PowerShell
+title: Tworzenie niestandardowego obrazu z pliku VHD przy użyciu Azure PowerShell
+description: Automatyzowanie tworzenia niestandardowego obrazu w Azure DevTest Labs z pliku VHD przy użyciu programu PowerShell
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: cd144659dd8a8e981e267be998c9c783b7482840
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169578"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Tworzenie obrazu niestandardowego z pliku VHD przy użyciu programu PowerShell
@@ -33,22 +33,22 @@ ms.locfileid: "76169578"
 
 ## <a name="step-by-step-instructions"></a>Instrukcje krok po kroku
 
-W poniższych krokach można utworzyć obraz niestandardowy z pliku VHD przy użyciu programu PowerShell:
+Poniższe kroki przeprowadzą Cię przez proces tworzenia niestandardowego obrazu z pliku VHD przy użyciu programu PowerShell:
 
-1. W wierszu programu PowerShell zaloguj się do konta platformy Azure przy użyciu następującego wywołania polecenia cmdlet **Connect-AzAccount.**
+1. W wierszu polecenia programu PowerShell Zaloguj się do konta platformy Azure przy użyciu następującego wywołania polecenia cmdlet **Connect-AzAccount** .
 
     ```powershell
     Connect-AzAccount
     ```
 
-1.  Wybierz żądaną subskrypcję platformy Azure, wywołując polecenie cmdlet **Select-AzSubscription.** Zastąp następujący symbol zastępczy dla zmiennej **$subscriptionId** prawidłowym identyfikatorem subskrypcji platformy Azure.
+1.  Wybierz żądaną subskrypcję platformy Azure, wywołując polecenie cmdlet **SELECT-AzSubscription** . Zastąp następujący symbol zastępczy dla zmiennej **$subscriptionId** z PRAWIDŁOWYm identyfikatorem subskrypcji platformy Azure.
 
     ```powershell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzSubscription -SubscriptionId $subscriptionId
     ```
 
-1.  Pobierz obiekt laboratorium, wywołując polecenie cmdlet **Get-AzResource.** Zastąp następujące symbole zastępcze dla **zmiennych $labRg** i **$labName** odpowiednimi wartościami dla danego środowiska.
+1.  Pobierz obiekt Lab, wywołując polecenie cmdlet **Get-AzResource** . Zastąp następujące symbole zastępcze dla zmiennych **$labRg** i **$labName** wartościami odpowiednimi dla danego środowiska.
 
     ```powershell
     $labRg = '<Specify your lab resource group name here>'
@@ -56,13 +56,13 @@ W poniższych krokach można utworzyć obraz niestandardowy z pliku VHD przy uż
     $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
     ```
 
-1.  Zastąp następujący symbol zastępczy **dla zmiennej $vhdUri** identyfikatorem URI do przesłaego pliku VHD. Identyfikator URI pliku VHD można uzyskać z bloku obiektów blob konta magazynu w witrynie Azure portal.
+1.  Zastąp następujący symbol zastępczy zmiennej **$VHDURI** identyfikatorem URI do przekazanego pliku VHD. Możesz uzyskać identyfikator URI pliku wirtualnego dysku twardego z bloku obiektu BLOB konta magazynu w Azure Portal.
 
     ```powershell
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
-1.  Utwórz obraz niestandardowy przy użyciu polecenia cmdlet **New-AzResourceGroupDeployment.** Zastąp następujące symbole zastępcze dla **zmiennych $customImageName** i **$customImageDescription** na znaczące nazwy dla środowiska.
+1.  Utwórz niestandardowy obraz przy użyciu polecenia cmdlet **New-AzResourceGroupDeployment** . Zastąp następujące symbole zastępcze dla zmiennych **$customImageName** i **$customImageDescription** , aby odznaczenie nazw dla danego środowiska.
 
     ```powershell
     $customImageName = '<Specify the custom image name>'
@@ -73,9 +73,9 @@ W poniższych krokach można utworzyć obraz niestandardowy z pliku VHD przy uż
     New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
     ```
 
-## <a name="powershell-script-to-create-a-custom-image-from-a-vhd-file"></a>Skrypt programu PowerShell do tworzenia niestandardowego obrazu z pliku VHD
+## <a name="powershell-script-to-create-a-custom-image-from-a-vhd-file"></a>Skrypt programu PowerShell służący do tworzenia obrazu niestandardowego na podstawie pliku VHD
 
-Poniższy skrypt programu PowerShell może służyć do tworzenia obrazu niestandardowego z pliku VHD. Zastąp symbole zastępcze (początkowe i kończące na nawiasach kątowych) na odpowiednie wartości dla twoich potrzeb.
+Poniższy skrypt programu PowerShell może służyć do tworzenia obrazu niestandardowego z pliku VHD. Zamień symbole zastępcze (zaczynające się i kończące na nawiasy kątowe) z odpowiednimi wartościami dla Twoich potrzeb.
 
 ```powershell
 # Log in to your Azure account.
@@ -104,10 +104,10 @@ $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsT
 New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
 ```
 
-## <a name="related-blog-posts"></a>Podobne posty na blogu
+## <a name="related-blog-posts"></a>Powiązane wpisy w blogu
 
-- [Niestandardowe obrazy lub formuły?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Kopiowanie obrazów niestandardowych między laboratoriami devtest platformy Azure](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Obrazy niestandardowe lub formuły?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Kopiowanie obrazów niestandardowych między Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Następne kroki
 

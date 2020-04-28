@@ -1,5 +1,5 @@
 ---
-title: (PRZESTARZAŁE) Aplikacja lub usługa maratonu specyficzna dla użytkownika
+title: PRZESTARZAŁE Usługa Marathon specyficzna dla aplikacji lub użytkownika
 description: Tworzenie usługi Marathon specyficznej dla aplikacji lub użytkownika
 author: rgardler
 ms.service: container-service
@@ -8,13 +8,13 @@ ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 423dc7f62806f774a5ec4855faa8be9001292773
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277715"
 ---
-# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(PRZESTARZAŁE) Tworzenie aplikacji lub usługi maratonu specyficznej dla użytkownika
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>PRZESTARZAŁE Tworzenie usługi Marathon specyficznej dla aplikacji lub użytkownika
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -25,7 +25,7 @@ W tym artykule wyjaśnimy, jak dodać usługę Marathon specyficzną dla aplikac
 Ponieważ usługa ta będzie należeć do pojedynczego użytkownika lub zespołu, będzie można w dowolny sposób skonfigurować jej działanie. Ponadto usługa Azure Container Service zapewni ciągłość działania usługi. Jeśli wystąpi awaria usługi, usługa Azure Container Service uruchomi ją ponownie. W większości przypadków taki przestój będzie niezauważalny.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-[Wdrażanie wystąpienia usługi Azure Container Service](container-service-deployment.md) z kontrolerem dc/os typu orkiestratora i [zapewnienie, że klient może połączyć się z klastrem.](../container-service-connect.md) Ponadto wykonaj poniższe kroki.
+[Wdróż wystąpienie Azure Container Service](container-service-deployment.md) z typem koordynatora DC/OS i [upewnij się, że klient może połączyć się z klastrem](../container-service-connect.md). Ponadto wykonaj poniższe kroki.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]
 

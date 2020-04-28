@@ -1,6 +1,6 @@
 ---
 title: Jak korzystać z usługi Azure Notification Hubs w języku Java
-description: Dowiedz się, jak korzystać z usługi Azure Notification Hubs z zaplecza Java.
+description: Dowiedz się, jak używać platformy Azure Notification Hubs z zaplecza języka Java.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -17,53 +17,53 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263867"
 ---
-# <a name="how-to-use-notification-hubs-from-java"></a>Jak korzystać z Centrów powiadomień z języka Java
+# <a name="how-to-use-notification-hubs-from-java"></a>Jak używać Notification Hubs języka Java
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-W tym temacie opisano kluczowe funkcje nowego w pełni obsługiwanego oficjalnego sdk Java Java Usługi Azure Notification Hub.
-Ten projekt jest projektem typu open source i można wyświetlić cały kod SDK w [Java SDK].
+W tym temacie opisano najważniejsze funkcje nowego, w pełni obsługiwany oficjalny zestaw Java SDK usługi Azure Notification Hub.
+Ten projekt jest projektem Open-Source i można wyświetlić cały kod zestawu SDK w [zestawie SDK języka Java].
 
-Ogólnie rzecz biorąc, można uzyskać dostęp do wszystkich funkcji Centrum powiadomień z zaplecza Java/PHP/Python/Ruby za pomocą interfejsu REST centrum powiadomień, zgodnie z opisem w temacie [MsDN Notification Hubs REST API](https://msdn.microsoft.com/library/dn223264.aspx). Ten java SDK zapewnia cienką otokę nad tymi interfejsami REST w języku Java.
+Ogólnie rzecz biorąc, można uzyskać dostęp do wszystkich funkcji Notification Hubs z języka Java/PHP/Python/Ruby zaplecza przy użyciu interfejsu REST centrum powiadomień zgodnie z opisem w temacie MSDN [Notification Hubs API REST](https://msdn.microsoft.com/library/dn223264.aspx). Ten zestaw SDK języka Java udostępnia cienkie otokę dla tych interfejsów REST w języku Java.
 
-Zestaw SDK obsługuje obecnie:
+Zestaw SDK obecnie obsługuje:
 
-* CRUD na centrach powiadomień
-* CRUD na rejestracje
+* CRUD na Notification Hubs
+* CRUD rejestracji
 * Zarządzanie instalacją
 * Rejestracje importu/eksportu
-* Regularne wysyła
-* Zaplanowane wysłanie
-* Operacje asynchronizowe przez Java NIO
-* Obsługiwane platformy: APNS (iOS), FCM (Android), WNS (aplikacje ze Sklepu Windows), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android bez usług Google)
+* Regularne wysyłanie
+* Zaplanowane wysyłanie
+* Operacje asynchroniczne za pośrednictwem języka Java NIO
+* Obsługiwane platformy: APNS (iOS), FCM (Android), WNS (aplikacje do sklepu Windows), usługi MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android bez usług Google Services)
 
-## <a name="sdk-usage"></a>Użycie SDK
+## <a name="sdk-usage"></a>Użycie zestawu SDK
 
 ### <a name="compile-and-build"></a>Kompilowanie i tworzenie kompilacji
 
 Użyj [Maven]
 
-Aby zbudować:
+Do kompilacji:
 
     mvn package
 
 ## <a name="code"></a>Code
 
-### <a name="notification-hub-cruds"></a>Cruds Centrum powiadomień
+### <a name="notification-hub-cruds"></a>CRUDs centrum powiadomień
 
-**Utwórz menedżer obszaru nazw:**
+**Tworzenie elementu NamespaceManager:**
 
     ```java
     NamespaceManager namespaceManager = new NamespaceManager("connection string")
     ```
 
-**Utwórz Centrum powiadomień:**
+**Utwórz centrum powiadomień:**
 
     ```java
     NotificationHubDescription hub = new NotificationHubDescription("hubname");
@@ -77,28 +77,28 @@ Aby zbudować:
     hub = new NotificationHub("connection string", "hubname");
     ```
 
-**Pobierz Centrum powiadomień:**
+**Pobierz centrum powiadomień:**
 
     ```java
     hub = namespaceManager.getNotificationHub("hubname");
     ```
 
-**Centrum powiadomień o aktualizacji:**
+**Aktualizuj centrum powiadomień:**
 
     ```java
     hub.setMpnsCredential(new MpnsCredential("mpnscert", "mpnskey"));
     hub = namespaceManager.updateNotificationHub(hub);
     ```
 
-**Usuń Centrum powiadomień:**
+**Usuń centrum powiadomień:**
 
     ```java
     namespaceManager.deleteNotificationHub("hubname");
     ```
 
-### <a name="registration-cruds"></a>Rejestracja CRUDs
+### <a name="registration-cruds"></a>CRUDs rejestracji
 
-**Utwórz klienta Centrum powiadomień:**
+**Utwórz klienta centrum powiadomień:**
 
     ```java
     hub = new NotificationHub("connection string", "hubname");
@@ -122,7 +122,7 @@ Aby zbudować:
     hub.createRegistration(reg);
     ```
 
-Podobnie można utworzyć rejestracje dla systemu Android (FCM), Windows Phone (MPNS) i Kindle Fire (ADM).
+Podobnie można utworzyć rejestracje dla systemu Android (FCM), Windows Phone (usługi MPNS) i Kindle (ADM).
 
 **Tworzenie rejestracji szablonów:**
 
@@ -132,9 +132,9 @@ Podobnie można utworzyć rejestracje dla systemu Android (FCM), Windows Phone (
     hub.createRegistration(reg);
     ```
 
-**Tworzenie rejestracji przy użyciu wzorca create registration ID + upsert:**
+**Tworzenie rejestracji przy użyciu wzorca tworzenia identyfikatora rejestracji + upsert:**
 
-Usuwa duplikaty z powodu utraty odpowiedzi, jeśli przechowują identyfikatory rejestracji na urządzeniu:
+Usuwa duplikaty ze względu na utracone odpowiedzi w przypadku przechowywania identyfikatorów rejestracji na urządzeniu:
 
     ```java
     String id = hub.createRegistrationId();
@@ -142,7 +142,7 @@ Usuwa duplikaty z powodu utraty odpowiedzi, jeśli przechowują identyfikatory r
     hub.upsertRegistration(reg);
     ```
 
-**Aktualizuj rejestracje:**
+**Aktualizacje rejestracji:**
 
     ```java
     hub.updateRegistration(reg);
@@ -154,9 +154,9 @@ Usuwa duplikaty z powodu utraty odpowiedzi, jeśli przechowują identyfikatory r
     hub.deleteRegistration(regid);
     ```
 
-**Rejestracje kwerend:**
+**Rejestracje zapytań:**
 
-* **Uzyskaj pojedynczą rejestrację:**
+* **Pobierz rejestrację pojedynczą:**
 
     ```java
     hub.getRegistration(regid);
@@ -168,13 +168,13 @@ Usuwa duplikaty z powodu utraty odpowiedzi, jeśli przechowują identyfikatory r
     hub.getRegistrations();
     ```
 
-* **Uzyskaj rejestracje za pomocą tagu:**
+* **Pobierz rejestracje za pomocą tagu:**
 
     ```java
     hub.getRegistrationsByTag("myTag");
     ```
 
-* **Uzyskaj rejestracje według kanału:**
+* **Pobierz rejestracje według kanału:**
 
     ```java
     hub.getRegistrationsByChannel("devicetoken");
@@ -184,20 +184,20 @@ Wszystkie zapytania kolekcji obsługują tokeny $top i kontynuacji.
 
 ### <a name="installation-api-usage"></a>Użycie interfejsu API instalacji
 
-Interfejs API instalacji jest alternatywnym mechanizmem zarządzania rejestracją. Zamiast utrzymywania wielu rejestracji, które nie są trywialne i mogą być łatwo wykonane niepoprawnie lub nieefektywnie, jest teraz możliwe użycie pojedynczego obiektu instalacji.
+Interfejs API instalacji to alternatywny mechanizm zarządzania rejestracją. Zamiast utrzymywać wiele rejestracji, które nie są proste i mogą być łatwo wykonywane niepoprawnie lub niewydajnie, można teraz używać jednego obiektu instalacyjnego.
 
-Instalacja zawiera wszystko, czego potrzebujesz: kanał wypychania (token urządzenia), tagi, szablony, kafelki pomocnicze (dla WNS i APNS). Nie musisz już dzwonić do usługi, aby uzyskać identyfikator — wystarczy wygenerować identyfikator GUID lub inny identyfikator, zachować go na urządzeniu i wysłać do wewnętrznej bazy danych wraz z kanałem wypychania (token urządzenia).
+Instalacja zawiera wszystko, czego potrzebujesz: kanał wypychania (token urządzenia), Tagi, szablony, kafelki pomocnicze (dla WNS i APN). Nie musisz wywoływać usługi, aby uzyskać już identyfikator GUID lub dowolny inny identyfikator, przechowuj go na urządzeniu i wysyłaj do zaplecza przy użyciu kanału push (token urządzenia).
 
-Na wewnętrznej stronie wewnętrznej należy wykonać tylko `CreateOrUpdateInstallation`jedno wywołanie ; jest w pełni idempotentny, więc nie krępuj się ponowić próbę w razie potrzeby.
+W zapleczu należy wykonać tylko jedno wywołanie do `CreateOrUpdateInstallation`; jest on w pełni idempotentne, więc możesz ponowić próbę w razie potrzeby.
 
-Na przykład amazon Kindle Fire:
+Przykład dotyczący usługi Amazon Kindle Fire:
 
     ```java
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
     ```
 
-Jeśli chcesz go zaktualizować:
+Jeśli chcesz ją zaktualizować:
 
     ```java
     installation.addTag("foo");
@@ -206,7 +206,7 @@ Jeśli chcesz go zaktualizować:
     hub.createOrUpdateInstallation(installation);
     ```
 
-W przypadku scenariuszy zaawansowanych należy użyć możliwości częściowej aktualizacji, która umożliwia modyfikowanie tylko określonych właściwości obiektu instalacyjnego. Częściowa aktualizacja jest podzbiorem operacji JSON Patch, które można uruchomić względem obiektu instalacji.
+W przypadku zaawansowanych scenariuszy Użyj funkcji aktualizacji częściowej, która umożliwia modyfikowanie tylko określonych właściwości obiektu instalacyjnego. Aktualizacja częściowa jest podzbiorem operacji poprawek w formacie JSON, które można uruchomić względem obiektu instalacyjnego.
 
     ```java
     PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
@@ -221,16 +221,16 @@ Usuń instalację:
     hub.deleteInstallation(installation.getInstallationId());
     ```
 
-`CreateOrUpdate`, `Patch`i `Delete` są ostatecznie `Get`zgodne z . Żądana operacja po prostu przechodzi do kolejki systemowej podczas wywołania i jest wykonywana w tle. Get nie jest przeznaczony do głównego środowiska uruchomieniowego scenariusz, ale tylko do celów debugowania i rozwiązywania problemów, jest ściśle ograniczona przez usługę.
+`CreateOrUpdate`, `Patch`, i `Delete` są ostatecznie spójne z `Get`. Żądana operacja właśnie przechodzi do kolejki systemowej w trakcie wywołania i jest wykonywana w tle. Pobieranie nie jest przeznaczone do głównego scenariusza środowiska uruchomieniowego, ale tylko w celu debugowania i rozwiązywania problemów, jest ściśle ograniczone przez usługę.
 
-Wyślij przepływ dla instalacji jest taki sam jak w przypadku rejestracji. Aby kierować powiadomienia do konkretnej instalacji - wystarczy użyć tagu "InstallationId:{desired-id}". W tym przypadku kod jest:
+Wysyłanie przepływu dla instalacji jest takie samo jak w przypadku rejestracji. Aby określić docelowe powiadomienie do określonej instalacji — po prostu Użyj tagu "Identyfikator InstallationID: {żądana-ID}". W tym przypadku kod jest następujący:
 
     ```java
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.sendNotification(n, "InstallationId:{installation-id}");
     ```
 
-W przypadku jednego z kilku szablonów:
+Dla jednego z kilku szablonów:
 
     ```java
     Map<String, String> prop =  new HashMap<String, String>();
@@ -239,9 +239,9 @@ W przypadku jednego z kilku szablonów:
     hub.sendNotification(n, "InstallationId:{installation-id} && tag-for-template1");
     ```
 
-### <a name="schedule-notifications-available-for-standard-tier"></a>Powiadomienia o harmonogramie (dostępne dla warstwy STANDARD)
+### <a name="schedule-notifications-available-for-standard-tier"></a>Zaplanuj powiadomienia (dostępne dla warstwy Standardowa)
 
-Tak samo jak regularne wysyłanie, ale z jednym dodatkowym parametrem - scheduledTime, który mówi, kiedy powiadomienie powinno zostać dostarczone. Usługa akceptuje dowolny punkt czasu od teraz + 5 minut do teraz + 7 dni.
+Taki sam jak zwykłe wysyłanie, ale z jednym dodatkowym parametrem-scheduledTime, który informuje o dostarczeniu powiadomienia. Usługa akceptuje dowolny punkt czasu między teraz i 5 minut, a teraz + 7 dni.
 
 **Zaplanuj powiadomienie natywne systemu Windows:**
 
@@ -252,9 +252,9 @@ Tak samo jak regularne wysyłanie, ale z jednym dodatkowym parametrem - schedule
     hub.scheduleNotification(n, c.getTime());
     ```
 
-### <a name="importexport-available-for-standard-tier"></a>Import/eksport (dostępne dla warstwy STANDARD)
+### <a name="importexport-available-for-standard-tier"></a>Import/Export (dostępne dla warstwy Standardowa)
 
-Może być konieczne wykonanie operacji zbiorczej względem rejestracji. Zazwyczaj jest to do integracji z innym systemem lub masywne poprawki, aby zaktualizować tagi. Nie zaleca się korzystania z przepływu Pobierz/Aktualizuj, jeśli w zaangażowaniu są tysiące rejestracji. System import/eksport możliwości jest przeznaczony do pokrycia scenariusza. Zapewnisz dostęp do kontenera obiektów blob w ramach konta magazynu jako źródło przychodzących danych i lokalizacji dla danych wyjściowych.
+Może być konieczne wykonanie operacji zbiorczej w odniesieniu do rejestracji. Zazwyczaj służy do integracji z innym systemem lub z ogromną poprawką w celu zaktualizowania tagów. Nie zalecamy korzystania z przepływu pobierania/aktualizacji, jeśli chodzi o tysiące rejestracji. Możliwość importowania/eksportowania systemu została zaprojektowana w celu pokrycia tego scenariusza. Zapewnisz dostęp do kontenera obiektów BLOB w ramach konta magazynu jako źródła danych przychodzących i lokalizacji dla danych wyjściowych.
 
 **Prześlij zadanie eksportu:**
 
@@ -286,21 +286,21 @@ Może być konieczne wykonanie operacji zbiorczej względem rejestracji. Zazwycz
     }
     ```
 
-**Zdobądź wszystkie oferty pracy:**
+**Pobierz wszystkie zadania:**
 
     ```java
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
     ```
 
-**Identyfikator URI z podpisem sygnatury Sygnatury dostępu Współdzielon**
+**Identyfikator URI z podpisem SAS:**
 
- Ten adres URL jest adresem URL kontenera pliku obiektu blob lub obiektu blob oraz zestawem parametrów, takich jak uprawnienia i czas wygaśnięcia oraz podpis wszystkich tych rzeczy wykonanych przy użyciu klucza Sygnatury dostępu Współdzielonego konta. Zestaw Java SDK usługi Azure Storage ma zaawansowane funkcje, w tym tworzenie tych identyfikatorów URI. Jako prostą alternatywę, `ImportExportE2E` spójrz na klasę testową (z lokalizacji GitHub), która ma podstawową i kompaktową implementację algorytmu podpisywania.
+ Ten adres URL to adres URL pliku obiektu BLOB lub kontenera obiektów blob oraz zestaw parametrów, takich jak uprawnienia i czas wygaśnięcia, oraz sygnatura wszystkich tych elementów przy użyciu klucza SAS konta. Zestaw SDK Java usługi Azure Storage oferuje bogate możliwości, w tym tworzenie tych identyfikatorów URI. Jako alternatywę zapoznaj się z klasą `ImportExportE2E` testową (z lokalizacji GitHub), która ma podstawową i kompaktową implementację algorytmu podpisywania.
 
 ### <a name="send-notifications"></a>Wysyłanie powiadomień
 
-Notification Obiekt jest po prostu treści z nagłówków, niektóre metody narzędzia pomóc w tworzeniu obiektów powiadomień natywnych i szablonów.
+Obiekt powiadomienia jest po prostu treścią z nagłówkami, ale niektóre metody narzędziowe ułatwiają tworzenie obiektów powiadomień natywnych i szablonów.
 
-* **Sklep Windows i Windows Phone 8.1 (inne niż Silverlight)**
+* **Sklep Windows i Windows Phone 8,1 (bez Silverlight)**
 
     ```java
     String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
@@ -324,7 +324,7 @@ Notification Obiekt jest po prostu treści z nagłówków, niektóre metody narz
     hub.sendNotification(n);
     ```
 
-* **System Windows Phone 8.0 i 8.1 Silverlight**
+* **Windows Phone 8,0 i 8,1 Silverlight**
 
     ```java
     String toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
@@ -337,7 +337,7 @@ Notification Obiekt jest po prostu treści z nagłówków, niektóre metody narz
     hub.sendNotification(n);
     ```
 
-* **Rozpakuj ogień**
+* **Kindle pożar**
 
     ```java
     String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
@@ -354,13 +354,13 @@ Notification Obiekt jest po prostu treści z nagłówków, niektóre metody narz
     hub.sendNotification(n, tags);
     ```
 
-* **Wyślij do wyrażenia znacznika**
+* **Wyrażenie wysyłania do tagu**
 
     ```java
     hub.sendNotification(n, "foo && ! bar");
     ```
 
-* **Wyślij powiadomienie o szablonie**
+* **Wyślij powiadomienie dotyczące szablonu**
 
     ```java
     Map<String, String> prop =  new HashMap<String, String>();
@@ -370,25 +370,25 @@ Notification Obiekt jest po prostu treści z nagłówków, niektóre metody narz
     hub.sendNotification(n);
     ```
 
-Uruchomienie kodu Java powinno teraz spowodować wyświetlenie powiadomienia na urządzeniu docelowym.
+Uruchomienie kodu Java powinno teraz generować powiadomienie na urządzeniu docelowym.
 
-## <a name="next-steps"></a><a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a><a name="next-steps"></a>Następne kroki
 
-W tym temacie pokazano, jak utworzyć prosty klient Java REST dla centrów powiadomień. W tym miejscu można wykonać następujące czynności:
+W tym temacie pokazano, jak utworzyć prosty klient protokołu Java REST dla Notification Hubs. W tym miejscu można wykonać następujące czynności:
 
-* Pobierz pełny [sdk Java], który zawiera cały kod SDK.
-* Zagraj z próbkami:
-  * [Wprowadzenie do centrów powiadomień]
-  * [Wysyłaj najświeższe wiadomości]
-  * [Wysyłanie zlokalizowanych wiadomości]
+* Pobierz pełny [zestaw SDK języka Java], który zawiera cały kod zestawu SDK.
+* Odtwórz z przykładami:
+  * [Wprowadzenie do Notification Hubs]
+  * [Wyślij najświeższe wiadomości]
+  * [Wyślij zlokalizowane najświeższe wiadomości]
   * [Wysyłanie powiadomień do uwierzytelnionych użytkowników]
   * [Wysyłanie powiadomień między platformami do uwierzytelnionych użytkowników]
 
-[Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
+[Zestaw SDK Java]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Wprowadzenie do centrów powiadomień]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Wysyłaj najświeższe wiadomości]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Wysyłanie zlokalizowanych wiadomości]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Wprowadzenie do Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Wyślij najświeższe wiadomości]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Wyślij zlokalizowane najświeższe wiadomości]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Wysyłanie powiadomień do uwierzytelnionych użytkowników]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Wysyłanie powiadomień między platformami do uwierzytelnionych użytkowników]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Maven]: https://maven.apache.org/

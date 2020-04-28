@@ -80,10 +80,10 @@ W tym temacie pokazano, jak używać łącznika w aplikacji logiki do przetwarza
 
    | Właściwość | Właściwość JSON | Wymagany | Przykładowa wartość | Opis |
    |----------|---------------|----------|---------------|-------------|
-   | Nazwa połączenia | `name` | Tak | `informix-demo-connection` | Nazwa używana do połączenia z bazą danych Informix |
-   | Serwer | `server` | Tak | - Chmura:`informixdemo.cloudapp.net:9089` <br>- Lokalnie:`informixdemo:9089` | Adres lub alias TCP/IP w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP |
-   | baza danych | `database` | Tak | `nwind` | Nazwa relacyjnej bazy danych DRDA (RDBNAM) lub nazwa bazy danych Informix (nazwa dbname). Informix akceptuje ciąg 128 bajtów. |
-   | Uwierzytelnianie | `authentication` | Tylko lokalnie | **Podstawowe** lub **Windows** (kerberos) | Typ uwierzytelniania wymagany przez bazę danych Informix. Ta właściwość jest wyświetlana tylko po wybraniu opcji **Połącz za pośrednictwem lokalnej bramy danych**. |
+   | Nazwa połączenia | `name` | Yes | `informix-demo-connection` | Nazwa używana do połączenia z bazą danych Informix |
+   | Serwer | `server` | Yes | - Chmura:`informixdemo.cloudapp.net:9089` <br>- Lokalnie:`informixdemo:9089` | Adres lub alias TCP/IP w formacie IPv4 lub IPv6, po którym następuje dwukropek i numer portu TCP/IP |
+   | baza danych | `database` | Yes | `nwind` | Nazwa relacyjnej bazy danych DRDA (RDBNAM) lub nazwa bazy danych Informix (nazwa dbname). Informix akceptuje ciąg 128 bajtów. |
+   | Authentication | `authentication` | Tylko lokalnie | **Podstawowe** lub **Windows** (kerberos) | Typ uwierzytelniania wymagany przez bazę danych Informix. Ta właściwość jest wyświetlana tylko po wybraniu opcji **Połącz za pośrednictwem lokalnej bramy danych**. |
    | Nazwa użytkownika | `username` | Nie | <*nazwa użytkownika bazy danych*> | Nazwa użytkownika bazy danych |
    | Hasło | `password` | Nie | <*hasło bazy danych*> | Hasło do bazy danych |
    | Brama | `gateway` | Tylko lokalnie | - <*subskrypcja platformy Azure*> <br>- <*zasobu azure-on-premise-data-gateway*> | Subskrypcja platformy Azure i nazwa zasobu platformy Azure dla lokalnej bramy danych utworzonej w witrynie Azure portal. Właściwość **bramy** i właściwości podrzędne są wyświetlane tylko po wybraniu opcji **Połącz za pośrednictwem lokalnej bramy danych**. |

@@ -1,6 +1,6 @@
 ---
-title: Planowanie wdrożenia panelu dostępu usługi Azure Active Directory
-description: Wskazówki dotyczące wdrażania panelu dostępu usługi Azure Active Directory
+title: Planowanie wdrożenia panelu dostępu Azure Active Directory
+description: Wskazówki dotyczące wdrażania panelu dostępu Azure Active Directory
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -16,97 +16,97 @@ ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897080"
 ---
-# <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planowanie wdrożenia panelu dostępu usługi Azure Active Directory
+# <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planowanie wdrożenia panelu dostępu Azure Active Directory
 
-Panel dostępu usługi Azure Active Directory (Azure AD) to portal internetowy, który pomaga obniżyć koszty pomocy technicznej, zwiększyć produktywność i bezpieczeństwo oraz zmniejszyć frustrację użytkowników. System zawiera szczegółowe raporty, które śledzi, gdy dostęp do systemu i powiadamia administratorów o niewłaściwym użyciu lub nadużyciu.
+Panel dostępu Azure Active Directory (Azure AD) jest portalem opartym na sieci Web, który pomaga obniżyć koszty pomocy technicznej, zwiększyć produktywność i bezpieczeństwo oraz ograniczyć frustrację użytkowników. System zawiera szczegółowe raporty, które są śledzone podczas uzyskiwania dostępu do systemu i powiadamia administratorów o niewłaściwych lub nadużyciach.
 
-Korzystając z panelu dostępu usługi Azure AD, można:
+Za pomocą panelu dostępu usługi Azure AD można:
 
-* Odnajduj i uzyskaj dostęp do wszystkich zasobów połączonych z usługą Azure AD, takich jak aplikacje
-* Żądanie dostępu do nowych aplikacji i grup
-* Zarządzanie dostępem do tych zasobów dla innych
-* Zarządzanie samoobsługowym resetowaniem haseł i ustawieniami uwierzytelniania wieloskładnikowego platformy Azure
-* Zarządzanie urządzeniami
+* Odkryj i uzyskaj dostęp do wszystkich zasobów firmowych połączonych z usługą Azure AD, takich jak aplikacje
+* Żądaj dostępu do nowych aplikacji i grup
+* Zarządzanie dostępem do tych zasobów dla innych osób
+* Zarządzaj ustawieniami resetowania hasła samoobsługowego i ustawień usługi Azure Multi-Factor Authentication
+* Zarządzanie swoimi urządzeniami
 
-Umożliwia również administratorom zarządzanie:
+Umożliwia także administratorom zarządzanie:
 
-* Warunki korzystania z usługi
+* Warunki użytkowania usługi
 * Organizacje
 * Przeglądy dostępu
 
 
-## <a name="benefits-of-azure-ad-access-panel-integration"></a>Zalety integracji z panelem dostępu usługi Azure AD
+## <a name="benefits-of-azure-ad-access-panel-integration"></a>Zalety integracji z panelem dostępu w usłudze Azure AD
 
 Panel dostępu usługi Azure AD przynosi korzyści firmom w następujący sposób:
 
-**Zapewnia intuicyjne środowisko użytkownika:** Panel dostępu zapewnia jedną platformę dla wszystkich aplikacji połączonych z logiem jednokrotnym platformy Azure. Masz ujednolicony portal, aby znaleźć istniejące ustawienia i nowe możliwości, takie jak zarządzanie grupami i samoobsługowe resetowanie haseł, gdy są dodawane. Intuicyjna obsługa pozwala użytkownikom szybciej wracać do pracy i pracować wydajniej, jednocześnie zmniejszając ich frustrację.
+**Zapewnia intuicyjne środowisko użytkownika**: panel dostępu udostępnia jedną platformę dla wszystkich aplikacji połączonych z logowaniem jednokrotnym (SSO) platformy Azure. Masz ujednolicony Portal, aby znaleźć istniejące ustawienia i nowe funkcje, takie jak zarządzanie grupami i Samoobsługowe resetowanie haseł, gdy są dodawane. Intuicyjne środowisko zapewnia użytkownikom szybsze i wydajniejsze działanie, zmniejszając jednocześnie frustrację.
 
-**Zwiększa produktywność:** wszystkie aplikacje użytkowników w panelu dostępu mają włączoną funkcję SSO. Włączenie logowania jednokrotnego w aplikacjach korporacyjnych i usłudze Office 365 tworzy doskonałe środowisko logowania, zmniejszając lub eliminując dodatkowe monity logowania. Panel dostępu korzysta z samoobsługowego i dynamicznego członkostwa oraz zwiększa ogólne bezpieczeństwo systemu tożsamości. Czyni to poprzez zapewnienie, że odpowiednie osoby zarządzają dostępem do aplikacji. Panel dostępu służy jako spójna strona docelowa, aby szybko znaleźć zasoby i kontynuować zadania robocze.
+**Zwiększa produktywność**: w przypadku wszystkich aplikacji użytkowników w panelu dostępu włączono Logowanie jednokrotne. Włączenie logowania jednokrotnego w aplikacjach dla przedsiębiorstw i pakietu Office 365 tworzy doskonałe środowisko logowania przez zmniejszenie lub wyeliminowanie dodatkowych wierszy logowania. Panel dostępu jest używany do samoobsługowego i dynamicznego członkostwa oraz zwiększa ogólne zabezpieczenia systemu tożsamości. W tym celu należy upewnić się, że odpowiednie osoby zarządzają dostępem do aplikacji. Panel dostępu służy jako spójna Strona docelowa umożliwiająca szybkie znajdowanie zasobów i kontynuowanie zadań roboczych.
 
-**Zarządzanie kosztami:** Włączenie panelu dostępu za pomocą usługi Azure AD może pomóc w zbyciu infrastruktury lokalnej. Zmniejsza koszty pomocy technicznej, zapewniając spójny portal, aby znaleźć wszystkie aplikacje, zażądać dostępu do zasobów i zarządzać kontami.
+**Zarządza kosztem**: włączenie panelu dostępu za pomocą usługi Azure AD może pomóc w rozmieszczeniu infrastruktury lokalnej. Pozwala to zmniejszyć koszty pomocy technicznej, zapewniając spójny Portal, aby znaleźć wszystkie swoje aplikacje, zażądać dostępu do zasobów i zarządzać kontami.
 
-**Zwiększa elastyczność i bezpieczeństwo:** Panel dostępu zapewnia dostęp do zabezpieczeń i elastyczności zapewniane przez platformę chmurową. Administratorzy mogą łatwo zmieniać ustawienia na aplikacje i zasoby oraz spełniać nowe wymagania dotyczące zabezpieczeń bez wpływu na użytkowników.
+**Zwiększa elastyczność i bezpieczeństwo**: panel dostępu zapewnia dostęp do zabezpieczeń i elastyczność zapewnianą przez platformę chmury. Administratorzy mogą łatwo zmieniać ustawienia w aplikacjach i zasobach, a także obsługiwać nowe wymagania dotyczące zabezpieczeń bez wpływu na użytkowników.
 
-**Umożliwia niezawodne śledzenie inspekcji i użycia:** inspekcja i śledzenie użycia dla wszystkich funkcji użytkownika pozwala wiedzieć, gdy użytkownicy korzystają z ich zasobów i zapewnia, że można ocenić bezpieczeństwo.
+**Włącza niezawodne inspekcje i śledzenie użycia**: Inspekcja i śledzenie użycia dla wszystkich funkcji użytkownika informuje, kiedy użytkownicy korzystają z zasobów i zapewniają możliwość oceny zabezpieczeń.
 
 ### <a name="licensing-considerations"></a>Zagadnienia dotyczące licencjonowania
 
-Panel dostępu jest bezpłatny i nie wymaga licencji do użycia na poziomie podstawowym. Jednak liczba obiektów w katalogu i dodatkowe funkcje, które chcesz wdrożyć, mogą wymagać dodatkowych licencji. Niektóre typowe scenariusze usługi Azure AD, które mają wymagania licencyjne, obejmują następujące funkcje zabezpieczeń:
+Panel dostępu jest bezpłatny i nie wymaga licencji do użycia na poziomie podstawowym. Jednak liczba obiektów w katalogu oraz dodatkowe funkcje, które mają zostać wdrożone, mogą wymagać dodatkowych licencji. Niektóre typowe scenariusze dotyczące usługi Azure AD, które mają wymagania dotyczące licencjonowania, obejmują następujące funkcje zabezpieczeń:
 
-* [Uwierzytelnianie wieloskładnikowe platformy Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
+* [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
 
-* [Członkostwo w grupach](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
+* [Członkostwo oparte na grupach](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
-* [Samoobsługowe resetowanie haseł](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
+* [Samoobsługowe resetowanie hasła](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 
 * [Ochrona tożsamości w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
-Zobacz [pełny przewodnik licencjonowania usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Zobacz [Pełny przewodnik dotyczący licencjonowania usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites-for-deploying-the-azure-ad-access-panel"></a>Wymagania wstępne dotyczące wdrażania panelu dostępu usługi Azure AD Access
+### <a name="prerequisites-for-deploying-the-azure-ad-access-panel"></a>Wymagania wstępne dotyczące wdrażania panelu dostępu usługi Azure AD
 
-Przed rozpoczęciem tego projektu należy wykonać następujące wymagania wstępne:
+Przed rozpoczęciem tego projektu należy spełnić następujące wymagania wstępne:
 
-* [Integracja aplikacji SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
+* [Integrowanie logowania jednokrotnego aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
 
 * [Zarządzanie infrastrukturą użytkowników i grup usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## <a name="plan-the-azure-ad-access-panel-deployment"></a>Planowanie wdrożenia panelu dostępu usługi Azure AD
 
-W poniższej tabeli przedstawiono kluczowe przypadki użycia wdrożenia panelu dostępu:
+W poniższej tabeli przedstawiono najważniejsze przypadki użycia dla wdrożenia panelu dostępu:
 
 | Obszar| Opis |
 | - | - |
-| Dostęp| Portal Panelu dostępu jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
-|Dostęp | Portal Panelu dostępu jest dostępny z urządzeń firmowych spoza sieci firmowej. |
-| Inspekcja| Dane dotyczące użytkowania są pobierane do systemów firmowych co najmniej raz na 29 dni. |
-| Nadzór| Cykl życia przypisania użytkowników do aplikacji i grup połączonych z usługą Azure AD jest definiowany i monitorowany. |
-| Zabezpieczenia| Dostęp do zasobów jest kontrolowany za pomocą przypisań użytkowników i grup. Tylko autoryzowani użytkownicy mogą zarządzać dostępem do zasobów. |
-| Wydajność| Terminy propagacji przydziałów dostępu są dokumentowane i monitorowane. |
-| Doświadczenie użytkownika| Użytkownicy są świadomi możliwości Panelu dostępu i sposobu ich używania.|
+| Dostęp| Portal panelu dostępu jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
+|Dostęp | Portal panelu dostępu jest dostępny z urządzeń firmowych spoza sieci firmowej. |
+| Inspekcja| Dane użycia są pobierane do systemów firmowych co najmniej co 29 dni. |
+| Nadzór| Cykl życia przypisań użytkowników do aplikacji i grup połączonych z usługą Azure AD jest zdefiniowany i monitorowany. |
+| Zabezpieczenia| Dostęp do zasobów jest kontrolowany za pośrednictwem przypisań użytkowników i grup. Tylko autoryzowani użytkownicy mogą zarządzać dostępem do zasobów. |
+| Wydajność| Osie czasu propagacji przydziału dostępu są udokumentowane i monitorowane. |
+| Doświadczenie użytkownika| Użytkownicy są świadomi możliwości panelu dostępu i sposobu ich używania.|
 | Doświadczenie użytkownika| Użytkownicy mogą zarządzać dostępem do aplikacji i grup.|
 | Doświadczenie użytkownika| Użytkownicy mogą zarządzać swoimi kontami. |
-| Doświadczenie użytkownika| Użytkownicy są świadomi zgodności przeglądarki. |
-| Pomoc techniczna| Użytkownicy mogą znaleźć obsługę problemów z Panelem dostępu. |
+| Doświadczenie użytkownika| Użytkownicy są świadomi zgodności z przeglądarką. |
+| Pomoc techniczna| Użytkownicy mogą znaleźć pomoc techniczną dotyczącą problemów z panelem dostępu. |
 
-### <a name="best-practices-for-deploying-the-azure-ad-access-panel"></a>Najważniejsze wskazówki dotyczące wdrażania panelu dostępu usługi Azure AD Access
+### <a name="best-practices-for-deploying-the-azure-ad-access-panel"></a>Najlepsze rozwiązania dotyczące wdrażania panelu dostępu usługi Azure AD
 
-Funkcjonalność Panelu dostępu można włączać stopniowo. Zaleca się następującą kolejność wdrażania:
+Funkcje panelu dostępu można włączyć stopniowo. Zalecamy wykonanie następującej kolejności wdrożenia:
 
 1. Moje aplikacje
    * Uruchamianie aplikacji
    * Samoobsługowe zarządzanie aplikacjami
-   * Integracja z pakietem Microsoft Office 365
+   * Integracja z Microsoft Office 365
 
-1. Odnajdowanie aplikacji samoobsługowych
-   * Samoobsługowe resetowanie haseł
-   * Ustawienia uwierzytelniania wieloskładnikowego
+1. Odnajdywanie aplikacji samoobsługowych
+   * Samoobsługowe resetowanie hasła
+   * Ustawienia Multi-Factor Authentication
    * Zarządzanie urządzeniami
    * Warunki użytkowania
    * Zarządzanie organizacjami
@@ -114,254 +114,254 @@ Funkcjonalność Panelu dostępu można włączać stopniowo. Zaleca się nastę
 1. Moje grupy
    * Samoobsługowe zarządzanie grupami
 1. Przeglądy dostępu
-   * Zarządzanie przeglądami dostępu
+   * Zarządzanie przeglądem dostępu
 
-Począwszy od moich aplikacji wprowadza użytkowników do portalu jako wspólne miejsce dostępu do zasobów. Dodawanie samoobsługowego odnajdowania aplikacji opiera się na środowisko Moje aplikacje. Moje grupy i przeglądy dostępu opierają się na możliwościach samoobsługi.
+Od mojej aplikacji wprowadzono użytkowników do portalu jako typowe miejsce na dostęp do zasobów. Dodawanie funkcji samoobsługowego odnajdowania aplikacji w środowisku moje aplikacje. Moje grupy i przeglądy dostępu kompilują się na możliwości samoobsługi.
 
-### <a name="plan-configurations-for-the-azure-ad-access-panel"></a>Planowanie konfiguracji dla panelu dostępu usługi Azure AD Access
+### <a name="plan-configurations-for-the-azure-ad-access-panel"></a>Planowanie konfiguracji w panelu dostępu usługi Azure AD
 
-W poniższej tabeli wymieniono kilka ważnych konfiguracji Panelu dostępu i typowe wartości, których można użyć:
+Poniższa tabela zawiera kilka ważnych konfiguracji panelu dostępu i typowych wartości, których można użyć:
 
-| Konfigurowanie| Typowe wartości |
+| Konfiguracja| Typowe wartości |
 | - | - |
-| Określanie grup pilotażowych| Zidentyfikuj grupę zabezpieczeń usługi Azure AD, która ma być używana, i upewnij się, że wszyscy członkowie programu pilotażowego są częścią grupy. |
-| Określ grupę lub grupy, które mają być włączone dla produkcji.| Zidentyfikuj grupy zabezpieczeń usługi Azure AD lub grupy usługi Active Directory zsynchronizowane z usługą Azure AD, aby były używane. Upewnij się, że wszyscy członkowie programu pilotażowego są częścią grupy. |
-| Zezwalaj użytkownikom na używanie funkcji SSO do niektórych typów aplikacji| Sso sfederowane, OAuth, Hasło Logach bez zmiany, Pełnomocnik aplikacji |
-| Zezwalaj użytkownikom na samodzielne resetowanie hasła | Tak |
-| Zezwalaj użytkownikom na korzystanie z uwierzytelniania wieloskładnikowego| Tak |
-| Zezwalaj użytkownikom na korzystanie z zarządzania grupami samoobsługowymi dla niektórych typów grup| Grupy zabezpieczeń, grupy usługi Office 365 |
-| Zezwalaj użytkownikom na korzystanie z samoobsługowego zarządzania aplikacjami| Tak |
-| Zezwalaj użytkownikom na korzystanie z recenzji dostępu| Tak |
+| Określanie grup pilotażowych| Zidentyfikuj grupę zabezpieczeń usługi Azure AD, która ma zostać użyta, i upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
+| Określ grupę lub grupy, które mają być włączone dla środowiska produkcyjnego.| Określ grupy zabezpieczeń usługi Azure AD lub grupy Active Directory synchronizowane z usługą Azure AD, które mają być używane. Upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
+| Zezwalaj użytkownikom na korzystanie z rejestracji jednokrotnej w niektórych typach aplikacji| Federacyjne Logowanie jednokrotne, uwierzytelnianie OAuth, logowanie jednokrotne, serwer proxy aplikacji |
+| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego resetowania hasła | Tak |
+| Zezwalaj użytkownikom na korzystanie z Multi-Factor Authentication| Tak |
+| Zezwalaj użytkownikom na korzystanie z samoobsługowego zarządzania grupami dla niektórych typów grup| Grupy zabezpieczeń, grupy pakietu Office 365 |
+| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego zarządzania aplikacjami| Tak |
+| Zezwalaj użytkownikom na korzystanie z przeglądów dostępu| Tak |
 
-### <a name="plan-consent-strategy"></a>Planowanie strategii zgody
+### <a name="plan-consent-strategy"></a>Planowanie strategii wyrażania zgody
 
-Użytkownicy lub administratorzy muszą wyrazić zgodę na warunki użytkowania aplikacji i politykę prywatności. Jeśli to możliwe, biorąc pod uwagę reguły biznesowe, użyj zgody administratora, co daje użytkownikom lepsze wrażenia.
+Użytkownicy lub Administratorzy muszą wyrazić zgodę na warunki użytkowania aplikacji oraz zasady zachowania poufności informacji. Jeśli to możliwe, z uwzględnieniem reguł firmy, należy używać zgody administratora, która zapewnia użytkownikom lepszy komfort pracy.
 
-Aby korzystać z zgody administratora, musisz być administratorem globalnym organizacji, a aplikacje muszą być następujące:
+Aby korzystać z zgody administratora, musisz być administratorem globalnym organizacji, a aplikacje muszą mieć jedną z tych opcji:
 
-* Zarejestrowana w organizacji
+* Zarejestrowane w organizacji
 
-* Zarejestrowana w innej organizacji usługi Azure AD i wcześniej zgód co najmniej jednego użytkownika
+* Zarejestrowane w innej organizacji usługi Azure AD i wcześniej wysłane przez co najmniej jednego użytkownika
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikację w usłudze Azure Active Directory](configure-user-consent.md).
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikację w Azure Active Directory](configure-user-consent.md).
 
-### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich interesariuszy
+### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich uczestników projektu
 
-Gdy projekty technologiczne nie powiodą się, zazwyczaj robią to z powodu niedopasowanych oczekiwań dotyczących wpływu, wyników i odpowiedzialności. Aby uniknąć tych pułapek, [upewnij się, że angażujesz odpowiednie zainteresowane strony](../fundamentals/active-directory-deployment-plans.md) i że role interesariuszy w projekcie są dobrze zrozumiałe.
+Gdy projekty technologii kończą się niepowodzeniem, zazwyczaj są to spowodowane niezgodnymi oczekiwaniami na wpływ, wyniki i obowiązki. Aby uniknąć tych pułapek, [upewnij się, że interesują](../fundamentals/active-directory-deployment-plans.md) Cię odpowiednie osoby zainteresowane i że role udziałowców w projekcie są dobrze zrozumiałe.
 
 ### <a name="plan-communications"></a>Planowanie komunikacji
 
-Komunikacja ma kluczowe znaczenie dla powodzenia każdej nowej usługi. Proaktywnie informuj użytkowników, jak i kiedy zmieni się ich doświadczenie i jak uzyskać wsparcie w razie potrzeby.
+Komunikacja jest niezwykle ważna dla sukcesu każdej nowej usługi. Proaktywnie Informuj użytkowników, jak i kiedy ich środowisko zmiany się zmieni i jak uzyskać pomoc techniczną, jeśli jest to konieczne.
 
-Chociaż Panel dostępu zazwyczaj nie tworzy problemów użytkownika, ważne jest, aby się przygotować. Przed uruchomieniem utwórz przewodniki i listę wszystkich zasobów dla personelu pomocy technicznej.
+Mimo że panel dostępu nie tworzy zwykle problemów użytkowników, ważne jest przygotowanie. Przed rozpoczęciem Utwórz przewodniki i listę wszystkich zasobów dla personelu pomocy technicznej.
 
 #### <a name="communications-templates"></a>Szablony komunikacji
 
-Firma Microsoft udostępnia [dostosowywalne szablony wiadomości e-mail i innych komunikatów](https://aka.ms/APTemplates) dla Panelu dostępu. Zasoby te można dostosować do wykorzystania w innych kanałach komunikacji, stosownie do kultury korporacyjnej.
+Firma Microsoft udostępnia [dostosowywalne szablony dla wiadomości e-mail i innych komunikacji](https://aka.ms/APTemplates) z panelem dostępu. Można dostosować te zasoby do użycia w innych kanałach komunikacyjnych, zgodnie z potrzebami kultury firmowej.
 
-## <a name="plan-your-sso-configuration"></a>Planowanie konfiguracji usługi SSO
+## <a name="plan-your-sso-configuration"></a>Planowanie konfiguracji logowania jednokrotnego
 
-Gdy użytkownik loguje się do aplikacji, przechodzi przez proces uwierzytelniania i są wymagane, aby udowodnić, kim są. Bez loga logajnego hasło jest przechowywane w aplikacji, a użytkownik musi znać to hasło. Za pomocą logowania sygnacyjnego poświadczenia użytkowników są przekazywane do aplikacji, więc nie trzeba ponownie wdawać haseł dla każdej aplikacji.
+Gdy użytkownik loguje się do aplikacji, przechodzi przez proces uwierzytelniania i są wymagane, aby udowodnić, kto je ma. Bez rejestracji jednokrotnej hasło jest przechowywane w aplikacji, a użytkownik musi znać to hasło. Logowanie jednokrotne polega na tym, że poświadczenia użytkowników są przesyłane do aplikacji, więc nie muszą ponownie wprowadzać haseł dla każdej aplikacji.
 
-Aby uruchomić aplikacje w aplikacji Moje aplikacje, należy włączyć funkcję SSO.
+Aby uruchamiać aplikacje w aplikacjach, należy włączyć logowanie jednokrotne.
 
-Usługa Azure AD obsługuje trzy różne sposoby włączania [aplikacji logowania jednokrotnego:](what-is-single-sign-on.md)
+Usługa Azure AD obsługuje trzy różne sposoby włączania [logowania jednokrotnego w aplikacjach](what-is-single-sign-on.md):
 
-* **Sfederowane logowanie jednokrotne** 
+* **Federacyjne Logowanie jednokrotne** 
     * Umożliwia aplikacji przekierowanie do usługi Azure AD w celu uwierzytelnienia użytkownika, zamiast monitowania o hasło. 
-    * Jest obsługiwany dla aplikacji korzystających z protokołów, takich jak SAML 2.0, Federacja WS lub OpenID Connect i jest najbogatszym trybem logowania jednokrotnego.
+    * Jest obsługiwana w przypadku aplikacji korzystających z protokołów, takich jak SAML 2,0, WS-Federation lub OpenID Connect Connect, i jest zaawansowanym trybem rejestracji jednokrotnej.
 
-* **Logowanie jednookrotne oparte na hasłach** 
-    * Umożliwia bezpieczne przechowywanie haseł aplikacji i odtwarzanie za pomocą rozszerzenia przeglądarki internetowej lub aplikacji mobilnej. 
-    * Korzysta z istniejącego procesu logowania dostarczonego przez aplikację, ale umożliwia administratorowi zarządzanie hasłami. Użytkownik nie musi znać hasła.
+* **Logowanie jednokrotne oparte na hasłach** 
+    * Umożliwia bezpieczne przechowywanie i odtwarzanie haseł aplikacji przy użyciu rozszerzenia przeglądarki sieci Web lub aplikacji mobilnej. 
+    * Wykorzystuje istniejący proces logowania udostępniany przez aplikację, ale umożliwia administratorowi zarządzanie hasłami. Użytkownik nie musi znać hasła.
 
-* **Istniejące logowanie jednokrotne** 
-    * Umożliwia usłudze Azure AD korzystanie z dowolnego istniejącego logowania jednokrotnego, który został skonfigurowany dla aplikacji.
-    * Umożliwia powiązanie tych aplikacji z portalami panelu dostępu usługi Office 365 lub Azure AD Access. 
-    * Umożliwia dodatkowe raportowanie w usłudze Azure AD po uruchomieniu aplikacji. 
-    * Obejmuje korzystanie z usługi Azure Application Proxy i połączonego trybu logowania jednokrotnego.
+* **Istniejące Logowanie jednokrotne** 
+    * Umożliwia usłudze Azure AD korzystanie z dowolnego istniejącego logowania jednokrotnego skonfigurowanego dla aplikacji.
+    * Umożliwia połączenie tych aplikacji z portalami pakietu Office 365 lub panel dostępu usługi Azure AD. 
+    * Włącza dodatkowe raportowanie w usłudze Azure AD, gdy aplikacje są tam uruchomione. 
+    * Obejmuje użycie serwera proxy aplikacji platformy Azure i połączonego trybu logowania jednokrotnego.
 
-Dowiedz się, jak skonfigurować tryb logowania jednokrotnego aplikacji tutaj: [Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Informacje o konfigurowaniu trybu logowania jednokrotnego w aplikacji: Logowanie jednokrotne [do aplikacji w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Aby uzyskać najlepsze środowisko ze strony Moje aplikacje, zacznij od integracji aplikacji w chmurze, które są dostępne dla federacyjnego zgłoszeniaszego. Federacyjne samoso umożliwia użytkownikom spójne środowisko jednego kliknięcia na powierzchniach uruchamiania aplikacji i wydaje się być bardziej niezawodne w kontroli konfiguracji.
+Aby uzyskać najlepsze środowisko pracy ze stroną moje aplikacje, Zacznij od integracji aplikacji w chmurze, które są dostępne dla federacyjnego logowania jednokrotnego. Federacyjne Logowanie jednokrotne umożliwia użytkownikom spójne i jednokrotne korzystanie z nich w swoich aplikacjach, co sprawia, że jest bardziej niezawodna w kontroli konfiguracji.
 
-Użyj federacyjnego loga SSO z usługą Azure AD (OpenID Connect/SAML), gdy aplikacja go obsługuje, zamiast sso oparte na hasłach i ADFS.
+Użyj federacyjnego logowania jednokrotnego za pomocą usługi Azure AD (OpenID Connect Connect/SAML), gdy aplikacja ją obsługuje, zamiast logowania jednokrotnego i usług ADFS opartych na hasłach.
 
-Aby uzyskać więcej informacji na temat wdrażania i konfigurowania aplikacji SaaS, zobacz [plan wdrażania logowania sytłego SaaS](https://aka.ms/deploymentplans/sso).
+Aby uzyskać więcej informacji na temat sposobu wdrażania i konfigurowania aplikacji SaaS, zobacz [plan wdrożenia usługi SaaS SSO](https://aka.ms/deploymentplans/sso).
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>Planowanie wdrożenia rozszerzenia przeglądarki Moje aplikacje
 
-Gdy użytkownicy logują się do aplikacji logowania samosoiowego opartych na hasłach, muszą zainstalować i używać rozszerzenia logowania bezpiecznej my apps. Rozszerzenie wykonuje skrypt, który przesyła hasło do formularza logowania aplikacji. Użytkownicy są monitowani o zainstalowanie rozszerzenia przy pierwszym uruchomieniu aplikacji logajnych opartej na hasłach. Więcej informacji na temat rozszerzenia można znaleźć w tej dokumentacji dotyczącej [instalowania rozszerzenia przeglądarki Panelu programu Access](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav).
+Gdy użytkownicy logują się do aplikacji logowania jednokrotnego opartego na hasłach, muszą zainstalować i używać rozszerzenia moje aplikacje bezpieczne logowanie. Rozszerzenie wykonuje skrypt, który przesyła hasło do formularza logowania aplikacji. Użytkownicy są monitowani o zainstalowanie rozszerzenia podczas pierwszego uruchomienia aplikacji logowania jednokrotnego opartego na hasłach. Więcej informacji o rozszerzeniu można znaleźć w tej dokumentacji dotyczącej [instalowania rozszerzenia przeglądarki panelu dostępu](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav).
 
-Jeśli należy zintegrować aplikacje logowania jednokrotnego oparte na hasłach, należy zdefiniować mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Dostępne są następujące opcje:
+W przypadku konieczności integrowania aplikacji logowania jednokrotnego opartego na hasłach należy zdefiniować mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Dostępne opcje:
 
-* [Zasady grupy dla programu Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+* [zasady grupy programu Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 
-* [Menedżer konfiguracji dla programu Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Configuration Manager programu Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
-* [Pobieranie i konfiguracja oparta na użytkownikach dla Chrome, Firefox, Microsoft Edge lub IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [Pobieranie i Konfigurowanie sterowane przez użytkownika dla programu Chrome, Firefox, Microsoft Edge lub IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-Dowiedz się więcej: [Jak skonfigurować logowanie jednokrotne hasła](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
+Dowiedz się więcej: [jak skonfigurować Logowanie jednokrotne przy użyciu hasła](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 
-Użytkownicy, którzy nie korzystają z aplikacji logowania samoso na bazie hasła również korzystać z rozszerzenia. Korzyści te obejmują możliwość uruchamiania dowolnej aplikacji z paska wyszukiwania, znajdowanie dostępu do ostatnio używanych aplikacji i link do strony Moje aplikacje.
+Użytkownicy, którzy nie korzystają z aplikacji logowania jednokrotnego opartego na hasłach, również korzystają z rozszerzenia. Te korzyści obejmują możliwość uruchamiania dowolnej aplikacji z paska wyszukiwania, znajdowania dostępu do ostatnio używanych aplikacji i posiadania linku do strony Moje aplikacje.
 
-Oto, co użytkownik zobaczy podczas uruchamiania aplikacji logującej logowania oparte na hasłach po raz pierwszy:
+Oto, co użytkownik zobaczy podczas pierwszego uruchamiania aplikacji logowania jednokrotnego opartego na haśle:
 
 ![Zrzut ekranu przedstawiający ekran instalacji rozszerzenia przeglądarki Moje aplikacje ](media/access-panel-deployment-plan/ap-dp-sign-in.png)
 
 #### <a name="plan-for-mobile-access"></a>Planowanie dostępu mobilnego
 
-Przeglądarka chroniona za pomocą zasad usługi Intune (Microsoft Edge lub Intune Managed Browser) jest niezbędna dla użytkowników mobilnych uruchamianych aplikacje logowania jednokrotne oparte na hasłach. Przeglądarka chroniona zasadami umożliwia przesyłanie hasła zapisanego dla aplikacji. Microsoft Edge lub zarządzana przeglądarka udostępnia zestaw funkcji ochrony danych internetowych. Można również użyć programu Microsoft Edge w scenariuszach korporacyjnych na urządzeniach z systemem iOS i Android. Program Microsoft Edge obsługuje te same scenariusze zarządzania, co zarządzana przeglądarka usługi Intune i poprawia środowisko użytkownika. Dowiedz się więcej: [Zarządzanie dostępem do sieci Web przy użyciu przeglądarki chronionej zasadami usługi Microsoft Intune](https://docs.microsoft.com/intune/app-configuration-managed-browser).
+Przeglądarka chroniona przy użyciu zasad usługi Intune (Microsoft Edge lub Intune Managed Browser) jest niezbędna dla użytkowników mobilnych, którzy uruchamiają aplikacje logowania jednokrotnego oparte na hasłach. Przeglądarka chroniona zasadami umożliwia transfer hasła zapisanego dla aplikacji. Program Microsoft Edge lub zarządzana przeglądarka udostępnia zestaw funkcji ochrony danych w sieci Web. Na urządzeniach z systemem iOS i Android można również używać programu Microsoft Edge dla przedsiębiorstw. Program Microsoft Edge obsługuje te same scenariusze zarządzania co Intune Managed Browser i ulepsza środowisko użytkownika. Dowiedz się więcej: [Zarządzanie dostępem do sieci Web za pomocą przeglądarki Microsoft Intuneej chronionej przez zasady](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 
-## <a name="plan-your-my-apps-deployment"></a>Planowanie wdrożenia usługi Moje aplikacje
+## <a name="plan-your-my-apps-deployment"></a>Planowanie wdrożenia aplikacji Moje aplikacje
 
-Podstawą Panelu dostępu jest uruchamianie aplikacji Moje aplikacje, [https://myapps.microsoft.com](https://myapps.microsoft.com/)do którego użytkownicy uzyskują dostęp w programie . Strony Moje aplikacje zapewniają użytkownikom jedno miejsce do rozpoczęcia pracy i uzyskania niezbędnych aplikacji. W tym miejscu użytkownicy znajdują listę wszystkich aplikacji, do których mają dostęp do logowania jednokrotnego. 
+Podstawa panelu dostępu to aplikacja do uruchamiania aplikacji, do których użytkownicy uzyskują dostęp [https://myapps.microsoft.com](https://myapps.microsoft.com/). Strony Moje aplikacje umożliwiają użytkownikom pojedyncze miejsce na rozpoczęcie pracy i dostęp do niezbędnych aplikacji. W tym miejscu użytkownicy mogą znaleźć listę wszystkich aplikacji, do których mają dostęp z logowaniem jednokrotnym. 
 
-![Zrzut ekranu panelu aplikacje](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
+![Zrzut ekranu przedstawiający panel aplikacje](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
 
-Te same aplikacje będą wyświetlane w launcherze aplikacji usługi Office 365, gdy użytkownicy korzystają z portalu usługi Office 365.
+Te same aplikacje będą wyświetlane w programie uruchamiania aplikacji pakietu Office 365, gdy użytkownicy korzystają z portalu pakietu Office 365.
 
-Zaplanuj kolejność dodawania aplikacji do programu Uruchamiający Moje aplikacje i zdecyduj, czy będziesz je wdrażać stopniowo, czy wszystkie naraz. Aby to zrobić, należy utworzyć spis aplikacji z listą typu uwierzytelniania i wszelkich istniejących integracji samosoków dla każdej aplikacji.
+Zaplanuj kolejność, w jakiej będziesz dodawać aplikacje do programu uruchamiającego moje aplikacje, i zdecyduj, czy chcesz, aby stopniowo wycofać lub wszystkie jednocześnie. W tym celu należy utworzyć spis aplikacji zawierający listę typów uwierzytelniania i wszelkich istniejących integracji z logowaniem jednokrotnym dla każdej aplikacji.
 
 #### <a name="add-applications-to-the-my-apps-panel"></a>Dodawanie aplikacji do panelu Moje aplikacje
 
-Do uruchamiania aplikacji My Apps można dodać dowolną aplikację obsługującą protokół Azure AD Z funkcją SSO. Inne aplikacje są dodawane przy użyciu opcji Połączonego przyłącza SSO. Można skonfigurować kafelek aplikacji, który łączy się z adresem URL istniejącej aplikacji sieci web. Połączone przysiąkaszne umożliwia rozpoczęcie kierowania użytkowników do portalu Moje aplikacje bez migracji wszystkich aplikacji do usługi Azure AD SSO. Można stopniowo przechodzić do aplikacji skonfigurowanych przez usługi Azure AD SSO bez zakłócania środowiska użytkowników.
+Dowolna aplikacja obsługująca Logowanie jednokrotne w usłudze Azure AD może zostać dodana do programu uruchamiającego moje aplikacje. Inne aplikacje są dodawane przy użyciu opcji połączone Logowanie jednokrotne. Można skonfigurować kafelek aplikacji, który łączy się z adresem URL istniejącej aplikacji sieci Web. Połączone Logowanie jednokrotne pozwala rozpocząć kierowanie użytkowników do portalu My Apps bez migrowania wszystkich aplikacji do usługi Azure AD SSO. Możesz stopniowo przechodzić do aplikacji skonfigurowanych na potrzeby rejestracji jednokrotnej usługi Azure AD bez zakłócania pracy użytkowników.
 
 #### <a name="use-my-apps-collections"></a>Korzystanie z kolekcji Moje aplikacje
 
-Domyślnie wszystkie aplikacje są wyświetlane razem na jednej stronie. Ale można użyć kolekcji do grupowania powiązanych aplikacji i prezentować je na osobnej karcie, dzięki czemu łatwiej je znaleźć. Na przykład można użyć kolekcji do tworzenia logicznych grupowania aplikacji dla określonych ról zadań, zadań, projektów i tak dalej. Aby uzyskać więcej informacji, zobacz [Jak dostosować panele dostępu użytkowników za pomocą kolekcji Moje aplikacje.](access-panel-collections.md) 
+Domyślnie wszystkie aplikacje są wyświetlane na jednej stronie. Można jednak użyć kolekcji, aby zgrupować powiązane aplikacje i przedstawić je na osobnej karcie, co ułatwia ich znalezienie. Można na przykład użyć kolekcji do tworzenia logicznych grup aplikacji dla określonych ról zadań, zadań, projektów i tak dalej. Aby uzyskać więcej informacji, zobacz [jak używać kolekcji my Apps do dostosowywania paneli dostępu użytkowników](access-panel-collections.md). 
 
-#### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Planowanie używania aplikacji Moje aplikacje lub istniejącego portalu
+#### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Planowanie korzystania z aplikacji lub istniejącego portalu
 
-Użytkownicy mogą mieć już aplikację lub portal inny niż Moje aplikacje. Jeśli tak, zdecyduj, czy chcesz obsługiwać oba portale, czy tylko jeden.
+Użytkownicy mogą już korzystać z aplikacji lub portalu innych niż moje aplikacje. Jeśli tak, zdecyduj, czy obsługiwać oba portale, czy użyć tylko jednego.
 
-Jeśli istniejący portal jest już używany jako punkt wyjścia dla użytkowników, można zintegrować funkcje Moje aplikacje przy użyciu adresów URL dostępu użytkowników. Adresy URL dostępu użytkowników działają jako bezpośrednie łącza do aplikacji dostępnych w portalu Moje aplikacje. Te adresy URL mogą być osadzone w dowolnej istniejącej witrynie. Gdy użytkownik wybierze łącze, otworzy aplikację z portalu Moje aplikacje.
+Jeśli istniejący portal jest już używany jako punkt wyjścia dla użytkowników, można zintegrować funkcje aplikacji za pomocą adresów URL dostępu użytkowników. Adresy URL dostępu użytkowników działają jako bezpośrednie linki do aplikacji dostępnych w portalu My Apps. Te adresy URL można osadzić w dowolnej istniejącej witrynie sieci Web. Gdy użytkownik wybierze link, otwiera aplikację z portalu My Apps.
 
-Właściwość adresu URL dostępu użytkownika można znaleźć w obszarze **Właściwości** aplikacji w witrynie Azure portal.
+Właściwość adres URL dostępu użytkownika można znaleźć w obszarze **Właściwości** aplikacji w Azure Portal.
 
-![Zrzut ekranu panelu aplikacje](media/access-panel-deployment-plan/ap-dp-user-access-url.png)
+![Zrzut ekranu przedstawiający panel aplikacje](media/access-panel-deployment-plan/ap-dp-user-access-url.png)
 
 
-## <a name="plan-self-service-application-discovery-and-access"></a>Planowanie samoobsługowego wykrywania i uzyskiwania dostępu do aplikacji
+## <a name="plan-self-service-application-discovery-and-access"></a>Planowanie funkcji samoobsługowego odnajdywania aplikacji i uzyskiwania dostępu
 
-Po wdrożeniu podstawowego zestawu aplikacji na stronie Moje aplikacje użytkownika należy włączyć funkcje samoobsługowego zarządzania aplikacjami. Samoobsługowe odnajdowanie aplikacji umożliwia użytkownikom:
+Po wdrożeniu podstawowego zestawu aplikacji na stronie Moje aplikacje użytkownika należy włączyć funkcje samoobsługowego zarządzania aplikacjami. Funkcja odnajdywania aplikacji samoobsługowych umożliwia użytkownikom:
 
-* Znajdź nowe aplikacje do dodania do moich aplikacji. 
-* Dodaj opcjonalne aplikacje, których mogą nie wiedzieć podczas instalacji.
+* Znajdź nowe aplikacje, które mają zostać dodane do swoich aplikacji. 
+* Dodaj opcjonalne aplikacje, których mogą nie wiedzieć, gdy są potrzebne podczas instalacji.
 
-Przepływy pracy zatwierdzania są dostępne dla jawnego zatwierdzania dostępu do aplikacji. Użytkownicy, którzy są osobami zatwierdzających, będą otrzymywać powiadomienia w portalu Moje aplikacje, gdy istnieje oczekujące żądanie dostępu do aplikacji.
+Przepływy pracy zatwierdzania są dostępne dla jawnej zgody na dostęp do aplikacji. Użytkownicy, którzy są osobami zatwierdzającymi, otrzymają powiadomienia w portalu Moje aplikacje, gdy istnieją oczekujące żądania dostępu do aplikacji.
 
 ## <a name="plan-self-service-group-membership"></a>Planowanie członkostwa w grupie samoobsługowej 
 
-Można umożliwić użytkownikom tworzenie własnych grup zabezpieczeń lub grup usługi Office 365 w usłudze Azure AD i zarządzanie nimi. Właściciel grupy może zatwierdzać lub odrzucać żądania członkostwa i delegować kontrolę nad członkostwem w grupie. Funkcje zarządzania grupami samoobsługowymi nie są dostępne dla grup zabezpieczeń z obsługą poczty ani list dystrybucyjnych.
+Można umożliwić użytkownikom tworzenie własnych grup zabezpieczeń lub grup usługi Office 365 w usłudze Azure AD oraz zarządzanie nimi. Właściciel grupy może zatwierdzać lub odrzucać żądania członkostwa oraz delegować kontrolę nad członkostwem w grupie. Funkcje samoobsługowego zarządzania grupami nie są dostępne dla grup zabezpieczeń z włączoną obsługą poczty lub list dystrybucyjnych.
 
-Aby zaplanować samoobsługowe członkostwo w grupach, określ, czy zezwolisz wszystkim użytkownikom w organizacji na tworzenie grup i zarządzanie nimi, czy tylko na podzbiór użytkowników. Jeśli zezwalasz na podzbiór użytkowników, musisz skonfigurować grupę, do której są dodawane te osoby. Zobacz [Konfigurowanie zarządzania grupami samoobsługowymi w usłudze Azure Active Directory,](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) aby uzyskać szczegółowe informacje na temat włączania tych scenariuszy.
+Aby zaplanować członkostwo w grupach samoobsługi, ustal, czy zezwolisz wszystkim użytkownikom w organizacji na tworzenie grup i zarządzanie nimi. Jeśli zezwolisz na podzbiór użytkowników, musisz skonfigurować grupę, do której zostaną dodani te osoby. Zobacz [Konfigurowanie samoobsługowego zarządzania grupami w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) , aby uzyskać szczegółowe informacje na temat włączania tych scenariuszy.
 
-## <a name="plan-reporting-and-auditing"></a>Raportowanie planów i inspekcja
+## <a name="plan-reporting-and-auditing"></a>Planowanie raportowania i inspekcji
 
-Usługa Azure AD udostępnia [raporty, które oferują szczegółowe informacje techniczne i biznesowe.](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/) Współpracuj z właścicielami aplikacji biznesowych i technicznych, aby przejąć na własność te raporty i regularnie je konsumować. W poniższej tabeli przedstawiono kilka przykładów typowych scenariuszy raportowania.
+Usługa Azure AD udostępnia [raporty, które oferują szczegółowe informacje techniczne i biznesowe](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Pracuj z właścicielami aplikacji firmowych i technicznych, aby założyć własność tych raportów i regularnie je wykorzystać. W poniższej tabeli przedstawiono kilka przykładów typowych scenariuszy raportowania.
 
 |   | Zarządzanie ryzykiem| Zwiększ produktywność| Zarządzanie i zgodność |
 |  - |- | - | - |
-| Typy raportów|  Uprawnienia i użycie aplikacji| Działanie inicjowania obsługi administracyjnej konta| Sprawdź, kto uzyskuje dostęp do aplikacji |
-| Potencjalne działania| Inspekcja dostępu; odwoływanie uprawnień| Korygowanie błędów inicjowania obsługi administracyjnej| Cofanie dostępu |
+| Typy raportów|  Uprawnienia i użycie aplikacji| Działanie aprowizacji konta| Sprawdź, kto uzyskuje dostęp do aplikacji |
+| Potencjalni akcje| Inspekcja dostępu; Odwołaj uprawnienia| Koryguj wszelkie błędy aprowizacji| Odwołaj dostęp |
 
-Usługa Azure AD przechowuje większość danych inspekcji przez 30 dni. Dane są dostępne za pośrednictwem portalu administracyjnego platformy Azure lub interfejsu API do pobrania do systemów analizy.
+Usługa Azure AD przechowuje większość danych inspekcji przez 30 dni. Dane są dostępne za pośrednictwem portalu administracyjnego platformy Azure lub interfejsu API, aby można było pobrać je do systemów analizy.
 
 #### <a name="auditing"></a>Inspekcja
 
-Dzienniki inspekcji dostępu do aplikacji są dostępne przez 30 dni. Jeśli inspekcja zabezpieczeń w przedsiębiorstwie wymaga dłuższego przechowywania, dzienniki muszą zostać wyeksportowane do narzędzia SIEM (Security Information Event and Management), takiego jak Splunk lub ArcSight.
+Dzienniki inspekcji dostępu do aplikacji są dostępne przez 30 dni. Jeśli Inspekcja zabezpieczeń w przedsiębiorstwie wymaga dłuższego przechowywania, dzienniki muszą zostać wyeksportowane do narzędzia zdarzenia informacji o zabezpieczeniach i zarządzania (SIEM), takie jak Splunk lub ArcSight.
 
-W przypadku inspekcji, raportowania i odzyskiwania po awarii należy udokumentować wymaganą częstotliwość pobierania, system docelowy i kto jest odpowiedzialny za zarządzanie każdą kopią zapasową. Może nie być konieczne oddzielne inspekcji i raportowania kopii zapasowych. Kopia zapasowa odzyskiwania po awarii powinna być oddzielną jednostką.
+W przypadku kopii zapasowych inspekcji, raportowania i odzyskiwania po awarii należy udokumentować wymaganą częstotliwość pobierania, co to jest system docelowy i kto jest odpowiedzialny za zarządzanie każdą kopią zapasową. Może nie być konieczne oddzielne inspekcje i raportowanie kopii zapasowych. Kopia zapasowa odzyskiwania po awarii powinna być oddzielną jednostką.
 
-## <a name="deploy-applications-to-users-my-apps-panel"></a>Wdrażanie aplikacji w panelu Moje aplikacje użytkowników
+## <a name="deploy-applications-to-users-my-apps-panel"></a>Wdrażanie aplikacji w panelu Moje aplikacje dla użytkowników
 
-Po skonfigurowaniu aplikacji dla usługi SSO grupom jest przypisywany dostęp. Użytkownicy w przydzielonych grupach będą mieli dostęp i zobaczą aplikację w swoich moich aplikacjach i programie uruchamiania aplikacji usługi Office 365.
+Po skonfigurowaniu aplikacji do logowania jednokrotnego do grup są przypisywane uprawnienia dostępu. Użytkownicy z przypisanych grup będą mieli dostęp i będą widzieć aplikację w aplikacjach moje aplikacje i uruchamiania aplikacji pakietu Office 365.
 
-Zobacz [Przypisywanie użytkowników i grup do aplikacji w usłudze Active Directory](methods-for-assigning-users-and-groups.md).
+Zobacz [przypisywanie użytkowników i grup do aplikacji w Active Directory](methods-for-assigning-users-and-groups.md).
 
-Jeśli podczas testowania lub wdrażania chcesz dodać grupy, ale jeszcze nie zezwolić aplikacjom na pokazywanych w obszarze Moje aplikacje, zobacz [Ukrywanie aplikacji przed korzystaniem z usługi Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app)
+Jeśli podczas testowania lub wdrażania chcesz dodać grupy, ale jeszcze nie zezwalasz aplikacji na wyświetlanie w aplikacjach, zobacz sekcję [ukrywanie aplikacji ze środowiska użytkownika w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
-### <a name="deploy-microsoft-office-365-applications-to-my-apps"></a>Wdrażanie aplikacji usługi Microsoft Office 365 w aplikacjach My Apps
+### <a name="deploy-microsoft-office-365-applications-to-my-apps"></a>Wdrażanie aplikacji Microsoft Office 365 w aplikacjach
 
-W przypadku aplikacji usługi Office 365 użytkownicy otrzymują kopię pakietu Office na podstawie przypisanych im licencji. Warunkiem dostępu do aplikacji pakietu Office jest przypisywanie użytkownikom poprawnych licencji powiązanych z aplikacjami pakietu Office. Po przypisaniu użytkownikowi licencji automatycznie zobaczą aplikacje skojarzone z licencją na stronie Moje aplikacje i w usłudze Office 365 App Launcher.
+W przypadku aplikacji pakietu Office 365 użytkownicy otrzymują kopię pakietu Office w oparciu o przypisane do nich licencje. Wstępny dostęp do aplikacji pakietu Office jest przeznaczony dla użytkowników, którym można przypisać prawidłowe licencje powiązane z aplikacjami pakietu Office. Po przypisaniu licencji użytkownika zostanie automatycznie wyświetlona aplikacja, która jest skojarzona z licencją na stronie Moje aplikacje, oraz w obszarze uruchamiania aplikacji pakietu Office 365.
 
-Jeśli chcesz ukryć zestaw aplikacji pakietu Office przed użytkownikami, istnieje możliwość ukrycia aplikacji z portalu Moje aplikacje, a jednocześnie zezwalania na dostęp z portalu usługi Office 365. Te ustawienia można znaleźć w części Ustawienia użytkownika aplikacji. Dowiedz się więcej: [Ukryj aplikację przed korzystaniem z usługi Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app)
+Jeśli chcesz ukryć zestaw aplikacji pakietu Office od użytkowników, istnieje możliwość ukrycia aplikacji z poziomu portalu Moje aplikacje, pozostawiając jednocześnie dostęp z poziomu portalu pakietu Office 365. Znajdź te ustawienia w części ustawienia użytkownika aplikacji. Dowiedz się więcej: [Ukryj aplikację ze środowiska użytkownika w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
-![Zrzut ekranu przedstawiający konfigurowanie sposobu ukrywania aplikacji](media/access-panel-deployment-plan/ap-dp-o365-portal.png)
+![Zrzut ekranu przedstawiający Konfigurowanie sposobu ukrywania aplikacji](media/access-panel-deployment-plan/ap-dp-o365-portal.png)
 
-### <a name="deploy-application-self-service-capabilities"></a>Wdrażanie możliwości samoobsługi aplikacji
+### <a name="deploy-application-self-service-capabilities"></a>Wdrażanie funkcji samoobsługi aplikacji
 
-Dostęp do samoobsługowych aplikacji umożliwia użytkownikom samodzielne wykrywanie i żądanie dostępu do aplikacji. Użytkownicy mają swobodę dostępu do aplikacji, których potrzebują, bez przechodzenia przez grupę IT za każdym razem, aby zażądać dostępu. Gdy użytkownik zażąda dostępu i zostanie zatwierdzony automatycznie lub ręcznie przez właściciela aplikacji, zostanie dodany do grupy na zapleczu. Raportowanie jest włączone, kto zażądał, zatwierdził lub usunął dostęp, i daje kontrolę nad zarządzaniem przypisanymi rolami.
+Samoobsługowy dostęp do aplikacji umożliwia użytkownikom samodzielne wykrywanie i żądanie dostępu do aplikacji. Użytkownicy mogą uzyskiwać dostęp do aplikacji, których potrzebują, bez przechodzenia przez grupę IT przy każdym zażądaniu dostępu. Gdy użytkownik zażąda dostępu i jest zatwierdzany automatycznie lub ręcznie przez właściciela aplikacji, jest dodawany do grupy na zapleczu. Raportowanie jest włączane, kto zażądał, zatwierdził lub usunął dostęp, i zapewnia kontrolę nad zarządzaniem przypisanymi rolami.
 
-Zatwierdzanie żądań dostępu do aplikacji można delegować do firmowych osób zatwierdzających. Osoba zatwierdzająca firmy może ustawić hasła dostępu do aplikacji na stronie Moje aplikacje osoby zatwierdzającej.
+Zatwierdzanie żądań dostępu do aplikacji do osób zatwierdzających firmy można delegować. Osoba zatwierdzająca w firmie może ustawić hasła dostępu do aplikacji z poziomu strony Moje aplikacje osoby zatwierdzającej biznesowe.
 
-Dowiedz się więcej: [Jak korzystać z dostępu do aplikacji samoobsługowych](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).
+Dowiedz się więcej: [jak korzystać z](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to)samoobsługowego dostępu do aplikacji.
 
-![Zrzut ekranu przedstawiający konfigurowanie samoobsługowego zarządzania aplikacjami](media/access-panel-deployment-plan/ap-dp-salesforce.png)
+![Zrzut ekranu przedstawiający Konfigurowanie samoobsługowego zarządzania aplikacjami](media/access-panel-deployment-plan/ap-dp-salesforce.png)
 
-## <a name="validate-your-deployment"></a>Sprawdzanie poprawności wdrożenia
+## <a name="validate-your-deployment"></a>Weryfikowanie wdrożenia
 
-Upewnij się, że wdrożenie panelu dostępu jest dokładnie przetestowane i wdrożono plan wycofywania.
+Upewnij się, że wdrożenie panelu dostępu zostało dokładnie przetestowane i że plan wycofania jest gotowy.
 
-Następujące testy powinny być przeprowadzane zarówno na urządzeniach należących do firmy, jak i urządzeniach osobistych. Te przypadki testowe powinny również odzwierciedlać przypadki użycia w firmie. Oto kilka przypadków opartych na przykładowych wymaganiach biznesowych w tym dokumencie i typowych scenariuszach technicznych. Dodaj inne specyficzne dla Twoich potrzeb.
+Poniższe testy powinny być przeprowadzane zarówno w przypadku urządzeń należących do firmy, jak i urządzeń osobistych. Te przypadki testowe powinny również odzwierciedlać Twoje przypadki użycia biznesowego. Poniżej przedstawiono kilka przypadków opartych na przykładowych wymaganiach firmy w tym dokumencie oraz w typowych scenariuszach technicznych. Dodaj inne osoby specyficzne dla Twoich potrzeb.
 
-#### <a name="application-sso-access-test-case-examples"></a>Przykłady przypadków dostępu do aplikacji SSO:
+#### <a name="application-sso-access-test-case-examples"></a>Przykłady przypadku testowego dostępu SSO aplikacji:
 
 
-| Sprawa biznesowa| Oczekiwany wynik |
+| Przypadek biznesowy| Oczekiwany wynik |
 | - | -|
-| Użytkownik loguje się do portalu Moje aplikacje| Użytkownik może się zalogować i zobaczyć swoje aplikacje |
-| Użytkownik uruchamia sfederowaną aplikację SSO| Użytkownik jest automatycznie zalogowany do aplikacji |
-| Użytkownik uruchamia aplikację logajną pod hasłem po raz pierwszy| Użytkownik musi zainstalować rozszerzenie Moje aplikacje |
-| Użytkownik uruchamia aplikację logajną hasła o kolejny czas| Użytkownik jest automatycznie zalogowany do aplikacji |
-| Użytkownik uruchamia aplikację z portalu usługi Office 365| Użytkownik jest automatycznie zalogowany do aplikacji |
-| Użytkownik uruchamia aplikację z zarządzanej przeglądarki| Użytkownik jest automatycznie zalogowany do aplikacji |
+| Użytkownik loguje się do portalu My Apps| Użytkownik może zalogować się i zobaczyć swoje aplikacje |
+| Użytkownik uruchamia federacyjną aplikację SSO| Użytkownik jest automatycznie zalogowany do aplikacji |
+| Użytkownik uruchamia aplikację Logowanie jednokrotne po raz pierwszy| Użytkownik musi zainstalować rozszerzenie moje aplikacje |
+| Użytkownik uruchamia aplikację Logowanie jednokrotne przy użyciu hasła| Użytkownik jest automatycznie zalogowany do aplikacji |
+| Użytkownik uruchamia aplikację z poziomu portalu pakietu Office 365| Użytkownik jest automatycznie zalogowany do aplikacji |
+| Użytkownik uruchamia aplikację z Managed Browser| Użytkownik jest automatycznie zalogowany do aplikacji |
 
 
-#### <a name="application-self-service-capabilities-test-case-examples"></a>Przykłady przypadków samoobsługowych aplikacji
+#### <a name="application-self-service-capabilities-test-case-examples"></a>Przykłady przypadków testowych funkcji samoobsługi aplikacji
 
 
-| Sprawa biznesowa| Oczekiwany wynik |
+| Przypadek biznesowy| Oczekiwany wynik |
 | - | - |
 | Użytkownik może zarządzać członkostwem w aplikacji| Użytkownik może dodawać/usuwać członków, którzy mają dostęp do aplikacji |
-| Użytkownik może edytować aplikację| Użytkownik może edytować opis aplikacji i poświadczenia dla aplikacji logowania do logowania bez logowania do haseł |
+| Użytkownik może edytować aplikację| Użytkownik może edytować opis i poświadczenia aplikacji dla aplikacji SSO logowania jednokrotnego |
 
-### <a name="rollback-steps"></a>Kroki wycofywania
+### <a name="rollback-steps"></a>Etapy wycofywania
 
-Należy zaplanować, co należy zrobić, jeśli wdrożenie nie pójdzie zgodnie z planem. Jeśli konfiguracja sytego systemu sytego nie powiedzie się podczas wdrażania, należy zrozumieć, jak [rozwiązać problemy z przysłanianiem zabezpieczeń](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) i zmniejszyć wpływ na użytkowników. W ekstremalnych okolicznościach może być konieczne [wycofanie SSO](../manage-apps/plan-sso-deployment.md).
+Ważne jest, aby zaplanować czynności, które należy wykonać, jeśli wdrożenie nie zostanie zamierzone. Jeśli konfiguracja logowania jednokrotnego nie powiedzie się podczas wdrażania, należy zrozumieć, jak [rozwiązywać problemy z logowaniem JEDNOkrotnym](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) i ograniczyć wpływ na użytkowników. W skrajnych przypadkach może być konieczne [wycofanie rejestracji jednokrotnej](../manage-apps/plan-sso-deployment.md).
 
 
 ## <a name="manage-your-implementation"></a>Zarządzanie implementacją
 
-Aby wykonać wymagane zadanie w usłudze Azure Active Directory, należy użyć roli o najniższych uprawnieniach. [Przejrzyj różne role, które są dostępne](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) i wybierz odpowiedni, aby rozwiązać swoje potrzeby dla każdej persona dla tej aplikacji. Niektóre role mogą wymagać tymczasowego zastosowania i usunięcia po zakończeniu wdrażania.
+Należy użyć najmniejszej roli uprzywilejowanej, aby wykonać wymagane zadanie w Azure Active Directory. [Zapoznaj się z różnymi rolami, które są dostępne](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) , a następnie wybierz jedną z nich, aby rozwiązać potrzeby każdej osoby dla tej aplikacji. Niektóre role mogą wymagać tymczasowego zastosowania i usunąć po zakończeniu wdrażania.
 
 | Osoby| Role| Rola usługi Azure AD  |
 | - | -| -|
-| Administrator działu pomocy technicznej| Obsługa poziomu 1| Brak |
-| Administrator tożsamości| Konfigurowanie i debugowanie, gdy problemy mają wpływ na usługę Azure AD| Administrator globalny |
-| Administrator aplikacji| Zaświadczenie użytkownika w aplikacji, konfiguracja użytkowników z uprawnieniami| Brak |
-| Administratorzy infrastruktury| Właściciel najazd cert| Administrator globalny |
-| Właściciel firmy/interesariusz| Zaświadczenie użytkownika w aplikacji, konfiguracja użytkowników z uprawnieniami| Brak |
+| Administrator pomocy technicznej| Obsługa warstwy 1| Brak |
+| Administrator tożsamości| Konfigurowanie i debugowanie w przypadku problemów mających wpływ na usługę Azure AD| Administrator globalny |
+| Administrator aplikacji| Zaświadczanie użytkownika w aplikacji, konfiguracja dla użytkowników z uprawnieniami| Brak |
+| Administratorzy infrastruktury| Właściciel przerzucania certyfikatu| Administrator globalny |
+| Właściciel firmy/uczestnik projektu| Zaświadczanie użytkownika w aplikacji, konfiguracja dla użytkowników z uprawnieniami| Brak |
 
-[Zarządzanie tożsamościami uprzywilejowanymi](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) służy do zarządzania rolami w celu zapewnienia dodatkowej inspekcji, kontroli i przeglądu dostępu dla użytkowników z uprawnieniami do katalogów.
+Za pomocą [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) można zarządzać rolami w celu zapewnienia dodatkowej inspekcji, kontroli i przeglądu dostępu użytkownikom z uprawnieniami do katalogów.
 
 ### <a name="troubleshoot-access-panel-issues"></a>Rozwiązywanie problemów z panelem dostępu
 
-Tworzenie przewodników rozwiązywania problemów dla organizacji pomocy technicznej z typowych scenariuszy, które wskazują na dokumentację firmy Microsoft w ich rozwiązaniach. Można utworzyć przewodniki, które podzielają obsługę do warstw używanych przez organizację.
+Utwórz przewodniki dotyczące rozwiązywania problemów dla organizacji pomocy technicznej z typowymi scenariuszami, które wskazują dokumentację firmy Microsoft w swoich rozwiązaniach. Możesz chcieć utworzyć prowadnice, które dzielą obsługę na warstwy używane przez organizację.
 
-Zobacz następujące przewodniki rozwiązywania problemów, aby uzyskać odwołanie:
+Zapoznaj się z następującymi przewodnikami rozwiązywania problemów:
 
-[Aplikacje nie pojawiają się](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing)
+[Niewyświetlane aplikacje](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing)
 
-[Pojawiające się nieoczekiwane aplikacje](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application)
+[Pojawiły się nieoczekiwane aplikacje](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application)
 
-[Użytkownik nie może zalogować się do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem)
+[Użytkownik nie może zalogować się do panelu dostępu](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem)
 
-[Problemy z dostępem do aplikacji samoobsługowych](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-self-service-access)
+[Problemy przy użyciu samoobsługowego dostępu do aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-self-service-access)
 
 [Problemy z rozszerzeniem przeglądarki](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-access-panel-browser-extension)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Planowanie wdrożenia uwierzytelniania wieloskładnikowego platformy Azure](https://aka.ms/deploymentplans/mfa)
+[Planowanie wdrożenia usługi Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)

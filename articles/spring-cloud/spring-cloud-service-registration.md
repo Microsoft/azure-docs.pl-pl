@@ -1,26 +1,26 @@
 ---
-title: Automatyzacja rejestru i odnajdowania usług
-description: Dowiedz się, jak zautomatyzować odnajdowanie i rejestrację usługi przy użyciu rejestru usługi Spring Cloud Service Registry
+title: Automatyzowanie rejestru i odnajdywania usługi
+description: Dowiedz się, jak zautomatyzować odnajdywanie i rejestrację usług przy użyciu rejestru wiosennej usługi w chmurze
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: brendm
 ms.openlocfilehash: 6c217096f0ba4200f49bd1fd8056768a6f6f6dbd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76278856"
 ---
-# <a name="discover-and-register-your-spring-cloud-services"></a>Odkryj i zarejestruj swoje usługi Spring Cloud
+# <a name="discover-and-register-your-spring-cloud-services"></a>Odnajdywanie i rejestrowanie usług w chmurze wiosny
 
-Odnajdowanie usługi jest kluczowym wymaganiem dla architektury opartej na mikrousługach.  Ręczne konfigurowanie każdego klienta wymaga czasu i wprowadza możliwość wystąpienia błędu ludzkiego.  Usługa Azure Spring Cloud Service Registry rozwiązuje ten problem.  Po skonfigurowaniu serwer rejestru usług będzie kontrolować rejestrację i odnajdowanie usługi dla mikrousług aplikacji. Serwer rejestru usług prowadzi rejestr wdrożonych mikrousług, umożliwia równoważenie obciążenia po stronie klienta i oddziela dostawców usług od klientów bez polegania na systemie DNS.
+Odnajdowanie usług to kluczowy wymóg dla architektury opartej na mikrousługach.  Skonfigurowanie każdego klienta ręcznie zabiera czas i stanowi zagrożenie dla człowieka.  Rejestr usługi w chmurze Azure wiosennej rozwiązuje ten problem.  Po skonfigurowaniu serwer rejestru usługi będzie kontrolować rejestrację i odnajdywanie usługi dla mikrousług aplikacji. Serwer rejestru usługi przechowuje rejestr wdrożonych mikrousług, umożliwia Równoważenie obciążenia po stronie klienta i oddziela dostawców usług od klientów bez konieczności korzystania z systemu DNS.
 
-## <a name="register-your-application-using-spring-cloud-service-registry"></a>Rejestrowanie aplikacji przy użyciu rejestru usługi Spring Cloud Service Registry
+## <a name="register-your-application-using-spring-cloud-service-registry"></a>Rejestrowanie aplikacji przy użyciu rejestru wiosennej usługi w chmurze
 
-Aby aplikacja mogła zarządzać rejestracją i odnajdowaniem usług przy użyciu rejestru usługi w chmurze Spring, w pliku *pom.xml* aplikacji musi zostać uwzględnionych kilka zależności.
-Uwzględnij zależności dla *klienta wiosna-cloud-starter-netflix-eureka-client* i *spring-cloud-starter-azure-spring-cloud-client* do *pom.xml*
+Aby aplikacja mogła zarządzać rejestracją i odnajdywaniem usługi przy użyciu rejestru wiosennej usługi w chmurze, w pliku *pliku pom. XML* aplikacji musi być uwzględnionych kilka zależności.
+Uwzględnij zależności dla sieci *wiosny-Cloud-Starter-Netflix-Eureka-Client* i *sprężyny-Cloud-Starter-Azure-sprężyny-Cloud-Client* z *pliku pom. XML*
 
 ```xml
     <dependency>
@@ -36,7 +36,7 @@ Uwzględnij zależności dla *klienta wiosna-cloud-starter-netflix-eureka-client
 
 ## <a name="update-the-top-level-class"></a>Aktualizowanie klasy najwyższego poziomu
 
-Na koniec dodajemy adnotację do najwyższej klasy aplikacji
+Na koniec dodajemy adnotację do klasy najwyższego poziomu aplikacji
 
  ```java
     package foo.bar;
@@ -52,6 +52,6 @@ Na koniec dodajemy adnotację do najwyższej klasy aplikacji
     }
  ```
 
-Punkt końcowy serwera usługi Spring Cloud Service Registry zostanie wstrzyknięty jako zmienna środowiskowa w aplikacji.  Mikrousługi będą teraz mogli zarejestrować się na serwerze rejestru usług i odnajdywać inne mikrousług zależne.
+Punkt końcowy serwera rejestru usługi w chmurze wiosny zostanie dodany jako zmienna środowiskowa w aplikacji.  Mikrousługi będą teraz mogły zarejestrować się na serwerze rejestru usługi i wykryć inne zależne mikrousługi.
 
-Należy zauważyć, że może upłynąć kilka minut dla zmian propagacji z serwera do wszystkich mikrousług.
+Należy pamiętać, że może upłynąć kilka minut, zanim zmiany są propagowane z serwera do wszystkich mikrousług.

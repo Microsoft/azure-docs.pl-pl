@@ -1,5 +1,5 @@
 ---
-title: (PRZESTARZAŁE) Szybki start — klaster Azure Kubernetes dla systemu Windows
+title: PRZESTARZAŁE Szybki Start — klaster Azure Kubernetes dla systemu Windows
 description: Szybka nauka tworzenia klastra Kubernetes dla kontenerów systemu Windows w usłudze Azure Container Service za pomocą interfejsu wiersza polecenia platformy Azure.
 author: dlepow
 ms.service: container-service
@@ -8,19 +8,19 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277644"
 ---
-# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(PRZESTARZAŁE) Wdrażanie klastra Kubernetes dla kontenerów systemu Windows
+# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>PRZESTARZAŁE Wdrażanie klastra Kubernetes dla kontenerów systemu Windows
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku zawarto szczegółowe informacje dotyczące korzystania z interfejsu wiersza polecenia platformy Azure w celu wdrożenia klastra [Kubernetes](https://kubernetes.io/docs/home/) w [usłudze Azure Container Service](../container-service-intro.md). Po wdrożeniu klastra nawiążesz z nim połączenie za pomocą narzędzia wiersza polecenia `kubectl` usługi Kubernetes i wdrożysz swój pierwszy kontener systemu Windows.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -61,7 +61,7 @@ Po kilku minutach polecenie zostanie zakończone i wyświetlone zostaną informa
 
 ## <a name="install-kubectl"></a>Instalowanie narzędzia kubectl
 
-Aby połączyć się z klastrem Kubernetes z komputera klienckiego, użyj [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)klienta wiersza polecenia Kubernetes. 
+Aby nawiązać połączenie z klastrem Kubernetes z komputera klienckiego [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), użyj polecenia Kubernetes Client line. 
 
 Jeśli korzystasz z usługi Azure CloudShell, narzędzie `kubectl` jest już zainstalowane. Jeśli chcesz zainstalować je lokalnie, możesz użyć polecenia [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 

@@ -1,11 +1,11 @@
 ---
-title: Tworzenie publicznego modułu równoważenia obciążenia za pomocą usługi IPv6 — interfejsu wiersza polecenia platformy Azure
+title: Tworzenie publicznego modułu równoważenia obciążenia przy użyciu protokołu IPv6 — interfejs wiersza polecenia platformy Azure
 titleSuffix: Azure Load Balancer
-description: Dzięki tej ścieżce szkoleniowej rozpocznij tworzenie publicznego modułu równoważenia obciążenia za pomocą iPv6 przy użyciu interfejsu wiersza polecenia platformy Azure.
+description: Za pomocą tej ścieżki szkoleniowej Rozpocznij tworzenie publicznego modułu równoważenia obciążenia za pomocą protokołu IPv6 przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
-keywords: ipv6, lazurowy moduł równoważenia obciążenia, podwójny stos, publiczny adres IP, natywny ipv6, mobilny, iot
+keywords: IPv6, moduł równoważenia obciążenia platformy Azure, podwójny stos, publiczny adres IP, natywny protokół IPv6, urządzenia przenośne, IoT
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,52 +15,52 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
 ms.openlocfilehash: bff6a7ca6eb1a6859ec25d488f564c66946a780b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76045414"
 ---
-# <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Tworzenie publicznego modułu równoważenia obciążenia za pomocą funkcji IPv6 przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Tworzenie publicznego modułu równoważenia obciążenia przy użyciu protokołu IPv6 za pomocą interfejsu wiersza polecenia platformy Azure
 
 >[!NOTE] 
->W tym artykule opisano funkcję wprowadzającą IPv6, która umożliwia podstawowe moduły równoważenia obciążenia w celu zapewnienia łączności IPv4 i IPv6. Kompleksowa łączność IPv6 jest teraz dostępna z [technologiami wirtualnymi IPv6 dla platformy Azure,](../virtual-network/ipv6-overview.md) które integrują łączność IPv6 z sieciami wirtualnymi i zawierają najważniejsze funkcje, takie jak reguły sieciowej grupy zabezpieczeń IPv6, routing zdefiniowany przez użytkownika IPv6, podstawowe i standardowe równoważenie obciążenia IPv6 i inne.  IPv6 dla platformy Azure VNETs jest zalecanym standardem dla aplikacji IPv6 na platformie Azure. Zobacz [IPv6 dla wdrażania sieci wirtualnej sieci wirtualnej platformy Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
+>W tym artykule opisano wstępną funkcję IPv6 umożliwiającą podstawowym usługom równoważenia obciążenia zapewnienie łączności protokołów IPv4 i IPv6. Kompleksowa łączność z protokołem IPv6 jest teraz dostępna przy użyciu [protokołu IPv6 dla usługi Azure sieci wirtualnych](../virtual-network/ipv6-overview.md) , która integruje łączność IPv6 z sieciami wirtualnymi i zawiera najważniejsze funkcje, takie jak reguły sieciowej grupy zabezpieczeń IPv6, routing zdefiniowany przez użytkownika IPv6, podstawowe i standardowe Równoważenie obciążenia.  Protokół IPv6 dla usługi Azure sieci wirtualnych jest zalecanym standardem dla aplikacji IPv6 na platformie Azure. Zobacz [IPv6 dla wdrożenia programu PowerShell sieci wirtualnej platformy Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
-Usługa Azure Load Balancer to moduł równoważenia obciążenia w warstwie 4 (TCP, UDP). Moduły równoważenia obciążenia zapewniają wysoką dostępność, rozdzielając ruch przychodzący między wystąpienia usług w dobrej kondycji w usługach w chmurze lub maszynach wirtualnych w zestawie modułu równoważenia obciążenia. Moduły równoważenia obciążenia mogą również prezentować te usługi na wielu portach lub wielu adresach IP lub obu.
+Usługa Azure Load Balancer to moduł równoważenia obciążenia w warstwie 4 (TCP, UDP). Usługi równoważenia obciążenia zapewniają wysoką dostępność przez dystrybuowanie ruchu przychodzącego między wystąpieniami usług w chmurze i maszyn wirtualnych w zestawie modułu równoważenia obciążenia. Moduły równoważenia obciążenia mogą również przedstawić te usługi na wielu portach lub wielu adresach IP.
 
 ## <a name="example-deployment-scenario"></a>Przykładowy scenariusz wdrażania
 
-Na poniższym diagramie przedstawiono rozwiązanie równoważenia obciążenia, które jest wdrażane przy użyciu przykładowego szablonu opisanego w tym artykule.
+Na poniższym diagramie przedstawiono rozwiązanie równoważenia obciążenia, które zostało wdrożone przy użyciu przykładowego szablonu opisanego w tym artykule.
 
 ![Scenariusz modułu równoważenia obciążenia](./media/load-balancer-ipv6-internet-cli/lb-ipv6-scenario-cli.png)
 
 W tym scenariuszu utworzysz następujące zasoby platformy Azure:
 
-* Dwie maszyny wirtualne (maszyny wirtualne)
-* Interfejs sieci wirtualnej dla każdej maszyny Wirtualnej z przypisanymi adresami IPv4 i IPv6
-* Publiczny moduł równoważenia obciążenia z iPv4 i publicznym adresem IP IPv6
+* Dwie maszyny wirtualne
+* Interfejs sieci wirtualnej dla każdej maszyny wirtualnej z przypisanymi adresami IPv4 i IPv6
+* Publiczny moduł równoważenia obciążenia z publicznym adresem IP IPv4 i IPv6
 * Zestaw dostępności zawierający dwie maszyny wirtualne
-* Dwie reguły równoważenia obciążenia w celu mapowania publicznych adresów VIP do prywatnych punktów końcowych
+* Dwie reguły równoważenia obciążenia służące do mapowania publicznych adresów VIP na prywatne punkty końcowe
 
 ## <a name="deploy-the-solution-by-using-azure-cli"></a>Wdrażanie rozwiązania przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Poniższe kroki pokazują, jak utworzyć moduł równoważenia obciążenia publicznego przy użyciu interfejsu wiersza polecenia platformy Azure. Za pomocą interfejsu wiersza polecenia, należy utworzyć i skonfigurować każdy obiekt indywidualnie, a następnie umieścić je razem, aby utworzyć zasób.
+Poniższe kroki pokazują, jak utworzyć publiczny moduł równoważenia obciążenia przy użyciu interfejsu wiersza polecenia platformy Azure. Za pomocą interfejsu wiersza polecenia tworzysz i konfigurujesz każdy obiekt indywidualnie, a następnie umieścisz je razem w celu utworzenia zasobu.
 
 Aby wdrożyć moduł równoważenia obciążenia, należy utworzyć i skonfigurować następujące obiekty:
 
-* **Konfiguracja ip front-endu:** Zawiera publiczne adresy IP dla przychodzącego ruchu sieciowego.
-* **Pula adresów zaplecza:** Zawiera interfejsy sieciowe (NIC) dla maszyn wirtualnych do odbierania ruchu sieciowego z modułu równoważenia obciążenia.
-* **Reguły równoważenia obciążenia:** Zawiera reguły mapujące port publiczny na modułze równoważenia obciążenia do portu w puli adresów zaplecza.
-* **Przychodzące reguły TRANSLATORA**: Zawiera reguły translacji adresów sieciowych (NAT), które mapują port publiczny modułu równoważenia obciążenia na port dla określonej maszyny wirtualnej w puli adresów zaplecza.
-* **Sondy:** Zawiera sondy kondycji, które są używane do sprawdzania dostępności wystąpień maszyny wirtualnej w puli adresów zaplecza.
+* **Konfiguracja adresu IP frontonu**: zawiera publiczne adresy IP dla przychodzącego ruchu sieciowego.
+* **Pula adresów zaplecza**: zawiera interfejsy sieciowe (nic), dla których maszyny wirtualne mają odbierać ruch sieciowy z modułu równoważenia obciążenia.
+* **Reguły równoważenia obciążenia**: zawiera reguły, które mapują port publiczny modułu równoważenia obciążenia na port w puli adresów zaplecza.
+* **Reguły NAT dla ruchu przychodzącego**: zawierają reguły translacji adresów sieciowych (NAT), które mapują port publiczny modułu równoważenia obciążenia na port określonej maszyny wirtualnej w puli adresów zaplecza.
+* **Sondy**: zawiera sondy kondycji, które są używane do sprawdzania dostępności wystąpień maszyn wirtualnych w puli adresów zaplecza.
 
 ## <a name="set-up-azure-cli"></a>Konfigurowanie interfejsu wiersza polecenia platformy Azure
 
-W tym przykładzie należy uruchomić narzędzia interfejsu wiersza polecenia platformy Azure w oknie polecenia programu PowerShell. Aby poprawić czytelność i ponowne użycie, należy użyć możliwości skryptów programu PowerShell, a nie poleceń cmdlet programu Azure PowerShell.
+W tym przykładzie uruchomiono narzędzia interfejsu wiersza polecenia platformy Azure w oknie poleceń programu PowerShell. Aby zwiększyć czytelność i ponowne użycie, należy użyć funkcji obsługi skryptów programu PowerShell, a nie poleceń cmdlet Azure PowerShell.
 
-1. [Zainstaluj i skonfiguruj interfejsu wiersza polecenia platformy Azure,](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) wykonując kroki opisane w połączonym artykule i zaloguj się do konta platformy Azure.
+1. [Zainstaluj i skonfiguruj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , wykonując czynności opisane w połączonym artykule i zaloguj się na koncie platformy Azure.
 
-2. Konfigurowanie zmiennych programu PowerShell do użycia z poleceniami interfejsu wiersza polecenia platformy Azure:
+2. Skonfiguruj zmienne programu PowerShell do użycia z poleceniami interfejsu CLI platformy Azure:
 
     ```powershell
     $subscriptionid = "########-####-####-####-############"  # enter subscription id
@@ -96,23 +96,23 @@ W tym przykładzie należy uruchomić narzędzia interfejsu wiersza polecenia pl
     $vnet = az network vnet create  --resource-group $rgname --name $vnetName --location $location --address-prefixes $vnetPrefix
     ```
 
-4. W tej sieci wirtualnej utwórz dwie podsieci:
+4. W tej sieci wirtualnej Utwórz dwie podsieci:
 
     ```azurecli
     $subnet1 = az network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
     $subnet2 = az network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
     ```
 
-## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Tworzenie publicznych adresów IP dla puli front-end
+## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Tworzenie publicznych adresów IP dla puli frontonu
 
-1. Konfigurowanie zmiennych programu PowerShell:
+1. Skonfiguruj zmienne programu PowerShell:
 
     ```powershell
     $publicIpv4Name = "myIPv4Vip"
     $publicIpv6Name = "myIPv6Vip"
     ```
 
-2. Utwórz publiczny adres IP dla puli adresów IP front-end:
+2. Utwórz publiczny adres IP dla puli adresów IP frontonu:
 
     ```azurecli
     $publicipV4 = az network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --version IPv4 --allocation-method Dynamic --dns-name $dnsLabel
@@ -120,17 +120,17 @@ W tym przykładzie należy uruchomić narzędzia interfejsu wiersza polecenia pl
     ```
 
     > [!IMPORTANT]
-    > Moduł równoważenia obciążenia używa etykiety domeny publicznego adresu IP jako w pełni kwalifikowanej nazwy domeny (FQDN). Ta zmiana w stosunku do wdrożenia klasycznego, który używa nazwy usługi w chmurze jako modułu FQDN modułu równoważenia obciążenia.
+    > Moduł równoważenia obciążenia używa etykiety domeny publicznego adresu IP jako jego w pełni kwalifikowanej nazwy domeny (FQDN). Ta zmiana z wdrożenia klasycznego, która używa nazwy usługi w chmurze jako nazwy FQDN modułu równoważenia obciążenia.
     >
-    > W tym przykładzie FQDN jest *contoso09152016.southcentralus.cloudapp.azure.com*.
+    > W tym przykładzie nazwa FQDN to *contoso09152016.southcentralus.cloudapp.Azure.com*.
 
-## <a name="create-front-end-and-back-end-pools"></a>Tworzenie pul front-end i back-end
+## <a name="create-front-end-and-back-end-pools"></a>Tworzenie pul frontonu i zaplecza
 
 W tej sekcji utworzysz następujące pule adresów IP:
-* Pula adresów IP frontowaru, która odbiera przychodzący ruch sieciowy na moduł równoważenia obciążenia.
-* Pulę adresów IP zaplecza, w której pula frontowa wysyła ruch sieciowy z równoważenia obciążenia.
+* Pula adresów IP frontonu, która odbiera przychodzący ruch sieciowy w module równoważenia obciążenia.
+* Pula adresów IP zaplecza, w której Pula frontonu wysyła ruch sieciowy o zrównoważonym obciążeniu.
 
-1. Konfigurowanie zmiennych programu PowerShell:
+1. Skonfiguruj zmienne programu PowerShell:
 
     ```powershell
     $frontendV4Name = "FrontendVipIPv4"
@@ -139,7 +139,7 @@ W tej sekcji utworzysz następujące pule adresów IP:
     $backendAddressPoolV6Name = "BackendPoolIPv6"
     ```
 
-2. Utwórz pulę adresów IP frontu i skojarz ją z publicznym adresem IP utworzonym w poprzednim kroku i modułem równoważenia obciążenia.
+2. Utwórz pulę adresów IP frontonu i skojarz ją z publicznym adresem IP utworzonym w poprzednim kroku i module równoważenia obciążenia.
 
     ```azurecli
     $frontendV4 = az network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-address $publicIpv4Name --lb-name $lbName
@@ -148,18 +148,18 @@ W tej sekcji utworzysz następujące pule adresów IP:
     $backendAddressPoolV6 = az network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
     ```
 
-## <a name="create-the-probe-nat-rules-and-load-balancer-rules"></a>Tworzenie reguł sondy, translatora nat i modułu równoważenia obciążenia
+## <a name="create-the-probe-nat-rules-and-load-balancer-rules"></a>Tworzenie sondy, reguł translatora adresów sieciowych i reguł modułu równoważenia obciążenia
 
 W tym przykładzie opisano tworzenie następujących elementów:
 
-* Reguła sondowania w celu sprawdzenia łączności z portem TCP 80.
-* Reguła NAT, aby przetłumaczyć cały ruch przychodzący na porcie 3389 do portu 3389 dla protokołu RDP.\*
-* Reguła TRANSLATORA, aby przetłumaczyć cały ruch przychodzący na porcie 3391 na port 3389 dla protokołu pulpitu zdalnego (RDP).\*
-* Reguła modułu równoważenia całego ruchu przychodzącego na porcie 80 do portu 80 na adresach w puli zaplecza.
+* Reguła sondy służąca do sprawdzania połączenia z portem TCP 80.
+* Reguła NAT służąca do translacji całego ruchu przychodzącego na porcie 3389 do portu 3389 dla protokołu RDP.\*
+* Reguła NAT służąca do translacji całego ruchu przychodzącego na porcie 3391 do portu 3389 dla protokołu RDP (Remote Desktop Protocol).\*
+* Reguła modułu równoważenia obciążenia do równoważenia całego ruchu przychodzącego na porcie 80 do portu 80 adresów w puli zaplecza.
 
-\*Reguły translatora adresów sieciowych są skojarzone z określonym wystąpieniem maszyny wirtualnej za modułem równoważenia obciążenia. Ruch sieciowy docierany do portu 3389 jest wysyłany do określonej maszyny wirtualnej i portu skojarzonego z regułą nat. Musisz określić protokół (UDP lub TCP) dla reguły NAT. Nie można przypisać obu protokołów do tego samego portu.
+\*Reguły NAT są skojarzone z określonym wystąpieniem maszyny wirtualnej za modułem równoważenia obciążenia. Ruch sieciowy przychodzący na porcie 3389 jest wysyłany do określonej maszyny wirtualnej i portu skojarzonej z regułą NAT. Musisz określić protokół (UDP lub TCP) dla reguły NAT. Nie można przypisać obu protokołów do tego samego portu.
 
-1. Konfigurowanie zmiennych programu PowerShell:
+1. Skonfiguruj zmienne programu PowerShell:
 
     ```powershell
     $probeV4V6Name = "ProbeForIPv4AndIPv6"
@@ -171,20 +171,20 @@ W tym przykładzie opisano tworzenie następujących elementów:
 
 2. Utwórz sondę.
 
-    Poniższy przykład tworzy sondę TCP, która sprawdza łączność z portem TCP zaplecza 80 co 15 sekund. Po dwóch kolejnych błędów oznacza zasób zaplecza jako niedostępny.
+    Poniższy przykład tworzy sondę TCP, która sprawdza łączność z portem TCP zaplecza 80 co 15 sekund. Po dwóch kolejnych awariach oznacza to, że zasób zaplecza jest niedostępny.
 
     ```azurecli
     $probeV4V6 = az network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --threshold 2 --lb-name $lbName
     ```
 
-3. Tworzenie reguł przychodzącego translatora i sieci kontaktów, które zezwalają na połączenia protokołu RDP z zasobami zaplecza:
+3. Utwórz reguły NAT dla ruchu przychodzącego, które zezwalają na połączenia RDP z zasobami zaplecza:
 
     ```azurecli
     $inboundNatRuleRdp1 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
     $inboundNatRuleRdp2 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
     ```
 
-4. Utwórz reguły modułu równoważenia obciążenia, które wysyłają ruch do różnych portów zaplecza, w zależności od frontu, który odebrał żądanie.
+4. Utwórz reguły modułu równoważenia obciążenia, które wysyłają ruch do różnych portów zaplecza, w zależności od frontonu, który odebrał żądanie.
 
     ```azurecli
     $lbruleIPv4 = az network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
@@ -239,9 +239,9 @@ W tym przykładzie opisano tworzenie następujących elementów:
 
 ## <a name="create-nics"></a>Tworzenie kart sieciowych
 
-Tworzenie kart sieciowych i kojarzenie ich z regułami nat, regułami równoważenia obciążenia i sondami.
+Tworzenie kart sieciowych i kojarzenie ich z regułami NAT, regułami modułu równoważenia obciążenia i sondami.
 
-1. Konfigurowanie zmiennych programu PowerShell:
+1. Skonfiguruj zmienne programu PowerShell:
 
     ```powershell
     $nic1Name = "myIPv4IPv6Nic1"
@@ -254,7 +254,7 @@ Tworzenie kart sieciowych i kojarzenie ich z regułami nat, regułami równoważ
     $natRule2V4Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/loadbalancers/$lbName/inboundNatRules/$natRule2V4Name"
     ```
 
-2. Utwórz kartę sieciową dla każdego zaplecza i dodaj konfigurację IPv6:
+2. Utwórz kartę sieciową dla każdego zaplecza i Dodaj konfigurację protokołu IPv6:
 
     ```azurecli
     $nic1 = az network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-address-version "IPv4" --subnet $subnet1Id --lb-address-pools $backendAddressPoolV4Id --lb-inbound-nat-rules $natRule1V4Id
@@ -264,11 +264,11 @@ Tworzenie kart sieciowych i kojarzenie ich z regułami nat, regułami równoważ
     $nic2IPv6 = az network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-address-version "IPv6" --lb-address-pools $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
-## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Tworzenie zasobów zaplecza maszyny Wirtualnej i dołączanie każdej karty sieciowej
+## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Tworzenie zasobów maszyn wirtualnych zaplecza i dołączanie każdej karty sieciowej
 
-Aby utworzyć maszyny wirtualne, musisz mieć konto magazynu. W przypadku równoważenia obciążenia maszyny wirtualne muszą być członkami zestawu dostępności. Aby uzyskać więcej informacji na temat tworzenia maszyn wirtualnych, zobacz [Tworzenie maszyny wirtualnej platformy Azure przy użyciu programu PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+Aby tworzyć maszyny wirtualne, musisz mieć konto magazynu. W przypadku równoważenia obciążenia maszyny wirtualne muszą być elementami członkowskimi zestawu dostępności. Aby uzyskać więcej informacji na temat tworzenia maszyn wirtualnych, zobacz [Tworzenie maszyny wirtualnej platformy Azure przy użyciu programu PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-1. Konfigurowanie zmiennych programu PowerShell:
+1. Skonfiguruj zmienne programu PowerShell:
 
     ```powershell
     $availabilitySetName = "myIPv4IPv6AvailabilitySet"
@@ -282,7 +282,7 @@ Aby utworzyć maszyny wirtualne, musisz mieć konto magazynu. W przypadku równo
     ```
 
     > [!WARNING]
-    > W tym przykładzie użyto nazwy użytkownika i hasła dla maszyn wirtualnych w cleartext. Należy pamiętać, korzystając z tych poświadczeń w cleartext. Aby uzyskać bezpieczniejszą metodę obsługi poświadczeń [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) w programie PowerShell, zobacz polecenie cmdlet.
+    > W tym przykładzie używana jest nazwa użytkownika i hasło do maszyn wirtualnych w postaci zwykłego tekstu. Należy zachować ostrożność w przypadku używania tych poświadczeń w postaci zwykłego tekstu. Aby uzyskać bardziej bezpieczną metodę obsługi poświadczeń w programie PowerShell, zapoznaj [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) się z poleceniem cmdlet.
 
 2. Utwórz zestaw dostępności:
 
@@ -290,7 +290,7 @@ Aby utworzyć maszyny wirtualne, musisz mieć konto magazynu. W przypadku równo
     $availabilitySet = az vm availability-set create --name $availabilitySetName --resource-group $rgName --location $location
     ```
 
-3. Tworzenie maszyn wirtualnych przy tym powiązanych kart sieciowych:
+3. Utwórz maszyny wirtualne przy użyciu skojarzonych kart sieciowych:
 
     ```azurecli
     az vm create --resource-group $rgname --name $vm1Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic1Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 

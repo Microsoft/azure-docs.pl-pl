@@ -1,5 +1,5 @@
 ---
-title: Udostępnianie obrazów maszyn wirtualnych w galeriach udostępnionych
+title: Udostępnianie obrazów maszyn wirtualnych z udostępnionymi galeriami
 description: Dowiedz się, jak używać udostępnionych galerii obrazów do udostępniania obrazów maszyn wirtualnych w całej organizacji.
 documentationcenter: virtual-machine-scale-sets
 author: axayjo
@@ -13,13 +13,13 @@ ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
 ms.openlocfilehash: 38b8738a383d2953d89677f76e6395035b83181f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76276362"
 ---
-# <a name="shared-image-galleries-overview"></a>Udostępnione galerie obrazów — omówienie
+# <a name="shared-image-galleries-overview"></a>Udostępnione Galerie obrazów — Omówienie
 
 
 [!INCLUDE [virtual-machines-common-shared-image-galleries](../../includes/virtual-machines-common-shared-image-galleries.md)]
@@ -27,4 +27,4 @@ ms.locfileid: "76276362"
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak wdrażać udostępnione obrazy przy użyciu [interfejsu wiersza polecenia platformy Azure](shared-images-cli.md) i programu Azure [PowerShell](shared-images-powershell.md)
+Dowiedz się, jak wdrażać obrazy udostępnione przy użyciu [interfejsu wiersza polecenia platformy Azure](shared-images-cli.md) i [Azure PowerShell](shared-images-powershell.md)

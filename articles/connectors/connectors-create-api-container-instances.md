@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie & zarządzanie wystąpieniami kontenerów platformy Azure
-description: Automatyzuj zadania i przepływy pracy, które tworzą wdrożenia kontenerów i zarządzają nimi w wystąpieniach kontenerów platformy Azure przy użyciu aplikacji azure logic apps
+title: Wdrażanie & zarządzanie Azure Container Instances
+description: Automatyzowanie zadań i przepływów pracy, które tworzą i zarządzają wdrożeniami kontenerów w Azure Container Instances przy użyciu Azure Logic Apps
 services: logic-apps, container-instances
 ms.service: logic-apps
 ms.suite: integration
@@ -12,66 +12,66 @@ ms.topic: article
 tags: connectors
 ms.date: 01/14/2020
 ms.openlocfilehash: ecb1049d64197f2a60438df7eedfb244907f7327
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76046294"
 ---
-# <a name="deploy-and-manage-azure-container-instances-by-using-azure-logic-apps"></a>Wdrażanie wystąpień kontenerów platformy Azure i zarządzanie nimi przy użyciu aplikacji Azure Logic Apps
+# <a name="deploy-and-manage-azure-container-instances-by-using-azure-logic-apps"></a>Wdrażanie Azure Container Instances i zarządzanie nimi za pomocą Azure Logic Apps
 
-Za pomocą aplikacji Azure Logic Apps i łącznika wystąpienia kontenera platformy Azure można skonfigurować zautomatyzowane zadania i przepływy pracy wdrażane i zarządzające [grupami kontenerów.](../container-instances/container-instances-container-groups.md) Łącznik wystąpienia kontenera obsługuje następujące akcje:
+Za pomocą Azure Logic Apps i łącznika usługi Azure Container instance można skonfigurować automatyczne zadania i przepływy pracy, które wdrażają [grupy kontenerów](../container-instances/container-instances-container-groups.md)i zarządzają nimi. Łącznik wystąpienia kontenera obsługuje następujące akcje:
 
 * Tworzenie lub usuwanie grupy kontenerów
 * Pobierz właściwości grupy kontenerów
-* Wyświetlanie listy grup kontenerów
-* Pobierz dzienniki wystąpienia kontenera
+* Pobierz listę grup kontenerów
+* Pobieranie dzienników wystąpienia kontenera
 
-Użyj tych akcji w aplikacjach logiki dla zadań, takich jak uruchamianie obciążenia kontenera w odpowiedzi na wyzwalacz aplikacji logiki. Można również mieć inne akcje użyć danych wyjściowych z akcji wystąpienia kontenera. 
+Użyj tych akcji w aplikacjach logiki do wykonywania zadań, takich jak uruchamianie obciążenia kontenera w odpowiedzi na wyzwalacz Logic Apps. Możesz również mieć inne akcje, używając danych wyjściowych z akcji wystąpienia kontenera. 
 
-Ten łącznik zawiera tylko akcje, więc aby uruchomić aplikację logiki, należy użyć oddzielnego wyzwalacza, takiego jak wyzwalacz **cyklu,** aby uruchomić obciążenie kontenera zgodnie z regularnym harmonogramem. Lub może być konieczne wyzwolenie wdrożenia grupy kontenerów po zdarzeniu, takim jak nadejście wiadomości e-mail programu Outlook. 
+Ten łącznik zawiera tylko akcje, więc aby uruchomić aplikację logiki, użyj oddzielnego wyzwalacza, takiego jak wyzwalacz **cykliczny** do uruchomienia obciążenia kontenera zgodnie z regularnym harmonogramem. Może być konieczne wyzwolenie wdrożenia grupy kontenerów po wystąpieniu zdarzenia, takiego jak nadejście wiadomości e-mail programu Outlook. 
 
-Jeśli jesteś nowy w aplikacjach logiki, sprawdź [Co to jest usługa Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/). 
 
-* Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) oraz [tworzenia wystąpień kontenerów i zarządzania nimi](../container-instances/container-instances-quickstart.md)
+* Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) oraz [tworzenia wystąpień kontenerów i zarządzania nimi](../container-instances/container-instances-quickstart.md)
 
-* Aplikacja logiki, w której chcesz uzyskać dostęp do wystąpień kontenera. Aby użyć akcji, uruchom aplikację logiki z innym wyzwalaczem, na przykład **wyzwalaczem cyklu.**
+* Aplikacja logiki, w której chcesz uzyskać dostęp do wystąpień kontenerów. Aby użyć akcji, uruchom aplikację logiki z innym wyzwalaczem, na przykład wyzwalaczem **cyklu** .
 
-## <a name="add-a-container-instance-action"></a>Dodawanie akcji wystąpienia kontenera
+## <a name="add-a-container-instance-action"></a>Dodaj akcję wystąpienia kontenera
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com)i otwórz aplikację logiki w logice App Designer, jeśli nie jest już otwarty.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com)i Otwórz aplikację logiki w Projektancie aplikacji logiki, jeśli nie jest jeszcze otwarta.
 
 1. Wybierz ścieżkę: 
 
-   * W obszarze ostatniego kroku, w którym chcesz dodać akcję, wybierz pozycję **Nowy krok**. 
+   * W ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok**. 
 
      — lub —
 
-   * Między krokami, w których chcesz dodać akcję, przesuń wskaźnik myszy na strzałkę między krokami. 
-   Wybierz wyświetlony znak**+** plus ( ), a następnie wybierz pozycję **Dodaj akcję**.
+   * Między krokami, do których chcesz dodać akcję, przesuń wskaźnik myszy nad strzałkę między krokami. 
+   Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
 
-1. W polu wyszukiwania wprowadź "instancję kontenera" jako filtr. W obszarze listy akcji wybierz odpowiednią akcję łącznika wystąpienia kontenera platformy Azure.
+1. W polu wyszukiwania wprowadź "wystąpienie kontenera" jako filtr. Na liście Akcje wybierz żądaną akcję łącznika usługi Azure Container instance.
 
 1. Podaj nazwę połączenia. 
 
-1. Podaj szczegóły niezbędne do wybranej akcji i kontynuuj tworzenie przepływu pracy aplikacji logiki.
+1. Podaj niezbędne szczegóły wybranej akcji i Kontynuuj tworzenie przepływu pracy aplikacji logiki.
 
-  Na przykład wybierz **pozycję Utwórz grupę kontenerów** i wprowadź właściwości grupy kontenerów i co najmniej jednego wystąpienia kontenera w grupie, jak pokazano na poniższej ilustracji (szczegóły częściowe):
+  Na przykład wybierz pozycję **Utwórz grupę kontenerów** i wprowadź właściwości grupy kontenerów oraz co najmniej jedno wystąpienie kontenera w grupie, jak pokazano na poniższej ilustracji (częściowa Szczegółowa):
 
   ![Tworzenie grupy kontenerów](./media/connectors-create-api-container-instances/logic-apps-aci-connector.png)
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i limitów, które są opisane przez opis OpenAPI łącznika (dawniej Swagger), przejrzyj [stronę odwołania](/connectors/aci/) łącznika lub odwołanie do grupy kontenerów [YAML](../container-instances/container-instances-reference-yaml.md).
+Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i limitów, które są opisane w opisie OpenAPI łącznika (dawniej Swagger), przejrzyj [stronę referencyjną](/connectors/aci/) łącznika lub [odwołanie do YAML](../container-instances/container-instances-reference-yaml.md)grupy kontenerów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zobacz [przykładową aplikację logiki,](https://github.com/Azure-Samples/aci-logicapps-integration) która uruchamia kontener w wystąpieniach kontenera platformy Azure, aby analizować tonację wiadomości e-mail lub tekstu Twittera
+* Zobacz [przykładową aplikację logiki](https://github.com/Azure-Samples/aci-logicapps-integration) , która uruchamia kontener w Azure Container Instances, aby przeanalizować tonacji wiadomości e-mail lub serwisu Twitter
 
-* Dowiedz się więcej o innych [łącznikach aplikacji logiki](../connectors/apis-list.md)
+* Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)

@@ -1,6 +1,6 @@
 ---
-title: Problem z konfiguracją sfederowanego logowania jednokrotnego dla aplikacji niezwiązanych z galerią | Dokumenty firmy Microsoft
-description: Rozwiązywanie niektórych typowych problemów, które mogą wystąpić podczas konfigurowania federacyjnego logowania jednokrotnego do niestandardowej aplikacji SAML, która nie jest wymieniona w Galerii aplikacji usługi Azure AD
+title: Problem z konfiguracją federacyjnego logowania jednokrotnego dla aplikacji spoza galerii | Microsoft Docs
+description: Rozwiązywanie niektórych typowych problemów, które mogą wystąpić podczas konfigurowania federacyjnego logowania jednokrotnego do niestandardowej aplikacji SAML, która nie jest wymieniona w galerii aplikacji usługi Azure AD.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,59 +16,59 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7894bfada4d363e89f526280e2925b4f4c6180a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76711879"
 ---
-# <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Problem z konfigurowaniem federacyjnego logowania jednokrotnego dla aplikacji spoza galerii
+# <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Wystąpił problem podczas konfigurowania federacyjnego logowania jednokrotnego dla aplikacji spoza galerii
 
-Jeśli wystąpi problem podczas konfigurowania aplikacji. Sprawdź, czy postępujesz do wszystkich kroków w [artykule Konfigurowanie logowania jednokrotnego do aplikacji, które nie znajdują się w galerii aplikacji usługi Azure Active Directory.](configure-federated-single-sign-on-non-gallery-applications.md)
+Jeśli wystąpi problem podczas konfigurowania aplikacji. Upewnij się, że wykonano wszystkie kroki opisane w artykule [Konfigurowanie logowania jednokrotnego do aplikacji, które nie znajdują się w galerii aplikacji Azure Active Directory.](configure-federated-single-sign-on-non-gallery-applications.md)
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Nie można dodać innego wystąpienia aplikacji
 
 Aby dodać drugie wystąpienie aplikacji, musisz mieć możliwość:
 
--   Skonfiguruj unikatowy identyfikator dla drugiego wystąpienia. Nie można skonfigurować tego samego identyfikatora, który jest używany dla pierwszego wystąpienia.
+-   Skonfiguruj unikatowy identyfikator drugiego wystąpienia. Nie można skonfigurować tego samego identyfikatora, który jest używany dla pierwszego wystąpienia.
 
--   Skonfiguruj inny certyfikat niż używany w pierwszym wystąpieniu.
+-   Skonfiguruj inny certyfikat niż użyty dla pierwszego wystąpienia.
 
-Jeśli aplikacja nie obsługuje żadnego z powyższych, nie można skonfigurować drugie wystąpienie.
+Jeśli aplikacja nie obsługuje żadnego z powyższych, nie można skonfigurować drugiego wystąpienia.
 
-## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Gdzie ustawić format Identyfikator jednostki (identyfikator użytkownika)
+## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Gdzie ustawić format EntityID (identyfikator użytkownika)
 
-Nie można wybrać formatu Identyfikator użytkownika (Identyfikator użytkownika), który usługa Azure AD wysyła do aplikacji w odpowiedzi po uwierzytelnieniu użytkownika.
+Nie można wybrać formatu EntityID (identyfikator użytkownika), który usługa Azure AD wysyła do aplikacji w odpowiedzi po uwierzytelnieniu użytkownika.
 
-Usługa Azure AD wybiera format atrybutu NameID (identyfikator użytkownika) na podstawie wybranej wartości lub formatu żądanego przez aplikację w saml AuthRequest. Aby uzyskać więcej informacji, odwiedź artykuł [Protokół SAML logowania jednokrotnego](../develop/single-sign-on-saml-protocol.md#authnrequest) w sekcji NameIDPolicy,
+Usługa Azure AD wybiera format atrybutu NameID (identyfikator użytkownika) w oparciu o wybraną wartość lub format żądany przez aplikację w elemencie SAML AuthRequest. Aby uzyskać więcej informacji, zapoznaj się z artykułem Logowanie jednokrotne logowania jednokrotnego [protokołu SAML](../develop/single-sign-on-saml-protocol.md#authnrequest) w sekcji NameIDPolicy.
 
-## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Gdzie mogę uzyskać metadane aplikacji lub certyfikat z usługi Azure AD
+## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Gdzie można uzyskać metadane aplikacji lub certyfikat z usługi Azure AD
 
 Aby pobrać metadane aplikacji lub certyfikat z usługi Azure AD, wykonaj następujące kroki:
 
-1. Otwórz [**witrynę Azure portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator.**
+1. Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator.**
 
-2. Otwórz **rozszerzenie usługi Azure Active Directory,** klikając **pozycję Wszystkie usługi** u góry głównego menu nawigacji po lewej stronie.
+2. Otwórz **rozszerzenie Azure Active Directory** , klikając pozycję **wszystkie usługi** w górnej części menu nawigacji po lewej stronie.
 
-3. Wpisz **"Usługa Azure Active Directory"** w polu wyszukiwania filtru i wybierz element **usługi Azure Active Directory.**
+3. Wpisz ciąg **"Azure Active Directory**" w polu wyszukiwania filtru i wybierz element **Azure Active Directory** .
 
-4. kliknij polecenie **Aplikacje przedsiębiorstwa** z menu nawigacji po lewej stronie usługi Azure Active Directory.
+4. Kliknij pozycję **aplikacje przedsiębiorstwa** w menu nawigacji po lewej stronie Azure Active Directory.
 
-5. kliknij pozycję **Wszystkie aplikacje,** aby wyświetlić listę wszystkich aplikacji.
+5. Kliknij pozycję **wszystkie aplikacje** , aby wyświetlić listę wszystkich aplikacji.
 
-   * Jeśli nie widzisz aplikacji, która ma być pokazana w tym miejscu, użyj kontrolki **Filtruj** u góry **listy Wszystkie aplikacje** i ustaw opcję **Pokaż** na **Wszystkie aplikacje.**
+   * Jeśli nie widzisz aplikacji, która ma być wyświetlana w tym miejscu, użyj kontrolki **filtru** w górnej części **listy wszystkie aplikacje** i ustaw opcję **Pokaż** na **wszystkie aplikacje.**
 
-6. Wybierz aplikację skonfigurowaną logowanie jednokrotne.
+6. Wybierz aplikację, dla której skonfigurowano Logowanie jednokrotne.
 
-7. Po załadowaniu aplikacji kliknij **logowanie jednokrotne** z menu nawigacji po lewej stronie aplikacji.
+7. Po załadowaniu aplikacji kliknij pozycję **Logowanie** jednokrotne w menu nawigacji po lewej stronie aplikacji.
 
-8. Przejdź do sekcji **Saml Podpisywanie certyfikatów,** a następnie kliknij pozycję **Pobierz** wartość kolumny. W zależności od tego, co aplikacja wymaga konfigurowania logowania jednokrotnego, zostanie wyświetlone możliwe pobranie metadanych XML lub certyfikatu.
+8. Przejdź do sekcji **certyfikat podpisywania SAML** , a następnie kliknij pozycję **Pobierz** wartość kolumny. W zależności od tego, co aplikacja wymaga skonfigurowania logowania jednokrotnego, zobaczysz opcję pobrania XML metadanych lub certyfikatu.
 
-Usługa Azure AD nie udostępnia adresu URL, aby uzyskać metadane. Metadane można pobrać tylko jako plik XML.
+Usługa Azure AD nie udostępnia adresu URL do pobrania metadanych. Metadane można pobrać tylko jako plik XML.
 
-## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Nie wiem, jak dostosować oświadczenia SAML wysyłane do aplikacji
+## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Nie wiadomo, jak dostosować oświadczenia SAML wysyłane do aplikacji
 
-Aby dowiedzieć się, jak dostosować oświadczenia atrybutów SAML wysyłane do aplikacji, zobacz [Mapowanie oświadczeń w usłudze Azure Active Directory,](../develop/active-directory-claims-mapping.md) aby uzyskać więcej informacji.
+Aby dowiedzieć się, jak dostosować oświadczenia atrybutu SAML wysyłane do aplikacji, zobacz [Mapowanie oświadczeń w Azure Active Directory](../develop/active-directory-claims-mapping.md) , aby uzyskać więcej informacji.
 
 ## <a name="next-steps"></a>Następne kroki
-[Zarządzanie aplikacjami za pomocą usługi Azure Active Directory](what-is-application-management.md)
+[Zarządzanie aplikacjami za pomocą Azure Active Directory](what-is-application-management.md)

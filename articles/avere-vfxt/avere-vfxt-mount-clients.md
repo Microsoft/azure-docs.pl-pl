@@ -1,38 +1,38 @@
 ---
-title: Montowanie avere vFXT — Azure
-description: Jak zainstalować klientów za pomocą avere vFXT na platformie Azure
+title: Instalowanie programu avere vFXT — Azure
+description: Jak zainstalować klientów z programem avere vFXT dla platformy Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: b8486b5a33226b1faa5e3874144129dbe7a1a2f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76153415"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Instalowanie klastra Avere vFXT
 
 Wykonaj następujące kroki, aby połączyć komputery klienckie z klastrem vFXT.
 
-1. Zdecyduj, jak zrównoważyć ruch klienta między węzłami klastra. Przeczytaj [informacje o obciążeniu klienta salda](#balance-client-load)poniżej.
-1. Zidentyfikuj adres IP i ścieżkę połączenia do zainstalowania.
-1. Wystaw [polecenie mount](#mount-command-arguments)z odpowiednimi argumentami.
+1. Zdecyduj, jak równoważyć obciążenie ruchu klienckiego między węzłami klastra. Aby uzyskać szczegółowe informacje, przeczytaj temat [równoważenie obciążenia klienta](#balance-client-load)poniżej.
+1. Określ adres IP i ścieżkę rozgałęzienia do zainstalowania.
+1. Wydaj [polecenie instalacji](#mount-command-arguments)z odpowiednimi argumentami.
 
-## <a name="balance-client-load"></a>Bilans obciążenia klienta
+## <a name="balance-client-load"></a>Równoważ obciążenie klienta
 
-Aby ułatwić równoważenie żądań klientów między wszystkimi węzłami w klastrze, należy zainstalować klientów do pełnego zakresu adresów IP skierowanych do klienta. Istnieje kilka prostych sposobów automatyzacji tego zadania.
+Aby zapewnić zrównoważenie żądań klientów między wszystkimi węzłami w klastrze, należy zainstalować klientów do pełnego zakresu adresów IP skierowanych na klienta. Istnieje kilka prostych metod automatyzacji tego zadania.
 
 > [!TIP]
-> Inne metody równoważenia obciążenia mogą być odpowiednie dla dużych lub skomplikowanych systemów; [otwórz bilet pomocy technicznej).](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)
+> Inne metody równoważenia obciążenia mogą być odpowiednie dla dużych lub skomplikowanych systemów; [Otwórz bilet pomocy technicznej,](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) Aby uzyskać pomoc.
 >
-> Jeśli wolisz używać serwera DNS do automatycznego równoważenia obciążenia po stronie serwera, musisz skonfigurować własny serwer DNS na platformie Azure i zarządzać nim. W takim przypadku można skonfigurować system DNS okrężny dla klastra vFXT zgodnie z tym [dokumentem: Konfiguracja DNS klastra Avere](avere-vfxt-configure-dns.md).
+> Jeśli wolisz używać serwera DNS do automatycznego równoważenia obciążenia po stronie serwera, musisz skonfigurować własny serwer DNS i zarządzać nim na platformie Azure. W takim przypadku można skonfigurować serwer DNS działający w trybie okrężnym dla klastra vFXT zgodnie z tym dokumentem: [avere klastra Konfiguracja DNS](avere-vfxt-configure-dns.md).
 
-### <a name="sample-balanced-client-mounting-script"></a>Przykładowy skrypt montażowy zrównoważonego klienta
+### <a name="sample-balanced-client-mounting-script"></a>Przykładowy skrypt z równoważeniem instalacji klienta
 
-W tym przykładzie kodu użyto adresów IP klienta jako elementu randomizującego do dystrybucji klientów do wszystkich dostępnych adresów IP klastra vFXT.
+Ten przykład kodu używa adresów IP klienta jako elementu losowego do dystrybucji klientów do wszystkich adresów IP dostępnych w klastrze vFXT.
 
 ```bash
 function mount_round_robin() {
@@ -57,62 +57,62 @@ function mount_round_robin() {
 }
 ```
 
-Powyższa funkcja jest częścią przykładu Batch dostępnego w witrynie [przykładów Avere vFXT.](https://github.com/Azure/Avere#tutorials)
+Powyższa funkcja jest częścią przykładu partii dostępnego w witrynie [przykładów avere vFXT](https://github.com/Azure/Avere#tutorials) .
 
-## <a name="create-the-mount-command"></a>Tworzenie polecenia mount
+## <a name="create-the-mount-command"></a>Utwórz polecenie instalacji
 
 > [!NOTE]
-> Jeśli podczas tworzenia klastra VFXT programu Avere nie utworzyno nowego kontenera obiektów Blob, przed podjęciem próby zainstalowania klientów należy dodać systemy magazynowania zgodnie z opisem w temacie [Konfigurowanie magazynu.](avere-vfxt-add-storage.md)
+> Jeśli nie utworzono nowego kontenera obiektów BLOB podczas tworzenia klastra avere vFXT, Dodaj systemy magazynów zgodnie z opisem w sekcji [Konfigurowanie magazynu](avere-vfxt-add-storage.md) przed próbą instalacji klientów.
 
-Z klienta ``mount`` polecenie mapuje serwer wirtualny (vserver) w klastrze vFXT na ścieżkę w lokalnym systemie plików. Format jest``mount <vFXT path> <local path> {options}``
+Z poziomu klienta ``mount`` polecenie mapuje serwer wirtualny (vserver) w klastrze vFXT na ścieżkę w lokalnym systemie plików. Format jest``mount <vFXT path> <local path> {options}``
 
-Polecenie mount ma trzy elementy:
+Polecenie instalacji ma trzy elementy:
 
-* Ścieżka vFXT - połączenie adresu IP i ścieżki połączenia obszaru nazw w klastrze 9 opisane poniżej)
-* ścieżka lokalna - ścieżka na kliencie
-* mount command options - wymienione w [argumentach polecenia Mount](#mount-command-arguments)
+* ścieżka vFXT-kombinacja adresu IP i ścieżki rozgałęzienia przestrzeni nazw w klastrze 9described poniżej)
+* ścieżka lokalna — ścieżka na kliencie
+* Opcje polecenia instalacji — wymienione w [argumentach polecenia instalacji](#mount-command-arguments)
 
-### <a name="junction-and-ip"></a>Złącze i adres IP
+### <a name="junction-and-ip"></a>Połączenie i adres IP
 
-Ścieżka serwera vserver jest kombinacją jego *adresu IP* oraz ścieżki do skrzyżowania *obszaru nazw*. Węzeł obszaru nazw jest ścieżką wirtualną, która została zdefiniowana podczas dodawania systemu magazynu.
+Ścieżka vserver jest kombinacją jego *adresu IP* oraz ścieżki do *rozgałęzienia przestrzeni nazw*. Rozgałęzienie przestrzeni nazw jest ścieżką wirtualną, która została zdefiniowana podczas dodawania systemu magazynu.
 
-Jeśli klaster został utworzony z magazynem obiektów Blob, ścieżka obszaru nazw do tego kontenera jest`/msazure`
+Jeśli klaster został utworzony przy użyciu magazynu obiektów blob, ścieżka przestrzeni nazw do tego kontenera to`/msazure`
 
 Przykład: ``mount 10.0.0.12:/msazure /mnt/vfxt``
 
-Jeśli po utworzeniu klastra dodano magazyn, ścieżka połączenia obszaru nazw jest wartością ustawioną w **ścieżce obszaru nazw** podczas tworzenia skrzyżowania. Na przykład jeśli ``/avere/files`` użyto jako ścieżki obszaru nazw, klienci będą instalować *IP_address*:/avere/files do lokalnego punktu instalacji.
+Po dodaniu magazynu po utworzeniu klastra, ścieżka rozgałęzienia przestrzeni nazw jest wartością ustawioną w polu **ścieżka przestrzeni nazw** podczas tworzenia połączenia. Na przykład jeśli użyto ``/avere/files`` jako ścieżki przestrzeni nazw, klienci instalują *IP_address*:/avere/Files do ich lokalnego punktu instalacji.
 
-![Okno dialogowe "Dodaj nowe skrzyżowanie" z /avere/files w polu ścieżki obszaru nazw](media/avere-vfxt-create-junction-example.png) <!-- to do - change example and screenshot to vfxt/files instead of avere -->
+![Okno dialogowe "Dodawanie nowego połączenia" z/avere/Files w polu Ścieżka przestrzeni nazw](media/avere-vfxt-create-junction-example.png) <!-- to do - change example and screenshot to vfxt/files instead of avere -->
 
-Adres IP jest jednym z adresów IP przeznaczonych dla klienta zdefiniowanych dla serwera vserver. Zakres adresów IP skierowanych do klienta można znaleźć w dwóch miejscach w Panelu sterowania Avere:
+Adres IP jest jednym z adresów IP skierowanych do klienta zdefiniowanych dla vserver. Zakres adresów IP dostępnych dla klientów można znaleźć w dwóch miejscach w panelu sterowania avere:
 
-* **Tabela VServers** (karta Pulpit nawigacyjny) -
+* Tabela **VServers** (karta Pulpit nawigacyjny) —
 
-  ![Karta Pulpit nawigacyjny w Panelu sterowania Avere z wybraną kartą VServer w tabeli danych poniżej wykresu i zakreśloną sekcją adresu IP](media/avere-vfxt-ip-addresses-dashboard.png)
+  ![Karta Pulpit nawigacyjny panelu sterowania avere z kartą VServer wybraną w tabeli danych pod wykresem i sekcją adres IP w kółku](media/avere-vfxt-ip-addresses-dashboard.png)
 
-* Strona ustawień **sieciowych z widokiem na klienta** -
+* Strona ustawień **sieci dołączona do klienta** —
 
-  ![Ustawienia > VServer > strona konfiguracji sieci z okręgu wokół sekcji Zakres adresów w tabeli dla określonego serwera vserver](media/avere-vfxt-ip-addresses-settings.png)
+  ![Ustawienia > VServer > stronie konfiguracji sieci przeznaczonej dla klientów z okręgiem wokół sekcji Zakres adresów tabeli dla określonego vserver](media/avere-vfxt-ip-addresses-settings.png)
 
-Oprócz ścieżek należy uwzględnić [argumenty polecenia Mount](#mount-command-arguments) opisane poniżej podczas montażu każdego klienta.
+Oprócz ścieżek należy uwzględnić [argumenty polecenia instalacji](#mount-command-arguments) opisane poniżej podczas instalowania każdego klienta.
 
-### <a name="mount-command-arguments"></a>Argumenty polecenia Montowanie
+### <a name="mount-command-arguments"></a>Argumenty polecenia instalacji
 
-Aby zapewnić bezproblemowe instalowanie klienta, należy przekazać następujące ustawienia i argumenty w poleceniu instalacji:
+Aby zapewnić bezproblemowe Instalowanie klienta, należy przekazać te ustawienia i argumenty w poleceniu instalacji:
 
 ``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
 | Wymagane ustawienia | |
 --- | ---
-``hard`` | Miękkie instalacje do klastra vFXT są skojarzone z awariami aplikacji i możliwością utraty danych.
+``hard`` | Instalacje miękkie do klastra vFXT są skojarzone z awariami aplikacji i możliwymi utratą danych.
 ``proto=netid`` | Ta opcja obsługuje odpowiednią obsługę błędów sieci NFS.
-``mountproto=netid`` | Ta opcja obsługuje odpowiednią obsługę błędów sieciowych dla operacji instalacji.
-``retry=n`` | Ustaw, ``retry=30`` aby uniknąć przejściowych błędów instalacji. (W instalacjach pierwszego planu zalecana jest inna wartość).
+``mountproto=netid`` | Ta opcja obsługuje odpowiednią obsługę błędów sieci dla operacji instalacji.
+``retry=n`` | Ustaw ``retry=30`` , aby uniknąć błędów instalacji przejściowej. (W instalacjach na pierwszym planie zalecana jest inna wartość).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zamontowaniu klientów można ich użyć do skopiowania danych do nowego kontenera magazynu obiektów Blob w klastrze. Jeśli nie musisz wypełniać nowego magazynu, przeczytaj inne łącza, aby dowiedzieć się więcej o dodatkowych zadaniach konfiguracyjnych:
+Po zainstalowaniu klientów programu można używać ich do kopiowania danych do nowego kontenera magazynu obiektów BLOB w klastrze. Jeśli nie musisz wypełniać nowego magazynu, zapoznaj się z innymi linkami, aby dowiedzieć się więcej o dodatkowych zadaniach konfiguracyjnych:
 
-* [Przenoszenie danych do głównego filera klastra](avere-vfxt-data-ingest.md) — jak efektywnie przesyłać dane do nowego głównego filera
-* [Dostosowywanie dostrajania klastra](avere-vfxt-tuning.md) — dostosowywanie ustawień klastra do obciążenia
+* [Przenoszenie danych do podstawowego pliku klastra](avere-vfxt-data-ingest.md) — jak używać wielu klientów i wątków do wydajnego przekazywania danych do nowego podstawowego pliku
+* [Dostosowywanie dostrajania klastra](avere-vfxt-tuning.md) — dostosowanie ustawień klastra do własnych obciążeń
 * [Zarządzanie klastrem](avere-vfxt-manage-cluster.md) — jak uruchomić lub zatrzymać klaster i zarządzać węzłami

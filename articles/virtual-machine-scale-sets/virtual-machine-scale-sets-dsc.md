@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z konfiguracji żądanego stanu z zestawami skalowania maszyny wirtualnej
-description: Używanie zestawów skalowania maszyny wirtualnej z rozszerzeniem konfiguracji żądanego stanu platformy Azure do konfigurowania maszyn wirtualnych.
+title: Używanie konfiguracji żądanego stanu z Virtual Machine Scale Sets
+description: Konfigurowanie maszyn wirtualnych przy użyciu Virtual Machine Scale Sets z rozszerzeniem konfiguracji żądanego stanu platformy Azure.
 author: zjalexander
 tags: azure-service-management,azure-resource-manager
 ms.assetid: c8f047b5-0e6c-4ef3-8a47-f1b284d32942
@@ -10,17 +10,17 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 04/05/2017
 ms.author: zachal
 ms.openlocfilehash: a93a8a9c27be5a1736a50e6c4c4b830980b7d974
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76278069"
 ---
-# <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Używanie zestawów skalowania maszyny wirtualnej z rozszerzeniem usługi Azure DSC
-[Zestawy skalowania maszyny wirtualnej](virtual-machine-scale-sets-overview.md) mogą być używane z programem obsługi rozszerzenia [konfiguracji żądanego stanu platformy Azure (DSC).](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Zestawy skalowania maszyny wirtualnej umożliwiają wdrażanie dużej liczby maszyn wirtualnych i zarządzanie nimi oraz elastyczne skalowanie w odpowiedzi na obciążenie. DSC służy do konfigurowania maszyn wirtualnych, gdy są one w trybie online, więc są one uruchomione oprogramowanie produkcyjne.
+# <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Używanie Virtual Machine Scale Sets z rozszerzeniem DSC platformy Azure
+[Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md) może być używana z obsługą rozszerzenia [konfiguracji żądanego stanu (DSC) platformy Azure](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Zestawy skalowania maszyn wirtualnych zapewniają sposób wdrażania dużej liczby maszyn wirtualnych i zarządzania nimi, a także umożliwiają elastyczne skalowanie i wychodzące w odpowiedzi na obciążenie. Konfiguracja DSC służy do konfigurowania maszyn wirtualnych, gdy są one dostępne w trybie online, tak aby działały oprogramowanie produkcyjne.
 
-## <a name="differences-between-deploying-to-virtual-machines-and-virtual-machine-scale-sets"></a>Różnice między wdrażaniem w zestawach skalowania maszyn wirtualnych i maszyn wirtualnych
-Podstawowa struktura szablonu dla zestawu skalowania maszyny wirtualnej różni się nieznacznie od pojedynczej maszyny wirtualnej. W szczególności pojedyncza maszyna wirtualna wdraża rozszerzenia w węźle "virtualMachines". Istnieje wpis typu "rozszerzenia", w którym DSC jest dodawany do szablonu
+## <a name="differences-between-deploying-to-virtual-machines-and-virtual-machine-scale-sets"></a>Różnice między wdrażaniem do Virtual Machines i Virtual Machine Scale Sets
+Źródłowa struktura szablonów zestawu skalowania maszyn wirtualnych różni się nieco od jednej maszyny wirtualnej. W przypadku pojedynczej maszyny wirtualnej wdraża rozszerzenia w węźle "virtualMachines". Istnieje wpis typu "rozszerzenia", w którym do szablonu jest dodawana Konfiguracja DSC
 
 ```
 "resources": [
@@ -59,7 +59,7 @@ Podstawowa struktura szablonu dla zestawu skalowania maszyny wirtualnej różni 
       ]
 ```
 
-Węzeł zestawu skalowania maszyny wirtualnej ma sekcję "właściwości" z atrybutem "VirtualMachineProfile", "extensionProfile". DSC jest dodawany w obszarze "rozszerzenia"
+Węzeł zestawu skalowania maszyn wirtualnych zawiera sekcję "właściwości" z atrybutem "VirtualMachineProfile", "extensionProfile". Konfiguracja DSC jest dodawana do pozycji "rozszerzenia"
 
 ```
 "extensionProfile": {
@@ -90,15 +90,15 @@ Węzeł zestawu skalowania maszyny wirtualnej ma sekcję "właściwości" z atry
             ]
 ```
 
-## <a name="behavior-for-a-virtual-machine-scale-set"></a>Zachowanie zestawu skalowania maszyny wirtualnej
-Zachowanie zestawu skalowania maszyny wirtualnej jest identyczne z zachowaniem dla pojedynczej maszyny wirtualnej. Po utworzeniu nowej maszyny Wirtualnej jest automatycznie aprowizowana z rozszerzeniem DSC. Jeśli nowsza wersja WMF jest wymagana przez rozszerzenie, maszyna wirtualna uruchamia się ponownie przed przyjściem do trybu online. Gdy jest w trybie online, pobiera konfigurację DSC .zip i aprowizować go na maszynie Wirtualnej. Więcej szczegółów można znaleźć w [omówieniu rozszerzenia usługi Azure DSC](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="behavior-for-a-virtual-machine-scale-set"></a>Zachowanie zestawu skalowania maszyn wirtualnych
+Zachowanie zestawu skalowania maszyn wirtualnych jest identyczne z zachowaniem pojedynczej maszyny wirtualnej. Po utworzeniu nowej maszyny wirtualnej zostanie ona automatycznie zainicjowana przy użyciu rozszerzenia DSC. Jeśli jest wymagana nowsza wersja pliku WMF, maszyna wirtualna zostanie ponownie uruchomiona przed przełączeniem do trybu online. Gdy jest on w trybie online, pobiera plik konfiguracji DSC. zip i udostępnia go na maszynie wirtualnej. Więcej szczegółów można znaleźć w temacie [Omówienie rozszerzenia usługi Azure DSC](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Następne kroki
-Sprawdź [szablon usługi Azure Resource Manager dla rozszerzenia DSC](../virtual-machines/windows/extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Zapoznaj się z [szablonem Azure Resource Manager dla rozszerzenia DSC](../virtual-machines/windows/extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Dowiedz się, jak [rozszerzenie DSC bezpiecznie obsługuje poświadczenia.](../virtual-machines/windows/extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
+Dowiedz się, jak [rozszerzenie DSC bezpiecznie obsługuje poświadczenia](../virtual-machines/windows/extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Aby uzyskać więcej informacji na temat programu obsługi rozszerzeń usługi Azure DSC, zobacz [Wprowadzenie do programu obsługi rozszerzenia konfiguracji żądanego stanu platformy Azure.](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
+Aby uzyskać więcej informacji na temat procedury obsługi rozszerzeń DSC platformy Azure, zobacz [wprowadzenie do programu obsługi rozszerzenia konfiguracji żądanego stanu platformy Azure](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Aby uzyskać więcej informacji na temat programu PowerShell DSC, [odwiedź centrum dokumentacji programu PowerShell](/powershell/scripting/dsc/overview/overview). 
+Więcej informacji na temat programu PowerShell DSC [można znaleźć w centrum dokumentacji programu PowerShell](/powershell/scripting/dsc/overview/overview). 
 

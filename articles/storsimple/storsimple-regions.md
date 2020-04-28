@@ -1,65 +1,65 @@
 ---
 title: Dostępność regionu StorSimple
-description: W tym artykule wyjaśniono regiony platformy Azure, w których są dostępne różne modele urządzeń StorSimple.
+description: Wyjaśnia regiony platformy Azure, w których są dostępne różne modele urządzeń StorSimple.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76275106"
 ---
-# <a name="available-regions-for-your-storsimple"></a>Dostępne regiony dla Twojego StorSimple
+# <a name="available-regions-for-your-storsimple"></a>Dostępne regiony dla StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Omówienie
 
-Centra danych platformy Azure działają w wielu regionach geograficznych na całym świecie, aby sprostać wymaganiom klientów dotyczącym wydajności, wymagań i preferencji dotyczących lokalizacji danych. Geografia platformy Azure jest zdefiniowanym obszarem świata, który zawiera co najmniej jeden region platformy Azure. Region platformy Azure to obszar w obrębie lokalizacji geograficznej, zawierający co najmniej jedno centrum danych.
+Centra danych platformy Azure działają w wielu lokalizacje geograficzneach na całym świecie, aby zaspokoić wymagania dotyczące wydajności, wymagań i preferencji związanych z danymi w przypadku klientów. Lokalizacja geograficzna platformy Azure to zdefiniowany obszar świata, który zawiera co najmniej jeden region świadczenia usługi Azure. Region świadczenia usługi Azure jest obszarem geograficznym zawierającym co najmniej jedno centrum danych.
 
-Wybór regionu platformy Azure jest bardzo ważne, a na wybór regionu mają wpływ takie czynniki, jak rezydencji danych i suwerenności, dostępność usługi, wydajność, koszt i nadmiarowość. Aby uzyskać więcej informacji na temat wybierania regionu, przejdź do [regionu platformy Azure, który jest dla mnie odpowiedni?](https://azure.microsoft.com/overview/datacenters/how-to-choose/)
+Wybór regionu platformy Azure jest bardzo ważne, a wybór regionu ma wpływ na takie czynniki jak zamieszkania danych i suwerenność, dostępność usług, wydajność, koszt i nadmiarowość. Aby uzyskać więcej informacji na temat wybierania regionu, przejdź do tego, [który region świadczenia usługi Azure jest odpowiedni dla mnie?](https://azure.microsoft.com/overview/datacenters/how-to-choose/)
 
-W przypadku rozwiązania StorSimple wybór regionu jest określany przez następujące czynniki:
+W przypadku rozwiązania StorSimple wybór regionu zależy od następujących czynników:
 
-- Regiony, w których dostępna jest usługa StorSimple Device Manager.
-- Kraje/regiony, w których jest dostępna urządzenie fizyczne, chmurowe lub wirtualne StorSimple.
-- Regiony, w których konta magazynu, które przechowują dane StorSimple powinny znajdować się w celu uzyskania optymalnej wydajności.
+- Regiony, w których jest dostępna usługa Menedżer urządzeń StorSimple.
+- Kraje/regiony, w których jest dostępna StorSimple fizyczna, Chmura lub urządzenie wirtualne.
+- Regiony, w których należy zlokalizować konta magazynu przechowujące dane StorSimple, aby uzyskać optymalną wydajność.
 
-W tym samouczku opisano dostępność regionu dla usługi StorSimple Device Manager, urządzeń fizycznych lokalnych i urządzeń w chmurze. Informacje zawarte w tym artykule mają zastosowanie do urządzeń z serii StorSimple 8000 i 1200.
+W tym samouczku opisano dostępność regionu usługi StorSimple Menedżer urządzeń, lokalne i fizyczne urządzenia w chmurze. Informacje zawarte w tym artykule dotyczą urządzeń z serii StorSimple 8000 i 1200.
 
-## <a name="region-availability-for-storsimple-device-manager-service"></a>Dostępność regionu dla usługi StorSimple Device Manager
+## <a name="region-availability-for-storsimple-device-manager-service"></a>Dostępność regionów dla usługi StorSimple Menedżer urządzeń
 
-Usługa StorSimple Device Manager jest obecnie obsługiwana w 12 regionach publicznych i 2 regionach platformy Azure dla instytucji rządowych.
+Usługa StorSimple Menedżer urządzeń jest obecnie obsługiwana w 12 regionach publicznych i 2 Azure Government regionach.
 
-Region lub lokalizacja można zdefiniować podczas pierwszego tworzenia usługi StorSimple Device Manager. Ogólnie rzecz biorąc, wybierana jest lokalizacja najbliższa regionowi geograficznemu, w którym urządzenie jest wdrażane. Ale urządzenie i usługa można również wdrożyć w różnych lokalizacjach.
+Zdefiniuj region lub lokalizację podczas pierwszego tworzenia usługi StorSimple Menedżer urządzeń. Ogólnie rzecz biorąc wybierz lokalizację znajdującą się najbliżej regionu geograficznego, w którym wdrożono urządzenie. Ale urządzenie i usługa można również wdrożyć w różnych lokalizacjach.
 
-Oto lista regionów, w których usługa StorSimple Device Manager jest dostępna dla chmury publicznej platformy Azure i można ją wdrożyć.
+Poniżej znajduje się lista regionów, w których Usługa StorSimple Menedżer urządzeń jest dostępna dla chmury publicznej platformy Azure i można ją wdrożyć.
 
-![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![StorSimple-Device-Manager-Service-regiony](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
-W chmurze dla instytucji rządowych platformy Azure usługa StorSimple Device Manager jest dostępna w centrach danych US Gov Iowa i US Gov Virginia.
+W przypadku chmury Azure Government Usługa StorSimple Menedżer urządzeń jest dostępna w US Gov Iowa i US Gov Wirginia centrach danych.
 
 ## <a name="region-availability-for-data-stored-in-storsimple"></a>Dostępność regionu dla danych przechowywanych w StorSimple
 
-StorSimple dane są fizycznie przechowywane na kontach magazynu platformy Azure i te konta są dostępne we wszystkich regionach platformy Azure. Podczas tworzenia konta magazynu platformy Azure wybierana jest podstawowa lokalizacja konta magazynu, która określa region, w którym znajdują się dane.
+Dane StorSimple są fizycznie przechowywane na kontach usługi Azure Storage, a te konta są dostępne we wszystkich regionach świadczenia usługi Azure. Podczas tworzenia konta usługi Azure Storage jest wybierana podstawowa lokalizacja konta magazynu, która określa region, w którym znajdują się dane.
 
-Po pierwszym utworzeniu usługi StorSimple Device Manager i skojarzeniu z nią konta magazynu usługa StorSimple Device Manager i magazyn platformy Azure mogą znajdować się w dwóch oddzielnych lokalizacjach. W takim przypadku należy utworzyć konta usługi Menedżer urządzeń StorSimple i usługi Azure Storage oddzielnie.
+Podczas pierwszego tworzenia usługi StorSimple Menedżer urządzeń i kojarzenia z nią konta magazynu, Usługa StorSimple Menedżer urządzeń i Magazyn Azure mogą znajdować się w dwóch oddzielnych lokalizacjach. W takim przypadku należy utworzyć konta usługi Menedżer urządzeń StorSimple i usługi Azure Storage oddzielnie.
 
-Ogólnie rzecz biorąc wybierz najbliższy region usługi dla konta magazynu. Jednak najbliższy region platformy Microsoft Azure może nie być regionem o najniższym opóźnieniu. Jest to opóźnienie, które dyktuje wydajność usługi sieciowej, a tym samym wydajność rozwiązania. Jeśli więc wybierasz konto magazynu w innym regionie, ważne jest, aby wiedzieć, jakie są opóźnienia między usługą a regionem skojarzonym z kontem magazynu.
+Ogólnie rzecz biorąc, wybierz najbliższy region usługi dla konta magazynu. Jednak najbliższy region Microsoft Azure może nie być regionem o najniższym opóźnieniu. Jest to opóźnienie, które wymusza wydajność usługi sieciowej i w związku z tym wydajność rozwiązania. W przypadku wybrania konta magazynu w innym regionie należy wiedzieć, jakie opóźnienia należy do usługi i regionu skojarzonego z kontem magazynu.
 
-Jeśli używasz StorSimple Cloud Appliance, zaleca się, że usługa i skojarzone konto magazynu znajdują się w tym samym regionie. Konta magazynu w innym regionie może spowodować niską wydajność.
+Jeśli używasz urządzenia w chmurze StorSimple, zalecamy, aby usługa i skojarzone konto magazynu znajdują się w tym samym regionie. Konta magazynu w innym regionie mogą powodować niską wydajność.
 
 ## <a name="availability-of-storsimple-device"></a>Dostępność urządzenia StorSimple
 
-W zależności od modelu urządzenia StorSimple mogą być dostępne w różnych lokalizacjach geograficznych lub krajach/regionach.
+W zależności od modelu urządzenia StorSimple mogą być dostępne w różnych lokalizacje geograficzne lub krajach/regionach.
 
-### <a name="storsimple-physical-device-models-81008600"></a>StorSimple urządzenie fizyczne (modele 8100/8600)
+### <a name="storsimple-physical-device-models-81008600"></a>Urządzenie fizyczne StorSimple (modele 8100/8600)
 
-Jeśli używasz urządzenia fizycznego StorSimple 8100 lub 8600, urządzenie jest dostępne w następujących krajach/regionach.
+W przypadku korzystania z urządzenia fizycznego z systemem StorSimple 8100 lub 8600 urządzenie jest dostępne w następujących krajach/regionach.
 
 | #  | Kraj/region        | #  | Kraj/region     | #  | Kraj/region      | #  | Kraj/region             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
@@ -79,25 +79,25 @@ Jeśli używasz urządzenia fizycznego StorSimple 8100 lub 8600, urządzenie jes
 | 14 | Niemcy               | 29 | Meksyk             | 44 | Słowacja            | 59 | Wietnam                    |
 | 15 | Grecja                | 30 | Holandia        | 45 | Słowenia            | 60 | Chorwacja                    |
 
-Ta lista zmienia się wraz z dodaniem kolejnych krajów/regionów. Aby uzyskać najbardziej aktualną listę regionów geograficznych, przejdź do dodatku Postanowienia dotyczące tablicy magazynowania w [warunkach produktu](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+Ta lista zmienia się w miarę dodawania większej liczby krajów/regionów. Aby uzyskać najbardziej aktualną listę lokalizacje geograficzne, przejdź do załącznika warunki tablicy magazynowej w temacie [warunki produktu](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
-Firma Microsoft może wysyłać sprzęt fizyczny i dostarczać sprzętowe części zamienne do storsimple do obszarów geograficznych na poprzedniej liście.
+Firma Microsoft może dostarczać sprzęt fizyczny i dostarczać zamienniki sprzętowych części zamiennych StorSimple do lokalizacje geograficzne na powyższej liście.
 
 > [!IMPORTANT]
-> Nie należy umieszczać urządzenia fizycznego StorSimple w regionie, w którym StorSimple nie jest obsługiwany. Firma Microsoft nie będzie mogła wysyłać żadnych części zamiennych do krajów/regionów, w których usługa StorSimple nie jest obsługiwana.
+> Nie umieszczaj urządzenia fizycznego StorSimple w regionie, w którym StorSimple nie jest obsługiwana. Firma Microsoft nie będzie mogła dostarczać żadnych części zamiennych do krajów/regionów, w których StorSimple nie jest obsługiwana.
 
 ### <a name="storsimple-cloud-appliance-models-80108020"></a>Urządzenie w chmurze StorSimple (modele 8010/8020)
 
-Jeśli używasz StorSimple Cloud Appliance 8010 lub 8020, urządzenie jest obsługiwane i dostępne we wszystkich regionach, w których podstawowa maszyna wirtualna jest obsługiwana. 8010 używa maszyny wirtualnej _Standard_A3,_ która jest obsługiwana we wszystkich regionach platformy Azure.
+W przypadku korzystania z urządzenia w chmurze StorSimple 8010 lub 8020 urządzenie jest obsługiwane i dostępne we wszystkich regionach, w których jest obsługiwana źródłowa maszyna wirtualna. 8010 używa maszyny wirtualnej _Standard_A3_ , która jest obsługiwana we wszystkich regionach świadczenia usługi Azure.
 
-8020 używa magazynu w jakości premium i _Standard_DS3_ maszyny Wirtualnej do tworzenia urządzenia w chmurze. 8020 jest obsługiwany w regionach platformy Azure, które obsługują usługi Premium Storage i _Standard_DS3_ maszyn wirtualnych platformy Azure. Przy użyciu [tej listy](https://azure.microsoft.com/regions/services/) sprawdź, czy w Twoim regionie jest dostępna zarówno opcja **Maszyny wirtualne > Seria DS**, jak i opcja **Magazyn > Magazyn na dysku**.
+8020 używa usługi Premium Storage i _Standard_DS3_ VM do tworzenia urządzenia w chmurze. 8020 jest obsługiwana w regionach platformy Azure, które obsługują Premium Storage i _Standard_DS3_ maszyn wirtualnych platformy Azure. Przy użyciu [tej listy](https://azure.microsoft.com/regions/services/) sprawdź, czy w Twoim regionie jest dostępna zarówno opcja **Maszyny wirtualne > Seria DS**, jak i opcja **Magazyn > Magazyn na dysku**.
 
-### <a name="storsimple-virtual-array-model-1200"></a>Tablica wirtualna StorSimple (model 1200)
+### <a name="storsimple-virtual-array-model-1200"></a>StorSimple Virtual Array (model 1200)
 
-Jeśli używasz 1200 serii StorSimple Virtual Array, następnie obraz dysku wirtualnego jest obsługiwany we wszystkich regionach platformy Azure.
+W przypadku używania macierzy wirtualnej StorSimple serii 1200, obraz dysku wirtualnego jest obsługiwany we wszystkich regionach świadczenia usługi Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [cenach dla różnych modeli StorSimple](https://azure.microsoft.com/pricing/calculator/#storsimple2).
+* Dowiedz się więcej o [cenach różnych modeli StorSimple](https://azure.microsoft.com/pricing/calculator/#storsimple2).
 * Dowiedz się więcej o [zarządzaniu kontem magazynu StorSimple](storsimple-8000-manage-storage-accounts.md).
-* Dowiedz się więcej o tym, jak [administrować urządzeniem StorSimple za pomocą usługi StorSimple Device Manager](storsimple-8000-manager-service-administration.md).
+* Dowiedz się więcej na temat [używania usługi StorSimple Menedżer urządzeń do administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).

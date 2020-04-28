@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Konfigurowanie 15Five do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure Active Directory | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować usługę Azure Active Directory do automatycznego aprowizowania i usuwania obsługi administracyjnej kont użytkowników na 15Five.
+title: 'Samouczek: Konfigurowanie 15Five dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze 15Five.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,94 +16,94 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: f1f66a7b69048180bc41c8f2fa432598f00f7f09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77059271"
 ---
-# <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 15Five do automatycznego inicjowania obsługi administracyjnej przez użytkowników
+# <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 15Five na potrzeby automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest zademonstrowanie kroków, które należy wykonać w 15Five i usłudze Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizowania i deekwowania użytkowników i/lub grup do 15Five.
+Celem tego samouczka jest przedstawienie czynności, które należy wykonać w 15Five i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup do 15Five.
 
 > [!NOTE]
-> W tym samouczku opisano łącznik utworzony na podstawie usługi inicjowania obsługi administracyjnej użytkowników usługi Azure AD. Aby uzyskać ważne informacje na temat działania tej usługi, działania i często zadawanych pytań, zobacz [Automatyzacja inicjowania obsługi administracyjnej i usuwania obsługi administracyjnej aplikacji SaaS za pomocą usługi Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych warunków korzystania z platformy Microsoft Azure dla funkcji w wersji Zapoznawczej, zobacz [Dodatkowe warunki użytkowania w wersji Zapoznawczej platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku zakłada, że masz już następujące wymagania wstępne:
+Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
 * Dzierżawa usługi Azure AD.
-* [15Five najemcy](https://www.15five.com/pricing/).
+* [Dzierżawa 15Five](https://www.15five.com/pricing/).
 * Konto użytkownika w 15Five z uprawnieniami administratora.
 
 ## <a name="assigning-users-to-15five"></a>Przypisywanie użytkowników do 15Five
 
-Usługa Azure Active Directory używa koncepcji o nazwie *przydziały,* aby określić, którzy użytkownicy powinni otrzymać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi administracyjnej użytkowników tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD są synchronizowane.
+Azure Active Directory używa koncepcji zwanej *zadaniami* w celu określenia, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznej aprowizacji użytkowników są synchronizowane tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem automatycznego inicjowania obsługi administracyjnej użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do 15Five. Po podjęciu decyzji, można przypisać tych użytkowników i / lub grup do 15Five, postępując zgodnie z instrukcjami tutaj:
-* [Przypisywanie użytkownika lub grupy do aplikacji przedsiębiorstwa](../manage-apps/assign-user-or-group-access-portal.md)
+Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do 15Five. Po ustaleniu tych użytkowników i/lub grup można przypisywać do 15Five, postępując zgodnie z poniższymi instrukcjami:
+* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-15five"></a>Ważne wskazówki dotyczące przypisywania użytkowników do 15Five
 
-* Zaleca się, że jeden użytkownik usługi Azure AD jest przypisany do 15Five do testowania konfiguracji automatycznego inicjowania obsługi administracyjnej użytkownika. Dodatkowi użytkownicy i/lub grupy mogą być przypisane później.
+* Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do 15Five w celu przetestowania automatycznej konfiguracji inicjowania obsługi użytkowników. Dodatkowych użytkowników i/lub grupy można przypisywać później.
 
-* Podczas przypisywania użytkownika do 15Five należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z rolą **dostępu domyślnego** są wykluczeni z inicjowania obsługi administracyjnej.
+* Podczas przypisywania użytkownika do 15Five należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z **domyślną rolą dostępu** są wykluczeni z aprowizacji.
 
-## <a name="setup-15five-for-provisioning"></a>Konfiguracja 15Five do inicjowania obsługi administracyjnej
+## <a name="setup-15five-for-provisioning"></a>Konfiguracja 15Five na potrzeby aprowizacji
 
-Przed skonfigurowaniem 15Five do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD, należy włączyć inicjowanie obsługi administracyjnej scim na 15Five.
+Przed skonfigurowaniem usługi 15Five na potrzeby automatycznego inicjowania obsługi administracyjnej użytkowników w usłudze Azure AD należy włączyć obsługę administracyjną Standard scim na 15Five.
 
-1. Zaloguj się do konsoli [administracyjnej 15Five](https://my.15five.com/). Przejdź do **funkcji > integracji**.
+1. Zaloguj się do [konsoli administracyjnej 15Five](https://my.15five.com/). Przejdź do **opcji funkcje > integracji**.
 
-    ![15Tysna konsola administracyjna](media/15five-provisioning-tutorial/integration.png)
+    ![Konsola administracyjna 15Five](media/15five-provisioning-tutorial/integration.png)
 
-2.  Kliknij **scim 2.0**.
+2.  Kliknij pozycję **standard scim 2,0**.
 
-    ![15Tysna konsola administracyjna](media/15five-provisioning-tutorial/image00.png)
+    ![Konsola administracyjna 15Five](media/15five-provisioning-tutorial/image00.png)
 
-3.  Przejdź do **integracji SCIM > generuj token OAuth**.
+3.  Przejdź do **Standard scim integration > wygenerowania tokenu OAuth**.
 
-    ![15Five Dodaj SCIM](media/15five-provisioning-tutorial/image02.png)
+    ![15Five Dodaj Standard scim](media/15five-provisioning-tutorial/image02.png)
 
-4.  Skopiuj wartości **podstawowego adresu URL scim 2.0** i **tokenu dostępu**. Ta wartość zostanie wprowadzona w **polu Adres URL dzierżawy** i **Tajny token** na karcie Inicjowanie obsługi administracyjnej aplikacji 15Five w witrynie Azure portal.
+4.  Skopiuj wartości dla **podstawowego adresu URL standard scim 2,0** i **tokenu dostępu**. Ta wartość zostanie wprowadzona w polu **adres URL dzierżawy** i **klucz tajny tokenu** na karcie aprowizacji aplikacji 15Five w Azure Portal.
     
-    ![15Five Dodaj SCIM](media/15five-provisioning-tutorial/image03.png)
+    ![15Five Dodaj Standard scim](media/15five-provisioning-tutorial/image03.png)
 
 ## <a name="add-15five-from-the-gallery"></a>Dodaj 15Five z galerii
 
-Aby skonfigurować 15Five do automatycznego inicjowania obsługi administracyjnej za pomocą usługi Azure AD, należy dodać 15Five z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować 15Five automatycznej aprowizacji użytkowników w usłudze Azure AD, musisz dodać 15Five z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać 15Five z galerii aplikacji usługi Azure AD, wykonaj następujące kroki:**
+**Aby dodać 15Five z galerii aplikacji usługi Azure AD, wykonaj następujące czynności:**
 
-1. W **[witrynie Azure portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
+1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do **aplikacji enterprise**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** u góry okienka.
+3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** w górnej części okienka.
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **15Five**, wybierz **15Five** w panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **15Five**, wybierz pozycję **15Five** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Aplikacja 15Five na liście wyników](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-15five"></a>Konfigurowanie automatycznego inicjowania obsługi administracyjnej dla 15Five 
+## <a name="configuring-automatic-user-provisioning-to-15five"></a>Konfigurowanie automatycznej aprowizacji użytkowników do 15Five 
 
-W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obsługi administracyjnej usługi Azure AD do tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w 15Five na podstawie przypisaniów użytkowników i/lub grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie 15Five na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Można również włączyć samooceny jednokrotne oparte na SAML dla 15Five , postępując zgodnie z instrukcjami podanymi w [samouczku 15Five single sign-on](15five-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej użytkownika, chociaż te dwie funkcje wzajemnie się uzupełniają.
+> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML dla 15Five, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](15five-tutorial.md)jednokrotne w 15Five. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem.
 
-### <a name="to-configure-automatic-user-provisioning-for-15five-in-azure-ad"></a>Aby skonfigurować automatyczne inicjowanie obsługi administracyjnej dla 15Five w usłudze Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-15five-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla 15Five w usłudze Azure AD:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com). Wybierz pozycję **Aplikacje przedsiębiorstwa**, a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -111,67 +111,67 @@ W tej sekcji można przejść przez kroki konfigurowania usługi inicjowania obs
 
     ![Link aplikacji 15Five na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Inicjowanie obsługi administracyjnej.**
+3. Wybierz kartę **aprowizacji** .
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning.png)
+    ![Karta aprowizacji](common/provisioning.png)
 
-4. Ustaw **tryb inicjowania obsługi administracyjnej** na **Automatyczny**.
+4. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Karta Inicjowanie obsługi administracyjnej](common/provisioning-automatic.png)
+    ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5.  W sekcji Poświadczenia administratora wprowadź **podstawowe wartości adresu URL i tokenu dostępu SCIM 2.0** pobrane wcześniej odpowiednio w **adresie URL dzierżawy** i **tokenie tajnym.** Kliknij **przycisk Testuj połączenie,** aby upewnić się, że usługa Azure AD może łączyć się z 15Five. Jeśli połączenie nie powiedzie się, upewnij się, że twoje konto 15Five ma uprawnienia administratora i spróbuj ponownie.
+5.  W sekcji poświadczenia administratora wprowadź odpowiednie wartości **w polach** **adres** URL i **token dostępu Standard scim 2,0** . Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą 15Five. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi 15Five ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. W polu **Wiadomość e-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, która powinna otrzymywać powiadomienia o błędach inicjowania obsługi administracyjnej, i zaznacz pole wyboru - **Wyślij powiadomienie e-mail, gdy wystąpi błąd.**
+6. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
 
-    ![Wiadomość e-mail z powiadomieniem](common/provisioning-notification-email.png)
+    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
 7. Kliknij przycisk **Zapisz**.
 
-8. W sekcji **Mapowania** wybierz pozycję **Synchronizuj użytkowników usługi Azure Active Directory z 15Five**.
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do 15Five**.
 
-    ![15Five Mapowania użytkowników](media/15five-provisioning-tutorial/usermapping.png)
+    ![15Five mapowania użytkowników](media/15five-provisioning-tutorial/usermapping.png)
 
-9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do 15Five w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w 15Five dla operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do 15Five w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie 15Five for Updates. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![155Tylidy użytkownika](media/15five-provisioning-tutorial/userattribute.png)
+    ![15Five atrybuty użytkownika](media/15five-provisioning-tutorial/userattribute.png)
 
-10. W sekcji **Mapowania** wybierz pozycję **Synchronizuj grupy usługi Azure Active Directory z 15Five**.
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do 15Five**.
 
-    ![15Five Mapowania grupowe](media/15five-provisioning-tutorial/groupmapping.png)
+    ![Mapowania grup 15Five](media/15five-provisioning-tutorial/groupmapping.png)
 
-11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do 15Five w sekcji **Mapowanie atrybutów.** Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania grup w 15Five dla operacji aktualizacji. Wybierz przycisk **Zapisz,** aby zatwierdzić wszelkie zmiany.
+11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD, do 15Five w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w 15Five dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![15Tylidy grupy 500](media/15five-provisioning-tutorial/groupattribute.png)
+    ![Atrybuty grupy 15Five](media/15five-provisioning-tutorial/groupattribute.png)
 
-12. Aby skonfigurować filtry zakresu, zapoznaj się z poniższymi instrukcjami podanymi w [samouczku filtru zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Aby włączyć usługę inicjowania obsługi administracyjnej usługi Azure AD dla 15Five, zmień **stan inicjowania obsługi administracyjnej** **na Włączone** w sekcji **Ustawienia.**
+13. Aby włączyć usługę Azure AD Provisioning dla 15Five, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-    ![Stan inicjowania obsługi administracyjnej włączony](common/provisioning-toggle-on.png)
+    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
 
-14. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić 15Five, wybierając żądane wartości w **zakresie** w sekcji **Ustawienia.**
+14. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić 15Five, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
 
-    ![Zakres inicjowania obsługi administracyjnej](common/provisioning-scope.png)
+    ![Zakres aprowizacji](common/provisioning-scope.png)
 
-15. Gdy będziesz gotowy do aprowienia, kliknij przycisk **Zapisz**.
+15. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
 
-    ![Zapisywanie konfiguracji inicjowania obsługi administracyjnej](common/provisioning-configuration-save.png)
+    ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-    Ta operacja rozpoczyna początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia.** Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które występują co około 40 minut, o ile jest uruchomiona usługa inicjowania obsługi administracyjnej usługi Azure AD. Za pomocą sekcji **Szczegóły synchronizacji** można monitorować postęp i śledzić łącza do raportu aktywności inicjowania obsługi administracyjnej, w którym opisano wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej usługi Azure AD w trybie 15Five.
+    Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning w witrynie 15Five.
 
-    Aby uzyskać więcej informacji na temat sposobu zapoznania się z dziennikami inicjowania obsługi administracyjnej usługi Azure AD, zobacz [Raportowanie automatycznego inicjowania obsługi administracyjnej konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md)
+    Aby uzyskać więcej informacji na temat odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md)
     
-## <a name="connector-limitations"></a>Ograniczenia złącza
+## <a name="connector-limitations"></a>Ograniczenia łącznika
 
-* 15Five nie obsługuje twardych usuwania dla użytkowników.
+* 15Five nie obsługuje żadnych stałych usunięć dla użytkowników.
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-* [Zarządzanie inicjowanie obsługi administracyjnej kont użytkowników dla aplikacji dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
+* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i otrzymywać raporty dotyczące aktywności inicjowania obsługi administracyjnej.](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md).

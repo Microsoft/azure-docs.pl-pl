@@ -1,5 +1,5 @@
 ---
-title: Tworzenie centrum powiadomień platformy Azure przy użyciu programu PowerShell | Dokumenty firmy Microsoft
+title: Tworzenie centrum powiadomień platformy Azure przy użyciu programu PowerShell | Microsoft Docs
 description: Dowiedz się, jak utworzyć centrum powiadomień platformy Azure za pomocą skryptu programu PowerShell.
 author: dimazaid
 manager: femila
@@ -13,13 +13,13 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: dimazaid
 ms.openlocfilehash: 01749e1ae5c29a7e77b2143939e25cf1ccd1aec2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263981"
 ---
-# <a name="use-powershell-to-create-an-azure-notification-hub"></a>Tworzenie centrum powiadomień platformy Azure za pomocą programu PowerShell
+# <a name="use-powershell-to-create-an-azure-notification-hub"></a>Tworzenie centrum powiadomień platformy Azure przy użyciu programu PowerShell
 
 Ten przykładowy skrypt programu PowerShell tworzy przykładowe centrum powiadomień platformy Azure. 
 
@@ -50,8 +50,8 @@ W tym skrypcie użyto następujących poleceń:
 | Polecenie | Uwagi |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [New-AzNotificationHubsNamespace](/powershell/module/az.notificationhubs/new-aznotificationhubsnamespace) | Tworzy obszar nazw dla centrum powiadomień. |
-| [Nowy-AzNotificationHub](/powershell/module/az.notificationhubs/new-aznotificationhub) | Tworzy centrum powiadomień. |
+| [New-AzNotificationHubsNamespace](/powershell/module/az.notificationhubs/new-aznotificationhubsnamespace) | Tworzy przestrzeń nazw centrum powiadomień. |
+| [New-AzNotificationHub](/powershell/module/az.notificationhubs/new-aznotificationhub) | Tworzy centrum powiadomień. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||
 

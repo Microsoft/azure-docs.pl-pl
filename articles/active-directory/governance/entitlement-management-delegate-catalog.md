@@ -1,6 +1,6 @@
 ---
-title: Delegowanie nadzoru dostępu do twórców wykazu w zarządzaniu uprawnieniami usługi Azure AD — usługa Azure Active Directory
-description: Dowiedz się, jak delegować zarządzanie dostępem od administratorów IT do twórców katalogów i menedżerów projektów, aby mogli samodzielnie zarządzać dostępem.
+title: Delegowanie dostępu ładu do twórców wykazu w usłudze Azure AD uprawnień zarządzanie — Azure Active Directory
+description: Dowiedz się, jak delegować nadzór dostępu od administratorów IT do twórców wykazu i menedżerów projektów, aby mogli zarządzać samymi prawami dostępu.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,54 +17,54 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51e37ad006da5042291614c773f242b5a1f3be97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77120193"
 ---
-# <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delegowanie nadzoru dostępu do twórców katalogu w zarządzaniu uprawnieniami usługi Azure AD
+# <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delegowanie dostępu ładu do twórców wykazu w usłudze Azure AD uprawnienia zarządzania
 
-Katalog jest kontenerem zasobów i pakietów dostępu. Katalog jest tworzę, gdy chcesz grupować powiązane zasoby i pakiety dostępu. Domyślnie administrator globalny lub administrator użytkownika może [utworzyć katalog](entitlement-management-catalog-create.md)i dodać dodatkowych użytkowników jako właścicieli katalogu.
+Katalog jest kontenerem zasobów i pakietów dostępu. Katalog można utworzyć, gdy chcesz grupować powiązane zasoby i pakiety dostępu. Domyślnie Administrator globalny lub administrator użytkownika może [utworzyć wykaz](entitlement-management-catalog-create.md)i może dodać dodatkowych użytkowników jako właścicieli katalogu.
 
-Aby delegować użytkowników, którzy nie są administratorami, aby mogli tworzyć własne katalogi, można dodać tych użytkowników do roli twórcy katalogu zdefiniowanej przez zarządzanie uprawnieniami usługi Azure AD. Można dodać poszczególnych użytkowników lub dodać grupę, której członkowie mogą następnie tworzyć katalogi.  Po utworzeniu katalogu mogą następnie dodawać zasoby, które są ich własnością, do katalogu.
+Aby delegować użytkowników, którzy nie są administratorami, aby mogli tworzyć własne wykazy, można dodać tych użytkowników do roli twórcy zdefiniowana przez Zarządzanie prawami usługi Azure AD. Można dodać poszczególnych użytkowników lub dodać grupę, której członkowie mogą tworzyć wykazy.  Po utworzeniu wykazu można następnie dodać do nich zasoby, które są do nich przypisane.
 
-## <a name="as-an-it-administrator-delegate-to-a-catalog-creator"></a>Jako administrator IT delegoj się do twórcy katalogu
+## <a name="as-an-it-administrator-delegate-to-a-catalog-creator"></a>Jako administrator IT delegowanie do twórcy katalogu
 
 Wykonaj następujące kroki, aby przypisać użytkownika do roli twórcy katalogu.
 
-**Rola wstępna:** Administrator globalny lub administrator użytkownika
+**Rola wymagana wstępnie:** Administrator globalny lub administrator użytkowników
 
-1. W witrynie Azure portal kliknij pozycję **Usługa Azure Active Directory,** a następnie kliknij pozycję **Zarządzanie tożsamościami**.
+1. W Azure Portal kliknij pozycję **Azure Active Directory** , a następnie kliknij pozycję **Zarządzanie tożsamościami**.
 
-1. W menu po lewej stronie w sekcji **Zarządzanie uprawnieniami** kliknij pozycję **Ustawienia**.
+1. W menu po lewej stronie w sekcji **Zarządzanie prawami** kliknij pozycję **Ustawienia**.
 
 1. Kliknij pozycję **Edytuj**.
 
-    ![Ustawienia dodawania twórców katalogu](./media/entitlement-management-delegate-catalog/settings-delegate.png)
+    ![Ustawienia do dodawania twórców katalogu](./media/entitlement-management-delegate-catalog/settings-delegate.png)
 
-1. W sekcji **Delegowanie uprawnień do zarządzania** kliknij pozycję **Dodaj twórców wykazu,** aby wybrać użytkowników lub grupy, do których chcesz delegować tę rolę zarządzania uprawnieniami.
+1. W sekcji **Zarządzanie uprawnieniami delegowania** kliknij pozycję **Dodaj twórców wykazu** , aby wybrać użytkowników lub grupy, do których chcesz delegować tę rolę zarządzania uprawnieniami.
 
-1. Kliknij **pozycję Wybierz**.
+1. Kliknij pozycję **Wybierz**.
 
 1. Kliknij przycisk **Zapisz**.
 
-## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>Zezwalaj delegowanym rolom na dostęp do witryny Azure Portal
+## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>Zezwalaj na role delegowane w celu uzyskania dostępu do Azure Portal
 
-Aby zezwolić delegowanym role, takie jak twórcy katalogu i menedżerów pakietów dostępu, aby uzyskać dostęp do witryny Azure Portal do zarządzania pakietami dostępu, należy sprawdzić ustawienie portalu administracyjnego.
+Aby zezwolić na role delegowane, takie jak twórcy katalogu i menedżerów pakietów dostępu, aby uzyskać dostęp do Azure Portal do zarządzania pakietami dostępu, należy sprawdzić ustawienie portalu administracyjnego.
 
-**Rola wstępna:** Administrator globalny lub administrator użytkownika
+**Rola wymagana wstępnie:** Administrator globalny lub administrator użytkowników
 
-1. W witrynie Azure portal kliknij pozycję **Usługa Azure Active Directory,** a następnie kliknij pozycję **Użytkownicy**.
+1. W Azure Portal kliknij pozycję **Azure Active Directory** , a następnie kliknij pozycję **Użytkownicy**.
 
 1. W menu po lewej stronie kliknij pozycję **Ustawienia użytkownika**.
 
-1. Upewnij **się, że opcja Ograniczanie dostępu do portalu administracyjnego usługi Azure AD** jest **ustawiona**na Nie .
+1. Upewnij się, że ustawienie **Ogranicz dostęp do portalu administracyjnego usługi Azure AD** jest ustawione na wartość **nie**.
 
-    ![Ustawienia użytkownika usługi Azure AD — portal administracyjny](./media/entitlement-management-delegate-catalog/user-settings.png)
+    ![Ustawienia użytkownika usługi Azure AD — Portal administracyjny](./media/entitlement-management-delegate-catalog/user-settings.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie katalogu zasobów i zarządzanie nim](entitlement-management-catalog-create.md)
-- [Delegowanie nadzoru dostępu do menedżerów pakietów dostępu](entitlement-management-delegate-managers.md)
+- [Tworzenie wykazu zasobów i zarządzanie nim](entitlement-management-catalog-create.md)
+- [Delegowanie dostępu ładu do menedżerów pakietów](entitlement-management-delegate-managers.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -9,36 +9,36 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
 ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76694193"
 ---
 ## <a name="lifecycle"></a>Cykl życia
 
-Na karcie **Cykl życia** można określić, kiedy wygaśnie przypisanie użytkownika do pakietu dostępu. Można również określić, czy użytkownicy mogą rozszerzać swoje przypisania.
+Na karcie **cykl życia** Określ, kiedy wygasa przypisanie użytkownika do pakietu dostępu. Można również określić, czy użytkownicy mogą rozciągnąć swoje przypisania.
 
-1. W sekcji **Wygasanie** ustaw **przypisania pakietów programu Access wygaśnie** **na Data,** **Liczba dni**lub **Nigdy.**
+1. W sekcji **wygaśnięcie** Ustaw **przypisania pakietów dostępu wygasają** na **dzień**, **liczbę dni**lub **nigdy**.
 
-    W **polu Data**w dniu wybierz datę wygaśnięcia w przyszłości.
+    Na **dzień**wybierz datę wygaśnięcia w przyszłości.
 
-    W przypadku **liczby dni**określ liczbę z 0 do 3660 dni.
+    Dla **liczby dni**Określ liczbę z zakresu od 0 do 3660 dni.
 
-    Na podstawie wyboru przypisanie użytkownika do pakietu dostępu wygasa w określonym dniu, określoną liczbę dni po ich zatwierdzeniu lub nigdy.
+    W zależności od dokonanego wyboru przypisanie użytkownika do pakietu dostępu wygasa w określonym dniu, przez określoną liczbę dni po zatwierdzeniu lub nigdy.
 
-1. Kliknij **pozycję Pokaż zaawansowane ustawienia wygaśnięcia,** aby wyświetlić dodatkowe ustawienia.
+1. Kliknij pozycję **Pokaż zaawansowane ustawienia wygasania** , aby wyświetlić dodatkowe ustawienia.
 
-    ![Pakiet dostępu — ustawienia wygaśnięcia cyklu życia](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
+    ![Dostęp do ustawień wygasania cyklu życia pakietu](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
 
-1. Aby zezwolić użytkownikowi na rozszerzanie ich przypisań, ustaw **opcję Zezwalaj użytkownikom na rozszerzanie dostępu** do **Tak**.
+1. Aby zezwolić użytkownikowi na rozszeranie swoich przypisań, ustaw opcję **zezwól użytkownikom na rozszerzone dostęp** na **wartość tak**.
 
-    Jeśli rozszerzenia są dozwolone w zasadach, użytkownik otrzyma wiadomość e-mail 14 dni, a także 1 dzień przed ich przypisanie pakietu dostępu jest ustawiony na wygaśnięcie monitując ich o przedłużenie przypisania. Jeśli użytkownik przesyła żądanie rozszerzenia dostępu, data rozszerzenia musi być na lub przed wygaśnięciem przydziałów zgodnie z definicją w zasadach, które zostały użyte do przyznania użytkownikowi dostępu do pakietu dostępu. Jeśli na przykład zasada wskazuje, że przydziały mają wygasnąć 30 czerwca, maksymalnym rozszerzeniem, o które użytkownik może zażądać, jest 30 czerwca.
+    Jeśli w zasadach są dozwolone rozszerzenia, użytkownik otrzyma wiadomość e-mail 14 dni, a także 1 dzień przed przypisaniem pakietu dostępu zostanie ustawiony na wygaśnięcie monitu o rozszerzenie przypisania. Jeśli użytkownik prześle żądanie przedłużenia dostępu, Data rozszerzenia musi być równa lub wcześniejsza od przypisań zgodnie z definicją w zasadach, które zostały użyte do udzielenia użytkownikowi dostępu do pakietu dostępu. Na przykład jeśli zasady wskazują, że dla przypisań ustawiono wygasanie 30 czerwca, Maksymalna długość żądania przez użytkownika to 30 czerwca.
 
-    Jeśli dostęp użytkownika zostanie rozszerzony, nie będzie mógł zażądać pakietu dostępu po określonej dacie rozszerzenia (data ustawiona w strefie czasowej użytkownika, który utworzył zasady).
+    Jeśli dostęp użytkownika zostanie rozszerzony, nie będzie można zażądać pakietu dostępu po określonej dacie rozszerzenia (Data ustawiona w strefie czasowej użytkownika, który utworzył zasady).
 
-1. Aby wymagać zatwierdzenia w celu udzielenia przedłużenia, ustaw **opcję Wymagaj zatwierdzenia, aby udzielić rozszerzenia** na **Tak**.
+1. Aby wymagać zatwierdzenia do udzielenia rozszerzenia, ustaw opcję **Wymagaj zatwierdzenia, aby przyznać rozszerzenie** **wartość tak**.
 
-    Zostaną użyte te same ustawienia zatwierdzania, które zostały określone na karcie **Żądania.**
+    Zostaną użyte te same ustawienia zatwierdzania, które zostały określone na karcie **żądania** .
 
-1. Kliknij **przycisk Dalej** lub **Zaktualizuj**.
+1. Kliknij przycisk **dalej** lub **zaktualizuj**.

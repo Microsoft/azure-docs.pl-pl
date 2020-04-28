@@ -364,4 +364,4 @@ Poniżej przedstawiono przykład przypisania roli współautora do nowego podmio
 - [Szybki start: Tworzenie i wdrażanie szablonów usługi Azure Resource Manager przy użyciu witryny Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 - [Understand the structure and syntax of Azure Resource Manager Templates (Omówienie struktury i składni szablonów usługi Azure Resource Manager)](../azure-resource-manager/templates/template-syntax.md)
 - [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](../azure-resource-manager/templates/deploy-to-subscription.md)
-- [Szablony szybki start platformy Azure](https://azure.microsoft.com/resources/templates/?term=rbac)
+- [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

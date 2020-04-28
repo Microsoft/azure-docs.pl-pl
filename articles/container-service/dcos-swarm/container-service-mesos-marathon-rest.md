@@ -1,6 +1,6 @@
 ---
-title: (PRZESTARZAŁE) Zarządzanie klastrem kontrolera domeny/systemu operacyjnego platformy Azure za pomocą interfejsu API MARATHON REST
-description: Wdrażanie kontenerów w klastrze kontrolera domeny/systemu operacyjnego usługi kontenerów platformy Azure przy użyciu interfejsu API rest maratonu.
+title: PRZESTARZAŁE Zarządzanie klastrem DC/OS platformy Azure przy użyciu interfejsu API REST Marathon
+description: Wdrażanie kontenerów w klastrze DC/OS Azure Container Service przy użyciu interfejsu API REST Marathon.
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
@@ -8,17 +8,17 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 3492f35d54dd3ee61ab8d29a3af06e4998bbd477
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277783"
 ---
-# <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(PRZESTARZAŁE) Zarządzanie kontenerami dc/os za pośrednictwem interfejsu API Marathon REST
+# <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>PRZESTARZAŁE Zarządzanie kontenerami DC/OS za pomocą interfejsu API REST Marathon
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Platforma DC/OS dostarcza środowisko wdrażania i skalowania obciążeń klastrowanych, zapewniając jednocześnie abstrakcyjność sprzętu bazowego. Ponad systemem DC/OS istnieje platforma, która zarządza planowaniem i wykonywaniem obciążeń obliczeniowych. Chociaż struktury są dostępne dla wielu popularnych obciążeń, ten dokument umożliwia rozpoczęcie tworzenia i skalowania wdrożeń kontenerów przy użyciu interfejsu API rest maratonu. 
+Platforma DC/OS dostarcza środowisko wdrażania i skalowania obciążeń klastrowanych, zapewniając jednocześnie abstrakcyjność sprzętu bazowego. Ponad systemem DC/OS istnieje platforma, która zarządza planowaniem i wykonywaniem obciążeń obliczeniowych. Chociaż struktury są dostępne dla wielu popularnych obciążeń, ten dokument umożliwia rozpoczęcie tworzenia i skalowania wdrożeń kontenerów za pomocą interfejsu API REST Marathon. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -27,13 +27,13 @@ Przed przystąpieniem do pracy nad tymi przykładami będziesz potrzebować klas
 * [Wdrażanie klastra usługi Azure Container Service](container-service-deployment.md)
 * [Łączenie z klastrem usługi Azure Container Service](../container-service-connect.md)
 
-## <a name="access-the-dcos-apis"></a>Dostęp do interfejsów API kontrolera domeny/systemu operacyjnego
-Po nawiązaniu połączenia z klastrem usługi kontenera azure, można uzyskać dostęp do\/kontrolera domeny/systemu operacyjnego i powiązanych interfejsów API REST za pośrednictwem http: /localhost:local-port. W przykładach przedstawionych w tym dokumencie założono, że tunelowanie korzysta z portu 80. Na przykład punkty końcowe maratonu można osiągnąć w identyfikatorach URI, począwszy od http:\//localhost/marathon/v2/. 
+## <a name="access-the-dcos-apis"></a>Dostęp do interfejsów API platformy DC/OS
+Po nawiązaniu połączenia z klastrem Azure Container Service dostęp do platformy DC/OS i związanych z nimi interfejsów API REST można uzyskać\/za pomocą protokołu http:/localhost: Local-Port. W przykładach przedstawionych w tym dokumencie założono, że tunelowanie korzysta z portu 80. Na przykład punkty końcowe Marathon można uzyskać w identyfikatorach URI zaczynających się od\/http:/localhost/Marathon/v2/. 
 
 Aby uzyskać więcej informacji o różnych interfejsach API, zobacz dokumentację Mesosphere dotyczącą [interfejsu API platformy Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) i [interfejsu API programu Chronos](https://mesos.github.io/chronos/docs/api.html) oraz dokumentację Apache dotyczącą [interfejsu API aplikacji Mesos Scheduler](https://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Gromadzenie informacji z platform DC/OS i Marathon
-Przed wdrożeniem kontenerów w klastrze kontrolera domeny/systemu operacyjnego należy zebrać informacje o klastrze kontrolera domeny/systemu operacyjnego, takie jak nazwy i stan agentów kontrolera domeny/systemu operacyjnego. W tym celu wykonaj zapytanie w punkcie końcowym `master/slaves` interfejsu API REST platformy DC/OS. Jeśli operacja zostanie wykonana pomyślnie, zapytanie zwróci listę agentów DC/OS i szereg właściwości każdego z nich.
+Przed wdrożeniem kontenerów w klastrze DC/OS należy zebrać pewne informacje o klastrze DC/OS, takie jak nazwy i stan agentów DC/OS. W tym celu wykonaj zapytanie w punkcie końcowym `master/slaves` interfejsu API REST platformy DC/OS. Jeśli operacja zostanie wykonana pomyślnie, zapytanie zwróci listę agentów DC/OS i szereg właściwości każdego z nich.
 
 ```bash
 curl http://localhost/mesos/master/slaves
@@ -48,7 +48,7 @@ curl localhost/marathon/v2/apps
 ```
 
 ## <a name="deploy-a-docker-formatted-container"></a>Wdrażanie kontenera w formacie programu Docker
-Kontenery w formacie Docker można wdrożyć za pośrednictwem interfejsu API MARATHON REST przy użyciu pliku JSON opisującego zamierzone wdrożenie. Poniższy przykład wdraża kontener Nginx do agenta prywatnego w klastrze. 
+Kontenery z systemem Docker można wdrażać za pomocą interfejsu API REST Marathon przy użyciu pliku JSON, który opisuje zamierzone wdrożenie. Poniższy przykład służy do wdrażania kontenera Nginx na prywatnym agencie w klastrze. 
 
 ```json
 {
@@ -69,7 +69,7 @@ Kontenery w formacie Docker można wdrożyć za pośrednictwem interfejsu API MA
 }
 ```
 
-Aby wdrożyć kontener w formacie Docker, należy przechowywać plik JSON w dostępnej lokalizacji. Następnie w celu wdrożenia kontenera uruchom następujące polecenie. Określ nazwę pliku JSON`marathon.json` ( w tym przykładzie).
+Aby wdrożyć kontener w formacie platformy Docker, Zapisz plik JSON w dostępnej lokalizacji. Następnie w celu wdrożenia kontenera uruchom następujące polecenie. Określ nazwę pliku JSON (`marathon.json` w tym przykładzie).
 
 ```bash
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
@@ -87,18 +87,18 @@ Teraz po wykonaniu zapytania dotyczącego aplikacji na platformie Marathon nowa 
 curl localhost/marathon/v2/apps
 ```
 
-## <a name="reach-the-container"></a>Docieranie do pojemnika
+## <a name="reach-the-container"></a>Dotarcie do kontenera
 
-Można sprawdzić, czy Nginx jest uruchomiony w kontenerze na jednym z agentów prywatnych w klastrze. Aby znaleźć hosta i port, w którym kontener jest uruchomiony, zapytaj maraton dla uruchomionych zadań: 
+Można sprawdzić, czy nginx jest uruchomiona w kontenerze na jednym z agentów prywatnych w klastrze. Aby znaleźć hosta i port, na którym działa kontener, należy wykonać zapytania Marathon dla uruchomionych zadań: 
 
 ```bash
 curl localhost/marathon/v2/tasks
 ```
 
-Znajdź wartość `host` w danych wyjściowych (adres `10.32.0.x`IP podobny `ports`do ) i wartość .
+Znajdź wartość `host` w polu wynik (adres IP podobny do `10.32.0.x`) i wartość parametru. `ports`
 
 
-Teraz nawiążej połączenie terminala SSH (nie połączenie tunelowane) z siecią FQDN zarządzania klastra. Po podłączeniu należy złożyć następujące żądanie, `host` zastępując `ports`prawidłowe wartości i:
+Teraz należy nawiązać połączenie terminalu SSH (nie połączenie tunelowe) z nazwą FQDN zarządzania klastra. Po nawiązaniu połączenia wykonaj następujące żądanie, zastępując poprawne wartości `host` i: `ports`
 
 ```bash
 curl http://host:ports
@@ -106,22 +106,22 @@ curl http://host:ports
 
 Dane wyjściowe serwera Nginx są podobne do następujących:
 
-![Nginx z pojemnika](./media/container-service-mesos-marathon-rest/nginx.png)
+![Nginx z kontenera](./media/container-service-mesos-marathon-rest/nginx.png)
 
 
 
 
 ## <a name="scale-your-containers"></a>Skalowanie kontenerów
-Za pomocą interfejsu API maratonu można skalować w poziomie lub skalować w wdrożeniach aplikacji. W poprzednim przykładzie wdrożono jedno wystąpienie aplikacji. Wykonamy teraz skalowanie w poziomie, aby uzyskać trzy wystąpienia aplikacji. W tym celu utwórz plik JSON zawierający następujący tekst JSON i zapisz go w dostępnej lokalizacji.
+Korzystając z interfejsu API Marathon, można skalować w poziomie wdrożenia aplikacji lub skalować je w poziomie. W poprzednim przykładzie wdrożono jedno wystąpienie aplikacji. Wykonamy teraz skalowanie w poziomie, aby uzyskać trzy wystąpienia aplikacji. W tym celu utwórz plik JSON zawierający następujący tekst JSON i zapisz go w dostępnej lokalizacji.
 
 ```json
 { "instances": 3 }
 ```
 
-Z połączenia tunelowanego uruchom następujące polecenie, aby skalować w poziomie aplikacji.
+W przypadku połączenia tunelowanego Uruchom następujące polecenie, aby skalować aplikację w poziomie.
 
 > [!NOTE]
-> Identyfikator URI jest\/http: /localhost/marathon/v2/apps/, a następnie identyfikator aplikacji do skalowania. Jeśli używasz próbki Nginx, który jest podany w tym\/miejscu, identyfikator URI będzie http: /localhost/marathon/v2/apps/nginx.
+> Identyfikator URI to http:\//localhost/Marathon/v2/Apps/, a po nim identyfikator aplikacji do skalowania. Jeśli używasz przykładu Nginx, który jest podany w tym miejscu, identyfikator URI będzie http:\//localhost/Marathon/v2/Apps/Nginx.
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -136,7 +136,7 @@ curl localhost/marathon/v2/apps
 ## <a name="equivalent-powershell-commands"></a>Równoważne polecenia programu PowerShell
 Te same akcje można wykonać za pomocą poleceń programu PowerShell w systemie Windows.
 
-Aby zebrać informacje o klastrze kontrolera domeny/systemu operacyjnego, takie jak nazwy agentów i stan agenta, uruchom następujące polecenie:
+Aby zebrać informacje o klastrze DC/OS, takie jak nazwy agentów i stan agenta, uruchom następujące polecenie:
 
 ```powershell
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
@@ -163,7 +163,7 @@ Kontenery w formacie programu Docker można wdrażać za pośrednictwem platform
 }
 ```
 
-Aby wdrożyć kontener w formacie Docker, należy przechowywać plik JSON w dostępnej lokalizacji. Następnie w celu wdrożenia kontenera uruchom następujące polecenie. Określ ścieżkę do pliku`marathon.json` JSON ( w tym przykładzie).
+Aby wdrożyć kontener w formacie platformy Docker, Zapisz plik JSON w dostępnej lokalizacji. Następnie w celu wdrożenia kontenera uruchom następujące polecenie. Określ ścieżkę do pliku JSON (`marathon.json` w tym przykładzie).
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
@@ -178,13 +178,13 @@ Interfejs API platformy Marathon umożliwia także skalowanie w poziomie oraz sk
 Uruchom następujące polecenie, aby skalować aplikację w poziomie:
 
 > [!NOTE]
-> Identyfikator URI jest\/http: /localhost/marathon/v2/apps/, a następnie identyfikator aplikacji do skalowania. Jeśli używasz próbki Nginx dostarczone tutaj, identyfikator URI będzie http:\//localhost/marathon/v2/apps/nginx.
+> Identyfikator URI to http:\//localhost/Marathon/v2/Apps/, a po nim identyfikator aplikacji do skalowania. Jeśli używasz przykładu Nginx w tym miejscu, identyfikator URI to http:\//localhost/Marathon/v2/Apps/Nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się więcej o punktach końcowych HTTP mesos](https://mesos.apache.org/documentation/latest/endpoints/)
-* [Dowiedz się więcej o interfejsie MARATHON REST](https://mesosphere.github.io/marathon/docs/rest-api.html)
+* [Przeczytaj więcej na temat punktów końcowych HTTP Mesos](https://mesos.apache.org/documentation/latest/endpoints/)
+* [Dowiedz się więcej o interfejsie API REST Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

@@ -1,111 +1,111 @@
 ---
-title: Zarządzanie klastrem Avere vFXT — Azure
-description: Jak zarządzać klastrem Avere — dodawanie lub usuwanie węzłów, ponowne uruchamianie, zatrzymywania lub niszczenia klastra vFXT
+title: Zarządzanie klastrem avere vFXT — Azure
+description: Jak zarządzać klastrem avere — Dodawanie lub usuwanie węzłów, ponowne uruchamianie, zatrzymywanie lub niszczenie klastra vFXT
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 94db4a93025b6e3d633368d924e3e0c518d108ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76153483"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Zarządzanie klastrem Avere vFXT
 
-W pewnym momencie cyklu życia klastra Avere vFXT for Azure może być konieczne dodanie węzłów klastra lub uruchomienie lub ponowne uruchomienie klastra. Po zakończeniu projektu musisz wiedzieć, jak zatrzymać klaster i usunąć go na stałe.
+W pewnym momencie cyklu życia usługi avere vFXT dla klastra platformy Azure może być konieczne dodanie węzłów klastra lub uruchomienie lub ponowne uruchomienie klastra. Po zakończeniu projektu należy wiedzieć, jak zatrzymać klaster i usunąć go trwale.
 
-W tym artykule wyjaśniono, jak dodać lub usunąć węzły klastra i inne podstawowe operacje klastra. Jeśli chcesz zmienić ustawienia klastra lub monitorować jego pracę, użyj [Panelu sterowania Avere](avere-vfxt-cluster-gui.md).
+W tym artykule wyjaśniono, jak dodać lub usunąć węzły klastra i inne podstawowe operacje klastra. Aby zmienić ustawienia klastra lub monitorować jego działanie, użyj [Panelu sterowania avere](avere-vfxt-cluster-gui.md).
 
-W zależności od zadania zarządzania może być konieczne użycie jednego z trzech różnych narzędzi: Avere Control Panel, vfxt.py skryptu zarządzania klastrem wiersza polecenia i witryny Azure portal.
+W zależności od zadania zarządzania może być konieczne użycie jednego z trzech różnych narzędzi: avere Panel sterowania, skrypt zarządzania klastrami vfxt.py wiersza polecenia i Azure Portal.
 
-W tej tabeli przedstawiono przegląd narzędzi, których można używać dla każdego zadania.
+Ta tabela zawiera omówienie narzędzi, które mogą być używane dla każdego zadania.
 
-| Akcja | Panel sterowania Avere | vfxt.py  | Portal Azure |
+| Akcja | Panel sterowania avere | vfxt.py  | Azure Portal |
 | --- | --- | --- | --- |
 | Dodawanie węzłów klastra | nie | tak | nie |
-| Usuwanie węzłów klastra | tak | nie | nie |
-| Zatrzymywać węzeł klastra | tak (można również ponownie uruchomić usługi lub ponownie uruchomić) | nie | wyłączanie węzła maszynowego z portalu jest interpretowane jako awaria węzła |
-| Uruchamianie zatrzymanego węzła | nie | nie | tak |
-| Niszczenie pojedynczego węzła klastra | nie | nie | tak |
+| Usuń węzły klastra | tak | nie | nie |
+| Zatrzymaj węzeł klastra | tak (można także ponownie uruchomić usługi lub ponowny rozruch) | nie | wyłączenie maszyny wirtualnej węzła z portalu jest interpretowane jako awaria węzła |
+| Uruchom zatrzymany węzeł | nie | nie | tak |
+| Niszczenie jednego węzła klastra | nie | nie | tak |
 | Ponowne uruchamianie klastra |  |  |  |
-| Bezpieczne wyłączenie lub zatrzymanie klastra | tak | tak | nie |
+| Bezpieczne wyłączanie lub zatrzymywanie klastra | tak | tak | nie |
 | Zniszcz klaster  | nie | tak | tak, ale integralność danych nie jest gwarantowana |
 
-Szczegółowe instrukcje dla każdego narzędzia znajdują się poniżej.
+Szczegółowe instrukcje dotyczące każdego narzędzia znajdują się poniżej.
 
-## <a name="about-stopped-instances-in-azure"></a>Zatrzymane wystąpienia na platformie Azure – informacje
+## <a name="about-stopped-instances-in-azure"></a>Informacje o zatrzymanych wystąpieniach na platformie Azure
 
-Po zamknięciu lub zatrzymaniu dowolnej maszyny Wirtualnej platformy Azure przestanie ponosić opłaty obliczeniowe, ale nadal musisz zapłacić za jego magazyn. Jeśli zostanie zamknięty węzeł vFXT lub cały klaster vFXT i nie zamierzasz go ponownie uruchomić, należy użyć witryny Azure portal, aby usunąć powiązane maszyny wirtualne.
+Po wyłączeniu lub zatrzymaniu dowolnej maszyny wirtualnej platformy Azure usługa przestaje naliczać opłaty za obliczenia, ale nadal musi być obciążana za magazyn. Jeśli wyłączysz węzeł vFXT lub cały klaster vFXT i nie planujesz go uruchomić ponownie, użyj Azure Portal, aby usunąć powiązane maszyny wirtualne.
 
-W witrynie Azure portal *zatrzymanego* węzła (który można ponownie uruchomić) pokazuje stan **zatrzymany** w witrynie Azure portal. *Usunięty* węzeł pokazuje stan **zatrzymany (cofnięty przydział)** i nie ponosi już opłat obliczeniowych lub magazynowych.
+W Azure Portal *zatrzymany* węzeł (który można uruchomić ponownie) pokazuje stan **zatrzymany** w Azure Portal. *Usunięty* węzeł pokazuje stan **zatrzymane (cofnięty przydział)** i nie jest już używany w przypadku obliczeń ani opłat za magazyn.
 
-Przed usunięciem maszyny Wirtualnej upewnij się, że wszystkie zmienione dane zostały zapisane z pamięci podręcznej do magazynu zaplecza przy użyciu Panelu sterowania Avere lub vfxt.py opcje, aby zatrzymać lub zamknąć klaster.
+Przed usunięciem maszyny wirtualnej upewnij się, że wszystkie zmienione dane zostały wpisane z pamięci podręcznej do magazynu zaplecza przy użyciu panelu sterowania avere lub opcji vfxt.py, aby zatrzymać lub wyłączyć klaster.
 
-## <a name="manage-the-cluster-with-avere-control-panel"></a>Zarządzanie klastrem za pomocą Panelu sterowania Avere
+## <a name="manage-the-cluster-with-avere-control-panel"></a>Zarządzanie klastrem za pomocą panelu sterowania avere
 
-Do wykonywania następujących zadań można używać Panelu sterowania Avere:
+Panel sterowania avere może służyć do wykonywania następujących zadań:
 
-* Zatrzymywać lub ponownie uruchamiać poszczególne węzły
+* Zatrzymywanie lub ponowne uruchamianie poszczególnych węzłów
 * Usuwanie węzła z klastra
 * Zatrzymywanie lub ponowne uruchamianie całego klastra
 
-Avere Panel sterowania nadaje priorytet integralności danych, więc próbuje zapisać wszelkie zmienione dane do magazynu zaplecza przed operacją potencjalnie destrukcyjną. Dzięki temu jest bezpieczniejszą opcją niż witryna Azure portal.
+Panel sterowania avere ustala priorytety integralności danych, dlatego podejmuje próbę zapisania wszelkich zmienionych danych w magazynie zaplecza przed prawdopodobną operacją. Zapewnia to bezpieczniejsze rozwiązanie niż Azure Portal.
 
-Uzyskaj dostęp do Panelu sterowania Avere z przeglądarki internetowej. Postępuj zgodnie z instrukcjami w [programie Access the vFXT cluster,](avere-vfxt-cluster-gui.md) jeśli potrzebujesz pomocy.
+Dostęp do panelu sterowania avere z przeglądarki sieci Web. Postępuj zgodnie z instrukcjami w temacie [dostęp do klastra vFXT,](avere-vfxt-cluster-gui.md) Jeśli potrzebujesz pomocy.
 
-### <a name="manage-nodes-with-avere-control-panel"></a>Zarządzanie węzłami za pomocą Panelu sterowania Avere
+### <a name="manage-nodes-with-avere-control-panel"></a>Zarządzanie węzłami przy użyciu panelu sterowania avere
 
-Strona ustawień **węzłów FXT** ma kontrolki do zarządzania poszczególnymi węzłami.
+Strona ustawienia **węzłów FXT** ma kontrolki do zarządzania poszczególnymi węzłami.
 
-Aby zamknąć, ponownie uruchomić lub usunąć węzeł, znajdź węzeł na liście na stronie **Węzły FXT** i kliknij odpowiedni przycisk w kolumnie **Akcje.**
+Aby zamknąć, ponownie uruchomić lub usunąć węzeł, Znajdź węzeł na liście na stronie **węzły FXT** i kliknij odpowiedni przycisk w kolumnie **Akcje** .
 
 > [!NOTE]
-> Adresy IP mogą poruszać się między węzłami klastra po zmianie liczby aktywnych węzłów.
+> Adresy IP mogą być przenoszone między węzłami klastra, gdy zmienia się liczba aktywnych węzłów.
 
-Więcej informacji można znaleźć w przewodniku po [ustawieniach klastra](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) Avere > węzłów klastra.
+Aby uzyskać więcej informacji, przeczytaj temat [Cluster > FXT nodes](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) w przewodniku ustawień klastra avere.
 
-### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Zatrzymywać lub ponownie uruchamiać klaster za pomocą Panelu sterowania Avere
+### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Zatrzymywanie lub ponowne uruchamianie klastra za pomocą panelu sterowania avere
 
-Strona Ustawienia **konserwacji systemu** zawiera polecenia służące do ponownego uruchamiania usług klastra, ponownego uruchamiania klastra lub bezpiecznego wyłączania klastra. Szczegółowe informacje można znaleźć w [podręczniku Administracja > konserwacji systemu](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (w przewodniku po ustawieniach klastra Avere).
+Strona ustawienia **konserwacji systemu** zawiera polecenia służące do ponownego uruchamiania usług klastra, ponownego uruchamiania klastra lub bezpiecznego włączania klastrów. Aby uzyskać szczegółowe informacje, przeczytaj temat [administracja > Konserwacja systemu](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (w podręczniku ustawień klastra avere).
 
-Gdy klaster zaczyna się zamykać, księguje wiadomości o stanie na karcie **Pulpit nawigacyjny.** Po kilku chwilach wiadomości zatrzymać i ostatecznie sesji Panelu sterowania Avere przestaje odpowiadać, co oznacza, że klaster został zamknięty.
+Po rozpoczęciu zamykania klastra komunikaty o stanie są ogłaszane na karcie **pulpit nawigacyjny** . Po kilku chwilach komunikaty zostaną zatrzymane i ostatecznie sesja panelu sterowania avere przestanie odpowiadać, co oznacza, że klaster został zamknięty.
 
 ## <a name="manage-the-cluster-with-vfxtpy"></a>Zarządzanie klastrem za pomocą vfxt.py
 
-vfxt.py jest narzędziem wiersza polecenia do tworzenia klastra i zarządzania klastrem.
+vfxt.py to narzędzie wiersza polecenia do tworzenia klastrów i zarządzania nimi.
 
-vfxt.py jest preinstalowany na maszynie wirtualnej kontrolera klastra. Jeśli chcesz zainstalować go w innym systemie, <https://github.com/Azure/AvereSDK>zapoznaj się z dokumentacją w .
+vfxt.py jest wstępnie zainstalowany na maszynie wirtualnej kontrolera klastra. Jeśli chcesz zainstalować ją w innym systemie, zapoznaj się z dokumentacją w witrynie <https://github.com/Azure/AvereSDK>.
 
-Skrypt vfxt.py może być używany do tych zadań zarządzania klastrem:
+Skrypt vfxt.py może służyć do wykonywania następujących zadań zarządzania klastrami:
 
 * Dodawanie nowych węzłów do klastra
-* Zatrzymywać lub uruchamiać klaster  
-* Niszcz klaster
+* Zatrzymywanie lub uruchamianie klastra  
+* Niszczenie klastra
 
-Podobnie jak Avere Control Panel, vfxt.py operacje próbują upewnić się, że zmienione dane są przechowywane na stałe w magazynie zaplecza przed zamknięciem lub zniszczeniem klastra lub węzła. Dzięki temu jest bezpieczniejszą opcją niż witryna Azure portal.
+Podobnie jak w panelu sterowania avere, operacje vfxt.py próbują upewnić się, że zmienione dane są trwale przechowywane w magazynie zaplecza przed zamknięciem lub zniszczeniem klastra lub węzła. Zapewnia to bezpieczniejsze rozwiązanie niż Azure Portal.
 
-Pełny przewodnik użycia vfxt.py jest dostępny w usłudze GitHub: [Zarządzanie klastrami w chmurze z vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
+Pełny Przewodnik użytkowania vfxt.py jest dostępny w witrynie GitHub: [Zarządzanie klastrem w chmurze za pomocą usługi vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Dodawanie węzłów klastra za pomocą vfxt.py
 
-Przykładowy skrypt polecenia dodawania węzłów klastra znajduje się na kontrolerze klastra. Znajdź ``./add-nodes`` kontroler i otwórz go w edytorze, aby dostosować go za pomocą informacji klastra.
+Przykładowy skrypt poleceń służący do dodawania węzłów klastra znajduje się na kontrolerze klastra. Znajdź ``./add-nodes`` kontroler i otwórz go w edytorze, aby dostosować go przy użyciu informacji o klastrze.
 
-Klaster musi być uruchomiony, aby użyć tego polecenia.
+Aby można było użyć tego polecenia, klaster musi być uruchomiony.
 
-Podać następujące wartości:
+Podaj następujące wartości:
 
-* Nazwa grupy zasobów dla klastra, a także dla zasobów sieciowych i magazynowych, jeśli nie znajdują się w tej samej grupie zasobów co klaster
+* Nazwa grupy zasobów dla klastra, a także dla zasobów sieciowych i magazynu, jeśli nie znajdują się w tej samej grupie zasobów co klaster
 * Lokalizacja klastra
 * Sieć klastrów i podsieć
-* Rola dostępu do węzła klastra (użyj wbudowanej roli [Avere Operator)](../role-based-access-control/built-in-roles.md#avere-operator)
-* Adres IP zarządzania klastrem i hasło administracyjne
+* Rola dostępu do węzła klastra (Użyj wbudowanego [operatora avere](../role-based-access-control/built-in-roles.md#avere-operator)roli)
+* Adres IP i hasło administracyjne zarządzania klastrami
 * Liczba węzłów do dodania (1, 2 lub 3)
-* Typ wystąpienia węzła i wartości rozmiaru pamięci podręcznej
+* Wartości typu wystąpienia węzła i rozmiaru pamięci podręcznej
 
-Jeśli prototyp nie jest używany, należy utworzyć polecenie podobne do poniższych, w tym wszystkie informacje opisane powyżej.
+Jeśli nie używasz prototypu, należy utworzyć polecenie podobne do następujących, w tym wszystkie informacje opisane powyżej.
 
 ```bash
    vfxt.py --cloud-type azure --from-environment \
@@ -119,77 +119,77 @@ Jeśli prototyp nie jest używany, należy utworzyć polecenie podobne do poniż
    --log ~/vfxt.log
 ```
 
-Aby uzyskać więcej informacji, przeczytaj artykuł [Dodawanie węzłów do klastra](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) w przewodniku użycia vfxt.py.
+Aby uzyskać więcej informacji, przeczytaj temat [Dodawanie węzłów do klastra](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) w przewodniku użytkowania vfxt.py.
 
-### <a name="stop-a-cluster-with-vfxtpy"></a>Zatrzymywać klaster z vfxt.py
+### <a name="stop-a-cluster-with-vfxtpy"></a>Zatrzymaj klaster z vfxt.py
 
 ```bash
 vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET
 ```
 
-### <a name="start-a-stopped-cluster-with-vfxtpy"></a>Uruchom zatrzymaną klaster z vfxt.py
+### <a name="start-a-stopped-cluster-with-vfxtpy"></a>Uruchamianie zatrzymanego klastra z vfxt.py
 
 ```bash
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
 ```
 
-Ponieważ klaster jest zatrzymany, należy przekazać identyfikatory wystąpień, aby określić węzły klastra. Przeczytaj [Określanie klastra, który ma być modyfikowany](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) w przewodniku użycia vfxt.py, aby dowiedzieć się więcej.
+Ponieważ klaster jest zatrzymany, należy przekazać identyfikatory wystąpień, aby określić węzły klastra. Aby dowiedzieć się więcej, zobacz temat [Określanie klastra do zmodyfikowania](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) w przewodniku użytkowania vfxt.py.
 
-### <a name="destroy-a-cluster-with-vfxtpy"></a>Zniszcz klaster za pomocą vfxt.py
+### <a name="destroy-a-cluster-with-vfxtpy"></a>Niszczenie klastra za pomocą vfxt.py
 
 ```bash
 vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --management-address ADMIN_IP
 ```
 
-Opcji ``--quick-destroy`` można użyć, jeśli nie chcesz zapisywać zmienionych danych z pamięci podręcznej klastra.
+Opcja ``--quick-destroy`` może być użyta, jeśli nie chcesz zapisywać zmienionych danych z pamięci podręcznej klastra.
 
-Zapoznaj się z [vfxt.py podręcznikiem użytkowania, aby](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) uzyskać dodatkowe informacje.
+Więcej informacji można znaleźć w [podręczniku użytkowania vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) .
 
-## <a name="manage-cluster-vms-from-the-azure-portal"></a>Zarządzanie maszynami wirtualnymi klastra z witryny Azure portal
+## <a name="manage-cluster-vms-from-the-azure-portal"></a>Zarządzanie maszynami wirtualnymi klastra z poziomu Azure Portal
 
-Witryna Azure portal może służyć do niszczenia maszyn wirtualnych klastra indywidualnie, ale integralność danych nie jest gwarantowana, jeśli klaster nie jest najpierw zamknięty czysto.
+Azure Portal może służyć do niszczenia pojedynczych maszyn wirtualnych klastra, ale integralność danych nie jest gwarantowana, Jeśli klaster nie zostanie najpierw zamknięty.
 
-Witryna Azure portal może służyć do tych zadań zarządzania klastrem:
+Azure Portal można użyć do tych zadań zarządzania klastrami:
 
-* Uruchamianie zatrzymanego węzła vFXT
-* Zatrzymaj pojedynczy węzeł vFXT (klaster interpretuje to jako błąd węzła)
-* Zniszcz klaster vFXT, *jeśli* nie trzeba się upewnić, że zmienione dane w pamięci podręcznej klastra są zapisywane na głównym filer
-* Trwale usuwaj węzły vFXT i inne zasoby klastra po ich bezpiecznym zamknięciu
+* Uruchom zatrzymany węzeł vFXT
+* Zatrzymaj pojedynczy węzeł vFXT (klaster interpretuje go jako awarię węzła)
+* Zniszcz klaster vFXT, *Jeśli* nie ma potrzeby upewnienia się, że zmienione dane w pamięci podręcznej klastra są zapisywane w podstawowym pliku
+* Trwale Usuń węzły vFXT i inne zasoby klastra po ich bezpiecznym zamknięciu
 
-### <a name="restart-vfxt-instances-from-the-azure-portal"></a>Ponowne uruchamianie wystąpień vFXT z witryny Azure portal
+### <a name="restart-vfxt-instances-from-the-azure-portal"></a>Uruchom ponownie wystąpienia usługi vFXT z Azure Portal
 
-Jeśli musisz ponownie uruchomić zatrzymany węzeł, należy użyć witryny Azure portal. Wybierz **opcję Maszyny wirtualne** w menu po lewej stronie, a następnie kliknij nazwę maszyny wirtualnej na liście, aby otworzyć jej stronę przeglądu.
+Jeśli musisz ponownie uruchomić zatrzymany węzeł, musisz użyć Azure Portal. Wybierz pozycję **maszyny wirtualne** w menu po lewej stronie, a następnie kliknij nazwę maszyny wirtualnej na liście, aby otworzyć jej stronę przeglądu.
 
-Kliknij przycisk **Start** u góry strony przeglądu, aby ponownie uaktywnić maszynę wirtualną.
+Kliknij przycisk **Start** w górnej części strony przegląd, aby ponownie UAKTYWNIć maszynę wirtualną.
 
-![Ekran portalu Azure z opcją uruchomienia zatrzymanej maszyny wirtualnej](media/avere-vfxt-start-stopped-incurring-annot.png)
+![Azure Portal ekranu z opcją uruchomienia zatrzymanej maszyny wirtualnej](media/avere-vfxt-start-stopped-incurring-annot.png)
 
 ### <a name="delete-cluster-nodes"></a>Usuwanie węzłów klastra
 
-Aby usunąć jeden węzeł z klastra vFXT, ale zachować pozostałą część klastra, należy najpierw [usunąć węzeł z klastra](#manage-nodes-with-avere-control-panel) za pomocą Panelu sterowania Avere.
+Jeśli chcesz usunąć jeden węzeł z klastra vFXT, ale zachować resztę klastra, należy najpierw [usunąć węzeł z klastra](#manage-nodes-with-avere-control-panel) za pomocą panelu sterowania avere.
 
 > [!CAUTION]
-> Jeśli usuniesz węzeł bez uprzedniego usunięcia go z klastra vFXT, dane mogą zostać utracone.
+> Jeśli usuniesz węzeł bez wcześniejszego usunięcia go z klastra vFXT, dane mogą zostać utracone.
 
-Aby trwale zniszczyć jedno lub więcej wystąpień używanych jako węzeł vFXT, użyj witryny Azure portal.
-Wybierz **opcję Maszyny wirtualne** w menu po lewej stronie, a następnie kliknij nazwę maszyny wirtualnej na liście, aby otworzyć jej stronę przeglądu.
+Aby trwale zniszczyć co najmniej jedno wystąpienie używane jako węzeł vFXT, użyj Azure Portal.
+Wybierz pozycję **maszyny wirtualne** w menu po lewej stronie, a następnie kliknij nazwę maszyny wirtualnej na liście, aby otworzyć jej stronę przeglądu.
 
-Kliknij przycisk **Usuń** w górnej części strony przeglądu, aby trwale zniszczyć maszynę wirtualną.
+Kliknij przycisk **Usuń** w górnej części strony przegląd, aby trwale zniszczyć maszynę wirtualną.
 
-Za pomocą tej metody można trwale usunąć węzły klastra po ich bezpiecznym zamknięciu.
+Tej metody można użyć do trwałego usunięcia węzłów klastra po ich ponownym zamknięciu.
 
-### <a name="destroy-the-cluster-from-the-azure-portal"></a>Niszcz klaster z witryny Azure portal
+### <a name="destroy-the-cluster-from-the-azure-portal"></a>Zniszcz klaster z Azure Portal
 
 > [!NOTE]
-> Jeśli chcesz, aby wszystkie pozostałe zmiany klienta w pamięci podręcznej zostały zapisane w `--destroy` magazynie zaplecza, użyj opcji vfxt.py lub użyj Panelu sterowania Avere, aby zamknąć klaster czysto przed usunięciem wystąpień węzłów w witrynie Azure portal.
+> Jeśli chcesz, aby wszystkie pozostałe zmiany klienta w pamięci podręcznej były zapisywane w magazynie zaplecza, użyj opcji vfxt.py `--destroy` lub panelu sterowania avere, aby zamknąć klaster w sposób czysty przed usunięciem wystąpień węzła w Azure Portal.
 
-Wystąpienia węzłów można trwale zniszczyć, usuwając je w witrynie Azure portal. Można je usuwać po kolei, jak opisano powyżej, lub za pomocą strony **Maszyny wirtualne,** aby znaleźć wszystkie maszyny wirtualne klastra, zaznaczyć je za pomocą pól wyboru i kliknąć przycisk **Usuń,** aby usunąć je wszystkie w jednej akcji.
+Wystąpienia węzłów można zniszczyć trwale, usuwając je w Azure Portal. Można je usunąć pojedynczo, zgodnie z powyższym opisem, lub użyć strony **Virtual Machines** , aby znaleźć wszystkie maszyny wirtualne klastra, zaznacz je z polami wyboru i kliknij przycisk **Usuń** , aby usunąć je wszystkie w jednej akcji.
 
-![Lista maszyn wirtualnych w portalu, filtrowane według terminu "klaster", z trzema z czterech zaznaczonych i wyróżnionych](media/avere-vfxt-multi-vm-delete.png)
+![Lista maszyn wirtualnych w portalu filtrowana według terminu "klaster" z trzema z czterech zaznaczonych i wyróżnionych](media/avere-vfxt-multi-vm-delete.png)
 
-### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Usuwanie dodatkowych zasobów klastra z witryny Azure Portal
+### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Usuń dodatkowe zasoby klastra z Azure Portal
 
-Jeśli utworzono dodatkowe zasoby specjalnie dla klastra vFXT, można usunąć je w ramach rozbiórki klastra. Nie należy niszczyć elementów, które zawierają potrzebne dane lub żadnych elementów, które są udostępniane innym projektom.
+Jeśli utworzono dodatkowe zasoby przeznaczone dla klastra vFXT, można je usunąć w ramach rozrywania klastra. Nie niszczy elementów zawierających potrzebne dane lub elementów, które są współużytkowane z innymi projektami.
 
 Oprócz usuwania węzłów klastra należy rozważyć usunięcie tych składników:
 
@@ -197,18 +197,18 @@ Oprócz usuwania węzłów klastra należy rozważyć usunięcie tych składnik�
 * Dyski danych skojarzone z węzłami klastra
 * Interfejsy sieciowe i publiczne adresy IP skojarzone ze składnikami klastra
 * Sieci wirtualne
-* Kontenery magazynowe i konta magazynu **(tylko** wtedy, gdy nie zawierają ważnych danych)
+* Kontenery magazynu i konta magazynu (**tylko** wtedy, gdy nie zawierają ważnych danych)
 * Zestaw dostępności
 
-![Lista "wszystkie zasoby" portalu Azure z zasobami utworzonymi dla klastra testowego](media/avere-vfxt-all-resources-list.png)
+![Lista Azure Portal "wszystkie zasoby" pokazująca zasoby utworzone dla klastra testowego](media/avere-vfxt-all-resources-list.png)
 
-### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>Usuwanie grupy zasobów klastra z witryny Azure Portal
+### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>Usuwanie grupy zasobów klastra z Azure Portal
 
-Jeśli grupa zasobów została utworzona specjalnie w celu umieszczenia klastra, można zniszczyć wszystkie powiązane zasoby dla klastra, niszcząc grupę zasobów.
+Jeśli grupa zasobów została utworzona w celu przechowania klastra, można zniszczyć wszystkie powiązane zasoby klastra, niszczyjąc grupę zasobów.
 
 > [!Caution]
-> Zniszczyć grupę zasobów tylko wtedy, gdy masz pewność, że nic wartości znajduje się w grupie. Na przykład upewnij się, że zostały przeniesione wszystkie potrzebne dane z kontenerów magazynu w grupie zasobów.  
+> Należy zniszczyć grupę zasobów tylko wtedy, gdy masz pewność, że żadne wartości nie znajdują się w grupie. Na przykład upewnij się, że wszystkie potrzebne dane zostały przeniesione z dowolnego kontenera magazynu w grupie zasobów.  
 
-Aby usunąć grupę zasobów, kliknij pozycję **Grupy zasobów** w lewym menu portalu i przefiltruj listę grup zasobów, aby znaleźć grupę utworzonej dla klastra vFXT. Zaznacz grupę zasobów i kliknij trzy kropki po prawej stronie panelu. Wybierz pozycję **Usuń grupę zasobów**. Portal poprosi cię o potwierdzenie usunięcia, które jest nieodwracalne.
+Aby usunąć grupę zasobów, kliknij pozycję **grupy zasobów** w menu po lewej stronie portalu, a następnie Przefiltruj listę grup zasobów, aby znaleźć tę utworzoną dla klastra vFXT. Wybierz grupę zasobów i kliknij trzy kropki po prawej stronie panelu. Wybierz pozycję **Usuń grupę zasobów**. W portalu zostanie wyświetlony komunikat z informacją o potwierdzeniu usunięcia, które jest nieodwracalne.
 
-![Grupa zasobów z akcji "Usuń grupę zasobów"](media/avere-vfxt-delete-resource-group.png)
+![Grupa zasobów zawierająca akcję "Usuń grupę zasobów"](media/avere-vfxt-delete-resource-group.png)

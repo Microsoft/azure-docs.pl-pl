@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z udostępnionymi obrazami na platformie Azure
+title: Rozwiązywanie problemów z obrazami udostępnionymi na platformie Azure
 description: Dowiedz się, jak rozwiązywać problemy z udostępnionymi galeriami obrazów w zestawach skalowania maszyn wirtualnych platformy Azure.
 documentationcenter: virtual-machine-scale-sets
 author: axayjo
@@ -11,10 +11,10 @@ ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 86ad6a6e5ec8f4eef045c270b5f0704d48d8a6ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76276233"
 ---
 # <a name="troubleshoot-shared-image-galleries"></a>Rozwiązywanie problemów z udostępnionymi galeriami obrazów
@@ -24,4 +24,4 @@ ms.locfileid: "76276233"
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [udostępnionych galeriach zdjęć](shared-image-galleries.md).
+Dowiedz się więcej o [udostępnionych galeriach obrazów](shared-image-galleries.md).

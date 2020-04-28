@@ -1,7 +1,7 @@
 ---
-title: Wizualizacja dzienników przepływu sieciowej sieciowej sieciowej platformy Azure — usługa Power BI
+title: Wizualizacja dzienników usługi Azure sieciowej grupy zabezpieczeń Flow — Power BI
 titleSuffix: Azure Network Watcher
-description: Na tej stronie opisano sposób wizualizacji dzienników przepływu sieciowej sieciowej w usłudze Power BI.
+description: Na tej stronie opisano sposób wizualizacji dzienników przepływu sieciowej grupy zabezpieczeń przy użyciu Power BI.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,115 +13,115 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 955e13b88037aa42b59707698549b1c980720990
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840608"
 ---
-# <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Wizualizacja dzienników przepływu sieciowej grupy zabezpieczeń za pomocą usługi Power BI
+# <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Wizualizacja dzienników przepływu sieciowych grup zabezpieczeń przy użyciu Power BI
 
-Dzienniki przepływu sieciowej grupy zabezpieczeń umożliwiają wyświetlanie informacji o ruchu ip przychodzących i wychodzących w sieciowych grupach zabezpieczeń. Te dzienniki przepływu pokazują przepływy wychodzące i przychodzące na podstawie reguły, karta sieciowa, którą przepływ dotyczy, 5-krotka informacje o przepływie (źródłowy/docelowy adres IP, port źródłowy/docelowy, protokół) i jeśli ruch był dozwolony lub odrzucany.
+Dzienniki przepływu sieciowych grup zabezpieczeń umożliwiają wyświetlanie informacji dotyczących ruchu przychodzącego i wychodzącego IP w sieciowych grupach zabezpieczeń. Te dzienniki przepływu przedstawiają przepływy wychodzące i przychodzące dla każdej reguły, karta sieciowa przepływu ma zastosowanie do, 5-informacje o spójnej kolekcji przepływu (źródłowy/docelowy adres IP, port źródłowy/docelowy, protokół) i jeśli ruch był dozwolony lub zabroniony.
 
-Może być trudne do uzyskania wglądu w dane rejestrowania przepływu ręcznie przeszukując pliki dziennika. W tym artykule udostępniamy rozwiązanie do wizualizacji najnowszych dzienników przepływu i dowiedzenia się o ruchu w sieci.
+Uzyskanie wglądu w dane rejestrowania przepływu może być trudne, ręczne przeszukiwanie plików dziennika. W tym artykule udostępniamy rozwiązanie do wizualizacji najnowszych dzienników przepływów i informacje o ruchu w sieci.
 
 > [!Warning]  
-> Poniższe kroki działają z dziennikami przepływu w wersji 1. Aby uzyskać szczegółowe informacje, zobacz [Wprowadzenie do rejestrowania przepływu dla grup zabezpieczeń sieci .](network-watcher-nsg-flow-logging-overview.md) Poniższe instrukcje nie będą działać z wersją 2 plików dziennika, bez modyfikacji.
+> Poniższe kroki współpracują z dziennikami przepływów w wersji 1. Aby uzyskać szczegółowe informacje, zobacz [wprowadzenie do rejestrowania przepływów dla sieciowych grup zabezpieczeń](network-watcher-nsg-flow-logging-overview.md). Poniższe instrukcje nie będą działały z wersją 2 plików dziennika bez modyfikacji.
 
 ## <a name="scenario"></a>Scenariusz
 
-W poniższym scenariuszu łączymy pulpit usługi Power BI z kontem magazynu, które skonfigurowaliśmy jako ujście dla naszych danych rejestrowania przepływu sieciowej. Po nawiązaniu połączenia z naszym kontem magazynu usługa Power BI pobiera i analizuje dzienniki, aby zapewnić wizualną reprezentację ruchu rejestrowanego przez grupy zabezpieczeń sieciowych.
+W poniższym scenariuszu firma Microsoft łączy Power BI Desktop z kontem magazynu skonfigurowanym jako ujścia dla danych rejestrowania przepływu sieciowej grupy zabezpieczeń. Po nawiązaniu połączenia z naszym kontem magazynu Power BI pobiera i analizuje dzienniki, aby zapewnić wizualną reprezentację ruchu rejestrowanego przez sieciowe grupy zabezpieczeń.
 
-Za pomocą wizualizacji dostarczonych w szablonie można sprawdzić:
+Korzystając z wizualizacji dostarczonych w szablonie, można przeanalizować:
 
-* Top Talkers
-* Dane przepływu szeregów czasowych według kierunku i decyzji reguły
+* Najpopularniejsze rozmowy
+* Dane przepływu szeregów czasowych zgodnie z kierunkiem i decyzją zasady
 * Przepływy według adresu MAC interfejsu sieciowego
-* Przepływy przez nsg i reguły
+* Przepływy według sieciowej grupy zabezpieczeń i reguły
 * Przepływy według portu docelowego
 
-Dostarczony szablon można edytować, dzięki czemu można go zmodyfikować, aby dodać nowe dane, wizualizacje lub edytować zapytania zgodnie z potrzebami.
+Udostępniony szablon jest edytowalny, więc można go zmodyfikować, aby dodać nowe dane, wizualizacje lub edytować zapytania zgodnie z potrzebami.
 
-## <a name="setup"></a>Konfiguracja
+## <a name="setup"></a>Konfigurowanie
 
-Przed rozpoczęciem należy włączyć rejestrowanie przepływu sieciowej grupy zabezpieczeń na jednej lub wielu grupach zabezpieczeń sieciowych na koncie. Instrukcje dotyczące włączania dzienników przepływu zabezpieczeń sieciowych można znaleźć w następującym artykule: [Wprowadzenie do rejestrowania przepływu dla grup zabezpieczeń sieciowych](network-watcher-nsg-flow-logging-overview.md).
+Przed rozpoczęciem należy włączyć rejestrowanie przepływu sieciowych grup zabezpieczeń dla jednej lub wielu sieciowych grup zabezpieczeń na Twoim koncie. Instrukcje dotyczące włączania dzienników przepływu zabezpieczeń sieci można znaleźć w następującym artykule: [wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń](network-watcher-nsg-flow-logging-overview.md).
 
-Na komputerze musi być zainstalowany klient programu Power BI Desktop oraz wystarczająca ilość wolnego miejsca na komputerze, aby pobrać i załadować dane dziennika, które istnieją na koncie magazynu.
+Na maszynie należy również zainstalować klienta Power BI Desktop oraz wystarczającą ilość wolnego miejsca na komputerze w celu pobrania i załadowania danych dziennika istniejących na koncie magazynu.
 
 ![Diagram programu Visio][1]
 
 ### <a name="steps"></a>Kroki
 
-1. Pobieranie i otwieranie następującego szablonu usługi Power BI w [szablonie dzienników przepływu programu Power BI Network Watcher PowerBI](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
-1. Wprowadź wymagane parametry kwerendy
-   1. **StorageAccountName** — określa nazwę konta magazynu zawierającego dzienniki przepływu nsg, które chcesz załadować i wizualizować.
-   1. **NumberOfLogFiles** — określa liczbę plików dziennika, które chcesz pobrać i wizualizować w usłudze Power BI. Na przykład jeśli określono 50, 50 najnowszych plików dziennika. Jeśli mamy 2 nsgs włączone i skonfigurowane do wysyłania dzienników przepływu NSG do tego konta, a następnie ostatnich 25 godzin dzienników można przeglądać.
+1. Pobierz i Otwórz następujący szablon Power BI w Network Watcher aplikacji Power BI Desktop [szablon dzienników przepływów usługi PowerBI](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
+1. Wprowadź wymagane parametry zapytania
+   1. **StorageAccountName** — określa nazwę konta magazynu zawierającego dzienniki przepływów sieciowej grupy zabezpieczeń, które chcesz załadować i wizualizować.
+   1. **NumberOfLogFiles** — określa liczbę plików dziennika, które chcesz pobrać i wizualizować w Power BI. Na przykład jeśli określono 50, najnowsze pliki dziennika 50. Jeśli mamy 2 sieciowych grup zabezpieczeń i skonfigurowano wysyłanie dzienników przepływów sieciowej grupy zabezpieczeń do tego konta, będzie można wyświetlić ostatnich 25 godzin dzienników.
 
-      ![zasilanie GŁÓWNE BI][2]
+      ![Główne usługi Power BI][2]
 
-1. Wprowadź klucz dostępu dla swojego konta magazynu. Prawidłowe klucze dostępu można znaleźć, przechodząc do konta magazynu w witrynie Azure portal i wybierając **klawisze dostępu** z menu Ustawienia. Kliknij **przycisk Połącz,** a następnie zastosuj zmiany.
+1. Wprowadź klucz dostępu dla konta magazynu. Prawidłowe klucze dostępu można znaleźć, przechodząc do konta magazynu w Azure Portal i wybierając pozycję **klucze dostępu** w menu Ustawienia. Kliknij przycisk **Połącz** , a następnie Zastosuj zmiany.
 
-    ![klawisze dostępu][3]
+    ![klucze dostępu][3]
 
-    ![klucz dostępu 2][4]
+    ![dostęp do klucza 2][4]
 
-4. Dzienniki są pobierane i analizowane i można teraz korzystać z wstępnie utworzonych wizualizacji.
+4. Dzienniki są pobierane i przeanalizowane i można teraz korzystać z wstępnie utworzonych wizualizacji.
 
-## <a name="understanding-the-visuals"></a>Opis wizualizacji
+## <a name="understanding-the-visuals"></a>Informacje o wizualizacjach
 
-W szablonie przedstawiono zestaw wizualizacji, które pomagają zrozumieć dane dziennika przepływu nsg. Na poniższych obrazach przedstawiono przykład, jak wygląda pulpit nawigacyjny po wypełnieniu danymi. Poniżej badamy każdy obraz w sposób bardziej szczegółowy 
+Podane w szablonie są zestawem wizualizacji, które pomagają zrozumieć dane dziennika przepływu sieciowej grupy zabezpieczeń. Na poniższych ilustracjach przedstawiono przykład wyświetlania pulpitu nawigacyjnego po zapełnieniu danymi. Poniżej sprawdzimy szczegółowo każdą wizualizację 
 
 ![powerbi][5]
  
-Wizualizacja Top Talkers pokazuje usługi IP, które zainicjowały najwięcej połączeń w określonym okresie. Rozmiar pól odpowiada względnej liczbie połączeń. 
+Wizualizacja najlepszych rozmów pokazuje adresy IP, w przypadku których zainicjowano większość połączeń w określonym okresie. Rozmiar pól odpowiada względnej liczbie połączeń. 
 
 ![toptalkers][6]
 
-Poniższe wykresy szeregów czasowych pokazują liczbę przepływów w tym okresie. Górny wykres jest segmentowany według kierunku przepływu, a dolny jest segmentowany przez podjętą decyzję (zezwalaj lub odrzucaj). Dzięki tej wizualizacji możesz z czasem sprawdzać trendy ruchu i wykrywać wszelkie nietypowe skoki lub spadek natężenia ruchu lub segmentacji ruchu.
+Poniższe wykresy szeregów czasowych przedstawiają liczbę przepływów w danym okresie. Górny wykres jest segmentem przetworzonym przez kierunek przepływu, a dolna jest segmentem poddanym decyzji (Zezwalaj lub Odmów). Korzystając z tej wizualizacji, można ocenić trendy ruchu w czasie i zajrzeć się wszelkim nietypowym wzrostom lub odrzucaniu ruchu lub segmentacji ruchu.
 
-![okres przepływów][7]
+![flowsoverperiod][7]
 
-Poniższe wykresy przedstawiają przepływy na interfejs sieciowy, z górnym segmentem według kierunku przepływu i niższym segmentem według podjętej decyzji. Dzięki tym informacjom można uzyskać wgląd w to, które maszyny wirtualne komunikowały się najbardziej względem innych osób, a ruch do określonej maszyny Wirtualnej jest dozwolony lub odrzucany.
+Poniższe wykresy przedstawiają przepływy na interfejs sieciowy, z górnym segmentacją według kierunku przepływu i niższym segmentem podnoszonym przez podejmowane decyzje. Dzięki tym informacjom możesz uzyskać szczegółowe informacje o tym, do których maszyn wirtualnych komunikują się najbardziej względnie z innymi, i jeśli ruch do określonej maszyny wirtualnej jest dozwolony lub odrzucany.
 
 ![flowspernic][8]
 
-Na poniższym wykresie kółka pierścieniowego przedstawiono podział przepływów według portu docelowego. Dzięki tym informacjom można wyświetlić najczęściej używane porty docelowe używane w określonym czasie.
+Poniższy wykres kołowy pierścieniowego przedstawia podział przepływów według portu docelowego. Korzystając z tych informacji, można wyświetlić najczęściej używane porty docelowe używane w określonym przedziale czasu.
 
 ![pierścień][9]
 
-Na poniższym wykresie słupkowym przedstawiono przepływ przez nsg i regułę. Dzięki tym informacjom można zobaczyć sieciowe sieciowe odpowiedzialne za największy ruch i awarię ruchu na sieciowej sieciowej grupowej według reguły.
+Poniższy wykres słupkowy przedstawia przepływ według sieciowej grupy zabezpieczeń i reguły. Korzystając z tych informacji, można zobaczyć sieciowych grup zabezpieczeń odpowiedzialny za większość ruchu i rozkład ruchu na sieciowej grupy zabezpieczeń przez regułę.
 
-![barchart ( barchart )][10]
+![barchart][10]
  
-Na poniższych wykresach informacyjnych są wyświetlane informacje o sieciowych sieciowych sieciowych znajdujących się w dziennikach, liczbie przepływów przechwyconych w okresie i dacie przechwycenia najwcześniejszego dziennika. Te informacje dają wyobrażenie o tym, jakie cele nsg są rejestrowane i zakres dat przepływów.
+Poniższe wykresy informacyjne zawierają informacje dotyczące sieciowych grup zabezpieczeń obecne w dziennikach, liczbę przepływów przechwytywanych w danym okresie oraz datę najwcześniejszego przechwycenia dziennika. Te informacje stanowią pomysł dotyczący tego, co sieciowych grup zabezpieczeń są rejestrowane, i zakres dat przepływów.
 
-![wykres informacyjny1][11]
+![infochart1][11]
 
-![wykres informacyjny2][12]
+![infochart2][12]
 
-Ten szablon zawiera następujące fragmentatory, aby umożliwić wyświetlanie tylko danych, które są najbardziej interesujące. Można filtrować grupy zasobów, sieciowe grupy zabezpieczeń i reguły. Można również filtrować informacje o 5 krotek, decyzji i czasie dziennika został napisany.
+Ten szablon zawiera następujące fragmentatory umożliwiające wyświetlenie tylko interesujących Cię danych. Można filtrować według grup zasobów, sieciowych grup zabezpieczeń i reguł. Można również filtrować według 5-informacje o spójnej kolekcji, decyzję i godzinę zapisania dziennika.
 
 ![Fragmentatory][13]
 
 ## <a name="conclusion"></a>Podsumowanie
 
-W tym scenariuszu pokazaliśmy, że za pomocą dzienników przepływów sieciowej grupy zabezpieczeń dostarczonych przez Network Watcher i Power BI jesteśmy w stanie wizualizować i rozumieć ruch. Korzystając z dostarczonego szablonu, usługa Power BI pobiera dzienniki bezpośrednio z magazynu i przetwarza je lokalnie. Czas ładowania szablonu różni się w zależności od liczby żądanych plików i całkowitego rozmiaru pobranych plików.
+W tym scenariuszu pokazano, jak za pomocą dzienników przepływu sieciowych grup zabezpieczeń zapewnianych przez Network Watcher i Power BI można wizualizować i zrozumieć ruch. Za pomocą podanego szablonu Power BI pobiera dzienniki bezpośrednio z magazynu i przetwarza je lokalnie. Czas potrzebny na załadowanie szablonu różni się w zależności od liczby żądanych plików i łącznego rozmiaru pobranych plików.
 
-Możesz dostosować ten szablon do swoich potrzeb. Istnieje wiele sposobów korzystania z usługi Power BI z dziennikami przepływu grupy zabezpieczeń sieciowych. 
+Możesz dostosowywać ten szablon do swoich potrzeb. Istnieje wiele różnych sposobów używania Power BI z dziennikami przepływu sieciowych grup zabezpieczeń. 
 
 ## <a name="notes"></a>Uwagi
 
-* Dzienniki domyślnie są przechowywane w`https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
+* Dzienniki są domyślnie przechowywane w`https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 
-    * Jeśli w innym katalogu istnieją inne dane, należy zmodyfikować zapytania do ściągania i przetwarzania danych.
+    * Jeśli inne dane znajdują się w innym katalogu, muszą być modyfikowane przez zapytania ściągające i przetwarzające dane.
 
-* Podany szablon nie jest zalecany do użycia z więcej niż 1 GB dzienników.
+* Nie zaleca się używania podanego szablonu z więcej niż 1 GB dzienników.
 
-* Jeśli masz dużą ilość dzienników, zaleca się zbadanie rozwiązania przy użyciu innego magazynu danych, takich jak Usługa Data Lake lub serwer SQL.
+* Jeśli masz dużą ilość dzienników, zalecamy zbadanie rozwiązania przy użyciu innego magazynu danych, takiego jak Data Lake lub program SQL Server.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak wizualizować dzienniki przepływu sieciowej sieciowej sieciowej za pomocą stosu elastycznego, odwiedzając [wizualizuj dzienniki przepływu sieciowej sieci obserwatorzy sieci Azure przy użyciu narzędzi open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Dowiedz się, jak wizualizować dzienniki przepływu usługi sieciowej grupy zabezpieczeń za pomocą elastycznego stosu, odwiedzając [wizualizacje w usłudze Azure Network Watcher sieciowej grupy zabezpieczeńing Logs przy użyciu narzędzi open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

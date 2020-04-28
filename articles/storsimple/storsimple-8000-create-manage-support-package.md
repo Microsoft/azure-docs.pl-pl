@@ -1,121 +1,121 @@
 ---
-title: Tworzenie pakietu pomocy technicznej serii StorSimple 8000
-description: Dowiedz się, jak utworzyć, odszyfrować i edytować pakiet pomocy technicznej dla urządzenia z serii StorSimple 8000.
+title: Tworzenie pakietu dla pomocy technicznej serii StorSimple 8000
+description: Dowiedz się, jak tworzyć, odszyfrowywać i edytować pakiet pomocy technicznej dla urządzenia z serii StorSimple 8000.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277069"
 ---
-# <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Tworzenie pakietu pomocy technicznej dla serii StorSimple 8000 i zarządzanie nim
+# <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Utwórz pakiet pomocy technicznej dla serii StorSimple 8000 i Zarządzaj nim
 
 ## <a name="overview"></a>Omówienie
 
-Pakiet pomocy technicznej StorSimple to łatwy w użyciu mechanizm, który zbiera wszystkie odpowiednie dzienniki, aby pomóc pomocy technicznej firmy Microsoft w rozwiązywaniu problemów z urządzeniem StorSimple. Zebrane dzienniki są szyfrowane i kompresowane.
+Pakiet pomocy technicznej StorSimple to łatwy w użyciu mechanizm, który gromadzi wszystkie odpowiednie dzienniki, aby ułatwić pomoc techniczna firmy Microsoft Rozwiązywanie problemów z urządzeniami StorSimple. Zebrane dzienniki są szyfrowane i kompresowane.
 
-Ten samouczek zawiera instrukcje krok po kroku, aby utworzyć pakiet pomocy technicznej dla urządzenia z serii StorSimple serii 8000 i zarządzać nim. Jeśli pracujesz z StorSimple Virtual Array, przejdź do [generowania pakietu dziennika](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+Ten samouczek zawiera instrukcje krok po kroku dotyczące tworzenia pakietu dla urządzenia z serii StorSimple 8000 i zarządzania nim. Jeśli pracujesz z wirtualną tablicą StorSimple, przejdź do pozycji [Generuj pakiet dzienników](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
-## <a name="create-a-support-package"></a>Tworzenie pakietu pomocy technicznej
+## <a name="create-a-support-package"></a>Tworzenie pakietu dla pomocy technicznej
 
-W niektórych przypadkach należy ręcznie utworzyć pakiet pomocy technicznej za pośrednictwem programu Windows PowerShell dla StorSimple. Przykład:
+W niektórych przypadkach należy ręcznie utworzyć pakiet pomocy technicznej za pomocą program Windows PowerShell dla usługi StorSimple. Przykład:
 
-* Jeśli chcesz usunąć poufne informacje z plików dziennika przed udostępnieniem ich w pomocy technicznej firmy Microsoft.
-* Jeśli masz problemy z przesłaniem pakietu z powodu problemów z łącznością.
+* Jeśli musisz usunąć poufne informacje z plików dziennika przed udostępnieniem pomoc techniczna firmy Microsoft.
+* Jeśli masz problemy z przekazywaniem pakietu ze względu na problemy z łącznością.
 
-Ręcznie wygenerowany pakiet pomocy technicznej można udostępnić za pośrednictwem poczty e-mail pomocy technicznej firmy Microsoft. Wykonaj następujące kroki, aby utworzyć pakiet pomocy technicznej w programie Windows PowerShell for StorSimple.
+Możesz udostępnić ręcznie wygenerowany pakiet pomocy technicznej pomoc techniczna firmy Microsoft za pośrednictwem poczty e-mail. Wykonaj następujące kroki, aby utworzyć pakiet pomocy technicznej w program Windows PowerShell dla usługi StorSimple.
 
-#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>Aby utworzyć pakiet pomocy technicznej w programie Windows PowerShell for StorSimple
+#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>Aby utworzyć pakiet pomocy technicznej w program Windows PowerShell dla usługi StorSimple
 
-1. Aby uruchomić sesję programu Windows PowerShell jako administrator na komputerze zdalnym używanym do łączenia się z urządzeniem StorSimple, wprowadź następujące polecenie:
+1. Aby rozpocząć sesję programu Windows PowerShell jako administrator na komputerze zdalnym, który jest używany do nawiązywania połączenia z urządzeniem StorSimple, wprowadź następujące polecenie:
    
     `Start PowerShell`
-2. W sesji programu Windows PowerShell połącz się z konsolą SSAdmin urządzenia:
+2. W sesji programu Windows PowerShell Połącz się z konsolą SSAdmin urządzenia:
    
    1. W wierszu polecenia wprowadź:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   2. W oknie dialogowym, które zostanie otwarte, wprowadź hasło administratora urządzenia. Domyślnym hasłem jest _Password1_.
+   2. W otwartym oknie dialogowym wprowadź hasło administratora urządzenia. Domyślne hasło to _Password1_.
      
-      ![Okno dialogowe Poświadczenia programu PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
-   3. Kliknij przycisk **OK**.
+      ![Okno dialogowe poświadczeń programu PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
+   3. Wybierz przycisk **OK**.
    4. W wierszu polecenia wprowadź:
      
       `Enter-PSSession $MS`
-3. W sesji, która zostanie otwarta, wprowadź odpowiednie polecenie.
+3. W otwartej sesji wprowadź odpowiednie polecenie.
    
-   * W przypadku udziałów sieciowych chronionych hasłem należy wprowadzić:
+   * W przypadku udziałów sieciowych chronionych hasłem wpisz:
      
        `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       Zostanie wyświetlony monit o podanie hasła i hasła szyfrowania (ponieważ pakiet pomocy technicznej jest zaszyfrowany). Pakiet pomocy technicznej jest następnie tworzony w folderze domyślnym (nazwa urządzenia dołączana z bieżącą datą i godziną).
-   * W przypadku udziałów, które nie są `-Credential` chronione hasłem, parametr nie jest potrzebny. Wprowadź następujące dane:
+       Zostanie wyświetlony monit o hasło i hasło szyfrowania (ponieważ pakiet pomocy technicznej jest szyfrowany). Pakiet pomocy technicznej jest następnie tworzony w folderze domyślnym (nazwa urządzenia dołączona z bieżącą datą i godziną).
+   * W przypadku udziałów, które nie są chronione hasłem, `-Credential` parametr nie jest wymagany. Wprowadź następujące dane:
      
        `Export-HcsSupportPackage`
      
-       Pakiet pomocy technicznej jest tworzony dla obu kontrolerów w folderze domyślnym. Pakiet jest zaszyfrowanym, skompresowanym plikiem, który można wysłać do pomocy technicznej firmy Microsoft w celu rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [Kontakt z pomocą techniczną firmy Microsoft](storsimple-8000-contact-microsoft-support.md).
+       Pakiet pomocy technicznej jest tworzony dla obu kontrolerów w folderze domyślnym. Pakiet to zaszyfrowany, skompresowany plik, który można wysłać do pomoc techniczna firmy Microsoft w celu rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [Contact pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 ### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Parametry polecenia cmdlet Export-HcsSupportPackage
 
-Za pomocą polecenia cmdlet Export-HcsSupportPackage można użyć następujących parametrów.
+Można użyć następujących parametrów za pomocą polecenia cmdlet Export-HcsSupportPackage.
 
 | Parametr | Wymagane/Opcjonalne | Opis |
 | --- | --- | --- |
-| `-Path` |Wymagany |Służy do podawania lokalizacji folderu udostępnionego sieci, w którym jest umieszczany pakiet pomocy technicznej. |
-| `-EncryptionPassphrase` |Wymagany |Służy do zapewnienia hasła, aby pomóc zaszyfrować pakiet pomocy technicznej. |
-| `-Credential` |Optional (Opcjonalność) |Służy do poświadczania poświadczeń dostępu dla folderu udostępnionego w sieci. |
-| `-Force` |Optional (Opcjonalność) |Służy do pomijania kroku potwierdzenia hasła szyfrowania. |
-| `-PackageTag` |Optional (Opcjonalność) |Służy do określania katalogu w obszarze *Ścieżka,* w którym jest umieszczany pakiet pomocy technicznej. Wartość domyślna to [nazwa urządzenia]-[bieżąca data i godzina:yyyy-MM-dd-HH-mm-ss]. |
-| `-Scope` |Optional (Opcjonalność) |Określ jako **klaster** (domyślnie), aby utworzyć pakiet pomocy technicznej dla obu kontrolerów. Jeśli chcesz utworzyć pakiet tylko dla bieżącego kontrolera, określ **controller**. |
+| `-Path` |Wymagany |Służy do zapewnienia lokalizacji udostępnionego folderu sieciowego, w którym znajduje się pakiet pomocy technicznej. |
+| `-EncryptionPassphrase` |Wymagany |Użyj, aby podać hasło, aby pomóc w zaszyfrowaniu pakietu dla pomocy technicznej. |
+| `-Credential` |Optional |Użyj, aby podać poświadczenia dostępu do udostępnionego folderu sieciowego. |
+| `-Force` |Optional |Użyj, aby pominąć etap potwierdzania hasła szyfrowania. |
+| `-PackageTag` |Optional |Użyj, aby określić katalog w *ścieżce* , w którym jest umieszczany pakiet pomocy technicznej. Wartość domyślna to [nazwa urządzenia] — [bieżąca data i godzina: RRRR-MM-DD-HH-mm-SS]. |
+| `-Scope` |Optional |Określ jako **klaster** (domyślnie), aby utworzyć pakiet dla obu kontrolerów. Jeśli chcesz utworzyć pakiet tylko dla bieżącego kontrolera, określ pozycję **kontroler**. |
 
-## <a name="edit-a-support-package"></a>Edytowanie pakietu pomocy technicznej
+## <a name="edit-a-support-package"></a>Edytuj pakiet pomocy technicznej
 
-Po wygenerowaniu pakietu pomocy technicznej może być konieczne edytowanie pakietu w celu usunięcia poufnych informacji. Może to obejmować nazwy woluminów, adresy IP urządzeń i nazwy kopii zapasowych z plików dziennika.
+Po wygenerowaniu pakietu dla pomocy technicznej może być konieczne edytowanie pakietu w celu usunięcia poufnych informacji. Może to obejmować nazwy woluminów, adresy IP urządzeń i nazwy kopii zapasowych z plików dziennika.
 
 > [!IMPORTANT]
-> Można edytować tylko pakiet pomocy technicznej, który został wygenerowany za pośrednictwem programu Windows PowerShell dla StorSimple. Nie można edytować pakietu utworzonego w witrynie Azure portal za pomocą usługi StorSimple Device Manager.
+> Można edytować tylko pakiet pomocy technicznej, który został wygenerowany za pomocą program Windows PowerShell dla usługi StorSimple. Nie można edytować pakietu utworzonego w Azure Portal za pomocą usługi StorSimple Menedżer urządzeń.
 
-Aby edytować pakiet pomocy technicznej przed przekazaniem go w witrynie pomocy technicznej firmy Microsoft, należy najpierw odszyfrować pakiet pomocy technicznej, edytować pliki, a następnie ponownie zaszyfrować. Wykonaj poniższe kroki.
+Aby edytować pakiet pomocy technicznej przed przekazaniem go do witryny pomoc techniczna firmy Microsoft, należy najpierw odszyfrować pakiet pomocy technicznej, edytować pliki, a następnie ponownie go zaszyfrować. Wykonaj poniższe kroki.
 
-#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Aby edytować pakiet pomocy technicznej w programie Windows PowerShell for StorSimple
+#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Aby edytować pakiet pomocy technicznej w program Windows PowerShell dla usługi StorSimple
 
-1. Generowanie pakietu pomocy technicznej zgodnie z wcześniejszym opisem w [programie Aby utworzyć pakiet pomocy technicznej w programie Windows PowerShell for StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
-2. [Pobierz skrypt](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) lokalnie na swoim kliencie.
-3. Importowanie modułu programu Windows PowerShell. Określ ścieżkę do folderu lokalnego, w którym pobrano skrypt. Aby zaimportować moduł, wprowadź:
+1. Wygeneruj pakiet pomocy technicznej zgodnie z wcześniejszym opisem w artykule [Aby utworzyć pakiet pomocy technicznej w program Windows PowerShell dla usługi StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
+2. [Pobierz skrypt](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) lokalnie na komputerze klienckim.
+3. Zaimportuj moduł programu Windows PowerShell. Określ ścieżkę do folderu lokalnego, w którym pobrano skrypt. Aby zaimportować moduł, wprowadź:
    
     `Import-module <Path to the folder that contains the Windows PowerShell script>`
-4. Wszystkie pliki są *plikami .aes,* które są skompresowane i zaszyfrowane. Aby rozpakować i odszyfrować pliki, wprowadź:
+4. Wszystkie pliki są plikami *AES* , które są skompresowane i szyfrowane. Aby zdekompresować i odszyfrować pliki, wpisz:
    
     `Open-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    Należy zauważyć, że rzeczywiste rozszerzenia plików są teraz wyświetlane dla wszystkich plików.
+    Należy pamiętać, że rzeczywiste rozszerzenia plików są teraz wyświetlane dla wszystkich plików.
    
     ![Edytuj pakiet pomocy technicznej](./media/storsimple-8000-create-manage-support-package/IC750706.png)
-5. Po wyświetleniu monitu o hasło szyfrowania wprowadź hasło używane podczas tworzenia pakietu pomocy technicznej.
+5. Po wyświetleniu monitu o hasło szyfrowania wprowadź hasło użyte podczas tworzenia pakietu dla pomocy technicznej.
    
         cmdlet Open-HcsSupportPackage at command pipeline position 1
    
         Supply values for the following parameters:EncryptionPassphrase: ****
-6. Przejdź do folderu zawierającego pliki dziennika. Ponieważ pliki dziennika są teraz dekompresowane i odszyfrowane, będą one miały oryginalne rozszerzenia plików. Zmodyfikuj te pliki, aby usunąć wszelkie informacje specyficzne dla klienta, takie jak nazwy woluminów i adresy IP urządzenia, i zapisz pliki.
-7. Zamknij pliki, aby skompresować je za pomocą gzip i zaszyfrować za pomocą AES-256. Ma to na celu szybkość i bezpieczeństwo w przesyłaniu pakietu pomocy technicznej przez sieć. Aby skompresować i zaszyfrować pliki, wprowadź następujące elementy:
+6. Przejdź do folderu, który zawiera pliki dziennika. Ponieważ pliki dziennika są teraz dekompresowane i odszyfrowywane, będą mieć oryginalne rozszerzenia plików. Zmodyfikuj te pliki, aby usunąć wszystkie informacje specyficzne dla klienta, takie jak nazwy woluminów i adresy IP urządzeń, a następnie Zapisz pliki.
+7. Zamknij pliki, aby skompresować je za pomocą gzip i zaszyfrować je za pomocą algorytmu AES-256. Jest to szybkość i bezpieczeństwo transferu pakietu pomocy technicznej przez sieć. Aby skompresować i zaszyfrować pliki, wprowadź następujące polecenie:
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
     ![Edytuj pakiet pomocy technicznej](./media/storsimple-8000-create-manage-support-package/IC750707.png)
-8. Po wyświetleniu monitu podaj hasło szyfrowania zmodyfikowanego pakietu pomocy technicznej.
+8. Po wyświetleniu monitu podaj hasło szyfrowania dla zmodyfikowanego pakietu dla pomocy technicznej.
    
         cmdlet Close-HcsSupportPackage at command pipeline position 1
         Supply values for the following parameters:EncryptionPassphrase: ****
-9. Zapisz nowe hasło, aby udostępnić je pomocy technicznej firmy Microsoft na żądanie.
+9. Zapisz nowe hasło, tak aby można było udostępnić je pomoc techniczna firmy Microsoft na żądanie.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Przykład: Edytowanie plików w pakiecie pomocy technicznej w udziale chronionym hasłem
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Przykład: edytowanie plików w pakiecie pomocy technicznej w udziale chronionym hasłem
 
-W poniższym przykładzie pokazano, jak odszyfrować, edytować i ponownie zaszyfrować pakiet pomocy technicznej.
+Poniższy przykład pokazuje, jak odszyfrować, edytować i ponownie zaszyfrować pakiet pomocy technicznej.
 
         PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
@@ -139,7 +139,7 @@ W poniższym przykładzie pokazano, jak odszyfrować, edytować i ponownie zaszy
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [informacjach zebranych w pakiecie pomocy technicznej](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Dowiedz się, jak [używać pakietów pomocy technicznej i dzienników urządzeń do rozwiązywania problemów z wdrażaniem urządzenia](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
-* Dowiedz się, jak [zarządzać urządzeniem StorSimple za pomocą usługi StorSimple Device Manager.](storsimple-8000-manager-service-administration.md)
+* [Informacje o informacjach zebranych w pakiecie pomocy technicznej](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
+* Informacje dotyczące [rozwiązywania problemów z wdrożeniem urządzeń przy użyciu pakietów pomocy technicznej i dzienników urządzeń](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Dowiedz się [, jak zarządzać urządzeniem StorSimple przy użyciu usługi StorSimple Menedżer urządzeń](storsimple-8000-manager-service-administration.md).
 

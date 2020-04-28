@@ -1,5 +1,5 @@
 ---
-title: 'Łączenie się z siecią wirtualną z komputera — sieć VPN P2S i uwierzytelnianie certyfikatów platformy Azure natywne: Program PowerShell'
+title: 'Nawiązywanie połączenia z siecią wirtualną z poziomu komputera — P2S VPN i natywnego uwierzytelniania certyfikatu platformy Azure: PowerShell'
 description: Bezpieczne łączenie klientów systemu Windows i Mac OS X z siecią wirtualną platformy Azure przy użyciu połączeń typu punkt-lokacja oraz certyfikatów z podpisem własnym lub wystawionych przez urząd certyfikacji. W tym artykule używany jest program PowerShell.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 49fbdf4a4090350cc0a6a5a1b938621b3cb08632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76045083"
 ---
-# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurowanie połączenia sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatów platformy Azure: Program PowerShell
+# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurowanie połączenia sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure: PowerShell
 
-Ten artykuł ułatwia bezpieczne łączenie poszczególnych klientów z systemem Windows, Linux lub Mac OS X z siecią wirtualną platformy Azure. Połączenia sieci VPN typu punkt-lokacja przydają się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, podczas pracy zdalnej z domu lub konferencji. Możesz również użyć połączenia typu punkt-lokacja zamiast połączenia sieci VPN typu lokacja-lokacja w przypadku niewielkiej liczby klientów, którzy muszą się łączyć z siecią wirtualną. Połączenia typu punkt-lokacja nie wymagają urządzenia sieci VPN ani publicznego adresu IP. Połączenie typu punkt-lokacja tworzy połączenie sieci VPN nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol) lub IKEv2. Aby uzyskać więcej informacji na temat połączeń sieci VPN typu punkt-lokacja, zobacz [About Point-to-Site VPN (Informacje o sieci VPN typu punkt-lokacja)](point-to-site-about.md).
+W tym artykule opisano sposób bezpiecznego łączenia poszczególnych klientów z systemem Windows, Linux lub Mac OS X w sieci wirtualnej platformy Azure. Połączenia sieci VPN typu punkt-lokacja przydają się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, podczas pracy zdalnej z domu lub konferencji. Możesz również użyć połączenia typu punkt-lokacja zamiast połączenia sieci VPN typu lokacja-lokacja w przypadku niewielkiej liczby klientów, którzy muszą się łączyć z siecią wirtualną. Połączenia typu punkt-lokacja nie wymagają urządzenia sieci VPN ani publicznego adresu IP. Połączenie typu punkt-lokacja tworzy połączenie sieci VPN nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol) lub IKEv2. Aby uzyskać więcej informacji na temat połączeń sieci VPN typu punkt-lokacja, zobacz [About Point-to-Site VPN (Informacje o sieci VPN typu punkt-lokacja)](point-to-site-about.md).
 
 ![Łączenie komputera z siecią wirtualną platformy Azure — diagram połączenie typu punkt-lokacja](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
@@ -39,7 +39,7 @@ Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskry
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 >[!NOTE]
-> Większość kroków w tym artykule można użyć usługi Azure Cloud Shell. Jednak aby przekazać klucz publiczny certyfikatu głównego, należy użyć programu PowerShell lokalnie lub w witrynie Azure portal.
+> W większości kroków opisanych w tym artykule można używać Azure Cloud Shell. Aby jednak przekazać klucz publiczny certyfikatu głównego, należy użyć programu PowerShell lokalnie lub Azure Portal.
 >
 
 ### <a name="example-values"></a><a name="example"></a>Przykładowe wartości
@@ -54,26 +54,26 @@ Wartości przykładowych możesz użyć do tworzenia środowiska testowego lub o
   * **Zakres adresów podsieci: 10.254.1.0/24**
 * **Nazwa podsieci: GatewaySubnet**<br>Nazwa podsieci *GatewaySubnet* jest obowiązkowa, aby brama VPN mogła działać.
   * **Zakres adresów podsieci bramy: 192.168.200.0/24** 
-* **Pula adresów klientów VPN: 172.16.201.0/24**<br>Klienci sieci VPN łączący się z siecią wirtualną, którzy korzystają z tego połączenia punkt-lokacja, otrzymują adresy IP z puli adresów klientów sieci VPN.
+* **Pula adresów klienta sieci VPN: 172.16.201.0/24**<br>Klienci sieci VPN łączący się z siecią wirtualną, którzy korzystają z tego połączenia punkt-lokacja, otrzymują adresy IP z puli adresów klientów sieci VPN.
 * **Subskrypcja:** jeśli masz więcej niż jedną subskrypcję, sprawdź, czy korzystasz z właściwej.
 * **Grupa zasobów: TestRG**
 * **Lokalizacja: Wschodnie stany USA**
-* **Serwer DNS: adres IP** serwera DNS, którego chcesz użyć do rozpoznawania nazw. (opcjonalnie)
+* **Serwer DNS: adres IP** serwera DNS, który ma być używany do rozpoznawania nazw. (opcjonalnie)
 * **Nazwa bramy: Vnet1GW**
 * **Nazwa publicznego adresu IP: VNet1GWPIP**
-* **Typ vpn: RouteBased** 
+* **VpnType: RouteBased** 
 
-## <a name="1-sign-in-and-set-variables"></a><a name="declare"></a>1. Zaloguj się i ustaw zmienne
+## <a name="1-sign-in-and-set-variables"></a><a name="declare"></a>1. Zaloguj się i Ustaw zmienne
 
-W tej sekcji zaloguj się i zadeklarować wartości używane dla tej konfiguracji. Zadeklarowane wartości są używane w przykładowych skryptach. Można zmienić wartości, aby odzwierciedlić własne środowisko. Ale można też użyć zadeklarowanych wartości i postępować zgodnie z opisanymi krokami tylko w celach szkoleniowych.
+W tej sekcji należy się zalogować i zadeklarować wartości używane dla tej konfiguracji. Zadeklarowane wartości są używane w przykładowych skryptach. Można zmienić wartości, aby odzwierciedlić własne środowisko. Ale można też użyć zadeklarowanych wartości i postępować zgodnie z opisanymi krokami tylko w celach szkoleniowych.
 
-### <a name="sign-in"></a>Logowanie
+### <a name="sign-in"></a>Zaloguj się
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="declare-variables"></a>Deklarowanie zmiennych
 
-Zadeklaruj zmienne, których chcesz użyć. Użyj poniższego przykładu, podstawiając własne wartości tam, gdzie to konieczne. Jeśli zamkniesz sesję programu PowerShell/Cloud Shell w dowolnym momencie podczas ćwiczenia, po prostu skopiuj i wklej wartości ponownie, aby ponownie zadeklarować zmienne.
+Zadeklaruj zmienne, których chcesz użyć. Użyj poniższego przykładu, podstawiając własne wartości tam, gdzie to konieczne. Jeśli zamkniesz sesję programu PowerShell/Cloud Shell w dowolnym momencie podczas wykonywania, po prostu skopiuj i wklej ponownie wartości, aby ponownie zadeklarować zmienne.
 
   ```azurepowershell-interactive
   $VNetName  = "VNet1"
@@ -134,8 +134,8 @@ Zadeklaruj zmienne, których chcesz użyć. Użyj poniższego przykładu, podsta
 Skonfiguruj i utwórz bramę sieci wirtualnej dla sieci wirtualnej.
 
 * Zmienna - GatewayType musi przyjąć wartość **Vpn**, a zmienna - VpnType musi przyjąć wartość **RouteBased**.
-* Parametr -VpnClientProtocol służy do określania typów tuneli, które mają zostać włączone. Opcje tunelu to **OpenVPN, SSTP** i **IKEv2**. Można włączyć jedną z nich lub dowolną obsługiwana kombinację. Jeśli chcesz włączyć wiele typów, należy określić nazwy oddzielone przecinkiem. OpenVPN i SSTP nie mogą być włączone razem. Klient strongSwan w systemach Android i Linux oraz natywny klient sieci VPN IKEv2 w systemach iOS i OSX będą używać do łączenia się tylko tuneli IKEv2. Klienci w systemie Windows będą najpierw próbowali użyć protokołu IKEv2, a jeśli połączenie nie zostanie nawiązane, użyją protokołu SSTP. Za pomocą klienta OpenVPN można połączyć się z typem tunelu OpenVPN.
-* Jednostka SKU "Basic" bramy sieci wirtualnej nie obsługuje uwierzytelniania IKEv2, OpenVPN ani RADIUS. Jeśli planujesz połączenie klientów Mac z siecią wirtualną, nie należy używać podstawowej jednostki SKU.
+* Parametr -VpnClientProtocol służy do określania typów tuneli, które mają zostać włączone. Dostępne są opcje tunelu **OpenVPN, SSTP** i **IKEv2**. Możesz włączyć jedną z nich lub dowolną obsługiwaną kombinację. Jeśli chcesz włączyć wiele typów, określ nazwy oddzielone przecinkami. Nie można jednocześnie włączyć OpenVPN i SSTP. Klient strongSwan w systemach Android i Linux oraz natywny klient sieci VPN IKEv2 w systemach iOS i OSX będą używać do łączenia się tylko tuneli IKEv2. Klienci w systemie Windows będą najpierw próbowali użyć protokołu IKEv2, a jeśli połączenie nie zostanie nawiązane, użyją protokołu SSTP. Klienta OpenVPN można użyć do nawiązania połączenia z typem tunelu OpenVPN.
+* Jednostka SKU bramy sieci wirtualnej "podstawowa" nie obsługuje uwierzytelniania IKEv2, OpenVPN ani usługi RADIUS. Jeśli planujesz, aby klienci z systemem Mac mogli łączyć się z siecią wirtualną, nie używaj podstawowej jednostki SKU.
 * Tworzenie bramy sieci VPN może zająć do 45 minut, zależnie od wybranej [jednostki sku bramy](vpn-gateway-about-vpn-gateway-settings.md). W tym przykładzie użyto protokołu IKEv2.
 
 ```azurepowershell-interactive
@@ -153,13 +153,13 @@ $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPool $VPNClientAddressPool
 ```
 
-## <a name="5-generate-certificates"></a><a name="Certificates"></a>5. Generowanie certyfikatów
+## <a name="5-generate-certificates"></a><a name="Certificates"></a>5. generowanie certyfikatów
 
 Certyfikaty są używane przez platformę Azure do uwierzytelniania klientów sieci VPN w obrębie sieci VPN typu punkt-lokacja. Informacje o kluczu publicznym certyfikatu głównego należy przekazać na platformę Azure. Klucz publiczny jest wtedy uważany za „zaufany”. Certyfikaty klienta muszą być generowane na podstawie zaufanego certyfikatu głównego, a następnie instalowane na każdym komputerze klienckim w magazynie certyfikatów Certificates-Current User/Personal. Certyfikat jest używany do uwierzytelniania klienta, gdy inicjuje on połączenie z siecią wirtualną. 
 
 Jeśli używasz certyfikatów z podpisem własnym, należy je utworzyć przy użyciu określonych parametrów. Certyfikat z podpisem własnym można utworzyć przy użyciu instrukcji dotyczących [środowiska PowerShell i systemu Windows 10](vpn-gateway-certificates-point-to-site.md) lub, jeśli nie masz systemu Windows 10, możesz użyć polecenia [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). Istotne jest, aby podczas generowania certyfikatów głównych z podpisem własnym i certyfikatów klientów wykonać kroki opisane w instrukcjach. W przeciwnym razie wygenerowane przez Ciebie certyfikaty nie będą zgodne z połączeniami typu punkt-lokacja i zostanie wyświetlony błąd połączenia.
 
-### <a name="1-obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1. Uzyskaj plik cer dla certyfikatu głównego
+### <a name="1-obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1. Uzyskaj plik CER dla certyfikatu głównego
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
@@ -168,12 +168,12 @@ Jeśli używasz certyfikatów z podpisem własnym, należy je utworzyć przy uż
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="6-upload-the-root-certificate-public-key-information"></a><a name="upload"></a>6. Prześlij informacje o kluczu publicznym certyfikatu głównego
+## <a name="6-upload-the-root-certificate-public-key-information"></a><a name="upload"></a>6. Przekaż informacje o kluczu publicznym certyfikatu głównego
 
 Upewnij się, że zakończono tworzenie bramy VPN Gateway. Po ukończeniu możesz przekazać plik cer (który zawiera informacje o kluczu publicznym) dla zaufanego certyfikatu głównego do platformy Azure. Po przekazaniu pliku cer platforma Azure może używać go do uwierzytelniania klientów, którzy mają zainstalowany certyfikat klienta wygenerowany na podstawie zaufanego certyfikatu głównego. Jeśli okaże się to konieczne, dodatkowe pliki zaufanego certyfikatu głównego możesz przekazać później — maksymalnie może ich być 20.
 
 >[!NOTE]
-> Nie można przekazać pliku cer przy użyciu usługi Azure Cloud Shell. Program PowerShell można używać lokalnie na komputerze lub w [portalu Azure.](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)
+> Nie można przekazać pliku CER przy użyciu Azure Cloud Shell. Możesz użyć programu PowerShell lokalnie na komputerze lub można użyć [Azure Portal kroków](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
 >
 
 1. Zadeklaruj zmienną dla nazwy certyfikatu, zastępując wartość swoją własną.
@@ -189,13 +189,13 @@ Upewnij się, że zakończono tworzenie bramy VPN Gateway. Po ukończeniu możes
    $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
    $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
    ```
-3. Przekaż informacje o kluczu publicznym do platformy Azure. Po przekazaniu informacji o certyfikacie platforma Azure uważa go za zaufany certyfikat główny. Podczas przekazywania upewnij się, że program PowerShell jest uruchomiony lokalnie na komputerze lub zamiast tego możesz użyć [kroków portalu Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Nie można przekazać przy użyciu usługi Azure Cloud Shell.
+3. Przekaż informacje o kluczu publicznym do platformy Azure. Po przekazaniu informacji o certyfikacie platforma Azure traktuje ją jako zaufany certyfikat główny. Podczas przekazywania upewnij się, że używasz programu PowerShell lokalnie na komputerze, lub zamiast tego możesz użyć [Azure Portal kroków](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Nie można przekazać za pomocą Azure Cloud Shell.
 
    ```azurepowershell
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64
    ```
 
-## <a name="7-install-an-exported-client-certificate"></a><a name="clientcertificate"></a>7. Zainstaluj wyeksportowany certyfikat klienta
+## <a name="7-install-an-exported-client-certificate"></a><a name="clientcertificate"></a>7. Instalowanie wyeksportowanego certyfikatu klienta
 
 Jeśli chcesz utworzyć połączenie punkt-lokacja z komputerem klienckim innym niż użyty do wygenerowania certyfikatów klienta, należy zainstalować certyfikat klienta. Podczas instalowania certyfikatu klienta potrzebne jest hasło, które zostało utworzone w trakcie eksportowania certyfikatu klienta.
 
@@ -203,11 +203,11 @@ Upewnij się, że certyfikat klienta został wyeksportowany jako plik pfx wraz z
 
 Aby zapoznać się z krokami instalacji, zobacz [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md) (Instalowanie certyfikatu klienta).
 
-## <a name="8-configure-the-native-vpn-client"></a><a name="clientconfig"></a>8. Konfigurowanie macierzystego klienta sieci VPN
+## <a name="8-configure-the-native-vpn-client"></a><a name="clientconfig"></a>8. Skonfiguruj natywnego klienta sieci VPN
 
 Pliki konfiguracji klienta sieci VPN zawierają ustawienia do konfigurowania urządzeń pod kątem łączenia się z siecią wirtualną przez połączenie punkt-lokacja. Aby uzyskać instrukcje dotyczące generowania i instalowania plików konfiguracji klienta sieci VPN, zobacz [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md) (Tworzenie i instalowanie plików konfiguracji klienta sieci VPN dla konfiguracji połączeń punkt-lokacja z natywnym uwierzytelnianiem certyfikatów platformy Azure).
 
-## <a name="9-connect-to-azure"></a><a name="connect"></a>9. Połącz się z platformą Azure
+## <a name="9-connect-to-azure"></a><a name="connect"></a>9. Nawiązywanie połączenia z platformą Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Aby połączyć się z klienta sieci VPN w systemie Windows
 
@@ -231,7 +231,7 @@ Pliki konfiguracji klienta sieci VPN zawierają ustawienia do konfigurowania urz
 ### <a name="to-connect-from-a-mac-vpn-client"></a>Aby połączyć się z klienta sieci VPN na komputerze Mac
 
 W oknie dialogowym Sieć znajdź profil klienta, którego chcesz użyć, a następnie kliknij polecenie **Połącz**.
-Szczegółowe instrukcje można uzyskać szczegółowe instrukcje w ciemięgi [— Mac (OS X).](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) Jeśli występują problemy z nawiązaniem połączenia, sprawdź, czy brama sieci wirtualnej nie używa podstawowej jednostki SKU. Podstawowa jednostka SKU nie jest obsługiwana dla klientów komputerów Mac.
+Aby uzyskać szczegółowe instrukcje, sprawdź [Install-Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) . Jeśli występują problemy z połączeniem, sprawdź, czy Brama sieci wirtualnej nie używa podstawowej jednostki SKU. Podstawowa jednostka SKU nie jest obsługiwana w przypadku klientów na komputery Mac.
 
   ![Połączenie z komputerem Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -272,7 +272,7 @@ Na platformie Azure można dodać maksymalnie 20 plików cer certyfikatu główn
 #### <a name="method-1"></a><a name="certmethod1"></a>Metoda 1
 
 
-Ta metoda jest najbardziej efektywnym sposobem przekazywania certyfikatu głównego. Wymaga poleceń cmdlet programu Azure PowerShell zainstalowanych lokalnie na komputerze (nie usługi Azure Cloud Shell).
+Ta metoda jest najbardziej wydajnym sposobem przekazywania certyfikatu głównego. Wymaga Azure PowerShell poleceń cmdlet zainstalowanych lokalnie na komputerze (nie Azure Cloud Shell).
 
 1. Przygotuj plik cer do przekazania:
 
@@ -295,9 +295,9 @@ Ta metoda jest najbardziej efektywnym sposobem przekazywania certyfikatu główn
    -VirtualNetworkGatewayName "VNet1GW"
    ```
 
-#### <a name="method-2---azure-portal"></a><a name="certmethod2"></a>Metoda 2 — witryna Azure portal
+#### <a name="method-2---azure-portal"></a><a name="certmethod2"></a>Metoda 2 — Azure Portal
 
-Ta metoda obejmuje więcej czynności niż metoda 1, ale daje ten sam wynik. Przedstawiono ją na potrzeby wyświetlania danych certyfikatu. Wymaga poleceń cmdlet programu Azure PowerShell zainstalowanych lokalnie na komputerze (nie usługi Azure Cloud Shell).
+Ta metoda obejmuje więcej czynności niż metoda 1, ale daje ten sam wynik. Przedstawiono ją na potrzeby wyświetlania danych certyfikatu. Wymaga Azure PowerShell poleceń cmdlet zainstalowanych lokalnie na komputerze (nie Azure Cloud Shell).
 
 1. Utwórz i przygotuj nowy certyfikat główny, który ma zostać dodany do platformy Azure. Wyeksportuj klucz publiczny jako certyfikat x.509 (.CER) szyfrowany algorytmem Base-64 i otwórz go w edytorze tekstu. Skopiuj wartości, tak jak to pokazano w poniższym przykładzie:
 
@@ -404,7 +404,7 @@ Certyfikat klienta można przywrócić przez usunięcie odcisku palca z listy od
    Get-AzVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
    ```
 
-## <a name="point-to-site-faq"></a><a name="faq"></a>Często zadawane pytania dotyczące punktu do lokalizacji
+## <a name="point-to-site-faq"></a><a name="faq"></a>Często zadawane pytania dotyczące połączeń punkt-lokacja
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
